@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Koşullu erişim ne aracı - Azure Active Directory Önizleme
 
@@ -78,14 +78,14 @@ Bu ayar için varsayılan değer **tüm bulut uygulamaları**. Varsayılan ayar,
 
 ### <a name="ip-address"></a>IP adresi
 
-Taklit etmek üzere tek bir IPv4 adresi IP adresidir [konumu koşul](active-directory-conditional-access-azure-portal.md#locations). Adresi oturum açmak için bir kullanıcı tarafından kullanılan aygıtın adresi Internet'e temsil eder. Gezinme, örneğin, bir aygıt tarafından IP adresini doğrulayabilirsiniz [IP adresimi nedir](https://whatismyipaddress.com).    
+Taklit etmek üzere tek bir IPv4 adresi IP adresidir [konumu koşul](active-directory-conditional-access-locations.md). Adresi oturum açmak için bir kullanıcı tarafından kullanılan aygıtın adresi Internet'e temsil eder. Gezinme, örneğin, bir aygıt tarafından IP adresini doğrulayabilirsiniz [IP adresimi nedir](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Cihaz platformları
 
-Bu ayar taklit eder [cihaz platformları koşulu](active-directory-conditional-access-azure-portal.md#device-platforms) ve denk temsil eden **tüm platformlar (desteklenmeyen dahil olmak üzere)**. 
+Bu ayar taklit eder [cihaz platformları koşulu](active-directory-conditional-access-conditions.md#device-platforms) ve denk temsil eden **tüm platformlar (desteklenmeyen dahil olmak üzere)**. 
 ### <a name="client-apps"></a>İstemci uygulamaları
 
-Bu ayar taklit eder [istemci uygulamaları koşul](active-directory-conditional-access-azure-portal.md#client-apps).
+Bu ayar taklit eder [istemci uygulamaları koşul](active-directory-conditional-access-conditions.md#client-apps).
 Varsayılan olarak, bu ayar, bir değerlendirme sahip tüm ilkelerin neden olur **tarayıcı** veya **mobil uygulamalar ve Masaüstü istemcileri** ya da tek başına veya her ikisini de seçili. Zorunlu ilkeleri de algılar **Exchange ActiveSync (EAS)**. Seçerek bu ayar daraltabilirsiniz:
 
 - **Tarayıcı** en az olan tüm ilkelerini değerlendirmek için **tarayıcı** seçili. 
@@ -95,7 +95,7 @@ Varsayılan olarak, bu ayar, bir değerlendirme sahip tüm ilkelerin neden olur 
 
 ### <a name="sign-in-risk"></a>Oturum açma riski
 
-Bu ayar taklit eder [oturum açma riski koşul](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+Bu ayar taklit eder [oturum açma riski koşul](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
 ## <a name="evaluation"></a>Değerlendirme 

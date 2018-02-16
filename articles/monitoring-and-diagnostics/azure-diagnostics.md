@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>Azure tanılama nedir
 Azure tanılama dağıtılan bir uygulama tanılama verilerini toplama sağlar. Azure içinde bir özelliktir. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Şu anda Azure bulut hizmeti Web ve çalışan rolleri, Microsoft Windows ve Service Fabric çalışan Azure sanal makineler desteklenir. Diğer Azure hizmetleriyle kendi ayrı tanılama vardır.
@@ -26,7 +26,7 @@ Azure tanılama dağıtılan bir uygulama tanılama verilerini toplama sağlar. 
 ## <a name="data-you-can-collect"></a>Verileri toplamak
 Azure tanılama aşağıdaki veri türlerini toplayabilirsiniz:
 
-| Veri kaynağı | Açıklama |
+| Veri Kaynağı | Açıklama |
 | --- | --- |
 | Performans sayaçları |İşletim sistemi ve özel performans sayaçları |
 | Uygulama günlükleri |Uygulamanız tarafından yazılan iletilerin izleme |
@@ -75,6 +75,6 @@ Konumundaki başlamak [Service Fabric uygulaması izleme](../service-fabric/serv
 ## <a name="general-azure-diagnostics-articles"></a>Genel Azure tanılama makaleleri
 * [Azure tanılama şema yapılandırma](https://msdn.microsoft.com/library/azure/mt634524.aspx) -toplamak ve Tanılama verileri yönlendirmek için şema dosyası değiştirmeyi öğrenin. Ayrıca Visual Studio şema dosyasını değiştirmek için kullanabileceğiniz olduğunu unutmayın.
 * [Azure Tanılama verileri Azure depolama alanında nasıl depolandığını](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) -tanılama veri yazıldığı BLOB'ları ve tabloları adlarını bilme.
-* Öğrenme [performans sayaçları Azure Tanılama'kullanma](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Öğrenme [performans sayaçları Azure Tanılama'kullanma](../cloud-services/diagnostics-performance-counters.md).
 * Öğrenme [Application Insights rota Azure tanılama bilgileri](azure-diagnostics-configure-application-insights.md)
 * Tanılama başlatılıyor ile sorun varsa veya verileriniz Azure Storage tablolarda bkz [Azure tanılama sorunlarını giderme](azure-diagnostics-troubleshooting.md)

@@ -12,7 +12,7 @@
 ### [Önceden yapılandırılmış çözümler nelerdir?](iot-suite-v1-what-are-preconfigured-solutions.md)
 ### [SSS](iot-suite-v1-faq.md)
 
-### Kullanmaya Başlama
+### Başlarken
 #### [Önceden yapılandırılmış çözümleri kullanmaya başlama](iot-suite-v1-getstarted-preconfigured-solutions.md)
 #### [azureiotsuite.com sitesindeki izinler](iot-suite-v1-permissions.md)
 #### [Uzaktan izleme çözüm kılavuzu](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
@@ -58,7 +58,9 @@
 ### [Sorunları algılamak için kuralları kullanma](iot-suite-remote-monitoring-automate.md)
 ### [Cihazlarınızı yönetme](iot-suite-remote-monitoring-manage.md)
 ### [Cihaz sorunlarını giderme](iot-suite-remote-monitoring-maintain.md)
-### [Sanal cihazları kullanma](iot-suite-remote-monitoring-test.md)
+### [Cihaz modeli şemasını anlama](iot-suite-remote-monitoring-device-schema.md)
+### [Cihaz modeli davranışlarını anlama](iot-suite-remote-monitoring-device-behavior.md)
+### [Yeni bir simülasyon cihazı oluşturma](iot-suite-remote-monitoring-test.md)
 ### [Çözümü özelleştirme](iot-suite-remote-monitoring-customize.md)
 ### [CLI kullanarak dağıtma](iot-suite-remote-monitoring-deploy-cli.md)
 ### Fiziksel cihaza bağlanma

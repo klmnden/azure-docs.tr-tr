@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: e454778c558b9c17c47ad9eb651737aa0b5e2605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Akış uç noktaları genel bakış 
 
@@ -86,12 +86,12 @@ Dinamik paketleme|Evet|Evet
 Ölçek|Otomatik ölçeklendirme kadar hedeflenen işleme.|Ek akış birimleri
 IP filtre/G20/özel konak|Evet|Evet
 Aşamalı indirme|Evet|Evet
-Önerilen kullanımı |Büyük bir çoğunluğu senaryoları akış önerilir.|Profesyonel kullanımı.<br/>Düşünüyorsanız standart ötesinde gereksinimlerine sahip olabilir. Eş zamanlı İzleyici boyutu 50.000 görüntüleyiciler büyük bekliyorsanız, bize (amsstreaming microsoft.com adresindeki) başvurun.
+Önerilen kullanımı |Büyük bir çoğunluğu senaryoları akış önerilir.|Profesyonel kullanımı.<br/>Düşünüyorsanız standart ötesinde gereksinimlerine sahip olabilir. Bizimle bağlantı kurun (amsstreaming@microsoft.com) eşzamanlı İzleyici boyutu 50.000 görüntüleyiciler büyük bekliyorsanız.
 
 
 ## <a name="migration-between-types"></a>Türleri arasında geçiş
 
-Kaynak | Alıcı | Eylem
+Başlangıç | Alıcı | Eylem
 ---|---|---
 Klasik|Standart|Katılımı gerekir
 Klasik|Premium| Ölçek (ek akış birimleri)

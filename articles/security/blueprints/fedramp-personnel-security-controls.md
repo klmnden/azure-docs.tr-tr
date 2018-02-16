@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - personel güvenliği"
-description: "Web uygulamaları için FedRAMP - personel güvenliği"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - personel güvenliği"
+description: "FedRAMP Web uygulamaları Otomasyon - personel güvenliği"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ace6a78fe08d1dbabeb435d76e686ba9c61aac99
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="personnel-security-ps"></a>Personel Güvenliği (PS)
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="personnel-termination"></a>Personel sonlandırma
 
-**PS 4.e** Tek tek çalışma sonlandırılması bağlı kuruluş kuruluş bilgilere erişimi korur ve bilgi sistemleri tarafından önceden denetlenen tek tek sonlandırdı.
+**PS-4.e** Tek tek çalışma sonlandırılması bağlı kuruluş kuruluş bilgilere erişimi korur ve bilgi sistemleri tarafından önceden denetlenen tek tek sonlandırdı.
 
 **Sorumlulukları:**`Customer Only`
 
@@ -393,7 +393,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="third-party-personnel-security"></a>Üçüncü taraf personel güvenliği
 
-**PS 7.e** Kuruluş sağlayıcısı uyumluluk izler.
+**PS-7.e** Kuruluş sağlayıcısı uyumluluk izler.
 
 **Sorumlulukları:**`Customer Only`
 

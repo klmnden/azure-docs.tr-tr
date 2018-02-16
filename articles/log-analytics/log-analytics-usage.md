@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 02/01/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
-Log Analytics toplanan veri miktarı, verileri hangi bilgisayarların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Log Analytics hizmetine gönderilen veri miktarını görmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
+Log Analytics toplanan veri miktarı, verileri hangi sistemlerin gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Log Analytics hizmetine gönderilen veri miktarını görmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
 
 ## <a name="understand-the-usage-dashboard"></a>Kullanım panosunu anlama
 **Log Analytics kullanım** panosu aşağıdaki bilgileri gösterir:
@@ -37,24 +37,18 @@ Log Analytics toplanan veri miktarı, verileri hangi bilgisayarların gönderdi�
     - Öngörü ve Analiz düğümleri
     - Otomasyon ve Kontrol düğümleri
     - Güvenlik düğümleri
-- Performans
-    - Verileri toplamak ve dizinlemek için harcanan süre
 - Sorgu listesi
 
 ![kullanım panosu](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Kullanım verileriyle çalışma
-1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
-2. **Hub** menüsünde **Diğer hizmetler**’e tıklayıp kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
-    ![Azure hub'ı](./media/log-analytics-usage/hub.png)
-3. **Log Analytics** panosunda çalışma alanlarınızın listesi gösterilir. Bir çalışma alanı seçin.
-4. *Çalışma alanı* panosunda **Log Analytics kullanımı**’na tıklayın.
-5. **Log Analytics Kullanım** panosunda **Zaman: Son 24 saat**’e tıklayarak zaman aralığını değiştirin.  
-    ![zaman aralığı](./media/log-analytics-usage/time.png)
-6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-log-searches.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.  
-    ![örnek veri kullanım dikey penceresi](./media/log-analytics-usage/blade.png)
-7. Günlük Arama panosunda aramanın döndürdüğü sonuçları inceleyin.  
-    ![örnek kullanım günlüğü araması](./media/log-analytics-usage/usage-log-search.png)
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portalı](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Log Analytics çalışma alanlarınızın listesinde, bir çalışma alanı seçin.
+4. Sol bölmedeki listeden **Log Analytics kullanımı**'nı seçin.
+5. **Log Analytics Kullanım** panosunda **Zaman: Son 24 saat**’e tıklayarak zaman aralığını değiştirin.<br><br> ![zaman aralığı](./media/log-analytics-usage/time.png)<br><br>
+6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-log-searches.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.<br><br> ![örnek veri kullanım dikey penceresi](./media/log-analytics-usage/blade.png)<br><br>
+7. Günlük Arama panosunda aramanın döndürdüğü sonuçları inceleyin.<br><br> ![örnek kullanım günlüğü araması](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Toplanan veriler beklenenden fazlaysa uyarı oluşturma
 Bu bölümde, aşağıdaki durumlarda nasıl uyarı oluşturulacağı açıklanır:
@@ -63,20 +57,20 @@ Bu bölümde, aşağıdaki durumlarda nasıl uyarı oluşturulacağı açıklan�
 
 Log Analytics [uyarılarında](log-analytics-alerts-creating.md) arama sorguları kullanılır. Aşağıdaki sorgu, son 24 saatte 100 GB'den fazla veri toplandığında bir sonuç verir:
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
 Aşağıdaki sorgu, ne zaman bir günde 100 GB'den fazla veri toplanacağını tahmin etmek için basit bir formül kullanır: 
 
-`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+`union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 
 Farklı bir veri hacminde uyarıda bulunmak için, sorgulardaki 100 değerini uyarılmak istediğiniz GB sayısıyla değiştirin.
 
 Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak için, [Uyarı kuralı oluşturma](log-analytics-alerts-creating.md#create-an-alert-rule) başlığı altında açıklanan adımları kullanın.
 
-İlk sorgu için, yani 24 saat içinde 100 GB'den fazla veri toplandığında uyarı oluştururken şu ayarları yapın:
-- **Ad**: *24 saat içinde 100 GB'den büyük veri hacmi*
-- **Önem derecesi**: *Uyarı*
-- **Arama sorgusu**: `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+İlk sorgu için, yani 24 saat içinde 100 GB'den fazla veri toplandığında uyarı oluştururken şu ayarları yapın:  
+- **Ad**: *24 saat içinde 100 GB'den büyük veri hacmi*  
+- **Önem derecesi**: *Uyarı*  
+- **Arama sorgusu**: `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
 - **Zaman penceresi**: *24 Saat*.
 - **Uyarı sıklığı**: Kullanım verileri yalnızca bir saat arayla güncelleştirildiğinden bir saat.
 - **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
@@ -87,7 +81,7 @@ Uyarı kuralı olarak bir e-postayı, web kancasını veya runbook eylemini yap�
 İkinci sorgu için, yani 24 saat içinde 100 GB'den fazla veri olacağı tahmin edildiğinde uyarı oluştururken şu ayarları yapın:
 - **Ad**: *24 saat içinde veri hacminin 100 GB'den büyük olacağı tahmin ediliyor*
 - **Önem derecesi**: *Uyarı*
-- **Arama sorgusu**: `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+- **Arama sorgusu**: `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
 - **Zaman penceresi**: *3 Saat*.
 - **Uyarı sıklığı**: Kullanım verileri yalnızca bir saat arayla güncelleştirildiğinden bir saat.
 - **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
@@ -115,33 +109,29 @@ Bu iki grafik, tüm verileri görüntüler. Bazı veriler faturalanabilir, bazı
 
 *Zaman içinde veri hacmi* grafiğine bakın. Belirli bir bilgisayara en çok veriyi gönderen çözümleri ve veri türlerini görmek için, bilgisayarın adına tıklayın. Listedeki ilk bilgisayarın adına tıklayın.
 
-Aşağıdaki ekran görüntüsünde, bilgisayar için en fazla gönderilen veri *Günlük Yönetimi / Perf* veri türündedir. 
-
-![bilgisayar için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
+Aşağıdaki ekran görüntüsünde, bilgisayar için en fazla gönderilen veri *Günlük Yönetimi / Perf* veri türündedir.<br><br> ![bilgisayar için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
 
 Ardından, *Kullanım* panosuna dönün ve *Çözüme göre veri hacmi* grafiğine bakın. Bir çözümle ilgili en fazla veriyi gönderen bilgisayarları görmek için, listede çözümün adına tıklayın. Listedeki ilk çözümün adına tıklayın. 
 
-Aşağıdaki ekran görüntüsünde, Günlük Yönetimi çözümü için en çok veriyi *acmetomcat* bilgisayarının gönderdiği doğrulanır.
-
-![çözüm için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
+Aşağıdaki ekran görüntüsünde, Günlük Yönetimi çözümü için en çok veriyi *acmetomcat* bilgisayarının gönderdiği doğrulanır.<br><br> ![çözüm için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 Gerekirse, bir çözüm veya veri türü içindeki büyük hacimleri belirlemek için ek çözümlemeler yapın. Örnek sorgular şunları içerir:
 
 + **Güvenlik** çözümü
-  - `Type=SecurityEvent | measure count() by EventID`
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + **Günlük Yönetimi** çözümü
-  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
 + **Perf** veri türü
-  - `Type=Perf | measure count() by CounterPath`
-  - `Type=Perf | measure count() by CounterName`
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
 + **Event** veri türü
-  - `Type=Event | measure count() by EventID`
-  - `Type=Event | measure count() by EventLog, EventLevelName`
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
 + **Syslog** veri türü
-  - `Type=Syslog | measure count() by Facility, SeverityLevel`
-  - `Type=Syslog | measure count() by ProcessName`
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
 + **AzureDiagnostics** veri türü
-  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
 Toplanan günlük hacmini azaltmak için aşağıdaki adımları kullanın:
 
@@ -155,20 +145,31 @@ Toplanan günlük hacmini azaltmak için aşağıdaki adımları kullanın:
 | Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Beklenenden çok düğüm olup olmadığını denetleme
-*Düğüm başına (OMS)* fiyatlandırma katmanındaysanız kullandığınız düğüm ve çözüm sayısına göre ücretlendirilirsiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.
-
-![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+*Düğüm başına (OMS)* fiyatlandırma katmanındaysanız kullandığınız düğüm ve çözüm sayısına göre ücretlendirilirsiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.<br><br> ![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görüntülemek için **Tümünü göster...** öğesine tıklayın.
 
 Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
 
+## <a name="check-if-there-is-ingestion-latency"></a>Alma gecikmesi olup olmadığını denetleme
+Log Analytics ile, toplanan verilerin alınmasında beklenen bir gecikme olur.  Verilerin dizinini oluşturma ile bu verileri arama için kullanabilme arasında geçen tam süre öngörülemez. Daha önce panoya verileri toplama ve dizine alma işleminin ne kadar sürdüğünü gösteren bir performans grafiği eklemiştik ve yeni sorgu dilinin kullanıma alınmasıyla bu grafiği geçici olarak kaldırdık.  Biz güncelleştirilmiş veri alımı gecikme süresi ölçülerini kullanıma sunana kadar geçici bir çözüm olarak, her veri türündeki yaklaşık gecikmeyi görmek için aşağıdaki sorgu kullanılabilir.  
+
+    search *
+    | where TimeGenerated > ago(8h)
+    | summarize max(TimeGenerated) by Type
+    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
+    | project Type, LatencyInMinutes
+    | sort by LatencyInMinutes desc
+
+> [!NOTE]
+> Alma gecikme süresi sorgusu geçmiş gecikme süresini göstermez ve yalnızca geçerli saat için sonuçları döndürmekle sınırlıdır.  *TimeGenerated* değeri, Ortak şema günlükleri için aracıda ve Özel günlükler için koleksiyonda doldurulur.  
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-log-searches.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
 * Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [Uyarı kuralı oluşturma](log-analytics-alerts-creating.md#create-an-alert-rule) başlığı altında açıklanan adımları kullanın
 * Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın
-* [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin
+* Etkili bir güvenlik olay koleksiyonu ilkesi yapılandırmak için, [Azure Güvenlik Merkezi filtreleme ilkesi](../security-center/security-center-enable-data-collection.md) konusunu gözden geçirin
 * [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) değiştirin
-* [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) değiştirin
-* [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) değiştirin
+* Olay toplama ayarlarınızda değişiklik yapmak için, [olay günlüğü yapılandırması](log-analytics-data-sources-windows-events.md) konusunu gözden geçirin
+* Syslog koleksiyonu ayarlarınızda değişiklik yapmak için, [syslog yapılandırması](log-analytics-data-sources-syslog.md) konusunu gözden geçirin

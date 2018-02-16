@@ -64,13 +64,13 @@
 
 ## İzleme
 ### [Bulut hizmetini izleme](cloud-services-how-to-monitor.md)
+### [Performans sayaçlarını kullanma](diagnostics-performance-counters.md)
 ### [Performansı test etme](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Visual Studio Profil Oluşturma Testi](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Tanılamayı etkinleştirme
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Azure Tanılama'daki performans sayaçlarını kullanma](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Azure Depolama’daki tanılama verilerini depolama ve görüntüleme](cloud-services-dotnet-diagnostics-storage.md)
 ### [Tanılama ile Bulut Hizmetini İzleme](cloud-services-dotnet-diagnostics-trace-flow.md)
 ### [Tanılama verilerini App Insights’a gönderme](cloud-services-dotnet-diagnostics-applicationinsights.md)

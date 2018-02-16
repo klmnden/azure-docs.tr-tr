@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/09/2018
 ms.author: magoedte
-ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Yönetme ve Windows ve Linux için günlük analizi aracı Bakımı
 
-Günlük analizi için Windows veya Linux Aracısı'nın ilk dağıtımdan sonra duruma bağlı olarak aracıyı yeniden yapılandırın veya kendi ömrü sona erme aşamasında ulaştıysa bilgisayardan kaldırmanız gerekebilir.  Bu bakım görevleri, el ile veya işlem hatası ve giderler azaltır Otomasyon aracılığıyla kolayca yönetebilirsiniz.
+Günlük analizi için Windows veya Linux Aracısı'nın ilk dağıtımdan sonra aracıyı yeniden yapılandırın veya kendi ömrü sona erme aşamasında ulaştıysa bilgisayardan kaldırmanız gerekebilir.  Bu bakım görevleri, el ile veya işlem hatası ve giderler azaltır Otomasyon aracılığıyla kolayca yönetebilirsiniz.
 
 ## <a name="adding-or-removing-a-workspace"></a>Ekleme veya bir çalışma alanı kaldırma 
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux Aracısı
-Bir proxy sunucusu veya günlük analizi için OMS ağ geçidi üzerinden iletişim kurmak Linux bilgisayarlarınızı ihtiyacınız varsa aşağıdaki adımları gerçekleştirin.  Proxy yapılandırması değeri `[protocol://][user:password@]proxyhost[:port]` sözdizimine sahiptir.  *Proxyhost* özelliği bir tam etki alanı adı veya proxy sunucusunun IP adresini kabul eder.
+Bir proxy sunucusu veya günlük analizi için OMS ağ geçidi üzerinden iletişim kurmak Linux bilgisayarlarınızı ihtiyacınız varsa aşağıdaki adımları gerçekleştirin.  Proxy yapılandırması değeri `[protocol://][user:password@]proxyhost[:port]` sözdizimine sahiptir.  *proxyhost* özelliği, ara sunucunun tam etki adı alanı veya IP adresini kabul eder.
 
 1. Aşağıdaki komutları çalıştırıp değerleri kendi ayarlarınıza göre değiştirerek `/etc/opt/microsoft/omsagent/proxy.conf` dosyasını düzenleyin.
 
@@ -148,12 +148,9 @@ Aracı için indirilen dosya ile IExpress oluşturulan müstakil yükleme paketi
 3. İsteminde `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Linux Aracısı
-Aracıyı kaldırmak için aşağıdaki adımları izleyin.
+Aracıyı kaldırmak için Linux bilgisayarda aşağıdaki komutu çalıştırın.  *--Temizleme* bağımsız değişkeni tamamen kaldırır aracı ve yapılandırması.
 
-1. Linux aracısı [evrensel betiğini](https://github.com/Microsoft/OMS-Agent-for-Linux/releases) bilgisayara indirin.
-2. Bilgisayarda paket .sh dosyasını aracıyı ve yapılandırmasını tamamen kaldıran *--purge* bağımsız değişkeni ile çalıştırın.
-
-    `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
+   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Bir Operations Manager yönetim grubuna bildirmeye Aracısı'nı yapılandırma
 
@@ -174,9 +171,9 @@ OMS aracısı için bir System Center Operations Manager yönetim grubuna raporl
 ### <a name="linux-agent"></a>Linux Aracısı
 System Center Operations Manager yönetim grubu için rapor Linux için OMS aracısının yapılandırmak için aşağıdaki adımları gerçekleştirin. 
 
-1. Dosyayı düzenleyin.`/etc/opt/omi/conf/omiserver.conf`
-2. Satır başlayarak emin `httpsport=` bağlantı noktası 1270 tanımlar. Örneğin:`httpsport=1270`
-3. OMI sunucuyu yeniden başlatın:`sudo /opt/omi/bin/service_control restart`
+1. Dosyayı düzenleyin. `/etc/opt/omi/conf/omiserver.conf`
+2. Satır başlayarak emin `httpsport=` bağlantı noktası 1270 tanımlar. Örneğin: `httpsport=1270`
+3. OMI sunucuyu yeniden başlatın: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Öğretici: İş için Dropbox otomatik kullanıcı sağlamayı yapılandırın
 
@@ -88,13 +88,9 @@ Bu bölümde API sağlama işletmenin kullanıcı hesabı için Azure AD Dropbox
 
 14. Tıklatın **kaydedin.**
 
-Herhangi bir kullanıcı ve/veya Dropbox kullanıcılar ve Gruplar bölümünde iş için atanan grupları ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve, Dropbox sağlama hizmeti iş uygulaması tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
+Herhangi bir kullanıcı ve/veya Dropbox kullanıcılar ve Gruplar bölümünde iş için atanan grupları ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve, Dropbox sağlama hizmeti iş uygulaması tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik günlükleri sağlamak için bağlantıları izleyin.
 
-Şimdi sınama hesabı oluşturabilirsiniz. İş için Dropbox hesabı eşitlendiğinden emin doğrulamak için en çok 20 dakika bekleyin.
-
-Başarıyla tamamlanan kullanıcı döngüsü hazırlama ilgili durumuna göre belirtilir.
-
-![Kullanıcılar atama](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/IC769523.png "kullanıcı atama")
+Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar

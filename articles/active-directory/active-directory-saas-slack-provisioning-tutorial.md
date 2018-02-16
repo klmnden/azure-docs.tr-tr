@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 4f4160a3f4005c2449da2b45a171766963febb4d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: b0bbc310edddcc461633e57340950a0f4050f66a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Öğretici: Kayma otomatik kullanıcı sağlamayı yapılandırın
 
@@ -107,7 +107,9 @@ Bu, herhangi bir kullanıcı ve/veya boşluk kullanıcılar ve Gruplar bölümü
 
 4) **Kaydet**’e tıklayın.
 
-Kayma içinde atanmış herhangi bir grup nesne bu sonucu **kullanıcılar ve gruplar** Azure AD'den tam olarak Slack'e eşitlenmekte olan bölüm. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Slack uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
+Kayma içinde atanmış herhangi bir grup nesne bu sonucu **kullanıcılar ve gruplar** Azure AD'den tam olarak Slack'e eşitlenmekte olan bölüm. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Slack uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik günlükleri sağlamak için bağlantıları izleyin.
+
+Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Ek Kaynaklar

@@ -35,28 +35,44 @@
       href: container-service-quotas.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: AKS kümesini ölçeklendirme
-      href: scale-cluster.md
-    - name: AKS kümesini yükseltme
-      href: upgrade-cluster.md
-    - name: ACR ile kimlik doğrulama
-      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Helm ile uygulamaları çalıştırma
-      href: kubernetes-helm.md
-    - name: Draft ile uygulama geliştirme
-      href: kubernetes-draft.md
-    - name: OSBA kullanarak Azure ile tümleştirme
-      href: integrate-azure.md
-    - name: Kubernetes panosunu kullanma
-      href: kubernetes-dashboard.md
-    - name: Hizmet sorumlusu oluşturma
-      href: kubernetes-service-principal.md
+    - name: Küm işlemleri
+      items:
+        - name: AKS kümesi oluşturma
+          href: create-cluster.md
+        - name: AKS kümesini ölçeklendirme
+          href: scale-cluster.md
+        - name: AKS kümesini yükseltme
+          href: upgrade-cluster.md
+        - name: AKS kümesini silme
+          href: delete-cluster.md
     - name: Veri hacimlerini yapılandırma
       items:
-        - name: Azure Diskleri - Kalıcı Hacim
+        - name: Azure Diskleri
           href: azure-disks-dynamic-pv.md
-        - name: Azure Dosyaları - Kalıcı Hacim
+        - name: Azure Dosyaları
           href: azure-files-dynamic-pv.md
+    - name: Ağ yapılandırması
+      items:
+        - name: Statik IP adresi
+          href: static-ip.md
+    - name: Güvenlik ve kimlik doğrulaması
+      items:
+        - name: Hizmet sorumlusu oluşturma
+          href: kubernetes-service-principal.md
+        - name: ACR ile kimlik doğrulama
+          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Uygulamaları geliştirme ve çalıştırma
+      items:
+        - name: Helm ile uygulamaları çalıştırma
+          href: kubernetes-helm.md
+        - name: Draft ile uygulama geliştirme
+          href: kubernetes-draft.md
+        - name: OSBA kullanarak Azure ile tümleştirme
+          href: integrate-azure.md
+    - name: Kubernetes hakkında temel bilgiler
+      items:
+        - name: Kubernetes panosunu kullanma
+          href: kubernetes-dashboard.md
 - name: Başvuru
   items:
     - name: Azure CLI

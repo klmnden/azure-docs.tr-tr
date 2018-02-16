@@ -3,7 +3,7 @@ title: "System Center Operations Manager ortamınızı Azure günlük analizi il
 description: "System Center Operations Manager sistem durumu denetleyin çözüm, risk ve ortamlarınızın durumunu düzenli aralıklarla değerlendirmek için kullanabilirsiniz."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 
@@ -60,10 +60,10 @@ Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager değerlendirme veri toplama ayrıntıları
 
-System Center Operations Manager değerlendirme verilerini aşağıdaki kaynaklardan toplar: 
+System Center Operations Manager değerlendirme verilerini aşağıdaki kaynaklardan toplar:
 
-* Kayıt defteri
-* Windows Yönetim Araçları (WMI)
+* Kayıt Defteri
+* Windows Management Instrumentation (WMI)
 * Olay günlüğü
 * Dosya verileri
 * Doğrudan Operations Manager'dan belirttiğiniz yönetim sunucusundan PowerShell ve SQL sorgularını kullanarak.  
@@ -72,7 +72,7 @@ Veri yönetim Sunucusu'nda toplanır ve günlük analizi için her yedi günde i
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Operations Manager hesapları günlük analizi için Çalıştır
 
-Günlük analizi derlemeleri yönetim paketlerine sağlamak iş yükleri için değer-hizmetlerini ekleyin. Her iş yükü, bir etki alanı kullanıcı hesabı gibi farklı güvenlik bağlamında yönetim paketlerini çalıştırmak için iş yüküne özgü ayrıcalıkları gerektirir. Bir Operations Manager farklı çalıştır hesabı ile ayrıcalıklı kimlik bilgilerini yapılandırın. Ek bilgi için bkz: [bir farklı çalıştır hesabının nasıl oluşturulacağını](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) Operations Manager belgelerinde. 
+Günlük analizi derlemeleri yönetim paketlerine sağlamak iş yükleri için değer-hizmetlerini ekleyin. Her iş yükü, bir etki alanı kullanıcı hesabı gibi farklı güvenlik bağlamında yönetim paketlerini çalıştırmak için iş yüküne özgü ayrıcalıkları gerektirir. Bir Operations Manager farklı çalıştır hesabı ile ayrıcalıklı kimlik bilgilerini yapılandırın. Ek bilgi için bkz: [bir farklı çalıştır hesabının nasıl oluşturulacağını](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) Operations Manager belgelerinde.
 
 System Center Operations Manager sistem durumu denetle Operations Manager farklı çalıştır hesabı ayarlamak için aşağıdaki bilgileri kullanın.
 
@@ -82,21 +82,21 @@ Farklı Çalıştır hesabı aşağıdaki devam etmeden önce gereksinimleri kar
 
 * Tüm Operations Manager rolüne - yönetim sunucusu, işletimsel barındıran SQL Server, veri ambarı ve ACS veritabanı destekleyen tüm sunucularda yerel Administrators grubunun üyesi olan bir etki alanı kullanıcı hesabı raporlama, Web konsolu ve ağ geçidi sunucusu.
 * İşlem yöneticisi rolü incelenen yönetim grubu için
-* Hesabın SQL sysadmin hakları yoksa sonra yürütün [betik](#sql-script-to-grant-granular-permissions-to-the-run-as-account) hesap birini veya tümünü Operations Manager veritabanları barındıran her SQL Server örneği üzerinde ayrıntılı izinleri vermek için. 
+* Hesabın SQL sysadmin hakları yoksa sonra yürütün [betik](#sql-script-to-grant-granular-permissions-to-the-run-as-account) hesap birini veya tümünü Operations Manager veritabanları barındıran her SQL Server örneği üzerinde ayrıntılı izinleri vermek için.
 
 1. Operations Manager Konsolu'ndaki seçin **Yönetim** gezinti düğmesi.
 2. Altında **Çalıştır Yapılandırması**, tıklatın **hesapları**.
 3. İçinde **farklı çalıştır hesabı oluşturma** Sihirbazı, **giriş** sayfasında **sonraki**.
 4. Üzerinde **Genel Özellikler** sayfasında, **Windows** içinde **farklı çalıştır hesabı türü:** listesi.
-5. Bir görünen ad yazın **görünen adı** metin kutusuna ve isteğe bağlı olarak bir açıklama yazın **açıklama** kutusuna ve ardından **sonraki**. 
+5. Bir görünen ad yazın **görünen adı** metin kutusuna ve isteğe bağlı olarak bir açıklama yazın **açıklama** kutusuna ve ardından **sonraki**.
 6. Üzerinde **dağıtım güvenliği** sayfasında, **daha güvenli**.
-7. **Oluştur**'a tıklayın.  
+7. **Oluştur**’a tıklayın.  
 
 Farklı Çalıştır hesabı oluşturulur, hedef yönetim sunucuları yönetim grubundaki gerekiyor ve iş akışları kimlik bilgilerini kullanarak çalışacak şekilde bir önceden tanımlanmış farklı çalıştır profili ile ilişkilendirilmiş.  
 
 1. Altında **Çalıştır Yapılandırması**, **hesapları**, sonuçlar bölmesinde, daha önce oluşturduğunuz hesabını çift tıklatın.
 2. Üzerinde **dağıtım** sekmesini tıklatın, **Ekle** için **seçilmiş bilgisayarlar** kutusunda ve hesaba dağıtmak için yönetim sunucusu ekleyin.  Tıklatın **Tamam** iki kez yaptığınız değişiklikleri kaydetmek için.
-3. Altında **Çalıştır Yapılandırması**, tıklatın **profilleri**. 
+3. Altında **Çalıştır Yapılandırması**, tıklatın **profilleri**.
 4. Arama *SCOM değerlendirme profili*.
 5. Profil adı olmalıdır: *Microsoft System Center Advisor SCOM değerlendirme farklı çalıştır profili*.
 6. Sağ tıklayın ve özelliklerini güncelleştirmek ve son oluşturduğunuz farklı çalıştır daha önce oluşturduğunuz hesabı ekleyin.
@@ -163,7 +163,7 @@ Varsayılan olarak, Microsoft System Center Advisor SCOM değerlendirme çalış
 2. Arama sonuçlarında metin içeren bir tanesini seçin *türü: Yönetim sunucusu*.
 3. Kuralı sağ tıklatın ve ardından **geçersiz kılmaları** > **sınıfın belirli bir nesnesi için: Yönetim sunucusu**.
 4.  Kullanılabilir yönetim sunucuları listesini kural çalıştırdığı yönetim sunucusu seçin.  Bu, aynı yönetim sunucusuna daha önce farklı çalıştır hesabıyla ilişkilendirmek üzere yapılandırılmış olması gerekir.
-5.  Geçersiz kılma değerine değiştirdiğinizden emin olun **True** için **etkin** parametre değeri.<br><br> ![parametresi geçersiz kıl](./media/log-analytics-scom-assessment/rule.png)
+5.  Geçersiz kılma değerine değiştirdiğinizden emin olun **True** için **etkin** parametre değeri.<br><br> ![override parameter](./media/log-analytics-scom-assessment/rule.png)
 
     Hala Bu pencerede karşın, bir sonraki yordamı kullanarak çalışma sıklığını yapılandırın.
 
@@ -216,8 +216,8 @@ Günlük analizi bir sistem durumu denetimi çözümü kullanmadan önce çözü
 Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk değerlendirmesi görüntüleyin.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için öneriler görüntülemek ve düzeltici işlemleri için
-1. Oturum açtığınızda Azure portalında [https://portal.azure.com](https://portal.azure.com). 
-2. Azure portalında tıklatın **daha fazla hizmet** sol alt köşesindeki üzerinde bulunamadı. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **oturum Analytics**.
+1. [https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın.
+2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 3. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **OMS portalı** döşeme.  
 4. Üzerinde **genel bakış** sayfasında, **sistem Center Operations Manager sistem durumu denetimi** döşeme.
 5. Üzerinde **sistem Center Operations Manager sistem durumu denetimi** sayfasında odak alanı Kanatlar birinde özet bilgilerini inceleyin ve sonra bu odak alanı için öneriler görüntülemek için tıklatın.
@@ -228,7 +228,7 @@ Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk de
 
 Yoksay istediğiniz önerileri varsa, öneriler değerlendirme sonuçlarında görünmesini engellemek için günlük analizi kullanan bir metin dosyası oluşturabilirsiniz.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Yoksay istediğiniz önerileri tanımlamak için
 1. Günlük analizi çalışma sayfasında seçilen çalışma alanınız için Azure portalında tıklatın **günlük arama** döşeme.

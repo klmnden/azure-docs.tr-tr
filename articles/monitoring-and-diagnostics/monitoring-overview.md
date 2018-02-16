@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 505e92b5fc63f570bc4d0f8899ae977b93850356
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Azure uygulamaları ve kaynakları izleme
 
@@ -57,8 +57,11 @@ Aşağıdaki Azure hizmetlerini toplama ve izleme verilerini çözümleme için 
 [Hizmet eşlemesi](../operations-management-suite/operations-management-suite-service-map.md) kendi farklı işlemler ve diğer bilgisayarlardaki ve dış işlemlere bağımlılıkları olan sanal makineleri çözümleyerek Iaas ortamınız hakkında bilgi sağlar.  Her bilgisayar ve, ortamın geri kalanının ilişkisi bağlamında bu verileri görüntüleyebilmek olayları, performans verileri ve günlük analizi yönetim çözümlerine tümleştirir.  Hizmet eşlemesi benzer [Application Insights uygulama eşlemesinde](../application-insights/app-insights-app-map.md) ancak uygulamalarınızı destekleyen altyapı bileşenlerine odaklanır.
 
 ### <a name="network-watcher"></a>Ağ İzleyicisi
-[Ağ İzleyicisi](../network-watcher/network-watcher-monitoring-overview.md) Azure senaryolarda farklı bir ağ için senaryo tabanlı izleme ve tanılama sağlar.  Azure ölçümleri ve daha fazla çözümleme için tanılama veri depolar ve birlikte çalıştığı [günlük analizi yönetim çözümlerine](../log-analytics/log-analytics-azure-networking-analytics.md) tam ağ kaynaklarınızın izleme.
-
+[Ağ İzleyicisi](../network-watcher/network-watcher-monitoring-overview.md) Azure senaryolarda farklı bir ağ için senaryo tabanlı izleme ve tanılama sağlar.  Verileri Azure ölçümleri ve daha fazla analiz ve works için tanılama ağınız çeşitli yönlerini izleme çözümlerini izleme aşağıdaki ağ ile depolar:
+* [Ağ Performans İzleyicisi'ni (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) - bulut tabanlı ağ bağlantısını genel Bulutlar, veri merkezleri ve şirket içi ortamları izler çözüm izleme
+* [ExpressRoute İzleyici](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) -expressroute bağlantı uçtan uca bağlantısını ve performans izleyen bir NPM yeteneği.
+* Trafik analizi - bulut ağınızda kullanıcı ve uygulama etkinlik görünürlük sağlayan bulut tabanlı çözüm.
+* [DNS Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-dns) -DNS sunucularınızda tabanlı güvenlik, performans ve işlem ilgili Öngörüler sağlar.
 
 ### <a name="management-solutions"></a>Yönetim çözümleri
 [Yönetim çözümleri](../log-analytics/log-analytics-add-solutions.md) belirli bir uygulama veya hizmet için bilgiler sunan paketlenmiş mantığı kümeleridir.  Bunlar, depolamak ve bunlar toplamak izleme verileri çözümlemek için günlük analizi üzerinde kullanır.  Microsoft ve izleme için çeşitli Azure ve üçüncü taraf hizmetleri sağlayan ortaklarından yönetim çözümleri kullanılabilir. Çözümlerini izleme örneği dahil [kapsayıcı izleme](../log-analytics/log-analytics-containers.md) yardımcı olan görüntülemenize ve kapsayıcı konaklarınızın yönetmenize ve [Azure SQL analizi](../log-analytics/log-analytics-azure-sql.md) toplar ve SQL için performans ölçümleri visualizes Azure veritabanları.

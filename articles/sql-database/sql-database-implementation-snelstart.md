@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 4fa21cf9cbd1680ddd855189f50af50e1068ccd5
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: a5100941675b6bdd1934bfcabe10172b4949fff9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Azure ile SnelStart hızlı bir şekilde iş hizmetlerinin 1.000 yeni Azure SQL veritabanlarının ayda bir hızda genişletilmiştir
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -33,7 +33,7 @@ SnelStart popüler finansal ve iş-yönetimi yazılımı küçük ve orta ölçe
 ## <a name="why-snelstart-extended-services-from-the-desktop-to-the-cloud"></a>Buluta neden SnelStart Hizmetleri masaüstünden genişletilmiş
 > "Azure ile çalışma biz yazılım daha hızlı teslim etmek, hızlı bir şekilde müşteri taleplerini tepki taleplerini artırdığınızda çözümlerini ölçeklendirme anlamına gelir."
 > 
-> — Henry bırakıldı, Yazılım Mimarı
+> — Henry Been, Software Architect
 > 
 > 
 
@@ -67,7 +67,7 @@ Azure platformu modeli altyapı yükünü kaldırıldı ve C# yönetim kitaplık
 
 > "Yalnızca ilk birkaç ay içinde 2016, biz hakkında 5,500 bizim Azure SQL veritabanı dağıtımları birden fazla 12.000 genişletilmiş ve biz aylık yaklaşık 1.000 veritabanları şu anda ekliyoruz."
 > 
-> — Henry bırakıldı, Yazılım Mimarı
+> — Henry Been, Software Architect
 > 
 > 
 
@@ -80,7 +80,7 @@ Azure kullanarak SnelStart müşterilerine ve daha sorunsuz bir şekilde bulutta
 
 > Amacımız yüzde 100 Otomasyon müşterilerimiz için iş Yönetimi Hizmetleri sağlamaktır." 
 > 
-> — Carlo Kuip, BT Mimarı
+> — Carlo Kuip, IT Architect
 > 
 > 
 
@@ -95,7 +95,7 @@ Bir Azure bulut tabanlı çözüm ile taşıma itibaren SnelStart yenilikçi öz
 
 > "Ne zaman gerçekte üzerinden Redmond bulamadığımız... Belirli bir sorun hakkında bana telefon bir geliştiriciden Hollanda edilene bir çağrı aldım. Bir değişiklik bizim sorunu çözmek için 48 saat içinde üretim ortamlarında sunmak için Microsoft almak bulduk."
 > 
-> — Henry bırakıldı, Yazılım Mimarı
+> — Henry Been, Software Architect
 > 
 > 
 
@@ -104,7 +104,6 @@ Hemen SnelStart için kendi memnun Müşteri temel büyüyor için belirtilir. E
 
 ## <a name="more-information"></a>Daha fazla bilgi
 * Azure esnek havuzları hakkında daha fazla bilgi için bkz: [esnek havuzlar](sql-database-elastic-pool.md).
-* Web rolleri ve çalışan rolleri hakkında daha fazla bilgi için bkz: [çalışan rolleri](../fundamentals-introduction-to-azure.md#compute).    
 * Azure SQL Data Warehouse hakkında daha fazla bilgi için bkz: [SQL veri ambarı](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 * SnelStart hakkında daha fazla bilgi için bkz: [SnelStart](http://www.snelstart.nl).
 

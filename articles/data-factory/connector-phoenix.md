@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: b3e9597c52a402240d759abb0a96ffc007bcc9dd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 46efa4c3ce43af04485f383a3e88066aec79acfb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Azure Data Factory kullanarak Phoenix verilerini 
 
@@ -50,7 +50,7 @@ Aşağıdaki özellikler Phoenix bağlantılı hizmeti için desteklenir:
 | httpPath | Phoenix sunucuya karşılık gelen kısmi URL'si. (diğer bir deyişle, /gateway/sandbox/phoenix/version). Varsayılan değer `hbasephoenix` WindowsAzureHDInsightService kullanıyorsanız.  | Hayır |
 | authenticationType | Phoenix sunucuya bağlanmak için kullanılan kimlik doğrulama mekanizması. <br/>İzin verilen değerler: **anonim**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | kullanıcı adı | Phoenix sunucuya bağlanmak için kullanılan kullanıcı adı.  | Hayır |
-| password | Kullanıcı adına karşılık gelen parola. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama etkinliği izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Hayır |
+| password | Kullanıcı adına karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanılarak şifrelenir olup olmadığını belirtir. Varsayılan değer false.  | Hayır |
 | trustedCertPath | Sunucu SSL üzerinden bağlanırken doğrulamak için güvenilen CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik yalnızca SSL üzerinde kendini barındıran IR kullanırken ayarlanabilir Varsayılan değer ile IR yüklü cacerts.pem dosyasıdır  | Hayır |
 | useSystemTrustStore | Bir CA sertifikası sistem güven deposundan veya belirtilen PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer false.  | Hayır |
@@ -101,7 +101,7 @@ Phoenix verileri kopyalamak için kümesine tür özelliği ayarlamak **PhoenixO
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Phoenix kaynak tarafından desteklenen özellikler listesini sağlar.
 

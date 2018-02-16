@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9360c0ee90f9a4ffdffd7649505699f656833bbe
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarından veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Aşağıdaki özellikler, Azure SQL Data Warehouse bağlantılı hizmeti için d
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AzureSqlDW** | Evet |
-| connectionString |ConnectionString özelliği için Azure SQL Data Warehouse örneğine bağlanmak için gereken bilgileri belirtin. Yalnızca temel kimlik doğrulama desteklenir. Bu alan bir SecureString işaretleyin. |Evet |
+| connectionString |ConnectionString özelliği için Azure SQL Data Warehouse örneğine bağlanmak için gereken bilgileri belirtin. Yalnızca temel kimlik doğrulama desteklenir. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 
@@ -110,7 +110,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri t
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Azure SQL Data Warehouse kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
 
@@ -225,11 +225,11 @@ Azure SQL Data Warehouse'a veri kopyalamak için kopyalama etkinliği Havuz tür
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopya etkinliği havuz tür özelliği ayarlamak: **SqlDWSink** | Evet |
-| Bulunan'allowpolybase |BULKINSERT mekanizması yerine PolyBase (varsa) kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz [kullanım Azure SQL Data Warehouse'a veri yüklemek için PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü.<br/><br/>İzin verilen değerler: **True** (varsayılan), ve **False**.  |Hayır |
+| allowPolyBase |BULKINSERT mekanizması yerine PolyBase (varsa) kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz [kullanım Azure SQL Data Warehouse'a veri yüklemek için PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü.<br/><br/>İzin verilen değerler: **True** (varsayılan), ve **False**.  |Hayır |
 | polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği ayarlanmış **doğru**. |Hayır |
 | rejectValue |Sayı veya yüzde değeri sorgu başarısız önce reddedilemiyor satır belirtir.<br/><br/>PolyBase'nın reddetme seçenekleri hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE dış TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. <br/><br/>İzin verilen değerler: 0 (varsayılan), 1, 2... |Hayır |
 | rejectType |RejectValue seçeneği bir hazır değer veya bir yüzde belirtilen belirtir.<br/><br/>İzin verilen değerler: **değeri** (varsayılan), ve **yüzde**. |Hayır |
-| Havuzu'na ilişkin |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler.<br/><br/>İzin verilen değerler: 1, 2... |Evet, varsa **rejectType** olan **yüzdesi** |
+| rejectSampleValue |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler.<br/><br/>İzin verilen değerler: 1, 2... |Evet, varsa **rejectType** olan **yüzdesi** |
 | useTypeDefault |PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünde bu özelliği hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>İzin verilen değerler: **True**, **False** (varsayılan). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. Yalnızca PolyBase değil kullanıldığında geçerlidir.<br/><br/>İzin verilen değerler: tamsayı (satır sayısı). |Hayır (varsayılan değeri: 10000) |
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. Yalnızca PolyBase değil kullanıldığında geçerlidir.<br/><br/>İzin verilen değerler: timespan. Örnek: "00: 30:00" (30 dakika). |Hayır |
@@ -269,14 +269,14 @@ SQL veri ambarı PolyBase doğrudan desteği Azure Blob ve Azure Data Lake Store
 
 Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri taşıma için BULKINSERT mekanizması için otomatik olarak geri döner.
 
-1. **Kaynak bağlantılı hizmeti** türüdür: **AzureStorage** veya **AzureDataLakeStore**.
+1. **Kaynak bağlantılı hizmeti** türüdür: **AzureStorage** veya **AzureDataLakeStore** hizmet asıl kimlik doğrulamasına sahip.
 2. **Girdi veri kümesi** türüdür: **AzureBlob** veya **AzureDataLakeStoreFile**ve altında yazın biçimi `type` özellikleri **OrcFormat** , **ParquetFormat**, veya **TextFormat** aşağıdaki yapılandırmalara sahip:
 
-   1. `rowDelimiter`olmalıdır  **\n** .
-   2. `nullValue`ayarlanmış **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **doğru**.
-   3. `encodingName`ayarlanmış **utf-8**, olduğu **varsayılan** değeri.
+   1. `rowDelimiter` olmalıdır  **\n** .
+   2. `nullValue` ayarlanmış **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **doğru**.
+   3. `encodingName` ayarlanmış **utf-8**, olduğu **varsayılan** değeri.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, ve `skipLineCount` belirtilmedi.
-   5. `compression`olabilir **sıkıştırma yok**, **GZip**, veya **Deflate**.
+   5. `compression` olabilir **sıkıştırma yok**, **GZip**, veya **Deflate**.
 
     ```json
     "typeProperties": {
@@ -453,7 +453,7 @@ Başlangıç/bitiş Azure SQL Data Warehouse veri kopyalama işlemi sırasında 
 | benzersiz tanımlayıcı |Guid |
 | varbinary |Byte] |
 | varchar |Dize, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

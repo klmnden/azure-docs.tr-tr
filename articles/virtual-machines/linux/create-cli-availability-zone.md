@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI ile bir kullanılabilirlik bölgesindeki bir Linux sanal makine oluşturun
 
@@ -28,19 +28,19 @@ Bir Azure kullanılabilirlik bölgesinde bir Linux VM oluşturmak için Azure CL
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-En son yüklediğinizden emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı için oturum açmış [az oturum açma](/cli/azure/#login).
+En son yüklediğinizden emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı için oturum açmış [az oturum açma](/cli/azure/#az_login).
 
 
-## <a name="check-vm-sku-availability"></a>VM SKU kullanılabilirliğini denetleyin
-VM boyutları veya SKU'ları, kullanılabilirliği, bölge ve bölge göre farklılık gösterebilir. Kullanılabilirlik bölgeleri kullanmak için planlamanıza yardımcı olması için kullanılabilir VM SKU'ları Azure bölgesi ve bölge listeleyebilirsiniz. Bu yetenek, uygun bir VM boyutunu seçin ve istenen dayanıklılık dilimlerinde elde emin olur. Farklı VM türler ve boyutları hakkında daha fazla bilgi için bkz: [VM boyutları genel bakış](sizes.md).
+## <a name="check-vm-sku-availability"></a>VM SKU kullanılabilirliğini denetleme
+VM boyutları veya SKU'ların kullanılabilirliği, bölge ve alanlara göre farklılık gösterebilir. Kullanılabilirlik Alanları kullanımını planlamanıza yardımcı olmak üzere, kullanılabilir VM SKU'larını Azure bölgesine ve alana göre listeleyebilirsiniz. Bu özellik, uygun bir VM boyutu seçmenizi ve alanlar arasında istenen dayanıklılığı elde etmenizi sağlar. Farklı VM türleri ve boyutları hakkında daha fazla bilgi için bkz. [VM Boyutlarına genel bakış](sizes.md).
 
-Kullanılabilir VM SKU'ları ile görüntüleyebilirsiniz [az vm listesi-SKU'ları](/cli/azure/vm#az_vm_list_skus) komutu. Aşağıdaki örnekte kullanılabilir VM SKU'ları içinde listelenmiştir *eastus2* bölge:
+Kullanılabilir VM SKU'ları ile görüntüleyebilirsiniz [az vm listesi-SKU'ları](/cli/azure/vm#az_vm_list_skus) komutu. Aşağıdaki örnekte kullanılabilir VM SKU'ları *eastus2* bölgesinde içinde listelenmiştir:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-Her VM boyutu kullanılabilir kullanılabilirlik bölgeleri gösteren aşağıdaki sıkıştırılmış örneğe benzer bir çıkış:
+Çıktı, her VM boyutunun kullanılabilir olduğu Kullanılabilir Alanlarını gösteren aşağıdaki sıkıştırılmış örneğe benzer:
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones

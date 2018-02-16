@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Azure Active Directory cihaz temelli koşullu erişim ilkelerini yapılandırma
 
@@ -41,11 +41,11 @@ Cihaz temelli koşullu erişim TIES **Azure AD koşullu erişimi** ve **Azure AD
 
 Bir mobil ilk olarak, bulut ilk dünyasında, Azure Active Directory çoklu oturum açma cihazları, uygulamaları ve Hizmetleri için yerden sağlar. Belirli sağ kullanıcılara erişim izni verme ortamınızdaki kaynakların iyi yeterli olmayabilir. Doğru kullanıcılar yanı sıra bir kaynağa erişmek için kullanılacak güvenilir bir aygıt gerektirebilir. Ortamınızda, güvenilir bir aygıt, dayanır tanımlayabilirsiniz aşağıdaki bileşenleri:
 
-- [Cihaz platformları](active-directory-conditional-access-azure-portal.md#device-platforms) bir cihazda
+- [Cihaz platformları](active-directory-conditional-access-conditions.md#device-platforms) bir cihazda
 - Bir cihazın uyumlu olup
 - Bir cihaz etki alanına katılmış olup olmadığı 
 
-[Cihaz platformları](active-directory-conditional-access-azure-portal.md#device-platforms) , Cihazınızda çalıştırılan işletim sistemi tarafından belirlenir. Cihaz temelli koşullu erişim ilkenizi, belirli cihaz platformları için belirli kaynaklara erişimi sınırlayabilirsiniz.
+[Cihaz platformları](active-directory-conditional-access-conditions.md#device-platforms) , Cihazınızda çalıştırılan işletim sistemi tarafından belirlenir. Cihaz temelli koşullu erişim ilkenizi, belirli cihaz platformları için belirli kaynaklara erişimi sınırlayabilirsiniz.
 
 
 

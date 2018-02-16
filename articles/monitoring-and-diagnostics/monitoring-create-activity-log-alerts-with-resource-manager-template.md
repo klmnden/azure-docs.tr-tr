@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: 92076c7fe1f867919b7e02abf79cf0fb74fb7eb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile bir etkinlik günlüğü uyarı oluşturabilir.
-Bu makalede nasıl kullanılacağı gösterilmektedir bir [Azure Resource Manager şablonu](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) etkinlik günlüğü uyarıları yapılandırmak için. Şablonlarını kullanarak kolayca otomatik dağıtım işleminin bir parçası belirli etkinlik günlüğü olay koşullara göre etkinleştirme çok uyarı ayarlayabilirsiniz.
+Bu makalede nasıl kullanılacağı gösterilmektedir bir [Azure Resource Manager şablonu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) etkinlik günlüğü uyarıları yapılandırmak için. Şablonlarını kullanarak kolayca otomatik dağıtım işleminin bir parçası belirli etkinlik günlüğü olay koşullara göre etkinleştirme çok uyarı ayarlayabilirsiniz.
 
 Temel adımlar şunlardır:
 
@@ -82,10 +82,10 @@ Resource Manager şablonu kullanarak bir etkinlik günlüğü uyarı oluşturmak
               "field": "resourceType",
               "equals": "Microsoft.Resources/deployments"
             }
-          ] 
+          ]
         },
         "actions": {
-          "actionGroups": 
+          "actionGroups":
           [
             {
               "actionGroupId": "[parameters('actionGroupResourceId')]"
@@ -99,6 +99,10 @@ Resource Manager şablonu kullanarak bir etkinlik günlüğü uyarı oluşturmak
 ```
 
 Ziyaret bizim [Azure hızlı başlama Galerisi](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) etkinlik günlüğü uyarı şablonları ile ilgili bazı örnekler.
+
+> [!NOTE]
+
+> Etkinlik İzleyicisi'nde geliştirilmiş kullanıcı deneyimi kullanarak günlük uyarı kuralları oluşturabilirsiniz > [uyarıları (Önizleme)](monitoring-overview-unified-alerts.md). Bunlar oluşturma hakkında daha fazla bilgi için bkz: [bu makalede](monitoring-activity-log-alerts-new-experience.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinmek [uyarıları](monitoring-overview-alerts.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-ms.openlocfilehash: e3f84e4757e3854fc63e3069e179446174f0c0bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72f962fdc3b5d1b26dc0a08916a21694ddf7afe7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-nsgs-classic-in-powershell"></a>PowerShell'de Nsg'ler (Klasik) oluşturma
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -35,9 +35,9 @@ Bu makale, klasik dağıtım modelini kapsamaktadır. Ayrıca [Resource Manager 
 Aşağıdaki komutları önceden oluşturulmuş basit bir ortam beklediğiniz PowerShell örnek yukarıdaki senaryo tabanlı. Bu belgede gösterildiği komutları çalıştırmak istiyorsanız, önce test ortamı tarafından yapı [bir VNet oluşturma](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Ön uç alt ağı için NSG oluşturma
-Adlı adlı bir NSG oluşturmak için **NSG ön uç** yukarıdaki senaryoya bağlı olarak, aşağıdaki adımları izleyin:
+Adlı bir NSG oluşturmak için **NSG ön uç** yukarıdaki senaryoya bağlı olarak, aşağıdaki adımları izleyin:
 
-1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](/powershell/azure/overview) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
+1. Azure PowerShell’i hiç kullanmadıysanız bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) ve Azure'a giriş yapıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulayın.
 2. Adlı bir ağ güvenlik grubu oluşturun **NSG ön uç**.
    
         New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `

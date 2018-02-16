@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güvenlik Yanıt Merkezi (MSRC) güncelleştirmelerinin gösterir. Belirli bir güncelleştirme Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeleri her zaman taşımak İleri için belirli [ailesi] [ family-explain] de tanıtılan.
@@ -26,8 +26,14 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 ## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| Yok | [4056898] |Yalnızca Windows güvenliği |4.50 |3 Ocak 2018 |
-| Yok | [4056890] |Yalnızca Windows güvenliği |5.15 |3 Ocak 2018 |
+| İlişki 18-01 | [4056898], [4056897], [4056899] |Yalnızca Windows güvenliği |2.70, 3.57, 4.50 |3 Ocak 2018 |
+| İlişki 18-01 | [4056890], [4056892] |Yalnızca Windows güvenliği |5.15 |3 Ocak 2018 |
+| Yok | [4054518] |Aralık dışı güvenlik dökümü |2.70 |12 Aralık 2017 |
+| Yok | [4054520] |Aralık dışı güvenlik dökümü |3.57 |12 Aralık 2017 |
+| Yok | [4054519] |Aralık dışı güvenlik dökümü |4.50 |12 Aralık 2017 |
+| Yok | [4051956] |Ocak saat dilimi güncelleştirme |2.70, 3.57, 4.50 |12 Aralık 2017 |
+
+
 
 ## <a name="december-guest-os"></a>Aralık konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -36,7 +42,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | İlişki 17-12 | [4054521], [4054522], [4054523] |Yalnızca Windows güvenliği |2.69, 3.56, 4.49 |12 Aralık 2017 |
 | İlişki 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 Aralık 2017 |
 | İlişki 17-12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 Aralık 2017 |
-| Yok | [4048957] |Kasım güvenlikle ilgili olmayan dökümü |2.67 |14 Kasım 2017 |
+| Yok | [4048957] |Kasım güvenlikle ilgili olmayan dökümü |2.69 |14 Kasım 2017 |
 | Yok | [4048959] |Kasım güvenlikle ilgili olmayan dökümü |3.56 |14 Kasım 2017 |
 | Yok | [4048958] |Kasım güvenlikle ilgili olmayan dökümü |4.49 |14 Kasım 2017 |
 | Yok | [4049068] |Aralık saat dilimi güncelleştirme |2.69, 3.56, 4.49 |12 Aralık 2017 |
@@ -48,7 +54,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | İlişki 17-11 | [4048960], [4048962], [4048961] |Yalnızca Windows güvenliği |2.68, 3.55, 4.48 |14 Kasım 2017 |
 | İlişki 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 Kasım 2017 |
 | İlişki 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 Kasım 2017 |
-| Yok | [4041681] |Ekim güvenlikle ilgili olmayan dökümü |2.67 |10 Ekim 2017 |
+| Yok | [4041681] |Ekim güvenlikle ilgili olmayan dökümü |2.68 |10 Ekim 2017 |
 | Yok | [4041690] |Ekim güvenlikle ilgili olmayan dökümü |3.55 |10 Ekim 2017 |
 | Yok | [4041693] |Ekim güvenlikle ilgili olmayan dökümü |4.48 |10 Ekim 2017 |
 | Yok | [3191566] |Windows Management Framework 5.1 güncelleştirmesi  |2.68 |14 Kasım 2017 |
@@ -509,9 +515,9 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | MS15-037 |[3046269] |Windows Görev Zamanlayıcısı Güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.20, 3.27, 2.39 |17 Apr 2015 |
 | MS15-038 |[3049576] |Microsoft Windows Güvenlik Açıkları ayrıcalıkların önemli izin verebilir |4.20, 3.27, 2.39 |17 Apr 2015 |
 | MS15-039 |[3046482] |Güvenlik özelliğinin atlama XML Çekirdek Hizmetleri Güvenlik Açığı izin ver |4.20, 3.27, 2.39 |17 Apr 2015 |
-| MS15 040 |[3045711] |ADFS doğrulamasındaki bilgileri açığa çıkmasına neden olabilir |4.20, 3.27, 2.39 |17 Apr 2015 |
+| MS15-040 |[3045711] |ADFS doğrulamasındaki bilgileri açığa çıkmasına neden olabilir |4.20, 3.27, 2.39 |17 Apr 2015 |
 | MS15-041 |[3048010] |.NET Framework'teki güvenlik açığı bilgileri açığa çıkmasına neden olabilir |4.20, 3.27, 2.39 |17 Apr 2015 |
-| MS15 042 |[3047234] |Windows Hyper-V güvenlik açığı hizmet reddine izin verebilir |4.20, 3.27, 2.39 |17 Apr 2015 |
+| MS15-042 |[3047234] |Windows Hyper-V güvenlik açığı hizmet reddine izin verebilir |4.20, 3.27, 2.39 |17 Apr 2015 |
 | NA |[3045755] |Güncelleştirmeyi pku2u ile kimlik doğrulaması artırmak için |4.20, 3.27, 2.39 |17 Apr 2015 |
 
 ## <a name="april-guest-os"></a>Nisan konuk işletim sistemi
@@ -528,9 +534,9 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | MS15-021 |[3032323] |Güvenlik açıkları Adobe yazı tipi sürücü uzaktan kod yürütülmesine izin verebilir |4.18, 3.25, 2.37 |Yok |
 | MS15-023 |[3034344] |Çekirdek modu sürücüsü güvenlik açıkları ayrıcalık yükselmesine izin verebilir |4.18, 3.25, 2.37 |Yok |
 | MS15-024 |[3035132] |PNG İşlemedeki Güvenlik Açığı Bilgileri açığa çıkmasına neden olabilir |4.18, 3.25, 2.37 |Yok |
-| MS15 025 |[3038680] |Windows çekirdek güvenlik açıkları ayrıcalık yükselmesine izin verebilir |4.18, 3.25, 2.37 |Yok |
+| MS15-025 |[3038680] |Windows çekirdek güvenlik açıkları ayrıcalık yükselmesine izin verebilir |4.18, 3.25, 2.37 |Yok |
 | MS15-027 |[3002657] |NETLOGON güvenlik açığı kimlik sahtekarlığına neden olabilir |4.18, 3.25, 2.37 |Yok |
-| MS15 028 |[3030377] |Windows Görev Zamanlayıcısı Güvenlik Açığı güvenlik özelliği atlama izin verebilir |4.18, 3.25, 2.37 |Yok |
+| MS15-028 |[3030377] |Windows Görev Zamanlayıcısı Güvenlik Açığı güvenlik özelliği atlama izin verebilir |4.18, 3.25, 2.37 |Yok |
 | MS15-029 |[3035126] |Windows Fotoğraf Decoder bileşenindeki güvenlik açığı bilgileri açığa çıkmasına neden olabilir |4.18, 3.25, 2.37 |Yok |
 | MS15-030 |[3039976] |Uzak Masaüstü Protokolü güvenlik açığı hizmet reddine izin verebilir |4.18, 3.25, 2.37 |Yok |
 
@@ -542,28 +548,28 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 ## <a name="february-guest-os"></a>Şubat konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| MS15 009 |[3034682] |Internet Explorer güvenlik güncelleştirmesi |4.17, 3.24, 2.36 |Yok |
-| MS15 010 |[3036220] |Windows çekirdek modu sürücüleri güvenlik açıkları uzaktan kod yürütülmesine izin verebilir |4.17, 3.24, 2.36 |Yok |
+| MS15-009 |[3034682] |Internet Explorer güvenlik güncelleştirmesi |4.17, 3.24, 2.36 |Yok |
+| MS15-010 |[3036220] |Windows çekirdek modu sürücüleri güvenlik açıkları uzaktan kod yürütülmesine izin verebilir |4.17, 3.24, 2.36 |Yok |
 | MS15-011 |[3000483] |Grup İlkesi'nde güvenlik açığı uzaktan kod yürütülmesine izin verebilir |4.17, 3.24, 2.36 |Yok |
-| MS15 014 |[3004361] |Güvenlik özelliğinin atlama SMB'deki güvenlik açığı izin ver |4.17, 3.24, 2.36 |Yok |
-| MS15 015 |[3031432] |Microsoft Windows güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.17, 3.24, 2.36 |Yok |
-| MS15 016 |[3029944] |Microsoft grafik bileşenindeki güvenlik açığı bilgileri açığa çıkmasına neden olabilir |4.17, 3.24, 2.36 |Yok |
+| MS15-014 |[3004361] |Güvenlik özelliğinin atlama SMB'deki güvenlik açığı izin ver |4.17, 3.24, 2.36 |Yok |
+| MS15-015 |[3031432] |Microsoft Windows güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.17, 3.24, 2.36 |Yok |
+| MS15-016 |[3029944] |Microsoft grafik bileşenindeki güvenlik açığı bilgileri açığa çıkmasına neden olabilir |4.17, 3.24, 2.36 |Yok |
 | Yok |[3004375] |Güncelleştirmeyi Windows artırmak için komut satırı denetimi<p/>**Not**: Bu yüklendi, ancak etkinleştirmek için kayıt defteri anahtarının devre dışı |4.17, 3.24, 2.36 |Yok |
 
 ## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
 | Bülten kimliği | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| MS15 001 |[3023266] |Windows AppCompatCache güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
-| MS15 002 |[3020393] |Windows Telnet hizmetindeki güvenlik açığı uzaktan kod yürütülmesine neden olabilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
-| MS15 003 |[3021674] |Windows kullanıcı profili hizmeti güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
-| MS15 004 |[3019978] |Windows Bileşenleri güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
+| MS15-001 |[3023266] |Windows AppCompatCache güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
+| MS15-002 |[3020393] |Windows Telnet hizmetindeki güvenlik açığı uzaktan kod yürütülmesine neden olabilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
+| MS15-003 |[3021674] |Windows kullanıcı profili hizmeti güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
+| MS15-004 |[3019978] |Windows Bileşenleri güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
 | MS15-005 |[3022777] |Güvenlik özelliğinin atlama NLA doğrulamasındaki izin ver |4.16, 3.23, 2.35 |19 Ocak 2015 |
 | MS15-006 |[3004365] |Windows hata bildirimi doğrulamasındaki güvenlik özelliği atlama izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
-| MS15 007 |[3014029] |Ağ ilkesi sunucusu RADIUS güvenlik açığı hizmet reddine neden olabilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
-| MS15 008 |[3019215] |Windows çekirdek modu sürücüsü güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
+| MS15-007 |[3014029] |Ağ ilkesi sunucusu RADIUS güvenlik açığı hizmet reddine neden olabilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
+| MS15-008 |[3019215] |Windows çekirdek modu sürücüsü güvenlik açığı ayrıcalık yükselmesine izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
 | MS14-080 |[3008923] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.16, 3.23, 2.35 |19 Ocak 2015 |
-| MS15 002 |[3020393] |Windows Telnet hizmetindeki güvenlik açığı uzaktan kod yürütülmesine neden olabilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
-| MS15 002 |[3020393] |Windows Telnet hizmetindeki güvenlik açığı uzaktan kod yürütülmesine neden olabilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
+| MS15-002 |[3020393] |Windows Telnet hizmetindeki güvenlik açığı uzaktan kod yürütülmesine neden olabilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
+| MS15-002 |[3020393] |Windows Telnet hizmetindeki güvenlik açığı uzaktan kod yürütülmesine neden olabilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
 
 
 ## <a name="december-guest-os"></a>Aralık konuk işletim sistemi
@@ -582,7 +588,14 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Yok |[2896881] |Uzun AddPrinterConnection VBScript komut Windows oturum açma işlemi sırasında kullanıcılar için Yazıcılar eşlemek için kullandığınızda, oturum açma zamanı |4.15, 3.22, 2.34 |13 Ocak 2015 |
 
 [4056898]: http://support.microsoft.com/kb/4056898
+[4056897]: http://support.microsoft.com/kb/4056897
+[4056899]: http://support.microsoft.com/kb/4056899
 [4056890]: http://support.microsoft.com/kb/4056890 
+[4056892]: http://support.microsoft.com/kb/4056892
+[4054518]: http://support.microsoft.com/kb/4054518
+[4054520]: http://support.microsoft.com/kb/4054520
+[4054519]: http://support.microsoft.com/kb/4054519
+[4051956]: http://support.microsoft.com/kb/4051956
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

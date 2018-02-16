@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 **Azure etkinlik günlüğü** , Azure'da oluşan abonelik düzeyinde olaylar hakkında bilgi sağlayan bir abonelik günlüktür. Bu verileri, Azure Resource Manager işlemsel veri hizmeti sistem durumu olayları güncelleştirmeleri için bir aralığı içerir. Etkinlik günlüğü önceden aboneliklerinizi yönetim kategorisi raporları denetim düzlemi olayları itibaren "Denetim günlüklerini" veya "İşlem günlükleri," olarak bilinirdi. Etkinlik günlüğü kullanarak, belirleyebilirsiniz ' ne, kimin, ne zaman ve ' herhangi yazma işlemleri (PUT, POST, DELETE) aboneliğinizi kaynaklarında alınan için. İşleminin durumunu ve ilgili diğer özellikleri de anlayabilirsiniz. Etkinlik günlüğü okuma (GET) işlemleri veya işlemleri kullanan Klasik kaynakları için içermeyen / "RDFE" modeli.
@@ -29,18 +29,21 @@ ms.lasthandoff: 12/14/2017
 
 Etkinlik günlüğü farklıdır [tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md). Etkinlik günlükleri dışarıdan kaynak işlemlerinin hakkında veriler sağlar ("Denetim düzlemi"). Tanılama günlüklerini bir kaynak tarafından gösterilen ve bu kaynağın ("veri düzlemi") işlemiyle ilgili bilgi sağlayın.
 
-Olaylar, etkinlik CLI, PowerShell cmdlet'leri, Azure portalını kullanarak günlüğü alabilir ve Azure İzleyici REST API'si.
-
-
 > [!WARNING]
 > Azure etkinlik günlüğü öncelikle Azure Kaynak Yöneticisi'nde ortaya etkinlikleri içindir. Klasik/RDFE modeli kullanarak kaynakları izlemez. Bazı Klasik kaynak türleri proxy kaynak sağlayıcısı Azure Resource Manager (örneğin, Microsoft.ClassicCompute) sahiptir. Bir Klasik kaynak türü üzerinden Azure kaynak bu proxy kaynak sağlayıcılarını kullanarak Yöneticisi ile etkileşim işlemleri etkinlik günlüğünde görünür. Azure Resource Manager proxy'leri dışında bir Klasik kaynak türü ile etkileşim, eylemlerinizi yalnızca işlem günlüğüne kaydedilir. İşlem günlüğünün ayrı bir portal bölümde göz atılacak.
 >
 >
 
+Olaylar, etkinlik CLI, PowerShell cmdlet'leri, Azure portalını kullanarak günlüğü alabilir ve Azure İzleyici REST API'si.
+
+> [!NOTE]
+
+>  [Uyarıları (Önizleme)](monitoring-overview-unified-alerts.md) şu anda oluşturma ve etkinlik günlüğü uyarı kurallarını yönetme, Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
+
+
 Etkinlik günlüğü Tanıtımı aşağıdaki videoyu izleyin.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## <a name="categories-in-the-activity-log"></a>Etkinlik günlüğünde kategorileri
 Etkinlik günlüğü verileri çeşitli kategorileri içerir. Bu kategoriler şemalara ilgili tam Ayrıntılar için [bu makaleye bakın](monitoring-activity-log-schema.md). Bunlar:

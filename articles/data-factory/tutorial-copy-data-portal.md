@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Blob’dan Azure SQL Veritabanına veri kopyalama
 Bu öğreticide, Azure Data Factory kullanıcı arabirimini (UI) kullanarak bir veri fabrikası oluşturursunuz. Bu veri fabrikasındaki işlem hattı, verileri Azure Blob Depolama’dan Azure SQL Veritabanı’na kopyalar. Bu öğreticideki yapılandırma düzeni, dosya tabanlı bir veri deposundan ilişkisel bir veri deposuna kopyalama için geçerlidir. Kaynak ve havuz olarak desteklenen veri depolarının listesi için [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablosuna bakın.
@@ -144,10 +144,7 @@ Bu öğreticide, işlem hattı oluşturmakla başlar ve işlem hattını yapıla
 9. En alttaki **Özellikler** penceresinin **Genel** sekmesinde, **ad** olarak **SourceBlobDataset** değerini belirtin.
 
     ![Veri kümesi adı](./media/tutorial-copy-data-portal/dataset-name.png)
-10. Özellikler penceresinde **Bağlantı** sekmesine geçin.   
-
-    ![Bağlantı sekmesi](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. **Bağlı hizmet** metin kutusunun yanındaki **+ Yeni** öğesine tıklayın. Bağlı hizmetler, bir veri deposunu veya işlemi veri fabrikasına bağlar. Bu durumda, Azure Depolama hesabınızı veri deposuna bağlamak için bir Azure Depolama bağlı hizmeti oluşturursunuz. Bağlı hizmet, Data Factory hizmetlerinin çalışma zamanında blob depolama alanına bağlanmak için kullandığı bağlantı bilgilerini içerir. Veri kümesi tarafından kaynak verileri içeren kapsayıcı, klasör ve dosya (isteğe bağlı) belirtilir. 
+10. Özellikler penceresinde **Bağlantı** sekmesine geçin. **Bağlı hizmet** metin kutusunun yanındaki **+ Yeni** öğesine tıklayın. Bağlı hizmetler, bir veri deposunu veya işlemi veri fabrikasına bağlar. Bu durumda, Azure Depolama hesabınızı veri deposuna bağlamak için bir Azure Depolama bağlı hizmeti oluşturursunuz. Bağlı hizmet, Data Factory hizmetlerinin çalışma zamanında blob depolama alanına bağlanmak için kullandığı bağlantı bilgilerini içerir. Veri kümesi tarafından kaynak verileri içeren kapsayıcı, klasör ve dosya (isteğe bağlı) belirtilir. 
 
     ![Yeni bağlı hizmet düğmesi](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları izleyin: 
@@ -283,7 +280,7 @@ Yapıları (bağlı hizmetler, veri kümeleri ve işlem hattı) Data Factory'de 
 2. Kaynak dosyadan verilerin hedef SQL veritabanına eklendiğini doğrulayın. 
 
     ![SQL çıkışını doğrulama](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Sol bölmede **Yayımla**'ya tıklayın. Bu eylem, oluşturduğunuz varlıkları (bağlı hizmetler, veri kümeleri ve işlem hatları) Azure Data Factory'de yayımlar.
+3. Sol bölmede **Tümünü Yayımla**'ya tıklayın. Bu eylem, oluşturduğunuz varlıkları (bağlı hizmetler, veri kümeleri ve işlem hatları) Azure Data Factory'de yayımlar.
 
     ![Yayımla düğmesi](./media/tutorial-copy-data-portal/publish-button.png)
 4. **Başarıyla yayımlandı** iletisini görene kadar bekleyin. Bildirim iletilerini görmek için sol kenar çubuğunda **Bildirimleri Göster** sekmesine tıklayın. **X** simgesine tıklayarak bildirim penceresini kapatın.
@@ -343,7 +340,7 @@ VSTS kod deposuyla çalışmak istemiyorsanız, bu adımı atlayabilir ve öncek
 ## <a name="trigger-the-pipeline-manually"></a>İşlem hattını el ile tetikleme
 Bu adımda, önceki adımda yayımladığınız işlem hattını el ile tetiklersiniz. 
 
-1. Araç çubuğunda **Tetikle**’ye tıklayıp **Şimdi Tetikle**’ye tıklayın. 
+1. Araç çubuğunda **Tetikle**’ye tıklayıp **Şimdi Tetikle**’ye tıklayın. **İşlem Hattı Çalıştırma** sayfasında **Son**'a tıklayın.  
 
     ![Şimdi tetikle menüsü](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Soldaki **İzleyici** sekmesine geçin. El ile tetikleme tarafından tetiklenmiş bir işlem hattı çalıştırması görürsünüz. Etkinlik ayrıntılarını görüntülemek ve işlem hattını yeniden çalıştırmak için Eylemler sütunundaki bağlantıları kullanabilirsiniz.
@@ -386,10 +383,10 @@ Bu zamanlamada, işlem hattı için bir zamanlayıcı tetikleyicisi oluşturursu
 6. **Tetikleyici Çalıştırma Parametreleri** sayfasındaki uyarıyı gözden geçirin ve **Son**'a tıklayın. Bu örnekteki işlem hattı hiçbir parametre almaz. 
 
     ![İşlem hattı parametreleri](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Değişiklikleri depoya yayımlamak için **Yayımla**'ya tıklayın. Yayımlama başarılı olana kadar tetikleyici gerçekten etkinleştirilmez. 
+7. Dalınızdaki değişiklikleri ana dalla eşitlemek için **Eşitle**'ye tıklayın. Varsayılan olarak, **Eşitleme sonrasında değişiklikleri yayımla** seçili durumdadır. Bu nedenle, **Eşitle**'yi seçtiğinizde güncelleştirilmiş varlıkları ana daldan Azure Data Factory'ye de yayımlar. Yayımlama başarılı olana kadar tetikleyici gerçekten etkinleştirilmez.
 
-    ![Tetikleyiciyi yayımlama](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Tetiklenen işlem hattı çalıştırmalarını görmek için sol taraftaki **İzleyici** sekmesine geçin. 
+    ![Tetikleyiciyi yayımlama](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Tetiklenen işlem hattı çalıştırmalarını görmek için sol taraftaki **İzleyici** sekmesine geçin. 
 
     ![Tetiklenen işlem hattı çalıştırmaları](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. İşlem hattı çalıştırmaları görünümünden tetikleyici çalıştırmaları görünümüne geçmek için, İşlem Hattı Çalıştırmaları'na tıklayın ve Tetikleyici Çalıştırmaları'nı seçin.

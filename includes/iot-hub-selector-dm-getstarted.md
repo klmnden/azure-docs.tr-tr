@@ -3,6 +3,7 @@
 > * [Cihaz: Node.js Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
 > * [Aygıt: C# hizmet: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Aygıt: Java hizmet: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Aygıt: Python hizmet: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
 Arka uç uygulamaları kullanabileceğiniz Azure IOT Hub temelleri gibi [cihaz çifti] [ lnk-devtwin] ve [doğrudan yöntemleri][lnk-c2dmethod], uzaktan Başlat ve cihaz izlemek için cihazda yönetim eylemleri. Bu öğretici bir arka uç uygulaması ve cihaz uygulaması birlikte nasıl başlatmak ve IOT hub'ı kullanarak bir uzak aygıt yeniden başlatma izlemek için çalışabileceğini gösterir.
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: debfa7b584e4172821801197be94e597066cdb8d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 69b8581399d2bf7e0f2196f7bbad4e6522979239
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory kullanarak FTP sunucusundan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ Aşağıdaki özellikleri, bağlantılı FTP hizmeti için desteklenir:
 | enableServerCertificateValidation | FTP SSL/TLS kanalı üzerinden kullanırken sunucu SSL sertifika doğrulamasını etkinleştirmek bu seçeneği belirtin.<br/>İzin verilen değerler: **true** (varsayılan), **false**. | Hayır |
 | authenticationType | Kimlik doğrulama türünü belirtin.<br/>İzin verilen değerler: **temel**, **anonim** | Evet |
 | Kullanıcı adı | FTP sunucusuna erişimi olan kullanıcı belirtin. | Hayır |
-| password | (Kullanıcı adı) kullanıcının parolasını belirtin. Bu alan SecureString işaretleyin. | Hayır |
+| password | (Kullanıcı adı) kullanıcının parolasını belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek 1: Anonim kimlik doğrulamasını kullanma**

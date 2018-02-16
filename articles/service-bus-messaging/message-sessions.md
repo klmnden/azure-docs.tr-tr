@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>İleti oturumları: ilk çıkar (FIFO) ilk olarak, 
 
@@ -45,7 +45,7 @@ Oturumları eşzamanlı araya eklemeli ileti akışları koruma ve sıralı tesl
 
 ![][1]
 
-A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) alıcı, bir oturum kabul istemci tarafından oluşturulur. İstemci çağrılarını [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) veya [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) C#. Reaktif geri çağırma modelinde, bunu daha sonra açıklandığı gibi oturum işleyici kaydeder.
+A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) alıcı, bir oturum kabul istemci tarafından oluşturulur. İstemci çağrılarını [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) veya [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) C#. Geriye dönük geri çağırma modelinde, bir oturum işleyici kaydeder.
 
 Zaman [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nesnesi tarafından kabul edilir ve istemci tarafından tutulan karşın, istemci o oturumunun sahip tüm iletiler üzerinde özel bir Kilit tutan [SessionID](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) sıra veya abonelik, mevcut ve Ayrıca, sahip tüm iletiler üzerinde **SessionID** , hala gelmesini oturum kilitli durumdayken.
 
@@ -72,6 +72,8 @@ Bu oturuma göre kaydedilen işleme durumu oturum yeni işlemcisi tarafından al
 Hizmet veri yolu açısından bakıldığında, ileti oturum durumu, hizmet veri yolu Standart için 256 KB ve Service Bus Premium için 1 MB bir iletinin boyutunu veri tutabilen bir donuk ikili nesnesidir. Bir oturum göreli işleme durumu içinde oturum durumu tutulabilir veya oturum durumu bazı depolama konumu veya gibi bilgileri tutan veritabanı kaydını işaret edebilir.
 
 Oturum durumu yönetmek için API'ler [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) ve [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState), bulunabilir [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) C# ve Java API nesnesi. Daha önce hiç oturum durumu olan bir oturum döndürür ayarlayın bir **null** için başvuru **GetState**. Önceden ayarlanmış oturum durumu temizlenmesi ile yapılır [SetState(null)](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_).
+
+Oturum durumu, temizlenmez sürece kalmasını unutmayın (döndürme **null**) bir oturumdaki tüm iletilerin tüketilen olsa bile.
 
 Bir kuyruk veya abonelik tüm mevcut oturumları ile numaralandırılabilecek **SessionBrowser** yöntemi Java API ve ile [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) üzerinde [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) ve [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) .NET istemci.
 

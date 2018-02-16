@@ -3,7 +3,7 @@ title: "İzleme Azure günlük analizi ile Surface Hubs | Microsoft Docs"
 description: "Surface hub'larınız sağlığını izlemek ve nasıl kullanıldıkları anlamak için Surface Hub çözümü kullanın."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f56369e412bdd285d3c370f5153fee4f539dfcf
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 525b3ced979834a956f91ef8c6f647b659ca21f1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface Hubs durumlarını izlemek için günlük analizi ile izleme
 
@@ -39,7 +39,7 @@ Ardından, varolan bir günlük analizi çalışma alanını ekleyin veya yeni b
 * Otomatik olarak Intune aracılığıyla
 * El ile **ayarları** , Surface Hub Cihazınızda.
 
-## <a name="set-up-monitoring"></a>İzleme işlevini ayarlama
+## <a name="set-up-monitoring"></a>İlkenin trafiği çevrimdışı durumdaki barındırılan hizmetlere
 Durumu ve etkinliği yüzeyini günlük analizi kullanarak hub'ınızın izleyebilirsiniz. Surface Hub Intune kullanarak veya kullanarak yerel olarak kaydedebilir **ayarları** Surface hub'ındaki.
 
 ## <a name="connect-surface-hubs-to-log-analytics-through-intune"></a>Günlük analizi Intune aracılığıyla Surface Hubs bağlanmak

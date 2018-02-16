@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis önbelleği ölçeklendirme
-Azure Redis önbelleği, önbellek boyutunu ve özelliklerini seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bir önbellek oluşturulduktan sonra uygulamanızın gereksinimlerine değiştirirseniz boyutu ve önbellek fiyatlandırma katmanı ölçeklendirebilirsiniz. Bu makalede, Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak önbelleğinde ölçeklendirme gösterilmektedir.
+Azure Redis önbelleği, önbellek boyutunu ve özelliklerini seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bir önbellek oluşturulduktan sonra uygulamanızın gereksinimlerine değiştirirseniz boyutu ve önbellek fiyatlandırma katmanı ölçeklendirebilirsiniz. Bu makalede Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak önbelleğiniz ölçeklendirme gösterilmektedir.
 
 ## <a name="when-to-scale"></a>Ne zaman ölçeklendirme yapılmalıdır?
 Kullanabileceğiniz [izleme](cache-how-to-monitor.md) sistem durumunu ve önbelleğiniz performansını izlemek ve önbellek ölçeklendirmek ne zaman belirlemenize yardımcı olması için Azure Redis önbelleği özellikleri. 
@@ -51,7 +51,7 @@ Aşağıdaki kısıtlamalarla farklı bir fiyatlandırma katmanı için ölçekl
   * Ölçeklendirme olamaz bir **Premium** aşağı önbelleğe bir **standart** veya **temel** önbelleği.
   * Ölçeklendirme olamaz bir **standart** aşağı önbelleğe bir **temel** önbelleği.
 * Ölçeklendirme yapılabilir bir **temel** için önbelleğe bir **standart** önbellek ancak değiştiremiyor boyutu aynı anda. Farklı bir boyut gerekiyorsa, istenen boyuta sonraki bir ölçeklendirme işlemi yapabilirsiniz.
-* Ölçeklendirme olamaz bir **temel** doğrudan önbelleğe bir **Premium** önbelleği. Ölçeklendirme gerekir **temel** için **standart** bir ölçeklendirme işlemi ve ardından gelen **standart** için **Premium** bir sonraki ölçeklendirme işleminde.
+* Ölçeklendirme olamaz bir **temel** doğrudan önbelleğe bir **Premium** önbelleği. İlk olarak, gelen ölçeklendirme **temel** için **standart** bir ölçeklendirme işlemi ve ardından gelen **standart** için **Premium** , sonraki ölçeklendirme işlem.
 * Büyük bir değerden aşağı ölçeklendirme olamaz **C0 (250 MB)** boyutu.
  
 Önbellek yeni fiyatlandırma katmanı, ölçekleme sırasında bir **ölçeklendirme** durum görüntülenir **Redis önbelleği** dikey.
@@ -118,7 +118,7 @@ Aşağıdaki listede, Azure Redis önbelleği ölçeklendirme hakkında sık sor
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>İçin ya da Premium önbelleği içinde ölçekleme?
 * Ölçeklendirme olamaz bir **Premium** aşağı önbelleğe bir **temel** veya **standart** fiyatlandırma katmanı.
 * Birinden ölçeklendirebilirsiniz **Premium** fiyatlandırma katmanı başka bir önbellek.
-* Ölçeklendirme olamaz bir **temel** doğrudan önbelleğe bir **Premium** önbelleği. Öğesinden önce Ölçeklendirmesi gerekir **temel** için **standart** bir ölçeklendirme işlemi ve ardından gelen **standart** için **Premium** bir sonraki ölçeklendirme işleminde.
+* Ölçeklendirme olamaz bir **temel** doğrudan önbelleğe bir **Premium** önbelleği. İlk olarak, gelen ölçeklendirme **temel** için **standart** bir ölçeklendirme işlemi ve ardından gelen **standart** için **Premium** , sonraki ölçeklendirme işlem.
 * Kümeleme etkinleştirilirse oluşturduğunuzda, **Premium** önbellek, şunları yapabilirsiniz [küme boyutunu değiştirme](cache-how-to-premium-clustering.md#cluster-size). Önbelleğinizi etkin Kümeleme olmadan oluşturulduysa, daha sonraki bir zamanda kümeleme yapılandıramazsınız.
   
   Daha fazla bilgi için bkz. [Premium Azure Redis Cache için kümeleri yapılandırma](cache-how-to-premium-clustering.md).
@@ -129,7 +129,7 @@ Hayır, önbellek adı ve anahtarları bir ölçeklendirme işlemi sırasında d
 ### <a name="how-does-scaling-work"></a>Ölçeklendirme nasıl çalışır?
 * Zaman bir **temel** önbellek için farklı bir boyutu ölçeği, onu kapatılır ve yeni bir önbellek yeni boyut kullanılarak sağlanır. Bu süre boyunca önbelleğe kullanılamıyor ve önbellekteki tüm verileri kaybolur.
 * Zaman bir **temel** için önbellek ölçeklendirilmiş bir **standart** önbellek, çoğaltma önbelleği sağlandığında ve veri çoğaltma önbelleğine birincil önbellekten kopyalanır. Önbellek ölçeklendirme işlemi sırasında kullanılabilir olarak kalır.
-* Zaman bir **standart** önbellek boyutu farklı ya da çok ölçeklendirilmiş bir **Premium** önbellek, çoğaltmaları biri kapatmak ve yeni boyuta yeniden sağlanan üzerinden aktarılan veri ve onu, ön bellek düğümleri biri başarısız sırasında gerçekleşen işlem benzer yeniden sağlanmadan önce bir yük devretme diğer çoğaltma gerçekleştirir.
+* Zaman bir **standart** önbellek boyutu farklı ya da çok ölçeklendirilmiş bir **Premium** önbellek, çoğaltmaları birini kapatılır ve yeni boyutu ve üzerinden aktarılan veriler, ardından diğer çoğaltma için sağlama silinmeden önce sağlama, ön bellek düğümleri biri başarısız sırasında gerçekleşen işlem benzeyen bir yük devretme gerçekleştirir.
 
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Ölçeklendirme sırasında ı my önbellekten veri kaybedersiniz?
 * Zaman bir **temel** önbellek için yeni bir boyutu ölçeği, verilerin tümü kaybolur ve önbellek ölçeklendirme işlemi sırasında kullanılamaz.
@@ -137,10 +137,10 @@ Hayır, önbellek adı ve anahtarları bir ölçeklendirme işlemi sırasında d
 * Zaman bir **standart** daha büyük bir boyut veya katmanı, önbellek ölçeklendirilmiş veya **Premium** önbelleği için daha büyük bir boyutu ölçeği, tüm verileri genellikle korunur. Ölçekleme sırasında bir **standart** veya **Premium** önbellek veri daha küçük bir ölçüye ne kadar veri yeni boyutu, ölçeği olduğunda ilgili önbellekteyse bağlı olarak kayıp. Veri ölçeklendirdiğinizde kaybolursa, anahtarları kullanarak çıkarılacak [allkeys lru](http://redis.io/topics/lru-cache) çıkarma ilkesi. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>My özel veritabanlarını ölçeklendirme sırasında etkilenen ayarlıyor?
-Bazı fiyatlandırma katmanları farklı sahip [veritabanları sınırları](cache-configure.md#databases), böylece bazı noktalar IF ölçekleme için özel bir değer yapılandırıldığında `databases` önbellek oluşturma sırasında ayarlama.
+Özel bir değer için yapılandırılmışsa `databases` ayarını önbelleği oluşturma sırasında bazı fiyatlandırma katmanlarını unutmayın sahip farklı [veritabanları sınırları](cache-configure.md#databases). Bu senaryoda, ölçekleme sırasında bazı noktalar şunlardır:
 
 * Bir fiyatlandırma katmanı ile bir alt ölçeklendirme `databases` geçerli katmanı sınırından:
-  * Varsayılan sayısını kullanıyorsanız `databases` tüm fiyatlandırma katmanlarına 16 olduğu, veri kaybı olmamasına.
+  * Varsayılan sayısını kullanıyorsanız `databases`, tüm fiyatlandırma katmanlarına 16 olduğu, veri kaybı olmamasına.
   * Özel bir dizi kullanıyorsanız `databases` için ölçekleme, bu katman için sınırlar içinde kalan `databases` ayarı tutulur ve veri kaybı olmamasına.
   * Özel bir dizi kullanıyorsanız `databases` yeni katmanı sınırlarını aşıyor `databases` ayarı yeni katmanı sınırlarına kadar yerleştirilen ve kaldırılan veritabanlarındaki tüm veriler kaybolur.
 * Aynı veya daha yüksek bir fiyatlandırma katmanı için ölçeklendirme `databases` geçerli katmanı sınırından, `databases` ayarı tutulur ve veri kaybı olmamasına.
@@ -148,15 +148,15 @@ Bazı fiyatlandırma katmanları farklı sahip [veritabanları sınırları](cac
 % 99,9 SLA kullanılabilirlik için standart ve Premium önbellekleri sahip olsa da, veri kaybı için hiçbir SLA yoktur.
 
 ### <a name="will-my-cache-be-available-during-scaling"></a>My önbellek ölçeklendirme sırasında kullanılabilir olacak?
-* **Standart** ve **Premium** önbellekleri kullanılabilir olmaya devam eder ölçekleme işlemi sırasında.
-* **Temel** önbellekleri işlemleri farklı bir boyut ölçeklendirme sırasında çevrimdışı, ancak gelen ölçekleme sırasında kullanılabilir olmaya devam etmesi **temel** için **standart**.
+* **Standart** ve **Premium** önbellekleri kullanılabilir olmaya devam eder ölçekleme işlemi sırasında. Ancak, bağlantı blips, standart ve Premium önbellekleri ölçekleme sırasında ve ayrıca standart önbellekleri Basic'ten ölçekleme sırasında ortaya çıkabilir. Bu bağlantı blips küçük olması beklenen ve redis istemcileri kendi hemen yeniden bağlantı kurabilmesi.
+* **Temel** önbellekleri çevrimdışı işlemleri farklı bir boyut ölçeklendirme sırasında. Temel önbellekleri kullanılabilir olmaya devam eder gelen ölçeklendirdiğinizde **temel** için **standart** ancak, bir küçük bağlantı blip karşılaşabilirsiniz. Bir bağlantı blip meydana gelirse, redis istemcileri kendi hemen yeniden bağlantı mümkün olması gerekir.
 
 ### <a name="operations-that-are-not-supported"></a>Desteklenmeyen işlemleri
 * Daha yüksek bir fiyatlandırma Katmanı'ndan daha düşük bir fiyatlandırma katmanı ölçek olamaz.
   * Ölçeklendirme olamaz bir **Premium** aşağı önbelleğe bir **standart** veya **temel** önbelleği.
   * Ölçeklendirme olamaz bir **standart** aşağı önbelleğe bir **temel** önbelleği.
 * Ölçeklendirme yapılabilir bir **temel** için önbelleğe bir **standart** önbellek ancak değiştiremiyor boyutu aynı anda. Farklı bir boyut gerekiyorsa, istenen boyuta sonraki bir ölçeklendirme işlemi yapabilirsiniz.
-* Ölçeklendirme olamaz bir **temel** doğrudan önbelleğe bir **Premium** önbelleği. Öğesinden önce Ölçeklendirmesi gerekir **temel** için **standart** bir ölçeklendirme işlemi ve ardından gelen **standart** için **Premium** bir sonraki ölçeklendirme işleminde.
+* Ölçeklendirme olamaz bir **temel** doğrudan önbelleğe bir **Premium** önbelleği. İlk ölçeklendirme **temel** için **standart** bir ölçeklendirme işlemi ve ölçekte **standart** için **Premium** sonraki işlem.
 * Büyük bir değerden aşağı ölçeklendirme olamaz **C0 (250 MB)** boyutu.
 
 Bir ölçeklendirme işlemi başarısız olursa, hizmet işlemini geri döndürmeyi dener ve önbellek özgün durumuna döner.

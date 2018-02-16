@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 70564905d6c71589c898ca84d56940c0d775a2b0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f2ef582bd3a5ecd837dd053067cae6c1ea47b6f8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Öğretici: LinkedIn öğrenme otomatik kullanıcı sağlamayı yapılandırın
 
@@ -117,8 +117,9 @@ LinkedIn erişim belirteci almak için ilk adımdır bakın. Bir kuruluş yönet
 
 16) **Kaydet**’e tıklayın. 
 
-Bu, herhangi bir kullanıcı ve/veya kullanıcılar ve Gruplar bölümünde LinkedIn öğrenme atanan grupları ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek için yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer unutmayın. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve LinkedIn öğrenme uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
+Bu, herhangi bir kullanıcı ve/veya kullanıcılar ve Gruplar bölümünde LinkedIn öğrenme atanan grupları ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek için yaklaşık her 40 dakika çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer unutmayın. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve LinkedIn öğrenme uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik günlükleri sağlamak için bağlantıları izleyin.
 
+Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

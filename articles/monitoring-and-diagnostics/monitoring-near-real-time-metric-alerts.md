@@ -1,6 +1,6 @@
 ---
 title: "Yakın gerçek zamanlı ölçüm uyarıları Azure İzleyicisi'nde | Microsoft Docs"
-description: "Gerçek zamanlı ölçüm uyarıları Azure kaynak ölçümleri 1 dak sıklıkta izlemenize olanak tanır."
+description: "Azure kaynak ölçümleri Sıklık 1 dakika küçük izlemek için gerçek zamanlı ölçüm uyarıları kullanmayı öğrenin."
 author: snehithm
 manager: kmadnani1
 editor: 
@@ -15,27 +15,28 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6370f4596e6b20962c6de0dbcbd5f86c3b7777cc
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Gerçek zamanlı ölçüm uyarıları (Önizleme)
-Azure İzleyici artık ölçüm uyarıları yakın gerçek zamanlı ölçüm uyarıları (Önizleme) olarak adlandırılan yeni bir türünü destekler. Bu özellik şu anda genel önizlemede değil.
-Bu uyarılar birkaç yolla normal ölçüm uyarıları farklı
+Azure İzleyicisi gerçek zamanlı ölçüm uyarıları (Önizleme) adlı yeni bir uyarı türünü destekler. Bu özellik şu anda genel önizlemede değil.
 
-- **Gecikme geliştirilmiş** -gerçek zamanlı ölçüm uyarılar ölçüm değerleri değişiklikleri 1 dak olan en kısa sürede izleyebilirsiniz.
-- **Ölçüm koşullar hakkında daha fazla denetime** -gerçek zamanlı ölçüm uyarıları daha zengin uyarı kurallarını tanımlamak kullanıcıların. Uyarıları artık ölçümleri maksimum, minimum, ortalama ve toplam değerler izleme destekler.
-- **Birden çok ölçümlerini izleme birleştirilmiş** -gerçek zamanlı ölçüm birden çok ölçümleri (şu anda iki) tek bir kural ile uyarıları izleyebilirsiniz. Her iki ölçümleri belirtilen zaman aralığı için kendi ilgili eşiklerini ihlal, uyarıyı tetikleyen.
-- **Modüler bildirim sistemi** - yakın gerçek zamanlı ölçüm uyarıları kullanım [Eylem grupları](monitoring-action-groups.md). Bu işlev kullanıcıların Eylemler modüler bir şekilde oluşturmak ve bunları çok sayıda uyarı kuralları için yeniden izin verir.
+Gerçek zamanlı ölçüm birkaç şekilde normal ölçüm uyarıları uyarılar farklıdır:
+
+- **Geliştirilmiş gecikme**: Gerçek zamanlı ölçüm ölçüm değerleri Sıklık 1 dakika küçük değişiklikler uyarıları izleyebilirsiniz.
+- **Ölçüm koşullar hakkında daha fazla denetime**: daha zengin uyarı kurallarında yakın gerçek zamanlı ölçüm uyarıları tanımlayabilirsiniz. Uyarıları maksimum, minimum, ortalama ve toplam değerler ölçümleri izleme destekler.
+- **Birden çok ölçümlerini izleme birleştirilmiş**: Gerçek zamanlı ölçüm uyarıları (şu anda en fazla iki ölçümleri) birden çok ölçümleri tek bir kural ile izleyebilirsiniz. Her iki ölçümleri belirtilen zaman aralığı için kendi ilgili eşiklerini ihlal varsa bir uyarı tetiklenir.
+- **Modüler bildirim sistemi**: uyarıları gerçek zamanlı ölçüm kullanmak [Eylem grupları](monitoring-action-groups.md). Modüler eylemlerini oluşturmak için eylem gruplarını kullanabilirsiniz. Birden çok uyarı kuralları Eylem grupları yeniden kullanabilirsiniz.
 
 > [!NOTE]
-> Gerçek zamanlı ölçüm uyarıları özelliği şu anda genel önizlemede değil. İşlevsellik ve kullanıcı deneyimi değiştirilebilir ' dir.
+> Yakın gerçek zamanlı ölçüm uyarı özelliği şu anda genel önizlemede değil. İşlevsellik ve kullanıcı deneyimi değiştirilebilir ' dir.
 >
 
-## <a name="what-resources-can-i-create-near-real-time-metric-alerts-for"></a>Yakın gerçek zamanlı ölçüm uyarılar için hangi kaynakların oluşturabilir miyim?
-Gerçek zamanlı ölçüm uyarıları tarafından desteklenen kaynak türlerinin tam listesi:
+## <a name="resources-you-can-use-with-near-real-time-metric-alerts"></a>Gerçek zamanlı ölçüm uyarıları ile birlikte kullanabileceğiniz kaynaklar
+Gerçek zamanlı ölçüm uyarılar için desteklenen kaynak türlerinin tam listesi aşağıdadır:
 
 * Microsoft.ApiManagement/service
 * Microsoft.Automation/automationAccounts
@@ -57,27 +58,26 @@ Gerçek zamanlı ölçüm uyarıları tarafından desteklenen kaynak türlerinin
 * Microsoft.StreamAnalytics/streamingjobs
 * Microsoft.CognitiveServices/accounts
 
-## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Ölçümleri boyutlarla yakın gerçek zamanlı ölçüm uyarılar
-Gerçek zamanlı ölçüm uyarıları boyutlarla ölçümleri uyarı destekler. Boyutlar, ölçüm sağ düzeyine filtrelemek için bir yoldur. Gerçek zamanlı ölçüm ölçümleri boyutlarla uyarılarını aşağıdaki kaynak türleri için desteklenir
+## <a name="near-real-time-metric-alerts-for-metrics-that-use-dimensions"></a>Boyutlar kullanmak ölçümleri gerçek zamanlı ölçüm uyarıları
+Gerçek zamanlı ölçüm uyarılar için Boyutlar kullanmak ölçümleri uyarı destekler. Boyutları, ölçüm sağ düzeyine filtrelemek için kullanabilirsiniz. Gerçek zamanlı ölçüm boyutları kullanın ölçümleri uyarıları aşağıdaki kaynak türleri için desteklenir:
 
 * Microsoft.ApiManagement/service
-* Microsoft.Storage/storageAccounts (yalnızca desteklenen ABD bölgelerdeki depolama hesapları için)
-* Microsoft.Storage/storageAccounts/services (yalnızca desteklenen ABD bölgelerdeki depolama hesapları için)
-
+* Microsoft.Storage/storageAccounts (yalnızca ABD bölgelerdeki depolama hesapları için desteklenir)
+* Microsoft.Storage/storageAccounts/services (yalnızca ABD bölgelerdeki depolama hesapları için desteklenir)
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Yakın gerçek zamanlı ölçüm uyarısı oluştur
-Şu anda gerçek zamanlı ölçüm uyarıları yalnızca Azure portalı üzerinden oluşturulabilir. PowerShell, komut satırı arabirimi (CLI) ve Azure İzleyici REST API'si ile gerçek zamanlı ölçüm uyarı yakın yapılandırma desteği yakında geliyor.
+Şu anda yalnızca Azure portalında gerçek zamanlı ölçüm uyarıları yakın oluşturabilirsiniz. PowerShell, Azure komut satırı arabirimi (Azure CLI) ve Azure İzleyici REST API'lerini kullanarak gerçek zamanlı ölçüm uyarıları yapılandırma desteği yakında geliyor.
 
-Uyarı Deneyim oluştur yakın gerçek zamanlı ölçüm uyarı için yeni taşındı **Alerts(Preview)** karşılaşırsınız. Geçerli uyarıların gösterir Sayfa olsa bile, **eklemek yakın gerçek zamanlı ölçüm uyarı**, yeni deneyime yönlendirilir.
+Yakın gerçek zamanlı ölçüm uyarı oluşturma için deneyimi yeni taşındı **uyarıları (Önizleme)** sayfası. Geçerli uyarıları görüntüler sayfa olsa bile **eklemek yakın gerçek zamanlı ölçüm uyarı**, yönlendirilirsiniz **uyarıları (Önizleme)** sayfası.
 
-Açıklanan adımları kullanarak bir yakın gerçek zamanlı ölçüm uyarı oluşturabilirsiniz [burada](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+Yakın gerçek zamanlı ölçüm uyarı oluşturmayı öğrenmek için bkz: [Azure portalında bir uyarı kuralı oluşturma](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
-## <a name="managing-near-real-time-metric-alerts"></a>Gerçek zamanlı ölçüm Uyarıları yönetme
-Oluşturduktan sonra bir **yakın gerçek zamanlı ölçüm uyarı**, açıklanan adımları kullanarak yönetilebilir [burada](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+## <a name="manage-near-real-time-metric-alerts"></a>Gerçek zamanlı ölçüm Uyarıları yönetme
+Yakın gerçek zamanlı ölçüm uyarı oluşturduktan sonra uyarı açıklanan adımları kullanarak yönetebileceğiniz [uyarılarınızı Azure portalında yönetmek](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## <a name="payload-schema"></a>Yükü şeması
 
-GÖNDERME işlemini tüm yakın gerçek zamanlı ölçüm uyarılar için aşağıdaki JSON yükü ve şeması içerir.
+GÖNDERME işlemini tüm yakın gerçek zamanlı ölçüm uyarılar için aşağıdaki JSON yükü ve şeması içerir:
 
 ```json
 {
@@ -123,6 +123,6 @@ GÖNDERME işlemini tüm yakın gerçek zamanlı ölçüm uyarılar için aşağ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Yeni uyarılar (Önizleme) deneyimi hakkında daha fazla bilgi edinin](monitoring-overview-unified-alerts.md)
-* [Azure Uyarıları'ni (Önizleme) günlük uyarılar hakkında bilgi edinin](monitor-alerts-unified-log.md)
-* [Azure Uyarıları hakkında bilgi edinin](monitoring-overview-alerts.md)
+* Yeni hakkında daha fazla bilgi [(Önizleme) deneyimi uyarıları](monitoring-overview-unified-alerts.md).
+* Hakkında bilgi edinin [uyarıları Azure Uyarıları'nda (Önizleme) oturum](monitor-alerts-unified-log.md).
+* Hakkında bilgi edinin [Azure içindeki uyarıları](monitoring-overview-alerts.md).

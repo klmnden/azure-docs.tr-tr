@@ -3,7 +3,7 @@ title: "Özel rol tabanlı erişim denetimi rolleri oluşturmak ve azure'da iç 
 description: "İç ve dış kullanıcılar için PowerShell ve CLI kullanılarak oluşturulan özel RBAC Rolleri Ata"
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,28 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
-<<<<<<< HEAD
-ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
-=======
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Giriş rol tabanlı erişim denetimi hakkında
 
 Rol tabanlı erişim denetimi belirli kaynak kapsamları ortamlarında yöneten diğer kullanıcılara ayrıntılı rolleri atamak sahipleri, bir abonelik sağlayan bir Azure portal yalnızca özelliğidir.
 
-Dış ortak çalışanları, satıcılar veya ortamınızdaki belirli kaynaklara ancak mutlaka tüm altyapının veya herhangi bir erişim gereken freelancers ile çalışma RBAC büyük kuruluşlarda ve SMB'ler için daha iyi güvenlik yönetimi sağlar Faturalama ilgili kapsamlar. Bir Azure aboneliğine sahip esnekliğini yönetici hesabı (Hizmet Yöneticisi rolü bir abonelik düzeyinde) tarafından yönetilen ve birden çok kullanıcı aynı abonelik altında ancak tüm yönetim haklarına sahip olmayan çalışmak için davet edildi RBAC sağlar . Bir yönetim ve fatura perspektifi, RBAC Özelliği Azure çeşitli senaryolarda kullanmak için saat ve yönetim verimli bir seçenek kanıtlar.
+Dış ortak çalışanları, satıcılar veya erişmeniz ortamınızdaki belirli kaynaklara ancak mutlaka tüm altyapının veya herhangi bir freelancers ile çalışma RBAC büyük kuruluşlarda ve SMB'ler için daha iyi güvenlik yönetimi sağlar Faturalama ilgili kapsamlar. Bir Azure aboneliğine sahip esnekliğini yönetici hesabı (Hizmet Yöneticisi rolü bir abonelik düzeyinde) tarafından yönetilen ve birden çok kullanıcı aynı abonelik altında ancak tüm yönetim haklarına sahip olmayan çalışmak için davet edildi RBAC sağlar . Bir yönetim ve fatura perspektifi, RBAC Özelliği Azure çeşitli senaryolarda kullanmak için saat ve yönetim verimli bir seçenek kanıtlar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 RBAC kullanarak Azure ortamında gerektirir:
 
 * Azure aboneliği kullanıcıya (abonelik rolü) sahibi olarak atanmış bir tek başına sahip
@@ -56,7 +50,7 @@ RBAC, Azure üç farklı kapsamlar adresindeki uygulanabilir. En düşük bir ü
 RBAC kullanılan (ancak bunlarla sınırlı olmamak kaydıyla olduğunda) iki ortak örnekler vardır:
 
 * Dış kullanıcılar kuruluşlardan sahip bazı kaynaklar ya da tüm abonelik yönetmek için (yönetici kullanıcının Azure Active Directory Kiracı parçası değil) davet
-* Kullanıcılar (bunlar parçası olan kullanıcının Azure Active Directory Kiracı) kuruluş ancak farklı ekipleri ve ayrıntılı erişim tüm abonelik ya da belirli kaynak grupları veya kaynak kapsamlarda gereken grupları parçası içinde ile çalışma ortamı
+* Kullanıcılar (bunlar, kullanıcının Azure Active Directory Kiracı parçasıdır) kuruluş ancak farklı ekipleri ve tüm abonelik için ya da belirli kaynak grupları veya ortamında kaynak kapsamı için ayrıntılı erişmesi gereken grupları parçası içinde ile çalışma
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Azure Active Directory dışındaki bir kullanıcı için erişim izni ver abonelik düzeyinde
 RBAC rolleri olanağı verilir yalnızca **sahipleri** aboneliği, bu nedenle yönetici kullanıcı, önceden atanmış bu rolü veya Azure aboneliği oluşturduğu bir kullanıcı adıyla oturum açmış olmanız gerekir.
@@ -65,7 +59,7 @@ Oturum Yöneticisi olarak açma sonra Azure portalından "Abonelikleri" ve seçt
 ![Azure portalında abonelik dikey penceresinde](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) yönetici kullanıcı Azure aboneliği satın aldıysa varsayılan olarak, kullanıcı olarak görünecek **Hesap Yöneticisi**, bu abonelik rol bırakılıyor. Azure aboneliği rolleri hakkında daha fazla bilgi için bkz: [abonelik ya da hizmetleri yönetmek ekleme veya değiştirme Azure yönetici rolleri](/billing/billing-add-change-azure-subscription-administrator.md).
 
 Bu örnekte, kullanıcı "alflanigan@outlook.com" olan **sahibi** "ücretsiz deneme sürümü" AAD abonelikte Kiracı "varsayılan Kiracı Azure". Bu kullanıcı ilk Microsoft Account "Outlook" Azure aboneliği oluşturan olduğundan (Microsoft Account Outlook, Canlı vb. =) bu Kiracı eklenen diğer tüm kullanıcılar için varsayılan etki alanı adı olacaktır **"@alflaniganuoutlook.onmicrosoft.com"**. Tasarım gereği, yeni etki alanının sözdizimi Kiracı oluşturan kullanıcının kullanıcı adı ve etki alanı adını bir araya getirilmesi ve uzantı ekleyerek biçimlendirildiğinden **". onmicrosoft.com"**.
-Ayrıca, kullanıcıların oturum Kiracı içinde bir özel etki alanı adıyla ekleme ve yeni bir kiracı için doğruladıktan sonra açma. Azure Active Directory kiracısı bir özel etki alanı adını doğrulama hakkında daha fazla ayrıntı için bkz: [bir özel etki alanı adı dizininize eklemek](/active-directory/active-directory-add-domain).
+Ayrıca, kullanıcıların bir kiracı özel etki alanı adı ekleme ve yeni bir kiracı için doğruladıktan sonra oturum. Azure Active Directory kiracısı bir özel etki alanı adını doğrulayın hakkında daha fazla bilgi için bkz: [bir özel etki alanı adı dizininize eklemek](/active-directory/active-directory-add-domain).
 
 Bu örnekte, yalnızca etki alanı adı olan kullanıcılar "Varsayılan Kiracı Azure" dizinini içeren "@alflanigan.onmicrosoft.com".
 
@@ -83,9 +77,9 @@ Abonelik seçtikten sonra yönetici kullanıcı tıklatmalısınız **erişim de
 
 ![erişim denetimi IAM Özelliği Azure portalında yeni kullanıcı Ekle](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-Sonraki adım atanacak rol ve kullanıcı kim RBAC rolü atandı seçmektir. İçinde **rol** açılır menüsünde Yönetici kullanıcı Azure'da kullanılabilen yalnızca yerleşik RBAC rolleri görür. Her rol ve bunların atanabilir kapsamların açıklamalarını ayrıntılı için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](role-based-access-built-in-roles.md).
+Sonraki adım atanacak rol ve kullanıcı kim RBAC rolü atandı seçmektir. İçinde **rol** açılır menüsünde, yönetici kullanıcı, Azure'da kullanılabilen yalnızca yerleşik RBAC rolleri görür. Her rol ve bunların atanabilir kapsamların açıklamalarını ayrıntılı için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](role-based-access-built-in-roles.md).
 
-Yönetici kullanıcı, ardından dış kullanıcı e-posta adresini eklemesi gerekir. Varolan Kiracı göstermemeyi dış kullanıcı için beklenen davranıştır bakın. Dış kullanıcı davet sonra kendisinin altında görünür olacak **abonelikleri > erişim denetimi (IAM)** hangi aboneliği kapsamında bir RBAC rolü atanmış olan tüm geçerli kullanıcı ile.
+Yönetici kullanıcı, ardından dış kullanıcı e-posta adresini eklemesi gerekir. Varolan Kiracı göstermemeyi dış kullanıcı için beklenen davranıştır bakın. Dış kullanıcı davet sonra kendisinin altında görünür olacak **abonelikleri > erişim denetimi (IAM)** abonelik kapsamında bir RBAC rolü atanmış olan tüm geçerli kullanıcılar ile.
 
 
 
@@ -102,7 +96,7 @@ Yönetici kullanıcı, ardından dış kullanıcı e-posta adresini eklemesi ger
 Kullanıcı "chessercarlton@gmail.com" olması için davet bir **sahibi** "Ücretsiz deneme" aboneliği için. Daveti gönderdikten sonra dış kullanıcı etkinleştirme bağlantısı ile bir e-posta onayı alacaksınız.
 ![e-posta daveti RBAC rolü için](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-Kuruluş dış olmasının, yeni kullanıcı varolan öznitelikleri "Varsayılan Kiracı Azure" dizininde yok. Dış kullanıcı izin verdiği sonra bunlar oluşturulacak kendisine bir role atanmış olan aboneliği ile ilişkili olan dizin kaydedilecek.
+Kuruluş dış olmasının, yeni kullanıcı varolan öznitelikleri "Varsayılan Kiracı Azure" dizininde yok. Dış kullanıcı izin verdiği sonra bunlar oluşturulacak aboneliğe dizininde kaydedilecek kendisine bir role atanmıştır.
 
 
 
@@ -122,10 +116,10 @@ Kuruluş dış olmasının, yeni kullanıcı varolan öznitelikleri "Varsayılan
 
 İçinde **kullanıcılar** görünümü, dış kullanıcılar Azure portalında farklı simge türü tarafından tanınmıyor.
 
-Ancak, verme **sahibi** veya **katkıda bulunan** bir dış kullanıcı erişimi **abonelik** kapsamı, yönetici kullanıcının dizinine erişimi sürece izin vermiyor **Genel yönetici** verir. Kullanıcı proprieties içinde **kullanıcı türü** iki ortak parametreleri olan **üye** ve **Konuk** tanımlanabilir. Konuk bir dış kaynaktan dizine davet bir kullanıcı olsa da dizinde kayıtlı bir kullanıcı bir üyesidir. Daha fazla bilgi için bkz: [nasıl Azure Active Directory yöneticileri ekleyin B2B işbirliği kullanıcılar](active-directory-b2b-admin-add-users.md).
+Ancak, verme **sahibi** veya **katkıda bulunan** bir dış kullanıcı erişimi **abonelik** kapsamı, yönetici kullanıcının dizinine erişimi sürece izin vermiyor **Genel yönetici** verir. Kullanıcı proprieties içinde **kullanıcı türü**, iki ortak parametreleri olan **üye** ve **Konuk** tanımlanabilir. Bir konuk bir dış kaynaktan dizine davet bir kullanıcı olsa da dizinde kayıtlı bir kullanıcı bir üyesidir. Daha fazla bilgi için bkz: [nasıl Azure Active Directory yöneticileri ekleyin B2B işbirliği kullanıcılar](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
-> Portalda kimlik bilgilerini girdikten sonra emin olun, dış kullanıcı oturum için açmak için doğru dizin seçer. Aynı kullanıcı birden fazla dizine erişiminiz ve üst taraftaki Azure portalında kullanıcı tıklayarak bunları birini seçin ve ardından açılır listeden uygun dizini seçin.
+> Portalda kimlik bilgilerini girdikten sonra emin olun, dış kullanıcı oturum açmak için doğru dizin seçer. Aynı kullanıcı birden fazla dizine erişiminiz ve üst taraftaki Azure portalında kullanıcı tıklayarak bunları birini seçin ve ardından açılır listeden uygun dizini seçin.
 
 Dizinde Konuk olmasının, çalışırken dış kullanıcı Azure aboneliğine yönelik tüm kaynakları yönetebilir, ancak dizinine erişilemiyor.
 
@@ -135,7 +129,7 @@ Dizinde Konuk olmasının, çalışırken dış kullanıcı Azure aboneliğine y
 
 ![Azure active Directory'yi Azure portalına sınırlı erişim](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory ve Azure aboneliği bir üst-alt ilişkisi gibi diğer Azure kaynaklarına sahip (örneğin: sanal makineler, sanal ağlar, web uygulamaları, depolama vb.) ile Azure aboneliğiniz yok. Tüm ikinci oluşturulur, yönetilen ve bir Azure dizinine erişimi yönetmek için bir Azure aboneliği kullanılırken bir Azure aboneliği altında faturalandırılır. Daha fazla ayrıntı için bkz: [nasıl bir Azure aboneliğine Azure AD ile ilgili](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory ve Azure aboneliği bir üst-alt ilişkisi gibi diğer Azure kaynaklarına sahip (örneğin: sanal makineler, sanal ağlar, web uygulamaları, depolama vb.) ile Azure aboneliğiniz yok. Tüm ikinci oluşturulan, yönetilen ve bir Azure dizinine erişimi yönetmek için bir Azure aboneliği kullanılırken bir Azure aboneliği altında faturalandırılır. Daha fazla bilgi için bkz: [nasıl bir Azure aboneliğine Azure AD ile ilgili](/active-directory/active-directory-how-subscriptions-associated-directory).
 
 Tüm rollerden yerleşik RBAC, **sahibi** ve **katkıda bulunan** katılımcı oluşturun ve yeni RBAC rollerini silme olmasına, fark ortamdaki tüm kaynaklar için tam yönetim erişimi sağlar . Diğer yerleşik roller ister **sanal makine Katılımcısı** yalnızca bağımsız olarak, adıyla belirtilen kaynaklarına tam yönetim erişimi teklif **kaynak grubu** içine oluşturulan.
 
@@ -178,7 +172,7 @@ RBAC hem kaynak grup kapsamı veya kaynak kapsamı için önemli bir özelliği 
 ![Azure portalında Directory oturum açma](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
 ## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Bir Azure Active Directory grubu için RBAC Rolleri Ata
-Üç farklı kapsamlar Azure RBAC kullanarak tüm senaryoları yönetme, dağıtma ve kişisel bir aboneliği yönetme gerek kalmadan atanmış bir kullanıcı olarak çeşitli kaynakları yönetme ayrıcalık sunar. Ne olursa olsun RBAC rolü abonelik, kaynak grubu veya kaynak kapsamı, tüm kullanıcıların erişimi sahip olduğu bir Azure aboneliği altında hakkında daha fazla atanmış kullanıcılar tarafından oluşturulan kaynakları faturalandırılır atanır. Bu şekilde, tüm Azure aboneliğiniz için yönetici izinleri faturalama kullanıcılar var. eksiksiz bir genel görünüm tüketimi, bakılmaksızın kimin kaynaklarını yönetme
+Üç farklı kapsamlar Azure RBAC kullanarak tüm senaryoları yönetme, dağıtma ve kişisel bir aboneliği yönetme gerek kalmadan atanmış bir kullanıcı olarak çeşitli kaynakları yönetme ayrıcalık sunar. Ne olursa olsun RBAC rolü atanmış bir abonelik, kaynak grubu veya kaynak kapsamı için kullanıcıların erişimi sahip olduğu bir Azure aboneliği altında hakkında daha fazla atanmış kullanıcılar tarafından oluşturulan tüm kaynakları faturalandırılır. Bu şekilde, tüm Azure aboneliğiniz için yönetici izinleri faturalama kullanıcılar var. eksiksiz bir genel görünüm tüketimi, bakılmaksızın kimin kaynaklarını yönetme
 
 Büyük kuruluşlar için yönetici kullanıcının ekipleri ve tüm bölümler için bu nedenle dikkate alarak, her bir kullanıcı için değil tek tek parçalı erişim vermek istediği perspektif dikkate Azure Active Directory grupları için aynı şekilde RBAC rolleri uygulanabilir. Bu isteğe bağlı olarak son derece saat ve yönetim etkin. Bu örnekte, göstermeye **katkıda bulunan** rol, bir kiracı abonelik düzeyinde gruplarının eklendi.
 
@@ -188,16 +182,16 @@ Büyük kuruluşlar için yönetici kullanıcının ekipleri ve tüm bölümler 
 
 ![AAD grupları için RBAC rolü Ekle](./media/role-based-access-control-create-custom-roles-for-internal-external-users/14.png)
 
-Bu grupları sağlanan ve yalnızca Azure Active Directory içinde yönetilen güvenlik gruplarıdır.
+Sağlanan ve yalnızca Azure Active Directory içinde yönetilen güvenlik grupları bu gruplarıdır.
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>PowerShell kullanarak destek istekleri açmak için özel bir RBAC rolü oluşturun
-Azure'da kullanılabilen yerleşik RBAC roller ortamında kullanılabilir kaynaklara dayalı belirli izin düzeyleri emin olun. Ancak, bu rollerin hiçbiri yönetici kullanıcının gereksinimlerinize uygun değilse, daha fazla özel RBAC rolleri oluşturarak erişimi sınırlamak için bir seçenek yoktur.
+Azure'da kullanılabilen yerleşik RBAC rolleri ortamında kullanılabilir kaynaklara dayalı belirli izin düzeyleri emin olun. Ancak, bu rollerin hiçbiri yönetici kullanıcının gereksinimlerinize uygun değilse, daha fazla özel RBAC rolleri oluşturarak erişimi sınırlamak için bir seçenek yoktur.
 
 Özel RBAC rolleri oluşturmak için bir yerleşik rolü, düzenlemek ve ortam geri almak için gerekir. Rolünün karşıya yükleme ve indirme PowerShell veya CLI kullanılarak yönetilir.
 
-Abonelik düzeyinde ayrıntılı erişim vermek ve aynı zamanda davet edilen kullanıcı destek isteği açma esnekliğini tanımak özel bir rol oluşturarak Önkoşullar anlamak önemlidir.
+Abonelik düzeyinde ayrıntılı erişim vermek ve ayrıca davet edilen kullanıcı destek isteği açma esnekliğini tanımak özel bir rol oluşturma önkoşulları anlamak önemlidir.
 
-Bu örneğin yerleşik rol **okuyucu** kullanıcılar tüm kaynak kapsamları görüntülemek üzere ancak bunları düzenleyin veya yeni kampanya oluşturmak erişim sağlayan destek isteği açma seçeneğini izin vermek için özelleştirildi.
+Bu örneğin, yerleşik rol **okuyucu**, tüm kaynak kapsamları görüntülemeye erişim kullanıcılar verir, ancak bunları düzenleyin veya yeni bir tane oluşturmak için destek isteği açma seçeneğini izin vermek için özelleştirildi.
 
 Dışarı aktarma ilk eylemi **okuyucu** rol PowerShell'de tamamlanması gerekiyor yönetici olarak yükseltilmiş izinlerle çalıştı.
 
@@ -299,7 +293,7 @@ Mac ve PowerShell erişmesini olmadan çalışan, Azure CLI Git yoludur.
 
 Özel bir rol oluşturmak için aşağıdaki adımları, rol CLI kullanarak bir JSON şablonu indirilemiyor ancak CLI görüntülenebilir tek özel durumu ile aynıdır.
 
-Bu örnek için t yerleşik rolü seçtiniz **yedekleme okuyucu**.
+Bu örnekte, t yerleşik rolü seçtiniz **yedekleme okuyucu**.
 
 ```
 

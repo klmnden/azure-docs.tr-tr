@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - Risk değerlendirmesi"
-description: "Web uygulamaları için FedRAMP - Risk değerlendirmesi"
+title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - Risk değerlendirmesi şeması"
+description: "FedRAMP Web uygulamaları Otomasyon - Risk değerlendirmesi"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>Risk değerlendirmesi (RA)
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Kayıt defteri anahtarlarını, Denetim İlkesi ayarlarını ve bu ayarlar için önerilen değerleri Microsoft'un yanı sıra güvenlik ilkesi ayarları kümesi temeli değerlendirme değerlendirir. Güncelleştirme değerlendirme dağıtılan tüm sanal makinelerin kullanılabilir güncelleştirmeleri durumunu değerlendirir. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Kayıt defteri anahtarlarını, Denetim İlkesi ayarlarını ve bu ayarlar için önerilen değerleri Microsoft'un yanı sıra güvenlik ilkesi ayarları kümesi temeli değerlendirme değerlendirir. Güncelleştirme değerlendirme dağıtılan tüm sanal makinelerin kullanılabilir güncelleştirmeleri durumunu değerlendirir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Tanımlanan sorunların önem derecesi atanır. Common Configuration Enumeration (CCE) kimlikleri için taban çizgisi değerlendirme kuralları sağlanır.  |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Tanımlanan sorunların önem derecesi atanır. Common Configuration Enumeration (CCE) kimlikleri için taban çizgisi değerlendirme kuralları sağlanır.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Göre bu çözümleri değerlendirme ölçütleri otomatik olarak güncelleştirilir. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Göre bu çözümleri değerlendirme ölçütleri otomatik olarak güncelleştirilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Göre bu çözümleri değerlendirme ölçütleri otomatik olarak güncelleştirilir. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Göre bu çözümleri değerlendirme ölçütleri otomatik olarak güncelleştirilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Güncelleştirme değerlendirme hem Windows hem de Linux sanal makinelere karşı değerlendirmesi gerçekleştirir. Taban çizgisi değerlendirme endüstri en iyi uygulamalarına göre geliştirilmiş Microsoft baseline kullanarak Windows sanal makineleri karşı değerlendirmesi gerçekleştirir. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Güncelleştirme değerlendirme hem Windows hem de Linux sanal makinelere karşı değerlendirmesi gerçekleştirir. Taban çizgisi değerlendirme endüstri en iyi uygulamalarına göre geliştirilmiş Microsoft baseline kullanarak Windows sanal makineleri karşı değerlendirmesi gerçekleştirir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri üzerinde yapılandırılmış Microsoft İzleme Aracısı hizmeti değerlendirme etkinliklerini için gerekli ayrıcalıklara sahip bir otomatik hizmeti olarak yapılandırılır. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri üzerinde yapılandırılmış Microsoft İzleme Aracısı hizmeti değerlendirme etkinliklerini için gerekli ayrıcalıklara sahip bir otomatik hizmeti olarak yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu, dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu, dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |

@@ -3,7 +3,7 @@ title: "Günlük analizi VMware izleme çözümünde | Microsoft Docs"
 description: "Nasıl VMware izlemesi çözümü günlüklerini yönetmek ve ESXi konakları izlemenize yardımcı olabilir hakkında bilgi edinin."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
-ms.openlocfilehash: 287a98c59a33b603f7186dd99505ecd0ef4f0941
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: magoedte
+ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Günlük analizi çözümüne VMware izleme (Önizleme)
 
@@ -44,8 +44,8 @@ Linux işletim sistemi ESXi ana bilgisayarlardan tüm syslog verileri almak içi
 ### <a name="configure-syslog-collection"></a>Syslog koleksiyonunu yapılandırma
 1. Syslog iletme VSphere için ayarlayın. Syslog iletme yukarı ayarlamanıza yardımcı olması ayrıntılı bilgi için bkz: [syslog ESXi üzerinde yapılandırma 5.x ve 6.0 (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Git **ESXi ana bilgisayar yapılandırması** > **yazılım** > **Gelişmiş ayarları** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
-2. İçinde *Syslog.global.logHost* alan, Linux sunucunuza ve bağlantı noktası numarasını ekleyin *1514*. Örneğin, `tcp://hostname:1514` veya`tcp://123.456.789.101:1514`
-3. Syslog ESXi ana bilgisayar Güvenlik Duvarı'nı açın. **ESXi ana bilgisayar yapılandırması** > **yazılım** > **güvenlik profili** > **Güvenlik Duvarı** ve açın **Özellikler**.  
+2. İçinde *Syslog.global.logHost* alan, Linux sunucunuza ve bağlantı noktası numarasını ekleyin *1514*. Örneğin, `tcp://hostname:1514` veya `tcp://123.456.789.101:1514`
+3. Syslog ESXi ana bilgisayar Güvenlik Duvarı'nı açın. **ESXi ana bilgisayar yapılandırması** > **yazılım** > **güvenlik profili** > **Güvenlik Duvarı** ve açın**Özellikleri**.  
 
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
@@ -149,7 +149,7 @@ Ek ESXi ana VM oluşturma verileri görmek istiyorsanız, bir ESXi ana bilgisaya
 #### <a name="common-search-queries"></a>Ortak arama sorguları
 Çözüm, yüksek depolama alanı, depolama gecikmesi ve yol hatası gibi ESXi konakları yönetmenize yardımcı olabilir diğer yararlı sorgular içerir.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Sorguları](./media/log-analytics-vmware/queries.png)
 
@@ -183,20 +183,20 @@ Birden çok nedeni olabilir:
 
 * ESXi ana doğru veri omsagent çalıştıran VM Ftp'den değil. Test etmek için aşağıdaki adımları gerçekleştirin:
 
-  1. Onaylamak için ssh kullanarak ESXi ana bilgisayara oturum açın ve aşağıdaki komutu çalıştırın:`nc -z ipaddressofVM 1514`
+  1. Onaylamak için ssh kullanarak ESXi ana bilgisayara oturum açın ve aşağıdaki komutu çalıştırın: `nc -z ipaddressofVM 1514`
 
       Bu başarılı olmazsa, Gelişmiş yapılandırma ayarlarında vSphere büyük olasılıkla doğru değil. Bkz: [syslog koleksiyonunu yapılandırma](#configure-syslog-collection) ESXi ana bilgisayar syslog iletme için ayarlama hakkında bilgi için.
-  2. Syslog bağlantı noktası bağlantı başarılı olur, ancak yine de hiçbir veri görmezsiniz, syslog ESXi ana bilgisayarda ssh aşağıdaki komutu kullanarak yeniden:` esxcli system syslog reload`
+  2. Syslog bağlantı noktası bağlantı başarılı olur, ancak yine de hiçbir veri görmezsiniz, syslog ESXi ana bilgisayarda ssh aşağıdaki komutu kullanarak yeniden: ` esxcli system syslog reload`
 * OMS Aracısı ile VM düzgün ayarlanmadı. Bunu test etmek için aşağıdaki adımları gerçekleştirin:
 
-  1. Günlük analizi 1514 bağlantı noktasını dinler. Açık olduğunu doğrulamak için aşağıdaki komutu çalıştırın:`netstat -a | grep 1514`
+  1. Günlük analizi 1514 bağlantı noktasını dinler. Açık olduğunu doğrulamak için aşağıdaki komutu çalıştırın: `netstat -a | grep 1514`
   2. Bağlantı noktası görmelisiniz `1514/tcp` açın. Bunu yapmazsanız, omsagent düzgün yüklendiğini doğrulayın. Bağlantı noktası bilgileri görmüyorsanız, syslog bağlantı noktası VM açık değil.
 
-    a. OMS Aracısı'nı kullanarak çalışır durumda olduğunu doğrulama `ps -ef | grep oms`. Çalışmıyorsa, işlem komutu çalıştırarak Başlat` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. OMS Aracısı'nı kullanarak çalışır durumda olduğunu doğrulama `ps -ef | grep oms`. Çalışmıyorsa, işlem komutu çalıştırarak Başlat ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
     b. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` dosyasını açın.
 
-    c. Uygun kullanıcı ve grup ayarı geçerli ve benzer şekilde doğrulayın:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    c. Uygun kullanıcı ve grup ayarı geçerli ve benzer şekilde doğrulayın: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
     d. Dosya yok veya tarafından düzeltme eylemi gerçekleştirin kullanıcı ve grup ayarı yanlış olmadığını [Linux sunucusu hazırlama](#prepare-a-linux-server).
 

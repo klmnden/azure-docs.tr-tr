@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4ecef0526bcdc61d29ae0ee0ac0d55c5651a1b2b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI Azure, kendi geliştirme döngüsü hızlandırmak için ve müşteri hizmetleri ve performansını artırmak için kullanılır.
 ![Daxko/CSI logosu](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -91,7 +91,6 @@ Azure SQL veritabanı yalnızca bir katkıda bulunuyor hızlı ve güvenilir hiz
 * Veritabanı Araçları ve esnek ölçeklendirme hakkında daha fazla bilgi için bkz: [esnek veritabanı araçlarını ve esnek ölçeklendirme](sql-database-elastic-scale-get-started.md).
 * SQL Server veritabanını geçirme hakkında daha fazla bilgi edinmek için bkz: [bir SQL Server veritabanını Azure'a geçirmek](sql-database-cloud-migrate.md).
 * Aktif coğrafi çoğaltma hakkında daha fazla bilgi için bkz: [aktif coğrafi çoğaltma](sql-database-geo-replication-overview.md).
-* Web rolleri ve çalışan rolleri hakkında daha fazla bilgi için bkz: [çalışan rolleri](../fundamentals-introduction-to-azure.md#compute).    
 * Azure Service Bus hakkında daha fazla bilgi için bkz: [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 * Otomatik ölçek hakkında daha fazla bilgi için bkz: [bulut Hizmetleri ölçeklendirme](../cloud-services/cloud-services-how-to-scale-portal.md).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -50,7 +50,7 @@ Aşağıdaki bilgileri gözden geçirin ilgili [donanım ve yazılım gereksinim
 
 Yükleme ve Windows karma çalışan rolü yapılandırmasını otomatik hale getirmek için aşağıdaki adımları gerçekleştirin.  
 
-1. Karşıdan *yeni OnPremiseHybridWorker.ps1* betikten [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/1.0/DisplayScript) doğrudan karma Runbook çalışanı rolünü çalıştıran bilgisayara veya başka bir bilgisayardan, ortamınızdaki ve çalışana kopyalayın.  
+1. Karşıdan *yeni OnPremiseHybridWorker.ps1* betikten [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/) doğrudan karma Runbook çalışanı rolünü çalıştıran bilgisayara veya başka bir bilgisayardan, ortamınızdaki ve çalışana kopyalayın.  
 
     *Yeni OnPremiseHybridWorker.ps1* komut dosyası yürütme sırasında aşağıdaki parametreleri gerektirir:
 
@@ -76,7 +76,7 @@ Yükleme ve Windows karma çalışan rolü yapılandırmasını otomatik hale ge
 
 4. Yüklemeyi kabul istenir **NuGet** ve Azure kimlik bilgilerinizle kimliğinizi isteyip istemediğiniz sorulur.<br><br> ![Yeni OnPremiseHybridWorker betik yürütme işlemi](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
-5. Komut dosyası tamamlandıktan sonra karma çalışan grupları dikey penceresinde yeni Grup ve üye sayısı gösterilir veya varolan bir grubu, üye sayısı artar.  Grup listesinden seçebilirsiniz **karma çalışan grupları** dikey penceresinde ve select **karma çalışanları** döşeme.  Üzerinde **karma çalışanları** dikey penceresi, her listelenen grubunun üyesi bakın.  
+5. Komut dosyası tamamlandıktan sonra yeni Grup ve üye sayısı karma çalışan grupları sayfası gösterilir veya varolan bir grubu, üye sayısı artar.  Grup listesinden seçebilirsiniz **karma çalışan grupları** sayfasından seçim yapıp **karma çalışanları** döşeme.  Üzerinde **karma çalışanları** sayfasında, listelenen grubun her üyesi bakın.  
 
 ### <a name="manual-deployment"></a>El ile dağıtımı 
 
@@ -113,13 +113,13 @@ Ardından çalıştırın **Add-HybridRunbookWorker** aşağıdaki sözdizimini 
 
     Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
-Bu cmdlet olanağını için gerekli bilgileri almak **anahtarları Yönet** Azure portaldaki dikey pencere.  Seçerek bu dikey penceresini açmak **anahtarları** gelen seçeneği **ayarları** dikey penceresinde, Automation hesabı.
+Bu cmdlet olanağını için gerekli bilgileri almak **anahtarları Yönet** Azure portalında sayfası.  Bu sayfayı seçerek açın **anahtarları** gelen seçeneği **ayarları** sayfa Otomasyon hesabınızda.
 
 ![Karma Runbook çalışanı genel bakış](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName** karma Runbook çalışan grubu adıdır. Bu grubun automation hesabında zaten varsa, geçerli bilgisayar kendisine eklenir.  Daha sonra zaten yoksa eklenir.
-* **Uç nokta** olan **URL** alanındaki **anahtarları Yönet** dikey.
-* **Belirteç** olan **birincil erişim anahtarını** içinde **anahtarları Yönet** dikey.  
+* **Uç nokta** olan **URL** alanındaki **anahtarları Yönet** sayfası.
+* **Belirteç** olan **birincil erişim anahtarını** içinde **anahtarları Yönet** sayfası.  
 
 Kullanım **-Verbose** anahtarı ile **Add-HybridRunbookWorker** yüklemesi hakkında ayrıntılı bilgi almak için.
 
@@ -143,8 +143,8 @@ Karma Runbook çalışanı çalışan kaydetmek, runbook işlerini almak ve duru
 3. Microsoft İzleme Aracısı hizmeti çalışmıyor.  
     Microsoft İzleme Aracısı Windows hizmeti çalışmıyorsa bu karma Runbook çalışanı Azure Automation ile iletişim kurmasını engeller.  Aracı, PowerShell içinde aşağıdaki komutu girerek çalıştığını doğrulayın: `get-service healthservice`.  Hizmet durdurulursa, hizmeti başlatmak için PowerShell içinde aşağıdaki komutu girin: `start-service healthservice`.  
 
-4. İçinde **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğü olay 4502 ve EventMessage içeren gördüğünüz **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**aşağıdaki açıklamasıyla: *hizmeti tarafından sunulan sertifika <wsid>. oms.opinsights.azure.com Microsoft Hizmetleri için kullanılan bir sertifika yetkilisi tarafından değil yayınlandı. TLS/SSL iletişimi karşılar bir proxy çalıştırıyorsanız görmek için ağ yöneticinize başvurun. KB3126513 makalesine ek sorun giderme bilgileri için bağlantı sorunları var.*
-    Bu, proxy veya ağ güvenlik duvarı blockking iletişimi için Microsoft Azure neden olabilir.  Bilgisayarın, 443 numaralı bağlantı noktalarına *.azure automation.net giden erişimi olduğunu doğrulayın.
+4. İçinde **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğü olay 4502 ve EventMessage içeren gördüğünüz **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**aşağıdaki açıklamasıyla: *hizmeti tarafından sunulan sertifika \<wsid\>. oms.opinsights.azure.com Microsoft Hizmetleri için kullanılan bir sertifika yetkilisi tarafından değil yayınlandı. TLS/SSL iletişimi karşılar bir proxy çalıştırıyorsanız görmek için ağ yöneticinize başvurun. KB3126513 makalesine ek sorun giderme bilgileri için bağlantı sorunları var.*
+    Bu Microsoft Azure iletişimini engelleyen proxy veya ağ güvenlik duvarını neden olabilir.  Bilgisayarın, 443 numaralı bağlantı noktalarına *.azure automation.net giden erişimi olduğunu doğrulayın.
 
 Günlükleri yerel olarak her karma çalışanı C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes konumunda depolanır.  Herhangi bir uyarı veya hata olayları için yazılmış olup olmadığını denetleyebilir **uygulama ve Hizmetleri Logs\Microsoft-SMA\Operations** ve **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğü bir bağlantı veya ekleme rolünün bir Azure Otomasyonu veya sorun normal işlemleri gerçekleştirirken etkileyen diğer sorunu gösterir.  
 

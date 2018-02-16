@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Premium Azure Redis önbelleği için sanal ağ desteğini yapılandırma
 Azure Redis önbelleği, önbellek boyutunu ve özelliklerini, kümeleme, sürdürme ve sanal ağ desteği gibi Premium katmanı özellikleri dahil olmak üzere seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bir sanal ağ bulutta özel bir ağdır. Bir Azure Redis önbelleği örneğine sahip bir VNet yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içinden uygulamalardan erişilebilir. Bu makalede, premium Azure Redis önbelleği örneği için sanal ağ desteğini yapılandırma açıklar.
@@ -117,6 +117,7 @@ Yedi giden bağlantı noktası gereksinimleri vardır.
 | 20226 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
 | 13000-13999 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
 | 15000-15999 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
+| 6379-6380 |Giden |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
 
 
 ### <a name="inbound-port-requirements"></a>Gelen bağlantı noktası gereksinimleri
@@ -125,7 +126,7 @@ Sekiz gelen bağlantı noktası aralığı gereksinimi yoktur. Bu aralıklardaki
 
 | Bağlantı noktaları | Yön | Aktarım Protokolü | Amaç | Yerel IP | Uzak IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Gelen |TCP |İstemci iletişimi için Redis, Azure Yük Dengeleme | (Alt ağ redis) |Sanal ağ, Azure yük dengeleyici |
+| 6379, 6380 |Gelen |TCP |İstemci iletişimi için Redis, Azure Yük Dengeleme | (Alt ağ redis) | (Redis. alt ağ), sanal ağ, Azure yük dengeleyici |
 | 8443 |Gelen |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Alt ağ redis) |
 | 8500 |Gelen |TCP/UDP |Azure Yük Dengeleme | (Alt ağ redis) |Azure Load Balancer |
 | 10221-10231 |Gelen |TCP |Redis iç iletişiminde | (Alt ağ redis) |(Redis. alt ağ), Azure yük dengeleyici |
@@ -146,7 +147,7 @@ Azure Redis önbelleği sanal bir ağa başlangıçta karşılanır değil için
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>My önbelleği sanal ağ içinde çalıştığını nasıl doğrulayabilirsiniz?
 
 >[!IMPORTANT]
->Sanal ağ içinde barındırılan bir Azure Redis önbelleği örneğine bağlanırken, önbellek istemcileri herhangi bir sınama uygulamalarını veya tanılama ping araçları dahil olmak üzere aynı VNET'i olması gerekir.
+>Sanal ağ içinde barındırılan bir Azure Redis önbelleği örneğine bağlanırken önbellek istemcileriniz aynı sanal veya sanal ağda VNET eşlemesi etkin olması gerekir. Bu, herhangi bir sınama uygulamalarını veya tanılama ping araçları içerir. İstemcinin ağ trafiğini Redis örneği ulaşmasına izin verilir, istemci uygulaması barındırıldığı bağımsız olarak, ağ güvenlik grupları yapılandırılması gerekir.
 >
 >
 

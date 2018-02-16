@@ -33,6 +33,10 @@
       href: activate-subs-accounts.md
     - name: VM'ler için genişletilmiş ölçümler ekleme
       href: azure-vm-extended-metrics.md
+    - name: Google hesabı bağlama
+      href: connect-google-account.md
+    - name: AWS hesabı bağlama
+      href: connect-aws-account.md
     - name: Maliyet Yönetimi raporlarını kullanma
       href: use-reports.md
 - name: Kaynaklar

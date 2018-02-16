@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 40b2d04fe829c51a58fb3bec1519a590a12cfdb8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Birden fazla abonelik veya kaynak grubu için Azure kaynaklarını dağıtma
 
 Genellikle, tüm kaynakları tek şablonunuzdaki dağıttığınız [kaynak grubu](resource-group-overview.md). Ancak, bir kaynak kümesi birlikte dağıtmasını ancak bunları farklı kaynak grupları ya da abonelik yerleştirmek istediğiniz senaryolar vardır. Örneğin, yedekleme sanal makineyi Azure Site Recovery için ayrı kaynak grubunu ve konumu için dağıtmak isteyebilirsiniz. Resource Manager hedef farklı Abonelikleriniz ve kaynak gruplarınız daha abonelik ve kaynak grubu üst şablon için kullanılan iç içe geçmiş şablonlarını kullanmanıza olanak sağlar.
+
+> [!NOTE]
+> Tek bir dağıtımda yalnızca beş kaynak gruplarına dağıtabilirsiniz.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Bir abonelik ve kaynak grubu belirtin
 

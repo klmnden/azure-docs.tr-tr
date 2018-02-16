@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 9b4163471f3dc8483993b9ac762694af4e926aa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 322514debd42714142434106748e4acac220ebee
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Oluşturun ve Azure'a bir OpenBSD disk görüntüsü yükleyin
 Bu makalede nasıl oluşturulacağı ve bir sanal sabit OpenBSD işletim sistemini içeren disk (VHD) yüklemek gösterilmektedir. Karşıya yüklediğiniz sonra bunu kendi görüntünüzü Azure CLI aracılığıyla azure'da sanal makine (VM) oluşturmak için kullanabilirsiniz.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, aşağıdaki öğelerin bulunduğunu varsayar:
 
 * **Bir Azure aboneliği** -bir hesabınız yoksa yalnızca birkaç dakika içinde bir oluşturabilirsiniz. Bir MSDN aboneliğiniz varsa, bkz: [Visual Studio aboneleri için aylık Azure kredi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Aksi takdirde, bilgi nasıl [ücretsiz bir deneme hesabı oluşturma](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0** -son olduğundan emin olun [Azure CLI 2.0](/cli/azure/install-azure-cli) yüklü ve Azure hesabınızla oturum açmış [az oturum açma](/cli/azure/#login).
+* **Azure CLI 2.0** -son olduğundan emin olun [Azure CLI 2.0](/cli/azure/install-azure-cli) yüklü ve Azure hesabınızla oturum açmış [az oturum açma](/cli/azure/#az_login).
 * **Bir .vhd dosyası yüklü OpenBSD işletim sistemi** -bir sanal sabit disk için desteklenen bir OpenBSD işletim sistemine (6.1 sürümü) yüklenmesi gerekir. Birden çok araç, .vhd dosyaları oluşturmak için mevcut. Örneğin, .vhd dosyası oluşturun ve işletim sistemini yüklemek için Hyper-V gibi bir sanallaştırma çözümü kullanabilirsiniz. Yükleme ve Hyper-V kullanma hakkında yönergeler için bkz: [Hyper-V yükleyin ve sanal makine oluşturma](http://technet.microsoft.com/library/hh846766.aspx).
 
 
@@ -102,13 +102,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Depolama kaynaklarını oluşturma ve yükleme
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-VHD yüklemek için bir depolama hesabıyla oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#create). Depolama hesabı adları benzersiz olması gerekir, böylece kendi adını belirtin. Aşağıdaki örnek adlı bir depolama hesabı oluşturur *mystorageaccount*:
+VHD yüklemek için bir depolama hesabıyla oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#az_storage_account_create). Depolama hesabı adları benzersiz olması gerekir, böylece kendi adını belirtin. Aşağıdaki örnek adlı bir depolama hesabı oluşturur *mystorageaccount*:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -117,7 +117,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-Depolama hesabına erişimi denetlemek için depolama anahtarla elde [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#list) gibi:
+Depolama hesabına erişimi denetlemek için depolama anahtarla elde [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#az_storage_account_keys_list) gibi:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -126,7 +126,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-Karşıya yüklediğiniz VHD'ler mantıksal olarak ayırmak için depolama hesabıyla içinde bir kapsayıcı oluşturmak [az depolama kapsayıcısı oluşturmak](/cli/azure/storage/container#create):
+Karşıya yüklediğiniz VHD'ler mantıksal olarak ayırmak için depolama hesabıyla içinde bir kapsayıcı oluşturmak [az depolama kapsayıcısı oluşturmak](/cli/azure/storage/container#az_storage_container_create):
 
 ```azurecli
 az storage container create \
@@ -135,7 +135,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-Son olarak, VHD ile karşıya [az depolama blob karşıya yükleme](/cli/azure/storage/blob#upload) gibi:
+Son olarak, VHD ile karşıya [az depolama blob karşıya yükleme](/cli/azure/storage/blob#az_storage_blob_upload) gibi:
 
 ```azurecli
 az storage blob upload \
@@ -148,7 +148,7 @@ az storage blob upload \
 
 
 ## <a name="create-vm-from-your-vhd"></a>VM, VHD'den oluştur
-Bir VM ile oluşturabileceğiniz bir [örnek komut dosyası](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) veya doğrudan [az vm oluşturma](/cli/azure/vm#create). Karşıya yüklediğiniz OpenBSD VHD belirtmek için kullanın `--image` şekilde parametre:
+Bir VM ile oluşturabileceğiniz bir [örnek komut dosyası](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) veya doğrudan [az vm oluşturma](/cli/azure/vm#az_vm_create). Karşıya yüklediğiniz OpenBSD VHD belirtmek için kullanın `--image` şekilde parametre:
 
 ```azurecli
 az vm create \

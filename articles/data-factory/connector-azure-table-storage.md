@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fde85936760a167f1da2289ac1d18e97df7c9c04
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Table depolama gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Azure depolama bağlı hizmeti hesap anahtarı kullanarak oluşturabilirsiniz. G
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlamak **AzureStorage**. |Evet |
-| connectionString | ConnectionString özelliği için depolama alanına bağlanmak için gereken bilgileri belirtin. Bu alan SecureString işaretleyin. |Evet |
+| connectionString | ConnectionString özelliği için depolama alanına bağlanmak için gereken bilgileri belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -93,7 +93,7 @@ Hizmet paylaşılan erişim imzası kimlik doğrulaması kullanmak için aşağ�
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlamak **AzureStorage**. |Evet |
-| sasUri | Blob, kapsayıcı ya da tablo gibi depolama kaynakları için paylaşılan erişim imzası URI belirtin. Bu alan SecureString işaretleyin. |Evet |
+| sasUri | Blob, kapsayıcı ya da tablo gibi depolama kaynakları için paylaşılan erişim imzası URI belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -272,7 +272,7 @@ Taşıdığınızda veri Azure Table, aşağıdaki gelen ve giden [Azure Table t
 | Edm.Binary |Byte] |Bir bayt dizisi en çok 64 KB. |
 | Edm.Boolean |bool |Bir Boole değeri. |
 | Edm.DateTime |Tarih Saat |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı, 1 Ocak 1601 gece yarısı başlar (C.E.), UTC. Aralık 31 Aralık 9999 sonlandırır. |
-| Edm.Double |double |Bir 64-bit kayan noktalı değeri. |
+| Edm.Double |Çift |Bir 64-bit kayan noktalı değeri. |
 | Edm.Guid |Guid |128-bit bir genel benzersiz tanımlayıcısı. |
 | Edm.Int32 |Int32 |Bir 32 bit tamsayı. |
 | Edm.Int64 |Int64 |64 bitlik bir tamsayı. |

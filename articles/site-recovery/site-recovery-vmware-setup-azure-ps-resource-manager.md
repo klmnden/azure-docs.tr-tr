@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/19/2017
 ms.author: anoopkv
-ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1b75acb13ac4c8990f99f7454a6de5483f6ca2f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Azure (Kaynak Yöneticisi) çalışan bir işlem sunucusu yönetme
 > [!div class="op_single_selector"]

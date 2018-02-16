@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>Etkinlik günlüğü uyarı oluşturma
 
 ## <a name="overview"></a>Genel Bakış
 Etkinlik günlüğü uyarıları uyarıda belirtilen koşullara uyan yeni bir etkinlik günlüğü olay ortaya çıktığında, etkinleştirme uyarılar. Bunlar Azure kaynaklarını; dolayısıyla bir Azure Resource Manager şablonu kullanılarak oluşturulabilir. Bunlar ayrıca oluşturulabilir, güncelleştirilmiş veya Azure portalında silindi. Bu makalede, etkinlik günlüğü uyarıları kavramları tanıtır. Bunu daha sonra etkinlik günlüğü olaylarını üzerinde bir uyarı ayarlamak için Azure Portalı'nı kullanmayı gösterir.
+
+> [!NOTE]
+
+>  [Uyarıları (Önizleme)](monitoring-overview-unified-alerts.md) şu anda oluşturma ve etkinliği günlüklerini yönetme Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
 
 Genellikle, etkinlik bildirimleri almak için günlük uyarı oluşturma zaman:
 
@@ -43,15 +47,13 @@ Herhangi bir üst düzey özelliği JSON nesnesinde bir etkinlik günlüğü ola
 - **Durum**: genellikle başlatıldı, başarısız veya başarılı oldu olayın durumu.
 - **Olayı başlatan tarafından**: olarak da bilinen "çağırıcı." E-posta adresi veya işlemi gerçekleştiren kullanıcının Azure Active Directory tanıtıcısı.
 
->[!NOTE]
->Yukarıdaki ölçütlerden en az iki Uyarınız, kategori olan biriyle belirtmeniz gerekir. Etkinlik günlüklerde her bir olay oluşturulduğunda etkinleştiren bir uyarı oluşturamazsınız.
->
->
+> [!NOTE]
+> Kategori "Yönetici" olduğunda, önceki ölçüt en az biri, Uyarınız belirtmeniz gerekir. Etkinlik günlüklerde her bir olay oluşturulduğunda etkinleştiren bir uyarı oluşturamazsınız.
 
 Bir etkinlik günlüğü uyarı etkinleştirildiğinde, Eylemler veya bildirimleri oluşturmak için bir eylem grubu kullanır. Bir eylem grubu yeniden kullanılabilir e-posta adresleri gibi bildirim alıcıları Web kancası URL'leri ya da SMS telefon numaralarının kümesidir. Alıcılar merkezileştirmek ve bildirim kanallarını grup için birden çok uyarı başvurulabilir. Etkinlik günlüğü Uyarınız tanımlamak için iki seçeneğiniz vardır. Şunları yapabilirsiniz:
 
-* Varolan bir eylem Grup etkinlik günlüğü Uyarınız kullanın. 
-* Yeni bir eylem grubu oluşturun. 
+* Varolan bir eylem Grup etkinlik günlüğü Uyarınız kullanın.
+* Yeni bir eylem grubu oluşturun.
 
 Eylem grupları hakkında daha fazla bilgi için bkz: [oluşturma ve Eylem grupları Azure portalında yönetmek](monitoring-action-groups.md).
 

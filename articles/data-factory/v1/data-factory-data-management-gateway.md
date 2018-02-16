@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f83b3568cf5c6ad0650f2289263d855ab395772
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
 > Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [tümleştirmesi çalışma zamanı sürüm 2'kendi kendini barındıran](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Veri Yönetimi ağ geçidi Self-hosted tümleştirmesi çalışma zamanı şimdi rebranded.  
 
 Veri Yönetimi ağ geçidi kopyalamak için şirket içi ortamınızda yüklemelisiniz bir istemci aracısıdır Bulut ve şirket içi veri depoları arasında veri. Data Factory ile desteklenen depoları içinde listelenen şirket içi veri [desteklenen veri kaynakları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) bölümü.
 
@@ -188,7 +191,7 @@ Veri Yönetimi ağ geçidi ana bilgisayar hizmeti, güncelleştirilen proxy ayar
 Görüntülemek veya proxy ayarlarını güncelleştirmek istiyorsanız, ağ geçidi başarıyla, kaydedildikten sonra veri yönetimi ağ geçidi Yapılandırma Yöneticisi'ni kullanın.
 
 1. Başlatma **veri yönetimi ağ geçidi Yapılandırma Yöneticisi**.
-2. Geçiş **ayarları** sekmesi.
+2. **Ayarlar** sekmesine geçin.
 3. Tıklatın **değişiklik** bağlamak **HTTP Proxy** başlatmak için bölüm **Set HTTP Proxy** iletişim.  
 4. Tıklattıktan sonra **sonraki** düğmesi, proxy ayarı kaydetmek ve ağ geçidi ana bilgisayar hizmeti yeniden başlatmak için izninizi isteyen bir uyarı iletişim kutusu görürsünüz.
 

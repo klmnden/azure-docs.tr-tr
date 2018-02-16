@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API için Azure Cosmos DB .NET SDK: indirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/18/2017
 
 <tr><td>**Örnekler**</td><td>[.NET kodu örnekleri](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Kullanmaya başlama**</td><td>[Azure Cosmos DB .NET SDK ile çalışmaya başlama](sql-api-get-started.md)</td></tr>
+<tr><td>Kullanmaya başlama</td><td>[Azure Cosmos DB .NET SDK ile çalışmaya başlama](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Web uygulaması Öğreticisi**</td><td>[Azure Cosmos DB ile Web uygulaması geliştirme](sql-api-dotnet-application.md)</td></tr>
 
@@ -53,6 +53,14 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
+
+* Regresyon sabit nerede FeedOptions.MaxItemCount = -1 bir System.ArithmeticException oluşturdu: sayfa boyutu negatiftir.
+* Yeni bir ToString() işlevini QueryMetrics için eklendi.
+* Bölüm istatistikleri okuma koleksiyonlar üzerinde açık.
+* Eklenen PartitionKey özelliğine ChangeFeedOptions.
+* İkincil hata düzeltmeleri.
+
 ### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
 
 * Üzerinde DocumentCollection UniqueKeyPolicy özelliğini kullanarak belgeler için benzersiz dizin belirtme olanağı ekler.
@@ -264,7 +272,7 @@ ms.lasthandoff: 12/18/2017
 * Eklenen UDF LINQ destekler.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA SDK'SI
+* GA SDK
 
 ## <a name="release--retirement-dates"></a>Yayın & sona erme tarihleri
 Microsoft'un sağladığı bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
@@ -277,6 +285,7 @@ Kullanımdan Kaldırılan SDK kullanarak Azure Cosmos DB yapılan tüm isteklere
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.20.1](#1.20.1) |05 Şubat 2018 |--- |
 | [1.19.1](#1.19.1) |16 Kasım 2017 |--- |
 | [1.19.0](#1.19.0) |10 Kasım 2017 |--- |
 | [1.18.1](#1.18.1) |07 Kasım 2017 |--- |

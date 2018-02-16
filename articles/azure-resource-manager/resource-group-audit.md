@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Kaynakları eylemlerini denetlemek için etkinlik günlüklerini görüntüle
 Etkinlik günlükleri, belirleyebilirsiniz:
@@ -29,7 +29,11 @@ Etkinlik günlükleri, belirleyebilirsiniz:
 * İşlem durumu
 * İşlemi yardımcı olabilecek diğer özelliklerin değerlerine araştırma
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+Etkinlik günlüğü kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir. Okuma işlemleri (GET) içermez. Kaynak eylemler listesi için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](../active-directory/role-based-access-control-resource-provider-operations.md). Denetim günlüklerini hata sorunlarını giderirken bulmak için veya bir kullanıcı, kuruluşunuzdaki bir kaynak nasıl değişiklik izlemek için kullanabilirsiniz.
+
+Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi geçmiş 90 günden fazla değil sürece herhangi bir tarih aralığı için sorgulayabilirsiniz.
+
+
 
 PowerShell, Azure CLI, Öngörüler REST API'si, portal üzerinden etkinlik günlüklerindeki bilgi almak veya [Öngörüler .NET kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 

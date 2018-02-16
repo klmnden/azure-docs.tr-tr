@@ -3,7 +3,7 @@ title: "Azure günlük analizi DNS Analytics çözümde | Microsoft Docs"
 description: "Ayarlama ve güvenlik, performans ve işlem DNS altyapısı Öngörüler toplamak için günlük analizi DNS analiz çözümü kullanın."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
-ms.author: banders
-ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.author: magoedte
+ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS altyapınızın DNS Analytics Önizleme çözümü ile ilgili Öngörüler toplayın
 
@@ -145,7 +145,7 @@ Bilgileri belirlemenize yardımcı olabilir:
 
 **Örnek DDI analitik sorguları**. Ham analiz verileri doğrudan fetch en yaygın arama sorguları listesini içerir.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Örnek sorgular](./media/log-analytics-dns/queries.png)
 

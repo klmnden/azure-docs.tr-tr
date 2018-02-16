@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümlerden ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -190,7 +190,7 @@ Media Services artık isteğe bağlı ve canlı akış Widevine modüler DRM tek
 
 Daha fazla bilgi için bkz: [bu blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
-Kullanabileceğiniz [Media Services .NET SDK'sı](https://www.nuget.org/packages/windowsazure.mediaservices/) (3.5.1 sürümünden başlayarak) veya AssetDeliveryConfiguration Widevine kullanacak şekilde yapılandırmak için REST API. 
+AssetDeliveryConfiguration’ı Widevine kullanacak şekilde yapılandırmak için [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (3.5.1 sürümünden başlayarak) veya REST API'yi kullanabilirsiniz. 
 * Media Services Apple ProRes videolar desteği eklendi. Artık Apple ProRes veya diğer codec bileşenleri kullanan QuickTime kaynak videoları dosyalarınız karşıya yükleyebilirsiniz. Daha fazla bilgi için bkz: [bu blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 * Artık Medya Kodlayıcısı standart subclipping ve canlı arşiv ayıklama yapmak için kullanabilirsiniz. Daha fazla bilgi için bkz: [bu blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Aşağıdaki filtre güncelleştirmeleri yapıldı: 
@@ -348,8 +348,8 @@ Media Services REST meta veri sürümü 2.7 sunulmuştur. En son KALAN güncelle
 * Canlı akış Önizleme. Daha fazla bilgi için bkz: [iş Media Services ile canlı akış](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Anahtar teslim hizmeti. Daha fazla bilgi için bkz: [kullanım AES-128 dinamik şifreleme ve anahtar teslim hizmeti](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * AES dinamik şifreleme. Daha fazla bilgi için bkz: [kullanım AES-128 dinamik şifreleme ve anahtar teslim hizmeti](http://msdn.microsoft.com/library/azure/dn783457.aspx).
-* PlayReady lisans teslimat hizmeti. Daha fazla bilgi için bkz: [kullanım PlayReady dinamik şifreleme ve lisans teslimat hizmeti](http://msdn.microsoft.com/library/azure/dn783467.aspx).
-* PlayReady dinamik şifreleme. Daha fazla bilgi için bkz: [kullanım PlayReady dinamik şifreleme ve lisans teslimat hizmeti](http://msdn.microsoft.com/library/azure/dn783467.aspx).
+* PlayReady lisans teslimat hizmeti. 
+* PlayReady dinamik şifreleme. 
 * Medya Hizmetleri PlayReady lisans şablonu. Daha fazla bilgi için bkz: [Media Services PlayReady lisans şablonu genel bakış].
 * Akış depolama şifrelenmiş varlıklar. Daha fazla bilgi için bkz: [depolama şifrelenmiş içerik akışı](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
@@ -457,25 +457,25 @@ Aşağıdaki değişiklikler dahil edilen Haziran 2013'te Media Services SDK'sı
 * 2.3.0.0 sürümünden başlayarak, birden çok depolama bağlama Media Services SDK'sı destekler hesapları bir Media Services hesabı. Bu özellik aşağıdaki API'leri destekler:
   
     * IStorageAccount türü
-    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts özelliği
+    * Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property
     * StorageAccount özelliği
     * StorageAccountName özelliği
   
     Daha fazla bilgi için bkz: [Media Services'ı Yönet varlıklar birden çok depolama hesapları arasında](http://msdn.microsoft.com/library/azure/dn271889.aspx).
 * Bildirim ilgili API'ler. 2.2.0.0 sürümünden başlayarak, Azure kuyruk depolama bildirimleri göndermek için dinleme. Daha fazla bilgi için bkz: [işlemek Media Services iş bildirimleri](http://msdn.microsoft.com/library/azure/dn261241.aspx).
   
-    * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions özelliği
-    * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint türü
-    * Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription türü
-    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection türü
-    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType türü
+    * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
+    * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type
+    * Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription type
+    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection type
+    * Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType type
 * Depolama istemcisi SDK 2.0 (Microsoft.WindowsAzure.StorageClient.dll) bağımlılığı
 * OData 5.5 (Microsoft.Data.OData.dll) bağımlılığı
 
 ## <a id="december_changes_12"></a>Kasım 2012 sürüm
 ### <a name="dec_12_dotnet_changes"></a>Media Services .NET SDK'sı değişiklikleri
 * IntelliSense: Birçok türü için IntelliSense belgeleri eksik eklendi.
-* Microsoft.Practices.TransientFaultHandling.Core: Burada SDK bu derleme eski bir sürümü için bir bağımlılık hala sahip bir sorun giderilmiştir. SDK'sı, artık bu derleme sürümüne 5.1.1209.1 başvuruyor.
+* Microsoft.Practices.TransientFaultHandling.Core: An issue was fixed where the SDK still had a dependency to an old version of this assembly. SDK'sı, artık bu derleme sürümüne 5.1.1209.1 başvuruyor.
 
 Kasım 2012'de SDK bulunan sorunları giderir:
 
@@ -489,7 +489,7 @@ Kasım 2012'de SDK bulunan sorunları giderir:
 * IAssetFile.DownloadAsync: Beş dosyalara dosyaların eş zamanlı indirme sınırlı bir sorun giderilmiştir.
 * IAssetFile.Delete(): Hiçbir dosya için IAssetFile karşıya yüklediyseniz arama silme bir özel durum burada throw bir sorun giderilmiştir.
 * İşlerini: Burada bir proje şablonu kullanarak bir "MP4 kesintisiz akışlara görev için" "PlayReady koruma görevini" ile zincirleme herhangi bir görevi hiç oluşturmamışsınızdır bir sorun giderilmiştir.
-* EncryptionUtils.GetCertificateFromStore(): Bu yöntem artık sertifika yapılandırma sorunlarını göre sertifikayı bulma hatası nedeniyle bir null başvuru özel durumu oluşturur.
+* EncryptionUtils.GetCertificateFromStore(): This method no longer throws a null reference exception due to a failure in finding the certificate based on certificate configuration issues.
 
 ## <a id="november_changes_12"></a>Kasım 2012 sürüm
 Bu bölümde belirtilen değişiklikleri Kasım 2012'de (sürüm 2.0.0.0) bulunan güncelleştirmeleri olan SDK. Bu değişiklikler SDK sürüm yeniden yazılmıştır veya değiştirilecek Haziran 2012 Önizleme için yazılmış herhangi bir kod gerektirebilir.
@@ -507,7 +507,7 @@ Bu bölümde belirtilen değişiklikleri Kasım 2012'de (sürüm 2.0.0.0) buluna
     * IAssetFile FileInfo değiştirir ve farklı bir davranışı vardır. Kullanmak için ya da Media Services SDK'sı veya depolama SDK'sını kullanarak bir dosyayı karşıya yükleyin ve ardından IAssetFiles nesne örneği oluşturur. Aşağıdaki IAssetFile.Upload aşırı kullanılabilir:
   
         * IAssetFile.Upload(filePath): İş parçacığı bu zaman uyumlu yöntemi engeller ve yalnızca tek bir dosyayı karşıya yüklediğinizde bu önerilir.
-        * IAssetFile.UploadAsync (filePath, blobTransferClient, Bulucu, cancellationToken): Bu zaman uyumsuz yöntem tercih edilen karşıya yükleme mekanizmadır. 
+        * IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): This asynchronous method is the preferred upload mechanism. 
     
             Bilinen hata: iptal belirteci kullanırsanız, karşıya yükleme iptal edildi. Görevleri birçok iptal durumlar olabilir. Düzgün catch ve özel durumları işleme gerekir.
 * Bulucular
@@ -542,8 +542,8 @@ Aşağıdaki işlevleri SDK Kasım sürümündeki yeni:
 [Azure Media Services MSDN Forumu]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure Media Services REST API Başvurusu]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services fiyatlandırma ayrıntıları]: http://azure.microsoft.com/pricing/details/media-services/
-[Giriş meta verileri]: http://msdn.microsoft.com/library/azure/dn783120.aspx
-[Çıkış meta verileri]: http://msdn.microsoft.com/library/azure/dn783217.aspx
+[giriş meta veri]: http://msdn.microsoft.com/library/azure/dn783120.aspx
+[çıkış meta verileri]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Index media files with the Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
@@ -551,14 +551,14 @@ Aşağıdaki işlevleri SDK Kasım sürümündeki yeni:
 [Use AES-128 dynamic encryption and the key delivery service]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [Use PlayReady dynamic encryption and the license delivery service]: http://msdn.microsoft.com/library/azure/dn783467.aspx
 [Preview features]: http://azure.microsoft.com/services/preview/
-[Media Services PlayReady lisans şablonuna genel bakış]: http://msdn.microsoft.com/library/azure/dn783459.aspx
+[Media Services PlayReady lisans şablonu genel bakış]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Stream storage-encrypted content]: http://msdn.microsoft.com/library/azure/dn783451.aspx
 [Azure portal]: https://portal.azure.com
 [Dinamik paketleme]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
 [.NET için Media Services SDK'sı mantığı yeniden dene]: http://msdn.microsoft.com/library/azure/dn745650.aspx
-[EDIUS bulut üzerinden akış 7 Çimen vadisi bildirdi]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Çimen vadisi bildirdi EDIUS bulut üzerinden akış 7]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: http://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: http://msdn.microsoft.com/library/azure/dn640504.aspx

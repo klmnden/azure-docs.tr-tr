@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure yük dengeleyici standart genel bakış (Önizleme)
 
 Azure yük dengeleyici standart SKU ve ortak IP standart SKU birlikte düzeyde ölçeklenebilir ve güvenilir mimarileri oluşturmanıza olanak sağlar. Yük Dengeleyici standart kullanan uygulamaları yeni özelliklerinden yararlanabilir. Düşük gecikme, yüksek verimlilik ve ölçek milyonlarca akışları tüm TCP ve UDP uygulamaları için kullanılabilir.
 
 >[!NOTE]
-> Yük Dengeleyici standart SKU şu anda önizlemede değil. Genel kullanılabilirlik özellikleri serbest olarak Önizleme sırasında aynı düzeyde kullanılabilirlik ve güvenilirlik özelliği sahip olmayabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel olarak kullanılabilir kullanmak [yük dengeleyici temel SKU](load-balancer-overview.md) üretim hizmetleriniz için. Bu önizleme ile ilişkili özellikler [kullanılabilirlik bölgeleri](https://aka.ms/availabilityzones), ve [HA bağlantı noktaları](https://aka.ms/haports), şu anda kaydolma ayrı gerektirir. İlgili yönergeleri için yük dengeleyici için kaydolan ek olarak, bu özellik için kaydolma [Standard Önizleme](#preview-sign-up).
+> Yük Dengeleyici standart SKU şu anda önizlemede değil. Genel kullanılabilirlik özellikleri serbest olarak Önizleme sırasında aynı düzeyde kullanılabilirlik ve güvenilirlik özelliği sahip olmayabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel olarak kullanılabilir kullanmak [yük dengeleyici temel SKU](load-balancer-overview.md) üretim hizmetleriniz için. Kullanmak için [kullanılabilirlik bölgeleri Önizleme](https://aka.ms/availabilityzones) bu önizlemede gerektiren bir [ayrı kaydolma](https://aka.ms/availabilityzones), yük dengeleyici için kaydolan yanı sıra [Standard Önizleme](#preview-sign-up).
 
 ## <a name="why-use-load-balancer-standard"></a>Neden yük dengeleyici standart kullanılsın mı?
 
@@ -325,13 +325,11 @@ SKU'ları değişebilir değildir. SKU bir kaynak grubundan diğerine taşımak 
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-Yük Dengeleyici standart bu bölgelerde şu anda kullanılabilir değil:
-- Doğu ABD 2
-- Orta ABD
-- Kuzey Avrupa
-- Batı Orta ABD
-- Batı Avrupa
-- Güneydoğu Asya
+Yük Dengeleyici standart tüm genel bulut bölgelerde şu anda kullanılabilir değil.
+
+>[!IMPORTANT]
+> Kısa bir süre boyunca, erişim bölgeler (Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Orta ABD, Batı Avrupa, Güneydoğu Asya) bölgelere ilk başlatma dışında ek abonelik özellikleri kaydını gerektirir (AllowLBPreviewWave2 ve AllowLBPreviewWave3).  [Lütfen aşağıdaki adımları izleyin](#additionalpreviewregions). Lütfen, daha önce AllowLBPreview için zaten bile kaydolduysanız bunların tümünün yürütün.
+> Bu gereksinim, önümüzdeki haftalarda kaldırılır.
 
 ## <a name="sku-service-limits-and-abilities"></a>SKU hizmet sınırları ve yetenekleri
 
@@ -369,7 +367,12 @@ Aşağıdaki tabloda sınırları ve ortak IP temel ve standart SKU'ları yetene
 Yük Dengeleyici standart SKU ve ortak IP standart SKU Yardımcısı için Önizleme'na katılmak için aboneliğinizi kaydedin.  PowerShell veya Azure CLI 2.0, abonelik erişmenizi kaydediliyor. Kaydetmek için aşağıdaki adımları gerçekleştirin:
 
 >[!NOTE]
->Yük Dengeleyici standart özelliğinin kayıt saate genel geçerlilik kazanacağını kadar sürebilir. Yük Dengeleyici standart ile kullanmak istiyorsanız, [kullanılabilirlik bölgeleri](https://aka.ms/availabilityzones) ve [HA bağlantı noktaları](https://aka.ms/haports), bu Önizleme için kaydolma ayrı bir gereklidir. İlgili yönergeleri için bu özellikleri kaydolun.
+>Yük Dengeleyici standart özelliğinin kayıt saate genel geçerlilik kazanacağını kadar sürebilir. Yük Dengeleyici standart ile kullanmak istiyorsanız, [kullanılabilirlik bölgeleri](https://aka.ms/availabilityzones), [ayrı kaydolma](https://aka.ms/availabilityzones) AZ Önizleme için gereklidir.
+
+<a name="additionalpreviewregions"></a>
+>[!IMPORTANT]
+> Bölgeler ilk başlatma dışında kısa bir süre boyunca, erişimi bölgeler (Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Orta ABD, Batı Avrupa, Güneydoğu Asya) gerektiren ek abonelik özellikleri kaydını (AllowLBPreviewWave2 ve AllowLBPreviewWave3).  Ek abonelik özellikleri etkinleştirmek için aşağıdaki adımları değiştirildi. Lütfen, daha önce AllowLBPreview için zaten bile kaydolduysanız bunların tümünün yürütün. Bu gereksinim, önümüzdeki haftalarda kaldırılır.
+
 
 ### <a name="sign-up-by-using-azure-cli-20"></a>Azure CLI 2.0 kullanarak kaydolun
 
@@ -377,15 +380,19 @@ Yük Dengeleyici standart SKU ve ortak IP standart SKU Yardımcısı için Öniz
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
+    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
     ```
     
 2. İşlemi tamamlamak için 10 dakika sürebilir. Aşağıdaki komutla işlemin durumunu denetleyebilirsiniz:
 
     ```cli
-    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
+    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
     ```
     
-    Özellik kayıt durumu 'Kayıtlı' döndürdüğünde sonraki adıma devam edin:
+    Özellik kayıt durumu 'Kayıtlı' her Yukarıdaki Abonelik özellikleri için geri döndüğünde sonraki adıma devam edin. Örnek:
    
     ```json
     {
@@ -398,28 +405,33 @@ Yük Dengeleyici standart SKU ve ortak IP standart SKU Yardımcısı için Öniz
     }
     ```
     
-3. Önizleme kayıt kaynak sağlayıcısı aboneliğinizle yeniden kaydederek tamamlayın:
+4. Önizleme kayıt kaynak sağlayıcısı aboneliğinizle yeniden kaydederek tamamlayın:
 
     ```cli
     az provider register --namespace Microsoft.Network
     ```
     
+
 ### <a name="sign-up-by-using-powershell"></a>PowerShell kullanarak kaydolun
 
 1. Bu özellik sağlayıcı ile Kaydet:
 
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
     
 2. İşlemi tamamlamak için 10 dakika sürebilir. Aşağıdaki komutla işlemin durumunu denetleyebilirsiniz:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
     ```
 
-    Özellik kayıt durumu 'Kayıtlı' döndürdüğünde sonraki adıma devam edin:
-   
+  Özellik kayıt durumu 'Kayıtlı' her Yukarıdaki Abonelik özellikleri için geri döndüğünde sonraki adıma devam edin. Örnek:
+
     ```
     FeatureName      ProviderName        RegistrationState
     -----------      ------------        -----------------
@@ -450,11 +462,14 @@ Aşağıdaki sınırlamalar Önizleme aynı anda uygulamak ve değiştirilebilir
 - IPv6 desteklenmez.
 - Kullanılabilirlik bölgeleri bağlamında bir ön uç için bölge olarak yedekli veya tersi gelen zonal değişebilir değil. Bir ön uç bölge olarak yedekli oluşturulduktan sonra bölge olarak yedekli kalır. Bir ön uç olarak zonal oluşturulduktan sonra zonal kalır.
 - Kullanılabilirlik bölgeleri bağlamında zonal bir genel IP adresi bir bölgesinden diğerine taşınamaz.
+- [Azure uyarıları izleme](../monitoring-and-diagnostics/monitoring-overview-alerts.md) şu anda desteklenmiyor.
+- Portal genişletilmiş Önizleme bölgelerde henüz desteklemiyor.  Şablonlar, Azure CLI 2.0 veya geçici bir çözüm olarak PowerShell gibi istemci araçlarını kullanın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinmek [yük dengeleyici temel](load-balancer-overview.md).
 - Daha fazla bilgi edinmek [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md).
+- Daha fazla bilgi edinmek [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).
 - Başka bir anahtar bazıları hakkında bilgi edinin [ağı yetenekleri](../networking/networking-overview.md) azure'da.
-
+- Hakkında bilgi edinin [kullanıma sunulan ölçümler](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) içinde [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md).

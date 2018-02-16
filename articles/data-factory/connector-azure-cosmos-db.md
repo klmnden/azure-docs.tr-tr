@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1114fd272bd16d17fbeb382b0f374a69dc74916a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Veri ya da Azure Cosmos Azure Data Factory kullanarak DB'den kopyalayın
 
@@ -54,7 +54,7 @@ Aşağıdaki özellikler, Azure Cosmos DB bağlantılı hizmeti için destekleni
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **CosmosDb**. | Evet |
-| connectionString |Azure Cosmos DB veritabanına bağlanmak için gereken bilgileri belirtin. Aşağıda örnek olarak bağlantı dizesinde veritabanı bilgisi belirtmek zorunda unutmayın. Bu alan bir SecureString işaretleyin. |Evet |
+| connectionString |Azure Cosmos DB veritabanına bağlanmak için gereken bilgileri belirtin. Aşağıda örnek olarak bağlantı dizesinde veritabanı bilgisi belirtmek zorunda unutmayın. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**

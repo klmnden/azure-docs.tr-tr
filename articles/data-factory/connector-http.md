@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 888b75ad16a3835ca988dd9aa6a146cc26e6370a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Azure Data Factory kullanarak HTTP uç noktasından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Kümesine "authenticationType" özelliği **temel**, **Özet**, veya **Windows**
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | Kullanıcı adı | HTTP uç noktasına erişmek için kullanıcı adı. | Evet |
-| password | (Kullanıcı adı) kullanıcının parolası. Bu alan SecureString işaretleyin. | Evet |
+| password | (Kullanıcı adı) kullanıcının parolası. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Örnek**
 
@@ -100,7 +100,7 @@ ClientCertificate kimlik doğrulamasını kullanmak için "authenticationType" �
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 ile kodlanmış sertifika verileri. | Belirtin `embeddedCertData` veya `certThumbprint`. |
 | certThumbprint | Sertifikanın parmak izi Self-hosted tümleştirmesi çalışma zamanı makinenizin sertifika deposunda yüklü. Yalnızca kendi kendini barındıran türü Integration zamanının içinde connectVia belirtildiğinde geçerlidir. | Belirtin `embeddedCertData` veya `certThumbprint`. |
-| password | Sertifikayla ilişkili parola. Bu alan SecureString işaretleyin. | Hayır |
+| password | Sertifikayla ilişkili parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 
 "Certthumbprınt" için kimlik doğrulaması kullanıyorsanız ve sertifika yerel bilgisayarın kişisel depoda yüklü Self-hosted tümleştirmesi çalışma zamanı için okuma izni vermeniz gerekir:
 

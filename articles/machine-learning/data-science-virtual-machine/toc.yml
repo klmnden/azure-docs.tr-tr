@@ -1,4 +1,5 @@
 - name: Veri Bilimi Sanal Makineleriyle ilgili belgeler
+  href: index.yml
   items: null
 - name: Genel Bakış
   expanded: true
@@ -17,7 +18,7 @@
       href: linux-dsvm-intro.md
     - name: Derin Öğrenme VM’si oluşturma
       href: provision-deep-learning-dsvm.md
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Windows Veri Bilimi VM’si kullanma
       href: vm-do-ten-things.md

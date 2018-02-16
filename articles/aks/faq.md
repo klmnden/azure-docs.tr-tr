@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 2/01/2018
 ms.author: nepeters
-ms.openlocfilehash: 2b78479c257930669729a7781b3893b3e2064bab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) hakkında sık sorulan sorular
 
@@ -50,7 +50,15 @@ Düğüm otomatik ölçeklendirmeyi desteklenmez, ancak yol haritası üzerinde 
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Neden iki kaynak grubu ile AKS oluşturulur? 
 
-İkinci kaynak grubu kolay silinmesini AKS dağıtımı ile ilişkili tüm kaynaklar için otomatik olarak oluşturulur.
+Her Azure kapsayıcı hizmeti (AKS) küme iki kaynak grubunda yer alıyor. İlk oluşturulur ve yalnızca AKS kaynak içerir. İkinci kaynak grubu olduğundan otomatik olarak dağıtım sırasında oluşturulan ve VM gibi tüm küme infrastructural kaynaklarını içeren ağ ve depolama kaynakları. Bu kaynak grubu için kolay kaynak temizleme oluşturulur. 
+
+Otomatik oluşturulan kaynak grubu için benzer bir adı vardır:
+
+```
+MC_myResourceGRoup_myAKSCluster_eastus
+```
+
+Depolama hesapları veya ayrılmış genel IP adresi gibi Kubernetes kümesi ile kullanılacak Azure kaynaklarını eklerken, bu kaynakları otomatik olarak oluşturulan kaynak grubu içinde oluşturulması gerekir.   
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure anahtar kasası AKS ile tümleştirilir? 
 

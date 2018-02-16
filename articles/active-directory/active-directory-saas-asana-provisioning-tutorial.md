@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: d72b5aa352a9c6724e801c1741969525387f6b90
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: c2c9588e6c452714edcc594c05c59ed05f3c6666
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Öğretici: Asana otomatik kullanıcı sağlamayı yapılandırın
 
@@ -93,7 +93,7 @@ Bu bölümde, Azure AD Asana kullanıcı hesabına API sağlama konusunda size r
 
 12. **Kaydet**’i seçin. 
 
-Asana atanan kullanıcılar için ilk eşitleme başlar şimdi **kullanıcılar** bölümü. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik raporları sağlamak için bağlantıları izleyin. Raporları Asana uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
+Asana atanan kullanıcılar için ilk eşitleme başlar şimdi **kullanıcılar** bölümü. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlükleri sağlamak için bağlantıları izleyin. Denetim günlüklerini Asana uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
 
 Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [rapor otomatik olarak bir kullanıcı hesabı sağlama](active-directory-saas-provisioning-reporting.md).
 

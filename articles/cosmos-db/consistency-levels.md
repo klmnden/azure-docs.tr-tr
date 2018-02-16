@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>İnce ayarlanabilir veri tutarlılık düzeylerini Azure Cosmos veritabanı
 Azure Cosmos DB sıfırdan yukarı genel dağıtım aklınızda her veri modeli için tasarlanmıştır. Tahmin edilebilir düşük gecikme süresi garanti ve birden çok iyi tanımlanmış gevşek tutarlılık modelleri sunmak üzere tasarlanmıştır. Şu anda Azure Cosmos DB beş tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı öneki ve son. En yüksek oranda tutarlı bir model kullanılabilir olan daha az tutarlılık daha güçlü, sağladıkları gibi sınırlanmış eskime durumu, oturum, tutarlı öneki ve nihai olan "gevşek tutarlılık modelleri olarak" gösteriyor. 
@@ -113,27 +113,31 @@ Varsayılan olarak, kullanıcı tanımlı, kaynaklar için sorgular için tutarl
 | Dizin oluşturma modu | Okur | Sorgular |
 | --- | --- | --- |
 | CONSISTENT (varsayılan) |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Güçlü, sınırlanmış eskime durumu, seçim oturumu veya son |
-| Geç |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Nihai |
-| None |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Uygulanamaz |
+| Lazy |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Nihai |
+| Hiçbiri |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Uygulanamaz |
 
 Olarak okuma istekleri ile her API belirli sorgu istekte tutarlılık düzeyine düşürebilirsiniz.
+
+## <a name="consistency-levels-for-the-mongodb-api"></a>MongoDB API için tutarlılık düzeyleri
+
+Azure Cosmos DB MongoDB iki tutarlılık ayarları, güçlü ve nihai olan sürüm 3.4, şu anda uygular. Azure Cosmos DB multi-API olduğundan, tutarlılık ayarlar hesap düzeyinde uygulanabilir ve tutarlılık zorlama her API tarafından denetlenir.  MongoDB 3.6 kadar oturum tutarlılığı kavramına oluştu oturum tutarlılığı kullanmak için MongoDB API hesabını ayarlarsanız, tutarlılık için son MongoDB API'leri kullanırken bir alt sürüme şekilde. Bilgisayarınızı-kendi-salt okunur garantisi MongoDB API hesabı için gerekiyorsa, hesap için varsayılan tutarlılık düzeyi strong ayarlanmalı veya sınırlanmış eskime durumu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tutarlılık düzeyleri ve bileşim hakkında daha fazla okuma yapmak istiyorsanız, aşağıdaki kaynaklara öneririz:
 
 * Doug Terry. Çoğaltılan verilerin tutarlılık Beyzbol (video) açıklanmıştır.   
-  [https://www.YouTube.com/Watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
+  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
 * Doug Terry. Çoğaltılan verilerin tutarlılık Beyzbol açıklanmıştır.   
-  [http://Research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.PDF](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * Doug Terry. Oturum garanti zayıf tutarlı çoğaltılan veriler için.   
-  [http://DL.ACM.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
+  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 * Daniel Abadi. Modern dağıtılmış veritabanı sistemleri tasarım tutarlılık bileşim: CAP Öykü yalnızca bir parçası olan ".   
-  [http://computer.org/CSDL/mags/co/2012/02/mco2012020037-Abs.HTML](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, nleri Stoica. İçin pratik kısmi çekirdekleri sınırlanmış eskime durumu (PBS) probabilistic.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.PDF](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. İçin pratik kısmi çekirdekleri sınırlanmış eskime durumu (PBS) probabilistic.   
+  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * Werner Vogels. Son tutarlı - tekrar ziyaret.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.HTML](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * Moni Naor, Avishai Wool, yükü, kapasitesi ve çekirdek sistemleri, bilgi işlem, v.27 n.2, p.423 447, Nisan 1998 SIAM günlük kullanılabilirliği.
-  [http://epubs.siam.org/doi/Abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
 * Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up: bir tam ve otomatik linearizability denetleyicisi, dil tasarım ve uygulama, Haziran 05-10, 2010, Toronto, Ontario programlama 2010 ACM SIGPLAN konferans bildirileri, Kanada [DOI > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein nleri Stoica Probabilistically eskime durumu pratik kısmi çekirdeklerine, VLDB Endowment v.5 n.8, p.776 787, Nisan 2012 bildirileri için sınırlı [http:// DL.ACM.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein , Ion Stoica, Probabilistically bounded staleness for practical partial quorums, Proceedings of the VLDB Endowment, v.5 n.8, p.776-787, April 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)

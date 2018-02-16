@@ -1,6 +1,6 @@
 ---
 title: "Azure'da çoğaltma kapasite tahmin | Microsoft Docs"
-description: "Azure Site Recovery ile çoğaltırken kapasitesini tahmin etmek için bu makaleyi kullanın"
+description: "Azure Site Recovery kullanarak çoğalttığınızda kapasitesini tahmin etmek için bu makaleyi kullanın"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,102 +14,120 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/09/2018
 ---
-Yeni gelişmiş sürümü [Hyper-V Azure için Azure Site Recovery dağıtımı Planlayıcısı](site-recovery-hyper-v-deployment-planner.md) kullanıma sunulmuştur ve eski aracı değiştirme. Yeni aracı, dağıtım planlama için kullanın. Aracı kılavuz sağlar:
-* Diskler, disk boyutu, IOPS, karmaşıklık ve birkaç VM özelliklerini sayısına göre VM uygunluk değerlendirmesi.
-* Ağ bant genişliği karşı RPO değerlendirmesi gerekir.
-* Azure altyapı gereksinimleri.
-* Şirket içi altyapı gereksinimleri.
-* İlk çoğaltma toplu işlem kılavuzu.
-* Azure toplam DR maliyetini tahmin.
-
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Hyper-V sanal makinelerini Site Recovery ile korunması için kapasite planlaması
 
-Azure Site kurtarma kapasite planlayıcısı aracı, Azure Site Recovery ile Hyper-V sanal makineleri çoğaltırken, kapasite gereksinimlerini anlamaya yardımcı olur.
+Yeni bir Gelişmiş sürümü [Hyper-V Azure dağıtımı için Azure Site kurtarma dağıtım Planlayıcısı](site-recovery-hyper-v-deployment-planner.md) kullanıma sunulmuştur. Bu, eski aracı yerini alır. Yeni aracı, dağıtım planlama için kullanın. Aracı aşağıdaki yönergeleri sağlar:
 
-Kaynak ortamınız ve iş yükleri analiz, bant genişliği gereksinimlerini ve sunucu kaynakları için kaynak konumu gerekir ve hedef konumda gereken kaynaklar (sanal makineler ve depolama vb.) tahmin etmek için Site kurtarma kapasite Planlayıcısı kullanın .
+* Diskler, disk boyutu, IOPS, karmaşıklık ve birkaç VM özelliklerini sayısına göre VM uygunluk değerlendirme
+* Ağ bant genişliği karşı RPO değerlendirmesi gerekir
+* Azure altyapı gereksinimleri
+* Şirket içi altyapı gereksinimleri
+* İlk çoğaltma Kılavuzu toplu işleme
+* Toplam olağanüstü durum kurtarma maliyeti Azure tahmini
 
-Aracı modları birkaç içinde çalıştırabilirsiniz:
 
-* **Hızlı planlama**: aracı ağ ve sunucu tahminleri almak için bu modda ortalama bir VM'ler, diskleri, depolama ve değişim oranı sayısına göre çalıştır.
-* **Planlama ayrıntılı**: Bu modda aracını çalıştırın ve her iş yükü VM düzeyinde ayrıntılarını sağlayın. VM uyumluluk çözümlemek ve ağ ve sunucu tahminleri alın.
+Azure Site kurtarma kapasite Planlayıcısı Azure Site Recovery ile Hyper-V sanal makineleri çoğaltırken, kapasite gereksinimlerini belirlemenize yardımcı olur.
+
+Kaynak ortamınız ve iş yükleri çözümlemek için site kurtarma kapasite Planlayıcı'ı kullanın. Bant genişliği gereksinimlerini tahmin etmenize yardımcı olur, kaynak konumu için ihtiyacınız olan sunucu kaynakları ve kaynakları (örneğin, Vm'leri ve depolama) hedef konumda gerekir.
+
+Aracı iki modda çalıştırabilirsiniz:
+
+* **Hızlı planlama**: ortalama bir VM'ler, diskleri, depolama ve değişim oranı sayısına göre ağ ve sunucu tahminler sunar.
+* **Planlama ayrıntılı**: her iş yükünün VM düzeyinde ayrıntıları sağlar. VM uyumluluk çözümlemek ve ağ ve sunucu tahminleri alın.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-
-1. VM'ler, VM, disk başına depolama başına diskler dahil olmak üzere ortamınız hakkında bilgi toplayın.
-2. Çoğaltılan veriler için günlük değişim (dalgalanma) oranı tanımlayın. Bunu yapmak için indirme [Hyper-V kapasite planlama aracı](https://www.microsoft.com/download/details.aspx?id=39057) değişim oranı alınamıyor. [Daha fazla bilgi edinin](site-recovery-capacity-planning-for-hyper-v-replication.md) bu araç hakkında. Bu aracı ortalamalar yakalamak için bir hafta içinde çalıştırmak öneririz.
+* VM'ler, VM, disk başına depolama başına diskler dahil olmak üzere ortamınız hakkında bilgi toplayın.
+* Çoğaltılan veriler için günlük değişim (dalgalanma) oranı tanımlayın. Karşıdan [Hyper-V kapasite planlama aracı](https://www.microsoft.com/download/details.aspx?id=39057) değişim oranı alınamıyor. [Daha fazla bilgi edinin](site-recovery-capacity-planning-for-hyper-v-replication.md) bu araç hakkında. Bu Aracı'nı ortalamalar yakalamak için bir hafta içinde çalıştırmanızı öneririz.
    
 
 ## <a name="run-the-quick-planner"></a>Hızlı Planlayıcısını çalıştırın
-1. Karşıdan yükleyip açmak [Azure Site kurtarma kapasite Planlayıcısı](http://aka.ms/asr-capacity-planner-excel) aracı. Makrolar, düzenleme etkinleştirmek ve istendiğinde içeriği etkinleştirmek için bu nedenle select çalıştırmanız gerekir.
-2. İçinde **Planlayıcısı türünü seçin** seçin **hızlı Planlayıcısı** liste kutusundan.
+1. Karşıdan yükleyip açmak [Site kurtarma kapasite Planlayıcısı](http://aka.ms/asr-capacity-planner-excel). Makroları çalıştırmanız gerekir. İstendiğinde, düzenlemeyi etkinleştir ve içerik için seçimlerinizi yapın.
 
-   ![Başlarken](./media/site-recovery-capacity-planner/getting-started.png)
-3. İçinde **kapasite Planlayıcısı** çalışma sayfası, gerekli bilgileri girin. Aşağıdaki ekran görüntüsünde kırmızı daire içinde tüm alanları doldurmanız gerekir.
+2. İçinde **Planlayıcısı türünü seçin** liste kutusunda seçin **hızlı Planlayıcısı**.
 
-   * İçinde **senaryonuz seçin**, seçin **Hyper-V Azure** veya **VMware/fiziksel Azure**.
-   * İçinde **ortalama günlük veri değişikliği oranı (%)**, bilgileri toplamak kullanarak put [Hyper-V kapasite planlama aracı](site-recovery-capacity-planning-for-hyper-v-replication.md) veya [Azure Site Recovery dağıtımı Planlayıcısı](./site-recovery-deployment-planner.md).  
-   * **Sıkıştırma** ayarı Hyper-V Vm'lerini Azure'a çoğaltırken kullanılan değil. Sıkıştırma için Riverbed gibi bir üçüncü taraf uygulaması kullanın.
-   * İçinde **bekletme girişleri**, ne kadar süreyle çoğaltmalar, saat tutulacağını belirtin.
-   * İçinde **sanal makinelerin toplu işlemi için hangi ilk çoğaltma saat sayısını tamamlamanız gereken** ve **ilk çoğaltma toplu iş başına sanal makine sayısını**, ilk çoğaltma gereksinimlerini hesaplamak için kullanılan ayarları girin.  Site Recovery dağıtıldığında, ilk veri kümesinin tamamını yüklenmelidir.
+   ![başlarken](./media/site-recovery-capacity-planner/getting-started.png)
+
+3. Üzerinde **kapasite Planlayıcısı** çalışma sayfası, gerekli bilgileri girin. Aşağıdaki ekran görüntüsü kırmızı daire içinde tüm alanları doldurun:
+
+   a. İçinde **senaryonuz seçin**, seçin **Hyper-V Azure** veya **VMware/fiziksel Azure**.
+
+   b. İçinde **ortalama günlük veri değişikliği oranı (%)**, toplamak kullanarak bilgi girin [Hyper-V kapasite planlama aracı](site-recovery-capacity-planning-for-hyper-v-replication.md) veya [Site Recovery dağıtımı Planlayıcısı](./site-recovery-deployment-planner.md). 
+
+   c. **Sıkıştırma** ayarı Hyper-V Vm'lerini Azure'a çoğaltırken kullanılan değil. Sıkıştırma için Riverbed gibi bir üçüncü taraf uygulaması kullanın.
+
+   d. İçinde **gün bekletme**, çoğaltmaları korumak için ne kadar gün olarak belirtin.
+
+   e. İçinde **sanal makinelerin toplu işlemi için hangi ilk çoğaltma saat sayısını tamamlamanız gereken** ve **ilk çoğaltma toplu iş başına sanal makine sayısını**, hesaplamak için kullanılan ayarlarını girin ilk çoğaltma gereksinimleri. Site Recovery dağıtıldığında, ilk veri kümesinin tamamını yüklenir.
 
    ![Girişler](./media/site-recovery-capacity-planner/inputs.png)
-4. Kaynak ortamı için değerler yerleştirdiğiniz sonra görüntülenen çıktının içerir:
 
-   * **Delta çoğaltma için gereken bant genişliği** (MB/sn). Değişim çoğaltması için ağ bant genişliği üzerinde ortalama günlük veri değişikliği hızı hesaplanır.
-   * **İlk çoğaltma için gereken bant genişliği** (MB/sn). İlk çoğaltma için ağ bant genişliği içine ilk çoğaltma değerleri hesaplanır.
-   * **Depolama (GB) gerekli** gerekli toplam Azure depolama.
-   * **Standart depolama hesaplarında IOPS toplam** 8 K IOPS birim boyutu toplam standart depolama hesaplarında temel alınarak hesaplanır.  Hızlı Planlayıcısı için günlük veri hızını değiştirmek ve tüm kaynak VM'ler disklerde numarası dayalı olarak hesaplanır. Ayrıntılı Planlayıcısı için sayı dayanarak standart Azure VM'ler için eşlenen VM'lerin toplam sayısını hesaplanır ve bu VM'lerin oranına veri değiştirin.
-   * **Standart depolama hesabı sayısı** Vm'leri korumak için gerekli standart depolama hesaplarının toplam sayısına sağlar. Standart depolama hesabı bir standart depolama birimindeki tüm VM'ler arasında en fazla 20000 IOPS tutabilir ve disk başına en fazla 500 IOPS desteklenir.
-   * **Gerekli blob disk sayısını** Azure depolama alanında oluşturulacak disk sayısını verir.
-   * **Premium depolama hesapları gerekli sayısı** premium depolama hesapları Vm'leri korumak için gerekli toplam sayısını sağlar. Bir kaynak VM yüksek IOPS (20000 büyük) ile bir premium depolama hesabı gerekiyor. Premium depolama hesabı kadar 80000 IOPS basılı tutabilirsiniz.
-   * **Premium depolama IOPS toplam** 256 K IOPS birim boyutu toplam premium depolama hesaplarında temel alınarak hesaplanır.  Hızlı Planlayıcısı için günlük veri hızını değiştirmek ve tüm kaynak VM'ler disklerde numarası dayalı olarak hesaplanır. Ayrıntılı Planlayıcısı numarası dayanarak premium Azure VM (DS ve GS serisi) eşlenen VM toplam sayısını hesaplanır ve verileri bu VM'lerin hızını değiştirin.
-   * **Gerekli yapılandırma sunucularına sayısı** kaç yapılandırma sunucusu dağıtımı için gerekli olduğunu gösterir.
-   * **Gerekli ek işlem sunucu sayısını** ek işlem sunucuları yapılandırma sunucusunda varsayılan olarak çalıştığı işlem sunucusuna ek olarak gerekip gerekmediğini gösterir.
-   * **% 100 ek depolama kaynağı** ek depolama alanı kaynak konumda gerekli olup olmadığını gösterir.
+4. Kaynak ortamı için değerleri girdikten sonra görüntülenen çıktının içerir:
 
-   ![Çıktı](./media/site-recovery-capacity-planner/output.png)
+   * **Delta Çoğaltmada (saniye başına megabit) için gereken bant genişliği**: değişim çoğaltması için ağ bant genişliği üzerinde ortalama günlük veri değişikliği hızı hesaplanır.
+   * **(İçinde megabit/sn) ilk çoğaltma için gereken bant genişliği**: ilk çoğaltma için ağ bant genişliği, girdiğiniz ilk çoğaltma değerlerine hesaplanır.
+   * **Depolama (GB) gerekli**: gerekli toplam Azure depolama.
+   * **Toplam IOPS standart depolama**: sayı, 8 K IOPS birim boyutu toplam standart depolama hesaplarında dayanarak hesaplanır. Hızlı Planlayıcısı için günlük veri hızını değiştirmek ve tüm kaynak VM disklerde numarası dayalı olarak hesaplanır. Ayrıntılı Planlayıcısı numarası dayanarak standart Azure VM'ler için eşlenen VM toplam sayısını hesaplanır ve verileri bu VM'lerin oranına değiştirin.
+   * **Gerekli standart depolama hesabı sayısı**: standart depolama hesabı Vm'leri korumak için gerekli toplam sayısı. Standart depolama hesabı, standart depolama alanında tüm VM'ler üzerindeki 20000 IOPS basılı tutabilirsiniz. Disk başına en fazla 500 IOPS desteklenir.
+   * **Gerekli Blob disk sayısını**: Azure depolama alanında oluşturulan disklerini sayısı.
+   * **Gereken premium hesaplar sayısı**: premium depolama hesapları Vm'leri korumak için gerekli toplam sayısı. Bir kaynak VM yüksek IOPS (20. 000 ' büyük) ile bir premium depolama hesabı gerekiyor. Premium depolama hesabı kadar 80.000 IOPS basılı tutabilirsiniz.
+   * **Toplam IOPS Premium depolama**: sayı, toplam premium depolama hesaplarında 256 K IOPS birim boyutu dayanarak hesaplanır. Hızlı Planlayıcısı için günlük veri hızını değiştirmek ve tüm kaynak VM disklerde numarası dayalı olarak hesaplanır. Ayrıntılı Planlayıcısı numarası dayanarak premium Azure Vm'lerine (DS ve GS serisi) eşlenen VM toplam sayısını hesaplanır ve verileri bu VM'lerin oranına değiştirin.
+   * **Yapılandırma gerekli sunucu sayısını**: kaç yapılandırma sunucusu dağıtımı için gerekli olduğunu gösterir.
+   * **Ek işlem gerekli sunucu sayısını**: ek işlem sunucuları yapılandırma sunucusunda varsayılan olarak çalıştığı işlem sunucusuna ek olarak gerekip gerekmediğini gösterir.
+   * **% 100 ek depolama kaynağı**: ek depolama alanı kaynak konumda gerekli olup olmadığını gösterir.
+
+      ![Çıktı](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Ayrıntılı Planlayıcısını çalıştırın
 
-1. Karşıdan yükleyip açmak [Azure Site kurtarma kapasite Planlayıcısı](http://aka.ms/asr-capacity-planner-excel) aracı. Makrolar, düzenleme etkinleştirmek ve istendiğinde içeriği etkinleştirmek için bu nedenle select çalıştırmanız gerekir.
+1. Karşıdan yükleyip açmak [Site kurtarma kapasite Planlayıcısı](http://aka.ms/asr-capacity-planner-excel). Makroları çalıştırmanız gerekir. İstendiğinde, düzenlemeyi etkinleştir ve içerik için seçimlerinizi yapın.
+
 2. İçinde **Planlayıcısı türünü seçin**seçin **ayrıntılı Planlayıcısı** liste kutusundan.
 
-   ![Başlarken](./media/site-recovery-capacity-planner/getting-started-2.png)
-3. İçinde **iş yükü niteliğe** çalışma sayfası, gerekli bilgileri girin. İşaretlenen tüm alanları doldurmanız gerekir.
+   ![Başlangıç kılavuzu](./media/site-recovery-capacity-planner/getting-started-2.png)
 
-   * İçinde **işlemci çekirdeği**, bir kaynak sunucuda çekirdek toplam sayısını belirtin.
-   * İçinde **MB bellek ayırma**, bir kaynak sunucuda RAM boyutunu belirtin.
-   * **Numarası, NIC**, kaynak sunucuda, ağ bağdaştırıcılarının sayısını belirtin.
-   * İçinde **toplam depolama (GB) cinsinden**, VM depolama toplam boyutu belirtin. Örneğin, kaynak sunucuda 3 disklerle 500 GB ise, toplam depolama boyutu 1500 GB olur.
-   * İçinde **bağlı disk sayısı**, kaynak sunucunun disklerini toplam sayısını belirtin.
-   * İçinde **Disk kapasitesi kullanımı**, ortalama kullanım belirtin.
-   * İçinde **günlük oranı (%) değiştirme**, günlük veri değişikliği oranı kaynak sunucunun belirtin.
-   * İçinde **eşleme Azure boyutu**, eşlemek istediğiniz Azure VM boyutu girin. Bunu el ile yapmak istemiyorsanız tıklayın **işlem Iaas Vm'leri**. El ile ayarlama giriş ve işlem Iaas Vm'leri ardından işlem işlemi otomatik olarak Azure VM boyutu en iyi eşleşmeyi tanımladığından el ile ayarlama üzerine.
+3. Üzerinde **iş yükü niteliğe** çalışma sayfası, gerekli bilgileri girin. İşaretlenen tüm alanları doldurmanız gerekir.
 
-   ![İş yükü nitelik](./media/site-recovery-capacity-planner/workload-qualification.png)
-4. Tıklatırsanız **işlem Iaas Vm'leri** İşte ne yapar:
+   a. İçinde **işlemci çekirdeği**, bir kaynak sunucuda çekirdek toplam sayısını belirtin.
+
+   b. İçinde **bellek ayırma (MB) cinsinden**, bir kaynak sunucuda RAM boyutunu belirtin.
+
+   c. İçinde **numarası, NIC**, kaynak sunucuda, ağ bağdaştırıcılarının sayısını belirtin.
+
+   d. İçinde **toplam depolama alanı (GB)**, VM depolama toplam boyutu belirtin. Örneğin, kaynak sunucuda üç disk 500 GB ise, toplam depolama boyutu 1500 GB'tır.
+
+   e. İçinde **bağlı disk sayısı**, kaynak sunucunun disklerini toplam sayısını belirtin.
+
+   f. İçinde **Disk kapasitesi kullanımı (%)**, ortalama kullanım belirtin.
+
+   g. İçinde **günlük veri değişikliği oranı (%)**, günlük veri değişikliği oranı kaynak sunucunun belirtin.
+
+   h. İçinde **eşleme Azure VM boyutu**, eşlemek istediğiniz Azure VM boyutu girin. Bunu el ile yapmak istemiyorsanız, seçin **işlem Iaas Vm'leri**. El ile ayarlama girin ve ardından **işlem Iaas Vm'leri**, el ile ayarlama üzerine yazılmış olabilir. İşlem işlemi otomatik olarak Azure VM boyutu en iyi eşleşmeyi tanımlar.
+
+   ![İş yükü niteliğe çalışma sayfası](./media/site-recovery-capacity-planner/workload-qualification.png)
+
+4. Seçerseniz **işlem Iaas Vm'leri**, işte bunu yapar:
 
    * Zorunlu giriş doğrular.
-   * IOPS hesaplar ve en iyi Azure VM aize Azure'a çoğaltma için uygun olan her sanal makineleri eşleşen önerir. Azure VM uygun boyutta bir hata veren algılanamaz ise. Örneğin, disk sayısını içinde 65 bağlıysa, yüksek Azure VM boyutu 64 olduğundan hata verilir.
+   * IOPS hesaplar ve Azure'a çoğaltma için uygun olan her bir VM için en iyi Azure VM boyutu eşleşme önerir. Azure VM algılanamıyor uygun bir boyut, bir hata görüntülenir. Örneğin, bağlı disk sayısı 65 ise, bir Azure VM için en yüksek boyutu 64 olduğundan bir hata görüntüler.
    * Bir Azure VM için kullanılabilir bir depolama hesabı önerir.
-   * Standart depolama hesapları ve premium depolama hesapları iş yükü için gereken toplam sayısını hesaplar. Görünüm Azure depolama türünü ve kaynak sunucu için kullanılabilir depolama hesabı gidin.
-   * Tamamlar ve bir VM ve bağlı disk sayısı için atanan gerekli depolama türü (standart veya premium) temel tablonun geri kalanı sıralar. Azure, sütun gereksinimlerini tüm VM'ler için **tam VM olduğu?** gösterir **Evet**. Azure VM yedeklenemiyor durumunda bir hata gösterilir.
+   * Standart depolama hesapları ve premium depolama hesapları iş yükü için gereken toplam sayısını hesaplar. Azure depolama türünü ve kaynak sunucu için kullanılabilir depolama hesabı görüntülemek için aşağı kaydırın.
+   * Tamamlar ve atanan bir VM ve bağlı disk sayısı için gerekli depolama türü (standart veya premium) temel tablonun geri kalanı sıralar. Azure, sütun gereksinimlerini tüm VM'ler için **tam VM olduğu?** gösterir **Evet**. Azure VM yedeklenemiyor, bir hata görüntülenir.
 
 Sütunları AA AE çıktısı alınır ve her VM için bilgiler sağlar.
 
-![İş yükü nitelik](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![Çıkış sütunları AA AE](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>Örnek
 Örneğin, tabloda gösterilen değerleri olan altı VM'ler için aracı hesaplar ve en iyi Azure VM eşleşen ve Azure depolama gereksinimleri atar.
 
-![İş yükü nitelik](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+![İş yükü niteliğe atamaları](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * Örnek çıkış şunları unutmayın:
 
@@ -121,17 +139,17 @@ Sütunları AA AE çıktısı alınır ve her VM için bilgiler sağlar.
   * Premium depolama hesabı VM5 ve VM6 gerekir ve her ikisi de tek bir hesap kullanabilirsiniz.
 
     > [!NOTE]
-    > Standart ve premium depolama IOPS VM düzeyinde ve disk düzeyinde hesaplanır. Standart bir sanal makine disk başına en fazla 500 IOPS işleyebilir. Bir disk için IOPS 500'den büyükse, premium depolama gerekir. Ancak, bir disk için IOPS 500'den fazla olan ancak IOPS toplam VM diskleri için destek standart Azure VM sınırları içinde (VM boyutunu, disk, bağdaştırıcılar, CPU, bellek sayısı sayısı), ardından Planlayıcısı standart bir VM ve değil DS veya GS serisi seçer. Eşleme Azure boyutu hücre uygun DS veya GS serisi ile VM el ile güncelleştirmeniz gerekir.
+    > Standart ve premium depolama IOPS VM düzeyinde ve disk düzeyinde hesaplanır. Standart bir 500 IOPS disk başına en fazla VM işleyebilir. Bir disk için IOPS 500'den büyükse, premium depolama gerekir. Bir disk için IOPS 500'den fazla ancak IOPS toplam VM diskleri için destek standart Azure VM sınırlarda, Planlayıcısı standart VM ve değil DS veya GS serisi seçer. (Azure VM VM boyutunu, disk, bağdaştırıcılar, CPU ve bellek sayısı sayısı kısıtlamalardır.) Eşleme Azure boyutu hücre uygun DS veya GS serisi ile VM el ile güncelleştirmeniz gerekir.
 
 
-Tüm Ayrıntılar hazır olduktan sonra tıklatın **planlayıcısı aracı veri göndermek** açmak için **kapasite Planlayıcısı** iş yükleri vurgulanır, bunlar veya koruma için uygun olup olmadığını göstermek için.
+Tüm bilgileri girdikten sonra seçin **planlayıcısı aracı veri göndermek** kapasite Planlayıcısı açın. İş yükleri için koruma uygun olup olmadığını göstermek için vurgulanır.
 
-### <a name="submit-data-in-the-capacity-planner"></a>Kapasite Planlayıcısı verileri gönderme
-1. Açtığınızda **kapasite Planlayıcısı** doldurulmuş çalışma göre belirttiğiniz ayarlar. 'İş yükü' görünür word **Infra girişleri kaynak** giriş olduğunu göstermek için hücre **iş yükü niteliğe** çalışma sayfası.
-2. Değişiklik yapmak istiyorsanız, değiştirmenize gerek **iş yükü niteliğe** çalışma sayfası ve tıklatın **planlayıcısı aracı veri göndermek** yeniden.  
+### <a name="submit-data-in-capacity-planner"></a>Kapasite Planlayıcısı verileri gönderme
+1. Açtığınızda **kapasite Planlayıcısı** çalışma sayfasında, belirttiğiniz ayarlara göre doldurulur. "İş yükü" görünür word **Infra girişleri kaynak** giriş olduğunu göstermek için hücre **iş yükü niteliğe** çalışma sayfası.
 
-   ![Kapasite Planlayıcısı](./media/site-recovery-capacity-planner/capacity-planner.png)
+2. Değişiklik yapmak istiyorsanız, değiştirmenize gerek **iş yükü niteliğe** çalışma sayfası. Ardından **planlayıcısı aracı veri göndermek** yeniden. 
+
+   ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-[Uygulamasını nasıl çalıştıracağınızı öğrenin](site-recovery-capacity-planning-for-hyper-v-replication.md) kapasite planlayıcısı aracı.
+[Uygulamasını nasıl çalıştıracağınızı öğrenin](site-recovery-capacity-planning-for-hyper-v-replication.md) kapasite planlama aracı.

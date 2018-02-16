@@ -1,9 +1,23 @@
-## <a name="deploy-uploaded-zip-file"></a>Yüklenen ZIP dosyasını dağıtma
+---
+title: "include dosyası"
+description: "include dosyası"
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: 917f8cc4a22199351614d101f1300b80052ee9a9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/03/2018
+---
+## <a name="deploy-zip-file"></a>ZIP dosyası dağıtma
 
-Cloud Shell'de [`az webapp deployment source config-zip`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) komutunu kullanarak karşıdan yüklenen ZIP dosyasını web uygulamanıza dağıtın. *\<app_name>* yerine web uygulamanızın adını yazdığınızdan emin olun.
+Tarayıcıda `https://<app_name>.scm.azurewebsites.net/ZipDeploy` adresine gidin.
 
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip
-```
+[Proje ZIP dosyası oluşturma](#create-a-project-zip-file) başlığı altında oluşturduğunuz ZIP dosyasını, web sayfasındaki dosya gezgini alanına sürükleyerek karşıya yükleyin.
 
-Bu komut ZIP içindeki dosyaları ve dizinleri App Service uygulama klasörünüze (`\home\site\wwwroot`) dağıtır ve uygulamayı yeniden başlatır. Ek özel derleme işlemi yapılandırılmışsa bu işlemler de çalışır.
+Dağıtım devam ederken sağ üst köşedeki bir simge yüzde cinsinden ilerleme durumunu gösterir. Ayrıca sayfada, gezgin alanının altında işlemin ayrıntılı iletileri de gösterilir. Tamamlandığında, son dağıtım iletisi `Deployment successful` şeklinde olmalıdır.

@@ -1,0 +1,73 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Machine Learning Studio Belgeleri
+metadata:
+  title: Azure Machine Learning Studio Belgeleri
+  description: "Azure Machine Learning Studio’yu nasıl kullanacağınızı öğrenin."
+  services: machine-learning
+  author: carolz
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/18/2018
+  ms.author: carolz
+  ms.openlocfilehash: dd55c06d62f7678a5b5e721be80f3483c96be0f0
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 02/13/2018
+abstract:
+  description: "Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz işbirliğine dayalı bir sürükle ve bırak aracıdır. Öğreticiler, videolar ve örnek modeller Studio’yu kullanarak makine öğrenimi modelleri oluşturma ve dağıtma konusunda bilgi sağlar."
+sections:
+- title: "5 Dakikalık Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: "Machine Learning Studio’yu kullanmaya nasıl başlayacağınızı öğrenin:"
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href=\"create-experiment\">İlk denemenizi oluşturun</a>"
+    - html: "<a href=\"algorithm-choice\">En iyi algoritmayı seçin</a>"
+    - html: "<a href=\"deploy-consume-web-service-guide\">Modelinizi kullanıma hazır hale getirin</a>"
+    - html: "<a href=\"data-science-for-beginners-the-5-questions-data-science-answers\">Veri Bilimi hakkında bilgi edinin</a>"
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "Model oluşturma ve dağıtma konusunda size yol gösterecek genişletilmiş öğreticileri uygulayın:"
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"walkthrough-develop-predictive-solution\">Tahmine dayalı çözüm oluşturma ve dağıtma</a>"
+    - html: "<a href=\"azure-ml-customer-churn-scenario\">Müşteri karmaşası örneği</a>"
+- title: "Diğer Azure Machine Learning Teknolojileri"
+  items:
+  - type: paragraph
+    text: "Azure Machine Learning’de kullanılabilen diğer teknolojiler:"
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: "Azure Machine Learning Services (Önizleme)"
+      href: /azure/machine-learning/preview/
+      image:
+        src: media/index/i_machine-learning.svg
+        href: /azure/machine-learning/preview/
+    - title: Veri Bilimi Sanal Makinesi
+      href: /azure/machine-learning/data-science-virtual-machine/
+      image:
+        src: media/index/virtual-machines.svg
+        href: /azure/machine-learning/data-science-virtual-machine/
+- title: "Başvuru"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Komut Satırı"
+      html: "<p><a href=\"/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning\">PowerShell modülü (Yeni)</a></p><p><a href=\"powershell-module\">PowerShell modülü (Klasik)</a></p>"
+    - title: "Modüller"
+      html: "<p><a href=\"https://msdn.microsoft.com/library/azure/dn905974.aspx\">Algoritmalar ve Modül başvurusu</a></p>"
+    - title: REST
+      html: "<p><a href=\"/rest/api/machinelearning\">REST yönetim API’leri</a></p><p><a href=\"web-service-error-codes\">Web hizmeti hata kodları</a></p>"

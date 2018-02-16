@@ -6,6 +6,7 @@
 
 # başlarken
 ## [Portalı kullanma](data-lake-store-get-started-portal.md)
+## [Data Lake Store'u Depolama Gezgini’nde kullanma](data-lake-store-in-storage-explorer.md)
 ## [PowerShell’i kullanma](data-lake-store-get-started-powershell.md)
 ## [Azure CLI 2.0 kullanma](data-lake-store-get-started-cli-2.0.md)
 
@@ -13,6 +14,7 @@
 # Nasıl yapılır
 ## Verileri yükleme ve taşıma
 ### [Azure Data Factory'yi kullanma](../data-factory/load-azure-data-lake-store.md)
+### [Data Lake Store'u Depolama Gezgini’nde kullanma](data-lake-store-in-storage-explorer.md)
 ### [AdlCopy’yi kullanma](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop’u kullanma](data-lake-store-data-transfer-sql-sqoop.md)

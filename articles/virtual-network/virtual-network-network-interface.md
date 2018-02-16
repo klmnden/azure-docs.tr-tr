@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 9f1cf113f75bc5a96af8c33d4b83d1bd0f5c6efd
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimi silme
 
@@ -68,8 +68,8 @@ Portal portal genel bir IP adresi oluşturun ve Portalı'nı kullanarak bir sana
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC oluşturun](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[AzureRmNetworkInterface yeni](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|CLI|[az ağ NIC oluşturun](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 
 ## <a name="view-network-interface-settings"></a>Ağ arabirimi ayarlarını görüntüleme
 
@@ -94,7 +94,7 @@ Bir IPv6 adresi için bir ağ arabirimi atanırsa, PowerShell çıkış adresi a
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC listesi](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) ; aboneliğindeki ağ arabirimlerini görüntülemek için [az ağ NIC Göster](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) bir ağ arabiriminin ayarlarını görüntülemek için|
+|CLI|[az ağ NIC listesi](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_list) ; aboneliğindeki ağ arabirimlerini görüntülemek için [az ağ NIC Göster](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_show) bir ağ arabiriminin ayarlarını görüntülemek için|
 |PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) bir ağ arabirimi için abonelik veya Görünümü Ayarları'nda ağ arabirimlerini görüntülemek için|
 
 ## <a name="change-dns-servers"></a>DNS sunucularını değiştirme
@@ -114,7 +114,7 @@ DNS sunucusu, ağ arabirimi sanal makine işletim sistemi içinde Azure DHCP sun
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Etkinleştirmek veya IP iletimini devre dışı bırakma
@@ -136,7 +136,7 @@ Ayarı, sanal makine iletmek için gereken trafiği alan sanal makineye bağlı 
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-subnet-assignment"></a>Alt ağ ataması değiştirme
@@ -157,7 +157,7 @@ Alt ağ, ancak bir ağ arabirimi atanan sanal ağda değil, değiştirebilirsini
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC IP yapılandırmasını güncelleştir](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
@@ -176,7 +176,7 @@ Bir ağ arabirimi sildiğinizde, kendisine atanmış MAC veya IP adresi yayınla
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC Sil](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[az ağ NIC Sil](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Sonraki adımlar

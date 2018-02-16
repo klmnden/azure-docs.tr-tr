@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure'da OpenShift kapsayıcı Platform dağıtma
 
@@ -138,7 +138,7 @@ Köşeli ayraçlar, belirli bilgilerle içine öğeleri değiştirin.
 ### <a name="deploy-by-using-azure-cli"></a>Azure CLI kullanarak dağıtma
 
 > [!NOTE] 
-> Aşağıdaki komutu Azure CLI 2.0.8 gerektirir veya sonraki bir sürümü. CLI sürümüyle doğrulayabilirsiniz `az --version` komutu. CLI Sürüm güncelleştirmek için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Aşağıdaki komutu Azure CLI 2.0.8 gerektirir veya sonraki bir sürümü. CLI sürümüyle doğrulayabilirsiniz `az --version` komutu. CLI Sürüm güncelleştirmek için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 Aşağıdaki örnek, myResourceGroup, myOpenShiftCluster dağıtım adı ile adlı bir kaynak grubuna OpenShift küme ve tüm ilgili kaynaklar dağıtır. Şablon doğrudan GitHub depo ve azuredeploy.parameters.json dosya adlı dosya kullanılan yerel bir parametreler başvuruluyor.
 
@@ -179,7 +179,7 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kullanım [az grubu Sil](/cli/azure/group#delete) OpenShift küme, kaynak grubu kaldırmak için komut ve artık gerekmediğinde tüm ilgili kaynaklar.
+Kullanım [az grubu Sil](/cli/azure/group#az_group_delete) OpenShift küme, kaynak grubu kaldırmak için komut ve artık gerekmediğinde tüm ilgili kaynaklar.
 
 ```azurecli 
 az group delete --name myResourceGroup

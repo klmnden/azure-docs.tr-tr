@@ -3,7 +3,7 @@ title: "Toplamak ve günlük analizi içinde Azure etkinlik günlüklerini anali
 description: "Azure etkinlik günlükleri çözüm çözümlemek ve tüm Azure abonelikleri Azure etkinlik günlüğü aramak için kullanabilirsiniz."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
-ms.author: banders
-ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: magoedte
+ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve günlük analizi içinde Azure etkinlik günlüklerini analiz edin
 
@@ -88,7 +88,7 @@ Tıklatın **Azure etkinlik günlükleri** açmak için kutucuğa **Azure etkinl
 
 Etkinlik günlüğü verileri yalnızca görünür *sonra* , daha önce verileri görüntüleyemezsiniz şekilde çözüme gitmek için etkinlik günlükleri yapılandırdığınız.
 
-| Dikey pencere | Açıklama |
+| Dikey penceresi | Açıklama |
 | --- | --- |
 | Azure etkinlik günlüğü girişleri | Çubuk grafik Azure etkinlik günlüğü girişi üst halinde seçtiğiniz tarih aralığını kayıt toplamlarını gösterir ve üst 10 etkinlik arayanlar listesini gösterir. Günlük aramasını çalıştırmak için çubuk grafiği tıklatın <code>AzureActivity</code>. Bu öğe için tüm etkinlik günlüğü girişleri döndüren bir günlük arama çalıştırmak için bir arayan öğesini tıklatın. |
 | Duruma göre etkinlik günlükleri | Azure etkinlik günlüğü durumu seçtiğiniz tarih aralığı için bir halka grafik gösterir. Ayrıca bir liste üst on durum kayıtların listesini gösterir. Günlük aramasını çalıştırmak için grafiği tıklatın <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Bu durum kaydı tüm etkinlik günlüğü girişlerini döndüren bir günlük arama çalıştırmak için bir durum öğesini tıklatın. |

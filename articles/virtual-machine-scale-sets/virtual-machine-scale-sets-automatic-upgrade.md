@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Otomatik işletim sistemi yükseltme Azure sanal makine ölçek kümesi
 
@@ -40,9 +40,7 @@ Otomatik işletim sistemi yükseltme, aşağıdaki özelliklere sahiptir:
 Önizleme sırasında aşağıdaki sınırlamalar ve kısıtlamalar geçerlidir:
 
 - Otomatik işletim sistemi yükseltmeleri yalnızca Destek [dört OS SKU'ları](#supported-os-images). SLA veya garanti yoktur. Otomatik yükseltme üretim kritik iş yükleri üzerinde Önizleme sırasında kullanmamanızı öneririz.
-- Service Fabric kümelerinde ölçek kümesi desteği yakında geliyor.
 - Azure disk şifrelemesi (şu anda önizlemede) **değil** sanal makine ölçek kümesi otomatik işletim sistemi yükseltme ile şu anda desteklenmiyor.
-- Bir portal deneyimi yakında çıkıyor.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Otomatik işletim sistemi yükseltme kullanmak için kaydolun
@@ -58,17 +56,23 @@ Bir rapor olarak kayıt durumu için yaklaşık 10 dakika sürer *kayıtlı*. Ge
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Uygulamalarınızı sistem durumu araştırmalarının kullanmanızı öneririz. Sistem durumu araştırmalarının sağlayıcı özelliği kaydetmek için kullanın [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) gibi:
+> [!NOTE]
+> Service Fabric kümeleri kendi uygulama sağlığını kavramı sahip ancak uygulamasının durumunu izlemek için yük dengeleyici durum araştırması ölçek kümeleri Service Fabric olmadan kullanın. Sistem durumu araştırmalarının sağlayıcı özelliği kaydetmek için kullanın [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature) gibi:
+>
+> ```powershell
+> Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
+> ```
+>
+> Yeniden kayıt durumu için yaklaşık 10 dakika rapor sürer *kayıtlı*. Geçerli kayıt durumuyla denetleyebilirsiniz [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Kez kayıtlı emin *Microsoft.Network* sağlayıcısı ile kayıtlı [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) gibi:
+>
+> ```powershell
+> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+> ```
 
-```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
-```
+## <a name="portal-experience"></a>Portal deneyimi
+Yukarıdaki kayıt adımları izledikten sonra gidebilirsiniz [Azure portalı](https://aka.ms/managed-compute) ölçek kümeleri üzerinde otomatik işletim sistemi yükseltme etkinleştirmek ve yükseltme sürecini görmek için:
 
-Yeniden kayıt durumu için yaklaşık 10 dakika rapor sürer *kayıtlı*. Geçerli kayıt durumuyla denetleyebilirsiniz [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Kez kayıtlı emin *Microsoft.Network* sağlayıcısı ile kayıtlı [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) gibi:
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
 
 
 ## <a name="supported-os-images"></a>Desteklenen işletim sistemi görüntüleri
@@ -78,14 +82,17 @@ Aşağıdaki SKU'ları şu anda desteklenen (daha fazla eklenir):
     
 | Yayımcı               | Sunduğu         |  Sku               | Sürüm  |
 |-------------------------|---------------|--------------------|----------|
-| Canonical               | UbuntuServer  | 16.04 LTS          | en son   |
+| Canonical               | UbuntuServer  | 16.04-LTS          | en son   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | en son   |
-| MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter    | en son   |
-| MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter Smalldisk | en son   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | en son   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | en son   |
 
 
 
-## <a name="application-health"></a>Uygulama durumu
+## <a name="application-health-without-service-fabric"></a>Service Fabric olmadan uygulama durumu
+> [!NOTE]
+> Bu bölüm, yalnızca Service Fabric olmadan ölçek kümeleri için geçerlidir. Service Fabric uygulama sağlığını kendi kavramı vardır. Otomatik işletim sistemi yükseltme Service Fabric ile kullanırken, yeni işletim sistemi görüntüsü güncelleştirme etki alanı güncelleştirme Service Fabric çalışan hizmetler, yüksek kullanılabilirliği sürdürmek için etki alanı tarafından kullanıma alındı. Service Fabric kümeleri dayanıklılık özellikleri hakkında daha fazla bilgi için lütfen bkz [bu belgeleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+
 Bir işletim sistemi yükseltme sırasında bir ölçek kümesindeki VM örnekleri yükseltilir aynı anda tek bir toplu. Yükseltme işlemi, yalnızca müşteri uygulaması yükseltilmiş VM örneklerinde sağlıklı olup olmadığını devam etmelidir. Uygulama durumu sinyalleri ölçek kümesi işletim sistemi yükseltme altyapısı sağlar öneririz. Varsayılan olarak, işletim sistemi yükseltmeleri sırasında platform VM güç durumunu ve bir yükseltmeden sonra bir VM örneği sağlıklı olup olmadığını belirlemek için durum sağlama uzantısı göz önünde bulundurur. Bir VM örneğinin işletim sistemi yükseltme sırasında VM örneği üzerinde işletim sistemi diski son görüntü sürümlerine göre yeni bir disk ile değiştirilir. İşletim sistemi yükseltme tamamlandıktan sonra yapılandırılmış uzantılarını bu Vm'lere çalıştırılır. Yalnızca bir VM üzerindeki tüm uzantılar başarıyla sağlandığında, uygulama sağlıklı olarak kabul edilir. 
 
 Ölçek kümesi, isteğe bağlı olarak, uygulama platformu uygulama devam eden durumunu doğru bilgi sağlamak için sistem durumu Araştırmalarının ile de yapılandırılabilir. Uygulama sistem durumu Araştırmalarının yük özel dengeleyici sistem durumu sinyal kullanılan yoklamaları var. Bir ölçek kümesi VM örneği üzerinde çalışan uygulama sağlıklı olup olmadığını belirten dış HTTP veya TCP isteklerine yanıt verebilir. Özel yük dengeleyici araştırmaları nasıl çalıştığı hakkında daha fazla bilgi için bkz: [anlayın yük dengeleyici araştırmalar](../load-balancer/load-balancer-custom-probe-overview.md). Bir uygulama durumu araştırma otomatik işletim sistemi yükseltmeleri için gerekli değildir, ancak önerilir.

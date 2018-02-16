@@ -1,4 +1,5 @@
 - name: Team Data Science Process Belgeleri
+  href: index.yml
 - name: Genel Bakış
   href: overview.md
 - name: Yaşam döngüsü

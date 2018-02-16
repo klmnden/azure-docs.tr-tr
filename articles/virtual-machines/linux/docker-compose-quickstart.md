@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Docker ve oluşturma tanımlamak ve Azure'da çok kapsayıcı uygulamayı çalıştırmak için kullanmaya başlama
 İle [oluşturma](http://github.com/docker/compose), birden çok Docker kapsayıcıları için oluşan bir uygulamayı tanımlamak için basit bir metin dosyası kullanın. Ardından, uygulamanızda tanımlanan ortamınıza dağıtmak için her şeyi yapar tek bir komut Yukarı Döndür. Örnek olarak, bu makalede, bir WordPress blog arka ucu MariaDB SQL veritabanındaki bir Ubuntu VM ile hızlı bir şekilde ayarlama gösterilmektedir. Oluştur, daha karmaşık uygulamalar ayarlamak için de kullanabilirsiniz.
@@ -32,15 +32,15 @@ Docker VM uzantısı kullandığınızda, VM otomatik olarak Docker ana bilgisay
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Azure CLI 2.0 ile Docker konak oluştur
-En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login).
+En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#az_login).
 
-İlk olarak, Docker ortamınız için bir kaynak grubu oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+İlk olarak, Docker ortamınız için bir kaynak grubu oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Ardından, bir VM'yi dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create) Azure Docker VM uzantısını içeren [github'daki bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). İstendiğinde, kendi benzersiz değerler sağlayın *newStorageAccountName*, *adminUsername*, *Admınpassword*, ve *dnsNameForPublicIP*:
+Ardından, bir VM'yi dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#az_group_deployment_create) Azure Docker VM uzantısını içeren [github'daki bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). İstendiğinde, kendi benzersiz değerler sağlayın *newStorageAccountName*, *adminUsername*, *Admınpassword*, ve *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -51,7 +51,7 @@ Tamamlamak için dağıtım için birkaç dakika sürer.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Oluşturma yüklü olduğunu doğrulayın
-DNS adı dahil olmak üzere, VM ayrıntılarını görüntülemek için kullanın [az vm Göster](/cli/azure/vm#show):
+DNS adı dahil olmak üzere, VM ayrıntılarını görüntülemek için kullanın [az vm Göster](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

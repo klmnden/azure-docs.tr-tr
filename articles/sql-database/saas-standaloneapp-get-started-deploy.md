@@ -16,21 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: d38cd108821bce05824732bbdbdd322ae8563bde
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan bir tek başına tek Kiracı uygulama keşfedin
 
-Bu öğreticide dağıtmak ve Wingtip biletleri SaaS tek başına uygulamayı inceleyin. Uygulama, etkinleştirme SaaS senaryoları basitleştirmek Azure SQL veritabanı özelliklerini göstermek için tasarlanmıştır.
+Bu öğreticide dağıtmak ve tek başına uygulamayı veya uygulama başına-Kiracı, düzeni kullanılarak geliştirilen Wingtip biletleri SaaS örnek uygulamayı inceleyin.  Uygulama, çok kiracılı SaaS senaryoları etkinleştirme basitleştirmek Azure SQL veritabanı özelliklerini göstermek için tasarlanmıştır.
 
-Tek başına uygulama düzeni her bir kiracı için tek kiracılı uygulama ve tek Kiracı veritabanı içeren bir Azure kaynak grubu dağıtır.  Uygulamasının birden çok örneği, bir çok kiracılı çözüm sağlamak için sağlanabilir.
+Tek başına uygulamayı veya uygulama başına Kiracı desen uygulama örneğini her bir kiracı için dağıtır.  Her uygulama için belirli bir kiracı yapılandırılabilir ve ayrı Azure kaynak grubu içinde dağıtılabilir. Uygulamasının birden çok örneği, bir çok kiracılı çözüm sağlamak için sağlanır. Bu desen Kiracı yalıtımı en önemli öncelik olduğu kiracılar küçük sayılara uygundur. Azure kiracının abonelik dağıtılması için kaynakları izin ve yönetilen ortak programlar bir hizmet sağlayıcısı tarafından kiracının adına sahip. 
 
-Bu öğreticide, kaynak grupları, Azure aboneliğinizin çeşitli kiracılar için dağıtın.  Bu desen kaynak gruplarının bir kiracının Azure aboneliğinize dağıtılması olanak tanır. Azure kiracının adına bir hizmet sağlayıcısı tarafından yönetilmek üzere bu kaynak gruplarını izin ortak programlar sahiptir. Hizmet sağlayıcısı, kiracının Abonelikteki bir yöneticidir.
-
-Sonraki dağıtım bölümünde vardır üç mavi **Azure'a Dağıt** düğmeler. Her düğme başka bir örnek uygulamanın dağıtır. Her örneği için belirli bir kiracı özelleştirilir. Her düğmesine basıldığında karşılık gelen uygulama beş dakika içinde tam olarak dağıtılır.  Uygulamaları Azure aboneliğinizde dağıtılır.  Keşfetmek ve tek tek uygulama bileşenleri ile çalışmak için tam erişime sahip.
+Bu öğreticide, Azure aboneliğinize üç kiracılar için üç bağımsız uygulamalar dağıtır.  Keşfetmek ve tek tek uygulama bileşenleri ile çalışmak için tam erişime sahip.
 
 Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub depo.
 
@@ -49,9 +47,9 @@ Ek öğreticileri yayınlanacaktır. Bunlar, bu uygulama deseni temel alınarak 
 Uygulamayı üç sağlanan kiracılar için dağıtma:
 
 1. Her mavi tıklatın **Azure'a Dağıt** dağıtım şablonu açmak için düğmeye [Azure portal](https://portal.azure.com). Her bir şablon iki parametre değerlerini gerektirir; Yeni bir kaynak grubu için bir ad ve bu dağıtım uygulamanın diğer dağıtımlardan ayıran bir kullanıcı adı. Sonraki adım, bu değerleri ayarlamak için Ayrıntılar sağlar.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Contoso birlikte Hall**
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso Concert Hall**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Kızılcık Dojo**
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Fabrikam Jazz kulübü**
 
@@ -61,11 +59,10 @@ Uygulamayı üç sağlanan kiracılar için dağıtma:
     > Bazı kimlik doğrulama ve sunucu güvenlik duvarları Tanıtım amaçlı bilerek güvenli. **Yeni bir kaynak grubu oluşturma** her uygulama dağıtımı için.  Varolan bir kaynak grubu kullanmayın. Bu uygulama ya da oluşturur, herhangi bir kaynağa üretim için kullanmayın. İlgili faturalama durdurmak için uygulamalarla tamamladığınızda, tüm kaynak grupları silin.
 
     Kaynak adları yalnızca küçük harf, sayı ve kısa çizgi kullanmak en iyisidir.
-    * İçin **kaynak grubu** - seçin **Yeni Oluştur**, küçük harf girin **adı** kaynak grubu için.
-        * Bir rakam ile izlenen adınızın baş harflerini ve ardından bir tire append öneririz: Örneğin, *wingtip sa af1*.
-        * Seçin bir **konumu** aşağı açılan listeden.
+    * İçin **kaynak grubu**, Yeni Oluştur'u seçin ve ardından kaynak grubu için küçük bir ad sağlayın. **Wingtip-sa -\<venueName\>-\<kullanıcı\>**  önerilen deseni.  İçin \<venueName\>, boşluk salonundan adıyla değiştirin. İçin \<kullanıcı\>, kullanıcı değeri aşağıdan değiştirin.  Bu desen ile kaynak grubu adları olabilir *wingtip sa contosoconcerthall af1*, *wingtip sa dogwooddojo af1*, *wingtip sa fabrikamjazzclub af1*.
+    * Seçin bir **konumu** aşağı açılan listeden.
 
-    * İçin **kullanıcı** -adınızın baş harflerini artı bir rakam gibi kısa kullanıcı değeri seçmenizi öneririz: Örneğin, *af1*.
+    * İçin **kullanıcı** -adınızın baş harflerini artı bir rakam gibi bir kısa kullanıcı değeri öneririz: Örneğin, *af1*.
 
 
 3. **Uygulamayı dağıtın**.
@@ -73,18 +70,18 @@ Uygulamayı üç sağlanan kiracılar için dağıtma:
     * Hüküm ve koşulları kabul için tıklatın.
     * **Satın al**’a tıklayın.
 
-4. İzleme, tüm üç dağıtımlarının dağıtım durumu tıklayarak **bildirimleri** (zil simgesine arama kutusunun sağındaki). Uygulama dağıtımı beş dakika sürer.
+4. Tıklayarak, tüm üç dağıtımlarının durumunu izleme **bildirimleri** (zil simgesine arama kutusunun sağındaki). Uygulamaları dağıtma yaklaşık beş dakika sürer.
 
 
-## <a name="run-the-application"></a>Uygulamayı çalıştırma
+## <a name="run-the-applications"></a>Uygulamaları çalıştırma
 
-Uygulama olayları konak görebildikleri gösterir. Birlikte salonları, jazz Sinek ve Spor Sinek salonundan türleri içerir. Görebildikleri Wingtip biletleri uygulama müşterilerdir. Wingtip anahtarların görebildikleri olarak kayıtlı *kiracılar*. Bir kiracı olmak bir salonundan kolay bir yol listesi olayları ve müşterilerine bilet satabilir olanak verir. Bunların olaylarını listeler ve bilet satabilir için kişiselleştirilmiş bir web sitesine her yerini alır. Her bir kiracı diğer kiracılardan yalıtılmış ve bunları bağımsızdır. Perde arkasında her bir kiracı kendi tekil SQL veritabanı ile ayrı uygulama örneğini alır.
+Uygulama olayları konak görebildikleri gösterir.  Görebildikleri uygulama kiracılarıdır. Bunların olaylarını listelemek ve bilet satabilir için kişiselleştirilmiş bir web sitesi her yerini alır. Birlikte salonları, jazz Sinek ve Spor Sinek salonundan türleri içerir. Aşağıdaki örnekte salonundan 's web sitesinde gösterilen arka plan fotoğrafı salonundan türünü belirler.   Tek başına uygulama modeli her salonundan kendi tekil SQL veritabanı ile ayrı uygulama örneği vardır.
 
 1. Her üç ayrı tarayıcı sekmeleri kiracılar Etkinlikler sayfasını açın:
 
-    - http://Events.contosoconcerthall. &lt;Kullanıcı&gt;. trafficmanager.net
-    - http://Events.dogwooddojo. &lt;Kullanıcı&gt;. trafficmanager.net
-    - http://Events.fabrikamjazzclub. &lt;Kullanıcı&gt;. trafficmanager.net
+    - http://Events.contosoconcerthall. &lt;kullanıcı&gt;. trafficmanager.net
+    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+    - http://Events.fabrikamjazzclub. &lt;kullanıcı&gt;. trafficmanager.net
 
     (Her URL ile değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)
 
@@ -120,6 +117,10 @@ Dağıtılan kaynakların bazıları bakalım:
 
 - Çok kiracılı SaaS uygulamaları hakkında bilgi edinmek için [tasarım desenleri çok kiracılı SaaS uygulamaları için](saas-tenancy-app-design-patterns.md).
 
+ 
+## <a name="delete-resource-groups-to-stop-billing"></a>Faturalama durdurmak için kaynak gruplarını Sil ##
+
+Örnek ile işiniz bittiğinde, ilişkili faturalama durdurmak için oluşturulan tüm kaynak grupları silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -129,4 +130,7 @@ Bu öğreticide şunları öğrendiniz:
 > * Wingtip biletleri SaaS tek başına uygulamayı dağıtmak nasıl.
 > * Sunucular ve veritabanları hakkında uygulaması olun.
 > * Nasıl ilgili faturalama durdurmak için örnek kaynaklar silinir.
+
+Ardından, deneyin [sağlamak ve Katalog](saas-standaloneapp-provision-and-catalog.md) Öğreticisi.
+ 
 

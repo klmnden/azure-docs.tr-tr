@@ -54,33 +54,37 @@
         - name: AWS örneklerini Azure’a geçirme
           href: tutorial-migrate-aws-to-azure.md
         - name: Azure VM’lerini başka bir bölgeye geçirme
-          href: tutorial-migrate-azure-to-azure.md
+          href: azure-to-azure-tutorial-migrate.md
 - name: Kavramlar
   items:
-    - name: Azure-Azure arası mimari
-      href: concepts-azure-to-azure-architecture.md
-    - name: VMware-Azure arası mimari
-      href: concepts-vmware-to-azure-architecture.md
-    - name: Hyper-V-Azure arası mimari
-      href: concepts-hyper-v-to-azure-architecture.md
-    - name: Fiziksel sunucu-Azure arası mimari
-      href: concepts-physical-to-azure-architecture.md
-    - name: Hyper-V-ikincil bir site arası mimari
-      href: concepts-hyper-v-to-secondary-architecture.md
-    - name: Azure’dan Azure’a çoğaltma için destek matrisi
-      href: site-recovery-support-matrix-azure-to-azure.md
-    - name: VMware’dan Azure’a destek matrisi
-      href: support-matrix-vmware-to-azure.md
-    - name: Hyper-V’den Azure’a destek matrisi
-      href: support-matrix-hyper-v-to-azure.md
-    - name: Şirket içi-Azure arası destek matrisi
-      href: site-recovery-support-matrix-to-azure.md
-    - name: Şirket içi-ikincil site arası destek matrisi
-      href: site-recovery-support-matrix-to-sec-site.md
-    - name: İş yükleri için olağanüstü durum kurtarma
-      href: site-recovery-workload.md
-    - name: Azure’a geçiş
-      href: site-recovery-migrate-to-azure.md
+    - name: Mimari
+      items:
+        - name: Azure-Azure arası mimari
+          href: azure-to-azure-architecture.md
+        - name: VMware-Azure arası mimari
+          href: concepts-vmware-to-azure-architecture.md
+        - name: Hyper-V-Azure arası mimari
+          href: concepts-hyper-v-to-azure-architecture.md
+        - name: Fiziksel sunucu-Azure arası mimari
+          href: concepts-physical-to-azure-architecture.md
+        - name: Hyper-V-ikincil bir site arası mimari
+          href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Destek gereksinimleri matrisi
+      items:
+        - name: Azure’dan Azure’a çoğaltma için destek matrisi
+          href: azure-to-azure-support-matrix.md
+        - name: VMware’dan Azure’a destek matrisi
+          href: support-matrix-vmware-to-azure.md
+        - name: Hyper-V’den Azure’a destek matrisi
+          href: support-matrix-hyper-v-to-azure.md
+        - name: Şirket içi-Azure arası destek matrisi
+          href: site-recovery-support-matrix-to-azure.md
+        - name: Şirket içi-ikincil site arası destek matrisi
+          href: site-recovery-support-matrix-to-sec-site.md
+        - name: İş yükleri için olağanüstü durum kurtarma
+          href: site-recovery-workload.md
+        - name: Azure’a geçiş
+          href: site-recovery-migrate-to-azure.md
     - name: Rol tabanlı erişim izinleri
       href: site-recovery-role-based-linked-access-control.md
     - name: SSS
@@ -90,9 +94,11 @@
     - name: Ağ
       items:
         - name: Azure VM’lerinde olağanüstü durum kurtarma için ağı ayarlama (Önizleme)
-          href: site-recovery-azure-to-azure-networking-guidance.md
+          href: azure-to-azure-about-networking.md
         - name: Azure VM’lerinde olağanüstü durum kurtarma için ağ eşlemesini ayarlama (Önizleme)
-          href: site-recovery-network-mapping-azure-to-azure.md
+          href: azure-to-azure-network-mapping.md
+        - name: Azure VM’lerinde olağanüstü durum kurtarma için IP koruma (Önizleme)
+          href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Hyper-V sanal makinelerini Azure’a çoğaltma işlemi için ağ eşlemesini hazırlama
           href: site-recovery-network-mapping.md
         - name: Yük devretmenin ardından Azure'a erişim için IP adresini ayarlama
@@ -104,7 +110,7 @@
     - name: Olağanüstü durum kurtarma
       items:
         - name: Azure geçişinden sonra Azure VM'leri olağanüstü durumdan kurtarma
-          href: site-recovery-azure-to-azure-after-migration.md
+          href: azure-to-azure-replicate-after-migration.md
         - name: Fiziksel sunucuları olağanüstü durumdan Azure’a kurtarma
           href: tutorial-physical-to-azure.md
         - name: Hyper-V VM'lerini ikincil bir siteye çoğaltma
@@ -138,7 +144,7 @@
         - name: Yük devretme işleminden sonra makineleri yeniden koruma
           items:
             - name: Bir Azure ikincil bölgesinden birincil bölgeye yeniden koruma
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
+              href: azure-to-azure-how-to-reprotect.md
             - name: Azure’dan şirket içi ortama yeniden koruma
               href: site-recovery-how-to-reprotect.md
         - name: Azure’dan yeniden çalışma
@@ -149,6 +155,12 @@
               href: site-recovery-failback-from-azure-to-hyper-v.md
         - name: Yeniden çalışma için bir Linux ana hedef sunucusu ayarlama
           href: site-recovery-how-to-install-linux-master-target.md
+    - name: Geçiş
+      items:
+        - name: Geçiş hakkında
+          href: site-recovery-migrate-to-azure.md
+        - name: Başka bir bölgeye geçişten sonra Azure VM’lerini çoğaltma
+          href: azure-to-azure-replicate-after-migration.md
     - name: Kapasite ve ölçeklendirme
       items:
         - name: Azure’a VMware çoğaltması için kapasite planlama
@@ -206,7 +218,7 @@
         - name: Çoğaltmayı etkinleştirme
           items:
             - name: Azure-Azure arası çoğaltmayı etkinleştirme
-              href: site-recovery-replicate-azure-to-azure.md
+              href: azure-to-azure-how-to-enable-replication.md
             - name: VMware-Azure arası çoğaltmayı etkinleştirme
               href: site-recovery-replicate-vmware-to-azure.md
         - name: VMware için Mobility hizmetini dağıtma
@@ -268,13 +280,15 @@
     - name: İzleme ve Sorun Giderme
       items:
         - name: Azure-Azure arası çoğaltma sorunları
-          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+          href: azure-to-azure-troubleshoot-errors.md
         - name: Şirket içinden Azure’a çoğaltma sorunları
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
         - name: Mobility hizmeti sorunları
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Azure'a yük devretme sorunları
           href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: Yeniden koruma ve yeniden çalışma sorunları
+          href: troubleshoot-failback-reprotect.md
         - name: Azure Site Recovery’yi izleme
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Başvuru

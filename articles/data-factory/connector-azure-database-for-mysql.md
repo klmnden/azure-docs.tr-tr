@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 89c971ae0dd0a519a1b0214e33b5a6ad2bb7fc99
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: f08f9c1fa141f85077c1e868fb309516ce52342b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Azure Data Factory kullanarak MySQL için Azure veritabanından veri kopyalama
 
@@ -45,7 +45,7 @@ Aşağıdaki özellikler Azure veritabanı için MySQL bağlantılı hizmeti iç
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AzureMySql** | Evet |
-| connectionString | MySQL örneği için Azure veritabanına bağlanmak için gereken bilgileri belirtin. Bu alan bir SecureString işaretleyin. | Evet |
+| connectionString | MySQL örneği için Azure veritabanına bağlanmak için gereken bilgileri belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -98,7 +98,7 @@ MySQL için Azure veritabanından veri kopyalamak için veri kümesi için tür 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölüm için MySQL kaynak Azure veritabanı tarafından desteklenen özellikler listesini sağlar.
 

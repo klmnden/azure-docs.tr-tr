@@ -14,18 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
-
-
 
 
 > Abone tarafından Azure Active Directory (Azure AD) Yenilikler ile güncelliği [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [akış](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
@@ -125,7 +123,7 @@ Daha fazla bilgi için bkz: [My uygulamaları güvenli oturum açma uzantısı](
  
 ---
 
-### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure AD yönetim deneyimi Klasik Azure portalındaki Çekildi
+### <a name="the-phonefactor-web-portal-has-been-retired"></a>PhoneFactor web portalı kullanımdan kaldırıldı
 
 **Tür:** kullanım dışı  
 **Servis kategorisi:** Azure AD  
@@ -249,7 +247,7 @@ Daha fazla bilgi için bkz: [Azure AD Privileged Identity Management nedir?](htt
 
 **Tür:** yeni özellik  
 **Servis kategorisi:** Kurumsal uygulamaları  
-**Ürün yetenek:** üçüncü taraf tümleştirme
+**Ürün yetenek:** 3 taraf tümleştirme
  
 Aralık 2017 ' aşağıdaki yeni uygulamalar Federasyonu Desteği ile uygulama galerisinde eklendi:
 

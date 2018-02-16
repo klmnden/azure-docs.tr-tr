@@ -17,8 +17,8 @@
 ### [Güvenliğe yönelik teknik özellikler](../azure-security-technical-capabilities.md)
 ### [Azure’da idare](../governance-in-azure.md)
 ### [Bekleme sırasında veri şifrelemesi](../azure-security-encryption-atrest.md)
-### Mimari Şemalar
-#### Uyumluluk - PCI DSS
+### Azure Güvenlik ve Uyumluluk Şemaları
+#### PCI DSS
 ##### [PCI DSS uyumlu ortamlar için Ödeme İşleme](payment-processing-blueprint.md)
 ##### [Gereksinimlere genel bakış](pci-dss-requirements-overview.md)
 ##### [Gereksinim 1 - Güvenlik duvarları](pci-dss-requirement-1-firewall.md)
@@ -33,8 +33,8 @@
 ##### [Gereksinim 10 - İzleme](pci-dss-requirement-10-monitoring.md)
 ##### [Gereksinim 11 - Test etme](pci-dss-requirement-11-testing.md)
 ##### [Gereksinim 12 - İlke](pci-dss-requirement-12-policy.md)
-#### Uyumluluk - FedRAMP
-##### [FedRAMP için Web Uygulamaları](fedramp.md)
+#### FedRAMP
+##### [Web Uygulamaları Otomasyonu](fedramp.md)
 ##### [Güvenlik denetimlerine genel bakış](fedramp-controls-overview.md)
 ##### [Erişim denetimi](fedramp-access-controls.md)
 ##### [Denetim ve sorumluluk](fedramp-audit-accountability-controls.md)
@@ -53,14 +53,14 @@
 ##### [Sistem ve iletişim koruması](fedramp-system-communications-protection-controls.md)
 ##### [Sistem ve bilgi bütünlüğü](fedramp-system-information-integrity-controls.md)
 ##### [Sistem ve hizmetleri edinme](fedramp-system-services-acquisition-controls.md)
-#### Uyumluluk - UK-OFFICIAL
-##### [UK-OFFICIAL için Üç Katmanlı Web Uygulamaları](uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Üç Katmanlı Web Uygulamaları Otomasyonu](uk-official-three-tier-applications-overview.md)
 ##### [Genel Bakış](uk-official-three-tier-applications-overview.md)
 ##### [İlkelere genel bakış](uk-official-three-tier-applications-principles-overview.md)
-#### Uyumluluk - Finansal Hizmetler
+#### Finansal Hizmetler
 ##### [Düzenlenen İş Yükleri için Finansal Hizmetler](financial-services-regulated-workloads.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Azure güvenliğini kullanmaya başlama](../azure-security-getting-started.md)
 ## [Güvenlikle ilgili en iyi uygulamalar ve modeller](../security-best-practices-and-patterns.md)
 ## [Güvenlik hizmetleri ve teknolojileri](../azure-security-services-technologies.md)
@@ -93,7 +93,6 @@
 ### [Azure günlük tümleştirmesine giriş](../security-azure-log-integration-overview.md)
 #### [Azure günlük tümleştirmesini kullanmaya başlama](../security-azure-log-integration-get-started.md)
 #### [Azure Active Directory denetim günlüklerini tümleştirme](../security-azure-log-integration-ad.md)
-#### [Güvenlik Merkezi uyarılarını tümleştirme](../security-azure-log-integration-security-center.md)
 #### [Event Hubs kullanarak Key Vault’tan günlükleri tümleştirme](../security-azure-log-integration-keyvault-eventhub.md)
 #### [SSS](../security-azure-log-integration-faq.md)
 

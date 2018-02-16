@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -36,7 +36,7 @@ Yeni bir öğe üzerinde bir sıra alındığında bir işlev başlatmak için s
 Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
-* [C# betik (.csx)](#trigger---c-script-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
@@ -252,7 +252,7 @@ Bir sıra Tetik işlevi başarısız olduğunda, Azure işlevleri işlev en fazl
 
 El ile zarar iletileri işlemek için denetleme [dequeueCount](#trigger---message-metadata) kuyruk iletisi.
 
-## <a name="trigger---hostjson-properties"></a>Tetikleyici - host.json özellikleri
+## <a name="trigger---hostjson-properties"></a>Trigger - host.json properties
 
 [Host.json](functions-host-json.md#queues) dosyası sırası tetikleyici davranışını denetleyen ayarları içerir.
 
@@ -267,7 +267,7 @@ Kuyruğa ileti yazmak için bağlama Azure kuyruk depolama çıkış kullanın.
 Dile özgü örneğe bakın:
 
 * [C#](#output---c-example)
-* [C# betik (.csx)](#output---c-script-example)
+* [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Çıktı - C# örnek
@@ -438,7 +438,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**türü** | yok | ayarlanmalıdır `queue`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
 |**yönü** | yok | ayarlanmalıdır `out`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**adı** | yok | İşlev kodu sırada temsil eden değişken adı. Kümesine `$return` işlevi dönüş değeri başvurmak için.| 
-|**queueName** |**QueueName** | Kuyruğun adı. | 
+|**queueName** |**QueueName** | Kuyruk adı. | 
 |**bağlantı** | **Bağlantı** |Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -458,6 +458,15 @@ C# ve C# kod şu türlerden birini kullanarak birden çok sıra iletileri yazın
 * [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
 JavaScript işlevlerini kullanmak `context.bindings.<name>` çıkış kuyruk iletisini erişmek için. Bir dize veya JSON serileştirilebilir bir nesne için kuyruk öğesi yükü kullanabilirsiniz.
+
+
+## <a name="exceptions-and-return-codes"></a>Özel durumlar ve dönüş kodları
+
+| Bağlama |  Başvuru |
+|---|---|
+| Kuyruk | [Sıra hata kodları](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| BLOB, tablo, kuyruk | [Depolama hata kodları](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| BLOB, tablo, kuyruk |  [Sorun giderme](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

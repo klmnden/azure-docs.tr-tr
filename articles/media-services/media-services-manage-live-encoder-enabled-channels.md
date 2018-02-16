@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -65,7 +65,7 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 | Kanal durumu | Portal Arabirimi Göstergeleri | Faturalama mi? |
 | --- | --- | --- |
 | Başlangıç |Başlangıç |Hayır (geçici durum) |
-| Çalışıyor |Hazır (çalışan program yok)<br/>veya<br/>Akış (en az bir program çalışıyor) |EVET |
+| Çalışıyor |Hazır (çalışan program yok)<br/>or<br/>Akış (en az bir program çalışıyor) |EVET |
 | Durduruluyor |Durduruluyor |Hayır (geçici durum) |
 | Durduruldu |Durduruldu |Hayır |
 
@@ -83,7 +83,7 @@ Aşağıdaki diyagramda, burada bir kanal alır tek bit hızlı akış aşağıd
 Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımlar aşağıdadır.
 
 > [!NOTE]
-> Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Uzun süreler için bir kanal çalıştırmanız gerekiyorsa lütfen amslived@Microsoft.com adresine başvurun. Gerçek zamanlı kodlama için fatura bir etkisi yoktur ve canlı bir kodlama kanal "Çalışır" durumda bırakır saatlik faturalandırma ücret uygulanabilir unutmayın unutmayın.  Fazladan saatlik ücretlerden kaçınmak için canlı akış olayı tamamlandıktan sonra hemen çalışan kanalların durdurmanız önerilir. 
+> Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Temasa amslived@microsoft.com uzun süreler için bir kanal çalıştırmanız gerekiyorsa. Gerçek zamanlı kodlama için fatura bir etkisi yoktur ve canlı bir kodlama kanal "Çalışır" durumda bırakır saatlik faturalandırma ücret uygulanabilir unutmayın unutmayın.  Fazladan saatlik ücretlerden kaçınmak için canlı akış olayı tamamlandıktan sonra hemen çalışan kanalların durdurmanız önerilir. 
 > 
 > 
 
@@ -148,11 +148,11 @@ Dikkate alınacak noktalar:
     * Taban çizgisi, ana, yüksek profil (8 bit 4:2:0)
     * Yüksek 10 profili (10 bit 4:2:0)
     * Yüksek 422 profili (10 bit 4:2:2)
-  * MPEG-2 AAC-LC ses 
+  * MPEG-2 AAC-LC Audio 
     
     * Mono, Stereo, Surround (5.1, 7.1)
     * MPEG-2 stili ADTS paketleme
-  * Dolby dijital (AC-3) ses 
+  * Dolby Digital (AC-3) Audio 
     
     * Mono, Stereo, Surround (5.1, 7.1)
   * MPEG Ses (Katman II ve III) 
@@ -160,8 +160,8 @@ Dikkate alınacak noktalar:
     * Mono, Stereo
 * Önerilen yayın kodlayıcılar içerir:
   
-  * İletişim Selenio ÇÖZÜCÜ 1 düşünün
-  * İletişim Selenio ÇÖZÜCÜ 2 düşünün
+  * Imagine Communications Selenio ENC 1
+  * Imagine Communications Selenio ENC 2
   * Elemental dinamik
 
 #### <a id="single_bitrate_RTMP"></a>Tek bit hızlı RTMP
@@ -175,7 +175,7 @@ Dikkate alınacak noktalar:
 * Taban çizgisi, ana, yüksek profil (8 bit 4:2:0)
 * Yüksek 10 profili (10 bit 4:2:0)
 * Yüksek 422 profili (10 bit 4:2:2)
-* MPEG-2 AAC-LC ses
+* MPEG-2 AAC-LC Audio
 * Mono, Stereo, Surround (5.1, 7.1)
 * 44,1 kHz örnekleme hızı
 * MPEG-2 stili ADTS paketleme
@@ -208,7 +208,7 @@ Bu kanala video yayımlamasına izin verilen IP adreslerini tanımlayabilirsiniz
 
 Herhangi bir IP adresi belirtilmezse ve bir kural tanımı yoksa hiçbir IP adresine izin verilmez. Tüm IP adreslerine izin vermek için, bir kural oluşturun ve 0.0.0.0/0 olarak ayarlayın.
 
-## <a name="channel-preview"></a>Kanal Önizleme
+## <a name="channel-preview"></a>Kanal önizlemesi
 ### <a name="preview-urls"></a>Önizleme URL'leri
 Kanal Önizleme ve başka bir işleme ve teslim önce akışınızı doğrulamak için kullanacağınız bir önizleme uç noktası (Önizleme URL) sağlar.
 
@@ -262,12 +262,12 @@ Olabilir en fazla 8 ses akışı kümeleri belirtilen giriş kanal RTP MPEG-2 TS
 ### <a id="preset"></a>Sistem hazır
 Bu kanal içindeki gerçek zamanlı Kodlayıcı tarafından kullanılmak üzere hazır belirtir. Şu anda yalnızca izin verilen değer **Default720p** (varsayılan).
 
-Özel hazır gerekiyorsa, amslived@Microsoft.com adresine başvurun unutmayın.
+Özel hazır gerekiyorsa, başvurmalıdır Not amslived@microsoft.com.
 
 **Default720p** video aşağıdaki 7 katmanlara kodlar.
 
 #### <a name="output-video-stream"></a>Çıkış Video akışı
-| Bit hızı | Genişlik | Yükseklik | MaxFPS | Profil | Çıkış akış adı |
+| BitRate | Genişlik | Yükseklik | MaxFPS | Profil | Çıkış akış adı |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Yüksek |Video_1280x720_3500kbps |
 | 2200 |960 |540 |30 |Ana |Video_960x540_2200kbps |
@@ -364,7 +364,7 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 | Kanal durumu | Portal Arabirimi Göstergeleri | Faturalandırılmış mı? |
 | --- | --- | --- |
 | Başlangıç |Başlangıç |Hayır (geçici durum) |
-| Çalışıyor |Hazır (çalışan program yok)<br/>veya<br/>Akış (en az bir program çalışıyor) |Evet |
+| Çalışıyor |Hazır (çalışan program yok)<br/>or<br/>Akış (en az bir program çalışıyor) |Evet |
 | Durduruluyor |Durduruluyor |Hayır (geçici durum) |
 | Durduruldu |Durduruldu |Hayır |
 
@@ -381,13 +381,13 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 * Varsayılan olarak 5 kanalları Media Services hesabınıza yalnızca ekleyebilirsiniz. Tüm yeni hesaplarda Esnek kota budur. Daha fazla bilgi için bkz: [kotaları ve kısıtlamaları](media-services-quotas-and-limitations.md).
 * Kanal veya ilişkili programları çalışıyorken giriş protokolünü değiştiremezsiniz. Farklı protokollere ihtiyacınız varsa her bir giriş protokolü için farklı bir kanal oluşturmalısınız.
 * Kanalınızı olduğunda, yalnızca faturalandırılır **çalıştıran** durumu. Daha fazla bilgi için bkz [bu](media-services-manage-live-encoder-enabled-channels.md#states) bölümü.
-* Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
+* Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Temasa amslived@microsoft.com uzun süreler için bir kanal çalıştırmanız gerekiyorsa.
 * İçinde içerik akışı sağlamak istediğiniz akış uç bulunduğundan emin olun **çalıştıran** durumu.
 * Zaman birden çok dil parçaları giriş yapma ve Azure ile gerçek zamanlı kodlama yapılması, yalnızca RTP çok dilli giriş için desteklenir. 8 adete kadar ses akışları RTP MPEG-2 TS kullanarak tanımlayabilirsiniz. RTMP veya kesintisiz akış ile birden çok ses izleri alma şu anda desteklenmiyor. Yaparken ile gerçek zamanlı kodlama [şirket içi Canlı kodlar](media-services-live-streaming-with-onprem-encoders.md), ne olursa olsun AMS için gönderilen bir kanal herhangi başka bir işleme olmadan geçirdiği için böyle bir kısıtlama değil.
 * Kodlama hazır 30 fps "max kare hızı" kavramı kullanır. Giriş 60 fps ise bunu / 59.97i, giriş çerçeveleri bırakılan/Kaldır-30/29.97 fps interlaced. Giriş 50 fps/50i ise, giriş çerçeveleri bırakılan/Kaldır-25 fps interlaced. Giriş 25 fps ise, çıktı 25 fps ile kalır.
 * STOP YOUR yapıldığında kanala unutmayın. Yapmadığınız takdirde, faturalandırma devam eder.
 
-## <a name="known-issues"></a>Bilinen sorunlar
+## <a name="known-issues"></a>Bilinen Sorunlar
 * Kanal başlama süresi 2 dakika ortalama için iyileştirilmiştir, ancak bazen artan talebi hala en fazla 20 + dakika ele geçirebilir.
 * RTP destek profesyonel yayıncıları catered. Lütfen içinde RTP notları inceleyin [bu](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blogu.
 * Slate görüntüleri açıklanan kısıtlamaları uyması [burada](media-services-manage-live-encoder-enabled-channels.md#default_slate). Dener bir kanal oluşturmak 1920 x 1080 büyük bir varsayılan Kurşun ile istek olacak sonunda kullanıma alma hatası.

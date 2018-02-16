@@ -2,23 +2,17 @@
 title: "Azure Site Recovery: Sık sorulan sorular | Microsoft Docs"
 description: "Bu makalede, Azure Site Recovery hakkında yaygın sorular açıklanır."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 578ce5d4e661e74003440836304f16579d292d06
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içermektedir. Bu makaleyi okuduktan sonra sorularınız varsa, yayınlayın [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -82,13 +76,13 @@ Evet. Çoğaltma ve yük devretme şubelerinizde düzenlemek için Site Recovery
 Hayır, Site Recovery çoğaltılan verilere müdahale etmez ve hangi sanal makineleri veya fiziksel sunucuları üzerinde çalışan hakkında herhangi bir bilgi yoktur.
 Çoğaltma verileri şirket içi Hyper-V ana bilgisayarları, VMware hiper yöneticileri veya fiziksel sunucular ile Azure depolama alanı ya da ikincil siteniz arasında değiştirilir. Site Recovery bu verilere müdahale edemez. Yalnızca çoğaltma ve yük devretme işlemlerini düzenlemek için gereken meta veriler Site Recovery hizmetine gönderilir.  
 
-Site Recovery ISO 27001: 2013, 27018, HIPAA, DPA sertifikalı ve SOC2 ile FedRAMP JAB değerlendirmelerini sürecinde olduğundan ' dir.
+Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the process of SOC2 and FedRAMP JAB assessments.
 
 ### <a name="for-compliance-reasons-even-our-on-premises-metadata-must-remain-within-the-same-geographic-region-can-site-recovery-help-us"></a>Uyumluluk nedenleriyle bile bizim şirket içi meta verileri aynı coğrafi bölge içinde kalması gerekir. Site Recovery bize yardımcı olabilir?
 Evet. Bir bölgede Site Recovery kasası oluşturduğunuzda, etkinleştirmek ve çoğaltmayı düzenlemek ihtiyacımız ve yük devretme kalır, bölge içinde tüm meta veriler coğrafi olun sınır.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery çoğaltma işlemini şifreleyebilir mi?
-Şirket içi siteler şifreleme-aktarım sırasında arasında çoğaltma sanal makineleri ve fiziksel sunucular için desteklenir. Sanal makineler ve fiziksel sunucuları Azure'a, hem şifreleme-aktarım sırasında çoğaltma ve [rest belirli konumunda şifreleme (azure'da)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) desteklenir.
+Şirket içi siteler şifreleme-aktarım sırasında arasında çoğaltma sanal makineleri ve fiziksel sunucular için desteklenir. Sanal makineler ve fiziksel sunucuları Azure'a, hem şifreleme-aktarım sırasında çoğaltma ve [rest belirli konumunda şifreleme (azure'da)](https://docs.microsoft.com/azure/storage/storage-service-encryption) desteklenir.
 
 ## <a name="replication"></a>Çoğaltma
 
@@ -145,7 +139,7 @@ Evet. Daha fazla bilgiyi dağıtım makalelerinin bant genişliği azaltma hakk�
 * [Kapasite VMware Vm'lerini ve fiziksel sunucuları çoğaltmak için planlama](site-recovery-plan-capacity-vmware.md)
 * [Kapasite Hyper-V Vm'lerini Azure'a çoğaltma için planlama](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
-## <a name="failover"></a>Yük Devretme
+## <a name="failover"></a>Yük devretme
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>I Azure'a devretmek, nasıl Azure sanal makinelerini yük devretme sonrasında erişirim?
 Azure VM'lerine güvenli bir İnternet bağlantısı, siteden siteye VPN veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için değişik hazırlamanız gerekir. [Daha fazla bilgi](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
@@ -166,10 +160,10 @@ Otomatik hale getirmek için, bir sanal makine hatasını algılamak için şirk
 * [Daha fazla bilgi](site-recovery-failback-azure-to-vmware.md) VMware Vm'lerini ve fiziksel sunucuları hakkında başarısız geri
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>My şirket içi konak yanıt vermeyen veya çöken değilse yapabilirim geri yük devretme işlemi farklı bir konak?
-Evet, azure'dan farklı bir konağa için alternatif konuma kurtarma kullanabilirsiniz. Seçenekler hakkında daha fazla bilgiyi aşağıdaki VMware ve Hyper-v sanal makineleri için bağlantıları.
+Evet, azure'dan farklı bir konağa için alternatif konuma kurtarma kullanabilirsiniz. Seçenekler hakkında daha fazla bilgiyi aşağıdaki VMware ve Hyper-V sanal makineleri için bağlantıları.
 
-* [VMware sanal makineleri için](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [Hyper-v sanal makineleri için](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [VMware sanal makineleri için](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Hyper-V sanal makineleri için](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
 
 ## <a name="service-providers"></a>Hizmet sağlayıcıları
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Bir hizmet sağlayıcısı ben. Site Recovery adanmış ve paylaşılan altyapı modelleri için çalışıyor mu?

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 046172d8c4cff880c8e5d59834f5753927fb90c2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 55379add493224770ca7e0e26fd607cd0a2cf892
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SFTP sunucusundan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Temel kimlik doğrulaması kullanmak için "authenticationType" özelliğini aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | Kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
-| password | (Kullanıcı adı) kullanıcının parolası. Bu alan bir SecureString işaretleyin. | Evet |
+| password | (Kullanıcı adı) kullanıcının parolası. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Örnek:**
 
@@ -104,11 +104,11 @@ SSH ortak anahtar kimlik doğrulaması kullanmak üzere ayarlanmış "authentica
 |:--- |:--- |:--- |
 | Kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı |Evet |
 | privateKeyPath | Tümleştirme çalışma zamanı erişmek için özel anahtar dosyasının mutlak yolu belirtin. Yalnızca kendi kendini barındıran türü Integration zamanının "connectVia" belirtildiğinde geçerlidir. | Belirtin `privateKeyPath` veya `privateKeyContent`.  |
-| privateKeyContent | Base64 olarak kodlanmış SSH özel anahtar içeriği. SSH özel anahtarı, OpenSSH biçiminde olmalıdır. Bu alan bir SecureString işaretleyin. | Belirtin `privateKeyPath` veya `privateKeyContent`. |
-| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. Bu alan bir SecureString işaretleyin. | Evet, özel anahtar dosyası bir parola deyimi tarafından korunuyorsa. |
+| privateKeyContent | Base64 olarak kodlanmış SSH özel anahtar içeriği. SSH özel anahtarı, OpenSSH biçiminde olmalıdır. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Belirtin `privateKeyPath` veya `privateKeyContent`. |
+| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet, özel anahtar dosyası bir parola deyimi tarafından korunuyorsa. |
 
 > [!NOTE]
-> SFTP Bağlayıcısı yalnızca OpenSSH anahtarını destekler. Anahtar dosyası doğru biçimde olduğundan emin olun. .ppk OpenSSH biçimine dönüştürmek için Putty aracını kullanabilirsiniz.
+> SFTP bağlayıcı RSA/DSA OpenSSH anahtarını destekler. Anahtar dosyası içeriğinizi "---Başlangıç [RSA/DSA] özel ANAHTARLA---" başlatır emin olun. Özel anahtar dosyası ppk biçim dosyası ise, lütfen .ppk OpenSSH biçimine dönüştürmek için Putty Aracı'nı kullanın. 
 
 **Örnek 1: özel anahtar filePath kullanarak SshPublicKey kimlik doğrulaması**
 
@@ -182,7 +182,7 @@ SFTP verileri kopyalamak için kümesine tür özelliği ayarlamak **FileShare**
 | type | Veri kümesi türü özelliği ayarlamak: **dosya paylaşımı** |Evet |
 | folderPath | Klasör yolu. Örneğin: klasör/alt / |Evet |
 | fileName | Dosya adını belirtin **folderPath** belirli bir dosyadan kopyalamak istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, veri kümesi klasördeki tüm dosyaları kaynak olarak işaret eder. |Hayır |
-| fileFilter | Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin. Yalnızca dosya adı değil belirtildiğinde geçerlidir. <br/><br/>Joker karakterler izin verilir: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/>-Örnek 1:`"fileFilter": "*.log"`<br/>-Örnek 2:`"fileFilter": 2017-09-??.txt"` |Hayır |
+| fileFilter | Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin. Yalnızca dosya adı değil belirtildiğinde geçerlidir. <br/><br/>Joker karakterler izin verilir: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/>-Örnek 1: `"fileFilter": "*.log"`<br/>-Örnek 2: `"fileFilter": 2017-09-??.txt"` |Hayır |
 | Biçimi | İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>Belirli bir biçime sahip dosyaları ayrıştırma istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopyalama senaryosu) |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Daha fazla bilgi için bkz: [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |
 

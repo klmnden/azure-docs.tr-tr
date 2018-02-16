@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 3b7096a073b509217a6ed29b53f88f912e6613f6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 7946958bec8b2f444155b5a9701f1f7401fe4f3c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-bus-management-libraries"></a>Hizmet veri yolu yönetim kitaplıkları
 
@@ -31,9 +31,9 @@ Azure hizmet veri yolu yönetim kitaplıklarını dinamik olarak hizmet veri yol
 * Konu oluşturma, güncelleştirme, silme
 * Abonelik oluşturma, güncelleştirme, silme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Hizmet veri yolu yönetim kitaplıklarını kullanmaya başlamak için Azure Active Directory (AAD) hizmeti ile kimlik doğrulaması gerekir. AAD Azure kaynaklarınızı erişim sağlayan bir hizmet sorumlusu olarak kimlik doğrulaması gerektirir. Bir hizmet sorumlusu oluşturma hakkında daha fazla bilgi için Bu makalelerden birine bakın:  
+Hizmet veri yolu yönetim kitaplıklarını kullanmaya başlamak için Azure Active Directory (Azure AD) hizmeti ile kimlik doğrulaması gerekir. Azure AD, Azure kaynaklarınızı erişim sağlayan bir hizmet sorumlusu olarak kimlik doğrulaması gerektirir. Bir hizmet sorumlusu oluşturma hakkında daha fazla bilgi için Bu makalelerden birine bakın:  
 
 * [Active Directory Uygulama ve kaynaklarına erişebilir hizmet sorumlusu oluşturmak için Azure portalını kullanma](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
@@ -45,13 +45,13 @@ Bu öğreticiler sağladığını bir `AppId` (istemci kimliği) `TenantId`, ve 
 
 Ortak bir protokolle herhangi bir Service Bus kaynak yönetmenize olanak deseni izler:
 
-1. Azure Active Directory'yi kullanarak bir belirteç elde **Microsoft.IdentityModel.Clients.activedirectory tarafından** kitaplığı.
+1. Azure AD kullanarak bir belirteç elde **Microsoft.IdentityModel.Clients.activedirectory tarafından** kitaplığı:
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
-2. Oluşturma `ServiceBusManagementClient` nesnesi.
+2. Oluşturma `ServiceBusManagementClient` nesnesi:
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -60,7 +60,7 @@ Ortak bir protokolle herhangi bir Service Bus kaynak yönetmenize olanak deseni 
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-3. Ayarlama `CreateOrUpdate` belirtilen değerlerinizi parametreleri.
+3. Ayarlama `CreateOrUpdate` belirtilen değerlerinizi parametreleri:
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -69,12 +69,13 @@ Ortak bir protokolle herhangi bir Service Bus kaynak yönetmenize olanak deseni 
        EnablePartitioning = true
    };
    ```
-4. Çağrı yürütün.
+4. Çağrı yürütün:
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [.NET Yönetim örnek](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus API Başvurusu](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+* [Microsoft.Azure.Management.ServiceBus API reference](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

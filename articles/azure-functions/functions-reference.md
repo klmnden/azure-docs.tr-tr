@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
 Azure işlevleri, belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil ya da bağlama belirli Ayrıntılar öğrenme moduna geçmek önce bunların tümüne uygulanır Bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
@@ -53,9 +53,9 @@ Ayarlama `disabled` özelliğine `true` işlevi çalıştırılmasını engellem
 
 | Özellik | Değerleri/türleri | Yorumlar |
 | --- | --- | --- |
-| `type` |dize |Bağlama türü. Örneğin, `queueTrigger`. |
+| `type` |string |Bağlama türü. Örneğin, `queueTrigger`. |
 | `direction` |'in', 'out' |Bağlama işlevdeki veri alma veya işlevinden veri göndermek için olup olmadığını gösterir. |
-| `name` |dize |Bağlı veri işlevinde için kullanılan ad. C# ' ta bir bağımsız değişken adı budur; JavaScript için bir anahtar/değer listesinde anahtardır. |
+| `name` |string |Bağlı veri işlevinde için kullanılan ad. C# ' ta bir bağımsız değişken adı budur; JavaScript için bir anahtar/değer listesinde anahtardır. |
 
 ## <a name="function-app"></a>İşlev uygulaması
 Bir işlev uygulaması birlikte Azure App Service tarafından yönetilen bir veya daha fazla tekil işlevler oluşur. Bir işlev uygulaması işlevlerde tümünün aynı fiyatlandırma planı, sürekli dağıtımı ve çalışma zamanı sürümü paylaşır. Çeşitli dillerde yazılmış işlevleri tüm aynı işlev uygulaması paylaşabilirsiniz. Bir işlev uygulaması düzenlemek ve topluca işlevlerinizi yönetmek için bir yol olarak düşünün. 
@@ -117,6 +117,8 @@ Azure işlevleri için kod açık bir kaynaktır ve GitHub depolarının depolan
 Aşağıda, tüm desteklenen bağlamaları tablosu verilmiştir.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+Bağlantılardan gelen hatalarla sorunları sorun mu yaşıyorsunuz? Gözden geçirme [Azure işlevleri bağlama hata kodları](functions-bindings-error-pages.md) belgeleri.
 
 ## <a name="reporting-issues"></a>Raporlama konuları
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

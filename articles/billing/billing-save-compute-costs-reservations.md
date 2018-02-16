@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf 
 Ayrılmış sanal makine örnekleri, yıllık veya üç yıl kullandığınız sanal makinelerde indirim almak için işlem kapasitesi için önceden ödeme olanak tanır. Sanal makine maliyetlerinizi önemli ölçüde azaltır — yüzde 72 Kullandıkça Öde fiyatları – yıllık veya üç yıllık ön taahhüt ile. Ayrılmış sanal makine örneklerinin bir fatura iskonto ve sanal makineler çalışma zamanı durumunu etkilemez.
@@ -60,5 +60,14 @@ Ayırmalar, bazı özel durumlar dışında çoğu VM boyutları için kullanıl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Sanal makinelerinizi satın alarak kaydetme başlangıç bir [ayrılmış sanal makine örnek](https://go.microsoft.com/fwlink/?linkid=861721). 
+
+Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
+
+- [Ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Ayrılmış sanal makine örneklerini yönetme](billing-manage-reserved-vm-instance.md)
+- [Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
+- [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
+- [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
+- [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
 
 Yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.

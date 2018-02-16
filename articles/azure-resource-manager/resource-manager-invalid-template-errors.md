@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e58c10cfb4cdd4ba49945e6c19845cbc957d6326
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Geçersiz şablon için hataları çözümleyin
 
@@ -131,6 +131,10 @@ part of the allowed values
 
 Double şablondaki izin verilen değerler denetleyin ve dağıtım sırasında bir sağlayın.
 
-### <a name="solution-4---circular-dependency-detected"></a>Çözüm 4 - döngüsel bağımlılık algılandı
+### <a name="solution-4---too-many-target-resource-groups"></a>Çözüm 4 - çok sayıda hedef kaynak grupları
+
+Beşten fazla hedef kaynak grupları tek bir dağıtımda belirtirseniz, bu hatayı alırsınız. Dağıtımınızda bulunan kaynak gruplarının sayısını birleştirerek ya da şablon ayrı dağıtımları olarak bazıları dağıtma göz önünde bulundurun. Daha fazla bilgi için bkz: [birden fazla abonelik veya kaynak grubu dağıtma Azure kaynaklarına](resource-manager-cross-resource-group-deployment.md).
+
+### <a name="solution-5---circular-dependency-detected"></a>Çözüm 5 - döngüsel bağımlılık algılandı
 
 Birbirine bağımlı kaynakları dağıtım başlatılmasını engelleyen bir şekilde, bu hatayı alırsınız. Ayrıca bekleyen için diğer kaynaklar bekleyin iki veya daha fazla kaynak bağımlılıklarını bileşimini yapar. Örneğin, üzerinde resource3 resource1 bağlıdır, üzerinde resource1 switch2 bağlıdır ve üzerinde switch2 resource3 bağlıdır. Genellikle, gereksiz bağımlılıkları kaldırarak bu sorunu çözebilirsiniz.

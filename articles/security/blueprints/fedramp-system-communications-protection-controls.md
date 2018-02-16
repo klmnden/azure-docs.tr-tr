@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - sistem ve iletişim koruması"
-description: "Web uygulamaları FedRAMP için-sistem ve iletişim koruması"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - sistem ve iletişim koruma"
+description: "FedRAMP Web uygulamaları Otomasyon - sistem ve iletişim koruması"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Sistem ve iletişim Koruması (SC)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması sistem yönetimi işlevselliğini zorlama mantıksal erişim denetimleri ve sistem mimarisi ile kullanıcı işlevselliği ayırır. Müşteri tarafından dağıtılan web uygulama arabirimlerine kullanıcı işlevselliği sınırlıdır. Sistem Yönetimi işlevleri için arabirimleri kullanıcı arabirimlerinden ayrıdır. Üretim kaynakları uygun şekilde erişimi sınırlamak için ağ güvenlik grubu kuralları ile bir yönetim alt ağda bulunan bir güvenli savunma konak (jumpbox) aracılığıyla tüm yönetim bağlantısı durumda. |
+| **Müşteri** | Bu şeması sistem yönetimi işlevselliğini zorlama mantıksal erişim denetimleri ve sistem mimarisi ile kullanıcı işlevselliği ayırır. Müşteri tarafından dağıtılan web uygulama arabirimlerine kullanıcı işlevselliği sınırlıdır. Sistem Yönetimi işlevleri için arabirimleri kullanıcı arabirimlerinden ayrıdır. Üretim kaynakları uygun şekilde erişimi sınırlamak için ağ güvenlik grubu kuralları ile bir yönetim alt ağda bulunan bir güvenli savunma konak (jumpbox) aracılığıyla tüm yönetim bağlantısı durumda. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, her işlem için bir özel sanal adres alanı atayarak yürütülen her işlem için ayrı yürütme etki alanları korur. Ayrıca, çözüm uygular bir mimari ve erişim denetimleri gerektiğinde güvenlik işlevi yalıtmak için tasarlanmış. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, her işlem için bir özel sanal adres alanı atayarak yürütülen her işlem için ayrı yürütme etki alanları korur. Ayrıca, çözüm uygular bir mimari ve erişim denetimleri gerektiğinde güvenlik işlevi yalıtmak için tasarlanmış. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Bilgi erişilebilir yalnızca kullanıcılar ve roller uygun izinlere sahip olacak şekilde, işletim sistemi kaynaklarını (örneğin, bellek, depolama) yönetir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Bilgi erişilebilir yalnızca kullanıcılar ve roller uygun izinlere sahip olacak şekilde, işletim sistemi kaynaklarını (örneğin, bellek, depolama) yönetir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması Yük Dengeleme yetenekleri ve bir web uygulaması güvenlik duvarı içeren uygulama ağ geçidi dağıtır. Web katmanı, veritabanı katmanı ve Active Directory destekleme dağıtılan sanal makinelerin ölçeklendirilebilir kullanılabilirlik kümesinde dağıtılır. |
+| **Müşteri** | Bu şeması Yük Dengeleme yetenekleri ve bir web uygulaması güvenlik duvarı içeren uygulama ağ geçidi dağıtır. Web katmanı, veritabanı katmanı ve Active Directory destekleme dağıtılan sanal makinelerin ölçeklendirilebilir kullanılabilirlik kümesinde dağıtılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Her Windows işlemi bir programı çalıştırmak için gereken kaynakları sağlar. Kaynak önceliği işletim sistemi tarafından yönetilir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Her Windows işlemi bir programı çalıştırmak için gereken kaynakları sağlar. Kaynak önceliği işletim sistemi tarafından yönetilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması, bir uygulama ağ geçidi dağıtır, yük dengeleyici ve commutations dış sınırlarında ve iç alt ağlar arasında denetlemek için ağ güvenlik grubu kuralları yapılandırır. Uygulama ağ geçidi, yük dengeleyici ve ağ güvenlik grubu olayı ve tanılama günlüklerini izleme müşteri izin vermek için OMS günlük analizi tarafından toplanır. |
+| **Müşteri** | Bu ayrıntılı bir uygulama ağ geçidi dağıtır, yük dengeleyici ve commutations dış sınırlarında ve iç alt ağlar arasında denetlemek için ağ güvenlik grubu kuralları yapılandırır. Uygulama ağ geçidi, yük dengeleyici ve ağ güvenlik grubu olayı ve tanılama günlüklerini izleme müşteri izin vermek için OMS günlük analizi tarafından toplanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması ayrı web alt ağ, veritabanı alt ağ, Active Directory alt ve yönetimi alt ağ ile bir mimari kaynaklarında dağıtır. Alt ağları için yalnızca bu gerekli sistem ve yönetim işlevselliği için alt ağlar arasında trafiği kısıtlamak için ayrı alt ağlara uygulanan ağ güvenlik grubu kural tarafından mantıksal olarak ayrılır (örn., dış trafiğin veritabanına, yönetim, erişilemiyor veya Active Directory alt ağlar). |
+| **Müşteri** | Bu ayrıntılı bir mimari ayrı web alt ağ, veritabanı alt ağ, Active Directory alt ve yönetimi alt ağ kaynaklarında dağıtır. Alt ağları için yalnızca bu gerekli sistem ve yönetim işlevselliği için alt ağlar arasında trafiği kısıtlamak için ayrı alt ağlara uygulanan ağ güvenlik grubu kural tarafından mantıksal olarak ayrılır (örn., dış trafiğin veritabanına, yönetim, erişilemiyor veya Active Directory alt ağlar). |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması müşteri tarafından dağıtılan web uygulamasının dış bağlantıları yönetmek için uygulama ağ geçidi dağıtır. Dış bağlantıları yönetim erişimi için bir savunma konağa kısıtlanmış / IP adresleri için dış bağlantılar kısıtlamak amacıyla uygulanan ağ güvenlik kuralları ile yönetimi alt ağda dağıtılan jumpbox yetkili. |
+| **Müşteri** | Bu şeması müşteri tarafından dağıtılan web uygulamasının dış bağlantıları yönetmek için uygulama ağ geçidi dağıtır. Dış bağlantıları yönetim erişimi için bir savunma konağa kısıtlanmış / IP adresleri için dış bağlantılar kısıtlamak amacıyla uygulanan ağ güvenlik kuralları ile yönetimi alt ağda dağıtılan jumpbox yetkili. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | İki ortak IP adresi bu Azure şeması dağıtır: bir uygulama ağ geçidi ile; ilişkili bir yönetim savunma konakla ilişkili / jumpbox. |
+| **Müşteri** | İki ortak IP adresi bu şeması dağıtır: bir uygulama ağ geçidi ile; ilişkili bir yönetim savunma konakla ilişkili / jumpbox. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | İki ortak IP adresi bu Azure şeması dağıtır: bir uygulama ağ geçidi ile; ilişkili bir yönetim savunma konakla ilişkili / jumpbox. Bu arabirimleri yönetimini yazılım tanımlı ağ üzerinden etkinleştirilir. |
+| **Müşteri** | İki ortak IP adresi bu şeması dağıtır: bir uygulama ağ geçidi ile; ilişkili bir yönetim savunma konakla ilişkili / jumpbox. Bu arabirimleri yönetimini yazılım tanımlı ağ üzerinden etkinleştirilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | İki ortak IP adresi bu Azure şeması dağıtır: bir uygulama ağ geçidi ile; ilişkili bir yönetim savunma konakla ilişkili / jumpbox. Bu arabirimleri yönetimini yazılım tanımlı ağ üzerinden etkinleştirilir. |
+| **Müşteri** | İki ortak IP adresi bu şeması dağıtır: bir uygulama ağ geçidi ile; ilişkili bir yönetim savunma konakla ilişkili / jumpbox. Bu arabirimleri yönetimini yazılım tanımlı ağ üzerinden etkinleştirilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan web uygulama ağ geçidi, bir HTTPS dinleyicisi, olmadığını gizliliği ve bütünlük iletişimleri oturumlarının ile yapılandırılır. Uzak Masaüstü bağlantılarını jumpbox gizliliği ve bütünlük sağlama de şifrelenir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan web uygulama ağ geçidi, bir HTTPS dinleyicisi, olmadığını gizliliği ve bütünlük iletişimleri oturumlarının ile yapılandırılır. Uzak Masaüstü bağlantılarını jumpbox gizliliği ve bütünlük sağlama de şifrelenir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -225,7 +225,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>Sınır koruma | Dış telekomünikasyon Hizmetleri
 
-**SC-7 (4) .e** Trafik akışı ilkesi için özel durumlar kuruluş incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı] ve açık bir görev/iş gereksinimine göre artık desteklenmeyen özel durumları kaldırır.
+**SC-7 (4).e** Trafik akışı ilkesi için özel durumlar kuruluş incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı] ve açık bir görev/iş gereksinimine göre artık desteklenmeyen özel durumları kaldırır.
 
 **Sorumlulukları:**`Customer Only`
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Ağ güvenlik grubu bu Azure şeması tarafından dağıtılan uygulanan Rulesets varsayılan olarak izin verme düzeni kullanılarak yapılandırılır. |
+| **Müşteri** | Ağ güvenlik grubu bu şeması tarafından dağıtılan uygulanan Rulesets varsayılan olarak izin verme düzeni kullanılarak yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri bir ana bilgisayar tabanlı güvenlik duvarı etkin olan yapılandırılır. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri bir ana bilgisayar tabanlı güvenlik duvarı etkin olan yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bilgileri güvenlik araçları ve destek bileşenlerini müşteri dağıtımı için ayrı bir yönetim alt ağ ile bir mimari kaynaklarında dağıtır. Alt ağ güvenlik grubu kural tarafından mantıksal olarak ayrılır. |
+| **Müşteri** | Bu ayrıntılı bilgileri güvenlik araçları ve destek bileşenlerini müşteri dağıtımı için ayrı bir yönetim alt ağ ile bir mimari kaynaklarında dağıtır. Alt ağ güvenlik grubu kural tarafından mantıksal olarak ayrılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması ayrı web alt ağ, veritabanı alt ağ, Active Directory alt ve yönetimi alt ağ ile bir mimari kaynaklarında dağıtır. Alt ağları için yalnızca bu gerekli sistem ve yönetim işlevselliği için alt ağlar arasında trafiği kısıtlamak için ayrı alt ağlara uygulanan ağ güvenlik grubu kural tarafından mantıksal olarak ayrılır. |
+| **Müşteri** | Bu ayrıntılı bir mimari ayrı web alt ağ, veritabanı alt ağ, Active Directory alt ve yönetimi alt ağ kaynaklarında dağıtır. Alt ağları için yalnızca bu gerekli sistem ve yönetim işlevselliği için alt ağlar arasında trafiği kısıtlamak için ayrı alt ağlara uygulanan ağ güvenlik grubu kural tarafından mantıksal olarak ayrılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması kaynakları yalnızca güvenli protokolleri kullanarak iletişim kuracak şekilde yapılandırır. Uygulama ağ geçidi WAF bileşeninin iletişim ekibi dış kullanır gelen HTTPS/TLS kabul etmek ve arka uç havuzu ile yalnızca HTTPS/TLS iletişim kurmak için yapılandırılır. SQL Server, yalnızca HTTPS/TLS iletişim kuracak şekilde yapılandırıldı. Uzak Masaüstü Hizmetleri, güvenli bağlantı kullanacak şekilde yapılandırılır. |
+| **Müşteri** | Bu şeması kaynakları yalnızca güvenli protokolleri kullanarak iletişim kuracak şekilde yapılandırır. Uygulama ağ geçidi WAF bileşeninin iletişim ekibi dış kullanır gelen HTTPS/TLS kabul etmek ve arka uç havuzu ile yalnızca HTTPS/TLS iletişim kurmak için yapılandırılır. SQL Server, yalnızca HTTPS/TLS iletişim kuracak şekilde yapılandırıldı. Uzak Masaüstü Hizmetleri, güvenli bağlantı kullanacak şekilde yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması Azure anahtar kasası dağıtır. Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarının ve gizli anahtarların korunmasına yardımcı olur. Azure anahtar kasası anahtarlarını kullanarak bir FIPS 140-2 Düzey 2 donanım güvenlik modülü (HSM) anahtar oluşturma yeteneği oluşturabilir. |
+| **Müşteri** | Bu ayrıntılı bir Azure anahtar kasası dağıtır. Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarının ve gizli anahtarların korunmasına yardımcı olur. Azure anahtar kasası anahtarlarını kullanarak bir FIPS 140-2 Düzey 2 donanım güvenlik modülü (HSM) anahtar oluşturma yeteneği oluşturabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Azure anahtar kasası, şifreleme anahtarları ve bu Azure şeması kullanılan gizli anahtarları depolamak için kullanılır. Anahtar kasası erişmek ve veri şifreleme anahtarları için anahtar yönetimi işlemini kolaylaştırır. Aşağıdaki kimlik doğrulayan anahtar kasasında depolanan: Azure parolasını dağıtma hesabı, sanal makine yönetici parolası, SQL Server hizmet hesabı parolası. |
+| **Müşteri** | Azure anahtar kasası, şifreleme anahtarları ve bu şeması kullanılan gizli anahtarları depolamak için kullanılır. Anahtar kasası erişmek ve veri şifreleme anahtarları için anahtar yönetimi işlemini kolaylaştırır. Aşağıdaki kimlik doğrulayan anahtar kasasında depolanan: Azure parolasını dağıtma hesabı, sanal makine yönetici parolası, SQL Server hizmet hesabı parolası. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -461,7 +461,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-sc-13"></a>NIST 800 53 denetim SC-13
 
-#### <a name="cryptographic-protection"></a>Şifreleme koruma
+#### <a name="cryptographic-protection"></a>Cryptographic Protection
 
 **SC-13** bilgi sistemi uygulayan [atama: kuruluş tarafından tanımlanan şifreleme kullanır ve her kullanım için gereken şifreleme türünü] geçerli federal yasalar, Executive siparişleri yönergeleri, ilkeleri düzenlemeleri uygun olarak ve standartları.
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Windows kimlik doğrulaması, Uzak Masaüstü'nü ve BitLocker tarafından bu Azure şeması görevli olduğu. Bu bileşenler, FIPS 140 doğrulanmış şifreleme modüllerinde yararlanmayı yapılandırılabilir. |
+| **Müşteri** | Windows kimlik doğrulaması, Uzak Masaüstü'nü ve BitLocker tarafından bu şeması görevli olduğu. Bu bileşenler, FIPS 140 doğrulanmış şifreleme modüllerinde yararlanmayı yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir parçası olarak dağıtılan işbirliği bilgisayar aygıt yok. Not: Azure üzerinde dağıtılan sistemler kapsamında işbirliği fiziksel hesaplama cihazları vardır. |
+| **Müşteri** | Bu ayrıntılı bir parçası olarak dağıtılan işbirliği bilgisayar aygıt yok. Not: Azure üzerinde dağıtılan sistemler kapsamında işbirliği fiziksel hesaplama cihazları vardır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir parçası olarak dağıtılan işbirliği bilgisayar aygıt yok. Not: Azure üzerinde dağıtılan sistemler kapsamında işbirliği fiziksel hesaplama cihazları vardır. |
+| **Müşteri** | Bu ayrıntılı bir parçası olarak dağıtılan işbirliği bilgisayar aygıt yok. Not: Azure üzerinde dağıtılan sistemler kapsamında işbirliği fiziksel hesaplama cihazları vardır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir parçası olarak dağıtılan Internet Protokolü teknolojileri üzerinden hiçbir voice vardır. |
+| **Müşteri** | Bu ayrıntılı bir parçası olarak dağıtılan Internet Protokolü teknolojileri üzerinden hiçbir voice vardır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir parçası olarak dağıtılan Internet Protokolü teknolojileri üzerinden hiçbir voice vardır. |
+| **Müşteri** | Bu ayrıntılı bir parçası olarak dağıtılan Internet Protokolü teknolojileri üzerinden hiçbir voice vardır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure Azure portalı, Uzak Masaüstü Bağlantısı ve web uygulama ağ geçidi, şeması tarafından dağıtılan kaynaklara uzaktan erişim güvenli TLS kullanarak. TLS oturum düzeyinde iletişimleri için Orijinallik Sertifikası sağlar. |
+| **Müşteri** | Azure portalı, Uzak Masaüstü Bağlantısı ve web uygulama ağ geçidi dahil olmak üzere bu şeması tarafından dağıtılan kaynaklara uzaktan erişim güvenli TLS kullanarak. TLS oturum düzeyinde iletişimleri için Orijinallik Sertifikası sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure Azure portalı, Uzak Masaüstü Bağlantısı ve web uygulama ağ geçidi, şeması tarafından dağıtılan kaynaklara uzaktan erişim güvenli TLS kullanarak. Uzak Masaüstü oturumları ve Azure portalında oturum tanımlayıcıları oturum kapatma sırasında geçersiz. Web oturumu geçersiz kılma Azure uygulama geçidinden - Web uygulaması Güvenlik Duvarı (WAF) kurallar zorlanır. WAF her oturum tanımlama bilgisi benzeşim uygular ve 30 dakika (Kuruluş belirli kurallar dağıtımına yapılandırılabilir post) istemciden kaldıktan sonra oturum zaman aşımı gerçekleştirir. |
+| **Müşteri** | Azure portalı, Uzak Masaüstü Bağlantısı ve web uygulama ağ geçidi dahil olmak üzere bu şeması tarafından dağıtılan kaynaklara uzaktan erişim güvenli TLS kullanarak. Uzak Masaüstü oturumları ve Azure portalında oturum tanımlayıcıları oturum kapatma sırasında geçersiz. Web oturumu geçersiz kılma Azure uygulama geçidinden - Web uygulaması Güvenlik Duvarı (WAF) kurallar zorlanır. WAF her oturum tanımlama bilgisi benzeşim uygular ve 30 dakika (Kuruluş belirli kurallar dağıtımına yapılandırılabilir post) istemciden kaldıktan sonra oturum zaman aşımı gerçekleştirir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri gizliliği ve bütünlük REST bilgilerinin korumak için disk şifrelemesi uygulayın. Windows için Azure disk şifrelemesi, Windows BitLocker özelliği kullanılarak gerçekleştirilir. SQL Server saydam veri şifreleme (gerçek zamanlı şifreleme ve şifre çözme veri gerçekleştiren TDE), kullanın ve günlük dosyalarını REST bilgileri korumak için yapılandırılır. TDE, depolanan verileri güvence yetkisiz erişim ayarlanmadı sağlar. Müşteri depolanan bilgilerin bütünlüğünü korumak için ek uygulama düzeyinde denetimler uygulamak tercih edebilirsiniz. Gizliliği ve bütünlük bu Azure şeması tarafından dağıtılan tüm depolama BLOB Azure Storage hizmeti şifreleme (SSE) kullanarak korunur. SSE 256 bit AES şifreleme kullanarak Azure depolama hesapları içinde kalan verileri koruma sağlar. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri gizliliği ve bütünlük REST bilgilerinin korumak için disk şifrelemesi uygulayın. Windows için Azure disk şifrelemesi, Windows BitLocker özelliği kullanılarak gerçekleştirilir. SQL Server saydam veri şifreleme (gerçek zamanlı şifreleme ve şifre çözme veri gerçekleştiren TDE), kullanın ve günlük dosyalarını REST bilgileri korumak için yapılandırılır. TDE, depolanan verileri güvence yetkisiz erişim ayarlanmadı sağlar. Müşteri depolanan bilgilerin bütünlüğünü korumak için ek uygulama düzeyinde denetimler uygulamak tercih edebilirsiniz. Gizliliği ve bütünlük bu şeması tarafından dağıtılan tüm depolama BLOB Azure Storage hizmeti şifreleme (SSE) kullanarak korunur. SSE 256 bit AES şifreleme kullanarak Azure depolama hesapları içinde kalan verileri koruma sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -721,5 +721,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, her işlem için bir özel sanal adres alanı atayarak yürütülen her işlem için ayrı yürütme etki alanları korur. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, her işlem için bir özel sanal adres alanı atayarak yürütülen her işlem için ayrı yürütme etki alanları korur. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |

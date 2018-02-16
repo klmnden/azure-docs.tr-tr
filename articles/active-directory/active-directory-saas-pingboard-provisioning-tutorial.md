@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 36fc33813595183856713f01b5a94f84e1f3db4e
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: b1d2e5468aa5b6a10b93ea118969d66789a17f50
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Öğretici: Pingboard otomatik kullanıcı sağlamayı yapılandırın
 
@@ -93,7 +93,7 @@ Bu bölümde, Azure AD API sağlama Pingboard kullanıcı hesabı konusunda size
 
 12. Seçin **kaydetmek** Pingboard için atanan kullanıcılar ilk eşitleme başlatmak için.
 
-İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik raporları sağlamak için bağlantıları izleyin. Raporları Pingboard uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
+İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlükleri sağlamak için bağlantıları izleyin. Günlükleri Pingboard uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
 
 Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [rapor otomatik olarak bir kullanıcı hesabı sağlama](active-directory-saas-provisioning-reporting.md).
 

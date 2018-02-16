@@ -1,6 +1,6 @@
 ---
-title: "Azure Event Hubs'a .NET standart kullanarak olayları göndermek | Microsoft Docs"
-description: "Event Hubs .NET standart, olayları göndermek kullanmaya başlama"
+title: ".NET Standard kullanarak olayları Azure Event Hubs’a gönderme | Microsoft Belgeleri"
+description: ".NET Standard'da Event Hubs'a olay göndermeye başlama"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -9,53 +9,53 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5cf01580b53b551064a46282b9005ade6afe9604
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: MT
+ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>Azure Event Hubs .NET standart içinde ileti göndermek kullanmaya başlama
+# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>.NET Standard'da Azure Event Hubs'a ileti göndermeye başlama
 
 > [!NOTE]
-> Bu örnek edinilebilir [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender).
+> Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)'da sağlanır.
 
-Bu öğretici, bir dizi ileti olay hub'ına gönderir .NET Core konsol uygulamasının nasıl yazılacağını gösterir. Çalıştırabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) çözümü olarak-yerini alacak olan `EhConnectionString` ve `EhEntityPath` dizeleri, olay hub'ı değerlerle. Veya, kendi oluşturmak için Bu öğreticide adımları izleyebilirsiniz.
+Bu öğreticide, olay hub'ına bir dizi ileti gönderen bir .NET Core konsol uygulamasının nasıl yazılacağı gösterilir. [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) çözümünü olduğu gibi, `EhConnectionString` ve `EhEntityPath` dizelerini kendi olay hub'ı değerlerinizle değiştirerek kullanabilirsiniz. Öte yandan, bu öğreticideki adımları izleyerek kendi çözümünüzü de oluşturabilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğretici kullanım Visual Studio 2017 ancak Visual Studio 2015 örneklerde de desteklenir.
-* [.NET core Visual Studio 2015 veya 2017 Araçları](http://www.microsoft.com/net/core).
+* [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılır, ama Visual Studio 2015 de desteklenir.
+* [.NET Core Visual Studio 2015 veya 2017 araçları](http://www.microsoft.com/net/core).
 * Azure aboneliği.
-* Bir olay hub'ad alanı.
+* Olay hub'ı ad alanı.
 
-Olay hub'ına iletileri göndermek için Visual Studio bir C# konsol uygulaması yazmak için kullanacağız.
+Olay hub'ına ileti göndermek için, bu öğreticide Visual Studio kullanılarak bir C# konsol uygulaması yazılır.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
 
-İlk adım kullanmaktır [Azure portal](https://portal.azure.com) olay hub'türü için bir ad alanı oluşturmak ve event hub ile iletişim kurması için uygulamanız gereken yönetim kimlik bilgilerini elde etmek için. Bir ad ve bir olay hub'ı oluşturmak için yordamı izleyin [bu makalede](event-hubs-create.md)ve ardından aşağıdaki adımlarla devam edin.
+İlk adımda [Azure Portal](https://portal.azure.com) kullanılarak olay hub'ı türünde bir ad alanı oluşturulur, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgileri alınır. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin ve ardından aşağıdaki adımlarla devam edin.
 
 ## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
-Visual Studio’yu çalıştırın. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın. .NET Core konsol uygulaması oluşturun.
+Visual Studio’yu çalıştırın. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın. Bir .NET Core konsol uygulaması oluşturun.
 
-![Yeni Proje][1]
+![Yeni proje][1]
 
-## <a name="add-the-event-hubs-nuget-package"></a>Olay hub'ları NuGet paketi ekleme
+## <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet paketini ekleme
 
-Ekleme [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) aşağıdaki adımları izleyerek projeniz .NET standart kitaplığı NuGet paketi: 
+Aşağıdaki adımları izleyerek [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Standard kitaplığı NuGet paketini projenize ekleyin: 
 
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
-2. Tıklatın **Gözat** sekmesini ve ardından "Microsoft.Azure.EventHubs" ve select arama **Microsoft.Azure.EventHubs** paket. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
+2. **Gözat** sekmesine tıklayın, "Microsoft.Azure.EventHubs" için arama yapın ve **Microsoft.Azure.EventHubs** paketini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
 
-## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Olay hub'ına iletileri göndermek için bazı kod yazma
+## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Olay hub'ına ileti göndermek için bazı kodlar yazma
 
-1. Aşağıdaki `using` deyimlerini Program.cs dosyasının üst kısmına ekleyin.
+1. Aşağıdaki `using` deyimlerini Program.cs dosyasının en üstüne ekleyin:
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -63,7 +63,7 @@ Ekleme [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.
     using System.Threading.Tasks;
     ```
 
-2. Sabitlere eklemek `Program` sınıfı Event Hubs bağlantı dizesini ve varlık yolu için (tek olay hub'ı adı). Köşeli ayraçlar içindeki yer tutucuları olay hub'ı oluştururken edinilen uygun değerlerle değiştirin. Olduğundan emin olun `{Event Hubs connection string}` ad alanı düzeyinde bağlantı dizesi ve olay hub'ı dize değil. 
+2. `Program` sınıfına Event Hubs bağlantı dizesi ve varlık yolu (bireysel olay hub'ı adı) için sabitleri ekleyin. Köşeli ayraçlar içindeki yer tutucuları olay hub'ı oluşturulurken edinilen uygun değerlerle değiştirin. `{Event Hubs connection string}` dizesinin olay hub'ı dizesi değil ad alanı düzeyi bağlantı dizesi olduğundan emin olun. 
 
     ```csharp
     private static EventHubClient eventHubClient;
@@ -71,14 +71,14 @@ Ekleme [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.
     private const string EhEntityPath = "{Event Hub path/name}";
     ```
 
-3. Adlı yeni bir yöntem ekleyin `MainAsync` için `Program` sınıfı, şu şekilde:
+3. `Program` sınıfına aşağıda gösterildiği gibi `MainAsync` adlı yeni bir yöntem ekleyin:
 
     ```csharp
     private static async Task MainAsync(string[] args)
     {
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-        // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-        // we are using the connection string from the namespace.
+        // Typically, the connection string should have the entity path in it, but this simple scenario
+        // uses the connection string from the namespace.
         var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
         {
             EntityPath = EhEntityPath
@@ -95,7 +95,7 @@ Ekleme [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.
     }
     ```
 
-4. Adlı yeni bir yöntem ekleyin `SendMessagesToEventHub` için `Program` sınıfı, şu şekilde:
+4. `Program` sınıfına aşağıda gösterildiği gibi `SendMessagesToEventHub` adlı yeni bir yöntem ekleyin:
 
     ```csharp
     // Creates an event hub client and sends 100 messages to the event hub.
@@ -121,7 +121,7 @@ Ekleme [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.
     }
     ```
 
-5. Aşağıdaki kodu ekleyin `Main` yönteminde `Program` sınıfı.
+5. Aşağıdaki kodu `Program` sınıfındaki `Main` yöntemine ekleyin:
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -151,8 +151,8 @@ Ekleme [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
-                // we are using the connection string from the namespace.
+                // Typically, the connection string should have the entity path in it, but this simple scenario
+                // uses the connection string from the namespace.
                 var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
                 {
                     EntityPath = EhEntityPath
@@ -198,9 +198,9 @@ Ekleme [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.
 Tebrikler! Bir olay hub'ına ileti gönderdiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
+Aşağıdaki bağlantılarda Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
-* [Olay hub'larından olayları alma](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+* [Event Hubs'dan olayları alma](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 * [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
 * [Olay Hub’ı oluşturma](event-hubs-create.md)
 * [Event Hubs ile ilgili SSS](event-hubs-faq.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: fdeb9ba55fc8eade95f6fca88f47dd12aa18a480
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus coğrafi olağanüstü durum kurtarma
 
@@ -99,7 +99,7 @@ Bu sürüm ile göz önünde bulundurmanız gereken aşağıdaki konuları göz 
 
 1. Planınızı yük devretme zaman faktörü de dikkate almalısınız. Örneğin, 15-20 dakikadan fazla bağlantısı kesilirse, yük devretme başlatın karar verebilirsiniz. 
  
-2. Hiçbir veri çoğaltılır olgu şu anda etkin oturumları değil çoğaltıldığından emin anlamına gelir. Ayrıca, yinelenen algılama ve zamanlanmış iletileri çalışmayabilir. Yeni oturumlar, zamanlanmış iletileri ve yeni yinelenen çalışır. 
+2. Hiçbir veri çoğaltılır olgu şu anda etkin oturumları değil çoğaltıldığından emin anlamına gelir. Ayrıca, yinelenen algılama ve zamanlanmış iletileri çalışmayabilir. Yeni oturumlar, yeni zamanlanmış iletileri ve yeni yinelenen çalışır. 
 
 3. Karmaşık bir dağıtılmış altyapı yapabilmesini olmalıdır [prova](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) en az bir kez. 
 

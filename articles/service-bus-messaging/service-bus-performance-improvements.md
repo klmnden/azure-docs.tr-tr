@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: be702f0b08ce14012db9da10d874031c7a5a562b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus Mesajlaşma hizmeti kullanarak performans iyileştirmeleri için en iyi yöntemler
 
@@ -111,7 +111,12 @@ Toplu işleme Faturalanabilir Mesajlaşma işlemlerinin sayısını etkilemez ve
 
 ## <a name="batching-store-access"></a>Mağaza erişimi toplu işleme
 
-Bir kuyruk, konu veya abonelik verimliliğini artırmak için iç depolama alanına yazdığında birden fazla ileti Service Bus. toplu iş. Bir kuyruk veya konu etkinleştirilirse, ileti deposuna yazma toplu hale. Bir kuyruk veya abonelik etkinleştirilirse, mağaza'dan iletilerini silerken toplu hale. Toplu depolama erişimi için bir varlık etkinleştirilirse, hizmet veri yolu en fazla 20ms tarafından deposu yazma işlemi varlığın ilgili geciktirir. Bu zaman aralığı boyunca gerçekleşen ek depolama işlem toplu eklenir. Toplu depolama erişim yalnızca etkiler **Gönder** ve **tam** işlemleri; alma işlemleri etkilenmez. Toplu depolama erişim bir varlığı üzerinde bir özelliktir. Toplu işleme toplu depolama erişimi etkinleştir tüm varlıklar arasında oluşur.
+Bir kuyruk, konu veya abonelik verimliliğini artırmak için iç depolama alanına yazdığında birden fazla ileti Service Bus. toplu iş. Bir kuyruk veya konu etkinleştirilirse, ileti deposuna yazma toplu hale. Bir kuyruk veya abonelik etkinleştirilirse, mağaza'dan iletilerini silerken toplu hale. Toplu depolama erişimi için bir varlık etkinleştirilirse, hizmet veri yolu en fazla 20ms tarafından deposu yazma işlemi varlığın ilgili geciktirir. 
+
+> [!NOTE]
+> Olsa bile bir hizmet veri yolu hatası 20ms toplu Aralık sonunda toplu işleme, sahip iletileri kaybı risk yoktur. 
+
+Bu zaman aralığı boyunca gerçekleşen ek depolama işlem toplu eklenir. Toplu depolama erişim yalnızca etkiler **Gönder** ve **tam** işlemleri; alma işlemleri etkilenmez. Toplu depolama erişim bir varlığı üzerinde bir özelliktir. Toplu işleme toplu depolama erişimi etkinleştir tüm varlıklar arasında oluşur.
 
 Yeni Kuyruk, konu veya abonelik oluştururken, toplu depolama erişim varsayılan olarak etkindir. Toplu iş mağazası erişimini devre dışı bırakmak için ayarlanmış [EnableBatchedOperations] [ EnableBatchedOperations] özelliğine **false** varlık oluşturmadan önce. Örneğin:
 

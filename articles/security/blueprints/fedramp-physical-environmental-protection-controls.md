@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - fiziksel ve ortam koruma"
-description: "Web uygulamaları için FedRAMP - fiziksel ve ortam koruma"
+title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - fiziksel ve ortam koruma şeması"
+description: "FedRAMP Web uygulamaları Otomasyon - fiziksel ve ortam koruma"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9e9e473285f4e82e1da40b8c3d496d65733fbd45
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>Fiziksel ve ortam koruma (PE)
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="physical-access-control"></a>Fiziksel erişim denetimi
 
-**PE 3.e** Kuruluş anahtarları, birleşimleri ve diğer fiziksel erişim aygıtları güvenliğini sağlar.
+**PE-3.e** Kuruluş anahtarları, birleşimleri ve diğer fiziksel erişim aygıtları güvenliğini sağlar.
 
 **Sorumlulukları:**`Azure Only`
 
@@ -363,7 +363,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-pe-10a"></a>NIST 800 53 denetim PE-10.a
 
-#### <a name="emergency-shutoff"></a>Acil Durum kesici
+#### <a name="emergency-shutoff"></a>Emergency Shutoff
 
 **PE 10.a** kuruluş kapatma bilgileri sistem ya da tek sistem bileşenleri acil durumlarda kapatılıyor yeteneği sağlar.
 
@@ -377,7 +377,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-pe-10b"></a>NIST 800 53 denetim PE-10.b
 
-#### <a name="emergency-shutoff"></a>Acil Durum kesici
+#### <a name="emergency-shutoff"></a>Emergency Shutoff
 
 **PE 10.b** Acil Durum kesici anahtarları ya da cihaz kuruluş yerleştirir [atama: kuruluş tarafından tanımlanan konum bilgileri sistem veya sistem bileşeni tarafından] personeli için güvenli ve kolay erişim sağlamak için.
 
@@ -391,7 +391,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-pe-10c"></a>NIST 800 53 denetim PE-10.c
 
-#### <a name="emergency-shutoff"></a>Acil Durum kesici
+#### <a name="emergency-shutoff"></a>Emergency Shutoff
 
 **PE 10.c** kuruluş Acil Durum güç kesici özelliği yetkisiz etkinleştirmeden korur.
 

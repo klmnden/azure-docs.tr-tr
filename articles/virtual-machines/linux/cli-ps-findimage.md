@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79eb69b83e4ffc0a4ad7c2631ce4d1306a1e335c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Linux VM görüntüleri Azure CLI ile Azure Marketi bulmak nasıl
 Bu konuda, Azure Marketi'nde VM görüntüleri bulmak için Azure CLI 2.0 kullanmayı açıklar. Bir Linux VM oluşturduğunuzda bir Market görüntüsü belirtmek için bu bilgileri kullanın.
@@ -41,7 +41,7 @@ Bir Market görüntüsü belirtmek için genellikle görüntünün kullanın *UR
 
 ## <a name="list-popular-images"></a>Liste popüler görüntüleri
 
-Çalıştırma [az vm görüntü listesi](/cli/azure/vm/image#list) olmadan komutu `--all` Azure Marketi popüler VM görüntüleri listesini görmek için seçeneği. Örneğin, tablo biçiminde popüler görüntüleri önbelleğe alınmış bir listesini görüntülemek için aşağıdaki komutu çalıştırın:
+Çalıştırma [az vm görüntü listesi](/cli/azure/vm/image#az_vm_image_list) olmadan komutu `--all` Azure Marketi popüler VM görüntüleri listesini görmek için seçeneği. Örneğin, tablo biçiminde popüler görüntüleri önbelleğe alınmış bir listesini görüntülemek için aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az vm image list --output table
@@ -134,7 +134,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Görüntüleri gidin 
-Görüntüyü bir konumda bulmak için başka bir yolu çalıştırmaktır [az vm görüntü listesi-yayımcılar](/cli/azure/vm/image#list-publishers), [az vm görüntü listesi-teklifleri](/cli/azure/vm/image#list-offers), ve [az vm görüntü listesi-SKU'ları](/cli/azure/vm/image#list-skus) komutları sırayla. Bu komutları ile bu değerler belirler:
+Görüntüyü bir konumda bulmak için başka bir yolu çalıştırmaktır [az vm görüntü listesi-yayımcılar](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm görüntü listesi-teklifleri](/cli/azure/vm/image#az_vm_image_list_offers), ve [az vm görüntü listesi-SKU'ları](/cli/azure/vm/image#az_vm_image_list_skus) komutları sırayla. Bu komutları ile bu değerler belirler:
 
 1. Görüntü yayımcılarını listeleyin.
 2. Belirli bir yayımcı varsa yayımcının tekliflerini listeleyin.
@@ -257,4 +257,4 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık tam olarak URN değeri not gerçekleştirerek kullanmak istediğiniz görüntü seçebilirsiniz. Bu değer ile geçirmek `--image` bir VM ile oluşturduğunuzda parametresi [az vm oluşturma](/cli/azure/vm#create) komutu. "Son" URN sürüm numarası isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman en son sürümünü dağıtım sürümüdür. URN bilgileri kullanarak hızlı bir şekilde bir sanal makine oluşturmak için bkz: [oluşturma ve yönetme Linux VM'ler Azure CLI ile](tutorial-manage-vm.md).
+Artık tam olarak URN değeri not gerçekleştirerek kullanmak istediğiniz görüntü seçebilirsiniz. Bu değer ile geçirmek `--image` bir VM ile oluşturduğunuzda parametresi [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. "Son" URN sürüm numarası isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman en son sürümünü dağıtım sürümüdür. URN bilgileri kullanarak hızlı bir şekilde bir sanal makine oluşturmak için bkz: [oluşturma ve yönetme Linux VM'ler Azure CLI ile](tutorial-manage-vm.md).

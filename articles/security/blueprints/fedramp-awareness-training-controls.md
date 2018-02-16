@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - farkındalık ve eğitim"
-description: "Web uygulamalarında FedRAMP - farkındalık ve eğitim"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - farkındalık ve eğitim"
+description: "FedRAMP Web uygulamaları Otomasyon - farkındalık ve eğitim"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b8749238bc8b673503fa1b3627de11d923cfe892
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a019f76929ea3c7d27492f8a9d6b6994e471aabe
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="awareness-and-training-at"></a>Farkındalık ve eğitim (AT)
 

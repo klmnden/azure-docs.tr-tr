@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 47b8e43d1da031bdbe356917fd950ae106f8d96f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 860b1e0a214b107cfe37ffe9c77e804503ef2dde
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="api-management-advanced-policies"></a>API Management ilkeleri Gelişmiş
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -383,7 +383,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|--------------|  
 |Durum kodu|Yanıt durum kodu belirtir ve karşılık gelen örnek veya şema seçmek için kullanılır.|Hayır|200|  
-|içerik türü|Belirtir `Content-Type` yanıt üstbilgi değeri ve karşılık gelen örnek veya şema seçmek için kullanılır.|Hayır|Hiçbiri|  
+|içerik türü|Belirtir `Content-Type` yanıt üstbilgi değeri ve karşılık gelen örnek veya şema seçmek için kullanılır.|Hayır|None|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -615,7 +615,7 @@ status code and media type. If no example or schema found, the content is empty.
         <!-- Check active property in response -->  
         <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
             <!-- Return 401 Unauthorized with http-problem payload -->  
-            <return-response response-variable-name="existing response variable">  
+            <return-response>  
                 <set-status code="401" reason="Unauthorized" />  
                 <set-header name="WWW-Authenticate" exists-action="override">  
                     <value>Bearer error="invalid_token"</value>  

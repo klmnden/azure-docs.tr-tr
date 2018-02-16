@@ -4,9 +4,7 @@
 
 * N-serisi VM'ler yalnızca Resource Manager dağıtım modelinde dağıtılabilir.
 
-* Azure portal kullanarak bir N-serisi VM oluştururken **Temelleri** dikey penceresinde, select bir **VM disk türü** , **HDD**. Üzerinde bir kullanılabilir, N-serisi bir boyut, seçmek için **boyutu** dikey penceresinde tıklatın **tüm görüntüle**.
-
-* NC ve NV VM'ler Azure Premium storage tarafından yedeklenen VM diskleri desteklemez.
+* Azure için kendi diskleri destekleyen depolama türünde N-serisi VM'ler farklı. Yalnızca NC ve NV VM'ler standart Disk Depolama (HDD) tarafından desteklenen VM diskleri destekler. NCv2, ND ve NCv3 (Premium Disk Depolama (SSD) tarafından desteklenen VM'ler yalnızca destek VM diskleri Önizleme).
 
 * Birden fazla birkaç N-serisi sanal makineleri dağıtmak istiyorsanız, Kullandıkça Öde aboneliğine veya diğer satın alma seçenekleri göz önünde bulundurun. [Ücretsiz Azure hesabı](https://azure.microsoft.com/free/) kullanıyorsanız, yalnızca sınırlı sayıda Azure işlem çekirdeği kullanabilirsiniz.
 

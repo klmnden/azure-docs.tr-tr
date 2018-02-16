@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cbc25099b99499a6186e57c155d195e75bd61bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Bir sanal makine ya da VHD görüntüsü oluşturma
 
@@ -37,7 +37,7 @@ Aşağıdaki önkoşulları karşıladığından emin olun:
 
 * Azure yönetilen diskleri kullanılarak Resource Manager dağıtım modelinde oluşturulmuş VM'deki gerekir. Bir Linux VM oluşturmadıysanız, kullanabileceğiniz [portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), veya [Resource Manager şablonları](create-ssh-secured-vm-from-template.md). VM gerektiği gibi yapılandırın. Örneğin, [veri diski Ekle](add-disk.md)güncelleştirmeleri uygulamak ve uygulamaları yükleyin. 
 
-* Ayrıca son sahip olmanız gerekir [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmanız [az oturum açma](/cli/azure/#login).
+* Ayrıca son sahip olmanız gerekir [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmanız [az oturum açma](/cli/azure/#az_login).
 
 ## <a name="quick-commands"></a>Hızlı komutlar
 
@@ -79,7 +79,7 @@ VM genelleştirilmiş olarak işaretler ve görüntü yakalamak için Azure CLI 
       --name myVM
     ```
 
-3. Şimdi ile VM kaynak görüntüsü oluşturma [az görüntü oluşturma](/cli//azure/image#create). Aşağıdaki örnek adlı bir resim oluşturur *myImage* kaynak grubunda adlı *myResourceGroup* adlı VM kaynak kullanarak *myVM*:
+3. Şimdi ile VM kaynak görüntüsü oluşturma [az görüntü oluşturma](/cli/azure/image#az_image_create). Aşağıdaki örnek adlı bir resim oluşturur *myImage* kaynak grubunda adlı *myResourceGroup* adlı VM kaynak kullanarak *myVM*:
    
     ```azurecli
     az image create \
@@ -91,7 +91,7 @@ VM genelleştirilmiş olarak işaretler ve görüntü yakalamak için Azure CLI 
    > Görüntü, kaynak VM ile aynı kaynak grubunda oluşturulur. Bu görüntü aboneliğinizden içinde herhangi bir kaynak grubunda sanal makineleri oluşturabilirsiniz. Yönetim açısından bakıldığında, belirli bir kaynak grubunun VM kaynakları ve görüntüleri oluşturmak isteyebilirsiniz.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>3. adım: yakalanan görüntüden bir VM oluşturma
-Oluşturduğunuz ile görüntü kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#create). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMDeployed* adlı görüntüden *myImage*:
+Oluşturduğunuz ile görüntü kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMDeployed* adlı görüntüden *myImage*:
 
 ```azurecli
 az vm create \
@@ -104,7 +104,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>Başka bir kaynak grubunda VM oluşturma 
 
-Aboneliğinizi içinde herhangi bir kaynak grubunda bir görüntüden sanal makineleri oluşturabilirsiniz. Farklı bir kaynak grubu görüntünün bir VM oluşturmak için görüntünüze tam kaynak kimliği belirtin. Kullanım [az resim listesi](/cli/azure/image#list) görüntüleri listesini görüntülemek için. Çıktı aşağıdaki örneğe benzer:
+Aboneliğinizi içinde herhangi bir kaynak grubunda bir görüntüden sanal makineleri oluşturabilirsiniz. Farklı bir kaynak grubu görüntünün bir VM oluşturmak için görüntünüze tam kaynak kimliği belirtin. Kullanım [az resim listesi](/cli/azure/image#az_image_list) görüntüleri listesini görüntülemek için. Çıktı aşağıdaki örneğe benzer:
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -112,7 +112,7 @@ Aboneliğinizi içinde herhangi bir kaynak grubunda bir görüntüden sanal maki
    "name": "myImage",
 ```
 
-Aşağıdaki örnek kullanır [az vm oluşturma](/cli/azure/vm#create) görüntü kaynak kimliği belirterek bir VM kaynak görüntü daha farklı bir kaynak grubu oluşturmak için:
+Aşağıdaki örnek kullanır [az vm oluşturma](/cli/azure/vm#az_vm_create) görüntü kaynak kimliği belirterek bir VM kaynak görüntü daha farklı bir kaynak grubu oluşturmak için:
 
 ```azurecli
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>4. adım: dağıtımı doğrulama
 
-Şimdi SSH dağıtım ve yeni VM kullanarak başlangıç doğrulamak için oluşturduğunuz sanal makine için. SSH bağlanmak için IP adresi veya FQDN ile VM Bul [az vm Göster](/cli/azure/vm#show):
+Şimdi SSH dağıtım ve yeni VM kullanarak başlangıç doğrulamak için oluşturduğunuz sanal makine için. SSH bağlanmak için IP adresi veya FQDN ile VM Bul [az vm Göster](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \

@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI kullanarak veri fabrikası oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -39,10 +39,10 @@ Bu videoyu izlemeniz, Data Factory kullanıcı arabirimini anlamanıza yardımc�
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
 1. [Azure Portal](https://portal.azure.com) gidin. 
-2. Solda yer alan menüde **Yeni**’yi, sonra **Veri ve Analiz**’i ve ardından **Data Factory**’yi seçin. 
+2. Soldaki menüden **Yeni**’yi, sonra **Veri ve Analiz**’i ve ardından **Data Factory**’i seçin. 
    
    ![“Yeni” bölmesinde Data Factory seçimi](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
-2. **Yeni veri fabrikası** sayfasında **Ad** için **ADFTutorialDataFactory** adını girin. 
+2. **Yeni veri fabrikası** sayfasında **Ad** için **ADFTutorialDataFactory** girin. 
       
    ![“Yeni veri fabrikası” sayfası](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
  
@@ -133,7 +133,7 @@ Bağlı hizmet ayarlarında, kaynak verileri içeren Azure depolama hesabını b
 
    c. Ad olarak **OutputDataset** değerini belirtin.
 
-   d. Klasör olarak **adftutorial/output** girin. Çıkış klasörü yoksa kopyalama etkinliği tarafından oluşturulur.
+   d. Klasör olarak **adftutorial/output** girin. **Output** klasörü yoksa, kopyalama etkinliği çalışma zamanında bu klasörü oluşturur.
 
    e. Dosya adı olarak `@CONCAT(pipeline().RunId, '.txt')` girin. 
    
@@ -142,7 +142,7 @@ Bağlı hizmet ayarlarında, kaynak verileri içeren Azure depolama hesabını b
    ![Çıkış veri kümesi ayarları](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
 
 ## <a name="create-a-pipeline"></a>İşlem hattı oluşturma 
-Bu yordamda, giriş ve çıkış veri kümelerini kullanan kopyalama etkinliğiyle bir işlem hattı oluşturur ve doğrularsınız. Kopyalama etkinliği, girdi veri kümesi ayarlarında belirtilen dosyadaki verileri çıktı veri kümesi ayarlarında belirtilen dosyaya kopyalar. Giriş veri kümesi yalnızca bir klasörü belirtiyorsa (dosya adını belirtmiyorsa), kopyalama etkinliği kaynak klasördeki tüm dosyaları hedefe kopyalar. 
+Bu yordamda, giriş ve çıkış veri kümelerini kullanan kopyalama etkinliğiyle bir işlem hattı oluşturur ve doğrularsınız. Kopyalama etkinliği, giriş veri kümesi ayarlarında belirttiğiniz dosyadaki verileri çıkış veri kümesi ayarlarında belirttiğiniz dosyaya kopyalar. Giriş veri kümesi yalnızca bir klasörü belirtiyorsa (dosya adını belirtmiyorsa), kopyalama etkinliği kaynak klasördeki tüm dosyaları hedefe kopyalar. 
 
 1. **+** (artı) düğmesini seçip **İşlem Hattı**'nı seçin. 
 
@@ -180,7 +180,7 @@ Bu adımda, işlem hattını Data Factory'de dağıtmadan önce test çalıştı
 ## <a name="trigger-the-pipeline-manually"></a>İşlem hattını el ile tetikleme
 Bu yordamda, varlıkları (bağlı hizmetler, veri kümeleri, işlem hatları) Azure Data Factory'ye dağıtırsınız. Ardından, işlem hattı çalıştırmasını el ile tetiklersiniz. Ayrıca, varlıkları kendi Visual Studio Team Services Git deponuzda da yayımlayabilirsiniz. Bu konu [başka bir öğreticinin](tutorial-copy-data-portal.md?#configure-code-repository) kapsamındadır.
 
-1. Bir işlem hattını tetiklemeden önce varlıkları Data Factory'de yayımlamanız gerekir. Yayımlamak için, sol bölmede **Yayımla**'yı seçin. 
+1. Bir işlem hattını tetiklemeden önce varlıkları Data Factory'de yayımlamanız gerekir. Yayımlamak için, sol bölmede **Tümünü Yayımla**'yı seçin. 
 
    ![Yayımla düğmesi](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. İşlem hattını el ile tetiklemek için, araç çubuğunda **Tetikleyici**'yi seçip **Şimdi Tetikle**'yi seçin. 
@@ -224,9 +224,9 @@ Bu yordamda bu adım isteğe bağlıdır. İşlem hattını düzenli aralıklarl
 5. Uyarı iletisini gözden geçirin ve **Son**’u seçin.
 
    ![Uyarı ve "Son" düğmesi](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Değişiklikleri Data Factory'de yayımlamak için **Yayımla**'yı seçin. 
+6. Değişiklikleri Data Factory'de yayımlamak için **Tümünü Yayımla**'yı seçin. 
 
-   ![Yayımla düğmesi](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Yayımla düğmesi](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Soldaki **İzleyici** sekmesine geçin. Listeyi yenilemek için **Yenile**’yi seçin. İşlem hattının yayımlama saatinden bitiş saatine kadar dakikada bir çalıştırıldığını görürsünüz. 
 
    **Tetikleyen** sütunundaki değerlere dikkat edin. El ile tetikleyici çalıştırması daha önce uyguladığınız bir adıma (**Şimdi Tetikle**) aittir. 

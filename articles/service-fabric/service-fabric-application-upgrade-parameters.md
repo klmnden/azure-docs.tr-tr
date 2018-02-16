@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c12c4fc6cabd695101abf922eba77b9cd3ee00fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="application-upgrade-parameters"></a>Uygulama yükseltme parametreleri
 Bu makalede Azure Service Fabric uygulama yükseltme sırasında geçerli çeşitli parametreler açıklanmaktadır. Parametreleri adını ve uygulamanın sürümünü içerir. Zaman aşımları ve yükseltme sırasında uygulanan sistem durumu denetimlerini denetleme düğmelerini oldukları ve bir yükseltme başarısız olduğunda uygulanması gereken ilkeleri belirtin.
@@ -52,7 +52,7 @@ Sistem durumu değerlendirme ölçütleri isteğe bağlıdır. Yükseltme başla
 | MaxPercentUnhealthyServices |Varsayılan ve önerilen değer: 0. Uygulama kötü olarak değerlendirilir ve yükseltme başarısız olduğunda önce düzgün çalışmayan uygulama örneğinde Hizmetleri en fazla sayısını belirtin. |
 | MaxPercentUnhealthyPartitionsPerService |Varsayılan ve önerilen değer: 0. En çok bölüm sayısı hizmet sağlıksız kabul edilmeden önce sağlıksız bir hizmet belirtin. |
 | MaxPercentUnhealthyReplicasPerPartition |Varsayılan ve önerilen değer: 0. Çoğaltmaları sayısının bölüm sağlıksız kabul edilmeden önce sağlıksız bölümünde belirtin. |
-| UpgradeReplicaSetCheckTimeout |**Durum bilgisiz hizmet**--tek bir yükseltme etki alanında ek hizmet örneklerini kullanılabilir olduğundan emin olmak Service Fabric çalışır. Hedef örnek sayısı birden fazla ise, Service Fabric kadar en büyük zaman aşımı değeri kullanılabilir olması birden fazla örneği bekler. Bu zaman aşımı UpgradeReplicaSetCheckTimeout özelliğini kullanarak belirtilir. Zaman aşımı süresi dolarsa, Service Fabric hizmet örneği sayısından bağımsız olarak yükseltme devam eder. Hedef örnek sayısı ise, Service Fabric beklememek ve hemen yükseltme işlemine devam eder. **Durum bilgisi olan hizmet**--çoğaltma kümesi çekirdeği olduğundan emin olmak Service Fabric tek bir yükseltme etki alanında çalışır. Service Fabric (UpgradeReplicaSetCheckTimeout özelliği tarafından belirtilen) en büyük zaman aşımı değerine kadar kullanılabilir olması bir çekirdek bekler. Zaman aşımı süresi dolarsa, Service Fabric çekirdek bağımsız olarak yükseltme devam eder. Bu ayar kümesi olarak hiçbir zaman (İleri sunulurken sonsuz) ve 900 saniye olan zaman geri alınıyor. |
+| UpgradeReplicaSetCheckTimeout |<p>**Durum bilgisiz hizmet**--tek bir yükseltme etki alanında ek hizmet örneklerini kullanılabilir olduğundan emin olmak Service Fabric çalışır. Hedef örnek sayısı birden fazla ise, Service Fabric kadar en büyük zaman aşımı değeri kullanılabilir olması birden fazla örneği bekler. Bu zaman aşımı UpgradeReplicaSetCheckTimeout özelliğini kullanarak belirtilir. Zaman aşımı süresi dolarsa, Service Fabric hizmet örneği sayısından bağımsız olarak yükseltme devam eder. Hedef örnek sayısı ise, Service Fabric beklememek ve hemen yükseltme işlemine devam eder.</p><p>**Durum bilgisi olan hizmet**--çoğaltma kümesi çekirdeği olduğundan emin olmak Service Fabric tek bir yükseltme etki alanında çalışır. Service Fabric (UpgradeReplicaSetCheckTimeout özelliği tarafından belirtilen) en büyük zaman aşımı değerine kadar kullanılabilir olması bir çekirdek bekler. Zaman aşımı süresi dolarsa, Service Fabric çekirdek bağımsız olarak yükseltme devam eder. Bu ayar kümesi olarak hiçbir zaman (sonsuz) İleri sunulurken, 1200 saniye ise geri olduğunda.</p> |
 | ForceRestart |Hizmet koduna güncelleştirmeden yapılandırma veya veri paketi güncelleştirirseniz ForceRestart özelliği yalnızca ayarlanmışsa, hizmet yeniden true. Güncelleştirme tamamlandığında, Service Fabric hizmeti, yeni bir yapılandırma paketi veya veri paketi kullanılabilir olduğunu bildirir. Hizmet, değişiklikleri uygulamak için sorumludur. Gerekirse, hizmetin kendisini yeniden başlatabilirsiniz. |
 
 <br>

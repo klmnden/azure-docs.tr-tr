@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 4538ad9c048a3e84bbe793572f569dd7126803da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı verileri bulma ve sınıflandırma
-Veri bulma & sınıflandırma (şu anda önizlemede) bulma, Sınıflandırma, etiketleme ve veritabanınızdaki hassas verileri korumak için Azure SQL veritabanına yerleşik gelişmiş özelliklerini sağlar.
-Keşfetmek ve utmost önemli verilerinizi sınıflandırmak (iş/Finans, sağlık, PII, vb.), kurumsal bilgi koruma stature bir bileşendirler rol oynayabilir. Altyapı olarak hizmet verebilir:
+Veri bulma & sınıflandırma (şu anda önizlemede) Azure SQL veritabanı için yerleşik Gelişmiş özellikleri sağlar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.
+Keşfetmek ve en hassas verilerinizi sınıflandırmak (iş, finansal, sağlık hizmeti, PII, vb.), Kurumsal bilgilerin koruma stature bir bileşendirler rol oynayabilir. Altyapı olarak hizmet verebilir:
+* Veri gizliliği standartlarını ve GDPR gibi yasal uyumluluk gereksinimlerini karşılayacak yardımcı olur.
 * (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimin uyarma.
 * Erişimi denetlemek ve yüksek oranda gizli verileri içeren veritabanları güvenlik sağlamlaştırma.
-* Veri gizliliği standartlarını ve GDPR gibi yasal uyumluluk gereksinimlerini karşılayacak yardımcı olur.
 
 ## <a id="subheading-1"></a>Genel bakış
 Veri bulma & sınıflandırma yalnızca veritabanı verileri korumaya yönelik yeni bir SQL Information Protection kip oluşturan bir dizi Gelişmiş Hizmetleri ve yeni SQL özellikleri sunar:
@@ -93,7 +93,9 @@ Sınıflandırma iki meta veri özniteliklerini içerir:
 
 ## <a id="subheading-3"></a>Hassas bilgilere erişimi denetleme
 
-[Azure SQL veritabanı denetimi](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) Denetim günlüğüne adlı yeni bir alan eklemek için Gelişmiş *data_sensitivity_information*, tarafından döndürülen gerçek veri duyarlılık sınıflandırılması (etiketleri) günlüğe kaydeder Sorgu.
+Bir önemli bilgi koruma kip hassas bilgilere erişimi izleme yeteneği yönüdür.
+
+[Azure SQL veritabanı denetimi](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) Denetim günlüğüne adlı yeni bir alan eklemek için Gelişmiş *data_sensitivity_information*, tarafından döndürülen gerçek veri duyarlılık sınıflandırmaları (etiketleri) günlüğe kaydeder Sorgu.
 
 ![Gezinti Bölmesi][11]
 

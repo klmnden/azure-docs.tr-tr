@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory koşullu erişim denetimleri | Microsoft Docs"
-description: "Azure Active Directory koşullu erişim denetimleri nasıl çalıştığını öğrenin."
+title: "Erişim denetimleri de Azure Active Directory koşullu erişim | Microsoft Docs"
+description: "Azure Active Directory koşullu erişim işlerinde nasıl erişim denetimleri hakkında bilgi edinin."
 services: active-directory
 keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
 documentationcenter: 
@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim denetimleri 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri 
 
-İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. ("Bu durumda") bir koşullu erişim ilkesi ("bunu") yanıt belirli bir koşulun tanımlarsınız. Koşullu erişim bağlamında 
+İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. Bir koşullu erişim ilkesi ("bunu") yanıt ("Bu durumda") ilkeniz tetikleme nedenini tanımlayın. 
 
-- "**Bu durumda**" olarak adlandırılır **koşul deyimi**
+![denetimi](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Sonra bunu**" olarak adlandırılır **denetimleri**
 
-![Denetim](./media/active-directory-conditional-access-controls/11.png)
+Koşullu erişim bağlamında 
+
+- "**Bu durumda**" olarak adlandırılır **koşulları**
+
+- "**Sonra bunu**" olarak adlandırılır **erişim denetimleri**
+
 
 Bir koşul deyimi, denetimleri ile birlikte bir koşullu erişim ilkesi temsil eder.
 
-![Denetim](./media/active-directory-conditional-access-controls/12.png)
+![denetimi](./media/active-directory-conditional-access-controls/61.png)
 
 Her denetimidir kişi tarafından yerine getirilmesi gereken bir gereksinim veya sistem oturum açma veya bir kısıtlama hangi kullanıcı oturum açtıktan sonra yapabilirsiniz. 
 
@@ -53,7 +57,7 @@ GRANT denetimleriyle için tamamen engelleyin veya istenen denetimleri seçerek 
 - Tüm seçilen yerine getirilmesi için denetimleri (*ve*) 
 - Bir seçili yerine getirilmesi için denetimi (*veya*)
 
-![Denetim](./media/active-directory-conditional-access-controls/17.png)
+![denetimi](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -123,12 +127,12 @@ JSON verilerini kopyalayın ve ardından ilgili metin kutusuna yapıştırın. D
 
 Özel bir denetim oluşturmak için seçeneği olarak **Yönet** bölümünü **koşullu erişim** sayfası.
 
-![Denetim](./media/active-directory-conditional-access-controls/82.png)
+![denetimi](./media/active-directory-conditional-access-controls/82.png)
 
 Tıklatarak **yeni bir özel denetim**, denetiminizin JSON verilerini bir metin kutusu ile bir dikey pencere açılır.  
 
 
-![Denetim](./media/active-directory-conditional-access-controls/81.png)
+![denetimi](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Özel denetimler silme
@@ -152,7 +156,7 @@ Tıklatarak **yeni bir özel denetim**, denetiminizin JSON verilerini bir metin 
 
 Oturum denetimleri, bulut uygulaması içinde sınırlı deneyim sağlar. Oturum denetimleri bulut uygulamaları tarafından zorunlu tutulmaz ve oturumla ilgili uygulama için Azure AD tarafından sağlanan ek bilgileri kullanır.
 
-![Denetim](./media/active-directory-conditional-access-controls/31.png)
+![denetimi](./media/active-directory-conditional-access-controls/31.png)
 
 ### <a name="use-app-enforced-restrictions"></a>Uygulama tarafından zorlanan kısıtlamaları kullan
 

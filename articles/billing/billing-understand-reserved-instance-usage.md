@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak
 
@@ -56,6 +56,16 @@ Hakkında ek bilgiler filtre ve kimliğinizi ayırma yazın. Aşağıdaki ekran 
 3. Ayırma tabanlı VM ölçer alt kategori satır deyimi bölüm $0 maliyet satırını temsil eder. Bu VM çalıştıran maliyetini zaten rezervasyon Ücretli.
 4. Bu ayırma ölçer kimliğidir. Bu ölçüm maliyetini $0'dır. Ayrılmış örnek için niteleyen VM maliyeti hesap için csv bu MeterId sahiptir. 
 5. Standard_DS1_v2 olan bir vCPU VM ve VM Azure karma avantajı dağıtılır. Bu nedenle, bu ölçüm, Windows yazılım ekstra ücret ele alınmaktadır. Bkz: [Azure ayırma VM örnekleri Windows yazılım maliyetleri.](billing-reserved-instance-windows-software-costs.md) 1 çekirdek VM için D serisinin karşılık gelen ölçer bulmak için. Azure karma avantajı kullanılırsa, bu ekstra ücret uygulanmaz. 
+
+## <a name="next-steps"></a>Sonraki adımlar
+Ayrılmış sanal makine örnekleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
+
+- [Ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Ayrılmış sanal makine örneklerini yönetme](billing-manage-reserved-vm-instance.md)
+- [Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
+- [Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
+- [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
+- [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 

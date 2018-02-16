@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 9159960af396e89f373da711e0cc46fdd996ab83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b279ec2358a860a71da25f0ffaea7462a80f8339
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Karşıya yükleme ve Azure CLI 2.0 ile özel diskten bir Linux VM oluşturma
 Bu makalede Azure CLI 2.0 ile Azure depolama hesabı için bir sanal sabit disk (VHD) karşıya yükleyin ve bu özel diskten Linux VM'ler oluşturmak gösterilmektedir. Bu adımları [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz. Bu işlevsellik, yükleme ve Linux distro gereksinimlerinize yapılandırmak ve hızlı bir şekilde Azure sanal makineleri (VM'ler) oluşturmak için bu VHD kullanmak olanak sağlar.
@@ -29,37 +29,37 @@ Bu konuda depolama hesapları için son VHD'leri kullanır, ancak aşağıdaki a
 ## <a name="quick-commands"></a>Hızlı komutlar
 Azure için bir VHD yüklemek için hızlı bir şekilde, aşağıdaki bölümde ayrıntıları temel görevi gerekiyorsa komutları. Her adım, belgenin geri kalanında bulunabilir bilgi ve içerik daha ayrıntılı [burada başlangıç](#requirements).
 
-En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login).
+En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil `myResourceGroup`, `mystorageaccount`, ve `mydisks`.
 
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `WestUs` konumu:
+İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `WestUs` konumu:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Sanal diskleri tutmak için depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#create). Aşağıdaki örnek adlı bir depolama hesabı oluşturur `mystorageaccount`:
+Sanal diskleri tutmak için depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#az_storage_account_create). Aşağıdaki örnek adlı bir depolama hesabı oluşturur `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Depolama hesabınız için erişim anahtarları listesinde [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#list). Not `key1`:
+Depolama hesabınız için erişim anahtarları listesinde [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#az_storage_account_keys_list). Not `key1`:
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-Aldığınız ile depolama anahtarı kullanarak depolama hesabınıza içinde bir kapsayıcı oluşturmak [az depolama kapsayıcısı oluşturmak](/cli/azure/storage/container#create). Aşağıdaki örnek adlı bir kapsayıcı oluşturur `mydisks` depolama anahtarı değerini kullanarak `key1`:
+Aldığınız ile depolama anahtarı kullanarak depolama hesabınıza içinde bir kapsayıcı oluşturmak [az depolama kapsayıcısı oluşturmak](/cli/azure/storage/container#az_storage_container_create). Aşağıdaki örnek adlı bir kapsayıcı oluşturur `mydisks` depolama anahtarı değerini kullanarak `key1`:
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-Son olarak, oluşturduğunuz kapsayıcısı, VHD'yi karşıya [az depolama blob karşıya yükleme](/cli/azure/storage/blob#upload). VHD altında yerel yolunu belirtin `/path/to/disk/mydisk.vhd`:
+Son olarak, oluşturduğunuz kapsayıcısı, VHD'yi karşıya [az depolama blob karşıya yükleme](/cli/azure/storage/blob#az_storage_blob_upload). VHD altında yerel yolunu belirtin `/path/to/disk/mydisk.vhd`:
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -67,7 +67,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Diskinize URI'sini belirtin (`--image`) ile [az vm oluşturma](/cli/azure/vm#create). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur `myVM` sanal diski kullanarak daha önce karşıya:
+Diskinize URI'sini belirtin (`--image`) ile [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur `myVM` sanal diski kullanarak daha önce karşıya:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -95,7 +95,7 @@ Aşağıdaki adımları tamamlamak için gerekir:
   * Bir depolama hesabı ve özel disk ve oluşturulan VM'ler tutmak için kapsayıcı oluşturma
   * Tüm Vm'lerinizi oluşturduktan sonra disk güvenle silebilirsiniz
 
-En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login).
+En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil `myResourceGroup`, `mystorageaccount`, ve `mydisks`.
 
@@ -120,7 +120,7 @@ Ayrıca bkz.  **[Linux yükleme notları](create-upload-generic.md#general-linux
 > 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Kaynak grupları, mantıksal olarak birlikte sanal ağ ve depolama gibi sanal makinelerinizi desteklemek için tüm Azure kaynaklarına duruma getirin. Daha fazla bilgi kaynak grupları için bkz: [kaynak gruplarını genel bakış](../../azure-resource-manager/resource-group-overview.md). Özel diskinizin karşıya yükleme ve sanal makineleri oluşturma önce ilk sahip bir kaynak grubu oluşturmak ihtiyacınız [az grubu oluşturma](/cli/azure/group#create).
+Kaynak grupları, mantıksal olarak birlikte sanal ağ ve depolama gibi sanal makinelerinizi desteklemek için tüm Azure kaynaklarına duruma getirin. Daha fazla bilgi kaynak grupları için bkz: [kaynak gruplarını genel bakış](../../azure-resource-manager/resource-group-overview.md). Özel diskinizin karşıya yükleme ve sanal makineleri oluşturma önce ilk sahip bir kaynak grubu oluşturmak ihtiyacınız [az grubu oluşturma](/cli/azure/group#az_group_create).
 
 Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `westus` konumu:
 
@@ -130,7 +130,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Özel disk ve VM'lerin için depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#create). Herhangi bir VM yönetilmeyen disklerle, bu diski aynı depolama hesabındaki olması gerekiyor, özel disk oluşturun. 
+Özel disk ve VM'lerin için depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#az_storage_account_create). Herhangi bir VM yönetilmeyen disklerle, bu diski aynı depolama hesabındaki olması gerekiyor, özel disk oluşturun. 
 
 Aşağıdaki örnek adlı bir depolama hesabı oluşturur `mystorageaccount` daha önce oluşturduğunuz kaynak grubunda:
 
@@ -140,7 +140,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Depolama hesabı anahtarlarını Listele
-Azure her depolama hesabı için iki 512 bit erişim tuşu oluşturur. Bu erişim anahtarları, depolama hesabına gibi doğrulanırken, yazma işlemleri gerçekleştirmek için kullanılır. Daha fazla bilgi edinin [depolama burada erişimi yönetme](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). İle erişim tuşları görüntüleme [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#list).
+Azure her depolama hesabı için iki 512 bit erişim tuşu oluşturur. Bu erişim anahtarları, depolama hesabına gibi doğrulanırken, yazma işlemleri gerçekleştirmek için kullanılır. Daha fazla bilgi edinin [depolama burada erişimi yönetme](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). İle erişim tuşları görüntüleme [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Oluşturduğunuz depolama hesabının erişim anahtarlarını görüntüleyin:
 
@@ -162,7 +162,7 @@ info:    storage account keys list command OK
 Not `key1` depolama hesabınız sonraki adımlarda ile etkileşim kurmak için kullanacağınız.
 
 ## <a name="create-a-storage-container"></a>Depolama kapsayıcısı oluşturma
-Yerel dosya sisteminde mantıksal olarak düzenlemek için farklı dizin oluşturmak aynı şekilde, disklerinizi düzenlemek için bir depolama hesabı kapsayıcılara oluşturun. Bir depolama hesabı kapsayıcıların herhangi bir sayı içerebilir. İle bir kapsayıcı oluşturmak [az depolama kapsayıcısı oluşturmak](/cli/azure/storage/container#create).
+Yerel dosya sisteminde mantıksal olarak düzenlemek için farklı dizin oluşturmak aynı şekilde, disklerinizi düzenlemek için bir depolama hesabı kapsayıcılara oluşturun. Bir depolama hesabı kapsayıcıların herhangi bir sayı içerebilir. İle bir kapsayıcı oluşturmak [az depolama kapsayıcısı oluşturmak](/cli/azure/storage/container#az_storage_container_create).
 
 Aşağıdaki örnek adlı bir kapsayıcı oluşturur `mydisks`:
 
@@ -173,7 +173,7 @@ az storage container create \
 ```
 
 ## <a name="upload-vhd"></a>VHD karşıya yükle
-Şimdi özel diskiniz ile karşıya [az depolama blob karşıya yükleme](/cli/azure/storage/blob#upload). Karşıya yükleme ve özel diskinizin bir sayfa blob'u olarak depolar.
+Şimdi özel diskiniz ile karşıya [az depolama blob karşıya yükleme](/cli/azure/storage/blob#az_storage_blob_upload). Karşıya yükleme ve özel diskinizin bir sayfa blob'u olarak depolar.
 
 Erişim anahtarınız, yerel bilgisayarınızda önceki adımı ve özel disk yolu oluşturulan kapsayıcı belirtin:
 
@@ -184,9 +184,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>Sanal makine oluşturma
-Yönetilmeyen disklerle bir VM oluşturmak için URI diskinize belirtin (`--image`) ile [az vm oluşturma](/cli/azure/vm#create). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur `myVM` sanal diski kullanarak daha önce karşıya:
+Yönetilmeyen disklerle bir VM oluşturmak için URI diskinize belirtin (`--image`) ile [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur `myVM` sanal diski kullanarak daha önce karşıya:
 
-Belirttiğiniz `--image` parametresiyle [az vm oluşturma](/cli/azure/vm#create) özel diskinize yönlendirin. Emin `--storage-account` özel diskinizin depolandığı depolama hesabını eşleşir. Aynı kapsayıcı, sanal makineleri depolamak için özel disk olarak kullanmak zorunda değil. Özel diskinizin karşıya yüklemeden önce önceki adımlarda aynı şekilde herhangi bir ek kapsayıcıdaki oluşturduğunuzdan emin olun.
+Belirttiğiniz `--image` parametresiyle [az vm oluşturma](/cli/azure/vm#az_vm_create) özel diskinize yönlendirin. Emin `--storage-account` özel diskinizin depolandığı depolama hesabını eşleşir. Aynı kapsayıcı, sanal makineleri depolamak için özel disk olarak kullanmak zorunda değil. Özel diskinizin karşıya yüklemeden önce önceki adımlarda aynı şekilde herhangi bir ek kapsayıcıdaki oluşturduğunuzdan emin olun.
 
 Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur `myVM` özel diskinizden:
 
@@ -224,7 +224,7 @@ Azure Resource Manager şablonları oluşturmak istediğiniz ortamını tanımla
 
 Kullanabileceğiniz [özel bir görüntüden bir VM oluşturmak için bu mevcut şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) veya ilgili bilgileri okuyun [kendi Azure Resource Manager şablonları oluşturma](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
-Yapılandırılmış bir şablonu oluşturduktan sonra kullanma [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create) Vm'leriniz oluşturmak için. JSON şablonunuzla URI'sini belirtin `--template-uri` parametre:
+Yapılandırılmış bir şablonu oluşturduktan sonra kullanma [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#az_group_deployment_create) Vm'leriniz oluşturmak için. JSON şablonunuzla URI'sini belirtin `--template-uri` parametre:
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup \

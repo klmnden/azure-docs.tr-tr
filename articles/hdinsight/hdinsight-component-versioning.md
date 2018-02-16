@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 35ded349e9ced6463ece876ca1fd92423d20c625
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve Hdınsight ile kullanılabilir sürümlerini nelerdir?
 
@@ -37,7 +37,7 @@ Hdınsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tablo
 > [!NOTE]
 > Hdınsight hizmeti yönelik varsayılan sürüm verilmeksizin. Sürüm bağımlılık varsa, .NET SDK'sı, Azure PowerShell ve Azure CLI kümelerinizi oluşturduğunuzda, Hdınsight sürüm belirtin.
 
-| Bileşen | Hdınsight 3.6 (varsayılan) | Hdınsight 3.5 | Hdınsight 3.4 | Hdınsight 3.3 | Hdınsight 3.2 | Hdınsight 3.1 | Hdınsight 3.0 |
+| Bileşen | Hdınsight 3.6 (varsayılan) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Veri Platformu |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop ve YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -78,13 +78,13 @@ Aşağıdaki tablolarda Hdınsight sürümleri listelenmiştir. Her Hdınsight s
 
 ### <a name="available-versions"></a>Kullanılabilir sürümleri
 
-Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer deployement yöntemleri yanı sıra Azure Portalı'nı kullanılabilir Hdınsight sürümleri listelenmiştir.
+Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yöntemleri yanı sıra Azure Portalı'nı kullanılabilir Hdınsight sürümleri listelenmiştir.
 
-| Hdınsight sürümü | HDP sürüm | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure portalındaki kullanılabilirliği | 
+| Hdınsight sürümü | HDP sürüm | VM OS | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure portalındaki kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Hdınsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 Nisan 2017 | | |Evet |Evet |
-| Hdınsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 Eylül 2016 |5 Eylül 2017 |31 May 2018 |Evet |Evet |
-| Hdınsight 3.3 |2.3 HDP |Windows Server 2012 R2 |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2018 |Evet |Hayır |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 Nisan 2017 | | |Evet |Evet |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 Eylül 2016 |5 Eylül 2017 |31 May 2018 |Evet |Evet |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2018 |Evet |Hayır |
 
 > [!NOTE]
 > Bir sürümünün süresi doldu için destek sonra Microsoft Azure Portalı aracılığıyla kullanılamayabilir. Ancak, küme sürümlerindeki kullanılabilir kullanarak devam `Version` Windows PowerShell parametresinde [yeni AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) komut ve sona erme tarihi sürüm kadar .NET SDK'sı.
@@ -94,14 +94,14 @@ Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer deployement yöntem
 
 Aşağıdaki tabloda, Hdınsight sürümlerine listeler **değil** Azure Portalı'nda kullanılabilir.
 
-| Hdınsight sürümü | HDP sürüm | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure portalındaki kullanılabilirliği | 
+| Hdınsight sürümü | HDP sürüm | VM OS | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure portalındaki kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Hdınsight 3.4 |2.4 HDP |Ubuntu 14.0.4 LTS |29 Mart 2016 |29 Aralık 2016 |9 Ocak 2018 |Evet |Hayır |
-| Hdınsight 3.3 |2.3 HDP |Ubuntu 14.0.4 LTS |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2017 |Evet |Hayır |
-| Hdınsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS veya Windows Server 2012 R2 |18 Şubat 2015 |1 Mart 2016 |1 Nisan 2017 |Evet |Hayır |
-| Hdınsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 Haziran 2014 |18 Mayıs 2015 |30 Haziran 2016 |Evet |Hayır |
-| Hdınsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 Şubat 2014 |17 Eylül 2014 |30 Haziran 2015 |Evet |Hayır |
-| Hdınsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 Ekim 2013 |12 Mayıs 2014 |31 Mayıs 2015 |Evet |Hayır |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 Mart 2016 |29 Aralık 2016 |9 Ocak 2018 |Evet |Hayır |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2017 |Evet |Hayır |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS veya Windows Server 2012 R2 |18 Şubat 2015 |1 Mart 2016 |1 Nisan 2017 |Evet |Hayır |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 Haziran 2014 |18 Mayıs 2015 |30 Haziran 2016 |Evet |Hayır |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 Şubat 2014 |17 Eylül 2014 |30 Haziran 2015 |Evet |Hayır |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 Ekim 2013 |12 Mayıs 2014 |31 Mayıs 2015 |Evet |Hayır |
 | Hdınsight 1.6 |HDP 1.1 | |28 Ekim 2013 |26 Nisan 2014 |31 Mayıs 2015 |Hayır |Hayır |
 
 > [!NOTE]
@@ -239,11 +239,11 @@ Aşağıdaki tablolar, Hdınsight kümeleri için varsayılan sanal makine (VM) 
   | HEAD: varsayılan VM boyutu |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
   | HEAD: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
   | Çalışan: varsayılan VM boyutu |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Çalışan: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Çalışan: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
   | ZooKeeper: varsayılan VM boyutu | |A3 | |A2 | | |
   | ZooKeeper: VM boyutları önerilir | |A3, A4, A5 | | A2, A3, A4 | | |
   | Edge: varsayılan VM boyutu | | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Kenar: VM boyutu önerilir | | | | | |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Kenar: VM boyutu önerilir | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brezilya Güney ve yalnızca Japonya Batı (v2 boyutları):
 
   | Küme türü | Hadoop | HBase | Interactive Query |Storm | Spark | R Server |

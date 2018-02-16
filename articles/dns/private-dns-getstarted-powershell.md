@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>PowerShell ile Azure DNS özel bölgelerini kullanmaya başlama
 
 Bu makalede, Azure PowerShell kullanarak ilk özel DNS bölgesi ve kaydınızı oluşturma adımları gösterilmektedir.
 
+[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
 DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Sanal ağınızda özel bir DNS bölgesi yayımlamak için bölge içindeki kaynakları çözümleme izni olan sanal ağların listesini belirtmeniz gerekir.  Bu ağlara "çözümleme ağları" adı verilir.  Bir VM oluşturulduğunda, IP değiştirdiğinde veya yok edildiğinde Azure DNS'te ana bilgisayar adı kayıtlarının tutulacağı bir sanal makine kümesi de belirtebilirsiniz.  Bu ağlara "kayıt ağları" adı verilir.
 
-Bu özellik şu anda yönetilen önizleme sürümünde olduğundan önizleme sürümünde bir PowerShell modülü sağlanır.
+Bu özellik şu anda yönetilen önizleme aşamasında olduğundan, [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) adresine e-posta gönderdiğinizde önizleme aşamasında bir PowerShell modülü sağlanır.
 
-[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+## <a name="get-the-preview-powershell-module"></a>Önizleme PowerShell modülünü alma
+
+PowerShell kullanarak Özel DNS Bölgesi oluşturmak için, [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) adresine e-posta göndererek Önizleme PowerShell modülünü alın.
 
 ## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
 

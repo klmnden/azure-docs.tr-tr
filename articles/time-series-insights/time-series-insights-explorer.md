@@ -12,18 +12,18 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure zaman serisi Öngörüler Gezgini
 Bu makalede, çeşitli özellikleri ve seçenekleri zaman serisi Öngörüler explorer web app içinde kullanılabilir araştırır. Verilerinizi görsel oluşturmak için web tarayıcınızda zaman serisi Öngörüler Gezgini'ni kullanın.
  
-Azure Zaman Serisi Öngörüleri, milyarlarca IoT olayını aynı anda keşfedip analiz etmeyi kolaylaştıran ve tam olarak yönetilen bir analiz, depolama ve görselleştirme hizmetidir. IOT çözümünüzü hızlı bir şekilde doğrulamak ve kritik cihazlara maliyetli kapalı kalma sürelerinden kaçının olanak tanır, verilerinizi genel bir görünümünü sağlar. Gizli eğilimleri, nokta anormallikleri bulmak ve kök neden çözümlemeler yakın gerçek zamanlı yürütün. Zaman serisi Öngörüler explorer şu anda genel önizlemede değil.
+Azure Time Series Insights, milyarlarca IoT olayını aynı anda keşfedip analiz etmeyi kolaylaştıran ve tam olarak yönetilen bir analiz, depolama ve görselleştirme hizmetidir. IOT çözümünüzü hızlı bir şekilde doğrulamak ve kritik cihazlara maliyetli kapalı kalma sürelerinden kaçının olanak tanır, verilerinizi genel bir görünümünü sağlar. Gizli eğilimleri, nokta anormallikleri bulmak ve kök neden çözümlemeler yakın gerçek zamanlı yürütün. Zaman serisi Öngörüler explorer şu anda genel önizlemede değil.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Zaman serisi Öngörüler explorer kullanabilmeniz için önce şunları yapmalısınız:
 - Bir zaman serisi Öngörüler ortam oluşturma
@@ -37,7 +37,7 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
 
 2. Bir ortam seçtikten sonra ya da kullanmak **FROM** ve **Kime** en üstte yapılandırmaları veya sürükleyip bırakın, istenen zaman aralığı içinde.  Sağ üst köşedeki, Büyüteç veya seçili timespan sağ tıklatın ve seçin **arama**.  
 
-3. Ayrıca kullanılabilirlik otomatik olarak her dakika seçerek yenileyebileceğiniz **otomatik üzerinde** düğmesi.
+3. Ayrıca kullanılabilirlik otomatik olarak her dakika seçerek yenileyebileceğiniz **otomatik üzerinde** düğmesi.  'Otomatik-Aç' düğmesini yalnızca kullanılabilirlik grafiğe değil ana görselleştirme içeriğini geçerlidir unutmayın.
 
 4. Bildirim, Azure bulut simgesi ortamınıza Azure portalında alır.
 
@@ -60,7 +60,7 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, NULL        |  Tüm işlenenleri aynı tür veya NULL sabiti olması.        |
-         |SAHİP     | Dize        |  Yalnızca sabit dize değişmez değerleri sağ tarafında izin verilir. Boş dize ve NULL izin verilmiyor.       |
+         |HAS     | Dize        |  Yalnızca sabit dize değişmez değerleri sağ tarafında izin verilir. Boş dize ve NULL izin verilmiyor.       |
 
       - **Sorgu örnekleri**
       
@@ -102,7 +102,7 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
 
    - **Sütun istatistikleri**: sütun istatistikleri, grafik ve seçilen zaman aralığı içinde seçili veri serisinin her bir sütunun verileri ayırmanız tablolar sağlar.  
  
-      ![İSTATİSTİKLERİ](media/time-series-insights-explorer/explorer8.png) 
+      ![İSTATİSTİKLER](media/time-series-insights-explorer/explorer8.png) 
 
 Şimdi çeşitli özellikleri ve seçenekleri zaman serisi Öngörüler explorer web app içinde kullanılabilir gördünüz. 
 

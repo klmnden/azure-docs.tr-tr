@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - medya koruma"
-description: "Web uygulamaları için FedRAMP - medya koruma"
+title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - medya koruma şeması"
+description: "FedRAMP Web uygulamaları Otomasyon - medya koruma"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9cb33abc7ab88aaa54a77308c7863f8128f2e6c7
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="media-protection-mp"></a>Medya koruma (MP)
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-mp-2"></a>NIST 800 53 denetim MP-2
 
-#### <a name="media-access"></a>Ortam erişim
+#### <a name="media-access"></a>Media Access
 
 **MP-2** kuruluş erişimi kısıtlayan [atama: dijital ve/veya sayısal olmayan medya türleri kuruluşunuz tarafından tanımlanan] için [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-mp-3a"></a>NIST 800 53 denetim MP-3.a
 
-#### <a name="media-marking"></a>Medya işaretleme
+#### <a name="media-marking"></a>Media Marking
 
 **MP 3.a** kuruluş uyarılar ve bilgiler ilgili güvenlik işaretler (varsa) işleme dağıtım kısıtlamaları belirten bilgi sistem ortamı işaretler.
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 11/23/2017
 
  ## <a name="nist-800-53-control-mp-3b"></a>NIST 800 53 denetim MP-3.b
 
-#### <a name="media-marking"></a>Medya işaretleme
+#### <a name="media-marking"></a>Media Marking
 
 **MP 3.b** kuruluş zorunluluğundan [atama: kuruluşunuz tarafından tanımlanan bilgileri sistem medya türlerini] içinde medya kaldığı sürece gelen işaretleme [atama: kuruluş tarafından tanımlanan denetlenen alanları].
 

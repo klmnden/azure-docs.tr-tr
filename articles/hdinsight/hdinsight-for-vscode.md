@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 0e2cd75845eb3613b23409b6bf1ab7d37d992275
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure Hdınsight araçları Visual Studio kodunu kullanın
 
@@ -102,6 +102,26 @@ Komut dosyaları VS koddan Hdınsight kümelerine gönderebilir önce Azure hesa
     - PySpark toplu iş komut gönderme
     - Küme yapılandırmaları
 
+**Bir küme bağlamak için**
+
+Yönetilen Ambari kullanıcı adı kullanarak normal bir küme bağlama, ayrıca güvenlik hadoop kümesi etki alanı kullanıcı adı kullanarak bağlantı (örneğin: user1@contoso.com).
+1. Komut paletini seçerek açmak **CTRL + SHIFT + P**ve ardından girin **Hdınsight: küme bağlantı**.
+
+   ![bağlantı küme komutu](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. Hdınsight girin kümesi URL'sini -> kullanıcı adı -> giriş giriş parola Seç -> küme türü -> bunu gösterir başarı bilgisi doğrulama aktarılırsa.
+   
+   ![bağlantı küme iletişim](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlı kullanıcı adı ve parola kullanın. 
+   
+3. Komutunu kullanarak bir bağlı küme görebilirsiniz **listesi küme**. Şimdi, bir komut dosyası bu bağlantılı kümeye gönderebilirsiniz.
+
+   ![bağlantılı küme](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. Bir küme inputing tarafından bağlantısını kaldırabilirsiniz **Hdınsight: küme bağlantısını** komutu paletindeki.
+
 ## <a name="list-hdinsight-clusters"></a>Hdınsight kümeleri listesi
 
 Bağlantıyı sınamak için Hdınsight kümelerinizi listeleyebilirsiniz:
@@ -150,7 +170,7 @@ VS Code'da için Hdınsight araçları ile etkileşimli Hive sorguları Hdınsig
     ```
 3. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **Hdınsight: Hive etkileşimli** sorgu. Araçları, bağlam menüsünü kullanarak tüm komut dosyası yerine kod bloğunu göndermenize olanak sağlar. Kısa süre içinde sorgu sonuçları yeni bir sekmede görüntülenir.
 
-   ![Etkileşimli Hive sonucu](./media/hdinsight-for-vscode/interactive-hive-result.png)
+   ![Interactive Hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
     - **Sonuçları** paneli: tüm sonucu yerel yol CSV, JSON veya Excel dosyası olarak kaydetmek veya yalnızca birden fazla satır seçin.
 
@@ -258,6 +278,9 @@ VS Code'da için Hdınsight araçları Ayrıca, Spark kümeleri etkileşimli PyS
 Python işi gönderdikten sonra gönderme günlükleri görünür **çıkış** VS Code penceresinde. **Spark UI URL** ve **Yarn UI URL** da gösterilir. URL iş durumunu izlemek için bir web tarayıcısı açabilirsiniz.
 
 
+   
+
+
 ## <a name="additional-features"></a>Ek Özellikler
 
 Hdınsight VS Code için aşağıdaki özellikleri destekler:
@@ -288,7 +311,7 @@ Hdınsight VS Code için aşağıdaki özellikleri destekler:
 * [Azure HDInsight’ta Microsoft Power BI ile Hive verileri görselleştirme](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Etkileşimli sorgu Hive verileri Azure hdınsight'ta Power BI ile görselleştirme](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Visual Studio kodunu PySpark etkileşimli ortamını ayarlama](set-up-pyspark-interactive-environment.md)
-* [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın](./hdinsight-connect-hive-zeppelin.md)
+* [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın ](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>Senaryolar
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)

@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 533d4ddfc645843ed8feb8652021f47d93ed2ac1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 75031b6189710286625406246e6dcde6f1c2b938
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux sanal makine yönetilmeyen disklerden yönetilen Diske Dönüştür
 
@@ -36,19 +36,19 @@ Bu makalede Azure CLI kullanarak sanal makineleri dönüştürmek nasıl göster
 ## <a name="convert-single-instance-vms"></a>Tek Örnekli VM'ler Dönüştür
 Bu bölümde tek örnekli Azure VM'ler yönetilmeyen disklerden yönetilen disklere dönüştürmek nasıl ele alınmaktadır. (Bir kullanılabilirlik kümesine Vm'leriniz varsa sonraki bölüme bakın.) Standart yönetilen disk yönetilmeyen premium (SSD) yönetilen premium diskleri veya standardı (HDD) diskleri yönetilmeyen disklerden VM'ler dönüştürmek için bu işlemi kullanın.
 
-1. Kullanarak VM serbest bırakma [az vm serbest bırakma](/cli/azure/vm#deallocate). Aşağıdaki örnek adlı VM kaldırır `myVM` kaynak grubunda adlı `myResourceGroup`:
+1. Kullanarak VM serbest bırakma [az vm serbest bırakma](/cli/azure/vm#az_vm_deallocate). Aşağıdaki örnek adlı VM kaldırır `myVM` kaynak grubunda adlı `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. VM kullanarak yönetilen Diske Dönüştür [az vm dönüştürme](/cli/azure/vm#convert). Aşağıdaki işlem adlı VM dönüştürür `myVM`işletim sistemi diski ve veri diskleri dahil olmak üzere:
+2. VM kullanarak yönetilen Diske Dönüştür [az vm dönüştürme](/cli/azure/vm#az_vm_convert). Aşağıdaki işlem adlı VM dönüştürür `myVM`işletim sistemi diski ve veri diskleri dahil olmak üzere:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. Kullanarak yönetilen disklere dönüştürmeden sonra VM'yi başlatın [az vm başlangıç](/cli/azure/vm#start). Aşağıdaki örnek adlı VM başlatır `myVM` kaynak grubunda adlı `myResourceGroup`.
+3. Kullanarak yönetilen disklere dönüştürmeden sonra VM'yi başlatın [az vm başlangıç](/cli/azure/vm#az_vm_start). Aşağıdaki örnek adlı VM başlatır `myVM` kaynak grubunda adlı `myResourceGroup`.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -60,7 +60,7 @@ Dönüştürmek istediğiniz sanal makineleri yönetiliyorsa diskleri bir kullan
 
 Kullanılabilirlik kümesi dönüştürmeden önce kullanılabilirlik kümesindeki tüm VM'ler serbest gerekir. Kullanılabilirlik kendisini kümesini yönetilen kullanılabilirlik kümesine dönüştürüldükten sonra tüm VM'ler için yönetilen diskleri dönüştürme planlayın. Ardından, tüm sanal makineleri başlatın ve normal olarak çalışmaya devam.
 
-1. Kullanılabilirlik kümesi kullanarak tüm sanal makineleri listesinde [az vm kullanılabilirlik kümesi listesi](/cli/azure/vm/availability-set#list). Aşağıdaki örnek, kullanılabilirlik adlandırılmış kümesi tüm sanal makineleri listeler `myAvailabilitySet` kaynak grubunda adlı `myResourceGroup`:
+1. Kullanılabilirlik kümesi kullanarak tüm sanal makineleri listesinde [az vm kullanılabilirlik kümesi listesi](/cli/azure/vm/availability-set#az_vm_availability_set_list). Aşağıdaki örnek, kullanılabilirlik adlandırılmış kümesi tüm sanal makineleri listeler `myAvailabilitySet` kaynak grubunda adlı `myResourceGroup`:
 
     ```azurecli
     az vm availability-set show \
@@ -70,13 +70,13 @@ Kullanılabilirlik kümesi dönüştürmeden önce kullanılabilirlik kümesinde
         --output table
     ```
 
-2. Tüm sanal makineleri kullanarak ayırması [az vm serbest bırakma](/cli/azure/vm#deallocate). Aşağıdaki örnek adlı VM kaldırır `myVM` kaynak grubunda adlı `myResourceGroup`:
+2. Tüm sanal makineleri kullanarak ayırması [az vm serbest bırakma](/cli/azure/vm#az_vm_deallocate). Aşağıdaki örnek adlı VM kaldırır `myVM` kaynak grubunda adlı `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. Kullanılabilirlik kümesini kullanarak Dönüştür [az vm kullanılabilirlik kümesi dönüştürme](/cli/azure/vm/availability-set#convert). Aşağıdaki örnek kullanılabilirlik adlandırılmış kümesini dönüştürür `myAvailabilitySet` kaynak grubunda adlı `myResourceGroup`:
+3. Kullanılabilirlik kümesini kullanarak Dönüştür [az vm kullanılabilirlik kümesi dönüştürme](/cli/azure/vm/availability-set#az_vm_availability_set_convert). Aşağıdaki örnek kullanılabilirlik adlandırılmış kümesini dönüştürür `myAvailabilitySet` kaynak grubunda adlı `myResourceGroup`:
 
     ```azurecli
     az vm availability-set convert \
@@ -84,13 +84,13 @@ Kullanılabilirlik kümesi dönüştürmeden önce kullanılabilirlik kümesinde
         --name myAvailabilitySet
     ```
 
-4. Tüm sanal makineleri kullanarak yönetilen Diske Dönüştür [az vm dönüştürme](/cli/azure/vm#convert). Aşağıdaki işlem adlı VM dönüştürür `myVM`işletim sistemi diski ve veri diskleri dahil olmak üzere:
+4. Tüm sanal makineleri kullanarak yönetilen Diske Dönüştür [az vm dönüştürme](/cli/azure/vm#az_vm_convert). Aşağıdaki işlem adlı VM dönüştürür `myVM`işletim sistemi diski ve veri diskleri dahil olmak üzere:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. Kullanarak tüm sanal makineleri yönetilen diskleri dönüştürme başlangıç [az vm başlangıç](/cli/azure/vm#start). Aşağıdaki örnek adlı VM başlatır `myVM` kaynak grubunda adlı `myResourceGroup`:
+5. Kullanarak tüm sanal makineleri yönetilen diskleri dönüştürme başlangıç [az vm başlangıç](/cli/azure/vm#az_vm_start). Aşağıdaki örnek adlı VM başlatır `myVM` kaynak grubunda adlı `myResourceGroup`:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM

@@ -12,23 +12,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 7b5675dacd1d9effd73f3bc51ea4efc0ea6be029
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>Sanal Ağ Hizmet Uç Noktaları (Önizleme)
+# <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
 Sanal Ağ hizmet uç noktaları, sanal ağ özel adres alanınızı ve sanal ağınızın kimliğini doğrudan bağlantı üzerinden Azure hizmetlerine genişletir. Uç noktalar kritik Azure hizmeti kaynaklarınızı sanal ağlarınızla sınırlayarak güvenliğini sağlamanıza imkan verir. Sanal ağınızdan Azure hizmetine giden trafik her zaman Microsoft Azure omurga ağında kalır.
 
-Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için önizleme sürümündedir:
+Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 
-- **Azure Depolama**: Azure genel bulutundaki tüm bölgeler.
-- **Azure SQL**: Azure genel bulutundaki tüm bölgeler.
+- **Azure Depolama**: Genel Kullanıma Sunuldu. Azure Kamu ve Azure genel bulutundaki tüm bölgeler.
+- **Azure SQL**: Önizleme. Azure genel bulutundaki tüm bölgeler.
 
 En güncel önizleme bildirimleri için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 
@@ -66,7 +66,7 @@ Hizmet uç noktaları aşağıdaki avantajları sağlar:
 ### <a name="configuration"></a>Yapılandırma
 
 - Hizmet uç noktaları bir sanal ağ içindeki alt ağ üzerinde yapılandırılır. Uç noktalar ilgili alt ağ içinde çalışan tüm işlem örneği türleriyle birlikte çalışabilir.
-- Bir alt ağdan belirli bir hizmete tek bir hizmet uç noktası etkinleştirilebilir. Bir alt ağ üzerindeki desteklenen tüm Azure hizmetleri (örneğin Azure Depolama veya Azure SQL Veritabanı) için birden fazla hizmet uç noktası yapılandırabilirsiniz.
+- Bir alt ağ üzerindeki desteklenen tüm Azure hizmetleri (örneğin Azure Depolama veya Azure SQL Veritabanı) için birden fazla hizmet uç noktası yapılandırabilirsiniz.
 - Sanal ağların Azure hizmet kaynağıyla aynı bölgede bulunması gerekir. GRS ve RA-GRS Azure Depolama hesapları kullanılıyorsa, birincil hesap sanal ağ ile aynı bölgede olmalıdır.
 - Uç noktanın yapılandırıldığı sanal ağ, Azure hizmet kaynağıyla aynı veya ondan farklı abonelikte olabilir. Uç noktaları ayarlamak ve Azure hizmetlerinin güvenliğini sağlamak için gerekli olan izinler hakkında daha fazla bilgi için [Sağlama](#Provisioning) bölümüne bakın.
 - Desteklenen hizmetler için yeni veya mevcut kaynaklar ile sanal ağlar arasındaki güvenliği hizmet uç noktaları kullanarak sağlayabilirsiniz.
@@ -106,7 +106,7 @@ Hizmet uç noktaları, bir sanal ağda yazma erişimine sahip bir kullanıcı ta
 
 [Yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [özel rollere](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) belirli izinlerin atanması hakkında daha fazla bilgi edinin.
 
-Sanal ağlar ve Azure hizmet kaynakları aynı ağda veya farklı aboneliklerde olabilir. Sanal ağ ve Azure hizmet kaynaklarının farklı aboneliklerde olması halinde kaynakların önizleme boyunca aynı Active Directory (AD) kiracısı altında olması gerekir. 
+Sanal ağlar ve Azure hizmet kaynakları aynı ağda veya farklı aboneliklerde olabilir. Sanal ağ ve Azure hizmet kaynaklarının farklı aboneliklerde olması halinde kaynakların aynı Active Directory (AD) kiracısı altında bulunması gerekir. 
 
 ## <a name="pricing-and-limits"></a>Fiyatlandırma ve limitler
 

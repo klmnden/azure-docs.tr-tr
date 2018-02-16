@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3f093f84758fe8622f09212b6a11a2c5f3795aa
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 772af3bce6947a92fa62a93a84ee84ee34093d82
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri veya Azure dosya depolama alanına kopyalayın
 
@@ -47,7 +47,7 @@ Aşağıdaki özellikler, Azure dosya depolama bağlantılı hizmeti için deste
 | type | Type özelliği ayarlanmalıdır: **DosyaSunucusu**. | Evet |
 | konak | Azure File Storage uç noktası olarak belirtir `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Evet |
 | Kullanıcı Kimliği | Azure File Storage olarak erişmek için kullanıcı belirtin `"userid": "AZURE\\<storage name>"`. | Evet |
-| password | Depolama erişim anahtarı belirtin. Bu alan SecureString işaretleyin.<br/> | Evet |
+| password | Depolama erişim anahtarı belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Kaynak havuzu için Evet için Hayır'ı |
 
 >[!IMPORTANT]
@@ -120,7 +120,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri t
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Azure File Storage kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
 

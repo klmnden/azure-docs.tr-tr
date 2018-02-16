@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3de1e9b042a7a356c3c88e604e1e26c256d85657
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -40,6 +40,9 @@ Visual Studio'da **Azure işlevleri** proje şablonu aşağıdaki dosyaları iç
 
 * [Host.JSON](functions-host-json.md) -yerel olarak veya Azure çalıştırırken projedeki tüm işlevleri etkileyen yapılandırma ayarlarını saklar.
 * [Local.Settings.JSON](functions-run-local.md#local-settings-file) -uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri depolar.
+
+> [!IMPORTANT]
+> Derleme işlemi oluşturur bir *function.json* her işlev için dosya. Bu *function.json* dosyasını doğrudan düzenlenmesine izin verilmiyor yöneliktir. Bağlama yapılandırmasını değiştirmek veya bu dosyasını düzenleyerek işlevi devre dışı bırakın. Bir işlev devre dışı bırakmak için [devre dışı](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) özniteliği. Örneğin, MY_TIMER_DISABLED ayarı Boolean bir uygulama ekleme ve geçerli `[Disable("MY_TIMER_DISABLED")]` işlevinizi için. Sonra etkinleştirme ve uygulama ayarı değiştirerek devre dışı.
 
 ### <a name="functionname-and-trigger-attributes"></a>FunctionName ve tetikleyici öznitelikleri
 
@@ -83,11 +86,11 @@ public static class SimpleExampleWithOutput
 
 ### <a name="conversion-to-functionjson"></a>Function.json dönüştürme
 
-Derleme işlemi oluşturur bir *function.json* yapı klasöründeki işlevi klasöründe dosya. Bu dosyayı doğrudan düzenlenmesi için tasarlanmamıştır. Bağlama yapılandırmasını değiştirmek veya bu dosyasını düzenleyerek işlevi devre dışı bırakın. 
+Derleme işlemi oluşturur bir *function.json* yapı klasöründeki işlevi klasöründe dosya. Daha önce belirtildiği gibi bu dosyayı doğrudan düzenlenmesi için tasarlanmamıştır. Bağlama yapılandırmasını değiştirmek veya bu dosyasını düzenleyerek işlevi devre dışı bırakın. 
 
 Bu dosyanın amacı için kullanmak üzere ölçeği denetleyicisini bilgileri sağlamaktır [tüketim planla ilgili kararları ölçeklendirme](functions-scale.md#how-the-consumption-plan-works). Bu nedenle, dosya, yalnızca giriş veya çıkış bağlamaları Tetikleyici bilgileri, vardır.
 
-Oluşturulan *function.json* dosya içeren bir `configurationSource` .NET öznitelikleri bağlamaları için çalışma zamanı söyler özelliği yerine *function.json* yapılandırma. Örnek aşağıda verilmiştir:
+Oluşturulan *function.json* dosya içeren bir `configurationSource` .NET öznitelikleri bağlamaları için çalışma zamanı söyler özelliği yerine *function.json* yapılandırma. Bir örneği aşağıda verilmiştir:
 
 ```json
 {

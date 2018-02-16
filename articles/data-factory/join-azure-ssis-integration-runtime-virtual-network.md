@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure SSIS tümleştirmesi çalışma zamanı sanal bir ağa katılmasını sağlayın
 Bir Azure sanal ağ (VNet) aşağıdaki senaryolarda, Azure SSIS tümleştirmesi çalışma zamanı (IR) Katıl: 
@@ -31,7 +31,13 @@ Bir Azure sanal ağ (VNet) aşağıdaki senaryolarda, Azure SSIS tümleştirmesi
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md).
 
 ## <a name="access-on-premises-data-stores"></a>Erişim içi veri depoları
-SSIS paketleri yalnızca genel bulut veri depolarına erişirseniz, bir sanal ağa Azure SSIS IR katılma gerek yoktur. SSIS paketleri şirket içi veri depolarına erişirse, şirket içi ağı'na bağlı bir sanal ağa Azure SSIS IR katılması gerekir. SSIS katalog Azure SQL veritabanında, VNet içinde değil barındırılıyorsa, uygun bağlantı noktalarını açmanız gerekir. SSIS katalog Azure SQL yönetilen bir Azure Resource Manager Vnet'i ya da Klasik VNet örneğinde barındırılıyorsa, aynı Vnet'i (veya) yönetilen Azure SQL örneğinin tek bir VNet-VNet bağlantısı olan farklı bir VNet Azure SSIS IR birleştirebilirsiniz. Aşağıdaki bölümlerde daha ayrıntılı bilgi sağlar.
+SSIS paketleri yalnızca genel bulut veri depolarına erişirseniz, bir sanal ağa Azure SSIS IR katılma gerek yoktur. SSIS paketleri şirket içi veri depolarına erişirse, şirket içi ağı'na bağlı bir sanal ağa Azure SSIS IR katılması gerekir. 
+
+SSIS katalog Azure SQL veritabanında, VNet içinde değil barındırılıyorsa, uygun bağlantı noktalarını açmanız gerekir. 
+
+SSIS katalog de Azure SQL yönetilen örneği (sanal ağ içinde olan mı) barındırılıyorsa, aynı Vnet'i (veya) yönetilen Azure SQL örneğinin tek bir VNet-VNet bağlantısı olan farklı bir VNet Azure SSIS IR birleştirebilirsiniz. Vnet'i klasik bir VNet veya bir Azure kaynak yönetimi VNet olabilir. Azure SSIS IR katılın planlıyorsanız **aynı Vnet'i** SQL mı olan, Azure SSIS IR olduğundan emin olun bir **farklı alt** SQL mı sahip bir.   
+
+Aşağıdaki bölümlerde daha ayrıntılı bilgi sağlar.
 
 Dikkat edilecek bazı önemli noktalar şunlardır: 
 
@@ -58,10 +64,11 @@ Bu bölümde Azure portalı ve veri fabrikası UI kullanarak bir VNet (Klasik ve
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>Klasik bir VNet yapılandırmak için portalı kullanın
 İlk Azure SSIS IR Vnet'e katılmadan önce sanal ağ yapılandırmanız gerekir.
 
-1. [Azure portalı](https://portal.azure.com)’nda oturum açın.
-2. Tıklatın **daha fazla hizmet**. Filtreleyip seçmek **sanal ağları (Klasik)**.
-3. Filtre ve seçin, **sanal ağ** listesinde. 
-4. Sanal ağ (Klasik) sayfasında seçin **özellikleri**. 
+1. Başlatma **Microsoft Edge** veya **Google Chrome** web tarayıcısı. Şu anda, veri fabrikası UI yalnızca Microsoft Edge ve Google Chrome web tarayıcılarda desteklenir.
+2. [Azure portalı](https://portal.azure.com)’nda oturum açın.
+3. Tıklatın **daha fazla hizmet**. Filtreleyip seçmek **sanal ağları (Klasik)**.
+4. Filtre ve seçin, **sanal ağ** listesinde. 
+5. Sanal ağ (Klasik) sayfasında seçin **özellikleri**. 
 
     ![Klasik VNet kaynak kimliği](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. Kopyala düğmesini tıklatın **kaynak kimliği** Klasik ağ için kaynak kimliği panoya kopyalamak için. OneNote veya dosyasında panodan kimliği kaydedin.
@@ -93,13 +100,14 @@ Bu bölümde Azure portalı ve veri fabrikası UI kullanarak bir VNet (Klasik ve
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Bir Azure Resource Manager Vnet'i yapılandırmak için portalı kullanın
 İlk Azure SSIS IR Vnet'e katılmadan önce sanal ağ yapılandırmanız gerekir.
 
-1. [Azure portalı](https://portal.azure.com)’nda oturum açın.
-2. Tıklatın **daha fazla hizmet**. Filtreleyip seçmek **sanal ağlar**.
-3. Filtre ve seçin, **sanal ağ** listesinde. 
-4. Sanal ağ sayfasında seçin **özellikleri**. 
-5. Kopyala düğmesini tıklatın **kaynak kimliği** sanal ağ için kaynak kimliği panoya kopyalamak için. OneNote veya dosyasında panodan kimliği kaydedin.
-6. Tıklatın **alt ağlar** sol menüsünde ve sayısı emin olun **kullanılabilir adresler** Azure SSIS tümleştirmesi Çalışma Zamanı Modülü düğümlerin değerinden daha büyük.
-5. Bu Azure Batch sağlayıcısı VNet sahip Azure aboneliğinde kayıtlı doğrulamak veya Azure Batch sağlayıcıyı kaydettirin. Bir Azure Batch hesabı aboneliğinizde zaten varsa, aboneliğiniz için Azure Batch kayıtlı değil.
+1. Başlatma **Microsoft Edge** veya **Google Chrome** web tarayıcısı. Şu anda, veri fabrikası UI yalnızca Microsoft Edge ve Google Chrome web tarayıcılarda desteklenir.
+2. [Azure portalı](https://portal.azure.com)’nda oturum açın.
+3. Tıklatın **daha fazla hizmet**. Filtreleyip seçmek **sanal ağlar**.
+4. Filtre ve seçin, **sanal ağ** listesinde. 
+5. Sanal ağ sayfasında seçin **özellikleri**. 
+6. Kopyala düğmesini tıklatın **kaynak kimliği** sanal ağ için kaynak kimliği panoya kopyalamak için. OneNote veya dosyasında panodan kimliği kaydedin.
+7. Tıklatın **alt ağlar** sol menüsünde ve sayısı emin olun **kullanılabilir adresler** Azure SSIS tümleştirmesi Çalışma Zamanı Modülü düğümlerin değerinden daha büyük.
+8. Bu Azure Batch sağlayıcısı VNet sahip Azure aboneliğinde kayıtlı doğrulamak veya Azure Batch sağlayıcıyı kaydettirin. Bir Azure Batch hesabı aboneliğinizde zaten varsa, aboneliğiniz için Azure Batch kayıtlı değil.
     1. Azure portalında tıklatın **abonelikleri** sol menüde. 
     2. Seçin, **abonelik**. 
     3. Tıklatın **kaynak sağlayıcıları** sol taraftaki onaylayın `Microsoft.Batch` kayıtlı bir sağlayıcı. 
@@ -111,7 +119,8 @@ Bu bölümde Azure portalı ve veri fabrikası UI kullanarak bir VNet (Klasik ve
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>Bir sanal ağa Azure SSIS IR katılma
 
 
-1. İçinde [Azure portal](https://portal.azure.com)seçin **veri fabrikaları** sol menüde. Görmüyorsanız, **veri fabrikaları** menüsünde seçin **daha fazla hizmet**seçin **veri fabrikaları** içinde **INTELLİGENCE + ANALİZ** bölüm. 
+1. Başlatma **Microsoft Edge** veya **Google Chrome** web tarayıcısı. Şu anda, veri fabrikası UI yalnızca Microsoft Edge ve Google Chrome web tarayıcılarda desteklenir.
+2. İçinde [Azure portal](https://portal.azure.com)seçin **veri fabrikaları** sol menüde. Görmüyorsanız, **veri fabrikaları** menüsünde seçin **daha fazla hizmet**seçin **veri fabrikaları** içinde **INTELLİGENCE + ANALİZ** bölüm. 
     
     ![Veri fabrikaları listesi](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Data factory'nizi Azure SSIS tümleştirmesi çalışma zamanı listeden seçin. Veri fabrikanızın giriş sayfasına bakın. Seçin **Yazar & Dağıt** döşeme. Ayrı bir sekmede veri fabrikası kullanıcı arabirimi (UI) bakın. 

@@ -51,12 +51,12 @@
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
         - name: Nasıl yapılır
           items:
-            - name: Docker konağı oluşturma
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/dockerextension'
-            - name: Docker Makinesi kullanma
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-machine'
-            - name: Docker Compose kullanma
-              href: 'https://docs.microsoft.com/azure/virtual-machines/linux/docker-compose-quickstart'
+            - name: Windows’da kapsayıcı uygulaması oluşturma
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: Linux’ta kapsayıcı uygulaması oluşturma
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: Mevcut bir .NET uygulamasını kapsayıcılı hale getirme
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
     - name: Windows Kapsayıcıları
       href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
       items:

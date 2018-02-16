@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d245c2222b1ad9ba71c6f5dbdde66e56e1aa6ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ee7da3bc4579ad5415977e42ad48e9e06a7e4253
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Saklı yordam etkinliği Azure Data Factory kullanarak bir SSIS paketi çağırma
 Bu makalede, bir saklı yordam etkinliğini kullanarak bir Azure Data Factory işlem hattı SSIS paketinden çağrılacak açıklar. 
@@ -39,8 +39,9 @@ Bu bölümde, veri fabrikası UI SSIS paketi çağıran bir saklı yordam etkinl
 ### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 Azure Portalı'nı kullanarak data factory oluşturmak ilk adımdır. 
 
-1. [Azure portalına](https://portal.azure.com) gidin. 
-2. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
+1. Başlatma **Microsoft Edge** veya **Google Chrome** web tarayıcısı. Şu anda, veri fabrikası UI yalnızca Microsoft Edge ve Google Chrome web tarayıcılarda desteklenir.
+2. [Azure portalına](https://portal.azure.com) gidin. 
+3. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
    
    ![Yeni->DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
 2. **Yeni veri fabrikası** sayfasında **ad** için **ADFTutorialDataFactory** girin. 

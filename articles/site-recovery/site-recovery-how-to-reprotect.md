@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Azure'dan şirket içi siteye yeniden koruyun.
 
@@ -42,7 +42,7 @@ Hızlı bir genel bakış için Azure'dan şirket içi siteye yük devri konusun
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 > [!IMPORTANT]
 > Azure'a yük devretme sırasında şirket içi site erişilebilir olmayabilir ve yapılandırma sunucusu ya da bu nedenle olabilir beklemediğiniz kullanılabilir veya kapatın. Yeniden koruma ve yeniden çalışma sırasında şirket içi yapılandırma sunucusu çalışır ve bağlı OK durumda olması gerekir.
@@ -221,13 +221,7 @@ Ayrıca bir kurtarma planı düzeyinde koruyun. Bir çoğaltma grubu yalnızca b
 
 Sanal makinenin yükü başarılı olduktan sonra korumalı bir duruma girer.
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-Sanal makinenin korumalı bir duruma geçtiğini sonra [bir yeniden başlatma](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
-
-Yeniden çalışma azure'daki sanal makineyi kapatın ve şirket içi sanal makine önyükleme. Bazı uygulama kesintiler bekler. Uygulama kapalı kalma süresi dayanabileceği yeniden çalışma için bir saat seçin.
-
-## <a name="common-problems"></a>Sık karşılaşılan sorunları
+## <a name="common-issues"></a>Genel sorunlar
 
 * Sanal makineler oluşturmak için bir şablon kullanıldığında, her bir sanal makine disklerin kendi UUID olduğundan emin olun. Her ikisi de aynı şablonu oluşturulmadığından şirket içi sanal makinenin UUID, ana hedef çakışıyor yükü başarısız olur. Aynı şablon kullanılarak oluşturulan olmayan başka bir ana hedef dağıtın.
 
@@ -245,38 +239,9 @@ Yeniden çalışma azure'daki sanal makineyi kapatın ve şirket içi sanal maki
 
 * Fiziksel şirket içi sunucu Azure'dan şirket içi siteye başarısız olamaz korunan bir Windows Server 2008 R2 SP1 sunucusu.
 
-### <a name="common-error-codes"></a>Genel hata kodları
 
-#### <a name="error-code-95226"></a>Hata kodu 95226
+## <a name="next-steps"></a>Sonraki adımlar
 
-*Azure sanal makinesi şirket içi yapılandırma sunucusuna erişemediği için olmadığından yeniden koruma başarısız oldu.*
+Sanal makinenin korumalı bir duruma geçtiğini sonra [bir yeniden başlatma](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back). 
 
-Böyle olduğunda 
-1. Azure sanal makinesi şirket içi yapılandırma sunucusuna erişemediği ve bu nedenle değil bulunmalı ve yapılandırma sunucusuna kayıtlı. 
-2. Post yük devretme iletişim kurmak için şirket içi yapılandırma sunucusuna çalıştırılması gerekiyor Azure sanal makinede Inmage Scout uygulama hizmeti çalışmıyor.
-
-Bu sorunu gidermek için
-1. Sanal makine şirket içi yapılandırma sunucusu ile iletişim kurabilmesi gibi Azure sanal makinesinin ağ yapılandırıldığından emin olmanız gerekir. Bunu yapmak için şirket içi veri merkeziniz dön siteden siteye VPN ayarlamak veya özel Azure sanal makinenin sanal ağ eşleme ile bir ExpressRoute bağlantı yapılandırabilirsiniz. 
-2. Azure sanal makinesi şirket içi yapılandırma sunucusu ile iletişim kurabilen sağlayacak şekilde yapılandırılmış bir ağ zaten varsa, sanal makinede oturum açın ve 'Inmage Scout Application Service' denetleyin. Inmage Scout Application Service çalışmadığını görüyorsanız hizmeti elle başlatın ve hizmet başlangıç türünü otomatik olarak ayarlandığından emin olun.
-
-### <a name="error-code-78052"></a>Hata kodu 78052
-Yeniden koruma hata iletisiyle başarısız olur: *sanal makine için koruma tamamlanamadı.*
-
-Bu iki nedenden kaynaklanabilir
-1. Sanal makineyi yeniden korumayı bir Windows Server 2016 ' dir. Curently bu işletim sistemi için yeniden çalışma desteklenmez, ancak çok yakında desteklenecek.
-2. Zaten var. ana aynı ada sahip bir sanal makine hedef sunucunun geri başarısız oluyor.
-
-Bu sorunu gidermek için yeniden koruma makine nerede adları değil birbiriyle çakışır farklı bir konak üzerinde oluşturacak böylece başka bir ana bilgisayardaki farklı bir ana hedef sunucusu seçebilirsiniz. Ayrıca, VMotion'ı farklı bir konak adı çakışma değil nerede olacağını ana hedefe erişebilirsiniz. Var olan sanal makine parazit makine ise, böylece yeni bir sanal makine aynı ESXi ana bilgisayarda oluşturulan yalnızca onu yeniden adlandırabilirsiniz.
-
-### <a name="error-code-78093"></a>Hata kodu 78093
-
-*VM, askıdaki bir durumda veya erişilebilir çalışmıyor.*
-
-Sanal makineye geri şirket içi üzerinden başarısız koruyun çalıştıran Azure sanal makine gerekir. Mobility hizmetinin yapılandırma sunucusuyla kaydeder böylece budur şirket içi ve işlem sunucusu ile iletişim kurarak çoğaltma başlatabilirsiniz. Makine yanlış bir ağ veya (askıda durumu veya kapatma) çalışmıyor ise, yapılandırma sunucusunu yeniden koruma başlamak için sanal makinede mobility hizmeti ulaşamıyor. Geri şirket içi iletişim başlatılabilmesi sanal makineyi yeniden başlatabilirsiniz. Azure sanal makinesini başlattıktan sonra yeniden koruma işi yeniden başlatın
-
-### <a name="error-code-8061"></a>Hata kodu 8061
-
-*Veri deposu ESXi ana bilgisayardan erişilebilir değil.*
-
-Başvurmak [ana hedef ön koşullar](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) ve [destek datastores](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) yeniden çalışma için
-
+Yeniden çalışma azure'daki sanal makineyi kapatın ve şirket içi sanal makine önyükleme. Bazı uygulama kesintiler bekler. Uygulama kapalı kalma süresi dayanabileceği yeniden çalışma için bir saat seçin.

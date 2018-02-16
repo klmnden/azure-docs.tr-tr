@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB kullanarak Linux VM'ler üzerinde bağlama Azure dosya depolama
 
@@ -36,7 +36,7 @@ Bu makalede Azure CLI 2.0 ile SMB bağlama kullanarak bir Linux VM üzerinde Azu
 * Bir Azure depolama hesabı
 * Azure depolama hesabı anahtarları
 * Azure File storage paylaşımı
-* Bir Linux VM
+* A Linux VM
 
 Tüm örnekleri kendi ayarlarınızla değiştirin.
 
@@ -67,7 +67,7 @@ Dosyalar bir sanal makineden File storage'ı barındırılan bir SMB bağlama ta
 
 Bu ayrıntılı kılavuz biz ilk File storage paylaşımı oluşturmak için gereken önkoşulları oluşturur ve ardından bir Linux VM SMB bağlar.
 
-1. Sahip bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#create) dosya paylaşımında tutmak için.
+1. Sahip bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az_group_create) dosya paylaşımında tutmak için.
 
     Adlı bir kaynak grubu oluşturmak için `myResourceGroup` "Batı ABD" konumunda, aşağıdaki örneği kullanın:
 
@@ -75,7 +75,7 @@ Bu ayrıntılı kılavuz biz ilk File storage paylaşımı oluşturmak için ger
     az group create --name myResourceGroup --location westus
     ```
 
-2. Bir Azure depolama hesabıyla oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#create) gerçek dosyalarını depolamak için.
+2. Bir Azure depolama hesabıyla oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#az_storage_account_create) gerçek dosyalarını depolamak için.
 
     Standard_LRS depolama SKU kullanarak mystorageaccount adlı bir depolama hesabı oluşturmak için aşağıdaki örneği kullanın:
 
@@ -90,7 +90,7 @@ Bu ayrıntılı kılavuz biz ilk File storage paylaşımı oluşturmak için ger
 
     Bir depolama hesabı oluşturduğunuzda, hizmet kesintisi Döndürülmüş hesabı anahtarları çiftler halinde oluşturulur. İkinci anahtar çiftindeki için geçiş yaptığınızda, yeni bir anahtar çifti oluşturun. Yeni depolama hesabı anahtarları, her zaman çiftler halinde, her zaman en az bir kullanılmayan depolama hesabı anahtarı geçmek hazır olmasını sağlayarak oluşturulur.
 
-    İle depolama hesabı anahtarlarını görüntülemek [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#list). Depolama hesabı anahtarları adlandırılmış `mystorageaccount` aşağıda listelenmiştir:
+    İle depolama hesabı anahtarlarını görüntülemek [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#az_storage_account_keys_list). Depolama hesabı anahtarları adlandırılmış `mystorageaccount` aşağıda listelenmiştir:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ Bu ayrıntılı kılavuz biz ilk File storage paylaşımı oluşturmak için ger
 
 4. File storage paylaşımı oluşturun.
 
-    File storage paylaşımını SMB paylaşımıyla içeren [az depolama paylaşımı oluşturmak](/cli/azure/storage/share#create). Kota her zaman gigabayt (GB) cinsinden ifade edilir. Önceki geçişinde anahtarlarından birini `az storage account keys list` komutu. Aşağıdaki örnek kullanarak 10 GB kota mystorageshare adlı bir paylaşım oluşturun:
+    File storage paylaşımını SMB paylaşımıyla içeren [az depolama paylaşımı oluşturmak](/cli/azure/storage/share#az_storage_share_create). Kota her zaman gigabayt (GB) cinsinden ifade edilir. Önceki geçişinde anahtarlarından birini `az storage account keys list` komutu. Aşağıdaki örnek kullanarak 10 GB kota mystorageshare adlı bir paylaşım oluşturun:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,7 +137,7 @@ Bu ayrıntılı kılavuz biz ilk File storage paylaşımı oluşturmak için ger
     Linux VM'i yeniden başlattığınızda takılı SMB paylaşımı kapatma sırasında kaldırılan değil. Önyükleme SMB paylaşımında yeniden bağlamaya yönelik Linux /etc/fstab bir satır ekleyin. Linux önyükleme işlemi sırasında bağlamak için gereken dosya sistemlerini listelemek için fstab dosyasını kullanır. SMB paylaşımı ekleme File storage paylaşımını Linux VM için kalıcı bağlı dosya sistemi olmasını sağlar. Bulut init kullandığınızda, SMB paylaşımı dosya depolama için yeni bir VM ekleme mümkündür.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

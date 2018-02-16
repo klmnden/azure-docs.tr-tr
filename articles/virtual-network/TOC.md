@@ -157,6 +157,7 @@
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Günlükler](virtual-network-nsg-manage-log.md)
+### [Yol tabloları](manage-route-table.md)
 ### Ağ arabirimleri (NIC’ler)
 #### [NIC’leri oluşturma, değiştirme veya silme](virtual-network-network-interface.md)
 #### [IP adreslerini ekleme, değiştirme veya kaldırma](virtual-network-network-interface-addresses.md)
@@ -177,6 +178,7 @@
 ### [Aktarım hızı testi](virtual-network-bandwidth-testing.md)
 ### [Sanal ağlar silinemiyor](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [VM’den VM’ye bağlantı sorunları](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [PTR’yi SMTP Başlık Denetimi için yapılandırma](create-ptr-for-smtp-service.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

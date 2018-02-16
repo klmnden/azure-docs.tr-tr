@@ -12,20 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-<<<<<<< HEAD:articles/cosmos-db/documentdb-sdk-dotnet-core.md
-ms.openlocfilehash: 835956f185b4ecdcbfa0b486223dd9bc2d0377cb
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
-=======
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3:articles/cosmos-db/sql-api-sdk-dotnet-core.md
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -64,6 +58,14 @@ ms.lasthandoff: 12/18/2017
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK henüz Evrensel Windows Platformu (UWP) uygulamaları ile uyumlu değil. .NET Core UWP uygulamaları destekleyen SDK'ın ilgileniyorsanız, e-posta Gönder [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Regresyon sabit nerede FeedOptions.MaxItemCount = -1 bir System.ArithmeticException oluşturdu: sayfa boyutu negatiftir.
+* Yeni bir ToString() işlevini QueryMetrics için eklendi.
+* Bölüm istatistikleri okuma koleksiyonlar üzerinde açık.
+* Eklenen PartitionKey özelliğine ChangeFeedOptions.
+* İkincil hata düzeltmeleri.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -163,6 +165,7 @@ Bu SDK ile ilgili sorularınız varsa, deftere [StackOverflow](http://stackoverf
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |05 Şubat 2018 |--- |
 | [1.7.1](#1.7.1) |16 Kasım 2017 |--- |
 | [1.7.0](#1.7.0) |10 Kasım 2017 |--- |
 | [1.6.0](#1.6.0) |17 Ekim 2017 |--- |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 812bc3c2e13c4513161eebb30b93fee21cc091b7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Öğretici: Salesforce otomatik kullanıcı sağlamayı yapılandırın
 
@@ -105,9 +105,9 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının Salesforce kul
 
 18. Tıklatın **kaydedin.**
 
-Bu, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde Salesforce atanan ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek için yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer unutmayın. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Salesforce uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
+Bu, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde Salesforce atanan ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek için yaklaşık her 40 dakika çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer unutmayın. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Salesforce uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik günlükleri sağlamak için bağlantıları izleyin.
 
-Şimdi sınama hesabı oluşturabilirsiniz. Hesap Salesforce eşitlendiğinden emin doğrulamak için en çok 20 dakika bekleyin.
+Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

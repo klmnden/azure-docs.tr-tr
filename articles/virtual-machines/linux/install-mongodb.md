@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 5a9797e1fe3d03840e3a20589a50c90968ea5de0
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 33e9115edd6e9bee0d38f885c557e9f75e24a568
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Yükleme ve bir Linux VM MongoDB yapılandırın
 [MongoDB](http://www.mongodb.org) bir popüler açık kaynak, yüksek performanslı NoSQL veritabanıdır. Bu makalede yükleme ve Azure CLI 2.0 ile bir Linux VM üzerinde MongoDB yapılandırma gösterilmektedir. Bu adımları [Azure CLI 1.0](install-mongodb-nodejs.md) ile de gerçekleştirebilirsiniz. Örnekleri gösterilir, ayrıntı nasıl için:
@@ -29,15 +29,15 @@ ms.lasthandoff: 12/16/2017
 
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>El ile yükleyin ve bir VM üzerinde MongoDB yapılandırın
-MongoDB [yükleme yönergelerinizi](https://docs.mongodb.com/manual/administration/install-on-linux/) Red Hat gibi Linux distro'lar için / CentOS, SUSE, Ubuntu ve Debian. Aşağıdaki örnekte bir *CentOS* VM. Bu ortamı oluşturmak için en son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login).
+MongoDB [yükleme yönergelerinizi](https://docs.mongodb.com/manual/administration/install-on-linux/) Red Hat gibi Linux distro'lar için / CentOS, SUSE, Ubuntu ve Debian. Aşağıdaki örnekte bir *CentOS* VM. Bu ortamı oluşturmak için en son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login).
 
-[az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+[az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* adlı bir kullanıcı ile *azureuser* SSH ortak anahtar kimlik doğrulaması kullanma
+[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* adlı bir kullanıcı ile *azureuser* SSH ortak anahtar kimlik doğrulaması kullanma
 
 ```azurecli
 az vm create \
@@ -119,20 +119,20 @@ Github'dan aşağıdaki Azure Hızlı Başlangıç şablonu kullanarak tek bir C
 
 * [CentOS temel MongoDB örneğinde](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-Bu ortamı oluşturmak için en son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login). İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+Bu ortamı oluşturmak için en son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login). İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Ardından, MongoDB şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). İstendiğinde, kendi benzersiz değerleri girin *newStorageAccountName*, *dnsNameForPublicIP*ve yönetici kullanıcı adı ve parola:
+Ardından, MongoDB şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#az_group_deployment_create). İstendiğinde, kendi benzersiz değerleri girin *newStorageAccountName*, *dnsNameForPublicIP*ve yönetici kullanıcı adı ve parola:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
-VM Genel DNS adresi kullanarak VM oturum açın. Genel DNS adresi ile görüntüleyebilirsiniz [az vm Göster](/cli/azure/vm#show):
+VM Genel DNS adresi kullanarak VM oturum açın. Genel DNS adresi ile görüntüleyebilirsiniz [az vm Göster](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
@@ -170,13 +170,13 @@ Github'dan aşağıdaki Azure Hızlı Başlangıç şablonu kullanarak karmaşı
 > [!WARNING]
 > Bu karmaşık MongoDB parçalı Küme dağıtımı, 20'den fazla çekirdek, genellikle varsayılan çekirdek sayısı her bölge için bir abonelik olduğu gerektirir. Çekirdek sayısı artırmak için bir Azure destek isteği açın.
 
-Bu ortamı oluşturmak için en son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login). İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+Bu ortamı oluşturmak için en son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login). İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Ardından, MongoDB şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). Kendi kaynak tanımlamak adları ve gibi gerektiğinde boyutları *mongoAdminUsername*, *sizeOfDataDiskInGB*, ve *configNodeVmSize*:
+Ardından, MongoDB şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#az_group_deployment_create). Kendi kaynak tanımlamak adları ve gibi gerektiğinde boyutları *mongoAdminUsername*, *sizeOfDataDiskInGB*, ve *configNodeVmSize*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -198,7 +198,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Bu dağıtım, tüm VM örnekleri yapılandırmak ve dağıtmak için bir saatten fazla sürebilir. `--no-wait` Bayrağı şablon dağıtımı Azure platformu tarafından kabul edildikten sonra denetim komut istemini döndürmek için yukarıdaki komut sonunda kullanılır. Dağıtım durumu ile sonra görüntüleyebileceğiniz [az grubu dağıtım Göster](/cli/azure/group/deployment#show). Aşağıdaki örnek için durum görünümleri *myMongoDBCluster* dağıtımında *myResourceGroup* kaynak grubu:
+Bu dağıtım, tüm VM örnekleri yapılandırmak ve dağıtmak için bir saatten fazla sürebilir. `--no-wait` Bayrağı şablon dağıtımı Azure platformu tarafından kabul edildikten sonra denetim komut istemini döndürmek için yukarıdaki komut sonunda kullanılır. Dağıtım durumu ile sonra görüntüleyebileceğiniz [az grubu dağıtım Göster](/cli/azure/group/deployment#az_group_deployment_show). Aşağıdaki örnek için durum görünümleri *myMongoDBCluster* dağıtımında *myResourceGroup* kaynak grubu:
 
 ```azurecli
 az group deployment show \

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Ambari web kullanıcı Arabirimi, kaynak, iş, Oozie ve diğer web Uı'lar erişmek için SSH tünel kullan
 
@@ -32,9 +32,9 @@ Ambari menülerde çeşitli yalnızca SSH tüneli çalışır. Bu menüler web s
 Aşağıdaki Web kullanıcı arabirimleri SSH tüneli gerektirir:
 
 * Kaynak
-* İş
+* NameNode
 * İş parçacığı yığınları
-* Oozie web kullanıcı Arabirimi
+* Oozie web UI
 * HBase ana ve günlükleri kullanıcı Arabirimi
 
 Kümenizi özelleştirmek için betik eylemleri kullanın, herhangi bir hizmet veya bir web kullanıcı arabirimini kullanıma yüklediğiniz utilities SSH tüneli gerektirir. Örneğin, ton betik eylemini kullanarak yüklerseniz, Hue web kullanıcı arabirimini erişmek için bir SSH tüneli kullanmanız gerekir.
@@ -46,7 +46,7 @@ Kümenizi özelleştirmek için betik eylemleri kullanın, herhangi bir hizmet v
 
 [Güvenli Kabuk (SSH) tüneli](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) yerel istasyonunuzda bir bağlantı noktasına gönderilen trafiğin yönlendirir. Trafik, Hdınsight küme baş düğümüne bir SSH bağlantısı üzerinden yönlendirilir. İstek baş düğümünde geldiyse olarak çözümlenir. Yanıt, sonra iş istasyonunuzu için tünelinden yönlendirilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bir SSH istemcisi. Çoğu işletim sistemi üzerinden bir SSH istemcisi sağlar `ssh` komutu. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 

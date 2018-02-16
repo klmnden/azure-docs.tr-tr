@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI kullanarak bir sanal makine için özel IP adreslerini yapılandırın
 
@@ -41,9 +41,9 @@ Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. Ayrıca [Klasi
 
 Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet* özel bir statik IP *192.168.1.101*, tamamlandı Aşağıdaki adımlar:
 
-1. Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login). 
+1. Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#az_login). 
 
-2. VM için bir genel IP oluşturun [az ağ genel IP oluşturun](/cli/azure/network/public-ip#create) komutu. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
+2. VM için bir genel IP oluşturun [az ağ genel IP oluşturun](/cli/azure/network/public-ip#az_network_public_ip_create) komutu. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
 
     > [!NOTE]
     > İstediğiniz ya da ortamınıza bağlı olarak bu, bağımsız değişkenler için farklı değerler ve sonraki adımları kullanmak için gerekir.
@@ -74,7 +74,7 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
    * `--name`: Genel IP adı.
    * `--location`: Genel IP oluşturulacağı azure bölgesi.
 
-3. Çalıştırma [az ağ NIC oluşturmak](/cli/azure/network/nic#create) statik özel IP ile NIC grubu oluşturmak için komutu. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. 
+3. Çalıştırma [az ağ NIC oluşturmak](/cli/azure/network/nic#az_network_nic_create) statik özel IP ile NIC grubu oluşturmak için komutu. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır. 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
     * `--vnet-name`: İçinde NIC oluşturulacağı Vnet'in adı
     * `--subnet`: İçinde NIC oluşturulacağı alt ağın adı
 
-4. Çalıştırma [azure vm oluşturma](/cli/azure/vm/nic#create) ortak IP ve daha önce oluşturduğunuz NIC kullanarak VM oluşturmak için komutu. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
+4. Çalıştırma [azure vm oluşturma](/cli/azure/vm/nic#az_vm_nic_create) ortak IP ve daha önce oluşturduğunuz NIC kullanarak VM oluşturmak için komutu. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
     }
     ```
    
-   Parametreleri temel dışında [az vm oluşturma](/cli/azure/vm#create) parametreleri.
+   Parametreleri temel dışında [az vm oluşturma](/cli/azure/vm#az_vm_create) parametreleri.
 
    * `--nics`: VM bağlı olduğu NIC adı.
    

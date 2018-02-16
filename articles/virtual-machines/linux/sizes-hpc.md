@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: a235261dc477ab29dc17fe1e680e4e91ae2f4ede
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Yüksek performanslı işlem sanal makine boyutları
 
@@ -30,13 +30,13 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 ## <a name="rdma-capable-instances"></a>RDMA özellikli örnekleri
-Bir alt işlem yoğunluklu örnekler (H16r, H16mr, A8 ve A9), doğrudan uzak bellek erişimi (RDMA) bağlantısı için bir ağ arabirimi özelliği. Diğer VM boyutları için kullanılabilir standart Azure ağ arabirimi yanı sıra bu arabirimidir. 
+Bir alt işlem yoğunluklu örnekler (H16r, H16mr, NC24r, A8 ve A9), doğrudan uzak bellek erişimi (RDMA) bağlantısı için bir ağ arabirimi özelliği. Diğer VM boyutları için kullanılabilir standart Azure ağ arabirimi yanı sıra bu arabirimidir. 
   
-Bu arabirim H16r ve H16mr sanal makineler için FDR hızlarını ve A8 ve A9 sanal makineler için QDR hızlarını işletim bir InfiniBand ağ üzerinden iletişim kurmak RDMA özellikli örneklerini verir. RDMA yeteneklere ölçeklenebilirlik ve Intel MPI altında çalışan ileti geçirme arabirimi (MPI) uygulamaların performansını artırabilir 5.x veya sonraki bir sürümü.
+Bu arabirim H16r, H16mr ve NC24r sanal makineler için FDR hızlarını ve A8 ve A9 sanal makineler için QDR hızlarını işletim bir InfiniBand ağ üzerinden iletişim kurmak RDMA özellikli örneklerini verir. RDMA yeteneklere ölçeklenebilirlik ve Intel MPI altında çalışan ileti geçirme arabirimi (MPI) uygulamaların performansını artırabilir yalnızca 5.x. Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı Azure RDMA sürücüleri ile uyumlu değil.
 
 RDMA özellikli sanal makineleri aynı kullanılabilirlik kümesinde (Azure Resource Manager dağıtım modeli kullandığınızda) ya da aynı bulut hizmetine (Klasik dağıtım modeli kullandığınızda) dağıtın. Azure RDMA ağ erişmek RDMA özellikli Linux VM'ler için ek gereksinimler izleyin.
 
-### <a name="distributions"></a>Dağıtımları
+### <a name="distributions"></a>Dağıtımlar
  
 Bir işlem yoğunluklu VM RDMA bağlantısı destekleyen Azure Market görüntülerini birinden dağıtın:
   

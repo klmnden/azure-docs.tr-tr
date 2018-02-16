@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 356f98aec072a1295915ae0701a3e3cd793aba07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 427660be92d3caf4c381cec65f49adce9808e50a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Gelişmiş istek azaltma ile Azure API Yönetimi
 Gelen istek kısıtlama erişebildiklerinden, Azure API Management anahtar bir roldür. Da istekleri ya da aktarılan toplam istekleri/veri oranını denetleyerek, API Management kendi API kötüye korumak ve farklı API ürün katmanları için değer oluşturmak API sağlayıcıları sağlar.
 
 ## <a name="product-based-throttling"></a>Ürün tabanlı azaltma
-Bugüne kadar hızı azaltma özellikleri olmaya sınırlı silinmiş belirli ürün abonelik (aslında bir anahtarı) için kapsamlı, API Management yayımcı Portalı'nda tanımlanan. Kendi API kullanmak için açmış geliştiriciler sınırları uygulamak API sağlayıcısı için faydalıdır, ancak bu, örneğin, tek tek son kullanıcılar API azaltma korumaz. Bu, tüm kota kullanabilir ve ardından diğer müşteriler geliştiricinin uygulamayı kullanabilmek için engellemek için kullanıcı Geliştirici uygulamasının tek için mümkün olur. Ayrıca, bir istek hacmi yüksek oluşturabilir çeşitli müşteriler zaman zaman kullanıcılara erişimi sınırlayabilir.
+Bugüne kadar hızı azaltma özellikleri olmaya sınırlı silinmiş belirli ürün abonelik (aslında bir anahtarı) için kapsamlı, Azure portalında tanımlı. Kendi API kullanmak için açmış geliştiriciler sınırları uygulamak API sağlayıcısı için faydalıdır, ancak bu, örneğin, tek tek son kullanıcılar API azaltma korumaz. Bu, tüm kota kullanabilir ve ardından diğer müşteriler geliştiricinin uygulamayı kullanabilmek için engellemek için kullanıcı Geliştirici uygulamasının tek için mümkün olur. Ayrıca, bir istek hacmi yüksek oluşturabilir çeşitli müşteriler zaman zaman kullanıcılara erişimi sınırlayabilir.
 
 ## <a name="custom-key-based-throttling"></a>Özel anahtar tabanlı azaltma
 Yeni [anahtar tarafından hızı sınırı](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) ve [kota anahtarı](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) ilkeleri, akış denetimi önemli ölçüde daha esnek bir çözüme sağlar. Bu yeni ilkeleri, trafiği kullanımı izlemek için kullanılan anahtarları tanımlamak için ifadeleri tanımlamanıza olanak sağlar. Bu çalışma biçimini kolay bir örnek gösterilmiştir. 

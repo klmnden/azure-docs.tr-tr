@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Automation--Güvenlik değerlendirmesi ve yetkilendirme"
-description: "Web uygulamalarında FedRAMP - güvenlik değerlendirmesi ve yetkilendirme"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon--güvenlik denetimi ve yetkilendirme"
+description: "FedRAMP Web uygulamaları Otomasyon - güvenlik değerlendirmesi ve yetkilendirme"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Güvenlik değerlendirmesi ve yetkilendirme (CA)
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Azure uygulama ağ geçidi ve ağ güvenlik grupları, bu Azure şeması tarafından dağıtılan kaynaklara harici bağlantı kısıtlamak için dağıtılır. Ağ güvenlik gruplarına uygulanan Rulesets varsayılan olarak izin verme düzeni kullanılarak yapılandırılır. |
+| **Müşteri** | Azure uygulama ağ geçidi ve ağ güvenlik grupları harici bağlantı bu şeması tarafından dağıtılan kaynakları sınırlamak için dağıtılır. Ağ güvenlik gruplarına uygulanan Rulesets varsayılan olarak izin verme düzeni kullanılarak yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -337,7 +337,7 @@ ms.lasthandoff: 11/23/2017
 
 #### <a name="continuous-monitoring"></a>Sürekli izleme
 
-**CA 7.e** Kuruluş, sürekli bir izleme stratejisi geliştirir ve bağıntı ve analiz değerlendirmeleri ve izleme tarafından oluşturulan güvenlikle ilgili bilgileri içeren bir sürekli izleme programı uygular.
+**CA-7.e** Kuruluş, sürekli bir izleme stratejisi geliştirir ve bağıntı ve analiz değerlendirmeleri ve izleme tarafından oluşturulan güvenlikle ilgili bilgileri içeren bir sürekli izleme programı uygular.
 
 **Sorumlulukları:**`Customer Only`
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure şeması Otomasyon - İngiltere resmi için üç katmanlı Web uygulamaları"
-description: "Azure şeması Otomasyon & - İngiltere resmi için üç katmanlı Web uygulamaları"
+title: "Azure güvenlik ve uyumluluk şeması - İngiltere resmi üç katmanlı Web uygulamaları otomatikleştirme"
+description: "Azure güvenlik ve uyumluluk şeması - İngiltere resmi üç katmanlı Web uygulamaları otomatikleştirme"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Azure şeması Otomasyon: Birleşik Krallık resmi üç katmanlı Web uygulamaları
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure güvenlik ve uyumluluk şeması - İngiltere OFFICAL üç katmanlı Web uygulamaları otomatikleştirme
 
 ## <a name="overview"></a>Genel Bakış
 
  Bu makalede İngiltere'deki resmi olarak sınıflandırılan birçok iş yükü işlemek için uygun bir Microsoft Azure üç katmanlı web tabanlı mimari sunmak için yönergeler ve otomasyon komut dosyaları sağlar.
 
- Yaklaşan bir altyapı kodu olarak kullanarak, kümesini [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) (ARM) şablonları UK Ulusal siber Güvenlik Merkezi (NCSC için) 14 hizalar bir ortamda dağıtmak [bulut güvenlik ilkeleri](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles)ve Internet Security (CI) Merkezi [kritik güvenlik denetimleri](https://www.cisecurity.org/critical-controls.cfm).
+ Yaklaşan bir altyapı kodu olarak kullanarak, kümesini [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) şablonları UK Ulusal siber Güvenlik Merkezi (NCSC için) 14 hizalar bir ortamda dağıtmak [bulut güvenlik ilkeleri](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) Internet güvenliği (CI) için merkezi [kritik güvenlik denetimleri](https://www.cisecurity.org/critical-controls.cfm).
 
  NCSC önerilir hizmeti güvenlik özelliklerini değerlendirmek ve Sorumluluk müşteri ve tedarikçi arasında bölme anlamanıza yardımcı olması için kendi bulut güvenlik ilkeleri müşteriler tarafından kullanılabilir. Sorumlulukları bölünmüş anlamanıza yardımcı olması için bu ilkelerin her biri karşı bilgiler sunulmuştur.
 
- Bu mimari ve karşılık gelen ARM şablonlarını Microsoft teknik incelemesi tarafından desteklenen [İngiltere kamu Azure şeması](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Bu raporda nasıl Azure Hizmetleri catalogues İngiltere NCSC 14 bulut güvenlik böylece Hızlı İzleme yeteneklerini Microsoft Azure'da bulut tabanlı hizmetlere genel ve Birleşik Krallık kullanarak kendi uyumluluk yükümlülüklerin karşılamak kuruluşlar Etkinleştirme ilkeleri ile hizalayın bulut.
+ Bu mimari ve karşılık gelen Azure Resource Manager şablonları Microsoft teknik incelemesi tarafından desteklenen [İngiltere 14 bulut güvenlik denetimleri kullanarak Microsoft Azure bulut](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Bu raporda nasıl Azure Hizmetleri catalogues İngiltere NCSC 14 bulut güvenlik böylece Hızlı İzleme yeteneklerini Microsoft Azure'da bulut tabanlı hizmetlere genel ve Birleşik Krallık kullanarak kendi uyumluluk yükümlülüklerin karşılamak kuruluşlar Etkinleştirme ilkeleri ile hizalayın bulut.
 
  Bu şablon, iş yükü için altyapıyı dağıtır. Uygulama kodu ve iş katmanı ve veri katmanı yazılımı destekleyici yüklenmiş ve yapılandırılmış olmasını gerekir. Ayrıntılı dağıtım yönergeleri kullanılabilir [burada](https://aka.ms/ukwebappblueprintrepo).
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 11/16/2017
 
 (1) /16 sanal ağ - işletimsel VNet
 - (3) /24 alt - 3 katmanlı (Web, Biz, veriler)
-- (1) /27 subnet - EKLER
+- (1) /27 subnet - ADDS
 - (1) /27 subnet - ağ geçidi alt ağı
 - (1) /29 subnet - uygulama ağ geçidi alt ağı
 - (Azure tarafından sağlanan) DNS kullandığı varsayılan
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/16/2017
   - Etki alanına katılmış değil
 
 
-- (2) web katmanı VM'ler
+- (2) Web Tier VMs
   - (2) IIS sunucu rolleri - VM başına 1
   - (2) NIC'ler işletimsel VNet - VM başına 1 bağlı
   - Etki alanına katılmış değil
@@ -110,7 +110,7 @@ Kullanılabilirlik Kümeleri
 - (1) veri katmanı VM set - 2 VM
 
 Load Balancer
-- (1) web katmanı yük dengeleyici
+- (1) Web Tier Load Balancer
 - (1) biz katmanı yük dengeleyici
 - (1) yük dengeleyici veri katmanı
 
@@ -150,7 +150,7 @@ Depolama
 
 **Yönetim VNet**: Bu [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) yönetim ve izleme kapasiteleri VNet üretimde çalışan iş yükleri için uygulama kaynaklarını içerir.
 
-**Jumpbox**: olarak da adlandırılan bir [savunma konak](https://en.wikipedia.org/wiki/Bastion_host), Yöneticiler için sanal makineleri üretim VNet bağlanmak için kullandığınız ağ üzerinde güvenli bir VM olduğu. Jumpbox güvenli bir listede yalnızca ortak IP adreslerinden gelen uzak trafiğine izin veren bir NSG sahiptir. Uzak Masaüstü (RDP) trafiğine izin vermek için kaynak trafiği NSG'de tanımlanması gerekiyor. Üretim kaynaklarının yönetimini güvenli Jumpbox VM kullanarak RDP aracılığıyla ' dir.
+**Jumpbox**: olarak da adlandırılan bir [savunma konak](https://en.wikipedia.org/wiki/Bastion_host), Yöneticiler için sanal makineleri üretim VNet bağlanmak için kullandığınız ağ üzerinde güvenli bir VM olduğu. Sıçrama kutusunun sadece güvenli bir listede yer alan genel IP adreslerinden gelen uzak trafiğe izin veren bir NSG’si vardır. Uzak Masaüstü (RDP) trafiğine izin vermek için kaynak trafiği NSG'de tanımlanması gerekiyor. Üretim kaynaklarının yönetimini güvenli Jumpbox VM kullanarak RDP aracılığıyla ' dir.
 
 **Kullanıcı tanımlı yollar**: [kullanıcı tanımlı yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) Azure Vnet içinde IP trafik akışını tanımlamak için kullanılır.
 
@@ -195,17 +195,17 @@ Bu sanal ağlar hala ayrı kaynakları olarak yönetilebilir, ancak bu sanal mak
 
 ### <a name="security"></a>Güvenlik
 
-**Yönetim güvenliği**: Bu Azure şeması yöneticilerin, VNet ve güvenilir bir kaynaktan RDP kullanarak Jumpbox yönetim bağlanmasını sağlar. Yönetim sanal ağ için ağ trafiğini Nsg'ler kullanılarak denetlenir. Trafik Jumpbox içeren alt ağ erişebilmeniz için güvenilir bir IP aralığından 3389 numaralı bağlantı noktasına erişim sınırlıdır.
+**Yönetim güvenliği**: Yöneticiler için Yönetim sanal ağ ve güvenilir bir kaynaktan RDP kullanarak Jumpbox bağlanmak bu şeması sağlar. Yönetim sanal ağ için ağ trafiğini Nsg'ler kullanılarak denetlenir. Trafik Jumpbox içeren alt ağ erişebilmeniz için güvenilir bir IP aralığından 3389 numaralı bağlantı noktasına erişim sınırlıdır.
 
 Müşteriler de dikkate kullanarak bir [Gelişmiş Güvenlik yönetim modeli](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) ortamı yönetim VNet ve Jumpbox bağlanırken güvenli hale getirmek için. Gelişmiş güvenlik için müşteriler kullanmanız önerilir bir [ayrıcalıklı erişim iş istasyonu](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) ve RDGateway yapılandırma. Ağ sanal Gereçleri ve ortak/özel kullanımını DMZ'ler daha fazla güvenlik geliştirmeleri sunar.
 
-**Ağ güvenliğini sağlama**: [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Nsg'ler), ikinci düzey yanlış yapılandırılmış veya devre dışı bırakılmış bir ağ geçidi atlayarak gelen trafiği karşı koruma sağlamak üzere her alt ağ için önerilir. Örnek - [bir NSG dağıtmak için ARM şablonu](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Ağ güvenliğini sağlama**: [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Nsg'ler), ikinci düzey yanlış yapılandırılmış veya devre dışı bırakılmış bir ağ geçidi atlayarak gelen trafiği karşı koruma sağlamak üzere her alt ağ için önerilir. Örnek - [bir NSG dağıtmak için Resource Manager şablonu](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Ortak uç noktalarını güvenli hale getirme**: internet ağ geçidi uygulama hizmetlerini kullanıcılara Internet üzerinden kullanıma sunar. Bu hizmetlere erişme trafiği kullanarak güvenli bir [uygulama ağ geçidi](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), bir Web uygulaması güvenlik duvarı ve HTTPS protokolü yönetimini sağlar.
 
 **IP aralıklarını**: mimarisinde IP aralıkları: önerilen aralıkları. Müşterilerin kendi ortamı göz önünde bulundurun ve uygun aralıkların kullanmak için önerilir.
 
-**Karma bağlantı**: bulut tabanlı iş yüklerini Azure VPN ağ geçidini kullanarak IPSec VPN üzerinden şirket içi datacentre bağlıdır. Müşteriler, uygun bir VPN ağ geçidi Azure'a bağlanmak için kullandığınız emin olmalısınız. Örnek - [VPN ağ geçidi ARM şablonu](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Büyük ölçekli çalıştıran müşteriler, büyük veri gereksinimleri olan görev kritik iş yükleri bir karma ağ mimarisi kullanmayı düşünün isteyebilirsiniz [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) Microsoft'a özel ağ bağlantısı için bulut hizmetlerini.
+**Karma bağlantı**: bulut tabanlı iş yüklerini Azure VPN ağ geçidini kullanarak IPSec VPN üzerinden şirket içi veri merkezine bağlı. Müşteriler, uygun bir VPN ağ geçidi Azure'a bağlanmak için kullandığınız emin olmalısınız. Örnek - [VPN ağ geçidi Resource Manager şablonu](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Büyük ölçekli çalıştıran müşteriler, büyük veri gereksinimleri olan görev kritik iş yükleri bir karma ağ mimarisi kullanmayı düşünün isteyebilirsiniz [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) Microsoft'a özel ağ bağlantısı için bulut hizmetlerini.
 
 **Sorunları ayrılması**: sanal ağlar yönetim işlemleri ve iş işlemleri için bu başvuru mimarisinin ayırır. Ayrı sanal ağlar ve alt ağları izin trafiği yönetim, aşağıdaki ağ kesimleri arasında Nsg'leri kullanarak trafiği giriş ve çıkış kısıtlamaları da dahil olmak üzere [Microsoft bulut Hizmetleri ve ağ güvenliği](https://docs.microsoft.com/azure/best-practices-network-security) en iyi uygulamalar.
 
@@ -221,17 +221,17 @@ Müşteriler de dikkate kullanarak bir [Gelişmiş Güvenlik yönetim modeli](ht
 
 Dama yapma ticari hizmet (ticari ve satın alma etkinlik hükümeti tarafından geliştirmek için çalışır kurumu), teklifleri resmi düzeyinde kapsayan Microsoft kapsam Kurumsal bulut hizmetlerine G bulut v6 sınıflandırma yenilenir. Azure ve bulut G ayrıntılarını bulunabilir [Azure UK G-bulut güvenlik değerlendirme özeti](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-Bu Birleşik Krallık resmi Azure şeması çözüm NCSC belgelenen 14 bulut güvenlik ilkeleri hizalar [bulut güvenlik ilkeleri](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) İngiltere-resmi sınıflandırılmış iş yüklerini destekleyen bir ortam sağlamak için.
+Bu şeması NCSC belgelenen 14 bulut güvenlik ilkeleri hizalar [bulut güvenlik ilkeleri](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) İngiltere-resmi sınıflandırılmış iş yüklerini destekleyen bir ortam sağlamak için.
 
 [Müşteri sorumluluk matrisi](https://aka.ms/blueprintuk-gcrm) (Excel çalışma kitabı) listeler tüm 14 bulut güvenlik ilkeleri ve ilke uygulaması sorumluluğu olup matrisi, her ilke (veya ilke Altbölüm), gösterir Microsoft, müşteri veya ikisi arasında paylaşılan.
 
-[İlkesi uygulaması matris](https://aka.ms/ukwebappblueprintpim) (Excel çalışma kitabı) listeleri tüm 14 bulut güvenlik ilkeleri ve matris gösterir, her ilke (veya ilke Altbölüm) için tasarlanmış bir müşteri sorumluluğu müşteri Sorumlulukları Azure şeması Otomasyonu ilke ve uygulama ilkesi requirement(s) ile nasıl hizalandığını 2) bir açıklama 1) uyguluyorsa matris. Bu içerik da kullanılabilir [burada](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+[İlkesi uygulaması matris](https://aka.ms/ukwebappblueprintpim) (Excel çalışma kitabı) listeleri tüm 14 bulut güvenlik ilkeleri ve matris gösterir, her ilke (veya ilke Altbölüm) için tasarlanmış bir müşteri sorumluluğu müşteri Sorumlulukları şeması Otomasyon ilke ve uygulama ilkesi requirement(s) ile nasıl hizalandığını 2) bir açıklama 1) uyguluyorsa matris. Bu içerik da kullanılabilir [burada](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 Ayrıca, bulut denetim matris bulut sağlayıcıları hesaplanmasında müşterileri desteklemek için ve bulut hizmetlerine taşımadan önce yanıtlanması soru belirlemek için bulut güvenlik Alliance (CSA) yayımladı. Yanıt olarak, Microsoft Azure CSA anlaşma değerlendirme Initiative soru yanıtlanan ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), Microsoft önerilen ilkeler nasıl ele açıklar.
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 
-Bu Azure şeması çözümü dağıtmak için dağıtım kullanıcılar kullanabilir iki yöntem vardır. İlk yöntem başvuru mimarisi dağıtmak için Azure Portal ikinci yöntem utilises bir PowerShell betiğini kullanır. Ayrıntılı dağıtım yönergeleri kullanılabilir [burada](https://aka.ms/ukwebappblueprintrepo).
+Dağıtım kullanıcılar bu şeması Otomasyon dağıtmak için kullanabilir iki yöntem vardır. İlk yöntem başvuru mimarisi dağıtmak için Azure portal ikinci yöntem utilises bir PowerShell betiğini kullanır. Ayrıntılı dağıtım yönergeleri kullanılabilir [burada](https://aka.ms/ukwebappblueprintrepo).
 
 ## <a name="disclaimer"></a>Bildirim
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 70451c5a69a1a268aef0eb957cb92791b92eb221
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapasite Hdınsight kümeleri için planlama
 
@@ -89,8 +89,7 @@ Bir kümenin ölçek VM düğümlerinden miktarı tarafından belirlenir. Tüm k
 
 Türüne bağlı olarak, küme, alt düğümlerin sayısını artırmak (örneğin, daha fazla sayıda çekirdek) ek hesaplama kapasitesi ekler, ancak toplam bellek içi işlenmekte olan verilerin depolanmasını desteklemek üzere tüm küme için gerekli bellek miktarını da ekleyebilirsiniz. Seçiminde, VM boyutunu ve türünü değiştirme gibi doğru küme ölçek seçiliyor genellikle empirically, benzetimli iş yükleri veya yalancı sorguları kullanarak ulaşıldı.
 
-Yoğun yük taleplerini karşılamak, ardından ölçeklemek aşağıya ek düğümleri artık gerekmediğinde kümenizin ölçeklendirebilirsiniz.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+Yoğun yük taleplerini karşılamak, ardından ölçeklemek aşağıya ek düğümleri artık gerekmediğinde kümenizin ölçeklendirebilirsiniz. Daha fazla bilgi için bkz: [ölçek Hdınsight kümeleri](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Küme yaşam döngüsü
 

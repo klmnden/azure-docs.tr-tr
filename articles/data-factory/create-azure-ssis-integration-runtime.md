@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: bb63a3d882d50f509fff220d3eb2c1eb6bf0d70f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 86e624476b7869331720e58363ad14b22704b19b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory'de bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma
 Bu makalede Azure Data Factory bir Azure SSIS tümleştirmesi çalışma zamanı sağlamak için adımları sağlar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio’yu (SSMS) kullanarak Azure’da bu çalışma zamanına SQL Server Integration Services (SSIS) paketleri dağıtabilirsiniz.
@@ -61,8 +61,9 @@ Bu bölümde, bir Azure SSIS IR oluşturmak için Azure portal, veri fabrikası 
 
 ### <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.    
-2. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
+1. Başlatma **Microsoft Edge** veya **Google Chrome** web tarayıcısı. Şu anda, veri fabrikası UI yalnızca Microsoft Edge ve Google Chrome web tarayıcılarda desteklenir.
+2. [Azure Portal](https://portal.azure.com/)’da oturum açın.    
+3. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
    
    ![Yeni->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. **Yeni veri fabrikası** sayfasında **ad** için **MyAzureSsisDataFactory** adını girin. 

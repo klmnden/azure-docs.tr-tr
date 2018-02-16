@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 73d5225653929d4ce4da66eef6b9365a7b5d13fe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizmetlerini yayımları sağlar. Bu bilgiler, bir konuk işletim sistemi devre dışı önce yükseltme yolunuza planlamanıza yardımcı olur. Rollerinizi kullanacak şekilde yapılandırırsanız, *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı gibi [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -42,6 +42,9 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizme
 Hangi, bir konuk işletim sistemi değilseniz ya da konuk işletim sistemi iş nasıl Yayımları? Okuma [bu](#how-it-works) bölümü.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+###### <a name="january-29-2018"></a>**29 Ocak 2018**
+Ocak konuk işletim sistemi için işletim sistemi ailesi 2 serbest (WA-GUEST-işletim sistemi-2.70_201801-01) & 3 (WA-GUEST-OS-3.57_201801-01)
+
 ###### <a name="january-4-2018"></a>**4 Ocak 2018**
 Ocak konuk işletim sistemi için işletim sistemi aileleri 4 yayımlanan (WA-GUEST-OS-4.50_201801-01) & 5 (WA-KONUK-işletim sistemi-5.15_201801-01) ve önemli güvenlik yamaları içerir.  
 
@@ -92,7 +95,7 @@ Haziran konuk işletim sistemi dağıtımı Haziran 16 başlatıyor ve 11 Temmuz
 | --- | --- | --- | --- |
 | WA-GUEST-OS-5.15_201801-01 |4 Ocak 2018 |POST 5.17 |TBD |
 | WA-GUEST-OS-5.14_201712-01 |4 Ocak 2018 |POST 5.16 |TBD |
-| WA-GUEST-OS-5.13_201711-01 |14 Aralık 2017 |POST 5.15 |TBD |
+|~~WA-GUEST-OS-5.13_201711-01~~ |14 Aralık 2017 |4 Ocak 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
@@ -117,7 +120,7 @@ Haziran konuk işletim sistemi dağıtımı Haziran 16 başlatıyor ve 11 Temmuz
 | --- | --- | --- | --- |
 | WA-GUEST-OS-4.50_201801-01 |4 Ocak 2018 |POST 4.52 |TBD |
 | WA-GUEST-OS-4.49_201712-01 |4 Ocak 2018 |POST 4.51 |TBD |
-| WA-GUEST-OS-4.48_201711-01 |14 Aralık 2017 |POST 4.50 |TBD |
+|~~WA-GUEST-OS-4.48_201711-01~~ |14 Aralık 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
@@ -140,8 +143,9 @@ Haziran konuk işletim sistemi dağıtımı Haziran 16 başlatıyor ve 11 Temmuz
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.57_2017801-01 |29 Ocak 2018 |POST 3.59 |TBD |
 | WA-GUEST-OS-3.56_201712-01 |4 Ocak 2018 |POST 3.58 |TBD |
-| WA-GUEST-OS-3.55_201711-01 |14 Aralık 2017 |POST 3.57 |TBD |
+|~~WA-GUEST-OS-3.55_201711-01~~ |14 Aralık 2017 |29 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
@@ -164,8 +168,9 @@ Haziran konuk işletim sistemi dağıtımı Haziran 16 başlatıyor ve 11 Temmuz
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.70_201801-01 |29 Ocak 2018 |POST 2.72 |TBD |
 | WA-GUEST-OS-2.69_201712-01 |4 Ocak 2018 |POST 2.71 |TBD |
-| WA-GUEST-OS-2.68_201711-01 |14 Aralık 2017 |POST 2.70 |TBD |
+|~~WA-GUEST-OS-2.68_201711-01~~ |14 Aralık 2017 |29 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |

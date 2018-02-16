@@ -14,64 +14,84 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: pullabhk;markgal;adigan
-ms.openlocfilehash: 2244a39217f54eb5906d05990f19fc8ca2fdeb0e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bf4ea676c5309bb732f6a4ce71849606b4d2e4df
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>System Center Data Protection Manager sorunlarını giderme
 
-SC DPM için en son sürüm notlarında bulabilirsiniz [burada](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016).
-Koruma desteği matrisi bulunabilir [burada](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+Bu makalede, Data Protection Manager'ı kullanırken karşılaşabileceğiniz sorunların çözümleri açıklar.
 
-## <a name="replica-is-inconsistent"></a>Çoğaltma tutarsız
+En son sürüm notları için System Center Data Protection Manager için bkz: [System Center belgelerine](https://docs.microsoft.com/en-us/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Desteği için de Data Protection Manager hakkında daha fazla bilgiyi [bu Matris](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
-Bu hata çeşitli nedenlerden ötürü - çoğaltma oluşturma işi başarısız oldu, değişiklik günlüğü ile ilgili sorunları oluşabilir birim düzeyi filtresi bit eşlem hataları, kaynak makine kapatma beklenmedik bir şekilde, eşitleme günlüğüne ya da çoğaltma taşması gerçekten tutarsız. Bu sorunu çözmek için şu adımları izleyin:
-- Tutarsız durum kaldırmak için el ile tutarlılık denetimi çalıştırmak veya günlük tutarlılık denetimi zamanlamanız.
-- System Center DPM veya MAB sunucunun en son sürüm üzerinde olduğundan emin olun
-- Otomatik tutarlılık denetiminin etkin olduğundan emin olun
-- Komut istemi ("ardından"net start dpmra"net stop dpmra") hizmetleri yeniden başlatmayı deneyin
-- Ağ bağlantısı ve bant genişliği gereksinimlerinin karşılandığından emin olun
-- Kaynak makine beklenmedik şekilde kapatıldı olmadığını denetleyin
-- Diskin sağlıklı olduğundan ve çoğaltma için yeterli alan olmadığından emin olun
-- Yinelenen hiçbir yedekleme işi aynı anda çalıştırdığınızdan emin olun
 
-## <a name="online-recovery-point-creation-failed"></a>Çevrimiçi kurtarma noktası oluşturma başarısız oldu
+## <a name="error-replica-is-inconsistent"></a>Hata: Çoğaltma tutarsız
 
-Bu sorunu çözmek için şu adımları izleyin:
-- Azure Yedekleme aracısı en son sürümü olduğundan emin olun
-- Koruma görev bölmesinde kurtarma noktası el ile oluşturmayı deneyin
-- Veri kaynağı üzerinde tutarlılık denetimi çalıştırdığınızdan emin olun
-- Ağ bağlantısı ve bant genişliği gereksinimlerinin karşılandığından emin olun
-- Çoğaltma verileri tutarsız durumda. Bu veri kaynağının bir disk kurtarma noktası oluştur
-- Mevcut ve eksik olmayan çoğaltma olduğundan emin olun
-- Çoğaltma, USN günlüğü oluşturmak için yeterli alana sahip
+Bir çoğaltma şu nedenlerden dolayı tutarsız olabilir:
+- Çoğaltma oluşturma işi başarısız olur.
+- Değişiklik günlüğü sorunları vardır.
+- Birim düzeyi filtresi bit eşlem hatalar içeriyor.
+- Kaynak makine beklenmedik biçimde kapanır.
+- Eşitleme günlüğüne taşar.
+- Çoğaltma gerçekten tutarsız.
 
-## <a name="unable-to-configure-protection"></a>Koruma yapılandırılamıyor
+Bu sorunu çözmek için aşağıdaki eylemleri gerçekleştirin:
+- Tutarsız durum kaldırmak için tutarlılık denetimi el ile çalıştırabilir veya günlük tutarlılık denetimi zamanlayabilirsiniz.
+- Microsoft Azure yedekleme sunucusu ve Data Protection Manager'ın en son sürümünü kullandığınızdan emin olun.
+- Emin **otomatik tutarlılık** ayarı etkindir.
+- Komut isteminden hizmetlerini yeniden başlatmayı deneyin. Kullanım `net stop dpmra` ve ardından komut `net start dpmra`.
+- Ağ bağlantısı ve bant genişliği gereksinimlerini toplantı emin olun.
+- Kaynak makine beklenmedik şekilde kapatıldı olmadığını denetleyin.
+- Diskin sağlıklı olduğunu ve çoğaltma için yeterli alan olduğundan emin olun.
+- Eşzamanlı olarak çalışan hiçbir yinelenen yedekleme işleri olduğundan emin olun.
 
-DPM sunucusu korumalı sunucu ile bağlantı kuramadı olduğunda bu hata görünür. Bu sorunu çözmek için şu adımları izleyin:
-- Azure yedekleme Aracısı'nın en son sürümde olduğundan emin olun
-- DPM sunucusu ve korunan sunucu arasında (güvenlik duvarı/ağ/proxy) bağlantısı olduğundan emin olun
-- SQL Server koruyorsanız, NT AUTHORITY\SYSTEM sysadmin oturum açma özelliklerinden etkin olduğundan emin olun
+## <a name="error-online-recovery-point-creation-failed"></a>Hata: Çevrimiçi kurtarma noktası oluşturma başarısız oldu
 
-## <a name="this-server-is-not-registered-to-the-vault-specified-by-the-vault-credential"></a>Bu sunucu kasa kimlik bilgileri tarafından belirtilen kasaya kayıtlı değil
+Bu sorunu çözmek için aşağıdaki eylemleri gerçekleştirin:
+- Azure Yedekleme aracısı en son sürümünü kullandığınızdan emin olun.
+- Koruma görev bölmesinde kurtarma noktası el ile oluşturmayı deneyin.
+- Veri kaynağı üzerinde tutarlılık denetimi çalıştırdığınızdan emin olun.
+- Ağ bağlantısı ve bant genişliği gereksinimlerini toplantı emin olun.
+- Çoğaltma verileri tutarsız bir durumda olduğunda, bu veri kaynağı bir disk kurtarma noktası oluşturun.
+- Çoğaltmayı var ve değil eksik olduğundan emin olun.
+- Çoğaltma güncelleştirme sıra numarası (USN) günlük oluşturmak için yeterli alana sahip olduğundan emin olun.
 
-Seçilen kasa kimlik bilgilerini System Center DPM ile ilişkili kurtarma Hizmetleri Kasası'na ait olmadığından, bu hata görünür / Azure yedekleme sunucusu kurtarma denemesi. Bu sorunu çözmek için şu adımları izleyin:
-- Yükleme için kasa kimlik bilgilerini kurtarma Hizmetleri kasası için System Center DPM / Azure yedekleme sunucusu kaydedildi.
-- Sunucusu için en son indirilen kasa kimlik bilgilerini kullanarak kasası ile kaydediliyor deneyin.
+## <a name="error-unable-to-configure-protection"></a>Hata: Koruma yapılandırılamıyor
 
-## <a name="either-the-recoverable-data-is-not-available-or-the-selected-server-is-not-a-dpm-server"></a>Kurtarılabilir veriler kullanılamıyor veya seçili sunucu DPM sunucusu değil
-Herhangi bir System Center DPM vardır / kurtarma Hizmetleri Kasası'na kayıtlı Azure yedekleme sunucusu veya sunucuları henüz meta veriler karşıya yüklenmedi veya seçili sunucu System Center DPM değil, bu hata görünür / Azure yedekleme sunucusu.
-- Diğer System Center DPM / kurtarma Hizmetleri Kasası'na kayıtlı Azure yedekleme sunucusu varsa, en son Azure Backup aracısının yüklü olduğundan emin olun.
-- Diğer System Center DPM / kurtarma Hizmetleri Kasası'na kayıtlı Azure yedekleme sunucusu varsa, kurtarma işlemini başlatmak için yüklemeden sonra bir gün bekleyin. Gecelik iş buluta korunan tüm yedeklemeler için meta veriler karşıya yükleme. Veri kurtarma için kullanılamıyor.
+Bu hata, Data Protection Manager sunucusunun korumalı sunucu ile iletişim kuramıyor oluşur. 
 
-## <a name="the-encryption-passphrase-provided-does-not-match-with-passphrase-associated-with-the-following-server"></a>Sağlanan şifreleme parolası şu sunucuyla ilişkili parolayla eşleşmiyor.
+Bu sorunu çözmek için aşağıdaki eylemleri gerçekleştirin:
+- Azure Yedekleme aracısı en son sürümünü kullandığınızdan emin olun.
+- (Güvenlik duvarı/ağ/proxy) Data Protection Manager sunucunuz ve korunan sunucu arasında bağlantı olduğundan emin olun.
+- Bir SQL server koruyorsanız emin **oturum açma özellikleri** > **NT AUTHORITY\SYSTEM** özelliği gösterir **sysadmin** ayarı etkin.
 
-> [!NOTE]
->Unuttunuz/şifreleme parolası kaybederseniz, verileri kurtarmak için bir seçenek yoktur. Tek seçeneğiniz gelecekteki yedekleme verilerini şifrelemek için parolayı yeniden ve kullanmaktır.
+## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Hata: Sunucu belirtildiği şekilde kasa kimlik bilgileri dosyasında kayıtlı değil
+
+Bu hata, veri koruma Yöneticisi/Azure yedekleme sunucusu verileri için kurtarma işlemi sırasında oluşur. Kurtarma işleminde kullanılan kasa kimlik bilgilerini, veri koruma Yöneticisi/Azure yedekleme sunucusu için kurtarma Hizmetleri kasasına ait değil.
+
+Bu sorunu çözmek için aşağıdaki adımları gerçekleştirin:
+1. Kasa kimlik bilgilerini, veri koruma Yöneticisi/Azure yedekleme sunucusu kayıtlı olduğu kurtarma Hizmetleri Kasası'nı indirin.
+2. En son indirilen kasa kimlik bilgilerini kullanarak sunucuyu kasaya kaydetmek deneyin.
+
+## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Hata: Hiçbir kurtarılabilir veriler veya seçili sunucu Data Protection Manager sunucu
+
+Bu hata aşağıdaki nedenlerle oluşur:
+- Kurtarma Hizmetleri Kasası'na kayıtlı başka bir veri koruma Yöneticisi/Azure yedekleme sunucusu yok.
+- Sunucular, meta veriler henüz yüklemediniz.
+- Seçili sunucu veri koruma Yöneticisi/Azure yedekleme sunucusu değil.
+
+Kurtarma Hizmetleri Kasası'na kayıtlı olan diğer veri koruma Yöneticisi/Azure yedekleme sunucusu olduğunda, sorunu çözmek için aşağıdaki adımları gerçekleştirin:
+1. En son Azure Backup aracısının yüklü olduğundan emin olun.
+2. En son aracısının yüklü olduğundan emin olduktan sonra bir kurtarma işlemine başlamadan önce gün bekleyin. Gecelik yedekleme işi buluta tüm korumalı yedeklemeler için meta veriler karşıya yükleme. Yedekleme verilerini sonra kurtarma için kullanılamıyor.
+
+## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Hata: Sunucunun parolası sağlanan şifreleme parolası eşleşmiyor
+
+Bu hata, veri koruma Yöneticisi/Azure yedekleme server verilerini kurtarırken şifreleme işlemi sırasında oluşur. Kurtarma işlemi, kullanılan şifreleme parolası sunucunun şifreleme parolası eşleşmiyor. Sonuç olarak, aracı verilerin şifresini çözemez ve kurtarma başarısız olur.
+
+> [!IMPORTANT]
+> Şifreleme parolası kaybeder veya unutursanız, veri kurtarma için diğer yöntemler vardır. Parolayı yeniden oluşturmak için tek seçenektir bakın. Gelecekteki yedekleme verilerini şifrelemek için kullanılacak yeni parolayı kullanın.
 >
+> Her zaman veri kurtarma gerçekleştiriyorsanız veri koruma Yöneticisi/Azure yedekleme sunucusu ile ilişkili aynı şifreleme parolası belirtin. 
 >
-
-Bu hata, şifreleme parolası System Center DPM veriler şifreleme işleminde kullanılan / kurtarılmakta olan Azure Backup sunucunun verilerini sağlanan şifreleme parolası eşleşmiyor olduğunda görüntülenir. Aracısı, verileri şifrelemek alamıyor. Bu nedenle kurtarma başarısız olur. Bu sorunu çözmek için şu adımları izleyin:
-- System Center DPM ile ilişkili tam aynı şifreleme parolası sağlamak / verisini kurtarıldığı Azure yedekleme sunucusu. 

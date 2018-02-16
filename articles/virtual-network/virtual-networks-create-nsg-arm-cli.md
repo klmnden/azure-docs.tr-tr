@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cb99f121a1ddf079008ed97edde71b067d6b5edb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>Ağ güvenlik grupları Azure CLI kullanarak oluşturma
 
@@ -36,9 +36,9 @@ Aşağıdaki örnek Azure CLI komutları, önceki senaryoyu temel mevcut basit o
 
 Adlı bir NSG oluşturmak için *NSG ön uç* önceki senaryoya bağlı olarak, adımları aşağıdaki izleyin.
 
-1. Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login). 
+1. Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#az_login). 
 
-2. Bir NSG kullanarak oluşturduğunuz [az ağ nsg oluşturma](/cli/azure/network/nsg#create) komutu. 
+2. Bir NSG kullanarak oluşturduğunuz [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create) komutu. 
 
     ```azurecli
     az network nsg create \
@@ -76,7 +76,7 @@ Adlı bir NSG oluşturmak için *NSG ön uç* önceki senaryoya bağlı olarak, 
 
 
 
-3. İle Internet'ten 3389 numaralı bağlantı noktasına (RDP) erişimine izin veren bir kural oluşturmak [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create) komutu.
+3. İle Internet'ten 3389 numaralı bağlantı noktasına (RDP) erişimine izin veren bir kural oluşturmak [az ağ nsg kuralını](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) komutu.
 
     > [!NOTE]
     > Kullanmakta olduğunuz Kabuk bağlı olarak değiştirmeniz gerekebilir `*` yürütmeden önce bağımsız şekilde genişletmek değil olarak için aşağıdaki bağımsız değişkenleri karakter.
@@ -171,7 +171,7 @@ Adlı bir NSG oluşturmak için *NSG ön uç* önceki senaryoya bağlı olarak, 
     }
     ```
 
-5. NSG'yi bağlama **ön uç** alt ağ ile [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet#update) komutu.
+5. NSG'yi bağlama **ön uç** alt ağ ile [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) komutu.
         
     ```azurecli
     az network vnet subnet update \

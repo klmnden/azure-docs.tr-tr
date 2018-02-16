@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Görsel olarak Azure data factory'leri izleme
 Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz.
@@ -29,15 +29,16 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Veri Fabrikası v2 ardışık izleme
 
-1. Oturum [Azure portal](https://portal.azure.com/).
-2. Azure portalında oluşturulan veri fabrikası dikey penceresine gidin ve 'İzleyici & Yönet' kutucuğa tıklayın. Bu ADF v2 görsel izleme deneyimi başlatacak.
+1. Başlatma **Microsoft Edge** veya **Google Chrome** web tarayıcısı. Şu anda, veri fabrikası UI yalnızca Microsoft Edge ve Google Chrome web tarayıcılarda desteklenir.
+2. Oturum [Azure portal](https://portal.azure.com/).
+3. Azure portalında oluşturulan veri fabrikası dikey penceresine gidin ve 'İzleyici & Yönet' kutucuğa tıklayın. Bu ADF v2 görsel izleme deneyimi başlatacak.
 
 ## <a name="list-view-monitoring"></a>Liste Görünümü İzleme
 
-İşlem hattını izleme ve etkinlik, bir basit liste görünümü arabirimi ile çalışır. Tüm çalıştığı yerel tarayıcı saat diliminde gösterilir. Saat dilimini değiştirmek ve tüm tarih/saat alanlarını seçilen zaman dilimine Daya.  
+İşlem hattını izleme ve etkinlik, bir basit liste görünümü arabirimi ile çalışır. Tüm çalıştırmalar yerel tarayıcının saat diliminde görüntülenir. Saat dilimini değiştirebilirsiniz ve tüm tarih saat alanları seçilen saat dilimine uygun hale getirilir.  
 
 #### <a name="monitoring-pipeline-runs"></a>Ardışık Düzen çalıştırır izleme
-Liste görünümü her ardışık düzen birtakım sergileyen veri fabrikası v2 hatlarınızı için çalıştırın. Eklenen sütunlar:
+Data Factory v2 işlem hatlarınız için her işlem hattı çalıştırmasının gösterildiği liste görünümü. Eklenen sütunlar:
 
 | **Sütun adı** | **Açıklama** |
 | --- | --- |
@@ -54,7 +55,7 @@ Liste görünümü her ardışık düzen birtakım sergileyen veri fabrikası v2
 ![İşlem hattı çalıştırmalarını izleme](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>İzleme etkinliği çalıştırır
-Çalıştıran her ardışık düzen karşılık gelen etkinlik çalışması birtakım sergileyen liste görünümü. Tıklatın **'Etkinlik çalışır'** simgesi altında **'Eylemleri'** etkinliğini görüntülemek için sütun çalıştırmak için her potansiyel çalıştırır. Eklenen sütunlar:
+Her işlem hattı çalıştırmasına karşılık gelen etkinlik çalıştırmalarının gösterildiği liste görünümü. Tıklatın **'Etkinlik çalışır'** simgesi altında **'Eylemleri'** etkinliğini görüntülemek için sütun çalıştırmak için her potansiyel çalıştırır. Eklenen sütunlar:
 
 | **Sütun adı** | **Açıklama** |
 | --- | --- |
@@ -89,7 +90,7 @@ Liste görünümü her ardışık düzen birtakım sergileyen veri fabrikası v2
 
 ![Filtre](media/monitor-visually/filter.png)
 
-#### <a name="addremove-columns-to-list-view"></a>Liste görünümü için Sütun Ekle/Kaldır
+#### <a name="addremove-columns-to-list-view"></a>Liste görünümüne sütunları ekleme/kaldırma
 Liste Görünümü üstbilgisi sağ tıklayın ve liste görünümünde görünmesini istediğiniz sütunları seçin
 
 ![Sütunlar](media/monitor-visually/columns.png)

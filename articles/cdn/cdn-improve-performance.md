@@ -1,10 +1,10 @@
 ---
 title: "Azure CDN dosyaları sıkıştırarak performansı | Microsoft Docs"
-description: "Dosya aktarım hızı geliştirmeyi öğrenin ve Azure CDN dosyalarınızda sıkıştırarak sayfa yükleme performansı artırır."
+description: "Dosya aktarımı hızını artırmak ve Azure CDN dosyalarınızda sıkıştırarak sayfa yükleme performansı artırmak öğrenin."
 services: cdn
 documentationcenter: 
-author: zhangmanling
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: 
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,32 +12,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2018
 ms.author: mazha
-ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 743d1db803cdb58ae8fa37430ccffa10ca003f93
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN dosyaları sıkıştırarak performansı
-Sıkıştırma, dosya aktarım hızını artırmak ve sunucudan gönderilmeden önce dosya boyutunu azaltarak sayfa yükleme performansı artırmak için basit ve etkili bir yöntemdir. Bant genişliği maliyetlerini düşürür ve kullanıcılarınız için daha esnek bir deneyim sağlar.
+Dosya sıkıştırma, dosya aktarım hızını artırmak ve sunucudan gönderilmeden önce bir dosyanın boyutunu azaltarak sayfa yükleme performansı artırmak için basit ve etkili bir yöntemdir. Dosya sıkıştırma, bant genişliği giderlerini azaltmak ve kullanıcılarınız için daha esnek bir deneyim sağlar.
 
-Sıkıştırmayı etkinleştirmek için iki yolu vardır:
+Dosya sıkıştırma etkinleştirmenin iki yolu vardır:
 
-* Kaynak sunucunuzda sıkıştırmayı etkinleştirin. Bu durumda, CDN sıkıştırılmış dosyalar ile aktarır ve bunları isteyen istemcilere sunar.
-* Doğrudan CDN uç sunucularda sıkıştırmayı etkinleştirin. Bu durumda, CDN dosyaları sıkıştırır ve kaynak sunucu tarafından sıkıştırılmaz bile, bunları son kullanıcılara sunar.
+- Kaynak sunucunuzda sıkıştırmayı etkinleştirin. Bu durumda, CDN sıkıştırılmış dosyaların geçer ve bunları isteyen istemcilere sunar.
+- Doğrudan CDN uç sunucularda sıkıştırmayı etkinleştirin. Bu durumda, CDN dosyaları sıkıştırır ve kaynak sunucu tarafından sıkıştırılmaz bile, bunları son kullanıcılara sunar.
 
 > [!IMPORTANT]
-> CDN yapılandırma değişiklikleri ağ üzerinden yayılması biraz zaman alabilir.  İçin <b>akamai'den Azure CDN</b> profilleri yayma genellikle bir dakika içinde tamamlanır.  İçin <b>verizon'dan Azure CDN</b> profilleri, değişikliklerinizi genellikle 90 dakika içinde uygular.  Sıkıştırma için CDN uç noktanız ilk kez ayarlama, 1-2 sıkıştırma ayarları Pop'lere yayılmadan olmak için sorun giderme önce saat bekleyen düşünün.
+> CDN yapılandırma değişiklikleri ağ üzerinden yayılması biraz zaman alabilir. İçin **akamai'den Azure CDN** profilleri yayma genellikle bir dakika içinde tamamlanır.  İçin **verizon'dan Azure CDN** profilleri yayma işlemi genellikle 90 dakika içinde tamamlanır. Sıkıştırma için CDN uç noktanız ilk kez ayarlama, 1-2 sıkıştırma ayarları Pop'lere yayılmadan olmak için sorun giderme önce saat bekleyen düşünün.
 > 
 > 
 
 ## <a name="enabling-compression"></a>Sıkıştırmayı etkinleştirme
-> [!NOTE]
-> Standart ve Premium CDN katmanları için sıkıştırma işlevsellik sağlasa da, kullanıcı arabirimi farklıdır.  Standart ve Premium CDN katmanları arasındaki farklar hakkında daha fazla bilgi için bkz: [Azure CDN'ye genel bakış](cdn-overview.md).
-> 
-> 
+Standart ve premium CDN katmanları için sıkıştırma işlevsellik sağlasa da, kullanıcı arabirimi farklıdır. Standart ve premium CDN katmanları arasındaki farklar hakkında daha fazla bilgi için bkz: [Azure CDN'ye genel bakış](cdn-overview.md).
 
 ### <a name="standard-tier"></a>Standart katman
 > [!NOTE]
@@ -45,96 +42,105 @@ Sıkıştırmayı etkinleştirmek için iki yolu vardır:
 > 
 > 
 
-1. CDN profili sayfasından yönetmek istediğiniz CDN uç noktası'ı tıklatın.
+1. CDN profili sayfasında yönetmek istediğiniz CDN uç noktası seçin.
    
     ![CDN profili uç noktaları](./media/cdn-file-compression/cdn-endpoints.png)
    
     CDN uç noktası sayfası açılır.
-2. Tıklatın **yapılandırma** düğmesi.
+2. Seçin **sıkıştırma**.
+
+    ![CDN sıkıştırma seçimi](./media/cdn-file-compression/cdn-compress-select-std.png)
    
-    ![CDN profili Yönet düğmesi](./media/cdn-file-compression/cdn-config-btn.png)
+    Sıkıştırma sayfası açılır.
+3. Seçin **üzerinde** sıkıştırmasını etkinleştirmek için.
    
-    CDN yapılandırma sayfası açılır.
-3. Aç **sıkıştırma**.
-   
-    ![CDN sıkıştırma seçenekleri](./media/cdn-file-compression/cdn-compress-standard.png)
-4. Varsayılan türleri kullanın veya dosya türlerini ekleyerek veya çıkararak listesini değiştirin.
+    ![CDN dosya sıkıştırma seçenekleri](./media/cdn-file-compression/cdn-compress-standard.png)
+4. Varsayılan MIME türleri kullanın veya ekleyerek veya kaldırarak MIME türleri listesini değiştirin.
    
    > [!TIP]
    > Mümkün olsa da, sıkıştırılmış biçimlerine sıkıştırma uygulamak için önerilmez. Örneğin, ZIP, MP3, MP4 veya JPG.
    > 
  
-5. Yaptığınız değişiklikleri yaptıktan sonra tıklatın **kaydetmek** düğmesi.
+5. Yaptığınız değişiklikleri yaptıktan sonra seçin **kaydetmek**.
 
 ### <a name="premium-tier"></a>Premium katman
 > [!NOTE]
-> Bu bölümde uygulandığı **verizon'dan Azure CDN Premium** profilleri.
-> 
+> Bu bölüm, yalnızca geçerlidir **verizon'dan Azure CDN Premium** profilleri.
 > 
 
-1. CDN profili sayfasından tıklatın **Yönet** düğmesi.
+1. CDN profili sayfasından seçin **Yönet**.
    
-    ![CDN profili Yönet düğmesi](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![CDN seçimi yönetme](./media/cdn-file-compression/cdn-manage-btn.png)
    
     CDN Yönetim Portalı'nı açar.
-2. Üzerine gelerek **HTTP büyük** sekmesini ve ardından üzerine gelerek **önbellek ayarları** çıkma.  Tıklayın **sıkıştırma**.
+2. Üzerine gelerek **HTTP büyük** sekmesini ve ardından üzerine gelerek **önbellek ayarları** çıkma. Seçin **sıkıştırma**.
 
-    ![Dosya sıkıştırma seçimi](./media/cdn-file-compression/cdn-compress-select.png)
+    ![CDN sıkıştırma seçimi](./media/cdn-file-compression/cdn-compress-select.png)
    
     Sıkıştırma seçeneklerini görüntülenir.
    
-    ![Dosya sıkıştırma seçenekleri](./media/cdn-file-compression/cdn-compress-files.png)
-3. Tıklayarak sıkıştırmayı etkinleştir **sıkıştırma etkin** radyo düğmesi.  İstediğiniz virgülle ayrılmış liste olarak (boşluksuz) sıkıştırmak için MIME türlerini girin **dosya türlerini** metin kutusu.
+    ![CDN dosya sıkıştırma seçenekleri](./media/cdn-file-compression/cdn-compress-files.png)
+3. Sıkıştırma seçerek etkinleştirin **sıkıştırma etkin**. İstediğiniz virgülle ayrılmış liste olarak (boşluksuz) sıkıştırmak için MIME türlerini girin **dosya türlerini** kutusu.
    
    > [!TIP]
    > Mümkün olsa da, sıkıştırılmış biçimlerine sıkıştırma uygulamak için önerilmez. Örneğin, ZIP, MP3, MP4 veya JPG.
    > 
-4. Yaptığınız değişiklikleri yaptıktan sonra tıklatın **güncelleştirme** düğmesi.
+    
+4. Yaptığınız değişiklikleri yaptıktan sonra seçin **güncelleştirme**.
 
 ## <a name="compression-rules"></a>Sıkıştırma kuralları
-Bu tablo her senaryo için Azure CDN sıkıştırma davranışı açıklar.
 
-> [!IMPORTANT]
-> İçin **verizon'dan Azure CDN** profilleri (standart ve Premium), yalnızca uygun dosyaları sıkıştırılır.  Sıkıştırma için uygun olması için bir dosya gerekir:
-> 
-> * 128 bayttan büyük olmalıdır.
-> * 1 MB'tan küçük olmalıdır.
-> 
-> Bu profiller Destek **gzip** (GNU zip) **deflate**, **bzıp2**, veya **br** (Brotli) kodlama. Brotli kodlama için sıkıştırma sırasında kaynak yapılmalıdır. İstemci/tarayıcı Brotli kodlama için istek göndermesi gerekir ve sıkıştırılmış varlık kaynak tarafında ilk sıkıştırılmış gerekir. 
+### <a name="azure-cdn-from-verizon-profiles-both-standard-and-premium-tiers"></a>Azure CDN Verizon profillerinden (standart ve premium Katmanlar)
 
-> [!IMPORTANT]
-> İçin **akamai'den Azure CDN** profilleri, tüm dosyaları sıkıştırma için uygun. Ancak, bir dosya bırakıldı bir MIME türü olmalıdır [sıkıştırma için yapılandırılmış](#enabling-compression).
-> 
->Bu profiller destekleyebilir **gzip** kodlama. Bir profil uç noktası isteğinde bulunduğunda **gzip** kodlanmış dosyalar, bunlar her zaman istemci isteği bağımsız olarak kaynaktan istenir. 
+İçin **verizon'dan Azure CDN** profilleri, yalnızca uygun dosyalar sıkıştırılır. Sıkıştırma için uygun olması için bir dosya gerekir:
+- 128 bayttan büyük olmalıdır
+- 1 MB'tan küçük olmalıdır
+ 
+Bu profiller aşağıdaki sıkıştırma kodlamaları destekler:
+- gzip (GNU zip)
+- SÖNDÜR
+- bzip2
+- brotli 
+ 
+İstek birden fazla sıkıştırma türünü destekliyorsa, bu sıkıştırma türleri brotli sıkıştırmasının önceliklidir.
 
-### <a name="compression-disabled-or-file-is-ineligible-for-compression"></a>Sıkıştırma devre dışı veya dosya sıkıştırma için uygun değil
-| İstemci istenen biçimi (aracılığıyla Accept-Encoding üstbilgisi) | Önbelleğe alınmış dosya biçimi | İstemciye CDN yanıtı | Notlar |
+Bir varlık için bir istek brotli sıkıştırma belirttiğinde (`Accept-Encoding: br` HTTP üstbilgisi) ve Azure CDN önbellek isabetsizliği isteği sonuçlarında brotli sıkıştırma varlığın kaynak sunucuda gerçekleştirir. Daha sonra sıkıştırılmış dosyayı doğrudan önbellekten sunulur.
+
+### <a name="azure-cdn-from-akamai-profiles"></a>Azure CDN Akamai profillerinden
+
+İçin **akamai'den Azure CDN** profilleri, tüm dosyaları sıkıştırma için uygun. Ancak, bir dosya yapılmış bir MIME türü olmalıdır [sıkıştırma için yapılandırılmış](#enabling-compression).
+
+Bu profiller, yalnızca sıkıştırma gzip kodlama destekler. Bir profil uç noktası gzip kodlanmış bir dosyayı istediğinde, istemci istek bağımsız olarak kaynaktan her zaman istenmektedir. 
+
+## <a name="compression-behavior-tables"></a>Sıkıştırma davranışı tabloları
+Aşağıdaki tabloda, her senaryo için Azure CDN sıkıştırma davranışı açıklanmaktadır:
+
+### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>Sıkıştırma devre dışı bırakılmış veya dosya sıkıştırma için uygun değil
+| İstemci tarafından istenen biçimi (aracılığıyla Accept-Encoding üstbilgisi) | Önbelleğe alınmış dosya biçimi | İstemci CDN yanıtı | Notlar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Sıkıştırılmış |Sıkıştırılmış |Sıkıştırılmış | |
 | Sıkıştırılmış |Sıkıştırılmamış |Sıkıştırılmamış | |
-| Sıkıştırılmış |Önbelleğe alınmamış |Sıkıştırılmış veya sıkıştırılmamış |Kaynak yanıtta bağlıdır |
+| Sıkıştırılmış |Önbelleğe alınmamış |Sıkıştırılmış veya sıkıştırılmamış |Kaynak yanıtı CDN bir sıkıştırır olup olmadığını belirler. |
 | Sıkıştırılmamış |Sıkıştırılmış |Sıkıştırılmamış | |
 | Sıkıştırılmamış |Sıkıştırılmamış |Sıkıştırılmamış | |
 | Sıkıştırılmamış |Önbelleğe alınmamış |Sıkıştırılmamış | |
 
-### <a name="compression-enabled-and-file-is-eligible-for-compression"></a>Sıkıştırma ve dosya sıkıştırma için uygun
-| İstemci istenen biçimi (aracılığıyla Accept-Encoding üstbilgisi) | Önbelleğe alınmış dosya biçimi | İstemciye CDN yanıtı | Notlar |
+### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>Sıkıştırması etkinleştirilmişse ve dosya sıkıştırma için uygundur
+| İstemci tarafından istenen biçimi (aracılığıyla Accept-Encoding üstbilgisi) | Önbelleğe alınmış dosya biçimi | İstemciye CDN yanıtı | Notlar |
 | --- | --- | --- | --- |
-| Sıkıştırılmış |Sıkıştırılmış |Sıkıştırılmış |CDN transcodes desteklenen biçimler arasında |
+| Sıkıştırılmış |Sıkıştırılmış |Sıkıştırılmış |CDN transcodes desteklenen biçimler arasında. |
 | Sıkıştırılmış |Sıkıştırılmamış |Sıkıştırılmış |CDN sıkıştırır. |
-| Sıkıştırılmış |Önbelleğe alınmamış |Sıkıştırılmış |Kaynak sıkıştırılmamış döndürürse CDN sıkıştırır.  **Verizon'dan Azure CDN** sıkıştırılmamış dosyayı ilk istek üzerine geçirir ve ardından sıkıştırır ve sonraki istekleri için dosyayı önbelleğe alır.  İle dosyaları `Cache-Control: no-cache` üstbilgi asla sıkıştırılmaz. |
-| Sıkıştırılmamış |Sıkıştırılmış |Sıkıştırılmamış |CDN açma işlemi gerçekleştirir |
+| Sıkıştırılmış |Önbelleğe alınmamış |Sıkıştırılmış |Kaynak sıkıştırılmamış dosyasını döndürürse CDN bir sıkıştırır. <br/>**Verizon'dan Azure CDN** sıkıştırılmamış dosyayı ilk istek üzerine geçirir ve ardından sıkıştırır ve sonraki istekleri için dosyayı önbelleğe alır. <br/>Cache-Control dosyalarıyla: no cache üstbilgisi asla sıkıştırılmaz. |
+| Sıkıştırılmamış |Sıkıştırılmış |Sıkıştırılmamış |CDN bir açma işlemi gerçekleştirir. |
 | Sıkıştırılmamış |Sıkıştırılmamış |Sıkıştırılmamış | |
 | Sıkıştırılmamış |Önbelleğe alınmamış |Sıkıştırılmamış | |
 
 ## <a name="media-services-cdn-compression"></a>CDN sıkıştırma medya Hizmetleri
-Medya Hizmetleri etkin CDN akış uç noktaları için sıkıştırma aşağıdaki içerik türleri için varsayılan olarak etkindir: 
-- Uygulama/vnd.ms-sstr + xml 
+Medya Hizmetleri CDN akış için etkin uç noktaları için sıkıştırma aşağıdaki MIME türleri için varsayılan olarak etkindir: 
+- application/vnd.ms-sstr+xml 
 - Uygulama/dash + xml
-- Application/vnd.apple.mpegurl
-- Uygulama/f4m + xml. 
-
-Etkinleştiremez veya Azure portalını kullanarak belirtilen türleri için sıkıştırmayı devre dışı.  
+- application/vnd.apple.mpegurl
+- Uygulama/f4m + xml 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [CDN dosya sıkıştırma sorunlarını giderme](cdn-troubleshoot-compression.md)    

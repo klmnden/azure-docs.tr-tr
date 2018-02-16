@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Bir Linux VM sanal disklerde şifreleme
 Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için sanal diskler ve VM şifrelenebilir. Sanal makineleri bir Azure anahtar kasası güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarları denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede Azure CLI 2.0 kullanarak bir Linux VM sanal disklerde şifrelemek nasıl ayrıntılarını verir. Bu adımları [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz.
@@ -27,16 +27,16 @@ Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için sanal diskler ve 
 ## <a name="quick-commands"></a>Hızlı komutlar
 VM sanal disklerde şifrelemek için hızlı bir şekilde, aşağıdaki bölümde ayrıntıları temel görevi gerekiyorsa komutları. Her adım, belgenin geri kalanında bulunabilir bilgi ve içerik daha ayrıntılı [burada başlangıç](#overview-of-disk-encryption).
 
-En son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myKey*, ve *myVM*.
+En son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myKey*, ve *myVM*.
 
-İlk olarak, Azure aboneliğinizle içinde Azure anahtar kasası sağlayıcısını etkinleştir [az sağlayıcı kaydı](/cli/azure/provider#register) ve sahip bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu adı oluşturur *myResourceGroup* içinde *eastus* konumu:
+İlk olarak, Azure aboneliğinizle içinde Azure anahtar kasası sağlayıcısını etkinleştir [az sağlayıcı kaydı](/cli/azure/provider#az_provider_register) ve sahip bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek, bir kaynak grubu adı oluşturur *myResourceGroup* içinde *eastus* konumu:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-Bir Azure anahtar kasası ile oluşturma [az keyvault oluşturma](/cli/azure/keyvault#create) ve anahtar kasası disk şifrelemesi ile kullanmak için etkinleştirin. İçin benzersiz bir anahtar kasası adı belirtmeniz *keyvault_name* gibi:
+Bir Azure anahtar kasası ile oluşturma [az keyvault oluşturma](/cli/azure/keyvault#az_keyvault_create) ve anahtar kasası disk şifrelemesi ile kullanmak için etkinleştirin. İçin benzersiz bir anahtar kasası adı belirtmeniz *keyvault_name* gibi:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -47,21 +47,21 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-Anahtar kasası ile bir şifreleme anahtarı oluşturmak [az keyvault anahtarı oluşturma](/cli/azure/keyvault/key#create). Aşağıdaki örnek adlı bir anahtar oluşturur *myKey*:
+Anahtar kasası ile bir şifreleme anahtarı oluşturmak [az keyvault anahtarı oluşturma](/cli/azure/keyvault/key#az_keyvault_key_create). Aşağıdaki örnek adlı bir anahtar oluşturur *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Azure Active Directory ile kullanarak bir hizmet sorumlusu oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac). Hizmet sorumlusu kimlik doğrulama ve şifreleme anahtarlarının anahtar Kasası'ndan exchange işler. Aşağıdaki örnek, hizmet asıl kimliği ve parola sonraki komutlarını kullanmak için değerler okur:
+Azure Active Directory ile kullanarak bir hizmet sorumlusu oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). Hizmet sorumlusu kimlik doğrulama ve şifreleme anahtarlarının anahtar Kasası'ndan exchange işler. Aşağıdaki örnek, hizmet asıl kimliği ve parola sonraki komutlarını kullanmak için değerler okur:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-Hizmet sorumlusu oluşturduğunuzda parola yalnızca çıktı. İsterseniz, görüntüleyin ve parola kaydı (`echo $sp_password`). Hizmet asıl adı ile listeleyebilirsiniz [az ad sp listesi](/cli/azure/ad/sp#list) ve belirli bir hizmet asıl ile ilgili ek bilgileri görüntülemek [az ad sp Göster](/cli/azure/ad/sp#show).
+Hizmet sorumlusu oluşturduğunuzda parola yalnızca çıktı. İsterseniz, görüntüleyin ve parola kaydı (`echo $sp_password`). Hizmet asıl adı ile listeleyebilirsiniz [az ad sp listesi](/cli/azure/ad/sp#az_ad_sp_list) ve belirli bir hizmet asıl ile ilgili ek bilgileri görüntülemek [az ad sp Göster](/cli/azure/ad/sp#az_ad_sp_show).
 
-Anahtar kasası ile üzerindeki izinleri ayarla [az keyvault set-policy](/cli/azure/keyvault#set-policy). Aşağıdaki örnekte, hizmet asıl kimliği önceki komuttan sağlanır:
+Anahtar kasası ile üzerindeki izinleri ayarla [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy). Aşağıdaki örnekte, hizmet asıl kimliği önceki komuttan sağlanır:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Bir VM ile oluşturma [az vm oluşturma](/cli/azure/vm#create) ve 5 Gb veri diski ekleyin. Disk şifrelemesi yalnızca belirli Market görüntülerini destekler. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* kullanarak bir *CentOS 7.2n* görüntü:
+Bir VM ile oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) ve 5 Gb veri diski ekleyin. Disk şifrelemesi yalnızca belirli Market görüntülerini destekler. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* kullanarak bir *CentOS 7.2n* görüntü:
 
 ```azurecli
 az vm create \
@@ -83,7 +83,7 @@ az vm create \
 
 VM kullanarak SSH *Publicıpaddress* yukarıdaki komut çıktısında gösterilmektedir. Bir bölüm ve dosya sistemi oluşturun, sonra veri diski bağlayabilir. Daha fazla bilgi için bkz: [yeni disk bağlamak için bir Linux VM Bağlan](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). SSH oturumunuzu kapatın.
 
-VM ile şifrelemek [az vm şifrelemeyi etkinleştirmek](/cli/azure/vm/encryption#enable). Aşağıdaki örnek kullanır *$sp_id* ve *$sp_password* önceki değişkenleri `ad sp create-for-rbac` komutu:
+VM ile şifrelemek [az vm şifrelemeyi etkinleştirmek](/cli/azure/vm/encryption#az_vm_encryption_enable). Aşağıdaki örnek kullanır *$sp_id* ve *$sp_password* önceki değişkenleri `ad sp create-for-rbac` komutu:
 
 ```azurecli
 az vm encryption enable \
@@ -96,19 +96,19 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Disk şifrelemesi işlemin tamamlanması biraz zaman alır. İşlem durumunu izleme [az vm şifreleme Göster](/cli/azure/vm/encryption#show):
+Disk şifrelemesi işlemin tamamlanması biraz zaman alır. İşlem durumunu izleme [az vm şifreleme Göster](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
-Durum gösterir **EncryptionInProgress**. Disk işletim sistemi durumu raporları bekleyin **VMRestartPending**, VM ile yeniden [az vm yeniden başlatma](/cli/azure/vm#restart):
+Durum gösterir **EncryptionInProgress**. Disk işletim sistemi durumu raporları bekleyin **VMRestartPending**, VM ile yeniden [az vm yeniden başlatma](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-Önyükleme işlemi sırasında disk şifreleme işlemi sonlandırılır, böylece yeniden şifreleme durumunu denetleyerek önce birkaç dakika bekleyin [az vm şifreleme Göster](/cli/azure/vm/encryption#show):
+Önyükleme işlemi sırasında disk şifreleme işlemi sonlandırılır, böylece yeniden şifreleme durumunu denetleyerek önce birkaç dakika bekleyin [az vm şifreleme Göster](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -158,18 +158,18 @@ Desteklenen senaryolar ve sınırlamalar hakkında daha fazla bilgi için bkz: [
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Azure anahtar kasası ve anahtarları oluşturma
-En son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myKey*, ve *myVM*.
+En son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myKey*, ve *myVM*.
 
 İlk adım, şifreleme anahtarlarını depolamak için bir Azure anahtar kasası oluşturmaktır. Azure anahtar kasası anahtarları, gizli ya da, uygulama ve hizmetlerinize güvenli bir şekilde uygulamak izin parolaları depolayabilirsiniz. Sanal disk şifreleme için şifreleme veya şifrelerini çözme, sanal diskler için kullanılan bir şifreleme anahtarı depolamak için anahtar kasası kullanın.
 
-Azure aboneliğinizle içinde Azure anahtar kasası sağlayıcısını etkinleştir [az sağlayıcı kaydı](/cli/azure/provider#register) ve sahip bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu adı oluşturur *myResourceGroup* içinde `eastus` konumu:
+Azure aboneliğinizle içinde Azure anahtar kasası sağlayıcısını etkinleştir [az sağlayıcı kaydı](/cli/azure/provider#az_provider_register) ve sahip bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek, bir kaynak grubu adı oluşturur *myResourceGroup* içinde `eastus` konumu:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-Şifreleme anahtarlarını ve depolama ve VM gibi ilişkili işlem kaynakları içeren Azure anahtar kasası aynı bölgede bulunmalıdır. Bir Azure anahtar kasası ile oluşturma [az keyvault oluşturma](/cli/azure/keyvault#create) ve anahtar kasası disk şifrelemesi ile kullanmak için etkinleştirin. İçin benzersiz bir anahtar kasası adı belirtmeniz *keyvault_name* gibi:
+Şifreleme anahtarlarını ve depolama ve VM gibi ilişkili işlem kaynakları içeren Azure anahtar kasası aynı bölgede bulunmalıdır. Bir Azure anahtar kasası ile oluşturma [az keyvault oluşturma](/cli/azure/keyvault#az_keyvault_create) ve anahtar kasası disk şifrelemesi ile kullanmak için etkinleştirin. İçin benzersiz bir anahtar kasası adı belirtmeniz *keyvault_name* gibi:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -182,7 +182,7 @@ az keyvault create \
 
 Yazılım veya donanım güvenlik modeli (HSM) koruması kullanarak şifreleme anahtarlarını depolayabilirsiniz. HSM kullanmanın premium anahtar kasası gerektirir. Premium yazılım korumalı anahtarlar depolar standart anahtar kasası yerine anahtar kasası oluşturmak için ek bir maliyet yoktur. Premium anahtar kasası oluşturmak için önceki adımda ekleyin `--sku Premium` komutu. Aşağıdaki örnek, standart bir anahtar kasası oluşturulan bu yana yazılım korumalı anahtarlar kullanır.
 
-Her iki koruma modeli için Azure platformu VM sanal diskleri şifresini çözmek için önyüklendiğinde şifreleme anahtarları istemek için erişim verilmesi gerekir. Anahtar kasası ile bir şifreleme anahtarı oluşturmak [az keyvault anahtarı oluşturma](/cli/azure/keyvault/key#create). Aşağıdaki örnek adlı bir anahtar oluşturur *myKey*:
+Her iki koruma modeli için Azure platformu VM sanal diskleri şifresini çözmek için önyüklendiğinde şifreleme anahtarları istemek için erişim verilmesi gerekir. Anahtar kasası ile bir şifreleme anahtarı oluşturmak [az keyvault anahtarı oluşturma](/cli/azure/keyvault/key#az_keyvault_key_create). Aşağıdaki örnek adlı bir anahtar oluşturur *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -192,15 +192,15 @@ az keyvault key create --vault-name $keyvault_name --name myKey --protection sof
 ## <a name="create-the-azure-active-directory-service-principal"></a>Azure Active Directory Hizmet sorumlusu oluşturma
 Sanal diskler şifrelenmiş veya şifresi, kimlik doğrulama ve şifreleme anahtarlarının anahtar Kasası'ndan değişimi işlemek için bir hesap belirtin. Bu hesap, bir Azure Active Directory hizmet asıl adına VM uygun şifreleme anahtarları istemek Azure platformu sağlar. Birçok kuruluş Azure Active Directory dizinleri ayrılmış olsa, aboneliğinizde varsayılan Azure Active Directory örneği kullanılabilir.
 
-Azure Active Directory ile kullanarak bir hizmet sorumlusu oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac). Aşağıdaki örnek değerler kimliği ve parolası sonraki komutlarını kullanmak için hizmet sorumlusu için okur:
+Azure Active Directory ile kullanarak bir hizmet sorumlusu oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). Aşağıdaki örnek değerler kimliği ve parolası sonraki komutlarını kullanmak için hizmet sorumlusu için okur:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-Parola yalnızca hizmet sorumlusu oluşturma görüntülenir. İsterseniz, görüntüleyin ve parola kaydı (`echo $sp_password`). Hizmet asıl adı ile listeleyebilirsiniz [az ad sp listesi](/cli/azure/ad/sp#list) ve belirli bir hizmet asıl ile ilgili ek bilgileri görüntülemek [az ad sp Göster](/cli/azure/ad/sp#show).
+Parola yalnızca hizmet sorumlusu oluşturma görüntülenir. İsterseniz, görüntüleyin ve parola kaydı (`echo $sp_password`). Hizmet asıl adı ile listeleyebilirsiniz [az ad sp listesi](/cli/azure/ad/sp#az_ad_sp_list) ve belirli bir hizmet asıl ile ilgili ek bilgileri görüntülemek [az ad sp Göster](/cli/azure/ad/sp#az_ad_sp_show).
 
-Başarılı bir şekilde şifrelemek veya sanal diskleri şifresini çözmek için anahtar kasasında depolanan şifreleme anahtarı üzerindeki izinleri anahtarları okumak için Azure Active Directory Hizmet Asıl izin verecek şekilde ayarlanması gerekir. Anahtar kasası ile üzerindeki izinleri ayarla [az keyvault set-policy](/cli/azure/keyvault#set-policy). Aşağıdaki örnekte, hizmet asıl kimliği önceki komuttan sağlanır:
+Başarılı bir şekilde şifrelemek veya sanal diskleri şifresini çözmek için anahtar kasasında depolanan şifreleme anahtarı üzerindeki izinleri anahtarları okumak için Azure Active Directory Hizmet Asıl izin verecek şekilde ayarlanması gerekir. Anahtar kasası ile üzerindeki izinleri ayarla [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy). Aşağıdaki örnekte, hizmet asıl kimliği önceki komuttan sağlanır:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -210,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
-İle şifrelemek için bir VM oluşturma [az vm oluşturma](/cli/azure/vm#create) ve 5 Gb veri diski ekleyin. Disk şifrelemesi yalnızca belirli Market görüntülerini destekler. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* kullanarak bir *CentOS 7.2n* görüntü:
+İle şifrelemek için bir VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) ve 5 Gb veri diski ekleyin. Disk şifrelemesi yalnızca belirli Market görüntülerini destekler. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* kullanarak bir *CentOS 7.2n* görüntü:
 
 ```azurecli
 az vm create \
@@ -233,7 +233,7 @@ Sanal diskler şifrelemek için birlikte tüm önceki bileşenleri getirin:
 3. Gerçek şifreleme ve şifre çözme için kullanılacak şifreleme anahtarları belirtin.
 4. İşletim sistemi diski, veri diskleri veya tüm şifrelemek isteyip istemediğinizi belirtin.
 
-VM ile şifrelemek [az vm şifrelemeyi etkinleştirmek](/cli/azure/vm/encryption#enable). Aşağıdaki örnek kullanır *$sp_id* ve *$sp_password* önceki değişkenleri [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac) komutu:
+VM ile şifrelemek [az vm şifrelemeyi etkinleştirmek](/cli/azure/vm/encryption#az_vm_encryption_enable). Aşağıdaki örnek kullanır *$sp_id* ve *$sp_password* önceki değişkenleri [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) komutu:
 
 ```azurecli
 az vm encryption enable \
@@ -246,7 +246,7 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Disk şifrelemesi işlemin tamamlanması biraz zaman alır. İşlem durumunu izleme [az vm şifreleme Göster](/cli/azure/vm/encryption#show):
+Disk şifrelemesi işlemin tamamlanması biraz zaman alır. İşlem durumunu izleme [az vm şifreleme Göster](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -261,7 +261,7 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 ]
 ```
 
-Disk işletim sistemi durumu raporları bekleyin **VMRestartPending**, VM ile yeniden [az vm yeniden başlatma](/cli/azure/vm#restart):
+Disk işletim sistemi durumu raporları bekleyin **VMRestartPending**, VM ile yeniden [az vm yeniden başlatma](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM

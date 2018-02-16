@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Ansible ile azure'da eksiksiz bir Linux sanal makine ortamı oluşturma
 Ansible dağıtma ve yapılandırmanın ortamınızdaki kaynakların otomatikleştirmenizi sağlar. Azure, aynı herhangi bir kaynağa olduğu gibi sanal makineleri (VM'ler) yönetmek için Ansible kullanabilirsiniz. Bu makalede eksiksiz bir Linux ortamı ve Ansible kaynaklarla destekleme nasıl oluşturulacağı gösterilmektedir. Ayrıca öğrenebilirsiniz nasıl [Ansible ile temel bir VM oluşturma](ansible-create-vm.md).
@@ -187,7 +187,7 @@ Bu bölümler araya getirmek için adlı bir Ansible playbook oluşturma *azure_
         version: latest
 ```
 
-Ansible içine tüm kaynaklarınızı dağıtmak için bir kaynak grubu gerekir. [az group create](/cli/azure/vm#create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+Ansible içine tüm kaynaklarınızı dağıtmak için bir kaynak grubu gerekir. [az group create](/cli/azure/vm#az_vm_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

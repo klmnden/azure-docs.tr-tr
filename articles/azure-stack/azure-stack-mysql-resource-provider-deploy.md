@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: db7daf61fa80854c17b58252d7d6cb30c329dfb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3273f435cb65411c85e3a22369682d51e7a12baf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığında MySQL veritabanları kullanın
 
@@ -88,7 +88,7 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
 
     - Yalnızca tek bir sertifika dosyası DependencyFilesLocalPath bulunmaktadır.
     
-    - Dosya adı özel karakterler içermemelidir.
+    - Dosya adı, herhangi bir özel karakter veya boşluk içermemelidir.
 
 
 5. Açık bir **yeni** yükseltilmiş (Yönetim) PowerShell Konsolu. Ardından dosyaları ayıkladığınız dizine geçin. Sistemde zaten yüklü olan yanlış PowerShell modüllerden doğabilecek sorunları önlemek için yeni bir pencere kullanın.

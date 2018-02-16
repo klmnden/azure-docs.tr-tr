@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -39,7 +39,7 @@ Aradığınız bilgiler bu değilse, lütfen bu makalenin sonunda bir yorum bır
 
 ## <a name="cloud-apps-assignments"></a>Bulut uygulamaları atamaları
 
-Koşullu erişim ilkeleri ile nasıl kullanıcılarınızın erişim denetim, [bulut uygulamaları](active-directory-conditional-access-azure-portal.md#who). Koşullu erişim ilkesi yapılandırdığınızda, en az bir bulut uygulama seçmeniz gerekir. 
+Koşullu erişim ilkeleri ile nasıl kullanıcılarınızın erişim denetim, [bulut uygulamaları](active-directory-conditional-access-conditions.md#cloud-apps). Koşullu erişim ilkesi yapılandırdığınızda, en az bir bulut uygulama seçmeniz gerekir. 
 
 ![İlkeniz için bulut uygulamaları seçin](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -105,7 +105,7 @@ Bir koşullu erişim ilkesi, bir istemcide ilke işletim sistemine bağlamanın 
 
 ## <a name="client-apps-condition"></a>İstemci uygulamaları koşulu 
 
-Koşullu erişim ilkenizi yapılandırdığınız [istemci uygulamaları](active-directory-conditional-access-azure-portal.md#client-apps) erişim girişiminde başlattı istemci uygulama ilkesi bağlamanın koşulu. İstemci vermek veya istemci uygulamalarının aşağıdaki türlerden erişim girişiminde bulunulduğunda erişimi engellemek için uygulamaların koşulu belirtin:
+Koşullu erişim ilkenizi yapılandırdığınız [istemci uygulamaları](active-directory-conditional-access-conditions.md#client-apps) erişim girişiminde başlattı istemci uygulama ilkesi bağlamanın koşulu. İstemci vermek veya istemci uygulamalarının aşağıdaki türlerden erişim girişiminde bulunulduğunda erişimi engellemek için uygulamaların koşulu belirtin:
 
 - Tarayıcı
 - Mobil uygulamalar ve Masaüstü uygulamaları
@@ -123,13 +123,13 @@ Bu ayarı tüm tarayıcılarla çalışır. Ancak, bir uyumlu aygıt gereksinim 
 
 | İşletim Sistemi                     | Tarayıcılar                            | Destek     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, kenar, Chrome     | ![İşaretli][1] |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![İşaretli][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![İşaretli][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![İşaretli][1] |
 | iOS                    | Safari, Intune yönetilen tarayıcı      | ![İşaretli][1] |
 | Android                | Chrome, Intune yönetilen tarayıcı      | ![İşaretli][1] |
-| Windows Phone          | Internet Explorer, sınır             | ![İşaretli][1] |
-| Windows Server 2016    | Internet Explorer, sınır             | ![İşaretli][1] |
+| Windows Phone          | Internet Explorer, Edge             | ![İşaretli][1] |
+| Windows Server 2016    | Internet Explorer, Edge             | ![İşaretli][1] |
 | Windows Server 2016    | Chrome                              | Çok yakında |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![İşaretli][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![İşaretli][1] |
@@ -156,11 +156,11 @@ Bu ayar aşağıdaki mobil uygulamalar ve Masaüstü istemcileri yapılan erişi
 
 |İstemci uygulamaları|Hedef hizmet|Platform|
 |---|---|---|
-|Azure RemoteApp|Azure uzak uygulama hizmeti|Windows 10, Windows 8.1, Windows 7, iOS, Android ve Mac OS X|
+|Azure RemoteApp|Azure uzak uygulama hizmeti|Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
 |Dynamics CRM uygulaması|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
 |Takvim/posta/kişiler uygulama, Outlook 2016 (modern kimlik doğrulaması ile) Outlook 2013|Office 365 Exchange Online|Windows 10|
 |MFA ve konum İlkesi uygulamalar için. Cihaz tabanlı ilkeleri desteklenmez. |Herhangi bir My uygulamaları uygulama hizmeti|Android ve iOS|
-|Microsoft ekipleri Hizmetleri - bu Microsoft Teams ve tüm alt istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS |
+|Microsoft ekipleri Hizmetleri - bu Microsoft Teams ve tüm alt istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS |
 |Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemci (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
 |Office 2016 uygulamalar, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisi (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
 |MacOS (Word, Excel, PowerPoint, yalnızca OneNote) için Office 2016. OneDrive iş desteğine gelecek için planlanan|Office 365 SharePoint Online|Mac OS X|
@@ -169,10 +169,9 @@ Bu ayar aşağıdaki mobil uygulamalar ve Masaüstü istemcileri yapılan erişi
 |Outlook 2016 (Office macOS için)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal (modern kimlik doğrulaması)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Outlook mobil uygulama|Office 365 Exchange Online|Android, iOS|
-|Power BI uygulaması. Android için Power BI uygulaması cihaz temelli koşullu erişim şu anda desteklemiyor.|Powerbı hizmeti|Windows 10, Windows 8.1, Windows 7 ve iOS|
+|Power BI uygulaması|Powerbı hizmeti|Windows 10, Windows 8.1, Windows 7 ve iOS|
 |Skype Kurumsal|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services uygulama|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Onaylanmış istemci uygulama gereksinimi 
@@ -186,13 +185,15 @@ Bu ayar, aşağıdaki istemci uygulamalar için geçerlidir:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
-- Microsoft Planlayıcısı
+- Microsoft Planner
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype Kurumsal
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word

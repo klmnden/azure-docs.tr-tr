@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/14/2017
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV’leri kullanarak iş yükünüzü izleme
 Bu makalede dinamik yönetim görünümlerini (Dmv'leri), iş yükünü izlemek ve sorgu yürütme Azure SQL Data Warehouse araştırmak için nasıl kullanılacağını açıklar.
@@ -269,7 +269,6 @@ FROM sys.dm_pdw_nodes_os_performance_counters
 WHERE 
 instance_name like 'Distribution_%' 
 AND counter_name = 'Log File(s) Used Size (KB)'
-AND counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-rollback"></a>İzleme işlemi günlük geri alma
 Sorgularınızın başarısız veya devam etmek için uzun sürüyor, denetleyin ve geri alma işlemler varsa izleyin.

@@ -83,6 +83,7 @@
 #### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
+#### [Kullanıcıları ürün lisansları arasında geçirme](active-directory-licensing-group-product-migration.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için Azure PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 #### [Azure AD’de ürünler ve hizmet planları için başvurular](active-directory-licensing-product-and-service-plan-reference.md)
@@ -200,8 +201,6 @@
 ##### [Bağlayıcılar](application-proxy-understand-connectors.md)
 ##### [Güvenlik](application-proxy-security-considerations.md)
 ##### [Ağlar](application-proxy-network-topology-considerations.md)
-
-
 ##### [TMG veya UAG’den yükseltme](application-proxy-transition-from-uag-tmg.md)
 
 #### Gelişmiş yapılandırmalar
@@ -212,6 +211,8 @@
 ##### [Sessiz yükleme](active-directory-application-proxy-silent-installation.md)
 ##### [Özel giriş sayfası](application-proxy-office365-app-launcher.md)
 ##### [Satır içi bağlantıları çevirme](application-proxy-link-translation.md)
+##### [Joker uygulamalar](active-directory-application-proxy-wildcard.md)
+
 #### Adım adım kılavuzlar yayımlama
 ##### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -293,8 +294,9 @@
 
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
-#### [Denetimler](active-directory-conditional-access-controls.md)
+#### [Koşullar](active-directory-conditional-access-conditions.md)
 #### [Konum koşulu](active-directory-conditional-access-locations.md)
+#### [Denetimler](active-directory-conditional-access-controls.md)
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)

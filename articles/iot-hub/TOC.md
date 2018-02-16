@@ -3,7 +3,7 @@
 ## [Azure IoT Hub nedir?](iot-hub-what-is-iot-hub.md)
 ## [Cihaz yönetimine genel bakış](iot-hub-device-management-overview.md)
 
-# [Kullanmaya başlama](iot-hub-get-started.md)
+# [Kullanmaya Başlama](iot-hub-get-started.md)
 
 ## Cihazınızı kurma
 ### [Bilgisayarınızda bir cihazı benzetme](iot-hub-get-started-simulated.md)
@@ -37,6 +37,9 @@
 ### [iothub-explorer ile cihaz yönetimi](iot-hub-device-management-iothub-explorer.md)
 ### [Azure CLI 2.0 için IoT uzantısıyla cihaz yönetimi](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Logic Apps ile uzaktan izleme ve bildirimler](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+
+## MXChip IoT DevKit kullanma
+### [Uzaktan izleme için Azure IoT Paketi’ni kullanma](iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 # Nasıl yapılır kılavuzları
 ## Planlama
@@ -104,6 +107,7 @@
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-device-management-get-started.md)
 #### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java arka ucu/Java cihazı](iot-hub-java-java-device-management-getstarted.md)
+#### [Python arka ucu/Python cihazı](iot-hub-python-python-device-management-get-started.md)
 ### İkiz özelliklerini kullanma
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-how-to-configure.md)

@@ -2,19 +2,19 @@
 title: "Çalışma kullanılacak geçmişi ve Azure modeli ölçümlerini çalışma ekranı makine nasıl | Microsoft Docs"
 description: "Azure Machine Learning çalışma ekranı çalıştırma geçmişi ve Model ölçümleri özelliklerini kullanmaya yönelik kılavuz"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 2d1bce6463ac7880fd9091b4f3f2cbb226ea516d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Kullanım çalıştırma geçmişi ve Azure Machine Learning çalışma ekranındaki modeli ölçümleri
 
@@ -23,7 +23,7 @@ Azure Machine Learning çalışma ekranı destekleyen veri bilimi deneme aracıl
 **Model ölçümleri** ne olursa olsun, veri bilimi denemeler en önemli değerleridir izleme komut dosyalarınızın, herhangi bir noktasından kaydedilebilir.
 Bu makalede, oranı ve veri bilimi deneme kalitesini artırmak için bu özellikleri etkili kullanımını sağlamak açıklar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Nasıl yapılır bu kılavuzu adım için aktarmanız gerekir:
 * [Oluşturun ve Azure Machine Learning yükleyin](quickstart-installation.md)
 - [Proje oluşturma](quickstart-installation.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cef7fc282edc7396a0f26dab98ea7f1087315b23
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Günlük analizi günlük aramaları kullanarak veri bulma
 
@@ -39,7 +39,7 @@ Biz basit, pratik örnekler başlatın ve böylece pratik kullanım örnekleri s
 Arama teknikleri alışık olduğunuz sonra inceleyebilirsiniz [günlük analizi oturum Arama başvurusu](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Temel filtreleri kullanın
-Bir arama ilk bölümü, önce sorgu bilmeniz ilk şey. "|" dikey çizgi karakteri olan her zaman bir *filtre*. Bunu bir WHERE yan tümcesinde TSQL--olarak bunu belirler düşünün *ne* analizi çalışma alanı dışında og çıkarmak için veri alt kümesini. Veri deposunda arama büyük ölçüde sorguda WHERE yan tümcesi ile başladığını doğal şekilde ayıklamak istediğiniz verilerin özelliklerini belirtme hakkında olur.
+Bir arama ilk bölümü, önce sorgu bilmeniz ilk şey. "|" dikey çizgi karakteri olan her zaman bir *filtre*. Bunu bir WHERE yan tümcesinde TSQL--olarak bunu belirler düşünün *ne* günlük analizi çalışma alanı dışına çıkarmak için veri alt kümesini. Veri deposunda arama büyük ölçüde sorguda WHERE yan tümcesi ile başladığını doğal şekilde ayıklamak istediğiniz verilerin özelliklerini belirtme hakkında olur.
 
 Kullanabileceğiniz en temel filtreler *anahtar sözcükleri*'error' veya 'zaman aşımı' veya bir bilgisayar adı gibi. Bu basit sorgu türleri genellikle aynı sonuç kümesi içindeki verilerin farklı şekiller döndür. Bu günlük analizi farklı sahip olmasından *türleri* verilerin System.
 
@@ -62,13 +62,13 @@ Böylece, eğer türü Perf = kayıtları 'CounterName' adlı bir alana sahip so
 Performans sayacı adı "% işlemci zamanı" olduğu Bu, yalnızca performans verileri verir.
 
 ### <a name="to-search-for-processor-time-performance-data"></a>İşlemci zamanı performans verilerini aramak için
-* Arama sorgusu alanına yazın`Type=Perf CounterName="% Processor Time"`
+* Arama sorgusu alanına yazın `Type=Perf CounterName="% Processor Time"`
 
 Ayrıca daha belirli ve kullanabilirsiniz **InstanceName = _ 'Toplam'** sorguda olduğu bir Windows performans sayacı. Bir model ve başka de seçebilirsiniz **alan: değer**. Filtre sorgu çubuğundaki filtre otomatik olarak eklenir. Bu aşağıdaki resimde görebilirsiniz. Eklenecek yeri gösterir **InstanceName: '_Total'** herhangi bir şey yazarak olmadan sorgulanamıyor.
 
 ![Arama modeli](./media/log-analytics-log-searches/oms-search-facet.png)
 
-Sorgunuz artık hale gelir`Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
+Sorgunuz artık hale gelir `Type=Perf CounterName="% Processor Time" InstanceName="_Total"`
 
 Bu örnekte, belirtmeniz gerekmez **türü Perf =** bu sonucu elde etmek için. CounterName ve InstanceName alanları türündeki kayıtlar için yalnızca olduğundan Perf, = uzun, önceki bir aynı sonuçları döndürmek için belirli bir sorgudur:
 
@@ -82,7 +82,7 @@ Sorgudaki tüm filtreleri olarak değerlendirilir olmasıdır *ve* birbirleriyle
 
 Örtük ve işlecini açıkça değil işlecini kullanarak kolayca ters çevirebilirsiniz. Örneğin:
 
-`Type:Event NOT(EventLog:"Windows PowerShell")`ya da eşdeğer `Type=Event EventLog!="Windows PowerShell"` Windows PowerShell günlük olmayan tüm diğer günlüklerinden tüm olayları döndürür.
+`Type:Event NOT(EventLog:"Windows PowerShell")` ya da eşdeğer `Type=Event EventLog!="Windows PowerShell"` Windows PowerShell günlük olmayan tüm diğer günlüklerinden tüm olayları döndürür.
 
 Ya da diğer Boole işleci gibi kullanabilir 'Veya'. Aşağıdaki sorgu ya da uygulama veya sistem olay günlüğüne olduğu kayıtları döndürür.
 
@@ -168,7 +168,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>Boole işleci kullanarak aramak için
-* Arama sorgusu alanına yazın`EventLog=System TimeGenerated>NOW-24HOURS`  
+* Arama sorgusu alanına yazın `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![Boole değeri ile arama](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 Zaman aralığı grafik denetleyebilir ve çoğu kez, yapmak isteyebilirsiniz, ancak sorguyu doğrudan zaman filtresi dahil olmak üzere avantajları vardır. Örneğin, bu harika burada kılabilirsiniz her bölme için zaman bakılmaksızın panolarla çalışır *genel* Pano sayfasındaki Saat Seçici. Daha fazla bilgi için bkz: [zaman önemlidir panosunda](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/).
@@ -254,7 +254,7 @@ Type=Event EventID=600 | Top 1
 
 
 #### <a name="to-search-using-top"></a>Üst kullanarak aramak için
-* Arama sorgusu alanına yazın`Type=Event EventID=600 | Top 1`   
+* Arama sorgusu alanına yazın `Type=Event EventID=600 | Top 1`   
     ![Arama üst](./media/log-analytics-log-searches/oms-search-top.png)
 
 Yukarıdaki resimde EventID 358 bin kayıtlarıyla vardır = 600. Alanlar, modelleri ve soldaki filtreleri döndürülen sonuçlar hakkında bilgiler her zaman göster *filtre bölümü tarafından* sorgusunun herhangi dikey çizgi karakterinden önce bir parçasıdır. **Sonuçları** bölmesinde çünkü örnek komut şeklinde ve sonuçları dönüştürülmüş en son 1 sonuç yalnızca döndürür.
@@ -309,7 +309,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 ```
 
 #### <a name="to-search-using-measure-count"></a>Ölçü sayısı kullanarak aramak için
-* Arama sorgusu alanına yazın`Type=Event | Measure count() by EventID`
+* Arama sorgusu alanına yazın `Type=Event | Measure count() by EventID`
 * Append `| Select EventID` sorgu sonuna.
 * Son olarak, append `| Sort EventID asc` sorgu sonuna.
 

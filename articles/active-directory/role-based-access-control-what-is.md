@@ -3,7 +3,7 @@ title: "Erişim ve izinleri ile RBAC - Azure RBAC yönetme | Microsoft Docs"
 description: "Erişim Yönetimi'nde, Azure Portal'da Azure rol tabanlı erişim denetimi ile başlayın. Dizininizde izinler atamak için rol atamalarını kullanın."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: rolyon
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/02/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: ce9a9c95664a818919df756917180e102a5f1e0a
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: aa0f5be837daf70c8d9ede38b3fd9b4230f4e1c9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama
 Güvenlik odaklı şirketler çalışanlar gereksinim duydukları izinleri tam vermiş odaklanmanız gerekir. Çok fazla izinler saldırganlar bir hesaba getirebilir. Çok az izinleri anlamına gelir çalışanlar verimli bir şekilde işlerini alınamıyor. Azure rol tabanlı erişim denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur.

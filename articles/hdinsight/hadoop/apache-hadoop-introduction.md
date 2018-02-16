@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: c53c4eba6d46c03bbfc6bb316ae4e505abb7b781
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 369d4444e52083c689441548dcfab70fe49ab346
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-azure-hdinsight-and-the-hadoop-and-spark-technology-stack"></a>Azure HDInsight ile Hadoop ve Spark teknoloji yığınına giriş
 Bu makalede, Azure HDInsight için bir tanıtım sunulmaktadır. Azure HDInsight kuruluşlara yönelik tam yönetilen, tam spektrumlu ve açık kaynaklı bir analiz hizmetidir. Hadoop, Spark, Hive, LLAP, Kafka, Storm, R ve daha fazla açık kaynak çerçeveyi kullanabilirsiniz. 
@@ -89,7 +89,7 @@ Bulutun gelişmiş analiz özelliklerinden yararlanmak üzere mevcut şirket iç
 
 ![HDInsight mimarisi: Karma](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png)
 
-## <a name="overview"></a>HDInsight’taki küme türleri
+## <a name="cluster-types-in-hdinsight"></a>HDInsight’taki küme türleri
 HDInsight belirli küme türlerinin yanı sıra bileşen, yardımcı program ve dil ekleme olanağı gibi küme özelleştirme özelliklerini de içerir.
 
 ### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Spark, Kafka, Interactive Query, HBase, özelleştirilmiş ve diğer küme türleri

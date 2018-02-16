@@ -1,6 +1,6 @@
 ---
-title: "FedRAMP Azure şeması Otomasyonu - sistem ve bilgi tutarlılığı"
-description: "Sistem ve bilgilerin bütünlüğünü FedRAMP için-Web uygulamaları"
+title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - sistem ve bilgi tutarlılığı"
+description: "FedRAMP Web uygulamaları Otomasyon - sistem ve bilgi tutarlılığı"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1dc6805a5a1f610f06ce58bd4bd644346436294e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Sistem ve bilgilerin bütünlüğünü (sı)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için OMS otomasyon ve denetim çözümü dağıtır. OMS panodan kusur düzeltme durumu dağıtılan tüm Windows sunucuları için güncelleştirme yönetimi kutucuğu görüntüler. |
+| **Müşteri** | Bu şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için OMS otomasyon ve denetim çözümü dağıtır. OMS panodan kusur düzeltme durumu dağıtılan tüm Windows sunucuları için güncelleştirme yönetimi kutucuğu görüntüler. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için varsayılan olarak yapılandırılır. Bu çözüm Ayrıca güncelleştirme dağıtımları düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabileceği OMS otomasyon ve denetim çözümü dağıtır. |
+| **Müşteri** | Bu şeması tarafından dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için varsayılan olarak yapılandırılır. Bu çözüm Ayrıca güncelleştirme dağıtımları düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabileceği OMS otomasyon ve denetim çözümü dağıtır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için OMS otomasyon ve denetim çözümü dağıtır. OMS panodan kusur düzeltme durumu dağıtılan tüm Windows sunucuları için güncelleştirme yönetimi kutucuğu görüntüler. Güncelleştirme dağıtımları, düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabilir. |
+| **Müşteri** | Bu şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için OMS otomasyon ve denetim çözümü dağıtır. OMS panodan kusur düzeltme durumu dağıtılan tüm Windows sunucuları için güncelleştirme yönetimi kutucuğu görüntüler. Güncelleştirme dağıtımları, düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için OMS otomasyon ve denetim çözümü dağıtır. Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API’si çağrılarak son güncelleştirme zamanı sorgulanır; böylelikle durumun değişip değişmediği saptanır ve değişmişse bir uyumluluk taraması başlatılır. |
+| **Müşteri** | Bu şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için OMS otomasyon ve denetim çözümü dağıtır. Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API’si çağrılarak son güncelleştirme zamanı sorgulanır; böylelikle durumun değişip değişmediği saptanır ve değişmişse bir uyumluluk taraması başlatılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. |
+| **Müşteri** | Bu şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Bu uzantı, kötü amaçlı yazılımdan koruma altyapısı ve koruma imzaları kullanılabilir hale yayın otomatik olarak güncelleştirmek için yapılandırılır. |
+| **Müşteri** | Bu şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Bu uzantı, kötü amaçlı yazılımdan koruma altyapısı ve koruma imzaları kullanılabilir hale yayın otomatik olarak güncelleştirmek için yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Bu uzantı (haftalık) gerçek zamanlı ve düzenli taramalar gerçekleştirmek, otomatik olarak kötü amaçlı yazılımdan koruma altyapısı ve koruma imzalarını güncelleştirmesi ve otomatik düzeltme eylemleri gerçekleştirmek için yapılandırılır. |
+| **Müşteri** | Bu şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Bu uzantı (haftalık) gerçek zamanlı ve düzenli taramalar gerçekleştirmek, otomatik olarak kötü amaçlı yazılımdan koruma altyapısı ve koruma imzalarını güncelleştirmesi ve otomatik düzeltme eylemleri gerçekleştirmek için yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Azure OMS kötü amaçlı yazılımdan koruma çözümünü geçerli durumunu gözden geçirmek için merkezi bir özellik sunar. |
+| **Müşteri** | Bu şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Azure OMS kötü amaçlı yazılımdan koruma çözümünü geçerli durumunu gözden geçirmek için merkezi bir özellik sunar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Bu uzantı, kötü amaçlı yazılımdan koruma altyapısı ve koruma imzaları kullanılabilir hale yayın otomatik olarak güncelleştirmek için yapılandırılır. |
+| **Müşteri** | Bu şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Bu uzantı, kötü amaçlı yazılımdan koruma altyapısı ve koruma imzaları kullanılabilir hale yayın otomatik olarak güncelleştirmek için yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Bu uzantı, sezgisel algılama gerçekleştirmek için yapılandırılır. |
+| **Müşteri** | Bu şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Bu uzantı, sezgisel algılama gerçekleştirmek için yapılandırılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi ve OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik yaklaşımı, saldırıları ve olası saldırılara karşı göstergelerini kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu, dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
+| **Müşteri** | Bu ayrıntılı günlük analizi ve OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik yaklaşımı, saldırıları ve olası saldırılara karşı göstergelerini kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu, dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması OMS güvenlik ve denetim çözümü dağıtır. Tanımlayın ve erişim etki alanı başarısız oturum açma girişimleri sayısı ve oturum açmış geçerli hesapları sayısı gibi bilgiler sistem kimlik durumu özetini içeren bir Pano sağlar. Bu Panoda kullanılabilir bilgiler potansiyel şüpheli Etkinlik Kimliği'nde yardımcı olabilir. |
+| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Tanımlayın ve erişim etki alanı başarısız oturum açma girişimleri sayısı ve oturum açmış geçerli hesapları sayısı gibi bilgiler sistem kimlik durumu özetini içeren bir Pano sağlar. Bu Panoda kullanılabilir bilgiler potansiyel şüpheli Etkinlik Kimliği'nde yardımcı olabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi ve OMS güvenlik ve denetim çözümü dağıtır. Güvenlik ve Denetim Panosu veri kullanılabilir VM işletim sistemi izleme verilerini bir anlayış dahil olmak üzere, dağıtılan OMS çözümleri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
+| **Müşteri** | Bu ayrıntılı günlük analizi ve OMS güvenlik ve denetim çözümü dağıtır. Güvenlik ve Denetim Panosu veri kullanılabilir VM işletim sistemi izleme verilerini bir anlayış dahil olmak üzere, dağıtılan OMS çözümleri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması içindeki izleme bilgileri yetkisiz erişim, değiştirilmesi ve silinmesini korumak için kullanılan mantıksal erişimi denetler. Azure Active Directory rol tabanlı Grup üyeliklerini kullanma onaylanan mantıksal erişimini zorunlu kılar. İzleme bilgilerini görüntülemek ve izleme araçları kullanmak için özelliği bu izni gerektiren kullanıcılar sınırlı olabilir. |
+| **Müşteri** | Yetkisiz erişim, değiştirilmesi ve silinmesini bu şeması içindeki izleme bilgileri korumak için kullanılan mantıksal erişimi denetler. Azure Active Directory rol tabanlı Grup üyeliklerini kullanma onaylanan mantıksal erişimini zorunlu kılar. İzleme bilgilerini görüntülemek ve izleme araçları kullanmak için özelliği bu izni gerektiren kullanıcılar sınırlı olabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi ve güvenlik ve denetim çözüm de dahil olmak üzere çeşitli OMS çözümleri dağıtır. Günlük analizi gerçek zamanlı analiz olayların dağıtılan kaynaklar sağlar. OMS çözümleri çözüm etki alanları arasında güvenlik tutumunu kapsamlı bir görünümünü sağlar. OMS dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu hakkında bilgi sağlar. OMS tanımlanan ölçütlere göre uyarıları oluşturmak için yapılandırılabilir. |
+| **Müşteri** | Bu ayrıntılı günlük analizi ve güvenlik ve denetim çözüm de dahil olmak üzere çeşitli OMS çözümleri dağıtır. Günlük analizi gerçek zamanlı analiz olayların dağıtılan kaynaklar sağlar. OMS çözümleri çözüm etki alanları arasında güvenlik tutumunu kapsamlı bir görünümünü sağlar. OMS dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu hakkında bilgi sağlar. OMS tanımlanan ölçütlere göre uyarıları oluşturmak için yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması güvenlik ve denetim çözümü dahil olmak üzere çeşitli OMS çözümleri dağıtır. Günlük analizi gerçek zamanlı analiz olayların dağıtılan kaynaklar sağlar. OMS çözümleri çözüm etki alanları arasında güvenlik tutumunu kapsamlı bir görünümünü sağlar. OMS tanımlanan ölçütlere göre uyarıları oluşturmak için yapılandırılabilir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dahil olmak üzere çeşitli OMS çözümleri dağıtır. Günlük analizi gerçek zamanlı analiz olayların dağıtılan kaynaklar sağlar. OMS çözümleri çözüm etki alanları arasında güvenlik tutumunu kapsamlı bir görünümünü sağlar. OMS tanımlanan ölçütlere göre uyarıları oluşturmak için yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması günlük analizi ve güvenlik ve denetim çözüm de dahil olmak üzere çeşitli OMS çözümleri dağıtır. OMS dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu hakkında bilgi sağlar. |
+| **Müşteri** | Bu ayrıntılı günlük analizi ve güvenlik ve denetim çözüm de dahil olmak üzere çeşitli OMS çözümleri dağıtır. OMS dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu hakkında bilgi sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması dağıtılan kaynakları ana bilgisayar tabanlı izleme yeteneklerini verileri de dahil olmak üzere, izleme verilerini toplar. Microsoft Monitoring Agent, tüm Windows sanal makinelerde günlük analizi ve diğer OMS çözümler tarafından kullanılan izleme verilerini toplamak için yüklenir. |
+| **Müşteri** | Bu şeması dağıtılan kaynakları ana bilgisayar tabanlı izleme yeteneklerini verileri de dahil olmak üzere, izleme verilerini toplar. Microsoft Monitoring Agent, tüm Windows sanal makinelerde günlük analizi ve diğer OMS çözümler tarafından kullanılan izleme verilerini toplamak için yüklenir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, gerçek zamanlı dosya bütünlüğünü doğrulama, koruma ve kurtarma, Windows veya Windows Kaynak Koruması (WRP) özelliği ile yetkili Windows Sistem Güncelleştirmeler'in bir parçası olarak yüklenen çekirdek sistem dosyalarının sağlar. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, gerçek zamanlı dosya bütünlüğünü doğrulama, koruma ve kurtarma, Windows veya Windows Kaynak Koruması (WRP) özelliği ile yetkili Windows Sistem Güncelleştirmeler'in bir parçası olarak yüklenen çekirdek sistem dosyalarının sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, gerçek zamanlı dosya bütünlüğünü doğrulama, koruma ve kurtarma, Windows veya Windows Kaynak Koruması (WRP) özelliği ile yetkili Windows Sistem Güncelleştirmeler'in bir parçası olarak yüklenen çekirdek sistem dosyalarının sağlar. WRP gerçek zamanlı bütünlüğü denetimini etkinleştirir. |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, gerçek zamanlı dosya bütünlüğünü doğrulama, koruma ve kurtarma, Windows veya Windows Kaynak Koruması (WRP) özelliği ile yetkili Windows Sistem Güncelleştirmeler'in bir parçası olarak yüklenen çekirdek sistem dosyalarının sağlar. WRP gerçek zamanlı bütünlüğü denetimini etkinleştirir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, gerçek zamanlı dosya bütünlüğünü doğrulama, koruma ve kurtarma, Windows veya Windows Kaynak Koruması (WRP) özelliği ile yetkili Windows Sistem Güncelleştirmeler'in bir parçası olarak yüklenen çekirdek sistem dosyalarının sağlar.  |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows, gerçek zamanlı dosya bütünlüğünü doğrulama, koruma ve kurtarma, Windows veya Windows Kaynak Koruması (WRP) özelliği ile yetkili Windows Sistem Güncelleştirmeler'in bir parçası olarak yüklenen çekirdek sistem dosyalarının sağlar.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir parçası olarak dağıtılan posta sunucu yok. |
+| **Müşteri** | Bu ayrıntılı bir parçası olarak dağıtılan posta sunucu yok. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir parçası olarak dağıtılan posta sunucu yok. |
+| **Müşteri** | Bu ayrıntılı bir parçası olarak dağıtılan posta sunucu yok. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir parçası olarak dağıtılan posta sunucu yok. |
+| **Müşteri** | Bu ayrıntılı bir parçası olarak dağıtılan posta sunucu yok. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması bir parçası olarak dağıtılan posta sunucu yok. |
+| **Müşteri** | Bu ayrıntılı bir parçası olarak dağıtılan posta sunucu yok. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -819,7 +819,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynak ticari işletim sistemleri ve yazılım uygulamalarını kullanın. Bu yazılım endüstrideki en iyi uygulamaları hassas bilgileri hata iletileri gösterilmez emin olmak için kullanır. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynak ticari işletim sistemleri ve yazılım uygulamalarını kullanın. Bu yazılım endüstrideki en iyi uygulamaları hassas bilgileri hata iletileri gösterilmez emin olmak için kullanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -833,7 +833,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan kaynak ticari işletim sistemleri ve yazılım uygulamalarını kullanın. Bu yazılım endüstrideki en iyi uygulamaları iletiyi alan kullandığı bağlamında uygun hata iletileri sağlamak için kullanır. |
+| **Müşteri** | Bu şeması tarafından dağıtılan kaynak ticari işletim sistemleri ve yazılım uygulamalarını kullanın. Bu yazılım endüstrideki en iyi uygulamaları iletiyi alan kullandığı bağlamında uygun hata iletileri sağlamak için kullanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -861,5 +861,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Müşteri** | Bu Azure şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows kod yürütmeyi kısıtlı bellek konumlarda engellemek için yerinde korumaları sahiptir: yürütme yok (NX), adres alanı düzeni rastgele seçimini (ASLR) ve Veri Yürütme Engellemesi (DEP). |
+| **Müşteri** | Bu şeması tarafından dağıtılan sanal makineleri Windows işletim sistemlerinin çalıştırın. Windows kod yürütmeyi kısıtlı bellek konumlarda engellemek için yerinde korumaları sahiptir: yürütme yok (NX), adres alanı düzeni rastgele seçimini (ASLR) ve Veri Yürütme Engellemesi (DEP). |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |

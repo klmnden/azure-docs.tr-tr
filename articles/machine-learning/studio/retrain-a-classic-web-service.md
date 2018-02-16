@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.author: raymondl
+ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Klasik web hizmetini yeniden eğitme
 Dağıttığınız Tahmine dayalı Web Hizmeti uç noktası Puanlama varsayılandır. Varsayılan uç noktalar özgün eğitim ve puanlama denemeler ile eşitlenmiş tutulur ve bu nedenle varsayılan uç noktası için eğitilen model değiştirilemez. Web hizmeti çağırma için yeni bir uç noktası için web hizmeti eklemeniz gerekir. 
@@ -45,7 +45,7 @@ Yeni bir Puanlama uç noktası, eğitilen model ile güncelleştirilebilir Tahmi
 
 Yeni bir uç noktası bir web hizmeti olarak eklemek iki yolu vardır:
 
-1. Programlama yoluyla
+1. Programlı olarak
 2. Microsoft Azure Web Hizmetleri Portalı'nı kullanın
 
 ### <a name="programmatically-add-an-endpoint"></a>Program aracılığıyla bir uç nokta ekleme

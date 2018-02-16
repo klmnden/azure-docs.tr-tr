@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/15/2017
+ms.date: 2/05/2018
 ms.author: ahgyger
-ms.openlocfilehash: e3cbcb8118aa05e554b2493506280d0e24706059
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6189cd2dce2be8c87255dedecd4493767e857031
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Azure Resource Manager’ı Kullanarak Machine Learning Çalışma Alanını Dağıtma
 ## <a name="introduction"></a>Giriş
@@ -79,7 +79,7 @@ Depolama hesabı adı oluşturmak için kaynak grubunun adını ve çalışma al
 Bu şablon, c:\temp\ altında mlworkspace.json dosyası olarak kaydedin.
 
 ### <a name="deploy-the-resource-group-based-on-the-template"></a>Şablona göre kaynak grubunu dağıtma
-* PowerShell'i açın
+* Open PowerShell
 * Azure Resource Manager ve Azure hizmet yönetimi için modüllerini yükleyin  
 
 ```

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7f494cff1e8dc57a41467cd722fdf224e10c9dec
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c05d94c8dce51d922be3782380d4a883717bf032
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP Business Warehouse verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Aşağıdaki özellikler SAP Business Warehouse (BW) bağlantılı hizmeti için
 | systemNumber | SAP BW sisteminin sistem numarası.<br/>İzin verilen değer: dize olarak temsil iki basamaklı bir ondalık sayı. | Evet |
 | clientId | SAP W sistem istemcisinde istemci kimliği.<br/>İzin verilen değer: dize olarak temsil üç basamaklı bir ondalık sayı. | Evet |
 | Kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
-| password | Kullanıcının parolası. Bu alan bir SecureString işaretleyin. | Evet |
+| password | Kullanıcının parolası. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Bölümünde belirtildiği gibi bir Self-hosted tümleştirmesi çalışma zamanı gereklidir [Önkoşullar](#prerequisites). |Evet |
 
 **Örnek:**

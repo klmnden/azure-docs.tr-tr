@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: 8c5c999d7c9924726804ccd18183d8e383a037cc
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Güvenlik Merkezi Sorun Giderme Kılavuzu
 Bu kılavuz, kuruluşları Azure Güvenlik Merkezi'ni kullanmayı planlayan ve Güvenlik Merkezi ile ilgili sorunları gidermeye ihtiyaç duyan bilgi teknolojisi (BT) uzmanları, bilgi güvenlik analizi uzmanları ve bulut yöneticileri içindir.
@@ -60,7 +60,7 @@ Microsoft Monitoring Agent’ı bilgisayarınıza yüklerken farklı sonuçlar �
 * **Aracı, Azure’da bulunan bir VM’ye el ile yüklenir**: Bu senaryoda, Şubat 2017’den önce indirilip yüklenmiş aracılar kullanıyorsanız, uyarıları yalnızca çalışma alanının ait olduğu abonelikte filtrelemeniz durumunda Güvenlik Merkezi portalında görüntüleyebilirsiniz. Kaynağın ait olduğu abonelikte filtrelemeniz halinde, herhangi bir uyarı göremezsiniz. Çalışma alanının ait olduğu aboneliğe ait güvenlik ilkesinde yapılandırılmış e-posta adresine e-posta bildirimleri alırsınız.
 
 >[!NOTE]
-> İkinci durumda açıklanan davranışı önlemek için aracının en son sürümünü indirdiğinizden emin olun.
+> İkinci senaryoda açıklanan davranışı önlemek için aracının en son sürümünü indirdiğinizden emin olun.
 >
 
 ## <a name="monitoring-agent-health-issues"></a>Aracı sistem durumu sorunlarını izleme

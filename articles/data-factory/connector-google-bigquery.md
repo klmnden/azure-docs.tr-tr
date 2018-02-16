@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 3b559e64f38727b1e390160515b7614ad1dfaa97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Azure Data Factory (beta) kullanarak Google BigQuery veri kopyalama
 
@@ -51,12 +51,17 @@ Google BigQuery bağlantılı hizmetinin aşağıdaki özellikleri desteklenir.
 | Proje | Sorgu varsayılan BigQuery projeye proje kimliği.  | Evet |
 | additionalProjects | Ortak proje kimliklerinin virgülle ayrılmış bir listesini BigQuery erişimi projeleri.  | Hayır |
 | requestGoogleDriveScope | Google sürücüye erişim istenip istenmeyeceğini belirtir. Google sürücü erişimine Google sürücüsünden verilerle BigQuery verileri birleştirmek birleştirilmiş tablolar için destek sağlar. Varsayılan değer **false**.  | Hayır |
-| authenticationType | Kimlik doğrulaması için kullanılan OAuth 2.0 kimlik doğrulama mekanizması. ServiceAuthentication yalnızca Self-hosted tümleştirme çalışma üzerinde kullanılabilir. <br/>İzin verilen değerler **ServiceAuthentication** ve **UserAuthentication**. | Evet |
-| refreshToken | Google UserAuthentication için BigQuery erişim yetkisi vermek için kullanılan alınan yenileme belirteci. Bu alan, veri fabrikasında güvenli bir şekilde depolamak için SecureString olarak işaretleyebilirsiniz. Ayrıca Azure anahtar kasası parolayı depolamak ve veri kopyalama gerçekleştirdiğinizde buradan kopyalama etkinliği çekme olanak tanır. Daha fazla bilgi için bkz: [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Hayır |
-| e-posta | ServiceAuthentication için kullanılan hizmet hesabı e-posta kimliği. Yalnızca Self-hosted tümleştirme çalışma üzerinde kullanılabilir.  | Hayır |
-| keyFilePath | Hizmet hesabı e-posta adresini doğrulamak için kullanılan .p12 anahtar dosyasının tam yolu. Yalnızca Self-hosted tümleştirme çalışma üzerinde kullanılabilir.  | Hayır |
-| trustedCertPath | Sunucu SSL üzerinden bağlandığında doğrulamak için kullanılan güvenilir CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik, yalnızca SSL Self-hosted tümleştirmesi Çalışma Zamanı Modülü kullandığınızda ayarlayabilirsiniz. Varsayılan değer ile tümleştirme çalışma zamanının yüklü cacerts.pem dosyasıdır.  | Hayır |
-| useSystemTrustStore | Bir CA sertifikası sistem güven deposundan veya belirtilen .pem dosyasını kullanılıp kullanılmayacağını belirtir. Varsayılan değer **false**.  | Hayır |
+| authenticationType | Kimlik doğrulaması için kullanılan OAuth 2.0 kimlik doğrulama mekanizması. ServiceAuthentication yalnızca Self-hosted tümleştirme çalışma üzerinde kullanılabilir. <br/>İzin verilen değerler **UserAuthentication** ve **ServiceAuthentication**. Daha fazla özellikleri ve bu kimlik doğrulama türleri için JSON örnekleri bu tabloda aşağıdaki bölümlerde sırasıyla bakın. | Evet |
+
+### <a name="using-user-authentication"></a>Kullanıcı kimlik doğrulaması kullanma
+
+Kümesine "authenticationType" özelliği **UserAuthentication**ve önceki bölümde açıklanan genel özellikleri birlikte aşağıdaki özellikleri belirtin:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| clientId | Yenileme belirteci üretmek için kullanılan uygulama kimliği. | Hayır |
+| clientSecret | Yenileme belirtecini oluşturmak için kullanılan uygulama gizli anahtarı. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
+| refreshToken | Google BigQuery erişim yetkisi vermek için kullanılan alınan yenileme belirteci. Bir alma hakkında bilgi [alma OAuth 2.0 erişim belirteçleri](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens). Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 
 **Örnek:**
 
@@ -70,6 +75,11 @@ Google BigQuery bağlantılı hizmetinin aşağıdaki özellikleri desteklenir.
             "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
+            "clientId": "<id of the application used to generate the refresh token>",
+            "clientSecret": {
+                "type": "SecureString",
+                "value":"<secret of the application used to generate the refresh token>"
+            },
             "refreshToken": {
                  "type": "SecureString",
                  "value": "<refresh token>"
@@ -77,6 +87,39 @@ Google BigQuery bağlantılı hizmetinin aşağıdaki özellikleri desteklenir.
         }
     }
 }
+```
+
+### <a name="using-service-authentication"></a>Hizmet kimlik doğrulaması kullanma
+
+Kümesine "authenticationType" özelliği **ServiceAuthentication**ve önceki bölümde açıklanan genel özellikleri birlikte aşağıdaki özellikleri belirtin. Bu kimlik doğrulama türü yalnızca Self-hosted tümleştirme çalışma üzerinde kullanılabilir.
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| e-posta | ServiceAuthentication için kullanılan hizmet hesabı e-posta kimliği. Yalnızca Self-hosted tümleştirme çalışma üzerinde kullanılabilir.  | Hayır |
+| keyFilePath | Hizmet hesabı e-posta adresini doğrulamak için kullanılan .p12 anahtar dosyasının tam yolu. | Hayır |
+| trustedCertPath | Sunucu SSL üzerinden bağlandığında doğrulamak için kullanılan güvenilir CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik, yalnızca SSL Self-hosted tümleştirmesi Çalışma Zamanı Modülü kullandığınızda ayarlayabilirsiniz. Varsayılan değer ile tümleştirme çalışma zamanının yüklü cacerts.pem dosyasıdır.  | Hayır |
+| useSystemTrustStore | Bir CA sertifikası sistem güven deposundan veya belirtilen .pem dosyasını kullanılıp kullanılmayacağını belirtir. Varsayılan değer **false**.  | Hayır |
+
+**Örnek:**
+
+```json
+{
+    "name": "GoogleBigQueryLinkedService",
+    "properties": {
+        "type": "GoogleBigQuery",
+        "typeProperties": {
+            "project" : "<project id>",
+            "requestGoogleDriveScope" : true,
+            "authenticationType" : "ServiceAuthentication",
+            "email": "<email>",
+            "keyFilePath": "<.p12 key path on the IR machine>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Self-hosted Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+} 
 ```
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri

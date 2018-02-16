@@ -1,4 +1,4 @@
-## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft açık kaynak kullanım kuralları
+﻿## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft açık kaynak kullanım kuralları
 
 Bu proje [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Açık Kaynak Kullanım Kuralları) belgesinde listelenen kurallara uygundur.
 

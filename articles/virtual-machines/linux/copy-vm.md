@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.openlocfilehash: 98b27f5f86cdb17893a5c98950a2299f8aa30105
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26e09f4e408b92034594215f602d5ca0ff259c5a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>Azure CLI 2.0 ve yönetilen diskleri kullanarak bir Linux VM bir kopyasını oluşturun
 
@@ -27,19 +27,19 @@ Bu makalede Azure CLI 2.0 ve Azure Resource Manager dağıtım modeli kullanarak
 
 Ayrıca [karşıya yükleyin ve bir VHD'den bir VM oluşturma](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 
 -   Yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2)
 
--   Oturum açmak için bir Azure hesabı [az oturum açma](/cli/azure/#login).
+-   Oturum açmak için bir Azure hesabı [az oturum açma](/cli/azure/#az_login).
 
 -   Kopya için kaynak olarak kullanılacak bir Azure VM vardır.
 
 ## <a name="step-1-stop-the-source-vm"></a>1. adım: kaynak VM'yi Durdur
 
 
-Kaynak VM kullanarak ayırması [az vm serbest bırakma](/cli/azure/vm#deallocate).
+Kaynak VM kullanarak ayırması [az vm serbest bırakma](/cli/azure/vm#az_vm_deallocate).
 Aşağıdaki örnek adlı VM kaldırır **myVM** kaynak grubunda **myResourceGroup**:
 
 ```azurecli
@@ -55,7 +55,7 @@ Bir VM kopyalamak için alttaki sanal sabit diskin bir kopyasını oluşturun. B
 
 Azure Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Disklere genel bakış](../windows/managed-disks-overview.md). 
 
-1.  Disk her VM ve kendi işletim sistemi adı listesi [az vm listesi](/cli/azure/vm#list). Aşağıdaki örnek adlı kaynak grubundaki tüm sanal makineleri listeler **myResourceGroup**:
+1.  Disk her VM ve kendi işletim sistemi adı listesi [az vm listesi](/cli/azure/vm#az_vm_list). Aşağıdaki örnek adlı kaynak grubundaki tüm sanal makineleri listeler **myResourceGroup**:
     
     ```azurecli
     az vm list -g myResourceGroup \
@@ -71,14 +71,14 @@ Azure Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen
     myVM    myDisk
     ```
 
-1.  Kopya oluşturarak yeni bir disk yönetilen diski kullanarak [az disketi](/cli/azure/disk#create). Aşağıdaki örnek adlı bir disk oluşturur **myCopiedDisk** adlı Yönetilen diskten **myDisk**:
+1.  Kopya oluşturarak yeni bir disk yönetilen diski kullanarak [az disketi](/cli/azure/disk#az_disk_create). Aşağıdaki örnek adlı bir disk oluşturur **myCopiedDisk** adlı Yönetilen diskten **myDisk**:
 
     ```azurecli
     az disk create --resource-group myResourceGroup \
          --name myCopiedDisk --source myDisk
     ``` 
 
-1.  Artık kaynak grubunuzdaki yönetilen diskleri kullanarak doğrulayın [az disk listesi](/cli/azure/disk#list). Aşağıdaki örnek adlı kaynak grubunda yönetilen diskleri listeler **myResourceGroup**:
+1.  Artık kaynak grubunuzdaki yönetilen diskleri kullanarak doğrulayın [az disk listesi](/cli/azure/disk#az_disk_list). Aşağıdaki örnek adlı kaynak grubunda yönetilen diskleri listeler **myResourceGroup**:
 
     ```azurecli
     az disk list --resource-group myResourceGroup --output table
@@ -94,7 +94,7 @@ Bir VM amacıyla ya da başka dağıtımlar sorun giderme için kopyalıyorsanı
 
 Kopyalanan Vm'leriniz için bir sanal ağ altyapısı oluşturmak istiyorsanız, sonraki birkaç adımda izleyin. Bir sanal ağ oluşturmak istemiyorsanız, geçin [4. adım: bir VM oluşturma](#step-4-create-a-vm).
 
-1.  Kullanarak sanal ağ oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#create). Aşağıdaki örnek adlı bir sanal ağ oluşturur **myVnet** ve adlı bir alt ağ **mySubnet**:
+1.  Kullanarak sanal ağ oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#az_network_vnet_create). Aşağıdaki örnek adlı bir sanal ağ oluşturur **myVnet** ve adlı bir alt ağ **mySubnet**:
 
     ```azurecli
     az network vnet create --resource-group myResourceGroup \
@@ -104,7 +104,7 @@ Kopyalanan Vm'leriniz için bir sanal ağ altyapısı oluşturmak istiyorsanız,
         --subnet-prefix 192.168.1.0/24
     ```
 
-1.  Kullanarak bir genel IP oluşturun [az ağ genel IP oluşturun](/cli/azure/network/public-ip#create). Aşağıdaki örnek adlı ortak IP oluşturur **myPublicIP** DNS adı ile **mypublicdns**. (DNS adı gerekir benzersiz olmalıdır, böylece benzersiz bir ad sağlayın.)
+1.  Kullanarak bir genel IP oluşturun [az ağ genel IP oluşturun](/cli/azure/network/public-ip#az_network_public_ip_create). Aşağıdaki örnek adlı ortak IP oluşturur **myPublicIP** DNS adı ile **mypublicdns**. (DNS adı gerekir benzersiz olmalıdır, böylece benzersiz bir ad sağlayın.)
 
     ```azurecli
     az network public-ip create --resource-group myResourceGroup \
@@ -112,7 +112,7 @@ Kopyalanan Vm'leriniz için bir sanal ağ altyapısı oluşturmak istiyorsanız,
         --allocation-method static --idle-timeout 4
     ```
 
-1.  NIC kullanarak oluşturduğunuz [az ağ NIC oluşturma](/cli/azure/network/nic#create).
+1.  NIC kullanarak oluşturduğunuz [az ağ NIC oluşturma](/cli/azure/network/nic#az_network_nic_create).
     Aşağıdaki örnek, adlandırılmış bir NIC oluşturur **myNic** için bağlı **mySubnet** alt ağ:
 
     ```azurecli
@@ -124,7 +124,7 @@ Kopyalanan Vm'leriniz için bir sanal ağ altyapısı oluşturmak istiyorsanız,
 
 ## <a name="step-4-create-a-vm"></a>4. adım: bir VM oluşturma
 
-Kullanarak bir VM şimdi oluşturabilirsiniz [az vm oluşturma](/cli/azure/vm#create).
+Kullanarak bir VM şimdi oluşturabilirsiniz [az vm oluşturma](/cli/azure/vm#az_vm_create).
 
 İşletim sistemi diski olarak kullanmak için kopyalanan yönetilen diski belirtin (--attach-os-disk) aşağıdaki gibi:
 

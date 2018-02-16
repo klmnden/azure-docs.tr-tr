@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 479e486dca432020d5fcbaf98971a9803888bf98
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Olay çözümleme ve görselleştirme Application Insights ile
 
@@ -96,11 +96,11 @@ Birleşik olaylarına EventFlow kullanıyorsanız, içeri aktarmak emin olun `Mi
 
 Yanı sıra, filtrelerinizi gerekli değişiklikleri yapın (birlikte ilgili kendi NuGet paketlerini) başka bir giriş eklemek emin olun.
 
-## <a name="aisdk"></a>AI. SDK'SI
+## <a name="aisdk"></a>AI.SDK
 
 Tanılama ve izleme, daha modüler bir yaklaşım için başka bir deyişle, çıkışları EventFlow değiştirmek istiyorsanız, hiçbir değişiklik, gerçek araçları gerektirir sağlarlar çünkü EventFlow ve WAD toplama çözümler olarak kullanılması genellikle önerilir, yalnızca basit değişiklik yapılandırma dosyası. Ancak, Application Insights kullanarak yatırım karar ve farklı bir platform için değişmesi olasılığı olan değil, olay toplama ve AI için göndermek için AI'ın yeni bir SDK kullanarak görünmelidir. Bu, verileriniz için AI göndermek için EventFlow yapılandırmak artık olur, ancak bunun yerine ApplicationInsight'ın Service Fabric NuGet paketini yükleyecek anlamına gelir. Pakette Ayrıntılar bulunabilir [burada](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Application Insights mikro ve kapsayıcıları için desteği](https://azure.microsoft.com/app-insights-microservices/) bazı gösterir (üzerinde hala halen beta) çalışan yeni özelliklerini hangi izin AI ile daha zengin Giden kutusu izleme seçeneğiniz vardır. Bu bağımlılık izleme (bir AppMap tüm hizmetleri ve uygulamaları bir küme ve bunların arasındaki iletişimi oluşturulmasında kullanılan) ve daha iyi bağıntı hizmetlerinizin (daha iyi bir sorun iş akışındaki yerini tam olarak belirtmekte yardımcı olur'ten gelen izlemeleri içerir bir uygulama veya hizmet).
+[Application Insights mikro ve kapsayıcıları için desteği](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) bazı gösterir (üzerinde hala halen beta) çalışan yeni özelliklerini hangi izin AI ile daha zengin Giden kutusu izleme seçeneğiniz vardır. Bu bağımlılık izleme (bir AppMap tüm hizmetleri ve uygulamaları bir küme ve bunların arasındaki iletişimi oluşturulmasında kullanılan) ve daha iyi bağıntı hizmetlerinizin (daha iyi bir sorun iş akışındaki yerini tam olarak belirtmekte yardımcı olur'ten gelen izlemeleri içerir bir uygulama veya hizmet).
 
 .NET geliştirme ve büyük olasılıkla Service Fabric'ın programlama modelleri ve bu olay ve günlük verilerini çözümleme ve görselleştirme için platform olarak AI kullanmak istiyorum bazıları kullanacaklardır, ardından AI SDK yol izleme ve diagnos olarak aracılığıyla Git öneririz ı eşleştir iş akışı. Okuma [bu](../application-insights/app-insights-asp-net-more.md) ve [bu](../application-insights/app-insights-asp-net-trace-logs.md) AI toplamak ve günlüklerinizi görüntülemek için kullanmaya başlamak için.
 

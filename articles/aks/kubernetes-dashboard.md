@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f13ca506197ff8b9b86cf1f69300fd974b9ddd5a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes Pano Azure kapsayıcı hizmeti (AKS)
 
@@ -23,19 +23,19 @@ Azure CLI Kubernetes Pano başlatmak için kullanılabilir. Bu belge Kubernetes 
 
 Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğeler gereksinim duyarsanız, bkz: [AKS quickstart][aks-quickstart].
 
-Ayrıca Azure CLI sürüm 2.0.21 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için az --version komutunu çalıştırın. Gerekirse yükleyin veya yükseltin, bakın [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI sürüm 2.0.21 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için az --version komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Başlangıç Kubernetes Panosu
 
 Kullanım `az aks browse` Kubernetes Pano başlatmak için komutu. Bu komutu çalıştırdığınızda kaynak grubu ve küme adını değiştirin.
 
 ```azurecli
-az aks browse --resource-group myResourceGroup --name myK8SCluster
+az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Bu komut, geliştirme sisteminizde Kubernetes API arasındaki bir proxy oluşturur ve bir web tarayıcısı Kubernetes panoya açar.
 
-## <a name="run-an-application"></a>Bir uygulamayı çalıştırın
+## <a name="run-an-application"></a>Bir uygulamayı çalıştırma
 
 Kubernetes panosunda tıklatın **oluşturma** üst sağ penceresinde düğmesini. Dağıtım adını verin `nginx` ve girin `nginx:latest` görüntüleri adı. Altında **hizmet**seçin **dış** ve girin `80` bağlantı noktası ve hedef bağlantı noktası.
 
@@ -63,13 +63,13 @@ Oluşturma ve görüntüleme uygulamaları ek olarak, Kubernetes panoyu düzenle
 
 Bir dağıtım düzenlemek için tıklatın **dağıtımları** sol taraftaki menüyü ve ardından **NGINX** dağıtım. Son olarak, seçin **Düzenle** üst taraftaki gezinti çubuğunda.
 
-![Kubernetes Düzenle](./media/container-service-kubernetes-ui/view-deployment.png)
+![Kubernetes Edit](./media/container-service-kubernetes-ui/view-deployment.png)
 
 Bulun `spec.replica` 1 olmalıdır, değeri 3 olarak bu değerle değiştirin. Bunu yaparken, NGINX dağıtım yineleme sayısı 1'den 3'e artar.
 
 Seçin **güncelleştirme** zaman hazır.
 
-![Kubernetes Düzenle](./media/container-service-kubernetes-ui/edit-deployment.png)
+![Kubernetes Edit](./media/container-service-kubernetes-ui/edit-deployment.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

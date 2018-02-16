@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/01/2018
 ms.author: barclayn
-ms.openlocfilehash: aef623f047bd7e14cb5bd17fb2a2c18e3c5d42b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7a0a72a25010952f13eb190f0e0a1a65cc6d42d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>SIEM - ardışık düzen yapılandırma [Önizleme] Azure güvenlik veri verme
 
@@ -61,7 +61,7 @@ Uyarı veri çekmek için kullanabileceğiniz Splunk sorguları birkaç şöyled
 | **Sorgu açıklaması**                                | **Sorgu**                                                                                                                              |
 |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Tüm Uyarılar                                              | index=main Microsoft.Security/locations/alerts                                                                                         |
-| İşlem sayısını adına göre özetler             | **Alerts** index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
+| İşlem sayısını adına göre özetler             | index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
 | Uyarıları bilgilerini al: saat, ad, abonelik, durumu ve kimliği | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 

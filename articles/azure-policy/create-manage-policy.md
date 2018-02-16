@@ -1,6 +1,6 @@
 ---
-title: "Azure ilke oluşturmak ve kuruluş uyumluluğu zorlamak üzere ilkelerini yönetmek için kullanın | Microsoft Docs"
-description: "Standartları zorlamak, yasal uyumluluk ve denetim gereksinimlerini karşılamak, maliyetleri denetim, güvenlik ve performans tutarlılık sağlamak ve kurumsal geniş tasarım ilkeleri zorunlu tuttukları için Azure ilkesini kullanın."
+title: "Azure İlkesi kullanarak kurumsal uyumluluğu zorunlu tutacak ilkeleri oluşturma ve yönetme | Microsoft Docs"
+description: "Standartları zorunlu tutmak, yönetmeliklere uygunluğu ve denetim gereksinimlerini karşılamak, maliyetleri denetlemek, güvenlik ve performans tutarlılığını korumak, ayrıca kuruluş genelinde tasarım ilkeleri ayarlamak için Azure İlkesi'ni kullanın."
 services: azure-policy
 keywords: 
 author: bandersmsft
@@ -9,78 +9,78 @@ ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: a3d47abcbf41133b9bc7194fd97f9b66a70003ff
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="create-and-manage-policies-to-enforce-compliance"></a>Uyumluluğu zorlamak üzere ilkeleri oluşturun ve yönetin
+# <a name="create-and-manage-policies-to-enforce-compliance"></a>Uyumluluğu zorunlu tutmak için ilkeleri oluşturma ve yönetme
 
-Azure'da ilkeleri oluşturun ve yönetin nasıl giderildiğini anlamak, Kurumsal standartları ve hizmet düzeyi sözleşmeleri ile uyumlu sağlama için önemlidir. Bu öğreticide, bazı oluşturma, atama ve ilkelerini yönetme, kuruluşunuz genelindeki gibi ilgili daha yaygın görevleri yapmak için Azure ilke kullanmayı öğrenin:
+Kurumsal standartlarınıza ve hizmet düzeyi sözleşmelerinize uyumluluğu korumak için Azure'da ilkelerin nasıl oluşturulduğunu ve yönetildiğini anlamak önemlidir. Bu öğreticide, Azure İlkesi'ni kullanarak kuruluşunuz genelinde ilkeler oluşturma, atama ve yönetmeyle ilgili en yaygın görevlerden bazılarını yerine getirmeyi öğreneceksiniz; örneğin:
 
 > [!div class="checklist"]
-> * Gelecekte oluşturacağınız kaynakları için bir koşul uygulamak için bir ilke atama
-> * Oluşturma ve birden çok kaynak için uyumluluğu izlemek amacıyla bir girişimi tanımı atama
-> * Uyumlu olmayan veya reddedilen kaynak çözümleyin
-> * Bir kuruluş genelinde yeni bir ilke uygulama
+> * Gelecekte oluşturacağınız kaynaklarda bir koşulu zorunlu tutmak için ilke atama
+> * Birden çok kaynağın uyumluluğunu izlemek için girişim tanımı oluşturma ve atama
+> * Uyumlu olmayan veya reddedilen kaynakları çözümleme
+> * Kuruluş genelinde yeni bir ilke uygulama
 
-Varolan kaynaklarınızın geçerli uyumluluk durumunu belirlemek için ilke atamak istiyorsanız, bunu yapmak nasıl üzerinden hızlı başlangıç makaleleri gidin. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+Mevcut kaynaklarınızın geçerli uyumluluk durumunu tanımlamak için bir ilke atamak isterseniz, hızlı başlangıç makalelerinde bunun nasıl yapıldığı açıklanır. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="assign-a-policy"></a>Bir ilke atama
+## <a name="assign-a-policy"></a>İlke atama
 
-Azure ilkesiyle zorlamayı ilk adımı, bir ilke tanımı atamaktır. Bir ilke tanımı hangi koşul bir ilke uygulanır ve hangi eylemin yapılacağını altında tanımlar. Bu örnekte, olarak adlandırılan bir yerleşik ilke tanımı atamak *gerektiren SQL Server sürümü 12.0*, tüm SQL Server veritabanlarını uyumlu olmasını v12.0 olmalıdır koşul zorlamak için.
+Azure İlkesi ile uyumluluğu zorlamanın ilk adımı bir ilke tanımı atamaktır. İlke tanımında, bir ilkenin hangi koşullar altında zorlanacağını ve hangi eylemin gerçekleştirileceği tanımlanır. Bu örnekte, uyumluluk için tüm SQL Server veritabanlarının v12.0 sürümünde olması koşulunu zorunlu tutan *SQL Server Sürüm 12.0 Gerektirme* adlı yerleşik bir ilke tanımı atayacaksınız.
 
-1. Arama ve seçerek Azure portalında Azure İlkesi Hizmeti başlatma **İlkesi** sol bölmede.
+1. Azure Portal'da sol bölmede **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın.
 
    ![İlke arama](media/assign-policy-definition/search-policy.png)
 
-2. Azure İlkesi sayfasının sol bölmesinde **Atamalar**'ı seçin. Atama, belirli bir kapsamda gerçekleşmesi için atanan bir ilkedir.
+2. Azure İlkesi sayfasının sol bölmesinde **Atamalar**'ı seçin. Atama, belirli bir kapsamda gerçekleşmesi için atanmış olan bir ilkedir.
 3. **Atamalar** bölmesinin üst kısmında **İlke Ata**'yı seçin.
 
    ![İlke tanımı atama](media/create-manage-policy/select-assign-policy.png)
 
-4. **İlke Ata** sayfasında, kullanılabilir tanımlar listesini açmak için **İlke** alanının yanındaki ![İlke tanımı düğmesine](media/assign-policy-definition/definitions-button.png) tıklayın. İlke tanımı filtreleyebilirsiniz **türü** için *yerleşik* tümünü görüntülemek ve açıklamalarının okuyun.
+4. **İlke Ata** sayfasında, kullanılabilir tanımlar listesini açmak için **İlke** alanının yanındaki ![İlke tanımı düğmesine](media/assign-policy-definition/definitions-button.png) tıklayın. Tümünü görüntülemek ve açıklamalarını okumak için **Tür** değeri *Yerleşik* olan ilke tanımlarını filtreleyebilirsiniz.
 
    ![Kullanılabilir ilke tanımlarını açma](media/create-manage-policy/open-policy-definitions.png)
 
-5. Seçin **SQL Server sürümü 12.0 gerektiren**. Hemen bulunamıyor çalışamazsa **gerektiren SQL Server sürümü 12.0** arama kutusuna ve ardından ENTER tuşuna basın.
+5. **SQL Server Sürüm 12.0 Gerektir**'i seçin. Bu seçeneği hemen bulamazsanız, arama kutusuna **SQL Server Sürüm 12.0 Gerektir** yazın ve ENTER tuşuna basın.
 
-   ![Bir ilke bulun](media/create-manage-policy/select-available-definition.png)
+   ![İlkeyi bulma](media/create-manage-policy/select-available-definition.png)
 
-6. Görüntülenen **adı** otomatik olarak doldurulur, ancak bunu değiştirebilirsiniz. Bu örneğin *gerektiren SQL Server sürümü 12.0*. İsteğe bağlı bir **Açıklama** da ekleyebilirsiniz. Bu ilke ataması bu ortamda oluşturulan tüm SQL sunucuları nasıl sağlar hakkında ayrıntılar sürüm 12.0 olan açıklama sağlar.
+6. Görüntülenen **Ad** otomatik olarak doldurulur ama bu adı değiştirebilirsiniz. Bu örnekte, *SQL Server sürüm 12.0 gerektir* kullanın. İsteğe bağlı bir **Açıklama** da ekleyebilirsiniz. Açıklamada bu ilke atamasının bu ortamda oluşturulan tüm SQL sunucularının 12.0 sürümünde olmasını nasıl sağlayacağıyla ilgili ayrıntılar sağlanır.
 
 7. İlkenin mevcut kaynaklara uygulanmasını güvence altına almak için fiyatlandırma katmanını **Standart** olarak değiştirin.
 
-   Azure İlkesi içinde iki fiyatlandırma katmanı vardır: *Ücretsiz* ve *Standart*. Ücretsiz katmanıyla, ilkeleri yalnızca gelecek kaynaklarda zorunlu tutabilirsiniz; Standart katmanıyla ise, uyumluluk durumunuzu daha iyi anlayabilmek için ilkeleri mevcut kaynaklarda da zorunlu tutarsınız. Azure ilke önizlemede olduğundan yok henüz bir seçmek için bir fatura almaz için bir fiyatlandırma modelini yayımlanan *standart*. Fiyatlandırma hakkında daha fazla bilgi için şu konuya bakın: [Azure İlkesi fiyatlandırması](https://azure.microsoft.com/pricing/details/azure-policy).
+   Azure İlkesi içinde iki fiyatlandırma katmanı vardır: *Ücretsiz* ve *Standart*. Ücretsiz katmanıyla, ilkeleri yalnızca gelecek kaynaklarda zorunlu tutabilirsiniz; Standart katmanıyla ise, uyumluluk durumunuzu daha iyi anlayabilmek için ilkeleri mevcut kaynaklarda da zorunlu tutarsınız. Azure İlkesi Önizleme aşamasında olduğundan, henüz bir fiyatlandırma modeli yayımlanmadı. Dolayısıyla *Standart*'ı seçtiğinizde fatura almayacaksınız. Fiyatlandırma hakkında daha fazla bilgi için şu konuya bakın: [Azure İlkesi fiyatlandırması](https://azure.microsoft.com/pricing/details/azure-policy).
 
-8. Seçin **kapsam** -abonelik (veya kaynak grubu), önceden kayıtlı. Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler. Bir abonelikten kaynak gruplarına kadar değişiklik gösterebilir.
+8. **Kapsam** olarak önceden kaydolduğunuz aboneliği (veya kaynak grubunu) seçin. Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler. Bir abonelikten kaynak gruplarına kadar değişiklik gösterebilir.
 
-   Bu örnekte **Azure Analytics kapasite geliştirme** abonelik. Aboneliğinizi farklılık gösterir.
+   Bu örnekte, **Azure Analytics Capacity Dev** aboneliği kullanılır. Sizin aboneliğiniz farklı olacaktır.
 
 10. **Ata**'yı seçin.
 
 ## <a name="implement-a-new-custom-policy"></a>Yeni bir özel ilke uygulama
 
-Bir yerleşik ilke tanımı atadığınız, daha fazlasını yapabilirsiniz Azure ilkesiyle. Ardından, ortamınızda oluşturulan VM'ler G serisinde olamaz sağlayarak maliyetleri kaydetmek için yeni bir özel ilke oluşturun. Kurumunuzdaki bir kullanıcının G serisinde VM oluşturmayı dener her zaman bu şekilde, istek reddedilir.
+Artık bir yerleşik ilke tanımı atadığınıza göre, Azure İlkesi'yle daha fazlasını da yapabilirsiniz. Bundan sonra, ortamınızda oluşturulan sanal makinelerin G serisinden olamayacağını güvence altına alarak maliyet tasarrufu yapmak için yeni bir özel ilke oluşturun. Bu yolla, kuruluşunuzdaki kullanıcılar G serisinden bir sanal makine oluşturmayı her denediğinde istekleri reddedilir.
 
-1. Seçin **tanımı** altında **yazma** sol bölmede.
+1. Sol bölmedeki **Yazma**'nın altında **Tanım**'ı seçin.
 
-   ![Yazma altında tanımı](media/create-manage-policy/definition-under-authoring.png)
+   ![Yazma alanındaki Tanım](media/create-manage-policy/definition-under-authoring.png)
 
-2. Seçin **+ ilke tanımı**.
+2. **+ İlke Tanımı**'nı seçin.
 3. Aşağıdakileri girin:
 
-   - İlke tanımı - adını *VM SKU G serisi küçük gerektirir*
-   - İlke tanımı yapmak için – yöneliktir açıklaması Bu ilke tanımı bu kapsamda oluşturulan tüm sanal makineleri SKU'ları maliyetini azaltmak G serisi daha küçük olmasını zorlar.
-   - İlke tanımı'nın bulunduğu abonelik. Bu durumda, ilke tanımı içinde bulunduğu **Danışmanı Analytics kapasite geliştirme**. Abonelik listeniz farklılık gösterir.
-   - Varolan seçerseniz seçenekleri veya bu ilke tanımı için yeni bir kategori oluşturun.
-   - Aşağıdaki json kodunu kopyalayın ve gereksinimlerinize ile güncelleştirin:
+   - İlke tanımının adı - *Sanal makine SKU'larının G serisinden küçük olmasını gerektir*
+   - İlke tanımının yapması beklenen işlemin açıklaması – İlke tanımı maliyeti düşürmek için bu kapsamda oluşturulan tüm sanal makinelerin SKU'larının G serisinden küçük olmasını zorunlu tutar.
+   - İlke tanımının bulunduğu abonelik. Bu örnekte, ilke tanımı **Advisor Analytics Capacity Dev** aboneliğindedir. Sizin abonelik listeniz farklı olacaktır.
+   - Mevcut seçenekler arasından seçim yapın veya bu ilke tanımı için yeni bir kategori oluşturun.
+   - Aşağıdaki json kodunu kopyalayın ve ardından gereksinimlerinize uygun olarak aşağıdaki öğelerle güncelleştirin:
       - İlke parametreleri.
-      - İlke kuralları /, bu durumda – VM SKU boyutunu G seriye eşit koşulları
-      - Bu durumda – ilke etkili **reddetme**.
+      - İlke kuralları/koşulları; bu örnekte, G serisine eşit VM SKU boyutu
+      - İlkenin etkisi, bu örnekte **Reddet**.
 
-    İşte json aşağıdaki gibi görünmelidir. Düzenlenen kodunuzu Azure portalında yapıştırın.
+    Json aşağıdakine benzer olmalıdır. Düzeltilmiş kodunuzu Azure Portal'a yapıştırın.
 
     ```json
 {
@@ -104,22 +104,22 @@ Bir yerleşik ilke tanımı atadığınız, daha fazlasını yapabilirsiniz Azur
 }
     ```
 
-    Değeri *alan özelliği* ilke kuralı şunlardan biri olmalıdır: adı, türü, konum, etiketler veya bir diğer ad. Örneğin, `"Microsoft.Compute/VirtualMachines/Size"`.
+    İlke kuralındaki *alan özelliğinin* değeri şunlardan biri olmalıdır: Ad, Tür, Konum, Etiketler veya bir diğer ad. Örneğin, `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    Daha fazla json kod örneklerini görüntülemek için okuma [Azure ilke şablonları](json-samples.md) makalesi.
+    Başka json kodu örnekleri görmek için, [Azure İlkesi şablonları](json-samples.md) makalesini okuyun.
 
 4. **Kaydet**’i seçin.
 
-## <a name="create-a-policy-definition-with-rest-api"></a>REST API'si ile bir ilke tanımı oluşturun
+## <a name="create-a-policy-definition-with-rest-api"></a>REST API ile ilke tanımı oluşturma
 
-İlke tanımları için REST API ile bir ilke oluşturabilirsiniz. REST API oluşturmak ve ilke tanımları silmek ve varolan tanımları hakkında bilgi almak etkinleştirir.
-Bir ilke tanımı oluşturmak için aşağıdaki örneği kullanın:
+İlke Tanımları için REST API ile ilke oluşturabilirsiniz. REST API, ilke tanımlarını oluşturmanıza ve silmenize, ayrıca mevcut tanımlar hakkında bilgi almanıza olanak tanır.
+İlke tanımı oluşturmak için aşağıdaki örneği kullanın:
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
 ```
-Aşağıdaki örneğe benzer bir istek gövdesi şunları içerir:
+Aşağıdaki örnekte gösterilene benzer bir istek gövdesi ekleyin:
 
 ```
 {
@@ -151,13 +151,13 @@ Aşağıdaki örneğe benzer bir istek gövdesi şunları içerir:
 }
 ```
 
-## <a name="create-a-policy-definition-with-powershell"></a>PowerShell ile bir ilke tanımı oluşturma
+## <a name="create-a-policy-definition-with-powershell"></a>PowerShell ile ilke tanımı oluşturma
 
-PowerShell örnek işlemine devam etmeden önce Azure PowerShell'in en son sürümünü yüklediğinizden emin olun. İlke parametreleri sürüm 3.6.0 eklendi. Önceki bir sürümü varsa, örnekleri parametresi bulunamıyor belirten bir hata döndürür.
+PowerShell örneğine devam etmeden önce, Azure PowerShell'in en son sürümünü yüklediğinizden emin olun. İlke parametreleri 3.6.0 sürümünde eklenmiştir. Daha önceki bir sürümü kullanıyorsanız, örneklerde parametrenin bulunamadığını belirten bir hata döndürülür.
 
-Kullanarak bir ilke tanımı oluşturabilirsiniz `New-AzureRmPolicyDefinition` cmdlet'i.
+`New-AzureRmPolicyDefinition` cmdlet'ini kullanarak ilke tanımı oluşturabilirsiniz.
 
-Bir dosyadan bir ilke tanımı oluşturmak için dosya yolu geçirin. Dış bir dosya için aşağıdaki örneği kullanın:
+Bir dosyadan ilke tanımı oluşturmak için, dosyanın yolunu geçirin. Dış dosya için aşağıdaki örneği kullanın:
 
 ```
 $definition = New-AzureRmPolicyDefinition `
@@ -166,7 +166,7 @@ $definition = New-AzureRmPolicyDefinition `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
 ```
 
-Bir yerel dosya, aşağıdaki örneği kullanın:
+Yerel dosya kullanımı için aşağıdaki örneği kullanın:
 
 ```
 $definition = New-AzureRmPolicyDefinition `
@@ -175,7 +175,7 @@ $definition = New-AzureRmPolicyDefinition `
     -Policy "c:\policies\coolAccessTier.json"
 ```
 
-Bir ilke tanımı sahip bir satır içi kuralı oluşturmak için aşağıdaki örneği kullanın:
+Satır içi kuralla ilke tanımı oluşturmak için aşağıdaki örneği kullanın:
 
 ```
 $definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
@@ -203,8 +203,8 @@ $definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "De
 }'
 ```
 
-Çıktı depolanan bir `$definition` ilke ataması sırasında kullanılan nesne.
-Aşağıdaki örnek, parametreleri içeren bir ilke tanımı oluşturur:
+Çıkış bir `$definition` nesnesinde depolanır ve bu nesne ilke ataması sırasında kullanılır.
+Aşağıdaki örnekte, parametreler içeren bir ilke tanımı oluşturulur:
 
 ```
 $policy = '{
@@ -241,15 +241,15 @@ $parameters = '{
 $definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
 ```
 
-## <a name="view-policy-definitions"></a>Görünüm ilke tanımları
+## <a name="view-policy-definitions"></a>İlke tanımlarını görüntüleme
 
-Aboneliğinizdeki tüm ilke tanımları görmek için aşağıdaki komutu kullanın:
+Aboneliğinizdeki tüm ilke tanımlarını görmek için aşağıdaki komutu kullanın:
 
 ```
 Get-AzureRmPolicyDefinition
 ```
 
-Yerleşik ilkeleri de dahil olmak üzere tüm kullanılabilir ilke tanımları döndürür. Her ilke şu biçimde verilir:
+Yerleşik ilkeler de dahil olmak üzere tüm kullanılabilir ilke tanımlarını döndürür. Her ilke şu biçimde döndürülür:
 
 ```
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -262,10 +262,10 @@ Properties         : @{displayName=Allowed locations; policyType=BuiltIn; descri
 PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
 ```
 
-## <a name="create-a-policy-definition-with-azure-cli"></a>Azure CLI ile bir ilke tanımı oluşturun
+## <a name="create-a-policy-definition-with-azure-cli"></a>Azure CLI ile ilke tanımı oluşturma
 
-İlke tanımı komutu ile Azure CLI kullanarak bir ilke tanımı oluşturabilirsiniz.
-Bir ilke tanımı sahip bir satır içi kuralı oluşturmak için aşağıdaki örneği kullanın:
+İlke tanımı komutuyla Azure CLI'yi kullanarak ilke tanımı oluşturabilirsiniz.
+Satır içi kuralla ilke tanımı oluşturmak için aşağıdaki örneği kullanın:
 
 ```
 az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
@@ -293,15 +293,15 @@ az policy definition create --name denyCoolTiering --description "Deny cool acce
 }'
 ```
 
-## <a name="view-policy-definitions"></a>Görünüm ilke tanımları
+## <a name="view-policy-definitions"></a>İlke tanımlarını görüntüleme
 
-Aboneliğinizdeki tüm ilke tanımları görmek için aşağıdaki komutu kullanın:
+Aboneliğinizdeki tüm ilke tanımlarını görmek için aşağıdaki komutu kullanın:
 
 ```
 az policy definition list
 ```
 
-Yerleşik ilkeleri de dahil olmak üzere tüm kullanılabilir ilke tanımları döndürür. Her ilke şu biçimde verilir:
+Yerleşik ilkeler de dahil olmak üzere tüm kullanılabilir ilke tanımlarını döndürür. Her ilke şu biçimde döndürülür:
 
 ```
 {                                                            
@@ -324,87 +324,87 @@ Yerleşik ilkeleri de dahil olmak üzere tüm kullanılabilir ilke tanımları d
 }
 ```
 
-## <a name="create-and-assign-an-initiative-definition"></a>Oluşturun ve girişimi tanımı atayın
+## <a name="create-and-assign-an-initiative-definition"></a>Girişim tanımı oluşturma ve atama
 
-Bir girişimi tanımıyla bir değerlendiriyoruz elde etmek için birkaç ilke tanımları gruplandırabilirsiniz. Kaynakları tanımı kapsamında girişimi tanımını oluşturan ilke tanımları uyumlu kalmasını sağlamak için bir girişimi tanımı oluşturun.  Bkz: [Azure ilkesine genel bakış](./azure-policy-introduction.md) girişimi tanımları hakkında daha fazla bilgi için.
+Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir hedefe ulaşabilirsiniz. Girişim tanımı oluşturduğunuzda, tanım kapsamındaki kaynakların girişim tanımını oluşturan ilke tanımlarına uyumlu kalacağından emin olabilirsiniz.  Girişim tanımları hakkında daha fazla bilgi için bkz. [Azure İlkesi genel bakış](./azure-policy-introduction.md).
 
-### <a name="create-an-initiative-definition"></a>Girişimi tanımı oluşturun
+### <a name="create-an-initiative-definition"></a>Girişim tanımı oluşturma
 
-1. Seçin **tanımları** altında **yazma** sol bölmede.
+1. Sol bölmedeki **Yazma**'nın altında **Tanımlar**'ı seçin.
 
    ![Tanımları seçin](media/create-manage-policy/select-definitions.png)
 
-2. Seçin **Initiative tanımı** bu seçim, sayfanın en üstünde alır **Initiative tanımı** formu.
-3. Ad ve açıklama girişiminin girin.
+2. Sayfanın üst kısmında **Giriş Tanımı**'nı seçin; bu seçim size **Girişim Tanımı** formuna götürür.
+3. Girişimin adını ve açıklamasını girin.
 
-   Bu örnekte, kaynaklara güvenli alma hakkında ilke tanımları uyumlu olduğundan emin olun. Bu nedenle, Initiative adı olacaktır **alma güvenli**, açıklama olacaktır: **bu Initiative kaynaklarını güvenli hale getirme ile ilişkili tüm ilke tanımları işlemek için oluşturulan**.
+   Bu örnekte, kaynakların güvenlikle ilgili ilke tanımlarıyla uyumlu olduğundan emin olacaksınız. Bu nedenle, girişimin adı **Güvenliği Sağlama** olabilir ve şöyle bir açıklama yazılabilir: **Bu girişim kaynakların güvenliğini sağlamakla ilişkili tüm ilke tanımlarını işlemek için oluşturuldu**.
 
    ![Girişim tanımı](media/create-manage-policy/initiative-definition.png)
 
-4. Listesine göz **kullanılabilir tanımları** ve o Initiative eklemek istediğiniz ilke tanımlarını seçin. İçin bizim **güvenli alma** Initiative **Ekle** aşağıdaki ilke tanımları yerleşik:
-   - SQL Server sürüm 12.0 gerektirir
-   - Güvenlik Merkezi'nde korumasız web uygulamalarını izleyin.
-   - Güvenlik Merkezi'nde izin veren ağ üzerinden izleyin.
-   - Olası uygulama uygulamaları güvenilir listeye almayı Güvenlik Merkezi'nde izleyin.
-   - Güvenlik Merkezi'nde şifrelenmemiş VM diskleri izleyin.
+4. **Kullanılabilir Tanımlar** listesine göz atın ve bu girişime eklemek istediğiniz ilke tanımlarını seçin. **Güvenliği sağlama** girişimimiz için, şu yerleşik ilke tanımlarını **ekleyin**:
+   - SQL Server sürüm 12.0 gerektir
+   - Güvenlik Merkezi'nde korumasız web uygulamalarını izle.
+   - Güvenlik Merkezi'nde esnek ağın genelini izle.
+   - Güvenlik Merkezi'nde olası uygulama Beyaz Listesini izle.
+   - Güvenlik Merkezi'nde şifrelenmemiş VM Disklerini izle.
 
-   ![Girişimi tanımları](media/create-manage-policy/initiative-definition-2.png)
+   ![Girişim tanımları](media/create-manage-policy/initiative-definition-2.png)
 
-   İlke tanımları listeden seçtikten sonra altında gördüğünüz **ilkeleri ve parametreleri**önceki görüntüde gösterildiği gibi.
+   Listeden ilke tanımlarını seçtikten sonra, önceki resimde gösterildiği gibi bunları **İlkeler ve parametreler** altında görürsünüz.
 
-5. Kullanım **tanım konumu** tanımını depolamak üzere bir abonelik seçin. **Kaydet**’i seçin.
+5. **Tanım konumu**'nu kullanarak tanımın depolanacağı aboneliği seçin. **Kaydet**’i seçin.
 
-### <a name="assign-an-initiative-definition"></a>Bir girişimi tanımı atayın
+### <a name="assign-an-initiative-definition"></a>Girişim tanımını atama
 
-1. Git **tanımları** altında sekmesinde **yazma**.
-2. Arama **güvenli alma** oluşturduğunuz girişimi tanımı.
-3. Girişimi tanımı'nı seçin ve ardından **atamak**.
+1. **Yazma**'nın altında **Tanımlar** sekmesine gidin.
+2. Oluşturduğunuz **Güvenliği sağlama** girişim tanımını arayın.
+3. Girişim tanımını seçin ve sonra da **Ata**'yı seçin.
 
-   ![Bir tanımı atayın](media/create-manage-policy/assign-definition.png)
+   ![Tanımı atama](media/create-manage-policy/assign-definition.png)
 
-4. Doldurmak **atama** aşağıdaki örnek bilgileri girerek formu. Kendi bilgileri kullanabilirsiniz.
-   - Ad: Get güvenli atama
-   - Açıklama: Bu Grup İlkesi tanımlarında zorlamak için bu girişimi atama uyarlanmış **Azure Danışmanı kapasite geliştirme** abonelik.
-   - Fiyatlandırma katmanı: standart
-   - Burada gibi uygulanan bu atama kapsamı: **Azure Danışmanı kapasite geliştirme**. Kendi abonelik ve kaynak grubunu seçebilirsiniz.
+4. Aşağıdaki örnek bilgileri girerek **Atama** formunu doldurun. Kendi bilgilerinizi de kullanabilirsiniz.
+   - Ad: Güvenliği sağlama ataması
+   - Açıklama: Bu girişim ataması **Azure Advisor Capacity Dev** aboneliğinde bu ilke tanımları grubunu zorunlu tutmak için uyarlanmıştır.
+   - Fiyatlandırma Katmanı: Standart
+   - Bu atamanın uygulanmasını istediğiniz kapsam: **Azure Advisor Capacity Dev**. Kendi aboneliğinizi ve kaynak grubunuzu seçebilirsiniz.
 
 5. **Ata**'yı seçin.
 
-## <a name="resolve-a-non-compliant-or-denied-resource"></a>Uyumlu olmayan veya reddedilen kaynak çözümleyin
+## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Dışlama'yı kullanarak uyumlu olmayan veya reddedilen kaynağı hariç tutma
 
-SQL server sürümü 12.0 gerektirecek şekilde ilke tanımı atama sonra yukarıdaki örnekte,, farklı bir sürümü ile oluşturulmuş bir SQL server reddedildi. Bu bölümde, reddedilen bir dışlama isteyerek farklı sürümün bulunduğu bir SQL server oluşturma girişimi çözümünde size yol gösterir. Dışlama temelde ilke zorlama engeller. Bir kaynak grubuna dışlama uygulayabilir veya bireysel kaynaklar için dışlama daraltabilirsiniz.
+Yukarıdaki örneği izleyerek, SQL Server sürüm 12.0'ı gerektirecek bir ilke tanımı atadıktan sonra farklı bir sürümde oluşturulan SQL Server reddedilebilir. Bu bölümde, reddedilen SQL Server oluşturma girişimini çözmek için bir dışlama isteğinde bulunma işleminde size yol gösterilir. Dışlama temelde ilkenin zorlanmasını engeller. Kaynak grubuna dışlama uygulanabilir veya dışlamayı tek tek kaynakları içerecek şekilde daraltabilirsiniz.
 
 1. Sol bölmede **Atamalar**'ı seçin.
-2. Tüm ilke atamalarını göz atın ve Aç *gerektiren SQL Server sürümü 12.0* atama.
-3. **Seçin** burada çalıştığınız SQL sunucusu oluşturmak için kaynak grupları, kaynaklar için bir özel durum. Bu örnekte, Microsoft.Sql/servers/databases hariç: *azuremetrictest/testdb* ve *azuremetrictest/testdb2*.
+2. Tüm ilke atamalarına göz atın ve *SQL Server sürüm 12.0 gerektir* atamasını açın.
+3. SQL Server oluşturmaya çalıştığınız kaynak gruplarındaki kaynaklar için bir dışlama **seçin**. Bu örnekte, Microsoft.Sql/servers/databases: *azuremetrictest/testdb* ve *azuremetrictest/testdb2*'yi dışlarsınız.
 
-   ![İstek dışlama](media/create-manage-policy/request-exclusion.png)
+   ![Dışlama isteğinde bulunma](media/create-manage-policy/request-exclusion.png)
 
-   Reddedilen bir kaynak çözmek diğer yolları içerir: SQL server tarafından oluşturulan gerek ve erişimi varsa ilkeyi doğrudan düzenlemek için güçlü bir gerekçe varsa, ilkeyle ilişkili kişiye ulaşmasını.
+   Reddedilen kaynak sorununu çözmenin diğer yolları: Kesinlikle haklı bir gerekçeyle SQL Server'ın oluşturulmasına ihtiyacınız varsa ilkeyle ilişkilendirilmiş kişiye ulaşabilir ve erişiminiz varsa ilkeyi doğrudan düzenleyebilirsiniz.
 
-4. Tıklatın **atamak**.
+4. **Ata**'ya tıklayın.
 
-Bu bölümde, bir SQL server sürümüyle 12.0, dışlama kaynaklara isteyerek oluşturma girişimi, reddi çözümlendi.
+Bu bölümde, kaynaklarda bir dışlama isteğine bulunarak sürümü 12.0 olan bir SQL Server oluşturma girişiminizin reddedilmesi sorununu çözmüş oldunuz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Sonraki öğreticilerde ile çalışmaya devam etmeyi planlıyorsanız, temiz bu Kılavuzu'nda oluşturulan kaynakları yukarı değil. Devam etmek düşünmüyorsanız atamaları ya da yukarıda oluşturduğunuz tanımları silmek için aşağıdaki adımları kullanın:
+Sonraki öğreticilerle çalışmaya devam etmeyi planlıyorsanız bu kılavuzda oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız, aşağıdaki adımları kullanarak daha önce oluşturulan tüm atamaları veya tanımları silin:
 
-1. Seçin **tanımları** (veya **atamaları** atama silmeyi denediğiniz varsa) sol bölmedeki.
-2. Yeni Initiative veya ilke tanımı (veya atama) yeni oluşturulan arayın.
-3. Üç nokta tanımı veya atama ucundaki ve seçin **silmek tanımı** (veya **silmek atama**).
+1. Sol bölmede **Tanımlar**'ı (veya atamayı silmeye çalışıyorsanız **Atamalar**'ı) seçin.
+2. Az önce oluşturduğunuz yeni girişim veya tanımını (ya da atamayı) arayın.
+3. Tanım veya atamanın sonundaki üç noktayı seçin ve sonra da **Tanımı Sil** (veya **Atamayı Sil**) öğesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, başarılı bir şekilde aşağıdaki gerçekleştirdiniz:
+Bu öğreticide, aşağıdaki işlemleri başarıyla gerçekleştirdiniz:
 
 > [!div class="checklist"]
-> * Gelecekte oluşturacağınız kaynakları için bir koşul uygulamak için bir ilke atanan
-> * Oluşturulan ve birden çok kaynak için uyumluluğu izlemek amacıyla bir girişimi tanımı atayın
-> * Uyumlu olmayan veya reddedilen kaynak çözümlendi
-> * Yeni bir ilke bir kuruluş genelinde uygulanmadı
+> * Gelecekte oluşturacağınız kaynaklarda bir koşulu zorunlu tutmak için ilke atandı
+> * Birden çok kaynağın uyumluluğunu izlemek için girişim tanımı oluşturuldu ve atandı
+> * Uyumlu olmayan veya reddedilen kaynak sorunu çözüldü
+> * Kuruluş genelinde yeni bir ilke uygulandı
 
-İlke tanımları yapılar hakkında daha fazla bilgi için bu makalenin bakın:
+İlke tanımlarının yapıları hakkında daha fazla bilgi edinmek için şu makaleyi gözden geçirin:
 
 > [!div class="nextstepaction"]
-> [Azure ilke tanımı yapısı](policy-definition.md)
+> [Azure İlkesi tanım yapısı](policy-definition.md)

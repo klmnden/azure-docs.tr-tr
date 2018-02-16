@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a6138f0927f9761677d6da1ae05546286ad3898
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Salesforce veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,8 +66,8 @@ Aşağıdaki özellikleri bağlantılı Salesforce hizmeti için desteklenir.
 | type |Type özelliği ayarlamak **Salesforce**. |Evet |
 | environmentUrl | Salesforce örneği URL'sini belirtin. <br> -Varsayılan `"https://login.salesforce.com"`. <br> -Korumalı alan verileri kopyalamak için belirtmek `"https://test.salesforce.com"`. <br> Özel etki alanından veri kopyalamak için örneğin, belirlediğiniz `"https://[domain].my.salesforce.com"`. |Hayır |
 | kullanıcı adı |Kullanıcı hesabı için bir kullanıcı adı belirtin. |Evet |
-| password |Kullanıcı hesabı için bir parola belirtin.<br/><br/>Bu alan, veri fabrikasında güvenli bir şekilde depolamak için SecureString olarak işaretleyebilirsiniz. Ayrıca Azure anahtar kasası parolayı depolamak ve veri kopyalama gerçekleştirdiğinizde buradan kopyalama etkinliği çekme olanak tanır. Daha fazla bilgi için bkz: [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). |Evet |
-| securityToken |Kullanıcı hesabı için bir güvenlik belirteci belirtin. Sıfırlama ve bir güvenlik belirteci almak yönergeler için bkz: [bir güvenlik belirteci alma](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Güvenlik belirteçleri hakkında genel bilgi edinmek için [güvenlik ve API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Bu alan, veri fabrikasında güvenli bir şekilde depolamak için SecureString olarak işaretleyebilirsiniz. Ayrıca güvenlik belirteci anahtar kasasına depolamak ve veri kopyalama gerçekleştirdiğinizde buradan kopyalama etkinliği çekme olanak tanır. Daha fazla bilgi için bkz: [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). |Evet |
+| password |Kullanıcı hesabı için bir parola belirtin.<br/><br/>Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
+| securityToken |Kullanıcı hesabı için bir güvenlik belirteci belirtin. Sıfırlama ve bir güvenlik belirteci almak yönergeler için bkz: [bir güvenlik belirteci alma](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Güvenlik belirteçleri hakkında genel bilgi edinmek için [güvenlik ve API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Kaynak bağlanmışsa Hayır kaynak için Evet havuz için hizmet tümleştirmesi çalışma zamanı yok |
 
 >[!IMPORTANT]
@@ -319,7 +319,7 @@ Salesforce verileri kopyaladığınızda, aşağıdaki eşlemelerini Salesforce 
 | Metin alanı (uzun) |Dize |
 | Metin alanı (zengin) |Dize |
 | Metin (şifrelenmiş) |Dize |
-| URL |Dize |
+| URL'si |Dize |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kaynakları ve havuzlarını Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

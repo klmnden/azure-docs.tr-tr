@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 736d286bb7b97e842e73afd362ba70a42d1a9d9d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 62036e8a4e0611958ffacf7f7d7896e6ebde5e16
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Amazon Market Web hizmetinden veri Kopyala
 
@@ -51,9 +51,9 @@ Aşağıdaki özellikler, Amazon Market Web bağlantılı hizmeti için destekle
 | endpoint | Amazon MWS sunucunun (diğer bir deyişle, mws.amazonservices.com) uç noktası  | Evet |
 | marketplaceID | Verileri almak istediğiniz Amazon Market kimliği. Birden çok Market kimlikleri verileri almak için virgül ile ayırın (`,`). (that is, A2EUQ1WTGCTBG2)  | Evet |
 | sellerID | Amazon satıcı kimliği  | Evet |
-| mwsAuthToken | Amazon MWS kimlik doğrulama belirteci. Bu alan Data Factory hizmeti tarafından güvenli bir şekilde saklayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama acitivity izin [anahtar kasasına kimlik bilgilerini depolama ](store-credentials-in-key-vault.md). | Evet |
+| mwsAuthToken | Amazon MWS kimlik doğrulama belirteci. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | accessKeyId | Access anahtar verilere erişmek için kullanılan kimliği.  | Evet |
-| secretKey | Verilere erişmek için kullanılan gizli anahtar. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretlemek seçin ve veri kopyalama gerçekleştirirken buradan çekme-'dan daha fazla bilgi kopyalama acitivity izin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| secretKey | Verilere erişmek için kullanılan gizli anahtar. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için sunucunun sertifikası ana bilgisayar adlarında istenip istenmeyeceğini belirtir. Varsayılan değer true olur.  | Hayır |
 | usePeerVerification | SSL üzerinden bağlanırken sunucusunun kimliğini doğrulamak belirtir. Varsayılan değer true olur.  | Hayır |
@@ -105,7 +105,7 @@ Amazon Market Web hizmetinden veri kopyalamak için veri kümesi için tür öze
 
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Amazon Market Web hizmeti kaynak tarafından desteklenen özellikler listesini sağlar.
 

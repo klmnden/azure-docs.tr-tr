@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Bir dış uygulama hizmeti ortamı oluşturun #
 
-Azure uygulama hizmeti ortamı bir Azure uygulama hizmeti dağıtımı bir Azure sanal ağındaki (VNet) bir alt ağ ile değil. Uygulama hizmeti ortamı (ana) dağıtmak için iki yol vardır:
+Azure App Service Ortamı, Azure App Service’in Azure sanal ağı (VNet) içindeki bir alt ağa dağıtımıdır. Bir App Service ortamı (ASE) iki şekilde dağıtılabilir:
 
-- Dış IP adresi üzerinde bir VIP ile genellikle bir dış ana çağrılır.
+- Genellikle Dış ASE olarak adlandırılan durumda, bir dış IP adresi üzerindeki VIP ile.
 - Bir iç yük dengeleyici (ILB) iç uç nokta olduğu için VIP iç IP adresi, genellikle bir ILB ana olarak adlandırılır.
 
 Bu makalede bir dış ana oluşturulacağını gösterir. Ana genel bakış için bkz: [uygulama hizmeti ortamı giriş][Intro]. Bir ILB ana oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma bir ILB ana][MakeILBASE].
@@ -69,7 +69,7 @@ Bir uygulama hizmeti planı oluştururken bir ana oluşturmak için:
 
 4. Uygulama hizmeti planı seçin ve ardından **Yeni Oluştur**.
 
-    ![Yeni uygulama hizmeti planı][2]
+    ![Yeni App Service planı][2]
 
 5. İçinde **konumu** aşağı açılan listesinde, istediğiniz bölgeyi seçin ana oluşturun. Varolan bir ana seçerseniz, yeni bir ana oluşturulmaz. Uygulama hizmeti planı, seçili ana içinde oluşturulur. 
 
@@ -87,7 +87,7 @@ Bir uygulama hizmeti planı oluştururken bir ana oluşturmak için:
 
     b. Yeni bir alt ağ adı girin.
 
-    c. Alt ağ boyutunu seçin. *ANA, Gelecekteki büyümeyi barındırmak için büyük bir boyutu seçmek unutmayın.* Öneririz `/25`, 128 adresi olduğunu ve en büyük ölçekli bir ana işleyebilir. Öneririz yok `/28`, örneğin, çünkü yalnızca 16 adresleri kullanılabilir durumdadır. Altyapı en az beş adreslerini kullanır. İçinde bir `/28` alt sol en fazla bir ölçeklendirme 11 örnekleri.
+    c. Alt ağ boyutunu seçin. *ANA, Gelecekteki büyümeyi barındırmak için büyük bir boyutu seçmek unutmayın.* Öneririz `/25`, 128 adresi olduğunu ve en büyük ölçekli bir ana işleyebilir. Öneririz yok `/28`, örneğin, çünkü yalnızca 16 adresleri kullanılabilir durumdadır. En az yedi adreslerini altyapısını kullanır ve Azure ağ başka bir 5 kullanır. İçinde bir `/28` alt bıraktığınız uygulama hizmeti planı örnekleri için bir ILB ana en dış ana 4 uygulama hizmeti planı örneklerinin ölçekleme ve yalnızca 3.
 
     d. Alt ağ IP aralığını seçin.
 

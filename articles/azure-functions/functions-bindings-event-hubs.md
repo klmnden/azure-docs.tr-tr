@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 6577d4ae0f248ac234b2506a6adba04afde5ffce
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -60,7 +60,7 @@ Tüm işlevi yürütmeleri hatasız başarılı olursa, kontrol noktaları iliş
 Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
-* [C# betik (.csx)](#trigger---c-script-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
@@ -228,7 +228,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="trigger---hostjson-properties"></a>Tetikleyici - host.json özellikleri
+## <a name="trigger---hostjson-properties"></a>Trigger - host.json properties
 
 [Host.json](functions-host-json.md#eventhub) dosyası olay hub'ları tetikleyici davranışını denetleyen ayarları içerir.
 
@@ -243,7 +243,7 @@ Yazma için bir olay akışında olayları bağlama olay hub'ları çıkış kul
 Dile özgü örneğe bakın:
 
 * [C#](#output---c-example)
-* [C# betik (.csx)](#output---c-script-example)
+* [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
@@ -405,6 +405,12 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 Yöntem parametresi gibi kullanarak, C# ve C# betik iletileri göndermek `out string paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Birden çok ileti yazmak için kullanabileceğiniz `ICollector<string>` veya `IAsyncCollector<string>` yerine `out string`.
 
 JavaScript'te, çıktı olayını kullanarak erişim `context.bindings.<name>`. `<name>`değeri belirtilen `name` özelliği *function.json*.
+
+## <a name="exceptions-and-return-codes"></a>Özel durumlar ve dönüş kodları
+
+| Bağlama | Başvuru |
+|---|---|
+| Olay Hub'ı | [İşlemler Kılavuzu](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

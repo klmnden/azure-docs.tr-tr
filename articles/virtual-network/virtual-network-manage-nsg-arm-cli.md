@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Azure CLI kullanarak ağ güvenlik gruplarını yönet
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>Önkoşul
-Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login). 
+Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#az_login). 
 
 ## <a name="view-existing-nsgs"></a>Varolan Nsg'ler görüntüleyin
-Belirli bir kaynak grubunda Nsg'ler listesini görüntülemek için Çalıştır [az ağ nsg listesi](/cli/azure/network/nsg#list) komutunu bir `-o table` çıktı biçimi:
+Belirli bir kaynak grubunda Nsg'ler listesini görüntülemek için Çalıştır [az ağ nsg listesi](/cli/azure/network/nsg#az_network_nsg_list) komutunu bir `-o table` çıktı biçimi:
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -52,7 +52,7 @@ Beklenen çıktı:
     centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>Bir NSG için tüm kuralları listesinde
-Adlı bir NSG kurallarını görüntülemek için **NSG ön uç**, çalışma [az ağ nsg Göster](/cli/azure/network/nsg#show) komutunu kullanarak bir [JMESPATH sorgu filtresi](/cli/azure/query-az-cli2) ve `-o table` çıktı biçimi:
+Adlı bir NSG kurallarını görüntülemek için **NSG ön uç**, çalışma [az ağ nsg Göster](/cli/azure/network/nsg#az_network_nsg_show) komutunu kullanarak bir [JMESPATH sorgu filtresi](/cli/azure/query-az-cli2) ve `-o table` çıktı biçimi:
 
 ```azurecli
     az network nsg show \
@@ -75,7 +75,7 @@ Beklenen çıktı:
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> Aynı zamanda [az ağ nsg kural listesi](/cli/azure/network/nsg/rule#list) bir NSG'yi yalnızca özel kurallar listelemek için.
+> Aynı zamanda [az ağ nsg kural listesi](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) bir NSG'yi yalnızca özel kurallar listelemek için.
 >
 
 ## <a name="view-nsg-associations"></a>Görünüm NSG ilişkilendirmeleri
@@ -151,7 +151,7 @@ Beklenen çıktı:
 ```
 
 ## <a name="change-a-rule"></a>Bir kural değiştirme
-Daha önce oluşturduğunuz kural değiştirmek için gelen gelen trafiğe izin verecek şekilde **Internet** yalnızca çalıştırmak [az ağ nsg kural güncelleştirmesi](/cli/azure/network/nsg/rule#update) komutu:
+Daha önce oluşturduğunuz kural değiştirmek için gelen gelen trafiğe izin verecek şekilde **Internet** yalnızca çalıştırmak [az ağ nsg kural güncelleştirmesi](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) komutu:
 
 ```azurecli
 az network nsg rule update \
@@ -194,7 +194,7 @@ az network nsg rule delete \
 
 
 ## <a name="associate-an-nsg-to-a-nic"></a>Bir NSG'yi bir NIC ilişkilendirme
-İlişkilendirilecek **NSG ön uç** NSG'yi **TestNICWeb1** NIC, kullanım [az ağ NIC güncelleştirmesi](/cli/azure/network/nic#update) komutu:
+İlişkilendirilecek **NSG ön uç** NSG'yi **TestNICWeb1** NIC, kullanım [az ağ NIC güncelleştirmesi](/cli/azure/network/nic#az_network_nic_update) komutu:
 
 ```azurecli
 az network nic update \
@@ -277,7 +277,7 @@ Beklenen çıktı:
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>Bir NSG'yi bir NIC gelen ilişkilendirmesini Kaldır
 
-İlişkilendirmesini kaldırmak **NSG ön uç** NSG gelen **TestNICWeb1** çalıştırmak NIC [az ağ nsg kural güncelleştirmesi](/cli/azure/network/nsg/rule#update) komutunu yeniden ancak yerini `--network-security-group` boş bir dize değişkeni (`""`).
+İlişkilendirmesini kaldırmak **NSG ön uç** NSG gelen **TestNICWeb1** çalıştırmak NIC [az ağ nsg kural güncelleştirmesi](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) komutunu yeniden ancak yerini `--network-security-group` boş bir dize değişkeni (`""`).
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -286,7 +286,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 Çıktıda `networkSecurityGroup` anahtarı null.
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>Bir NSG'yi bir alt ağdan ilişkilendirmesini Kaldır
-İlişkilendirmesini kaldırmak **NSG ön uç** NSG gelen **ön uç** alt yeniden çalıştırın, [az ağ nsg kural güncelleştirmesi](/cli/azure/network/nsg/rule#update) komutunu yeniden ancak yerini `--network-security-group` bağımsız değişkeni boş bir dize ile (`""`).
+İlişkilendirmesini kaldırmak **NSG ön uç** NSG gelen **ön uç** alt yeniden çalıştırın, [az ağ nsg kural güncelleştirmesi](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) komutunu yeniden ancak yerini `--network-security-group` bağımsız değişkeni boş bir dize ile (`""`).
 
 ```azurecli
 az network vnet subnet update \

@@ -8,6 +8,9 @@ Oluşturduğunuzda, yeni bir sanal makine (VM) bir kaynak grubunda bir görünt�
 > Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır: Resource Manager ve Klasik. Bu makalede Resource Manager modelinin kullanımı anlatılmaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
 > 
 > 
+> [!WARNING]
+> İşletim sistemi diski, bir Azure sanal makine yeniden boyutlandırma, yeniden başlatmak neden olur.
+>
 
 ## <a name="resize-the-os-drive"></a>İşletim sistemi sürücüsünü yeniden boyutlandırma
 Bu makalede, [Azure Powershell](/powershell/azureps-cmdlets-docs)’in kaynak yöneticisi modüllerini kullanarak işletim sistemi sürücüsünü yeniden boyutlandırma görevini gerçekleştireceğiz. Her iki disk türleri arasında diskleri yeniden boyutlandırmak için yaklaşımı farklı olduğundan işletim sistemi sürücüsü için Unamanged ve yönetilen diskleri yeniden boyutlandırma göstereceğiz.

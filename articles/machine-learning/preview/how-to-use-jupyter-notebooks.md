@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma Jupyter Not Defteri kullanma
 
 Azure Machine Learning çalışma ekranı etkileşimli veri bilimi deneme Jupyter Not Defteri, kendi tümleştirme yoluyla destekler. Bu makalede, oranı ve etkileşimli veri bilimi deneme kalitesini artırmak için bu özellik etkili kullanımını sağlamak açıklar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - [Yükleme ve Azure Machine Learning oluşturma](quickstart-installation.md).
 - Tanımanız [Jupyter not defteri](http://jupyter.org/), bu makalede Jupyter kullanmayı öğretmek hakkında olmadığından.
 
@@ -42,15 +42,15 @@ Azure ML çalışma ekranındaki birçok farklı tekrar çalıştırma yapıland
 >Gözden geçirme [yapılandırma yürütme](experimentation-service-configuration.md) hakkında daha fazla ayrıntı yapılandırmaları çalıştırır ve hedefleri işlem.
 
 ### <a name="kernel-naming-convention"></a>Çekirdek adlandırma kuralı
-Tekrar genellikle biçiminde adlandırılmış "\<proje adı > \<config çalıştırmasını >". Örneğin, adlı çalışma bir yapılandırmanız varsa _docker python_ adlı bir projede _myIris_, Jupyter not defteri açtığınızda "myIris docker-python" çekirdek listesinde adlı bir çekirdek bulabilirsiniz.
-
+Azure ML çalışma ekranı özel Jupyter tekrar oluşturur.  Bu adlandırılmış "\<proje adı > \<config çalıştırmasını >". Örneğin, adlı çalışma bir yapılandırmanız varsa _docker python_ adlı bir projede _myIris_, Azure ML kullanılabilir hale getirir "myIris docker-python" adlı bir çekirdek.  Jupyter Not Defteri "Çekirdek" çalışan çekirdek ayarladığınız menüde "Değişiklik çekirdek" alt menüsünde. Çalışan çekirdek adını sağ tarafında menü çubuğu görüntülenir.
+ 
 Şu anda, çalışma ekranı tekrar aşağıdaki türlerini destekler.
 
 ### <a name="local-python-kernel"></a>Yerel Python çekirdek
 Bu Python çekirdek yürütme yerel makinede destekler. Bu tümleşik Azure Machine Learning'in çalıştırma geçmişi desteği. Çekirdek genellikle "my_project_name yerel" adıdır.
 
 >[!NOTE]
->"Python 3" çekirdek kullanmayın. Bu, varsayılan olarak Jupyter tarafından sağlanan bir tek başına çekirdek olur. Azure Machine Learning özellikleriyle tümleştirilmediği.
+>"Python 3" çekirdek kullanmayın. Bu, varsayılan olarak Jupyter tarafından sağlanan bir tek başına çekirdek olur. Azure Machine Learning özellikleriyle tümleştirilmediği. Örneğin, _% azureml_ Jupyter Sihirli işlevler "bulunamadı" hatalarını döndürür. 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Python çekirdek Docker (yerel veya uzak)
 Bu Python çekirdek yerel makinenizde ya da uzak bir Linux VM Docker kapsayıcısı içinde çalışır. Çekirdek genellikle "my_project docker" adıdır. İlişkili `docker.runconfig` dosyasının `Framework` alan kümesi'ne `Python`.

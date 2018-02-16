@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: eaa3039c369057d39dfce0896b9a4d1cfad75550
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 91908b03522788d470fdb93121f620bfcdef9085
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Açık bağlantı noktalarını ve Azure CLI'dan bir Linux VM için uç noktaları
 Bir bağlantı noktasını açmak veya bir alt ağ veya VM ağ arabirimine bir ağ filtre oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturun. Trafiği alır kaynağa bağlı bir ağ güvenlik grubu hem gelen hem de giden trafiği denetleyen bu filtreler yerleştir. Bağlantı noktası 80 üzerinde web trafiği yaygın bir örneği kullanalım. Bu makalede Azure CLI 2.0 ile bir VM için bağlantı noktası açma gösterilmiştir. Bu adımları [Azure CLI 1.0](nsg-quickstart-nodejs.md) ile de gerçekleştirebilirsiniz.
 
-Bir ağ güvenlik grubu ve en son gereksinim kuralları oluşturmak için [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login).
+Bir ağ güvenlik grubu ve en son gereksinim kuralları oluşturmak için [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myNetworkSecurityGroup*, ve *myVnet*.
 
@@ -39,7 +39,7 @@ Bir kaynak IP adresi aralığı tanımlama gibi kuralları üzerinde daha fazla 
 
 
 ## <a name="create-a-network-security-group-and-rules"></a>Bir ağ güvenlik grubu ve kuralları oluşturma
-Ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#create). Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup* içinde *eastus* konumu:
+Ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup* içinde *eastus* konumu:
 
 ```azurecli
 az network nsg create \
@@ -48,7 +48,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Olan bir kural eklemek [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create) , Web sunucusu için HTTP trafiğine izin verme (veya SSH erişim ya da veritabanı bağlantısı gibi kendi senaryosu için ayarlamak için). Aşağıdaki örnek, adında bir kural oluşturur *myNetworkSecurityGroupRule* 80 numaralı bağlantı noktasındaki TCP trafiğine izin vermek için:
+Olan bir kural eklemek [az ağ nsg kuralını](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) , Web sunucusu için HTTP trafiğine izin verme (veya SSH erişim ya da veritabanı bağlantısı gibi kendi senaryosu için ayarlamak için). Aşağıdaki örnek, adında bir kural oluşturur *myNetworkSecurityGroupRule* 80 numaralı bağlantı noktasındaki TCP trafiğine izin vermek için:
 
 ```azurecli
 az network nsg rule create \
@@ -62,7 +62,7 @@ az network nsg rule create \
 
 
 ## <a name="apply-network-security-group-to-vm"></a>VM ağ güvenlik grubuna Uygula
-Ağ güvenlik grubu VM ağ arabirimi (NIC) ilişkilendirmek [az ağ NIC güncelleştirmesi](/cli/azure/network/nic#update). Aşağıdaki örnek adlı mevcut NIC'in ilişkilendirir *myNic* adlı ağ güvenlik grubu ile *myNetworkSecurityGroup*:
+Ağ güvenlik grubu VM ağ arabirimi (NIC) ilişkilendirmek [az ağ NIC güncelleştirmesi](/cli/azure/network/nic#az_network_nic_update). Aşağıdaki örnek adlı mevcut NIC'in ilişkilendirir *myNic* adlı ağ güvenlik grubu ile *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nic update \
@@ -71,7 +71,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Alternatif olarak, bir sanal ağ alt ağı ile ağ güvenlik grubu ilişkilendirebilirsiniz [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet#update) yerine tek bir VM ağ arabirimi için yeterlidir. Aşağıdaki örnek adlı mevcut bir alt ilişkilendirir *mySubnet* içinde *myVnet* adlı ağ güvenlik grubu ile sanal ağ *myNetworkSecurityGroup*:
+Alternatif olarak, bir sanal ağ alt ağı ile ağ güvenlik grubu ilişkilendirebilirsiniz [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) yerine tek bir VM ağ arabirimi için yeterlidir. Aşağıdaki örnek adlı mevcut bir alt ilişkilendirir *mySubnet* içinde *myVnet* adlı ağ güvenlik grubu ile sanal ağ *myNetworkSecurityGroup*:
 
 ```azurecli
 az network vnet subnet update \

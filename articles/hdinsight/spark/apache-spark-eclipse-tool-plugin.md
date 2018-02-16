@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c668dde33b3571436711c6c5e5289993a9edf1a2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c36d742c61fb85f1b6077dd9156d6e36b37db1e1
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse için Azure Araç Seti Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın
 
@@ -69,6 +69,26 @@ Eclipse açtığınızda, Hdınsight aracı otomatik olarak eklenti Scala yükl�
    
    ![Bir küme adı kaynakları görmek için genişletme](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
+## <a name="link-a-cluster"></a>Bir küme bağlantı
+Yönetilen Ambari kullanıcı adı kullanarak normal bir küme bağlama, ayrıca güvenlik hadoop kümesi etki alanı kullanıcı adı kullanarak bağlantı (örneğin: user1@contoso.com).
+1. Tıklatın **bir küme bağlantı** gelen **Azure Gezgini**.
+
+   ![bağlantı küme bağlam menüsü](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+2. Girin **küme adı**, **depolama hesabı**, **depolama anahtarı**, bir kapsayıcı seçin **depolama kapsayıcısı**, en son olarak, kullanıcı adı girin ve parolası. Küme bağlamak için Tamam düğmesini tıklatın.
+   
+   ![bağlantı küme iletişim](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlantılı depolama anahtarı, kullanıcı adı ve parola kullanın.
+
+3. Bir bağlı kümede görebilirsiniz **Hdınsight** giriş bilgilerin doğru olup olmadığını Tamam düğmesine tıkladıktan sonra düğümü. Şimdi bu bağlantılı küme uygulamaya gönderebilirsiniz.
+
+   ![bağlantılı küme](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
+
+4. Bir kümeden bağlantısını kaldırabilirsiniz **Azure Gezgini**.
+   
+   ![bağlantısız küme](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Spark Scala proje Hdınsight Spark kümesinde için ayarlama
@@ -130,6 +150,7 @@ Eclipse açtığınızda, Hdınsight aracı otomatik olarak eklenti Scala yükl�
 6. **Spark gönderme** sekmesi, ilerleme durumunu görüntüleme başlamalıdır. Kırmızı düğmesini seçerek uygulama durdurabilirsiniz **Spark gönderme** penceresi. Ayrıca bu belirli uygulama (mavi kutu resim olarak gösterilir) dünya simgesini seçerek çalıştırmak için günlükleri görüntüleyebilirsiniz.
       
    ![Spark gönderme penceresi](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
+
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Erişim ve Hdınsight Spark kümeleri Eclipse için Azure araç setindeki Hdınsight araçları kullanarak yönetme
 İş çıktısı erişim dahil olmak üzere, Hdınsight araçları kullanarak çeşitli işlemler gerçekleştirebilirsiniz.

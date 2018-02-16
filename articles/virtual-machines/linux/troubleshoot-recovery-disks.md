@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 7a28accce1bd328b2b486b588c44d91b03e42122
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 318f322196b0028e42268b8d6d003457869d1117
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Bir Linux VM kurtarma Azure CLI 2.0 ile VM için işletim sistemi diski ekleyerek sorun giderme
 Linux sanal makine (VM) önyükleme veya disk bir hatayla karşılaştığında, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Geçersiz bir giriş yaygın bir örnek olacaktır `/etc/fstab` engelleyen VM başarıyla önyükleme yapamamasına. Bu makalede Azure CLI 2.0, sanal sabit diski başka bir Linux hataları düzeltin, sonra özgün VM'yi yeniden oluşturmak için VM'e bağlanmak için nasıl kullanılacağını ayrıntılarını verir. Bu adımları [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz.
@@ -32,7 +32,7 @@ Sorun giderme işlemi aşağıdaki gibidir:
 4. Sorun giderme işlemlerini yaptığınız VM’den sanal sabit diski çıkarın.
 5. Özgün sanal sabit disk kullanan bir VM oluşturun.
 
-Bu sorun giderme adımları gerçekleştirmek için en son gerekir [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login).
+Bu sorun giderme adımları gerçekleştirmek için en son gerekir [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login).
 
 Aşağıdaki örneklerde, parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `mystorageaccount`, ve `myVM`.
 
@@ -40,7 +40,7 @@ Aşağıdaki örneklerde, parametre adları kendi değerlerinizle değiştirin. 
 ## <a name="determine-boot-issues"></a>Önyükleme sorunlarını belirleme
 Neden VM'yi doğru önyükleme mümkün değil belirlemek için seri çıktıyı inceleyin. Yaygın bir örnek, geçersiz bir giriş olduğunu `/etc/fstab`, ya da temel sanal silindiğinde veya taşındığında disk.
 
-Önyükleme günlükleriyle alma [az vm önyükleme tanılaması get-önyükleme-günlük](/cli/azure/vm/boot-diagnostics#get-boot-log). Aşağıdaki örnek adlı VM'den seri çıktısını alır `myVM` kaynak grubunda adlı `myResourceGroup`:
+Önyükleme günlükleriyle alma [az vm önyükleme tanılaması get-önyükleme-günlük](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log). Aşağıdaki örnek adlı VM'den seri çıktısını alır `myVM` kaynak grubunda adlı `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
@@ -52,7 +52,7 @@ VM önyükleme neden başarısız olduğunu belirlemek için seri çıkış göz
 ## <a name="view-existing-virtual-hard-disk-details"></a>Var olan sanal sabit disk ayrıntılarını görüntüleyin
 Başka bir VM için sanal sabit disk (VHD) iliştirebilirsiniz önce işletim sistemi diski URI'sini tanımlamak gerekir. 
 
-VM ile hakkındaki bilgileri görüntüleyin [az vm Göster](/cli/azure/vm#show). Kullanım `--query` işletim sistemi diski için URI ayıklamak için bayrak. Aşağıdaki örnek adlı VM için disk bilgileri alır `myVM` kaynak grubunda adlı `myResourceGroup`:
+VM ile hakkındaki bilgileri görüntüleyin [az vm Göster](/cli/azure/vm#az_vm_show). Kullanım `--query` işletim sistemi diski için URI ayıklamak için bayrak. Aşağıdaki örnek adlı VM için disk bilgileri alır `myVM` kaynak grubunda adlı `myResourceGroup`:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM \
@@ -66,7 +66,7 @@ Sanal sabit diskler ve sanal makineler Azure'da iki ayrı kaynaktır. Bir sanal 
 
 VM kurtarmak için ilk adım, VM kaynak silmektir. VM’yi sildiğinizde sanal sabit diskler depolama hesabınızda kalır. VM silindikten sonra sanal sabit diski ve hataları gidermek için başka bir VM'e ekleyin.
 
-VM silme [az vm silme](/cli/azure/vm#delete). Aşağıdaki örnek adlı VM siler `myVM` kaynak grubundan adlı `myResourceGroup`:
+VM silme [az vm silme](/cli/azure/vm#az_vm_delete). Aşağıdaki örnek adlı VM siler `myVM` kaynak grubundan adlı `myResourceGroup`:
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 
@@ -78,7 +78,7 @@ VM için başka bir VM sanal sabit disk eklemeden önce silme tamamlanana kadar 
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Varolan bir sanal sabit diski başka bir VM'e ekleyin
 Sonraki birkaç adımda için sorun giderme amacıyla başka bir VM kullanın. Varolan bir sanal sabit diski bulun ve diskin içeriği düzenlemek için sorun giderme bu VM'e ekleyin. Bu işlem, yapılandırma hataları düzeltin ya da ek uygulama veya sistem günlük dosyalarını, örneğin gözden olanak sağlar. Seçin veya sorun giderme amacıyla kullanmak için başka bir VM oluşturun.
 
-İle varolan sanal sabit disk bağlayıp [az vm yönetilmeyen disk ekleme](/cli/azure/vm/unmanaged-disk#attach). Varolan bir sanal sabit diski taktığınızda, önceki elde diske URI'sini belirtin `az vm show` komutu. Aşağıdaki örnek sorun giderme VM adlı varolan bir sanal sabit diski iliştirir `myVMRecovery` kaynak grubunda adlı `myResourceGroup`:
+İle varolan sanal sabit disk bağlayıp [az vm yönetilmeyen disk ekleme](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_attach). Varolan bir sanal sabit diski taktığınızda, önceki elde diske URI'sini belirtin `az vm show` komutu. Aşağıdaki örnek sorun giderme VM adlı varolan bir sanal sabit diski iliştirir `myVMRecovery` kaynak grubunda adlı `myResourceGroup`:
 
 ```azurecli
 az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -144,7 +144,7 @@ Hatalarınızı çözüldükten sonra çıkarın ve varolan bir sanal sabit disk
     sudo umount /dev/sdc1
     ```
 
-2. Şimdi VM sanal sabit diski kullanımdan çıkarın. SSH oturumu sorun giderme VM'nize çıkın. Sorun giderme, VM ile eklenen veri disklerini listesinde [az vm yönetilmeyen disk listesi](/cli/azure/vm/unmanaged-disk#list). Aşağıdaki örnek adlı VM'ye bağlı veri disklerinden listeler `myVMRecovery` kaynak grubunda adlı `myResourceGroup`:
+2. Şimdi VM sanal sabit diski kullanımdan çıkarın. SSH oturumu sorun giderme VM'nize çıkın. Sorun giderme, VM ile eklenen veri disklerini listesinde [az vm yönetilmeyen disk listesi](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_list). Aşağıdaki örnek adlı VM'ye bağlı veri disklerinden listeler `myVMRecovery` kaynak grubunda adlı `myResourceGroup`:
 
     ```azurecli
     azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -153,7 +153,7 @@ Hatalarınızı çözüldükten sonra çıkarın ve varolan bir sanal sabit disk
 
     Varolan bir sanal sabit disk adını not edin. Örneğin, bir disk adı URI'si ile **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** olan **myVHD**. 
 
-    VM veri diski kullanımdan çıkarın [yönetilmeyen az vm-disk ayırma](/cli/azure/vm/unmanaged-disk#detach). Aşağıdaki örnek adlı disk ayırır `myVHD` adlı VM'den `myVMRecovery` içinde `myResourceGroup` kaynak grubu:
+    VM veri diski kullanımdan çıkarın [yönetilmeyen az vm-disk ayırma](/cli/azure/vm/unmanaged-disk#az_vm_unmanaged_disk_detach). Aşağıdaki örnek adlı disk ayırır `myVHD` adlı VM'den `myVMRecovery` içinde `myResourceGroup` kaynak grubu:
 
     ```azurecli
     az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
@@ -164,9 +164,9 @@ Hatalarınızı çözüldükten sonra çıkarın ve varolan bir sanal sabit disk
 ## <a name="create-vm-from-original-hard-disk"></a>Özgün sabit diskten VM oluşturma
 Özgün sanal sabit diskten bir VM oluşturmak için kullanmak [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). Gerçek JSON şablon aşağıdaki bağlantıda şöyledir:
 
-- https://RAW.githubusercontent.com/Azure/Azure-QuickStart-Templates/master/201-VM-Specialized-VHD/azuredeploy.JSON
+- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-Önceki komutu VHD URİ'SİNDEN kullanarak bir VM şablonu dağıtır. Şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). URI'yı, özgün VHD sağlayın ve ardından işletim sistemi türü, VM boyutu ve VM adı aşağıdaki gibi belirtin:
+Önceki komutu VHD URİ'SİNDEN kullanarak bir VM şablonu dağıtır. Şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#az_group_deployment_create). URI'yı, özgün VHD sağlayın ve ardından işletim sistemi türü, VM boyutu ve VM adı aşağıdaki gibi belirtin:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \
@@ -178,7 +178,7 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
 ```
 
 ## <a name="re-enable-boot-diagnostics"></a>Önyükleme tanılaması yeniden etkinleştirin
-Var olan sanal sabit diskten VM'nizi oluşturduğunuzda, önyükleme tanılaması otomatik olarak etkinleştirilmemiş olabilir. Önyükleme Tanılaması ile etkinleştirmek [az vm önyükleme-tanılamayı etkinleştirin](/cli/azure/vm/boot-diagnostics#enable). Aşağıdaki örnek adlı VM'de tanılama uzantısını etkinleştirir `myDeployedVM` kaynak grubunda adlı `myResourceGroup`:
+Var olan sanal sabit diskten VM'nizi oluşturduğunuzda, önyükleme tanılaması otomatik olarak etkinleştirilmemiş olabilir. Önyükleme Tanılaması ile etkinleştirmek [az vm önyükleme-tanılamayı etkinleştirin](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). Aşağıdaki örnek adlı VM'de tanılama uzantısını etkinleştirir `myDeployedVM` kaynak grubunda adlı `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM

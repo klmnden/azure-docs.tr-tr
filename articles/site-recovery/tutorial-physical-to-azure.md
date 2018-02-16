@@ -2,23 +2,17 @@
 title: "Olağanüstü durum kurtarma Azure fiziksel şirket içi sunucular için Azure Site Recovery ile ayarlama | Microsoft Docs"
 description: "Azure Site Recovery hizmeti ile şirket içi Windows ve Linux sunucuları için olağanüstü durum kurtarma Azure ayarlanacağını öğrenin."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 805f6946-c6da-491f-980e-bf724bebdf0b
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01e582cb789e402496c920e4a8fe27d5c6848531
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Şirket içi fiziksel sunucuların azure'a olağanüstü durum kurtarma ayarlama
 

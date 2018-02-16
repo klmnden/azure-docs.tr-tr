@@ -19,7 +19,7 @@
 
     ![IoT hub penceresi][2]
 
-1. **Oluştur**'a tıklayın. IoT hub’ınızın oluşturulması birkaç dakika sürebilir. İlerleme durumunu **Bildirimler** bölmesinden izleyebilirsiniz.
+1. **Oluştur**’a tıklayın. IoT hub’ınızın oluşturulması birkaç dakika sürebilir. İlerleme durumunu **Bildirimler** bölmesinden izleyebilirsiniz.
 <!-- Images -->
 [1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
