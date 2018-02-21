@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Azure’da Jenkins, GitHub ve Docker ile bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturmayı öğrenin
 Uygulama geliştirme sürecinin derleme ve test aşamasını otomatikleştirmek için bir sürekli tümleştirme ve dağıtım (CI/CD) işlem hattı kullanabilirsiniz. Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
@@ -68,13 +68,13 @@ runcmd:
   - service jenkins restart
 ```
 
-VM oluşturabilmek için önce [az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte, *eastus* konumunda *myResourceGroupJenkins* adlı bir kaynak grubu oluşturulur:
+VM oluşturabilmek için önce [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte, *eastus* konumunda *myResourceGroupJenkins* adlı bir kaynak grubu oluşturulur:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Şimdi [az vm create](/cli/azure/vm#create) ile bir VM oluşturun. `--custom-data` parametresini kullanarak cloud-init yapılandırma dosyanızı geçirin. Dosyayı geçerli çalışma dizininizin dışına kaydettiyseniz *cloud-init-jenkins.txt* dosyasının tam yolunu belirtin.
+Şimdi [az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. `--custom-data` parametresini kullanarak cloud-init yapılandırma dosyanızı geçirin. Dosyayı geçerli çalışma dizininizin dışına kaydettiyseniz *cloud-init-jenkins.txt* dosyasının tam yolunu belirtin.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -87,7 +87,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Sanal makinenin oluşturulup yapılandırılması birkaç dakika sürer.
 
-VM’nize web trafiğinin ulaşmasına izin vermek için [az vm open-port](/cli/azure/vm#open-port) komutunu kullanarak Jenkins trafiği için *8080* bağlantı noktasını, Node.js uygulaması için örnek uygulama çalıştırmaya yönelik *1337* bağlantı noktasını açın:
+VM’nize web trafiğinin ulaşmasına izin vermek için [az vm open-port](/cli/azure/vm#az_vm_open_port) komutunu kullanarak Jenkins trafiği için *8080* bağlantı noktasını, Node.js uygulaması için örnek uygulama çalıştırmaya yönelik *1337* bağlantı noktasını açın:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001

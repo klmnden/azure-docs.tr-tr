@@ -30,11 +30,11 @@ Bu özelliğin amacı, araştırmakta olduğunuz olayla ilgili bulunan tüm varl
 
 
 ## <a name="how-investigation-works"></a>Araştırma özelliği nasıl çalışır?
-Araştırma özelliği araştırma panosunun ortasında bulunan bir grafikten oluşur. Grafik her zaman belirli bir varlığa odaklanmış durumdadır ve bu varlıkla ilgili olan diğer varlıkları gösterir. Varlık bir güvenlik uyarısı, kullanıcı, bilgisayar veya olay olabilir.
+Araştırma özelliği araştırma panosunun ortasında bulunan bir grafikten oluşur. Graf her zaman belirli bir varlığa odaklanmış durumdadır ve bu varlıkla ilgili olan diğer varlıkları gösterir. Varlık bir güvenlik uyarısı, kullanıcı, bilgisayar veya olay olabilir.
  
 ![Eşleme](./media/security-center-investigation/security-center-investigation-fig1.png)
 
-Kullanıcı grafik üzerindeki öğelere tıklayarak bir varlıktan diğerine geçebilir. Grafik seçilen varlığı ve onunla ilgili varlıkları otomatik olarak merkeze alır. Seçimin ardından ilgili olmayan varlıklar grafikten kaldırılabilir.
+Kullanıcı grafik üzerindeki öğelere tıklayarak bir varlıktan diğerine geçebilir. Graf seçilen varlığı ve onunla ilgili varlıkları otomatik olarak merkeze alır. Seçimin ardından ilgili olmayan varlıklar grafikten kaldırılabilir.
 
 ### <a name="investigation-path"></a>Araştırma yolu
 Araştırma yolu, kullanıcı farklı varlıklarda gezinirken araştırma bağlamının korunmasına yardımcı olur ve gezinmenin hızlı gerçekleşmesini sağlar. Araştırma sonuçlarını içeren olay her zaman araştırma yolunun en solundaki olay olur.
@@ -70,13 +70,13 @@ Bir olay yalnızca kullanıcı belirli bir uyarı için **Araştırma başlat** 
 
 ### <a name="timeline"></a>Zaman çizelgesi
 
-Grafikte yer verilen verilerin çoğu ve çeşitli sekmeler belirli bir zaman aralığı için geçerlidir. Bu zaman kapsamı, grafiğin sol üst kısmında yer alan zaman kapsamı seçici ile ayarlanır. Araştırmacı zaman kapsamını farklı yöntemlerle belirleyebilir. 
+Grafta yer verilen verilerin çoğu ve çeşitli sekmeler belirli bir zaman aralığı için geçerlidir. Bu zaman kapsamı, grafiğin sol üst kısmında yer alan zaman kapsamı seçici ile ayarlanır. Araştırmacı zaman kapsamını farklı yöntemlerle belirleyebilir. 
 
 ![Zaman çizelgesi](./media/security-center-investigation/security-center-investigation-fig7.png)
 
 Aşağıdaki öğeler zaman kapsamından etkilenir:
 
-- Grafikte görüntülenen kullanıcı-bilgisayar ilişkisi: Yalnızca bu zaman kapsamında ilgili bilgisayarda oturum açmış olan kullanıcılar gösterilir.
+- Grafta görüntülenen kullanıcı-bilgisayar ilişkisi: Yalnızca bu zaman kapsamında ilgili bilgisayarda oturum açmış olan kullanıcılar gösterilir.
 - Bilgisayarlar ve kullanıcılar incelendiğinde görüntülenecek uyarılar: Yalnızca zaman kapsamında gerçekleşen uyarılar gösterilir.
 - Varlıklar sekmesi grafikle aynı mantığı kullanır.
 

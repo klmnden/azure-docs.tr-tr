@@ -16,15 +16,9 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-<<<<<<< HEAD
-ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
-=======
 ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/14/2017
 ---
@@ -202,7 +196,7 @@ SQL kaynağına benzer, iç içe geçmiş ayırıcı özellik alma sırasında h
 
 Diğer adlar DomainInfo.Domain_Name ve RedirectInfo.Redirecting gibi unutmayın. İç içe geçmiş bir ayırıcı olarak belirterek '.', içeri aktarma aracını içeri aktarma sırasında DomainInfo ve RedirectInfo belgeler oluşturur. Azure Cosmos DB ortaya çıkan bir belgede bir örneği burada verilmiştir:
 
-*{"DomainInfo": {"Etki_alanı_adı": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV"}, "Federal Teşkilatı": "Yönetimsel konferans, Amerika Birleşik Devletleri", "RedirectInfo": {"Yeniden yönlendirme": "0", "Redirect_Destination": ""}, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"}*
+*{"DomainInfo": {"Etki_alanı_adı": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Teşkilatı": "Yönetimsel konferans, Amerika Birleşik Devletleri", "RedirectInfo": {"Yeniden yönlendirme": "0", "Redirect_Destination": ""}, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"}*
 
 İçeri aktarma aracını (tırnak içine alınmış değerler her zaman dize olarak kabul edilir) türü bilgileri CSV dosyaları tırnak işareti olmayan değerleri Infer dener.  Türleri, aşağıdaki sırayla tanımlanır: sayı, datetime, Boole değeri.  
 
