@@ -25,8 +25,8 @@ ms.lasthandoff: 10/11/2017
 
 Data Lake Analytics hesaplarını, işlerini ve kataloğunu yönetmek için WebHDFS REST API’lerini ve Data Lake Analytics REST API’lerini nasıl kullanacağınızı öğrenin. 
 
-## <a name="prerequisites"></a>Önkoşullar
-* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="prerequisites"></a>Ön koşullar
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Active Directory Uygulaması oluşturma**. Data Lake Analytics uygulamasında Azure AD ile kimlik doğrulaması yapmak için Azure AD uygulamasını kullanın. Azure AD kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** gibi farklı yaklaşımlar bulunmaktadır. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Analytics kimlik doğrulaması yapma](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 * [cURL](http://curl.haxx.se/). Bu makalede, bir Data Lake Analytics hesabına yönelik olarak REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
 

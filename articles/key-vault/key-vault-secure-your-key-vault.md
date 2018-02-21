@@ -134,9 +134,9 @@ Her bir rolün (ve uygulamanın) atanmış görevleri gerçekleştirmesi için g
 | Kullanıcı Rolü | Yönetim düzlemi izinleri | Veri düzlemi izinleri |
 | --- | --- | --- |
 | Güvenlik Ekibi |anahtar kasasına Katkıda Bulunan |Anahtarlar: yedekleme, oluşturma, silme, alma, içeri aktarma, listeleme, geri yükleme <br> Parolalar: tümü |
-| Geliştiriciler/Operatörler |dağıttıkları VM’lerin parolaları anahtar kasasından getirebilmesi anahtar kasası dağıtma izni |None |
-| Denetçiler |None |Anahtarlar: listeleme<br>Parolalar: listeleme |
-| Uygulama |None |Anahtarlar: imzalama<br>Parolalar: imzalama |
+| Geliştiriciler/Operatörler |dağıttıkları VM’lerin parolaları anahtar kasasından getirebilmesi anahtar kasası dağıtma izni |Yok |
+| Denetçiler |Yok |Anahtarlar: listeleme<br>Parolalar: listeleme |
+| Uygulama |Yok |Anahtarlar: imzalama<br>Parolalar: imzalama |
 
 > [!NOTE]
 > Denetçilerin etiketler, etkinleştirme ve sona erme tarihleri gibi günlüklerde verilmeyen anahtar ve parola özniteliklerini inceleyebilmesi için anahtar ve parolalara yönelik listeleme izni gereklidir.

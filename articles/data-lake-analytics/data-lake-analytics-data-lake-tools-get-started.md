@@ -89,7 +89,7 @@ OUTPUT @a
 
    * **İş Özeti**, işin özetini gösterir.   
    * **İş Ayrıntıları**, iş hakkında betik, kaynaklar ve köşeler gibi daha özel bilgiler gösterir.
-   * **İş Grafiği**, işin ilerleme durumunu görselleştirir.
+   * **İş Grafı**, işin ilerleme durumunu görselleştirir.
    * **Meta Veri İşlemleri**, U-SQL kataloğunda yapılan tüm işlemleri gösterir.
    * **Veri** tüm girdileri ve çıktıları gösterir.
    * **Tanılama**, iş yürütme ve performans iyileştirme için gelişmiş bir analiz sağlar.

@@ -1,9 +1,9 @@
 ---
 title: "Azure Data Lake Store'da şifreleme | Microsoft Belgeleri"
-description: "Şifreleme ve anahtar döndürmenin Azure Data Lake Store'da nasıl çalıştığını anlama"
+description: "Azure Data Lake Store’da şifreleme; verilerinizi koruma, kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur. Bu makale tasarıma genel bir bakış sunarken uygulamanın birkaç teknik yönünü ele almaktadır."
 services: data-lake-store
 documentationcenter: 
-author: yagupta
+author: esung22
 manager: 
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 4/14/2017
+ms.date: 01/31/2018
 ms.author: yagupta
-ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store'da veri şifreleme
 
@@ -83,7 +83,7 @@ Veri şifreleme tasarımında kullanılan üç tür anahtar vardır. Aşağıdak
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Ana Şifreleme Anahtarı | MEK          | Bir Data Lake Store hesabı | Anahtar Kasası                              | Asimetrik | Data Lake Store veya sizin tarafınızdan yönetilebilir.                                                              |
 | Veri Şifreleme Anahtarı   | DEK          | Bir Data Lake Store hesabı | Kalıcı depolama, Data Lake Store hizmeti tarafından yönetilir | Simetrik  | DEK, MEK ile şifrelenir. Şifrelenmiş DEK, kalıcı medyada depolanır. |
-| Blok Şifreleme Anahtarı  | BEK          | Bir veri bloğu | None                                         | Simetrik  | BEK, DEK’ten ve veri bloğundan türetilir.                                                      |
+| Blok Şifreleme Anahtarı  | BEK          | Bir veri bloğu | Yok                                         | Simetrik  | BEK, DEK’ten ve veri bloğundan türetilir.                                                      |
 
 Aşağıdaki diyagram bu kavramları göstermektedir:
 

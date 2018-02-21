@@ -1,5 +1,5 @@
 ---
-title: Azure Scheduler nedir? | Microsoft Belgeleri
+title: Azure Scheduler nedir? | Microsoft Docs
 description: "Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır."
 services: scheduler
 documentationcenter: .NET
@@ -27,7 +27,7 @@ Scheduler zamanlanan iş oluşturur, korur ve çağırır.  Scheduler iş yükü
 
 Scheduler [işleri](scheduler-concepts-terms.md) zamanlar, birinin gözden geçirebileceği iş yürütme sonuçlarının geçmişini tutar ve yürütülecek iş yüklerini kesin ve güvenilir bir şekilde çalışması zamanlar. Azure WebJobs (Azure App Service’te Web Apps özelliğini bir parçası) ve diğer Azure zamanlama özellikleri arka planda Scheduler kullanır. [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx) bu eylemler için iletişimi yönetmeye yardımcı olur. Bu şekilde, Scheduler kolayca [karmaşık zamanlamalar ve gelişmiş yineleme oluşturmayı](scheduler-advanced-complexity.md) destekler.
 
-Kendilerini Scheduler kullanımına ödünç veren çeşitli senaryolar vardır. Örneğin:
+Kendilerini Scheduler kullanımına ödünç veren çeşitli senaryolar vardır. Örnek:
 
 * *Yinelenen uygulama eylemleri:* Twitter’dan akışa düzenli aralıklarla veri toplama.
 * *Günlük bakım:* Günlüklerin günlük ayıklanması, yedeklemelerin ve diğer bakım görevlerinin gerçekleştirilmesi. Örneğin, bir yönetici, sonraki dokuz ay boyunca her gün saat 01: 00'da veritabanını yedeklemeyi seçebilir.

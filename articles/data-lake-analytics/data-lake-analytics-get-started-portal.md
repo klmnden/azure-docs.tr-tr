@@ -42,7 +42,7 @@ Bu öğreticiye başlamadan önce bir **Azure aboneliğinizin** olması gerekir.
    * **Konum**. Data Lake Analytics hesabı için bir Azure veri merkezi seçin.
    * **Data Lake Store**: Yeni bir Data Lake Store hesabı oluşturmaya yönelik yönergeyi uygulayın veya var olan bir hesabı seçin. 
 4. İsteğe bağlı olarak Data Lake Analytics hesabınıza yönelik bir fiyatlandırma katmanı seçebilirsiniz.
-5. **Oluştur**'a tıklayın. 
+5. **Oluştur**’a tıklayın. 
 
 
 ## <a name="your-first-u-sql-script"></a>İlk U-SQL betiğiniz

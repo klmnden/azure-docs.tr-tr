@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 3c59ad25294fe88f6145b6e55bb498cd958dbca2
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: b39a5790e5a2ef5483428842b537e0189f5f2b32
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/09/2018
 
 Linux geliştirme makinenizde [Azure Service Fabric uygulamaları](service-fabric-application-model.md) dağıtıp çalıştırmak için çalışma zamanını ve ortak SDK'yı yükleyin. Ayrıca isteğe bağlı Java ve .NET Core geliştirme SDK'larını yükleyebilirsiniz.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Geliştirme için şu işletim sistemi sürümleri desteklenir:
 
@@ -143,10 +143,12 @@ Service Fabric, Yeoman şablon oluşturucuları kullanarak terminalden Service F
 
 1. Makinenize nodejs ve NPM yükleme
 
+Ubuntu
   ```bash
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
+
 2. NPM’den makinenize [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleme
 
   ```bash
@@ -169,7 +171,7 @@ Oluşturucuları yükledikten sonra, sırasıyla `yo azuresfguest` ve `yo azures
 
 Service Fabric hizmetlerini Java kullanarak derlemek için JDK 1.8 ve Gradle yükleyerek derleme görevlerini çalıştırın. Aşağıdaki kod parçacığı Open JDK 1.8’i ve Gradle’ı birlikte yükler. Service Fabric Java kitaplıkları Maven’dan alınır.
 
-  ```bash
+ ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```

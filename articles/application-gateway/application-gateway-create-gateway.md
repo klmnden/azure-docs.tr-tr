@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>PowerShell ile bir uygulama ağ geçidi oluşturma, başlatma veya silme 
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [Azure portalı](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)

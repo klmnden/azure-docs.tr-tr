@@ -173,7 +173,7 @@ Media Services müşterileri **Standart** akış uç noktası veya **Premium** a
 
 #### <a name="availability"></a>Kullanılabilirlik
 
-|Ad|Durum|Veri merkezleri
+|Adı|Durum|Veri merkezleri
 |---|---|---|
 |Standart|GA|Tümü|
 |Premium|GA|Tümü|

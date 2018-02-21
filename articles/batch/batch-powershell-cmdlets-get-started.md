@@ -29,7 +29,7 @@ Tam Batch cmdlet’leri listesi ve ayrıntılı cmdlet sözdizimi için bkz. [Az
 
 Bu makale, Azure PowerShell 3.0.0 sürümündeki cmdlet’leri temel almaktadır. Hizmet güncelleştirmeleri ve geliştirmeleri avantajlarından yararlanmak için Azure PowerShell’inizi sık sık güncelleştirin.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Batch kaynaklarınızı yönetmek üzere Azure PowerShell’i kullanmak için aşağıdaki işlemleri gerçekleştirin.
 
 * [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview)
@@ -42,11 +42,11 @@ Batch kaynaklarınızı yönetmek üzere Azure PowerShell’i kullanmak için a�
 
 ## <a name="manage-batch-accounts-and-keys"></a>Batch hesaplarını ve anahtarlarını yönetme
 ### <a name="create-a-batch-account"></a>Batch hesabı oluşturma
-**New-AzureRmBatchAccount**, belirtilen kaynak grubunda bir Batch hesabı oluşturur. Zaten bir kaynak grubunuz yoksa [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'ini çalıştırarak bir kaynak grubu oluşturun. **Location** parametresinde, "Orta ABD" gibi Azure bölgelerinden birini belirtin. Örneğin:
+**New-AzureRmBatchAccount**, belirtilen kaynak grubunda bir Batch hesabı oluşturur. Zaten bir kaynak grubunuz yoksa [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'ini çalıştırarak bir kaynak grubu oluşturun. **Location** parametresinde, "Orta ABD" gibi Azure bölgelerinden birini belirtin. Örnek:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
-Ardından, <*account_name*> içinde bir hesap adı ve kaynak grubunuzun konumunu ve adını belirterek kaynak grubunda bir Batch hesabı oluşturun. Batch hesabının oluşturulması biraz zaman alabilir. Örneğin:
+Ardından, <*account_name*> içinde bir hesap adı ve kaynak grubunuzun konumunu ve adını belirterek kaynak grubunda bir Batch hesabı oluşturun. Batch hesabının oluşturulması biraz zaman alabilir. Örnek:
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
@@ -75,7 +75,7 @@ Ardından, <*account_name*> içinde bir hesap adı ve kaynak grubunuzun konumunu
 > 
 
 ### <a name="delete-a-batch-account"></a>Batch hesabını silme
-**Remove-AzureRmBatchAccount** Batch hesabını siler. Örneğin:
+**Remove-AzureRmBatchAccount** Batch hesabını siler. Örnek:
 
     Remove-AzureRmBatchAccount -AccountName <account_name>
 
@@ -134,7 +134,7 @@ OData filtresinin bir alternatifi de **Kimlik** parametresi kullanmaktır. "myPo
 **Kimlik** parametresi yalnızca tam kimlik aramasını destekler, joker karakter veya OData stili filtreleri desteklemez.
 
 ### <a name="use-the-maxcount-parameter"></a>MaxCount parametresini kullanma
-Varsayılan olarak, her cmdlet en çok 1000 nesne döndürür. Bu sınıra ulaştıysanız, daha az nesne döndürmek için filtreyi daraltın veya **MaxCount** parametresini kullanarak kesin bir üst sınır ayarlayın. Örneğin:
+Varsayılan olarak, her cmdlet en çok 1000 nesne döndürür. Bu sınıra ulaştıysanız, daha az nesne döndürmek için filtreyi daraltın veya **MaxCount** parametresini kullanarak kesin bir üst sınır ayarlayın. Örnek:
 
     Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
