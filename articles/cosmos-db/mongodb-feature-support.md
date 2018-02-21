@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 007b530cd7a14f063ae4f86d18daa9742c6655c2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB özellikleri ve sözdizimi için MongoDB API desteği
 
-Azure Cosmos DB Microsoft'un Genel dağıtılmış birden çok model veritabanı hizmetidir. Açık kaynak MongoDB istemci kanalıyla veritabanının MongoDB API ile iletişim kurabilir [sürücüleri](https://docs.mongodb.org/ecosystem/drivers). MongoDB API MongoDB için uygun olarak yüklemeyi mevcut istemci sürücüleri kullanılmasına izin verir [wire Protokolü](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Açık kaynak MongoDB istemci kanalıyla veritabanının MongoDB API ile iletişim kurabilir [sürücüleri](https://docs.mongodb.org/ecosystem/drivers). MongoDB API MongoDB için uygun olarak yüklemeyi mevcut istemci sürücüleri kullanılmasına izin verir [wire Protokolü](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Azure Cosmos DB MongoDB API'sini kullanarak MongoDB için kullandığınız, tüm Azure Cosmos DB'ın Kurumsal özellikler ile API'leri yararları keyfini çıkarabilirsiniz: [genel dağıtım](distribute-data-globally.md), [otomatik parçalanmasını](partition-data.md), Kullanılabilirlik ve gecikme garantileri, dizin oluşturma, her alanı, rest, yedeklemeler ve daha fazlasını şifreleme otomatik.
 
@@ -37,10 +37,10 @@ Azure Cosmos DB tüm MongoDB API hesaplarında veritabanı aşağıdakileri dest
 
 ### <a name="query-and-write-operation-commands"></a>Sorgu ve yazma işlemi komutları
 - sil
-- bul
+- Bul
 - findAndModify
 - getLastError
-- kitaplarından elde
+- getMore
 - Ekle
 - Güncelleştirme
 
@@ -59,7 +59,7 @@ Azure Cosmos DB tüm MongoDB API hesaplarında veritabanı aşağıdakileri dest
 - listIndexes
 - dropIndexes
 - ConnectionStatus
-- yeniden dizin oluşturma
+- reIndex
 
 ### <a name="diagnostics-commands"></a>Tanılama komutları
 - buildInfo
@@ -78,7 +78,7 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 ### <a name="aggregation-commands"></a>Toplama komutları
 - Toplama
 - sayı
-- Farklı
+- distinct
 
 ### <a name="aggregation-stages"></a>Toplama aşamaları
 - $project
@@ -237,6 +237,33 @@ $Regex sorgularda dizin arama sola bağlantılı ifadeleri izin verin. Ancak, 'i
 Eklenecek '$' bir gereksinim olduğunda veya ' |', iki (veya daha fazla) regex sorguları oluşturmak en iyisidir. Örneğin, aşağıdaki özgün sorgu verilen: ```find({x:{$regex: /^abc$/})```, şu şekilde değiştirilecek vardır: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 İlk bölümü dizin arama itibaren bu belgeleri sınırlamak için kullanacağı ^ tam girişleri abc ve ikinci bölümü ile eşleşir. Çubuğu işleci ' |' bir "veya" işlevi - sorgu davranır ```find({x:{$regex: /^abc|^def/})``` 'x' alanı "abc" veya "def" ile başlayan değere sahip belgeleri whin eşleşir. Dizin faydalanmak için sorgu $ya da operatör tarafından birleştirilmiş iki farklı sorgular bölüneceği önerilir: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### <a name="update-operators"></a>Güncelleştirme işleçleri
+
+#### <a name="field-update-operators"></a>Alan güncelleştirme işleçleri
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $ayarlama
+- $min
+- $max
+- $currentDate
+
+#### <a name="array-update-operators"></a>Dizi güncelleştirme işleçleri
+- $addToSet
+- $pop
+- $pullAll
+- $pull (Not: $pull koşulu desteklenmez)
+- $pushAll
+- $push
+- $Her
+- $slice
+- $sort
+- $position
+
+#### <a name="bitwise-update-operator"></a>Bit düzeyinde güncelleştirme işleci
+- $bit
 
 ### <a name="geospatial-operators"></a>Jeo-uzamsal işleçleri
 
@@ -272,7 +299,7 @@ Aşağıdaki yöntemlerden desteklenir:
 
 Yöntem | Örnek | Notlar 
 --- | --- | --- |
-Cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Belgeler sıralama anahtarı olmadan geri
+cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Belgeler sıralama anahtarı olmadan geri
 
 ## <a name="unique-indexes"></a>Benzersiz dizinler
 

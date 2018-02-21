@@ -14,13 +14,12 @@ ms.devlang: NA
 ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: Active
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2f1ff7a7c2ecf04069ffa6afcc66e2f0f9915b35
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.topic: 02/12/2018
+ms.openlocfilehash: 7c1cbc16d968bd13d0486cd434b095f8d3ecf636
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Esnek havuz yönetmek ve birden çok Azure SQL veritabanı ölçekleme Yardım
 
@@ -171,7 +170,7 @@ SQL Database hizmeti, kullanım geçmişini değerlendirir ve maliyet açısınd
 
 Havuz önerisi şunları kapsar:
 
-- (Temel, standart, Premium veya Premium RS) havuzu için bir fiyatlandırma katmanı
+- Havuz için bir fiyatlandırma katmanı (Temel, Standart veya Premium)
 - Uygun **HAVUZ eDTU'ları** (havuz başına maksimum eDTU olarak da adlandırılır)
 - Veritabanı başına **Maksimum eDTU** ve **Minimum eDTU**
 - Havuz için önerilen veritabanlarının listesi
@@ -201,7 +200,7 @@ Aşağıdaki grafikte bir örnek esnek havuz gösterir. Görünüm içerir:
 
 Kaynak kullanımını görmek için belirli bir havuzu gidebilirsiniz. Varsayılan olarak, depolama ve eDTU kullanımı son saat için göstermek için havuzu yapılandırılır. Grafik, çeşitli zaman pencereleri farklı ölçümleri göstermek için yapılandırılabilir. Tıklatın **kaynak kullanımı** altında grafik **esnek Havuz izleme** belirtilen zaman penceresi üzerinde belirtilen ölçümleri ayrıntılı görünümünü göstermek için.
 
-![Esnek Havuz izleme](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
+![Esnek havuz izleme](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
 ![Ölçüm sayfası](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
@@ -223,7 +222,7 @@ Grafik ve diğer ölçümleri CPU yüzdesi, veri g/ç yüzdesi ve kullanılan g�
 
 Tek tek veritabanları için olası sorun de izlenebilir. Altında **esnek veritabanı izleme**, beş veritabanları için ölçümleri görüntüleyen bir grafik yoktur. Varsayılan olarak, grafik ilk 5 veritabanlarının havuzdaki ortalama eDTU kullanımı son bir saat içindeki görüntüler. 
 
-![Esnek Havuz izleme](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
+![Esnek havuz izleme](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
 Tıklatın **son bir saat için veritabanları için eDTU kullanımı** altında **esnek veritabanı izleme**. Bu açılır **veritabanı kaynak kullanımı** ve havuzdaki veritabanı kullanımının ayrıntılı bir görünüm sağlar. Sayfanın alt kısmındaki kılavuzu kullanarak, kendi kullanımı (en fazla 5 veritabanları) grafikte görüntülenecek havuzdaki tüm veritabanları seçebilirsiniz. Tıklayarak grafikte görüntülenen ölçümleri ve zaman penceresini özelleştirebilirsiniz **grafiği Düzenle**.
 
@@ -262,7 +261,7 @@ Esnek havuz sizin ayarladığınız bir kullanım eşiği geldiğinde, kişiler 
 
 4. Seçin bir **koşulu** (büyüktür, küçüktür, vs.) ve bir **eşik**.
 5. Seçin bir **süresi** ölçüm kuralı uyarı Tetikleyicileri önce karşılanması gereken süre.
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**’a tıklayın.
 
 Daha fazla bilgi için bkz: [Azure Portalı'nda SQL veritabanı uyarıları oluşturma](sql-database-insights-alerts-portal.md).
 
@@ -274,7 +273,7 @@ Ekleyebilir veya var olan bir havuzdan veritabanları kaldırabilirsiniz. Verita
 
 ![İçin havuz Ekle'ye tıklayın](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 
-![Eklemek için veritabanlarını seçin](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
+![Eklenecek veritabanlarını seçin](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
 
 ![Bekleyen havuzu ekleme](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
 
@@ -302,7 +301,7 @@ Oluşturun ve SQL Database esnek havuzlar Azure PowerShell ile yönetmek için a
 
 | Cmdlet | Açıklama |
 | --- | --- |
-|[Yeni-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Esnek veritabanı havuzu bir mantıksal SQL sunucusu üzerinde oluşturur.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Esnek veritabanı havuzu bir mantıksal SQL sunucusu üzerinde oluşturur.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Mantıksal bir SQL Server'da esnek havuzlar ve özellik değerlerini alır.|
 |[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Esnek veritabanı havuzu mantıksal SQL Server'da özelliklerini değiştirir. Örneğin, **StorageMB** bir esnek havuzun en fazla depolama değiştirmek için özellik.|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Esnek veritabanı havuzu mantıksal SQL Server'da siler.|
@@ -346,7 +345,7 @@ Oluşturma ve içinde var olan esnek havuzlar veritabanlarını taşımak veya T
 | --- | --- |
 |[Veritabanı (Azure SQL veritabanı) oluşturma](/sql/t-sql/statements/create-database-azure-sql-database)|Yeni bir veritabanı var olan bir havuzu veya tek bir veritabanı oluşturur. Yeni bir veritabanı oluşturmak için ana veritabanına bağlanması gerekir.|
 | [ALTER DATABASE (Azure SQL veritabanı)](/sql/t-sql/statements/alter-database-azure-sql-database) |Bir veritabanı içine, dışı veya esnek havuzlar arasında taşıyın.|
-|[VERİTABANINI (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
 |[sys.elastic_pool_resource_stats (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Tüm esnek veritabanı havuzları için kaynak kullanım istatistikleri, bir mantıksal sunucu döndürür. Her esnek veritabanı havuzu için 15 penceresi (dakika başına dört satır) bildirdiği saniyede için bir satır yok. Bu CPU, IO, günlük, depolama alanı tüketimi ve eşzamanlı istek/oturum kullanımı havuzdaki tüm veritabanları tarafından içerir.|
 |[sys.database_service_objectives (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Edition (hizmet katmanı), hizmet hedefi (fiyatlandırma katmanı) ve esnek havuz adı, varsa Azure SQL veritabanına veya Azure SQL Data Warehouse için döndürür. Azure SQL Database sunucusu ana veritabanında oturum açtıysanız, bilgiler tüm veritabanlarını döndürür. Azure SQL Data Warehouse için ana veritabanına bağlı olmalıdır.|
 

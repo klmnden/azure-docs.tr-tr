@@ -1,10 +1,10 @@
 ---
 title: "Oluştur ve noktası Site için sertifikalar verme: PowerShell: Azure | Microsoft Docs"
-description: "Bu makale, otomatik olarak imzalanan sertifika oluşturmak, ortak anahtarını dışarı aktarmak ve Windows 10 veya Windows Server 2016 PowerShell kullanarak istemci sertifikalarını oluşturmak için adımlar içerir."
+description: "Bir otomatik olarak imzalanan sertifika oluşturmak, ortak anahtarını dışarı aktarmak ve Windows 10 veya Windows Server 2016 PowerShell kullanarak istemci sertifikalarını oluşturmak."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: dc7031a42781d57689c067988239ff0528d8d83b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 5e041de12105770a16e43b5ff4f918a1eba92b2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Oluşturma ve Windows 10 veya Windows Server 2016 PowerShell kullanarak noktadan siteye bağlantıları için sertifikaları verme
 
@@ -137,3 +137,5 @@ Noktası Site yapılandırmanızı ile devam edin.
 
 * İçin **Resource Manager** dağıtım modeli adımları bkz [yapılandırma P2S yerel Azure sertifika kimlik doğrulaması kullanarak](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * İçin **Klasik** dağıtım modeli adımları bkz [bir sanal ağ (Klasik) bir noktadan siteye VPN bağlantısı yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+P2S için sorun giderme bilgileri için bkz: [sorun giderme Azure noktadan siteye bağlantıları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

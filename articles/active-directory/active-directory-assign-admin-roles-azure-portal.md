@@ -6,21 +6,20 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 02/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro;
-ms.openlocfilehash: de26452dfb32438ef56fa0c9a31a24b05987b48c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: it-pro
+ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -55,7 +54,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 * **Exchange Hizmet Yöneticisi**: Bu rolü olan kullanıcılar hizmet mevcut olduğunda Microsoft Exchange Online içinde genel izinlere sahiptir. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Genel yönetici / şirket Yöneticisi**: kullanıcılar bu rol ile Exchange Online, SharePoint Online ve Skype Kurumsal çevrimiçi gibi Azure Active Directory'ye federe Hizmetleri yanı sıra, Azure Active Directory içindeki tüm yönetim özelliklerine erişebilir. Azure Active Directory Kiracı için kaydolan kişi genel yönetici olur. Yalnızca küresel Yöneticiler diğer yönetici rollerini atayabilir. Şirketinizde birden fazla genel yönetici olabilir. Genel yönetici parolası herhangi bir kullanıcı ve diğer tüm yöneticilere sıfırlayabilirsiniz.
+* **Genel yönetici / şirket Yöneticisi**: kullanıcılar bu rol ile Exchange Online, SharePoint Online gibi Azure Active Directory'ye federe Hizmetleri yanı sıra, Azure Active Directory içindeki tüm yönetim özelliklerine erişebilir ve Skype Kurumsal çevrimiçi sürüm. Azure Active Directory Kiracı için kaydolan kişi genel yönetici olur. Yalnızca küresel Yöneticiler diğer yönetici rollerini atayabilir. Şirketinizde birden fazla genel yönetici olabilir. Genel yönetici parolası herhangi bir kullanıcı ve diğer tüm yöneticilere sıfırlayabilirsiniz.
 
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell Bu rolün "Şirket Yönetici" olarak tanımlanır. "Genel yönetici" olarak [Azure portal](https://portal.azure.com).
@@ -64,7 +63,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 * **Konuk davet eden**: Bu roldeki kullanıcılar, Azure Active Directory B2B Konuk kullanıcı davetleri yönetebilir, "Üyeleri davet edebilirsiniz" Kullanıcı ayarı Hayır olarak ayarlandığında geçerlidir B2B işbirliğinin hakkında daha fazla bilgi [hakkında Azure AD B2B işbirliği Önizleme](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Diğer izinler içermez.
 
-<!-- * **Information Protection Administrator**: Users with this role can access Azure Information Protection in the Azure portal. They can configure labels for the Azure Information Protection policy, manage protection templates, and activate protection.-->
+* **Bilgi Koruma Yöneticisi (Önizleme)**: Bu rolüne sahip kullanıcılar Azure Information Protection hizmetini yalnızca kullanıcı haklarına sahip. Kullanıcı haklarını kimlik koruma Merkezi, Privileged Identity Management, İzleyici Office 365 hizmet durumu veya Office 365 güvenlik ve Uyumluluk Merkezi izin verilmez. Azure Information Protection ilkesi için etiket yapılandırma, koruma şablonlarını yönetme ve koruma etkinleştirin.
 
 * **Intune hizmet yöneticisinin**: Bu rolü olan kullanıcılar hizmet mevcut olduğunda Microsoft Intune çevrimiçi içinde genel izinlere sahiptir. Ayrıca, bu rol İlkesi ilişkilendirme yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme becerisini içerir.
 
@@ -87,9 +86,9 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 * **Raporları okuyucu**: Bu rolüne sahip kullanıcılar, kullanım verileri ve Office 365 Yönetim Merkezi ve benimseme içerik raporları panosunda pack içinde Powerbı raporu görüntüleyebilirsiniz. Ayrıca, rol için oturum açma erişim sağlayan raporlar ve Azure AD etkinliğinde ve Microsoft Graph tarafından döndürülen veri raporlama API. Raporları okuyucu rolüne atanmış bir kullanıcı yalnızca ilgili kullanım ve benimseme ölçümleri erişebilir. Bunlar ayarları veya Exchange gibi ürün belirli Yönetim Merkezleri erişimi yapılandırmak için tüm yönetim izinleri yok. 
 
-* **Güvenlik Yöneticisi**: Bu rol ile kullanıcınız tüm güvenlik okuyucu rolüne yanı sıra güvenlikle ilgili hizmetler için yapılandırma yönetme olanağı salt okunur izinleri: Azure Active Directory kimlik koruması, Azure Information Protection, Privileged Identity Management ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Güvenlik Yöneticisi**: Bu rol ile kullanıcınız tüm güvenlik okuyucu rolüne yanı sıra güvenlikle ilgili hizmetler için yapılandırma yönetme olanağı salt okunur izinleri: Azure Active Directory kimlik koruması, Azure Information Protection, ayrıcalıklı kimlik yönetimi ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Güvenlik okuyucu**: kullanıcılar bu rol ile Azure Active Directory, kimlik koruması, Privileged Identity Management, aynı zamanda Özelliği Azure Active Directory oturum açma raporları okuma ve Denetim günlükleri için tüm bilgileri de dahil olmak üzere genel salt okunur erişim. Rol, ayrıca Office 365 güvenlik ve Uyumluluk Merkezi salt okunur izni verir. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Güvenlik okuyucu**: kullanıcılar bu rol ile Azure Active Directory, kimlik koruması, Privileged Identity Management, aynı zamanda Azure Active Directory oturum açma raporları okuma özelliği tüm bilgileri de dahil olmak üzere genel salt okunur erişim ve Denetim günlükleri. Rol, ayrıca Office 365 güvenlik ve Uyumluluk Merkezi salt okunur izni verir. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Hizmet desteği Yöneticisi**: Bu rolü olan kullanıcılar açabilir destek istekleri ile Microsoft Azure ve Office 365 Hizmetleri ve hizmet panosunu ve ileti merkezi Azure portal ve Office 365 Yönetici portalı görünümler için. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -128,11 +127,10 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 | --- | --- |
 | <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcılar ve diğer Yardım Masası yöneticileri için parolaları değiştirme</p>|<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Raporları görüntüleme</p>|
 
-<!--### Information Protection Administrator 
-In | Can do
+### <a name="information-protection-administrator-preview"></a>Bilgi Koruma Yöneticisi (Önizleme)
+İçinde | Yapabilirsiniz
 -------- | ---------
-Azure Information Protection | * Configure global, scoped policies and labels<br>* Manage, configure, update protection templates<br>* Enable protection activation for use 
-Privileged Identity Management | * Read permissions<br>* Cannot manage Azure AD role memberships or settings. --->
+Azure Information Protection | <li>Genel ve kapsamlı ilkelerinde etiketleri ve ayarlarını yapılandırma<li>Yapılandırma ve koruma şablonlarını yönetme<li>Etkinleştirme veya devre dışı koruması
  
 ### <a name="reports-reader"></a>Raporları okuyucusu 
 Yapabilirsiniz | Yapamaz

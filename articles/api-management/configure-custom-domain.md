@@ -11,15 +11,18 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>Özel bir etki alanı adı yapılandırma 
 
 Azure API Management (APIM) örneği oluşturduğunuzda, bir alt etki alanı adını azure api.net için atar (örneğin, `apim-service-name.azure-api.net`). Ancak, kendi etki alanı adı gibi kullanarak APIM noktalarınızı getirebilir **contoso.com**. Bu öğretici bir Azure API Management örneği tarafından kullanıma sunulan uç noktaları var olan bir özel DNS adını eşleştirmek nasıl gösterir.
+
+> [!WARNING]
+> Sertifika sabitleme uygulamalarını güvenliğini artırmak için kullanmak istediğiniz müşteriler, özel etki alanı adı kullanmalıdır > ve yönetmek, varsayılan sertifika sertifikası. Varsayılan Sertifika sabitleme müşteriler yerine olacaktır > sıkı bir bağımlılık bunlar yok denetlemek, sertifika özelliklerini, önerilen bir uygulama değil sürüyor.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

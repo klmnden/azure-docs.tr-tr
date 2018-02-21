@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 Log Analytics toplanan veri miktarı, verileri hangi sistemlerin gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Log Analytics hizmetine gönderilen veri miktarını görmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
@@ -36,7 +36,9 @@ Log Analytics toplanan veri miktarı, verileri hangi sistemlerin gönderdiği ve
 - Teklifler
     - Öngörü ve Analiz düğümleri
     - Otomasyon ve Kontrol düğümleri
-    - Güvenlik düğümleri
+    - Güvenlik düğümleri  
+- Performans
+    - Verileri toplamak ve dizinlemek için harcanan süre  
 - Sorgu listesi
 
 ![kullanım panosu](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görü
 
 Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
 
-## <a name="check-if-there-is-ingestion-latency"></a>Alma gecikmesi olup olmadığını denetleme
-Log Analytics ile, toplanan verilerin alınmasında beklenen bir gecikme olur.  Verilerin dizinini oluşturma ile bu verileri arama için kullanabilme arasında geçen tam süre öngörülemez. Daha önce panoya verileri toplama ve dizine alma işleminin ne kadar sürdüğünü gösteren bir performans grafiği eklemiştik ve yeni sorgu dilinin kullanıma alınmasıyla bu grafiği geçici olarak kaldırdık.  Biz güncelleştirilmiş veri alımı gecikme süresi ölçülerini kullanıma sunana kadar geçici bir çözüm olarak, her veri türündeki yaklaşık gecikmeyi görmek için aşağıdaki sorgu kullanılabilir.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> Alma gecikme süresi sorgusu geçmiş gecikme süresini göstermez ve yalnızca geçerli saat için sonuçları döndürmekle sınırlıdır.  *TimeGenerated* değeri, Ortak şema günlükleri için aracıda ve Özel günlükler için koleksiyonda doldurulur.  
->
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-log-searches.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.

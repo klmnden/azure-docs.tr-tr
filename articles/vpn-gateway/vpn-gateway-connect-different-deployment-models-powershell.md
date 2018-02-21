@@ -1,10 +1,10 @@
 ---
 title: "Klasik sanal ağlar Azure Resource Manager sanal ağlara bağlanma: PowerShell | Microsoft Docs"
-description: "Klasik sanal ağlar ve Resource Manager VPN ağ geçidi ve PowerShell kullanarak sanal ağlar arasında bir VPN bağlantısı oluşturma hakkında bilgi edinin"
+description: "Klasik sanal ağlar ve Resource Manager VPN ağ geçidi ve PowerShell kullanarak sanal ağlar arasında bir VPN bağlantısı oluşturun."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a3afd89a928854a1b03bfd4c5645ea12dbb638fc
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell kullanarak farklı dağıtım modellerindeki sanal ağları birbirine bağlama
 
-
-
-Bu makalede Resource Manager birbirleri ile iletişim kurmak için ayrı bir dağıtım modellerindeki kaynaklara izin vermek için sanal ağlar için Klasik sanal ağlara bağlanma gösterilmektedir. Bu makaledeki adımları PowerShell kullanın, ancak makaleyi bu listeden seçerek Azure Portalı'nı kullanarak bu yapılandırmayı de oluşturabilirsiniz.
+Bu makalede, Resource Manager birbirleri ile iletişim kurmak için ayrı bir dağıtım modellerindeki kaynaklara izin vermek için sanal ağlar için Klasik sanal ağlar bağlanmanıza yardımcı olur. Bu makaledeki adımları PowerShell kullanın, ancak makaleyi bu listeden seçerek Azure Portalı'nı kullanarak bu yapılandırmayı de oluşturabilirsiniz.
 
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -35,7 +33,7 @@ Bu makalede Resource Manager birbirleri ile iletişim kurmak için ayrı bir da�
 
 Bir Resource Manager Vnet'i klasik bir VNet bağlama, bir şirket içi site konumuna bir sanal ağa bağlanma benzer. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır. Farklı Aboneliklerde ve farklı bölgelerdeki sanal ağlar arasında bir bağlantı oluşturabilirsiniz. Dinamik ya da rota tabanlı ağ geçidi ile yapılandırılmamış olduğu sürece şirket içi ağlara bağlantılar zaten sanal ağlar da bağlanabilirsiniz. Sanal ağlar arası bağlantılar hakkında daha fazla bilgi için bu makalenin sonunda yer alan [Sanal ağlar arası bağlantılar hakkında SSS](#faq) bölümünü inceleyin. 
 
-Sanal ağlar aynı bölgede varsa, bunun yerine bunları VNet eşlemesi kullanmanın bağlayarak göz önünde bulundurun isteyebilirsiniz. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md). 
+Zaten bir sanal ağ geçidi yok ve oluşturmak istemiyorsanız, bunun yerine VNet eşlemesi kullanarak, sanal ağlara bağlanma göz önünde bulundurun isteyebilirsiniz. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="before"></a>Başlamadan önce
 
@@ -67,7 +65,7 @@ Sanal ağ adı RMVNet = <br>
 Kaynak grubu RG1 = <br>
 Sanal ağ IP adresi alanları 192.168.0.0/16 = <br>
 Alt ağ 1 192.168.1.0/24 = <br>
-GatewaySubnet 192.168.0.0/26 = <br>
+GatewaySubnet = 192.168.0.0/26 <br>
 Konum Doğu ABD = <br>
 Ağ geçidi genel IP adı gwpip = <br>
 Yerel ağ geçidi ClassicVNetLocal = <br>
@@ -76,10 +74,22 @@ Ağ geçidi IP adresleme yapılandırmasını gwipconfig =
 
 ## <a name="createsmgw"></a>1. Bölüm - Klasik VNet yapılandırın
 ### <a name="1-download-your-network-configuration-file"></a>1. Ağ yapılandırma dosyası indirme
-1. PowerShell konsolunda yükseltilmiş haklara sahip Azure hesabınızda oturum açın. Aşağıdaki cmdlet'i Azure hesabınız için oturum açma kimlik bilgilerini ister. Oturum açtıktan sonra, Azure PowerShell'de kullanabilmeniz için hesap ayarlarınızı indirir. Bu yapılandırmanın parçası tamamlamak için SM PowerShell cmdlet'lerini kullanın.
+1. PowerShell konsolunda yükseltilmiş haklara sahip Azure hesabınızda oturum açın. Aşağıdaki cmdlet'i Azure hesabınız için oturum açma kimlik bilgilerini ister. Oturum açtıktan sonra, Azure PowerShell'de kullanabilmeniz için hesap ayarlarınızı indirir. Bu bölümde Klasik Hizmet Yönetimi (SM) Azure PowerShell cmdlet'leri kullanılır.
 
   ```powershell
   Add-AzureAccount
+  ```
+
+  Azure aboneliğiniz alın.
+
+  ```powershell
+  Get-AzureSubscription
+  ```
+
+  Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
+
+  ```powershell
+  Select-AzureSubscription -SubscriptionName "Name of subscription"
   ```
 2. Azure ağı yapılandırma dosyanızda aşağıdaki komutu çalıştırarak dışa aktarın. Farklı bir konum gerekirse dışa aktarılacak dosya konumunu değiştirebilirsiniz.
 
@@ -169,13 +179,13 @@ RM VNet için VPN ağ geçidi oluşturmak için aşağıdaki yönergeleri izleyi
   Login-AzureRmAccount
   ``` 
    
-  Birden fazla aboneliğiniz varsa, Azure aboneliklerinize listesini alın.
+  Azure aboneliklerinizin bir listesini alın.
 
   ```powershell
   Get-AzureRmSubscription
   ```
    
-  Kullanmak istediğiniz aboneliği belirtin.
+  Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği belirtin.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
@@ -308,4 +318,3 @@ Ağ geçitleri arasında bir bağlantı oluşturmak için PowerShell gerekir. Po
 ## <a name="faq"></a>Sanal ağlar arası bağlantılar hakkında SSS
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-

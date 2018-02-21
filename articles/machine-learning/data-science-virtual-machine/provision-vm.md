@@ -13,34 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makine sağlama
 Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makine öğrenme için yaygın olarak kullanılan birkaç popüler araçları ile yapılandırılmış bir Windows Azure sanal makine (VM) görüntüsüdür. Bulunan araçlar şunlardır:
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) çalışma ekranı
-* [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/index) Geliştirici sürümü
+* [Azure Machine Learning](../preview/index.yml) çalışma ekranı
+* [Microsoft Server öğrenme makine](https://docs.microsoft.com/machine-learning-server/index) Geliştirici sürümü
 * Anaconda Python dağıtımı
 * Jupyter Not Defteri (ile R, Python, PySpark tekrar)
 * Visual Studio Community Edition
 * Power BI desktop
-* SQL Server 2017 Geliştirici sürümü
+* SQL Server 2017 Developer Edition
 * Yerel geliştirme ve test için tek başına Spark örneği
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html)
 * Machine learning ve veri analiz araçları
   * Derin öğrenme çerçeveler: AI çerçeveleri de dahil olmak üzere çeşitli [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [bağlayıcı](https://chainer.org/), mxNet, Keras VM dahil edilir.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): çevrimiçi, karma, allreduce, düşürülmesi, learning2search, etkin, gibi teknikler destekleme sistem öğrenme hızlı bir makine ve etkileşimli öğrenme.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): hızlı ve doğru boosted ağaç uygulama sağlayan bir araç.
-  * [Rattle](http://rattle.togaware.com/) (R analitik aracı için bilgi kolayca): veri analizi ve R ile GUI tabanlı veri keşfi kolay öğrenme ve otomatik R kod oluşturma ile modelleme makine ile çalışmaya başlama sağlayan bir araç.
+  * [Rattle](http://rattle.togaware.com/) (R analitik aracı için bilgi kolayca): bir aracı ile veri analizi ve makine öğrenimi R kolay hale getirir. GUI tabanlı veri keşfi ve modelleme otomatik R kod oluşturma ile içerir.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : görsel veri araştırma ve makine öğrenimi Java yazılım.
   * [Apache ayrıntıya](https://drill.apache.org/): bir şemasız SQL sorgu alt Hadoop, NoSQL ve bulut depolama.  Sorgulama NoSQL ve Power BI, Excel, Tableau gibi standart BI araçları dosyalarından etkinleştirmek için ODBC ve JDBC arabirimleri destekler.
 * Azure Machine Learning ve diğer Azure hizmetleriyle R ve Python için kitaplıkları kullanma
 * Git Bash'i GitHub, Visual Studio Team Services de dahil olmak üzere kaynak kodu depoları ile çalışmak için de dahil olmak üzere Git
-* Windows bağlantı noktalarını (awk azaltılabilir, perl, grep, Bul, wget, curl vb. dahil) çeşitli popüler Linux komut satırı yardımcı programlarını komut istemi üzerinden erişilebilir. 
+* Windows bağlantı noktalarını (awk, azaltılabilir, perl, grep, Bul, wget, curl, vb. dahil) çeşitli popüler Linux komut satırı yardımcı programlarını komut istemi üzerinden erişilebilir. 
 
 Veri Bilimi bulunurken bir dizi görev yineleme içerir:
 
@@ -64,7 +64,7 @@ Bir Microsoft Veri bilimi sanal makine oluşturmadan önce aşağıdakilere sahi
 
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makine oluşturma
-Örnek, Microsoft Veri bilimi sanal makine oluşturmak için adımlar şunlardır:
+Örnek, Microsoft Veri bilimi sanal makine oluşturmak için aşağıdaki adımları izleyin:
 
 1. Sanal makine üzerinde listeleme gidin [Azure portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
 2. Seçin **oluşturma** Sihirbazı'na gerçekleştirilecek altındaki düğmesini.![ yapılandırma verileri-Bilim-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
@@ -82,9 +82,9 @@ Bir Microsoft Veri bilimi sanal makine oluşturmadan önce aşağıdakilere sahi
    2. **Boyutu**: işlev gereksinimi ve maliyet kısıtlamaları karşılayan sunucu türlerinden birini seçin. Daha fazla seçenek VM boyutları "Tümünü Görüntüle" seçerek alabilirsiniz.
    3. **Ayarları**:
       
-      1. **Yönetilen diskler kullanan**: yönetilen VM için diskleri yönetmek için Azure istiyorsanız seçin.  Aksi halde yeni veya exitsting bir depolama hesabı belirtmeniz gerekir. 
-      2. **Diğer parametreler**: yalnızca genellikle varsayılan değerleri kullanın. Durumunda, varsayılan olmayan değerleri kullanmak isteyip istemediğinize karar belirli alanlar hakkında Yardım için bilgi bağlantısı üzerinden gelebilirsiniz.
-   4. **Özet**: girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın ve tıklatın **oluşturma**. **Not**: VM, seçtiğiniz sunucu boyutu işlem ötesinde herhangi bir ek ücret yok **boyutu** adım. 
+      1. **Yönetilen diskler kullanan**: yönetilen VM için diskleri yönetmek için Azure istiyorsanız seçin.  Aksi halde yeni veya var olan depolama hesabı belirtmeniz gerekir. 
+      2. **Diğer parametreler**: yalnızca genellikle varsayılan değerleri kullanın. Varsayılan olmayan değerleri kullanmayı istiyorsanız, belirli alanlar hakkında Yardım için bilgi bağlantı üzerine gelerek.
+    a. **Özet**: girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın ve tıklatın **oluşturma**. **Not**: VM, seçtiğiniz sunucu boyutu işlem ötesinde herhangi bir ek ücret yok **boyutu** adım. 
 
 > [!NOTE]
 > Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumu Azure portalda görüntülenir.
@@ -101,7 +101,7 @@ VM oluşturup sağlanan sonra yüklenmiş ve yapılandırılmış Araçları'nı
 
 ### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
 
-Azure Machine Learning çalışma ekranı, bir masaüstü uygulaması ve komut satırı arabirimi olur. Çalışma ekranı bunları gerçekleştirirken, veri hazırlık adımlarını öğrenir yerleşik veri hazırlık vardır. Ayrıca, geçmiş ve üretkenliğinizi destekleyecek not defteri tümleştirme çalıştıran proje yönetimi sağlar. TensorFlow, Bilişsel araç seti, Spark ML ve scikit dahil olmak üzere en iyi açık kaynak çerçeveleri yararlanabilir-Modellerinizi geliştirmeyi öğrenin. DSVM üzerinde bir masaüstü simgesi (yerel olarak Azure Machine Learning çalışma ekranı her kullanıcının % LOCALAPPDATA % dizine ayıklayın InstallAMLFromLocal) sağlayın. Çalışma ekranı kullanması gereken her bir kullanıcı bir yapması gereken zaman ekranının kendi örneği yüklemek için InstallAMLFromLocal masaüstü simgesini çift eylemi. Azure Machine Learning da oluşturur ve % LOCALAPPDATA%\amlworkbench\python ayıklanan bir kullanıcı başına Python ortamı kullanır.
+Azure Machine Learning çalışma ekranı, bir masaüstü uygulaması ve komut satırı arabirimi olur. Çalışma ekranı bunları gerçekleştirirken, veri hazırlık adımlarını öğrenir yerleşik veri hazırlık vardır. Ayrıca, geçmiş ve üretkenliğinizi destekleyecek not defteri tümleştirme çalıştıran proje yönetimi sağlar. TensorFlow, Bilişsel araç seti, Spark ML ve scikit dahil olmak üzere en iyi açık kaynak çerçeveleri yararlanabilir-Modellerinizi geliştirmeyi öğrenin. DSVM üzerinde bir masaüstü simgesi (yerel olarak Azure Machine Learning çalışma ekranı her kullanıcının % LOCALAPPDATA % dizine ayıklayın InstallAMLFromLocal) sağlayın. Çalışma ekranı kullanması gereken her bir kullanıcı bir yapması gereken zaman ekranının kendi örneği yüklemek için InstallAMLFromLocal Masaüstü simgesine çift tıklatma eylemi. Azure Machine Learning da oluşturur ve % LOCALAPPDATA%\amlworkbench\python ayıklanan bir kullanıcı başına Python ortamı kullanır.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Geliştirici sürümü
 Microsoft enterprise kitaplıkları analizi için ölçeklenebilir R veya Python için kullanmak istiyorsanız, VM'nin (daha önce Microsoft R sunucusu olarak da bilinir) Microsoft ML Server Geliştirici sürümü yüklü olduğundan. Microsoft ML Server kapsamlı dağıtılabilir kurumsal sınıf analytics Platform R ve Python için kullanılabilir ve ölçeklenebilir, ticari olarak ve güvenli desteklenir. Büyük veri istatistikleri, Tahmine dayalı modelleme ve makine öğrenimi yetenekleri çeşitli destekleyici, ML sunucusu analytics – keşfi, analizi, Görselleştirme ve modelleme tam aralığını destekler. R ile kullanarak ve açık kaynak R ve Python genişletme Microsoft ML Server tamamen uyumludur / Python komut dosyaları, İşlevler ve CRAN / PIP / Conda paketleri, Kurumsal verileri çözümlemek için ölçeklendirin. Ayrıca, açık kaynak R bellek içi sınırlamaları'nin veri paralel ve öbekli işlenmesini ekleyerek giderir. Bu verileri analytics çok daha büyük ne ana bellekte uygun çalıştırmanıza olanak sağlar.  Visual Studio Community Edition VM dahil R veya Python ile çalışmak için tam bir IDE sağlar Visual Studio uzantısı için Visual Studio ve Python araçları için R araçları içerir. Ayrıca diğer IDE de gibi sağladığımız [Rstudio'dan](http://www.rstudio.com) ve [PyCharm Community edition](https://www.jetbrains.com/pycharm/) VM üzerinde. 
@@ -114,7 +114,7 @@ Python kullanarak geliştirme için Anaconda Python 2.7 ve 3.5 dağıtım yükle
 > 
 > 
 
-Anaconda Python 2.7 C:\Anaconda altında yüklenir ve c:\Anaconda\envs\py35 altında Anaconda Python 3.5 yüklenir. Bkz: [PTVS belgelerine](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) ayrıntılı adımlar için. 
+Anaconda Python 2.7 C:\Anaconda altında yüklenir ve c:\Anaconda\envs\py35 altında Anaconda Python 3.5 yüklenir. Bkz: [PTVS belgelerine](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) ayrıntılı adımlar için. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 Anaconda dağıtım ayrıca bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortamı bulunur. Jupyter not defteri sunucu Python 2.7, Python 3.5, PySpark, Jale ve R tekrar ile önceden yapılandırılmış. "Jupyter Jupyter sunucunun başlatmak ve not defteri sunucusuna erişmek için tarayıcıyı başlatın için Not Defteri" adlı bir masaüstü simgesi yoktur. 
@@ -134,7 +134,7 @@ Visual Studio Community edition VM'de yüklü. Küçük ekipleri ve değerlendir
 > 
 > 
 
-### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Geliştirici sürümü
+### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer edition
 Geliştirici sürümü SQL Server 2017 veritabanı Analytics'i çalıştırmak için ML hizmetleriyle, R veya Python VM'de sağlanır. ML hizmetler geliştirmek ve akıllı uygulamaları dağıtmak için bir platform sağlar. Zengin ve güçlü bu diller ve topluluktan birçok paketleri modelleri oluşturun ve SQL Server verileri için tahminleri oluşturmak için kullanabilirsiniz. ML Hizmetleri (veritabanı-) R ve Python dil SQL Server içinde tümleştirir çünkü analytics veri yakın kullanmaya devam edebilir. Bu veri taşıma ile ilişkili güvenlik riskleri ve maliyetlerini ortadan kaldırır.
 
 > [!NOTE]
@@ -183,8 +183,8 @@ Panolar ve harika görselleştirmeleri oluşturmanıza yardımcı olmak için **
 | Anaconda Python 3.5 ortamı |c:\Anaconda\envs\py35 |
 | Microsoft ML Server tek başına Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Varsayılan R örneği (ML Server tek başına) |C:\Program Files\Microsoft\ML Server\R_SERVER |
-| SQL ML Hizmetleri veritabanı örnek dizini |C:\Program Files\Microsoft SQL Server\MSSQL14. MSSQLSERVER |
-| Azure Machine Learning çalışma ekranı (her bir kullanıcı) | %LocalAppData%\amlworkbench | 
+| SQL ML Hizmetleri veritabanı örnek dizini |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
+| Azure Machine Learning çalışma ekranı (her bir kullanıcı) | %localappdata%\amlworkbench | 
 | Çeşitli araçlar |c:\dsvm\tools |
 
 > [!NOTE]
@@ -196,9 +196,9 @@ Panolar ve harika görselleştirmeleri oluşturmanıza yardımcı olmak için **
 Öğrenme ve araştırması devam etmek için İleri bazı adımlar şunlardır. 
 
 * Çeşitli veri bilimi araçları veri bilimi VM Başlat menüsünden tıklatıp menüde listelenen araçları kullanıma keşfedin.
-* Ürün ziyaret ederek Azure Machine Learning Hizmetleri ve çalışma ekranı hakkında bilgi edinin [quickstart ve öğreticiler sayfası](https://docs.microsoft.com/azure/machine-learning/preview/). 
+* Ürün ziyaret ederek Azure Machine Learning Hizmetleri ve çalışma ekranı hakkında bilgi edinin [quickstart ve öğreticiler sayfası](../preview/index.yml). 
 * Gidin **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** veri analizi Kurumsal ölçekte destekler R RevoScaleR kitaplıkta kullanan örnekler için.  
 * Makaleyi okuyun: [veri bilimi sanal makine yapabileceğiniz 10 şey](http://aka.ms/dsvmtenthings)
-* Sistematik olarak kullanarak uçtan uca analitik çözümleri oluşturmayı öğrenin [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
+* Sistematik olarak kullanarak uçtan uca analitik çözümleri oluşturmayı öğrenin [takım veri bilimi işlemi](../team-data-science-process/index.yml).
 * Ziyaret [Azure AI galeri](http://gallery.cortanaintelligence.com) Azure üzerinde Azure Machine learning ve ilgili verileri kullanan machine learning ve veri analizi için örnek Hizmetleri. Ayrıca bir simge üzerinde sağladık **Başlat** menüsünde ve masaüstünde sanal makinenin Bu galeri.
 

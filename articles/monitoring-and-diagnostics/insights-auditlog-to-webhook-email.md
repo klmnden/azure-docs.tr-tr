@@ -1,6 +1,6 @@
 ---
-title: "Bir Web kancası Azure etkinlik günlüğü uyarılar çağrı | Microsoft Docs"
-description: "Rota etkinlik günlüğü olaylarını özel eylemler için diğer hizmetler. Örneğin SMS gönder, hatalar oturum veya sohbet ve mesajlaşma hizmeti üzerinden bir takım bildirin."
+title: "Bir Web kancası bir Azure etkinlik günlüğü uyarı çağrı | Microsoft Docs"
+description: "Etkinlik günlüğü olaylarını diğer hizmetlere özel eylemler için rota öğrenin. Örneğin, SMS iletileri göndermek, hatalar oturum veya sohbet veya ileti sistemi hizmeti aracılığıyla bir takım bildirin."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 08467aed4e1601b32598fc42515d9c38b601a9d4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Bir Web kancası Azure etkinlik günlüğü uyarılar çağırın
-Web kancası işlem sonrası ya da özel eylemler için diğer sistemlere Azure bir uyarı bildirimine yol olanak sağlar. SMS gönder, hatalar oturum, sohbet ve mesajlaşma Servisleri üzerinden bir takım bildirmek veya başka eylemler herhangi bir sayıda yapmak hizmetlere yönlendirmek için bir uyarı durumunda bir Web kancası kullanın. Bu makalede, Azure etkinlik günlüğü uyarı ateşlenir olduğunda çağrılacak bir Web kancası ayarlanacağını açıklar. Ayrıca, bir Web kancası için HTTP POST için yükü nasıl göründüğünü gösterir. Kurulum ve bir Azure ölçüm uyarı şeması hakkında bilgi için [bunun yerine bu sayfaya bakın](insights-webhooks-alerts.md). Etkinleştirildiğinde bir e-posta göndermek için bir etkinlik günlüğü alarm de ayarlayabilirsiniz.
+# <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Bir Web kancası bir Azure etkinlik günlüğü uyarı çağırın
+Web kancası diğer sistemlere özel eylemler veya sonrası işleme için Azure bir uyarı bildirimine yönlendirmek için kullanabilirsiniz. Sohbet veya Mesajlaşma Hizmetleri aracılığıyla veya diğer çeşitli eylemler için bir takım bildirmek için hatalar, oturum, SMS iletileri göndermek Hizmetleri yönlendirmek için bir uyarı durumunda bir Web kancası kullanabilirsiniz. Bir uyarı etkinleştirildiğinde, e-posta göndermek için bir etkinlik günlüğü alarm de ayarlayabilirsiniz.
+
+Bu makalede, bir Azure etkinlik günlüğü uyarı ateşlenir olduğunda çağrılacak bir Web kancası ayarlamak açıklar. Ayrıca, bir Web kancası için HTTP POST için yükü nasıl göründüğünü gösterir. Kurulum ve Azure ölçüm uyarı şeması hakkında daha fazla bilgi için bkz: [bir Web kancası Azure ölçüm uyarıyı yapılandırmak](insights-webhooks-alerts.md). 
 
 > [!NOTE]
-> Bu özellik şu anda önizlemede ve belirli bir noktada gelecekte kaldırılacaktır.
+> Şu anda Azure etkinlik günlüğü uyarı üzerinde bir Web kancası çağırma destekleyen Önizleme özelliğidir.
 >
 >
 
-Bir etkinlik günlüğü uyarı kullanarak ayarlayabilirsiniz [Azure PowerShell cmdlet'leri](insights-powershell-samples.md#create-metric-alerts), [platformlar arası CLI](insights-cli-samples.md#work-with-alerts), veya [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx). Şu anda bir Azure portalını kullanarak ayarlanamıyor.
+Kullanarak bir etkinlik günlüğü alarm kurabilirsiniz [Azure PowerShell cmdlet'lerini](insights-powershell-samples.md#create-metric-alerts), [platformlar arası CLI](insights-cli-samples.md#work-with-alerts), veya [Azure İzleyici REST API'lerini](https://msdn.microsoft.com/library/azure/dn933805.aspx). Şu anda bir etkinlik günlüğü alarm ayarlamak için Azure Portalı'nı kullanamazsınız.
 
-## <a name="authenticating-the-webhook"></a>Web kancası kimlik doğrulaması
-Web kancası bu yöntemlerden birini kullanarak doğrulayabilir:
+## <a name="authenticate-the-webhook"></a>Web kancası kimlik doğrulaması
+Web kancası bu yöntemlerden birini kullanarak kimlik doğrulaması:
 
-1. **Belirteç tabanlı bir yetkilendirme** -URI kaydedilir belirteci Kimliğine sahip, örneğin, Web kancası`https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Temel yetkilendirme** -URI kaydedilir bir kullanıcı adı ve parola, örneğin, Web kancası`https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+* **Belirteç tabanlı bir yetkilendirme**. Web kancası belirteci bir kimliğe sahip URI kaydedilir Örneğin, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+* **Temel yetkilendirme**. Web kancası URI, bir kullanıcı adı ve parola ile kaydedilir. Örneğin: `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>Yükü şeması
-GÖNDERME işlemini aşağıdaki JSON yükü ve tüm etkinlik günlüğü tabanlı uyarılar için şema içerir. Bu şemayı ölçüm tabanlı uyarılar tarafından kullanılan benzer.
+GÖNDERME işlemini aşağıdaki JSON yükü ve tüm etkinlik günlüğü tabanlı uyarılar için şema içerir. Bu şemayı ölçüm tabanlı uyarılar için kullanılan bir benzer.
 
 ```json
 {
@@ -104,36 +106,36 @@ GÖNDERME işlemini aşağıdaki JSON yükü ve tüm etkinlik günlüğü tabanl
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| durum |Ölçüm uyarılar için kullanılır. Her zaman "etkin" için etkinlik günlüğü Uyarıları ayarlayın. |
-| bağlam |Olayın bağlamı. |
+| durum |Ölçüm uyarılar için kullanılır. Etkinlik günlüğü uyarılar için her zaman için etkinleştirildi ayarlayın.|
+| bağlam |Olay bağlamı. |
 | activityLog | Olay günlüğü özellikleri.|
-| Yetkilendirme |Olay RBAC özellikleri. Bunlar genellikle "eylem", "rol" ve "scope." içerir |
+| Yetkilendirme |Olay rol tabanlı erişim denetimi (RBAC) özellikleri. Bu özellikleri genellikle dahil **eylem**, **rol**, ve **kapsam**. |
 | action | Uyarı tarafından yakalanan eylem. |
-| Kapsam | Uyarı (yani kapsamı Kaynak).|
-| kanallar | İşlem |
-| Talepleri | Bir bilgi koleksiyonudur adresindeki ilişkili talep. |
-| çağıran |GUID veya işlemi, UPN Talebi veya kullanılabilirliğine göre SPN talep gerçekleştiren kullanıcının kullanıcı adı. Belirli sistem çağrıları için null olabilir. |
-| correlationId |Genellikle bir GUID dize biçiminde. Correlationıd değeri olaylarla aynı büyük eyleme ait ve genellikle bir correlationıd değeri paylaşın. |
-| açıklama |Uyarı oluşturulması sırasında uyarı açıklaması olarak ayarla. |
-| eventSource |Azure hizmet veya olayı oluşturan altyapı adı. |
+| Kapsam | (Kaynak) uyarı kapsamı.|
+| kanallar | İşlem. |
+| Talepleri | Şekliyle bilgilerin toplanması için talep ilişkilendirir. |
+| çağıran |İşlemi, UPN Talebi veya kullanılabilirliğine göre SPN talep gerçekleştiren kullanıcının kullanıcı adı veya GUID. Bazı sistem çağrıları için boş bir değer olabilir. |
+| correlationId |Genellikle bir GUID dize biçiminde. Olaylarla **correlationıd değeri** aynı büyük eyleme ait. Bunlar genellikle aynı olan **correlationıd değeri** değeri. |
+| açıklama |Uyarı oluşturulduğunda ayarlandı uyarı açıklaması. |
+| eventSource |Azure hizmet veya olayı oluşturan altyapısı adı. |
 | eventTimestamp |Olayın gerçekleştiği süre. |
-| eventDataId |Olay için benzersiz tanımlayıcı. |
-| düzey |Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı." |
+| eventDataId |Olay benzersiz tanımlayıcısı. |
+| düzey |Aşağıdaki değerlerden birini: Kritik hata, uyarı, bilgilendirici veya ayrıntılı. |
 | operationName |İşlemin adı. |
-| operationId |Tek bir işlem için karşılık gelen olayları arasında paylaşılan genellikle bir GUID. |
-| resourceId |Etkilenen kaynağının kaynak kimliği. |
-| resourceGroupName |Etkilenen kaynak için kaynak grubunun adı |
-| resourceProviderName |Etkilenen kaynağının kaynak sağlayıcısı. |
-| durum |Dize. İşlem durumu. Genel değerler şunlardır: "Başlatıldı", "Sürüyor", "Başarılı", "Başarısız", "Active", "Çözülmüş". |
-| alt durum |Genellikle, karşılık gelen REST çağrısı HTTP durum kodunu içerir. Ayrıca, bir alt durum açıklayan diğer dizeleri de içerebilir. Ortak alt durum değerleri şunları içerir: Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), Hayır içeriği (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503), ağ geçidi zaman aşımı (HTTP durum kodu: 504) |
+| operationId |Genellikle olaylar arasında paylaşılan bir GUID. GUID, genellikle tek bir işleme karşılık gelir. |
+| resourceId |Etkilenen kaynağı kaynak kimliği. |
+| resourceGroupName |Etkilenen kaynağı için kaynak grubu adı. |
+| resourceProviderName |Etkilenen kaynağı kaynak sağlayıcısı. |
+| durum |İşlemin durumunu gösteren bir dize değeri. Ortak değerleri başlatıldı, devam eden, başarılı, başarısız, etkin ve Çözümlenmiş içerir. |
+| alt durum |Genellikle, karşılık gelen REST çağrısı HTTP durum kodunu içerir. Ayrıca, bir alt durum açıklayan diğer dizeleri de içerebilir. Ortak substatus değerler Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), Hayır içeriği (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503) ve ağ geçidi zaman aşımı (HTTP durum kodu : 504). |
 | subscriptionId |Azure abonelik kimliği |
 | submissionTimestamp |Olay istek işlenmeden Azure hizmeti tarafından oluşturulduğu saat. |
 | resourceType | Olayı oluşturan kaynak türü.|
-| properties |Kümesi `<Key, Value>` çiftleri (yani `Dictionary<String, String>`) olay ayrıntılarını içerir. |
+| properties |Olay ayrıntılarını olan anahtar/değer çiftleri kümesi. Örneğin, `Dictionary<String, String>`. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Etkinlik günlüğü hakkında daha fazla bilgi edinin](monitoring-overview-activity-logs.md)
-* [Azure Otomasyonu komut dosyaları (Runbook'lar) Azure uyarılar yürütme](http://go.microsoft.com/fwlink/?LinkId=627081)
-* [Mantıksal uygulama Twilio aracılığıyla bir SMS gelen Azure uyarı göndermek için kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Bu örnek için ölçüm uyarılar, ancak bir etkinlik günlüğü uyarı ile çalışması için değiştirilmesi.
-* [Bir Azure uyarıdan Slack ileti göndermek için mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Bu örnek için ölçüm uyarılar, ancak bir etkinlik günlüğü uyarı ile çalışması için değiştirilmesi.
-* [Bir Azure uyarıdan bir Azure kuyruğuna ileti göndermek için mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Bu örnek için ölçüm uyarılar, ancak bir etkinlik günlüğü uyarı ile çalışması için değiştirilmesi.
+* Daha fazla bilgi edinmek [etkinlik günlüğü](monitoring-overview-activity-logs.md).
+* Bilgi edinmek için nasıl [Azure Otomasyon betikleri (runbook'lar) Azure uyarılar yürütme](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Bilgi edinmek için nasıl [Azure bir uyarıdan Twilio aracılığıyla SMS iletisi göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Bu örnek, ölçüm uyarılar için olmakla birlikte, bir etkinlik günlüğü uyarı ile çalışacak şekilde değiştirebilirsiniz.
+* Bilgi edinmek için nasıl [Azure bir uyarıdan Slack ileti göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Bu örnek, ölçüm uyarılar için olmakla birlikte, bir etkinlik günlüğü uyarı ile çalışacak şekilde değiştirebilirsiniz.
+* Bilgi edinmek için nasıl [Azure bir uyarıdan bir Azure kuyruğuna ileti göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Bu örnek, ölçüm uyarılar için olmakla birlikte, bir etkinlik günlüğü uyarı ile çalışacak şekilde değiştirebilirsiniz.

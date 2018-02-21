@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: Azaltmayı giderme
       href: time-series-insights-environment-mitigate-latency.md
+    - name: Veri saklamayı anlama
+      href: time-series-insights-concepts-retention.md
     - name: Tanılama ve sorun giderme
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: Geliştirme
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: IoT Hub'a bağlanma
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Veri saklamayı yapılandırma
+      href: time-series-insights-how-to-configure-retention.md
     - name: Başvuru veri kümesi oluşturma
       href: time-series-insights-add-reference-data-set.md
     - name: Olayları gönderme

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 531b162f2c3d6165c3ca8a54a5822bc10e7c0eff
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL veritabanı kaynak sınırları
 
@@ -53,7 +53,7 @@ Tüm ölçek artırma işleminin süresi hem veritabanı boyutuna hem de değiş
 
 * Daha yüksek bir hizmet katmanı veya performans düzeyini yükseltme yapıyorsanız, daha büyük bir boyutu (maxsize) açıkça belirtmediğiniz sürece veritabanı en büyük boyutunu artırmaz.
 * Bir veritabanı düşürmek için kullanılan veritabanı alanı hedef hizmeti katmanını ve performans düzeyini boyutu izin verilen üst sınırdan küçük olması gerekir. 
-* Öğesinden önceki sürüme indirme zaman **Premium** veya **Premium RS** için **standart** katmanı, bir ek depolama alanı maliyet geçerlidir her ikisi de (1) veritabanının en büyük boyutu bulunan destekleniyorsa hedef performans düzeyi ve (2) en büyük boyut hedef performans düzeyi dahil depolama miktarını aşıyor. En büyük boyut 500 GB P1 veritabanıyla S3 için downsized, örneğin, daha sonra ek depolama alanı maliyeti S3 500 GB en büyük boyutunu destekler ve yalnızca 250 GB birlikte depolama miktarını olduğundan geçerlidir. Bu nedenle, ek depolama alanı miktarını 500 GB – 250 GB = 250 GB'tır. Ek depolama fiyatlandırma için bkz: [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). Kullanılan gerçek miktarını dahil depolama miktarına küçükse, ardından bu ekstra maliyet veritabanı boyutu üst sınırını dahil edilen miktarını azaltarak önlenebilir. 
+* Öğesinden önceki sürüme indirme zaman **Premium** için **standart** katmanı, bir ek depolama alanı maliyet geçerlidir hem max (1 veritabanının boyutu hedef performans düzeyinde desteklenir ve (2 en fazla boyutu aşıyor Hedef performans düzeyi dahil depolama miktarı. En büyük boyut 500 GB P1 veritabanıyla S3 için downsized, örneğin, daha sonra ek depolama alanı maliyeti S3 500 GB en büyük boyutunu destekler ve yalnızca 250 GB birlikte depolama miktarını olduğundan geçerlidir. Bu nedenle, ek depolama alanı miktarını 500 GB – 250 GB = 250 GB'tır. Ek depolama fiyatlandırma için bkz: [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). Kullanılan gerçek miktarını dahil depolama miktarına küçükse, ardından bu ekstra maliyet veritabanı boyutu üst sınırını dahil edilen miktarını azaltarak önlenebilir. 
 * Bir veritabanıyla yükseltirken [coğrafi çoğaltma](sql-database-geo-replication-portal.md) etkinse, onun ikincil veritabanları için istediğiniz performans katmanı birincil veritabanı (genel rehberlik) yükseltmeden önce yükseltin. Farklı bir yükseltme yaparken, ikincil veritabanını yükseltmeden önce gereklidir.
 * Bir veritabanını önceki sürüme indirme zaman [coğrafi çoğaltma](sql-database-geo-replication-portal.md) istediğiniz performans katmanına birincil veritabanlarını ikincil veritabanı (genel rehberlik) eski sürüme düşürmeyi önce düşürmek etkin. Farklı bir sürüme eski sürüme düşürmeyi, birincil veritabanı eski sürüme düşürmeyi ilk gereklidir.
 * Geri yükleme hizmeti teklifleri, çeşitli hizmet katmanları için farklılık gösterir. İçin olana varsa **temel** katmanı, daha düşük bir yedekleme Bekletme dönemi - bkz [Azure SQL veritabanı yedeklemeleri](sql-database-automated-backups.md).
@@ -111,6 +111,10 @@ Artırmak veya ihtiyaçlarını kullanarak kaynağını temel bir esnek havuz i�
 - Genel olarak, veritabanı veya maksimum Edtu başına veritabanı başına minimum edtu'larını değiştirmek için süre beş dakikadır veya daha az.
 - Havuz Edtu downsizing, kullanılan havuzu alanı hedef hizmet katman ve havuz edtu'larını boyutu izin verilen üst sınırdan küçük olması gerekir.
 - Havuz Edtu rescaling, ek depolama alanı maliyeti (1 depolama en büyük havuz boyutu hedef havuzu tarafından desteklenir ve (2 depolama en büyük boyut hedef havuzu dahil depolama miktarını aşarsa uygulanır. 100 eDTU standart havuzu en büyük boyutu 100 GB ile 50 standart havuz eDTU downsized, örneğin, daha sonra ek depolama alanı maliyeti en büyük boyutu 100 GB hedef havuzu destekler ve dahil edilen depolama miktarını yalnızca 50 GB olduğundan geçerlidir. Bu nedenle, ek depolama alanı miktarı 100 GB – 50 GB = 50 GB'tır. Ek depolama fiyatlandırma için bkz: [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). Kullanılan gerçek miktarını dahil depolama miktarına küçükse, ardından bu ekstra maliyet veritabanı boyutu üst sınırını dahil edilen miktarını azaltarak önlenebilir. 
+
+## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Sunucular ve veritabanları maksimum sayısı nedir?
+
+Sunucu her bölge abonelik başına en fazla sayısını 21'dir. Veritabanları sunucu başına en fazla 5000'dir. Esnek sınırlar kurulan experimentally temel alınarak yük boyut analizi, mantıksal ana telemetri koleksiyonu analiz ve birkaç diğer yönleri şunlardır. DTU kota dahilinde kalmasını sağlanan bu sınırı aşan isteyebilir. Veritabanı sayısı ve sunucuları büyük hale geldiğinde, karşılaşır sorun kaynak istatistikleri mantıksal asıl ve yönetim işlemlerini Çekişme koleksiyonudur. Bu sorunları önemli değildir; Bunlar, gecikme süresi artacaktır.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Veritabanı ve esnek havuz kaynak sınırlarını ulaşıldığında ne olur?
 

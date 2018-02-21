@@ -4,7 +4,7 @@ description: "Bir alt ağ, sanal ağ hizmeti uç noktası olarak işaretleyin. A
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/05/2018
+ms.date: 02/13/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 90c9aeac46240466bc28cf4c32bb5ff7ef443455
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -144,6 +144,12 @@ Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınır
     - [Siteden siteye (S2S) sanal özel ağ (VPN)][vpn-gateway-indexmd-608y]
     - Aracılığıyla şirket içi [ExpressRoute][expressroute-indexmd-744v]
 
+#### <a name="considerations-when-using-service-endpoints"></a>Hizmet uç noktaları kullanmayla ilgili konular
+Azure SQL veritabanı için hizmet uç noktaları kullanırken, aşağıdaki konuları gözden geçirin:
+
+- **Azure SQL veritabanı genel IP'ler için giden gereklidir**: bağlantı izin vermek için Azure SQL veritabanı IP'leri için ağ güvenlik grupları (Nsg'ler) açılır. NSG kullanarak bunu yapabilirsiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) Azure SQL veritabanı için.
+- **Azure veritabanı PostgreSQL ve MySQL için desteklenmeyen**: hizmet uç noktaları PostgreSQL veya MySQL için Azure veritabanı için desteklenmiyor. SQL veritabanı için hizmet uç noktaları etkinleştirme bu hizmetleri için bağlantı çalışmamasına neden olur. Bir azaltma bu sahibiz; temasa  *dmalik@microsoft.com* .
+
 #### <a name="expressroute"></a>ExpressRoute
 
 Ağ kullanımı aracılığıyla Azure ağına bağlı olup olmadığını [ExpressRoute][expressroute-indexmd-744v], her bağlantı hattı adresindeki Microsoft Edge iki ortak IP adresi ile yapılandırılır. İki IP adresi Microsoft Services gibi Azure depolama için Azure ortak eşleme kullanarak bağlanmak için kullanılır.
@@ -171,6 +177,8 @@ Azure vm'lerinde Azure SQL veritabanı sorgu Düzenleyicisi'ni dağıtılır. Bu
 #### <a name="table-auditing"></a>Tablo denetim
 Şu anda SQL veritabanınızın denetimini etkinleştirmek için iki yolu vardır. Azure SQL sunucusunda hizmet uç noktaları etkinleştirdikten sonra tablo denetimi başarısız olur. Burada azaltma Blob denetimi taşımaktır.
 
+#### <a name="impact-on-data-sync"></a>Veri Eşitleme üzerindeki etkisi
+Azure SQLDB Azure IP'leri kullanarak veritabanlarınız bağlanan veri eşitleme özelliği vardır. Hizmet uç noktaları kullanırken, kapanır, büyük olasılıkla **tüm Azure hizmetlerini izin** mantıksal sunucunuza erişimi. Bu veri eşitleme özelliği çalışmamasına neden olur.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure storage ile VNet hizmet uç noktaları kullanma etkisi
 
@@ -178,7 +186,7 @@ Azure depolama, depolama hesabı bağlantı sınırlamak izin veren aynı özell
 Bir Azure SQL Server tarafından kullanılan bir depolama hesabıyla bu özelliği kullanmayı seçerseniz, sorunlar çalıştırabilirsiniz. Sonraki bir listesi ve bu tarafından etkilenen Azure SQLDB özelliklerinin tartışma olduğu.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase, veri depolama hesaplarından Azure SQLDW yüklemek için yaygın olarak kullanılır. Yalnızca bir sanal alt ağ kümesi erişim verilerini yükleme depolama hesabı sınırları, hesap PolyBase bağlantısını çalışmamasına neden olur.
+PolyBase, veri depolama hesaplarından Azure SQLDW yüklemek için yaygın olarak kullanılır. Yalnızca bir sanal alt ağ kümesi erişim verilerini yükleme depolama hesabı sınırları, hesap PolyBase bağlantısını çalışmamasına neden olur. Bu azaltma yoktur; temasa  *dmalik@microsoft.com*  daha fazla bilgi için.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob denetimi
 BLOB denetimi denetim günlüklerini kendi depolama hesabına iter. Bu depolama hesabını NCEKİ Hizmeti uç noktaları özelliğini kullanıyorsa, depolama hesabı Azure SQLDB bağlantısını kesintiye uğrar.

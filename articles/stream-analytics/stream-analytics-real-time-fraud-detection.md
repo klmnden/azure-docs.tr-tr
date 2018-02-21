@@ -1,3 +1,26 @@
+---
+title: "Akış analizi: Gerçek zamanlı sahtekarlık algılama | Microsoft Docs"
+description: "Akış Analizi ile gerçek zamanlı sahtekarlık algılama çözüm oluşturmayı öğrenin. Gerçek zamanlı Olay işleme için bir olay hub'ı kullanın."
+keywords: "anomali algılama, sahtekarlık algılama, gerçek zamanlı anomali algılama"
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
 Bu öğretici bir Azure akış analizi kullanma uçtan uca çizimi sağlar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz: 
@@ -14,7 +37,7 @@ Bu öğreticide, telefon araması verilerine dayalı gerçek zamanlı sahtekarl�
 
 Telekomünikasyon şirket, fazla miktarda verinin gelen çağrıları için sahiptir. Böylece müşteriler bildir veya belirli bir sayıda hizmet kapatmak sahte çağrıları gerçek zamanlı olarak algılamak şirket ister. SIM sahtekarlık bir tür aynı kimliğe yaklaşık aynı zamanda ancak coğrafi olarak farklı konumlarda gelen birden çok çağrıları içerir. Bu tür sahtekarlık algılamak için gelen telefon kayıtları incelemek ve belirli kalıpları aramak şirketin gerekir; bu durumda, aynı anda farklı ülkelerde yapılan aramalar için. Bu kategoriye herhangi bir telefon kayıt sonraki analiz için depolama alanına yazılır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide, örnek telefon araması meta verilerini oluşturur bir istemci uygulaması kullanarak, telefon araması veri benzetimi. Bazı uygulama üreten kayıtlar gibi sahte çağrıları arayın. 
 
@@ -26,11 +49,11 @@ Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
     >[!NOTE]
     >Windows indirilen .zip dosyası engelleyebilir. Unzip olamaz, dosyaya sağ tıklayın ve seçin **özellikleri**. "Bu dosya başka bir bilgisayardan gelen ve bu bilgisayarın korunmasına yardımcı olmak için engellenmiş olabilir" iletisini görürseniz, seçin **Engellemeyi Kaldır** seçeneğini ve ardından **Uygula**.
 
-Akış analizi işi sonuçlarını incelemek isterseniz, Azure Blob Storage kapsayıcısının içeriğini görüntülemek için ayrıca bir aracı gerekir. Visual Studio kullanırsanız, kullanabileceğiniz [Visual Studio için Azure Araçları](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) veya [Visual Studio Cloud Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Alternatif olarak, tek başına araçlarla yükleyebilirsiniz [Azure Storage Gezgini](http://storageexplorer.com/) veya [Azure Gezgini](http://www.cerebrata.com/products/azure-explorer/introduction). 
+Akış analizi işi sonuçlarını incelemek isterseniz, Azure Blob Storage kapsayıcısının içeriğini görüntülemek için ayrıca bir aracı gerekir. Visual Studio kullanırsanız, kullanabileceğiniz [Visual Studio için Azure Araçları](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) veya [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Alternatif olarak, tek başına araçlarla yükleyebilirsiniz [Azure Storage Gezgini](http://storageexplorer.com/) veya [Azure Gezgini](http://www.cerebrata.com/products/azure-explorer/introduction). 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Azure olay hub'ları olayları alma oluşturma
 
-Bir veri akışı çözümlemek için *alma* Azure içine. Veri alma için tipik bir yol kullanmaktır [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), olanak sağlayan, saniye başına milyonlarca olayı alma ve sonra işlem ve olay bilgileri depolar. Bu öğretici için bir olay hub'ı oluşturun ve bu olay hub'ına çağrısı veri gönderme çağırma olayı Oluşturucu uygulamaya sahip. Event hubs hakkında daha fazla bilgi için bkz: [Azure Service Bus belgelerine](https://docs.microsoft.com/en-us/azure/service-bus/).
+Bir veri akışı çözümlemek için *alma* Azure içine. Veri alma için tipik bir yol kullanmaktır [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), olanak sağlayan, saniye başına milyonlarca olayı alma ve sonra işlem ve olay bilgileri depolar. Bu öğretici için bir olay hub'ı oluşturun ve bu olay hub'ına çağrısı veri gönderme çağırma olayı Oluşturucu uygulamaya sahip. Event hubs hakkında daha fazla bilgi için bkz: [Azure Service Bus belgelerine](https://docs.microsoft.com/azure/service-bus/).
 
 >[!NOTE]
 >Bu yordamı daha ayrıntılı bir sürümü için bkz: [bir olay hub'ları ad alanı oluşturup Azure portalını kullanarak bir event hub](../event-hubs/event-hubs-create.md). 
@@ -57,7 +80,7 @@ Bu yordamda, önce bir olay hub'ad alanı oluşturun ve ardından bir event hub 
     ![Yeni bir olay hub'ı oluşturmak için dikey penceresi](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
     
  
-7. **Oluştur**'a tıklayın.
+7. **Oluştur**’a tıklayın.
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Olay hub'ına erişim vermek ve bir bağlantı dizesi alma
 
 Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim veren bir ilke olması gerekir. Erişim İlkesi yetkilendirme bilgilerini içeren bir bağlantı dizesi oluşturur.
@@ -73,7 +96,7 @@ Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim vere
 
     ![Yeni bir olay hub'ı erişim ilkesi oluşturmak için dikey penceresi](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
  
-4.  **Oluştur**'a tıklayın.
+4.  **Oluştur**’a tıklayın.
 
 5.  İlke dağıtıldıktan sonra paylaşılan erişim ilkeleri listesinde tıklayın.
 
@@ -126,7 +149,7 @@ TelcoGenerator uygulama başlamadan önce böylece çağrısı kayıtları oluş
 
 Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlardan bazıları şunlardır:
 
-|**Kayıt**|**Tanımı**|
+|Kayıt|Tanımı|
 |----------|--------------|
 |`CallrecTime`|Arama için zaman damgası başlangıç saati. |
 |`SwitchNum`|Çağrı bağlanmak için kullanılan telefon anahtarı. Bu örnekte, anahtarlar ülkeyi (ABD, Çin, İngiltere, Almanya veya Avustralya) temsil eden dizeleri şunlardır. |
@@ -150,7 +173,7 @@ Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlar
 
     ![Yeni Stream Analytics işi oluşturma](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
 
-3. **Oluştur**'a tıklayın.
+3. **Oluştur**’a tıklayın.
 
     İş oluşturulur ve portal iş ayrıntılarını görüntüler. Henüz hiçbir şey ancak çalıştığı — bunu başlamadan önce iş yapılandırmanız gerekir.
 
@@ -173,7 +196,7 @@ Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlar
 
     ![Akış analizi işi için yeni giriş oluşturma](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
 
-4. **Oluştur**'a tıklayın.
+4. **Oluştur**’a tıklayın.
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Gerçek zamanlı verileri dönüştürmek için sorgular oluşturun
 
@@ -300,7 +323,7 @@ Veri akış ile bir birleşim kullandığınızda, birleştirme bazı sınırlam
 
     ![Stream Analytics işi çıkış oluşturulan kendi kendine birleşim, gösterme 6 kayıtlar için](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
-3. **Kaydet** düğmesine tıklayın. Bu, kendi kendine birleşim sorgu akış analizi işi bir parçası olarak kaydeder. (Bu örnek verileri kaydetmez.)
+3. **Kaydet**’e tıklayın. Bu, kendi kendine birleşim sorgu akış analizi işi bir parçası olarak kaydeder. (Bu örnek verileri kaydetmez.)
 
     ![Akış analizi işi Kaydet](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
 
@@ -330,7 +353,7 @@ Blob depolama hesabınız varsa, kullanabilirsiniz. Bu öğretici için yalnızc
     
     ![Stream Analytics işi için "Yeni çıkış" bölmesi](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
     
-4. **Oluştur**'a tıklayın. 
+4. **Oluştur**’a tıklayın. 
 
     Azure depolama hesabı oluşturur ve bir anahtarı otomatik olarak oluşturur. 
 

@@ -10,26 +10,26 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="consuming-web-services"></a>Web Hizmetleri kullanma
-Model bir gerçek zamanlı web hizmeti olarak dağıtma sonra veri göndermek ve çeşitli platformlar ve uygulamaları Öngörüler alın. Gerçek zamanlı web hizmetini Öngörüler almak için bir REST API gösterir. Web hizmeti zaman, bir veya daha fazla Öngörüler almak için tek veya birden çok satır biçiminde veri gönderebilir.
+Model bir gerçek zamanlı web hizmeti olarak dağıtma sonra veri göndermek ve çeşitli platformlar ve uygulamaları Öngörüler alın. Gerçek zamanlı web hizmetini Öngörüler almak için bir REST API gösterir. Web hizmeti aynı anda bir veya daha fazla Öngörüler almak için tek veya birden çok satır biçiminde veri gönderebilir.
 
-İle [Azure Machine Learning Web hizmeti](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy), bir dış uygulama zaman uyumlu olarak Tahmine dayalı modelle hizmet URL'si için HTTP POST çağrısı yaparak iletişim kurar. Bir web hizmeti çağrısı yapmak için tahmin dağıtmak ve istek verileri POST istek gövdesi yerleştirin, oluşturduğunuz API anahtarını belirtmek istemci uygulaması gerekir.
+İle [Azure Machine Learning Web hizmeti](model-management-service-deploy.md), bir dış uygulama zaman uyumlu olarak Tahmine dayalı modelle hizmet URL'si için HTTP POST çağrısı yaparak iletişim kurar. Bir web hizmeti çağrısı yapmak için tahmin dağıtmak ve istek verileri POST istek gövdesi yerleştirin, oluşturduğunuz API anahtarını belirtmek istemci uygulaması gerekir.
 
 API anahtarları yalnızca küme dağıtım modunda kullanılabilir olduğunu unutmayın. Yerel web hizmetleri anahtarlara sahip değil.
 
 ## <a name="service-deployment-options"></a>Hizmet dağıtım seçenekleri
-Azure Machine Learning Web Hizmetleri, bulut tabanlı kümeler için üretim ve test senaryoları ve docker altyapısını kullanarak yerel iş istasyonları için dağıtılabilir. Her iki durumda da Tahmine dayalı modelde işlevselliğini aynı kalır. Hata ayıklama için yerel dağıtım kullanılabilse de kullanıcı çözüm Azure kapsayıcı hizmetlerini esas ve temel Küme dağıtımı ölçeklenebilir sağlar. 
+Azure Machine Learning Web Hizmetleri, üretim ve test senaryoları için bulut tabanlı kümeler ve docker altyapısını kullanarak yerel iş istasyonları için dağıtılabilir. Her iki durumda da Tahmine dayalı modelde işlevselliğini aynı kalır. Hata ayıklama için yerel dağıtım kullanılabilse de kullanıcı çözüm Azure kapsayıcı hizmetlerini esas ve küme tabanlı dağıtım ölçeklenebilir sağlar. 
 
 API ve Azure Machine Learning CLI sağlar oluşturmak ve yönetmek için kullanışlı komutları ortamlar kullanarak hizmet dağıtımları için işlem ```az ml env``` seçeneği. 
 
 ## <a name="list-deployed-services-and-images"></a>Dağıtılan listesi Hizmetleri ve görüntüleri
-Şu anda dağıtılmış hizmet ve Docker görüntüleri CLI komutu kullanarak listeleyebilirsiniz ```az ml service list realtime -o table```. Bu komut her zaman geçerli işlem ortamı bağlamında çalışır ve dağıtılan Hizmetleri, geçerli olması için ayarlanmamış bir ortamda Göster değil unutmayın. Ortam kullanımı ayarlamak için ```az ml env set```. 
+Şu anda dağıtılmış hizmet ve Docker görüntüleri CLI komutu kullanarak listeleyebilirsiniz ```az ml service list realtime -o table```. Bu komut her zaman geçerli işlem ortamı bağlamında çalıştığını unutmayın. Dağıtılan Hizmetleri geçerli olması için ayarlanmamış bir ortamda göstermeniz gerekmez. Ortam kullanımı ayarlamak için ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Hizmet bilgileri alma
 Web hizmeti başarıyla dağıtıldıktan sonra hizmet uç noktası çağırmak için hizmet URL'sini ve diğer ayrıntıları almak için aşağıdaki komutu kullanın. 
@@ -40,7 +40,7 @@ az ml service usage realtime -i <service name>
 
 Bu komut, hizmet URL'si, gerekli istek üstbilgileri, swagger URL'si ve dağıtım sırasında hizmeti API şeması sağlandıysa hizmetini çağırmak için örnek veri çıkışı yazdırır.
 
-Giriş verisi örnek CLI komutu girerek bir HTTP requst oluşturma olmadan CLI hizmetinden doğrudan test edebilirsiniz:
+Giriş verisi örnek CLI komutu girerek bir HTTP isteği oluşturma olmadan CLI hizmetinden doğrudan test edebilirsiniz:
 
 ```
 az ml service run realtime -i <service name> -d "Your input data"
@@ -55,13 +55,13 @@ az ml service keys realtime -i <web service id>
 HTTP isteği oluştururken, yetkilendirme üstbilgisinde anahtarı kullanın: "Yetkilendirmesi": "taşıyıcı <key>"
 
 ## <a name="get-the-service-swagger-description"></a>Hizmet Swagger açıklaması alma
-Hizmet API şeması sağlandıysa hizmet uç noktası, Swagger belgesinin kullanılabilmesini ```http://<ip>/api/v1/service/<service name>/swagger.json```. Swagger belgesinin otomatik olarak hizmeti istemcisi oluşturmak ve beklenen giriş verilerinin ve hizmeti ile ilgili diğer ayrıntıları keşfetmek için kullanılabilir.
+Hizmet API şeması sağlandıysa hizmet uç noktası Swagger belgesinin adresindeki kullanılabilmesini ```http://<ip>/api/v1/service/<service name>/swagger.json```. Swagger belgesinin otomatik olarak hizmeti istemcisi oluşturmak ve beklenen giriş verilerinin ve hizmeti ile ilgili diğer ayrıntıları keşfetmek için kullanılabilir.
 
 ## <a name="get-service-logs"></a>Hizmet Günlükleri alma
 Hizmet davranışlarını anlamak ve sorunları tanılamak için hizmet günlükleri almak için birkaç yolu vardır:
 - CLI komutu ```az ml service logs realtime -i <service id>```. Bu komut, hem küme hem de yerel modları çalışır.
 - Hizmet günlüğü dağıtımın etkinleştirilirse, hizmet günlükleri de AppInsight için gönderilir. CLI komutu ```az ml service usage realtime -i <service id>``` AppInsight URL gösterir. 2-5 dakika tarafından AppInsight günlükleri gecikebilir unutmayın.
-- Küme günlükleri geçerli küme ortamı ayarladığınızda bağlanan Kubernetes Konsolu aracılığıyla görüntülenebilir```az ml env set```
+- Küme günlükleri geçerli küme ortamı ayarladığınızda bağlanan Kubernetes Konsolu aracılığıyla görüntülenebilir ```az ml env set```
 - Yerel olarak çalıştığı yerel docker günlükleri docker altyapısı günlükleri ile kullanılabilir.
 
 ## <a name="call-the-service-using-c"></a>C# kullanarak hizmet çağırın

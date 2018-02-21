@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: f3579942624de282b01d74c4b8c449c56a66e7b7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 630e6e22bb41c777a043a7e6580239e254db9f1f
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="sprint-2---december-2017"></a>2 - aralık 2017 sprint 
+# <a name="sprint-2---december-2017"></a>Sprint 2 - Aralık 2017 
 
 #### <a name="version-number-01171115263"></a>Sürüm numarası: 0.1.1711.15263
 
->İşte nasıl [sürüm numarasını bulun](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>İşte nasıl [sürüm numarasını bulun](known-issues-and-troubleshooting-guide.md).
 
 Azure Machine Learning çalışma ekranı üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelleştirme, çalışma ekranı uygulamayı, komut satırı arabirimi (CLI) ve arka uç hizmetlerini geliştirmeleri içerir. Gülümsemeleri göndermek için çok teşekkür ederiz ve frowns. Aşağıdaki güncelleştirmeler çoğunu görüşlerinizi doğrudan sonuçları olarak yapılır. 
 
 ## <a name="notable-new-features"></a>Önemli yeni özellikleri
-- [SQL Server ve Azure SQL DB veri kaynağı olarak desteği](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [SQL Server ve Azure SQL DB veri kaynağı olarak desteği](data-prep-appendix2-supported-data-sources.md#types) 
 - [GPU desteğiyle MMLSpark kullanarak Spark üzerinde derin öğrenme](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [Tüm AML kapsayıcıları (ek bir adım gerekli değildir) dağıtılan Azure IOT sınır cihazları ile uyumludur](http://aka.ms/aml-iot-edge-blog)
 - Kayıtlı model listesi ve ayrıntılı görünümler kullanılabilir Azure portalı
@@ -56,7 +56,7 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 
 - 'Sütun örneği tarafından türetilen' dönüşümünde gözden geçirmek için sınır durumlarda öneren sırasında performans iyileştirmeleri
 
-- [SQL Server ve Azure SQL DB veri kaynağı olarak desteği](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [SQL Server ve Azure SQL DB veri kaynağı olarak desteği](data-prep-appendix2-supported-data-sources.md#types) 
 
 ![Yeni bir SQL server veri kaynağı oluşturma resmi](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -83,7 +83,7 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 
 - Bu işlem hedef hazırlamak ve yürütme için kullanın ve Azure ML çalışma ekranı kimlik doğrulaması için bu anahtarı kullanırsınız.  
 
-İşlem hedefleri oluşturma hakkında daha fazla bilgi için bkz: [Azure Machine Learning deneme hizmeti yapılandırma](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration)
+İşlem hedefleri oluşturma hakkında daha fazla bilgi için bkz: [Azure Machine Learning deneme hizmeti yapılandırma](experimentation-service-configuration.md)
 
 ### <a name="visual-studio-tools-for-ai"></a>AI için Visual Studio Araçları
 - Desteği eklendi [AI için Visual Studio Araçları](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
@@ -115,5 +115,5 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 ## <a name="breaking-changes"></a>YENİ DEĞİŞİKLİKLER
 - Yükseltilen `--type` anahtarının `az ml computetarget attach` alt komutu. 
 
-    - `az ml computetarget attach --type remotedocker`artık`az ml computetarget attach remotedocker`
-    - `az ml computetarget attach --type cluster`artık`az ml computetarget attach cluster`
+    - `az ml computetarget attach --type remotedocker` artık `az ml computetarget attach remotedocker`
+    - `az ml computetarget attach --type cluster` artık `az ml computetarget attach cluster`

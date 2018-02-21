@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API (genel Önizleme) ile günlük analizi veri Gönder
 Bu makalede HTTP veri toplayıcı API'sini bir REST API istemciden için günlük analizi veri göndermek için nasıl kullanılacağı gösterilmektedir.  Bu komut dosyası veya uygulama tarafından toplanan veri biçimi, bir istekte içerir ve günlük analizi tarafından yetkili bu istekte açıklar.  PowerShell, C# ve Python için örnekler verilmiştir.
@@ -42,16 +42,16 @@ HTTP veri toplayıcı API kullanmak için JavaScript nesne gösterimi (JSON) gö
 ### <a name="request-uri"></a>İstek URI'si
 | Öznitelik | Özellik |
 |:--- |:--- |
-| Yöntem |POST |
+| Yöntem |YAYINLA |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | İçerik türü |uygulama/json |
 
 ### <a name="request-uri-parameters"></a>İstek URI parametreleri
 | Parametre | Açıklama |
 |:--- |:--- |
-| CustomerID |Microsoft Operations Management Suite çalışma alanı için benzersiz tanımlayıcı. |
+| CustomerID |Günlük analizi çalışma alanı için benzersiz tanımlayıcı. |
 | Kaynak |API kaynak adı: / api/günlükleri. |
-| API Sürümü |Bu istekle kullanmak için API sürümü. Şu anda, 2016-04-01 değil. |
+| API sürümü |Bu istekle kullanmak için API sürümü. Şu anda, 2016-04-01 değil. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 | Üst bilgi | Açıklama |
@@ -70,7 +70,7 @@ Authorization üstbilgisi biçimi şöyledir:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*Workspaceıd* Operations Management Suite çalışma alanı için benzersiz tanıtıcıdır. *İmza* olan bir [karma tabanlı ileti kimlik doğrulama kodu (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) istekten oluşturulan ve kullanılarak hesaplanan [SHA256 algoritmasını](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Ardından, onu Base64 kodlaması kullanarak kodlayın.
+*Workspaceıd* günlük analizi çalışma alanı için benzersiz tanıtıcıdır. *İmza* olan bir [karma tabanlı ileti kimlik doğrulama kodu (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) istekten oluşturulan ve kullanılarak hesaplanan [SHA256 algoritmasını](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Ardından, onu Base64 kodlaması kullanarak kodlayın.
 
 Kodlanacak şu biçimi kullanın **SharedKey** imza dizesi:
 
@@ -187,8 +187,8 @@ Bu tabloda tamamını hizmet döndürebilir durum kodları listelenmektedir:
 | 400 |Hatalı istek |UnsupportedContentType |İçerik türü ayarlanmadı **uygulama/json**. |
 | 403 |Yasak |InvalidAuthorization |Hizmet, isteğin kimliğini doğrulayamadı. Çalışma alanı kimliği ve bağlantı anahtarı geçerli olduğunu doğrulayın. |
 | 404 |Bulunamadı | | Sağlanan URL yanlış ya da istek çok büyük. |
-| 429 |Çok Fazla İstek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen isteği daha sonra yeniden deneyin. |
-| 500 |İç Sunucu Hatası |UnspecifiedError |Hizmet dahili bir hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
+| 429 |Çok fazla istek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen isteği daha sonra yeniden deneyin. |
+| 500 |İç sunucu hatası |UnspecifiedError |Hizmet dahili bir hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
 | 503 |Hizmet Kullanılamıyor |ServiceUnavailable |Hizmet isteklerini almak şu anda kullanılamıyor. Lütfen isteğinizi yeniden deneyin. |
 
 ## <a name="query-data"></a>Verileri sorgulama
@@ -204,7 +204,8 @@ Sonraki bölümlerde, farklı programlama dillerini kullanarak günlük analizi 
 
 Her bir örnek için yetkilendirme üst bilgisi için değişkenleri ayarlamak için bu adımları uygulayın:
 
-1. Operations Management Suite Portalı'nda seçin **ayarları** kutucuğuna ve ardından **bağlı kaynakları** sekmesi.
+1. Azure portalında günlük analizi çalışma alanınız bulun.
+2. Seçin **Gelişmiş ayarları** ve ardından **bağlı kaynakları**.
 2. Sağındaki **çalışma alanı kimliği**Kopyala simgesini seçin ve kimlik değeri olarak yapıştırın **Müşteri Kimliği** değişkeni.
 3. Sağındaki **birincil anahtar**Kopyala simgesini seçin ve kimlik değeri olarak yapıştırın **paylaşılan anahtar** değişkeni.
 
@@ -311,7 +312,7 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId to your Log Analytics workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -389,7 +390,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update the customer ID to your Log Analytics workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   

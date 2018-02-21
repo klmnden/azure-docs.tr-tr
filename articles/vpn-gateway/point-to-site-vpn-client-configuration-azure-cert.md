@@ -1,10 +1,10 @@
 ---
 title: "Oluşturun ve Azure sertifika kimlik doğrulaması için P2S VPN istemci yapılandırma dosyalarını yükleyin: PowerShell: Azure | Microsoft Docs"
-description: "Bu makalede oluşturma ve sertifika kimlik doğrulaması kullanan noktadan siteye bağlantıları için VPN istemcisi yapılandırma dosyalarını yüklemenize yardımcı olur."
+description: "Oluşturun ve P2S sertifika kimlik doğrulaması için Windows ve Mac OS X VPN istemcisi yapılandırma dosyalarını yükleyin."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c27cbaa27dbafbba4a6124680c3e6e83cbcbab8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b18e01a780f6371ecae3298a6f3f41949090b9e8
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Oluşturun ve yerel Azure sertifika kimlik doğrulaması P2S yapılandırmaları için VPN istemcisi yapılandırma dosyalarını yükleyin
+# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Oluşturma ve VPN yükleme istemcisi yapılandırma dosyalarını yerel Azure için sertifika kimlik doğrulaması noktadan siteye yapılandırmaları
 
 VPN istemcisi yapılandırma dosyalarını bir zip dosyasında bulunur. Yapılandırma dosyalarını yerel Azure sertifika kimlik doğrulaması kullanmak noktadan siteye bağlantıları üzerinden bir sanal ağa bağlanmak yerel bir Windows veya Mac Ikev2 VPN istemcisi için gerekli ayarları sağlar.
 
@@ -91,7 +91,7 @@ Tıklatın **Ekle** almak için.
     >[!NOTE]
     >Sertifikayı çift görüntülenmeyebilir **Ekle** iletişim ancak sertifika doğru depoya yüklenir. Sertifikaları kategorisi altında oturum açma Anahtarlık sertifika için kontrol edebilirsiniz.
   
-2. P2S ayarlarını yapılandırdığınız zaman, Azure'a karşıya kök sertifika tarafından verilmiş bir istemci sertifikası yüklü olduğunu doğrulayın. Bu önceki adımda yüklediğiniz VPNServerRoot farklıdır. İstemci sertifikası kimlik doğrulaması için kullanılır ve gereklidir. Sertifika oluşturma hakkında daha fazla bilgi için bkz: [sertifikalar oluşturmak](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Bir istemci sertifikası yükleme hakkında daha fazla bilgi için bkz: [bir istemci sertifikası yüklemek](point-to-site-how-to-vpn-client-install-azure-cert.md).
+2. P2S ayarlarını yapılandırdığınız zaman Azure'a karşıya kök sertifikası tarafından verilmiş bir istemci sertifikası yüklü olduğunu doğrulayın. Bu önceki adımda yüklediğiniz VPNServerRoot farklıdır. İstemci sertifikası kimlik doğrulaması için kullanılır ve gereklidir. Sertifika oluşturma hakkında daha fazla bilgi için bkz: [sertifikalar oluşturmak](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Bir istemci sertifikası yükleme hakkında daha fazla bilgi için bkz: [bir istemci sertifikası yüklemek](point-to-site-how-to-vpn-client-install-azure-cert.md).
 3. Açık **ağ** altında iletişim **ağ tercihlerini** tıklatıp **'+'** Azure VNet P2S bağlantısı için yeni bir VPN istemci bağlantı profili oluşturmak için.
 
   **Arabirimi** 'VPN' bir değerdir ve **VPN türü** değer 'IKEv2' dir. Profil için bir ad belirtin **hizmet adı** alan ve ardından **oluşturma** VPN istemci bağlantı profili oluşturmak için.
@@ -117,3 +117,5 @@ Tıklatın **Ekle** almak için.
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 Makaleye dönün [P2S yapılandırmanızı tamamlamak](vpn-gateway-howto-point-to-site-rm-ps.md).
+
+P2S sorun giderme bilgileri için [sorun giderme Azure noktadan siteye bağlantıları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

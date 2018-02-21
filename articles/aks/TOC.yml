@@ -67,8 +67,10 @@
           href: kubernetes-helm.md
         - name: Draft ile uygulama geliştirme
           href: kubernetes-draft.md
-        - name: OSBA kullanarak Azure ile tümleştirme
+        - name: Azure için Açık Hizmet Aracısı
           href: integrate-azure.md
+        - name: Jenkins sürekli dağıtım
+          href: jenkins-continuous-deployment.md
     - name: Kubernetes hakkında temel bilgiler
       items:
         - name: Kubernetes panosunu kullanma

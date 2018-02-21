@@ -1,6 +1,6 @@
 ---
 title: "Web kancası Azure ölçüm uyarılarını yapılandırma | Microsoft Docs"
-description: "Azure uyarıları diğer Azure dışı sistemlere yeniden yönlendir."
+description: "Azure uyarıları diğer'i, Azure dışı sistemlere yeniden yönlendir öğrenin."
 author: johnkemnetz
 manager: carmonm
 editor: 
@@ -14,29 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 049803e7701c68559103d9b1fa5dfacf820d0548
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Bir Web kancası Azure ölçüm uyarıyı yapılandırın
-Web kancası işlem sonrası ya da özel eylemler için diğer sistemlere Azure bir uyarı bildirimine yol olanak sağlar. SMS gönder, hatalar oturum, sohbet ve mesajlaşma Servisleri üzerinden bir takım bildirmek veya başka eylemler herhangi bir sayıda yapmak hizmetlere yönlendirmek için bir uyarı durumunda bir Web kancası kullanın. Bu makalede, bir Web kancası bir Azure ölçüm uyarı ayarlama ve bir Web kancası için HTTP POST için yükü benzer açıklanmaktadır. Kurulum ve Azure etkinlik günlüğü uyarı (uyarı) olayları için şema hakkında bilgi için [bunun yerine bu sayfaya bakın](insights-auditlog-to-webhook-email.md).
+İşlem sonrası ya da özel eylemler için diğer sistemlere Azure bir uyarı bildirimine yönlendirmek için Web kancası kullanabilirsiniz. Sohbet veya Mesajlaşma Hizmetleri aracılığıyla veya diğer çeşitli eylemler için bir takım bildirmek için hatalar, oturum, SMS iletileri göndermek Hizmetleri yönlendirmek için bir uyarı durumunda bir Web kancası kullanabilirsiniz. 
 
-Azure uyarıları HTTP POST JSON uyarı içeriğini biçimi, aşağıda bir Web kancası uyarı oluştururken sağladığınız URI tanımlanan şema. Bu URI geçerli bir HTTP veya HTTPS uç noktası olması gerekir. Bir uyarı etkinleştirildiğinde azure istek başına bir giriş gönderir.
+Bu makalede, bir Web kancası Azure ölçüm uyarıyı ayarlamak açıklar. Ayrıca, bir Web kancası için HTTP POST için yükü nasıl göründüğünü gösterir. Kurulum ve Azure aktivite şeması hakkında bilgi için günlük uyarı (uyarı) olaylarına bakın [bir Web kancası bir Azure etkinlik günlüğü uyarı çağrı](insights-auditlog-to-webhook-email.md).
 
-## <a name="configuring-webhooks-via-the-portal"></a>Web kancası portalı üzerinden yapılandırma
-Ekleyebilir veya Create/Update uyarıları ekranında URI Web kancası güncelleştirme içinde [portal](https://portal.azure.com/).
+Azure uyarıları, uyarı içeriği JSON biçiminde bir Web kancası uyarı oluştururken sağladığınız URI göndermek için HTTP POST kullanın. Şema, bu makalenin sonraki bölümlerinde tanımlanır. URI geçerli bir HTTP veya HTTPS uç noktası olması gerekir. Bir uyarı etkinleştirildiğinde azure istek başına bir giriş gönderir.
 
-![Bir uyarı kuralı Ekle](./media/insights-webhooks-alerts/Alertwebhook.png)
+## <a name="configure-webhooks-via-the-azure-portal"></a>Azure Portalı aracılığıyla Web kancalarını yapılandırın
+Ekleyin veya URI, Web kancası güncelleştirmek için [Azure portal](https://portal.azure.com/)gidin **oluştur/güncelleştir uyarıları**.
 
-Kullanarak bir Web kancası URI göndermek için bir uyarı da yapılandırabilirsiniz [Azure PowerShell cmdlet'leri](insights-powershell-samples.md#create-metric-alerts), [platformlar arası CLI](insights-cli-samples.md#work-with-alerts), veya [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+![Bir uyarı kuralı bölmesi ekleme](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-## <a name="authenticating-the-webhook"></a>Web kancası kimlik doğrulaması
-Web kancası belirteci tabanlı bir yetkilendirme kullanarak kimlik doğrulaması yapabilir. Web kancası URI bir belirteç Kimliğiyle ör kaydedilir. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+Web kancası için URI kullanarak göndermek için bir uyarı da yapılandırabilirsiniz [Azure PowerShell cmdlet'lerini](insights-powershell-samples.md#create-metric-alerts), [platformlar arası CLI](insights-cli-samples.md#work-with-alerts), veya [Azure İzleyici REST API'lerini](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+
+## <a name="authenticate-the-webhook"></a>Web kancası kimlik doğrulaması
+Web kancası belirteci tabanlı bir yetkilendirme kullanılarak doğrulanabilir. Web kancası belirteci bir kimliğe sahip URI kaydedilir Örneğin, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Yükü şeması
-GÖNDERME işlemini aşağıdaki JSON yükü ve tüm ölçüm tabanlı uyarılar için şema içerir.
+GÖNDERME işlemini aşağıdaki JSON yükü ve tüm ölçüm tabanlı uyarılar için şema içerir:
 
 ```JSON
 {
@@ -77,38 +79,38 @@ GÖNDERME işlemini aşağıdaki JSON yükü ve tüm ölçüm tabanlı uyarılar
 
 | Alan | Zorunlu | Sabit değer kümesi | Notlar |
 |:--- |:--- |:--- |:--- |
-| durum |E |"Etkin", "Çözülmüş" |Dışına koşullara uyarı durumu, ayarlamanız gerekir. |
+| durum |E |Etkin, Çözümlendi |Ayarladığınız koşullara göre uyarı durumu. |
 | bağlam |E | |Uyarı bağlamı. |
 | timestamp |E | |Hangi uyarının başlatıldığı zaman. |
 | id |E | |Her uyarı kuralı benzersiz bir kimliği var. |
 | ad |E | |Uyarı adı. |
 | açıklama |E | |Uyarı açıklaması. |
-| conditionType |E |"Ölçüm", "Olay" |Uyarı iki türleri desteklenir. Ölçüm bir koşula göre bir ve diğer etkinlik günlüğünde bir olay tabanlı. Uyarı ölçüm veya olay göre varsa denetlemek için bu değeri kullanın. |
-| koşul |E | |Koşul türü üzerinde temel denetlemek için belirli alanları. |
+| conditionType |E |Ölçüm, olay |Uyarı iki türleri desteklenir: ölçüm ve olay. Ölçüm uyarılar ölçüm bir koşula temel alır. Olay uyarıları etkinlik günlüğünde olay dayanır. Uyarı bir ölçüm veya olaya dayanan denetlemek için bu değeri kullanın. |
+| koşul |E | |Denetlenecek belirli alanlar temel **koşul türü** değeri. |
 | metricName |Ölçüm uyarıları | |Hangi kural izler tanımlar ölçüm adı. |
-| metricUnit |Ölçüm uyarıları |"Bayt sayısı", "BytesPerSecond", "Count", "CountPerSecond", "Yüzde", "Saniye" |Ölçümde izin birimi. [Değerleri burada listelenen izin verilen](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |Ölçüm uyarıları |Bayt cinsinden BytesPerSecond, Count, CountPerSecond, yüzde, saniye |Ölçümde izin birimi. Bkz: [izin verilen değerler](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Ölçüm uyarıları | |Uyarıya neden ölçüm gerçek değeri. |
 | Eşik |Ölçüm uyarıları | |Uyarının etkin eşik değeri. |
-| windowSize |Ölçüm uyarıları | |Süre, eşiğine dayalı uyarı etkinliğini izlemek için kullanılır. 5 dakika ile 1 gün arasında olmalıdır. ISO 8601 süre biçimi. |
-| timeAggregation |Ölçüm uyarıları |"Ortalama", "Son", "En", "Minimum", "None", "Toplam" |Toplanan veriler zamanla nasıl birleştirilmelidir. Ortalama varsayılan değerdir. [Değerleri burada listelenen izin verilen](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| windowSize |Ölçüm uyarıları | |Süre, eşiğine dayalı uyarı etkinliğini izlemek için kullanılır. Değer 5 dakika ile 1 gün arasında olmalıdır. Değer ISO 8601 süre biçiminde olmalıdır. |
+| timeAggregation |Ölçüm uyarıları |Ortalama, en son, maksimum, Minimum, None, toplam |Toplanan veriler zamanla nasıl birleştirilmelidir. Ortalama varsayılan değerdir. Bkz: [izin verilen değerler](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
 | işleci |Ölçüm uyarıları | |Geçerli ölçüm verileri için ayarlanan eşikle karşılaştırmak için kullanılan işleci. |
 | subscriptionId |E | |Azure abonelik kimliği |
-| resourceGroupName |E | |Etkilenen kaynak kaynak grubu adı. |
-| resourceName |E | |Etkilenen kaynağının kaynak adı. |
-| resourceType |E | |Etkilenen kaynağın kaynak türü. |
-| resourceId |E | |Etkilenen kaynağının kaynak kimliği. |
-| resourceRegion |E | |Bölge veya etkilenen kaynağın konumu. |
+| resourceGroupName |E | |Etkilenen kaynağı için kaynak grubu adı. |
+| resourceName |E | |Etkilenen kaynağı kaynak adı. |
+| resourceType |E | |Etkilenen kaynağı kaynak türü. |
+| resourceId |E | |Etkilenen kaynağı kaynak kimliği. |
+| resourceRegion |E | |Bölgeyi veya etkilenen kaynağın konumu. |
 | portalLink |E | |Portal kaynak Özet sayfasında doğrudan bağlantı. |
-| properties |N |İsteğe bağlı |Kümesi `<Key, Value>` çiftleri (yani `Dictionary<String, String>`) olay ayrıntılarını içerir. Özellikler alanı isteğe bağlıdır. Özel kullanıcı Arabirimi veya mantığı uygulama tabanlı iş akışlarında, kullanıcıların yükü geçirilen anahtar/değer girebilirsiniz. Özel özellikler geri Web kancası geçirmek için alternatif Web kancası URI kendisini (gibi sorgu parametrelerini) aracılığıyla yoludur |
+| properties |N |İsteğe bağlı |Olay ayrıntılarını olan anahtar/değer çiftleri kümesi. Örneğin, `Dictionary<String, String>`. Özellikler alanı isteğe bağlıdır. Özel kullanıcı Arabirimi veya mantığı uygulama tabanlı iş akışı, kullanıcıların yükü geçirilen anahtar/değer çiftlerinin girebilirsiniz. Özel özellikler geri Web kancası geçirmek için alternatif Web kancası URI kendisini (gibi sorgu parametrelerini) aracılığıyla bir yoludur. |
 
 > [!NOTE]
-> Özellikler alanı yalnızca kullanılarak ayarlanabilir [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+> Ayarlayabileceğiniz **özellikleri** kullanarak yalnızca alan [Azure İzleyici REST API'lerini](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Azure uyarıları ve Web kancalarını videoda hakkında daha fazla bilgi [Azure uyarılarla tümleştirmek PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
-* [Azure Otomasyonu komut dosyaları (Runbook'lar) Azure uyarılar yürütme](http://go.microsoft.com/fwlink/?LinkId=627081)
-* [Mantıksal uygulama Twilio aracılığıyla bir SMS gelen Azure uyarı göndermek için kullanın](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-* [Mantıksal uygulama Azure bir uyarıdan Slack ileti göndermek için kullanın](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-* [Mantıksal uygulama Azure bir uyarıdan bir Azure kuyruğuna ileti göndermek için kullanın](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+* Azure uyarıları ve Web kancalarını videoda hakkında daha fazla bilgi [PagerDuty tümleştirmek Azure uyarılarla](http://go.microsoft.com/fwlink/?LinkId=627080).
+* Bilgi edinmek için nasıl [Azure Otomasyon betikleri (runbook'lar) Azure uyarılar yürütme](http://go.microsoft.com/fwlink/?LinkId=627081).
+* Bilgi edinmek için nasıl [Azure bir uyarıdan Twilio aracılığıyla SMS iletisi göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
+* Bilgi edinmek için nasıl [Azure bir uyarıdan Slack ileti göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
+* Bilgi edinmek için nasıl [Azure bir uyarıdan bir Azure kuyruğuna ileti göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).

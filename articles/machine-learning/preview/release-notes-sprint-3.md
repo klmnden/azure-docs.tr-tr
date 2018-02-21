@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
-ms.openlocfilehash: f75fcec3b722563949b6553f17c4f3db3e223675
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 266a56d5e247fd4926031e563c8be302599838eb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sprint-3---january-2018"></a>Sprint 3 - Ocak 2018 
 
 #### <a name="version-number-01171218263"></a>Sürüm numarası: 0.1.1712.18263
 
->İşte nasıl [sürüm numarasını bulun](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>İşte nasıl [sürüm numarasını bulun](known-issues-and-troubleshooting-guide.md).
 
 Azure Machine Learning çalışma ekranı dördüncü güncelleştirmeye Hoş Geldiniz. Güncelleştirmeleri ve bu sprint yenilikleri şunlardır: Bu güncelleştirmeler çoğunu doğrudan kullanıcı geri bildirim sonucu olarak yapılır. 
 

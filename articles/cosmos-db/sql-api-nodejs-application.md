@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: 2c64c1dfa558576b47f47c718a80d46ad6687e6e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="_Toc395783175"></a>Azure Cosmos DB kullanarak bir Node.js web uygulaması oluşturma
 > [!div class="op_single_selector"]
@@ -97,307 +97,317 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
 
 ### <a name="create-the-model"></a>Modeli oluşturma
 1. Proje dizininde package.json dosyasıyla aynı dizinde **models** adlı yeni bir dizin oluşturun.
-2. **models** dizininde **taskDao.js** adında yeni bir dosya oluşturun. Bu dosya, uygulamamız tarafından oluşturulan görevlerin modelini içerir.
-3. Aynı **models** dizininde **docdbUtils.js** adlı başka bir yeni dosya oluşturun. Bu dosya, uygulama genelinde kullanacağımız bazı yararlı ve yeniden kullanılabilir kodları içerir. 
-4. Aşağıdaki kodu **docdbUtils.js**'ye kopyalayın
-   
-        var DocumentDBClient = require('documentdb').DocumentClient;
-   
-        var DocDBUtils = {
-            getOrCreateDatabase: function (client, databaseId, callback) {
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id= @id',
-                    parameters: [{
-                        name: '@id',
-                        value: databaseId
-                    }]
-                };
-   
-                client.queryDatabases(querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        if (results.length === 0) {
-                            var databaseSpec = {
-                                id: databaseId
-                            };
-   
-                            client.createDatabase(databaseSpec, function (err, created) {
-                                callback(null, created);
-                            });
-   
-                        } else {
-                            callback(null, results[0]);
-                        }
-                    }
-                });
-            },
-   
-            getOrCreateCollection: function (client, databaseLink, collectionId, callback) {
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id=@id',
-                    parameters: [{
-                        name: '@id',
-                        value: collectionId
-                    }]
-                };               
-   
-                client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {        
-                        if (results.length === 0) {
-                            var collectionSpec = {
-                                id: collectionId
-                            };
-   
-                            client.createCollection(databaseLink, collectionSpec, function (err, created) {
-                                callback(null, created);
-                            });
-   
-                        } else {
-                            callback(null, results[0]);
-                        }
-                    }
-                });
-            }
+2. İçinde **modelleri** dizin adlı yeni bir dosya oluşturun **görev model.js**. Bu dosya, uygulamamız tarafından oluşturulan görevlerin modelini içerir.
+3. Aynı **modelleri** dizin adlı başka bir yeni dosya oluşturun **cosmosdb manager.js**. Bu dosya, uygulama genelinde kullanacağımız bazı yararlı ve yeniden kullanılabilir kodları içerir. 
+4. Aşağıdaki kodda kopyalama **cosmosdb manager.js**
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+
+    module.exports = {
+    getOrCreateDatabase: (client, databaseId, callback) => {
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id = @id',
+        parameters: [{ name: '@id', value: databaseId }]
         };
-   
-        module.exports = DocDBUtils;
-   
-5. **docdbUtils.js** dosyasını kaydedin ve kapatın.
-6. **taskDao.js** dosyasının başına, yukarıda oluşturduğumuz **DocumentDBClient** ve **docdbUtils.js**'ye başvurmak için aşağıdaki kodu ekleyin:
-   
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var docdbUtils = require('./docdbUtils');
-7. Ardından, Task nesnesini tanımlamak ve dışarı aktarmak için kod ekleyeceksiniz. Bu kod Task nesnemizin başlatılmasından ve kullanacağımız Veritabanı ve Belge Koleksiyonunun ayarlanmasından sorumludur.
-   
-        function TaskDao(documentDBClient, databaseId, collectionId) {
-          this.client = documentDBClient;
-          this.databaseId = databaseId;
-          this.collectionId = collectionId;
-   
-          this.database = null;
-          this.collection = null;
+
+        client.queryDatabases(querySpec).toArray((err, results) => {
+        if (err) {
+            callback(err);
+        } else {
+            if (results.length === 0) {
+            let databaseSpec = { id: databaseId };
+            client.createDatabase(databaseSpec, (err, created) => {
+                callback(null, created);
+            });
+            } else {
+            callback(null, results[0]);
+            }
         }
-   
-        module.exports = TaskDao;
-8. Ardından Azure Cosmos DB'de depolanan verilerle etkileşimi sağlayan ek yöntemleri Task nesnesinde tanımlamak için aşağıdaki kodu ekleyin.
-   
-        TaskDao.prototype = {
-            init: function (callback) {
-                var self = this;
-   
-                docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
-                    if (err) {
-                        callback(err);
-                    } else {
-                        self.database = db;
-                        docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
-                            if (err) {
-                                callback(err);
-   
-                            } else {
-                                self.collection = coll;
-                            }
-                        });
-                    }
-                });
-            },
-   
-            find: function (querySpec, callback) {
-                var self = this;
-   
-                self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, results);
-                    }
-                });
-            },
-   
-            addItem: function (item, callback) {
-                var self = this;
-   
-                item.date = Date.now();
-                item.completed = false;
-   
-                self.client.createDocument(self.collection._self, item, function (err, doc) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, doc);
-                    }
-                });
-            },
-   
-            updateItem: function (itemId, callback) {
-                var self = this;
-   
-                self.getItem(itemId, function (err, doc) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        doc.completed = true;
-   
-                        self.client.replaceDocument(doc._self, doc, function (err, replaced) {
-                            if (err) {
-                                callback(err);
-   
-                            } else {
-                                callback(null, replaced);
-                            }
-                        });
-                    }
-                });
-            },
-   
-            getItem: function (itemId, callback) {
-                var self = this;
-   
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.id = @id',
-                    parameters: [{
-                        name: '@id',
-                        value: itemId
-                    }]
-                };
-   
-                self.client.queryDocuments(self.collection._self, querySpec).toArray(function (err, results) {
-                    if (err) {
-                        callback(err);
-   
-                    } else {
-                        callback(null, results[0]);
-                    }
-                });
-            }
+        });
+    },
+
+    getOrCreateCollection: (client, databaseLink, collectionId, callback) => {
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id=@id',
+        parameters: [{ name: '@id', value: collectionId }]
         };
-9. **taskDao.js** dosyasını kaydedin ve kapatın. 
+
+        client.queryCollections(databaseLink, querySpec).toArray((err, results) => {
+        if (err) {
+            callback(err);
+        } else {
+            if (results.length === 0) {
+            let collectionSpec = { id: collectionId };
+            client.createCollection(databaseLink, collectionSpec, (err, created) => {
+                callback(null, created);
+            });
+            } else {
+            callback(null, results[0]);
+            }
+        }
+        });
+    }
+    };
+    ```
+5. Kaydet ve Kapat **cosmosdb manager.js** dosya.
+6. Başında **görev model.js** dosya, başvurmak için aşağıdaki kodu ekleyin **DocumentDBClient** ve **cosmosdb manager.js** yukarıda oluşturduğumuz: 
+
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let docdbUtils = require('./docdbUtils');
+    ```
+7. Ardından, Task nesnesini tanımlamak ve dışarı aktarmak için kod ekleyeceksiniz. Bu kod Task nesnemizin başlatılmasından ve kullanacağımız Veritabanı ve Belge Koleksiyonunun ayarlanmasından sorumludur.  
+
+    ```nodejs
+    function TaskModel(documentDBClient, databaseId, collectionId) {
+      this.client = documentDBClient;
+      this.databaseId = databaseId;
+      this.collectionId = collectionId;
+   
+      this.database = null;
+      this.collection = null;
+    }
+   
+    module.exports = TaskModel;
+    ```
+8. Ardından Azure Cosmos DB'de depolanan verilerle etkileşimi sağlayan ek yöntemleri Task nesnesinde tanımlamak için aşağıdaki kodu ekleyin.
+
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let docdbUtils = require('./cosmosdb-manager');
+
+    function TaskModel(documentDBClient, databaseId, collectionId) {
+    this.client = documentDBClient;
+    this.databaseId = databaseId;
+    this.collectionId = collectionId;
+
+    this.database = null;
+    this.collection = null;
+    }
+
+    TaskModel.prototype = {
+    init: function(callback) {
+        let self = this;
+
+        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function(err, db) {
+        if (err) {
+            callback(err);
+        } else {
+            self.database = db;
+            docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function(err, coll) {
+            if (err) {
+                callback(err);
+            } else {
+                self.collection = coll;
+            }
+            });
+        }
+        });
+    },
+
+    find: function(querySpec, callback) {
+        let self = this;
+
+        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, results);
+        }
+        });
+    },
+
+    addItem: function(item, callback) {
+        let self = this;
+
+        item.date = Date.now();
+        item.completed = false;
+
+        self.client.createDocument(self.collection._self, item, function(err, doc) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, doc);
+        }
+        });
+    },
+
+    updateItem: function(itemId, callback) {
+        let self = this;
+
+        self.getItem(itemId, function(err, doc) {
+        if (err) {
+            callback(err);
+        } else {
+            doc.completed = true;
+
+            self.client.replaceDocument(doc._self, doc, function(err, replaced) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null, replaced);
+            }
+            });
+        }
+        });
+    },
+
+    getItem: function(itemId, callback) {
+        let self = this;
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.id = @id',
+        parameters: [{ name: '@id', value: itemId }]
+        };
+
+        self.client.queryDocuments(self.collection._self, querySpec).toArray(function(err, results) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, results[0]);
+        }
+        });
+    }
+    };
+
+    module.exports = TaskModel;
+    ```
+9. Kaydet ve Kapat **görev model.js** dosya. 
 
 ### <a name="create-the-controller"></a>Denetleyiciyi oluşturma
 1. Projenizin **routes** dizininde **tasklist.js** adlı yeni bir dosya oluşturun. 
 2. Aşağıdaki kodu **tasklist.js**'ye ekleyin. Bu kod **tasklist.js** tarafından kullanılan DocumentDBClient ve async modüllerini yükler. Bu, daha önce tanımladığımız **Task** nesnesinin bir örneği olarak geçirilmiş olup **TaskList** işlevi olarak da tanımlanır.
    
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var async = require('async');
-   
-        function TaskList(taskDao) {
-          this.taskDao = taskDao;
-        }
-   
-        module.exports = TaskList;
+    ```nodejs
+    let DocumentDBClient = require('documentdb').DocumentClient;
+    let async = require('async');
+
+    function TaskList(taskModel) {
+    this.taskModel = taskModel;
+    }
+
+    module.exports = TaskList;
+    ```
 3. **showTasks, addTask** ve **completeTasks** için kullanılan yöntemleri ekleyerek **tasklist.js** dosyasına eklemeye devam edin:
    
-        TaskList.prototype = {
-            showTasks: function (req, res) {
-                var self = this;
-   
-                var querySpec = {
-                    query: 'SELECT * FROM root r WHERE r.completed=@completed',
-                    parameters: [{
-                        name: '@completed',
-                        value: false
-                    }]
-                };
-   
-                self.taskDao.find(querySpec, function (err, items) {
-                    if (err) {
-                        throw (err);
-                    }
-   
-                    res.render('index', {
-                        title: 'My ToDo List ',
-                        tasks: items
-                    });
-                });
-            },
-   
-            addTask: function (req, res) {
-                var self = this;
-                var item = req.body;
-   
-                self.taskDao.addItem(item, function (err) {
-                    if (err) {
-                        throw (err);
-                    }
-   
-                    res.redirect('/');
-                });
-            },
-   
-            completeTask: function (req, res) {
-                var self = this;
-                var completedTasks = Object.keys(req.body);
-   
-                async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-                    self.taskDao.updateItem(completedTask, function (err) {
-                        if (err) {
-                            callback(err);
-                        } else {
-                            callback(null);
-                        }
-                    });
-                }, function goHome(err) {
-                    if (err) {
-                        throw err;
-                    } else {
-                        res.redirect('/');
-                    }
-                });
+   ```nodejs
+    TaskList.prototype = {
+    showTasks: function(req, res) {
+        let self = this;
+
+        let querySpec = {
+        query: 'SELECT * FROM root r WHERE r.completed=@completed',
+        parameters: [
+            {
+            name: '@completed',
+            value: false
             }
+        ]
         };
+
+        self.taskModel.find(querySpec, function(err, items) {
+        if (err) {
+            throw err;
+        }
+
+        res.render('index', {
+            title: 'My ToDo List ',
+            tasks: items
+        });
+        });
+    },
+
+    addTask: function(req, res) {
+        let self = this;
+        let item = req.body;
+
+        self.taskModel.addItem(item, function(err) {
+        if (err) {
+            throw err;
+        }
+
+        res.redirect('/');
+        });
+    },
+
+    completeTask: function(req, res) {
+        let self = this;
+        let completedTasks = Object.keys(req.body);
+
+        async.forEach(
+        completedTasks,
+        function taskIterator(completedTask, callback) {
+            self.taskModel.updateItem(completedTask, function(err) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(null);
+            }
+            });
+        },
+        function goHome(err) {
+            if (err) {
+            throw err;
+            } else {
+            res.redirect('/');
+            }
+        }
+        );
+    }
+    };
+    ```        
 4. **tasklist.js** dosyasını kaydedin ve kapatın.
 
 ### <a name="add-configjs"></a>Config.js ekleme
 1. Proje dizininizde **config.js** adlı yeni bir dosya oluşturun.
 2. Aşağıdakileri **config.js**'ye ekleyin. Bu, uygulamamız için gereken yapılandırma ayarlarını ve değerlerini tanımlar.
    
-        var config = {}
+    ```nodejs
+    let config = {}
    
-        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
-        config.databaseId = "ToDoList";
-        config.collectionId = "Items";
+    config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys page on http://portal.azure.com]";
+    config.databaseId = "ToDoList";
+    config.collectionId = "Items";
    
-        module.exports = config;
+    module.exports = config;
+    ```
 3. İçinde **config.js** dosya, HOST ve auth_key değerlerini Azure Cosmos DB hesabınızı anahtarları sayfasında bulunan değerleri kullanarak değerlerini güncelleştirin [Microsoft Azure portal](https://portal.azure.com).
 4. **config.js** dosyasını kaydedin ve kapatın.
 
 ### <a name="modify-appjs"></a>App.js'yi değiştirme
 1. Proje dizininde **app.js** dosyasını açın. Bu dosya daha önce Express web uygulaması oluşturulduğu zaman oluşturulmuştur.
-2. Aşağıdaki kodu **app.js**'nin üst kısmına ekleyin
+2. En üst kısmına aşağıdaki kodu ekleyin **app.js**:
    
-        var DocumentDBClient = require('documentdb').DocumentClient;
-        var config = require('./config');
-        var TaskList = require('./routes/tasklist');
-        var TaskDao = require('./models/taskDao');
+    ```nodejs
+    var DocumentDBClient = require('documentdb').DocumentClient;
+    var config = require('./config');
+    var TaskList = require('./routes/tasklist');
+    var TaskModel = require('./models/taskModel');
+    ```
 3. Bu kod, kullanılacak yapılandırma dosyasını tanımlar ve değerleri bu dosyadan okuyarak kısa bir süre sonra kullanacağımız bazı değişkenlere uygular.
 4. **app.js** dosyasında bulunan aşağıdaki iki satırı:
    
-        app.use('/', index);
-        app.use('/users', users); 
+    ```nodejs
+    app.use('/', index);
+    app.use('/users', users); 
+    ```
    
-      aşağıdaki kod parçacığıyla değiştirin:
+    aşağıdaki kod parçacığıyla değiştirin:
    
-        var docDbClient = new DocumentDBClient(config.host, {
-            masterKey: config.authKey
-        });
-        var taskDao = new TaskDao(docDbClient, config.databaseId, config.collectionId);
-        var taskList = new TaskList(taskDao);
-        taskDao.init();
+    ```nodejs
+    let docDbClient = new DocumentDBClient(config.host, {
+        masterKey: config.authKey
+    });
+    let taskModel = new TaskModel(docDbClient, config.databaseId, config.collectionId);
+    let taskList = new TaskList(taskModel);
+    taskModel.init();
    
-        app.get('/', taskList.showTasks.bind(taskList));
-        app.post('/addtask', taskList.addTask.bind(taskList));
-        app.post('/completetask', taskList.completeTask.bind(taskList));
-        app.set('view engine', 'jade');
-5. Bu satırlar, Azure Cosmos DB'ye yeni bir bağlantıyla (**config.js**'den okunan değerleri kullanarak) **TaskDao** nesnemizin yeni bir örneğini tanımlar, görev nesnesini başlatır ve ardından form eylemlerini **TaskList** denetleyicimizdeki yöntemlere bağlar. 
+    app.get('/', taskList.showTasks.bind(taskList));
+    app.post('/addtask', taskList.addTask.bind(taskList));
+    app.post('/completetask', taskList.completeTask.bind(taskList));
+    app.set('view engine', 'jade');
+    ```
+5. Bu satırlar yeni bir örneğini tanımlar bizim **TaskModel** nesnesiyle Azure Cosmos DB yeni bir bağlantı (den okunan değerleri kullanarak **config.js**), görev nesnesini başlatır ve ardından form eylemlerini bağlama yöntemlere bizim **TaskList** denetleyicisi. 
 6. Son olarak, **app.js** dosyasını kaydedip kapattığınızda işimiz neredeyse bitti demektir.
 
 ## <a name="_Toc395783181"></a>5. Adım: Kullanıcı arabirimi oluşturma

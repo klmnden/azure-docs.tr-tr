@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>Bir Azure uygulamasında ölçeklendirin
 
 > [!NOTE]
-> Yeni **PremiumV2** katmanı daha hızlı CPU'lar, SSD depolama sağlar ve varolan fiyatlandırma katmanlarını daha bellek çekirdek oranı çift. En fazla ölçeklendirmek için **PremiumV2** katmanı için bkz: [uygulama hizmetin yapılandırma PremiumV2 katmanı](app-service-configure-premium-tier.md).
+> Yeni **PremiumV2** katmanı daha hızlı CPU'lar, SSD depolama sunar ve mevcut fiyatlandırma katmanlarına Bellek çekirdek oranını iki katına çıkar. Performans avantajı ile daha az örneklerinde uygulamalarınızı çalıştırarak paradan tasarruf. En fazla ölçeklendirmek için **PremiumV2** katmanı için bkz: [uygulama hizmetin yapılandırma PremiumV2 katmanı](app-service-configure-premium-tier.md).
 >
 
 Bu makalede, uygulamanızı Azure App Service'te ölçeklendirme gösterilmektedir. Yukarı ölçeklendirme, ölçeklendirme için iki iş akışlarını vardır ve ölçek genişletme ve bu makalede ölçek büyütme iş akışını açıklar.
 
 * [Ölçeği artırma](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): daha fazla CPU, bellek, disk alanı ve ayrılmış sanal makine (VM), özel etki alanları ve sertifikalar, hazırlama yuvaları, otomatik ölçeklendirme ve daha fazla özellikten alın. Uygulamanızın ait olduğu App Service planının fiyatlandırma katmanını değiştirerek ölçeği.
 * [Ölçeği genişletme](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): uygulamanızı çalıştıran VM örneği sayısını artırın.
-  Out kadar 20 örneklerine fiyatlandırma katmanınıza bağlı ölçeklendirebilirsiniz. [Uygulama hizmeti ortamları](environment/intro.md) içinde **Isolated** daha fazla katmanı genişletme sayınız 100 örneklerine artırır. Genişletme hakkında daha fazla bilgi için bkz: [örnek sayısı el ile veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md). Vardır, örnek sayısı otomatik olarak önceden tanımlanmış kurallar ve zamanlamaları göre ölçeklendirme olduğu otomatik ölçeklendirmeyi kullanmayı öğrenin.
+  Out kadar 20 örneklerine fiyatlandırma katmanınıza bağlı ölçeklendirebilirsiniz. [Uygulama hizmeti ortamları](environment/intro.md) içinde **Isolated** daha fazla katmanı genişletme sayınız 100 örneklerine artırır. Genişletme hakkında daha fazla bilgi için bkz: [örnek sayısı el ile veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md). Burada, örnek sayısı otomatik olarak önceden tanımlanmış kurallar ve zamanlamaları göre ölçeklendirme olduğu otomatik ölçeklendirmeyi kullanmayı öğrenin.
 
 Ölçek ayarları uygulamak ve tüm uygulamaları etkiler yalnızca saniye sürebilir, [uygulama hizmeti planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-Bunlar, uygulamanızın yeniden dağıtın veya kodunuzu değiştirmek gerektirmez.
+Bunlar kodunuzu değiştirmek veya uygulamanızın dağıtmanız gerekmez.
 
 Fiyatlandırma ve tek tek uygulama hizmeti planları özellikleri hakkında daha fazla bilgi için bkz: [App Service fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/web-sites/).  
 
@@ -57,7 +57,7 @@ Fiyatlandırma ve tek tek uygulama hizmeti planları özellikleri hakkında daha
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>İlgili kaynaklar ölçeklendirme
-Uygulamanızı Azure SQL veritabanı ya da Azure depolama gibi diğer hizmetler yapılandırmasanız bu kaynakları ayrı olarak ölçeklendirebilirsiniz. Uygulama hizmeti planı tarafından yönetilen bu kaynakları değil.
+Uygulamanızı Azure SQL veritabanı ya da Azure depolama gibi diğer hizmetler yapılandırmasanız bu kaynakları ayrı olarak ölçeklendirebilirsiniz. Bu kaynaklar, uygulama hizmeti planı tarafından yönetilmiyor.
 
 1. İçinde **Essentials**, tıklatın **kaynak grubu** bağlantı.
    
@@ -81,11 +81,6 @@ Uygulamanızı Azure SQL veritabanı ya da Azure depolama gibi diğer hizmetler 
 ## <a name="compare-pricing-tiers"></a>Fiyatlandırma katmanlarını karşılaştırmak
 Her fiyatlandırma katmanının VM boyutları gibi ayrıntılı bilgi için bkz: [App Service fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/web-sites/).
 Hizmet sınırları, kotaları ve kısıtlamaları ve her katmanındaki desteklenen özellikler tablosu için bkz: [App Service sınırları](../azure-subscription-service-limits.md#app-service-limits).
-
-> [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service'i kullanmaya başlamak istiyorsanız, Git [App Service'i deneyin](https://azure.microsoft.com/try/app-service/) hemen oluşturabileceğiniz bir kısa süreli başlangıç web uygulaması App Service içinde. Kredi kartı gerekmez ve hiçbir taahhüt yoktur.
-> 
-> 
 
 <a name="Next Steps"></a>
 

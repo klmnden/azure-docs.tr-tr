@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 21cf8201236224244e6ed34f91f9c5c601ab9a79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Tahmine dayalı bakım gerçek dünya senaryosu.
 
-Zamanlanmamış ekipman kapalı kalma süresi etkisi herhangi bir işletme için detrimental olabilir. Bu nedenle, kullanımını ve performansını en üst düzeye çıkarmak için çalışan Canlı alan donanımına ve pahalı, zamanlanmamış kapalı kalma süresini en aza tarafından önemlidir. Sorunları erken tanımlaması uygun maliyetli bir şekilde sınırlı bakım kaynakları tahsis ve kalitesini geliştirmek ve tedarik zinciri süreçlerinin yardımcı olabilir. 
+Zamanlanmamış ekipman kapalı kalma süresi etkisi herhangi bir işletme için detrimental olabilir. Alan donanım kullanımını ve performansını en üst düzeye çıkarmak için çalışan tutmak için çok önemlidir ve pahalı en aza indirerek, zamanlanmamış kapalı kalma süresi. Sorunları erken tanımlaması uygun maliyetli bir şekilde sınırlı bakım kaynakları tahsis ve kalitesini geliştirmek ve tedarik zinciri süreçlerinin yardımcı olabilir. 
 
 Bu senaryoyu ele bir görece [büyük ölçekli benzetimli veri kümesi](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) üzerinden Tahmine dayalı bakım veri bilimi proje veri alım yol için mühendislik, model yapı ve model operationalization özellik ve dağıtımı. Tüm işlem kodunu Jupyter not defterleri Azure ML çalışma ekranının içinden PySpark kullanılarak yazılır. Son model, gerçek zamanlı donanım hatası tahminlerde için Azure Machine Learning modeli Yönetimi kullanılarak dağıtılır.   
 
 ## <a name="link-to-the-gallery-github-repository"></a>Galeri GitHub deponuza bağlayın
 
-Genel GitHub depo bağlantısını aşağıdadır: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
+Sorun raporları ve katkı için ortak GitHub depo bağlantısını aşağıdadır: [https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)
 
 
 ## <a name="use-case-overview"></a>Kullanım örneği'ne genel bakış
@@ -40,9 +40,9 @@ Bu senaryo gelen fikirleri alır [Tahmine dayalı bakım playbook](https://docs.
 
 * Bir [Azure hesabı](https://azure.microsoft.com/en-us/free/) (ücretsiz deneme kullanılabilir).
 * Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu'na](./quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için.
-* Azure Machine Learning Operationalization yerel dağıtım ortamı gerektirir ve bir [model yönetim hesabı](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* Azure Machine Learning Operationalization yerel dağıtım ortamı gerektirir ve bir [model yönetim hesabı](model-management-overview.md)
 
-Bu örnekte her AML çalışma ekranı işlem bağlam üzerinde çalıştırılabilir. Ancak, ile en az çalıştırmak için önerilir 16 GB bellek. Bu senaryo yerleşik ve bir uzak DS4_V2 standart çalıştıran bir Windows 10 makineye test [Linux (Ubuntu) için veri bilimi sanal makine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+Bu örnekte, tüm AML çalışma ekranı işlem bağlamda çalıştırabilirsiniz. Ancak, ile en az çalıştırmak için önerilir 16 GB bellek. Bu senaryo yerleşik ve bir uzak DS4_V2 standart çalıştıran bir Windows 10 makineye test [Linux (Ubuntu) için veri bilimi sanal makine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Model operationalization yapıldı, Azure ML CLI Sürüm 0.1.0a22 kullanarak.
 
@@ -52,8 +52,8 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 1.  Açık Azure Machine Learning çalışma ekranı
 2.  Üzerinde **projeleri** sayfasında,  **+**  oturum ve seçin **yeni proje**
 3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun
-4.  İçinde **arama proje şablonları** arama kutusu, "Tahmine dayalı bakım" yazın ve şablonu seçin
-5.  **Oluştur**'a tıklayın
+4.  İçinde **arama proje şablonları** arama kutusu, "Tahmine dayalı bakım" yazın ve seçin **Tahmine dayalı Bakım** şablonu
+5.  Tıklatın **oluşturma** düğmesi
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>Not Defteri sunucusu hesaplama hedef hazırlama
 
@@ -113,9 +113,9 @@ Senaryo için içeriği şu adresten edinilebilir [GitHub deposunu](https://gith
 
 [`Code\4_operationalization.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): Yerel (Jupyter not defteri çekirdek) diske kaydedilmiş son modelini kullanarak, model bir Azure web hizmetine dağıtma bileşenleri bu not oluşturur. Tam işletimsel varlıklar halinde düzenlenmiş `o16n.zip` dosya başka bir Azure blob kapsayıcısında depolanır. Sıkıştırılmış dosya içerir:
 
-* `service_schema.json`Dağıtım için şema tanımı dosyası. 
-* `pdmscore.py`Azure web hizmeti için gereken init() ve run() işlevleri
-* `pdmrfull.model`Model tanım dizin.
+* `service_schema.json` Dağıtım için şema tanımı dosyası. 
+* `pdmscore.py` Azure web hizmeti için gereken init() ve run() işlevleri
+* `pdmrfull.model` Model tanım dizin.
     
  Not Defteri dağıtım operationalization varlıklar paketleme önce model tanımını işlevleriyle sınar. Dağıtımı için yönergeler not defteri sonunda dahil edilir.
 
@@ -125,13 +125,15 @@ Bu senaryo okuyucu Azure ML çalışma ekranındaki Jupyter not defteri ortamın
 
 ## <a name="references"></a>Başvurular
 
-Bu kullanım örneği daha önce birden çok platformu üzerinde geliştirilmiştir:
+Çeşitli platformlarda kullanılabilir diğer Tahmine dayalı bakım kullanım örneği örnekler vardır:
 
 * [Tahmine dayalı bakım çözüm şablonu](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Tahmine dayalı bakım modelleme Kılavuzu](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Tahmine dayalı bakım modelleme SQL R Services kullanarak Kılavuzu](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Tahmine dayalı Bakım Kılavuzu Python not defteri modelleme](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [PySpark kullanarak Tahmine dayalı bakım](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
+* [Tahmine dayalı bakım için öğrenme derin](
+ https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Veri bilimi görevleri yürütün: keşfi, model ve dağıtım
 
@@ -25,10 +25,10 @@ Genel veri bilimi görevler veri keşfi, model oluşturma ve dağıtımını iç
 
 - [Azure Machine Learning](../preview/index.yml)
 - [ML Hizmetleri ile SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
-- [Microsoft Machine Learning sunucu](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a>Araştırması 
+## 1. <a name='DataQualityReportUtility-1'></a> Araştırması 
 
 Bir veri Bilimcisi araştırması ve çeşitli şekillerde raporlama görevlerini gerçekleştirebilir: Python (örneğin matplotlib) için kitaplıkları ve paketleri kullanılabilir kullanarak veya r (ggplot veya örneğin kafes). Veri bilimcilerine kodun belirli senaryolar için veri keşfi gereksinimlerine uyacak şekilde özelleştirebilirsiniz. Yapılandırılmış verileri postalarla gereksinimlerini farklı metin veya görüntüler gibi yapılandırılmamış veriler için. 
 
@@ -43,7 +43,7 @@ Bu R markdown tabanlı veya Python dizüstü bilgisayar tabanlı bir hizmet değ
 Şu anda aracı yalnızca veri çerçevelerini bellekte üzerinde çalışır. YAML dosya incelenecek veri kümesi parametrelerini belirtmek için gereklidir. Daha fazla bilgi için bkz: [TDSP veri bilimi yardımcı programları IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a>Modelleme
+## 2. <a name='ModelingUtility-2'></a> Modelleme
 
 Çok sayıda araç takımları ve çeşitli dillerde eğitim modellerinde paketleri vardır. Veri bilimcilerine ve ever olanları doğruluğunu ve gecikme süresi ile ilgili performans değerlendirmeleri için ilgili iş karşılanır sürece, rahat oldukları durumlarda ve üretim senaryoları kullandığınız çekinmeyin.
 
@@ -63,7 +63,7 @@ YAML dosyası belirtmek için kullanılır:
 - verilerin hangi kısmını eğitim ve test etmek için ne bölümü için kullanılır
 - çalıştırmak için hangi algoritmaları 
 - model iyileştirme denetim parametrelerini Seçimi:
-    - Çapraz doğrulama 
+    - cross-validation 
     - önyükleme eklemesi
     - Çapraz doğrulama Katlama
 - hyper-parametresi için her algoritmasını ayarlar. 
@@ -78,9 +78,9 @@ Birden fazla modeli oluşturduktan sonra genellikle kaydetme ve modelleri yönet
 1. [Azure Machine Learning - model yönetim hizmeti](../preview/index.yml)
 2. [ModelDB MIT gelen](https://mitdbg.github.io/modeldb/) 
 3. [Bir model yönetim sistemi olarak SQL seerver](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Microsoft Machine Learning sunucu](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a>Dağıtım
+## 3. <a name='Deployment-3'></a> Dağıtım
 
 Üretim dağıtımı etkin bir rol bir işletmede yürütmek bir model sağlar. Dağıtılan modelden tahminleri iş kararları için kullanılabilir.
 
@@ -88,9 +88,9 @@ Birden fazla modeli oluşturduktan sonra genellikle kaydetme ve modelleri yönet
 Çeşitli yaklaşımlar ve platformları, modelleri üretime sokmak için vardır. Bazı seçenekler şunlardır:
 
 
-- [Azure Machine Learning modeli dağıtımında](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Azure Machine Learning modeli dağıtımında](../preview/model-management-overview.md)
 - [SQL Server'daki bir model dağıtımı](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning sunucu](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >
 >
