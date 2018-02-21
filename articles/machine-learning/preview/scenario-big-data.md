@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
 
@@ -51,7 +51,7 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 * Windows 10 (Bu örnekte yönergeleri genellikle macOS sistemleri için aynıdır).
 * Bir veri bilimi sanal makine (DSVM) Linux (Ubuntu), tercihen Doğu ABD bölgede burada verileri bulur. İzleyerek bir Ubuntu DSVM sağlayabilirsiniz [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Ayrıca bkz [Bu Hızlı Başlangıç](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). En az 8 çekirdek ve 32 GB bellek bir sanal makine kullanmanızı öneririz. 
 
-İzleyin [yönerge](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) AML çalışma ekranı için VM parola daha az sudoer erişimini etkinleştirmek için.  Kullanmayı tercih edebileceğiniz [oluşturmak ve VM AML çalışma ekranı içinde kullanmak için SSH anahtar tabanlı kimlik doğrulaması](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Bu örnekte, VM erişmek için parola kullanın.  Aşağıdaki tabloda, sonraki adımlara DSVM bilgileri ile kaydedin:
+İzleyin [yönerge](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) AML çalışma ekranı için VM parola daha az sudoer erişimini etkinleştirmek için.  Kullanmayı tercih edebileceğiniz [oluşturmak ve VM AML çalışma ekranı içinde kullanmak için SSH anahtar tabanlı kimlik doğrulaması](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Bu örnekte, VM erişmek için parola kullanın.  Aşağıdaki tabloda, sonraki adımlara DSVM bilgileri ile kaydedin:
 
  Alan adı| Değer |  
  |------------|------|
@@ -71,7 +71,7 @@ DSVM IP adresi | xxx|
  Parola   | xxx|
 
 
-* Bir Azure depolama hesabı. İzleyebileceğiniz [bu yönergeleri](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) oluşturmak için. Ayrıca, iki özel blob kapsayıcıları adlarıyla oluşturma `fullmodel` ve `onemonthmodel` bu depolama hesabında. Depolama hesabı Ara işlem sonuçları ve makine öğrenimi modellerinin oluşturulmasına kaydetmek için kullanılır. Bu örnek denemek için depolama hesabı adı ve erişim anahtarı gerekir. Aşağıdaki tabloda, sonraki adımlar için Azure depolama hesabı bilgileri ile kaydedin:
+* Azure Depolama hesabı. İzleyebileceğiniz [bu yönergeleri](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) oluşturmak için. Ayrıca, iki özel blob kapsayıcıları adlarıyla oluşturma `fullmodel` ve `onemonthmodel` bu depolama hesabında. Depolama hesabı Ara işlem sonuçları ve makine öğrenimi modellerinin oluşturulmasına kaydetmek için kullanılır. Bu örnek denemek için depolama hesabı adı ve erişim anahtarı gerekir. Aşağıdaki tabloda, sonraki adımlar için Azure depolama hesabı bilgileri ile kaydedin:
 
  Alan adı| Değer |  
  |------------|------|
@@ -186,9 +186,9 @@ Aşağıdaki bölümlerde, modeli geliştirme Machine Learning çalışma ekran�
 
 | Alan | Tür | Açıklama |
 |-----------|------|-------------|
-| StorageAccount | Dize | Azure depolama hesabı adı |
+| storageAccount | Dize | Azure depolama hesabı adı |
 | storageContainer | Dize | Ara Sonuçların depolanacağı Azure depolama hesabı kapsayıcısında |
-| Depolama anahtarı | Dize |Azure depolama hesabı erişim anahtarı |
+| storageKey | Dize |Azure depolama hesabı erişim anahtarı |
 | Veri dosyası|Dize | Veri kaynağı dosyaları  |
 | Süre| Dize | Veri kaynağı dosyaları verilerde süresi|
 
@@ -225,7 +225,7 @@ Dockerdsvm.runconfig için göz atın ve bu alanlar yapılandırmasını aşağ�
 ```az ml experiment prepare -c dockerdsvm```
 
 
-İle `PrepareEnvironment` true olarak Machine Learning çalışma ekranı bir işi göndermek her çalışma zamanı ortamı oluşturur. `Config/conda_dependencies.yml`ve `Config/dsvm_spark_dependencies.yml` çalışma zamanı ortamı özelleştirme içerir. Bu iki YMAL dosyaları düzenleyerek Conda bağımlılıkları, Spark yapılandırma ve Spark bağımlılıkları her zaman değiştirebilirsiniz. Bu örnekte, eklediğimiz `azure-storage` ve `azure-ml-api-sdk` ek Python paketlerini olarak `Config/conda_dependencies.yml`. Ayrıca eklediğimiz `spark.default.parallelism`, `spark.executor.instances`, ve `spark.executor.cores` içinde `Config/dsvm_spark_dependencies.yml`. 
+İle `PrepareEnvironment` true olarak Machine Learning çalışma ekranı bir işi göndermek her çalışma zamanı ortamı oluşturur. `Config/conda_dependencies.yml` ve `Config/dsvm_spark_dependencies.yml` çalışma zamanı ortamı özelleştirme içerir. Bu iki YMAL dosyaları düzenleyerek Conda bağımlılıkları, Spark yapılandırma ve Spark bağımlılıkları her zaman değiştirebilirsiniz. Bu örnekte, eklediğimiz `azure-storage` ve `azure-ml-api-sdk` ek Python paketlerini olarak `Config/conda_dependencies.yml`. Ayrıca eklediğimiz `spark.default.parallelism`, `spark.executor.instances`, ve `spark.executor.cores` içinde `Config/dsvm_spark_dependencies.yml`. 
 
 #####  <a name="2-data-preparation-and-feature-engineering-on-dsvm-docker"></a>2. Veri hazırlama ve özellik Mühendisliği DSVM Docker üzerinde
 
@@ -330,7 +330,7 @@ run_logger.log("Test Accuracy", testAccuracy)
 
 Bu bölümde, bir web hizmeti olarak önceki adımlarda oluşturduğunuz modeli faaliyete. Ayrıca iş yükü tahmin etmek için web hizmeti kullanmayı öğrenin. Makine dili operationalization komut satırı arabirimlerinden (CLIs) kapsayıcılı web hizmeti olarak kodu ve bağımlılıklarını Docker görüntüleri olarak paketini ve modeli yayımlamak için kullanın.
 
-CLIs çalıştırmak için Machine Learning çalışma ekranı komut satırı isteminde kullanın.  İzleyerek CLIs Ubuntu Linux üzerinde de çalıştırabilirsiniz [Yükleme Kılavuzu](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+CLIs çalıştırmak için Machine Learning çalışma ekranı komut satırı isteminde kullanın.  İzleyerek CLIs Ubuntu Linux üzerinde de çalıştırabilirsiniz [Yükleme Kılavuzu](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > Tüm aşağıdaki komutlar, herhangi bir bağımsız değişken gerçek değeriyle değiştirin. Bu bölümde tamamlanması yaklaşık 40 dakika sürer.
@@ -416,7 +416,7 @@ Benzersiz bir dize olarak operationalization ortamını seçin. Burada, "[benzer
 
 8. Web hizmeti ölçeklendirin. 
 
-   Daha fazla bilgi için bkz: [operationalization Azure kapsayıcı hizmeti kümenizde ölçeklendirme](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md).
+   Daha fazla bilgi için bkz: [operationalization Azure kapsayıcı hizmeti kümenizde ölçeklendirme](how-to-scale-clusters.md).
  
 
 ## <a name="next-steps"></a>Sonraki adımlar

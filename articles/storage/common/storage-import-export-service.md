@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
-ms.translationtype: MT
+ms.openlocfilehash: 56cc2a82e7957e677f96c638f7e3e903a3b717e1
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -299,7 +299,7 @@ Diskleri Azure'a sevk ettiğinizde, Sevkiyat taşıyıcı sevkiyat maliyet ücre
 
 **İşlem maliyetleri**
 
-Verileri Azure depolama alanına alırken hiçbir işlem maliyetleri vardır. Blob depolama alanından verileri verildiğinde standart çıkış ücretleri uygulanabilir. İşlem maliyetleri hakkında daha fazla bilgi için bkz: [veri aktarımı fiyatlandırmasını.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Verileri Azure depolama alanına alırken standart depolama işlem maliyetleri yanı sıra hiçbir işlem maliyetleri vardır. Blob depolama alanından verileri verildiğinde standart çıkış ücretleri uygulanabilir. İşlem maliyetleri hakkında daha fazla bilgi için bkz: [veri aktarımı fiyatlandırmasını.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 

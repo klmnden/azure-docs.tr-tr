@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 2/13/2018
 ms.author: johnkem
-ms.openlocfilehash: 6355433dab7bac910dd89a50b74df13d6cf1b8fc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ce61e50d5c00ef44b8eba562928d383510d4ccf4
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak kaynak oluşturma sırasında otomatik olarak tanılama ayarlarını etkinleştirin
 Bu makalede biz nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda bir kaynakta tanılama ayarlarını yapılandırmak için. Bu, tanılama günlüklerini ve Event Hubs, bir depolama hesabında arşivleme veya bir kaynak oluşturulduğunda için günlük analizi göndererek ölçümlere akış otomatik olarak başlatılmasını sağlar.
@@ -80,7 +80,7 @@ Aşağıdaki işlem dışı ve işlem kaynakları için oluşturmak için gereke
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/service",
+        "name": "Microsoft.Insights/[parameters('settingName')]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -210,7 +210,7 @@ Aşağıda, bir mantıksal uygulama oluşturan ve olay hub'ları ve depolama hes
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/service",
+          "name": "Microsoft.Insights/[parameters('settingName')]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],

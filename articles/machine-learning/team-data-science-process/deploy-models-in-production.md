@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: bradsev;
-ms.openlocfilehash: c7be9eda2d6f37951eb120250861cf4a39b0141b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 122c6db2a915dd2a933e261b5b735e7214407d66
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="deploy-models-in-production"></a>Üretim modellerinde dağıtma
+# <a name="deploy-models-in-production"></a>Üretimde modelleri dağıtma
 
 Üretim dağıtımı etkin bir rol bir işletmede yürütmek bir model sağlar. Dağıtılan modelden tahminleri iş kararları için kullanılabilir.
 
@@ -27,9 +27,9 @@ ms.lasthandoff: 12/01/2017
 Çeşitli yaklaşımlar ve platformları, modelleri üretime sokmak için vardır. Bazı seçenekler şunlardır:
 
 
-- [Azure Machine Learning modeli dağıtımında](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Azure Machine Learning modeli dağıtımında](../preview/model-management-overview.md)
 - [SQL Server'daki bir model dağıtımı](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning sunucu](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 
 >[!NOTE]

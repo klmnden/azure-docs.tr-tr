@@ -1,10 +1,10 @@
 ---
 title: "Oluşturun ve P2S RADIUS bağlantıları için VPN istemcisi yapılandırma dosyalarını yükleyin: PowerShell: Azure | Microsoft Docs"
-description: "Bu makalede, RADIUS kimlik doğrulaması kullanan noktadan siteye bağlantıları için VPN istemci yapılandırma dosyası oluşturmanıza yardımcı olur."
+description: "Windows, Mac OS X ve Linux VPN istemci RADIUS kimlik doğrulaması kullanan bağlantılar için yapılandırma dosyaları oluşturun."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fb83bda50535dc002120ee4621cd4c8df71c141c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ce914d2fd0472855ad7a17bf64ae43a76ceb5743
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Oluşturun ve VPN istemcisi yapılandırma dosyalarını P2S RADIUS kimlik doğrulaması için yükleyin
 
-Noktası Site bir sanal ağa bağlanmak için hangi, bağlanırsınız istemci aygıt yapılandırmanız gerekir. RADIUS sunucusu birden çok kimlik doğrulama seçenekleri sağlar: kullanıcı adı/parola kimlik doğrulaması, sertifika kimlik doğrulaması yanı sıra, diğer kimlik doğrulama türleri. VPN istemci yapılandırmasında her kimlik doğrulama türü için farklıdır. VPN istemcisini yapılandırmak için gereken ayarları içeren istemci yapılandırma dosyalarını kullanın. Bu makalede oluşturmak ve kullanmak istediğiniz RADIUS kimlik doğrulaması türü için VPN istemci yapılandırma yüklemenize yardımcı olur.
+Noktası Site bir sanal ağa bağlanmak için hangi, bağlanırsınız istemci aygıt yapılandırmanız gerekir. Windows, Mac OSX ve Linux istemci cihazlar, P2S VPN bağlantıları oluşturabilirsiniz. RADIUS kimlik doğrulaması kullanırken, birden çok kimlik doğrulama seçeneği vardır: kullanıcı adı/parola kimlik doğrulaması, sertifika kimlik doğrulaması yanı sıra, diğer kimlik doğrulama türleri. VPN istemci yapılandırmasında her kimlik doğrulama türü için farklıdır. VPN istemcisini yapılandırmak için gereken ayarları içeren istemci yapılandırma dosyalarını kullanın. Bu makalede oluşturmak ve kullanmak istediğiniz RADIUS kimlik doğrulaması türü için VPN istemci yapılandırma yüklemenize yardımcı olur.
 
-### <a name="workflow"></a>İş akışı
+P2S RADIUS kimlik doğrulaması için yapılandırma iş akışı aşağıdaki gibidir:
 
 1. [P2S bağlantısı için Azure VPN ağ geçidi ayarlamak](point-to-site-how-to-radius-ps.md).
 2. [RADIUS sunucunuz kimlik doğrulaması için ayarlama](point-to-site-how-to-radius-ps.md#radius). 
@@ -36,6 +36,8 @@ Noktası Site bir sanal ağa bağlanmak için hangi, bağlanırsınız istemci a
 >Varsa noktadan siteye VPN yapılandırma değişiklikleri VPN protokol türü veya kimlik doğrulama türü gibi bir VPN istemci yapılandırma profili oluşturduktan sonra oluşturmak ve yeni bir VPN istemci yapılandırma kullanıcı aygıtlarınızda yüklemeniz gerekir.
 >
 >
+
+Bu makalede bölümleri kullanmak için ilk olarak kullanmak istediğiniz kimlik doğrulaması türünü karar verin: kullanıcı adı/parola, sertifika veya diğer kimlik doğrulama türleri. Her bölümde Windows, Mac OS X ve Linux (şu anda sınırlı adımları) için adım vardır.
 
 ## <a name="adeap"></a>Kullanıcı adı/parola kimlik doğrulaması
 
@@ -121,7 +123,7 @@ Sertifika kimlik doğrulaması için yerel Windows VPN istemcisi yapılandırmak
 
 Aşağıdaki yönergeler, Ubuntu 17.0.4 üzerinde strongSwan 5.5.1 kullanılarak oluşturulan. Gerçek ekranlar, Linux ve strongSwan sürümüne bağlı olarak farklı olabilir.
 
-1. Açık **Terminal** yüklemek için **strongSwan** ve aşağıdaki komutu çalıştırarak, Ağ Yöneticisi. "Libcharon-ek-eklentilerinde" ilgili bir hata alırsanız, "strongswan-plugin-eap-mschapv2 ile" değiştirin.
+1. Açık **Terminal** yüklemek için **strongSwan** ve örnekte komutunu çalıştırarak, Ağ Yöneticisi. "Libcharon-ek-eklentilerinde" ilgili bir hata alırsanız, "strongswan-plugin-eap-mschapv2 ile" değiştirin.
 
   ```Terminal
   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
@@ -251,3 +253,5 @@ Farklı kimlik doğrulama türü (örneğin, OTP) ve kullanıcı adı/parola vey
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Makaleye dönün [P2S yapılandırmanızı tamamlamak](point-to-site-how-to-radius-ps.md).
+
+P2S sorun giderme bilgileri için [sorun giderme Azure noktadan siteye bağlantıları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

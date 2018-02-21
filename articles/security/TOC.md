@@ -17,8 +17,9 @@
 ### [Güvenliğe yönelik teknik özellikler](azure-security-technical-capabilities.md)
 ### [Azure’da idare](governance-in-azure.md)
 ### [Bekleme sırasında veri şifrelemesi](azure-security-encryption-atrest.md)
-### Mimari Şemalar
-#### [Uyumluluk - PCI DSS](./blueprints/payment-processing-blueprint.md)
+### Azure Güvenlik ve Uyumluluk Şemaları
+#### PCI DSS
+##### [PCI DSS uyumlu ortamlar için Ödeme İşleme](./blueprints/payment-processing-blueprint.md)
 ##### [Gereksinimlere genel bakış](./blueprints/pci-dss-requirements-overview.md)
 ##### [Gereksinim 1 - Güvenlik duvarları](./blueprints/pci-dss-requirement-1-firewall.md)
 ##### [Gereksinim 2 - Parolalar](./blueprints/pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Gereksinim 10 - İzleme](./blueprints/pci-dss-requirement-10-monitoring.md)
 ##### [Gereksinim 11 - Test etme](./blueprints/pci-dss-requirement-11-testing.md)
 ##### [Gereksinim 12 - İlke](./blueprints/pci-dss-requirement-12-policy.md)
-#### [Uyumluluk - FedRAMP ](./blueprints/fedramp.md)
+#### FedRAMP
+##### [Web Uygulamaları Otomasyonu](./blueprints/fedramp.md)
 ##### [Güvenlik denetimlerine genel bakış](./blueprints/fedramp-controls-overview.md)
 ##### [Erişim denetimi](./blueprints/fedramp-access-controls.md)
 ##### [Denetim ve sorumluluk](./blueprints/fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Sistem ve iletişim koruması](./blueprints/fedramp-system-communications-protection-controls.md)
 ##### [Sistem ve bilgi bütünlüğü](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [Sistem ve hizmetleri edinme](./blueprints/fedramp-system-services-acquisition-controls.md)
-#### [Uyumluluk - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Üç Katmanlı Web Uygulamaları Otomasyonu](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Genel Bakış](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [İlkelere genel bakış](./blueprints/uk-official-three-tier-applications-principles-overview.md)
-#### Uyumluluk - Finansal Hizmetler
+#### Finansal Hizmetler
 ##### [Düzenlenen İş Yükleri için Finansal Hizmetler](./blueprints/financial-services-regulated-workloads.md)
 
 # Başlarken

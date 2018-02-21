@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Takım veri bilimi işlemi kullanarak word eklerinin ile twitter düşüncelerini tahmin etme
 
@@ -131,7 +131,7 @@ Son adım, bir web hizmetine Azure kapsayıcı hizmeti kümesinde eğitilen dü�
 
 ![Kubernetes Panosu](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Operationalization işlemi hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning modeli bir web hizmeti olarak dağıtma](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
+Operationalization işlemi hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning modeli bir web hizmeti olarak dağıtma](../preview/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Sonuç
 
@@ -140,11 +140,11 @@ Bu makalede, Word2Vec ve Word düşünceleri özgü katıştırma algoritmaları
 
 ## <a name="references"></a>Başvurular
 
-* [Takım veri bilimi işlemi](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
+* [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Azure Machine Learning ekibi veri bilimi işlem (TDSP) kullanma](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Azure Machine Learning için TDSP proje şablonları](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning çalışma ekranı](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](../preview/index.yml)
 * [UCI ML depodan ABD gelir veri kümesi](https://archive.ics.uci.edu/ml/datasets/adult)
-* [TDSP şablonları kullanarak biomedical varlık tanıma](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [TDSP şablonları kullanarak biomedical varlık tanıma](../preview/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas, et al. "Sözcükler ve tümcecikleri ve bunların Compositionality gösterimlerini dağıtılmış. İşleme sistemlerinin sinir bilgilerinde ilerletir." 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu, et al. "Twitter düşünceleri sınıflandırma için düşünceleri özgü Word katıştırma öğrenme." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

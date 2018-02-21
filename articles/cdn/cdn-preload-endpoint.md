@@ -4,7 +4,7 @@ description: "Azure CDN uç noktada önbelleğe alınmış içeriği önceden y�
 services: cdn
 documentationcenter: 
 author: dksimpson
-manager: erikre
+manager: akucer
 editor: 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
@@ -12,23 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/12/2018
 ms.author: mazha
-ms.openlocfilehash: acd6eae12ff338c64cc8879aa8c27b226e3d2f84
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e00205ddcaab277029d7185d0158a64818d0d49b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN uç noktasında varlıkları önceden yükleme
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Varsayılan olarak, yalnızca talep edildiğinde varlıkların önbelleğe alınır. Sonuç olarak, her bölge ilk isteğinden sonraki istekleri uzun sürebilir. Uç sunucuların henüz içerik önbelleğe değil ve kaynak sunucuya istek iletmek gerekir çünkü nedenidir. İçeriği önceden yüklerken bu ilk isabet gecikmesini engelleyebilirsiniz.
-
-Daha iyi bir müşteri deneyimi sağlamaya ek olarak, önbelleğe alınan varlıkları önceden yükleme da kaynak sunucu üzerindeki ağ trafiğini azaltabilir.
+Varsayılan olarak, yalnızca talep edildiğinde varlıkların önbelleğe alınır. Uç sunucuların henüz içerik önbelleğe değil ve kaynak sunucuya istek iletmek gerekir çünkü her bölge ilk istekten istekler uzun sürebilir. Bu ilk isabet gecikmesini önlemek için varlıkları önceden yükleme. Daha iyi bir müşteri deneyimi sağlamaya ek olarak, önbelleğe alınan varlıkları önceden yükleme kaynak sunucu üzerindeki ağ trafiğini azaltabilir.
 
 > [!NOTE]
-> Varlıkları önceden yükleme büyük olayları veya kullanıcılar, yeni bir filmi sürüm veya bir yazılım güncelleştirmesi gibi çok sayıda eşzamanlı olarak kullanılabilir içeriği için kullanışlıdır.
+> Varlıkları önceden yükleme büyük olayları veya yeni bir filmi sürüm veya bir yazılım güncelleştirmesi gibi çok sayıda kullanıcı aynı anda kullanılabilir içeriği için kullanışlıdır.
 > 
 > 
 
@@ -48,13 +46,13 @@ Bu öğreticide, tüm Azure CDN uç düğümlerde önbelleğe alınmış içeri�
 4. İçin **içerik yolu**, yüklemek istediğiniz her varlık tam yolunu girin (örneğin, `/pictures/kitten.png`).
    
    > [!TIP]
-   > Daha fazla **içerik yolu** birden çok varlıkların listesi oluşturmanıza izin vermek için metin girerek başlattıktan sonra metin kutuları görüntülenir. Varlıklar listeden silmek için üç nokta (...) düğmesini seçin ve sonra seçin **silmek**.
+   > Daha fazla metin girerek başlattıktan sonra **içerik yolu** metin kutuları birden çok varlıkların listesi oluşturmanıza izin vermek için görünür. Varlıklar listeden silmek için üç nokta (...) düğmesini seçin ve sonra seçin **silmek**.
    > 
    > Her içerik yolu aşağıdaki uygun göreli bir URL olmalıdır [normal ifadeler](https://msdn.microsoft.com/library/az24scfc.aspx):  
-   > - Tek bir dosya yolu yük: `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
-   > - Sorgu dizesi tek bir dosyayı yükleme:`@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";` 
+   > - Tek bir dosya yolu yük: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Sorgu dizesi tek bir dosyayı yükleme: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
-   > Her varlık, kendi yolu olması gerekir. Ön yükleme varlıklar için joker karakter işlevi yoktur.
+   > Her varlık, kendi yolu olması gerektiği için önceden yükleme varlıklar için joker karakter işlevi yoktur.
    > 
    > 
    
@@ -63,7 +61,7 @@ Bu öğreticide, tüm Azure CDN uç düğümlerde önbelleğe alınmış içeri�
    
 
 > [!NOTE]
-> Her CDN profili dakikada 10 yük isteklerinin bir sınırlama yoktur. 50 eşzamanlı yolu aynı anda işlenebilir. Her yol 1024 karakterden oluşan bir yol uzunluğu sınırı vardır.
+> Her CDN profili dakikada 10 yük isteklerini sınırlaması yoktur ve 50 eşzamanlı yolu aynı anda işlenebilir. Her yol 1024 karakterden oluşan bir yol uzunluğu sınırı vardır.
 > 
 > 
 

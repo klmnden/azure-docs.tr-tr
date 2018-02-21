@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 436166fcb0fa9103c6b702b63d93a0b222d536d0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4a0fbb2a1f468493e5b22b12518be42fdd9d5ce6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) Veritabanı ya da Azure VM'lerde SQL Server (IaaS)
 Azure, SQL Server iş yüklerini Microsoft Azure’da barındırmaya yönelik iki seçenek içerir:
@@ -80,7 +80,7 @@ Aşağıdaki tabloda, SQL Database ve Azure VM'lerinde SQL Server'ın temel öze
 #### <a name="billing-and-licensing-basics"></a>Faturalama ve lisanslama ile ilgili temel bilgiler
 **SQL Veritabanı**, müşterilere bir lisans ile değil hizmet olarak satılır.  [Azure VM’lerde SQL Server](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) ise dakika başına ödediğiniz bir lisans ile birlikte satılır. Mevcut bir lisansınız varsa onu da kullanabilirsiniz.  
 
-Şu anda **SQL Database** birkaç hizmet katmanında sunulmaktadır ve bu katmanların her biri, seçtiğiniz hizmet katmanında ve performans düzeyi temelinde sabit bir ücretle saatlik olarak faturalandırılır. Buna ek olarak, giden Internet trafiği için normal [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) faturalandırılırsınız. Temel, Standart, Premium ve Premium RS hizmet katmanları, uygulamanızın en üst sıradaki gereksinimlerini karşılamak üzere birden çok performans düzeyine sahip tahmin edilebilir bir performans sağlamak üzere tasarlanmıştır. Uygulamanızın değişken verimlilik ihtiyaçlarını karşılamak üzere, hizmet katmanları ve performans düzeyleri arasında geçiş yapabilirsiniz. Veritabanınızın işlem hacmi yüksekse ve çok sayıda eşzamanlı kullanıcıyı desteklemesi gerekiyorsa Premium hizmet katmanını öneririz. Desteklenen geçerli hizmet katmanlarına yönelik en son bilgiler için, bkz. [Azure SQL Database Hizmet Katmanları](sql-database-service-tiers.md). Veritabanı örnekleri arasında performans kaynaklarını paylaşmak için [elastik havuzlar](sql-database-elastic-pool.md) da oluşturabilirsiniz.
+Şu anda **SQL Database** birkaç hizmet katmanında sunulmaktadır ve bu katmanların her biri, seçtiğiniz hizmet katmanında ve performans düzeyi temelinde sabit bir ücretle saatlik olarak faturalandırılır. Buna ek olarak, giden Internet trafiği için normal [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) faturalandırılırsınız. Temel, Standart ve Premium hizmet katmanları, uygulamanızın en üst sıradaki gereksinimlerini karşılamak üzere birden çok performans düzeyine sahip tahmin edilebilir bir performans sağlamak üzere tasarlanmıştır. Uygulamanızın değişken verimlilik ihtiyaçlarını karşılamak üzere, hizmet katmanları ve performans düzeyleri arasında geçiş yapabilirsiniz. Veritabanınızın işlem hacmi yüksekse ve çok sayıda eşzamanlı kullanıcıyı desteklemesi gerekiyorsa Premium hizmet katmanını öneririz. Desteklenen geçerli hizmet katmanlarına yönelik en son bilgiler için, bkz. [Azure SQL Database Hizmet Katmanları](sql-database-service-tiers.md). Veritabanı örnekleri arasında performans kaynaklarını paylaşmak için [elastik havuzlar](sql-database-elastic-pool.md) da oluşturabilirsiniz.
 
 **SQL Database** ile, veritabanı yazılımına Microsoft tarafından otomatik olarak yapılandırma, düzeltme eki ve yükseltme uygulanır; bu da yönetim maliyetlerinizi azaltır. Ayrıca, [yerleşik yedekleme](sql-database-automated-backups.md) özellikleri, özellikle çok sayıda veritabanınız olduğunda önemli maliyet tasarrufları sağlamanıza yardımcı olur.
 
@@ -118,7 +118,7 @@ Birçok işletme için, bir bulut hizmetine geçiş yapma kararı, maliyetle ilg
 ### <a name="service-level-agreement-sla"></a>Hizmet Düzeyi Sözleşmesi (SLA)
 Birçok BT departmanı için, bir Hizmet Düzeyi Sözleşmesi'nin çalışma süresi yükümlülüklerinin yerine getirilmesi birincil önceliğe sahiptir. Bu bölümde, her bir veritabanı barındırma seçeneği için geçerli olan SLA'yı ele alacağız.
 
-**SQL Veritabanı** Temel, Standart, Premium ve Premium RS hizmet katmanları için Microsoft, %99,99 oranında kullanılabilirlik SLA'sı sağlar. En son bilgiler için bkz. [Hizmet Düzeyi Sözleşmesi](https://azure.microsoft.com/support/legal/sla/sql-database/). SQL Database hizmet katmanlarına ve desteklenen iş sürekliliği planlarına yönelik en son bilgiler için bkz. [Hizmet Katmanları](sql-database-service-tiers.md).
+**SQL Database** Temel, Standart ve Premium hizmet katmanları için Microsoft, %99,99 oranında kullanılabilirlik SLA'sı sağlar. En son bilgiler için bkz. [Hizmet Düzeyi Sözleşmesi](https://azure.microsoft.com/support/legal/sla/sql-database/). SQL Database hizmet katmanlarına ve desteklenen iş sürekliliği planlarına yönelik en son bilgiler için bkz. [Hizmet Katmanları](sql-database-service-tiers.md).
 
 **Azure VM'lerinde çalıştırılan SQL Server** için Microsoft, yalnızca Sanal Makine'yi kapsayan %99,95 oranında bir kullanılabilirlik SLA'sı sağlar. Bu SLA, VM'de çalıştırılan işlemleri (SQL Server gibi) kapsamaz ve bir kullanılabilirlik kümesinde en az iki VM örneğini barındırmanızı gerektirir. En son bilgiler için bkz. [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). VM'lerde veritabanı yüksek kullanılabilirliği (HA) için, [AlwaysOn Kullanılabilirlik Grupları](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx) gibi, SQL Server'da desteklenen yüksek kullanılabilirlik seçeneklerinden birini gibi yapılandırmanız gerekir. Desteklenen bir yüksek kullanılabilirlik seçeneğinin kullanılması ek bir SLA sağlamaz, ancak %99,99’un üzerinde veritabanı kullanılabilirliği elde etmenize imkan tanır.
 

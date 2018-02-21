@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights izleme günlüklerini Java keşfedin
 Logback veya Log4J kullanıyorsanız (1.2 sürümü veya v2.0) için izlemeyi, izleme günlüklerinizi uygulama burada keşfedin ve bunlar üzerinde arama Öngörüler otomatik olarak gönderilen sahip olabilir.
 
 ## <a name="install-the-java-sdk"></a>Java'yı yükleme SDK
 
-Yükleme [Java için Application Insights SDK][java], size, bu işlemi yapmadıysanız.
-
-(HTTP isteklerini izlemek istemediğiniz, .xml yapılandırma dosyası çoğunu atlayabilirsiniz, ancak en az içermelidir `InstrumentationKey` öğesi. Ayrıca çağırmalıdır `new TelemetryClient()` SDK başlatılamadı.)
-
+Yüklemek için yönergeleri izleyin [Java için Application Insights SDK][java], size, bu işlemi yapmadıysanız.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Günlüğe kaydetme kitaplıklarını projenize ekleyin
 *Projeniz için uygun yolu seçin.*
@@ -63,7 +60,7 @@ Daha sonra proje bağımlılıklarını ikili dosyaları almak için yenileyin.
     </dependencies>
 ```
 
-*Log4J 1.2 sürümü*
+*Log4J v1.2*
 
 ```XML
 
@@ -94,20 +91,21 @@ Daha sonra proje bağımlılıklarını ikili dosyaları almak için yenileyin.
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
 ```
 
-**Log4J 1.2 sürümü**
+**Log4J v1.2**
 
 ```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
 ```
 
 #### <a name="otherwise-"></a>Aksi taktirde...
-Karşıdan yükleyin ve uygun appender ayıklayın ve sonra uygun kitaplığını projenize ekleyin:
+El ile Application Insights Java SDK'sı (Maven Merkezi sayfasında ariving tıklattıktan sonra yükleme bölümünde 'jar' bağlantısında) jar için uygun appender karşıdan yükleyin ve indirilen appender jar projeye eklemek için yönergeleri izleyin.
 
-| Günlükçü | İndir | Kitaplık |
+| Günlükçü | İndirme | Kitaplık |
 | --- | --- | --- |
-| Logback |[SDK Logback appender ile](https://aka.ms/xt62a4) |applicationınsights günlük logback |
-| Log4J v2.0 |[Log4J v2 appender SDK'sı](https://aka.ms/qypznq) |applicationınsights günlük log4j2 |
-| Log4j 1.2 sürümü |[Log4J 1.2 sürümü appender SDK'sı](https://aka.ms/ky9cbo) |applicationınsights günlük log4j1_2 |
+| Logback |[Logback appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationınsights günlük logback |
+| Log4J v2.0 |[Log4J v2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[Log4J 1.2 sürümü appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Günlüğe kaydetme framework appender Ekle
 İzlemeler alma başlatmak için ilgili Log4J veya Logback yapılandırma dosyası için kod parçacığını birleştirin: 
@@ -128,7 +126,7 @@ Karşıdan yükleyin ve uygun appender ayıklayın ve sonra uygun kitaplığın�
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -140,7 +138,7 @@ Karşıdan yükleyin ve uygun appender ayıklayın ve sonra uygun kitaplığın�
     </Configuration>
 ```
 
-*Log4J 1.2 sürümü*
+*Log4J v1.2*
 
 ```XML
 
@@ -157,6 +155,8 @@ Application Insights appenders (Yukarıdaki kod örnekleri gösterildiği gibi) 
 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Application Insights portalında, izlemeleri keşfedin
 Projenizi izlemeleri Application Insights'a gönderme yapılandırdıktan, görüntüleyin ve bu izlemelerin Application Insights portalında arama [arama] [ diagnostic] dikey.
+
+Özel durumlar submited günlükçüleri aracılığıyla özel durum Telemetrisi portalda görüntülenir.
 
 ![Application Insights portalında arama açın](./media/app-insights-java-trace-logs/10-diagnostics.png)
 

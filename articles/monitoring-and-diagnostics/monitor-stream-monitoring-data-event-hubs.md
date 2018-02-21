@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2018
+ms.date: 2/13/2018
 ms.author: johnkem
-ms.openlocfilehash: b2813035b4665a36b475e791965d395b84ddb3f1
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Bir dış aracı tarafından izleme verileri tüketim için bir olay hub'ına akış Azure
 
@@ -93,7 +93,9 @@ Hiç şekilde yönlendirme uygulama verileri azure'da bir olay hub'ına izleme g
 Bir olay hub'ına Azure İzleyicisi ile İzleme verilerinizin yönlendirme, iş ortağı SIEM ve izleme araçları ile kolayca tümleştirmenize olanak sağlar. Çoğu araç olay hub bağlantı dizesine ve olay hub'ından veri okumak için Azure aboneliğiniz için belirli izinler gerektirir. Azure İzleyici tümleştirme araçlarıyla kapsamlı olmayan bir listesi aşağıda verilmiştir:
 
 * **IBM QRadar** -Merkezi'nden Microsoft Azure DSM ve Microsoft Azure olay hub'ı protokolü kullanılabilir [IBM Destek Web sitesi](http://www.ibm.com/support). Yapabilecekleriniz [Azure ile tümleştirme burada hakkında daha fazla bilgi](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
-* **Splunk** - [Splunk için Azure İzleyici eklentisi](https://splunkbase.splunk.com/app/3534/) Splunkbase ve açık kaynaklı proje bulunur. [Belgesidir burada](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+* **Splunk** -Splunk kurulumunuza bağlı olarak, iki yaklaşım vardır:
+    1. [Azure İzleyici eklenti Splunk için](https://splunkbase.splunk.com/app/3534/) Splunkbase ve açık kaynaklı proje bulunur. [Belgesidir burada](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
+    2. Bir eklenti (örn., Splunk örneğinizin yükleyemiyorsanız bir ara sunucu kullanıldığında veya Splunk bulutta çalışan), Splunk HTTP Olay Toplayıcısı kullanarak bu olayları iletebilir [yeni iletiler event hub'ındaki tarafından tetiklenen bu işlevin](https://github.com/sebastus/AzureFunctionForSplunkVS).
 * **SumoLogic** -SumoLogic verileri event hub'ındaki kullanmak üzere ayarlamak için yönergeler [kullanılabilir burada](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## <a name="next-steps"></a>Sonraki Adımlar

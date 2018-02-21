@@ -3,7 +3,7 @@ title: "Güvenli Azure VPN ağ geçidi için RADIUS kimlik doğrulaması NPS sun
 description: "Açıklar Azure ağ geçidi RADIUS kimlik doğrulaması, çok faktörlü kimlik doğrulaması için NPS sunucusu ile tümleştirme."
 services: vpn-gateway
 documentationcenter: na
-author: genlin
+author: ahmadnyasin
 manager: willchen
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 02/13/2018
 ms.author: genli
-ms.openlocfilehash: 371e65dd1d80ed24046f3da5c588c21a1958c2e4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f0d95cc0dabb253a72afdbc1bc518df882c4d861
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Azure VPN ağ geçidi RADIUS kimlik doğrulaması, çok faktörlü kimlik doğrulaması için NPS sunucusu ile tümleştirme 
 

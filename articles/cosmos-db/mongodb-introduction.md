@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: 50a7b645749284b952e5fe5e37475f0760184845
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ffca8f4518361e8c5447d7bb7ed6022eb0e96a4a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB giriş: API MongoDB için
 
@@ -43,7 +43,10 @@ Azure Cosmos DB veritabanları için yazılmış uygulamalar için veri deposu o
 
 | Azure Cosmos DB varsayılan tutarlılık düzeyi |   Mongo API (3.4) |
 |---|---|
-|Oturum| Nihai |
+|Nihai| Nihai |
+|Tutarlı Ön Ek| Son tutarlı sırası |
+|Oturum| Son tutarlı sırası |
+|Sınırlanmış Eskime Durumu| Güçlü |
 | Güçlü | Güçlü |
 
 **Otomatik dizin oluşturma**: varsayılan olarak, Azure Cosmos DB otomatik olarak tüm özellikleri, MongoDB belgelerde içinde veritabanı ve beklediğiniz veya herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını gerektirir dizinler. Ayrıca, bir Benzersizlik kısıtlamasını zaten Azure Cosmos DB'de otomatik dizinli tüm belge alanlarını üzerinde benzersiz dizin yeteneği sağlar.

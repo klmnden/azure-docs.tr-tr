@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ee7da3bc4579ad5415977e42ad48e9e06a7e4253
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 39d60592c7fcbc937dc9f86e4c8b6962a51fd6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Saklı yordam etkinliği Azure Data Factory kullanarak bir SSIS paketi çağırma
 Bu makalede, bir saklı yordam etkinliğini kullanarak bir Azure Data Factory işlem hattı SSIS paketinden çağrılacak açıklar. 
@@ -76,7 +76,7 @@ Bu adımda, bir işlem hattı oluşturmak için veri fabrikası kullanıcı arab
 1. Get başlangıç sayfasını tıklatın **oluşturma ardışık düzen**: 
 
     ![Başlarken sayfası](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
-2. İçinde **etkinlikleri** araç kutusu, genişletin **SQL veritabanı**ve sürükle ve bırak **saklı yordam** ardışık düzen Tasarımcı yüzeyine etkinlik. 
+2. İçinde **etkinlikleri** araç kutusu, genişletin **genel**ve sürükle ve bırak **saklı yordam** ardışık düzen Tasarımcı yüzeyine etkinlik. 
 
     ![Sürükle ve bırak saklı yordam etkinliği](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
 3. Saklı yordam etkinliği Özellikleri penceresinde geçmek **SQL hesabı** sekmesine ve tıklayın **+ yeni**. SSIS katalog (SSIDB veritabanı) barındıran Azure SQL veritabanına bağlantı oluşturun. 
@@ -95,11 +95,12 @@ Bu adımda, bir işlem hattı oluşturmak için veri fabrikası kullanıcı arab
         ![Azure SQL Veritabanı bağlı hizmeti](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Özellikler penceresinde geçiş **saklı yordam** gelen sekmesinde **SQL hesabı** sekmesini tıklatın ve aşağıdaki adımları uygulayın: 
 
-    1. İçin **saklı yordam adı** alan, Enter `sp_executesql`. 
-    2. Tıklatın **+ yeni** içinde **saklı yordam parametreleri** bölümü. 
-    3. İçin **adı** parametresinin girin **stmt**. 
-    4. İçin **türü** parametresinin girin **dize**. 
-    5. İçin **değeri** parametresi, aşağıdaki SQL sorgusunu girin:
+    1. **Düzenle**’yi seçin. 
+    2. İçin **saklı yordam adı** alan, Enter `sp_executesql`. 
+    3. Tıklatın **+ yeni** içinde **saklı yordam parametreleri** bölümü. 
+    4. İçin **adı** parametresinin girin **stmt**. 
+    5. İçin **türü** parametresinin girin **dize**. 
+    6. İçin **değeri** parametresi, aşağıdaki SQL sorgusunu girin:
 
         SQL sorgusu için doğru değerleri belirtin **klasör_adı**, **project_name**, ve **paket_adı** parametreleri. 
 
@@ -121,7 +122,8 @@ Bu bölümde bir ardışık düzen çalıştırma tetikler ve ardından izleyebi
 1. Çalıştıran bir ardışık düzen tetiklemek için tıklatın **tetikleyici** araç ve tıklatın **şimdi tetikleyebilir**. 
 
     ![Şimdi tetikle](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
-2. Soldaki **İzleyici** sekmesine geçin. Çalıştırma ardışık düzen ve durumunu (örneğin, çalıştırma başlangıç saati) diğer bilgilerle birlikte bakın. Görünümü yenilemek için **Yenile**’ye tıklayın.
+2. İçinde **ardışık düzen çalıştırmak** penceresinde, seçin **son**. 
+3. Soldaki **İzleyici** sekmesine geçin. Çalıştırma ardışık düzen ve durumunu (örneğin, çalıştırma başlangıç saati) diğer bilgilerle birlikte bakın. Görünümü yenilemek için **Yenile**’ye tıklayın.
 
     ![İşlem hattı çalıştırmaları](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 3. **Eylemler** sütunundaki **Etkinlik Çalıştırmalarını Görüntüle** bağlantısına tıklayın. Ardışık Düzen yalnızca bir etkinlik (saklı yordam etkinliği) sahip farklı çalıştır yalnızca bir etkinlik bakın.

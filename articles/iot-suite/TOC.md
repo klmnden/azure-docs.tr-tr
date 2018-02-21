@@ -17,6 +17,7 @@
 #### [azureiotsuite.com sitesindeki izinler](iot-suite-v1-permissions.md)
 #### [Uzaktan izleme çözüm kılavuzu](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Raspberry Pi’ye bağlanma](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [MXChip IoT DevKit’inize bağlanma](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### C kullanma
 ###### [Sanal veriler](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Gerçek algılayıcılar kullanma](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -76,7 +77,7 @@
 ## Bağlı fabrika
 ### [Bağlı fabrika için ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
 ### [Özel bağlı fabrika](iot-suite-connected-factory-customize.md)
-### [Bağlı fabrika için OPC yayımcısını kullanma](iot-suite-connected-factory-publisher.md)
+### [Bağlı fabrika için OPC yayımcısını kullanma](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Bağlı fabrikayı yapılandırma](iot-suite-connected-factory-configure.md)
 ## [azureiotsuite.com sitesindeki izinler](iot-suite-permissions.md)
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/09/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 5dc245a29a9106156c207ed7394f8bb289db729e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL veritabanında performans ayarlama
 
@@ -34,7 +34,7 @@ El ile uygulanan yöntemleri ne karar vermeniz gerekir çünkü bunlar [hizmet k
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Veritabanınızın artan performans katmanı
 
-Azure SQL veritabanı sunan dört [hizmet katmanları](sql-database-service-tiers.md) , arasından seçim yapabilirsiniz: temel, standart, Premium ve Premium RS (performans veritabanı işleme birimleri içinde ölçülen veya [Dtu'lar](sql-database-what-is-a-dtu.md). Her hizmet katmanında kesinlikle SQL veritabanınız kullanabilirsiniz ve bu hizmet düzeyi için tahmin edilebilir performans garanti kaynakları yalıtır. Bu makalede, uygulamanız için hizmet katmanı seçmenize yardımcı olacak yönergeler sağlıyoruz. Biz de en iyi Azure SQL veritabanı için uygulamanızı ayarlayabilirsiniz yolları ele alınmıştır.
+Azure SQL veritabanı sunan dört [hizmet katmanları](sql-database-service-tiers.md) , arasından seçim yapabilirsiniz: temel, standart ve Premium (performans veritabanı işleme birimleri içinde ölçülen veya [Dtu'lar](sql-database-what-is-a-dtu.md). Her hizmet katmanında kesinlikle SQL veritabanınız kullanabilirsiniz ve bu hizmet düzeyi için tahmin edilebilir performans garanti kaynakları yalıtır. Bu makalede, uygulamanız için hizmet katmanı seçmenize yardımcı olacak yönergeler sağlıyoruz. Biz de en iyi Azure SQL veritabanı için uygulamanızı ayarlayabilirsiniz yolları ele alınmıştır.
 
 > [!NOTE]
 > Bu makalede tek veritabanları Azure SQL Database performans rehberi odaklanır. Esnek havuzlar için ilgili performans yönergeler için bkz [esnek havuzlar için fiyat ve performans konuları](sql-database-elastic-pool-guidance.md). Ancak, bu makaledeki ayarlama önerilerin esnek havuzdaki veritabanları için geçerlidir ve benzer performans avantajlarından yararlanabilmek unutmayın.
@@ -49,7 +49,6 @@ Azure SQL veritabanı sunan dört [hizmet katmanları](sql-database-service-tier
   * **Yüksek yoğun yük**. Önemli ölçüde CPU, bellek veya giriş/çıkış (g/ç) işlemlerini tamamlamak için gerektiren bir uygulama, ayrılmış, yüksek performans düzeyi gerektirir. Örneğin, uzun bir süre çeşitli CPU çekirdekleri kullanmak için bilinen bir veritabanı işlemi Premium hizmet katmanı için bir adaydır.
   * **Çok sayıda eşzamanlı istek**. Bir Web sitesi, hizmet veren bir yüksek trafik hacmi olduğunda bazı veritabanı çok sayıda eşzamanlı istek, örneğin, hizmet uygulamaları. Temel ve standart hizmet katmanları veritabanı başına eşzamanlı istek sayısını sınırlayın. Daha fazla bağlantı gerektiren uygulamalar sayısı gerekli istekleri işlemek için uygun ayırma boyutu seçmek gerekir.
   * **Düşük gecikme süresi**. En az sürede yanıt veritabanından güvence altına almak bazı uygulamaları gerekir. Belirli bir saklı yordam daha geniş bir müşteri işleminin bir parçası çağrılırsa, bu çağrı bir dönüş en fazla 20 milisaniye cinsinden süre yüzde 99'olan bir gereksinimi olabilir. Bu tür bir uygulama için gerekli hesaplama gücü kullanılabilir olduğundan emin olmak için Premium hizmet katmanından, yararlı olur.
-* **Premium RS**: Premium RS katmanı, yüksek oranda kullanılabilirliğini garanti gerektirmeyen g/ç yoğun iş yükleri için tasarlanmıştır. Örnekler, yüksek performanslı iş yükleri veya veritabanı kaydının sistem olduğu analitik bir iş yükü test edilmesini içerir.
 
 SQL veritabanınız için gereken hizmet düzeyi her kaynak boyutu için en yüksek yük gereksinimlerine bağlıdır. Bazı uygulamaları tek bir kaynak Önemsiz miktarını kullanır, ancak diğer kaynaklar için önemli gereksinimleri vardır.
 

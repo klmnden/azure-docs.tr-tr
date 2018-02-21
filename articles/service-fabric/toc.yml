@@ -93,6 +93,8 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Çoğaltma ve örnek yaşam döngüsü
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Reliable Services yaşam döngüsü - C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Reliable Services yaşam döngüsü - Java
@@ -144,8 +146,6 @@
           href: service-fabric-concepts-scalability.md
         - name: Hizmetlerin kullanılabilirliği
           href: service-fabric-availability-services.md
-        - name: Çoğaltma ve örnek yaşam döngüsü
-          href: service-fabric-concepts-replica-lifecycle.md
         - name: Yeniden yapılandırma
           href: service-fabric-concepts-reconfiguration.md
         - name: Hizmet iletişimleri

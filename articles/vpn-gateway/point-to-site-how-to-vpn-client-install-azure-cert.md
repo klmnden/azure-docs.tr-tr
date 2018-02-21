@@ -1,10 +1,10 @@
 ---
 title: "P2S istemci sertifikası yüklemek | Azure"
-description: "Bu makalede P2S sertifika kimlik doğrulaması için istemci sertifikası yüklemenize yardımcı olur."
+description: "P2S sertifika kimlik doğrulaması için bir Mac veya Windows istemci sertifikası yükleyin."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager, azure-service-management
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/24/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc0cc37794ef291c9d27b094211b38cec90da55c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de98201b65f5531f334aded1056f622cecb6e190
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Noktadan siteye Azure sertifika kimlik doğrulaması bağlantıları için bir istemci sertifikası yükleme
 
@@ -47,6 +47,6 @@ Mac VPN istemcileri, Resource Manager dağıtım modeli için yalnızca destekle
 
 Noktadan siteye yapılandırması adımlarla devam edin.
 
-* [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Azure portalı](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 * [Azure portal (klasik)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)

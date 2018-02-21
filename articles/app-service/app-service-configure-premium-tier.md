@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 92cc8d8b0f67dde95ea2e3fc2f0f083bd8ac8aab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>PremiumV2 katmanı Azure App Service için yapılandırma
 
-Yeni **PremiumV2** fiyatlandırma katmanı sağlar [Dv2-serisi VM'ler](../virtual-machines/windows/sizes-general.md#dv2-series) daha hızlı işlemcilerde, SSD depolama ve Karşılaştırılan çift bellek çekirdek oranı ile **standart** katmanı. Bu makalede, bir uygulama oluşturmayı öğrenmek **PremiumV2** katmanı veya bir uygulamaya ölçeklendirin **PremiumV2** katmanı.
+Yeni **PremiumV2** fiyatlandırma katmanı size daha hızlı işlemcilerde, SSD depolama ve mevcut fiyatlandırma katmanlarına çiftleri bellek çekirdek oranı. Performans avantajı ile daha az örneklerinde uygulamalarınızı çalıştırarak paradan tasarruf. Bu makalede, bir uygulama oluşturmayı öğrenmek **PremiumV2** katmanı veya bir uygulamaya ölçeklendirin **PremiumV2** katmanı.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bir web uygulamasına büyütme için **PremiumV2**, daha düşük bir fiyatlandırma katmanı çalışan Azure uygulama hizmeti bir Web uygulamanız gereken **PremiumV2**.
 
@@ -56,7 +56,7 @@ Aşağıdakilerden birini seçin **PremiumV2** seçenekleri ve tıklatın **seç
 ![](media/app-service-configure-premium-tier/pick-premium-tier.png)
 
 > [!IMPORTANT] 
-> Görmüyorsanız, **P1V2**, **P2V2**, ve **P3V2** ya da farklı seçenekler **PremiumV2** seçim, bölgenizde kullanılamıyor veya desteği olmayan bir Linux uygulama hizmeti planı yapılandırma **PremiumV2**.
+> Görmüyorsanız, **P1V2**, **P2V2**, ve **P3V2** ya da farklı seçenekler **PremiumV2** seçim, bölgenizde kullanılamıyor veya olduğunuz desteklemeyen bir Linux uygulama hizmeti planı yapılandırma **PremiumV2**.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Var olan bir uygulamaya PremiumV2 katmanına ölçeklendirin
 
@@ -74,7 +74,7 @@ Aşağıdakilerden birini seçin **PremiumV2** boyutları, ardından **seçin**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
-İşleminiz başarıyla tamamlanırsa, uygulamanızın genel bakış sayfasında, şimdi de olduğunu gösterir bir **PremiumV2** katmanı.
+İşleminiz başarıyla tamamlanırsa, uygulamanızın genel bakış sayfasında, şimdi gösterir bir **PremiumV2** katmanı.
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
@@ -82,13 +82,13 @@ Aşağıdakilerden birini seçin **PremiumV2** boyutları, ardından **seçin**.
 
 Bazı uygulama hizmeti planları PremiumV2 katmanı ölçeği olamaz. Büyütme işlemi bir hata veriyorsa, uygulamanız için yeni bir uygulama hizmeti planı gerekiyor.
 
-Oluşturma bir _Windows_ uygulama hizmeti planı aynı bölge ve kaynak grubunda var olan uygulama hizmeti uygulamanızı olarak. Bölümündeki adımları izleyin [PremiumV2 katmanında bir uygulama oluşturun](#create) ayarlamak için **PremiumV2** katmanı. Dilerseniz, aynı genişleme yapılandırmasını var olan uygulama hizmeti planına (örnekleri, otomatik ölçeklendirme vb. sayısı) kullanın.
+Oluşturma bir _Windows_ uygulama hizmeti planı aynı bölge ve kaynak grubunda var olan uygulama hizmeti uygulamanızı olarak. Bölümündeki adımları izleyin [PremiumV2 katmanında bir uygulama oluşturun](#create) ayarlamak için **PremiumV2** katmanı. Aynı yapılandırmayı genişletmek istiyorsanız, var olan uygulama hizmeti planına (örnekleri, otomatik ölçeklendirme vb. sayısı) kullanın.
 
 Uygulama hizmeti uygulaması sayfanızı yeniden açın. Uygulama hizmetiniz sol gezinti bölmesinde seçin **değişiklik uygulama hizmeti planı**.
 
 ![](media/app-service-configure-premium-tier/change-plan.png)
 
-Az önce oluşturduğunuz uygulama hizmeti planı seçin.
+Oluşturduğunuz uygulama hizmeti planı seçin.
 
 ![](media/app-service-configure-premium-tier/select-plan.png)
 
@@ -98,16 +98,16 @@ Değiştirme işlemi tamamlandıktan sonra uygulamanızı çalıştıran **Premi
 
 ## <a name="scale-up-from-an-unsupported-region"></a>Desteklenmeyen bir bölgesinden ölçeği
 
-Uygulamanızı bir bölgede çalıştırıyorsa nerede **PremiumV2** olan henüz kullanılamıyor, uygulamanızı yararlanmak için farklı bir bölgeye taşıyabilir **PremiumV2**. İki seçeneğiniz vardır:
+Uygulamanızı bir bölgede çalıştırıyorsa nerede **PremiumV2** yararlanmak için farklı bir bölgeye uygulamanızı taşıyabilirsiniz henüz kullanılamıyor **PremiumV2**. İki seçeneğiniz vardır:
 
 - Yeni bir uygulama oluştur **PremiumV2** planlama ve uygulama kodunuz yeniden dağıtın. Bölümündeki adımları izleyin [PremiumV2 katmanında bir uygulama oluşturun](#create) ayarlamak için **PremiumV2** katmanı. Dilerseniz, aynı genişleme yapılandırmasını var olan uygulama hizmeti planına (örnekleri, otomatik ölçeklendirme vb. sayısı) kullanın.
 - Uygulamanızı zaten var olan çalıştırıyorsa **Premium** katmanı sonra tüm uygulama ayarları, bağlantı dizeleri ve dağıtım yapılandırması ile uygulamanızı kopyalayabilirsiniz.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    İçinde **kopya uygulama** sayfasında, bölge ve kopyalamak istediğiniz ayarları belirtin yeni bir uygulama hizmeti planı oluşturabilirsiniz.
+    İçinde **kopya uygulama** sayfasında, bölge ve kopyalamak istediğiniz ayarları belirtin bir uygulama hizmeti planı oluşturabilirsiniz.
 
-## <a name="automate-with-scripts"></a>Komut dosyalarıyla otomatikleştirme
+## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
 Uygulama oluşturma otomatikleştirebilirsiniz **PremiumV2** katmanı kullanarak kodlarıyla [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).
 

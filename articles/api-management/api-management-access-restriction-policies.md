@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ed06b869f1c8fb98d8b70693723b1a0fee3605fc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>API yönetim erişim kısıtlama ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="AccessRestrictionPolicies"></a>Erişimi kısıtlama ilkeleri  
+##  <a name="AccessRestrictionPolicies"></a> Erişimi kısıtlama ilkeleri  
   
 -   [Onay HTTP üstbilgisi](api-management-access-restriction-policies.md#CheckHTTPHeader) -varlığı ve/veya bir HTTP üstbilgisi değerini zorlar.  
 -   [Abonelik tarafından çağrı hızını sınırla](api-management-access-restriction-policies.md#LimitCallRate) -engeller API kullanımı ani başına abonelik başına çağrı hızını sınırlayarak.  
@@ -33,7 +33,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   [Anahtara göre kullanım kotası ayarla](#SetUsageQuotaByKey) -yenilenebilir veya ömrü çağrısı birim ve/veya bant genişliği kota anahtarı başına temelinde zorunlu tutmanıza olanak tanır.  
 -   [JWT doğrulama](api-management-access-restriction-policies.md#ValidateJWT) -varlığı ve belirtilen bir HTTP üstbilgisi veya belirtilen sorgu parametresi ayıklanan JWT geçerliliğini zorlar.  
   
-##  <a name="CheckHTTPHeader"></a>HTTP üstbilgisi denetleyin  
+##  <a name="CheckHTTPHeader"></a> HTTP üstbilgisi denetleyin  
  Kullanım `check-header` bir istek belirtilen bir HTTP üstbilgisi olduğunu zorlamak için ilke. İsteğe bağlı olarak üstbilgi belirli bir değer veya izin verilen değer aralığı için onay olup olmadığını görmek için kontrol edebilirsiniz. Denetimi başarısız olursa, ilke isteği işleme sonlandırır ve ilke tarafından belirtilen HTTP durum kodu ve hata iletisi döndürür.  
   
 ### <a name="policy-statement"></a>İlke bildirimi  
@@ -76,7 +76,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 -   **İlke kapsamları:** genel, ürün, API işlemi  
   
-##  <a name="LimitCallRate"></a>Abonelik tarafından çağrı hızını sınırla  
+##  <a name="LimitCallRate"></a> Abonelik tarafından çağrı hızını sınırla  
  `rate-limit` İlke sayıyı belirtilen sayıda belirli bir süre başına çağrı hızını sınırlayarak API kullanımındaki ani bir abonelik başına temelinde engeller. Bu ilke tetiklendiğinde arayan alan bir `429 Too Many Requests` yanıt durum kodu.  
   
 > [!IMPORTANT]
@@ -131,7 +131,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 -   **İlke kapsamları:** ürün  
   
-##  <a name="LimitCallRateByKey"></a>Anahtara göre çağrı hızını sınırla  
+##  <a name="LimitCallRateByKey"></a> Anahtara göre çağrı hızını sınırla  
  `rate-limit-by-key` İlke sayıyı belirtilen sayıda belirli bir süre başına çağrı hızını sınırlayarak API kullanımındaki ani bir anahtar başına temelinde engeller. Anahtar isteğe bağlı bir dize değerine sahip olabilir ve genellikle bir ilke ifade kullanılarak sağlanır. İsteğe bağlı increment koşulu, hangi isteklerinin sınırında sayılır belirtmek için eklenebilir. Bu ilke tetiklendiğinde arayan alan bir `429 Too Many Requests` yanıt durum kodu.  
   
  Daha fazla bilgi ve bu ilkeyi örnekleri için bkz: [Gelişmiş istek azaltma Azure API Management ile](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -189,7 +189,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 -   **İlke kapsamları:** genel, ürün, API işlemi  
   
-##  <a name="RestrictCallerIPs"></a>Arayan IP'leri kısıtla  
+##  <a name="RestrictCallerIPs"></a> Arayan IP'leri kısıtla  
  `ip-filter` İlke filtrelerini belirli IP adreslerini ve/veya adres aralıklarını gelen çağrıları (verir/engeller).  
   
 ### <a name="policy-statement"></a>İlke bildirimi  
@@ -231,7 +231,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   **İlke bölümleri:** gelen  
 -   **İlke kapsamları:** genel, ürün, API işlemi  
   
-##  <a name="SetUsageQuota"></a>Abonelik tarafından kullanım kotası ayarla  
+##  <a name="SetUsageQuota"></a> Abonelik tarafından kullanım kotası ayarla  
  `quota` İlke yenilenebilir veya ömrü çağrısı birim ve/veya bant genişliği kota, abonelik başına temelinde zorunlu tutar.  
   
 > [!IMPORTANT]
@@ -286,7 +286,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   **İlke bölümleri:** gelen  
 -   **İlke kapsamları:** ürün  
   
-##  <a name="SetUsageQuotaByKey"></a>Anahtara göre kullanım kotası ayarla  
+##  <a name="SetUsageQuotaByKey"></a> Anahtara göre kullanım kotası ayarla  
  `quota-by-key` İlke yenilenebilir veya ömrü çağrısı birim ve/veya bant genişliği kota anahtarı başına temelinde zorunlu tutar. Anahtar isteğe bağlı bir dize değerine sahip olabilir ve genellikle bir ilke ifade kullanılarak sağlanır. İsteğe bağlı increment koşulu, hangi istekler kota sayılması belirtmek için eklenebilir.  
   
  Daha fazla bilgi ve bu ilkeyi örnekleri için bkz: [Gelişmiş istek azaltma Azure API Management ile](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -346,11 +346,11 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   **İlke bölümleri:** gelen  
 -   **İlke kapsamları:** genel, ürün, API işlemi  
   
-##  <a name="ValidateJWT"></a>JWT doğrula  
+##  <a name="ValidateJWT"></a> JWT doğrula  
  `validate-jwt` İlkesi varlığı zorunlu kılan ve HTTP üstbilgisi veya belirtilen sorgu parametresi JWT geçerliliğini ya da belirtilen bir ayıklanır.  
   
 > [!IMPORTANT]
->  `validate-jwt` İlkesi gerektiriyor `exp` kayıtlı talep olan JWT belirteci inlcuded sürece `require-expiration-time` özniteliği belirtilen ve kümesine `false`.  
+>  `validate-jwt` İlkesi gerektiriyor `exp` kayıtlı talep sürece JWT belirteci dahil `require-expiration-time` özniteliği belirtilen ve kümesine `false`.  
 > `validate-jwt` İlkesi HS256 ve RS256 imza algoritmaları destekler. HS256 için anahtar base64 ile kodlanmış form ilkesinde içi sağlanmalıdır. RS256 için anahtar olmasını sağlamak bir Open ID yapılandırma uç noktası aracılığıyla sahiptir.  
   
 ### <a name="policy-statement"></a>İlke bildirimi  
@@ -502,7 +502,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |failed-validation-httpcode|JWT doğrulama geçmiyor ise döndürülecek HTTP durum kodu.|Hayır|401|  
 |üstbilgi adı|Belirteç bulunduran HTTP üstbilgisinin adı.|Ya da `header-name` veya `query-paremeter-name` belirtilmelidir; ancak ikisi birden değil.|Yok|  
 |id|`id` Özniteliği `key` öğesi karşı eşleşen dize belirtmenize olanak verir `kid` imza doğrulama için kullanılacak uygun anahtarını bulmak (varsa) belirteç talep.|Hayır|Yok|  
-|eşleşme|`match` Özniteliği `claim` öğesi ilkedeki her talep değeri başarılı olması doğrulama belirteçte mevcut olup olmadığını belirtir. Olası değerler şunlardır:<br /><br /> -                          `all`-her talep değeri ilkesinde başarılı olması doğrulama belirteci mevcut olması gerekir.<br /><br /> -                          `any`-en az bir talep değeri başarılı olması doğrulama belirteci mevcut olmalıdır.|Hayır|tümü|  
+|eşleşme|`match` Özniteliği `claim` öğesi ilkedeki her talep değeri başarılı olması doğrulama belirteçte mevcut olup olmadığını belirtir. Olası değerler şunlardır:<br /><br /> -                          `all` -her talep değeri ilkesinde başarılı olması doğrulama belirteci mevcut olması gerekir.<br /><br /> -                          `any` -en az bir talep değeri başarılı olması doğrulama belirteci mevcut olmalıdır.|Hayır|tümü|  
 |Sorgu paremeter adı|Adını belirteci bulunduran sorgu parametresi.|Ya da `header-name` veya `query-paremeter-name` belirtilmelidir; ancak ikisi birden değil.|Yok|  
 |gerekli-sona erme-time|Boole değeri. Bir süre sonu talep belirteçte gerekip gerekmediğini belirtir.|Hayır|doğru|
 |gerektiren düzeni|Belirteç adını düzen, örn. "Bearer". Bu öznitelik ayarlandığında, ilke yetkilendirme üst bilgisi değeri, belirtilen düzeni bulunduğundan emin olun.|Hayır|Yok|

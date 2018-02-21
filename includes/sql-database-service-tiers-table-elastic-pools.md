@@ -84,26 +84,10 @@ sql-database-elastic-pool.md
 | Veritabanı başına maks. depolama alanı (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Premium RS elastik havuz sınırları
-
-| Havuz başına eDTU | **125** | **250** | **500** | **1000** |
-|:---|---:|---:|---:| ---: | ---: | 
-| Eklenen depolama havuzu (GB) | 250 | 500 | 750 | 750 |
-| Havuz (GB) başına en fazla depolama seçenekleri * | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| En fazla bellek içi OLTP depolama havuzu (GB) | 1 | 2 | 4 | 10 |
-| Havuz başına en fazla veritabanı | 50 | 100 | 100 | 100 |
-| Havuz başına maks. eş zamanlı çalışan (istek) | 200 | 400 | 800 | 1600 |
-| Havuz başına maks. eş zamanlı oturum | 200 | 400 | 800 | 1600 |
-| Havuz başına maks. eş zamanlı oturum | 30000 | 30000 | 30000 | 30000 |
-| Veritabanı başına minimum Edtu seçenekleri | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Veritabanı başına maksimum Edtu seçenekleri | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Veritabanı başına maks. depolama alanı (GB)* | 1024 | 1024 | 1024 | 1024 | 
-||||||||
-
 > [!IMPORTANT]
 > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/). Önizlemede bulunan depolama alanı miktarını büyük depolama boyutları ve ek maliyetlerden uygulayın. Ayrıntılar için bkz [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \*Premium katmanındaki birden fazla 1 TB depolama alanı aşağıdaki bölgelerde şu anda kullanılabilir değil: Avustralya Doğu, Avustralya Güneydoğu, Orta Kanada, Doğu Kanada, Fransa Merkezi, Almanya merkezi Japonya, Doğu merkezi Kore, Güney Orta ABD, Güney Doğu Asya, BİZE East2 , Batı ABD, ABD kamu Virginia ve Batı Avrupa. 
+> \* Premium katmanındaki birden fazla 1 TB depolama alanı aşağıdaki bölgelerde şu anda kullanılabilir değil: Avustralya Doğu, Avustralya Güneydoğu, Orta Kanada, Doğu Kanada, Fransa Merkezi, Almanya merkezi Japonya, Doğu merkezi Kore, Güney Orta ABD, Güney Doğu Asya, BİZE East2 , Batı ABD, ABD kamu Virginia ve Batı Avrupa. 
 >
->\*\*Veritabanı 200 Edtu ve daha yüksek başlayarak başına min/max Edtu'lar **standart** havuzları olan önizlemede.
+>\*\* Veritabanı 200 Edtu ve daha yüksek başlayarak başına min/max Edtu'lar **standart** havuzları olan önizlemede.
 >

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 15257e6ee8744b11fd3965e365cf4fb0e1d429ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Güvenlik Playbook'u (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'ndeki güvenlik playbook'larını kullanarak güvenlikle ilgili sorunlara yanıt vermenize yardımcı olur.
@@ -35,7 +35,7 @@ Güvenlik Merkezi'nden güvenlik playbook'u oluşturmak için bu adımları izle
 1.  **Güvenlik Merkezi** panosunu açın.
 2.  Sol bölmedeki **Otomasyon ve Düzenleme** bölümünde **Playbook'lar (Önizleme)** öğesine tıklayın.
 
-    ![Logic App](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+    ![Logic App](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. **Güvenlik Merkezi - Playbook'lar (Önizleme)** sayfasında **Ekle** düğmesine tıklayın.
 

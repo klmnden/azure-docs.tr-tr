@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak görüntü sınıflandırma
 
@@ -54,7 +54,7 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 4. 2 bölümünde açıklanan DNN iyileştirme için gerekli ancak adanmış bir GPU SVM eğitim bölümü 1, yürütmek için gerekli değildir. Güçlü bir GPU olmadığı, üzerinde birden çok GPU eğitmek istediğiniz ya da bir Windows makinesine sahip değil, daha sonra Azure'nın derin öğrenme sanal makine Windows işletim sistemiyle birlikte kullanmayı düşünün. Bkz: [burada](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) 1-tıklatma dağıtım kılavuzu. Dağıtıldığında, bir Uzak Masaüstü bağlantısı üzerinden VM bağlanmak, çalışma ekranı var. yüklemek ve kod sanal makineden yerel olarak çalıştırmak.
 5. OpenCV gibi çeşitli Python kitaplıkları yüklü olması gerekir. Tıklatın *komut istemini açın* gelen *dosya* menüde çalışma ekranı ve bu bağımlılıklar yüklemek için aşağıdaki komutları çalıştırın:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`(tam dosya adı ve sürümü değiştirebilirsiniz) http://www.lfd.uci.edu/~gohlke/pythonlibs/ OpenCV Tekerlek indirdikten sonra
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` (tam dosya adı ve sürümü değiştirebilirsiniz) http://www.lfd.uci.edu/~gohlke/pythonlibs/ OpenCV Tekerlek indirdikten sonra
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
@@ -81,13 +81,13 @@ Bu adımları gerçekleştiren aşağıda gösterilen Proje yapısı oluşturur.
 
   Klasör| Açıklama
   ---|---
-  aml_config /|                           Azure Machine Learning çalışma ekranı yapılandırma dosyalarını içeren dizini
+  aml_config/|                           Azure Machine Learning çalışma ekranı yapılandırma dosyalarını içeren dizini
   kitaplıkları /|                              Tüm Python ve Jupyter yardımcı işlevleri içeren dizin
   not defterlerini /|                              Tüm not defterlerini içeren dizin
   kaynakları /|                              Tüm kaynaklar (örneğin URL'sini şekilde görüntülerinin) içeren dizin
   komut dosyalarını /|                              Tüm komut dosyaları içeren dizini
   PARAMETERS.py|                       Python betiği tüm parametreleri belirtme
-  Readme.MD|                           Bu Benioku belgesine
+  readme.md|                           Bu Benioku belgesine
 
 
 ## <a name="data-description"></a>Veri açıklaması
@@ -193,7 +193,7 @@ Son olarak, Not Defteri `showResults.py` test resimler arasında gezinmek ve ilg
 ### <a name="step-6-deployment"></a>6. adım: dağıtım
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Eğitilmiş sistem artık bir REST API yayımlanabilir. Dağıtım not defterinde açıklandığı `deploy.ipynb`ve Azure Machine Learning çalışma ekranının içinden işlevselliği temel ("PROJECTNAME yerel" adıyla yerel proje çekirdek çekirdek ayarlamayı unutmayın). Ayrıca mükemmel dağıtımı bölümüne bakın [IRIS öğretici](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) daha fazla dağıtım için ilgili bilgiler.
+Eğitilmiş sistem artık bir REST API yayımlanabilir. Dağıtım not defterinde açıklandığı `deploy.ipynb`ve Azure Machine Learning çalışma ekranının içinden işlevselliği temel ("PROJECTNAME yerel" adıyla yerel proje çekirdek çekirdek ayarlamayı unutmayın). Ayrıca mükemmel dağıtımı bölümüne bakın [IRIS öğretici](tutorial-classifying-iris-part-3.md) daha fazla dağıtım için ilgili bilgiler.
 
 Uygulama dağıtıldıktan sonra web hizmeti komut dosyası kullanılarak çağrılabilir `6_callWebservice.py`. Web hizmeti IP adresi (yerel veya Bulut üzerinde) ilk komut dosyasında ayarlanan gerektiğini unutmayın. Not Defteri `deploy.ipynb` bu IP adresini bulmak açıklanmaktadır.
 
@@ -228,7 +228,7 @@ Aşağıdaki çizim görüldüğü gibi DNN iyileştirme sağlanan veri kümesi 
 
 ### <a name="run-history-tracking"></a>Geçmiş izlemeyi Çalıştır
 
-Her geçmişini çalıştırmak olan iki veya daha fazla çalıştığında karşılaştırması izin Azure Azure Machine Learning çalışma ekranı depoları bile parçalayın hafta. Bu ayrıntılı olarak anlatılmıştır [Iris Öğreticisi](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-2). Aşağıdaki ekran görüntülerinde komut dosyasının iki çalışması biz karşılaştırmak burada gösterilmiştir `5_evaluate.py`, her iki DNN iyileştirme kullanarak diğer bir deyişle, `classifier = "dnn"`(çalışma sayı 148) veya SVM eğitim diğer bir deyişle, `classifier = "svm"` (çalışma sayı 150).
+Her geçmişini çalıştırmak olan iki veya daha fazla çalıştığında karşılaştırması izin Azure Azure Machine Learning çalışma ekranı depoları bile parçalayın hafta. Bu ayrıntılı olarak anlatılmıştır [Iris Öğreticisi](tutorial-classifying-iris-part-2.md). Aşağıdaki ekran görüntülerinde komut dosyasının iki çalışması biz karşılaştırmak burada gösterilmiştir `5_evaluate.py`, her iki DNN iyileştirme kullanarak diğer bir deyişle, `classifier = "dnn"`(çalışma sayı 148) veya SVM eğitim diğer bir deyişle, `classifier = "svm"` (çalışma sayı 150).
 
 İlk ekran görüntüsünde, DNN iyileştirme SVM eğitim tüm sınıflar için daha iyi accuracies neden olmaktadır. İkinci ekran sınıflandırıcı neydi dahil olmak üzere izlendiğini tüm ölçümlerini gösterir. Bu izleme komut dosyasındaki yapılır `5_evaluate.py` Azure Machine Learning çalışma ekranı Günlükçü çağırarak. Ayrıca, komut dosyası ROC eğrisi ve karışıklığı matris de kaydeder *çıkarır* klasör. Bu *çıkarır* klasördür özel içeriği da çalışma ekranı geçmişi özelliği tarafından izlenir ve çıktı dosyaları herhangi bir zamanda olup yerel kopyaları üzerine bağımsız olarak, bu nedenle erişilebilir.
 
@@ -299,4 +299,4 @@ Bu örnekte anahtar bazı önemli şunlardır:
 ## <a name="references"></a>Başvurular
 
 [1] Alex Krizhevsky, Ilya Sutskever ve Geoffrey E. Hinton [ _ImageNet sınıflandırma Convolutional derin sinir ağları ile_](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf). NIPS 2012.  
-[2] Kaiming He, Xiangyu Zhang, Shaoqing Ren ve Jian Sun, [ _derin fazlalık görüntü tanıma için öğrenme_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.
+[2] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun, [_Deep Residual Learning for Image Recognition_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.

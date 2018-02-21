@@ -88,7 +88,7 @@
     - name: Öğrenme yolu
       href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
     - name: MSDN forumu
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: Fiyatlandırma hesaplayıcı

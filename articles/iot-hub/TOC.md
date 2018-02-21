@@ -38,9 +38,6 @@
 ### [Azure CLI 2.0 için IoT uzantısıyla cihaz yönetimi](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Logic Apps ile uzaktan izleme ve bildirimler](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-## MXChip IoT DevKit kullanma
-### [Uzaktan izleme için Azure IoT Paketi’ni kullanma](iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
-
 # Nasıl yapılır kılavuzları
 ## Planlama
 ### [IoT Hub ile Event Hubs’ı karşılaştırma](iot-hub-compare-event-hubs.md)

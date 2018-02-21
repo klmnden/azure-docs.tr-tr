@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/15/2017
-ms.openlocfilehash: b0916f565d91f5a59d1bfb4653f29bfbdb573443
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 6bae66a5cd349b64b7f96bf7d6c71f4ce13678bf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sprint-2-qfe---december-2017"></a>Sprint 2 QFE - Aralık 2017 
 
 #### <a name="version-number-01171115323"></a>Sürüm numarası: 0.1.1711.15323
 
->İşte nasıl [sürüm numarasını bulun](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
+>İşte nasıl [sürüm numarasını bulun](known-issues-and-troubleshooting-guide.md).
 
 Azure Machine Learning çalışma ekranının üçüncü Güncelleştirme QFE (hızlı düzeltme Mühendisliği) sürümüne Hoş Geldiniz. Bu sürümdeki bir ikincil bir sürümüdür. Birkaç telemetri sorunları giderir ve ürünü nasıl kullanıldığını daha iyi anlamak için ürün ekibi yardımcı olur. Bilgi Bankası, ürün deneyimini geliştirmek için gelecekteki çaba içine gidebilirsiniz. 
 

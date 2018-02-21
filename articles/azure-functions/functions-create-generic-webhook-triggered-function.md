@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cf86325971b607c7e1ec4b026f7df274e14c5e52
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Genel web kancasıyla tetiklenen bir işlev oluşturma
 
@@ -128,7 +128,7 @@ Artık aboneliğinizde bir kaynak grubu oluşturulursa web kancasına çağrı y
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            log.Error("An error occured");
+            log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
             {
                 error = "Unexpected message payload or wrong alert received."

@@ -1,10 +1,10 @@
 ---
 title: "Oluştur ve noktası Site için sertifikalar verme: MakeCert: Azure | Microsoft Docs"
-description: "Bu makale, otomatik olarak imzalanan sertifika oluşturmak, ortak anahtarını dışarı aktarmak ve MakeCert kullanarak istemci sertifikalarını oluşturmak için adımlar içerir."
+description: "Bir otomatik olarak imzalanan sertifika oluşturmak, ortak anahtarını dışarı aktarmak ve MakeCert kullanarak istemci sertifikalarını oluşturmak."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2017
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2beacc461370f268e54e1eedcb32939f7c606b14
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Oluştur ve noktadan siteye bağlantıları MakeCert kullanarak için sertifikaları verme
 
@@ -99,3 +99,5 @@ Noktası Site yapılandırmanızı ile devam edin.
 
 * İçin **Resource Manager** dağıtım modeli adımları bkz [yapılandırma P2S yerel Azure sertifika kimlik doğrulaması kullanarak](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * İçin **Klasik** dağıtım modeli adımları bkz [bir sanal ağ (Klasik) bir noktadan siteye VPN bağlantısı yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+
+P2S sorun giderme bilgileri için [sorun giderme Azure noktadan siteye bağlantıları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

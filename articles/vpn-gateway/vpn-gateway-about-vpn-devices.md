@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: yushwang
-ms.openlocfilehash: bb6f9f4df9afa9d0c1a75fbb1166798a2aef4bb4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
 
@@ -57,6 +57,7 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Yapılandırma kılavuzu*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Yapılandırma örnekleri**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |Meraki |Yok |Uyumlu değil |Uyumlu değil |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 ve sonraki sürümleri |[Yapılandırma kılavuzu](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Uyumlu değil |
 | F5 |BIG-IP serisi |12.0 |[Yapılandırma kılavuzu](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Yapılandırma kılavuzu](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Yapılandırma kılavuzu](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -152,8 +153,8 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |None         |
 | 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |None         |
-| 4 |AES256        |SHA256            |None         |
+| 3 |3DES          |SHA1              |Yok         |
+| 4 |AES256        |SHA256            |Yok         |
 | 5 |AES128        |SHA1              |None         |
 | 6 |3DES          |SHA256            |None         |
 
@@ -161,13 +162,13 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 
 |-  |**Şifreleme**|**Kimlik doğrulaması**|**PFS Grubu**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 1 |GCM AES256    |GCM (AES256)      |Yok         |
 | 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |None         |
+| 3 |3DES          |SHA1              |Yok         |
 | 4 |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
-| 7 |DES           |SHA1              |None         |
+| 5 |AES128        |SHA1              |Yok         |
+| 6 |3DES          |SHA256            |Yok         |
+| 7 |DES           |SHA1              |Yok         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |

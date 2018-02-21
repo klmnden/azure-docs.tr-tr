@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 6577d4ae0f248ac234b2506a6adba04afde5ffce
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -49,7 +49,7 @@ Her bir örneğini Event Hub-Triggered işlevi yalnızca 1 EventProcessorHost (E
 
 * **Daha fazla 1 işlevi örneği ekleme** -Azure işlevlerini ölçeklendirme mantığı Function_1, yeni bir örnek oluşmasını Function_0 işleyebilmesi için daha fazla ileti olduğunu belirler. Olay hub'ları algılar iletileri okumak yeni bir EPH örneği çalışıyor. Olay hub'ları EPH örneklerinde bölümleri dengelemesini başlar, örn., bölümlerin 0-4 Function_0 için atanan ve bölümler 5-9 Function_1 için atanır. 
 
-* **Ekleme N daha örnekleri işlev** -Azure işlevlerini ölçeklendirme mantığı Function_0 ve Function_1 işleyebilmesi için daha fazla ileti olduğunu belirler. Ayrıca, Function_2... N, N olay hub'ı paritions büyük olduğu için yeniden ölçeklenir. Olay hub'ları yükler bölümleri arasında Function_0 bakiye... 9 örnekleri.
+* **Ekleme N daha örnekleri işlev** -Azure işlevlerini ölçeklendirme mantığı Function_0 ve Function_1 işleyebilmesi için daha fazla ileti olduğunu belirler. Ayrıca, Function_2... N, N olay hub'ı bölümleri büyük olduğu için yeniden ölçeklenir. Olay hub'ları yükler bölümleri arasında Function_0 bakiye... 9 örnekleri.
 
 Azure işlevleri geçerli mantığı ölçeklendirme N bölümleri sayısından büyüktür olgu benzersizdir. Bu, her zaman EPH diğer örneklerden çıktıklarında bir kilit üzerinde bölümler hızla almak kullanıma hazır örnekleri emin için gerçekleştirilir. Kullanıcılar yalnızca işlev örneğini yürütüldüğünde, kullanılan kaynaklar için sizden ücret ve bu aşırı sağlama için sizden ücret istenmese.
 
@@ -219,12 +219,12 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | ayarlanmalıdır `eventHubTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | yok | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | yok | İşlev kodu olay öğesinde temsil eden değişken adı. | 
-|**yol** |**EventHubName** | Olay hub'ın adı. | 
+|**Türü** | yok | ayarlanmalıdır `eventHubTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**Yönü** | yok | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**Adı** | yok | İşlev kodu olay öğesinde temsil eden değişken adı. | 
+|**Yol** |**EventHubName** | Olay hub'ın adı. | 
 |**consumerGroup** |**ConsumerGroup** | Ayarlar isteğe bağlı bir özellik [tüketici grubu](../event-hubs/event-hubs-features.md#event-consumers) hub olaylara abone olmak için kullanılır. Atlanırsa, `$Default` tüketici grubu kullanılır. | 
-|**bağlantı** |**Bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini *ad alanı*, olay hub kendisini değil. Bu bağlantı dizesi en az tetikleyici etkinleştirmek için Okuma izinleriniz olmalıdır.|
+|**Bağlantı** |**Bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini *ad alanı*, olay hub kendisini değil. Bu bağlantı dizesi en az tetikleyici etkinleştirmek için Okuma izinleriniz olmalıdır.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -392,11 +392,11 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | "EventHub" olarak ayarlanmalıdır. |
-|**yönü** | yok | Out"için" olarak ayarlanmalıdır. Bu parametre, Azure portalında bağlama oluşturduğunuzda otomatik olarak ayarlanır. |
-|**adı** | yok | Olay temsil eden işlevi kod içinde kullanılan değişken adı. | 
-|**yol** |**EventHubName** | Olay hub'ın adı. | 
-|**bağlantı** |**Bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini *ad alanı*, olay hub kendisini değil. Bu bağlantı dizesi olay akışının ileti göndermek için Gönder izinleri olmalıdır.|
+|**Türü** | yok | "EventHub" olarak ayarlanmalıdır. |
+|**Yönü** | yok | Out"için" olarak ayarlanmalıdır. Bu parametre, Azure portalında bağlama oluşturduğunuzda otomatik olarak ayarlanır. |
+|**Adı** | yok | Olay temsil eden işlevi kod içinde kullanılan değişken adı. | 
+|**Yol** |**EventHubName** | Olay hub'ın adı. | 
+|**Bağlantı** |**Bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini *ad alanı*, olay hub kendisini değil. Bu bağlantı dizesi olay akışının ileti göndermek için Gönder izinleri olmalıdır.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -404,7 +404,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 Yöntem parametresi gibi kullanarak, C# ve C# betik iletileri göndermek `out string paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Birden çok ileti yazmak için kullanabileceğiniz `ICollector<string>` veya `IAsyncCollector<string>` yerine `out string`.
 
-JavaScript'te, çıktı olayını kullanarak erişim `context.bindings.<name>`. `<name>`değeri belirtilen `name` özelliği *function.json*.
+JavaScript'te, çıktı olayını kullanarak erişim `context.bindings.<name>`. `<name>` değeri belirtilen `name` özelliği *function.json*.
 
 ## <a name="exceptions-and-return-codes"></a>Özel durumlar ve dönüş kodları
 

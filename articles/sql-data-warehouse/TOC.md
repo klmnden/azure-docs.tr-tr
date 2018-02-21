@@ -117,12 +117,11 @@
 ### [İş yükünüzü çözümleme](analyze-your-workload.md)
 
 ## Ölçeği genişletme
-### [İşlemleri yönetme - REST API’si](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [İşlem düzeylerini otomatik hale getirme](manage-compute-with-azure-functions.md)
 
 
 # Başvuru
-
 
 ## T-SQL
 ### [Tam başvuru](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [SQL DW deyimleri](sql-data-warehouse-reference-tsql-statements.md)
 ## [Sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlet'leri](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST API'ler](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=databases)

@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 49efef62b873ba3c688023248f6940d85c33e248
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -21,7 +21,7 @@ Azure ilke tarafından kullanılan kaynak ilke tanımı zaman İlkesi uygulandı
 
 Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğeleri içerir:
 
-* Modu
+* mode
 * parametreler
 * Görünen ad
 * açıklama
@@ -262,6 +262,7 @@ Bir kaynak türü için belirli özelliklere erişmek için özellik diğer adla
 | Microsoft.Compute/virtualMachines/imageVersion | Platform görüntü veya sanal makine oluşturmak için kullanılan Market görüntüsü sürümünü ayarlayın. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Vhd URI ayarlayın. |
 | Microsoft.Compute/virtualMachines/sku.name | Sanal makine boyutunu ayarlayın. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Kullanılabilirlik kimliği sanal makine için ayarlar. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -287,13 +288,13 @@ Bir kaynak türü için belirli özelliklere erişmek için özellik diğer adla
 | Microsoft.Compute/VirtualMachineScaleSets/sku.name | Ölçek kümesindeki sanal makinelerin boyutunu ayarlayın. |
 | Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Sanal makine ölçek kümesindeki kümesi. |
 
-**Microsoft.Network/applicationGateways**
+Microsoft.Network/applicationGateways
 
 | Diğer ad | Açıklama |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | Ağ geçidi boyutunu ayarlayın. |
 
-**Microsoft.Network/virtualNetworkGateways**
+Microsoft.Network/virtualNetworkGateways
 
 | Diğer ad | Açıklama |
 | ----- | ----------- |
@@ -332,6 +333,7 @@ Bir kaynak türü için belirli özelliklere erişmek için özellik diğer adla
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Dosya depolama hizmetinde depolanan gibi hizmet verileri şifreler gerekip gerekmediğini belirleyin. |
 | Microsoft.Storage/storageAccounts/sku.name | SKU adına ayarlayın. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Yalnızca depolama hizmeti https trafiğine izin verecek şekilde ayarlayın. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Sanal Ağ Hizmeti uç noktası etkin olup olmadığını denetleyin. |
 
 ## <a name="initiatives"></a>Girişimler
 

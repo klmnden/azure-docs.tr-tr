@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 Microsoft Azure uygulama ve hizmet bağlantı gereksinimlerini desteklemek için sağlam bir ağ altyapısı içerir. Azure'da, şirket içi arasında bulunan kaynaklar arasındaki ağ bağlantısı mümkündür ve Azure barındırılan kaynakları ve kitaplığa ve Internet ve Azure.
@@ -37,11 +37,11 @@ Azure ağ güvenliğine genel bakış makalede aşağıdaki alanlar üzerinde od
 
 
 ## <a name="azure-networking"></a>Azure Ağı
-Sanal makinelerin ağ bağlantısı gerekir. Bu gereksinimi desteklemek için sanal makinelerin bir Azure sanal ağına bağlı Azure gerektirir. Bir Azure sanal ağ üzerinde fiziksel Azure ağ doku yerleşik mantıksal bir yapıdır. Her mantıksal Azure sanal tüm diğer Azure sanal ağlardan yalıtılmış bir ağdır. Bu, ağ trafiğini dağıtımlarınızı diğer Microsoft Azure müşterilerine erişilebilir değil güvence altına yardımcı olur.
+Sanal makinelerin ağ bağlantısı gerekir. Bu gereksinimi desteklemek için sanal makinelerin bir Azure sanal ağına bağlı Azure gerektirir. Bir Azure sanal ağ üzerinde fiziksel Azure ağ doku yerleşik mantıksal bir yapıdır. Her mantıksal Azure sanal tüm diğer Azure sanal ağlardan yalıtılmış bir ağdır. Bu, ağ trafiğini dağıtımlarınızı diğer Microsoft Azure müşterilerine erişilebilir değil sağlamaya yardımcı olur.
 
 Daha fazla bilgi edinin:
 
-* [Sanal ağ genel bakış](../virtual-network/virtual-networks-overview.md)
+* [Sanal Ağ’a Genel Bakış](../virtual-network/virtual-networks-overview.md)
 
 
 ## <a name="network-access-control"></a>Ağ erişim denetimi
@@ -217,7 +217,7 @@ Dahili ad çözümlemesi için iki seçeneğiniz vardır:
 
 Daha fazla bilgi edinin:
 
-* [Sanal ağ genel bakış](../virtual-network/virtual-networks-overview.md)
+* [Sanal Ağ’a Genel Bakış](../virtual-network/virtual-networks-overview.md)
 * [Bir sanal ağ (VNet) tarafından kullanılan DNS sunucularını yönetin](../virtual-network/virtual-network-manage-network.md#dns-servers)
 
 Dış DNS çözümlemesi için iki seçeneğiniz vardır:
@@ -272,7 +272,7 @@ Azure Güvenlik Merkezi en iyi duruma getirme ve ağ güvenliği tarafından izl
 
 Daha fazla bilgi edinin:
 
-* [Azure Güvenlik Merkezi'ne giriş](../security-center/security-center-intro.md)
+* [Azure Güvenlik Merkezi'ne Giriş](../security-center/security-center-intro.md)
 
 
 ### <a name="logging"></a>Günlüğe kaydetme

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works Öğreticisi
 
@@ -45,12 +45,12 @@ Analysis Services ve tablosal modelleme konusunda yeniyseniz, Visual Studio kull
   
 -   Bir **Azure Analysis Services** sunucusuna ya da şirket içi SQL Server 2017 Analysis Services sunucusuna tablosal model dağıtma.  
   
-## <a name="prerequisites"></a>Önkoşullar  
+## <a name="prerequisites"></a>Ön koşullar  
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:  
   
 -   Bir Azure Analysis Services sunucusu. Ücretsiz [Azure Analysis Services denemesi](https://azure.microsoft.com/services/analysis-services/) için kaydolun ve [bir sunucu oluşturun](../analysis-services-create-server.md). 
 
--   **Örnek AdventureWorksDW veritabanını** içeren bir [Azure SQL Veri Ambarı](../../sql-data-warehouse/create-data-warehouse-portal.md) veya [Adventure Works örnek veritabanını](http://go.microsoft.com/fwlink/?LinkID=335807) içeren bir SQL Server Veri Ambarı.
+-   **Örnek AdventureWorksDW veritabanını** içeren bir [Azure SQL Veri Ambarı](../../sql-data-warehouse/create-data-warehouse-portal.md) veya [Adventure Works örnek veritabanını](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) içeren bir SQL Server Veri Ambarı.
 
     **Önemli:** Örnek veritabanını bir şirket içi SQL Server Veri Ambarına, modelinizi ise bir Azure Analysis Services sunucusuna yüklerseniz [Şirket içi veri ağ geçidi](../analysis-services-gateway.md) gerekir.
 
