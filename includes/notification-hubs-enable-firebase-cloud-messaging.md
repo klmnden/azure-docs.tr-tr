@@ -1,11 +1,11 @@
 
 
 1. [Firebase konsolunda](https://firebase.google.com/console/) oturum açın. Henüz bir tane yoksa yeni bir Firebase projesi oluşturun.
-2. Projeniz oluşturulduktan sonra **Firebase'i Android uygulamanıza ekleyin**'e tıklayın ve verilen talimatları uygulayın.
+2. Projenizi oluşturduktan sonra seçin **Android uygulamanıza eklemek Firebase**. Sağlanan yönergeleri izleyin.
 
-    ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
-3. Firebase konsolunda projenize ait dişli çark simgesine ve ardından **Proje Ayarları**'na tıklayın.
+    ![Android uygulamanızı Firebase Ekle](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
+3. Firebase konsolunda dişlisine projeniz için seçin. Ardından **proje ayarları**.
 
-    ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
-4. Tıklatın **genel** proje ayarlarınızı sekmesini tıklatın ve ardından indirme **google services.json** Server API anahtarı ve istemci kimliğini içeren dosya
-5. Tıklatın **Cloud Messaging** sekmesi, proje ayarlarınızı ve değerini kopyalayın **eski sunucu anahtarı**. Bu değer, bildirim hub'ı erişim ilkesini yapılandırmak için kullanılır.
+    ![Proje ayarlarını seçin](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
+4. Seçin **genel** proje ayarlarınızı sekmesindedir. Ardından karşıdan **google services.json** Server API anahtarı ve istemci kimliğini içeren dosya
+5. Seçin **Cloud Messaging** sekmesi, proje ayarlarınızı ve değerini kopyalayın **eski sunucu anahtarı**. Bildirim hub'ı erişim ilkesini yapılandırmak için bu değeri kullanın.
