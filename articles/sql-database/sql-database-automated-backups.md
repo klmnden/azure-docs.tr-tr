@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 25fa8d03a206452c17e5d4ad38211203aeb5dd65
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57132367faaa4c4869f2415f32897562c8056fb1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -41,9 +41,6 @@ Bu yedeklemeler için kullanabilirsiniz:
 > [!NOTE]
 > Azure depolama alanında terimi *çoğaltma* dosyaları bir konumdan diğerine kopyalanmasına başvuruyor. SQL'in *veritabanı çoğaltması* birden fazla ikincil veritabanları birincil veritabanı ile eşitlenmiş tutmak için başvuruyor. 
 > 
-
-## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Yedek depolama alanı miktarını hiçbir ücret bulunur?
-SQL veritabanı en fazla %200 en fazla sağlanan veritabanı deponuzda hiçbir ek ücret ödemeden yedekleme depolama sağlar. Örneğin, bir standart DB örneğini sağlanan bir veritabanı boyutu ile 250 GB varsa ek ücret ödemeden 500 GB yedekleme depolama gerekir. 
 
 ## <a name="how-often-do-backups-happen"></a>Yedeklemelerin ne sıklıkta meydana?
 Tam veritabanı yedeklemeleri, haftalık, artımlı veritabanı yedeklemeleri genellikle her birkaç saat ve işlem günlüğü yedeklemeleri genellikle 5-10 dakikada bir gerçekleşir durum gerçekleşir. Hemen bir veritabanı oluşturulduktan sonra ilk tam yedeklemede zamanlanır. Genellikle 30 dakika içinde tamamlanır ancak veritabanı önemli boyutunu olduğunda uzun sürebilir. Örneğin, ilk yedekleme geri yüklenen veritabanı veya veritabanı kopyası üzerinde daha uzun sürebilir. İlk tam yedeklemeden sonra başka yedeklemelerinin de tümünü otomatik olarak zamanlanmış ve arka planda sessizce yönetilen. Genel sistem iş yükünü dengeleyen gibi tüm veritabanı yedeklemeleri tam zamanlamasını SQL veritabanı hizmeti tarafından belirlenir. 

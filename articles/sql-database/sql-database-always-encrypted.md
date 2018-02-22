@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 47154202d0a8f7704561676fa645b5ccdb5b8c01
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Her zaman şifreli: SQL veritabanındaki hassas verileri korumak ve şifreleme anahtarlarınızı Windows sertifika deposunda depola
 
@@ -38,7 +38,7 @@ Her zaman şifreli bir Azure SQL veritabanı için ayarlama hakkında bilgi edin
 * Bir veritabanı tablosu oluşturmak ve sütunları şifreleyebilirsiniz.
 * Ekler, seçer ve şifrelenmiş sütunlar verileri görüntüleyen bir uygulama oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici için ihtiyacınız vardır:
 
 * Bir Azure hesabı ve aboneliği Yoksa, kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
@@ -48,7 +48,7 @@ Bu öğretici için ihtiyacınız vardır:
 
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Tıklatın **yeni** > **veri + depolama** > **SQL veritabanı**.
+2. Tıklatın **kaynak oluşturma** > **veri + depolama** > **SQL veritabanı**.
 3. Oluşturma bir **boş** adlı veritabanı **Clinic** yeni veya var olan bir sunucuda. Azure portalında bir veritabanı oluşturma hakkında ayrıntılı yönergeler için bkz: [ilk Azure SQL veritabanınızı](sql-database-get-started-portal.md).
    
     ![Boş veritabanı oluşturma](./media/sql-database-always-encrypted/create-database.png)
@@ -60,7 +60,7 @@ Bu öğretici için ihtiyacınız vardır:
    
     ![Bağlantı dizesini kopyalayın](./media/sql-database-always-encrypted/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Veritabanı SSMS ile bağlanma
+## <a name="connect-to-the-database-with-ssms"></a>SSMS ile veritabanına bağlanma
 SSMS açın ve Clinic veritabanı sunucusuna bağlanın.
 
 1. SSMS açın. (Tıklatın **Bağlan** > **veritabanı altyapısı** açmak için **sunucuya Bağlan** penceresi açık değilse).
@@ -514,7 +514,7 @@ Her zaman şifreli kullanan bir veritabanı oluşturduktan sonra aşağıdakiler
 ## <a name="related-information"></a>İlgili bilgiler
 * [Her zaman şifreli (istemci geliştirme)](https://msdn.microsoft.com/library/mt147923.aspx)
 * [Saydam veri şifreleme](https://msdn.microsoft.com/library/bb934049.aspx)
-* [SQL Server şifrelemesi](https://msdn.microsoft.com/library/bb510663.aspx)
+* [SQL Server Encryption](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Her zaman şifreli Sihirbazı](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Her zaman şifreli blogu](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

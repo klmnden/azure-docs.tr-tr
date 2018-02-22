@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Bir dış uygulama hizmeti ortamı oluşturun #
 
@@ -59,7 +59,7 @@ Uygulama hizmeti planı, uygulamaların bir kapsayıcıdır. App Service içinde
 
 Bir uygulama hizmeti planı oluştururken bir ana oluşturmak için:
 
-1. İçinde [Azure portal](https://portal.azure.com/)seçin **yeni** > **Web + mobil** > **Web uygulaması**.
+1. İçinde [Azure portal](https://portal.azure.com/)seçin **kaynak oluşturma** > **Web + mobil** > **Web uygulaması**.
 
     ![Web uygulaması oluşturma][1]
 
@@ -97,7 +97,7 @@ Bir uygulama hizmeti planı oluştururken bir ana oluşturmak için:
 
 Bir ana tek başına oluşturursanız, hiçbir şey var. Boş bir ana hala altyapısı için aylık bir ücret doğurur. Bir ILB ile bir ana oluşturmak veya bir ana kendi kaynak grubu oluşturmak için aşağıdaki adımları izleyin. Ana oluşturduktan sonra uygulama içinde normal işlemi kullanarak oluşturabilirsiniz. Yeni ana konum olarak seçin.
 
-1. Azure Market arama **uygulama hizmeti ortamı**, ya da seçin **yeni** > **Web mobil** > **uygulama hizmeti Ortam**. 
+1. Azure Market arama **uygulama hizmeti ortamı**, ya da seçin **kaynak oluşturma** > **Web mobil** > **uygulama Hizmet ortamı**. 
 
 2. ANA adını girin. Bu ad, ana oluşturulan uygulamalar için kullanılır. Adı ise *mynewdemoase*, alt etki alanı adı *. mynewdemoase.p.azurewebsites.net*. Adlı bir uygulama oluşturursanız, *mytestapp*, mytestapp.mynewdemoase.p.azurewebsites.net adreslenebilir. Adında boşluk kullanamazsınız. Büyük harf karakterler kullanırsanız, etki alanı adı toplam küçük harfli sürümünü adıdır. Bir ILB kullanırsanız, ana adınızı alt etki alanı içinde kullanılmaz, ancak bunun yerine ana oluşturma sırasında açıkça belirtilmiştir.
 

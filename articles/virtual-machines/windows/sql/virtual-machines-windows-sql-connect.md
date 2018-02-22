@@ -4,7 +4,7 @@ description: "Azure'da bir sanal makinede çalışan SQL Server bağlayacağın�
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure SQL Server sanal makineye bağlanma
 
@@ -80,7 +80,7 @@ Seçtiğinizde **özel** için **SQL Bağlantısı** türünü Azure Portalı'nd
 > [!IMPORTANT]
 > Express sürümleri ve SQL Server Geliştirici için sanal makine görüntüleri otomatik olarak TCP/IP protokol etkinleştirmeyin. Geliştirici ve Express sürümleri için SQL Server Configuration Manager için kullanmanız gerekir [el ile TCP/IP protokolünü etkinleştirin](#manualtcp) VM oluşturduktan sonra.
 
-Özel bağlantı ile birlikte kullanılan genellikle [sanal ağ](../../../virtual-network/virtual-networks-overview.md), birkaç senaryo sağlar. Bu sanal makineleri farklı bir kaynak grubu mevcut olsa bile aynı sanal ağda VM'ler bağlanabilir. İle bir [siteden siteye VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), şirket içi ağlar ve makineler VM'ler bağlayan bir karma mimarisi oluşturabilirsiniz.
+Özel bağlantı ile birlikte kullanılan genellikle [sanal ağ](../../../virtual-network/virtual-networks-overview.md), birkaç senaryo sağlar. Bu sanal makineleri farklı bir kaynak grubu mevcut olsa bile aynı sanal ağda VM'ler bağlanabilir. İle bir [siteden siteye VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), şirket içi ağlar ve makineler VM'ler bağlayan bir karma mimarisi oluşturabilirsiniz.
 
 Sanal ağlar Azure Vm'leriniz için bir etki alanına katılmak sağlar. Bu, SQL Server için Windows kimlik doğrulamasını kullanmak için tek yoludur. Diğer bağlantı senaryolar, kullanıcı adlarını ve Parolaları SQL kimlik doğrulaması gerektirir.
 
@@ -90,7 +90,7 @@ Sanal ağınıza DNS yapılandırmış olduğunuz varsayılarak, bağlantı dize
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a id="change"></a>SQL bağlantı ayarlarını değiştirme
+## <a id="change"></a> SQL bağlantı ayarlarını değiştirme
 
 SQL Server sanal makinenizi Azure portalında için bağlantı ayarlarını değiştirebilirsiniz.
 
@@ -108,7 +108,7 @@ SQL Server sanal makinenizi Azure portalında için bağlantı ayarlarını değ
 
    ![SQL VM güncelleştirme bildirimi](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## <a id="manualtcp"></a>Geliştirici ve Express sürümleri için TCP/IP'yi etkinleştirin
+## <a id="manualtcp"></a> Geliştirici ve Express sürümleri için TCP/IP'yi etkinleştirin
 
 SQL Server bağlantı ayarları değiştirirken, Azure otomatik olarak TCP/IP Protokolü SQL Server Developer ve Express sürümleri için izin vermez. Aşağıdaki adımlarda, uzaktan IP adresiyle bağlanabilmeniz için TCP/IP’yi el ile nasıl etkinleştirebileceğiniz açıklanmıştır.
 
@@ -126,7 +126,7 @@ Aşağıdaki adımlar, Azure VM için isteğe bağlı bir DNS etiketi oluşturma
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a id="manual"></a>El ile yapılandırma ve sorun giderme
+## <a id="manual"></a> El ile yapılandırma ve sorun giderme
 
 Portal bağlantı otomatik olarak yapılandırmak için seçenekleri sağlasa da, el ile bağlantı nasıl yapılandırılacağını öğrenmek yararlıdır. Gereksinimleri anlama de sorun giderme yardımcı olabilir.
 

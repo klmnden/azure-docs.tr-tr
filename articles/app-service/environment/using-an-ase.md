@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64746f7b1a09e35b35e794f5a11d69bef39a03a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-an-app-service-environment"></a>Bir uygulama hizmeti ortamı'nı kullanma #
 
@@ -48,7 +48,7 @@ Bir ana yoksa, bir'ndaki yönergeleri izleyerek oluşturabilirsiniz [uygulama hi
 
 ASE'de bir web uygulaması oluşturmak için:
 
-1. Seçin **yeni** > **Web + mobil** > **Web uygulaması**.
+1. Seçin **kaynak oluşturma** > **Web + mobil** > **Web uygulaması**.
 
 2. Web uygulaması için bir ad girin. ASE'de zaten bir uygulama hizmeti planı seçtiyseniz, uygulama için etki alanı adı ana etki alanı adını yansıtır.
 
@@ -102,15 +102,15 @@ HTTP/HTTPS uç noktası ana için ön uç kaynaklardır. Varsayılan ön uç yap
 
 Dış ASE'de uygulamaları oluştururken kullanılan etki alanı, çok kullanıcılı uygulama hizmeti farklıdır. ANA adını içerir. Bir dış ana oluşturma hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı oluşturma][MakeExternalASE]. Bir dış ana etki alanı adıyla benzer *.&lt; asename&gt;. p.azurewebsites.net*. Örneğin, ana adlı, _dış ana_ ve adlı bir uygulama ana bilgisayar _contoso_ ana, bunu aşağıdaki URL'lere ulaşana içeren:
 
-- contoso.external ase.p.azurewebsites.net
-- contoso.SCM.external ase.p.azurewebsites.net
+- contoso.external-ase.p.azurewebsites.net
+- contoso.scm.external-ase.p.azurewebsites.net
 
 URL contoso.scm.external ase.p.azurewebsites.net Kudu konsoluna erişmesini veya web kullanarak uygulamanızı yayımlamak için dağıtmak için kullanılır. Kudu Konsolu hakkında daha fazla bilgi için bkz: [Kudu Konsolu Azure App Service için][Kudu]. Kudu konsol, web kullanıcı Arabirimi sağlar hata ayıklama, dosyalar, dosyalar ve çok daha fazlasını düzenleme için.
 
 ILB ASE'de dağıtım sırasında etki alanı belirler. Bir ILB ana oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma bir ILB ana][MakeILBASE]. Etki alanı adı belirtirseniz, _ılb ase.info_, o ana uygulamalarda uygulama oluşturma sırasında bu etki alanı kullanın. Adlı uygulama için _contoso_, URL'ler:
 
-- contoso.ilb ase.info
-- contoso.SCM.ilb ase.info
+- contoso.ilb-ase.info
+- contoso.scm.ilb-ase.info
 
 ## <a name="publishing"></a>Yayımlama ##
 
@@ -126,9 +126,9 @@ Bir dış ana ile yayımlama bu seçeneklerin tümü aynı şekilde davranır. D
 
 Ana yayımlama ile ilgili bir ILB ana farktır. Bir ILB ana ile yayımlama uç noktalar yalnızca ILB ile tüm büyük/küçük harf kullanılabilir. Özel IP ana alt ağdaki sanal ağda ILB açıktır. ILB için ağ erişimi yoksa, o ana tüm uygulamaların yayımlanamıyor. İçinde belirtildiği gibi [oluşturma ve kullanma bir ILB ana][MakeILBASE], DNS sisteminde uygulamalar için yapılandırmanız gerekir. SCM uç noktasının dahildir. Bunlar düzgün tanımlanmamış, yayımlanamıyor. Ayrıca, IDE doğrudan yayımlamak için ILB için ağ erişimi olması gerekir.
 
-Yayımlama uç noktası Internet erişilebilir olmadığı için Internet tabanlı CI sistemler, GitHub ve Visual Studio Team Services gibi bir ILB ana ile çalışmaz. Bunun yerine, Dropbox gibi bir çekme modeli kullanan bir CI sistemi kullanmanız gerekir.
+Yayımlama uç noktası Internet erişilebilir olmadığı için Internet tabanlı CI sistemler, GitHub ve Visual Studio Team Services gibi bir ILB ana ile çalışmaz. Bunun yerine, Dropbox gibi çekme modeli kullanan bir CI sistemi kullanmanız gerekir.
 
-Bir ILB ana uygulamalar için yayımlama uç noktaları ILB ana oluşturulması sırasında etki alanı kullanın. Uygulamanın yayımlama profili ve uygulamanızın portal dikey görebilirsiniz (içinde **genel bakış** > **Essentials** ve ayrıca **özellikleri**). 
+Bir ILB ASE’deki uygulamalar için yayımlama uç noktaları, ILB ASE oluşturulurken kullanılan etki alanını kullanır. Uygulamanın yayımlama profili ve uygulamanızın portal dikey görebilirsiniz (içinde **genel bakış** > **Essentials** ve ayrıca **özellikleri**). 
 
 ## <a name="pricing"></a>Fiyatlandırma ##
 

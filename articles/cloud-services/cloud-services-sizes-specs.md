@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services boyutları
 Bu konu, kullanılabilir boyutları ve bulut Hizmeti rol örnekleri (web rolleri ve çalışan rolleri) için seçenekleri açıklar. Ayrıca, bu kaynakları kullanmayı planlarken dikkat edilmesi gereken dağıtımında dikkat edilecek noktalar sağlar. İçine bir kimliği her boyutuna sahip, [hizmet tanımı dosyası](cloud-services-model-and-package.md#csdef). Fiyatlar her boyutu için kullanılabilir [Cloud Services fiyatlandırması](https://azure.microsoft.com/pricing/details/cloud-services/) sayfası.
@@ -62,7 +62,7 @@ Kavram, Azure işlem birimi (Azure SKU'ları üzerinde işlem (CPU) performans k
 | [Küçük ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [Bir v2](#av2-series) |100 |
+| [A v2](#av2-series) |100 |
 | [D](#d-series) |160 |
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
@@ -97,8 +97,8 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 
 | Boyut            | CPU çekirdekleri | Bellek: GiB  | Yerel HDD: GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| A8 *             |8          | 56           | 1817                 | 2/yüksek |
-| A9 *             |16         | 112          | 1817                 | 4/çok yüksek |
+| A8*             |8          | 56           | 1817                 | 2/yüksek |
+| A9*             |16         | 112          | 1817                 | 4/çok yüksek |
 | A10             |8          | 56           | 1817                 | 2/yüksek |
 | A11             |16         | 112          | 1817                 | 4/çok yüksek |
 
@@ -141,29 +141,29 @@ Bilgi ve bu boyutları kullanma hakkında dikkat edilecek noktalar için bkz: [y
 | Standard_D12_v2 | 4         | 28           | 200                  | 4/yüksek |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8/yüksek |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/aşırı yüksek |
-| İçin Standard_D15_v2 | 20        | 140          | 1000                | 8/aşırı yüksek |
+| Standard_D15_v2 | 20        | 140          | 1000                | 8/aşırı yüksek |
 
 ## <a name="dv3-series"></a>Dv3 serisi
 
 | Boyut            | CPU çekirdekleri | Bellek: GiB   | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2/orta |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2/yüksek |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4/yüksek |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8/aşırı yüksek |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8/aşırı yüksek |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8/aşırı yüksek |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2/orta |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2/yüksek |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4/yüksek |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8/aşırı yüksek |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8/aşırı yüksek |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8/aşırı yüksek |
 
 ## <a name="ev3-series"></a>Ev3 serisi
 
 | Boyut            | CPU çekirdekleri | Bellek: GiB   | Yerel SSD: GiB       | Maksimum NIC/Ağ bant genişliği |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2/orta |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2/yüksek |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4/yüksek |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8/aşırı yüksek |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8/aşırı yüksek |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8/aşırı yüksek |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2/orta |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2/yüksek |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4/yüksek |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8/aşırı yüksek |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8/aşırı yüksek |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8/aşırı yüksek |
 
 
 ## <a name="g-series"></a>G Serisi

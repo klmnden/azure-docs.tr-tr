@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Veriler hazırlıkları Kullanıcı Kılavuzu 
 Azure Machine Learning veriler hazırlıkları deneyimi çok zengin işlevsellik sağlar. Bu makale deneyimi derin bölümlerini içermektedir.
@@ -89,7 +89,7 @@ Bir veri kümesi üzerinde filtre uyguladığınızda işlemi verileri iki sonu�
 4. Sonra **koşullar**seçin **çıkışı filtre satırları içeren Oluştur veri akışı** görüntü olmayan sonuç kümesinde yeni bir veri akışına dizisinde çatallaştırmak için.
 
 
-Bu yöntem, genellikle bir ek hazırlık gerektirir veri kümesi ayırmak için kullanılır. Forked dataset wrangle sonra sonuç özgün veri akışı kümesi ile verileri birleştirmek için yaygın bir sorundur. Bir birleştirme (çatalı işlemi ters) gerçekleştirmek için aşağıdaki eylemlerden birini kullanın:
+Bu yöntem, genellikle bir ek hazırlık gerektirir veri kümesi ayırmak için kullanılır. Forked dataset hazırlandıktan sonra sonuç özgün veri akışı kümesi ile verileri birleştirmek için yaygın bir sorundur. Bir birleştirme (çatalı işlemi ters) gerçekleştirmek için aşağıdaki eylemlerden birini kullanın:
 
 - **Satır sona**. İki veya daha fazla veri akışları dikey birleştirme (row-wise). 
 - **Sütunlar ekleme**. İki veya daha fazla veri akışları yatay birleştirme (column-wise).

@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 906450f75557820bb27762707c3328b08b23cccb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Danışmanı giriş
 
 Azure Danışmanı anahtar özellikleri hakkında bilgi edinmek ve sık sorulan soruların yanıtlarını alın.
 
 ## <a name="what-is-advisor"></a>Advisor nedir?
-Advisor Azure dağıtımlarınızı iyileştirmek için en iyi uygulamaları izleyerek yardımcı olan kişiselleştirilmiş bulut Danışman ' dir. Kaynak yapılandırması ve kullanım telemetri analiz eder ve maliyet verimliliği, performans, yüksek kullanılabilirlik ve Azure kaynaklarınızın güvenliğini geliştirmenize yardımcı olabilir çözümleri önerir.
+Advisor Azure dağıtımlarınızı iyileştirmek için en iyi uygulamaları izleyerek yardımcı olan kişiselleştirilmiş bulut Danışman ' dir. Danışman, kaynak yapılandırmanızı ve kullanım telemetrinizi analiz ederek Azure kaynaklarınızın maliyet verimliliğini, performansını, yüksek kullanılabilirliğini ve güvenliğini geliştirmenize yardımcı olabilecek çözümler önerir.
 
 Advisor ile şunları yapabilirsiniz:
 * Get öngörülü, işlem yapılabilir ve öneriler kişiselleştirilmiş en iyi yöntemler. 
 * Genel Azure azaltmak için fırsatlarını tanımlayabilmeniz gibi performans, güvenlik ve kaynaklarınızın yüksek kullanılabilirliğini artırmak ayırın.
 * Önerilen eylemleri satır içi ile ilgili öneriler alın.
 
-Advisor aracılığıyla erişebilirsiniz [Azure portal](https://aka.ms/azureadvisordashboard). Oturum [portal](https://portal.azure.com), bulun **Danışmanı** Gezinti Menüsü veya içinde arama **daha fazla hizmet** menüsü.
+Advisor aracılığıyla erişebilirsiniz [Azure portal](https://aka.ms/azureadvisordashboard). Oturum [portal](https://portal.azure.com), bulun **Danışmanı** Gezinti Menüsü veya içinde arama **tüm hizmetleri** menüsü.
 
 Advisor Pano kişiselleştirilmiş önerileri için tüm aboneliklerinizi görüntüler.  Belirli Abonelikleriniz ve kaynak türleri için öneriler görüntülemek için filtre uygulayabilirsiniz.  Öneriler dört kategoriye ayrılır: 
 
@@ -57,7 +57,7 @@ Bir öneriye derhal eylemde istiyorsanız değil, belirli bir süre için uykuda
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 ### <a name="how-do-i-access-advisor"></a>Advisor nasıl erişirim?
-Advisor aracılığıyla erişebilirsiniz [Azure portal](https://aka.ms/azureadvisordashboard). Oturum [portal](https://portal.azure.com), bulun **Danışmanı** Gezinti Menüsü veya içinde arama **daha fazla hizmet** menüsü.
+Advisor aracılığıyla erişebilirsiniz [Azure portal](https://aka.ms/azureadvisordashboard). Oturum [portal](https://portal.azure.com), bulun **Danışmanı** Gezinti Menüsü veya içinde arama **tüm hizmetleri** menüsü.
 
 Sanal makine kaynak arabirimi aracılığıyla Advisor önerileri de görüntüleyebilirsiniz. Bir sanal makine seçin ve ardından menüde Danışmanı önerileri için gidin. 
 

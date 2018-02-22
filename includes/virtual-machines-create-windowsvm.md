@@ -1,6 +1,6 @@
-1. [Azure portalında](https://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Sol üstten başlayarak sırasıyla **Yeni > İşlem > Windows Server 2016 Datacenter**'a tıklayın.
+2. Sol üst başlayarak, tıklatın **kaynak oluşturma** > **işlem** > **Windows Server 2016 Datacenter**.
 
     ![Portaldaki Azure sanal makine görüntülerine gitme](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 

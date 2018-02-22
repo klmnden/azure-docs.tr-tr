@@ -3,7 +3,7 @@
 ## [Azure IoT Hub nedir?](iot-hub-what-is-iot-hub.md)
 ## [Cihaz yönetimine genel bakış](iot-hub-device-management-overview.md)
 
-# [Kullanmaya Başlama](iot-hub-get-started.md)
+# [Başlarken](iot-hub-get-started.md)
 
 ## Cihazınızı kurma
 ### [Bilgisayarınızda bir cihazı benzetme](iot-hub-get-started-simulated.md)
@@ -87,6 +87,7 @@
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### Cihaz ikizlerini kullanmaya başlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-twin-getstarted.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-getstarted.md)
@@ -110,15 +111,19 @@
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java arka ucu/Java cihazı](iot-hub-java-java-twin-how-to-configure.md)
+#### [Python arka ucu/Python cihazı](iot-hub-python-python-twin-how-to-configure.md)
 ### Cihaz üretici yazılımını güncelleştirmek için cihaz işlerini kullanma
 #### [Node arka ucu/Node cihazı](iot-hub-node-node-firmware-update.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-firmware-update.md)
 #### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java arka ucu/Java cihazı](iot-hub-java-java-firmware-update.md)
+#### [Python arka ucu/Python cihazı](iot-hub-python-python-firmware-update.md)
 ### İşleri zamanlama ve yayınlama
 #### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-schedule-jobs.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Java arka ucu/Java cihazı](iot-hub-java-java-schedule-jobs.md)
+#### [Python arka ucu/Python cihazı](iot-hub-python-python-schedule-jobs.md)
 
 ## Yönetme
 ### IoT hub oluşturma 

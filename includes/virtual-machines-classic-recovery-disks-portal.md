@@ -57,6 +57,6 @@ Hataları çözümlendikten sonra sanal sabit diski sorun giderme VM’nizden ç
 Özgün sanal sabit diskten bir VM oluşturmak için kullanmak [Azure portal](https://portal.azure.com).
 
 1. [Azure portalda](https://portal.azure.com) oturum açın.
-2. En üst sol portalında, select **yeni** > **işlem** > **sanal makine** > **Galeri'den**.
+2. En üst sol portalında, select **kaynak oluşturma** > **işlem** > **sanal makine** > **gelen Galeri**.
 3. **Bir görüntü seçin** bölümünde, **Disklerim**’i ve ardından orijinal sanal sabit diski seçin. Konum bilgileri kontrol edin. Bu, VM’nin dağıtılması gereken bölgedir. İleri düğmesini seçin.
 4. **Sanal makine yapılandırması** bölümünde VM’nin adını yazın ve VM için bir boyut seçin.

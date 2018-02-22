@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 94a7d35115420d455fe94e1173abf76622172f6f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -50,7 +50,7 @@ Belirteçleri almak uygulamayı etkinleştirmek için önce Azure AD kiracınız
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda hesabınızı tıklatın. Ardından, altında **Directory** listesinde, uygulama kaydetmek istediğiniz Active Directory Kiracı seçin.
-3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
+3. Tıklatın **tüm hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Yeni **yerel istemci uygulaması**, istemleri izleyin.
   * **Ad** kullanıcılara uygulamasının açıklar.
@@ -96,7 +96,7 @@ Azure AD'de bir uygulamaya sahip olduğunuza göre ADAL yükleyin ve kimlikle il
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4. adım: Kullanım Azure AD'den belirteçleri almak için ADAL
 Neredeyse tüm uygulamanın kimlik doğrulaması mantığı arasındadır `DirectorySearcher.SearchByAlias(...)`. Platforma özgü projelerinde gerekli olan tek şey bağlamsal bir parametreye geçirmek üzere `DirectorySearcher` PCL.
 
-1. DirectorySearcher.cs açın ve ardından yeni bir parametre eklemek `SearchByAlias(...)` yöntemi. `IPlatformParameters`ADAL kimlik doğrulaması gerçekleştirmesine gerek platforma özgü nesneleri yalıtan bağlamsal parametresidir.
+1. DirectorySearcher.cs açın ve ardından yeni bir parametre eklemek `SearchByAlias(...)` yöntemi. `IPlatformParameters` ADAL kimlik doğrulaması gerçekleştirmesine gerek platforma özgü nesneleri yalıtan bağlamsal parametresidir.
 
     ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
@@ -123,7 +123,7 @@ Bu eylem ADAL geçirir gereken Azure AD ile iletişim kurmak için koordinatlar�
     ...
     ```
 
-    `AcquireTokenAsync(...)`ilk (Bu durumda grafik API'si) istenen kaynak için bir belirteç (önbelleğe alma veya eski belirteçleri yenileme aracılığıyla) kimlik bilgilerini girmesini sormadan döndürmeyi dener. Gerekirse, bu kullanıcılar Azure AD oturum açma sayfası istenen belirtecini alma önce gösterir.
+    `AcquireTokenAsync(...)` ilk (Bu durumda grafik API'si) istenen kaynak için bir belirteç (önbelleğe alma veya eski belirteçleri yenileme aracılığıyla) kimlik bilgilerini girmesini sormadan döndürmeyi dener. Gerekirse, bu kullanıcılar Azure AD oturum açma sayfası istenen belirtecini alma önce gösterir.
 4. Grafik API'si istekte erişim belirteci ekleme **yetkilendirme** üstbilgisi:
 
     ```csharp

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 5ba7ef5aa2cccad7cda3cb39459a5a5722516524
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services içinde desteklenen veri kaynakları
 Azure Analysis Services sunucuları, bulut veri kaynaklarında ve şirket içi kuruluşunuzdaki bağlanmasını destekler. Ek desteklenen veri kaynaklarının her zaman eklenir. Geri sık sık kontrol edin. 
@@ -36,14 +36,14 @@ Aşağıdaki veri kaynakları şu anda desteklenir:
 | Şirket içi  |   |   |   |
 |---|---|---|---|
 | Access veritabanı  | Klasör * | Oracle Veritabanı  | Teradata Database |
-| Active Directory *  | JSON belgesini *  | Postgre SQL veritabanı *  |XML tablo * |
-| Analysis Services  | Satırlarından ikili *  | SAP HANA *  |
+| Active Directory*  | JSON belgesini *  | Postgre SQL veritabanı *  |XML tablo * |
+| Analysis Services  | Satırlarından ikili *  | SAP HANA*  |
 | Analiz platformu sistemi  | MySQL Veritabanı  | SAP Business Warehouse *  | |
-| Dynamics CRM *  | OData akışı *  | SharePoint *  |
-| Excel çalışma kitabı  | ODBC sorgu  | SQL Veritabanı  |
-| Exchange *  | OLE DB  | Sybase veritabanı  |
+| Dynamics CRM*  | OData akışı *  | SharePoint*  |
+| Excel çalışma kitabı  | ODBC sorgu  | SQL Database  |
+| Exchange*  | OLE DB  | Sybase Veritabanı  |
 
-\*Yalnızca tablolu 1400 modeller için. 
+\* Yalnızca tablolu 1400 modeller için. 
 
 > [!IMPORTANT]
 > Şirket içi veri kaynaklarına bağlanma gerektiren bir [şirket içi veri ağ geçidi](analysis-services-gateway.md) ortamınızdaki bir bilgisayara yüklenmiş.

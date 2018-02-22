@@ -4,7 +4,7 @@ description: "Bu öğreticide, harici olarak erişilebilir olan ilişkili bulut 
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 38bb77c6b1d083bd6b52b785a991f24965d00e12
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Always On kullanılabilirlik grupları için dış dinleyici Azure'da yapılandırın
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Bir Azure çoğaltma barındıran her VM için bir yük dengeli uç noktası olu
 3. Doğrulayın **adı** ve **genel bağlantı noktası** dinleyicisi olarak kullanmak istediğiniz uç noktası zaten kullanımda olup olmadığını. Aşağıdaki örnekte, adı "MyEndpoint" ve "1433" bağlantı noktasıdır.
 4. Yerel istemcide, indirme ve yükleme [son PowerShell Modülü](https://azure.microsoft.com/downloads/).
 5. Başlatma **Azure PowerShell**. Yüklenen Azure yönetim modülleri yeni bir PowerShell oturumu açılır.
-6. Çalıştırma **Get-AzurePublishSettingsFile**. Bu cmdlet, yerel bir dizine yayımlama ayarları dosyasını indirmek için bir tarayıcı yönlendirir. Azure aboneliğiniz için oturum açma kimlik bilgileriniz istenebilir.
+6. Run **Get-AzurePublishSettingsFile**. Bu cmdlet, yerel bir dizine yayımlama ayarları dosyasını indirmek için bir tarayıcı yönlendirir. Azure aboneliğiniz için oturum açma kimlik bilgileriniz istenebilir.
 7. Çalıştırma **Import-AzurePublishSettingsFile** komutunu indirdiğiniz yayımlama ayarları dosyası yolu:
    
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>

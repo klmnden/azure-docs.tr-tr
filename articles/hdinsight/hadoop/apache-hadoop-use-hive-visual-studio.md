@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f374e846dd0f67627c3caaa5b29e8bfb258f470
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 410c2ee581a98a44e7c3c98e680686e5a1eae34e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Hive sorguları çalıştırma
 
@@ -35,7 +35,7 @@ Sorgu için Apache Hive Visual Studio için Data Lake araçları kullanmayı ö�
 
 * Visual Studio (aşağıdaki sürümlerinden biri):
 
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate güncelleştirme 4 ile
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate with Update 4
 
     * Visual Studio 2015 (herhangi bir sürümünü)
 
@@ -43,7 +43,7 @@ Sorgu için Apache Hive Visual Studio için Data Lake araçları kullanmayı ö�
 
 * Visual Studio ya da Azure Data Lake araçları Visual Studio için Hdınsight araçları. Bkz: [Hdınsight için Visual Studio Hadoop araçlarını kullanmaya başlamanıza](apache-hadoop-visual-studio-tools-get-started.md) yükleme ve yapılandırma araçları hakkında bilgi için.
 
-## <a id="run"></a>Visual Studio kullanarak Hive sorguları çalıştırma
+## <a id="run"></a> Visual Studio kullanarak Hive sorguları çalıştırma
 
 1. Açık **Visual Studio** seçip **yeni** > **proje** > **Azure Data Lake**  >   **HIVE** > **Hive uygulaması**. Bu proje için bir ad sağlayın.
 
@@ -75,7 +75,7 @@ Sorgu için Apache Hive Visual Studio için Data Lake araçları kullanmayı ö�
 
    * `SELECT`: Tüm satırların sayımını seçme Burada sütun `t4` değeri içeren `[ERROR]`. Bu ifade değerini döndürür `3` çünkü bu değer içeren üç satır vardır.
 
-   * `INPUT__FILE__NAME LIKE '%.log'`-Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük. Bu yan tümcesi arama verileri içeren sample.log dosyası kısıtlar.
+   * `INPUT__FILE__NAME LIKE '%.log'` -Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük. Bu yan tümcesi arama verileri içeren sample.log dosyası kısıtlar.
 
 3. Araç çubuğundan seçin **Hdınsight kümesi** bu sorgu için kullanmak istediğiniz. Seçin **gönderme** deyimleri bir Hive işi olarak çalıştırmak için.
 

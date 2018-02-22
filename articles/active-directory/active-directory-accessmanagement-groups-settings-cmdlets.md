@@ -6,24 +6,23 @@ documentationcenter:
 author: curtand
 manager: mtillman
 editor: 
-ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 331dafc9164e315c84036fa0af11820e89066f36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 75df4436d5d36878f361e87f34d9bfc8bed1e58f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri
-Bu makale Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanarak oluşturma ve güncelleştirme gruplarına yönelik yönergeleri içerir. Bu içerik yalnızca Office 365 grupları için geçerlidir. 
+Bu makale Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanarak oluşturma ve güncelleştirme gruplarına yönelik yönergeleri içerir. Bu içerik yalnızca (Birleşik grupları denir) Office 365 grupları için geçerlidir. 
 
 > [!IMPORTANT]
 > Bazı ayarları bir Azure Active Directory Premium P1 lisansı gerektirir. Daha fazla bilgi için bkz: [şablonu ayarlarını](#template-settings) tablo.
@@ -42,7 +41,7 @@ Almak istediğiniz ayar adını biliyorsanız, kullanabileceğiniz aşağıdaki 
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>Dizin düzeyinde ayarları oluştur
-Bu adımları ayarları dizin düzeyinde dizindeki tüm Office 365 grupları (Birleşik gruplar) için geçerli oluşturun.
+Bu adımları ayarları dizin düzeyinde dizindeki tüm Office 365 grupları için uygulanacak oluşturun.
 
 1. DirectorySettings Cmdlet'lerde, kullanmak istediğiniz SettingsTemplate kimliği belirtmelisiniz. Bu kimliği bilmiyorsanız bu cmdlet'i tüm ayarları şablonları listesini döndürür:
   
@@ -55,7 +54,7 @@ Bu adımları ayarları dizin düzeyinde dizindeki tüm Office 365 grupları (Bi
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Office 365 group
   16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
@@ -93,20 +92,19 @@ Group.Unified SettingsTemplate tanımlanan ayarlar aşağıda verilmiştir. Aksi
 
 | **Ayar** | **Açıklama** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Tür: Boolean<li>Varsayılan: True |Unified grubu oluşturma dizinde yönetici olmayan kullanıcılar tarafından izin verilip verilmediğini belirten bayrak. Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Türü: Dize<li>Varsayılan: "" |Kendisi için üyeleri verilir birleşik grupları oluşturmak için güvenlik grubunun GUID bile EnableGroupCreation == false. |
+|  <ul><li>EnableGroupCreation<li>Tür: Boolean<li>Varsayılan: True |Office 365 grup oluşturma dizinde yönetici olmayan kullanıcılar tarafından izin verilip verilmediğini belirten bayrak. Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Türü: Dize<li>Varsayılan: "" |Kendisi için üyeleri verilir Office 365 grupları oluşturmak için güvenlik grubunun GUID bile EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Türü: Dize<li>Varsayılan: "" |Grup kullanım yönergeleri için bir bağlantı. |
 |  <ul><li>ClassificationDescriptions<li>Türü: Dize<li>Varsayılan: "" | Sınıflandırma açıklamaları virgülle ayrılmış listesi. |
 |  <ul><li>DefaultClassification<li>Türü: Dize<li>Varsayılan: "" | Hiçbiri belirtilmemişse varsayılan sınıflandırması bir grup için kullanılacak sınıflandırması.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Türü: Dize<li>Varsayılan: "" | Kullanmayın. Henüz uygulanmadı. |
-| <ul><li>CustomBlockedWordsList<li>Türü: Dize<li>Varsayılan: "" | Kullanmayın. Henüz uygulanmadı. |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Türü: Dize<li>Varsayılan: "" | Office 365 grupları için yapılandırılmış adlandırma kuralı tanımlayan en fazla 64 karakter dizisi. Daha fazla bilgi için bkz: [Office 365 grupları (Önizleme) için bir adlandırma politikasını](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Türü: Dize<li>Varsayılan: "" | Kullanıcılar grup adlarını veya diğer adlar kullanmak için izin verilmez tümcecikleri virgülle ayrılmış dizesi. Daha fazla bilgi için bkz: [Office 365 grupları (Önizleme) için bir adlandırma politikasını](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Tür: Boolean<li>Varsayılan: "False" | Kullanmayın
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tür: Boolean<li>Varsayılan: False | Konuk kullanıcı gruplarının sahibi olması olup olmadığını gösteren bir Boole değeri. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Tür: Boolean<li>Varsayılan: True | Konuk kullanıcı Unified grupları içeriğe erişmeye sahip olup olmadığını gösteren bir Boole değeri.  Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
+|  <ul><li>AllowGuestsToAccessGroups<li>Tür: Boolean<li>Varsayılan: True | Konuk kullanıcı Office 365 grupları içeriğe erişmeye sahip olup olmadığını gösteren bir Boole değeri.  Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Türü: Dize<li>Varsayılan: "" | Konuk kullanım yönergeleri bağlantı URL'si. |
 |  <ul><li>AllowToAddGuests<li>Tür: Boolean<li>Varsayılan: True | Boole konuklar bu dizine ekleme izni olup olmadığını belirten bir.|
-|  <ul><li>ClassificationList<li>Türü: Dize<li>Varsayılan: "" |Birleşik gruplarına uygulanabilir geçerli sınıflandırma değerleri virgülle ayrılmış listesi. |
-
+|  <ul><li>ClassificationList<li>Türü: Dize<li>Varsayılan: "" |Office 365 grupları uygulanabilir geçerli sınıflandırma değerleri virgülle ayrılmış listesi. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını okuma
 Bu adımları dizindeki tüm Office grupları için geçerli olan ayarları dizin düzeyinde okuyun.
@@ -138,6 +136,7 @@ Bu adımları dizindeki tüm Office grupları için geçerli olan ayarları dizi
   ClassificationDescriptions
   DefaultClassification
   PrefixSuffixNamingRequirement
+  CustomBlockedWordsList        
   AllowGuestsToBeGroupOwner     False 
   AllowGuestsToAccessGroups     True
   GuestUsageGuidelinesUrl
@@ -157,7 +156,7 @@ Bu adımları dizindeki tüm Office grupları için geçerli olan ayarları dizi
   Id                                   DisplayName            Description
   --                                   -----------            -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Office 365 group
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
@@ -186,7 +185,7 @@ Bu adımları dizindeki tüm Office grupları için geçerli olan ayarları dizi
 
 ## <a name="update-settings-at-the-directory-level"></a>Dizin düzeyinde ayarlarını güncelleştirme
 
-Bu adımları dizindeki tüm Unified grupları için geçerli dizin düzeyinde ayarlarını güncelleştirin. Bu örnekler, dizininizde bir ayar nesnesi bulunmakta varsayar.
+Bu adımları dizindeki tüm Office 365 grupları için geçerli dizin düzeyinde ayarlarını güncelleştirin. Bu örnekler, dizininizde bir ayar nesnesi bulunmakta varsayar.
 
 1. Var olan ayarları nesnesini Bul:
   ```

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Yönetim çözümlerine Azure (Önizleme) ile çalışma
 > [!NOTE]
@@ -36,7 +36,7 @@ Bulma ve yönetim çözümleri aşağıdaki bölümlerde açıklandığı gibi y
 Yönetim çözümleri Microsoft tarafından sağlanan ve Azure portalında Azure Marketi'nden güvenilen ortaklar yüklü olabilir.
 
 1. Azure portalında oturum açın.
-2. Sol bölmede seçin **daha fazla hizmet**.
+2. Sol bölmede seçin **tüm hizmetleri**.
 3. Aşağı kaydırarak ya da **çözümleri** veya türü *çözümleri* içine **filtre** iletişim.
 4. Tıklatın **+ Ekle** düğmesi.
 5. Arama tıklatarak da giderek, ilgilendiğiniz çözümleri için **filtre** düğmesini veya yazarak **arama Everthing** kutusu.
@@ -92,7 +92,7 @@ Günlük analizi çalışma alanı aşağıdaki yordamı kullanarak bir Otomasyo
 Aşağıdaki yordam için yönetim çözümleri Azure aboneliğinize bağlı çalışma alanları görüntülemek için kullanın.
 
 1. Azure portalında oturum açın.
-2. Sol bölmede seçin **daha fazla hizmet**.
+2. Sol bölmede seçin **tüm hizmetleri**.
 3. Aşağı kaydırarak ya da **çözümleri** veya türü *çözümleri* içine **filtre** iletişim.
 4. Tüm çalışma alanlarında yüklü çözümleri listelenir.
 

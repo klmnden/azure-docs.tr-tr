@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Bulmak, tanımlamak ve Microsoft Azure kişisel verileri sınıflandırmak
 
@@ -59,22 +59,22 @@ Bulma veya belirli bir kullanıcı için kişisel verileri değiştirmek istiyor
 
 1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
 
-2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
+2. Seçin **tüm hizmetleri**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
 
    ![nasıl kullanıcı profilini bulun ve iş](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **kullanıcılar**.
 
-  ![Açılış kullanıcı ve Grup](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Açılış kullanıcı ve Grup](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. Üzerinde **kullanıcılar ve gruplar - kullanıcıların** dikey penceresinde, listeden bir kullanıcı seçin ve ardından dikey penceresinde seçili kullanıcı, seçin **profil** kişisel verileri içerebilir kullanıcı profili bilgilerini görüntülemek için.
 
-  ![Kullanıcı Seç](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![Kullanıcı Seç](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Kullanıcı profili bilgileri ekleme veya değiştirme gerekiyorsa, bunu yapmak ve ardından komut çubuğunda seçin **kaydedin.**
 6. Seçilen kullanıcı için dikey seçin **iş bilgisi** kişisel verileri içerebilir kullanıcı iş bilgilerini görüntülemek için.
 
- ![iş bilgileri görüntüleme](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![iş bilgileri görüntüleme](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Kullanıcı iş bilgileri ekleme veya değiştirme gerekiyorsa, bunu yapmak ve ardından komut çubuğunda seçin **kaydedin.**
 

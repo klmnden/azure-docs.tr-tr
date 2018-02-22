@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 74dcd368d8696df26c5ad294c5657161fbe7f408
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Azure hdınsight'ta Apache Spark machine learning uygulamaları derleme
 
@@ -28,9 +28,9 @@ Hdınsight'ta Spark kümesi kullanarak uygulama öğrenme bir Apache Spark makin
 
 [Mllib'i](https://spark.apache.org/docs/1.1.0/mllib-guide.html) olduğu ortak algoritmaları ve yardımcı programlar öğrenme, Sınıflandırma, regresyon, kümeleme, işbirliği filtreleme, boyut azaltma dahil olmak üzere, hem de arka plandaki oluşan Spark'ın ölçeklenebilir makine öğrenme kitaplığı en iyi duruma getirme temelleri.
 
-**Ön koşullar:**
+## <a name="prerequisites"></a>Ön koşullar:
 
-Aşağıdakilere sahip olmanız gerekir:
+Aşağıdaki öğe olması gerekir:
 
 * Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md). 
 
@@ -181,8 +181,8 @@ Bu uygulamada bir Spark kullanmak [ML ardışık düzen](https://spark.apache.or
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
    
-   Tahmin ilk satırdan kimliği 20 ve 25 yıllık sistem geçerlilik süresi ile bir HVAC sistemi için yapı etkin olacağını görebilirsiniz (**tahmin = 1.0**). DenseVector (0.49999) ilk değeri 0,0 tahmin karşılık gelir ve ikinci değer (0.5001) 1.0 tahmin karşılık gelir. Çıktıda ikinci değer yalnızca fazladır daha yüksek olmasına rağmen modelini gösteren **tahmin = 1.0**.
-10. Kapatma kaynakları serbest bırakmak için dizüstü bilgisayar. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Bunun yapılması not defterini kapatır.
+   Tahmin ilk satırdan kimliği 20 ve 25 yıllık sistem geçerlilik süresi ile bir HVAC sistemi için yapı etkin olduğunu görebilirsiniz (**tahmin = 1.0**). DenseVector (0.49999) ilk değeri 0,0 tahmin karşılık gelir ve ikinci değer (0.5001) 1.0 tahmin karşılık gelir. Çıktıda ikinci değer yalnızca fazladır daha yüksek olmasına rağmen modelini gösteren **tahmin = 1.0**.
+10. Kaynakları serbest bırakmak için Not Defteri kapatın. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Kapatılır ve not defteri kapatın.
 
 ## <a name="anaconda"></a>Anaconda scikit kullanın-Spark machine learning için kitaplık öğrenin
 Hdınsight'ta Apache Spark kümeleri Anaconda kitaplıkları içerir. Bu da içerir **scikit-öğrenin** machine learning için kitaplık. Kitaplık Ayrıca örnek uygulamalardan doğrudan Jupyter not defteri oluşturmak için kullanabileceğiniz çeşitli veri kümelerini içerir. Scikit kullanma ile ilgili örnekler-kitaplık bilgi [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
@@ -193,7 +193,6 @@ Hdınsight'ta Apache Spark kümeleri Anaconda kitaplıkları içerir. Bu da içe
 ### <a name="scenarios"></a>Senaryolar
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](apache-spark-eventhub-streaming.md)
 * [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
@@ -201,7 +200,7 @@ Hdınsight'ta Apache Spark kümeleri Anaconda kitaplıkları içerir. Bu da içe
 * [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
-* [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin.md)
+* [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
 * [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)

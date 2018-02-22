@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>IOT Uzaktan izleme ve IOT hub ve posta kutusu bağlanma Azure Logic Apps ile bildirimleri
 
@@ -50,7 +50,7 @@ IOT hub'ınızı ve Sıcaklık İzleme ve bildirimler için posta bağlayan bir 
 
 ### <a name="create-a-service-bus-namespace"></a>Hizmet veri yolu ad alanı oluşturma
 
-1. Üzerinde [Azure portal](https://portal.azure.com/), tıklatın **yeni** > **Kurumsal tümleştirme** > **Service Bus**.
+1. Üzerinde [Azure portal](https://portal.azure.com/), tıklatın **kaynak oluşturma** > **Kurumsal tümleştirme** > **Service Bus**.
 1. Aşağıdaki bilgileri sağlayın:
 
    **Ad**: hizmet veri yolu adı.
@@ -60,7 +60,7 @@ IOT hub'ınızı ve Sıcaklık İzleme ve bildirimler için posta bağlayan bir 
    **Kaynak grubu**: IOT hub'ınızı kullandığı aynı kaynak grubunu kullanın.
 
    **Konum**: IOT hub'ınızı kullandığı aynı konum kullanın.
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
    ![Azure Portalı'nda hizmet veri yolu ad alanı oluşturma](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1_create-service-bus-namespace-azure-portal.png)
 
@@ -87,7 +87,7 @@ IOT hub'ınızı ve Sıcaklık İzleme ve bildirimler için posta bağlayan bir 
    **Hizmet veri yolu ad alanı**: oluşturduğunuz ad alanını seçin.
 
    **Service Bus kuyruğuna**: oluşturduğunuz kuyruğu seçin.
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**’a tıklayın.
 
    ![Azure portalında IOT hub'ınız için bir uç nokta ekleyin](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3_add-iot-hub-endpoint-azure-portal.png)
 
@@ -103,7 +103,7 @@ IOT hub'ınızı ve Sıcaklık İzleme ve bildirimler için posta bağlayan bir 
    **Uç nokta**: oluşturduğunuz uç nokta seçin.
 
    **Sorgu dizesi**: girin `temperatureAlert = "true"`.
-1. **Kaydet** düğmesine tıklayın.
+1. **Kaydet**’e tıklayın.
 
    ![Azure portalında bir yönlendirme kuralı Ekle](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4_add-routing-rule-azure-portal.png)
 
@@ -111,7 +111,7 @@ IOT hub'ınızı ve Sıcaklık İzleme ve bildirimler için posta bağlayan bir 
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
 
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **yeni** > **Kurumsal tümleştirme** > **mantıksal uygulama**.
+1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **kaynak oluşturma** > **Kurumsal tümleştirme** > **mantıksal uygulama**.
 1. Aşağıdaki bilgileri girin:
 
    **Ad**: mantıksal uygulama adı.
@@ -119,7 +119,7 @@ IOT hub'ınızı ve Sıcaklık İzleme ve bildirimler için posta bağlayan bir 
    **Kaynak grubu**: IOT hub'ınızı kullandığı aynı kaynak grubunu kullanın.
 
    **Konum**: IOT hub'ınızı kullandığı aynı konum kullanın.
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
 ### <a name="configure-the-logic-app"></a>Mantıksal uygulama yapılandırma
 
@@ -157,11 +157,11 @@ IOT hub'ınızı ve Sıcaklık İzleme ve bildirimler için posta bağlayan bir 
 
       SMTP bilgilerini al [Hotmail/Outlook.com](https://support.office.com/en-us/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en), ve [Yahoo Posta](https://help.yahoo.com/kb/SLN4075.html).
    1. E-posta adresinizi girin **gelen** ve **için**, ve `High temperature detected` için **konu** ve **gövde**.
-   1. **Kaydet** düğmesine tıklayın.
+   1. **Kaydet**’e tıklayın.
 
 Kaydettiğinizde mantıksal uygulama çalışma sıradadır.
 
-## <a name="test-the-logic-app"></a>Mantıksal uygulama test
+## <a name="test-the-logic-app"></a>Mantıksal uygulamayı test etme
 
 1. Cihazınızı dağıttığınız istemci uygulaması başlangıç [Azure IOT Hub'ına bağlanmak ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md).
 1. 30 c. SensorTag geçici ortam sıcaklık artırın Örneğin, Şamdan, SensorTag geçici açık.

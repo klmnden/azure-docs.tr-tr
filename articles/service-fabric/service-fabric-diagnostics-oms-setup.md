@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric - OMS günlük analizi ile izleme ayarlama | Microsoft Docs"
-description: "Azure Service Fabric kümeleri izleme olaylarını çözümleme ve görselleştirme için OMS ayarlamak öğrenin."
+title: "Azure Service Fabric - ayarlamak OMS günlük analizi ile izleme | Microsoft Docs"
+description: "Operations Management Suite Görselleştirme ve olayları çözümlemek için Azure Service Fabric kümeleri izlemek için nasıl ayarlanacağını öğrenin."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,67 +14,71 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 53b06c5a1395f34c96d4011366835a920d5c670b
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="set-up-oms-log-analytics-for-a-cluster"></a>Bir küme için OMS günlük analizi Ayarla
+# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Operations Management Suite günlük analizi bir küme için Ayarla
 
-Bir OMS çalışma aracılığıyla Azure Kaynak Yöneticisi, PowerShell veya Azure Market üzerinden ayarlayabilirsiniz. Güncelleştirilmiş bir Resource Manager şablonu, dağıtımınızın bakımı, gelecekte kullanılmak üzere aynı şablonu OMS ortamınızı ayarlamak için kullanın. Market dağıtma, etkin Tanılama ile dağıtılan bir kümeye zaten sahipseniz daha kolay olur. OMS dağıtma hesabında abonelik düzeyinde erişimi yoktur durumda, PowerShell kullanın veya Resource Manager şablonu dağıtabilirsiniz.
+Bir Operations Management Suite (OMS) çalışma alanını Azure Resource Manager, PowerShell veya Azure Marketi kullanarak ayarlayabilirsiniz. Dağıtımınızın gelecekte kullanım için güncelleştirilmiş bir Resource Manager şablonu bulunduruyorsanız, OMS ortamınızı ayarlamak için aynı şablonu kullanın. Market aracılığıyla dağıtımı etkin Tanılama ile dağıtılan bir kümeye zaten sahipseniz daha kolay olur. OMS dağıtma hesabında abonelik düzeyinde erişimi yoksa, PowerShell veya Resource Manager şablonunu kullanarak dağıtın.
 
 > [!NOTE]
-> Küme görüntülemek için tanılama kümeniz için etkinleştirilmiş olması gerekir / kümeniz için OMS başarılı bir şekilde ayarlamak için platform düzeyi olaylarını izleme.
+> Kümenizi izlemek için OMS ayarlamak için tanılama küme düzeyi veya platform düzeyi olayları görüntülemek için etkin olması gerekir.
 
-## <a name="deploying-oms-using-azure-marketplace"></a>Azure Market kullanarak OMS dağıtma
+## <a name="deploy-oms-by-using-azure-marketplace"></a>Azure Market kullanarak OMS dağıtma
 
-Bir küme dağıttıktan sonra bir OMS çalışma eklemek isterseniz, head üzerinden Azure Marketi'ndeki (Portal) için ve Ara *"Service Fabric Analytics."*
+Bir küme dağıttıktan sonra bir OMS çalışma eklemek istiyorsanız, Azure Marketi portalda gidin ve Ara **Service Fabric Analytics**:
 
-1. Tıklayın **yeni** sol gezinti menüsünde. 
+1. Seçin **yeni** sol gezinti menüsünde. 
 
-2. Arama *Service Fabric Analytics*. Görüntülenir kaynak'ı tıklatın.
+2. Arama **Service Fabric Analytics**. Görüntülenen kaynağı seçin.
 
-3. Tıklayın **oluşturma**
+3. **Oluştur**’u seçin.
 
     ![OMS BT analizi pazarında](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Service Fabric Analytics oluşturma penceresinde **bir çalışma alanı seçin** için *OMS çalışma* alan ve ardından **yeni bir çalışma alanı oluşturma**. Gerekli girişleri doldurun - burada tek gereksinim abonelik Service Fabric kümesi ve OMS çalışma alanı için aynı olmalıdır. Girişlerinizi doğruladıktan sonra OMS çalışma dağıtımı başlar. Bu, yalnızca birkaç dakika sürer.
+4. Service Fabric Analytics oluşturma penceresinde seçin **bir çalışma alanı seçin** için **OMS çalışma** alan ve ardından **yeni bir çalışma alanı oluşturma**. Gerekli girişleri doldurun. Burada tek gereksinim abonelik Service Fabric kümesi ve OMS çalışma alanı için aynı olmasıdır. Girişlerinizi doğrulandı, OMS çalışma alanınızı dağıtmak başlatılır. Dağıtımı yalnızca birkaç dakika sürer.
 
-5. Tamamlandığında tıklatarak **oluşturma** Service Fabric Analytics oluşturma penceresinin altındaki yeniden. Yeni bir çalışma alanı altında gösterildiğini doğrulayın *OMS çalışma*. Bu çözüm, yeni oluşturduğunuz çalışma alanına ekler.
+5. Tamamlandığında, seçin **oluşturma** Service Fabric Analytics oluşturma penceresinin altındaki yeniden. Yeni bir çalışma alanı altında gösterildiğini doğrulayın **OMS çalışma**. Bu eylem çözümü oluşturduğunuz çalışma alanına ekler.
 
-Windows kullanıyorsanız, depolama hesabına OMS kanca için aşağıdaki adımları küme olayları depolandığı devam edin. Bu deneyim Linux kümeleri için doğru etkinleştirme hala devam ediyor. Bu sırada, kümeniz için OMS aracısının eklemeye devam.  
+Windows kullanıyorsanız, OMS küme olayları depolandığı depolama hesabına bağlanmak için aşağıdaki adımlarla devam edin. 
 
-1. Çalışma alanı hala kümenizden gelen tanılama verilerini bağlı olması gerekiyor. Service Fabric Analytics çözümde oluşturduğunuz kaynak grubuna gidin. Görmeniz gerekir bir *ServiceFabric (\<nameOfOMSWorkspace\>)*. Burada çözüm ayarları, çalışma alanı ayarları değiştirin ve OMS Portalı'na gidin, genel bakış sayfasına gitmek için çözüm tıklayın.
+>[!NOTE]
+>Bu deneyim Linux kümeleri için etkinleştirme henüz kullanılamıyor. 
 
-2. Sol gezinti menüsünde tıklatın **depolama hesapları günlükleri**altında *çalışma veri kaynakları*.
+### <a name="add-the-oms-agent-to-your-cluster"></a>OMS Aracısı kümenize ekleme 
 
-3. Üzerinde *depolama hesabı günlüklerine* sayfasında, **Ekle** kümenizin günlükleri için çalışma alanına eklemek için üst.
+1. Çalışma alanı kümenizden gelen tanılama verilerini bağlı gerekir. Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfOMSWorkspace\>**  ve kendi genel bakış sayfasına gidin. Buradan, çözüm ayarları, çalışma alanı ayarları değiştirin ve OMS portalı erişebilirsiniz.
 
-4. İçine tıklatın **depolama hesabı** kümenizdeki oluşturulan uygun hesap eklemek için. Varsayılan ad kullandıysanız, depolama hesabı adı *sfdg\<resourceGroupName\>*. Kümeniz için kullanılan değer denetleyerek dağıtmak için kullanılan Azure Resource Manager şablonu denetleyerek bu de onaylayabilirsiniz `applicationDiagnosticsStorageAccountName`. Aşağı kaydırın ve da sahip olabilirsiniz **daha fazla yük** adı görünmüyor durumunda. Seçmek için yukarı doğru depolama hesabının adına tıklayın.
+2. Sol gezinti menüsünde altında **çalışma veri kaynakları**seçin **depolama hesapları günlükleri**.
 
-5. Ardından, belirtmeniz gerekecektir *veri türü*, hangi ayarlanmalıdır **Service Fabric olayları**.
+3. Üzerinde **depolama hesabı günlüklerine** sayfasında, **Ekle** kümenizin günlükleri için çalışma alanına eklemek için üst.
 
-6. *Kaynak* otomatik olarak ayarlanması gerektiğini *WADServiceFabric\*EventTable*.
+4. Seçin **depolama hesabı** kümenizdeki oluşturulan uygun hesap eklemek için. Varsayılan ad kullandıysanız depolama hesabıdır **sfdg\<resourceGroupName\>**. Ayrıca bu, küme için kullanılan değer denetleyerek dağıtmak için kullanılan Azure Resource Manager şablonu ile doğrulayabilirsiniz **applicationDiagnosticsStorageAccountName**. Adı gösterilmez, aşağı kaydırın ve seçin **daha fazla yük**. Depolama hesabı adı seçin.
 
-7. Tıklatın **Tamam** çalışma alanınızı kümenizin günlüklerine bağlanmak için.
+5. Veri türü belirtin. Ayarlamak **Service Fabric olayları**.
+
+6. Kaynak otomatik olarak ayarlandığından emin olun **WADServiceFabric\*EventTable**.
+
+7. Seçin **Tamam** çalışma alanınızı kümenizin günlüklerine bağlanmak için.
 
     ![Depolama hesabı günlükleri için OMS ekleme](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
-Hesap artık bir parçası olarak gösterilmesi gerekir, *depolama hesabı günlüklerine* alanınıza ait veri kaynaklarında.
+Çalışma alanınızı ait veri kaynaklarında depolama hesabınızın parçası günlükleri gibi hesap artık görünür.
 
-Bu, artık Service Fabric analiz çözümü artık doğru kümenizin platform ve uygulama günlüğü tablosu bağlanmış bir OMS günlük analizi çalışma alanındaki eklediniz. Ek kaynaklar aynı şekilde çalışma alanına ekleyebilirsiniz.
+Şimdi doğru kümenizin platform ve uygulama günlüğü tablosu için bağlı bir OMS günlük analizi çalışma alanındaki Service Fabric analiz çözümü eklediniz. Ek kaynaklar aynı şekilde çalışma alanına ekleyebilirsiniz.
 
 
-## <a name="deploying-oms-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak OMS dağıtma
+## <a name="deploy-oms-by-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak OMS dağıtma
 
-Resource Manager şablonu kullanarak bir küme dağıtırken, şablonun yeni bir OMS çalışma alanı oluşturmanız gerekir hizmeti yapı çözümü için ekleyip uygun depolama tablolarından verileri okumak için yapılandırabilirsiniz.
+Bir Resource Manager şablonu kullanarak bir küme dağıttığınızda, şablonun yeni bir OMS çalışma alanı oluşturur, Service Fabric çözüm için çalışma alanına ekler ve uygun depolama tablolarından verileri okumak için yapılandırır.
 
-[Burada](https://azure.microsoft.com/resources/templates/service-fabric-oms/) gereksinimlerine uygun şekilde değiştirin ve kullanan bir örnek şablonudur. Bir OMS çalışma ayarı bulunabilir için farklı seçenekler size daha fazla şablonları [Service Fabric ve OMS şablonları](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Kullanın ve değiştirme [Bu örnek şablonu](https://azure.microsoft.com/resources/templates/service-fabric-oms/) gereksinimlerinizi karşılayacak şekilde. Bir OMS çalışma ayarı bulunabilir için farklı seçenekler size şablonları [Service Fabric ve OMS şablonları](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
-Ana değişikliklerinin şunlardır:
-
-1. Ekleme `omsWorkspaceName` ve `omsRegion` parametrelerinizi için. Bu tanımlanan parametreler için aşağıdaki kod parçacığında ekleme anlamına gelir, *template.json* dosya. Uygun gördüğünüz şekilde varsayılan değerleri değiştirmek çekinmeyin. İki yeni parametre de eklemeniz gerekir, *parameters.json* kaynak dağıtımı için değerleri tanımlamak için:
+Aşağıdaki değişiklikleri yapın:
+1. Ekleme `omsWorkspaceName` ve `omsRegion` tanımlanan parametreler için aşağıdaki kod parçacığını ekleyerek, parametreleri, *template.json* dosya. Uygun gördüğünüz şekilde varsayılan değerleri değiştirmek çekinmeyin. Ayrıca, iki yeni parametre eklemek, *parameters.json* dosya kaynak dağıtımı için değerleri tanımlamak için:
     
     ```json
     "omsWorkspacename": {
@@ -98,9 +102,9 @@ Ana değişikliklerinin şunlardır:
     }
     ```
 
-    `omsRegion` Değerlere sahip değerleri belirli bir dizi uymak. Küme dağıtımı için en yakın olan seçmeniz gerekir.
+    `omsRegion` Değerlere sahip değerleri belirli bir dizi uymak. Küme dağıtımı için en yakın olan seçin.
 
-2. Tüm uygulama günlükleri için OMS göndereceği, onaylayın `applicationDiagnosticsStorageAccountType` ve `applicationDiagnosticsStorageAccountName` şablonunuzdaki parametreleri olarak dahil edilir. Değilse, bunları değişkenleri bölümüne ekleyin sözlüğüdür ve bunların değerleri gerektiği gibi düzenleyin. Yukarıda kullanılan biçim aşağıdaki isterseniz bunları parametre olarak dahil edebilirsiniz.
+2. OMS için tüm uygulama günlükleri gönderirseniz, ilk onaylayın `applicationDiagnosticsStorageAccountType` ve `applicationDiagnosticsStorageAccountName` şablonunuzdaki parametreleri olarak dahil edilir. Dahil edilmez, değişkenleri bölümüne ekleyin ve bunların değerleri gerektiği gibi düzenleyin. Ayrıca bunları parametre olarak önceki biçimi izleyerek ekleyebilirsiniz.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
@@ -114,7 +118,7 @@ Ana değişikliklerinin şunlardır:
     "solutionName": "ServiceFabric"
     ```
 
-4. Aşağıdaki Service Fabric küme kaynağı burada bildirilmiş sonra kaynakları bölümünüzü sonuna ekleniyor.
+4. Aşağıdaki Service Fabric küme kaynağı burada bildirilmiş sonra kaynakları bölümünüzü sonuna ekleyin:
 
     ```json
     {
@@ -175,19 +179,19 @@ Ana değişikliklerinin şunlardır:
     > [!NOTE]
     > Eklediyseniz `applicationDiagnosticsStorageAccountName` bir değişken olarak için her referansı değiştirdiğinizden emin olun `variables('applicationDiagnosticsStorageAccountName')` yerine `parameters('applicationDiagnosticsStorageAccountName')`.
 
-5. Şablon Resource Manager yükseltme kümenize dağıtın. Bu yapılır kullanarak `New-AzureRmResourceGroupDeployment` AzureRM PowerShell modülündeki API. Bir örnek komut şöyle olacaktır:
+5. Kullanarak bir Resource Manager yükseltme kümenize olarak şablonu dağıtma `New-AzureRmResourceGroupDeployment` AzureRM PowerShell modülündeki API. Bir örnek komut şöyle olacaktır:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
     ``` 
 
-    Azure Resource Manager bunu mevcut bir kaynağı için bir güncelleştirme olduğunu algılayabilir olacaktır. Ayrıca, varolan dağıtım yürüten şablonu ve sağlanan yeni şablonu arasındaki değişiklikleri yalnızca işleyecektir.
+    Azure Resource Manager, bu komutu mevcut bir kaynağı için bir güncelleştirme olarak algılar. Yalnızca, varolan dağıtım yürüten şablonu ve sağlanan yeni şablonu arasındaki değişiklikleri işler.
 
-## <a name="deploying-oms-using-azure-powershell"></a>Azure PowerShell kullanarak OMS dağıtma
+## <a name="deploy-oms-by-using-azure-powershell"></a>Azure PowerShell kullanarak OMS dağıtma
 
-Ayrıca, OMS günlük analizi kaynak PowerShell aracılığıyla dağıtabilirsiniz. Bu kullanılarak elde edilir `New-AzureRmOperationalInsightsWorkspace` komutu. Bunu yapmak için yüklediğinizden emin olun [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Yeni bir OMS günlük analizi çalışma alanı oluşturmak ve Service Fabric çözüm eklemek için bu betiği kullanın: 
+Kullanarak OMS günlük analizi kaynağınız PowerShell aracılığıyla dağıtabilirsiniz `New-AzureRmOperationalInsightsWorkspace` komutu. Bu yöntemi kullanmak için yüklediğinizden emin olun [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Yeni bir OMS günlük analizi çalışma alanı oluşturmak ve Service Fabric çözüm eklemek için bu betiği kullanın: 
 
-```ps
+```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
@@ -211,11 +215,11 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-Windows Küme kümenizi ise, bu işlemi tamamlandıktan sonra uygun depolama hesabına OMS günlük analizi bağlanmanıza yukarıdaki bölümde adımları izleyin.
+İşiniz bittiğinde, OMS günlük analizi uygun depolama hesabına bağlanmak için önceki bölümdeki adımları izleyin.
 
-Ayrıca, diğer çözümleri ekleyebilir veya PowerShell kullanarak OMS çalışma alanınıza başka değişiklikler yapmayın. Daha fazla bilgi için bu konuda bkz [günlük analizi PowerShell kullanarak yönetme](../log-analytics/log-analytics-powershell-workspace-configuration.md)
+Ayrıca, diğer çözümleri ekleyebilir veya PowerShell kullanarak OMS çalışma alanınıza başka değişiklikler yapmayın. Daha fazla bilgi için bkz: [yönetmek günlük PowerShell kullanarak analizi](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [OMS Aracısı'nı dağıtma](service-fabric-diagnostics-oms-agent.md) performans sayaçları toplamak ve docker istatistikleri ve kapsayıcılarınızı günlüklerini toplamak için düğümleriniz üzerine
 * İle familiarized [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) günlük analizi bir parçası olarak sunulan özellikler
 * [Günlük analizi özel görünümler oluşturmak için Görünüm Tasarımcısı kullanın](../log-analytics/log-analytics-view-designer.md)

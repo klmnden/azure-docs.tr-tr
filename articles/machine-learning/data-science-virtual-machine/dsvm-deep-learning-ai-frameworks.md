@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 89a8cde0dbb7fe7ccfbb6d068411aaf5488c532f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Derin Öğrenme ve AI çerçeveleri
 [Veri bilimi sanal makine](http://aka.ms/dsvm) (DSVM) ve [derin öğrenme VM](http://aka.ms/dsvm/deeplearning) Tahmine dayalı analiz yapay Intelligence (AI) uygulamalarla oluşturmanıza yardımcı olmak üzere derin öğrenme çerçeveleri destekler ve bilişsel özellikleri görüntü ve dil anlama gibi. 
@@ -67,7 +67,7 @@ ms.lasthandoff: 01/24/2018
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Derin öğrenme çerçevesi      |
-| Desteklenen DSVM sürümleri      | Linux     |
+| Desteklenen DSVM sürümleri      | Ubuntu     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Caffe yüklü `/opt/caffe`.    |
 | Örnekleri bağlantılar      | Örnekleri dahil edilmiştir `/opt/caffe/examples`.      |
 | DSVM ilgili araçları      | Caffe2      |
@@ -87,7 +87,7 @@ jupyter notebook
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Derin öğrenme çerçevesi      |
-| Desteklenen DSVM sürümleri      | Linux     |
+| Desteklenen DSVM sürümleri      | Ubuntu     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Caffe2 yüklü `/opt/caffe2`. Ayrıca Python 2.7 için kullanılabilir (_kök_) conda ortamı.     |
 | Örnekleri bağlantılar      | Örnek Jupyter not defterleri dahil edilir     |
 | DSVM ilgili araçları      | Caffe      |
@@ -114,7 +114,7 @@ Bir terminal istediğiniz Python sürümünü etkinleştir (_kök_ veya _py35_),
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | H2O için derin öğrenme çerçevesi      |
-| Desteklenen DSVM sürümleri      | Linux     |
+| Desteklenen DSVM sürümleri      | Ubuntu     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Derin su yüklü `/dsvm/tools/deep_water`.   |
 | Örnekleri bağlantılar      | Örnekleri derin su sunucu üzerinden kullanılabilir.      |
 | DSVM ilgili araçları      | H2O, Sparkling su      |
@@ -145,7 +145,7 @@ Ardından bir tarayıcı açın ve bağlanmak `http://localhost:54321`.
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Derin NVIDIA sistemden derin öğrenme modelleri hızla eğitim için öğrenme      |
-| Desteklenen DSVM sürümleri      | Linux     |
+| Desteklenen DSVM sürümleri      | Ubuntu     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | BASAMAK yüklü `/dsvm/tools/DIGITS` ve kullanılabilir bir hizmet olarak adlandırılan _basamak_.   |
 ### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?  
 
@@ -173,7 +173,7 @@ Hizmeti başlatmak için yaklaşık bir dakika sürer. Bir web tarayıcı başla
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Derin öğrenme çerçevesi      |
-| Desteklenen DSVM sürümleri      | Linux     |
+| Desteklenen DSVM sürümleri      | Ubuntu     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Python 2.7 Theano yüklü (_kök_), Python 3.5 yanı sıra (_py35_) ortamı.   |
 | DSVM ilgili araçları      | Keras      |
 | Kullanın / çalıştırmak için nasıl?    | Bir terminal (kök veya py35) istediğiniz python çalıştırın, sonra theano alma Python sürümü etkinleştirin. Jupyter, Python 2.7 ya da 3.5 çekirdek seçin, ardından theano içeri aktarın.  |
@@ -185,7 +185,42 @@ Hizmeti başlatmak için yaklaşık bir dakika sürer. Bir web tarayıcı başla
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Derin öğrenme çerçevesi      |
-| Desteklenen DSVM sürümleri      | Linux     |
+| Desteklenen DSVM sürümleri      | Ubuntu     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Torch yüklü `/dsvm/tools/torch`. Python 2.7 PyTorch yüklü (_kök_), Python 3.5 yanı sıra (_py35_) ortamı.   |
 | Örnekleri bağlantılar      | Torch örnekleri adresindedir `/dsvm/samples/torch`. PyTorch örnekleri adresindedir `/dsvm/samples/pytorch`.      |
 
+
+## <a name="pytorch"></a>PyTorch
+
+|    |           |
+| ------------- | ------------- |
+| Nedir?   | Derin öğrenme çerçevesi      |
+| Desteklenen DSVM sürümleri      | Linux     |
+| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | PyTorch Python 3.5 yüklü (_py35_) ortamı.   |
+| Örnekleri bağlantılar      | Örnek Jupyter not defterleri dahil edilir ve örnekleri de /dsvm/samples/pytorch içinde bulunabilir.      |
+| DSVM ilgili araçları      | Torch      |
+
+### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?  
+
+Bir terminal çalıştırmak _python_, torch içeri aktarın. Jupyter, Python 3.5 çekirdek seçin, ardından torch içeri aktarın.
+
+
+## <a name="mxnet-model-server"></a>MXNet Model Server
+
+|    |           |
+| ------------- | ------------- |
+| Nedir?   | MXNet ve ONNX modelleri için HTTP uç noktaları oluşturmak için bir sunucu      |
+| Desteklenen DSVM sürümleri      | Linux     |
+| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | _mxnet model sunucu_ terminal bulunur.   |
+| Örnekleri bağlantılar      | Güncel örnekler için Ara [MXNet modeli sunucu sayfası](https://github.com/awslabs/mxnet-model-server).    |
+| DSVM ilgili araçları      | MXNet      |
+
+## <a name="tensorflow-serving"></a>TensorFlow sunma
+
+|    |           |
+| ------------- | ------------- |
+| Nedir?   | İnferencing TensorFlow model üzerinde çalıştırmak için bir sunucu      |
+| Desteklenen DSVM sürümleri      | Linux     |
+| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | _tensorflow_model_server_ is available at the terminal.   |
+| Örnekleri bağlantılar      | Örnekleri kullanılabilir [çevrimiçi](https://www.tensorflow.org/serving/).      |
+| DSVM ilgili araçları      | TensorFlow      |

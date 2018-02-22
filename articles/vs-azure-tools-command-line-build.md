@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1004f7d6938b4038df7681dc7f7551db2e988e61
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Komut satırından Azure projeler derleme
 Microsoft Build Engine (MSBuild) kullanarak, Visual Studio değil yüklendiği yapı Laboratuvar ortamlarında ürünleri oluşturabilir. MSBuild genişletilebilir ve Microsoft tarafından tam olarak desteklenen proje dosyaları için bir XML biçimi kullanır. MSBuild dosya biçimini kullanarak, hangi öğeler olmalıdır açıklayabilirsiniz bir veya daha fazla platformlar ve yapılandırmaları için oluşturulmuştur.
@@ -36,5 +36,4 @@ Varsayılan olarak, her Azure projesi yerel (hata ayıklama) yapılar için bir 
 Yapılandırma dosyalarını ve saklı paket için alternatif bir dizin kullanmak istiyorsanız, yolu kullanarak ayarlamak `/p:PublishDir=Directory\` sondaki eğik çizgi ayırıcı dahil olmak üzere seçeneği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Paket oluşturulduktan sonra Azure'a dağıtabilirsiniz. Bu işlem otomatik hale getirmek nasıl oluşturulduğunu gösteren bir öğretici için bkz [Azure bulut Hizmetleri için devamlı teslim](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
-
+Paket oluşturulduktan sonra Azure'a dağıtabilirsiniz.

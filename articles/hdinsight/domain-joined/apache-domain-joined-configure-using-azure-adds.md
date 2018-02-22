@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma
 
@@ -36,9 +36,11 @@ Bu makalede, Azure Active Directory etki alanı Hizmetleri'ni kullanan bir etki 
 Hdınsight kümesi oluşturmadan önce bir Azure AD DS oluşturmanız gerekir. Bir Azure EKLER oluşturmak için bkz: [etkinleştirmek Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Yalnızca Kiracı yöneticileri, etki alanı hizmetleri oluşturmak için gerekli ayrıcalıklara sahiptir. Hdınsight için varsayılan depolama alanı olarak Azure Data Lake Storage (ADLS) kullanırsanız, ardından ADLS için varsayılan Azure AD Kiracı etki alanı Hdınsight kümesi için aynı olduğundan emin olun. 
+> Yalnızca Kiracı yöneticileri, etki alanı hizmetleri oluşturmak için gerekli ayrıcalıklara sahiptir. Hdınsight için varsayılan depolama alanı olarak Azure Data Lake Storage (ADLS) kullanırsanız, ardından ADLS için varsayılan Azure AD Kiracı etki alanı Hdınsight kümesi için aynı olduğundan emin olun. Bunun için Azure Data Lake Store ile çalışmak için ayarladığınız çok faktörlü kimlik doğrulaması kümeye erişimi olan kullanıcılar için devre dışı bırakılması gerekir.
 
 Etki alanı hizmeti sağlandıktan sonra bir hizmet hesabı oluşturmanız gerekir **Azure AD DC Yöneticiler** Hdınsight kümesi oluşturmak için Grup. Hizmet hesabı üzerinde Azure AD genel yönetici olması gerekir.
+
+Güvenli LDAP Azure AD etki alanı Hizmetleri yönetilen etki alanı için etkinleştirmeniz gerekir. Güvenli LDAP etkinleştirmek için bkz: [yapılandırma güvenli LDAP (LDAPS) bir Azure AD etki alanı Hizmetleri yönetilen etki alanı](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Bir etki alanına katılmış Hdınsight kümesi oluşturma
 

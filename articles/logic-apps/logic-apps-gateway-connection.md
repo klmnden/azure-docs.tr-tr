@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Logic apps ile şirket içi veri ağ geçidi şirket içi veri kaynaklarına bağlayın
 
@@ -35,8 +35,8 @@ Ağ geçidi, şirket içinde bu veri kaynaklarının bağlantılarını destekle
 *   MySQL
 *   Oracle Veritabanı
 *   PostgreSQL
-*   SAP uygulama sunucusu 
-*   SAP ileti sunucusu
+*   SAP Uygulama Sunucusu 
+*   SAP İleti Sunucusu
 *   SharePoint
 *   SQL Server
 *   Teradata
@@ -63,21 +63,19 @@ Ağ geçidi diğer hizmetlerle birlikte kullanma hakkında daha fazla bilgi içi
   > [!NOTE]
   > Windows hizmet hesabını şirket içi veri kaynaklarına bağlanmak için kullanılan hesap farklıdır ve Azure'dan iş veya Okul hesabı bulut hizmetlerine oturum açmak için kullandığınız.
 
-## <a name="set-up-the-data-gateway-connection"></a>Veri ağ geçidi bağlantısı kurma
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Şirket içi veri ağ geçidi yükleme
+## <a name="install-the-on-premises-data-gateway"></a>Şirket içi veri ağ geçidi yükleme
 
 Henüz yapmadıysanız, izleyin [şirket içi veri ağ geçidi yüklemek için adımları](logic-apps-gateway-install.md). Diğer adımlarla devam etmeden önce veri ağ geçidi yerel bir bilgisayarda yüklü emin olun.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Şirket içi veri ağ geçidi için bir Azure kaynağı oluşturma
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Şirket içi veri ağ geçidi için bir Azure kaynağı oluşturma
 
 Yerel bir bilgisayarda ağ geçidi'ni yükledikten sonra bir kaynak olarak Azure data gateway oluşturmanız gerekir. Bu adım, ağ geçidi kaynağı ayrıca Azure aboneliğiniz ile ilişkilendirir.
 
 1. [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın. Ağ geçidi yüklemek için kullanılan e-posta adresi okul veya aynı Azure iş emin olun.
 
-2. Ana Azure menüsünde, **yeni** > **Kurumsal tümleştirme** > **şirket içi veri ağ geçidi** aşağıda gösterildiği gibi:
+2. Ana Azure menüsünde, **kaynak oluşturma** > **Kurumsal tümleştirme** > **şirket içi veri ağ geçidi**:
 
    !["Şirket içi veri ağ geçidi" Bul](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -103,7 +101,7 @@ Yerel bir bilgisayarda ağ geçidi'ni yükledikten sonra bir kaynak olarak Azure
     * **Yükleme adı**: ağ geçidi yüklemenizi seçili değilse, daha önce yüklediğiniz ağ geçidi seçin. 
 
     Ağ geçidi kaynağı Azure panonuza eklemek için **panoya Sabitle**. 
-    İşiniz bittiğinde seçin **oluşturma**.
+    İşiniz bittiğinde **Oluştur**’u seçin.
 
     Örneğin:
 
@@ -115,7 +113,7 @@ Yerel bir bilgisayarda ağ geçidi'ni yükledikten sonra bir kaynak olarak Azure
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Şirket içi veri ağ geçidi mantıksal uygulamanızı Bağlan
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Şirket içi veri ağ geçidi mantıksal uygulamanızı Bağlan
 
 Veri ağ geçidi kaynağı oluşturulur ve Azure aboneliğiniz bu kaynakla ilişkili olduğundan, mantıksal uygulamanızı ve veri ağ geçidi arasında bir bağlantı oluşturun.
 
@@ -126,7 +124,7 @@ Veri ağ geçidi kaynağı oluşturulur ve Azure aboneliğiniz bu kaynakla iliş
 
 2. SQL Server gibi şirket içi bağlantıları destekleyen bir bağlayıcı ekleyin.
 
-3. Gösterilen sırada aşağıdaki seçin **Connect şirket içi veri ağ geçidi üzerinden**benzersiz bağlantı adı ve gerekli bilgileri sağlayın ve kullanmak istediğiniz veri ağ geçidi kaynağı seçin. İşiniz bittiğinde seçin **oluşturma**.
+3. Gösterilen sırada aşağıdaki seçin **Connect şirket içi veri ağ geçidi üzerinden**benzersiz bağlantı adı ve gerekli bilgileri sağlayın ve kullanmak istediğiniz veri ağ geçidi kaynağı seçin. İşiniz bittiğinde **Oluştur**’u seçin.
 
    > [!TIP]
    > Benzersiz bağlantı adı özellikle birden çok bağlantı oluşturduğunuzda bu bağlantıyı daha sonra kolayca belirlemenize yardımcı olur. Uygunsa, ayrıca, kullanıcı adı için tam etki alanı içerir. 
@@ -157,6 +155,7 @@ Mantıksal uygulamanız için bir ağ geçidi bağlantısı oluşturduktan sonra
    > Yaptığınız güncelleştirmeler etkili değil olarak işaretlerse, [ağ geçidi Windows hizmeti durdurup](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Geçiş veya şirket içi veri ağ geçidi kaynağı silme
 
 Farklı ağ geçidi kaynağı oluşturmak, ağ geçidiniz farklı bir kaynakla ilişkilendirme veya ağ geçidi kaynağı kaldırmak için ağ geçidi kaynağına ağ geçidi yükleme etkilemeden silebilirsiniz. 
@@ -166,6 +165,7 @@ Farklı ağ geçidi kaynağı oluşturmak, ağ geçidiniz farklı bir kaynakla i
 3. Seçin **şirket içi veri ağ geçidi**ve kaynak araç çubuğunda seçin **silmek**.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]

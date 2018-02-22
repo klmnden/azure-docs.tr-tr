@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C özel ilke genel Önizleme için sürüm notları
 Özel ilke özellik kümesi artık genel Önizleme için tüm Azure Active Directory B2C altında değerlendirme için kullanılabilir (Azure AD B2C) müşteriler. Bu özellik kümesi, Gelişmiş kimlik geliştiricileri en karmaşık kimlik çözümleri oluşturma yöneliktir.  
@@ -60,7 +60,7 @@ Genel Önizlemesi'nden tam olarak yararlanmak için özel İlkesi özellik küme
 ## <a name="features-by-stage-and-known-issues"></a>Özellikler tarafından aşama ve bilinen sorunlar
 Özel ilke/kimlik deneyimi Framework yeteneklerini sabit ve hızlı geliştirilme aşamasındadır.  Bu tablo, Özellikler/bileşen kullanılabilirliği dizinidir.
 
-Yığın taşması içinde soruları sonrası [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Yığın taşması içinde soruları sonrası [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Kimlik sağlayıcılar, belirteçleri, protokolleri
@@ -68,7 +68,7 @@ Dış bileşenler ve uygulamaları olan arabirimler
 
 | Özellik | Geliştirme | Önizleme | GA | Notlar |
 |---------------------------------------------|-------------|---------|----|-------|
-| IDP-Openıdconnect |  | x |  | Örneğin, Google + |
+| IDP-OpenIDConnect |  | x |  | Örneğin, Google + |
 | IDP-OAUTH2 |  | x |  | Örneğin, Facebook  |
 | IDP-OAUTH1 |  | x |  | Örneğin, Twitter |
 | IDP-SAML |  | x |  | Örneğin, Salesforce, ADFS |
@@ -104,7 +104,7 @@ Dış bileşenler ve uygulamaları olan arabirimler
 |   Yerel hesap kaydolma, api.localaccountsignup |  | x |  |  |
 |   MFA sayfası, api.phonefactor |  | x |  |  |
 |   Kendi kendine uygulanan-örneğin sosyal hesap SIG li api.selfasserted |  | x |  |  |
-|   Profil güncelleştirme otomatik olarak uygulanan api.selfasserted.profileupdate |  | x |  |  |
+|   Self-asserted profile update, api.selfasserted.profileupdate |  | x |  |  |
 |   Birleşik kaydolun veya oturum açma sayfası, api.signuporsignin |  | x |  |  |
 
 

@@ -6,19 +6,19 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/01/2018
+ms.date: 2/14/2018
 ms.author: nepeters
-ms.openlocfilehash: 73c49510512c9148f4fee98423b14770fa8602b9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 59dceded1e72e6e0e3d1a2bb25ca63bd023a9d21
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) hakkında sık sorulan sorular
 
 Bu makale adresleri soruları Azure kapsayıcı hizmeti (AKS) hakkında sık.
 
-## <a name="which-azure-regions-will-have-azure-container-service-aks"></a>Hangi Azure bölgeleri Azure kapsayıcı hizmeti (AKS) gerekiyor mu? 
+## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>Hangi Azure bölgeleri Azure kapsayıcı hizmeti (AKS) Bugün sağlıyor?
 
 - Orta Kanada 
 - Doğu Kanada 
@@ -32,13 +32,17 @@ Bu makale adresleri soruları Azure kapsayıcı hizmeti (AKS) hakkında sık.
 
 Ek bölgeler talep arttıkça eklenir.
 
-## <a name="are-security-updates-applied-to-aks-nodes"></a>Güvenlik güncelleştirmeleri AKS düğümlerine uygulanır? 
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Güvenlik güncelleştirmeleri AKS Aracısı düğümlerine uygulanır? 
 
-Ancak, bir yeniden başlatma gerçekleştirilemiyor gecelik bir zamanlamaya göre kümenizdeki düğümlerin işletim sistemi güvenlik yamaları uygulanır. Gerekirse, düğümleri portalı veya Azure CLI aracılığıyla yeniden. Bir küme yükseltme yaparken, en son Ubuntu görüntüsü kullanılır ve tüm güvenlik düzeltme eklerinin (yeniden başlatma ile) uygulanır.
+Azure güvenlik yamaları gecelik bir zamanlamaya göre kümenizdeki düğümlerin otomatik olarak uygular. Ancak, düğümleri yeniden başlatılır sağlamaktan sorumludur gerektiği gibi. Düğümü yeniden başlatmalar gerçekleştirmek için birkaç seçeneğiniz vardır:
 
-## <a name="do-you-recommend-customers-use-acs-or-akss"></a>Kullanım ACS veya AKSs müşteriler önerilir? 
+- El ile Azure portalında veya Azure CLI aracılığıyla. 
+- AKS kümenizi yükselterek. Yükseltmeler otomatik olarak küme [cordon ve düğüm boşaltma](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), bunları son Ubuntu görüntüsüyle ardından çevrimiçine yedekleyin. Geçerli Küme sürümde belirterek Kubernetes sürümleri değiştirmeden, düğümlerde işletim sistemi görüntüsü güncelleştirebilirsiniz `az aks upgrade`.
+- Kullanarak [Kured](https://github.com/weaveworks/kured), Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ve her düğüm için yeniden başlatma gerekli olduğunu belirten bir dosyasının varlığı, izler. Ardından bu yeniden başlatma aynı cordon ve daha önce açıklanan boşaltma işlemi aşağıdaki kümede düzenler.
 
-Azure kapsayıcı hizmeti (AKS) sonraki bir tarihte GA olacak koşuluyla, PT'ın yapı, geliştirme ve test kümeleri içinde AKS ancak ACS-Kubernetes üretim kümeleri öneririz.  
+## <a name="do-you-recommend-customers-use-acs-or-aks"></a>Kullanım ACS veya AKS müşteriler önerilir? 
+
+AKS önizlemede kalırken, ACS Kubernetes kullanarak üretim kümeleri oluşturma öneririz veya [acs altyapısı](https://github.com/azure/acs-engine). Kavram kanıtı dağıtımları ve geliştirme ve test ortamları için AKS kullanabilirsiniz.
 
 ## <a name="when-will-acs-be-deprecated"></a>Ne zaman ACS kullanım dışı kalacaktır? 
 
@@ -48,21 +52,27 @@ ACS AKS İST olduğu zaman kullanım dışı kalacaktır Kümeler için AKS geç
 
 Düğüm otomatik ölçeklendirmeyi desteklenmez, ancak yol haritası üzerinde değil. Bu açık kaynaklıdır bir göz atalım isteyebilirsiniz [otomatik ölçeklendirmeyi uygulama][auto-scaler].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>Neden iki kaynak grubu ile AKS oluşturulur? 
+## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS Kubernetes rol tabanlı erişim denetimi (RBAC) destekliyor mu?
 
-Her Azure kapsayıcı hizmeti (AKS) küme iki kaynak grubunda yer alıyor. İlk oluşturulur ve yalnızca AKS kaynak içerir. İkinci kaynak grubu olduğundan otomatik olarak dağıtım sırasında oluşturulan ve VM gibi tüm küme infrastructural kaynaklarını içeren ağ ve depolama kaynakları. Bu kaynak grubu için kolay kaynak temizleme oluşturulur. 
+Hayır, RBAC AKS içinde şu anda desteklenmiyor ancak yakında kullanıma sunulacaktır.   
 
-Otomatik oluşturulan kaynak grubu için benzer bir adı vardır:
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Varolan sanal ağımla AKS dağıtabilir miyim?
 
-```
-MC_myResourceGRoup_myAKSCluster_eastus
-```
-
-Depolama hesapları veya ayrılmış genel IP adresi gibi Kubernetes kümesi ile kullanılacak Azure kaynaklarını eklerken, bu kaynakları otomatik olarak oluşturulan kaynak grubu içinde oluşturulması gerekir.   
+Hayır, henüz kullanılabilir değil ancak yakında kullanıma sunulacaktır.
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure anahtar kasası AKS ile tümleştirilir? 
 
 Hayır, bu değildir ancak bu tümleştirme planlanmış. Bu arada, aşağıdaki çözümden deneyebilirsiniz [Hexadite][hexadite]. 
+
+## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server kapsayıcıları AKS üzerinde çalıştırabilir miyim?
+
+Hayır, Windows Server kapsayıcıları çalıştırılamıyor AKS Windows Server tabanlı aracısı düğümleri, şu anda sağlamaz. Windows Server kapsayıcıları Azure Kubernetes çalıştırmak ihtiyacınız varsa, lütfen bkz [acs altyapısı belgelerine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+
+## <a name="why-are-two-resource-groups-created-with-aks"></a>Neden iki kaynak grubu ile AKS oluşturulur? 
+
+Her AKS dağıtım iki kaynak grubu yayar. İlk oluşturulur ve yalnızca AKS kaynak içerir. AKS kaynak sağlayıcısı gibi bir ada sahip ikinci bir dağıtım sırasında otomatik olarak oluşturur. *MC_myResourceGRoup_myAKSCluster_eastus*. İkinci kaynak grubu VM gibi kümesi ile ilişkili tüm altyapı kaynakları içeren ağ ve depolama. Kaynak temizleme basitleştirmek için oluşturulur. 
+
+Depolama hesapları veya ayrılmış genel IP adresi gibi AKS kümenizi kullanılacak kaynakları oluşturuyorsanız, otomatik olarak oluşturulan kaynak grubunda yerleştirmelisiniz.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB izleme
 Azure Cosmos DB hesaplarınızı izleyebilirsiniz [Azure portal](https://portal.azure.com/). Her Azure Cosmos DB hesabı için tam ölçümleri verimlilik, depolama, kullanılabilirlik, gecikme ve tutarlılık izlemek kullanılabilir paketidir.
@@ -26,7 +26,7 @@ Azure Cosmos DB hesaplarınızı izleyebilirsiniz [Azure portal](https://portal.
 Ölçümleri hesap sayfasında, yeni ölçümleri sayfa veya Azure İzleyicisi'nde incelenebilir.
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>Ölçümleri sayfasında görünümü performans ölçümleri
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **daha Hizmetleri**, kaydırın **veritabanları**, tıklatın **Azure Cosmos DB**ve kendisi için istediğiniz performans ölçümleri görüntülemek üzere Azure Cosmos DB hesap adına tıklayın.
+1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **tüm hizmetleri**, kaydırın **veritabanları**, tıklatın **Azure Cosmos DB**ve ardından Azure adını tıklatın Performans ölçümlerini görüntülemek istediğiniz cosmos DB hesabı.
 2. Yeni Sayfa yüklediğinde, kaynak menüsünün altında **izleme**, tıklatın **ölçümleri**.
 3. Ölçümleri sayfası açıldığında, gelen gözden geçirmek için koleksiyon seçin **Collection(s)** açılır.
 
@@ -42,7 +42,7 @@ Azure Cosmos DB hesaplarınızı izleyebilirsiniz [Azure portal](https://portal.
 5. Listesinde **kullanılabilir ölçümler**, ölçümleri görüntülemek için seçin. Çoklu seçim için CTRL tuşunu kullanın. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>Hesap sayfasında görünümü performans ölçümleri
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **daha Hizmetleri**, kaydırın **veritabanları**, tıklatın **Azure Cosmos DB**ve kendisi için istediğiniz performans ölçümleri görüntülemek üzere Azure Cosmos DB hesap adına tıklayın.
+1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **tüm hizmetleri**, kaydırın **veritabanları**, tıklatın **Azure Cosmos DB**ve ardından Azure adını tıklatın Performans ölçümlerini görüntülemek istediğiniz cosmos DB hesabı.
 2. **İzleme** Mercek varsayılan olarak aşağıdaki kutucuklara görüntüler:
    
    * Geçerli gün için toplam istek sayısı.
@@ -53,7 +53,7 @@ Azure Cosmos DB hesaplarınızı izleyebilirsiniz [Azure portal](https://portal.
 4. **Ölçüm** sayfa toplam istek ayrıntılarını gösterir. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Portal'da uyarılarını ayarlama
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **daha Hizmetleri**, tıklatın **Azure Cosmos DB**ve kendisi için istediğinizi performansını ayarlamak Azure Cosmos DB hesap adına tıklayın Ölçüm uyarılar.
+1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **tüm hizmetleri**, tıklatın **Azure Cosmos DB**ve kendisi için istediğinizi performansını ayarlamak Azure Cosmos DB hesap adına tıklayın Ölçüm uyarılar.
 2. Kaynak menüye tıklayın **uyarı kuralları** uyarı kuralları sayfasını açın.  
    ![Uyarı ekran görüntüsü bölümü seçili kuralları](./media/monitor-accounts/madocdb10.5.png)
 3. İçinde **uyarı kuralları** sayfasında, **uyarı Ekle**.  

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -88,7 +88,7 @@ Azure AD yalnızca bilinen uygulamalara belirteçleri. Azure AD, uygulamanızdan
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda hesabınızı tıklatın. İçinde **Directory** listesinde, Azure AD Kiracı uygulamanızı kaydetmek istediğiniz yeri seçin.
-3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
+3. Tıklatın **tüm hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Komut istemlerini izleyin ve oluşturun bir **yerel istemci uygulaması**. (Cordova uygulamaları HTML bağlı olsa da, bir yerel istemci uygulaması oluşturuyoruz. **Yerel istemci uygulaması** seçeneği seçili olmalıdır veya uygulama çalışmaz.)
   * **Ad** kullanıcılar uygulamanıza açıklar.
@@ -121,8 +121,8 @@ Cordova uygulamaları oluşturmak için birden çok yolu vardır. Bu öğreticid
 
 3. Başlangıç projesi içeriğini Kabuğu'nda Dosya Yöneticisi veya aşağıdaki komutu kullanarak www alt klasöründe kopyalayın:
 
-  * Windows:`xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
-  * Mac:`cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
+  * Windows: `xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
+  * Mac: `cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
 4. Beyaz liste eklentisini ekleyin. Bu grafik API'sini çağırma için gereklidir.
 
@@ -244,9 +244,9 @@ Sonraki çalıştırır, önceden alınmış belirtecin önbelleğinde varlığ�
 Uygulamayı çalıştırmak için somut adımları platforma göre değişir.
 
 ### <a name="windows-10"></a>Windows 10
-   Tablet/bilgisayar:`cordova run windows --archs=x64 -- --appx=uap`
+   Tablet/bilgisayar: `cordova run windows --archs=x64 -- --appx=uap`
 
-   Mobil (bir Bilgisayara bağlı bir Windows 10 mobil aygıt gerektirir):`cordova run windows --archs=arm -- --appx=uap --phone`
+   Mobil (bir Bilgisayara bağlı bir Windows 10 mobil aygıt gerektirir): `cordova run windows --archs=arm -- --appx=uap --phone`
 
    > [!NOTE]
    > İlk çalıştırmada Geliştirici lisansı oturum açmak için istenebilir. Daha fazla bilgi için bkz: [Geliştirici lisansı](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
@@ -258,25 +258,25 @@ Uygulamayı çalıştırmak için somut adımları platforma göre değişir.
    > İlk çalıştırmada Geliştirici lisansı oturum açmak için istenebilir. Daha fazla bilgi için bkz: [Geliştirici lisansı](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
 ### <a name="windows-phone-81"></a>Windows Phone 8.1
-   Bağlı bir cihaza çalıştırmak için:`cordova run windows --device -- --phone`
+   Bağlı bir cihaza çalıştırmak için: `cordova run windows --device -- --phone`
 
-   Varsayılan öykünücüsünde çalıştırmak için:`cordova emulate windows -- --phone`
+   Varsayılan öykünücüsünde çalıştırmak için: `cordova emulate windows -- --phone`
 
    Kullanım `cordova run windows --list -- --phone` tüm kullanılabilir hedefleri görmek için ve `cordova run windows --target=<target_name> -- --phone` belirli cihaz veya öykünücü üzerinde uygulamayı çalıştırmak için (örneğin, `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
 ### <a name="android"></a>Android
-   Bağlı bir cihaza çalıştırmak için:`cordova run android --device`
+   Bağlı bir cihaza çalıştırmak için: `cordova run android --device`
 
-   Varsayılan öykünücüsünde çalıştırmak için:`cordova emulate android`
+   Varsayılan öykünücüsünde çalıştırmak için: `cordova emulate android`
 
    Bir öykünücü örneğinde AVD Yöneticisi'ni kullanarak daha önce "Önkoşullar" bölümünde açıklandığı gibi oluşturduğunuz emin olun.
 
    Kullanım `cordova run android --list` tüm kullanılabilir hedefleri görmek için ve `cordova run android --target=<target_name>` belirli cihaz veya öykünücü üzerinde uygulamayı çalıştırmak için (örneğin, `cordova run android --target="Nexus4_emulator"`).
 
 ### <a name="ios"></a>iOS
-   Bağlı bir cihaza çalıştırmak için:`cordova run ios --device`
+   Bağlı bir cihaza çalıştırmak için: `cordova run ios --device`
 
-   Varsayılan öykünücüsünde çalıştırmak için:`cordova emulate ios`
+   Varsayılan öykünücüsünde çalıştırmak için: `cordova emulate ios`
 
    > [!NOTE]
    > Olduğundan emin olun `ios-sim` öykünücüsünde çalıştırmak için yüklü paket. Daha fazla bilgi için "Önkoşullar" bölümüne bakın.

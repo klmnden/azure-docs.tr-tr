@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: 1902e5c18cd7083ceeda79e6b9e779e4baaf175a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Azure portalında Power BI Embedded kapasite oluşturma
 
@@ -41,7 +41,7 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
 1. [Azure portal](https://portal.azure.com/) oturum açın.
 
-2. Seçin **+ (yeni)** > **veri + analiz**.
+2. Seçin **kaynak oluşturma** > **veri + analiz**.
 
 3. Arama kutusuna arama *Power BI Embedded*.
 
@@ -62,7 +62,7 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
 6. **Oluştur**’u seçin.
 
-Oluşturulması genellikle bir dakika altında alır; genellikle yalnızca birkaç saniye sayısı. Seçtiyseniz **panoya Sabitle**, yeni kapasitenizi görmek için panoya gidin. Ya da gidin **daha fazla hizmet** > **Power BI Embedded** kapasitenizi hazır olup olmadığını görmek için.
+Oluşturulması genellikle bir dakika altında alır; genellikle yalnızca birkaç saniye sayısı. Seçtiyseniz **panoya Sabitle**, yeni kapasitenizi görmek için panoya gidin. Ya da gidin **tüm hizmetleri** > **Power BI Embedded** kapasitenizi hazır olup olmadığını görmek için.
 
 ![Power BI Embedded kapasiteye sahip Azure portalı panosunun](media/create-capacity/azure-portal-dashboard.png)
 

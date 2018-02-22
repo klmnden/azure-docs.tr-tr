@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric Azure ile ilgili genel bakış | Microsoft Docs"
-description: "Service Fabric, uygulamalar birçok mikro ölçek ve esneklik sağlamak için burada oluşan genel bakış. Service Fabric bir dağıtılmış sistemler platform ölçeklenebilir, güvenilir oluşturmak için kullanılan ve kolayca yönetilen bulut uygulamalarının ' dir."
+title: "Azure'da Service Fabric'e genel bakış | Microsoft Docs"
+description: "Ölçek ve dayanıklılık sağlamak için uygulamaların birçok mikro hizmetten oluşturulduğu Service Fabric'e genel bakış. Service Fabric, bulut için ölçeklenebilir, güvenilir ve kolayca yönetilebilir uygulamalar derlemek amacıyla kullanılan dağıtılmış bir sistemler platformudur."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -15,83 +15,83 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric genel bakış
-Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Service Fabric da geliştirmeye ve bulut yerel uygulamaları yönetme önemli sorunları giderir. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar. Service Fabric oluşturmak ve yönetmek bu kurumsal sınıf, Katman 1, kapsayıcılarında çalışan bulut ölçekli uygulamalar için yeni nesil platform temsil eder.
+# <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric'e genel bakış
+Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Service Fabric ayrıca bulut yerel uygulamalarını geliştirme ve yönetme sürecinde karşılaşılan başlıca sorunların giderilmesini de sağlar. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar. Service Fabric, kapsayıcılarda çalıştırılan 1. katman bulut ölçeğindeki bu kurumsal sınıf uygulamaları oluşturmak ve yönetmek için tasarlanan yeni nesil bir platformdur.
 
-Bu kısa video Service Fabric ve mikro hizmetler sunar:<center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
+Bu kısa videoda Service Fabric ve mikro hizmetler tanıtılır: <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
 <img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
-## <a name="applications-composed-of-microservices"></a>Uygulamalar mikro oluşur 
-Service Fabric, yapı ve yüksek yoğunluklu bir küme olarak adlandırılan bir paylaşılan havuzu makine çalışan mikro oluşan ölçeklenebilir ve güvenilir uygulamaları yönetmenize olanak sağlar. Bir dağıtılmış, ölçeklenebilir, durum bilgisiz oluşturmak için Gelişmiş ve basit çalışma zamanı ve durum bilgisi olan mikro kapsayıcılarında çalıştıran sağlar. Kapsamlı uygulama yönetim özellikleri sağlamak için de sağlar, dağıtmak, izlemek, yükseltme/düzeltme eki ve dağıtılan uygulamaları kapsayıcılı Hizmetleri dahil olmak üzere silin.
+## <a name="applications-composed-of-microservices"></a>Mikro hizmetlerden oluşturulmuş uygulamalar 
+Service Fabric, makinenin küme olarak adlandırılan bir paylaşılan havuzunda yüksek yoğunlukta çalışan mikro hizmetlerden oluşturulmuş, ölçeklendirilebilir ve güvenilir uygulamalar oluşturmanıza ve bunları yönetmenize olanak tanır. Dağıtılmış, ölçeklendirilebilir, durum bilgisi olmayan, durum bilgisi olan ve kapsayıcılarda çalıştırılan mikro hizmetler oluşturmak için gelişmiş, basit bir çalışma zamanı sağlar. Ayrıca, kapsayıcılı hizmetler de dahil olmak üzere dağıtılan uygulamaları sağlamak, dağıtmak, izlemek, yükseltmek/yama uygulamak ve silmek için kapsamlı uygulama yönetim özellikleri de sağlar.
 
-Azure SQL veritabanı dahil olmak üzere birçok Microsoft hizmetlerinin Bugün, Service Fabric çalıştırır, Azure Hizmetleri Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IOT Hub, Dynamics 365, Skype Kurumsal ve birçok çekirdek.
+Service Fabric bugün Azure SQL Veritabanı, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Dynamics 365, Skype Kurumsal ve birçok temel Azure hizmeti gibi çok sayıda Microsoft hizmetini güçlendirir.
 
-Service Fabric gerektiği gibi küçük, başlatın ve büyük ölçekli yüzlerce veya binlerce makinelerin büyüyebileceği yerel Hizmetleri bulut oluşturmak için özel olarak oluşturulmuştur.
+Service Fabric, gerektiği kadar küçükten başlatılabilecek ve yüzlerce veya binlerce makineyle muazzam bir ölçeğe kadar büyütülebilecek bulut yerel hizmetleri oluşturmaya uyarlanmıştır.
 
-Bugünün Internet ölçekli hizmetler mikro oluşturulur. Protokol ağ geçitleri mikro örnekleri arasında kullanıcı profilleri, alışveriş, işleme, Envanter sıraları, sepetleri ve önbelleğe alır. Service Fabric her mikro hizmet (veya kapsayıcı) durum bilgisiz ya da durum bilgisi olan benzersiz bir ad veren mikro bir platformdur.
+Günümüzde İnternet ölçeğindeki hizmetler mikro hizmetlerden oluşturulur. Mikro hizmetlere örnek olarak protokol ağ geçitleri, kullanıcı profilleri, alışveriş sepetleri, envanter işleme, kuyruklar ve önbellekler verilebilir. Service Fabric, durum bilgisi olan veya olmayan her mikro hizmete (veya kapsayıcıya) benzersiz bir ad veren bir mikro hizmetler platformudur.
 
-Service Fabric oluşan bu mikro uygulamaları için kapsamlı çalışma zamanı ve yaşam döngüsü yönetimi özelliklerini sağlar. Mikro dağıtılan ve Service Fabric kümesi arasında etkinleştirilen kapsayıcılar içinde barındırır. Sanal makinelerden taşıma kapsayıcılara büyüklük sipariş artışı yoğunluğu içinde mümkün kılar. Benzer şekilde, bu kapsayıcılardaki mikro kapsayıcılardan taşıdığınızda başka bir büyüklük yoğunluğu de mümkün olur. Örneğin, Azure SQL veritabanı için tek bir küme on binlerce kapsayıcıları barındıran yüz binlerce veritabanları toplam çalışan makineler yüzlerce oluşur. Her bir Service Fabric durum bilgisi olan mikro hizmet veritabanıdır. 
+Service Fabric, bu mikro hizmetlerden oluşturulmuş uygulamalara kapsamlı çalışma zamanı ve yaşam döngüsü yönetim özellikleri sağlar. Mikro hizmetleri, Service Fabric kümesi genelinde dağıtılan ve etkinleştirilen kapsayıcıların içinde barındırır. Sanal makinelerden taşıyıcılara geçiş, büyüklük sırasına göre yoğunluk artışını mümkün kılar. Benzer biçimde, kapsayıcılardan bu kapsayıcıların içindeki mikro hizmetlere geçtiğinizde de yoğunlukta başka bir büyüklük sırası mümkün olur. Örneğin, Azure SQL Veritabanı'nın tek bir kümesi, toplamda yüz binlerce veritabanını barındıran on binlerce kapsayıcının çalıştırıldığı yüzlerce makineden oluşur. Her veritabanı bir durum bilgisi olan bir Service Fabric mikro hizmetidir. 
 
-Mikro yaklaşımı hakkında daha fazla bilgi için okuma [uygulamaları oluşturmak için bir mikro yaklaşım neden?](service-fabric-overview-microservices.md)
+Mikro hizmetler yaklaşımı hakkında daha fazla bilgi edinmek için [Uygulamaları oluşturmak için neden mikro hizmetler yaklaşımı öneriliyor?](service-fabric-overview-microservices.md)
 
-## <a name="container-deployment-and-orchestration"></a>Kapsayıcı dağıtım ve düzenleme
-Service Fabric olan Microsoft'un [kapsayıcı orchestrator](service-fabric-cluster-resource-manager-introduction.md) mikro makine bir kümede dağıtma. Mikro kullanarak birçok yolla geliştirilebilir [Service Fabric modellerini programlama](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), dağıtımı [tercih ettiğiniz herhangi bir kod](service-fabric-deploy-existing-app.md). Önemlisi, hem işlemlerde Hizmetleri ve Hizmetleri aynı uygulamada kapsayıcılardaki karıştırabilirsiniz. Yalnızca istiyorsanız, [dağıtmak ve kapsayıcıları yönetmek](service-fabric-containers-overview.md), Service Fabric kapsayıcı orchestrator olarak mükemmel bir seçim değil.
+## <a name="container-deployment-and-orchestration"></a>Kapsayıcı dağıtımı ve düzenlemesi
+Service Fabric, Microsoft'un bir makine kümesine mikro hizmetleri dağıtan [kapsayıcı düzenleyicisidir](service-fabric-cluster-resource-manager-introduction.md). Mikro hizmetler, [Service Fabric programlama modelleri](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) kullanmaktan [tercih ettiğiniz herhangi bir kodun](service-fabric-deploy-existing-app.md) dağıtılmasına kadar birçok yolla geliştirilebilir. Önemli olan, işlemlerdeki hizmetlerle kapsayıcılardaki hizmetleri aynı uygulama içinde karma kullanabilmenizdir. Yalnızca [kapsayıcıları dağıtma ve yönetmek](service-fabric-containers-overview.md) istiyorsanız, Service Fabric kapsayıcı düzenleyicisi olarak mükemmel bir seçenektir.
 
-## <a name="any-os-any-cloud"></a>Herhangi bir işletim sistemi, herhangi bir bulut
-Service Fabric her yerde çalışır. Azure dahil olmak üzere birçok ortamda veya şirket içinde Windows Server veya Linux için Service Fabric kümeleri oluşturabilirsiniz. Hatta diğer ortak bulutlarda kümeleri oluşturabilirsiniz. Ayrıca, SDK geliştirme ortamında olduğu **aynı** üretim ortamıyla ilgili hiçbir Öykünücüler için. Diğer bir deyişle, diğer ortamlarda kümelerine ne yerel geliştirme kümenizde çalışan dağıtır.
+## <a name="any-os-any-cloud"></a>Tüm işletim sistemleri, tüm bulutlar
+Service Fabric her yerde çalıştırılır. Service Fabric için birçok ortamda, örneğin Azure'da, şirket içinde, Windows Server'da veya Linux'ta kümeler oluşturabilirsiniz. Hatta diğer genel bulutlarda bile kümeler oluşturabilirsiniz. Buna ek olarak, SDK'daki geliştirme ortamı üretim ortamıyla **özdeştir**; öykünücüler yoktur. Diğer bir deyişle, yerel geliştirme kümenizde çalıştırılan, diğer ortamlardaki kümelere dağıtılır.
 
-![Service Fabric platformundan][Image1]
+![Service Fabric platformu][Image1]
 
-Windows geliştirme için Service Fabric .NET SDK, Visual Studio ve Powershell ile tümleşiktir. Bkz: [Windows geliştirme ortamınızı hazırlama](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md). Linux geliştirmesi için Service Fabric Java SDK Eclipse ile tümleştirilmiştir ve Yeoman Java, .NET Core ve kapsayıcı uygulamaları için şablonları oluşturmak için kullanılır. Bkz: [Linux üzerinde geliştirme ortamınızı hazırlama](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md)
+Windows geliştirmesi için, Service Fabric .NET SDK'sı Visual Studio ve Powershell ile tümleştirilmiştir. Bkz. [Windows üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started.md). Linux geliştirmesi için, Service Fabric Java SDK'sı Eclipse ile tümleştirilmiştir ve Java, .NET Core ve kapsayıcı uygulamaları için şablonların oluşturulmasında Yeoman kullanılır. Bkz. [Linux üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started.md)
 
-Kümeleri oluşturma hakkında daha fazla bilgi için okuma [Windows Server veya Linux üzerinde bir küme oluşturma](service-fabric-deploy-anywhere.md) veya küme oluşturma Azure [Azure Portalı aracılığıyla](service-fabric-cluster-creation-via-portal.md).
+Kümeleri oluşturma hakkında daha fazla bilgi için, [Windows Server veya Linux'ta küme oluşturma](service-fabric-deploy-anywhere.md) konusunu veya Azure için [Azure Portal üzerinden küme oluşturma](service-fabric-cluster-creation-via-portal.md) konusunu okuyun.
 
-## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Durum bilgisiz ve durum bilgisi olan mikro Service Fabric için
-Service Fabric mikro veya kapsayıcıları oluşması uygulamalar oluşturmanıza olanak sağlar. Durum bilgisiz mikro (örneğin, protokol ağ geçitleri ve web proxy) dışında bir istek ve yanıt hizmetinden değişebilir bir duruma bulundurmayan. Azure bulut Hizmetleri çalışan rolleri, bir durum bilgisi olmayan hizmetin bir örnektir. Durum bilgisi olan mikro (örneğin, kullanıcı hesapları, veritabanları, aygıtlar, Alışveriş sepetleri ve Kuyruklar) istek ve yanıt ötesinde değişebilir, yetkili bir durumu korurlar. Bugünün Internet ölçekli uygulamalar durum bilgisiz ve durum bilgisi olan mikro birleşiminden oluşur. 
+## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric için durum bilgisi olan ve olmayan mikro hizmetler
+Service Fabric, mikro hizmetlerden veya kapsayıcılardan oluşmuş uygulamalar hazırlamanıza olanak tanır. Durum bilgisi olmayan mikro hizmetler (protokol ağ geçitleri ve web ara sunucuları gibi), isteğin veya hizmetten gelen yanıtının dışında değişebilir bir durum bilgisi bulundurmaz. Azure Cloud Services çalışan rolleri, durum bilgisi olmayan hizmet örnekleridir. Durum bilgisi olan mikro hizmetler (kullanıcı hesapları, veritabanları, cihazlar, alışveriş sepetleri ve kuyruklar gibi), isteğin ve yanıtının ötesinde değişebilir, yetkili bir durum bilgisi bulundurur. Günümüzün İnternet ölçeğindeki uygulamaları, durum bilgisi olan ve olmayan mikro hizmetlerin bileşiminden oluşur. 
 
-Service Fabric ile önemli bir ayrım ile ya da durum bilgisi olan hizmetler oluşturma, güçlü odaklanmasına olan [yerleşik programlama modelleri ](service-fabric-choose-framework.md) veya kapsayıcılı durum bilgisi olan hizmetler ile. [Uygulama senaryoları](service-fabric-application-scenarios.md) durum bilgisi olan hizmetler kullanıldığı senaryolar açıklanmaktadır.
+Service Fabric'in ayırt edici özelliği, [yerleşik programlama modelleriyle](service-fabric-choose-framework.md) veya kapsayıcılı durum bilgisi olan hizmetlerle, büyük ölçüde durum bilgisi olan hizmetler oluşturmaya odaklanmasıdır. [Uygulama senaryoları](service-fabric-application-scenarios.md), durum bilgisi olan hizmetlerin kullanıldığı senaryoları açıklar.
 
 
 ## <a name="application-lifecycle-management"></a>Uygulama yaşam döngüsü yönetimi
-Service Fabric tam uygulama yaşam döngüsü ve CI/CD kapsayıcıları dahil olmak üzere bulut uygulamaları için destek sağlar. Bu yaşam döngüsünün geliştirme aşamasından dağıtım, günlük yönetim ve nihai yetkisini bakım içerir.
+Service Fabric, kapsayıcılar da dahil olmak üzere bulut uygulamalarının tüm uygulama yaşam döngüsü ve CI/CD için destek sağlar. Bu yaşam döngüsü geliştirme, dağıtım, günlük yönetim ve bakımdan sonunda kullanımdan çıkarmaya kadar tüm aşamaları içerir.
 
-Service Fabric uygulama yaşam döngüsü yönetimi özellikleri uygulama yöneticileri ve BT işleçleri sağlamak, dağıtma, düzeltme eki için basit ve düşük dokunma iş akışları kullanmayı etkinleştirin ve uygulamalarını izleyin. Bu yerleşik iş akışları büyük ölçüde sürekli olarak kullanılabilir uygulamaları korumak için BT işleçleri üzerindeki yükü azaltın.
+Service Fabric uygulama yaşam döngüsü yönetim özellikleri, uygulama yöneticileriyle BT operatörlerinin basit, az müdahale gerektiren iş akışları kullanarak uygulamaları sağlamasına, dağıtmasına, yama uygulamasına ve izlemesine olanak tanır. Bu yerleşik iş akışları BT operatörlerinin uygulamaları sürekli kullanılabilir durumda tutma yüklerini büyük ölçüde azaltır.
 
-Uygulamaların çoğu durum bilgisiz ve durum bilgisi olan mikro, kapsayıcıları ve birlikte dağıtılan diğer yürütülebilir bir birleşiminden oluşur. Service Fabric uygulamaları güçlü türleri sağlayarak, birden fazla uygulama örneğinin dağıtımını sağlar. Her örnek yönetilen ve bağımsız olarak yükseltme. Önemlisi, Service Fabric kapsayıcıları veya tüm yürütülebilir dosyaları dağıtmak ve bu güvenilir hale getirebilirsiniz. Örneğin, Service Fabric .NET, ASP.NET Core, node.js, Windows kapsayıcıları, Linux kapsayıcıları, Java sanal makineler, komut dosyaları, Angular veya gerçek anlamda her şeyi uygulamanızı yapan dağıtabilirsiniz.
+Uygulamaların çoğu durum bilgisi olan ve olmayan mikro hizmetler, kapsayıcılar ve birlikte dağıtılan diğer yürütülebilir dosyaların bileşiminden oluşur. Service Fabric güçlü uygulama türleri sağlayarak, birden çok uygulama örneğinin dağıtılmasına olanak tanır. Her örnek bağımsız olarak yönetilir ve yükseltilir. Önemli olan, Service Fabric'in kapsayıcıları ve yürütülebilir dosyaları dağıtabilmesi ve bunların güvenilir olmasını sağlamasıdır. Örneğin Service Fabric .NET, ASP.NET Core, node.js, Windows kapsayıcıları, Linux kapsayıcıları, Java sanal makineleri, betikler, Angular veya sözcük anlamıyla uygulamanızı oluşturan her şeyi dağıtabilir.
 
-Service Fabric tümleşik CI/CD araçlarıyla gibi [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html), ve [Octopus dağıtmak](https://octopus.com/) ve herhangi diğer popüler CI/CD aracı ile kullanılabilir.
+[Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) ve [Octopus Deploy](https://octopus.com/) gibi CI/CD araçlarıyla tümleştirilmiş olan Service Fabric, diğer herhangi bir popüler CI/CD aracıyla da kullanılabilir.
 
-Uygulama yaşam döngüsü yönetimi hakkında daha fazla bilgi için okuma [uygulama yaşam döngüsü](service-fabric-application-lifecycle.md). Herhangi bir kod dağıtma hakkında daha fazla bilgi için bkz: [Konuk yürütülebilir dağıtmak](service-fabric-deploy-existing-app.md).
+Uygulama yaşam döngüsü yönetimi hakkında daha fazla bilgi için, [Uygulama yaşam döngüsü](service-fabric-application-lifecycle.md) konusunu okuyun. Herhangi bir kodun dağıtımı hakkında daha fazla bilgi için, [konuk yürütülebilir dosyasını dağıtma](service-fabric-deploy-existing-app.md) konusuna bakın.
 
 ## <a name="key-capabilities"></a>Temel işlevler
-Service Fabric kullanarak şunları yapabilirsiniz:
+Service Fabric kullanarak:
 
-* Azure veya sıfır ile kod değişikliklerini Windows veya Linux çalıştıran şirket içi veri merkezleri dağıtın. Bir kez yazma ve herhangi bir yerden herhangi bir Service Fabric küme dağıtma.
-* Programlama modelleri, kapsayıcıları veya herhangi bir kod Service Fabric kullanarak oluşan ölçeklenebilir mikro uygulamaları geliştirin.
-* Yüksek oranda güvenilir durum bilgisiz ve durum bilgisi olan mikro geliştirin. Durum bilgisi olan mikro kullanarak uygulamanızı tasarımını basitleştirin. 
-* Bulut nesneleri self yer alan kodu ve durum oluşturmak için yeni Reliable Actors programlama modelini kullanın.
-* Dağıtma ve Windows kapsayıcıları ve Linux kapsayıcıları dahil kapsayıcıları düzenlemek. Service Fabric veri kullanan, durum bilgisi kapsayıcı orchestrator ' dir.
-* Saniye cinsinden yüksek yoğunluklu yüzlerce veya binlerce uygulamalar veya makine başına kapsayıcılar olan uygulamalar dağıtın.
-* Aynı uygulama yan yana farklı sürümlerini dağıtmak ve her uygulama bağımsız olarak yükseltin.
-* Yaşam döngüsü sonu ve bölünemez yükseltmeleri dahil olmak üzere herhangi bir kapalı kalma süresi olmadan, uygulamalarınızı yönetin.
-* Ölçeği genişletme veya ölçeklendirmek bir küme içindeki düğümlerin sayısı. Düğümleri ölçeklendirirken uygulamalarınızı otomatik olarak ölçeklendirin.
-* İzleme ve uygulamalarınızı durumunu tanılama ve otomatik onarım gerçekleştirmek için ilkeler ayarlama.
-* Gözcü kaynak dengeleyicisi, küme üzerinde uygulamaların dağıtılması yönetirler. Service Fabric hatalarından kurtarır ve kullanılabilir kaynaklara bağlı yük dağıtımını en iyi duruma getirir.
+* Sıfır kod değişikliğiyle Azure'a ya da Windows veya Linux çalıştıran şirket içi veri merkezlerine dağıtım yapabilirsiniz. Bir kez yazıp herhangi bir Service Fabric kümesinde her yere dağıtabilirsiniz.
+* Service Fabric programlama modellerini, kapsayıcıları veya herhangi bir kodu kullanarak mikro hizmetlerden oluşmuş ölçeklendirilebilir uygulamalar geliştirebilirsiniz.
+* Durum bilgisi olan ve olmayan son derece güvenilir mikro hizmetler geliştirebilirsiniz. Durum bilgisi olan mikro hizmetler kullanarak uygulamanızın tasarımını basitleştirebilirsiniz. 
+* Kendi içinde kodu ve durumu olan bulut nesneleri oluşturmak için yeni Reliable Actors programlama modelini kullanabilirsiniz.
+* Windows kapsayıcılarını ve Linux kapsayıcılarını içeren kapsayıcılar dağıtabilir ve bunları düzenleyebilirsiniz. Service Fabric veri farkındalığına sahip, durum bilgisi olan bir kapsayıcı düzenleyicisidir.
+* Uygulamaları, makine başına yüzlerce veya binlerce uygulama ya da kapsayıcıyla yüksek yoğunlukta, saniyeler içinde dağıtabilirsiniz.
+* Aynı uygulamanın farklı sürümlerini yan yana dağıtabilir ve her uygulamayı bağımsız olarak yükseltebilirsiniz.
+* Sistemi kapalı tutmaya gerek kalmadan, işi kesen ve kesmeyen yükseltmeler de dahil olmak üzere uygulamalarınızın yaşam döngüsünü yönetebilirsiniz.
+* Kümedeki düğümlerin sayısını artırabilir veya azaltabilirsiniz. Siz düğümleri ölçeklendirirken, uygulamalarınız otomatik olarak ölçeklendirilir.
+* Uygulamalarınızın durumunu izleyebilir ve tanılayabilir, otomatik onarımlar yapmak için ilkeler ayarlayabilirsiniz.
+* Kaynak dengeleyicisinin küme genelinde uygulamaların yeniden dağıtımını nasıl düzenlediğini izleyebilirsiniz. Service Fabric hatalardan kurtarır ve kullanılabilir kaynaklar temelinde yük dağıtımını iyileştirir.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi için:
-  * [Neden bir mikro yaklaşımını uygulamaları oluşturmak için?](service-fabric-overview-microservices.md)
-  * [Terminolojisi genel bakış](service-fabric-technical-overview.md)
-* Ayarlama, [Windows geliştirme ortamı](service-fabric-get-started.md)  
-* Ayarlama, [Linux geliştirme ortamı](service-fabric-get-started-linux.md)
+  * [Uygulamaları oluşturmak için neden mikro hizmetler yaklaşımı öneriliyor?](service-fabric-overview-microservices.md)
+  * [Terminolojiye genel bakış](service-fabric-technical-overview.md)
+* [Windows dağıtım ortamınızı](service-fabric-get-started.md) ayarlama  
+* [Linux dağıtım ortamınızı](service-fabric-get-started-linux.md) ayarlama
 * [Service Fabric destek seçenekleri](service-fabric-support.md) hakkında bilgi edinin
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png

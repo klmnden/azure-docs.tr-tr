@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS Başlarken
 
@@ -48,7 +48,7 @@ Kullanıcıların kimliğini doğrulamak ve belirteçleri almak uygulamanızı e
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Birden çok dizin açmış durumdaysanız, doğru dizin görüntülediğinizden emin olmak gerekebilir. Üst çubuğunda Bunu yapmak için hesabınızı tıklatın. Altında **Directory** listesinde, Azure AD Kiracı uygulamanızı kaydetmek istediğiniz yeri seçin.
-3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
+3. Tıklatın **tüm hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Komut istemlerini izleyin ve yeni web uygulaması ve/veya web API oluşturun:
   * **Ad** kullanıcılar uygulamanıza açıklar.
@@ -78,8 +78,8 @@ Paket Yöneticisi konsolu kullanılarak adal.js TodoSPA projeye ekleyerek başla
 
 ### <a name="configure-the-back-end-server"></a>Arka uç sunucusu yapılandırın
 Tek sayfalı uygulama arka uç için yapmak liste tarayıcısından belirteçleri kabul etmek API için arka uç uygulama kaydı hakkında yapılandırma bilgilerini gerekir. TodoSPA projeyi açın `web.config`. Öğeleri değerleri değiştirmek `<appSettings>` Azure portalında kullanılan değerleri yansıtacak şekilde bölümü. ADAL kullandığında kodunuzu bu değerleri başvurur.
-  * `ida:Tenant`Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com etki alanıdır.
-  * `ida:Audience`İstemci uygulamanızın portalından kopyalandığından kimliğidir.
+  * `ida:Tenant` Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com etki alanıdır.
+  * `ida:Audience` İstemci uygulamanızın portalından kopyalandığından kimliğidir.
 
 ## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>3. adım: Kullanım güvenli sayfalarında tek sayfalı uygulama yardımcı olmak için ADAL
 Güvenli tek bir görünüm tek sayfalı uygulamanıza yardımcı olacak Adal.js AngularJS yolu ve HTTP sağlayıcıları ile tümleştirilir.

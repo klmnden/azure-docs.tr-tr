@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: larryfr
-ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure hdınsight'ta nedir?
 
@@ -41,20 +41,19 @@ Hdınsight belirli iş yükleri için ayarlanmış birkaç küme türler sağlar
 
 ## <a name="how-to-use-hive"></a>Hive kullanma
 
-Hdınsight ile Hive kullanma bulmak için aşağıdaki tabloyu kullanın:
+Hdınsight ile Hive kullanma farklı yollarını keşfetmek için aşağıdaki tabloyu kullanın:
 
-| **Bu yöntemi kullanmak** isterseniz... | ...an **etkileşimli** Kabuk | ...**toplu** işleme | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
+| **Bu yöntemi kullanmak** isterseniz... | ... **etkileşimli** sorguları | ...**toplu** işleme | ...hemen bu **küme işletim sistemi** | ...from bu **istemci işletim sistemi** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |(Herhangi bir tarayıcı tabanlı) |
 | [Beeline istemci](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, UNIX, Mac OS X veya Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux veya Windows * |Linux, UNIX, Mac OS X veya Windows |
+| [Visual Studio Code için Hdınsight araçları](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, UNIX, Mac OS X veya Windows |
 | [Visual Studio için Hdınsight araçları](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux veya Windows * |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux veya Windows * |Windows |
 
 > [!IMPORTANT]
-> \*Linux üzerinde Hdınsight sürüm 3.4 veya büyük kullanılan yalnızca işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
-> Bir Windows tabanlı Hdınsight kümesi kullanıyorsanız, kullanabileceğiniz [sorgu konsol](../hadoop/apache-hadoop-use-hive-query-console.md) tarayıcınızdan veya [Uzak Masaüstü](../hadoop/apache-hadoop-use-hive-remote-desktop.md) Hive sorguları çalıştırmak için.
+> \* Linux üzerinde Hdınsight sürüm 3.4 veya büyük kullanılan yalnızca işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="hiveql-language-reference"></a>HiveQL dil başvurusu
 
@@ -65,7 +64,14 @@ HiveQL dil başvurusu bulunan [dil el ile (https://cwiki.apache.org/confluence/d
 Hive yapılandırılmış ve yarı yapılandırılmış verilerle çalışmak nasıl bilir. Burada alanları belirli karakterleriyle sınırlandırılır Örneğin, metin dosyaları. Aşağıdaki HiveQL deyimi boşlukla ayrılmış veriler üzerinde bir tablo oluşturur:
 
 ```hiveql
-CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
@@ -74,20 +80,20 @@ Hive ayrıca özel destekler **seri hale getirici/deserializers (SerDe)** karma�
 
 Hive tarafından desteklenen dosya biçimleri hakkında daha fazla bilgi için bkz: [dil el ile (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
-## <a name="hive-internal-tables-vs-external-tables"></a>İç tablolar vs dış tablolara yığını
+### <a name="hive-internal-tables-vs-external-tables"></a>İç tablolar vs dış tablolara yığını
 
 Hive ile oluşturabileceğiniz tablolar iki tür vardır:
 
 * __İç__: Hive veri ambarında depolanır. Veri ambarı bulunur `/hive/warehouse/` kümenin varsayılan depolama.
 
-    İç kullanım ne zaman tabloları:
+    Aşağıdaki koşullardan biri geçerli olduğunda iç tabloları kullanın:
 
     * Veri geçicidir.
     * Hive tablosu ve veri yaşam döngüsü yönetmek istiyorsunuz.
 
 * __Dış__: dışında veri ambarında depolanır. Veri kümesi tarafından herhangi bir depolama alanı üzerinde erişilebilir depolanabilir.
 
-    Kullanım dış tablolar:
+    Aşağıdaki koşullardan biri geçerli olduğunda dış tabloları kullanır:
 
     * Verileri de Hive dışında kullanılır. Örneğin, veri dosyalarını (yani dosyaları kilit yok.) başka bir işlem tarafından güncelleştirilir
     * Veri tablosu bile silmeden sonra temel alınan konumda kalır gerekiyor.
@@ -102,9 +108,9 @@ Hive ayrıca uzatabilirsiniz aracılığıyla **kullanıcı tanımlı işlevler 
 
 * [Kullanıcı tanımlı bir Java işlev ile Hive kullanma](../hadoop/apache-hadoop-hive-java-udf.md)
 
-* [Kullanıcı tanımlı bir Python işlev Hive veya Pig kullanın](../hadoop/python-udf-hdinsight.md)
+* [Kullanıcı tanımlı bir Python işlev ile Hive kullanma](../hadoop/python-udf-hdinsight.md)
 
-* [C# kullanıcı tanımlı bir işlev Hive veya Pig kullanın](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Bir C# kullanıcı tanımlı işlev ile Hive kullanma](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [Hdınsight için özel bir Hive kullanıcı tanımlı işlev ekleme](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
@@ -118,16 +124,27 @@ Hdınsight'ta Hive gelen önceden yüklenmiş bir iç tablosu adlı `hivesamplet
 
 Aşağıdaki HiveQL ifadelerini sütunları üzerine proje `/example/data/sample.log` dosyası:
 
-    set hive.execution.engine=tez;
-    DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+```hiveql
+set hive.execution.engine=tez;
+DROP TABLE log4jLogs;
+CREATE EXTERNAL TABLE log4jLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+STORED AS TEXTFILE LOCATION '/example/data/';
+SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+    GROUP BY t4;
+```
 
 Önceki örnekte, HiveQL ifadelerini aşağıdaki eylemleri gerçekleştirin:
 
-* `set hive.execution.engine=tez;`: Yürütme altyapısı, Tez kullanacak şekilde ayarlar. Tez yerine MapReduce kullanarak sorgu performansı bir artış sağlayabilir. Tez hakkında daha fazla bilgi için bkz: [iyileştirilmiş performans için Apache Tez kullanma](#usetez) bölümü.
+* `set hive.execution.engine=tez;`: Yürütme altyapısı, Tez kullanacak şekilde ayarlar. Tez kullanarak sorgu performansı bir artış sağlayabilir. Tez hakkında daha fazla bilgi için bkz: [iyileştirilmiş performans için Apache Tez kullanma](#usetez) bölümü.
 
     > [!NOTE]
     > Bu deyim yalnızca olan Windows tabanlı Hdınsight kümesi kullanılırken gereklidir. Tez Linux tabanlı Hdınsight için varsayılan yürütme altyapısıdır.
@@ -142,7 +159,7 @@ Aşağıdaki HiveQL ifadelerini sütunları üzerine proje `/example/data/sample
 
 * `SELECT`: Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu ifade değerini döndürür **3** çünkü bu değer içeren üç satır vardır.
 
-* `INPUT__FILE__NAME LIKE '%.log'`-Dizindeki tüm dosyaları şema uygulamak hive çalışır. Bu durumda, dizin şeması eşleşmiyor dosyalarını içerir. Çöp veri sonuçlarında önlemek için bu bildirimi Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük.
+* `INPUT__FILE__NAME LIKE '%.log'` -Dizindeki tüm dosyaları şema uygulamak hive çalışır. Bu durumda, dizin şeması eşleşmiyor dosyalarını içerir. Çöp veri sonuçlarında önlemek için bu bildirimi Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük.
 
 > [!NOTE]
 > Dış kaynak tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya MapReduce işlemi.
@@ -151,11 +168,21 @@ Aşağıdaki HiveQL ifadelerini sütunları üzerine proje `/example/data/sample
 
 Oluşturmak için bir **iç** tablo dış yerine, aşağıdaki HiveQL kullanın:
 
-    set hive.execution.engine=tez;
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs
-    SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+```hiveql
+set hive.execution.engine=tez;
+CREATE TABLE IF NOT EXISTS errorLogs (
+    t1 string,
+    t2 string,
+    t3 string,
+    t4 string,
+    t5 string,
+    t6 string,
+    t7 string)
+STORED AS ORC;
+INSERT OVERWRITE TABLE errorLogs
+SELECT t1, t2, t3, t4, t5, t6, t7 
+    FROM log4jLogs WHERE t4 = '[ERROR]';
+```
 
 Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
 
@@ -195,7 +222,15 @@ Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
 
 Hdınsight LLAP etkileşimli sorgu küme türünde sağlar. Daha fazla bilgi için bkz: [Başlat etkileşimli sorguyla](../interactive-query/apache-interactive-query-get-started.md) belge.
 
-## <a name="hive-jobs-and-sql-server-integration-services"></a>Hive işleri ve SQL Server Integration Services
+## <a name="scheduling-hive-queries"></a>Hive sorguları planlama
+
+Zamanlanmış veya isteğe bağlı bir iş akışının bir parçası olarak Hive sorguları çalıştırmak için kullanılan birkaç hizmet vardır.
+
+### <a name="azure-data-factory"></a>Azure Data Factory
+
+Azure Data Factory, bir Data Factory işlem hattı bir parçası olarak Hdınsight kullanmanıza olanak sağlar. Ardışık düzen tarafından Hive kullanma hakkında daha fazla bilgi için bkz: [dönüştürme Hive etkinliği Azure Data Factory kullanarak verileri](/data-factory/transform-data-using-hadoop-hive.md) belge.
+
+### <a name="hive-jobs-and-sql-server-integration-services"></a>Hive işleri ve SQL Server Integration Services
 
 Hive işi çalıştırmak için SQL Server Integration Services (SSIS) kullanabilirsiniz. Azure Feature Pack SSIS için Hdınsight'ta Hive işlerle çalışma aşağıdaki bileşenleri sağlar.
 
@@ -203,7 +238,11 @@ Hive işi çalıştırmak için SQL Server Integration Services (SSIS) kullanabi
 
 * [Azure aboneliği Bağlantı Yöneticisi][connectionmanager]
 
-Azure Feature Pack hakkında daha fazla bilgi için SSIS [burada][ssispack].
+Daha fazla bilgi için bkz: [Azure Feature Pack] [ ssispack] belgeleri.
+
+### <a name="apache-oozie"></a>Apache Oozie
+
+Apache Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oozie ile Hive kullanma hakkında daha fazla bilgi için bkz: [tanımlamak ve bir iş akışını çalıştırmak için kullanım Oozie](../hdinsight-use-oozie-linux-mac.md) belge.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 

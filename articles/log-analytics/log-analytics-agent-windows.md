@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 87513ef82b5f754669a3a21dd736ecab6fb26fba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure günlük analizi hizmetine bağlanın
 
@@ -33,34 +33,34 @@ Aracı, aşağıdaki yöntemlerden biri kullanılarak yüklenebilir. Çoğu yük
 * PowerShell Betiği.
 * Şirket içi için Windows Azure yığınında çalışan sanal makineler için Resource Manager şablonu.  
 
-Windows Aracısı dağıtmak için ağ ve sistem gereksinimlerini anlamak için gözden [Azure günlük analizi ile ortamınızdan verileri toplama](log-analytics-concept-hybrid.md#prerequisites).
+Windows aracısını dağıtmak için ağ ve sistem gereksinimleri hakkında bilgilere [Azure Log Analytics ile ortamınızdan veri toplama](log-analytics-concept-hybrid.md#prerequisites) sayfasından ulaşabilirsiniz.
 
 ## <a name="obtain-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
-Microsoft İzleme Aracısı için Windows yüklemeden önce çalışma alanı kimliği ve anahtarı ihtiyacınız günlük analizi çalışma alanınız için.  Bu bilgiler, düzgün olarak aracıyı yapılandırmak ve günlük analizi ile başarıyla iletişim kurabilmesini sağlamak için her yükleme yönteminden Kurulum sırasında gereklidir.  
+Windows için Microsoft Monitoring Agent'ı yüklemeden önce, Log Analytics çalışma alanınızın kimliği ve anahtarına ihtiyacınız olacak.  Bu bilgiler, düzgün olarak aracıyı yapılandırmak ve günlük analizi ile başarıyla iletişim kurabilmesini sağlamak için her yükleme yönteminden Kurulum sırasında gereklidir.  
 
-1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
+1. Azure portalında tıklatın **tüm hizmetleri**. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 2. Günlük analizi çalışma alanları, listeden, aracının yapılandırılması hakkında rapor istediğiniz çalışma alanı seçin.
 3. **Gelişmiş ayarlar**’ı seçin.<br><br> ![Log Analytics Gelişmiş Ayarlar](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
-4. Seçin **bağlı kaynakları**ve ardından **Windows sunucuları**.   
+4. **Bağlı Kaynaklar**’ı seçin ve ardından **Windows Sunucuları**’nı seçin.   
 5. **Çalışma Alanı Kimliği** ve **Birincil Anahtar**’ın sağındaki değer. Her ikisini de kopyalayıp sık kullandığınız bir düzenleyiciye yapıştırın.   
    
 ## <a name="install-the-agent-using-setup"></a>Kurulumu kullanarak aracı yükleme
-Aşağıdaki adımları yükleyip, bilgisayarınıza Microsoft Monitoring Agent için Kurulum kullanılarak Azure ve Azure kamu bulutta aracı günlük analizi için yapılandırın.  Aracısı için Kurulum programı indirilen dosyasında yer alan ve aşağıdakileri yapmak için ayıklanan gerekir 
+Aşağıdaki adımlar, bilgisayarınızda Microsoft Monitoring Agent'ın kurulumunu kullanarak Azure'da ve Azure Kamu bulutunda Log Analytics'in aracısını yükler ve yapılandırır.  Aracısı için Kurulum programı indirilen dosyasında yer alan ve aşağıdakileri yapmak için ayıklanan gerekir 
 
-1. Üzerinde **Windows sunucuları** sayfasında, uygun **Windows Aracısı indirme** Windows işletim sistemi işlemci mimarisine bağlı olarak indirmek için sürümü.
-2. Aracısı bilgisayarınıza yüklemek için Kurulumu çalıştırın.
-2. Üzerinde **Hoş Geldiniz** sayfasında, **sonraki**.
-3. Üzerinde **Lisans Koşulları'nı** sayfasında, lisans okuyun ve ardından **ediyorum**.
-4. Üzerinde **hedef klasörü** sayfasında, değiştirmek veya varsayılan yükleme klasörünü ve ardından **sonraki**.
-5. Üzerinde **aracı Kur Seçenekleri** sayfasında, aracıyı Azure günlük analizi (OMS) bağlayın ve ardından **sonraki**.   
-6. Üzerinde **Azure günlük analizi** sayfasında, aşağıdakileri yapın:
-   1. Yapıştır **çalışma alanı kimliği** ve **çalışma alanı anahtarı (birincil anahtar)** daha önce kopyaladığınız.  Günlük analizi çalışma alanı Azure kamu bulutta bilgisayarın raporlama, seçin **Azure ABD devlet kurumları** gelen **Azure bulut** aşağı açılan liste.  
-   2. Bilgisayar günlük analizi hizmeti için bir proxy sunucu üzerinden iletişim kurması gerekirse, tıklatın **Gelişmiş** URL'sini sağlayın ve bağlantı noktası proxy sunucusu sayısı.  Proxy sunucusu kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola ile proxy sunucusuna kimlik doğrulaması ve ardından yazın **sonraki**.  
-7. Tıklatın **sonraki** gerekli yapılandırma ayarlarını sağlama tamamladıktan sonra.<br><br> ![Çalışma alanı kimliği ve birincil anahtar yapıştırın](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
-8. Üzerinde **yüklemeye hazır** sayfasında, seçimlerinizi gözden geçirin ve ardından **yükleme**.
-9. Üzerinde **yapılandırması başarıyla tamamlandı** sayfasında, **son**.
+1. **Windows Sunucuları** sayfasında, Windows işletim sisteminin işlemci mimarisine bağlı olarak indirilecek uygun **Windows Aracısını İndir** sürümünü seçin.
+2. Aracıyı bilgisayarınıza yüklemek için Kurulum'u çalıştırın.
+2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.
+3. **Lisans Koşulları** sayfasında, lisansı okuyun ve **Kabul Ediyorum**'a tıklayın.
+4. **Hedef Klasör** sayfasında, varsayılan yükleme klasörünü değiştirin veya koruyun ve ardından **İleri**'ye tıklayın.
+5. **Aracı Kurulum Seçenekleri** sayfasında, aracıyı Azure Log Analytics'e (OMS) bağlamayı seçin ve ardından **İleri**'ye tıklayın.   
+6. **Azure Log Analytics** sayfasında aşağıdakileri yapın:
+   1. Daha önce kopyaladığınız **Çalışma Alanı Kimliği** ve **Çalışma Alanı Anahtarı (Birincil Anahtar)** değerlerini yapıştırın.  Bilgisayarın Azure Kamu bulutundaki bir Log Analytics çalışma alanına raporlaması gerekiyorsa, **Azure Cloud** açılan listesinden **Azure ABD Kamu**'yu seçin.  
+   2. Bilgisayarın Log Analytics hizmetiyle bir ara sunucu üzerinden iletişim kurması gerekiyorsa, **Gelişmiş**'e tıklayın ve ara sunucunun URL'siyle bağlantı noktası numarasını sağlayın.  Ara sunucunuz kimlik doğrulaması gerektiriyorsa, ara sunucuyla kimlik doğrulaması yapmak için kullanıcı adını ve parolayı yazın, ardından **İleri**'ye tıklayın.  
+7. Gerekli yapılandırma ayarlarını sağlamayı tamamladığınızda **İleri**'ye tıklayın.<br><br> ![Çalışma Alanı Kimliği ve Birincil Anahtarı'nı yapıştırın](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+8. **Yüklemeye Hazır** sayfasında seçimlerinizi gözden geçirin ve ardından **Yükle**'ye tıklayın.
+9. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
 
-Tamamlandığında, **Microsoft İzleme Aracısı** görünür **Denetim Masası**. Günlük analizi için raporlama da onaylamak için gözden [günlük analizi aracı bağlanabilirliği doğrulamak](#verify-agent-connectivity-to-log-analytics). 
+Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Günlük analizi için raporlama da onaylamak için gözden [günlük analizi aracı bağlanabilirliği doğrulamak](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Komut satırını kullanarak aracı yükleme
 Aracı için indirilen dosya ile IExpress oluşturulan müstakil yükleme paketidir.  Kurulum programı destekleyici dosyaları ve aracı için pakette yer alan ve düzgün aşağıdaki örneklerde gösterildiği komut satırını kullanarak yüklemek için ayıklanan gerekir.  Bu yöntem, Azure ticari ve ABD devlet kurumları bulut bildirmeye Aracısı Yapılandırma destekler.  
@@ -156,11 +156,11 @@ Farklı ürün kodları aracı paketi 32-bit ve 64 bit sürümlerine sahip ve ya
 
 Aracısı'nın instalaltion tamamlandıktan sonra doğrulama başarıyla bağlandı ve raporlama iki yolla gerçekleştirilebilir.  
 
-Bilgisayar **Denetim Masası**, öğeyi bulur **Microsoft İzleme Aracısı**.  Seçin ve **Azure günlük analizi (OMS)** sekmesinde, aracıyı belirten iletisi görüntülenmelidir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı.**<br><br> ![Günlük analizi MMA bağlantısının durumu](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Bilgisayar **Denetim Masası**, öğeyi bulur **Microsoft İzleme Aracısı**.  Seçin ve **Azure günlük analizi (OMS)** sekmesinde, aracıyı belirten iletisi görüntülenmelidir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 Azure portalında bir basit günlük arama de gerçekleştirebilirsiniz.  
 
-1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.  
+1. Azure portalında tıklatın **tüm hizmetleri**. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.  
 2. Günlük analizi çalışma sayfasında, hedef çalışma alanını seçin ve ardından **günlük arama** döşeme. 
 2. Günlük arama bölmesinde üzerinde sorgu alan türü:  
 

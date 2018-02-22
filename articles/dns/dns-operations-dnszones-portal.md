@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: gwallace
-ms.openlocfilehash: 69a509612e6204fc93dd42bf2fe69cb165b5777c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cfb1debf9447cd66856b73166a133d5d498fcc79
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure portalında DNS bölgelerini yönetme
 
@@ -31,7 +31,7 @@ Bu makalede Azure portalını kullanarak DNS bölgelerini yönetme gösterilmekt
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
 1. Azure portalında oturum açın
-2. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur dikey penceresini açın.
+2. Hub menüsünde ve tıklayın **bir kaynak oluşturmak > Ağ >** ve ardından **DNS bölgesi** oluşturma DNS bölge dikey penceresini açın.
 
     ![DNS bölgesi](./media/dns-operations-dnszones-portal/openzone650.png)
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/18/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 06d807b83f700c675c6979998dd8f74372a4845f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz Yenile
 REST çağrıları destekleyen herhangi bir programlama dili kullanarak, Azure Analysis Services tablolu modeller zaman uyumsuz veri yenileme işlemleri gerçekleştirebilir. Bu sorgu genişleme için salt okunur çoğaltmalarını eşitlenmesi içerir. 
@@ -208,7 +208,7 @@ Kod örneği kullanabilirsiniz etkileşimli oturum açma, kullanıcı adı/parol
 
 Bu form kimlik doğrulaması, bir Azure uygulama API gerekli izinleri atanmış oluşturulabilir gerektirir. 
 
-1.  Azure portalında tıklatın **yeni** > **Azure Active Directory** > **uygulama kayıtlar** > **yeni Uygulama kaydı**.
+1.  Azure portalında tıklatın **kaynak oluşturma** > **Azure Active Directory** > **uygulama kayıtlar**  >   **Yeni uygulama kaydı**.
 
     ![Yeni uygulama kaydı](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 

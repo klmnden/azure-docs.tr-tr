@@ -15,11 +15,11 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 00307311ca2bc1432f2de3755575adf1804f9c77
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Bir uygulamayı Azure Active Directory'de kullanıcı deneyimini Gizle
 
@@ -38,7 +38,7 @@ Erişim paneli uygulamalardan gizlemek için durumunuza bağlı olarak, aşağı
 Bir kullanıcının erişim paneli ve Office 365 uygulama launchers bir uygulamadan gizlemek için aşağıdaki adımları kullanın.
 
 1.  Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2.  Seçin **daha fazla hizmet**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
+2.  Seçin **tüm hizmetleri**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
 3.  Üzerinde **Azure Active Directory - *directoryname***  ekran (diğer bir deyişle, Azure AD ekranı yönettiğiniz dizin için), seçin **kurumsal uygulamalar**.
 ![Kurumsal uygulamaları](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  Üzerinde **kurumsal uygulamalar** ekran, select **tüm uygulamaları**. Yönetebileceğiniz uygulamaların bir listesini görürsünüz.
@@ -54,7 +54,7 @@ Bir kullanıcının erişim paneli ve Office 365 uygulama launchers bir uygulama
 Erişim paneli tüm Office 365 uygulamalardan gizlemek için aşağıdaki adımları kullanın. Bu uygulamaları hala Office 365 Portalı'nda görünür.
 
 1.  Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2.  Seçin **daha fazla hizmet**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
+2.  Seçin **tüm hizmetleri**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
 3.  Üzerinde **Azure Active Directory - *directoryname***  ekran (diğer bir deyişle, Azure AD ekranı yönettiğiniz dizin için), seçin **kullanıcı ayarlarını**.
 4.  Üzerinde **kullanıcı ayarları** altında ekran **kurumsal uygulamalar** seçin **Evet** için **kullanıcılar yalnızca Office 365 uygulamaları Office 365 portalındabakın**.
 

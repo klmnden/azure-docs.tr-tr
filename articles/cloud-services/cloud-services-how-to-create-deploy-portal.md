@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Oluşturma ve bir bulut hizmeti dağıtma
 Azure Portalı'nı oluşturmak ve bir bulut hizmeti dağıtmak iki yol sunar: *hızlı Oluştur* ve *özel Oluştur*.
@@ -59,25 +59,25 @@ Web rolleri veya çalışan rolleri dağıtımlarında bir bulut hizmeti oluştu
 
 ## <a name="create-and-deploy"></a>Oluşturma ve dağıtma
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Tıklatın **yeni > işlem**, tıklatın ve sonra aşağı kaydırarak **bulut hizmeti**.
+2. Tıklatın **kaynak oluşturma > işlem**, tıklatın ve sonra aşağı kaydırarak **bulut hizmeti**.
 
     ![Bulut hizmetinizi yayımlayın](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. Yeni **bulut hizmeti** dikey penceresinde için bir değer girin **DNS adı**.
+3. Yeni **bulut hizmeti** bölmesinde için bir değer girin **DNS adı**.
 4. Yeni bir **kaynak grubu** veya varolan bir tanesini seçin.
 5. Bir **Konum** seçin.
-6. Tıklatın **paket**. Bu açılır **bir paketi yükleme** dikey. Gerekli alanları doldurun. Rollerinizi hiçbirini tek bir örnek içeriyorsa, olun **bir veya daha fazla rol tek bir örnek içeriyorsa bile Dağıt** seçilir.
+6. Tıklatın **paket**. Bu açılır **bir paketi yükleme** bölmesi. Gerekli alanları doldurun. Rollerinizi hiçbirini tek bir örnek içeriyorsa, olun **bir veya daha fazla rol tek bir örnek içeriyorsa bile Dağıt** seçilir.
 7. Olduğundan emin olun **Başlat dağıtım** seçilir.
-8. Tıklatın **Tamam** hangi kapatılacak **bir paketi yükleme** dikey.
+8. Tıklatın **Tamam** hangi kapatılacak **bir paketi yükleme** bölmesi.
 9. Eklemek için herhangi bir sertifika yoksa tıklatın **oluşturma**.
 
     ![Bulut hizmetinizi yayımlayın](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
-## <a name="upload-a-certificate"></a>Bir sertifikayı karşıya yüklemek
+## <a name="upload-a-certificate"></a>Sertifikayı karşıya yükleyin
 Dağıtım paketi varsa [sertifikalar kullanmak üzere yapılandırılmış](cloud-services-configure-ssl-certificate-portal.md#modify), sertifika artık karşıya yükleyebilirsiniz.
 
-1. Seçin **sertifikaları**ve **eklemek sertifikaları** dikey penceresinde, SSL sertifika .pfx dosyasını seçin ve ardından sağlayın **parola** sertifika için
-2. Tıklatın **Attach sertifika**ve ardından **Tamam** üzerinde **eklemek sertifikaları** dikey.
-3. Tıklatın **oluşturma** üzerinde **bulut hizmeti** dikey. Dağıtım ulaşıldığında **hazır** durumu, sonraki adımlara devam.
+1. Seçin **sertifikaları**ve **eklemek sertifikaları** bölmesinde SSL sertifika .pfx dosyasını seçin ve ardından sağlayın **parola** sertifika için
+2. Tıklatın **Attach sertifika**ve ardından **Tamam** üzerinde **eklemek sertifikaları** bölmesi.
+3. Tıklatın **oluşturma** üzerinde **bulut hizmeti** bölmesi. Dağıtım ulaşıldığında **hazır** durumu, sonraki adımlara devam.
 
     ![Bulut hizmetinizi yayımlayın](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 

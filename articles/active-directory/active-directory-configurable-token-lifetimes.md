@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) yapılandırılabilir belirteci yaşam süresi
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrü belirtebilirsiniz. Kuruluşunuzdaki tüm uygulamalar, kuruluşunuzda, çok kiracılı (çok kuruluş) uygulama veya belirli hizmet sorumlusu belirteci yaşam süresi ayarlayabilirsiniz.
@@ -73,11 +73,11 @@ Belirteç ömrü ilkesi, belirteç ömrü kuralları içeren ilke nesne türüd�
 | Özellik | İlke özellik dizesi | Etkiler | Varsayılan | Minimum | Maksimum |
 | --- | --- | --- | --- | --- | --- |
 | Erişim belirteci ömrü |AccessTokenLifetime |Erişim belirteçleri, kimlik belirteçlerini, SAML2 belirteçleri |1 saat |10 dakika |1 gün |
-| Etkin olmayan zaman belirteci sınırı Yenile |MaxInactiveTime |Yenileme belirteçlerini |14 gün |10 dakika |90 gün |
-| Tek Faktörlü yenileme belirteci Maksimum yaş |MaxAgeSingleFactor |Yenileme belirteçlerini (tüm kullanıcılar için) |Kadar iptal |10 dakika |Kadar iptal<sup>1</sup> |
-| Çok faktörlü yenileme belirteci Maksimum yaş |MaxAgeMultiFactor |Yenileme belirteçlerini (tüm kullanıcılar için) |Kadar iptal |10 dakika |Kadar iptal<sup>1</sup> |
-| Tek Faktörlü Oturum belirteci Maksimum yaş |MaxAgeSessionSingleFactor<sup>2</sup> |Oturum belirteçleri (kalıcı ve kalıcı olmayan) |Kadar iptal |10 dakika |Kadar iptal<sup>1</sup> |
-| Çok faktörlü Oturum belirteci Maksimum yaş |MaxAgeSessionMultiFactor<sup>3</sup> |Oturum belirteçleri (kalıcı ve kalıcı olmayan) |Kadar iptal |10 dakika |Kadar iptal<sup>1</sup> |
+| Etkin olmayan zaman belirteci sınırı Yenile |MaxInactiveTime |Yenileme belirteçlerini |90 gün |10 dakika |90 gün |
+| Tek Faktörlü yenileme belirteci Maksimum yaş |MaxAgeSingleFactor |Yenileme belirteçlerini (tüm kullanıcılar için) |Until-revoked |10 dakika |Until-revoked<sup>1</sup> |
+| Çok faktörlü yenileme belirteci Maksimum yaş |MaxAgeMultiFactor |Yenileme belirteçlerini (tüm kullanıcılar için) |Until-revoked |10 dakika |Until-revoked<sup>1</sup> |
+| Tek Faktörlü Oturum belirteci Maksimum yaş |MaxAgeSessionSingleFactor<sup>2</sup> |Oturum belirteçleri (kalıcı ve kalıcı olmayan) |Until-revoked |10 dakika |Until-revoked<sup>1</sup> |
+| Çok faktörlü Oturum belirteci Maksimum yaş |MaxAgeSessionMultiFactor<sup>3</sup> |Oturum belirteçleri (kalıcı ve kalıcı olmayan) |Until-revoked |10 dakika |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 gündür bu öznitelikler için ayarlanabilir en fazla açık uzunluğu.
 * <sup>2</sup>varsa **MaxAgeSessionSingleFactor** ayarlanmazsa bu değeri alır **MaxAgeSingleFactor** değeri. Hiçbir parametre ayarlanırsa, varsayılan değer (kadar iptal edilen) özelliği alır.
@@ -88,7 +88,7 @@ Belirteç ömrü ilkesi, belirteç ömrü kuralları içeren ilke nesne türüd�
 | --- | --- | --- |
 | Belirteç Maksimum yaş Yenile (yetersiz iptal bilgilerini federe kullanıcılar için verilen<sup>1</sup>) |Yenileme belirteçlerini (yetersiz iptal bilgilerini federe kullanıcılar için verilen<sup>1</sup>) |12 saat |
 | Belirteç etkin olmayan (gizli istemcileri için verilen) zaman sınırı Yenile |Yenileme belirteçlerini (gizli istemcileri için verilen) |90 gün |
-| Belirteç Maksimum yaş (gizli istemcileri için verilen) Yenile |Yenileme belirteçlerini (gizli istemcileri için verilen) |Kadar iptal |
+| Belirteç Maksimum yaş (gizli istemcileri için verilen) Yenile |Yenileme belirteçlerini (gizli istemcileri için verilen) |Until-revoked |
 
 * <sup>1</sup>yetersiz iptal bilgilerini sahip federe kullanıcılar eşitlenen "LastPasswordChangeTimestamp" özniteliğine sahip olmayan tüm kullanıcıları içerir. AAD eski bir kimlik bilgisi (örneğin, değiştirilmiş bir parola) bağlıdır ve daha sık ilişkilendirilmiş belirteçleri ve kullanıcı yine de iyi yeri olduğundan emin olmak için geri denetlemelidir belirteçleri iptal etmek ne zaman doğrulayamadı olduğu için bu kullanıcılara bu kısa Maksimum yaş verilir. Bu deneyimini geliştirmek için Kiracı yöneticileri (Bu Powershell kullanarak kullanıcı nesnesindeki veya Modu'nu aracılığıyla ayarlanabilir) "LastPasswordChangeTimestamp" özniteliği eşitleniyor emin olmanız gerekir.
 
@@ -194,7 +194,7 @@ Birçok senaryoları oluşturabilir ve uygulamaları, hizmet asıl adı ve genel
 * Web API'si çağıran yerel bir uygulama için bir ilke oluşturun
 * Gelişmiş ilkesini yönetme
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki örneklerde, oluşturmak, güncelleştirmek, bağlantı ve uygulamaları, hizmet asıl adı ve genel kuruluşunuz için ilkelerini silin. Azure AD ile yeni başladıysanız, hakkında bilgi edinin öneririz [Azure AD kiracısı alma](active-directory-howto-tenant.md) bu örnekleri ile devam etmeden önce.  
 
 Başlamak için aşağıdaki adımları uygulayın:
@@ -355,7 +355,7 @@ Bu örnekte, öncelik sistem nasıl çalıştığını öğrenmek için birkaç 
 
 Aşağıdaki cmdlet ilkelerini yönetmek için kullanabilirsiniz.
 
-#### <a name="new-azureadpolicy"></a>AzureADPolicy yeni
+#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 
 Yeni bir ilke oluşturur.
 
@@ -369,7 +369,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |İlke adı dizesi. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |TRUE ise, ilke kuruluşunuzun varsayılan ilke olarak ayarlar. False ise, hiçbir şey yapmaz. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |İlke türü. Belirteç yaşam süreleri her zaman "TokenLifetimePolicy." kullan | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[İsteğe bağlı] |İlke için alternatif bir kimlik ayarlar. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [İsteğe bağlı] |İlke için alternatif bir kimlik ayarlar. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -382,7 +382,7 @@ Get-AzureADPolicy
 
 | Parametreler | Açıklama | Örnek |
 | --- | --- | --- |
-| <code>&#8209;Id</code>[İsteğe bağlı] |**ObjectID (ID)** istediğiniz ilke. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [İsteğe bağlı] |**ObjectID (ID)** istediğiniz ilke. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -410,10 +410,10 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** istediğiniz ilke. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |İlke adı dizesi. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>[İsteğe bağlı] |Tüm ilkesinin kuralları içeren stringified JSON dizisi. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>[İsteğe bağlı] |TRUE ise, ilke kuruluşunuzun varsayılan ilke olarak ayarlar. False ise, hiçbir şey yapmaz. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>[İsteğe bağlı] |İlke türü. Belirteç yaşam süreleri her zaman "TokenLifetimePolicy." kullan |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>[İsteğe bağlı] |İlke için alternatif bir kimlik ayarlar. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> [İsteğe bağlı] |Tüm ilkesinin kuralları içeren stringified JSON dizisi. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [İsteğe bağlı] |TRUE ise, ilke kuruluşunuzun varsayılan ilke olarak ayarlar. False ise, hiçbir şey yapmaz. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [İsteğe bağlı] |İlke türü. Belirteç yaşam süreleri her zaman "TokenLifetimePolicy." kullan |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [İsteğe bağlı] |İlke için alternatif bir kimlik ayarlar. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -433,7 +433,7 @@ Belirtilen ilke siler.
 ### <a name="application-policies"></a>Uygulama ilkeleri
 Uygulama ilkeleri için aşağıdaki cmdlet'leri kullanabilirsiniz.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Ekleme AzureADApplicationPolicy
+#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Belirtilen ilke uygulama bağlar.
 
 ```PowerShell
@@ -474,10 +474,10 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Hizmet asıl ilkeleri
+### <a name="service-principal-policies"></a>Hizmet sorumlusu ilkeleri
 Aşağıdaki cmdlet'leri için hizmet asıl ilkeleri kullanabilirsiniz.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Ekleme AzureADServicePrincipalPolicy
+#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
 Belirtilen ilke için bir hizmet sorumlusu bağlar.
 
 ```PowerShell

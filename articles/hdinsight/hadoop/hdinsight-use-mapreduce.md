@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: bfd176aaf02dd96cee8877f1754dd0ce7ebded13
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Hdınsight'ta Hadoop MapReduce kullanın
 
@@ -31,10 +31,10 @@ Hdınsight kümelerinde MapReduce işleri çalıştırmayı öğrenin. MapReduce
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Hadoop komutu aracılığıyla kullanmak **SSH** |Linux |Linux, UNIX, Mac OS X veya Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |İşi uzaktan kullanarak göndermek **REST** (örnekler cURL kullanın) |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |İşi uzaktan kullanarak göndermek **Windows PowerShell** |Linux veya Windows |Windows |
-| [Uzak Masaüstü](apache-hadoop-use-mapreduce-remote-desktop.md) (Hdınsight 3.2 ve 3.3) |Hadoop komutu aracılığıyla kullanmak **Uzak Masaüstü** |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+>
 
 ## <a id="whatis"></a>MapReduce nedir
 
@@ -46,7 +46,7 @@ Hadoop MapReduce, çok büyük miktarda veri işleyen işlerini yazmak için bir
 
 Aşağıdaki şemada temel word sayısı MapReduce işi örneği gösterilmiştir:
 
-![HDI. WordCountDiagram][image-hdi-wordcountdiagram]
+![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
 Bu iş çıktısı, her sözcüğün metinde oluştu kaç kez sayısıdır.
 
@@ -168,7 +168,6 @@ Hdınsight HiveQL işleri çeşitli yöntemleri kullanarak çalıştırabilirsin
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Hadoop komutu aracılığıyla kullanmak **SSH** |Linux |Linux, UNIX, Mac OS X veya Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |İşi uzaktan kullanarak göndermek **REST** |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |İşi uzaktan kullanarak göndermek **Windows PowerShell** |Linux veya Windows |Windows |
-| [Uzak Masaüstü](apache-hadoop-use-mapreduce-remote-desktop.md) (Hdınsight 3.2 ve 3.3) |Hadoop komutu aracılığıyla kullanmak **Uzak Masaüstü** |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: xshi
-ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82915a92464f240591777595e878a534cde0136c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Azure IOT Hub'ın Power BI kullanarak gerçek zamanlı algılayıcı verilerini görselleştirmek
 
@@ -52,7 +52,7 @@ Azure IOT hub'ınızın aldığı Power BI tarafından gerçek zamanlı algılay
 
 ### <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
 
-1. Azure Portal'da Yeni'ye tıklayın > nesnelerin interneti > Stream Analytics işi.
+1. İçinde [Azure portal](https://portal.azure.com), tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **Stream Analytics işi**.
 1. İş için aşağıdaki bilgileri girin.
 
    **İş adı**: İş adı. Adın genel olarak benzersiz olması gerekir.
@@ -61,11 +61,11 @@ Azure IOT hub'ınızın aldığı Power BI tarafından gerçek zamanlı algılay
 
    **Konum**: aynı konumu, kaynak grubu olarak kullanın.
 
-   **Panoya Sabitle**: kolay erişim için bu seçeneği IOT hub'ınıza panodan denetleyin.
+   **Panoya sabitle**: Panodan IoT hub'ınıza kolay erişim için bu seçeneği işaretleyin.
 
    ![Stream Analytics işi oluşturma](media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Bir akış analizi işine giriş Ekle
 
@@ -78,7 +78,7 @@ Azure IOT hub'ınızın aldığı Power BI tarafından gerçek zamanlı algılay
    **Kaynak**: seçin **IOT hub'ı**.
 
    **Tüketici grubu**: yeni oluşturduğunuz tüketici grubu seçin.
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
    ![Azure akış analizi işine giriş Ekle](media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
 
@@ -98,7 +98,7 @@ Azure IOT hub'ınızın aldığı Power BI tarafından gerçek zamanlı algılay
    **Veri kümesi adı**: bir veri kümesi adı girin.
 
    **Tablo adı**: Tablo adı girin.
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
    ![Azure Stream Analytics işinde bir çıktı ekleyin](media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -107,7 +107,7 @@ Azure IOT hub'ınızın aldığı Power BI tarafından gerçek zamanlı algılay
 1. Altında **iş topoloji**, tıklatın **sorgu**.
 1. Değiştir `[YourInputAlias]` iş giriş diğer adı ile.
 1. Değiştir `[YourOutputAlias]` işinin çıkış diğer adına sahip.
-1. **Kaydet** düğmesine tıklayın.
+1. **Kaydet**’e tıklayın.
 
    ![Azure Stream Analytics işinde sorgu ekleme](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 

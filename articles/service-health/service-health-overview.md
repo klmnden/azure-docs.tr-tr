@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Azure Hizmet Durumu
 Azure Hizmetleri sorunlarını hizmetlerinizi etkisi yüklediğinizde azure hizmet durumu zamanında ve kişiselleştirilmiş bilgileri sağlar.  Ayrıca, gelecek planlı bakım için hazırlanmanıza yardımcı olur.
@@ -32,8 +32,13 @@ Hizmet durumu üç tür kaynaklarınızı etkileyebilir sistem durumu olayları 
     ![Hizmet sistem durumu olayları](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>Hizmet durumu ile çalışmaya başlama
-Hizmet durumu panonuz başlatmak için portal panosunda hizmet durumu kutucuğu seçin. Döşeme daha önce kaldırdığınız veya özel Pano kullanıyorsanız, "Daha fazla Hizmetleri" hizmet sistem durumu hizmeti için arama (alt, sol Panonuzda).
+Hizmet durumu panonuz başlatmak için portal panosunda hizmet durumu kutucuğu seçin. 
+
 ![Hizmet durumu ile çalışmaya başlama](./media/service-health-overview/azure-service-health-overview-1.png)
+
+Döşeme daha önce kaldırdığınız veya özel Pano kullanıyorsanız, hizmet sistem durumu hizmeti için arama "**tüm hizmetleri**" (üst sol Panonuzda).
+
+![Hizmet durumu ile çalışmaya başlama](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Hizmetlerinizin etkiler geçerli sorunları bakın
 **Hizmet sorunları** görünüm kaynaklarınızı etkileyen Azure Hizmetleri'nde devam eden sorunları gösterir. Ne zaman sorun başladı ve hangi Hizmetleri ve bölgeleri etkilenen anlayabilirsiniz. Ayrıca, Azure sorunu çözmek için yaptıklarını anlamak için en son güncelleştirmeyi okuyabilirsiniz. 

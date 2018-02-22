@@ -15,11 +15,11 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68d4f9cb5fc9c9f15a355d9fdade922889d2aa30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Uygulama ağ geçidi ve Azure Güvenlik Merkezi arasında tümleştirme genel bakış
 
@@ -31,35 +31,35 @@ Uygulama ağ geçidi WAF Güvenlik Merkezi'nde açığından yararlanma girişim
 
 ![Güvenlik Merkezi ile tümleştirme][1]
 
-İlgili web uygulaması güvenlik duvarı öneri ayrıntılarını gösteren yeni bir dikey pencere açılır herhangi bir önerimiz'yı tıklatın.
+İlgili web uygulaması güvenlik duvarı öneri ayrıntılarını gösteren yeni bir sayfa açar herhangi bir önerimiz'yı tıklatın.
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Mevcut bir kaynağı bir web uygulaması güvenlik duvarı ekleme
 
-Gidin **daha Hizmetleri** > **güvenlik + kimlik** > **Güvenlik Merkezi** ve **Güvenlik Merkezi - genel bakış** dikey penceresinde tıklatın **uygulamaları**. Üzerinde **Güvenlik Merkezi - uygulamaları** dikey penceresinde, tablo, Güvenlik Merkezi, aboneliğinizde algıladı uygulamaların bir listesini içerir.
+Gidin **tüm hizmetleri** > **güvenlik + kimlik** > **Güvenlik Merkezi** ve **Güvenlik Merkezi -genelbakış**, tıklatın **uygulamaları**. Üzerinde **Güvenlik Merkezi - uygulamaları**, tablo Güvenlik Merkezi, aboneliğinizde algıladı uygulamaların bir listesini içerir.
 
 ![web uygulaması][3]
 
-Kritik bir sorunu web uygulamasıyla tıklayarak, get **uygulama güvenlik durumu** dikey. Aşağıdaki resimde, bir web uygulaması güvenlik duvarı tarafından korumalı olmayan web uygulaması. 
+Kritik bir sorunu web uygulamasıyla tıklayarak, get **uygulama güvenlik durumu** sayfası. Aşağıdaki resimde, bir web uygulaması güvenlik duvarı tarafından korumalı olmayan web uygulaması. 
 
 ![korumalı web kaynakları][2]
 
-Tıklatın **bir web uygulaması güvenlik duvarı ekleme** altında **önerileri** açmak için **bir Web uygulaması güvenlik duvarı ekleme** dikey.
+Tıklatın **bir web uygulaması güvenlik duvarı ekleme** altında **önerileri** açmak için **bir Web uygulaması güvenlik duvarı ekleme** sayfası.
 
-Olmayan mevcut bir uygulama ağ geçidi, veya yeni bir tane oluşturmak istediğiniz varsa, tıklatın **Yeni Oluştur** ve **yeni Web uygulaması güvenlik duvarı oluşturma** dikey penceresinde ve tıklatın **Microsoft - uygulama ağ geçidi**. Bu uygulama ağ geçidi oluşturmak için adımlara götürür. Bu noktada, bu kaynak bir web uygulaması güvenlik duvarı tarafından korunduğunu şimdi Güvenlik Merkezi korumalı bir kaynağın izler, web uygulamanızın eklenir. Bu, arka uç havuzu üye olarak eklemez.
+Olmayan mevcut bir uygulama ağ geçidi, veya yeni bir tane oluşturmak istediğiniz varsa, tıklatın **Yeni Oluştur** ve **yeni Web uygulaması güvenlik duvarı oluşturma**, tıklatıp **Microsoft - uygulama ağ geçidi** . Bu uygulama ağ geçidi oluşturmak için adımlara götürür. Bu noktada, bu kaynak bir web uygulaması güvenlik duvarı tarafından korunduğunu şimdi Güvenlik Merkezi korumalı bir kaynağın izler, web uygulamanızın eklenir. Bu, arka uç havuzu üye olarak eklemez.
 
 Mevcut bir uygulama ağ geçidi varsa, bunun altında seçebilirsiniz **var olan çözümünü kullanma**
 
-![Web uygulaması güvenlik duvarı Ekle dikey penceresi][4]
+![Web uygulaması güvenlik duvarı sayfası ekleme][4]
 
-Bir web uygulaması Güvenlik Merkezi aracılığıyla bir uygulama ağ geçidi için bir arka uç havuzu üye olarak kaynak eklemez ekleme, bu uygulama ağ geçidi kaynağı doğrudan yapılmalıdır.
+Bir uygulama ağ geçidi Güvenlik Merkezi aracılığıyla bir web uygulamasına ekleme kaynak arka uç havuzu üye olarak eklemez. Bu uygulama ağ geçidi kaynağı doğrudan yapılması gerekir.
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Bir kaynak için var olan bir web uygulaması güvenlik duvarı ekleyin
 
-Gidin **daha Hizmetleri** > **güvenlik + kimlik** > **Güvenlik Merkezi** ve **Güvenlik Merkezi - genel bakış** dikey penceresinde tıklatın **iş ortağı çözümleri**. Var olan Güvenlik Merkezi kullanan bir uygulama ağ geçitleri Göster **iş ortağı çözümleri** dikey.
+Gidin **tüm hizmetleri** > **güvenlik + kimlik** > **Güvenlik Merkezi** ve **Güvenlik Merkezi -genelbakış**, tıklatın **iş ortağı çözümleri**. Var olan Güvenlik Merkezi kullanan bir uygulama ağ geçitleri Göster **iş ortağı çözümleri** sayfası.
 
 ![iş ortağı çözümleri][7]
 
-Tıklatın **bağlantı uygulaması** açmak için **bağlantı uygulamaları** dikey penceresinde, burada, belirtilen olduğundan seçeneklerini mevcut uygulamaları seçin. Koruma ve uygulamaları seçmek **Tamam**. Bu web uygulaması uygulama ağ geçidi arka uç havuzuna eklemez. Güvenlik Merkezi izlemek için bu kaynakları korumalı bir kaynak olarak ayarlar. Kaynak arka uç havuzu üye olarak eklemek için bu uygulama ağ geçidi tıklayabilirsiniz geçerli dikey penceresinden yapılmalıdır **çözüm konsolunu** uygulama ağ geçidi kaynağı'na, web uygulaması arka uç havuzuna ekleyebileceğiniz gerçekleştirilecek.
+Tıklatın **bağlantı uygulaması** açmak için **bağlantı uygulamaları**, burada mevcut uygulamaları seçmek için seçenekleri sunulur. Koruma ve uygulamaları seçmek **Tamam**. Bu web uygulaması uygulama ağ geçidi arka uç havuzuna eklemez. Güvenlik Merkezi izlemek için bu kaynakları korumalı bir kaynak olarak ayarlar. Kaynak arka uç havuzu üye olarak eklemek için bu uygulama ağ geçidi tıklayabilirsiniz geçerli sayfasından yapılmalıdır **çözüm konsolunu** web uygulamasına ekleyebileceğiniz uygulama ağ geçidi kaynağı için yapılması arka uç havuzu.
 
 ![iş ortağı çözümleri uygulamaları][6]
 
@@ -67,7 +67,7 @@ Tıklatın **bağlantı uygulaması** açmak için **bağlantı uygulamaları** 
 
 Güvenlik Merkezi, bir uygulama ağ geçidi korunan bir kaynağa olarak eklenen uygulamalar izler.  Bu kaynak izler ve onu bir uygulama ağ geçidi tarafından korunmasını sağlar. Özel IP, genel IP veya NIC, sanal makinenin uygulama ağ geçidi arka uç havuzuna eklemek için sonraki adım olacaktır. Bu, ek bir öneri yapılana kadar **uygulama korumayı Sonlandır** kaynağı eklenene kadar gösterilir.
 
-![Web uygulaması güvenlik duvarı Ekle dikey penceresi][5]
+![Web uygulaması güvenlik duvarı sayfası ekleme][5]
 
 ## <a name="security-alerts"></a>Güvenlik Uyarıları
 

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış Uzaktan izleme çözümü özelliklerini keşfedin
 
@@ -31,6 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Bir alarm yanıt
 > * Aygıtlarınızı bellenimi güncelleştirme
 > * Varlıklarınızı düzenleme
+> * Durdurmak ve başlatmak sanal cihazlar
 
 Aşağıdaki video Uzaktan izleme çözümünün bir kılavuz gösterir:
 
@@ -230,6 +231,16 @@ Etiket değerlerini filtreleri oluşturmak için kullanabilirsiniz.
 
 Şimdi Contoso işleci aygıtlarda değişikliği gerek kalmadan işletim ekibi bağlı cihazları sorgulayabilir.
 
+## <a name="stop-simulated-devices"></a>Sanal cihazlar Durdur
+
+Sanal cihazlar durdurmak için ayarlar menüsünü kullanabilirsiniz. Bu test etme ve çözüm keşfetme maliyetlerini azaltmak için yardımcı olur. Başlatma veya durdurma sanal cihazlar için:
+
+1. Seçin **ayarları** simgesi.
+
+1. Ardından geçiş **çalıştıran** açıp kapatma:
+
+    ![Ayarlar menüsü](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide için öğrenilen:
@@ -239,6 +250,7 @@ Bu öğreticide için öğrenilen:
 > * Bir alarm yanıt
 > * Aygıtlarınızı bellenimi güncelleştirme
 > * Varlıklarınızı düzenleme
+> * Durdurmak ve başlatmak sanal cihazlar
 
 Uzaktan izleme çözümü denedikten, Uzaktan izleme çözümü gelişmiş özellikler hakkında bilgi edinmek için önerilen sonraki adımlar şunlardır:
 

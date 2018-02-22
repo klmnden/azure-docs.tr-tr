@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 0f50a705d4453970d039c2219aef8e1a411fd533
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Erişim paneli Web sitesine oturum açma sorunu
 
-Erişim paneli, Azure AD Yöneticisi erişim verildi görünümü ve başlatma bulut tabanlı uygulamalar Azure Active Directory (Azure AD) bir iş veya Okul hesabı olan bir kullanıcının sağlayan bir web tabanlı portal olmaktır. Azure AD sürümleri olan bir kullanıcı, Self Servis grup ve erişim paneli üzerinden uygulama yönetim özellikleri de kullanabilirsiniz. Erişim paneli Azure Portalı'ndan ayrıdır ve kullanıcıların bir Azure aboneliğine sahip olmasını gerektirmez.
+Erişim paneli, Azure Active Directory (Azure AD) bir iş veya Okul hesabı olan bir kullanıcının sağlayan bir web tabanlı Azure AD Yöneticisi erişim verildi görünümü ve başlatma bulut tabanlı uygulamalar için portalıdır. Azure AD sürümleri olan bir kullanıcı, Self Servis grup ve erişim paneli üzerinden uygulama yönetim özellikleri de kullanabilirsiniz. Erişim paneli Azure Portalı'ndan ayrıdır ve kullanıcıların bir Azure aboneliğine sahip olmasını gerektirmez.
 
 Azure AD'de bir iş veya Okul hesabı varsa kullanıcıların erişim panelinde oturum açabilirsiniz.
 
@@ -32,7 +32,7 @@ Azure AD'de bir iş veya Okul hesabı varsa kullanıcıların erişim panelinde 
 
 -   Kullanıcıların Windows Server Active Directory tarafından doğrulanabilir.
 
-Bir kullanıcı Azure veya Office 365 için bir abonelik varsa ve Azure portal ya da bir Office 365 uygulaması kullanarak, erişim paneli sorunsuz bir şekilde gerek kalmadan yeniden oturum açmak için kullandığınız mümkün olacaktır. Kimliği doğrulanmamış kullanıcılar kendi hesabı için Azure AD'de kullanıcı adı ve parola kullanarak oturum açın istenir. Kuruluşun Federasyon yapılandırdıysa, kullanıcı adı yazmaya yeterli olur.
+Bir kullanıcı Azure veya Office 365 için bir abonelik varsa ve Azure portal ya da bir Office 365 uygulaması kullanarak, erişim paneli sorunsuz bir şekilde gerek kalmadan yeniden oturum açmak için kullandığınız mümkün olacaktır. Kimliği doğrulanmamış kullanıcılar, kendi hesabı için Azure AD'de kullanıcı adı ve parola kullanarak oturum açmak için istenir. Kuruluşun Federasyon yapılandırdıysa, kullanıcı adı yazmaya yeterli olur.
 
 ## <a name="general-issues-to-check-first"></a>İlk denetlemek için genel sorunlar 
 
@@ -40,7 +40,7 @@ Bir kullanıcı Azure veya Office 365 için bir abonelik varsa ve Azure portal y
 
 -   Kullanıcının tarayıcısının URL ekledi emin olun, **Güvenilen siteler**
 
--   Kullanıcının hesabı olduğundan emin olun **etkin** için oturum açmalar.
+-   Kullanıcının hesabı olduğundan emin olun **etkin** oturum açma işlemleri için.
 
 -   Kullanıcının hesabı olduğundan emin olun **kilitli değil.**
 
@@ -50,7 +50,7 @@ Bir kullanıcı Azure veya Office 365 için bir abonelik varsa ve Azure portal y
 
 -   Emin olun bir **koşullu erişim ilkesi** veya **kimlik koruması** İlkesi kullanıcı erişimini engellemediğinden.
 
--   Olduğundan emin olun kullanıcının **kimlik doğrulaması kişi bilgilerini** yürütülebilmesi çok faktörlü kimlik doğrulaması veya koşullu erişim ilkeleri izin güncel değil.
+-   Olduğundan emin olun kullanıcının **kimlik doğrulaması kişi bilgilerini** yürütülebilmesi çok faktörlü kimlik doğrulaması veya koşullu erişim ilkeleri izin vermek için güncel olduğundan.
 
 -   Tarayıcınızın tanımlama bilgilerini temizleyip ve yeniden oturum açmaya de deneyin emin olun.
 
@@ -71,7 +71,7 @@ Parola tabanlı, SSO için son kullanıcının tarayıcılar olabilir:
 
 ## <a name="problems-with-the-users-account"></a>Kullanıcı hesabının sorunları
 
-Kullanıcı hesabında bir sorun nedeniyle erişim Paneli'ne erişim engellenebilir. Aşağıdaki sorun giderme ve kullanıcıların ve hesap ayarları ile sorunları bazı yöntemler şunlardır:
+Kullanıcı hesabında bir sorun nedeniyle erişim Paneli'ne erişim engellenebilir. Sorun giderme ve kullanıcıların ve hesap ayarları ile sorunları bazı yöntemler şunlardır:
 
 -   [Bir kullanıcı hesabı Azure Active Directory içinde olup olmadığını kontrol edin](#check-if-a-user-account-exists-in-azure-active-directory)
 
@@ -95,9 +95,9 @@ Kullanıcı hesabında bir sorun nedeniyle erişim Paneli'ne erişim engellenebi
 
 Bir kullanıcı hesabının mevcut olup olmadığını denetlemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -111,11 +111,11 @@ Bir kullanıcı hesabının mevcut olup olmadığını denetlemek için aşağı
 
 ### <a name="check-a-users-account-status"></a>Bir kullanıcının hesap durumunu denetle
 
-Bir kullanıcı hesabı durumunu denetlemek için aşağıdaki adımları izleyin:
+Bir kullanıcının hesap durumunu denetlemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -131,11 +131,11 @@ Bir kullanıcı hesabı durumunu denetlemek için aşağıdaki adımları izleyi
 
 ### <a name="reset-a-users-password"></a>Bir kullanıcının parolasını sıfırlama
 
-Bir kullanıcının parolasını sıfırlamak için aşağıdaki adımları izleyin:
+Bir kullanıcının parolasını sıfırlamak için şu adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -145,13 +145,13 @@ Bir kullanıcının parolasını sıfırlamak için aşağıdaki adımları izle
 
 6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
 
-7.  tıklatın **parola sıfırlama** kullanıcı dikey pencerenin üstündeki düğmesi.
+7.  tıklatın **parola sıfırlama** kullanıcı bölmenin üstündeki düğmesi.
 
-8.  tıklatın **parola sıfırlama** düğmesini **parola sıfırlama** görünür dikey.
+8.  tıklatın **parola sıfırlama** düğmesini **parola sıfırlama** bölmesinde görüntülenir.
 
 9.  Kopya **geçici parola** veya **yeni bir parola girin** kullanıcı için.
 
-10. Bu yeni parolayı kullanıcıya iletişim, Azure Active Directory'ye sonraki oturum açma sırasında bu parolayı değiştirmeniz gerekiyor.
+10. Bu yeni parolayı kullanıcıya iletişim, Azure Active Directory'ye kendi sonraki oturum açma sırasında bu parolayı değiştirmeniz gerekiyor.
 
 ### <a name="enable-self-service-password-reset"></a>Self Servis parola sıfırlama etkinleştirme
 
@@ -165,9 +165,9 @@ Self Servis parola sıfırlamayı etkinleştirmek için dağıtım adımları iz
 
 Bir kullanıcının çok faktörlü kimlik doğrulama durumunu denetlemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -175,7 +175,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulama durumunu denetlemek için 
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  tıklatın **çok faktörlü kimlik doğrulaması** dikey pencerenin üstündeki düğmesi.
+6.  tıklatın **çok faktörlü kimlik doğrulaması** bölmenin üstündeki düğmesi.
 
 7.  Bir kez **multi-Factor Authentication Yönetim Portalı** yüklendiğinde emin olduğunuz üzerinde **kullanıcılar** sekmesi.
 
@@ -184,7 +184,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulama durumunu denetlemek için 
 9.  Kullanıcı kullanıcılar listesinden seçin ve **etkinleştirmek**, **devre dışı**, veya **zorla** istediğiniz gibi çok faktörlü kimlik doğrulaması.
 
    >[!NOTE]
-   >Bir kullanıcı ise bir **zorlanmış** durumunda, ayarlayın bunları **devre dışı** geçici olarak kendi hesaba geri izin vermek için. Daha sonra geri oldukları sonra durumlarına değiştirebilirsiniz **etkin** yeniden sonraki oturum açma sırasında kişi bilgileri yeniden kaydetmek için bunları gerektirecek şekilde. Alternatif olarak, içindeki adımları takip edebilirsiniz [bir kullanıcının kimlik doğrulaması ile ilgili kişi bilgileri](#check-a-users-authentication-contact-info) doğrulamak veya onlar için bu veri kümesi için.
+   >Bir kullanıcı ise bir **zorlanmış** durumunda, ayarlayın bunları **devre dışı** geçici olarak kendi hesaba geri izin vermek için. Daha sonra geri oldukları sonra durumlarına değiştirebilirsiniz **etkin** yeniden bunları kendi sonraki oturum açma sırasında kişi bilgileri yeniden kaydetmek için gerekli. Alternatif olarak, içindeki adımları takip edebilirsiniz [bir kullanıcının kimlik doğrulaması ile ilgili kişi bilgileri](#check-a-users-authentication-contact-info) doğrulamak veya onlar için bu veri kümesi için.
    >
    >
 
@@ -192,9 +192,9 @@ Bir kullanıcının çok faktörlü kimlik doğrulama durumunu denetlemek için 
 
 Çok faktörlü kimlik doğrulaması, koşullu erişim, kimlik koruması ve parola sıfırlama için kullanılan kullanıcı kimlik doğrulaması kişi bilgilerini denetlemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -214,9 +214,9 @@ Bir kullanıcının çok faktörlü kimlik doğrulama durumunu denetlemek için 
 
 Bir kullanıcı grup üyeliklerini denetlemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -232,9 +232,9 @@ Bir kullanıcı grup üyeliklerini denetlemek için aşağıdaki adımları izle
 
 Bir kullanıcının atanan lisansları denetlemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -250,9 +250,9 @@ Bir kullanıcının atanan lisansları denetlemek için aşağıdaki adımları 
 
 Bir kullanıcıya bir lisans atamak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 

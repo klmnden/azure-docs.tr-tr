@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: a27d4422e0d7b116d2aea6f743b9efc27570cdb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91173a14d40f8259927af720986a4efbc9c573ce
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Yükleme ve Azure sanal makineleri yönetmek için Ansible yapılandırma
 Bu makalede Ansible ve gerekli Azure Python SDK'sını modüllerini bazı yaygın Linux distro'lar için yükleme ayrıntılarını verir. Yüklü paketler belirli platformunuz uyacak şekilde ayarlayarak diğer distro'lar üzerinde Ansible yükleyebilirsiniz. Azure kaynaklarını güvenli bir şekilde oluşturmak için de oluşturmak ve kullanmak Ansible için kimlik bilgilerini tanımlamak nasıl öğrenin. 
@@ -28,7 +28,7 @@ Daha fazla yükleme seçenekleri ve ek platformlar için adımları için bkz: [
 
 
 ## <a name="install-ansible"></a>Ansible yükleyin
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAnsible* içinde *eastus* konumu:
+Öncelikle [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAnsible* içinde *eastus* konumu:
 
 ```azurecli
 az group create --name myResourceGroupAnsible --location eastus
@@ -144,7 +144,7 @@ Ansible bir kullanıcı adı ve parola veya bir hizmet sorumlusu kullanarak Azur
 Ana bilgisayar ile bir hizmet sorumlusu oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac) ve Ansible gereken kimlik bilgilerini çıktı:
 
 ```azurecli
-az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
+az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 ```
 
 Çıkış örneği önceki komutlarındaki aşağıdaki gibidir:

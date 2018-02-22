@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: v-craic
-ms.openlocfilehash: a27423a75cb2b5063156109ea9ee3a45fa036c07
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 616117e1f1e55e9c59b409740e17e295ce114d52
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Oluşturma ve Azure DevTest Labs claimable Vm'lerde yönetme
 Benzer şekilde nasıl laboratuvara claimable VM ekleme, [standart VM eklemek](devtest-lab-add-vm.md) – bir *temel* ya da başka bir deyişle bir [özel görüntü](devtest-lab-create-template.md), [formülü](devtest-lab-manage-formulas.md), veya [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Bu öğretici DevTest Labs laboratuvarda claimable VM eklemek için Azure portalını kullanarak size yol gösterir ve bir kullanıcı talebi ve VM unclaim için aşağıdaki işlemleri gösterir.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda claimable VM eklemek için adımları
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-1. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. Labs listesinden claimable VM oluşturmak istediğiniz Laboratuvar seçin.  
 1. Laboratuvar 's üzerinde **genel bakış** bölmesinde, **+ Ekle**.  
 

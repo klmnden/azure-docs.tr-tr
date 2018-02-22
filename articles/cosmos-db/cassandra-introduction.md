@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB Apache Cassandra API için giriş
 
@@ -64,7 +64,7 @@ Cassandra istemci sürücüleri zaten alışık olduğunuz ve Azure Cosmos (gibi
 
 Bir Azure aboneliğiniz zaten varsa, Cassandra API (Önizleme) programa katılmak kaydolabilirsiniz [Azure portal](https://aka.ms/cosmosdb-cassandra-signup).  Azure'da yeniyseniz, kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/free) 12 ay ücretsiz Azure Cosmos DB erişimin nereden. Cassandra API (Önizleme) programı'na erişim istemek için aşağıdaki adımları tamamlayın.
 
-1. İçinde [Azure portal](https://portal.azure.com), tıklatın **yeni** > **veritabanları** > **Azure Cosmos DB**. 
+1. İçinde [Azure portal](https://portal.azure.com), tıklatın **kaynak oluşturma** > **veritabanları** > **Azure Cosmos DB**. 
 
 2. Yeni hesap sayfasında seçin **Cassandra** API kutusunda. 
 

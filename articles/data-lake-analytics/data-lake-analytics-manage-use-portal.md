@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15b3b44e45a59f44bd9bbd96dce867cc87fa410c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Analytics'i yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -30,17 +30,17 @@ Azure portalı kullanarak Azure Data Lake Analytics hesapları, hesap veri kayna
 
 ## <a name="manage-data-lake-analytics-accounts"></a>Data Lake Analytics hesaplarını yönetme
 
-### <a name="create-an-account"></a>Bir hesap oluşturun
+### <a name="create-an-account"></a>Hesap oluşturma
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. **Yeni** > **Zeka + analiz** > **Data Lake Analytics**'e tıklayın.
+2. Tıklatın **kaynak oluşturma** > **Intelligence + analiz** > **Data Lake Analytics**.
 3. Aşağıdaki öğeler için değerleri seçin: 
    1. **Ad**: Data Lake Analytics hesabının adı.
    2. **Abonelik**: hesap için kullanılan Azure aboneliği.
    3. **Kaynak grubu**: hesap oluşturmak üzere Azure kaynak grubu. 
    4. **Konum**: Data Lake Analytics hesabı için Azure veri merkezi. 
    5. **Data Lake Store**: Data Lake Analytics hesabı için kullanılacak varsayılan deposu. Azure Data Lake Store hesabı ve Data Lake Analytics hesabı aynı konumda olması gerekir.
-4. **Oluştur**'a tıklayın. 
+4. **Oluştur**’a tıklayın. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Bir Data Lake Analytics hesabı silme
 
@@ -78,7 +78,7 @@ Data Lake Analytics hesabınızla ağ düzeyinde daha ayrıntılı erişim kilit
 
 Azure Data Factory veya VM gibi diğer Azure hizmetleriyle Data Lake Analytics hesabına bağlanırsanız, emin olun **izin Azure Hizmetleri** açık **üzerinde**. 
 
-### <a name="set-up-a-firewall-rule"></a>Bir güvenlik duvarı kuralı ayarlamak
+### <a name="set-up-a-firewall-rule"></a>Güvenlik duvarı kuralı ayarlama
 
 1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
 2. Sol taraftaki menüsünde **Güvenlik Duvarı**.
@@ -117,7 +117,7 @@ U-SQL geliştiriciler Data Lake Analytics hizmetini kullanmak üzere etkinleşti
 2. Tıklatın **erişim denetimi (IAM)** > **Ekle**.
 3. Bir rol seçin.
 4. Bir kullanıcı ekleyin.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**’a tıklayın.
 
 >[!NOTE]
 >İşlerini göndermek bir kullanıcı veya güvenlik grubu gerekirse, bunlar ayrıca depolama hesabındaki izni gerekir. Daha fazla bilgi için bkz: [güvenli Data Lake Store içinde depolanan verileri](../data-lake-store/data-lake-store-secure-data.md).
@@ -178,7 +178,7 @@ Data Lake Analytics hesabınızın Avustralya sayısını değiştirmek için:
 1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
 2. **Özellikler**'e tıklayın.
 3. Altında **maksimum Avustralya**, bir değer seçmek için kaydırıcıyı hareket ettirin veya metin kutusuna bir değer girin. 
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 > [!NOTE]
 > Birden çok varsayılan (250) gerekiyorsa Avustralya, Portalı'nda tıklatın **Yardım + Destek** bir destek isteği gönderilemedi. Avustralya Data Lake Analytics hesabınızı kullanılabilir sayısı artırılabilir.
@@ -192,7 +192,7 @@ Aynı anda çalışabilir işlerinin sayısını değiştirmek için:
 1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
 2. **Özellikler**'e tıklayın.
 3. Altında **en büyük sayı, çalışan işleri**, bir değer seçmek için kaydırıcıyı hareket ettirin veya metin kutusuna bir değer girin. 
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 > [!NOTE]
 > İşlerini, varsayılan (20) sayısından daha portalda çalıştırmanız gerekiyorsa, tıklatın **Yardım + Destek** bir destek isteği gönderilemedi. Data Lake Analytics hesabınızı aynı anda çalışabilir işlerin sayısı artırılabilir.
@@ -206,7 +206,7 @@ Ne kadar süreyle iş meta veri ve kaynakların korunmasına değiştirmek için
 1. Azure Portal'da Data Lake Analytics hesabınıza gidin.
 2. **Özellikler**'e tıklayın.
 3. Altında **iş sorguları korumak için gün**, bir değer seçmek için kaydırıcıyı hareket ettirin veya metin kutusuna bir değer girin.  
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 ### <a name="job-level-policies"></a>Proje düzeyi ilkeleri
 İş düzeyinde ilkeleriyle maksimum Avustralya ve bireysel kullanıcılar (veya belirli güvenlik gruplarının üyeleri) bunlar gönderme işlere ayarlayabilirsiniz en yüksek öncelik kontrol edebilirsiniz. Bu, kullanıcılar tarafından maliyetleri denetlemenize olanak tanır. Ayrıca sağlar denetimi zamanlanmış bir iş etkisi aynı Data Lake Analytics hesabı çalıştıran yüksek öncelikli üretim işlerini olabilir.

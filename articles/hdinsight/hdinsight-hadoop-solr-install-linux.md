@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: edee4fbb37744a8ef93c6a0b7e60b0790d1af9c4
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Yükleme ve Solr Hdınsight Hadoop kümeleri kullanma
 
@@ -45,9 +45,9 @@ Betik eylemi kullanarak Azure Hdınsight'ta Solr yüklemeyi öğrenin. Solr gü�
 
 Bu komut, Hdınsight kümesine aşağıdaki değişiklikleri yapar:
 
-* Solr 4.9 içine yükler`/usr/hdp/current/solr`
+* Solr 4.9 içine yükler `/usr/hdp/current/solr`
 * Bir kullanıcı oluşturur **solrusr**, Solr hizmetini çalıştırmak için kullanılan
-* Ayarlar **solruser** sahibi olarak`/usr/hdp/current/solr`
+* Ayarlar **solruser** sahibi olarak `/usr/hdp/current/solr`
 * Ekler bir [Upstart](http://upstart.ubuntu.com/) Solr otomatik olarak başlar yapılandırma.
 
 ## <a name="install"></a>Betik eylemleri kullanılarak Solr yükleyin

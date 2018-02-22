@@ -10,13 +10,13 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 096fcce979bd488a0fe9dead2b1232a057d0ae02
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Tetikleyici eylemleri - Önizleme olay kılavuz kullanarak IOT hub'ı olaylarına tepki
 
@@ -107,7 +107,7 @@ Her bir özellik ayrıntılı bir açıklaması için bkz: [IOT Hub için Azure 
 
 ## <a name="filter-events"></a>Olaylar filtresi
 
-IOT hub'ı olay abonelikleri olayları olay türü ve cihaz adına göre filtre uygulayabilirsiniz. Olay kılavuz iş konu filtrelere bağlı olarak **önek** ve **soneki** eşleşen böylece abone ile eşleşen bir konu olaylarla teslim edilir. 
+IOT hub'ı olay abonelikleri olayları olay türü ve cihaz adına göre filtre uygulayabilirsiniz. Olay kılavuz iş konu filtrelere bağlı olarak **önek** ve **soneki** eşleşir. Filtre kullanır, bir `AND` için önek ve sonek eşleşen bir konu olaylarla aboneye teslim işleci. 
 
 IOT olayları konu biçimi kullanır:
 

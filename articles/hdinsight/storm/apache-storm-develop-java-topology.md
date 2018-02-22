@@ -14,40 +14,37 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: ca566aed706d4598c6067d42bdbec08d16dc3841
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Apache Storm topolojisini Java oluşturma
 
 Apache Storm için Java tabanlı bir topoloji oluşturmayı öğrenin. Word-count uygulama uygulayan bir Storm topolojisinin oluşturun. Maven oluşturun ve projeyi paketini kullanın. Ardından, nasıl Flux framework kullanarak topolojisi tanımlayacağınızı öğrenin.
-
-> [!NOTE]
-> Flux Storm 0.10.0 veya sonraki sürümlerinde çerçevedir. Storm 0.10.0 Hdınsight 3.3 ve 3.4 ile kullanılabilir.
 
 Bu belgedeki adımları tamamladıktan sonra Hdınsight üzerinde Apache Storm topolojisini dağıtabilirsiniz.
 
 > [!NOTE]
 > Bu belgede oluşturulan Storm topolojisini örnekler tamamlanmış bir sürümünü şu adresten edinilebilir [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Java Geliştirme Seti (JDK) sürüm 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven Java projeleri için bir proje derleme sistemidir.
+* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven is a project build system for Java projects.
 
 * Bir metin düzenleyicisi veya IDE.
 
-## <a name="configure-environment-variables"></a>Ortam değişkenleri yapılandırın
+## <a name="configure-environment-variables"></a>Ortam değişkenlerini yapılandırma
 
 Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsiniz. Ancak, bunlar mevcut olduğundan ve sisteminiz için doğru değerleri içerdikleri denetlemeniz gerekir.
 
-* **JAVA_HOME** -Java Çalışma zamanı ortamı (JRE) yüklü olduğu dizine işaret etmelidir. Örneğin, bir UNIX veya Linux dağıtımlarında benzeri bir değer olması gereken `/usr/lib/jvm/java-8-oracle`. Windows'da benzeri bir değer gerekir`c:\Program Files (x86)\Java\jre1.8`
+* **JAVA_HOME** -Java Çalışma zamanı ortamı (JRE) yüklü olduğu dizine işaret etmelidir. Örneğin, bir UNIX veya Linux dağıtımlarında benzeri bir değer olması gereken `/usr/lib/jvm/java-8-oracle`. Windows'da benzeri bir değer gerekir `c:\Program Files (x86)\Java\jre1.8`
 
 * **YOL** -aşağıdaki yolları içermelidir:
 
@@ -80,8 +77,8 @@ Bu komut adlı bir dizin oluşturur `WordCount` geçerli konumda içeren temel b
 
 Oluşturulan test ve uygulama dosyalarını silin:
 
-* **src\test\java\com\microsoft\example\AppTest.Java**
-* **src\main\java\com\microsoft\example\App.Java**
+* **src\test\java\com\microsoft\example\AppTest.java**
+* **src\main\java\com\microsoft\example\App.java**
 
 ## <a name="add-maven-repositories"></a>Maven depoları ekleme
 

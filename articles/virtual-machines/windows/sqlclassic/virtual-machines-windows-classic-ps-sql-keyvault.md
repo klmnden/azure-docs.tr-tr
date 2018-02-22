@@ -4,7 +4,7 @@ description: "Azure anahtar kasası ile kullanmak için SQL Server şifrelemesi 
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5fd0fb1f8ac9bb0132c64c195d4cc9c86ef8edd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>SQL Server için Azure anahtar kasası tümleştirme Azure sanal makinelerde (Klasik) yapılandırma
 > [!div class="op_single_selector"]
@@ -53,8 +53,8 @@ Aşağıdaki tabloda bir sonraki bölümde PowerShell betiğini çalıştırmak 
 | Parametre | Açıklama | Örnek |
 | --- | --- | --- |
 | **$akvURL** |**Anahtar kasası URL'si** |"https://contosokeyvault.vault.azure.net/" |
-| **$spName** |**Hizmet asıl adı** |"fde2b411 - 33d 5-4e11-af04eb07b669ccf2" |
-| **$spSecret** |**Hizmet asıl gizli anahtarı** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =" |
+| **$spName** |**Hizmet asıl adı** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
+| **$spSecret** |**Hizmet asıl gizli anahtarı** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Kimlik bilgisi adı**: AKV Tümleştirme, VM’nin anahtar kasasına erişim sağlamasına izin vererek, SQL Server’da bir kimlik bilgisi oluşturur Bu kimlik bilgisi için bir ad seçin. |"mycred1" |
 | **$vmName** |**Sanal makine adı**: önceden oluşturulmuş bir SQL VM adı. |"myvmname" |
 | **$serviceName** |**Hizmet adı**: SQL VM ile ilişkili bulut hizmeti adını. |"mycloudservicename" |

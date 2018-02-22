@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js web uygulamasına Başlarken
 Burada Passport kullanın:
@@ -48,14 +48,14 @@ De Bu öğretici sonunda tamamlanmış uygulama sağlanır.
 
 2. Sayfanın en üstündeki menüde hesabınızı seçin. Altında **Directory** listesinde, Active Directory Kiracı uygulamanızı kaydetmek istediğiniz yeri seçin.
 
-3. Seçin **daha Hizmetleri** ekran ve ardından sol tarafındaki menüde **Azure Active Directory**.
+3. Seçin **tüm hizmetleri** ekran ve ardından sol tarafındaki menüde **Azure Active Directory**.
 
 4. Seçin **uygulama kayıtlar**ve ardından **Ekle**.
 
 5. Oluşturmak için istemleri izleyerek bir **Web uygulaması** ve/veya **Webapı**.
   * **Adı** kullanıcılar uygulamanıza uygulamayı açıklar.
 
-  * **Oturum açma URL'si** , uygulamanızın temel URL.  Çatıyı 's varsayılandır ' http://localhost: 3000/auth/openıd/return ''.
+  * **Oturum açma URL'si** , uygulamanızın temel URL.  Çatıyı ait varsayılan `http://localhost:3000/auth/openid/return`.
 
 6. Azure AD kaydettikten sonra uygulamanızı bir benzersiz uygulama kimliği atar. Bu değer gereken aşağıdaki bölümlerde, bu nedenle uygulama sayfasından kopyalayın.
 7. Gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si güncelleştirin. **Uygulama kimliği URI'si** uygulamanız için benzersiz bir tanımlayıcıdır. Kuralı biçim kullanmaktır `https://<tenant-domain>/<app-name>`, örneğin: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -252,7 +252,7 @@ Passport, strateji yazarlarının hepsinin bağlı tüm kendi stratejileri (Twit
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4. adım: Azure AD ile oturum açma ve oturum kapatma isteklerini yürütmek için Passport kullan
-Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak uç noktasıyla iletişim kurmak için düzgün şekilde yapılandırılmıştır.  `passport-azure-ad`alınan kimlik doğrulama iletileri hazırlayın, Azure AD'den belirteçleri doğrulamak ve kullanıcı oturumlarını koruma tüm ayrıntılarını verdiğiniz. Kalan tüm kullanıcılarınızın bir şekilde oturum açabilir ve oturumu vermiş ve oturum açmış kullanıcılar hakkında ek bilgi toplanıyor.
+Uygulamanız artık Openıd Connect kimlik doğrulama protokolü kullanarak uç noktasıyla iletişim kurmak için düzgün şekilde yapılandırılmıştır.  `passport-azure-ad` alınan kimlik doğrulama iletileri hazırlayın, Azure AD'den belirteçleri doğrulamak ve kullanıcı oturumlarını koruma tüm ayrıntılarını verdiğiniz. Kalan tüm kullanıcılarınızın bir şekilde oturum açabilir ve oturumu vermiş ve oturum açmış kullanıcılar hakkında ek bilgi toplanıyor.
 
 1. İlk olarak, varsayılan, oturum açma, hesap ve oturum kapatma yöntemlerini ekleyelim bizim `app.js` dosyası:
 

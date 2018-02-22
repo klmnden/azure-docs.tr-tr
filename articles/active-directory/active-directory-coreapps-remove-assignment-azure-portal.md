@@ -3,7 +3,7 @@ title: "Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya gru
 description: "Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup erişimi atamasını kaldırmak nasıl"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: MarkusVi
 manager: mtillman
 editor: 
 ms.assetid: 7b2d365b-ae92-477f-9702-353cc6acc5ea
@@ -12,36 +12,63 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: curtand
+ms.date: 02/14/2018
+ms.author: markvi
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 8459f9a890f6f57e8c93da9b1d703449b09ba666
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 084ffcbe473290a8734b1c8b8847b517dac4f6b6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup ataması kaldırma
 Bir kullanıcı veya grup erişimi Azure Active Directory'de (Azure AD), Kurumsal uygulamalarınızın birini atanmasına kaldırmak daha kolaydır. Kuruluş uygulama yönetmek için uygun izinlere sahip olmalıdır ve dizin için genel yönetici olmanız gerekir.
 
-## <a name="how-do-i-remove-a-user-or-group-assignment"></a>Bir kullanıcı veya grup ataması nasıl kaldırabilirim?
+> [!NOTE]
+> İçin Microsoft Applications (örneğin, Office 365 uygulamaları), Kurumsal uygulama kullanıcılara kaldırmak için PowerShell kullanın.
+
+## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Nasıl bir kullanıcı veya grup ataması Kurumsal uygulama için Azure portalında kaldırabilirim?
 1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
 2. Seçin **daha fazla hizmet**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
-3. Üzerinde **Azure Active Directory - *directoryname***  (diğer bir deyişle, Azure AD dikey yönettiğiniz dizin için), dikey penceresinde seçin **kurumsal uygulamalar**.
+3. Üzerinde **Azure Active Directory - *directoryname***  seçme sayfası (diğer bir deyişle, Azure AD sayfa yönettiğiniz dizin için), **kurumsal uygulamalar**.
 
     ![Açılış Kurumsal uygulamaları](./media/active-directory-coreapps-remove-assignment-user-azure-portal/open-enterprise-apps.png)
-4. Üzerinde **kurumsal uygulamalar** dikey penceresinde, select **tüm uygulamaları**. Yönetebileceğiniz uygulamaların bir listesini görürsünüz.
-5. Üzerinde **kurumsal uygulamalar - tüm uygulamaları** dikey penceresinde, bir uygulama seçin.
-6. Üzerinde ***appname*** dikey penceresinde (diğer bir deyişle, dikey penceresinde seçili uygulamasının başlık adı ile) seçin **kullanıcıları ve grupları**.
+4. Üzerinde **kurumsal uygulamalar** sayfasında, **tüm uygulamaları**. Yönetebileceğiniz uygulamaların bir listesini görürsünüz.
+5. Üzerinde **kurumsal uygulamalar - tüm uygulamaları** sayfasında, bir uygulama seçin.
+6. Üzerinde ***appname*** seçme sayfası (diğer bir deyişle, Sayfa başlığında seçilen uygulamanın adını), **kullanıcıları ve grupları**.
 
     ![Kullanıcıları veya grupları seçme](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-app-users.png)
-7. Üzerinde ***appname*** **-kullanıcı ve grup atama** dikey penceresinde, daha fazla kullanıcı veya grup seçin ve ardından **kaldırmak** komutu. Kararınızı satırında onaylayın.
+7. Üzerinde ***appname*** **-kullanıcı ve grup atama** sayfasında, daha fazla kullanıcı veya grup seçin ve ardından **kaldırmak** komutu. Kararınızı satırında onaylayın.
 
     ![Remove komutu seçme](./media/active-directory-coreapps-remove-assignment-user-azure-portal/remove-users.png)
 
+## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>Bir kullanıcı veya grup ataması PowerShell kullanarak bir kurumsal uygulama için nasıl kaldırabilirim?
+1. Yükseltilmiş bir Windows PowerShell komut istemi açın.
+
+    >[!NOTE] 
+    > Azuread'i modülü yüklemeniz gerekir (komutunu `Install-Module -Name AzureAD`). NuGet modülü veya yeni Azure Active Directory V2 PowerShell modülü yüklemek isteyip istemediğiniz sorulduğunda Y yazın ve ENTER tuşuna basın.
+
+2. Çalıştırma `Connect-AzureAD` ve bir genel yönetici kullanıcı hesabıyla oturum açın.
+3. Bir kullanıcı ve rol uygulamaya atamak için aşağıdaki komut dosyasını kullanın:
+
+    ```powershell
+    # Store the proper parameters
+    $user = get-azureaduser -ObjectId <objectId>
+    $spo = Get-AzureADServicePrincipal -ObjectId <objectId>
+
+    #Get the ID of role assignment 
+    $assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId | Where {$_.PrincipalDisplayName -eq $user.DisplayName}
+
+    #if you run the following, it will show you what is assigned what
+    $assignments | Select *
+
+    #To remove the App role assignment run the following command.
+    Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
+    ``` 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Tüm my gruplarının bakın](active-directory-groups-view-azure-portal.md)
-* [Bir kullanıcı veya grup için bir kuruluş uygulama atama](active-directory-coreapps-assign-user-azure-portal.md)
-* [Kullanıcı oturum açma işlemleri bir kurumsal uygulama için devre dışı bırak](active-directory-coreapps-disable-app-azure-portal.md)
-* [Adını veya bir kuruluş uygulama logosunu değiştirme](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+
+- [Tüm my gruplarının bakın](active-directory-groups-view-azure-portal.md)
+- [Bir kullanıcı veya grup için bir kuruluş uygulama atama](active-directory-coreapps-assign-user-azure-portal.md)
+- [Kullanıcı oturum açma işlemleri bir kurumsal uygulama için devre dışı bırak](active-directory-coreapps-disable-app-azure-portal.md)
+- [Adını veya bir kuruluş uygulama logosunu değiştirme](active-directory-coreapps-change-app-logo-user-azure-portal.md)

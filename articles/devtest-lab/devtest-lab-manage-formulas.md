@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formüller yönetme
 
@@ -40,7 +40,7 @@ Aşağıdaki adımlar bir formül özel bir görüntü, Market görüntüsü ya 
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-2. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+2. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 
 3. İstenen Laboratuvar labs listesinden seçin.  
 
@@ -87,7 +87,7 @@ Aşağıdaki adımları var olan bir VM temelinde bir formül oluşturma işlemi
 > 
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-2. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+2. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 3. İstenen Laboratuvar labs listesinden seçin.  
 4. Laboratuvar 's üzerinde **genel bakış** dikey penceresinde, istediğiniz formül oluşturmak VM seçin.
    
@@ -104,7 +104,7 @@ Aşağıdaki adımları var olan bir VM temelinde bir formül oluşturma işlemi
 Bir formülü değiştirmek için aşağıdaki adımları izleyin:
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-2. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+2. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 3. İstenen Laboratuvar labs listesinden seçin.  
 4. Laboratuvar 's dikey penceresinde, seçin **formüller (yeniden kullanılabilir tabanları)**.
    
@@ -116,7 +116,7 @@ Bir formülü değiştirmek için aşağıdaki adımları izleyin:
 Formül silmek için aşağıdaki adımları izleyin:
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-2. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+2. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 3. İstenen Laboratuvar labs listesinden seçin.  
 4. Laboratuvar üzerinde **ayarları** dikey penceresinde, select **formüller**.
    

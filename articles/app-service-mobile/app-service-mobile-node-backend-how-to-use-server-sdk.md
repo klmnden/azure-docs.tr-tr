@@ -14,50 +14,53 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Azure Mobile Apps Node.js SDK'sını kullanma
+# <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK'sını kullanma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
-Bu makale, ayrıntılı bilgiler ve Azure App Service Mobile Apps Node.js arka ucu ile nasıl çalışılacağını gösteren örnekler sağlar.
+Bu makalede ayrıntılı bilgiler sağlar ve bir Node.js ile nasıl çalışacağınızı örnekler arka uç, Azure App Service Mobile Apps özelliğidir.
 
 ## <a name="Introduction"></a>Giriş
-Azure App Service Mobile Apps bir web uygulamasına mobile için iyileştirilmiş veri erişimi Web API ekleme yeteneği sağlar.  Azure App Service Mobile Apps SDK'sı, ASP.NET ve Node.js web uygulamaları için sağlanır.  SDK, aşağıdaki işlemleri sağlar:
+Mobile Apps bir web uygulamasına mobile için iyileştirilmiş veri erişimi Web API ekleme yeteneği sağlar. Mobile Apps SDK'sı, ASP.NET ve Node.js web uygulamaları için sağlanır. SDK, aşağıdaki işlemleri sağlar:
 
-* Veri erişimi için tablo işlemleri (okuma, INSERT, Update, Delete)
+* Tablo işlemleri (okuma, Ekle, Güncelleştir, Sil) veri erişimi
 * Özel API işlemleri
 
-İki işlem kimlik doğrulaması için Kurumsal kimlik için Facebook, Twitter, Google ve Microsoft yanı sıra Azure Active Directory gibi sosyal kimlik sağlayıcıları dahil olmak üzere Azure App Service tarafından izin verilen tüm kimlik sağlayıcıları üzerinden sağlar.
+İki işlem kimlik doğrulaması için Azure uygulama hizmeti sağlayan tüm kimlik sağlayıcıları sağlar. Bu sağlayıcıları kuruluş kimliği için Facebook, Twitter, Google ve Microsoft yanı sıra Azure Active Directory gibi sosyal kimlik sağlayıcıları içerir.
 
 Her kullanım örneğine ilgili örnekleri bulabilirsiniz [örnekler dizini github'da].
 
 ## <a name="supported-platforms"></a>Desteklenen platformlar
-Azure Mobile Apps düğümü SDK geçerli LTS sürüm düğümünün ve daha sonra destekler.  Makalenin yazıldığı sırada son LTS düğümü v4.5.0 sürümüdür.  Düğüm'ın diğer sürümleri çalışabilir, ancak desteklenmez.
+Mobile Apps Node.js SDK'sı geçerli LTS sürüm düğümünün ve daha sonra destekler. Şu anda, en son LTS düğümü v4.5.0 sürümüdür. Düğüm'ın diğer sürümleri çalışabilir ancak desteklenmez.
 
-Azure Mobile Apps düğümü SDK iki veritabanı sürücülerini destekler - düğüm mssql sürücü SQL Azure ve yerel SQL Server örnekleri destekler.  Sqlite3 sürücü üzerinde yalnızca tek bir örneği SQLite veritabanlarını destekler.
+Mobile Apps Node.js SDK'sı iki veritabanı sürücüleri destekler: 
 
-### <a name="howto-cmdline-basicapp"></a>Nasıl yapılır: komut satırını kullanarak bir temel Node.js arka ucu oluşturma
-Her Azure App Service Mobile uygulama Node.js arka ucu bir ExpressJS uygulamayı başlatır.  ExpressJS en popüler web service Node.js için kullanılabilir çerçevesidir.  Temel bir oluşturabileceğiniz [Express] şekilde uygulama:
+* Düğüm mssql sürücüsü Azure SQL Database ve yerel SQL Server örnekleri destekler.  
+* Sqlite3 sürücü üzerinde yalnızca tek bir örneği SQLite veritabanlarını destekler.
 
-1. Bir komut veya PowerShell penceresi projeniz için bir dizin oluşturun.
+### <a name="howto-cmdline-basicapp"></a>Komut satırını kullanarak basit bir Node.js arka ucu oluşturma
+Her mobil uygulamaları Node.js arka ucu bir ExpressJS uygulamayı başlatır. ExpressJS en popüler web service Node.js için kullanılabilir çerçevesidir. Temel bir oluşturabileceğiniz [Express] şekilde uygulama:
+
+1. Bir komut veya PowerShell penceresi projeniz için bir dizin oluşturun:
 
         mkdir basicapp
-2. Paket yapısı başlatmak için npm init çalıştırın.
+2. Çalıştırma `npm init` paket yapısı başlatılamadı:
 
         cd basicapp
         npm init
 
-    Npm init komutu bir dizi proje başlatılamadı sorular sorar.  Örnek çıktı bakın:
+   `npm init` Komutu bir dizi proje başlatılamadı sorular sorar. Örnek çıktı bakın:
 
-    ![Npm init çıktı][0]
-3. Hızlı ve azure mobile apps kitaplıkları npm depodan yükleyin.
+   ![Npm init çıktı][0]
+3. Yükleme `express` ve `azure-mobile-apps` npm depodan kitaplıklar:
 
         npm install --save express azure-mobile-apps
-4. Temel mobil sunucu uygulamak için bir app.js dosyası oluşturun.
+4. Temel mobil sunucu uygulamak için bir app.js dosyası oluşturun:
 
         var express = require('express'),
             azureMobileApps = require('azure-mobile-apps');
@@ -65,118 +68,120 @@ Her Azure App Service Mobile uygulama Node.js arka ucu bir ExpressJS uygulamayı
         var app = express(),
             mobile = azureMobileApps();
 
-        // Define a TodoItem table
+        // Define a TodoItem table.
         mobile.tables.add('TodoItem');
 
-        // Add the mobile API so it is accessible as a Web API
+        // Add the Mobile API so it is accessible as a Web API.
         app.use(mobile);
 
-        // Start listening on HTTP
+        // Start listening on HTTP.
         app.listen(process.env.PORT || 3000);
 
-Bu uygulama ile tek bir uç noktası mobil iyileştirilmiş Webapı oluşturur (`/tables/TodoItem`) dinamik Şeması'nı kullanarak bir arka plandaki SQL veri deposu kimlik doğrulamasız erişim sağlar.  İstemci Kitaplığı hızlı başlangıçlar izlemek için uygundur:
+Bu uygulama bir mobil iyileştirilmiş Web API ile tek bir uç noktası oluşturur (`/tables/TodoItem`) dinamik şemasını kullanarak kimliği doğrulanmamış bir temel alınan SQL veri deposuna erişimi sağlar. İstemci Kitaplığı quickstarts izlemek için uygundur:
 
 * [Android istemci hızlı başlangıç]
 * [Apache Cordova istemci hızlı başlangıç]
 * [iOS istemci hızlı başlangıç]
 * [Windows mağazası istemci hızlı başlangıç]
-* [Xamarin.iOS istemcisi hızlı başlangıç]
-* [Xamarin.Android istemcisi hızlı başlangıç]
+* [Xamarin.iOS client quickstart]
+* [Xamarin.Android client quickstart]
 * [Xamarin.Forms istemci hızlı başlangıç]
 
 Bu temel uygulamada kodu bulabilirsiniz [basicapp örnek github'da].
 
-### <a name="howto-vs2015-basicapp"></a>Nasıl yapılır: Visual Studio 2015 ile birlikte bir düğüm arka ucu oluşturma
-Visual Studio 2015 IDE içinden Node.js uygulamaları geliştirmek için uzantı gerektirir.  Başlatmak için Yükle [Visual Studio için Node.js araçları 1.1].  Visual Studio için Node.js araçları yüklendikten sonra bir Express 4.x uygulaması oluşturun:
+### <a name="howto-vs2015-basicapp"></a>Visual Studio 2015 kullanarak bir Node.js arka ucu oluşturma
+Visual Studio 2015 IDE içinden Node.js uygulamaları geliştirmek için uzantı gerektirir. Başlatmak için Yükle [Visual Studio için Node.js araçları 1.1]. Yüklemeyi bitirdikten sonra bir Express 4.x uygulaması oluşturun:
 
-1. Açık **yeni proje** iletişim (gelen **dosya** > **yeni** > **proje...** ).
+1. Açık **yeni proje** iletişim kutusu (gelen **dosya** > **yeni** > **proje**).
 2. Genişletme **şablonları** > **JavaScript** > **Node.js**.
 3. Seçin **temel Azure Node.js Express 4 uygulama**.
-4. Proje adı girin.  *OK (Tamam)* düğmesine tıklayın.
+4. Proje adı girin. **Tamam**’ı seçin.
 
-    ![Visual Studio 2015 yeni proje][1]
-5. Sağ **npm** düğümü ve select **yüklemek yeni npm paket...** .
-6. İlk Node.js uygulamanızı oluşturma npm katalog yenilemeniz gerekebilir.  Tıklatın **yenileme** gerekiyorsa.
-7. Girin *azure mobile apps* arama kutusuna.  Tıklatın **azure mobile apps 2.0.0** paketini ve ardından **paket yükleme**.
+   ![Visual Studio 2015 yeni proje][1]
+5. Sağ **npm** düğümü ve select **yükleme yeni npm paket**.
+6. İlk Node.js uygulamanızı oluşturduktan sonra npm katalog yenilemeniz gerekebilir. Seçin **yenileme** gerekiyorsa.
+7. Girin **azure mobile apps** arama kutusuna. Seçin **azure mobile apps 2.0.0** paketini ve ardından **paket yükleme**.
 
-    ![Yeni npm paket yüklemek için][2]
-8. **Kapat**’a tıklayın.
-9. Açık *app.js* Azure Mobile Apps SDK'sı için destek eklemek için dosya.  6 at kitaplığı alt satırında deyimleri gerektirir, aşağıdaki kodu ekleyin:
+   ![Yeni npm paket yüklemek için][2]
+8. Seçin **Kapat**.
+9. Mobile Apps SDK'sı için destek eklemek için app.js dosyasını açın. AT 6 at kitaplığı alt çizgi `require` ifadeleri, aşağıdaki kodu ekleyin:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
 
-    Yaklaşık satırında 27 diğer app.use deyimleri sonra aşağıdaki kodu ekleyin:
+   AT yaklaşık satır 27 art arda `app.use` ifadeleri, aşağıdaki kodu ekleyin:
 
         app.use('/users', users);
 
-        // Azure Mobile Apps Initialization
+        // Mobile Apps initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
         app.use(mobile);
 
-    Dosyayı kaydedin.
+   Dosyayı kaydedin.
 10. (API http://localhost: 3000 üzerinde sunulur) uygulamayı yerel olarak çalıştırın ya da Azure'a yayımlayacaksınız.
 
-### <a name="create-node-backend-portal"></a>Nasıl yapılır: Azure portalını kullanarak bir Node.js arka ucu oluşturma
-Bir mobil uygulama arka uç hakkı oluşturabilirsiniz [Azure portal]. Aşağıdaki adımları izleyin veya izleyerek bir istemci ve sunucu birlikte oluşturabilirsiniz [mobil uygulama oluşturma](app-service-mobile-ios-get-started.md) Öğreticisi. Öğreticinin bu yönergeleri basitleştirilmiş bir sürümünü içerir ve kavram projeleri kanıtı için en iyisidir.
+### <a name="create-node-backend-portal"></a>Azure portalı kullanarak bir Node.js arka ucu oluşturma
+Mobile Apps arka plan sağ oluşturabilirsiniz, [Azure portal]. Aşağıdaki adımları tamamlayın veya izleyerek bir istemci ve sunucu birlikte oluşturabilirsiniz [mobil uygulama oluşturma](app-service-mobile-ios-get-started.md) Öğreticisi. Öğreticinin bu yönergeleri basitleştirilmiş bir sürümünü içerir ve kavram kanıtı projeleri için en iyisidir.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-Geri *başlama* dikey altında **tablo API Oluştur**, seçin **Node.js** olarak, **arka uç dilinizi**.
-Onay kutusunu için "**bu tüm site içeriğini. üzerine yazacağını kabul ediyorum**", ardından **Todoıtem tablosu oluştur**.
+Geri **başlama** bölmesi altında **tablo API Oluştur**, seçin **Node.js** arka uç dilinizi olarak.
+Kutusunu seçin **bu tüm site içeriğinin üzerine yazacağını kabul ediyorum**ve ardından **Todoıtem tablosu oluştur**.
 
-### <a name="download-quickstart"></a>Nasıl yapılır: Git kullanarak Node.js arka uç hızlı başlangıç kod projesi indirme
-Portalı kullanarak bir Node.js mobil uygulama arka ucu oluşturduğunuzda **Hızlı Başlangıç** dikey penceresinde, bir Node.js projesi için oluşturduğunuz ve sitenize dağıtılır. Tabloları ve API'ları ekleyin ve Portalı'nda Node.js arka ucu için kod dosyaları düzenleyin. Böylece ekleyin veya tablolar ve API'ları değiştirmek sonra projeyi yeniden yayımlamanız arka uç projesini indirmek için çeşitli dağıtım araçları da kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure App Service Deployment Guide]. Aşağıdaki yordam, hızlı başlangıç projesi kodu indirmek için bir Git deposu kullanır.
+### <a name="download-quickstart"></a>Git kullanarak Node.js arka uç hızlı başlangıç kod projesi indirme
+Portal kullanarak bir Node.js Mobile Apps arka uç oluşturduğunuzda **Hızlı Başlangıç** bölmesinde, bir Node.js projesi için oluşturduğunuz ve sitenize dağıtılabilir. Portalda, tablolar ve API'ları ekleyin ve Node.js arka ucu için kod dosyaları düzenleyin. Böylece ekleyin veya tablolar ve API'ları değiştirmek ve projeyi yeniden yayımlamanız arka uç projesi indirmek için çeşitli dağıtım araçları da kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure uygulama hizmeti Dağıtım Kılavuzu'nu]. 
 
-1. Zaten yapmadıysanız Git'i, yükleyin. Git yüklemek için gereken adımlar, işletim sistemleri arasında farklılık gösterir. Bkz: [yükleme Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) işletim sistemine özgü dağıtımları ve yükleme yönergeleri için.
-2. Adımları [uygulama hizmeti uygulama havuzu etkinleştirmek](../app-service/app-service-deploy-local-git.md#Step3) dağıtım kullanıcı adı ve parola Not yapmadan arka uç sitenizin Git deposunu etkinleştirmek için.
-3. Mobil uygulama arka ucu için dikey penceresinde, Not **Git kopyalama URL'si** ayarı.
-4. Yürütme `git clone` Git kullanarak komutu kopyalama, aşağıdaki örnekte olduğu gibi gerekli olduğunda parolanızı girmeden URL:
+Aşağıdaki yordam, hızlı başlangıç projesi kodu indirmek için bir Git deposu kullanır:
+
+1. Zaten yapmadıysanız Git'i, yükleyin. Git yüklemek için gereken adımlar, işletim sistemleri arasında farklılık gösterir. İşletim sistemine özgü dağıtımları ve yükleme yönergeleri için bkz: [yükleme Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
+2. Adımları [uygulama hizmeti uygulama havuzu etkinleştirmek](../app-service/app-service-deploy-local-git.md#Step3) arka uç sitenizin Git deposunu etkinleştirmek için. Dağıtım kullanıcı adı ve parola not edin.
+3. Mobile Apps arka uç için bölmesinde Not **Git kopyalama URL'si** ayarı.
+4. Yürütme `git clone` Git kopyalama URL'si kullanarak komutu. Gerektiğinde, aşağıdaki örnekte olduğu gibi parolanızı girin:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
-5. Olan önceki örnekte /todolist yerel dizinine göz atın ve proje dosyalarını yüklendi dikkat edin. Bulun `todoitem.json` dosyasını `/tables` dizin.  Bu dosya, tablo üzerinde izinleri tanımlar.  Ayrıca bulmak `todoitem.js` , CRUD işlemi tanımlar aynı dizinde dosya tablosu için komut dosyası.
-6. Proje dosyalarına değişiklikleri yaptıktan sonra Ekle, yürütme ve ardından değişiklikleri siteye yüklemek için aşağıdaki komutları yürütün:
+5. Yerel dizine gözatın (`/todolist` önceki örnekte) ve proje dosyalarını yüklendi dikkat edin. Todoitem.json dosyasında bulun `/tables` dizin. Bu dosya, tablo üzerinde izinleri tanımlar. Ayrıca aynı dizinde todoitem.js dosyasını bulun. Tablo için CRUD işlemi betikleri tanımlar.
+6. Proje dosyalarını eklemek için aşağıdaki komutları çalıştırın, değişiklikleri yaptıktan sonra kaydetmek ve siteye değişiklikleri karşıya yükle:
 
         $ git commit -m "updated the table script"
         $ git push origin master
 
-    Projeye yeni dosyalar eklediğinizde, önce yürütülecek gerekir `git add .` komutu.
+   Projeye yeni dosyalar eklediğinizde, ilk kez çalıştırmanız gereken `git add .` komutu.
 
 İşlemeleri yeni bir dizi siteye gönderilen her zaman site yeniden yayımlanacak.
 
-### <a name="howto-publish-to-azure"></a>Nasıl yapılır: Node.js arka ucu için Azure yayımlama
-Microsoft Azure, Azure App Service Mobile Apps Node.js arka uç Azure hizmetine yayımlamak için birçok mekanizma sağlar.  Bunlar, Visual Studio'ya tümleşik dağıtım araçları, komut satırı araçları ve kaynak denetimine bağlı sürekli dağıtım seçenekleri kullanılarak içerir.  Bu konu hakkında daha fazla bilgi için bkz: [Azure App Service Deployment Guide].
+### <a name="howto-publish-to-azure"></a>Node.js arka ucunuz için Azure yayımlama
+Microsoft Azure Mobile Apps Node.js yayımlamak için birçok mekanizma arka uç Azure hizmeti sağlar. Bu düzenekler Visual Studio'ya tümleşik dağıtım araçları, komut satırı araçları ve kaynak denetimine bağlı sürekli dağıtım seçenekleri içerir. Daha fazla bilgi için bkz: [Azure uygulama hizmeti Dağıtım Kılavuzu'nu].
 
-Azure uygulama hizmeti dağıtmadan önce gözden geçirmeniz gereken Node.js uygulama için ilgili bir uzmana sahiptir:
+Azure uygulama hizmeti olan belirli önerileri gözden geçirmeniz gereken Node.js uygulamaları için arka uç yayımlamadan önce:
 
 * Nasıl yapılır [düğümü sürüm belirtin]
 * Nasıl yapılır [düğümü modüllerini kullanma]
 
-### <a name="howto-enable-homepage"></a>Nasıl yapılır: bir giriş sayfası, uygulamanız için etkinleştirme
-Birçok uygulama, web ve mobil uygulamaları birleşimidir ve ExpressJS framework, iki modelleri birleştirmenize izin verir.  Bazı durumlarda, ancak yalnızca bir mobil arabirimi uygulamak isteyebilirsiniz.  Uygulama hizmeti emin olmak için bir giriş sayfası çalışır durumda sağlamak kullanışlıdır.  Giriş sayfası sağlayın veya geçici bir giriş sayfası etkinleştirin.  Geçici bir giriş sayfasını etkinleştirmek için Azure Mobile Apps örneği oluşturmak için aşağıdakileri kullanın:
+### <a name="howto-enable-homepage"></a>Uygulamanız için bir giriş sayfası etkinleştir
+Birçok uygulama, web ve mobil uygulamaları birleşimidir. İki modelleri birleştirmek için ExpressJS çerçevesini kullanabilirsiniz. Bazı durumlarda, ancak yalnızca bir mobil arabirimi uygulamak isteyebilirsiniz. Uygulama hizmeti çalışır durumda olduğundan emin olmak için bir giriş sayfası sağlamak kullanışlı ve çalışır durumdadır. Giriş sayfası sağlayın veya geçici bir giriş sayfası etkinleştirin. Geçici bir giriş sayfası etkinleştirmek için mobil uygulamaları oluşturmak için aşağıdaki kodu kullanın:
 
     var mobile = azureMobileApps({ homePage: true });
 
-Yalnızca kullanılabilen bu seçenek yerel olarak geliştirirken istiyorsanız, bu ayar ekleyebilirsiniz, `azureMobile.js` dosya.
+Yalnızca kullanılabilen bu seçenek yerel olarak geliştirirken istiyorsanız, bu ayar, azureMobile.js dosyasına ekleyebilirsiniz.
 
 ## <a name="TableOperations"></a>Tablo işlemleri
-Azure mobile apps Node.js sunucusu SDK'sı bir Webapı olarak Azure SQL veritabanında depolanan veri tabloları kullanıma sunmak için mekanizma sağlar.  Beş işlem sağlanır.
+Azure mobile apps Node.js sunucusu SDK'sı bir Web API olarak Azure SQL veritabanında depolanan veri tabloları kullanıma sunmak için mekanizma sağlar. Beş işlemleri sağlar:
 
 | İşlem | Açıklama |
 | --- | --- |
-| GET /tables/*tablename* |Tüm kayıtların tabloda Al |
-| GET /tables/*tablename*/:id |Belirli bir kayıt tabloda Al |
-| POST /tables/*tablename* |Tabloda bir kayıt oluşturun |
-| Düzeltme eki /tables/*tablename*/:id |Tablodaki bir kaydı güncelleştirmeye |
-| DELETE /tables/*tablename*/:id |Tabloyu kayıt silme |
+| GET /tables/*tablename* |Tüm kayıtların tabloda alın. |
+| GET /tables/*tablename*/:id |Belirli bir kayıt tabloda alın. |
+| POST /tables/*tablename* |Bir kayıt tablosu oluşturun. |
+| Düzeltme eki /tables/*tablename*/:id |Tablodaki bir kaydın güncelleştirin. |
+| DELETE /tables/*tablename*/:id |Tablodaki kaydını silin. |
 
-Bu Webapı destekleyen [OData] ve desteklemek için tablo şemasını genişletir [çevrimdışı veri eşitlemeye].
+Bu Web API'sini destekleyen [OData] ve desteklemek için tablo şemasını genişletir [çevrimdışı veri eşitlemeye].
 
-### <a name="howto-dynamicschema"></a>Nasıl yapılır: dinamik bir şema kullanarak tabloları tanımlayın
-Bir tablo kullanılabilmesi için tanımlanmalıdır.  Tabloları (burada şeması içindeki sütun tanımlar Geliştirici) statik bir şema veya dinamik olarak tanımlanabilir (burada SDK gelen istekleri temel alan şema denetler). Ayrıca, geliştirici tanımına Javascript kodu ekleyerek Webapı belirli yönlerini kontrol edebilir.
+### <a name="howto-dynamicschema"></a>Dinamik bir şema kullanarak tabloları tanımlayın
+Bir tablo kullanmadan önce tanımlamanız gerekir. (Burada yer alan şemada sütunları tanımlayın) statik şeması kullanarak tabloları tanımlayabilirsiniz veya dinamik olarak (SDK gelen istekleri temel alan şema denetimleri yerlerde). Ayrıca, JavaScript kodu tanımına ekleyerek Web API belirli yönlerini kontrol edebilir.
 
-En iyi uygulama, tablolar dizindeki Javascript dosyasında her tablo tanımlamanız sonra tabloları tables.import() yöntemi kullanın.  Temel uygulama genişletme, app.js dosya ayarlanması:
+En iyi uygulama, bir JavaScript dosyasında her tablo tanımlamanız gerekir `tables` dizin ve ardından `tables.import()` tabloları yöntemi. Basic uygulaması örneği genişletme, app.js dosya ayarlamanız:
 
     var express = require('express'),
         azureMobileApps = require('azure-mobile-apps');
@@ -184,15 +189,15 @@ En iyi uygulama, tablolar dizindeki Javascript dosyasında her tablo tanımlaman
     var app = express(),
         mobile = azureMobileApps();
 
-    // Define the database schema that is exposed
+    // Define the database schema that is exposed.
     mobile.tables.import('./tables');
 
-    // Provide initialization of any tables that are statically defined
+    // Provide initialization of any tables that are statically defined.
     mobile.tables.initialize().then(function () {
-        // Add the mobile API so it is accessible as a Web API
+        // Add the Mobile API so it is accessible as a Web API.
         app.use(mobile);
 
-        // Start listening on HTTP
+        // Start listening on HTTP.
         app.listen(process.env.PORT || 3000);
     });
 
@@ -202,100 +207,111 @@ Tabloda tanımlayın. / tables/TodoItem.js:
 
     var table = azureMobileApps.table();
 
-    // Additional configuration for the table goes here
+    // Additional configuration for the table goes here.
 
     module.exports = table;
 
-Tablolar, varsayılan olarak dinamik şema kullanın.  Dinamik şema genel etkinleştirmek için uygulama ayarı **MS_DynamicSchema** Azure portalındaki false.
+Tablolar, varsayılan olarak dinamik bir şema kullanın. Dinamik şema genel olarak kapatmak için ayarlayın `MS_DynamicSchema` false Azure portalında uygulama ayarı.
 
 Tam bir örnek bulabilirsiniz [Yapılacaklar örneği github'daki].
 
-### <a name="howto-staticschema"></a>Nasıl yapılır: statik Şeması'nı kullanarak tabloları tanımlayın
-Açıkça Webapı kullanıma sunmak için sütunları tanımlayabilirsiniz.  Azure mobile apps Node.js SDK'sı çevrimdışı veri eşitlemeye sağladığınız listesine için gerekli ek sütunlar otomatik olarak ekler.  Örneğin, hızlı başlangıç istemci uygulamaları iki sütun içeren bir tablo gerektirir: metin (dize) ve (Boole) tamamlayın.  
-Tablonun (tablolar dizininde bulunur) tablo tanımı JavaScript dosyasında şu şekilde tanımlanabilir:
+### <a name="howto-staticschema"></a>Statik bir şema kullanarak tabloları tanımlayın
+Web API kullanıma sunmak için sütunları açıkça tanımlayabilirsiniz. Azure mobile apps Node.js SDK'sı çevrimdışı veri eşitlemeye sağladığınız listesine için gerekli ek sütunları otomatik olarak ekler. Örneğin, hızlı başlangıç istemci uygulamaları iki sütun içeren bir tablo gerektirir: `text` (dize) ve `complete` (Boole).  
+Tablo tablo tanımı JavaScript dosyasında tanımlanabilir (bulunan `tables` dizin) gibi:
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define the columns within the table
+    // Define the columns within the table.
     table.columns = {
         "text": "string",
         "complete": "boolean"
     };
 
-    // Turn off dynamic schema
+    // Turn off the dynamic schema.
     table.dynamicSchema = false;
 
     module.exports = table;
 
-Tabloları statik olarak tanımlarsanız, başlangıçta veritabanı şeması oluşturmak için tables.initialize() yöntemini de çağırmalıdır.  Tables.initialize() yöntemi döndürür bir [Promise] böylece web hizmeti isteklerinin başlatılmakta veritabanı önce sunmuyor.
+Tabloları statik olarak tanımlarsanız, ayrıca çağırmalısınız `tables.initialize()` yöntemi başlangıçta veritabanı şeması oluşturulamadı. `tables.initialize()` Yöntemi döndürür bir [promise] böylece veritabanı başlatılmadan önce web hizmeti isteklerinin sunmuyor.
 
-### <a name="howto-sqlexpress-setup"></a>Nasıl yapılır: yerel makinenizde geliştirme veri deposu olarak kullanmak SQL Express'i
-Azure Mobile Apps AzureMobile uygulamaları düğümü SDK veri kutudan çıktığında hizmet veren için üç seçenek sunar: SDK, veri kutudan çıktığında hizmet veren için üç seçenek sağlar:
+### <a name="howto-sqlexpress-setup"></a>SQL Server Express'in yerel makinenizde geliştirme veri deposu olarak kullanın
+Mobile Apps Node.js SDK'sı veri kutudan çıktığında hizmet veren için üç seçenek sunar:
 
-* Kullanım **bellek** kalıcı olmayan örnek depolama sağlamak için sürücü
-* Kullanım **mssql** geliştirme için bir SQL Express veri deposu sağlamak için sürücü
-* Kullanım **mssql** üretim için bir Azure SQL veritabanı veri deposu sağlamak için sürücü
+* Kullanım **bellek** sürücü kalıcı olmayan örnek depolama sağlar.
+* Kullanım **mssql** geliştirme için bir SQL Server Express veri deposu sağlamak için sürücü.
+* Kullanım **mssql** üretim için bir Azure SQL veritabanı veri deposu sağlamak için sürücü.
 
-Azure Mobile Apps Node.js SDK'sı [mssql Node.js paket] kurmak ve SQL Express ve SQL veritabanına bir bağlantı kullanın.  Bu paket, SQL Express örneği üzerinde TCP bağlantılarını etkinleştirmenizi istemektedir.
+Mobile Apps Node.js SDK'sı [mssql Node.js paket] kurmak ve SQL Server Express ve SQL veritabanına bir bağlantı kullanın. Bu paket, SQL Server Express örneğinizi TCP bağlantılarını etkinleştirmenizi istemektedir.
 
 > [!TIP]
-> Bellek sürücüsü eksiksiz test olanaklarının sağlamaz.  Arka ucunu yerel olarak test etmek isterseniz, SQL Express veri deposu ve mssql sürücü kullanılmasını öneririz.
+> Bellek sürücüsü eksiksiz test olanaklarının sağlamaz. Arka uç yerel olarak test etmek isterseniz, bir SQL Server Express veri deposu ve mssql sürücü kullanılmasını öneririz.
 >
 >
 
-1. İndirme ve yükleme [Microsoft SQL Server 2014 Express].  Araçlar sürümü ile SQL Server 2014 Express yükle emin olun.  64-bit desteği açıkça gerekmiyorsa 32-bit sürümünü çalışırken daha az bellek kullanır.
-2. SQL Server 2014 Yapılandırma Yöneticisi'ni çalıştırın.
+1. İndirme ve yükleme [Microsoft SQL Server 2014 Express]. SQL Server 2014 Express araçları Edition'la yüklediğinizden emin olun. 64-bit desteği açıkça gerekmiyorsa 32-bit sürümünü çalışırken daha az bellek kullanır.
+2. SQL Server 2014 Yapılandırma Yöneticisi'ni çalıştırın:
 
-   1. Genişletme **SQL Server Ağ Yapılandırması** sol ağaç menü düğümünde.
-   2. Tıklatın **SQLEXPRESS protokolleri**.
-   3. Sağ **TCP/IP'yi** seçip **etkinleştirmek**.  Tıklatın **Tamam** açılan iletişim kutusunda.
-   4. Sağ **TCP/IP'yi** seçip **özellikleri**.
-   5. Tıklatın **IP adreslerini** sekmesi.
-   6. Bul **IPAll** düğümü.  İçinde **TCP bağlantı noktası** alanına, **1433**.
+   a. Genişletme **SQL Server Ağ Yapılandırması** ağaç menü düğümünde.
 
-          ![Configure SQL Express for TCP/IP][3]
-   7. **Tamam**’a tıklayın.  Tıklatın **Tamam** açılan iletişim kutusunda.
-   8. Tıklatın **SQL Server Hizmetleri** sol ağaç menüsünde.
-   9. Sağ **SQL Server (SQLEXPRESS)** seçip **yeniden başlatın**
-   10. SQL Server 2014 Yapılandırma Yöneticisi'ni kapatın.
-3. SQL Server 2014 Management Studio'yu çalıştırın ve yerel SQL Express örneği için Bağlan
+   b. Seçin **SQLEXPRESS protokolleri**.
 
-   1. Nesne Gezgini'nde örneğinizi sağ tıklatıp **özellikleri**
+   c. Sağ **TCP/IP'yi** seçip **etkinleştirmek**. Seçin **Tamam** açılan iletişim kutusunda.
+
+   d. Sağ **TCP/IP'yi** seçip **özellikleri**.
+
+   e. Seçin **IP adreslerini** sekmesi.
+
+   f. Bul **IPAll** düğümü. İçinde **TCP bağlantı noktası** alanına, **1433**.
+
+      ![SQL Server Express için TCP/IP'yi yapılandırma][3]
+
+   g. **Tamam**’ı seçin. Seçin **Tamam** açılan iletişim kutusunda.
+
+   h. Seçin **SQL Server Hizmetleri** ağaç menüsünde.
+
+   i. Sağ **SQL Server (SQLEXPRESS)** seçip **yeniden**.
+
+   j. SQL Server 2014 Yapılandırma Yöneticisi'ni kapatın.
+3. SQL Server 2014 Management Studio'yu çalıştırın ve, yerel SQL Server Express örneğine bağlan:
+
+   1. Nesne Gezgini'nde örneğinizi sağ tıklatıp **özellikleri**.
    2. Seçin **güvenlik** sayfası.
-   3. Olun **SQL Server ve Windows kimlik doğrulaması modu** seçilir
-   4. **Tamam**’a tıklayın.
+   3. Emin **SQL Server ve Windows kimlik doğrulaması modu** seçilir.
+   4. **Tamam**’ı seçin.
 
-          ![Configure SQL Express Authentication][4]
-   5. Genişletme **güvenlik** > **oturumları** nesne Gezgini'nde
-   6. Sağ **oturumları** seçip **yeni oturum açma...**
-   7. Bir oturum açma adı girin.  **SQL Server kimlik doğrulaması**’nı seçin.  Bir parola girin ve ardından aynı parolayı girmeniz **parolayı onayla**.  Parola Windows karmaşıklık gereksinimlerini karşılaması gerekir.
-   8. **Tamam**’a tıklayın.
+      ![SQL Server Express kimlik doğrulamasını yapılandırma][4]
+   5. Genişletme **güvenlik** > **oturumları** nesne Gezgini'nde.
+   6. Sağ **oturumları** seçip **yeni oturum açma**.
+   7. Bir oturum açma adı girin. **SQL Server kimlik doğrulaması**’nı seçin. Bir parola girin ve sonra aynı parolayı girin **parolayı onayla**. Parola Windows karmaşıklık gereksinimlerini karşılaması gerekir.
+   8. **Tamam**’ı seçin.
 
-          ![Add a new user to SQL Express][5]
-   9. Yeni oturum açma sağ tıklatıp **özellikleri**
-   10. Seçin **sunucu rolleri** sayfası
-   11. Yanındaki kutuyu işaretleyin **dbcreator** sunucu rolü
-   12. **Tamam**’a tıklayın.
-   13. SQL Server 2015 Management Studio'yu kapatın
+      ![SQL Server Express için yeni bir kullanıcı ekleyin][5]
+   9. Yeni oturum açma sağ tıklatıp **özellikleri**.
+   10. Seçin **sunucu rolleri** sayfası.
+   11. Onay kutusunu seçin **dbcreator** sunucu rolü.
+   12. **Tamam**’ı seçin.
+   13. SQL Server 2015 Management Studio'yu kapatın.
 
-Kullanıcı adı ve parola seçtiğiniz kayıt emin olun.  Ek sunucu rollerini veya belirli veritabanı gereksinimlerinize bağlı olarak izinleri atamanız gerekebilir.
+Kullanıcı adı ve seçtiğiniz parolayı kaydettiğinizden emin olun. Ek sunucu rollerini veya veritabanı gereksinimlerinize bağlı olarak izinleri atamak gerekebilir.
 
-Node.js uygulaması okuma **SQLCONNSTR_MS_TableConnectionString** bu veritabanı için bağlantı dizesi için ortam değişkeni.  Ortamınızda bu değişkeni ayarlayabilirsiniz.  Örneğin, bu ortam değişkenini ayarlamak için PowerShell kullanın:
+Node.js uygulaması okuma `SQLCONNSTR_MS_TableConnectionString` bu veritabanı için bağlantı dizesi için ortam değişkeni. Ortamınızda bu değişkeni ayarlayabilirsiniz. Örneğin, bu ortam değişkenini ayarlamak için PowerShell kullanın:
 
     $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdatabase; User Id=azuremobile; Password=T3stPa55word;"
 
-Veritabanına bir TCP/IP bağlantısı üzerinden erişmek ve bağlantı için bir kullanıcı adı ve parola sağlayın.
+Veritabanına bir TCP/IP bağlantısı üzerinden erişir. Bağlantı için bir kullanıcı adı ve parola sağlayın.
 
-### <a name="howto-config-localdev"></a>Nasıl yapılır: projeniz yerel geliştirme için yapılandırma
-Azure Mobile Apps okur adlandırılan bir JavaScript dosyası *azureMobile.js* yerel dosya sistemi gelen.  Bu dosyayı kullanmayın üretimde Azure Mobile Apps SDK'sını yapılandırmak-uygulaması ayarları içinde kullanmak [Azure portal] yerine.  *AzureMobile.js* dosyasına bir yapılandırma nesnesi.  En yaygın ayarlar şunlardır:
+### <a name="howto-config-localdev"></a>Projeniz yerel geliştirme için yapılandırma
+Mobile Apps okur adlandırılan bir JavaScript dosyası *azureMobile.js* yerel dosya sisteminden. Bu dosya, Mobile Apps SDK'sı üretimde yapılandırmak için kullanmayın. Bunun yerine, kullanın **uygulama ayarları** içinde [Azure portal]. 
 
-* Veritabanı Ayarları
+Bir yapılandırma nesnesi azureMobile.js dosyasını dışarı aktarmanız gerekir. En yaygın ayarlar şunlardır:
+
+* Veritabanı ayarları
 * Tanılama günlük ayarları
 * Alternatif CORS ayarları
 
-Örnek *azureMobile.js* önceki veritabanı ayarlarını uygulama dosya izler:
+Bu örnek azureMobile.js dosyası önceki veritabanı ayarlarını uygular:
 
     module.exports = {
         cors: {
@@ -313,110 +329,122 @@ Azure Mobile Apps okur adlandırılan bir JavaScript dosyası *azureMobile.js* y
         }
     };
 
-Eklediğiniz öneririz *azureMobile.js* için *.gitignore* dosya (veya diğer kaynak kodu denetimi dosyayı yoksay) bulutta depolanan parolaları önlemek için.  Her zaman uygulama ayarlarında üretim ayarlarını yapılandırmak [Azure portal].
+AzureMobile.js .gitignore dosyanıza ekleyin öneririz (veya diğer kaynak kodu denetimi dosya yoksay) bulutta depolanan parolaları önlemek için. Her zaman üretim ayarlarında yapılandırdığınız **uygulama ayarları** içinde [Azure portal].
 
-### <a name="howto-appsettings"></a>: Mobil uygulamanız için uygulama ayarlarını yapılandır
-Çoğu ayarlarında *azureMobile.js* dosyanız eşdeğer bir uygulama ayarı [Azure portal].  Uygulama ayarlarında Uygulamanızı yapılandırmak için aşağıdaki listeye bakın:
+### <a name="howto-appsettings"></a>Mobil uygulamanız için uygulama ayarlarını yapılandırın
+Bir eşdeğer uygulama ayarı azureMobile.js dosyasındaki çoğu ayarları sahip [Azure portal]. Uygulamanızı yapılandırmak için aşağıdaki listeyi kullanın **uygulama ayarları**:
 
-| Uygulama ayarı | *azureMobile.js* ayarı | Açıklama | Geçerli Değerler |
+| Uygulama ayarı | azureMobile.js setting | Açıklama | Geçerli değerler |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |ad |Uygulama adı |string |
-| **MS_MobileLoggingLevel** |Logging.level |En küçük günlük düzeyi günlüğe kaydedilecek ileti sayısı |hata, uyarı, bilgi, ayrıntılı, hata ayıklama, saçma |
-| **MS_DebugMode** |hata Ayıkla |Etkinleştirme veya devre dışı bırak hata ayıklama modu |TRUE, false |
+| **MS_MobileLoggingLevel** |logging.level |En küçük günlük düzeyi günlüğe kaydedilecek ileti sayısı |hata, uyarı, bilgi, ayrıntılı, hata ayıklama, saçma |
+| **MS_DebugMode** |hata Ayıkla |Etkinleştirir ya da hata ayıklama modunu devre dışı bırakır |TRUE, false |
 | **MS_TableSchema** |Data.Schema |SQL tablolarının varsayılan şema adı |dize (varsayılan: dbo) |
-| **MS_DynamicSchema** |data.dynamicSchema |Etkinleştirme veya devre dışı bırak hata ayıklama modu |TRUE, false |
+| **MS_DynamicSchema** |data.dynamicSchema |Etkinleştirir ya da hata ayıklama modunu devre dışı bırakır |TRUE, false |
 | **MS_DisableVersionHeader** |(çok undefined olarak ayarlanır) sürümü |X-ZUMO-Server-Version üstbilgi devre dışı bırakır |TRUE, false |
 | **MS_SkipVersionCheck** |skipversioncheck |İstemcisi API sürümü denetimi devre dışı bırakır |TRUE, false |
 
 Bir uygulama ayarı ayarlamak için:
 
 1. [Azure portal]’da oturum açın.
-2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** mobil uygulamanızın adına tıklayın.
-3. Varsayılan ayarlar dikey penceresi açılır. ' I içermiyorsa tıklatırsanız **ayarları**.
-4. Tıklatın **uygulama ayarları** genel menüsünde.
-5. Uygulama ayarları bölümüne gidin.
-6. Uygulamanızı ayarı zaten varsa, değeri düzenlemek için uygulama ayarının değeri'ı tıklatın.
-7. Uygulama ayarı mevcut değilse, uygulama ayarı anahtar kutusuna ve değer kutusundaki değeri girin.
-8. Tamamlandıktan sonra tıklatın **kaydetmek**.
+2. Seçin **tüm kaynakları** veya **uygulama hizmetleri**ve ardından mobil uygulamanızı adını seçin.
+3. **Ayarları** bölmesi varsayılan olarak açılır. Bu işaretlemezse **ayarları**.
+4. Üzerinde **genel** menüsünde, select **uygulama ayarları**.
+5. Kaydırma **uygulama ayarları** bölümü.
+6. Uygulamanızı ayarı zaten varsa, değeri düzenlemek için uygulama ayarının değerini seçin.
+   Uygulama ayarı mevcut değilse uygulama ayarında girin **anahtar** kutusu ve değeri **değeri** kutusu.
+8. **Kaydet**’i seçin.
 
 Çoğu uygulama ayarlarını değiştirme hizmetini yeniden başlatma gerektirir.
 
-### <a name="howto-use-sqlazure"></a>Nasıl yapılır: SQL Database üretim veri deposu olarak kullanın
+### <a name="howto-use-sqlazure"></a>Kullanım SQL veritabanı, üretim verileri olarak depolama
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
-Bir veri deposu olarak Azure SQL veritabanı kullanan tüm Azure App Service uygulama türlerine aynıdır. Henüz yapmadıysanız, mobil uygulama arka ucu oluşturmak için aşağıdaki adımları izleyin.
+Bir veri deposu olarak Azure SQL veritabanı kullanan tüm Azure App Service uygulama türlerine aynıdır. Siz bunu zaten yapmadıysanız, mobil uygulama arka ucu oluşturmak için aşağıdaki adımları izleyin:
 
 1. [Azure portal]’da oturum açın.
-2. Üst pencerenin sol, tıklama **+ yeni** düğmesi > **Web + mobil** > **mobil uygulama**, mobil uygulama arka ucu için bir ad sağlayın.
+2. Pencerenin üst sol seçin **+ yeni** düğmesi > **Web + mobil** > **mobil uygulama**ve mobil uygulamalarınızı arka uç için bir ad sağlayın.
 3. İçinde **kaynak grubu** kutusuna, uygulamanızı aynı adı girin.
-4. Varsayılan uygulama hizmeti planı seçilir.  Uygulama hizmeti planınızı değiştirmek istiyorsanız, uygulama hizmeti planı tıklayarak bunu yapabilirsiniz > **+ Yeni Oluştur**.  Yeni uygulama hizmeti planının adı sağlayın ve uygun bir konum seçin.  Fiyatlandırma Katmanı'nı tıklatın ve hizmet için uygun bir fiyatlandırma katmanı seçin. Seçin **tüm görüntüle** daha seçenekleri gibi fiyatlandırma görünümüne **serbest** ve **paylaşılan**.  Fiyatlandırma katmanı seçildiğinde tıklatın **seçin** düğmesi.  Geri **uygulama hizmeti planı** dikey penceresinde tıklatın **Tamam**.
-5. **Oluştur**’a tıklayın. Bir mobil uygulama arka ucu sağlama birkaç dakika sürebilir.  Mobil uygulama arka ucu sağlandıktan sonra portal açar **ayarları** mobil uygulama arka ucu için dikey.
+4. Uygulama hizmeti planı varsayılan seçilidir. Uygulama hizmeti planınızı değiştirmek istiyorsanız:
 
-Mobil uygulama arka ucu oluşturulduktan sonra mevcut bir SQL veritabanını, mobil uygulamanızın arka ucuna bağlanmak veya yeni bir SQL veritabanı oluşturmak seçebilirsiniz.  Bu bölümde, bir SQL veritabanı oluşturun.
+   a. Seçin **uygulama hizmeti planı** > **+ Yeni Oluştur**. 
+   
+   b. Yeni uygulama hizmeti planının adı sağlayın ve uygun bir konum seçin. 
+   
+   c. Hizmet için uygun bir fiyatlandırma katmanı seçin. Seçin **tüm görüntüle** daha seçenekleri gibi fiyatlandırma görünümüne **serbest** ve **paylaşılan**. 
+   
+   d. Tıklatın **seçin** düğmesi. 
+   
+   e. Geri **uygulama hizmeti planı** bölmesinde, **Tamam**.
+5. **Oluştur**’u seçin. 
+
+Mobile Apps sağlama arka uç birkaç dakika sürebilir. Mobile Apps geri sonra son sağlandığına, portal açar **ayarları** Mobile Apps arka uç için bölmesi.
+
+Mevcut bir SQL veritabanını, Mobile Apps arka ucuna bağlanmak veya yeni bir SQL veritabanı oluşturma seçebilirsiniz. Bu bölümde, bir SQL veritabanı oluşturun.
 
 > [!NOTE]
-> Mobil uygulama arka ucu ile aynı konumda zaten bir veritabanınız varsa, bunun yerine seçebileceğiniz **varolan veritabanını kullan** sonra bu veritabanını seçin. Bir veritabanı farklı bir konumda kullanımını daha yüksek gecikme nedeniyle önerilmez.
+> Mobile Apps arka uç gibi bir veritabanı aynı konumda zaten varsa, bunun yerine seçebileceğiniz **varolan veritabanını kullan** sonra bu veritabanını seçin. Bir veritabanı farklı bir konumda kullanımını daha yüksek gecikme nedeniyle öneririz yok.
 >
 >
 
-1. Yeni mobil uygulama arka ucunda tıklatın **ayarları** > **mobil uygulama** > **veri** > **+ Ekle**.
-2. İçinde **veri bağlantısı Ekle** dikey penceresinde tıklatın **SQL veritabanı - gerekli ayarları Yapılandır** > **yeni bir veritabanı oluşturmak**.  Yeni veritabanı adını girin **adı** alan.
-3. Tıklatın **Server**.  İçinde **yeni sunucu** dikey penceresinde bir benzersiz sunucu adı girin **sunucu adı** alan ve uygun bir sağlamak **Sunucu Yöneticisi oturum açma** ve **parola**.  Olun **azure hizmetlerinin sunucuya erişmesine izin** denetlenir.  **Tamam**’a tıklayın.
+1. Yeni mobil uygulama arka ucu içinde seçin **ayarları** > **mobil uygulama** > **veri** > **+ Ekle**.
+2. İçinde **veri bağlantısı Ekle** bölmesinde, **SQL veritabanı - gerekli ayarları Yapılandır** > **yeni bir veritabanı oluşturmak**. Yeni veritabanı adını girin **adı** kutusu.
+3. Seçin **Server**. İçinde **yeni sunucu** bölmesinde, bir benzersiz sunucu adı girin **sunucu adı** kutusuna ve uygun bir sunucu yönetici oturum açma ve parola sağlayın. Emin **azure hizmetlerinin sunucuya erişmesine izin** seçilir. **Tamam**’ı seçin.
 
-    ![Bir Azure SQL veritabanı oluşturma][6]
-4. Üzerinde **yeni veritabanı** dikey penceresinde tıklatın **Tamam**.
-5. Geri **veri bağlantısı Ekle** dikey penceresinde, select **bağlantı dizesi**, oturum açma ve veritabanı oluşturulurken sağlanan parola girin.  Varolan bir veritabanını kullanıyorsanız, bu veritabanı için oturum açma kimlik bilgilerini sağlayın.  Girilen sonra tıklayın **Tamam**.
-6. Geri **veri bağlantısı Ekle** dikey penceresinde tekrar tıklatın **Tamam** veritabanı oluşturulamıyor.
+   ![Bir Azure SQL veritabanı oluşturma][6]
+4. İçinde **yeni veritabanı** bölmesinde, **Tamam**.
+5. Geri **veri bağlantısı Ekle** bölmesinde, **bağlantı dizesi**, oturum açma ve veritabanı oluştururken belirttiğiniz parolayı girin. Varolan bir veritabanını kullanıyorsanız, bu veritabanı için oturum açma kimlik bilgilerini sağlayın. **Tamam**’ı seçin.
+6. Geri **veri bağlantısı Ekle** bölmesinde tekrar select **Tamam** veritabanı oluşturmak için.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
-Veritabanı oluşturma, birkaç dakika sürebilir.  Kullanım **bildirimleri** dağıtımın ilerleme durumunu izlemek için alan.  Veritabanı başarıyla dağıtıldığını kadar ilerleme değil.  Başarılı bir şekilde dağıtıldığında, bir bağlantı dizesi mobil arka uç uygulaması ayarları SQL veritabanı örneğinde için oluşturulur.  Bu uygulama ayarını görebilirsiniz **ayarları** > **uygulama ayarları** > **bağlantı dizeleri**.
+Veritabanı oluşturma, birkaç dakika sürebilir. Kullanım **bildirimleri** dağıtımın ilerleme durumunu izlemek için alan. Veritabanı başarıyla dağıtıldı kadar ilerleme değil. Veritabanı dağıtıldıktan sonra bir bağlantı dizesi Mobile Apps arka uç uygulama ayarlarınızı SQL veritabanı örneğinde için oluşturulur. Bu uygulama ayarını görebilirsiniz **ayarları** > **uygulama ayarları** > **bağlantı dizeleri**.
 
-### <a name="howto-tables-auth"></a>Nasıl yapılır: tablolara erişimi kimlik doğrulaması iste
-Tabloları noktayla App Service kimlik doğrulaması kullanmak isterseniz, App Service kimlik doğrulaması yapılandırmalısınız [Azure portal] ilk.  Bir Azure uygulama hizmetinde kimlik doğrulaması yapılandırma hakkında daha fazla ayrıntı için kullanmak istediğiniz kimlik sağlayıcısı için Yapılandırma Kılavuzu gözden geçirin:
+### <a name="howto-tables-auth"></a>Tablolara erişimi kimlik doğrulaması iste
+App Service kimlik doğrulaması ile kullanmak istiyorsanız, `tables` uç noktası, App Service kimlik doğrulaması yapılandırmanız gerekir [Azure portal] ilk. Daha fazla bilgi için kullanmak istediğiniz kimlik sağlayıcısı için Yapılandırma Kılavuzu'na bakın:
 
-* [Azure Active Directory kimlik doğrulaması yapılandırma]
-* [Facebook kimlik doğrulaması yapılandırma]
+* [Azure Active Directory kimlik doğrulamasını yapılandırma]
+* [Facebook kimlik doğrulamasını yapılandırma]
 * [Google kimlik doğrulamasını yapılandırma]
-* [Microsoft Authentication yapılandırma]
+* [Microsoft kimlik doğrulamasını yapılandırma]
 * [Twitter kimlik doğrulamasını yapılandırma]
 
-Her tablo tablosuna erişimi denetlemek için kullanılan bir erişim özelliğine sahiptir.  Aşağıdaki örnek, kimlik doğrulaması gerekli statik olarak tanımlanmış bir tablo gösterir.
+Her tablo tablo erişimi denetlemek için kullanabileceğiniz bir erişim özelliğine sahiptir. Aşağıdaki örnek, kimlik doğrulaması gerekli statik olarak tanımlanmış bir tablo gösterir.
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define the columns within the table
+    // Define the columns within the table.
     table.columns = {
         "text": "string",
         "complete": "boolean"
     };
 
-    // Turn off dynamic schema
+    // Turn off the dynamic schema.
     table.dynamicSchema = false;
 
-    // Require authentication to access the table
+    // Require authentication to access the table.
     table.access = 'authenticated';
 
     module.exports = table;
 
-Access özelliği üç değerden birini alabilir
+Access özelliği üç değerden birini gerçekleştirebilirsiniz:
 
-* *Anonim* istemci uygulamanın kimlik doğrulaması olmadan veri okuma izni olup olmadığını gösterir
-* *Kimliği doğrulanmış* istemci uygulamasının geçerli kimlik doğrulama belirteci isteği ile göndermelidir gösterir
-* *devre dışı* Bu tablo şu anda devre dışı olduğunu gösterir
+* *Anonim* istemci uygulamanın kimlik doğrulaması olmadan veri okuma izni olup olmadığını gösterir.
+* *Kimliği doğrulanmış* istemci uygulamasının geçerli kimlik doğrulama belirteci isteği ile göndermelidir gösterir.
+* *devre dışı* Bu tablo şu anda devre dışı olduğunu gösterir.
 
 Access özelliği tanımsız ise, kimliği doğrulanmamış erişim verilir.
 
-### <a name="howto-tables-getidentity"></a>Nasıl yapılır: tablolarınızı ile kimlik doğrulaması talep kullanın
-Kimlik doğrulama ayarlarken, istenen çeşitli talep ayarlayabilirsiniz.  Bu talep normalde aracılığıyla kullanılabilir olmayan `context.user` nesnesi.  Ancak, bunlar kullanılarak alınabilir `context.user.getIdentity()` yöntemi.  `getIdentity()` Yöntemi bir nesneye çözümler Promise döndürür.  Nesne, kimlik doğrulama yöntemi (facebook, google, twitter, microsoftaccount veya aad) anahtarlanır.
+### <a name="howto-tables-getidentity"></a>Kimlik doğrulaması talep tablolarınızı ile kullanma
+Kimlik doğrulama ayarlarken, istenen çeşitli talep ayarlayabilirsiniz. Bu talep normalde aracılığıyla kullanılabilir olmayan `context.user` nesnesi. Ancak, siz bunları kullanarak alabilirsiniz `context.user.getIdentity()` yöntemi. `getIdentity()` Yöntemi bir nesneye çözümler promise döndürür. Nesne kimlik doğrulama yöntemiyle anahtarlanır (`facebook`, `google`, `twitter`, `microsoftaccount`, veya `aad`).
 
-Örneğin, Microsoft Account kimlik doğrulaması ve istek e-posta adresi talep ayarlarsanız, aşağıdaki tabloda denetleyicisiyle kayıt e-posta adresi ekleyebilirsiniz:
+Örneğin, Microsoft hesabı kimlik doğrulaması ve e-posta adresi talep isteği ayarlama, aşağıdaki tabloda denetleyicisiyle kayıt e-posta adresi ekleyebilirsiniz:
 
     var azureMobileApps = require('azure-mobile-apps');
 
-    // Create a new table definition
+    // Create a new table definition.
     var table = azureMobileApps.table();
 
     table.columns = {
@@ -452,30 +480,30 @@ Kimlik doğrulama ayarlarken, istenen çeşitli talep ayarlayabilirsiniz.  Bu ta
         });
     }
 
-    // Configure specific code when the client does a request
-    // READ - only return records belonging to the authenticated user
+    // Configure specific code when the client does a request.
+    // READ: only return records that belong to the authenticated user.
     table.read(queryContextForEmail);
 
-    // CREATE - add or overwrite the userId based on the authenticated user
+    // CREATE: add or overwrite the userId based on the authenticated user.
     table.insert(addEmailToContext);
 
-    // UPDATE - only allow updating of record belong to the authenticated user
+    // UPDATE: only allow updating of records that belong to the authenticated user.
     table.update(queryContextForEmail);
 
-    // DELETE - only allow deletion of records belong to the authenticated uer
+    // DELETE: only allow deletion of records that belong to the authenticated user.
     table.delete(queryContextForEmail);
 
     module.exports = table;
 
 Hangi talepleri kullanılabilir olduğunu görmek için görüntülemek için web tarayıcısını kullanın `/.auth/me` uç noktası, sitenizin.
 
-### <a name="howto-tables-disabled"></a>Nasıl yapılır: belirli bir tablo işlemlerine erişim devre dışı bırak
-Tabloda görünen ek olarak, access özelliği ayrı işlemlerini denetlemek için kullanılabilir.  Dört işlemleri şunlardır:
+### <a name="howto-tables-disabled"></a>Belirli bir tablo işlemlerine erişim devre dışı bırak
+Tabloda görünen ek olarak, access özelliği ayrı işlemlerini denetlemek için kullanılabilir. Dört işlemleri şunlardır:
 
-* *Okuma* tablo üzerinde RESTful alma işlemi
-* *INSERT* tablo üzerinde RESTful POST işlemi
-* *Güncelleştirme* tablo üzerinde RESTful düzeltme eki işlemi
-* *silme* tablo üzerinde RESTful silme işlemi
+* `read` Tablo üzerinde RESTful alma işlemi var.
+* `insert` Tablo üzerinde RESTful POST işlemdir.
+* `update` Tablo üzerinde RESTful düzeltme eki işlemi var.
+* `delete` Tablo üzerinde RESTful DELETE işlemi var.
 
 Örneğin, bir salt okunur kimliği doğrulanmamış tablo sağlamak isteyebilirsiniz:
 
@@ -483,7 +511,7 @@ Tabloda görünen ek olarak, access özelliği ayrı işlemlerini denetlemek iç
 
     var table = azureMobileApps.table();
 
-    // Read-Only table - only allow READ operations
+    // Read-only table. Only allow READ operations.
     table.read.access = 'anonymous';
     table.insert.access = 'disabled';
     table.update.access = 'disabled';
@@ -491,14 +519,14 @@ Tabloda görünen ek olarak, access özelliği ayrı işlemlerini denetlemek iç
 
     module.exports = table;
 
-### <a name="howto-tables-query"></a>Nasıl yapılır: Tablo işlemleriyle kullanılan sorgu Ayarla
-Verileri sınırlı bir görünümünü sağlamak için tablo işlemleri için ortak gerekli değildir.  Örneğin, yalnızca okuma veya kendi kayıtlarını güncelleştirmek, kimliği doğrulanmış kullanıcı kimliği ile etiketlenmiş bir tablo sağlayabilir.  Aşağıdaki tablo tanımı bu işlevleri sağlar:
+### <a name="howto-tables-query"></a>Tablo işlemleriyle kullanılan sorgu Ayarla
+Verileri sınırlı bir görünümünü sağlamak için tablo işlemleri için ortak gerekli değildir. Örneğin, yalnızca okuma veya kendi kayıtlarını güncelleştirmek, kimliği doğrulanmış kullanıcı kimliği ile etiketlenmiş bir tablo sağlayabilir. Aşağıdaki tablo tanımı bu işlevleri sağlar:
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define a static schema for the table
+    // Define a static schema for the table.
     table.columns = {
         "userId": "string",
         "text": "string",
@@ -506,16 +534,16 @@ Verileri sınırlı bir görünümünü sağlamak için tablo işlemleri için o
     };
     table.dynamicSchema = false;
 
-    // Require authentication for this table
+    // Require authentication for this table.
     table.access = 'authenticated';
 
-    // Ensure that only records for the authenticated user are retrieved
+    // Ensure that only records for the authenticated user are retrieved.
     table.read(function (context) {
         context.query.where({ userId: context.user.id });
         return context.execute();
     });
 
-    // When adding records, add or overwrite the userId with the authenticated user
+    // When adding records, add or overwrite the userId with the authenticated user.
     table.insert(function (context) {
         context.item.userId = context.user.id;
         return context.execute();
@@ -523,44 +551,44 @@ Verileri sınırlı bir görünümünü sağlamak için tablo işlemleri için o
 
     module.exports = table;
 
-Normalde bir sorgu yürütme işlemleri bulunduğu yerle ayarlayabilirsiniz bir sorgu özelliğe sahip yan tümcesi. Sorgu özelliği bir [QueryJS] OData sorgusu, veri arka uç işleyebilecek bir şey için dönüştürmek için kullanılan nesne.  Bir harita (gibi önceki bir) basit eşitlik durumlar için kullanılabilir. Belirli SQL yan tümceleri de ekleyebilirsiniz:
+Normalde bir sorguyu çalıştırma işlemleri kullanarak ayarlayabilirsiniz bir sorgu özelliğe sahip bir `where` yan tümcesi. Sorgu özelliği bir [QueryJS] arka uç veri OData sorgusu şey dönüştürmek için kullanılan nesne işleyebilir. (Gibi önceki bir) basit eşitlik durumlar için bir harita kullanabilirsiniz. Belirli SQL yan tümceleri de ekleyebilirsiniz:
 
     context.query.where('myfield eq ?', 'value');
 
-### <a name="howto-tables-softdelete"></a>Nasıl yapılır: bir tablo üzerinde geçici silme Yapılandır
-Geçici silme kayıtları silmez.  Bunun yerine, bunları veritabanı içinde silinen sütun true değerine ayarlayarak silinmiş olarak işaretler.  Mobil istemci SDK'sı IncludeDeleted() kullanmadıkça Azure Mobile Apps SDK'sı sonuçlarından geçici olarak silinen kayıtları otomatik olarak kaldırır.  Bir tablo için geçici silme yapılandırmak için ayarlayın `softDelete` tablo tanımı dosyasında özellik:
+### <a name="howto-tables-softdelete"></a>Bir tabloda bir geçici silme Yapılandır
+Bir geçici silme kayıtları silmez. Bunun yerine, bunları veritabanı içinde silinen sütun true değerine ayarlayarak silinmiş olarak işaretler. Mobil istemci SDK'sını kullanmadıkça Mobile Apps SDK'sı geçici olarak silinen kayıtlar sonuçlarından otomatik olarak kaldırır. `IncludeDeleted()`. Bir tablo için geçici silme yapılandırmak için ayarlayın `softDelete` tablo tanımı dosyasında özellik:
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define the columns within the table
+    // Define the columns within the table.
     table.columns = {
         "text": "string",
         "complete": "boolean"
     };
 
-    // Turn off dynamic schema
+    // Turn off the dynamic schema.
     table.dynamicSchema = false;
 
-    // Turn on Soft Delete
+    // Turn on soft delete.
     table.softDelete = true;
 
-    // Require authentication to access the table
+    // Require authentication to access the table.
     table.access = 'authenticated';
 
     module.exports = table;
 
-Kayıt - bir istemci uygulamasından bir Webjob'un Azure işlevi aracılığıyla veya özel bir API aracılığıyla ya da Temizleme için bir mekanizma oluşturmanız gerekir.
+Kayıtları silme için bir mekanizma kurmanız gerekir: bir istemci uygulaması, bir Web işi, bir Azure işlevi veya özel bir API.
 
-### <a name="howto-tables-seeding"></a>Nasıl yapılır: veri veritabanınızla çekirdek
-Yeni bir uygulama oluştururken, veri içeren bir tablo oluşturmak isteyebilirsiniz.  Bu gibi tablo tanımı JavaScript dosyası içinde yapılabilir:
+### <a name="howto-tables-seeding"></a>Veritabanınızı verilerle çekirdek
+Yeni bir uygulama oluştururken, veri içeren bir tablo oluşturmak isteyebilirsiniz. Tablo tanımı JavaScript dosyası içinde şu şekilde bunu yapabilirsiniz:
 
     var azureMobileApps = require('azure-mobile-apps');
 
     var table = azureMobileApps.table();
 
-    // Define the columns within the table
+    // Define the columns within the table.
     table.columns = {
         "text": "string",
         "complete": "boolean"
@@ -570,47 +598,47 @@ Yeni bir uygulama oluştururken, veri içeren bir tablo oluşturmak isteyebilirs
         { text: 'Example 2', complete: true }
     ];
 
-    // Turn off dynamic schema
+    // Turn off the dynamic schema.
     table.dynamicSchema = false;
 
-    // Require authentication to access the table
+    // Require authentication to access the table.
     table.access = 'authenticated';
 
     module.exports = table;
 
-Tablo Azure Mobile Apps SDK tarafından oluşturulduğunda verileri dengeli yalnızca yapılır.  Tablo içinde veritabanı zaten varsa, hiçbir veri tabloya eklenen.  Dinamik şema açıksa, şema köklü verileri algılanır.
+Yalnızca bir tablo oluşturmak için Mobile Apps SDK'sı kullanmış olduğunuz verilerin dengeli olur. Tablo veritabanında zaten varsa, hiçbir veri tabloya eklenen. Dinamik şema açıksa, şema köklü verileri algılanır.
 
 Açıkça çağırın öneririz `tables.initialize()` hizmet çalışmaya başladığında tablo oluşturmak için yöntem.
 
-### <a name="Swagger"></a>Nasıl yapılır: Swagger desteğini etkinleştir
-Azure App Service Mobile Apps ile yerleşik gelen [Swagger] destekler.  Swagger desteğini etkinleştirmek için önce bir bağımlılık olarak swagger kullanıcı arabirimini yükleyin:
+### <a name="Swagger"></a>Swagger desteğini etkinleştir
+Mobile Apps ile yerleşik gelen [Swagger] destekler. Swagger desteğini etkinleştirmek için önce bir bağımlılık olarak swagger kullanıcı arabirimini yükleyin:
 
     npm install --save swagger-ui
 
-Yüklendikten sonra Azure Mobile Apps Oluşturucusu Swagger desteği etkinleştirebilirsiniz:
+Ardından, Mobile Apps Oluşturucusu Swagger desteği etkinleştirebilirsiniz:
 
     var mobile = azureMobileApps({ swagger: true });
 
-Geliştirme sürümlerinde Swagger desteğini etkinleştirmek için büyük olasılıkla yalnızca istiyorsanız.  Bunu yararlanarak yapmak `NODE_ENV` uygulama ayarı:
+Geliştirme sürümlerinde Swagger desteğini etkinleştirmek için büyük olasılıkla yalnızca istiyorsanız. Kullanarak bunu yapabilirsiniz `NODE_ENV` uygulama ayarı:
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-Swagger uç nokta http:// bulunduğu*yoursite*.azurewebsites.net/swagger.  Swagger kullanıcı Arabirimi aracılığıyla erişebilirsiniz `/swagger/ui` uç noktası.  kimlik doğrulaması, tüm uygulamanızda gerektirecek şekilde seçerseniz, Swagger bir hata oluşturur.  Azure App Service kimlik doğrulaması üzerinden kimlik doğrulamasız isteklere izin vermek en iyi sonuçlar için Seç / yetkilendirme ayarları, ardından Denetim kimlik doğrulaması kullanarak `table.access` özelliği.
+`swagger` Http:// son nokta bulunduğu*yoursite*.azurewebsites.net/swagger. Swagger kullanıcı Arabirimi aracılığıyla erişebilirsiniz `/swagger/ui` uç noktası. kimlik doğrulaması, tüm uygulamanızda gerektirecek şekilde seçerseniz, Swagger bir hata oluşturur. Azure App Service kimlik doğrulama/yetkilendirme ayarları kimliği doğrulanmamış isteklere izin vermek en iyi sonuçlar için seçin ve ardından kimlik doğrulaması kullanarak kontrol `table.access` özelliği.
 
-Swagger seçeneğine de ekleyebilirsiniz, `azureMobile.js` yalnızca Swagger desteği yerel olarak geliştirirken istiyorsanız, dosya.
+Yerel olarak geliştirmek için yalnızca Swagger destek istiyorsanız, Swagger seçeneği azureMobile.js dosyanıza ekleyebilirsiniz.
 
 ## <a name="a-namepushpush-notifications"></a><a name="push">Anında iletme bildirimleri
-Tüm önde gelen platformlarda milyonlarca cihaza için hedeflenen anında iletme bildirimleri göndermenizi etkinleştirmek için Azure Notification Hubs ile Mobile Apps tümleştirir. Bildirim hub'ları kullanarak iOS, anında iletme bildirimleri gönderebilir, Android ve Windows cihazları. Tüm Notification Hubs ile yapabileceğiniz hakkında daha fazla bilgi için bkz: [Notification Hubs'a genel bakış](../notification-hubs/notification-hubs-push-notification-overview.md).
+Tüm önde gelen platformlarda milyonlarca cihaza için hedeflenen anında iletme bildirimleri gönderebilmek için mobil uygulamalar Azure Notification Hubs ile tümleşir. Bildirim hub'ları kullanarak, anında iletme bildirimlerini iOS, Android ve Windows gönderebilirsiniz aygıtlar. Tüm Notification Hubs ile yapabileceğiniz hakkında daha fazla bilgi için bkz: [Notification Hubs'a genel bakış](../notification-hubs/notification-hubs-push-notification-overview.md).
 
-### </a><a name="send-push"></a>Nasıl yapılır: anında iletme bildirimleri gönderme
-Aşağıdaki kod itme nesne kayıtlı iOS cihazlara bir yayın anında iletme bildirimi göndermek için nasıl kullanılacağını gösterir:
+### </a><a name="send-push"></a>Anında iletme bildirimleri gönderme
+Aşağıdaki kodu nasıl kullanılacağını gösterir `push` nesne kayıtlı iOS cihazlara bir yayın anında iletme bildirimi göndermek için:
 
     // Create an APNS payload.
     var payload = '{"aps": {"alert": "This is an APNS payload."}}';
 
-    // Only do the push if configured
+    // Only do the push if configured.
     if (context.push) {
-        // Send a push notification using APNS.
+        // Send a push notification by using APNS.
         context.push.apns.send(null, payload, function (error) {
             if (error) {
                 // Do something or log the error.
@@ -623,7 +651,7 @@ Aşağıdaki kod itme nesne kayıtlı iOS cihazlara bir yayın anında iletme bi
     // Define the template payload.
     var payload = '{"messageParam": "This is a template payload."}';
 
-    // Only do the push if configured
+    // Only do the push if configured.
     if (context.push) {
         // Send a template notification.
         context.push.send(null, payload, function (error) {
@@ -634,10 +662,10 @@ Aşağıdaki kod itme nesne kayıtlı iOS cihazlara bir yayın anında iletme bi
     }
 
 
-### <a name="push-user"></a>Nasıl yapılır: etiketleri kullanarak kimliği doğrulanmış bir kullanıcı için anında iletme bildirimleri gönderme
-Kimliği doğrulanmış bir kullanıcı için anında iletme bildirimleri kaydolduğunda, bir kullanıcı kimliği etiketi kayıt için otomatik olarak eklenir. Bu etiket kullanarak, belirli bir kullanıcı tarafından kaydedilen tüm cihazlara anında iletme bildirimleri gönderebilirsiniz. Aşağıdaki kod, isteği yapan kullanıcı SID'si alır ve bu kullanıcı için her aygıt kaydı için bir şablon anında iletme bildirimi gönderir:
+### <a name="push-user"></a>Kimliği doğrulanmış bir kullanıcı etiketleri kullanarak anında iletme bildirimleri gönderme
+Kimliği doğrulanmış bir kullanıcı için anında iletme bildirimleri kaydolduğunda, bir kullanıcı kimliği etiketi kayıt için otomatik olarak eklenir. Bu etiket kullanarak, belirli bir kullanıcı tarafından kaydedilen tüm cihazlara anında iletme bildirimleri gönderebilirsiniz. Aşağıdaki kod istekte ve o kullanıcı için her aygıt kaydı için bir şablon anında iletme bildirimi gönderir kullanıcının SID alır:
 
-    // Only do the push if configured
+    // Only do the push if configured.
     if (context.push) {
         // Send a notification to the current user.
         context.push.send(context.user.id, payload, function (error) {
@@ -647,27 +675,27 @@ Kimliği doğrulanmış bir kullanıcı için anında iletme bildirimleri kaydol
         });
     }
 
-Kimliği doğrulanmış bir istemci anında iletme bildirimleri için kaydolurken kayıt denemeden önce kimlik doğrulamasının tam olduğundan emin olun.
+Kimliği doğrulanmış bir istemci anında iletme bildirimleri için kaydetme, kaydı çalışmadan önce kimlik doğrulamasının tam olduğundan emin olun.
 
-## <a name="CustomAPI"></a>Özel API'leri
-### <a name="howto-customapi-basic"></a>Nasıl yapılır: özel bir API tanımlayın
-Veri erişimi yanı sıra API /tables uç noktası aracılığıyla, Azure Mobile Apps özel API kapsamı sağlayabilir.  Özel API'leri tablo tanımları benzer bir şekilde tanımlanır ve kimlik doğrulaması dahil tesisler aynı erişebilir.
+## <a name="CustomAPI"></a> Özel API'leri
+### <a name="howto-customapi-basic"></a>Özel bir API tanımlayın
+Veri erişim API üzerinden yanı sıra `/tables` uç noktası, Mobile Apps özel API kapsamı sağlayabilir. Özel API'leri tablo tanımları benzer bir şekilde tanımlanır ve kimlik doğrulaması dahil tesisler aynı erişebilir.
 
-Özel API ile App Service kimlik doğrulaması kullanmak isterseniz, App Service kimlik doğrulaması yapılandırmalısınız [Azure portal] ilk.  Bir Azure uygulama hizmetinde kimlik doğrulaması yapılandırma hakkında daha fazla ayrıntı için kullanmak istediğiniz kimlik sağlayıcısı için Yapılandırma Kılavuzu gözden geçirin:
+App Service kimlik doğrulaması ile özel bir API kullanmak isterseniz, App Service kimlik doğrulaması yapılandırmalısınız [Azure portal] ilk. Daha fazla bilgi için kullanmak istediğiniz kimlik sağlayıcısı için Yapılandırma Kılavuzu'na bakın:
 
-* [Azure Active Directory kimlik doğrulaması yapılandırma]
-* [Facebook kimlik doğrulaması yapılandırma]
+* [Azure Active Directory kimlik doğrulamasını yapılandırma]
+* [Facebook kimlik doğrulamasını yapılandırma]
 * [Google kimlik doğrulamasını yapılandırma]
-* [Microsoft Authentication yapılandırma]
+* [Microsoft kimlik doğrulamasını yapılandırma]
 * [Twitter kimlik doğrulamasını yapılandırma]
 
-Özel API'ları, tabloları API kadar aynı şekilde tanımlanır.
+Özel API'ları, tabloları API kadar aynı şekilde tanımlanır:
 
-1. Oluşturma bir **API** dizini
-2. API tanımı JavaScript dosyasını içinde oluşturmak **API** dizin.
-3. İçeri aktarmak için alma yöntemini kullanmak **API** dizin.
+1. Oluşturma bir `api` dizin.
+2. API tanımı JavaScript dosyasını içinde oluşturmak `api` dizin.
+3. İçeri aktarmak için alma yöntemini kullanmak `api` dizin.
 
-Daha önce kullandık basic uygulama örneği temel alarak prototip API tanımı aşağıda verilmiştir.
+Daha önce kullanılan basic uygulama örneği temel alarak API tanımı prototip şöyledir:
 
     var express = require('express'),
         azureMobileApps = require('azure-mobile-apps');
@@ -675,16 +703,16 @@ Daha önce kullandık basic uygulama örneği temel alarak prototip API tanımı
     var app = express(),
         mobile = azureMobileApps();
 
-    // Import the Custom API
+    // Import the custom API.
     mobile.api.import('./api');
 
-    // Add the mobile API so it is accessible as a Web API
+    // Add the Mobile API so it is accessible as a Web API.
     app.use(mobile);
 
     // Start listening on HTTP
     app.listen(process.env.PORT || 3000);
 
-Örneği kullanarak sunucu tarihi döndürür API atalım *Date.now()* yöntemi.  Api/date.js dosya şöyledir:
+Bir örnek kullanılarak sunucu tarihi döndürür API atalım `Date.now()` yöntemi. Api/date.js dosya şöyledir:
 
     var api = {
         get: function (req, res, next) {
@@ -695,10 +723,10 @@ Daha önce kullandık basic uygulama örneği temel alarak prototip API tanımı
 
     module.exports = api;
 
-Her bir parametreyi standart RESTful fiiller - GET, POST, düzeltme eki veya DELETE biridir.  Standart bir yöntemdir [ExpressJS Ara] zorunlu çıkış gönderir işlevi.
+Her bir parametreyi standart RESTful fiillerden biri: GET, POST, düzeltme eki veya silme. Standart bir yöntemdir [ExpressJS Ara] zorunlu çıkış gönderir işlevi.
 
-### <a name="howto-customapi-auth"></a>Nasıl yapılır: özel bir API erişimi için kimlik doğrulaması gerektirir
-Azure Mobile Apps SDK'sı kimlik doğrulaması için de aynı şekilde tablolar endpoint ve özel API'leri uygular.  Önceki bölümde geliştirilen API kimlik doğrulaması eklemek için Ekle bir **erişim** özelliği:
+### <a name="howto-customapi-auth"></a>Özel bir API erişimi için kimlik doğrulaması gerektirir
+Kimlik doğrulama Mobile Apps SDK'sı aynı şekilde her ikisi için uygulayan `tables` uç noktasını ve özel API'leri. Önceki bölümde geliştirilen API kimlik doğrulaması eklemek için Ekle bir `access` özelliği:
 
     var api = {
         get: function (req, res, next) {
@@ -724,10 +752,10 @@ Ayrıca, kimlik doğrulama belirli işlemleri belirtebilirsiniz:
 
     module.exports = api;
 
-Tabloları uç noktası için kullanılan aynı belirteci kimlik doğrulaması gerektiren özel API'leri için kullanılması gerekir.
+İçin kullanılan aynı belirteci `tables` uç noktası kimlik doğrulaması gerektiren özel API'leri için kullanılmalıdır.
 
-### <a name="howto-customapi-auth"></a>Nasıl yapılır: işlemek büyük dosya yüklemeleri
-Azure Mobile Apps SDK'sı [gövde ayrıştırıcı Ara](https://github.com/expressjs/body-parser) kabul etmek ve gönderme işleminiz gövdesi içeriği kod çözme için.  Daha büyük dosya yüklemeleri kabul etmek için gövde-ayrıştırıcı önceden yapılandırabilirsiniz:
+### <a name="howto-customapi-auth"></a>Tanıtıcı büyük dosyayı yükler
+Mobile Apps SDK'sı [gövde ayrıştırıcı Ara](https://github.com/expressjs/body-parser) kabul etmek ve gönderme işleminiz gövdesi içeriği kod çözme için. Daha büyük dosya yüklemeleri kabul etmek için gövde-ayrıştırıcı önceden yapılandırabilirsiniz:
 
     var express = require('express'),
         bodyParser = require('body-parser'),
@@ -736,32 +764,32 @@ Azure Mobile Apps SDK'sı [gövde ayrıştırıcı Ara](https://github.com/expre
     var app = express(),
         mobile = azureMobileApps();
 
-    // Set up large body content handling
+    // Set up large body content handling.
     app.use(bodyParser.json({ limit: '50mb' }));
     app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-    // Import the Custom API
+    // Import the custom API.
     mobile.api.import('./api');
 
-    // Add the mobile API so it is accessible as a Web API
+    // Add the Mobile API so it is accessible as a Web API.
     app.use(mobile);
 
-    // Start listening on HTTP
+    // Start listening on HTTP.
     app.listen(process.env.PORT || 3000);
 
-Base-64 kodlanmış Aktarımdan önce dosyasıdır.  Bu gerçek karşıya yükleme boyutu artar (ve bu nedenle boyut için hesabı gerekir).
+Base-64 kodlanmış Aktarımdan önce dosyasıdır. Bu kodlama, gerçek karşıya yükleme (ve için hesap boyutu) boyutunu artırır.
 
-### <a name="howto-customapi-sql"></a>Nasıl yapılır: özel SQL deyimlerini yürütmek
-Azure Mobile Apps SDK'sı kolayca tanımlanmış veri sağlayıcısı için parametreli SQL deyimlerini yürütmek sağlayarak tüm içeriği istek nesnesi aracılığıyla erişmesine izin verir:
+### <a name="howto-customapi-sql"></a>Özel SQL deyimlerini yürütmek
+Mobile Apps SDK'sı istek nesnesi aracılığıyla tüm içeriği erişim sağlar. Parametreli SQL deyimlerini tanımlanmış veri sağlayıcısına kolayca çalıştırabilirsiniz:
 
     var api = {
         get: function (request, response, next) {
-            // Check for parameters - if not there, pass on to a later API call
+            // Check for parameters. If not there, pass on to a later API call.
             if (typeof request.params.completed === 'undefined')
                 return next();
 
-            // Define the query - anything that can be handled by the mssql
-            // driver is allowed.
+            // Define the query. Anything that the mssql
+            // driver can handle is allowed.
             var query = {
                 sql: 'UPDATE TodoItem SET complete=@completed',
                 parameters: [{
@@ -769,8 +797,8 @@ Azure Mobile Apps SDK'sı kolayca tanımlanmış veri sağlayıcısı için para
                 }]
             };
 
-            // Execute the query.  The context for Azure Mobile Apps is available through
-            // request.azureMobile - the data object contains the configured data provider.
+            // Execute the query. The context for Mobile Apps is available through
+            // request.azureMobile. The data object contains the configured data provider.
             request.azureMobile.data.execute(query)
             .then(function (results) {
                 response.json(results);
@@ -782,52 +810,52 @@ Azure Mobile Apps SDK'sı kolayca tanımlanmış veri sağlayıcısı için para
     module.exports = api;
 
 ## <a name="Debugging"></a>Hata ayıklama, kolay tablolar ve kolay API'leri
-### <a name="howto-diagnostic-logs"></a>Nasıl yapılır: hata ayıklama, tanılama ve Azure Mobile apps sorunlarını giderme
+### <a name="howto-diagnostic-logs"></a>Hata ayıklama, tanılama ve Mobile Apps sorunlarını giderme
 Azure uygulama hizmeti birkaç hata ayıklama ve sorun giderme tekniklerini Node.js uygulamaları için sağlar.
-Node.js mobil arka uç sorunlarını giderme çalışmaya başlamak için aşağıdaki makalelere bakın:
+Node.js Mobile Apps arka uç sorunlarını giderme çalışmaya başlamak için aşağıdaki makalelere bakın:
 
-* [Bir Azure uygulama hizmeti izleme]
-* [Azure uygulama hizmetinde tanılama günlük kaydını etkinleştir]
-* [Visual Studio'da bir Azure uygulama hizmeti sorunlarını giderme]
+* [Azure uygulama hizmeti izleme]
+* [Azure App Service'te tanılama günlük kaydını etkinleştir]
+* [Visual Studio'da Azure uygulama hizmeti sorunlarını giderme]
 
-Node.js uygulamalarını çok çeşitli tanılama günlük araçları erişimi.  Azure Mobile Apps Node.js SDK'sı düzenlenmemeli [Winston] tanılama günlük için.  Günlüğü otomatik olarak etkin hata ayıklama modunu etkinleştirme veya ayarlayarak **MS_DebugMode** uygulama ayarı true [Azure portal]. Oluşturulan günlüklerin görünmez tanılama günlüklerine [Azure portal].
+Node.js uygulamalarını çok çeşitli tanılama günlük araçları erişimi. Mobile Apps Node.js SDK'sı düzenlenmemeli [Winston] tanılama günlük için. Günlüğü otomatik olarak etkin hata ayıklama etkinleştirdiğinizde modu veya kümesi `MS_DebugMode` uygulama ayarı true [Azure portal]. Oluşturulan günlüklerin görünür tanılama günlüklerine [Azure portal].
 
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Nasıl yapılır: Azure portalında kolay tabloları ile çalışma
-Portaldaki kolay tabloları oluşturma ve tabloları doğrudan portalda çalışmak olanak tanır. CSV biçiminde kolay tablolara veri kümesi yükleyebilirsiniz. Çakışan özellikleri adlarında (CSV kümenizi) ile Azure Mobile Apps arka uç sistem özellikleri adlarını kullanamayacağınızı unutmayın. Sistem özellikleri adları şunlardır:
+### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Azure portalında kolay tabloları ile çalışma
+Oluşturma ve tabloları doğrudan portalda çalışmak için kolay tabloları kullanabilir. CSV biçiminde kolay tablolara veri kümesi yükleyebilirsiniz. Sistem özellik adlarını Mobile Apps arka ucu ile çakışan özellik adları (veri kümesinde, CSV) kullanamayacağınızı unutmayın. Sistemi özellik adları şunlardır:
 * CreatedAt
 * updatedAt
 * silindi
 * sürüm
 
-Uygulama hizmeti Düzenleyicisi'ni kullanarak tablo işlemleri bile düzenleyebilirsiniz. Tıkladığınızda **kolay tabloları** arka uç site ayarlarınızda ekleyebilir, değiştirebilir veya bir tablo silme. Tablodaki verileri de görebilirsiniz.
+Uygulama hizmeti Düzenleyicisi'ni kullanarak, tablo işlemleri bile düzenleyebilirsiniz. Seçtiğinizde, **kolay tabloları** arka uç site ayarlarınızı ekleyebilir, değiştirebilir veya bir tablo silme. Tablodaki verileri de görebilirsiniz.
 
 ![Kolay tablolarla çalışma](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
 Aşağıdaki komutlar bir tablo için komut çubuğunda kullanılabilir:
 
-* **İzinleri Değiştir** - Okuma izinlerini değiştirmek, Ekle, Güncelleştir ve tablosu üzerinde işlem silin.
-  Kimlik doğrulaması gerektiren ya da işlemi tüm erişimi devre dışı bırakmak için anonim erişime izin verecek şekilde seçeneklerdir.
-* **Komut dosyasını Düzenle** -komut dosyası tablosu için uygulama hizmeti Düzenleyicisi'nde açılır.
-* **Şemayı yönetmek** - ekleme veya sütunları silin veya tablo dizini değiştirin.
-* **Düz tablo** -var olan bir tabloyu kesen değişmeden tüm veri satırları silme ancak şemanın bırakarak olabilir.
-* **Satırları Sil** -tek tek veri satırı silin.
-* **Akış günlükleri Görünüm** -siteniz için akış günlüğü hizmetine bağlanır.
+* **İzinleri Değiştir**: Okuma izinlerini değiştirmek, ekleme, güncelleştirme ve silme işlemleri tablo üzerinde.
+ Kimlik doğrulaması gerektiren ya da işlemi tüm erişimi devre dışı bırakmak için anonim erişime izin verecek şekilde seçeneklerdir.
+* **Komut dosyasını Düzenle**: Tablo için komut dosyası App Service Düzenleyicisi'nde açılır.
+* **Şemayı yönetmek**: ekleyin veya sütunları Sil ya da tablo dizini değiştirin.
+* **Düz tablo**: tüm veri satırları silerek varolan bir tabloyu kesin ancak şemanın değişmeden.
+* **Satırları Sil**: veri tek tek satırları silme.
+* **Akış günlükleri Görünüm**: siteniz için akış günlüğü hizmetine bağlanın.
 
-### <a name="work-easy-apis"></a>Nasıl yapılır: Azure portalında kolay API'leri ile çalışma
-Portaldaki kolay API'leri oluşturmanıza ve özel API'lerini doğrudan portalda çalışmak olanak verir. Uygulama hizmeti Düzenleyicisi'ni kullanarak API betikleri düzenleyebilirsiniz.
+### <a name="work-easy-apis"></a>Azure portalında kolay API'leri ile çalışma
+Oluşturma ve özel API'lerini doğrudan portalda çalışmak için kolay API'leri kullanın. Uygulama hizmeti Düzenleyicisi'ni kullanarak API komut dosyalarını düzenleyebilirsiniz.
 
-Tıkladığınızda **kolay API'leri** arka uç site ayarlarınızda ekleyebilir, değiştirebilir veya özel bir API uç noktasını silmek.
+Seçtiğinizde, **kolay API'leri** arka uç site ayarlarınızı ekleyebilir, değiştirebilir veya özel bir API uç noktasını silmek.
 
 ![Kolay API'leri ile çalışma](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-Portalda, belirli bir HTTP eylemi için erişim izinlerini değiştirmek, API komut dosyası App Service Düzenleyicisi'ni düzenleyin veya akış günlükleri görüntüleyin.
+Portalda, bir HTTP eylemi için erişim izinlerini değiştirmek, API komut dosyası App Service Düzenleyicisi'ni düzenleyin veya akış günlükleri görüntüleyin.
 
-### <a name="online-editor"></a>Nasıl yapılır: kod App Service Düzenleyicisi'nde Düzenle
-Azure portalı proje yerel bilgisayarınıza indirmek zorunda kalmadan Node.js arka uç komut dosyalarınızı App Service Düzenleyicisi'ni düzenlemenizi sağlar. Çevrimiçi düzenleyicisinde komut dosyalarını düzenlemek için:
+### <a name="online-editor"></a>Kodu App Service Düzenleyicisi'nde Düzenle
+Azure Portalı'nı kullanarak, yerel bilgisayarınıza projeye yüklemeye gerek kalmadan Node.js arka uç komut dosyalarınızı App Service Düzenleyicisi'ni düzenleyebilirsiniz. Çevrimiçi düzenleyicisinde komut dosyalarını düzenlemek için:
 
-1. Mobil uygulama arka uç dikey penceresinde tıklayın **tüm ayarları** > ya da **kolay tablolar** veya **kolay API'leri**, bir tablo veya API'ı tıklatın **Düzenle betik**. Komut dosyası App Service Düzenleyicisi'nde açılır.
+1. Mobile Apps arka uç bölmesinde seçin **tüm ayarları** > ya da **kolay tablolar** veya **kolay API'leri**. Bir tablo veya API seçin ve ardından **Düzenle betik**. Komut dosyası App Service Düzenleyicisi'nde açar.
 
-    ![App Service Düzenleyicisi](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+   ![App Service Düzenleyicisi](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 2. Çevrimiçi düzenleyicisini kod dosyasında istediğiniz değişiklikleri yapın. Siz yazarken değişiklikler otomatik olarak kaydedilir.
 
 <!-- Images -->
@@ -843,20 +871,20 @@ Azure portalı proje yerel bilgisayarınıza indirmek zorunda kalmadan Node.js a
 [Android istemci hızlı başlangıç]: app-service-mobile-android-get-started.md
 [Apache Cordova istemci hızlı başlangıç]: app-service-mobile-cordova-get-started.md
 [iOS istemci hızlı başlangıç]: app-service-mobile-ios-get-started.md
-[Xamarin.iOS istemcisi hızlı başlangıç]: app-service-mobile-xamarin-ios-get-started.md
-[Xamarin.Android istemcisi hızlı başlangıç]: app-service-mobile-xamarin-android-get-started.md
+[Xamarin.iOS Client quickstart]: app-service-mobile-xamarin-ios-get-started.md
+[Xamarin.Android Client quickstart]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms istemci hızlı başlangıç]: app-service-mobile-xamarin-forms-get-started.md
-[Windows mağazası istemci hızlı başlangıç]: app-service-mobile-windows-store-dotnet-get-started.md
+[Windows Store istemcisi hızlı başlangıç]: app-service-mobile-windows-store-dotnet-get-started.md
 [çevrimdışı veri eşitlemeye]: app-service-mobile-offline-data-sync.md
-[Azure Active Directory kimlik doğrulaması yapılandırma]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook kimlik doğrulaması yapılandırma]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[Azure Active Directory kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [Google kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Microsoft Authentication yapılandırma]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Microsoft kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Twitter kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service Deployment Guide]: ../app-service/app-service-deploy-local-git.md
-[Bir Azure uygulama hizmeti izleme]: ../app-service/web-sites-monitor.md
-[Azure uygulama hizmetinde tanılama günlük kaydını etkinleştir]: ../app-service/web-sites-enable-diagnostic-log.md
-[Visual Studio'da bir Azure uygulama hizmeti sorunlarını giderme]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Azure uygulama hizmeti Dağıtım Kılavuzu'nu]: ../app-service/app-service-deploy-local-git.md
+[Azure uygulama hizmeti izleme]: ../app-service/web-sites-monitor.md
+[Azure App Service'te tanılama günlük kaydını etkinleştir]: ../app-service/web-sites-enable-diagnostic-log.md
+[Visual Studio'da Azure uygulama hizmeti sorunlarını giderme]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [düğümü sürüm belirtin]: ../nodejs-specify-node-version-azure-apps.md
 [düğümü modüllerini kullanma]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
