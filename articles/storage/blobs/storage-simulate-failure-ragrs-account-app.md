@@ -1,55 +1,58 @@
 ---
-title: "Azure'da olarak yedekli depolamaya okuma erişimi erişme hatası benzetimini | Microsoft Docs"
-description: "Coğrafi olarak yedekli depolamaya okuma erişimi erişimde bir hata benzetimi"
+title: "Azure’da okuma erişimli yedekli depolamaya erişimde hata benzetimi gerçekleştirme | Microsoft Docs"
+description: "Okuma erişimli coğrafi olarak yedekli depolamaya erişimde hata benzetimi gerçekleştirme"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: ruthogunnnaike
 manager: jeconnoc
-editor: 
 ms.service: storage
-ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/05/2017
-ms.author: gwallace
-ms.custom: mvc
-ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.date: 12/23/2017
+ms.author: v-ruogun
+ms.openlocfilehash: 9ebf773cf39d832416dce820e67201c21a679296
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Yedekli depolamaya okuma erişimi erişimde arızanın benzetimini gerçekleştirin
+# <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Okuma erişimli yedekli depolamaya erişimde hata benzetimi gerçekleştirme
 
-Bu öğretici iki serinin bir parçasıdır. Bu öğreticide, başarısız bir yanıt sahip Fiddler istekleri için ekleme bir [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) arızanın benzetimini gerçekleştirin ve ikincil uç noktasından okumak uygulama sağlamak için depolama hesabı (RA-GRS).
+Bu öğretici, bir dizinin ikinci bölümüdür.  Bu öğreticide, [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabınızın birincil uç noktasına yönelik istekler için hata benzetimi yapmak amacıyla [Fiddler](#simulate-a-failure-with-fiddler)’ı veya [Statik Yönlendirme](#simulate-a-failure-with-an-invalid-static-route)’yi kullanabilir ve uygulamanın ikincil uç noktadan okumasını sağlayabilirsiniz.
 
-![Senaryo uygulama](media/storage-simulate-failure-ragrs-account-app/scenario.png)
+![Senaryo uygulaması](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-Bölümünde dizisinin iki bilgi nasıl yapılır:
+Bu öğreticiyi tamamlamak için önceki depolama öğreticisini tamamlamış olmanız gerekir: [Azure depolama ile uygulama verilerinizi yüksek oranda kullanılabilir hale getirme][previous-tutorial].
+
+Serinin ikinci bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Çalıştırın ve uygulama duraklatma
-> * Arızanın benzetimini gerçekleştirin
-> * Birincil uç noktası geri yükleme benzetimi
+> * Uygulamayı çalıştırma ve duraklatma
+> * [Fiddler](#simulate-a-failure-with-fiddler) veya [geçersiz bir statik rota](#simulate-a-failure-with-an-invalid-static-route) ile hata benzetimi yapma 
+> * Birincil uç noktayı geri yükleme benzetimi gerçekleştirme
 
-## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için:
+## <a name="prerequisites"></a>Ön koşullar
 
-* İndirme ve yükleme [Fiddler](https://www.telerik.com/download/fiddler)
+Fiddler kullanarak hata benzetimi yapmak için: 
+
+* [Fiddler](https://www.telerik.com/download/fiddler)’ı indirip yükleyin
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Bu öğreticiyi tamamlamak için önceki depolama öğretici tamamlamış olmanız gerekir: [uygulama verilerinizi Azure storage ile yüksek oranda kullanılabilir hale][previous-tutorial].
+## <a name="simulate-a-failure-with-fiddler"></a>Fiddler ile hata benzetimi yapma
 
-## <a name="launch-fiddler"></a>Fiddler'ı Başlat
+Fiddler ile hata benzetimi yapmak için RA-GRS hesabınızın birincil uç noktasına istekler için başarısız bir yanıt eklersiniz.
 
-Açık Fiddler, select **kuralları** ve **özelleştirme kuralları**.
+Fiddler ile bir hata ve birincil uç noktayı geri yükleme benzetimi yapmak için aşağıdaki adımları izleyin.
 
-![Fiddler kuralları özelleştirme](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+### <a name="launch-fiddler"></a>Fiddler'ı açma
 
-Fiddler Macro'yu gösteren başlatır **SampleRules.js** dosya. Bu dosya, Fiddler özelleştirmek için kullanılır. Aşağıdaki kod örneğinde Yapıştır `OnBeforeResponse` işlevi. Yeni kod oluşturduğu mantığı hemen uygulanmadı emin olmak için dışı bırakılmıştır. Select tamamlandıktan sonra **dosya** ve **kaydetmek** yaptığınız değişiklikleri kaydetmek için.
+Fiddler’ı açıp **Kurallar**’ı ve **Kuralları Özelleştir**’i seçin.
+
+![Fiddler kurallarını özelleştirme](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+
+Fiddler ScriptEditor açılır ve **SampleRules.js** dosyasını gösterir. Bu dosya, Fiddler’ı özelleştirmek için kullanılır. Aşağıdaki kod örneğini `OnBeforeResponse` işlevine yapıştırın. Yeni kod, kendisi tarafından oluşturulan mantığın hemen uygulanmamasını sağlamak amacıyla açıklama satırı yapılır. İşlem tamamlandığında değişikliklerinizi kaydetmek için **Dosya**’yı ve **Kaydet**’i seçin.
 
 ```javascript
     /*
@@ -67,17 +70,23 @@ Fiddler Macro'yu gösteren başlatır **SampleRules.js** dosya. Bu dosya, Fiddle
     */
 ```
 
-![Özelleştirilmiş kural yapıştırın](media/storage-simulate-failure-ragrs-account-app/figure2.png)
+![Özelleştirilmiş kuralı yapıştırma](media/storage-simulate-failure-ragrs-account-app/figure2.png)
 
-## <a name="start-and-pause-the-application"></a>Başlatın ve uygulamayı duraklatma
+### <a name="start-and-pause-the-application"></a>Uygulamayı başlatma ve duraklatma
 
-Visual Studio'da basın **F5** veya seçin **Başlat** uygulama hata ayıklama başlatılamıyor. Birincil uç noktasından okuma uygulama başladıktan sonra basın **herhangi bir tuşa** uygulamasını duraklatmak için konsol penceresinde.
+Uygulamayı IDE’nizde veya metin düzenleyicinizde çalıştırın. Uygulama birincil uç noktadan okumaya başladığında uygulamayı duraklatmak için konsol penceresinde **herhangi bir tuşa** basın.
 
-## <a name="simulate-failure"></a>Arızanın benzetimini gerçekleştirin
+### <a name="simulate-failure"></a>Hata benzetimi yapma
 
-Uygulama ile duraklatıldı özel şimdi açıklamadan çıkarın kaydettik Fiddler'da önceki adımı kural. Bu kod örneği istekleri RA-GRS depolama hesabı ve yolunu görüntü adı içeriyorsa, arar `HelloWorld`, bir yanıt kodu, döndürür `503 - Service Unavailable`.
+Uygulama duraklatıldığı için artık önceki adımlardan birinde kaydettiğiniz özel kuralı açıklama durumundan çıkarabilirsiniz. Kod örneği RA-GRS depolama hesabına yönelik istekleri arar ve yol görüntünün adını (`HelloWorld`) içeriyorsa `503 - Service Unavailable` yanıt kodunu döndürür.
 
-Fiddler ve select **kuralları** -> **kuralları Özelleştir...** .  Aşağıdaki satırlardaki yorumları kaldırın, yerine `STORAGEACCOUNTNAME` depolama hesabınızın adı. Seçin **dosya** -> **kaydetmek** yaptığınız değişiklikleri kaydetmek için.
+Fiddler’a gidip **Kurallar** -> **Kuralları Özelleştir...** seçeneğini belirleyin.  Aşağıdaki satırları açıklama durumundan çıkarın, `STORAGEACCOUNTNAME` yerine depolama hesabınızın adını yazın. Değişikliklerinizi kaydetmek için **Dosya** -> **Kaydet**’e tıklayın. 
+
+> [!NOTE]
+> Örnek uygulamayı Linux üzerinde çalıştırıyorsanız, **CustomRule.js** dosyasını her düzenlediğinizde Fiddler’ın özel mantığı yüklemesi için Fiddler'ı yeniden başlatmanız gerekir. 
+> 
+> 
+
 
 ```javascript
          if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
@@ -86,40 +95,93 @@ Fiddler ve select **kuralları** -> **kuralları Özelleştir...** .  Aşağıda
          }
 ```
 
-Uygulama sürdürmek için basın **herhangi bir tuşa** .
+Uygulamayı sürdürmek için **herhangi bir tuşa** basın.
 
-Uygulama yeniden çalışmaya başladıktan sonra birincil uç istekleri başarısız başlar. Uygulama birincil uç noktasına 5 kez yeniden dener. Hata eşiğinin beş denemeleri sonra görüntüyü ikincil salt okunur uç noktasından ister. Uygulama görüntüsü başarıyla ikincil uç noktasından 20 kez aldıktan sonra uygulama birincil bitiş noktasına bağlanmaya çalışır. Birincil uç nokta hala ulaşılamaz durumda olduğunda uygulama ikincil uç noktaya okuma sürdürür. Bu deseni [devre kesici](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) önceki öğreticide açıklanan düzeni.
+Uygulama yeniden çalışmaya başladığında birincil uç nokta istekleri başarısız olmaya başlar. Uygulama birincil uç noktaya 5 kez yeniden bağlanmayı dener. Beş denemelik hata eşiğine ulaştıktan sonra görüntüyü ikincil, salt okunur uç noktadan ister. Uygulama görüntüyü ikincil uç noktadan 20 kez başarıyla aldıktan sonra birincil uç noktaya bağlanmaya çalışır. Birincil uç nokta hala ulaşılamaz durumdaysa uygulama ikincil uç noktadan okumayı sürdürür. Bu düzen, önceki öğreticide açıklanan [Devre Kesici](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) düzenidir.
 
-![Özelleştirilmiş kural yapıştırın](media/storage-simulate-failure-ragrs-account-app/figure3.png)
+![Özelleştirilmiş kuralı yapıştırma](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-## <a name="simulate-primary-endpoint-restoration"></a>Birincil uç noktası geri yükleme benzetimi
+### <a name="simulate-primary-endpoint-restoration"></a>Birincil uç noktayı geri yükleme benzetimi gerçekleştirme
 
-Önceki adımda Fiddler özel kural kümesi ile birincil uç istekleri başarısız olur. Yeniden çalışıp birincil uç nokta benzetimini yapmak için eklemesine mantığı kaldırmanız `503` hata.
+Önceki adımda yer alan Fiddler özel kural kümesi ile birincil uç noktaya yapılan istekler başarısız olur. Birincil uç noktanın yeniden çalışmaya başlamasının benzetimini yapmak için `503` hatasını ekleme mantığını kaldırırsınız.
 
-Uygulama duraklatmak için basın **herhangi bir tuşa**.
+Uygulamayı duraklatmak için **herhangi bir tuşa** basın.
 
-### <a name="remove-the-custom-rule"></a>Özel kural Kaldır
+Fiddler’a gidip **Kurallar**’ı ve **Kuralları Özelleştir...** seçeneğini belirleyin.  `OnBeforeResponse` işlevindeki özel mantığı açıklama satırı yapın veya kaldırın ve varsayılan işlevi olduğu gibi bırakın. **Dosya**’yı ve **Kaydet**’i seçerek değişiklikleri kaydedin.
 
-Fiddler ve select **kuralları** ve **kuralları Özelleştir...** .  Yorum yapmak veya Özel mantık kaldırmak `OnBeforeResponse` işlevi, varsayılan işlevi çıkılıyor. Seçin **dosya** ve **kaydetmek** değişiklikleri kaydedin.
+![Özelleştirilmiş kuralı kaldırma](media/storage-simulate-failure-ragrs-account-app/figure5.png)
 
-![Özelleştirilmiş kuralını Kaldır](media/storage-simulate-failure-ragrs-account-app/figure5.png)
+İşlem tamamlandığında, uygulamayı sürdürmek için **herhangi bir tuşa** basın. Uygulama, 999 okuma sayısına ulaşana kadar birincil uç noktadan okumaya devam eder.
 
-Tamamlandığında, basın **herhangi bir tuşa** uygulama sürdürmek için. 999 okuma isabetler kadar uygulama birincil uç noktasından okuma devam eder.
+![Uygulamayı sürdürme](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-![Uygulama Sürdür](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
+## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Geçersiz bir statik rota ile hata benzetimi yapma 
+[Okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabınızın birincil uç noktasına yönelik tüm istekler için geçersiz bir statik rota oluşturabilirsiniz. Bu öğreticide, isteklerin depolama hesabına yönlendirilmesi için ağ geçidi olarak yerel ana bilgisayar kullanılır. Yerel ana bilgisayarın ağ geçidi olarak kullanılması, depolama hesabınızın birincil uç noktasına yönelik tüm isteklerin ana bilgisayara dönecek şekilde bir döngüye girmesine ve sonuçta başarısız olmasına yol açar. Geçersiz bir statik rota ile bir hata ve birincil uç noktayı geri yükleme benzetimi yapmak için aşağıdaki adımları izleyin. 
+
+### <a name="start-and-pause-the-application"></a>Uygulamayı başlatma ve duraklatma
+
+Uygulamayı IDE’nizde veya metin düzenleyicinizde çalıştırın. Uygulama birincil uç noktadan okumaya başladığında uygulamayı duraklatmak için konsol penceresinde **herhangi bir tuşa** basın. 
+
+### <a name="simulate-failure"></a>Hata benzetimi yapma
+
+Uygulama duraklatılmış durumdayken Windows’da yönetici olarak komut istemini başlatın ya da Linux’ta root olarak terminali çalıştırın. Depolama hesabı birincil uç nokta etki alanı hakkında bilgi edinmek için bir komut istemine veya terminale aşağıdaki komutu girin.
+
+```
+nslookup STORAGEACCOUNTNAME.blob.core.windows.net
+``` 
+ `STORAGEACCOUNTNAME` değerini depolama hesabınızın adıyla değiştirin. Depolama hesabınızın IP adresini daha sonra kullanmak üzere bir metin düzenleyicisine kopyalayın. Yerel ana bilgisayarın IP adresini almak için Windows komut isteminde `ipconfig` veya Linux terminalinde `ifconfig` yazın. 
+
+Hedef ana bilgisayar için statik rota eklemek üzere bir Windows komut isteminde veya Linux terminalinde aşağıdaki komutu yazın. 
+
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+  route add <destination_ip> gw <gateway_ip>
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+  route add <destination_ip> <gateway_ip>
+
+---
+ 
+`<destination_ip>` öğesini depolama hesabınızın IP adresiyle, `<gateway_ip>` öğesini ise yerel ana bilgisayarınızın IP adresiyle değiştirin. Uygulamayı sürdürmek için **herhangi bir tuşa** basın.
+
+Uygulama yeniden çalışmaya başladığında birincil uç nokta istekleri başarısız olmaya başlar. Uygulama birincil uç noktaya 5 kez yeniden bağlanmayı dener. Beş denemelik hata eşiğine ulaştıktan sonra görüntüyü ikincil, salt okunur uç noktadan ister. Uygulama görüntüyü ikincil uç noktadan 20 kez başarıyla aldıktan sonra birincil uç noktaya bağlanmaya çalışır. Birincil uç nokta hala ulaşılamaz durumdaysa uygulama ikincil uç noktadan okumayı sürdürür. Bu düzen, önceki öğreticide açıklanan [Devre Kesici](/azure/architecture/patterns/circuit-breaker.md) düzenidir.
+
+### <a name="simulate-primary-endpoint-restoration"></a>Birincil uç noktayı geri yükleme benzetimi gerçekleştirme
+
+Birincil uç noktanın yeniden çalışır duruma gelmesinin benzetimini yapmak için birincil uç noktanın statik rotasını yönlendirme tablosundan silin. Bu, birincil uç noktaya yönelik tüm isteklerin varsayılan ağ geçidi üzerinden yönlendirilmesini sağlar. 
+
+Hedef ana bilgisayarın (depolama hesabı) statik rotasını silmek için bir Windows komut isteminde veya Linux terminalinde aşağıdaki komutu yazın. 
+ 
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+route del <destination_ip> gw <gateway_ip>
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+route delete <destination_ip> <gateway_ip>
+
+---
+
+Uygulamayı sürdürmek için **herhangi bir tuşa** basın. Uygulama, 999 okuma sayısına ulaşana kadar birincil uç noktadan okumaya devam eder.
+
+![Uygulamayı sürdürme](media/storage-simulate-failure-ragrs-account-app/figure4.png)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bölümünde seri iki, nasıl gibi coğrafi olarak yedekli depolamaya okuma erişimi test etmek için bir hata benzetimini yapma hakkında öğrenilen:
+Serinin ikinci bölümünde, okuma erişimli coğrafi yedekli depolamayı test etmek ve aşağıdaki gibi işlemler gerçekleştirmek için hata benzetimi yapmayı öğrendiniz:
 
 > [!div class="checklist"]
-> * Çalıştırın ve uygulama duraklatma
-> * Arızanın benzetimini gerçekleştirin
-> * Birincil uç noktası geri yükleme benzetimi
+> * Uygulamayı çalıştırma ve duraklatma
+> * [Fiddler](#simulate-a-failure-with-fiddler) veya [geçersiz bir statik rota](#simulate-a-failure-with-an-invalid-static-route) ile hata benzetimi yapma 
+> * Birincil uç noktayı geri yükleme benzetimi gerçekleştirme
 
-Önceden oluşturulmuş depolama örnekleri görmek için bu bağlantıyı izleyin.
+Önceden oluşturulmuş depolama örneklerini görmek için bu bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
-> [Azure depolama kod örnekleri](storage-samples-blobs-cli.md)
+> [Azure depolama betiği örnekleri](storage-samples-blobs-cli.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md
