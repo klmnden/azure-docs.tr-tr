@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 93df74da6e9db1bd03885179cd3917205ab3b4ee
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ddc299d0a292ba17624aa3d0617e420a82f2abf3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  
@@ -151,6 +151,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
+1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
 1. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
    
    ![Yeni->DataFactory](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
@@ -360,7 +361,7 @@ Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu
 2. İşlem hattını yapılandırmak için yeni bir sekme görürsünüz. Ayrıca, işlem hattını ağaç görünümünde de görürsünüz. **Özellikler** penceresinde, işlem hattının adını **IncrementalCopyPipeline** olarak değiştirin.
 
     ![İşlem hattı adı](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
-3. **Etkinlikler** araç kutusunda **SQL Veritabanı**’nı genişletin ve bir **Arama** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın. Etkinliğin adını **LookupLastChangeTrackingVersionActivity** olarak ayarlayın. Bu etkinlik, **table_store_ChangeTracking_version** tablosunda depolanan son kopyalama işleminde kullanılan değişiklik izleme sürümünü alır.
+3. **Etkinlikler** araç kutusunda **Genel**’i genişletin ve **Arama** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın. Etkinliğin adını **LookupLastChangeTrackingVersionActivity** olarak ayarlayın. Bu etkinlik, **table_store_ChangeTracking_version** tablosunda depolanan son kopyalama işleminde kullanılan değişiklik izleme sürümünü alır.
 
     ![Arama Etkinliği - ad](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. **Özellikler** penceresinde **Ayarlar**’a geçin ve **Kaynak Veri Kümesi** alanı için **ChangeTrackingDataset** seçeneğini belirleyin. 
@@ -408,12 +409,13 @@ Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu
     ![Saklı Yordam Etkinliği - SQL Hesabı](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. **Saklı Yordam** sekmesine geçin ve aşağıdaki adımları uygulayın: 
 
-    1. **Saklı yordam adı** için **Update_ChangeTracking_Version** adını girin.  
-    2. **Saklı yordam parametreleri** bölümündeki **+ Yeni** düğmesini kullanarak aşağıdaki iki parametreyi ekleyin:
+    1. **Saklı yordam adı** için **Update_ChangeTracking_Version** adını seçin.  
+    2. **Parametreyi içeri aktar**’ı seçin. 
+    3. **Saklı yordam parametreleri** bölümünde, parametreler için aşağıdaki değerleri belirtin: 
 
         | Adı | Tür | Değer | 
         | ---- | ---- | ----- | 
-        | CurrentTrackingVersion | INT64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
+        | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | Dize | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Saklı Yordam Etkinliği - Parametreler](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
@@ -423,14 +425,15 @@ Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu
 15. Araç çubuğunda **Doğrula**’ya tıklayın. Doğrulama hatası olmadığından emin olun. **>>** seçeneğine tıklayarak **İşlem Hattı Doğrulama Raporu** penceresini kapatın. 
 
     ![Doğrula düğmesi](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  **Yayımla** düğmesine tıklayarak varlıkları (bağlı hizmetler, veri kümeleri ve işlem hatları) Data Factory hizmetinde yayımlayın. **Yayımlama başarılı** iletisini görene kadar bekleyin. 
+16.  **Tümünü Yayımla** düğmesine tıklayarak varlıkları (bağlı hizmetler, veri kümeleri ve işlem hatları) Data Factory hizmetinde yayımlayın. **Yayımlama başarılı** iletisini görene kadar bekleyin. 
 
         ![Yayımla düğmesi](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Artımlı kopyalama işlem hattını çalıştırma
-İşlem hattının araç çubuğunda **Tetikle**’ye tıklayıp **Şimdi Tetikle**’ye tıklayın. 
+1. İşlem hattının araç çubuğunda **Tetikle**’ye tıklayıp **Şimdi Tetikle**’ye tıklayın. 
 
-![Şimdi Tetikle menüsü](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Şimdi Tetikle menüsü](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+2. **İşlem Hattı Çalıştırma** penceresinde **Son**’u seçin.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Artımlı kopyalama işlem hattını izleme
 1. Soldaki **İzleyici** sekmesine tıklayın. Listede işlem hattı çalıştırmasını ve çalıştırmanın durumunu görebilirsiniz. Listeyi yenilemek için **Yenile**’ye tıklayın. **Eylemler** sütunundaki bağlantılar, işlem hattı çalıştırmasıyla ilişkili etkinlik çalıştırmalarını görüntülemenize ve işlem hattını yeniden çalıştırmanıza imkan tanır. 

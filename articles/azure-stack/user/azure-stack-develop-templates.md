@@ -3,8 +3,8 @@ title: "Şablonları Azure yığını için geliştirme | Microsoft Docs"
 description: "Azure yığın şablon en iyi yöntemleri öğrenin"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
 ms.service: azure-stack
@@ -12,25 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
-ms.author: helaw
-ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.date: 02/20/2018
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: f85875b5b128f53d45fe9af97c026fc6e34b2d27
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager şablonu konuları
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Uygulamanızı geliştirirken şablon taşınabilirlik Azure ve Azure yığın arasında olmak önemlidir.  Bu konu, Azure Resource Manager geliştirme için Değerlendirmeler sağlar [şablonları](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), uygulama ve test dağıtımınızda Azure Azure yığın ortam erişim olmadan prototip olabilir.
+Uygulamanızı geliştirirken şablon taşınabilirlik Azure ve Azure yığın arasında olmak önemlidir. Bu makalede Azure Resource Manager geliştirme için Değerlendirmeler sağlar [şablonları](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), uygulama ve test dağıtımınızda Azure Azure yığın ortam erişim olmadan prototip olabilir.
 
 ## <a name="resource-provider-availability"></a>Kaynak sağlayıcı kullanılabilirliği
-Kullanılabilir veya Azure yığınında önizlemede zaten bir Microsoft Azure hizmet dağıtmak için planlama şablonu kullanıyor olmanız gerekir.
+Dağıtmayı planlayan şablon yalnızca Azure yığınında önizlemede veya kullanılabilir zaten Microsoft Azure hizmetlerini kullanmanız gerekir.
 
 ## <a name="public-namespaces"></a>Ortak ad alanları
-Azure yığını, veri merkezinizde barındırıldığından, farklı hizmet uç noktası ad alanlarını Azure genel bulutunda vardır. Sonuç olarak, Azure yığınına dağıtmak çalıştığınızda sabit kodlanmış ortak uç noktaları Resource Manager şablonlarındaki başarısız. Bunun yerine, kullanabileceğiniz *başvuru* ve *birleştirme* işlevi dinamik olarak değerlerine göre hizmet uç noktası oluşturmak için dağıtım sırasında kaynak Sağlayıcısı'ndan alınan. Örneğin, belirtme yerine *blob.core.windows.net* şablonunuzda, almak [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dinamik olarak ayarlamak için *osDisk.URI* uç noktası:
+Azure yığını, veri merkezinizde barındırıldığından, farklı hizmet uç noktası ad alanlarını Azure genel bulutunda vardır. Sonuç olarak, Azure yığınına dağıtmaya çalıştığınızda sabit kodlanmış ortak uç noktalardan Azure Resource Manager şablonları başarısız. Bunun yerine, kullanabileceğiniz *başvuru* ve *birleştirme* işlevi dinamik olarak değerlerine göre hizmet uç noktası oluşturmak için dağıtım sırasında kaynak Sağlayıcısı'ndan alınan. Örneğin, belirtme yerine *blob.core.windows.net* şablonunuzda, almak [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dinamik olarak ayarlamak için *osDisk.URI* uç noktası:
 
      "osDisk": {"name": "osdisk","vhd": {"uri": 
      "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
@@ -46,23 +47,21 @@ Azure hizmet sürümleri, Azure ve Azure yığın arasında farklılık göstere
 | Depolama |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
 | KeyVault | `'2015-06-01'` |
 | App Service |`'2015-08-01'` |
-| MySQL |`'2015-09-01'` |
-| SQL |`'2014-04-01-preview'` |
 
 ## <a name="template-functions"></a>Şablon işlevleri
-Resource Manager [işlevleri](../../azure-resource-manager/resource-group-template-functions.md) dinamik şablonları oluşturmak için gerekli özellikleri sağlar. Örnek olarak, gibi görevler için işlevleri kullanabilirsiniz:
+Azure Resource Manager [işlevleri](../../azure-resource-manager/resource-group-template-functions.md) dinamik şablonları oluşturmak için gerekli özellikleri sağlar. Örnek olarak, gibi görevler için işlevleri kullanabilirsiniz:
 
 * Birleştirme veya dizeleri kırpma 
 * Diğer kaynaklardan başvuru değeri
 * Birden çok örneği dağıtma kaynakları yineleme 
 
-Şablonlarınızı oluşturmak gibi bazı işlevleri Azure yığın geliştirme Seti'nde kullanılabilir değil ve kullanılmamalıdır. Bu işlevler şunlardır:
+Bu işlevler Azure yığınında kullanılabilir değil:
 
 * Atla
 * Al
 
 ## <a name="resource-location"></a>Kaynak konumu
-Resource Manager şablonları konum özniteliği dağıtım sırasında kaynaklara yerleştirmek için kullanın. Azure'da, Batı ABD veya Güney Amerika gibi bir bölgesi Konumlar bakın. Azure yığınında konumları Azure yığın, veri merkezinizde olduğundan farklıdır.  Şablonları Azure ve Azure yığın arasında aktarılabilir olduğundan emin olmak için kaynakların dağıtırken kaynak grubu konumu başvuruda bulunmalıdır. Kullanarak bunu yapabilirsiniz `[resourceGroup().Location]` tüm kaynakları kaynak grubu konumu devral emin olmak için.  Aşağıdaki Resource Manager şablonu alıntı bir depolama hesabını dağıtırken bu işlevini kullanarak, bir örnek verilmiştir:
+Azure Resource Manager şablonları konum özniteliği dağıtım sırasında kaynaklara yerleştirmek için kullanın. Azure'da, Batı ABD veya Güney Amerika gibi bir bölgesi Konumlar bakın. Azure yığınında konumları Azure yığın, veri merkezinizde olduğundan farklıdır. Şablonları Azure ve Azure yığın arasında aktarılabilir olduğundan emin olmak için kaynakların dağıtırken kaynak grubu konumu başvuruda bulunmalıdır. Kullanarak bunu yapabilirsiniz `[resourceGroup().Location]` tüm kaynakları kaynak grubu konumu devral emin olmak için. Aşağıdaki alıntı bir depolama hesabını dağıtırken bu işlevini kullanarak, bir örnek verilmiştir:
 
     "resources": [
     {

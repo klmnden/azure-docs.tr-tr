@@ -11,16 +11,16 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Python'ı kullanma
-Bu hızlı başlangıçta [Python](https://python.org) kullanarak PostgreSQL için bir Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. macOS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanıldığını da gösterir. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+Bu hızlı başlangıçta [Python](https://python.org) kullanarak PostgreSQL için bir Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. macOS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanıldığını da gösterir. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır. Daha fazla sdk ayrıntıları için, [Python SDK başvurusuna yönelik Azure PostgreSQL kitaplıkları](/python/api/overview/azure/postgresql) belgelerine ve [psycopg örneğine](http://initd.org/psycopg/docs/usage.html) başvurun.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
 - [DB Oluşturma - Portal](quickstart-create-server-database-portal.md)
 - [DB oluşturma - CLI](quickstart-create-server-database-azure-cli.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory işlem hattında dallanma ve zincirleme etkinlikleri
 Bu öğreticide, bazı denetim akışı özelliklerini gösteren bir Data Factory işlem hattı oluşturacaksınız. Bu işlem hattı, Azure Blob Depolama içindeki kapsayıcıdan aynı depolama hesabındaki başka bir kapsayıcıya basit bir kopyalama işlemi yapar. Kopyalama etkinliği başarılı olursa, işlem hattı başarılı kopyalama işleminin ayrıntılarını (örneğin, yazılan veri miktarı) bir başarı e-postası ile gönderir. Kopyalama etkinliği başarısız olursa, işlem hattı kopyalama hatasının ayrıntılarını (örneğin, hata iletisi) bir hata e-postası ile gönderir. Öğretici boyunca parametreleri nasıl geçireceğinizi göreceksiniz.
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
+1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
 1. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
    
    ![Yeni->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ Bu adımda, bir Kopyalama etkinliği ve iki Web etkinliği ile bir işlem hattı
         - Veri Fabrikası Adı – `@{pipeline().DataFactory}` değerini geçiren ve ilgili veri fabrikası adına erişmenize olanak tanıyan bir sistem değişkenidir. Sistem değişkenlerinin listesi için [Sistem Değişkenleri](control-flow-system-variables.md) makalesine bakın.
         - İşlem Hattı Adı – `@{pipeline().Pipeline}` değerini geçirme. Bu da ilgili işlem hattı adına erişmenize olanak tanıyan bir sistem değişkenidir. 
         - Alıcı – "@pipeline(). parameters.receiver") değerini geçirme. İşlem hattı parametrelerine erişim.
-    6. **Ayarlar** aşağıdaki gibi görünmelidir: 
-
+    
         ![İlk Web etkinliği için ayarlar](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Kopyalama etkinliğinin yanındaki yeşil düğmeyi sürükleyip Web etkinliğinin üzerine bırakarak **Kopyala** etkinliğini **Web** etkinliğine bağlayın. 
 
@@ -266,8 +266,7 @@ Bu adımda, bir Kopyalama etkinliği ve iki Web etkinliği ile bir işlem hattı
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. **Ayarlar** aşağıdaki gibi görünmelidir: 
-    
+
         ![İkinci Web etkinliği için ayarlar](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. İşlem hattı tasarımcısında **Kopyala** etkinliğini seçip **+->** düğmesine tıklayın ve **Hata**’yı seçin.  
 
@@ -278,7 +277,7 @@ Bu adımda, bir Kopyalama etkinliği ve iki Web etkinliği ile bir işlem hattı
 24. İşlem hattını doğrulamak için araç çubuğundaki **Doğrula** düğmesine tıklayın. **>>** düğmesine tıklayarak **İşlem Hattı Doğrulama Çıktı** penceresini kapatın.
 
     ![İşlem hattını doğrulama](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. Varlıkları (veri kümeleri, işlem hatları, vb.) Data Factory hizmetinde yayımlamak için **Yayımla**’ya tıklayın. **Başarıyla yayımlandı** iletisini görene kadar bekleyin.
+24. Varlıkları (veri kümeleri, işlem hatları, vb.) Data Factory hizmetinde yayımlamak için **Tümünü Yayımla**’yı seçin. **Başarıyla yayımlandı** iletisini görene kadar bekleyin.
 
     ![Yayımlama](./media/tutorial-control-flow-portal/publish-button.png)
  

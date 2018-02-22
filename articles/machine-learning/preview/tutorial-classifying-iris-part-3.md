@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Iris sınıflandırma bölüm 3: Model dağıtma
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
@@ -198,7 +198,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    * `-n`: Tamamı küçük harfli olması gereken uygulama adı.
    * `-f`: Puanlama betik dosyası adı.
    * `--model-file`: Model dosyası. Bu örnekte, serileştirilmiş model.pkl dosyası kullanılır.
-   * `-r`: Modelin türü. Bu örnekte bir Python modelidir.
+   * `-r`: Modelin çalışma zamanı. Bu örnekte bir Python modelidir. Geçerli çalışma zamanları: `python` ve `spark-py`.
    * `--collect-model-data true`: Veri koleksiyonunu etkinleştirir.
    * `-c`: Ek paketlerin belirtildiği conda bağımlılıkları dosyasının yolu.
 

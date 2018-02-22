@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bdf49265b5ef88d11f4ed669aa05036839c574eb
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>Mobile Services kullanıyorum, App Service bana nasıl yardımcı olur?
 ## <a name="overview"></a>Genel Bakış
 Mevcut Mobil Hizmetiniz güvendedir ve desteklenmeye devam edecektir. Ancak *Azure App Service* platformunun sağladığı, mobil uygulamanız için bugün Mobile Services’de bulunmayan çok sayıda avantaj vardır:
 
-* Web ve mobil istemciler içeren uygulamalar için daha basit, daha kolay ve daha düşük maliyetli teklifler.
+* Web ve mobil istemciler içeren uygulamalar için daha basit, daha kolay ve daha düşük maliyetli teklifler
 * Web İşleri, özel CNames, daha iyi izleme dahil yeni ana bilgisayara özellikleri.
-* Traffic Manager ile anahtar teslimi tümleştirmesi
+* Traffic Manager ile tümleştirme
 * Karma Bağlantılara ek olarak, VNet kullanarak şirket içi kaynaklarınıza ve VPN’lere bağlantı
 * NewRelic veya AppInsights kullanarak uygulamanız için izleme, uyarma ve sorun giderme.
 * Temel hesaplama kaynakları ve fiyatlandırma için daha zengin yelpaze
@@ -34,7 +34,7 @@ Mevcut Mobil Hizmetiniz güvendedir ve desteklenmeye devam edecektir. Ancak *Azu
 * Yerleşik hazırlık, yedekleme, geri alma ve üretim sırasında test etme özellikleri
 
 ## <a name="new-hosting-features"></a>Yeni barındırma özellikleri
-*Azure App Service*’de *Mobil Uygulama* arka uç kodu; Web Uygulaması ve API Uygulaması ile aynı kapsayıcıda çalışır. Böylece, şu anda Mobile Services’de bulunmayan bazıları dahil, bu kapsayıcıdaki tüm özelliklerden faydalanabilirsiniz.
+*Azure App Service*’de *Mobil Uygulama* arka uç kodu; Web Uygulaması ve API Uygulaması ile aynı kapsayıcıda çalışır. Şu anda Mobile Services’de bulunmayan bazıları dahil, bu kapsayıcıdaki tüm özelliklerden faydalanabilirsiniz:
 
 * Web İşleri aracılığıyla sürekli çalışan arka uç mantığı ekleyin
 * Arka uç kodunuzun her zaman çalıştığından emin olun
@@ -42,7 +42,7 @@ Mevcut Mobil Hizmetiniz güvendedir ve desteklenmeye devam edecektir. Ancak *Azu
 * Traffic Manager ile uygulamanızı coğrafi olarak ölçeklendirin
 * İstediğiniz tüm kitaplıkları ve paketleri ekleyin.
 * (.NET için) MVC dahil, ASP.NET’in her özelliğinden yararlanın
-* (Node.js için) Ortak MVC kitaplıkları dahil, Düğüm ekosisteminin tüm saf JavaScript kitaplığından yararlanın.
+* (Node.js için) Ortak MVC kitaplıkları dahil, Node ekosisteminin tüm saf JavaScript kitaplığından yararlanın.
 
 ## <a name="access-on-premises-data-using-vnet"></a>VNet kullanarak şirket içi verilere erişin
 Günümüzde, Mobile Services ile şirket için kaynaklara erişim için Karma Bağlantıları halihazırda kullanabilirsiniz. Ancak bir VPN çözümünün tercih edildiği durumlar vardır. *Azure App Service* ile Mobil Uygulama arka uç kodunuz için Azure VNet kullanabilirsiniz.
@@ -54,7 +54,7 @@ Günümüzde, Mobile Services ile şirket için kaynaklara erişim için Karma B
 Mobile Services ile arka uç kodunuzun tm örnekleri küçük VM’lerde çalışıyordu. *Azure App Service*, VM boyutlarını çok daha zengin seçeneklerle seçmenizi sağlar. Ayrıca çeşitli performans ölçümleri temelinde, gelen müşteri yükünü işlemek için hızlı şekilde ölçeği artırabilir ya da genişletebilirsiniz.
 
 ## <a name="be-in-the-know"></a>“Haberdar” olun
-Sizi ve ekibinizi otomatik bilgilendiren izleme ve uyarılarla gerçek zamanlı olarak sorulara yanıt verin. Mobil uygulamanızın nasıl çalıştığına ilişkin daha zengin bir öngörü sahibi olmak için New Relic ve AppInsights’dan gelen gelişmiş uygulama analizi ve izleme özelliğini tümleştirin. *Azure App Service* ile programlı şekilde ya da Azure Portal aracılığıyla, çeşitli performans ölçümleri temelinde uyarılar ayarlayabilirsiniz.
+Sizi ve ekibinizi otomatik bilgilendiren izleme ve uyarılarla gerçek zamanlı olarak sorulara yanıt verin. Mobil uygulamanızın nasıl çalıştığına ilişkin öngörü sahibi olmak için New Relic ve AppInsights’dan gelen gelişmiş uygulama analizi ve izleme işlevlerini tümleştirin. *Azure App Service* ile programlı şekilde ya da Azure Portal aracılığıyla, çeşitli performans ölçümleri temelinde uyarılar ayarlayabilirsiniz.
 
 ## <a name="keep-your-assets-safe"></a>Varlıklarınızı güvende tutun
 Arka ucunuzu ve veritabanınızı otomatik olarak yedekleyin. Kodunuz ve verileriniz olağanüstü durumlara karşı güvendedir ve kolayca geri yüklenebilir, böylece işletmenizi güvenle çalıştırabilirsiniz.

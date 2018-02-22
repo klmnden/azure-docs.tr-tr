@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: abefbf94c9e28b21def15e6179b7dbd464c43644
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f0ed49c94dc83624b5f6f1ee0a4dcdff9284d5a5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini dağıtma
 
@@ -63,10 +63,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-aks-cluster"></a>AKS kümesi oluşturma
 
-Aşağıdaki örnekte, bir düğüm ile *myK8sCluster* adlı bir küme oluşturulmuştur.
+Aşağıdaki örnekte, bir düğüm ile *myAKSCluster* adlı bir küme oluşturulmuştur.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
 Birkaç dakika sonra komut tamamlanır ve küme hakkında JSON tarafından biçimlendirilmiş bilgiler gösterilir.
@@ -85,7 +85,7 @@ az aks install-cli
 kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için aşağıdaki komutu çalıştırın. Bu adım kimlik bilgilerini indirir ve Kubernetes CLI’yi bunları kullanacak şekilde yapılandırır.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Kümenize bağlantıyı doğrulamak için [kubectl get][kubectl-get] komutunu kullanarak küme düğümleri listesini alın.
@@ -98,7 +98,7 @@ kubectl get nodes
 
 ```
 NAME                          STATUS    ROLES     AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 ```
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
@@ -210,7 +210,20 @@ Artık Azure Vote Uygulamasını görmek için dış IP adresine göz atabilirsi
 
 ![Azure Vote’a göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## <a name="open-kubernetes-dashboard"></a>Kubernetes panosunu açma
+
+Azure CLI, ayrıca Kubernetes panosu ile bir bağlantı ayarlamak için de kullanılabilir. Bunu yapmak için [az aks browse][az-aks-browse] komutunu kullanın.
+
+```azurecli-interactive
+az aks browse --resource-group myResourceGroup --name myAKSCluster
+```
+
+Çalıştırıldıktan sonra, bir tarayıcı Kubernetes panosunu açar.
+
+![Kubernetes panosu](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
+
 ## <a name="delete-cluster"></a>Kümeyi silme
+
 Kümeye artık ihtiyacınız yoksa [az group delete][az-group-delete] komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırabilirsiniz.
 
 ```azurecli-interactive
@@ -241,6 +254,7 @@ AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklamas�
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete

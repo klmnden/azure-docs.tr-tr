@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 09022648c03ffa12aa3b060e5094c40ea5c3d61e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Azure Konum Tabanlı Hizmetler (önizleme) kullanarak bir demo etkileşimli harita araması başlatma
 
-Bu makalede Azure Haritalar kullanan etkileşimli bir arama ile Azure Konum Tabanlı Hizmetler (önizleme) veya kısaca LBS’nin özellikleri gösterilmektedir. Ayrıca kedi LBS hesabınızı oluşturma ve demo web uygulamasında kullanmak üzere hesap anahtarınızı alma adımları gösterilmektedir. 
+Bu makalede Azure Haritalar kullanan etkileşimli bir arama ile Azure Konum Tabanlı Hizmetler’in (LBS) özellikleri gösterilmektedir. Ayrıca kedi LBS hesabınızı oluşturma ve demo web uygulamasında kullanmak üzere hesap anahtarınızı alma adımları gösterilmektedir. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 1. [Azure portalının](https://portal.azure.com) sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 2. *Market’te Ara* kutusunda, **konum tabanlı hizmetler** yazın.
 3. *Sonuçlar* sayfasından, **Konum Tabanlı Hizmetler (önizleme)** seçeneğine tıklayın. Haritanın altında görüntülenen **Oluştur** düğmesine tıklayın. 
-4. **Konum Tabanlı Hizmet Hesabı Oluştur** sayfasında, yeni hesabınız için bir *Ad* girin, kullanılacak *Abonelik*’i seçin ve yeni veya mevcut bir *Kaynak grubu*’nun adını girin. Kaynak grubunuzun konumunu seçin, *Önizleme Koşulları*’nı kabul edin ve **Oluştur**’a tıklayın.
+4. **Konum Tabanlı Hizmetler Hesabı Oluştur** sayfasında, yeni hesabınız için bir *Ad* girin, kullanılacak *Abonelik*’i seçin ve yeni veya mevcut bir *Kaynak grubu*’nun adını girin. Kaynak grubunuzun konumunu seçin, *Önizleme Koşulları*’nı kabul edin ve **Oluştur**’a tıklayın.
 
     ![Portalda Konum Tabanlı Hizmetler Hesabı oluşturma](./media/quick-demo-map-app/create-lbs-account.png)
 

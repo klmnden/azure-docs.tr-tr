@@ -9,19 +9,19 @@ manager: jhubbard
 editor: 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview, mvc
+ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 12/13/2017
+ms.date: 02/12/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: f1aff50a97114ea7e221b4461e375d763a161fa6
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Veritabanı hizmeti nedir? 
 
@@ -31,6 +31,9 @@ SQL Veritabanı, [Microsoft SQL Server veritabanı altyapısı](https://docs.mic
 
 - **[SQL Veritabanı için Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=databases)**: Bu ürün yol haritasında, yenilikleri ve gelecekte sizi nelerin beklediğini bulabilirsiniz. 
 - **[Azure SQL Veritabanı blogu](https://azure.microsoft.com/blog/topics/database)**: SQL Server ürün ekibi üyelerinin SQL Veritabanı haberleri ve özellikleri hakkında yazdıkları blog. 
+
+> [!IMPORTANT]
+> SQL Veritabanı ile SQL Server arasındaki özellik farklarını anlamak için bkz. [SQL özellikleri](sql-database-features.md). 
 
 SQL Veritabanı birden fazla hizmet düzeyinde kesinti süresi olmadan dinamik kararlılık, yerleşik zeka iyileştirmesi, global düzeyde ölçeklenebilirlik ve kullanılabilirlik ile gelişmiş güvenlik seçeneklerine sahip tahmin edilebilir performansı neredeyse sıfır yönetim gereksinimiyle sunar. Bu özellikler sayesinde değerli zamanınızı ve kaynaklarınızı sanal makine ve altyapı yönetimi yerine hızlı uygulama geliştirmeye ve piyasaya sunma sürenizi kısaltmaya ayırabilirsiniz. SQL Veritabanı şu anda dünyanın farklı yerlerindeki toplam 38 veri merkezini kullanmaktadır ve düzenli aralıklarla eklenen yeni veri merkezleri, veritabanınızı bulunduğunuz konuma yakın bir veri merkezinde çalıştırmanızı sağlar.
 
@@ -44,7 +47,7 @@ SQL Veritabanı ile her veritabanı diğerlerinden ayrı ve taşınabilir olman�
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Kesinti olmadan performansı ayarlama ve ölçeklendirme
 
-SQL Veritabanı hafif ve ağır veritabanı iş yüklerini desteklemek için dört hizmet katmanı sunar: Temel, Standart, Premium ve Premium RS. Düşük aylık maliyetlerle küçük bir veritabanı üzerinde ilk uygulamanızı oluşturabilir, ardından istediğiniz zaman el ile veya programlama yoluyla hizmet katmanını değiştirebilirsiniz. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
+SQL Veritabanı hafif ve ağır veritabanı iş yüklerini desteklemek için dört hizmet katmanı sunar: Temel, Standart ve Premium. Düşük aylık maliyetlerle küçük bir veritabanı üzerinde ilk uygulamanızı oluşturabilir, ardından istediğiniz zaman el ile veya programlama yoluyla hizmet katmanını değiştirebilirsiniz. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
 
    ![ölçeklendirme](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 

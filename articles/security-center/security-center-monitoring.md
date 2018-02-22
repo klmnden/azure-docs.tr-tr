@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik durumunu izleme
 Bu makale, ilkelerle uyumluluğu izlemek için Azure Güvenlik Merkezi'ndeki izleme özelliklerini kullanmanıza yardımcı olur.
@@ -87,6 +87,13 @@ Her öneride, tıkladıktan sonra gerçekleştirebileceğiniz bir eylemler küme
 > [!NOTE]
 > Buradaki güvenlik önerileri, **Öneriler** seçeneğindekilerle aynıdır. Önerileri çözümleme hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](security-center-recommendations.md)'yı okuyun. Bu yalnızca sanal makineler ve bilgisayarlar için değil, **Kaynak Durumu** kutucuğunda kullanılabilen tüm kaynaklar için geçerlidir.
 >
+
+#### <a name="unmonitored-vms"></a>İzlenmeyen VM’ler
+VM, Microsoft Monitoring Agent uzantısını çalıştırmıyorsa, Güvenlik Merkezi tarafından izlenmez. VM’nin, OMS doğrudan aracısı veya SCOM aracısı gibi zaten yüklü bir yerel aracısı olabilir. Güvenlik Merkezi’nde tam olarak desteklenmediğinden, bu aracılara sahip VM’ler izlenmeyen olarak tanımlanır. Güvenlik Merkezi’nin tüm özelliklerinden tam olarak faydalanmak için, Microsoft Monitoring Agent uzantısı gereklidir.
+
+Uzantıyı, zaten yüklü olan yerel aracıya ek olarak izlenmeyen VM’de yükleyebilirsiniz. İki aracıyı da aynı çalışma alanına bağlayarak aynı şekilde yapılandırın. Bu, Güvenlik Merkezi’nin Microsoft Monitoring Agent uzantısıyla etkileşim kurup veri toplamasını sağlar.  Microsoft Monitoring Agent uzantısını nasıl yükleyeceğiniz hakkında yönergeler için bkz. [VM uzantısını etkinleştir](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+
+Güvenlik Merkezi’nin otomatik hazırlama için başlatılan VM’leri ve bilgisayarları başarılı bir şekilde izleyememe nedenleri hakkında daha fazla bilgi edinmek için bkz. [Aracı durumu sorunlarını izleme](security-center-troubleshooting-guide.md#monitoring-agent-health-issues).
 
 #### <a name="vms--computers-section"></a>VM’ler ve bilgisayarlar bölümü
 Sanal makineler ve bilgisayarlar bölümü, tüm sanal makineler ve bilgisayarlarla ilgili önerilere bir genel bakış sağlar. Her sütun, aşağıdaki ekran görüntüsünde gösterildiği gibi bir dizi öneriyi temsil eder:

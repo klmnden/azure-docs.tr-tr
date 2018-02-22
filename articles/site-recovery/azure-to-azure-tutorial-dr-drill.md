@@ -1,56 +1,53 @@
 ---
-title: "Bir olağanüstü durum kurtarma ayrıntısı seçeneğini, Azure Site Recovery (Önizleme) ile ikincil bir Azure bölgesine Azure VM'ler için çalıştırın."
-description: "Azure Site Recovery hizmetini kullanarak bir ikincil bir Azure bölgesine Azure VM'ler için olağanüstü durum kurtarma ayrıntıya çalıştırmayı öğrenin."
+title: "Azure Site Recovery ile Azure VM’leri için ikincil bir Azure bölgesine olağanüstü durum kurtarma tatbikatı çalıştırma (Önizleme)"
+description: "Azure Site Recovery ile Azure VM’leri için ikincil bir Azure bölgesine olağanüstü durum kurtarma tatbikatını nasıl çalıştıracağınızı öğrenin."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5bcd3d64714951508d984c17326e845ae4842670
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Bir olağanüstü durum kurtarma ayrıntıya Azure VM'ler için ikincil bir Azure bölgesine (Önizleme) çalıştırın.
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Azure VM’leri için ikincil bir Azure bölgesine olağanüstü durum kurtarma tatbikatı çalıştırma (Önizleme)
 
-[Azure Site Recovery](site-recovery-overview.md) hizmeti tarafından iş uygulamalarınızı çalışır halde tutmaktan planlanan ve planlanmayan kesintiler sırasında kullanılabilir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı. Site Recovery yönetir ve şirket içi makineler ve Azure sanal makineleri (VM'ler), çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma düzenler.
+[Azure Site Recovery](site-recovery-overview.md) hizmeti, planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
 
-Bu öğretici bir Azure bölgesinden diğerine yük devretme testi ile bir Azure VM için bir olağanüstü durum kurtarma ayrıntıya çalıştırılacağını gösterir. Bir detaylandırma çoğaltma stratejinizi veri kaybı veya kapalı kalma süresi olmadan doğrular ve üretim ortamınıza etkilemez. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğretici, bir Azure VM için yük devretme testiyle bir Azure bölgesinden diğerine nasıl olağanüstü durum kurtarma tatbikatı çalıştıracağınızı gösterir. Tatbikat, çoğaltma stratejinizi veri kaybı veya kesinti süresi olmadan doğrular ve üretim ortamınızı etkilemez. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Önkoşul denetimi
+> * Önkoşulları denetleme
 > * Tek bir VM için yük devretme testi çalıştırma
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Yük devretme testi çalıştırmadan önce her şeyin beklendiği gibi olduğundan emin olmak için VM özelliklerini doğrulamanız önerilir.  VM Özellikleri'nde erişim **öğeleri çoğaltılan**. **Essentials** dikey makineler ayarlarını ve durumu hakkında bilgileri gösterir.
-- Yük devretme sınaması ve çoğaltma etkin olduğunda, ayarlanmış varsayılan ağ için ayrı bir Azure VM ağ kullanmanızı öneririz.
+- Yük devretme testini çalıştırmadan önce, her şeyin beklenildiği gibi gittiğinden emin olmak için VM özelliklerini doğrulamanızı öneririz.  **Çoğaltılmış öğeler** bölümünde VM özelliklerine erişin. **Temel bileşenler** dikey penceresi, makinelerin ayarları ve durumuyla ilgili bilgileri gösterir.
+- Yük devretme testi için, çoğaltmayı etkinleştirdiğinizde ayarlanmış varsayılan ağ yerine ayrı bir Azure VM ağını kullanmanızı öneririz.
 
 
 ## <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 
-1. İçinde **ayarları** > **çoğaltılan öğeler**, VM tıklatın **+ yük devretme testi** simgesi.
+1. **Ayarlar** > **Çoğaltılmış Öğeler** bölümünde, **+Yük Devretme Testi** simgesine tıklayın.
 
-2. İçinde **yük devretme testi**, yük devretme için kullanılacak bir kurtarma noktası seçin:
+2. **Yük Devretme Testi** bölümünde, yük devretmede kullanılması için bir kurtarma noktası seçin:
 
-   - **En son işlenen**: VM üzerinden Site Recovery hizmeti tarafından işlenen en son kurtarma noktası başarısız olur. Zaman damgası gösterilir. Bu seçenek, hiçbir zaman düşük RTO (Kurtarma süresi hedefi) sağlayan verileri işleme harcanan
-   - **Son uygulama tutarlı**: tüm sanal makineleri en son uygulamayla tutarlı kurtarma noktası için bu seçeneği yöneltilir. Zaman damgası gösterilir.
-   - **Özel**: herhangi bir kurtarma noktası seçin.
+   - **En son işlenen**: VM’nin yükünü, Site Recovery hizmeti tarafından işlenen en son kurtarma noktasına devreder. Zaman damgası gösterilir. Bu seçenekle veri işlemeye zaman harcanmadığından düşük RTO sağlanılır (Kurtarma Süresi Hedefi)
+   - **Uygulamayla tutarlı olan son**: Bu seçenek, tüm VM’lerin yükünü uygulamayla tutarlı olan en son kurtarma noktasına devreder. Zaman damgası gösterilir.
+   - **Özel**: Herhangi bir kurtarma noktası seçin.
 
-3. Hedef Azure seçin ikincil bölge içindeki Azure Vm'lerinin sanal ağa bağlı olacak, yük devretme gerçekleştikten sonra.
+3. Yük devretme gerçekleştikten sonra ikincil bölgedeki Azure VM’lerin bağlanacağı hedef Azure sanal makinelerini seçin.
 
-4. Yük devretmeyi başlatmak için tıklatın **Tamam**. İlerleme durumunu izlemek için VM özelliklerini açmak için tıklatın. Ya da tıklayabilirsiniz **yük devretme testi** kasa adını işinde > **ayarları** > **işleri** > **Site Recovery işleri**.
-5. Yük devretme işlemi tamamlandıktan sonra çoğaltma Azure VM Azure portalında görünür. > **sanal makineleri**. VM, uygun şekilde boyutlandırılmış ve uygun bir ağa bağlı çalıştığından emin olun.
-6. Yük devretme testi sırasında oluşturulan sanal makineleri silmek için tıklatın **temizleme yük devretme testi** çoğaltılmış öğesi ya da kurtarma planı. İçinde **notları**, kaydetme ve yük devretme testiyle ilişkili gözlemlerinizi kaydetmek.
+4. Yük devretmeyi başlatmak için, **Tamam**’a tıklayın. İlerleme durumunu izlemek için, VM’ye tıklayarak özelliklerini açın. Ya da kasa adı > **Ayarlar** > **İşler** > **Site Recovery işleri** bölümünde **Yük Devretme Testi** işine tıklayabilirsiniz.
+5. Yük devretme bittikten sonra, çoğaltma Azure VM, Azure portalı > **Sanal Makineler** bölümünde görünür. VM’nin çalıştığından, uygun şekilde boyutlandırıldığından ve uygun ağa bağlı olduğundan emin olun.
+6. Yük devretme testi sırasında oluşturulan sanal makineleri silmek için, çoğaltılmış öğede veya kurtarma planında **Yük devretme testini temizle**’ye tıklayın. Yük devretme testiyle ilişkili gözlemlerinizi **Notlar**’da kaydedin veya saklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bir üretim yük devretmeyi çalıştırma](azure-to-azure-tutorial-failover-failback.md)
+> [Üretim yük devretmesini çalıştırma](azure-to-azure-tutorial-failover-failback.md)

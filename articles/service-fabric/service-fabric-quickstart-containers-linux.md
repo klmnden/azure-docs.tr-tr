@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure'da bir Azure Service Fabric Linux kapsayıcı uygulaması dağıtma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -34,50 +34,47 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 > * Service Fabric'teki kapsayıcıları ölçekleme ve yük devretme
 
 ## <a name="prerequisite"></a>Önkoşul
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+1. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
-Komut satırı arabirimini (CLI) yerel olarak yükleyip kullanmayı seçerseniz Azure CLI 2.0.4 veya sonraki bir sürümünü çalıştırdığınızdan emin olun. Sürümü bulmak için az --version komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
+2. Komut satırı arabirimini (CLI) yerel olarak yükleyip kullanmayı seçerseniz Azure CLI 2.0.4 veya sonraki bir sürümünü çalıştırdığınızdan emin olun. Sürümü bulmak için az --version komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="get-application-package"></a>Uygulama paketini alma
 Kapsayıcıları Service Fabric üzerinde dağıtmak için ayrı kapsayıcıları ve uygulamayı açıklayan bildirim dosyası (uygulama tanımı) kümesine ihtiyacınız vardır.
 
 Bulut kabuğunda git kullanarak uygulama tanımının bir kopyasını oluşturun.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
 cd service-fabric-containers/Linux/container-tutorial/Voting
 ```
+## <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure’a dağıtma
 
-## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Kapsayıcıları Azure'daki bir Service Fabric kümesine dağıtma
-Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi veya bir Grup kümesi kullanın.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Azure Service Fabric Kümesi’ni ayarlama
+Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi oluşturun.
 
-> [!Note]
-> Uygulamanın yerel geliştirme makinenizdeki Service Fabric kümesine değil Azure'daki bir kümeye dağıtılması gerekir. 
->
+Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Service Fabric ekibi tarafından çalıştırılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
 
-Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Bakımı Service Fabric ekibi tarafından yapılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
+Güvenli grup kümelerinde yönetim işlemleri gerçekleştirmek için, Service Fabric Explorer, CLI veya PowerShell’i kullanabilirsiniz. Service Fabric Explorer’ı kullanmak için, Grup Kümeleri web sitesinden PFX dosyasını indirmeniz ve sertifikayı, sertifika depolama alanınıza (Windows veya Mac) veya tarayıcının kendisine (Ubuntu) aktarmanız gerekir. Grup kümesindeki otomatik olarak imzalanan sertifikaların parolaları yoktur. 
+
+PowerShell veya CLI ile yönetim işlemleri gerçekleştirmek için, PFX (PowerShell) veya PEM (CLI) gerekir. PFX’i, PEM dosyasına dönüştürmek için lütfen şu komutu çalıştırın:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> Web ön uç hizmeti 80 numaralı bağlantı noktasında gelen trafiği dinleyecek şekilde yapılandırılmıştır. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. Grup kümesi kullanıyorsanız bu bağlantı noktası açık durumdadır.
+> Web ön ucu hizmeti, gelen trafik için 80 numaralı bağlantı noktasını dinlemek üzere yapılandırılmıştır. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. Grup Kümesi kullanıyorsanız bu bağlantı noktası açık durumdadır.
 >
 
 ### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Service Fabric Komut Satırı Arabirimi’ni yükleme ve kümenize bağlanma
-[Service Fabric CLI (sfctl)](service-fabric-cli.md) öğesini CLI ortamınıza yükleyin
 
-```azurecli-interactive
-pip3 install --user sfctl 
-export PATH=$PATH:~/.local/bin
-```
+Azure CLI kullanarak Azure'daki Service Fabric kümesine bağlanın. Uç noktası, kümenizin yönetim uç noktasıdır. Örneğin: `https://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-Azure CLI kullanarak Azure'daki Service Fabric kümesine bağlanın. Uç noktası, kümenizin yönetim uç noktasıdır. Örneğin: `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
-
-```azurecli-interactive
-sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
+```bash
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 ### <a name="deploy-the-service-fabric-application"></a>Service Fabric uygulamasını dağıtma 
@@ -86,13 +83,13 @@ Service Fabric kapsayıcı uygulamaları, açıklanan Service Fabric uygulama pa
 #### <a name="deploy-using-service-fabric-application-package"></a>Service Fabric uygulama paketi kullanarak dağıtma
 Verilen yükleme betiğini kullanarak oy verme uygulaması tanımını kümeye kopyalayın, uygulama türünü kaydedin ve uygulamanın bir örneğini oluşturun.
 
-```azurecli-interactive
+```bash
 ./install.sh
 ```
 
 #### <a name="deploy-the-application-using-docker-compose"></a>Docker compose kullanarak uygulamayı dağıtma
 Aşağıdaki komutla Docker Compose kullanarak Service Fabric kümesinde uygulamayı dağıtın ve yükleyin.
-```azurecli-interactive
+```bash
 sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 

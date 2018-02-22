@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>Azure Uygulama Hizmetinde Mobile Apps Hakkında
 Azure Uygulama Hizmeti, profesyonel geliştiricilere yönelik tam olarak yönetilen bir [hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) teklifidir. Bu hizmet, web, mobil ve tümleştirme senaryoları için zengin bir özellik kümesi sağlar. 
@@ -33,26 +33,26 @@ Mobile Apps özelliği ile şunları yapabilirsiniz:
 * **Yerel ve platformlar arası uygulamaları oluşturma**: Hem yerel iOS, Android ve Windows uygulamaları hem de platformlar arası Xamarin veya Cordova (Phonegap) uygulamaları oluştururken yerel SDK'ları kullanarak App Service’in avantajlarından faydalanabilirsiniz.
 * **Kuruluş sistemlerinizi bağlama**: Mobile Apps ile dakikalar için kurumsal oturum ekleyebilir ve kuruluşunuzu şirket içi ya da bulut kaynaklarına bağlayabilirsiniz.
 * **Veri eşitleme ile çevrimdışı kullanılmaya hazır uygulamalar oluşturma**: Kurumsal veri kaynaklarınız ya da hizmet olarak yazılım (SaaS) API’leriniz ile bağlantı bulunduğunda arka planda verileri eşitlemek amacıyla çevrimdışı çalışan ve Mobile Apps kullanan uygulamalar oluşturarak mobil iş gücünüzü verimli kılın.
-* **Milyonlarca kişiye Anında İletme Bildirimleri**: her cihazda, kendi ihtiyaçlarına özel ve doğru zamanda gönderilen anında iletme bildirimleriyle müşterilerinizle etkileşim kurun.
+* **Milyonlarca kişiye anında iletme bildirimleri**: Her cihazda, kendi ihtiyaçlarına özel ve doğru zamanda gönderilen anında iletme bildirimleriyle müşterilerinizle etkileşim kurun.
 
 ## <a name="mobile-apps-features"></a>Mobile Apps özellikleri
 Aşağıdaki özellikler, bulut etkin mobil geliştirme için önemlidir:
 
-* **Kimlik doğrulama ve yetkilendirme**: Azure Active Directory dahil, sürekli büyüyen bir kurumsal kimlik sağlayıcısı listesinden ve Facebook, Google, Twitter ve Microsoft Hesabı gibi sosyal sağlayıcılardan seçim yapın. Mobile Apps tüm sağlayıcılar için bir OAuth 2.0 hizmeti sunar. Ayrıca sağlayıcıya özel işlev için kimlik sağlayıcısına SDK tümleştirebilirsiniz.
+* **Kimlik doğrulama ve yetkilendirme**: Kurumsal kimlik doğrulama için Azure Active Directory’nin dahil olduğu kimlik sağlayıcılara ek olarak Facebook, Google, Twitter ve Microsoft Hesabı gibi sosyal sağlayıcılara yönelik destek. Mobile Apps tüm sağlayıcılar için bir OAuth 2.0 hizmeti sunar. Ayrıca sağlayıcıya özel işlev için kimlik sağlayıcısına SDK tümleştirebilirsiniz.
 
-    [Kimlik doğrulama özelliklerimiz] hakkında daha fazlasını keşfedin.
+    [Kimlik doğrulama özellikleri] hakkında daha fazlasını keşfedin.
 
 * **Veri erişimi**: Azure Mobile Apps, Azure SQL Veritabanı’na ya da şirket içi bir SQL Sunucusu’na bağlı, mobil kullanıma uygun bir OData v3 veri kaynağı sağlar. Bu hizmet, [Azure Tablo depolama], MongoDB ve [Azure Cosmos DB]’nin yanı sıra Office 365 ve Salesforce.com gibi SaaS API’si sağlayıcıları dahil, diğer NoSQL ve SQL veri sağlayıcılarıyla kolayca tümleştirmenizi sağlayarak Entity Framework’ü temel alabilir.
 
-* **Çevrimdışı eşitleme**: İstemci SDK’miz çevrimdışı bir veri kümesi ile çalışan sağlam ve esnek mobil uygulamalar oluşturmanızı kolaylaştırır. Bu veri kümesini, çakışma çözümü desteği de dahil olmak üzere arka uç verileriyle otomatik olarak eşitleyebilirsiniz.
+* **Çevrimdışı eşitleme**: İstemci SDK’leri çevrimdışı bir veri kümesi ile çalışan sağlam ve esnek mobil uygulamalar oluşturmanızı kolaylaştırır. Bu veri kümesini, çakışma çözümü desteği de dahil olmak üzere arka uç verileriyle otomatik olarak eşitleyebilirsiniz.
 
-  [veri özellikleri] hakkında daha fazlasını keşfedin.
+  [Veri özellikleri] hakkında daha fazlasını keşfedin.
 
-* **Anında İletme Bildirimleri**: İstemci SDK'mız, aynı anda milyonlarca kullanıcıya anında iletme bildirimleri göndermenizi sağlayarak, Azure Notification Hubs'ın kayıt özellikleriyle sorunsuz şekilde tümleşir.
+* **Anında İletme Bildirimleri**: İstemci SDK'leri, aynı anda milyonlarca kullanıcıya anında iletme bildirimleri göndermenizi sağlayarak, Azure Notification Hubs'ın kayıt özellikleriyle sorunsuz şekilde tümleşir.
 
-  [anında iletme bildirimi özellikleri] hakkında daha fazlasını keşfedin.
+  [Anında iletme bildirimi özellikleri] hakkında daha fazlasını keşfedin.
 
-* **İstemci SDK'ları**: Yerel geliştirmeyi ([iOS], [Android] ve [Windows]), platformlar arası geliştirmeyi ([Xamarin.iOS ve Xamarin.Android], [Xamarin.Forms]) ve karma uygulama geliştirmeyi ([Apache Cordova]) kapsayan SDK'ların eksiksiz bir kümesini sunuyoruz  Her istemci SDK’sı ile bir MIT lisansı ile birlikte sunulur ve açık kaynaklıdır.
+* **İstemci SDK'ları**: Yerel geliştirmeyi ([iOS], [Android] ve [Windows]), platformlar arası geliştirmeyi ([Xamarin.iOS ve Xamarin.Android], [Xamarin.Forms]) ve karma uygulama geliştirmeyi ([Apache Cordova]) kapsayan istemci SDK'larının eksiksiz bir kümesini sunuyoruz. Her istemci SDK’sı ile bir MIT lisansı ile birlikte sunulur ve açık kaynaklıdır.
 
 ## <a name="azure-app-service-features"></a>Azure Uygulama Hizmeti özellikleri
 Aşağıdaki platform özellikleri mobil üretim siteleri için yararlıdır:
@@ -65,7 +65,7 @@ Aşağıdaki platform özellikleri mobil üretim siteleri için yararlıdır:
 
   [hazırlık ortamları] hakkında daha fazlasını keşfedin.
 
-* **Sürekli dağıtım**: App Service, SCM sisteminizin bir dalına ileterek arka ucunuzun yeni bir sürümü otomatik olarak oluşturmanızı sağlayarak, ortak kaynak denetimi yönetimi (SCM) sistemleriyle tümleştirilebilir.
+* **Sürekli dağıtım**: App Service, ortak _kaynak denetimi yönetimi_ (SCM) sistemleriyle tümleştirilerek, arka ucunuzun yeni bir sürümünü kolayca dağıtmanızı sağlar.
 
   [dağıtım seçenekleri](../app-service/app-service-deploy-local-git.md) hakkında daha fazlasını keşfedin.
 
@@ -73,7 +73,7 @@ Aşağıdaki platform özellikleri mobil üretim siteleri için yararlıdır:
 
   [karma bağlantılar], [sanal ağlar], ve [ExpressRoute] hakkında daha fazlasını keşfedin.
 
-* **Yalıtılmış ve ayrılmış ortamlar**: App Service, Azure Uygulama Hizmeti uygulamalarını yüksek ölçekte güvenli bir şekilde çalıştırılmaları için tam yalıtılmış ve ayrılmış bir ortamda çalıştırılabilir. Bu ortam, büyük ölçekli, yalıtım veya güvenli ağ erişimi gerektiren uygulama iş yükleri için idealdir.
+* **Yalıtılmış ve ayrılmış ortamlar**: Azure App Service uygulamalarını güvenli bir şekilde çalıştırmak için, App Service’i tam yalıtılmış ve ayrılmış bir ortamda çalıştırabilirsiniz. Bu ortam, büyük ölçekli, yalıtım veya güvenli ağ erişimi gerektiren uygulama iş yükleri için idealdir.
 
   [App Service ortamları] hakkında daha fazlasını öğrenin.
 
@@ -89,9 +89,9 @@ Azure Uygulama Hizmeti platformu hakkında daha fazla bilgi için bkz. [Azure Ap
 [başlarken]: app-service-mobile-ios-get-started.md
 [Azure Tablo depolama]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
-[Kimlik doğrulama özelliklerimiz]: ./app-service-mobile-auth.md
-[veri özellikleri]: ./app-service-mobile-offline-data-sync.md
-[anında iletme bildirimi özellikleri]: ../notification-hubs/notification-hubs-push-notification-overview.md
+[Kimlik doğrulama özellikleri]: ./app-service-mobile-auth.md
+[Veri özellikleri]: ./app-service-mobile-offline-data-sync.md
+[Anında iletme bildirimi özellikleri]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md

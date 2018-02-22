@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/08/2017
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell kullanarak Azure Container Registry oluşturma
 
@@ -21,7 +21,7 @@ Azure Container Registry, özel Docker kapsayıcı görüntülerini depolamak i�
 
 Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
 
-Ayrıca sisteminizde yerel olarak Docker yüklü olması gerekir. Docker, [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) veya [Linux](https://docs.docker.com/engine/installation/#supported-platforms)’ta Docker’ı kolayca yapılandırmanızı sağlayan paketler sağlar.
+Ayrıca sisteminizde yerel olarak Docker yüklü olması gerekir. Docker [Mac][docker-mac], [Windows][docker-windows] veya [Linux][docker-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -57,13 +57,13 @@ Kapsayıcı görüntülerini gönderip çekmeden önce ACR örneğinde oturum a�
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Sonra, ACR örneğinde oturum açmak için [docker login](https://docs.docker.com/engine/reference/commandline/login/) komutunu kullanın.
+Sonra, ACR örneğinde oturum açmak için [docker login][docker-login] komutunu kullanın.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-Komut tamamlandığında bir “Oturum Açma Başarılı” iletisi döndürür.
+Bu komut tamamlandığında `Login Succeeded` döndürülür. `--password-stdin` parametresinin kullanılmasını öneren bir güvenlik uyarısı da görebilirsiniz. Bunun kullanımı bu makalenin kapsamında olmasa da bu en iyi yöntemin izlenmesi önerilir. Daha fazla bilgi edinmek için [docker login][docker-login] komut başvurusuna bakın.
 
 ## <a name="push-image-to-acr"></a>Görüntüyü ACR’ye gönderme
 
@@ -79,13 +79,13 @@ Görüntünün, ACR oturum açma sunucusu adıyla etiketlenmiş olması gerekir.
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Görüntüyü [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) komutunu kullanarak etiketleyin. *acrLoginServer* değerini ACR örneğinizin sunucu adıyla değiştirin.
+Görüntüyü [docker tag][docker-tag] komutunu kullanarak etiketleyin. *acrLoginServer* değerini ACR örneğinizin sunucu adıyla değiştirin.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Son olarak, [docker push](https://docs.docker.com/engine/reference/commandline/push/) komutunu kullanarak görüntüleri ACR örneğine gönderin. *acrLoginServer* değerini ACR örneğinizin sunucu adıyla değiştirin.
+Son olarak, [docker push][docker-push] komutunu kullanarak görüntüleri ACR örneğine gönderin. *acrLoginServer* değerini ACR örneğinizin sunucu adıyla değiştirin.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -105,3 +105,11 @@ Bu hızlı başlangıçta, Azure CLI ile bir Azure Container Registry oluşturdu
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances öğreticisi](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

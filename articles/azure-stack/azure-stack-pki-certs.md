@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d96e2e6767ca01c8c16403a8846e3ab9d16796bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler kümesine atanmış dışarıdan erişilebilir ortak IP adresleri kullanan bir ortak altyapı ağı Azure yığınına sahiptir. Bu Azure yığın ortak altyapısı uç noktalar için uygun DNS adları ile birlikte PKI sertifikalarını Azure yığın dağıtımı sırasında gereklidir. Bu makalede, hakkında bilgi sağlar:
@@ -33,7 +33,7 @@ Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler k�
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 Aşağıdaki listede, Azure yığın dağıtmak için gerekli sertifika gereksinimleri açıklanmaktadır: 
 - Bir iç sertifika yetkilisi veya bir ortak sertifika yetkilisi sertifikaları verilmesi gerekir. Bir ortak sertifika yetkilisi kullanılırsa, temel işletim sistemi görüntüsü Microsoft güvenilir kök yetkilisi programı bir parçası olarak eklenmelidir. Tam listesini burada bulabilirsiniz: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Sertifika konu alternatif adı (SAN) alanındaki tüm ad alanlarını kapsayan tek bir joker sertifika olabilir. Alternatif olarak, depolama ve anahtar kasası gerekli olduğu gibi bitiş noktası için joker karakterler kullanarak tek tek sertifikaları kullanabilirsiniz. 
+- Sertifika konu alternatif adı (SAN) alanındaki tüm ad alanlarını kapsayan tek bir joker sertifika olabilir. Alternatif olarak, uç noktaları acs ve anahtar kasası gerekli olduğu gibi joker karakterler kullanarak tek tek sertifikaları kullanabilirsiniz. 
 - Sertifika imza algoritması güçlü olmalıdır SHA1, olamaz. 
 - Ortak ve özel anahtarlar Azure yığın yükleme için gerekli olan sertifika biçimi PFX, olması gerekir. 
 - Sertifika pfx dosyaları bir değer "Dijital imza" ve "KeyEncipherment", "Anahtar kullanımı" alanında olması gerekir.
@@ -53,7 +53,7 @@ Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın
 |Dağıtım klasörü|Gerekli sertifika konusu ve konu alternatif adları (SAN)|Kapsam (her bölge)|Alt etki alanı ad alanı|
 |-----|-----|-----|-----|
 |Ortak portalı|Portal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;region>.&lt;fqdn>*|
-|Yönetim Portalı|Adminportal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;region>.&lt;fqdn>*|
+|Yönetim Portalı|adminportal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;region>.&lt;fqdn>*|
 |Azure Resource Manager genel|yönetimi.  *&lt;bölge >.&lt; FQDN >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
 |Azure Resource Manager Admin|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
 |ACS<sup>1</sup>|Konu alternatif adlarını içeren bir çoklu alt etki alanı joker sertifikası:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;. sıra.  *&lt;bölge >.&lt; FQDN >*<br>&#42;. Tablo.  *&lt;bölge >.&lt; FQDN >*|Depolama|blob.*&lt;region>.&lt;fqdn>*<br>Tablo.  *&lt;bölge >.&lt; FQDN >*<br>sıra.  *&lt;bölge >.&lt; FQDN >*|

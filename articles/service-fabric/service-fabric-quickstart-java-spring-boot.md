@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 544f189e79733c6476bf71e9ce39ab5f35e3d032
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-a-spring-boot-application"></a>Spring Boot Uygulaması Dağıtma
 Azure Service Fabric; mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -102,6 +102,14 @@ Bir Service Fabric kümesine dağıtılmış Spring Boot uygulamasına artık er
 Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi oluşturun.
 
 Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Service Fabric ekibi tarafından çalıştırılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
+
+Güvenli grup kümelerinde yönetim işlemleri gerçekleştirmek için, Service Fabric Explorer, CLI veya PowerShell’i kullanabilirsiniz. Service Fabric Explorer’ı kullanmak için, Grup Kümeleri web sitesinden PFX dosyasını indirmeniz ve sertifikayı, sertifika depolama alanınıza (Windows veya Mac) veya tarayıcının kendisine (Ubuntu) aktarmanız gerekir. Grup kümesindeki otomatik olarak imzalanan sertifikaların parolaları yoktur. 
+
+PowerShell veya CLI ile yönetim işlemleri gerçekleştirmek için, PFX (PowerShell) veya PEM (CLI) gerekir. PFX’i, PEM dosyasına dönüştürmek için lütfen şu komutu çalıştırın:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 

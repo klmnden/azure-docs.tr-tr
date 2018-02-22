@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: 3bad625e598d4249496849d3be020be083f8da7f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a2f88ab65a8f9948b83f491896d53b34f162747c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Hızlı Başlangıç: Azure Time Series Insights’ı Keşfedin
 Bu hızlı başlangıç, ücretsiz bir tanıtım ortamında Azure Time Series Insights gezgininin nasıl kullanılmaya başlanacağını gösterir. Web tarayıcınızı kullanarak büyük hacimlerdeki IoT verilerini görselleştirmeyi öğrenecek ve Time Series Insights gezgininin temel özelliklerini anlatan bir tura çıkacaksınız. 

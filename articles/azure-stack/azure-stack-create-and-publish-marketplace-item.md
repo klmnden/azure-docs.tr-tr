@@ -3,8 +3,8 @@ title: "Oluşturma ve Azure yığınında Market öğesi yayımlama | Microsoft 
 description: "Oluşturma ve Azure yığınında Market öğesi yayımlama."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
-ms.author: erikje
-ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Market öğesi oluşturma ve yayımlama
 
@@ -102,8 +103,8 @@ ms.lasthandoff: 10/11/2017
 ### <a name="identity-information"></a>Kimlik bilgileri
 | Ad | Gerekli | Tür | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
-| Ad |X |Dize |[A-Za-z0-9] + | |
-| Yayımcı |X |Dize |[A-Za-z0-9] + | |
+| Ad |X |Dize |[A-Za-z0-9]+ | |
+| Yayımcı |X |Dize |[A-Za-z0-9]+ | |
 | Sürüm |X |Dize |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Meta Veriler
@@ -121,11 +122,11 @@ Market aşağıdaki simgeler kullanır:
 
 | Ad | Genişlik | Yükseklik | Notlar |
 | --- | --- | --- | --- |
-| Geniş |255 piksel |115 piksel |Her zaman gereklidir |
-| Büyük |115 piksel |115 piksel |Her zaman gereklidir |
-| Orta |90 piksel |90 piksel |Her zaman gereklidir |
-| Küçük |40 piksel |40 piksel |Her zaman gereklidir |
-| ekran görüntüsü |533 piksel |32 piksel |İsteğe bağlı |
+| Geniş |255 px |115 px |Her zaman gereklidir |
+| Büyük |115 px |115 px |Her zaman gereklidir |
+| Orta |90 px |90 px |Her zaman gereklidir |
+| Küçük |40 px |40 px |Her zaman gereklidir |
+| Ekran görüntüsü |533 px |32 px |İsteğe bağlı |
 
 ### <a name="categories"></a>Kategoriler
 Her Market öğesi, öğenin UI portalında göründüğü tanımlayan bir kategorisiyle etiketlenmiş. Varolan kategorilerden birini Azure yığınında seçebilirsiniz (işlem, veri + depolama, vb.) veya yeni bir tane seçin.
@@ -136,7 +137,7 @@ Her bir Market öğe çeşitli ek içeriklere bağlantılar içerebilir. Bağlan
 | Ad | Gerekli | Tür | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
 | Görünen adı |X |Dize |En fazla 64 karakter | |
-| URI |X |URI | | |
+| Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>Ek Özellikler
 Önceki meta verileri ek olarak aşağıdaki biçimde özel anahtar/değer çifti veri Market yazarlar sağlayabilirsiniz:

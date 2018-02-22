@@ -1,6 +1,6 @@
 ---
-title: "Linux VM'ler için Azure kullanılabilirlik kümeleri Öğreticisi | Microsoft Docs"
-description: "Linux VM'ler için Azure kullanılabilirlik kümeleri hakkında bilgi edinin."
+title: "Azure’da Linux VM’ler için kullanılabilirlik kümeleri öğreticisi | Microsoft Docs"
+description: "Azure’da Linux VM’ler için Kullanılabilirlik Kümeleri hakkında bilgi edinin."
 documentationcenter: 
 services: virtual-machines-linux
 author: cynthn
@@ -16,41 +16,41 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e7780a29f6633b444608d96012fabe67b9b6d924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 504c4a666d1abd7a495d6759d62815f53f0b54fa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-use-availability-sets"></a>Kullanılabilirlik kümeleri kullanma
+# <a name="how-to-use-availability-sets"></a>Kullanılabilirlik kümelerini kullanma
 
 
-Bu öğreticide, kullanılabilirlik ve kullanılabilirlik kümeleri adlı bir özelliği kullanarak azure'da sanal makine çözümlerinizi güvenilirliğini artırmak öğrenin. Kullanılabilirlik kümeleri, Azure üzerinde dağıttığınız VM'ler arasında birden fazla yalıtılmış donanım küme dağıtıldığından emin olmak. Bu Azure içinde bir donanım veya yazılım hatası oluşursa, yalnızca bir alt kümesini Vm'leriniz etkilenmemesini sağlar yapmak ve çözümünüzün genel kullanılabilir ve çalışır durumda kalır.
+Bu öğreticide, Kullanılabilirlik Kümeleri adlı bir yetenek kullanarak Azure’da Sanal Makine çözümlerinizin kullanılabilirlik ve güvenilirliğini nasıl artıracağınızı öğreneceksiniz. Kullanılabilirlik kümeleri, Azure’da dağıttığınız VM’lerin birden fazla yalıtılmış donanım kümesi arasında dağıtılmasını sağlar. Böylece, Azure’da bir donanım veya yazılım hatası oluşursa yalnızca sanal makinelerinizin bir alt kümesinin etkilenmesi ve genel çözümünüzün kullanılabilir ve çalışır durumda kalması sağlanır.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Kullanılabilirlik kümesi oluşturma
-> * Bir kullanılabilirlik kümesine bir VM oluşturma
-> * Kullanılabilir VM boyutları denetleyin
+> * Kullanılabilirlik kümesinde sanal makine oluşturma
+> * Kullanılabilir sanal makine boyutlarını denetleme
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="availability-set-overview"></a>Kullanılabilirlik kümesi'ne genel bakış
+## <a name="availability-set-overview"></a>Kullanılabilirlik kümesine genel bakış
 
-Bir kullanılabilirlik kümesi Azure'da Azure veri merkezi içinde dağıtıldığında içine yerleştirin VM kaynakları birbirinden yalıtılmış olduğundan emin olmak için kullanabileceğiniz bir mantıksal bir gruplandırma bir özelliktir. Azure birden çok fiziksel sunucuda çalıştırmak bir kullanılabilirlik kümesi içinde yerleştirin VM'ler sağlar, işlem rafları, depolama birimi ve ağ anahtarları. Bir donanım veya Azure yazılım hatası oluşursa, yalnızca bir alt kümesini Vm'leriniz etkilendi ve genel uygulamanızı kurma kalır ve müşterileriniz için kullanılabilir olmaya devam eder. Güvenilir bulut çözümleri oluşturmak istediğinizde kullanılabilirlik önemli bir özellik kümesidir.
+Kullanılabilirlik Kümesi, içine yerleştirdiğiniz sanal makine kaynaklarının, Azure veri merkezinde dağıtıldığında birbirinden yalıtılmasını sağlamak için Azure’da kullanabileceğiniz bir mantıksal gruplama yeteneğidir. Azure, bir Kullanılabilirlik Kümesi içine yerleştirdiğiniz sanal makinelerin birden fazla fiziksel sunucuda, bilgi işlem rafında, depolama biriminde ve ağ anahtarında çalışmasını sağlar. Bir donanım veya Azure yazılım hatası oluşursa, yalnızca sanal makinelerinizin bir alt kümesi etkilenir ve genel uygulama güncel kalıp müşterilerinizin kullanımına sunulmaya devam eder. Kullanılabilirlik Kümesi, güvenilir bulut çözümleri oluşturmak istediğinizde gerekli olan temel bir yetenektir.
 
-Şimdi burada 4 ön uç web sunucusu ve bir veritabanı ana bilgisayar 2 arka uç VM kullanmak bir tipik VM tabanlı çözümünü göz önünde bulundurun. Azure ile Vm'leriniz dağıtmadan önce iki kullanılabilirlik kümesi tanımlamak istersiniz: bir kullanılabilirlik kümesi için "web" katmanı ve bir kullanılabilirlik kümesi için "veritabanı" katmanı. Ardından az VM'ye parametre kullanılabilirlik komutu oluşturun ve Azure otomatik olarak oluşturulan VM'ler sağlar belirleyebilirsiniz yeni bir VM oluştururken kullanılabilir kümesi yalıtılmış birden çok fiziksel donanım kaynaklarına arasında. Bir Web sunucusu veya veritabanı sunucusu sanal makineleri çalıştıran fiziksel donanımı bir sorun varsa, çünkü bunlar üzerinde farklı donanım diğer örneklerini Web sunucusu ve veritabanı VM'ler çalışır durumda bildirin.
+Dört adet ön uç web sunucusuna sahip olabileceğiniz ve bir veritabanını barındıran iki adet arka uç sanal makine kullandığınız tipik bir sanal makine tabanlı çözümü düşünelim. Azure ile, sanal makinelerinizi dağıtmadan önce iki kullanılabilirlik kümesi tanımlamak istersiniz: bir kullanılabilirlik kümesi, "web" katmanı için ve bir kullanılabilirlik kümesi de "veritabanı" katmanı için. Yeni bir sanal makine oluşturduğunuzda, az vm create komutuna parametre olarak kullanılabilirlik kümesini belirtebilirsiniz ve Azure da otomatik olarak kullanılabilirlik kümesi içinde oluşturduğunuz sanal makinelerin birden fazla fiziksel donanım kaynağı arasında yalıtılmasını sağlar. Web Sunucusu veya Veritabanı Sunucusu Sanal Makinelerinizden birinin çalıştığı fiziksel donanımda sorun varsa, Web Sunucunuzun ve Veritabanı Sanal Makinelerinizin diğer örneklerinin farklı donanımlarda bulunması nedeniyle çalışmaya devam edeceğini bilirsiniz.
 
-Azure içinde güvenilir VM tabanlı çözümler dağıtmak istediğinizde kullanılabilirlik kümelerini kullanın.
+Azure’da güvenilir sanal makine tabanlı çözümleri dağıtmak istediğinizde Kullanılabilirlik Kümelerini kullanın.
 
 
 ## <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluşturma
 
-Kullanılabilirlik kümesi kullanarak oluşturabileceğiniz [az vm kullanılabilirlik kümesi oluşturma](/cli/azure/vm/availability-set#create). Bu örnekte, her iki güncelleştirme ve hata etki alanlarının sayısı ayarlarız *2* kullanılabilirlik adlandırılmış kümesi için *myAvailabilitySet* içinde *myResourceGroupAvailability* kaynak grubu.
+[az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create) komutunu kullanarak bir kullanılabilirlik kümesi oluşturabilirsiniz. Bu örnekte, *myResourceGroupAvailability* kaynak grubundaki *myAvailabilitySet* adlı kullanılabilirlik kümesi için *2* konumundaki güncelleştirme ve hata etki alanları sayısını ayarlarız.
 
 Bir kaynak grubu oluşturun.
 
@@ -67,14 +67,14 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-Kullanılabilirlik kümeleri, hata etki alanlarında kaynakları yalıtmak ve güncelleme etki alanları izin verir. A **hata etki alanı** sunucu, ağ + depolama yalıtılmış bir koleksiyonunu temsil eder kaynakları. Önceki örnekte bizim kullanılabilirlik bizim VM'ler dağıtıldığında en az iki hata etki alanları arasında dağıtılacak kümesi istiyoruz gösterir. Biz de iki arasında dağıtılmış kümesi bizim kullanılabilirlik istiyoruz belirtmek **güncelleştirme etki alanları**.  İki güncelleştirme etki alanı Azure yazılım güncelleştirmelerini gerçekleştirdiğinde VM KAYNAKLARIMIZI, aynı anda güncelleştirilmiş bizim VM altında çalışan tüm yazılım önleme, yalıtılmış olduğundan emin olun.
+Kullanılabilirlik Kümeleri, hata etki alanları ve güncelleştirme etki alanları arasında kaynakları yalıtmanıza olanak sağlar. **Hata etki alanı**, yalıtılmış bir sunucu + ağ + depolama kaynakları koleksiyonunu temsil eder. Önceki örnekte, sanal makinelerimiz dağıtıldığında kullanılabilirlik kümemizin en az iki hata etki alanı arasında dağıtılmasını istediğimizi belirtiyoruz. Kullanılabilirlik kümemizin iki **güncelleştirme etki alanı** arasında dağıtılmasını istediğimizi de belirtiyoruz.  İki güncelleştirme etki alanı, Azure yazılım güncelleştirmeleri gerçekleştirdiğinde sanal makine kaynaklarımızın yalıtılmasını sağlayarak sanal makinemiz altında çalışan tüm yazılımların aynı anda güncelleştirilmesini önler.
 
 
-## <a name="create-vms-inside-an-availability-set"></a>VM'ler içinde bir kullanılabilirlik kümesi oluştur
+## <a name="create-vms-inside-an-availability-set"></a>Kullanılabilirlik kümesi içinde sanal makineler oluşturma
 
-Sanal makineleri kullanılabilirlik donanım üzerinde doğru şekilde dağıtıldığından emin olmak için kümesini içinde oluşturulmalıdır. Kullanılabilirlik oluşturulduktan sonra kümesi için mevcut bir VM'yi ekleyemezsiniz. 
+Donanım arasında doğru şekilde dağıtıldığından emin olmak için sanal makinelerin kullanılabilirlik kümesi içinde oluşturulması gerekir. Oluşturulduktan sonra kullanılabilirlik kümesine var olan bir sanal makineyi ekleyemezsiniz. 
 
-Kullanarak bir VM oluştururken [az vm oluşturma](/cli/azure/vm#create) kullanılarak ayarlanan kullanılabilirlik belirttiğiniz `--availability-set` kullanılabilirlik kümesinin adını belirtmek için parametre.
+[az vm create](/cli/azure/vm#az_vm_create) kullanarak bir sanal makine oluşturduğunuzda, kullanılabilirlik kümesinin adını belirtmek için `--availability-set` parametresini kullanarak kullanılabilirlik kümesini belirtirsiniz.
 
 ```azurecli-interactive 
 for i in `seq 1 2`; do
@@ -90,15 +90,15 @@ for i in `seq 1 2`; do
 done 
 ```
 
-Şimdi iki sanal makine, yeni oluşturulan kullanılabilirlik kümesinde sahibiz. Aynı kullanılabilirlik kümesinde olduklarından, Azure sanal makineleri ve tüm kaynaklarını (veri diskleri dahil), yalıtılmış fiziksel donanım üzerinde dağıtılmış sağlar. Bu dağıtım kadar yüksek kullanılabilirlik bizim genel VM çözümünün sağlamaya yardımcı olur.
+Şimdi yeni oluşturulan kullanılabilirlik kümemizde iki sanal makinemiz vardır. Aynı kullanılabilirlik kümesinde olduklarından Azure, sanal makinelerin ve tüm kaynaklarının (veri diskleri dahil), yalıtılmış fiziksel donanım arasında dağıtılmasını sağlar. Bu dağıtım, genel sanal makine çözümümüzün çok daha yüksek düzeyde kullanılabilir olmasını sağlar.
 
-Kullanılabilirlik için kaynak gruplarını giderek portalda kümesini bakarsanız > myResourceGroupAvailability > myAvailabilitySet, sanal makineleri 2 arıza arasında nasıl dağıtıldığını bakın ve güncelleştirme etki alanı gerekir.
+Kaynak Grupları > myResourceGroupAvailability > myAvailabilitySet bölümüne giderek portaldaki kullanılabilirlik kümesine bakarsanız, sanal makinelerin iki hata ve güncelleştirme etki alanı arasında nasıl dağıtıldığını görmeniz gerekir.
 
-![Kullanılabilirlik portalda kümesi](./media/tutorial-availability-sets/fd-ud.png)
+![Portaldaki kullanılabilirlik kümesi](./media/tutorial-availability-sets/fd-ud.png)
 
-## <a name="check-for-available-vm-sizes"></a>Kullanılabilir VM boyutları denetle 
+## <a name="check-for-available-vm-sizes"></a>Kullanılabilir sanal makine boyutlarını denetleme 
 
-Daha fazla sanal makineleri daha sonra ayarlamak kullanılabilirlik ekleyebilirsiniz, ancak hangi VM boyutları donanımda kullanılabilir olduğunu bilmeniz gerekir.  Kullanım [az vm kullanılabilirlik kümesi listesi-boyutları](/cli/azure/availability-set#list-sizes) tüm donanım üzerinde kullanılabilir boyutları küme için kullanılabilirlik kümesi listelemek için.
+Daha sonra kullanılabilirlik kümesine daha fazla sanal makine ekleyebilirsiniz; ancak donanımda hangi sanal makine boyutlarının kullanılabilir olduğunu bilmeniz gerekir.  Kullanılabilirlik kümesi için donanım kümesindeki tüm kullanılabilir boyutları listelemek için [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) komutunu kullanın.
 
 ```azurecli-interactive 
 az vm availability-set list-sizes \
@@ -113,11 +113,11 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Kullanılabilirlik kümesi oluşturma
-> * Bir kullanılabilirlik kümesine bir VM oluşturma
-> * Kullanılabilir VM boyutları denetleyin
+> * Kullanılabilirlik kümesinde sanal makine oluşturma
+> * Kullanılabilir sanal makine boyutlarını denetleme
 
-Sanal makine ölçek kümeleri hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Sanal makine ölçek kümeleri hakkında daha fazla bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [VM ölçek kümesi oluşturma](tutorial-create-vmss.md)
+> [Sanal makine ölçek kümesi oluşturma](tutorial-create-vmss.md)
 

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -28,7 +28,8 @@ Sanal Ağ hizmet uç noktaları, sanal ağ özel adres alanınızı ve sanal ağ
 Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 
 - **Azure Depolama**: Genel Kullanıma Sunuldu. Azure Kamu ve Azure genel bulutundaki tüm bölgeler.
-- **Azure SQL**: Önizleme. Azure genel bulutundaki tüm bölgeler.
+- **Azure SQL Veritabanı**: Tüm Azure bölgelerinde Genel Kullanıma sunuldu. 
+- **Azure SQL Veri Ambarı**: Önizleme. Azure genel bulutundaki tüm bölgeler.
 
 En güncel önizleme bildirimleri için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 
