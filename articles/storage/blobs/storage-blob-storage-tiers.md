@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Depolama: Sık erişimli, seyrek erişimli ve arşiv depolama katmanları
 
 ## <a name="overview"></a>Genel Bakış
 
-Verilerinizi, nasıl kullandığınıza bağlı olarak en uygun maliyetli şekilde depolayabilmeniz için Azure depolama, Blob nesnesi depolama için üç depolama katmanı sunuyor. Azure **sık erişimli depolama katmanı** sık erişimli verileri depolamak için optimize edilmiştir. Azure **seyrek erişimli depolama katmanı** daha az sıklıkta erişilen ve en az 30 gün saklanan verileri depolamak için optimize edilmiştir. Azure **arşiv depolama katmanı**, seyrek erişilen ve en az 180 gün boyunca saklanan, esnek gecikme süresi gereksinimleri olan (saat bazında) verileri depolamak için iyileştirilmiştir. Arşiv depolama katmanı, yalnızca blob düzeyinde kullanılabilir; depolama hesabı düzeyinde kullanılamaz. Seyrek erişimli depolama katmanındaki veriler, biraz daha düşük bir kullanılabilirliği kabul edebilir, ancak yine de sık erişimli veriler kadar erişim süresi ve verimlilik gerektirir. Seyrek erişimli veriler için, sık erişimli verilere kıyasla biraz daha düşük kullanılabilirlik SLA'sı ve yüksek erişim maliyetleri, daha düşük depolama maliyetleri için kabul edilebilir tercihlerdir. Çevrimdışı olan arşiv depolama, en düşük depolama maliyetini sunar ancak aynı zamanda en yüksek erişim maliyetine sahiptir.
+Verilerinizi, nasıl kullandığınıza bağlı olarak en uygun maliyetli şekilde depolayabilmeniz için Azure depolama, Blob nesnesi depolama için üç depolama katmanı sunuyor. Azure **sık erişimli depolama katmanı** sık erişimli verileri depolamak için optimize edilmiştir. Azure **seyrek erişimli depolama katmanı** daha az sıklıkta erişilen ve en az 30 gün saklanan verileri depolamak için optimize edilmiştir. Azure **arşiv depolama katmanı**, seyrek erişilen ve en az 180 gün boyunca saklanan, esnek gecikme süresi gereksinimleri olan (saat bazında) verileri depolamak için iyileştirilmiştir. Arşiv depolama katmanı, yalnızca blob düzeyinde kullanılabilir; depolama hesabı düzeyinde kullanılamaz. Seyrek erişimli depolama katmanındaki veriler, biraz daha düşük bir kullanılabilirliği kabul edebilir, ancak yine de sık erişimli veriler kadar erişim süresi ve verimlilik gerektirir. Seyrek erişimli veriler için, sık erişimli verilere kıyasla biraz daha düşük kullanılabilirlik SLA'sı ve yüksek erişim maliyetleri, daha düşük depolama maliyetleri için kabul edilebilir tercihlerdir. Çevrimdışı olan arşiv depolama, en düşük depolama maliyetini sunar ancak aynı zamanda en yüksek erişim maliyetine sahiptir. Hesap düzeyinde yalnızca sık erişimli ve seyrek erişimli depolama katmanları (arşiv değil) ayarlanabilir. Üç katmanın tümü nesne düzeyinde ayarlanabilir.
 
 Bugün, bulutta depolanan veriler büyük bir hızla artmaktadır. Artan depolama ihtiyaçlarınızın maliyetlerini yönetmek için, maliyetleri optimize etmek amacıyla erişim sıklığı ve planlanan elde tutma dönemi gibi özniteliklere bağlı olarak verilerinizi düzenlemek yararlıdır. Bulutta depolanan veriler, nasıl oluşturulduğu, işlendiği ve yaşam süresi boyunca nasıl erişildiği açısından farklı olabilir. Bazı veriler ve yaşam süresi boyunca aktif şekilde erişilebilir ve değiştirilebilir. Bazı verilere, veriler eskidikçe önemli ölçüde azalan erişimle, yaşam sürelerinin başlarında sık erişilebilir. Bazı veriler bulutta boşta kalır ve depolandıktan sonra, olursa, nadiren erişilir.
 
@@ -59,7 +59,7 @@ Bir blob arşiv depolamasında bulunduğu sürece çevrimdışıdır (meta veril
 
 Arşiv depolama katmanı için örnek kullanım senaryoları şunları içerir:
 
-* Uzun süreli yedekleme, arşivleme ve olağanüstü durum kurtarma veri kümeleri.
+* Uzun vadeli yedekleme, ikincil yedekleme ve arşiv veri kümeleri
 * Son kullanılabilir biçime işlendikten sonra bile özgün (ham) veriler korunmalıdır. (*Örneğin*, kodlama diğer biçimlere dönüştürüldükten sonra ham medya dosyaları)
 * Uzun süre depolanması gereken ve çok ender erişilecek uyumluluk ve arşiv verileri. (*Örneğin* güvenlik kamerası kayıtları, sağlık kuruluşları için eski röntgen/MRI çekimleri, finans hizmetleri için sesli kayıtlar ve müşteri görüşmesi dökümleri)
 
@@ -83,7 +83,7 @@ Bir blob daha seyrek erişilen bir katmana taşındığında (sık erişilen->se
 
 Hesap katmanını sık erişilenden seyrek erişilene değiştirirseniz yalnızca GPv2 hesaplarında ayarlanmış katmanı olmayan tüm bloblar için yazma işlemleri (10.000 işlem başına) ücretlendirilir. Blob Depolama hesaplarında bunun için bir ücret yoktur. Blob Depolama veya GPv2 hesabınızı seyrek erişilenden sık erişilene değiştirirseniz hem okuma işlemleri (10.000 işlem başına) hem de veri alma (GB başına) için ücretlendirilirsiniz. Seyrek erişim veya arşiv katmanı dışına taşınmış tüm bloblar için erken silme ücretleri de uygulanabilir.
 
-### <a name="cool-and-archive-early-deletion-effective-february-1-2018"></a>Seyrek erişim ve arşiv erken silme (1 Şubat 2018’den geçerli)
+### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Seyrek erişimli ve arşiv erken silme (1 Mart 2018’den itibaren geçerli)
 
 GB başına aylık ücrete ek olarak seyrek erişimli katmana taşınan tüm bloblar (yalnızca GPv2 hesapları) 30 günlük seyrek erişim erken silme süresine tabidir ve arşiv katmanına taşınan tüm bloblar da 180 günlük arşiv erken silme süresine tabidir. Bu ücret eşit olarak bölünür. Örneğin, bir blob arşive taşınır ve ardından silinir veya 45 gün sonra sık erişimli katmana taşınırsa sizden o blobu arşivde 135 (180 eksi 45) gün depolamaya eşdeğer bir erken silme ücreti istenir.
 
@@ -177,7 +177,7 @@ Her blob, daima **Erişim Katmanı** blob özelliği ile belirtilen katmana gör
 
 **Seyrek erişimli veya arşiv katmanındaki bir blobu silerken veya dışarı taşırken erken silme ücreti ödeyip ödemeyeceğimi nasıl anlarım?**
 
-Seyrek erişimli (yalnızca GPv2 hesapları) veya arşiv katmanından silinen veya dışarı taşınan (sırasıyla 30 ve 180 günden önce) tüm bloblar eşit dağıtılmış bir erken silme ücreti ödenmesini gerektirir (1 Şubat 2018’den geçerli). Son katman değişikliğinin bir damgasını sağlayan **Erişim Katmanı Değişim Zamanı** blob özelliğini kontrol ederek bir blobun ne zamandır seyrek erişimli katmanda veya arşiv katmanında olduğunu belirleyebilirsiniz. Daha fazla ayrıntı için bkz. [Seyrek erişim ve arşiv erken silme](#cool-and-archive-early-deletion) bölümü.
+Sırasıyla 30 ve 180 günden önce seyrek erişimli (yalnızca GPv2 hesapları) ya da arşiv katmanından silinen veya dışarı taşınan tüm bloblar eşit dağıtılmış bir erken silme ücreti ödenmesini gerektirir (1 Mart 2018’den itibaren geçerli). Son katman değişikliğinin bir damgasını sağlayan **Erişim Katmanı Değişim Zamanı** blob özelliğini kontrol ederek bir blobun ne zamandır seyrek erişimli katmanda veya arşiv katmanında olduğunu belirleyebilirsiniz. Daha fazla ayrıntı için bkz. [Seyrek erişim ve arşiv erken silme](#cool-and-archive-early-deletion) bölümü.
 
 **Hangi Azure araçları ve SDK’lar blob düzeyinde katman ayarlamayı ve arşiv depolamayı destekliyor?**
 

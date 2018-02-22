@@ -7,20 +7,14 @@ author: vhorne
 manager: byronr
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
-<<<<<<< HEAD
-ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
-=======
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Azure yığın portalıyla Linux sanal makine oluşturma
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 12/08/2017
 
 Azure yığın Portalı aracılığıyla Azure yığın sanal makineleri oluşturulabilir. Bu yöntem oluşturmak ve bir sanal makine yapılandırmak için bir tarayıcı tabanlı kullanıcı arabirimi sağlar ve ilişkili tüm kaynakları. Bu hızlı başlangıç hızlı bir şekilde Linux sanal makine oluşturun ve bir web sunucusu üzerinde yükleme gösterilmektedir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Azure yığın Market Linux görüntüde**
 
@@ -65,10 +59,10 @@ Azure yığın portalında oturum açın. Azure yığın portal adresi hangi Azu
 
 ## <a name="create-the-virtual-machine"></a>Sanal makineyi oluşturma
 
-1. Tıklatın **yeni** düğmesi Azure yığın portalın sol üst köşesinde bulundu.
+1. Tıklatın **kaynak oluşturma** Azure yığın portal sol üst köşesindeki.
 
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
-3. **Oluştur**'a tıklayın.
+3. **Oluştur**’a tıklayın.
 
 4. Sanal makine bilgilerini yazın. **Kimlik doğrulama türü** için **SSH ortak anahtarı**’nı seçin. (Bu, bir dosya için daha önce kaydedilmiş) SSH ortak anahtarınızı yapıştırın, tüm başında veya sonunda boşluk kaldırmak için dikkatli olun. İşlem tamamlandığında **Tamam**’a tıklayın.
 
@@ -127,7 +121,7 @@ Ağ güvenlik grubu (NSG), gelen ve giden trafiğin güvenliğini sağlar. Azure
 3. Sol taraftaki menüsünde altında **ayarları**, tıklatın **gelen güvenlik kuralları**.
 4. **Ekle**'ye tıklayın.
 5. **Ad** alanına **http** yazın. **Bağlantı noktası aralığı** değerinin 80, **Eylem** ayarının **İzin Ver** olarak belirlendiğinden emin olun. 
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**’a tıklayın.
 
 
 ## <a name="view-the-nginx-welcome-page"></a>NGINX karşılama sayfasını görüntüleme

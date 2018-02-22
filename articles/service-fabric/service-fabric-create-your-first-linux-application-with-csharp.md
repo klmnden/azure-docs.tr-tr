@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/19/2017
+ms.date: 1/27/2018
 ms.author: subramar
-ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7a7bda1b2bab05459e4266f7bac0d32ea4093c8b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>İlk Azure Service Fabric uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -40,10 +40,18 @@ Service Fabric, Yeoman şablon oluşturucuları kullanarak terminalden Service F
 
 1. Makinenize nodejs ve NPM yükleme
 
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+
+   Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
+   ```bash
+   sudo yum install nodejs
+   sudo yum install npm
+   ```
+
 2. NPM’den makinenize [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleme
 
   ```bash
@@ -118,11 +126,6 @@ Actor projeleri kendi başına bir işlem yapamaz. Bunlar başka bir hizmet veya
 `yo` kullanılarak oluşturulmuş bir uygulamaya başka bir hizmet eklemek için aşağıdaki adımları uygulayın:
 1. Dizini mevcut uygulamanın kök dizinine değiştirin.  Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.
 2. `yo azuresfcsharp:AddService` öğesini çalıştırın
-
-## <a name="migrating-from-projectjson-to-csproj"></a>project.json biçiminden .csproj biçimine geçiş
-1. Proje kök dizininde "dotnet migrate" komutunun çalıştırılmasıyla tüm project.json dosyaları csproj biçimine geçirilir.
-2. Proje dosyalarındaki proje başvurularını uygun şekilde csproj dosyalarına güncelleştirin.
-3. build.sh'deki proje dosya adlarını csproj dosyalarına güncelleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

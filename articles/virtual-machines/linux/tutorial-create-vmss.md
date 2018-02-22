@@ -1,6 +1,6 @@
 ---
-title: "Linux Azure için sanal makine ölçek kümeleri oluşturma | Microsoft Docs"
-description: "Bir sanal makine ölçek kümesini kullanarak Linux VM'ler üzerinde yüksek oranda kullanılabilir bir uygulama oluşturun ve dağıtın"
+title: "Azure’da Linux için Sanal Makine Ölçek Kümeleri Oluşturma | Microsoft Belgeleri"
+description: "Bir sanal makine ölçek kümesini kullanarak Linux VM'leri üzerinde yüksek oranda kullanılabilir bir uygulama oluşturma ve dağıtma"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -15,42 +15,42 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 263983017e08dcc9a8e614c159ef5afaaf1d924e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Bir sanal makine ölçek kümesi oluşturma ve Linux üzerinde yüksek oranda kullanılabilir bir uygulama dağıtma
-Bir sanal makine ölçek kümesini dağıtmak ve aynı, otomatik ölçeklendirme sanal makineler kümesi yönetmenize olanak sağlar. Ölçek kümesindeki VM'lerin sayısını elle ölçeklendirme ya da CPU, bellek isteğe bağlı veya ağ trafiğini gibi kaynak kullanımına bağlı olarak otomatik ölçeklendirme kurallarını tanımlayabilirsiniz. Bu öğreticide, Azure üzerinde ayarlanmış bir sanal makine ölçek dağıtın. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Sanal Makine Ölçek Kümesi oluşturma ve Linux üzerinde yüksek oranda kullanılabilir bir uygulama dağıtma
+Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu öğreticide, Azure’da bir sanal makine ölçek kümesi dağıtılmaktadır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bulut init ölçeklendirmek için bir uygulama oluşturmak için kullanın
-> * Bir sanal makine ölçek kümesi oluşturma
-> * Artırma veya azaltma ölçek kümesindeki örnek sayısı
+> * Cloud-init kullanarak ölçeklendirilecek bir uygulama oluşturma
+> * Sanal makine ölçek kümesi oluşturma
+> * Ölçek kümesindeki örnek sayısını artırma veya azaltma
 > * Otomatik ölçeklendirme kuralları oluşturma
-> * Ölçek kümesi örnekleri için bağlantı bilgileri görüntüle
-> * Veri diskleri bir ölçek kümesinde kullanın
+> * Ölçek kümesi örneklerine ait bağlantı bilgilerini görüntüleme
+> * Ölçek kümesinde veri diskleri kullanma
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.22 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.22 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="scale-set-overview"></a>Ölçek kümesi'ne genel bakış
-Bir sanal makine ölçek kümesini dağıtmak ve aynı, otomatik ölçeklendirme sanal makineler kümesi yönetmenize olanak sağlar. VM ölçek kümesindeki bir veya daha mantığı arıza ve güncelleştirme alanlarında dağıtılır *yerleştirme grupları*. Benzer şekilde yapılandırılmış sanal makineleri, benzer şekilde, bunlar gruplarıdır [kullanılabilirlik kümeleri](tutorial-availability-sets.md).
+## <a name="scale-set-overview"></a>Ölçek Kümesine genel bakış
+Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesindeki VM’ler, bir veya daha fazla *yerleştirme grubu* şeklinde mantık hatası ve güncelleme etki alanlarında dağıtılır. Bu gruplar, [kullanılabilirlik kümeleri](tutorial-availability-sets.md) gibi benzer şekilde yapılandırılmış VM’lerdir.
 
-VM ölçek kümesindeki gerektiği şekilde oluşturulur. Nasıl ve ne zaman VM'ler eklendiğinde veya kaldırıldığında ölçek kümesi denetlemek için otomatik ölçeklendirme kurallarını tanımlayın. Bu kurallar, ölçümleri CPU yükü, bellek kullanımı veya ağ trafiğini gibi temel tetiklenebilir.
+VM’ler, ölçek kümesinde gerektiğinde oluşturulur. Ölçek kümesinde VM eklenmesi veya kaldırılması işlemlerinin nasıl ve ne zaman gerçekleştirileceğini denetlemek için otomatik ölçeklendirme kurallarını tanımlanır. Bu kurallar, CPU yükü, bellek kullanımı veya ağ trafiği gibi ölçümlere dayalı olarak tetiklenebilir.
 
-Bir Azure platform görüntüsü kullandığınızda ölçek 1.000 VM'ler kadar destek ayarlar. Önemli yükleme veya VM özelleştirme gereksinimleri ile iş yükleri için istediğiniz [özel bir VM görüntüsü oluşturma](tutorial-custom-images.md). Özel görüntü kullanırken ayarlayın bir ölçek kadar 300 VM'ler oluşturabilirsiniz.
+Bir Azure platform görüntüsü kullanılırsa ölçek kümeleri 1.000 adede kadar VM'i destekler. Ciddi derecede yükleme veya VM özelleştirme gereksinimleri olan iş yükleri için [özel bir VM görüntüsü oluşturulması](tutorial-custom-images.md) iyi olabilir. Özel bir görüntü kullanırken ölçek kümesinde 300 adede kadar VM oluşturabilirsiniz.
 
 
-## <a name="create-an-app-to-scale"></a>Ölçeklendirmek için uygulama oluşturma
-Üretim kullanımı için istediğiniz [özel bir VM görüntüsü oluşturma](tutorial-custom-images.md) uygulamanızın yüklenmiş ve yapılandırılmış içerir. Bu öğretici için hızlı şekilde ölçeği eylemini Ayarla görmek için sanal makinelerin ilk önyükleme özelleştirme sağlar.
+## <a name="create-an-app-to-scale"></a>Ölçeklendirilecek bir uygulama oluşturma
+Üretim kullanımı için uygulamanızı yüklenmiş ve yapılandırılmış olarak içeren [özel bir VM görüntüsü oluşturmak](tutorial-custom-images.md) isteyebilirsiniz. Bu öğreticide, ölçek kümesini hemen iş başında görmek için VM’leri ilk önyüklemede özelleştirelim.
 
-Bir önceki öğreticide öğrenilen [Linux sanal bir makinede ilk önyükleme özelleştirmek nasıl](tutorial-automate-vm-deployment.md) bulut init ile. NGINX yüklemek ve basit bir 'Hello World' Node.js uygulaması çalıştırmak için aynı bulut init yapılandırma dosyası kullanabilirsiniz. 
+Daha önceki bir öğreticide cloud-init ile [ilk önyüklemede Linux sanal makinelerini özelleştirmeyi](tutorial-automate-vm-deployment.md) öğrendiniz. Aynı cloud-init yapılandırma dosyasını kullanarak NGINX’i yükleyebilir ve basit bir “Merhaba Dünya” Node.js uygulaması çalıştırabilirsiniz. 
 
-Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init.txt* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. Girin `sensible-editor cloud-init.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+Geçerli kabuğunuzda *cloud-init.txt* adlı bir dosya oluşturup aşağıdaki yapılandırmayı yapıştırın. Örneğin, dosyayı yerel makinenizde değil Cloud Shell’de oluşturun. Dosyayı oluşturmak ve kullanılabilir düzenleyicilerin listesini görmek için `sensible-editor cloud-init.txt` adını girin. Başta birinci satır olmak üzere cloud-init dosyasının tamamının doğru bir şekilde kopyalandığından emin olun:
 
 ```yaml
 #cloud-config
@@ -95,14 +95,14 @@ runcmd:
 ```
 
 
-## <a name="create-a-scale-set"></a>Bir ölçek kümesi oluşturma
-Ölçek kümesini oluşturmadan önce bir kaynak grubuyla oluşturmanız [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupScaleSet* içinde *eastus* konumu:
+## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
+Ölçek kümesi oluşturabilmek için [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek, *eastus* konumunda *myResourceGroupScaleSet* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Şimdi bir sanal makine ölçek kümesi oluşturmak [az vmss oluşturma](/cli/azure/vmss#create). Aşağıdaki örnek, ölçeği adlandırılmış Ayarla oluşturur *myScaleSet*VM özelleştirmek için bulut init dosyasını kullanır ve bunlar yoksa SSH anahtarları oluşturur:
+Bu adımda [az vmss create](/cli/azure/vmss#az_vmss_create) ile bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek, *myScaleSet* adlı bir ölçek kümesi oluşturur, cloud-init dosyasını kullanarak VM’yi özelleştirir ve yoksa SSH anahtarlarını oluşturur:
 
 ```azurecli-interactive 
 az vmss create \
@@ -115,13 +115,13 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-Oluşturun ve tüm sanal makineleri ve ölçek kümesi kaynakları yapılandırmak için birkaç dakika sürer. Azure CLI sorusu döndükten sonra çalışmaya devam arka plan görevleri vardır. Başka bir birkaç uygulamaya erişmek için dakika olabilir.
+Tüm ölçek kümesi kaynaklarının ve VM'lerin oluşturulup yapılandırılması birkaç dakika sürer. Azure CLI sizi isteme geri döndürdükten sonra çalışmaya devam eden arka plan görevleri vardır. Uygulamaya erişmeniz birkaç dakika sürebilir.
 
 
-## <a name="allow-web-traffic"></a>Web trafiği izin ver
-Bir yük dengeleyici sanal makine ölçek kümesinin bir parçası olarak otomatik olarak oluşturuldu. Yük Dengeleyici trafiği yük dengeleyici kuralları kullanarak tanımlanan VM'ler kümesi arasında dağıtır. Yük Dengeleyici kavramları ve sonraki öğreticide yapılandırma hakkında daha fazla bilgiyi [sanal makinelerin azure'da yük dengelemesini nasıl](tutorial-load-balancer.md).
+## <a name="allow-web-traffic"></a>Web trafiğine izin verme
+Sanal makine ölçek kümesinin bir parçası olarak otomatik olarak bir yük dengeleyici oluşturuldu. Yük dengeleyici, yük dengeleyici kurallarını kullanarak trafiği tanımlı bir VM'ler kümesi arasında dağıtır. Yük dengeleyiciye ilişkin kavramlar ve yapılandırma hakkında [Azure’da sanal makinelerin yükünü dengeleme](tutorial-load-balancer.md) adlı sıradaki öğreticide daha fazla bilgi edinebilirsiniz.
 
-Web uygulamasına ulaşması trafiğine izin vermek için bir kural oluştururken [az ağ lb kuralını](/cli/azure/network/lb/rule#create). Aşağıdaki örnek, adında bir kural oluşturur *myLoadBalancerRuleWeb*:
+Trafiğin web uygulamanıza ulaşmasına izin vermek için [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) ile bir kural oluşturun. Aşağıdaki örnek *myLoadBalancerRuleWeb* adlı bir kural oluşturur:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -136,7 +136,7 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Uygulamanızı test etme
-Node.js uygulamanızı Web'de görmek için yük dengeleyici ile genel IP adresi elde [az ağ ortak IP Göster](/cli/azure/network/public-ip#show). Aşağıdaki örnek IP adresi alacağı *myScaleSetLBPublicIP* ölçek kümesinin bir parçası olarak oluşturulan:
+Node.js uygulamanızı Web’de görmek için [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) ile yük dengeleyicinizin genel IP adresini alın. Aşağıdaki örnek ölçek kümesinin bir parçası olarak oluşturulan *myScaleSetLBPublicIP* için IP adresini alır:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -146,18 +146,18 @@ az network public-ip show \
     --output tsv
 ```
 
-Ortak IP adresini bir web tarayıcısına girin. Ana bilgisayar trafiği için yük dengeleyici dağıtılmış VM adını dahil olmak üzere uygulama gösterilir:
+Genel IP adresini bir web tarayıcısına girin. Uygulama, yük dengeleyicinin trafiği dağıttığı VM’nin ana bilgisayar adı ile birlikte görüntülenir:
 
-![Çalışan Node.js uygulaması](./media/tutorial-create-vmss/running-nodejs-app.png)
+![Node.js uygulaması çalıştırma](./media/tutorial-create-vmss/running-nodejs-app.png)
 
-Eylem kümesini görmek için zorla uygulamanızı çalıştıran tüm VM'ler arasında trafiği dağıtmak yük dengeleyici görmek için web tarayıcınızın yenileme.
+Ölçek kümesini çalışırken görmek için web tarayıcınızı yenilemeye zorlayarak yük dengeleyicinin trafiği, uygulamanızı çalıştıran üç VM’ye dağıtmasını görebilirsiniz.
 
 
 ## <a name="management-tasks"></a>Yönetim görevleri
-Ölçek kümesini yaşam döngüsü boyunca, bir veya daha fazla yönetim görevleri çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevleri otomatikleştiren komut dosyaları oluşturmak isteyebilirsiniz. Azure CLI 2.0, bu görevleri gerçekleştirmek için hızlı bir yoludur. Birkaç ortak görevler şunlardır.
+Ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla yönetim görevi çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevlerini otomatikleştiren betikler oluşturmak isteyebilirsiniz. Azure CLI 2.0 tüm bunları hızlıca yapabilmenizi sağlar. Aşağıda birkaç yaygın görev açıklanmaktadır.
 
-### <a name="view-vms-in-a-scale-set"></a>Görünüm VM ölçek kümesindeki
-Ölçek kümesinde çalışan sanal makineler listesini görüntülemek için kullanın [az vmss listesi-örneklerini](/cli/azure/vmss#list-instances) gibi:
+### <a name="view-vms-in-a-scale-set"></a>Ölçek kümesindeki VM’leri görüntüleme
+Ölçek kümenizde çalışan VM’lerin listesini görüntülemek için [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) komutunu şu şekilde kullanın:
 
 ```azurecli-interactive 
 az vmss list-instances \
@@ -176,8 +176,8 @@ az vmss list-instances \
 ```
 
 
-### <a name="increase-or-decrease-vm-instances"></a>Artırma veya azaltma VM örnekleri
-Ölçek kümesindeki şu anda sahip örneklerinin sayısını görmek için [az vmss Göster](/cli/azure/vmss#show) ve sorgulayın *sku.capacity*:
+### <a name="increase-or-decrease-vm-instances"></a>VM örneklerinin sayısını artırma veya azaltma
+Ölçek kümesinde şu anda yer alan örneklerin sayısını görmek için [az vmss show](/cli/azure/vmss#az_vmss_show) komutunu kullanarak *sku.capacity* üzerinde bir sorgu çalıştırın:
 
 ```azurecli-interactive 
 az vmss show \
@@ -187,7 +187,7 @@ az vmss show \
     --output table
 ```
 
-Daha sonra el ile artırabilir veya sanal makine ölçek kümesi sayısını azaltmak [az vmss ölçek](/cli/azure/vmss#scale). Aşağıdaki örnek VM'lerin sayısını ayarlamak, Ölçek ayarlar *3*:
+Ardından [az vmss scale](/cli/azure/vmss#az_vmss_scale) ile ölçek kümesindeki sanal makinelerin sayısını elle artırabilir veya azaltabilirsiniz. Aşağıdaki örnek, ölçek kümenizdeki VM'lerin sayısını *3* olarak ayarlar:
 
 ```azurecli-interactive 
 az vmss scale \
@@ -197,8 +197,8 @@ az vmss scale \
 ```
 
 
-### <a name="configure-autoscale-rules"></a>Otomatik ölçeklendirme kurallarını yapılandırma
-Örnek sayısı, Ölçek el ile ölçeklendirme ayarlamak yerine otomatik ölçeklendirme kurallarını tanımlayabilirsiniz. Bu kurallar, Ölçek kümesinin örneklerini izlemek ve buna göre ölçümleri ve tanımladığınız eşikleri göre yanıt. Ortalama CPU yükü 5 dakikalık bir süre içinde % 60'den büyük olduğunda aşağıdaki örnekte, biri tarafından örneklerinin sayısını olarak ölçeklendirir. Ortalama CPU yükünü daha sonra 5 dakikalık bir süre içinde % 30 düşerse örnekleri içinde bir örneği tarafından ölçeklenir. Abonelik Kimliğinizi kümesi bileşenleri çeşitli ölçek için Kaynak URI oluşturmak için kullanılır. Bu kurallar oluşturmak için [az İzleyici otomatik ölçeklendirme ayarları oluşturmak](/cli/azure/monitor/autoscale-settings#create)kopyalayıp aşağıdaki otomatik ölçeklendirme komutu profili yapıştırın:
+### <a name="configure-autoscale-rules"></a>Otomatik ölçeklendirme kuralları yapılandırma
+Ölçek kümenizdeki örneklerin sayısını el ile ölçeklendirmek yerine otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu kurallar, ölçek kümenizdeki örnekleri izler ve tanımladığınız ölçüm ve eşiklere göre müdahale eder. Aşağıdaki örnek, ortalama CPU yükü 5 dakika süresince %60’dan yüksek olursa örnek sayısını bir tane artırır. Ortalama CPU yükü daha sonra 5 dakika süresince %30’dan düşük olursa örnek sayısı bir tane azaltılır. Çeşitli ölçek kümesi bileşenlerinin kaynak URI’lerini oluşturmak için abonelik kimliğiniz kullanılır. Bu kuralları [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create) ile oluşturmak için aşağıdaki otomatik ölçeklendirme komut profilini kopyalayıp yapıştırın:
 
 ```azurecli-interactive 
 sub=$(az account show --query id -o tsv)
@@ -267,11 +267,11 @@ az monitor autoscale-settings create \
     }'
 ```
 
-Otomatik ölçeklendirme profili yeniden kullanmak için bir JSON (JavaScript nesne gösterimi) dosyası oluşturun ve olarak geçirin `az monitor autoscale-settings create` komutunu `--parameters @autoscale.json` parametresi. Daha fazla tasarım otomatik ölçeklendirme, kullanımı hakkında bilgi için [otomatik ölçeklendirme en iyi yöntemler](/azure/architecture/best-practices/auto-scaling).
+Otomatik ölçeklendirme profilini yeniden kullanmak için bir JSON (JavaScript Nesne Gösterimi) dosyası oluşturup bu dosyayı `--parameters @autoscale.json` parametresiyle `az monitor autoscale-settings create` komutuna geçirebilirsiniz. Otomatik ölçeklendirme kullanımıyla ilgili diğer tasarım bilgileri için [otomatik ölçeklendirmeye yönelik en iyi yöntemlere](/azure/architecture/best-practices/auto-scaling) bakın.
 
 
-### <a name="get-connection-info"></a>Bağlantı bilgilerini al
-Ölçek kümesindeki sanal makineleri bağlantı bilgilerini almak için kullanın [az vmss listesi-örnek-bağlantı-bilgisi](/cli/azure/vmss#list-instance-connection-info). Bu komut, SSH ile bağlanmanıza olanak sağlayan her bir VM için genel IP adresi ve bağlantı noktası çıkarır:
+### <a name="get-connection-info"></a>Bağlantı bilgilerini alma
+Ölçek kümelerinizdeki VM'lere ilişkin bağlantı bilgilerini almak için [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) komutunu kullanın. Bu komut, çıktı olarak her bir VM’nin genel IP adresini ve bağlantı noktasını verir. Bu bilgiler, SSH ile bağlanmanıza olanak sağlar:
 
 ```azurecli-interactive 
 az vmss list-instance-connection-info \
@@ -280,11 +280,11 @@ az vmss list-instance-connection-info \
 ```
 
 
-## <a name="use-data-disks-with-scale-sets"></a>Veri diskleri ölçek kümeleri ile kullanma
-Oluşturun ve veri diskleri ölçek kümeleri ile kullanın. Bir önceki öğreticide öğrenilen nasıl [yönetmek Azure diskleri](tutorial-manage-disks.md) en iyi uygulamalar ve işletim sistemi diski yerine veri diskleri uygulamaları oluşturmaya yönelik performans geliştirmeleri özetler.
+## <a name="use-data-disks-with-scale-sets"></a>Ölçek kümeleri ile veri diskleri kullanma
+Veri diskleri oluşturup ölçek kümeleri ile kullanabilirsiniz. Daha önceki bir öğreticide [Azure disklerini yönetmeyi](tutorial-manage-disks.md) öğrenirken işletim sistemi diski yerine veri diskleri üzerinde uygulama oluşturmaya yönelik en iyi yöntemleri ve performans geliştirmelerini genel hatlarıyla gördünüz.
 
 ### <a name="create-scale-set-with-data-disks"></a>Veri diskleri ile ölçek kümesi oluşturma
-Ölçek kümesi oluşturmak ve veri diskleri eklemek için Ekle `--data-disk-sizes-gb` parametresi [az vmss oluşturma](/cli/azure/vmss#create) komutu. Aşağıdaki örnek, bir ölçek kümesi oluşturur *50*Gb veri disklerinin her örneğine eklenmiş:
+Ölçek kümesi oluşturup veri diskleri eklemek için [az vmss create](/cli/azure/vmss#az_vmss_create) komutuna `--data-disk-sizes-gb` parametresini ekleyin. Aşağıdaki örnek, her bir örneğe *50* GB’lık bir veri diski eklenmiş şekilde bir ölçek kümesi oluşturur:
 
 ```azurecli-interactive 
 az vmss create \
@@ -298,10 +298,10 @@ az vmss create \
     --data-disk-sizes-gb 50
 ```
 
-Ölçek kümesindeki örnekleri kaldırıldığında, eklenen veri disklerini de kaldırılır.
+Örnekler ölçek kümesinden kaldırıldığında ekli tüm veri diskleri de kaldırılır.
 
-### <a name="add-data-disks"></a>Veri diski Ekle
-Örnekler, Ölçek kümesindeki bir veri diski eklemek için kullanın [az vmss diskini](/cli/azure/vmss/disk#attach). Aşağıdaki örnek, bir *50*Gb disk her örneği için:
+### <a name="add-data-disks"></a>Veri diski ekleme
+Ölçek kümenizdeki örneklere bir veri diski eklemek için [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach) komutunu kullanın. Aşağıdaki örnek, her bir örneğe *50* GB’lık bir veri diski ekler:
 
 ```azurecli-interactive 
 az vmss disk attach \
@@ -311,8 +311,8 @@ az vmss disk attach \
     --lun 2
 ```
 
-### <a name="detach-data-disks"></a>Veri diskleri ayırma
-Ölçek kümesindeki bir veri diski örneklerine kaldırmak için kullanın [az vmss disk ayırma](/cli/azure/vmss/disk#detach). Aşağıdaki örnek veri diski LUN değerine kaldırır *2* her örneğinden:
+### <a name="detach-data-disks"></a>Veri diskini çıkarma
+Ölçek kümenizdeki örneklerden veri diskini kaldırmak için [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) komutunu kullanın. Aşağıdaki örnek, her bir örnekten LUN *2*’deki veri diskini kaldırır:
 
 ```azurecli-interactive 
 az vmss disk detach \
@@ -323,17 +323,17 @@ az vmss disk detach \
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir sanal makine ölçek kümesi oluşturuldu. Şunları öğrendiniz:
+Bu öğreticide, bir sanal makine ölçek kümesi oluşturdunuz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Bulut init ölçeklendirmek için bir uygulama oluşturmak için kullanın
-> * Bir sanal makine ölçek kümesi oluşturma
-> * Artırma veya azaltma ölçek kümesindeki örnek sayısı
+> * Cloud-init kullanarak ölçeklendirilecek bir uygulama oluşturma
+> * Sanal makine ölçek kümesi oluşturma
+> * Ölçek kümesindeki örnek sayısını artırma veya azaltma
 > * Otomatik ölçeklendirme kuralları oluşturma
-> * Ölçek kümesi örnekleri için bağlantı bilgileri görüntüle
-> * Veri diskleri bir ölçek kümesinde kullanın
+> * Ölçek kümesi örneklerine ait bağlantı bilgilerini görüntüleme
+> * Ölçek kümesinde veri diskleri kullanma
 
-Yük Dengeleme sanal makineler için kavramları hakkında daha fazla bilgi için sonraki öğretici ilerleyin.
+Sanal makinelere ilişkin yük dengeleme kavramları hakkında daha fazla bilgi edinmek için sıradaki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Sanal makinelerin yük dengelemesini](tutorial-load-balancer.md)
+> [Sanal makinelerde yük dengeleme](tutorial-load-balancer.md)

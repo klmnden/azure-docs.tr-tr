@@ -1,6 +1,6 @@
 ---
-title: "İlk önyükleme azure'da bir Linux VM özelleştirme | Microsoft Docs"
-description: "Bulut Init ve anahtar kasası customze Linux VM'ler için Azure'da önyükleme ilk kez kullanmayı öğrenin"
+title: "Azure’da ilk önyüklemede Linux sanal makinesini özelleştirme | Microsoft Docs"
+description: "Linux sanal makinelerinin Azure’da ilk önyüklenmesini özelleştirmek için cloud-init ve Key Vault’un nasıl kullanılacağını öğrenin"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,49 +16,49 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>İlk önyükleme Linux sanal makine özelleştirme
-Bir önceki öğreticide öğrenilen nasıl NGINX SSH bir sanal makine (VM) ve el ile yükleyin. VM'ler hızlı ve tutarlı bir şekilde oluşturmak için tür Otomasyon genellikle istendiğini. İlk önyükleme bir VM özelleştirmek için ortak bir yaklaşım kullanmaktır [bulut init](https://cloudinit.readthedocs.io). Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>İlk önyüklemede Linux sanal makinesini özelleştirme
+Bir önceki öğreticide, sanal makineye nasıl SSH uygulanacağını ve NGINX öğesinin el ile nasıl yükleneceğini öğrendiniz. Hızlı ve tutarlı şekilde sanal makineler oluşturmak için genellikle bir otomasyon biçimi istenir. İlk önyüklemede bir sanal makineyi özelleştirmek için genellikle [cloud-init](https://cloudinit.readthedocs.io) kullanılır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bir bulut init yapılandırma dosyası oluşturma
-> * Bir bulut init dosyası kullanan bir VM oluşturma
-> * VM oluşturulduktan sonra çalışan bir Node.js uygulaması görüntüleyin
-> * Sertifikaları güvenli bir şekilde anahtar kasası kullanın
-> * Güvenli NGINX dağıtımlarında bulut init otomatikleştirme
+> * cloud-init yapılandırma dosyası oluşturma
+> * cloud-init dosyası kullanan bir sanal makine oluşturma
+> * Sanal makine oluşturulduktan sonra çalıştırılan bir Node.js uygulamasını görüntüleme
+> * Sertifikaları güvenli şekilde depolamak için Key Vault’u kullanma
+> * cloud-init ile güvenli NGINX dağıtımlarını otomatikleştirme
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).  
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).  
 
 
 
 ## <a name="cloud-init-overview"></a>Cloud-init genel bakış
-[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çalışırken, ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.
+[Cloud-init](https://cloudinit.readthedocs.io), Linux VM’sini ilk kez önyüklendiğinde özelleştirmeyi sağlayan, sık kullanılan bir yaklaşımdır. cloud-init’i paket yükleme, dosyalara yazma ve kullanıcılar ile güvenliği yapılandırma işlemleri için kullanabilirsiniz. cloud-init önyükleme işlemi sırasında çalışırken, yapılandırmanıza uygulayabileceğiniz ek adım veya gerekli aracı yoktur.
 
-Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
+Cloud-init, dağıtımlar arasında da çalışır. Örneğin, bir paket yüklemek için **apt-get install** veya **yum install** kullanmazsınız. Bunun yerine, yüklenecek paketlerin listesini tanımlayabilirsiniz. Cloud-init, seçtiğiniz dağıtım için yerel paket yönetim aracını otomatik olarak kullanır.
 
-Bulut dahil ve Azure'a sağladıkları görüntülerinde çalışma başlatma almak için ortaklarımızın ile çalışıyoruz. Aşağıdaki tabloda Azure platform görüntüleri geçerli bulut init kullanılabilirliğine özetlenmektedir:
+Azure’a sağladıkları görüntülere cloud-init’in dahil edilmesini ve bu görüntülerde çalışmasını sağlamak için iş ortaklarımızla çalışıyoruz. Aşağıdaki tabloda, Azure platform görüntülerindeki geçerli cloud-init kullanılabilirliği açıklanmaktadır:
 
 | Diğer ad | Yayımcı | Sunduğu | SKU | Sürüm |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |en son |
+| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |en son |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |en son |
 | CoreOS |CoreOS |CoreOS |Dengeli |en son |
-| | OpenLogic | CentOS | 7 CI | en son |
-| | RedHat | RHEL | 7 HAM-CI | en son
+| | OpenLogic | CentOS | 7-CI | en son |
+| | RedHat | RHEL | 7-RAW-CI | en son
 
 
-## <a name="create-cloud-init-config-file"></a>Bulut init yapılandırma dosyası oluşturma
-Bulut-init uygulamada görmek için NGINX yükler ve bir basit 'Hello World' Node.js uygulaması çalıştıran bir VM oluşturun. Aşağıdaki bulut init yapılandırma gerekli paketleri yükler, bir Node.js uygulaması oluşturur sonra başlatmak ve uygulamayı başlatır.
+## <a name="create-cloud-init-config-file"></a>cloud-init yapılandırma dosyası oluşturma
+cloud-init’i uygulamalı olarak görmek için, NGINX’i yükleyen ve basit bir 'Merhaba Dünya' Node.js uygulaması çalıştıran bir sanal makine oluşturun. Aşağıdaki cloud-init yapılandırması, gerekli paketleri yükler, bir Node.js uygulaması oluşturur, ardından uygulamayı kullanıma hazırlar ve başlatır.
 
-Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init.txt* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Girin `sensible-editor cloud-init.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+Geçerli kabuğunuzda *cloud-init.txt* adlı bir dosya oluşturup aşağıdaki yapılandırmayı yapıştırın. Örneğin, dosyayı yerel makinenizde değil Cloud Shell’de oluşturun. İstediğiniz düzenleyiciyi kullanabilirsiniz. Dosyayı oluşturmak ve kullanılabilir düzenleyicilerin listesini görmek için `sensible-editor cloud-init.txt` adını girin. Başta birinci satır olmak üzere cloud-init dosyasının tamamının doğru bir şekilde kopyalandığından emin olun:
 
 ```yaml
 #cloud-config
@@ -102,16 +102,16 @@ runcmd:
   - nodejs index.js
 ```
 
-Bulut init yapılandırma seçenekleri hakkında daha fazla bilgi için bkz: [bulut init yapılandırma örnekleri](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
+cloud-init yapılandırma seçenekleri hakkında daha fazla bilgi için bkz. [cloud-init config örnekleri](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
-Bir VM oluşturmadan önce bir kaynak grubuyla oluşturmanız [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAutomate* içinde *eastus* konumu:
+VM oluşturabilmek için önce [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek, *eastus* konumunda *myResourceGroupAutomate* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Şimdi bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create). Kullanım `--custom-data` bulut init yapılandırma dosyanızda geçirmek için parametre. Tam yolunu belirtmeniz *bulut init.txt* mevcut çalışma dizininizi dışında dosyasını kaydettiyseniz yapılandırma. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myAutomatedVM*:
+Şimdi [az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. `--custom-data` parametresini kullanarak cloud-init yapılandırma dosyanızı geçirin. Dosyayı mevcut çalışma dizininizin dışına kaydettiyseniz *cloud-init.txt* yapılandırmasının tam yolunu belirtin. Aşağıdaki örnekte *myAutomatedVM* adlı bir VM oluşturulur:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,34 +123,34 @@ az vm create \
     --custom-data cloud-init.txt
 ```
 
-Oluşturulacak VM, yüklemek için paketleri ve uygulamayı başlatmak için birkaç dakika sürer. Azure CLI sorusu döndükten sonra çalışmaya devam arka plan görevleri vardır. Başka bir birkaç uygulamaya erişmek için dakika olabilir. VM oluşturduğunuzda not edin `publicIpAddress` Azure CLI tarafından görüntülenir. Bu adres, Node.js uygulaması bir web tarayıcısı aracılığıyla erişmek için kullanılır.
+VM’nin oluşturulması, paketlerin yüklenmesi ve uygulamanın başlatılması birkaç dakika sürebilir. Azure CLI sizi isteme geri döndürdükten sonra çalışmaya devam eden arka plan görevleri vardır. Uygulamaya erişmeniz birkaç dakika daha sürebilir. VM oluşturulduktan sonra, Azure CLI tarafından görüntülenen `publicIpAddress` değerini not edin. Bu adres, web tarayıcısı aracılığıyla Node.js uygulamasına erişmek için kullanılır.
 
-Bağlantı noktası 80 Internet'ten açın, VM ulaşmak web trafiğe izin verecek şekilde [az vm Aç-port](/cli/azure/vm#open-port):
+Web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm#az_vm_open_port) komutuyla İnternet’te 80 numaralı bağlantı noktasını açın:
 
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
-## <a name="test-web-app"></a>Test web uygulaması
-Bir web tarayıcısı açın ve girin artık *http://<publicIpAddress>*  adres çubuğundaki. Kendi ortak sağlamak VM IP adresinden oluşturma işlemi. Node.js uygulamanızı aşağıdaki örnekte olduğu gibi görüntülenir:
+## <a name="test-web-app"></a>Web uygulamasını test etme
+Artık bir web tarayıcısı açıp adres çubuğuna *http://<publicIpAddress>* ifadesini girebilirsiniz. VM oluşturma işleminden kendi herkese açık IP adresinizi sağlayın. Node.js uygulamanız, aşağıdaki örnekte olduğu gibi görüntülenir:
 
-![Çalışan NGINX sitesini görüntüle](./media/tutorial-automate-vm-deployment/nginx.png)
+![Çalışan NGINX sitesini görüntüleme](./media/tutorial-automate-vm-deployment/nginx.png)
 
 
-## <a name="inject-certificates-from-key-vault"></a>Anahtar kasası sertifikaları Ekle
-Bu isteğe bağlı bir bölüm nasıl güvenli bir şekilde Azure anahtar kasası sertifikaları depolamak ve VM dağıtımı sırasında Ekle gösterir. Sertifikaları içeren özel bir görüntü kullanarak yerine desteklenmiş, bu işlem en güncel sertifikaları ilk önyükleme üzerinde bir VM eklenmiş sağlar. İşlemi sırasında sertifika hiçbir zaman Azure platformu bırakır veya bir komut dosyası, komut satırı geçmiş veya şablonda sunulur.
+## <a name="inject-certificates-from-key-vault"></a>Key Vault’tan sertifikalar ekleme
+Bu isteğe bağlı bölümde, Azure Key Vault’ta sertifikaları nasıl güvenli şekilde depolayabileceğiniz ve sanal makine dağıtımı sırasında bunları nasıl ekleyebileceğiniz gösterilir. Bu süreç, sertifikaları içeren özel bir görüntü kullanmak yerine ilk önyüklemede bir sanal makineye en güncel sertifikaların eklenmesini sağlar. İşlem sırasında sertifika hiçbir zaman Azure platformundan ayrılmaz veya bir betikte, komut satırı geçmişinde ya da şablonda gösterilmez.
 
-Azure anahtar kasası, şifreleme anahtarlarını ve gizli anahtarları, sertifikalar veya parolaları gibi koruma sağlar. Anahtar kasası anahtar yönetimi işlemini kolaylaştırmaya yardımcı olur ve erişmek ve veri şifreleme anahtarları denetim kurmanızı sağlar. Bu senaryo oluşturmak ve bir sertifika kullanmak için bazı anahtar kasası kavramları tanıtır, ancak anahtar kasası kullanma hakkında ayrıntılı bir genel bakış değildir.
+Azure Key Vault, sertifikalar veya parolalar gibi şifreleme anahtarları ile gizli dizilerin güvenliğini sağlar. Key Vault, anahtar yönetimi işleminin kolaylaştırılmasına yardımcı olur ve verilerinize erişen ve bunları şifreleyen anahtarları denetiminizde tutmanıza olanak sağlar. Bu senaryo, Key Vault’un nasıl kullanılacağına dair kapsamlı bir genel bakış sunmasa da, sertifika oluşturma ve kullanmaya yönelik bazı Key Vault kavramlarını sunar.
 
-Aşağıdaki adımlar, nasıl gösterir:
+Aşağıdaki adımlar şunları nasıl yapabileceğinizi gösterir:
 
-- Azure anahtar kasası oluşturma
-- Oluşturmak veya bir sertifika anahtar Kasası'na Karşıya Yükle
-- Bir VM içinde eklemesine sertifikasından gizli anahtar oluşturma
-- Bir VM oluşturun ve sertifika Ekle
+- Azure Key Vault oluşturma
+- Sertifikaları oluşturma veya Key Vault’a yükleme
+- Sanal makineye eklenecek sertifikadan gizli dizi oluşturma
+- VM oluşturma ve sertifika ekleme
 
-### <a name="create-an-azure-key-vault"></a>Azure anahtar kasası oluşturma
-İlk olarak, bir anahtar kasası ile oluşturma [az keyvault oluşturma](/cli/azure/keyvault#create) ve bir VM dağıttığınızda kullanım için etkinleştirin. Her anahtar kasası benzersiz bir ad gerektirir ve tüm küçük olmalıdır. Değiştir *mykeyvault* aşağıdaki örnekte kendi benzersiz bir anahtar kasası ad ile:
+### <a name="create-an-azure-key-vault"></a>Azure Key Vault oluşturma
+İlk olarak [az keyvault create](/cli/azure/keyvault#az_keyvault_create) ile bir Key Vault oluşturun ve bu anahtarın VM dağıtırken kullanılmasını etkinleştirin. Her Key Vault benzersiz bir ad gerektirir ve küçük harflerle yazılmalıdır. Aşağıdaki örnekte yer alan *mykeyvault* değerini, kendi benzersiz Key Vault adınızla değiştirin:
 
 ```azurecli-interactive 
 keyvault_name=mykeyvault
@@ -160,8 +160,8 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-### <a name="generate-certificate-and-store-in-key-vault"></a>Sertifika oluşturmak ve anahtar kasasına depolamak
-Üretim kullanımı için güvenilen bir sağlayıcı tarafından imzalanmış geçerli bir sertifika almanız gerekir [az keyvault sertifika alma](/cli/azure/keyvault/certificate#import). Bu öğretici için aşağıdaki örnek, otomatik olarak imzalanan bir sertifika ile nasıl oluşturabileceğiniz gösterir [az keyvault sertifika oluştur](/cli/azure/keyvault/certificate#create) varsayılan sertifika ilkesi kullanır:
+### <a name="generate-certificate-and-store-in-key-vault"></a>Sertifika oluşturma ve sertifikayı Key Vault’ta depolama
+Üretim sırasında kullanım için, [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import) komutunu kullanarak güvenilen bir sağlayıcı tarafından imzalanan geçerli bir sertifikayı içeri aktarmalısınız. Bu öğreticide, aşağıdaki örnekte varsayılan sertifika ilkesini kullanan [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) ile nasıl otomatik olarak imzalanan sertifika oluşturabileceğiniz gösterilmektedir:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -171,8 +171,8 @@ az keyvault certificate create \
 ```
 
 
-### <a name="prepare-certificate-for-use-with-vm"></a>VM ile kullanmak için sertifika hazırlama
-VM sırasında sertifikayı kullanmak üzere işlem oluşturma, sertifikanızla kimliği elde [az keyvault gizli listesi sürümleri](/cli/azure/keyvault/secret#list-versions). VM önyüklemede ekleme, böylece sertifikayla dönüştürmek için belirli bir biçimde sertifikanın gerekir [az vm biçimi-gizli](/cli/azure/vm#format-secret). Aşağıdaki örnek sonraki adımlarda kullanım kolaylığı için değişkenleri bu komutların çıktısı atar:
+### <a name="prepare-certificate-for-use-with-vm"></a>Sertifikayı VM ile kullanım için hazırlama
+VM oluşturma sürecinde sertifikayı kullanmak için, [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions) komutuyla sertifikanızın kimliğini alın. VM, sertifikanın önyüklemede eklenmesi için belirli bir biçimde olmasını gerektirir, bu nedenle [az vm format-secret](/cli/azure/vm#az_vm_format_secret) komutu ile sertifikayı dönüştürün. Aşağıdaki örnekte, sonraki adımlarda kullanım kolaylığı sağlamak için bu komutların çıkışı değişkenlere atanmaktadır:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -183,10 +183,10 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
 
-### <a name="create-cloud-init-config-to-secure-nginx"></a>NGINX güvenli hale getirmek için bulut init yapılandırma oluşturma
-VM, sertifikaları oluşturduğunuzda ve anahtarlar depolanır korumalı içinde */var/lib/waagent/* dizin. Sertifika VM ekleme ve NGINX yapılandırma otomatikleştirmek için güncelleştirilmiş bulut init config önceki örnekten kullanabilirsiniz.
+### <a name="create-cloud-init-config-to-secure-nginx"></a>NGINX’in güvenliğini sağlamak için cloud-init yapılandırması oluşturma
+VM oluşturduğunuzda, sertifika ve anahtarlar korunan */var/lib/waagent/* dizininde depolanır. VM’ye sertifika eklenmesini ve NGINX’in yapılandırılmasını otomatikleştirmek için önceki örnekte yer alan güncelleştirilmiş bir cloud-init yapılandırmasını kullanabilirsiniz.
 
-Adlı bir dosya oluşturun *bulut init secured.txt* ve aşağıdaki yapılandırma yapıştırın. Yeniden bulut Kabuğu'nu kullanırsanız, bulut init yapılandırma dosyası yok ve yerel makinenizde değil oluşturun. Kullanım `sensible-editor cloud-init-secured.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+*cloud-init-secured.txt* adlı bir dosya oluşturup aşağıdaki yapılandırmayı yapıştırın. Cloud Shell’i kullanırsanız yerel makinenizden değil, oradan cloud-init yapılandırma dosyasını oluşturun. Dosyayı oluşturmak ve kullanılabilir düzenleyicilerin listesini görmek için `sensible-editor cloud-init-secured.txt` komutunu kullanın. Başta birinci satır olmak üzere cloud-init dosyasının tamamının doğru bir şekilde kopyalandığından emin olun:
 
 ```yaml
 #cloud-config
@@ -238,7 +238,7 @@ runcmd:
 ```
 
 ### <a name="create-secure-vm"></a>Güvenli VM oluşturma
-Şimdi bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create). Sertifika verileri ile anahtar Kasası'ndan eklenen `--secrets` parametresi. Önceki örnekte olduğu gibi aynı zamanda bulut init config ile geçirdiğiniz `--custom-data` parametre:
+Şimdi [az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Bu sertifika verileri, `--secrets` parametresiyle Key Vault’tan eklenir. Önceki örnekte olduğu gibi `--custom-data` parametresi ile de cloud-init yapılandırmasını geçirirsiniz:
 
 ```azurecli-interactive 
 az vm create \
@@ -251,9 +251,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Oluşturulacak VM, yüklemek için paketleri ve uygulamayı başlatmak için birkaç dakika sürer. Azure CLI sorusu döndükten sonra çalışmaya devam arka plan görevleri vardır. Başka bir birkaç uygulamaya erişmek için dakika olabilir. VM oluşturduğunuzda not edin `publicIpAddress` Azure CLI tarafından görüntülenir. Bu adres, Node.js uygulaması bir web tarayıcısı aracılığıyla erişmek için kullanılır.
+VM’nin oluşturulması, paketlerin yüklenmesi ve uygulamanın başlatılması birkaç dakika sürebilir. Azure CLI sizi isteme geri döndürdükten sonra çalışmaya devam eden arka plan görevleri vardır. Uygulamaya erişmeniz birkaç dakika daha sürebilir. VM oluşturulduktan sonra, Azure CLI tarafından görüntülenen `publicIpAddress` değerini not edin. Bu adres, web tarayıcısı aracılığıyla Node.js uygulamasına erişmek için kullanılır.
 
-VM ulaşmak güvenli web trafiği izin vermek için 443 numaralı bağlantı noktasını Internet'ten gelen ile açmayı [az vm Aç-port](/cli/azure/vm#open-port):
+Güvenli web trafiğinin VM’nize erişmesine izin vermek için, [az vm open-port](/cli/azure/vm#az_vm_open_port) komutuyla internette 443 numaralı bağlantı noktasını açın:
 
 ```azurecli-interactive 
 az vm open-port \
@@ -262,27 +262,27 @@ az vm open-port \
     --port 443
 ```
 
-### <a name="test-secure-web-app"></a>Test güvenli web uygulaması
-Bir web tarayıcısı açın ve girin artık *https://<publicIpAddress>*  adres çubuğundaki. Kendi ortak sağlamak VM IP adresinden oluşturma işlemi. Kendinden imzalı bir sertifika kullanılması durumunda güvenlik uyarısı kabul edin:
+### <a name="test-secure-web-app"></a>Güvenli web uygulamasını test etme
+Artık web tarayıcısı açıp adres çubuğuna *https://<publicIpAddress>* ifadesini girebilirsiniz. VM oluşturma işleminden kendi herkese açık IP adresinizi sağlayın. Otomatik olarak imzalanan sertifika kullanıyorsanız güvenlik uyarısını kabul edin:
 
 ![Web tarayıcısı güvenlik uyarısını kabul edin](./media/tutorial-automate-vm-deployment/browser-warning.png)
 
-Güvenli NGINX siteniz ve Node.js uygulaması ardından aşağıdaki örnekte olduğu gibi görüntülenir:
+Güvenli NGINX siteniz ve Node.js uygulamanız aşağıdaki örnekte olduğu gibi görüntülenir:
 
-![Çalışan güvenli NGINX sitesini görüntüle](./media/tutorial-automate-vm-deployment/secured-nginx.png)
+![Çalışan güvenli NGINX sitesini görüntüleme](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, VM'ler ilk önyüklemesi bulut init ile yapılandırılır. Şunları öğrendiniz:
+Bu öğreticide, cloud-init ile ilk önyüklemede VM’leri yapılandırdınız. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Bir bulut init yapılandırma dosyası oluşturma
-> * Bir bulut init dosyası kullanan bir VM oluşturma
-> * VM oluşturulduktan sonra çalışan bir Node.js uygulaması görüntüleyin
-> * Sertifikaları güvenli bir şekilde anahtar kasası kullanın
-> * Güvenli NGINX dağıtımlarında bulut init otomatikleştirme
+> * cloud-init yapılandırma dosyası oluşturma
+> * cloud-init dosyası kullanan bir sanal makine oluşturma
+> * Sanal makine oluşturulduktan sonra çalıştırılan bir Node.js uygulamasını görüntüleme
+> * Sertifikaları güvenli şekilde depolamak için Key Vault’u kullanma
+> * cloud-init ile güvenli NGINX dağıtımlarını otomatikleştirme
 
-Özel VM görüntüleri oluşturma hakkında bilgi almak için sonraki öğretici ilerleyin.
+Özel VM görüntülerinin nasıl oluşturulacağını öğrenmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > [Özel VM görüntüleri oluşturma](./tutorial-custom-images.md)

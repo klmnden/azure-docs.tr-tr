@@ -1,18 +1,22 @@
 ---
-title: "Sanal makine ölçek kümeleri Azure yığın kullanılabilmesini"
-description: "Bulut yöneticisine Azure yığın Marketinde sanal makine ölçek nasıl ekleyebileceğinizi öğrenin"
+title: "Yapma sanal makine ölçek Azure yığınında kullanılabilen ayarlar | Microsoft Docs"
+description: "Bir bulut işleci Azure yığın Marketinde sanal makine ölçek nasıl ekleyebileceğinizi öğrenin"
 services: azure-stack
-author: anjayajodha
+author: brenduns
+manager: femila
+editor: 
+ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
 ms.date: 9/25/2017
-ms.author: anajod
+ms.author: brenduns
+ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Sanal makine ölçek kümeleri Azure yığın kullanılabilmesini
 
@@ -28,7 +32,7 @@ Sanal makine ölçek kümeleri Azure yığında azure'da sanal makine ölçek k�
 
 Azure yığında otomatik ölçek sanal makine ölçek kümeleri desteklemez. Azure yığın portal, Resource Manager şablonları veya PowerShell kullanılarak ayarlanan bir ölçek başka örnekler ekleyebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **PowerShell ve araçları**
 
    Yükleme ve Azure yığını için yapılandırılmış PowerShell ve Azure yığın araçları. Bkz: [Azure yığınında PowerShell ile başlamak ve çalıştırmak](azure-stack-powershell-configure-quickstart.md).
@@ -47,7 +51,7 @@ Azure yığında otomatik ölçek sanal makine ölçek kümeleri desteklemez. Az
 
 Ortamınız için aşağıdaki PowerShell komut dosyasını düzenleyin ve ardından çalıştırın, Azure yığın Market ayarlamak bir sanal makine ölçek eklemek için. 
 
-``$User``Yönetici portalı'nı bağlanmak için kullandığınız hesaptır. Örneğin, serviceadmin@contoso.onmicrosoft.com.
+``$User`` Yönetici portalı'nı bağlanmak için kullandığınız hesaptır. Örneğin, serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"

@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 01/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: afa7f569853df15a5d52e38f476665e34781acfd
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: abbcb246ada9974e53c677eed37a1ab9ce48d6c5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux üzerinde ilk Java Service Fabric Reliable Actors uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -31,24 +31,12 @@ ms.lasthandoff: 01/20/2018
 Bu hızlı başlangıç, bir Linux geliştirme ortamında ilk Azure Service Fabric Java uygulamanızı yalnızca birkaç dakikada oluşturmanıza yardımcı olur.  İşlemi tamamladığınızda, yerel geliştirme kümesinde çalışan basit bir Java tek hizmet uygulamanız olacak.  
 
 ## <a name="prerequisites"></a>Ön koşullar
-Başlamadan önce Service Fabric SDK’sı ile Service Fabric CLI aracını yükleyin ve [Linux geliştirme ortamınızda](service-fabric-get-started-linux.md) bir geliştirme kümesi kurun. Mac OS X kullanıyorsanız, [Vagrant kullanarak bir sanal makinede Linux geliştirme ortamı ayarlayabilirsiniz](service-fabric-get-started-mac.md).
+Başlamadan önce, Service Fabric SDK, Service Fabric CLI ve Yeoman’ı yükleyin, Java geliştirme ortamını kurun ve [Linux geliştirme ortamınızda](service-fabric-get-started-linux.md) bir geliştirme kümesi kurun. Mac OS X kullanıyorsanız, [Docker kullanarak Mac üzerinde bir geliştirme ortamı ayarlayabilirsiniz](service-fabric-get-started-mac.md).
 
 [Service Fabric CLI](service-fabric-cli.md)'sını da yükleyin.
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>Java için oluşturucuları yükleme ve ayarlama
-Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric Java uygulaması oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar. Lütfen makinenizde çalışan bir Java için Service Fabric yeoman şablon oluşturucu olduğundan emin olmak için aşağıdaki adımları izleyin.
-1. Makinenize nodejs ve NPM yükleme
-
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
-2. NPM’den makinenize [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleme
-
-  ```bash
-  sudo npm install -g yo
-  ```
-3. NPM'den Service Fabric Yeoman Java uygulama oluşturucuyu yükleme
+Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric Java uygulaması oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar.  Yeoman zaten yüklü değilse, Yeoman’ı ayarlama hakkında yönergeler için bkz. [Linux ile Service Fabric’i kullanmaya başlama](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables). Java için Service Fabric Yeoman şablon oluşturucusunu yüklemek için şu komutu çalıştırın.
 
   ```bash
   sudo npm install -g generator-azuresfjava
@@ -199,12 +187,7 @@ public static void main(String[] args) throws Exception {
 
 ## <a name="build-the-application"></a>Uygulama oluşturma
 Service Fabric Yeoman şablonları, uygulamayı terminalden oluşturmak için kullanabileceğiniz bir [Gradle](https://gradle.org/) derleme betiği içerir.
-Service Fabric Java bağımlılıkları Maven’dan alınır. Service Fabric Java uygulamalarını oluşturmak ve çalışmak için JDK ve Gradle’ın yüklü olduğundan emin olmanız gerekir. Henüz yüklü değilse, JDK (openjdk-8-jdk) ve Gradle’ı yüklemek için aşağıdakini çalıştırabilirsiniz.
-
-  ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+Service Fabric Java bağımlılıkları Maven’dan alınır. Service Fabric Java uygulamalarını oluşturmak ve çalışmak için JDK ve Gradle’ın yüklü olduğundan emin olmanız gerekir. Yüklü değillerse, JDK ve Gradle’ı yükleme hakkında yönergeler için bkz. [Linux ile Service Fabric’i kullanmaya başlama](service-fabric-get-started-linux.md#set-up-java-development).
 
 Uygulamayı derlemek ve paketlemek için şu komutu çalıştırın:
 
@@ -347,9 +330,6 @@ Yerel Service Fabric çalışma zamanıyla iletişim kuran Service Fabric için 
       compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
   }
   ```
-
-## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Eski Service Fabric Java uygulamalarını Maven ile kullanılmak üzere geçirme
-Service Fabric Java kitaplıklarını yakın zamanda Service Fabric Java SDK’sından Maven deposuna taşıdık. Yeoman veya Eclipse kullanarak oluşturduğunuz yeni uygulamalar en son güncelleştirilen projeleri oluşturur (Maven ile çalışırlar), ancak daha önce Service Fabric Java SDK’sı kullanan mevcut Service Fabric durum bilgisi olmayan ya da aktör Java uygulamalarını Maven’ın Service Fabric Java bağımlılıklarını kullanacak şekilde güncelleştirebilirsiniz. Eski uygulamanızın Maven ile çalıştığından emin olmak için lütfen [burada](service-fabric-migrate-old-javaapp-to-use-maven.md) belirtilen adımları izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

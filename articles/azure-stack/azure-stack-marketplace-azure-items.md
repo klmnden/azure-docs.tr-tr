@@ -3,8 +3,8 @@ title: "Azure Market öğesi için Azure yığınına kullanılabilir | Microsof
 description: "Bu Azure Market öğesi Azure yığın içinde kullanılabilir."
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2018
-ms.author: JeffGoldner
-ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -30,14 +31,14 @@ ms.lasthandoff: 02/01/2018
 
 |  | Öğe adı | Açıklama | Yayımcı | İşletim Sistemi Türü |
 | --- | --- | --- | --- | --- |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [SQL Iaas uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Herhangi bir SQL sunucusu Windows Market öğesi üzerinde dağıtmak için bu uzantıyı yükle - Bu gereklidir.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [Özel betik uzantısı](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Bu güncelleştirme için özel betik uzantısı Windows ın-box sürümünü indirin.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Bu güncelleştirme PowerShell DSC uzantısı yerleşik sürümünü indirin.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft kötü amaçlı yazılımdan koruma uzantısı](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Azure için Microsoft Antimalware, uygulamaları ve İnsan aracılığı olmadan arka planda çalışması için tasarlanmış Kiracı ortamları için bir tek Aracısı çözümüdür. | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ SQL Iaas uzantısı ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Herhangi bir SQL sunucusu Windows Market öğesi üzerinde dağıtmak için bu uzantıyı yükle - Bu gereklidir.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ Özel betik uzantısı ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Bu güncelleştirme için özel betik uzantısı Windows ın-box sürümünü indirin.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC uzantısı ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Bu güncelleştirme PowerShell DSC uzantısı yerleşik sürümünü indirin.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft kötü amaçlı yazılımdan koruma uzantısı ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Azure için Microsoft Antimalware, uygulamaları ve İnsan aracılığı olmadan arka planda çalışması için tasarlanmış Kiracı ortamları için bir tek Aracısı çözümüdür. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Linux sanal makineleri için docker uzantısı. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Linux VM erişim](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Bu güncelleştirme için Linux uzantısı VMAccess yerleşik sürümünü indirin. Debian Linux VM'ler kullanmayı planlıyorsanız, bu önemlidir.</b> | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Linux için Acronis yedekleme uzantısı](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure için Acronis yedekleme uzantısını verileri koruma ürünleri Acronis yedekleme ailesidir bir parçasıdır. | Acronis International GmbH. | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Windows için Acronis yedekleme uzantısı](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure için Acronis yedekleme uzantısını verileri koruma ürünleri Acronis yedekleme ailesidir bir parçasıdır. | Acronis International GmbH. | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Linux VM erişim ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Bu güncelleştirme için Linux uzantısı VMAccess yerleşik sürümünü indirin. Debian Linux VM'ler kullanmayı planlıyorsanız, bu önemlidir.</b> | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Linux için Acronis yedekleme uzantısı ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure için Acronis yedekleme uzantısını verileri koruma ürünleri Acronis yedekleme ailesidir bir parçasıdır. | Acronis International GmbH. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Windows için Acronis yedekleme uzantısı ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure için Acronis yedekleme uzantısını verileri koruma ürünleri Acronis yedekleme ailesidir bir parçasıdır. | Acronis International GmbH. | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft sanal makine görüntüleri ve çözüm şablonları
 
@@ -70,9 +71,9 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | SQL Server 2016 SP1 ücretsiz express sürümü. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 üzerinde SQL Server 2017 Enterprise SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Veritabanı platform akıllı, görev açısından kritik uygulamalar için. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Veritabanı platform akıllı, görev açısından kritik uygulamalar için. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makine. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme. | Microsoft + kurallı |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine CentOS Linux 7.2 9.2.1 sunucuda öğrenme](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Server 9.2.1 CentOS Linux 7.2 öğrenme makine. | Microsoft + dolandırıcı Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makinesi ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makine. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme. | Microsoft + kurallı |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine CentOS Linux 7.2 9.2.1 sunucuda öğrenme ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Server 9.2.1 CentOS Linux 7.2 öğrenme makine. | Microsoft + dolandırıcı Wave |
 
 
 ## <a name="linux-distributions"></a>Linux dağıtımları
@@ -209,5 +210,5 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster yük dengeleyici ADC içerik anahtarı](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Katman 4-7 uygulama teslim denetleyici (ADC) yük dengeleyici, içerik anahtarı ve trafik Yöneticisi. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa karma AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Ortak yayılan ve şirket içi kapasite kaynakları S3 uyumlu depolama hizmeti. | NooBaa |
 | ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet kuruluş Azure yığın altyapınızın tüm yaşam döngüsü otomatikleştirmenizi sağlar. <b>Her iki Puppet Market öğesi indirin.</b> | Puppet |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Yöneticisi 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | En iyi sınıf kaynak altyapı Yönetimi'ni açın. | SUSE |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown yazılım aracı](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown yazılım aracı v7.1 - geçirmek + HA. | ZeroDown Software |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Yöneticisi 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | En iyi sınıf kaynak altyapı Yönetimi'ni açın. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown yazılım aracı ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown yazılım aracı v7.1 - geçirmek + HA. | ZeroDown Software |

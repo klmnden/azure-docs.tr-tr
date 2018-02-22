@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes üzerinde Azure Öğreticisi - uygulamayı Ölçeklendir"
-description: "AKS Öğreticisi - uygulamayı Ölçeklendir"
+title: "Azure’da Kubernetes öğreticisi - Uygulamayı Ölçeklendirme"
+description: "AKS öğreticisi - Uygulamayı Ölçeklendirme"
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,39 +9,39 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 993a8b71b29952394a2ab6a2bdddd0fc5fd241ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) uygulamayı Ölçeklendir
+# <a name="scale-application-in-azure-container-service-aks"></a>Azure Container Service’te (AKS) uygulama ölçeklendirme
 
-Öğreticiler takip, çalışan bir Kubernetes küme içinde AKS sahip ve Azure oylama uygulaması dağıtılır.
+Öğreticileri takip ediyorsanız, AKS’de çalışan bir Kubernetes kümesine sahipsinizdir ve Azure Voting uygulamasını dağıtmışsınızdır.
 
-Bu öğreticide parçası beş sekiz, uygulama pod'ları ölçeğini ve pod otomatik ölçeklendirmeyi deneyin. Ayrıca iş yüklerini barındırmak için kümenin kapasite değiştirmek için Azure VM düğüm sayısının ölçeğini öğrenin. Tamamlanan görevler aşağıdakileri içerir:
+Sekiz öğreticinin beşinci parçası olan bu öğreticide, uygulamada pod’ları ölçeklendirirsiniz ve otomatik pod ölçeklendirmeyi denersiniz. Ayrıca, barındırılan iş yükleri için kümenin kapasitesini değiştirmek üzere Azure VM düğümlerinin sayısını ölçeklendirmeyi de öğrenirsiniz. Tamamlanan görevler şunları içerir:
 
 > [!div class="checklist"]
-> * Kubernetes Azure düğümleri ölçeklendirme
-> * Kubernetes pod'ları el ile ölçeklendirme
-> * Otomatik ölçeklendirme uygulaması ön ucu çalıştıran pod'ları yapılandırma
+> * Kubernetes Azure düğümlerini ölçeklendirme
+> * Kubernetes pod’larını el ile ölçeklendirme
+> * Uygulama ön ucunda çalışan Otomatik pod ölçeklendirmeyi yapılandırma
 
-Sonraki öğreticilerde, Azure oy uygulama güncelleştirilir ve Kubernetes küme izlemek için Operations Management Suite yapılandırılmış.
+Sonraki öğreticilerde Azure Vote uygulaması güncelleştirilir ve Operations Management Suite, Kubernetes kümesini izlemek için yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki eğitimlerine bir uygulama bir kapsayıcı görüntü, Azure kapsayıcı kayıt defterine karşıya bu görüntü ve oluşturulan Kubernetes küme paketlenmiştir. Uygulama sonra Kubernetes kümede çalıştırıldı.
+Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi, bu görüntü Azure Container Registry’ye yüklendi ve bir Kubernetes kümesi oluşturuldu. Ardından uygulama Kubernetes kümesinde çalıştırıldı.
 
-Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app].
+Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app] konusuna dönün.
 
-## <a name="scale-aks-nodes"></a>Ölçek AKS düğümler
+## <a name="scale-aks-nodes"></a>AKS düğümlerini ölçeklendirme
 
-Önceki öğreticide komutları kullanarak Kubernetes kümenize oluşturduysanız, tek bir düğüme sahip. Daha fazla veya daha az sayıda kapsayıcı iş yükleri kümenizde düşünüyorsanız, düğüm sayısını el ile ayarlayabilirsiniz.
+Önceki öğreticide Kubernetes kümenizi komutları kullanarak oluşturduysanız, kümenin bir düğümü vardır. Kümenizde daha fazla veya daha az kapsayıcı iş yükü planlıyorsanız, düğüm sayısını el ile ayarlayabilirsiniz.
 
-Aşağıdaki örnek üç adlı Kubernetes kümedeki düğüm sayısını artırır *myK8sCluster*. Komut birkaç tamamlamak için dakika sürer.
+Aşağıdaki örnek, *myAKSCluster* adlı Kubernetes kümesinde düğümlerin sayısını üçe yükseltir. Komutun tamamlanması birkaç dakika sürer.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 ```
 
 Çıktı şuna benzer olacaktır:
@@ -52,7 +52,7 @@ az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
     "count": 3,
     "dnsPrefix": null,
     "fqdn": null,
-    "name": "myK8sCluster",
+    "name": "myAKSCluster",
     "osDiskSizeGb": null,
     "osType": "Linux",
     "ports": null,
@@ -62,9 +62,9 @@ az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
   }
 ```
 
-## <a name="manually-scale-pods"></a>Pod'ları el ile ölçeklendirin
+## <a name="manually-scale-pods"></a>Pod’ları el ile ölçeklendirme
 
-Bu nedenle şimdiye kadar Azure oy ön uç ve Redis örnek silinmiş dağıtıldı, her tek bir çoğaltma ile. Doğrulamak için çalıştırın [kubectl almak] [ kubectl-get] komutu.
+Şu ana kadar hem Azure Vote ön ucu hem de Redis örneği tek bir çoğaltma dağıtıldı. Doğrulamak için [kubectl get][kubectl-get] komutunu çalıştırın.
 
 ```azurecli
 kubectl get pods
@@ -78,13 +78,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-El ile pod'ları içinde sayısını değiştirme `azure-vote-front` dağıtım kullanarak [kubectl ölçek] [ kubectl-scale] komutu. Bu örnek 5 sayısını artırır.
+[kubectl scale][kubectl-scale] komutunu kullanarak `azure-vote-front` dağıtımında pod’ların sayısını el ile değiştirin. Bu örnek, sayısı 5’e yükseltir.
 
 ```azurecli
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Çalıştırma [kubectl pod'ları alma] [ kubectl-get] Kubernetes pod'ları oluşturmakta olduğunu doğrulayın. Bir dakika veya bunu sonra ek pod'ları çalıştırıyorsanız:
+[kubectl get pods][kubectl-get] komutunu çalıştırarak Kubernetes’in pod’ları oluşturduğunu doğrulayın. Yaklaşık bir dakika sonra ek pod’lar çalışır:
 
 ```azurecli
 kubectl get pods
@@ -102,11 +102,11 @@ azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
 azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 ```
 
-## <a name="autoscale-pods"></a>Otomatik ölçeklendirme pod'ları
+## <a name="autoscale-pods"></a>Pod’ları otomatik ölçeklendirme
 
-Kubernetes destekleyen [yatay pod otomatik ölçeklendirmeyi] [ kubernetes-hpa] ayarlamak için pod'ları CPU kullanımına bağlı olarak bir dağıtımda sayısı veya diğer ölçümleri seçin.
+Kubernetes, bir dağıtımdaki pod’ların sayısını CPU kullanımı ve diğer seçili ölçümleri temel alarak ayarlamak için [yatay pod otomatik ölçeklendirmeyi][kubernetes-hpa] destekler.
 
-Autoscaler kullanmak için pod'ları CPU istekleri ve tanımlanan sınırları olması gerekir. İçinde `azure-vote-front` dağıtım, ön uç kapsayıcı 0,5 sınırına sahip istekleri 0,25 CPU CPU. Ayarları gibi görünür:
+Otomatik ölçeklendiriciyi kullanmak için pod’larınızın CPU istekleri olmalı ve sınırları tanımlanmış olmalıdır. `azure-vote-front` dağıtımında, ön uç kapsayıcısı 0,5 sınırlı, 0,25 CPU kullanımı ister. Ayarları şöyle görünür:
 
 ```YAML
 resources:
@@ -116,14 +116,14 @@ resources:
      cpu: 500m
 ```
 
-Aşağıdaki örnek kullanır [kubectl otomatik ölçeklendirme] [ kubectl-autoscale] pod'ları içinde sayısı için otomatik ölçeklendirme komutu `azure-vote-front` dağıtım. Burada, CPU kullanımı % 50 aşarsa, en fazla 10 için pod'ları autoscaler artırır.
+Aşağıdaki örnek, `azure-vote-front` dağıtımındaki pod’ların sayısını otomatik olarak ölçeklendirmek için [kubectl autoscale][kubectl-autoscale] komutunu kullanır. Burada CPU kullanımı %50’yi aşarsa, otomatik ölçeklendirici, pod’ların sayısını üst sınır olan 10’a yükseltir.
 
 
 ```azurecli
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Autoscaler durumunu görmek için aşağıdaki komutu çalıştırın:
+Otomatik ölçeklendiricinin durumunu görmek için aşağıdaki komutu çalıştırın:
 
 ```azurecli
 kubectl get hpa
@@ -136,21 +136,21 @@ NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-Azure oy uygulama üzerinde minimum yük ile birkaç dakika sonra pod çoğaltmaların sayısı 3'e otomatik olarak azaltır.
+Birkaç dakika sonra Azure Vote uygulamasında en az yük ile, pod çoğaltmalarının sayısı otomatik olarak 3’e azalır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, farklı ölçekleme özelliklerini Kubernetes kümenizdeki kullanılır. Görevleri dahil ele:
+Bu öğreticide, Kubernetes kümenizde farklı ölçeklendirme özellikleri kullandınız. Dahil edilen görevler:
 
 > [!div class="checklist"]
-> * Kubernetes pod'ları el ile ölçeklendirme
-> * Otomatik ölçeklendirme uygulaması ön ucu çalıştıran pod'ları yapılandırma
-> * Kubernetes Azure düğümleri ölçeklendirme
+> * Kubernetes pod’larını el ile ölçeklendirme
+> * Uygulama ön ucunda çalışan Otomatik pod ölçeklendirmeyi yapılandırma
+> * Kubernetes Azure düğümlerini ölçeklendirme
 
-Kubernetes uygulamada güncelleştirmek hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Kubernetes’te uygulama güncelleştirme hakkında daha fazla bilgi için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Bir uygulamada Kubernetes güncelleştir][aks-tutorial-update-app]
+> [Kubernetes'te uygulama güncelleştirme][aks-tutorial-update-app]
 
 <!-- LINKS - external -->
 [kubectl-autoscale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale

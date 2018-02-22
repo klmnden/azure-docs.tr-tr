@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı’na veri yüklemek için en iyi uygulamalar
 Azure SQL Veri Ambarı’na veri yüklemeye yönelik öneriler ve performans iyileştirmeleri. 
@@ -120,15 +120,19 @@ Blob depolamanızın erişim anahtarlarını düzenli olarak değiştirmek iyi b
 
 Azure Depolama hesabı anahtarlarını döndürmek için:
 
-1. İkincil depolama erişim anahtarını temel alan ikinci veritabanı kapsamlı kimlik bilgilerini oluşturun.
-2. Bu yeni kimlik bilgilerini temel alan ikinci bir dış veri kaynağı oluşturun.
-3. Dış tabloları yeni dış veri kaynaklarına işaret etmek üzere bırakın ve oluşturun. 
+Anahtarı değişen her depolama hesabı için, [VERİTABANI KAPSAMLI KİMLİK BİLGİSİNİ DEĞİŞTİR](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md) yazın.
 
-Dış tablolarınızı yeni veri kaynağına geçirdikten sonra aşağıdaki temizleme görevlerini gerçekleştirin:
+Örnek:
 
-1. İlk dış veri kaynağını bırakın.
-2. Birincil depolama erişim anahtarını temel alan ilk veritabanı kapsamlı kimlik bilgilerini bırakın.
-3. Azure’da oturum açıp bir sonraki döndürme için hazır olması için birincil erişim anahtarını yeniden oluşturun.
+Özgün anahtar oluşturuldu
+
+CREATE DATABASE SCOPED CREDENTIAL kimlik_bilgim WITH IDENTITY = 'kimliğim', SECRET = 'anahtar1' 
+
+1. anahtardan 2. anahtara geçin
+
+ALTER DATABASE SCOPED CREDENTIAL kimlik_bilgim WITH IDENTITY = 'kimliğim', SECRET = 'anahtar2' 
+
+Temel dış veri kaynaklarında başka bir değişiklik yapılması gerekmez.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

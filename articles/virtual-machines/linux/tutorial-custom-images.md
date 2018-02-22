@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e73494ff4827b74cbb42b2b0f1f9738c78960e23
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 297faeb56ac2d4743bfe5887e369be066e91fbd3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Azure CLI kullanarak bir VM'nin özel bir görüntü oluşturun
+# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>CLI kullanarak Azure VM'nin özel bir görüntüsünü oluşturma
 
-Özel resimler gibi Market görüntülerini olsa da, bunları kendiniz oluşturmanız. Özel resimler, uygulamalar, uygulama yapılandırmaları ve diğer işletim sistemi yapılandırmalarını önceden gibi önyükleme yapılandırmaları için kullanılabilir. Bu öğreticide, kendi özel görüntünüzü bir Azure sanal makine oluşturun. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Özel görüntüler market görüntüleri gibidir, ancak bunları kendiniz oluşturursunuz. Özel görüntüler, uygulamaları, uygulama yapılandırmalarını ve diğer işletim sistemi yapılandırmalarını önceden yükleme gibi yapılandırmaları önyüklemek için kullanılabilir. Bu öğreticide, bir Azure sanal makinesine ait kendi özel görüntünüzü oluşturursunuz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Yetkisini kaldırma ve sanal makineleri generalize
+> * VM’lerin sağlamasını kaldırma ve VM’leri genelleştirme
 > * Özel görüntü oluşturma
-> * Özel bir görüntüden bir VM oluşturma
-> * Aboneliğinizdeki tüm görüntüleri listesi
-> * Bir görüntü Sil
+> * Özel görüntüden VM oluşturma
+> * Aboneliğinizdeki tüm görüntüleri listeleme
+> * Görüntü silme
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Aşağıdaki adımlar mevcut bir VM'yi almak ve yeni VM örnekleri oluşturmak için kullanabileceğiniz yeniden kullanılabilir bir özel görüntü açmak nasıl ayrıntılı olarak açıklanmaktadır.
+Aşağıdaki adımlar, mevcut bir VM’yi alıp, yeni VM örnekleri oluşturmak için kullanabileceğiniz yeniden kullanılabilir bir özel görüntüye dönüştürmeyi ayrıntılı olarak açıklar.
 
-Örneğin bu öğreticiyi tamamlamak için var olan bir sanal makine olması gerekir. Gerekirse, bu [komut dosyası örneği](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) sizin için bir tane oluşturabilirsiniz. Çalışma öğretici aracılığıyla değiştirdiğinizde VM ve kaynak grubu adları gerektiğinde.
+Bu öğreticideki örneği tamamlamak için, mevcut bir sanal makinenizin olması gerekir. Gerekirse, bu [betik örneği](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) sizin için bir tane oluşturabilir. Bu öğreticide çalışırken, gerektiğinde kaynak grubu ve VM adlarını değiştirin.
 
 ## <a name="create-a-custom-image"></a>Özel görüntü oluşturma
 
-Bir sanal makinenin bir görüntü oluşturmak için VM sağlama kaldırmayı, serbest bırakma ve genelleştirilmiş gibi VM kaynak işaretleme hazırlamanız gerekir. VM hazır olduktan sonra bir görüntü oluşturabilirsiniz.
+Sanal makinenin bir görüntüsünü oluşturmak için, kaynak VM’nin sağlamasını kaldırarak, kaynak VM’yi serbest bırakarak ve ardından genelleştirilmiş olarak işaretleyerek VM’yi hazırlamanız gerekir. VM hazırlandıktan sonra, görüntü oluşturabilirsiniz.
 
-### <a name="deprovision-the-vm"></a>VM yetkisini kaldırma 
+### <a name="deprovision-the-vm"></a>VM’nin sağlamasını kaldırma 
 
-Sağlamayı kaldırmayı VM makineye özgü bilgiler kaldırarak genelleştirir. Bu Genelleştirme tek bir görüntüden birçok VM dağıtmak mümkün kılar. Sağlama kaldırma sırasında ana bilgisayar adı sıfırlanır *localhost.localdomain*. SSH ana bilgisayar anahtarları, ad sunucusu yapılandırmaları, kök parolasını ve önbelleğe alınan DHCP kiralarını de silinir.
+Sağlamayı kaldırma işlemi, makineye özgü bilgileri kaldırarak VM’yi genelleştirir. Bu genelleştirme, tek bir görüntüden birçok VM dağıtmayı mümkün kılar. Sağlamayı kaldırma sırasında, ana bilgisayar adı sıfırlanarak *localhost.localdomain* olur. SSH ana bilgisayar anahtarları, ad sunucusu yapılandırmaları, kök parolası ve önbelleğe alınan DHCP kiraları da ayrıca silinir.
 
-VM yetkisini kaldırma için Azure VM Aracısı (waagent) kullanın. Azure VM Aracısı VM üzerinde yüklü ve sağlama ve Azure yapı denetleyicisi ile etkileşim yönetir. Daha fazla bilgi için bkz: [Azure Linux Aracısı Kullanıcı Kılavuzu](agent-user-guide.md).
+VM’nin sağlamasını kaldırmak için, Azure VM aracısını (waagent) kullanın. Azure VM aracısı, VM’de yüklüdür ve sağlamayı ve Azure Yapı Denetleyicisi ile etkileşimi yönetir. Daha fazla bilgi için bkz. [Azure Linux Aracısı kullanıcı kılavuzu](agent-user-guide.md).
 
-SSH kullanarak VM'nize bağlanmak ve VM yetkisini kaldırma için komutu çalıştırın. İle `+user` bağımsız değişken, son sağlanan kullanıcı hesabı ve tüm ilişkili veriler de silinir. Örnek IP adresinin, VM ortak IP adresiyle değiştirin.
+SSH kullanarak VM'nize bağlanın ve VM’nin sağlamasını kaldırmak için komutu çalıştırın. `+user` bağımsız değişkeniyle, son sağlanan kullanıcı hesabı ve ilişkili tüm veriler de ayrıca silinir. Örnek IP adresini, sanal makinenizin genel IP adresi ile değiştirin.
 
-SSH VM.
+Sanal Makineye SSH uygulayın.
 ```bash
 ssh azureuser@52.174.34.95
 ```
-VM sağlamayı sonlandırın.
+VM’nin sağlamasını kaldırın.
 
 ```bash
 sudo waagent -deprovision+user -force
@@ -71,15 +71,15 @@ SSH oturumu kapatın.
 exit
 ```
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Deallocate ve VM genelleştirilmiş olarak işaretle
+### <a name="deallocate-and-mark-the-vm-as-generalized"></a>VM’yi serbest bırakma ve genelleştirilmiş olarak işaretleme
 
-Bir görüntü oluşturmak için VM serbest gerekir. Kullanarak VM serbest bırakma [az vm serbest bırakma](/cli//azure/vm#deallocate). 
+Bir görüntü oluşturmak için VM’nin serbest bırakılması gerekir. [az vm deallocate](/cli//azure/vm#deallocate) komutunu kullanarak VM’yi serbest bırakın. 
    
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Son olarak, VM durumu ile genelleştirilmiş olarak ayarlamak [az vm generalize](/cli//azure/vm#generalize) VM genelleştirilmiş Azure platformu bilmesi için. Yalnızca genelleştirilmiş bir sanal makineden bir görüntü oluşturabilirsiniz.
+Son olarak da, Azure platformunun VM’nin genelleştirilmiş olduğunu bilmesi için [az vm generalize](/cli//azure/vm#generalize) komutunu kullanarak VM’nin durumunu genelleştirilmiş olarak ayarlayın. Yalnızca genelleştirilmiş bir VM’den görüntü oluşturabilirsiniz.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>Görüntü oluşturma
 
-VM görüntüsü kullanarak oluşturabileceğiniz artık [az görüntü oluşturma](/cli//azure/image#create). Aşağıdaki örnek adlı bir resim oluşturur *myImage* adlı bir VM'den *myVM*.
+Artık [az image create](/cli//azure/image#create) komutunu kullanarak VM’nin görüntüsünü oluşturabilirsiniz. Aşağıdaki örnek, *myVM* adlı bir VM’den *myImage* adlı bir görüntü oluşturur.
    
 ```azurecli-interactive 
 az image create \
@@ -96,9 +96,9 @@ az image create \
     --source myVM
 ```
  
-## <a name="create-vms-from-the-image"></a>Sanal makineleri görüntüden oluşturma
+## <a name="create-vms-from-the-image"></a>Görüntüden VM oluşturma
 
-Bir görüntü sahip olduğunuza göre görüntü kullanarak bir veya daha fazla yeni VM'ler oluşturabilirsiniz [az vm oluşturma](/cli/azure/vm#create). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMfromImage* adlı görüntüden *myImage*.
+Artık bir görüntünüz olduğuna göre, [az vm create](/cli/azure/vm#az_vm_create) komutunu kullanarak görüntüden bir veya daha fazla yeni VM oluşturabilirsiniz. Aşağıdaki örnek, *myImage* adlı görüntüden *myVMfromImage* adlı bir VM oluşturur.
 
 ```azurecli-interactive 
 az vm create \
@@ -109,18 +109,18 @@ az vm create \
     --generate-ssh-keys
 ```
 
-## <a name="image-management"></a>Görüntü Yönetimi 
+## <a name="image-management"></a>Görüntü yönetimi 
 
-Genel görüntü yönetim görevleri ve bunları Azure CLI kullanarak tamamlamak nasıl bazı örnekleri aşağıda verilmiştir.
+Burada, ortak görüntü yönetimi görevleri ve Azure CLI kullanarak bunların nasıl tamamlanacağını gösteren bazı örnekler verilmiştir.
 
-Tablo biçiminde ada göre tüm görüntüleri listeleyin.
+Tüm görüntüleri adlara göre tablo biçiminde listeleyin.
 
 ```azurecli-interactive 
 az image list \
     --resource-group myResourceGroup
 ```
 
-Görüntüyü silin. Bu örnek adlı görüntü siler *myOldImage* gelen *myResourceGroup*.
+Görüntüyü silin. Bu örnek, *myResourceGroup* kaynak grubundan *myOldImage* adlı görüntüyü siler.
 
 ```azurecli-interactive 
 az image delete \
@@ -130,17 +130,17 @@ az image delete \
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, özel bir VM görüntüsü oluşturuldu. Şunları öğrendiniz:
+Bu öğreticide, özel bir VM görüntüsü oluşturdunuz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Yetkisini kaldırma ve sanal makineleri generalize
+> * VM’lerin sağlamasını kaldırma ve VM’leri genelleştirme
 > * Özel görüntü oluşturma
-> * Özel bir görüntüden bir VM oluşturma
-> * Aboneliğinizdeki tüm görüntüleri listesi
-> * Bir görüntü Sil
+> * Özel görüntüden VM oluşturma
+> * Aboneliğinizdeki tüm görüntüleri listeleme
+> * Görüntü silme
 
-Yüksek oranda kullanılabilir sanal makineler hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Yüksek oranda kullanılabilir sanal makineler hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Yüksek oranda kullanılabilir sanal makineleri oluşturmak](tutorial-availability-sets.md).
+> [Yüksek oranda kullanılabilir VM’ler oluşturun](tutorial-availability-sets.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Zamanlayıcı tabanlı otomatik iş akışları - Azure mantıksal uygulamaları derleme | Microsoft Docs"
-description: "Bu öğretici Azure Logic Apps ile Zamanlayıcı tabanlı, yinelenen, otomatik bir iş akışı oluşturmak nasıl gösterir"
+title: "Zamanlayıcı tabanlı otomatik iş akışları oluşturma - Azure Logic Apps | Microsoft Docs"
+description: "Bu öğretici, Azure Logic Apps ile zamanlayıcı tabanlı, yinelenen, otomatik bir iş akışının nasıl oluşturulacağını gösterir"
 author: ecfan
 manager: anneta
 editor: 
@@ -15,322 +15,322 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: deb2572de363ca5d0dec0f78f2e30ad648e9b5f8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: MT
+ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Bir zamanlayıcı tabanlı mantıksal uygulama trafiğiyle denetleyin
+# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Zamanlayıcı tabanlı mantıksal uygulama ile trafiği denetleme
 
-Azure mantıksal uygulamaları bir zamanlamaya göre çalışan iş akışlarına otomatikleştirmenize yardımcı olur. Bu öğretici nasıl oluşturabileceğinizi gösteren bir [mantıksal uygulama](../logic-apps/logic-apps-overview.md) her gün sabah çalıştırılır ve trafiği dahil seyahat süresi denetler Zamanlayıcı tetikleyici ile iki arasında yerleştirir. Mantıksal uygulama zaman belirli bir sınırı aşarsa, seyahat saati ve ek saati içeren e-posta hedefi için gerekli olarak gönderir.
+Azure Logic Apps, bir zamanlamaya göre çalışan iş akışlarını otomatikleştirmenize yardımcı olur. Bu öğretici, hafta içi her sabah çalıştırılan ve trafik de dahil, iki yer arasındaki seyahat süresini denetleyen bir zamanlayıcı tetikleyicisi ile nasıl bir [mantıksal uygulama](../logic-apps/logic-apps-overview.md) oluşturabileceğinizi gösterir. Zaman belirli bir sınırı aşarsa mantıksal uygulama, hedefiniz için seyahat süresini ve gerekli ek süreyi içeren bir e-posta gönderir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Boş bir mantıksal uygulama oluşturma. 
-> * Mantıksal uygulamanız için bir zamanlayıcı olarak çalışan bir tetikleyici ekleyin.
-> * Bir rota için seyahat süresi alır bir eylem ekleyin.
-> * Bir değişken oluşturur, seyahat saniyeden dakika saate dönüştürür ve sonucunda ortaya çıkan değişkenine kaydeder bir eylem ekleyin.
-> * Belirli bir sınırı karşı seyahat süresi karşılaştıran bir koşul ekleyin.
-> * Seyahat süresi sınırını aşarsa, e-posta gönderen bir eylem ekleyin.
+> * Mantıksal uygulamanız için zamanlayıcı olarak çalışan bir tetikleyici ekleme.
+> * Bir rota için seyahat süresini alan bir eylem ekleme.
+> * Bir değişken oluşturan, seyahat süresini saniyelerden dakikalara dönüştüren ve bu sonucu değişkene kaydeden bir eylem ekleme.
+> * Seyahat süresini belirtilen bir sınırla karşılaştıran bir koşul ekleme.
+> * Seyahat süresi sınırını aşarsa e-posta gönderen bir eylem ekleme.
 
-İşiniz bittiğinde, mantıksal uygulamanızı bu iş akışı yüksek bir düzeyde şuna benzer:
+İşlemi tamamladığınızda, mantıksal uygulamanız bu yüksek düzeyli iş akışı gibi görünür:
 
 ![Üst düzey mantıksal uygulama](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
 Azure aboneliğiniz yoksa başlamadan önce <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Office 365 Outlook, Outlook.com veya Gmail gibi Logic Apps tarafından desteklenen bir e-posta Sağlayıcısı'ndan bir e-posta hesabı. Diğer sağlayıcılar için [bağlayıcılar listesi burada gözden](https://docs.microsoft.com/connectors/). Bu hızlı başlangıç Outlook.com hesabını kullanır. Farklı bir e-posta hesabı kullanıyorsanız, genel adımlar aynı kalır, ancak UI biraz farklı görünebilir.
+* Logic Apps tarafından desteklenen Office 365 Outlook, Outlook.com veya Gmail gibi bir e-posta sağlayıcıdan alınmış e-posta hesabı. Diğer sağlayıcılar için [buradaki bağlayıcı listesini inceleyin](https://docs.microsoft.com/connectors/). Bu hızlı başlangıç bir Outlook.com hesabını kullanır. Farklı bir e-posta hesabı kullanırsanız genel adımlar aynı kalır, ancak kullanıcı arabiriminiz biraz farklı görünebilir.
 
-* Bir rota için seyahat zamanı elde etmek için Bing haritaları API'si bir erişim anahtarı gerekir. Bu anahtarı almak için adımları izleyin <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Bing Haritalar anahtarının nasıl alındığını</a>. 
+* Bir rotaya ilişkin seyahat süresini almak için, Bing Haritalar API’sinin erişim anahtarı gerekir. Bu anahtarı almak için <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Bing Haritalar anahtarını alma</a> adımlarını izleyin. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-Oturum <a href="https://portal.azure.com" target="_blank">Azure portal</a> Azure hesabı kimlik bilgilerinizle.
+Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" target="_blank">Azure portalında</a> oturum açın.
 
-## <a name="create-your-logic-app"></a>Mantıksal uygulama oluşturma
+## <a name="create-your-logic-app"></a>Mantıksal uygulamanızı oluşturma
 
 1. Azure ana menüsünden **Yeni** > **Kurumsal Tümleştirme** > **Mantıksal Uygulama**'yı seçin.
 
    ![Mantıksal uygulama oluşturma](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
-2. Altında **oluşturma mantıksal uygulama**, bu mantıksal uygulamanızı gösterilen ve tanımlandığı hakkında bilgi sağlar. İşiniz bittiğinde **Panoya sabitle** > **Oluştur**’u seçin.
+2. **Mantıksal uygulama oluştur** bölümünde, gösterildiği ve açıklandığı gibi mantıksal uygulamanızla ilgili bu bilgileri sağlayın. İşiniz bittiğinde **Panoya sabitle** > **Oluştur**’u seçin.
 
-   ![Mantıksal uygulama bilgileri sağlayın](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![Mantıksal uygulama bilgilerini sağlama](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | Ayar | Değer | Açıklama | 
    | ------- | ----- | ----------- | 
-   | **Ad** | LA TravelTime | Mantıksal uygulamanız için ad | 
-   | **Abonelik** | <*Bilgisayarınızı-Azure-abonelik-adı*> | Azure aboneliğiniz için ad | 
-   | **Kaynak grubu** | LA TravelTime RG | İçin ad [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ilgili kaynaklar düzenlemek için kullanılan | 
-   | **Konum** | Doğu ABD 2 | Bölge mantıksal uygulamanızı hakkında bilgi depolanacağı konumu | 
-   | **Log Analytics** | Kapalı | Tutmak **kapalı** tanılama günlük kaydını ayarlama. | 
+   | **Ad** | LA-TravelTime | Mantıksal uygulamanızın adı | 
+   | **Abonelik** | <*your-Azure-subscription-name*> | Azure aboneliğinizin adı | 
+   | **Kaynak grubu** | LA-TravelTime-RG | İlgili kaynakların düzenlenmesi için kullanılan [Azure kaynak grubunun](../azure-resource-manager/resource-group-overview.md) adı | 
+   | **Konum** | Doğu ABD 2 | Mantıksal uygulamanızla ilgili bilgilerin depolanacağı bölge | 
+   | **Log Analytics** | Kapalı | Tanılama günlüğüne kaydetme ayarını **Kapalı** durumda bırakın. | 
    |||| 
 
-3. Uygulamanızı Azure dağıtıldıktan sonra Logic Apps Tasarımcısı'nı açar ve video giriş ve ortak mantığı uygulama desenler için şablonlar içeren bir sayfa gösterir. **Şablonlar** bölümünde **Boş Mantıksal Uygulama**'yı seçin.
+3. Uygulamanız Azure tarafından dağıtıldıktan sonra Logic Apps Tasarımcısı açılır ve genel mantıksal uygulama desenleri için şablonları ve tanıtım videosunu içeren bir sayfayı gösterir. **Şablonlar** bölümünde **Boş Mantıksal Uygulama**'yı seçin.
 
    ![Boş mantıksal uygulama şablonunu seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/choose-logic-app-template.png)
 
-Ardından, yineleme Ekle [tetikleyici](../logic-apps/logic-apps-overview.md#logic-app-concepts), belirtilen bir zamanlamaya göre hangi etkinleşir. Her mantıksal uygulama ateşlenir belirli bir olay gerçekleştiğinde olur veya ne zaman yeni verileri belirli bir koşulunu tetikleyicisi ile başlamalıdır. Daha fazla bilgi için bkz: [ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Ardından, belirtilen bir zamanlamaya göre tetiklenen yinelenme [tetikleyicisini](../logic-apps/logic-apps-overview.md#logic-app-concepts) ekleyin. Her mantıksal uygulama, belirli bir olay gerçekleştiğinde veya yeni veriler belirli bir koşulu karşıladığında tetiklenen bir tetikleyiciyle başlamalıdır. Daha fazla bilgi için bkz. [İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="add-scheduler-trigger"></a>Zamanlayıcı tetikleyicisi ekleyin
+## <a name="add-scheduler-trigger"></a>Zamanlayıcı tetikleyicisi ekleme
 
-1. Designer'ı arama kutusuna "recurrence" girin. Bu tetikleyici seçin: **çizelgesi - yineleme**
+1. Tasarımcıda arama kutusuna "yinelenme" yazın. Şu tetikleyiciyi seçin: **Zamanlama - Yinelenme**
 
-   ![Bulun ve "Yinelemeyi Zamanla" tetikleyicisi ekleyin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
+   !["Zamanlama - Yinelenme" tetikleyicisini bulup ekleyin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. Üzerinde **yineleme** şekil, seçin **üç nokta** (**...** ) düğmesine tıklayın ve seçin **yeniden adlandırma**. Bu açıklama tetikleyiciyle yeniden adlandırın:```Check travel time every weekday morning```
+2. **Yinelenme** şeklinin üzerindeki **üç nokta** (**...**) düğmesini ve ardından **Yeniden Adlandır**’ı seçin. Tetikleyiciyi şu açıklama ile yeniden adlandırın: ```Check travel time every weekday morning```
 
-   ![Tetikleyici yeniden adlandırma](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
+   ![Tetikleyiciyi yeniden adlandırma](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
-3. Tetikleyici içinde seçin **Gelişmiş Seçenekleri Göster**.
+3. Tetikleyicinin içinde **Gelişmiş seçenekleri göster**’i seçin.
 
-4. Gösterilen ve açıklanan olarak tetikleyicinizin zamanlama ve yineleme bilgileri sağlayın:
+4. Gösterildiği ve açıklandığı şekilde tetikleyiciniz için zamanlama ve yinelenme ayrıntılarını sağlayın:
 
-   ![Zamanlama ve yineleme ayrıntılarını sağlayın](./media/tutorial-build-scheduled-recurring-logic-app-workflow/schedule-recurrence-trigger-settings.png)
+   ![Zamanlama ve yinelenme ayrıntılarını sağlayın](./media/tutorial-build-scheduled-recurring-logic-app-workflow/schedule-recurrence-trigger-settings.png)
 
    | Ayar | Değer | Açıklama | 
    | ------- | ----- | ----------- | 
-   | **Aralığı** | 1 | Denetimler bekleme aralıkların sayısı | 
-   | **Sıklık** | Hafta | Yineleme için kullanılacak zaman birimi | 
-   | **Saat dilimi** | Hiçbiri | Yalnızca bir başlangıç saati belirttiğinizde uygulanır. Bir yerel saat dilimi belirtmek için kullanışlıdır. | 
-   | **Başlangıç zamanı** | Hiçbiri | Belirli bir tarih ve saat kadar yineleme gecikmesi. Daha fazla bilgi için bkz: [zamanlama görevleri ve düzenli olarak çalışan iş akışlarına](../connectors/connectors-native-recurrence.md). | 
-   | **Şu günlerde** | Pazartesi, Salı, Çarşamba, Perşembe, Cuma | Yalnızca **sıklığı** "Hafta" ayarlayın | 
-   | **Bu saat** | 7,8,9 | Yalnızca **sıklığı** "Hafta" veya "Gün" olarak ayarlanmış. Bu yinelenme çalıştırmak için günün saati seçin. Bu örnek, 7, 8 ve 9 saatlik işaretleri çalışır. | 
-   | **Bu dakika** | 0,15,30,45 | Yalnızca **sıklığı** "Hafta" veya "Gün" olarak ayarlanmış. Bu yinelenme çalıştırmak için günün dakika seçin. Bu örnek sıfır saatlik işaretinde başlangıç 15 dakikada bir çalışır. | 
+   | **Aralık** | 1 | Denetimler arasında beklenecek aralık sayısı | 
+   | **Sıklık** | Hafta | Yinelenme için kullanılacak zaman birimi | 
+   | **Saat dilimi** | Yok | Yalnızca bir başlangıç zamanı belirttiğinizde geçerlidir. Yerel olmayan bir saat dilimi belirtmek için kullanışlıdır. | 
+   | **Başlangıç saati** | Yok | Yinelenme, belirli bir tarih ve saate kadar ertelenir. Daha fazla bilgi için bkz. [Düzenli olarak çalıştırılan görevler ve iş akışları zamanlama](../connectors/connectors-native-recurrence.md). | 
+   | **Şu günlerde** | Pazartesi,Salı,Çarşamba,Perşembe,Cuma | Yalnızca **Sıklık** "Hafta" olarak ayarlandığında kullanılabilir | 
+   | **Şu saatlerde** | 7,8,9 | Yalnızca **Sıklık** "Hafta" veya "Gün" olarak ayarlandığında kullanılabilir. Bu yinelenmenin çalıştırılacağı günün saatlerini seçin. Bu örnek, 7, 8 ve 9 saat işaretlerinde çalıştırılır. | 
+   | **Şu dakikalarda** | 0,15,30,45 | Yalnızca **Sıklık** "Hafta" veya "Gün" olarak ayarlandığında kullanılabilir. Bu yinelenmenin çalıştırılacağı günün dakikalarını seçin. Bu örnek, sıfır saat işaretinden başlayarak her 15 dakikada bir çalıştırılır. | 
    ||||
 
-   Bu tetikleyici her bir iş günü, her 15 7: 00'da başlayıp 9: 45'te dakikada ateşlenir. 
-   **Önizleme** kutusu yineleme zamanlamasını gösterir. 
-   Daha fazla bilgi için bkz: [zamanlama görevleri ve iş akışları](../connectors/connectors-native-recurrence.md) ve [iş akışı eylemleri ve Tetikleyicileri](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
+   Bu tetikleyici hafta içi her gün 7:00’da başlayıp 9:45’e kadar her 15 dakikada bir tetiklenir. 
+   **Önizleme** kutusu, yinelenme zamanlamasını gösterir. 
+   Daha fazla bilgi için bkz. [Görevleri ve iş akışlarını zamanlama](../connectors/connectors-native-recurrence.md) ve [İş akışı eylemleri ve tetikleyicileri](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
 
-5. Şu an için tetikleyici ayrıntıları gizlemek için şeklin başlık çubuğu içinde'ı tıklatın.
+5. Tetikleyicinin ayrıntılarını şimdilik gizlemek için şeklin başlık çubuğunun içine tıklayın.
 
-   ![Ayrıntıları gizlemek için Şekil Daralt](./media/tutorial-build-scheduled-recurring-logic-app-workflow/collapse-trigger-shape.png)
+   ![Ayrıntıları gizlemek için şekli daraltın](./media/tutorial-build-scheduled-recurring-logic-app-workflow/collapse-trigger-shape.png)
 
 6. Mantıksal uygulamanızı kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin. 
 
-Mantıksal uygulamanız artık canlı ancak diğer Yinele hiçbir şey yapmaz. Bu nedenle, tetikleyici başlatıldığında yanıt veren bir eylem ekleyin.
+Şimdi mantıksal uygulamanız çalışıyor ancak yinelenme dışında bir işlem gerçekleştirmiyordur. Şimdi, tetikleyici etkinleştirildiğinde gerçekleştirilecek bir eylem ekleyin.
 
-## <a name="get-the-travel-time-for-a-route"></a>Bir rota için seyahat süresi Al
+## <a name="get-the-travel-time-for-a-route"></a>Bir rota için seyahat süresi alma
 
-Bir tetikleyici sahip olduğunuza göre eklemek bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-concepts) iki yerde arasında seyahat zaman alır. Logic Apps bağlayıcı için Bing haritaları API'si sunar, böylece bu bilgileri kolayca alabilirsiniz. Bu görev başlamadan önce bu öğreticinin önkoşullarını açıklandığı gibi bir Bing Haritalar API'si anahtarı olduğundan emin olun.
+Şimdi bir tetikleyiciniz olduğuna göre artık iki yer arasındaki seyahat süresini alan bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-concepts) ekleyebilirsiniz. Logic Apps, bu bilgileri kolayca alabilmeniz için Bing Haritalar API’si için bir bağlayıcı sağlar. Bu göreve başlamadan önce, bu öğreticinin önkoşullarında açıklandığı şekilde Bing Haritalar API anahtarına sahip olduğunuzdan emin olun.
 
-1. Tetikleyici altında mantığı Uygulama Tasarımcısı'nda seçin **+ yeni adım** > **Eylem Ekle**.
+1. Logic Apps Tasarımcısı’nda tetikleyicinizin altında **+ Yeni adım** > **Eylem ekle**’yi seçin.
 
-2. "Eşlemeleri" için arama yapın ve bu eylem seçin: **Bing Haritalar - Get yol**
+2. "Haritalar" araması yapın ve şu eylemi seçin: **Bing Haritalar - Rota al**
 
-3. Bing Haritalar bağlantı yoksa, bir bağlantı oluşturmak için sorulur. Bu bağlantı ayrıntıları sağlayın ve seçin **oluşturma**.
+3. Bing Haritalar bağlantınız yoksa bir bağlantı oluşturmanız istenir. Bu bağlantı ayrıntılarını sağlayın ve **Oluştur**’u seçin.
 
-   !["Bing Haritalar - Get yol" seçin eylemi](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
+   !["Bing Haritalar - Rota al" eylemini seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
    | Ayar | Değer | Açıklama |
    | ------- | ----- | ----------- |
-   | **Bağlantı Adı** | BingMapsConnection | Bağlantınız için bir ad sağlayın. | 
-   | **API Anahtarı** | <*Bing-eşlemeleri-anahtarınız*> | Daha önce aldığınız Bing Haritalar anahtarını girin. Bing Haritalar anahtar yoksa, bilgi <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">bir anahtar alma</a>. | 
+   | **Bağlantı Adı** | BingMapsConnection | Bağlantınıza bir ad verin. | 
+   | **API Anahtarı** | <*your-Bing-Maps-key*> | Daha önce aldığınız Bing Haritalar anahtarını girin. Bing Haritalar anahtarınız yoksa <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">nasıl anahtar alacağınızı</a> öğrenin. | 
    | | | |  
 
-4. Bu açıklama eylemiyle yeniden adlandırın:```Get route and travel time with traffic```
+4. Eylemi şu açıklama ile yeniden adlandırın: ```Get route and travel time with traffic```
 
-5. Ayrıntılarını sağlamak **Get yol** gösterildiği gibi eylem ve burada, örneğin açıklanmıştır:
+5. Burada gösterildiği ve açıklandığı gibi **Rota al** eylemi için ayrıntıları sağlayın; örneğin:
 
-   !["Bing Haritalar - Get yol" için bilgileri sağlayın eylemi](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
+   !["Bing Haritalar - Rota al" eylemi için bilgileri sağlama](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
    | Ayar | Değer | Açıklama |
    | ------- | ----- | ----------- |
-   | **Waypoint 1** | <*Başlangıç konumu*> | Rotanın kaynağı | 
-   | **Waypoint 2** | <*Bitiş konumu*> | Rotanın hedef | 
-   | **Avoid** | Hiçbiri | Otoyollar, tolls vb. gibi rota önlemek için tüm öğeler | 
-   | **Optimize** | timeWithTraffic | Uzaklık gibi rota en iyi duruma getirmek için bir parametre seyahat zamanı geçerli trafiği ile ve benzeri. Bu parametreyi seçin: "timeWithTraffic" | 
-   | **Uzaklık birimi** | <*Bilgisayarınızı tercihi*> | Uzaklık, rota için birimidir. Bu makalede bu birim kullanır: "Mil"  | 
-   | **Seyahat modu** | Yürüten | Rota için seyahat modu. Bu mod seçin: "Yürüten" | 
-   | **Transit tarih-saat** | None | Yalnızca aktarım modu için geçerlidir | 
-   | **Geçiş türü tarih türü** | Hiçbiri | Yalnızca aktarım modu için geçerlidir | 
+   | **Güzergah noktası 1** | <*start-location*> | Rotanızın başlangıç noktası | 
+   | **Güzergah noktası 2** | <*end-location*> | Rotanızın hedefi | 
+   | **Kaçının** | Yok | Otoyollar, ücretli geçişler vb. gibi rotanızda kaçınılacak öğeler | 
+   | **İyileştir** | timeWithTraffic | Rotanızı iyileştirmeye yönelik bir parametre; örneğin, mesafe, mevcut trafik ile seyahat süresi vb. Şu parametreyi seçin: "timeWithTraffic" | 
+   | **Mesafe birimi** | <*your-preference*> | Rotanız için mesafe birimi. Bu makalede şu birim kullanılmaktadır: "Mil"  | 
+   | **Seyahat modu** | Sürüş | Rotanız için seyahat modu. Şu modu seçin: "Sürüş" | 
+   | **Toplu Ulaşım Tarih-Saati** | Yok | Yalnızca toplu ulaşım modu için geçerlidir | 
+   | **Tarih-Saat Türü** | Yok | Yalnızca toplu ulaşım modu için geçerlidir | 
    |||| 
 
-   Bu parametreler hakkında daha fazla bilgi için bkz: [bir rota hesaplamak](https://msdn.microsoft.com/library/ff701717.aspx).
+   Bu parametreler hakkında daha fazla bilgi için bkz. [Rota hesaplama](https://msdn.microsoft.com/library/ff701717.aspx).
 
 6. Mantıksal uygulamanızı kaydedin.
 
-Ardından, böylece dönüştürmek ve geçerli seyahat zamanı saniye yerine dakika olarak depolamak bir değişken oluşturun. Bu şekilde dönüştürme kaçınmanızı ve değer daha kolay daha sonraki adımlarda kullanın. 
+Ardından, geçerli seyahat süresini saniyeler olarak değil, dakikalar olarak dönüştürebilmeniz ve depolayabilmeniz için bir değişken oluşturun. Böylece dönüştürmeyi yinelemekten kaçınabilir ve sonraki adımlarda değeri daha kolayca kullanabilirsiniz. 
 
-## <a name="create-variable-to-store-travel-time"></a>Seyahat süresi depolamak için değişken oluşturma
+## <a name="create-variable-to-store-travel-time"></a>Seyahat süresini depolamak için değişken oluşturma
 
-Bazı durumlarda, veri akışında işlemleri ve daha sonra Eylemler sonuçları kullanmak isteyebilirsiniz. Bu sonuçları kolayca yeniden veya onları başvuru amacıyla kaydetmek için işledikten sonra bu sonuçlar depolamak için değişkenleri oluşturabilirsiniz. Yalnızca en üst düzeyde mantıksal uygulamanızı değişkenleri oluşturabilirsiniz.
+Bazen iş akışınızdaki veriler üzerinde işlemler gerçekleştirmek ve sonraki eylemlerde bu sonuçları kullanmak isteyebilirsiniz. Kolayca bu sonuçları yeniden kullanabilmek veya bu sonuçlara başvurabilmek amacıyla sonuçları kaydetmek için, sonuçları işledikten sonra depolamak üzere değişkenler oluşturabilirsiniz. Yalnızca mantıksal uygulamanızın en üst düzeyinde değişkenler oluşturabilirsiniz.
 
-Varsayılan olarak, önceki **Get yol** eylem saniye cinsinden trafiği ile geçerli seyahat saati döndürür **seyahat süresi trafiği** alan. Dönüştürme ve bunun yerine bu değer dakika depolamak, değer daha sonra yeniden dönüştürmeden yeniden kolaylaştırır.
+Varsayılan olarak, önceki **Rota al** eylemi, **Seyahat Süresi Trafik** alanı aracılığıyla trafik ile birlikte saniye cinsinden geçerli seyahat süresini getirir. Bunun yerine bu değeri dönüştürüp depolayarak daha sonra yeniden dönüştürme olmadan değerin yeniden kullanımını kolaylaştırırsınız.
 
-1. Altında **Get yol** eylemi seçin **+ yeni adım** > **Eylem Ekle**.
+1. **Rota al** eyleminin altında **+ Yeni adım** > **Eylem ekle** seçeneğini belirleyin.
 
-2. "Değişkenleri" araması yapın ve bu eylem seçin: **değişkenleri - Initialize değişkeni**
+2. "Değişkenler" araması yapın ve şu eylemi seçin: **Değişkenler - Değişken başlat**
 
-   !["Değişkenleri - Initialize değişkeni" seçin eylemi](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
+   !["Değişkenler - Değişken başlat" eylemini seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Bu eylem bu açıklama ile yeniden adlandırın:```Create variable to store travel time```
+3. Bu eylemi şu açıklama ile yeniden adlandırın: ```Create variable to store travel time```
 
-4. Ayrıntılar için değişken burada açıklandığı gibi sağlar:
+4. Burada açıklandığı gibi değişkeniniz için ayrıntıları sağlayın:
 
    | Ayar | Değer | Açıklama | 
    | ------- | ----- | ----------- | 
-   | **Ad** | travelTime | Değişken adı | 
-   | **Tür** | Tamsayı | Değişken veri türü | 
-   | **Değer** | Geçerli seyahat saniyeden (Bu tablonun altındaki adımları bakın) dakika saate dönüştürür bir ifade. | Değişkeniniz ilk değeri | 
+   | **Ad** | travelTime | Değişkeninizin adı | 
+   | **Tür** | Tamsayı | Değişkeninizin veri türü | 
+   | **Değer** | Geçerli seyahat süresini saniyelerden dakikalara dönüştüren bir ifade (bu tablonun altındaki adımlara bakın). | Değişkeninizin ilk değeri | 
    |||| 
 
-   1. İfade için oluşturmak için **değeri** alan, dinamik içerik listesi görünmesi alanının içini tıklatın. 
-   Listenin görünene kadar gerekirse, tarayıcınızı genişletir. 
-   Dinamik içerik listede seçin **ifade**. 
+   1. **Değer** alanına ilişkin ifade oluşturmak için, alanın içine tıklayarak dinamik içerik listesini görüntüleyin. 
+   Gerekirse liste görüntüleninceye kadar tarayıcınızı genişletin. 
+   Dinamik içerik listesinde **İfade**’yi seçin. 
 
-      ![Bilgilerini "Değişkenleri - Initialize değişkeni" için eylem](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings.png)
+      !["Değişkenler - Değişken başlat" eylemi için bilgileri sağlayın](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings.png)
 
-      Bazı düzenleme kutuları tıkladığınızda, dinamik içerik listesi veya bir satır içi parametre listesi görüntülenir. Bu liste, iş akışınızı girdi olarak kullanabilir önceki eylemlerine herhangi bir parametre gösterir. 
-      Dinamik içerik listesi işlemleri gerçekleştirmek için işlevleri seçebileceğiniz bir ifade düzenleyici içerir. 
-      Bu ifade Düzenleyicisi yalnızca dinamik içerik listesinde görüntülenir.
+      Bazı düzenleme kutularının içine tıkladığınızda, dinamik içerik listesi veya satır içi parametre listesi görüntülenir. Bu liste, iş akışınızda giriş olarak kullanabileceğiniz önceki eylemlerdeki parametreleri gösterir. 
+      Dinamik içerik listesi, işlemleri gerçekleştirmek için işlevleri seçebileceğiniz bir ifade düzenleyicisi içerir. 
+      Bu ifade düzenleyicisi yalnızca dinamik içerik listesinde görüntülenir.
 
-      Hangi listesi görüntülenir, tarayıcı genişliğini belirler. 
-      Tarayıcınızı uluslararası ise, dinamik içerik listesi görüntülenir. 
-      Tarayıcınız dar ise satır içi odağa sahip düzenleme kutusuna altında parametre listesi görüntülenir.
+      Hangi listenin görüneceği tarayıcınızın genişliğine bağlıdır. 
+      Tarayıcınız genişse dinamik içerik listesi görüntülenir. 
+      Tarayıcınız darsa, bir parametre listesi o anda odağı içeren düzenleme kutusunun altında satır içi görüntülenir.
 
-   2. İfade Düzenleyicisi'nde, bu deyim girin:```div(,60)```
+   2. İfade düzenleyicisinde şu ifadeyi girin: ```div(,60)```
 
-      ![Bu ifade girin: "div(,60)"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
+      ![Şu ifadeyi girin: "div(,60)"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
-   3. İmlecinizi ifade sol parantez içine yerleştirin (**(**) ve virgül (**,**). 
-   Seçin **dinamik içerik**.
+   3. İmlecinizi, sol parantez (**(**) ile virgül (**,**) arasındaki ifadeye getirin. 
+   **Dinamik içerik** seçeneğini belirleyin.
 
-      ![İmleç Konumlandır, "Dinamik içerik" seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
+      ![İmleci konumlandırın, "Dinamik içerik" seçeneğini belirleyin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
 
-   4. Dinamik içerik listeden seçin **seyahat süresi trafiği**.
+   4. Dinamik içerik listesinden **Seyahat Süresi Trafik** seçeneğini belirleyin.
 
-      !["Seyahat süresi trafiği" alanını seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-4.png)
+      !["Seyahat Süresi Trafik" alanını seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-4.png)
 
-   5. İfadenin içine alan çözümler sonra tercih **Tamam**.
+   5. Alan ifadenin içinde çözümlendikten sonra **Tamam**’ı seçin.
 
-      !["Tamam" seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
+      !["Tamam"ı seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
 
-      **Değeri** alan şimdi aşağıda gösterildiği gibi görünür:
+      Şimdi **Değer** alanı burada gösterildiği şekilde görüntülenir:
 
-      ![Çözümlenen ifade "Değeri" alanıyla](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
+      ![Çözümlenen ifadeyi içeren "Değer" alanı](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
 
 5. Mantıksal uygulamanızı kaydedin.
 
-Sonra geçerli seyahat süresi belirli bir sınırdan büyük olup olmadığını denetleyen bir koşul ekleyin.
+Ardından, geçerli seyahat süresinin belirli bir sınırdan büyük olup olmadığını denetleyen bir koşul ekleyin.
 
-## <a name="compare-travel-time-with-limit"></a>Seyahat zaman sınırı ile karşılaştırın
+## <a name="compare-travel-time-with-limit"></a>Seyahat süresini sınır ile karşılaştırma
 
-1. Önceki eylemi altında seçin **+ yeni adım** > **bir koşul eklemek**. 
+1. Önceki eylemde **+ Yeni adım** > **Koşul ekle** seçeneklerini belirleyin. 
 
-2. Bu açıklama koşuluyla yeniden adlandırın:```If travel time exceeds limit```
+2. Koşulu şu açıklama ile yeniden adlandırın: ```If travel time exceeds limit```
 
-3. Denetleyen bir koşul oluşturmak isteyip **travelTime** burada açıklanan ve gösterilen olarak belirtilen sınırınızı aşıyor:
+3. Burada açıklandığı ve gösterildiği gibi **travelTime** değerinin belirttiğiniz sınırı aşıp aşmadığını denetleyen bir koşul oluşturun:
 
-   1. Koşul içinde içini tıklatın **bir değer seçin** sol (geniş Tarayıcı Görünümü) ya da üst (dar Tarayıcı Görünümü) kutusu.
+   1. Koşul içinde, soldaki (geniş tarayıcı görünümü) veya üstteki (dar tarayıcı görünümü) **Bir değer seçin** kutusunun içine tıklayın.
 
-   2. Dinamik içerik listesi veya parametre listesi seçin **travelTime** altında **değişkenleri**.
+   2. Dinamik içerik listesinden veya parametre listesinden, **Değişkenler** bölümündeki **travelTime** alanını seçin.
 
-   3. Bu işleç karşılaştırma kutusunda seçin: **büyüktür:**
+   3. Karşılaştırma kutusunda şu işleci seçin: **büyüktür**
 
-   4. İçinde **bir değer seçin** kutusunun sağındaki (geniş görünümü) veya alt (dar görünümü), bu sınırı girin:```15```
+   4. Sağdaki (geniş görünüm) veya alttaki (dar görünüm) **Bir değer seçin** kutusuna şu sınırı girin: ```15```
 
-   Örneğin, dar görünümünde çalışıyorsanız, İşte bu durum nasıl oluşturur:
+   Örneğin, dar görünümde çalışıyorsanız bu koşulu şöyle oluşturursunuz:
 
-   ![Koşul dar görünümünde oluştur](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time-narrow.png)
+   ![Dar görünümde koşul oluşturma](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time-narrow.png)
 
 4. Mantıksal uygulamanızı kaydedin.
 
-Ardından, seyahat süre sınırınızı aştığında gerçekleştirilecek eylem ekleyin.
+Ardından seyahat süresi, sınırınızı aştığında gerçekleştirilecek eylemi ekleyin.
 
-## <a name="send-email-when-limit-exceeded"></a>Sınırı aşıldığında e-posta Gönder
+## <a name="send-email-when-limit-exceeded"></a>Sınır aşıldığında e-posta gönder
 
-Şimdi, seyahat zamanı sınırınızı aşarsa, e-postalar bir eylem ekleyin. Bu e-posta geçerli seyahat saat ile belirtilen yol için gereken ek süre içerir. 
+Şimdi seyahat süresi sınırınızı aştığında size e-posta gönderen bir eylem ekleyin. Bu e-posta, geçerli seyahat süresini ve belirtilen rotada seyahat etmek için gerekli ek süreyi içerir. 
 
-1. Koşulunun içinde **true ise** dal, seçin **Eylem Ekle**.
+1. Koşulun **True ise** dalında **Eylem ekle**’yi seçin.
 
-2. "E-postası gönderme için" araması yapın ve e-posta Bağlayıcısı'nı ve "e-posta eylemi Gönder" öğesini seçin, kullanmak istediğiniz.
+2. "E-posta gönder" araması yapın ve e-posta bağlayıcısını ve kullanmak istediğiniz "e-posta gönder eylemini" seçin.
 
-   ![Bulun ve "e-posta Gönder" eylemini seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
+   !["E-posta gönder" eylemini bulup seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
-   * Kişisel Microsoft hesaplarını seçin **Outlook.com**. 
-   * Azure için iş veya Okul hesapları, seçin **Office 365 Outlook**.
+   * Kişisel Microsoft hesapları için **Outlook.com** girişini seçin. 
+   * Azure iş veya okul hesapları için **Office 365 Outlook** girişini seçin.
 
-3. Bir bağlantı zaten sahip değilseniz, e-posta hesabınızda oturum açmayı istenir.
+3. Önceden bir bağlantınız yoksa e-posta hesabınızda oturum açmanız istenir.
 
    Logic Apps, e-posta hesabınıza bir bağlantı oluşturur.
 
-4. Bu açıklama eylemiyle yeniden adlandırın:```Send email with travel time```
+4. Eylemi şu açıklama ile yeniden adlandırın: ```Send email with travel time```
 
-5. **Alıcı** kutusuna alıcının e-posta adresini girin. Test amacıyla, e-posta adresinizi kullanın.
+5. **Alıcı** kutusuna alıcının e-posta adresini girin. Test amacıyla e-posta adresinizi kullanın.
 
-6. İçinde **konu** kutusuna e-postanın konusunu belirtin ve dahil **travelTime** değişkeni.
+6. **Konu** kutusunda e-postanın konusunu belirtin ve **travelTime** değişkenini dahil edin.
 
-   1. Metin girin ```Current travel time (minutes): ``` bir boşluk ile. 
+   1. Sonunda boşluk olacak şekilde ```Current travel time (minutes): ``` metnini girin. 
    
-   2. Parametre listesi veya dinamik içerik listesi seçin **travelTime** altında **değişkenleri**. 
+   2. Parametre listesinden veya dinamik içerik listesinden, **Değişkenler** bölümündeki **travelTime** seçeneğini belirleyin. 
    
-      Örneğin, tarayıcınız dar görünümünde ise:
+      Örneğin, tarayıcınız dar görünümdeyse:
 
-      ![Konu metni ve seyahat süresi döndüren ifadesini girin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-subject-settings.png)
+      ![Konu metnini ve seyahat süresini döndüren ifadeyi girin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-subject-settings.png)
 
-7. İçinde **gövde** kutusunda, e-posta gövdesi içeriğini belirtin. 
+7. **Gövde** kutusunda e-posta gövdesi için içeriği belirtin. 
 
-   1. Metin girin ```Add extra travel time (minutes): ``` bir boşluk ile. 
+   1. Sonunda boşluk olacak şekilde ```Add extra travel time (minutes): ``` metnini girin. 
    
-   2. Dinamik içerik listesi görünene kadar gerekirse, tarayıcınızı genişletir. 
-   Dinamik içerik listede seçin **ifade**.
+   2. Gerekirse dinamik içerik listesi görüntüleninceye kadar tarayıcınızı genişletin. 
+   Dinamik içerik listesinde **İfade**’yi seçin.
 
-      ![E-posta gövdesi için ifadeyi oluşturun](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings.png)
+      ![E-posta gövdesi için ifade oluşturma](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings.png)
 
-   3. Böylece, sınırı aşan dakika sayısı hesaplayabilirsiniz ifade Düzenleyicisi'nde, bu deyim girin:```sub(,15)```
+   3. İfade düzenleyicisinde, sınırınızı aşan dakika sayısını hesaplayabilmeniz için şu ifadeyi girin: ```sub(,15)```
 
-      ![Ek dakika seyahat zamanı hesaplamak için ifadesi girin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
+      ![Ek seyahat süresi dakikasını hesaplamak için ifade girin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
 
-   4. İmlecinizi ifade sol parantez içine yerleştirin (**(**) ve virgül (**,**). Seçin **dinamik içerik**.
+   4. İmlecinizi, sol parantez (**(**) ile virgül (**,**) arasındaki ifadeye getirin. **Dinamik içerik** seçeneğini belirleyin.
 
-      ![Ek dakika seyahat zamanı hesaplamak için ifade oluşturmaya devam etmek](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
+      ![Ek seyahat süresi dakikasını hesaplamak için ifade oluşturmaya devam edin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
 
-   5. Altında **değişkenleri**seçin **travelTime**.
+   5. **Değişkenler** bölümünde **travelTime** seçeneğini belirleyin.
 
-      ![İfadede kullanmak için "travelTime" alanını seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
+      ![İfadede kullanılacak "travelTime" alanını seçin](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
 
-   6. İfadenin içine alan çözümler sonra tercih **Tamam**.
+   6. Alan ifadenin içinde çözümlendikten sonra **Tamam**’ı seçin.
 
-      ![Çözümlenen ifade "Body" alanıyla](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
+      ![Çözümlenen ifadeyi içeren "Gövde" alanı](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
-      **Gövde** alan şimdi aşağıda gösterildiği gibi görünür:
+      Şimdi **Gövde** alanı burada gösterildiği şekilde görüntülenir:
 
-      ![Çözümlenen ifade "Body" alanıyla](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
+      ![Çözümlenen ifadeyi içeren "Gövde" alanı](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
 8. Mantıksal uygulamanızı kaydedin.
 
-Ardından, artık bu örneğe benzer mantıksal uygulamanızı test edin:
+Ardından mantıksal uygulamanızı test edin; mantıksal uygulamanız şu örnek gibi görünür:
 
 ![Tamamlanmış mantıksal uygulama](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png)
 
-## <a name="run-your-logic-app"></a>Mantıksal uygulamanızı çalıştırma
+## <a name="run-your-logic-app"></a>Mantıksal uygulamanızı çalıştırın
 
-Mantıksal uygulamanızı el ile başlatmak için tasarımcı araç çubuğundan **Çalıştır**'ı seçin. Geçerli saat kalır sınırınızı altında seyahat ediyorsanız, mantıksal uygulamanızı başka hiçbir şey yapmaz ve yeniden denetlemeden önce sonraki aralığı bekler.
-Ancak geçerli seyahat süresi sınırınızı aşıyor, sınırınızı geçerli seyahat saat ve dakika sayısını içeren bir e-posta alırsınız. Mantıksal uygulamanızı gönderir bir örnek e-posta şöyledir:
+Mantıksal uygulamanızı el ile başlatmak için tasarımcı araç çubuğundan **Çalıştır**'ı seçin. Geçerli seyahat süresi, sınırınız dahilinde kalırsa mantıksal uygulamanız başka bir şey yapmaz ve tekrar denetlemek için bir sonraki zaman aralığını bekler.
+Ancak geçerli seyahat süresi, sınırınızı aşarsa geçerli seyahat süresini ve sınırınızı aşan dakika sayısını içeren bir e-posta alırsınız. Mantıksal uygulamanızın gönderdiği örnek bir e-posta şöyledir:
 
 ![Seyahat süresi ile gönderilen e-posta](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
 
-Tüm e-postaları alamazsanız, e-postanın Önemsiz klasörünü denetleyin. E-posta Önemsiz filtre postalar bu tür yönlendirebilir. Mantıksal uygulamanızın düzgün bir şekilde çalışıp çalışmadığından emin değilseniz bkz. [Mantıksal uygulama sorunlarını giderme](../logic-apps/logic-apps-diagnosing-failures.md).
+E-posta gelmezse istenmeyen e-posta klasörüne bakın. E-postanızın istenmeyen posta filtresi bu tür postaları yeniden yönlendirebilir. Mantıksal uygulamanızın düzgün bir şekilde çalışıp çalışmadığından emin değilseniz bkz. [Mantıksal uygulama sorunlarını giderme](../logic-apps/logic-apps-diagnosing-failures.md).
 
-Tebrikler, artık oluşturduğunuz ve zamanlama tabanlı bir yinelenen mantıksal uygulama çalıştırın. 
+Tebrikler, şimdi zamanlama tabanlı yinelenen bir mantıksal uygulama oluşturup çalıştırdınız. 
 
-Kullanan diğer mantığı uygulamalar oluşturmak için **çizelgesi - yinelenme** tetikleyin, sonra kullanılabilir bir mantıksal uygulama oluşturma bu şablonları denetleyin:
+**Zamanlama - Yinelenme** tetikleyicisini kullanan başka mantıksal uygulamalar oluşturmak için, mantıksal uygulama oluşturduktan sonra mevcut olan şu şablonlara göz atın:
 
 * Size gönderilen günlük anımsatıcıları alın.
-* Azure BLOB'ları eski silin.
-* Bir Azure Storage kuyruğuna bir ileti ekleyin.
+* Eski Azure bloblarını silin.
+* Azure Depolama kuyruğuna bir ileti gönderin.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olduğunda, mantıksal uygulama ve ilgili kaynakları içeren kaynak grubunu silin. Azure ana menüde Git **kaynak grupları**ve mantıksal uygulamanız için kaynak grubunu seçin. Seçin **kaynak grubu Sil**. Onay kaynak grubu adı girin ve seçin **silmek**.
+Artık gerek kalmadığında mantıksal uygulamanızı ve ilgili kaynakları içeren kaynak grubunu silin. Ana Azure menüsünde **Kaynak grupları**’na gidin ve mantıksal uygulamanızın kaynak grubunu seçin. **Kaynak grubunu sil**'i seçin. Onay olarak kaynak grubunun adını girip **Sil**’i seçin.
 
-!["Genel bakış" > "Kaynak grubu Sil"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
+!["Genel Bakış" > "Kaynak grubunu sil"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
 ## <a name="get-support"></a>Destek alın
 
@@ -339,7 +339,7 @@ Artık gerekli olduğunda, mantıksal uygulama ve ilgili kaynakları içeren kay
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, belirtilen bir zamanlamayla (hafta içi günü mornings) göre trafiği denetleyen bir mantıksal uygulama oluşturulur ve sürer eylemi (gönderdiği e-posta) ne zaman seyahat süresi belirli bir sınırı aşıyor. Şimdi, Azure Hizmetleri, Microsoft Hizmetleri ve diğer SaaS uygulamaları ile tümleştirerek posta listesi istekleri onaya gönderir bir mantıksal uygulama oluşturmayı öğrenin.
+Bu öğreticide, belirtilen bir zamanlama (hafta içi sabahları) temelinde trafiği denetleyen ve seyahat süresi belirtilen bir sınırı aştığında eylem uygulayan (e-posta gönderen) bir mantıksal uygulama oluşturdunuz. Şimdi, Azure hizmetlerini, Microsoft hizmetlerini ve diğer SaaS uygulamalarını tümleştirerek posta listesi isteklerini onaya gönderen bir mantıksal uygulamanın nasıl oluşturulacağını öğreneceksiniz.
 
 > [!div class="nextstepaction"]
-> [Posta listesi isteklerini yönet](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+> [Posta listesi isteklerini yönetme](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)

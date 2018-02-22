@@ -1,6 +1,6 @@
 ---
-title: "İzleme ve Linux sanal makineleri azure'da güncelleştirme | Microsoft Docs"
-description: "Önyükleme tanılaması ve performans ölçümlerini izlemek ve azure'da bir Linux sanal makinede paket güncelleştirmelerini yönetme hakkında bilgi edinin"
+title: "Azure’da Linux sanal makinelerini izleme ve güncelleştirme | Microsoft Docs"
+description: "Azure’da bir Linux sanal makinesinde önyükleme tanılamaları ile performans ölçümlerinin nasıl izleneceğini ve paket güncelleştirmelerinin nasıl yönetileceğini öğrenin"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -16,40 +16,40 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
-ms.translationtype: MT
+ms.openlocfilehash: 230ce6a6b33e63bcced5f520b57b63ef4ed05448
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Nasıl izleneceğini ve azure'da bir Linux sanal makine güncelleştirmesi
+# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Azure’da bir Linux sanal makinesini izleme ve güncelleştirme
 
-Azure, sanal makineleri (VM'ler) düzgün çalışmasını sağlamak için önyükleme Tanılaması, performans ölçümleri gözden geçirin ve paket güncelleştirmesi yönetebilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Azure’daki sanal makinelerin (VM) düzgün bir şekilde çalıştığından emin olmak için önyükleme tanılamalarını ve performans ölçümlerini gözden geçirebilir ve paket güncelleştirmelerini yönetebilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Önyükleme tanılaması VM'de etkinleştir
+> * VM’de önyükleme tanılamalarını etkinleştirme
 > * Önyükleme tanılamasını görüntüleme
-> * Ana bilgisayar metrikleri görüntüleyin
-> * VM'de tanılama uzantısını etkinleştirme
-> * VM metrikleri görüntüleyin
-> * Tanılama ölçümleri temel uyarı oluşturma
+> * Konak ölçümlerini görüntüleme
+> * VM’de tanılama uzantısını etkinleştirme
+> * VM ölçümlerini görüntüleme
+> * Tanılama ölçümlerine bağlı uyarılar oluşturma
 > * Paket güncelleştirmelerini yönetme
-> * Gelişmiş izleme işlevini ayarlama
+> * Gelişmiş izlemeyi ayarlama
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-vm"></a>VM oluşturma
 
-Tanılama ve eylem ölçümlerini görmek için bir VM gerekir. İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupMonitor* içinde *eastus* konumu.
+Tanılama ve ölçüm özelliklerinin nasıl çalıştığını görmek için bir VM gerekir. Öncelikle [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroupMonitor* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Şimdi bir VM oluşturmak [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm#az_vm_create). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM*:
+Şimdi [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek *myVM* adlı bir VM oluşturur:
 
 ```azurecli-interactive 
 az vm create \
@@ -60,11 +60,11 @@ az vm create \
   --generate-ssh-keys
 ```
 
-## <a name="enable-boot-diagnostics"></a>Önyükleme tanılaması etkinleştir
+## <a name="enable-boot-diagnostics"></a>Önyükleme tanılamasını etkinleştirme
 
-Linux VM'ler önyükleme gibi önyükleme tanılama uzantısını önyükleme çıkış yakalar ve Azure depolama alanında depolar. Bu veriler, VM önyükleme sorunlarını gidermek için kullanılabilir. Azure CLI kullanarak bir Linux VM oluştururken önyükleme tanılaması otomatik olarak etkin değildir.
+Linux VM’lerde önyükleme yapılırken önyükleme tanılama uzantısı, önyükleme çıktısını yakalar ve bunu Azure depolama alanında depolar. Bu veriler VM önyükleme sorunlarını gidermek için kullanılabilir. Azure CLI kullanarak bir Linux VM’si oluşturduğunuzda önyükleme tanılamaları otomatik olarak etkinleştirilmez.
 
-Önyükleme tanılaması etkinleştirmeden önce bir depolama hesabı önyükleme günlüklerini depolamak için oluşturulması gerekir. Depolama hesapları 3 ile 24 karakter arasında olması genel olarak benzersiz bir ad olmalıdır ve yalnızca sayılar ve küçük harf içermelidir. İle depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#create) komutu. Bu örnekte, rastgele bir dize benzersiz depolama hesabı adı oluşturmak için kullanılır. 
+Önyükleme tanılamalarını etkinleştirmeden önce, önyükleme günlüklerini depolamak için bir depolama hesabı oluşturulmalıdır. Depolama hesapları, genel olarak benzersiz bir ada sahip olmalıdır. Ad, 3 ile 24 karakter arasında olmalıdır ve yalnızca sayı ve küçük harf içermelidir. [az storage account create](/cli/azure/storage/account#az_storage_account_create) komutuyla bir depolama hesabı oluşturun. Bu örnekte benzersiz bir depolama hesabı oluşturmak için rastgele bir dize kullanılmaktadır. 
 
 ```azurecli-interactive 
 storageacct=mydiagdata$RANDOM
@@ -76,13 +76,13 @@ az storage account create \
   --location eastus
 ```
 
-Önyükleme tanılaması etkinleştirirken, blob depolama kapsayıcısını URI gereklidir. Aşağıdaki komutu bu URI döndürmek için depolama hesabı sorgular. URI değeri değişken adlarında depolanan *bloburi*, sonraki adımda kullanılır.
+Önyükleme tanılamasını etkinleştirirken blob depolama kapsayıcısının URI’sı gerekir. Aşağıdaki komut, bu URI’yı döndürmek için depolama hesabını sorgular. URI değeri, *bloburi* adlı bir değişkende depolanmaktadır ve bu değişken sonraki adımda kullanılabilir.
 
 ```azurecli-interactive 
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Önyükleme Tanılaması ile şimdi etkinleştirmek [az vm önyükleme-tanılamayı etkinleştirin](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). `--storage` URI toplanan önceki adımda blob bir değerdir.
+Şimdi [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable) komutuyla önyükleme tanılamasını etkinleştirin. `--storage` değeri, önceki adımda toplanan blob URI’sıdır.
 
 ```azurecli-interactive 
 az vm boot-diagnostics enable \
@@ -94,155 +94,155 @@ az vm boot-diagnostics enable \
 
 ## <a name="view-boot-diagnostics"></a>Önyükleme tanılamasını görüntüleme
 
-Önyükleme tanılaması etkin olduğunda, durdurmak ve VM başlatmak her zaman önyükleme işlemi bilgilerini bir günlük dosyasına yazılır. Bu örnekte, ilk VM ile serbest bırakma [az vm serbest bırakma](/cli/azure/vm#deallocate) gibi komut:
+Önyükleme tanılaması etkinleştirildiğinde, VM’yi durdurduğunuz ve başlattığınızda her seferinde önyükleme işlemiyle ilgili bilgiler bir günlük dosyasına yazılır. Bu örnekte öncelikle [az vm deallocate](/cli/azure/vm#az_vm_deallocate) komutuyla VM’yi şu şekilde serbest bırakın:
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-VM ile Şimdi Başlat [az vm başlangıç]( /cli/azure/vm#stop) gibi komut:
+Şimdi [az vm start]( /cli/azure/vm#az_vm_stop) komutuyla VM’yi şu şekilde başlatın:
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Önyükleme tanılama verilerini alma *myVM* ile [az vm önyükleme tanılaması get-önyükleme-günlük](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) gibi komut:
+*myVM* için önyükleme tanılama verilerini [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) komutuyla şu şekilde alabilirsiniz:
 
 ```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
 
 
-## <a name="view-host-metrics"></a>Ana bilgisayar metrikleri görüntüleyin
+## <a name="view-host-metrics"></a>Konak ölçümlerini görüntüleme
 
-Bir Linux VM ayrılmış bir ana bilgisayar ile etkileşime giren Azure sahiptir. Ölçümleri ana bilgisayar için otomatik olarak toplanır ve Azure portalında şu şekilde görüntülenebilir:
+Linux VM’si, Azure’da etkileşimde bulunduğu ayrılmış bir konağa sahiptir. Konağa ait ölçümler otomatik olarak toplanır ve Azure portalında şu şekilde görüntülenebilir:
 
-1. Azure portalında tıklatın **kaynak grupları**seçin **myResourceGroupMonitor**ve ardından **myVM** kaynak listesinde.
-1. VM konak nasıl gerçekleştirmekte görmek için tıklatın **ölçümleri** VM dikey penceresinde herhangi birini seçip *[ana bilgisayar]* altında ölçümleri **kullanılabilir ölçümler**.
+1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroupMonitor** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
+1. Konak VM’nin performansını görüntülemek için VM dikey penceresinde **Ölçümler**’e tıklayın ve ardından **Kullanılabilen ölçümler** bölümünden herhangi bir *[Konak]* ölçümünü seçin.
 
-    ![Ana bilgisayar metrikleri görüntüleyin](./media/tutorial-monitoring/monitor-host-metrics.png)
+    ![Konak ölçümlerini görüntüleme](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 
-## <a name="install-diagnostics-extension"></a>Tanılama uzantısını yükleyin
+## <a name="install-diagnostics-extension"></a>Tanılama uzantısını yükleme
 
 > [!IMPORTANT]
-> Bu belge Linux tanılama kullanım dışı bırakılmış uzantısının 2.3 sürümünü açıklar. Sürüm 2.3 30 Haziran 2018 kadar desteklenmez.
+> Bu belgede Linux Tanılama Uzantısının kullanım dışı olan 2.3 sürümü açıklanmaktadır. 2.3 sürümü 30 Haziran 2018’e kadar desteklenecektir.
 >
-> Linux tanılama uzantısını 3.0 sürümü yerine etkinleştirilebilir. Daha fazla bilgi için bkz: [belgelerine](./diagnostic-extension.md).
+> Bunun yerine Linux Tanılama Uzantısının 3.0 sürümü etkinleştirilebilir. Daha fazla bilgi edinmek için [belgelere](./diagnostic-extension.md) göz atın.
 
-Temel ana ölçümleri kullanılabilir, ancak daha ayrıntılı ve VM özgü ölçümlerini görmek için VM'de Azure tanılama uzantısını yüklemeniz gerekir. Azure tanılama uzantısını ek izleme ve tanılama verilerini sanal makineden alınmasına izin verir. Bu performans ölçümleri görüntüleyebilir ve VM nasıl gerçekleştireceğini temelinde uyarılar oluşturabilir. Tanılama uzantısını Azure portalı üzerinden aşağıdaki şekillerde yüklenir:
+Temel konak ölçümleri kullanılabilir, ancak daha ayrıntılı bilgileri ve VM’ye özel ölçümleri görüntülemek için Azure tanılama uzantısını VM’ye yüklemeniz gerekir. Azure tanılama uzantısı, VM’den ek izleme ve tanılama verilerinin alınmasına izin verir. Bu performans ölçümlerini görüntüleyebilir ve VM performansına bağlı uyarılar oluşturabilirsiniz. Tanılama uzantısı Azure portalından şu şekilde yüklenir:
 
-1. Azure portalında tıklatın **kaynak grupları**seçin **myResourceGroup**ve ardından **myVM** kaynak listesinde.
-1. Tıklatın **tanılama ayarları**. Liste gösterir *önyükleme tanılama* önceki bölümden zaten etkin. Onay kutusu *temel ölçümleri*.
-1. İçinde *depolama hesabı* bölümünü bulun ve seçin *mydiagdata [1234]* önceki bölümde oluşturduğunuz hesabı.
+1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroup** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
+1. **Tanılama ayarları**’na tıklayın. Listede *Önyükleme tanılaması*’nın önceki bölümde zaten etkinleştirildiği görüntülenir. *Temel ölçümler* için onay kutusuna tıklayın.
+1. *Depolama hesabı* bölümünde, önceki bölümde oluşturulan *mydiagdata[1234]* hesabını bulup seçin.
 1. **Kaydet** düğmesine tıklayın.
 
-    ![Tanılama metrikleri görüntüleyin](./media/tutorial-monitoring/enable-diagnostics-extension.png)
+    ![Tanılama ölçümlerini görüntüleme](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
 
-## <a name="view-vm-metrics"></a>VM metrikleri görüntüleyin
+## <a name="view-vm-metrics"></a>VM ölçümlerini görüntüleme
 
-VM ölçümleri VM ölçümleri konak görüntülediğiniz şekilde görüntüleyebilirsiniz:
+VM ölçümlerini, konak VM ölçümlerini görüntülediğiniz gibi görüntüleyebilirsiniz:
 
-1. Azure portalında tıklatın **kaynak grupları**seçin **myResourceGroup**ve ardından **myVM** kaynak listesinde.
-1. VM nasıl gerçekleştirmekte görmek için tıklatın **ölçümleri** VM dikey ve tanılama ölçümleri altında birini seçin **kullanılabilir ölçümler**.
+1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroup** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
+1. VM’nin performansını görüntülemek için VM dikey penceresinde **Ölçümler**’e tıklayın ve ardından **Kullanılabilen ölçümler** bölümünden herhangi bir tanılama ölçümünü seçin.
 
-    ![VM metrikleri görüntüleyin](./media/tutorial-monitoring/monitor-vm-metrics.png)
+    ![VM ölçümlerini görüntüleme](./media/tutorial-monitoring/monitor-vm-metrics.png)
 
 
 ## <a name="create-alerts"></a>Uyarı oluşturma
 
-Özel performans ölçümleri temelinde uyarılar oluşturabilirsiniz. Uyarıları, belirli bir eşiği veya kullanılabilir boş disk alanı ortalama CPU kullanımını aştığında, belirli bir miktar, örneğin bırakır bildirmek için kullanılır. Uyarılar Azure portalında gösterilen veya e-posta ile gönderilebilir. Oluşturulan uyarılara yanıt olarak, Azure Otomasyon çalışma kitabı veya Azure Logic Apps tetikleyebilir.
+Belirli performans ölçümlerine bağlı uyarılar oluşturabilirsiniz. Uyarılar, ortalama CPU kullanımı belirli bir eşiği aştığında veya mevcut boş disk alanı belirli bir miktarın altına düştüğünde bildirim almak için kullanılabilir. Uyarılar Azure portalında görüntülenebilir veya e-posta ile gönderilebilir. Ayrıca oluşturulan uyarılara yanıt olarak Azure Otomasyonu runbook’larını veya Azure Logic Apps’i tetikleyebilirsiniz.
 
 Aşağıdaki örnek, ortalama CPU kullanımı için bir uyarı oluşturur.
 
-1. Azure portalında tıklatın **kaynak grupları**seçin **myResourceGroup**ve ardından **myVM** kaynak listesinde.
-2. Tıklatın **uyarı kuralları** VM dikey penceresinde, ardından **ölçüm uyarı Ekle** uyarıları dikey penceresi üstte.
-4. Sağlayan bir **adı** , uyarının gibi *myAlertRule*
-5. CPU yüzdesi için beş dakika 1.0 aştığında bir uyarıyı tetiklemek için seçilen tüm diğer varsayılan ayarları bırakın.
-6. İsteğe bağlı olarak, onay kutusunu için *sahipleri, Katkıda Bulunanlar ve okuyucular e-posta* e-posta bildirimi gönderilecek. Portalda bildirim sunmak için varsayılan eylemdir.
+1. Azure portalında **Kaynak Grupları**’na tıklayın, önce **myResourceGroup** seçeneğini belirleyin ve ardından kaynak listesinden **myVM**’yi seçin.
+2. Önce VM dikey penceresinde **Uyarı kuralları**’na ve ardından uyarılar dikey penceresinin üstündeki **Ölçüm uyarısı ekle** seçeneğine tıklayın.
+4. Uyarınız için *myAlertRule* gibi bir **Ad** girin
+5. CPU yüzdesi beş dakika boyunca 1,0’ı aştığında bir uyarı tetiklemek için diğer varsayılan ayarların tümünü seçili bırakın.
+6. İsteğe bağlı olarak e-posta bildirimi göndermek için *E-posta sahipleri, katkıda bulunanlar ve okuyucular* kutusunu işaretleyebilirsiniz. Varsayılan eylem olarak portalda bir bildirim sunulur.
 7. **Tamam** düğmesine tıklayın.
 
 ## <a name="manage-package-updates"></a>Paket güncelleştirmelerini yönetme
 
-Güncelleştirme yönetimi kullanarak Azure Linux VM'ler için paket güncelleştirmelerini ve düzeltme eklerini yönetebilirsiniz. Doğrudan, VM'den hızlı bir şekilde kullanılabilir güncelleştirmeleri durumunu değerlendirmek, gerekli güncelleştirmeleri yüklemesini zamanlayabilir ve güncelleştirmelerini VM'ye başarıyla uygulandığını doğrulamak için dağıtım sonuçları gözden geçirin.
+Güncelleştirme yönetimini kullanarak Azure Linux VM’leriniz için paket güncelleştirmelerini ve düzeltme eklerini yönetebilirsiniz. VM’nizden doğrudan güncelleştirmelerin durumunu değerlendirebilir, gerekli güncelleştirmelerin yüklenmesini zamanlayabilir ve güncelleştirmelerin VM’ye başarılı bir şekilde uygulandığından emin olmak için dağıtım sonuçlarını gözden geçirebilirsiniz.
 
 Fiyatlandırma bilgisi için bkz. [Güncelleştirme yönetimi için Otomasyon fiyatlandırması](https://azure.microsoft.com/pricing/details/automation/)
 
-### <a name="enable-update-management-preview"></a>Güncelleştirme yönetimi (Önizleme) etkinleştir
+### <a name="enable-update-management-preview"></a>Güncelleştirme yönetimini (Önizleme) etkinleştirme
 
-Güncelleştirme yönetimi, VM için etkinleştirme
+VM’niz için güncelleştirme yönetimini etkinleştirme
 
-1. Ekranın sol tarafında seçin **sanal makineleri**.
+1. Ekranın solundan **Sanal makineler**’i seçin.
 1. Listeden bir VM seçin.
-1. VM ekranında içinde **Operations** 'yi tıklatın **güncelleştirme yönetimi**. **Etkinleştirmek güncelleştirme yönetimi** ekranı açılır.
+1. VM ekranında **İşlemler** bölümünden **Güncelleştirme yönetimi**'ne tıklayın. **Güncelleştirme yönetimini etkinleştirme** ekranı açılır.
 
 Bu VM için Güncelleştirme yönetimi özelliğinin etkin olup olmadığını belirlemek için doğrulama gerçekleştirilir. Bu doğrulama kapsamında Log Analytics çalışma alanı ve bağlantılı Otomasyon hesabının yanı sıra çözümün çalışma alanında olup olmadığı kontrol edilir.
 
-Günlük analizi çalışma alanı özellikleri ve güncelleştirme yönetimi gibi hizmetleri tarafından oluşturulan verileri toplamak için kullanılır. Çalışma alanı, birden fazla kaynaktan alınan verilerin incelenip analiz edilebileceği ortak bir konum sağlar. Güncelleştirmeleri gerektiren sanal makinelerin başka bir eylem gerçekleştirmek için Azure Otomasyonu VM karşı betikleri gibi karşıdan yüklemek ve güncelleştirmeleri uygulamak için çalıştırmanızı sağlar.
+Log Analytics çalışma alanı, Güncelleştirme yönetimi gibi özellikler ve hizmetler tarafından oluşturulan verileri toplamak için kullanılır. Çalışma alanı, birden fazla kaynaktan alınan verilerin incelenip analiz edilebileceği ortak bir konum sağlar. Azure Otomasyonu, güncelleştirme yapılması gereken VM'lerde güncelleştirme indirme ve uygulama gibi ek işlemleri gerçekleştirmek için VM'ler üzerinde betikler çalıştırmanızı sağlar.
 
 Doğrulama işlemi ayrıca VM'nin Microsoft Monitoring Agent (MMA) ve karma çalışan ile sağlanıp sağlanmadığını da kontrol eder. Bu aracı, VM ile iletişim kurmak ve güncelleştirme durumu hakkında bilgi almak için kullanılır. 
 
-Bu Önkoşullar karşılanmadı bir başlık çözümü etkinleştirme seçeneği veren görüntülenir.
+Bu önkoşullar sağlanmadıysa, çözümü etkinleştirme seçeneği sunan bir başlık görüntülenir.
 
 ![Güncelleştirme Yönetimi ekleme yapılandırması başlığı](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
 
-Çözümü etkinleştirmek için başlığa tıklayın. Doğrulama sonrasında eksik olması için aşağıdaki önkoşullar bulunmuşsa otomatik olarak eklenir:
+Çözümü etkinleştirmek için başlığa tıklayın. Doğrulama sonrasında aşağıdaki önkoşullardan birinin karşılanmadığı belirlenirse ilgili önkoşul otomatik olarak eklenir:
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) çalışma alanı
 * [Otomasyon](../../automation/automation-offering-get-started.md)
 * VM üzerinde etkin bir [Karma runbook çalışanı](../../automation/automation-hybrid-runbook-worker.md)
 
-**Güncelleştirme yönetimini etkinleştirme** ekranı açılır. Ayarları yapılandırın ve tıklatın **etkinleştirmek**.
+**Güncelleştirme Yönetimini Etkinleştirme** ekranı açılır. Ayarları yapılandırın ve **Etkinleştir**’e tıklayın.
 
-![Güncelleştirme yönetimi çözümü etkinleştir](./media/tutorial-monitoring/manage-updates-update-enable.png)
+![Güncelleştirme yönetimi çözümünü etkinleştirme](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
-Çözüm etkinleştirme 15 dakika kadar sürebilir ve bu süre boyunca, tarayıcı penceresini kapatmaları değil. Çözüm etkinleştirildikten sonra VM Paket Yöneticisi'nden eksik güncelleştirmeler hakkında bilgi için günlük analizi akar.
+Çözümü etkinleştirmek 15 dakika sürebilir, bu süre boyunca tarayıcı penceresini kapatmayın. Çözüm etkinleştirildikten sonra VM'deki paket yöneticisinde eksik olan güncelleştirmelerle ilgili bilgiler Log Analytics'e aktarılır.
 Verilerin çözümlemeye hazır hale gelmesi 30 dakika ile 6 saat arasında sürebilir.
 
 ### <a name="view-update-assessment"></a>Güncelleştirme değerlendirmesini görüntüleme
 
-Sonra **güncelleştirme yönetimi** çözüm etkin olduğunda, **güncelleştirme yönetimi** ekranı görüntülenir. **Eksik güncelleştirmeler** sekmesinde eksik güncelleştirmelerin bir listesini görebilirsiniz.
+**Güncelleştirme yönetimi** çözümü etkinleştirildikten sonra **Güncelleştirme yönetimi** ekranı görüntülenir. **Eksik güncelleştirmeler** sekmesinde eksik güncelleştirmelerin bir listesini görebilirsiniz.
 
 ![Güncelleştirme durumunu görüntüleme](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
 
 ### <a name="schedule-an-update-deployment"></a>Güncelleştirme dağıtımı zamanlama
 
-Güncelleştirmeleri yüklemek için yayın zamanlaması ve bakım penceresi izleyen bir dağıtım zamanlaması.
+Güncelleştirmeleri yüklemek için yayın zamanlamanıza ve bakım pencerenize uygun bir dağıtım zamanlayın.
 
-Tıklayarak VM için yeni bir güncelleştirme dağıtımı zamanlama **zamanlama güncelleştirme dağıtımı** en üstündeki **güncelleştirme yönetimi** ekran. **Yeni güncelleştirme dağıtım** ekranında aşağıdaki bilgileri belirtin:
+**Güncelleştirme yönetimi** ekranının üst kısmındaki **Güncelleştirme dağıtımı zamanla**’ya tıklayarak VM için yeni bir Güncelleştirme Dağıtımı zamanlayabilirsiniz. **Yeni güncelleştirme dağıtım** ekranında aşağıdaki bilgileri belirtin:
 
 * **Ad** - Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad belirtin.
-* **Dışlanacak güncelleştirmeleri** -Update'ten dışlamak için paket adını girmek için bu seçeneği kullanın.
+* **Hariç tutulacak güncelleştirmeler** - Güncelleştirmenin dışında tutulacak paketlerin adlarını girmek için bu seçeneği belirleyin.
 * **Zamanlama ayarları** - Geçerli saatten 30 dakika sonrası olan varsayılan tarih ve saati kabul edebilir ya da farklı bir zaman belirtebilirsiniz. Ayrıca, dağıtımın bir kez gerçekleşeceğini belirtebilir veya yinelenen bir zamanlama ayarlayabilirsiniz. Yinelenen bir zamanlama ayarlamak için Yineleme altında Yinelenen seçeneğine tıklayın.
 
   ![Güncelleştirme Zamanlama Ayarları ekranı](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
 
-* **Bakım penceresi (dakika)** - Güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin.  Bu değişiklikler, tanımlanmış bakım pencerelerinin içinde gerçekleştirilen sağlamaya yardımcı olur. 
+* **Bakım penceresi (dakika)** - Güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin.  Bu ayar, değişikliklerin sizin tanımladığınız bakım pencereleri içinde gerçekleştirilmesini sağlar. 
 
 Zamanlamayı yapılandırmayı tamamladıktan sonra **Oluştur** düğmesine tıklayın ve durum panosuna dönün.
-Dikkat **zamanlanmış** tablo oluşturduğunuz dağıtım zamanlaması gösterir.
+**Zamanlanan** tablosunda oluşturduğunuz dağıtım zamanlaması görüntülenir.
 
 > [!WARNING]
-> Bakım penceresinde yeterli zaman varsa güncelleştirmeler yüklendikten sonra VM otomatik olarak yeniden başlatılır.
+> Bakım penceresinde yeterli zaman kalırsa, güncelleştirmeler yüklendikten sonra VM yeniden başlatılır.
 
-Güncelleştirme yönetimi paketleri yüklemek için VM varolan Paket Yöneticisi'ni kullanır.
+Güncelleştirme yönetimi, paketleri yüklemek için VM’nizdeki mevcut paket yöneticisini kullanır.
 
 ### <a name="view-results-of-an-update-deployment"></a>Güncelleştirme dağıtımının sonuçlarını görüntüleme
 
 Zamanlanmış dağıtım başlatıldıktan sonra, bu dağıtımın durumunu **Güncelleştirme yönetimi** ekranındaki **Güncelleştirme dağıtımları** sekmesinde görebilirsiniz.
 O anda çalışıyorsa, durumu **Devam ediyor** olarak gösterilir. Tamamlandıktan sonra başarılı olursa durum **Başarılı** olarak değişir.
-Dağıtımdaki bir veya daha fazla güncelleştirmeleriyle hatası varsa, durumudur **başarısız**.
+Dağıtımdaki bir veya daha fazla güncelleştirme ile ilgili hata varsa, durum **Başarısız** olur.
 Tamamlanan güncelleştirme dağıtımına tıklayarak bu güncelleştirme dağıtımının panosunu görebilirsiniz.
 
 ![Belirli bir dağıtım için Güncelleştirme Dağıtımı durum panosu](./media/tutorial-monitoring/manage-updates-view-results.png)
 
-İçinde **güncelleştirme sonuçları** döşeme güncelleştirmeleri ve VM Dağıtım sonuçlarına toplam sayısı bir özeti verilmiştir.
+**Güncelleştirme sonuçları** kutucuğunda toplam güncelleştirme sayısının bir özeti ve VM’deki dağıtım sonuçları gösterilir.
 Sağdaki tabloda her güncelleştirmenin ayrıntılı bir dökümü ile yükleme sonuçları gösterilir ve aşağıdaki değerlerden biri olabilir:
 
 * **Denenmedi**: Tanımlanan bakım penceresi süresine göre yeterli süre olmadığından güncelleştirme yüklenmedi.
-* **Başarılı** -güncelleştirme başarıyla indirildi ve VM'de yüklü
-* **Başarısız** -indirin veya VM yüklemek güncelleştirme başarısız oldu.
+* **Başarılı** - Güncelleştirme başarıyla indirildi ve VM’ye yüklendi
+* **Başarısız** - Güncelleştirme indirilemedi veya VM’ye yüklenemedi.
 
 Dağıtımın oluşturduğu tüm günlük girişlerini görmek için **Tüm günlükler**’e tıklayın.
 
@@ -252,9 +252,9 @@ Dağıtımla ilgili her türlü hata hakkında ayrıntılı bilgi için **Hatala
 
 ## <a name="advanced-monitoring"></a>Gelişmiş izleme 
 
-Kullanarak VM'yi izleme daha gelişmiş yapabileceğiniz [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview). Zaten yapmadıysanız, için kaydolabilirsiniz bir [ücretsiz deneme sürümü](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial) Operations Management Suite.
+[Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)’i kullanarak VM’nizde daha gelişmiş bir izleme işlemi gerçekleştirebilirsiniz. Henüz kaydolmadıysanız Operations Management Suite’in [ücretsiz denemesi](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-trial) için kaydolabilirsiniz.
 
-OMS portalı erişiminiz varsa, çalışma alanı tanımlayıcısı ve çalışma alanı anahtarı ayarları dikey penceresinde bulabilirsiniz. Değiştir < çalışma alanı anahtarı > ve < çalışma alanı kimliği > değerlerini, OMS çalışma ve daha sonra kullanabilirsiniz **az vm uzantısı kümesi** VM'ye OMS uzantısı eklemek için:
+OMS portalına erişim sağladığınızda, çalışma alanı anahtarını ve çalışma alanı tanımlayıcısını Ayarlar dikey penceresinde bulabilirsiniz. <workspace-key> ve <workspace-id> öğelerini OMS çalışma alanınızdaki değerlerle değiştirdikten sonra OMS uzantısını VM’ye eklemek için **az vm extension set** komutunu kullanabilirsiniz:
 
 ```azurecli-interactive 
 az vm extension set \
@@ -267,25 +267,25 @@ az vm extension set \
   --settings '{"workspaceId": "<workspace-id>"}'
 ```
 
-OMS portalı günlük arama dikey görmelisiniz *myVM* ne aşağıdaki resimde gösterildiği gibi:
+OMS portalının Günlük Arama dikey penceresinde *myVM*’yi aşağıdaki resimde gösterilen şekilde görebilirsiniz:
 
 ![OMS dikey penceresi](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide yapılandırılmış, gözden ve güncelleştirmeler için bir VM yönetilen. Şunları öğrendiniz:
+Bu öğreticide bir VM için güncelleştirmeleri yapılandırdınız, gözden geçirdiniz ve yönetimini gerçekleştirdiniz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Önyükleme tanılaması VM'de etkinleştir
+> * VM’de önyükleme tanılamalarını etkinleştirme
 > * Önyükleme tanılamasını görüntüleme
-> * Ana bilgisayar metrikleri görüntüleyin
-> * VM'de tanılama uzantısını etkinleştirme
-> * VM metrikleri görüntüleyin
-> * Tanılama ölçümleri temel uyarı oluşturma
+> * Konak ölçümlerini görüntüleme
+> * VM’de tanılama uzantısını etkinleştirme
+> * VM ölçümlerini görüntüleme
+> * Tanılama ölçümlerine bağlı uyarılar oluşturma
 > * Paket güncelleştirmelerini yönetme
-> * Gelişmiş izleme işlevini ayarlama
+> * Gelişmiş izlemeyi ayarlama
 
-Azure Güvenlik Merkezi hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > [VM güvenliğini yönetme](./tutorial-azure-security.md)

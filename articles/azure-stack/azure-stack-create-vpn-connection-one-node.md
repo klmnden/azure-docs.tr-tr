@@ -3,8 +3,8 @@ title: "Farklı Azure yığın Geliştirme Seti ortamlarda iki sanal ağ arasın
 description: "Tek düğümlü Azure yığın Geliştirme Seti için iki ortam arasında bir siteden siteye VPN bağlantısı oluşturmak için bir bulut yöneticisinin kullandığı adım adım yordam."
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
-ms.author: scottnap
-ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Farklı Azure yığın Geliştirme Seti ortamlarda iki sanal ağ arasında bir siteden siteye VPN bağlantısı oluşturun
 ## <a name="overview"></a>Genel Bakış
@@ -52,7 +53,7 @@ Aşağıdaki tabloda her iki Azure yığın Geliştirme Seti ortamlar için ağ 
 |---------|---------|---------|
 |Sanal ağ adı     |VNET-01|VNET-02 |
 |Sanal ağ adres alanı |10.0.10.0/23|10.0.20.0/23|
-|Alt ağ adı     |Alt ağ-01|Alt ağ-02|
+|Alt ağ adı     |Alt ağ-01|Subnet-02|
 |Alt ağ adres aralığı|10.0.10.0/24 |10.0.20.0/24 |
 |Ağ geçidi alt ağı     |10.0.11.0/24|10.0.21.0/24|
 |Dış BGPNAT adresi     |         |         |
@@ -365,4 +366,4 @@ Siteden siteye bağlantınızı ne kadar veri geçirmeden bilmek istiyorsanız, 
 2. Git **tüm kaynakları**ve ardından **POC2 POC1** bağlantı. **Bağlantıları** görüntülenir.
 4. Üzerinde **bağlantı** dikey penceresinde, istatistikleri **verileri** ve **verileri** görünür. Aşağıdaki ekran görüntüsünde, çok sayıda ek dosya aktarımı öznitelikli. Bazı sıfır olmayan değerler var. görmeniz gerekir.
    
-    ![Veri giriş ve çıkış](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![Giren ve çıkan veriler](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
