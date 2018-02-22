@@ -1,4 +1,4 @@
-Önbellek oluşturmak için ilk olarak [Azure portalında](https://portal.azure.com) oturum açın; **Yeni** > **Veritabanları** > **Redis Cache**’e tıklayın.
+Önbellek oluşturmak için ilk kez oturum açtığınızda için [Azure portal](https://portal.azure.com), tıklatıp **kaynak oluşturma** > **veritabanları** > **Redis önbelleği** .
 
 > [!NOTE]
 > Azure hesabınız yoksa, yalnızca birkaç dakika içinde [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
@@ -16,12 +16,12 @@
 > 
 > 
 
-**Yeni Redis Cache** dikey penceresinde istediğiniz yapılandırma önbelleğini belirtin.
+İçinde **yeni Redis önbelleği**, istenen yapılandırma önbelleğini belirtin.
 
 ![Önbellek oluşturma](media/redis-cache-create/redis-cache-cache-create.png) 
 
 * **Dns adı** alanına önbellek uç noktası için kullanılacak benzersiz bir önbellek adını girin. Önbellek adı 1 - 63 karakter arasında bir dize olması ve yalnızca rakam, harf ve `-` karakterini içermelidir. Önbellek adı `-` karakteriyle başlayamaz veya bitemez ve ardışık `-` karakterler geçerli olmazlar.
-* **Abonelik** için önbelleğe yönelik kullanmak istediğiniz Azure aboneliğini girin. Hesabınızda yalnızca bir abonelik varsa bu otomatik olarak seçilir ve **Abonelik** açılan penceresi görüntülenmez.
+* **Abonelik** için önbelleğe yönelik kullanmak istediğiniz Azure aboneliğini girin. Hesabınızda yalnızca bir abonelik varsa, otomatik olarak seçilir ve **abonelik** açılan görüntülenmiyorsa.
 * **Kaynak grubu**’nda önbellek hesabınız için bir kaynak grubu seçin veya oluşturun. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma](../articles/azure-resource-manager/resource-group-overview.md). 
 * Önbelleğin barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın. En iyi performans için, Microsoft, önbelleği önbellek istemci uygulamasının olduğu konumda oluşturmanızı kesinlikle önerir.
 * İstediğiniz önbellek boyutunu ve özelliklerini seçmek için **Fiyatlandırma katmanını** kullanın.
