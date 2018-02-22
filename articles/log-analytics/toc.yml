@@ -39,6 +39,8 @@
       href: log-analytics-faq.md
     - name: Veri tüketimi
       href: log-analytics-usage.md
+    - name: Veri güvenliği
+      href: log-analytics-data-security.md
     - name: Erişimi yönetme
       href: log-analytics-manage-access.md
     - name: Hibrit ortamları izleme
