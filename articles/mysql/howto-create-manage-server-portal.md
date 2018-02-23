@@ -9,11 +9,11 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 6e9c541aac1241b6af0e4a58f5591d46f9a98c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b73fe2214a165d7c02c0a58551d8b84bee39f919
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Oluşturma ve Azure veritabanı MySQL sunucusu için Azure portalını kullanarak yönetme
 Bu konu, yeni bir Azure veritabanı MySQL sunucusu için hızlı bir şekilde nasıl oluşturabileceğinizi açıklar. Ayrıca Azure portalını kullanarak sunucuyu yönetme hakkında bilgi içerir. Sunucu ayrıntıları ve parola sıfırlama ve sunucuyu silmek veritabanlarının görüntüleme sunucu yönetimi içerir.
@@ -24,13 +24,13 @@ Bu konu, yeni bir Azure veritabanı MySQL sunucusu için hızlı bir şekilde na
 ## <a name="create-an-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
 MySQL server "mysqlserver4demo." adlı bir Azure veritabanı oluşturmak için aşağıdaki adımları izleyin
 
-1. Tıklatın **yeni** düğme Azure portalında sol üst köşesinde bulunan.
+1. Tıklatın **kaynak oluşturma** düğme Azure portalında sol üst köşesinde bulunan.
 
 2. Yeni sayfasında seçin **veritabanları**ve veritabanlarını sayfasında, ardından **Azure veritabanı için MySQL**.
 
     > MySQL sunucusu için bir Azure veritabanı tanımlanan bir dizi ile oluşturulan [işlem ve depolama](./concepts-compute-unit-and-storage.md) kaynakları. Veritabanı, MySQL sunucusu için bir Azure veritabanında, bir Azure kaynak grubu içinde oluşturulur.
 
-   ![Yeni-sunucusu oluştur](./media/howto-create-manage-server-portal/create-new-server.png)
+   ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
 
 3. Aşağıdaki bilgileri kullanarak Azure veritabanı için MySQL formu doldurun:
 
@@ -47,7 +47,7 @@ MySQL server "mysqlserver4demo." adlı bir Azure veritabanı oluşturmak için a
 
 4. Tıklatın **fiyatlandırma katmanı** yeni sunucunuzu Hizmet katmanını ve performans düzeyini belirtmek için. İşlem birimi 50'le 100 arasında standart katmanındaki 200 ile 100 arasındaki temel katmanındaki yapılandırılabilir ve depolama dahil miktarına bağlı olarak eklenebilir. Bu nasıl yapılır kılavuzu için şimdi bir 50 işlem birimi ve 50 GB'ı seçin. Tıklatın **Tamam** seçiminizi kaydetmek için.
 
-   ![oluşturma sunucu-fiyatlandırma-katmanı](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
+   ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
 5. Sunucuyu sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer.
 

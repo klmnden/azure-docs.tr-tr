@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 855cb5b9cda873a2966465062d0164b2b054b1cd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Bu bölümde gerçekleştirdiğiniz adımlar şunlardır:
 
 ### <a name="step-1-create-the-data-factory"></a>1. adım: veri fabrikası oluşturma
 1. Azure portalında oturum açtıktan sonra aşağıdaki adımları uygulayın:
-   1. Sol menüde **YENİ**’ye tıklayın.
+   1. Tıklatın **kaynak oluşturma** sol menüde.
    2. Tıklatın **veri + analiz** içinde **yeni** dikey.
    3. **Veri analizi** dikey penceresinde **Data Factory**’ye tıklayın.
    
@@ -441,7 +441,7 @@ Bu bölümde gerçekleştirdiğiniz adımlar şunlardır:
 Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory’ye bağlar. Bu adımda data factory'nizi Azure Storage hesabını ve Azure Batch hesabı bağlayın.
 
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage bağlı hizmeti oluşturma
-1. Tıklatın **yazar ve dağıtma** döşemesinin **DATA FACTORY** dikey **CustomActivityFactory**. Data Factory Düzenleyici bakın.
+1. Tıklatın **yazar ve dağıtma** döşemesinin **DATA FACTORY** dikey **CustomActivityFactory**. Data Factory Düzenleyicisi’ni görürsünüz.
 2. Tıklatın **yeni veri deposu** komut çubuğu ve seçin **Azure depolama**. Düzenleyicide Azure Storage bağlı hizmeti oluşturmak için JSON betiğini görmeniz gerekir.
     
     ![Yeni veri deposu - Azure depolama](media/data-factory-use-custom-activities/new-data-store-menu.png)

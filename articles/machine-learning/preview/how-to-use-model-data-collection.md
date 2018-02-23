@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5e6a79a9b716b6797a1af21f0dcb911219b77207
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Veri toplama kullanarak model verileri toplama
 
@@ -88,7 +88,7 @@ Model veri koleksiyonu kullanmak için Puanlama dosyanıza aşağıdaki değişi
 Blob depolama alanına toplanan verileri görüntülemek için:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Seçin **daha fazla hizmet**.
+2. Seçin **tüm hizmetleri**.
 3. Arama kutusuna **depolama hesapları** ve Enter tuşuna seçin.
 4. Gelen **depolama hesapları** arama dikey penceresinde, select **depolama hesabı** kaynak. Depolama hesabınız belirlemek için aşağıdaki adımları kullanın:
 

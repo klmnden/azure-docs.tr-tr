@@ -1,30 +1,12 @@
----
-title: "SQL hata kodları - veritabanı bağlantı hatası | Microsoft Docs"
-description: "Ortak veritabanı bağlantı hataları, veritabanı kopyalama sorunlarını ve genel hataları gibi SQL Database istemci uygulamaları için SQL hata kodları hakkında bilgi edinin. "
-keywords: "SQL hata kodu, erişim sql, veritabanı bağlantı hatası, sql hata kodları"
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
-ms.service: sql-database
-ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: sstein
-ms.openlocfilehash: 34e7142b5ca13ad8de5a4dbd380377abdf055c04
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ ---
+Başlık: SQL hata kodları - veritabanı bağlantı hatası | Microsoft Docs Açıklama: ', ortak veritabanı bağlantı hataları, veritabanı kopyalama sorunlarını ve genel hataları gibi SQL veritabanı istemci uygulamaları için SQL hata kodları hakkında bilgi edinin. ' anahtar sözcükler: sql hata kodu, erişim sql veritabanı bağlantı hatası, sql hata kodları Hizmetleri: sql veritabanı documentationcenter: '' Yazar: stevestein Yöneticisi: jhubbard Düzenleyicisi: ''
+
+ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
+
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database istemci uygulamaları için SQL hata kodları: veritabanı bağlantı hataları ve diğer sorunlar
 
-Bu makalede SQL veritabanı, veritabanı bağlantı hataları, geçici hataları (geçici hataları olarak da bilinir), kaynak İdaresi hataları, veritabanı kopyalama sorunlarını, esnek havuz ve başka hatalar da dahil olmak üzere istemci uygulamaları için SQL hata kodları listelenmektedir. Çoğu kategorileri, Azure SQL veritabanına belirli ve Microsoft SQL Server için geçerli değildir.
+Bu makalede SQL veritabanı, veritabanı bağlantı hataları, geçici hataları (geçici hataları olarak da bilinir), kaynak İdaresi hataları, veritabanı kopyalama sorunlarını, esnek havuz ve başka hatalar da dahil olmak üzere istemci uygulamaları için SQL hata kodları listelenmektedir. Çoğu kategorileri, Azure SQL veritabanına belirli ve Microsoft SQL Server için geçerli değildir. Ayrıca bkz. [sistem hata iletilerini](https://technet.microsoft.com/en-us/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Veritabanı bağlantı hataları, geçici hataları ve diğer geçici hataları
 Aşağıdaki tabloda bağlantı kaybı hataları ve uygulamanızı SQL veritabanına erişim girişiminde bulunduğunda, karşılaşabileceğiniz diğer geçici hataları için SQL hata kodları yer almaktadır. Azure SQL veritabanına bağlanmak nasıl Başlarken eğitimleri için bkz: [Azure SQL veritabanına bağlanma](sql-database-libraries.md).
@@ -39,7 +21,7 @@ Geçici hata hatalar genellikle, istemci programlarından aşağıdaki hata ilet
 * Veritabanı &lt;db_name&gt; sunucuda &lt;Azure_instance&gt; şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin &lt;session_id&gt;
 * Veritabanı &lt;db_name&gt; sunucuda &lt;Azure_instance&gt; şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin &lt;session_id&gt;. (Microsoft SQL Server, hata: 40613)
 * Varolan bir bağlantıyı zorla uzak ana bilgisayar tarafından kapatıldı.
-* System.Data.Entity.Core.EntityCommandExecutionException: Komut tanımı yürütülürken bir hata oluştu. Ayrıntılar için iç özel duruma bakın. System.Data.SqlClient.SqlException--->: sonuçları sunucudan alırken bir aktarım düzeyi hatası oluştu. (sağlayıcısı: oturum sağlayıcısı, hata: 19 - fiziksel bağlantı değil kullanılabilir)
+* System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. Ayrıntılar için iç özel duruma bakın. System.Data.SqlClient.SqlException--->: sonuçları sunucudan alırken bir aktarım düzeyi hatası oluştu. (sağlayıcısı: oturum sağlayıcısı, hata: 19 - fiziksel bağlantı değil kullanılabilir)
 * Veritabanı reconfguration sürecinde olduğu ve birincil veritabanında bir etkin işlem sırasında ortasında yeni sayfalar uygulama meşgul ikincil veritabanına bir bağlantı girişimi başarısız oldu. 
 
 Yeniden deneme mantığı kod örnekleri için bkz:
@@ -60,7 +42,7 @@ Aşağıdaki hatalar geçicidir ve uygulama mantığını yeniden denenmesi gere
 | 40613 |17 |Veritabanı '%. & #x2a; ls' sunucusundaki '%. & #x2a; ls' şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin '%. & #x2a; ls'. |
 | 49918 |16 |İsteği işleyemiyor. İsteği işlemek için yeterli kaynak yok.<br/><br/>Hizmet şu anda meşgul. Lütfen isteği daha sonra yeniden deneyin. |
 | 49919 |16 |İşlem oluşturulamıyor veya istek güncelleştirilemiyor. Çok sayıda oluşturma veya güncelleştirme devam eden işlemleri aboneliği için "% ld".<br/><br/>Hizmet meşgul birden çok işleme oluştur veya güncelleştir abonelik veya sunucu için istekleri. İstek şu anda kaynak iyileştirme için engellenir. Sorgu [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) için bekleyen işlemler. Kasa Oluştur bekleyin veya güncelleştirme isteklerinin tamamlandığı veya bekleyen istekler birini silin ve isteğinizi daha sonra yeniden deneyin. |
-| 49920 |16 |İsteği işleyemiyor. Devam eden çok fazla işlemleri aboneliği için "% ld".<br/><br/>Hizmet, bu abonelik için birden çok istek işleme meşgul. İstek şu anda kaynak iyileştirme için engellenir. Sorgu [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) işlem durumu. Bekleyen istekler kadar bekleyin, tam veya bekleyen istekler birini silin ve isteğinizi daha sonra yeniden deneyin. |
+| 49920 |16 |İsteği işleyemiyor. Devam eden çok fazla işlemleri aboneliği için "% ld".<br/><br/>Hizmet, bu abonelik için birden çok istek işleme meşgul. İstek şu anda kaynak iyileştirme için engellenir. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Bekleyen istekler kadar bekleyin, tam veya bekleyen istekler birini silin ve isteğinizi daha sonra yeniden deneyin. |
 | 4221 |16 |Read-ikincil oturum açma 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING' üzerine uzun süre beklenmesi nedeniyle başarısız oldu. Satır sürümleri çoğaltma dönüştürüldü yükleyen yürütülen işlemler için eksik olduğundan çoğaltma oturum açma için kullanılamaz. Sorun, geri alma ya da birincil çoğaltmadaki etkin işlem yürüten tarafından çözülebilir. Bu koşul oluşumlarını uzun yazma işlemleri birincil kaçınarak en aza indirgenebilir. |
 
 ## <a name="database-copy-errors"></a>Veritabanı kopyalama hataları
@@ -90,7 +72,7 @@ Aşağıdaki hatalar, Azure SQL Database ile çalışırken aşırı kaynakları
 * Bir uygulama çok fazla bellek tükettikten.
 * Bir uygulama çok tüketen `TempDb` alanı.
 
-İlgili Konular:
+İlgili konu başlıkları:
 
 * Daha ayrıntılı bilgi sağlanmıştır burada: [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md).
 
@@ -111,27 +93,27 @@ Aşağıdaki hatalar oluşturma ve esnek havuzlarını kullanarak ilgili:
 | HataNumarası | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | 1132 |EX_RESOURCE |Esnek havuz, depolama sınırına ulaştı. Esnek havuz depolama alanı kullanımı (%d) MB aşamaz. |MB cinsinden esnek havuz alanı sınırı. |Esnek havuz depolama sınırını erişildiğinde bir veritabanına veri yazmak çalışıyor. |Mümkünse esnek havuz depolama sınırını artırın, esnek havuz içindeki tek tek veritabanları tarafından kullanılan depolama alanını azaltmak için Dtu artırmayı deneyin veya veritabanlarını esnek havuzdan kaldırın. |
-| 10929 |EX_USER |%S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Bkz: [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) Yardım için. Aksi halde, lütfen daha sonra yeniden deneyin. |Veritabanı başına minimum DTU; Veritabanı başına maksimum DTU |Esnek havuzdaki tüm veritabanları arasında eşzamanlı çalışan (istek) toplam sayısı, havuz sınırı aşan çalışıldı. |Alt sınırını artırmak için mümkünse esnek havuz Dtu artırmayı deneyin veya veritabanlarını esnek havuzdan kaldırın. |
+| 10929 |EX_USER |%S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. See [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) for assistance. Aksi halde, lütfen daha sonra yeniden deneyin. |Veritabanı başına minimum DTU; Veritabanı başına maksimum DTU |Esnek havuzdaki tüm veritabanları arasında eşzamanlı çalışan (istek) toplam sayısı, havuz sınırı aşan çalışıldı. |Alt sınırını artırmak için mümkünse esnek havuz Dtu artırmayı deneyin veya veritabanlarını esnek havuzdan kaldırın. |
 | 40844 |EX_USER |'%Ls' sunucusundaki '%ls' veritabanını bir esnek havuzdaki '%ls' sürümü veritabanıdır ve sürekli kopyalama ilişkisine sahip olamaz. |Veritabanı adı, veritabanı sürümü, sunucu adı |Esnek havuzdaki premium olmayan db için StartDatabaseCopy komutu verildi. |Çok yakında |
 | 40857 |EX_USER |Esnek havuz için sunucusu bulunamadı: '%ls', esnek havuz adı: '%ls'. |Sunucu adı; Esnek havuz adı |Belirtilen esnek Havuz belirtilen sunucu yok. |Geçerli esnek havuz adını belirtin. |
 | 40858 |EX_USER |'%Ls' esnek havuzu zaten şu sunucuda: '%ls' |Esnek havuz adı, sunucu adı |Belirtilen esnek Havuz belirtilen mantıksal sunucusunda zaten var. |Yeni bir esnek havuz adını belirtin. |
 | 40859 |EX_USER |Esnek havuz hizmet Katmanı '%ls' desteklemez. |Esnek havuz hizmet katmanı |Belirtilen hizmet katmanı, esnek havuz sağlamak için desteklenmiyor. |Doğru sürümü belirtin ya da hizmet katmanı varsayılan hizmet katmanı kullanmak için boş bırakın. |
 | 40860 |EX_USER |Esnek havuz '%ls' ve hizmet hedefi '%ls' birleşimi geçersiz. |Esnek havuz adı; Hizmet düzeyi hedef adı |Esnek havuzu ve hizmet hedefi belirtilebilir birlikte yalnızca hizmet hedefi 'ElasticPool' belirtilmişse. |Esnek havuz ve hizmet hedefi doğru bileşimini belirtin. |
 | 40861 |EX_USER |Veritabanı sürümü ' %. *ls olan esnek havuz katmanından farklı olamaz ' %.* ls'. |veritabanı sürümü, esnek havuz hizmet katmanı |Esnek havuz katmanından farklı veritabanı sürümüdür. |Esnek havuz katmanından farklı olan bir veritabanı sürümü belirtmeyin.  Veritabanı sürümü belirtilmesi gerekmez unutmayın. |
-| 40862 |EX_USER |Esnek havuz adının belirtilmesi gerekir esnek havuz hizmeti hedefi belirtildiyse smbiosguid'sinin. |None |Esnek havuz hizmeti hedefi bir esnek havuz benzersiz olarak tanımlamıyor. |Esnek havuz hizmeti hedefi kullanarak esnek havuz adı belirtin. |
+| 40862 |EX_USER |Esnek havuz adının belirtilmesi gerekir esnek havuz hizmeti hedefi belirtildiyse smbiosguid'sinin. |Hiçbiri |Esnek havuz hizmeti hedefi bir esnek havuz benzersiz olarak tanımlamıyor. |Esnek havuz hizmeti hedefi kullanarak esnek havuz adı belirtin. |
 | 40864 |EX_USER |Esnek havuz için Dtu'lar en az olmalıdır (%d) Dtu'lar hizmet katmanı için ' %. * ls'. |Esnek havuz için Dtu'lar; Esnek havuz hizmet katmanı. |Alt sınır aşağıda esnek havuz için Dtu'lar yapılmaya çalışılıyor. |Esnek havuz için en az alt sınırı Dtu'lar ayarı yeniden deneyin. |
 | 40865 |EX_USER |Esnek havuz için Dtu'lar (%d) Dtu'lar hizmet katmanı için aşamaz ' %. * ls'. |Esnek havuz için Dtu'lar; Esnek havuz hizmet katmanı. |Maksimum sınırı üstünde esnek havuz için Dtu'lar yapılmaya çalışılıyor. |Esnek havuz için Dtu'lar üst sınırı'den büyük ayarı yeniden deneyin. |
 | 40867 |EX_USER |Veritabanı başına maksimum DTU olmalıdır en az (%d) hizmet katmanı için ' %. * ls'. |Veritabanı başına maksimum DTU; Esnek havuz hizmet katmanı |Desteklenen sınırı aşağıda veritabanı başına DTU max yapılmaya çalışılıyor. | İstenen ayarını destekler esnek havuz hizmet katmanı kullanarak onsider. |
 | 40868 |EX_USER |Veritabanı başına maksimum DTU (%d) hizmet katmanı için aşamaz ' %. * ls'. |Veritabanı başına maksimum DTU; Esnek havuz hizmet katmanı. |Desteklenen sınırı aşan veritabanı başına DTU max yapılmaya çalışılıyor. | İstenen ayarını destekler esnek havuz hizmet katmanı kullanmayı düşünün. |
 | 40870 |EX_USER |Veritabanı başına minimum DTU (%d) hizmet katmanı için aşamaz ' %. * ls'. |Veritabanı başına minimum DTU; Esnek havuz hizmet katmanı. |Desteklenen sınırı aşan veritabanı başına minimum DTU yapılmaya çalışılıyor. | İstenen ayarını destekler esnek havuz hizmet katmanı kullanmayı düşünün. |
 | 40873 |EX_USER |Veritabanı (%d) ve (%d) veritabanı başına DTU minimum sayısı, (%d) esnek havuz Dtu aşamaz. |Esnek havuzdaki veritabanları sayı; Veritabanı başına minimum DTU; Esnek havuz Dtu. |Esnek havuz Dtu aşıyor esnek havuzdaki veritabanları için minimum DTU belirtin çalışılıyor. | Esnek havuz için Dtu'lar artırmayı veya veritabanı başına minimum DTU azaltın veya veritabanları esnek havuzda sayısını azaltın. |
-| 40877 |EX_USER |Tüm veritabanları içermediği sürece bir esnek havuz silinemez. |None |Esnek havuz, bir veya daha fazla veritabanı içerir ve bu nedenle silinemez. |Veritabanları esnek havuzdan silmek için kaldırın. |
+| 40877 |EX_USER |Tüm veritabanları içermediği sürece bir esnek havuz silinemez. |Hiçbiri |Esnek havuz, bir veya daha fazla veritabanı içerir ve bu nedenle silinemez. |Veritabanları esnek havuzdan silmek için kaldırın. |
 | 40881 |EX_USER |Esnek havuz ' %. * ls, veritabanı sayısı sınırına ulaşıldı.  Esnek havuz için veritabanı sayısı sınırına (%d) Dtu'ya sahip bir esnek havuz için (%d) aşamaz. |Esnek havuz adı; Esnek havuz veritabanı sayısı sınırını; Kaynak havuzu için Edtu. |Oluşturma veya esnek havuz veritabanı sayısı sınırına ulaşıldığında esnek havuza veritabanı ekleme girişimi. | Kendi veritabanı sınırını artırmak için mümkünse esnek havuz Dtu artırmayı deneyin veya veritabanlarını esnek havuzdan kaldırın. |
 | 40889 |EX_USER |Dtu'lar ve esnek havuz depolama sınırı ' %. * ls olamaz azaltılabilir, yeterli depolama alanına veritabanları için sağlamayacağından. |Esnek havuz adı. |Depolama kullanım aşağıda esnek havuz depolama sınırını azaltın çalışılıyor. | Tek veritabanlarını esnek havuzdaki depolama kullanımı azaltmayı deneyin veya kendi Dtu'lar ve depolama sınırı azaltmak için veritabanlarını havuzdan kaldırın. |
 | 40891 |EX_USER |(%D) veritabanı başına minimum DTU (%d) veritabanı başına DTU max aşamaz. |Veritabanı başına minimum DTU; Veritabanı başına maksimum DTU. |Veritabanı başına DTU maksimum değerinden yüksek veritabanı başına minimum DTU yapılmaya çalışılıyor. |Veritabanı başına minimum DTU veritabanı başına DTU max aşmadığından emin olun. |
 | TBD |EX_USER |Tek bir veritabanının esnek havuzdaki depolama boyutu tarafından izin verilen en büyük boyut aşamaz ' %. * ls hizmet katmanı esnek havuz. |Esnek havuz hizmet katmanı |Veritabanı için en büyük boyut esnek havuz hizmet katmanı tarafından izin verilen en fazla boyutu aşıyor. |Veritabanı esnek havuz hizmet katmanı tarafından izin verilen en büyük boyut sınırları içinde en büyük boyutunu ayarlayın. |
 
-İlgili Konular:
+İlgili konu başlıkları:
 
 * [Bir esnek havuz (C#) oluşturma](sql-database-elastic-pool-manage-csharp.md) 
 * [Bir esnek havuz (C#) yönetme](sql-database-elastic-pool-manage-csharp.md). 
@@ -144,7 +126,7 @@ Aşağıdaki hatalar herhangi önceki kategorilere ayrılır değil.
 | Hata kodu | Önem Derecesi | Açıklama |
 | ---:| ---:|:--- |
 | 15006 |16 |(Admınıstratorlogın), geçersiz karakterler içerdiğinden geçerli bir ad değil. |
-| 18452 |14 |Oturum açma başarısız oldu. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%. & #x2a; ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
+| 18452 |14 |Oturum açma başarısız. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%. & #x2a; ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
 | 18456 |14 |Kullanıcı için oturum açma başarısız ' %. #x2a;ls'.%. & #x2a ls %. & #x2a; ls (kullanıcı için oturum açma başarısız "%. & #x2a; ls". Parola değiştirme başarısız oldu. Oturum açma sırasında parola değiştirme bu SQL Server sürümünde desteklenmiyor.) |
 | 18470 |14 |Kullanıcı için oturum açma başarısız '%. & #x2a; ls'. Neden: Disabled.%. & #x2a; hesaptır ls |
 | 40014 |16 |Birden çok veritabanı aynı işlemde kullanılamaz. |
@@ -206,8 +188,8 @@ Aşağıdaki hatalar herhangi önceki kategorilere ayrılır değil.
 | 40671 |17 |Ağ geçidi ve yönetim hizmeti arasındaki iletişim hatası. Lütfen daha sonra yeniden deneyin. |
 | 40852 |16 |Veritabanı açılamıyor. ' %. \*ls sunucusundaki ' %. \*ls oturum açma tarafından istenen. Güvenliği etkinleştirilmiş bağlantı dizesi kullanılarak veritabanına erişimi yalnızca izin verilir. Bu veritabanına erişmek için bağlantı dizelerinizi içerecek şekilde değiştirin. sunucunun FQDN - 'sunucu adı'.database.windows ' güvenli'.net 'sunucu adı'.database değiştirilmemelidir. `secure`. windows.net. |
 | 40914 | 16 | Sunucu açamıyor '*[sunucu-adı]*' oturum açma tarafından istenen. İstemci, sunucuya erişimine izin verilmiyor.<br /><br />Durumu düzeltmek için eklemeyi düşünün bir [sanal ağ kuralı](sql-database-vnet-service-endpoint-rule-overview.md). |
-| 45168 |16 |SQL Azure sistem yük altında ve bir üst sınır, tek bir sunucu için eş zamanlı DB CRUD işlemleri yerleştirerek (örn., veritabanı oluşturma). Hata iletisinde belirtilen sunucusu en fazla eşzamanlı bağlantı sayısını aştı. Daha sonra yeniden deneyin. |
-| 45169 |16 |SQL azure sistem yük altında ve bir eş zamanlı sunucu CRUD işlemleri için tek bir abonelik sayısı üst sınırını yerleştirme (örneğin, sunucu oluşturma). Hata iletisinde belirtilen abonelik en fazla eşzamanlı bağlantı sayısını aştı ve istek reddedildi. Daha sonra yeniden deneyin. |
+| 45168 |16 |SQL Azure sistem yük altında ve bir üst sınır, tek bir sunucu için eş zamanlı DB CRUD işlemleri yerleştirerek (örn., veritabanı oluşturma). Hata iletisinde belirtilen sunucusu en fazla eşzamanlı bağlantı sayısını aştı. Daha sonra tekrar deneyin. |
+| 45169 |16 |SQL azure sistem yük altında ve bir eş zamanlı sunucu CRUD işlemleri için tek bir abonelik sayısı üst sınırını yerleştirme (örneğin, sunucu oluşturma). Hata iletisinde belirtilen abonelik en fazla eşzamanlı bağlantı sayısını aştı ve istek reddedildi. Daha sonra tekrar deneyin. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [Azure SQL veritabanı özellikleri](sql-database-features.md).

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e166e73ba45e229d8049738fa4a79f5dc117d806
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Öğretici: verileri Blob depolama alanından Data Factory kullanarak SQL veritabanına kopyalamak
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Bu öğreticiye başlamadan önce aşağıdaki önkoşullara sahip olmanız gere
 Hesap adı ve bu öğreticinin yapmak için Azure depolama hesabınızın hesap anahtarı gerekir. Aşağı Not **hesap adı** ve **hesap anahtarı** Azure depolama hesabınız için.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Tıklatın **daha fazla hizmet** ve sol menüden üzerinde **depolama hesapları**.
+2. Tıklatın **tüm hizmetleri** ve sol menüden üzerinde **depolama hesapları**.
 
     ![Gözat - depolama hesapları](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. İçinde **depolama hesapları** dikey penceresinde, select **Azure depolama hesabı** Bu öğreticide kullanmak istediğiniz.
@@ -70,7 +70,7 @@ Hesap adı ve bu öğreticinin yapmak için Azure depolama hesabınızın hesap 
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, veritabanı, kullanıcı adları Topla
 Azure SQL server, veritabanı ve bu öğreticinin yapmak için kullanıcı adları gerekir. Adlarını Not **server**, **veritabanı**, ve **kullanıcı** Azure SQL veritabanı.
 
-1. İçinde **Azure portal**, tıklatın **daha fazla hizmet** seçin ve sol **SQL veritabanları**.
+1. İçinde **Azure portal**, tıklatın **tüm hizmetleri** seçin ve sol **SQL veritabanları**.
 2. İçinde **SQL veritabanları dikey**seçin **veritabanı** Bu öğreticide kullanmak istediğiniz. Aşağı Not **veritabanı adı**.  
 3. İçinde **SQL veritabanı** dikey penceresinde tıklatın **özellikleri** altında **ayarları**.
 4. Değerlerini Not **sunucu adı** ve **Sunucu Yöneticisi oturum açma**.
@@ -79,7 +79,7 @@ Azure SQL server, veritabanı ve bu öğreticinin yapmak için kullanıcı adlar
 ## <a name="allow-azure-services-to-access-sql-server"></a>Azure hizmetlerinin SQL server erişmesine izin ver
 Emin **Azure hizmetlerine erişime izin ver** açık ayarı **ON** Azure SQL sunucunuzun Data Factory hizmeti Azure SQL sunucunuza erişebilmesi için. Bu ayarı doğrulamak ve etkinleştirmek için aşağıdaki adımları uygulayın:
 
-1. Soldaki **Diğer hizmetler** hub’ına ve sonra **SQL sunucuları**’na tıklayın.
+1. Tıklatın **tüm hizmetleri** hub'ı tıklatın ve sol **SQL sunucuları**.
 2. Sunucunuzu seçin ve **AYARLAR** altındaki **Güvenlik Duvarı**’na tıklayın.
 3. **Güvenlik Duvarı ayarları** dikey penceresinde, **Azure hizmetlerine erişime izin ver** için **AÇIK**’a tıklayın.
 4. Tıklayarak tüm dikey pencereleri kapatmak **X**.

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Machine learning uygulama oluşturmak ve bir veri kümesi analiz etmek için Spark Mllib'i kullanın
 
@@ -79,9 +79,9 @@ Aşağıdaki adımları geçti veya kaldı yemek İnceleme için neler görmek i
         from pyspark.sql.types import *
 
 ## <a name="construct-an-input-dataframe"></a>Bir giriş dataframe oluşturun
-Biz kullanabilirsiniz `sqlContext` üzerinde yapılandırılmış veri dönüşümleri gerçekleştirir. Örnek verileri yüklemek için ilk görev, ((**Food_Inspections1.csv**)) bir Spark SQL içine *dataframe*.
+Kullanabileceğiniz `sqlContext` üzerinde yapılandırılmış veri dönüşümleri gerçekleştirir. Örnek verileri yüklemek için ilk görev, ((**Food_Inspections1.csv**)) bir Spark SQL içine *dataframe*.
 
-1. Ham verileri bir CSV biçiminde olduğundan, her satır dosyanın yapılandırılmamış metin olarak belleğe istek için Spark bağlam kullanmamız gerekiyor; Ardından, her satırın tek tek ayrıştırmak için Python'un CSV kitaplığını kullanın.
+1. Ham verileri bir CSV biçiminde olduğundan, her satır dosyanın yapılandırılmamış metin olarak belleğe istek için Spark bağlam kullanmanız gerekir; Ardından, her satırın tek tek ayrıştırmak için Python'un CSV kitaplığını kullanın.
 
         def csvParse(s):
             import csv
@@ -93,7 +93,7 @@ Biz kullanabilirsiniz `sqlContext` üzerinde yapılandırılmış veri dönüş�
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. Şimdi CSV dosyası bir RDD sahibiz.  Veri ve şema anlamak için bir satır RDD alıyoruz.
+1. Artık CSV dosyası bir RDD var.  Veri ve şema anlamak için RDD bir satır alın.
 
         inspections.take(1)
 
@@ -120,7 +120,7 @@ Biz kullanabilirsiniz `sqlContext` üzerinde yapılandırılmış veri dönüş�
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. Önceki çıkış bize giriş dosyası şeması hakkında bir fikir verir. Her kuruluş, kurma, adresini, incelemeleri başka şeylerin konumu ve veri türü adını içerir. Şimdi bizim Tahmine dayalı analiz için yararlı olan ve ardından geçici bir tablo oluşturmak için kullanırız bir dataframe Grup sonuçları birkaç sütunları seçin.
+1. Önceki çıkış bize giriş dosyası şeması hakkında bir fikir verir. Her kuruluş, kurma, adresini, incelemeleri başka şeylerin konumu ve veri türü adını içerir. Şimdi bizim Tahmine dayalı analiz için yararlı olan ve ardından geçici bir tablo oluşturmak için kullandığınız bir dataframe Grup sonuçları birkaç sütunları seçin.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -130,7 +130,7 @@ Biz kullanabilirsiniz `sqlContext` üzerinde yapılandırılmış veri dönüş�
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. Şimdi sahip olduğumuz bir *dataframe*, `df` üzerinde biz gerçekleştirebilir bizim çözümleme. Ayrıca bir geçici tablo çağrı sahibiz **CountResults**. Dört sütun dataframe ilgi dahil ettiğiniz: **kimliği**, **adı**, **sonuçları**, ve **ihlalleri**.
+1. Artık elinizde bir *dataframe*, `df` üzerinde gerçekleştirebileceğiniz bizim çözümleme. Bir geçici tablo çağrı de **CountResults**. Dört sütun dataframe ilgi dahil ettiğiniz: **kimliği**, **adı**, **sonuçları**, ve **ihlalleri**.
 
     Şimdi küçük bir örnek veri alın:
 
@@ -172,7 +172,7 @@ Biz kullanabilirsiniz `sqlContext` üzerinde yapılandırılmış veri dönüş�
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. Hızlı görselleştirme bize yardımcı olabilecek neden bu sonuçlar dağıtılması hakkında. Biz veriler geçici bir tablo zaten **CountResults**. Tabloda sonuçları nasıl dağıtıldığını daha iyi anlamak için aşağıdaki SQL sorgusunu çalıştırabilirsiniz.
+1. Hızlı görselleştirme bize yardımcı olabilecek neden bu sonuçlar dağıtılması hakkında. Veriler geçici bir tablo zaten **CountResults**. Tabloda sonuçları nasıl dağıtıldığını daha iyi anlamak için aşağıdaki SQL sorgusunu çalıştırabilirsiniz.
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
@@ -203,12 +203,12 @@ Biz kullanabilirsiniz `sqlContext` üzerinde yapılandırılmış veri dönüş�
 
    * Değil bulunan iş
    * Başarısız
-   * Geçişi
+   * Geçiş
    * Koşulları içeren PSS
    * İş dışı
 
-     Bize yemek İnceleme sonucunu tahmin edebilirsiniz bir model ihlalleri verilen geliştirin. Bir ikili sınıflandırma yöntemi Lojistik regresyon olduğuna göre iki kategoride verilerimizi grubuna mantıklıdır: **başarısız** ve **geçirmek**. Bir "geçirmek içeren koşullara" hala bir geçiş olduğunu biz modeli eğitmek, biz iki sonucu eşdeğer göz önünde şekilde. Biz bizim eğitim kümesinden kaldırmak için diğer sonuçları ("İş değil bulunan" veya "İş dışı") ile veri yararlı değildir. Bu iki kategoriye sonuçları küçük bir yüzdesi yine de yapmak beri bu uygun olmalıdır.
-1. Bize bir tane var olan bizim dataframe dönüştürme (`df`) burada her denetleme temsil edildiği bir etiket ihlalleri çifti olarak yeni bir dataframe içine. Bu örnekte bir etiketin `0.0` hata, bir etiketi temsil eder `1.0` başarı ve bir etiketi temsil eden `-1.0` bu iki yanı sıra bazı sonuçlarını temsil eder. Biz bu diğer sonuçlar yeni veri çerçevesi hesaplanırken filtreleme.
+     Bize yemek İnceleme sonucunu tahmin edebilirsiniz bir model ihlalleri verilen geliştirin. Bir ikili sınıflandırma yöntemi Lojistik regresyon olduğuna göre iki kategoride verilerimizi grubuna mantıklıdır: **başarısız** ve **geçirmek**. Bir "geçirmek içeren koşullara" hala bir geçiş olduğunu modeli eğitmek, iki sonucu eşdeğer dikkate almanız için. Bizim eğitim kümesinden kaldırmak için diğer sonuçları ("İş değil bulunan" veya "İş dışı") ile veri yararlı değildir. Bu iki kategoriye sonuçları küçük bir yüzdesi yine de yapmak beri bu uygun olmalıdır.
+1. Bize bir tane var olan bizim dataframe dönüştürme (`df`) burada her denetleme temsil edildiği bir etiket ihlalleri çifti olarak yeni bir dataframe içine. Bu örnekte bir etiketin `0.0` hata, bir etiketi temsil eder `1.0` başarı ve bir etiketi temsil eden `-1.0` bu iki yanı sıra bazı sonuçlarını temsil eder. Bu diğer sonuçlar yeni veri çerçevesi hesaplanırken filtrelemenize.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -233,11 +233,11 @@ Biz kullanabilirsiniz `sqlContext` üzerinde yapılandırılmış veri dönüş�
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Giriş dataframe Lojistik regresyon modeli oluşturma
-Bizim son etiketli verileri Lojistik regresyon tarafından çözümlenebilir bir biçime dönüştürmek üzere bir görevdir. Giriş Lojistik regresyon algoritması için bir dizi olmalıdır *etiket özelliği vektör çiftleri*, "özelliği vektör" vektör giriş noktasını temsil eden sayı olduğu. Bu nedenle, biz yarı yapılandırılmış ve serbest metin, bir dizi bir makine kolayca anlayabileceği gerçek sayılar için birçok açıklamaları içeren "ihlalleri" sütun dönüştürmeniz gerekir.
+Bizim son etiketli verileri Lojistik regresyon tarafından çözümlenebilir bir biçime dönüştürmek üzere bir görevdir. Giriş Lojistik regresyon algoritması için bir dizi olmalıdır *etiket özelliği vektör çiftleri*, "özelliği vektör" vektör giriş noktasını temsil eden sayı olduğu. Bu nedenle, yarı yapılandırılmış ve serbest metin, bir dizi bir makine kolayca anlayabileceği gerçek sayılar için birçok açıklamaları içeren "ihlalleri" sütun dönüştürmeniz gerekir.
 
 "Dizin" ayrı her sözcüğün atamak ve sağlayacak şekilde her dizinin değeri metin dizesindeki sözcüğün göreli sıklığı içeren öğrenme algoritmasının makineye vektör geçirmek için doğal dil işleme için yaklaşımı öğrenme bir standart makine bulunuyor.
 
-Mllib'i bu işlemi gerçekleştirmek için kolay bir yol sağlar. İlk olarak, "sözcükleri tek tek her dizesinde almak için her ihlalleri dize simgeleştirilecek". Ardından, bir `HashingTF` her kümesi belirteçleri, bir model oluşturmak için Lojistik regresyon algoritması aktarılabilecek bir özellik vektör dönüştürmek için. Biz bu adımların tümü "ardışık düzen" kullanılarak sırayla gerçekleştirin.
+Mllib'i bu işlemi gerçekleştirmek için kolay bir yol sağlar. İlk olarak, "sözcükleri tek tek her dizesinde almak için her ihlalleri dize simgeleştirilecek". Ardından, bir `HashingTF` her kümesi belirteçleri, bir model oluşturmak için Lojistik regresyon algoritması aktarılabilecek bir özellik vektör dönüştürmek için. Bu adımların tümü "ardışık düzen" kullanılarak sırayla gerçekleştirin.
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -247,7 +247,7 @@ Mllib'i bu işlemi gerçekleştirmek için kolay bir yol sağlar. İlk olarak, "
     model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Ayrı bir test veri kümesi üzerinde modelini değerlendir
-Çok daha önce oluşturduğumuz modeli kullanırız *tahmin* yeni incelemeleri sonuçlarını ne olacağı, gözlenen ihlalleri üzerinde temel. Biz bu model dataset üzerinde eğitilmiş **Food_Inspections1.csv**. Bize ikinci bir veri kümesini kullan **Food_Inspections2.csv**, *değerlendirmek* bu modeli yeni verilere gücünü. Bu ikinci veri kümesi (**Food_Inspections2.csv**) kümesi ile ilişkili varsayılan depolama kapsayıcısı içinde olması gerekir.
+Çok daha önce oluşturduğunuz modelini kullanabilirsiniz *tahmin* yeni incelemeleri sonuçlarını ne olacağı, gözlenen ihlalleri üzerinde temel. Bu model dataset üzerinde eğitilmiş **Food_Inspections1.csv**. Bize ikinci bir veri kümesini kullan **Food_Inspections2.csv**, *değerlendirmek* bu modeli yeni verilere gücünü. Bu ikinci veri kümesi (**Food_Inspections2.csv**) kümesi ile ilişkili varsayılan depolama kapsayıcısı içinde olması gerekir.
 
 1. Aşağıdaki kod parçacığında yeni dataframe oluşturur **predictionsDf** modeli tarafından oluşturulan tahmin içerir. Kod parçacığını da adlı geçici bir tablo oluşturur **tahminleri** üzerinde dataframe göre.
 
@@ -279,7 +279,7 @@ Mllib'i bu işlemi gerçekleştirmek için kolay bir yol sağlar. İlk olarak, "
         predictionsDf.take(1)
 
    İlk giriş sınama veri kümesi için tahmini yoktur.
-1. `model.transform()` Yöntemi aynı şema yeni verileri aynı dönüştürmeyi uygular ve verileri sınıflandırmak nasıl bir tahmini ulaşır. Bizim tahminleri ne kadar doğru olan bir fikir almak için bazı basit istatistikleri yapabiliriz:
+1. `model.transform()` Yöntemi aynı şema yeni verileri aynı dönüştürmeyi uygular ve verileri sınıflandırmak nasıl bir tahmini ulaşır. Bizim tahminleri ne kadar doğru olan bir fikir almak için bazı basit istatistikleri yapabilirsiniz:
 
         numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
                                               (prediction = 1 AND (results = 'Pass' OR
@@ -301,9 +301,9 @@ Mllib'i bu işlemi gerçekleştirmek için kolay bir yol sağlar. İlk olarak, "
     Lojistik regresyon ile Spark kullanarak bize doğru bir model ihlalleri açıklamaları İngilizce ve belirli bir iş veya geçirmek yemek İnceleme başarısız arasındaki ilişkinin sağlar.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Görsel bir tahmin oluşturma
-Bize yardımcı olmak için son bir görsel öğe artık bu testi sonuçlarıyla ilgili nedeni oluşturabilirsiniz.
+Neden bu test sonuçlarını hakkında bize yardımcı olmak için son bir görsel öğe artık oluşturabilirsiniz.
 
-1. Farklı Öngörüler ve sonuçları çıkartarak Başlat gelen **tahminleri** daha önce oluşturulan geçici bir tablo. Aşağıdaki sorgularda çıktısı olarak ayrı *true_positive*, *false_positive*, *true_negative*, ve *false_negative*. Sorgularda biz görselleştirme kullanarak kapatmanız `-q` ve ayrıca çıkış kaydedin (kullanarak `-o`) ile birlikte kullanılabilir dataframes olarak `%%local` Sihirli.
+1. Farklı Öngörüler ve sonuçları çıkartarak Başlat gelen **tahminleri** daha önce oluşturulan geçici bir tablo. Aşağıdaki sorgularda çıktısı olarak ayrı *true_positive*, *false_positive*, *true_negative*, ve *false_negative*. Sorgularda, görselleştirme kullanarak açmanız `-q` ve ayrıca çıkış kaydedin (kullanarak `-o`) ile birlikte kullanılabilir dataframes olarak `%%local` Sihirli.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -343,7 +343,6 @@ Uygulamayı çalıştıran bitirdikten sonra kaynakları serbest bırakmak için
 ### <a name="scenarios"></a>Senaryolar
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](apache-spark-eventhub-streaming.md)
 * [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma

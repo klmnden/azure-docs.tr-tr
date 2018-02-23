@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1508faf7a05461de65b7a4c2f68e2ef9bbd7e19d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5549c175c280961b09f5996e3387a50dae31222f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter not defteri bilgisayarınıza yüklemek ve hdınsight'ta Apache Spark bağlanın
 
@@ -34,7 +34,7 @@ Jupyter ve Spark Sihirli bilgisayarınızda yükleme ilgili üç önemli adımla
 
 Özel tekrar ve Hdınsight kümesi ile Jupyter not defterleri için kullanılabilir Spark Sihirli hakkında daha fazla bilgi için bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Apache Spark Linux kümeleri Hdınsight'ta](apache-spark-jupyter-notebook-kernels.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Burada listelenen önkoşulları Jupyter yüklemek için değildir. Bu, Not Defteri yüklendikten sonra Jupyter not defteri bir Hdınsight kümesine bağlamak için kullanılır.
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -55,9 +55,9 @@ Jupyter not defterleri yükleyebilmek için önce Python yüklemeniz gerekir. Py
 
 Spark Sihirli yükleme hakkında yönergeler için PySpark ve Spark çekirdekleri kurulum yönergelerini izleyin [sparkmagic belgelerine](https://github.com/jupyter-incubator/sparkmagic#installation) github'da. İlk adım Spark Sihirli belgelerinde Spark Sihirli yüklemenizi ister. Bu ilk adım bağlantıda bağlanacağınız Hdınsight kümesi sürümüne bağlı olarak aşağıdaki komutları değiştirin. Bundan sonra Spark Sihirli belgelerindeki kalan adımları izleyin. Farklı tekrar yüklemek istiyorsanız, Spark Sihirli yükleme yönergeleri bölümünde 3. adım gerçekleştirmeniz gerekir.
 
-* Yürüterek sparkmagic 0.2.3 kümeleri v3.4 için yükleyin`pip install sparkmagic==0.2.3`
+* Yürüterek sparkmagic 0.2.3 kümeleri v3.4 için yükleyin `pip install sparkmagic==0.2.3`
 
-* Kümeleri v3.5 ve v3.6 için sparkmagic 0.11.2 yürüterek yükleme`pip install sparkmagic==0.11.2`
+* Kümeleri v3.5 ve v3.6 için sparkmagic 0.11.2 yürüterek yükleme `pip install sparkmagic==0.11.2`
 
 ## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Spark Sihirli Hdınsight Spark kümeye bağlanmak için yapılandırın
 
@@ -150,7 +150,6 @@ Pek çok neden Jupyter bilgisayarınıza yüklemek ve Hdınsight Spark kümesind
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](apache-spark-eventhub-streaming.md)
 * [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma

@@ -4,7 +4,7 @@ description: "Azure sanal makinelerinde çalışan SQL Server için HADR stratej
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: a81b956107ef82f40ad5304808068a7573ca7d27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9b4ca959b93e097bb52a841cec02cc476ef5f48
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 
@@ -69,7 +69,7 @@ Kullanılabilirlik grupları, veritabanı yansıtma, günlük aktarma ve Yedekle
 | Teknoloji | Örnek mimarisi |
 | --- | --- |
 | **Kullanılabilirlik grupları:** |Azure Vm'leri ve şirket içi siteler arası olağanüstü durum kurtarma için çalışan diğer çoğaltmaları çalışan bazı kullanılabilirlik çoğaltmalarının. Üretim sitesini ya da şirket içi olabilir veya bir Azure veri merkezi.<br/>![Kullanılabilirlik grupları:](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Tüm kullanılabilirlik çoğaltmaları aynı yük devretme kümesinde olması gerektiğinden, kümenin her iki ağ (birden çok alt ağ yük devretme kümesi) span gerekir. Bu yapılandırma, Azure ile şirket içi ağınız arasında bir VPN bağlantısı gerektirir.<br/><br/>Veritabanlarınızın başarılı olağanüstü durum kurtarma için olağanüstü durum kurtarma sitesinde bir kopya etki alanı denetleyicisi de yüklemeniz gerekir.<br/><br/>Azure bir kopya var olan her zaman üzerinde kullanılabilirlik grubuna eklemek üzere SSMS çoğaltma Ekleme Sihirbazı'nı kullanmak da mümkündür. Daha fazla bilgi için bkz: Azure için her zaman üzerindeki kullanılabilirlik grubu genişletir. |
-| **Veritabanı yansıtma** |Bir Azure VM ve diğer çalışan şirket içi sunucu sertifikaları kullanarak siteler arası olağanüstü durum kurtarma için çalışan bir iş ortağı. İş ortakları aynı Active Directory etki alanında olması gerekmez ve hiçbir VPN bağlantısı gereklidir.<br/>![Veritabanı yansıtma](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Başka bir veritabanı yansıtma senaryo, bir Azure VM ve diğer çalışan şirket içi siteler arası olağanüstü durum kurtarma için aynı Active Directory etki alanında çalışan bir iş ortağı içerir. A [Azure sanal ağı ve şirket içi ağ arasında VPN bağlantısı](../../../vpn-gateway/vpn-gateway-site-to-site-create.md) gereklidir.<br/><br/>Veritabanlarınızın başarılı olağanüstü durum kurtarma için olağanüstü durum kurtarma sitesinde bir kopya etki alanı denetleyicisi de yüklemeniz gerekir. |
+| **Veritabanı yansıtma** |Bir Azure VM ve diğer çalışan şirket içi sunucu sertifikaları kullanarak siteler arası olağanüstü durum kurtarma için çalışan bir iş ortağı. İş ortakları aynı Active Directory etki alanında olması gerekmez ve hiçbir VPN bağlantısı gereklidir.<br/>![Veritabanı yansıtma](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Başka bir veritabanı yansıtma senaryo, bir Azure VM ve diğer çalışan şirket içi siteler arası olağanüstü durum kurtarma için aynı Active Directory etki alanında çalışan bir iş ortağı içerir. A [Azure sanal ağı ve şirket içi ağ arasında VPN bağlantısı](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) gereklidir.<br/><br/>Veritabanlarınızın başarılı olağanüstü durum kurtarma için olağanüstü durum kurtarma sitesinde bir kopya etki alanı denetleyicisi de yüklemeniz gerekir. |
 | **Günlük aktarma** |Bir Azure VM ve diğer çalışan şirket içi siteler arası olağanüstü durum kurtarma çalıştıran bir sunucu. Azure sanal ağı ve şirket içi ağ arasında bir VPN bağlantısı gerekli sağlayacak şekilde günlük aktarma Windows dosya paylaşımı üzerinde bağlıdır.<br/>![Günlük aktarma](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>Veritabanlarınızın başarılı olağanüstü durum kurtarma için olağanüstü durum kurtarma sitesinde bir kopya etki alanı denetleyicisi de yüklemeniz gerekir. |
 | **Yedekleme ve geri yükleme ile Azure Blob Depolama Birimi hizmeti** |Böylece, şirket içi olağanüstü durum kurtarma için Azure blob depolama alanına doğrudan yedeklenen üretim veritabanlarını.<br/>![Yedekleme ve Geri Yükleme](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Daha fazla bilgi için bkz: [yedekleme ve Azure Virtual Machines'de SQL Server için geri yükleme](virtual-machines-windows-sql-backup-recovery.md). |
 | **Çoğaltılır ve Azure Site Recovery ile azure'a yük devretme SQL Server** |Böylece, şirket içi üretim SQL Server olağanüstü durum kurtarma için Azure Storage doğrudan çoğaltılan.<br/>![Azure Site Recovery kullanarak Yinele](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>Daha fazla bilgi için bkz: [korumak SQL Server olağanüstü durum kurtarma ve Azure Site Recovery kullanarak SQL Server](../../../site-recovery/site-recovery-sql.md). |
@@ -104,7 +104,7 @@ Dinleyiciyi ayarlamak için iki ana seçeneğiniz vardır: dış (Genel) veya da
 Kullanılabilirlik Grubu (örneğin, Azure bölgeleri kestiği dağıtımı) birden fazla Azure alt yayılırsa, istemci bağlantı dizesi içermelidir "**MultisubnetFailover = True**". Bu, farklı alt ağlar yinelemelere paralel bağlantı denemelerinde sonuçlanır. Dinleyici ayarlama hakkında yönergeler için bkz:
 
 * [Kullanılabilirlik grupları için bir ILB dinleyicisi Azure'da yapılandırın](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
-* [Kullanılabilirlik grupları için dış dinleyici Azure'da yapılandırın](../classic/ps-sql-ext-listener.md).
+* [Kullanılabilirlik grupları için dış dinleyici Azure'da yapılandırın](../sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 Hizmet örneği için doğrudan bağlanarak her kullanılabilirlik çoğaltması için ayrı ayrı hala bağlanabilir. Ayrıca, kullanılabilirlik grupları istemcileri yansıtma veritabanı ile geriye dönük olarak uyumlu olduğundan, veritabanı çoğaltmaları benzer veritabanı yansıtması için yapılandırılmış olduğu sürece ortakları yansıtma gibi kullanılabilirlik çoğaltmalarının bağlanabilir:
 

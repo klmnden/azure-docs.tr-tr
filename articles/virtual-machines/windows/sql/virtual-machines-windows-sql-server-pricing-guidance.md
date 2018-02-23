@@ -4,7 +4,7 @@ description: "Doğru SQL Server sanal makine fiyatlandırma modeli seçmek için
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM'ler için fiyatlandırma Kılavuzu
 
@@ -46,7 +46,7 @@ Bu görüntülerden birini bir SQL Server 2017 Azure VM oluşturmak için aşağ
 
 Basit olmayan üretim iş yükü varsa, aşağıdaki SQL Server sürümlerinden birini kullanın:
 
-| SQL Server sürümü | İş yükü |
+| SQL Server Edition | İş yükü |
 |-----|-----|
 | Web | Küçük web siteleri |
 | Standart | Küçük ve orta iş yükleri |
@@ -112,16 +112,16 @@ Bu Getir bilgisayarınızı-kendi-lisans görüntülerden birini bir SQL Server 
 
 Gereksiz maliyetleri önlemek için bir en iyi sanal makine boyutu seçin ve aralıklı kapatmalar sürekli olmayan iş yükleri için göz önünde bulundurun.
 
-### <a id="machinesize"></a>Doğru VM boyutu
+### <a id="machinesize"></a> Doğru VM boyutu
 
 SQL Server Lisans maliyetini çekirdek sayısı doğrudan ilişkilidir. Beklenen gereksiniminize CPU, bellek, depolama ve g/ç bant genişliği için bir VM boyutu seçin. Makine boyutu seçeneklerini tam bir listesi için bkz: [Windows VM boyutları](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) ve [Linux VM boyutları](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 SQL Server iş yüklerini de belirli türleriyle çalışma yeni makine boyutlarını vardır. Bu makineler boyutları yüksek düzeyde bellek, depolama ve g/ç bant genişliği korumak, ancak daha düşük bir sanallaştırılmış çekirdek sayısı sahiptirler. Örneğin, aşağıdaki örnekte göz önünde bulundurun:
 
-| VM Boyutu | Vcpu'lar | Bellek | Max diskleri | En fazla g/ç işleme | SQL lisanslama maliyetleri | Toplam fiyatlar (işlem + lisans) |
+| VM Boyutu | vCPU sayısı | Bellek | Max diskleri | En fazla g/ç işleme | SQL lisanslama maliyetleri | Toplam fiyatlar (işlem + lisans) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOPS veya 768 MB/sn | | |
-| **Standard_DS14 4v2** | 4 | 112 GB | 32 | 51.200 IOPS veya 768 MB/sn | % 75 daha düşük | %57 daha düşük |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 IOPS veya 768 MB/sn | % 75 daha düşük | %57 daha düşük |
 
 > [!IMPORTANT]
 > Bu zaman içinde nokta örnektir. En son özelliklerini, makine boyutlarını makaleleri ve fiyatlandırma sayfası için Azure bakın [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ve [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).

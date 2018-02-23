@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Yeni kiracılar sağlamak ve kataloğa kaydetme hakkında bilgi edinin
 
@@ -30,28 +30,28 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 
-> * Nasıl bu uygulanan aracılığıyla atlama dahil olmak üzere tek yeni bir kiracı sağlama
+> * Tek bir yeni kiracı sağlama
 > * Ek kiracı grubu sağlama
 
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
-* Kiracı uygulama başına Wingtip biletleri SaaS veritabanı veritabanına dağıtılır. Beş dakikadan daha kısa bir süre içinde dağıtmak için bkz: [dağıtma ve Kiracı uygulama başına Wingtip biletleri SaaS veritabanı keşfedin.](saas-dbpertenant-get-started-deploy.md)
+* Wingtip biletleri SaaS veritabanı Kiracı uygulama başına dağıtılır. Beş dakikadan daha kısa bir süre içinde dağıtmak için bkz: [dağıtma ve Kiracı uygulama başına Wingtip biletleri SaaS veritabanı keşfedin.](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell’in yüklendiğinden. Ayrıntılar için bkz. [Azure PowerShell’i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>SaaS Katalog düzenine giriş
 
-Bir veritabanı yedeği çok kiracılı SaaS uygulamasına, her bir kiracı için bilgi depolandığı bilmeniz önemlidir. SaaS katalog desende bir katalog veritabanı her bir kiracı ile verilerinin depolandığı veritabanı arasında eşleme tutmak için kullanılır. Veritabanı modeli başına tek bir kiracı Wingtip biletleri SaaS veritabanı Kiracı uygulama başına kullanır, ancak Kiracı verilerini birden fazla veritabanı dağıtıldığında çok kiracılı olup olmadığını Kiracı veritabanı eşleme katalogdaki depolama temel düzeni uygular veya tek Kiracı veritabanı kullanılır.
+Bir veritabanı yedeği çok kiracılı SaaS uygulamasına, her bir kiracı için bilgi depolandığı bilmeniz önemlidir. SaaS katalog desende bir katalog veritabanı her bir kiracı ile verilerinin depolandığı veritabanı arasında eşleme tutmak için kullanılır. Kiracı verilerini birden çok veritabanı arasında dağıtıldığında bu deseni uygular.
 
-Her bir kiracı katalogda tanımlayan bir anahtar atanır ve uygun veritabanı konumunu eşlenmiş. Wingtip biletleri SaaS uygulamada karmasını kiracının ad anahtarı oluşturulur. Bu Kiracı anahtarı oluşturmak için kullanılacak uygulama URL'si adı kısmını sağlar. Diğer Kiracı anahtar düzenleri kullanılabilir.  
+Her bir kiracı kataloğunda kendi veritabanı konumu için eşlenmiş bir anahtar tarafından tanımlanır. Wingtip biletleri uygulamada karmasını kiracının ad anahtarı oluşturulur. Bu uygulama URL'SİNDE bulunan Kiracı adı anahtarından oluşturmak yazmasına izin verir. Diğer Kiracı anahtar düzenleri kullanılabilir.  
 
 Katalog adı veya uygulama üzerinde en az etkiyle değiştirilecek veritabanının konumunu sağlar.  Çok Kiracı veritabanı modelinde, bu da 'Kiracı veritabanları arasında taşıma' düzenler.  Katalog, bir kiracı veya veritabanı bakım veya başka eylemler için çevrimdışı olup olmadığını belirtmek için de kullanılabilir. İçinde bu incelediniz [tek bir kiracı öğretici geri](saas-dbpertenant-restore-single-tenant.md).
 
-Ayrıca, bir SaaS uygulaması için bir yönetim veritabanı etkili olur, katalog ek Kiracı veya katmanı veya bir veritabanı sürümü gibi veritabanı meta veri depolayabilirsiniz şema sürümü, hizmet planı veya SLA kiracılar ve sağlayan diğer bilgiler için sunulan Uygulama Yönetimi, müşteri desteği veya devops işlemler.  
+Katalog ayrıca ek Kiracı veya veritabanı gibi meta veriler, şema sürümü, hizmet planı veya kiracılar, yanı sıra uygulama yönetimi, müşteri desteği veya devops sağlayan diğer bilgiler sunulan SLA depolayabilirsiniz.  
 
-SaaS uygulamasına Katalog veritabanı araçları etkinleştirebilirsiniz.  Kiracı örnek başına Wingtip biletleri SaaS veritabanında Kataloğu, keşfedilen arası Kiracı sorgu etkinleştirmek için kullanılan [geçici analytics Öğreticisi](saas-tenancy-adhoc-analytics.md). Veritabanları arası iş yönetimi incelediniz içinde [Şema Yönetimi](saas-tenancy-schema-management.md) ve [Kiracı analytics](saas-tenancy-tenant-analytics.md) öğreticileri. 
+SaaS uygulamasına Katalog veritabanı araçları etkinleştirebilirsiniz.  Kiracı örnek başına Wingtip biletleri SaaS veritabanında Kataloğu, keşfedilen arası Kiracı sorgu etkinleştirmek için kullanılan [öğretici ad hoc raporlama](saas-tenancy-cross-tenant-reporting.md). Veritabanları arası iş yönetimi incelediniz içinde [Şema Yönetimi](saas-tenancy-schema-management.md) ve [Kiracı analytics](saas-tenancy-tenant-analytics.md) öğreticileri. 
 
-Wingtip biletleri SaaS örneklerinde parça yönetim özelliklerini kullanarak katalog uygulanır [esnek veritabanı istemci kitaplığı (EDCL)](sql-database-elastic-database-client-library.md). Java ve .net EDCL kullanılabilir Framework. EDCL oluşturmak, yönetmek ve bir veritabanı yedeği parça eşlemesi kullanmak için bir uygulama sağlar. Bir parça eşleme parça (veritabanları) ve anahtarları (kiracılar) ile parça arasında eşleme listesini içerir.  EDCL işlevleri uygulamalarından ya da Kiracı parça eşlemesinde girişleri oluşturmak için sağlama sırasında PowerShell betikleri ve uygulamalardan verimli bir şekilde doğru veritabanına bağlanmak için kullanılabilir. EDCL katalog veritabanına trafiğini en aza indirmek ve uygulamayı oluşturan hızlandırmak için bağlantı bilgilerini önbelleğe alır.  
+Wingtip biletleri SaaS örneklerinde parça yönetim özelliklerini kullanarak katalog uygulanır [esnek veritabanı istemci kitaplığı (EDCL)](sql-database-elastic-database-client-library.md). Java ve .net EDCL kullanılabilir Framework. EDCL oluşturmak, yönetmek ve bir veritabanı yedeği parça eşlemesi kullanmak için bir uygulama sağlar. Bir parça eşleme parça (veritabanları) ve anahtarları (kiracılar) ile parça arasında eşleme listesini içerir.  EDCL işlevleri, doğru veritabanına bağlanmak için uygulamalar tarafından Kiracı parça eşlemesindeki ve çalışma zamanında girişleri oluşturmak için sağlama sırasında kullanılır. EDCL katalog veritabanına trafiğini en aza indirmek ve uygulamayı oluşturan hızlandırmak için bağlantı bilgilerini önbelleğe alır.  
 
 > [!IMPORTANT]
 > Eşleme verilerine katalog veritabanından erişilebilir, ancak *verileri düzenlemeyin*! Eşleme verilerini yalnızca Elastik Veritabanı İstemci Kitaplığı API’sini kullanarak düzenleyin. Eşleme verilerinin doğrudan değiştirilmesi, kataloğu bozabilir ve desteklenmez.
@@ -59,30 +59,30 @@ Wingtip biletleri SaaS örneklerinde parça yönetim özelliklerini kullanarak k
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>SaaS sağlama düzeni giriş
 
-Ne zaman ekleme tek Kiracı veritabanı modeli yeni bir kiracı veritabanı kullanan bir SaaS uygulaması yeni bir kiracı sağlanmalıdır.  Uygun bir konum ve hizmet katmanı, uygun şemayı ve başvuru verileri ile başlatıldı ve uygun Kiracı anahtarı altında kataloğunda kayıtlı oluşturulması gerekir.  
+Model ekleme tek Kiracı tarafından kullanılan bir SaaS uygulaması yeni bir kiracı veritabanı zaman yeni bir kiracı veritabanı sağlanmalıdır.  Veritabanı Hizmet katmanı ile uygun şema ve başvuru verileri başlatılmadı ve uygun Kiracı anahtarı altında kataloğunda kayıtlı ve uygun konuma oluşturulmalıdır.  
 
-Farklı yaklaşımlar sağlama, veritabanı için SQL komut dosyaları yürütme, bir bacpac dağıtma ya da bir şablon veritabanı kopyalayarak içerebilir kullanılabilir.  
+SQL betikleri yürütülürken, bir bacpac dağıtma ya da bir şablon veritabanı kopyalayarak içeren veritabanı sağlama için farklı yaklaşımlara kullanılabilir.  
 
-Kullandığınız sağlama yaklaşım, yeni veritabanları ile en son şema sağlandığından emin olun, genel şema yönetim stratejinizi içinde comprehended gerekir.  İçinde bu incelediniz [şema yönetimi Öğreticisi](saas-tenancy-schema-management.md).  
+Veritabanı sağlama yeni veritabanları ile en son şema sağlandığından emin olun, şema yönetim stratejisinin bir parçası olması gerekir. Bu gereksinim, keşfedilen [şema yönetimi Öğreticisi](saas-tenancy-schema-management.md).  
 
-Kiracı uygulama başına Wingtip biletleri SaaS veritabanı adlı bir şablon veritabanı kopyalayarak yeni kiracılar hazırlar _basetenantdb_, katalog sunucusunda dağıtılmış.  Sağlama bir kayıt deneyimi bir parçası olarak uygulamaya tümleşik ve/veya desteklenen komut dosyalarını kullanarak çevrimdışı. Bu öğretici, PowerShell kullanarak sağlama araştırır. Sağlama komut dosyalarını bir esnek havuzda yeni bir kiracı veritabanı oluşturmak sonra Kiracı özgü bilgiyle başlatmak ve Katalog parça eşlemesinde kaydetmek için basetenantdb veritabanı kopyalayın.  Wingtip biletleri SaaS veritabanı başına Kiracı uygulamada, Kiracı veritabanları Kiracı adına göre adları verilir, ancak bu deseni önemli bir parçası değildir – veritabanlarını Kiracı atanacak herhangi bir ad katalog kullanılmasına izin verir. + 
+Kiracı uygulama başına Wingtip biletleri veritabanı adlı bir şablon veritabanı kopyalayarak yeni kiracılar hazırlar _basetenantdb_, katalog sunucusunda dağıtılmış.  Sağlama bir kayıt deneyimi bir parçası olarak uygulamaya tümleşik ve/veya desteklenen komut dosyalarını kullanarak çevrimdışı. Bu öğretici, PowerShell kullanarak sağlama araştırır. Komut dosyaları kopyalama sağlama _basetenantdb_ bir esnek havuzda yeni bir kiracı veritabanı oluşturmak sonra Kiracı özgü bilgileri veritabanıyla başlatmak ve Katalog parça eşlemesinde kaydetmek için veritabanı.  Kiracı veritabanları verilen Kiracı adına göre adlardır, ancak katalog Kiracı anahtarı herhangi bir adlandırma kuralı kullanılan veritabanı adı eşlemeleri gibi bu adlandırma şeması düzeni – önemli bir parçası değildir. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama komut dosyaları alma
 
-Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
+Wingtip biletleri SaaS komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Sağlama ve kataloğa kaydetme ile ilgili ayrıntılı kılavuz
 
-Yeni Kiracı sağlama Wingtip uygulama nasıl uyguladığını anlamak için bir kesme noktası ve iş akışı aracılığıyla adım bir kiracı sağlarken ekleyin:
+Yeni Kiracı sağlama Wingtip biletleri uygulama nasıl uyguladığını anlamak için bir kesme noktası ve iş akışı aracılığıyla adım bir kiracı sağlarken ekleyin:
 
 1. İçinde _PowerShell ISE_açın... \\Öğrenme modülleri\\ProvisionAndCatalog\\_Demo ProvisionAndCatalog.ps1_ ve aşağıdaki parametreleri ayarlayabilirsiniz:
    * **$TenantName** = yeni mekanın adı (örneğin, *Bushwillow Blues*).
-   * **$VenueType** önceden tanımlanmış salonundan türlerinden birini =: *mavi*, classicalmusic, dance jazz, judo, motorracing, çok amaçlı, opera, rockmusic, futbol.
+   * **$VenueType** önceden tanımlanmış salonundan türlerinden birini =: _mavi, classicalmusic, dance, jazz, judo, yarış, çok amaçlı motor, opera, rockmusic, futbol_.
    * **$DemoScenario** = **1**, *tek bir kiracı sağlama*.
 
-1. İmlecinizi herhangi bir yere satırı 48, yazan satırı koyarak kesme noktası ekleme: *yeni Kiracı '*ve basın **F9**.
+1. İmlecinizi herhangi bir yere bildiren satırda koyarak kesme noktası ekleme: *yeni Kiracı '*ve basın **F9**.
 
    ![kesme noktası](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
@@ -100,19 +100,20 @@ Betiğin yürütmeyi kullanarak **hata ayıklama** menü seçeneklerini - **F10*
 Değil açıkça izlemeniz gereken adımlar, ancak, aracılığıyla komut dosyası hata ayıklama sırasında adım iş akışı bir açıklaması verilmiştir:
 
 1. Azure’da oturum açma ve birlikte çalıştığınız Azure aboneliğini seçme işlevlerini içeren **SubscriptionManagement.psm1 modülünü içeri aktarın**.
-1. [Shard Management](sql-database-elastic-scale-shard-map-management.md) işlevlerinde katalog ve kiracı düzeyinde özet sağlayan **CatalogAndDatabaseManagement.psm1 modülünü içeri aktarın**. Bu, katalog düzeninin büyük bölümünü kapsülleyen ve incelenmesi yararlı olan önemli bir modüldür.
-1. **Yapılandırma ayrıntılarını alın**. Get-yapılandırmasını (F11) adımla ve uygulama yapılandırma nasıl belirtilen bakın. Kaynak adları ve uygulamaya özel diğer değerler burada tanımlanır, ancak betikler hakkında bilgi sahibi olmadan bu değerlerin hiçbirini değiştirmeyin.
-1. **Katalog nesnesini alın**. Oluşturur ve üst düzey komut dosyasında kullanılan bir katalog nesnesi döndüren Get katalog adımla.  Bu işlev üzerinden içe aktarılan parça yönetim işlevlerini kullanan **AzureShardManagement.psm1**. Katalog nesnesi aşağıdakilerden oluşur:
-   * $catalogServerFullyQualifiedName, standart gövdeye ek olarak Kullanıcı adınız kullanılarak oluşturulur: _catalog-\<user\>.database.windows.net_.
+1. [Shard Management](sql-database-elastic-scale-shard-map-management.md) işlevlerinde katalog ve kiracı düzeyinde özet sağlayan **CatalogAndDatabaseManagement.psm1 modülünü içeri aktarın**. Bu modül katalog düzeni çoğunu yalıtır ve incelenmesi yararlı olur.
+1. **Yapılandırma ayrıntılarını alın**. Get-yapılandırmasını (F11) adımla ve uygulama yapılandırma nasıl belirtilen bakın. Kaynak adları ve diğer uygulamaya özgü değerleri burada tanımlanan ancak kodlarla bilginiz kadar bu değerleri değiştirmeyin.
+1. **Katalog nesnesini alın**. Oluşturur ve üst düzey komut dosyasında kullanılan bir katalog nesnesi döndüren Get-katalog adımla.  Bu işlev üzerinden içe aktarılan parça yönetim işlevlerini kullanan **AzureShardManagement.psm1**. Katalog nesnesi aşağıdaki öğelerden oluşur:
+   * $catalogServerFullyQualifiedName standart stem artı kullanıcı adınızı kullanarak yapılandırılmıştır: _katalog -\<kullanıcı\>. database.windows .net_.
    * $catalogDatabaseName, *tenantcatalog* yapılandırmasından alınır.
    * $shardMapManager nesnesi, katalog veritabanından başlatılır.
-   * $shardMap nesnesi, katalog veritabanındaki *tenantcatalog* parça eşlemesinden başlatılır.
+   * $shardMap nesnesi, katalog veritabanındaki _tenantcatalog_ parça eşlemesinden başlatılır.
    Bir katalog nesnesi oluşturulup döndürülür ve daha üst düzey betikte kullanılır.
 1. **Yeni kiracı anahtarını hesaplayın**. Kiracı adından kiracı anahtarı oluşturmak için bir karma işlevi kullanılır.
 1. **Kiracı anahtarının zaten mevcut olup olmadığını denetleyin**. Anahtarın olup olmadığından emin olmak için katalog denetlenir.
 1. **Kiracı veritabanına New-TenantDatabase öğesi sağlanır.** Kullanım **F11** adımını ve veritabanının nasıl olduğunu görmek için kullanılarak hazırlanmış bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-    Veritabanı adı, hangi parçanın hangi kiracıya ait olduğunu netleştirmek üzere kiracı adından oluşturulur. (Diğer veritabanı adlandırma stratejileri kolayca kullanılabilir.) Resource Manager şablonu katalog sunucusunda şablon veritabanı (baseTenantDB) kopyalayarak bir kiracı veritabanı oluşturmak için kullanılır. Boş bir veritabanı oluşturmak ve bir bacpac içeri aktararak başlatmak için ya da iyi bilinen bir konumdan başlatma komut dosyasını çalıştırmak için alternatif bir yaklaşım olabilir.  
+    Veritabanı adı, Kiracı için hangi parça ait diğer veritabanı adlandırma kuralları kullanılabilir olsa da temizleyin yapmak için Kiracı adından oluşturulur.
+    Bir şablon veritabanı kopyalayarak Kiracı veritabanı bir Resource Manager şablonu oluşturur (_baseTenantDB_) katalog sunucusunda. Alternatif olarak, bir veritabanı oluşturmayı ve bir bacpac içeri aktararak başlatmak veya iyi bilinen bir konumdan bir başlatma betiği yürütün.
 
     Resource Manager şablonu ...\Learning Modules\Common\ klasöründedir: *tenantdatabasecopytemplate.json*
 
@@ -122,7 +123,7 @@ Değil açıkça izlemeniz gereken adımlar, ancak, aracılığıyla komut dosya
 
     * Katalog veritabanı, parça eşlemesine eklenir (bilinen veritabanları listesi).
     * Anahtar değerini parçaya bağlayan eşleme oluşturulur.
-    * Kiracı (salonundan kişinin adı) hakkında ek meta veri Kataloğu kiracılar tablosuna eklenir.  Kiracılar tablo ShardManagement şema parçası olmayan ve tarafından EDCL yüklü değil.  Bu tabloda, ek uygulamaya özgü verileri desteklemek için Katalog veritabanı nasıl Genişletilebilir gösterilmektedir.   
+    * Kiracı (salonundan kişinin adı) hakkında ek meta veriler eklenen *kiracılar* kataloğunda tablo.  Kiracılar tablo ShardManagement şema parçası olmayan ve tarafından EDCL yüklü değil.  Bu tabloda, ek uygulamaya özgü verileri desteklemek için Katalog veritabanı nasıl Genişletilebilir gösterilmektedir.   
 
 
 Sağlama yürütme asıl döndürür tamamlandıktan sonra *Demo ProvisionAndCatalog* komut dosyası, hangi açılır **olayları** sayfasını tarayıcıda yeni Kiracı için:
@@ -138,7 +139,7 @@ Bu alıştırmada 17 kiracılar toplu sağlar. Bu yüzden çalışmak için bird
    * **$DemoScenario** = **3**, *kiracılar toplu sağlama*.
 1. Betiği çalıştırmak için **F5**'e basın.
 
-Betik, ek kiracı grubu dağıtır. Kiracı grubunu denetleyen ve ardından her bir veritabanının sağlama işlemini bağlı bir şablona devreden bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-manager-template-walkthrough.md) kullanır. Şablonların bu şekilde kullanılması, Azure Resource Manager’ın betiğinizin sağlama işlemine aracılık etmesine olanak tanır. Şablonlar mümkün olduğunda veritabanlarını paralel olarak sağlar ve gerekirse genel süreci iyileştirmek için yeniden denemeleri işler. Idempotent betiğidir kadar başarısız olur ya da herhangi bir nedenle durdurur, yeniden çalıştırın.
+Betik, ek kiracı grubu dağıtır. Kullandığı bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-manager-template-walkthrough.md) batch ve hangi denetleyen temsilciler her bir veritabanı bağlı bir şablonu için sağlama. Şablonların bu şekilde kullanılması, Azure Resource Manager’ın betiğinizin sağlama işlemine aracılık etmesine olanak tanır. Şablonları sağlama paralel olarak veritabanları ve gerekirse, yeniden deneme işler. Idempotent, betiğidir kadar başarısız olur ya da herhangi bir nedenle durdurur, yeniden çalıştırın.
 
 ### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Kiracı grubunun başarıyla dağıtıldığını doğrulama
 
@@ -154,8 +155,7 @@ Bu öğreticide yer almayan diğer sağlama düzenleri şunlardır:
 
 **Veritabanlarını önceden hazırlama.** Önceden hazırlama düzeni ek bir maliyeti esnek havuzdaki veritabanları eklemeyin olgu yararlanan. Esnek havuz için veritabanlarını değil, faturalama olduğu ve boşta veritabanları hiçbir kaynaklarını tüketebilir. Bir havuzdaki veritabanları önceden sağlama ve bunları gerektiğinde ayırma Kiracı ekleme zamanı önemli ölçüde azaltılabilir. Önceden hazırlanan veritabanı sayısı arabellek beklenen sağlama oranı için uygun tutmak için gerektiği şekilde ayarlanabilir.
 
-**Otomatik sağlama.** Otomatik sağlama düzeninde, sunucular, havuzları ve veritabanları sağlama hizmeti gerektiğinde otomatik olarak sağlar – önceden sağlama veritabanları, esnek havuzlarını dahil istenen. Ve veritabanları XML'deki yaptırılan ve silinmiş, esnek havuzlar boşlukları sağlama hizmeti tarafından doldurulabilir. Bu tür bir hizmet Örneğin, birden çok farklı coğrafyalara, sağlama işleme basit veya karmaşık – olabilir ve olağanüstü durum kurtarma için coğrafi çoğaltma ayarlayabilirsiniz. Otomatik sağlama desen ile bir istemci uygulama veya betik sağlama hizmeti tarafından işlenmek üzere sıraya sağlama isteği gönderir ve tamamlanma belirlemek üzere hizmetini yoklar. Önceden hazırlama kullanılırsa, istekleri hızlı bir şekilde, arka planda değiştirme veritabanı sağlama hizmeti ile ele alınması.
-
+**Otomatik sağlama.** Otomatik sağlama deseni, bir sağlama hizmeti hükümleri sunucusu, havuzları ve otomatik olarak gerektiğinde – veritabanları esnek havuzlar önceden sağlama veritabanlarında isterseniz de dahil. Ve veritabanları XML'deki yaptırılan ve silinmiş, esnek havuzlar boşlukları sağlama hizmeti tarafından doldurulabilir. Bu tür bir hizmet Örneğin, birden çok farklı coğrafyalara, sağlama işleme basit veya karmaşık – olabilir ve olağanüstü durum kurtarma için coğrafi çoğaltma ayarlayabilirsiniz. Otomatik sağlama desen ile bir istemci uygulama veya betik sağlama hizmeti tarafından işlenmek üzere sıraya sağlama isteği gönderir ve tamamlanma belirlemek üzere hizmetini yoklar. Önceden hazırlama kullanılırsa, istekleri hızlı bir şekilde, arka planda değiştirme veritabanı sağlama hizmeti ile ele alınması.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

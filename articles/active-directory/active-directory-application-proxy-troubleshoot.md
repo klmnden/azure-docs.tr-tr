@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/14/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 4291d765bec94ca1edd50b8df0c414524f29fba2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunları ve hata iletileri sorunlarını giderme
 Yayımlanmış bir uygulamanın erişme veya yayımlama uygulamalarda hatalar meydana gelirse, Microsoft Azure AD uygulama proxy'si düzgün çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -68,7 +68,7 @@ Bu tablo Kerberos kurulumu ve yapılandırması gelen daha sık karşılaşılan
 | 13016 - sınır belirteci veya erişim tanımlama bilgisi yok UPN olduğundan azure AD kullanıcı adına bir Kerberos anahtarı alınamıyor. | STS yapılandırmasında bir sorun yoktur. UPN talep yapılandırma içinde STS düzeltin. |
 | 13019 - azure AD kullanıcı adına bir Kerberos anahtarı şu genel API hata nedeniyle alınamıyor. | Bu olay Azure AD arasında yanlış yapılandırma gösterebilir ve etki alanı denetleyici sunucusu veya her iki makinede saat ve tarih yapılandırmasında bir sorun. Etki alanı denetleyicisi Azure AD tarafından oluşturulan Kerberos biletini reddetti. Doğrulayın, Azure AD ve arka uç uygulama sunucusu özellikle SPN yapılandırma doğru yapılandırılmış. Azure AD etki alanı denetleyicisi Azure AD ile güven oluşturur emin olmak için etki alanı denetleyicisi aynı etki alanı için etki alanına katılmış olduğundan emin olun. Olduğundan emin olun saat ve tarih yapılandırmasını Azure AD temel ve etki alanı denetleyicisi eşitlenir. |
 | 13020 - arka uç sunucu SPN'si tanımlanmadığından azure AD kullanıcı adına bir Kerberos anahtarı alınamıyor. | Bu olay Azure AD arasında yanlış yapılandırma gösterebilir ve etki alanı denetleyici sunucusu veya her iki makinede saat ve tarih yapılandırmasında bir sorun. Etki alanı denetleyicisi Azure AD tarafından oluşturulan Kerberos biletini reddetti. Doğrulayın, Azure AD ve arka uç uygulama sunucusu özellikle SPN yapılandırma doğru yapılandırılmış. Azure AD etki alanı denetleyicisi Azure AD ile güven oluşturur emin olmak için etki alanı denetleyicisi aynı etki alanı için etki alanına katılmış olduğundan emin olun. Olduğundan emin olun saat ve tarih yapılandırmasını Azure AD temel ve etki alanı denetleyicisi eşitlenir. |
-| 13022 - Kerberos kimlik doğrulama girişimlerini bir HTTP 401 hata ile arka uç sunucusuna yanıtlaması çünkü azure AD kullanıcı kimlik doğrulaması yapamaz. | Bu olay Azure AD arasında yanlış yapılandırma gösterebilir ve arka uç uygulama sunucusu ya da her iki makinede saat ve tarih yapılandırmasında bir sorun. Arka uç sunucusuna Azure AD tarafından oluşturulan Kerberos biletini reddetti. Doğrulayın, Azure AD ve arka uç uygulama sunucusu doğru şekilde yapılandırılır. Olduğundan emin olun saat ve tarih yapılandırmasını Azure AD temel ve arka uç uygulama sunucusu eşitlenir. |
+| 13022 - Kerberos kimlik doğrulama girişimlerini bir HTTP 401 hata ile arka uç sunucusuna yanıtlaması çünkü azure AD kullanıcı kimlik doğrulaması yapamaz. | Bu olay Azure AD arasında yanlış yapılandırma gösterebilir ve arka uç uygulama sunucusu ya da her iki makinede saat ve tarih yapılandırmasında bir sorun. Arka uç sunucusuna Azure AD tarafından oluşturulan Kerberos biletini reddetti. Doğrulayın, Azure AD ve arka uç uygulama sunucusu doğru şekilde yapılandırılır. Olduğundan emin olun saat ve tarih yapılandırmasını Azure AD temel ve arka uç uygulama sunucusu eşitlenir. Daha fazla bilgi için bkz: [sorun giderme Kerberos Kısıtlanmış temsilci seçme için yapılandırmaları uygulama proxy'si](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Son kullanıcı hataları
 

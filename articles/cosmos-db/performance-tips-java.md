@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 4d7657d305332cc0014187d52396ae3af4818d5e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fef5ed126575727c23cdff496c6684b9bf3192cf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -86,11 +86,11 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Azure Cosmos DB SQL Java SDK sürüm 1.9.0 ve paralel bölümlendirilmiş bir koleksiyon sorgulamak etkinleştirme desteği paralel sorgular yukarıda (bkz [SDK'ları ile çalışma](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) ve ilgili [kod örnekleri](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) için Daha fazla bilgi). Paralel sorgular seri bunların karşılık gelen sorgu gecikme süresi ve üretilen işi artırmak için tasarlanmıştır.
 
-    (a) ***setMaxDegreeOfParallelism ayarlama\:***  paralel iş birden çok bölümü paralel sorgulayarak sorgular. Ancak, tek tek bölümlendirilmiş bir koleksiyon verileri seri olarak sorgu göre getirilir. Bu nedenle, kullanmak [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxdegreeofparallelism) en kullanıcı sorgu elde maksimum sıkıştırılabilmesi bölüm sayısı ayarlamak için sağlanan diğer tüm sistem koşulları aynı kalır. Bölüm sayısı bilmiyorsanız, yüksek bir sayı ayarlamak için setMaxDegreeOfParallelism kullanabilirsiniz ve maksimum paralellik derecesi (bölüm, kullanıcı tarafından sağlanan girdi sayısı) minimum sistem seçer. 
+    (a) ***setMaxDegreeOfParallelism ayarlama\: *** paralel iş birden çok bölümü paralel sorgulayarak sorgular. Ancak, tek tek bölümlendirilmiş bir koleksiyon verileri seri olarak sorgu göre getirilir. Bu nedenle, kullanmak [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxdegreeofparallelism) en kullanıcı sorgu elde maksimum sıkıştırılabilmesi bölüm sayısı ayarlamak için sağlanan diğer tüm sistem koşulları aynı kalır. Bölüm sayısı bilmiyorsanız, yüksek bir sayı ayarlamak için setMaxDegreeOfParallelism kullanabilirsiniz ve maksimum paralellik derecesi (bölüm, kullanıcı tarafından sağlanan girdi sayısı) minimum sistem seçer. 
 
     Verileri sorgu göre tüm bölümleri arasında eşit olarak dağıtılır, paralel sorgular en iyi avantajları oluşturduğunun dikkate almak önemlidir. Bölümlenmiş koleksiyonu (en kötü durumda bir bölüm) birkaç bölümlerdeki tamamı veya bir sorgu tarafından döndürülen verilerin çoğunu bir yoğunlaşmıştır, ardından sorgu performansını tarafından bu bölümler nedeniyle düşük performansa şekilde bölümlenmiş durumunda.
 
-    (b) ***setMaxBufferedItemCount ayarlama\:***  paralel sorgu sonuçlarının geçerli toplu işlem istemci tarafından gerçekleştirilirken sonuçları önceden getirmek için tasarlanmıştır. Önceden getirme sorgu genel gecikme gelişme yardımcı olur. setMaxBufferedItemCount önceden getirilen sonuç sayısını sınırlar. Ayarlayarak [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxbuffereditemcount) beklenen sayıda sonuç döndürdü (veya daha yüksek bir sayı), bu önceden getirme maksimum avantajı almak sorgu sağlar.
+    (b) ***setMaxBufferedItemCount ayarlama\: *** paralel sorgu sonuçlarının geçerli toplu işlem istemci tarafından gerçekleştirilirken sonuçları önceden getirmek için tasarlanmıştır. Önceden getirme sorgu genel gecikme gelişme yardımcı olur. setMaxBufferedItemCount önceden getirilen sonuç sayısını sınırlar. Ayarlayarak [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxbuffereditemcount) beklenen sayıda sonuç döndürdü (veya daha yüksek bir sayı), bu önceden getirme maksimum avantajı almak sorgu sağlar.
 
     Önceden getirme MaxDegreeOfParallelism bağımsız olarak aynı şekilde çalışır ve tüm bölümleri verileri için tek bir arabellek yok.  
 

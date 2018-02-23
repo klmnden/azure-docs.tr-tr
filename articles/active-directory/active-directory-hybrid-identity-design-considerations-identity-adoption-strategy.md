@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Bir karma kimlik benimseme stratejinizi tanımlayın
-Bu görevde, ele alınan iş gereksinimlerini karşılamak, karma kimlik çözümü için karma kimlik benimseme stratejisi tanımla:
+Bu görevde, ele alınan iş gereksinimlerini karşılamak karma kimlik çözümünü karma kimlik benimseme stratejinizi tanımlayın:
 
 * [İş gereksinimlerini belirleme](active-directory-hybrid-identity-design-considerations-business-needs.md)
 * [Dizin eşitleme gereksinimlerini belirleyin](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 * [Çok faktörlü kimlik doğrulama gereksinimlerini belirleyin](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>İş gereksinimlerini stratejisini tanımlayın
-Kuruluşlar iş belirleme ilk görev adres olması gerekir.  Bu çok geniş olabilir ve kapsam yayılmasını dikkatli değilse ortaya çıkabilir.  Başına basit tutmak ancak her zaman uygun hale getirmek ve değişiklik gelecekte kolaylaştırmak için bir tasarımı planlayın unutmayın.  Basit bir tasarım veya çok karmaşık bir olup bağımsız olarak, Azure Active Directory Office 365, Microsoft Online Services ve bulut kullanan uygulamaları destekleyen Microsoft Identity platformudur.
+Kuruluşlar iş belirleme ilk görev adres olması gerekir.  Bu çok geniş olabilir ve kapsam yayılmasını dikkatli değilse ortaya çıkabilir.  Başlangıçta, basit tutmak ancak her zaman uygun hale getirmek ve değişiklik gelecekte kolaylaştırmak için bir tasarımı planlayın unutmayın.  Basit bir tasarım veya çok karmaşık bir olup bağımsız olarak, Azure Active Directory Office 365, Microsoft Online Services ve bulut destekleyen Microsoft Identity platformudur kullanan uygulamalar.
 
 ## <a name="define-an-integration-strategy"></a>Bir tümleştirme stratejisini tanımlayın
 Microsoft, bulut kimlikleri, eşitlenen kimlikler ve Federasyon kimlikleri olan üç ana tümleştirme senaryolarına sahiptir.  Bu tümleştirme stratejiler birini benimsenmesi planlamanız gerekir.  Farklı olabilir ve bir seçerken kararları içerebilir, ne tür bir kullanıcı deneyimi sağlamak için bazı varolan altyapısının yerinde'zaten var ve en düşük maliyetli nedir istediğiniz seçtiğiniz stratejisi.  
@@ -39,11 +39,11 @@ Microsoft, bulut kimlikleri, eşitlenen kimlikler ve Federasyon kimlikleri olan 
 Yukarıdaki şekilde tanımlanan tüm senaryolar şunlardır:
 
 * **Bulut kimlikleri**: Bunlar yalnızca bulutta mevcut hesaplardır.  Azure AD söz konusu olduğunda, özellikle Azure AD dizininizi bulunması.
-* **Eşitlenen**: şirket içi mevcut kimlikleri bunlar içinde ve bulutta.  Azure AD Connect'i kullanarak, bu kullanıcılar oluşturulan ya da var olan Azure AD hesapları ile birleştirilmiş.  Kullanıcının parola karmasını şirket içi ortamından bir parola karması olarak adlandırılan bulutta eşitlenir.  Bir uyarı bir kullanıcı şirket içi ortamda devre dışıysa, bu Azure AD içinde gösterilmesi bu hesabı durumu için 3 saate kadar sürebilir kullanılarak eşitlenene durumdur.  Bu nedeniyle eşitleme zaman aralığıdır.
+* **Eşitlenen**: şirket içi mevcut kimlikleri bunlar içinde ve bulutta.  Azure AD Connect'i kullanarak, bu kullanıcılar oluşturulan ya da var olan Azure AD hesapları ile birleştirilmiş.  Kullanıcının parola karmasını şirket içi ortamından bir parola karması olarak adlandırılan bulutta eşitlenir.  Bir uyarı bir kullanıcı şirket içi ortamda devre dışıysa, bu Azure AD içinde gösterilmesi bu hesabı durumu üç saat sürebilir kullanılarak eşitlenene durumdur.  Bu nedeniyle eşitleme zaman aralığıdır.
 * **Federasyon**: Bu kimlikleri hem şirket içinde bulunur ve bulutta.  Azure AD Connect'i kullanarak, bu kullanıcılar oluşturulan ya da var olan Azure AD hesapları ile birleştirilmiş.  
 
 > [!NOTE]
-> Eşitleme seçenekleri hakkında daha fazla bilgi için okumaya devam [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](connect/active-directory-aadconnect.md).
+> Eşitleme seçenekleri hakkında daha fazla bilgi için okuma [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](connect/active-directory-aadconnect.md).
 > 
 > 
 
@@ -51,22 +51,22 @@ Aşağıdaki tabloda, avantajları ve dezavantajları aşağıdaki stratejilerde
 
 | Stratejisi | Avantajları | Olumsuz yönleri |
 | --- | --- | --- |
-| **Bulut kimlikleri** |Küçük bir kuruluş için yönetilmesi daha kolay. <br> Hiçbir şey gerekli üzerinde-şirket içi-No ek donanım yüklemek için<br>Kullanıcının şirketten ayrılması durumunda kolayca devre dışı |Kullanıcıların oturum iş yüklerini bulutta erişirken açma gerekir <br> Parolalar olabilir veya Bulut ve şirket içi kimlikleri için aynı olamaz |
-| **Eşitlendi** |Şirket içi parola hem şirket içi kimlik doğrulaması ve bulut dizinlerinizin <br>Küçük, Orta veya büyük kuruluşlarda yönetilmesi daha kolay <br>Kullanıcıların bazı kaynaklar için çoklu oturum açma (SSO) olabilir <br> Eşitleme için tercih edilen Microsoft yöntemi <br> Yönetilmesi daha kolay |Bazı müşterilerin belirli şirketin Polis son bulut dizinlerine eşitlemek etme konusunda isteksiz olabilirsiniz |
-| **Federasyon** |Kullanıcılar, çoklu oturum açma (SSO) olabilir <br>Bir kullanıcı sonlandırılır veya bırakır, hesap hemen devre dışı bırakılabilir ve erişimi iptal,<br> Destekler Gelişmiş senaryoları, ile elde olamaz eşitlendi |Kurulum ve yapılandırma için daha fazla adımları <br> Daha yüksek bakım <br> STS altyapısı için ek donanım gerektirebilir <br> Federasyon sunucusunu yüklemek için ek donanım gerektirebilir. AD FS kullanılırsa, ek yazılım gereklidir <br> SSO için kapsamlı Kurulum gerektirir <br> Federasyon sunucusu kapalı olduğunda hata noktası kritik, kullanıcıların kimliğini doğrulamak doğrulayamazsınız. |
+| **Bulut kimlikleri** |Küçük bir kuruluş için yönetilmesi daha kolay. <br> Hiçbir şey gerekli üzerinde-şirket içi-No ek donanım yüklemek için<br>Kullanıcının şirketten ayrılması durumunda kolayca devre dışı |Kullanıcıların iş yüklerini bulutta erişirken oturum açmak gerekir <br> Parolalar olabilir veya Bulut ve şirket içi kimlikleri için aynı olamaz |
+| **Eşitlendi** |Şirket içi parola kimlik doğrulaması şirket içi ve bulut dizinleri <br>Küçük, Orta veya büyük kuruluşlar için yönetilmesi daha kolay <br>Kullanıcıların bazı kaynaklar için çoklu oturum açma (SSO) olabilir <br> Eşitleme için tercih edilen Microsoft yöntemi <br> Yönetilmesi daha kolay |Bazı müşterilerin belirli şirketin Polis son bulut dizinlerine eşitlemek etme konusunda isteksiz olabilirsiniz |
+| **Federasyon** |Kullanıcılar, çoklu oturum açma (SSO) olabilir <br>Bir kullanıcı sonlandırılır veya bırakır, hesap hemen devre dışı ve erişimi iptal<br> Gelişmiş ile elde edemiyor senaryoları destekler eşitlendi |Daha fazla adımları ayarlama ve yapılandırma <br> Daha yüksek bakım <br> STS altyapısı için ek donanım gerektirebilir <br> Federasyon sunucusunu yüklemek için ek donanım gerektirebilir. AD FS kullanılırsa, ek yazılım gereklidir <br> SSO için kapsamlı Kurulum gerektirir <br> Federasyon sunucusu kapalı olduğunda hata noktası kritik, kullanıcıların kimliğini doğrulamak doğrulayamazsınız. |
 
 ### <a name="client-experience"></a>Müşteri deneyimi
-Kullandığınız stratejisi oturum açma kullanıcı deneyimini benimsendiği belirler.  Aşağıdaki tablolarda, hangi kullanıcıların olması için oturum açma deneyimlerini beklemelisiniz hakkında bilgi sağlar.  Tüm Federasyon kimlik sağlayıcıları tüm senaryolarda SSO desteklediğini unutmayın.
+Kullandığınız stratejisi oturum açma kullanıcı deneyimini benimsendiği belirler.  Aşağıdaki tablolarda, hangi kullanıcıların olması için oturum açma deneyimlerini beklemelisiniz hakkında bilgi sağlar.  Tüm Federasyon kimlik sağlayıcıları tüm senaryolarda SSO'yu destekler.
 
 **Etki alanı ile birleşik ve özel ağ uygulamaları**:
 
 |  | Eşitlenen kimliği | Federal Kimlik |
 | --- | --- | --- |
-| Web tarayıcıları |Form tabanlı kimlik doğrulama |üzerinde bazen kuruluş kimliği sağlamak için gerekli çoklu oturum açma |
+| Web tarayıcıları |Form tabanlı kimlik doğrulama |Çoklu oturum açma bazen kuruluş kimliği sağlamak için gerekli özelliğini, |
 | Outlook |Kimlik bilgisi istemi |Kimlik bilgisi istemi |
-| Skype Kurumsal (Lync) |Kimlik bilgisi istemi |Çoklu oturum açma için Lync, Exchange için kimlik bilgileri istenir |
-| SkyDrive Pro |Kimlik bilgisi istemi |çoklu oturum açma |
-| Office aboneliği artı Pro |Kimlik bilgisi istemi |çoklu oturum açma |
+| Skype Kurumsal (Lync) |Kimlik bilgisi istemi |Çoklu oturum açma Lync için kimlik bilgileri değişimi için istenir. |
+| SkyDrive Pro |Kimlik bilgisi istemi |Çoklu oturum açma |
+| Office aboneliği artı Pro |Kimlik bilgisi istemi |Çoklu oturum açma |
 
 **Dış veya güvenilmeyen kaynaklardan**:
 
@@ -74,23 +74,23 @@ Kullandığınız stratejisi oturum açma kullanıcı deneyimini benimsendiği b
 | --- | --- | --- |
 | Web tarayıcıları |Form tabanlı kimlik doğrulama |Form tabanlı kimlik doğrulama |
 | Outlook, Skype Kurumsal (Lync) Skydrive Pro, Office Aboneliği |Kimlik bilgisi istemi |Kimlik bilgisi istemi |
-| Exchange ActiveSync |Kimlik bilgisi istemi |Çoklu oturum açma için Lync, Exchange için kimlik bilgileri istenir |
+| Exchange ActiveSync |Kimlik bilgisi istemi |Çoklu oturum açma Lync için kimlik bilgileri değişimi için istenir. |
 | Mobil uygulamalar |Kimlik bilgisi istemi |Kimlik bilgisi istemi |
 
-Görev 1 bir Azure AD ile Federasyon sağlamak için kullanmak üzere IDP veya olan giderek taraf 3 olduğunu belirlediyseniz, aşağıdaki desteklenen yeteneklerini bilmeniz gerekir:
+Görev 1 bir Azure AD ile Federasyon sağlamak için kullanmak üzere bir üçüncü taraf IDP veya olan giderek olduğunu belirlediyseniz, aşağıdaki desteklenen yeteneklerini bilmeniz gerekir:
 
-* SP Lite profili Azure ad kimlik doğrulama destekleyebilir ve ilişkili uygulamalar için uyumlu olan tüm SAML 2.0 sağlayıcısı
-* OWA, SPO vb. auth kolaylaştıran pasif kimlik doğrulamasını destekler.
+* SP Lite profilini uyumlu herhangi bir SAML 2.0 sağlayıcısına Azure ad kimlik doğrulama destekleyebilir ve ilişkili uygulamalar
+* OWA, SPO vb. için kimlik doğrulamayı kolaylaştıran pasif kimlik doğrulamasını destekler.
 * Exchange Online istemcileri SAML 2.0 Gelişmiş istemci profili (ECP aracılığıyla) desteklenebilir
 
 Ayrıca hangi özellikleri kullanılamaz olarak haberdar olmanız gerekir:
 
-* WS-Güven/Federasyon desteği olmadan, tüm etkin istemciler çalışmamasına neden olur
+* WS-Güven/Federasyon desteği olmadan, tüm etkin istemciler bölün
   * Hiçbir Lync istemcisi, OneDrive istemcisi, Office aboneliği, Office 2016 önce Office Mobile anlamına
-* Office geçiş pasif kimlik doğrulama için saf SAML 2.0 IdPs desteklemek için onlara izin verir, ancak destek bir istemci istemci temelinde olmaya devam eder
+* Office geçiş pasif kimlik doğrulama için bunları saf SAML 2.0 IdPs desteklemek verir, ancak bir istemci istemci temelinde desteği devam edebilir
 
 > [!NOTE]
-> En güncel listesi için makale http://aka.ms/ssoproviders okuyun.
+> En güncel listesi için makale https://aka.ms/ssoproviders okuyun.
 > 
 > 
 
@@ -108,7 +108,7 @@ Yıllar içinde birkaç eşitleme araçları sahip ve mevcut olan çeşitli sena
 ### <a name="supported-topologies"></a>Desteklenen topolojiler
 Bir eşitleme stratejinizi tanımlarken kullanılır topoloji belirlenmesi gerekir. Adımda belirlendi bilgileri bağlı olarak, 2 hangi topolojisi kullanmak için uygun olduğunu belirleyebilirsiniz. Tek tek orman Azure AD topoloji yaygın olarak kullanılır ve tek bir Active Directory ormanı ve Azure AD tek bir örneğini oluşur.  Bu Çoğunluk senaryolarda kullanılacak giderek ve beklenen topolojisi aşağıdaki çizimde gösterildiği gibi Azure AD Connect Express yüklemesi kullanırken.
 
-![](./media/hybrid-id-design-considerations/single-forest.png)Tek orman, Şekil 5'te gösterildiği gibi birden çok orman bile küçük ve büyük kuruluşlar için yaygın senaryodur.
+![](./media/hybrid-id-design-considerations/single-forest.png) Tek orman senaryo Şekil 5'te gösterildiği gibi birden çok orman bile küçük ve büyük kuruluşlar için yaygın bir sorundur.
 
 > [!NOTE]
 > Eşitleme şirket içi ve Azure AD Connect ile Azure AD topolojileri hakkında daha fazla bilgi için makaleyi okuyun [Azure AD Connect için topolojiler](connect/active-directory-aadconnect-topologies.md).
@@ -159,7 +159,7 @@ Bunu aşağıdakileri yapmak için true olması gerekir:
   * Grup geri yazma varsayılan yapılandırmaya sahip
   * Cihaz geri yazma
 
-Aşağıdakiler desteklenmez ve bir uygulama seçilmelidir değil unutmayın:
+Aşağıdakiler desteklenmez ve bir uygulama seçilmelidir değil:
 
 * Birbirini dışlayan nesne kümesini eşitlemek için yapılandırılmış olsa bile aynı Azure AD dizinine bağlanma birden çok Azure AD Connect eşitleme sunucusu için desteklenmiyor
 * Aynı kullanıcıya birden çok Azure AD dizinlerinden eşitlemek için desteklenmiyor. 
@@ -173,7 +173,7 @@ Aşağıdakiler desteklenmez ve bir uygulama seçilmelidir değil unutmayın:
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Çok faktörlü kimlik doğrulaması stratejisini tanımlayın
-Bu görevde kullanmak için çok faktörlü kimlik doğrulaması stratejisini tanımlayacaksınız.  Azure multi-Factor Authentication iki farklı sürümde gelir.  Bir bulut tabanlı ve diğer şirket içi tabanlı Azure MFA sunucusu kullanarak.  Değerlendirmeye dayanarak, stratejinizi için doğru bir çözümdür belirleyebilirsiniz.  Tasarım seçeneği, şirketinizin güvenlik gereksinimi karşılamak belirlemek için aşağıdaki tabloyu kullanın:
+Bu görevde kullanmak için çok faktörlü kimlik doğrulaması stratejisini tanımlayacaksınız.  Azure multi-Factor Authentication iki farklı sürümü bulunur.  Bir bulut tabanlı ve diğer şirket içi tabanlı Azure MFA sunucusu kullanarak.  Değerlendirmeye dayanarak, stratejinizi için doğru bir çözümdür belirleyebilirsiniz.  Tasarım seçeneği, şirketinizin güvenlik gereksinimi karşılayan belirlemek için aşağıdaki tabloyu kullanın:
 
 Çok faktörlü tasarım seçenekleri:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: e6795f09e275f9fcd38000d48710560244abc11d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bbc548ff7394ebdf158d8040eb8e188de951be2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Zamanlama ve yayın işleri (.NET/Node.js)
 
@@ -80,6 +80,7 @@ Bu bölümde, işleri çağırmak için kullanır (C# kullanarak) bir .NET konso
 1. Aşağıdakileri ekleyin `using` deyimi yoksa varsayılan deyimlerinde.
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     ```
 
@@ -163,7 +164,7 @@ Bu bölümde, işleri çağırmak için kullanır (C# kullanarak) bir .NET konso
     Console.ReadLine();
     ```
 
-1. Çözüm Gezgini'nde açık **başlangıç projelerini Ayarla...**  ve emin olun **eylem** için **ScheduleJob** projedir **Başlat**. Çözümü oluşturun.
+1. Çözüm Gezgini'nde açık **başlangıç projelerini Ayarla...**  ve emin olun **eylem** için **ScheduleJob** projedir **Başlat**. Çözümü derleyin.
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 

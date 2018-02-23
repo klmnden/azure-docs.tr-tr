@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Azure IOT kenar çalışma zamanı ve mimarisini anlama - Önizleme
 
@@ -64,14 +64,18 @@ Edge Hub modül için modülü iletişimi kolaylaştırır. İleti Aracısı Edg
 
 Edge hub'ına veri göndermek için bir modül SendEventAsync yöntemini çağırır. İlk bağımsız değişken ileti göndermek için hangi çıkış belirtir. Aşağıdaki yarı kodu output1 üzerinde bir ileti gönderir:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 Bir ileti almak için belirli bir giriş, gelen iletileri işleyen bir geri çağırma kaydedin. Aşağıdaki yarı kodu üzerinde input1 alınan tüm iletileri işlemek için kullanılacak işlevi messageProcessor kaydeder:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 Çözüm Geliştirici kenar hub iletileri modülleri arasında nasıl geçirir belirleyen kuralları belirtmek için sorumludur. Yönlendirme kuralları bulutta tanımlanır ve cihaz çiftine kenar hub'ına gönderilen. IOT hub'ı rotalar için aynı sözdizimini Azure IOT kenar modülleri arasında rotaları tanımlamak için kullanılır. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   
@@ -86,7 +90,7 @@ Edge Aracısı yürütülmesi başlamak için azure-IOT-edge-çalışma zamanı-
 
 Modülleri sözlükteki her öğe bir modül hakkında belirli bilgiler içerir ve kenar aracı tarafından modülün yaşam döngüsü denetlemek için kullanılır. Daha ilginç özelliklerden bazıları şunlardır: 
 
-* **Settings.image** – kapsayıcı görüntünün modülü başlatmak için sınır Aracısı'nı kullanır. Görüntünün bir parolayla korunuyorsa kenar Aracısı kapsayıcı kayıt defteri için kimlik bilgileri ile yapılandırılması gerekir. Edge aracısını yapılandırmak için aşağıdaki komutu kullanın:`azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.image** – kapsayıcı görüntünün modülü başlatmak için sınır Aracısı'nı kullanır. Görüntünün bir parolayla korunuyorsa kenar Aracısı kapsayıcı kayıt defteri için kimlik bilgileri ile yapılandırılması gerekir. Edge aracısını yapılandırmak için aşağıdaki komutu kullanın: `azure-iot-edge-runtime-ctl.py –configure`
 * **settings.createOptions** – doğrudan Docker daemon bir modülün kapsayıcısı başlatılırken geçirilen bir dize. Bu özellik Docker seçenekleri ekleme iletme veya bir modülün kapsayıcıya birimleri bağlama bağlantı noktası gibi gelişmiş seçenekler sağlar.  
 * **Durum** – kenar Aracısı Modülü yerleştirir durumu. Bu değer genellikle ayarlamak *çalıştıran* tüm modülleri cihazda hemen başlatmak için sınır Aracısı çoğu kişi istediğiniz şekilde. Ancak, bir modül başlatmak için sınır Aracısı bildirmek gelecekteki bir süre bekleyin ve durdurulması bir modül ilk durumunu belirtebilirsiniz. Edge Aracısı her modül durumunu bildirilen özelliklerinde buluta geri raporlar. İstenen özelliği ve bildirilen özelliği arasında bir fark bir gösterge veya hatalı davranan bir aygıtı değil. Desteklenen durumlar şunlardır:
    * İndiriliyor

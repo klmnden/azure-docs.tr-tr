@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Şirket içinden Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -72,17 +72,17 @@ Aşağıdaki tabloda, Azure Site Recovery kullanırken çeşitli dağıtım sena
 
 >[!NOTE]
 >
-> \*Windows Server 2016 Nano Server desteklenmiyor.
+> \* Windows Server 2016 Nano Server desteklenmiyor.
 >
 > Linux dağıtımları üzerinde ikincil sürüm yayın/güncelleştirme dağıtımının bir parçası olan stok tekrar desteklenir.
 >
 > Linux dağıtım noktasında bir Azure Site Recovery ana sürümleri arasında yükseltme VMware sanal makinesi korumalı veya fiziksel sunucu desteklenmiyor. Yükseltilirken işletim sistemi ana sürümleri (örneğin CentOS 7.* için CentOS 6.*) arasında makinesi için çoğaltma devre dışı bırakmak, makinedeki işletim sistemini yükseltme ve çoğaltma işlemini yeniden etkinleştirin.
-> 
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/fiziksel sunucular için desteklenen Ubuntu çekirdek sürümleri
 
-**Sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
+**Sürüm** | **Mobility hizmeti sürümü** | Çekirdek sürümü |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic 3.13.0-121-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-81-generic 4.4.0-21-Generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic 3.13.0-128-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-91-generic 4.4.0-21-Generic |
@@ -134,7 +134,7 @@ Multi-NIC | Evet | Evet
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Başarısız üzerinden Azure VM ağ yapılandırması
 
-**Azure ağı** | **VMware/fiziksel sunucu** | **Hyper-V (ile arama/olmadan Sanal Makine Yöneticisi)**
+Azure ağı | **VMware/fiziksel sunucu** | **Hyper-V (ile arama/olmadan Sanal Makine Yöneticisi)**
 --- | --- | ---
 Express Route | Evet | Evet
 ILB | Evet | Evet
@@ -166,7 +166,7 @@ SAN (ISCSI) | Evet | Evet
 VMDK | Evet | Yok
 VHD/VHDX | Yok | Evet
 Gen 2 VM | Yok | Evet
-EFI/UEFI| Azure için Windows Server 2012 ve daha sonra yalnızca geçiş. </br></br> ** Tablonun sonundaki nota bakın.  | Evet
+EFI/UEFI| Windows Server 2012 için Azure ve sonraki VMware sanal makineleri yalnızca geçiş. </br></br> ** Tablonun sonundaki nota bakın.  | Evet
 Küme diskini paylaşılan | Hayır | Hayır
 Şifrelenmiş disk | Hayır | Hayır
 NFS | Hayır | Yok
@@ -182,10 +182,11 @@ Diski hariç tutma | Evet | Evet
 Çok yollu (MPIO) | Yok | Evet
 
 > [!NOTE]
-> ** UEFI VMware sanal makineleri veya fiziksel sunucular Windows Server 2012 çalıştıran önyükleme veya daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir.
+> ** UEFI VMware sanal makineleri Windows Server 2012 çalıştıran önyükleme veya daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir.
 > - Yalnızca Azure geçiş. Yeniden çalışma için şirket içi VMware sitesi desteklenmiyor.
 > - En fazla 4 bölümleri sunucu işletim sistemi disk üzerinde desteklenir.
 > - Azure Site Recovery Mobility hizmeti sürümü 9.13 veya üstü gerektirir.
+> - Fiziksel sunucuları için desteklenmez.
 
 **Azure depolama alanı** | **VMware/fiziksel sunucu** | **Hyper-V (ile arama/olmadan Sanal Makine Yöneticisi)**
 --- | --- | ---
@@ -214,9 +215,9 @@ Yönetilen diskler | Evet | Evet<br/><br/>Şirket içi yeniden çalışma yönet
 
 Azure tarafından desteklenen herhangi bir işletim sistemi çalıştıran sanal makineleri ve fiziksel sunucuları çoğaltmak için Site Recovery’yi dağıtabilirsiniz. Buna çoğu Windows ve Linux sürümü dahildir. Çoğaltmak istediğiniz sanal makineleri Azure'a çoğaltılırken aşağıdaki Azure gereksinimlere uymalıdır şirket içi.
 
-**Varlık** | **Gereksinimleri** | **Ayrıntılar**
+**Varlık** | Gereksinimleri | **Ayrıntılar**
 --- | --- | ---
-**Konuk işletim sistemi** | Hyper-V Azure çoğaltma: Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware ve fiziksel sunucu çoğaltma için: Windows ve Linux denetleyin [önkoşulları](site-recovery-vmware-to-azure-classic.md) | Önkoşul denetimi desteklenmeyen başarısız olur.
+Konuk işletim sistemi | Hyper-V Azure çoğaltma: Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware ve fiziksel sunucu çoğaltma için: Windows ve Linux denetleyin [önkoşulları](site-recovery-vmware-to-azure-classic.md) | Önkoşul denetimi desteklenmeyen başarısız olur.
 **Konuk işletim sistemi mimarisi** | 64 bit | Önkoşul denetimi desteklenmeyen başarısız olur
 **İşletim sistemi disk boyutu** | 2048 çoğaltma yapıyorsanız GB'a kadar **VMware Vm'lerini veya fiziksel sunucuları azure'a**.<br/><br/>İçin fazla 2048 GB **Hyper-V nesil 1** VM'ler.<br/><br/>Fazla için 300 GB **Hyper-V 2. nesil sanal makineleri**.  | Önkoşul denetimi desteklenmeyen başarısız olur
 **İşletim sistemi disk sayısı** | 1 | Önkoşul denetimi desteklenmeyen başarısız olur.
@@ -224,10 +225,10 @@ Azure tarafından desteklenen herhangi bir işletim sistemi çalıştıran sanal
 **Veri diski VHD boyutu** | 4095 GB'a kadar | Önkoşul denetimi desteklenmeyen başarısız olur
 **Ağ bağdaştırıcıları** | Birden çok bağdaştırıcı desteklenir |
 **Paylaşılan VHD** | Desteklenmiyor | Önkoşul denetimi desteklenmeyen başarısız olur
-**FC disk** | Desteklenmiyor | Önkoşul denetimi desteklenmeyen başarısız olur
-**Sabit disk biçimi** | VHD <br/><br/> VHDX | VHDX şu anda Azure'da desteklenmiyor olsa da, Site Recovery, Azure'a yük otomatik olarak VHDX VHD'ye dönüştürür. Geri şirket içi başarısız olduğunda sanal makineler VHDX biçimini kullanacak şekilde devam eder.
+**FC diski** | Desteklenmiyor | Önkoşul denetimi desteklenmeyen başarısız olur
+**Sabit disk biçimi** | VHD <br/><br/> VHDX | VHDX şu anda Azure’da desteklenmiyor olsa da, Site Recovery Azure’a yük devrettiğinizde VHDX’i otomatik olarak VHD’ye dönüştürür. Geri şirket içi başarısız olduğunda sanal makineler VHDX biçimini kullanacak şekilde devam eder.
 **Bitlocker** | Desteklenmiyor | Bir sanal makine korumadan önce BitLocker'ı devre dışı bırakılmalıdır.
-**VM adı** | 1 ile 63 karakter. Harf, rakam ve kısa çizgi için kısıtlanmış. VM adı başlamalı ve bir harf veya sayı ile bitmelidir. | Site Recovery sanal makine özelliklerinde değeri güncelleştirin.
+**VM adı** | 1-63 karakter. Harfler, sayılar ve kısa çizgilerden oluşabilir. VM adı bir harf veya sayıyla başlamalı ve bitmelidir. | Site Recovery sanal makine özelliklerinde değeri güncelleştirin.
 **VM türü** | 1. nesil<br/><br/> Nesil 2--Windows | 2. nesil sanal makineleri (VHDX biçimlendirilmiş bir veya iki veri birimlerini içeren) temel bir işletim sistemi disk türüne sahip ve 300 GB disk alanı daha az desteklenir.<br></br>Linux nesil 2 sanal makineleri desteklenmez. [Daha fazla bilgi](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="support-for-recovery-services-vault-actions"></a>Kurtarma Hizmetleri kasası eylemler için destek

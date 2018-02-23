@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
 Bu konuda, BT yöneticileri, ayarları ve uygulama veri eşitleme hakkında olabilir bazı sorular yanıtlanmaktadır.
@@ -80,7 +80,7 @@ Birden çok Azure AD farklı hesaplarını Azure AD kiracılarıyla aynı cihaza
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Var olan Windows Masaüstü uygulamaları için Dolaşım ayarları seçenekleri nelerdir?
 Dolaşım, yalnızca evrensel Windows uygulamaları için çalışır. Varolan bir Windows Masaüstü uygulama gezici etkinleştirmek için kullanılabilen iki seçenek vardır:
 
-* [Masaüstü köprüsü](http://aka.ms/desktopbridge) var olan Windows Masaüstü uygulamalarınızı Evrensel Windows platformu getirmenize yardımcı olur. Buradan, kodda minimum düzeyde değişiklik Azure AD uygulama verileri dolaşımı avantajlarından yararlanmak için gerekli olacaktır. Masaüstü köprüsü uygulamalarınızı varolan Masaüstü uygulamaları için gezici uygulama verilerini etkinleştirmek için gereken bir uygulama kimliği ile sağlar.
+* [Masaüstü köprüsü](https://aka.ms/desktopbridge) var olan Windows Masaüstü uygulamalarınızı Evrensel Windows platformu getirmenize yardımcı olur. Buradan, kodda minimum düzeyde değişiklik Azure AD uygulama verileri dolaşımı avantajlarından yararlanmak için gerekli olacaktır. Masaüstü köprüsü uygulamalarınızı varolan Masaüstü uygulamaları için gezici uygulama verilerini etkinleştirmek için gereken bir uygulama kimliği ile sağlar.
 * [Kullanıcı deneyimi sanallaştırma (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) , var olan Windows Masaüstü uygulamaları için özel ayarlar şablonu oluşturmak ve Win32 uygulamaları için dolaşımını etkinleştir yardımcı olur. Bu seçenek uygulamanın kodunu değiştirmek uygulama geliştiricisi gerektirmez. UE-V, Microsoft Masaüstü iyileştirme paketi satın alan müşteriler için şirket içi Active Directory için gezici sınırlıdır.
 
 Yöneticiler, Windows Masaüstü uygulama verileri, Windows işletim sistemi ayarları ve evrensel uygulama verilerine gezici değiştirerek dolaşıma UE-V yapılandırabilir [UE-V grup ilkeleri](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2)dahil:

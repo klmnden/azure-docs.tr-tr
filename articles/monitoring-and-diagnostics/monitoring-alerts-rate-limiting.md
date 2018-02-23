@@ -1,7 +1,7 @@
 ---
 title: "Oran SMS, e-postalar, Azure uygulaması anında iletme bildirimleri ve Web kancası için sınırlama | Microsoft Docs"
 description: "Azure olası SMS, e-posta, bir eylem grubundan Azure uygulaması anında iletme veya Web kancası bildirimler sayısını nasıl sınırlar anlayın."
-author: dukek
+author: dkamstra
 manager: chrad
 editor: 
 services: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/8/2017
+ms.date: 2/16/2018
 ms.author: dukek
-ms.openlocfilehash: c76bf5cf51f18a32b33060d528c64d119e31dbbd
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a4f97cc79945d266edd0af577e37fc9da2aa97bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="rate-limiting-for-sms-messages-emails-azure-app-push-notifications-and-webhook-posts"></a>SMS iletileri, e-postalar, Azure uygulaması anında iletme bildirimleri ve Web kancası için gönderileri sınırlama oranı
 Hız sınırlaması belirli telefon numarası, e-posta adresi veya aygıt çok fazla bildirimler gönderildiğinde oluşan bildirimleri ertelenmesi olur. Hız sınırlaması uyarıları yönetilebilir ve kullanılabilir olmasını sağlar.
@@ -26,13 +26,13 @@ Hız sınırlaması belirli telefon numarası, e-posta adresi veya aygıt çok f
 Hızı sınırı eşikler şunlardır:
 
  - **SMS**: 1'den fazla SMS her 5 dakikada bir.
- - **E-posta**: 100 iletileri bir saat içinde.
- - **Azure uygulaması anında iletme bildirimleri**: anında iletme bildirimleri için sınırlama kuru yoktur.
- - **Web kancası**: Web kancası için sınırlama kuru yoktur.
+ - **E-posta**: 100'den fazla e-postaların bir saat içinde.
+ 
+ Diğer Eylemler oranı sınırlı değildir.
 
 ## <a name="rate-limit-rules"></a>Hızı sınırı kuralları
 - Belirli bir telefon numarası veya e-posta eşiği izin verdiğinden daha fazla ileti aldığında sınırlı hızıdır.
-- Bir telefon numarası veya e-posta çok sayıda abonelikleri eylem gruplarının bir parçası olabilir. Hız sınırlaması abonelikler arasında geçerlidir. Eşiğe ulaşan hemen birden çok aboneliklerden gönderilen iletileri olsa bile geçerlidir.  
+- Bir telefon numarası veya e-posta çok sayıda abonelikleri eylem gruplarının bir parçası olabilir. Hız sınırlaması abonelikler arasında geçerlidir. Eşiğe ulaşan hemen birden çok aboneliklerden gönderilen iletileri olsa bile geçerlidir.
 - Bir e-posta adresi oranı sınırlı olduğunda, hız sınırlaması iletişim kurmak için başka bir bildirim gönderilir. Hız sınırlaması sona erdiğinde bildirim durumları.
 
 ## <a name="next-steps"></a>Sonraki adımlar ##

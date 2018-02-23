@@ -1,6 +1,6 @@
 ---
 title: "System Center Operations Manager ile hizmet Haritası tümleştirme | Microsoft Docs"
-description: "Hizmet eşlemesi otomatik olarak sistemlerde, Windows ve Linux uygulama bileşenleri bulur ve Hizmetleri arasındaki iletişimi eşleyen bir Operations Management Suite çözümüdür. Bu makalede dağıtılmış uygulama diyagramları Operations Manager'da otomatik olarak oluşturmak için hizmet eşlemesi kullanarak anlatılmaktadır."
+description: "Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulan ve hizmetler arasındaki iletişimi eşleyen bir Azure çözümüdür. Bu makalede dağıtılmış uygulama diyagramları Operations Manager'da otomatik olarak oluşturmak için hizmet eşlemesi kullanarak anlatılmaktadır."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 906a90acb8754ff4b70235256cd184e2611ff5a0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager ile hizmet Haritası tümleştirme
   > [!NOTE]
   > Bu özellik genel önizlemede değil.
   > 
   
-Operations Management Suite hizmet Haritası otomatik olarak sistemlerde, Windows ve Linux uygulama bileşenleri bulur ve Hizmetleri arasındaki iletişimi eşler. Hizmet eşlemesi, bunları, kritik hizmet sunmak birbirine bağlı sistemler olarak düşünme yolu sunucularınızı görüntülemenizi sağlar. Hizmet eşlemesi herhangi TCP bağlı mimarisi yanı sıra bir aracının yüklenmesi gereken herhangi bir yapılandırma boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir. Daha fazla bilgi için bkz: [hizmet Haritası belgelerine](operations-management-suite-service-map.md).
+Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi, bunları, kritik hizmet sunmak birbirine bağlı sistemler olarak düşünme yolu sunucularınızı görüntülemenizi sağlar. Hizmet eşlemesi herhangi TCP bağlı mimarisi yanı sıra bir aracının yüklenmesi gereken herhangi bir yapılandırma boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir. Daha fazla bilgi için bkz: [hizmet Haritası belgelerine](operations-management-suite-service-map.md).
 
 İle tümleştirme arasında hizmet Haritası ve System Center Operations Manager, Operations Manager'da, hizmet eşlemesinde dinamik bağımlılık eşlemeleri temel alan dağıtılmış uygulama diyagramları otomatik olarak oluşturabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Bir Operations Manager yönetim grubu (2012 R2 veya sonrası) sunucular kümesi yönetme.
-* Bir Operations Management Suite çalışma alanı etkin hizmet Haritası çözümle.
+* Günlük analizi çalışma alanı etkin hizmet Haritası çözümle.
 * Operations Manager ve hizmet eşlemesi için verileri gönderilirken tarafından yönetilen sunucular kümesi (en az bir tane). Windows ve Linux sunucuları desteklenir.
-* Operations Management Suite çalışma alanı ile ilişkili Azure abonelik erişimi olan bir hizmet sorumlusu. Daha fazla bilgi için Git [bir hizmet sorumlusu oluşturma](#creating-a-service-principal).
+* Günlük analizi çalışma alanı ile ilişkili Azure abonelik erişimi olan bir hizmet sorumlusu. Daha fazla bilgi için Git [bir hizmet sorumlusu oluşturma](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Hizmet eşlemesi Yönetimi paketini yükleyin
 Operations Manager ile hizmet Haritası arasında tümleştirme Microsoft.SystemCenter.ServiceMap Yönetim Paketi (Microsoft.SystemCenter.ServiceMap.mpb) alarak etkinleştirin. Yönetim Paketi karşıdan yükleyebileceğiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55763). Paket aşağıdaki yönetim paketlerini içerir:
 * Microsoft hizmet eşlemesi uygulama görünümleri
 * Microsoft System Center hizmet Haritası iç
 * Microsoft System Center hizmeti harita geçersiz kılmaları
-* Microsoft System Center hizmet eşlemesi
+* Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>Hizmet eşlemesi tümleştirmesini yapılandırma
 Hizmet eşlemesi Yönetim Paketi, yeni bir düğüm yükledikten sonra **hizmet Haritası**, altında görüntülenen **Operations Management Suite** içinde **Yönetim** bölmesi. 
@@ -55,7 +55,7 @@ Hizmet eşlemesi tümleştirmesini yapılandırmak için aşağıdakileri yapın
 
     ![Bağlantı Yapılandırması penceresi](media/oms-service-map/scom-config-spn.png)
 
-3. İçinde **abonelik seçimi** penceresinde, Azure abonelik, Azure kaynak grubu (Operations Management Suite çalışma alanı içeren bir) ve Operations Management Suite çalışma alanı seçin ve ardından**Sonraki**.
+3. İçinde **abonelik seçimi** penceresinde, Azure abonelik, Azure kaynak grubu (günlük analizi çalışma alanı içeren bir) ve günlük analizi çalışma alanı seçin ve ardından **sonraki**.
 
     ![Operations Manager yapılandırma çalışma alanı](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,22 +73,22 @@ Hizmet eşlemesi tümleştirmesini yapılandırmak için aşağıdakileri yapın
 
     ![Operations Manager Yapılandırma grubu](media/oms-service-map/scom-config-group.png)
 
-6. İsteğe bağlı: Operations Management Suite ile iletişim kurmak için yönetim sunucusu kaynak havuzu seçin ve ardından **çalışma alanı Ekle**.
+6. İsteğe bağlı: Günlük analizi ile iletişim kurmak için yönetim sunucusu kaynak havuzu seçin ve ardından **çalışma alanı Ekle**.
 
     ![Operations Manager yapılandırma kaynak havuzu](media/oms-service-map/scom-config-pool.png)
 
-    Yapılandırmak ve Operations Management Suite çalışma alanı kaydetmek için bir dakika sürebilir. Bunu yapılandırıldıktan sonra Operations Manager Operations Management Suite ilk hizmet Haritası eşitlemenin başlatır.
+    Yapılandırmak ve günlük analizi çalışma alanı kaydetmek için bir dakika sürebilir. Bunu yapılandırıldıktan sonra Operations Manager ilk hizmet Haritası eşitleme başlatır.
 
     ![Operations Manager yapılandırma kaynak havuzu](media/oms-service-map/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>İzleyici hizmet eşlemesi
-Operations Management Suite çalışma bağlandıktan sonra yeni bir klasör, hizmet Haritası görüntülenen **izleme** Operations Manager Konsolu bölmesi.
+Günlük analizi çalışma alanı bağlandıktan sonra yeni bir klasör, hizmet Haritası görüntülenen **izleme** Operations Manager Konsolu bölmesi.
 
 ![Operations Manager izleme bölmesi](media/oms-service-map/scom-monitoring.png)
 
 Hizmet eşlemesi klasörü dört düğüm vardır:
-* **Etkin uyarılar**: tüm etkin uyarıları Operations Manager ve hizmet eşlemesi arasındaki iletişimle ilgili listeler.  Bu uyarılar için Operations Manager eşitlenmiş Operations Management Suite uyarıları olmadığına dikkat edin. 
+* **Etkin uyarılar**: tüm etkin uyarıları Operations Manager ve hizmet eşlemesi arasındaki iletişimle ilgili listeler.  Bu uyarılar olmayan Not Operations Manager'a eşitlenmiş günlük analizi uyarır. 
 
 * **Sunucuları**: yapılandırılmış izlenen sunucuları listeler hizmet eşlemesinden eşitlenecek.
 
@@ -103,12 +103,12 @@ Hizmet eşlemesi klasörü dört düğüm vardır:
     ![Operations Manager dağıtılmış uygulama diyagramı](media/oms-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Düzenleme veya çalışma alanını silme
-Düzenleme veya yapılandırılmış çalışma alanını kullanarak silme **hizmet eşlemesi genel bakış** bölmesinde (**Yönetim** bölmesinde > **Operations Management Suite**  >  **Hizmet eşlemesi**). Şu an için yalnızca bir Operations Management Suite çalışma yapılandırabilirsiniz.
+Düzenleme veya yapılandırılmış çalışma alanını kullanarak silme **hizmet eşlemesi genel bakış** bölmesinde (**Yönetim** bölmesinde > **Operations Management Suite**  >  **Hizmet eşlemesi**). Şu an için yalnızca bir günlük analizi çalışma alanı yapılandırabilirsiniz.
 
 ![Operations Manager çalışma alanını Düzenle bölmesi](media/oms-service-map/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>Kuralları ve geçersiz kılmalar yapılandırın
-Bir kural _Microsoft.SystemCenter.ServiceMapImport.Rule_, düzenli olarak bilgi hizmeti eşlemesinden getirmek için oluşturulur. Eşitleme zamanlamalarını değiştirmek için geçersiz kılmaları kural yapılandırabilirsiniz (**yazma** bölmesinde > **kuralları** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) .
+A rule, _Microsoft.SystemCenter.ServiceMapImport.Rule_, is created to periodically fetch information from Service Map. Eşitleme zamanlamalarını değiştirmek için geçersiz kılmaları kural yapılandırabilirsiniz (**yazma** bölmesinde > **kuralları** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) .
 
 ![Operations Manager geçersiz kılan özellikler penceresi](media/oms-service-map/scom-overrides.png)
 
@@ -120,7 +120,7 @@ Bir kural _Microsoft.SystemCenter.ServiceMapImport.Rule_, düzenli olarak bilgi 
 ## <a name="known-issues-and-limitations"></a>Bilinen sorunlar ve sınırlamalar
 
 Geçerli tasarım, aşağıdaki sorunlar ve sınırlamalar sunar:
-* Yalnızca tek bir Operations Management Suite çalışma alanına bağlanabilir.
+* Yalnızca tek bir günlük analizi çalışma alanına bağlanabilir.
 * Hizmet eşlemesi sunucuları grubu için el ile sunucuları ekleyebilseniz **yazma** bölmesinde, bu sunucular için eşlemeleri olmayan eşitlenen hemen.  Bunlar sonraki eşitleme döngüsü sırasında hizmet eşlemesinden eşitlenir.
 * Dağıtılmış uygulama Yönetim Paketi tarafından oluşturulan diyagramları için herhangi bir değişiklik yaparsanız, bu değişiklikleri olasılıkla hizmet eşlemesi ile sonraki eşitleme üzerinde üzerine yazılır.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 30ed7c2f9a65f66d9d45b1bdd5be2957cfe1d08a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Farklı Çalıştır hesaplarıyla Otomasyon hesabı kimlik doğrulamasını güncelleştirme 
 Mevcut Otomasyon hesabınızı Azure portalından güncelleştirebilir veya aşağıdaki durumlarda PowerShell kullanabilirsiniz:
@@ -49,7 +49,7 @@ Mevcut Otomasyon hesabınızı Azure portalından güncelleştirebilir veya aşa
 
 Betik parametreleri için gerekli olan *SubscriptionID*, *ResourceGroup* ve *AutomationAccountName* değerlerini almak için aşağıdakileri yapın:
 
-1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Otomasyon** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Automation Hesapları**’nı seçin.
+1. Azure portalında tıklatın **tüm hizmetleri**. Kaynak listesinde **Otomasyon** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Automation Hesapları**’nı seçin.
 2. Otomasyon hesap sayfasında Otomasyon hesabınızı seçin ve ardından **Hesap Ayarları** altında **Özellikler**’i seçin.  
 3. **Özellikler** sayfasındaki değerleri not alın.<br><br> ![Otomasyon hesabı "Özellikler" dikey penceresi](media/automation-create-runas-account/automation-account-properties.png)  
 
@@ -65,7 +65,7 @@ Aboneliğin genel yönetici/ortak yönetici rolüne eklenmeden önce aboneliğin
 Bu bölümde, Azure portalında Azure Otomasyonu hesabınızı güncelleştirmek için aşağıdaki adımları uygulayın.  Farklı Çalıştır ve Klasik Farklı Çalıştır hesaplarını ayrı ayrı oluşturabilirsiniz. Klasik kaynak oluşturmanıza gerek yoksa yalnızca Azure Farklı Çalıştır hesabını oluşturabilirsiniz.  
 
 1. Azure portalında Abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.
-2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Otomasyon** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Automation Hesapları**’nı seçin.
+2. Azure portalında tıklatın **tüm hizmetleri**. Kaynak listesinde **Otomasyon** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Automation Hesapları**’nı seçin.
 3. **Otomasyon Hesapları** sayfasındaki Otomasyon hesapları listesinden Otomasyon hesabınızı seçin.
 4. Sol bölmedeki **Hesap Ayarları** bölümünde **Farklı Çalıştır Hesapları**'nı seçin.  
 5. Gereken hesaba bağlı olarak **Azure Farklı Çalıştır Hesabı**’nı veya **Azure Klasik Farklı Çalıştır Hesabı**’nı seçin.  Seçim sonrasında **Azure Farklı Çalıştır Ekle** veya **Azure Klasik Farklı Çalıştır Hesabı Ekle** bölmesi görüntülenir ve genel bakış bilgilerini gözden geçirdikten sonra Farklı Çalıştır hesabı oluşturma işlemine devam etmek için **Oluştur**’a tıklamanız gerekir.  

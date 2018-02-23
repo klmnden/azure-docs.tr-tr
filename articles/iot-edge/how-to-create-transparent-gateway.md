@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3621cb860339499089ebdf3c3581faf770f1fe3
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0ea4d8ec51211f1208083d3f93c3c100dc54e6b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Saydam bir ağ geçidi olarak davranan bir IOT sınır cihazı oluşturma - Önizleme
 
@@ -63,7 +63,7 @@ Powershell örneği kullanabilirsiniz ve Bash betiklerini açıklanan [yönetme 
 
 1. Microsoft Azure IOT SDK'ları ve kitaplıklarını github'dan c kopyalama:
 
-   ```
+   ```cmd/sh
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
    ```
 
@@ -75,7 +75,7 @@ Powershell örneği kullanabilirsiniz ve Bash betiklerini açıklanan [yönetme 
 
 Yeni aygıt sertifika oluşturun:
 
-   ```
+   ```bash
    ./certGen.sh create_edge_device_certificate myGateway
    ```
 
@@ -83,14 +83,14 @@ Yeni dosyalar oluşturulur:.\certs\new-edge-device.* PFX ve ortak anahtar içeri
  
 İçinde `certs` dizin, aygıt ortak anahtarı tam zincirine almak için aşağıdaki komutu çalıştırın:
 
-   ```
+   ```bash
    cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem
    ```
 
 ### <a name="powershell"></a>PowerShell
 
 Yeni aygıt sertifika oluşturun: 
-   ```
+   ```powershell
    New-CACertsEdgeDevice myGateway
    ```
 
@@ -115,7 +115,7 @@ IOT kenar çalışma zamanı için cihaz ve sertifika bilgileri sağlar.
  
 Linux Bash çıkış kullanma:
 
-   ```
+   ```bash
    sudo iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -126,7 +126,7 @@ Linux Bash çıkış kullanma:
 
 Windows PowerShell çıkış kullanma:
 
-   ```
+   ```powershell
    iotedgectl setup --connection-string {device connection string}
         --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
         --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
@@ -135,15 +135,11 @@ Windows PowerShell çıkış kullanma:
         --owner-ca-cert-file {full path}/RootCA.pem
    ```
 
-Varsayılan örnek komut dosyaları aygıt özel anahtarı bir parola ayarlamayın. Bir parola ayarladıysanız, aşağıdaki parametreyi ekleyin:
-
-   ```
-   --device-ca-passphrase {passphrase}
-   ```
+Varsayılan örnek komut dosyaları aygıt özel anahtarı bir parola ayarlamayın. Bir parola ayarladıysanız, aşağıdaki parametreyi ekleyin: `--device-ca-passphrase {passphrase}`.
 
 Komut dosyası kenar Aracı sertifikası için bir parola ayarlamanızı ister. IOT kenar çalışma zamanı sonra bu komutu yeniden başlatın:
 
-   ```
+   ```cmd/sh
    iotedgectl restart
    ```
 
@@ -155,7 +151,7 @@ Aşağı Akış cihaz herhangi bir uygulama olabilir kullanarak [Azure IOT cihaz
 
 Örneğin, .NET uygulamaları için aşağıdaki kod parçacığını yolunda saklanan PEM biçiminde bir sertifika güven ekleyebileceğiniz `certPath`. Kullandığınız komut dosyası sürümüne bağlı olarak, yol ya da başvurduğu `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) veya `RootCA.pem` (Powershell).
 
-   ```
+   ```csharp
    using System.Security.Cryptography.X509Certificates;
    
    ...

@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Etki alanına katılmış Hdınsight sandbox ortamını yapılandırma
 
-Tek başına Active Directory ile Azure Hdınsight kümesi ayarlama öğrenin ve [Apache bırakabilmenizi](http://hortonworks.com/apache/ranger/) güçlü kimlik doğrulaması ve zengin rol tabanlı erişim denetimi (RBAC) ilkelerini yararlanmak için. Daha fazla bilgi için bkz: [tanıtmak etki alanına katılmış Hdınsight kümeleri](apache-domain-joined-introduction.md).
+Tek başına Active Directory ile Azure Hdınsight kümesi ayarlama öğrenin ve [Apache bırakabilmenizi](http://hortonworks.com/apache/ranger/) güçlü kimlik doğrulaması ve zengin rol tabanlı erişim denetimi (RBAC) ilkelerini yararlanmak için. Daha fazla bilgi için bkz: [tanıtmak etki alanına katılmış Hdınsight kümeleri](apache-domain-joined-introduction.md). 
+
+> [!IMPORTANT]
+> Varsayılan olarak, Azure depolama hesapları kullanarak bu ayarlama yalnızca kullanılabilir. Azure Data Lake Store ile kullanmak için Active Directory yeni bir Azure Active Directory ile eşitleyin.
 
 Hdınsight kümesi etki alanına katılmış olmadan her küme yalnızca bir Hadoop HTTP kullanıcı hesabı ve bir SSH kullanıcı hesabı olabilir.  Birden çok kullanıcı kimlik doğrulaması kullanılarak elde edilir:
 
@@ -40,6 +43,7 @@ Tek başına bir Active Directory kullanarak Azure Iaas üzerinde çalışan bu 
     - Hdınsight kümesi oluşturma
 
 > [!IMPORTANT]
+> 
 > Oozie etki alanına katılmış Hdınsight üzerinde etkin değil.
 
 ## <a name="prerequisite"></a>Önkoşul

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Azure mantıksal uygulamaları için şirket içi veri ağ geçidini yükleyin
 
-Mantıksal uygulamalarınızı şirket içi veri kaynaklarına erişebilmesi için yüklemek ve şirket içi veri ağ geçidi kurun. Ağ geçidi hızlı veri aktarımı ve şirket içi sistemleri ve logic apps arasında şifreleme sağlayan köprü gibi davranır. Ağ geçidi şifrelenmiş kanalda Azure Service Bus aracılığıyla şirket içi kaynaklardan veri aktarır. Ağ geçidi aracısından güvenli giden trafik olarak tüm trafiğin kaynaklandığı. Daha fazla bilgi edinmek [veri ağ geçidinin nasıl çalıştığını](#gateway-cloud-service).
+Mantıksal uygulamalarınızı şirket içi veri kaynaklarına erişebilmesi için yüklemek ve şirket içi veri ağ geçidi kurun gerekmez. Ağ geçidi hızlı veri aktarımı ve şirket içi sistemleri ve logic apps arasında şifreleme sağlayan köprü gibi davranır. Ağ geçidi şifrelenmiş kanalda Azure Service Bus aracılığıyla şirket içi kaynaklardan veri aktarır. Ağ geçidi aracısından güvenli giden trafik olarak tüm trafiğin kaynaklandığı. Daha fazla bilgi edinmek [veri ağ geçidinin nasıl çalıştığını](#gateway-cloud-service).
 
 Ağ geçidi, şirket içinde bu veri kaynaklarının bağlantılarını destekler:
 
@@ -35,8 +35,8 @@ Ağ geçidi, şirket içinde bu veri kaynaklarının bağlantılarını destekle
 *   MySQL
 *   Oracle Veritabanı
 *   PostgreSQL
-*   SAP uygulama sunucusu 
-*   SAP ileti sunucusu
+*   SAP Uygulama Sunucusu 
+*   SAP İleti Sunucusu
 *   SharePoint
 *   SQL Server
 *   Teradata
@@ -54,18 +54,18 @@ Ağ geçidi diğer hizmetlerle birlikte kullanma hakkında daha fazla bilgi içi
 
 ## <a name="requirements"></a>Gereksinimler
 
-**Minimum**:
+**Minimum**
 
 * .NET 4.5 framework
 * Windows 7 veya Windows Server 2008 R2 64-bit sürümünü (veya üstü)
 
-**Önerilen**:
+Önerilen
 
 * 8 çekirdekli CPU
 * 8 GB bellek
 * 64 bit sürümü Windows 2012 R2'in (veya üstü)
 
-**İle ilgili önemli noktalar**:
+**İle ilgili önemli noktalar**
 
 * Şirket içi veri ağ geçidini yalnızca yerel bir bilgisayara yükleyin.
 Ağ geçidi etki alanı denetleyicisine yükleyemezsiniz.
@@ -75,12 +75,12 @@ Ağ geçidi etki alanı denetleyicisine yükleyemezsiniz.
 
 * Ağ geçidi devre dışı bırakır, uyku moduna geçer bir bilgisayarda yüklemeyin ya da ağ geçidi bu koşullarda çalıştığından Internet'e değil. Ayrıca, kablosuz ağ üzerinden ağ geçidi performansı düşebilir.
 
-* Yükleme sırasında bilgileriyle oturum açmalıdır bir [iş veya Okul hesabı](https://docs.microsoft.com/azure/active-directory/sign-up-organization) Azure Active Directory tarafından (Azure AD), bir Microsoft hesabı yönetilir.
+* Yükleme sırasında oturum açmak zorunda bir [iş veya Okul hesabı](https://docs.microsoft.com/azure/active-directory/sign-up-organization) Azure Active Directory tarafından (Azure AD), bir Microsoft hesabı yönetilir.
 
   > [!TIP]
   > Visual Studio MSDN aboneliğiniz ile olan bir Microsoft hesabı kullanmak istiyorsanız, [Azure Active Directory'de bir dizin (Kiracı) oluşturun](../active-directory/develop/active-directory-howto-tenant.md) Microsoft hesabı veya varsayılan dizini kullanın. Dizine bir parolası olan bir kullanıcı eklemek sonra aboneliğiniz bu kullanıcı erişimi verin. Ardından bu kullanıcı adı ve parola ile ağ geçidi yüklemesi sırasında oturum açabilirsiniz.
 
-  Oluşturduğunuzda ve bir ağ geçidi kaynağı ile ağ geçidi yüklemenizi ilişkilendirmek daha sonra Azure Portalı'nda aynı iş veya Okul hesabı kullanmanız gerekir. Mantıksal uygulamanızı ve şirket içi veri kaynağı bağlantıyı oluşturduğunuzda, ardından bu ağ geçidi kaynağı seçin. [Neden gerekir t bir Azure AD iş veya Okul hesabı?](#why-azure-work-school-account)
+  Aynı iş veya Okul hesabı oluşturduğunuzda ve bir ağ geçidi kaynağı ile ağ geçidi yüklemenizi ilişkilendirmek daha sonra Azure Portalı'nda kullanmak zorunda. Mantıksal uygulamanızı ve şirket içi veri kaynağı bağlantıyı oluşturduğunuzda, ardından bu ağ geçidi kaynağı seçin. [Neden bir Azure AD iş veya Okul hesabınız var mı?](#why-azure-work-school-account)
 
   > [!TIP]
   > Bir Office 365 teklif için kaydolan ve gerçek iş e-sağlamadı, oturum açma adresinizi nasıl görünebileceği jeff@contoso.onmicrosoft.com. 
@@ -93,7 +93,7 @@ Ağ geçidi etki alanı denetleyicisine yükleyemezsiniz.
 
 ## <a name="install-the-data-gateway"></a>Veri ağ geçidini yükleyin
 
-1.  [Karşıdan yükle ve yerel bir bilgisayarda ağ geçidi çalıştırmak](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Karşıdan yükle ve yerel bir bilgisayarda ağ geçidi çalıştırmak](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Gözden geçirin ve kullanım ve gizlilik bildirimini koşullarını kabul edin.
 
@@ -197,7 +197,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Varsa **TcpTestSucceeded** ayarlanmazsa **doğru**, güvenlik duvarı tarafından engellenmiş olabilir. Kapsamlı olmasını istiyorsanız, yedek **ComputerName** ve **bağlantı noktası** altında listelenen değerleri değerlerle [bağlantı noktalarını yapılandırma](#configure-ports) bu konuda.
+Varsa **TcpTestSucceeded** ayarlanmazsa **doğru**, güvenlik duvarı tarafından engellenmiş olabilir. Kapsamlı olmasını istiyorsanız, yedek **ComputerName** ve **bağlantı noktası** altında listelenen değerleri değerlerle [bağlantı noktalarını yapılandırma](#configure-ports) bu makalede.
 
 Güvenlik duvarını ayrıca Azure Service Bus Azure veri merkezleri için yaptığı bağlantıları engelleyebilir. Bu senaryo durumda Onayla (engelini kaldırma) bu veri merkezlerinde bölgeniz için tüm IP adresleri. Bu IP adresleri için [Azure IP adresleri listesi alma](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -205,25 +205,27 @@ Güvenlik duvarını ayrıca Azure Service Bus Azure veri merkezleri için yapt�
 
 Ağ geçidi giden bir bağlantı oluşturur [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) ve giden bağlantı noktaları iletişim kurar: TCP 443 (varsayılan), 5671, 5672, 9354 aracılığıyla 9350. Ağ geçidi gelen bağlantı noktalarının gerektirmez. Daha fazla bilgi edinmek [Azure Service Bus ve karma çözümleri](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| ETKİ ALANI ADLARI | GİDEN BAĞLANTI NOKTALARI | AÇIKLAMA |
-| --- | --- | --- |
+| Etki alanı adları | Giden bağlantı noktaları | Açıklama |
+| ------------ | -------------- | ----------- |
 | *. analysis.windows.net | 443 | HTTPS | 
-| *. login.windows.net | 443 | HTTPS | 
-| *. servicebus.windows.net | 5671-5672 | Gelişmiş Message Queuing Protokolü (AMQP) | 
-| *. servicebus.windows.net | 443, 9350-9354 | Hizmet veri yolu geçişi (erişim denetimi belirteci alımı için 443'ü gerektirir) TCP üzerinden üzerindeki dinleyicileri | 
-| *. frontend.clouddatahub.net | 443 | HTTPS | 
-| *. core.windows.net | 443 | HTTPS | 
-| Login.microsoftonline.com | 443 | HTTPS | 
+| *.login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 5671-5672 | Gelişmiş Message Queuing Protokolü (AMQP) | 
+| *.servicebus.windows.net | 443, 9350-9354 | Hizmet veri yolu geçişi (erişim denetimi belirteci alımı için 443'ü gerektirir) TCP üzerinden üzerindeki dinleyicileri | 
+| *.frontend.clouddatahub.net | 443 | HTTPS | 
+| *.core.windows.net | 443 | HTTPS | 
+| login.microsoftonline.com | 443 | HTTPS | 
 | *. msftncsi.com | 443 | Ağ geçidi Power BI hizmeti tarafından erişilemiyor olduğunda internet bağlantısı test etmek için kullanılır. | 
+||||
 
 IP adresleri etki alanları yerine onaylamak varsa, kullanmak karşıdan yükleyip [Microsoft Azure veri merkezi IP aralıkları listesi](https://www.microsoft.com/download/details.aspx?id=41653). Bazı durumlarda, tam etki alanı adı yerine IP adresi ile Azure Service Bus bağlantılar yapılır.
 
 <a name="gateway-cloud-service"></a>
+
 ## <a name="how-does-the-data-gateway-work"></a>Veri ağ geçidi nasıl çalışır?
 
 Veri ağ geçidi mantıksal uygulamanızı, ağ geçidi bulut Hizmeti'ne ve şirket içi veri kaynağınız arasında hızlı ve güvenli iletişimi kolaylaştırır. 
 
-![Diagram-for-on-Premises-Data-Gateway-Flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
+![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
 Bunu bulutta kullanıcı, şirket içi veri kaynağına bağlı olan bir öğe ile etkileşime giren zaman:
 
@@ -240,6 +242,7 @@ Bunu bulutta kullanıcı, şirket içi veri kaynağına bağlı olan bir öğe i
 6. Sonuçlar veri kaynağından ağ geçidi dönün ve ağ geçidi bulut hizmetine gönderilir. Ağ geçidi bulut Hizmeti'ne ardından sonuçları kullanır.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 ### <a name="general"></a>Genel
@@ -252,7 +255,7 @@ Bunu bulutta kullanıcı, şirket içi veri kaynağına bağlı olan bir öğe i
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: neden gerekir t bir Azure okul veya iş hesabı oturum açmak için? <br/>
+**Q**: neden sahibim Azure bir iş veya Okul hesabıyla oturum açmak için? <br/>
 **A**: yalnızca Azure bir iş veya Okul hesabınız, şirket içi veri ağ geçidi yüklediğinizde. Oturum açma hesabınızın Azure Active Directory (Azure AD) tarafından yönetilen bir kiracı depolanır. Genellikle, Azure AD hesabınızın kullanıcı asıl adı (UPN) e-posta adresi ile eşleşir.
 
 **Q**: kimlik bilgilerimi depolandığı? <br/>
@@ -278,7 +281,7 @@ Bunu bulutta kullanıcı, şirket içi veri kaynağına bağlı olan bir öğe i
 **A**: içinde Hizmetleri, ağ geçidi Power BI kurumsal ağ geçidi hizmeti çağrılır.
 
 **Q**: ağ geçidi Windows hizmeti bir Azure Active Directory hesabıyla çalıştırabilir miyim? <br/>
-**A**: Hayır Windows hizmeti geçerli bir Windows hesabı olması gerekir. Varsayılan olarak, hizmet hizmet SID, NT SERVICE\PBIEgwService çalışır.
+**A**: Hayır Windows hizmeti geçerli bir Windows hesabı sahip olması gerekir. Varsayılan olarak, hizmet hizmet SID, NT SERVICE\PBIEgwService çalışır.
 
 ### <a name="high-availability-and-disaster-recovery"></a>Yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 
@@ -289,7 +292,7 @@ Bunu bulutta kullanıcı, şirket içi veri kaynağına bağlı olan bir öğe i
 **A**: Kurtarma anahtarı geçirmek veya ağ geçidi ayarlarınızı sonra bir olağanüstü durum kurtarma için bir yol sağlar.
 
 **Q**: ağ geçidi ile yüksek kullanılabilirlik senaryolarını etkinleştirmek için herhangi bir plan vardır? <br/>
-**A**: yol haritası üzerinde bu senaryolar verilmiştir ancak henüz bir zaman çizelgesi bulunmuyor.
+**A**: bazı bağlayıcılar dosya sistemi Bağlayıcısı'nı ve diğerleri şekilde gibi yüksek kullanılabilirlik senaryolarını destekler. Daha fazla bilgi için bkz: [yüksek kullanılabilirlik kümeleri için şirket içi veri ağ geçidi](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -301,13 +304,13 @@ Bunu bulutta kullanıcı, şirket içi veri kaynağına bağlı olan bir öğe i
 Ayrıca, izleme sorguları için veri kaynağınız olan araçlar da bakabilirsiniz. Örneğin, SQL Server ve Analysis Services için genişletilmiş olaylar veya SQL Profiler kullanabilirsiniz.
 
 **Q**: ağ geçidi günlüklerini nerede? <br/>
-**A**: Bu konunun ilerleyen bölümlerinde bkz araçları.
+**A**: Bu makalenin sonraki bölümlerinde araçları konusuna bakın.
 
 ### <a name="update-to-the-latest-version"></a>Son sürüme güncelleştir
 
 Ağ geçidi sürümü güncel olmayan hale geldiğinde birçok sorunları ortaya. Genel iyi uygulama olarak, en son sürümünü kullandığınızdan emin olun. Ağ geçidi, bir veya daha uzun bir ay için güncelleştirmediyseniz, ağ geçidinin en son sürümünü yüklemeyi göz önünde bulundurun ve sorunu yeniden bakın.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Hata: kullanıcı gruba eklenemedi. (-2147463168 PBIEgwService performans günlük kullanıcılar)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Hata: kullanıcı gruba eklenemedi. (-2147463168 PBIEgwService Performance Log Users)
 
 Desteklenmeyen bir etki alanı denetleyicisinde ağ geçidini yüklemeye çalıştığınızda bu hatayı alabilirsiniz. Bir etki alanı denetleyicisi olmayan bir makineye ağ geçidi dağıttığınızdan emin olun.
 

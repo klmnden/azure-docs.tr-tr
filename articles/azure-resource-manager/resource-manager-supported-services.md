@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Kaynak sağlayıcıları ve türleri
 
@@ -53,7 +53,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Bir kaynak sağlayıcısı kaydediliyor kaynak sağlayıcısı ile çalışmak için aboneliğinizi yapılandırır. Kayıt için her zaman abonelik kapsamıdır. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Kayıt kaynak sağlayıcısı için gerçekleştirmek için izni olmalıdır `/register/action` kaynak sağlayıcısı için işlem. Bu işlem, katkıda bulunan ve sahibi rollerine dahil edilmiştir.
+Bir kaynak sağlayıcısı kaydediliyor kaynak sağlayıcısı ile çalışmak için aboneliğinizi yapılandırır. Kayıt için her zaman abonelik kapsamıdır. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Kayıt kaynak sağlayıcısı için gerçekleştirmek için izni olmalıdır `/register/action` kaynak sağlayıcısı için işlem. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -157,7 +157,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Bir kaynak sağlayıcısı kaydediliyor kaynak sağlayıcısı ile çalışmak için aboneliğinizi yapılandırır. Kayıt için her zaman abonelik kapsamıdır. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Kayıt kaynak sağlayıcısı için gerçekleştirmek için izni olmalıdır `/register/action` kaynak sağlayıcısı için işlem. Bu işlem, katkıda bulunan ve sahibi rollerine dahil edilmiştir.
+Bir kaynak sağlayıcısı kaydediliyor kaynak sağlayıcısı ile çalışmak için aboneliğinizi yapılandırır. Kayıt için her zaman abonelik kapsamıdır. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Kayıt kaynak sağlayıcısı için gerçekleştirmek için izni olmalıdır `/register/action` kaynak sağlayıcısı için işlem. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -257,15 +257,15 @@ Seçin **kaynak sağlayıcıları** ve kullanılabilir kaynak sağlayıcıları 
 
 ![kaynak sağlayıcıları göster](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Bir kaynak sağlayıcısı kaydediliyor kaynak sağlayıcısı ile çalışmak için aboneliğinizi yapılandırır. Kayıt için her zaman abonelik kapsamıdır. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Kayıt kaynak sağlayıcısı için gerçekleştirmek için izni olmalıdır `/register/action` kaynak sağlayıcısı için işlem. Bu işlem, katkıda bulunan ve sahibi rollerine dahil edilmiştir. Kayıt kaynak sağlayıcısı için seçin **kaydetmek**.
+Bir kaynak sağlayıcısı kaydediliyor kaynak sağlayıcısı ile çalışmak için aboneliğinizi yapılandırır. Kayıt için her zaman abonelik kapsamıdır. Varsayılan olarak, birçok kaynak sağlayıcısı otomatik olarak kaydedilir. Ancak, bazı kaynak sağlayıcıları elle kaydetmeniz gerekebilir. Kayıt kaynak sağlayıcısı için gerçekleştirmek için izni olmalıdır `/register/action` kaynak sağlayıcısı için işlem. Bu işlem, Katkıda Bulunan ve Sahip rolleriyle birlikte sunulur. Kayıt kaynak sağlayıcısı için seçin **kaydetmek**.
 
 ![Kayıt kaynak sağlayıcısı](./media/resource-manager-supported-services/register-provider.png)
 
 Aboneliğinizdeki kaynak türleri bu kaynak Sağlayıcısı'ndan hala varsa, bir kaynak Sağlayıcısı kaydı silinemiyor.
 
-Belirli kaynak sağlayıcısı için bilgileri görmek için seçin **daha fazla hizmet**.
+Belirli kaynak sağlayıcısı için bilgileri görmek için seçin **tüm hizmetleri**.
 
-![Daha fazla hizmet seçin](./media/resource-manager-supported-services/more-services.png)
+![Tüm hizmetler](./media/resource-manager-supported-services/more-services.png)
 
 Arama **kaynak Gezgini** ve kullanılabilir seçenekler arasından seçin.
 

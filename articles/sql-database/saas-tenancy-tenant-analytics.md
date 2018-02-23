@@ -1,5 +1,5 @@
 ---
-title: "Veritabanları analitik sorguları çalıştırma | Microsoft Docs"
+title: "Ayıklanan verileri kullanarak çapraz Kiracı analizler çalıştırır | Microsoft Docs"
 description: "Birden çok Azure SQL veritabanı veritabanlarından ayıklanan verilerin kullanarak çapraz Kiracı analytics sorgular."
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
@@ -15,18 +15,18 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Ayıklanan verileri kullanarak çapraz Kiracı analizi
 
-Bu öğreticide, bir tam analytics senaryosuyla yol. Senaryo analytics akıllı kararlar almak işletmeler nasıl etkinleştirebilirsiniz gösterir. Her Kiracı veritabanından ayıklanan verileri kullanarak analytics Kiracı davranışı, kullanımlarını örnek Wingtip biletleri SaaS uygulamasının dahil almak için kullanın. Bu senaryoda üç adımdan oluşur: 
+Bu öğreticide, bir tam analytics senaryosuyla yol. Senaryo analytics akıllı kararlar almak işletmeler nasıl etkinleştirebilirsiniz gösterir. Her Kiracı veritabanından ayıklanan verileri kullanarak analytics Kiracı Öngörüler davranışı ve uygulama kullanımını sağlamak için kullanın. Bu senaryoda üç adımdan oluşur: 
 
-1.  **Veri ayıklamak** analytics deposuna her Kiracı veritabanından.
-2.  **Ayıklanan verileri En İyileştir** analytics işleme.
+1.  **Extract** her Kiracı veritabanından veri ve **yük** analytics deposuna.
+2.  **Ayıklanan veri dönüştürme** analytics işleme.
 3.  Kullanım **iş zekası** kararlar yönlendirebilir yararlı Öngörüler çizmek için Araçlar. 
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -42,33 +42,32 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 ## <a name="offline-tenant-analytics-pattern"></a>Çevrimdışı Kiracı analytics düzeni
 
-SaaS uygulamaları geliştirme bulutta depolanan Kiracı veri çok büyük miktarda erişimi. Veriler kiracılar davranışını ve uygulamanızın kullanımını ve işlem hakkında Öngörüler zengin kaynağı sağlar. Bu Öngörüler özelliği development, kullanılabilirlik yenilikleri ve diğer uygulama ve platform yatırım yönlendirebilir.
+Çok kiracılı SaaS uygulamaları genellikle bulutta depolanan Kiracı veri çok büyük miktarda vardır. Bu veriler işlemi hakkında Öngörüler zengin kaynağı ve uygulamanızın kullanımını ve kiracılarınızın davranışını sağlar. Bu Öngörüler özelliği development, kullanılabilirlik yenilikleri ve diğer uygulama ve platform yatırım yönlendirebilir.
 
-Tüm verileri tek bir çok kiracılı veritabanında olduğunda tüm kiracılar için verilere erişilirken basit bir işlemdir. Ancak erişim ölçekte binlerce veritabanının arasında dağıtıldığında daha karmaşıktır. Karmaşıklık kontrol altına almak için tek bir analytics veritabanına veya veri ambarı veri ayıklamak için yoludur. Ardından, Öngörüler tüm kiracıların biletleri veri toplamaya analytics deposu de sorgu.
+Tüm verileri tek bir çok kiracılı veritabanında olduğunda tüm kiracılar için verilere basit bir işlemdir. Ancak erişim ölçekte binlerce veritabanları arasında dağıtıldığında daha karmaşıktır. Bir karmaşıklık kontrol altına almak için ve işlem verilerini sorgularda analytics etkisini en aza indirmek için bir amaç tasarlanmış analytics veritabanı veya veri ambarına veri ayıklamak için yoludur.
 
-Bu öğreticide, bu örnek SaaS uygulaması için bir tam analytics senaryosu gösterilmektedir. Birincisi, esnek işler, veri ayıklama her Kiracı veritabanından zamanlamak için kullanılır. Veri analizi depolama için gönderilir. Analytics mağaza ya da bir SQL Database veya SQL Data Warehouse olabilir. Büyük ölçekli veri ayıklama için [Azure Data Factory](../data-factory/introduction.md) commended.
+Bu öğreticide Wingtip biletleri SaaS uygulaması için bir tam analytics senaryosu gösterilmektedir. İlk olarak, *esnek iş* her Kiracı veritabanından veri ayıklamak ve hazırlama tablolarındaki analytics deposunda içine yüklemek için kullanılır. Analytics mağaza ya da bir SQL Database veya SQL Data Warehouse olabilir. Büyük ölçekli veri ayıklama için [Azure Data Factory](../data-factory/introduction.md) önerilir.
 
-Toplanan veri kümesi ardından, shredded [yıldız şeması](https://www.wikipedia.org/wiki/Star_schema) tabloları. Bir merkezi Olgu Tablosu artı ilgili boyut tabloları, tablolar oluşur:
+Ardından, toplanan veri bir kümesine dönüştürüldüğünde [yıldız şeması](https://www.wikipedia.org/wiki/Star_schema) tabloları. Bir merkezi Olgu Tablosu artı ilgili boyut tabloları, tablolar oluşur.  Wingtip biletlerini:
 
 - Yıldız şemadaki merkezi Olgu Tablosu bilet verilerini içerir.
-- Boyut tabloları görebildikleri, olaylar, müşteriler hakkındaki verileri içerir ve tarihleri satın alın.
+- Boyut tabloları açıklamak görebildikleri, olaylar, müşteriler ve tarihleri satın alın.
 
-Birlikte Orta ve boyut tabloları etkinleştir etkili analitik işleme. Bu öğreticide kullanılan yıldız Şeması aşağıdaki görüntüde görüntülenir:
+Birlikte merkezi olgu ve boyut tabloları etkili analitik işleme etkinleştirin. Bu öğreticide kullanılan yıldız Şeması aşağıdaki görüntüde gösterilir:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Son olarak, yıldız şeması tabloları seçmeleri istenir. Sorgu sonuçları, Kiracı davranışı ve bunların kullanılması uygulamanın vurgulamak için görsel olarak görüntülenir. Bu yıldız şeması ile aşağıdaki gibi öğeleri açıklayan keşfetmeye yardımcı sorguları çalıştırabilirsiniz:
+Analytics deposu kullanarak son olarak, sorgulanan **Powerbı** Kiracı davranışı ve kullanımlarını Wingtip biletleri uygulamasının vurgulayın. Bu sorgular çalıştırın:
+ 
+- Her salonundan göreli popülerliği Göster
+- Farklı olayları için bilet satış düzenleri vurgulayın
+- Kendi olay satış farklı görebildikleri göreli başarısını Göster
 
-- Kim satın alma raporları ve hangi salonundan.
-- Gizli desenleri ve eğilimleri aşağıdaki alanlarda:
-    - Bilet satış.
-    - Her salonundan göreli popülerliği.
-
-Her bir kiracı hizmetini nasıl tutarlı bir şekilde kullanarak anlama kendi gereksinimlerine göre karşılamak amacıyla hizmet planları oluşturma olanağı sağlar. Bu öğretici Kiracı verilerden konusunda Öngörüler temel örnekler sağlar.
+Her bir kiracı ve hizmetinin nasıl kullandığı anlamak, kiracılar daha başarılı olmasına yardımcı olmak için hizmet monetizing ve hizmeti geliştirme seçeneklerini keşfetmek için kullanılır. Bu öğretici, Kiracı verilerden konusunda Öngörüler türlerinin temel örnekler verilmektedir.
 
 ## <a name="setup"></a>Kurulum
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
@@ -76,7 +75,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 - Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama [kaynak kodu](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) Github'dan indirilir. Bkz: yükleme yönergeleri. Yaptığınızdan emin olun *zip dosyası engellemesini* içeriğinin ayıklanıyor önce. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 - Power BI Desktop yüklenir. [Power BI Desktop'u indirin](https://powerbi.microsoft.com/downloads/)
 - Ek kiracılar toplu sağlanması için bkz: [ **sağlama kiracılar öğretici**](saas-dbpertenant-provision-and-catalog.md).
-- Bir iş hesabı ve iş hesabı veritabanı oluşturuldu. Uygun açıklanan adımları izleyerek [ **şema yönetimi öğretici**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Bir iş hesabı ve iş hesabı veritabanı oluşturuldu. Uygun açıklanan adımları izleyerek [ **şema yönetimi öğretici**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Gösteri için verileri oluşturma
 
