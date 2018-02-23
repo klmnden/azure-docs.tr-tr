@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: rolyon
-ms.openlocfilehash: e893aeeabf6a34707fbfe6576293a9e0726dd975
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7794d25e9111a4c2dbe822f9618d0acdfb69a2d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Kullanıcılar ve gruplar Azure portalında için erişim atamalarını görüntüle
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Hakkında daha fazla bilgi almak [Azure aboneliği kaynaklarınıza erişimi yö
 ## <a name="view-access-assignments"></a>Erişim atamalarını görüntüle
 Tek bir kullanıcı veya grup erişimi atamaları bakmak için Azure Active Directory'de başlatmak [Azure portal](http://portal.azure.com).
 
-1. Seçin **Azure Active Directory**. Bu seçenek, gezinti listenizde görünür durumda değilse, seçin **daha Hizmetleri** ve Bul aşağıya doğru kaydırma **Azure Active Directory**.
+1. Seçin **Azure Active Directory**. Bu seçenek, gezinti listenizde görünür durumda değilse, seçin **tüm hizmetleri** ve Bul aşağıya doğru kaydırma **Azure Active Directory**.
 2. Seçin **kullanıcılar ve gruplar**ve sonra da **tüm kullanıcılar** veya **tüm grupları**. Bu örnekte, bireysel kullanıcılar odaklanın.
     ![Kullanıcıları ve grupları Azure Active Directory'de - ekran görüntüsü yönetin](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. Kullanıcı adı veya kullanıcı adı tarafından arayın.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Toplu hizmet çözümlerine Active Directory ile kimlik doğrulaması
 
@@ -92,7 +92,7 @@ Tümleşik kimlik doğrulaması ile kimlik doğrulaması için Batch hizmeti API
 
 Seçtiğiniz sonra [uygulamanızı kayıtlı](#register-your-application-with-an-azure-ad-tenant), Batch hizmeti erişim vermek için Azure Portalı'nda aşağıdaki adımları izleyin:
 
-1. Azure portalının sol gezinti bölmesinde seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**.
+1. Azure portalının sol gezinti bölmesinde seçin **tüm hizmetleri**. Tıklatın **uygulama kayıtlar**.
 2. Listedeki uygulamanızın uygulama kayıtların adını arayın:
 
     ![Uygulama adınız arayın](./media/batch-aad-auth/search-app-registration.png)
@@ -124,7 +124,7 @@ Uygulamanızın hizmet sorumlusu ile doğruladığında, Azure AD uygulama kimli
 
 Azure portalında aşağıdaki adımları izleyin:
 
-1. Azure portalının sol gezinti bölmesinde seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**.
+1. Azure portalının sol gezinti bölmesinde seçin **tüm hizmetleri**. Tıklatın **uygulama kayıtlar**.
 2. Listedeki uygulamanızın uygulama kayıtların adını arayın.
 3. Görüntü **ayarları** dikey. İçinde **API erişimini** bölümünde, select **anahtarları**.
 4. Bir anahtar oluşturmak için bu anahtar için bir açıklama girin. Ardından bir veya iki yıl anahtarı için bir süre seçin. 

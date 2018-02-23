@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 2/15/2018
 ms.author: menchi
-ms.openlocfilehash: 0baba2ef843ac95bfc6682ec2b00d19b9d94e5cf
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 46d45860f70cfa6d0e1dc4ea07f6ec1f0feec6ab
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="glossary-of-iot-edge-terms"></a>IOT kenar terimler sözlüğü
 Bu makalede bazı IOT kenar makalelerinde kullanılan ortak terimleri listelenmektedir.
@@ -27,6 +27,6 @@ Bu makalede bazı IOT kenar makalelerinde kullanılan ortak terimleri listelenme
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bkz: [IOT hub'ı sözlüğü](#iot-hub-devguide-glossary.md)
+* Bkz: [IOT hub'ı sözlüğü](../iot-hub/iot-hub-devguide-glossary.md)
 * IOT kenar öğrenin [modülü geliştirme](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules)
 * IOT kenar öğrenin [dağıtımı](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)

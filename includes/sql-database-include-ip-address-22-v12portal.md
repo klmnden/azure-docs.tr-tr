@@ -17,13 +17,11 @@ articles/sql-database/sql-database-connect-query.md
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-2. Sol taraftaki listeden seçin **Gözat**. 
+2. Sol taraftaki listeden seçin **tüm hizmetleri**. 
 
 3. Kaydırın ve seçin **SQL sunucuları**. 
    
     ![Portalda Azure SQL veritabanı sunucunuzun Bul][b21-FindServerInPortal]
-4. Kolaylık olması için en aza **Gözat** dikey.
-
 5. Filtre metin kutusuna, sunucunuzun adını yazmaya başlayın. Satır görüntülenir.
 
 6. Sunucunuz için satırı seçin. Sunucunuz için bir dikey pencerede görüntülenir.

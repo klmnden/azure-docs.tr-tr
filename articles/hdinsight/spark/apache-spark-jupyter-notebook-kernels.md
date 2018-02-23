@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure hdınsight'ta Spark kümeleri Jupyter not defteri için tekrar 
 
@@ -33,7 +33,7 @@ Hdınsight Spark kümeleri uygulamalarınızı test etme için Spark üzerinde J
 
 Bu makalede, bu tekrar ve bunları kullanmanın avantajları nasıl kullanılacağını öğrenin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
 
@@ -86,10 +86,10 @@ Spark Hdınsight kümeleri Jupyter not defteri ile yeni tekrar kullanmanın baz�
    | bilgileri |`%%info` |Geçerli Livy uç noktası için çıktıları oturum bilgilerini |
    | yapılandır |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Oturum oluşturma için parametre yapılandırır. Force bayrağını (-f) bir oturum zaten, oturumun bırakılan ve yeniden sağlayan oluşturulduysa zorunludur. Bakmak [Livy'nın POST /sessions iste gövde](https://github.com/cloudera/livy#request-body) için geçerli parametrelerin bir listesi. Parametreleri JSON dizesi olarak geçirilmesi gerekir ve bir sonraki satırında, örnek sütununda gösterildiği gibi Sihirli sonra olması gerekir. |
    | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Bir Hive sorgusu sqlContext yürütür. Varsa `-o` parametresi geçirilir, sorgunun sonucu kalıcı hale getirilir %% yerel Python bağlamı olarak bir [Pandas](http://pandas.pydata.org/) dataframe. |
-   | Yerel |`%%local`<br>`a=1` |Sonraki satırların tüm kodda yerel olarak yürütülür. Kodu dahi, kullanmakta olduğunuz çekirdek yedeklemiş geçerli Python2 kodu olmalıdır. Bu nedenle, seçtiğiniz olsa bile **PySpark3** veya **Spark** kullanırsanız, Not Defteri oluşturma sırasında tekrar `%%local` Sihirli bir hücreye, o hücre yalnızca geçerli Python2 kod olmalıdır... |
+   | yerel |`%%local`<br>`a=1` |Sonraki satırların tüm kodda yerel olarak yürütülür. Kodu dahi, kullanmakta olduğunuz çekirdek yedeklemiş geçerli Python2 kodu olmalıdır. Bu nedenle, seçtiğiniz olsa bile **PySpark3** veya **Spark** kullanırsanız, Not Defteri oluşturma sırasında tekrar `%%local` Sihirli bir hücreye, o hücre yalnızca geçerli Python2 kod olmalıdır... |
    | günlükler |`%%logs` |Günlükleri geçerli Livy oturumu için çıkarır. |
-   | sil |`%%delete -f -s <session number>` |Belirli bir oturum geçerli Livy uç noktasının siler. Başlatılan oturum çekirdek için silemezsiniz unutmayın. |
-   | Temizleme |`%%cleanup -f` |Bu not defterinin oturum dahil olmak üzere geçerli Livy uç noktası için tüm oturumları siler. Force bayrağını -f zorunludur. |
+   | sil |`%%delete -f -s <session number>` |Belirli bir oturum geçerli Livy uç noktasının siler. Başlatılan oturum çekirdek için silinemiyor. |
+   | temizle |`%%cleanup -f` |Bu not defterinin oturum dahil olmak üzere geçerli Livy uç noktası için tüm oturumları siler. Force bayrağını -f zorunludur. |
 
    > [!NOTE]
    > PySpark çekirdeği tarafından eklenen sihirleri ek olarak da kullanabilirsiniz [yerleşik IPython sihirler](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)gibi `%%sh`. Kullanabileceğiniz `%%sh` küme headnode betikleri ve kod bloğunu çalıştırmak için Sihirli.
@@ -160,7 +160,6 @@ Yeni tekrar aşama gelişen olan ve zaman içinde yetişkin. Bu aynı zamanda bu
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](apache-spark-eventhub-streaming.md)
 * [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma

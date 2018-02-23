@@ -13,61 +13,76 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 16f9179b6cbaee00a2afbe2efe090cb3eb8b204a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi yöntemler
 
-Bu konu, bilmeniz gerekenler ve koşullu erişim ilkeleri yapılandırırken bunun kaçınmalısınız nedir hakkında bilgi sağlar. Bu konu okumadan önce kavramları öğrenmeniz ve terminolojiyi özetlenen [Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md)
+İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. Bu makalede hakkında bilgi sağlar:
 
-## <a name="what-you-should-know"></a>Bilmeniz gerekenler
+- Bilmeniz gerekenler 
+- Nedir koşullu erişim ilkeleri yapılandırırken yapılması kaçınmalısınız. 
 
-### <a name="whats-required-to-make-a-policy-work"></a>Hangi iş bir ilke yapmak için gerekli?
+Bu makale size tanıdık kavramları ve terminolojiyi özetlenen olduğunu varsayar [Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md)
+
+
+
+## <a name="whats-required-to-make-a-policy-work"></a>Hangi iş bir ilke yapmak için gerekli?
 
 Yeni bir ilke oluşturduğunuzda, hiçbir kullanıcıları, grupları, uygulamalar veya seçili erişim denetimleri vardır.
 
 ![Bulut uygulamaları](./media/active-directory-conditional-access-best-practices/02.png)
 
 
-İlkenizle çalışmak için aşağıdakileri yapılandırmanız gerekir:
+İlkenizle çalışmak için yapılandırmanız gerekir:
 
 
 |Ne           | Nasıl                                  | Neden|
 |:--            | :--                                  | :-- |
-|**Bulut uygulamaları** |Bir veya daha fazla uygulama seçmeniz gerekir.  | Bir koşullu erişim ilkesi ince ayar sağlamak için hedefidir nasıl yetkili kullanıcılar, uygulamalara erişebilir.|
-| **Kullanıcılar ve gruplar** | En az bir kullanıcı veya seçtiğiniz bulut uygulamalarını erişim yetkisi grubu seçmeniz gerekir. | Hiçbir zaman yok kullanıcılar ve gruplar atanan bir koşullu erişim ilkesi tetiklenir. |
-| **Erişim denetimleri** | En az bir erişim denetimi seçmeniz gerekir. | İlke işlemcinizin koşullarınızı sağlanırsa yapmanız gerekenler bilmek ister.|
+|**Bulut uygulamaları** |Bir veya daha fazla uygulama seçmeniz gerekir.  | Bir koşullu erişim ilkesi nasıl yetkili kullanıcıların denetim sağlamak için hedefidir bulut uygulamalarını erişebilirsiniz.|
+| **Kullanıcılar ve gruplar** | En az bir kullanıcı veya seçili bulut uygulamalarınız erişim yetkisi grubu seçmeniz gerekir. | Hiçbir zaman yok kullanıcılar ve gruplar atanan bir koşullu erişim ilkesi tetiklenir. |
+| **Erişim denetimleri** | En az bir erişim denetimi seçmeniz gerekir. | Koşullarınızı sağlanırsa, ilke işlemcinizin ne yapacağını bilmesi gerekir.|
 
 
-Bu temel gereksinimlerine ek olarak, çoğu durumda, aynı zamanda bir koşul yapılandırmalısınız. Bir ilke yapılandırılmış bir koşulu işe yaramayacaktır olsa da, uygulamalarınıza ince ayar yapmak için yönlendirmeli faktörü koşullardır.
 
 
-![Bulut uygulamaları](./media/active-directory-conditional-access-best-practices/04.png)
-
-
+## <a name="what-you-should-know"></a>Bilmeniz gerekenler
 
 ### <a name="how-are-assignments-evaluated"></a>Atamaları nasıl değerlendirildiği?
 
-Tüm atamaları mantıksal olarak olan **and işleciyle**. Yapılandırılmış birden fazla atama varsa, bir ilke tetiklemek için tüm atamaları karşılanması gerekir.  
+Tüm atamaları mantıksal olarak olan **and işleciyle**. Yapılandırılmış birden fazla atama varsa, bir ilke tetiklemek için tüm atamaları sağlanmalıdır.  
 
-Kuruluşunuzun ağ dışında yapılan tüm bağlantılar için geçerli bir konum koşulu yapılandırmak gerekirse, bu görevleri gerçekleştirebilirsiniz:
+Kuruluşunuzun ağ dışında yapılan tüm bağlantılar için geçerli bir konum koşulu yapılandırmak gerekirse:
 
-- Dahil olmak üzere **tüm konumları**
-- Hariç **tüm güvenilen IP'leri**
+- Dahil **tüm konumları**
+- Dışlama **tüm güvenilen IP'leri**
+
+
+### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>Yapılacaklar dışında Azure AD yönetim portalında kilitliyse?
+
+Koşullu Erişim İlkesi'nde yanlış bir ayar nedeniyle Azure AD portalı dışında kilitliyse:
+
+- Henüz engellenmeyen diğer yöneticiler, kuruluşunuzda olup olmadığını doğrulayın. Azure portalına erişime sahip bir yönetici oturum açma etkileyen ilke devre dışı bırakabilirsiniz. 
+
+- Kuruluşunuzdaki Yöneticiler hiçbiri ilkesini güncelleştirebilir, bir destek isteği göndermek gerekir. Microsoft destek gözden geçirin ve erişimi engelleme koşullu erişim ilkeleri güncelleştirin.
+
 
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Klasik Azure portalı ve Azure portal yapılandırılmış ilkelerinde varsa ne olur?  
+
 Her iki ilkeleri Azure Active Directory tarafından uygulanır ve yalnızca tüm gereksinimleri karşılandıktan sonra kullanıcı erişim alır.
 
 ### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Intune Silverlight portalı ve Azure portalı ilkelerinde varsa ne olur?
+
 Her iki ilkeleri Azure Active Directory tarafından uygulanır ve yalnızca tüm gereksinimleri karşılandıktan sonra kullanıcı erişim alır.
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Yapılandırılmış aynı kullanıcı için birden çok ilke varsa ne olur?  
+
 Her oturum açma için Azure Active Directory tüm ilkeler değerlendirir ve kullanıcıya erişim izni verilsin önce tüm gereksinimlerin karşılandığını sağlar.
 
 
@@ -76,9 +91,13 @@ Her oturum açma için Azure Active Directory tüm ilkeler değerlendirir ve kul
 Evet, Exchange ActiveSync bir koşullu erişim ilkesini kullanabilirsiniz.
 
 
+
+
+
+
 ## <a name="what-you-should-avoid-doing"></a>Bunu yaptığınızda kaçınmanız gerekir
 
-Koşullu erişim framework harika yapılandırma esnekliği sağlar. Ancak, büyük esneklik ayrıca her bir yapılandırma İlkesi, istenmeyen sonuçları oluşturmamak için serbest önce dikkatle gözden geçirmelidir anlamına gelir. Bu bağlamda, özel tam kümeleri gibi etkileyen atamaları dikkat edilmesi **tüm kullanıcıları / grupları / bulut uygulamaları**.
+Koşullu erişim framework harika yapılandırma esnekliği sağlar. Ancak, büyük esneklik de dikkatle her yapılandırma İlkesi, istenmeyen sonuçları oluşturmamak için serbest bırakmadan önce gözden geçirmeniz gereken olduğunu anlamına gelir. Bu bağlamda, özel tam kümeleri gibi etkileyen atamaları dikkat edilmesi **tüm kullanıcıları / grupları / bulut uygulamaları**.
 
 Ortamınızda, aşağıdaki yapılandırmaları kaçınmanız gerekir:
 
@@ -97,10 +116,27 @@ Ortamınızda, aşağıdaki yapılandırmaları kaçınmanız gerekir:
 - **Erişimi engelleme** -bu yapılandırmayı kesinlikle iyi bir fikir değil, tüm kuruluş engeller.
 
 
+## <a name="how-should-you-deploy-a-new-policy"></a>Nasıl yeni bir ilke dağıtmanız gerekir?
+
+İlk adım olarak, ilke kullanarak değerlendirmelidir [ne aracı](active-directory-conditional-access-whatif.md).
+
+Yeni bir ilke ortamınıza dağıtmaya hazır olduğunuzda bu aşamada yapmanız gerekir:
+
+1. Küçük bir kullanıcı kümesi için bir ilke uygulanır ve beklendiği gibi davranır doğrulayın. 
+
+2.  Daha fazla kullanıcı eklemek için bir ilke genişlettiğinizde, tüm yöneticiler ilkenin dışında tutmak için devam edin. Bu Yöneticiler hala erişiminiz ve bir değişiklik olursa bir ilke güncelleştirebilirsiniz sağlar.
+
+3. Yalnızca bu gerçekten gerekliyse bir ilke tüm kullanıcılara uygulanır. 
+
+En iyi uygulama, olan bir kullanıcı hesabı oluşturun:
+
+- İlke yönetimi için ayrılmış 
+- Tüm ilkelerinizi dışlanan
+
 
 ## <a name="policy-migration"></a>İlke geçişi
 
-Nedeniyle Azure portalında oluşturmadınız ilkeleri geçirme dikkate almanız gerekir:
+Nedeniyle Azure portalında oluşturmadınız ilkeleri geçirmeyi düşünün:
 
 - Şimdi önce işleyemedi senaryolarını ele alabilir.
 
@@ -108,7 +144,7 @@ Nedeniyle Azure portalında oluşturmadınız ilkeleri geçirme dikkate almanız
 
 - Tek bir merkezi konumda tüm koşullu erişim ilkelerini yönetebilirsiniz.
 
-- Klasik Azure portalı kullanımdan kaldırılacaktır.   
+- Klasik Azure portalı kullanımdan kaldırılmıştır.   
 
 
 Daha fazla bilgi için bkz: [Azure portalında Klasik ilkelerine](active-directory-conditional-access-migration.md).

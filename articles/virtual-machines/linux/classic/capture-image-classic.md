@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f63a2cdeaec512bed4fd0f86ef7c9d5a9b77d7f6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: be463b18c049c8b92c21cfde82defcf76718a5f0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Klasik bir Linux sanal makinesini görüntü olarak yakalama
 > [!IMPORTANT]
@@ -76,7 +76,7 @@ Bu adımlarda, Klasik dağıtım modeli kullanarak bir Azure VM oluşturulur ve 
     ```azurecli
     azure vm shutdown myVM
     ```
-   Gerekirse, aboneliğinizde kullanılarak oluşturulan tüm VM'lerin bir listesini görüntüleyebilirsiniz`azure vm list`
+   Gerekirse, aboneliğinizde kullanılarak oluşturulan tüm VM'lerin bir listesini görüntüleyebilirsiniz `azure vm list`
 
    > [!NOTE]
    > Azure portalını kullanıyorsanız, VM seçin ve'ı tıklatın **durdurmak** VM kapatma için.
@@ -98,7 +98,7 @@ Bu adımlarda, Klasik dağıtım modeli kullanarak bir Azure VM oluşturulur ve 
    azure vm image list
    ```
 
-   Üzerinde [Azure portal](http://portal.azure.com), yeni görüntüyü görünür **VM görüntüleri (Klasik)** ait olan **işlem** Hizmetleri. Erişebileceğiniz **VM görüntüleri (Klasik)** tıklayarak _daha fazla hizmet_ Azure alt kısmındaki hizmet listesi ve ardından arayarak **işlem** Hizmetleri.   
+   Üzerinde [Azure portal](http://portal.azure.com), yeni görüntüyü görünür **VM görüntüleri (Klasik)** ait olan **işlem** Hizmetleri. Erişebileceğiniz **VM görüntüleri (Klasik)** tıklayarak **tüm hizmetleri** Azure üstünde hizmet listesi ve ardından arayarak **işlem** Hizmetleri.   
 
    ![Görüntü yakalama başarılı](./media/capture-image/VMCapturedImageAvailable.png)
 

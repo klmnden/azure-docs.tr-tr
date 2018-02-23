@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Gezgini sorun giderme kılavuzu
 
-Microsoft Azure Storage Gezgini (Önizleme), Windows, macOS ve Linux Azure Storage ile kolayca çalışmanızı sağlayan tek başına bir uygulamadır. Uygulama Azure, Sovereign Bulutlar ve Azure yığın üzerinde barındırılan depolama hesapları bağlanabilir.
+Microsoft Azure Storage Gezgini (Önizleme), Windows, macOS ve Linux Azure Storage ile kolayca çalışmanızı sağlayan tek başına bir uygulamadır. Uygulama Azure, Ulusal Bulutlar ve Azure yığın üzerinde barındırılan depolama hesapları bağlanabilir.
 
 Bu kılavuz, depolama Gezgini'nde görülen yaygın sorunlar için çözümleri özetler.
 
@@ -73,7 +73,7 @@ Başarıyla oturum açtıktan sonra aboneliklerinizi alamadı varsa, bu sorunu g
 
 - Try kaldırarak ve hesap yeniden ekleniyor.
 
-- Kök dizin (diğer bir deyişle, C:\Users\ContosoUser) aşağıdaki dosyaları silerek ve hesap yeniden eklemeyi deneyin:
+- Kök dizin (diğer bir deyişle, C:\Users\ContosoUser) aşağıdaki dosyaları silerek ve hesap yeniden ekleniyor deneyin:
 
     - .adalcache
 
@@ -83,7 +83,7 @@ Başarıyla oturum açtıktan sonra aboneliklerinizi alamadı varsa, bu sorunu g
 
 - Herhangi bir hata iletisi için oturum açarken (basarak, F12) geliştirici araçları konsol izleme:
 
-![Geliştirici Araçları](./media/storage-explorer-troubleshooting/4022501_en_2.png)
+![geliştirici araçları](./media/storage-explorer-troubleshooting/4022501_en_2.png)
 
 ### <a name="unable-to-see-the-authentication-page"></a>Kimlik doğrulaması sayfası Görülemedi
 
@@ -116,7 +116,7 @@ Bir hesap kaldıramadı ya da yeniden kimlik doğrula bağlantı herhangi bir ş
     - Linux için ~/.config/StorageExplorer
 
 > [!NOTE]
->  Bu dosyaları silerseniz, tüm kimlik bilgilerinizi yeniden girmeniz gerekir.
+>  Yukarıdaki dosyaları sildikten sonra hesaplarınızı yeniden oturum açmanız gerekir.
 
 ## <a name="proxy-issues"></a>Proxy sorunları
 
@@ -173,13 +173,21 @@ Bir SAS URL'si kullanarak ve bu hatanın bir hizmete bağlanıyorsanız:
 
 - SAS URL bir erişim ilkesini temel alarak, erişim ilkesi edilmediğini doğrulayın.
 
-Varsa, yanlışlıkla geçersiz bir SAS URL'si bağlı ve ayrılamadı, lütfen şu adımları izleyin:
+Yanlışlıkla geçersiz bir SAS URL'si kullanarak bağlı ve ayrılamıyor, şu adımları izleyin:
 1.  Depolama Gezgini çalıştırırken, geliştirici araçları penceresini açmak için F12 tuşuna basın.
 2.  Uygulama sekmesini tıklatın ve ardından yerel depolama > soldaki ağaç file://.
-3.  Sorunlu SAS URI'sini hizmet türü ile ilişkili anahtar bulunamıyor. Örneğin, hatalı bir blob kapsayıcısı için SAS URI'sini ise, "StorageExplorer_AddStorageServiceSAS_v1_blob" adlı anahtar için arayın.
+3.  Sorunlu SAS URI'sini hizmet türü ile ilişkili anahtar bulunamıyor. Bozuk bir blob kapsayıcısı için SAS URI'sini ise, örneğin, adlı anahtar için aramak `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4.  Anahtarın değerini bir JSON dizisi olmalıdır. Geçersiz URI'sı ile ilişkili nesneyi bulmak ve kaldırmak.
 5.  Depolama Gezgini yeniden yüklemek için CTRL + R tuşuna basın.
 
+## <a name="linux-dependencies"></a>Linux bağımlılıkları
+
+Ubuntu 16.04 dışında Linux distro'lar için bazı bağımlılıklar el ile yüklemeniz gerekebilir. Genel olarak, aşağıdaki paketler gereklidir:
+* libgconf-2-4
+* libsecret
+* Güncel GCC
+
+Distro bağlı olarak yüklemek için gereken diğer paket olabilir. Depolama Gezgini [sürüm notları](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) bazı distro'lar için belirli adımlar içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

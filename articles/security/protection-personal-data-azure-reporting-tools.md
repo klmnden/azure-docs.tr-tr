@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Kişisel veri raporlama araçları Azure ile belge koruması
 
@@ -90,7 +90,7 @@ Ziyaret [Azure Active Directory denetim API Başvurusu](https://docs.microsoft.c
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Günlük analizi](https://azure.microsoft.com/services/log-analytics/) için [Azure İzleyicisi'nden veri toplama](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) diğer verilerle ilişkilendirmek ve ek çözümleme sağlamak için. Azure İzleyici toplar ve Azure ortamınız için izleme verilerini analiz eder. 
+[Günlük analizi](https://azure.microsoft.com/services/log-analytics/) için [Azure İzleyicisi'nden veri toplama](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) diğer verilerle ilişkilendirmek ve ek çözümleme sağlamak için. Azure İzleyici toplar ve Azure ortamınız için izleme verilerini analiz eder. 
 
 Tüm ortamınız merkezi analizini sağlayan tüm toplanan verileri karşı günlük analizi analiz araçları günlük aramalar, görünümler ve çözümleri gibi çalışır. Günlük analizi toplamak ve Windows olay günlükleri, IIS günlüklerini ve kişisel verilerin yetkisiz kullanıcılara maruz bırakabileceğinden olası kişisel veriler ihlallerini belirlemenize yardımcı olabilir Syslog modüllerini analiz edin.
 
@@ -144,7 +144,7 @@ Bir etkinlik günlüğü ve diğer Azure İzleyici kaynakları veriler kullanmak
 
 - Azure İzleyici REST API'sini CLI komutları kullanarak verileri sorgulayabilir [PowerShell](https://docs.microsoft.com/powershell/) cmdlet'lerini veya .NET SDK'sı.
 
-Azure İzleyicisi ile çalışmaya başlamak için seçin **daha Hizmetleri** Azure portalında.
+Azure İzleyicisi ile çalışmaya başlamak için seçin **tüm hizmetleri** Azure portalında.
 
 1. Ekranı aşağı kaydırarak **İzleyici** içinde **izleme ve yönetme** bölümü.
 

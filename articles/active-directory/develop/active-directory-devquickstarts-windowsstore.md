@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b8bfbfca8daf506df083555d3046433b63e6bffe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows Evrensel Başlarken Platformu (UWP/XAML)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -48,7 +48,7 @@ Belirteçleri almak uygulamayı etkinleştirmek için önce Azure AD kiracınız
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda hesabınızı tıklatın. Ardından, altında **Directory** listesinde, uygulama kaydetmek istediğiniz Active Directory Kiracı seçin.
-3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
+3. Tıklatın **tüm hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Oluşturmak için istemleri izleyerek bir **yerel istemci uygulaması**.
   * **Ad** kullanıcılara uygulamasının açıklar.

@@ -3,21 +3,23 @@ title: Video dizine, Azure SaaS SQL uygulama | Microsoft Docs
 description: "Bu makalede çeşitli zaman noktaları bizim 81 dakika video 11 Ekim 2017 tutulan Ignite konferans gelen SaaS DB kiralama uygulama tasarımı ile ilgili dizinler. Şimdi sizi ilgilendiren bölümüne atlayabilirsiniz. En az 3 desenleri açıklanmaktadır. Geliştirme ve yönetimini basitleştirmenize azure özellikleri açıklanmaktadır."
 ms.custom: 
 ms.date: 12/06/2017
-ms.prod: sql-server
+ms.prod: 
+ms.service: sql-database
 ms.reviewer: billgib
 ms.suite: 
-ms.technology: database-engine
+ms.technology:
+- database-engine
 ms.tgt_pltfrm: 
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
 ms.workload: Inactive
-ms.openlocfilehash: db47d1dd0a6114ebca0715da179cc0629b26781a
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 5e8d5467e676ee178b77c02e387bdfd2c54e6071
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Video dizine ve Azure SQL veritabanı kullanarak mulit Kiracı SaaS uygulaması için açıklama
 
@@ -46,7 +48,7 @@ Aşağıdaki konu başlıklarını bu makalenin sonraki bölümlerinde karşıl�
 
 - [1. **(Başlangıç)**  Hoş Geldiniz slayt, 0:00:03](#anchor-image-wtip-min00001)
 - [2. Oturum hedefleri, 0:03:11](#anchor-image-wtip-min00311)
-- [3. Gündem, 0:04:17](#anchor-image-wtip-min00417)
+- [3. Agenda, 0:04:17](#anchor-image-wtip-min00417)
 - [4. Çok kiracılı web uygulaması, 0:05:05](#anchor-image-wtip-min00505)
 - [5. Eylem, 0 App web formunda: 05:55](#anchor-image-wtip-min00555)
 - [6. Kiracı başına maliyet (ölçekli, yalıtım, Kurtarma), 0:09:31](#anchor-image-wtip-min00931)
@@ -64,7 +66,7 @@ Aşağıdaki konu başlıklarını bu makalenin sonraki bölümlerinde karşıl�
 - [18. Wingtip SaaS örnek uygulaması, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Senaryolar ve öğreticiler, 0 incelediniz desenleri: 49:10](#anchor-image-wtip-min04910)
 - [20. Öğreticiler ve Github deposunu, 0 Demo: 50:18](#anchor-image-wtip-min05018)
-- [21. Github depo Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
+- [21. Github repo Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. 0 desenleri keşfetme: 56:20](#anchor-image-wtip-min05620)
 - [23. Kiracılar ve ekleme, 0 sağlama: 57:44](#anchor-image-wtip-min05744)
 - [24. Kiracılar ve uygulama bağlantısı, 0 sağlama: 58:58](#anchor-image-wtip-min05858)
@@ -77,7 +79,7 @@ Aşağıdaki konu başlıklarını bu makalenin sonraki bölümlerinde karşıl�
 - [31. Şema Yönetimi ölçekte 1:10:33](#anchor-image-wtip-min11033)
 - [32. Kiracı veritabanları, 1:12:21 arasında dağıtılmış sorgu](#anchor-image-wtip-min11221)
 - [33. Bilet oluşturma, 1:12:32 Tanıtımı](#anchor-image-wtip-min11232)
-- [34. SSMS geçici analizi, 1:12:46](#anchor-image-wtip-min11246)
+- [34. SSMS adhoc analytics, 1:12:46](#anchor-image-wtip-min11246)
 - [35. 1:16:32 SQL DW Kiracı veri ayıklamak](#anchor-image-wtip-min11632)
 - [36. Grafik günlük satış dağıtım, 1:16:48](#anchor-image-wtip-min11648)
 - [37. Kaydırma ve eylem, 1:19:52 çağırın](#anchor-image-wtip-min11952)
@@ -105,7 +107,7 @@ Herhangi bir ekran görüntü tıklamak video tam zaman konuma götürür.
 
 
 &nbsp; <a name="anchor-image-wtip-min00311"/>
-#### <a name="2-session-objectives-00153"></a>2. Oturum hedefleri, 0:01:53
+#### <a name="2-session-objectives-00153"></a>2. Session objectives, 0:01:53
 [![Oturum hedefleri][image-wtip-min00311-session]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=113)
 
 - Çok kiracılı uygulamalarla Artıları ve eksileri için alternatif modeller.
@@ -204,7 +206,7 @@ Herhangi bir ekran görüntü tıklamak video tam zaman konuma götürür.
 
 
 &nbsp; <a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Github depo Microsoft/WingtipSaaS, 0:50:32
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Github repo Microsoft/WingtipSaaS, 0:50:32
 [![Github depo Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
@@ -234,7 +236,7 @@ Herhangi bir ekran görüntü tıklamak video tam zaman konuma götürür.
 
 
 &nbsp; <a name="anchor-image-wtip-min10330"/>
-#### <a name="27-t-sql-select--from-tenantsextended-10325"></a>27. T-SQL SELECT * TenantsExtended, 1:03:25 gelen
+#### <a name="27-t-sql-select--from-tenantsextended-10325"></a>27. T-SQL SELECT * FROM TenantsExtended, 1:03:25
 [![T-SQL SELECT * TenantsExtended gelen][image-wtip-min10330-sql-select-tenantsextended]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3805)
 
 
@@ -269,7 +271,7 @@ Herhangi bir ekran görüntü tıklamak video tam zaman konuma götürür.
 
 
 &nbsp; <a name="anchor-image-wtip-min11246"/>
-#### <a name="34-ssms-adhoc-analytics-11235"></a>34. SSMS geçici analizi, 1:12:35
+#### <a name="34-ssms-adhoc-analytics-11235"></a>34. SSMS adhoc analytics, 1:12:35
 [![SSMS geçici analizi][image-wtip-min11246-ssms-adhoc-analytics]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4355)
 
 
@@ -316,81 +318,81 @@ Herhangi bir ekran görüntü tıklamak video tam zaman konuma götürür.
 
 <!-- Image link reference IDs. -->
 
-[image-wtip-min00003-brk3120-whole-welcome]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00003-brk3120-welcome-myob-design-saas-app-sql-db.png "Hoş Geldiniz slayt"
+[image-wtip-min00003-brk3120-whole-welcome]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00003-brk3120-welcome-myob-design-saas-app-sql-db.pngHoş Geldiniz slayt ""
 
 [image-wtip-min00311-session]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00311-session-objectives-takeaway.png "Oturum hedefler."
 
 [image-wtip-min00417-agenda]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00417-agenda-app-management-models-patterns.png "Gündem."
 
-[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Wingtip SaaS uygulama: çok kiracılı web uygulaması"
+[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.pngWingtip SaaS uygulama: çok kiracılı web uygulaması ""
 
-[image-wtip-min00555-app-web-form]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00555-app-form-contoso-concert-hall-night-opera.png "Uygulama web formunda eylemi"
+[image-wtip-min00555-app-web-form]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00555-app-form-contoso-concert-hall-night-opera.pngUygulama web formunda eylemi ""
 
-[image-wtip-min00931-per-tenant-cost]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00931-saas-data-management-concerns.png "Her Kiracı maliyet, Ölçek, yalıtım, Kurtarma"
+[image-wtip-min00931-per-tenant-cost]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00931-saas-data-management-concerns.pngHer Kiracı maliyet, Ölçek, yalıtım, Kurtarma ""
 
-[image-wtip-min01159-db-models-pros-cons]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01159-db-models-multi-tenant-saas-apps.png "Veritabanı modelleri için çok kiracılı: Artıları ve eksileri"
+[image-wtip-min01159-db-models-pros-cons]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01159-db-models-multi-tenant-saas-apps.pngVeritabanı modelleri için çok kiracılı: Artıları ve eksileri ""
 
-[image-wtip-min01301-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01301-hybrib-model-blends-benefits-mt-st.png "Karma modeli MT/ST yararları karıştırır"
+[image-wtip-min01301-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01301-hybrib-model-blends-benefits-mt-st.pngKarma modeli MT/ST yararları karıştırır ""
 
-[image-wtip-min01644-st-vs-mt]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01644-st-mt-pros-cons.png "Tek Kiracı vs çok kiracılı: Artıları ve eksileri"
+[image-wtip-min01644-st-vs-mt]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01644-st-mt-pros-cons.pngTek Kiracı vs çok kiracılı: Artıları ve eksileri ""
 
-[image-wtip-min01936-pools-cost]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01936-pools-cost-effective-unpredictable-workloads.png "Havuzları öngörülemeyen iş yükleri için düşük maliyetli"
+[image-wtip-min01936-pools-cost]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01936-pools-cost-effective-unpredictable-workloads.pngHavuzları öngörülemeyen iş yükleri için düşük maliyetli ""
 
-[image-wtip-min02008-demo-st-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02008-demo-st-hybrid.png "Kiracı başına veritabanı ve karma ST/MT Tanıtımı"
+[image-wtip-min02008-demo-st-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02008-demo-st-hybrid.pngKiracı başına veritabanı ve karma ST/MT Tanıtımı ""
 
-[image-wtip-min02029-live-app-form-dojo]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02029-app-form-dogwwod-dojo.png "Dojo gösteren dinamik uygulama formu"
+[image-wtip-min02029-live-app-form-dojo]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02029-app-form-dogwwod-dojo.pngDojo gösteren dinamik uygulama formu ""
 
-[image-wtip-min02854-myob-no-dba]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02854-myob-no-dba.png "MYOB ve DBA görüş içinde değil"
+[image-wtip-min02854-myob-no-dba]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02854-myob-no-dba.pngMYOB ve DBA görüş içinde değil ""
 
-[image-wtip-min02940-myob-elastic]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02940-myob-elastic-pool-usage-example.png "MYOB esnek Havuz Kullanım örneği"
+[image-wtip-min02940-myob-elastic]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min02940-myob-elastic-pool-usage-example.pngMYOB esnek Havuz Kullanım örneği ""
 
-[image-wtip-min03136-learning-isvs]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min03136-myob-isv-saas-patterns-design-scale.png "MYOB ve diğer ISV'ler öğrenme"
+[image-wtip-min03136-learning-isvs]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min03136-myob-isv-saas-patterns-design-scale.pngMYOB ve diğer ISV'ler öğrenme ""
 
-[image-wtip-min04315-patterns-compose]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04315-patterns-compose-into-e2e-saas-scenario-st-mt.png "E2E SaaS senaryo düzenlerini oluşturma"
+[image-wtip-min04315-patterns-compose]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04315-patterns-compose-into-e2e-saas-scenario-st-mt.pngE2E SaaS senaryo düzenlerini oluşturma ""
 
-[image-wtip-min04733-canonical-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04733-canonical-hybrid-mt-saas-app.png "Kurallı karma çok kiracılı SaaS uygulama"
+[image-wtip-min04733-canonical-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04733-canonical-hybrid-mt-saas-app.pngKurallı karma çok kiracılı SaaS uygulama ""
 
-[image-wtip-min04810-wingtip-saas-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04810-saas-sample-app-descr-of-modules-links.png "Wingtip SaaS örnek uygulaması"
+[image-wtip-min04810-wingtip-saas-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04810-saas-sample-app-descr-of-modules-links.pngWingtip SaaS örnek uygulaması ""
 
-[image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Senaryolar ve eğitimlerine incelediniz desenleri"
+[image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.pngSenaryolar ve eğitimlerine incelediniz desenleri ""
 
 [image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Öğreticiler ve Github deposuna Tanıtımı"
 
-[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Github depo Microsoft/WingtipSaaS"
+[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.pngGithub depo Microsoft/WingtipSaaS ""
 
-[image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.png "Desenler keşfetme"
+[image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.pngDesenler keşfetme ""
 
-[image-wtip-min05744-provisioning-tenants-onboarding-1]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05744-provisioning-tenants-connecting-run-time-1.png "Sağlama kiracılar ve ekleme"
+[image-wtip-min05744-provisioning-tenants-onboarding-1]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05744-provisioning-tenants-connecting-run-time-1.pngSağlama kiracılar ve ekleme ""
 
-[image-wtip-min05858-provisioning-tenants-app-connection-2]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05858-provisioning-tenants-connecting-run-time-2.png "Kiracılar ve uygulama bağlantı sağlama"
+[image-wtip-min05858-provisioning-tenants-app-connection-2]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05858-provisioning-tenants-connecting-run-time-2.pngKiracılar ve uygulama bağlantı sağlama ""
 
-[image-wtip-min05943-demo-management-scripts-st]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05943-demo-management-scripts-provisioning-st.png "Tek bir kiracı sağlama yönetim komut dosyaları Tanıtımı"
+[image-wtip-min05943-demo-management-scripts-st]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05943-demo-management-scripts-provisioning-st.pngTek bir kiracı sağlama yönetim komut dosyaları Tanıtımı ""
 
-[image-wtip-min10002-powershell-provision-catalog]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10002-powershell-code.png "Sağlama ve Katalog için PowerShell"
+[image-wtip-min10002-powershell-provision-catalog]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10002-powershell-code.pngSağlama ve Katalog için PowerShell ""
 
-[image-wtip-min10330-sql-select-tenantsextended]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10330-ssms-tenantcatalog.png "T-SQL SELECT * TenantsExtended gelen"
+[image-wtip-min10330-sql-select-tenantsextended]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10330-ssms-tenantcatalog.pngT-SQL SELECT * TenantsExtended gelen ""
 
-[image-wtip-min10436-managing-unpredictable-workloads]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10436-managing-unpredictable-tenant-workloads.png "Öngörülemeyen Kiracı İş yükleri yönetme"
+[image-wtip-min10436-managing-unpredictable-workloads]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10436-managing-unpredictable-tenant-workloads.pngÖngörülemeyen Kiracı İş yükleri yönetme ""
 
-[image-wtip-min10639-elastic-pool-monitoring]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10639-elastic-pool-monitoring.png "Esnek Havuz izleme"
+[image-wtip-min10639-elastic-pool-monitoring]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10639-elastic-pool-monitoring.pngEsnek Havuz izleme ""
 
-[image-wtip-min10942-load-generation]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10942-schema-management-scale.png "Yükleme oluşturma ve performans izlemesi"
+[image-wtip-min10942-load-generation]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min10942-schema-management-scale.pngYükleme oluşturma ve performans izlemesi ""
 
-[image-wtip-min11033-schema-management-scale]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11033-schema-manage-1000s-dbs-one.png "Şema Yönetimi"
+[image-wtip-min11033-schema-management-scale]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11033-schema-manage-1000s-dbs-one.pngŞema Yönetimi ""
 
-[image-wtip-min11221-distributed-query]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11221-distributed-query-all-tenants-asif-single-db.png "Kiracı veritabanları arasında dağıtılmış sorgu"
+[image-wtip-min11221-distributed-query]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11221-distributed-query-all-tenants-asif-single-db.pngKiracı veritabanları arasında dağıtılmış sorgu ""
 
-[image-wtip-min11232-demo-ticket-generation]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11232-demo-ticket-generation-distributed-query.png "Bilet oluşturma Tanıtımı"
+[image-wtip-min11232-demo-ticket-generation]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11232-demo-ticket-generation-distributed-query.pngBilet oluşturma Tanıtımı ""
 
-[image-wtip-min11246-ssms-adhoc-analytics]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11246-tsql-adhoc-analystics-db-elastic-query.png "SSMS geçici analizi"
+[image-wtip-min11246-ssms-adhoc-analytics]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11246-tsql-adhoc-analystics-db-elastic-query.pngSSMS geçici analizi ""
 
-[image-wtip-min11632-extract-tenant-data-sql-dw]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11632-extract-tenant-data-analytics-db-dw.png "SQL DW Kiracı veri ayıklamak"
+[image-wtip-min11632-extract-tenant-data-sql-dw]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11632-extract-tenant-data-analytics-db-dw.pngSQL DW Kiracı veri ayıklamak ""
 
-[image-wtip-min11648-graph-daily-sale-distribution]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11648-graph-daily-sale-contoso-concert-hall.png "Günlük satış dağıtım grafiği"
+[image-wtip-min11648-graph-daily-sale-distribution]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11648-graph-daily-sale-contoso-concert-hall.pngGünlük satış dağıtım grafiği ""
 
-[image-wtip-min11952-wrap-up-call-action]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11952-wrap-call-action-saasfeedback.png "Kaydırma ve eyleme çağırın"
+[image-wtip-min11952-wrap-up-call-action]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11952-wrap-call-action-saasfeedback.pngKaydırma ve eyleme çağırın ""
 
-[image-wtip-min12042-resources-more-info]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min12042-resources-blog-github-tutorials-get-started.png "Daha fazla bilgi için kaynaklar"
+[image-wtip-min12042-resources-more-info]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min12042-resources-blog-github-tutorials-get-started.pngDaha fazla bilgi için kaynaklar ""
 
 
 

@@ -4,7 +4,7 @@ description: "Bu öğretici Klasik dağıtım modeliyle oluşturulan kaynakları
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b99cf767fb931d3f7fe14fcbe7990126244613ed
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fe7384baa6740d316fb5a8ec7b1894f337d88080
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>PowerShell ile Azure VM'de Always On kullanılabilirlik grubu yapılandırma
 > [!div class="op_single_selector"]
@@ -385,7 +385,7 @@ Bu bölümde, yük devretme kümesi ve SQL Server yüklemesi kullanacağınız �
 * ContosoSQL1 ve yalnızca ContosoSQL2: eklemenize gerek **NT AUTHORITY\SYSTEM** bir oturum açma ve aşağıdaki izinlerle olarak:
 
   * Herhangi bir kullanılabilirlik grubu Değiştir
-  * SQL bağlantı
+  * Connect SQL
   * VIEW server state
 * ContosoSQL1 ve yalnızca ContosoSQL2: **TCP** Protokolü SQL Server VM üzerinde zaten etkin. Ancak, yine SQL Server'ın uzaktan erişim için Güvenlik Duvarı'nı açmak gerekir.
 

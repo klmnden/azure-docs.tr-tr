@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>İzleme B2B iletişimi Microsoft Operations Management Suite (OMS)
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/19/2018
 
 OMS B2B iletileri mantıksal uygulamanızı izlemek için eklemelisiniz **Logic Apps B2B** OMS portalı çözüme. Daha fazla bilgi edinmek [çözümleri için OMS ekleme](../log-analytics/log-analytics-get-started.md).
 
-1. İçinde [Azure portal](https://portal.azure.com), seçin **daha Hizmetleri**. "İçin günlük analizi" araması yapın ve ardından **günlük analizi** aşağıda gösterildiği gibi:
+1. İçinde [Azure portal](https://portal.azure.com), seçin **tüm hizmetleri**. "İçin günlük analizi" araması yapın ve ardından **günlük analizi** aşağıda gösterildiği gibi:
 
    ![Günlük analizi Bul](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
@@ -156,7 +156,7 @@ Burada, her AS2 ileti için özellik açıklamaları bulunmaktadır.
 | ACK | MDN ileti durumu <br>Kabul alınan = ya da pozitif MDN gönderilir. <br>Bekleyen alma ya da bir MDN göndermek için bekleyen =. <br>Reddedilen alınan = ya da negatif MDN gönderilir. <br>Gerekli değil = MDN ayarlı değil anlaşmasında. |
 | Yön | AS2 ileti yönü |
 | Bağıntı Kimliği | Tüm tetikleyiciler ve Eylemler bir mantıksal uygulama içinde karşılık gelen kimliği |
-| İleti Kimliği | AS2 ileti üstbilgilerini AS2 ileti kimliği |
+| İleti kimliği | AS2 ileti üstbilgilerini AS2 ileti kimliği |
 | Zaman damgası | Ne zaman AS2 eylem ileti işleme süresi |
 |          |             |
 

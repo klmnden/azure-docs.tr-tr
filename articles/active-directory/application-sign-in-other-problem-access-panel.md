@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: fc387a6687c5063031c5fc1ac1994472be48f903
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f73b7929aea35382f7ca684c866b65e070668d5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Bir uygulamaya erişim panelinde oturum açma sorunları
 
@@ -44,7 +44,7 @@ Bir kullanıcı için görüyor olabilirsiniz uygulamalarının türü aşağıd
 
 -   Uygulama denetlediğinizden emin olun **yapılandırılmış** doğru.
 
--   Kullanıcının hesabı olduğundan emin olun **etkin** için oturum açmalar.
+-   Kullanıcının hesabı olduğundan emin olun **etkin** oturum açma işlemleri için.
 
 -   Kullanıcının hesabı olduğundan emin olun **kilitli değil.**
 
@@ -82,7 +82,7 @@ Erişim paneli tarayıcı uzantısı yüklemek için aşağıdaki adımları izl
 
 3.  Yazılımı yüklemek soran istem içinde seçin **Şimdi Yükle**.
 
-4.  Tarayıcınıza bağlı için karşıdan yükleme bağlantısı yönlendirilmiş. **Ekleme** tarayıcınız uzantısı.
+4.  Tarayıcınız için karşıdan yükleme bağlantısı yönlendirilir temel. **Ekleme** tarayıcınız uzantısı.
 
 5.  Tarayıcınız isterse, ya da seçin **etkinleştirmek** veya **izin** uzantısı.
 
@@ -118,15 +118,15 @@ Bir uygulama için gereken Azure AD galerisinden yapılandırmak için:
 
 Azure AD Galeriden bir uygulama eklemek için aşağıdaki adımları izleyin:
 
-1.  Açık [Azure Portal](https://portal.azure.com) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [Azure portal](https://portal.azure.com) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
 4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** dikey penceresi
+5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** bölmesi.
 
 6.  İçinde **bir ad girin** metin **galerisinden Ekle** bölümünde, uygulamanın adını yazın.
 
@@ -136,15 +136,15 @@ Azure AD Galeriden bir uygulama eklemek için aşağıdaki adımları izleyin:
 
 9.  Tıklatın **Ekle** düğmesi, bir uygulama eklemek için.
 
-Kısa bir süre sonra uygulamanın yapılandırma dikey görüyor.
+Kısa bir süre sonra uygulamanın yapılandırma bölmesinde görebilirsiniz.
 
 ### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Azure AD Galeriden bir uygulama için çoklu oturum açmayı yapılandırın
 
 Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki adımları izleyin:
 
-1.  <span id="_Hlk477187909" class="anchor"><span id="_Hlk477001983" class="anchor"></span></span>Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  <span id="_Hlk477187909" class="anchor"><span id="_Hlk477001983" class="anchor"></span></span>Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -152,7 +152,7 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
 
@@ -162,15 +162,15 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 9.  Gerekli değerleri girin **etki alanı ve URL'ler.** Bu değerleri uygulama satıcısından almanız gerekir.
 
-   1. SP tarafından başlatılan SSO'yu, oturum açma URL'si olarak uygulamayı yapılandırmak için bu gerekli bir değerdir. Bazı uygulamalar için tanımlayıcı da gerekli bir değerdir.
+   1. Uygulama SP tarafından başlatılan SSO'yu yapılandırmak için oturum açma URL'si gerekli bir değerdir. Bazı uygulamalar için tanımlayıcı da gerekli bir değerdir.
 
-   2. IDP tarafından başlatılan SSO'yu, yanıt URL'si uygulamayı yapılandırmak için bu gerekli bir değerdir. Bazı uygulamalar için tanımlayıcı da gerekli bir değerdir.
+   2. Uygulama IDP tarafından başlatılan SSO'yu yapılandırmak için yanıt URL'si gerekli bir değerdir. Bazı uygulamalar için tanımlayıcı da gerekli bir değerdir.
 
 10. **İsteğe bağlı:** tıklatın **Göster Gelişmiş URL ayarları** gerekli olmayan değerleri görmek istiyorsanız.
 
 11. İçinde **kullanıcı öznitelikleri**, kullanıcılarınız için benzersiz tanımlayıcı seçin **kullanıcı tanımlayıcısı** açılır.
 
-12. **İsteğe bağlı:** tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** kullanıcı oturum açtığında SAML belirteci uygulamada gönderilmesini öznitelikleri düzenlemek için.
+12. **İsteğe bağlı:** tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** kullanıcılar oturum açtığında SAML belirteci uygulamada gönderilmesini öznitelikleri düzenlemek için.
 
    Bir öznitelik eklemek için:
 
@@ -178,7 +178,7 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
    2. Tıklatın **kaydedin.** Yeni öznitelik tablosundaki bakın.
 
-13. tıklatın **yapılandırma &lt;uygulama adı&gt;**  erişim belgelerine çoklu oturum açma uygulamada yapılandırma. Ayrıca, meta verileri URL'leri ve SSO uygulama ile kurulum için gerekli sertifika sahiptir.
+13. tıklatın **yapılandırma &lt;uygulama adı&gt;**  erişim belgelerine çoklu oturum açma uygulamada yapılandırma. Ayrıca, uygulama ile SSO kurulum için gerekli sertifika ve meta verileri URL'leri vardır.
 
 14. tıklatın **kaydetmek** yapılandırmayı kaydetmek için.
 
@@ -188,9 +188,9 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 Kullanıcı kimliği seçin veya kullanıcı öznitelikleri eklemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -198,7 +198,7 @@ Kullanıcı kimliği seçin veya kullanıcı öznitelikleri eklemek için aşağ
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Uygulama görmüyorsanız, istediğiniz burada gösterilecek kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+  * Uygulama görmüyorsanız, istediğiniz burada gösterilecek kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek  **Tüm uygulamalar.**
 
 6.  Çoklu oturum açma yapılandırdığınız uygulaması'nı seçin.
 
@@ -211,7 +211,7 @@ Kullanıcı kimliği seçin veya kullanıcı öznitelikleri eklemek için aşağ
     >
     >
 
-9.  Kullanıcı öznitelikleri eklemek için tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** kullanıcı oturum açtığında SAML belirteci uygulamada gönderilmesini öznitelikleri düzenlemek için.
+9.  Kullanıcı öznitelikleri eklemek için tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** kullanıcılar oturum açtığında SAML belirteci uygulamada gönderilmesini öznitelikleri düzenlemek için.
 
    Bir öznitelik eklemek için:
 
@@ -223,9 +223,9 @@ Kullanıcı kimliği seçin veya kullanıcı öznitelikleri eklemek için aşağ
 
 Uygulama meta verileri veya sertifika Azure AD'den karşıdan yüklemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -233,7 +233,7 @@ Uygulama meta verileri veya sertifika Azure AD'den karşıdan yüklemek için a�
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Çoklu oturum açma yapılandırdığınız uygulaması'nı seçin.
 
@@ -259,17 +259,17 @@ Bir galeri olmayan uygulama yapılandırmak için Azure AD premium olması gerek
 
 Azure AD Galerisi'nde olmayan bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
 4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** dikey penceresi
+5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** bölmesi.
 
-6.  tıklatın **olmayan galeri uygulama** içinde **kendi uygulama Ekle** bölümü
+6.  tıklatın **olmayan galeri uygulama** içinde **kendi uygulama Ekle** bölümü.
 
 7.  Uygulama adını girin **adı** metin kutusu.
 
@@ -283,11 +283,11 @@ Azure AD Galerisi'nde olmayan bir uygulama için çoklu oturum açmayı yapılan
 
   1. Uygulama IDP tarafından başlatılan SSO'yu yapılandırmak için yanıt URL'si ve tanımlayıcı girin.
 
-  2. **İsteğe bağlı:** SP tarafından başlatılan SSO'yu, oturum açma URL'si olarak uygulamayı yapılandırmak için bu gerekli bir değerdir.
+  2. **İsteğe bağlı:** uygulama SP tarafından başlatılan SSO'yu yapılandırmak için oturum açma URL'si gerekli bir değerdir.
 
 12. İçinde **kullanıcı öznitelikleri**, kullanıcılarınız için benzersiz tanımlayıcı seçin **kullanıcı tanımlayıcısı** açılır.
 
-13. **İsteğe bağlı:** tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** kullanıcı oturum açtığında SAML belirteci uygulamada gönderilmesini öznitelikleri düzenlemek için.
+13. **İsteğe bağlı:** tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** kullanıcılar oturum açtığında SAML belirteci uygulamada gönderilmesini öznitelikleri düzenlemek için.
 
    Bir öznitelik eklemek için:
 
@@ -295,15 +295,15 @@ Azure AD Galerisi'nde olmayan bir uygulama için çoklu oturum açmayı yapılan
 
    2. Tıklatın **kaydedin.** Yeni öznitelik tablosundaki bakın.
 
-14. tıklatın **yapılandırma &lt;uygulama adı&gt;**  erişim belgelerine çoklu oturum açma uygulamada yapılandırma. Ayrıca, Azure AD URL'leri ve uygulama için gerekli sertifika sahiptir.
+14. tıklatın **yapılandırma &lt;uygulama adı&gt;**  erişim belgelerine çoklu oturum açma uygulamada yapılandırma. Ayrıca, Azure AD URL'leri ve uygulama için gerekli sertifika vardır.
 
 ### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Kullanıcı tanımlayıcısı seçin ve uygulamaya gönderilmek üzere kullanıcı öznitelikleri ekleyin
 
 Kullanıcı kimliği seçin veya kullanıcı öznitelikleri eklemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -311,7 +311,7 @@ Kullanıcı kimliği seçin veya kullanıcı öznitelikleri eklemek için aşağ
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Çoklu oturum açma yapılandırdığınız uygulaması'nı seçin.
 
@@ -324,7 +324,7 @@ Kullanıcı kimliği seçin veya kullanıcı öznitelikleri eklemek için aşağ
    >
    >
 
-9.  Kullanıcı öznitelikleri eklemek için tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** kullanıcı oturum açtığında SAML belirteci uygulamada gönderilmesini öznitelikleri düzenlemek için.
+9.  Kullanıcı öznitelikleri eklemek için tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** kullanıcılar oturum açtığında SAML belirteci uygulamada gönderilmesini öznitelikleri düzenlemek için.
 
    Bir öznitelik eklemek için:
 
@@ -336,9 +336,9 @@ Kullanıcı kimliği seçin veya kullanıcı öznitelikleri eklemek için aşağ
 
 Uygulama meta verileri veya sertifika Azure AD'den karşıdan yüklemek için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -346,7 +346,7 @@ Uygulama meta verileri veya sertifika Azure AD'den karşıdan yüklemek için a�
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Çoklu oturum açma yapılandırdığınız uygulaması'nı seçin.
 
@@ -368,15 +368,15 @@ Bir uygulama için gereken Azure AD galerisinden yapılandırmak için:
 
 Azure AD Galeriden bir uygulama eklemek için aşağıdaki adımları izleyin:
 
-1.  Açık [Azure Portal](https://portal.azure.com) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [Azure portal](https://portal.azure.com) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
 4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** dikey penceresi
+5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** bölmesi.
 
 6.  İçinde **bir ad girin** metin **galerisinden Ekle** bölümünde, uygulamanın adını yazın
 
@@ -386,15 +386,15 @@ Azure AD Galeriden bir uygulama eklemek için aşağıdaki adımları izleyin:
 
 9.  Tıklatın **Ekle** düğmesi, bir uygulama eklemek için.
 
-Kısa bir süre sonra uygulamanın yapılandırma dikey görüyor.
+Kısa bir süre sonra uygulamanın yapılandırma bölmesinde görebilirsiniz.
 
 ### <a name="configure-the-application-for-password-single-sign-on"></a>Uygulaması parola çoklu oturum açma için yapılandırma
 
 Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -402,7 +402,7 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
- * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+ * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin
 
@@ -426,29 +426,29 @@ Bir uygulama için gereken Azure AD galerisinden yapılandırmak için:
 
 Azure AD Galeriden bir uygulama eklemek için aşağıdaki adımları izleyin:
 
-1.  Açık [Azure Portal](https://portal.azure.com) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [Azure portal](https://portal.azure.com) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
 4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** dikey penceresi
+5.  tıklatın **Ekle** düğmesine sağ üst köşede **kurumsal uygulamalar** bölmesi.
 
 6.  tıklatın **olmayan galeri uygulaması.**
 
 7.  Uygulamanızda adını girin **adı** metin kutusu. Seçin **ekleyin.**
 
-Kısa bir süre sonra uygulamanın yapılandırma dikey görüyor.
+Kısa bir süre sonra uygulamanın yapılandırma bölmesi görüyor.
 
 ### <a name="configure-the-application-for-password-single-sign-on"></a>Uygulaması parola çoklu oturum açma için yapılandırma
 
 Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -456,7 +456,7 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
- * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+ * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
 
@@ -474,9 +474,9 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 Bir veya daha fazla kullanıcının uygulamaya doğrudan atamak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -484,25 +484,25 @@ Bir veya daha fazla kullanıcının uygulamaya doğrudan atamak için aşağıda
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
 
 7.  Uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Tıklatın **Ekle** üstünde düğmesini **kullanıcılar ve gruplar** açmak için liste **eklemek atama** dikey.
+8.  Tıklatın **Ekle** üstünde düğmesini **kullanıcılar ve gruplar** açmak için liste **eklemek atama** bölmesi.
 
-9.  tıklatın **kullanıcılar ve gruplar** seçicisini **eklemek atama** dikey.
+9.  tıklatın **kullanıcılar ve gruplar** seçicisini **eklemek atama** bölmesi.
 
 10. Yazın **tam adı** veya **e-posta adresi** içine atama ilgilenen kullanıcının **ad veya e-posta adresine göre arama** arama kutusu.
 
 11. Üzerine gelerek **kullanıcı** ortaya çıkarmak için listedeki bir **onay kutusunu**. Kullanıcının profil fotoğrafınız veya logosu, kullanıcı eklemek için yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** başlamayı tercih ederseniz **birden fazla kullanıcı ekleme**, başka bir tür **tam adı** veya **e-posta adresi** içine **ad veya e-posta adresine göre arama** arama kutusu ve bu kullanıcıyı eklemek için onay kutusunu işaretleyin **seçili** listesi.
+12. **İsteğe bağlı:** başlamayı tercih ederseniz **birden fazla kullanıcı ekleme**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına göre arama veya e-posta adresi** arama kutusu ve bu kullanıcıyı eklemek için onay kutusunu işaretleyin **seçili** listesi.
 
 13. Kullanıcıların seçerek bittiğinde tıklatın **seçin** düğmesi uygulamaya atanan kullanıcılar ve gruplar listesi eklemek için.
 
-14. **İsteğe bağlı:** tıklatın **rolü Seç** seçicide **eklemek atama** seçtiğiniz kullanıcılara atamak için bir rol seçin dikey.
+14. **İsteğe bağlı:** tıklatın **rolü Seç** seçicide **eklemek atama** bölmesinde seçtiğiniz kullanıcılara atamak için bir rol seçin.
 
 15. Tıklatın **atamak** uygulamayı Seçilen kullanıcılara atamak için düğmesi.
 

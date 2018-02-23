@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc243f4ca6d323bf2b90cb9ab8fa9b77e1df9f8e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -55,7 +55,7 @@ Belirteçleri almak uygulamanızı etkinleştirmek için ilk Azure AD kiracını
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda hesabınızda altında tıklatıp **Directory** listesinde, Active Directory Kiracı uygulamanızı kaydetmek için istediğiniz yeri seçin.
-3. Tıklayın **daha Hizmetleri** sol taraftaki gezinti içinde ve **Azure Active Directory**.
+3. Tıklayın **tüm hizmetleri** sol taraftaki gezinti içinde ve **Azure Active Directory**.
 4. Tıklayın **uygulama kayıtlar** ve **Ekle**.
 5. Komut istemlerini izleyin ve yeni bir **yerel istemci uygulaması**.
   * **Adı** uygulamayı son kullanıcılar uygulamanıza anlatmaktadır

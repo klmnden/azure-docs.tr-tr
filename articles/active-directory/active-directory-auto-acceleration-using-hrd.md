@@ -12,17 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-<<<<<<< HEAD
-ms.openlocfilehash: b1f0e5da09ef1d6acd234b72878cc71d66bb551e
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: HT
-=======
-ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Oturum açma otomatik-hızlandırma bir uygulama için bir giriş bölgesi bulma İlkesi kullanarak yapılandırma
 
@@ -89,9 +83,9 @@ Oturum açma otomatik-hızlandırma bir uygulama ayarı için üç adım vardır
 
 1. Otomatik hızlandırma için bir HRD ilkesi oluşturma.
 
-2. İlke ekleneceği hizmet ilkesi bulunuyor.
+2. Hizmet sorumlusu İlkesi ekleneceği bulunuyor.
 
-3. İlke hizmet ilkesi ekleniyor. Bir kiracı ilkeleri oluşturulmuş olabilir, ancak bir varlığa eklenen kadar herhangi bir etkisi yok. 
+3. Hizmet sorumlusu İlkesi ekleniyor. Bir kiracı ilkeleri oluşturulmuş olabilir, ancak bir varlığa eklenen kadar herhangi bir etkisi yok. 
 
 HRD ilke için bir hizmet sorumlusu eklenebilecek ve herhangi bir anda yalnızca bir HRD ilke belirli bir varlık üzerinde etkin olabilir.  
 
@@ -141,7 +135,7 @@ Dahil olmak üzere birkaç Senaryoları yol için Azure AD PowerShell cmdlet'ler
 
 - Bir ilke yapılandırıldığı uygulamaların listesi.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki örneklerde, oluştur, Güncelleştir, bağlantı ve Azure AD'de uygulama hizmet asıl adı ilkelerini Sil.
 
 1.  Başlamak için en son Azure AD PowerShell cmdlet Önizleme indirin. 
@@ -176,12 +170,12 @@ Get-AzureADPolicy
 ```
 
 
-HRD ilke aldıktan sonra otomatik ivmesini etkinleştirmek için birden çok uygulama hizmeti ilkeleri atayabilirsiniz.
+HRD ilke aldıktan sonra otomatik ivmesini etkinleştirmek için birden çok uygulama hizmet sorumluları atayabilirsiniz.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>2. adım: ilkeyi atamak hizmet asıl bulun  
 Gereksinim duyduğunuz **objectID** ilke atamak istediğiniz hizmet sorumluları. Bulmanın birkaç yolu vardır **objectID** hizmet sorumluları.    
 
-Portal kullanabilirsiniz veya sorgulayabilirsiniz [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ayrıca gidebilirsiniz [grafik Gezgini aracı](https://graphexplorer.cloudapp.net/) ve hesabınızda oturum açın Azure AD için kuruluşunuzun tüm hizmet asıl adı görmek için. PowerShell kullandığından hizmeti ilkeleri ve kimlikleri listelemek için get-AzureADServicePrincipal cmdlet'ini kullanabilirsiniz.
+Portal kullanabilirsiniz veya sorgulayabilirsiniz [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ayrıca gidebilirsiniz [grafik Gezgini aracı](https://graphexplorer.cloudapp.net/) ve hesabınızda oturum açın Azure AD için kuruluşunuzun tüm hizmet asıl adı görmek için. PowerShell kullandığından, hizmet asıl adı ve onların kimliklerini listelemek için get-AzureADServicePrincipal cmdlet'ini kullanabilirsiniz.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3. adım: ilke, hizmet sorumlusu atayın.  
 Sonra **objectID** otomatik hızlandırma yapılandırmak istediğiniz uygulama hizmet sorumlusu, aşağıdaki komutu çalıştırın. Bu komut, 2. adımda bulduğunuz hizmet asıl 1. adımda oluşturduğunuz HRD İlkesi ilişkilendirir.

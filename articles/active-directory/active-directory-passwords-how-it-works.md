@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self Servis parola sıfırlama Azure AD derin Dalış
 
@@ -78,7 +78,7 @@ Varsayılan olarak, yalnızca bulut öznitelikleri ofis telefonu ve cep telefonu
 
 Bunlar, yönetici etkin olduğundan ve gerektiren kimlik doğrulama yöntemlerini mevcut verileri varsa kullanıcılar yalnızca parolalarını sıfırlayabilir.
 
-Kullanıcıların cep telefonu numaralarına dizinde görünür olmasını istemiyorsanız, ancak bunlar hala parola sıfırlama için kullanmak istediğiniz, Yöneticiler bu dizinde doldurmanız gerekir değil. Kullanıcıların sonra doldurmak kendi **kimlik doğrulama telefon** aracılığıyla özniteliği [parola sıfırlama kayıt portalı](http://aka.ms/ssprsetup). Yöneticiler kullanıcı profili için bu bilgiyi görebilir, ancak başka bir yerde yayınlanmadı.
+Kullanıcıların cep telefonu numaralarına dizinde görünür olmasını istemiyorsanız, ancak bunlar hala parola sıfırlama için kullanmak istediğiniz, Yöneticiler bu dizinde doldurmanız gerekir değil. Kullanıcıların sonra doldurmak kendi **kimlik doğrulama telefon** aracılığıyla özniteliği [parola sıfırlama kayıt portalı](https://aka.ms/ssprsetup). Yöneticiler kullanıcı profili için bu bilgiyi görebilir, ancak başka bir yerde yayınlanmadı.
 
 ### <a name="the-number-of-authentication-methods-required"></a>Gereken kimlik doğrulama yöntemleri sayısı
 
@@ -180,7 +180,7 @@ Bu seçeneği etkinleştirmek için bunlar uygulamaları için Azure AD kullanar
 * Federasyon uygulamalarına
 * Azure AD kullanarak özel uygulamalar
 
-Kayıt gerektiren devre dışı bırakıldığında, kullanıcılar yine de el ile kişi bilgileri kaydedebilirsiniz. Ya da ziyaret edebilirsiniz [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) veya seçin **parola sıfırlama için kaydetme** altında bağlantı **profil** erişim paneli sekmesindedir.
+Kayıt gerektiren devre dışı bırakıldığında, kullanıcılar yine de el ile kişi bilgileri kaydedebilirsiniz. Ya da ziyaret edebilirsiniz [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) veya seçin **parola sıfırlama için kaydetme** altında bağlantı **profil** erişim paneli sekmesindedir.
 
 > [!NOTE]
 > Kullanıcılar kapatmak parola sıfırlama kayıt Portalı'nı seçerek **iptal** veya penceresini kapatarak. Ancak, kayıt işlemi tamamlanana kadar oturum her zaman kaydı istenir.

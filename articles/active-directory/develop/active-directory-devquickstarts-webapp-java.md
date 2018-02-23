@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 281ce23d7fdb1a94bcc7389f3326d45a9b4e99b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-java-web-app-getting-started"></a>Azure AD Java web uygulaması Başlarken
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Kullanıcıların kimliğini doğrulamak için önce aşağıdakileri yaparak ki
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda hesabınızın adını tıklatın. Altında **Directory** listesinde, uygulama kaydetmek istediğiniz Active Directory Kiracı seçin.
-3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
+3. Tıklatın **tüm hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Oluşturmak için istemleri izleyerek bir **Web uygulaması ve/veya Webapı**.
   * **Ad** kullanıcılara uygulamasının açıklar.
@@ -1300,8 +1300,8 @@ Biz Java ayrıntılı olabilir, ancak bitmek üzere kabul ediyorsunuz. İstekler
 1. Oturum açmış kullanıcı durumunu belirlemek için kullanılacak yöntemleri erişmenizi sağlayan AuthHelper.java adlı bir dosya oluşturun. Yöntemler şunlardır:
 
  * **isAuthenticated()**: kullanıcı oturumu olup olmadığını döndürür.
- * **containsAuthenticationData()**: belirtecin veri olup olmadığını döndürür.
- * **isAuthenticationSuccessful()**: kullanıcı için kimlik doğrulaması başarılı olup olmadığını döndürür.
+ * **containsAuthenticationData()**: Returns whether the token has data.
+ * **isAuthenticationSuccessful()**: Returns whether the authentication was successful for the user.
 
  AuthHelper.java dosyası oluşturmak için aşağıdaki kodu yapıştırın:
 
@@ -1692,8 +1692,8 @@ public class BasicFilter implements Filter {
 
 Bu servlet ADAL4J uygulamasını çalıştırmak için beklediğiniz tüm yöntemlerini gösterir. Yöntemler şunlardır:
 
-* **getAccessTokenFromClientCredentials()**: gizli anahtarından erişim belirtecini alır.
-* **getAccessTokenFromRefreshToken()**: bir yenileme belirtecinden erişim belirtecini alır.
+* **getAccessTokenFromClientCredentials()**: Gets the access token from the secret.
+* **getAccessTokenFromRefreshToken()**: Gets the access token from a refresh token.
 * **getAccessToken()**: (kullanacağınız) bir Openıd Connect akışından erişim belirtecini alır.
 * **createSessionPrincipal()**: grafik API'sine erişim için kullanılacak bir oturum sorumlusu oluşturur.
 * **getRedirectUrl()**: portalda girdiğiniz değerle karşılaştırmak için Redirecturl'yi alır.

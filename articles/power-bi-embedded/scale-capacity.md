@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 9b7d0bc31946d6022e9bfae463f4a22eb12c2a58
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Power BI Embedded kapasite ölçekleme
 
@@ -33,9 +33,9 @@ Bu Power BI Embedded kapasite oluşturduğunuz varsayar. Yüklemediyseniz, bkz: 
 
 1. [Azure portal](https://portal.azure.com/) oturum açın.
 
-2. Seçin **daha fazla hizmet** > **Power BI Embedded** , kapasiteleri görmek için.
+2. Seçin **tüm hizmetleri** > **Power BI Embedded** , kapasiteleri görmek için.
 
-    ![Azure portalındaki diğer hizmetler](media/scale-capacity/azure-portal-more-services.png)
+    ![Azure portal içindeki tüm hizmetler](media/scale-capacity/azure-portal-more-services.png)
 
 3. Ölçeklendirmek istediğiniz kapasite seçin.
 

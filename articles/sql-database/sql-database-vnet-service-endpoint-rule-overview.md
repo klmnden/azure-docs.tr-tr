@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 02/13/2018
+ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 95e5b2fafa20e636957aacb10dbdf9e1fd02cf8f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -127,9 +127,6 @@ Kullanma seçeneğiniz [rol tabanlı erişim denetimi (RBAC)] [ rbac-what-is-813
 ## <a name="limitations"></a>Sınırlamalar
 
 Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınırlamalara sahiptir:
-
-- Şu anda Azure Web uygulaması bir alt ağ olan **hizmet uç noktaları** üzerinde mu henüz beklenen şekilde işlevi açık değil. Bu işlevselliği etkinleştirmek için çalışıyoruz.
-    - Bu özellik tamamen uygulanana kadar hizmet uç noktaları için SQL açık olmayan farklı bir alt Web uygulamanızı gitme öneririz.
 
 - SQL veritabanınız için Güvenlik Duvarı'nda, her sanal ağ kuralı bir alt ağ başvurur. Bu başvurulan tüm alt ağlar SQL veritabanını barındıran aynı coğrafi bölgede barındırılması gerekir.
 

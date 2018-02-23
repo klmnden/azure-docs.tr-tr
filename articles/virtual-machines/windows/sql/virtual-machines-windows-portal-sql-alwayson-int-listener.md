@@ -4,7 +4,7 @@ description: "Always On kullanılabilirlik grubu için bir dinleyici SQL Server 
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/01/2017
+ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0399f9ef969098216e080140a67f81725b670115
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Always On kullanılabilirlik grubu için yük dengeleyici Azure'da yapılandırın
 Bu makalede, Azure Resource Manager ile çalışan Azure sanal makinelerde bir SQL Server Always On kullanılabilirlik grubu için yük dengeleyici oluşturma açıklanmaktadır. SQL Server örnekleri üzerinde Azure sanal makine olduğunda bir kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici için kullanılabilirlik grubu dinleyici IP adresini depolar. Bir kullanılabilirlik grubu birden çok bölgeye yayılırsa, her bölge bir yük dengeleyicinin gerekir.
 
 Bu görevi tamamlamak için Resource Manager ile çalışan Azure sanal makinelerinde dağıtılan bir SQL Server kullanılabilirlik grubu olması gerekir. Her iki SQL Server sanal makineleri aynı kullanılabilirlik kümesine ait olması gerekir. Kullanabileceğiniz [Microsoft şablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) kullanılabilirlik grubu Kaynak Yöneticisi'nde otomatik olarak oluşturmak için. Bu şablon bir iç yük dengeleyici sizin için otomatik olarak oluşturur. 
 
-İsterseniz, aşağıdakileri yapabilirsiniz [el ile bir kullanılabilirlik grubu yapılandırmak](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+İsterseniz, aşağıdakileri yapabilirsiniz [el ile bir kullanılabilirlik grubu yapılandırmak](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 Bu makalede, kullanılabilirlik grupları zaten yapılandırılmış olmasını gerektirir.  
 
 İlgili Konular şunlardır:
 
-* [Azure VM (GUI), Always On kullanılabilirlik grupları yapılandırma](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Azure VM (GUI), Always On kullanılabilirlik grupları yapılandırma](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Azure Resource Manager ve PowerShell kullanarak VNet-VNet bağlantı yapılandırma](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 Bu makalede taramasını tarafından oluşturabilir ve Azure portalında bir yük dengeleyici yapılandırabilirsiniz. İşlem tamamlandıktan sonra küme için kullanılabilirlik grubu dinleyici IP adresi yük dengeleyiciden kullanmak için yapılandırın.
@@ -68,13 +68,13 @@ Bu görev bölümünde aşağıdakileri yapın:
    | **Tür** |**İç**: çoğu uygulamalarını uygulamalarının aynı sanal ağ içinde kullanılabilirlik grubuna bağlanmasına olanak tanıyan bir iç yük dengeleyici kullanın.  </br> **Dış**: uygulamaların kullanılabilirlik grubu genel bir Internet bağlantısı üzerinden bağlanmasına izin verir. |
    | **Sanal ağ** |SQL Server intances bulunan sanal ağı seçin. |
    | **Alt ağ** |SQL Server örnekleri bulunan alt ağ seçin. |
-   | **IP adresi ataması** |**Statik** |
+   | IP adresi ataması |**Statik** |
    | **Özel IP adresi** |Kullanılabilir bir IP adresi alt ağından belirtin. Küme üzerinde bir dinleyici oluşturduğunuzda, bu IP adresi kullanın. Bu adres için bu makalenin sonraki bölümlerinde bir PowerShell Betiği kullanmak `$ILBIP` değişkeni. |
    | **Abonelik** |Birden çok aboneliğiniz varsa, bu alan görünebilir. Bu kaynak ile ilişkilendirmek istediğiniz aboneliği seçin. Normalde, kullanılabilirlik grubu için tüm kaynakların aynı abonelik olur. |
    | **Kaynak grubu** |SQL Server örnekleri bulunan kaynak grubu seçin. |
    | **Konum** |SQL Server örnekleri bulunan Azure konumu seçin. |
 
-6. **Oluştur**'a tıklayın. 
+6. **Oluştur**’a tıklayın. 
 
 Azure yük dengeleyici oluşturur. Yük Dengeleyici belirli ağ, alt ağ, kaynak grubunu ve konumu için aittir. Azure görev tamamlandıktan sonra Azure yük dengeleyici ayarları doğrulayın. 
 
@@ -113,10 +113,10 @@ Azure, SQL Server örneklerinin kullanılabilirlik grubu dinleyicisi şu anda sa
    | **Ad** |Araştırmayı temsil eden bir metin adı. Örneğin, **SQLAlwaysOnEndPointProbe**. |
    | **Protokol** |**TCP** |
    | **Bağlantı Noktası** |Tüm kullanılabilir bağlantı noktası kullanabilirsiniz. Örneğin, *59999*. |
-   | **Aralığı** |*5* |
+   | **Aralık** |*5* |
    | **Sağlıksız durum eşiği.** |*2* |
 
-4.  **Tamam** düğmesine tıklayın. 
+4.  **Tamam**’a tıklayın. 
 
 > [!NOTE]
 > Belirttiğiniz bağlantı noktasının Güvenlik Duvarı'nı her iki SQL Server örneklerinin açık olduğundan emin olun. Her iki örnek bir gelen kuralı kullandığınız için TCP bağlantı noktası gerektirir. Daha fazla bilgi için bkz: [Ekle veya Düzenle güvenlik duvarı kuralı](http://technet.microsoft.com/library/cc753558.aspx). 
@@ -141,15 +141,15 @@ Yük Dengeleme kuralları nasıl yük dengeleyici için SQL Server örnekleri tr
    | **Bağlantı Noktası** |*1433* |
    | **Arka uç bağlantı noktası** |*1433*. Bu kural kullandığından bu değer yoksayılır **kayan IP (doğrudan sunucu dönüşü)**. |
    | **Araştırma** |Bu yük dengeleyici için oluşturduğunuz araştırmayı adını kullanın. |
-   | **Oturum kalıcılığı** |**Yok** |
-   | **Boşta kalma zaman aşımı (dakika)** |*4* |
+   | **Oturum kalıcılığı** |Yok |
+   | Boşta kalma zaman aşımı (dakika) |*4* |
    | **Kayan IP (doğrudan sunucu dönüşü)** |**Etkin** |
 
    > [!NOTE]
    > Tüm ayarları görüntülemek için dikey penceresini kaydırmanız gerekebilir.
    > 
 
-4. **Tamam** düğmesine tıklayın. 
+4. **Tamam**’a tıklayın. 
 5. Azure Yük Dengeleme kuralını yapılandırır. Yük Dengeleyici kullanılabilirlik grubu dinleyicisini barındıran SQL Server örneğine trafiğini yönlendirmek için yapılandırılmıştır. 
 
 Bu noktada, kaynak grubu, her iki SQL Server makine bağlayan bir yük dengeleyiciye sahiptir. Her iki makine kullanılabilirlik grupları için isteklerine yanıt vermesini sağlayabilirsiniz yük dengeleyici ayrıca SQL Server Always On kullanılabilirlik grubu dinleyicisi için bir IP adresini içerir.
@@ -225,7 +225,7 @@ Azure portal ile bir yük dengeleyici için bir IP adresi eklemek için aşağı
    |**Ad** |Araştırma tanımlamak için bir ad.
    |**Protokol** |TCP
    |**Bağlantı Noktası** |Tüm sanal makinelerde kullanılabilir olması gereken bir kullanılmayan TCP bağlantı noktası. Başka bir amaçla kullanılamaz. Hiçbir iki dinleyicileri aynı sonda bağlantı noktası kullanabilirsiniz. 
-   |**Aralığı** |Araştırma girişimleri arasındaki süre miktarı. Varsayılan değer (5) kullanın.
+   |**Aralık** |Araştırma girişimleri arasındaki süre miktarı. Varsayılan değer (5) kullanın.
    |**Sağlıksız durum eşiği.** |Bir sanal makine sağlıksız kabul edilmeden önce başarısız olması ardışık eşikleri sayısı.
 
 8. Tıklatın **Tamam** araştırma kaydetmek için. 
@@ -243,8 +243,8 @@ Azure portal ile bir yük dengeleyici için bir IP adresi eklemek için aşağı
    |**Arka uç bağlantı noktası** |Aynı değer olarak **bağlantı noktası**.
    |**Arka uç havuzu** |SQL Server örnekleri ile sanal makineleri içeren havuz. 
    |**Sistem durumu araştırması** |Oluşturduğunuz araştırmayı seçin.
-   |**Oturum kalıcılığı** |None
-   |**Boşta kalma zaman aşımı (dakika)** |Varsayılan (4)
+   |**Oturum kalıcılığı** |Hiçbiri
+   |Boşta kalma zaman aşımı (dakika) |Varsayılan (4)
    |**Kayan IP (doğrudan sunucu dönüşü)** | Etkin
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Yeni IP adresini kullanmak için kullanılabilirlik grubunu yapılandırma
@@ -269,6 +269,34 @@ Bir IP adresi için dinleyici ekledikten sonra aşağıdakileri yaparak ek kulla
 6. [PowerShell'de küme parametrelerinin](#setparam).
 
 Kullanılabilirlik grubu yeni IP adresini kullanacak şekilde yapılandırdıktan sonra dinleyiciyi bağlantısını yapılandırın. 
+
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>Yük Dengeleme kuralı dağıtılmış Kullanılabilirlik Grubu Ekle
+
+Bir kullanılabilirlik grubuna dağıtılmış kullanılabilirlik grubunda yer alıyorsa, yük dengeleyicinin ek bir kural gerekir. Bu kural, dağıtılmış bir kullanılabilirlik grubu dinleyicisi tarafından kullanılan bağlantı noktası depolar.
+
+>[!IMPORTANT]
+>Bu adım, yalnızca kullanılabilirlik grubuna katılan geçerlidir bir [dağıtılmış kullanılabilirlik grubu](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+
+1. Dağıtılmış kullanılabilirlik grubunda katılan her sunucuda Dağıtılmış kullanılabilirlik grubu dinleyicisi TCP bağlantı noktası üzerinde bir gelen kuralı oluşturun. Birçok örneklerde, belgeleri 5022 kullanır. 
+
+1. Azure portalında yük dengeleyicide ve tıklatın **Yük Dengeleme kuralları**ve ardından **+ Ekle**. 
+
+1. Yük Dengeleme kuralını aşağıdaki ayarlarla oluşturun:
+
+   |Ayar |Değer
+   |:-----|:----
+   |**Ad** |Yük Dengeleme kuralını dağıtılmış kullanılabilirlik grubu için tanımlamak için bir ad. 
+   |**Ön uç IP adresi** |Aynı ön uç IP adresi kullanılabilirlik grubu kullanın.
+   |**Protokol** |TCP
+   |**Bağlantı Noktası** |5022 - bağlantı noktası için [dağıtılmış kullanılabilirlik grubu bitiş noktası dinleyicisi](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Tüm kullanılabilir bağlantı noktası olabilir.  
+   |**Arka uç bağlantı noktası** | 5022 - kullanım aynı değeri olarak **bağlantı noktası**.
+   |**Arka uç havuzu** |SQL Server örnekleri ile sanal makineleri içeren havuz. 
+   |**Sistem durumu araştırması** |Oluşturduğunuz araştırmayı seçin.
+   |**Oturum kalıcılığı** |Hiçbiri
+   |Boşta kalma zaman aşımı (dakika) |Varsayılan (4)
+   |**Kayan IP (doğrudan sunucu dönüşü)** | Etkin
+
+Yük Dengeleyici dağıtılmış kullanılabilirlik grubunda yer alan diğer kullanılabilirlik grupları için bu adımları yineleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

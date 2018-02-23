@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4bb003afd757faac675a9af8599a781247717a64
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Sıvı şablonuyla Gelişmiş JSON dönüştürmeleri gerçekleştirebilirsiniz
 
@@ -110,7 +110,46 @@ Bu makalede, sıvı harita veya yineleme, Denetim akışları, değişkenler vb.
 
 POST JSON giriş mantığı uygulamanıza [Postman](https://www.getpostman.com/postman) veya benzer bir aracı. Mantıksal uygulamanızı dönüştürülen JSON çıktısını aşağıdaki gibi görünür:
   
-![Örnek çıktı](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![Örnek çıktı](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## <a name="more-liquid-action-examples"></a>Daha fazla sıvı eylem örnekleri
+Sıvı yalnızca JSON dönüştürmeleri için sınırlı değildir. Sıvı kullanan diğer kullanılabilir dönüştürme eylemler şunlardır.
+
+* JSON Metne Dönüştür
+  
+  Bu örnek için kullanılan sıvı şablon şöyledir:
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   Örnek giriş ve çıkış şunlardır:
+  
+   ![Örnek çıktı JSON metni](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* XML JSON biçimine Dönüştür
+  
+  Bu örnek için kullanılan sıvı şablon şöyledir:
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   Örnek giriş ve çıkış şunlardır:
+
+   ![Örnek Çıktı XML ve JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* XML Metne Dönüştür
+  
+  Bu örnek için kullanılan sıvı şablon şöyledir:
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   Örnek giriş ve çıkış şunlardır:
+
+   ![Örnek Çıktı XML metni](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

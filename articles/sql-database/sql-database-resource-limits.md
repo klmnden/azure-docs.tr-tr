@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 9f443c6e93f894f49ee2f82787be2025f74ed720
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 47f42c10a791caa8ab20401574fb853ad3e4f0e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL veritabanı kaynak sınırları
 
@@ -114,7 +114,16 @@ Artırmak veya ihtiyaçlarını kullanarak kaynağını temel bir esnek havuz i�
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Sunucular ve veritabanları maksimum sayısı nedir?
 
-Sunucu her bölge abonelik başına en fazla sayısını 21'dir. Veritabanları sunucu başına en fazla 5000'dir. Esnek sınırlar kurulan experimentally temel alınarak yük boyut analizi, mantıksal ana telemetri koleksiyonu analiz ve birkaç diğer yönleri şunlardır. DTU kota dahilinde kalmasını sağlanan bu sınırı aşan isteyebilir. Veritabanı sayısı ve sunucuları büyük hale geldiğinde, karşılaşır sorun kaynak istatistikleri mantıksal asıl ve yönetim işlemlerini Çekişme koleksiyonudur. Bu sorunları önemli değildir; Bunlar, gecikme süresi artacaktır.
+| Maksimum | Değer |
+| :--- | :--- |
+| Sunucu başına veritabanları | 5000 |
+| Her bölge abonelik başına sunucularının sayısı | 21 |
+|||
+
+> [!IMPORTANT]
+> Sunucu başına izin verilen maksimum veritabanı sayısı yaklaşımı olarak aşağıdaki oluşabilir:
+> <br> Sorguları ana veritabanına karşı çalışır • artırma gecikme süresi.  Bu, kaynak kullanımı istatistikleri sys.resource_stats gibi görünümlerini içerir.
+> <br> • Yönetim işlemlerini gecikme artırma ve portal görüşlerini işleme, sunucunun veritabanlarında numaralandırma içerir.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Veritabanı ve esnek havuz kaynak sınırlarını ulaşıldığında ne olur?
 

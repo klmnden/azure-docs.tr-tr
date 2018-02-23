@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: b6a333d075e0391adca4f37bbff8918391a22fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aef0fbe44e19b515c2bc10c0e7c38fabac10dae
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Geliştirme araçları üzerinde veri bilimi sanal makine
 
@@ -33,7 +33,7 @@ Veri bilimi sanal makine (DSVM) çeşitli popüler Araçlar ve IDE paketleme, ge
 | Tipik kullanır      | Yazılım geliştirme    |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?      | Veri bilimi iş yükü (Python ve R araçları), Azure iş yükü (Hadoop, Data Lake), Node.js, SQL Server araçları    |
 | Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
-| DSVM ilgili araçları      |     Visual Studio kod, Rstudio'dan, Juno  |
+| DSVM ilgili araçları      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 |    |           |
@@ -42,16 +42,25 @@ Veri bilimi sanal makine (DSVM) çeşitli popüler Araçlar ve IDE paketleme, ge
 | Desteklenen DSVM sürümleri      | Windows, Linux     |
 | Tipik kullanır      | Kod Düzenleyicisi ve Git tümleştirmesi   |
 | Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) Windows, Masaüstü kısayoluna veya terminal (`code`) Linux içindeki    |
-| DSVM ilgili araçları      |     Visual Studio 2017, Rstudio'dan, Juno  |
+| DSVM ilgili araçları      |     Visual Studio 2017, RStudio, Juno  |
 
-## <a name="rstudio--desktop"></a>Rstudio'dan Masaüstü 
+## <a name="rstudio--desktop"></a>RStudio  Desktop 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | İstemci IDE dilin R    |
+| Nedir?   | İstemci IDE r    |
 | Desteklenen DSVM sürümleri      | Windows, Linux      |
 | Tipik kullanır      |  R geliştirme     |
 | Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\Program Files\RStudio\bin\rstudio.exe`) Windows, masaüstü kısayolu (`/usr/bin/rstudio`) Linux      |
-| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, Juno      |
+| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio Code, Juno      |
+
+## <a name="rstudio--server"></a>RStudio  Server 
+|    |           |
+| ------------- | ------------- |
+| Nedir?   | Web tabanlı IDE r    |
+| Desteklenen DSVM sürümleri      | Linux      |
+| Tipik kullanır      |  R geliştirme     |
+| Kullanın / çalıştırmak için nasıl?      | Hizmet ile etkinleştirmek _systemctl rstudio'dan sunuculu etkinleştirmek_, hizmetle başlar _systemctl Başlat rstudio'dan sunuculu_. Ardından Rstudio'dan sunucuya http://your-vm-ip:8787 oturum açabilir.       |
+| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 |    |           |
@@ -60,7 +69,7 @@ Veri bilimi sanal makine (DSVM) çeşitli popüler Araçlar ve IDE paketleme, ge
 | Desteklenen DSVM sürümleri      | Windows, Linux      |
 | Tipik kullanır      |  Jale geliştirme     |
 | Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\JuliaPro-0.5.1.1\Juno.bat`) Windows, masaüstü kısayolu (`/opt/JuliaPro-VERSION/Juno`) Linux      |
-| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodunu Rstudio'dan      |
+| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 |    |           |
@@ -69,16 +78,16 @@ Veri bilimi sanal makine (DSVM) çeşitli popüler Araçlar ve IDE paketleme, ge
 | Desteklenen DSVM sürümleri      | Linux      |
 | Tipik kullanır      |  R geliştirme     |
 | Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`/usr/bin/pycharm`) Linux      |
-| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodunu Rstudio'dan      |
+| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 
 
-## <a name="powerbi-desktop"></a>Desktop'a 
+## <a name="powerbi-desktop"></a>PowerBI Desktop 
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Etkileşimli veri Görselleştirme ve BI aracı    |
 | Desteklenen DSVM sürümleri      | Windows  |
 | Tipik kullanır      |  Veri Görselleştirme ve panolar oluşturma   |
 | Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, Juno      |
+| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio Code, Juno      |
 

@@ -4,7 +4,7 @@ description: "Bu makalede, Azure sanal makinelerinde farklı bir bölgede bir ç
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 1ce90cf4bae66bfd6387a2698fd9b1ba7fc64595
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a954ca10bdec3343dbd8796b50053a1c8c40ff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Azure sanal makinelerinde farklı bölgelerdeki Always On kullanılabilirlik grubu yapılandırma
 
@@ -165,8 +165,8 @@ Bağlantı test ediliyor sonra birincil çoğaltma birincil veri Merkezinize ger
 
 | Konum | Sunucu örneği | Rol | Kullanılabilirlik modu | Yük devretme modu
 | ----- | ----- | ----- | ----- | -----
-| Birincil veri merkezi | SQL-1 | Birincil | Zaman uyumlu | Otomatik
-| Birincil veri merkezi | SQL-2 | İkincil | Zaman uyumlu | Otomatik
+| Birincil veri merkezi | SQL-1 | Birincil | Zaman uyumlu | Automatic
+| Birincil veri merkezi | SQL-2 | İkincil | Zaman uyumlu | Automatic
 | İkincil ya da uzak veri merkezi | SQL-3 | İkincil | Zaman uyumsuz | El ile
 
 
@@ -177,9 +177,9 @@ Daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın:
 - [Bir kullanılabilirlik grubu (SQL Server) planlanmış bir el ile yük gerçekleştirin](http://msdn.microsoft.com/library/hh231018.aspx)
 - [Bir kullanılabilirlik grubu (SQL Server) zorla el ile yük devretme gerçekleştirme](http://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Ek bağlantılar
+## <a name="additional-links"></a>Ek Bağlantılar
 
 * [Always On kullanılabilirlik grupları](http://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure sanal makineler](http://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Azure Sanal Makineler](http://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure yük dengeleyicileri](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure kullanılabilirlik kümeleri](../manage-availability.md)

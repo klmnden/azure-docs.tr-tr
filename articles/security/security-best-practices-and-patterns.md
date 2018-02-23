@@ -1,6 +1,6 @@
 ---
 title: "Azure güvenlik en iyi yöntemler ve yaklaşımlar | Microsoft Docs"
-description: "Makaleyi en iyi güvenlik uygulamaları, Azure ve desenleri ve seçkin farklı Azure kaynakları için en iyi yöntemler listesini hakkında tanıtılmaktadır."
+description: "Makaleyi farklı Azure kaynakları için Azure güvenlik en iyi yöntemler ve yaklaşımlar listesini sağlar."
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -12,38 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: terrylan
-ms.openlocfilehash: 593cb6da3527a32906e8e9faa11dc13a3ef5440f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.date: 2/16/2018
+ms.author: 
+ms.openlocfilehash: 5176f679971d542e67dfc6ff04a729fa52bc3f6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure güvenlik en iyi uygulamaları ve desenleri
-Şu anda aşağıdaki Azure güvenlik en iyi uygulamaları ve desenleri makaleleri sahibiz. Düzenli aralıklarla Azure güvenlik en iyi yöntemler ve yaklaşımlar büyüyen listemiz güncelleştirmeleri görmek için bu siteyi ziyaret emin olun:  
 
-* [Azure ağı en iyi güvenlik uygulamaları](azure-security-network-security-best-practices.md)
-* [Azure veri güvenliği ve şifreleme için en iyi yöntemler](azure-security-data-encryption-best-practices.md)
-* [En iyi güvenlik uygulamaları kimlik yönetimi ve erişim denetimi](azure-security-identity-management-best-practices.md)
-* [En iyi güvenlik uygulamalarını, nesnelerin interneti](azure-security-iot-best-practices.md)
-* [Azure Iaas en iyi güvenlik uygulamaları] (azure güvenlik iaas.md)
 * [En iyi güvenlik uygulamaları, Azure sınır](../best-practices-network-security.md)
+* [En iyi güvenlik uygulamaları, Azure veritabanı](azure-database-security-best-practices.md)
+* [Azure veri güvenliği ve şifreleme için en iyi yöntemler](azure-security-data-encryption-best-practices.md)
+* [En iyi güvenlik uygulamaları Azure kimlik yönetimi ve erişim denetimi](azure-security-identity-management-best-practices.md)
+* [Azure ağı en iyi güvenlik uygulamaları](azure-security-network-security-best-practices.md)
+* [Azure işletimsel güvenlik en iyi uygulamalar](azure-operational-security-best-practices.md)
+* [Azure PaaS Best Practices](https://docs.microsoft.com/azure/security/security-paas-deployments) 
+* [Azure Service Fabric en iyi güvenlik uygulamaları](security-best-practices-and-patterns.md)
+* [Azure VM Güvenlik için en iyi yöntemler](azure-service-fabric-security-best-practices.md)
 * [Azure’da güvenli karma ağ mimarisi uygulama](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS en iyi yöntemler] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
+* [En iyi güvenlik uygulamalarını, nesnelerin interneti](azure-security-iot-best-practices.md)* [Azure veritabanlarında PaaS güvenliğini sağlama](security-paas-applications-using-sql.md)
+* [PaaS web ve mobil uygulamaları Azure uygulama hizmeti kullanarak güvenli hale getirme](security-paas-applications-using-app-services.md)
+* [Azure Depolama’yı kullanarak PaaS web ve mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-storage.md)
+* [Azure Iaas iş yükleri için en iyi güvenlik uygulamaları](azure-security-iaas.md)
 
-Azure çözümlerinizi yapı güvenli bir platform sağlar. Ayrıca Hizmetleri ve teknolojileriyle çözümlerinizi Azure üzerinde daha güvenli olmasını sağlamak için sunuyoruz. Kullanabileceğiniz birçok seçenek nedeniyle, birçoğu ne Microsoft en iyi yöntemler ve yaklaşımlar güvenlik geliştirme önerir, ilgi sesli.
 
-İlginiz anlamak ve yapabilirsiniz, verilen sağ bağlamda şeyleri açıklamak belgeleri topluluğu oluşturmuş olduğunuz Azure dağıtımları güvenliğini artırmak için.
 
-Bu en iyi uygulamaları ve desenleri makaleleri en iyi yöntemler ve belirli konular için yararlı desenleri koleksiyonunu aşağıdakiler ele. Bu teknolojiler bizim deneyimleriyle bu en iyi yöntemler ve yaklaşımlar türetilmiş ve müşteri deneyimleri bulunun.
-
-Her en iyi yöntem biz açıklamak çalışmalarımızı:
-
-* En iyi uygulama nedir
-* Bu en iyi uygulama etkinleştirmek istediğiniz neden
-* En iyi uygulama olarak etkinleştirmek başarısız olursa ne sonucu olabilir
-* En iyi uygulama için olası alternatifler
-* Nasıl en iyi uygulama olarak etkinleştirmek bilgi edinebilirsiniz
-
-Azure güvenlik mimarisi ve en iyi yöntemler birçok diğer makalelere de dahil olmak üzere için umuyoruz. Bize dahil etmek istediğiniz konulara varsa, bu sayfanın sonundaki tartışma alanında bize bildirin.

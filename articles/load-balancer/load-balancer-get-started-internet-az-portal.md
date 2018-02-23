@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Bir genel yük dengeleyiciye standart Azure portalını kullanarak bölge olarak yedekli genel IP adresi ön uç ile oluşturma
 
@@ -39,12 +39,12 @@ Bir bölge veya yük dengeleyici için ön uç genel IP adresi için bölge olar
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma 
 
-Https://portal.azure.com Azure portalında oturum açın.
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-zone-redundant-load-balancer"></a>Bölge olarak yedekli yük dengeleyici oluşturma
 
 1. Tarayıcıdan Azure portalına ([http://portal.azure.com](http://portal.azure.com)) gidin ve Azure hesabınızla oturum açın.
-2. Ekranın sol üst tarafında seçin **yeni** > **ağ** > **yük dengeleyici.**
+2. Ekranın sol üst tarafında seçin **kaynak oluşturma** > **ağ** > **yük dengeleyici.**
 3. İçinde ** oluşturma yük dengeleyici, altında **adı** türü **myPublicLB**.
 4. **Tür** bölümünde **Genel**’i seçin.
 5. SKU altında seçin **standart (Önizleme)**.

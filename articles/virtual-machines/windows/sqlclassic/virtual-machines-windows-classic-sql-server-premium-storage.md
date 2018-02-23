@@ -4,7 +4,7 @@ description: "Bu makale Klasik dağıtım modeli kullanılarak oluşturulmuş ka
 services: virtual-machines-windows
 documentationcenter: 
 author: danielsollondon
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d3fdd8865a293c5e2f0df6a97910ac8e2a07d4c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Sanal Makineler’de SQL Server ile Azure Premium Depolama kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -49,7 +49,7 @@ Premium depolama kullanmak için birkaç önkoşul vardır.
 Premium depolama kullanmak için DS serisi sanal makineler (VM) kullanmanız gerekir. Bulut hizmetinizde önce DS serisi makineler kullanmadıysanız, var olan VM silme, ekli diskleri tutmak ve ardından yeni bir bulut hizmeti VM DS * rol boyutu olarak yeniden oluşturmadan önce oluşturmanız gerekir. Sanal makine boyutları hakkında daha fazla bilgi için bkz: [sanal makine ve bulut hizmeti boyutları Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="cloud-services"></a>Bulut hizmetleri
-Yeni bir bulut hizmetinde oluşturduğunuzda, DS * VM'ler yalnızca Premium Storage ile kullanabilirsiniz. Azure'da SQL Server Always On kullanıyorsanız, her zaman üzerinde dinleyicisi bulut hizmetiyle ilişkili Azure iç veya dış yük dengeleyici IP adresine başvurur. Bu makalede, bu senaryoda kullanılabilirliğini korurken geçirmek nasıl odaklanır.
+Yeni bir bulut hizmetinde oluşturduğunuzda, DS * VM'ler yalnızca Premium Storage ile kullanabilirsiniz. Azure'da SQL Server Always On kullanıyorsanız, her zaman üzerinde dinleyicisi bulut hizmetiyle ilişkili Azure iç veya dış yük dengeleyici IP adresi ifade eder. Bu makalede, bu senaryoda kullanılabilirliğini korurken geçirmek nasıl odaklanır.
 
 > [!NOTE]
 > DS * serisi yeni bulut hizmeti dağıtılmış ilk VM olması gerekir.
@@ -61,7 +61,7 @@ DS * VM'ler için sanal ağ (Bölgesel olması için sanal makineleri barındır
 
 ![RegionalVNET][1]
 
-Bölgesel bir sanal ağ geçirmek için Microsoft destek bileti oluşturabilir, Microsoft bir değişiklik, ardından bölgesel sanal ağlar için geçiş işlemini tamamlamak için ağ yapılandırmasını AffinityGroup özelliğinde değiştirin. İlk ağ yapılandırmasını PowerShell'de dışarı aktarmak ve ardından Değiştir **AffinityGroup** özelliğinde **VirtualNetworkSite** öğesi ile bir **konumu** özelliği. Belirtin `Location = XXXX` burada `XXXX` bir Azure bölgesi. Ardından yeni yapılandırmasını alın.
+Bölgesel bir sanal ağ geçirmek için Microsoft destek bileti yükseltebilirsiniz. Microsoft, sonra bir değişiklik yapar. Bölgesel sanal ağlar için geçiş işlemini tamamlamak için ' % s'özelliğini AffinityGroup ağ yapılandırmasında değiştirin. İlk ağ yapılandırmasını PowerShell'de dışarı aktarmak ve ardından Değiştir **AffinityGroup** özelliğinde **VirtualNetworkSite** öğesi ile bir **konumu** özelliği. Belirtin `Location = XXXX` burada `XXXX` bir Azure bölgesi. Ardından yeni yapılandırmasını alın.
 
 Örneğin, aşağıdaki VNET yapılandırmasını dikkate:
 
@@ -99,7 +99,7 @@ Premium depolama hesabı parçası olan diskleri oluşturma arasındaki temel fa
 Önbellek ayarını VHD'leri bağlandıktan sonra değiştirilemez. Ayırma ve VHD güncelleştirilmiş önbellek ayarı ile yeniden iliştirin gereksiniminiz olacaktır.
 
 ### <a name="windows-storage-spaces"></a>Windows depolama alanları
-Kullanabileceğiniz [Windows depolama alanları](https://technet.microsoft.com/library/hh831739.aspx) önceki standart depolama ile yaptığınız gibi bu, zaten depolama alanları kullanan bir VM geçirmeye olanak tanır. Örnekte [ek](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (adım 9 ve iletme) ayıklayın ve birden çok ekli VHD'yle bir VM'yi almak amacıyla Powershell kodu gösterir.
+Kullanabileceğiniz [Windows depolama alanları](https://technet.microsoft.com/library/hh831739.aspx) önceki standart depolama ile yaptığınız gibi bu, zaten depolama alanları kullanan bir VM geçirmenize olanak sağlar. Örnekte [ek](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) (adım 9 ve iletme) ayıklayın ve birden çok ekli VHD'yle bir VM'yi almak amacıyla Powershell kodu gösterir.
 
 Depolama havuzları verimliliği artırmak ve gecikme süresini azaltmak için standart Azure depolama hesabıyla kullanılmıştır. Yeni dağıtımlar için Premium depolama ile depolama havuzlarını testinde değeri bulabilirsiniz, ancak depolama kuruluma ek karmaşıklık ekleyin.
 
@@ -111,7 +111,7 @@ Ekli VHD'ler için farklı önbellek ayarı öneriler olarak VHD'leri bir Premiu
 >
 >
 
-Windows depolama alanları, birden çok VHD bakmak gerekir hale kullanıyorsanız, ancak VHD'ler ekli tanımlamak için özgün belirli hangi havuzda böylece, daha sonra önbellek ayarları ayarlayabilirsiniz betiklerdir uygun şekilde her disk için.
+Windows depolama alanları, birden çok VHD bakmak için ihtiyacınız hale kullanıyorsanız, ancak VHD'ler ekli tanımlamak için özgün belirli hangi havuzda böylece, daha sonra önbellek ayarları ayarlayabilirsiniz betiklerdir uygun şekilde her disk için.
 
 Özgün komut dosyasını, depolama havuzuna VHD'ler eşleştiren göstermek kullanılabilir değilse, disk/depolama havuzu eşlemesini belirlemek için aşağıdaki adımları kullanabilirsiniz.
 
@@ -138,14 +138,14 @@ Her disk için aşağıdaki adımları kullanın:
 
 Kullanabileceğiniz artık ilişkilendirmek için bu bilgileri VHD'ler fiziksel diskleri depolama havuzları bağlı.
 
-Depolama ayırma ve bunları üzerinden bir Premium depolama alanına kopyalanmaya havuzlarındaki fiziksel disklere VHD'ler eşledikten sonra bunları ile doğru önbellek ayarı ekleyin. Lütfen örnekte bkz [ek](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage), 8-12 arası adımları. Bu adımlar, bir VM ekli VHD disk yapılandırmasını bir CSV dosyasına ayıklamak, VHD'leri kopyalama, disk yapılandırma önbelleği ayarlarını değiştirme ve son olarak VM eklenen tüm diskler ile VM DS serisi olarak yeniden dağıtın gösterilmektedir.
+Depolama ayırma ve bunları üzerinden bir Premium depolama alanına kopyalanmaya havuzlarındaki fiziksel disklere VHD'ler eşledikten sonra bunları ile doğru önbellek ayarı ekleyin. Örnekte bkz [ek](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage), 8-12 arası adımları. Bu adımlar, bir VM ekli VHD disk yapılandırmasını bir CSV dosyasına ayıklamak, VHD'leri kopyalama, disk yapılandırma önbelleği ayarlarını değiştirme ve son olarak VM eklenen tüm diskler ile VM DS serisi olarak yeniden dağıtın gösterilmektedir.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM depolama bant genişliği ve VHD depolama üretilen iş
-Depolama performansı miktarı belirtilen DS * VM boyutu ve VHD boyutlarına bağlıdır. VM'ler farklı kesintileri eklenebilecek VHD'ler sayısı ve en yüksek bant genişliği (MB/sn) destekleyecek sahiptir. Belirli bir bant numaraları için bkz: [sanal makine ve bulut hizmeti boyutları Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Depolama performansı miktarı belirtilen DS * VM boyutu ve VHD boyutlarına bağlıdır. VM'ler farklı kesintileri eklenebilecek VHD'ler sayısı ve en yüksek bant genişliği (MB/sn) desteği vardır. Belirli bir bant numaraları için bkz: [sanal makine ve bulut hizmeti boyutları Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Daha fazla IOPS ile büyük disk boyutları elde edilir. Geçiş yolunuz hakkında düşünürken, düşünmelisiniz. Ayrıntılar için [IOPS ve Disk türleri için tabloya bakın](../premium-storage.md#scalability-and-performance-targets).
 
-Son olarak, VM'ye bağlı tüm diskler için destekleyecek farklı en fazla disk bant genişlikleri sahip göz önünde bulundurun. Yüksek yük altında bu VM rol boyutu için kullanılabilen en fazla disk bant genişliği saturate. Örneğin bir Standard_DS14 512 MB/sn kadar destekler; Bu nedenle, üç P30 disklerinde disk bant genişliği VM saturate. Ancak bu örnekte, üretilen iş sınırı okuma ve yazma g/ç işlemine bağlı karışımı aştı.
+Son olarak, VM'ye bağlı tüm diskler için destek farklı en fazla disk bant genişlikleri sahip göz önünde bulundurun. Yüksek yük altında bu VM rol boyutu için kullanılabilen en fazla disk bant genişliği saturate. Örneğin bir Standard_DS14 512 MB/sn kadar destekler; Bu nedenle, üç P30 disklerinde disk bant genişliği VM saturate. Ancak bu örnekte, üretilen iş sınırı okuma ve yazma g/ç işlemine bağlı karışımı aştı.
 
 ## <a name="new-deployments"></a>Yeni dağıtımlar
 SQL Server Vm'lerinin Premium depolama alanına nasıl dağıtabileceğiniz sonraki iki bölümde gösterilmektedir. Önceden belirtildiği gibi mutlaka Premium depolama OS diske yerleştirmek gerekmez. Yoğun g/ç iş yükleri üzerinde işletim sistemi VHD'yi yerleştirmek amaçlanıyorsa bu yapmayı seçebilirsiniz.
@@ -197,7 +197,7 @@ Aşağıdaki örnek, işletim sistemi VHD premium depolama üzerine yerleştirin
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
 #### <a name="step-5-placing-os-vhd-on-standard-or-premium-storage"></a>5. adım: İşletim sistemi VHD standart veya Premium Storage yerleştirme
-    #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
+    #NOTE: Set up subscription and default storage account which is used to place the OS VHD in
 
     #If you want to place the OS VHD Premium Storage Account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $newxiostorageaccountname  
@@ -232,7 +232,7 @@ Aşağıdaki örnek, işletim sistemi VHD premium depolama üzerine yerleştirin
     $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
     #Add Data and Log Disks to VM Config
-    #Note the size specified ‘-DiskSizeInGB 1023’, this will attach 2 x P30 Premium Storage Disk Type
+    #Note the size specified ‘-DiskSizeInGB 1023’, this attaches 2 x P30 Premium Storage Disk Type
     #Utilising the Premium Storage enabled Storage account
 
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
@@ -316,7 +316,7 @@ Burada görüntünüzü ve iki Premium depolama VHD'leri VM oluşturuyorsanız:
     $subnet = "Clients"
     $ipaddr = "192.168.0.41"
 
-    #This will need to be a new cloud service
+    #This needs to be a new cloud service
     $destcloudsvc = "danregsvcamsxio2"
 
     #Use to DS Series VM
@@ -342,29 +342,29 @@ Burada görüntünüzü ve iki Premium depolama VHD'leri VM oluşturuyorsanız:
 
 ## <a name="existing-deployments-that-do-not-use-always-on-availability-groups"></a>Always On kullanılabilirlik grupları kullanmayın var olan dağıtımlar
 > [!NOTE]
-> Var olan dağıtımlar için önce bkz [Önkoşullar](#prerequisites-for-premium-storage) bölümüne.
+> Var olan dağıtımlar için önce bkz [Önkoşullar](#prerequisites-for-premium-storage) bu makalenin.
 >
 >
 
 Always On kullanılabilirlik grupları hem de kullanmayın SQL Server dağıtımları için farklı noktalar vardır. Her zaman açık kullanmıyorsanız ve var olan bir tek başına SQL Server yüklüyse, yeni bir bulut hizmeti ve depolama hesabı kullanarak Premium depolama alanına yükseltebilirsiniz. Aşağıdaki seçenekleri göz önünde bulundurun:
 
-* **Yeni bir SQL Server VM oluşturmak**. Yeni dağıtımlarda belirtildiği gibi yeni bir SQL Server bir Premium depolama hesabını kullanan VM oluşturabilirsiniz. Ardından yedekleme ve SQL Server yapılandırma ve kullanıcı veritabanlarını geri yükleyin. Uygulama dahili veya harici erişiliyor, yeni SQL Server başvurmak için güncelleştirilmesi gerekir. Yan yana (SxS) SQL Server Geçiş yaptığınız gibi 'dışı db' tüm nesneleri kopyalamak gerekir. Bu, oturum açma bilgileri, sertifikalar ve bağlantılı sunucular gibi nesneleri içerir.
-* **Mevcut bir SQL Server VM'yi geçirme**. Bu SQL Server VM çevrimdışı duruma almayı gerektirir ve ardından yeni bir bulut hizmeti aktarma, tüm bağlı VHD Premium Storage hesabına kopyalama içerir. VM çevrimiçi olduğunda, uygulamanın önce sunucu ana bilgisayar adı olarak başvurur. Performans özellikleri mevcut disk boyutunu etkiler unutmayın. Örneğin, 400 GB disk için bir P20 yuvarlanan. DS serisi VM olarak VM oluşturun ve Premium depolama VHD'yi ihtiyaç duyduğunuz boyutu/performans belirtimi, bu disk performansı gerektirmez biliyorsanız. Ardından detach ve SQL DB dosyaları yeniden ekleyin.
+* **Yeni bir SQL Server VM oluşturmak**. Yeni dağıtımlarda belirtildiği gibi yeni bir SQL Server bir Premium depolama hesabını kullanan VM oluşturabilirsiniz. Ardından yedekleyebilir ve SQL Server yapılandırma ve kullanıcı veritabanlarını geri yükleyin. Uygulama dahili veya harici erişiliyor, yeni SQL Server başvurmak için güncelleştirilmesi gerekir. Yan yana (SxS) SQL Server Geçiş yaptığınız gibi 'dışı db' tüm nesneleri kopyalamak gerekir. Bu, oturum açma bilgileri, sertifikalar ve bağlantılı sunucular gibi nesneleri içerir.
+* **Mevcut bir SQL Server VM'yi geçirme**. Bu SQL Server VM çevrimdışı duruma almayı gerektirir ve ardından yeni bir bulut hizmeti aktarma, tüm bağlı VHD Premium Storage hesabına kopyalama içerir. VM çevrimiçi olduğunda, uygulamanın önce sunucu ana bilgisayar adı olarak başvurur. Mevcut disk boyutu performans özellikleri etkiler unutmayın. Örneğin, 400 GB disk için bir P20 yuvarlanan. DS serisi VM olarak VM oluşturun ve Premium depolama VHD'yi ihtiyaç duyduğunuz boyutu/performans belirtimi, bu disk performansı gerektirmez biliyorsanız. Ardından detach ve SQL DB dosyaları yeniden ekleyin.
 
 > [!NOTE]
-> Boyutuna bağlı olarak boyutu bilincinde olmanız gereken VHD diskleri kopyalama Premium depolama diskini türüne anlamına gelir, bunların içine kalan, bu disk performans belirtimi belirler. Round Azure olacak kadar yakın disk boyutu, 400 GB disk varsa, bu bir P20 yuvarlanır şekilde. Varolan GÇ gereksinimlerinize OS VHD'nin bağlı olarak, bu bir Premium depolama hesabına geçirmek gerekmeyebilir.
+> Premium depolama diskini türüne boyutuna bağlı olarak boyutu bilincinde olmanız gereken VHD diskleri kopyalama anlamına gelir bunların içine kalan, bu disk performans belirtimi belirler. Azure yuvarlar yakın disk boyutu kadar bu nedenle 400 GB disk varsa bu yuvarlanan bir P20. Varolan GÇ gereksinimlerinize OS VHD'nin bağlı olarak, bu bir Premium depolama hesabına geçirmek gerekmeyebilir.
 >
 >
 
-SQL Server'ınızdaki dışarıdan erişiliyorsa, bulut hizmet VIP'de değiştirir. Güncelleştirme uç noktaları, ACL'ler ve DNS ayarlarını gerekir.
+SQL Server'ınızdaki dışarıdan erişiliyorsa, bulut hizmet VIP'de değiştirir. Ayrıca güncelleştirme uç noktaları, ACL'ler ve DNS ayarları vardır.
 
 ## <a name="existing-deployments-that-use-always-on-availability-groups"></a>Always On kullanılabilirlik grupları kullanan var olan dağıtımlar
 > [!NOTE]
-> Var olan dağıtımlar için önce bkz [Önkoşullar](#prerequisites-for-premium-storage) bölümüne.
+> Var olan dağıtımlar için önce bkz [Önkoşullar](#prerequisites-for-premium-storage) bu makalenin.
 >
 >
 
-Başlangıçta bu bölümde biz nasıl her zaman açık Azure ağ ile etkileşim sırasında arar. Biz sonra geçişleri iki senaryo için aşağı çalışmamasına neden olur: Burada miktar kapalı kalma süresi izin geçişler ve burada gerekir ulaşmanıza en düşük kapalı kalma geçişleri.
+Başlangıçta bu bölümde biz nasıl her zaman açık Azure ağ ile etkileşim sırasında arayın. Biz sonra iki senaryo için geçişleri ayırmanız: Burada miktar kapalı kalma süresi izin geçişler ve burada gerekir ulaşmanıza en düşük kapalı kalma geçişleri.
 
 Bir dinleyici sanal bir DNS adı bir veya daha fazla SQL Server'lar arasında paylaşılan bir IP adresi ile birlikte kaydeden şirket içi SQL Server Always On kullanılabilirlik grupları kullanın. İstemciler bağlandığında birincil SQL Server dinleyici IP üzerinden yönlendirilir. Bu, o anda üzerinde her zaman IP kaynağına sahip sunucusudur.
 
@@ -373,7 +373,7 @@ Bir dinleyici sanal bir DNS adı bir veya daha fazla SQL Server'lar arasında pa
 Microsoft Azure VM'de bir NIC atanan tek bir IP adresi olabilir, bu nedenle aynı şirket olarak Soyutlama Katmanı elde etmek için Azure iç/dış yük dengeleyici (ILB/ELB) atanan IP adresini kullanır. Sunucular arasında paylaşılan IP kaynağı aynı IP ILB/ELB olarak ayarlanır. Bu DNS yayımlanır ve istemci trafiğini birincil SQL Server çoğaltma ILB/ELB geçirilir. ILB/ELB üzerinde her zaman IP kaynağı araştırma araştırmalar kullandığından SQL sunucusu olan birincil bilir. Önceki örnekte, ELB/ILB tarafından başvurulan bir uç nokta sahip her bir düğüm araştırmaları, hangisi yanıt birincil SQL Server.
 
 > [!NOTE]
-> ILB ve ELB her ikisi de belirli Azure bulut hizmeti için atanmış olan, bu nedenle tüm Azure bulut geçişte büyük olasılıkla yük dengeleyici IP değiştirecek anlamına gelir.
+> ELB ve ILB için belirli bir Azure atanan her ikisi de, bu nedenle tüm bulut geçiş Azure yük dengeleyici IP değişiklikler büyük olasılıkla anlamına gelir, bulut hizmeti olan.
 >
 >
 
@@ -390,7 +390,7 @@ Her zaman üzerindeki kullanılabilirlik grubu için daha fazla ikincil kopya ek
 * Küme doğrulama.
 * Her zaman açık yük test etme için yeni ikincil öğe.
 
-VM içindeki Windows depolama havuzu için daha yüksek g/ç işleme kullanıyorsanız, ardından bu tam bir küme doğrulama sırasında çevrimdışına alınır. Kümeye düğüm eklemek için doğrulama testi gereklidir. Bu ne kadar bu devam, yaklaşık bir saat almak için temsili bir test ortamında test etmeniz gerekir böylece testi çalıştırmak için geçen süre farklılık gösterebilir.
+VM içindeki Windows depolama havuzu için daha yüksek g/ç işleme kullanıyorsanız, ardından bu tam bir küme doğrulama sırasında çevrimdışı alınır. Kümeye düğüm eklemek için doğrulama testi gereklidir. Bu bu gereken süreyi, yaklaşık bir saat almak için temsili bir test ortamında test etmeniz gerekir böylece testi çalıştırmak için geçen süre farklılık gösterebilir.
 
 Burada el ile yük devretme ve test chaos beklendiği gibi her zaman üzerinde yüksek kullanılabilirlik işlevleri sağlamak için yeni eklenen düğümlerine gerçekleştirebileceğiniz zaman hazırlamanız.
 
@@ -425,7 +425,7 @@ Burada el ile yük devretme ve test chaos beklendiği gibi her zaman üzerinde y
 ##### <a name="advantages"></a>Avantajları
 * Yeni SQL sunucuları olabilir (SQL Server ve uygulama) için her zaman açık eklenmeden önce test.
 * VM boyutunu değiştirin ve depolama tam gereksinimlerinizi özelleştirebilirsiniz. Ancak, tüm SQL dosya yolları aynı tutmak yararlı olacaktır.
-* İkincil çoğaltmaları DB yedeklemeleri aktarımını başladığında kontrol edebilirsiniz. Bu Azure kullanmaktan farklıdır **başlangıç AzureStorageBlobCopy** komutunu, zaman uyumsuz bir kopya olduğundan VHD'ler, kopyalayın.
+* İkincil çoğaltmaları DB yedeklemeleri aktarımını başlatıldığında denetleyebilirsiniz. Bu Azure kullanmaktan farklıdır **başlangıç AzureStorageBlobCopy** komutunu, zaman uyumsuz bir kopya olduğundan VHD'ler, kopyalayın.
 
 ##### <a name="disadvantages"></a>Olumsuz yönleri
 * Windows depolama havuzlarını kullanırken var. küme kapalı kalma süresi yeni ek düğüm için tam küme doğrulama sırasında
@@ -468,7 +468,7 @@ Mevcut bir buluta ikincil alın ve geçerli bulut hizmetinden kaldırmak için e
 * IP adreslerini değiştirilecek üzerinde her zaman küme grubu çevrimdışı bırakmayı seçerseniz ek kapalı kalma süresi yok. Bu, bir veya bağımlılık ve olası sahipleri için eklenen IP adresi kaynağı kullanarak önleyebilirsiniz. 'Ekleme IP adresi kaynağı aynı alt ağda bulunan' bölümüne bakın [ek](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
 
 > [!NOTE]
-> İçinde bir her zaman üzerinde yük devretme ortağı olarak partake için eklenen düğümünü istediğinizde Azure noktayla dengeli yük ayarlamak için bir başvuru eklemeniz gerekir. Çalıştırdığınızda **Ekle AzureEndpoint** Bunu yapmak için komutu, kalmasına geçerli bağlantıları'nı açın, ancak dinleyici için yeni bağlantı edemeyecek yük dengeleyici güncelleştirdi kadar kurulacak. Bu test görüldü Son 90 120seconds için bu test edilmelidir.
+> İçinde bir her zaman üzerinde yük devretme ortağı olarak partake için eklenen düğümünü istediğinizde Azure noktayla dengeli yük ayarlamak için bir başvuru eklemeniz gerekir. Çalıştırdığınızda **Ekle AzureEndpoint** Bunu yapmak için komutu, kalmasına geçerli bağlantıları'nı açın, ancak yeni bağlantılar dinleyicisi yük dengeleyici güncelleştirdi kadar kurulması mümkün değildir. Bu test görüldü Son 90 120seconds için bu test edilmelidir.
 >
 >
 
@@ -480,8 +480,8 @@ Mevcut bir buluta ikincil alın ve geçerli bulut hizmetinden kaldırmak için e
 
 ##### <a name="disadvantages"></a>Olumsuz yönleri
 * Geçiş sırasında HA ve DR kaybı yoktur.
-* 1:1 geçiş olarak Vm'leriniz downsize mümkün olmayabilir, böylece VHD'ler, sayısı destekleyeceği en az bir VM boyutu kullanması gerekir.
-* Bu senaryo Azure kullanırsınız **başlangıç AzureStorageBlobCopy** zaman uyumsuz komutunu. Kopya tamamlanma hiçbir SLA yoktur. Bu bekleme aktarmak için veri miktarına bağlıdır sırasındaki bağlıdır sırada kopyaları süresi olarak değişir. Başka bir bölgede Premium Storage destekleyen başka bir Azure veri merkezi aktarımı yayınlanıyorsa kopyalama süresini artırır. 2 düğümleri varsa, kopyalama testinde uzun sürdüğünde durumunda olası azaltma göz önünde bulundurun. Bu Aşağıdaki fikirler içerebilir.
+* 1:1 geçiş gibi VHD'ler, sayısı Vm'leriniz downsize mümkün olmayabilir şekilde destekleyen en az bir VM boyutu kullanmak zorunda.
+* Bu senaryo Azure kullanırsınız **başlangıç AzureStorageBlobCopy** zaman uyumsuz komutunu. Kopya tamamlanma hiçbir SLA yoktur. Bu ayrıca aktarmak için veri miktarına bağlıdır sırasındaki bekleme bağlıdır sırada kopyaları süresi olarak değişir. Başka bir bölgede Premium Storage destekleyen başka bir Azure veri merkezi aktarımı yayınlanıyorsa kopyalama süresini artırır. 2 düğümleri varsa, kopyalama testinde uzun sürdüğünde durumunda olası azaltma göz önünde bulundurun. Bu Aşağıdaki fikirler içerebilir.
   * Bir geçici 3 SQL Server düğümü HA için üzerinde anlaşılan kapalı kalma süresi ile geçişten önce ekleyin.
   * Azure zamanlanmış bakım dışında geçiş çalıştırın.
   * Küme çekirdeğini doğru yapılandırılmış olun.  
@@ -523,8 +523,8 @@ Aşağıdaki örnekte, her zaman açık bir karma yapılandırmasının göz ön
 
 ##### <a name="disadvantages"></a>Olumsuz yönleri
 * SQL Server istemci erişimi bağlı olarak olabilir daha yüksek gecikme süresi SQL Server uygulamaya alternatif bir DC'nin çalışırken.
-* VHD'ler kopyalama zaman Premium Depolama'ya uzun olabilir. Bu kullanılabilirlik grubunda düğüm tutulup tutulmayacağını üzerinde kararınızı etkileyebilir. Bu, işlem günlüğünde çoğaltılmamış işlemlerini saklamak birincil düğüm gerekeceğinden günlük yoğun iş yükleri geçiş sırasında çalışan gerekli olduğunda için göz önünde bulundurun. Bu nedenle bu önemli oranda artma.
-* Bu senaryo Azure kullanırsınız **başlangıç AzureStorageBlobCopy** zaman uyumsuz komutunu. Tamamlanma hiçbir SLA yoktur. Bu sıradaki bekleme bağlıdır sırada kopyaları süre değişir aktarmak için veri miktarına bağlıdır. Bu nedenle 2 veri merkezinizde yalnızca bir düğüme sahip, kopya testinde uzun sürdüğünde durumda azaltma adımlarını gerçekleştirmesi gereken. Bu Aşağıdaki fikirler içerebilir.
+* VHD'ler kopyalama zaman Premium Depolama'ya uzun olabilir. Bu kullanılabilirlik grubunda düğüm tutulup tutulmayacağını üzerinde kararınızı etkileyebilir. Bu birincil düğüm çoğaltılmamış işlemleri, işlem günlüğünde tutulacağı olduğundan günlük yoğun iş yükleri geçiş sırasında çalışan gerekli olduğunda için göz önünde bulundurun. Bu nedenle bu önemli oranda artma.
+* Bu senaryo Azure kullanırsınız **başlangıç AzureStorageBlobCopy** zaman uyumsuz komutunu. Tamamlanma hiçbir SLA yoktur. Bu sıradaki bekleme bağlıdır sırada kopyaları süre değişir da bağımlı olan aktarmak için veri miktarı. Bu nedenle 2 veri merkezinizde yalnızca bir düğüme sahip, kopya testinde uzun sürdüğünde durumda azaltma adımlarını gerçekleştirmesi gereken. Bu azaltma adımlarını Aşağıdaki fikirler şunlardır:
   * Geçici bir 2 SQL düğüm HA için üzerinde anlaşılan kapalı kalma süresi ile geçişten önce ekleyin.
   * Azure zamanlanmış bakım dışında geçiş çalıştırın.
   * Küme çekirdeğini doğru yapılandırılmış olun.
@@ -546,7 +546,7 @@ Bu senaryo, yüklemenizi belgelenmiş ve en yüksek disk önbellek ayarlarını 
 * SQL1 ve SQL2 AFP geçiş
 
 ## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Ek: bir çoklu site küme her zaman açık Premium depolama alanına geçirme
-Bu konunun geri kalanında, her zaman açık bir çok siteli küme Premium depolama alanına dönüştürme ayrıntılı bir örnek sağlar. Bu ayrıca dinleyicisi bir dış yük dengeleyici (ELB) kullanarak bir iç yük dengeleyici (ILB) dönüştürür.
+Bu makalenin sonraki bölümlerinde, her zaman açık bir çok siteli küme Premium depolama alanına dönüştürme ayrıntılı bir örnek sağlar. Bu ayrıca dinleyicisi bir dış yük dengeleyici (ELB) kullanarak bir iç yük dengeleyici (ILB) dönüştürür.
 
 ### <a name="environment"></a>Ortam
 * Windows 2k12 / SQL 2k12
@@ -556,7 +556,7 @@ Bu konunun geri kalanında, her zaman açık bir çok siteli küme Premium depol
 ![Appendix1][11]
 
 ### <a name="vm"></a>VM:
-Bu örnekte, biz ILB için bir ELB taşıma göstermek için adımıdır. Bunun için geçiş sırasında geçiş yapma gösterecek şekilde ELB ILB önce mevcut değildi.
+Bu örnekte, biz ILB için bir ELB taşıma göstermek için adımıdır. Bu geçiş sırasında ILB için geçiş yapma gösterecek şekilde ELB ILB önce mevcut değildi.
 
 ![Appendix2][12]
 
@@ -600,8 +600,8 @@ Bu örnekte, biz ILB için bir ELB taşıma göstermek için adımıdır. Bunun 
     $destcloudsvc = "danNewSvcAms"
     New-AzureService $destcloudsvc -Location $location
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>2. adım: izin verilen hataları kaynaklar üzerinde artırın<Optional>
-Her zaman üzerinde kullanılabilirlik grubuna ait bazı kaynaklar üzerinde sınırlar vardır, Küme hizmetinin kaynak grubunu yeniden başlatmaya çalışacak bir dönemde oluşabilir kaç hatalarda. Bu sınıra yakın alabilirsiniz makineler kapatma tarafından el ile yük devretme ve tetikleyici yük devretme veritabanınız yoksa bu yana bu yordamı taramasını adımında, bu artırmanız önerilir.
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>2. adım: izin verilen hataları kaynaklar üzerinde artırın <Optional>
+Her zaman üzerinde kullanılabilirlik grubuna ait bazı kaynaklar üzerinde sınırlar vardır, Küme hizmetinin kaynak grubunu yeniden başlatmak için girişimde bulunduğu bir dönemde ortaya kaç hatalarda. Bu sınıra yakın alabilirsiniz makineler kapatma tarafından el ile yük devretme ve tetikleyici yük devretme veritabanınız yoksa bu yana bu yordamı taramasını adımında, bu artırmanız önerilir.
 
 Yük Devretme Kümesi Yöneticisi'nde bunun için hata indirimi çift akıllıca her zaman açık kaynak grubunun özelliklerini gidin:
 
@@ -609,23 +609,23 @@ Yük Devretme Kümesi Yöneticisi'nde bunun için hata indirimi çift akıllıca
 
 En fazla hata sayısı için 6 değiştirin.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>3. adım: Ek IP adresi kaynağı küme grubu için<Optional>
-Küme grubu için tek bir IP adresi varsa ve bu bulut alt ağına hizalanır, yanlışlıkla tüm küme düğümlerine bulutta bulunan bu ağ sonra küme IP kaynağı çevrimdışına ve küme ağ adı çevrimiçine mümkün olmaz kaybolacağını unutmayın. Bu durumunda, güncelleştirmelerinin diğer küme kaynaklarını engeller.
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>3. adım: Ek IP adresi kaynağı küme grubu için <Optional>
+Küme grubu ve bu hizalanması için bulut alt ağ için yalnızca bir IP adresi varsa, küme ağ adı ve küme IP kaynağı değil sonra çevrimiçi olamıyor, yanlışlıkla tüm küme düğümleri bu ağ üzerinde bulutta çevrimdışı izlerseniz, kaybolacağını unutmayın. Bu durumda, güncelleştirmelerinin diğer küme kaynaklarını engeller.
 
 #### <a name="step-4-dns-configuration"></a>4. adım: DNS yapılandırması
-Bir kesintisiz uygulamak için nasıl DNS yüklenmekte olan geçiş bağlıdır kullanılan ve güncelleştirildi.
-Her zaman açık yüklendiğinde, bir Windows Küme kaynak grubu oluşturur yük devretme kümesi Yöneticisi'ni açın, göreceğiniz en az üç kaynaklara sahip olur, belgenin başvurduğu iki şunlardır:
+Sorunsuz bir geçiş uygulama bağlıdır nasıl DNS yüklenmekte olan kullanılan ve güncelleştirildi.
+Her zaman açık yüklendiğinde, bir Windows Küme kaynak grubu oluşturur yük devretme kümesi Yöneticisi'ni açın, gördüğünüz isteğe bağlı olarak en az üç kaynaklara sahip, belgenin başvurduğu iki şunlardır:
 
-* Sanal ağ adına (VNN) – budur DNS adı istemci bağlanmak için SQL sunucuları her zaman açık aracılığıyla bağlanmak istediğinizde.
-* IP adresi kaynağı – bu VNN ile ilişkili IP adresidir, birden fazla olabilir ve çok siteli bir yapılandırma her site/alt ağda bir IP adresine sahip.
+* Sanal ağ adı (VNN) – her zaman açık aracılığıyla SQL sunuculara bağlanmak isteyen olduğunda istemcilerin bağlandıkları DNS adı.
+* IP adresi kaynağı – IP adresi VNN ile ilişkili birden fazla olabilir ve çok siteli bir yapılandırma, her site/alt ağda bir IP adresine sahip.
 
-IP adresi ilişkili SQL Server, SQL Server sürücüsü dinleyicisi ile ilişkili DNS kayıtlarını almak ve her zaman açık bağlanmaya istemcisi bağlanma, aşağıda Biz bu etkileyebilir bazı etkenler tartışın.
+Ne zaman SQL Server, SQL Server sürücüsü dinleyicisi ile ilişkili DNS kayıtları alır ve her zaman açık bağlanmaya istemcisi bağlanma IP adresi ilişkili. Ardından, bu etkileyebilir bazı etkenler tartışın.
 
 Dinleyici adıyla ilişkili eşzamanlı DNS kayıtlarını sayısı yalnızca ilişkili IP adresleri sayısına bağlıdır, ancak ' de yük devretme kümelemesi için her zaman açık VNN kaynak RegisterAllIpProviders'setting.
 
 Azure'da her zaman açık dağıttığınızda IP adreslerini ve dinleyicisi oluşturmak için farklı adımlar vardır, 1 'RegisterAllIpProviders' el ile yapılandırmanız gerekir, bu burada 1 olarak ayarlayın her zaman açık bir şirket içi dağıtımına farklı.
 
-'RegisterAllIpProviders' 0 ise, ardından yalnızca bir DNS kaydı DNS'de dinleyicisi ile ilişkili görürsünüz:
+'RegisterAllIpProviders' 0 ise, daha sonra yalnızca bir DNS kaydı DNS'de dinleyicisi ile ilişkili görürsünüz:
 
 ![Appendix4][14]
 
@@ -633,7 +633,7 @@ Azure'da her zaman açık dağıttığınızda IP adreslerini ve dinleyicisi olu
 
 ![Appendix5][15]
 
-Aşağıdaki kodu dökümü VNN ayarları ve sizin için dinleyici çevrimdışı neden alma VNN çevrimdışına alın ve tekrar çevrimiçi kapatma gerekir değişikliğin etkili olması için Not Lütfen istemci bağlantı kesintisi.
+Aşağıdaki kodu VNN ayarları dökümleri ve sizin için ayarlar. Bu değişikliğin etkili olması için VNN çevrimdışı duruma getirin ve tekrar çevrimiçi Aç gerekir. Bu dinleyiciyi sürer çevrimdışı neden olan istemci bağlantı kesintisi.
 
     ##Always On Listener Name
     $ListenerName = "Mylistener"
@@ -642,9 +642,9 @@ Aşağıdaki kodu dökümü VNN ayarları ve sizin için dinleyici çevrimdış�
     ##Set RegisterAllProvidersIP
     Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
-Bir sonraki geçiş adımda, her zaman açık dinleyici bir yük dengeleyici başvuran güncelleştirilmiş IP adresi ile güncellemeniz gerekir bu bir IP adresi kaynak temizleme ve ayrıca içerecektir. IP Güncelleştirme tamamlandıktan sonra yeni IP adresini DNS bölgesinde güncelleştirildi ve istemcilerin kendi yerel DNS önbelleği güncelleştirdiğiniz emin olmanız gerekir.
+Sonraki geçiş adımda, her zaman açık dinleyici bir yük dengeleyici başvuran güncelleştirilmiş IP adresi ile güncelleştirmeniz gerekir, bu bir IP adresi kaynak temizleme ve ayrıca içerir. IP Güncelleştirme tamamlandıktan sonra yeni IP adresini DNS bölgesinde güncelleştirildi ve istemcilerin kendi yerel DNS önbelleği güncelleştirdiğiniz emin olmanız gerekir.
 
-Neler DNS bölge aktarma hakkında geçiş sırasında uygulama yeniden gibi zaman olacaktır dikkate almanız gerekir, istemciler farklı ağında bulunan ve farklı bir DNS sunucusu başvuru, en az bölge aktarım zamanını herhangi biri tarafından kısıtlı Dinleyici için yeni IP adresi. Burada zaman sınırlaması altında olup olmadığını ele almaktadır ve Windows ekipleriniz ile bir artımlı bölge aktarımı zorlama test ve ayrıca DNS ana bilgisayar kaydı bir alt yaşam süresi (TTL için) put, böylece istemciler güncelleştirin. Daha fazla bilgi için bkz: [artımlı bölge aktarımlarının](https://technet.microsoft.com/library/cc958973.aspx) ve [başlangıç DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Ne olacağını DNS bölge aktarma hakkında geçiş sırasında uygulama yeniden gibi zamanı dikkate almanız gerekir, istemciler farklı ağında bulunan ve farklı bir DNS sunucusu başvuru, en az bölge aktarım süresini herhangi yeni IP tarafından kısıtlı Dinleyici için adresleri. Burada zaman sınırlaması altında olup olmadığını ele almaktadır ve Windows ekipleriniz ile bir artımlı bölge aktarımı zorlama test ve ayrıca DNS ana bilgisayar kaydı bir alt yaşam süresi (TTL için) put, böylece istemciler güncelleştirin. Daha fazla bilgi için bkz: [artımlı bölge aktarımlarının](https://technet.microsoft.com/library/cc958973.aspx) ve [başlangıç DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
 Varsayılan olarak, azure'da her zaman açık dinleyici ile ilişkili DNS kaydının TTL 1200 saniyedir. İstemcilerin emin olmak için geçiş sırasında kısıtlaması kendi DNS güncelleştirilmiş IP adresiyle için dinleyici güncelleştirdiğinizde altında olması durumunda bu azaltmak isteyebilirsiniz. Bakın ve VNN yapılandırma döküm alma yapılandırmasını değiştirin:
 
@@ -656,19 +656,20 @@ Varsayılan olarak, azure'da her zaman açık dinleyici ile ilişkili DNS kaydı
     #Set HostRecordTTL Examples
     Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 120
 
-Lütfen, daha düşük 'HostRecordTTL', daha yüksek bir DNS trafik miktarı gerçekleşecek unutmayın.
+> [!NOTE]
+> Düşük 'HostRecordTTL', daha yüksek bir DNS trafik miktarı oluşur.
 
 ##### <a name="client-application-settings"></a>İstemci uygulama ayarları
-SQL istemci uygulamanız .net 4.5 destekliyorsa SQLClient sonra kullanabileceğiniz ' MULTISUBNETFAILOVER = TRUE' anahtar sözcüğü, bu önerilir daha hızlı bağlantı SQL her zaman üzerindeki kullanılabilirlik grubu için yük devretme sırasında verdiğinden uygulanacak. Her zaman açık dinleyici paralel ile ilişkili tüm IP adreslerini aracılığıyla numaralandırır ve yük devretme sırasında daha agresif bir TCP bağlantı yeniden deneme hızı gerçekleştirir.
+SQL istemci uygulamanız .net 4.5 destekliyorsa SQLClient sonra kullanabileceğiniz ' MULTISUBNETFAILOVER = TRUE' anahtar sözcüğü. Daha hızlı bağlantı SQL her zaman üzerindeki kullanılabilirlik grubu için yük devretme sırasında sağladığından, bu anahtar sözcük uygulanmalıdır. Her zaman açık dinleyici paralel ile ilişkili tüm IP adreslerini aracılığıyla numaralandırır ve yük devretme sırasında daha agresif bir TCP bağlantı yeniden deneme hızı gerçekleştirir.
 
-Yukarıdaki ayarlarla ilgili daha fazla bilgi için lütfen bkz [MultiSubnetFailover anahtar sözcüğü ve ilişkili özellikleri](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Ayrıca bkz. [SqlClient yüksek kullanılabilirlik, olağanüstü durum kurtarma desteği](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
+Önceki ayarları hakkında daha fazla bilgi için bkz: [MultiSubnetFailover anahtar sözcüğü ve ilişkili özellikleri](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Ayrıca bkz. [SqlClient yüksek kullanılabilirlik, olağanüstü durum kurtarma desteği](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
 #### <a name="step-5-cluster-quorum-settings"></a>5. adım: Küme çekirdek ayarlarını
-Aynı anda en az bir SQL Server çıkışı sürüyor olacak şekilde, dosya paylaşım tanığı (FSW) 2 düğümleri ile kullanıyorsanız, küme çekirdek ayarı değiştirmelisiniz, düğüm çoğunluğu izin vermek ve dinamik oy kullanmak için çekirdek ayarlamanız gerekir , ve bu tek bir düğüm durumu kalır izin vermektir.
+Aynı anda en az bir SQL Server çıkışı sürüyor olacak şekilde iki düğüm ile dosya paylaşımı tanığı (FSW) kullanıyorsanız, küme çekirdek ayarı değiştirmelisiniz, düğüm çoğunluğu izin vermek ve dinamik oy kullanmak için çekirdek ayarlamanız gerekir , tek bir düğüm durumu kalmasını sağlar.
 
     Set-ClusterQuorum -NodeMajority  
 
-Küme çekirdeği yapılandırma ve yönetme hakkında daha fazla bilgi için lütfen bkz [yapılandırmak ve bir Windows Server 2012 yük devretme kümesinde çekirdeği yönetmek](https://technet.microsoft.com/library/jj612870.aspx).
+Küme çekirdeği yapılandırma ve yönetme hakkında daha fazla bilgi için bkz: [yapılandırmak ve bir Windows Server 2012 yük devretme kümesinde çekirdeği yönetmek](https://technet.microsoft.com/library/jj612870.aspx).
 
 #### <a name="step-6-extract-existing-endpoints-and-acls"></a>6. adım: Mevcut uç noktalar ACL ayıklayıp
     #GET Endpoint info
@@ -676,15 +677,15 @@ Küme çekirdeği yapılandırma ve yönetme hakkında daha fazla bilgi için l�
     #GET ACL Rules for Each EP, this example is for the Always On Endpoint
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 
-Bu bir metin dosyasına kaydedin.
+Bu metin bir dosyaya kaydedin.
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>7. adım: Yük devretme iş ortakları ve çoğaltma modları değiştirme
-2'den fazla SQL sunucuları varsa, başka bir DC ya da şirket içi başka bir ikincil yük devretme 'zaman 'uyumlu değiştirme ve bir otomatik yük devretme iş ortağı (AFP) olun, değişiklik yapmadan adımında HA korumak için budur. Bunu TSQL yapabilirsiniz ancak SSMS değiştirin:
+İkiden fazla SQL sunucuları varsa, başka bir DC ya da şirket içi başka bir ikincil yük devretme 'zaman 'uyumlu değiştirme ve bir otomatik yük devretme iş ortağı (AFP) olun, değişiklik yapmadan adımında HA korumak için budur. Bunu TSQL yapabilirsiniz ancak SSMS değiştirin:
 
 ![Appendix6][16]
 
 #### <a name="step-8-remove-secondary-vm-from-cloud-service"></a>8. adım: İkincil VM bulut hizmetinden kaldırın.
-Bir bulut ikincil düğüm ilk olarak, geçirmek planlama gereken şu anda birincil ise, el ile bir yük devretme başlatın.
+İlk bulut ikincil düğüme geçirilmesi için planlama. Bu düğümü şu anda birincil ise, el ile bir yük devretme başlatın.
 
     $vmNameToMigrate="dansqlams2"
 
@@ -891,7 +892,7 @@ Artık eski bulut hizmeti IP adresini kaldırın.
 Şimdi DNS sunucuları, SQL Server istemci ağlarda denetimi ve kümeleme eklenen IP adresi için ek ana bilgisayar kaydı ekledi emin olun. Bu DNS sunucuları güncelleştirilmemiş, DNS bölge aktarımı zorlama göz önünde bulundurun ve istemcilerin emin var. alt hem her zaman üzerinde IP adreslerini çözümleyemedi, otomatik DNS çoğaltmanın tamamlanmasını bekleyin gerek yoktur bu.
 
 #### <a name="step-16-reconfigure-always-on"></a>16. adım: Her zaman yeniden yapılandırın
-Bu noktada tam olarak şirket içi düğümle yeniden eşitleyin ve zaman uyumlu çoğaltma düğüme geçiş ve AFP yapmak için geçirilen bu düğüm için ikincil bekleyin.  
+Bu noktada, tam olarak şirket içi düğümle yeniden eşitleyin ve zaman uyumlu çoğaltma düğüme geçiş ve AFP yapmak için geçirilen bu düğüm için ikincil bekleyin.  
 
 #### <a name="step-17-migrate-second-node"></a>17. adım: ikinci düğümü geçirme
     $vmNameToMigrate="dansqlams1"
@@ -943,9 +944,9 @@ Bu noktada tam olarak şirket içi düğümle yeniden eşitleyin ve zaman uyumlu
     Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### <a name="step-18-change-disk-caching-settings-in-csv-file-and-save"></a>Adım 18: önbelleğe alma ayarları CSV dosyasındaki disk değiştirin ve kaydedin
-Veri birimleri için bu READONLY ayarlanmalıdır.
+Veri birimleri için önbellek ayarları READONLY ayarlamanız gerekir.
 
-TLOG birimler için bunların hiçbiri olarak ayarlanması gerekir.
+TLOG birimler için önbellek ayarlarını NONE olarak ayarlanmalıdır.
 
 ![Appendix11][21]
 
@@ -1073,22 +1074,22 @@ Tek tek bloblar için daha fazla bilgi için:
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### <a name="step-23-test-failover"></a>23. adım: Yük devretme sınaması
-Artık her zaman açık şirket içi düğümle eşitleyin, zaman uyumlu çoğaltma moduna yerleştirileceği ve onu eşitlenene kadar bekleyin geçirilen düğüm izin vermemelisiniz. Ardından AFP olduğu bir şirket içi yük devretmeyi ilk düğümü geçirildi. Çalıştıktan sonra son geçirilen düğüm AFP değiştirin.
+Geçirilen her zaman açık şirket içi düğümle eşitlemeniz düğüme bekleyin. Zaman uyumlu çoğaltma moduna yerleştirmek ve onu eşitlenene kadar bekleyin. Ardından AFP olduğu bir şirket içi yük devretmeyi ilk düğümü geçirildi. Çalıştıktan sonra son geçirilen düğüm AFP değiştirin.
 
 Test yük devretmeleri tüm düğümler arasında ve olarak yük devretme iş emin olmak için chaos testleri bekleniyordu ancak ve zamanında manor çalıştırmanız gerekir.
 
 #### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>24. adım: geri küme çekirdek ayarlarını Put / DNS TTL / yük devretme Pntrs / eşitleme ayarları
 ##### <a name="adding-ip-address-resource-on-same-subnet"></a>Aynı alt ağdaki IP adresi kaynağı ekleme
-Yalnızca 2 SQL sunucuları var ve yeni bir bulut hizmeti geçirmek istediğiniz ancak aynı alt ağda tutmak istediğiniz özgün her zaman üzerinde IP adresini silin ve yeni IP adresi eklemek için dinleyici çevrimdışı duruma getirmeden önleyebilirsiniz. Başka bir alt ağ için sanal makineleri geçiriyorsanız olacaktır gibi alt başvurur bir ek küme ağı Bunu yapmak gerekmez.
+Yalnızca iki SQL sunucusu ve yeni bir bulut hizmeti geçirmek istediğiniz ancak aynı alt ağda tutmak istediğiniz özgün her zaman üzerinde IP adresini silin ve yeni IP adresi eklemek için dinleyici çevrimdışı duruma getirmeden engelleyebilirsiniz. Başka bir alt ağ için sanal makineleri geçiriyorsanız, bu alt ağ başvuruda bulunan bir ek küme ağı olduğundan Bunu yapmak gerekmez.
 
 Geçirilen ikincil getirildi ve yeni IP adresi kaynak yük devretme varolan birincil önce yeni bulut hizmeti için eklenen sonra bu küme Yük Devretme Yöneticisi içinden adımları izlemesi gerekir:
 
 IP adresi eklemek için bkz: [ek](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), 14. adım.
 
-1. Geçerli IP adresi kaynağı için 'Varolan birincil SQL Server' için olası sahibi aşağıdaki örnekte, 'dansqlams4' değiştirin:
+1. Geçerli IP adresi kaynağı için 'Varolan birincil SQL Server' için olası sahip örnekte, 'dansqlams4' değiştirin:
 
     ![Appendix13][23]
-2. Yeni IP adresi kaynağı için 'Geçirildi ikincil SQL Server', aşağıdaki örnekte, 'dansqlams5' için olası sahip değiştirin:
+2. Yeni IP adresi kaynağı için 'Geçirildi ikincil SQL Server', 'dansqlams5' örnekte olası sahip değiştirin:
 
     ![Appendix14][24]
 3. Son düğümü geçirildiğinde bu düğümü olası sahip olarak eklenir böylece olası sahipler düzenlenmesi gerekir ve bu ayarlandıktan sonra Yük devretme kullanabilirsiniz:

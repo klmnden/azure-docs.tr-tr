@@ -2,7 +2,7 @@
 
 1.  Microsoft hesabı kimlik bilgilerini kullanarak şu URL ile Azure portalında oturum açın: <https://portal.azure.com/>. Kamu portal cihazı dağıtma, oturum açın: <https://portal.azure.us/>
 
-2.  Azure portalında tıklatın **+ yeni** &gt; **depolama** &gt; **StorSimple sanal serisi**.
+2.  Azure portalında tıklatın **+ kaynak oluşturma** &gt; **depolama** &gt; **StorSimple sanal serisi**.
 
     ![Yeni bir hizmet oluşturun](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 

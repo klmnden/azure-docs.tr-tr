@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8f19a4f0aadbee2de97bb3ec85c2c85b493a394
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af34a64cd3cc33519f2cc69653982e00e4c1e9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma
 Bu makalede aboneliğinizde var olan kaynaklardan bir Resource Manager şablonunun nasıl dışarı aktarıldığı öğretilir. Şablon söz dizimini daha iyi anlamak için bu oluşturulmuş şablonu kullanabilirsiniz.
@@ -33,7 +33,7 @@ Bu konu başlığı altında portal aracılığıyla çalışan her iki yaklaş�
 ## <a name="deploy-resources"></a>Kaynakları dağıtma
 Şablon olarak dışarı aktarma için kullanabileceğiniz kaynakları Azure’a dağıtma işlemiyle başlayalım. Aboneliğinizde zaten şablona dışarı aktarmak istediğiniz bir kaynak grubu varsa, bu bölümü atlayabilirsiniz. Bu makalenin kalan bölümünde, bu bölümde gösterilen web uygulamasını ve SQL veritabanı çözümünü dağıttığınız varsayılır. Farklı bir çözüm kullanıyorsanız, sizin deneyiminiz biraz farklı olabilir ama şablonu dışarı aktarma adımları aynıdır. 
 
-1. [Azure Portal](https://portal.azure.com)’da **Yeni**’yi seçin.
+1. İçinde [Azure portal](https://portal.azure.com)seçin **kaynak oluşturma**.
    
       ![yeni’yi seçin](./media/resource-manager-export-template/new.png)
 2. **Web uygulaması + SQL** için arama yapın ve sağlanan seçeneklerden bunu seçin.

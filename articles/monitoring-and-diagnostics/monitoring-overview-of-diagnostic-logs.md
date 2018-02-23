@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df20e174abb9960ad378221008ac7261fd0582f1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -91,7 +91,7 @@ Bir kaynak için belirli bir kaynak giderek ya da Azure İzleyicisi gezinme olu�
    
    ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
     
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 Birkaç dakika sonra yeni bir ayar bu kaynak için ayarları listesi görüntülenir ve yeni olay verilerini oluşturulan hemen tanılama günlüklerini belirtilen hedefe gönderilir.
 
@@ -163,7 +163,7 @@ Tüm kaynaklarınız tanılama ayarları ile ayarlandığından emin olun. Gidin
 
 ![Tanılama günlüklerini dikey penceresinde portalı](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-"Daha fazla Hizmetleri" öğesine tıklamanız gerekebilir izleme bölümü bulunamıyor.
+"Tüm hizmetleri" öğesine tıklamanız gerekebilir izleme bölümü bulunamıyor.
 
 Burada görebilirsiniz ve tanılaması etkin olup olmadığını görmek için tanılama ayarları destekleyen tüm kaynakları filtreleyin. Birden çok ayarları bir kaynak üzerinde ayarlanmış ve hangi depolama hesabı, olay hub'ları ad ve/veya veri akışının günlük analizi çalışma alanı denetleyin görmek için ayrıntıya inebilir.
 

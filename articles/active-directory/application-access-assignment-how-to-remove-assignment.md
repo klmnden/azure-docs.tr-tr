@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: bb1dc88164aa7971427984b5956e00b1d343cab7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aec49b108c21b97646e622c47bf69728a81d6d33
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Bir uygulama için kullanıcının erişimini kaldırma
 
-Bu makalede bir uygulama için kullanıcının erişimini kaldırmak nasıl tasarlandığını anlamanıza yardımcı olur.
+Bu makalede, bir uygulama için kullanıcının erişimini kaldırmak nasıl anlamanıza yardımcı olur.
 
 ## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Bir uygulama için belirli kullanıcının veya grubun atama kaldırılacağını
 
@@ -35,9 +35,9 @@ Tüm kullanıcı oturum açmalarına bir uygulama için devre dışı bırakmak 
 
 İçin **bir uygulamayı silmek**, aşağıdaki yönergeleri izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -45,11 +45,11 @@ Tüm kullanıcı oturum açmalarına bir uygulama için devre dışı bırakmak 
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Silmek istediğiniz uygulamayı seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **silmek** üst uygulamanın simgesinden **genel bakış** dikey.
+7.  Uygulamanın yüklediği sonra tıklayın **silmek** üst uygulamanın simgesinden **genel bakış** bölmesi.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Herhangi bir uygulama için tüm gelecekteki kullanıcı onayı işlemleri devre dışı bırakmak istiyorum
 
@@ -57,9 +57,9 @@ Tüm dizin önlemek için son kullanıcılar için herhangi bir uygulama onaylı
 
 İçin **tüm dizininizdeki tüm gelecekteki kullanıcı onayı işlemleri devre dışı**, aşağıdaki yönergeleri izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 

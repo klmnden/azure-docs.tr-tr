@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Azure ile Linux sanal makine tomcat7'yi ayarlayın
 Apache Tomcat (veya yalnızca Cakarta Tomcat adıysa ayrıca Tomcat) bir açık kaynak web sunucusu ve Apache yazılım Foundation (ASF) tarafından geliştirilmiş servlet kapsayıcı değil. Tomcat Java Servlet'i ve Sun Microsystems JavaServer sayfaları (JSP) belirtimlerinden uygular. Tomcat Java kodu çalıştırmak için saf Java HTTP web sunucusu ortamı sağlar. En basit yapılandırmada, Tomcat tek işletim sistemi işleminde çalışır. Bu işlem, Java sanal makinesi (JVM) çalışır. Her HTTP isteğine bir tarayıcıdan Tomcat Tomcat işleminde ayrı bir iş parçacığı olarak işlenir.  
@@ -64,7 +64,7 @@ SSH kimlik doğrulama anahtarı oluşturmak için aşağıdaki adımları izleyi
 6. Tıklatın **özel anahtarı Kaydet**ve privateKey.ppk adlı bir dosyaya kaydedin.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>2. adım: Azure portalında görüntü oluşturma
-1. İçinde [portal](https://portal.azure.com/), tıklatın **yeni** bir görüntü oluşturmak için görev çubuğunda. Ardından gereksinimlerinize göre Linux görüntü seçin. Aşağıdaki örnek, Ubuntu 14.04 görüntü kullanır.
+1. İçinde [portal](https://portal.azure.com/), tıklatın **kaynak oluşturma** bir görüntü oluşturmak için görev çubuğunda. Ardından, gereksinimlerinize göre Linux görüntü seçin. Aşağıdaki örnek, Ubuntu 14.04 görüntü kullanır.
 ![Yeni düğmesini gösteren portalı ekran görüntüsü][3]
 
 2. İçin **ana bilgisayar adı**, siz ve Internet istemcileri bu sanal makine erişmek için kullanacağı URL adını belirtin. DNS adı, örneğin, tomcatdemo son bölümü tanımlayın. Azure tomcatdemo.cloudapp.net sonra URL oluşturur.  
@@ -134,7 +134,7 @@ Tomcat Java'da yazılmış olmalıdır. Java geliştirme setleri (JDKs), OpenJDK
 > [!NOTE]
 > Her iki JDKs neredeyse aynı kodu sınıfları için Java API sahip, ancak sanal makine için kod farklıdır. OpenJDK Oracle JDK kapalı yorumlar kullanmak eğilimindedir açık kitaplıkları, kullanım eğilimindedir. Oracle JDK sahip daha sınıfları ve bazı düzeltilen hatalar ve Oracle JDK OpenJDK daha fazla kararlı.
 
-#### <a name="install-openjdk"></a>OpenJDK yükleyin  
+#### <a name="install-openjdk"></a>Install OpenJDK  
 
 OpenJDK indirmek için aşağıdaki komutu kullanın.   
 
@@ -149,7 +149,7 @@ OpenJDK indirmek için aşağıdaki komutu kullanın.
 
         sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
 
-#### <a name="install-oracle-jdk"></a>Oracle JDK yükleyin
+#### <a name="install-oracle-jdk"></a>Install Oracle JDK
 
 
 Oracle JDK Oracle Web sitesinden karşıdan yüklemek için aşağıdaki komutu kullanın.  
@@ -265,7 +265,7 @@ Bağlandıktan sonra aşağıdakine benzer bir şey görmeniz gerekir:
         sudo yum yükleme w3m w3m-img
 
 
-        w3m http://localhost: 8080  
+        w3m http://localhost:8080  
 #### <a name="solution"></a>Çözüm
 
   * Tomcat dinleme bağlantı noktası bitiş noktasının trafiği sanal makine için özel bağlantı noktası ile aynı değil, Tomcat aynı bağlantı noktasını dinlemek olması için özel bağlantı noktası değiştirmeniz.   

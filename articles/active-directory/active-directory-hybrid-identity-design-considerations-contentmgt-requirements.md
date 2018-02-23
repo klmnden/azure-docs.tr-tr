@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için içerik yönetimi gereksinimlerini belirleyin
-İşletmeniz için içerik yönetimi gereksinimlerini anlama doğrudan kullanmak için hangi karma kimlik çözümü üzerinde kararınızı etkileyebilir. Birden çok aygıt ve kullanıcılar kendi aygıtlarını getirip yeteneği artışı ile ([KCG](http://aka.ms/byodcg)), şirket kendi verilerini korumanız gerekir, ancak bu ayrıca kullanıcının gizliliğini korumanız gerekir. Genellikle bir kullanıcı kendi aygıt olduğunda kendisi de kendisine kullanan uygulamayı göre değişen birden çok kimlik olabilir. Hangi içerik Kurumsal kimlik bilgileri kullanılarak oluşturulan olanları karşı kişisel kimlik bilgileri kullanılarak oluşturulmuş ayırt etmek önemlidir. Kimlik çözümünüzü bulut ile etkileşim sırasında son kullanıcının sorunsuz bir deneyim sağlamak üzere hizmetler kendi gizlilik sağlamak ve veri sızıntısına karşı koruma artırın. 
+İşletmeniz için içerik yönetimi gereksinimlerini anlama doğrudan kullanmak için hangi karma kimlik çözümü üzerinde kararınızı etkileyebilir. Birden çok aygıt ve kullanıcılar kendi aygıtlarını getirip yeteneği artışı ile ([KCG](https://aka.ms/byodcg)), şirket kendi verilerini korumanız gerekir, ancak bu ayrıca kullanıcının gizliliğini korumanız gerekir. Genellikle bir kullanıcı kendi aygıt olduğunda kendisi de kendisine kullanan uygulamayı göre değişen birden çok kimlik olabilir. Hangi içerik Kurumsal kimlik bilgileri kullanılarak oluşturulan olanları karşı kişisel kimlik bilgileri kullanılarak oluşturulmuş ayırt etmek önemlidir. Kimlik çözümünüzü bulut ile etkileşim sırasında son kullanıcının sorunsuz bir deneyim sağlamak üzere hizmetler kendi gizlilik sağlamak ve veri sızıntısına karşı koruma artırın. 
 
 Kimlik çözümü, aşağıdaki çizimde gösterildiği gibi içerik yönetimi sağlamak için farklı teknik denetimler tarafından işlevden:
 

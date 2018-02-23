@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite içinde hizmet haritası yapılandırma | Microsoft Docs"
-description: "Hizmet eşlemesi otomatik olarak sistemlerde, Windows ve Linux uygulama bileşenleri bulur ve Hizmetleri arasındaki iletişimi eşleyen bir Operations Management Suite çözümüdür. Bu makalede hizmet Haritası ortamınıza dağıtmak ve çeşitli senaryolarda içinde kullanma ile ilgili ayrıntıları sağlar."
+title: "Azure üzerinde hizmet haritası yapılandırma | Microsoft Docs"
+description: "Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulan ve hizmetler arasındaki iletişimi eşleyen bir Azure çözümüdür. Bu makalede hizmet Haritası ortamınıza dağıtmak ve çeşitli senaryolarda içinde kullanma ile ilgili ayrıntıları sağlar."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 1be3dd5718f940c784d22dbafb75c217dddecb9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d535c738943b4fea81798b6fc2eedc60ae6be41f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite içinde hizmet Haritası yapılandırın
+# <a name="configure-service-map-in-azure"></a>Hizmet eşlemesi Azure'da yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
 
-Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntılarını açıklanmaktadır. Hizmet eşlemesi kullanarak hakkında daha fazla bilgi için bkz: [Operations Management Suite içinde hizmet Haritası çözümü kullanan](operations-management-suite-service-map.md).
+Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntılarını açıklanmaktadır. Hizmet eşlemesi kullanarak hakkında daha fazla bilgi için bkz: [Azure hizmet Haritası çözümü kullanan](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirir
 | Dosya | İşletim Sistemi | Sürüm | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.0 | 13CE5E232311010A6E63B21615F669C63B5DF450F26F7BA092F951E924656611 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.0 | A8913CA5308A0ED2EAEAC6E1E374B62E0EA4F8A941C560F63E89EBC3F8971D38  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
-Hizmet eşlemesi Microsoft bağımlılık Aracısı'ndan verileri alır. Operations Management suite'e bağlantıları için OMS Aracısı bağımlılık Aracısı'nı bağlıdır. Bunun anlamı bir sunucuya yüklenir ve yapılandırılır. ilk OMS Aracısı olması gerekir ve ardından bağımlılık Aracısı yüklenir. Aşağıdaki tabloda hizmet Haritası çözümünü destekler bağlı kaynakları açıklanmaktadır.
+Hizmet eşlemesi Microsoft bağımlılık Aracısı'ndan verileri alır. Günlük analizi için kendi bağlantıları için OMS aracısının bağımlılık Aracısı'nı bağlıdır. Bunun anlamı bir sunucuya yüklenir ve yapılandırılır. ilk OMS Aracısı olması gerekir ve ardından bağımlılık Aracısı yüklenir. Aşağıdaki tabloda hizmet Haritası çözümünü destekler bağlı kaynakları açıklanmaktadır.
 
 | Bağlı kaynak | Desteklenen | Açıklama |
 |:--|:--|:--|
 | Windows aracıları | Evet | Hizmet eşlemesi analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-windows-agent.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
 | Linux aracıları | Evet | Hizmet eşlemesi analiz eder ve Linux Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-linux-agents.md), Linux aracılarını Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
-| System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi Windows ve Linux aracıları bağlı bir veri toplar ve analiz eder [System Center Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md). <br><br>Operations Management Suite System Center Operations Manager Aracısı bilgisayardan doğrudan bir bağlantı gereklidir. Veri yönetim grubundaki Operations Management Suite depoya iletilir.|
+| System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi Windows ve Linux aracıları bağlı bir veri toplar ve analiz eder [System Center Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md). <br><br>System Center Operations Manager Aracısı bilgisayardan doğrudan bağlantı günlük analizi için gereklidir. Veri yönetim grubu için günlük analizi çalışma alanına iletilir.|
 | Azure depolama hesabı | Hayır | Azure depolama biriminden toplamak için hiçbir veri nedenle hizmet eşlemesi Aracısı bilgisayarlardan verileri toplar. |
 
 Hizmet eşlemesi yalnızca 64-bit platformları destekler.
 
-Windows, Microsoft İzleme Aracısı'nı (MMA) System Center Operations Manager ve Operations Management Suite tarafından toplamak ve göndermek için kullanılan izleme verileri. (Bu aracı System Center Operations Manager Aracısı, OMS Aracısı, günlük analizi Aracısı, MMA veya doğrudan Aracısı bağlamı bağlı olarak adlandırılır.) System Center Operations Manager ve Operations Management Suite MMA farklı çıkış-yepyeni sürümleri sağlar. Bu sürümleri her System Center Operations Manager, Operations Management Suite veya her ikisine de bildirebilirsiniz.  
+Windows, Microsoft İzleme Aracısı'nı (MMA) hem System Center Operations Manager hem de günlük analizi toplamak ve göndermek için kullanılan izleme verileri. (Bu aracı System Center Operations Manager Aracısı, OMS Aracısı, günlük analizi Aracısı, MMA veya doğrudan Aracısı bağlamı bağlı olarak adlandırılır.) System Center Operations Manager ve günlük analizi MMA farklı çıkış-yepyeni sürümleri sağlar. Bu sürümleri her System Center Operations Manager, günlük analizi için veya her ikisine de bildirebilirsiniz.  
 
-Linux, OMS Aracısı Linux toplar ve izleme verilerini Operations Management suite'e gönderir. Hizmet eşlemesi OMS doğrudan aracılarıyla sunucularda veya System Center Operations Manager Yönetim grupları Operations Management Suite'e bağlı olan sunucuları kullanabilirsiniz.  
+Linux, OMS Aracısı Linux toplar ve izleme için günlük analizi verilerini gönderir. Hizmet eşlemesi OMS doğrudan aracılarıyla sunucularda veya günlük analizi için System Center Operations Manager Yönetim grupları bağlı olan sunucuları kullanabilirsiniz.  
 
-Bu makalede, sizi tüm aracılara--başvurmak olup olmadığını Linux veya Windows, System Center Operations Manager yönetim grubu veya doğrudan Operations Management Suite--"OMS Aracısı." olarak bağlı olup olmadığını Bağlam için yalnızca ihtiyaç duyduğunuzda aracısının belirli dağıtım adı kullanacağız.
+Bu makalede, sizi tüm aracılara--başvurmak olup olmadığını Linux veya Windows, System Center Operations Manager yönetim grubu veya--"OMS Aracısı." günlük analizi için doğrudan bağlı olup olmadığını Bağlam için yalnızca ihtiyaç duyduğunuzda aracısının belirli dağıtım adı kullanacağız.
 
-Hizmet eşlemesi Aracısı tüm verileri aktarmaz ve güvenlik duvarları veya bağlantı noktalarını herhangi bir değişiklik gerektirmez. Hizmet eşlemesi verileri her zaman için Operations Management Suite, OMS aracısı tarafından doğrudan veya OMS ağ geçidi üzerinden aktarılır.
+Hizmet eşlemesi Aracısı tüm verileri aktarmaz ve güvenlik duvarları veya bağlantı noktalarını herhangi bir değişiklik gerektirmez. Hizmet eşlemesi verileri her zaman günlük analizi için OMS aracısı tarafından doğrudan veya OMS ağ geçidi üzerinden aktarılır.
 
 ![Hizmet eşlemesi aracıları](media/oms-service-map/agents.png)
 
-Operations Management Suite'e bağlı yönetim grubu ile System Center Operations Manager müşteri varsa:
+Günlük analizi için bağlı yönetim grubu ile System Center Operations Manager müşteri varsa:
 
-- System Center Operations Manager aracıları Operations Management Suite'e bağlamak için Internet erişebiliyorsanız, ek yapılandırma gereklidir.  
-- System Center Operations Manager aracıları Operations Management Suite Internet üzerinden erişemiyorsanız, System Center Operations Manager ile çalışmak için OMS ağ geçidi yapılandırmanız gerekir.
+- System Center Operations Manager aracıları günlük Analizi'ne bağlanmak için Internet erişebiliyorsanız, ek yapılandırma gereklidir.  
+- System Center Operations Manager aracıları, Internet üzerinden günlük analizi erişemiyorsanız, System Center Operations Manager ile çalışmak için OMS ağ geçidi yapılandırmanız gerekir.
   
-OMS doğrudan Aracısı'nı kullanıyorsanız, OMS Operations Management Suite veya OMS ağ geçidine bağlanmak için aracının kendisi yapılandırmanız gerekir. OMS ağ geçidi yüklenebilir [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+OMS doğrudan Aracısı'nı kullanıyorsanız, OMS günlük analizi veya OMS ağ geçidine bağlanmak için aracının kendisi yapılandırmanız gerekir. OMS ağ geçidi yüklenebilir [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Yönetim paketleri
-Hizmet eşlemesi bir Operations Management Suite çalışma alanı içinde etkinleştirildiğinde, 300-KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucularına gönderilir. System Center Operations Manager aracıları kullanıyorsanız, bir [bağlı yönetim grubu](../log-analytics/log-analytics-om-agents.md), hizmet Haritası Yönetim Paketi System Center Operations Manager'dan dağıtılır. Aracıları doğrudan bağlıysanız, Yönetim Paketi Operations Management Suite sunar.
+Hizmet Haritası günlük analizi çalışma etkinleştirildiğinde, 300-KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucularına gönderilir. System Center Operations Manager aracıları kullanıyorsanız, bir [bağlı yönetim grubu](../log-analytics/log-analytics-om-agents.md), hizmet Haritası Yönetim Paketi System Center Operations Manager'dan dağıtılır. Aracıları doğrudan bağlıysanız, günlük analizi Yönetim Paketi sunar.
 
 Yönetim Paketi Microsoft.IntelligencePacks.ApplicationDependencyMonitor olarak adlandırılır. %Programfiles%\Microsoft izleme Agent\Agent\Health hizmet State\Management Packs\ yazılır. Yönetim Paketi kullanan veri kaynağı % Program files%\Microsoft izleme Agent\Agent\Health hizmet State\Resources olan\<AutoGeneratedID > \Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -147,7 +147,7 @@ PowerShell aracılığıyla Azure VM uzantısı dağıtmak için aşağıdaki ö
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ Emin olmak için daha kolay bir yol bağımlılık Aracısı'nı açıktır, VM'
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.1",
+    "typeHandlerVersion": "9.3",
     "autoUpgradeMinorVersion": true
 }
 
@@ -267,11 +267,11 @@ Bağımlılık Aracısı yükleme başarılı oldu, ancak sunucunuzun hizmet Har
 
 * Bulunduğunuz [ücretsiz fiyatlandırma katmanı Operations Management Suite/Log Analytics,](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Ücretsiz planı en fazla beş benzersiz hizmet Haritası sunucularda izin verir. Önceki beş artık veri gönderiyor olsa bile herhangi bir sonraki sunucu hizmet eşlemesinde görünmez.
 
-* Sunucu gönderen günlük ve performans verileri Operations Management Suite mi? Günlük arama gidin ve bilgisayarınız için aşağıdaki sorguyu çalıştırın: 
+* Sunucu gönderen günlük ve performans verileri günlük Analizi'ne mi? Günlük arama gidin ve bilgisayarınız için aşağıdaki sorguyu çalıştırın: 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  Sonuçlarda olayları çeşitli mı aldınız? Verilerin son mi? Bu durumda, OMS Aracısı düzgün çalışmasını ve Operations Management Suite hizmetiyle iletişim kurulurken. Değilse, sunucunuzdaki OMS Aracısı kontrol edin: [OMS Aracısı Windows için sorun giderme](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) veya [Linux sorun giderme için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Sonuçlarda olayları çeşitli mı aldınız? Verilerin son mi? Bu durumda, OMS Aracısı doğru işletim ve günlük analizi ile iletişim kurarken. Değilse, sunucunuzdaki OMS Aracısı kontrol edin: [OMS Aracısı Windows için sorun giderme](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) veya [Linux sorun giderme için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Sunucu hizmet eşlemesinde görünür ancak hiçbir işlem var
 Hizmet eşlemesi sunucunuzun bakın, ancak hiçbir işlem veya bağlantı veri varsa, bağımlılık aracısı yüklü olduğundan ve çalıştığından, ancak çekirdek sürücüsü yüklenmeyen gösterir. 

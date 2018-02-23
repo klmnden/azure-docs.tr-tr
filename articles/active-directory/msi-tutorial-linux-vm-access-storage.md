@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 1484ecdeb26f06d54dceef0e4fb1a5c63fab732a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: de397117f6891d28d24a4279d94e4e4ecc1e7afc
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Azure depolama erişim tuşu erişmek için bir Linux VM yönetilen hizmet kimliği kullanın
 
@@ -143,7 +143,7 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
 Artık Kaynak Yöneticisi'ni önceki bölümde biz alınan erişim belirteci kullanarak çağırmak için CURL kullanın depolama erişim anahtarı alınamadı. Depolama erişim tuşu sahip olduğumuz sonra biz depolama yükleme/indirme işlemleri çağırabilirsiniz. Değiştirdiğinizden emin olun `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, ve `<STORAGE ACCOUNT NAME>` parametre değerlerini kendi değerlere sahip. Değiştir `<ACCESS TOKEN>` daha önce erişim belirteci ile değer:
 
 ```bash 
-curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 –-request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
+curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 --request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
 ```
 
 > [!NOTE]

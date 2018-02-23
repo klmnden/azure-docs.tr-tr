@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Azure App Service'te yavaş web uygulaması performans sorunlarını giderme
 Bu makalede yavaş web uygulaması performans sorunları gidermenize yardımcı [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -83,18 +83,14 @@ Bunu ayarlamak için bkz: [Azure uygulama hizmetinde uygulamaları izleme](web-s
 Ayrıca bkz [tutma Azure Web siteleri ve uç nokta izleme - Stefan Schackow ile](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) uç nokta izleme hakkında bir video.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Uzantıları kullanarak uygulama performansı izleme
-Kullanarak, uygulama performansını izleyebilirsiniz *site uzantıları*.
+Kullanarak, uygulama performansını izleyebilirsiniz bir *site uzantısı*.
 
 Her App Service web uygulaması güçlü birtakım Araçlar dağıtılan site uzantıları olarak kullanmanıza olanak sağlayan bir Genişletilebilir yönetim uç noktası sağlar. Uzantıları aşağıdakileri içerir: 
 
 - Kaynak kodu düzenleyicileri ister [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Yönetim Araçları gibi bir MySQL veritabanının bağlı kaynaklar için bir web uygulamasına bağlandı.
 
-[Azure Application Insights](/services/application-insights/) ve [New Relic](/marketplace/partners/newrelic/newrelic/) performansı kullanılabilir site uzantıları izleme ikisidir. New Relic kullanmak için çalışma zamanında bir aracı yükleyin. Azure Application Insights kullanmak için bir SDK ile kodunuzu yeniden oluşturun ve ek verilere erişim sağlayan bir uzantı de yükleyebilirsiniz. SDK, kullanım ve uygulamanızı daha ayrıntılı performansını izlemek için kod yazma olanak tanır.
-
-Application Insights kullanmak için bkz: [web uygulamalarında performansı izleyerek](../application-insights/app-insights-web-monitor-performance.md).
-
-New Relic kullanmak için bkz: [Azure ile ilgili yeni Relic uygulama performans yönetimi](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
+[Azure Application Insights](/services/application-insights/) izleme de kullanılabilir olan site uzantısı performansın. Application Insights kullanmak için kodunuzu bir SDK ile yeniden oluşturun. Ayrıca, ek verilere erişim sağlayan bir uzantı yükleyebilirsiniz. SDK, kullanım ve uygulamanızı daha ayrıntılı performansını izlemek için kod yazma olanak tanır. Daha fazla bilgi için bkz: [web uygulamalarında performansı izleyerek](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -137,7 +133,7 @@ Azure uygulama hizmeti destek portal yaygın bir sorun giderme senaryo üç adı
 
 1. Şu anki davranışı inceleyin
 2. Tanılama bilgilerini toplama ve yerleşik çözümleyiciler çalıştıran analiz eder.
-3. Azaltmak
+3. Azaltma
 
 Sorun şu anda oluşuyorsa tıklatın **Çözümle** > **tanılama** > **şimdi tanılamak** sizin için bir tanılama oturumu oluşturmak için hangi HTTP toplar, Olay Görüntüleyicisi'ni, bellek dökümleri, PHP Hata günlüklerini ve PHP işlem raporu günlükleri.
 

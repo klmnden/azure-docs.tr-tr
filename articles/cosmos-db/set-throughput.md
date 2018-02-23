@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Azure Cosmos DB kapsayıcıları için kümesi işleme
 
@@ -49,7 +49,7 @@ Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir liste
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Azure portalını kullanarak üretilen işi ayarlamak için
 
 1. Yeni bir pencerede açmak [Azure portal](https://portal.azure.com).
-2. Sol çubuğunda **Azure Cosmos DB**, veya **daha Hizmetleri** kısımda, daha sonra kaydırın **veritabanları**ve ardından **Azure Cosmos DB**.
+2. Sol çubuğunda **Azure Cosmos DB**, veya **tüm hizmetleri** kısımda, daha sonra kaydırın **veritabanları**ve ardından **Azure Cosmos DB**.
 3. Cosmos DB hesabınızı seçin.
 4. Yeni pencerede **Veri Gezgini** Gezinti menüsünde.
 5. Yeni pencerede, veritabanı ve kapsayıcısını genişletin ve ardından **ölçek & ayarları**.

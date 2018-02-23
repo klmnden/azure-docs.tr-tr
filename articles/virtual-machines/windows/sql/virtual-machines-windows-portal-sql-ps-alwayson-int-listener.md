@@ -4,7 +4,7 @@ description: "Kullanılabilirlik grubu dinleyicileri iç yük dengeleyiciye sahi
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Bir veya daha fazla Always On kullanılabilirlik grubu dinleyicileri - Kaynak Yöneticisi'ni yapılandırma
 Bu konuda gösterilmektedir nasıl yapılır:
@@ -28,13 +28,13 @@ Bu konuda gösterilmektedir nasıl yapılır:
 
 Bir kullanılabilirlik grubu dinleyicisi veritabanı erişimi için istemcilerin bağlandığı bir sanal ağ adı değil. Azure sanal makinelerde yük dengeleyici için dinleyici IP adresini tutar. Yük Dengeleyici araştırması bağlantı noktasında dinleme SQL Server örneğine trafiğini yönlendirir. Genellikle, bir iç yük dengeleyicisi bir kullanılabilirlik grubu kullanır. Azure iç yük dengeleyiciye bir veya daha çok IP adreslerini barındırabilir. Her IP adresi belirli araştırma bağlantı noktasını kullanır. Bu belgede bir yük dengeleyici oluşturmak veya mevcut bir yük dengeleyici SQL Server kullanılabilirlik grupları için IP adresleri eklemek için PowerShell kullanmayı gösterir. 
 
-Bir iç yük dengeleyici için birden çok IP adresi atama olanağı Azure için yenidir ve yalnızca Resource Manager modelinde kullanılabilir. Bu görevi tamamlamak için Resource Manager modeli Azure sanal makinelerinde dağıtılan bir SQL Server kullanılabilirlik grubu olması gerekir. Her iki SQL Server sanal makineleri aynı kullanılabilirlik kümesine ait olması gerekir. Kullanabileceğiniz [Microsoft şablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) otomatik olarak Azure Kaynak Yöneticisi'nde kullanılabilirlik grubu oluşturmak için. Bu şablon, iç yük dengeleyicisi sizin için de dahil olmak üzere kullanılabilirlik grubu otomatik olarak oluşturur. İsterseniz, aşağıdakileri yapabilirsiniz [el ile bir Always On kullanılabilirlik grubu yapılandırmak](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Bir iç yük dengeleyici için birden çok IP adresi atama olanağı Azure için yenidir ve yalnızca Resource Manager modelinde kullanılabilir. Bu görevi tamamlamak için Resource Manager modeli Azure sanal makinelerinde dağıtılan bir SQL Server kullanılabilirlik grubu olması gerekir. Her iki SQL Server sanal makineleri aynı kullanılabilirlik kümesine ait olması gerekir. Kullanabileceğiniz [Microsoft şablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) otomatik olarak Azure Kaynak Yöneticisi'nde kullanılabilirlik grubu oluşturmak için. Bu şablon, iç yük dengeleyicisi sizin için de dahil olmak üzere kullanılabilirlik grubu otomatik olarak oluşturur. İsterseniz, aşağıdakileri yapabilirsiniz [el ile bir Always On kullanılabilirlik grubu yapılandırmak](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 Bu konu, kullanılabilirlik grupları zaten yapılandırılmış olmasını gerektirir.  
 
 İlgili Konular şunlardır:
 
-* [Azure VM (GUI) AlwaysOn Kullanılabilirlik Grupları Yapılandırma](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Azure VM (GUI) AlwaysOn Kullanılabilirlik Grupları Yapılandırma](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Azure Resource Manager ve PowerShell kullanarak VNet-VNet bağlantı yapılandırma](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
@@ -98,7 +98,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a>Örnek komut dosyası: PowerShell ile var olan bir yük dengeleyici için bir IP adresi Ekle
+## <a name="Add-IP"></a> Örnek komut dosyası: PowerShell ile var olan bir yük dengeleyici için bir IP adresi Ekle
 Birden çok kullanılabilirlik grubu kullanmak için ek bir IP adresi yük dengeleyiciye ekleyin. Her IP adresi, kendi Yük Dengeleme kuralı, araştırma bağlantı noktası ve ön bağlantı noktası gerektirir.
 
 Ön uç bağlantı uygulamaları SQL Server örneğine bağlanmak için kullandığınız bağlantı noktasıdır. IP adresleri farklı kullanılabilirlik grupları için aynı ön uç bağlantı noktasını kullanabilirsiniz.
@@ -195,15 +195,15 @@ Kullanılabilirlik grubu dinleyicisi iç kullanarak azure'da aşağıdaki yöner
 * Bir iç yük dengeleyici ile gelen dinleyicisi aynı sanal ağda yalnızca erişin.
 
 
-## <a name="for-more-information"></a>Daha fazla bilgi için
-Daha fazla bilgi için bkz: [yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+## <a name="for-more-information"></a>Daha fazla bilgi edinmek için
+Daha fazla bilgi için bkz: [yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet'leri
 Azure sanal makineler için bir iç yük dengeleyici oluşturmak için aşağıdaki PowerShell cmdlet'lerini kullanın.
 
 * [AzureRmLoadBalancer yeni](http://msdn.microsoft.com/library/mt619450.aspx) bir yük dengeleyici oluşturur. 
-* [AzureRMLoadBalancerFrontendIpConfig yeni](http://msdn.microsoft.com/library/mt603510.aspx) bir yük dengeleyici için bir ön uç IP yapılandırmasını oluşturur. 
-* [AzureRmLoadBalancerRuleConfig yeni](http://msdn.microsoft.com/library/mt619391.aspx) bir yük dengeleyici için bir kural yapılandırma oluşturur. 
-* [AzureRmLoadBalancerBackendAddressPoolConfig yeni](http://msdn.microsoft.com/library/mt603791.aspx) bir yük dengeleyici için arka uç adres havuzu yapılandırması oluşturur. 
-* [AzureRmLoadBalancerProbeConfig yeni](http://msdn.microsoft.com/library/mt603847.aspx) bir yük dengeleyici için bir araştırma yapılandırma oluşturur.
+* [New-AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx) creates a front-end IP configuration for a load balancer. 
+* [New-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) creates a rule configuration for a load balancer. 
+* [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) creates a backend address pool configuration for a load balancer. 
+* [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) creates a probe configuration for a load balancer.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) bir yük dengeleyici Azure kaynak grubundan kaldırır.

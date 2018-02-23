@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: parja
-ms.openlocfilehash: b28a1bb6287a0e30eda21d9a7c03abbf14b5d8d9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 450a7a5051cdbd6a3c8105a06fd3ebae10d5388e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Uzantıları uygulaması
 
@@ -31,7 +31,7 @@ Azure AD B2C dizini oluşturulduğunda, bir uygulama olarak adlandırılan `b2c-
 
 B2c uzantıları uygulama mevcut olduğunu doğrulamak için:
 
-1. Azure AD B2C kiracınızın içinde tıklayın **daha fazla hizmet** sol taraftaki gezinti menüsünde.
+1. Azure AD B2C kiracınızın içinde tıklayın **tüm hizmetleri** sol taraftaki gezinti menüsünde.
 1. Aramak ve açmak **uygulama kayıtlar**.
 1. İle başlayan uygulama Ara **b2c uzantıları uygulaması**
 

@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Ayıklanan verileri kullanarak çapraz Kiracı analizi
 
@@ -68,7 +68,7 @@ Her bir kiracı hizmetini nasıl tutarlı bir şekilde kullanarak anlama kendi g
 
 ## <a name="setup"></a>Kurulum
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
@@ -76,7 +76,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 - Wingtip SaaS komut dosyalarını ve uygulama [kaynak kodu](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) Github'dan indirilir. Yaptığınızdan emin olun *zip dosyası engellemesini* içeriğinin ayıklanıyor önce. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 - Power BI Desktop yüklenir. [Power BI Desktop'u indirin](https://powerbi.microsoft.com/downloads/)
 - Ek kiracılar toplu sağlanması için bkz: [ **sağlama kiracılar öğretici**](saas-multitenantdb-provision-and-catalog.md).
-- Bir iş hesabı ve iş hesabı veritabanı oluşturuldu. Uygun açıklanan adımları izleyerek [ **şema yönetimi öğretici**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Bir iş aracısı ve İş Aracısı veritabanı oluşturuldu. Uygun açıklanan adımları izleyerek [ **şema yönetimi öğretici**](saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Gösteri için verileri oluşturma
 
@@ -96,21 +96,21 @@ Aşağıdaki adımlarda dağıttığınız adlandırılır analytics deposu **te
     - Columnstore ile SQL veritabanını kullanacak şekilde ayarlama **$DemoScenario** = **3**  
 3. Tuşuna **F5** kullanarak gösteri komut dosyasını çalıştırın (çağırır *dağıtma TenantAnalytics<XX>.ps1* komut dosyası) Kiracı analytics deposu oluşturur. 
 
-Dağıtılan uygulama ve ilginç Kiracı verilerle doldurulur göre kullanmak [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmak için **tenants1-mt -\<kullanıcı\>**  ve **katalog-mt -\<kullanıcı\>**  oturum açma kullanan sunucuları = *Geliştirici*, parola =  *P@ssword1* .
+Dağıtılan uygulama ve ilginç Kiracı verilerle doldurulur göre kullanmak [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmak için **tenants1-mt -\<kullanıcı\> ** ve **katalog-mt -\<kullanıcı\> ** oturum açma kullanan sunucuları = *Geliştirici*, parola = * P@ssword1 *.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
 Nesne Gezgini'nde aşağıdaki adımları gerçekleştirin:
 
-1. Genişletme *tenants1-mt -\<kullanıcı\>*  sunucu.
+1. Genişletme *tenants1-mt -\<kullanıcı\> * sunucu.
 2. Veritabanları düğümünü genişletin ve bkz *tenants1* birden çok kiracıya içeren veritabanı.
-3. Genişletme *katalog-mt -\<kullanıcı\>*  sunucu.
+3. Genişletme *katalog-mt -\<kullanıcı\> * sunucu.
 4. Analytics deposu ve jobaccount veritabanını gördüğünüzü doğrulayın.
 
 Şu veritabanı öğeler SSMS nesne Gezgini'nde analizi Depolama düğümü genişleterek bakın:
 
 - Tablolar **TicketsRawData** ve **EventsRawData** Kiracı veritabanlarındaki ayıklanan ham verileri tutun.
-- Yıldız şeması tablolar **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, ve **dim_Dates** .
+- Yıldız şeması tablolar **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, ve **dim_Dates **.
 - **Sp_ShredRawExtractedData** saklı yordam ham veri tabloları yıldız şeması tablolardan doldurmak için kullanılır.
 
 ![tenantAnalytics](media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
@@ -178,7 +178,7 @@ Power BI bağlanmak ve daha önce oluşturduğunuz görünümler içeri aktarmak
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Seçin **veritabanı** sol bölmede, kullanıcı adı enter = *Geliştirici*ve parolayı girin =  *P@ssword1* . **Bağlan**'a tıklayın.  
+5. Seçin **veritabanı** sol bölmede, kullanıcı adı enter = *Geliştirici*ve parolayı girin = * P@ssword1 *. **Bağlan**'a tıklayın.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

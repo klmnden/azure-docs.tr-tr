@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: genemi
-ms.openlocfilehash: 2daf05513127c2d1ab8e4b0196b578e18b6e03e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fbc63cebe8c1456f5eb34666d15f4e00fd55fe5b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan bir tek başına tek Kiracı uygulama keşfedin
 
@@ -51,7 +51,7 @@ Uygulamayı üç sağlanan kiracılar için dağıtma:
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Fabrikam Jazz kulübü**
+    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz kulübü**
 
 2. Her dağıtım için gerekli parametre değerlerini girin.
 
@@ -100,9 +100,7 @@ Bir üretim ortamında genellikle bir CNAME DNS kaydı oluşturmanız [ *bir şi
 Dağıtılan kaynakların bazıları bakalım:
 
 1. İçinde [Azure portal](http://portal.azure.com), kaynak grupları listesine göz atın.
-2. Bkz: **wingtip-sa-katalog -&lt;kullanıcı&gt;**  kaynak grubu.
-    - Bu kaynak grubundaki **katalog-sa -&lt;kullanıcı&gt;**  sunucusu dağıtılır. Sunucunun bulunduğu **tenantcatalog** veritabanı.
-    - Ayrıca üç Kiracı kaynak grupları görmeniz gerekir.
+2. Üç Kiracı kaynak grupları görmeniz gerekir.
 3. Açık **wingtip-sa-fabrikam -&lt;kullanıcı&gt;**  Fabrikam Jazz kulübü dağıtımı için kaynakları içeren kaynak grubu.  **Fabrikamjazzclub -&lt;kullanıcı&gt;**  sunucusunu içeren **fabrikamjazzclub** veritabanı.
 
 50 DTU her Kiracı veritabanıdır *tek başına* veritabanı.
@@ -131,6 +129,6 @@ Bu öğreticide şunları öğrendiniz:
 > * Sunucular ve veritabanları hakkında uygulaması olun.
 > * Nasıl ilgili faturalama durdurmak için örnek kaynaklar silinir.
 
-Ardından, deneyin [sağlamak ve Katalog](saas-standaloneapp-provision-and-catalog.md) Öğreticisi.
+Ardından, deneyin [sağlamak ve Katalog](saas-standaloneapp-provision-and-catalog.md) içinde araştırmanız arası Kiracı senaryolarının şema yönetim ve Kiracı çözümlemeleri gibi çeşitli sağlayan kiracılar kataloğunu kullanma Öğreticisi.
  
 

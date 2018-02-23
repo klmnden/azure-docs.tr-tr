@@ -15,17 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-<<<<<<< HEAD
-ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Veri bilimi sanal makine veri alım araçları
 
@@ -89,7 +83,18 @@ Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır.
 | Tipik kullanır      | Bir SQL Server tablosuna bir dosyaya dışa aktarma, bir SQL Server tabloya bir CSV dosyası alınıyor.      |
 |  Kullanın / çalıştırmak için nasıl?    |   Bir komut istemi açın yazın `bcp` Yardım almak için.    |
 | Örnekleri bağlantılar      | [Toplu kopyalama yardımcı programı](https://docs.microsoft.com/sql/tools/bcp-utility)      |
-| DSVM ilgili araçları      | SQL Server'ı sqlcmd      |
+| DSVM ilgili araçları      | SQL Server, sqlcmd      |
+
+## <a name="blobfuse"></a>blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| Nedir?   | Linux dosya sisteminde bir Azure blob kapsayıcısı bağlamak için bir araç.      |
+| Desteklenen DSVM sürümleri      | Linux      |
+| Tipik kullanır      | Okuma ve BLOB'ları bir kapsayıcıda yazma      |
+|  Kullanın / çalıştırmak için nasıl?    |   Çalıştırma _blobfuse_ bir terminal adresindeki.    |
+| Örnekleri bağlantılar      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| DSVM ilgili araçları      | Azure komut satırı      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Microsoft Veri Yönetimi ağ geçidi

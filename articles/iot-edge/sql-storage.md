@@ -3,17 +3,17 @@ title: "Azure IOT kenar SQL Modülü | Microsoft Docs"
 description: "Microsoft SQL modüllerle verilerin biçimlendirilmesi için Azure işlevleri ile kenara verileri depolar."
 services: iot-edge
 keywords: 
-author: ebertrams
+author: kgremban
 manager: timlt
 ms.author: kgremban, ebertrams
-ms.date: 02/07/2018
+ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f7ff069a2536d0138be8cbb32eefba342e1e9275
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>SQL Server veritabanlarına sahip sınırda veri depolama
 
@@ -92,7 +92,6 @@ Adım 3'te, ortam değişkenleri ve persistant depolama kurmak için önemli ola
              }
           }
         }
-      }
    ```
 
 3. Çalıştırdığınız işletim sistemi'ne bağlı olarak SQL Modülü aşağıdaki kod ile güncelleştirin: 
@@ -101,7 +100,7 @@ Adım 3'te, ortam değişkenleri ve persistant depolama kurmak için önemli ola
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
       ```
 
    * Linux:
@@ -118,7 +117,7 @@ Adım 3'te, ortam değişkenleri ve persistant depolama kurmak için önemli ola
 8. Edge çalışma zamanı başlatmak için **kenar: Başlangıç kenar** komutu paletindeki.
 
 >[!TIP]
->Bir üretim ortamında, bir SQL Server kapsayıcı oluşturmak istediğiniz zaman, gereken [varsayılan sistem yöneticisi parolasını değiştirme](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker.md#change-the-sa-password).
+>Bir üretim ortamında, bir SQL Server kapsayıcı oluşturmak istediğiniz zaman, gereken [varsayılan sistem yöneticisi parolasını değiştirme](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
 ## <a name="create-the-sql-database"></a>SQL veritabanı oluşturma
 
@@ -132,7 +131,7 @@ Bir komut satırı aracı, veritabanına bağlan:
    ```
 
 * Linux    
-   ```cmd
+   ```bash
    Docker exec -it sql 'bash'
    ```
 
@@ -144,7 +143,7 @@ SQL komut aracını açın:
    ```
 
 * Linux
-   ```cmd
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
@@ -189,7 +188,7 @@ Başlatıldığında IOT kenar Köprüsü (Linux) ya da NAT (Windows) ağ otomat
 
 * Linux
 
-   ```cmd
+   ```bash
    sudo docker network inspect azure-iot-edge
    ```
 
@@ -309,7 +308,7 @@ Bir komut satırı aracı, veritabanına bağlan:
    ```
 
 * Linux    
-   ```cmd
+   ```bash
    Docker exec -it sql 'bash'
    ```
 
@@ -321,7 +320,7 @@ SQL komut aracını açın:
    ```
 
 * Linux
-   ```cmd
+   ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 

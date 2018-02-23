@@ -1,10 +1,10 @@
 ---
 title: "Sanal ağlar arasında bir bağlantı oluşturun: Klasik: Azure portal | Microsoft Docs"
-description: "Azure sanal ağları birbirine PowerShell ve Azure portalını kullanarak bağlanma."
+description: "Azure sanal ağları birbirine PowerShell ve Azure portalını kullanarak bağlanın."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet bağlantı (Klasik) yapılandırma
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Bu makalede, sanal ağlar arasında VPN ağ geçidi bağlantısının nasıl oluşturulduğu gösterilir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Bu makaledeki adımları Klasik dağıtım modeli ve Azure portalı için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
+Bu makalede, sanal ağlar arasında bir VPN ağ geçidi bağlantısı oluşturmanıza yardımcı olur. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Bu makaledeki adımları Klasik dağıtım modeli ve Azure portalı için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
 > * [Azure portalı](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -97,7 +97,7 @@ Bu makalede bir alıştırma olarak kullanıyorsanız, aşağıdaki örnek değe
 
 **TestVNet1 için değerler**
 
-Ad: TestVNet1<br>
+Name: TestVNet1<br>
 Adres alanı: 10.11.0.0/16, 10.12.0.0/16 (isteğe bağlı)<br>
 Alt ağ adı: varsayılan<br>
 Alt ağ adresi aralığı: 10.11.0.1/24<br>
@@ -107,7 +107,7 @@ GatewaySubnet: 10.11.1.0/27
 
 **TestVNet4 için değerler**
 
-Ad: TestVNet4<br>
+Name: TestVNet4<br>
 Adres alanı: 10.41.0.0/16, 10.42.0.0/16 (isteğe bağlı)<br>
 Alt ağ adı: varsayılan<br>
 Alt ağ adresi aralığı: 10.41.0.1/24<br>

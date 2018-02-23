@@ -254,6 +254,9 @@
     - name: Anahtar Kasası
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
+    - name: Konum Tabanlı Hizmetler
+      tocHref: /azure/location-based-services/
+      topicHref: /azure/location-based-services/
     - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/

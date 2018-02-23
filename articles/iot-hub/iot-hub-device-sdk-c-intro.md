@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 05a025a02046ff091b4fea75404cb74aad2e07fa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C için Azure IOT cihaz SDK'sı
 
@@ -27,6 +27,10 @@ ms.lasthandoff: 01/18/2018
 C için Azure IOT cihaz SDK'sı ANSI C taşınabilirliği en üst düzeye çıkarmak için (C99) yazılır. Bu özellik kitaplıkları birden çok platformlarda ve cihazlarda özellikle disk en aza burada çalışması için oldukça uygun hale getirir ve bellek alanını önceliktir.
 
 Çok çeşitli platformlar üzerinde SDK test edilmiştir vardır (bkz [Azure IOT cihaz katalog için onaylanmıştır](https://catalog.azureiotsuite.com/) Ayrıntılar için). Bu makalede Windows platformunda çalışan örnek kodu izlenecek yollar içerse de, bu makaledeki kod desteklenen platformlar aynı aralığıdır.
+
+Aşağıdaki video Azure IOT SDK'sı genel bir bakış için C: gösterir.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-IoT-C-SDK-insights/Player]
 
 Bu makalede c için Azure IOT cihaz SDK mimarisini sunar Cihaz kitaplığı başlatılamıyor, IOT Hub'ına veri göndermek ve buradan ileti almak nasıl gösterir. Bu makaledeki bilgiler SDK'sını kullanmaya başlamak için yeterli olmalıdır, ancak ayrıca işaretçileri kitaplıkları hakkında ek bilgiler sağlar.
 
@@ -151,7 +155,7 @@ Bu işleve aygıt explorer aracından aldığınız cihaz bağlantı dizesi bir 
 
 Geçerli bir olduğunda **IOTHUB\_istemci\_İŞLEMEK**, IOT hub'ı gelen ve giden ileti gönderme ve alma için API'larını çağırma başlatabilirsiniz.
 
-### <a name="send-messages"></a>İletileri gönder
+### <a name="send-messages"></a>İleti gönder
 
 Örnek uygulama, IOT hub'ınıza ileti göndermek için bir döngü ayarlar. Aşağıdaki kod parçacığında:
 
@@ -214,7 +218,7 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 
 Çağrı Not **IoTHubMessage\_Destroy** iletiyle bittiğinde işlev. Bu işlev, ileti oluşturduğunuzda ayrılan kaynakları serbest bırakır.
 
-### <a name="receive-messages"></a>İleti alma
+### <a name="receive-messages"></a>İleti al
 
 Bir ileti alma zaman uyumsuz bir işlemdir. İlk olarak, aygıt bir ileti aldığında çağırmak için geri çağırma kaydedin:
 
@@ -402,7 +406,7 @@ Bu örnekte, yok adlı tek bir model **ContosoAnemometer**. Bu model Cihazınız
 
 Model içinde tanımlanan eylemleri ve veri IOT Hub'ına iletileri göndermek için kullandıkları ve cihaza gönderilen iletilere yanıt API yüzeyi tanımlayın. Bu model kullanımı örnek en iyi anlaşılmalıdır.
 
-### <a name="send-messages"></a>İletileri gönder
+### <a name="send-messages"></a>İleti gönder
 
 IOT Hub'ına gönderebilirsiniz veri modelini tanımlar. Bu örnekte, iki veri öğelerinin anlaşılır bir tanımlanan kullanarak **WITH_DATA** makrosu. Göndermek için gereken birkaç adım vardır **DeviceID** ve **WindSpeed** bir IOT hub'ına değerleri. Göndermek istediğiniz veri kümesi için ilk şöyledir:
 
@@ -472,7 +476,7 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 
 Tüm olan cihaz bulut iletilerini göndermek için yoktur. Karşılamak üzere sol yalnızca ileti alma şeydir.
 
-### <a name="receive-messages"></a>İleti alma
+### <a name="receive-messages"></a>İleti al
 
 Yol iletileri iş ileti works benzer şekilde alma **IoTHubClient** kitaplığı. İlk olarak, bir ileti geri çağırma işlevini kaydedin:
 

@@ -3,11 +3,11 @@ Service Bus konuları ve abonelikleri *publish/subscribe* mesajlaşma iletişim 
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
 
-Service Bus kuyruklarının tersine, burada her ileti bir tüketici tarafından işlenir; konular ve abonelikler, publish/subscribe modelini kullanarak iletişimin "bir-çok" biçimini sağlar. Bir konuya birden fazla abonelik kaydedilebilir. Bir konuya ileti gönderildiğinde, bundan sonra, bağımsız olarak ele almak/işlemek amacıyla her abonelik için kullanılabilir hale getirilir.
+Burada her ileti tek bir tüketici tarafından işlenir, Service Bus kuyruklarının tersine, konular ve abonelikler publish/subscribe modelini kullanarak iletişimin "bir-çok" biçimini sağlar. Bir konuya birden fazla abonelik kaydedilebilir. Bir konuya ileti gönderildiğinde, bundan sonra, bağımsız olarak ele almak/işlemek amacıyla her abonelik için kullanılabilir hale getirilir.
 
-Bir konuya abone olunması, konuya gönderilmiş olan iletilerin kopyaların alan sanal kuyruğa benzer. İsterseniz konuyla ilgili filtre kurallarını, hangi konu abonelikleriyle, konunun hangi iletileri alacağını filtrelemenizi veya kısıtlamanızı etkinleştiren abonelik başına temelinde kaydedebilirsiniz.
+Bir konuya abone olunması, konuya gönderilmiş olan iletilerin kopyaların alan sanal kuyruğa benzer. Abonelik başına temelinde bir konu için filtre kuralları isteğe bağlı olarak kaydedebilirsiniz. Filtre kuralları, filtre ya da bir konunun hangi iletileri hangi konu abonelikleriyle kısıtlamanızı sağlar.
 
-Service Bus konuları ve abonelikleri, çok sayıda kullanıcıdan ve uygulamadan gelen çok yüksek sayıda iletiyi ölçeklendirmenizi ve işlemenizi sağlar.
+Service Bus konuları ve Abonelikleri, ölçeklendirme ve birçok kullanıcılar ve uygulamalar arasında çok sayıda iletileri işlemek etkinleştirin.
 
 ## <a name="create-a-namespace"></a>Ad alanı oluşturma
 Azure'da Service Bus konularını ve aboneliklerini kullanmaya başlamak için öncelikle bir *hizmet ad alanı* oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
@@ -15,11 +15,11 @@ Azure'da Service Bus konularını ve aboneliklerini kullanmaya başlamak için �
 Ad alanı oluşturmak için:
 
 1. [Azure portalında][Azure portal] oturum açın.
-2. Portalın sol gezinti bölmesinde **Yeni**'ye tıklayın, ardından **Enterprise Integration**'a ve **Service Bus**'a tıklayın.
+2. Portalın sol gezinti bölmesinde tıklatın **kaynak oluşturma**, ardından **Kurumsal tümleştirme**ve ardından **Service Bus**.
 3. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 4. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel, Standart veya Premium) seçin.
 5. **Abonelik** alanında, ad alanı oluşturmak için kullanmak istediğiniz bir Azure aboneliği seçin.
-6. **Kaynak grubu** alanında, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.      
+6. İçinde **kaynak grubu** alan, ad içinde bulunan varolan bir kaynak grubu seçin veya yeni bir tane oluşturun.      
 7. **Konum** alanında, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin.
    
     ![Ad alanı oluşturma][create-namespace]
@@ -27,11 +27,11 @@ Ad alanı oluşturmak için:
 
 ### <a name="obtain-the-credentials"></a>Kimlik bilgilerini alın
 1. Ad alanları listesinde, yeni oluşturulan ad alanı adına tıklayın.
-2. **Service Bus ad alanı** dikey penceresinde, **Paylaşılan erişim ilkeleri**'ne tıklayın.
-3. **Paylaşılan erişim ilkeleri** dikey penceresinde, **RootManageSharedAccessKey** öğesine tıklayın.
+2. İçinde **Service Bus ad alanı** bölmesinde tıklatın **paylaşılan erişim ilkeleri**.
+3. İçinde **paylaşılan erişim ilkeleri** bölmesinde tıklatın **RootManageSharedAccessKey**.
    
     ![bağlantı bilgisi][connection-info]
-4. **İlke: RootManageSharedAccessKey** dikey penceresinde **Bağlantı dizesi–birincil anahtar** seçeneğinin yanındaki Kopyala düğmesine tıklayın ve bağlantı dizesini, daha sonra kullanmak üzere panonuza kopyalayın.
+4. İçinde **İlkesi: RootManageSharedAccessKey** bölmesi, kopyalama için İleri düğmesini tıklatın **bağlantı dizesi – birincil anahtarı**, panonuza daha sonra kullanmak için bağlantı dizesini kopyalayın.
    
     ![bağlantı dizesi][connection-string]
 

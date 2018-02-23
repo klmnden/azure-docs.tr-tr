@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 11a9d03e62c674c4311c74f78e4cb2e709940941
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 596a38371925e9489a5d0dc0bd56a28ad97e80da
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>AzCopy kullanarak Laboratuvar ait depolama hesabı için VHD dosyasını karşıya yükle
 
@@ -38,7 +38,7 @@ Aşağıdaki adımlar bir VHD dosyası aracılığıyla karşıya yükleme Azure
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1. **More services**’i (Daha fazla hizmet’i) seçip ardından listeden **DevTest Labs**’i seçin.
+1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 
 1. İstenen Laboratuvar labs listesinden seçin.  
 

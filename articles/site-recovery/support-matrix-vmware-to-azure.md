@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 837d53c4a70353c92de2475bb355051fdb2fcbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88fc17b635cc96defd1b6f766b9b2ac2c63f2fa7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
@@ -22,17 +22,17 @@ Bu makalede desteklenen bileşenleri ve Azure, VMware vm'lerinin olağanüstü d
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 
-**Senaryo** | **Ayrıntılar** 
---- | --- 
-**VMware Vm'leri** | Şirket içi VMware Vm'leri için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryoda Azure portal veya PowerShell kullanarak dağıtabilirsiniz.
-**Fiziksel sunucuları** | Şirket içi Windows/Linux fiziksel sunucuları için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo Azure portalında dağıtabilirsiniz.
+Senaryo | **Ayrıntılar**
+--- | ---
+VMware Vm'leri | Şirket içi VMware Vm'leri için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryoda Azure portal veya PowerShell kullanarak dağıtabilirsiniz.
+Fiziksel sunucuları | Şirket içi Windows/Linux fiziksel sunucuları için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo Azure portalında dağıtabilirsiniz.
 
 ## <a name="on-premises-virtualization-servers"></a>Şirket içi sanallaştırma sunucuları
 
-**Sunucu** | **Gereksinimleri** | **Ayrıntılar**
+**Sunucu** | Gereksinimleri | **Ayrıntılar**
 --- | --- | ---
 **VMware** | vCenter Server 6.5, 6.0 or 5.5 or vSphere 6.5, 6.0, 5.5 | Bir vCenter sunucusu kullanmanızı öneririz
-**Fiziksel sunucuları** | NA
+Fiziksel sunucuları | NA
 
 
 ## <a name="replicated-machines"></a>Çoğaltılan makineler
@@ -55,7 +55,7 @@ Makine işletim sistemi (Linux) | Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu çekirdek sürümleri
 
 
-**Desteklenen sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
+**Desteklenen sürüm** | **Mobility hizmeti sürümü** | Çekirdek sürümü |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic 3.13.0-121-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-81-generic 4.4.0-21-Generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic 3.13.0-128-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-91-generic 4.4.0-21-Generic |
@@ -83,117 +83,118 @@ XFSv5 | Sürümünden başlayarak Mobility hizmeti 9.10 XFS dosya sistemleri gib
 
 ## <a name="network"></a>Ağ
 
-**Bileşen** | **Destekleniyor** 
---- | --- 
+**Bileşen** | **Destekleniyor**
+--- | ---
 Konak ağ NIC ekibi oluşturma | VMware Vm'leri için desteklenen <br/><br/>Fiziksel makine çoğaltma için desteklenmiyor
-Konak ağı VLAN | Evet 
-Konak ağı IPv4 | Evet 
-Konak ağı IPv6 | Hayır 
-Konuk/sunucu ağ NIC ekibi oluşturma | Hayır 
-Konuk/sunucu ağ IPv4 | Evet 
-Konuk/sunucu ağ IPv6 | Hayır 
-Konuk/sunucu ağ statik IP (Windows) | Evet 
+Konak ağı VLAN | Evet
+Konak ağı IPv4 | Evet
+Konak ağı IPv6 | Hayır
+Konuk/sunucu ağ NIC ekibi oluşturma | Hayır
+Konuk/sunucu ağ IPv4 | Evet
+Konuk/sunucu ağ IPv6 | Hayır
+Konuk/sunucu ağ statik IP (Windows) | Evet
 Konuk/sunucu ağ statik IP (Linux) | Evet <br/><br/>Sanal makineleri yeniden çalışma üzerinde DHCP kullanmak üzere yapılandırılmış  
-Konuk/sunucu ağ birden çok NIC | Evet 
+Konuk/sunucu ağ birden çok NIC | Evet
 
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM ağı (sonra Yük devretme)
 
-**Bileşen** | **Destekleniyor** 
---- | --- 
-Express Route | Evet 
-ILB | Evet 
-ELB | Evet 
-Traffic Manager | Evet 
-Multi-NIC | Evet 
-Ayrılmış IP adresi | Evet 
-IPv4 | Evet 
-Kaynak IP adresi koru | Evet 
-Sanal ağ hizmet uç noktaları<br/><br/> (Azure depolama güvenlik duvarları ve sanal ağlar) | Hayır 
+**Bileşen** | **Destekleniyor**
+--- | ---
+Express Route | Evet
+ILB | Evet
+ELB | Evet
+Traffic Manager | Evet
+Multi-NIC | Evet
+Ayrılmış IP adresi | Evet
+IPv4 | Evet
+Kaynak IP adresi koru | Evet
+Sanal Ağ Hizmeti Uç Noktaları<br/><br/> (Azure depolama güvenlik duvarları ve sanal ağlar) | Hayır
 
 
 ## <a name="storage"></a>Depolama
 
 
-**Bileşen** | **Destekleniyor** 
---- | --- 
-Ana bilgisayar NFS | VMware için Evet<br/><br/> Fiziksel sunucuları için Hayır'ı 
+**Bileşen** | **Destekleniyor**
+--- | ---
+Ana bilgisayar NFS | VMware için Evet<br/><br/> Fiziksel sunucuları için Hayır'ı
 Konak SAN (İSCSI) | Evet
 Ana bilgisayar çok yollu (MPIO) | Evet - ile test: Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM CLARiiON için
-Konuk/sunucu VMDK | Evet 
-Konuk/sunucu EFI/UEFI'ye| Kısmi (geçiş Azure için Windows Server 2012 ve üzeri içindir.) </br></br> ** Tablonun sonundaki nota bakın.
-Konuk/sunucu paylaşılan küme diski | Hayır 
-Konuk/sunucu şifreli disk | Hayır 
-Konuk/sunucu NFS | Hayır 
+Konuk/sunucu VMDK | Evet
+Konuk/sunucu EFI/UEFI'ye| Kısmi (geçiş Windows Server 2012 için Azure ve sonraki VMware sanal makineleri yalnızca.) </br></br> ** Tablonun sonundaki nota bakın.
+Konuk/sunucu paylaşılan küme diski | Hayır
+Konuk/sunucu şifreli disk | Hayır
+Konuk/sunucu NFS | Hayır
 Konuk/sunucu SMB 3.0 | Hayır
-Konuk/sunucu RDM | Evet<br/><br/> Fiziksel sunucuları için yok 
-Konuk/sunucu diski > 1 TB | Evet<br/><br/>4095 GB'a kadar 
+Konuk/sunucu RDM | Evet<br/><br/> Fiziksel sunucuları için yok
+Konuk/sunucu diski > 1 TB | Evet<br/><br/>4095 GB'a kadar
 Konuk/sunucu diski 4 K mantıksal ve 4 k fiziksel kesim boyutu | Evet
-4K mantıksal Konuk/sunucu diskle ve 512 bayt fiziksel kesim boyutu | Evet 
+4K mantıksal Konuk/sunucu diskle ve 512 bayt fiziksel kesim boyutu | Evet
 Şeritli disk > 4 TB Konuk/sunucu birimle <br><br/>LVM mantıksal birim yönetimi | Evet
-Konuk/sunucu - depolama alanları | Hayır 
-Konuk/sunucu sık kullanılan Ekle/Kaldır disk | Hayır 
-Konuk/sunucu - exclude disk | Evet 
+Konuk/sunucu - depolama alanları | Hayır
+Konuk/sunucu sık kullanılan Ekle/Kaldır disk | Hayır
+Konuk/sunucu - exclude disk | Evet
 Konuk/sunucu çok yollu (MPIO) | Yok
 
 > [!NOTE]
-> ** UEFI ** VMware sanal makineleri veya fiziksel sunucular Windows Server 2012 çalıştıran önyükleme ya da daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir.
+> ** UEFI ** VMware sanal makineleri Windows Server 2012 çalıştıran önyükleme ya da daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir.
 > - Yalnızca azure'a geçişini destekler. Yeniden çalışma için şirket içi VMware sitesi desteklenmiyor.
 > - Sunucu, 4'ten fazla bölümleri işletim sistemi disk üzerinde olmalıdır.
 > - Azure Site Recovery Mobility hizmeti sürümü 9.13 veya üstü gerektirir.
+> - Fiziksel sunucuları için desteklenmez.
 
 
 ## <a name="azure-storage"></a>Azure Storage
 
-**Bileşen** | **Destekleniyor** 
---- | --- 
-LRS | Evet 
-GRS | Evet 
-RA-GRS | Evet 
-Seyrek erişimli depolama | Hayır 
-Sık erişimli depolama| Hayır 
-Blok Blobları | Hayır 
-Rest(SSE) şifreleme| Evet 
-Premium depolama | Evet 
-İçeri/dışarı aktarma hizmeti | Hayır 
-Sanal ağ hizmet uç noktaları<br/><br/> Azure depolama güvenlik duvarları ve hedef depolama/önbelleği depolama hesabı (çoğaltma verilerini depolamak için kullanılır) üzerinde yapılandırılmış sanal ağlar | Hayır 
-Genel amaçlı V2 depolama hesapları (her ikisini de sık erişimli ve seyrek katman) | Hayır 
+**Bileşen** | **Destekleniyor**
+--- | ---
+LRS | Evet
+GRS | Evet
+RA-GRS | Evet
+Seyrek erişimli depolama | Hayır
+Sık erişimli depolama| Hayır
+Blok Blobları | Hayır
+Rest(SSE) şifreleme| Evet
+Premium depolama | Evet
+İçeri/dışarı aktarma hizmeti | Hayır
+Sanal Ağ Hizmeti Uç Noktaları<br/><br/> Azure depolama güvenlik duvarları ve hedef depolama/önbelleği depolama hesabı (çoğaltma verilerini depolamak için kullanılır) üzerinde yapılandırılmış sanal ağlar | Hayır
+Genel amaçlı V2 depolama hesapları (her ikisini de sık erişimli ve seyrek katman) | Hayır
 
 
 ## <a name="azure-compute"></a>Azure işlem
 
-**Featuree** | **Destekleniyor** 
---- | --- 
-Kullanılabilirlik kümeleri | Evet 
+**Featuree** | **Destekleniyor**
+--- | ---
+Kullanılabilirlik kümeleri | Evet
 HUB | Evet   
-Yönetilen diskler | Evet 
+Yönetilen diskler | Evet
 
 ## <a name="azure-vm-requirements"></a>Azure VM gereksinimleri
 
 Şirket içi sanal makinelerini Azure'a çoğaltma bu tabloda özetlenen Azure VM gereksinimlerini karşılaması gerekir.
 
-**Bileşen** | **Gereksinimleri** | **Ayrıntılar**
+**Bileşen** | Gereksinimleri | **Ayrıntılar**
 --- | --- | ---
-**Konuk işletim sistemi** | Doğrulama [desteklenen işletim sistemleri](#replicated machines) | Önkoşullar desteklenmeyen başarısız kontrol edin.
+Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated machines) | Önkoşullar desteklenmeyen başarısız kontrol edin.
 **Konuk işletim sistemi mimarisi** | 64 bit | Desteklenmeyen, önkoşul denetimi başarısız olur
 **İşletim sistemi disk boyutu** | 2048 GB'a kadar | Desteklenmeyen, önkoşul denetimi başarısız olur
 **İşletim sistemi disk sayısı** | 1 | Önkoşul denetimi desteklenmeyen başarısız olur.
 **Veri diski sayısı** | 64 veya daha az çoğaltma yapıyorsanız **VMware Vm'lerini azure'a**; 16 veya daha az çoğaltma yapıyorsanız **Hyper-V Vm'lerini azure'a** | Önkoşul denetimi desteklenmeyen başarısız olur
 **Veri diski VHD boyutu** | 4095 GB'a kadar | Desteklenmeyen, önkoşul denetimi başarısız olur
-**Ağ bağdaştırıcıları** | Birden çok bağdaştırıcı desteklenir | 
+**Ağ bağdaştırıcıları** | Birden çok bağdaştırıcı desteklenir |
 **Paylaşılan VHD** | Desteklenmiyor | Desteklenmeyen, önkoşul denetimi başarısız olur
-**FC disk** | Desteklenmiyor | Desteklenmeyen, önkoşul denetimi başarısız olur
-**Sabit disk biçimi** | VHD <br/><br/> VHDX | VHDX şu anda Azure'da desteklenmiyor olsa da, Site Recovery, Azure'a yük otomatik olarak VHDX VHD'ye dönüştürür. Geri şirket içi başarısız olduğunda sanal makineler VHDX biçimini kullanacak şekilde devam eder.
+**FC diski** | Desteklenmiyor | Desteklenmeyen, önkoşul denetimi başarısız olur
+**Sabit disk biçimi** | VHD <br/><br/> VHDX | VHDX şu anda Azure’da desteklenmiyor olsa da, Site Recovery Azure’a yük devrettiğinizde VHDX’i otomatik olarak VHD’ye dönüştürür. Geri şirket içi başarısız olduğunda sanal makineler VHDX biçimini kullanacak şekilde devam eder.
 **Bitlocker** | Desteklenmiyor | Bir makine için çoğaltma etkinleştirmeden önce BitLocker'ı devre dışı bırakılması gerekir.
-**VM adı** | 1 - 63 karakter.<br/><br/> Harf, rakam ve kısa çizgi için kısıtlanmış.<br/><br/> Makine adı başlamalı ve bir harf veya sayı ile bitmelidir. | Site Recovery makine özelliklerinde değeri güncelleştirin.
+**VM adı** | 1 - 63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluşabilir.<br/><br/> Makine adı başlamalı ve bir harf veya sayı ile bitmelidir. | Site Recovery makine özelliklerinde değeri güncelleştirin.
 **VM türü** | 1. nesil<br/><br/> Nesil 2--Windows | 2. nesil sanal makineleri (VHDX biçimlendirilmiş bir veya iki veri birimlerini içeren) temel bir işletim sistemi disk türüne sahip ve 300 GB disk alanı daha az desteklenir.<br></br>Linux nesil 2 sanal makineleri desteklenmez. [Daha fazla bilgi](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="vault-tasks"></a>Kasa görevleri
 
-**Eylem** | **Destekleniyor** 
---- | --- 
-Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır 
-Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır 
+**Eylem** | **Destekleniyor**
+--- | ---
+Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır
+Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve abonelikler arasında | Hayır
 
 
 ## <a name="mobility-service"></a>Mobility hizmeti

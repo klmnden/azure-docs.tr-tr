@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Bul ve performans önerileri uygulayın
 
@@ -27,12 +27,12 @@ Azure portalı, Azure SQL veritabanı performansını en iyi duruma getirebilirs
 
 ## <a name="viewing-recommendations"></a>Öneriler görüntüleme
 
-Görüntülemek ve performans önerileri uygulamak için doğru ihtiyacınız [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) Azure izinleri. **Okuyucu**, **SQL DB Katılımcısı** önerileri, görüntülemek için gereken izinler ve **sahibi**, **SQL DB Katılımcısı** herhangi bir eylem yürütme; oluşturun veya dizinleri bırakın ve dizin oluşturma işlemini iptal etmek için gereken izinler.
+Görüntülemek ve performans önerileri uygulamak için doğru ihtiyacınız [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) Azure izinleri. **Okuyucu**, **SQL DB Katılımcısı** önerileri, görüntülemek için gereken izinler ve **sahibi**, **SQL DB Katılımcısı** için izinler gereklidir herhangi bir eylem yürütme; oluşturma veya dizinleri bırakın ve dizin oluşturmayı iptal et.
 
 Azure Portal'da performans önerileri bulmak için aşağıdaki adımları kullanın:
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Git **daha fazla hizmet** > **SQL veritabanları**, veritabanınızı seçin.
+2. Git **tüm hizmetleri** > **SQL veritabanları**, veritabanınızı seçin.
 3. Gidin **performans öneri** seçili veritabanı için kullanılabilir önerilerini görüntülemek için.
 
 Performans önerileri üzerinde aşağıdaki şekilde gösterilene benzer tablo gösterilmektedir:

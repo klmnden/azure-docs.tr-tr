@@ -14,17 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-<<<<<<< HEAD
-ms.openlocfilehash: e32cac7feda929a63c4a80fc0078b221117eb2b5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
-=======
-ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Azure erişim denetimi Hizmeti'nden geçirme
 
@@ -140,24 +134,24 @@ Yüksek bir düzeyde *Azure Active Directory büyük olasılıkla en iyi seçene
 | Özellik | Erişim denetimi desteği | Azure AD desteği |
 | ---------- | ----------- | ---------------- |
 | **Hesap türü** | | |
-| Microsoft iş veya Okul hesapları | Destekleniyor | Destekleniyor |
+| Microsoft iş veya Okul hesapları | Desteklenen | Desteklenen |
 | Windows Server Active Directory ve AD FS hesaplarından |-Azure AD kiracısı ile Federasyon aracılığıyla desteklenir <br />-AD FS ile doğrudan Federasyon aracılığıyla desteklenir | Azure AD kiracısı ile Federasyon ile yalnızca desteklenen | 
 | Diğer Kurumsal kimlik yönetimi sistemlerinden hesapları |-Azure AD kiracısı ile Federasyon aracılığıyla olası <br />-Doğrudan Federasyon desteklenen | Azure AD kiracısı ile Federasyon aracılığıyla olası |
-| Kişisel kullanım için Microsoft hesapları | Destekleniyor | Azure AD v2.0 OAuth protokolü aracılığıyla, ancak başka bir protokol üzerinden değil desteklenen | 
-| Facebook, Google, Yahoo hesapları | Destekleniyor | Yoktur desteklenmiyor |
+| Kişisel kullanım için Microsoft hesapları | Desteklenen | Azure AD v2.0 OAuth protokolü aracılığıyla, ancak başka bir protokol üzerinden değil desteklenen | 
+| Facebook, Google, Yahoo hesapları | Desteklenen | Yoktur desteklenmiyor |
 | **Protokoller ve SDK uyumluluk** | | |
-| WIF | Destekleniyor | Desteklenen, ancak sınırlı yönergeler mevcuttur |
-| WS-Federasyon | Destekleniyor | Destekleniyor |
+| WIF | Desteklenen | Desteklenen, ancak sınırlı yönergeler mevcuttur |
+| WS-Federation | Desteklenen | Desteklenen |
 | OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi için destek |
-| WS-Trust | Destekleniyor | Desteklenmiyor |
+| WS-Trust | Desteklenen | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
-| JWT | Beta'de desteklenen | Destekleniyor |
-| SAML 1.1 | Destekleniyor | Önizleme |
-| SAML 2.0 | Destekleniyor | Destekleniyor |
-| SWT | Destekleniyor | Desteklenmiyor |
+| JWT | Beta'de desteklenen | Desteklenen |
+| SAML 1.1 | Desteklenen | Önizleme |
+| SAML 2.0 | Desteklenen | Desteklenen |
+| SWT | Desteklenen | Desteklenmiyor |
 | **Özelleştirmeleri** | | |
 | Özelleştirilebilir giriş bölgesi bulma/hesap-çekme kullanıcı Arabirimi | Uygulamalarda birleştirilebilir indirilebilir kodu | Desteklenmiyor |
-| Özel belirteç imzalama sertifikalarını karşıya yükleme | Destekleniyor | Destekleniyor |
+| Özel belirteç imzalama sertifikalarını karşıya yükleme | Desteklenen | Desteklenen |
 | Belirteçleri Taleplerde özelleştirme |-Kimlik sağlayıcılardan gelen giriş talepleri geçirir<br />-Erişim belirteci kimlik sağlayıcısı'ndan talep olarak alma<br />-Çıkış talep giriş talepleri değerlerine göre vermek<br />-Sorun çıkış talep ile sabit değerleri |-Federe kimlik sağlayıcılardan gelen taleplere aracılığıyla geçiremezsiniz<br />-Erişim kimlik sağlayıcısından bir talep belirteci alınamıyor<br />-Çıkış talep giriş talepleri değerlerine göre veremez<br />-Çıktı talepler ile sabit değerleri verebilir<br />-Azure AD ile eşitlenen kullanıcılar özelliklerini göre çıkış talep verebilir |
 | **Otomasyon** | | |
 | Yapılandırma ve yönetim görevlerini otomatik hale getirme | Erişim denetimi yönetim hizmeti desteklenir | Desteklenen Microsoft Graph ve Azure AD grafik API'si |
@@ -186,7 +180,7 @@ Alternatif bir yaklaşım izlemektir [Bu kod örneği](https://github.com/Azure-
 
 Bu yaklaşım seçerseniz, anlamanız gerekir [anahtar geçişi Azure AD'de imzalama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Bu yaklaşım imzalama anahtarı sorunu belirteçleri için genel Azure AD kullanır. Varsayılan olarak, WIF İmzalama anahtarları otomatik olarak yenilemez. Azure AD genel kendi İmzalama anahtarları döndürdüğünde WIF uygulamanızı değişiklikleri kabul etmek için hazırlanması gerekir.
 
-Openıd Connect veya OAuth protokolleri aracılığıyla Azure AD ile tümleştirme, bunun yapılması önerilir. Kapsamlı belgeler ve uygulamanıza web bulunan Azure AD tümleştirme hakkında yönergeler sahibiz bizim [Azure AD Geliştirici Kılavuzu](http://aka.ms/aaddev).
+Openıd Connect veya OAuth protokolleri aracılığıyla Azure AD ile tümleştirme, bunun yapılması önerilir. Kapsamlı belgeler ve uygulamanıza web bulunan Azure AD tümleştirme hakkında yönergeler sahibiz bizim [Azure AD Geliştirici Kılavuzu](https://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
@@ -203,24 +197,24 @@ Aşağıdaki tabloda Azure AD B2C'de kullanılabilir olan web uygulamalarıyla i
 | Özellik | Erişim denetimi desteği | Azure AD B2C desteği |
 | ---------- | ----------- | ---------------- |
 | **Hesap türü** | | |
-| Microsoft iş veya Okul hesapları | Destekleniyor | Özel ilkeler desteklenir  |
+| Microsoft iş veya Okul hesapları | Desteklenen | Özel ilkeler desteklenir  |
 | Windows Server Active Directory ve AD FS hesaplarından | AD FS ile doğrudan Federasyon aracılığıyla desteklenir | SAML Federasyon özel ilkeler kullanılarak desteklenen |
 | Diğer Kurumsal kimlik yönetimi sistemlerinden hesapları | WS-Federasyon aracılığıyla doğrudan Federasyon aracılığıyla desteklenir | SAML Federasyon özel ilkeler kullanılarak desteklenen |
-| Kişisel kullanım için Microsoft hesapları | Destekleniyor | Destekleniyor | 
-| Facebook, Google, Yahoo hesapları | Destekleniyor | Facebook ve Google, Yahoo Openıd Connect Federasyon özel ilkeler kullanılarak desteklenen desteklen |
+| Kişisel kullanım için Microsoft hesapları | Desteklenen | Desteklenen | 
+| Facebook, Google, Yahoo hesapları | Desteklenen | Facebook ve Google, Yahoo Openıd Connect Federasyon özel ilkeler kullanılarak desteklenen desteklen |
 | **Protokoller ve SDK uyumluluk** | | |
-| Windows Identity Foundation (WIF) | Destekleniyor | Desteklenmiyor |
-| WS-Federasyon | Destekleniyor | Desteklenmiyor |
+| Windows Identity Foundation (WIF) | Desteklenen | Desteklenmiyor |
+| WS-Federation | Desteklenen | Desteklenmiyor |
 | OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi için destek |
-| WS-Trust | Destekleniyor | Desteklenmiyor |
+| WS-Trust | Desteklenen | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
-| JWT | Beta'de desteklenen | Destekleniyor |
-| SAML 1.1 | Destekleniyor | Desteklenmiyor |
-| SAML 2.0 | Destekleniyor | Desteklenmiyor |
-| SWT | Destekleniyor | Desteklenmiyor |
+| JWT | Beta'de desteklenen | Desteklenen |
+| SAML 1.1 | Desteklenen | Desteklenmiyor |
+| SAML 2.0 | Desteklenen | Desteklenmiyor |
+| SWT | Desteklenen | Desteklenmiyor |
 | **Özelleştirmeleri** | | |
 | Özelleştirilebilir giriş bölgesi bulma/hesap-çekme kullanıcı Arabirimi | Uygulamalarda birleştirilebilir indirilebilir kodu | Özel CSS aracılığıyla tam olarak özelleştirilebilir kullanıcı Arabirimi |
-| Özel belirteç imzalama sertifikalarını karşıya yükleme | Destekleniyor | Özel İmzalama anahtarları özel ilkeler desteklenen, sertifikaları değil |
+| Özel belirteç imzalama sertifikalarını karşıya yükleme | Desteklenen | Özel İmzalama anahtarları özel ilkeler desteklenen, sertifikaları değil |
 | Belirteçleri Taleplerde özelleştirme |-Kimlik sağlayıcılardan gelen giriş talepleri geçirir<br />-Erişim belirteci kimlik sağlayıcısı'ndan talep olarak alma<br />-Çıkış talep giriş talepleri değerlerine göre vermek<br />-Sorun çıkış talep ile sabit değerleri |-Kimlik sağlayıcılardan gelen taleplere geçebileceği; Bazı talepler için gereken özel ilkeler<br />-Erişim kimlik sağlayıcısından bir talep belirteci alınamıyor<br />-Çıkış talep giriş talepleri özel ilkeler aracılığıyla değerlerine dayalı verebilir<br />-Çıktı talepler özel ilkeler aracılığıyla sabit değerleri ile verebilir |
 | **Otomasyon** | | |
 | Yapılandırma ve yönetim görevlerini otomatik hale getirme | Erişim denetimi yönetim hizmeti desteklenir |-Azure AD Graph API üzerinden izin verilen kullanıcı oluşturma<br />-B2C Kiracı, uygulamaları veya ilkeleri program aracılığıyla oluşturulamıyor |
@@ -237,7 +231,7 @@ Azure AD B2C uygulamaları ve Hizmetleri için en iyi geçiş yolu olduğuna kar
 Bazı durumlarda, Azure AD ve Azure AD bulabilirsiniz B2C ana kod değişiklik yapmadan erişim denetimi web uygulamalarınızda değiştirmek yeterli değil. Sık karşılaşılan örnekleri içerebilir:
 
 - Google veya Facebook gibi sosyal kimlik sağlayıcıları ile oturum açma için WIF veya WS-Federasyon kullanan web uygulamaları.
-- Bir kuruluş için doğrudan Federasyon gerçekleştirmek web uygulamaları WS-Federasyon protokolü üzerinden sağlayıcı tanımlar.
+- WS-Federasyon protokolü üzerinden bir Kurumsal kimlik sağlayıcısı için doğrudan Federasyon gerçekleştirmek web uygulamaları.
 - Erişim denetimi tarafından yayınlanan belirteçleri, bir talep olarak sosyal kimlik sağlayıcısı (örneğin, Google veya Facebook) tarafından verilen erişim belirteci gerektiren uygulamalar web.
 - Azure AD veya Azure AD B2C oluşturamadığı karmaşık belirteci dönüştürme kuralları ile Web uygulamaları.
 - Federasyon birçok farklı kimlik sağlayıcısı için merkezi olarak yönetmek için ACS kullanan çok kiracılı web uygulamaları
@@ -288,7 +282,7 @@ OAuth istemci kimlik bilgilerini verme Azure AD uygulaması kullanarak Azure AD 
 | Bir istemci kaydetme | Erişim denetimi Yönetim Portalı'nda bir hizmet kimliği oluşturma | Azure portalında başka bir Azure AD web uygulaması oluşturma |
 | Kullanılan protokolü |-OAuth kaydırma Protokolü<br />-OAuth 2.0 taslak 13 istemci kimlik bilgileri verin | OAuth 2.0 istemci kimlik bilgileri verin |
 | İstemci kimlik doğrulaması yöntemleri |-Basit parola<br />-İmzalı SWT<br />-Bir Federasyon kimlik sağlayıcısından SAML belirteci |-Basit parola<br />-İmzalı JWT |
-| Belirteç biçimleri |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | JWT yalnızca |
+| Belirteç biçimleri |-JWT<br />- SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | JWT yalnızca |
 | Belirteç dönüştürme |-Özel talep ekleme<br />-Basit IF then talep verme mantığı | Özel talep ekleme | 
 | Yapılandırma ve yönetim görevlerini otomatik hale getirme | Erişim denetimi yönetim hizmeti desteklenir | Desteklenen Microsoft Graph ve Azure AD grafik API'si |
 

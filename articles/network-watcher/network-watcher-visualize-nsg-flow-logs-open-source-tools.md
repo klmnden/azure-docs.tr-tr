@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 8b313b68be07da1a943748d21da68c169980cfc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Açık kaynaklı Araçları'nı kullanarak Azure Ağ İzleyicisi NSG akış günlükleri Görselleştirme
 
@@ -41,12 +41,12 @@ Bu senaryo için ağ güvenlik grubu akış hesabınızdaki en az bir ağ güven
 ### <a name="set-up-the-elastic-stack"></a>Esnek yığını ayarlayın
 NSG akış günlükleri esnek yığın ile bağlayarak, arama, grafik, analiz etmek ve bizim günlüklerinden Öngörüler türetilen kurmamızı sağlayan bir Kibana Pano oluşturabilir.
 
-#### <a name="install-elasticsearch"></a>Elasticsearch yükleyin
+#### <a name="install-elasticsearch"></a>Install Elasticsearch
 
 1. Sürüm 5.0 ve yukarıdaki esnek yığın, Java 8 gerektirir. Komutu çalıştırın `java -version` sürümünüzü denetlemek için. Yükleme, üzerinde belgelerine başvurun java yoksa [Oracle'nın Web sitesi](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Sisteminiz için doğru ikili paketini indirin:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ NSG akış günlükleri esnek yığın ile bağlayarak, arama, grafik, analiz et
 
 1. Elasticsearch komutu ile çalıştığından emin olun:
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     Aşağıdakine benzer bir yanıt görmeniz gerekir:
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ Yükleme esnek arama hakkında daha ayrıntılı yönergeler için sayfaya bakı
 
 1. Aşağıdaki komutları çalıştırın Logstash yüklemek için:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Sonraki biz Logstash erişmek ve akış günlükleri ayrıştırmak için yapılandırmanız gerekir. Kullanarak bir logstash.conf dosyası oluşturun:
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -103,7 +103,7 @@ input {
          storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
          container => "insights-logs-networksecuritygroupflowevent"
          codec => "json"
-         # Refer https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-read-nsg-flow-logs
+         # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
          # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
          file_head_bytes => 12
          file_tail_bytes => 2
@@ -162,13 +162,13 @@ Logstash yükleme hakkında daha ayrıntılı yönergeler için bkz [resmi belge
 
 Bu Logstash eklentisi doğrudan kendi atanmış depolama hesabından akış günlüklerine erişmesine olanak sağlar. Bu eklentiyi yüklemek üzere varsayılan Logstash yükleme dizininden (Bu örnek /usr/share/logstash/bin) komutu çalıştırın:
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Logstash başlatmak için komutu çalıştırın:
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,19 +178,19 @@ Bu eklenti hakkında daha fazla bilgi için belgelerine başvurun [burada](https
 
 1. Kibana yüklemek için aşağıdaki komutları çalıştırın:
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Kibana çalıştırmak için komutları kullanın:
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```
 
-1. Kibana web arabirimi görüntülemek için gidin`http://localhost:5601`
+1. Kibana web arabirimi görüntülemek için gidin `http://localhost:5601`
 1. Bu senaryo için akış günlükleri için kullanılan dizin Düzen "nsg akış günlüklerini" ' dir. "Çıktı" bölümünde logstash.conf dosyanızın dizin düzeni değişebilir.
 
 1. Kibana Pano uzaktan görüntülemek istiyorsanız, erişim izni veren bir gelen NSG kuralı oluşturma **bağlantı noktası 5601**.

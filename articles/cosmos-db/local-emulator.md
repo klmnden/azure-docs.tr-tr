@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 2512ba4ea89bd3477c7901cda29ab3682d834195
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve sınama için Azure Cosmos DB öykünücüsünü kullanma
 
@@ -74,7 +74,7 @@ Azure Cosmos DB öykünücüsü yerel geliştirici istasyonunda çalıştıran b
 * Azure Cosmos DB öykünücüsü farklı benzetimini değil [Azure Cosmos DB tutarlılık düzeylerini](consistency-levels.md).
 * Azure Cosmos DB öykünücüsü benzetimi yapılamadı [bölgeli çoğaltma](distribute-data-globally.md).
 * Azure Cosmos DB öykünücüsü Azure Cosmos DB hizmetinde (örneğin belge boyutu sınırları, artan bölümlenmiş koleksiyonu depolama alanı) bulunan hizmet kota geçersiz kılmaları desteklemez.
-* Azure Cosmos DB öykünücüsü kopyanızı Azure Cosmos DB hizmetiyle en son değişikliklerle güncel olmayabilir gibi lütfen [Azure Cosmos DB kapasite Planlayıcısı](https://www.documentdb.com/capacityplanner) doğru şekilde üretim verimlilik (RUs) gereksinimlerini tahmin etmek için uygulama.
+* Azure Cosmos DB öykünücüsü kopyanızı Azure Cosmos DB hizmetiyle en son değişikliklerle güncel olmayabilir gibi lütfen [Azure Cosmos DB kapasite Planlayıcısı](https://www.documentdb.com/capacityplanner) doğru şekilde üretim verimlilik (RUs) gereksinimlerini tahmin etmek için Uygulamanızı.
 
 ## <a name="system-requirements"></a>Sistem gereksinimleri
 Azure Cosmos DB öykünücüsü donanım ve yazılım gereksinimleri şunlardır:
@@ -179,7 +179,7 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
 <tr>
   <td><strong>Seçeneği</strong></td>
   <td><strong>Açıklama</strong></td>
-  <td><strong>Komutu</strong></td>
+  <td><strong>komutu</strong></td>
   <td><strong>Bağımsız değişkenler</strong></td>
 </tr>
 <tr>
@@ -194,6 +194,11 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
   <td>CosmosDB.Emulator.exe /?</td>
   <td></td>
 </tr>
+<tr>
+  <td>GetStatus</td>
+  <td>Azure Cosmos DB öykünücüsü durumunu alır. Durum çıkış kodu tarafından belirtilir: 1 başlatma, 2 = çalıştıran, 3 = = durduruldu. Negatif çıkış kodu bir hata oluştuğunu gösterir. Başka çıktı üretilir.</td>
+  <td>CosmosDB.Emulator.exe /GetStatus</td>
+  <td></td>
 <tr>
   <td>Kapat</td>
   <td>Azure Cosmos DB öykünücüsü kapatır.</td>
@@ -318,6 +323,40 @@ Azure Cosmos DB öykünücüsü koleksiyonları kullanılabilir sayısını değ
 4. En son sürümünü yüklemek [Azure Cosmos DB öykünücüsü](https://aka.ms/cosmosdb-emulator).
 5. Bir değer ayarlanarak PartitionCount bayrağı öykünücü başlatma < 250 =. Örneğin: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
 
+## <a name="controlling-the-emulator"></a>Öykünücü denetleme
+
+Öykünücü başlatma, durdurma, kaldırma ve hizmetinin durumunu almak için bir PowerShell modülü ile birlikte gelir. Kullanmak için:
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+```
+
+put veya `PSModules` dizininde, `PSModulesPath` ve aşağıdaki gibi alın:
+
+```powershell
+$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+Import-Module Microsoft.Azure.CosmosDB.Emulator
+```
+
+PowerShell öykünücüsünden denetleme komutları bir özeti aşağıda verilmiştir:
+
+### `Get-CosmosDbEmulatorStatus`
+
+Bu ServiceControllerStatus değerlerden birini döndürür: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running veya ServiceControllerStatus.Stopped.
+
+### `Start-CosmosDbEmulator [-NoWait]`
+
+Öykünücü başlatır. Öykünücü isteklerini kabul etmeye hazır olana kadar varsayılan olarak, komut bekler. Öykünücü başlar başlamaz döndürmek için cmdlet istiyorsanız - NoWait seçeneğini kullanın.
+
+### `Stop-CosmosDbEmulator [-NoWait]`
+
+Öykünücü durdurur. Varsayılan olarak, bu komut bekler öykünücü tam olarak kapatıldı. Kapatmak öykünücü başlar başlamaz döndürmek için cmdlet istiyorsanız - NoWait seçeneğini kullanın.
+
+### `Uninstall-CosmosDbEmulator [-RemoveData]`
+
+Öykünücü kaldırır ve isteğe bağlı olarak $env tam içeriğini kaldırır: LOCALAPPDATA\CosmosDbEmulator.
+Cmdlet öykünücü kaldırmadan önce durduruldu sağlar.
+
 ## <a name="running-on-docker"></a>Docker üzerinde çalışıyor
 
 Azure Cosmos DB öykünücüsü Windows için Docker çalıştırabilirsiniz. Öykünücü, Oracle Linux için Docker üzerinde çalışmaz.
@@ -386,7 +425,7 @@ Azure Cosmos DB öykünücü ile karşılaştığınız sorunları gidermeye yar
 
 - Azure Cosmos DB öykünücüsü çökerse c:\Users\user_name\AppData\Local\CrashDumps klasöründen döküm dosyaları toplamak, sıkıştırmak ve e-posta ekleme [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
-- Kilitlenme karşılaşırsanız CosmosDB.StartupEntryPoint.exe içinde bir yönetici komut isteminden aşağıdaki komutu çalıştırın:`lodctr /R` 
+- Kilitlenme karşılaşırsanız CosmosDB.StartupEntryPoint.exe içinde bir yönetici komut isteminden aşağıdaki komutu çalıştırın: `lodctr /R` 
 
 - Bir bağlantı sorunu yaşarsanız [toplamak izleme dosyaları](#trace-files)sıkıştırmak ve e-posta ekleme [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
@@ -416,7 +455,29 @@ Hata ayıklama izlemeleri toplamak için bir yönetici komut isteminden aşağı
 
 Görev çubuğunda yerel öykünücü simgesine sağ tıklatıp'ı tıklatarak sürüm numarasını denetlemek Menü öğesiyle ilgili.
 
-### <a name="120-released-on-january-26-2018"></a>1.20 26 Ocak 2018 üzerinde yayınlanan
+### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 14 Şubat 2018 üzerinde yayımlanan
+
+Yeni bir özellik ve bu sürümde iki hata düzeltmeleri yoktur. Bize bulmak ve bu sorunları çözmek için Yardım müşteriler teşekkür ederiz.
+
+#### <a name="bug-fixes"></a>Hata düzeltmeleri
+
+1. Öykünücü şimdi 1 veya 2 Çekirdek (veya sanal CPU'lar) bulunan bilgisayarlarda çalışır
+
+   Cosmos DB çeşitli hizmetlere gerçekleştirilecek görevler ayırır. Bir ana bilgisayar üzerindeki çekirdek sayısı birden fazla tahsis görevlerin sayısıdır. Varsayılan iyi çekirdek sayısı olduğu büyük üretim ortamlarında birden fazla çalışır. Ancak, 1 veya 2 işlemcili makinelerde hiçbir görev bu birden çok uygulandığında, bu hizmetleri gerçekleştirmek için ayrılır.
+
+   Biz öykünücüsünü yapılandırma geçersiz kılma ekleyerek düzeltildi. Biz şimdi 1 birden fazla uygulayın. Çeşitli hizmetlere gerçekleştirmek için ayrılan görevlerin sayısını artık bir ana bilgisayar üzerindeki çekirdek sayısına eşittir.
+
+   Bu sürüm için başka bir şey yaptığımız varsa bu sorunu gidermek için olacaktı. Öykünücü barındırma birçok geliştirme ve test ortamları 1 veya 2 Çekirdek olduğunu bulur.
+
+2. Öykünücü artık Microsoft Visual C++ yüklenecek 2015 redistributable gerektirir.
+
+   (Masaüstü ve sunucu sürümleri) Windows yeni yüklemelerini bu yeniden dağıtılabilir paketi içermez bulduk. Bu nedenle, biz şimdi yeniden dağıtılabilir ikili dosyaları öykünücü ile paket.
+
+#### <a name="features"></a>Özellikler
+
+Biz açıklandı denirse için müşterilerin birçok: öykünücü kodlanabilir olduğunda iyi olur. Bu nedenle, bu sürümde bazı komut dosyası yetenekleri ekledik. Öykünücü başlatma, durdurma, durumunu alma ve kendisini kaldırma için bir PowerShell modülü artık içerir: `Microsoft.Azure.CosmosDB.Emulator`. 
+
+### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 26 Ocak 2018 üzerinde yayınlanan
 
 * MongoDB toplama ardışık düzen, varsayılan olarak etkindir.
 

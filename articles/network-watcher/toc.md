@@ -61,6 +61,7 @@
 # Nasıl yapılır
 ## [Azure Otomasyonu ile VPN Gateway’i izleme](network-watcher-monitor-with-azure-automation.md)
 ## [VPN Gateway aracılığıyla Şirket İçi bağlantıyı tanılama](network-watcher-diagnose-on-premises-connectivity.md)
+## [Ağ bağlantılarını izleme](connection-monitor.md)
 ## [PowerShell kullanarak ağınızda uyumluluk ve denetim gerçekleştirme](network-watcher-nsg-auditing-powershell.md)
 ## [Azure Log Analytics’te Application Gateway günlüklerini analiz etme](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 ## Paket yakalama

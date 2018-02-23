@@ -11,195 +11,446 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 1995cb34595fa9195e176e9ee341d551162f8ea5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c099a7fd8848c2934603ec9b2db8947885226f9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Rol tabanlı erişim denetimini Azure komut satırı arabirimi ile yönetme
+
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
 
-Abonelik ve ayrıntılı bir düzeyde kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimi (RBAC) Azure portalında ve Azure Resource Manager API'sini kullanabilirsiniz. Bu özellik ile bazı roller belirli bir kapsamda atayarak Active Directory Kullanıcıları, grupları veya hizmet asıl adı için erişim izni verebilir. 
+Rol tabanlı erişim denetimi (RBAC) ile belirli bir kapsamda rolleri atayarak erişim için kullanıcıları, grupları ve hizmet asıl adı tanımlayın. Bu makalede, Azure komut satırı arabirimi (CLI) kullanarak erişimi yönetmek üzere açıklar.
 
-> [!NOTE] 
-> En son rol belgeleri için kullanıma sunulmuştur [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+## <a name="prerequisites"></a>Önkoşullar
 
+RBAC yönetmek için Azure CLI kullanmak için aşağıdaki önkoşullar olması gerekir:
 
- 
-+ > En son rol belgelerine [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) RBAC yönetmek için Azure komut satırı arabirimi (CLI) kullanmadan önce aşağıdaki önkoşullara sahip olmalıdır:
-
-* Azure CLI Sürüm 0.8.8 veya sonraki bir sürümü. En son sürümünü yükleyin ve Azure aboneliğinizle ilişkilendirmek için bkz: [Azure CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md).
-* Azure Resource Manager'da Azure CLI. Git [Resource Manager ile Azure CLI kullanarak](../xplat-cli-azure-resource-manager.md) daha fazla ayrıntı için.
+* [Azure CLI 2.0](/cli/azure/overview). Bunu [Azure Cloud Shell](../cloud-shell/overview.md) ile tarayıcınızda kullanabilir veya macOS, Linux ve Windows’a [yükleyerek](/cli/azure/install-azure-cli) komut satırından çalıştırabilirsiniz.
 
 ## <a name="list-roles"></a>Liste rolleri
-### <a name="list-all-available-roles"></a>Kullanılabilir tüm roller listesinde
-Kullanılabilir tüm roller listelemek için kullanın:
 
-        azure role list
+### <a name="list-role-definitions"></a>Liste rol tanımları
 
-Aşağıdaki örnek listesini gösterir *kullanılabilir tüm roller*.
+Tüm kullanılabilir rol tanımlarını listelemek için kullanın [az rol tanımı listesi](/cli/azure/role/definition#az_role_definition_list):
 
-```
-azure role list --json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
+```azurecli
+az role definition list
 ```
 
-![RBAC Azure komut satırı - azure rol listesi - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
+Aşağıdaki örnek adını ve tüm kullanılabilir rol tanımlarını açıklamasını listeler:
 
-### <a name="list-actions-of-a-role"></a>Bir rolün liste eylemleri
-Bir rolü Eylemler listelemek için kullanın:
-
-    azure role show "<role name>"
-
-Aşağıdaki örnek, eylemleri gösterir *katkıda bulunan* ve *sanal makine Katılımcısı* rolleri.
-
-```
-azure role show "contributor" --json | jq '.[] | {"Actions":.properties.permissions[0].actions,"NotActions":properties.permissions[0].notActions}'
-
-azure role show "virtual machine contributor" --json | jq '.[] | .properties.permissions[0].actions'
+```azurecli
+az role definition list --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
 ```
 
-![RBAC Azure komut satırı - azure rol Göster - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
+```Output
+{
+  "roleName": "API Management Service Contributor",
+  "description": "Can manage service and the APIs"
+}
+{
+  "roleName": "API Management Service Operator Role",
+  "description": "Can manage service but not the APIs"
+}
+{
+  "roleName": "API Management Service Reader Role",
+  "description": "Read-only access to service and APIs"
+}
+
+...
+```
+
+Aşağıdaki örnekte tüm yerleşik rol tanımları listelenmiştir:
+
+```azurecli
+az role definition list --custom-role-only false --output json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description, "type":.properties.type}'
+```
+
+```Output
+{
+  "roleName": "API Management Service Contributor",
+  "description": "Can manage service and the APIs",
+  "type": "BuiltInRole"
+}
+{
+  "roleName": "API Management Service Operator Role",
+  "description": "Can manage service but not the APIs",
+  "type": "BuiltInRole"
+}
+{
+  "roleName": "API Management Service Reader Role",
+  "description": "Read-only access to service and APIs",
+  "type": "BuiltInRole"
+}
+
+...
+```
+
+### <a name="list-actions-of-a-role-definition"></a>Bir rol tanımı liste eylemleri
+
+Rol tanımı Eylemler listelemek için kullanın [az rol tanımı listesi](/cli/azure/role/definition#az_role_definition_list):
+
+```azurecli
+az role definition list --name <role_name>
+```
+
+Aşağıdaki örnek listeleri *katkıda bulunan* rol tanımı:
+
+```azurecli
+az role definition list --name "Contributor"
+```
+
+```Output
+[
+  {
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "properties": {
+      "additionalProperties": {
+        "createdBy": null,
+        "createdOn": "0001-01-01T08:00:00.0000000Z",
+        "updatedBy": null,
+        "updatedOn": "2016-12-14T02:04:45.1393855Z"
+      },
+      "assignableScopes": [
+        "/"
+      ],
+      "description": "Lets you manage everything except access to resources.",
+      "permissions": [
+        {
+          "actions": [
+            "*"
+          ],
+          "notActions": [
+            "Microsoft.Authorization/*/Delete",
+            "Microsoft.Authorization/*/Write",
+            "Microsoft.Authorization/elevateAccess/Action"
+          ]
+        }
+      ],
+      "roleName": "Contributor",
+      "type": "BuiltInRole"
+    },
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+Aşağıdaki örnek listeleri *Eylemler* ve *notActions* , *katkıda bulunan* rol:
+
+```azurecli
+az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.properties.permissions[0].actions, "notActions":.properties.permissions[0].notActions}'
+```
+
+```Output
+{
+  "actions": [
+    "*"
+  ],
+  "notActions": [
+    "Microsoft.Authorization/*/Delete",
+    "Microsoft.Authorization/*/Write",
+    "Microsoft.Authorization/elevateAccess/Action"
+  ]
+}
+```
+
+Aşağıdaki örnek eylemleri listeler *sanal makine Katılımcısı* rol:
+
+```azurecli
+az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .properties.permissions[0].actions'
+```
+
+```Output
+[
+  "Microsoft.Authorization/*/read",
+  "Microsoft.Compute/availabilitySets/*",
+  "Microsoft.Compute/locations/*",
+  "Microsoft.Compute/virtualMachines/*",
+  "Microsoft.Compute/virtualMachineScaleSets/*",
+  "Microsoft.Insights/alertRules/*",
+  "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
+  "Microsoft.Network/loadBalancers/backendAddressPools/join/action",
+
+  ...
+
+  "Microsoft.Storage/storageAccounts/listKeys/action",
+  "Microsoft.Storage/storageAccounts/read"
+]
+```
 
 ## <a name="list-access"></a>Liste erişim
-### <a name="list-role-assignments-effective-on-a-resource-group"></a>Liste rol atamalarını bir kaynak grubu üzerinde etkin
-Bir kaynak grubunda mevcut rol atamalarını listelemek için kullanın:
-
-    azure role assignment list --resource-group <resource group name>
-
-Aşağıdaki örnek, rol atamalarında gösterir *pharma satış projecforcast* grubu.
-
-```
-azure role assignment list --resource-group pharma-sales-projecforcast --json | jq '.[] | {"DisplayName":.properties.aADObject.displayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
-```
-
-![RBAC Azure komut satırı - grubuna göre azure rol ataması listesi - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ### <a name="list-role-assignments-for-a-user"></a>Bir kullanıcı için rol atamalarını listesi
-Belirli bir kullanıcı için rol atamalarını ve kullanıcı gruplarına atanır atamalarını listelemek için kullanın:
 
-    azure role assignment list --signInName <user email>
+Belirli bir kullanıcı için rol atamalarını listelemek için kullanın [az rol ataması listesi](/cli/azure/role/assignment#az_role_assignment_list):
 
-Ayrıca komut değiştirerek gruplarından devralınan rol atamalarını görebilirsiniz:
-
-    azure role assignment list --expandPrincipalGroups --signInName <user email>
-
-Aşağıdaki örnekte verilen rol atamalarını  *sameert@aaddemo.com*  kullanıcı. Bu kullanıcıya atanan rollerin ve gruplardan devralınan rolleri içerir.
-
-```
-azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
-
-azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
+```azurecli
+az role assignment list --assignee <assignee>
 ```
 
-![RBAC Azure komut satırı - kullanıcı tarafından azure rol ataması listesi - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
+Varsayılan olarak, yalnızca aboneliği kapsamlıdır atamaları görüntülenir. Kaynak veya grup tarafından kapsamlı atamalarını görüntülemek için kullanma `--all`.
 
-## <a name="grant-access"></a>Erişim verme
-Atamak istediğiniz rolü tanımladıktan sonra erişim vermek için kullanın:
+Aşağıdaki örnek, doğrudan atanmış olan rol atamalarını listeler  *patlong@contoso.com*  kullanıcı:
 
-    azure role assignment create
+```azurecli
+az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.properties.principalName, "roleDefinitionName":.properties.roleDefinitionName, "scope":.properties.scope}'
+```
 
-### <a name="assign-a-role-to-group-at-the-subscription-scope"></a>Grup aboneliği kapsamında bir rol atayın
-Bir grup aboneliği kapsamında bir rol atamak için kullanın:
+```Output
+{
+  "principalName": "patlong@contoso.com",
+  "roleDefinitionName": "Backup Operator",
+  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+}
+{
+  "principalName": "patlong@contoso.com",
+  "roleDefinitionName": "Virtual Machine Contributor",
+  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+}
+```
 
-    azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
+### <a name="list-role-assignments-for-a-resource-group"></a>Bir kaynak grubu için liste rol atamaları
 
-Aşağıdaki örnek atar *okuyucu* rolüne *Christine Koch'ın takım* adresindeki *abonelik* kapsam.
+Bir kaynak grubu için mevcut rol atamalarını listelemek için kullanın [az rol ataması listesi](/cli/azure/role/assignment#az_role_assignment_list):
 
-![RBAC Azure komut satırı - azure rol ataması oluşturma grupla - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
+```azurecli
+az role assignment list --resource-group <resource_group>
+```
 
-### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Uygulamanın abonelik kapsamında bir rol atayın
-Bir uygulama abonelik kapsamında bir rol atamak için kullanın:
+Aşağıdaki örnek için rol atamalarını listeler *pharma satış projectforecast* kaynak grubu:
 
-    azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
+```azurecli
+az role assignment list --resource-group pharma-sales-projectforecast --output json | jq '.[] | {"roleDefinitionName":.properties.roleDefinitionName, "scope":.properties.scope}'
+```
 
-Aşağıdaki örnek verir *katkıda bulunan* rolüne bir *Azure AD* seçilen aboneliğe ilişkin uygulama.
+```Output
+{
+  "roleDefinitionName": "Backup Operator",
+  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+}
+{
+  "roleDefinitionName": "Virtual Machine Contributor",
+  "scope": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/pharma-sales-projectforecast"
+}
 
- ![RBAC Azure komut satırı - azure rol ataması oluşturma uygulama tarafından](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
+...
+```
 
-### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Kaynak grubu kapsamındaki bir kullanıcıya rol atama
-Kaynak grubu kapsamındaki bir kullanıcıya rol atamak için kullanın:
+## <a name="assign-access"></a>Erişimi atayın
 
-    azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
+### <a name="assign-a-role-to-a-user"></a>Bir kullanıcıya rol atama
 
-Aşağıdaki örnek verir *sanal makine Katılımcısı* rolüne  *samert@aaddemo.com*  kullanıcı *Pharma satış ProjectForcast* Kaynak Grup kapsamı.
+Kaynak grubu kapsamındaki bir kullanıcıya rol atamak için kullandığınız [az rol ataması oluşturma](/cli/azure/role/assignment#az_role_assignment_create):
 
-![RBAC Azure komut satırı - azure rol ataması oluşturma kullanıcı - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
+```azurecli
+az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
+```
 
-### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Kaynak kapsamdaki bir gruba rol atama
-Rol kaynak kapsamdaki bir gruba atamak için kullanın:
+Aşağıdaki örnek atar *sanal makine Katılımcısı* rolüne  *patlong@contoso.com*  kullanıcı *pharma satış projectforecast* Kaynak Grup kapsamı:
 
-    azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
+```
 
-Aşağıdaki örnek verir *sanal makine Katılımcısı* rolüne bir *Azure AD* grubunun bir *alt*.
+### <a name="assign-a-role-to-a-group"></a>Bir gruba bir rol atayın
 
-![RBAC Azure komut satırı - azure rol ataması oluşturma grupla - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
+Bir rol bir gruba atamak için kullandığınız [az rol ataması oluşturma](/cli/azure/role/assignment#az_role_assignment_create):
+
+```azurecli
+az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+```
+
+Aşağıdaki örnek atar *okuyucu* rolüne *Ann Mack takım* kimliği 22222222-2222-2222-2222-222222222222 abonelik kapsamında grubu. Grup Kimliğini almak için kullanabileceğiniz [az ad Grup listesi](/cli/azure/ad/group#az_ad_group_list) veya [az ad Grup Göster](/cli/azure/ad/group#az_ad_group_show).
+
+```azurecli
+az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
+```
+
+Aşağıdaki örnek atar *sanal makine Katılımcısı* rolüne *Ann Mack takım* kimliği 22222222-2222-2222-2222-222222222222 adlıbirsanalağiçinbirkaynakkapsamdagrubu*satış proje ağ pharma*:
+
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourcegroups/pharma-sales-projectforecast/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
+```
+
+### <a name="assign-a-role-to-an-application"></a>Uygulama için bir rol atama
+
+Bir uygulama için bir rol atamak için kullandığınız [az rol ataması oluşturma](/cli/azure/role/assignment#az_role_assignment_create):
+
+```azurecli
+az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
+```
+
+Aşağıdaki örnek atar *sanal makine Katılımcısı* nesne kimliği 44444444-4444-4444-4444-444444444444 uygulamayla rolüne *pharma satış projectforecast* kaynak grubu kapsamı. Uygulama nesnesi Kimliği almak için kullanabileceğiniz [az ad uygulama listesinde](/cli/azure/ad/app#az_ad_app_list) veya [az ad uygulama Göster](/cli/azure/ad/app#az_ad_app_show).
+
+```azurecli
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
+```
 
 ## <a name="remove-access"></a>Erişimi kaldırma
-Bir rol atamasını kaldırmak için kullanın:
 
-    azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
+### <a name="remove-a-role-assignment"></a>Bir rol ataması Kaldır
 
-Aşağıdaki örnek kaldırır *sanal makine Katılımcısı* gelen rol atamasını  *sammert@aaddemo.com*  kullanıcı *Pharma satış ProjectForcast* kaynak Grup.
-Örneğin bu durumda bir grup aboneliği üzerinde rol ataması kaldırır.
+Bir rol atamasını kaldırmak için kullanın [az rol atamasını silin](/cli/azure/role/assignment#az_role_assignment_delete):
 
-![RBAC Azure komut satırı - azure rol ataması delete - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
-
-## <a name="create-a-custom-role"></a>Özel bir rol oluşturun
-Özel bir rol oluşturmak için kullanın:
-
-    azure role create --inputfile <file path>
-
-Aşağıdaki örnek adlı özel bir rol oluşturur *sanal makine işleci*. Bu özel rolü tüm okuma işlemlerini erişim veren *Microsoft.Compute*, *Microsoft.Storage*, ve *Microsoft.Network* kaynak sağlayıcıları ve verir erişmek için Başlat, yeniden başlatın ve sanal makineleri izleyin. Bu özel rolü iki Aboneliklerde kullanılabilir. Bu örnek bir JSON dosyası bir giriş olarak kullanır.
-
-![JSON - özel rol tanımı - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
-
-![RBAC Azure komut satırı - azure rol oluşturma - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
-
-## <a name="modify-a-custom-role"></a>Özel bir rol değiştirme
-Özel bir rol değiştirmek için önce kullanın `azure role list` rol tanımı almak için komutu. İkinci olarak, rol tanımı dosyasına istediğiniz değişiklikleri yapın. Son olarak, `azure role set` değiştirilmiş rol tanımı kaydetmek için.
-
-    azure role set --inputfile <file path>
-
-Aşağıdaki örnek, *Microsoft.Insights/diagnosticSettings/* işlemi için **Eylemler**ve bir Azure aboneliğine **AssignableScopes** , Sanal makine işletmeni özel rolü.
-
-![JSON - özel rol tanımını - ekran görüntüsü değiştirme](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
-
-![RBAC Azure komut satırı - azure rol set - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
-
-## <a name="delete-a-custom-role"></a>Bir özel rolü silmeyi
-Bir özel rolü silmek için önce kullanın `azure role list` belirlemek için komut **kimliği** rolünün. Ardından, `azure role delete` belirterek bu rolü silmek için komutu **kimliği**.
-
-Aşağıdaki örnek kaldırır *sanal makine işleci* özel rol.
-
-![RBAC Azure komut satırı - azure rol silme - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
-
-## <a name="list-custom-roles"></a>Liste özel roller
-Bir kapsamda atama için kullanılabilen rolleri listelemek için kullanın `azure role list` komutu.
-
-Aşağıdaki komut, seçili Abonelikteki ataması için kullanılabilen tüm rolleri listeler.
-
-```
-azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+```azurecli
+az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-![RBAC Azure komut satırı - azure rol listesi - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+Aşağıdaki örnek kaldırır *sanal makine Katılımcısı* gelen rol atamasını  *patlong@contoso.com*  kullanıcı *pharma satış projectforecast* kaynak Grup:
 
-Aşağıdaki örnekte, *sanal makine işleci* de özel rol kullanılamaz *Production4* abonelik bu aboneliği değil çünkü **AssignableScopes** rolünün.
-
-```
-azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+```azurecli
+az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-![RBAC Azure komut satırı - özel roller için azure rol listesi - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
+Aşağıdaki örnek kaldırır *okuyucu* rolünden *Ann Mack takım* kimliği 22222222-2222-2222-2222-222222222222 abonelik kapsamında grubu. Grup Kimliğini almak için kullanabileceğiniz [az ad Grup listesi](/cli/azure/ad/group#az_ad_group_list) veya [az ad Grup Göster](/cli/azure/ad/group#az_ad_group_show).
+
+```azurecli
+az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
+```
+
+## <a name="custom-roles"></a>Özel roller
+
+### <a name="list-custom-roles"></a>Liste özel roller
+
+Bir kapsamda atama için kullanılabilen rolleri listelemek için kullanın [az rol tanımı listesi](/cli/azure/role/definition#az_role_definition_list).
+
+Aşağıdaki örnekler her ikisi de geçerli Abonelikteki tüm özel rollere listesi:
+
+```azurecli
+az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.properties.roleName, "type":.properties.type}'
+```
+
+```azurecli
+az role definition list --output json | jq '.[] | if .properties.type == "CustomRole" then {"roleName":.properties.roleName, "type":.properties.type} else empty end'
+```
+
+```Output
+{
+  "roleName": "My Management Contributor",
+  "type": "CustomRole"
+}
+{
+  "roleName": "My Service Operator Role",
+  "type": "CustomRole"
+}
+{
+  "roleName": "My Service Reader Role",
+  "type": "CustomRole"
+}
+
+...
+```
+
+### <a name="create-a-custom-role"></a>Özel bir rol oluşturun
+
+Özel bir rol oluşturmak üzere kullanmanız [az rol tanımı oluşturma](/cli/azure/role/definition#az_role_definition_create). Rol tanımı JSON açıklamasını veya JSON açıklamasını içeren bir dosya için bir yol olabilir.
+
+```azurecli
+az role definition create --role-definition <role_definition>
+```
+
+Aşağıdaki örnek adlı özel bir rol oluşturur *sanal makine işleci*. Bu özel rolü tüm okuma işlemleri için erişim atar *Microsoft.Compute*, *Microsoft.Storage*, ve *Microsoft.Network* kaynak sağlayıcıları ve atar erişimi başlatmak için yeniden başlatın ve sanal makineleri izleyin. Bu özel rolü iki Aboneliklerde kullanılabilir. Bu örnek bir JSON dosyası bir giriş olarak kullanır.
+
+vmoperator.json
+
+```json
+{
+  "Name": "Virtual Machine Operator",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+    "/subscriptions/11111111-1111-1111-1111-111111111111",
+    "/subscriptions/33333333-3333-3333-3333-333333333333"
+  ]
+}
+```
+
+```azurecli
+az role definition create --role-definition ~/roles/vmoperator.json
+```
+
+### <a name="update-a-custom-role"></a>Özel bir rol güncelleştirme
+
+Özel bir rol güncelleştirmek için önce kullanın [az rol tanımı listesi](/cli/azure/role/definition#az_role_definition_list) rol tanımı alınamadı. İkinci olarak, rol tanımı istediğiniz değişiklikleri yapın. Son olarak, [az rol tanımı güncelleştirme](/cli/azure/role/definition#az_role_definition_update) güncelleştirilmiş rol tanımı kaydetmek için.
+
+```azurecli
+az role definition update --role-definition <role_definition>
+```
+
+Aşağıdaki örnek, *Microsoft.Insights/diagnosticSettings/* işlemi için *Eylemler* , *sanal makine işleci* özel rol.
+
+vmoperator.json
+
+```json
+{
+  "Name": "Virtual Machine Operator",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+    "/subscriptions/11111111-1111-1111-1111-111111111111",
+    "/subscriptions/33333333-3333-3333-3333-333333333333"
+  ]
+}
+```
+
+```azurecli
+az role definition update --role-definition ~/roles/vmoperator.json
+```
+
+### <a name="delete-a-custom-role"></a>Bir özel rolü silmeyi
+
+Bir özel rolü silmek için kullanın [az rol tanımı silinemiyor](/cli/azure/role/definition#az_role_definition_delete). Rol adı veya rol kimliği silmek için rolü belirtmek için kullanın Rol Kimliği belirlemek için [az rol tanımı listesi](/cli/azure/role/definition#az_role_definition_list).
+
+```azurecli
+az role definition delete --name <role_name or role_id>
+```
+
+Aşağıdaki örnek siler *sanal makine işleci* özel rol:
+
+```azurecli
+az role definition delete --name "Virtual Machine Operator"
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 

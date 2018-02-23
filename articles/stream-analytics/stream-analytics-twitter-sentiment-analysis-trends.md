@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics gerçek zamanlı Twitter düşünceleri analizi
 
@@ -35,7 +35,7 @@ Bir haber medya Web sitesi olan bir şirket rakiplere üzerinde bir avantaj kend
 
 Gerçek zamanlı Twitter'da oluşturan eğilim konularını belirlemek için şirket tweet birim ve düşünceleri hakkında gerçek zamanlı analiz için önemli konular gerekir. Diğer bir deyişle, gereken akışı bu sosyal medya üzerinde dayalı bir düşünceleri analiz analytics altyapısıdır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide, Twitter hesabına bağlanır ve (hangi ayarlayabileceğiniz) belirli diyez etiketlerini sahip tweet'leri benzeyen bir istemci uygulaması kullanın. Uygulamayı çalıştırın ve Azure akış analizi kullanarak tweet'leri çözümlemek için aşağıdakilere sahip olmanız gerekir:
 
 * Bir Azure aboneliği
@@ -51,7 +51,7 @@ Bu öğreticide, Twitter hesabına bağlanır ve (hangi ayarlayabileceğiniz) be
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Bir olay hub'ad alanı ve olay hub'ı Oluştur
 Bu yordamda, önce bir olay hub'ad alanı oluşturun ve ardından bir event hub bu ad alanına ekleyin. Olay hub'ı ad alanları, ilgili olay bus örneklerini mantıksal olarak gruplamak için kullanılır. 
 
-1. Azure portalında oturum açın ve tıklatın **yeni** > **nesnelerin interneti** > **olay hub'ı**. 
+1. Azure portalında oturum açın ve tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **olay hub'ı**. 
 
 2. İçinde **ad alanı oluşturma** dikey penceresinde gibi bir ad alanı adı girin `<yourname>-socialtwitter-eh-ns`. Ad alanı için herhangi bir ad kullanabilirsiniz, ancak ad geçerli bir URL olmalıdır ve Azure arasında benzersiz olması gerekir. 
     
@@ -69,7 +69,7 @@ Bu yordamda, önce bir olay hub'ad alanı oluşturun ve ardından bir event hub 
 
     ![Yeni bir olay hub'ı oluşturmak için dikey penceresi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
-7. **Oluştur**'a tıklayın.
+7. **Oluştur**’a tıklayın.
 
 
 ### <a name="grant-access-to-the-event-hub"></a>Olay hub'ına erişim izni ver
@@ -87,7 +87,7 @@ Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim vere
 
     ![Yeni bir olay hub'ı erişim ilkesi oluşturmak için dikey penceresi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.  **Oluştur**'a tıklayın.
+4.  **Oluştur**’a tıklayın.
 
 5.  İlke dağıtıldıktan sonra paylaşılan erişim ilkeleri listesinde tıklayın.
 
@@ -200,7 +200,7 @@ Aşağıdaki yordam, her iki yaklaşımın belgeler.
 
 Twitter gelen gerçek zamanlı akış tweet olaylarını, bu olayları gerçek zamanlı analiz etmek için bir Stream Analytics işi ayarlayabilirsiniz.
 
-1. Azure portalında tıklatın **yeni** > **nesnelerin interneti** > **Stream Analytics işi**.
+1. Azure portalında tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **Stream Analytics işi**.
 
 2. İş adı `socialtwitter-sa-job` ve abonelik, kaynak grubunu ve konumu belirtin.
 
@@ -208,7 +208,7 @@ Twitter gelen gerçek zamanlı akış tweet olaylarını, bu olayları gerçek z
 
     ![Yeni bir Stream Analytics işi oluşturma](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
-3. **Oluştur**'a tıklayın.
+3. **Oluştur**’a tıklayın.
 
     İş oluşturulur ve portal iş ayrıntılarını görüntüler.
 
@@ -229,7 +229,7 @@ Twitter gelen gerçek zamanlı akış tweet olaylarını, bu olayları gerçek z
 
     ![Akış analizi işi için yeni giriş oluşturma](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
-3. **Oluştur**'a tıklayın.
+3. **Oluştur**’a tıklayın.
 
 
 ## <a name="specify-the-job-query"></a>İş sorgusu belirtin
@@ -274,7 +274,7 @@ Konular arasında belirtilenlerden sayısı karşılaştırmak için kullanabile
 
 5. Tıklatın **Test**. Sorgu, örneklenen verileri karşı çalışır.
     
-6. **Kaydet** düğmesine tıklayın. Bu sorguyu akış analizi işi bir parçası olarak kaydeder. (Bu örnek verileri kaydetmez.)
+6. **Kaydet**’e tıklayın. Bu sorguyu akış analizi işi bir parçası olarak kaydeder. (Bu örnek verileri kaydetmez.)
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>Deneme akıştan farklı alanları kullanma 
@@ -314,7 +314,7 @@ Bu öğreticide, toplanan tweet olayları Azure Blob depolama alanına sorgu iş
     
     ![Stream Analytics işi için "Yeni çıkış" dikey](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. **Oluştur**'a tıklayın. 
+4. **Oluştur**’a tıklayın. 
 
     Azure depolama hesabı oluşturur ve bir anahtarı otomatik olarak oluşturur. 
 
@@ -367,7 +367,7 @@ Bu öğreticinin amaçları doğrultusunda, 20 katından fazla son 5 saniye içi
     HAVING COUNT(*) > 20
     ```
 
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 5. TwitterWpfClient uygulama çalıştığından emin olun. 
 

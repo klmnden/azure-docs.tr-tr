@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan soruları Service Fabric
 
@@ -36,8 +36,8 @@ Bu senaryoda ilgileniyorsanız, kişi ya da almak için öneririz aracılığıy
 
 Dikkate alınması gereken bazı noktalar şunlardır: 
 
-1. Azure Service Fabric kümesi kaynak Bugün, sanal makine ölçek kümesi yerleşik olan ayarlar olduğunuz bölgesel aynıdır. Bu, bölgesel bir arıza olması durumunda Azure Resource Manager veya Azure Portal aracılığıyla küme yönetme olanağı kaybedebilir anlamına gelir. Kümenin çalışmaya devam eder ve doğrudan ile etkileşim olacaktır olsa bile bu durum oluşabilir. Ayrıca, Azure bölgeler arasında kullanılabilir tek bir sanal ağ sahip olma yeteneği bugün sağlamaz. Bu Azure bölgeli kümede ya da gerektirdiği anlamına gelir. [VM ölçek kümesindeki her bir VM için genel IP adresleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) veya [Azure VPN ağ geçitleri](../vpn-gateway/vpn-gateway-about-vpngateways.md). Bu ağ farklı etkileri maliyetler, performans, seçeneğiniz ve bazı derece uygulama tasarımı için bu nedenle dikkatli analiz ve planlama gereklidir yeri gibi bir ortam kurma önce.
-2. Bakım, yönetim, ve bu makinelerin izleme dönüşebilir karmaşık, özellikle arasında dağıtılmış olduğunda _türleri_ gibi farklı bulut sağlayıcıları arasında veya şirket içi kaynakları ile Azure arasında ortamlarının. Yükseltme, izleme, yönetim ve tanılama küme ve uygulamalar için bu tür bir ortamda üretim iş yükleri çalıştırmadan önce anlaşılır emin olmak için dikkatli olunması gerekir. Çok sayıda Azure veya kendi veri merkezleri içinde bu sorunları çözmek deneyimi zaten varsa, daha sonra bu çıkışı oluşturma veya Service Fabric kümesi çalıştırdığınızda bu aynı çözümler uygulanabilir olasıdır. 
+1. Azure Service Fabric kümesi kaynak Bugün, sanal makine ölçek kümesi yerleşik olan ayarlar olduğunuz bölgesel aynıdır. Bu, bölgesel bir arıza olması durumunda Azure Resource Manager veya Azure Portalı aracılığıyla küme yönetme olanağı kaybedebilir anlamına gelir. Kümenin çalışmaya devam eder ve doğrudan ile etkileşim olacaktır olsa bile bu durum oluşabilir. Ayrıca, Azure bölgeler arasında kullanılabilir tek bir sanal ağ sahip olma yeteneği bugün sağlamaz. Bu Azure bölgeli kümede ya da gerektirdiği anlamına gelir. [VM ölçek kümesindeki her bir VM için genel IP adresleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) veya [Azure VPN ağ geçitleri](../vpn-gateway/vpn-gateway-about-vpngateways.md). Bu ağ farklı etkileri maliyetler, performans, seçeneğiniz ve bazı derece uygulama tasarımı için bu nedenle dikkatli analiz ve planlama gereklidir yeri gibi bir ortam kurma önce.
+2. Bakım, yönetim, ve bu makinelerin izleme dönüşebilir karmaşık, özellikle arasında dağıtılmış olduğunda _türleri_ gibi farklı bulut sağlayıcıları arasında veya şirket içi kaynakları ile Azure arasında ortamlarının. Yükseltme, izleme, yönetim ve tanılama küme ve uygulamalar için bu tür bir ortamda üretim iş yükleri çalıştırmadan önce anlaşılır emin olmak için dikkatli olunması gerekir. Azure veya kendi veri merkezleri içinde bu sorunları çözmek deneyimi zaten varsa, daha sonra bu çıkışı oluşturma veya Service Fabric kümesi çalıştırdığınızda bu aynı çözümler uygulanabilir olasıdır. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric düğümlerin işletim sistemi güncelleştirmelerini otomatik olarak alıyorsunuz?
 
@@ -53,7 +53,7 @@ Gelecekte, tamamen otomatik ve güncelleştirme etki alanları arasında eşgüd
 
 **Kısa yanıt** - Hayır 
 
-**Uzun yanıt** - büyük sanal makine ölçek kümeleri, bir sanal makine ölçeklendirme izin verse de kümesi fazla 1000 VM örnekleri ölçeklendirme, yerleştirme grupları (PGs) kullanarak bunu yapar. Yalnızca hata etki alanlarını (FDs) ve yükseltme etki alanları (UDs) yerleştirme Grup Service fabric kullandığı içinde FDs ve UDs, hizmet çoğaltmaları/hizmet örnekleri yerleştirme kararları almak için tutarlı değil. FDs ve UDs karşılaştırılabilir olduğundan yalnızca yerleştirme grubunda BT tarafından kullanılamaz. PG1 VM1 FD topolojisini varsa, örneğin, = 0 ve PG2 VM9 FD topolojisini = 4, onu gelmez VM1 ve VM2 olan iki farklı donanım rafları, dolayısıyla BT FD değerleri bu durumda yerleştirme kararları için kullanamazsınız.
+**Uzun yanıt** - büyük sanal makine ölçek kümesi bir sanal makine ölçeklendirmenizi izin verse de kümesi fazla 1000 VM örnekleri ölçeklendirme, yerleştirme grupları (PGs) kullanarak bunu yapar. Yalnızca hata etki alanlarını (FDs) ve yükseltme etki alanları (UDs) yerleştirme Grup Service fabric kullandığı içinde FDs ve UDs, hizmet çoğaltmaları/hizmet örnekleri yerleştirme kararları almak için tutarlı değil. FDs ve UDs yerleştirme grup içinde yalnızca karşılaştırılabilir olduğundan, BT tarafından kullanılamaz. PG1 VM1 FD topolojisini varsa, örneğin, = 0 ve PG2 VM9 FD topolojisini = 4, onu gelmez VM1 ve VM2 olan iki farklı donanım rafları, dolayısıyla BT FD değerleri bu durumda yerleştirme kararları için kullanamazsınız.
 
 Diğer sorunlar var. büyük sanal makine ölçek kümeleri ile şu anda olmaması, düzey 4 yükleme gibi karşı desteği İçin başvurmak [büyük ayrıntıları ölçekleme kümeleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
@@ -86,22 +86,25 @@ Dağıtmadan önce uygulamanızı test etmek için kümeleri oluşturmak istiyor
 
 Gelişmiş bir deneyim üzerinde bugün çalışıyoruz ancak yükseltme için siz sorumlusunuz. Küme sanal makinelerin işletim sistemi görüntüsü yükseltmelisiniz birer birer VM. 
 
+### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Bir küme düğümü türü (sanal makine ölçek kümesi) bağlı veri diskleri şifreleyebilir mi?
+Evet.  Daha fazla bilgi için bkz: [eklenen veri disklerini ile küme oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [şifrelemek diskler (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), ve [şifrelemek diskleri (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+
 ## <a name="container-support"></a>Kapsayıcı desteği
 
 ### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Neden BT DNS adreslerini çözümleyemiyor dağıtılan my kapsayıcıları misiniz?
 
 Bu sorun üzerinde 5.6.204.9494 kümelerinin üzerinde bildirilen sürüm 
 
-**Azaltma** : izleyin [bu belgeyi](service-fabric-dnsservice.md) kümenizdeki DNS service fabric hizmeti etkinleştirmek için.
+**Azaltma**: izleyin [bu belgeyi](service-fabric-dnsservice.md) kümenizdeki DNS service fabric hizmeti etkinleştirmek için.
 
-**Düzeltme** : kullanılabilir olduğunda, 5.6.204.9494 yüksek bir desteklenen küme sürüme yükseltin. Kümeniz için Otomatik yükseltme ayarlarsanız, küme otomatik olarak sabit Bu sorun var. en sürümüne yükseltin.
+**Düzeltme**: kullanılabilir olduğunda, 5.6.204.9494 yüksek bir desteklenen küme sürüme yükseltin. Kümeniz için Otomatik yükseltme ayarlarsanız, küme otomatik olarak sabit Bu sorun var. en sürümüne yükseltin.
 
   
 ## <a name="application-design"></a>Uygulama tasarımı
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Güvenilir bir koleksiyonun bölümler sorgu veri en iyi yolu nedir?
 
-Güvenilir koleksiyonlarıdır genellikle [bölümlenmiş](service-fabric-concepts-partitioning.md) daha yüksek performans ve verimlilik için ölçek genişletme etkinleştirmek için. Belirli bir hizmeti durumu 10'luk veya makinelerin 100s üzerinden yayılan, anlamına gelir. Bu tam veri kümesi üzerinde işlemler gerçekleştirmek üzere, birkaç seçeneğiniz vardır:
+Güvenilir koleksiyonlarıdır genellikle [bölümlenmiş](service-fabric-concepts-partitioning.md) daha yüksek performans ve verimlilik için ölçek genişletme etkinleştirmek için. Belirli bir hizmeti durumunun onlarca veya makineler yüzlerce yayılan, anlamına gelir. Bu tam veri kümesi üzerinde işlemler gerçekleştirmek üzere, birkaç seçeneğiniz vardır:
 
 - Tüm bölümler gerekli verileri çıkarmak için başka bir hizmet, sorgular bir hizmet oluşturun.
 - Başka bir hizmetin tüm bölümler veri aldığınız bir hizmet oluşturun.
@@ -112,20 +115,20 @@ Güvenilir koleksiyonlarıdır genellikle [bölümlenmiş](service-fabric-concep
 
 Aktör çalışma zamanında aktör durumunun geniş sorguları gerçekleştirmek için önerilmez şekilde durumu ve işlem, bağımsız bir birim olacak şekilde tasarlanmıştır. Aktör durumunun tam kümesi boyunca sorgu için bir gereksiniminiz varsa, ya da dikkate almanız:
 
-- Hizmetinizi bölüm sayısı için aktörler sayısından tüm verileri toplamak için istekleri ağ sayısı şekilde aktör hizmetlerinizi durum bilgisi olan güvenilir hizmetler ile değiştirin.
+- Böylece hizmetinizi bölüm sayısı için aktörler sayısından tüm verileri toplamak için istekleri ağ sayısı aktör hizmetlerinizi durum bilgisi olan güvenilir hizmetler ile değiştirin.
 - Düzenli aralıklarla daha kolay sorgulama için bir dış depolama durumlarına göndermek için aktörler tasarlama. Yukarıdaki bu yaklaşım yalnızca gerçekleştirmekte sorguları kullanarak çalışma zamanı davranışını gerekli değilse uygulanabilir gibidir.
 
 ### <a name="how-much-data-can-i-store-in-a-reliable-collection"></a>Ne kadar veri ı güvenilir bir koleksiyonda depolayabilir miyim?
 
 Kümedeki sahip makine sayısı ve bu makineleri kullanılabilir bellek miktarına göre depolayabileceğiniz tutar yalnızca sınırlı şekilde güvenilir hizmetler genellikle bölümlenir.
 
-Bir örnek olarak, güvenilir bir koleksiyon 100 bölümleri ve 3 çoğaltmalar, bir hizmet olarak 1 kb boyutunda ortalama nesneleri depolamak olduğunu varsayalım. Şimdi makine başına bellek 16 gb ile 10 makine kümesi olduğunu varsayalım. Basitlik için ve çok koruyucu, varsayımında 6 küme için makine başına kullanılabilir 10 gb ya da 100 gb bırakarak gb, işletim sistemi ve Sistem Hizmetleri, Service Fabric çalışma zamanını ve hizmetlerinizi tüketir.
+Bir örnek olarak, güvenilir bir koleksiyon 100 bölümleri ve 3 çoğaltmalar, bir hizmet olarak 1 kb boyutunda ortalama nesneleri depolamak olduğunu varsayalım. Şimdi makine başına bellek 16 gb ile 10 makine kümesi olduğunu varsayalım. Basitlik için ve koruyucu, varsayımında 6 küme için makine başına kullanılabilir 10 gb ya da 100 gb bırakarak gb, işletim sistemi ve Sistem Hizmetleri, Service Fabric çalışma zamanını ve hizmetlerinizi tüketir.
 
 Her bir nesne olmalıdır göz önünde bulundurarak, depolanan üç (bir birincil ve iki çoğaltma), yaklaşık 35 milyon nesneler için yeterli bellek koleksiyonunuzda tam kapasitede çalışırken olurdu. Ancak, bir hata etki alanı ve yaklaşık 1/3 kapasiteye temsil eder ve kabaca 23 milyon azaltmak bir yükseltme etki eşzamanlı kaybı dayanıklı olması önerilir.
 
 Bu hesaplama ayrıca varsaydığını unutmayın:
 
-- Dağıtım bölümleri arasında veri kabaca Tekdüzen veya küme kaynak yöneticisi için yük ölçümleri raporlama. Varsayılan olarak, Service Fabric Yük Dengelemesi yineleme sayısına göre. Bizim yukarıdaki örnekte, kümedeki her düğümde, 10 birincil çoğaltma ve 20 ikincil çoğaltmaları koyabilirsiniz. İyi bölümleri arasında eşit olarak dağıtılmış yük için işe yarar. Yük bile değilse, böylece Kaynak Yöneticisi'ni küçük çoğaltmaları birlikte paketi ve tek tek bir düğüm üzerinde daha fazla bellek tüketmesine büyük çoğaltmaları izin yük bildirilmesi gerekir.
+- Dağıtım bölümleri arasında veri kabaca Tekdüzen veya küme kaynak yöneticisi için yük ölçümleri raporlama. Varsayılan olarak, Service Fabric Bakiye yineleme sayısına göre yükler. Önceki örnekte, kümedeki her düğümde, 10 birincil çoğaltma ve 20 ikincil çoğaltmaları koyabilirsiniz. İyi bölümleri arasında eşit olarak dağıtılmış yük için işe yarar. Yük bile değilse, böylece Kaynak Yöneticisi'ni küçük çoğaltmaları birlikte paketi ve tek tek bir düğüm üzerinde daha fazla bellek tüketmesine büyük çoğaltmaları izin yük bildirilmesi gerekir.
 
 - Söz konusu güvenilir hizmetin küme depolama yalnızca bir durumda olduğunu. Bir kümeye birden çok hizmet dağıtabilirsiniz olduğundan, kaynakları dikkatli olmanız gerekir her çalıştırın ve durumunu yönetmek gerekir.
 
@@ -141,11 +144,11 @@ Güvenilir hizmetleriyle gibi bir aktör hizmetinde depoladığınız veri mikta
 
 Tutarlı bir şekilde tüm ortamlarda çalıştırın ve tek bir makinede yalıtılmış bir şekilde işleyebilir şekilde kapsayıcıları paketi hizmetlerine ve bağımlılıklarını basit bir yol sunar. Service Fabric dağıtma ve yönetme gibi hizmetler için bir yol sunar [bir kapsayıcıda paketlenmiş Hizmetleri](service-fabric-containers-overview.md).
 
-### <a name="are-you-planning-to-open-source-service-fabric"></a>Kaynak Service Fabric açmak planlıyor musunuz?
+### <a name="are-you-planning-to-open-source-service-fabric"></a>Açık kaynak Service Fabric planlıyor musunuz?
 
-Biz açmak istediğiniz kaynak güvenilir hizmetler ve güvenilir aktörler çerçeveler github'da ve topluluk katkılarına bu projelerine kabul eder. Lütfen izleyin [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) duyurdu gibi daha fazla ayrıntı için.
+Biz açık kaynaklı Güvenilir düşündüğünüz Hizmetleri ve güvenilir aktörler çerçeveleri github'da ve topluluk katkılarına bu projelerine kabul edin. İzleyin [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) duyurdu gibi daha fazla ayrıntı için.
 
-Yapılan açmak için herhangi bir plan Service Fabric çalışma zamanı şu anda kaynak.
+Şu anda hiçbir açık kaynak için Service Fabric çalışma zamanı planlarının.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

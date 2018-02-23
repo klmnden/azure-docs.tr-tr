@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>IOT hub'ınızı algılayıcı verilerini Azure Machine Learning kullanarak tahmin hava durumu
 
@@ -80,7 +80,7 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
 ### <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
 
-1. İçinde [Azure portal](https://ms.portal.azure.com/), tıklatın **yeni** > **nesnelerin interneti** > **Stream Analytics işi**.
+1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **Stream Analytics işi**.
 1. İş için aşağıdaki bilgileri girin.
 
    **İş adı**: İş adı. Adın genel olarak benzersiz olması gerekir.
@@ -89,11 +89,11 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
    **Konum**: aynı konumu, kaynak grubu olarak kullanın.
 
-   **Panoya Sabitle**: kolay erişim için bu seçeneği IOT hub'ınıza panodan denetleyin.
+   **Panoya sabitle**: Panodan IoT hub'ınıza kolay erişim için bu seçeneği işaretleyin.
 
    ![Stream Analytics işi oluşturma](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Bir akış analizi işine giriş Ekle
 
@@ -109,7 +109,7 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
    ![Azure akış analizi işine giriş Ekle](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Akış analizi işine çıkış ekleme
 
@@ -128,7 +128,7 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
    ![Azure Stream Analytics işinde bir çıktı ekleyin](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Bir işlev dağıttığınız web hizmetini çağırmak için Stream Analytics işi ekleme
 
@@ -147,7 +147,7 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
    ![Azure Stream Analytics işinde işlevi ekleme](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics işi sorgu yapılandırın
 
@@ -167,7 +167,7 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
    Değiştir `[YourOutputAlias]` işinin çıkış diğer adına sahip.
 
-1. **Kaydet** düğmesine tıklayın.
+1. **Kaydet**’e tıklayın.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştır
 

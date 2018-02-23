@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 4d109fa61d0fcd0c516a519f3b3eb0ad01ccbf05
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: adfc1158a907156ffddd27cd4eabc25c81930476
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Azure PowerShell kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 
@@ -31,7 +31,7 @@ Azure PowerShell denetlemek ve dağıtımını ve yönetimini Microsoft Azure, i
 > [!NOTE]
 > Azure PowerShell yalnızca Windows istemcileri üzerinde kullanılabilir. Linux, Unix ya da Mac OS X istemci kullanıyorsanız, bkz: [Azure CLI kullanarak bir Linux tabanlı Hdınsight kümesi oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md) bir küme oluşturmak için Azure CLI kullanma hakkında bilgi.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu yordama başlamadan önce şunlara sahip olmanız gerekir:
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -104,7 +104,7 @@ Hdınsight kümesi başarıyla oluşturuldu, kümenizi ile çalışmayı öğren
 
 ### <a name="hbase-clusters"></a>HBase kümeleri
 
-* [Hdınsight'ta HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight üzerinde HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Hdınsight'ta HBase için Java uygulamaları geliştirme](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm kümeleri
@@ -119,5 +119,4 @@ Hdınsight kümesi başarıyla oluşturuldu, kümenizi ile çalışmayı öğren
 * [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](spark/apache-spark-eventhub-streaming.md)
 

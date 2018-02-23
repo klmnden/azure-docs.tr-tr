@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 67dc2d5bbfa2012e4e098616edda593d023c4c1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b4f1f8900637f23220f9a89adbb321707c49e2d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Bulut hizmeti, sanal makine ya da Service Fabric tanılama verilerini Application Insights'a gönderme
 Bulut Hizmetleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric tüm Azure tanılama uzantısını verileri toplamak için kullanın.  Azure Tanılama verileri Azure Storage tablolara gönderir.  Ancak, aynı zamanda tüm kanal veya bir Azure tanılama uzantısını 1.5 veya daha sonraki kullanarak başka konumlara veri alt kümesini kullanabilirsiniz.
@@ -67,7 +67,7 @@ Bir havuz örnek yapılandırma Application Insights için:
 
 - **Applicationınsights** öğesi Azure Tanılama verileri nerede gönderilir uygulama Öngörüler kaynağın izleme anahtarını belirtir.
     - Varolan bir Application Insights kaynağı sahip değilseniz, bkz: [yeni bir Application Insights kaynağı oluşturma](../application-insights/app-insights-create-new-resource.md) kaynak oluşturma ve izleme anahtarı alma hakkında daha fazla bilgi.
-    - Bir bulut hizmeti Azure SDK 2.8 ve daha sonra geliştiriyorsanız, bu izleme anahtarını otomatik olarak doldurulur. Dayanarak değeri **appınsıghts_ınstrumentatıonkey** Cloud Service projesi paketleme, hizmet yapılandırma ayarı. Bkz: [kullanım Application Insights'a Azure bulut hizmeti sorunlarını gidermek için tanılama](../cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
+    - Bir bulut hizmeti Azure SDK 2.8 ve daha sonra geliştiriyorsanız, bu izleme anahtarını otomatik olarak doldurulur. Dayanarak değeri **appınsıghts_ınstrumentatıonkey** Cloud Service projesi paketleme, hizmet yapılandırma ayarı. Bkz: [Application Insights ile birlikte bulut hizmetlerini kullanan](../application-insights/app-insights-cloudservices.md).
 
 - **Kanalları** öğesi içeren bir veya daha fazla **kanal** öğeleri.
     - *Adı* özniteliği benzersiz olarak bu kanala başvuruyor.
@@ -220,6 +220,6 @@ Aşağıdaki grafikte yapılandırma değerlerini ve nasıl çalıştığını �
 - **Blob verilerini Application Insights'a Azure tanılama uzantısını tarafından toplanan gönderemez.** Örneğin, altında belirtilen hiçbir şey *dizinleri* düğümü. Kilitlenme dökümleri için gerçek kilitlenme döküm BLOB depolamaya gönderilir ve Application Insights'a yalnızca kilitlenme döküm oluşturulan bir bildirim gönderilir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Bilgi edinmek için nasıl [Azure tanılama bilgilerinizi görüntülemek](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) Application ınsights'ta.
+* Bilgi edinmek için nasıl [Azure tanılama bilgilerinizi görüntülemek](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) Application ınsights'ta.
 * Kullanım [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) uygulamanız için Azure tanılama uzantısını etkinleştirmek için.
 * Kullanım [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) uygulamanız için Azure tanılama uzantısını etkinleştirmek için

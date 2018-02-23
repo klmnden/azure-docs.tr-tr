@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Bir Azure Hizmet Yönetim sertifikasını karşıya yükle
 Yönetim sertifikaları, Azure tarafından sağlanan Klasik dağıtım modeli, kimlik doğrulaması sağlar. Birçok programlar ve araçlar (örneğin, Visual Studio ya da Azure SDK'sı) yapılandırma ve çeşitli Azure hizmetlerine dağıtımını otomatik hale getirmek için bu sertifikaları kullanacak. 
@@ -38,7 +38,7 @@ Aynı zamanda [Azure Active Directory](https://azure.microsoft.com/en-us/service
 Bulduktan sonra oluşturulan yönetim sertifikası, (.cer dosyası yalnızca ortak anahtarla) portalına karşıya yükleyebilir. Sertifika Portalı'nda kullanılabilir olduğunda, eşleşen bir sertifika (özel anahtarı) kimseyle Yönetimi API aracılığıyla bağlanmak ve ilişkili aboneliği için kaynak erişim.
 
 1. [Azure Portal](http://portal.azure.com)’da oturum açın.
-2. Tıklatın **daha fazla hizmet** alt Azure hizmeti listenin seçip **abonelikleri** içinde _genel_ hizmeti grubu.
+2. Tıklatın **tüm hizmetleri** alt Azure hizmeti listenin seçip **abonelikleri** içinde _genel_ hizmeti grubu.
 
     ![Abonelik menüsü](./media/azure-api-management-certs/subscriptions_menu.png)
 

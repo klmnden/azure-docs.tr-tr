@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: e7fdb55ba29fbdc2f3d89fbb19c8b77bf2c05795
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Kimlik doğrulaması ve kullanıcı izinleri
 Azure Analysis Services Kimlik Yönetimi ve kullanıcı kimlik doğrulaması için Azure Active Directory (Azure AD) kullanır. Herhangi bir kullanıcı oluşturma, yönetme veya bir Azure Analysis Services'a bağlanma sunucu geçerli kullanıcı kimlik olmalıdır bir [Azure AD kiracısı](../active-directory/active-directory-administer.md) aynı abonelik.

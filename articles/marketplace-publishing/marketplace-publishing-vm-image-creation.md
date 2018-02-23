@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market bir sanal makine görüntüsü oluşturmak için kılavuz
 Bu makalede **2. adım**, sanal sabit Azure Marketi dağıtacağınız diskleri (VHD) hazırlama size yol gösterir. Vhd'lerinizi, sku'sunun temelidir. İşlem, bir Windows tabanlı veya Linux tabanlı SKU olup sağlanmaktadır bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu ele alınmaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -127,7 +127,7 @@ Uzak Masaüstü Protokolü (RDP) kullanarak, VHD bulutta geliştirmek öneririz.
 
 **RDP aracılığıyla bağlanırken [Microsoft Azure portalı][link-azure-portal]**
 
-1. Seçin **Gözat** > **VM'ler**.
+1. Seçin **tüm hizmetleri** > **VM'ler**.
 2. Sanal makineler dikey pencere açılır. Bağlanmak istediğiniz VM çalışıyorsa ve dağıtılan VM'ler listesinden seçin emin olun.
 3. Seçilen VM açıklayan bir dikey pencere açılır. En üstte tıklatın **Bağlan**.
 4. Kullanıcı adı ve sağlama işlemi sırasında belirtilen parola girmeniz istenir.
@@ -136,7 +136,7 @@ Uzak Masaüstü Protokolü (RDP) kullanarak, VHD bulutta geliştirmek öneririz.
 
 Uzak Masaüstü dosyası yerel makineye indirmek için kullanacağınız [Get-AzureRemoteDesktopFile cmdlet'i][link-technet-2]. Bu cmdlet kullanabilmeniz için VM adını ve hizmet adını bilmeniz gerekir. Sanal makineden oluşturduysanız [Microsoft Azure portal][link-azure-portal], bu bilgileri VM Özellikleri'nin altında bulabilirsiniz:
 
-1. Microsoft Azure Portalı'nda seçin **Gözat** > **VM'ler**.
+1. Microsoft Azure Portalı'nda seçin **tüm hizmetleri** > **VM'ler**.
 2. Sanal makineler dikey pencere açılır. Dağıttığınız VM'yi seçin.
 3. Seçilen VM açıklayan bir dikey pencere açılır.
 4. **Özellikler**'e tıklayın.
@@ -214,7 +214,6 @@ Bir kullanıcı VM görüntüsünden bir VM'yi dağıtmak için geçerli kullana
 
 1. Git **yeni** > **işlem** > **sanal makine** > **galerisinden**.
 
-    ![Çizim][img-manage-vm-new]
 2. Git **görüntülerim**ve ardından bir VM'yi dağıtmak VM görüntüsünü seçin:
 
    1. Hangi görüntüsünü seçin, çünkü dikkat **görüntülerim** işletim sistemi görüntüleri ve VM görüntüleri listeler.
@@ -407,15 +406,15 @@ Microsoft Azure Storage Gezgini kullanarak SAS URL oluşturmak için adımlar a�
 
     Oluşturulan SAS URL için düzeyi kapsayıcıdır ve şimdi biz VHD ad içinde eklemeniz gerekir.
 
-    Kapsayıcı düzeyi SAS URL biçimi:`https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    Kapsayıcı düzeyi SAS URL biçimi: `https://testrg009.blob.core.windows.net/vhds?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
-    SAS URL kapsayıcı adlarında aşağıdaki şekilde sonra VHD adı Ekle`https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    SAS URL kapsayıcı adlarında aşağıdaki şekilde sonra VHD adı Ekle `https://testrg009.blob.core.windows.net/vhds/<VHD NAME>?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     Örnek:
 
     ![Çizim](media/marketplace-publishing-vm-image-creation/img5.2_15.png)
 
-    VHD adı TestRGVM201631920152.vhd yapılır ve ardından VHD SAS URL'si olacaktır`https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
+    VHD adı TestRGVM201631920152.vhd yapılır ve ardından VHD SAS URL'si olacaktır `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - Görüntünüzü dosya adı olduğundan emin olun ve **".vhd"** URI'de şunlardır.
     - İmza ortadaki olduğundan emin olun **"sp rl ="** görüntülenir. Bu, okuma ve liste erişim başarıyla sağlandı gösterir.
@@ -471,11 +470,11 @@ Azure CLI kullanarak SAS URL oluşturmak için adımlar aşağıda verilmiştir
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.  Aşağıda gösterildiği gibi SAS URL kapsayıcı adlarında sonra VHD adı Ekle`https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  Aşağıda gösterildiği gibi SAS URL kapsayıcı adlarında sonra VHD adı Ekle `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Örnek:
 
-    VHD adı TestRGVM201631920152.vhd yapılır ve ardından VHD SAS URL'si olacaktır
+    VHD adı TestRGVM201631920152.vhd yapılır ve ardından VHD SAS URL'si olacaktır 
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

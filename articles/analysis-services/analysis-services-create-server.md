@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Azure portalında bir Azure Analysis Services sunucusu oluşturma
 Bu makalede, Azure aboneliğinizde bir Analysis Services sunucu kaynağı oluşturmada size anlatılmaktadır.
@@ -48,9 +48,9 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
    * **Kaynak grubu**: Bu kapsayıcılar Azure kaynağı koleksiyonunu yönetmenize yardımcı olmak için tasarlanmıştır. Daha fazla bilgi için bkz: [kaynak grupları](../azure-resource-manager/resource-group-overview.md).
    * **Konum**: Bu Azure veri merkezi konum barındıran sunucu. En büyük kullanıcı tabanınızı en yakın bir konum seçin.
    * **Fiyatlandırma katmanı**: bir fiyatlandırma katmanı seçin. Tablolu modeller 400 GB'a kadar desteklenir. Daha fazla bilgi için bkz: [Azure Analysis Services fiyatlandırma](https://azure.microsoft.com/pricing/details/analysis-services/).
-4. **Oluştur**'a tıklayın.
+4. **Oluştur**’a tıklayın.
 
-Oluşturma genellikle bir dakika altında; alır genellikle yalnızca birkaç saniye sayısı. Seçtiyseniz **eklemek için Portal**, yeni sunucunuzu görmek için portalınıza gidin. Ya da gidin **daha fazla hizmet** > **Analysis Services** sunucunuz hazır olup olmadığını görmek için.
+Oluşturma genellikle bir dakika altında; alır genellikle yalnızca birkaç saniye sayısı. Seçtiyseniz **eklemek için Portal**, yeni sunucunuzu görmek için portalınıza gidin. Ya da gidin **tüm hizmetleri** > **Analysis Services** sunucunuz hazır olup olmadığını görmek için.
 
  ![Pano](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 

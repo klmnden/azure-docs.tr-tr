@@ -4,7 +4,7 @@ description: "Resource Manager kullanarak Azure sanal makineleri olarak çalış
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: 81910dd9c2743484ca65bd21e400a1a52e961a19
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 05f5ec690fbf1ea2f4f6a6d927685d7a34ac9273
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Azure sanal makinelerde (Klasik) SQL Server için otomatik yedekleme
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ Aşağıdaki tabloda otomatik yedekleme için yapılandırılmış seçenekler a
 | --- | --- | --- |
 | **Otomatik Yedekleme** |Etkinleştir/devre dışı bırak (devre dışı) |Etkinleştirir veya SQL Server 2014 Standard veya Enterprise çalıştıran bir Azure VM için otomatik yedekleme devre dışı bırakır. |
 | **Saklama süresi** |1-30 gün (30 gün) |Bir yedekleme saklanacağı gün sayısı. |
-| **Depolama hesabı** |Azure depolama hesabı (belirtilen VM için oluşturulan depolama hesabı) |Blob depolama alanına otomatik yedekleme dosyalarını depolamak için kullanılacak bir Azure depolama hesabı. Bir kapsayıcı tüm yedekleme dosyalarını depolamak için bu konumda oluşturulur. Yedekleme dosyası adlandırma kuralı, tarih, saat ve makine adını içerir. |
+| **Depolama Hesabı** |Azure depolama hesabı (belirtilen VM için oluşturulan depolama hesabı) |Blob depolama alanına otomatik yedekleme dosyalarını depolamak için kullanılacak bir Azure depolama hesabı. Bir kapsayıcı tüm yedekleme dosyalarını depolamak için bu konumda oluşturulur. Yedekleme dosyası adlandırma kuralı, tarih, saat ve makine adını içerir. |
 | **Şifreleme** |Etkinleştir/devre dışı bırak (devre dışı) |Etkinleştirir veya şifreleme devre dışı bırakır. Şifreleme etkinleştirildiğinde, yedekleme geri yüklemek için kullanılan sertifikaları belirtilen depolama hesabının aynı adlandırma kuralını kullanarak aynı automaticbackup kapsayıcısında bulunur. Parola değişirse, bu parola ile yeni bir sertifika oluşturulur, ancak önceki yedekleri geri yüklemek için eski sertifika kalır. |
 | **Parola** |Parola metin (yok) |Şifreleme anahtarları için bir parola. Yalnızca budur şifreleme etkin olup olmadığını gerekli. Şifrelenmiş bir yedeklemeyi geri yüklemek için doğru parolayı ve yedeğin alındığı anda kullanılan ilgili sertifika olması gerekir. | **Yedekleme sistem veritabanları** | Etkinleştir/devre dışı bırak (devre dışı) | Master, Model ve MSDB tam yedekleme gerçekleştirin |
 | **Yedekleme zamanlaması yapılandırma** | El ile otomatik / (otomatik) | Seçin **otomatik** otomatik olarak tam alıp Günlük büyüme üzerinde bağlı olarak yedeklemeler oturum. Seçin **el ile** tam zamanlama belirtmek için ve günlük yedekleri. |

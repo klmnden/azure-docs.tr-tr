@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory'de varsayılan kullanıcı izinleri
 
@@ -59,7 +59,7 @@ Kaydedilecek özelliği (Oluştur) uygulamaları | Bu seçenek Hayır olarak aya
 Konuklar, Yöneticiler ve kullanıcılar Konuk davet eden rolündeki davet edebilirsiniz | Bu seçenek Hayır olarak ayarlanırsa, tüm kullanıcıların davet konuklar engeller. Üye kullanıcılar için varsayılan izinler yapılandırma konusuna bakın. Daha fazla bilgi için bkz: [uygulamalar, izinler ve Azure Active Directory'de izin](active-directory-apps-permissions-consent.md).
 Üyeleri konuklar davet edebilirsiniz | Bunun için hiçbir ayar davet konuklar kullanıcılardan engeller. Genel Yöneticiler, kullanıcı hesap yöneticileri ve Konuk Inviters hala konuklar davet kuramaz. Daha fazla bilgi için bkz: [uygulamalar, izinler ve Azure Active Directory'de izin](active-directory-apps-permissions-consent.md).
 Azure AD yönetim portalına erişimi sınırlayın | Bu seçenek Hayır olarak ayarlanırsa, kullanıcıların Azure Active Directory portalında erişmesini engeller.
-Diğer kullanıcıların okuma yeteneği | Daha fazla bilgi için bkz: [uygulamalar, izinler ve Azure Active Directory'de izin](active-directory-apps-permissions-consent.md).
+Diğer kullanıcıların okuma yeteneği | Bu ayar yalnızca PowerShell içinde kullanılabilir. Bu $false olarak ayarlama, yönetici olmayan tüm kullanıcı bilgileri dizinden okumasını önler. Bu okuma engellemez Exchange Online gibi diğer Microsoft hizmetlerinde kullanıcı bilgileri. Bu ayar, özel durumlar ve bu $false önerilmez ayarı için tasarlanmıştır.
 
 ## <a name="object-ownership"></a>Nesne sahipliği
 

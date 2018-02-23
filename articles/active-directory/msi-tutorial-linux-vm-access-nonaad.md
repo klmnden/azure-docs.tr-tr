@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0e9eba9baeec00f13880ba6b32d87be8e5872bc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: bd2f251e97248497592b40128dcc03db5d6eba7a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Azure anahtar kasası erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanın 
 
@@ -45,7 +45,7 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 Bu öğretici için yeni bir Linux VM oluşturun. Mevcut bir VM'yi üzerinde MSI de etkinleştirebilirsiniz.
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Tıklatın **kaynak oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
 3. Sanal makine bilgilerini girin. İçin **kimlik doğrulama türü**seçin **SSH ortak anahtarını** veya **parola**. Oluşturulan kimlik bilgileri, VM'ye oturum açmak izin verir.
 
@@ -77,7 +77,7 @@ MSI kullanarak kodunuzu Azure Active Directory kimlik doğrulamasını destekley
 
 İlk olarak, kimliğinizi bir anahtar kasası oluşturma ve anahtar Kasası'na bizim VM'in kimlik yetkisi vermek gerekiyor.   
 
-1. Sol gezinti çubuğu üstünde seçin **+ yeni** sonra **güvenlik + kimlik** sonra **anahtar kasası**.  
+1. Sol gezinti çubuğu üstünde seçin **kaynak oluşturma** > **güvenlik + kimlik** > **anahtar kasası**.  
 2. Sağlayan bir **adı** yeni anahtar kasası için. 
 3. Anahtar kasası ile aynı abonelik ve kaynak grubunda daha önce oluşturduğunuz VM bulun. 
 4. Seçin **erişim ilkeleri** tıklatıp **yeni Ekle**. 

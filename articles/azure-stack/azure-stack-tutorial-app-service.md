@@ -3,8 +3,8 @@ title: "Web ve API uygulamaları Azure yığın kullanıcılarınız için kulla
 description: "Uygulama hizmeti kaynak Sağlayıcısı'nı yüklemek ve oluşturmak için Öğreticisi, Azure yığın kullanıcılarınızın web ve API uygulamalarınızı oluşturma vermek sunar."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 7/03/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Web ve API uygulamaları Azure yığın kullanıcılarınızın kullanımına sunun
 
@@ -66,11 +67,11 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturul
 2. Alanlar için varsayılan ayarları aşağıdaki gibi dışında bırakın:
     - **Veritabanı adı**: DNNdb
     - **MB cinsinden en büyük boyutu**: 100
-    - **Abonelik**: TestAppServiceOffer
+    - **Subscription**: TestAppServiceOffer
     - **Kaynak grubu**: DNN RG
 3. Tıklatın **oturum açma ayarları**, veritabanı için kimlik bilgilerini girin ve ardından **Tamam**. Bu adımlarda daha sonra bu kimlik bilgileri kullanacaksınız.
 4. Tıklatın **SKU** > barındıran SQL Server için oluşturulan SQL SKU seçin > **Tamam**.
-5. **Oluştur**'a tıklayın.
+5. **Oluştur**’a tıklayın.
 
 ### <a name="create-a-dnn-app"></a>Bir DNN uygulaması oluşturma    
 
@@ -79,7 +80,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturul
 3. Tıklatın **gerekli ayarları Yapılandır** > **Yeni Oluştur** > türü bir **uygulama hizmeti planı** adı.
 4. Tıklatın **fiyatlandırma katmanı** > **F1 ücretsiz** > **seçin** > **Tamam**.
 5. Tıklatın **veritabanı** ve daha önce oluşturduğunuz SQL veritabanı bilgilerini girin.
-6. **Oluştur**'a tıklayın.
+6. **Oluştur**’a tıklayın.
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 

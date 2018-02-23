@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c61cf24083ac3422e30dabf8514dcbd3aec0599d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı için bir Azure aboneliği bağlama
 
@@ -44,7 +44,7 @@ Azure aboneliğiniz gösteren Azure AD kiracısı gidin. Açık [Azure portal](h
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Azure AD B2C Azure Marketi'nde bulma
 
-**Yeni** düğmesine tıklayın. **Markette ara** alanına `B2C` yazın.
+Tıklatın **kaynak oluşturma** düğmesi. **Markette ara** alanına `B2C` yazın.
 
 ![Düğmesi vurgulanmış ve Azure AD B2C metin arama Market alan ekleme](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
@@ -81,7 +81,7 @@ Bu kaynak için kullanabilirsiniz:
 
 ![B2C kaynak ayarları](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
-## <a name="known-issues"></a>Bilinen sorunlar
+## <a name="known-issues"></a>Bilinen Sorunlar
 
 ### <a name="csp-subscriptions"></a>CSP abonelikleri
 

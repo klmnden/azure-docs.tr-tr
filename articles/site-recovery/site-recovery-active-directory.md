@@ -5,57 +5,54 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/15/2017
+ms.date: 02/13/2018
 ms.author: manayar
-ms.openlocfilehash: 4ff42d5dc18a80e94ff81d3e4d9ed55533ad0e19
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Active Directory ve DNS korumak için Azure Site Recovery kullanma
-SharePoint, Dynamics AX ve SAP gibi kurumsal uygulamalar düzgün çalışması için Active Directory ve DNS altyapısı bağlıdır. Uygulamalar için bir olağanüstü durum kurtarma çözümü oluşturduğunuzda, doğru uygulama işlevselliği sağlamak için genellikle diğer uygulama bileşenleri kurtarmadan önce Active Directory ve DNS kurtarmak gerekir.
 
-Azure Site Recovery, Active Directory için bir tam, otomatik bir olağanüstü durum kurtarma planı oluşturmak için kullanabilirsiniz. Bir kesinti oluştuğunda yerden saniye içinde bir yük devretme başlatın. Active Directory'yi ayarlama ve birkaç dakika içinde çalışıyor olabilir. Birincil sitede birden çok uygulama için Active Directory dağıttıysanız, örneğin, SharePoint ve SAP, eksiksiz site vermesine istediğiniz. Site RECOVERY'yi kullanarak Active Directory başarısız olabilir. Ardından, uygulamaya özgü kurtarma planlarını kullanarak diğer uygulamalar başarısız.
+SharePoint, Dynamics AX ve SAP gibi kurumsal uygulamalar düzgün çalışması için Active Directory ve DNS altyapısı bağlıdır. Uygulamalar için olağanüstü durum kurtarma ayarladığınızda, genellikle doğru uygulama işlevselliği sağlamak için diğer uygulama bileşenleri kurtarmadan önce Active Directory ve DNS kurtarmak gerekir.
 
-Bu makalede Active Directory için bir olağanüstü durum kurtarma çözümü oluşturma açıklanmaktadır tek tıklatmayla kurtarma planı ve desteklenen yapılandırmalar ve önkoşullar kullanarak yük devretme işlemlerini gerçekleştirme. Başlamadan önce Active Directory ve Azure Site Recovery konusunda bilgi sahibi olmanız gerekir.
+Kullanabileceğiniz [Site Recovery](site-recovery-overview.md) Active Directory için bir olağanüstü durum kurtarma planı oluşturmak için. Bir kesinti oluştuğunda, bir yük devretme işlemi başlatabilirsiniz. Active Directory'yi ayarlama ve birkaç dakika içinde çalışıyor olabilir. Birincil sitede birden çok uygulama için Active Directory dağıttıysanız, örneğin, SharePoint ve SAP, eksiksiz site vermesine istediğiniz. Madde Kurtarma kullanarak Active Directory ilk başarısız olabilir. Ardından, uygulamaya özgü kurtarma planları kullanan diğer uygulamalar başarısız.
+
+Bu makalede, Active Directory için bir olağanüstü durum kurtarma çözümü oluşturma açıklanmaktadır. Önkoşullar ve yük devretme yönergeleri içerir. Başlamadan önce Active Directory ve Site kurtarma konusunda bilgi sahibi olmanız gerekir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Bir Microsoft Azure aboneliği Azure kurtarma Hizmetleri kasasına.
-* Azure'a çoğaltma yapıyorsanız [hazırlama](tutorial-prepare-azure.md) Azure kaynakları. Kaynakları bir Azure aboneliği, Azure sanal ağı örneği ve Azure storage hesabı içerir.
-* Tüm bileşenler için destek gereksinimlerini gözden geçirin.
+
+* Azure'a çoğaltma yapıyorsanız [Azure kaynaklarını hazırlama](tutorial-prepare-azure.md)bir abonelik, Azure sanal ağı, bir depolama hesabı ve bir kurtarma Hizmetleri kasası dahil olmak üzere.
+* Tüm bileşenler için [destek gereksinimlerini](site-recovery-support-matrix-to-azure.md) gözden geçirin.
 
 ## <a name="replicate-the-domain-controller"></a>Etki alanı denetleyicisi çoğaltma
 
-Bunu ayarlamanız gerekir [Site Recovery çoğaltma](#enable-protection-using-site-recovery) bir etki alanı denetleyicisi ya da DNS barındıran en az bir sanal makine üzerinde. Varsa [birden çok etki alanı denetleyicileri](#environment-with-multiple-domain-controllers) ortamınızda, bunu da ayarlamanız gerekir bir [ek etki alanı denetleyicisi](#protect-active-directory-with-active-directory-replication) hedef sitede. Ek etki alanı denetleyicisi azure'da veya bir ikincil şirket içi veri merkezinde olabilir.
+Bunu ayarlamanız gerekir [Site Recovery çoğaltma](#enable-protection-using-site-recovery), bir etki alanı denetleyicisi ya da DNS barındıran en az bir VM üzerinde. Varsa [birden çok etki alanı denetleyicileri](#environment-with-multiple-domain-controllers) ortamınızda, bunu da ayarlamanız gerekir bir [ek etki alanı denetleyicisi](#protect-active-directory-with-active-directory-replication) hedef sitede. Ek etki alanı denetleyicisi, Azure veya bir ikincil şirket içi veri merkezinde olabilir.
 
-### <a name="single-domain-controller-environments"></a>Tek etki alanı denetleyicisi ortamları
+### <a name="single-domain-controller"></a>Tek etki alanı denetleyicisi
 Yalnızca birkaç uygulamaları ve bir etki alanı denetleyicisi varsa, tüm site birlikte başarısız isteyebilirsiniz. Bu durumda, hedef siteye (veya azure'da bir ikincil şirket içi veri merkezinde) etki alanı denetleyicisi çoğaltmak için Site Recovery kullanmanızı öneririz. Aynı çoğaltılmış etki alanı denetleyicisi veya DNS sanal makine için kullanabileceğiniz [yük devretme sınamasını](#test-failover-considerations).
 
-### <a name="multiple-domain-controllers-environments"></a>Birden çok etki alanı denetleyicileri ortamları
+### <a name="multiple-domain-controllers"></a>Birden çok etki alanı denetleyicileri
 Ortamınızda çok sayıda uygulama ve birden fazla etki alanı denetleyicisi olması veya birkaç uygulamalar Site Recovery ile etki alanı denetleyicisi sanal makine çoğaltma için bir defada ayrıca başarısız. planlıyorsanız bir ayarlamanızıöneririz[ek etki alanı denetleyicisi](#protect-active-directory-with-active-directory-replication) hedef sitede (veya azure'da bir ikincil şirket içi veri merkezinde). İçin [yük devretme sınamasını](#test-failover-considerations), Site Recovery tarafından kopyalanan etki alanı denetleyicisini kullanabilirsiniz. Yük devretme için hedef sitede ek etki alanı denetleyicisini kullanabilirsiniz.
 
-## <a name="enable-protection-by-using-site-recovery"></a>Site RECOVERY'yi kullanarak korumayı etkinleştir
+## <a name="enable-protection-with-site-recovery"></a>Site Recovery ile korumayı etkinleştir
 
 Etki alanı denetleyicisi veya DNS barındıran sanal makineyi korumak için Site RECOVERY'yi kullanabilirsiniz.
 
-### <a name="protect-the-virtual-machine"></a>Sanal makine koru
+### <a name="protect-the-vm"></a>VM'yi koruma
 Site RECOVERY'yi kullanarak kopyalanan etki alanı denetleyicisi için kullanılan [yük devretme sınamasını](#test-failover-considerations). Aşağıdaki gereksinimleri karşıladığından emin olun:
 
 1. Bir genel katalog sunucusu etki alanı denetleyicisidir.
 2. Etki alanı denetleyicisi, yük devretme testi sırasında gerekli olan roller için FSMO rol sahibi olmalıdır. Aksi takdirde, bu rolleri olması gerekecektir [ele](http://aka.ms/ad_seize_fsmo) yük devretme sonrasında.
 
-### <a name="configure-virtual-machine-network-settings"></a>Sanal makine ağ ayarlarını yapılandırma
+### <a name="configure-vm-network-settings"></a>VM ağ ayarlarını yapılandırma
 Etki alanı denetleyicisi veya Site kurtarma hizmetinde DNS barındıran sanal makinenin altında ağ ayarlarını yapılandırma **işlem ve ağ** çoğaltılan sanal makinenin ayarlarını. Bu sanal makinenin yük devretme sonrasında doğru ağa bağlı sağlar.
 
-## <a name="protect-active-directory-with-active-directory-replication"></a>Active Directory Active Directory çoğaltma ile koruma
+## <a name="protect-active-directory"></a>Active Directory koruma
+
 ### <a name="site-to-site-protection"></a>Siteden siteye koruma
 İkincil sitede bir etki alanı denetleyicisi oluşturun. Bir etki alanı denetleyicisi rolünü sunucuya dağıttığınızda, birincil sitede kullanılan aynı etki alanının adını belirtin. Kullanabileceğiniz **Active Directory Siteleri ve Hizmetleri** siteler eklenir site bağlantı nesnesi ayarlarını yapılandırmak için ek bileşenini. Bir site bağlantısı ayarlarını yapılandırarak, iki veya daha fazla site ve ne sıklıkta oluştuğunu arasında çoğaltmanın ne zaman denetleyebilirsiniz. Daha fazla bilgi için bkz: [siteler arasında çoğaltma zamanlama](https://technet.microsoft.com/library/cc731862.aspx).
 
@@ -91,7 +88,7 @@ Birçok uygulama, bir etki alanı denetleyicisi veya bir DNS sunucusu bulunması
 
 ### <a name="test-failover-to-a-secondary-site"></a>İkincil siteye yük devretme sınaması
 
-1. Başka bir şirket içi siteye çoğaltma yapıyorsanız ve DHCP kullanıyorsanız, yönergeleri [DNS ve DHCP yük devretme sınaması için ayarlama](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp).
+1. Başka bir şirket içi siteye çoğaltma yapıyorsanız ve DHCP kullanıyorsanız [DNS ve DHCP yük devretme sınaması için ayarlama](hyper-v-vmm-test-failover.md#prepare-dhcp).
 2. Bir yük devretme testi yalıtılmış ağda çalışan etki alanı denetleyicisi sanal makine yapın. En son kullanılabilir kullanmak *uygulama tutarlı* yük devretme sınamasını yapmak için etki alanı denetleyicisi sanal makinenin kurtarma noktası.
 3. Bir yük devretme sınaması için uygulamanın çalıştığı sanal makineler içeren kurtarma planı çalıştırın.
 4. Test tamamlandığında, *yük devretme sınaması Temizleme* etki alanı denetleyicisi sanal makine üzerinde. Bu adım, yük devretme sınaması için oluşturulan etki alanı denetleyicisi siler.

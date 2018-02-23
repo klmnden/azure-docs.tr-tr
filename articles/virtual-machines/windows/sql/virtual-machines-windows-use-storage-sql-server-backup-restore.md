@@ -4,7 +4,7 @@ description: "Azure Storage için SQL Server'ı Yedekle öğrenin. Azure depolam
 services: virtual-machines-windows
 documentationcenter: 
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39d4f452143454a345bd91f550e44c93651ff933
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server Yedekleme ve geri yükleme için Azure Storage kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -48,9 +48,9 @@ Aşağıdaki Azure bileşenleri Azure Blob Depolama hizmetine yedekleme yapılı
 
 | Bileşen | Açıklama |
 | --- | --- |
-| **Depolama hesabı** |Depolama hesabı, tüm depolama hizmetleri için başlangıç noktasıdır. Bir Azure Blob Storage hizmetine erişmek için ilk Azure Storage hesabı oluşturun. Azure Blob Depolama hizmeti hakkında daha fazla bilgi için bkz: [Azure Blob Depolama hizmetini kullanma](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
-| **Kapsayıcı** |Bir kapsayıcı gruplandırma BLOB'lar kümesinin sağlar ve sınırsız sayıda BLOB depolayabilirsiniz. Bir SQL Server yazmak için bir Azure Blob hizmetine yedekleme, en az oluşturulan kök kapsayıcı olmalıdır. |
-| **BLOB** |Bir dosya türü ve boyutu. BLOB'ları şu URL biçimi kullanılarak adreslenebilir: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Sayfa Bloblarını hakkında daha fazla bilgi için bkz: [anlama blok ve sayfa BLOB'ları](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Depolama Hesabı** |Depolama hesabı, tüm depolama hizmetleri için başlangıç noktasıdır. Bir Azure Blob Storage hizmetine erişmek için ilk Azure Storage hesabı oluşturun. Azure Blob Depolama hizmeti hakkında daha fazla bilgi için bkz: [Azure Blob Depolama hizmetini kullanma](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
+| kapsayıcı |Bir kapsayıcı gruplandırma BLOB'lar kümesinin sağlar ve sınırsız sayıda BLOB depolayabilirsiniz. Bir SQL Server yazmak için bir Azure Blob hizmetine yedekleme, en az oluşturulan kök kapsayıcı olmalıdır. |
+| **Blob** |Bir dosya türü ve boyutu. BLOB'ları şu URL biçimi kullanılarak adreslenebilir: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Sayfa Bloblarını hakkında daha fazla bilgi için bkz: [anlama blok ve sayfa BLOB'ları](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>SQL Server bileşenleri
 Aşağıdaki SQL Server bileşenleri, Azure Blob Depolama hizmetine yedekleme yapılırken kullanılır.
@@ -58,7 +58,7 @@ Aşağıdaki SQL Server bileşenleri, Azure Blob Depolama hizmetine yedekleme ya
 | Bileşen | Açıklama |
 | --- | --- |
 | **URL** |Tekdüzen Kaynak Tanımlayıcısı (URI) benzersiz bir yedekleme dosyası için bir URL belirtir. URL, SQL Server Yedekleme dosyasının adını ve konumunu sağlamak için kullanılır. URL, gerçek bir blob, yalnızca bir kapsayıcı işaret etmelidir. Blob mevcut değilse oluşturulur. Bir blob belirtilirse, yedekleme başarısız olursa, sürece > WITH FORMAT seçeneği belirtildi. Belirttiğiniz yedekleme komutta URL örneği aşağıda verilmiştir: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS önerilir ancak gerekli değildir. |
-| **Kimlik bilgisi** |Ve Azure Blob Depolama hizmeti için kimlik doğrulaması için gereken bilgiler bir kimlik bilgisi olarak depolanır.  SQL Server'ın yedeklemeler için bir Azure Blob veya geri yükleme ondan yazmak için sırayla bir SQL Server kimlik bilgisi oluşturulmalıdır. Daha fazla bilgi için bkz: [SQL Server kimlik bilgisi](https://msdn.microsoft.com/library/ms189522.aspx). |
+| **kimlik bilgisi** |Ve Azure Blob Depolama hizmeti için kimlik doğrulaması için gereken bilgiler bir kimlik bilgisi olarak depolanır.  SQL Server'ın yedeklemeler için bir Azure Blob veya geri yükleme ondan yazmak için sırayla bir SQL Server kimlik bilgisi oluşturulmalıdır. Daha fazla bilgi için bkz: [SQL Server kimlik bilgisi](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]
 > Kopyalayın ve bir yedekleme dosyası Azure Blob Depolama hizmetine yüklemek isterseniz, bu dosya geri yükleme işlemleri için kullanmayı planlıyorsanız, depolama seçeneği olarak sayfa blob türü kullanmanız gerekir. Bir blok blobu türü geri yükleme, bir hata ile başarısız olur.

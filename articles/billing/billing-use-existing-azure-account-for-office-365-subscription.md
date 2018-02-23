@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: cd6103924571ea6fee0cb1e696884a6106082d7a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 8279bc2ba2032ee40d24ddb1f7f23e2725e56e7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Bir Office 365 aboneliğine Azure hesabınızla kaydolun
 Azure abone değilseniz, bir Office 365 aboneliği için kaydolmak için Azure hesabınızı kullanabilirsiniz. Bir Azure aboneliğine sahip kuruluş parçası sizseniz, mevcut Azure Active Directory'de (Azure AD) kullanıcıları için Office 365 abonelikleri oluşturabilirsiniz. Azure Active Directory kiracınızda genel yönetici veya faturalama yönetici izinlerine sahip bir hesabı kullanarak Office 365 için kaydolun. Daha fazla bilgi için bkz: [Azure AD'de my hesap izinlerini denetlemek](#RoleInAzureAD) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
@@ -53,7 +53,7 @@ Kaydolduktan sonra Office 365 aboneliğine Azure aboneliğinize ait aynı Azure 
 
 ## <a id="RoleInAzureAD"></a>Azure AD'de hesabı izinlerimi denetleyin
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Tıklatın **daha fazla hizmet**, arayın ve sonra **Active Directory**.
+2. Tıklatın **tüm hizmetleri**, arayın ve sonra **Active Directory**.
 
     ![Ekran görüntüsü, Active Directory'de Azure portalı](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Tıklatın **kullanıcılar ve gruplar** > **tüm kullanıcılar**.

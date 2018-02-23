@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: b2fc8a622549a9858c6c769a7e648fe07a3d01c1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Azure CLI kullanarak bir sanal ağ oluşturma
 
@@ -70,7 +70,7 @@ Bilgileri başka bir kısmını döndürülen **addressPrefix** , *10.0.0.0/24* 
 
 Bir sanal ağ çeşitli özel olarak birbirleri ile iletişim kurmak için Azure kaynaklarını sağlar. Tek bir sanal ağa dağıttığınız kaynak türü, bir sanal makinedir. Doğrulayın ve daha sonraki bir adımda bir sanal ağdaki sanal makineler arasındaki iletişimi nasıl çalıştığını anlamak için iki sanal makineye sanal ağ oluşturun.
 
-Bir sanal makine oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. Aşağıdaki örnek, bir sanal makine adlı oluşturur *myVm1*. SSH anahtarları varsayılan anahtar konumunda zaten mevcut değilse komutu bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. `--no-wait` Seçeneği bir sonraki adıma devam etmek için bu sanal makine arka planda oluşturur.
+[az vm create](/cli/azure/vm#az_vm_create) komutuyla bir sanal makine oluşturun. Aşağıdaki örnek, bir sanal makine adlı oluşturur *myVm1*. SSH anahtarları varsayılan anahtar konumunda zaten mevcut değilse komutu bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. `--no-wait` Seçeneği bir sonraki adıma devam etmek için bu sanal makine arka planda oluşturur.
 
 ```azurecli-interactive 
 az vm create \
@@ -81,7 +81,7 @@ az vm create \
   --no-wait
 ```
 
-Azure sanal makine otomatik olarak oluşturduğu *varsayılan* alt *myVirtualNetwork* sanal ağ, kaynak grubu ve sanal ağ sanal ağı var olduğundan veya alt ağ komutunda belirtilmedi. Azure DHCP otomatik olarak atanmış 10.0.0.4 sanal makine oluşturma sırasında listedeki ilk kullanılabilir adres olduğundan *varsayılan* alt ağ. Bir sanal makine oluşturulur konumu sanal ağ içinde aynı konumda olmalıdır. Bu makalede olmasına rağmen sanal makinenin sanal makine ile aynı kaynak grubunda olması gerekli değildir.
+Azure sanal makine otomatik olarak oluşturduğu *varsayılan* alt *myVirtualNetwork* sanal ağ, kaynak grubu ve sanal ağ sanal ağı var olduğundan veya alt ağ komutunda belirtilmedi. Azure DHCP otomatik olarak atanmış 10.0.0.4 sanal makine oluşturma sırasında listedeki ilk kullanılabilir adres olduğundan *varsayılan* alt ağ. Bir sanal makine oluşturulur konumu sanal ağ içinde aynı konumda olmalıdır. Bu makalede olmasına rağmen sanal makinenin sanal ağ ile aynı kaynak grubunda olması gerekli değildir.
 
 İkinci bir sanal makine oluşturun. Varsayılan olarak, Azure da bu sanal makine oluşturur *varsayılan* alt ağ.
 

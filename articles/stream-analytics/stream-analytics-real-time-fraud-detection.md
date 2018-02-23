@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -61,7 +61,7 @@ Bir veri akışı çözümlemek için *alma* Azure içine. Veri alma için tipik
 ### <a name="create-a-namespace-and-event-hub"></a>Bir ad alanı ve olay hub'ı Oluştur
 Bu yordamda, önce bir olay hub'ad alanı oluşturun ve ardından bir event hub bu ad alanına ekleyin. Olay hub'ı ad alanları, ilgili olay bus örneklerini mantıksal olarak gruplamak için kullanılır. 
 
-1. Azure portalında oturum açın ve tıklatın **yeni** > **nesnelerin interneti** > **olay hub'ı**. 
+1. Azure portalında oturum açın ve tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **olay hub'ı**. 
 
 2. İçinde **ad alanı oluşturma** bölmesinde gibi bir ad alanı adı girin `<yourname>-eh-ns-demo`. Ad alanı için herhangi bir ad kullanabilirsiniz, ancak ad geçerli bir URL olmalıdır ve Azure arasında benzersiz olması gerekir. 
     
@@ -149,7 +149,7 @@ TelcoGenerator uygulama başlamadan önce böylece çağrısı kayıtları oluş
 
 Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlardan bazıları şunlardır:
 
-|Kayıt|Tanımı|
+|**Kayıt**|Tanımı|
 |----------|--------------|
 |`CallrecTime`|Arama için zaman damgası başlangıç saati. |
 |`SwitchNum`|Çağrı bağlanmak için kullanılan telefon anahtarı. Bu örnekte, anahtarlar ülkeyi (ABD, Çin, İngiltere, Almanya veya Avustralya) temsil eden dizeleri şunlardır. |
@@ -165,7 +165,7 @@ Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlar
 
 ### <a name="create-the-job"></a>Proje oluşturma 
 
-1. Azure portalında tıklatın **yeni** > **nesnelerin interneti** > **Stream Analytics işi**.
+1. Azure portalında tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **Stream Analytics işi**.
 
 2. İş adı `sa_frauddetection_job_demo`, abonelik, kaynak grubunu ve konumu belirtin.
 

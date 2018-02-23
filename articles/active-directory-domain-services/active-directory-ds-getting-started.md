@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 16b206b97f71eeffbb4fddb9e447649034998672
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
 Bu makalede, Azure Active Directory etki alanı Azure portalını kullanarak hizmetlerin (Azure AD DS) nasıl etkinleştirileceği gösterilmektedir.
@@ -26,7 +26,7 @@ Bu makalede, Azure Active Directory etki alanı Azure portalını kullanarak hiz
 Başlatmak için **etkinleştirmek Azure AD etki alanı Hizmetleri** Sihirbazı, aşağıdaki adımları tamamlayın:
 
 1. [Azure Portal](https://portal.azure.com) gidin.
-2. Sol bölmede tıklayın **yeni**.
+2. Sol bölmede **kaynak oluşturma**.
 3. İçinde **yeni** sayfasında, **etki alanı Hizmetleri** arama çubuğunu içine.
 
     ![Etki Alanı Hizmetleri için arama](./media/getting-started/search-domain-services.png)

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 63fdd5a5dabdd9083afa23e5400684b3b144b911
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8973c3289c5b17c03166c09db821e299d50f2f9c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Öğretici: Azure Active Directory Tümleştirme FloQast ile
 
@@ -106,22 +106,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![FloQast etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.floqast.com/`
-
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.floqast.com/api/sso/saml/azure`
+     İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `https://go.floqast.com/`
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
     ![FloQast etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.floqast.com/login/sso`
+     İçinde **oturum açma URL'si** metin kutusuna, bir URL yazın: `https://go.floqast.com/login/sso`
      
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [FloQast istemci destek ekibi](mailto:support@floqast.com) bu değerleri almak için.
-
 5. FloQast uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
     
-    ![Çoklu oturum açma attb yapılandırın](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
+    ![Çoklu oturum açma özniteliği yapılandırın](./media/active-directory-saas-floqast-tutorial/tutorial_floqast_attribute.png)
     
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
@@ -241,8 +236,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

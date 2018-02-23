@@ -4,7 +4,7 @@ description: "Bu öğretici Klasik dağıtım modeliyle oluşturulan kaynakları
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Azure için şirket içi Always On kullanılabilirlik grupları genişletme
 Always On kullanılabilirlik grupları ikincil çoğaltmaları ekleyerek veritabanının grupları için yüksek kullanılabilirlik sağlar. Bu çoğaltmalar izin arıza durumunda veritabanlarını yük devrediliyor. Buna ek olarak, okuma iş yükleri veya yedekleme görevlerini boşaltmak için kullanılabilir.
@@ -58,7 +58,7 @@ Bu bölümde, nasıl kullanılacağını gösterir **Azure çoğaltma Ekleme Sih
    | Ayar | Açıklama |
    | --- | --- |
    | **Görüntü** |İşletim sistemi ve SQL Server istenen birleşimi seçin |
-   | **VM boyutu** |İş gereksinimlerinize en uygun VM boyutunu seçin |
+   | VM boyutu |İş gereksinimlerinize en uygun VM boyutunu seçin |
    | **VM adı** |Yeni VM için benzersiz bir ad belirtin. Adı gerekir 3 ile 15 karakter arasında içeren, yalnızca harf, rakam ve tire içerebilir ve gerekir bir harfle başlamalı ve harf veya sayı ile bitmelidir. |
    | **VM kullanıcı adı** |VM üzerinde yönetici hesabı olacaktır bir kullanıcı adı belirtin |
    | **VM yönetici parolası** |Yeni hesap için bir parola belirtin |

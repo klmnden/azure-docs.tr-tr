@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure akış analizi ve Azure Machine Learning kullanarak düşünceleri analiz gerçekleştirme
 Bu makalede, Azure Machine Learning tümleştiren basit bir Azure akış analizi işi hızlı bir şekilde ayarlamak açıklar. Machine Learning düşünceleri analiz modeli Cortana Intelligence Galeriden akış metin verileri çözümlemek ve gerçek zamanlı düşünceleri puan belirlemek için kullanın. Cortana Intelligence Suite kullanarak düşünceleri analiz modeli oluşturmanın ayrıntılı olarak incelenmektedir hakkında endişelenmeden bu görevi gerçekleştirirken olanak sağlar.
@@ -41,7 +41,7 @@ Aşağıdaki şekilde, bu yapılandırma gösterilmektedir. Belirtilenler daha g
 
 ![Stream Analytics Machine Learning tümleştirmesine genel bakış](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure aboneliği.
@@ -57,7 +57,7 @@ Yüksek düzeyde, bu makalede gösterilen görevleri tamamlamak için aşağıda
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Depolama kapsayıcısı oluşturun ve CSV giriş dosyasını karşıya yükle
 Bu adım için Github'da kullanılabilir bir gibi herhangi bir CSV dosyası kullanabilirsiniz.
 
-1. Azure portalında tıklatın **yeni** &gt; **depolama** &gt; **depolama hesabı**.
+1. Azure portalında tıklatın **kaynak oluşturma** &gt; **depolama** &gt; **depolama hesabı**.
 
    ![Yeni depolama hesabı oluştur](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ Artık blob depolamada CSV dosyasından örnek tweet'leri okuyan akış analizi 
 
 1. [Azure Portal](https://portal.azure.com) gidin.  
 
-2. Tıklatın **yeni** > **nesnelerin interneti** > **Stream Analytics işi**. 
+2. Tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **Stream Analytics işi**. 
 
    ![Yeni bir akış analizi işi almak için azure portal yolu](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    
@@ -160,7 +160,7 @@ Artık blob depolamada CSV dosyasından örnek tweet'leri okuyan akış analizi 
 
     ![Yeni iş girişi için ayarlar](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. **Oluştur**'a tıklayın.
+4. **Oluştur**’a tıklayın.
 
 ### <a name="configure-the-job-output"></a>İş çıktısı yapılandırın
 İş yeri giriş sonuçları aynı blob depolama alanına gönderir. 
@@ -179,7 +179,7 @@ Artık blob depolamada CSV dosyasından örnek tweet'leri okuyan akış analizi 
 
    ![Yeni iş çıktısı için ayarları](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. **Oluştur**'a tıklayın.   
+4. **Oluştur**’a tıklayın.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Machine Learning işlevi ekleme 
@@ -204,7 +204,7 @@ Daha önce bir web hizmetine bir Machine Learning modeli yayımladı. Akış ana
   
     ![Machine Learning işlevi Stream Analytics işi eklemek için ayarlar](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. **Oluştur**'a tıklayın.
+5. **Oluştur**’a tıklayın.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Verileri dönüştürmek için bir sorgu oluşturun
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: a51ba4b45b7f6c72037d5c562a4ccd59e601cee4
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler ile BT Hizmet Yönetimi Bağlayıcısı Bağlan
 Bu makalede, iş öğelerini merkezi olarak yönetmek için günlük analizi içinde ITSM Ürün/hizmet ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantı yapılandırma hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
@@ -185,11 +185,12 @@ Aşağıdaki bölümler, azure'da ITSMC ServiceNow ürününüzü bağlanmak nas
 ### <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki önkoşulların karşılandığından emin olun:
 - Yüklü ITSMC. Daha fazla bilgi: [BT Hizmet Yönetimi Bağlayıcısı çözümünü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow desteklenen sürümler: Cakarta, Istanbul, Helsinki, Geneva
+- ServiceNow desteklenen sürümler: Kingston, Cakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow yöneticileri kendi ServiceNow örneği şunları yapması gerekir**:
 - İstemci kimliği ve ServiceNow ürün için istemci parolası oluşturur. İstemci kimliği ve parolası oluşturma hakkında daha fazla bilgi için aşağıdaki bilgileri gerektiği gibi bakın:
 
+    - [OAuth Kingston için ayarlama](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
     - [OAuth Cakarta için ayarlama](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth Istanbul için ayarlama](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth Helsinki için ayarlama](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -199,7 +200,7 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
 - Microsoft OMS tümleştirme (ServiceNow uygulama) için kullanıcı uygulamasını yükleyin. [Daha fazla bilgi edinin](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Yüklenen kullanıcı uygulaması için tümleştirme kullanıcı rolü oluşturun. Tümleştirme kullanıcı rolü oluşturma konusunda bilgiler [burada](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>**Bağlantı yordamı**
+### <a name="connection-procedure"></a>Bağlantı yordamı
 ServiceNow bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 

@@ -15,11 +15,11 @@ ms.date: 01/30/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 520a52161438c967b7614ab01b2e9892612254f0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
 Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve hizmetlere atanmış aşağıdaki yerleşik rolleri ile birlikte gelir. Yerleşik rol tanımlarını değiştiremezsiniz. Ancak, oluşturabileceğiniz [Azure rbac'de özel roller](role-based-access-control-custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
@@ -61,9 +61,8 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [Okuyucu izleme](#monitoring-reader) |Tüm izleme verileri okuyabilir |
 | [Katkıda bulunan izleme](#monitoring-contributor) |İzleme verileri okuyabilir ve izleme ayarlarını Düzenle |
 | [Ağ Katılımcısı](#network-contributor) |Tüm ağ kaynakları yönetebilir |
-| [Yeni Relic APM hesap katkıda bulunan](#new-relic-apm-account-contributor) |Yeni Relic uygulama performans yönetim hesaplarının ve uygulamaların yönetebilirsiniz |
 | [Sahibi](#owner) |Erişim dahil her şeyi yönetebilir |
-| [Okuyucu](#reader) |Her şeyi görüntüleyebilir ancak değişiklik yapamaz |
+| [Reader](#reader) |Her şeyi görüntüleyebilir ancak değişiklik yapamaz |
 | [Redis önbelleği katkıda bulunan](#redis-cache-contributor) |Redis önbellekleri yönetebilirsiniz. |
 | [Zamanlayıcı İş koleksiyonları katkıda bulunan](#scheduler-job-collections-contributor) |Zamanlayıcı İş koleksiyonları yönetebilir |
 | [Arama hizmeti katkıda bulunan](#search-service-contributor) |Arama Hizmetleri yönetebilir. |
@@ -71,8 +70,8 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [Güvenlik Yöneticisi](#security-manager) | Güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilirsiniz |
 | [Güvenlik okuyucusu](#security-reader) | Yalnızca Güvenlik Merkezi'nde: önerileri ve uyarılar, güvenlik ilkeleri, güvenlik durumları görüntüleyebilir ancak değişiklik yapamaz görünümü görüntüleyebilirsiniz |
 | [Site kurtarma katkıda bulunan](#site-recovery-contributor) | Site Recovery kurtarma Hizmetleri kasasına yönetebilirsiniz |
-| [Site kurtarma işleci](#site-recovery-operator) | Yük devretme ve yeniden çalışma işlemlerini Site Recovery kurtarma Hizmetleri kasasına yönetebilirsiniz |
-| [Site kurtarma okuyucusu](#site-recovery-reader) | Tüm Site Recovery yönetim işlemlerinin görüntüleyebilirsiniz  |
+| [Site Recovery Operator](#site-recovery-operator) | Yük devretme ve yeniden çalışma işlemlerini Site Recovery kurtarma Hizmetleri kasasına yönetebilirsiniz |
+| [Site Recovery Reader](#site-recovery-reader) | Tüm Site Recovery yönetim işlemlerinin görüntüleyebilirsiniz  |
 | [SQL DB Katılımcısı](#sql-db-contributor) |SQL veritabanları, ancak değil güvenlikle ilgili ilkelerini yönetebilirsiniz. |
 | [SQL Güvenlik Yöneticisi](#sql-security-manager) |SQL sunucularının ve veritabanlarının güvenlikle ilgili ilkelerini yönetebilirsiniz |
 | [SQL Server katkıda bulunan](#sql-server-contributor) |SQL sunucuları ve veritabanları, ancak değil güvenlikle ilgili ilkelerini yönetebilirsiniz. |
@@ -299,7 +298,7 @@ ClearDB MySQL veritabanları yönetebilirsiniz
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
-| successbricks.cleardb/Databases/* |Oluşturma ve ClearDB MySQL veritabanları yönetme |
+| successbricks.cleardb/databases/* |Oluşturma ve ClearDB MySQL veritabanları yönetme |
 
 ### <a name="contributor"></a>Katılımcı
 Erişim dışında her şeyi yönetebilir
@@ -308,7 +307,7 @@ Erişim dışında her şeyi yönetebilir
 | --- | --- |
 | * |Oluşturma ve tüm türlerinin kaynakları yönetme |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Rolleri ve rol atamalarını silinemiyor |
 | Microsoft.Authorization/*/Write |Rolleri ve rol atamalarını oluşturulamıyor |
@@ -441,19 +440,6 @@ Tüm ağ kaynakları yönetebilir
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="new-relic-apm-account-contributor"></a>New Relic APM Hesap Katılımcısı
-Yeni Relic uygulama performans yönetim hesaplarının ve uygulamaların yönetebilirsiniz
-
-| **Eylemler** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
-| Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
-| Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
-| Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
-| NewRelic.APM/accounts/* |New Relic uygulama performans yönetim hesapları oluşturma ve yönetme |
-
 ### <a name="owner"></a>Sahip
 Erişim dahil her şeyi yönetebilir
 
@@ -563,7 +549,7 @@ Kurtarma Hizmetleri kasası oluşturma ve diğer kullanıcılara erişim haklar�
 | Microsoft.RecoveryServices/Vaults/certificates/write | Kasa kimlik bilgileri sertifikası güncelleştirir |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Oluşturma ve kasa ilgili genişletilmiş bilgilerini yönetme |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Kurtarma Hizmetleri kasası için uyarıları okuma |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/okuma  | Okuma kurtarma Hizmetleri kasası bildirim yapılandırması |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Okuma kurtarma Hizmetleri kasası bildirim yapılandırması |
 | Microsoft.RecoveryServices/Vaults/read | Okuma kurtarma Hizmetleri kasaları |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Yeni kapsayıcıları oluşturulan getirme için bulma işlemini yönetme |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Oluşturma ve kayıtlı kimlikleri yönetme |
@@ -592,7 +578,7 @@ Yük devretme ve yeniden çalışma ancak diğer Site Recovery yönetim eylemler
 | Microsoft.Network/virtualNetworks/read | Sanal ağlar okuma |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read | Kasa için ilgili bilgileri Genişletilmiş okuma |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Kurtarma Hizmetleri kasası için uyarıları okuma |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/okuma  | Okuma kurtarma Hizmetleri kasası bildirim yapılandırması |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Okuma kurtarma Hizmetleri kasası bildirim yapılandırması |
 | Microsoft.RecoveryServices/Vaults/read | Okuma kurtarma Hizmetleri kasaları |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Yeni kapsayıcıları oluşturulan getirme için bulma işlemini yönetme |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | İşlem durumunu ve gönderilen bir işlemin sonucu okuyun |
@@ -601,38 +587,38 @@ Yük devretme ve yeniden çalışma ancak diğer Site Recovery yönetim eylemler
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Çoğaltma olayları okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Yapılar, tutarlılık denetimi |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Okuma çoğaltma yapıları |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/eylem | Çoğaltma ağ geçidi yeniden ilişkilendirin |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/action | Çoğaltma ağ geçidi yeniden ilişkilendirin |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Çoğaltma yapı sertifikasını Yenile |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Çoğaltma doku ağları okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/okuma | Okuma çoğaltma doku ağ eşlemesi |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/okuma | Koruma kapsayıcıları okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/okuma | Tüm korunabilir öğe listesini al |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/eylem | Belirli bir kurtarma noktasını Uygula |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/failoverCommit/eylem | Yük devretme başarısız için Yürüt öğe üzerinde |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/plannedFailover/eylem | Korumalı bir öğe için planlanan yük devretme başlatın |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/okuma | Tüm korumalı öğelerin listesini al |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/okuma | Kullanılabilir kurtarma noktaları listesini al |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/repairReplication/eylem | Korumalı bir öğe için onarım çoğaltma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/yeniden koruma/eylem | Yeniden korumak için korumalı bir öğe Başlat|
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/eylem | Korumalı bir öğe yük devretme Testi Başlat |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/eylem | Yük devretme testi temizlenmesi Başlat |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/eylem | Korumalı bir öğe planlanmamış yük devretme başlatın |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/eylem | Mobility hizmeti güncelleştirmesi |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/okuma | Koruma kapsayıcısı eşlemeleri okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/okuma | Okuma kurtarma Hizmetleri sağlayıcıları |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/eylem | Kurtarma Hizmetleri sağlayıcısını yenileyin |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/okuma | Çoğaltma yapıları için depolama sınıfların okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/okuma | Depolama sınıflandırma eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Okuma çoğaltma doku ağ eşlemesi |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Koruma kapsayıcıları okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Tüm korunabilir öğe listesini al |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ applyRecoveryPoint/action | Belirli bir kurtarma noktasını Uygula |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ failoverCommit/action | Yük devretme başarısız için Yürüt öğe üzerinde |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ plannedFailover/action | Korumalı bir öğe için planlanan yük devretme başlatın |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Tüm korumalı öğelerin listesini al |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Kullanılabilir kurtarma noktaları listesini al |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ repairReplication/action | Korumalı bir öğe için onarım çoğaltma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/reProtect/action | Yeniden korumak için korumalı bir öğe Başlat|
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/action | Korumalı bir öğe yük devretme Testi Başlat |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ testFailoverCleanup/action | Yük devretme testi temizlenmesi Başlat |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ unplannedFailover/action | Korumalı bir öğe planlanmamış yük devretme başlatın |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ updateMobilityService/action | Mobility hizmeti güncelleştirmesi |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Koruma kapsayıcısı eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Okuma kurtarma Hizmetleri sağlayıcıları |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/action | Kurtarma Hizmetleri sağlayıcısını yenileyin |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Çoğaltma yapıları için depolama sınıfların okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Depolama sınıflandırma eşlemeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | VCenter bilgileri okuma kayıtlı |
 | Microsoft.RecoveryServices/vaults/replicationJobs/* | Çoğaltma işleri oluşturmak ve yönetmek |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Çoğaltma İlkesi okuma |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ failoverCommit/eylem | Kurtarma planı yük devretme için yük devretme Yürüt |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ plannedFailover/eylem | Bir kurtarma planı yük devretme başlatın |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ failoverCommit/action | Kurtarma planı yük devretme için yük devretme Yürüt |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ plannedFailover/action | Bir kurtarma planı yük devretme başlatın |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Kurtarma planları okuma |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Yeniden koruma, Kurtarma planının Başlat |
 | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Bir kurtarma planı yük devretme Testi Başlat |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ testFailoverCleanup/eylem | Bir kurtarma planı yük devretme testi temizlenmesi Başlat |
-| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ unplannedFailover/eylem | Bir kurtarma planı planlanmamış yük devretme başlatın |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ testFailoverCleanup/action | Bir kurtarma planı yük devretme testi temizlenmesi Başlat |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ unplannedFailover/action | Bir kurtarma planı planlanmamış yük devretme başlatın |
 | Microsoft.RecoveryServices/Vaults/storageConfig/read | Kurtarma Hizmetleri kasası depolama yapılandırmasını okuma |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Okuma kurtarma Hizmetleri kasası belirteç bilgileri |
 | Microsoft.RecoveryServices/Vaults/usages/read | Kurtarma Hizmetleri kasası kullanım ayrıntılarını okuyun |
@@ -650,7 +636,7 @@ Kurtarma Hizmetleri kasası Site kurtarma durumunu izleyebilir ve Destek biletle
 | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Kasa için ilgili bilgileri Genişletilmiş okuma |
 | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Kurtarma Hizmetleri kasası için uyarıları okuma |
-| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/okuma  | Okuma kurtarma Hizmetleri kasası bildirim yapılandırması |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Okuma kurtarma Hizmetleri kasası bildirim yapılandırması |
 | Microsoft.RecoveryServices/Vaults/read  | Okuma kurtarma Hizmetleri kasaları |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Yeni kapsayıcıları oluşturulan getirme için bulma işlemini yönetme |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | İşlem durumunu ve gönderilen bir işlemin sonucu okuyun |
@@ -659,15 +645,15 @@ Kurtarma Hizmetleri kasası Site kurtarma durumunu izleyebilir ve Destek biletle
 | Microsoft.RecoveryServices/vaults/replicationEvents/read  | Çoğaltma olayları okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read  | Okuma çoğaltma yapıları |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read  | Çoğaltma doku ağları okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/okuma  | Okuma çoğaltma doku ağ eşlemesi |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/okuma  |  Koruma kapsayıcıları okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/okuma  | Tüm korunabilir öğe listesini al |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/okuma  | Tüm korumalı öğelerin listesini al |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/okuma  | Kullanılabilir kurtarma noktaları listesini al |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/okuma  | Koruma kapsayıcısı eşlemeleri okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/okuma  | Okuma kurtarma Hizmetleri sağlayıcıları |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/okuma  | Çoğaltma yapıları için depolama sınıfların okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/okuma  |  Depolama sınıflandırma eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read  | Okuma çoğaltma doku ağ eşlemesi |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read  |  Koruma kapsayıcıları okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read  | Tüm korunabilir öğe listesini al |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read  | Tüm korumalı öğelerin listesini al |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read  | Kullanılabilir kurtarma noktaları listesini al |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read  | Koruma kapsayıcısı eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read  | Okuma kurtarma Hizmetleri sağlayıcıları |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read  | Çoğaltma yapıları için depolama sınıfların okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read  |  Depolama sınıflandırma eşlemeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read  |  VCenter bilgileri okuma kayıtlı |
 | Microsoft.RecoveryServices/vaults/replicationJobs/read  |  Çoğaltma işlerin durumunu okuma |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read  |  Çoğaltma İlkesi okuma |
@@ -691,7 +677,7 @@ SQL veritabanları ancak değil güvenlikle ilgili ilkelerini yönetebilirsiniz.
 | Microsoft.Sql/servers/read |SQL Server'lar okuma |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Denetim ilkeleri düzenleyemezsiniz |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Denetim ayarlarını düzenleyemezsiniz |
@@ -741,7 +727,7 @@ SQL sunucuları ve veritabanları ancak değil güvenlikle ilgili ilkelerini yö
 | Microsoft.Sql/servers/* |Oluşturun ve SQL sunucularını yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-| **NotActions** |  |
+| NotActions |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |SQL server denetim ilkeleri düzenleyemezsiniz |
 | Microsoft.Sql/servers/auditingSettings/* |SQL server denetim ayarları düzenleyemezsiniz |

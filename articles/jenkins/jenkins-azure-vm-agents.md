@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Azure VM aracılarla talebi karşılamak üzere Jenkins dağıtımlarınızı ölçeklendirme
 
@@ -33,10 +33,10 @@ Bu öğreticide şunları yapacaksınız:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bir Azure aboneliği
-* Jenkins ana sunucu. Yoksa, görüntülemek [Hızlı Başlangıç](install-jenkins-solution-template.md) Azure birinde ayarlamak için.
+* A Jenkins master server. Yoksa, görüntülemek [Hızlı Başlangıç](install-jenkins-solution-template.md) Azure birinde ayarlamak için.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -91,7 +91,7 @@ Bu öğreticide şunları yapacaksınız:
             }
      ```
 
-    Tamamlanmış hizmet sorumlusu kullanması gereken `id` alanındaki **abonelik kimliği**, `appId` değerini **istemci kimliği**, `password` için **gizli**ve bir URL **OAuth 2.0 belirteç uç noktası** , `https://login.windows.net/<tenant_value>`. Seçin **Ekle** hizmet sorumlusu ekleyin ve ardından yeni oluşturulan kimlik bilgisi kullanmak için eklentiyi yapılandırmak için.
+    Tamamlanmış hizmet sorumlusu kullanması gereken `id` alanındaki **abonelik kimliği**, `appId` değerini **istemci kimliği**, `password` için **gizli**, ve `tenant` için **Kiracı kimliği**. Seçin **Ekle** hizmet sorumlusu ekleyin ve ardından yeni oluşturulan kimlik bilgisi kullanmak için eklentiyi yapılandırmak için.
 
     ![Azure hizmet sorumlusu yapılandırın](./media/jenkins-azure-vm-agents/new-service-principal.png)
 
@@ -130,7 +130,7 @@ Seçin **doğrulayın şablonu** yapılandırmasını doğrulayın ve ardından 
 2. Girin `demoproject1` seçin ve ad için **Serbest stilde proje**seçeneğini belirleyip **Tamam**.
 3. İçinde **genel** sekmesinde, seçin **burada proje çalıştırılabilir sınırla** ve türü `ubuntu` içinde **etiket ifadesi**. Etiket önceki adımda oluşturduğunuz Bulutu yapılandırması tarafından sunulan onaylayan bir ileti görür. 
    ![İş ayarlayın](./media/jenkins-azure-vm-agents/job-config.png)
-4. İçinde **kaynak kodu Yönetimi** sekmesine **Git** ve aşağıdaki URL'yi içine ekleyin **depo URL'si** alan:`https://github.com/spring-projects/spring-petclinic.git`
+4. İçinde **kaynak kodu Yönetimi** sekmesine **Git** ve aşağıdaki URL'yi içine ekleyin **depo URL'si** alan: `https://github.com/spring-projects/spring-petclinic.git`
 5. İçinde **yapı** sekmesine **Ekle derleme adımı**, ardından **en üst düzey Maven hedefleri çağırma**. Girin `package` içinde **hedefleri** alan.
 6. Seçin **kaydetmek** iş tanımı kaydetmek için.
 

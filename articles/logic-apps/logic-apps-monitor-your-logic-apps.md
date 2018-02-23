@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Durum İzleme, tanılama günlük ayarlama ve Azure Logic Apps için uyarılarını Aç
 
@@ -29,7 +29,7 @@ Hataları veya diğer olası sorunları hakkında bildirim almak için ayarladı
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Görünüm çalıştırır ve mantıksal uygulamanız için tetikleyici geçmişi
 
-1. Mantıksal uygulamanızı bulmak için [Azure portal](https://portal.azure.com), ana Azure menüsünde, **daha fazla hizmet**. Arama kutusuna "logic apps" bulun ve seçin **Logic apps**.
+1. Mantıksal uygulamanızı bulmak için [Azure portal](https://portal.azure.com), ana Azure menüsünde, **tüm hizmetleri**. Arama kutusuna "logic apps" yazın ve seçin **Logic apps**.
 
    ![Mantıksal uygulamanızı Bul](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
@@ -97,7 +97,7 @@ Başlamadan önce OMS çalışma alanınızın olması gerekir. Bilgi [bir OMS �
    3. Altında **OMS çalışma alanları**, günlük için kullanılacak OMS çalışma alanını seçin.
    4. Altında **günlük**seçin **WorkflowRuntime** kategorisi.
    5. Ölçüm aralığını seçin.
-   6. İşiniz bittiğinde seçin **kaydetmek**.
+   6. İşiniz bittiğinde **Kaydet**’i seçin.
 
    ![OMS çalışma ve günlük verilerini seçin](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -109,7 +109,7 @@ Başlamadan önce OMS çalışma alanınızın olması gerekir. Bilgi [bir OMS �
 
 Bulma ve mantıksal uygulamanızı olaylarını görüntüleme gibi için olaylar, olaylar, çalıştırmak ve eylem olaylar tetikleyin, şu adımları izleyin.
 
-1. İçinde [Azure portal](https://portal.azure.com), seçin **daha Hizmetleri**. "İçin günlük analizi" arayın, ardından seçin **günlük analizi** aşağıda gösterildiği gibi:
+1. İçinde [Azure portal](https://portal.azure.com), seçin **tüm hizmetleri**. "İçin günlük analizi" arayın, ardından seçin **günlük analizi** aşağıda gösterildiği gibi:
 
    !["Günlük analizi" seçin](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

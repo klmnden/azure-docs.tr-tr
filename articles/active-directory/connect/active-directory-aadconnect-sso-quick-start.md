@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -75,10 +75,10 @@ Sorunsuz SSO doğru etkinleştirdiğinizden emin doğrulamak için bu yönergele
 
 ## <a name="step-3-roll-out-the-feature"></a>3. adım: özelliği alma
 
-Kullanıcılarınız için özelliği geri dönmek için Active Directory'de Grup İlkesi kullanarak kullanıcıların Intranet bölgesi ayarlarını aşağıdaki Azure AD URL'leri eklemeniz gerekir:
+Kullanıcılarınız için özelliği geri dönmek için Active Directory'de Grup İlkesi kullanarak kullanıcıların Intranet bölgesi ayarlarını aşağıdaki Azure AD URL eklemeniz gerekir:
 
-- https://AutoLogon.microsoftazuread-sso.com
-- https://aadg.Windows.NET.nsatc.NET
+- https://autologon.microsoftazuread-sso.com
+
 
 Ayrıca, bir Intranet bölgesi İlkesi adlı ayarını etkinleştirmeniz gerekir **izin durum çubuğunda komut dosyası aracılığıyla güncelleştirmeleri** Grup İlkesi aracılığıyla. 
 
@@ -87,7 +87,7 @@ Ayrıca, bir Intranet bölgesi İlkesi adlı ayarını etkinleştirmeniz gerekir
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Neden kullanıcıların Intranet bölgesi ayarlarını değiştirmeniz gerekiyor mu?
 
-Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli bir URL'den otomatik olarak hesaplar. Örneğin, (URL nokta içerdiğinden) Internet bölgesi için "http://intranet.contoso.com/" eşleştirir ancak "http://contoso/" Intranet bölgesine eşler. URL tarayıcının Intranet bölgesine açıkça eklemedikçe tarayıcılar iki Azure AD URL'ler gibi bir bulut uç noktası için Kerberos biletleri gönderme.
+Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli bir URL'den otomatik olarak hesaplar. Örneğin, (URL nokta içerdiğinden) Internet bölgesi için "http://intranet.contoso.com/" eşleştirir ancak "http://contoso/" Intranet bölgesine eşler. URL tarayıcının Intranet bölgesine açıkça eklemedikçe tarayıcılar Kerberos biletleri için Azure AD URL gibi bir bulut uç noktası göndermez.
 
 ### <a name="detailed-steps"></a>Ayrıntılı adımlar
 
@@ -96,7 +96,7 @@ Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli 
 3. Gözat **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Internet Explorer** > **Internet Denetim Masası** > **güvenlik sayfası**. Ardından **siteyi bölgeye ataması listesi**.
     ![Çoklu oturum açma](./media/active-directory-aadconnect-sso/sso6.png)
 4. İlke etkinleştirin ve ardından iletişim kutusunda aşağıdaki değerleri girin:
-   - **Değer adı**: Azure AD URL'leri Kerberos biletleri yere iletilmez.
+   - **Değer adı**: Azure AD URL'si Kerberos biletleri yere iletilmez.
    - **Değer** (veri): **1** Intranet bölgesine gösterir.
 
    Sonuç şöyle görünür:
@@ -104,13 +104,9 @@ Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli 
     Değer: https://autologon.microsoftazuread-sso.com
   
     Veriler: 1
-        
-   Değer: https://aadg.windows.net.nsatc.net
-
-    Veriler: 1
 
    >[!NOTE]
-   > Bazı kullanıcıların sorunsuz SSO kullanarak (örneğin, bu kullanıcılar paylaşılan bilgi noktaları üzerinde oturum açarsa) engellemek istiyorsanız, önceki değerlerini ayarlamak **4**. Bu eylem, Azure AD URL'leri Yasak bölgeye ekler ve sorunsuz SSO her zaman başarısız olur.
+   > Bazı kullanıcıların sorunsuz SSO kullanarak (örneğin, bu kullanıcılar paylaşılan bilgi noktaları üzerinde oturum açarsa) engellemek istiyorsanız, önceki değerlerini ayarlamak **4**. Bu eylem, Azure AD URL'si Yasak bölgeye ekler ve sorunsuz SSO her zaman başarısız olur.
    >
 
 5. Seçin **Tamam**ve ardından **Tamam** yeniden.
@@ -133,7 +129,7 @@ Mozilla Firefox otomatik olarak Kerberos kimlik doğrulaması kullanmaz. Her kul
 1. Firefox çalıştırın ve girin `about:config` adres çubuğundaki. Gördüğünüz herhangi bir bildirim yok sayın.
 2. Arama **network.negotiate auth.trusted URI'ler** tercih. Bu tercih Kerberos kimlik doğrulaması için Firefox'in Güvenilen siteler listelenir.
 3. Sağ tıklatıp **Değiştir**.
-4. Https://AutoLogon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net alanına girin.
+4. Enter https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net in the field.
 5. Seçin **Tamam** ve tarayıcıyı kapatıp yeniden açın.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -146,9 +142,9 @@ Kılınmadı varsa [AuthNegotiateDelegateWhitelist](https://www.chromium.org/adm
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (yalnızca Mac OS)
 
-Mac OS ve diğer Windows olmayan platformlarda Google Chrome için başvurmak [Chromium proje ilke listesi](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) tümleşik kimlik doğrulaması için beyaz liste Azure AD URL'ler hakkında bilgi edinmek için.
+Mac OS ve diğer Windows olmayan platformlarda Google Chrome için başvurmak [Chromium proje ilke listesi](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) nasıl beyaz liste ile kimlik doğrulaması için Azure AD URL tümleşik hakkında bilgi için.
 
-Azure AD URL'lerine Firefox ve Google Chrome Mac Kullanıcıları geri dönmek için üçüncü taraf Active Directory Grup İlkesi uzantıları bu makalenin kapsamı dışındadır kullanılır.
+Azure AD URL Firefox ve Google Chrome Mac Kullanıcıları geri dönmek için üçüncü taraf Active Directory Grup İlkesi uzantıları bu makalenin kapsamı dışındadır kullanılır.
 
 #### <a name="known-browser-limitations"></a>Bilinen tarayıcı sınırlamaları
 

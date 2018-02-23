@@ -88,6 +88,7 @@
 #### [Grup tabanlı lisanslama için Azure PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 #### [Azure AD’de ürünler ve hizmet planları için başvurular](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 gruplarının süre sonlarını ayarlama](active-directory-groups-lifecycle-azure-portal.md)
+### [Gruplar için bir adlandırma ilkesini zorlama](groups-naming-policy.md)
 ### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
 ### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](active-directory-groups-restore-azure-portal.md)
@@ -217,7 +218,9 @@
 ##### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
+
 
 ### Kurumsal uygulamaları yönetme
 #### [Kullanıcıları atama](active-directory-coreapps-assign-user-azure-portal.md)

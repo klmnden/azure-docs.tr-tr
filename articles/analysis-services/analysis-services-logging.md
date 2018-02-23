@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama Günlüğü Kurulumu
 
@@ -83,12 +83,12 @@ Seçme **altyapısı** tüm günlükleri [Xevent'ler](https://docs.microsoft.com
 
     ![Azure portalında Azure Cosmos DB için tanılama günlük kaydını etkinleştirmek](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. İçinde **tanılama ayarlarını**, aşağıdakileri yapın: 
+2. İçinde **tanılama ayarlarını**, aşağıdaki seçenekleri belirtin: 
 
     * **Ad**. Günlükleri oluşturmak için bir ad girin.
 
-    * **Arşiv depolama hesabı**. Bu seçeneği kullanmak için bağlanmak için var olan bir depolama hesabı gerekir. Bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md). Kaynak Yöneticisi, genel amaçlı hesabı oluşturmak için yönergeleri izleyin. Depolama hesabınız seçmek için portal bu sayfaya dönün. Yeni oluşturulan depolama hesapları açılır menüde görünmesi birkaç dakika sürebilir.
-    * **Bir olay hub'ına akış**. Bu seçeneği kullanmak için bağlanmak için bir var olan olay hub'ı ad alanı ve olay hub'ı gerekir. Bir olay hub'ları ad alanı oluşturmak için bkz: [bir olay hub'ları ad alanı oluşturup Azure portalını kullanarak bir event hub](../event-hubs/event-hubs-create.md). Olay hub'ı ad alanı ve ilke adı seçmek için portal bu sayfaya dönün.
+    * **Arşiv depolama hesabı**. Bu seçeneği kullanmak için bağlanmak için var olan bir depolama hesabı gerekir. Bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md). Kaynak Yöneticisi, genel amaçlı hesabı oluşturmak için yönergeleri izleyin sonra bu sayfaya portalında döndürerek depolama hesabınızı seçin. Yeni oluşturulan depolama hesapları açılır menüde görünmesi birkaç dakika sürebilir.
+    * **Bir olay hub'ına akış**. Bu seçeneği kullanmak için bağlanmak için bir var olan olay hub'ı ad alanı ve olay hub'ı gerekir. Daha fazla bilgi için bkz: [bir olay hub'ları ad alanı oluşturup Azure portalını kullanarak bir event hub](../event-hubs/event-hubs-create.md). Olay hub'ı ad alanı ve ilke adı seçmek için portal bu sayfaya dönün.
     * **Günlük analizi için Gönder**. Bu seçeneği kullanmak için varolan bir çalışma alanını kullanın ya da yeni bir günlük analizi çalışma alanı için adımları izleyerek oluşturun [yeni bir çalışma alanı oluşturma](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) Portalı'nda. Günlük analizi, günlükleri görüntüleme hakkında daha fazla bilgi için bkz: [görünüm günlüklerini günlük analizi](#view-in-loganalytics).
 
     * **Altyapısı**. Xevent'ler yazmak için bu seçeneği belirleyin. Bir depolama hesabına arşivleme, tanılama günlüklerini saklama süresi seçebilirsiniz. Bekletme süresi dolduktan sonra günlüklerin autodeleted.
@@ -171,7 +171,7 @@ Günlük analizi tanılama verilerini görüntülemek için günlük arama sayfa
 
 Tıklatın **EventClass\_s** veya bir olay adları ve günlük analizi devam bir sorgu oluşturma. Daha sonra yeniden kullanmak için sorgularınızı kaydettiğinizden emin olun.
 
-Checkout sağlayan bir Web sitesi Gelişmiş sorgu, dashboarding ve günlük analizi veri uyarı yeteneklerini Operations Management Suite emin olun.
+Bir Web sitesi Gelişmiş sorgu, dashboarding ve günlük analizi veri uyarı verme yetenekleri sağlayan Operations Management Suite görmek emin olun.
 
 ### <a name="queries"></a>Sorgular
 

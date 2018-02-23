@@ -16,11 +16,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e85300676eeee9259e40faa0e0ede94a36f6167
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d657eda25f3b26cb793a7ba1a4546f98c08b7e65
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD - genel Önizleme idari Birim Yönetimi
 Bu makalede idari birim – yeni bir Azure Active Directory kapsayıcısı kullanıcılar ve kullanıcı alt kümesine ilkelerini uygulama kümelerine üzerinden yönetim izinleri temsilci için kullanılabilir kaynakların açıklanmaktadır. Azure Active Directory'de merkezi yöneticileri temsilci izinleri bölgesel yöneticilere veya ayrıntılı bir düzeyde İlkesi ayarlamak için idari birim etkinleştirin.
@@ -28,7 +28,7 @@ Bu makalede idari birim – yeni bir Azure Active Directory kapsayıcısı kulla
 Bu, bağımsız bölümler, örneğin, birbirinden bağımsız olan birçok otonom okullar (iş okul, mühendislik Okul ve benzeri) oluşan bir büyük üniversite olan kuruluşlarda yararlıdır. Bu tür bölümler, özellikle kendi bölme için ilkeler ayarlama erişimi denetlemek ve kullanıcıları yönetmek, kendi BT yöneticileri vardır. Merkezi Yöneticiler olması istiyorsanız bu bölümsel vermek kullanıcılar kendi belirli bölümler üzerinden Yöneticiler izinleri. Daha belirgin olarak bu örneği kullanarak, merkezi bir yönetici, örneği için belirli bir okul (iş Okul) için bir yönetim birimi oluşturabilir ve yalnızca iş Okul kullanıcılarla doldurmak. Daha sonra bir merkezi yönetici iş Okul BT personeli kapsamlı bir role ekleyebilirsiniz diğer bir deyişle, iş Okul yönetim izinleri BT personeli yalnızca Okul yönetim departman verin.
 
 > [!IMPORTANT]
-> Yalnızca Azure Active Directory Premium etkinleştirirseniz yönetimsel birim kapsamlı yönetici rollerini atayabilir. Daha fazla bilgi için bkz: [Azure AD Premium ile çalışmaya başlama](active-directory-get-started-premium.md).
+> İdari birim kullanmak için bir Azure Active Directory Premium lisansı ve tüm kullanıcılar için Azure Active Directory temel lisansları yönetim biriminde sağlamak için yönetim birimi kapsamlı yönetim gerektirir. Daha fazla bilgi için bkz: [Azure AD Premium ile çalışmaya başlama](active-directory-get-started-premium.md).
 >
 
 

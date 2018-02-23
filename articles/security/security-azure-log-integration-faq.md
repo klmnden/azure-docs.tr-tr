@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 08/07/2017
+ms.date: 02/16/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 615bfb1ea86d31733fc1db7139cd995fbbbac7aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-log-integration-faq"></a>Azure günlük tümleştirme hakkında SSS
-Bu makalede Azure günlük tümleştirmesi hakkında sık sorulan sorular (SSS) yanıtlar. 
+
+Bu makalede Azure günlük tümleştirmesi hakkında sık sorulan sorular (SSS) yanıtlar.
+
+>[!IMPORTANT]
+>SIEM satıcınızın Azure İzleyici Bağlayıcısı'nı kullanarak ve bunlar aşağıdaki Azure günlükleri tümleştirmek için tercih edilen yöntem olduğu [yönergeleri](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). SIEM satıcınıza Azure İzleyici için bir bağlayıcı sağlamıyorsa (SIEM'iniz Azure günlük tümleştirme tarafından destekleniyorsa) bu tür bir bağlayıcı kullanılabilir hale gelene kadar Azure günlük tümleştirme geçici bir çözüm olarak kullanmak mümkün olabilir.
 
 Azure günlük tümleştirme, şirket içi güvenlik bilgileri ve Olay yönetimi (SIEM) sistemlere Azure kaynaklarınızı ham günlüklerinden tümleştirmek için kullanabileceğiniz bir Windows işletim sistemi hizmetidir. Bu tümleştirme, tüm varlıklarınızı, şirket içi veya bulutta birleştirilmiş bir Pano sağlar. Ardından toplama, bağıntılı, çözümleyebilir ve uygulamalarınız ile ilişkili güvenlik olayları için uyarı.
 
@@ -34,20 +38,20 @@ Evet. Azure günlük tümleştirme yazılım hiçbir ücret yoktur.
 Azure ticari ve Azure kamu şu anda kullanılabilir değil ve Çin veya Almanya kullanılabilir değil.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Azure günlük tümleştirme Azure VM günlükleri çekme depolama hesapları nasıl görebilirim?
-Komutu çalıştırın **azlog kaynağı listesi**.
+Komutu çalıştırın **AzLog kaynağı listesi**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Azure günlük tümleştirme günlükleri arasındadır hangi aboneliğin nasıl anlayabilirim?
 
 Yerleştirilir denetim günlüklerini durumunda **AzureResourcemanagerJson** dizinleri, abonelik kimliği: günlük dosyası adı. Bu, aynı zamanda günlükleri için geçerlidir **AzureSecurityCenterJson** klasör. Örneğin:
 
-20170407T070805_2768037.0000000023. **1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Azure Active Directory denetim günlüklerini Kiracı kimliği adının bir parçası olarak içerir.
 
 Bir event hub'ından okuma tanılama günlükleri, abonelik kimliği adının bir parçası olarak dahil etmeyin. Bunun yerine, olay hub'ı kaynağı oluşturmanın bir parçası belirtilen kolay ad içerirler. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Proxy yapılandırmasını nasıl güncelleştirebilir miyim?
-Proxy ayarı Azure depolama erişime doğrudan izin vermiyorsa, açmak **AZLOG. EXE. CONFIG** dosyasını **c:\Program Files\Microsoft Azure günlük tümleştirme**. Dosyasını içerecek şekilde güncelleştirmek **defaultProxy** proxy adresine sahip bir bölüm, kuruluşunuzun. Güncelleştirme tamamlandıktan sonra durdurmak ve komutları kullanarak hizmeti başlatmak **net stop azlog** ve **net Başlat azlog**.
+Proxy ayarı Azure depolama erişime doğrudan izin vermiyorsa, açmak **AZLOG. EXE. CONFIG** dosyasını **c:\Program Files\Microsoft Azure günlük tümleştirme**. Dosyasını içerecek şekilde güncelleştirmek **defaultProxy** proxy adresine sahip bir bölüm, kuruluşunuzun. Güncelleştirme tamamlandıktan sonra durdurmak ve komutları kullanarak hizmeti başlatmak **net Durdur AzLog** ve **net Başlat AzLog**.
 
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
@@ -71,10 +75,10 @@ Abonelik kimliği için kolay ad kaynağı eklenirken ekleyin:
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
 Abonelik kimliği de dahil olmak üzere aşağıdaki meta verileri XML olay vardır:
 
-![Olay XML][1]
+![Event XML][1]
 
 ## <a name="error-messages"></a>Hata iletileri
-### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Komutu çalıştırdığınızda ı **azlog createazureid**, aşağıdaki hata neden alabilirim?
+### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Komutu çalıştırdığınızda ı ```AzLog createazureid```, aşağıdaki hata neden alabilirim?
 Hata:
 
   *AAD uygulama - oluşturulamadı 72f988bf-86f1-41af-91ab-2d7cd011db37-neden Kiracı = ileti 'Yasak' - ' işlemi tamamlamak için yeterli ayrıcalığa sahip.' =*

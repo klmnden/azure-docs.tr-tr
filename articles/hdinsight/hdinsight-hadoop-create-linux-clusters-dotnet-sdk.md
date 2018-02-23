@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 78d5c2f37add456fbb5891f76039b453e731a4a8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 8a48579d380784c2c653f8e4be26af51863db578
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/06/2017
 >
 > Düğümü boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -384,7 +384,7 @@ Hdınsight kümesi başarıyla oluşturuldu, kümenizi ile çalışmayı öğren
 * [Hdınsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase kümeleri
-* [Hdınsight'ta HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight üzerinde HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Hdınsight'ta HBase için Java uygulamaları geliştirme](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm kümeleri
@@ -397,8 +397,6 @@ Hdınsight kümesi başarıyla oluşturuldu, kümenizi ile çalışmayı öğren
 * [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](spark/apache-spark-eventhub-streaming.md)
-
 ### <a name="run-jobs"></a>İşleri çalıştırma
 * [.NET SDK kullanarak Hdınsight'ta Hive işleri çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [.NET SDK kullanarak Hdınsight'ta pig işleri çalıştırma](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

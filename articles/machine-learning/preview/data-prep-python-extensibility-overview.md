@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936d3718c84cad49221e64b65e60bea7e37a523c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Veriler hazırlıkları Python uzantıları
 Yerleşik özellikleri arasında işlevselliği aralıklar doldurma bir yolu olarak Azure Machine Learning veriler hazırlıkları birçok düzeyde genişletilebilirlik içerir. Bu belgede, Python komut dosyası aracılığıyla genişletilebilirlik verilmiştir. 
@@ -101,7 +101,7 @@ Bir işlem hedef paketlerinizi yüklemek için projenizi kökü altındaki aml_c
 ### <a name="windows"></a>Windows 
 Windows konumu bulmak için uygulamaya özgü yüklemeyi Python ve komut dosyaları dizinini bulun. Varsayılan konumu şudur:  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 Ardından aşağıdaki komutlardan birini çalıştırın: 
 
@@ -114,7 +114,7 @@ or
 ### <a name="mac"></a>Mac 
 Mac'te konumunu bulmak için uygulamaya özgü yüklemeyi Python ve komut dosyaları dizinini bulun. Varsayılan konumu şudur: 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 Ardından aşağıdaki komutlardan birini çalıştırın: 
 

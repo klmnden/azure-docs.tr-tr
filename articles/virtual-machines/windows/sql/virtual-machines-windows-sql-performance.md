@@ -4,7 +4,7 @@ description: "Microsoft Azure vm'lerinde SQL Server performansını iyileştirme
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2018
 ms.author: jroth
-ms.openlocfilehash: 6eb55c3d1f339a621050de6b239f840d2cff63fa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d0668a5fff3e5a69162c1893c07d5f4c2a015a28
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makinelerde SQL Server için performansa yönelik en iyi yöntemler
 
@@ -39,7 +39,7 @@ Azure Virtual Machines'de SQL Server'ın en iyi performans için bir hızlı ona
 
 | Alan | En iyi duruma getirme |
 | --- | --- |
-| [VM boyutu](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) veya SQL Enterprise edition için daha yüksek.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) veya SQL Standard ve Web sürümleri için daha yüksek. |
+| [VM boyutu](#vm-size-guidance) |[DS3](../sizes-memory.md) veya SQL Enterprise edition için daha yüksek.<br/><br/>[DS2](../sizes-memory.md) veya SQL Standard ve Web sürümleri için daha yüksek. |
 | [Depolama](#storage-guidance) |Kullanım [Premium depolama](../premium-storage.md). Standart depolama yalnızca geliştirme ve test için önerilir.<br/><br/>Tutmak [depolama hesabı](../../../storage/common/storage-create-storage-account.md) ve SQL Server VM ile aynı bölgede.<br/><br/>Azure devre dışı [coğrafi olarak yedekli depolama](../../../storage/common/storage-redundancy.md) (coğrafi çoğaltma) depolama hesabı üzerinde. |
 | [Diskleri](#disks-guidance) |En az 2 kullanmak [P30 diskleri](../premium-storage.md#scalability-and-performance-targets) (günlük dosyaları için 1; veri dosyaları ve TempDB için 1).<br/><br/>Veritabanı depolama veya günlük için işletim sistemi veya geçici diskleri kullanmaktan kaçının.<br/><br/>Veri dosyaları ve TempDB barındırma diskler üzerinde önbelleğe almayı etkinleştir okuyun.<br/><br/>Günlük dosyası barındırma diskler üzerinde önbelleğe alma etkinleştirmeyin.<br/><br/>Önemli: bir Azure VM disk önbellek ayarlarını değiştirirken SQL Server hizmetini durdurun.<br/><br/>Daha yüksek g/ç işleme almak için birden çok Azure veri diski şeritler.<br/><br/>Belgelenen ayırma boyutlarıyla biçimlendirin. |
 | [G/Ç](#io-guidance) |Veritabanı Sayfa sıkıştırmayı etkinleştirin.<br/><br/>Veri dosyaları için anında dosya başlatma etkinleştirin.<br/><br/>Sınırlamak veya veritabanı otomatik büyüme devre dışı bırakın.<br/><br/>Veritabanında daralma devre dışı bırakın.<br/><br/>Sistem veritabanları dahil olmak üzere veri diskleri için tüm veritabanlarını taşıyın.<br/><br/>SQL Server hata günlüğü ve izleme dosya dizinleri veri diskleri için taşıyın.<br/><br/>Varsayılan yedekleme ve veritabanı dosyası konumlarını ayarlayın.<br/><br/>Kilitli sayfalar etkinleştirin.<br/><br/>SQL Server performans düzeltmeleri uygulayın. |

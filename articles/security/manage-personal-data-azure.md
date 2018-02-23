@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 97e8d23d90821489575b3ac6e8f1e810b7ce25a9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Microsoft Azure kişisel verileri yönetmek
 
@@ -59,23 +59,23 @@ Dizin için genel yönetici olan bir hesapla oturum gerekir.
 
 1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
 
-2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
+2. Seçin **tüm hizmetleri**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
 
-    ![Medya/image1.png](media/manage-personal-data-azure/image001.png)
+    ![media/image1.png](media/manage-personal-data-azure/image001.png)
 
 3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **kullanıcılar**.
 
-    ![Medya/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. Üzerinde **kullanıcılar ve gruplar - kullanıcıların** dikey penceresinde, listeden bir kullanıcı seçin ve ardından dikey penceresinde seçili kullanıcı, seçin **profil** düzeltildi veya güncelleştirilmesi için gereken kullanıcı profili bilgilerini görüntülemek için.
 
-    ![Medya/image3.png](media/manage-personal-data-azure/image005.png)
+    ![media/image3.png](media/manage-personal-data-azure/image005.png)
 
 5. Düzeltin veya bilgileri güncelleştirmek ve ardından komut çubuğunda seçin **kaydedin.**
 
 6.  Seçilen kullanıcı için dikey seçin **iş bilgisi** düzeltildi veya güncelleştirilmesi için gereken kullanıcı iş bilgilerini görüntülemek için.
 
-    ![Medya/image4.png](media/manage-personal-data-azure/image007.png)
+    ![media/image4.png](media/manage-personal-data-azure/image007.png)
 
 7. Düzeltin veya kullanıcı iş bilgilerini güncelleştirin ve ardından komut çubuğunda seçin **kaydedin.**
 
@@ -83,17 +83,17 @@ Dizin için genel yönetici olan bir hesapla oturum gerekir.
 
 1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
 
-2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
+2. Seçin **tüm hizmetleri**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
 
     ![](media/manage-personal-data-azure/image001.png)
 
 3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **kullanıcılar**.
 
-    ![Medya/image2.png](media/manage-personal-data-azure/image003.png)
+    ![media/image2.png](media/manage-personal-data-azure/image003.png)
 
 4. **Kullanıcılar ve gruplar - Kullanıcılar** dikey penceresinde, listeden bir kullanıcı seçin.
 
-    ![Medya/image3.png](media/manage-personal-data-azure/image007.png)
+    ![media/image3.png](media/manage-personal-data-azure/image007.png)
 
 5. Seçilen kullanıcı için dikey seçin **genel bakış**ve ardından komut çubuğunda **silmek**.
 

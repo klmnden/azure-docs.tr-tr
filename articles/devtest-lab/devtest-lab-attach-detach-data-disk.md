@@ -13,19 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-<<<<<<< HEAD
-ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
-=======
 ms.author: v-craic
-ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7a0a86f658ac19bfb197c7e233b8717bf9fba40b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Ekleme veya Azure DevTest Labs içindeki bir sanal makineye bir veri diskini ayırma
 [Azure yönetilen diskleri](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sanal makine veri diski ile ilişkilendirilmiş depolama hesaplarını yönetir. Yeni bir veri diski bir VM için bir kullanıcı ekler, gerekli olan disk boyutunu ve türünü belirtir ve Azure oluşturur ve disk otomatik olarak yönetir. Veri diski sanal makineden sonra ayrılabilir ve ya da aynı VM sonraki ya da aynı kullanıcıya ait farklı bir VM ekli yeniden.
@@ -42,7 +35,7 @@ Bir VM için bir veri diski eklemeden önce bu ipuçlarını gözden geçirin:
 Oluşturun ve VM Azure DevTest Labs ile yeni bir yönetilen veri diski eklemek için aşağıdaki adımları izleyin.
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-1. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. İstenen Laboratuvar labs listesinden seçin. 
 1. Listesinden **My sanal makineleri**, çalışan bir VM seçin.
 1. Sol taraftaki menüden seçin **diskleri**.

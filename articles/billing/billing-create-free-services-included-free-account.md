@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: c5331a7f658feacba4b03dd3b5ba8ddb23738051
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfcf4c98a27f6ea31b92f51737e9ca3768da8f5c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Ücretsiz Azure hesabı dahil hizmetleri oluşturma
 
 Ücretsiz Azure hesabına 12 ay boyunca Ücretsiz Hizmetler sınırlı miktarını içerir. Daha fazla bilgi için bkz: [ücretsiz Azure hesabına nedir](https://azure.microsoft.com/free/free-account-faq/). Azure kullanımınızı her hizmetin izler ve sınırı aşan sürece, uyguladığınız değil. Bu sınırlar içinde ücretsiz Azure hesabına gereksinimlerinizi karşılamak için çeşitli hizmet yapılandırması kullanma esnekliği sağlar. 
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Azure portalında Ücretsiz Hizmetler oluşturma
-Şunu kullanmanızı öneririz [ücretsiz hizmet sayfa](https://go.microsoft.com/fwlink/?linkid=859151) yeni hizmetler oluşturmak için. Veya oturum açarak [Azure portal](http://portal.azure.com)seçin **daha fazla hizmet** sol alt ve arama **serbest Hizmetleri**. 
+Şunu kullanmanızı öneririz [ücretsiz hizmet sayfa](https://go.microsoft.com/fwlink/?linkid=859151) yeni hizmetler oluşturmak için. Veya oturum açarak [Azure portal](http://portal.azure.com)seçin **tüm hizmetleri** solda ve arama **serbest Hizmetleri**. 
 
 ## <a name="services-can-be-created-in-any-region"></a>Hizmetleri herhangi bir bölgede oluşturulabilir
 Sınırlarda sürece Hizmetleri kullanılabildiği herhangi bir bölgede ücretsiz olarak hizmetler oluşturabilirsiniz. Örneğin, her ay ücretsiz Azure hesabına sahip B1S Windows sanal makine boş 750 saatlik alın. B-serisi sanal makinelerin kullanılabildiği herhangi bir bölgede sanal makine oluşturabilirsiniz. 750 saatleri aşan sürece, azure, uyguladığınız değil. Örneğin, bir müşteri ABD Batı Avrupa'da B1S Windows sanal makine sağlamak ve 750 saattir ücretsiz kullanın. 

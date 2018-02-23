@@ -15,23 +15,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/14/2018
 ms.author: jgao
-ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 97305ec6774e89e776653adbcdcf86b1cd63642f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark Azure Hdınsight ile verileri görselleştirme araçlarını kullanarak BI
 
-Nasıl kullanacağınızı öğrenin [Microsoft Power BI](http://powerbi.microsoft.com) ve [Tableau](http://www.tableau.com) Azure hdınsight'ta Apache Spark kümesinde verileri görselleştirmek için.
+Nasıl kullanacağınızı öğrenin [Microsoft Power BI](http://powerbi.microsoft.com) Azure hdınsight'ta Apache Spark kümesinde verileri görselleştirmek için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Makaleyi tamamlamak [hdınsight'ta Spark kümeleri üzerinde etkileşimli sorgular gerçekleştirme](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) ve [Power BI deneme aboneliği](https://app.powerbi.com/signupredirect?pbi_source=web) (isteğe bağlı).
-* **Tableau**: [Tableau Masaüstü](http://www.tableau.com/products/desktop) ve [Microsoft Spark ODBC sürücüsü](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
 ## <a name="hivetable"></a>Verileri doğrulama
@@ -183,47 +182,49 @@ Power BI hizmetinde raporlar ve panolar, kuruluşunuzda paylaşmanıza olanak ta
 
 Visual panosuna sabitlediğiniz - diğer görsellerin rapora ekleyin ve bunları aynı panoya Sabitle. Raporlar ve panolar hakkında daha fazla bilgi için bkz: [Power BI raporlarınız](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)ve [Power BI panoları](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## <a name="tableau"></a>Tableau Masaüstü'nü kullanın 
+<!--
+## <a name="tableau"></a>Use Tableau Desktop 
 
 > [!NOTE]
-> Bu bölüm, yalnızca Azure Hdınsight'ta oluşturulan 1.5.2 Spark kümeleri için geçerlidir.
+> This section is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
 >
 >
 
-1. Yükleme [Tableau Masaüstü](http://www.tableau.com/products/desktop) bu Apache Spark BI öğretici çalıştırdığınız bilgisayarda.
+1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
-2. Bu bilgisayarda ayrıca Microsoft Spark ODBC sürücüsü yüklü olduğundan emin olun. Sürücüsünden yükleyebilirsiniz [burada](http://go.microsoft.com/fwlink/?LinkId=616229).
+2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](http://go.microsoft.com/fwlink/?LinkId=616229).
 
-1. Tableau Masaüstü başlatın. Sol bölmede, bağlanmak üzere sunucu listesinden tıklatın **Spark SQL**. Sol bölmede varsayılan Spark SQL listelenmemişse tıklatın bulabilirsiniz **daha sunucuları**.
-2. Spark SQL Bağlantısı iletişim kutusunda aşağıdaki ekran görüntüsünde gösterildiği gibi değerler sağlayın ve ardından **Tamam**.
+1. Launch Tableau Desktop. In the left pane, from the list of server to connect to, click **Spark SQL**. If Spark SQL is not listed by default in the left pane, you can find it by click **More Servers**.
+2. In the Spark SQL connection dialog box, provide the values as shown in the screenshot, and then click **OK**.
 
-    ![Apache Spark BI için bir kümeye Bağlan](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Apache Spark BI için bir kümeye Bağlan")
+    ![Connect to a cluster for Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Connect to a cluster for Apache Spark BI")
 
-    Kimlik doğrulama açılan listeleri **Microsoft Azure Hdınsight hizmeti** yalnızca yüklediyseniz bir seçenek olarak [Microsoft Spark ODBC sürücüsü](http://go.microsoft.com/fwlink/?LinkId=616229) bilgisayarda.
-3. Sonraki ekranda, gelen **şema** açılır menüsünde tıklatın **Bul** simgesine ve ardından **varsayılan**.
+    The authentication drop-down lists **Microsoft Azure HDInsight Service** as an option, only if you installed the [Microsoft Spark ODBC Driver](http://go.microsoft.com/fwlink/?LinkId=616229) on the computer.
+3. On the next screen, from the **Schema** drop-down, click the **Find** icon, and then click **default**.
 
-    ![Şema bulmak için Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Apache Spark BI Bul şeması")
-4. İçin **tablo** alan, tıklatın **Bul** yeniden kümedeki kullanılabilir tüm Hive tablolarını listelemek için simge. Görmeniz gerekir **hvac** daha önce Not Defteri kullanarak oluşturduğunuz tablo.
+    ![Find schema for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Find schema for Apache Spark BI")
+4. For the **Table** field, click the **Find** icon again to list all the Hive tables available in the cluster. You should see the **hvac** table you created earlier using the notebook.
 
-    ![Tablo için Apache Spark BI Bul](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Apache Spark BI Bul tablosu")
-5. Sürükleyin ve üst kutusuna sağ taraftaki tablo bırakın. Tableau verileri alır ve şema kırmızı kutu ile vurgulanan görüntüler.
+    ![Find table for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Find table for Apache Spark BI")
+5. Drag and drop the table to the top box on the right. Tableau imports the data and displays the schema as highlighted by the red box.
 
-    ![Ekleme tablolar için Tableau için Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "eklemek tablolar için Tableau için Apache Spark BI")
-6. Tıklatın **Sheet1** sekmesi altındaki sol. Tüm binalar için gerçek etme ve ortalama hedef her tarihini gösteren bir görsel öğe olun. Sürükleme **tarih** ve **kimliği oluşturma** için **sütunları** ve **gerçek Temp**/**hedef Temp** için **satırları**. Altında **işaretleri**seçin **alanı** bir alan eşlemesini Spark veri görselleştirme için kullanabilirsiniz.
+    ![Add tables to Tableau for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "Add tables to Tableau for Apache Spark BI")
+6. Click the **Sheet1** tab at the bottom left. Make a visualization that shows the average target and actual temperatures for all buildings for each date. Drag **Date** and **Building ID** to **Columns** and **Actual Temp**/**Target Temp** to **Rows**. Under **Marks**, select **Area** to use an area map for Spark data visualization.
 
-     ![Spark veri görselleştirme için alanlar ekleyin](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Spark veri görselleştirme için alanlar ekleyin")
-7. Varsayılan olarak, gösterilen sıcaklık alanlar toplama olarak. Bunun yerine ortalama etme göstermek istiyorsanız, açılan listeden, aşağıdaki ekran görüntüsünde gösterildiği gibi bunu yapabilirsiniz:
+     ![Add fields for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Add fields for Spark data visualization")
+7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot:
 
-    ![Sıcaklık Spark veri görselleştirme için ortalama ele](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "sıcaklık Spark veri görselleştirme için ortalama alın")
+    ![Take average of temperature for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Take average of temperature for Spark data visualization")
 
-8. Ayrıca Süper-bir ısı Haritası hedef gerçek etme arasındaki farkı daha iyi bir fikir almak için diğer üzerinden uygulayabilir. Kırmızı bir daire vurgulanmış tanıtıcı şekli görene kadar fareyi alt alan eşleme köşesine getirin. Harita diğer eşlemeye üstte sürükleyin ve kırmızı dikdörtgende vurgulanan şekli gördüğünüzde fare düğmesini bırakın.
+8. You can also super-impose one temperature map over the other to get a better feel of difference between target and actual temperatures. Move the mouse to the corner of the lower area map until you see the handle shape highlighted in a red circle. Drag the map to the other map on the top and release the mouse when you see the shape highlighted in red rectangle.
 
-    ![MAPS Spark veri görselleştirme için birleştirme](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "birleştirme eşler için Spark veri Görselleştirme")
+    ![Merge maps for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Merge maps for Spark data visualization")
 
-     Veri görselleştirme ekran görüntüsünde gösterildiği gibi değiştirmeniz gerekir:
+     Your data visualization should change as shown in the screenshot:
 
-    ![Spark veri görselleştirme için tableau çıkış](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau çıktı için Spark veri Görselleştirme")
-9. Tıklatın **kaydetmek** çalışma kaydetmek için. Panolar oluşturun ve bir veya daha fazla sayfa ekleyin.
+    ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
+9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
+-->
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

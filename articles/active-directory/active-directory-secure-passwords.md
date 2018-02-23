@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD parola güvenlik çok katmanlı bir yaklaşım
 
@@ -46,7 +46,7 @@ Azure AD ve Microsoft hesabı sistemi yaklaşımlar kanıtlanmış endüstri dah
 * Dinamik olarak yasaklanmış parolalar
 * Akıllı Parola Kilitleme
 
-Geçerli araştırmaya dayanarak parola yönetimi hakkında daha fazla bilgi için teknik incelemesine bakın [parola Kılavuzu](http://aka.ms/passwordguidance).
+Geçerli araştırmaya dayanarak parola yönetimi hakkında daha fazla bilgi için teknik incelemesine bakın [parola Kılavuzu](https://aka.ms/passwordguidance).
 
 ### <a name="dynamically-banned-passwords"></a>Dinamik olarak yasaklanmış parolalar
 

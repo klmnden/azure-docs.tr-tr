@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure bulut Kabuk sınırlamaları
 
@@ -33,7 +33,6 @@ Bulut Kabuk oturumunuz sağlar makine geçicidir ve oturumunuz için 20 dakika e
 * Takılı depolamayla yalnızca değişiklikleri içinde `clouddrive` dizin kaldı. Bash içinde `$Home` dizin de kalıcı.
 * Azure dosya paylaşımları takılı yalnızca içinden, [bölgeye atanan](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Bash'te, çalıştırmak `env` olarak ayarlayın, bölgenizdeki bulmak için `ACC_LOCATION`.
-* Azure dosyaları yalnızca yerel olarak yedekli depolama ve coğrafi olarak yedekli depolama hesaplarını destekler.
 
 ### <a name="browser-support"></a>Tarayıcı desteği
 
@@ -55,18 +54,11 @@ Bulut Kabuk etkileşimli kullanım durumları için tasarlanmıştır. Sonuç ol
 
 ### <a name="user-permissions"></a>Kullanıcı izinleri
 
-İzinler, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yüklemesi, `$Home` dizin kalıcı değildir.
-
-### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB sınırlı izinleri
-Belirli komutların içinde `clouddrive` gibi dizin `git clone`, belirli dosyaları okuma/yazma için uygun izinlere sahip değil. Bu sorunu isabet, yeniden gelen deneyin, `$Home` SMB sınırlamaları olmayan dizin.
+İzinler, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yüklemesi, `$Home` veya `clouddrive` dizin kalıcı değildir.
 
 ### <a name="editing-bashrc"></a>.Bashrc düzenleme
 
-Bunun yapılması .bashrc düzenleme beklenmeyen hatalara bulut Kabuğu'nda neden olabilir. uyarı alın.
-
-### <a name="bashhistory"></a>.bash_history
-
-Geçmişinizi bash komutların bulut Kabuk oturum kesintisi veya eşzamanlı oturum nedeniyle tutarsız olabilir.
+.Bashrc, böylece düzenleme bulut Kabuk Bash'te beklenmeyen hatalar oluşabilir uyarı alın.
 
 ## <a name="powershell-limitations"></a>PowerShell sınırlamaları
 

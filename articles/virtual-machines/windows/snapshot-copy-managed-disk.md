@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 9f773a8dfe772864fc9fc437052ac766a87623d1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Bir anlık görüntü oluşturma
 
@@ -27,7 +27,7 @@ Yedekleme veya VM sorun giderme için VHD sorunları bir işletim sistemi veya v
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Bir anlık görüntüsünü için Azure portalını kullanma 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol üst başlayarak, tıklatın **yeni** arayın ve **anlık görüntü**.
+2. Sol üst başlayarak, tıklatın **kaynak oluşturma** arayın ve **anlık görüntü**.
 3. Anlık görüntü dikey penceresinde tıklayın **oluşturma**.
 4. Girin bir **adı** anlık görüntü için.
 5. Varolan [Kaynak grubunu](../../azure-resource-manager/resource-group-overview.md#resource-groups) seçin veya yenisi için adı yazın. 

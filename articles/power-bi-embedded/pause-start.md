@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Duraklatma ve Power BI Embedded kapasitenizi Azure portalında Başlat
 
@@ -35,9 +35,9 @@ Kapasite duraklatma faturalandırılır gelen engeller. Bir süre için kapasite
 
 1. [Azure portal](https://portal.azure.com/) oturum açın.
 
-2. Seçin **daha fazla hizmet** > **Power BI Embedded** , kapasiteleri görmek için.
+2. Seçin **tüm hizmetleri** > **Power BI Embedded** , kapasiteleri görmek için.
 
-    ![Azure portalındaki diğer hizmetler](media/pause-start/azure-portal-more-services.png)
+    ![Azure portal içindeki tüm hizmetler](media/pause-start/azure-portal-more-services.png)
 
 3. Duraklatmak istediğinizden kapasite seçin.
 
@@ -57,9 +57,9 @@ Kullanım kapasitenizi başlatarak sürdürün. Kapasite başlangıç faturalama
 
 1. [Azure portal](https://portal.azure.com/) oturum açın.
 
-2. Seçin **daha fazla hizmet** > **Power BI Embedded** , kapasiteleri görmek için.
+2. Seçin **tüm hizmetleri** > **Power BI Embedded** , kapasiteleri görmek için.
 
-    ![Azure portalındaki diğer hizmetler](media/pause-start/azure-portal-more-services.png)
+    ![Azure portal içindeki tüm hizmetler](media/pause-start/azure-portal-more-services.png)
 
 3. Başlatmak istediğiniz kapasite seçin.
 
@@ -71,7 +71,7 @@ Kullanım kapasitenizi başlatarak sürdürün. Kapasite başlangıç faturalama
 
 5. Seçin **Evet**, kapasite başlatmak istiyor onaylar.
 
-    ![Başlangıç onaylayın](media/pause-start/azure-portal-confirm-start.png)
+    ![Başlatmayı onayla](media/pause-start/azure-portal-confirm-start.png)
 
 Tüm içerik için bu kapasite atanmışsa başlatıldığında kullanılabilir.
 

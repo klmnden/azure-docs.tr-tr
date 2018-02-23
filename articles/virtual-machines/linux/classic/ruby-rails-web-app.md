@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: 1ee30aadc1bd07e7ac9a1894e4be832436ab5910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM’de Ruby on Rails Web uygulaması
 Bu öğretici, Linux sanal makine kullanarak azure'da rayları Web sitesinde bir Ruby barındırmak nasıl gösterir.  
@@ -38,7 +38,7 @@ VM oluşturmak için Azure portalında veya Azure komut satırı arabirimi (CLI)
 
 ### <a name="azure-portal"></a>Azure portalına
 1. Oturum [Azure portalı](https://portal.azure.com)
-2. Tıklatın **yeni**, arama kutusuna "Ubuntu Server 14.04" yazın. Araması tarafından döndürülen girdiyi tıklatın. Dağıtım modelini seçin **Klasik**, "Oluştur" seçeneğine tıklayın.
+2. Tıklatın **kaynak oluşturma**, arama kutusuna "Ubuntu Server 14.04" yazın. Araması tarafından döndürülen girdiyi tıklatın. Dağıtım modelini seçin **Klasik**, "Oluştur" seçeneğine tıklayın.
 3. Temel bilgiler dikey penceresinde gerekli alanlar için değerleri girin: adı (VM), kullanıcı adı, kimlik doğrulama türü ve ilgili kimlik bilgileri, Azure abonelik, kaynak grubunu ve konumu.
 
    ![Yeni bir Ubuntu görüntüsü oluşturma](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)

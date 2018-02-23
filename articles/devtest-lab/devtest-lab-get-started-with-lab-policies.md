@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: v-craic
-ms.openlocfilehash: f7ccd9f56742fe4500c6f5441623beca28801bcd
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3f5fc5051bb8acd9ae107eeadc2a00e992eb378c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda için temel ilkelerini yönetme
 
@@ -31,7 +31,7 @@ Aşağıdaki adımları ilkeleri için Azure DevTest Labs laboratuvarında kurma
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1. **More services**’i (Daha fazla hizmet’i) seçip ardından listeden **DevTest Labs**’i seçin.
+1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 
 1. İstenen Laboratuvar labs listesinden seçin.   
 

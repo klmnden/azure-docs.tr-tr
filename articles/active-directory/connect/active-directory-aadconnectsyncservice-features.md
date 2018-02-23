@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect eşitleme hizmeti özellikleri
 Azure AD Connect eşitleme özelliği iki bileşenden oluşur:
@@ -28,7 +28,7 @@ Azure AD Connect eşitleme özelliği iki bileşenden oluşur:
 
 Bu konuda açıklanmaktadır nasıl özelliklerini aşağıdaki **Azure AD Connect eşitleme hizmeti** çalışma ve bunları Windows PowerShell kullanarak nasıl yapılandırabilirsiniz.
 
-Bu ayarlar ile yapılandırılan [Azure Active Directory için Windows PowerShell Modülü](http://aka.ms/aadposh). İndirin ve Azure AD Connect'ten ayrı olarak yükleyin. Bu konudaki belgelenen cmdlet'leri de tanıtılan [2016 Mart sürümünden (yapı 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Bu konudaki belgelenen cmdlet'leri yok veya aynı sonucu verir değil, en son sürümü çalıştırdığınızdan emin olun.
+Bu ayarlar ile yapılandırılan [Azure Active Directory için Windows PowerShell Modülü](https://aka.ms/aadposh). İndirin ve Azure AD Connect'ten ayrı olarak yükleyin. Bu konudaki belgelenen cmdlet'leri de tanıtılan [2016 Mart sürümünden (yapı 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Bu konudaki belgelenen cmdlet'leri yok veya aynı sonucu verir değil, en son sürümü çalıştırdığınızdan emin olun.
 
 Azure AD dizininizi yapılandırmasında görmek için çalıştırın `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures result](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)

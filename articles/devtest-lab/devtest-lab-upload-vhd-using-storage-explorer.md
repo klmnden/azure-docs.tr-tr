@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 25675aae77fbe2610fe416210de9a306c1c09f3d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a37fece1f46a992b860e3a57f63da5852038205f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Gezgini kullanarak Laboratuvar ait depolama hesabı için VHD dosyasını karşıya yükle
 
@@ -36,7 +36,7 @@ Aşağıdaki adımlar bir VHD dosyası aracılığıyla karşıya yükleme DevTe
 
     1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
     
-    1. **More services**’i (Daha fazla hizmet’i) seçip ardından listeden **DevTest Labs**’i seçin.
+    1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
     
     1. İstenen Laboratuvar labs listesinden seçin.  
     
@@ -54,7 +54,7 @@ Aşağıdaki adımlar bir VHD dosyası aracılığıyla karşıya yükleme DevTe
     
     1. **PowerShell kullanarak bir görüntüyü karşıya yüklemeden** dikey penceresinde görüntüler yapılan bir çağrı **Ekle AzureVhd** cmdlet'i. İlk parametre (*hedef*) depolama hesabı adı şu biçimde Laboratuvar için içerir:
     
-        https://<Storage-ACCOUNT-Name>.BLOB.Core.Windows.NET/uploads/... 
+        https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/... 
 
     1. Sonraki adımlarda kullanılmak üzere depolama hesabı adını not edin.
     

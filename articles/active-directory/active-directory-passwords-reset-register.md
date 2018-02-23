@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user;seohack1
-ms.openlocfilehash: ffdffc0c471970e5a7e7a0bb291658cefe99ed71
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbb82e125381a4307ed742294f880600612ffc52
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>Self servis parola sıfırlama için kaydolma
 
@@ -31,7 +31,7 @@ Bir son kullanıcı parolanızı sıfırlama veya kendiniz tarafından Azure Act
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>SSPR ile kimlik doğrulama verilerini kaydetme veya onaylama
 
-1. Cihazınızda web tarayıcısını açın ve gidin [parola sıfırlama kayıt sayfası](http://aka.ms/ssprsetup).
+1. Cihazınızda web tarayıcısını açın ve gidin [parola sıfırlama kayıt sayfası](https://aka.ms/ssprsetup).
 2. Kullanıcı adınızı ve yöneticiniz sağlanan parolayı girin.
 3. BT personeliniz şeyleri nasıl yapılandırdığına bağlı olarak bir veya daha fazla aşağıdaki seçenekleri yapılandırın ve doğrulamak için kullanılabilir. Yöneticiniz, kişisel bilgilerinizi kullanma izni varsa, bunlar için bu bilgileri bazıları doldurabilirsiniz.
     * **Ofis telefonu**: yalnızca yöneticiniz bu seçenek belirleyebilirsiniz.
@@ -56,12 +56,12 @@ Yöneticilerinizi, kimlik doğrulama yöntemleri bir süre kayıtlı uygun yönt
 | --- | --- | --- |
 | Kullanıcı Kimliğimi girdikten sonra "Lütfen sistem yöneticinize başvurun" sayfası alıyorum | Lütfen yöneticinize başvurun. <br> <br> Kullanıcı hesabı parolanızı Microsoft tarafından yönetilmediğini algıladık. Sonuç olarak, otomatik olarak parolanızı sıfırlamak alamıyoruz. <br> <br> Daha fazla yardım için BT personeliniz başvurun. | Çünkü, BT personeliniz parolanızı, şirket içi ortamınızda yönetir ve gelen parolanızı sıfırlamak izin vermiyor bu iletiyi görüyorsunuz **hesabınıza erişemiyor** bağlantı. <br> <br> Parolanızı sıfırlamak için doğrudan Yardım için BT personeliniz başvurun. Bunlar bu özellik sizin için etkinleştirebileceğiniz şekilde parolanızı sıfırlamak istediğiniz bildirmek.|
 | Kullanıcı Kimliğimi girdikten sonra bir "hesabınız parola sıfırlama için etkin değil" hatası alıyorum | Hesabınız parola sıfırlama için etkinleştirilmedi. <br> <br> Üzgünüz, ancak, BT personeliniz hesabınız bu hizmeti kullanacak şekilde ayarlama değil. <br> <br> İsterseniz, biz parolanızı sıfırlaması için kuruluşunuzdaki yönetici başvurabilirsiniz. | BT personeliniz parola sıfırlama kuruluşunuzdan için etkin değil çünkü bu iletiyi görüyorsunuz **hesabınıza erişemiyor** bağlantı veya bu özelliği kullanmak için lisanslı kurmadı. <br> <br> Parolanızı sıfırlamak üzere seçin **bir yöneticiye başvurun** bağlantı. Bir e-posta, şirketinizin gönderilecek BT personeli. E-posta bunları biliyorsanız, bu özellik sizin için etkinleştirebileceğiniz şekilde parolanızı sıfırlamak istiyorsanız olanak sağlar. |
-| Kullanıcı Kimliğimi girdikten sonra bir "biz hesabınızı doğrulanamadı" hatası alıyorum | Hesabınız doğrulanamıyor. <br> <br> İsterseniz, biz parolanızı sıfırlaması için kuruluşunuzdaki yönetici başvurabilirsiniz. | Parola sıfırlama için etkin ancak hizmeti kullanmak için kayıtlı olmayabilirsiniz çünkü bu iletiyi görüyorsunuz. Parola sıfırlama için kaydolmak için Git [parola sıfırlama kayıt sayfası](http://aka.ms/ssprsetup) hesabınıza erişim artık sonra. <br> <br> Parolanızı sıfırlamak üzere seçin **bir yöneticiye başvurun** , şirketinizin e-posta göndermek için bağlantı BT personeli. |
+| Kullanıcı Kimliğimi girdikten sonra bir "biz hesabınızı doğrulanamadı" hatası alıyorum | Hesabınız doğrulanamıyor. <br> <br> İsterseniz, biz parolanızı sıfırlaması için kuruluşunuzdaki yönetici başvurabilirsiniz. | Parola sıfırlama için etkin ancak hizmeti kullanmak için kayıtlı olmayabilirsiniz çünkü bu iletiyi görüyorsunuz. Parola sıfırlama için kaydolmak için Git [parola sıfırlama kayıt sayfası](https://aka.ms/ssprsetup) hesabınıza erişim artık sonra. <br> <br> Parolanızı sıfırlamak üzere seçin **bir yöneticiye başvurun** , şirketinizin e-posta göndermek için bağlantı BT personeli. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Self Servis parola sıfırlamayı kullanarak parolanızı değiştirme](active-directory-passwords-update-your-own-password.md)
-* [Parola sıfırlama kayıt sayfası](http://aka.ms/ssprsetup)
+* [Parola sıfırlama kayıt sayfası](https://aka.ms/ssprsetup)
 * [Parola sıfırlama portalı](https://passwordreset.microsoftonline.com/)
 * [Ne zaman da Microsoft hesabınızda oturum açamazsınız](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

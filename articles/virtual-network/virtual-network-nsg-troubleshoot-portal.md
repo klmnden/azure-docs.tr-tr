@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Ağ güvenlik grupları Azure Portalı'nı kullanarak sorun giderme
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure portalındaki](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
@@ -47,7 +47,7 @@ Nsg'leri bir VM için sorun giderme için aşağıdaki adımları tamamlayın:
 VM'den bir NIC üzerinde etkili güvenlik kuralları tam listesini görüntüleyebilirsiniz. Eklemek, değiştirmek ve bu işlemleri gerçekleştirmek için izinleri varsa NIC ve alt ağ NSG kuralları etkili kuralları dikey penceresinden silin.
 
 1. Bir Azure hesabı ile https://portal.azure.com Azure portalında oturum açın. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. ' I tıklatın **daha fazla hizmet**, ardından **sanal makineleri** listesinde görünür.
+2. ' I tıklatın **tüm hizmetleri**, ardından **sanal makineler** listesinde görünür.
 3. Görüntülenen listesinden gidermek için VM seçin ve seçeneklerle bir VM dikey penceresi görünür.
 4. Tıklatın **Tanıla & sorunları** ve ortak bir sorun seçin. Bu örnek için **Windows VM'ime bağlanamıyorum** seçilir. 
    
@@ -96,7 +96,7 @@ VM'den bir NIC üzerinde etkili güvenlik kuralları tam listesini görüntüley
 VM trafik akışı için belirli bir NIC etkilenir, aşağıdaki adımları tamamlayarak ağ arabirimleri bağlamından NIC için tam etkili kuralları listesini görüntüleyebilirsiniz:
 
 1. Https://portal.azure.com Azure portalında oturum açın.
-2. Tıklatın **daha fazla hizmet**, ardından **ağ arabirimleri** listesinde görünür.
+2. Tıklatın **tüm hizmetleri**, ardından **ağ arabirimleri** listesinde görünür.
 3. Bir ağ arabirimi seçin. Aşağıdaki resimde, bir NIC adlı *VM1 nıc1* seçilir.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
@@ -113,7 +113,7 @@ VM trafik akışı için belirli bir NIC etkilenir, aşağıdaki adımları tama
 NSG kuralları değiştirirken, belirli bir VM'de eklenen kurallar etkisini gözden geçirmek isteyebilirsiniz. Belirli bir NSG uygulandığı tüm NIC'ler için etkili güvenlik kuralları tam bir listesini görüntüleyebilirsiniz verilen NSG dikey penceresinden bağlamı değiştirmek zorunda kalmadan. Bir NSG içinde etkili kuralları gidermek için aşağıdaki adımları tamamlayın:
 
 1. Https://portal.azure.com Azure portalında oturum açın.
-2. Tıklatın **daha fazla hizmet**, ardından **ağ güvenlik grupları** listesinde görünür.
+2. Tıklatın **tüm hizmetleri**, ardından **ağ güvenlik grupları** listesinde görünür.
 3. Bir NSG'yi seçin. Aşağıdaki resimde, VM1 nsg adlı bir NSG seçilmedi.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)

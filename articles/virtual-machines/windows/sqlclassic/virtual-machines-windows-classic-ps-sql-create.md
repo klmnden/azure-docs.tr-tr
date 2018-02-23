@@ -4,7 +4,7 @@ description: "Bir Azure VM ile SQL Server sanal makineye Galerisi görüntüleri
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
-ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Azure PowerShell (Klasik) kullanarak bir SQL Server sanal makine sağlama
 
@@ -76,7 +76,7 @@ SQL Server sanal makineniz, belirli bir Azure bölgesinde bulunan bir bulut hizm
    ```
 
    > [!NOTE]
-   > İlk yeni bir depolama hesabı gerekiyorsa, bir küçük tüm depolama hesabı adı aşağıdaki örnekteki gibi yeni AzureStorageAccount komutuyla oluşturun:`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > İlk yeni bir depolama hesabı gerekiyorsa, bir küçük tüm depolama hesabı adı aşağıdaki örnekteki gibi yeni AzureStorageAccount komutuyla oluşturun: `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. Hedef depolama hesabı adı atamak **$staccount**. Ardından **Set-AzureSubscription** geçerli depolama hesabı ve aboneliği ayarlamak için.
 

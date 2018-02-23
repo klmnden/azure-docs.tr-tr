@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
 Bu konu, Azure veri fabrikası (ADF) kullanarak verileri bir şirket içi SQL Server veritabanından bir SQL Azure veritabanına Azure Blob Storage nasıl taşınacağı gösterir.
@@ -61,12 +61,12 @@ Bu öğretici, sahip olduğunuz varsayılmaktadır:
 >
 >
 
-## <a name="upload-data"></a>Şirket içi SQL Server'ınızı veri yükleme
+## <a name="upload-data"></a> Şirket içi SQL Server'ınızı veri yükleme
 Kullanırız [NYC ücreti dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) geçiş işlemini göstermek için. NYC ücreti dataset Azure blob depolama o post belirtildiği gibi kullanılabilir [NYC ücreti verileri](http://www.andresmh.com/nyctaxitrips/). Verileri iki dosya, seyahat ayrıntılarını içeren, trip_data.csv dosya ve her seyahat için ödenen ücreti ayrıntılarını içeren trip_far.csv dosyası vardır. Bir örnek ve bu dosyaların açıklaması sağlanan [NYC ücreti dönüşleri veri kümesi tanımı](sql-walkthrough.md#dataset).
 
 Burada, kendi veri kümesi için sağlanan yordamı uyarlamak veya NYC ücreti dataset kullanarak açıklanan adımları izleyin. NYC ücreti veri kümesi şirket içi SQL Server veritabanınıza karşıya yüklemek için özetlenen yordamı izleyin [toplu içeri aktarma verileri SQL Server veritabanına](sql-walkthrough.md#dbload). SQL Server üzerinde bir Azure sanal makine için bu yönergeleri bağlıdır, ancak şirket içi SQL Server'a yükleme yordamı aynıdır.
 
-## <a name="create-adf"></a>Bir Azure Data Factory oluşturma
+## <a name="create-adf"></a> Bir Azure Data Factory oluşturma
 Yeni bir Azure Data Factory ve bir kaynak grubu oluşturmak için yönergeleri [Azure portal](https://portal.azure.com/) sağlanan [bir Azure Data Factory oluşturmak](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Yeni ADF örnek adı *adfdsp* ve oluşturulan kaynak grubu adı *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Yükleme ve veri yönetimi ağ geçidi yapılandırma
@@ -105,7 +105,7 @@ Tablolar JSON tabanlı tanımlarında aşağıdaki adları kullanın:
 Üç tablo tanımları bu ADF ardışık düzeni için gereklidir:
 
 1. [SQL şirket içi tablosu](#adf-table-onprem-sql)
-2. [BLOB tablosu](#adf-table-blob-store)
+2. [BLOB tablosu ](#adf-table-blob-store)
 3. [SQL Azure tablo](#adf-table-azure-sql)
 
 > [!NOTE]
@@ -113,7 +113,7 @@ Tablolar JSON tabanlı tanımlarında aşağıdaki adları kullanın:
 >
 >
 
-### <a name="adf-table-onprem-sql"></a>SQL şirket içi tablosu
+### <a name="adf-table-onprem-sql">SQL şirket içi tablosu</a>
 Şirket içi SQL Server için tablo tanımı aşağıdaki JSON dosyasında belirtilir:
 
         {
@@ -148,7 +148,7 @@ Tablosunun JSON tanımını bir dosyaya adlı kopya *onpremtabledef.json* dosya 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store"></a>BLOB tablosu
+### <a name="adf-table-blob-store">BLOB tablosu </a>
 Tablosu için çıkış blob konumu tanımıdır (Bu eşler şirket içi Azure blob alınan verileri) aşağıdaki:
 
         {
@@ -178,7 +178,7 @@ Tablosunun JSON tanımını bir dosyaya adlı kopya *bloboutputtabledef.json* do
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sq"></a>SQL Azure tablo
+### <a name="adf-table-azure-sql">SQL Azure tablo</a>
 SQL Azure tablo tanımı çıkış (Bu şemayı eşlemeleri blobundan gelen veriler) aşağıdaki:
 
     {

@@ -1,8 +1,8 @@
 ---
 title: "Azure portalında eylem gruplarını oluşturma ve yönetme | Microsoft Docs"
 description: "Azure portalında eylem gruplarını oluşturma ve yönetme öğrenin."
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
-ms.author: ancav
-ms.openlocfilehash: 9f7f9dcc473e6925000ebe76a6592779c228a9af
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/16/2018
+ms.author: dukek
+ms.openlocfilehash: 772b9c2b9532bd2cc37ad89db92545297eecd903
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında eylem gruplarını oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
 Bu makalede, Azure portalında Eylem grupları oluşturmak ve yönetmek nasıl gösterilmektedir.
 
-Eylem gruplarıyla eylemlerin bir listesini yapılandırabilirsiniz. Etkinlik günlüğü uyarıları tanımlarken bu gruplar daha sonra kullanılabilir. Bu gruplar daha sonra aynı eylemleri etkinlik günlüğü uyarısı her tetiklenişinde alınır sağlama tanımlamak her etkinlik günlüğü uyarı tarafından yeniden kullanılabilir.
+Eylem gruplarıyla eylemlerin bir listesini yapılandırabilirsiniz. Bu gruplar aynı eylemleri bir uyarı her tetiklenişinde alınır sağlama tanımlamak her uyarı tarafından kullanılabilir.
 
 Bir eylem grubu 10 her eylem türünde olabilir. Her eylem aşağıdaki özellikleri oluşur:
 
@@ -56,7 +56,7 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullan
 
     a. **Ad**: Bu eylem için benzersiz bir tanımlayıcı girin.
 
-    b. **Eylem türü**: SMS seçin, e-posta, Web kancası, Azure uygulaması, ITSM veya Otomasyon Runbook.
+    b. **Eylem türü**: SMS/e-posta/Azure uygulaması, Web kancası, ITSM ya da Otomasyon Runbook'u seçin.
 
     c. **Ayrıntılar**: eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi, Web kancası URI, Azure uygulaması, ITSM bağlantı ya da Otomasyon runbook'u girin. ITSM eylem için ayrıca belirtin **iş öğesi** ve diğer alanlar ITSM aracınızı gerektirir.
 

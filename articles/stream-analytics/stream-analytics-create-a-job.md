@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Akış analizi için veri analizi işlem işi oluşturma
 Üst düzey Azure akış analizi, akış analizi işi kaynaktır.  Bir veya daha fazla giriş veri kaynağı, veri dönüştürme ifade bir sorgu ve sonuçları yazılan bir veya daha fazla çıkış hedefleri oluşur. Birlikte bu veri analitik veri senaryoları akış için işleme gerçekleştirmek kullanıcının etkinleştirir.
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 Stream Analytics kullanmaya başlamak için yeni bir akış analizi işi oluşturarak başlayın.  İş başlatılana kadar bu eylem hiçbir fatura şifrelemelerini unutmayın.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Seçin **yeni** > **veri + analiz** > **Stream Analytics işi**.
+2. Seçin **kaynak oluşturma** > **veri + analiz** > **Stream Analytics işi**.
 3. **Oluştur**’u seçin.
    
 3. Stream Analytics işi için istenen yapılandırmayı belirtin.

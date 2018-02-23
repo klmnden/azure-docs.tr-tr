@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 57ee7770193641d0e13da2c7f8aaa6cfc6aefe73
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Öğretici: Azure Active Directory Tümleştirme barındırılan Grafit ile
 
@@ -31,7 +31,7 @@ Barındırılan Grafit Azure AD ile tümleştirme ile aşağıdaki avantajları 
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme barındırılan Grafit ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://www.hostedgraphite.com/metadata/<user id>`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. Üzerinde **barındırılan Grafit etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
    
@@ -120,7 +120,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
   
     a. Tıklayın **Göster Gelişmiş URL ayarları** seçeneği
 
-    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://www.hostedgraphite.com/login/saml/<user id>/`   
+    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.hostedgraphite.com/login/saml/<user id>/`   
 
     > [!NOTE] 
     > Lütfen bu gerçek değerlerin olmadığına dikkat edin. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum üzerinde URL'si ile güncelleştirmeniz gerekir. Bu değerleri almak için erişim gidebilirsiniz uygulama yan veya kişi SAML kurulumu -> [barındırılan Grafit destek ekibi](mailto:help@hostedgraphite.com).
@@ -196,7 +196,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-hosted-graphite-test-user"></a>Barındırılan Grafit test kullanıcısı oluşturma
 
@@ -205,7 +205,7 @@ Bu bölümün amacı, içinde barındırılan Grafit Britta Simon adlı bir kull
 Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa barındırılan Grafit erişme denemesi sırasında oluşturulur.
 
 >[!NOTE]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, aracılığıyla barındırılan Grafit Destek ekibine başvurun gerek < mailto:help@hostedgraphite.com >. 
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, aracılığıyla barındırılan Grafit Destek ekibine başvurun gerek <mailto:help@hostedgraphite.com>. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 

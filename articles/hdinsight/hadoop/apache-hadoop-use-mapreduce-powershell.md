@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/27/2017
+ms.date: 02/16/2018
 ms.author: larryfr
-ms.openlocfilehash: cfed3617f20074f361629c65f14ce38c1012c702
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ba4a2dfc6a69e9ab18948bc9e33597a56bdd3bd9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>PowerShell kullanarak Hdınsight'ta Hadoop ile MapReduce işleri çalıştırma
 
@@ -30,14 +30,14 @@ Bu belge, Hdınsight kümesinde bir Hadoop MapReduce işi çalıştırmak için 
 
 ## <a id="prereq"></a>Önkoşullar
 
-* **Azure Hdınsight (Hadoop hdınsight) kümesi**
+* Azure Hdınsight (Hadoop hdınsight) kümesi
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Azure PowerShell içeren bir iş istasyonu**.
 
-## <a id="powershell"></a>Azure PowerShell kullanarak bir MapReduce işi çalıştırma
+## <a id="powershell"></a>Bir MapReduce işi çalıştırma
 
 Azure PowerShell sağlar *cmdlet'leri* Hdınsight'ta MapReduce işleri uzaktan çalıştırma izin verir. Dahili olarak, PowerShell KALAN çağrılar [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (Templeton adıysa) Hdınsight kümesinde çalışan.
 
@@ -45,7 +45,7 @@ Aşağıdaki cmdlet, MapReduce işleri uzaktan Hdınsight kümesinde çalıştı
 
 * **Login-AzureRmAccount**: Azure PowerShell'i Azure aboneliğinize kimliğini doğrular.
 
-* **AzureRmHDInsightMapReduceJobDefinition yeni**: yeni bir *iş tanımı* belirtilen MapReduce bilgileri kullanarak.
+* **New-AzureRmHDInsightMapReduceJobDefinition**: Creates a new *job definition* by using the specified MapReduce information.
 
 * **Başlangıç AzureRmHDInsightJob**: iş tanımı için Hdınsight gönderir ve işini başlatır. A *iş* nesne döndürülür.
 

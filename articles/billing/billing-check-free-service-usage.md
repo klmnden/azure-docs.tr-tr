@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bc63091dfba822f9839f61dd12c212154ba695d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure ücretsiz hesabınıza eklendi Ücretsiz Hizmetler kullanımını denetleyin 
 
@@ -28,7 +28,7 @@ Bu hizmetler sınırları aşan sürece, ücretsiz Azure ücretsiz hesapla dahil
 
 1.  [Azure Portal]( http://portal.azure.com)’da oturum açın.
 
-2.  Sol gezinti aşağıdan seçin **daha fazla hizmet**.
+2.  Sol gezinti alanından seçin **tüm hizmetleri**.
 
 3.  Seçin **abonelikleri**.
 
@@ -63,7 +63,7 @@ Bu hizmetler sınırları aşan sürece, ücretsiz Azure ücretsiz hesapla dahil
 
 Kullanım dosyanızı Azure aboneliğiniz için ayrıntılı bilgiler sağlar. Aylık ve günlük kullanım dosyasını Azure hesap Merkezi'nden indirebilirsiniz. Kullanım dosyasını indirin ve gerekli erişim anlama hakkında bilgi edinmek için [fatura almak ve kullanım](billing-download-azure-invoice-daily-usage-date.md). Kullanım dosyasındaki sütunları hakkında bilgi edinmek için [anlamak kullanımınızı koşullarınızda](billing-understand-your-usage.md). 
 
-Kullanım dosyasını Ücretli ve ücretsiz hizmetler için kullanım bilgileri içerir. Ücretsiz hizmet ölçümler sahip olabilir **serbest** ölçer adının sonuna eklenir. Ücretsiz ölçümler, dosyayı Excel'de açın ve filtre bulmak için **ölçer kategori sütunu** metin içeren hücrelerin **- boş** (kullanımı metin filtreleri &rarr; içerir Filtresi)&nbsp;
+Kullanım dosyasını Ücretli ve ücretsiz hizmetler için kullanım bilgileri içerir. Ücretsiz hizmet ölçümler sahip olabilir **serbest** ölçer adının sonuna eklenir. Ücretsiz ölçümler, dosyayı Excel'de açın ve filtre bulmak için **ölçer kategori sütunu** metin içeren hücrelerin **- boş** (kullanımı metin filtreleri &rarr; içerir Filtresi) &nbsp;
 
 ![Ücretsiz Hizmetler kullanımını gösteren ekran görüntüsü](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

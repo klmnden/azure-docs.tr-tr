@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 350b20dbff306221fbedd069ef378f11e2ec1415
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 7013cb48738d4dccb328728fe1e47b3f43bff4f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI), Azure Resource Manager erişmek için bir Linux VM üzerinde kullanın.
 
@@ -55,7 +55,7 @@ Bu öğreticide CLI komut dosyası örnekleri çalıştırmak için iki seçene�
 
 Bu öğretici için öncelikle yeni bir Linux VM oluşturun. Mevcut bir VM'yi kullanmayı tercih.
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Tıklatın **kaynak oluşturma** Azure portalının sol üst köşedeki üzerinde.
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
 3. Sanal makine bilgilerini girin. İçin **kimlik doğrulama türü**seçin **SSH ortak anahtarını** veya **parola**. Oluşturulan kimlik bilgileri, VM'ye oturum açmak izin verir.
 

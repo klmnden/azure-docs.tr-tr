@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 48e8eb91a5febcc1109bee3404bb534bd0391f88
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Ayarlama ve bir çok kiracılı Azure SQL veritabanı SaaS uygulaması ile günlük analizi (OMS) kullanma
 
-Bu öğreticide ayarlama ve kullanma *günlük analizi ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* esnek havuzlar ve veritabanları izleme. Bu öğretici derlemeler [performans izleme ve yönetim Öğreticisi](saas-dbpertenant-performance-monitoring.md). Nasıl kullanılacağını gösterir *günlük analizi* izleme ve Azure Portal'da sağlanan uyarı büyütmek için. Günlük analizi, izleme ve havuzları yüzlerce ve yüz binlerce veritabanları desteklediğinden ölçekte uyarı için uygundur. Ayrıca, birden fazla Azure aboneliği genelinde farklı uygulamaların ve Azure hizmetlerinin izlenmesini tümleştiren tek bir izleme çözümü sağlar.
+Bu öğreticide ayarlama ve kullanma *günlük analizi ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* esnek havuzlar ve veritabanları izleme. Bu öğretici derlemeler [performans izleme ve yönetim Öğreticisi](saas-dbpertenant-performance-monitoring.md). Nasıl kullanılacağını gösterir *günlük analizi* izleme ve Azure Portal'da sağlanan uyarı büyütmek için. Günlük analizi esnek havuzlarını izleme binlerce ve yüz binlerce veritabanlarını destekler. Günlük analizi farklı uygulamalar ve Azure Hizmetleri birden çok Azure aboneliği izleme tümleştirebilirsiniz tek bir izleme çözümü sağlar.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Log Analytics’i yükleme ve yapılandırma (OMS)
@@ -39,51 +39,52 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 
 SaaS senaryoları ve düzenleri ile ilgili açıklamalar ve bunların izleme çözümü gereksinimlerini nasıl etkilediği hakkında bilgi edinmek için [Performans İzleme ve Yönetim öğreticisini](saas-dbpertenant-performance-monitoring.md) inceleyin.
 
-## <a name="monitoring-and-managing-performance-with-log-analytics-oms"></a>Log Analytics (OMS) ile performansı izleme ve yönetme
+## <a name="monitoring-and-managing-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite-oms"></a>İzleme ve günlük analizi ya da Operations Management Suite (OMS) ile veritabanı ve esnek havuzu performansı yönetme
 
-SQL Veritabanı için veritabanı ve havuzlarda izleme ve uyarı özellikleri kullanılabilir. Bu yerleşik izleme ve uyarı özellikleri, kaynağa özeldir ve az sayıda kaynak için kullanışlıdır. Ancak büyük kurulumları izlemek veya farklı kaynak ve aboneliklerde birleşik bir görünüm sağlamak için pek uygun değildir.
+İzleme ve uyarı SQL veritabanı için veritabanlarını ve Azure portalında havuzlarında kullanılabilir. Bu yerleşik izleme ve uyarma uygun olmakla birlikte, kaynak özgü olan, onu iyi büyük yüklemeler izleme veya kaynaklar ve abonelikler arasında birleştirilmiş bir görünümünü sağlamak için uygundur.
 
-Yüksek hacimli senaryolar için Log Analytics kullanılabilir. Bu, yayınlanan tanılama günlükleri ve log analytics çalışma alanında toplanan telemetri üzerinden analizler sağlayan ayrı bir Azure hizmetidir. Bu hizmet, birçok hizmetten telemetri toplayabilir ve uyarıları sorgulamak ve ayarlamak için kullanılabilir. Log Analytics, işlem verilerinin analiz edilmesini ve görselleştirilmesini sağlayan yerleşik bir sorgu dili ve veri görselleştirme araçları sunar. SQL analiz çözümü çeşitli ön tanımlı esnek havuz ve izleme ve görünümleri ve sorguları uyarı veritabanı sağlar ve kendi geçici sorgular eklemek ve bunları gerektiği gibi kaydetmenize olanak tanır. OMS, özel bir görünüm tasarımcısı da sağlar.
+Yüksek hacimli senaryolar için günlük analizi izleme ve uyarı için kullanılabilir. Günlük analizi analytics tanılama günlüklerini etkinleştiren ayrı bir Azure hizmet ve bir çalışma alanında potansiyel olarak birçok Hizmetleri'nden toplanan telemetri ' dir. Günlük analizi yerleşik bir sorgu işletimsel veri analizi izin vererek dil ve veri görselleştirme araçlar sağlar. Çeşitli ön tanımlı esnek havuz veritabanı izleme ve uyarı görünümleri ve sorguları SQL analiz çözümü sağlar. OMS, özel bir görünüm tasarımcısı da sağlar.
 
 Log Analytics çalışma alanları ve analiz çözümleri, hem Azure portalında hem de OMS’de açılabilir. Azure portalı, daha yeni bir erişim noktası olmasına rağmen bazı alanlarda OMS portalının gerisinde kalabilir.
 
-### <a name="create-data-by-starting-the-load-generator"></a>Yük Oluşturucu başlatarak verileri oluşturma 
+### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Kiracılarınız bir iş yükünü taklit ederek Performans Tanılama verileri oluşturma 
 
-1. İçinde **PowerShell ISE**, açık **Demo PerformanceMonitoringAndManagement.ps1**. Bu öğretici sırasında birkaç yük oluşturma senaryosu çalıştırmak isteyebileceğinizden bu betiği açık tutun.
-1. Daha az beş kiracılar varsa, sağlama daha ilginç sağlamak için kiracılar toplu bağlam izleme:
-   1. **$DemoScenario = 1,** **Kiracı grubu sağlama** değerini ayarlayın
-   1. Komut dosyasını çalıştırmak için basın **F5**.
+1. İçinde **PowerShell ISE**açın *... \\WingtipTicketsSaaS MultiTenantDb ana\\modülleri öğrenme\\performans izleme ve Yönetim\\** Demo PerformanceMonitoringAndManagement.ps1***. Bu öğretici sırasında birkaç yük oluşturma senaryosu çalıştırmak isteyebileceğinizden bu betiği açık tutun.
+1. Henüz yapmadıysanız, daha ilginç izleme bağlamı sağlamak için kiracılar toplu sağlayın. Bu işlem birkaç dakika sürer:
+   1. Ayarlama **$DemoScenario = 1**, _kiracılar toplu sağlama_
+   1. Komut dosyasını çalıştırın ve ek 17 kiracılar dağıtmak için basın **F5**.  
 
-1. Ayarlama **$DemoScenario** = 2, **Generate normal yoğunluğu yük (yaklaşık 40 DTU)**.
-1. Komut dosyasını çalıştırmak için basın **F5**.
+1. Şimdi tüm kiracılar benzetilmiş bir yük çalıştırmak için yük oluşturucunun başlatın.  
+    1. Ayarlama **$DemoScenario = 2**, _Generate normal yoğunluğu yük (yaklaşık 30 DTU)_.
+    1. Komut dosyasını çalıştırmak için basın **F5**.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama komut dosyaları alma
 
-Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri PowerShell betikleri engellemesini kaldırmak.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Log Analytics’i ve Azure SQL Analytics çözümünü yükleme ve yapılandırma
 
-Log Analytics, yapılandırılması gereken ayrı bir hizmettir. Log Analytics, log analytics çalışma alanında günlük veriler, telemetri ve ölçümleri toplar. Çalışma alanı, Azure’daki diğer kaynaklara benzer bir kaynaktır ve oluşturulması gerekir. Çalışma alanının izlediği uygulamayla aynı kaynak grubunda oluşturulması gerekli olmasa da bu, çoğu zaman en mantıklı seçimdir. Kiracı SaaS başına Wingtip biletleri SaaS veritabanı uygulaması için bu kaynak grubunu silerek uygulamayla birlikte kolayca silinmesi için çalışma sağlar.
+Log Analytics, yapılandırılması gereken ayrı bir hizmettir. Günlük analizi günlük verilerini, telemetri ve günlük analizi çalışma alanındaki ölçümleri toplar. Günlük analizi çalışma alanı, azure'daki diğer kaynakları gibi bir kaynak değildir ve oluşturulmalıdır. Çalışma alanı uygulamaları ile aynı kaynak grubunda oluşturulması değil gerekirken, en uygun kadar sık sağlar yapmak izlediği. Wingtip biletleri uygulama için tek bir kaynak grubu kullanarak çalışma alanında uygulama ile silinir sağlar.
 
-1. İçinde **PowerShell ISE**açın... \\Modülleri öğrenme\\performans izleme ve Yönetim\\oturum Analytics\\*Demo LogAnalytics.ps1*.
+1. İçinde **PowerShell ISE**açın *... \\WingtipTicketsSaaS MultiTenantDb ana\\modülleri öğrenme\\performans izleme ve Yönetim\\oturum Analytics\\** Demo LogAnalytics.ps1***.
 1. Komut dosyasını çalıştırmak için basın **F5**.
 
-Bu noktada, Azure portalında (veya OMS portalı) mümkün açık günlük analizi olmalıdır. Telemetri günlük analizi çalışma alanındaki toplanacak ve görünür hale gelmesi birkaç dakika sürer. Uzun daha ilginç deneyimidir veri toplamayı sistem bırakın. Şimdi gidip bir içecek alabilirsiniz. Yük oluşturucunun çalıştığından emin olmanız yeterli!
-
+Bu noktada, Azure portalında (veya OMS portalı) mümkün açık günlük analizi olmalıdır. Telemetri günlük analizi çalışma alanındaki toplanacak ve görünür hale gelmesi birkaç dakika sürer. Uzun daha ilginç deneyimidir tanılama verilerini toplama sistem bırakın. Şimdi gidip bir içecek alabilirsiniz. Yük oluşturucunun çalıştığından emin olmanız yeterli!
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Havuzları ve veritabanlarını izlemek için Log Analytics ve SQL Analytics çözümünü kullanma
 
 
 Bu alıştırmada, veritabanları ve havuzları için toplanan telemetri bakmak için günlük analizi ve OMS Portalı'nı açın.
 
-1. [Azure portalına](https://portal.azure.com) göz atın ve Diğer hizmetler’e tıklayarak Log Analytics’i açın, ardından Log Analytics’i aratın:
+1. Gözat [Azure portal](https://portal.azure.com) ve günlük analizi tıklayarak açın **tüm hizmetleri**, günlük analizi için arama yapın:
 
    ![log analytics’i aç](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. *wtploganalytics-&lt;USER&gt;* adlı çalışma alanını seçin.
+1. Adlı çalışma alanını seçin _wtploganalytics -&lt;kullanıcı&gt;_.
 
 1. Azure portalında Log Analytics çözümünü açmak için **Genel Bakış**’ı seçin.
-   ![genel bakış-bağlantı](media/saas-dbpertenant-log-analytics/click-overview.png)
+
+   ![Genel Bakış-bağlantı](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > Birkaç çözüm etkinleştirilmeden önce dakika sürebilir. Sabırlı olun!
@@ -92,38 +93,53 @@ Bu alıştırmada, veritabanları ve havuzları için toplanan telemetri bakmak 
 
     ![genel bakış](media/saas-dbpertenant-log-analytics/overview.png)
 
-    ![analizler](media/saas-dbpertenant-log-analytics/analytics.png)
+    ![analizler](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. Görünüm, çözüm dikey penceresinde en alttaki kendi kaydırma çubuğuyla yana doğru kaydırılır (gerekirse dikey pencereyi yenileyin).
+1. Çözüm görünümleri kendi iç kaydırma çubuğunun altındaki (gerekirse sayfayı yenileyin) ile betiklerdeki kaydırın.
 
-1. Çeşitli görünümlere tıklayarak bunları keşfedin veya her bir kaynağa tıklayarak ayrıntılı gezgini açın. Bu gezginde, sol üst köşedeki zaman kaydırıcısını kullanabilir veya dikey çubuğa tıklayarak daha dar bir zaman dilimine odaklanabilirsiniz. Bu görünümle, belirli kaynaklara odaklanmak için veritabanlarını veya havuzları tek tek seçebilirsiniz:
+1. Özet sayfasında döşeme veya ayrıntıya Gezgini'ni açmak için tek bir veritabanının tıklayarak keşfedin.
 
-    ![grafik](media/saas-dbpertenant-log-analytics/chart.png)
+1. Bu öğretici çekme - zaman aralığını değiştirmek için ayarı filtresini değiştirin _son 1 saat_
 
-1. Çözüm dikey penceresinde, en sağa doğru kaydırdığınızda açmak ve keşfetmek üzere tıklayabileceğiniz birkaç kayıtlı sorgu görebilirsiniz. Bunlar değiştirmeyle ilgili deneyin ve yeniden açın ve diğer kaynaklarla kullanmak, oluşturmak, tüm ilginç sorgular kaydedin.
+    ![Zaman Filtresi](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. Log Analytics çalışma alanı dikey penceresine dönün ve çözümü burada açmak için OMS Portalı’nı seçin.
+1. Sorgu kullanım ve bu veritabanı için ölçümleri keşfetmek için tek bir veritabanı seçin.
 
-    ![oms](media/saas-dbpertenant-log-analytics/oms.png)
+    ![Veritabanı analizi](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-1. OMS portalında uyarıları yapılandırabilirsiniz. Veritabanı DTU görünümünün uyarı kısmına tıklayın.
+1. Kullanımını görmek için ölçümleri analitik sayfası sağa kaydırın.
+ 
+     ![Veritabanı ölçümleri](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. Açılan Günlük Araması görünümünde, sunulan ölçümlerin çubuk grafiğini göreceksiniz.
+1. Analytics sayfanın sol kaydırma ve kaynak bilgileri listesinde sunucu kutucuğuna tıklayın. Bu sunucu üzerinde havuzları ve veritabanları gösteren bir sayfa açar. 
 
-    ![günlük araması](media/saas-dbpertenant-log-analytics/log-search.png)
+     ![kaynak bilgileri](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
-1. Araç çubuğunda uyarıya tıklayın, uyarı yapılandırma görmeye devam ve değiştirebilirsiniz.
+ 
+     ![Sunucu havuzları ve veritabanlarıyla](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-    ![uyarı kuralı ekle](media/saas-dbpertenant-log-analytics/add-alert.png)
+1. Sunucuda server veritabanlarını ve havuzları tıklatın havuzunda açılır sayfası gösterir.  Açılır havuzu sayfasında havuzu ölçümlerini görmek için sağa kaydırın.  
 
-Log Analytics ve OMS’deki izleme ve uyarı özelliği, kaynak dikey pencerelerindeki kaynağa özel uyarı özelliğinin aksine çalışma alanındaki veriler üzerinde yapılan sorguları temel alır. Bu nedenle, veritabanı başına bir uyarı tanımlamak yerine tüm veritabanları için geçerli bir uyarı tanımlayabilirsiniz. İsterseniz birden fazla kaynak türü üzerinde birleşik bir sorgu kullanan bir uyarı da yazabilirsiniz. Sorgular, yalnızca çalışma alanında bulunan verilerle sınırlıdır.
+     ![Havuz ölçümleri](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
-SQL Veritabanı için Log Analytics, çalışma alanındaki veri hacmine göre ücretlendirilir. Bu öğreticide, günlük 500 MB ile sınırlı olan ücretsiz bir çalışma alanı oluşturdunuz. Sınıra ulaşıldığında, artık çalışma alanına veri eklenmez.
+
+
+1. Günlük analizi çalışma geri üzerinde seçin **OMS portalı** çalışma alanını vardır.
+
+    ![oms](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+
+OMS Portalı'nda günlük ve ölçüm verilerini daha fazla çalışma alanında gözden geçirebilirsiniz.  
+
+İzleme ve günlük analizi ve OMS uyarı temel sorgulamaları Azure Portalı'ndaki her bir kaynağın tanımlanan uyarı aksine çalışma alanında, veriler üzerinde. Sorgulamaları uyarıları alma tarafından tanımlama tek başına veritabanı yerine, tüm veritabanları üzerinden arar tek bir uyarı tanımlayabilirsiniz. Sorgular, yalnızca çalışma alanında bulunan verilerle sınırlıdır.
+
+Sorgulamak ve uyarıları ayarlamak için OMS kullanma hakkında daha fazla bilgi için bkz: [uyarı kurallarında günlük analizi çalışma](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+
+SQL Veritabanı için Log Analytics, çalışma alanındaki veri hacmine göre ücretlendirilir. Bu öğreticide, 500 MB günde sınırlı olduğu bir ücretsiz çalışma alanı oluşturuldu. Bu sınıra ulaşıldığında, veriler artık çalışma alanı'na eklenir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunları öğrendiniz:
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Log Analytics’i yükleme ve yapılandırma (OMS)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahipleri ve kullanıcılar ekleme
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -64,7 +64,7 @@ Azure Portalı aracılığıyla Laboratuvar düzeyinde sahipleri ve kullanıcıl
 Aşağıdaki adımlar bir laboratuar ortamında Azure DevTest Labs sahibi veya kullanıcı ekleme işleminde size kılavuzluk eder:
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-2. **More services**’i (Daha fazla hizmet’i) seçip ardından listeden **DevTest Labs**’i seçin.
+2. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 3. İstenen Laboratuvar labs listesinden seçin.
 4. Laboratuvar 's dikey penceresinde, seçin **yapılandırma**. 
 5. Üzerinde **yapılandırma** dikey penceresinde, select **kullanıcılar**.
@@ -118,7 +118,7 @@ Laboratuvar Laboratuvar 's dikey penceresinde aracılığıyla ek sahipleri ekle
 Bir Azure aboneliğine sahip eklemek için aşağıdaki adımları izleyin:
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-2. Seçin **daha Hizmetleri**ve ardından **abonelikleri** listeden.
+2. Seçin **tüm hizmetleri**ve ardından **abonelikleri** listeden.
 3. İstediğiniz aboneliği seçin.
 4. Seçin **erişim** simgesi. 
    

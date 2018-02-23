@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: v-craic
-ms.openlocfilehash: c807789dc2b47fe3632fc4ecf597904d8b0bbf6f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 95fc017e64ac5c8a31be93790f53eb7fefa8f69a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda ilk VM oluşturma
 
@@ -28,7 +28,7 @@ Bu öğreticide, bir laboratuar ortamında DevTest Labs ilk VM eklemek için Azu
 
 ## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda ilk VM eklemek için adımları
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-1. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. VM oluşturmak istediğiniz Laboratuvar labs listesinden seçin.  
 1. Laboratuvar 's üzerinde **genel bakış** dikey penceresinde, select **+ Ekle**.  
 

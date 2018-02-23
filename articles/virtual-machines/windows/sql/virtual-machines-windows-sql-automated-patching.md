@@ -4,7 +4,7 @@ description: "Otomatik düzeltme eki uygulama özelliği için SQL Server Kaynak
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -15,24 +15,22 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: c1cdf03133d765f7726d16378b042de8e04b2cfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines’de (Resource Manager) SQL Server için Otomatik Düzeltme Eki Uygulama
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [Klasik](../classic/sql-automated-patching.md)
-> 
-> 
+> * [Klasik](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 Otomatik düzeltme eki bir Azure SQL Server çalıştıran sanal makine için bir bakım penceresi oluşturur. Otomatik Güncelleştirmeler, yalnızca bu bakım penceresi sırasında yüklenebilir. SQL Server için bu rescriction sistem güncelleştirmelerini ve ilişkili tüm yeniden başlatmalar veritabanı için olası en iyi zaman gerçekleşmesini sağlar. Otomatik düzeltme eki bağımlı [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Bu makalede klasik sürümünü görüntülemek için bkz: [otomatik düzeltme eki uygulama için Azure sanal makineleri Klasik SQL Server'da](../classic/sql-automated-patching.md).
+Bu makalede klasik sürümünü görüntülemek için bkz: [otomatik düzeltme eki uygulama için Azure sanal makineleri Klasik SQL Server'da](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Otomatik düzeltme eki uygulama kullanmak için aşağıdaki önkoşulları göz önünde bulundurun:

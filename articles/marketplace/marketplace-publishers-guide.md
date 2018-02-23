@@ -1,7 +1,7 @@
 ---
-title: "Azure Market yayımcı Kılavuzu"
+title: "Azure Market ve AppSource yayımcı Kılavuzu"
 description: "Adım Adım Kılavuzu ve denetim listeleri yeni yayımcılar Azure Marketi'nde yayımlama"
-services: marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: 
 author: ellacroi
 manager: msmbaldwin
@@ -14,17 +14,17 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0017986f9766fb8ad9fe15f04a064273ca675f9f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="azure-marketplace-publisher-guide"></a>Azure Market yayımcı Kılavuzu
+# <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Market ve AppSource yayımcı Kılavuzu
 
-Market yayımcı Kılavuzu'na Hoş Geldiniz. Bu kılavuz, aday ve nasıl AppSource veriş ve Azure Marketi uygulamalarının ve hizmetlerinin işletmelerini Microsoft yöneticileriyle büyümeye listelemek için yararlanacağınızı anlamak varolan yayımcılar yardımcı olmak için tasarlanmıştır. Bu kılavuz sonuna daha her biri bu konular hakkında bilgi edinin ve daha ayrıntılı bilgi nerede bulacağını biliyorsanız:
+Hoş Geldiniz [Azure Market](https://azuremarketplace.microsoft.com) ve [AppSource](https://appsource.microsoft.com) yayımcı Kılavuzu. Bu kılavuz, yeni ve mevcut yayımcılar Azure Marketi ve AppSource veriş, uygulamaları ve Hizmetleri yayımlamak için gerekli adımların nasıl yararlanacağınızı ve Microsoft ile ortaklık işinizde büyümeye nasıl anlamanıza yardımcı olmak için tasarlanmıştır. Bu kılavuz sonuna daha her biri bu konular hakkında bilgi edinin ve daha ayrıntılı bilgi nerede bulacağını biliyorsanız:
 
-- Marketi'ndeki katılan yararları nelerdir
+- Market veriş birini listesindeki yararları nelerdir
 - Azure Market ve AppSource nelerdir
 - Bu veriş yararlanmak nasıl
 - Hangi mağaza teklifler ve hizmetler için doğru 
@@ -36,30 +36,33 @@ Market yayımcı Kılavuzu'na Hoş Geldiniz. Bu kılavuz, aday ve nasıl AppSour
 - Bir liste en iyi duruma getirme ve sürücü etkisi Go Market kaynaklara kullanma
 - Yardım ve Destek yeri AppSource, Azure Marketi hakkında sorular veya bu yayımlama Kılavuzu Market Ekibi temasa  **cloudmarketplace@microsoft.com** . 
 
-## <a name="the-benefits-of-participating-in-marketplace"></a>Marketi'ndeki katılan avantajları
+## <a name="benefits-of-participating-in-the-marketplace"></a>Market katılan avantajları
 
-Market Microsoft ile birleşik Git Pazar etkinlikler için başlatma paneli ve iş büyüme flywheel ' dir. Market teklifi Portföy başlatma yükseltme, isteğe bağlı oluşturma ve satış ve pazarlama Eklem kullanarak bulut iş altyapınız merkez olabilir. Market katılan için hiçbir ücretleri vardır. Amacımız, Microsoft müşterilerinin bizim iş ortağı ekosistemi sunduğu en iyi çözümleriyle bağlamaktır.
+Azure Market ve AppSource Microsoft ile birleşik Git Pazar etkinlikler için başlatma noktaları ve iş büyüme flywheel kümesidir. Market listelerini başlatma yükseltme, isteğe bağlı oluşturma ve satış ve pazarlama Eklem kullanarak bulut iş altyapınız merkez olabilir. Market katılan için hiçbir ücretleri vardır. Amacımız en iyi çözüm ve bizim iş ortağı ekosistemi sunar Hizmetleri ile Microsoft müşterileri bağlamaktır.
 
 İşinizi büyümeye Market özelliklerinden yararlanmak:
 
 - **Müşteri adayları ve satış fırsatları oluşturun.** Genişletilmiş bir Portföy çözümleri ile yeni pazarlara Microsoft bulut platformunda girin. Yukarı satış ve çapraz satış Market teklifleri. 
-- **Mevcut ve yeni müşterilerle anlaşma boyutunu artırın ve iş değerini artırın.** İş yüklerinin buluta taşırken anlaşma boyutu ve adres Müşteri sorun teşkil edecek noktalar artar. Anlaşma Karlılık eksiksiz çözüm satış tarafından artırın. 
-- **Eyleme dönüştürülebilir Öngörüler alın.** Sizi başarınız, bizim başarımızdır. Ne gerçekleştirme bulut iş ortağı Portalı aracılığıyla Öngörüler almak için ne sizi oluşturulur ve kampanya etkinliklerinizi en üst düzeye çıkarmak nasıl.
+- **Mevcut ve yeni müşterilerle anlaşma boyutunu artırın ve iş değerini artırın.** İş yüklerinin buluta taşırken anlaşma boyutu ve adres Müşteri sorun teşkil edecek noktalar artar. Satış uzatmaya ve bu hedef belirli iş yükleri ve endüstri senaryoları eksiksiz çözüm satış anlaşma Karlılık artırın.
+- **Eyleme dönüştürülebilir Öngörüler alın.** Sizi başarınız, bizim başarımızdır. Bulut iş ortağı Portalı aracılığıyla, listelerinin performansına Öngörüler alın. Ne gerçekleştiriyor öğrenin, ne sizi oluşturulur ve kampanya etkinliklerinizi en üst düzeye çıkarmak nasıl.
+
+>[!NOTE]
+>Office genişleten uygulamalar Öngörüler yayımlama işlemleri Office uygulamaları erişim sağlar.
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>Azure Market ve AppSource nelerdir?
 
 Microsoft iş ortaklarının teklifler listesinde, denemeler etkinleştirmek ve doğrudan Microsoft'un müşterileri ve ekosistemi ile transact izin iki ayrı Market veriş sağlar: [Azure Market] (https://azuremarketplace.microsoft.com) ve [AppSource] () https://appsource.microsoft.com). Bu veriş bulmak için müşteriler deneyin ve uygulamaları satın alın ve Microsoft'un müşterileri ve iş ortağı ekosistemi erişimi artırarak işlerini kendi sayısal dönüşüm hızlandırmak ve yayımcılar yardımcı hizmetler büyümesine izin verir.
  
-Market veriş tam olarak ne ihtiyaç duydukları Bul müşterilere yardımcı olmak için izleyiciler ve Microsoft bulut ürünleri hizalanır. Her mağaza tarafından aşağıdaki tabloda özetlenen yayımlama yatırımınızı en üst düzeye çıkarmanıza yardımcı olmak için özelleştirilmiş yayımlama seçeneklerini sunar:
+Market veriş gereksinim duydukları şeyleri bulmalarına müşterilere yardımcı olmak için izleyiciler ve Microsoft bulut ürünleri hizalanır. Her mağaza tarafından aşağıdaki tabloda özetlenen yayımlama yatırımınızı en üst düzeye çıkarmanıza yardımcı olmak için özelleştirilmiş yayımlama seçeneklerini sunar:
 
 
 |          |Azure Market |AppSource  |
 |---------|---------|---------|
 |Hedef kitle     |BT uzmanları, geliştiricilerin (uzmanı rolleri dahil DBAs, SecOps, DevOps, vs.)    | Satırı iş karar verenler (uzmanı rolleri dahil tedarik, üretim, hesap, vs.)      |
-|Yerleşik genişletmek için     |Azure         | Azure, Dynamics 365, Office 365, Power BI ve Güç uygulamaları       |
-|Çözümler ve Hizmetleri türleri     |  Altyapı çözümleri ve Profesyonel Hizmetler   | Tamamlanmış satırı iş uygulamaları ve Profesyonel Hizmetler        |
-|Yayımlama seçenekleri     |  Benimle iletişim, danışmanlık hizmetleri, deneme, sanal makine, çözüm şablonları sunar ve yönetilen uygulamalar       |  Danışmanlık Hizmetleri teklifi veya deneme benimle iletişim       |
-|Uygulama Deneyimi     | Azure portalı ve CLI         | Office 365, Dynamics 365, Power BI, Office istemci uygulamaları       |
+|İle oluşturulan veya genişletmek için     |Azure         | Azure, Dynamics 365, Office 365, Power BI ve Güç uygulamaları       |
+|Çözümler ve Hizmetleri türleri     |  Altyapı çözümleri ve Profesyonel Hizmetler   | Tamamlanmış satır iş bulut uygulamaları, Office 365 eklentiler ve Profesyonel Hizmetler        |
+|Yayımlama seçenekleri     |  Benimle iletişim, danışmanlık hizmetleri, deneme, sanal makine, çözüm şablonları sunar ve yönetilen uygulamalar       |  Ücretsiz deneme, danışmanlık hizmetleri teklif bana şimdi, Test sürücü kişiyi Al      |
+|Kullanıcılara erişim uygulamaları ve Hizmetleri bağlamında kendi uygulama için uygulama deneyimi sağlar  | Azure portalı ve CLI         | Office 365, Dynamics 365, Power BI, Office istemci uygulamaları       |
 
 ## <a name="leveraging-these-storefronts"></a>Bu veriş yararlanarak
 
@@ -75,44 +78,50 @@ BT uzmanları ve aracılığıyla bulut geliştiricilerin devreye **Azure Market
 |**Üçüncü taraf uygulamalar ve hizmetler için ölçeklenebilir dağıtım mekanizması gerekiyor**   | Oluşturma ve üçüncü taraf uygulamalar ve hizmetler için ölçeklenebilir dağıtımlar yapılandırılmasını sağlar        |
 |**Yeni uygulamaları ve Hizmetleri Tümleştirme ve var olan çözümler ile çalışmak için gerektirir**  |   Azure üzerinde var olan çözümler ile üçüncü taraf uygulamaları ve Hizmetleri kolayca tümleşir      |
 
-Kullanarak iş kullanıcıları göster **AppSource** bulmak ve iş satır SaaS uygulamaları ve Hizmetleri deneyin: 
+Üzerinde iş kullanıcıları göster **AppSource** bulmak için deneyin ve iş kolu satır SaaS uygulamaları ve sürücü iş sonuçları yardımcı değerine süresini azaltmak için uygulama hizmetleri alın:: 
 
 
 |Müşteri gereksinimi  |AppSource  |
 |---------|---------|
-|**Dynamics 365, Office 365, Power BI ve Güç uygulamaları işlevselliği genişletmek istiyor**   |  Müşterilerinin Microsoft bulut platformu işlevlerini genişletmek için üçüncü taraf uygulamaları ve hizmetleri kullanmasını sağlar       |
-|**Doğru uygulama veya hizmet bulmak için zor bulduğu**    |   Bulmak için bir tane Dükkanı ve deneme uygulamaları ve Hizmetleri, eklentiler ve daha fazla bilgi sağlar      |
-|**Sektöre özgü iş kolu çözümünü gerekiyor**   | Müşteriler ihtiyaç duydukları ne bulabilmesi için her endüstri için çözümleri sağlar        |
-|**İş özgü çözümleri gerektiriyor**    | İş ve müşteri hizmetleri, ik, işlemleri ve çok daha fazlasını dahil olmak üzere iş sorunu her satırı için çözümleri sağlar        |
+|**Microsoft ürünleriyle çalışmak işletme çözümleri arayan zaten kullandıkları** | Müşterilerinin Microsoft'un bulut uygulamalarını ve teknolojileri genişletmek için üçüncü taraf uygulamaları ve hizmetleri kullanmasını sağlar.       |
+|**Sağa doğru çözüm ya da uygulama hizmeti kolayca bulmak için yeteneği.**    |   , Deneme, bulmak ve uygulamaları ve Hizmetleri, eklentiler ve daha fazla bilgi almak için bir tek bir noktadan Mağazanız sağlar      |
+|**İş çözümü kendi özel iş güçlükleri sektöre özgü satırı**   | Adres belirli gereksinimleri arasında çok sayıda sektörü yardımcı olmak için tamamlanmış uçtan uca endüstri çözümleri sağlar     |
+|**Verimlilik, verimliliğini ve iş öngörüleri geliştirmeye yardımcı olmak için uygulamalar**    | Müşteri Hizmetleri, ik, işlemleri ve çok daha fazlasını içeren iş kolu için uygulamalar sağlar        |
+| **Uygulamaları kendi benzersiz durumunuza uyarlamak için deneyimli uygulama iş ortağı** | Tahmin edilebilir sonuçlar sunmak için tasarım tabanlı çözümler Dynamics 365, Power BI, PowerApps ve 3 taraf uygulamalar iş kullanıcıların danışmanlık bulmasına yardımcı AppSource kullanılabilir hizmetler teklifleri danışmanlık, katalog hizmetleri sağlar |
 
 ## <a name="understanding-the-differences-between-storefronts"></a>Veriş arasındaki farklar anlama
 
-Bir mağaza başlatılır teklifiniz hedef kitlesi tanımlamaya seçme: Azure Marketi BT profesyonelleri ve geliştiricilerin ihtiyaçlarını hizalanmış ve AppSource iş kullanıcılara hizalanması. Çözümünüzün her iki izleyicileri hedefliyorsa, yalnızca bir kez hem veriş listesinde yayımlamak gerekir.
+Bir mağaza başlatılır teklifiniz hedef kitlesi tanımlamaya seçme: Azure Marketi BT profesyonelleri ve geliştiricilerin ihtiyaçlarını hizalanmış ve AppSource iş Kullanıcıların ihtiyaçlarını hizalanması. Çözümünüzün her iki izleyicileri hedefliyorsa, yalnızca bir kez hem veriş listesinde yayımlamak gerekir.
  
 Her mağaza ek yararları göz önünde bulundurun:
 
 |StoreFront avantajı  |Azure Market  |AppSource   |
 |---------|---------|---------|
-|**Faturalama esneklik**    | Sanal makineler için 'Kullandıkça Öde' fatura seçenekleri, Microsoft Kurumsal anlaşmalarındaki veya web doğrudan satış modelleri kullanın. Fiyatlandırma seçeneklerini de sınırlı bir süre sonra Ücretli bir aboneliğe dönüştürür promotionally ücretsiz deneyin şimdi aboneliği yanı sıra bir sunum perpetually boş olduğu bir ücretsiz katmanı abonelik içerir. 'Kendi lisansını Getir' etkinleştirme durumda da senaryolarda fatura her iki seçenek için yayımcılar desteklemek için bir seçenek Azure uygulamaları (örn., çözüm şablonu veya yönetilen uygulama) kullanılarak dağıtılan sanal makineler burada sağlanan tüm Azure kaynakları faturalandırılır doğrudan müşteriye | AppSource sorunsuz bir deneme sürümü deneyimi sağlama sunar, ancak şu anda yayımlama seçeneği ticaret etkin sağlamaz; Bu, geçerli sıralama yararlanmanızı ve hiçbir ek yatırım veya değişiklikleri fatura altyapısıyla sağlar        |
-|**Diğer ortaklarıyla bağlantı kolaylaştırmak**     |Azure Market şu anda bir hizmet sağlayıcısı veya teslim iş ortakları için teklif bağlamak yayımcı izin vermiyor         |  Bağımsız yazılım satıcıları, sistemleri tümleştiricileri ve yönetilen hizmetler sağlayıcıları belirli uygulama senaryoları için işbirliğine dayalı yeni müşteriler için satış destekleme bağlanabilir      |
+|**Faturalama esneklik**    | Sanal makineler için 'Kullandıkça Öde' fatura seçenekleri, Microsoft Kurumsal anlaşmalarındaki veya web doğrudan satış modelleri kullanın. Fiyatlandırma seçeneklerini de sınırlı bir süre sonra Ücretli bir aboneliğe dönüştürür promotionally ücretsiz deneyin şimdi aboneliği yanı sıra bir sunum perpetually boş olduğu bir ücretsiz katmanı abonelik içerir. 'Kendi lisansını Getir' etkinleştirme durumda da senaryolarda fatura her iki seçenek için yayımcılar desteklemek için bir seçenek Azure uygulamaları (örn., çözüm şablonu veya yönetilen uygulama) kullanılarak dağıtılan sanal makineler burada sağlanan tüm Azure kaynakları faturalandırılır doğrudan müşteriye | AppSource bir deneme sürümü deneyimi sağlama sunar, ancak şu anda yayımlama seçeneği ticaret etkin sağlamaz; Bu, geçerli sıralama yararlanmanızı ve hiçbir ek yatırım veya değişiklikleri fatura altyapısıyla sağlar        |
+|**Diğer ortaklarıyla bağlantı kolaylaştırmak**     |Azure Market teklifi için bir hizmet sağlayıcısı veya teslim ortakları bağlamak yayımcı şu anda izin vermez, ancak bu işlev içinde 2018 başlatır         |  Bağımsız yazılım satıcıları, sistemleri tümleştiricileri ve yönetilen hizmetler sağlayıcıları belirli uygulama senaryoları için işbirliğine dayalı yeni müşteriler için satış destekleme bağlanabilir      |
 |**Otomasyon**     |    Azure Market şu anda bir hizmet sağlayıcısı veya teslim iş ortakları için teklif bağlamak yayımcı izin vermiyor     | SaaS tabanlı veri toplama ve dağıtım senaryolarını otomatikleştirmek için çözüm şablonları kullanın ve eklenti sağlamayla otomatik SaaS yararlanın        |Bağımsız yazılım satıcıları, sistemleri tümleştiricileri ve yönetilen hizmetler sağlayıcıları belirli uygulama senaryoları için işbirliğine dayalı yeni müşteriler için satış destekleme bağlanabilir
 |**Birden çok bulut türleri**     |   Genel Bulut ve şirket içi çözümleri Azure yığın aracılığıyla yayımlamak ya da Azure kamu ve bölgesel Bulutlar Çin ve Almanya dahil olmak üzere yayımlama      |    AppSource şu anda Azure yığını, Azure kamu veya bölgesel Bulutlar için destek sağlamaz     |
-|**İçerik sunu müşterilere**     |  Çözümünüzü bağlamsal arama (sanal makineler ve çözüm şablonlar) için Azure portal deneyimi kullanılabilmesini       |  Çözümünüzü uygulama deneyimi Microsoft ürünleri için kullanılabilir duruma       |
+|**İçerik sunu müşterilere**     |  Çözümünüzü bağlamsal arama (sanal makineler ve çözüm şablonlar) için Azure portal deneyimi kullanılabilmesini       |  Daha fazla müşterileri Dynamics 365, Power BI ve Office 365 gibi Microsoft ürünleri için uygulama deneyimi ile ulaşmak    |
 
 ## <a name="select-a-publishing-option"></a>Yayımlama Seç seçeneği
 
 Birden çok yayımlama seçeneklerini ve teklif türleri her mağaza destekler: listesi, deneme ve Transact. En iyi uygulama ve hizmet ayrıntıları temsil eden bir teklif türü seçin. Tüm yayımlama seçeneklerini iş ortakları, paylaşım sağlama için erişim sahibi olursunuz. 
 
+Bu bölümde, kullanılabilir seçenekler arasında her iki veriş yol gösterir. 
+
 
 |**Yayımlama seçeneği**  | **Teklif türü** | **Mağaza**  |
 |---------|---------|---------|
-|**Liste**    |    Hizmet danışmanlık benimle iletişim     |  Azure Market, AppSource       |
+|**List**    |    Hizmet danışmanlık benimle iletişim     |  Azure Market, AppSource       |
 |**Deneme**   |     Ücretsiz deneme sürümü, SaaS deneme, etkileşimli Demo, Test sürücü    |  Azure Market, AppSource       |
 |**Transact**     |   Sanal makine, çözüm şablonu, uygulama yönetilen      |    Azure Market     |
 
 ### <a name="list"></a>LİSTE
 
 Kullanım **kişi benim** deneme veya işlem düzeyi Katılım olmadığında yapılabilir. Bu yaklaşımın avantajı, hemen iş flywheel başlatmak için temel anlaşmalar becerilerin geliştirilmesi müşteri adayları almaya başlamak bir çözüm temelinde piyasaya olan yayımcı etkinleştirir ' dir. Ancak, dezavantajı müşteri katılım, diğer teklif türleri ile karşılaştırıldığında sınırlıdır.
+
+>[!IMPORTANT]
+>Me önerilen liste türü değil ve yalnızca durumlarda kullanılması gereken ilgili kişi bir deneme sürümü deneyimi oluşturmak için bir yol olduğu. Müşteri katılım deneme sürümü ile en iyi ve Transact sunar. Deneme sürümü deneyimi herhangi bir türde varsa, bizim ekleme işlemi için senaryonuza bağlı olarak bu seçeneklerden birini yol gösterecektir.
 
 Ne zaman teklif oluşur öncelikle Profesyonel Hizmetler (örn., değerlendirmeleri, uygulamaları, Atölyeleri) kullanım **Danışmanlık Hizmetleri** türü sunar. Teklif kapsam, süre ve fiyat düzeltilmesi gereken, tek bir müşteri için olmalıdır ve şirkete gerçekleştirilmesi gerekir.
 
@@ -122,7 +131,7 @@ Bir deneme sürümü deneyimi sağlayarak müşteriler ve bu nedenle daha zengin
  
 Tüm deneme seçenekleri deneme ortamı ve/veya Azure aboneliği içine yerine, Müşteri'nin veya Azure aboneliğinizde içine dağıtılır. Denemeler müşteri gözetimindeki herhangi bir ek satın alma işlemleri olmadan ve en az olmalıdır varsa, basit bir tamamlamak için ek yapılandırma kullanım örneği. Denemeler ücretsiz destek en az ve deneme süresi boyunca eklemeniz gerekir. Deneme kullanıcılar becerilerin geliştirilmesi ve en iyi sonuçlar için kasıtlı değerlendirme yol boyunca izlenen. Yayımcılar Market müşteri adayları ve yayımcının kendi uygulama Intelligence izlemek ve deneme kullanıcıları yönetmek için kullanmanız önerilir.
 
-3 tipik deneme senaryo vardır:
+4 tipik deneme senaryo vardır:
 
 
 |**Deneme seçeneği**  |**Başlıca yararları**  |**Gerekirse bu seçeneği belirleyin...**  |
@@ -130,6 +139,7 @@ Tüm deneme seçenekleri deneme ortamı ve/veya Azure aboneliği içine yerine, 
 |**Ücretsiz deneme sürümü**    |     Ücretli dönüştürmek için otomatik bir yöntem almadan önce ürününüzü denemek bir müşteri sağlar ve Microsoft satış ekipleri ile müşteri ve eklem katılım için kavramlar kanıtı sağlar |     Bir sanal makine çözümünüzü veya çözüm şablonu veya bilgisayarınızı çözümüdür ve, teklif bir çok kiracılı SaaS ürün sunumu SaaS, bir müşteri alınacağı deneyimi ve hızlı bir şekilde, tek bir kiracı varsa, ancak müşteri olarak eklemekte olduğunuz çalışırken bir ilk sahip ' bize Konuk ers|
 **Test sürücü**     |     Önceden yapılandırılmış bir ayar yapmasına çözümünüzün Kılavuzlu bir deneyim sağlar ve bunlar satın almadan önce ürününüzü denemek bir müşteri sağlar |   Çözümünüzü bir sanal makine, çözüm şablonu ya da tek bir kiracı SaaS uygulamayla veya OR sahip olmadığınız denemenizi Ücretli teklif dönüştürmek için bir yöntem sağlama karmaşıktır |
 |**Etkileşimli Tanıtımı**    |  Kurulum KARMAŞASIZ eylem ürününüzü görmek müşterilerin olanak tanır       |    Çözümünüzü ve deneme süresi elde etmek zor olurdu karmaşık kurulum gerektirir     |
+
 
 #### <a name="free-trial"></a>Ücretsiz Deneme
 
@@ -159,7 +169,10 @@ Azure Marketi'nde kullanan bir **sanal makine** müşteri aboneliğe sanal gere�
 
 Kullanım bir **Azure çözüm şablonu** ne zaman bir çözüm sanal gereç ötesinde ek dağıtım ve yapılandırma Otomasyon gerektirir. Çözüm şablonları bir veya daha fazla sanal makine kaynakları sağlama otomatik hale getirebilir ve ayrıca ağ ve depolama kaynaklarını sağlayabilirsiniz. Çözüm şablonları tüm Iaas tabanlı çözümü ortamları yanı sıra tek sanal makineleri üzerinde Otomasyon fayda sağlayabilir. Çözüm şablonları oluşturma hakkında daha fazla bilgi [burada](https://github.com/MicrosoftDocs/azure-docs).
 
-Yönetilen bir Azure uygulama yayımcı ya da müşteri bir 3. taraf tarafından örneğin bir SI veya MSP yönetilecek çözüm istediğinde sanal makine ya da Iaas tabanlı çözümün tamamında bir müşterinin aboneliğini dağıtırken kullanın. Daha fazla bilgi edinmek [yönetilen uygulamalar burada derleme](https://docs.microsoft.com/azure/managed-applications/overview). Sık sorulan soruların bir listesi için bkz: [Azure Market SSS](https://azure.microsoft.com/marketplace/faq/).
+Kullanım bir **Azure yönetilen uygulama** yayımcı ya da müşteri bir 3. taraf tarafından örneğin bir SI veya MSP yönetilecek çözüm istediğinde sanal makine ya da Iaas tabanlı çözümün tamamında bir müşterinin aboneliğini dağıtırken. Daha fazla bilgi edinmek [yönetilen uygulamalar burada derleme](https://docs.microsoft.com/azure/managed-applications/overview). Sık sorulan soruların bir listesi için bkz: [Azure Market SSS](https://azure.microsoft.com/marketplace/faq/).
+
+>[!NOTE]
+> Yönetilen uygulamalar Market üzerinden dağıtılabilir olmalıdır. Müşteri çoğaltmayla ilgili bir sorun varsa, sağlama paylaşımı varsa ilgilenen müşteriler için ulaşmak için olacağını unutmayın.
 
 ### <a name="azure-certified"></a>Azure Sertifikası
 
@@ -197,11 +210,11 @@ Buna karşılık, etkinleştirirseniz, isteğe bağlı olarak kendi lisansını 
 |Lisans maliyetinizi     | Üzerinde anlaşılan ve yayımcı tarafından faturalandırılır lisans ücreti        |
 |---------|---------|
 |Azure kullanım maliyeti (1/D1-çekirdek)    | saat başına 0.14         |
-|**Müşteri Microsoft tarafından faturalandırılır**     | **saat başına 0.14**        |
+|**Müşteri Microsoft tarafından faturalandırılır**     | saat başına 0.14        |
 
 Bu senaryoda, Microsoft 0.14 yayımlanan sanal makine görüntüsü kullanımı için saat başına ödemenizi işler. 
 
-|**Microsoft faturalar**    |   **saat başına 0.14**      |
+|**Microsoft faturalar**    |   saat başına 0.14      |
 |---------|---------|
 |Microsoft Azure kullanım maliyeti tutar     |    saat başına 0.14     |
 |Microsoft lisans maliyetinizi %0 tutar     |  saat başına 0,00       |
@@ -227,7 +240,7 @@ Tüm Kurumsal Anlaşma müşterileri, Azure'a önceden parasal taahhütte buluna
 |---------|---------|---------|
 |**Katılım ilkeleri**    | Azure Market katılım ilkelerini [burada] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/) gözden geçirin.       | Liste, deneme, Transact        |
 |**Microsoft ile tümleştirme**    | Azure Market sunar, yararlanan ya da işlem, ağ veya depolama gibi Microsoft Azure Hizmetleri genişletmek ve var olan bir Azure Marketi kategori veritabanları, güvenlik, ağ, vb. gibi Hizala. Tam listeyi Bul [burada](https://azuremarketplace.microsoft.com/marketplace/apps).        | Liste, deneme, Transact        |
-|**Hedef kitle**    | Azure Market sunar, BT uzmanları, bulut geliştiriciler veya diğer teknik müşteri rolleri olması gerekir.       |  Liste, deneme, Transact 
+|Hedef kitle    | Azure Market sunar, BT uzmanları, bulut geliştiriciler veya diğer teknik müşteri rolleri olması gerekir.       |  Liste, deneme, Transact 
 |**Sağlama Yönetimi**    | Marketten müşteri adayları almak için CRM (Marketo, Microsoft Dynamics veya Salesforce) sağlama verileri kabul etmek için etkinleştirmeniz gerekir.        |   Liste, deneme, Transact      |
 |**Gizlilik ilkesini ve kullanım koşulları**     |   Gizlilik İlkesi genel bir URL ile kullanılabilir olmalı ve yayımlama sırasında metin olarak, kullanım koşulları girmeniz gerekir.      |   Liste, deneme, Transact      |
 |**Destek**     |  Teklifiniz, müşterilerin Yardım bulabileceğiniz bir genel kullanıma açık destek URL'si eklemeniz gerekir. Denemeler için destek için deneme süresi hiçbir ek ücret sağlanmalıdır.       |  Denemeyi Transact       |
@@ -252,7 +265,7 @@ Tüm Kurumsal Anlaşma müşterileri, Azure'a önceden parasal taahhütte buluna
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Danışmanlık için Önkoşullar belirli hizmetleri yayımlama
 
 
-|**Gereksinimleri** |**Ayrıntılar**  |**Yayımlama seçeneği**  |
+|Gereksinimleri |**Ayrıntılar**  |**Yayımlama seçeneği**  |
 |---------|---------|---------|
 |**Hizmet özellikleri sunan**     | Danışmanlık hizmetinizi süresi, sabit bir sabit kapsam, fiyat sabit olarak teslim edilen (veya boş) olmalıdır katılım, yönelik, öncelikle satış öncesi tek bir müşteri için sınırlı ve şirkete gerçekleştirilen        |    Liste     |
 |**Danışmanlık Hizmetleri için ortak gereksinimler**    |   **Yalnızca AppSource.**  Dynamics 365 müşteri katılım için [Gümüş veya altın bulut müşteri ilişkileri yönetimi uzmanlığı](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 Finans ve işlemleri Enterprise edition için: Gümüş veya altın [kuruluş kaynak planlama] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) uzmanlığı ve en düşük gelir, $25K bulutta İşlem sonunda 12 ay içinde. Dynamics 365 Finans ve işlemleri, Business edition: olarak hizmet [bulut Hizmetler Sağlayıcısı (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) veya [dijital iş ortağı, kaydı (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) en az bir müşteri için. Power BI: [çözüm ortağı] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf) ölçütlere uygun olmalıdır. PowerApps: [iş ortağı gösterimi] (https://powerapps.microsoft.com/en-us/partner-showcase/) çözümünün var |    Liste     |
@@ -295,7 +308,22 @@ Tek bir kiracı uygulamalar için birden çok seçenek vardır:
 - Geliştirme bir müşteri 'Test sürücü' başına
 - Çok kiracılı örnek Tanıtım uygulamasını SSO ile derleme
 
-## <a name="cloud-partner-portal-pre-publishing-checklist"></a>Denetim listesi önceden yayımlama bulut iş ortağı portalı
+##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Office, Dynamics ve Power BI için ürün yayımlama işlemler
+Office, Dynamics ve Power BI genişletmek AppSource uygulamalar için bu bölümde ürün belirli belgelerinde belirli gereksinimleri hakkında daha fazla bilgi edinebilirsiniz. 
+
+
+|Ürün |Yayımlama bilgileri  |
+|---------|---------|
+|Office 365     |    Gözden geçirme [işlemi ve yönergeleri yayımlama]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 Finans ve işlemleri  |   İçin Enterprise Edition oluştururken, gözden [işlemi ve yönergeleri yayımlama](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)      |
+|Dynamics 365 müşteri katılım için |Gözden geçirme [işlemi ve yönergeleri yayımlama](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource) |
+|Power BI   |     Gözden geçirme [işlemi ve yönergeleri yayımlama.]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)    |
+|Cortana Intelligence     |    Hakkında bilgi edinin [AppSource Cortana](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)     |
+|AppSource danışmanlık teklifleri     |  Gözden geçirme [yönergeleri ve teklifiniz gönderme öğrenin.]( https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)    |
+
+
+
+## <a name="cloud-partner-portal-pre-publishing-checklist-for-azure-marketplace"></a>Denetim listesi için Azure Market önceden yayımlama bulut iş ortağı portalı
 
 Yayımlama işlemini başlatmadan önce bir teklifi oluşturmak için gerekli bileşenleri anlamak faydalıdır. Aşağıdaki yapılar oluşturma teklif yayımlama akışında bulut iş ortağı Portalı'nı tamamlamak için gereklidir. 
 
@@ -364,7 +392,7 @@ Yayımlama işlemini başlatmadan önce bir teklifi oluşturmak için gerekli bi
 
 |Bu yapı yayımlama gerekir  |Bu teklif türü için  |
 |---------|---------|
-|**Sürüm numarası**     |    Transact ' Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)     |
+|Sürüm numarası     |    Transact ' Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)     |
 |**Tüm şablon dosyalarını ve createUIDefinitionFile içeren paket dosyası**   |Transact ' Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)         |
 |**İşletim sistemi ayrıntıları**    |   Transact ' sanal makineler      |
 |**Bağlantı noktalarını ve protokolleri kullanımda**    |  Transact ' sanal makineler       |
@@ -388,7 +416,7 @@ Bu bölümde, biz adımlarda açıklanmaktadır: Azure Marketi ve AppSource; Pub
 
 Tüm Market yayımlama işlemi yoluyla, Market hesabını tanımlayan bir e-posta adresini kullanır. Bu e-posta adresi a Microsoft ID kayıtlı olması gerekir ve her ikisi için kullanılacak [Microsoft Developer Center'da](https://developer.microsoft.com/) ve [bulut iş ortağı portalını](https://cloudpartner.azure.com/). Azure Market ve AppSource Teklifleriniz için yalnızca bir Microsoft ID hesabınızın olması gerekir ve diğer hizmetlerle paylaşılmayan veya sunar öneririz.
 
-Seçilen e-posta adresi şirket etki alanınızda tercihen olmalıdır ve BT ekibi tarafından denetlenir. Lütfen ek gözden geçirin: a Microsoft ID Market hesabı yönet ve ek oluşturma yönergeleri: AAD etki alanlarında federe kimlik oluşturma yönergeleri önceki için Microsoft IDs Kılavuzu 
+Seçilen e-posta adresi şirket etki alanınızda tercihen olmalıdır ve BT ekibi tarafından denetlenir. Lütfen bölümleri gözden geçirin [kılavuzları ve nasıl Tos](#Guidelines-and-How-Tos) a Microsoft ID Market hesabı yönetmek ve Microsoft IDs yönelik yönergeler için AAD Federasyon etki alanları için kimliği oluşturma yönergeleri önceki oluşturmak için yönergeler de dahil olmak üzere 
 
 #### <a name="submit-the-marketplace-nomination-form"></a>Market Adaylığı Form Gönderme
 Market ekleme işleminin bir parçası olarak Adaylığı form gönderme uygulamanızı veya hizmet teklifi, şirketinizin bilgilerini ve düzeyde, sağlama desteği hakkında bilgi gönderme yapmanız gerekir.  
@@ -423,175 +451,6 @@ Yayımcı profilinizi erişmek için Market hesabınızı (Microsoft ID) kullan�
 
 Bulut iş ortağı portalının nasıl kullanılacağı hakkında ayrıntılı bilgi için lütfen [öğrenin](https://cloudpartner.azure.com/#Learn) menü portal ve bir belge bölümü tıklatın. 
 
-## <a name="how-to-grow-your-business-with-marketplace"></a>Market ile işinizi büyümeye nasıl
-
-Pazarlama'ndaki en iyi yöntemler aşağıdaki Git Pazar ve Microsoft ortak Sell girişimleri ile başarılı kaydınızı yanı sıra iş Avantajlarınızı Market üzerinden en üst düzeye ayarladığınız yardımcı olur. [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership) ağ geçidiniz tümüdür Market dışı ilgili pazarlama ve programlama kaynakları. 
-
-Uygulama yayın ve müşteri merkezli talep oluşturma ve iş ortağı katılım Yardım sürücü müşteri büyüme, işiniz için taahhüdünün kalitesi. Bu etkinliklere Microsoft Git Pazar iş artırmasına yardımcı olur ve özellik anahtar çözümleri Market veriş arasında. 
-
-Bu bölümde, bir teklif için pazarlama en iyi yöntemler aşağıdaki denetim listesini göre açıklanmaktadır:
-
-- My listeleme sürücü trafiği ve katılım için iyileştirilmiş.
-- I my Web sitesinde Mesajlaşma my Pazaryeri listesi sürücü trafiği için bir benzersiz giriş sayfası yararlanarak oluşturdunuz.
-- Böylece müşterilerin, Azure üzerinde çalışırken my teklif beklenmez ı bir Test sürücü veya diğer deneme oluşturdunuz.
-- I planlanması ve kendi pazarlama ve promosyonlar Kampanyalar farkındalığı ve katılım için oluşturulmuş.
-- İsteğe bağlı müşteri adaylarına ilişkin oluşturma, test veya Uygulamam dağıtmak için birisi görevi gören her zaman, adını ve ilgili kişi bilgilerini alması için bunları etkin.
-- İlgili öğrenilen ve bana kullanılabilir olan iş ortağı kaynaklarla bağlı [Microsoft Partner Network (MPN)](https://partner.microsoft.com/membership).
-
-### <a name="create-a-great-listing"></a>Harika bir liste oluşturma
-
-Market, listesindeki ilk etkileşim potansiyel müşteri ile bazen olabilir. Tüm ilk izlenim gibi sağlam hale getirmek istediğiniz ve bir şey kitlenizi izlemek istiyor. Bu ilk izlenim marketi'ndeki harika olmasına yardımcı olmak için yapabileceğiniz temel bazı şeyler vardır!
-
-- **Bulunabilir:** , alıcı aramak için anahtar sözcükleri ve koşulları kullanma, teklif açıklamasını yazın. 
-- **Görsel olması:** görüntüleri ve videolar anahtar özelliklerinizi kullanıcıları göster Yardım ve deneyiminizi göstermeye yardımcı olabilir. Ne size yardımcı olur, değer teklifinde teslim veya, alıcının üst sorularını gösterebilir hakkında düşünün.
-- **Bir deneyim sağlamak:** müşteriler bunlar satın almadan önce denemek ister. Tanıtımlar denemeler, müşteri adayları oluşturulur ve daha fazla müşteri anlaşmalar sağlama için test sürücüleri kanıtlamak. Daha güçlü deneme sürümü deneyimi, daha güçlü, oluşturacaksınız sağlama sağlayabilirsiniz. Biz sınamayı sonucu (ortalama) adaylarını kapalı % 40 anlaşmalar buldunuz.
-- **Bilgi kitlenizi Yardım:** genel bakış alanınızı açık ve basit tutmak için öneririz, ancak aynı zamanda yeterince olduğundan ürününüzle ilgili ek kaynaklar için işaret edecek şekilde yer. Ürününüzü ne yaptığını ve nasıl müşterinizin ihtiyaçlarına uygun olan hakkında kısa ileti göndermek için bu alanı kullanma; Daha fazla bilgi için ek malzemeleri yönlendirmek korkutmasın. Bu öğrenim malzemelerini veya bağlantılar tutarlı bir şekilde eğitimi şekilde stratejisi pazarlama içeriğinizi izleyebilir, ek yol açar.
-- **Derecelendirmeleri & incelemeler yararlanın:** Let müşterilerinize satmak ürününüzü sizin için. Müşteri hakları satış büyük sürücü olabilir ve ürününüzle ilgili daha fazla bilgi edinin önce alıcıların nereye görülür. Birden çok güçlü incelemeler de arama sonuçlarında ve anahtar öne çıkan alanlarına teklifiniz kabartma yardımcı olur.
-
-### <a name="build-a-great-landing-page"></a>Derleme harika giriş sayfası
-Şirket Web sitesinin giriş sayfasında, isteğe bağlı nesil etkinliklerden Azure Marketi'nde listeleme, Market ağ geçidi ' dir. 
-
-Hedeflerinizi belirlemekle başlayın. Market çözümleri için hedef müşteri olan ve hangi eylemini almak istediğiniz karar verin. Örnek eylemleri 'Test sürücü bizim çözüm' olur ya da 'bir çözüm şimdi alın.' Giriş sayfanız arasında birden çok pazarlama taktiği herhangi bir şey olayları, Web yayınları ve sosyal medya gelen teknik incelemeler, teknik eğitim oturumları ve basın duyuruları için de kullanılabilir. Daha tutarlı, Mesajlaşma ve çalıştığınız arama eylemi için çözümünüzün bulmak için daha kolay olacaktır.
-
-Bir kampanya planı hazır olduğunda, bu en iyi uygulamaları izleyin ve ne giriş sayfanız verimliliğini en üst düzeye çıkarmak için sayfayı oluştururken önlemek göz önünde bulundurun: 
-
-
-|En iyi uygulama  |Kaçının gerekenler  |
-|---------|---------|
-|**Çözümünüzü çözdü hangi müşteri sorun iyileştirir ve durum yapmak için Azure nasıl yararlanın**    |  Çözüm ayrıca Azure birlikte çalıştığı yolları iyileştirir başarısız       |
-|**Kısa, kolay unutmayın URL'yi oluşturun**    |    Uzun URL'ler etkileyici değil ve bulmak sabit     |
-|**İlgili visual içeriği ekleyin: Müşteri referans video ya da çözüm mimarisi olan en iyi uygulamalar**   |   Çok fazla metin kullanarak ince ayar ve sizinle keşfetme durdurma kitlenizi yapabilirsiniz      |
-|**Market katalog sayfası ziyaretçileri doğrudan Temizle yapılan bir çağrı eylem oluşturma**    |   Sayfada çok sayıda bağlantılar veya olası Eylemler sahip       |
-|**Bir üst bilgi veya açıkça sonuçları bölüm aramanız eyleme yerleştirme**    |  Metin paragrafta listeleme, Market bağlantılara katıştırma       |
-|**En iyi anahtar sözcükleri araştırın ve sayfa arama için en iyi duruma getirme**    | Ürün adı varsayarak yüksek arama derecelendirmeleri oluşturur        |
-|**Anahtar sözcükleri, reklam kampanyası yararlanan**    |  Birçok farklı anahtar arasında web özellikleri kullanarak reklam yatırımlarınızı dilute       |
-|**İlgili ürün adları ve anahtar sözcükler 'üzerinde 'Katlama yerleştirin**     | Kullanıcıların hangi ürün ya da çözüm birtakım sergileyen görmek için kaydırmanız        |
-|**Çözümünüzü doğrulamak için marka görüntülerin (örneğin Azure Onaylandı *) kullanın ve yönergelerine uygun olarak Microsoft markalama**    |    Beklemediğiniz onaylanan Microsoft marka görüntülerin kullanma     |
-
-* Daha fazla bilgi edinmek [Azure sertifikalı rozet](https://azure.microsoft.com/support/legal/marketplace/certified-guidelines/ ). [Microsoft Partner Network (MPN)](https://partner.microsoft.com/en-us/membership/how-it-works) üyeleri aracılığıyla markalama için ek kaynaklar erişebilir [marka Merkezi](https://microsoft.sharepoint.com/teams/brandcentral) ve erişim [logosu Oluşturucu](https://logobuilder.partner.microsoft.com) aracı. Birleştirme hakkında bilgi için burayı tıklatın [MPN](https://partner.microsoft.com/en-us/membership/how-it-works). 
-
-### <a name="promoting-your-new-offer"></a>Yeni teklifiniz yükseltme
-
-#### <a name="building-an-effective-marketing-campaign"></a>Etkin pazarlama kampanyası oluşturma
-Bir pazarlama kampanyası tanıtım etkinlikler dizisidir veya taktiği pazarlama kitlenizi istenen eylem ya da sonucu yürüten adresindeki hedefler. Kampanyanızı tasarlamadan önce aşağıdakileri yapmalısınız:
-
-#### <a name="know-your-audience"></a>Hedef kitlenizi tanıyın
-
-İlk olarak, kimin alıcı olduğunu doğrulayın ve etkileyen kimdir? Taktiği ve her grup için eylem çağrılarını farklı olabilir. Bu değerlendirme sorular sorun:
-
-- Ne kadar denetim alıcı satın alma karar var mı? 
-- Ne kadar etkisini etkileyen var mı? 
-- Ne etkileyen etkiler? 
-- Bunlar bütçe veya hangi çözümün çekilir etkilemek? 
-
-Bu soruların yanıtlarını bilerek, nerede, ABD Doları kullanacağınızı ve, ABD Doları dağıtma hakkında kararlar almanıza yardımcı olur.
-
-#### <a name="define-where-your-audience-learns"></a>Burada kitlenizi öğrenir tanımlayın
-
-Alıcıların kendi gezisine aşamalardaki % 90'ını bir Market ziyaret zamanına göre ' dir. Alıcılar bu kadar yol karar verme işleminde çözümleri hakkında öğrenme ve seçenekleri önceden değerlendirmek alın. Burada alıcılar ve etkileyici öğrenin olması amaçlayan bir kampanya tasarlamak istersiniz. Her izleyici her endüstri, dikey veya kategori için farklıdır. Kitlenizi çevrimiçi ticari gösterir, e-posta aracılığıyla bilgi vermez veya güvenilen danışmanlar sohbet sosyal medya üzerinden? Nerede ve nasıl kitlenizi öğrenir bağlı olarak etkinlikleri tasarlama ve buna göre pazarlama dolar dağıtmak istersiniz. Bu taktiği birleşimi kampanya stratejinizi olur.
-
-#### <a name="create-clear-campaign-goals"></a>Clear Kampanya hedefler
-
-Market kampanyanızın başarı tanımlayın ve Temizle KPI'ları oluşturmak gerekir. Farklı bitiş hedefle birden çok kampanyaları. Elbette, tüm satış büyümeye istiyoruz. Ultimate end-artan gelir veya müşteri edinme hedeftir. Ancak, pazarlama kampanyalarınızın hedeflere diğer satın alma döngüsü aşamalarında bağlı.
-
-Örneği için yeni ürününüzü bizim Market başlatılan değilse, odak en iyi hedef kitle eğitim ve sağlama oluşturma harcanan bulabilirsiniz. Başarı Market listeden oluşturulan müşteri adayları sayısına göre tanımlanabilir. Bu durumda, taktiği pazarlama (ve giriş sayfasında) müşteriler Market listenizi çizim odaklanmak.
-
-Bir deneme ayarlanmış marketi'ndeki sahip ve ürününüzü katılım ve satın alma önce deneyimi belirli bir düzeyde gerektirdiğini biliyorsanız, deneme sayısı indirilen kampanya amacınız kalmasına neden olabilir. Bu durumda, kampanya taktiği CTA keskin Market bir deneme ve odaklanmak. 
-
-Ürün veya kategori daha iyi bilinen ve satın alma özellikleri deneme adımı atlayın ve hedef kitleye doğrudan pazarında 'hemen satın alın' bağlantıyı doğrudan karar verebilir Market ayarlanan varsa.
-
-Bu durumda doğru sürücü eylem Market satın alma artan ve bir daha da olgun upselling üzerinde kampanya çabalarınız odaklanmaya karar verebilir teklifiniz 's geçmişinde müşteri tabanı noktası. Taktiği odaklanmak 'şimdi marketi'ndeki satın almak için ' müşteriler görünümü teşvik eder. KPI Market üzerinden oluşturulan gelir olabilir.
-
-Bu hedefe ne olursa olsun teklifiniz 's olgunluk ve bu hedefin odaklanan kaldığını ve tümleşik pazarlama taktiği bir dizi eşleme, kuruluşunuzun hedeflerine hizalı kampanya verimliliğini en üst düzeye çıkarma için anahtardır.
-
-Azure Marketi'nde yeni Publisher'da olan bir parçası olarak, bazı ücretsiz Market GTM avantajları sunuyoruz. Önemli ölçüde avantajlar kampanya stratejinizi içinde yararlanan konusunda düşünmelisiniz. Market kampanya hedeflerinizi ve istediğiniz hedef kitle eyleminizi bilmeniz Pazarlama ekibimiz olanak tanır. Biz bu sonuçlara planınıza çalışmak için özelleştirebilirsiniz.
-
-Şablonlar, web içeriği, eğitim ve iş ziyaretiniz yükseltmek için araçlar da dahil olmak üzere ek Git Pazar desteği için [www. MicrosoftGoToMarket.com](https://www.MicrosoftGoToMarket.com) oluşturma ve en iyi yöntemler pazarlama kampanyası ek içerik için ziyaret [akıllı iş ortağı pazarlama](https://partner.microsoft.com/en-US/smart-partner-marketing), Microsoft iş ortağı ağı, bir program.
-
-#### <a name="marketplace-gtm-benefits"></a>Market GTM avantajları
-
-Yeni Market listelerinde ücretsiz Market GTM avantajları almak uygun hale gelir. Listelenen sonra uzmanlarıyla pazarlama ekibimizin size başlatmak için bu etkinlikler ulaşın. Size ulaşmak sonra bizimle bulunmaya olması dışında bir şey yok. 
-
-Sağladığımız etkinlikleri çözüm durumunuzu bizim markette bağlı olarak farklılık gösterir. Avantajları teklifleri için bir deneme sürümü deneyimi ile gelir veya Market içinde özellikleri transact önemli ölçüde artırır.
-
-Bu etkinlikler etkisini en üst düzeye çıkarmak için başlatma planınız yürütmek hazır olmasını öneririz. Giriş sayfanız çoğu bu taktiği yararlanan isteyebilirsiniz. OCP katalog (bir ticari ortak katalog) Microsoft Partner Network üyeleri bir avantajı olmadığını unutmayın. 
-
-![Market GTM avantajları](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
-
-Şablonlar, web içeriği, eğitim ve işinizin yükseltmek için Araçlar desteği için ziyaret [için Microsoft Git Market](https://www.microsoftgotomarket.com).
-
-#### <a name="enable-lead-sharing"></a>Sağlama paylaşımını etkinleştir
-
-Market müşterilerinizin kişi bilgilerini alması için bunları sağlama yönetim Market teklifiniz etkin olduğundan emin olun. Bu müşteri adayları temel Destek Hizmetleri için talep oluşturma kampanyalar, satış hareketlerin alan satış personeli ve nasıl teklifiniz gerçekleştirme hakkında bilgi sağlar. 
-
-Bu müşteri adayları kullanmak için en iyi uygulamalar şunlardır:
-
-- Müşteri adayları niteleme ve satış fırsatları olarak Puanlama
-- Bunları potansiyel satışlar girmek için eğitimi
-- Bu genel pazarlama kampanyası stratejinize çabayla hizalayın
-
-Bu müşteri adayları çok hedeflenen kullanıcı ilgi Market teklifiniz ve teknoloji göstermek ve böylece müşteriler üst düzeyde riskli olabilecek bulmak için bir yol bağlı olarak değerlendirilmelidir. Bir sağlama Marketi'ndeki oluşturulduğunda, benzer bir sağlama Microsoft alan satıcı CRM oluşturulur. 
-
-Ancak, Market müşteri adayları birlikte satış programının bir özellik olan Microsoft seller tam müşteri adaylarını farklıdır. Ortak satış program erişme hakkında bilgi için aşağıya bakın. 
-
-#### <a name="promote-your-business-through-microsoft"></a>Microsoft işletmenize Yükselt
-
-Birçok kişi ve takımlar ortaklarımızın desteklemek ve bizimle satış sahip uyuşmazlık azaltmak için tek amacı olan Microsoft içinde vardır. Bizim Market listelediğiniz göre bizim Market programları ve kaynaklara erişim açtığınız. 
-
-En fazla oturum açmış henüz [Microsoft Partner Network (MPN)](https://partner.microsoft.com), bu ilk adım olmalıdır. MPN Microsoft gezinmek için rehberlik sunar ' öğesinden yeni iş fırsatlarını ekipleri ve çözümleri hakkında bilgi için iş ortakları ile bağlanma ve, skillset artırılmasına yardımcı olmak için eğitim.
-Daha fazla iş ortağı avantajları erişimi açmak için alabilir en iyi sonraki adımlar ve kaynaklar:
-
-1.  Dengeleme, [çekirdek avantajları](https://partner.microsoft.com/en-US/membership/core-benefits) bizim Microsoft iş ortağı ağı bir parçası olarak, bir dizi zamandan tasarruf yardımcı olabilecek çekirdek avantajları almak ve yeteneklerinizi, daha iyi güçlendirmek sırasında para hizmet müşteriler ve yapı bağlantıları tam iş potansiyelinize ulaşmak.
-
-2.  Kazanma, [bulut platformu uzmanlığı](https://partner.microsoft.com/en-us/membership/cloud-platform-competency) bir uzmanlığı getirisi yanı sıra kendiniz Microsoft'un korunmalarını iş ortağı ağı içinde ayırt olanak tanır Pazar teknik uzmanlığı ve müşteri başarılı göstermektedir. Bir uzmanlığı getirisi Ayrıca ortak satış gibi birçok anahtar iş ortağı programı için ön koşuldur.
-
-3.  Hale [ortak satış hazır](https://partner.microsoft.com/en-US/reach-customers/promote-your-business) Bu program doğrudan Microsoft satıcılar ve hedef müşteriye fırsatları üzerindeki diğer iş ortakları ile birlikte çalışın ve planlama hesap olanak sağlar. Çözümünüzü kendi çözüm kataloğunda bizim satıcıları için görünür hale gelir ve işbirliği ve sizinle kazanma bizim satıcıları ödülünü.
-
-#### <a name="merchandising"></a>Satış 
-Yayımlama işleminin bir parçası olarak ne tür bir teklif oluşturmak için kabul ve Azure Marketi'nde teklifiniz için bir kategori seçin fırsatı vardı. Olası müşteriler için doğru şekilde görünmesi için çözümünüz için doğru bir kategori seçtiğinizden emin olun. 
-
-Deneme ve Transact işlevselliği etkinleştirdiğinizde, Azure Marketi'nde, öne çıkan uygulamalar için uygun olur. Market GTM avantajları öne çıkan uygulamalar Go Market Avantajlarınızı bağlamında nasıl uyduğunu anlamanıza gözden geçirin. 
-
-Öne çıkan uygulamalar dayalı üzerinde ve uygulamaları en iyi müşteri deneyimi katılım pazarlama kullanıcı ve yararlanır yüksek kaliteli için iş ortağı sağlamak seçilir. Bu listenin netlik, teknoloji güvenilirliğini ve müşteriler platform kullanımı büyüme ve yüksek kaliteli pazarlama malzemeleri oluşturma ile katılım düzeyine içerir. 
-
-Öne çıkan uygulamanızın olasılığını en üst düzeye çıkarmak, Market teklifi başarılı şekilde yatırım ve büyük müşteri deneyimine teklifinizin emin olmak için aşağıdaki yaklaşımlardan göz önünde bulundurun: 
-
-- Pazarlama yapıtları görüntüleme ve karşıya doğru olduğundan emin olun
-- Katılma [Microsoft iş ortağı ağı](https://partner.microsoft.com/membership) ve iş ortağı ekosistemi ile göster
-- Yüksek kaliteli talep oluşturma Kampanyalar oluşturarak yüksek kaliteli trafiği teklifiniz Azure markette sürücü
-- Tüm Azure çözümleri ve uygulamalarını Azure Marketi'nde kullanılabilir olduğundan emin olun
-- İsteğe bağlı olarak sağlayarak yüksek kaliteli Müşteri Hizmetleri yürüten ve ürün üzerinde zamanında güncelleştirmeleri sağlayarak Azure Marketi Teklifleriniz tüketiminin Büyüt
-
-## <a name="analytics-and-reporting"></a>Analiz ve Raporlama
-
-Bulut iş ortağı portalının Öngörüler bölümünde teklifiniz 's performans üst düzey bir genel bakış görürsünüz. Bu bölümde raporları şunlardır:  
-- Siparişleri Özet anlık görüntü
-- Kullanım
-- Dağıtımlar
-- Müşteri eğilimleri Öngörüler giriş sayfasındaki
-- Ayrıntılı siparişler, kullanım ve müşteri verileri
-- Siparişleri ve aylık özet veya altı aylık eğilimi görünüm olarak gösterilen kullanımı
-- Kullanım/siparişleri birkaç ölçüte göre dilimlenebilir
-
-Müşterilerinizi karşılaştırma ve, satıcıları dengelemek için ayrıntılı raporlar müşteri bilgileri, şirket adı ve coğrafi konumuna posta kodu gibi gösterir. Aşağıdaki listede, müşterilerinizin hakkında sağladığımız özel öznitelikler içerir:
-- Satıcı
-- Ad
-- Soyadı
-- E-posta
-- Şirket Adı
-- İşlem tarihi
-- Abonelik Adı
-- Azure abonelik kimliği (yalnızca PAYG Müşteriler)
-- Bulut örneği adı
-- Sıra sayısı
-- Müşteri Ülke
-- Müşteri Şehir
-- Müşteri iletişimi kültür
-- Müşteri posta kodu
-
-Bu raporlar bilgileri için en iyi uygulama, kendi iç verilerle bağdaştırılması ve pazarlama kampanyası eylemlerinizi öncelik yardımcı olmak için kullanmaktır. 
-
-Bulut iş ortağı portalı Öngörüler Analytics bölümü, uygulama Ayrıntıları sayfasında trafiği görmenize olanak sağlayan bir Power BI göre zengin bir Pano sağlar. Bu Pano için yeni özellikler devam eden bir şekilde alınıyor. Ayrıca bulut iş ortağı portalı içinde Microsoft Campaigns, bir mekanizma olarak kampanyaların ayarlama ve bunları portalın içinde izleme belgesidir.
 
 ## <a name="getting-support"></a>Destek alma
 
@@ -600,7 +459,7 @@ Destek seçenekleri için Azure Marketi listesidir:
 **Azure Market genel sorgular:**
 |Destek kanal |Açıklama |
 |---------|---------|
-|E-posta:cloudmarketplace@microsoft.com     |  Onboarding desteği dağıtım listesi. Ekleme istekleri, Keşif oturumları ve iş ortakları ile Mimari Tasarım oturumları (ADS) ayarlamak için kullanılır.        |
+|E-posta: cloudmarketplace@microsoft.com     |  Onboarding desteği dağıtım listesi. Ekleme istekleri, Keşif oturumları ve iş ortakları ile Mimari Tasarım oturumları (ADS) ayarlamak için kullanılır.        |
 
 **Azure Market destek yayımlama:**
 
@@ -626,16 +485,16 @@ Amp-testdrive@microsoft.com |   Test sürücüleri ekleme erişim sağlar. İş 
 |---------|---------|
 |Kayma: [Market kayma katılma](https://join.marketplace.azure.com)    |   Teknik sorunlar iş ortaklarıyla desteklemek için slack ortamı. Bu ortamda çalışmakta orada 350 + ortakları.        |
 |MSDN Forumlarında: [Market](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
-|StackOverflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    StackOverflow Web sitesi çözümleri almak ve her şeyi Azure ve AMP ilgili hakkında sorular sormak için bir ortam sağlamak birden çok bölümü vardır:<ul><li>StackOverflow: [Azure Market](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>StackOverflow: [Azure Kaynak Yöneticisi](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>StackOverflow: [Azure sanal makineler](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
+|StackOverflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    StackOverflow Web sitesi çözümleri almak ve her şeyi Azure ve AMP ilgili hakkında sorular sormak için bir ortam sağlamak birden çok bölümü vardır:<ul><li>StackOverflow: [Azure Market](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>StackOverflow: [Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>StackOverflow: [Azure sanal makineler](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 
 
 **Pazarlama kaynakları**
 
 |Destek kanal  |Açıklama  |
 |---------|---------|
-|E-posta:cosell@microsoft.com    |  Onboarding işlemleri ve ortak satış programı ile ilgili sorular için destek sağlar. Pasifik saat diliminde temel.        |
-|E-posta:gtm@microsoft.com    |  Git Pazar avantajları ve program sorular için destek sağlar. İş saatleri Pasifik saat diliminde.        |
-|E-posta:CEBrand@Microsoft.com     |  Azure logolar ve markalama için marka kullanımı hakkındaki soruları yanıtlar.       |
+|E-posta: cosell@microsoft.com    |  Onboarding işlemleri ve ortak satış programı ile ilgili sorular için destek sağlar. Pasifik saat diliminde temel.        |
+|E-posta: gtm@microsoft.com    |  Git Pazar avantajları ve program sorular için destek sağlar. İş saatleri Pasifik saat diliminde.        |
+|E-posta: CEBrand@Microsoft.com     |  Azure logolar ve markalama için marka kullanımı hakkındaki soruları yanıtlar.       |
 
 ## <a name="guidelines-and-how-tos"></a>Kılavuzları ve nasıl yapılır?
 
@@ -644,7 +503,7 @@ Amp-testdrive@microsoft.com |   Test sürücüleri ekleme erişim sağlar. İş 
 Hesap açılan Microsoft hesabı oturum açarak hesabınıza erişmek birden çok kişi gerekecekse bir şirket hesabı oluştururken bu yönergeleri izleyin.
 
 >[!IMPORTANT]
->Birden çok kullanıcıların Geliştirici Merkezi hesabınızda erişmesine izin vermek, Azure Active Directory hesabı oturum bireysel oturum açarak erişebilir tek tek kullanıcılar rolleri atamak için kullanmanızı öneririz Azure AD kimlik. Daha fazla bilgi için lütfen inceleyin [AAD Federasyon etki alanlarıyla Kılavuzu](#guidance-with-aad-federated-domains). Şirketinizin etki alanı, ancak tek individual'for örnek ait bir e-posta adresi kullanarak Microsoft hesabınızı oluşturmak windowsapps@fabrikam.com.
+>Birden çok kullanıcıların Geliştirici Merkezi hesabınızda erişmesine izin vermek, Azure Active Directory hesabı oturum bireysel oturum açarak erişebilir tek tek kullanıcılar rolleri atamak için kullanmanızı öneririz Azure AD kimlik. Daha fazla bilgi için lütfen inceleyin [AAD Federasyon etki alanlarıyla Kılavuzu](#guidance-with-aad-federated-domains). Örneğin, şirketinizin etki alanı, ancak tek ait bir e-posta adresi kullanarak Microsoft hesabınızı oluşturmak windowsapps@fabrikam.com.
 
 - Bu Microsoft hesabını geliştiricileri en küçük olası sayısına erişimi sınırlayın.
 - Geliştirici hesabını erişmesi gereken herkes içeren bir şirket e-posta dağıtım listesini ayarlamak ve güvenlik bilgilerinizi bu e-posta adresi ekleyin. Bu listede gerektiğinde güvenlik kodlarını almak ve Microsoft hesabınızın güvenlik bilgilerini yönetmek için tüm çalışanlar sağlar. Bir dağıtım listesi oluşturarak uygun değilse, tek tek e-posta hesabının sahibi erişmek ve güvenlik kodunu (örneğin, yeni güvenlik bilgileri hesabınıza eklendiğinde veya yeni bir CİHAZDAN zaman erişilmelidir) istendiğinde paylaşmak kullanılabilir olması gerekir.

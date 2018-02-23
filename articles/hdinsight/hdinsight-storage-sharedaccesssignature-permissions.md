@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Hdınsight'ta verilere erişimi kısıtlamak için Azure Storage paylaşılan erişim imzaları kullanın
 
@@ -202,7 +202,7 @@ Varolan bir Linux tabanlı kümeniz varsa, SAS ekleyebilirsiniz **çekirdek site
 
 3. Seçin **Gelişmiş** sekmesini tıklatın ve ardından bulana kadar kaydırın **özel çekirdek site** bölümü.
 
-4. Genişletme **özel çekirdek site** bölüm sonra seçin ve son kaydırın **Özellik Ekle...**  bağlantı. İçin aşağıdaki değerleri kullanın **anahtar** ve **değeri** alanlar:
+4. Genişletme **özel çekirdek site** bölüm sonra seçin ve son kaydırın **Özellik Ekle... ** bağlantı. İçin aşağıdaki değerleri kullanın **anahtar** ve **değeri** alanlar:
 
    * **Anahtar**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Değer**: SAS önceden çalıştırdığınız C# veya Python uygulama tarafından döndürülen
@@ -216,7 +216,7 @@ Varolan bir Linux tabanlı kümeniz varsa, SAS ekleyebilirsiniz **çekirdek site
    > [!IMPORTANT]
    > Değişikliğin yürürlüğe girmeden önce birkaç hizmeti yeniden başlatmanız gerekir.
 
-6. Ambari web kullanıcı Arabirimi, seçin **HDFS** solda, listeden seçip **yeniden tüm etkilenen** gelen **hizmet eylemleri** sağdaki listeden aşağı açılır. İstendiğinde, seçin __yeniden tüm uygun__.
+6. Ambari web kullanıcı Arabirimi, seçin **HDFS** solda, listeden seçip **yeniden tüm etkilenen** gelen **hizmet eylemleri** sağdaki listeden aşağı açılır. İstendiğinde, seçin __yeniden tüm onaylayın__.
 
     MapReduce2 ve YARN için bu işlemi yineleyin.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Advisor’ı kullanmaya başlama
 
@@ -28,7 +28,7 @@ Advisor Azure portalı üzerinden erişim, öneriler alın ve önerileri uygulam
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Sol bölmede **Danışmanı**.  Sol bölmede Danışmanı'nı görmüyorsanız tıklatın **daha fazla hizmet**.  Hizmet menü bölmesinde altında **izleme ve Yönetim**, tıklatın **Danışmanı**.
+2. Sol bölmede **Danışmanı**.  Sol bölmede Danışmanı'nı görmüyorsanız tıklatın **tüm hizmetleri**.  Hizmet menü bölmesinde altında **izleme ve Yönetim**, tıklatın **Danışmanı**.
  Advisor Panosu görüntülenir.
 
    ![Erişim Azure Azure portalını kullanarak Danışmanı](./media/advisor-get-started/advisor-portal-menu.png) 

@@ -4,7 +4,7 @@ description: "Bu makalede Azure sanal makinelerde SQL Server Yük devretme küme
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>SQL Server Yük devretme kümesi örneği üzerinde Azure sanal makineleri yapılandırma
 
@@ -93,7 +93,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümesi oluşturmaya devam e
 
    - Azure portalında tıklatın  **+**  Azure Marketi açın. Arama **kullanılabilirlik kümesi**.
    - Tıklatın **kullanılabilirlik kümesi**.
-   - **Oluştur**'a tıklayın.
+   - **Oluştur**’a tıklayın.
    - Üzerinde **kullanılabilirlik kümesi oluştur** dikey penceresinde, aşağıdaki değerleri ayarlayın:
       - **Ad**: kullanılabilirlik kümesi için bir ad.
       - **Abonelik**: bilgisayarınızı Azure aboneliği.
@@ -117,7 +117,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümesi oluşturmaya devam e
       >[!IMPORTANT]
       >Ayarlayın veya bir sanal makine oluşturulduktan sonra ayarlanmış kullanılabilirlik değiştirin.
 
-   Azure Marketi'nde bir görüntü seçin. Bir Market kullanabilirsiniz, görüntü, Windows Server ve SQL Server ya da yalnızca Windows Server içerir. Ayrıntılar için bkz [genel bakış SQL Server'ın Azure sanal makineler üzerinde](../../virtual-machines-windows-sql-server-iaas-overview.md)
+   Azure Marketi'nde bir görüntü seçin. Bir Market kullanabilirsiniz, görüntü, Windows Server ve SQL Server ya da yalnızca Windows Server içerir. Ayrıntılar için bkz [genel bakış SQL Server'ın Azure sanal makineler üzerinde](virtual-machines-windows-sql-server-iaas-overview.md)
 
    Resmi SQL Server görüntülerini Azure galerisinde yüklü SQL Server örneğini ve SQL Server yükleme yazılım ve gereken anahtar içerir.
 
@@ -343,7 +343,7 @@ Yük Dengeleyici oluşturmak için:
 
 1. Tıklatın **+ Ekle**. Market arama **yük dengeleyici**. Tıklatın **yük dengeleyici**.
 
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
 1. Yük Dengeleyici ile yapılandırın:
 
@@ -419,7 +419,7 @@ Yük Dengeleyici oluşturmak için:
    - **Boşta kalma zaman aşımı (dakika)**: 4.
    - **Kayan IP (doğrudan sunucu dönüşü)**: etkin
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**’a tıklayın.
 
 ## <a name="step-6-configure-cluster-for-probe"></a>Adım 6: küme araştırma için yapılandırın
 

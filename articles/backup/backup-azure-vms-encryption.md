@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Ve Azure yedekleme ile şifrelenmiş sanal makineleri geri yükleme
 Bu makalede, yedekleme ve Azure Yedekleme'yi kullanarak sanal makineleri (VM'ler) geri yükleme adımlarını hakkında alınmaktadır. Ayrıca hata durumları için desteklenen senaryolar, önkoşulları ve sorun giderme adımları hakkında ayrıntılar sağlar.
@@ -48,7 +48,7 @@ Bu makalede, yedekleme ve Azure Yedekleme'yi kullanarak sanal makineleri (VM'ler
 Yedekleme hedefi ayarlamak, ilke tanımlamak, öğeleri yapılandırın ve bir yedeklemeyi tetikleyin için aşağıdaki adımları kullanın.
 
 ### <a name="configure-backup"></a>Yedeklemeyi yapılandırma
-1. Açık kurtarma Hizmetleri kasası zaten varsa, sonraki adıma geçebilirsiniz. Açık kurtarma Hizmetleri kasası varsa yoktur, ancak Azure portalında girdiğinizi **Hub** menüsünde, select **Gözat**.
+1. Açık kurtarma Hizmetleri kasası zaten varsa, sonraki adıma geçebilirsiniz. Açık kurtarma Hizmetleri kasası varsa yoktur, ancak Azure portalında, select olduğunuz **tüm hizmetleri**.
 
    a. Kaynak listesinde **Kurtarma Hizmetleri** yazın.
 
@@ -65,10 +65,10 @@ Yedekleme hedefi ayarlamak, ilke tanımlamak, öğeleri yapılandırın ve bir y
 3. Üzerinde **yedekleme** kutucuğu, select **yedekleme hedefi**.
 
       ![Senaryo dikey penceresi](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
-4. Altında **, iş yükünü çalıştırdığı?**seçin **Azure**. Altında **neleri yedeklemek istiyorsunuz?**seçin **sanal makine**. Ardından **Tamam**.
+4. Altında **, iş yükünü çalıştırdığı?**seçin **Azure**. Altında **neleri yedeklemek istiyorsunuz?**seçin **sanal makine**. Sonra **Tamam**’ı seçin.
 
    ![Senaryo dikey penceresini açma](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
-5. Altında **yedekleme ilkesi seçin**, kasaya uygulamak istediğiniz yedekleme ilkesini seçin. Ardından **Tamam**.
+5. Altında **yedekleme ilkesi seçin**, kasaya uygulamak istediğiniz yedekleme ilkesini seçin. Sonra **Tamam**’ı seçin.
 
       ![Yedekleme ilkesini seçme](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png)
 
@@ -98,7 +98,7 @@ Daha sonra şifreleme için etkinleştirilmiş bir kurtarma Hizmetleri kasasına
 
 ## <a name="provide-permissions-to-backup"></a>Yedekleme için izinler sağlar
 Anahtar kasası erişmek ve şifrelenmiş Vm'leri Yedekleme gerçekleştirmek için yedekleme için ilgili izinleri sağlamak için aşağıdaki adımları kullanın.
-1. Seçin **daha fazla hizmet**, arayın ve **anahtar kasalarını**.
+1. Seçin **tüm hizmetleri**, arayın ve **anahtar kasalarını**.
 
     ![Anahtar kasaları](./media/backup-azure-vms-encryption/search-key-vault.png)
     

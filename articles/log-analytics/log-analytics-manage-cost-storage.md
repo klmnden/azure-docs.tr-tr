@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Günlük analizi çalışma alanınız ile veri saklama maliyetini yönetme
 Günlük analizi için seçtiğiniz plana bağlı olarak kaydolurken bağlı kaynaklar tarafından oluşturulan verilerin çalışma alanınızda ne kadar süreyle depolanır bir sınır yoktur.  Bu makalede, saat ve bu sınıra yapılandırma dönemlerini için bu verileri koruma için maliyetleri etkileyebilir dikkat edilecek noktalar vurgular.   
@@ -44,7 +44,7 @@ Kullanırken *serbest* planlama, izin verilen tutarlar tutarlı bir şekilde aş
 ## <a name="change-the-data-retention-period"></a>Veri saklama süresi değiştirme 
 
 1. [Azure portal](http://portal.azure.com) oturum açın. 
-2. Tıklatın **daha fazla hizmet** sol alt köşesindeki üzerinde bulunamadı. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **oturum Analytics**.
+2. Tıklatın **tüm hizmetleri**. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 3. Günlük analizi abonelikleri bölmesinde listeden değiştirmek için çalışma alanınızı seçin.
 4. Çalışma sayfasında, tıklatın **bekletme** sol bölmesinden.
 5. Çalışma alanı bekletme bölmesinde artırın veya gün sayısını azaltın ve ardından kaydırıcıyı **kaydetmek**.  Kullanıyorsanız *ücretsiz* katmanı, veri saklama süresi değiştirmek mümkün olmayacak ve bu ayarı denetlemek için ücretli katmanına yükseltme yapmanız gerekir.<br><br> ![Çalışma alanı veri saklama ayarını değiştirme](media/log-analytics-manage-cost/manage-cost-change-retention.png)

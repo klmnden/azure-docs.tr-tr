@@ -1,23 +1,22 @@
 # [Genel Bakış](overview.md)
 
 # Hızlı Başlangıç
-## [Bash için hızlı başlangıç](quickstart.md)
-## [PowerShell için hızlı başlangıç](quickstart-powershell.md)
+## [Bash - Hızlı Başlangıç](quickstart.md)
+## [PowerShell - Hızlı Başlangıç](quickstart-powershell.md)
 
 # Kavramlar
-## [Bash ile sunulan özellikler ve araçlar](features.md)
-## [PowerShell ile sunulan özellikler ve araçlar](features-powershell.md)
+## [Bash - Özellikler ve Araçlar](features.md)
+## [PowerShell - Özellikler ve Araçlar](features-powershell.md)
 ## [Sınırlamalar](limitations.md)
 
 # Nasıl yapılır
-## [Bash’te kalıcı depolama](persisting-shell-storage.md)
-## [PowerShell’de kalıcı depolama](persisting-shell-storage-powershell.md)
+## [Bash - Kalıcı depolama](persisting-shell-storage.md)
+## [PowerShell - Kalıcı depolama](persisting-shell-storage-powershell.md)
 ## [Pencereyi kullanma](using-the-shell-window.md)
 
 # Örnekler
-## [Bash’te Terraform ile Azure kaynaklarını dağıtma](example-terraform-bash.md)
-
-## [Bash’te Ansible çalıştırma](../ansible/ansible-run-playbook-in-cloudshell.md)
+## [Bash - Terraform ile kaynak oluşturma](example-terraform-bash.md)
+## [Bash - Ansible playbook’ları çalıştırma](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Cloud Shell’i Ekleme](embed-cloud-shell.md)
 

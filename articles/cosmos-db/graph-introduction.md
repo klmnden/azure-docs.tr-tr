@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB giriş: grafik API'si
 
@@ -107,22 +107,14 @@ Azure komut satırı arabirimi (CLI), Azure PowerShell veya Azure portalında de
 
 Aşağıdaki tabloda Azure Cosmos DB karşı kullanabilirsiniz popüler Gremlin sürücüleri gösterir:
 
-| İndirme | Belgeler |
-| --- | --- |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) |[Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) |
-| [Node.js](https://www.npmjs.com/package/gremlin) |[Github'da gremlin JavaScript](https://github.com/jbmusso/gremlin-javascript) |
-| [Gremlin konsol](https://tinkerpop.apache.org/downloads.html) |[TinkerPop belgeleri](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
-
-Azure Cosmos DB ayrıca Gremlin genişletme yöntemleri üstüne sahip bir .NET kitaplığı sağlar [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md) NuGet aracılığıyla. Bu kitaplığı "veri bölümlere doğrudan bağlanmak için kullanabileceğiniz bir işlem" Gremlin sunucusu sağlar.
-
-| İndirme | Belgeler |
-| --- | --- |
-| [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graphs/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
-
-Kullanarak [Azure Cosmos DB öykünücüsü](local-emulator.md), geliştirmek ve bir Azure aboneliği oluşturmak veya herhangi bir maliyet olmadan yerel olarak test etmek için yukarıdaki .NET grafik API'sini kullanabilirsiniz. Uygulamanızı Öykünücüde nasıl çalıştığını ile memnun kaldığınızda, bulutta bir Azure Cosmos DB hesabı kullanmaya geçiş yapabilirsiniz.
-
-> [!NOTE]
-> Gremlin sorguları doğrulama desteği [Azure Cosmos DB öykünücüsü](local-emulator.md) yalnızca .NET grafik API'si kullanılabilir.
+| İndirme | Belgeler | Başlarken |
+| --- | --- | --- |
+| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Github'da Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [.NET kullanarak grafik oluşturma](create-graph-dotnet.md) |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Java kullanarak grafik oluşturma](create-graph-java.md) |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Github'da gremlin JavaScript](https://github.com/jbmusso/gremlin-javascript) | [Node.js kullanarak grafik oluşturma](create-graph-nodejs.md) |
+| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Github'da gremlin Python](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Python kullanarak grafik oluşturma](create-graph-python.md) |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Github'da gremlin PHP](https://github.com/PommeVerte/gremlin-php) | [PHP kullanarak grafik oluşturma](create-graph-php.md) |
+| [Gremlin konsol](https://tinkerpop.apache.org/downloads.html) | [TinkerPop belgeleri](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin konsolunu kullanarak bir grafik oluşturun](create-graph-gremlin-console.md) |
 
 ## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Azure Cosmos DB grafik desteği için senaryolar
 Azure Cosmos DB grafik desteği kullanıldığı bazı senaryolar verilmiştir:

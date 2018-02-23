@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 02/01/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d41df9b9d9bd518bb507b0fcde001f35c11e6264
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 9ef09e33803a976e05e555ec7ae9eb872d237137
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA büyük örnekleri azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma 
 
@@ -111,7 +111,7 @@ SAP HANA Azure (büyük örnekler) üzerinde iki yedekleme ve geri yükleme seç
 SAP HANA Azure (büyük örnekler) üzerinde temel alınan depolama altyapısını birimlerin depolama anlık görüntüleri destekler. Yedekleme ve geri yükleme birimlerin desteklenir, aşağıdaki noktaları ile:
 
 - Tam veritabanı yedeklemeleri yerine depolama birim anlık görüntülerini üzerinde düzenli aralıklarla alınır.
-- Bir anlık görüntü/hana/veri, hana/log ve /hana/shared (/usr/sap içerir) tetiklendiğinde birimleri, depolama anlık görüntü depolama anlık görüntü yürütülmeden önce anlık görüntü bir SAP HANA başlatır. Bu SAP HANA anlık görüntü Kurulum son günlük geri yüklemeler için depolama anlık görüntü kurtarma işleminden sonra noktasıdır.
+- Bir anlık görüntü /hana/data ve /hana/shared (/usr/sap içerir) üzerinden tetiklendiğinde birimleri, depolama anlık görüntü depolama anlık görüntü yürütülmeden önce anlık görüntü bir SAP HANA başlatır. Bu SAP HANA anlık görüntü Kurulum son günlük geri yüklemeler için depolama anlık görüntü kurtarma işleminden sonra noktasıdır.
 - Burada depolama anlık görüntü başarıyla yürütüldü noktadan sonra SAP HANA anlık görüntü silinir.
 - İşlem günlüğü yedeklemeleri sık gerçekleştirilen ve /hana/logbackups birim veya Azure depolanır. Anlık ayrı olarak almak için işlem günlüğü yedeklemeleri içeren /hana/logbackups birimi tetikleyebilir. Bu durumda, bir HANA anlık görüntüsü yürütülecek gerekmez.
 - Microsoft Azure desteği (bir üretim kesinti) veya Azure Hizmet Yönetimi SAP HANA belirli depolama anlık görüntüye geri yüklemek için bir veritabanı belirli bir noktaya zamanında geri yüklemeniz gerekiyorsa, isteyin. Bir planlı bir korumalı alan sistem geri yükleme özgün durumuna örneğidir.
@@ -149,7 +149,7 @@ Aşağıdaki bölümlerde genel öneriler dahil olmak üzere, bu anlık görünt
 - Sırasında daha büyük düzenlemelere SAP HANA tablo depolama anlık görüntüleri, mümkünse kaçınılmalıdır.
 - Depolama anlık görüntüler (büyük örnekler) Azure üzerinde SAP HANA olağanüstü durum kurtarma özelliklerini yararlanarak için bir önkoşuldur.
 
-### <a name="pre-requisites-for-leveraging-self-service-storage-snapshots"></a>Self Servis depolama anlık görüntüleri yararlanarak için ön koşullar
+### <a name="prerequisites-for-leveraging-self-service-storage-snapshots"></a>Self Servis depolama anlık görüntüleri yararlanarak önkoşulları
 
 Anlık görüntü komut dosyası başarıyla çalıştığından emin olmak için Perl HANA büyük örnekleri sunucuda Linux işletim sisteminde yüklendiğinden emin olun. Perl HANA büyük örneği biriminde önceden yüklenmiş olarak gelir. Perl sürümünü denetlemek için aşağıdaki komutu kullanın:
 
@@ -290,7 +290,7 @@ HANABackupCustomerDetails.txt
 Perl betikleri postalarla sürümünden itibaren: 
 
 - Hiçbir zaman komut dosyaları tarafından Microsoft Operations belirtilmedikçe değiştirin.
-- Komut dosyası veya bir parametre dosyası değiştirmek isteyip istemediğiniz sorulduğunda her zaman "VI" gibi linux metin düzenleyicisi ve değil Windows düzenleyicileri Not Defteri gibi kullanın. Windows Düzenleyicisi'ni kullanarak dosya biçimi bozulmasına neden olabilir.
+- Komut dosyası veya bir parametre dosyası değiştirmek isteyip istemediğiniz sorulduğunda her zaman "VI" gibi Linux metin düzenleyicisi ve değil Windows düzenleyicileri Not Defteri gibi kullanın. Windows Düzenleyicisi'ni kullanarak dosya biçimi bozulmasına neden olabilir.
 - Her zaman en son betiklerini kullanın. Github'dan en son sürümünü indirebilirsiniz.
 - Komut dosyaları aynı sürümü arasında yatay kullanın.
 - Komut dosyalarını sınamak ve gerekli parametreleri ve komut dosyası çıkışını doğrudan üretim sisteminde kullanmadan önce rahat alabilirsiniz.
@@ -299,7 +299,7 @@ Perl betikleri postalarla sürümünden itibaren:
 
 Dosya ve farklı komut dosyaları amacı verilmiştir:
 
-- **Azure\_hana\_backup.pl**: Bu komut dosyası HANA veri/günlük/paylaşılan birimler, / hana/logbackups birim veya işletim sistemi üzerinde depolama anlık görüntüleri yürütülecek cron ile zamanlama.
+- **Azure\_hana\_backup.pl**: Bu komut dosyası HANA veri ve paylaşılan birimler, / hana/logbackups birim ya da işletim sistemi üzerinde depolama anlık görüntüleri yürütülecek cron ile zamanlama.
 - **Azure\_hana\_çoğaltma\_status.pl**: Bu komut dosyası üretim site çoğaltma durumu olağanüstü durum kurtarma sitesine geçici temel ayrıntıları sağlar. Çoğaltma yer aldığı ve öğelerin boyutu, gösterir emin olmak için komut dosyası izleyicileri çoğaltılmış olduğunu. Ayrıca Kılavuzu bir çoğaltma çok uzun sürüyorsa veya bağlantı kapalı olduğunda sağlar.
 - **azure\_hana\_snapshot\_details.pl**: This script provides a list of basic details about all the snapshots, per volume, that exist in your environment. Bu komut, birincil sunucuda veya sunucu birim olağanüstü durum kurtarma konumu olarak çalıştırılabilir. Komut dosyası anlık görüntüleri içeren her bir birim ayrıntılarıyla aşağıdaki bilgileri sağlar:
    * Bir birimdeki toplam anlık görüntü boyutu

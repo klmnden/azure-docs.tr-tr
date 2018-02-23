@@ -3,8 +3,8 @@ title: "Azure ve Azure uygulamanızı dağıtmak yığını | Microsoft Docs"
 description: "Uygulamaları Azure ve Azure yığını ile karma CI/CD ardışık dağıtmayı öğrenin."
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: helaw
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Azure ve Azure uygulamaları dağıtmak yığını
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
@@ -31,7 +32,7 @@ Bir karma [sürekli tümleştirme](https://www.visualstudio.com/learn/what-is-co
 > * Kodunuzu test geçtikten sonra otomatik olarak Azure yığınına dağıtın. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bazı bileşenler bir karma CI/CD ardışık düzen oluşturmak için gerekli ve hazırlamak için biraz zaman alabilir.  Bu bileşenlerden bazıları zaten varsa başlamadan önce gereksinimleri karşıladığınızdan emin olun.
 
 Bu konu ayrıca bazı Azure ve Azure yığın bilgisine sahip olduğunuzu varsayar. Devam etmeden önce daha fazla bilgi edinmek istiyorsanız, bu konularda başlatmak emin olun:
@@ -49,7 +50,7 @@ Bu konu ayrıca bazı Azure ve Azure yığın bilgisine sahip olduğunuzu varsay
  - Dağıtma [uygulama hizmeti](../azure-stack-app-service-deploy.md) Azure yığınına PaaS Hizmetleri.
  - Bir Web uygulaması oluşturma ve için yapılandırma [FTP Yayımlama](../azure-stack-app-service-enable-ftp.md).  Daha sonra kullanılmak üzere yeni Web uygulaması URL'sini not edin.  
 
-### <a name="developer-tools"></a>Geliştirici Araçları
+### <a name="developer-tools"></a>Geliştirici araçları
  - Oluşturma bir [VSTS çalışma](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).  Kaydolma işlemi "MyFirstProject." adlı bir proje oluşturur  
  - [Visual Studio 2017 yükleme](https://docs.microsoft.com/visualstudio/install/install-visual-studio) ve [açma VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#connect-and-share-code-from-visual-studio)
  - Projeye bağlayın ve [yerel olarak kopyalamak](https://www.visualstudio.com/docs/git/gitquickstart).
@@ -59,11 +60,11 @@ Bu konu ayrıca bazı Azure ve Azure yığın bilgisine sahip olduğunuzu varsay
 
 ## <a name="create-app--push-to-vsts"></a>VSTS itme & Uygulama Oluştur
 
-### <a name="create-application"></a>Uygulama oluşturma
+### <a name="create-application"></a>Uygulama oluştur
 Bu bölümde, basit bir ASP.NET uygulaması oluşturma ve VSTS gönderme.  Bu adımları normal Geliştirici iş akışını temsil eder ve geliştirici araçları ve diller için uyarlanmış. 
 
 1.  Visual Studio'yu açın.
-2.  Takım Gezgini alanından ve **çözümleri...**  alanında tıklatın **yeni**.
+2.  Takım Gezgini alanından ve **çözümleri... ** alanında tıklatın **yeni**.
 3.  Seçin **Visual C#** > **Web** > **ASP.NET Web uygulaması (.NET Framework)**.
 4.  ' A tıklayın ve uygulama için bir ad **Tamam**.
 5.  Sonraki ekranda (Web forms) Varsayılanları tutun ve **Tamam**.
@@ -71,7 +72,7 @@ Bu bölümde, basit bir ASP.NET uygulaması oluşturma ve VSTS gönderme.  Bu ad
 ### <a name="commit-and-push-changes-to-vsts"></a>Yürütme ve VSTS değişiklikleri gönderme
 1.  Takım Gezgini, Visual Studio kullanarak, açılır seçin ve tıklatın **değişiklikleri**.
 2.  Yürütme iletiyi sağlayın ve seçin **Tümünü Yürüt**. İstenebilir çözüm dosyasını kaydetmek için tüm kaydetmek için Evet'i tıklatın.
-3.  Tamamlandıktan sonra değişiklikleri projenize eşitlemek Visual Studio sunar. Seçin **eşitleme**.
+3.  Tamamlandıktan sonra değişiklikleri projenize eşitlemek Visual Studio sunar. **Eşitle**’yi seçin.
 
     ![yürütme tamamlandıktan sonra tamamlama ekran gösteren görüntü](./media/azure-stack-solution-pipeline/image1.png)
 
@@ -107,7 +108,7 @@ Yayın işlem, önceki adımdan derlemeleri bir ortama nasıl dağıtıldığın
 
 Boş yayın tanımını oluşturdu ve yapı bağlı göre şu adımları Azure ortamı için ekleyin:
 
-1.  Yeşil tıklatın  **+**  görevler eklemek için.
+1.  Yeşil tıklatın ** + ** görevler eklemek için.
 2.  Seçin **tüm**ve ardından listeden ekleyin **FTP Karşıya** seçip **Kapat**.
 3.  Seçin **FTP Karşıya** , yeni eklenen görev ve aşağıdaki parametreleri yapılandırın:
     
@@ -133,7 +134,7 @@ Son olarak, aşağıdaki adımları kullanarak dağıtılmış aracı içeren ar
 Bu adım, Azure üzerinde bir Web uygulaması için ASP.NET uygulama dağıtmak için yeni oluşturulan CI/CD hattınızı kullanır. 
 
 1.  Reklam VSTS içinde seçin **yapı & yayın**ve ardından **derlemeler**.
-2.  Tıklatın **...**  derleme açıklamasında daha önce oluşturulmuş ve select **sıraya yeni derleme**.
+2.  Tıklatın **... ** derleme açıklamasında daha önce oluşturulmuş ve select **sıraya yeni derleme**.
 3.  Varsayılanları kabul edin ve tıklayın **Tamam**.  Yapı başlar ve ilerleme durumunu görüntüler.
 4.  Yapı tamamlandıktan sonra seçerek durumunu izleyebilir **yapı & yayın** ve seçerek **sürümleri**.
 5.  Yapı tamamlandıktan sonra Web uygulaması oluştururken, belirtilen URL'yi kullanarak Web sitesini ziyaret edin.    

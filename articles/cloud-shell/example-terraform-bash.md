@@ -1,6 +1,6 @@
 ---
-title: "Azure bulut Kabuğu'nda Bash ile Terraform ile dağıtma | Microsoft Docs"
-description: "Azure kaynaklarıyla Bash Terraform dağıtma"
+title: "Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma | Microsoft Docs"
+description: "Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma"
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Terraform ve bulut Kabuk Bash'te
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma
 Bu makalede sahip bir kaynak grubu oluşturma ile anlatılmaktadır [Terraform AzureRM sağlayıcı](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) API'leri düzenlenemez, gözden takım üyeleri arasında paylaşılacak ve sürümü tutulan bildirim temelli yapılandırma dosyalarına kod oluşturur bir açık kaynak aracıdır. Microsoft AzureRM sağlayıcısı AzureRM API'leri aracılığıyla Azure kaynak yöneticisi tarafından desteklenen kaynakları ile etkileşim kurmak için kullanılır. 

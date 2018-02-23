@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: d02c29fa6239cb36cb5fb95da4d325cca57952aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Uygulama proxy'si uygulama yüklemek için çok uzun sürüyor
 
@@ -31,7 +31,7 @@ Bu konuları yardımcı olmuyorsa, biz ne yazık ki şu anda yoksa performans ay
 Uygulama proxy'si hizmeti ile veri merkezleri ile bulunabilir [Bağlayıcısı bağlantı noktaları Test aracı](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Uygulama proxy'si veri merkezi konumlarını geri bildirimi 
-Uygulama proxy'si olarak henüz içerme ancak harika gecikme geliştirme için sizin için sunulmasını Azure veri merkezlerinde olabilir. Veri merkezi konumda < aadapfeedback@microsoft.com > biz görüşlerinizi biz genişletin planla için kullanabilirsiniz.
+Uygulama proxy'si olarak henüz içerme ancak harika gecikme geliştirme için sizin için sunulmasını Azure veri merkezlerinde olabilir. Veri merkezi konumda <aadapfeedback@microsoft.com> biz görüşlerinizi biz genişletin planla için kullanabilirsiniz.
 
 Biz şu anda uzun gecikme bkz kiracılar için gecikme geliştirilmesine yardımcı olun bazı ek özellikler üzerinde çalıştığınız ve kullanılabilir bir kez belgeleri paylaşmak emin olun.
 

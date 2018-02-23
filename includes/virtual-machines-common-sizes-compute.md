@@ -24,11 +24,13 @@ ACU: 195 - 210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Yüksek                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Çok yüksek                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Çok yüksek                                 |
-| Standard_F72s_v2<sup>2</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Çok yüksek                                 |
+| Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Çok yüksek                                 |
 
-<sup>1</sup>Fsv2-serisi VM'in özellik Intel® Hyper-Threading Teknolojisi
+<sup>1</sup> Fsv2-serisi VM'in özellik Intel® Hyper-Threading Teknolojisi
 
 <sup>2</sup> 64 taneden fazla vCPU'ın bu desteklenen konuk işletim sistemleri birini gerektirir: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 ve Red Hat Enterprise Linux, CentOS 7.3 veya Oracle Linux 7.3 LIS 4.2.1 ile
+
+<sup>3</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış.
 
 ## <a name="fs-series-sup1sup"></a>FS-serisi <sup>1</sup>
 

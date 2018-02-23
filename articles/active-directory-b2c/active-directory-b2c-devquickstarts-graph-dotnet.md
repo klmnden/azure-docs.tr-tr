@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API kullanın
 
@@ -45,7 +45,7 @@ B2C Kiracı aldıktan sonra aracılığıyla uygulamanızı kaydetmeniz gerekir 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Sayfanın sağ üst köşesinde hesabınızı seçerek Azure AD B2C kiracınızın seçin.
-3. Sol Gezinti Bölmesi'nde seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**, tıklatıp **Ekle**.
+3. Sol Gezinti Bölmesi'nde seçin **tüm hizmetleri**, tıklatın **uygulama kayıtlar**, tıklatıp **Ekle**.
 4. Komut istemlerini izleyin ve yeni bir uygulama oluşturun. 
     1. Seçin **Web uygulaması / API** uygulama türü olarak.    
     2. Sağlamak **URI herhangi bir yeniden yönlendirme** (örneğin https://B2CGraphAPI) Bu örnek için uygun değil olarak.  
@@ -128,7 +128,7 @@ B2CGraphClient kullanmak için açık bir `cmd` Windows komut istemine ve dizini
 Bu her komut kısa bir açıklamasını görüntüler. Aşağıdaki komutlardan birini çağırma her zaman `B2CGraphClient` Azure AD grafik API'sine isteğinde bulunur.
 
 ### <a name="get-an-access-token"></a>Bir erişim belirteci alma
-Grafik API'si için herhangi bir istek kimlik doğrulaması için bir erişim belirteci gerektirir. `B2CGraphClient`erişim belirteci almak için açık kaynak Active Directory Authentication Library (ADAL) kullanır. ADAL belirteç edinme basit bir API sağlayarak ve erişim belirteçleri önbelleğe alma gibi bazı önemli ayrıntıları alma verdiğiniz kolaylaştırır. Belirteçleri, ancak almak için ADAL kullanmanız gerekmez. Ayrıca, HTTP isteklerini hazırlayın tarafından belirteç alabilir.
+Grafik API'si için herhangi bir istek kimlik doğrulaması için bir erişim belirteci gerektirir. `B2CGraphClient` erişim belirteci almak için açık kaynak Active Directory Authentication Library (ADAL) kullanır. ADAL belirteç edinme basit bir API sağlayarak ve erişim belirteçleri önbelleğe alma gibi bazı önemli ayrıntıları alma verdiğiniz kolaylaştırır. Belirteçleri, ancak almak için ADAL kullanmanız gerekmez. Ayrıca, HTTP isteklerini hazırlayın tarafından belirteç alabilir.
 
 > [!NOTE]
 > Bu kod örneği ADAL v2 grafik API'si ile iletişim kurmak için kullanır.  Azure AD grafik API'si ile kullanılabilen erişim belirteçleri almak için ADAL v2 veya v3 kullanılması gerekir.
@@ -357,7 +357,7 @@ Tam adı gibi kullanabilir `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Nu
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-Kullanarak `B2CGraphClient`, B2C Kiracı kullanıcılarınızın program aracılığıyla yönetebilen bir hizmet uygulaması sahip. `B2CGraphClient`Azure AD grafik API'sine kimliğini doğrulamak için kendi uygulama kimliğini kullanır. Ayrıca, istemci parolasını kullanarak belirteçleri da alır. Bu işlev uygulamanıza dahil, B2C uygulamalar için birkaç önemli nokta unutmayın:
+Kullanarak `B2CGraphClient`, B2C Kiracı kullanıcılarınızın program aracılığıyla yönetebilen bir hizmet uygulaması sahip. `B2CGraphClient` Azure AD grafik API'sine kimliğini doğrulamak için kendi uygulama kimliğini kullanır. Ayrıca, istemci parolasını kullanarak belirteçleri da alır. Bu işlev uygulamanıza dahil, B2C uygulamalar için birkaç önemli nokta unutmayın:
 
 * Uygulama doğru Kiracı izinleri gerekir.
 * Şimdilik, erişim belirteçleri almak için ADAL (MSAL değil) kullanmanız gerekir. (Ayrıca protokol iletilerini doğrudan bir kitaplık kullanılarak olmadan gönderebilirsiniz.)

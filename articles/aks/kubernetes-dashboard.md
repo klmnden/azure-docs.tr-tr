@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f13ca506197ff8b9b86cf1f69300fd974b9ddd5a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c830400ca1ccd7273ba3acfbd4f17eb2081add87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes Pano Azure kapsayıcı hizmeti (AKS)
 
@@ -23,7 +23,7 @@ Azure CLI Kubernetes Pano başlatmak için kullanılabilir. Bu belge Kubernetes 
 
 Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğeler gereksinim duyarsanız, bkz: [AKS quickstart][aks-quickstart].
 
-Ayrıca Azure CLI sürüm 2.0.21 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için az --version komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI Sürüm 2.0.27 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için az --version komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Başlangıç Kubernetes Panosu
 

@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure olay kılavuz ve Logic Apps ile sanal makine değişikliklerini izleme
 
@@ -51,7 +51,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 
-2. Ana Azure menü sol üst köşesinden seçin **yeni** > **Kurumsal tümleştirme** > **mantıksal uygulama**.
+2. Ana Azure menü sol üst köşesinden seçin **kaynak oluşturma** > **Kurumsal tümleştirme** > **mantıksal uygulama**.
 
    ![Mantıksal uygulama oluşturma](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
@@ -134,7 +134,7 @@ Bu ifade girin:
 
    `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
 
-   Koşulunuz şimdi aşağıdaki gibi görünür:
+   Koşulunuz şu örneğe benzer şekilde görünür:
 
    ![Boş koşulu](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
 
