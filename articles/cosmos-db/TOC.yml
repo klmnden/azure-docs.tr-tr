@@ -131,6 +131,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Azure Resource Manager şablonları
+      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
 - name: Kavramlar
   items:
     - name: Sunucusuz veritabanı
@@ -342,6 +344,8 @@
           href: logging.md
         - name: Anahtarları yönetme ve tutarlılık
           href: manage-account.md
+        - name: Erişim denetimi
+          href: access-control.md
         - name: Azure Depolama Gezgini
           href: storage-explorer.md
         - name: Güvenlik

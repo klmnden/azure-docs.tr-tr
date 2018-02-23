@@ -17,6 +17,7 @@
 ### [DirSync’ten yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Önceki sürümden yükseltme](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Mevcut bir AD Eşitleme veritabanını kullanarak yükleme](active-directory-aadconnect-existing-database.md)
+### [SQL yönetici temsilcisi izinlerini kullanarak yükleme](active-directory-aadconnect-sql-delegation.md)
 
 # Nasıl yapılır
 ## Planlama ve tasarım
@@ -51,6 +52,7 @@
 
 
 ## Azure AD Connect Sync'i yönetme
+### [GDPR uyumluluğu ve Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD hizmet hesabı](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -81,6 +83,7 @@
 ### [Bağlantı](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Eşitleme sırasında karşılaşılan hatalar](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Nesne eşitlenmemiş](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [Sorun giderme görevini kullanarak nesne eşitleme](active-directory-aadconnect-troubleshoot-objectsync.md)
 ### [Parola eşitleme](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [userCertificate’in neden olduğu LargeObject hatası](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [LocalDB 10 GB sınırından kurtarma](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)

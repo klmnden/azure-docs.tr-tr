@@ -30,6 +30,9 @@
 #### [Gelişmiş otomatik ölçeklendirme](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Ölçek kümelerindeki uygulamalar](virtual-machine-scale-sets-deploy-app.md)
 ### [Veri disklerini ölçek kümeleri ile kullanma](virtual-machine-scale-sets-attached-disks.md)
+### Ölçek kümelerinde diskleri şifreleme
+#### [PowerShell kullanma](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Azure CLI 2.0 kullanma](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Büyük ölçek kümeleriyle çalışma](virtual-machine-scale-sets-placement-groups.md)
 ### [Yönetilen disk kullanmak üzere bir ölçek kümesi şablonu dönüştürme](virtual-machine-scale-sets-convert-template-to-md.md)
 

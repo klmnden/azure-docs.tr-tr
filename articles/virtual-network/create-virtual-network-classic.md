@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Bir sanal ağ ile birden fazla alt ağ (Klasik) oluşturun
 
@@ -39,10 +39,10 @@ Bir sanal ağ (Klasik) kullanarak oluşturabileceğiniz [Azure portal](#portal),
 ## <a name="portal"></a>Portal
 
 1. Bir Internet tarayıcısında Git [Azure portal](https://portal.azure.com). Kullanarak oturum açın, [Azure hesabı](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Azure hesabınız yoksa [ücretsiz denemeye](https://azure.microsoft.com/offers/ms-azr-0044p) kaydolabilirsiniz.
-2. Tıklatın **+ yeni** Portalı'nda.
-3. Girin *sanal ağ* içinde **Market arama** kutusunun üstündeki **yeni** görünür dikey.  Tıklatın **sanal ağ** arama sonuçlarında görüntülendiğinde.
-4. Seçin **Klasik** içinde **dağıtım modeli seçin** kutusunda **sanal ağ** görünür, ardından dikey **oluşturma**. 
-5. Aşağıdaki değerleri girin **sanal ağ oluştur (Klasik)** dikey ve ardından **oluşturma**:
+2. Tıklatın **kaynak oluşturma** Portalı'nda.
+3. Girin *sanal ağ* içinde **Market arama** kutusunun üstündeki **yeni** bölmesinde görüntülenir. Tıklatın **sanal ağ** arama sonuçlarında görüntülendiğinde.
+4. Seçin **Klasik** içinde **dağıtım modeli seçin** kutusunda **sanal ağ** görünür, ardından bölmesinde **oluşturma**. 
+5. Aşağıdaki değerleri girin **sanal ağ oluştur (Klasik)** bölmesi ve ardından **oluşturma**:
 
     |Ayar|Değer|
     |---|---|
@@ -55,13 +55,13 @@ Bir sanal ağ (Klasik) kullanarak oluşturabileceğiniz [Azure portal](#portal),
 
     Hakkında daha fazla bilgi için Azure yeniyseniz, [kaynak grupları](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [abonelikleri](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), ve [konumları](https://azure.microsoft.com/regions) (olarak da adlandırılan *bölgeleri*).
 4. Bir sanal ağ oluşturduğunuzda, portalda, yalnızca bir alt ağ oluşturabilirsiniz. Sanal ağ oluşturduktan sonra Bu öğreticide, ikinci bir alt ağ oluşturun. Daha sonra Internet'ten erişilebilen kaynaklara oluşturabilirsiniz **ortak** alt ağ. Internet'ten erişilemez kaynakları de oluşturabilir **özel** alt ağ. İkinci alt ağ oluşturmak için girin **myVnet** içinde **arama kaynakları** sayfanın üst kısmındaki kutusu. Tıklatın **myVnet** arama sonuçlarında görüntülendiğinde.
-5. Tıklatın **alt ağlar** (içinde **ayarları** bölüm) üzerinde **sanal ağ oluştur (Klasik)** görünür dikey.
-6. Tıklatın **+ Ekle** üzerinde **myVnet - alt ağlar** görünür dikey.
-7. Girin **özel** için **adı** üzerinde **alt ağ Ekle** dikey. Girin **10.0.1.0/24** için **adres aralığı**.  **Tamam**’a tıklayın.
-8. Üzerinde **myVnet - alt ağlar** dikey penceresinde görebilirsiniz **ortak** ve **özel** oluşturduğunuz alt ağlar.
+5. ' I tıklatın **alt ağlar** (içinde **ayarları** bölüm) üzerinde **sanal ağ oluştur (Klasik)** bölmesinde görüntülenir.
+6. Tıklatın **+ Ekle** üzerinde **myVnet - alt ağlar** bölmesinde görüntülenir.
+7. Girin **özel** için **adı** üzerinde **alt ağ Ekle** bölmesi. Girin **10.0.1.0/24** için **adres aralığı**.  **Tamam**’a tıklayın.
+8. Üzerinde **myVnet - alt ağlar** bölmesinde görebilirsiniz **ortak** ve **özel** oluşturduğunuz alt ağlar.
 9. **İsteğe bağlı**: Bu öğreticiyi tamamladığınızda, böylece kullanım ücretlerine tabi yok, oluşturduğunuz kaynakları silmek isteyebilirsiniz:
-    - Tıklatın **genel bakış** üzerinde **myVnet** dikey.
-    - Tıklatın **silmek** simgesine **myVnet** dikey.
+    - Tıklatın **genel bakış** üzerinde **myVnet** bölmesi.
+    - Tıklatın **silmek** simgesine **myVnet** bölmesi.
     - Silme işlemini onaylamak için tıklatın **Evet** içinde **Delete sanal ağ** kutusu.
 
 ## <a name="azure-cli"></a>Azure CLI

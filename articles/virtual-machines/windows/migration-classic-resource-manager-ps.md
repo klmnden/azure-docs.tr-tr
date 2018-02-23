@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Iaas kaynaklarına Klasikten Azure Resource Manager Azure PowerShell kullanarak geçirme
 Bu adımlar Azure PowerShell komutlarının altyapı Klasik dağıtım modeli hizmet (Iaas) kaynaklardan Azure Resource Manager dağıtım modeline olarak geçirmek için nasıl kullanılacağını gösterir.
@@ -59,7 +59,7 @@ Yükleme yönergeleri için bkz: [Azure PowerShell'i yükleme ve yapılandırma 
 Bu geçiş işlemini gerçekleştirmek için abonelik için ortak yönetici olarak eklenmelidir [Azure portal](https://portal.azure.com).
 
 1. [Azure portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde seçin **abonelik**. Göremiyorsanız, seçin **daha fazla hizmet**.
+2. Hub menüsünde seçin **abonelik**. Göremiyorsanız, seçin **tüm hizmetleri**.
 3. Uygun abonelik girişini bulun, sonra bakmak **MY ROL** alan. Bir ortak yönetici için değer olmalıdır _Hesap Yöneticisi_.
 
 Bir ortak yönetici eklemek mümkün değilse, bir Hizmet Yöneticisi veya aboneliğin ortak Yöneticisi kendiniz eklenen almak için başvurun.   

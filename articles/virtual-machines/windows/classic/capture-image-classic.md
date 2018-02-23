@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Klasik dağıtım modeliyle oluşturulan bir Azure Windows sanal makinesinin bir görüntüsünü yakalama
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Klasik dağıtım modeliyle oluşturulan bir Azure Windows sanal makinesinin görüntüsünü yakalama
 > [!IMPORTANT]
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager modeli için bilgi [genelleştirilmiş VM Azure ile yönetilen bir görüntüsünü yakalama](../capture-image-resource.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -57,7 +57,7 @@ Bir Azure sanal makinesi görüntüsünü yapılandırmadan önce hedef sanal ma
 
    ![Sysprep'i çalıştırın](./media/capture-image/SysprepGeneral.png)
 5. Azure portalında sanal makinenin durumunu değiştiren sanal makine, Sysprep kapandıktan **durduruldu**.
-6. Azure portalında tıklatın **sanal makineleri (Klasik)** ve yakalamak istediğiniz sanal makineyi seçin. **VM görüntüleri (Klasik)** grubu altında listelenen **işlem** görüntülediğinizde **daha fazla hizmet**.
+6. Azure portalında tıklatın **sanal makineleri (Klasik)** ve yakalamak istediğiniz sanal makineyi seçin. **VM görüntüleri (Klasik)** grubu altında listelenen **işlem** görüntülediğinizde **tüm hizmetleri**.
 
 7. Komut çubuğunda **yakalama**.
 
@@ -74,7 +74,7 @@ Bir Azure sanal makinesi görüntüsünü yapılandırmadan önce hedef sanal ma
     ![Görüntü yakalama başarılı](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sanal makineler oluşturmak için kullanılacak görüntüyü hazırdır. Bunu yapmak için bir sanal makine seçerek oluşturacaksınız **daha fazla hizmet** Hizmetleri menüsünün alt menü öğesi **VM görüntüleri (Klasik)** içinde **işlem** grubu. Yönergeler için bkz: [bir görüntüden sanal makine oluşturma](createportal.md).
+Sanal makineler oluşturmak için kullanılacak görüntüyü hazırdır. Bunu yapmak için bir sanal makine seçerek oluşturacaksınız **tüm hizmetleri** Hizmetleri menüsünün alt menü öğesi **VM görüntüleri (Klasik)** içinde **işlem** grubu. Yönergeler için bkz: [bir görüntüden sanal makine oluşturma](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

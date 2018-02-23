@@ -49,7 +49,7 @@
             - name: Beeline kullanma
               href: ../hadoop/apache-hadoop-use-hive-beeline.md
               maintainContext: true
-            - name: cURL kullanma
+            - name: REST API’yi kullanma
               href: ../hadoop/apache-hadoop-use-hive-curl.md
               maintainContext: true
             - name: Azure PowerShell kullanma
@@ -227,6 +227,12 @@
             - name: Ambari REST API’si kullanma
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: HDInsight kümesini ölçeklendirme
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
+        - name: Dış meta veri depolarını kullanma
+          href: ../hdinsight-use-external-metadata-stores.md
+          maintainContext: true
         - name: HDInsight kümesi için günlükleri yönetme
           href: ../hdinsight-log-management.md
           maintainContext: true

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Ayırma-birleştirme hizmetini dağıtma
 Bölünmüş Birleştirme aracı parçalı veritabanları arasında veri taşımanıza olanak tanır. Bkz: [ölçeklendirilmiş bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -34,13 +34,13 @@ Bölünmüş Birleştirme aracı parçalı veritabanları arasında veri taşım
 
 Dosyalar adlı bir dizinde yerleştirilir **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** nerede *x.x.xxx.x* sürüm numarasını yansıtır. Bölünmüş birleştirme hizmet dosyalarda Bul **content\splitmerge\service** alt dizini ve bölünmüş birleştirme PowerShell komut dosyaları (ve gerekli istemci DLL'ler) **content\splitmerge\powershell** alt dizin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 1. Bölünmüş birleştirme durumu veritabanı olarak kullanılacak bir Azure SQL DB veritabanı oluşturun. [Azure Portal](https://portal.azure.com) gidin. Yeni bir **SQL veritabanı**. Veritabanı bir ad verin ve yeni yönetici ve parola oluşturun. Adı ve daha sonra kullanmak için parolayı kaydettiğinizden emin olun.
 2. Azure SQL DB sunucunuza bağlanmak Azure Services verdiğinden emin olun. Portalda, içinde **güvenlik duvarı ayarlarını**, olun **Azure hizmetlerine erişime izin ver** ayar **üzerinde**. "Kaydet" simgesine tıklayın.
    
    ![İzin verilen hizmetler][1]
-3. Tanılama çıktı için kullanılacak bir Azure depolama hesabı oluşturun. Azure portalına gidin. Sol çubuğunda **yeni**, tıklatın **veri + depolama**, ardından **depolama**.
-4. Bölünmüş birleştirme hizmetinizi içerecek bir Azure bulut hizmeti oluşturun.  Azure portalına gidin. Sol çubuğunda **yeni**, ardından **işlem**, **bulut hizmeti**, ve **oluşturma**. 
+3. Tanılama çıktı için kullanılacak bir Azure depolama hesabı oluşturun. Azure portalına gidin. Sol çubuğunda **kaynak oluşturma**, tıklatın **veri + depolama**, ardından **depolama**.
+4. Bölünmüş birleştirme hizmetinizi içerecek bir Azure bulut hizmeti oluşturun.  Azure portalına gidin. Sol çubuğunda **kaynak oluşturma**, ardından **işlem**, **bulut hizmeti**, ve **oluşturma**. 
 
 ## <a name="configure-your-split-merge-service"></a>Bölünmüş birleştirme hizmetini yapılandırma
 ### <a name="split-merge-service-configuration"></a>Bölünmüş birleştirme hizmet yapılandırması
@@ -128,7 +128,7 @@ Lütfen üretim için sertifikaları dağıtımları ayrı not şifreleme, sunuc
 3. Tıklatın **Pano**.
 4. Hazırlama ortamı seçin ve ardından **yeni bir hazırlama dağıtımı karşıya**.
    
-   ![Hazırlama][3]
+   ![Hazırlanıyor][3]
 5. İletişim kutusunda, bir dağıtım etiketini girin. 'Paketi' ve 'Configuration' için 'Den yerel' tıklatın ve seçin **SplitMergeService.cspkg** dosyası ve daha önce yapılandırılmış, cscfg dosyası.
 6. Etiketli onay kutusunu emin **bir veya daha fazla rol tek bir örnek içeriyorsa bile Dağıt** denetlenir.
 7. Dağıtımına başlamak için sayfanın sağ onay düğmesine basın. Tamamlanması birkaç dakika olması için bekler.
@@ -160,7 +160,7 @@ Dağıtım ve ortamınıza dahil edilmiş örnek PowerShell komut dosyaları ça
 
 Bulunan komut dosyaları şunlardır:
 
-1. **SetupSampleSplitMergeEnvironment.ps1** -bölünmüş/birleştirme için bir test veri katmanını ayarlar (ayrıntılı bir açıklaması için aşağıdaki tabloya bakın)
+1. **SetupSampleSplitMergeEnvironment.ps1** - sets up a test data tier for Split/Merge (see table below for detailed description)
 2. **ExecuteSampleSplitMerge.ps1** -test test işlemlerini yürüten veri katmanı (ayrıntılı bir açıklaması için aşağıdaki tabloya bakın)
 3. **GetMappings.ps1** - üst düzey örnek parça eşlemeleri geçerli durumunu yazdırır komut dosyası.
 4. **ShardManagement.psm1** -ShardManagement API sarmalar yardımcı komut dosyası
@@ -213,7 +213,7 @@ Bulunan komut dosyaları şunlardır:
 2. Bir Azure SQL database sunucusu oluşturun (veya var olan bir sunucu seçin) burada parça eşleme Yöneticisi ve parça oluşturulur.
    
    > [!NOTE]
-   > SetupSampleSplitMergeEnvironment.ps1 komut dosyası bu veritabanları aynı sunucuda betik basit tutmak için varsayılan olarak oluşturur. Bu bir kısıtlama bölünmüş birleştirme hizmetinin kendisini değil.
+   > The SetupSampleSplitMergeEnvironment.ps1 script creates all these databases on the same server by default to keep the script simple. Bu bir kısıtlama bölünmüş birleştirme hizmetinin kendisini değil.
    >
    
    DBs okuma/yazma erişimi olan bir SQL kimlik doğrulaması oturum açma verilerini taşımak ve parça eşleme güncelleştirmek bölünmüş birleştirme hizmeti için gerekir. Bölünmüş birleştirme hizmetine bulutta çalışan olduğundan, tümleşik kimlik doğrulaması şu anda desteklemiyor.

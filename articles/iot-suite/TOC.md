@@ -17,7 +17,6 @@
 #### [azureiotsuite.com sitesindeki izinler](iot-suite-v1-permissions.md)
 #### [Uzaktan izleme çözüm kılavuzu](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Raspberry Pi’ye bağlanma](iot-suite-v1-raspberry-pi-kit-get-started.md)
-#### [MXChip IoT DevKit’inize bağlanma](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### C kullanma
 ###### [Sanal veriler](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Gerçek algılayıcılar kullanma](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -26,6 +25,7 @@
 ###### [Sanal veriler](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Gerçek algılayıcılar kullanma](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Üretici yazılımı güncelleştirmesini uygulama](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [MXChip IoT DevKit’inize bağlanma](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### Nasıl yapılır kılavuzları
 #### Sanal cihaza bağlanma
@@ -99,5 +99,7 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [SSS](iot-suite-faq.md)
+## [Uzaktan izleme hakkında SSS](iot-suite-faq-rm-v2.md)
 ## [Bağlı fabrika hakkında SSS](iot-suite-faq-cf.md)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [IoT Paketi öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

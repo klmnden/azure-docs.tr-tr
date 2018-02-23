@@ -23,28 +23,28 @@ Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-Cihazınız için kod yazmadan önce, önceden yapılandırılmış uzaktan izleme çözümünüzü ve bu çözümde yeni bir özel cihaz hazırlamanız gerekir.
+Cihazınız için herhangi bir kod yazmadan önce Uzaktan izleme önceden yapılandırılmış çözümünüzü dağıtmak ve yeni bir fiziksel aygıt ekleyin.
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış uzaktan izleme çözümünüzü sağlama
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Uzaktan izleme önceden yapılandırılmış çözümünüzü dağıtma
 
 **Soğutucu** Bu öğreticide oluşturduğunuz cihaz örneğine verileri gönderir [Uzaktan izleme](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) çözüm önceden yapılandırılmış. Azure hesabınızda önceden yapılandırılmış Uzaktan izleme çözümü sağlanan yüklemediyseniz, bkz: [önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-Uzaktan izleme çözümü için sağlama işlemi tamamlandıktan sonra çözüm panosunu tarayıcınızda açmak için **Başlat**'a tıklayın.
+Dağıtım işlemi Uzaktan izleme çözümü sona için tıklattığınızda **başlatma** tarayıcınızda çözüm panosunu açın.
 
 ![Çözüm Panosu](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Cihazınızı uzaktan izleme çözümünde sağlama
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Cihazınızı Uzaktan izleme çözümüne ekleme
 
 > [!NOTE]
-> Çözümünüzde önceden bir cihaz hazırladıysanız bu adımı atlayabilirsiniz. İstemci uygulaması oluşturduğunuzda, Azure portalından aldığınız cihaz bağlantı dizesi gerekiyor.
+> Çözümünüze bir aygıt zaten eklediyseniz, bu adımı atlayabilirsiniz. Ancak, sonraki adım, aygıt bağlantı dizesi gerektirir. Bir aygıtın bağlantı dizesinden alabilir [Azure portal](https://portal.azure.com) veya kullanarak [az IOT](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI aracı.
 
-Bir cihazın önceden yapılandırılmış çözüme bağlanabilmesi için geçerli kimlik bilgileriyle kendini IoT Hub üzerinde tanıtması gerekir. Çözüm cihazı eklediğinizde, kimlik bilgilerini içeren cihaz bağlantı dizesini kaydedin bildirme fırsatı bulabilirsiniz. Bu öğreticide daha sonra istemci uygulamanızda cihaz bağlantı dizesini içerir.
+Bir cihazın önceden yapılandırılmış çözüme bağlanabilmesi için geçerli kimlik bilgileriyle kendini IoT Hub üzerinde tanıtması gerekir. Çözüm cihazı eklediğinizde, bu kimlik bilgileri içeren cihaz bağlantı dizesini kaydedin bildirme fırsatı bulabilirsiniz. Bu öğreticide daha sonra istemci uygulamanızda cihaz bağlantı dizesini içerir.
 
 Uzaktan izleme çözümünüz için bir aygıt eklemek için aşağıdaki adımları tamamlayın **aygıtları** çözümü sayfasında:
 
 1. Seçin **+ yeni cihaz**ve ardından **fiziksel** olarak **aygıt türü**:
 
-    ![Bir fiziksel cihaz sağlama](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Bir fiziksel aygıt ekleme](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Girin **fiziksel Soğutucu** aygıt kimliği olarak Seçin **simetrik anahtar** ve **otomatik oluştur anahtarları** seçenekleri:
 
@@ -54,9 +54,7 @@ Uzaktan izleme çözümünüz için bir aygıt eklemek için aşağıdaki adıml
 
     ![Kimlik bilgilerini alma](media/iot-suite-selector-connecting/credentials.png)
 
-Cihazınızı önceden yapılandırılmış çözümü bağlanmak için kullanmaları gereken kimlik bilgilerini bulmak için tarayıcınızı Azure Portalı'na gidin. Aboneliğiniz için oturum açın.
-
-Çözüm Uzaktan izleme fiziksel bir aygıtı sağlanan artık önceden yapılandırılmış. Aşağıdaki bölümlerde, çözümünüz için bağlanmak için cihaz kimlik bilgilerini kullanan istemci uygulaması yürütürsünüz.
+Artık fiziksel bir aygıtı için Uzaktan izleme önceden yapılandırılmış çözümü eklendi ve kendi cihaz bağlantı dizesini not ettiğiniz. Aşağıdaki bölümlerde, çözümünüz için bağlanmak için cihaz bağlantı dizesini kullanır istemci uygulaması yürütürsünüz.
 
 İstemci uygulaması yerleşik uygulayan **Soğutucu** cihaz modeli. Önceden yapılandırılmış çözüm cihaz modeli bir cihaz hakkında aşağıdakileri belirtir:
 

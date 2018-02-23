@@ -4,7 +4,7 @@ description: "Bu öğreticide Azure Resource Manager moduna Azure sanal makinele
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Always On kullanılabilirlik grupları Azure sanal makineleri otomatik olarak yapılandırın: Kaynak Yöneticisi
 
@@ -63,8 +63,8 @@ Bu öğreticide, Azure portalında kullanın:
 Azure galeri görüntüsü için tüm çözümü sağlar. Şablon bulmak için:
 
 1. Hesabınızı kullanarak Azure portalında oturum açın.
-2. Azure portalında tıklatın **+ yeni** açmak için **yeni** dikey.
-3. Üzerinde **yeni** dikey penceresinde, arama **AlwaysOn**.
+2. Azure portalında tıklatın **kaynak oluşturma** açmak için **yeni** bölmesi.
+3. Üzerinde **yeni** bölmesinde, arama **AlwaysOn**.
    ![AlwaysOn şablonunu bulun](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. Arama sonuçlarında bulun **SQL Server AlwaysOn kümesi**.
    ![AlwaysOn şablonu](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
@@ -83,7 +83,7 @@ Aşağıdaki ekran görüntüsünde bir tamamlanmış olan **Temelleri** dikey p
 
 ![Temel Bilgiler](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
-**Tamam** düğmesine tıklayın.
+**Tamam**’a tıklayın.
 
 ### <a name="domain-and-network-settings"></a>Etki alanı ve ağ ayarları
 Bir etki alanı ve etki alanı denetleyicileri bu Azure galerisinde şablon oluşturur. Ayrıca, bir ağ ve iki alt ağı oluşturur. Şablon sunucuları bir var olan etki alanı ya da sanal ağ oluşturulamıyor. Sonraki adım etki alanı ve ağ ayarlarını yapılandırır.
@@ -116,7 +116,7 @@ Gerekirse, bu değerleri değiştirebilirsiniz. Bu öğretici için hazır değe
 
 ![Kullanılabilirlik grubu ayarları](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
-**Tamam** düğmesine tıklayın.
+**Tamam**’a tıklayın.
 
 ### <a name="virtual-machine-size-storage-settings"></a>Sanal makine boyutu, depolama ayarları
 Üzerinde **VM boyutu, depolama ayarlarını**, bir SQL Server sanal makine boyutu seçin ve diğer ayarları gözden geçirin.
@@ -185,7 +185,7 @@ SQL Server yapılandırma en iyi uygulamalar hakkında daha fazla bilgi için bk
 Ayarları gözden geçirin ve ardından **Tamam**.
 
 ### <a name="summary"></a>Özet
-Özet sayfasında, Azure ayarlarını doğrular. Ayrıca, şablonu indirebilirsiniz. Özeti gözden geçirin. **Tamam** düğmesine tıklayın.
+Özet sayfasında, Azure ayarlarını doğrular. Ayrıca, şablonu indirebilirsiniz. Özeti gözden geçirin. **Tamam**’a tıklayın.
 
 ### <a name="buy"></a>Satın Al
 Bu son dikey içeren **kullanım koşulları**, ve **gizlilik ilkesi**. Bu bilgileri gözden geçirin. Azure için hazır olduğunuzda sanal makinelerin ve diğer tüm oluşturmaya başlamak için kullanılabilirlik grubu için kaynaklar gerekli, tıklatın **oluşturma**.

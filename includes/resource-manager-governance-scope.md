@@ -1,0 +1,23 @@
+---
+title: "include dosyası"
+description: "include dosyası"
+services: azure-resource-manager
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 02/16/2018
+ms.author: tomfitz
+ms.custom: include file
+ms.openlocfilehash: 7a0e7e19d53d8566b859004c363ec5bbc71cb733
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/21/2018
+---
+Tüm öğeleri oluşturmadan önce şimdi kapsam kavramı gözden geçirin. Azure yönetim dört düzeyleri sağlar: Yönetim grupları, abonelik, kaynak grubu ve kaynak. [Yönetim grupları](../articles/billing/billing-enterprise-mgmt-group-overview.md) Önizleme sürümünde olan. Aşağıdaki resimde bu katmanların bir örnek gösterilmektedir.
+
+![Kapsam](./media/resource-manager-governance-scope/scope-levels.png)
+
+Yönetim ayarlarda bu kapsam düzeyleri uygulayın. Seçtiğiniz düzeyi ayarı yaygın olarak nasıl uygulandığını belirler. Düşük düzeylerde yüksek düzeylerinden ayarlarını devralır. Abonelik için bir ayar uygulanırsa, bu ayarı tüm kaynak grupları ve aboneliğinizde kaynaklara uygulanır. Bir ayar uygulamak ayardır kaynak grubu, kaynak grubu ve tüm kaynaklarını uygulanır. Ancak, başka bir kaynak grubu bu ayarı yok.
+
+Genellikle, yüksek düzeyde kritik ayarları ve daha düşük düzeylerdeki proje özgü gereksinimler uygulamak için mantıklıdır. Örneğin, kuruluşunuz için tüm kaynakların belirli bölgelere dağıtılan emin olmak isteyebilirsiniz. Bu gereksinim gerçekleştirmek için izin verilen konumların belirten abonelik için bir ilke uygulanır. Kuruluşunuzda bulunan diğer kullanıcıların yeni kaynak grubu ve kaynak eklediğinizde, izin verilen konumların otomatik olarak uygulanır. Belirli bir projede için tüm kaynakların projeyi tanımlayan bir etiketle işaretlenmiş olduğundan emin olmak isteyebilirsiniz. Bu etiket zorlar projesi için kaynak grubu için bir ilke uygulanır. Kullanıcılar kaynak grubu için yeni kaynaklar ekledikçe etiketi otomatik olarak eklenir. Ancak, kullanıcılar projeyle ilişkili olmayan kaynak grupları ekleyebilir ve etiket zorlanmaz.

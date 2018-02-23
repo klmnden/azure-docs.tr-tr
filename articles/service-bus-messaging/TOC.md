@@ -41,6 +41,8 @@
 #### [İleti aktarımları, kilitler ve kapatma](message-transfers-locks-settlement.md)
 #### [İleti sıralama ve zaman damgaları](message-sequencing.md)
 #### [İleti süre sonu (Yaşam Süresi)](message-expiration.md)
+#### [Azure Event Grid kullanarak ileti işleme](service-bus-to-event-grid-integration-concept.md)
+#### [Azure Event Grid örnekleri](service-bus-to-event-grid-integration-example.md)
 ### [Kimlik doğrulama ve yetkilendirme](service-bus-authentication-and-authorization.md)
 #### [ACS’den SAS’ye geçiş](service-bus-migrate-acs-sas.md)
 #### [Paylaşılan Erişim İmzaları ile kimlik doğrulaması](service-bus-sas.md)

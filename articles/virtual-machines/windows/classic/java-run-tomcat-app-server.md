@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Klasik dağıtım modeliyle oluşturulan bir sanal makinede Java uygulama sunucusu çalıştırma
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Bir sanal makinede çalışan Tomcat yükleme tamamlandı sonuçlanır.
 
 ## <a name="to-create-a-virtual-machine"></a>Sanal makine oluşturmak için
 1. [Azure Portal](https://portal.azure.com) oturum açın.  
-2. Tıklatın **yeni**, tıklatın **işlem**, ardından **tümünü görmek** içinde **öne çıkan uygulamalar**.
+2. ' I tıklatın **kaynak oluşturma**, tıklatın **işlem**, ardından **tümünü görmek** içinde **öne çıkan uygulamalar**.
 3. Tıklatın **JDK**, tıklatın **JDK 8** içinde **JDK** bölmesi.  
    Sanal makine görüntüleri destekleyen **JDK 6** ve **JDK 7** JDK 8'de çalıştırmak hazır olmayan eski uygulamalarınız varsa kullanılabilir.
 4. JDK 8 bölmesinde seçin **Klasik**, ardından **oluşturma**.
@@ -121,7 +121,7 @@ Dış makinelerden çalıştıran Tomcat görmek için bir uç noktası oluştur
 10. Üzerinde **adı** ekranında, kural için bir ad belirtin **HttpIn** (Kural adı gerekli değildir ancak uç nokta adı eşleşecek şekilde) ve ardından **son**.  
     ![Yeni gelen kuralı adı][NewRuleName]
 
-Bu noktada, Tomcat Web sitenizi dış bir tarayıcıdan görüntülenebilir olması gerekir. Tarayıcının adres penceresinde bir URL biçiminde yazın  **http://*,\_DNS\_adı*. cloudapp.net**, burada ***,\_DNS\_adı*** sanal makineyi oluşturduğunuzda belirttiğiniz DNS adı.
+Bu noktada, Tomcat Web sitenizi dış bir tarayıcıdan görüntülenebilir olması gerekir. Tarayıcının adres penceresinde bir URL biçiminde yazın **http://*,\_DNS\_adı*. cloudapp.net**, burada ***,\_DNS\_adı*** sanal makineyi oluşturduğunuzda belirttiğiniz DNS adı.
 
 ## <a name="application-lifecycle-considerations"></a>Uygulama yaşam döngüsü hakkında dikkat edilecek noktalar
 * Kendi web uygulama Arşivi (WAR) oluşturun ve ona ekleyen **webapps** klasör. Örneğin, bir temel Java hizmet sayfa (JSP) dinamik web projesi oluşturun ve bir WAR dosyası olarak dışarı aktarma. Ardından, Apache Tomcat WAR kopyalama **webapps** sanal makinede bir tarayıcıda ardından çalıştırın, klasör.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233e4eea8439320c1c7446e2c2b2e9d379351a3e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 53e9b55a82e7750393dfb6c4818681028c5c4d2f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir statik genel IP adresiyle bir VM oluşturma
 
@@ -43,25 +43,25 @@ ms.lasthandoff: 12/21/2017
 Azure portalında bir statik genel IP adresine sahip bir VM oluşturmak için aşağıdaki adımları tamamlayın:
 
 1. Tarayıcıdan [Azure portalına](https://portal.azure.com) gidin ve gerekiyorsa Azure hesabınızda oturum açın.
-2. Portalı'nı üst sol alt köşesindeki tıklatın **yeni**>>**işlem**>**Windows Server 2012 R2 Datacenter**.
+2. Üst köşesindeki portalı üzerinde tıklatın **kaynak oluşturma**>>**işlem**>**Windows Server 2012 R2 Datacenter**.
 3. İçinde **dağıtım modeli seçin** listesinde, seçin **Resource Manager** tıklatıp **oluşturma**.
-4. İçinde **Temelleri** dikey penceresinde, aşağıda gösterildiği gibi VM bilgileri girin ve ardından **Tamam**.
+4. İçinde **Temelleri** bölmesinde, aşağıdaki gibi VM bilgileri girin ve ardından **Tamam**.
    
     ![Azure portal - temelleri](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. İçinde **bir boyutu seçin** dikey penceresinde tıklatın **A1 standart** aşağıda gösterildiği gibi ve ardından **seçin**.
+5. İçinde **bir boyutu seçin** bölmesinde tıklatın **A1 standart** aşağıdaki ve ardından olarak **seçin**.
    
     ![Azure portal - bir boyutu seçin](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. İçinde **ayarları** dikey penceresinde tıklatın **genel IP adresi**, sonra **ortak IP adresi oluştur** dikey altında **atama**, 'ıtıklatın **Statik** aşağıda gösterildiği gibi. Ve ardından **Tamam**.
+6. İçinde **ayarları** bölmesinde, tıklatın **genel IP adresi**, sonra **ortak IP adresi oluştur** bölmesi altında **atama**, 'ıtıklatın **Statik** olarak gibi. Ve ardından **Tamam**.
    
     ![Azure portal - ortak IP adresi oluştur](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
-7. İçinde **ayarları** dikey penceresinde tıklatın **Tamam**.
-8. Gözden geçirme **Özet** dikey penceresini aşağıda gösterildiği gibi ve ardından **Tamam**.
+7. İçinde **ayarları** bölmesinde tıklatın **Tamam**.
+8. Gözden geçirme **Özet** bölmesinde, aşağıdaki ve ardından olarak **Tamam**.
    
     ![Azure portal - ortak IP adresi oluştur](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 9. Yeni bir kutucuk Panonuzda dikkat edin.
    
     ![Azure portal - ortak IP adresi oluştur](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
-10. VM oluşturulduktan sonra **ayarları** dikey penceresi aşağıda gösterildiği gibi görüntülenir
+10. VM oluşturulduktan sonra **ayarları** bölmesi görüntüler:
     
     ![Azure portal - ortak IP adresi oluştur](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 

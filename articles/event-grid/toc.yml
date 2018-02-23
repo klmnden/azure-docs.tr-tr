@@ -36,6 +36,8 @@
       href: delivery-and-retry.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: HTTP uç noktasına olayları alma
+      href: receive-events.md
     - name: Event Hubs’tan veri ambarına veri akışı yapma
       href: event-grid-event-hubs-integration.md
     - name: IoT Hub olayları hakkında bildirimler gönderme

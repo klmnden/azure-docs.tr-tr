@@ -23,6 +23,7 @@
 ### [MPP mimarisi](massively-parallel-processing-mpp-architecture.md)
 ### [Performans katmanları](performance-tiers.md)
 ### [Veri ambarı birimleri](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Ölçeği genişletme, duraklatma, sürdürme](sql-data-warehouse-manage-compute-overview.md)
 ### [Veri ambarı yedekleri](sql-data-warehouse-backups.md)
 ### [Denetim](sql-data-warehouse-auditing-overview.md)
 ### [Kapasite sınırları](sql-data-warehouse-service-capacity-limits.md)
@@ -50,7 +51,7 @@
 
 
 ## İzleme ve ayarlama
-### [Yönergeler](resource-classes-for-workload-management.md)
+### [İş yükü yönetimi](resource-classes-for-workload-management.md)
 ### [Columnstore sıkıştırması](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [İzleme](sql-data-warehouse-manage-monitor.md)
 ### [Sorun giderme](sql-data-warehouse-troubleshoot.md)

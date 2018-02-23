@@ -11,7 +11,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Bağlantı dizesi Azure portaldan alın
 Kullanım [Azure portal](https://portal.azure.com/) istemci programınız Azure SQL veritabanı ile etkileşim kurmak için gerekli olan bağlantı dizesini almak için. 
 
-1. Seçin **TÜMÜNE Gözat** > **SQL veritabanları**.
+1. Seçin **tüm hizmetleri** > **SQL veritabanları**.
 
 2. Sol üst tarafındaki yakın filtre metin kutusuna veritabanınızın adını girin **SQL veritabanları** dikey.
 
@@ -19,7 +19,6 @@ Kullanım [Azure portal](https://portal.azure.com/) istemci programınız Azure 
 
 4. Görsel kolaylık seçin için veritabanınızın dikey göründükten sonra **simge durumuna küçült** gözatma ve veritabanı filtreleme için kullanılan Kanatlar daraltmak için düğmeler. 
    
-    ![Veritabanınızı yalıtmak için filtre][10-FilterDatabase]
 5. Veritabanınız için dikey seçin **veritabanı bağlantı dizelerini Göster**.
 
 6. ADO.NET bağlantı kitaplığı kullanmak istiyorsanız, etiketli dizesi kopyalama **ADO**. 
@@ -31,7 +30,7 @@ Daha fazla bilgi için bkz: [bağlantı dizeleri ve yapılandırma dosyalarını
 
 <!-- Image references. -->
 
-[10-FilterDatabase]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-a.png
+
 
 [20-CopyAdoConnectionString]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-b.png
 

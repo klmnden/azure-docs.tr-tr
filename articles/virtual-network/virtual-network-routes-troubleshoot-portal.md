@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e0b835f4cbad9855bfb7ddccf2d9bf5b4bf88231
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Azure Portalı'nı kullanarak yolları sorun giderme
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure portalındaki](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 >
 >
@@ -55,7 +55,7 @@ Bu örnek yalnızca sistem yolları kullanır, ancak aynı adımlar herhangi bir
 Bir VM'ye uygulanan toplama rotaları görmek için aşağıdaki adımları tamamlayın:
 
 1. Https://portal.azure.com Azure portalında oturum açın. Hesabınızı atanmalıdır *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* ağ arabirimi için işlemi. Operations hesaplara atamak üzere öğrenmek için bkz: [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. ' I tıklatın **daha fazla hizmet**, ardından **sanal makineleri** listesinde görünür.
+2. ' I tıklatın **tüm hizmetleri**, ardından **sanal makineler** listesinde görünür.
 3. Görüntülenen listesinden gidermek için VM seçin ve seçeneklerle bir VM dikey penceresi görünür.
 4. Tıklatın **Tanıla & sorunları** ve ortak bir sorun seçin. Bu örnek için **Windows VM'ime bağlanamıyorum** seçilir.
 
@@ -97,7 +97,7 @@ Zorlamalı tünel ve rota değerlendirme için daha fazla sorun giderme senaryol
 Ağ trafiği akışını belirli bir ağ arabirimi (NIC) için etkilenen varsa etkili yolların tam bir listesi NIC üzerinde doğrudan görüntüleyebilirsiniz. Bir NIC'ye uygulanır toplama rotaları görmek için aşağıdaki adımları tamamlayın:
 
 1. Https://portal.azure.com Azure portalında oturum açın.
-2. Tıklatın **daha fazla hizmet**, ardından **ağ arabirimleri**
+2. Tıklatın **tüm hizmetleri**, ardından **ağ arabirimleri**
 3. Bir NIC adı için listede arama veya görüntülenen listesinden seçin. Bu örnekte, **VM1 nıc1** seçilir.
 4. Seçin **etkili yolları** içinde **ağ arabirimi** dikey penceresinde, aşağıdaki resimde gösterildiği gibi:
 
@@ -117,7 +117,7 @@ Bu örneğin, bir UDR (*UDRoute*) rota tablosunda belirtilen (*UDRouteTable*). B
 Bir yol tablosu için birleşik rota görmek için aşağıdaki adımları tamamlayın:
 
 1. Https://portal.azure.com Azure portalında oturum açın.
-2. Tıklatın **daha fazla hizmet**, ardından **yol tablosu**
+2. Tıklatın **tüm hizmetleri**, ardından **yol tablosu**
 3. Birleşik yollar için bakın ve seçmek istediğiniz yol tablosu için listesi arayın. Bu örnekte, **UDRouteTable** seçilir. Dikey penceresinde seçili rota tablosu için aşağıdaki resimde gösterildiği gibi görünür:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)

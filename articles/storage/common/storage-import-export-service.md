@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 56cc2a82e7957e677f96c638f7e3e903a3b717e1
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -87,7 +87,7 @@ Bu hizmet gibi senaryolarda kullanabilirsiniz:
 Bu bölümde, bu hizmeti kullanmak için gereken önkoşulları listeler. Dikkatle sürücülerinizin göndermeden önce gözden geçirin.
 
 ### <a name="storage-account"></a>Depolama hesabı
-Var olan bir Azure aboneliği ve içeri/dışarı aktarma hizmetini kullanmak için bir veya daha fazla depolama hesabı olması gerekir. Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesaplarında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz: [bir depolama hesabı oluşturmak nasıl](storage-create-storage-account.md#create-a-storage-account).
+Var olan bir Azure aboneliği ve içeri/dışarı aktarma hizmetini kullanmak için bir veya daha fazla depolama hesabı olması gerekir. Azure içeri/dışarı aktarma yalnızca klasik, Blob Depolama hesapları ve genel amaçlı v1 depolama hesaplarını destekler. Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesaplarında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz: [bir depolama hesabı oluşturmak nasıl](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Veri türleri
 Azure içeri/dışarı aktarma hizmeti verileri kopyalamak için kullanabileceğiniz **blok** BLOB'lar, **sayfa** BLOB'lar, veya **dosyaları**. Buna karşılık, yalnızca verebilirsiniz **blok** BLOB'lar, **sayfa** BLOB'lar veya **Append** bu hizmeti kullanarak Azure storage bloblarından. Yalnızca Azure dosyaları içe Azure depolama hizmeti destekler. Azure dosyaları dışarı aktarma şu anda desteklenmiyor.

@@ -4,7 +4,7 @@ description: "SQL Server 2016 Azure'da çalışan sanal makineler için otomatik
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>SQL Server 2016 Azure sanal makineleri için (Resource Manager) yedekleme v2 otomatik
 
@@ -70,23 +70,23 @@ Aşağıdaki tabloda otomatik yedekleme v2 için yapılandırılabilir seçenekl
 | --- | --- | --- |
 | **Otomatik Yedekleme** | Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya SQL Server 2016 Standard veya Enterprise çalıştıran bir Azure VM için otomatik yedekleme devre dışı bırakır. |
 | **Saklama süresi** | 1-30 gün (30 gün) | Yedeklemeleri tutulacağı gün sayısı. |
-| **Depolama hesabı** | Azure depolama hesabı | Blob depolama alanına otomatik yedekleme dosyalarını depolamak için kullanılacak bir Azure depolama hesabı. Bir kapsayıcı tüm yedekleme dosyalarını depolamak için bu konumda oluşturulur. Yedekleme dosyası adlandırma kuralı, tarih, saat ve veritabanı GUID'si içerir. |
-| **Şifreleme** |Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya şifreleme devre dışı bırakır. Şifreleme etkinleştirildiğinde, yedeklemeyi geri yüklemek için kullanılan sertifikaları aynı belirtilen depolama hesabında bulunan **automaticbackup** aynı adlandırma kuralını kullanarak kapsayıcı. Parola değişirse, bu parola ile yeni bir sertifika oluşturulur, ancak önceki yedekleri geri yüklemek için eski sertifika kalır. |
-| **Parola** |Parola metin | Şifreleme anahtarları için bir parola. Yalnızca budur şifreleme etkin olup olmadığını gerekli. Şifrelenmiş bir yedeklemeyi geri yüklemek için doğru parolayı ve yedeğin alındığı anda kullanılan ilgili sertifika olması gerekir. |
+| **Depolama Hesabı** | Azure depolama hesabı | Blob depolama alanına otomatik yedekleme dosyalarını depolamak için kullanılacak bir Azure depolama hesabı. Bir kapsayıcı tüm yedekleme dosyalarını depolamak için bu konumda oluşturulur. Yedekleme dosyası adlandırma kuralı, tarih, saat ve veritabanı GUID'si içerir. |
+| **Şifreleme** |Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya şifreleme devre dışı bırakır. Şifreleme etkinleştirildiğinde, yedekleme geri yüklemek için kullanılan sertifikaları belirtilen depolama hesabında bulunur. Aynı kullanan **automaticbackup** aynı adlandırma kuralıyla kapsayıcı. Parola değişirse, bu parola ile yeni bir sertifika oluşturulur, ancak önceki yedekleri geri yüklemek için eski sertifika kalır. |
+| **Parola** |Parola metin | Şifreleme anahtarları için bir parola. Bu parolayı Only'dir şifreleme etkin olup olmadığını gerekli. Şifrelenmiş bir yedeklemeyi geri yüklemek için doğru parolayı ve yedeğin alındığı anda kullanılan ilgili sertifika olması gerekir. |
 
 ### <a name="advanced-settings"></a>Gelişmiş Ayarlar
 
 | Ayar | Aralık (varsayılan) | Açıklama |
 | --- | --- | --- |
-| **Sistem Veritabanı Yedeklemeleri** | Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirildiğinde, bu özellik ayrıca sistem veritabanlarını yedekleyin: Master, MSDB ve Model. MSDB ve modeli veritabanları için alınacak günlük yedekleri istiyorsanız, bunlar tam kurtarma modunda olduğundan emin olun. Günlük yedeklemeler için ana hiçbir zaman alınır. Ve yedekleme TempDB için alınır. |
-| **Yedekleme zamanlaması** | El ile otomatik / (otomatik) | Varsayılan olarak, günlük büyüme tabanlı Yedekleme zamanlaması otomatik olarak belirlenir. El ile yedekleme zamanlaması yedeklemeler için zaman penceresini belirtmesini sağlar. Bu durumda, yedeklemeler her zaman sadece belirtilen sıklığı ve belirli bir günde, belirtilen zaman penceresi sırasında gerçekleşir. |
-| **Tam yedekleme sıklığı** | Günlük/Haftalık | Tam yedeklemelerinin sıklığını. Her iki durumda da, sonraki zamanlanmış zaman penceresi sırasında tam yedeklemeler başlar. Haftalık seçili olduğunda, yedeklemelerin tüm veritabanları başarıyla yedeklediyseniz kadar birden fazla gün kapsayabilir. |
+| **Sistem Veritabanı Yedeklemeleri** | Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirildiğinde, bu özellik ayrıca sistem veritabanlarını yedekler: Master, MSDB ve Model. MSDB ve modeli veritabanları için alınacak günlük yedekleri istiyorsanız, bunlar tam kurtarma modunda olduğundan emin olun. Günlük yedeklemeler için ana hiçbir zaman alınır. Ve yedekleme TempDB için alınır. |
+| **Yedekleme zamanlaması** | El ile otomatik / (otomatik) | Varsayılan olarak, yedekleme zamanlaması Günlük büyüme göre otomatik olarak belirlenir. El ile yedekleme zamanlaması yedeklemeler için zaman penceresini belirtmesini sağlar. Bu durumda, yedeklemeler yalnızca belirtilen sıklığı ve belirli bir günde, belirtilen zaman penceresi sırasında gerçekleşir. |
+| **Tam yedekleme sıklığı** | Günlük/Haftalık | Tam yedeklemelerinin sıklığını. Her iki durumda da, bir sonraki zamanlanmış zaman penceresi sırasında tam yedeklemeler başlayın. Haftalık seçili olduğunda, yedeklemelerin tüm veritabanları başarıyla yedeklediyseniz kadar birden fazla gün kapsayabilir. |
 | **Tam yedekleme başlangıç saati** | 00:00 – 23:00 (01:00) | Başlangıç sırasında tam yedeklemeler gerçekleştirilebildiği belirli bir gün zamanı. |
 | **Tam yedekleme zaman penceresi** | 1 – 23 saat (1 saat) | Belirli bir günde sırasında tam yedeklemeler gerçekleştirilebildiği zaman penceresinin süresi. |
 | **Günlük yedekleme sıklığı** | 5 – 60 dakika (60 dakika) | Günlük yedekleme sıklığı. |
 
 ## <a name="understanding-full-backup-frequency"></a>Tam yedekleme sıklığını anlama
-Günlük ve haftalık tam yedeklemeler arasındaki farkı anlamak önemlidir. Bu çaba içinde iki örnek senaryolar üzerinden size yol gösterir.
+Günlük ve haftalık tam yedeklemeler arasındaki farkı anlamak önemlidir. Aşağıdaki iki örnek senaryoları göz önünde bulundurun.
 
 ### <a name="scenario-1-weekly-backups"></a>Senaryo 1: Haftalık yedekleri
 Çok büyük veritabanları sayısını içeren bir SQL Server VM var.
@@ -98,13 +98,13 @@ Pazartesi günü, aşağıdaki ayarlarla otomatik yedekleme v2 etkinleştirin:
 - Tam yedekleme başlangıç saati: **01:00**
 - Tam yedekleme zaman penceresi: **1 saat**
 
-Bu, sonraki kullanılabilir Yedekleme penceresi 1 saat 1 sabah Salı olduğu anlamına gelir. O anda aynı anda veritabanlarınızı bir yedekleme otomatik yedekleme başlar. Bu senaryoda, veritabanlarınızı tam yedeklemeler için ilk birkaç veritabanlarını tamamlayacak yeterli büyüklükte. Ancak, bir saat sonra tüm veritabanları yedeklendi.
+Bu, sonraki kullanılabilir Yedekleme penceresi 1 saat 1 sabah Salı olduğu anlamına gelir. O anda aynı anda veritabanlarınızı bir yedekleme otomatik yedekleme başlar. Bu senaryoda, veritabanlarınızı tam yedeklemeler için ilk birkaç veritabanlarını tamamlamak kadar büyük. Ancak, bir saat sonra tüm veritabanları yedeklendi.
 
-Bu durumda, sonraki gün, 1 saat 1 sabah Çarşamba kalan veritabanlarını yedekleme otomatik yedekleme başlar. Bu süre içinde tüm veritabanları yedeklenmiş, sonraki gün aynı zamanda yeniden deneyecek. Tüm veritabanları başarıyla yedeklendi kadar devam eder.
+Bu durumda sonraki bir saat 1 sabah Çarşamba günü kalan veritabanlarını yedekleme otomatik yedekleme başlar. Bu süre içinde tüm veritabanları yedeklenmiş, aynı anda yeniden sonraki gün çalışır. Tüm veritabanları başarıyla yedeklendi kadar bu devam eder.
 
-Salı yeniden ulaştıktan sonra bir kez daha tüm veritabanlarını yedekleme otomatik yedekleme başlar.
+Salı yeniden ulaştıktan sonra tüm veritabanlarını yeniden yedekleme otomatik yedekleme başlar.
 
-Bu senaryo, otomatik yedekleme yalnızca belirtilen zaman penceresi içinde çalışır ve her veritabanı haftada bir kez yukarı yedeklenen gösterir. Bu, aynı zamanda birden fazla gün burada tüm yedeklemeler tek bir gün içinde tamamlanmasını olanaklı değil durumda kapsanacak yedeklemeler için olası olduğunu gösterir.
+Bu senaryo, otomatik yedekleme, yalnızca belirtilen zaman penceresi içinde çalışır ve her bir veritabanı, haftada bir kez yedeklenen gösterir. Bu, aynı zamanda birden fazla gün burada tüm yedeklemeler tek bir gün içinde tamamlanmasını olanaklı değil durumda kapsanacak yedeklemeler için olası olduğunu gösterir.
 
 ### <a name="scenario-2-daily-backups"></a>Senaryo 2: Günlük yedeklemeler
 Çok büyük veritabanları sayısını içeren bir SQL Server VM var.
@@ -118,7 +118,7 @@ Pazartesi günü, aşağıdaki ayarlarla otomatik yedekleme v2 etkinleştirin:
 
 Başka bir deyişle, sonraki kullanılabilir Yedekleme penceresi 10 PM 6 saat boyunca Pazartesi altındadır. O anda aynı anda veritabanlarınızı bir yedekleme otomatik yedekleme başlar.
 
-Ardından, 6 saat boyunca 10 Salı günü, tüm veritabanlarının tam yedeklemeler yeniden başlatılacak.
+Ardından, 6 saat boyunca 10 Salı günü tüm veritabanlarının tam yedeklemeler yeniden başlatın.
 
 > [!IMPORTANT]
 > Günlük yedeklemeler zamanlarken, bu süre içinde tüm veritabanları yedeklenebilir emin olmak için geniş zaman penceresi zamanlama önerilir. Büyük miktarda veri yedeklemek için sahip olduğu durumda bu durum özellikle önemlidir.
@@ -182,7 +182,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a id="verifysettings"></a>Geçerli ayarlarını doğrulayın
+### <a id="verifysettings"></a> Geçerli ayarlarını doğrulayın
 Sağlama işlemi sırasında otomatik yedekleme etkinleştirilirse, geçerli yapılandırmanızı denetlemek için PowerShell'i kullanabilirsiniz. Çalıştırma **Get-AzureRmVMSqlServerExtension** komut ve inceleyin **AutoBackupSettings** özelliği:
 
 ```powershell
@@ -230,7 +230,7 @@ If (-Not $storage)
 > [!NOTE]
 > Otomatik yedekleme premium depolama alanına depolanmasını yedeklemeleri desteklemez, ancak Premium depolama kullanan VM diskleri yedeklemelerden alabilir.
 
-Ardından **yeni AzureRmVMSqlServerAutoBackupConfig** Azure depolama hesabında yedeklemelerini depolamak için otomatik yedekleme v2 ayarlarını etkinleştirme ve yapılandırma için komutu. Bu örnekte, yedeklemeler için 10 gün tutacak şekilde ayarlanır. Sistem Veritabanı Yedeklemeleri etkinleştirilir. Tam yedeklemeler için haftalık iki saat 20:00 başlayarak bir zaman penceresi ile zamanlanır. Günlük yedeklemeler için 30 dakikada zamanlanır. İkinci komut **kümesi AzureRmVMSqlServerExtension**, bu ayarlarla belirtilen Azure VM güncelleştirir.
+Ardından **yeni AzureRmVMSqlServerAutoBackupConfig** Azure depolama hesabında yedeklemelerini depolamak için otomatik yedekleme v2 ayarlarını etkinleştirme ve yapılandırma için komutu. Bu örnekte, yedeklemeler için 10 gün tutacak şekilde ayarlanır. Sistem Veritabanı Yedeklemeleri etkinleştirilir. Tam yedeklemeler için haftalık iki saat 20:00 başlayarak bir zaman penceresi ile zamanlanır. Günlük yedeklemeler için 30 dakikada zamanlanır. The second command, **Set-AzureRmVMSqlServerExtension**, updates the specified Azure VM with these settings.
 
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
