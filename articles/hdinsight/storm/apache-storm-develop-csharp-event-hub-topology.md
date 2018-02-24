@@ -8,22 +8,23 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Azure Event hubs'tan (C#) hdınsight'ta Storm işlem olayları
 
-Azure Event Hubs'tan gelen Hdınsight üzerinde Apache Storm ile çalışmayı öğrenin. Bu belge, okumak ve Evbent hub'larından veri yazmak için C# Storm topolojisini kullanır.
+Azure Event Hubs'tan gelen Hdınsight üzerinde Apache Storm ile çalışmayı öğrenin. Bu belge, okuma ve olay hub'larından veri yazmak için C# Storm topolojisini kullanır.
 
 > [!NOTE]
 > Bu proje Java sürümü için bkz: [işlem Azure Event Hubs (Java) hdınsight'ta Storm olaylarından](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
@@ -36,9 +37,6 @@ Bu belgede yer alan adımlar SCP.NET, C# topolojileri ve bileşenleri kullanmak 
 > Bu belgede yer alan adımlar Windows geliştirme ortamına Visual Studio ile kullanır, ancak derlenmiş proje Linux kullanan Hdınsight kümesi üzerinde Storm gönderilebilir. Yalnızca Linux tabanlı kümelerde 28 Ekim 2016'dan sonra oluşturulan SCP.NET topolojileri destekler.
 
 Hdınsight 3.4 ve büyük Mono C# topolojileri çalıştırmak için kullanabilirsiniz. Bu belgede kullanılan örnekte, Hdınsight 3.6 ile çalışır. Hdınsight için kendi .NET çözümleri oluşturma üzerinde planlıyorsanız, denetleme [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/) olası uyumsuzlukları belge.
-
-> [!WARNING]
-> SCP.NET sürüm kullanan projeleri oluşturma sorunları karşılaşmanız halinde 1.0.0.x, lütfen Yardım için Microsoft Destek'e başvurun.
 
 ### <a name="cluster-versioning"></a>Küme sürüm oluşturma
 
@@ -114,7 +112,7 @@ topologyBuilder.SetJavaBolt(
 
 Bu öğreticide oluşturulan proje tam bir sürümünü yükleyebilirsiniz [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Ancak, yine Bu öğreticide adımları izleyerek yapılandırma ayarlarını sağlamak gerekir.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 * Bir [Hdınsight kümesi sürüm 3.5 veya 3.6 üzerinde Apache Storm](apache-storm-tutorial-get-started-linux.md).
 
@@ -142,12 +140,12 @@ Adlı bir dizin oluşturun `eventhubspout`ve dizine dosyayı kaydedin.
 
 Olay hub'ları bu örnek için veri kaynağı değil. "Bir olay hub'ı oluşturma" bölümündeki bilgileri kullanın [Event Hubs ile çalışmaya başlama](../../event-hubs/event-hubs-create.md).
 
-1. Olay hub'ı oluşturulduktan sonra görüntülemek **EventHub** dikey penceresinde Azure portal ve select **paylaşılan erişim ilkeleri**. Seçin **+ Ekle** aşağıdaki ilkeleri eklemek için:
+1. Olay hub'ı oluşturulduktan sonra görüntülemek **EventHub** ayarları Azure portal ve select **paylaşılan erişim ilkeleri**. Seçin **+ Ekle** aşağıdaki ilkeleri eklemek için:
 
    | Ad | İzinler |
    | --- | --- |
-   | Yazıcı |Gönder |
-   | Okuyucu |Dinleme |
+   | yazıcı |Gönder |
+   | okuyucu |Dinle |
 
     ![Ekran görüntüsü, paylaşım erişim ilkeleri penceresi](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
 

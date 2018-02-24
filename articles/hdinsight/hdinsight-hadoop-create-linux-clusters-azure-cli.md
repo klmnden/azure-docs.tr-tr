@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1ed98856753854b0d6baee5bfa74d0623043aa99
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI kullanarak Hdınsight kümeleri oluşturma
 
@@ -29,19 +29,20 @@ ms.lasthandoff: 12/11/2017
 Azure CLI 1.0 kullanarak Hdınsight 3.5 küme oluşturma bu belgeyi gözden geçirme adımları.
 
 > [!IMPORTANT]
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu konu, Hdınsight kümesi oluşturmak için Azure CLI 1.0 kullanmayı açıklar. CLI'ın bu sürümü kullanım dışıdır ve Hdınsight kümeleri oluşturma desteği için Azure CLI 2.0 eklenmedi.
+>
+> Azure PowerShell oluşturmak ve Hdınsight kümeleri yönetmek için de kullanabilirsiniz. Daha fazla bilgi için bkz: [Hdınsight kümeleri oluşturma Azure PowerShell kullanarak](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) belge.
 
-
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * **Azure CLI**. Bu belgede yer alan adımlar, en son Azure CLI Sürüm 0.10.14 test edilmiş.
 
     > [!IMPORTANT]
-    > Bu belgede yer alan adımlar, Azure CLI 2.0 ile çalışmaz. Azure CLI 2.0 Hdınsight kümesi oluşturmayı desteklemez.
+    > Azure CLI 1.0 kullanım dışıdır ve Hdınsight kümeleri oluşturma desteği için Azure CLI 2.0 eklenmedi.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
 
@@ -139,7 +140,7 @@ Azure CLI kullanarak bir Hdınsight kümesi başarıyla oluşturuldu, kümenizi 
 
 ### <a name="hbase-clusters"></a>HBase kümeleri
 
-* [Hdınsight'ta HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight üzerinde HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Hdınsight'ta HBase için Java uygulamaları geliştirme](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm kümeleri

@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: d169645b9b701e611d27e0d984bf44b7ca85d2ad
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel'i Microsoft Hive ODBC sürücüsü ile Azure Hdınsight hadoop bağlama
 
@@ -46,7 +46,7 @@ Bu makaleye başlamadan önce aşağıdaki öğeleri sahip olmanız gerekir:
 ## <a name="install-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC sürücüsünü yükleme
 Microsoft Hive ODBC sürücüsünü yükleyip [Yükleme Merkezi'nden][hive-odbc-driver-download].
 
-Bu sürücü Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 ve Windows Server 2012, 32 bit veya 64 bit sürümlerinde yüklenebilir. Sürücüyü Azure Hdınsight (sürüm 1.6 ve üstü) ve Azure Hdınsight öykünücüsünde bağlantıya izin verir (v.1.0.0.0 ve üzeri). ODBC sürücüsü kullandığınız uygulama sürümüyle eşleşen sürümünü yükleyin. Bu öğretici için sürücü Office Excel'den kullanılır.
+Bu sürücü Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 ve Windows Server 2012, 32 bit veya 64 bit sürümlerinde yüklenebilir. Sürücüyü Azure Hdınsight bağlantı sağlar. ODBC sürücüsü kullandığınız uygulama sürümüyle eşleşen sürümünü yükleyin. Bu öğretici için sürücü Office Excel'den kullanılır.
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC veri kaynağı oluşturma
 Aşağıdaki adımlar bir Hive ODBC veri kaynağı oluşturma gösterir.

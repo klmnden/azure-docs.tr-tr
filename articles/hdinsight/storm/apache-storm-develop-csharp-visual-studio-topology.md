@@ -9,18 +9,19 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Apache Storm için C# topolojileri geliştirme
 
@@ -42,9 +43,6 @@ Linux tabanlı bir kümeyle bir C# topolojisi kullanmak için sürüm 0.10.0.6 i
 
 > [!IMPORTANT]
 > Linux tabanlı kümelerdeki C# topolojilerinin .NET 4.5 kullanması ve HDInsight kümesi üzerinde çalışması için Mono kullanması gerekir. Denetleme [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/) olası uyumsuzlukları için.
-
-> [!WARNING]
-> SCP.NET sürüm kullanan projeleri oluşturma sorunları karşılaşmanız halinde 1.0.0.x, lütfen Yardım için Microsoft Destek'e başvurun.
 
 ## <a name="install-visual-studio"></a>Visual Studio yükleme
 
@@ -124,7 +122,7 @@ Visual Studio için Data Lake araçları aşağıdaki şablonlar sağlar:
 | Storm örnek |Temel word count topolojisi. |
 
 > [!WARNING]
-> Tüm Şablonları Linux tabanlı Hdınsight ile çalışır. Şablonlar tarafından kullanılan Nuget paketleri Mono ile uyumlu olmayabilir. Denetleme [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/) belge ve kullanma [.NET taşınabilirlik Çözümleyicisi](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) olası bir sorunu belirlemek için.
+> Tüm Şablonları Linux tabanlı Hdınsight ile çalışır. Şablonlar tarafından kullanılan NuGet paketleri Mono ile uyumlu olmayabilir. Denetleme [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/) belge ve kullanma [.NET taşınabilirlik Çözümleyicisi](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) olası bir sorunu belirlemek için.
 
 Bu belgede aşağıdaki adımlarda, bir topoloji oluşturmak için temel Storm uygulaması proje türü kullanın.
 
@@ -169,7 +167,7 @@ Bu kullanan örnek bir topoloji için bkz: bileşen ve Hdınsight 3.5 üzerinde 
 
    * **Başarısız** (yalnızca işlem topolojisi): işleme, başarısız topoloji içindeki diğer bileşenlere işleme tanımlama grubu. Başarısız yöntemi uygulama, böylece yeniden işlenebilir tanımlama grubu yeniden yayma olanak sağlar.
 
-2. Değiştir **Spout** aşağıdaki metinle sınıfı. Bu spout bir cümle rastgele topoloji yayar.
+2. Değiştir **Spout** aşağıdaki metinle sınıfı: Bu spout topoloji rastgele bir cümle yayar.
 
     ```csharp
     private Context ctx;
@@ -290,7 +288,7 @@ Bu kullanan örnek bir topoloji için bkz: bileşen ve Hdınsight 3.5 üzerinde 
     }
     ```
 
-5. Açık **Counter.cs**ve sınıf içeriğini aşağıdakilerle değiştirin:
+5. Açık **Counter.cs**ve sınıf içeriğini aşağıdaki kodla değiştirin:
 
     ```csharp
     private Context ctx;
@@ -352,7 +350,7 @@ Spout'lar ve Cıvatalar bileşenler arasında veri akışını tanımlayan bir g
 
 Cümleleri spout yayılan ve Bölümlendirici Cıvata örneklerine dağıtılır. Bölümlendirici Cıvata cümleleri sayaç Cıvata dağıtılmış sözcükler içine keser.
 
-Sözcük sayısını yerel olarak sayaç örneğinde tutulmadığından belirli kelimeleri aynı sayacı Cıvata örneğini akış emin olmak istiyoruz. Her bir örnek, belirli kelimeleri izler. Bölümlendirici Cıvata hiçbir durumunu koruyan olduğundan, gerçekten Bölümlendirici hangi örneğinin hangi tümceyi alır önemli değildir.
+Sözcük sayısını yerel sayaç örneğinde tutulan olmadığından belirli kelimeleri aynı sayacı Cıvata örneğini akış emin olmak istersiniz. Her bir örnek, belirli kelimeleri izler. Bölümlendirici Cıvata hiçbir durumunu koruyan olduğundan, gerçekten Bölümlendirici hangi örneğinin hangi tümceyi alır önemli değildir.
 
 Açık **Program.cs**. Önemli yöntemi **GetTopologyBuilder**, Storm için gönderilen topoloji tanımlamak için kullanılır. Değiştir **GetTopologyBuilder** daha önce açıklanan topoloji uygulamak için aşağıdaki kod ile:
 
@@ -472,16 +470,16 @@ Bir karma topolojisi ilişkin bir örnek, bir proje oluşturmak ve **Storm karma
   > Bu sürüm ayrıca Clojure kodu bir metin dosyasından bir Java bileşeni olarak kullanımı gösterilmiştir.
 
 
-Proje gönderildiğinde, kullanılan topoloji geçiş yapmak için yalnızca taşıma `[Active(true)]` kümeye göndermeden önce kullanmak istediğiniz topoloji ifadesine.
+Proje gönderildiğinde, kullanılan topoloji geçiş yapmak için taşıma `[Active(true)]` kümeye göndermeden önce kullanmak istediğiniz topoloji ifadesine.
 
 > [!NOTE]
 > Gerekli olan tüm Java dosyalar bu projede bir parçası olarak sağlanan **JavaDependency** klasör.
 
 Oluşturma ve karma topolojisi gönderme aşağıdakileri dikkate alın:
 
-* Kullanmalısınız **JavaComponentConstructor** bir spout için Java sınıfının bir örneği oluşturulamadı veya Cıvata.
+* Kullanım **JavaComponentConstructor** bir spout için Java sınıfının bir örneği oluşturulamadı veya Cıvata.
 
-* Kullanmanız gereken **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** verilerini içine veya dışına Java nesnelerini Java bileşenlerini JSON için seri hale getirmek için.
+* Kullanım **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** verilerini içine veya dışına Java nesnelerini Java bileşenlerini JSON için seri hale getirmek için.
 
 * Sunucuya topoloji gönderirken kullanmalısınız **ek yapılandırmalar** belirtmek için seçeneği **Java dosya yolları**. Belirtilen yol, Java sınıfları içeren JAR dosyaları içeren dizini olmalıdır.
 
@@ -491,7 +489,7 @@ SCP.NET sürüm 0.9.4.203 bir yeni sınıf ve olay hub'ı spout (olay hub'ların
 
 * **EventHubSpoutConfig** sınıfı: spout bileşeni için yapılandırma içeren bir nesne oluşturur.
 
-* **TopologyBuilder.SetEventHubSpout** yöntemi: olay hub'ı spout bileşeni topolojiye ekler.
+* **TopologyBuilder.SetEventHubSpout** method: Adds the Event Hub spout component to the topology.
 
 > [!NOTE]
 > Hala kullanmalısınız **CustomizedInteropJSONSerializer** spout tarafından üretilen veri seri hale getirilemedi.
@@ -703,7 +701,7 @@ Bazı durumlarda, bir küme için bir topolojisi dağıtmak kolay olmasına rağ
 
 ### <a name="log-information"></a>Günlük bilgileri
 
-Kolayca bilgi topoloji bileşenlerinizi kullanarak oturum `Context.Logger`. Örneğin, aşağıdaki bilgilendirici günlük girişi oluşturur:
+Kolayca bilgi topoloji bileşenlerinizi kullanarak oturum `Context.Logger`. Örneğin, aşağıdaki komut bir bilgilendirici günlük girişi oluşturur:
 
 ```csharp
 Context.Logger.Info("Component started");

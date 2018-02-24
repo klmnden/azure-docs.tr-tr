@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/15/2018
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış Uzaktan izleme çözümü özelliklerini keşfedin
 
@@ -114,7 +114,7 @@ Bir operatör olarak panosunda bir Soğutucu baskısı için ilgili bir uyarı o
 
     ![Bakım Sayfası tetiklemesi alarmlar listesini gösterir](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. Listedeki ilk uyarı en son sunucudur. Tıklatın **Soğutucu baskısı** ilişkili aygıtları ve telemetri görüntülemek için uyarı. Telemetri bir baskısı ani Soğutucu için gösterir:
+1. Listedeki ilk uyarı en son sunucudur. Tıklatın **Soğutucu baskısı çok yüksek** telemetri ve ilişkili aygıtları görüntülemek için uyarı. Telemetri Soğutucu baskısı ani gösterir:
 
     ![Bakım Sayfası seçilen uyarısı telemetri gösterir](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -159,12 +159,12 @@ Gerekli cihaz yönetim görevlerini gerçekleştirmek için kullanın **aygıtla
 
     ![Cihazlar sayfasında bir cihaz seçin](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Tıklatın **zamanlama** düğmesine tıklayın ve ardından **bellenim güncelleştirme**. İçin değerler girin **iş adı** ve **bellenim URI**. Seçin **Uygula** işini şimdi çalıştırmak üzere zamanlamak için:
+1. Tıklatın **zamanlama** düğmesine tıklayın ve ardından **bellenim güncelleştirme**. İçin değerler girin **iş adı**, **bellenim sürümü**, ve **bellenim URI**. Seçin **Uygula** işini şimdi çalıştırmak üzere zamanlamak için:
 
     ![Cihazdaki üretici yazılımı güncelleştirmesini zamanla](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Sanal cihazlar ile olarak istediğiniz herhangi bir URL kullanabilirsiniz **bellenim URI** değeri. Sanal cihazlar URL erişmez.
+    > Sanal cihazlar ile olarak istediğiniz herhangi bir URL kullanabilirsiniz **bellenim URI** değeri ve istediğiniz için herhangi bir değer **bellenim sürümü**. Sanal cihazlar URL erişmez.
 
 1. İş etkiler kaç cihaz not edin ve seçin **Uygula**:
 

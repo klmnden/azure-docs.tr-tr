@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Azure uygulama hizmeti Linux üzerinde SSH desteği
 
@@ -54,7 +54,7 @@ Bu adımlar Azure uygulama hizmeti deposu olarak gösterilen [örnek](https://gi
 1. Dahil `openssh-server` yüklemesinde [ `RUN` yönerge](https://docs.docker.com/engine/reference/builder/#run) Dockerfile görüntü ve kök parolasını hesap için kümesi içinde `"Docker!"`.
 
     > [!NOTE]
-    > Bu yapılandırma, kapsayıcıya dış bağlantılara izin vermiyor. SSH yalnızca Kudu erişilebilir / yayımlama kimlik bilgileri kullanılarak kimlik doğrulaması SCM Site.
+    > Bu yapılandırma kapsayıcıya dış bağlantılar kurulmasına izin vermez. SSH yalnızca Kudu erişilebilir / yayımlama kimlik bilgileri kullanılarak kimlik doğrulaması SCM Site.
 
     ```docker
     # ------------------------
@@ -69,14 +69,14 @@ Bu adımlar Azure uygulama hizmeti deposu olarak gösterilen [örnek](https://gi
 
     > [!NOTE]
     > *Sshd_config* dosyası şunları içermelidir veya bağlantı başarısız olur: 
-    > * `Ciphers`aşağıdakilerden en az birini içermelidir: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs`aşağıdakilerden en az birini içermelidir: `hmac-sha1,hmac-sha1-96`.
+    > * `Ciphers` aşağıdakilerden en az birini içermelidir: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs` aşağıdakilerden en az birini içermelidir: `hmac-sha1,hmac-sha1-96`.
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
-1. Bağlantı noktası 2222 dahil [ `EXPOSE` yönerge](https://docs.docker.com/engine/reference/builder/#expose) Dockerfile için. Kök parolasını bilinen karşın, bağlantı noktası 2222 internet'ten erişilemez. Bir iç yalnızca bağlantı noktası erişilebilir yalnızca özel bir sanal ağ köprüsü ağının kapsayıcılara tarafından değil.
+1. Bağlantı noktası 2222 dahil [ `EXPOSE` yönerge](https://docs.docker.com/engine/reference/builder/#expose) Dockerfile için. Kök parolası biliniyor olsa da, 2222 numaralı bağlantı noktasına İnternet üzerinden erişilemez. Bir iç yalnızca bağlantı noktası erişilebilir yalnızca özel bir sanal ağ köprüsü ağının kapsayıcılara tarafından değil.
 
     ```docker
     EXPOSE 2222 80
@@ -101,9 +101,9 @@ Dockerfile kullanan [ `CMD` yönerge](https://docs.docker.com/engine/reference/b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Web uygulaması kapsayıcıları için ilgili daha fazla bilgi için aşağıdaki bağlantılara bakın. Hakkında sorular ve sorunları nakledebilirsiniz [forumumuzda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Web uygulaması kapsayıcıları için ilgili daha fazla bilgi için aşağıdaki bağlantılara bakın. Sorularınızı ve çekincelerinizi [forumumuzda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview) paylaşabilirsiniz.
 
-* [Kapsayıcıları için Web uygulaması için özel bir Docker görüntü kullanma](quickstart-custom-docker-image.md)
-* [Azure uygulama hizmetinde Linux'ta .NET Core kullanma](quickstart-dotnetcore.md)
-* [Azure uygulama hizmetinde Linux'ta Ruby kullanma](quickstart-ruby.md)
-* [Azure App Service Web uygulaması için kapsayıcı SSS](app-service-linux-faq.md)
+* [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](quickstart-docker-go.md)
+* [Linux üzerinde Azure App Service’te .NET Core Kullanma](quickstart-dotnetcore.md)
+* [Linux üzerinde Azure App Service’te Ruby Kullanma](quickstart-ruby.md)
+* [Kapsayıcılar için Azure App Service Web App SSS](app-service-linux-faq.md)

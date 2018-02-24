@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 221ee6990fe0b5bfc9e745fc85543c4e04e41bd3
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Event Hubs verilerini yakalamak için kullanım Azure Data Lake Store
 
 Azure Event Hubs tarafından alınan verileri yakalamak için Azure Data Lake Store kullanmayı öğrenin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -60,7 +60,7 @@ Bu bölümde, Event Hubs verilerini yakalamak istediğiniz bir klasörde hesabı
 
     ![Data Lake Store kök izinlerini atamak](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Data Lake Store kök izinlerini atama")
 
-    **Tamam** düğmesine tıklayın.
+    **Tamam**’a tıklayın.
 
 4. Data Lake Store hesabı altında veri yakalamak istediğiniz klasör izinlerini atayın.
 
@@ -78,7 +78,7 @@ Bu bölümde, Event Hubs verilerini yakalamak istediğiniz bir klasörde hesabı
 
     ![Data Lake Store klasör izinlerini atamak](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Data Lake Store klasörün izinlerini atama")
     
-    **Tamam** düğmesine tıklayın. 
+    **Tamam**’a tıklayın. 
 
 ## <a name="configure-event-hubs-to-capture-data-to-data-lake-store"></a>Olay hub'ı Data Lake Store'a veri yakalamak için yapılandırma
 
@@ -102,7 +102,7 @@ Bu bölümde, bir olay hub'ları ad alanı içindeki bir Event Hub oluşturun. B
 
     e. Bırakın **örnek yakalama dosyası adı biçimlerini** varsayılan değere. Bu seçenek yakalama klasörü altında oluşturulan klasör yapısını yönetir.
 
-    f. **Oluştur**'a tıklayın.
+    f. **Oluştur**’a tıklayın.
 
 ## <a name="test-the-setup"></a>Test Kurulumu
 

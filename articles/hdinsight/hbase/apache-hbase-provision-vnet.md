@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1d3dba645acf51a7dcdd42fa23c82db962244b62
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 08f71340fea7424262fc9c549351bd50bcfcafe2
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure sanal ağındaki hdınsight'ta HBase kümeleri oluşturma
 Azure Hdınsight HBase kümelerini oluşturmayı öğrenin bir [Azure Virtual Network][1].
@@ -31,10 +31,10 @@ Uygulamalar HBase ile doğrudan iletişim kurabilmesi için sanal ağ tümleşti
 * Geliştirilmiş performans trafiğinizi zorunluluğunu ortadan kaldırarak birden çok ağ geçitleri ve yük dengeleyicileri üzerine gidin.
 * Genel bir uç nokta sokmadan hassas bilgileri daha güvenli bir şekilde işleme yeteneği.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
-* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Azure PowerShell içeren bir iş istasyonu**. Bkz: [yükleme ve kullanma Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>Sanal ağda HBase kümesi oluşturma
@@ -250,8 +250,8 @@ Bu öğreticide, bir HBase kümesi oluşturmayı öğrendiniz. Daha fazla bilgi 
 * [Hdınsight'ta boş kenar düğümleri kullanın](../hdinsight-apps-use-edge-node.md)
 * [HDInsight’ta HBase çoğaltmayı yapılandırma](apache-hbase-replication.md)
 * [Hdınsight'ta Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Hdınsight'ta Hadoop ile HBase kullanmaya başlamanıza](./apache-hbase-tutorial-get-started-linux.md)
-* [Sanal ağ genel bakış](../../virtual-network/virtual-networks-overview.md)
+* [HDInsight'ta Hadoop ile HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md)
+* [Sanal Ağ’a Genel Bakış](../../virtual-network/virtual-networks-overview.md)
 
 [1]: http://azure.microsoft.com/services/virtual-network/
 [2]: http://technet.microsoft.com/library/ee176961.aspx

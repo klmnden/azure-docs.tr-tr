@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning deneme hizmeti yapılandırma dosyaları
 
@@ -37,7 +37,7 @@ Bu dosya bir [conda ortam dosya](https://conda.io/docs/using/envs.html#create-en
 Bu dosyada, komut dosyası yürütme için gereken Python paketlerini belirtin. Azure ML deneme Hizmet bağımlılıkları listesi göre Docker görüntüsündeki conda ortamı oluşturur. Paketlerin listesini burada yürütme altyapısı tarafından erişilebilir olması gerekir. Bu nedenle, paketleri kanallarında gibi listelenmiş olması gerekir:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
-* [Pypı](https://pypi.python.org/pypi)
+* [PyPI](https://pypi.python.org/pypi)
 * Genel olarak erişilebilen bir uç noktası (URL)
 * veya bir yerel dosya yolu
 * Başkalarının yürütme altyapısı tarafından erişilebilir
@@ -128,7 +128,7 @@ Bu komut, belirtilen işlem hedefi göre dosyalar çifti oluşturur. İşlem hed
 _\<Hedef adı işlem > .compute_ dosyasını işlem hedef bağlantı ve yapılandırma bilgilerini belirtir. Ad-değer çifti listesidir. Aşağıdaki desteklenen ayarları şunlardır.
 
 **tür**: işlem ortam türü. Desteklenen değerler şunlardır:
-  - Yerel
+  - yerel
   - Docker
   - remotedocker
   - küme
@@ -143,7 +143,7 @@ _\<Hedef adı işlem > .compute_ dosyasını işlem hedef bağlantı ve yapılan
 
 **sharedVolumes**: Bu yürütme altyapısı, Docker kullanması gereken sinyal bayrağı paylaşılan proje dosyalarını geri ve İleri sevk etmek için Toplu özellik. Docker projeleri kopyalamak zorunda kalmadan doğrudan erişmek için bu yana açık olduğunda bu bayrak sahip yürütmesini kurma hızlandırabilir. Ayarlamak en iyisidir _false_ Docker Windows anormal için birimi paylaşan itibaren Docker altyapısına Windows üzerinde çalışıp çalışmadığını. Ayarlamak _true_ macOS ya da Linux üzerinde çalışıyorsa.
 
-**nvidiaDocker**: ayarlandığında bu bayrak, _true_, kullanılacak Azure ML deneme hizmeti söyler _NVIDIA docker_ komutu normal aksine _docker_ Docker görüntü başlatmak için komutu. _NVIDIA docker_ altyapısı erişim GPU donanım için Docker kapsayıcısı sağlar. GPU yürütme Docker kapsayıcısı içinde çalıştırmak istiyorsanız gerekli bir ayardır. Yalnızca Linux ana destekleyen _NVIDIA docker_. Örneğin, Linux tabanlı DSVM Azure ile birlikte _NVIDIA docker_. _NVIDIA docker_ şimdi itibariyle Windows üzerinde desteklenmiyor.
+**nvidiaDocker**: ayarlandığında bu bayrak, _true_, kullanılacak Azure ML deneme hizmeti söyler _NVIDIA docker_ komutu normal aksine _docker_Docker görüntü başlatmak için komutu. _NVIDIA docker_ altyapısı erişim GPU donanım için Docker kapsayıcısı sağlar. GPU yürütme Docker kapsayıcısı içinde çalıştırmak istiyorsanız gerekli bir ayardır. Yalnızca Linux ana destekleyen _NVIDIA docker_. Örneğin, Linux tabanlı DSVM Azure ile birlikte _NVIDIA docker_. _NVIDIA docker_ şimdi itibariyle Windows üzerinde desteklenmiyor.
 
 **nativeSharedDirectory**: Bu özellik, temel dizin belirtir (örneğin: _~/.azureml/share/_) dosyaları arasında paylaşılması için kaydedilebileceği aynı işlem hedef çalıştırır. Bu ayar bir Docker kapsayıcısı üzerinde çalışırken kullandıysanız _sharedVolumes_ ayarlanmalıdır true. Aksi takdirde yürütme başarısız olur.
 
@@ -166,8 +166,8 @@ _"az ml deneme gönderme foo.runconfig"_ komutuyla otomatik olarak çalışır _
 **Ortam değişkenleri**: Bu bölümde, ortam değişkenleri, çalışmalarına bir parçası olarak ayarlamak kullanıcıların sağlar. Kullanıcı şu biçimde ad-değer çiftleri kullanarak ortam değişkenleri belirtebilirsiniz:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Bu ortam değişkenleri kullanıcının kodda erişilebilir. Örneğin, "EXAMPLE_ENV_VAR" adlı ortam değişkeni bu phyton kodu yazdırır

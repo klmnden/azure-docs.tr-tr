@@ -3,7 +3,7 @@ title: "Azure günlük analizi ile değişiklikleri izle | Microsoft Docs"
 description: "Günlük analizi değişiklik izleme çözümünde yazılım ve ortamınızda ortaya Windows hizmet değişiklikleri belirlemenize yardımcı olur."
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
-ms.author: magoedte
+ms.author: gwallace
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ede3519b0b61ed20d85ea141dc6dee2505420448
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7af2fb89f8fac9df3f784aac50c8fac7880fde43
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümü ile ortamınızdaki yazılım değişiklikleri izle
 
@@ -112,7 +112,7 @@ Aşağıdaki tabloda, veri toplama yöntemleri ve değişiklik izleme verileri n
 
 Aşağıdaki tabloda değişiklik türleri için veri toplama sıklığını gösterir.
 
-| **Değişiklik türü** | **frequency** | **Mu****Aracısı****bulunduğunda farklar Gönder?**  |
+| **Değişiklik türü** | **frequency** | **Mu****Aracısı****bulunduğunda farklar Gönder?** |
 | --- | --- | --- |
 | Windows kayıt defteri | 50 dakika | Hayır |
 | Windows dosya | 30 dakika | Evet. 24 saat içindeki herhangi bir değişiklik varsa, bir anlık görüntü gönderilir. |

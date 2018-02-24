@@ -4,17 +4,17 @@ description: "Bu belgede adımları ve kavramları açıklamaktadır ayarlama ve
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="model-management-setup"></a>Model Yönetimi Kurulumu
 
@@ -27,7 +27,7 @@ Bu belgenin sonuna ayarlayabilir ve hazır, machine learning modellerini dağıt
 
 ## <a name="what-you-need-to-get-started"></a>Başlamak için ihtiyacınız olanlar
 Bu kılavuzun en dışında almak için Modellerinizi için dağıtabileceğiniz bir Azure aboneliğine sahip erişiminiz olması.
-CLI Azure Machine Learning çalışma ekranı ve üzerinde önceden yüklü olarak gelen [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+CLI Azure Machine Learning çalışma ekranı ve üzerinde önceden yüklü olarak gelen [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>CLI kullanarak
 Çalışma ekranı komut satırı arabirimlerinden (CLIs) kullanmak için tıklatın **dosya** -] **açık komut satırı arabirimi**. 
@@ -107,7 +107,7 @@ Yerel ortamdaki Kurulum komutu aşağıdaki kaynaklar, aboneliğinizde oluşturu
 - Bir kaynak grubu (sağlanmadığında)
 - bir depolama hesabı
 - Bir Azure kapsayıcı kayıt defteri (ACR)
-- Application ınsights
+- Application Insights
 
 Kurulum başarıyla tamamlandıktan sonra aşağıdaki komutu kullanarak kullanılacak ortamı ayarlayın:
 
@@ -129,7 +129,7 @@ Küme ortamı Kurulum komutu aşağıdaki kaynaklar, aboneliğinizde oluşturur:
 - bir depolama hesabı
 - Bir Azure kapsayıcı kayıt defteri (ACR)
 - Bir Azure kapsayıcı Hizmeti'ni (ACS) küme üzerinde Kubernetes dağıtımı
-- Application ınsights
+- Application Insights
 
 Kaynak grubu, depolama hesabı ve ACR hızlı bir şekilde oluşturulur. ACS dağıtımı 20 dakikaya kadar sürebilir. 
 

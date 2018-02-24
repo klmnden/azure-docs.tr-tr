@@ -4,17 +4,17 @@ description: "Azure geçirmek hizmet ve sorun giderme ipuçları için sık kar�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 12/12/2017
+ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
-## <a name="troubleshoot-common-errors"></a>Sık karşılaşılan sorunları giderme
+## <a name="troubleshoot-common-errors"></a>Sık karşılaşılan hataları giderme
 
 [Azure geçirme](migrate-overview.md) geçiş Azure için şirket içi iş yüklerini değerlendirir. Dağıtma ve Azure geçişi kullanırken sorunları gidermek için bu makaleyi kullanın.
 
@@ -26,12 +26,12 @@ Herhangi bir URL tabanlı bir güvenlik duvarı proxy kullanıyorsanız giden ba
 
 **URL** | **Amacı**  
 --- | ---
-*. portal.azure.com | Azure hizmetiyle bağlantısını denetleyin ve zaman eşitlemesini doğrulamak için gerekli verir.
-*. oneget.org | Gerekli powershell indirmek için vCenter Powerclı modülü temel.
+*.portal.azure.com | Azure hizmetiyle bağlantısını denetleyin ve zaman eşitlemesini doğrulamak için gerekli verir.
+*.oneget.org | Gerekli powershell indirmek için vCenter Powerclı modülü temel.
 
 **Toplayıcı Proje kimliği kullanarak proje bağlanamaz ve anahtar ı portaldan kopyalanır.**
 
-Kopyalanır ve doğru bilgileri yapıştırılan emin olun. Sorunu gidermek için Microsoft İzleme Aracısı'nı (MMA) gibi yükleyin:
+Kopyalanır ve doğru bilgileri yapıştırılan emin olun. Sorunu gidermek için Microsoft İzleme Aracısı'nı (MMA) yükleyin ve MMA projeye şu şekilde bağlanabildiğinizi doğrulayın:
 
 1. Toplayıcı VM üzerinde karşıdan [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
 2. Yüklemeyi başlatmak için indirilen dosyayı çift tıklatın.
@@ -67,15 +67,15 @@ Disk ve ağ performans verileri koleksiyonunu etkinleştirmek için üç istatis
 
 ## <a name="troubleshoot-readiness-issues"></a>Hazır olma durumu sorunlarını giderme
 
-**Sorunu** | **Düzeltme**
+**Sorunu** | **Fix**
 --- | ---
-Önyükleme türü desteklenmiyor | Bir geçiş çalıştırmadan önce BIOS'a değiştirin.
-Disk sayısı sınırını aşıyor | Kullanılmayan disklerin geçiş işleminden önce makine kaldırın.
-Disk boyutu sınırını aşıyor | Disklerin geçiş işleminden önce 4 TB değerinden küçük küçültün. 
-Belirtilen konumda kullanılabilir disk | Geçirmeden önce hedef konumda disk olduğundan emin olun.
-Disk için belirtilen artıklık kullanılamıyor | Disk değerlendirme ayarlar (varsayılan olarak LRS) tanımlı artıklık depolama türünü kullanmanız gerekir.
-İç hata nedeniyle disk uygunluğu belirlenemedi. | Grubu için yeni bir değerlendirme oluşturmayı deneyin. 
-VM gerekli çekirdek ve bellek bulunamadı | Azure, uygun bir VM türüne ince uygulanamadı. Geçirmeden önce bellek ve şirket içi makineyi çekirdek sayısını azaltın. 
+Desteklenmeyen önyükleme türü | Azure VM'ler EFI Önyükleme türüyle desteklemez. Bir geçiş çalıştırmadan önce için BIOS önyükleme türüne dönüştürmek için önerilir. <br/><br/>Kullanabileceğiniz [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) , VM önyükleme türünü geçiş sırasında BIOS'a dönüştürecektir gibi böyle VM'ler geçişini yapmak için.
+Disk sayısı, sınırı aşıyor | Kullanılmayan disklerin geçiş işleminden önce makine kaldırın.
+Disk boyutu, sınırı aşıyor | Azure destekleyen sahip bir disk boyutu en fazla 4 TB. Disklerin geçiş işleminden önce 4 TB değerinden küçük küçültün. 
+Disk, belirtilen konumda kullanılamıyor | Geçirmeden önce hedef konumda disk olduğundan emin olun.
+Disk, belirtilen çoğaltma için kullanılamıyor | Disk değerlendirme ayarlar (varsayılan olarak LRS) tanımlı artıklık depolama türünü kullanmanız gerekir.
+Bir iç hata nedeniyle disk uygunluğu belirlenemedi | Grubu için yeni bir değerlendirme oluşturmayı deneyin. 
+Gerekli çekirdeklere ve belleğe sahip VM bulunamadı | Azure, uygun bir VM türüne ince uygulanamadı. Geçirmeden önce bellek ve şirket içi makineyi çekirdek sayısını azaltın. 
 Bir veya daha fazla uygun diskler. | Yapma emin şirket içi disklerdir 4 TB veya altında önce bir geçiş çalıştırın.
 Bir veya daha fazla uygun ağ bağdaştırıcıları. | Geçişten önce makineden kullanılmayan ağ bağdaştırıcılarını kaldırın.
 İç hata nedeniyle VM uygunluğu belirleyemedi. | Grubu için yeni bir değerlendirme oluşturmayı deneyin. 
@@ -83,12 +83,15 @@ Bir veya daha fazla uygun ağ bağdaştırıcıları. | Geçişten önce makined
 İç hata nedeniyle bir veya daha fazla ağ bağdaştırıcısı uygunluğuna belirleyemedi. | Grubu için yeni bir değerlendirme oluşturmayı deneyin.
 VM için gerekli depolama performansı bulunamadı. | Makine için gerekli depolama performansı (IOPS/üretilen iş) Azure VM destek aşıyor. Geçiş işleminden önce makine için depolama gereksinimlerini azaltır.
 VM için gerekli ağ performansını bulunamadı. | Makine için gereken ağ performansı (çıkış) Azure VM destek aşıyor. Makine için ağ gereksinimlerini azaltır. 
-VM için belirtilen fiyatlandırma katmanı bulunamadı. | Fiyatlandırma katmanı ayarlarını kontrol edin. 
+VM belirtilen fiyatlandırma katmanında bulunamadı. | Fiyatlandırma katmanı standart olarak ayarlanırsa, Azure'a geçirmeden önce VM downsizing göz önünde bulundurun. Boyutlandırma katmanı Basic ise, değerlendirme fiyatlandırma katmanı standart olarak değiştirmeyi düşünün. 
 VM belirtilen konumda bulunamadı. | Geçişten önce farklı bir hedef konum kullanın.
-Linux işletim sistemi sorunları desteği | 64 bit çalışan desteklenen bunlarla emin olun [işletim sistemleri](../virtual-machines/linux/endorsed-distros.md).
-Windows işletim sistemi sorunları desteği | Desteklenen bir işletim sistemi çalıştırdığınızdan emin olun. [Daha fazla bilgi](concepts-assessment-calculation.md#azure-suitability-analysis)
-Bilinmeyen işletim sistemi. | VCenter belirtilen işletim sistemi doğru olup olmadığını denetleyin ve bulma işlemi yineleyin.
-Visual Studio aboneliği gerektirir. | Windows istemci işletim sistemleri, yalnızca Visual Studio (MSDN) Aboneliklerde desteklenir.
+Bilinmeyen işletim sistemi | VM işletim sistemi 'Diğer' vCenter Server'da, hangi nedeniyle VM Azure hazırlık Azure geçirmek tanımlayamıyor belirtildi. Makinede çalışan işletim sistemi olduğundan emin olun [desteklenen](https://aka.ms/azureoslist) makineyi geçirmeden önce Azure tarafından.
+Koşullu desteklenen Windows işletim sistemi | İşletim sistemi sonunu destek tarihi geçtikten ve bir özel destek sözleşmesi (CSA) için gereken [destek Azure'da](https://aka.ms/WSosstatement), Azure'a geçirmeden önce işletim sistemi yükseltme yapmayı düşünün.
+Desteklenmeyen Windows işletim sistemi | Azure destekleyen yalnızca [seçili Windows işletim sistemi sürümleri](https://aka.ms/WSosstatement), Azure'a geçirmeden önce makine işletim sistemini yükseltme yapmayı düşünün. 
+Linux işletim sistemi koşullu onaylanır | Azure Symantec'in yalnızca [seçili Linux işletim sistemi sürümleri](../virtual-machines/linux/endorsed-distros.md), Azure'a geçirmeden önce makine işletim sistemini yükseltme yapmayı düşünün.
+Unendorsed Linux işletim sistemi | Makine Azure'da önyükleme, ancak hiçbir işletim sistemi desteği Azure tarafından sağlanan, işletim sistemine yükseltin bir [Linux sürüm destekli](../virtual-machines/linux/endorsed-distros.md) Azure'a geçirmeden önce
+İşletim sistemi bit genişliği desteklenmiyor | 32-bit işletim sistemi ile sanal makineleri Azure'da önyükleme, ancak 32-bit VM işletim sistemini yükseltmek için önerilen için 64-bit Azure'a geçirmeden önce.
+Visual Studio aboneliği gerektirir. | Makine içeren bir Windows istemci işletim sistemi içinde çalıştığı yalnızca Visual Studio abonelikte desteklenmiyor.
 
 
 ## <a name="collect-logs"></a>Günlüklerini toplayın

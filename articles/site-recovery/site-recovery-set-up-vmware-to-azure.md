@@ -2,48 +2,32 @@
 title: "Kaynak ortamı (VMware Azure) ayarlama | Microsoft Docs"
 description: "Bu makalede, VMware sanal makinelerini Azure'a çoğaltma başlatmak için şirket içi ortamınızı ayarlayın açıklar."
 services: site-recovery
-documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/18/2018
 ms.author: anoopkv
-ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: ff927a4846ba63d3f00d0e81b8cb818af1441449
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Kaynak ortamı (VMware Azure) ayarlama
 > [!div class="op_single_selector"]
 > * [Vmware’den Azure’a](./site-recovery-set-up-vmware-to-azure.md)
 > * [Azure için fiziksel](./site-recovery-set-up-physical-to-azure.md)
 
-Bu makalede, Azure'da VMware üzerinden çalışan sanal makineleri çoğaltma işlemi başlatma için şirket içi ortamınızı ayarlayın açıklar.
+Bu makalede, Azure'da VMware üzerinden çalışan sanal makineleri çoğaltmak için kaynağını, şirket içi ortamına Ayarla açıklar. Otomatik bulma VM'ler şirket içi ve şirket içi makineyi Site Recovery yapılandırma sunucusu olarak ayarlama, çoğaltma senaryonuzun seçmek için adımları içerir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Makale, zaten oluşturduğunuzu varsayar:
-- Bir kurtarma Hizmetleri kasasına [Azure portal](http://portal.azure.com "Azure portal").
-- Adanmış bir hesap için kullanılan, VMware vcenter [otomatik bulma](./site-recovery-vmware-to-azure.md).
-- Bir sanal makine yapılandırma sunucusuna yüklemek için.
+Makale, zaten sahip olduğunuz varsayılmaktadır:
+- [Kaynakları ayarlamak](tutorial-prepare-azure.md) içinde [Azure portal](http://portal.azure.com).
+- [Şirket içi VMware ayarlamak](tutorial-prepare-on-premises-vmware.md), otomatik bulma için adanmış bir hesap da dahil olmak üzere.
 
-## <a name="configuration-server-minimum-requirements"></a>Yapılandırma sunucusunun en düşük gereksinimleri
-Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu için ağ gereksinimleri listelenmektedir.
 
-> [!IMPORTANT]
-> VMware sanal makineleri korumak için bir yapılandırma sunucusu dağıtımı sırasında olarak dağıtmanızı öneririz bir **yüksek oranda kullanılabilir (HA)** sanal makine.
-
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-> [!NOTE]
-> HTTPS tabanlı proxy sunucuları yapılandırma sunucusu tarafından desteklenmez.
 
 ## <a name="choose-your-protection-goals"></a>Koruma hedeflerinizi seçme
 
@@ -55,39 +39,21 @@ Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu
 
     ![Hedefleri seçme](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
 
-## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
-Kaynak ortamını ayarlama iki ana etkinlik içerir:
+## <a name="set-up-the-configuration-server"></a>Yapılandırma sunucusu kurma
 
-- Yükleme ve yapılandırma sunucusu Site Kurtarma ile kaydedin.
-- Şirket içi sanal makinelerinizi şirket içi VMware vCenter veya vSphere EXSi konaklarınızın için Site Recovery bağlanarak bulur.
+Yapılandırma sunucusunu bir şirket içi VMware VM ayarlama, açık sanallaştırma biçimi (OVF) şablonunu kullanın. [Daha fazla bilgi edinin](concepts-vmware-to-azure-architecture.md) VMware VM üzerinden yüklenecek bileşenleri hakkında. 
 
-### <a name="step-1-install-and-register-a-configuration-server"></a>Adım 1: Yükleme ve yapılandırma sunucusuna kaydedin
+1. Hakkında bilgi edinin [Önkoşullar](how-to-deploy-configuration-server.md#prerequisites) yapılandırma sunucusu dağıtımı için. [Kapasite numaraları denetleyin](how-to-deploy-configuration-server.md#capacity-planning) dağıtımı için.
+2. [Karşıdan](how-to-deploy-configuration-server.md#download-the-template) ve [alma](how-to-deploy-configuration-server.md#import-the-template-in-vmware) şirket içi VMware yapılandırma sunucusu çalıştıran VM ayarlamak için OVF şablonu (how-to-dağıtma-yapılandırma-server.md).
+3. VMware VM üzerinden etkinleştirmek ve [kaydetmek](how-to-deploy-configuration-server.md#register-the-configuration-server) kurtarma Hizmetleri kasası.
 
-1. Tıklatın **1. adım: altyapıyı hazırlama** > **kaynak**. İçinde **kaynağı**,'ı tıklatın, bir yapılandırma sunucusu yoksa **+ yapılandırma sunucusu** eklemesini.
 
-    ![Kaynağı ayarlama](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
-2. Üzerinde **Sunucu Ekle** dikey penceresinde denetleyin **yapılandırma sunucusu** görünür **sunucu türü**.
-4. Site Recovery birleşik Kurulumu yükleme dosyasını indirin.
-5. Kasa kayıt anahtarını indir Birleşik Kurulum'u çalıştırdığınızda, kayıt anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
-
-    ![Kaynağı ayarlama](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
-6. Yapılandırma sunucusu olarak kullandığınız makine üzerinde çalışan **Azure Site Recovery birleşik Kurulumu** yapılandırma sunucusuna işlem sunucusu ve ana hedef sunucusu yüklemek için.
-
-#### <a name="run-azure-site-recovery-unified-setup"></a>Kurulumu çalıştırma Azure Site Recovery birleşik
-
-> [!TIP]
-> Bilgisayarınızın sistem saati beş dakikadan tarafından yerel saatten farklıysa yapılandırma sunucusu kaydı başarısız olur. Sistem saatinizi bir [saat sunucusu](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) yüklemeyi başlatmadan önce.
-
-[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
-
-> [!NOTE]
-> Yapılandırma sunucusu komut satırı üzerinden yüklenebilir. Daha fazla bilgi için bkz: [komut satırı araçlarını kullanarak yapılandırma sunucusu yükleme](http://aka.ms/installconfigsrv).
-
-#### <a name="add-the-vmware-account-for-automatic-discovery"></a>Otomatik bulma için VMware hesabı ekleyin
+## <a name="add-the-vmware-account-for-automatic-discovery"></a>Otomatik bulma için VMware hesabı ekleyin
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### <a name="step-2-add-a-vcenter"></a>2. adım: bir vCenter ekleme
+## <a name="connect-to-the-vmware-server"></a>VMware sunucuya bağlanın
+
 Azure Site Recovery, şirket içi ortamınızda çalışan sanal makineleri bulmak izin vermek için VMware vCenter Server veya vSphere ESXi konakları Site Recovery ile bağlanmanız gerekir.
 
 Seçin **+ vCenter** bir VMware vCenter sunucusu veya bir VMware vSphere ESXi konağı bağlanma başlatmak için.

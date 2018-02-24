@@ -4,17 +4,17 @@ description: "Bu belgede, Azure Machine Learning modelini yönetim kullanarak bi
 services: machine-learning
 author: raymondl
 ms.author: raymondl, aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c5942bed5e171c23864ef3ee10665273e04640a6
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Makine öğrenimi modeline web hizmeti olarak dağıtma
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 365101fc6267a5a295462d7a9902e5fd25964086
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -59,7 +59,11 @@ ms.lasthandoff: 02/13/2018
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK henüz Evrensel Windows Platformu (UWP) uygulamaları ile uyumlu değil. .NET Core UWP uygulamaları destekleyen SDK'ın ilgileniyorsanız, e-posta Gönder [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
-### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Sabit aralıklı SessionConsistency yarış durumu.
+
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
 * Regresyon sabit nerede FeedOptions.MaxItemCount = -1 bir System.ArithmeticException oluşturdu: sayfa boyutu negatiftir.
 * Yeni bir ToString() işlevini QueryMetrics için eklendi.
@@ -165,6 +169,7 @@ Bu SDK ile ilgili sorularınız varsa, deftere [StackOverflow](http://stackoverf
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.8.2](#1.8.2) |21 Şubat 2018 |--- |
 | [1.8.1](#1.8.1) |05 Şubat 2018 |--- |
 | [1.7.1](#1.7.1) |16 Kasım 2017 |--- |
 | [1.7.0](#1.7.0) |10 Kasım 2017 |--- |

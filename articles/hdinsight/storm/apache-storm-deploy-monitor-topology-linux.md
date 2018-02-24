@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Dağıtma ve Hdınsight üzerinde Apache Storm topolojilerini yönetme
 
@@ -31,7 +31,7 @@ Bu belgede, yönetme ve izleme üzerinde Storm Hdınsight kümelerinde çalışa
 > Dağıtma ve Windows tabanlı Hdınsight üzerinde topolojileri izleme hakkında daha fazla bilgi için bkz: [dağıtma ve Windows tabanlı Hdınsight üzerinde Apache Storm topolojilerini yönetme](apache-storm-deploy-monitor-topology.md)
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Hdınsight kümesinde Linux tabanlı Storm**: bkz [Hdınsight üzerinde Apache Storm ile çalışmaya başlama](apache-storm-tutorial-get-started-linux.md) küme oluşturma adımları
 
@@ -65,7 +65,7 @@ Hdınsight araçları C# veya karma topolojiler Storm kümenize göndermek için
 
 3. İçinde **yeni proje** iletişim kutusunda, genişletin **yüklü** > **şablonları**ve ardından **Hdınsight**. Şablonları listesinden seçin **Storm örnek**. İletişim kutusunun altında uygulama için bir ad yazın.
 
-    ![Görüntü](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![görüntü](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 
 4. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve seçin **Hdınsight üzerinde Storm Gönder**.
 
@@ -86,7 +86,7 @@ Hdınsight araçları C# veya karma topolojiler Storm kümenize göndermek için
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    Bu komut kümede örnek WordCount topolojisini başlatır. Bu topoloji rastgele cümleleri oluşturur ve cümleleri her sözcüğün geçtiği sayar.
+    Bu komut, kümede örnek WordCount topolojisini başlatır. Bu topoloji rastgele cümleleri oluşturur ve cümleleri her sözcüğün geçtiği sayar.
 
    > [!NOTE]
    > Kümeye topoloji gönderirken `storm` komutunu kullanmadan önce kümeyi içeren jar dosyasını kopyalamanız gerekir. Dosyayı kümeye kopyalamak için kullanabileceğiniz `scp` komutu. Örneğin, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -95,13 +95,13 @@ Hdınsight araçları C# veya karma topolojiler Storm kümenize göndermek için
 
 ## <a name="submit-a-topology-programmatically"></a>Bir topoloji gönderin: program aracılığıyla
 
-Nimbus hizmetini kullanarak bir topoloji programlı olarak dağıtabilirsiniz. [https://github.com/Azure-Samples/hdinsight-Java-Deploy-Storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) nasıl dağıtıp Nimbus hizmeti aracılığıyla bir topoloji başlatmak gösteren bir Java uygulama örneğidir.
+Nimbus hizmetini kullanarak bir topoloji programlı olarak dağıtabilirsiniz. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) provides an example Java application that demonstrates how to deploy and start a topology through the Nimbus service.
 
 ## <a name="monitor-and-manage-visual-studio"></a>İzleme ve yönetme: Visual Studio
 
 Visual Studio kullanarak bir topoloji gönderildiğinde **Storm topolojilerini** görünümü görüntülenir. Topoloji çalışan topolojisi ile ilgili bilgileri görüntülemek için listeden seçin.
 
-![Visual studio İzleyicisi](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
+![visual studio monitor](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
 
 > [!NOTE]
 > De görüntüleyebilirsiniz **Storm topolojilerini** gelen **Sunucu Gezgini** genişleterek **Azure** > **Hdınsight**ve Hdınsight kümesinde bir Storm sağ tıklayıp seçerek **görünüm Storm topolojilerini**.
@@ -226,7 +226,7 @@ Küme baş düğüm için tam etki alanı adı (FQDN) birkaç farklı şekilde b
 
 * **Bir SSH oturumundan**: komutunu `headnode -f` küme için bir SSH oturumundan.
 * **Ambari Web**: seçin **Hizmetleri** sayfanın üst kısmından seçip **Storm**. Gelen **Özet** sekmesine **Storm kullanıcı Arabirimi sunucu**. REST API ve Storm kullanıcı arabirimini barındıran düğümün FQDN'sini sayfanın üst kısmında görüntülenir.
-* **Ambari REST API öğesinden**: komutunu `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` Storm kullanıcı Arabirimi ve REST API çalıştığı düğüm hakkında bilgi almak için. Değiştir **parola** küme için yönetici parolası ile. Değiştir **CLUSTERNAME** küme adı ile. Yanıtta, düğümün FQDN'sini "host_name" giriş içeriyor.
+* **Ambari REST API öğesinden**: komutunu `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` Storm kullanıcı Arabirimi ve REST API çalıştığı düğüm hakkında bilgi almak için. Değiştir **CLUSTERNAME** küme adı ile. İstendiğinde, oturum açma (Yönetici) hesabı için parolayı girin. Yanıtta, düğümün FQDN'sini "host_name" giriş içeriyor.
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 

@@ -4,13 +4,13 @@ description: "Değerlendirme hesaplamalar Azure geçirmek hizmetindeki genel bir
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 
@@ -35,7 +35,7 @@ Bağımlılık görselleştirme kullanmak için aracıları analiz etmek istedi�
 
 ## <a name="do-i-need-to-pay-for-it"></a>Bunun için ödeme gerekiyor mu?
 
-Evet. Günlük analizi çalışma alanı varsayılan olarak oluşturulur, ancak Azure geçirmek bağımlılık görselleştirme kullanmadığınız sürece kullanılmaz. Bağımlılık görselleştirme kullanın (veya çalışma alanı Azure geçirme dışında kullanıyorsanız), çalışma alanı kullanımı için sizden ücret kesilir.  [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/insight-analytics/) hizmet Haritası çözüm fiyatlandırma hakkında. 
+Azure Geçişi fiyatlandırması hakkında daha fazla bilgiyi [burada](https://azure.microsoft.com/pricing/details/azure-migrate/) bulabilirsiniz. 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Çalışma alanı nasıl yönetebilirim?
 

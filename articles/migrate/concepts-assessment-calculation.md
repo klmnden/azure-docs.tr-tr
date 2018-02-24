@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/02/2017
 ms.author: raynew
-ms.openlocfilehash: db09ff30ff9f3852e84162b8400572e76515230f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b264e2ceac4e76faa37d21972b94cfe323aa3ce5
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -109,11 +109,11 @@ Boyutlandırma ölçüt ise *gibi şirket içi boyutlandırma*, Azure geçirmek 
  
 ### <a name="confidence-rating"></a>GÜVENİRLİK derecelendirme
 
-Her Azure geçirmek değerlendirmesi 5 yıldız (en düşük olan 1 yıldız ve 5 yıldız en yüksek olan) 1 yıldızdan aralıkları güvenirlik derecelendirme ilişkilendirilir. GÜVENİRLİK derecelendirme değerlendirme işlem için gereken veri noktaları kullanılabilirliğine göre bir değerlendirme atanır. Azure geçiş tarafından sağlanan boyutu öneriler güvenilirliğini tahmin etmenize yardımcı olur. 
+Her Azure geçirmek değerlendirmesi 5 yıldız (en düşük olan 1 yıldız ve 5 yıldız en yüksek olan) 1 yıldızdan aralıkları güvenirlik derecelendirme ilişkilendirilir. GÜVENİRLİK derecelendirme değerlendirme işlem için gereken veri noktaları kullanılabilirliğine göre bir değerlendirme atanır. Bir değerlendirme güvenirlik derecesi Azure geçiş tarafından sağlanan boyutu öneriler güvenilirliğini tahmin etmenize yardımcı olur. 
 
-GÜVENİRLİK derecelendirme olduğunda yararlı yapmakta olduğunuz *performans tabanlı boyutlandırma* tüm veri noktaları kullanılabilir olması. İçin *gibi şirket içi boyutlandırma*, Azure geçirme gereken VM boyutu için tüm verilere sahip güvenirlik derecelendirme her zaman 5 yıldız aynıdır. 
+GÜVENİRLİK derecelendirme olduğunda yararlı yapmakta olduğunuz *performans tabanlı boyutlandırma* gibi Azure geçirmek kullanım tabanlı boyutlandırma yapmak için yeterli veri noktası olmayabilir. İçin *gibi şirket içi boyutlandırma*, güvenirlik derecelendirme Azure geçirme gereken VM boyutu için tüm veri noktaları içerdiğinden, her zaman 5 yıldız. 
 
-Performans tabanlı boyutlandırma için Azure geçirmek, CPU ve bellek kullanım verileri gerekir. İsteğe bağlı olarak VM'ye bağlı her disk için okuma/yazma IOPS gerekir ve performans tabanlı boyutlandırma yapmak için işleme. Benzer şekilde VM'ye bağlı her ağ bağdaştırıcısı için Azure geçirmek giriş/çıkış ağ performansı tabanlı boyutlandırma yapmak için gerekir. Yukarıdaki kullanımı sayılar vCenter Server'da mevcut değilse, Azure geçirmek tarafından yapılan boyutu öneri güvenilir olmayabilir. Veri noktaları kullanılabilir yüzdesi bağlı olarak, değerlendirme için güvenirlik derecelendirme sağlanır:
+Performans tabanlı için boyutlandırma VM Azure geçirmek, CPU ve bellek kullanım verileri gerekir. Ayrıca, VM'ye bağlı her disk için okuma/yazma IOPS gerektiği ve üretilen iş. Benzer şekilde VM'ye bağlı her ağ bağdaştırıcısı için Azure geçirmek giriş/çıkış ağ performansı tabanlı boyutlandırma yapmak için gerekir. Yukarıdaki kullanımı sayılar vCenter Server'da mevcut değilse, Azure geçirmek tarafından yapılan boyutu öneri güvenilir olmayabilir. Veri noktaları kullanılabilir yüzdesi bağlı olarak, değerlendirme için güvenirlik derecelendirme sağlanır:
 
    **Veri noktalarının kullanılabilirliğini** | GÜVENİRLİK derecelendirme
    --- | ---
@@ -121,16 +121,16 @@ Performans tabanlı boyutlandırma için Azure geçirmek, CPU ve bellek kullanı
    21%-40% | 2 yıldız
    41%-60% | 3 yıldız
    61%-80% | 4 yıldız
-   81%-100% | 5 yıldız
+   81%-100% | 5 Star
 
 Bir değerlendirme aşağıdaki nedenlerden biri dolayısıyla kullanılabilir tüm veri noktaları olmayabilir:
-- VCenter Server 3 ve değerlendirme düzey ayarlanmadı istatistikleri ayarında performans tabanlı boyutlandırma boyutlandırma ölçütü olarak sahiptir. VCenter sunucusu istatistikleri ayarında 3 düzeyinden daha düşük ise, disk ve ağ için performans verilerini vCenter Server'dan toplanmaz. Bu durumda, disk ve ağ için Azure geçiş tarafından sağlanan öneri yalnızca şirket içi ayrılmış olan üzerinde temel alır. Disk yüksek IOPS/üretilen işi olan ve premium diskleri gerekirse belirlemek mümkün olmadığı için depolama, Azure geçirmek standart diskler önerir.
-- VCenter istatistikleri ayarında sunucu düzeyi 3 kısa bir süre için bulmayı oluşturan önce ayarlandı. Örneğin, bir gün için bir değerlendirme oluşturuyorsanız, istatistikleri ayarı düzeyi Bugün 3 ve başlangıç yarın (24 saat sonra), Toplayıcı Gereci kullanırken bulma devre dışı değiştirirseniz, tüm veri noktaları sahip. Ancak performans süresi değerlendirme özelliklerinde bir ay değiştiriliyorsa, disk olarak güvenirlik derecelendirme arıza ve ağ performans verileri son bir ay boyunca kullanılabilir değildir. Son bir ay boyunca performans verilerini göz önünde bulundurun istiyorsanız vCenter sunucusu istatistikleri ayarını Düzey 3 bulmayı kazandırın önce bir ay boyunca tutmanız önerilir. 
+- VCenter Server 3 ve değerlendirme düzey ayarlanmadı istatistikleri ayarında performans tabanlı boyutlandırma boyutlandırma ölçütü olarak sahiptir. VCenter sunucusu istatistikleri ayarında 3 düzeyinden daha düşük ise, disk ve ağ için performans verilerini vCenter Server'dan toplanmaz. Bu durumda, disk ve ağ için Azure geçiş tarafından sağlanan öneri kullanım tabanlı değil. Azure premium disk disk gerekecekse IOPS/üretilen iş diskin düşünmeden Azure geçirmek tanımlayamıyor gibi depolama için Azure geçirmek standart diskler önerir.
+- VCenter istatistikleri ayarında sunucu düzeyi 3 daha kısa bir süre için bulmayı oluşturan önce ayarlandı. Örneğin, şimdi 3 Bugün ve yarın (24 saat sonra) Toplayıcı Gereci kullanırken bulma kapalı başlangıç düzeyini ayarlama istatistikleri buradan senaryoyu göz önünde bulundurun. Bir gün için bir değerlendirme oluşturuyorsanız, tüm veri noktaları varsa ve değerlendirme güvenirlik derecesi 5 olacaktır yıldız. Ancak bir ay boyunca performans süresi değerlendirme özelliklerinde değiştiriyorsanız diski olarak güvenirlik derecelendirme arıza ve ağ performans verileri son bir ay boyunca kullanılabilir olmayacaktır. Son bir ay boyunca performans verilerini göz önünde bulundurun istiyorsanız vCenter sunucusu istatistikleri ayarını Düzey 3 bulmayı kazandırın önce bir ay boyunca tutmanız önerilir. 
 - Birkaç VM'ler değerlendirme hesaplandığı dönemde kapatılan. Herhangi bir VM için bazı süresi kapalı, vCenter sunucusu belirli bir döneme ait performans verilerini sahip değil. 
 - Birkaç VM'ler değerlendirme hesaplandığı dönemi Between oluşturuldu. Örneğin, bir değerlendirme için oluşturuyorsanız, son bir ay ancak birkaç VM'ler performans geçmişi oluşturulmuş ortamda yalnızca bir hafta önce. Böyle durumlarda, yeni VM'ler performans geçmişini tüm süresince var olmaz.
 
 > [!NOTE]
-> Tüm değerlendirme güvenirlik derecesi 3 yıldız ise, biz vCenter sunucusu istatistikleri ayarları düzeyi 3'e değiştirmenizi öneririz değerlendirmesi için istediğiniz dikkate alınması gereken süre bekleyin (1 gün/1 hafta/1 ay) ve bulma ve değerlendirme yapın. Yukarıdaki yapılamaz, performans tabanlı boyutlandırma güvenilir olmayabilir ve geçmek için önerilen *gibi şirket içi boyutlandırma* değerlendirme özelliklerini değiştirerek.
+> Tüm değerlendirme güvenirlik derecesi 4 yıldız ise, biz vCenter sunucusu istatistikleri ayarları düzeyi 3'e değiştirmenizi öneririz değerlendirmesi için istediğiniz dikkate alınması gereken süre bekleyin (1 gün/1 hafta/1 ay) ve bulma ve değerlendirme yapın. Yukarıdaki yapılamaz, performans tabanlı boyutlandırma güvenilir olmayabilir ve geçmek için önerilen *gibi şirket içi boyutlandırma* değerlendirme özelliklerini değiştirerek.
 
 ## <a name="monthly-cost-estimation"></a>Aylık maliyet tahmini
 

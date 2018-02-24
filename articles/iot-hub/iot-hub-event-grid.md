@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Tetikleyici eylemleri - Önizleme olay kılavuz kullanarak IOT hub'ı olaylarına tepki
 
@@ -28,14 +28,7 @@ Böylece diğer hizmetlere olay bildirimleri gönderin ve aşağı akış işlem
 
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 
-Tümleştirme genel önizlemede olan olay kılavuz böylece kullanılabilir bölgeleri sınırlı bir süre içinde. Aşağıdaki bölgede bulunan IOT hub'ları için tümleştirme çalışır:
-
-* Orta ABD
-* Doğu ABD
-* Doğu ABD 2
-* Batı Orta ABD
-* Batı ABD
-* Batı ABD 2
+Olay kılavuz tümleştirme, burada olay kılavuz desteklenen bölgelerde bulunan IOT hub'ları için kullanılabilir. Bölgeler en son listesi için bkz: [Azure olay kılavuzuna giriş][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Olay türleri
 

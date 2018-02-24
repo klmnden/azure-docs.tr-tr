@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD için Önkoşullar Bağlan
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -61,7 +61,7 @@ Azure AD Connect yüklemeden önce gereken birkaç nokta vardır.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect tarafından kullanılan SQL Server
 * Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Varsayılan olarak, bir SQL Server 2012 Express LocalDB'nı (SQL Server Express açık bir sürüm) yüklenir. SQL Server Express yaklaşık 100.000 nesneye yönetmenize olanak veren bir 10 GB boyutu sınırı vardır. Dizin nesnelerini daha yüksek bir hacmi yönetmeniz gerekiyorsa, SQL Server'ın farklı bir yükleme için Yükleme Sihirbazı'nı noktası gerekir.
 * Ayrı bir SQL Server kullanıyorsanız, bu gereksinimleri geçerlidir:
-  * Azure AD Connect, SQL Server 2008 (en son hizmet paketiyle) SQL Server 2016 SP1, Microsoft SQL Server'ın tüm özellikleri destekler. Microsoft Azure SQL veritabanı **desteklenmiyor** veritabanı olarak.
+  * Azure AD Connect SQL Server 2008 (en son hizmet paketiyle) SQL Server 2016 SP1, Microsoft SQL Server'ın tüm sürümlerini destekler. Microsoft Azure SQL veritabanı **desteklenmiyor** veritabanı olarak.
   * Büyük küçük harf duyarsız bir SQL harmanlaması kullanmanız gerekir. Bu harmanlamaları ile tanımlanan bir \_CI_ kendi adı. Bu **desteklenmiyor** tarafından tanımlanan büyük küçük harfe duyarlı bir harmanlamayı kullanacak şekilde \_CS_ kendi adı.
   * Bir eşitleme Altyapısı SQL örneği başına yalnızca olabilir. Bu **desteklenmiyor** bir SQL örneğine FIM/MIM eşitleme, DirSync veya Azure AD eşitleme ile paylaşmak için.
 
@@ -149,13 +149,13 @@ Sürüm 1.1.614.0 önce Azure AD Connect varsayılan olarak, TLS 1.0 eşitleme a
 Azure AD Connect, Active Directory Federasyon Hizmetleri veya Web uygulaması proxy'si dağıtmak için kullanırken bu gereksinimleri denetleyin:
 
 * Hedef sunucunun etki alanına katılmış ise, sonra Windows Uzaktan yönetilen etkinleştirildiğinden emin olun
-  * Yükseltilmiş bir PSH komut penceresinde komutunu kullanın`Enable-PSRemoting –force`
+  * Yükseltilmiş bir PSH komut penceresinde komutunu kullanın `Enable-PSRemoting –force`
 * Hedef sunucu ise, WAP makine bir etki alanına katılmış sonra birkaç ek gereksinimler vardır
   * Hedef makinede (WAP makinesi):
     * Winrm emin olun (Windows Uzaktan Yönetimi / WS-Management) hizmeti Hizmetler ek bileşenini çalıştıran
-    * Yükseltilmiş bir PSH komut penceresinde komutunu kullanın`Enable-PSRemoting –force`
+    * Yükseltilmiş bir PSH komut penceresinde komutunu kullanın `Enable-PSRemoting –force`
   * Sihirbazı'nı (hedef makine etki alanına katılmış veya güvenilmeyen etki alanı ise) çalıştığı makinede:
-    * Yükseltilmiş bir PSH komut penceresinde komutunu kullanın`Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * Yükseltilmiş bir PSH komut penceresinde komutunu kullanın `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * Sunucu Yöneticisi'nde:
       * DMZ WAP ana makine havuzuna ekleyin (Sunucu Yöneticisi -> Yönet -> sunucuları Ekle...DNS sekmesini kullanın)
       * Sunucu Yöneticisi'ni tüm sunucuları sekmesi: WAP sunucuya sağ tıklayın ve Yönet as..., seçin, WAP makine için yerel (etki alanı değil) kimlik bilgilerini girin
