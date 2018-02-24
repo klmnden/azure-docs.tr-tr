@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 04f76d15f12b52d7b47011010a5ce20cc45174ee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5bb2ee2b9b838cc9feca60eca6b2c721ca58ed45
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro Library Hadoop'ta verileri seri hale
 
@@ -78,7 +78,7 @@ Microsoft Avro Library, önceden tanımlanmış JSON şemasını temel alarak ot
 3. C:\SDK\src\Microsoft.Hadoop.Avro.Tools klasörüne gidin ve build.bat çalıştırın. (.NET Framework'ün 32-bit dağıtım noktasından MSBuild dosyasını çağırır. İçinde dosya yorumlar aşağıdaki build.bat düzenleyin. 64-bit sürümünü kullanmak istiyorsanız) Yapı başarılı olduğundan emin olun. (Bazı sistemlerinde MSBuild uyarılar oluşturabilir. Derleme hataları var olduğu sürece bu uyarılar yardımcı programı etkilemez.)
 4. Derlenmiş yardımcı programı C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools içinde bulunur.
 
-Komut satırı sözdizimi hakkında bilgi edinmek için kod oluşturma yardımcı programı bulunduğu klasöründen aşağıdaki komutu yürütün:`Microsoft.Hadoop.Avro.Tools help /c:codegen`
+Komut satırı sözdizimi hakkında bilgi edinmek için kod oluşturma yardımcı programı bulunduğu klasöründen aşağıdaki komutu yürütün: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
 Yardımcı program sınamak için kaynak kodu ile sağlanan örnek JSON şema dosyasından C# sınıfları oluşturabilirsiniz. Aşağıdaki komutu yürütün:
 

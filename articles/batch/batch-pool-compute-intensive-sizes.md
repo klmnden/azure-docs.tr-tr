@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/21/2018
 ms.author: danlep
-ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch havuzları, RDMA özellikli GPU etkinleştirilmiş veya örnekleri kullanın
 
@@ -33,9 +33,11 @@ Bu makale, yönergeler ve Azure'nın özelleştirilmiş boyutları bazıları Ba
 
 ## <a name="subscription-and-account-limits"></a>Aboneliği ve hesabı sınırları
 
-* **Kotalar** - [toplu işlem hesabı başına ayrılmış çekirdek kotası](batch-quota-limit.md#resource-quotas) sayısını veya bir Batch havuzu ekleyebileceğiniz düğümleri türünü sınırlayabilir. RDMA özelliğine sahip, GPU etkin veya diğer çok çekirdekli VM boyutları seçtiğinizde kota ulaşmak büyük olasılıkla. Varsayılan olarak, bu kota 20 çekirdek ' dir. Ayrı bir kota uygulandığı [düşük öncelikli sanal makineleri](batch-low-pri-vms.md), bunları kullanıyorsanız. 
+* **Kotalar ve sınırlar** - [toplu işlem hesabı başına ayrılmış çekirdek kotası](batch-quota-limit.md#resource-quotas) sayısını veya bir Batch havuzu ekleyebileceğiniz düğümleri türünü sınırlayabilir. RDMA özelliğine sahip, GPU etkin veya diğer çok çekirdekli VM boyutları seçtiğinizde kota ulaşmak büyük olasılıkla. Ayrı bir kota uygulandığı [düşük öncelikli sanal makineleri](batch-low-pri-vms.md), bunları kullanıyorsanız. 
 
-Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek isteği](../azure-supportability/how-to-create-azure-support-request.md) herhangi bir ücret alınmaz.
+  NCv2 ve ND, gibi sınırlı nedeniyle sınırlı kapasite ek olarak, Batch hesabınızdaki belirli VM ailelerinin kullanın. Bu aileleri kullanımını yalnızca varsayılan değer 0 çekirdek kota artışı isteyerek kullanılabilir.  
+
+  Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek isteği](../azure-supportability/how-to-create-azure-support-request.md) herhangi bir ücret alınmaz.
 
 * **Bölge kullanılabilirliği** - işlem yoğunluklu VM'ler olabilir kullanılabilir, Batch hesabınızı oluşturduğunuz bölgelerde. Bir boyut kullanılabilir olup olmadığını denetlemek için bkz: [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/).
 
@@ -50,10 +52,10 @@ Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek ist
 | Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, veya<br/>CentOS tabanlı HPC<br/>(Azure Market) | Intel MPI 5 | Düğümler arası iletişimi etkinleştirmek, eşzamanlı görev yürütme devre dışı bırakma |
-| [NC, NCv2, ND serisi *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS tabanlı 7.3<br/>(Azure Market) | NVIDIA CUDA Araç Seti 9.1 sürücüleri | Yok | 
-| [NV serisi](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS tabanlı 7.3<br/>(Azure Market) | NVIDIA Kılavuz 4.3 sürücüleri | Yok |
+| [NC, NCv2, ND serisi *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ya da 7.4, veya<br/>7.3 ya da 7.4 centOS<br/>(Azure Market) | NVIDIA CUDA Araç Seti sürücüleri | Yok | 
+| [NV serisi](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS 7.3<br/>(Azure Market) | NVIDIA kılavuz sürücüleri | Yok |
 
-* RDMA bağlantısı NC24r, NC24r_v2 ve ND24r VM'ler Ubuntu 16.04 LTS veya CentOS tabanlı 7.3 HPC (Azure Marketi'nden) Intel MPI ile desteklenir.
+* RDMA bağlantısı NC24r, NC24rs_v2 ve ND24r VM'ler Intel MPI ile Ubuntu 16.04 LTS (Azure Marketi'nden) desteklenir.
 
 
 
@@ -61,11 +63,11 @@ Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek ist
 
 | Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 veya<br/>Windows Server 2012 (Azure Market) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek, eşzamanlı görev yürütme devre dışı bırakma |
-| [NC, NCv2, ND serisi *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Windows Server 2016 veya <br/>Windows Server 2012 R2 (Azure Market) | NVIDIA Tesla sürücüleri veya CUDA Araç Seti 9.1 sürücülerini| Yok | 
-| [NV serisi](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 veya<br/>Windows Server 2012 R2 (Azure Market) | NVIDIA Kılavuz 4.3 sürücüleri | Yok |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2'de, veya<br/>2012 (azure Market) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek, eşzamanlı görev yürütme devre dışı bırakma |
+| [NC, NCv2, ND serisi *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Windows Server 2016 veya <br/>2012 R2 (Azure Market) | NVIDIA Tesla sürücüleri veya CUDA Araç Seti sürücülerini| Yok | 
+| [NV serisi](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 veya<br/>2012 R2 (Azure Market) | NVIDIA kılavuz sürücüleri | Yok |
 
-* RDMA bağlantısı NC24r, NC24r_v2 ve ND24r VM'ler HpcVMDrivers uzantısı ve Microsoft MPI veya Intel MPI ile Windows Server 2012 R2 (Azure Marketi'nden) desteklenir.
+* RDMA bağlantısı NC24r, NC24rs_v2 ve ND24rs VM'ler üzerinde Windows Server 2016 veya Windows Server 2012 R2 (Azure Marketi'nden) HpcVMDrivers uzantısı ve Microsoft MPI veya Intel MPI ile desteklenir.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows havuzları - Cloud services yapılandırması
 
@@ -75,7 +77,7 @@ Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek ist
 
 | Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012 veya<br/>Windows Server 2008 R2 (konuk işletim sistemi ailesi) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek,<br/> eşzamanlı görev yürütme devre dışı bırak |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2'de, 2012 veya<br/>2008 R2 (konuk işletim sistemi ailesi) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek,<br/> eşzamanlı görev yürütme devre dışı bırak |
 
 
 
@@ -109,7 +111,7 @@ Bir Azure A8 düğümleri havuzunda Windows MPI uygulamaları çalıştırmak i�
 
 | Ayar | Değer |
 | ---- | ----- | 
-| **Görüntü türü** | Cloud Services |
+| **Görüntü Türü** | Cloud Services |
 | **İşletim sistemi ailesi** | Windows Server 2012 R2 (işletim sistemi ailesi 4) |
 | **Düğüm boyutu** | A8 standart |
 | **Düğümler arası iletişim etkinleştirildi** | True |
@@ -129,8 +131,8 @@ Bir Linux NC düğümleri havuzunda CUDA uygulamalarını çalıştırmak için 
 
 | Ayar | Değer |
 | ---- | ---- |
-| **Görüntü türü** | Özel görüntü |
-| **Özel görüntü** | Görüntü adı |
+| **Görüntü Türü** | Özel görüntü |
+| Özel görüntü | Görüntü adı |
 | **Düğüm Aracısı SKU** | batch.node.ubuntu 16.04 |
 | **Düğüm boyutu** | NC6 standart |
 

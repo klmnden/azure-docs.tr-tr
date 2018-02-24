@@ -22,7 +22,7 @@
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [Azure bağlantılı işlev oluşturma](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [Docker ile Linux üzerinde web uygulaması dağıtma](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
+## [Docker ile Linux üzerinde web uygulaması dağıtma](https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go) 
 
 # Örnekler
 ## Azure CLI

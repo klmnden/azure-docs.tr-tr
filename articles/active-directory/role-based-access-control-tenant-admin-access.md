@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
-ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Rol tabanlı erişim denetimi ile bir kiracı Yöneticisi olarak erişimini yükseltme
 
-Rol tabanlı erişim denetimi normalden daha yüksek izinleri verebilirsiniz geçici yükseltmeleri erişim elde Kiracı Yöneticiler yardımcı olur. Bir kiracı Yöneticisi kendisini gerektiğinde kullanıcı erişimi Yöneticisi rolüne yükseltebilirsiniz. Bu rol Kiracı kendisini ya da diğer rolleri "/" kapsamındaki vermek için yönetici izinleri verir.
+Rol tabanlı erişim denetimi normalden daha yüksek izinleri verebilirsiniz geçici yükseltmeleri erişim elde Kiracı Yöneticiler yardımcı olur. Kiracı yöneticileri kendilerini gerektiğinde kullanıcı erişimi Yöneticisi rolüne yükseltebilirsiniz. Bu rol Kiracı yöneticileri kendileri veya diğerleri "/" kapsamındaki rolleri izinleri verir.
 
 Bu özellik, bir kuruluşta mevcut tüm abonelikleri görmek Kiracı yönetici izin verdiği için önemlidir. Faturalama ve tüm abonelikleri erişmek ve faturalama veya varlık yönetimi için kuruluş durumunu doğru bir görünümünü sağlamak için denetleme gibi automation uygulamalar için de sağlar.  
 
@@ -32,7 +32,7 @@ Bu özellik, bir kuruluşta mevcut tüm abonelikleri görmek Kiracı yönetici i
 
 2. Seçin **özellikleri** Azure AD'den menü sol.
 
-3. İçinde **özellikleri** dikey penceresinde Bul **genel yönetici, Azure abonelikleri yönetebilir**, seçin **Evet**, ardından **kaydetmek**.
+3. Bul **genel yönetici, Azure abonelikleri yönetebilir**, seçin **Evet**, ardından **kaydetmek**.
     > [!IMPORTANT] 
     > Seçtiğinizde **Evet**, atar **kullanıcı erişimi Yöneticisi** rol kökünde "/" (kök kapsamı) ile şu anda oturum Portalı'na kullanıcı için. **Bu, diğer tüm Azure abonelikleri görmek kullanıcının sağlar.**
     
@@ -42,29 +42,31 @@ Bu özellik, bir kuruluşta mevcut tüm abonelikleri görmek Kiracı yönetici i
 > [!TIP] 
 > İzlenim bu Azure Active Directory için genel bir özellik olan, ancak şu anda oturum açmış kullanıcı için kullanıcı başına temelinde işlevleri olur. Azure Active Directory'de genel yönetici haklarına sahip olduğunuzda, Azure Active Directory Yönetim Merkezi şu anda kaydedilir kullanıcı elevateAccess özelliğini çağırabilirsiniz.
 
-![Azure AD Yönetim Merkezi - özellikleri - Globaladmin Azure aboneliği - ekran görüntüsü yönetebilirsiniz](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+![Azure AD Yönetim Merkezi - özellikleri - genel yönetici Azure aboneliği - ekran görüntüsü yönetebilirsiniz](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
 ## <a name="view-role-assignments-at-the--scope-using-powershell"></a>PowerShell kullanarak "/" kapsamdaki rol atamalarını görüntüleyin
 Görüntülemek için **kullanıcı erişimi Yöneticisi** atamasının  **/**  kapsam, kullanın `Get-AzureRmRoleAssignment` PowerShell cmdlet'i.
     
-```
+```powershell
 Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
 ```
 
 **Örnek Çıktı**:
-
-RoleAssignmentId: /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
-Kapsam: /    
-DisplayName: kullanıcı adı    
+```
+RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+Scope              : /    
+DisplayName        : username    
 SignInName         : username@somedomain.com    
-RoleDefinitionName: Kullanıcı erişimi Yöneticisi    
+RoleDefinitionName : User Access Administrator    
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
-ObjectType: kullanıcı    
+ObjectType         : User    
+```
 
 ## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>Rol atamasının Sil "/" Powershell kullanarak kapsam:
 PowerShell cmdlet'ini kullanarak atama silebilirsiniz:
-```
+
+```powershell
 Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
 ```
 
@@ -80,15 +82,16 @@ Temel işlem aşağıdaki adımlarla çalışır:
 
 2. Oluşturma bir [rol ataması](/rest/api/authorization/roleassignments) herhangi kapsamındaki herhangi bir rol atamak için. Aşağıdaki örnek, okuyucu rolüne atamak için özellikleri gösterir "/" Kapsam:
 
-    ```
-    { "properties":{
-    "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
-    "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
-    "scope": "/"
-    },
-    "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
-    "type": "Microsoft.Authorization/roleAssignments",
-    "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
+    ```json
+    { 
+      "properties": {
+        "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
+        "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
+        "scope": "/"
+      },
+      "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
     }
     ```
 
@@ -102,55 +105,90 @@ Temel işlem aşağıdaki adımlarla çalışır:
 Çağırdığınızda *elevateAccess* atama silmeniz gerekiyorsa bu ayrıcalıkları iptal etmek için bir rol ataması kendiniz için oluşturun.
 
 1.  GET roleDefinitions çağırma olduğu roleName GUID kullanıcı erişimi yöneticisi rolünün adını belirlemek için kullanıcı erişimi Yöneticisi =.
-    1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
+    ```
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator
+    ```
 
-        ```
-        {"value":[{"properties":{
-        "roleName":"User Access Administrator",
-        "type":"BuiltInRole",
-        "description":"Lets you manage user access to Azure resources.",
-        "assignableScopes":["/"],
-        "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
-        "createdOn":"0001-01-01T08:00:00.0000000Z",
-        "updatedOn":"2016-05-31T23:14:04.6964687Z",
-        "createdBy":null,
-        "updatedBy":null},
-        "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-        "type":"Microsoft.Authorization/roleDefinitions",
-        "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
-        "nextLink":null}
-        ```
+    ```json
+    {
+      "value": [
+        {
+          "properties": {
+        "roleName": "User Access Administrator",
+        "type": "BuiltInRole",
+        "description": "Lets you manage user access to Azure resources.",
+        "assignableScopes": [
+          "/"
+        ],
+        "permissions": [
+          {
+            "actions": [
+              "*/read",
+              "Microsoft.Authorization/*",
+              "Microsoft.Support/*"
+            ],
+            "notActions": []
+          }
+        ],
+        "createdOn": "0001-01-01T08:00:00.0000000Z",
+        "updatedOn": "2016-05-31T23:14:04.6964687Z",
+        "createdBy": null,
+        "updatedBy": null
+          },
+          "id": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "name": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"
+        }
+      ],
+      "nextLink": null
+    }
+    ```
 
-        GUID değerinden Kaydet *adı* parametresi, bu durumda **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+    GUID değerinden Kaydet *adı* parametresi, bu durumda **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. Kiracı yönetici Kiracı kapsamda rol ataması listesi gerekir. Çağrı yükseltme erişim yapan TenantAdmin Principalıd için Kiracı kapsamındaki tüm atamaları listeler. Bu Kiracı için objectID tüm atamalarını listeler. 
-    1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
+2. Kiracı yönetici Kiracı kapsamda rol ataması listesi gerekir. Çağrı yükseltme erişim yapan TenantAdmin Principalıd için Kiracı kapsamındaki tüm atamaları listeler. Bu Kiracı için objectID tüm atamalarını listeler.
+
+    ```
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
+    ```
     
-        >[!NOTE] 
-        >Tüm atamaları yalnızca Kiracı kapsam düzeyinde, ardından sonuçları filtrelemek için önceki sorgu çok fazla atamaları, sorgu da döndürürse birçok atamaları, Kiracı yönetici sahip olmamalıdır: GET *https://management.azure.com/providers/ Microsoft.Authorization/roleAssignments? api-version = 2015-07-01 & $filter=atScope()*
+    >[!NOTE] 
+    >Tüm atamaları Kiracı kapsam düzeyinde yeni sonra sonuçlara filtre uygulamak için önceki sorgu çok fazla atamaları, sorgu da döndürürse, bir kiracı Yöneticisi birçok atamaları olmamalıdır: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    
         
-    2. Önceki çağrılar rol atamalarını listesini döndürür. Rol ataması kapsam olduğu Bul "/" 1. adımda bulduğunuz GUID'i rol adı Roledefinitionıd biter ve Principalıd eşleşen objectID Kiracı yönetici Rol ataması şöyle görünür:
+    2. Önceki çağrılar rol atamalarını listesini döndürür. Rol ataması kapsam olduğu Bul "/" 1. adımda bulduğunuz GUID'i rol adı Roledefinitionıd biter ve Principalıd eşleşen objectID Kiracı yönetici 
+    
+    Örnek rol ataması:
 
-        ```
-        {"value":[{"properties":{
-        "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-        "principalId":"{objectID}",
-        "scope":"/",
-        "createdOn":"2016-08-17T19:21:16.3422480Z",
-        "updatedOn":"2016-08-17T19:21:16.3422480Z",
-        "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
-        "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
-        "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-        "type":"Microsoft.Authorization/roleAssignments",
-        "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
-        "nextLink":null}
+        ```json
+        {
+          "value": [
+            {
+              "properties": {
+                "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+                "principalId": "{objectID}",
+                "scope": "/",
+                "createdOn": "2016-08-17T19:21:16.3422480Z",
+                "updatedOn": "2016-08-17T19:21:16.3422480Z",
+                "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
+                "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
+              },
+              "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+              "type": "Microsoft.Authorization/roleAssignments",
+              "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
+            }
+          ],
+          "nextLink": null
+        }
         ```
         
-        Yeniden adresinden GUID Kaydet *adı* parametresi, bu durumda **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    Yeniden adresinden GUID Kaydet *adı* parametresi, bu durumda **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
 
     3. Son olarak, vurgulanan kullanmak **RoleAssignment kimliği** yükseltmesine erişim tarafından eklenen atamasını silmek için:
 
-        DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+    ```
+    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

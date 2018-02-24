@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 43f045033648534e9c0fea344bbc38da34f8454b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 20f87e9c545eae283ff1514feeda0b1f9057e668
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Azure portalını kullanarak Data Lake Store ile Hdınsight kümeleri oluşturma
 > [!div class="op_single_selector"]
@@ -185,9 +185,9 @@ Veri yolu, örneğin, birincil depolama olarak Data Lake Store ile oluşturduğu
     CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsstorage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 
 Açıklamaları:
-* `adl://hdiadlstorage.azuredatalakestore.net/`Data Lake Store hesabı köküdür.
-* `/clusters/myhdiadlcluster`Küme oluşturulurken belirtilen küme verileri köküdür.
-* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/`sorguda kullanılan örnek dosyasının konumudur.
+* `adl://hdiadlstorage.azuredatalakestore.net/` Data Lake Store hesabı köküdür.
+* `/clusters/myhdiadlcluster` Küme oluşturulurken belirtilen küme verileri köküdür.
+* `/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/` sorguda kullanılan örnek dosyasının konumudur.
 
 ### <a name="run-a-hive-query-against-data-in-a-data-lake-store-as-additional-storage"></a>Bir Data Lake Store'da verileri karşı (ek depolama alanı olarak) Hive sorgusu çalıştırma
 

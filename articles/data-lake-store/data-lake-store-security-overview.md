@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d65341ae79a8894d054503e0b0807dee3e4cca8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store'da güvenlik
 Çoğu kurum, büyük veri analizi için akıllı kararlar almanıza yardımcı olmak iş öngörüleri avantajlarından sürüyor. Bir kuruluşun farklı kullanıcılar artan sayıda ile karmaşık ve düzenlenen bir ortam olabilir. Kritik iş verileri doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake Store, bu güvenlik gereksinimlerini karşılamak amacıyla tasarlanmıştır. Bu makalede, Data Lake Store, güvenlik özellikleri hakkında bilgi de dahil olmak üzere:
@@ -54,7 +54,7 @@ Hesap yönetimi için rolleri atanmış rağmen bazı roller verilere erişim et
 
 | Roller | Yönetim hakları | Veri erişim hakları | Açıklama |
 | --- | --- | --- | --- |
-| Atanmış bir role yok |Hiçbiri |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
+| Atanmış bir role yok |None |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
 | Sahip |Tümü |Tümü |Süper kullanıcı sahibi rolüdür. Bu rolü her şeyi yönetebilir ve veri tam erişimi vardır. |
 | Okuyucu |Salt okunur |ACL ile yönetilen |Okuyucu rolüne hangi role atanmış kullanıcı gibi hesap yönetimi ile ilgili her şeyi görüntüleyebilir. Okuyucu rolüne değişiklik yapamazsınız. |
 | Katılımcı |Tüm ekleme ve kaldırma rolleri dışında |ACL ile yönetilen |Katkıda bulunan rolü dağıtımları ve oluşturma ve Uyarıları yönetme gibi bir hesap, bazı yönlerini yönetebilirsiniz. Katkıda bulunan rolü ekleme veya rollerini kaldırın. |

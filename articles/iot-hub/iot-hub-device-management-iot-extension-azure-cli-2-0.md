@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 760a6a30513308aa59c5e253e3b91e28cf9e3241
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>IOT uzantısı Azure CLI 2.0 için Azure IOT Hub cihaz yönetimi için kullanın.
 
@@ -66,7 +66,7 @@ Azure CLI 2.0 ve IOT uzantısı Azure CLI 2.0 için çeşitli yönetim seçenekl
 - IOT uzantısını yükleyin. En basit yolu çalıştırmaktır `az extension add --name azure-cli-iot-ext`. [IOT uzantısı Benioku](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) uzantıyı yüklemek için çeşitli yollar açıklanmaktadır.
 
 
-## <a name="login-to-your-azure-account"></a>Azure hesabınızda oturum açın
+## <a name="log-in-to-your-azure-account"></a>Azure hesabınızda oturum açın
 
 Aşağıdaki komutu çalıştırarak Azure hesabınızda oturum açın:
 
@@ -74,13 +74,13 @@ Aşağıdaki komutu çalıştırarak Azure hesabınızda oturum açın:
 az login
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-direct-methods"></a>IOT uzantısı Azure CLI 2.0 için doğrudan yöntemleriyle kullanın.
+## <a name="direct-methods"></a>Doğrudan yöntemler
 
 ```bash
 az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-desired-properties"></a>IOT uzantısı için Azure CLI 2.0 twin'ın istenen özelliklere sahip kullanın.
+## <a name="device-twin-desired-properties"></a>Cihaz çifti istenen özellikleri
 
 İstenen özellik aralığını ayarlayın aşağıdaki komutu çalıştırarak 3000 =:
 
@@ -90,7 +90,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 Bu özellik aygıtınızdan okuyabilir.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-reported-properties"></a>IOT uzantısı için Azure CLI 2.0 twin'ın bildirilen özelliklerle kullanın.
+## <a name="device-twin-reported-properties"></a>Cihaz çifti özellikleri bildirdi
 
 Aşağıdaki komutu çalıştırarak bildirilen cihaz özelliklerini alın:
 
@@ -100,7 +100,7 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 
 $Metadata özellikleri biridir. Bu aygıtın son zamanı gösteren $lastUpdated gönderir veya bir ileti alır.
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-twins-tags"></a>IOT uzantısı için Azure CLI 2.0 twin'ın etiketleriyle kullanın.
+## <a name="device-twin-tags"></a>Cihaz çifti etiketleri
 
 Aşağıdaki komutu çalıştırarak etiketleri ve cihaz özelliklerini görüntüle:
 
@@ -114,7 +114,7 @@ Bir alan rolünü ekleyin aşağıdaki komutu çalıştırarak sıcaklık ve nem
 az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
 ```
 
-## <a name="use-the-iot-extension-for-azure-cli-20-with-device-twins-queries"></a>IOT uzantısı Azure CLI 2.0 için cihaz çiftlerini sorgularıyla kullanın.
+## <a name="device-twin-queries"></a>Cihaz çifti sorguları
 
 Sorgu bir etiket rolünün aygıtlarla 'sıcaklık ve nem' aşağıdaki komutu çalıştırarak =:
 

@@ -13,37 +13,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/21/2018
+ms.date: 02/22/2018
 ms.author: owend
-ms.openlocfilehash: 2149330eb711fea76a144f5ec748ae6760c7746a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e5159f8c6e8c271230151f71bf3057d07fc75c21
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services'a bağlanmak için istemci kitaplıkları
 
 İstemci kitaplıkları, Analysis Services sunucularına bağlanmak için istemci uygulamaları ve araçları için gereklidir. 
 
-## <a name="download-the-latest-client-libraries"></a>Son istemci kitaplıkları indirin  
+## <a name="download-the-latest-client-libraries-windows-installer"></a>Son istemci kitaplıkları (Windows Installer) yükle  
 
 |İndirme  |Sürüm  | 
 |---------|---------|
 |[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
 |[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.300.129.01      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    115.0.300.129.01      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2      |
 
-## <a name="amo-and-adomd-on-nuget"></a>AMO ve ADOMD NuGet üzerinde
+## <a name="amo-and-adomd-nuget-packages"></a>AMO ve ADOMD (NuGet paketleri)
 
-Analysis Services yönetim nesneleri (AMO) ve ADOMD istemci kitaplıkları yüklenebilir paketleri olarak kullanılabilir [NuGet.org](https://www.nuget.org/). 
+Analysis Services yönetim nesneleri (AMO) ve ADOMD istemci kitaplıkları yüklenebilir paketleri olarak kullanılabilir [NuGet.org](https://www.nuget.org/). Windows Installer kullanmak yerine NuGet başvurularını geçiş yapmanız önerilir. 
 
 |Paket  |Sürüm  | 
 |---------|---------|
 |[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
 |[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
 
-MSI yükleyicisi kullanmak yerine NuGet başvurularını geçiş yapmanız önerilir. 
+
 
 NuGet paket derlemeleri AssemblyVersion izleyin anlamsal sürüm oluşturma: önemli. KÜÇÜK. DÜZELTME EKİ. Olsa bile farklı bir sürümünü (MSI yükle sonuçlanır) GAC'de NuGet başvurularını beklenen sürümü yüklenemiyor. Düzeltme eki her sürüm için artırılır. AMO ve ADOMD sürümleri eşitleme tutulur.
 
@@ -67,9 +67,7 @@ Microsoft Power BI Desktop ve Excel gibi istemci uygulamaları, tüm üç istemc
 
 ### <a name="amo"></a>AMO  
 
- AMO sunucu yönetimi ve veri tanımı için kullanılan bir yönetilen istemci kitaplıktır. Yüklü ve araçları ve istemci uygulamaları tarafından kullanılan. Örneğin, SQL Server Management Studio (SSMS) AMO Analysis Services'a bağlanmak için kullanır.  
-  
- AMO kullanarak bağlantı oluşan genellikle, en alt düzeydedir `“data source=\<servername>”`. Bağlantı kurulduktan sonra veritabanı koleksiyonları ve büyük nesneler ile çalışmak için API kullanın. SSDT ve SSMS AMO Analysis Services örneğine bağlanın.  
+ AMO sunucu yönetimi ve veri tanımı için kullanılan bir yönetilen istemci kitaplıktır. Yüklü ve araçları ve istemci uygulamaları tarafından kullanılan. Örneğin, SQL Server Management Studio (SSMS) AMO Analysis Services'a bağlanmak için kullanır. AMO kullanarak bağlantı oluşan genellikle, en alt düzeydedir `“data source=\<servername>”`. Bağlantı kurulduktan sonra veritabanı koleksiyonları ve büyük nesneler ile çalışmak için API kullanın. SSDT ve SSMS AMO Analysis Services örneğine bağlanın.  
 
   
 ### <a name="adomd"></a>ADOMD
@@ -83,21 +81,21 @@ Microsoft Power BI Desktop ve Excel gibi istemci uygulamaları, tüm üç istemc
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
-1.  `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140` kısmına gidin. Birden fazla klasör varsa, en yüksek sayıyı seçin.
+1.  Go to `C:\Program Files\Microsoft Analysis Services\AS OLEDB\. Birden fazla klasör varsa, en yüksek sayıyı seçin.
   
-2.  Sağ **msolap.dll** > **özellikleri** > **ayrıntıları**. Dll msolap140.dll olarak adlandırılmışsa, eski en son sürüme ve yükseltilmelidir.
+2.  Sağ **msolap.dll** > **özellikleri** > **ayrıntıları**. Dosya adı msolap140.dll ise, eski en son sürüme ve yükseltilmelidir.
     
     ![İstemci Kitaplığı ayrıntıları](media/analysis-services-data-providers/aas-msolap-details.png)
     
   
 ### <a name="amo"></a>AMO
 
-1. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\v4.0_14.0.0.0__89845dcd8080cc91` kısmına gidin.
+1. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\` kısmına gidin. Birden fazla klasör varsa, en yüksek sayıyı seçin.
 2. Sağ **Microsoft.AnalysisServices** > **özellikleri** > **ayrıntıları**.  
 
 ### <a name="adomd"></a>ADOMD
 
-1. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\v4.0_14.0.0.0__89845dcd8080cc91` kısmına gidin.
+1. `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\` kısmına gidin. Birden fazla klasör varsa, en yüksek sayıyı seçin.
 2. Sağ **Microsoft.AnalysisServices.AdomdClient** > **özellikleri** > **ayrıntıları**.  
 
 

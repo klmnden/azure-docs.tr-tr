@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 7210a6d754f2c13c915955f2b401d19f3a55649e
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Mobility hizmetinin (VMware veya fiziksel Azure) yükleyin
 Azure Site Recovery Mobility hizmeti, bir bilgisayardaki veri yazma yakalar ve bunları işlem sunucusuna gönderir. Azure'a çoğaltmak istediğiniz her bilgisayarda (VMware VM veya fiziksel sunucu) için Mobility hizmetini dağıtın. Mobility hizmeti aşağıdaki yöntemleri kullanarak korumak istediğiniz sunucuları dağıtabilirsiniz:
@@ -27,12 +27,12 @@ Azure Site Recovery Mobility hizmeti, bir bilgisayardaki veri yazma yakalar ve b
 
 
 >[!IMPORTANT]
-> Mobility hizmeti sürümü 9.7.0.0, Windows sanal makinelerde (VM'ler) başlayarak yükleyici de en son kullanılabilir yükler [Azure VM Aracısı](../virtual-machines/windows/extensions-features.md#azure-vm-agent). Bir bilgisayar üzerinden Azure'a başarısız olduğunda, bilgisayarın tüm VM uzantısı kullanılarak için önkoşul aracı yüklemesi karşılar.
+> Mobility hizmeti sürümü 9.7.0.0, Windows vm'lerinde başlayarak yükleyici de en son kullanılabilir yükler [Azure VM Aracısı](../virtual-machines/windows/extensions-features.md#azure-vm-agent). Bir bilgisayar üzerinden Azure'a başarısız olduğunda, bilgisayarın tüm VM uzantısı kullanılarak için önkoşul aracı yüklemesi karşılar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Sunucunuzda el ile Mobility hizmetini yüklemeden önce önkoşul adımları tamamlayın:
 1. Yapılandırma sunucusunda oturum açın ve ardından yönetici olarak bir komut istemi penceresi açın.
-2. Bin klasörüne dizini değiştirin ve ardından bir parola dosyası oluşturun:
+2. Bin klasörüne dizini değiştirin ve ardından bir parola dosya oluşturun.
 
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
@@ -60,7 +60,7 @@ Sunucunuzda el ile Mobility hizmetini yüklemeden önce önkoşul adımları tam
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>GUI kullanarak Mobility hizmeti el ile yükleyin
 
 >[!IMPORTANT]
-> Kullanıyorsanız bir **yapılandırma sunucusu** çoğaltmak için **Azure Iaas sanal makineleri** gelen bir Azure aboneliği/bölge sonra başka bir **komut satırı tabanlı yüklemekullanın** yöntemi
+> Azure Iaas sanal makineleri bir Azure aboneliği/bölgesinden çoğaltmak için bir yapılandırma sunucusu kullanıyorsanız, komut satırı tabanlı yükleme yöntemi kullanın.
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
@@ -74,7 +74,7 @@ Sunucunuzda el ile Mobility hizmetini yüklemeden önce önkoşul adımları tam
 
 
 ## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Azure Site Recovery anında yüklemesinden tarafından Mobility hizmetini yükleme
-Site RECOVERY'yi kullanarak mobilite hizmetinin göndermeli yüklemesi yapmak için tüm hedef bilgisayarlar aşağıdaki önkoşulları karşılaması gerekir:
+Mobility hizmetinin göndermeli yüklemesi Site RECOVERY'yi kullanarak yapabilirsiniz. Tüm hedef bilgisayarlar aşağıdaki önkoşulları yerine getirmeniz gerekir.
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -82,25 +82,26 @@ Site RECOVERY'yi kullanarak mobilite hizmetinin göndermeli yüklemesi yapmak i�
 
 
 > [!NOTE]
-Mobility hizmeti, Azure portalında yükledikten sonra seçin **+ Çoğalt** bu sanal makineleri korumaya başlamak için Başlat.
+Mobility hizmeti, Azure portalında yükledikten sonra seçin **+ Çoğalt** bu sanal makineleri korumaya başlamak için.
 
 ## <a name="update-mobility-service"></a>Mobility hizmeti güncelleştirmesi
 
 > [!WARNING]
-> Yapılandırma sunucusu, genişleme işlem sunucuları ve korumalı sunuculardaki Mobility hizmeti güncelleştirme başlamadan önce dağıtımınızın parçası güncelleştirilir ana hedef sunucuları emin olun.
+> Mobility hizmeti korumalı sunucularda güncelleştirme başlamadan önce yapılandırma sunucusu, genişleme işlem sunucuları ve dağıtımınızın bir parçası olan tüm ana hedef sunucularının güncel emin olun.
 
-1. Azure portal Gözat <Your Vault> çoğaltılan öğeler görünümü ->.
-2. Varsa **yapılandırma sunucusu** okuyan bir bildirimi görmelisiniz sonra en son sürüme zaten güncelleştirildi *Yeni Site kurtarma çoğaltma aracısını güncelleştirme kullanılabilir. Yüklemek için tıklatın*
+1. Azure Portal'da Gözat *kasanızı adını* > **öğeleri çoğaltılan** görünümü.
+2. Yapılandırma sunucusunun en son sürümüne güncelleştirilmişse, "Yeni Site kurtarma çoğaltma aracısını güncelleştirme kullanılabilir. okuyan bir bildirim görür Yüklemek için tıklatın."
 
-     ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
-3. Sanal makine seçimi sayfanın açmak için bildirimi tıklayın.
-4. Mobility hizmeti yükseltmeniz & Tamam düğmesini tıklatın istediğiniz sanal makineleri seçin.
+     ![Çoğaltılan öğeler penceresi](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
+3. Sanal makine seçimi sayfasını açmak için bildirim seçin.
+4. Mobility hizmeti yükseltmeniz ve seçmek için istediğiniz sanal makineleri seçin **Tamam**.
 
-     ![ReplicatedItemsVMList](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
-5. Bu güncelleştirme Mobility hizmeti işi her seçili sanal makineleri için başlatır.
+     ![Çoğaltılan öğeler VM listesi](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
+
+Güncelleştirme Mobility hizmeti işi her seçili sanal makineleri için başlatır.
 
 > [!NOTE]
-> [Daha fazla bilgi](site-recovery-vmware-to-azure-manage-configuration-server.md) mobilite hizmetini yüklemek için kullanılan hesabın parolasını güncelleştirme hakkında
+> [Daha fazla bilgi](site-recovery-vmware-to-azure-manage-configuration-server.md) nasıl mobilite hizmetini yüklemek için kullanılan hesap parolasını güncelleştirin.
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Bir Windows Server bilgisayarında Mobility hizmetini kaldırma
 Bir Windows Server bilgisayarında Mobility hizmetini kaldırmak için aşağıdaki yöntemlerden birini kullanın.
@@ -113,15 +114,15 @@ Bir Windows Server bilgisayarında Mobility hizmetini kaldırmak için aşağıd
 1. Yönetici olarak bir komut istemi penceresi açın.
 2. Mobility hizmetini kaldırmak için aşağıdaki komutu çalıştırın:
 
-```
-MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-```
+    ```
+    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+    ```
 
 ## <a name="uninstall-mobility-service-on-a-linux-computer"></a>Bir Linux bilgisayarda Mobility hizmetini kaldırma
 1. Linux sunucunuzda olarak oturum açın bir **kök** kullanıcı.
 2. Bir terminale için /user/local/ASR gidin.
 3. Mobility hizmetini kaldırmak için aşağıdaki komutu çalıştırın:
 
-```
-uninstall.sh -Y
-```
+    ```
+    uninstall.sh -Y
+    ```

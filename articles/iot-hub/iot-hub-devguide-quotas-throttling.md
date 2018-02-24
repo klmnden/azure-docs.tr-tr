@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT hub'ı kotalar ve azaltma
 
@@ -31,6 +31,8 @@ SKU da IOT hub'ı tüm işlemler zorlar azaltma sınırları belirler.
 
 ## <a name="operation-throttles"></a>İşlem kısıtlamaları
 İşlem kısıtlamaları dakika aralıklardaki uygulanır ve kötüye önlemek üzere tasarlanmıştır oranı sınırlamalardır. IOT hub'ı mümkün olduğunca hataları döndürüyor önlemek çalışır, ancak kısıtlama çok uzun süre ihlal edilirse özel durumları döndüren başlatır.
+
+Belirli bir zamanda, bir IOT hub'ındaki sağlanan birim sayısını artırarak kotaları veya azaltma sınırları artırabilir.
 
 Aşağıdaki tabloda zorlanan kısıtlamaları gösterir. Değerleri tek tek bir hub'ına bakın.
 
@@ -50,15 +52,11 @@ Aşağıdaki tabloda zorlanan kısıtlamaları gösterir. Değerleri tek tek bir
 
 <sup>1</sup>8 KB olduğunu ölçer boyutunu azaltma
 
-> [!IMPORTANT]
-> *Cihaz bağlantılarını* kısıtlama yeni cihaz bağlantılarını kurulabileceği bir IOT hub ile oranı yönetir. *Cihaz bağlantılarını* kısıtlama en fazla eş zamanlı cihaz sayısını belirleyen değil. IOT hub için sağlanan birim sayısını azaltma bağlıdır.
+*Cihaz bağlantılarını* kısıtlama yeni cihaz bağlantılarını kurulabileceği bir IOT hub ile oranı yönetir. *Cihaz bağlantılarını* kısıtlama en fazla eş zamanlı cihaz sayısını belirleyen değil. IOT hub için sağlanan birim sayısını azaltma bağlıdır.
 
 Örneğin, tek bir S1 birim satın alırsanız, bir kısıtlama saniyede 100 bağlantısı alın. Bu nedenle, 100.000 cihaz bağlanmak için en az 1000 saniye (yaklaşık 16 dakika) alır. Ancak, kimlik kayıt defterinizde kayıtlı cihazlara sahip sayıda eş zamanlı cihazı olabilir.
 
 IOT hub'ı kapsamlı bir açıklama için blog gönderisine bakın davranışı, azaltma [IOT Hub'ın azaltma ve][lnk-throttle-blog].
-
-> [!NOTE]
-> Belirli bir zamanda, bir IOT hub'ındaki sağlanan birim sayısını artırarak kotaları veya azaltma sınırları artırabilir.
 
 > [!IMPORTANT]
 > Kimlik kayıt defteri işlemlerini aygıt yönetimi ve senaryoları sağlama çalışma zamanı kullanmak için tasarlanmıştır. Okunurken ya da çok sayıda cihaz kimliklerini güncelleştirilirken desteklenen aracılığıyla [içeri ve dışarı aktarma işleri][lnk-importexport].

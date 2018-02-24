@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8816885a7703e89c53bbfd839c9e7eb1337c3879
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e5acf32353f675a98b05692e352c3ca323588ac3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Azure Data Factory kullanarak kovanından veri kopyalama 
 
@@ -48,7 +48,7 @@ Aşağıdaki özellikler Hive bağlantılı hizmeti için desteklenir:
 | konak | IP adresi veya ana bilgisayar adı (yalnızca serviceDiscoveryMode etkin olduğunda) birden çok ana bilgisayar için ';' ile ayrılmış Hive sunucu.  | Evet |
 | port | Hive sunucusunun istemci bağlantılarını dinlemek için kullandığı TCP bağlantı noktası.  | Hayır |
 | serverType | Hive sunucu türü. <br/>İzin verilen değerler: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Hayır |
-| thriftTransportProtocol | Thrift katmanda kullanılacak Aktarım Protokolü. <br/>İzin verilen değerler: **ikili**, **SASL**, ** HTTP ** | Hayır |
+| thriftTransportProtocol | Thrift katmanda kullanılacak Aktarım Protokolü. <br/>İzin verilen değerler: **ikili**, **SASL**, **HTTP** | Hayır |
 | authenticationType | Hive sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler: **anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | serviceDiscoveryMode | ZooKeeper hizmet yanlış kullanmayan belirtmek için true.  | Hayır |
 | zooKeeperNameSpace | Hangi altında Hive Server 2 düğümler eklenir, ZooKeeper ad.  | Hayır |

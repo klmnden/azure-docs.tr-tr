@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e246abaf8d1d7939765e1c878f6dfaf6375294f6
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: aa71a1cc48449c6ef48365b301bf9e297c0597ae
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure Data Lake Store içinde depolanan verilerin güvenliğini sağlama
 Azure Data Lake Store'da verilerin güvenliğini sağlama üç adımlık bir yaklaşımdır.
@@ -30,7 +30,7 @@ Azure Data Lake Store'da verilerin güvenliğini sağlama üç adımlık bir yak
 
 Bu makalede yukarıdaki görevleri gerçekleştirmek için Azure portalını kullanma hakkında yönergeler sağlar. Data Lake Store hesabı ve veri düzeyinde güvenlik nasıl uyguladığını hakkında ayrıntılı bilgi için bkz: [Azure Data Lake Store'da güvenlik](data-lake-store-security-overview.md). ACL'ler Azure Data Lake Store içinde nasıl uygulandığını derin Dalış hakkında bilgi için bkz: [Data Lake Store'da erişim denetimine genel bakış](data-lake-store-access-control.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
@@ -78,7 +78,7 @@ Azure Data Lake Store hesapları için kullanıcıların veya güvenlik gruplar�
     ![Güvenlik Grubu Ekle](./media/data-lake-store-secure-data/adl.add.user.2.png "güvenlik grubu Ekle")
    
     Listede olmayan bir grup/kullanıcı eklemek istiyorsanız, bunları kullanarak davet edebilirsiniz **davet** simgesi ve kullanıcı/grup için e-posta adresi belirtme.
-6. **Tamam** düğmesine tıklayın. Aşağıda gösterildiği gibi eklenen güvenlik grubu görmeniz gerekir.
+6. **Tamam**’a tıklayın. Aşağıda gösterildiği gibi eklenen güvenlik grubu görmeniz gerekir.
    
     ![Güvenlik grubuna eklenen](./media/data-lake-store-secure-data/adl.add.user.3.png "güvenlik grubuna eklendi")
 
@@ -104,7 +104,7 @@ Azure Data Lake dosya sistemine kullanıcı/güvenlik gruplarına atayarak Azure
 4. Tıklatın **Ekle** açmak için simgesini **eklemek özel erişim** dikey. Bu dikey pencerede tıklatın **kullanıcı veya Grup Seç**ve ardından **kullanıcı veya Grup Seç** dikey penceresinde, Azure Active Directory'de daha önce oluşturduğunuz güvenlik grubunun arayın. Gelen arama gruplarının çok varsa, metin kutusunun en üstünde grup adına filtrelemek için kullanın. Ekleyin ve ardından istediğiniz Grup tıklatın **seçin**.
    
     ![Grup ekleme](./media/data-lake-store-secure-data/adl.acl.3.png "grup ekleme")
-5. Tıklatın **Select izinleri**, izinleri seçin ve varsayılan olarak ACL izinleri atamak istediğiniz olup olmadığını ACL ya da her ikisini de erişim. **Tamam** düğmesine tıklayın.
+5. Tıklatın **Select izinleri**, izinleri seçin ve varsayılan olarak ACL izinleri atamak istediğiniz olup olmadığını ACL ya da her ikisini de erişim. **Tamam**’a tıklayın.
    
     ![Grup için izinleri atayın](./media/data-lake-store-secure-data/adl.acl.4.png "gruplandırmak için izinler atama")
    

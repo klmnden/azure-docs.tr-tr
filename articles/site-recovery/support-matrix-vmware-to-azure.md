@@ -1,6 +1,6 @@
 ---
 title: "VMware Vm'lerini ve fiziksel sunucuları Azure'a çoğaltma için azure Site Recovery destek matrisi | Microsoft Docs"
-description: "VMware Vm'lerini Azure'da Azure Site Recovery hizmeti ile çoğaltma için bileşenleri ve desteklenen işletim sistemleri özetlenmektedir."
+description: "Azure Site Recovery kullanarak VMware Vm'lerini Azure'a çoğaltma için bileşenleri ve desteklenen işletim sistemleri özetlenmektedir."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,31 +8,31 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 88fc17b635cc96defd1b6f766b9b2ac2c63f2fa7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 31754cd765c90b9e36d16dc766b0a3546e6fd93e
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
 
-Bu makalede desteklenen bileşenleri ve Azure, VMware vm'lerinin olağanüstü durum kurtarma için ayarları özetler kullanarak [Azure Site Recovery](site-recovery-overview.md) hizmet.
+Bu makalede desteklenen bileşenleri ve VMware Vm'lerini olağanüstü durum kurtarma Azure ayarlarını kullanarak özetler [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 
-Senaryo | **Ayrıntılar**
+**Senaryo** | **Ayrıntılar**
 --- | ---
-VMware Vm'leri | Şirket içi VMware Vm'leri için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryoda Azure portal veya PowerShell kullanarak dağıtabilirsiniz.
-Fiziksel sunucuları | Şirket içi Windows/Linux fiziksel sunucuları için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo Azure portalında dağıtabilirsiniz.
+**VMware Vm'leri** | Şirket içi VMware Vm'leri için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.
+**Fiziksel sunucuları** | Şirket içi Windows/Linux fiziksel sunucuları için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo Azure portalında dağıtabilirsiniz.
 
 ## <a name="on-premises-virtualization-servers"></a>Şirket içi sanallaştırma sunucuları
 
 **Sunucu** | Gereksinimleri | **Ayrıntılar**
 --- | --- | ---
-**VMware** | vCenter Server 6.5, 6.0 or 5.5 or vSphere 6.5, 6.0, 5.5 | Bir vCenter sunucusu kullanmanızı öneririz
-Fiziksel sunucuları | NA
+**VMware** | vCenter Server 6.5, 6.0 veya 5.5 ya da vSphere 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.
+**Fiziksel sunucuları** | Yok
 
 
 ## <a name="replicated-machines"></a>Çoğaltılan makineler
@@ -42,20 +42,20 @@ Makineler için çoğaltma desteği aşağıdaki tabloda özetlenmiştir. Site R
 **Bileşen** | **Ayrıntılar**
 --- | ---
 Makine Yapılandırması | Azure'a makineler karşılamalıdır [Azure gereksinimleri](#failed-over-azure-vm-requirements).
-Makine işletim sistemini (Windows) | 64-bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi olan sunucu)\*, Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1
-Makine işletim sistemi (Linux) | Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4 <br/><br/>CentOS: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, Red Hat uyumlu çekirdek ya da kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) çalıştıran 6.5 <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Makineler SLES 11 SP4 ' SLES 11 SP3 çoğaltılan yükseltme desteklenmez. Çoğaltılmış bir makineden SLES 11 SP4 ' SLES 11SP3 yükseltildiyse, çoğaltmayı devre dışı bırakın ve makine yükseltme sonrası yeniden korumak gerekir.)
+Makine işletim sistemini (Windows) | 64-bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi olan sunucu), Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1
+Makine işletim sistemi (Linux) | Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4 <br/><br/>CentOS: 5.2 için 5.11 ya, 6.1 için 6.9, 7.0 için 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, Red Hat uyumlu çekirdek ya da kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) çalıştıran 6.5 <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Makineler SLES 11 SP4 ' SLES 11 SP3 çoğaltılan yükseltme desteklenmiyor. Çoğaltılmış bir makineden SLES 11 SP4 ' SLES 11SP3 yükselttiyseniz, çoğaltma devre dışı bırakmak ve makineyi yeniden sonrası yükseltme korumak gerekir.)
 
 >[!NOTE]
 >
 > - Linux dağıtımları üzerinde ikincil sürüm yayın/güncelleştirme dağıtımının bir parçası olan stok tekrar desteklenir.
 >
-> - Linux dağıtım noktasında bir Azure Site Recovery ana sürümleri arasında yükseltme VMware sanal makinesi korumalı veya fiziksel sunucu desteklenmiyor. Yükseltilirken işletim sistemi ana sürümleri (örneğin CentOS 7.* için CentOS 6.*) arasında makinesi için çoğaltma devre dışı bırakmak, makinedeki işletim sistemini yükseltme ve çoğaltma işlemini yeniden etkinleştirin.
+> - Site Recovery korumalı VMware sanal makineleri veya fiziksel sunucu üzerinde bir Linux dağıtım ana sürümleri arasında yükseltme desteklenmez. Ana sürüm (örneğin, CentOS 7.* için CentOS 6.*) üzerinden işletim sistemini yükselttiğinizde makinesi için çoğaltma devre dışı bırakmak, makinedeki işletim sistemini yükseltme ve çoğaltma işlemini yeniden etkinleştirin.
 >
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu çekirdek sürümleri
 
 
-**Desteklenen sürüm** | **Mobility hizmeti sürümü** | Çekirdek sürümü |
+**Desteklenen sürüm** | **Azure Site Recovery Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic 3.13.0-121-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-81-generic 4.4.0-21-Generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic 3.13.0-128-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-91-generic 4.4.0-21-Generic |
@@ -76,8 +76,8 @@ Birim Yöneticisi | LVM2
 Paravirtualized depolama aygıtları | Paravirtualized sürücüleri tarafından dışarı aktarılan cihazlar desteklenmez.
 G/ç cihazların çok sıra engelle | Desteklenmiyor.
 HP CCISS depolama denetleyicisi ile fiziksel sunucuları | Desteklenmiyor.
-Dizinler | Bu dizinleri (varsa ayrı bölümleri/dosya-sistemleri ayarlanmış) tümü aynı işletim sistemi diski kaynak sunucuda olmalıdır: / (kök), / Boot/usr, /usr/local, /var, / etc </br></br>  Varsa / (kök) birimdir LVM birim, sonra/Boot aynı disk ayrı bir bölüme üzerinde bulunan ve bir LVM birim olmaması gerekir.<br/><br/>
-XFSv5 | Sürümünden başlayarak Mobility hizmeti 9.10 XFS dosya sistemleri gibi meta veri sağlama toplamı XFSv5 özellikleri desteklenir. Süper blok XFS kullanarak bölümün denetlemek için xfs_info yardımcı programını kullanın. Ftype 1 olarak ayarlanırsa, XFSv5 özellikleri kullanılıyor olabilir.
+Dizinler | Bu dizinleri (varsa ayrı bölümleri/dosya-sistemleri ayarlanmış) tümü aynı işletim sistemi diski kaynak sunucuda olmalıdır: / (kök), / Boot/usr, /usr/local, /var, / etc. </br></br> Varsa / (kök) birimdir LVM birim, sonra/Boot aynı disk ayrı bir bölüme üzerinde bulunan ve bir LVM birim olmaması gerekir.<br/><br/>
+XFSv5 | Meta veri sağlama gibi XFS dosya sistemleri XFSv5 özellikleri sürümünden 9.10 Mobility hizmeti ve sonraki sürümlerinde desteklenir. Süper blok XFS kullanarak bölümün denetlemek için xfs_info yardımcı programını kullanın. Ftype 1 olarak ayarlanırsa, XFSv5 özellikleri kullanılıyor olabilir.
 
 
 
@@ -85,7 +85,7 @@ XFSv5 | Sürümünden başlayarak Mobility hizmeti 9.10 XFS dosya sistemleri gib
 
 **Bileşen** | **Destekleniyor**
 --- | ---
-Konak ağ NIC ekibi oluşturma | VMware Vm'leri için desteklenen <br/><br/>Fiziksel makine çoğaltma için desteklenmiyor
+Konak ağ NIC ekibi oluşturma | VMware Vm'leri için desteklenir. <br/><br/>Fiziksel makine çoğaltma için desteklenmiyor.
 Konak ağı VLAN | Evet
 Konak ağı IPv4 | Evet
 Konak ağı IPv6 | Hayır
@@ -93,7 +93,7 @@ Konuk/sunucu ağ NIC ekibi oluşturma | Hayır
 Konuk/sunucu ağ IPv4 | Evet
 Konuk/sunucu ağ IPv6 | Hayır
 Konuk/sunucu ağ statik IP (Windows) | Evet
-Konuk/sunucu ağ statik IP (Linux) | Evet <br/><br/>Sanal makineleri yeniden çalışma üzerinde DHCP kullanmak üzere yapılandırılmış  
+Konuk/sunucu ağ statik IP (Linux) | Evet <br/><br/>Sanal makineleri yeniden çalışma üzerinde DHCP kullanmak üzere yapılandırılır.  
 Konuk/sunucu ağ birden çok NIC | Evet
 
 
@@ -101,33 +101,30 @@ Konuk/sunucu ağ birden çok NIC | Evet
 
 **Bileşen** | **Destekleniyor**
 --- | ---
-Express Route | Evet
+Azure ExpressRoute | Evet
 ILB | Evet
 ELB | Evet
-Traffic Manager | Evet
+Azure Traffic Manager | Evet
 Multi-NIC | Evet
 Ayrılmış IP adresi | Evet
 IPv4 | Evet
 Kaynak IP adresi koru | Evet
-Sanal Ağ Hizmeti Uç Noktaları<br/><br/> (Azure depolama güvenlik duvarları ve sanal ağlar) | Hayır
-
+Azure sanal ağ hizmet uç noktaları<br/><br/> (Azure depolama güvenlik duvarları ve sanal ağlar) | Hayır
 
 ## <a name="storage"></a>Depolama
-
-
 **Bileşen** | **Destekleniyor**
 --- | ---
-Ana bilgisayar NFS | VMware için Evet<br/><br/> Fiziksel sunucuları için Hayır'ı
+Ana bilgisayar NFS | VMware için Evet<br/><br/> Fiziksel sunucuları yok.
 Konak SAN (İSCSI) | Evet
-Ana bilgisayar çok yollu (MPIO) | Evet - ile test: Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM CLARiiON için
+Ana bilgisayar çok yollu (MPIO) | Evet, CLARiiON için Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM ile test
 Konuk/sunucu VMDK | Evet
-Konuk/sunucu EFI/UEFI'ye| Kısmi (geçiş Windows Server 2012 için Azure ve sonraki VMware sanal makineleri yalnızca.) </br></br> ** Tablonun sonundaki nota bakın.
+Konuk/sunucu EFI/UEFI'ye| Kısmi (Windows Server 2012 için Azure ve sonraki VMware sanal makineleri yalnızca geçiş) </br></br> Tablonun sonundaki nota bakın.
 Konuk/sunucu paylaşılan küme diski | Hayır
 Konuk/sunucu şifreli disk | Hayır
 Konuk/sunucu NFS | Hayır
 Konuk/sunucu SMB 3.0 | Hayır
 Konuk/sunucu RDM | Evet<br/><br/> Fiziksel sunucuları için yok
-Konuk/sunucu diski > 1 TB | Evet<br/><br/>4095 GB'a kadar
+Konuk/sunucu diski > 1 TB | Evet<br/><br/>4.095 GB'a kadar
 Konuk/sunucu diski 4 K mantıksal ve 4 k fiziksel kesim boyutu | Evet
 4K mantıksal Konuk/sunucu diskle ve 512 bayt fiziksel kesim boyutu | Evet
 Şeritli disk > 4 TB Konuk/sunucu birimle <br><br/>LVM mantıksal birim yönetimi | Evet
@@ -137,12 +134,12 @@ Konuk/sunucu - exclude disk | Evet
 Konuk/sunucu çok yollu (MPIO) | Yok
 
 > [!NOTE]
-> ** UEFI ** VMware sanal makineleri Windows Server 2012 çalıştıran önyükleme ya da daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir.
-> - Yalnızca azure'a geçişini destekler. Yeniden çalışma için şirket içi VMware sitesi desteklenmiyor.
-> - Sunucu, 4'ten fazla bölümleri işletim sistemi disk üzerinde olmalıdır.
-> - Azure Site Recovery Mobility hizmeti sürümü 9.13 veya üstü gerektirir.
-> - Fiziksel sunucuları için desteklenmez.
+> UEFI VMware sanal makineleri Windows Server 2012 çalıştıran önyükleme veya Azure'a daha sonra geçirilebilir. Aşağıdaki kısıtlamalar geçerlidir:
 
+> - Yalnızca azure'a geçişini destekler. Şirket içi VMware sitesi için yeniden çalışma desteklenmez.
+> - Sunucu işletim sistemi disk üzerinde dörtten fazla bölümü olmamalıdır.
+> - Mobility hizmeti sürümü 9.13 veya üstünü gerektirir.
+> - Fiziksel sunucuları için desteklenmez.
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -153,17 +150,16 @@ GRS | Evet
 RA-GRS | Evet
 Seyrek erişimli depolama | Hayır
 Sık erişimli depolama| Hayır
-Blok Blobları | Hayır
-Rest(SSE) şifreleme| Evet
+Blok blobları | Hayır
+Bekleyen (SSE) şifreleme| Evet
 Premium depolama | Evet
 İçeri/dışarı aktarma hizmeti | Hayır
-Sanal Ağ Hizmeti Uç Noktaları<br/><br/> Azure depolama güvenlik duvarları ve hedef depolama/önbelleği depolama hesabı (çoğaltma verilerini depolamak için kullanılır) üzerinde yapılandırılmış sanal ağlar | Hayır
-Genel amaçlı V2 depolama hesapları (her ikisini de sık erişimli ve seyrek katman) | Hayır
-
+Sanal ağ hizmet uç noktaları<br/><br/> Depolama güvenlik duvarları ve hedef depolama/önbelleği depolama hesabı (çoğaltma verilerini depolamak için kullanılır) üzerinde yapılandırılmış sanal ağları | Hayır
+Genel amaçlı v2 depolama hesapları (sık erişimli ve seyrek erişimli Katmanlar) | Hayır
 
 ## <a name="azure-compute"></a>Azure işlem
 
-**Featuree** | **Destekleniyor**
+**Özellik** | **Destekleniyor**
 --- | ---
 Kullanılabilirlik kümeleri | Evet
 HUB | Evet   
@@ -175,19 +171,19 @@ Yönetilen diskler | Evet
 
 **Bileşen** | Gereksinimleri | **Ayrıntılar**
 --- | --- | ---
-Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated machines) | Önkoşullar desteklenmeyen başarısız kontrol edin.
-**Konuk işletim sistemi mimarisi** | 64 bit | Desteklenmeyen, önkoşul denetimi başarısız olur
-**İşletim sistemi disk boyutu** | 2048 GB'a kadar | Desteklenmeyen, önkoşul denetimi başarısız olur
-**İşletim sistemi disk sayısı** | 1 | Önkoşul denetimi desteklenmeyen başarısız olur.
-**Veri diski sayısı** | 64 veya daha az çoğaltma yapıyorsanız **VMware Vm'lerini azure'a**; 16 veya daha az çoğaltma yapıyorsanız **Hyper-V Vm'lerini azure'a** | Önkoşul denetimi desteklenmeyen başarısız olur
-**Veri diski VHD boyutu** | 4095 GB'a kadar | Desteklenmeyen, önkoşul denetimi başarısız olur
-**Ağ bağdaştırıcıları** | Birden çok bağdaştırıcı desteklenir |
-**Paylaşılan VHD** | Desteklenmiyor | Desteklenmeyen, önkoşul denetimi başarısız olur
-**FC diski** | Desteklenmiyor | Desteklenmeyen, önkoşul denetimi başarısız olur
-**Sabit disk biçimi** | VHD <br/><br/> VHDX | VHDX şu anda Azure’da desteklenmiyor olsa da, Site Recovery Azure’a yük devrettiğinizde VHDX’i otomatik olarak VHD’ye dönüştürür. Geri şirket içi başarısız olduğunda sanal makineler VHDX biçimini kullanacak şekilde devam eder.
-**Bitlocker** | Desteklenmiyor | Bir makine için çoğaltma etkinleştirmeden önce BitLocker'ı devre dışı bırakılması gerekir.
-**VM adı** | 1 - 63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluşabilir.<br/><br/> Makine adı başlamalı ve bir harf veya sayı ile bitmelidir. | Site Recovery makine özelliklerinde değeri güncelleştirin.
-**VM türü** | 1. nesil<br/><br/> Nesil 2--Windows | 2. nesil sanal makineleri (VHDX biçimlendirilmiş bir veya iki veri birimlerini içeren) temel bir işletim sistemi disk türüne sahip ve 300 GB disk alanı daha az desteklenir.<br></br>Linux nesil 2 sanal makineleri desteklenmez. [Daha fazla bilgi](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
+Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated machines). | Önkoşullar desteklenmeyen başarısız kontrol edin.
+**Konuk işletim sistemi mimarisi** | 64 bit | Önkoşullar desteklenmeyen başarısız kontrol edin.
+**İşletim sistemi disk boyutu** | 2.048 GB'a kadar | Önkoşullar desteklenmeyen başarısız kontrol edin.
+**İşletim sistemi disk sayısı** | 1 | Önkoşullar desteklenmeyen başarısız kontrol edin.
+**Veri diski sayısı** | Sayı 64 ya da daha az ise, çoğaltma yapıyorsanız *VMware Vm'lerini azure'a*. Sayısıdır 16 veya daha az ise, çoğaltma yapıyorsanız *Hyper-V Vm'lerini azure'a*. | Önkoşullar desteklenmeyen başarısız kontrol edin.
+**Veri diski VHD boyutu** | 4.095 GB'a kadar | Önkoşullar desteklenmeyen başarısız kontrol edin.
+**Ağ bağdaştırıcıları** | Birden çok bağdaştırıcı desteklenir. |
+**Paylaşılan VHD** | Desteklenmiyor. | Önkoşullar desteklenmeyen başarısız kontrol edin.
+**FC diski** | Desteklenmiyor. | Önkoşullar desteklenmeyen başarısız kontrol edin.
+**Sabit disk biçimi** | VHD <br/><br/> VHDX | VHDX şu anda Azure’da desteklenmiyor olsa da, Site Recovery Azure’a yük devrettiğinizde VHDX’i otomatik olarak VHD’ye dönüştürür. Geri şirket içi başarısız olduğunda, sanal makineler VHDX biçimini kullanacak şekilde devam eder.
+**BitLocker** | Desteklenmiyor. | Bir makine için çoğaltma etkinleştirmeden önce BitLocker'ı devre dışı bırakılması gerekir.
+**VM adı** | 1 63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluşabilir.<br/><br/> Makine adı başlamalı ve bir harf veya sayı ile bitmelidir. | Site Recovery makine özelliklerinde değeri güncelleştirin.
+**VM türü** | 1. nesil.<br/><br/> Nesil 2--Windows. | 2. nesil sanal makineleri (VHDX biçimlendirilmiş bir veya iki veri birimlerini içeren) temel bir işletim sistemi disk türüne sahip ve 300 GB disk alanı daha az desteklenir.<br></br>Linux nesil 2 sanal makineleri desteklenmez. Daha fazla bilgi için bkz: [olağanüstü durum kurtarma Gelişmiş Azure](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="vault-tasks"></a>Kasa görevleri
 
@@ -201,8 +197,8 @@ Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçi
 
 **Ad** | **Açıklama** | **En son sürümü** | **Ayrıntılar**
 --- | --- | --- | --- | ---
-** Azure Site Recovery birleşik Kurulum ** | Şirket içi VMware sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Şirket içi VMware sunucularda yüklü | 9.12.4653.1 (portalından kullanılabilir) | [En son özellikleri ve düzeltmeleri](https://aka.ms/latest_asr_updates)
-**Mobility hizmeti** | Şirket içi VMware sunucularını/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü  | 9.12.4653.1 (portalından kullanılabilir) | [En son özellikleri ve düzeltmeleri](https://aka.ms/latest_asr_updates)
+**Azure Site Recovery Kurulum birleşik** | Şirket içi VMware sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Şirket içi VMware sunucularda yüklü | 9.12.4653.1 (portalından kullanılabilir) | [En son özellikleri ve düzeltmeleri](https://aka.ms/latest_asr_updates)
+Mobility hizmeti | Şirket içi VMware sunucularını/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü | 9.12.4653.1 (portalından kullanılabilir) | [En son özellikleri ve düzeltmeleri](https://aka.ms/latest_asr_updates)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

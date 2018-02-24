@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 02/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06445845ef8f93a06cb4b52e07108965cc3b7f8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -39,9 +39,10 @@ Tek bir Batch hesabında birden fazla Batch iş yükü çalıştırabilir ya da 
 ## <a name="resource-quotas"></a>Kaynak kotaları
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-### <a name="quotas-in-user-subscription-mode"></a>Kullanıcı abonelik modunda kotaları
 
-Havuzu ayırma modu ayarlamak toplu işlem hesabı oluşturmak için toplu işlem API öğesinin önceki bir sürümünü kullandıysanız **kullanıcı aboneliği**, kotalar farklı uygulanır. Bir havuzu oluşturulduğunda artık önerilir, bu modda, aboneliğinizde doğrudan toplu VM'ler ve diğer kaynakları oluşturulur. Azure toplu işlem çekirdek kotası, bu modda oluşturulan bir hesap için geçerli değildir. Bunun yerine, bölgesel aboneliğinizin kotalarda çekirdek işlem ve diğer kaynaklara uygulanır. Bu Kotalar hakkında daha fazla bilgi [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
+### <a name="cores-quotas-in-user-subscription-mode"></a>Kullanıcı abonelik modunda çekirdek kotaları
+
+Havuzu ayırma modu ayarlamak toplu işlem hesabı oluşturduysanız **kullanıcı aboneliği**, kotalar farklı uygulanır. Bir havuz oluşturduğunuzda bu modda, aboneliğinizde doğrudan toplu VM'ler ve diğer kaynakları oluşturulur. Azure Batch çekirdek kotaları bu modda oluşturulan bir hesap için geçerli değildir. Bunun yerine, bölgesel aboneliğinizin kotalarda çekirdek işlem ve diğer kaynaklara uygulanır. Bu Kotalar hakkında daha fazla bilgi [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Diğer sınırları
 | **Kaynak** | **Üst Sınır** |
@@ -108,7 +109,7 @@ Destek İsteği gönderdikten sonra Azure destek, sizinle iletişim kuracaktır.
 ## <a name="related-topics"></a>İlgili konular
 * [Azure Portalı'nı kullanarak bir Azure Batch hesabı oluşturma](batch-account-create-portal.md)
 * [Azure Batch özelliklerine genel bakış](batch-api-basics.md)
-* [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md)
+* [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
