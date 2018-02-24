@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portalı'nı kullanarak Windows tabanlı Hadoop kümeleri hdınsight'ta yönetme
 
@@ -32,7 +32,7 @@ Bu makaledeki bilgiler yalnızca Windows tabanlı Hdınsight kümeleri için ge�
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
@@ -43,7 +43,7 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 1. Oturum [https://portal.azure.com](https://portal.azure.com).
 2. Portal açtıktan sonra şunları yapabilirsiniz:
 
-   * Tıklatın **yeni** sol menüden yeni bir küme oluşturmak için:
+   * Tıklatın **kaynak oluşturma** sol menüden yeni bir küme oluşturmak için:
 
        ![Yeni Hdınsight küme düğmesi](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Tıklatın **Hdınsight kümeleri** sol menüden.
@@ -179,7 +179,7 @@ Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısın�
 
     İki yolla yeniden dengelenmesi gerçekleştirilebilir:
 
-  * Storm web kullanıcı Arabirimi
+  * Storm web UI
   * Komut satırı arabirimi (CLI) aracı
 
     Lütfen [Apache Storm belgelerine](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
@@ -315,7 +315,7 @@ Aynı zamanda **dosya sistemi Gözat** yardımcı programı'ndan **Hadoop UI** H
 ## <a name="open-hadoop-ui"></a>Hadoop kullanıcı arabirimini açın
 Kümeyi izlemek için dosya sistemi göz atın ve günlükleri denetleyin, tıklatın **Hadoop UI** Hdınsight sorgu konsolunda. Bkz: [açık Hdınsight sorgu konsol](#open-hdinsight-query-console).
 
-## <a name="open-yarn-ui"></a>Yarn kullanıcı arabirimini açın
+## <a name="open-yarn-ui"></a>Open Yarn UI
 Yarn kullanıcı arabirimi kullanmak için tıklatın **Yarn kullanıcı Arabiriminde** Hdınsight sorgu konsolunda. Bkz: [açık Hdınsight sorgu konsol](#open-hdinsight-query-console).
 
 ## <a name="connect-to-clusters-using-rdp"></a>RDP kullanarak kümelerine bağlanmak
@@ -352,7 +352,7 @@ Uzak Masaüstü'nü kullanarak kümeye bağlanın ve Hadoop komut satırı kulla
 1. Uzak Masaüstü'nü kullanarak kümeye bağlanın.
 2. Masaüstünden çift **Hadoop komut satırı**.
 
-    ![HDI. HadoopCommandLine][image-hadoopcommandline]
+    ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
     Hadoop komutları hakkında daha fazla bilgi için bkz: [Hadoop komutları başvuru](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 

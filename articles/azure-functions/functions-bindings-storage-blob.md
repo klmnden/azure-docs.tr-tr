@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2017
+ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 120a65a271291b75661d7d070cbd4a7222edd18a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -204,11 +204,11 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | ayarlanmalıdır `blobTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | yok | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. Özel durumlar belirtilmiştir [kullanım](#trigger---usage) bölümü. |
-|**adı** | yok | Blob içinde işlev kodu temsil eden değişken adı. | 
-|**yol** | **BlobPath** |İzlemek için kapsayıcı.  Olabilir bir [blob adı deseni](#trigger-blob-name-patterns). | 
-|**bağlantı** | **Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Türü** | yok | ayarlanmalıdır `blobTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**Yönü** | yok | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. Özel durumlar belirtilmiştir [kullanım](#trigger---usage) bölümü. |
+|**Adı** | yok | Blob içinde işlev kodu temsil eden değişken adı. | 
+|**Yol** | **BlobPath** |İzlemek için kapsayıcı.  Olabilir bir [blob adı deseni](#trigger-blob-name-patterns). | 
+|**Bağlantı** | **Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -220,20 +220,29 @@ Yöntem parametresi gibi kullanarak, C# ve C# betik blob veri erişim `T paramNa
 * `TextReader`
 * `Byte[]`
 * `string`
-* `ICloudBlob`("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudBlockBlob`("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudPageBlob`("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudAppendBlob`("ınout" bağlama yönde gerektirir *function.json*)
+* `ICloudBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `CloudBlockBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `CloudPageBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `CloudAppendBlob` ("ınout" bağlama yönde gerektirir *function.json*)
 
 Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *function.json*. Gelişmiş Düzenleyicisi'ni kullanmanız gerekir böylece bu yönünü Azure portalında standart Düzenleyicisi tarafından desteklenmiyor.
 
-Metin BLOB'ları beklenir, bağlayabilirsiniz `string` türü. Bu, yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu, küçükse önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü.
+Metin BLOB'ları beklenir, bağlayabilirsiniz `string` türü. Bu, yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu, küçükse önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü. Daha fazla bilgi için bkz: [eşzamanlılık ve bellek kullanımı](#trigger---concurrency-and-memory-usage) bu makalenin ilerisinde yer.
 
 JavaScript'te, kullanarak giriş blob veri erişim `context.bindings.<name>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Tetikleyici - blob adı desenleri
 
-Bir blob adı desende belirtebilirsiniz `path` özelliğinde *function.json* veya `BlobTrigger` özniteliği Oluşturucusu. Ad deseni olabilir bir [filtre veya bağlama ifade](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Bir blob adı desende belirtebilirsiniz `path` özelliğinde *function.json* veya `BlobTrigger` özniteliği Oluşturucusu. Ad deseni olabilir bir [filtre veya bağlama ifade](functions-triggers-bindings.md#binding-expressions-and-patterns). Aşağıdaki bölümler örnekler sağlar.
+
+### <a name="get-file-name-and-extension"></a>Dosya adını ve uzantısını Al
+
+Aşağıdaki örnek, blob dosya adını ve uzantısını ayrı olarak bağlamak gösterilmektedir:
+
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Blob ise *özgün Blob1.txt*, değeri `blobname` ve `blobextension` değişkenleri işlevi kodda *özgün Blob1* ve *txt*.
 
 ### <a name="filter-on-blob-name"></a>BLOB adına göre filtrele
 
@@ -262,15 +271,6 @@ Dosya adlarındaki süslü ayraçlar aramak için iki küme ayraçları kullanar
 ```
 
 Blob ise *{20140101}-soundfile.mp3*, `name` işlevi kodda değişken değeri *soundfile.mp3*. 
-
-### <a name="get-file-name-and-extension"></a>Dosya adını ve uzantısını Al
-
-Aşağıdaki örnek, blob dosya adını ve uzantısını ayrı olarak bağlamak gösterilmektedir:
-
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-Blob ise *özgün Blob1.txt*, değeri `blobname` ve `blobextension` değişkenleri işlevi kodda *özgün Blob1* ve *txt*.
 
 ## <a name="trigger---metadata"></a>Tetikleyici - meta verileri
 
@@ -309,6 +309,14 @@ Tüm 5 deneme başarısız olursa, Azure işlevleri adlı bir depolama kuyruğun
 * Kapsayıcı adı
 * BlobName
 * ETag (örneğin bir blob sürüm tanıtıcısını: "0x8D1DC6E70A277EF")
+
+## <a name="trigger---concurrency-and-memory-usage"></a>Tetikleyici - eşzamanlılık ve bellek kullanımı
+
+En fazla eş zamanlı işlev çağrılarını tarafından denetlenir blob tetikleyicisi bir sıra dahili olarak kullandığı için [host.json sıraları yapılandırmasında](functions-host-json.md#queues). Varsayılan ayarlar 24 çağrılarına eşzamanlılık sınırlar. Bu sınır ayrı ayrı bir blob tetikleyici kullanan her bir işlev için geçerlidir.
+
+[Tüketim planı](functions-scale.md#how-the-consumption-plan-works) 1,5 GB bellek bir sanal makineye (VM) üzerinde bir işlev uygulaması sınırlar. Bellek işlevleri çalışma ve her eş zamanlı yürütme işlevi örneği tarafından kullanılır. Belleğe tüm blob blob tetiklenen bir işlev, bu işlev tarafından yalnızca BLOB'lar için kullanılan en fazla bellek 24 ise * maksimum blob boyutu. Örneğin, bir işlev uygulaması üç blob tetiklemeli işlevleri ve varsayılan ayarlarıyla 3 * 24 = 72 en fazla VM başına eşzamanlılığı olurdu işlev çağrılarını.
+
+JavaScript işlevleri tüm blob belleğe yüklenemedi ve C# işlevleri yaparsanız, için bağlama `string`.
 
 ## <a name="trigger---polling-for-large-containers"></a>Tetikleyici - büyük kapsayıcıları için yoklama
 
@@ -479,11 +487,11 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | ayarlanmalıdır `blob`. |
-|**yönü** | yok | ayarlanmalıdır `in`. Özel durumlar belirtilmiştir [kullanım](#input---usage) bölümü. |
-|**adı** | yok | Blob içinde işlev kodu temsil eden değişken adı.|
-|**yol** |**BlobPath** | Blob yolu. | 
-|**bağlantı** |**Bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Türü** | yok | ayarlanmalıdır `blob`. |
+|**Yönü** | yok | ayarlanmalıdır `in`. Özel durumlar belirtilmiştir [kullanım](#input---usage) bölümü. |
+|**Adı** | yok | Blob içinde işlev kodu temsil eden değişken adı.|
+|**Yol** |**BlobPath** | Blob yolu. | 
+|**Bağlantı** |**Bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |yok | **Erişim** | Okuma yazma veya değiştirilecek olup olmadığını gösterir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -498,10 +506,10 @@ C# sınıfı kitaplıklar ve C# betik blob gibi bir yöntem parametresi kullanı
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudBlockBlob`("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudPageBlob`("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudAppendBlob`("ınout" bağlama yönde gerektirir *function.json*)
+* `ICloudBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `CloudBlockBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `CloudPageBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `CloudAppendBlob` ("ınout" bağlama yönde gerektirir *function.json*)
 
 Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *function.json*. Gelişmiş Düzenleyicisi'ni kullanmanız gerekir böylece bu yönünü Azure portalında standart Düzenleyicisi tarafından desteklenmiyor.
 
@@ -690,11 +698,11 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | ayarlanmalıdır `blob`. |
-|**yönü** | yok | Ayarlanmalıdır `out` bir çıktı bağlama için. Özel durumlar belirtilmiştir [kullanım](#output---usage) bölümü. |
-|**adı** | yok | Blob içinde işlev kodu temsil eden değişken adı.  Kümesine `$return` işlevi dönüş değeri başvurmak için.|
-|**yol** |**BlobPath** | Blob yolu. | 
-|**bağlantı** |**Bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**Türü** | yok | ayarlanmalıdır `blob`. |
+|**Yönü** | yok | Ayarlanmalıdır `out` bir çıktı bağlama için. Özel durumlar belirtilmiştir [kullanım](#output---usage) bölümü. |
+|**Adı** | yok | Blob içinde işlev kodu temsil eden değişken adı.  Kümesine `$return` işlevi dönüş değeri başvurmak için.|
+|**Yol** |**BlobPath** | Blob yolu. | 
+|**Bağlantı** |**Bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |yok | **Erişim** | Okuma yazma veya değiştirilecek olup olmadığını gösterir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -710,10 +718,10 @@ C# sınıfı kitaplıklar ve C# betik blob gibi bir yöntem parametresi kullanı
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob`("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudBlockBlob`("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudPageBlob`("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudAppendBlob`("ınout" bağlama yönde gerektirir *function.json*)
+* `ICloudBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `CloudBlockBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `CloudPageBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `CloudAppendBlob` ("ınout" bağlama yönde gerektirir *function.json*)
 
 Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *function.json*. Gelişmiş Düzenleyicisi'ni kullanmanız gerekir böylece bu yönünü Azure portalında standart Düzenleyicisi tarafından desteklenmiyor.
 

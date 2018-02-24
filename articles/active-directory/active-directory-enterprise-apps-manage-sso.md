@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Kurumsal uygulamaları için çoklu oturum açmayı yönetme
 
 Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) kurumsal uygulamalar için çoklu oturum açma ayarları yönetmek için. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır. Bu makale özellikle alanından eklenen uygulamalar için geçerlidir [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
-Çoklu oturum açma için ayarlanan tüm kurumsal uygulamaları görüntülenebilir ve Azure portalında yönetilebilir. Uygulamaları bulunabilir **daha Hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. 
+Çoklu oturum açma için ayarlanan tüm kurumsal uygulamaları görüntülenebilir ve Azure portalında yönetilebilir. Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. 
 
 ![Kurumsal uygulamalar dikey penceresi][1]
 
@@ -58,12 +58,12 @@ Uygulama etki alanı ve URL'ler ile ilgili tüm ayrıntıları Azure AD dizinini
 * **Yanıt URL'si** -burada SAML belirteci almak uygulama bekler yanıt URL'dir. Bu aynı zamanda onaylama işlemi tüketici Hizmeti'ni (ACS) URL'si olarak adlandırılır. Bunlar girdikten sonra sonraki ekrana devam etmek için İleri'yi tıklatın. Bu ekran Azure AD'den SAML belirteci kabul etmek üzere etkinleştirmek için uygulama taraftaki yapılandırılması gerekenler hakkında bilgi sağlar.
 * **Geçiş durumunu** -geçiş durumunu uygulamaya kimlik doğrulaması tamamlandıktan sonra kullanıcı yeniden yönlendirileceği bildirmek yardımcı olabilecek bir isteğe bağlı bir parametredir. Bazı uygulamalar bu alan farklı kullanır ancak genellikle uygulama geçerli bir URL değerdir (Ayrıntılar için uygulamanın tek oturum açma belgelere bakın). Geçiş durumunu ayarlama özelliği, yeni Azure portalına benzersiz olan yeni bir özelliktir.
 
-### <a name="user-attributes"></a>Kullanıcı öznitelikleri
+### <a name="user-attributes"></a>Kullanıcı Öznitelikleri
 Burada admins görüntüleyebilir ve Azure AD uygulama için her verir SAML belirteci zaman kullanıcılar oturum gönderilir öznitelikleri düzenlemenize budur.
 
 Desteklenen yalnızca düzenlenebilir özniteliği **kullanıcı tanımlayıcısı** özniteliği. Bu özniteliğin değeri uygulamadaki her bir kullanıcı olarak tanıtan Azure ad alanıdır. Uygulama "e-posta adresi" kullanıcı adı ve benzersiz tanımlayıcı kullanarak dağıtılmışsa, örneğin, ardından değeri "user.mail" alanına Azure AD'de ayarlanır.
 
-### <a name="saml-signing-certificate"></a>SAML imzalama sertifikası
+### <a name="saml-signing-certificate"></a>SAML İmzalama Sertifikası
 Bu bölümde Azure AD her zaman kullanıcının kimliğini doğrular uygulamaya verilen SAML belirteçleri imzalamak için kullanılan sertifika ayrıntılarını gösterir. Denetlenecek, geçerli sertifikanın özelliklerini sona erme tarihi dahil olmak üzere sağlar.
 
 ### <a name="application-configuration"></a>Uygulama yapılandırması

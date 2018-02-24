@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama
 
@@ -64,11 +64,11 @@ Temel Küme kurulumu yapmak için ekrandaki yönergeleri izleyin. Ayrıntılar i
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz: [Hdınsight 3.3 devre dışı bırakma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
-## <a name="resource-group-name"></a>Kaynak grup adı 
+## <a name="resource-group-name"></a>Kaynak grubu adı 
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) yardımcı olan bir grup olarak, uygulamanızdaki kaynaklarla çalışma başvurduğu bir Azure kaynak grubu. Dağıtmak, güncelleştirme, izlemek veya tüm kaynakları tek ve eşgüdümlü bir işlemde, uygulamanız için silin.
 
-## <a name="cluster-types"></a>Küme türleri ve yapılandırma
+## <a name="cluster-types">Küme türleri ve yapılandırma</a>
 Azure Hdınsight şu anda aşağıdaki küme türü, her biri belirli işlevlerin sağlamak için bileşenleri kümesi sağlar.
 
 > [!IMPORTANT]
@@ -128,6 +128,8 @@ Yapılandırması sırasında varsayılan depolama uç noktası için bir Azure 
 ### <a name="optional-metastores"></a>İsteğe bağlı meta deponuz
 İsteğe bağlı Hive veya Oozie meta depolar oluşturabilirsiniz. Ancak, tüm küme türleri meta deponuz desteklemez ve Azure SQL Data Warehouse meta deponuz ile uyumlu değil. 
 
+Daha fazla bilgi için bkz: [Azure hdınsight'ta dış meta veri depoları kullanmak](./hdinsight-use-external-metadata-stores.md).
+
 > [!IMPORTANT]
 > Özel bir meta depo oluşturduğunuzda, kısa çizgiler, kısa çizgi veya veritabanı adında boşluk kullanmayın. Bu, küme oluşturma işleminin başarısız olmasına neden olabilir.
 
@@ -137,7 +139,7 @@ Hdınsight kümesi silindikten sonra Hive tablolarını korumak istiyorsanız, �
 
 Bir Hdınsight kümesi sürüm oluşturulan Hdınsight meta depo farklı Hdınsight küme sürümleri arasında paylaşılamaz. Hdınsight sürümlerinin listesi için bkz: [desteklenen Hdınsight sürümleri](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### <a name="oozie-metastore"></a>Oozie meta depo
+### <a name="oozie-metastore"></a>Oozie metastore
 
 Oozie kullanırken, performansı artırmak için özel bir meta depo kullanın. Kümenizi sildikten sonra bir meta depo ayrıca Oozie iş verilerine erişim sağlayabilir. 
 
@@ -226,18 +228,18 @@ Mahout ve basamaklama, gibi yerel bazı Java bileşenleri kümede Java arşiv (J
 Bazı durumlarda, aşağıdaki yapılandırma dosyalarını oluşturma işlemi sırasında yapılandırmak istediğiniz:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * Gateway.XML
-* hbase env.xml
+* hbase-env.xml
 * hbase-site.xml
 * hdfs-site.xml
-* Hive env.xml
-* Hive-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred site
 * oozie-site.xml
-* oozie env.xml
-* Storm-site.xml
-* Tez-site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
 * webhcat-site.xml
 * yarn-site.xml
 

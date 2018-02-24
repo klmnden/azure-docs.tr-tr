@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: cc08f006fabf07db0f89578144f7269e3bc7a510
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bd251fa05e8e144471cd577cec607d91e5ab84c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Azure otomasyonu kullanarak Azure API Management'te yönetme
-Bu kılavuz Azure Otomasyon hizmetine ve nasıl Azure API Management yönetimini basitleştirmek için kullanılabilmesi için tanıtılacaktır.
+Bu kılavuz size Azure Otomasyon hizmetine ve nasıl Azure API Management yönetimini basitleştirmek için kullanılabilmesi için tanıtır.
 
 ## <a name="what-is-azure-automation"></a>Azure Otomasyonu Nedir?
 [Azure Otomasyonu](https://azure.microsoft.com/services/automation/) işlem Otomasyonu aracılığıyla bulut yönetimi basitleştirmek için bir Azure hizmetidir. Azure Otomasyonu, el ile kullanarak yinelenen, uzun süre çalışan ve hataya yatkın görevleri güvenilirlik, verimliliği ve kuruluşunuz için değer süre artırmak için otomatik olarak yapılabilir.

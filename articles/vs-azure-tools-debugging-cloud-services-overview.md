@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/18/2017
 ms.author: mikejo
-ms.openlocfilehash: 196a39a75f8a3151c277f0b2a7944e6886192171
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 0ba0871cdc522cb1ffbafa617181931fe6fd5b59
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Bir Azure bulut hizmetinde hata ayıklama için değişik yollarını öğrenin
 Bu makale bir Azure bulut hizmetinde hata ayıklama için çeşitli şekillerde bağlantılar sağlar. 
@@ -26,10 +26,7 @@ Bu makale bir Azure bulut hizmetinde hata ayıklama için çeşitli şekillerde 
 ## <a name="debugging-an-azure-cloud-service-in-visual-studio"></a>Bir Azure bulut hizmeti Visual Studio'da hata ayıklama
 Zamandan tasarruf edebilirsiniz ve Azure kullanarak para işlem öykünücüsü, bulut hizmeti yerel makinede hata ayıklamak için. Dağıtmadan önce bir hizmet yerel olarak hata ayıklama tarafından, güvenilirlik ve performans işlem zaman için ödeme olmadan artırabilir. Ancak, yalnızca bir bulut hizmeti Azure'da çalıştırdığınızda bazı hatalar oluşabilir. Yalnızca bir bulut hizmeti Azure'da çalıştırdığınızda oluşan hataları hizmetinizi yayımladığınızda, uzaktan hata ayıklama ve ardından bir rol örneği için hata ayıklayıcı ekleme etkinleştirerek hata ayıklaması yapılabilir. Daha fazla bilgi için bkz: [, bulut hizmeti, yerel bilgisayarınızda hata ayıklama](vs-azure-tools-debug-cloud-services-virtual-machines.md#debug-your-cloud-service-on-your-local-computer).
 
-## <a name="using-azure-diagnostics"></a>Azure Tanılama'yı kullanarak 
-Azure tanılama rolleri geliştirme ortamında veya Azure çalıştırıp çalıştırmadığınızı ayrıntılı bilgileri rolleri içinde çalıştıran kodundan günlüğe kaydetmek için kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure tanılamada etkinleştirme Azure Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=400450).
-
-## <a name="using-intellitrace"></a>IntelliTrace'i kullanma 
+## <a name="using-intellitrace"></a>Using IntelliTrace 
 .NET Framework 4.5 rolleri hedeflenen yazmak için Visual Studio Enterprise kullanıyorsanız, bir Azure bulut hizmeti Visual Studio'dan dağıttığınız zaman IntelliTrace etkinleştirebilirsiniz. IntelliTrace ile Visual Studio Azure'da çalışıyormuş gibi uygulamanızda hata ayıklama için kullanabileceğiniz bir günlük sağlar. Daha fazla bilgi için bkz: [yayımlanan bulut hizmeti IntelliTrace ve Visual Studio ile hata ayıklama](http://go.microsoft.com/fwlink/p/?LinkId=623016).
 
 ## <a name="remote-debugging"></a>Uzaktan hata ayıklama 

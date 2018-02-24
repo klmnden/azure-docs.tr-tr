@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 02/21/2018
 ms.author: jonbeck
-ms.openlocfilehash: fc2cae8208baa211db2166c9d66a83153fa7b445
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Yüksek performanslı bilgi işlem VM boyutları
 
@@ -36,13 +36,7 @@ Bu arabirim H16r ve H16mr sanal makineler için FDR hızlarını ve A8 ve A9 san
 
 RDMA özelliğine sahip Windows Azure RDMA ağa VM'ler için gereksinimleri şunlardır: 
 
-* **İşletim Sistemi**
-  
-  Windows Server 2012 R2, Windows Server 2012
-  
-  > [!NOTE]
-  > Şu anda, Windows Server 2016 RDMA bağlantısı Azure'da desteklemiyor.
-  >
+* **İşletim sistemi** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 * **Kullanılabilirlik kümesi veya Bulut hizmeti** – RDMA özellikli sanal makineleri aynı kullanılabilirlik kümesinde (Azure Resource Manager dağıtım modeli kullandığınızda) ya da aynı bulut hizmetine (Klasik dağıtım modeli kullandığınızda) dağıtın. Azure Batch kullanırsanız, RDMA özellikli sanal makineleri aynı Havuzda olması gerekir.
 
@@ -52,7 +46,7 @@ RDMA özelliğine sahip Windows Azure RDMA ağa VM'ler için gereksinimleri şun
 
 * **RDMA ağ adresi alanını** -Azure RDMA ağ adres alanı 172.16.0.0/16 ayırır. Bir Azure sanal ağında dağıtılan örneklerinde MPI uygulamaları çalıştırmak için sanal ağ adres alanı RDMA ağ çakışmadığından emin olun.
 
-* **HpcVmDrivers VM uzantısı** -RDMA özellikli Vm'lerinde RDMA bağlantısı için Windows ağ aygıt sürücülerini yüklemek için HpcVmDrivers uzantısı eklemeniz gerekir. (A8 ve A9 örneklerinin bazı dağıtımlarda HpcVmDrivers uzantı otomatik olarak eklenir.) Bir VM için VM uzantısı eklemek için kullanabileceğiniz [Azure PowerShell](/powershell/azure/overview) cmdlet'leri. 
+* **HpcVmDrivers VM uzantısı** - RDMA özellikli Vm'lerinde RDMA bağlantısı için Windows ağ aygıt sürücülerini yüklemek için HpcVmDrivers uzantısını ekleyin. (A8 ve A9 örneklerinin bazı dağıtımlarda HpcVmDrivers uzantı otomatik olarak eklenir.) Bir VM için VM uzantısı eklemek için kullanabileceğiniz [Azure PowerShell](/powershell/azure/overview) cmdlet'leri. 
 
   
   Aşağıdaki komutu en son sürüm 1.1 HpcVMDrivers uzantısı adlı bir varolan RDMA özelliğine sahip VM yükler *myVM* adlı kaynak grubunda dağıtılan *myResourceGroup* içinde  *Batı ABD* bölge:

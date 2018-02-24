@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Bir bulut Hizmeti performansını Visual Studio profil oluşturucu kullanılarak Azure işlem öykünücüsü yerel olarak test etme
 Çeşitli araçları ve teknikleri, bulut Hizmetleri performansını test etmek için kullanılabilir.
@@ -44,31 +44,35 @@ Bu yönergeler, var olan bir proje veya yeni bir proje ile kullanabilirsiniz.  A
 
 Örneğin amaçları ekleyin biraz kod projenize çok zaman alır ve bazı bariz performans sorununu gösterir. Örneğin, bir çalışan rolü projesi için aşağıdaki kodu ekleyin:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Bu kod çalışan rolün RoleEntryPoint türetilmiş sınıf RunAsync yönteminde çağırmanıza. (Zaman uyumlu olarak çalışan yöntemi hakkında uyarıyı yok sayın.)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Derleme ve bulut hizmetinizi yerel olarak (Ctrl + F5) hata ayıklama olmadan kümesine çözüm yapılandırması ile çalıştırma **sürüm**. Bu, tüm dosya ve klasörlerin uygulama yerel olarak çalıştırmak için oluşturulur ve tüm Öykünücüler başlatıldığını sağlar sağlar. İşlem öykünücüsü kullanıcı Arabiriminde çalışan rolünüzün çalıştığını doğrulamak için görev çubuğundan başlatın.
 
@@ -88,9 +92,11 @@ Proje klasörünüzdeki bir ağ sürücüsündeyse profil oluşturucu profil olu
  Bir web rolü için WaIISHost.exe ekleyerek de ekleyebilirsiniz.
 Uygulamanızda birden çok rol işçi varsa, ProcessId bunları ayırt etmek için kullanmanız gerekebilir. İşlem nesnesi erişerek ProcessId program aracılığıyla sorgulayabilirsiniz. Örneğin, bir roldeki RoleEntryPoint türetilmiş sınıf Run yöntemi için bu kodu eklerseniz, bağlanmak için hangi işlemin bilmeniz işlem öykünücüsü UI günlüğüne bakabilirsiniz.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Günlüğünü görüntülemek için işlem öykünücüsü kullanıcı arabirimini Başlat.
 
@@ -126,16 +132,18 @@ Bu makalede dize birleştirme kod eklediyseniz, bunun için bir uyarı görev li
 ## <a name="4-make-changes-and-compare-performance"></a>4: değişiklikleri yapın ve performans karşılaştırma
 Önce ve sonra bir kod değişikliği performans de karşılaştırabilirsiniz.  Çalışan işlemi durdurmak ve dize birleştirme işlemi StringBuilder kullanımı ile değiştirmek için kod düzenleyin:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Başka bir performans çalışma yapın ve ardından performans karşılaştırın. Performans Explorer'ın çalıştığı aynı oturumda varsa, yalnızca her iki raporu seçebilir, kısayol menüsünü açın ve seçin **karşılaştırmak performans raporları**. Başka bir performans oturumda çalıştırılan karşılaştırma yapmak isterseniz, açmak **Çözümle** menüsünde ve **karşılaştırmak performans raporları**. Görüntülenen iletişim kutusunda her iki dosya belirtin.
 

@@ -16,18 +16,18 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 1aaebb66287edc375909f7367648da6cf5f4cc40
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 25ab1da5a07874596bf5ec62313e672af83a9bb9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Görünüm veya Azure Active Directory'de kullanıcı gruplarınız arayın
 Bu makalede, Azure Active Directory (Azure AD) tüm gruplarını görüntülemek açıklanmaktadır. Azure AD kullanıcı yönetimi özelliklerini lisansları veya izinleri bir çok sayıda kullanıcının aynı anda atama gibi yönetim görevleri gerçekleştirmek için grupları kullanabilirsiniz biridir.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Tüm grupları nasıl görürüm?
 1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **daha fazla hizmet**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
+2. Seçin **tüm hizmetleri**, girin **kullanıcılar ve gruplar** metin kutusuna ve ardından **Enter**.
 
    ![Açılış kullanıcılar ve gruplar](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **tüm grupları**.

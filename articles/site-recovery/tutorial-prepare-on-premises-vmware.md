@@ -1,84 +1,78 @@
 ---
-title: "VMware Vm'leri olağanüstü durum kurtarma Azure için şirket içi VMware sunucuları hazırlama | Microsoft Docs"
-description: "Olağanüstü durum kurtarma Azure Site Recovery hizmeti kullanılarak azure'a şirket içi VMware sunucuları hazırlama hakkında bilgi edinin."
+title: "Şirket içi VMware sunucularını VMware VM’lerinden Azure’a olağanüstü durum kurtarmaya hazırlama| Microsoft Docs"
+description: "Azure Site Recovery hizmetini kullanarak şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlamayı öğrenin."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 90a4582c-6436-4a54-a8f8-1fee806b8af7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: af09c5602c53be4377ba19e68ff3486bcfefe0ea
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
-ms.translationtype: MT
+ms.openlocfilehash: 4fecd5f8ddb4a6f432995a7779e29479b5b1a7c0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Olağanüstü durum kurtarma Azure için şirket içi VMware sunucuları hazırlama
+# <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlama
 
-Bu öğretici, VMware Vm'lerini Azure'a çoğaltma istediğinizde, şirket içi VMware altyapınızı hazırlama gösterilmiştir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide VMware VM’lerini Azure’a çoğaltırken şirket içi VMware altyapınızı nasıl hazırlayacağınız gösterilmektedir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * VM bulma otomatikleştirmek için vCenter sunucusu veya vSphere ESXi ana bilgisayarında, bir hesap hazırlama
-> * Mobility hizmetinin VMware vm'lerinde otomatik yüklemesi için bir hesap hazırlama
-> * VMware server gereksinimlerini gözden geçirin
-> * VMware VM gereksinimlerini gözden geçirin
+> * VM bulmayı otomatikleştirmek için vCenter sunucusunda veya vSphere ESXi ana bilgisayarında bir hesap hazırlama
+> * VMware VM’lerinde Mobility hizmetini otomatik olarak yüklemek için bir hesap hazırlama
+> * VMware sunucu gereksinimlerini gözden geçirme
+> * VMware VM gereksinimlerini gözden geçirme
 
-Bu öğretici serisinde tek bir VM'yi yedeklemek nasıl Azure Site RECOVERY'yi kullanarak gösteriyoruz. Birden çok VMware Vm'leri korumak planlıyorsanız indirmelisiniz [dağıtım planlayıcısı aracı](https://aka.ms/asr-deployment-planner) VMware çoğaltma için. Bu araç VM uyumluluk, VM başına disk ve disk başına veri dalgalanmasına hakkında bilgi toplayın. Aracı, ağ bant genişliği gereksinimlerini ve başarılı çoğaltma ve test yük devretme için gereken Azure altyapı da kapsar. [Daha fazla bilgi edinin](site-recovery-deployment-planner.md) aracı çalıştırma hakkında.
+Bu öğretici serisinde, Azure Site Recovery kullanarak tek bir VM’yi yedekleme gösterilmektedir. Birden çok VMware VM’sini korumayı planlıyorsanız, VMware çoğaltması için [Dağıtım Planlayıcısı aracını](https://aka.ms/asr-deployment-planner) indirmelisiniz. Bu araç VM uyumluluğu, VM başına disk sayısı ve disk başına veri değişim sıklığı hakkında bilgiler toplar. Araç ayrıca ağ bant genişliği gereksinimlerini ve başarılı çoğaltma ve test yük devretmesi için gereken Azure altyapısını da kapsar. Aracı çalıştırma hakkında [daha fazla bilgi edinin](site-recovery-deployment-planner.md).
 
-Bu serideki ikinci öğreticidir. Bilgisayarınızda yüklü olduğundan emin olun [Azure bileşenleri ayarlamak](tutorial-prepare-azure.md) önceki öğreticide açıklandığı gibi.
+Bu, serideki ikinci öğreticidir. Önceki öğreticide açıklandığı gibi [Azure bileşenlerini ayarladığınızdan](tutorial-prepare-azure.md) emin olun.
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Otomatik bulma için bir hesap hazırlama
 
-Site kurtarma VMware sunucularına erişimi gerekir:
+Site Recovery aşağıdakiler için VMware sunucularına erişmesi gerekir:
 
-- Sanal makineleri otomatik olarak bulur. En az bir salt okunur hesabı gereklidir.
-- Çoğaltma, yük devretme ve yeniden çalışma yönetirler. Sanal makine oluşturma ve diskleri kaldırma ve başlatırken gibi işlemleri çalıştırılan bir hesap gerekir.
+- VM’leri otomatik olarak bulma. En az bir salt okunur hesap gereklidir.
+- Çoğaltma, yük devretme ve yeniden çalıştırmayı yönetme. Diskleri oluşturma ve kaldırma ve VM’leri çalıştırma gibi işlemleri gerçekleştirebilen bir hesabınızın olması gerekir.
 
-Hesap gibi oluşturun:
+Hesabı aşağıdaki gibi oluşturun:
 
-1. Adanmış bir hesap kullanmak için vCenter düzeyinde bir rolü oluşturun. Rolü gibi bir ad verin **Azure_Site_Recovery**.
-2. Rolü, aşağıdaki tabloda özetlenen izinleri atayın.
-3. VCenter sunucusu veya vSphere ana bilgisayarda bir kullanıcı oluşturun. Kullanıcıya rol atayın.
+1. Ayrılmış bir hesap kullanmak için, rolü vCenter düzeyinde oluşturun. Role **Azure_Site_Recovery** gibi bir ad verin.
+2. Role aşağıdaki tabloda özetlenen izinleri atayın.
+3. vCenter sunucusu veya vSphere ana bilgisayarında bir kullanıcı oluşturun. Rolü kullanıcıya atayın.
 
-### <a name="vmware-account-permissions"></a>VMware hesabı izinleri
+### <a name="vmware-account-permissions"></a>VMware hesap izinleri
 
-**Görev** | **Rol/izinleri** | **Ayrıntılar**
+**Görev** | **Rol/İzinler** | **Ayrıntılar**
 --- | --- | ---
-**VM bulma** | En az bir salt okunur kullanıcı<br/><br/> Veri Merkezi Nesne –> Propagate alt nesne için rol = salt okunur | Kullanıcı veri merkezi düzeyde atanan ve veri merkezinde tüm nesnelere erişimi vardır.<br/><br/> Erişimi kısıtlamak için Ata **erişim yok** rolüyle **alt Propagate** (vSphere ana bilgisayarları, datastores, sanal makineleri ve ağları) alt nesneleri için nesne.
-**Tam çoğaltma, yük devretme, yeniden çalışma** |  Gerekli izinlere sahip bir rol (Azure_Site_Recovery) oluşturun ve bir VMware kullanıcı veya grup rolü atayın<br/><br/> Veri Merkezi Nesne –> Propagate alt nesne için rol Azure_Site_Recovery =<br/><br/> Veri deposu alanı Ayır ->, veri deposu, alt düzey dosya işlemleri göz atın, dosyayı kaldırmak, sanal makine dosyalarını güncelleştir<br/><br/> Ağ -> Ağ atama<br/><br/> Kaynak VM atamak için kaynak havuzu ->, VM güç beslemeli geçirmek, VM güç beslemeli geçirme<br/><br/> Görevler oluşturma görevi, güncelleştirme görevi -><br/><br/> Sanal Makine Yapılandırma -><br/><br/> Sanal makine -> etkileşimde bulunma yanıt soru, cihaz bağlantısı ->, CD ortamı yapılandırmak, disket ortamı, kapatma, açma, VMware araçları yükleme yapılandırın<br/><br/> Sanal makine -> Stok Oluştur ->, kaydetme, kaydı<br/><br/> Sanal makine sağlama -> izin sanal makine indirme ->, sanal makine dosyalarını karşıya yükleme izin ver<br/><br/> Sanal makine anlık görüntüleri -> Kaldır anlık görüntüleri -> | Kullanıcı veri merkezi düzeyde atanan ve veri merkezinde tüm nesnelere erişimi vardır.<br/><br/> Erişimi kısıtlamak için Ata **erişim yok** rolüyle **alt Propagate** (vSphere ana bilgisayarları, datastores, sanal makineleri ve ağları) alt nesneleri için nesne.
+**VM bulma** | En az bir salt okunur kullanıcı<br/><br/> Veri Merkezi nesnesi –> Alt Nesneye Yay, role=Read-only | Kullanıcı veri merkezi düzeyinde atandı ve bu veri merkezindeki tüm nesnelere erişimi var.<br/><br/> Erişimi kısıtlamak için, **Alt öğeye yay** nesnesi ile **Erişim yok** rolünü alt nesnelere (vSphere ana bilgisayarları, veri depoları, VM’ler ve ağlar) atayın.
+**Tam çoğaltma, yük devretme, yeniden çalışma** |  Gerekli izinlere sahip bir rol (Azure_Site_Recovery) oluşturup rolü VMware kullanıcısı veya grubuna atayın<br/><br/> Veri Merkezi nesnesi –> Alt Nesneye Yay, role=Azure_Site_Recovery<br/><br/> Veri deposu -> Alan ayırma, veri deposuna göz atma, düşük düzeyli dosya işlemleri, dosyayı kaldırma, sanal makine dosyalarını güncelleştirme<br/><br/> Ağ -> Ağ ataması<br/><br/> Kaynak -> VM’yi kaynak havuzuna atama, kapalı VM’yi geçirme, açık VM’yi geçirme<br/><br/> Görevler -> Görev oluşturma, görevi güncelleştirme<br/><br/> Sanal makine -> Yapılandırma<br/><br/> Sanal makine -> Etkileşim -> soruyu yanıtlama, cihaz bağlantısı, CD ortamını yapılandırma, disket ortamını yapılandırma, kapatma, açma, VMware araçlarını yükleme<br/><br/> Sanal makine -> Envanter -> Oluşturma, kaydetme, kaydı kaldırma<br/><br/> Sanal makine -> Sağlama -> Sanal makine indirmeye izin verme, Sanal makine dosyalarını karşıya yüklemeye izin verme<br/><br/> Sanal makine -> Anlık görüntüler -> Anlık görüntüleri kaldırma | Kullanıcı veri merkezi düzeyinde atandı ve bu veri merkezindeki tüm nesnelere erişimi var.<br/><br/> Erişimi kısıtlamak için, **Alt öğeye yay** nesnesi ile **Erişim yok** rolünü alt nesnelere (vSphere ana bilgisayarları, veri depoları, VM’ler ve ağlar) atayın.
 
-## <a name="prepare-an-account-for-mobility-service-installation"></a>Mobility hizmeti yüklemesi için bir hesap hazırlama
+## <a name="prepare-an-account-for-mobility-service-installation"></a>Bir hesabı Mobility hizmeti yüklemesi için hazırlama
 
-Mobility hizmetinin çoğaltmak istediğiniz VM üzerinde yüklü olmalıdır. Sanal makine için çoğaltmayı etkinleştirdiğinizde, site kurtarma Bu hizmeti otomatik olarak yüklenir. Otomatik yükleme için Site Recovery VM erişmek için kullanacağı bir hesap hazırlamanız gerekir. Olağanüstü durum kurtarma Azure konsolunda ayarladığınızda, bu hesabı belirtmeniz.
+Çoğaltmak istediğiniz sanal makinede Mobility hizmeti yüklü olmalıdır. Sanal makine için çoğaltmayı etkinleştirdiğinizde Site Recovery bu hizmeti otomatik olarak yükler. Otomatik yükleme için, Site Recovery’nin sanal makineye erişmek için kullanacağı bir hesap hazırlamanız gerekir. Azure konsolunda olağanüstü durum kurtarmayı ayarlarken bu hesabı belirteceksiniz.
 
-1. Bir etki alanı veya yerel hesap VM'de yüklemek için gerekli izinlere sahip hazırlayın.
-2. Bir etki alanı hesabı kullanmıyorsanız Windows Vm'lerinde yüklemek için yerel makine üzerinde uzak kullanıcı erişim denetimi devre dışı bırakın.
-   - Kayıt defterinden altında **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, DWORD girdisi eklemek **LocalAccountTokenFilterPolicy**, 1 değerine sahip.
-3. Linux VM'ler yüklemek için kaynak Linux sunucusu üzerinde kök hesabı hazırlayın.
+1. VM üzerinde yükleme izinleri ile bir etki alanı veya yerel hesap hazırlayın.
+2. Windows sanal makinelerine yüklemek için, bir etki alanı hesabı kullanmıyorsanız yerel makinede Uzak Kullanıcı Erişim denetimini devre dışı bırakın.
+   - Kayıt defterinde **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** altında **LocalAccountTokenFilterPolicy** adlı DWORD girişini 1 değeriyle ekleyin.
+3. Linux VM üzerinde yüklemek için, kaynak Linux sunucusunda bir kök hesabı hazırlayın.
 
 
-## <a name="check-vmware-server-requirements"></a>VMware server gereksinimlerini denetleyin
+## <a name="check-vmware-server-requirements"></a>VMware sunucu gereksinimlerini denetleme
 
-VMware sunucular aşağıdaki gereksinimleri karşıladığından emin olun.
+VMware sunucularının aşağıdaki gereksinimleri karşıladığından emin olun.
 
 **Bileşen** | **Gereksinim**
 --- | ---
-**vCenter server** | vCenter 6.5, 6.0 veya 5.5
-**vSphere host** | vSphere 6.5, 6.0, 5.5
+**vCenter sunucusu** | vCenter 6.5, 6.0 veya 5.5
+**vSphere ana bilgisayarı** | vSphere 6.5, 6.0, 5.5
 
-## <a name="check-vmware-vm-requirements"></a>VMware VM gereksinimlerini denetleyin
+## <a name="check-vmware-vm-requirements"></a>VMware VM gereksinimlerini denetleme
 
-VM aşağıdaki tabloda özetlenen Azure gereksinimlere uygun olduğundan emin olun.
+VM’nin aşağıdaki tabloda belirtilen Azure gereksinimlerine uygun olduğundan emin olun.
 
-**VM gereksinimi** | **Ayrıntılar**
+**VM Gereksinimi** | **Ayrıntılar**
 --- | ---
 **İşletim sistemi disk boyutu** | 2048 GB'a kadar.
 **İşletim sistemi disk sayısı** | 1
@@ -86,33 +80,33 @@ VM aşağıdaki tabloda özetlenen Azure gereksinimlere uygun olduğundan emin o
 **Veri diski VHD boyutu** | 4095 GB'a kadar
 **Ağ bağdaştırıcıları** | Birden çok bağdaştırıcı desteklenir
 **Paylaşılan VHD** | Desteklenmiyor
-**FC disk** | Desteklenmiyor
-**Sabit disk biçimi** | VHD veya VHDX.<br/><br/> VHDX şu anda Azure'da desteklenmiyor olsa da, Site Recovery, Azure'a yük otomatik olarak VHDX VHD'ye dönüştürür. Şirket içi sanal makineleri başarısız olduğunda VHDX biçimi kullanmaya devam edin.
-**Bitlocker** | Desteklenmiyor. Bir sanal makine için çoğaltmayı etkinleştirmeden önce devre dışı bırakın.
-**VM adı** | 1 ile 63 karakter.<br/><br/> Harf, rakam ve kısa çizgi için kısıtlanmış. VM adı başlamalı ve bir harf veya sayı ile bitmelidir.
-**VM türü** | Nesil 1 - Linux veya Windows<br/><br/>Nesil 2 - yalnızca Windows
+**FC diski** | Desteklenmiyor
+**Sabit disk biçimi** | VHD veya VHDX.<br/><br/> VHDX şu anda Azure’da desteklenmiyor olsa da, Site Recovery Azure’a yük devrettiğinizde VHDX’i otomatik olarak VHD’ye dönüştürür. Şirket içi VM’leri yeniden çalıştırdığınızda, VM’ler VHDX biçimini kullanmaya devam eder.
+**Bitlocker** | Desteklenmiyor. Bir VM için çoğaltmayı etkinleştirmeden önce devre dışı bırakın.
+**VM adı** | 1-63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluşabilir. VM adı bir harf veya sayıyla başlamalı ve bitmelidir.
+**VM türü** | 1. Nesil - Linux veya Windows<br/><br/>2. Nesil - Yalnızca Windows
 
-VM de desteklenen bir işletim sistemi çalıştırması gerekir. Bkz: [Site Recovery destek matrisi](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) desteklenen sürümleri tam bir listesi.
+VM ayrıca desteklenen bir işletim sistemini çalıştırmalıdır. Desteklenen sürümlerin tam listesini görmek için bkz. [Site Recovery destek matrisi](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
 
-Bir yük devretme senaryosu sırasında çoğaltılmış VM'ler için Azure'da şirket içi ağınızdan bağlanmak isteyebilirsiniz.
+Bir yük devretme senaryosunda, Azure’daki çoğaltılan VM’lerinize şirket içi ağınızdan bağlanmak isteyebilirsiniz.
 
-Windows Yük devretme işleminden sonra RDP kullanarak VM'ler bağlanmak için aşağıdakileri yapın:
+Yük devretmeden sonra RDP kullanarak Windows VM’lerine bağlanmak için aşağıdakileri yapın:
 
-1. Internet üzerinden erişmek için yük devretmeden önce şirket içi VM üzerinde RDP etkinleştirin. Bu TCP emin olun ve UDP kuralları için eklenir **ortak** profili ve RDP izin verildiğinden emin **Windows Güvenlik Duvarı** > **izin verilen uygulamaları** tüm profiller için.
-2. Siteden siteye VPN üzerinden erişmek için şirket içi makinede RDP etkinleştirin. RDP izin içinde **Windows Güvenlik Duvarı** -> **verilen uygulamalar ve Özellikler** için **etki alanı ve özel** ağlar.
-   İşletim sisteminin SAN ilkesinin kümesine onay **OnlineAll**. [Daha fazla bilgi edinin](https://support.microsoft.com/kb/3031135). Olmamalıdır bekleyen hiçbir Windows güncelleştirmeleri VM üzerinde bir yük devretme tetiklemek olduğunda. Varsa, güncelleştirme tamamlanana kadar sanal makineye oturum açamaz olmayacaktır.
-3. Yük devretme sonrasında Windows Azure VM üzerinde kontrol **önyükleme tanılama** ekran VM görüntüsünü görüntülemek için. Bağlanamıyorsanız, VM çalışıp çalışmadığını denetleyin ve bu gözden [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+1. İnternet üzerinden erişmek için, yük devretmeden önce şirket içi VM’de RDP’yi etkinleştirin. TCP ve UDP kurallarının **Ortak** profil için eklendiğinden ve tüm profillerde **Windows Güvenlik Duvarı** > **İzin Verilen Uygulamalar** içinde RDP’ye izin verildiğinden emin olun.
+2. Siteden siteye VPN üzerinden erişmek için, şirket içi makinede RDP’yi etkinleştirin. **Etki Alanı ve Özel** ağlar için **Windows Güvenlik Duvarı** -> **İzin verilen uygulama ve özellikler içinde** RDP’ye izin verilmelidir.
+   İşletim sisteminin SAN ilkesinin **OnlineAll** olarak ayarlandığından emin olun. [Daha fazla bilgi edinin](https://support.microsoft.com/kb/3031135). Bir yük devretme tetiklediğinizde VM’de bekleyen Windows güncelleştirmelerinin olmaması gerekir. Varsa, güncelleştirme tamamlanana kadar sanal makinede oturum açmanız mümkün olmayacaktır.
+3. Yük devretmeden sonra Windows Azure VM’sinde, VM’nin bir ekran görüntüsünü görmek için **Önyükleme tanılaması**’nı kontrol edin. Bağlanamıyorsanız, VM’nin çalıştığından emin olun ve şu [sorun giderme ipuçlarını](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx) gözden geçirin.
 
-Yük devretme sonrasında SSH kullanarak Linux VM'ler bağlanmak için aşağıdakileri yapın:
+Yük devretmeden sonra SSH kullanarak Linux VM’lerine bağlanmak için aşağıdakileri yapın:
 
-1. Yük devretmeden önce şirket içi makinede Secure Shell hizmetinin sistem önyüklemesinde otomatik olarak başlamaya ayarlanmıştır denetleyin. Güvenlik duvarı kuralları bir SSH bağlantısı izin verdiğinden emin olun.
+1. Yük devretmeden önce şirket içi makinede Secure Shell hizmetinin sistem önyüklemesinde otomatik olarak başlatılmak için ayarlandığından emin olun. Güvenlik duvarı kurallarının SSH bağlantısına izin verdiğinden emin olun.
 
-2. Yük devretme sonrasında Azure VM'de, SSH bağlantı noktası için ağ güvenlik grubu kurallarının devredilen VM'ye ve bağlı olduğu Azure alt ağ için gelen bağlantılara izin verin.
-   [Bir ortak IP adresi eklemek](site-recovery-monitoring-and-troubleshooting.md) VM için. Kontrol edebilirsiniz **önyükleme tanılama** ekran VM görüntüsünü görüntülemek için.
+2. Yük devretmeden sonra Azure VM’sinde, yük devredilen VM üzrindeki ağ güvenlik grubu kuralları ve VM’nin bağlı olduğu Azure alt ağı için SSH bağlantı noktasına gelen bağlantılara izin verin.
+   VM için bir [ortak IP adresi ekleyin](site-recovery-monitoring-and-troubleshooting.md). VM’nin bir ekran görüntüsünü görmek için **Önyükleme tanılaması**’nı kontrol edebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [VMware Vm'leri için olağanüstü durum kurtarma Azure ayarlama](tutorial-vmware-to-azure.md)
+> [VMware VM’leri için Azure’da olağanüstü durum kurtarmayı ayarlama](tutorial-vmware-to-azure.md)

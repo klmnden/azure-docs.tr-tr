@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: dda0e2efa72356f00b0372e4f6ce961719946b8d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Olay kılavuz güvenlik ve kimlik doğrulama 
 
@@ -59,6 +59,11 @@ Uç nokta sahipliği kanıtlamak için geri validationResponse özelliğinde do�
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+### <a name="event-delivery-security"></a>Olay teslimi güvenliği
+
+Bir olay abonelik oluştururken, Web kancası URL'si sorgu parametreleri ekleyerek Web kancası uç noktanızı güvenliğini sağlayabilirsiniz. Gizli gibi olması için bu sorgu parametrelerini ayarlayın bir [erişim belirteci](https://en.wikipedia.org/wiki/Access_token) Web kancası olay tanımak için kullanabileceğiniz olay kılavuzdan geçerli izinleriyle geliyor. Olay kılavuz her olay teslimi Web kancası için bu sorgu parametrelerini içerir.
+
+Olay aboneliği düzenlerken, sorgu parametrelerini değil görüntülenen veya kaldırılacak sürece döndürülen [--dahil-tam-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parametresi Azure'da kullanılan [CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
 
 Son olarak, Azure olay kılavuz yalnızca HTTPS Web kancası uç noktaları desteklediğini dikkate almak önemlidir.
 
@@ -68,15 +73,15 @@ Bir olaya abone olmak için bilmeniz gereken **Microsoft.EventGrid/EventSubscrip
 
 ### <a name="system-topics-azure-service-publishers"></a>Sistem konuları (Azure hizmeti yayımcılar)
 
-Sistem konuları için yeni bir olay aboneliği kapsamında olay yayımlama kaynağının yazma izni gerekir. Kaynak biçimi şöyledir:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Sistem konuları için yeni bir olay aboneliği kapsamında olay yayımlama kaynağının yazma izni gerekir. Kaynak biçimi şöyledir: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Örneğin, bir depolama hesabı üzerinde bir olaya abone olmak için adlı **myacct**, üzerinde Microsoft.EventGrid/EventSubscriptions/Write izniniz olmalıdır:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Örneğin, bir depolama hesabı üzerinde bir olaya abone olmak için adlı **myacct**, üzerinde Microsoft.EventGrid/EventSubscriptions/Write izniniz olmalıdır: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Özel konular
 
-Özel konular için yeni bir olay aboneliği kapsamında olay kılavuz konunun yazma izni gerekir. Kaynak biçimi şöyledir:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Özel konular için yeni bir olay aboneliği kapsamında olay kılavuz konunun yazma izni gerekir. Kaynak biçimi şöyledir: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Örneğin, özel bir konuya abone olmak için adlı **mytopic**, üzerinde Microsoft.EventGrid/EventSubscriptions/Write izniniz olmalıdır:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Örneğin, özel bir konuya abone olmak için adlı **mytopic**, üzerinde Microsoft.EventGrid/EventSubscriptions/Write izniniz olmalıdır: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 ## <a name="topic-publishing"></a>Konu yayımlama
 
@@ -86,7 +91,7 @@ HTTP üstbilgisinde kimlik doğrulama değeri içerir. SA'ları için kullanmak 
 
 ### <a name="key-authentication"></a>Anahtar kimlik doğrulaması
 
-Anahtar kimlik doğrulaması kimlik doğrulaması en basit biçimidir. Biçimi kullanın:`aeg-sas-key: <your key>`
+Anahtar kimlik doğrulaması kimlik doğrulaması en basit biçimidir. Biçimi kullanın: `aeg-sas-key: <your key>`
 
 Örneğin, bir anahtar ile geçirin:
 
@@ -98,7 +103,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Olay kılavuz için SAS belirteci kaynağı, sona erme süresi ve imza içerir. SAS belirteci biçimi: `r={resource}&e={expiration}&s={signature}`.
 
-Kaynak olayların gönderilmesi konu yolu değil. Örneğin, geçerli bir kaynak yolu şöyledir:`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+Kaynak olayların gönderilmesi konu yolu değil. Örneğin, geçerli bir kaynak yolu şöyledir: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 İmza bir anahtarı oluşturur.
 

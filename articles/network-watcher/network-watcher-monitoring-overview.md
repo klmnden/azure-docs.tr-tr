@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure ağı izlemeye genel bakış
 
@@ -46,7 +46,7 @@ Ağ İzleyicisi'ni şu anda aşağıdaki özellikleri içerir:
 * **[Sanal ağ geçidi ve bağlantı sorunlarını giderme](network-watcher-troubleshoot-manage-rest.md)**  -sanal ağ geçitleri ve bağlantıları sorun giderme olanağı sağlar.
 * **[Ağ abonelik sınırları](#network-subscription-limits)**  -ağ kaynak kullanımı sınırları karşı görüntülemenizi sağlar.
 * **[Tanılama günlük yapılandırma](#diagnostic-logs)**  – etkinleştirme veya devre dışı bir kaynak grubunda ağ kaynakları için tanılama günlükleri tek bir bölme sağlar.
-* **[Bağlantı (Önizleme)](network-watcher-connectivity-overview.md)**  -doğrudan TCP bağlantısı bir sanal makineden belirli bir uç noktası oluşturma olasılığını doğrular.
+* **[Bağlantı sorunlarını giderme](network-watcher-connectivity-overview.md)**  -doğrudan TCP bağlantısı bir sanal makineden Azure bağlamla zenginleştirilmiş belirli bir uç nokta oluşturma olasılığını doğrular.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Rol tabanlı erişim denetimi (RBAC) Ağ İzleyicisi
 
@@ -82,7 +82,7 @@ Ağ abonelik sınırları her bir abonelikte kullanılabilir kaynakları sayıs�
 
 Aşağıdaki özellikler, kaynak düzeyi izleme için kullanılabilir:
 
-### <a name="audit-log"></a>Denetim günlüğü
+### <a name="audit-log"></a>Denetleme günlüğü
 
 Ağ yapılandırmasının bir parçası gerçekleştirilen işlemleri günlüğe kaydedilir. Bu günlükler Azure Portalı'nda görüntülenebilir veya Power BI gibi Microsoft araçları veya üçüncü taraf araçlarını kullanarak alınamıyor. Denetim günlükleri, portal, PowerShell'i, CLI ve Rest API kullanılabilir. Denetim günlükleri hakkında daha fazla bilgi için bkz: [denetim işlemleri Resource Manager ile](../resource-group-audit.md)
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: c21b575e9e055b2dec69bea270012b91df2b662b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 9f733ee6c193a695dacaf7c390402e12407e198d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Anlama ve hdınsight'ta WebHCat gelen karşılaşılan hataları çözme
 
@@ -48,9 +48,9 @@ Aşağıdaki varsayılan değerler aşılırsa, WebHCat performansı düşebilir
 
 | Ayar | Ne yapar? | Varsayılan değer |
 | --- | --- | --- |
-| [yarn.Scheduler.Capacity.Maximum-uygulamalar][maximum-applications] |Maksimum sayıda eş zamanlı olarak etkin olabilir işi (Beklemede veya çalışan) |10,000 |
-| [templeton.Exec.max yakalar][max-procs] |Eşzamanlı olarak hizmet isteklerinin sayısı |20 |
-| [mapreduce.jobhistory.max yaş ms][max-age-ms] |İş Geçmişi gün sayısını korunur |7 gün |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Maksimum sayıda eş zamanlı olarak etkin olabilir işi (Beklemede veya çalışan) |10,000 |
+| [templeton.exec.max-procs][max-procs] |Eşzamanlı olarak hizmet isteklerinin sayısı |20 |
+| [mapreduce.jobhistory.max-age-ms][max-age-ms] |İş Geçmişi gün sayısını korunur |7 gün |
 
 ## <a name="too-many-requests"></a>Çok fazla istek var
 
@@ -86,7 +86,7 @@ Aşağıdaki varsayılan değerler aşılırsa, WebHCat performansı düşebilir
 | --- | --- |
 | İç çöp toplama WebHCat işlemi içinde gerçekleşen |Çöp toplama son veya WebHCat hizmetini yeniden başlatmak bekleyin |
 | ResourceManager hizmetinden bir yanıt beklenirken zaman aşımı. Etkin uygulama sayısı yapılandırılan en büyük (varsayılan 10.000) olduğunda bu hata oluşabilir |Şu anda çalışan tamamlamak veya değiştirerek eşzamanlı iş sınırını artırmak için işi bekleyin `yarn.scheduler.capacity.maximum-applications`. Daha fazla bilgi için bkz: [değiştirme yapılandırma](#modifying-configuration) bölümü. |
-| Tüm işleri aracılığıyla almaya [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) çağrısı sırasında `Fields` ayarlanır`*` |Alamadı *tüm* iş ayrıntıları. Bunun yerine kullanın `jobid` yalnızca belirli iş kimliği büyük projeler için Ayrıntılar alınamadı. Ya da kullanmayın`Fields` |
+| Tüm işleri aracılığıyla almaya [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) çağrısı sırasında `Fields` ayarlanır `*` |Alamadı *tüm* iş ayrıntıları. Bunun yerine kullanın `jobid` yalnızca belirli iş kimliği büyük projeler için Ayrıntılar alınamadı. Ya da kullanmayın `Fields` |
 | HeadNode yük devretme sırasında WebHCat hizmeti çalışmıyor |İki dakika bekleyin ve işlemi yeniden deneyin |
 | WebHCat gönderilen 500'den fazla bekleyen iş |Daha fazla iş göndermeden önce şu anda bekleyen işler tamamlanana kadar bekleyin |
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Ağ güvenlik özellikleri ile kişisel verileri koruma: Azure uygulama ağ geçidi ve ağ güvenlik grupları
 
@@ -59,23 +59,14 @@ Bir uygulama ağ geçidi ile WAF oluşturun veya var olan bir uygulama ağ geçi
 
 Etkin WAF ile yeni bir uygulama ağ geçidi oluşturmak için aşağıdakileri yapın:
 
-1. Azure portalına hem de oturum **Sık Kullanılanlar** portalının bölmesi **yeni**
-
-2. **Yeni** dikey penceresinde, **Ağ** öğesine tıklayın.
-
-3. Tıklatın **uygulama ağ geçidi**.
-
-4. Azure portalına gidin **yeni \> ağ \> uygulama ağ geçidi.**
-
-   ![Uygulama ağ geçidi oluşturma](media/protect-netsec/app-gateway-01.png)
-
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+2. Seçin **kaynak oluşturma** > **ağ** > **uygulama ağ geçidi**.
 5. İçinde **Temelleri** görünür, dikey penceresinde, aşağıdaki alanlar için değerleri girin: ad, katmanı (standart veya WAF), SKU boyutunu (küçük, Orta veya büyük) örnek sayısını (2), yüksek kullanılabilirlik için abonelik, kaynak grubunu ve konumu.
-
 6. İçinde **ayarları** altında görüntülenen dikey **sanal ağ**, tıklatın **sanal ağ seçin**. Bu adımı açılır Seç sanal ağ dikey girin.
 
 7. Tıklatın **Yeni Oluştur** açmak için **sanal ağ oluştur** dikey.
 
-8. Aşağıdaki değerleri girin: ad, adres alanı, alt ağ adı, alt ağ adres aralığı. **Tamam** düğmesine tıklayın.
+8. Aşağıdaki değerleri girin: ad, adres alanı, alt ağ adı, alt ağ adres aralığı. **Tamam**’a tıklayın.
 
 9. Üzerinde **ayarları** altında dikey **ön uç IP yapılandırmasını**, IP adres türünü seçin.
 
@@ -126,7 +117,7 @@ Planlama ve uygulama Nsg'ler ve bir örnek dağıtım senaryosu, daha fazla yön
 
 Gelen kuralları var olan bir NSG'de oluşturmak için aşağıdakileri yapın:
 
-1. Tıklatın **Gözat**ve ardından **ağ güvenlik grupları**.
+1. Tıklatın **tüm hizmetleri**ve ardından **ağ güvenlik grupları**.
 
 2. Nsg'ler listesinde tıklatın **NSG ön uç**ve ardından **gelen güvenlik kuralları.**
 
@@ -144,7 +135,7 @@ Nsg'ler alt ağlarında oluşturma hakkında daha fazla yönerge kurallar oluşt
 
 [Azure ağ güvenliği](https://azure.microsoft.com/blog/azure-network-security/)
 
-[Azure ağı en iyi güvenlik uygulamaları](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+[Azure Ağ Güvenliği İçin En İyi Uygulamalar](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 
 [Ağ güvenlik grubu hakkında bilgi edinin](https://docs.microsoft.com/rest/api/network/virtualnetwork/get-information-about-a-network-security-group)
 

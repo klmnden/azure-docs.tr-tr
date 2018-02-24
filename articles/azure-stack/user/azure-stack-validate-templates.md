@@ -3,8 +3,8 @@ title: "Şablonları Azure yığını denetlemek için şablon Doğrulayıcı ku
 description: "Azure yığın dağıtımına için onay şablonları"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.date: 02/20/2018
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 6a77efb3ef4236048ff08b14346175b592493982
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Azure şablonu Doğrulayıcı yığınla şablonlarınızı denetle
 
@@ -26,13 +27,28 @@ ms.lasthandoff: 01/23/2018
 
 Şablon doğrulama aracı denetlemek için kullanabileceğiniz, Azure Resource Manager [şablonları](azure-stack-arm-templates.md) Azure yığını için hazırsınız. Şablon doğrulama aracı Azure yığın araçları bir parçası olarak kullanılabilir. Açıklanan adımları kullanarak Azure yığın araçları karşıdan [araçları Github'dan indirdiğinizde](azure-stack-powershell-download.md) makalesi. 
 
-Şablonları doğrulamak için aşağıdaki PowerShell modülleri kullanın ve JSON dosyası bulunan **TemplateValidator** ve **CloudCapabilities** klasörler: 
+Şablonları doğrulamak için aşağıdaki PowerShell modülleri kullanma **TemplateValidator** ve **CloudCapabilities** klasörler: 
 
  - AzureRM.CloudCapabilities.psm1 sürümleri Azure yığın gibi bir bulutta ve Hizmetleri temsil eden bir bulut özellikleri JSON dosyası oluşturur.
  - AzureRM.TemplateValidator.psm1 şablonlarını dağıtımı için Azure yığınında test etmek için bir bulut özellikleri JSON dosyasını kullanır.
- - AzureStackCloudCapabilities_with_AddOns_20170627.json is a default cloud capabilities file.  Kendinizinkini oluşturun veya başlamak için bu dosyayı kullanın. 
+ 
+Bu makalede, bir bulut özellikleri dosyasını oluşturup Doğrulayıcı Aracı'nı çalıştırın.
 
-Bu konuda, şablonlarınızı karşı doğrulama çalıştırın ve isteğe bağlı olarak bir bulut özellikleri dosyası oluşturun.
+## <a name="build-cloud-capabilities-file"></a>Bulut özellikleri dosyası oluşturma
+Şablon Doğrulayıcı kullanmadan önce bir JSON dosyası oluşturmak için AzureRM.CloudCapabilities PowerShell modülü çalıştırın. Tümleşik sisteminizi güncelleştirmeniz veya herhangi bir yeni hizmet veya VM uzantıları eklerseniz, bu modül yeniden da çalıştırmanız gerekir.
+
+1.  Azure yığın bağlantınız olduğundan emin olun. Bu adımları Azure yığın Geliştirme Seti ana bilgisayardan gerçekleştirilebilir veya kullanabileceğiniz bir [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) istasyonunuzdan bağlanmak için. 
+2.  AzureRM.CloudCapabilities PowerShell modülünü içeri aktarın:
+
+    ```PowerShell
+    Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
+    ``` 
+
+3.  Hizmet sürümleri almak ve bir bulut özellikleri JSON dosyası oluşturmak için Get-CloudCapabilities cmdlet'ini kullanın. -OutputPath, belirtmezseniz dosyası geçerli dizinde AzureCloudCapabilities.Json oluşturulur. Gerçek konumunuz kullanın:
+
+    ```PowerShell
+    Get-AzureRMCloudCapability -Location <your location> -Verbose
+    ```             
 
 ## <a name="validate-templates"></a>Şablonları doğrula
 Bu adımlarda, AzureRM.TemplateValidator PowerShell modülünü kullanarak şablonları doğrulayın. Kendi şablonlarınızı kullanın veya doğrulama [Azure yığın hızlı başlangıç şablonlarını](https://github.com/Azure/AzureStack-QuickStart-Templates).
@@ -52,7 +68,7 @@ Bu adımlarda, AzureRM.TemplateValidator PowerShell modülünü kullanarak şabl
     -Verbose
     ```
 
-Şablon doğrulama uyarı veya hata PowerShell konsoluna kaydedilir ve ayrıca kaynak dizin bir HTML dosyasına kaydedilir. Bir doğrulama raporu çıkış şöyle görünür:
+Şablon doğrulama uyarı veya hata PowerShell konsolunu ve kaynak dizin bir HTML dosyasına kaydedilir. Doğrulama raporunu bir örneği burada verilmiştir:
 
 ![Örnek doğrulama raporu](./media/azure-stack-validate-templates/image1.png)
 
@@ -60,7 +76,7 @@ Bu adımlarda, AzureRM.TemplateValidator PowerShell modülünü kullanarak şabl
 
 | Parametre | Açıklama | Gerekli |
 | ----- | -----| ----- |
-| TemplatePath | Yinelemeli olarak yoluna Resource Manager şablonları bulma belirtir | Evet | 
+| TemplatePath | Yinelemeli olarak yoluna Bul Azure Resource Manager şablonları belirtir | Evet | 
 | TemplatePattern | Eşleştirilecek şablon dosyalarını adını belirtir. | Hayır |
 | CapabilitiesPath | Bulut özellikleri JSON dosyası yolunu belirtir. | Evet | 
 | IncludeComputeCapabilities | VM boyutları ve VM uzantıları gibi Iaas kaynaklarına değerlendirmesine içerir | Hayır |
@@ -79,22 +95,6 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -IncludeComputeCapabilities`
 -Report TemplateReport.html
 ```
-
-## <a name="build-cloud-capabilities-file"></a>Bulut özellikleri dosyası oluşturma
-Karşıdan yüklenen dosyalar varsayılan dahil *AzureStackCloudCapabilities_with_AddOns_20170627.json* PaaS Hizmetleri yüklendiğinde Azure yığın geliştirme Seti'nde kullanılabilir hizmet sürümlerini açıklar dosya.  Ek kaynak sağlayıcıları yüklerseniz, yeni hizmetler de dahil olmak üzere bir JSON dosyası oluşturmak için AzureRM.CloudCapabilities PowerShell modülü kullanabilirsiniz.  
-
-1.  Azure yığın bağlantınız olduğundan emin olun.  Kullanabilirsiniz veya bu adımları Azure yığın Geliştirme Seti ana bilgisayardan gerçekleştirilebilir [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) istasyonunuzdan bağlanmak için. 
-2.  AzureRM.CloudCapabilities PowerShell modülünü içeri aktarın:
-
-    ```PowerShell
-    Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
-    ``` 
-
-3.  Hizmet sürümleri almak ve bir bulut özellikleri JSON dosyası oluşturmak için Get-CloudCapabilities cmdlet'ini kullanın:
-
-    ```PowerShell
-    Get-AzureRMCloudCapability -Location 'local' -Verbose
-    ```             
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

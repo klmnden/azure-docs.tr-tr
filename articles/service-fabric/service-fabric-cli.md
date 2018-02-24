@@ -8,11 +8,11 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: edwardsa
-ms.openlocfilehash: d24c7618c5d53cfe2871d596bfc0fe2cadd5940a
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI'sı
 
@@ -107,6 +107,19 @@ Linux için Windows alt sisteminin yüklemesi hatalı klasör izinleri nedeniyle
 ```bash
 sudo pip3 install sfctl
 ```
+
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
+
+Red Hat’te Service Fabric CLI yüklemek için şu komutları çalıştırın:
+
+```bash
+sudo yum install -y python34
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+sudo pip3 install sfctl
+```
+
+Yüklemeyi test etmek için **Linux’a yönelik Ubuntu ve Windows alt sistemi** bölümünde bahsedilen adımlara başvurabilirsiniz
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>macOS

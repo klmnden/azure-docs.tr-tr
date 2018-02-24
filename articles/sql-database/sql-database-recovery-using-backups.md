@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 11/20/2017
+ms.date: 02/13/2018
 ms.author: carlrab
-ms.openlocfilehash: 06eb02e408b95176ca99ca391b437a3751876fac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 81b61d59e63924e4af5befe4cbd638be98b385e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 SQL veritabanı kullanarak veritabanı kurtarma için bu seçenekleri sağlar [veritabanı yedeklemeleri otomatik](sql-database-automated-backups.md) ve [uzun vadeli bekletme yedeklemeleri](sql-database-long-term-retention.md). Bir veritabanı yedeğinden geri yükleyebilirsiniz:
@@ -34,7 +34,7 @@ SQL veritabanı kullanarak veritabanı kurtarma için bu seçenekleri sağlar [v
 
 Geri yüklenen veritabanı aşağıdaki koşullarda bir ek depolama alanı maliyet oluşturur: 
 - Veritabanı boyutu üst sınırını 500 GB'den büyükse, P11 – P15 S4 S12 veya P1 – P6 geri yükleme.
-- Veritabanı boyutu 250 GB'den büyükse P1 – P6 veya PRS1 – PRS6 S4 S12 için geri yükleyin.
+- Veritabanı boyutu 250 GB'den büyükse P1 – P6 S4 S12 için geri yükleme.
 
 Ek maliyetidir geri yüklenen veritabanının en büyük boyut için performans düzeyi dahil depolama miktarını daha büyük olduğundan ve dahil edilen miktar sağlanan ek depolama alanı ekstra ücret kesilir.  Ek depolama alanı ayrıntılarını fiyatlandırma için bkz: [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).  Kullanılan gerçek miktarını dahil depolama miktarından daha az ise, ardından bu ekstra maliyet veritabanı boyutu üst sınırını dahil edilen miktarını azaltarak önlenebilir. Veritabanı Depolama boyutları ve veritabanı en büyük boyutunu değiştirme hakkında daha fazla bilgi için bkz: [tek veritabanı kaynak sınırları](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 

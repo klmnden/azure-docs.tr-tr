@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: afa609d7b47f3c743f5d3bfd4011e09c762ccbd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi sık sorulan sorular
 
@@ -40,7 +40,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
 
 * **S: Kullanıcılarım kendi parola sıfırlama verileri kaydedebilirsiniz?**
 
-  > **Y:** Evet. Parola sıfırlama etkindir ve lisansına sahip olduğunuz sürece, kullanıcıların kendi kimlik doğrulama bilgilerini kaydetmek için parola sıfırlama kayıt portalı için (http://aka.ms/ssprsetup) gidebilirsiniz. Kullanıcıların erişim paneli (http://myapps.microsoft.com) da kaydedebilirsiniz. Erişim paneli kaydetmek için için ihtiyaç duydukları kendi profil resmi seçin, **profil**ve ardından **parola sıfırlama için kaydetme** seçeneği.
+  > **Y:** Evet. Parola sıfırlama etkindir ve lisansına sahip olduğunuz sürece, kullanıcıların kendi kimlik doğrulama bilgilerini kaydetmek için parola sıfırlama kayıt portalı için (https://aka.ms/ssprsetup) gidebilirsiniz. Kullanıcıların erişim paneli (http://myapps.microsoft.com) da kaydedebilirsiniz. Erişim paneli kaydetmek için için ihtiyaç duydukları kendi profil resmi seçin, **profil**ve ardından **parola sıfırlama için kaydetme** seçeneği.
   >
   >
 * **S: parola etkinleştirirseniz, bir grup için sıfırlamak ve herkesin my kullanıcılar gerekli yeniden kaydettirin etkinleştirmek karar?**
@@ -105,7 +105,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
     >Bu zaman dilimi içinde bildirim almadıysanız:
         > * Gereksiz klasörünüzü kontrol edin.
         > * Numarası veya e-posta iletişim kurulan bir beklediğiniz olup olmadığını denetleyin.
-        > * Kimlik doğrulama verilerinin dizininde doğru olduğunu denetleyin biçimlendirilmiş, örneğin, + 1 4255551234 veya  *user@contoso.com* . 
+        > * Kimlik doğrulama verilerinin dizininde doğru olduğunu denetleyin biçimlendirilmiş, örneğin, + 1 4255551234 veya * user@contoso.com *. 
   >
   >
 * **S: hangi dilde parola sıfırlama tarafından destekleniyor mu?**
@@ -180,7 +180,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
   >
 * **S: nasıl bir kullanıcı birden çok sıfırlamak için gereken soru sayısını kaydedildiyse, güvenlik soruları sıfırlaması sırasında seçilir?**
 
-  > **Y:** *N* Güvenlik sorusu adedini seçili rastgele bir kullanıcı için where kayıtlı soruları toplam sayısı içinden *N* için ayarlanmış miktardır  **Sıfırlamak için gereken soru sayısını** seçeneği. Örneğin, bir kullanıcı beş güvenlik soruları kayıtlı olan, ancak yalnızca üç parola sıfırlama için gereklidir, üç beş soruları rastgele seçilir ve sıfırlama sırasında sunulur. Kullanıcı soruların yanıtlarını alır sözcüğüne, soru engellemek için yanlış seçim işlemi üzerinden başlatır.
+  > **Y:** *N* Güvenlik sorusu adedini seçili rastgele bir kullanıcı için where kayıtlı soruları toplam sayısı içinden *N* için ayarlanmış miktardır **numarası sıfırlamak için gereken soru** seçeneği. Örneğin, bir kullanıcı beş güvenlik soruları kayıtlı olan, ancak yalnızca üç parola sıfırlama için gereklidir, üç beş soruları rastgele seçilir ve sıfırlama sırasında sunulur. Kullanıcı soruların yanıtlarını alır sözcüğüne, soru engellemek için yanlış seçim işlemi üzerinden başlatır.
   >
   >
 * **S: e-posta ve SMS bir kerelik geçiş kodlarını geçerli ne kadar?**

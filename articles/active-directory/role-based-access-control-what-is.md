@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/02/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: aa0f5be837daf70c8d9ede38b3fd9b4230f4e1c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6eb51cb8dc8c158f5412334a09493172f2973c74
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama
 Güvenlik odaklı şirketler çalışanlar gereksinim duydukları izinleri tam vermiş odaklanmanız gerekir. Çok fazla izinler saldırganlar bir hesaba getirebilir. Çok az izinleri anlamına gelir çalışanlar verimli bir şekilde işlerini alınamıyor. Azure rol tabanlı erişim denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur.
@@ -58,7 +58,7 @@ Azure RBAC rollerin geri kalanı belirli Azure kaynaklarının yönetimini sağl
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC Klasik abonelik yöneticileri karşılaştırması
 [Klasik abonelik yöneticileri ve ortak yöneticileri](../billing/billing-add-change-azure-subscription-administrator.md) Azure aboneliği tam erişimi vardır. Kullanarak kaynakları yönetebilir [Azure portal](https://portal.azure.com), Azure Resource Manager API'leri ve API'ler Klasik dağıtım modeli. RBAC modelinde, Klasik Yöneticiler abonelik kapsamda sahip rolü atanır.
 
-Yalnızca Azure portalı ve yeni Azure Resource Manager API'leri Azure RBAC destekler. Kullanıcılar ve RBAC rolleri atanmış uygulamalar kullanamaz Azure Klasik dağıtım modeli API'leri.
+Yalnızca Azure portalı ve yeni Azure Resource Manager API'leri Azure RBAC destekler. Azure Klasik dağıtım modeli API'leri, kullanıcıları ve RBAC rolleri atanmış uygulamaları kullanamazsınız.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Veri işlemleri ve yönetimi için yetkilendirme
 Azure RBAC Azure portalı ve Azure Resource Manager API'leri yalnızca Azure kaynaklarını yönetim işlemlerini destekler. Azure kaynakları için tüm veri düzeyi işlemleri yetkilendirilemiyor. Birisi depolama hesaplarını yönetmek için yetkilendirmek Örneğin, ancak BLOB veya bir depolama hesabı içindeki tabloları için. Benzer şekilde, bir SQL veritabanı, içindeki tabloları ancak yönetilebilir.

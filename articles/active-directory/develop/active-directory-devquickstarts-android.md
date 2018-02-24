@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 6c949c07c95c5d965b31725bce4ab2deac646bca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android Başlarken
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -52,7 +52,7 @@ Daha önce başvurulan Yapılacaklar REST API kaydetme varsayılarak. Ancak bu, 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda hesabınızı tıklatın. İçinde **Directory** listesinde, Azure AD Kiracı uygulamanızı kaydetmek istediğiniz yeri seçin.
-3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
+3. Tıklatın **tüm hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Uygulama için kolay bir ad girin (örneğin, **TodoListService**), select **Web uygulaması ve/veya Web API**, tıklatıp **sonraki**.
 6. Oturum açma URL'sini örnek için temel URL'sini girin. Varsayılan olarak `https://localhost:8080`.
@@ -70,7 +70,7 @@ Daha önce başvurulan örnek uygulaması kaydettirilirken varsayılarak. Ancak 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda hesabınızı tıklatın. İçinde **Directory** listesinde, Azure AD Kiracı uygulamanızı kaydetmek istediğiniz yeri seçin.
-3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
+3. Tıklatın **tüm hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Uygulama için kolay bir ad girin (örneğin, **TodoListClient Android**), select **yerel istemci uygulaması**, tıklatıp **sonraki**.
 6. Yeniden yönlendirme URI'si, girin `http://TodoListClient`. **Son**'a tıklayın.
@@ -85,9 +85,9 @@ Maven ile oluşturmak için en üst düzeyinde pom.xml kullanabilirsiniz:
 2. Adımları [Android için Maven ortamınızı ayarlamak için Önkoşullar](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
 3. Öykünücü SDK 19 ile ayarlayın.
 4. Depodaki kopyaladığınız kök klasörüne gidin.
-5. Bu komutu çalıştırın:`mvn clean install`
-6. Dizini için hızlı başlangıç örnek değiştirin:`cd samples\hello`
-7. Bu komutu çalıştırın:`mvn android:deploy android:run`
+5. Bu komutu çalıştırın: `mvn clean install`
+6. Dizini için hızlı başlangıç örnek değiştirin: `cd samples\hello`
+7. Bu komutu çalıştırın: `mvn android:deploy android:run`
 
    Uygulama başlangıç görmeniz gerekir.
 8. Denemek için test kullanıcı kimlik bilgilerini girin.

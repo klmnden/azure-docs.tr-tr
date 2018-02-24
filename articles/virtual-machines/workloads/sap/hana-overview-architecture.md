@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4246ecfa50176400c54cd80857e25675290e7170
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>SAP HANA (büyük örnekler) genel bakış ve Azure üzerinde mimarisi
 
@@ -134,24 +134,22 @@ Temmuz 2017 itibariyle SAP HANA Azure (büyük örnekler) ile ilgili çeşitli y
 
 | SAP Çözümü | CPU | Bellek | Depolama | Kullanılabilirlik |
 | --- | --- | --- | --- | --- |
-| OLAP için en iyi duruma getirilmiş: SAP BW, BW/4HANA<br /> veya SAP HANA Genel OLAP iş yükü için | SAP HANA Azure S72 üzerinde<br /> – 2 x Intel® Xeon İşlemci E7 8890 v3<br /> 36 CPU çekirdekleri ve 72 CPU iş parçacıkları |  768 GB |  3 TB | Kullanılabilir |
-| --- | SAP HANA Azure S144 üzerinde<br /> -4 x Intel® Xeon İşlemci E7 8890 v3<br /> 72 CPU çekirdekleri ve 144 CPU iş parçacıkları |  1,5 TB |  6 TB | Artık sunulmuyor |
-| --- | SAP HANA Azure S192 üzerinde<br /> -4 x Intel® Xeon İşlemci E7 8890 v4<br /> 96 CPU çekirdekleri ve 192 CPU iş parçacıkları |  2.0 TB |  8 TB | Kullanılabilir |
-| --- | SAP HANA Azure S384 üzerinde<br /> – 8 x Intel® Xeon İşlemci E7 8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  4.0 TB |  16 TB | Sipariş için hazır |
-| OLTP için en iyi duruma getirilmiş: SAP Business paketi<br /> SAP HANA veya S/4HANA (OLTP)<br /> Genel OLTP | SAP HANA Azure S72m üzerinde<br /> – 2 x Intel® Xeon İşlemci E7 8890 v3<br /> 36 CPU çekirdekleri ve 72 CPU iş parçacıkları |  1,5 TB |  6 TB | Kullanılabilir |
-|---| SAP HANA Azure S144m üzerinde<br /> -4 x Intel® Xeon İşlemci E7 8890 v3<br /> 72 CPU çekirdekleri ve 144 CPU iş parçacıkları |  3.0 TB |  12 TB | Artık sunulmuyor |
-|---| SAP HANA Azure S192m üzerinde<br /> -4 x Intel® Xeon İşlemci E7 8890 v4<br /> 96 CPU çekirdekleri ve 192 CPU iş parçacıkları  |  4.0 TB |  16 TB | Kullanılabilir |
-|---| SAP HANA Azure S384m üzerinde<br /> – 8 x Intel® Xeon İşlemci E7 8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  6.0 TB |  18 TB | Sipariş için hazır |
-|---| SAP HANA Azure S384xm üzerinde<br /> – 8 x Intel® Xeon İşlemci E7 8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  8.0 TB |  22 TB |  Sipariş için hazır |
-|---| SAP HANA Azure S576 üzerinde<br /> – 12 x Intel® Xeon İşlemci E7 8890 v4<br /> 288 CPU çekirdekleri ve 576 CPU iş parçacıkları |  12.0 TB |  28 TB | Sipariş için hazır |
-|---| SAP HANA Azure S768 üzerinde<br /> – 16 x Intel® Xeon İşlemci E7 8890 v4<br /> 384 CPU çekirdekleri ve 768 CPU iş parçacıkları |  16,0 TB |  36 TB | Sipariş için hazır |
-|---| SAP HANA Azure S960 üzerinde<br /> – 20 x Intel® Xeon İşlemci E7 8890 v4<br /> 480 CPU çekirdekleri ve 960 CPU iş parçacıkları |  20.0 TB |  46 TB | Sipariş için hazır |
+| OLAP için en iyi duruma getirilmiş: SAP BW, BW/4HANA<br /> veya SAP HANA Genel OLAP iş yükü için | SAP HANA Azure S72 üzerinde<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU çekirdekleri ve 72 CPU iş parçacıkları |  768 GB |  3 TB | Kullanılabilir |
+| --- | SAP HANA on Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU çekirdekleri ve 144 CPU iş parçacıkları |  1,5 TB |  6 TB | Artık sunulmuyor |
+| --- | SAP HANA Azure S192 üzerinde<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU çekirdekleri ve 192 CPU iş parçacıkları |  2.0 TB |  8 TB | Kullanılabilir |
+| --- | SAP HANA Azure S384 üzerinde<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  4.0 TB |  16 TB | Kullanılabilir |
+| OLTP için en iyi duruma getirilmiş: SAP Business paketi<br /> SAP HANA veya S/4HANA (OLTP)<br /> Genel OLTP | SAP HANA Azure S72m üzerinde<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU çekirdekleri ve 72 CPU iş parçacıkları |  1,5 TB |  6 TB | Kullanılabilir |
+|---| SAP HANA Azure S144m üzerinde<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU çekirdekleri ve 144 CPU iş parçacıkları |  3.0 TB |  12 TB | Artık sunulmuyor |
+|---| SAP HANA Azure S192m üzerinde<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU çekirdekleri ve 192 CPU iş parçacıkları  |  4.0 TB |  16 TB | Kullanılabilir |
+|---| SAP HANA Azure S384m üzerinde<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  6.0 TB |  18 TB | Kullanılabilir |
+|---| SAP HANA Azure S384xm üzerinde<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU çekirdekleri ve 384 CPU iş parçacıkları |  8.0 TB |  22 TB |  Kullanılabilir |
+|---| SAP HANA Azure S576 üzerinde<br /> – 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU çekirdekleri ve 576 CPU iş parçacıkları |  12.0 TB |  28 TB | Kullanılabilir |
+|---| SAP HANA Azure S768 üzerinde<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU çekirdekleri ve 768 CPU iş parçacıkları |  16.0 TB |  36 TB | Kullanılabilir |
+|---| SAP HANA Azure S960 üzerinde<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU çekirdekleri ve 960 CPU iş parçacıkları |  20.0 TB |  46 TB | Kullanılabilir |
 
 - CPU çekirdekleri = olmayan-hiper iş parçacıklı CPU çekirdeği sunucusu birimi işlemcileri toplamı toplamı.
 - CPU iş parçacıkları = hiper iş parçacıklı CPU çekirdeği sunucusu birimi işlemcileri toplamı tarafından sağlanan işlem iş parçacıklarının toplamı. Tüm birimlerin varsayılan olarak Hyper-Threading kullanacak şekilde yapılandırılır.
 
-
-Kullanılabilir olan veya 'artık sunulmaz' farklı yapılandırmaları yukarıdaki de başvurulan [SAP destek Not #2316233 – Microsoft azure'da (büyük örnekler) SAP HANA](https://launchpad.support.sap.com/#/notes/2316233/E). 'Siparişi için hazır' olarak işaretlenmiş yapılandırmaları kendi giriş SAP notuna yakında bulur. Ancak, bu örnek SKU'ları zaten altı farklı Azure bölgeler için HANA büyük örneği hizmetinin kullanılabilir sıralanabilir.
 
 Seçilen belirli yapılandırmalar, iş yükü, CPU kaynaklarını ve istenen bellek bağımlıdır. OLAP iş yükü için en iyi duruma getirilir SKU'ları kullanmak OLTP iş yükü için mümkündür. 
 
@@ -277,7 +275,7 @@ Bu liste, SAP HANA (büyük örnekler) Azure üzerinde çalıştırmak için ger
 
 - Şirket içi Azure arasında Azure ExpressRoute: şirket içi veri merkeziniz Azure'a bağlanmak için en az 1 GB/sn bağlantı ISS'niz tarafından sipariş emin olun. 
 
-**İşletim Sistemi:**
+İşletim Sistemi:
 
 - SUSE Linux Enterprise Server 12 SAP uygulamaları için lisans.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Logic apps ile Kurumsal tümleştirme için Exchange AS2 iletileri
 
@@ -40,12 +40,12 @@ Gereksinim duyduğunuz öğeleri şöyledir:
 
 1.  [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın.  
 
-2.  Sol menüden seçin **daha fazla hizmet**. Arama kutusuna **tümleştirme** filtre olarak. Sonuçlar listesinde **tümleştirme hesapları**.
+2.  Sol menüden seçin **tüm hizmetleri**. Arama kutusuna **tümleştirme** filtre olarak. Sonuçlar listesinde **tümleştirme hesapları**.
 
     > [!TIP]
-    > Görmüyorsanız, **daha fazla hizmet**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **Göster menüsü**.
+    > Görmüyorsanız, **tüm hizmetleri**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **Göster menüsü**.
 
-    !["Tümleştirme hesabı" daha fazla hizmet, "tümleştirme" filtresini seçin.](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+    !["Tümleştirme hesapları" tüm hizmetleri, "tümleştirme" filtresini seçin](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. İçinde **tümleştirme hesapları** açar, dikey penceresinde, anlaşmayı oluşturmak istediğiniz tümleştirme hesabını seçin.
 Herhangi bir tümleştirme hesabı görmüyorsanız, [oluşturmak ilk](../logic-apps/logic-apps-enterprise-integration-accounts.md "tümleştirme hesapları hakkında").  
@@ -68,12 +68,12 @@ Herhangi bir tümleştirme hesabı görmüyorsanız, [oluşturmak ilk](../logic-
     | --- | --- |
     | Ad |Anlaşma adı |
     | Anlaşma türü | AS2 olmalıdır |
-    | Ana bilgisayar iş ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Ana bilgisayar iş ortağı sözleşmesi yapılandırır kuruluşu temsil eder. |
-    | Ana bilgisayar kimliği |Ana makine ortak bir tanımlayıcı |
-    | Konuk iş ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Konuk iş ortağı ana iş ortağı iş yapmakta kuruluşu temsil eder. |
-    | Konuk kimlik |Konuk iş ortağı için bir tanımlayıcı |
-    | Ayarlarını alma |Bu özellikleri tüm anlaşmanın tarafından alınan iletileri için geçerlidir. |
-    | Gönderme ayarları |Bu özellikleri anlaşmanın tarafından gönderilen tüm iletiler için geçerlidir. |
+    | Konak İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Ana bilgisayar iş ortağı sözleşmesi yapılandırır kuruluşu temsil eder. |
+    | Konak Kimliği |Ana makine ortak bir tanımlayıcı |
+    | Konuk İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Konuk iş ortağı ana iş ortağı iş yapmakta kuruluşu temsil eder. |
+    | Konuk Kimliği |Konuk iş ortağı için bir tanımlayıcı |
+    | Ayarları Al |Bu özellikleri tüm anlaşmanın tarafından alınan iletileri için geçerlidir. |
+    | Gönderme Ayarları |Bu özellikleri anlaşmanın tarafından gönderilen tüm iletiler için geçerlidir. |
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Anlaşma tanıtıcıları iletileri nasıl alınan yapılandırma
 
@@ -104,16 +104,16 @@ Artık sözleşmenizi seçili ayarlarınızı uygun gelen iletileri işlemek haz
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti özelliklerini geçersiz kılma |Alınan iletilerin özelliklerinde geçersiz kılınabilir gösterir. |
-| İleti oturum açmış olmanız gerekir |İletileri dijital olarak imzalanmasını gerektirir. Konuk iş ortağı ortak sertifika imza doğrulaması için yapılandırın.  |
-| İleti şifrelenmelidir |İletileri şifrelenmesini gerektirir. Olmayan şifrelenmiş iletileri reddedilir. İletilerin şifresini çözmek için ana iş ortağı özel sertifika yapılandırın.  |
-| İleti sıkıştırılmış |Sıkıştırılacak iletileri gerektirir. Olmayan sıkıştırılmış iletiler reddedilir. |
-| MDN metin |İletiyi gönderenin gönderilmek üzere varsayılan ileti değerlendirme bildirim (MDN). |
-| MDN Gönder |Gönderilecek MDNs gerektirir. |
-| İmzalı MDN Gönder |MDNs imzalanmasını gerektirir. |
-| MIC algoritması |İletileri imzalamak için kullanılacak algoritmayı seçin. |
-| Zaman uyumsuz MDN Gönder | Zaman uyumsuz olarak gönderilecek iletilerin gerektirir. |
-| URL | URL MDNs göndermek istediğiniz yeri belirtin. |
+| İleti özelliklerini geçersiz kıl |Alınan iletilerin özelliklerinde geçersiz kılınabilir gösterir. |
+| İletinin imzalanmış olması gerekir |İletileri dijital olarak imzalanmasını gerektirir. Konuk iş ortağı ortak sertifika imza doğrulaması için yapılandırın.  |
+| İletinin şifrelenmiş olması gerekir |İletileri şifrelenmesini gerektirir. Olmayan şifrelenmiş iletileri reddedilir. İletilerin şifresini çözmek için ana iş ortağı özel sertifika yapılandırın.  |
+| İletinin sıkıştırılmış olması gerekir |Sıkıştırılacak iletileri gerektirir. Olmayan sıkıştırılmış iletiler reddedilir. |
+| MDN Metni |İletiyi gönderenin gönderilmek üzere varsayılan ileti değerlendirme bildirim (MDN). |
+| MDN gönder |Gönderilecek MDNs gerektirir. |
+| İmzalı MDN gönder |MDNs imzalanmasını gerektirir. |
+| MIC Algoritması |İletileri imzalamak için kullanılacak algoritmayı seçin. |
+| Zaman uyumsuz MDN gönder | Zaman uyumsuz olarak gönderilecek iletilerin gerektirir. |
+| URL'si | URL MDNs göndermek istediğiniz yeri belirtin. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Nasıl sözleşmenizi iletileri gönderir yapılandırın
 
@@ -149,19 +149,19 @@ Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek haz
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti imzalama etkinleştir |İmzalanacak sözleşmesi gönderilen tüm iletiler gerektirir. |
-| MIC algoritması |İletileri imzalamak için kullanılacak algoritmayı. İletileri imzalamak için ana iş ortağı özel sertifika MIC algoritması yapılandırır. |
+| İleti imzalamayı etkinleştir |İmzalanacak sözleşmesi gönderilen tüm iletiler gerektirir. |
+| MIC Algoritması |İletileri imzalamak için kullanılacak algoritmayı. İletileri imzalamak için ana iş ortağı özel sertifika MIC algoritması yapılandırır. |
 | Sertifika |İletileri imzalamak için kullanılacak sertifikayı seçin. İletileri imzalamak için ana iş ortağı özel sertifika yapılandırır. |
-| İleti şifreleme etkinleştir |Bu anlaşma gönderilen tüm iletiler şifrelenmesi gerektirir. İletileri şifrelemek için konuk iş ortağı ortak sertifika algoritması yapılandırır. |
-| Şifreleme algoritması |İleti şifreleme için kullanılacak şifreleme algoritması. İletileri şifrelemek için konuk iş ortağı ortak sertifika yapılandırır. |
+| İleti şifrelemeyi etkinleştir |Bu anlaşma gönderilen tüm iletiler şifrelenmesi gerektirir. İletileri şifrelemek için konuk iş ortağı ortak sertifika algoritması yapılandırır. |
+| Şifreleme Algoritması |İleti şifreleme için kullanılacak şifreleme algoritması. İletileri şifrelemek için konuk iş ortağı ortak sertifika yapılandırır. |
 | Sertifika |İletileri şifrelemek için kullanılacak sertifikayı. İletileri şifrelemek için konuk iş ortağı özel sertifika yapılandırır. |
 | İleti sıkıştırmayı etkinleştir |Bu anlaşma gönderilen tüm iletiler sıkıştırılması gerektirir. |
-| HTTP üstbilgileri unfold |HTTP content-type üstbilgisi tek bir satır üzerine yerleştirir. |
-| İstek MDN |Bu anlaşma gönderilen tüm iletiler için bir MDN gerektirir. |
-| İmzalı MDN isteği |İmzalanması için bu sözleşmeyi gönderilen tüm MDNs gerektirir. |
-| Zaman uyumsuz MDN isteği |Bu anlaşma gönderilmek üzere zaman uyumsuz MDNs gerektirir. |
-| URL |URL MDNs göndermek istediğiniz yeri belirtin. |
-| NRR etkinleştir |İnkar edilemez makbuz (NRR) kanıt sağlar iletişimi özniteliği, gerektirir verileri gibi ele alınan. |
+| HTTP üst bilgilerini aç |HTTP content-type üstbilgisi tek bir satır üzerine yerleştirir. |
+| MDN iste |Bu anlaşma gönderilen tüm iletiler için bir MDN gerektirir. |
+| İmzalı MDN iste |İmzalanması için bu sözleşmeyi gönderilen tüm MDNs gerektirir. |
+| Zaman uyumsuz MDN iste |Bu anlaşma gönderilmek üzere zaman uyumsuz MDNs gerektirir. |
+| URL'si |URL MDNs göndermek istediğiniz yeri belirtin. |
+| NRR'yi etkinleştir |İnkar edilemez makbuz (NRR) kanıt sağlar iletişimi özniteliği, gerektirir verileri gibi ele alınan. |
 | SHA2 Algoritması biçimi |MIC veya AS2 ileti veya MDN giden üstbilgilerinde imzalama kullanılacak algoritması biçimini seçin |
 
 ## <a name="find-your-created-agreement"></a>Oluşturulan sözleşmenizi Bul

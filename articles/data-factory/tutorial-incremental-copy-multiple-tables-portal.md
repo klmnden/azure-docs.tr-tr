@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server’daki birden fazla tablodan Azure SQL veritabanı’na artımlı olarak veri yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL Veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -135,7 +135,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Üst eşik değerini depolamak için SQL veritabanında başka bir tablo oluşturma
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Üst eşik değerini depolamak için Azure SQL veritabanında başka bir tablo oluşturma
 1. SQL veritabanınızda aşağıdaki SQL komutunu çalıştırarak eşik değerini depolamak için `watermarktable` adlı bir tablo oluşturun: 
     
     ```sql
@@ -157,7 +157,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>SQL veritabanında bir saklı yordam oluşturma 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Azure SQL veritabanında bir saklı yordam oluşturma 
 
 SQL veritabanınızda bir saklı yordam oluşturmak için aşağıdaki komutu çalıştırın. Bu saklı yordam, her işlem hattı çalıştırmasından sonra eşik değerini güncelleştirir. 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Veri türleri ve ek saklı yordamlar oluşturma
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Azure SQL veritabanında veri türleri ve ek saklı yordamlar oluşturma
 SQL veritabanınızda iki saklı yordam ve iki veri türü oluşturmak için aşağıdaki sorguyu çalıştırın. Bunlar, kaynak tablodaki verileri hedef tablolarla birleştirmek için kullanılır.
 
 ```sql
@@ -228,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
+1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
 1. Soldaki menüde **Yeni**, **Veri + Analiz** ve **Data Factory** öğesine tıklayın. 
    
    ![Yeni->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -422,7 +423,7 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
     3. Parametre **türü** olarak **Nesne** seçeneğini belirleyin.
 
     ![İşlem hattı parametreleri](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. **Etkinlikler** araç kutusundan **ForEach** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın. **Özellikler** penceresinin **Genel** sekmesinde **IterateSQLTables** girin. 
+4. **Etkinlikler** araç kutusunda **Yineleme ve Koşullar**’ı genişletin ve **ForEach** etkinliğini sürükleyerek işlem hattı tasarımcısı yüzeyine bırakın. **Özellikler** penceresinin **Genel** sekmesinde **IterateSQLTables** girin. 
 
     ![ForEach etkinliği - ad](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. **Özellikler** penceresinin **Ayarlar** sekmesine geçin ve **Öğeler** için `@pipeline().parameters.tableList` girin. ForEach etkinliği, bir tablo listesi üzerinden yinelenir ve artımlı kopyalama işlemini gerçekleştirir. 
@@ -431,7 +432,7 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
 6. İşlem hattında **ForEach** etkinliği zaten seçili değilse bunu seçin. **Düzenle (Kalem simgesi)** düğmesine tıklayın.
 
     ![ForEach etkinliği - düzenleme](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. **Etkinlikler** araç kutusundan **Lookup** etkinliğini sürükleyip bırakın ve **Ad** için **LookupOldWaterMarkActivity** adını girin.
+7. **Etkinlikler** araç kutusunda **Genel**’i genişletin, **Arama** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın ve **Ad** için **LookupOldWaterMarkActivity** girin.
 
     ![İlk Arama Etkinliği - ad](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. **Özellikler** penceresinin **Ayarlar** sekmesine geçin ve aşağıdaki adımları uygulayın: 
@@ -497,12 +498,13 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. ForEach etkinli
     ![Saklı Yordam Etkinliği - SQL Hesabı](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. **Saklı Yordam** sekmesine geçin ve aşağıdaki adımları uygulayın:
 
-    1. **Saklı yordam adı** alanına `sp_write_watermark` adını girin. 
-    2. **Yeni** düğmesini kullanarak aşağıdaki parametreleri ekleyin: 
+    1. **Saklı yordam adı** için `sp_write_watermark` öğesini seçin. 
+    2. **Parametreyi içeri aktar**’ı seçin. 
+    3. Parametreler için aşağıdaki değerleri belirtin: 
 
         | Adı | Tür | Değer | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Dize | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Saklı Yordam Etkinliği - saklı yordam ayarları](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

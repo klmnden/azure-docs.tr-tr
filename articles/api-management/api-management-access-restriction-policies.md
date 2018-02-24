@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5dd762cffbca909c5f682a16c86ef5a86f4860de
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>API yönetim erişim kısıtlama ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -500,7 +500,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |clock-skew|TimeSpan. Belirteç Verenin sistem saatleri ve API Management örneği arasında en fazla beklenen zaman farkı belirtmek için kullanın.|Hayır|0 saniye|  
 |failed-validation-error-message|JWT doğrulamayı geçemezse HTTP yanıt gövdesinde döndürmek için hata iletisi. Bu ileti, tüm özel karakterleri düzgün şekilde çıkıldığından olması gerekir.|Hayır|Varsayılan hata iletisini doğrulama sorunu, örneğin "JWT mevcut değil." bağlıdır|  
 |failed-validation-httpcode|JWT doğrulama geçmiyor ise döndürülecek HTTP durum kodu.|Hayır|401|  
-|üstbilgi adı|Belirteç bulunduran HTTP üstbilgisinin adı.|Ya da `header-name` veya `query-paremeter-name` belirtilmelidir; ancak ikisi birden değil.|Yok|  
+|üstbilgi adı|Belirteç bulunduran HTTP üstbilgisinin adı.|Ya da `header-name` veya `query-parameter-name` belirtilmelidir; ancak ikisi birden değil.|Yok|  
 |id|`id` Özniteliği `key` öğesi karşı eşleşen dize belirtmenize olanak verir `kid` imza doğrulama için kullanılacak uygun anahtarını bulmak (varsa) belirteç talep.|Hayır|Yok|  
 |eşleşme|`match` Özniteliği `claim` öğesi ilkedeki her talep değeri başarılı olması doğrulama belirteçte mevcut olup olmadığını belirtir. Olası değerler şunlardır:<br /><br /> -                          `all` -her talep değeri ilkesinde başarılı olması doğrulama belirteci mevcut olması gerekir.<br /><br /> -                          `any` -en az bir talep değeri başarılı olması doğrulama belirteci mevcut olmalıdır.|Hayır|tümü|  
 |Sorgu paremeter adı|Adını belirteci bulunduran sorgu parametresi.|Ya da `header-name` veya `query-paremeter-name` belirtilmelidir; ancak ikisi birden değil.|Yok|  
@@ -508,7 +508,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |gerektiren düzeni|Belirteç adını düzen, örn. "Bearer". Bu öznitelik ayarlandığında, ilke yetkilendirme üst bilgisi değeri, belirtilen düzeni bulunduğundan emin olun.|Hayır|Yok|
 |gerekli-oturum-belirteçleri|Boole değeri. Bir belirteç imzalanmasını gerekli olup olmadığını belirtir.|Hayır|doğru|  
 |ayırıcı|Dize. Ayırıcı belirtir (örneğin ",") birden çok değerli bir talep değerleri kümesi ayıklanması için kullanılacak.|Hayır|Yok| 
-|url|Burada Open ID yapılandırma meta verilerini elde edilebilir gelen kimliği yapılandırma uç noktasının URL'sini açın. Azure Active Directory için şu URL'yi kullanın: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` directory Kiracı adınız, örneğin değiştirerek `contoso.onmicrosoft.com`.|Evet|Yok|  
+|url|Burada Open ID yapılandırma meta verilerini elde edilebilir gelen kimliği yapılandırma uç noktasının URL'sini açın. Yanıt özellikleri için URL'de tanımlanan according:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Azure Active Directory için şu URL'yi kullanın: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` directory Kiracı adınız, örneğin değiştirerek `contoso.onmicrosoft.com`.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

@@ -1,4 +1,4 @@
-**Yeni** düğmesine tıklayın. **Markette ara** alanına `Azure Active Directory B2C` yazın.
+Tıklatın **kaynak oluşturma** düğmesi. **Markette ara** alanına `Azure Active Directory B2C` yazın.
 
 ![Ekle düğmesi vurgulanıyor, markette ara alanında Azure Active Directory B2C yazıyor.](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

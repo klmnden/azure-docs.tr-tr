@@ -8,7 +8,7 @@ Bu adımlar, sanal makinelerde birçok ayırma hatalarını gidermek yardımcı 
 * Farklı bir VM boyutu VM'i yeniden boyutlandırın.<br>
     Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > sanal makineniz > **ayarları** > **boyutu**. Ayrıntılı adımlar için bkz: [sanal makine yeniden boyutlandırma](https://msdn.microsoft.com/library/dn168976.aspx).
 * Bulut hizmetinden tüm sanal makineleri silin ve sanal makineleri yeniden oluşturun.<br>
-    Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > sanal makineniz > **silmek**. Ardından **yeni** > **işlem** > [sanal makine görüntüsü].
+    Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > sanal makineniz > **silmek**. Ardından **kaynak oluşturma** > **işlem** > [sanal makine görüntüsü].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager dağıtım modelinde ortak ayırma hatalarını giderme
 Bu adımlar, sanal makinelerde birçok ayırma hatalarını gidermek yardımcı olabilir:
@@ -53,7 +53,7 @@ Aşağıdaki çizime 5 (sabitlenmiş) ayırma senaryoları sınıflandırma gös
 > 
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Ayırma senaryo: bir VM'yi yeniden boyutlandırın veya sanal makineleri veya rol örnekleri olan bir bulut hizmetini ekleme
-**Hata**
+Hata
 
 Upgrade_VMSizeNotSupported veya GeneralError
 
@@ -68,7 +68,7 @@ Hata Upgrade_VMSizeNotSupported * varsa, farklı bir VM boyutu deneyin. Farklı 
 Hata GeneralError * varsa, (örneğin, belirli bir VM boyutu) kaynak türü küme tarafından desteklenir, ancak küme şu anda kaynakları serbest bırakmak yok olasıdır. Yukarıdaki senaryosu benzer yeni bir bulut hizmeti (yeni bulut hizmeti farklı bir VIP kullanmak olduğunu unutmayın) oluşturma aracılığıyla istenen işlem kaynak ekleyin ve bulut hizmetlerinizi bağlanmak için bir bölgesel sanal ağ kullanın.
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Ayırma senaryo: yeniden başlatma kısmen durduruldu (serbest bırakıldığında) VM'ler
-**Hata**
+Hata
 
 GeneralError *
 
@@ -84,7 +84,7 @@ Farklı bir VIP kullanın, durduruldu (serbest bırakıldığında) sanal makine
 * Mevcut bulut hizmetiniz bölgesel bir sanal ağ kullanmıyorsa, yeni bulut hizmeti için yeni bir sanal ağ oluşturun ve ardından [yeni bir sanal ağa varolan sanal ağınıza bağlamak](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Daha fazla gördükleri hakkında [bölgesel sanal ağlar](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Ayırma senaryo: yeniden başlatma tam olarak durduruldu (serbest bırakıldığında) VM'ler
-**Hata**
+Hata
 
 GeneralError *
 
@@ -97,7 +97,7 @@ Durduruldu tam ayırmayı kaldırma anlamına gelir (tüm sanal makineler bir bu
 Farklı bir VIP kullanın, özgün durduruldu (serbest bırakıldığında) sanal makineleri silin (ancak ilişkili diskler tutmak için) kabul edilebilir ise ve karşılık gelen bulut hizmetini silin ((serbest bırakıldığında) durduğunda ilişkili işlem kaynaklarını zaten yayımlanan VM'ler). Sanal makineleri geri eklemek için yeni bir bulut hizmeti oluşturun.
 
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Ayırma senaryo: hazırlama/üretim dağıtımları (yalnızca bir hizmet olarak platform)
-**Hata**
+Hata
 
 New_General * veya New_VMSizeNotSupported *
 
@@ -110,7 +110,7 @@ Hazırlama dağıtımı ve bir bulut hizmeti Üretim dağıtımı aynı küme i�
 İlk dağıtımı silin ve özgün bulut hizmeti ve bulut hizmeti yeniden dağıtın. Bu eylem, her iki dağıtım sığması için ücretsiz yeterli kaynaklara sahip bir küme veya istediğiniz VM boyutları destekleyen bir küme ilk dağıtım güden.
 
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Ayırma senaryo: benzeşim grubu (VM/hizmet yakınlık)
-**Hata**
+Hata
 
 New_General * veya New_VMSizeNotSupported *
 
@@ -123,7 +123,7 @@ Herhangi bir benzeşim grubuna atanan kaynak bir kümeye bağlanır işlem. Benz
 Bir benzeşim grubu gerekli değilse, olmayan bir benzeşim grubu kullanın veya işlem kaynaklarınızı birden çok benzeşim gruplar halinde gruplandırabilirsiniz.
 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Ayırma senaryo: benzeşim grubuna bağlı sanal ağ
-**Hata**
+Hata
 
 New_General * veya New_VMSizeNotSupported *
 
@@ -149,7 +149,7 @@ Ayırma hatası aldığınızda, açıklanan senaryoların herhangi biri, hata g
 Hata "istenen VM boyutu desteklenmiyor" bildirmediği sürece, yeterli kaynak isteğiniz uyum sağlayacak şekilde kümede serbest bırakılmış olabilir gibi genel olarak, size her zaman daha sonraki bir zamanda yeniden deneyebilir. Aşağıda sorun istenen VM boyutu desteklenmiyor ise, geçici çözümler için bkz.
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Ayırma senaryo: bir VM'yi yeniden boyutlandırın veya VM'ler var olan bir kullanılabilirlik kümesine ekleme
-**Hata**
+Hata
 
 Upgrade_VMSizeNotSupported * veya GeneralError *
 
@@ -164,7 +164,7 @@ Hata Upgrade_VMSizeNotSupported * varsa, farklı bir VM boyutu deneyin. Farklı 
 Hata GeneralError * varsa, (örneğin, belirli bir VM boyutu) kaynak türü küme tarafından desteklenir, ancak küme şu anda kaynakları serbest bırakmak yok olasıdır. VM farklı bir kullanılabilirlik kümesinin bir parçası olabilir, farklı bir kullanılabilirlik (aynı bölgede) kümesinde yeni bir VM oluşturun. Bu yeni VM sonra aynı sanal ağa eklenebilir.  
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Ayırma senaryo: yeniden başlatma kısmen durduruldu (serbest bırakıldığında) VM'ler
-**Hata**
+Hata
 
 GeneralError *
 
@@ -177,7 +177,7 @@ Kısmi ayırmayı kaldırma (serbest bırakıldığında) bir veya daha fazla du
 Kullanılabilirlik kümesindeki ilk yeniden başlatmadan önce tüm sanal makineleri durdurun. Bu yeni bir ayırma girişimi çalıştırılır ve yeni bir küme kullanılabilir kapasiteye sahip seçilebilir emin olun.
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Ayırma senaryo: yeniden başlatma tam olarak durduruldu (serbest bırakıldığında)
-**Hata**
+Hata
 
 GeneralError *
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
@@ -54,7 +54,7 @@ Azure AD Privileged Identity Management kullanmaya başlayabilmeniz için [Azure
 
 1. [Azure portalında](https://portal.azure.com/) dizininizin genel yöneticisi olarak oturum açın.
 2. Kuruluşunuz birden fazla dizine sahipse Azure portalının sağ üst köşesinde kullanıcı adınızı seçin. Azure AD Privileged Identity Management burada kullanacağı dizini seçin.
-3. **Daha fazla hizmet** seçeneğini belirleyin ve **Azure AD Privileged Identity Management** araması yapmak için Filtre metin kutusunu kullanın.
+3. Seçin **tüm hizmetleri** ve aramak için filtre textbox kullanın **Azure AD Privileged Identity Management**.
 4. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur**’a tıklayın. Privileged Identity Management uygulaması açılır.
 
 Dizininizde Azure AD Privileged Identity Management kullanmak için ilk kişi olduğunuz ve Azure AD directory rollere gidin ve Azure AD directory rollere gidin bir [Güvenlik Sihirbazı](active-directory-privileged-identity-management-security-wizard.md) ilk yol gösterir atama deneyimi. Bundan sonra otomatik olarak hale ilk **Güvenlik Yöneticisi** ve **ayrıcalıklı Rol Yöneticisi** dizin.
@@ -125,7 +125,7 @@ Azure kaynak rolleri (Önizleme) rol ayarlarını sadece zaman ve de dahil olmak
 
 ![](./media/active-directory-privileged-identity-management-configure/role-settings-details.png)
 
-## <a name="role-activation"></a>Rol etkinleştirme
+## <a name="role-activation"></a>Rol etkinleştirmesi
 
 İçin [bir rolü etkinleştirmesi](active-directory-privileged-identity-management-how-to-activate-role.md), bir zaman sınırlı "etkinleştirme" rolü için uygun yönetici ister. Etkinleştirme kullanarak istenebilir **my rolünü etkinleştirmek** Azure AD Privileged Identity Management seçeneği.
 

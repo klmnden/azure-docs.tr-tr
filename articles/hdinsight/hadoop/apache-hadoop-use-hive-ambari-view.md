@@ -14,59 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/19/2018
+ms.date: 02/13/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: af5fe44b611e8ff9d93aba8a30c71213c452aff9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop ile Ambari Hive görünümünü kullanın
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı öğrenin. Ambari, yönetim ve izleme yardımcı programı Linux tabanlı Hdınsight kümeleri ile sağlanan ' dir. Ambari sağlanan özelliklerden birini Hive sorguları çalıştırmak için kullanılan bir Web UI'dır.
-
-> [!NOTE]
-> Ambari, bu belgede ele alınan değil birçok özellikleri vardır. Daha fazla bilgi için bkz: [Hdınsight kümelerini yönetme Ambari Web kullanıcı arabirimini kullanarak](../hdinsight-hadoop-manage-ambari.md).
+Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı öğrenin. Hive görünümü yazar, en iyi duruma getirme ve web tarayıcınızdan Hive sorguları çalıştırmanıza olanak sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Linux tabanlı Hdınsight kümesi. Kümeleri oluşturma hakkında daha fazla bilgi için bkz: [Hdınsight'ta Hadoop kullanmaya başlamanıza](apache-hadoop-linux-tutorial-get-started.md).
+* Bir Linux tabanlı Hadoop Hdınsight kümesi sürüm 3.4 veya daha büyük.
 
-> [!IMPORTANT]
-> Bu belgede yer alan adımlar Linux kullanan Azure Hdınsight kümesi gerektirir. Linux üzerinde Hdınsight sürüm 3.4 veya üstü kullanılan yalnızca işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > [!IMPORTANT]
+  > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="open-the-hive-view"></a>Hive görünümü Aç
+* Bir web tarayıcısı
 
-Azure portalından Ambari görünümleri açabilirsiniz. Hdınsight kümenize seçin ve ardından **Ambari görünümleri** gelen **hızlı bağlantılar** bölümü.
+## <a name="run-a-hive-query"></a>Hive sorgusu çalıştırma
 
-![portal hızlı bağlantılar bölümü](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
+1. [Azure portalı](https://portal.azure.com) açın.
 
-Görünüm listesinden __Hive görünümü__.
+2. Hdınsight kümenize seçin ve ardından **Ambari görünümleri** gelen **hızlı bağlantılar** bölümü.
 
-![Seçilen Hive görünümü](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![portal hızlı bağlantılar bölümü](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-> [!NOTE]
-> Ambari erişirken siteye kimlik doğrulaması yapmak istenir. Yönetici girin (varsayılan `admin`) hesap adı ve küme oluştururken kullandığınız parola.
+    Küme oturum açma kimlik doğrulaması yapmak isteyip istemediğiniz sorulduğunda kullanın (varsayılan `admin`) hesap adı ve küme oluştururken verdiğiniz parolayı.
 
-Aşağıdaki görüntüye benzer bir sayfa görmeniz gerekir:
+3. Görünüm listesinden __Hive görünümü__.
 
-![Hive görünümü için sorgu çalışma sayfası görüntüsü](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Seçilen Hive görünümü](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
 
-## <a name="run-a-query"></a>Sorgu çalıştırma
+    Hive görünümü sayfasında, aşağıdaki görüntüye benzer:
 
-Bir Hive sorgusu çalıştırmak için Hive görünümünden aşağıdaki adımları kullanın.
+    ![Hive görünümü için sorgu çalışma sayfası görüntüsü](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-1. Gelen __sorgu__ sekmesinde, aşağıdaki HiveQL ifadelerini çalışma sayfasına yapıştırın:
+4. Gelen __sorgu__ sekmesinde, aşağıdaki HiveQL ifadelerini çalışma sayfasına yapıştırın:
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs(
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' 
+        GROUP BY t4;
     ```
 
     Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
@@ -82,42 +87,20 @@ Bir Hive sorgusu çalıştırmak için Hive görünümünden aşağıdaki adıml
 
    * `SELECT`: Sütun t4 [Hata] değeri, içerdiği tüm satırların sayımını seçer.
 
-     > [!NOTE]
-     > Bir dış kaynak tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tabloları kullanır gibi bir otomatik veri işlem veya başka bir MapReduce işlem karşıya yükleyin. Bir dış tablo bırakma mu *değil* verileri, yalnızca tablo tanımını silin.
-
     > [!IMPORTANT]
     > Bırakın __veritabanı__ seçimi daha __varsayılan__. Bu belgedeki örneklerde, Hdınsight ile dahil varsayılan veritabanı kullanın.
 
-2. Sorguyu başlatmak için kullanmak **yürütme** çalışma aşağıdaki düğmesine. Düğme turuncu kapatır ve metin değişir **durdurmak**.
+5. Sorguyu başlatmak için kullanmak **yürütme** çalışma aşağıdaki düğmesine. Düğme turuncu kapatır ve metin değişir **durdurmak**.
 
-3. Sorgu tamamlandıktan sonra **sonuçları** sekmesi işlemin sonuçlarını görüntüler. Sorgunun sonucu metindir:
+6. Sorgu tamamlandıktan sonra **sonuçları** sekmesi işlemin sonuçlarını görüntüler. Sorgunun sonucu metindir:
 
-        sev       cnt
-        [ERROR]   3
+        loglevel       count
+        [ERROR]        3
 
     Kullanabileceğiniz **günlükleri** iş oluşturulan günlük bilgilerini görüntülemek için.
 
    > [!TIP]
    > İndirme veya sonuçlarından Kaydet **Sonuçları Kaydet** üst açılan iletişim kutusunda sol üst **sorgu işleminin sonuçları** bölümü.
-
-4. Bu sorgunun ilk dört satırları seçin ve ardından **yürütme**. İş tamamlandığında, hiçbir sonuç olduğuna dikkat edin. Kullanarak **yürütme** sorgu parçası seçildiğinde düğmesi yalnızca seçilen ifadeleri çalıştırır. Bu durumda, seçim tablosundan satır alır son deyim eklemediniz. Yalnızca bu satırı seçin ve kullanırsanız **yürütme**, beklenen sonuçları görmeniz gerekir.
-
-5. Bir çalışma sayfası eklemek için kullanın **yeni çalışma sayfası** alt kısmındaki düğmesi **sorgu Düzenleyicisi'ni**. Yeni çalışma sayfasında, aşağıdaki HiveQL ifadelerini girin:
-
-    ```hiveql
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-    ```
-
-  Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
-
-   * **Tablo IF değil var oluşturmak**: bir zaten yoksa, bir tablo oluşturur. Çünkü **dış** anahtar sözcüğü kullanılmaz, bir iç tablosu oluşturulur. Bir iç tablosu Hive veri ambarında depolanır ve tamamen Hive tarafından yönetilir. Aksine ile dış tablolar, bir iç tablosu bırakarak temel alınan veri de siler.
-
-   * **AS ORC DEPOLANAN**: en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde verileri depolar. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
-
-   * **INSERT ÜZERİNE... SEÇİN**: satırları seçer **log4jLogs** içeren tablo `[ERROR]`ve ardından verileri ekler **günlüklerini** tablo.
-
-Kullanım **yürütme** bu sorguyu çalıştırmak için düğmesi. **Sonuçları** sekmesinde sorgu sıfır satır geri döndüğünde herhangi bir bilgi içermiyor. Durum olarak göstermelidir **başarılı** sorgu bittikten sonra.
 
 ### <a name="visual-explain"></a>Visual açıklanmaktadır
 
@@ -152,9 +135,14 @@ Gelen **sorgu** sekmesinde sorguları isteğe bağlı olarak kaydedebilir. Bir s
 
 ![Kaydedilen sorgular sekmesini görüntüsü](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
+> [!TIP]
+> Kayıtlı sorgu varsayılan küme depolama alanında depolanır. Kayıtlı sorgu yolunda bulabilirsiniz `/user/<username>/hive/scripts`. Bunlar düz metin depolanır `.hql` dosyaları.
+>
+> Küme silme, ancak depolama korumak, bir yardımcı programı gibi kullanabilirsiniz [Azure Storage Gezgini](https://azure.microsoft.com/features/storage-explorer/) veya Data Lake Storage Gezgini (gelen [Azure Portal](https://portal.azure.com)) sorguları almak için.
+
 ## <a name="user-defined-functions"></a>Kullanıcı tanımlı işlevler
 
-Ayrıca, kullanıcı tanımlı işlevler (UDF) Hive genişletebilirsiniz. Bir UDF işlev veya kolayca modellenir değil mantığı içinde HiveQL uygulamak için kullanın.
+Kullanıcı tanımlı işlevler (UDF) Hive genişletebilirsiniz. Bir UDF işlev veya kolayca modellenir değil mantığı içinde HiveQL uygulamak için kullanın.
 
 Bildirme ve UDF'ler kümesini kullanarak kaydetme **UDF** Hive görünümü üstündeki sekmesi. Bu UDF'ler kullanılabilir **sorgu Düzenleyicisi'ni**.
 

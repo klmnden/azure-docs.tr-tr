@@ -1,5 +1,5 @@
 ---
-title: "Azure İzleyici PowerShell hızlı başlangıç örnekleri. | Microsoft Belgeleri"
+title: "Azure İzleyici PowerShell hızlı başlangıç örnekleri. | Microsoft Docs"
 description: "Otomatik ölçeklendirme, uyarılar, Web kancalarını ve etkinlik günlükleri arama gibi Azure İzleyicisi özelliklerine erişmek için PowerShell kullanın."
 author: rboucher
 manager: carmonm
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3479b9c5bc1c8c77d2c6012b40dc9cd8f8e1708b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure İzleyici PowerShell hızlı başlangıç örnekleri
-Bu makale Azure İzleyicisi özelliklerine erişmenize yardımcı olması için PowerShell komutlarını örnek gösterir. Azure İzleyici otomatik ölçeklendirme bulut Hizmetleri, sanal makineler ve Web uygulamaları sağlar. Ayrıca, web URL'leri yapılandırılmış telemetri verilerini değerlerine göre arayın veya uyarı bildirimleri göndermek sağlar.
+Bu makale Azure İzleyicisi özelliklerine erişmenize yardımcı olması için PowerShell komutlarını örnek gösterir.
 
 > [!NOTE]
 > Azure İzleyicisi "Azure Öngörüler" olarak adlandırılmıştı için yeni 25 Eylül 2016'ya kadar adıdır. Ancak, ad alanları ve bu nedenle aşağıdaki komutları yine içeren word "Öngörüler."
@@ -93,10 +93,10 @@ Aşağıdaki komut etkinlik günlüğünden son 1000 olayları alır:
 Get-AzureRmLog -MaxEvents 1000
 ```
 
-`Get-AzureRmLog`pek çok parametrelerden destekler. Bkz: `Get-AzureRmLog` daha fazla bilgi için başvuru.
+`Get-AzureRmLog` pek çok parametrelerden destekler. Bkz: `Get-AzureRmLog` daha fazla bilgi için başvuru.
 
 > [!NOTE]
-> `Get-AzureRmLog`yalnızca 15 gün geçmişi sağlar. Kullanarak **- MaxEvents** parametresi, 15 gün ötesinde son N olayları sorgu olanak verir. Erişim için 15 gün sayısından önceki olayların, REST API veya SDK'sı (SDK'sını kullanarak C# örnek) kullanın. Dahil etmezseniz **StartTime**, varsayılan değer ise **EndTime** bir saat eksi. Dahil etmezseniz **EndTime**, sonra da geçerli saati varsayılan değerdir. Tüm saatler UTC biçimindedir.
+> `Get-AzureRmLog` yalnızca 15 gün geçmişi sağlar. Kullanarak **- MaxEvents** parametresi, 15 gün ötesinde son N olayları sorgu olanak verir. Erişim için 15 gün sayısından önceki olayların, REST API veya SDK'sı (SDK'sını kullanarak C# örnek) kullanın. Dahil etmezseniz **StartTime**, varsayılan değer ise **EndTime** bir saat eksi. Dahil etmezseniz **EndTime**, sonra da geçerli saati varsayılan değerdir. Tüm saatler UTC biçimindedir.
 > 
 > 
 
@@ -136,7 +136,7 @@ Tüm uyarı kuralı için bir hedef kaynak kümesini alır. Örneğin, bir VM ü
 Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzureRmAlertRule`diğer parametreleri destekler. Bkz: [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) daha fazla bilgi için.
+`Get-AzureRmAlertRule` diğer parametreleri destekler. Bkz: [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) daha fazla bilgi için.
 
 ## <a name="create-metric-alerts"></a>Ölçüm uyarı oluşturma
 Kullanabileceğiniz `Add-AlertRule` cmdlet'ini oluşturmak, güncelleştirmek ya da bir uyarı kuralı devre dışı bırakın.
@@ -145,12 +145,12 @@ Kullanarak e-posta ve Web kancası özellikleri oluşturabilirsiniz `New-AzureRm
 
 Aşağıdaki tabloda, parametreler ve bir ölçüm kullanarak bir uyarı oluşturmak için kullanılan değerleri açıklanmaktadır.
 
-| Parametre | değer |
+| parametre | değer |
 | --- | --- |
 | Ad |simpletestdiskwrite |
 | Bu uyarı kuralı konumu |Doğu ABD |
 | ResourceGroup |montest |
-| Uç noktası Targetresourceıd |/Subscriptions/S1/resourceGroups/montest/providers/Microsoft.COMPUTE/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | Oluşturulan uyarının MetricName |\PhysicalDisk (_Total) \Disk Yazma/sn. Bkz: `Get-MetricDefinitions` cmdlet tam ölçüm adları alma hakkında |
 | işleci |GreaterThan |
 | Eşik değeri (sayısı/sn olarak bu ölçüm için) |1 |
@@ -199,6 +199,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 Tam listesi için kullanılabilir seçenekleri `Get-AzureRmMetricDefinition` şu adresten edinilebilir [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+
+## <a name="create-and-manage-activity-log-alerts"></a>Etkinlik günlüğü uyarıları oluşturma ve yönetme
+Kullanabileceğiniz `Set-AzureRmActivityLogAlert` bir etkinlik günlüğü uyarı ayarlamak için cmdlet. Bir etkinlik günlüğü uyarı, ilk koşullarınızı koşullar bir sözlük olarak tanımlamak ve sonra bu koşullara kullanan bir uyarı oluşturmak, gerektirir.
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+Ek Web kancası özellikleri isteğe bağlıdır. Bir etkinlik günlüğü uyarı kullanarak içindekiler geri alabilirsiniz `Get-AzureRmActivityLogAlert`.
 
 ## <a name="create-and-manage-autoscale-settings"></a>Otomatik ölçeklendirme ayarlarını oluşturun ve yönetin
 Bir kaynak (bir Web uygulaması, VM, bulut hizmeti veya sanal makine ölçek kümesi) yalnızca bir otomatik ölçeklendirme ayarı için yapılandırılmış olabilir.

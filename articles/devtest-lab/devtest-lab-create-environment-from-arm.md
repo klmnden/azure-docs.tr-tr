@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: 55a6c5cd5a0544b297bb68841c5ff0314f48dcc9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Çoklu VM ortamları ve PaaS kaynaklarına Azure Resource Manager şablonları ile oluşturma
 
@@ -65,7 +65,7 @@ Birkaç Azure Resource Manager şablonlarınızı bir havuzda düzenlemek için 
 Aşağıdaki adımlar bir depo Azure portalını kullanarak Laboratuvarınızı eklerken size kılavuzluk. 
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-1. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. İstenen Laboratuvar labs listesinden seçin.   
 1. Laboratuvar 's üzerinde **genel bakış** bölmesinde, **yapılandırma ve ilkeleri**.
 
@@ -81,7 +81,7 @@ Aşağıdaki adımlar bir depo Azure portalını kullanarak Laboratuvarınızı 
     - **Git kopyalama URL'si** -GitHub ya da Visual Studio Team Services GIT HTTPS kopya URL'si girin.  
     - **Şube** -Azure Resource Manager şablonu tanımlarınızı erişmek için şube adı girin. 
     - **Kişisel erişim belirteci** -kişisel erişim belirteci deponuz güvenli bir şekilde erişmek için kullanılır. Visual Studio Team Services belirtecinizi almak için seçin  **&lt;adınız >> Profilim > Güvenlik > Genel erişim belirteci**. Github'dan belirtecinizi almak için seçerek ve ardından, avatar seçin **ayarlar > Genel erişim belirteci**. 
-    - **Klasör yolları** -iki giriş alanlarının birini kullanarak bir eğik çizgiyle - / - başlayan ve yapı tanımlarınızı Git kopyalama URI ya da görelidir klasör yolu girin (ilk giriş alanı) veya Azure Resource Manager şablonu tanımlar.   
+    - **Klasör yolları** -iki giriş alanlarının birini kullanarak bir eğik çizgiyle - / - başlayan ve yapı tanımlarınızı Git kopyalama URI ya da görelidir klasör yolu girin (ilk giriş alanı) veya Azure Resource Manager şablonu tanımları .   
     
         ![Ortak depodaki](./media/devtest-lab-create-environment-from-arm/repo-values.png)
 
@@ -95,7 +95,7 @@ Sonraki bölümde bir Azure Resource Manager şablonu ortamları oluşturmada si
 Bir Azure Resource Manager şablonu deposu laboratuar ortamında yapılandırıldıktan sonra Laboratuvar kullanıcılarınızın Azure portalı ile aşağıdaki adımları kullanarak bir ortam oluşturabilirsiniz:
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-1. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+1. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 1. İstenen Laboratuvar labs listesinden seçin.   
 1. Laboratuvar 's bölmesinde seçin **Ekle +**.
 1. **Bir temel seçin** bölmesinde listelenen ilk Azure Resource Manager şablonları ile kullanabileceğiniz temel görüntüleri görüntüler. İstenen Azure Resource Manager şablonu seçin.

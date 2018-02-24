@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e796c8be0a5db8cb67e4a091fa51ed89920852c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>Azure portal ile bir kullanılabilirlik bölgesindeki bir ortak IP adresi oluştur
 
@@ -36,11 +36,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Https://portal.azure.com Azure portalında oturum açın. 
+https://portal.azure.com adresinden Azure portalında oturum açın. 
 
 ## <a name="create-a-zonal-public-ip-address"></a>Zonal bir ortak IP adresi oluşturun
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Tıklatın **kaynak oluşturma** Azure portalının sol üst köşesindeki.
 2. Seçin **ağ**ve ardından **genel IP adresi**.
 3. Girin veya aşağıdaki ayarları için değerleri, aboneliğinizi seçin, diğer ayarlar için Varsayılanları kabul seçip'ı tıklatın **oluşturma**:
 
@@ -50,7 +50,7 @@ Https://portal.azure.com Azure portalında oturum açın.
     |Ad|Adı kaynak grubun içinde benzersiz olmalıdır.|
     |Kaynak grubu|Yeni Oluştur'u tıklatın ve myResourceGroup girin|
     |Konum|Batı Avrupa|
-    |Kullanılabilirlik bölge|Seçtiyseniz **standart** seçebileceğiniz SKU, *bölge olarak yedekli* IP adresi dilimlerinde dayanıklı olmasını istiyorsanız. Seçerseniz **temel** SKU, IP adresi değil esnek dilimlerinde. Seçtiğiniz SKU bağımsız olarak seçerseniz belirli bir bölgeye adresi atayabilirsiniz. |
+    |Kullanılabilirlik bölgesi|Seçtiyseniz **standart** seçebileceğiniz SKU, *bölge olarak yedekli* IP adresi dilimlerinde dayanıklı olmasını istiyorsanız. Seçerseniz **temel** SKU, IP adresi değil esnek dilimlerinde. Seçtiğiniz SKU bağımsız olarak seçerseniz belirli bir bölgeye adresi atayabilirsiniz. |
 
     Ayarları Portalı'nda aşağıdaki resimde gösterildiği gibi görünür:
 

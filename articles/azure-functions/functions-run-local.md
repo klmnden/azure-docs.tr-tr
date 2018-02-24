@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Yerel kod ve test Azure işlevleri
 
@@ -169,7 +169,7 @@ Bir işlev oluşturmak için aşağıdaki komutu çalıştırın:
 ```
 func new
 ``` 
-`func new`Aşağıdaki isteğe bağlı bağımsız değişkenler destekler:
+`func new` Aşağıdaki isteğe bağlı bağımsız değişkenler destekler:
 
 | Bağımsız değişken     | Açıklama                            |
 | ------------ | -------------------------------------- |
@@ -197,7 +197,7 @@ func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 func host start
 ```
 
-`func host start`Aşağıdaki seçenekleri destekler:
+`func host start` Aşağıdaki seçenekleri destekler:
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
@@ -231,6 +231,9 @@ Ana bilgisayar'ı başlatın ve JavaScript hata ayıklama kurulumu için çalı�
 ```
 func host start --debug vscode
 ```
+
+> [!IMPORTANT]
+> Hata ayıklama, yalnızca Node.js 8.x desteklenir. Node.js 9.x desteklenmiyor. 
 
 Ardından, Visual Studio Code içinde **hata ayıklama** görünümü, select **eklemek için Azure işlevleri**. Kesme noktaları ekleme, değişkenleri inceleyin ve kod üzerinden adım.
 
@@ -293,7 +296,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 Bir işlev doğrudan kullanarak da çağırabilirsiniz `func run <FunctionName>` ve işlevi için giriş verileri sağlar. Bu komut işlevini kullanarak çalıştırmaya benzer **Test** Azure portalında sekmesi. 
 
-`func run`Aşağıdaki seçenekleri destekler:
+`func run` Aşağıdaki seçenekleri destekler:
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
@@ -344,5 +347,5 @@ Bir hata veya özellik isteği dosyasına [GitHub sorunu açmak](https://github.
 
 <!-- LINKS -->
 
-[Azure işlevleri çekirdek Araçları]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure portal]: https://portal.azure.com 
+[Azure işlevleri çekirdek araçları]: https://www.npmjs.com/package/azure-functions-core-tools
+[Azure portalı]: https://portal.azure.com 

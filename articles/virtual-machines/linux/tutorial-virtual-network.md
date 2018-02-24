@@ -1,6 +1,6 @@
 ---
-title: "Azure sanal ağlar ve Linux sanal makineleri | Microsoft Docs"
-description: "Öğretici - Azure sanal ağlar ve Azure CLI ile Linux sanal makineleri yönetme"
+title: "Azure Sanal Ağları ve Linux Sanal Makineleri | Microsoft Docs"
+description: "Öğretici - Azure Sanal Ağlarını ve Linux Sanal Makinelerini Azure CLI ile Yönetme"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: cce0cebc4a31cd78dd7c0c73424e1b674134d360
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Azure sanal ağlar ve Azure CLI ile Linux sanal makineleri yönetme
+# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Azure Sanal Ağlarını ve Linux Sanal Makinelerini Azure CLI ile Yönetme
 
-Azure sanal makineler, iç ve dış ağ iletişimi için Azure ağ kullanın. Bu öğreticide iki sanal makine dağıtma ve bu VM'ler için Azure ağı yapılandırma açıklanmaktadır. Bir uygulama öğreticide dağıtılmamış ancak bu öğreticide örneklerde, sanal makineleri bir veritabanı arka uç, web uygulamasıyla barındırıyorsanız varsayılmaktadır. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Azure sanal makineleri, iç ve dış ağ iletişimi için Azure ağını kullanır. Bu öğretici, iki sanal makineyi dağıtma ve bu VM’ler için Azure ağını yapılandırma konusunda rehberlik sunar. Bu öğreticideki örneklerde VM’lerde veritabanı arka ucuna sahip bir web uygulaması barındırıldığı varsayılır, ancak öğreticide uygulama dağıtılmaz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir sanal ağ ve alt ağ oluşturun
+> * Sanal ağ ve alt ağ oluşturma
 > * Genel IP adresi oluşturma
-> * Bir ön uç VM oluşturma
-> * Ağ trafiğinin güvenliğini sağlayın
-> * Bir arka uç VM oluşturma
+> * Ön uç VM’si oluşturma
+> * Ağ trafiğinin güvenliğini sağlama
+> * Arka uç VM’si oluşturma
 
-Bu öğreticiyi tamamlamak sırasında oluşturulan bu kaynakları görebilirsiniz:
+Bu öğreticiyi tamamladığınızda şu kaynakların oluşturulduğunu görebilirsiniz:
 
-![İki alt ağ ile sanal ağ](./media/tutorial-virtual-network/networktutorial.png)
+![İki alt ağ içeren sanal ağ](./media/tutorial-virtual-network/networktutorial.png)
 
-- *myVNet* -birbirine ve internet ile iletişim kurmak için sanal makineleri kullanan sanal ağ.
-- *myFrontendSubnet* -alt ağda *myVNet* ön uç kaynaklar tarafından kullanılır.
-- *myPublicIPAddress* -kullanılan genel IP adresine erişimi *myFrontendVM* internet'ten.
-- *myFrontentNic* -tarafından kullanılan ağ arabirimini *myFrontendVM* ile iletişim kurmak için *myBackendVM*.
-- *myFrontendVM* -VM Internet arasında iletişim kurmak için kullanılır ve *myBackendVM*.
-- *myBackendNSG* -arasındaki iletişimi denetleyen ağ güvenlik grubu *myFrontendVM* ve *myBackendVM*.
-- *myBackendSubnet* -alt ağ ile ilişkili *myBackendNSG* ve arka uç kaynaklar tarafından kullanılır.
-- *myBackendNic* -tarafından kullanılan ağ arabirimini *myBackendVM* ile iletişim kurmak için *myFrontendVM*.
-- *myBackendVM* -bağlantı noktası 22 ve 3306 ile iletişim kurmak için kullandığı VM *myFrontendVM*.
+- *myVNet* - VM’lerin birbirleriyle ve İnternet’le iletişim kurmak için kullandığı sanal ağ.
+- *myFrontendSubnet* - Ön uç kaynakları tarafından kullanılan *myVNet*’teki alt ağ.
+- *myPublicIPAddress* - İnternet’ten *myFrontendVM*’ye erişmek için kullanılan genel IP adresi.
+- *myFrontentNic* - *myBackendVM* ile iletişim kurmak için *myFrontendVM* tarafından kullanılan ağ arabirimi.
+- *myFrontendVM* - İnternet ile *myBackendVM* arasında iletişim kurmak için kullanılan VM.
+- *myBackendNSG* - *myFrontendVM* ile *myBackendVM* arasındaki iletişimi denetleyen ağ güvenlik grubu.
+- *myBackendSubnet* - *myBackendNSG* ile ilişkilendirilmiş ve arka uç kaynakları tarafından kullanılan alt ağ.
+- *myBackendNic* - *myFrontendVM* ile iletişim kurmak için *myBackendVM* tarafından kullanılan ağ arabirimi.
+- *myBackendVM* - *myFrontendVM* ile iletişim kurmak için 22 ve 3306 numaralı bağlantı noktalarını kullanan VM.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="vm-networking-overview"></a>VM ağ genel bakış
+## <a name="vm-networking-overview"></a>VM ağına genel bakış
 
-Azure sanal ağlar arasında sanal makineleri, internet ve diğer Azure hizmetleriyle Azure SQL veritabanı gibi güvenli ağ bağlantıları etkinleştirin. Sanal ağlar alt ağ olarak adlandırılan mantıksal parçalara bölünür. Alt ağ akış denetimi ve güvenlik sınırı olarak kullanılır. Bir VM dağıtırken, genellikle bir alt ağa bağlı bir sanal ağ arabirimi içerir.
+Azure sanal ağları, sanal makineler ile İnternet ve Azure SQL veritabanı gibi diğer Azure hizmetleri arasında güvenli ağ bağlantıları kurulmasını sağlar. Sanal ağlar, alt ağ adı verilen mantıksal segmentlere ayrılır. Alt ağlar, ağ akışını denetlemek için ve güvenlik sınırı olarak kullanılır. Bir VM dağıtılırken, genellikle bir alt ağa eklenmiş sanal ağ arabirimine sahiptir.
 
-## <a name="create-a-virtual-network-and-subnet"></a>Bir sanal ağ ve alt ağ oluşturun
+## <a name="create-a-virtual-network-and-subnet"></a>Sanal ağ ve alt ağ oluşturma
 
-Bu öğreticide, tek bir sanal ağı iki alt ağ ile oluşturulur. Bir web uygulamasını barındırmak için bir ön uç alt ağı ve bir veritabanı sunucusunu barındırmak için bir arka uç alt ağ.
+Bu öğreticide iki alt ağa sahip tek bir sanal ağ oluşturulur. Web uygulamasını barındırmak için bir ön uç alt ağı ve veritabanı sunucusunu barındırmak için bir arka uç alt ağı.
 
-Bir sanal ağ oluşturmadan önce bir kaynak grubuyla oluşturmanız [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek, bir kaynak grubu oluşturur *myRGNetwork* eastus konumda.
+Sanal ağ oluşturabilmek için önce [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte eastus konumunda *myRGNetwork* adlı bir kaynak grubu oluşturulmaktadır.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -68,7 +68,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>Sanal ağ oluşturma
 
-Kullanım [az ağ vnet oluşturma](/cli/azure/network/vnet#create) bir sanal ağ oluşturmak için komutu. Bu örnekte, adlandırılmış ağ *mvVNet* ve bir adres öneki belirtilen *10.0.0.0/16*. Bir alt ağ da bir ad oluşturulur *myFrontendSubnet* ve bir önek *10.0.1.0/24*. Daha sonra Bu öğreticide bir ön uç VM bu alt ağa bağlanır. 
+Sanal ağ oluşturmak için [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) komutunu kullanın. Bu örnekte ağ, *mvVNet* olarak adlandırılmaktadır ve *10.0.0.0/16* adres öneki belirtilmiştir. Ayrıca *myFrontendSubnet* adıyla ve *10.0.1.0/24* önekiyle bir alt ağ oluşturulmaktadır. Bu öğreticinin ilerleyen bölümlerinde bu alt ağa bir ön uç bağlanmaktadır. 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -81,7 +81,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>Alt ağ oluşturma
 
-Sanal ağ kullanmaya yeni bir alt ağ eklenen [az ağ sanal alt oluşturmak](/cli/azure/network/vnet/subnet#create) komutu. Bu örnekte, alt ağ olarak adlandırılır *myBackendSubnet* ve bir adres öneki belirtilen *10.0.2.0/24*. Bu alt ağ ile tüm arka uç hizmetlerini kullanılır.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) komutu kullanılarak sanal ağa yeni bir alt ağ eklenir. Bu örnekte alt ağ, *myBackendSubnet* olarak adlandırılmaktadır ve *10.0.2.0/24* adres öneki belirtilmiştir. Bu alt ağ tüm arka uç hizmetleriyle kullanılır.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -91,49 +91,49 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Bu noktada, ağ oluşturulduğundan ve iki alt ağ, ön uç Hizmetleri için bir tane ve arka uç hizmetlerini için başka bir içine bölümlenmiş. Sonraki bölümde, sanal makineleri oluşturulur ve bu alt ağlara bağlı.
+Bu noktada ağ oluşturulur ve biri ön uç hizmetlerine, diğeri ise arka uç hizmetlerine yönelik olan iki alt ağ segmentine ayrılır. Sonraki bölümde sanal makineler oluşturulacak ve bu alt ağlara bağlanacak.
 
 ## <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
 
-Bir ortak IP adresi Internet üzerinden erişilebilir olması Azure kaynaklarını sağlar. Genel IP adresi ayırma yöntemi dinamik veya statik olarak yapılandırılmış olmalıdır. Varsayılan olarak, bir ortak IP adresi dinamik olarak ayrılır. Bir VM serbest bırakıldığında dinamik IP adresleri serbest bırakılır. Bu davranış VM ayırmayı kaldırma içeren herhangi bir işlem sırasında değiştirmek IP adresi neden olur.
+Genel IP adresi, Azure kaynaklarına İnternet’ten erişilmesine izin verir. Genel IP adresi ayırma yöntemi dinamik veya statik olarak yapılandırılabilir. Genel IP adresi varsayılan olarak dinamik biçimde ayrılır. Bir VM serbest bırakıldığında dinamik IP adresleri de serbest bırakılır. Bu davranış, VM’nin serbest bırakılmasını içeren tüm işlemlerde IP adresinin değişmesine neden olur.
 
-IP adresi deallocated durumundayken bile bir VM için atanan kalmasını sağlar statik ayırma yöntemi ayarlanabilir. Statik olarak ayrılmış bir IP adresi kullanıldığında, IP adresi belirtilemez. Bunun yerine, kullanılabilir adresler havuzundan tahsis edilir.
+Ayırma yöntemi statik olarak ayarlanabilir; bu yöntem, VM serbest bırakılsa bile IP adresinin VM’ye atanmış olarak kalmasını sağlar. Statik olarak ayrılan bir IP adresi kullanılırken IP adresi belirtilemez. Bunun yerine IP adresi, kullanılabilen adresler havuzundan ayrılır.
 
 ```azurecli-interactive
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
 ```
 
-Bir VM oluştururken [az vm oluşturma](/cli/azure/vm#create) varsayılan genel IP adresi ayırma yöntemi dinamik komutu. Kullanarak bir sanal makine oluştururken [az vm oluşturma](/cli/azure/vm#create) içeriyor, komut `--public-ip-address-allocation static` bir statik genel IP adresi atamak için bağımsız değişken. Sonraki bölümde dinamik olarak ayrılan bir IP adresi statik olarak ayrılan adresine değiştirilir ancak bu öğreticide, bu işlem gösterilmez. 
+[az vm create](/cli/azure/vm#az_vm_create) komutu ile bir VM oluşturulduğunda varsayılan genel IP adresi ayırma yöntemi dinamiktir. [az vm create](/cli/azure/vm#az_vm_create) komutu kullanılarak bir sanal makine oluştururken statik genel IP adresi atamak için `--public-ip-address-allocation static` bağımsız değişkenini ekleyin. Bu işlem bu öğreticide gösterilmemektedir, ancak sonraki bölümde dinamik olarak ayrılan bir IP adresi statik olarak ayrılmış bir adrese dönüştürülecek. 
 
 ### <a name="change-allocation-method"></a>Ayırma yöntemini değiştirme
 
-IP adresi ayırma yöntemi kullanılarak değiştirilebilir [az ağ ortak IP güncelleştirmesi](/cli/azure/network/public-ip#update) komutu. Bu örnekte, ön uç sanal IP adresi ayırma yöntemi statik olarak değiştirilir.
+IP adresi ayırma yöntemi [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) komutu kullanılarak değiştirilebilir. Bu örnekte, ön uç VM’nin IP adresi ayırma yöntemi statik olarak değiştirilmektedir.
 
-İlk olarak, VM serbest bırakma.
+Öncelikle VM’yi serbest bırakın.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-Kullanım [az ağ ortak IP güncelleştirmesi](/cli/azure/network/public-ip#update) ayırma yöntemi güncelleştirmek için komutu. Bu durumda, `--allocation-method` ayarlanmış *statik*.
+Ayırma yöntemini güncelleştirmek için [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) komutunu kullanın. Bu durumda `--allocation-method`, *static* olarak ayarlanır.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
 ```
 
-VM Başlat.
+VM’yi başlatın.
 
 ```azurecli-interactive 
 az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 ```
 
-### <a name="no-public-ip-address"></a>Ortak IP adresi yok
+### <a name="no-public-ip-address"></a>Genel IP adresi yok
 
-Genellikle, bir VM Internet üzerinden erişilebilir olması gerekmez. Bir ortak IP adresi olmadan bir VM oluşturmak için kullanmak `--public-ip-address ""` bağımsız değişkeni çift tırnak işareti boş dizi. Bu yapılandırmayı daha sonra Bu öğreticide gösterilmiştir.
+Çoğunlukla bir VM’nin İnternet’ten erişilebilir olmasına gerek yoktur. Genel IP adresi olmayan bir VM oluşturmak için `--public-ip-address ""` bağımsız değişkenini boş çift tırnaklar ile kullanın. Bu yapılandırma, öğreticinin sonraki bölümlerinde gösterilmektedir.
 
-## <a name="create-a-front-end-vm"></a>Bir ön uç VM oluşturma
+## <a name="create-a-front-end-vm"></a>Ön uç VM’si oluşturma
 
-Kullanım [az vm oluşturma](/cli/azure/vm#create) adlı VM oluşturmak için komutu *myFrontendVM* kullanarak *myPublicIPAddress*.
+[az vm create](/cli/azure/vm#az_vm_create) komutunu kullanarak *myPublicIPAddress* adresini kullanan *myFrontendVM* adlı bir VM oluşturun.
 
 ```azurecli-interactive 
 az vm create \
@@ -147,37 +147,37 @@ az vm create \
   --generate-ssh-keys
 ```
 
-## <a name="secure-network-traffic"></a>Ağ trafiğinin güvenliğini sağlayın
+## <a name="secure-network-traffic"></a>Ağ trafiğinin güvenliğini sağlama
 
-Ağ güvenlik grubu (NSG), Azure Sanal Ağlara (VNet) bağlı kaynaklara ağ trafiğine izin veren veya reddeden güvenlik kurallarının listesini içerir. Nsg'ler alt ağları veya tek tek ağ arabirimleri için ilişkili olabilir. Bir NSG'yi bir ağ arabirimi ile ilişkili olduğunda, yalnızca ilişkili VM geçerlidir. Bir NSG bir alt ağ ile ilişkilendirildiğinde kurallar alt ağa bağlı tüm kaynaklar için geçerli olur. 
+Ağ güvenlik grubu (NSG), Azure Sanal Ağlara (VNet) bağlı kaynaklara ağ trafiğine izin veren veya reddeden güvenlik kurallarının listesini içerir. NSG’ler alt ağlarla veya tek tek ağ arabirimleriyle ilişkilendirilebilir. Bir NSG ağ arabirimiyle ilişkilendirildiğinde, yalnızca ilişkili VM için geçerli olur. Bir NSG bir alt ağ ile ilişkilendirildiğinde kurallar alt ağa bağlı tüm kaynaklar için geçerli olur. 
 
 ### <a name="network-security-group-rules"></a>Ağ güvenlik grubu kuralları
 
-NSG kuralları üzerinden trafik izin verilen veya reddedilen ağ bağlantı noktalarını tanımlar. Böylece belirli sistemleri veya alt ağlar arasında trafiği denetlenir kuralları kaynak ve hedef IP adresi aralıklarını içerebilir. NSG kuralları da dahil bir öncelik (1 arasında — ve 4096). Kurallar öncelik sırasına göre değerlendirilir. 100 önceliğine sahip bir kural 200 önceliğine sahip bir kural önce değerlendirilir.
+NSG kuralları trafiğe izin verilen veya trafiğin engellendiği ağ bağlantı noktalarını tanımlar. Trafiğin belirli sistemler veya alt ağlar arasında denetlenmesi için kurallar, kaynak ve hedef IP adresi aralıkları içerebilir. Ayrıca NSG kuralları öncelik (1 ile 4.096 arasında) içerir. Kurallar öncelik sırasına göre değerlendirilir. 100 önceliğine sahip bir kural, 200 önceliğine sahip kuraldan önce değerlendirilir.
 
 Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar silinemez ancak en düşük önceliğe atanmış oldukları için sizin oluşturduğunuz kurallar tarafından geçersiz kılınabilirler.
 
-Nsg'ler için varsayılan kurallar şunlardır:
+NSG’ler için varsayılan kurallar şunlardır:
 
-- **Sanal ağ** - kaynaklanan trafiği ve sanal ağ içinde bitiş hem gelen ve giden yönlerde izin verilir.
-- **Internet** - giden trafiğe izin verilir, ancak gelen trafik engellenir.
-- **Yük Dengeleyici** -VM'ler ve rol örneklerinin durumunu araştırma için izin Azure'nın yük dengeleyici. Yük dengelenmiş bir küme kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
+- **Sanal ağ** - Kaynağı bir sanal ağ olan ve bir sanal ağda biten trafiğe hem gelen hem de giden yönlerde izin verilir.
+- **İnternet** - Giden trafiğe izin verilir, ancak gelen trafik engellenir.
+- **Yük dengeleyici** - VM’lerinizin ve rol örneklerinizin sistem durumunu araştıran Azure yük dengeleyicisine izin verir. Yük dengeli bir küme kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
 
 ### <a name="create-network-security-groups"></a>Ağ güvenlik grupları oluşturma
 
-Kullanarak bir VM olarak aynı zamanda bir ağ güvenlik grubu oluşturulabilir [az vm oluşturma](/cli/azure/vm#create) komutu. Bunun yapılması, NSG VM'ler ağ arabirimiyle ilişkilendirilmiş ve bir NSG kuralı otomatik olarak bağlantı noktası üzerinde trafiğe izin vermek için oluşturulan *22* herhangi bir kaynaktan. Bu öğreticide daha önce ön uç VM ile otomatik olarak oluşturulan ön uç NSG. Bir NSG kuralı da otomatik olarak oluşturulan için bağlantı noktası 22 oluştu. 
+Ağ güvenlik grubu, [az vm create](/cli/azure/vm#az_vm_create) komutu kullanılarak VM ile aynı anda oluşturulabilir. Bu işlem yapıldığında NSG, VM ağ arabirimi ile ilişkilendirilir ve herhangi bir kaynaktan *22* numaralı bağlantı noktası üzerinden gelen trafiğe izin veren NSG kuralı otomatik olarak oluşturulur. Bu öğreticinin önceki bölümlerinde ön uç NSG’si ön uç VM’si ile otomatik oluşturulmuştu. Ayrıca 22 numaralı bağlantı noktası için bir NSG kuralı otomatik olarak oluşturulmuştu. 
 
-Bazı durumlarda, ne zaman varsayılan SSH kuralları oluşturulmaması gerektiğini veya ne zaman NSG bir alt ağa bağlı olması gibi bir NSG önceden oluşturmak yararlı olabilir. 
+Bazı durumlarda, örneğin varsayılan SSH kurallarının oluşturulmaması gerektiğinde veya NSG’nin bir alt ağa eklenmesi gerektiğinde NSG’yi önceden oluşturmak yararlı olabilir. 
 
-Kullanım [az ağ nsg oluşturma](/cli/azure/network/nsg#create) bir ağ güvenlik grubu oluşturmak için komutu.
+Bir ağ güvenlik grubu oluşturmak için [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) komutunu kullanın.
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG
 ```
 
-Bir ağ arabirimi NSG'yi ilişkilendirme yerine bir alt ağ ile ilişkili. Bu yapılandırmada alt ağına bağlı olduğu VM NSG kuralları devralır.
+NSG, bir ağ arabirimiyle ilişkilendirilmek yerine bir alt ağla ilişkilendirilir. Bu yapılandırmada alt ağa eklenmiş tüm VM’ler NSG kurallarını devralır.
 
-Adlı mevcut alt güncelleştirme *myBackendSubnet* yeni NSG ile.
+*myBackendSubnet* adlı mevcut alt ağı yeni NSG ile güncelleştirin.
 
 ```azurecli-interactive 
 az network vnet subnet update \
@@ -187,11 +187,11 @@ az network vnet subnet update \
   --network-security-group myBackendNSG
 ```
 
-### <a name="secure-incoming-traffic"></a>Gelen trafiği güvenli
+### <a name="secure-incoming-traffic"></a>Gelen trafiğin güvenliğini sağlama
 
-Ön uç VM oluşturulduğunda, bir NSG kuralı bağlantı noktası 22 gelen trafiğe izin verecek şekilde oluşturuldu. Bu kural, VM SSH bağlantılara izin verir. Bu örnekte, trafiğin de bağlantı noktası izin verilmesi gerektiğini *80*. Bu yapılandırma VM erişilecek bir web uygulaması sağlar.
+Ön uç VM’si oluşturulduğunda 22 numaralı bağlantı noktasından gelen trafiğe izin veren bir NSG kuralı oluşturulur. Bu kural, VM ile SSH bağlantısı kurulmasına izin verir. Bu örnekte aynı zamanda *80* numaralı bağlantı noktasındaki trafiğe de izin verilmelidir. Bu yapılandırma VM’den web uygulamasına erişilmesine izin verir.
 
-Kullanım [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create) bağlantı noktası için bir kural oluşturmak için komutu *80*.
+*80* numaralı bağlantı noktası için bir kural oluşturmak üzere [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) komutunu kullanın.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -208,17 +208,17 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-Ön uç VM yalnızca bağlantı noktası üzerinde erişilebilir *22* ve bağlantı noktası *80*. Diğer tüm gelen trafiği ağ güvenlik grubu engellendi. NSG kuralı yapılandırmaları görselleştirmek yararlı olabilir. NSG kuralının yapılandırmayla dönmek [az ağ kuralı listesi](/cli/azure/network/nsg/rule#list) komutu. 
+Ön uç VM’sine yalnızca *22* ve *80* numaralı bağlantı noktalarından erişilebilir. Diğer gelen trafiğin tümü, ağ güvenlik grubunda engellenir. NSG kuralı yapılandırmalarını görselleştirmek yararlı olabilir. NSG kuralı yapılandırmasını [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) komutu ile döndürün. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
 ```
 
-### <a name="secure-vm-to-vm-traffic"></a>VM VM trafiğinin güvenliğini
+### <a name="secure-vm-to-vm-traffic"></a>VM’den VM’ye trafiğin güvenliğini sağlama
 
-Ağ güvenlik grubu kuralları da VM'ler arasında uygulayabilirsiniz. Bu örnekte, ön uç VM arka uç VM bağlantı noktası ile iletişim kurması gereken *22* ve *3306*. Bu yapılandırma, ön uç sanal makineden SSH bağlantılarına izin veren ve bir uygulama bir arka uç MySQL veritabanı ile iletişim kurmak için ön uç VM'de de olanak sağlar. Diğer tüm trafik ön uç ve arka uç sanal makineler arasında engellenmelidir.
+Ağ güvenlik grubu kuralları VM’ler arasında da uygulanabilir. Bu örnekte ön uç VM’sinin arka uç VM’siyle *22* ve *3306* numaralı bağlantı noktalarından iletişim kurması gerekiyor. Bu yapılandırma, ön uç VM’sinden SSH bağlantısı kurulmasına ve ön uçtaki bir uygulamanın arka uç MySQL veritabanı ile iletişim kurmasına izin verir. Diğer trafiğin tümünün ön uç ve arka uç sanal makineleri arasında engellenmesi gerekir.
 
-Kullanım [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create) bağlantı noktası 22 için bir kural oluşturmak için komutu. Dikkat `--source-address-prefix` bağımsız değişken değerini belirtir *10.0.1.0/24*. Bu yapılandırma, NSG yalnızca ön uç alt ağından gelen trafiğe izin verildiğini sağlar.
+22 numaralı bağlantı noktası için bir kural oluşturmak üzere [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) komutunu kullanın. `--source-address-prefix` bağımsız değişkenin *10.0.1.0/24* değerini belirttiğini görebilirsiniz. Bu yapılandırma NSG’de yalnızca ön uç alt ağından gelen trafiğe izin verilmesini sağlar.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -235,7 +235,7 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-Şimdi 3306 noktasından MySQL trafiği için bir kural ekleyin.
+Şimdi 3306 numaralı bağlantı noktasına MySQL trafiği için bir kural ekleyin.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -252,7 +252,7 @@ az network nsg rule create \
   --destination-port-range "3306"
 ```
 
-Son olarak, aynı sanal ağ içindeki VM'ler arasında tüm trafiğe izin veren bir varsayılan kuralı Nsg'ler sahip olduğundan, bir kural tüm trafiği engellemek arka uç Nsg'ler için oluşturulabilir. Burada dikkat `--priority` değerini verilen *300*, hangi, NSG ve MySQL kuralları alt olduğu. Bu yapılandırma, SSH ve MySQL trafiği NSG izin verilir sağlar.
+NSG’ler aynı VNet içinde yer alan VM’ler arasındaki tüm trafiğe izin veren bir varsayılan kurala sahiptir, bu nedenle arka uç NSG’lerinin tüm trafiği engellenmesi için bir kural oluşturulabilir. Burada `--priority` için, hem NSG hem de MySQL kurallarından küçük olan *300* değerinin belirtildiğini görebilirsiniz. Bu yapılandırma, NSG’de SSH ve MySQL trafiğine izin verilmesini sağlar.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -269,9 +269,9 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-## <a name="create-back-end-vm"></a>Arka uç VM oluşturma
+## <a name="create-back-end-vm"></a>Arka uç VM’si oluşturma
 
-Şimdi eklendiği bir sanal makine, oluşturmak *myBackendSubnet*. Dikkat `--nsg` bağımsız değişkeni boş çift tırnak işareti değerine sahip. Bir NSG'yi VM ile oluşturulmuş gerekmez. VM ile önceden oluşturulmuş arka uç NSG korumalı arka uç alt ağına bağlı. Bu NSG VM için geçerlidir. Ayrıca, burada dikkat `--public-ip-address` bağımsız değişkeni boş çift tırnak işareti değerine sahip. Bu yapılandırma, bir ortak IP adresi olmadan bir VM oluşturur. 
+*myBackendSubnet*’e eklenmiş bir sanal makine oluşturun. `--nsg` bağımsız değişkenin boş çift tırnak içerdiğini görebilirsiniz. VM ile bir NSG oluşturmak gerekemez. VM, önceden oluşturulmuş arka uç NSG’si ile korunan arka uç alt ağına eklenir. Bu NSG, VM için geçerlidir. Ayrıca burada `--public-ip-address` bağımsız değişkeninin boş çift tırnak değeri içerdiğini görebilirsiniz. Bu yapılandırma genel IP adresi olmayan bir VM oluşturur. 
 
 ```azurecli-interactive 
 az vm create \
@@ -285,7 +285,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Arka uç VM yalnızca bağlantı noktası üzerinde erişilebilir *22* ve bağlantı noktası *3306* ön uç alt ağından. Diğer tüm gelen trafiği ağ güvenlik grubu engellendi. NSG kuralı yapılandırmaları görselleştirmek yararlı olabilir. NSG kuralının yapılandırmayla dönmek [az ağ kuralı listesi](/cli/azure/network/nsg/rule#list) komutu. 
+Arka uç VM’sine, ön uç alt ağından yalnızca *22* ve *3306* numaralı bağlantı noktaları üzerinden erişilebilir. Diğer gelen trafiğin tümü, ağ güvenlik grubunda engellenir. NSG kuralı yapılandırmalarını görselleştirmek yararlı olabilir. NSG kuralı yapılandırmasını [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) komutu ile döndürün. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
@@ -293,16 +293,16 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide oluşturduğunuz ve Azure ağları sanal makinelerle ilgili olarak güvenli. Şunları öğrendiniz:
+Bu öğreticide sanal makinelerle ilgili Azure ağlarını oluşturup ve güvenliğini sağladınız. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Bir sanal ağ ve alt ağ oluşturun
+> * Sanal ağ ve alt ağ oluşturma
 > * Genel IP adresi oluşturma
-> * Bir ön uç VM oluşturma
-> * Ağ trafiğinin güvenliğini sağlayın
-> * Arka uç VM oluşturma
+> * Ön uç VM’si oluşturma
+> * Ağ trafiğinin güvenliğini sağlama
+> * Arka uç VM’si oluşturma
 
-Azure Yedekleme'yi kullanarak sanal makinelerde verilerin güvenliğini sağlama hakkında bilgi edinmek için sonraki öğretici ilerleyin. 
+Azure Backup kullanarak sanal makinelerdeki verilerin güvenliğini sağlamayı öğrenmek için sonraki öğreticiye geçin. 
 
 > [!div class="nextstepaction"]
-> [Azure'daki Linux sanal makineleri yedekleyin](./tutorial-backup-vms.md)
+> [Azure’da Linux sanal makinelerini yedekleme](./tutorial-backup-vms.md)

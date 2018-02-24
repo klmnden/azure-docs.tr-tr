@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: b18e01a780f6371ecae3298a6f3f41949090b9e8
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 0ca7b7ca9435d1ba05a2cc0951f5bc88b51bf81b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Oluşturma ve VPN yükleme istemcisi yapılandırma dosyalarını yerel Azure için sertifika kimlik doğrulaması noktadan siteye yapılandırmaları
 
@@ -66,6 +66,11 @@ PowerShell kullanarak istemci yapılandırma dosyaları oluşturabilir veya Azur
 ## <a name="installwin"></a>Windows VPN istemcisi yapılandırma paketini yükle
 
 Sürüm için İstemci mimarisi eşleştiği sürece, her Windows istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemleri listesi için noktadan siteye bölümüne bakın [VPN Gateway SSS](vpn-gateway-vpn-faq.md#P2S).
+
+>[!NOTE]
+>Bağlanmak istediğiniz Windows istemci bilgisayarda yönetici haklarına sahip olmalıdır.
+>
+>
 
 Sertifika kimlik doğrulaması için yerel Windows VPN istemcisi yapılandırmak için aşağıdaki adımları kullanın:
 
@@ -118,4 +123,4 @@ Tıklatın **Ekle** almak için.
 
 Makaleye dönün [P2S yapılandırmanızı tamamlamak](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-P2S sorun giderme bilgileri için [sorun giderme Azure noktadan siteye bağlantıları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+P2S sorun giderme bilgileri için [Azure noktadan siteye bağlantıları sorununu giderme](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

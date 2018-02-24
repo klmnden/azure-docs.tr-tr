@@ -1,74 +1,71 @@
 ---
-title: "Yük devri ve başarısız geri Azure Azure Site Recovery (Önizleme) ikincil bir Azure bölgesiyle çoğaltılan VM'ler"
-description: "Yük devri ve Azure Site Recovery ile ikincil bir Azure bölgesine geri Azure VM'ler çoğaltması başarısız hakkında bilgi edinin"
+title: "Azure Site Recovery ile ikincil bir Azure bölgesine çoğaltılmış Azure VM’lere yük devretme veya VM’leri geri döndürme (Önizleme)"
+description: "Azure Site Recovery ile ikincil bir Azure bölgesine çoğaltılmış Azure VM’lere nasıl yük devredeceğinizi veya bu VM’leri nasıl geri döndüreceğinizi öğrenin"
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 02b709bb8dbab5d10ce9f4cf6155ff26ce229298
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: b45d1287444d200727550a81ce72a19a417fe510
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Yük devri ve Azure bölgeler (Önizleme) arasında geri Azure VM'ler başarısız
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Azure bölgeleri arasında VM’lere yük devretme ve VM’leri geri döndürme (Önizleme)
 
-[Azure Site Recovery](site-recovery-overview.md) hizmeti yönetme ve çoğaltma, yük devretme ve yeniden çalışma şirket içi makineler ve Azure sanal makineleri (VM'ler) yönetme olağanüstü durum kurtarma stratejiniz katkıda bulunur.
+[Azure Site Recovery](site-recovery-overview.md) hizmeti, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve geri döndürme işlemlerini yönetip düzenleyerek, olağanüstü durum kurtarma stratejinize katkıda bulunur.
 
-Bu öğretici, ikincil bir Azure bölgesine tek bir Azure VM'ye yük devri açıklar. Devredilir sonra kullanılabilir olduğunda birincil bölgesine başarısız. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğretici, tek bir Azure VM’den ikincil bir Azure bölgesine nasıl yük devredeceğinizi açıklar. Yük devrettikten sonra, uygun olduğunda birincil bölgeye geri dönersiniz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Azure VM başarısız
-> * Böylece birincil bölge çoğaltır ikincil Azure VM koruyun
-> * Geri ikincil VM başarısız
-> * Birincil VM ikincil bölge geri koruyun
+> * Azure VM’ye yük devretme
+> * İkincil Azure VM’yi yeniden koruyarak birincil bölgeye çoğaltmasını sağlayın
+> * İkincil VM’yi geri döndürme
+> * Birincil VM’yi ikincil bölgeye yeniden koruyun
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Artık tamamladığınıza yapma bir [olağanüstü durum kurtarma ayrıntıya](azure-to-azure-tutorial-dr-drill.md) her şeyi çalıştığını beklendiği gibi denetlemek için.
-- Yük devretme testini çalıştırmadan önce VM özelliklerini doğrulayın. VM uymalıdır [Azure gereksinimleri](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Her şeyin beklenildiği gibi çalışıp çalışmadığını denetlemek için bir [olağanüstü durum kurtarma tatbikatını](azure-to-azure-tutorial-dr-drill.md) tamamladığınızdan emin olun.
+- Yük devretme testini çalıştırmadan önce VM özelliklerini doğrulayın. VM, [Azure gereksinimlerine](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) uymalıdır.
 
-## <a name="run-a-failover-to-the-secondary-region"></a>İkincil bölge'ye bir yük devretmeyi çalıştırma
+## <a name="run-a-failover-to-the-secondary-region"></a>İkincil bölgeye yük devretme çalıştırma
 
-1. İçinde **öğeleri çoğaltılan**, devretmek istediğiniz VM seçin > **yük devretme**
+1. **Çoğaltılmış öğeler** bölümünde, yük devretmek istediğiniz VM’yi seçin > **Yük devretme**
 
    ![Yük devretme](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
-2. İçinde **yük devretme**seçin bir **kurtarma noktası** devretmesini. Aşağıdaki seçeneklerden birini kullanabilirsiniz:
+2. **Yük devretme** kısmında, yük devredeceğiniz bir **Kurtarma Noktası** seçin. Şu seçeneklerden birini kullanabilirsiniz:
 
-   * **En son** (varsayılan): Bu seçenek Site kurtarma hizmetindeki tüm verileri işler ve en düşük kurtarma noktası hedefi (RPO) sağlar.
-   * **En son işlenen**: Bu seçenek Site Recovery hizmeti tarafından işlenen en son kurtarma noktası sanal makineye geri döner.
-   * **Özel**: belirli kurtarma noktasına devretmek için bu seçeneği kullanın. Bu seçenek, bir yük devretme testi gerçekleştirmek için yararlıdır.
+   * **En son** (varsayılan): Bu seçenek, Site Recovery hizmetindeki tüm verileri işler ve en düşük Kurtarma Noktası Hedefi (RPO) sağlar.
+   * **En son işlenen**: Bu seçenek sanal makineyi, Site Recovery hizmeti tarafından işlenmiş en son kurtarma noktasına geri alır.
+   * **Özel**: Belirli bir kurtarma noktasına yük devretmek için bu seçeneği kullanın. Bu seçenek, bir yük devretme testi gerçekleştirmek için faydalıdır.
 
-3. Seçin **yük devretme işlemine başlamadan önce makineyi kapatın** Site Kurtarma'nın bir kapanma kaynak sanal makinelerin yük devretme tetiklemeden yapmaya istiyorsanız. Kapatma başarısız olsa bile yük devretme devam eder.
+3. Yük devretmeyi tetiklemeden önce Site Recovery’nin kaynak sanal makineleri kapatma girişiminde bulunmasını istiyorsanız, **Yük devretme başlamadan önce makineyi kapat** seçeneğini belirleyin. Kapatma işlemi başarısız olsa bile yük devretme devam eder.
 
-4. Yük devretme işleminin ilerleyişini izleyin **işleri** sayfası.
+4. Yük devretme ilerleme durumunu **İşler** sayfasından takip edin.
 
-5. Yük devretme işleminden sonra sanal makine için oturum açarak doğrulayın. Sanal makine için başka bir kurtarma noktası gitmek istiyorsanız sonra kullanabileceğiniz **değiştirmek kurtarma noktası** seçeneği.
+5. Yük devretmeden sonra, sanal makineyi doğrulamak için makinede oturum açın. Sanal makine için başka bir kurtarma noktasına gitmek istiyorsanız, **Kurtarma noktasını değiştir** seçeneğini kullanabilirsiniz.
 
-6. Başarısız oldu memnun sonra sanal makine üzerinde yapabilecekleriniz **yürütme** yük devretme.
-   Yürütme hizmeti ile kullanılabilen tüm kurtarma noktalarını siler. **Değiştirmek kurtarma noktası** seçenek, artık kullanılabilir.
+6. Yük devredilmiş sanal makineden memnun kaldığınızda, yük devretmeyi **Yürütebilirsiniz**.
+   Yürütme işlemi, hizmette kullanılabilir olan tüm kurtarma noktalarını siler. **Kurtarma noktasını değiştir** seçeneği artık kullanılabilir değil.
 
-## <a name="reprotect-the-secondary-vm"></a>İkincil VM koruyun
+## <a name="reprotect-the-secondary-vm"></a>İkincil VM’yi yeniden koruma
 
-VM yük devretme sonrasında birincil bölgesine çoğaltır, böylece yeniden korumanız gerekir.
+VM’nin yük devretmesinden sonra, birincil bölgeye geri çoğaltması için VM’yi yeniden korumalısınız.
 
-1. VM içinde olduğundan emin olun **kaydedilen yük devretme** durum ve birincil bölge kullanılabilir ve oluşturabilir ve bunu yeni kaynaklara erişim denetleyin.
-2. İçinde **kasa** > **öğeleri çoğaltılan**üzerinden başarısız VM'ye sağ tıklayın ve ardından **yeniden koruma**.
+1. VM’nin **Yük devretme yürütüldü** durumunda olduğundan emin olun ve birincil bölgenin kullanılabilir olduğunu ve içinde yeni kaynaklar oluşturup bunlara erişebildiğinizi denetleyin.
+2. **Kasa** > **Çoğaltılmış öğeler** bölümünde, yük devredilmiş VM’ye sağ tıklayın ve sonra **Yeniden Koru** seçeneğini belirleyin.
 
-   ![Yeniden korumak için sağ tıklatın](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Yeniden korumaya sağ tıklayın](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
-2. Koruma, birincil bölge için ikincil yönünü zaten seçili dikkat edin.
-3. Gözden geçirme **kaynak grubu, ağ, depolama ve kullanılabilirlik kümeleri** bilgi. (Yeni) olarak işaretlenmiş kaynakları yeniden koruma işleminin bir parçası olarak oluşturulur.
-4. Tıklatın **Tamam** yeniden koruma işini tetikleyecek. Bu işin en son verileri hedef siteyle çekirdeğini oluşturur. Ardından, birincil bölge farkları çoğaltır. VM, artık korunan bir durumda değil.
+2. Birincil bölgeden sonra gelen koruma yönünün zaten seçili olduğuna dikkat edin.
+3. **Kaynak grubu, Ağ, Depolama ve Kullanılabilirlik kümeleri** bilgilerini gözden geçirin. (Yeni) olarak işaretli tüm kaynaklar, yeniden koruma işleminin bir parçası olarak oluşturulmuştur.
+4. Yeniden koruma işini tetiklemek için **Tamam**’a tıklayın. Bu iş, hedef siteye en son verileri sağlar. Ardından, deltaları birincil bölgeye çoğaltır. VM artık korunan bir durumdadır.
 
-## <a name="fail-back-to-the-primary-region"></a>Birincil bölgesine başarısız
+## <a name="fail-back-to-the-primary-region"></a>Birincil bölgeye geri dönme
 
-Sanal makineleri korunmuş sonra gerektiği gibi birincil bölgesine başarısız olabilir. Bunu yapmak için izleyin [yük devretme](#run-a-failover) yönergeler.
+VM’ler yeniden korunduktan sonra, gerektiği gibi birincil bölgeye geri dönebilirsiniz. Bunu yapmak için, [yük devretme](#run-a-failover) yönergelerini takip edin.

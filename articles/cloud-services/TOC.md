@@ -20,13 +20,10 @@
 #### [Blob depolama ve bağlı hizmetler](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Kuyruk depolama ve bağlı hizmetler](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Tablo depolama ve bağlı hizmetler](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Paketleri sürekli derleme için yapılandırma ve dağıtma
-#### [TFS ve Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Bir rol için trafik kuralları yapılandırma](cloud-services-enable-communication-role-instances.md)
 ### [Bulut Hizmeti yaşam döngüsü olaylarını işleme](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Twilio kullanarak telefon görüşmesi yapma (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Başlangıç görevlerini yapılandırma
 #### [Başlangıç görevleri oluşturma](cloud-services-startup-tasks.md)
@@ -73,11 +70,9 @@
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Azure Depolama’daki tanılama verilerini depolama ve görüntüleme](cloud-services-dotnet-diagnostics-storage.md)
 ### [Tanılama ile Bulut Hizmetini İzleme](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Tanılama verilerini App Insights’a gönderme](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Sorun giderme
 ### Hata ayıklama 
-#### [Sürekli teslim ile uzaktan hata ayıklamayı etkinleştirme](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Bulut Hizmeti için seçenekler](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Yerel Bulut Hizmetinde Visual Studio ile](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Yayımlanmış bir Bulut Hizmetinde Visual Studio ile](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)

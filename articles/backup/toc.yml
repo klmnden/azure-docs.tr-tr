@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Azure Backup Sunucusu’ndan veri kurtarma
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure Dosya paylaşımları
+      items:
+        - name: Azure Dosya paylaşımlarını yedekleme
+          href: backup-azure-files.md
+        - name: Azure Dosya paylaşımlarını yedekleme hakkında SSS
+          href: backup-azure-files-faq.md
+        - name: Azure Dosya paylaşımlarını Yedekleme sorunlarını giderme
+          href: troubleshoot-azure-files.md
     - name: Azure VM’leri
       items:
         - name: VM’yi hazırlama

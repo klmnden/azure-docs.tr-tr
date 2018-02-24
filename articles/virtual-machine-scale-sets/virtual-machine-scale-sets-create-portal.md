@@ -1,7 +1,7 @@
 ---
 title: "Azure portalında bir sanal makine ölçek kümesi oluşturma | Microsoft Docs"
 description: "Hızla bir sanal makine ölçek Azure portalında oluşturmayı öğrenin"
-keywords: "Sanal makine ölçekleme kümeleri"
+keywords: "sanal makine ölçek kümeleri"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ae41149bf507e30dc5281fd60a9d6f77d2023293
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure portalında bir sanal makine ölçek kümesi oluşturma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu alma başlatılan makalede, Azure portalında kümesi bir sanal makine ölçek oluşturun. Bir ölçek kümesi de oluşturabilirsiniz [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) veya [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
@@ -36,7 +36,7 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 ## <a name="create-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
 Bir Windows Server yansıması ya da Linux görüntü RHEL, CentOS, Ubuntu veya SLES gibi kümesiyle bir ölçek dağıtabilirsiniz.
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Tıklatın **kaynak oluşturma** Azure portalının sol üst köşesindeki.
 2. Arama *ölçek kümesini*, seçin **sanal makine ölçek kümesi**seçeneğini belirleyip **oluşturma**.
 3. Ölçek kümesi için bir ad girin *myScaleSet*.
 4. İstenen işletim sistemi türü gibi seçin *Windows Server 2016 Datacenter*.
@@ -65,8 +65,8 @@ Bu NAT görüntülemek için kurallar ve bağlantı bilgilerini, Ölçek örnekl
 
 Bu NAT kuralları kullanılarak ayarlanan ölçeğinde her bir VM bağlanabilir. Her VM örneği, bir hedef IP adresini ve TCP bağlantı noktası değeri listeler. Örneğin, hedef IP adresi ise *104.42.1.19* ve TCP bağlantı noktası *50001*, VM örneğine şu şekilde bağlanın:
 
-- Bir Windows ölçek kümesi için RDP VM örneğine bağlanın`104.42.1.19:50001`
-- Linux ölçek kümesi için SSH VM örneğine bağlanın`ssh azureuser@104.42.1.19 -p 50001`
+- Bir Windows ölçek kümesi için RDP VM örneğine bağlanın `104.42.1.19:50001`
+- Linux ölçek kümesi için SSH VM örneğine bağlanın `ssh azureuser@104.42.1.19 -p 50001`
 
 Ölçek kümesi oluşturduğunuzda, belirtilen kimlik bilgileri istendiğinde, önceki adımda girin. Etkileşim kurabildikleri normal VM ölçek kümesi örnekleri olan normal olarak. Dağıtma ve uygulamaları, Ölçek kümesi örneklerinde Çalıştır hakkında daha fazla bilgi için bkz: [uygulamanızı sanal makine ölçek kümeleri üzerinde dağıtma](virtual-machine-scale-sets-deploy-app.md)
 

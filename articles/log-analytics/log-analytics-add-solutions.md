@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68bf84d0f848b60885d3976d3991b606e77ed074
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Sunucunuzdan çalışma alanınıza Azure günlük analizi yönetim çözümleri Ekle
 
@@ -46,8 +46,7 @@ Tıklayarak yönetim çözümleri Azure Marketi'nden yükleyebilirsiniz **Şimdi
 
 ## <a name="add-a-management-solution"></a>Bir yönetim çözümü ekleyin
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
-2. İçinde **yeni** altında dikey **Market**seçin **izleme + Yönetim**.
-3. İçinde **izleme + Yönetim** dikey penceresinde tıklatın **tümünü görmek**.  
+2. Seçin **kaynak oluşturma** > **izleme + Yönetim** > **tümünü görmek**.  
     ![İzleme + yönetim dikey penceresi](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. Sağındaki **yönetim çözümleri**, tıklatın **daha fazla**.
 5. İçinde **yönetim çözümleri** dikey penceresinde, bir çalışma alanına eklemek istediğiniz bir yönetim çözümü seçin.  

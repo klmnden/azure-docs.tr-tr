@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Uygulamayı Azure'da bir Grup Kümesine dağıtma
 Bir serinin ikinci kısmı olan bu öğreticide bir Azure Service Fabric uygulamasının Azure’da bir Grup Kümesine nasıl dağıtılacağı gösterilir.
@@ -59,14 +59,33 @@ Bir Grup Kümesine erişmek için bu siteye göz atın: http://aka.ms/tryservice
 > [!NOTE]
 > Grup kümeleri güvenli değildir, bu nedenle uygulamalarınız ve bu kümelere koyduğunuz herhangi bir veri başkalarına görünür olabilir. Başkalarının görmesini istemediğiniz hiçbir şeyi dağıtmayın. Tüm ayrıntılar için Kullanım Koşullarımızı okuduğunuzdan emin olun.
 
+Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. Sonraki adımlarda sertifika ve **Bağlantı uç noktası** değeri kullanılır.
+
+![PFX ve bağlantı uç noktası](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+Bir Windows bilgisayarda PFX’i *CurrentUser\My* sertifika deposuna yükleyin.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Uygulamayı Azure’a dağıtma
 Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan Grup Kümesine dağıtabilirsiniz.
 
-1. Çözüm Gezgini'nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin.
+1. Çözüm Gezgini'nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin. 
 
-    ![Yayımla İletişim Kutusu](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Grup Kümesinin Bağlantı Uç Noktasını **Bağlantı Uç Noktası** alanına girin ve **Yayımla**’ya tıklayın.
+2. Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametreleri**’ne tıklayıp ve aşağıdaki bilgileri doldurun.  *FindValue* ve *ServerCertThumbprint* değerleri önceki adımda yüklenen sertifikanın parmak iziyle eşleşmelidir. **Yayımla**’ta tıklayın. 
 
     Yayımlama tamamlandıktan sonra, bir tarayıcı aracılığıyla uygulamaya bir istek gönderebilirsiniz.
 
@@ -81,9 +100,9 @@ Service Fabric Explorer, bir Service Fabric kümesinde bulunan uygulamaları ke�
 
 Uygulamayı Grup Kümesinden kaldırmak için:
 
-1. Grup Kümesi kaydolma sayfasında sunulan bağlantıyı kullanarak Service Fabric Explorer’a gidin. Örneğin, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Grup Kümesi kaydolma sayfasında sunulan bağlantıyı kullanarak Service Fabric Explorer’a gidin. Örneğin, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. Service Fabric Explorer’ın sol tarafındaki ağaç görünümünde bulunan **fabric://Voting** düğümüne gidin.
+2. Service Fabric Explorer’ın sol tarafındaki ağaç görünümünde bulunan **fabric:/Voting** düğümüne gidin.
 
 3. Sağdaki **Essentials** bölmesinde bulunan **Eylem** düğmesine tıklayıp **Uygulamayı Sil** seçeneğini belirleyin. Uygulama örneğinin silinmesini onaylayın. Bu işlem, kümede çalışan uygulama örneğimizi kaldırır.
 

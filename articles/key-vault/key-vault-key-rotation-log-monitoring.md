@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Azure Anahtar Kasası’nı uçtan uca döndürme ve denetleme ile ayarlama
 ## <a name="introduction"></a>Giriş
@@ -255,12 +255,12 @@ Sonraki adım [bir Azure hizmet veri yolu kuyruğu oluşturma](../service-bus-me
 
 1. (Bu, 2. adımı atla için kullanmak istediğiniz bir zaten varsa) bir hizmet veri yolu ad alanı oluşturun.
 2. Azure Portalı'nda hizmet veri yoluna göz atın ve sırada oluşturmak istediğiniz ad alanını seçin.
-3. Seçin **yeni** ve **hizmet veri yolu > sıra** ve gerekli ayrıntıları girin.
+3. Seçin **kaynak oluşturma**, **Kurumsal tümleştirme**, **Service Bus**ve ardından gerekli ayrıntıları girin.
 4. Service Bus bağlantı bilgilerini ad alanını seçerek ve tıklatarak seçin **bağlantı bilgilerini**. Bu bilgiler için sonraki bölüme gerekir.
 
 Ardından, [bir Azure işlevi oluşturma](../azure-functions/functions-create-first-azure-function.md) anahtar kasası günlükleri depolama hesabındaki yoklamak ve yeni olayları seçin. Bu bir zamanlamaya göre tetiklenen bir işlev olacaktır.
 
-Bir Azure işlevi oluşturmak için seçtiğiniz **yeni > işlev uygulaması** Azure portalında. Oluşturma sırasında var olan bir barındırma planı kullanın veya yeni bir tane oluşturun. Ayrıca, dinamik barındırmak için tercih. İşlevi barındırma seçenekleri hakkında daha fazla ayrıntı bulunabilir [Azure işlevlerini ölçeklendirme](../azure-functions/functions-scale.md).
+Bir Azure işlevi oluşturmak için seçtiğiniz **kaynak oluşturma**, Market arama _işlev uygulaması_, tıklatıp **oluşturma**. Oluşturma sırasında var olan bir barındırma planı kullanın veya yeni bir tane oluşturun. Ayrıca, dinamik barındırmak için tercih. İşlevi barındırma seçenekleri hakkında daha fazla ayrıntı bulunabilir [Azure işlevlerini ölçeklendirme](../azure-functions/functions-scale.md).
 
 Azure işlevi oluşturulduğunda, kendisine gidin ve bir süreölçer işlevi C seçip\#. Ardından **bu işlev oluşturma**.
 

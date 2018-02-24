@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92a9d5900e3e0fe71084e5003010d419e44cb39
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Bir depolama hesabında özelleştirilmiş bir VHD'den bir VM oluşturma
 
@@ -118,7 +118,7 @@ Yeni, yinelenen bir VM oluşturulurken kullanılacak başka bir depolama hesabı
 ### <a name="before-you-begin"></a>Başlamadan önce
 Olduğundan emin olun:
 
-* Hakkında bilgi sahip **kaynak ve hedef depolama hesapları**. Kaynak VM için depolama hesabı ve kapsayıcı adlara sahip olması gerekir. Genellikle, kapsayıcı adı olacaktır **VHD'ler**. Ayrıca bir hedef depolama hesabına sahip olmanız gerekir. Zaten yoksa, her iki portal kullanarak bir tane oluşturabilirsiniz (**daha Hizmetleri** > depolama hesapları > Ekle) veya kullanarak [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet'i. 
+* Hakkında bilgi sahip **kaynak ve hedef depolama hesapları**. Kaynak VM için depolama hesabı ve kapsayıcı adlara sahip olması gerekir. Genellikle, kapsayıcı adı olacaktır **VHD'ler**. Ayrıca bir hedef depolama hesabına sahip olmanız gerekir. Zaten yoksa, her iki portal kullanarak bir tane oluşturabilirsiniz (**tüm hizmetleri** > depolama hesapları > Ekle) veya kullanarak [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet'i. 
 * İndirdiğinizi ve yüklediğinizi [AzCopy aracı](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>VM serbest bırakma
@@ -138,7 +138,7 @@ Kaynak ve hedef depolama hesapları URL'lerini gerekir. URL'leri görünüm iste
 
 URL almak için Azure portalında veya Azure Powershell kullanarak yapabilirsiniz:
 
-* **Portal**: tıklatın  **>**  için **daha fazla hizmet** > **depolama hesapları**  >   *Depolama hesabı* > **BLOB'lar** ve kaynak VHD dosyası büyük olasılıkla kullanımda **VHD'ler** kapsayıcı. Tıklatın **özellikleri** kapsayıcı ve kopyalama etiketli metin **URL**. Hem kaynak hem de hedef kapsayıcılarını URL'lerini gerekir. 
+* **Portal**: tıklatın  **>**  için **tüm hizmetleri** > **depolama hesapları** > *depolama Hesap* > **BLOB'lar** ve kaynak VHD dosyası büyük olasılıkla kullanımda **VHD'ler** kapsayıcı. Tıklatın **özellikleri** kapsayıcı ve kopyalama etiketli metin **URL**. Hem kaynak hem de hedef kapsayıcılarını URL'lerini gerekir. 
 * **PowerShell**: kullanım [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) adlı VM için bilgi almak için **myVM** kaynak grubunda **myResourceGroup**. Sonuçlarda konum **depolama profili** bölümü **Vhd Uri'si**. Kapsayıcı URL'si URI ilk parçası olan ve son bölümü VM için işletim sistemi VHD adıdır.
 
 ```powershell
@@ -148,7 +148,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Depolama erişim anahtarı alma
 Erişim tuşları kaynak ve hedef için depolama hesapları bulun. Erişim anahtarları hakkında daha fazla bilgi için bkz: [Azure storage hesapları hakkında](../../storage/common/storage-create-storage-account.md).
 
-* **Portal**: tıklatın **daha fazla hizmet** > **depolama hesapları** > *depolama hesabı*  >  **Erişim anahtarları**. Olarak etiketli anahtarı kopyalayın **key1**.
+* **Portal**: tıklatın **tüm hizmetleri** > **depolama hesapları** > *depolama hesabı*  >   **Erişim tuşları**. Olarak etiketli anahtarı kopyalayın **key1**.
 * **PowerShell**: kullanım [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) depolama hesabı için depolama anahtarını almak için **mystorageaccount** kaynak grubunda **myResourceGroup**. Etiketli anahtarı kopyalayın **key1**.
 
 ```powershell
@@ -312,7 +312,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>VM oluşturulduğunu doğrulayın
-Yeni oluşturulan VM ya da görmeniz gerekir, [Azure portal](https://portal.azure.com)altında **Gözat** > **sanal makineleri**, veya aşağıdaki PowerShell komutlarını kullanarak:
+Yeni oluşturulan VM ya da görmeniz gerekir, [Azure portal](https://portal.azure.com)altında **tüm hizmetleri** > **sanal makineleri**, aşağıdaki PowerShell kullanarak veya komutlar:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

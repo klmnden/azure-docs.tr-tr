@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Azure App Service Web Apps ile Python yapılandırma
 Bu öğretici geliştirme ve temel bir Web sunucusu Ağ Geçidi Arabirimi (WSGI) uyumlu Python uygulaması yapılandırma seçenekleri açıklanmaktadır [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -36,7 +36,7 @@ Azure Market Bottle, Django ve Flask çerçeveleri için şablonlar içerir. İl
 ## <a name="web-app-creation-on-azure-portal"></a>Azure portal Web uygulaması oluşturma
 Bu öğretici, bir var olan Azure aboneliği ve Azure portalına erişim varsayar.
 
-Var olan bir web uygulamasının yoksa birinden oluşturabilirsiniz [Azure portal](https://portal.azure.com).  Sol üst köşede yeni düğmesini tıklayın ve ardından **Web + mobil** > **Web uygulaması**.
+Var olan bir web uygulamasının yoksa birinden oluşturabilirsiniz [Azure portal](https://portal.azure.com). Sol üst köşede tıklatın **kaynak oluşturma** > **Web + mobil** > **Web uygulaması**.
 
 ## <a name="git-publishing"></a>Git yayımlamayı
 Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın. Bu öğretici Git oluşturmak, yönetmek ve Python web uygulamanızı Azure App Service'te yayımlama için kullanır.
@@ -53,7 +53,7 @@ Sonraki bölümlerde, aşağıdaki dosyaları oluşturulur. Git deposu kök dizi
     ptvs_virtualenv_proxy.py
 
 
-## <a name="wsgi-handler"></a>WSGI işleyicisi
+## <a name="wsgi-handler"></a>WSGI Handler
 WSGI olan tarafından açıklanan bir Python standart [CESARETLENDİRİCİ 3333](http://www.python.org/dev/peps/pep-3333/) Python ve web sunucusu arasında bir arabirim tanımlama. Bunu çeşitli web uygulamaları ve Python kullanarak çerçeveleri yazmak için standartlaştırılmış bir arabirim sağlar. Popüler Python web çerçeveleri bugün WSGI kullanın. Azure App Service Web Apps verir; bu tür bir çerçeveler için destek özel işleyici WSGI belirtimi yönergeleri izleyen sürece ek olarak, İleri düzey kullanıcılar bile kendi yazabilirsiniz.
 
 Bir örneği burada verilmiştir bir `app.py` özel işleyici tanımlar:
@@ -207,9 +207,9 @@ Statik dosyalar web sunucusu tarafından Gelişmiş performans için Python kodu
 
 Yukarıdaki örneklerde, disk üzerindeki statik dosyaların konumunu URL konumda eşleşmesi gerekir. Bir istek için buna `http://pythonapp.azurewebsites.net/static/site.css` dosya diskte görecek `\static\site.css`.
 
-`WSGI_ALT_VIRTUALENV_HANDLER`Burada, WSGI işleyici belirtin. Yukarıdaki örneklerde, bunun `app.wsgi_app` işleyici adlı bir işlev olduğundan `wsgi_app` içinde `app.py` kök klasöründe.
+`WSGI_ALT_VIRTUALENV_HANDLER` Burada, WSGI işleyici belirtin. Yukarıdaki örneklerde, bunun `app.wsgi_app` işleyici adlı bir işlev olduğundan `wsgi_app` içinde `app.py` kök klasöründe.
 
-`PYTHONPATH`özelleştirilebilir, ancak sanal ortamda requirements.txt içinde belirterek tüm bağımlılıkları yüklerseniz, onu değiştirmeniz gerekmez.
+`PYTHONPATH` özelleştirilebilir, ancak sanal ortamda requirements.txt içinde belirterek tüm bağımlılıkları yüklerseniz, onu değiştirmeniz gerekmez.
 
 ## <a name="virtual-environment-proxy"></a>Sanal ortam Proxy
 Aşağıdaki komut dosyası WSGI işleyici almak, sanal ortamı ve günlük hataları etkinleştirmek için kullanılır. Genel ve değişiklik olmadan kullanılan olacak şekilde tasarlanmıştır.

@@ -2,18 +2,18 @@
 title: "Azure Hızlı Başlangıç - Java kullanarak nesneleri Azure Blob depolama içine/dışına aktarma | Microsoft Docs"
 description: "Java kullanarak nesneleri Azure Blob depolama içine/dışına aktarmayı kısa sürede öğrenin"
 author: roygara
-manager: timlt
+manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.author: v-rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 5676cef446de7a68d3d8fd1a3b6833a5de184ea1
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 12e234b483ca7e3b030256bf1cedaed2bcc120d3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Java kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıçta kullanılan [örnek uygulama](https://github.com/Azure-Samples/storage-blobs-java-quickstart), temel bir konsol uygulamasıdır. 
 
-Uygulamanın bir kopyasını geliştirme ortamınıza indirmek içi [Git](https://git-scm.com/)’i kullanın. 
+Uygulamanın bir kopyasını geliştirme ortamınıza indirmek için [Git](https://git-scm.com/)'i kullanın. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
@@ -50,7 +50,7 @@ Projenin içeri aktarılması tamamlandığında, **AzureApp.java**’yı açın
 
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
     
-Bu uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. **AzureApp.Java** dosyasını açın. `storageConnectionString` değişkenini bulun. `AccountName`value`AccountKey` değerlerini, Azure Portal'da kaydettiğiniz bağlantı dizesi değerleriyle değiştirin. `storageConnectionString` aşağıdakine benzer olmalıdır:
+Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. **AzureApp.Java** dosyasını açın. `storageConnectionString` değişkenini bulun. `AccountName`value`AccountKey` değerlerini, Azure Portal'da kaydettiğiniz bağlantı dizesi değerleriyle değiştirin. `storageConnectionString` aşağıdakine benzer olmalıdır:
 
 ```java
 public static final String storageConnectionString =
@@ -94,9 +94,9 @@ Sonraki aşamada, nasıl çalıştığını anlayabilmeniz için örnek kodu inc
 
 ### <a name="get-references-to-the-storage-objects"></a>Depolama nesneleriyle ilgili başvuruları alma
 
-İlk önce, Blob depolamaya erişmek ve Blob depolamayı yönetmek için kullanılan nesnelere başvuru oluşturmaktır. Bu nesneler birbirleri üzerinde derlenir - her bir dosya, listede yanında yer alan dosya tarafından kullanılır.
+İlk önce, Blob depolamaya erişmek ve Blob depolamayı yönetmek için kullanılan nesnelere başvuru oluşturmaktır. Bu nesneler birbirleri üzerinde derlenir; her dosya, listede yanında yer alan dosya tarafından kullanılır.
 
-* **CloudStorageAccount** nesnesinin [depolama hesabına](/java/api/com.microsoft.azure.management.storage._storage_account) işaret eden bir örnek oluşturun.
+* [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account) nesnesinin depolama hesabına işaret eden bir örneğini oluşturun.
 
     **CloudStorageAccount** nesnesi, depolama hesabınızın bir gösterimidir ve programlamayla depolama hesabı özelliklerini ayarlayabilmenizi ve bu özelliklere erişebilmenizi sağlar. **CloudStorageAccount** nesnesini kullanarak, blob hizmetine erişmek için kullanılan **CloudBlobClient**’in bir örneğini oluşturabilirsiniz.
 
@@ -104,18 +104,18 @@ Sonraki aşamada, nasıl çalıştığını anlayabilmeniz için örnek kodu inc
 
     **CloudBlobClient**, blob hizmetine erişim noktası sunarak programlamayla depolama hesabı özelliklerini ayarlayabilmenizi ve bu özelliklere erişebilmenizi sağlar. **CloudBlobClient** nesnesini kullanarak, kapsayıcı oluşturmak için kullanılan **CloudBlobContainer**ıin bir örneğini oluşturabilirsiniz.
 
-* **CloudBlobContainer** nesnesinin, eriştiğiniz [kapsayıcıyı](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) temsil eden bir örneğini oluşturun. Kapsayıcılar, tıpkı bilgisayarınızdaki dosyaları düzenlemek için klasörleri kullandığınız gibi blobları düzenlemek için kullanılır.    
+* [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) nesnesinin, eriştiğiniz kapsayıcıyı temsil eden bir örneğini oluşturun. Kapsayıcılar, tıpkı bilgisayarınızdaki dosyaları düzenlemek için klasörleri kullandığınız gibi blobları düzenlemek için kullanılır.    
 
-    **CloudBlobContainer** nesneniz olduktan sonra, ilgilendiğiniz belirli bir [bloba](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) işaret eden bir **CloudBlockBlob** nesnesi örneği oluşturabilir ve karşıya yükleme, indirme, kopyalama gibi işlemler yapabilirsiniz.
+    **CloudBlobContainer** nesneniz olduktan sonra, ilgilendiğiniz belirli bir bloba işaret eden bir [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) nesnesi örneği oluşturabilir ve karşıya yükleme, indirme, kopyalama gibi işlemler yapabilirsiniz.
 
 > [!IMPORTANT]
 > Kapsayıcı adlarının küçük harfle yazılması gerekir. Kapsayıcılar ve blob adları hakkında daha fazla bilgi için bkz. [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### <a name="create-a-container"></a>Bir kapsayıcı oluşturma 
 
-Bu bölümde, nesnelerin örneğini oluşturuyor, yeni kapsayıcı oluşturuyor ve ardından kapsayıcıdaki izinleri bloblar herkese açık olacak ve bloblara yalnızca bir URL ile erişilebilecek şekilde ayarlıyorsunuz. Bu kapsayıcının adı **quickstartblobs**’dur. 
+Bu bölümde, nesnelerin örneğini oluşturuyor, yeni kapsayıcı oluşturuyor ve ardından kapsayıcıdaki izinleri bloblar herkese açık olacak ve bloblara yalnızca bir URL ile erişilebilecek şekilde ayarlıyorsunuz. Bu kapsayıcının adı **quickstartblobs**'dur. 
 
-Örnek her çalıştırıldığında yeni bir kapsayıcı oluşturmak istediğimizden, bu örnekte **CreateIfNotExists** komutu kullanılır. Uygulamanın tamamında aynı kapsayıcıyı kullandığınız bir üretim ortamında, **CreateIfNotExists**’i yalnızca bir kez çağırmanız önerilir. Alternatif olarak, kapsayıcıyı önceden oluşturabilirsiniz. Böylece kapsayıcıyı kodda oluşturmanıza gerek kalmaz.
+Örnek her çalıştırıldığında yeni bir kapsayıcı oluşturmak istediğimizden, bu örnekte [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists) komutu kullanılır. Uygulamanın tamamında aynı kapsayıcıyı kullandığınız bir üretim ortamında, **CreateIfNotExists**’i yalnızca bir kez çağırmanız önerilir. Alternatif olarak, kapsayıcıyı önceden oluşturabilirsiniz. Böylece kapsayıcıyı kodda oluşturmanıza gerek kalmaz.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -152,7 +152,7 @@ System.out.println("Uploading the sample file ");
 blob.uploadFromFile(sourceFile.getAbsolutePath());
 ```
 
-Blob depolamayla kullanabileceğiniz çeşitli [karşıya yükleme yöntemleri](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) vardır. Örneğin, dizelerinizi Upload metodu yerine UploadText metoduyla karşıya yükleyebilirsiniz. 
+Blob depolama için kullanabileceğiniz [upload](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload), [uploadBlock](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock), [uploadFullBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob), [uploadStandardBlobTier](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier) ve [uploadText](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext)’in dahil olduğu birkaç karşıya yükleme yöntemi vardır. Örneğin, dizelerinizi Upload metodu yerine UploadText metoduyla karşıya yükleyebilirsiniz. 
 
 Blok blobları herhangi bir metin veya ikili dosya türünde olabilir. Sayfa blobları öncelikli olarak IaaS VM'leri desteklemek için kullanılan VHD dosyalarında kullanılır. Ekleme blobları, bir dosyaya yazıp daha sonradan daha fazla bilgi eklemek istediğiniz durumlarda günlüğe kaydetme için kullanılır. Blob depolamada depolanan nesnelerin çoğu blok blobudur.
 
@@ -211,3 +211,5 @@ Bu hızlı başlangıçta, dosyaları Java kullanarak yerel bir disk ve Azure Bl
 > [Blob Depolama İşlemleri Nasıl Yapılır](storage-java-how-to-use-blob-storage.md)
 
 Depolama Gezgini ve Bloblar hakkında daha fazla bilgi için bkz. [Azure Blob depolama kaynaklarını Depolama Gezgini'yle yönetme](../../vs-azure-tools-storage-explorer-blobs.md).
+
+Daha fazla Java örnekleri için bkz. [Java kullanan Azure Depolama Örnekleri](../common/storage-samples-java.md).

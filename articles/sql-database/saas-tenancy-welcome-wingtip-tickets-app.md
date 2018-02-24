@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3f1a8bf6a0f05308f643f24dd4db7400c49b9e14
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip biletleri SaaS uygulaması
 
-Aynı *Wingtip biletleri* uygulama her üç örnekleri uygulanır. Uygulama listesi ve küçük görebildikleri - tiyatrolar, Sinek vb. hedefleme SaaS uygulama raporlama basit bir olaydır. Her salonundan uygulamanın bir kiracı olduğunu ve kendi verilerini: salonundan ayrıntıları, olaylar, müşteriler, bilet siparişler, vb. listesi.  Uygulama Yönetimi komut dosyaları ve öğreticiler, birlikte bir uçtan uca SaaS senaryosunu gösterir. Bu, izleme ve performans, şema yönetimi ve çapraz Kiracı raporlama ve analiz yönetme sağlama kiracılar içerir.
+Aynı *Wingtip biletleri* SaaS uygulamasının her üç örnekleri uygulanır. Uygulama listesi ve küçük görebildikleri - tiyatrolar, Sinek vb. hedefleme SaaS uygulama raporlama basit bir olaydır. Her salonundan uygulamanın bir kiracı olduğunu ve kendi verilerini: salonundan ayrıntıları, olaylar, müşteriler, bilet siparişler, vb. listesi.  Uygulama Yönetimi komut dosyaları ve öğreticiler, birlikte bir uçtan uca SaaS senaryosunu gösterir. Bu, izleme ve performans, şema yönetimi ve çapraz Kiracı raporlama ve analiz yönetme sağlama kiracılar içerir.
 
-## <a name="three-saas-application-patterns"></a>Üç SaaS uygulama düzenleri
+## <a name="three-saas-application-and-tenancy-patterns"></a>Üç SaaS uygulama ve Kiracı desenleri
 
-Uygulamanın üç sürümlerinde kullanılabilir; Her Azure SQL veritabanı farklı bir veritabanı kiralama düzeni araştırır.  İlk yalıtılmış bir tek Kiracı veritabanı ile tek kiracılı uygulama kullanır. İkinci bir çok kiracılı uygulama Kiracı başına bir veritabanı kullanır. Üçüncü örnek bir çok kiracılı uygulama parçalı çok Kiracı veritabanları ile kullanır.
+Uygulamanın üç sürümlerinde kullanılabilir; Her Azure SQL veritabanı farklı bir veritabanı kiralama düzeni araştırır.  İlk Kiracı başına bir tek başına uygulama kendi veritabanıyla kullanır. İkinci bir çok kiracılı uygulama Kiracı başına bir veritabanı kullanır. Üçüncü örnek bir çok kiracılı uygulama parçalı çok Kiracı veritabanları ile kullanır.
 
 ![Üç kiralama desenleri][image-three-tenancy-patterns]
 
- Her örnek yönetim komut dosyaları ve tasarım çeşitli keşfedin öğreticiler ve yönetim desenleri, kendi uygulamanızda kullanabilirsiniz içerir.  Her örnek daha düşük bir değer, en fazla beş dakika dağıtır.  Tasarım ve yönetim farklılıkları karşılaştırmak için üç dağıtılan yan yana olabilir.
+ Her bir örnek uygulama kodu, artı yönetim komut dosyaları ve tasarım ve yönetim desenleri çeşitli keşfedin öğreticiler içerir.  Her örnek daha düşük bir değer, en fazla beş dakika dağıtır.  Tasarım ve yönetim farklılıkları karşılaştırmak için üç dağıtılan yan yana olabilir.
 
-## <a name="standalone-application-pattern"></a>Tek başına uygulama düzeni
+## <a name="standalone-application-per-tenant-pattern"></a>Kiracı deseni başına tek başına uygulama
 
-Tek başına uygulama deseni, her bir kiracı için tek bir kiracı veritabanı ile tek kiracılı uygulama kullanır. Her bir kiracının uygulaması ayrı Azure kaynak grubuna dağıtılır. Bu hizmet sağlayıcısının abonelik veya kiracının abonelik olabilir ve kiracının adınıza sağlayıcısı tarafından yönetilir. Bu deseni en büyük Kiracı yalıtımı sağlar, ancak en tipik olan kaynakları birden çok Kiracı arasında paylaşmak için fırsat olarak pahalı.
+Kiracı deseni başına tek başına app tek bir kiracı uygulama veritabanı ile her bir kiracı için kullanır. Her bir kiracının uygulaması, kendi veritabanı dahil olmak üzere ayrı Azure kaynak grubuna dağıtılır. Kaynak grubu hizmet sağlayıcısının abonelik veya kiracının abonelik dağıtılmış ve kiracının adınıza sağlayıcısı tarafından yönetilir. Kiracı deseni başına tek başına uygulama büyük Kiracı yalıtımı sağlar, ancak genellikle en. birden çok Kiracı arasında kaynakları paylaşmak için fırsat olarak pahalı.  Bu deseni, daha karmaşık olabilir ve hangi kiracılar küçük sayılara dağıtılan uygulamalar için uygundur.  Tek başına dağıtımlarında uygulama her bir kiracı için daha kolay içinde özelleştirilebilir diğer desenleri.  
 
 Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-sa] ve github'daki kod [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
@@ -47,9 +47,9 @@ Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-dpt] ve github'daki kod
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Parçalı çok Kiracı veritabanı düzeni
 
-Çok Kiracı veritabanı, Kiracı ve azaltılmış Kiracı yalıtımı ile kurulumunuza göre daha düşük maliyetli arayan hizmet sağlayıcıları için geçerlidir. Bu desen aşağı Kiracı başına maliyet yürüten tek bir veritabanı içine kiracılar çok sayıda paket sağlar. Yakın sonsuz ölçek tarafından parçalama mümkündür kiracılar birden fazla veritabanı üzerinden.  Katalog veritabanına kiracılar veritabanlarını yeniden eşler.  
+Çok Kiracı veritabanı, Kiracı ve azaltılmış Kiracı yalıtımı ile kurulumunuza göre daha düşük maliyetli arayan hizmet sağlayıcıları için geçerlidir. Bu desen aşağı Kiracı başına maliyet yürüten tek bir veritabanı içine kiracılar çok sayıda paket sağlar. Yakın sonsuz ölçek tarafından parçalama mümkündür kiracılar birden fazla veritabanı üzerinden. Katalog veritabanına kiracılar veritabanlarına eşler.  
 
-Bu deseni, bir veritabanında birden çok kiracıya maliyetle en iyi duruma getirme veya için yalıtım kendi veritabanında tek bir kiracı ile en iyi duruma getirme karma modeli de sağlar. Seçimi bir kiracı tarafından Kiracı temelinde ya da Kiracı sağlanan ya da daha sonra uygulama üzerinde hiçbir etkisi olmadan olduğunda yapılabilir.
+Bu deseni de sağlayan bir *karma* içinde bir veritabanında birden çok kiracıya maliyetle en iyi duruma getirme veya için yalıtım kendi veritabanında tek bir kiracı ile en iyi duruma getirme modeli. Seçimi bir kiracı tarafından Kiracı temelinde ya da Kiracı sağlanan ya da daha sonra uygulama üzerinde hiçbir etkisi olmadan olduğunda yapılabilir.  Kiracılar grupları farklı değerlendirilmesi gerektiğinde bu modeli etkili bir şekilde kullanılabilir. Örneğin, Premium kiracılar kendi veritabanlarına atanabilir sırada paylaşılan veritabanları için düşük maliyetli kiracılar atanabilir. 
 
 Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-mt] ve github'daki kod [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
@@ -61,9 +61,9 @@ Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-mt] ve github'daki kod 
 
 #### <a name="tutorials-and-code"></a>Öğreticiler ve kod
 
-- Tek başına uygulama:
-    - [Tek başına uygulama öğreticileri][docs-tutorials-for-wingtip-sa].
-    - [Github'da tek başına kodunu][github-code-for-wingtip-sa].
+- Tek başına app Kiracı başına:
+    - [Tek başına uygulama öğreticileri ] [ docs-tutorials-for-wingtip-sa].
+    - [Github'da tek başına uygulama kodunu][github-code-for-wingtip-sa].
 
 - Veritabanı Kiracı başına:
     - [Kiracı başına veritabanı için öğreticileri][docs-tutorials-for-wingtip-dpt].

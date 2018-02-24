@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8f5d4ba82fcf3c963373b0e90b707a7d86fc0fea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınızın ile uygulamanızı kaydetme
 
@@ -27,7 +27,7 @@ Uygulamanız Azure Active Directory (Azure AD) Kiracı ile kaydetmek için Azure
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Azure AD kiracınız, sayfanın sağ üst köşesinde hesabınızı seçerek belirleyin.
-3. Sol Gezinti Bölmesi'nde seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**, tıklatıp **Ekle**.
+3. Sol Gezinti Bölmesi'nde seçin **tüm hizmetleri**, tıklatın **uygulama kayıtlar**, tıklatıp **Ekle**.
 4. Komut istemlerini izleyin ve yeni bir uygulama oluşturun. Belirli örnekler web uygulamaları veya yerel uygulamaları için isterseniz, kullanıma bizim [quickstarts](active-directory-developers-guide.md).
   * Web uygulamaları için sağlamak **oturum açma URL'si**, kullanıcılar, örneğin,'burada oturum açabilir, uygulamanızın temel URL olduğu `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
@@ -40,7 +40,7 @@ Azure Portalı'nı kullanarak var olan bir uygulamanın ayarlarını kolayca de�
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Azure AD kiracınız, sayfanın sağ üst köşesinde hesabınızı seçerek belirleyin.
-3. Sol Gezinti Bölmesi'nde seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**ve uygulamanızı listeden seçin.
+3. Sol Gezinti Bölmesi'nde seçin **tüm hizmetleri**, tıklatın **uygulama kayıtlar**ve uygulamanızı listeden seçin.
 4. Tıklatın **ayarları** uygulama için ayarları sayfasını açın.
   * **Özellikleri** sayfası, uygulama için genel bilgileri değiştirmenize olanak sağlar. Bu, uygulama adı, oturum açma URL'si ve oturum kapatma URL'sini içerir.
   * **Yanıt URL'leri** sayfa, Azure AD belirteci yanıtları yere gönderir olan bir yanıt URL eklemenize olanak sağlar.
@@ -54,7 +54,7 @@ Doğrudan Azure Portalı'nda gösterilmez belirli uygulama özelliklerini deği�
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Azure AD kiracınız, sayfanın sağ üst köşesinde hesabınızı seçerek belirleyin.
-3. Sol Gezinti Bölmesi'nde seçin **daha Hizmetleri**, tıklatın **uygulama kayıtlar**ve uygulamanızı listeden seçin.
+3. Sol Gezinti Bölmesi'nde seçin **tüm hizmetleri**, tıklatın **uygulama kayıtlar**ve uygulamanızı listeden seçin.
 4. Tıklatın **bildirim** satır içi bildirim Düzenleyicisi'ni açmak için uygulama sayfasından.
 5. Doğrudan değişiklik bildirimine ve hazır olduğunuzda kaydedin. Alternatif olarak, bildiriminin en sık kullandığınız düzenleyicide açın ve güncelleştirilmiş bildirimi karşıya yükleyebilirsiniz.
 

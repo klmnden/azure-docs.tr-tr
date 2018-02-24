@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulamaya kullanıcı sağlamayı yapılandırma
 
@@ -31,7 +31,7 @@ Azure portalında **sağlama** hangi sağlama modları bu uygulama için destekl
 
 El ile belirli bir uygulama için gösterilen yalnızca modu ise, bağlayıcı sağlama hiçbir otomatik Azure AD uygulama için henüz oluşturulduğunu anlamına gelir. Veya otomatik sağlama Bağlayıcısı yapı alacağı önkoşul kullanıcı yönetimi API uygulamasını desteklemezse anlamına gelir.
 
-Belirli bir uygulamanın için otomatik sağlamaya yönelik destek istemek istiyorsanız, bir isteğiyle doldurabilir <http://aka.ms/aadapprequest>.
+Belirli bir uygulamanın için otomatik sağlamaya yönelik destek istemek isterseniz, bir istek kullanarak doldurabilirsiniz [Azure Active Directory Uygulama isteklerini](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Otomatik sağlama için uygulamayı yapılandırma
 

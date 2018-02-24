@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure maliyeti yönetimi için sık sorulan sorular
 
@@ -58,7 +58,7 @@ Departman yöneticilerinin, hesap sahipleri ve kuruluş yöneticileri izinleri v
 
 Bir hesap etkinleştirmek için:
 
-1.  Cloudyn Portalı'nda tıklatın **ayarları** seçin ve sağ üst **bulut hesapları**.
+1.  Cloudyn portalında, sağ üst kısımdaki **Ayarlar**’a tıklayın ve **Bulut Hesapları**’nı seçin.
 2.  Microsoft Azure hesapları sekmesinde sahip olan hesapları için bakın bir **etkinleştirilmemiş** abonelik.
 3.  Sağa etkinleştirilmemiş bir hesabın tıklatın **Düzenle** bir kalem benzer simgesi.
 4.  Kiracı oranı Kimliğinde ve otomatik olarak algılanır. **İleri**’ye tıklayın.
@@ -116,9 +116,9 @@ Bir varlık için ek CSP hesapları eklemek için seçin **MSP erişim** yerine 
 
 Farklı para kullanarak birden çok Azure hesabı olabilir. Ancak, Cloudyn maliyet raporlarında rapor başına birden fazla para birimi türü gösterme.
 
-Farklı para kullanarak birden çok aboneliğiniz varsa, bir üst varlık ve onun alt varlık para birimlerinin ile görüntülenen  **$**  simgesi. Bizim önerilen en iyi aynı varlık hiyerarşideki farklı para kullanmaktan kaçınmak için bir yöntemdir. Diğer bir deyişle, tüm aboneliklerinizi bir varlık yapısında düzenlenmiş aynı para kullanmanız gerekir.
+Farklı para kullanarak birden çok aboneliğiniz varsa, bir üst varlık ve onun alt varlık para birimlerinin USD cinsinden görüntülenen  **$** . Bizim önerilen en iyi aynı varlık hiyerarşideki farklı para kullanmaktan kaçınmak için bir yöntemdir. Diğer bir deyişle, tüm aboneliklerinizi bir varlık yapısında düzenlenmiş aynı para kullanmanız gerekir.
 
-Cloudyn otomatik olarak Kurumsal Anlaşma abonelik para algılar ve raporlarda düzgün gösterir.  Ancak, Cloudyn yalnızca görüntüler  **$**  CSP ve web doğrudan Azure hesapları simgesi.
+Cloudyn otomatik olarak Kurumsal Anlaşma abonelik para algılar ve raporlarda düzgün gösterir.  Ancak, Cloudyn ABD Doları yalnızca görüntüler  **$**  CSP ve web doğrudan Azure hesapları için.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Cloudyn veri nelerdir zaman çizelgelerini Yenile?
 

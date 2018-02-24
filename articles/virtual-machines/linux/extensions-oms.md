@@ -13,27 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 02/15/2018
 ms.author: danis
-<<<<<<< HEAD
-ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 8aa29dfb46a1aafb9e7b713456e1006af423a2b2
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: fea3e992c70d286695691d837c746522f6a5ebb3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Linux için OMS sanal makine uzantısı
 
 ## <a name="overview"></a>Genel Bakış
 
-Operations Management Suite (OMS) bulut izleme, uyarma ve uyarı düzeltme özellikleri sağlar ve şirket içi varlıklar. Linux için OMS Aracısı sanal makine uzantısı yayımlanan ve Microsoft tarafından desteklenmiyor. Uzantı Azure sanal makinelerde OMS Aracısı'nı yükler ve sanal makineleri olan bir OMS çalışma kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Linux için OMS sanal makine uzantısı için dağıtım seçeneklerini ayrıntıları.
+Günlük analizi bulut izleme, uyarma ve uyarı düzeltme özellikleri sağlar ve şirket içi varlıklar. Linux için OMS Aracısı sanal makine uzantısı yayımlanan ve Microsoft tarafından desteklenmiyor. Uzantı Azure sanal makinelerde OMS Aracısı'nı yükler ve sanal makineleri olan bir günlük analizi çalışma kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Linux için OMS sanal makine uzantısı için dağıtım seçeneklerini ayrıntıları.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="operating-system"></a>İşletim sistemi
 
@@ -48,9 +42,19 @@ OMS Aracısı uzantısı bu Linux dağıtımları karşı çalıştırabilirsini
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 ve 12 |
 
+Aşağıdaki tabloda bir eşleme OMS VM sürümünün her sürüm için uzantı ve OMS Aracısı paket sağlar. OMS Aracısı Paket sürümü için sürüm notları için bir bağlantı bulunur.  
+
+| OMS Linux VM uzantısı sürüm | OMS Aracısı Paket sürümü | 
+|--------------------------------|--------------------------|
+| 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
+| 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
+| 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|
+| 1.4.55.4 | [1.4.1-123](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-123)|
+| 1.4.45.3 | [1.4.1-45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-45)|
+
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
-Azure Güvenlik Merkezi otomatik olarak OMS aracısı sağlar ve Azure aboneliğinin varsayılan günlük analizi çalışma bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması yapılandırılmış çalışma ve bağlantıyı kesme Azure Güvenlik Merkezi ile üzerine yazar.
+Azure Güvenlik Merkezi otomatik olarak OMS aracısı sağlar ve Azure aboneliğinizde ASC tarafından oluşturulan bir varsayılan günlük analizi çalışma alanı bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması, yapılandırılmış çalışma üzerine yazar ve Azure Güvenlik Merkezi ile bağlantısını keser.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
@@ -58,7 +62,7 @@ Linux için OMS aracısının uzantısı hedef sanal makine internet'e bağlı o
 
 ## <a name="extension-schema"></a>Uzantı Şeması
 
-Aşağıdaki JSON şeması OMS Aracısı uzantısı gösterir. Uzantı çalışma alanı kimliği ve hedef OMS çalışma alanından bir çalışma alanı anahtarı gerektirir; Bu değerleri OMS Portalı'nda bulunabilir. Çalışma alanı anahtarı hassas verileri olarak değerlendirilmesi için bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hedef sanal makineye şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
+Aşağıdaki JSON şeması OMS Aracısı uzantısı gösterir. Uzantı çalışma alanı kimliği ve hedef günlük analizi çalışma alanından bir çalışma alanı anahtarı gerektirir; Bu değerler olabilir [günlük analizi çalışma alanında bulunan](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) Azure portalında. Çalışma alanı anahtarı hassas verileri olarak değerlendirilmesi için bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hedef sanal makineye şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
 
 ```json
 {
@@ -88,20 +92,20 @@ Aşağıdaki JSON şeması OMS Aracısı uzantısı gösterir. Uzantı çalışm
 | Ad | Değer / örnek |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Yayımcı | Microsoft.EnterpriseCloud.Monitoring |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.4 |
-| Workspaceıd (örneğin) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
-| workspaceKey (örneğin) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ == |
+| workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (örneğin) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla OMS ekleme gibi dağıtım yapılandırma sonrası gerektiren sanal makineler dağıtırken idealdir. OMS Aracısı VM uzantısı içeren bir örnek Resource Manager şablonunu bulunabilir [Azure hızlı başlangıç Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla günlük analizi için ekleme gibi dağıtım yapılandırma sonrası gerektiren sanal makineler dağıtırken idealdir. OMS Aracısı VM uzantısı içeren bir örnek Resource Manager şablonunu bulunabilir [Azure hızlı başlangıç Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 Sanal makine uzantısı JSON yapılandırması içinde sanal makine kaynağı iç içe geçmiş veya kök veya Resource Manager JSON şablonu en üst düzeyinde yerleştirilir. JSON yapılandırma yerleşimini kaynak adı ve türü değeri etkiler. Daha fazla bilgi için bkz: [Ayarla alt kaynakları için ad ve tür](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-Aşağıdaki örnek, OMS uzantısı içinde sanal makine kaynağı iç içe geçmiş varsayar. Uzantı kaynak iç içe geçirme sırasında JSON yerleştirilir `"resources": []` sanal makinenin nesnesi.
+Aşağıdaki örnek, VM uzantısı içinde sanal makine kaynağı iç içe geçmiş varsayar. Uzantı kaynak iç içe geçirme sırasında JSON yerleştirilir `"resources": []` sanal makinenin nesnesi.
 
 ```json
 {
@@ -153,7 +157,7 @@ JSON uzantısı şablon kökünde yerleştirirken, kaynak adı üst sanal makine
 
 ## <a name="azure-cli-deployment"></a>Azure CLI dağıtım
 
-Azure CLI OMS Aracısı VM uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir. OMS anahtarı ve OMS kimliği bu OMS çalışma alanınız ile değiştirin. 
+Azure CLI OMS Aracısı VM uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir. Değiştir *Workspaceıd* ve *workspaceKey* olanla günlük analizi çalışma alanı. 
 
 ```azurecli
 az vm extension set \
@@ -183,16 +187,16 @@ Uzantı yürütme çıktısını aşağıdaki dosyasına kaydedilir:
 
 ### <a name="error-codes-and-their-meanings"></a>Hata kodları ve anlamları
 
-| Hata kodu | Anlamı | Olası eylemi |
+| Hata Kodu | Anlamı | Olası eylemi |
 | :---: | --- | --- |
-| 10 | VM zaten bir OMS çalışma alanına bağlı | VM uzantısı şemasında belirtilen çalışma alanına bağlanmak için stopOnMultipleConnections genel ayarları'nda false olarak ayarlayın veya bu özelliği kaldırın. Bu VM için bağlı her çalışma alanı için bir kez fatura. |
+| 10 | VM günlük analizi çalışma alanına zaten bağlı | VM uzantısı şemasında belirtilen çalışma alanına bağlanmak için stopOnMultipleConnections genel ayarları'nda false olarak ayarlayın veya bu özelliği kaldırın. Bu VM için bağlı her çalışma alanı için bir kez fatura. |
 | 11 | Uzantı için sağlanan geçersiz yapılandırma | Dağıtım için gereken tüm özellik değerlerini ayarlamak için Yukarıdaki örneklerde izleyin. |
 | 12 | Dpkg Paket Yöneticisi kilitli | Tamamlandı ve yeniden deneyin tüm dpkg güncelleştirme makine üzerindeki işlemleri emin olun. |
 | 20 | Erken adlı etkinleştir | [Azure Linux Aracısı güncelleştirme](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) sürüme en son kullanılabilir. |
 | 51 | Bu uzantı sanal makinenin işletim sistemi üzerinde desteklenmiyor | |
 | 55 | Microsoft Operations Management Suite hizmetine bağlanamıyor | Sistem ya da Internet erişimi veya geçerli bir HTTP proxy sağlanmış sahip denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin |
 
-Ek sorun giderme bilgileri bulunabilir [Linux için OMS Aracısı sorun giderme kılavuzu](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
+Ek sorun giderme bilgileri bulunabilir [Linux için OMS Aracısı sorun giderme kılavuzu](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Destek
 

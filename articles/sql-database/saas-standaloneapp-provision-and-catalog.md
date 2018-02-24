@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: eec7f9262dd8e8cccb5ba68cbe2f12581cd01470
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Sağlama ve Kiracı SaaS deseni başına uygulamayı kullanarak yeni kiracılar katalog
 
@@ -30,7 +30,7 @@ Bu makalede iki ana bölümden oluşur:
 * Sağlama ve Katalog gerçekleştirir örnek PowerShell kodu vurgular bir öğretici
     * Öğretici Kiracı deseni başına tek başına App uyarlanan Wingtip biletleri örnek SaaS uygulaması kullanır.
 
-## <a name="application-per-tenant-pattern"></a>Kiracı deseni başına uygulama
+## <a name="standalone-application-per-tenant-pattern"></a>Kiracı deseni başına tek başına uygulama
 Kiracı deseni başına tek başına app çok kiracılı SaaS uygulamaları için birkaç modelinden biridir.  Bu modelinde, her bir kiracı için bir tek başına uygulama sağlanır. Uygulama, uygulama düzeyinde bileşenleri ve bir SQL veritabanı oluşur.  Her Kiracı uygulama satıcısının abonelikte dağıtılabilir.  Alternatif olarak, Azure'un sunduğu bir [yönetilen uygulamaların program](https://docs.microsoft.com/en-us/azure/managed-applications/overview) , bir uygulama bir kiracının abonelikte dağıtılabilir ve kiracının adınıza satıcı tarafından yönetilen içinde. 
 
    ![Kiracı başına uygulama düzeni](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
@@ -59,7 +59,7 @@ Her bir kiracı içinde kaynakları hazırlanmadan önce hangi oluşturulmalıd�
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 * Bir kataloğu hazırlama
-* Daha önce kataloğa dağıtılan Kiracı veritabanları kaydetme
+* Katalog daha önce dağıttığınız örnek Kiracı veritabanları kaydetme
 * Bir ek Kiracı sağlamak ve kataloğa kaydetmek
 
 Bir Azure Resource Manager şablonu dağıtma ve uygulama yapılandırmak, Kiracı veritabanı oluşturmak ve başlatmak için bir bacpac dosyasını içeri aktarmak için kullanılır. İçeri aktarma isteği işleme alınan önce birkaç dakika sıraya.
@@ -148,3 +148,5 @@ Bu öğreticide şunları öğrendiniz:
 > * Wingtip biletleri SaaS tek başına uygulamayı dağıtmak nasıl.
 > * Sunucular ve veritabanları hakkında uygulaması olun.
 > * Nasıl ilgili faturalama durdurmak için örnek kaynaklar silinir.
+
+Katalog Kiracı başına veritabanı sürümünü kullanarak çeşitli arası Kiracı senaryoları desteklemek için nasıl kullanıldığını keşfetmek [Wingtip biletleri SaaS uygulamasına](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

@@ -14,17 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-<<<<<<< HEAD
-ms.openlocfilehash: e4f7571acb72d8f099898fffc05eb43083aeabfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 0efea55d0e1329ddf4ada35aa0dd6164f0951a70
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 527e77d7ab8c67ea538d2452357f31a698b2b6ea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Azure ücretsiz hesabınız için sizden ücret kaçının
 
@@ -54,7 +48,7 @@ Azure ücretsiz hesabınız ile her ay Ücretsiz Hizmetler sınırlı bir miktar
 
 1.  [Azure Portal](http://portal.azure.com)’da oturum açın.
 
-2.  Sol gezinti aşağıdan seçin **daha fazla hizmet**.
+2.  Sol gezinti alanından seçin **tüm hizmetleri**.
 
 3.  Seçin **abonelikleri**.
 

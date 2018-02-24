@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma
 
@@ -47,7 +47,7 @@ Bu konuda nasıl kullanılacağını gösterir [Azure portal](https://portal.azu
 
 Bir kaynak grubu oluşturduktan sonra kendisine marketten kaynakları dağıtabilirsiniz. Market yaygın senaryoları için önceden tanımlanmış çözümleri sağlar.
 
-1. Bir dağıtımı başlatmak için **yeni**.
+1. Bir dağıtımı başlatmak için **kaynak oluşturma**.
 
    ![Yeni kaynak](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -73,13 +73,13 @@ Bir kaynak grubu oluşturduktan sonra kendisine marketten kaynakları dağıtabi
 
 1. Kaynaklarınızı dağıttıktan sonra daha fazla kaynak kaynak grubuna seçerek ekleyebilirsiniz **Ekle**.
 
-   ![Kaynak Ekle](./media/resource-group-template-deploy-portal/add-resource.png)
+   ![Kaynak ekle](./media/resource-group-template-deploy-portal/add-resource.png)
 
 ## <a name="deploy-resources-from-custom-template"></a>Özel şablon kaynaklardan dağıtma
 
 Bir dağıtım yürütme ancak şablonlardan herhangi birini markette kullanmamak istiyorsanız, çözümünüz için altyapıyı tanımlayan özelleştirilmiş bir şablon oluşturabilirsiniz. Şablonları oluşturma hakkında bilgi edinmek için [yapısı ve Azure Resource Manager şablonları sözdizimini anlamanız](resource-group-authoring-templates.md).
 
-1. Özelleştirilmiş bir şablon portal üzerinden dağıtmak için seçin **yeni**, arayın ve **şablon dağıtımı** kadar seçenekler arasından seçim yapabilirsiniz.
+1. Özelleştirilmiş bir şablon portal üzerinden dağıtmak için seçin **kaynak oluşturma**, arayın ve **şablon dağıtımı** kadar seçenekler arasından seçim yapabilirsiniz.
 
    ![Arama şablon dağıtımı](./media/resource-group-template-deploy-portal/search-template.png)
 
@@ -97,7 +97,7 @@ Bir dağıtım yürütme ancak şablonlardan herhangi birini markette kullanmama
 
 1. JSON söz dizimi manuel olarak düzenlemeniz veya önceden oluşturulmuş bir şablondan seçin [hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/resources/templates/). Ancak, bu makalede, kullandığınız **kaynak ekleyin** seçeneği.
 
-   ![Şablon düzenleme](./media/resource-group-template-deploy-portal/select-add-resource.png)
+   ![Şablonu düzenle](./media/resource-group-template-deploy-portal/select-add-resource.png)
 
 1. Seçin **depolama hesabı** ve bir ad sağlayın. Değerleri sağlayarak bittiğinde seçin **Tamam**.
 
@@ -105,7 +105,7 @@ Bir dağıtım yürütme ancak şablonlardan herhangi birini markette kullanmama
 
 1. Düzenleyici JSON kaynak türü için otomatik olarak ekler. Depolama hesabı türünü tanımlamak için bir parametre içerdiğine dikkat edin. **Kaydet**’i seçin.
 
-   ![Şablon Göster](./media/resource-group-template-deploy-portal/show-json.png)
+   ![Şablonu göster](./media/resource-group-template-deploy-portal/show-json.png)
 
 1. Şimdi, şablonda tanımlanan kaynaklara dağıtmak için seçeneğiniz vardır. Dağıtmak, hüküm ve koşulları kabul ve seçmek için **satın alma**.
 
@@ -117,7 +117,7 @@ Portal, Azure hesabınızda bir şablonu kaydetmek ve daha sonra yeniden dağıt
 
 1. Kaydedilen şablonlarınızı bulmak için seçin **daha fazla hizmet**.
 
-   ![Daha fazla hizmet](./media/resource-group-template-deploy-portal/more-services.png)
+   ![Diğer hizmetler](./media/resource-group-template-deploy-portal/more-services.png)
 
 1. Arama **şablonları** ve bu seçeneği belirleyin.
 

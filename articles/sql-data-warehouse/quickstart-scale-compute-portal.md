@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/31/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: cbe2f2d17f309e01e831aa9ee31e01e044896d10
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 6b86042ed6b95ba49fa2089ba36b1dbe9a61cc40
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: İşlem ölçeklendirme Azure SQL Data Warehouse Azure portalında
 
-Azure portalında Azure SQL Data Warehouse ölçek işlem. İşlem daha iyi performans için genişletme veya ölçek geri işlem maliyet tasarrufu sağlamak. 
+Azure portalında Azure SQL Data Warehouse ölçek işlem. [Ölçeklendirme işlem](sql-data-warehouse-manage-compute-overview.md) daha iyi performans veya ölçek için maliyet tasarrufu sağlamak işlem yedekleyin. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 Zaten yüklü veya kullanan bir veri ambarı ölçeklendirebilirsiniz [hızlı başlangıç: oluşturun ve bağlanın - portal](create-data-warehouse-portal.md) adlı bir veri ambarı oluşturmak için **mySampleDataWarehouse**.  Bu hızlı başlangıç ölçeklendirir **mySampleDataWarehouse**.
 
-## <a name="scale-compute"></a>Bilgi işlem
+## <a name="scale-compute"></a>Hesaplamayı ölçeklendirme
 
 SQL veri ambarı'nda artırın veya işlem kaynakları data warehouse birimleri ayarlayarak azaltın. [Oluşturma ve Connect - portal](create-data-warehouse-portal.md) oluşturulan **mySampleDataWarehouse** ve 400 Dwu ile başlatıldı. Dwu için aşağıdaki adımları ayarlamak **mySampleDataWarehouse**.
 

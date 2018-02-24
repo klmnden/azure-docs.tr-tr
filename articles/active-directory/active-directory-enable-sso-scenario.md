@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Azure Active Directory ile uygulamaları yönetme
 Gerçek iş akışı veya içeriği işletmeler tüm uygulamalar için iki temel gereksinimlere sahiptir:
@@ -78,7 +78,7 @@ Azure AD uygulamaları yönetmek ve SSO'yu etkinleştirmek için kullanırken:
 * Kullanıcının şirket içi (örneğin, AD) veya Azure AD hesabının kimlik doğrulaması yapılır.
 * Tutarlı bir son kullanıcı deneyimi sağlamak ve atama, konumları ve MFA koşullar iç yeteneklerini bağımsız olarak herhangi bir uygulama eklemek sağlayarak Azure AD atama ve koruma ilkesinde yetkilendirme yürütür.
 
-Bu şekilde yetkilendirme hedef uygulamanın geçirilmeden anlamak önemlidir nasıl uygulama Azure AD ile tümleşik bağlı olarak değişir.
+Yetkilendirme hedef uygulamanın geçirilmeden şekilde nasıl uygulama Azure AD ile tümleşik bağlı olarak değişir anlamak önemlidir.
 
 * **Uygulama hizmeti sağlayıcısı tarafından önceden tümleştirilmiş** gibi Office 365 ve Azure, bunlar doğrudan Azure AD'de oluşturulmuş ve kapsamlı kimlik ve erişim yönetimi yeteneklerini için ona bağlı olan uygulamalar. Bu uygulamalara erişim dizin bilgilerini ve belirteç verme aracılığıyla etkinleştirilir.
 * **Uygulamalar önceden tümleştirilmiş Microsoft ve özel uygulamalar tarafından** bir iç uygulama dizini kullanır ve Azure AD bağımsız olarak çalışabilir bağımsız bulut uygulamaları şunlardır. Bir uygulama hesabına eşlenen bir uygulama belirli kimlik bilgileri vererek bu uygulamalara erişimi etkindir. Uygulama özellikleri bağlı olarak, bir Federasyon belirteç veya kullanıcı adı ve uygulamanın önceden hazırlanmış olan bir hesap için parola kimlik bilgisi olabilir.
@@ -90,13 +90,13 @@ Bu şekilde yetkilendirme hedef uygulamanın geçirilmeden anlamak önemlidir na
 Modern kuruluşlarda, BT departmanları kullanılmakta olan tüm bulut uygulamaları tanımaz genellikle. Azure AD Cloud App Discovery ile birlikte, bu uygulamaları algılamak için bir çözüm sağlar.
 
 ## <a name="account-management"></a>Hesap yönetimi
-Geleneksel olarak, çeşitli uygulamaları hesaplarını yönetme tarafından gerçekleştirilen elle yapılan bir işlemdir BT veya kuruluşunuzda kişisel destekler. Azure AD hesap yönetimi tüm hizmet sağlayıcısı tümleşik uygulamalar ve otomatik kullanıcı sağlamayı destekleyen Microsoft veya SAML JIT tarafından önceden tümleştirilmiş uygulamaların tam otomatik.
+Geleneksel olarak, çeşitli uygulamaları hesaplarını yönetme tarafından gerçekleştirilen elle yapılan bir işlemdir BT veya destek personeli kuruluşu. Azure AD hesap yönetimi tüm hizmet sağlayıcısı tümleşik uygulamalar ve otomatik kullanıcı sağlamayı veya SAML Just-In-Time sağlama destekleyen Microsoft tarafından önceden tümleştirilmiş uygulamaların tam olarak otomatikleştirir.
 
 ## <a name="automated-user-provisioning"></a>Otomatik kullanıcı hazırlama
 Bazı uygulamalar Otomasyon arabirimleri oluşturma ve temizleme (veya devre dışı bırakma) hesaplarının sağlayın. Bir sağlayıcı böyle bir arabirim sunuyorsa, Azure AD tarafından yararlanır. Bu yönetim görevlerini otomatik olarak gerçekleşir, işletim maliyetlerini azaltır ve yetkisiz erişim olasılığını azaltır için ortamınızın güvenliğini artırır.
 
 ## <a name="access-management"></a>Erişim Yönetimi
-Azure AD kullanarak tek tek kullanan uygulamalar veya atamaları güdümlü kural erişimi yönetebilirsiniz. Ayrıca temsilci erişim en iyi gözetim sağlamaya ve Yardım Masası üzerindeki yükü azaltarak kuruluşun doğru kişilere yönetimi.
+Azure AD ile tek tek kullanan uygulamalar veya atamaları güdümlü kural erişimi yönetebilirsiniz. Ayrıca temsilci erişim en iyi gözetim sağlamaya ve Yardım Masası üzerindeki yükü azaltarak kuruluşun doğru kişilere yönetimi.
 
 ## <a name="on-premises-applications"></a>Şirket içi uygulamalar
 Yerleşik uygulama proxy, bunun sonucunda, kullanıcılarınıza şirket içi uygulamalarınızı yayımlamak sağlar tutarlı hem Azure AD izleme, raporlama ve güvenlik özelliklerini modern bulut uygulama ve avantajları deneyim erişim.

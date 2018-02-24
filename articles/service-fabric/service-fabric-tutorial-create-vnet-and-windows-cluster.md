@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9ce834e1eea8202f026a859c85067faef7ab7e0f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Azure sanal ağına Service Fabric Windows kümesi dağıtma
 Bu öğretici, bir serinin birinci bölümüdür. PowerShell ile bir şablon kullanarak bir [Azure sanal ağına (VNET)](../virtual-network/virtual-networks-overview.md) ve [ağ güvenlik grubuna](../virtual-network/virtual-networks-nsg.md) Windows çalıştıran bir Service Fabric kümesi dağıtmayı öğrenirsiniz. Öğreticiyi tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur.  Azure CLI kullanarak Linux kümesi oluşturmak için bkz. [Azure’da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -34,9 +34,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Azure PowerShell’de güvenli bir Service Fabric kümesi oluşturma
 > * X.509 sertifikasıyla kümenin güvenliğini sağlama
 > * PowerShell kullanarak kümeye bağlanma
-> * Küme kaldırma
+> * Bir kümeyi kaldırma
 
-Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
 > * Azure’da güvenli bir küme oluşturma
 > * [Bir kümenin ölçeğini daraltma veya genişletme](/service-fabric-tutorial-scale-cluster.md)
@@ -54,14 +54,14 @@ Aşağıdaki yordamlarda beş düğümlü bir Service Fabric kümesi oluşturulu
 ## <a name="key-concepts"></a>Önemli kavramlar
 [Service Fabric kümesi](service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir. Kümeler binlerce makine içerecek şekilde ölçeklendirilebilir. Bir kümenin parçası olan makine veya VM’lere düğüm denir. Her düğüme bir düğüm adı (bir dize) atanır. Düğümlerin yerleşim özellikleri gibi özellikleri vardır.
 
-Düğüm türü, kümedeki bir grup sanal makinenin boyutunu, sayısını ve özelliklerini tanımlar. Tanımlanan her düğüm türü, bir sanal makine koleksiyonunu küme halinde yönetmek için kullandığınız bir Azure işlem kaynağı olan [sanal makine ölçek kümesi](/azure/virtual-machine-scale-sets/) olarak ayarlanır. Dah sonra, her düğüm türünün ölçeği birbirinden bağımsız olarak artırılabilir veya azaltılabilir, her düğüm türünde farklı bağlantı noktası kümeleri açık olabilir ve farklı kapasite ölçümleri yapılabilir. Düğüm türleri, bir düğüm kümesinin "ön uç" veya "arka uç" şeklindeki rolünün tanımlanması için kullanılır.  Kümenizde birden çok düğüm türü olabilir, ancak üretim kümeleri için birincil düğüm türünde en az beş VM (veya test kümeleri için en az üç VM) olmalıdır.  [Service Fabric sistem hizmetleri](service-fabric-technical-overview.md#system-services), birincil düğüm türündeki düğümlere yerleştirilir.
+Düğüm türü, kümedeki bir grup sanal makinenin boyutunu, sayısını ve özelliklerini tanımlar. Tanımlanan her düğüm türü, bir sanal makine koleksiyonunu küme halinde yönetmek için kullandığınız bir Azure işlem kaynağı olan [sanal makine ölçek kümesi](/azure/virtual-machine-scale-sets/) olarak ayarlanır. Daha sonra, her düğüm türünün ölçeği birbirinden bağımsız olarak artırılabilir veya azaltılabilir, her düğüm türünde farklı bağlantı noktası kümeleri açık olabilir ve farklı kapasite ölçümleri yapılabilir. Düğüm türleri, bir düğüm kümesinin "ön uç" veya "arka uç" şeklindeki rolünün tanımlanması için kullanılır.  Kümenizde birden çok düğüm türü olabilir, ancak üretim kümeleri için birincil düğüm türünde en az beş VM (veya test kümeleri için en az üç VM) olmalıdır.  [Service Fabric sistem hizmetleri](service-fabric-technical-overview.md#system-services), birincil düğüm türündeki düğümlere yerleştirilir.
 
 Kümenin güvenliği bir küme sertifikası ile sağlanır. Küme sertifikası, düğümler arası iletişimin güvenliğini sağlamak ve bir yönetim istemcisinde küme yönetimi uç noktalarının kimliğini doğrulamak için kullanılan bir X.509 sertifikasıdır.  Küme sertifikası ayrıca, HTTPS üzerinden HTTPS yönetim API’si ve Service Fabric Explorer için SSL sağlar. Otomatik olarak imzalanan sertifikalar, test kümeleri için kullanışlıdır.  Üretim kümeleri için küme sertifikası olarak bir sertifika yetkilisinden (CA) alınan bir sertifika kullanın.
 
 Küme sertifikası:
 
-- özel anahtar içermelidir.
-- bir Kişisel Bilgi Değişimi (*.pfx) dosyasına aktarılabilen anahtar değişimi için oluşturulmuş olmalıdır.
+- Özel anahtar içermelidir.
+- Bir Kişisel Bilgi Değişimi (.pfx) dosyasına aktarılabilen anahtar değişimi için oluşturulmuş olmalıdır.
 - Service Fabric kümesine erişmek için kullandığınız etki alanıyla eşleşen bir konu adına sahip olmalıdır. Kümenin HTTPS yönetim uç noktalarına ve Service Fabric Explorer’a yönelik SSL sağlanması için bu eşleşme gereklidir. Bir sertifika yetkilisinden (CA) .cloudapp.azure.com etki alanı için SSL sertifikası edinemezsiniz. Kümeniz için özel bir etki alanı adı edinmeniz gerekir. CA’dan sertifika istediğinizde sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adıyla eşleşmelidir.
 
 Azure’da Service Fabric kümelerine ait sertifikaları yönetmek için Azure Key Vault kullanılır.  Azure’da bir küme dağıtıldığında, Azure Service Fabric kümeleri oluşturmaktan sorumlu Azure kaynak sağlayıcısı sertifikaları Key Vault’tan çeker ve küme VM’lerine yükler.
@@ -87,13 +87,13 @@ Aşağıdaki özelliklere sahip bir Windows kümesi dağıtılır:
 - sertifikanın güvenliğinin sağlanması (şablon parametrelerinden yapılandırılabilir)
 - [ters proxy](service-fabric-reverseproxy.md) etkin
 - [DNS hizmeti](service-fabric-dnsservice.md) etkin
-- Bronz [dayanıklılık düzeyi](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (şablon parametrelerinden yapılandırılabilir)
+- Bronz [dayanıklılık düzeyi](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (şablon parametrelerinde yapılandırılabilir)
 - Gümüş [güvenilirlik düzeyi](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (şablon parametrelerinden yapılandırılabilir)
-- istemci bağlantısı uç noktası: 19000 (şablon parametrelerinden yapılandırılabilir)
-- HTTP ağ geçidi uç noktası: 19080 (şablon parametrelerinden yapılandırılabilir)
+- istemci bağlantısı uç noktası: 19000 (şablon parametrelerinde yapılandırılabilir)
+- HTTP ağ geçidi uç noktası: 19080 (şablon parametrelerinde yapılandırılabilir)
 
 ### <a name="azure-load-balancer"></a>Azure yük dengeleyici
-Bir yük dengeleyici dağıtılır ve aşağıdaki bağlantı noktalarını araştırıp bunların kurulumunu yönetir:
+Bir yük dengeleyici dağıtılır ve aşağıdaki bağlantı noktaları için araştırmalarla kurallar ayarlanır:
 - istemci bağlantı uç noktası: 19000
 - HTTP ağ geçidi uç noktası: 19080 
 - uygulama bağlantı noktası: 80
@@ -245,11 +245,11 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * PowerShell kullanarak Azure’da güvenli bir Service Fabric kümesi oluşturma
 > * X.509 sertifikasıyla kümenin güvenliğini sağlama
 > * PowerShell kullanarak kümeye bağlanma
-> * Küme kaldırma
+> * Bir kümeyi kaldırma
 
 Ardından, kümenizi nasıl ölçeklendirebileceğinizi öğrenmek üzere aşağıdaki öğreticiye geçin.
 > [!div class="nextstepaction"]
-> [Küme ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
+> [Küme Ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
 
 
 [template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-cluster.json

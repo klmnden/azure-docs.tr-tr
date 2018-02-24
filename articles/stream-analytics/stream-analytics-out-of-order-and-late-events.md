@@ -15,17 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-<<<<<<< HEAD
-ms.openlocfilehash: 208dfa14d5d18e106d654539cd80bafdeb90cdf8
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics olay sipariş konuları
 
@@ -76,6 +70,9 @@ Sıralama dışında ulaşır ancak kümesi düzen dışı tolerans penceresi i�
 * **Bırakılan**: atılır.
 
 Stream Analytics içinde sıra dışı tolerans penceresi alınan olayları yeniden sıralar, sorgu çıktısı düzen dışı tolerans penceresi tarafından ertelendi.
+
+### <a name="early-events"></a>Erken olayları
+Uygulama zamanı tarafından işlenirken, olaylar, uygulama süreleri 5 dakikadan kendi varış vaktinden bırakılan ya da yapılandırma seçeneği belirlenmiş göre ayarlanır.
 
 ### <a name="example"></a>Örnek
 

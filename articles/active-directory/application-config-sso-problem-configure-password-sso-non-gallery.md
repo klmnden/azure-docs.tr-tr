@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 265d58ce4098ea924318dfe2959397d60a0721d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Parola tek oturum açma için Galeri olmayan uygulama yapılandırma sorunu
 
@@ -33,19 +33,19 @@ Oturum açma alan yakalama HTML etkin oturum açma sayfaları için yalnızca de
 
 -   Oturum açma el ile alan yakalama
 
-**Otomatik oturum açma alan yakalama** kullanıyorlarsa iyi çoğu HTML etkin oturum açma sayfaları ile çalışır **kullanıcı adı ve parola girişi için iyi bilinen DIV kimlikleri** alan. Bu çalışır belirli ölçütlere uyan DIV kimliklerini bulmak için sayfada HTML değiştirilene ve biz daha sonra parolaları ona oynatabilirsiniz şekilde bu uygulama için bu meta veri kaydetme tarafından yoludur.
+**Otomatik oturum açma alan yakalama** kullanıyorlarsa iyi çoğu HTML etkin oturum açma sayfaları ile çalışır **kullanıcı adı ve parola girişi için iyi bilinen DIV kimlikleri** alan. Bu çalışır belirli ölçütlere uyan DIV kimliklerini bulmak için sayfada HTML değiştirilene ve meta verilerin parolaları, daha sonra yeniden yürütme bu uygulama için kaydetme yoludur.
 
-**Oturum açma el ile alan yakalama** durumda kullanılabilmesi için uygulama **satıcı etiket değil** oturum açmak için kullanılan giriş alanları. Oturum açma el ile alan yakalama durumda de kullanılabilir olduğunda **satıcı işler birden çok alan** , otomatik olarak algılanır olamaz. Bu alanların sayfada olduğu bize sürece azure AD oturum açma sayfasında, olduğu gibi sayıda alanlar için veri depolayabilirsiniz.
+**Oturum açma el ile alan yakalama** durumda kullanılabilmesi için uygulama **satıcı etiket değil** oturum açma için kullanılan giriş alanları. Oturum açma el ile alan yakalama durumda de kullanılabilir olduğunda **satıcı işler birden çok alan** otomatik olarak algılanır olamaz. Bu alanların sayfada olduğu bize sürece azure AD oturum açma sayfasında olarak sayıda alanlar için veri depolayabilirsiniz.
 
-Genel olarak, **otomatik oturum açma alan yakalama çalışmazsa, her zaman el ile seçeneği çalışırken öneririz.**
+Genel olarak, **otomatik oturum açma alan yakalama çalışmazsa, el ile seçeneği kullanmayı deneyin.**
 
 ### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Oturum açma alanları bir uygulama için otomatik olarak yakalama
 
 Yapılandırmak için **parola tabanlı çoklu oturum açma** kullanarak bir uygulama için **otomatik oturum açma alan yakalama**, aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -53,7 +53,7 @@ Yapılandırmak için **parola tabanlı çoklu oturum açma** kullanarak bir uyg
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
 
@@ -61,11 +61,11 @@ Yapılandırmak için **parola tabanlı çoklu oturum açma** kullanarak bir uyg
 
 8.  Modunu seçin **parola tabanlı oturum açma.**
 
-9.  Girin **oturum açma URL'si**. Bu kullanıcılar, kullanıcı adını ve oturum açmak için parola girdiğiniz yere URL'dir. **Oturum açma alanları sağladığınız URL'de görünür olduğundan emin olun**.
+9.  Girin **oturum açma URL'si**, kullanıcıların nerede girdiği kullanıcı adı ve parola oturum açmak için URL. **Oturum açma alanları sağladığınız URL'de görünür olduğundan emin olun**.
 
 10. **Kaydet** düğmesine tıklayın.
 
-11. Bunu gerçekleştirdikten sonra biz otomatik olarak bir kullanıcı adı için bu URL'yi scrape ve parola giriş kutusu ve Azure AD erişim paneli tarayıcı uzantısı kullanarak bu uygulamaya parolaları güvenli bir şekilde iletmek için kullanmanızı sağlar.
+11. Bir kez, URL için bir kullanıcı adı otomatik olarak scraped ve parola giriş kutusu ve Azure AD erişim paneli tarayıcı uzantısı kullanarak bu uygulamaya parolaları güvenli bir şekilde iletmek için kullanmanıza olanak sağlayan yapın.
 
 ## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>El ile oturum açma alanları bir uygulama için yakalama
 
@@ -73,9 +73,9 @@ El ile oturum açma alanları yakalamak için öncelikle erişim paneli tarayıc
 
 Yapılandırmak için **parola tabanlı çoklu oturum açma** kullanarak bir uygulama için **oturum açma el ile alan yakalama**, aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık [ **Azure portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
@@ -83,7 +83,7 @@ Yapılandırmak için **parola tabanlı çoklu oturum açma** kullanarak bir uyg
 
 5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm Uygulamalar.**
 
 6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
 
@@ -91,11 +91,11 @@ Yapılandırmak için **parola tabanlı çoklu oturum açma** kullanarak bir uyg
 
 8.  Modunu seçin **parola tabanlı oturum açma.**
 
-9.  Girin **oturum açma URL'si**. Bu kullanıcılar, kullanıcı adını ve oturum açmak için parola girdiğiniz yere URL'dir. **Oturum açma alanları sağladığınız URL'de görünür olduğundan emin olun**.
+9.  Girin **oturum açma URL'si**, kullanıcıların nerede girdiği kullanıcı adı ve parola oturum açmak için URL. **Oturum açma alanları sağladığınız URL'de görünür olduğundan emin olun**.
 
 10. **Kaydet** düğmesine tıklayın.
 
-11. Bunu gerçekleştirdikten sonra biz otomatik olarak bir kullanıcı adı için bu URL'yi scrape ve parola giriş kutusu ve Azure AD erişim paneli tarayıcı uzantısı kullanarak bu uygulamaya parolaları güvenli bir şekilde iletmek için kullanmanızı sağlar. Bu başarısız durumda, cihazı **oturum açma el ile alan yakalama kullanmak için oturum açma modunu değiştirme** 12 adıma geçmeden tarafından.
+11. Bir kez, URL için bir kullanıcı adı otomatik olarak scraped ve parola giriş kutusu ve Azure AD erişim paneli tarayıcı uzantısı kullanarak bu uygulamaya parolaları güvenli bir şekilde iletmek için kullanmanıza olanak sağlayan yapın. Yapabilecekleriniz hatasına karşı **oturum açma el ile alan yakalama kullanmak için oturum açma modunu değiştirme** 12 adıma geçmeden tarafından.
 
 12. tıklatın **yapılandırma &lt;appname&gt; parola çoklu oturum açma ayarları**.
 
@@ -103,21 +103,21 @@ Yapılandırmak için **parola tabanlı çoklu oturum açma** kullanarak bir uyg
 
 14. **Tamam**’a tıklayın.
 
-15. **Kaydet** düğmesine tıklayın.
+15. **Kaydet**’e tıklayın.
 
 16. Erişim paneli kullanmak için üzerinde ekran yönergelerini izleyin.
 
 ## <a name="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>"Bu URL'de oturum açma alanları bulamadık" hata bakın
 
-Oturum açma alanlarının otomatik algılama başarısız olduğunda, bu hatayı görürsünüz. Bu sorunu gidermek için adımları izleyerek oturum açma el ile alan algılama deneyin [el ile oturum açma alanları bir uygulama için yakalama](#how-to-manually-capture-sign-in-fields-for-an-application) bölümü.
+Oturum açma alanlarının otomatik algılama başarısız olduğunda, bu hatayı görürsünüz. Sorunu çözmek için oturum açma el ile alan algılama içindeki adımları izleyerek deneyin [el ile oturum açma alanları bir uygulama için yakalama](#how-to-manually-capture-sign-in-fields-for-an-application) bölümü.
 
 ## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>"Çoklu oturum açma yapılandırmasını kaydetmek için kurtarılamadı" bakın hatası
 
-Belirli nadir durumlarda, tek oturum açma yapılandırmasını güncelleştirme başarısız olabilir. Bu çözümlemeye tek oturum açma yapılandırması yeniden kaydediliyor.
+Belirli nadir durumlarda, tek oturum açma yapılandırmasını güncelleştirme başarısız olabilir. Çözümlemek için tek oturum açma yapılandırması yeniden kaydetmeyi deneyin.
 
-Bu sürekli başarısız olmaya devam ederse, destek olayı açın ve toplanan bilgi sağlamak [portal bildirim ayrıntılarını görmek nasıl](#i-cannot-manually-detect-sign-in-fields-for-my-application) ve [bir destek mühendisine bildirim ayrıntıları göndererek Yardım alma](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) bölümler.
+Sürekli başarısız olmaya devam ederse, destek olayı açın ve toplanan bilgi sağlamak [portal bildirim ayrıntılarını görmek nasıl](#i-cannot-manually-detect-sign-in-fields-for-my-application) ve [desteklemek için bildirim ayrıntıları göndererek Yardım alma mühendislik](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) bölümler.
 
-## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>I el ile oturum alanlarında Uygulamam için algılayamıyor
+## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Uygulamam için el ile oturum açma alanları algılayamıyor
 
 El ile algılama çalışmıyor açtığınızda görebilirsiniz davranışları bazıları şunlardır:
 
@@ -139,9 +139,9 @@ Bu sorunlarla karşılaşırsanız aşağıdakileri denetleyin:
 
 -   Doğru alanları kırmızı işaretçileri sağlayarak el ile yakalama işlemi yeniden deneyin.
 
--   El ile yakalama işlemi askıda görünüyor veya oturum açma sayfası yapmaz her şeyi (durumda yukarıdaki 3), el ile yakalama işlemi yeniden deneyin. Ancak, işlem tamamlandıktan sonra bu kez basın **F12** düğmesi tarayıcınızın Geliştirici konsolunu açın. Bir kez, açık **konsol** ve türü **window.location= "&lt;uygulama yapılandırırken belirttiğiniz URL'de oturum girin&gt;"** ve tuşuna basın **Enter**. Bu zorla bir sayfa, yakalama işlemi sona yeniden yönlendirilmesi için ve yakalanan alanlar depolar.
+-   El ile yakalama işlemi askıda görünüyor veya oturum açma sayfası yapmaz her şeyi (durumda yukarıdaki 3), el ile yakalama işlemi yeniden deneyin. Ancak, işlem tamamlandıktan sonra bu kez basın **F12** düğmesi tarayıcınızın Geliştirici konsolunu açın. Bir kez, açık **konsol** ve türü **window.location= "&lt;uygulama yapılandırırken belirttiğiniz oturum açma URL'si girin&gt;"** ve tuşuna basın **girin** . Bu, yakalama işlemi sonlandırır ve yakalanan alanları depolayan bir sayfa yeniden yönlendirme zorlar.
 
-Bu yaklaşım hiçbiri sizin için çalışıyorsanız, size yardımcı olabilir. Ne, toplanan bilgilerinin yanı sıra çalıştığınız ayrıntılarını içeren bir destek servis talebi açma [portal bildirim ayrıntılarını görmek nasıl](#i-cannot-manually-detect-sign-in-fields-for-my-application) ve [destek mühendisine bildirim ayrıntıları göndererek Yardım alma ](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (varsa) bölümler.
+Bu yaklaşım hiçbiri sizin için çalışıyorsanız, destek yardımcı olabilir. Ne, toplanan bilgilerinin yanı sıra çalıştığınız ayrıntılarını içeren bir destek servis talebi açma [portal bildirim ayrıntılarını görmek nasıl](#i-cannot-manually-detect-sign-in-fields-for-my-application) ve [destek mühendisine bildirim ayrıntıları göndererek Yardım alma ](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (varsa) bölümler.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısı yükleme
 
@@ -179,17 +179,17 @@ Aşağıdaki adımları izleyerek herhangi bir portal bildirim ayrıntılarını
   >
   >
 
-3.  Bu açık **bildirim ayrıntıları** dikey.
+3.  **Bildirim ayrıntıları** bölmesini açar.
 
-4.  Bu bilgileri kullanın kendinize sorun hakkında daha fazla ayrıntı anlayın.
+4.  Bilgileri kendiniz sorun hakkında daha fazla ayrıntı anlamak için.
 
-5.  Hala yardıma ihtiyacınız varsa, bu bilgiler sorununuzu Yardım almak için bir destek mühendisine veya ürün grubu ile paylaşabilirsiniz.
+5.  Hala yardıma ihtiyacınız varsa, bilgileri destek mühendisine veya ürün grubu sorununuzu Yardım almak için ile paylaşabilirsiniz.
 
 6.  Tıklatın **kopya** **simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendislik ile paylaşmak için tüm bildirim ayrıntıları kopyalamak için metin kutusu.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Bir destek mühendisine bildirim ayrıntıları göndererek Yardım alma
 
-Paylaştığınız çok önemlidir **aşağıda listelenen tüm ayrıntıları** size hızla yardımcı böylece yardıma gereksiniminiz varsa bir destek mühendisine ile. Bu yana kolayca yapabilirsiniz **bir ekran görüntüsü alma** veya tıklatarak **kopyalama hata simgesi**, sağ tarafında bulunan **kopyalama hatası** metin kutusu.
+Paylaştığınız çok önemlidir **aşağıda listelenen tüm ayrıntıları** size hızla yardımcı böylece yardıma gereksiniminiz varsa bir destek mühendisine ile. Şunları yapabilirsiniz **bir ekran görüntüsü alın** veya **kopyalama hata simgesi**, sağ tarafında bulunan **kopyalama hatası** metin kutusu.
 
 ## <a name="notification-details-explained"></a>Açıklanan bildirim ayrıntıları
 
@@ -217,13 +217,13 @@ Daha fazla her bildirimin öğelerini anlamına gelir ve bunların her birini ö
 
     -   Örnek – **2017-03-23T19:50:43.7583681Z**
 
--   **İç işlem kimliği** – iç kimlik kullanabileceğiniz bizim sistemlerinde hata aramak için
+-   **İç işlem kimliği** – bizim sistemlerinde hata aramak için kullanılan iç kimliği
 
     -   Örnek – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 -   **UPN** – işlemi gerçekleştiren kullanıcı
 
-    -   Örnek –**tperkins@f128.info**
+    -   Örnek – **tperkins@f128.info**
 
 -   **Kiracı kimliği** – işlemi gerçekleştiren kullanıcının üyesi olduğu Kiracı benzersiz kimliği
 
@@ -253,7 +253,7 @@ Daha fazla her bildirimin öğelerini anlamına gelir ve bunların her birini ö
 
 -   **Kopyalama hatası** – tıklatın **Kopyala simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendislik ile paylaşmak için tüm bildirim ayrıntıları kopyalamak için metin kutusu
 
-    -   Örnek –```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    -   Örnek – ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Çoklu oturum açma uygulamalarınızı uygulama proxy'si ile sağlayın.](active-directory-application-proxy-sso-using-kcd.md)

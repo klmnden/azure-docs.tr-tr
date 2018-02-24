@@ -12,19 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 02/14/2018
 ms.author: owend
-<<<<<<< HEAD
-ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d00f6bbc285cca028f22ced69ad03d8a2814d76a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services genişletme
 
@@ -48,7 +42,7 @@ Sorgu havuzda sahip sorgu çoğaltmaları sayısından bağımsız olarak, işle
 
 ## <a name="monitor-qpu-usage"></a>QPU kullanımını izleme
 
- Sunucunuz gereklidir genişleme varsa belirlemek için ölçümleri kullanarak Azure portalında sunucunuz izleyin. QPU düzenli olarak kullanıma maxes, Modellerinizi sorguları sayısı planınıza QPU sınırını aşan anlamına gelir. Sorgu sorgu iş parçacığı havuzu sırasındaki sayısı kullanılabilir QPU aştığında sorgu havuzu iş kuyruğu uzunluğu ölçüm da artırır. Daha fazla bilgi için bkz: [izleme sunucusu ölçümlerini](analysis-services-monitor.md).
+ Sunucunuz gereklidir genişleme varsa belirlemek için ölçümleri kullanarak Azure portalında sunucunuz izleyin. QPU düzenli olarak kullanıma maxes, Modellerinizi sorguları sayısı planınıza QPU sınırını aşan anlamına gelir. Sorgu sorgu iş parçacığı havuzu sırasındaki sayısı kullanılabilir QPU aştığında sorgu havuzu iş kuyruğu uzunluğu ölçüm da artırır. Daha fazla bilgi için bkz. [Sunucu ölçümlerini izleme](analysis-services-monitor.md).
 
 ## <a name="configure-scale-out"></a>Genişleme yapılandırın
 

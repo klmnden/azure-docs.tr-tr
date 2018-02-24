@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/18/2018
 ms.author: raynew
-ms.openlocfilehash: 578ce5d4e661e74003440836304f16579d292d06
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içermektedir. Bu makaleyi okuduktan sonra sorularınız varsa, yayınlayın [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -163,7 +163,7 @@ Otomatik hale getirmek için, bir sanal makine hatasını algılamak için şirk
 Evet, azure'dan farklı bir konağa için alternatif konuma kurtarma kullanabilirsiniz. Seçenekler hakkında daha fazla bilgiyi aşağıdaki VMware ve Hyper-V sanal makineleri için bağlantıları.
 
 * [VMware sanal makineleri için](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [Hyper-V sanal makineleri için](site-recovery-failback-from-azure-to-hyper-v.md#perform-failback)
+* [Hyper-V sanal makineleri için](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="service-providers"></a>Hizmet sağlayıcıları
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Bir hizmet sağlayıcısı ben. Site Recovery adanmış ve paylaşılan altyapı modelleri için çalışıyor mu?

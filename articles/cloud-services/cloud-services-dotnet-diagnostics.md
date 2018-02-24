@@ -3,8 +3,8 @@ title: "Bulut Hizmetleri ile Azure tanılama (.NET) kullanmak üzere nasıl | Mi
 description: "Hata ayıklama, performans, izleme, trafik analizi ve daha fazla ölçmek için Azure bulut hizmetlerinden veri toplamak üzere Azure Tanılama'yı kullanarak."
 services: cloud-services
 documentationcenter: .net
-author: rboucher
-manager: jwhit
+author: thraka
+manager: timlt
 editor: 
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: robb
-ms.openlocfilehash: 333d2f26ce043a167fb84858c8327cb39e868ffa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adegeo
+ms.openlocfilehash: a8d6b16fa363062e06d48bfc5af2ca37697d5cd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Cloud Services, Azure Tanılama'yı etkinleştirme
 Bkz: [Azure tanılama genel bakış](../azure-diagnostics.md) bir arka planda Azure tanılama için.
@@ -26,7 +26,7 @@ Bkz: [Azure tanılama genel bakış](../azure-diagnostics.md) bir arka planda Az
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Çalışan rolü tanılamada etkinleştirme
 Bu kılavuz, .NET EventSource sınıfı kullanarak telemetri verileri gösterdiği Azure çalışan rolüne uygulamak açıklar. Azure tanılama telemetri verilerini toplamak ve bir Azure depolama hesabında depolamak için kullanılır. Çalışan rolü oluştururken, Visual Studio tanılama 1.0 Azure SDK'ları ve önceki sürümler için .NET 2.4 çözümde bir parçası olarak otomatik olarak etkinleştirir. Aşağıdaki yönergeler tanılama 1.0 çözüm ve dağıtma tanılama 1.2 veya 1.3 çalışan rolünüzün devre dışı bırakma çalışan rolü oluşturma işlemi açıklar.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bu makale bir Azure aboneliğiniz varsa ve Azure SDK ile Visual Studio'ya varsayar. Bir Azure aboneliğiniz yoksa için kaydolabilirsiniz [ücretsiz deneme][Free Trial]. Emin olun [yükleyin ve Azure PowerShell sürüm 0.8.7 yapılandırın veya daha sonra][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>1. adım: Çalışan rolü oluşturma
@@ -142,7 +142,7 @@ namespace WorkerRole1
 2. Bir XML dosyasına eklemek, **WorkerRole1** sağ tıklayarak projeyi **WorkerRole1** proje ve seçin **Ekle** -> **yeni öğe...** -> **Visual C# öğeleri** -> **veri** -> **XML dosyası**. "WadExample.xml" dosya adı.
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. WadConfig.xsd yapılandırma dosyası ile ilişkilendirin. Etkin pencereyi WadExample.xml Düzenleyicisi penceresini olduğundan emin olun. Tuşuna **F4** açmak için **özellikleri** penceresi. Tıklatın **şemaları** özelliğinde **özellikleri** penceresi. Tıklatın **...** içinde **şemaları** özelliği. **Ekle…** düğmesine düğmesini ve XSD dosyasını kaydettiğiniz konuma gidin ve WadConfig.xsd dosyasını seçin. **Tamam** düğmesine tıklayın.
+3. WadConfig.xsd yapılandırma dosyası ile ilişkilendirin. Etkin pencereyi WadExample.xml Düzenleyicisi penceresini olduğundan emin olun. Tuşuna **F4** açmak için **özellikleri** penceresi. Tıklatın **şemaları** özelliğinde **özellikleri** penceresi. Tıklatın **...** içinde **şemaları** özelliği. **Ekle…** düğmesine düğmesini ve XSD dosyasını kaydettiğiniz konuma gidin ve WadConfig.xsd dosyasını seçin. **Tamam**’a tıklayın.
 
 4. Aşağıdaki XML WadExample.xml yapılandırma dosyasının içeriğini değiştirin ve dosyayı kaydedin. Bu yapılandırma dosyasını toplamak için birkaç performans sayaçlarını tanımlar: CPU kullanımı, diğeri bellek kullanımı için. Ardından yapılandırmasını SampleEventSourceWriter sınıftaki yöntemlerin karşılık gelen dört olayları tanımlar.
 
@@ -172,7 +172,7 @@ namespace WorkerRole1
 ### <a name="step-5-install-diagnostics-on-your-worker-role"></a>5. adım: Tanılama, çalışan rolü yükleyin.
 Bir web veya çalışan rolü tanılama yönetmek için PowerShell cmdlet'leri şunlardır: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension ve Kaldır-AzureServiceDiagnosticsExtension.
 
-1. Azure PowerShell'i açın.
+1. Open Azure PowerShell.
 2. Tanılama, çalışan rolü yüklemek için komut dosyası yürütme (Değiştir *StorageAccountKey* wadexample depolama hesabınız için depolama hesabınızın anahtarıyla ve *config_path* yoluyla *WadExample.xml* dosyası):
 
 ```powershell

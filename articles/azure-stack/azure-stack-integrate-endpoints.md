@@ -5,21 +5,18 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/16/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure veri merkezi tümleştirme yığın - uç noktalarını yayımlama
-
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
-
-Azure yığın altyapı rolleri için çeşitli uç (VIP'ler - sanal IP adresleri) ayarlar. Bu Vıp'lerin ortak IP adresi havuzundan ayrılır. Her VIP yazılım tanımlı ağ katmanı bir erişim denetim listesi (ACL) ile korunmaktadır. ACL, fiziksel anahtarlar (TORs ve BMC) arasında daha fazla çözüm sağlamlaştırmak için de kullanılır. Dağıtım sırasında belirtilen dış DNS bölge içindeki her bir uç nokta için bir DNS girişi oluşturulur.
+Azure yığın birden fazla sanal IP adresleri (VIP), altyapı rolleri için ayarlar. Bu Vıp'lerin ortak IP adresi havuzundan ayrılır. Her VIP yazılım tanımlı ağ katmanı bir erişim denetim listesi (ACL) ile korunmaktadır. ACL, fiziksel anahtarlar (TORs ve BMC) arasında daha fazla çözüm sağlamlaştırmak için de kullanılır. Dağıtım sırasında belirtilen dış DNS bölge içindeki her bir uç nokta için bir DNS girişi oluşturulur.
 
 
 Aşağıdaki Mimari diyagramı ACL'ler ve farklı ağ katmanları gösterilmektedir:
@@ -28,7 +25,7 @@ Aşağıdaki Mimari diyagramı ACL'ler ve farklı ağ katmanları gösterilmekte
 
 ## <a name="ports-and-protocols-inbound"></a>Bağlantı noktalarını ve protokolleri (gelen)
 
-Dış ağlara yayımlama Azure yığın uç noktalar için gerekli altyapı VIP'ler aşağıdaki tabloda listelenmiştir. Liste her gösterir uç noktası, gerekli bağlantı noktası ve protokol. SQL kaynak sağlayıcısı ve diğerleri gibi ek kaynak sağlayıcıları için gerekli uç noktaları belirli bir kaynak sağlayıcısı dağıtım belgelerinde ele alınmıştır.
+Dış ağlara yayımlama Azure yığın uç noktalar için gerekli altyapı VIP'ler aşağıda listelenmiştir. Liste her gösterir uç noktası, gerekli bağlantı noktası ve protokol. SQL kaynak sağlayıcısı ve diğerleri gibi ek kaynak sağlayıcıları için gerekli uç noktaları belirli bir kaynak sağlayıcısı dağıtım belgelerinde ele alınmıştır.
 
 İç altyapı yayımlama Azure yığını için gerekli olmadıklarını olduğundan VIP'ler listelenmez.
 
@@ -52,14 +49,18 @@ Dış ağlara yayımlama Azure yığın uç noktalar için gerekli altyapı VIP'
 |Depolama tablosu|&#42;. Tablo.  *&lt;bölge >.&lt; FQDN >*|HTTP<br>HTTPS|80<br>443|
 |Depolama blobu|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL kaynak sağlayıcısı|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL kaynak sağlayıcısı|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
+|MySQL kaynak sağlayıcısı|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
+|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
 
 ## <a name="ports-and-urls-outbound"></a>Bağlantı noktaları ve URL'ler (giden)
 
 Azure yığını yalnızca saydam proxy sunucuları destekler. Bir dağıtımda saydam proxy yukarı bağlantılar burada geleneksel proxy sunucusu için şu bağlantı noktalarını ve URL'ler giden iletişim için izin vermelidir:
 
 
-|Amaç|URL|Protokol|Bağlantı Noktaları|
+|Amaç|URL'si|Protokol|Bağlantı Noktaları|
 |---------|---------|---------|---------|
 |Kimlik|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
 |Market dağıtım|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|

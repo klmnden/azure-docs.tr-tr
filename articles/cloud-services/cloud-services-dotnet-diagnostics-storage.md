@@ -3,8 +3,8 @@ title: "Azure depolama alanında tanılama veri deposu ve Görünüm | Microsoft
 description: "Azure Tanılama verileri Azure depolama alanına almak ve görüntüleme"
 services: cloud-services
 documentationcenter: .net
-author: rboucher
-manager: jwhit
+author: thraka
+manager: timlt
 editor: tysonn
 ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: robb
-ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adegeo
+ms.openlocfilehash: 448d685cf2c0a21f4f87e672644a3cf72c2a576f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage deposu ve görünüm Tanılama verileri
 Microsoft Azure storage öykünücüsü veya Azure depolama transfer sürece Tanılama verileri kalıcı olarak depolanmaz. Bir kez depolama biriminde, onu birkaç kullanılabilen araçlar biriyle görüntülenebilir.
@@ -60,7 +60,7 @@ SDK 2.4 ve önceki Tanılama verileri de yapılandırma dosyası aracılığıyl
 ## <a name="store-diagnostic-data"></a>Tanılama verileri depola
 Günlük verileri Blob veya tablo depolama aşağıdaki adlarla depolanır:
 
-**Tabloları**
+**tabloları**
 
 * **WadLogsTable** - İzleme dinleyicisi kullanarak kod içinde yazılmış günlükleri.
 * **WADDiagnosticInfrastructureLogsTable** -Tanılama izleme ve yapılandırma değişikliklerini.

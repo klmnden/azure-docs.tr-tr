@@ -1,6 +1,6 @@
 ---
-title: "Oluşturma ve Azure CLI ile Linux sanal makineleri yönetme | Microsoft Docs"
-description: "Öğretici - oluşturma ve Linux VM'ler Azure CLI ile yönetme"
+title: "Azure CLI ile Linux VM’leri Oluşturma ve Yönetme | Microsoft Docs"
+description: "Öğretici - Azure CLI ile Linux VM’leri Oluşturma ve Yönetme"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,51 +16,51 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: b2e9324cbe7ae683a472ecc0ee93329773886f88
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Oluşturma ve Linux VM'ler Azure CLI ile yönetme
+# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Azure CLI ile Linux VM’leri Oluşturma ve Yönetme
 
-Azure sanal makineler tam olarak yapılandırılabilir ve esnek bir bilgi işlem ortamı sağlar. Bu öğretici, bir VM boyutu seçerek, bir VM görüntüsü seçme ve bir VM dağıtma gibi temel Azure sanal makine dağıtım öğeleri kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Azure sanal makineleri tam olarak yapılandırılabilir ve esnek bir bilgi işlem ortamı sağlar. Bu öğretici VM boyutu seçme, VM görüntüsü seçme ve VM dağıtma gibi temel Azure sanal makine dağıtımı öğelerini kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Oluşturma ve bir VM'ye bağlanın
-> * Seçin ve VM görüntüleri kullanmak
-> * Görüntüleme ve belirli VM boyutları kullanma
+> * VM oluşturma ve bir VM’ye bağlanma
+> * VM görüntülerini seçme ve kullanma
+> * Belirli VM boyutlarını görüntüleme ve kullanma
 > * VM’yi yeniden boyutlandırma
-> * Görüntüleyin ve VM durumunu anlamak
+> * VM durumunu görüntüleme ve anlama
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. 
 
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu bir sanal makine önce oluşturulması gerekir. Bu örnekte, bir kaynak grubu adında *myResourceGroupVM* oluşturulan *eastus* bölge. 
+Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir sanal makineden önce bir kaynak grubu oluşturulmalıdır. Bu örnekte, *eastus* bölgesinde *myResourceGroupVM* adlı bir kaynak grubu oluşturulur. 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
 ```
 
-Kaynak grubu oluştururken veya değiştirirken Bu öğretici görülebilir bir VM belirtilir.
+Kaynak grubu, bu öğretici boyunca görülebileceği gibi bir VM oluşturulurken veya değiştirilirken belirtilir.
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-Bir sanal makine oluşturma [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm#az_vm_create) komutu. 
+[az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) komutuyla bir sanal makine oluşturun. 
 
-Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandırma ve yönetici kimlik bilgileri gibi birkaç seçenek bulunur. Bu örnekte, bir sanal makine adı ile oluşturulan *myVM* Ubuntu Server çalıştıran. 
+Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandırma ve yönetici kimlik bilgileri gibi çeşitli seçenekler bulunur. Bu örnekte, Ubuntu Server çalıştıran *myVM* adlı bir sanal makine oluşturulmuştur. 
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-VM oluşturmak için birkaç dakika sürebilir. VM oluşturulduktan sonra Azure CLI VM hakkında bilgi verir. Not edin `publicIpAddress`, bu adres sanal makine erişmek için kullanılan... 
+VM’nin oluşturulması birkaç dakika sürebilir. VM oluşturulduktan sonra, Azure CLI VM hakkında bilgi çıkışı sağlar. `publicIpAddress` öğesini not edin, bu adres sanal makineye erişmek için kullanılabilir. 
 
 ```azurecli-interactive 
 {
@@ -75,31 +75,31 @@ VM oluşturmak için birkaç dakika sürebilir. VM oluşturulduktan sonra Azure 
 }
 ```
 
-## <a name="connect-to-vm"></a>VM'ye bağlanın
+## <a name="connect-to-vm"></a>VM’ye bağlanma
 
-Artık Azure bulut Kabuğu'nda veya yerel bilgisayarınızdan SSH VM'ye bağlanabilir. Örnek IP adresiyle değiştirin `publicIpAddress` önceki adımda not ettiğiniz.
+Artık Azure Cloud Shell’de SSH ile veya yerel bilgisayarınızdan VM’ye bağlanabilirsiniz. Örnek IP adresini önceki adımda not ettiğiniz `publicIpAddress` ile değiştirin.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-VM oturum açtıktan sonra yükleme ve uygulamalarını yapılandırın. İşiniz bittiğinde, normal olarak SSH oturumu kapatın:
+VM’de oturum açtıktan sonra, uygulamaları yükleyebilir ve yapılandırabilirsiniz. İşiniz bittiğinde, normal olarak SSH oturumunu kapatın:
 
 ```bash
 exit
 ```
 
-## <a name="understand-vm-images"></a>VM görüntüleri anlama
+## <a name="understand-vm-images"></a>VM görüntülerini anlama
 
-Azure Market VM'ler oluşturmak için kullanılan çok sayıda görüntü içerir. Önceki adımlarda, bir sanal makine bir Ubuntu görüntü kullanılarak oluşturuldu. Bu adımda, Azure CLI sonra ikinci bir sanal makineyi dağıtmak için kullanılan bir CentOS görüntüsü Market aramak için kullanılır.  
+Azure market, VM oluşturmak için kullanılabilecek çok sayıda görüntü içerir. Önceki adımlarda, bir Ubuntu görüntüsünü kullanarak bir sanal makine oluşturduk. Bu adımda, markette bir CentOS görüntüsü aramak ve ikinci bir sanal makineyi dağıtmak üzere kullanmak için Azure CLI’si kullanılır.  
 
-Bir liste en yaygın olarak kullanılan görüntüleri görmek için [az vm görüntü listesi](/cli/azure/vm/image#list) komutu.
+Yaygın olarak kullanılan görüntülerin bir listesini görmek için, [az vm image list](/cli/azure/vm/image#az_vm_image_list) komutunu kullanın.
 
 ```azurecli-interactive 
 az vm image list --output table
 ```
 
-Komut çıktısı Azure üzerinde en popüler VM görüntüleri döndürür.
+Komut çıkışı Azure’daki en popüler VM görüntülerini döndürür.
 
 ```bash
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
@@ -117,13 +117,13 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-Ekleyerek tam bir listesi görülebilir `--all` bağımsız değişkeni. Resim listesi de göre filtrelenebilir `--publisher` veya `–-offer`. Bu örnekte, tüm görüntüleri için eşleşen bir teklif ile listesi filtrelenir *CentOS*. 
+Tam listeyi görmek için `--all` bağımsız değişkenini ekleyin. Görüntü listesi `--publisher` veya `–-offer` kullanılarak da filtrelenebilir. Bu örnekte, liste *CentOS* ile eşleşen teklife sahip tüm görüntüler için filtrelenmiştir. 
 
 ```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
 ```
 
-Kısmi çıktı:
+Kısmi çıkış:
 
 ```azurecli-interactive 
 Offer             Publisher         Sku   Urn                                     Version
@@ -136,39 +136,39 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Belirli bir görüntüsünü kullanan bir VM'yi dağıtmak için değeri not edin *Urn* sütun. Görüntü belirtirken, görüntü sürüm numarası ile "son", hangi dağıtım en son sürümünü seçer değiştirilebilir. Bu örnekte, `--image` bağımsız değişkeni bir CentOS 6.5 görüntüsü en son sürümünü belirtmek için kullanılır.  
+Bir VM’yi belirli bir görüntüyü kullanarak dağıtmak için, *Urn* sütunundaki değeri not edin. Görüntüyü belirtirken, görüntü sürümü sayısı “en yeni” ile değiştirilerek dağıtımın en yeni sürümü seçilebilir. Bu örnekte, bir CentOS 6.5 görüntüsünün son sürümünü belirtmek için `--image` bağımsız değişkeni kullanılmıştır.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
-## <a name="understand-vm-sizes"></a>VM boyutları anlama
+## <a name="understand-vm-sizes"></a>VM boyutlarını anlama
 
-Bir sanal makine boyutu, sanal makine için kullanılabilir hale getirilir işlem kaynaklarını CPU, GPU ve bellek gibi miktarını belirler. Sanal makineler, beklenen iş yükü için uygun boyutta olması gerekir. İş yükü artarsa, var olan bir sanal makine yeniden boyutlandırılabilir.
+Bir sanal makinenin boyutu sanal makine tarafından kullanılabilen CPU, GPU ve bellek gibi kaynakların miktarını belirler. Sanal makinelerin beklenen iş yüküne uygun olarak boyutlandırılması gerekir. İş yükü artarsa, mevcut bir sanal makine yeniden boyutlandırılabilir.
 
-### <a name="vm-sizes"></a>VM boyutları
+### <a name="vm-sizes"></a>VM Boyutları
 
-Aşağıdaki tabloda, kullanım örneklerine boyutları kategorilere ayırır.  
+Aşağıdaki tabloda boyutlar kullanım durumlarına göre kategorilere ayrılmaktadır.  
 
 | Tür                     | Boyutlar           |    Açıklama       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Genel amaçlı](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Dengeli CPU bellekten. Geliştirme için ideal / test ve küçük ve orta uygulamaları ve verileri çözümler.  |
-| [İşlem için iyileştirilmiş](sizes-compute.md)   | FS, F             | Yüksek CPU bellekten. Orta düzey trafik uygulamalar, ağ uygulamaları ve toplu işlemler için iyidir.        |
-| [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Yüksek bellek için-çekirdek. İlişkisel veritabanları, Orta ve büyük önbellekler ve bellek içi analizi için mükemmel.                 |
+| [Genel amaçlı](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Dengeli CPU/bellek. Küçük ve orta ölçekli uygulama ve veri çözümlerini geliştirmek/test etmek için idealdir.  |
+| [İşlem için iyileştirilmiş](sizes-compute.md)   | Fs, F             | Yüksek CPU/bellek. Orta düzey trafiğe sahip uygulamalar, ağ gereçleri ve toplu işlemler için idealdir.        |
+| [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Yüksek bellek/çekirdek. İlişkisel veritabanı, orta veya büyük boyutlu önbellekler ve bellek içi analiz için idealdir.                 |
 | [Depolama için iyileştirilmiş](../virtual-machines-windows-sizes-storage.md)      | Ls                | Yüksek disk aktarım hızı ve GÇ. Büyük Veri, SQL ve NoSQL veritabanları için ideal.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NC            | Yoğun Grafik işleme ve video düzenleme için hedeflenen özel VM'ler.       |
-| [Yüksek performans](sizes-hpc.md) | H, A8-11          | Bizim en güçlü CPU VM'ler isteğe bağlı yüksek verimlilik ağ arabirimlerine (RDMA) sahip. 
+| [GPU](sizes-gpu.md)          | NV, NC            | Ağır grafik işlemleri ile video düzenleme işlemleri için özel olarak hedeflenen VM’ler.       |
+| [Yüksek performans](sizes-hpc.md) | H, A8-11          | İşleme düzeyi yüksek olan isteğe bağlı ağ arabirimleri (RDMA) içeren VM’lerimiz, şimdiye kadarki en güçlü CPU ile sunuluyor. 
 
 
-### <a name="find-available-vm-sizes"></a>Kullanılabilir VM boyutları Bul
+### <a name="find-available-vm-sizes"></a>Kullanılabilir VM boyutlarını bulma
 
-Belirli bir bölgede kullanılabilir VM boyutlarının listesini görmek için [az vm listesi-boyutları](/cli/azure/vm#list-sizes) komutu. 
+Belirli bir bölgede kullanılabilen VM boyutlarının listesini görmek için, [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) komutunu kullanın. 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
 ```
 
-Kısmi çıktı:
+Kısmi çıkış:
 
 ```azurecli-interactive 
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
@@ -191,9 +191,9 @@ Kısmi çıktı:
                 16         57344  Standard_A7                           8           1047552                  619520
 ```
 
-### <a name="create-vm-with-specific-size"></a>Belirli boyutuyla VM oluşturma
+### <a name="create-vm-with-specific-size"></a>Belirli bir boyutta VM oluşturma
 
-Önceki VM oluşturma örnekte, bir boyut değil sağlanmadığından, varsayılan boyutu sonuçlanır. Oluşturma zamanı kullanarak bir VM boyutu seçilebilir [az vm oluşturma](/cli/azure/vm#create) ve `--size` bağımsız değişkeni. 
+Önceki VM oluşturma örneğinde, bir boyut sağlanmamış ve varsayılan boyut kullanılmıştı. [az vm create](/cli/azure/vm#az_vm_create) komutu ve `--size` bağımsız değişkenini kullanarak, oluşturma sırasında VM boyutu seçilebilir. 
 
 ```azurecli-interactive 
 az vm create \
@@ -206,36 +206,36 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>VM’yi yeniden boyutlandırma
 
-Bir VM dağıtıldıktan sonra artırmak veya kaynak ayırma azaltmak için yeniden boyutlandırılabilir. Bir VM boyutu geçerli görüntüleyebilirsiniz [az vm Göster](/cli/azure/vm#show):
+VM dağıtıldıktan sonra, kaynak ayırmayı artırmak veya azaltmak için yeniden boyutlandırılabilir. Bir VM’nin geçerli boyutunu [az vm show](/cli/azure/vm#az_vm_show) komutuyla görüntüleyebilirsiniz:
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Bir VM'yi yeniden boyutlandırılırken önce istenen boyut geçerli Azure kümede kullanılabilir olup olmadığını denetleyin. [Az vm listesi-vm-yeniden boyutlandırma-seçenekleri](/cli/azure/vm#list-vm-resize-options) komut boyutlarının listesi döndürür. 
+Bir VM’yi yeniden boyutlandırmadan önce, istenen boyutun Azure kümesinde kullanılabilir olup olmadığını denetleyin. [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) komutu boyut listesini döndürür. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-İstenen boyut varsa, işlemi sırasında yeniden başlatılıncaya kadar ancak VM bir gücü açma durumundan boyutlandırılabilir. Kullanım [az VM'yi yeniden boyutlandırın]( /cli/azure/vm#resize) boyutlandırma gerçekleştirmek için komutu.
+İstenen boyut kullanılabilirse, VM açık durumdayken yeniden boyutlandırılabilir ancak işlem sırasında yeniden başlatılır. Yeniden boyutlandırmayı gerçekleştirmek için [az vm resize]( /cli/azure/vm#az_vm_resize) komutunu kullanın.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-İstenen boyut geçerli kümede değilse, VM yeniden boyutlandırma işlemi oluşabilmesi için öncelikle serbest gerekir. Kullanım [az vm serbest bırakma]( /cli/azure/vm#deallocate) durdurun ve VM serbest bırakma için komutu. Not, VM geri açık olduğundan, geçici diskteki tüm verilerin kaldırılmış olabilir. Genel IP adresini de statik IP adresi kullanılmadığı sürece değiştirir. 
+İstenen boyut geçerli kümede değilse, yeniden boyutlandırma işlemi gerçekleştirilmeden önce VM’nin serbest bırakılması gerekir. VM’yi durdurup serbest bırakmak için [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) komutunu kullanın. VM yeniden açıldıktan sonra geçici diskteki verilerin silinebileceğine dikkat edin. Statik IP kullanılmadığı sürece ortak IP adresi de değiştirilir. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
-Yeniden boyutlandırma, serbest sonra ortaya çıkabilir. 
+VM serbest bırakıldıktan sonra yeniden boyutlandırma işlemi gerçekleştirilebilir. 
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
-Sonra yeniden boyutlandırmak, VM başlatılabilir.
+Yeniden boyutlandırmadan sonra, VM yeniden başlatılabilir.
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
@@ -243,23 +243,23 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ## <a name="vm-power-states"></a>VM güç durumları
 
-Bir Azure VM birçok güç durumlarını birine sahip. Bu durum, hiper yönetici açısından VM geçerli durumunu temsil eder. 
+Bir Azure VM’si birçok güç durumuna sahip olabilir. Bu durum VM’nin hiper yönetici açısından bulunduğu geçerli durumu temsil eder. 
 
 ### <a name="power-states"></a>Güç durumları
 
-| Güç durumu | Açıklama
+| Güç Durumu | Açıklama
 |----|----|
-| Başlangıç | Sanal makinenin başlatıldığı gösterir. |
+| Başlatılıyor | Sanal makinenin başlatıldığını gösterir. |
 | Çalışıyor | Sanal makinenin çalıştığını gösterir. |
-| Durduruluyor | Sanal makinenin durdurulması olduğunu gösterir. | 
-| Durduruldu | Sanal makine durdurulduğunda gösterir. Sanal makine durdurulmuş durumunda hala işlem ücretleri.  |
-| Ayırmayı kaldırma | Sanal makine ayırması olduğunu gösterir. |
-| Serbest bırakıldı | Sanal makine hiper yönetici alanından kaldırılacak, ancak denetim düzeyi hala kullanılabilir olduğunu gösterir. Deallocated durumunda sanal makineler bilgi işlem ücretleri değil. |
+| Durduruluyor | Sanal makinenin durdurulmakta olduğunu gösterir. | 
+| Durduruldu | Sanal makinenin durdurulduğunu gösterir. Durduruldu durumundaki sanal makinelere bilgi işlem ücretleri uygulanmaya devam eder.  |
+| Serbest bırakılıyor | Sanal makinenin serbest bırakılmakta olduğunu gösterir. |
+| Serbest bırakıldı | Sanal makinenin hiper yöneticiden kaldırıldığını ancak denetim masasında hala kullanılabilir olduğunu gösterir. Serbest bırakıldı durumundaki sanal makinelere bilgi işlem ücretleri uygulanmaz. |
 | - | Sanal makinenin güç durumunun bilinmediğini gösterir. |
 
-### <a name="find-power-state"></a>Güç durumu Bul
+### <a name="find-power-state"></a>Güç durumunu bulma
 
-Belirli bir VM durumunu almak için kullanın [az vm örnek görünümünü Al](/cli/azure/vm#get-instance-view) komutu. Bir sanal makine ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun. 
+Belirli bir VM’nin durumunu almak için, [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view) komutunu kullanın. Sanal makine ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun. 
 
 ```azurecli-interactive 
 az vm get-instance-view \
@@ -278,11 +278,11 @@ PowerState/running  VM running       Info
 
 ## <a name="management-tasks"></a>Yönetim görevleri
 
-Yaşam döngüsü sırasında sanal makinenin, başlatma, durdurma veya bir sanal makine silme gibi yönetim görevleri çalıştırmak isteyebilirsiniz. Ayrıca, yinelenen veya karmaşık görevleri otomatikleştirmek için komut dosyaları oluşturmak isteyebilirsiniz. Azure CLI kullanarak, birçok ortak yönetim görevlerinin komut satırından veya komut dosyalarında çalıştırabilirsiniz. 
+Bir sanal makinenin yaşam döngüsü boyunca, sanal makineyi başlatmak, durdurmak veya silmek gibi yönetim görevleri gerçekleştirmek isteyebilirsiniz. Ayrıca, yinelenen veya karmaşık görevleri otomatikleştirmek için betikler oluşturmak isteyebilirsiniz. Azure CLI kullanarak, birçok ortak yönetim görevi komut satırından veya betikler içinde çalıştırılabilir. 
 
-### <a name="get-ip-address"></a>IP adresi al
+### <a name="get-ip-address"></a>IP adresini alma
 
-Bu komut, bir sanal makine özel ve genel IP adreslerini döndürür.  
+Bu komut bir sanal makinenin özel ve ortak IP adreslerini döndürür.  
 
 ```azurecli-interactive 
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
@@ -294,7 +294,7 @@ az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output 
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
-### <a name="start-virtual-machine"></a>Sanal makineyi Başlat
+### <a name="start-virtual-machine"></a>Sanal makine başlatma
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
@@ -302,7 +302,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>Kaynak grubunu silme
 
-Bir kaynak grubunun silinmesi, VM, sanal ağ ve disk gibi içerdiği tüm kaynaklar da siler. `--no-wait` Parametresi döndürür denetim komut istemini işlemin tamamlanmasını beklemeden. `--yes` Parametresi onaylar Bunu yapmak için ek bir istemi olmadan kaynakları silmek istiyor.
+Bir kaynak grubunu silmek ayrıca grubun içindeki VM, sanal ağ ve disk gibi tüm kaynakları da siler. `--no-wait` parametresi işlemin tamamlanmasını beklemeden denetimi komut istemine döndürür. `--yes` parametresi kaynakları ek bir komut istemi olmadan silmek istediğinizi onaylar.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes
@@ -310,16 +310,16 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, temel VM oluşturmayı ve yönetmeyi nasıl gibi hakkında öğrenilen:
+Bu öğreticide, aşağıdakiler gibi temel VM oluşturma ve yönetim görevlerini öğrendiniz:
 
 > [!div class="checklist"]
-> * Oluşturma ve bir VM'ye bağlanın
-> * Seçin ve VM görüntüleri kullanmak
-> * Görüntüleme ve belirli VM boyutları kullanma
+> * VM oluşturma ve bir VM’ye bağlanma
+> * VM görüntülerini seçme ve kullanma
+> * Belirli VM boyutlarını görüntüleme ve kullanma
 > * VM’yi yeniden boyutlandırma
-> * Görüntüleyin ve VM durumunu anlamak
+> * VM durumunu görüntüleme ve anlama
 
-VM diskleri hakkında bilgi edinmek için sonraki öğretici ilerleyin.  
+VM diskleri hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.  
 
 > [!div class="nextstepaction"]
-> [Oluşturma ve yönetme VM diskleri](./tutorial-manage-disks.md)
+> [VM diskleri oluşturma ve yönetme](./tutorial-manage-disks.md)

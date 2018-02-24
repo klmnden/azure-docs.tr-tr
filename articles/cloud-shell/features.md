@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: a2c5348ea2ea02917472c1c3ae3bb518364c6848
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 300630919ed832b059dd96fa0f35f89b52b0430d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Özellikler ve Azure bulut Kabuk Bash'te için araçları
 
@@ -37,7 +37,7 @@ Bulut Kabuk bash'te güvenli bir şekilde ve otomatik olarak hesap erişim için
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>Azure Linux sanal makineleri içine SSH
 
-Azure CLI 2. 0 bir Linux VM oluşturma varsayılan SSH anahtarı oluşturabilir ve yerleştirileceği, `$Home` dizin. SSH yerleştirme anahtarlar `$Home` etkinleştirir doğrudan SSH bağlantılar Azure Linux VM'ler için bulut Kabuğu'ndan doğrudan. Anahtarları acc_ içinde tutulur<user>dosya paylaşımınızı .img kullanırken veya dosya paylaşımı veya anahtarları erişimi paylaşımı en iyi uygulamaları kullanın.
+Azure CLI 2. 0 bir Linux VM oluşturma varsayılan SSH anahtarı oluşturabilir ve yerleştirileceği, `$Home` dizin. SSH yerleştirme anahtarlar `$Home` bulut Kabuğu'ndan doğrudan Azure Linux VM'ler için SSH bağlantısını sağlar. Anahtarları acc_ içinde tutulur<user>dosya paylaşımınızı .img kullanırken veya dosya paylaşımı veya anahtarları erişimi paylaşımı en iyi uygulamaları kullanın.
 
 ### <a name="home-persistence-across-sessions"></a>Oturumlar arasında $Home kalıcılığı
 
@@ -47,6 +47,10 @@ Ayrıca, bulut Kabuk Bash'te içinde `$Home` directory, Azure dosya paylaşımı
 Dışında dosyaları `$Home` ve makine durumunu oturumlar arasında sürdürülmez.
 
 [Bulut Kabuk Bash'te kalıcı dosyaları hakkında daha fazla bilgi edinin.](persisting-shell-storage.md)
+
+### <a name="deep-integration-with-open-source-tooling"></a>Açık kaynaklı araçları ile derin tümleştirme
+
+Bulut Kabuk bash'te Terraform ve Ansible gibi açık kaynaklı araçları için önceden yapılandırılmış kimlik doğrulaması içerir. Örnek izlenecek deneyin.
 
 ## <a name="tools"></a>Araçlar
 

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>IOT kenar modülleri nasıl kullanılabileceğini, yapılandırılmış, anlamak ve yeniden - önizleme
 
@@ -28,7 +28,7 @@ Azure IOT kenar IOT sınır cihazları dağıtmadan önce birden çok IOT kenar 
 
 Azure IOT kenar eğitimlerine Azure IOT kenar portalında Sihirbazı aracılığıyla giderek bir dağıtım bildirimi oluşturun. Program aracılığıyla REST veya IOT Hub hizmeti SDK'sını kullanarak dağıtım bildirimi de uygulayabilirsiniz. Başvurmak [dağıtma ve izleme] [ lnk-deploy] IOT kenar dağıtımları hakkında daha fazla bilgi için.
 
-Yüksek bir düzeyde dağıtım bildirimi IOT kenar cihazda dağıtılan IOT kenar modüller istenen özelliklerini yapılandırır. İki bu modüllerin her zaman mevcut: kenar Aracısı'nı ve kenar hub'ı.
+Yüksek bir düzeyde dağıtım bildirimi IOT kenar cihazda dağıtılan IOT kenar modülleri için bir modül twin'ın istenen özelliklerini yapılandırır. İki bu modüllerin her zaman mevcut: kenar Aracısı'nı ve kenar hub'ı.
 
 Bildirim bu yapı aşağıdaki gibidir:
 
@@ -99,7 +99,7 @@ Havuz aşağıdakilerden biri olabilir:
 | Havuz | Açıklama |
 | ---- | ----------- |
 | `$upstream` | IOT Hub'ına ileti gönderme |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Giriş için ileti gönderilirken `{input}` Modülü`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Giriş için ileti gönderilirken `{input}` Modülü `{moduleId}` |
 
 Edge hub en az bir kere garanti iletileri yerel olarak bir yol, havuz için ileti teslim edilemez, örneğin kenar hub IOT Hub'ına bağlanamıyor ya da hedef modülü bağlı değil durumunda depolanır, yani sağladığını dikkate almak önemlidir.
 
@@ -112,6 +112,8 @@ Dağıtım bildirimi modülü twin her bir sınır Aracısı bölümünde belirt
 İstenen özelliklerde dağıtım bildiriminde belirtildiğinde, tüm istenen özelliklerinde şu anda modülü twin üzerine yazın.
 
 Dağıtım bildiriminde bir modül twin'ın istenen özellikleri belirtmezseniz, IOT hub'ı herhangi bir şekilde modülü twin değiştirmez ve istenen özellikleri programlı olarak ayarlamak mümkün olacaktır.
+
+Cihaz çiftlerini değiştirmenize izin mekanizmalarının aynısını modülü çiftlerini değiştirmek için kullanılır. Lütfen [cihaz çifti Geliştirici Kılavuzu](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) daha fazla bilgi için.   
 
 ### <a name="deployment-manifest-example"></a>Dağıtım bildirim örneği
 
@@ -209,12 +211,12 @@ Edge Aracısı modülü twin adlı `$edgeAgent` ve bir cihaz ve IOT hub'ı çal�
 | systemModules.edgeHub.settings.image | Edge hub görüntüsü URI'si. | Evet |
 | systemModules.edgeHub.settings.createOptions | Edge hub kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
 | systemModules.edgeHub.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bir dağıtım kullanarak bu bildirimi uygulandığında bu IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
-| modüller. {Moduleıd} .version | Bu modül sürümü temsil eden kullanıcı tanımlı bir dize. | Evet |
-| modüller. {Moduleıd} .type | "Docker" olması gerekir | Evet |
-| modüller. {Moduleıd} .restartPolicy | {"hiçbir zaman" \| "-başarısız oldu" \| "üzerinde-sağlıksız" \| "her zaman"} | Evet |
-| modüller. {Moduleıd}.settings.image | Modül görüntü URI'si. | Evet |
-| modüller. {Moduleıd}.settings.createOptions | Modül kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
-| modüller. {Moduleıd}.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bir dağıtım kullanarak bu bildirimi uygulandığında bu IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
+| modules.{moduleId}.version | Bu modül sürümü temsil eden kullanıcı tanımlı bir dize. | Evet |
+| modules.{moduleId}.type | "Docker" olması gerekir | Evet |
+| modules.{moduleId}.restartPolicy | {"hiçbir zaman" \| "üzerinde başarısız oldu-" \| "üzerinde-sağlıksız" \| "her zaman"} | Evet |
+| modules.{moduleId}.settings.image | Modül görüntü URI'si. | Evet |
+| modules.{moduleId}.settings.createOptions | Modül kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
+| modules.{moduleId}.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bir dağıtım kullanarak bu bildirimi uygulandığında bu IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
 
 ### <a name="edge-agent-twin-reported-properties"></a>Edge Aracısı twin özellikleri bildirdi
 
@@ -236,10 +238,10 @@ Aşağıdaki tabloda, istenen özelliklerinden kopyalandığında bilgileri içe
 | lastDesiredVersion | Bu int son kenar aracı tarafından işlenen istenen özellik sürümünü gösterir. |
 | lastDesiredStatus.code | Bu sınır aracı tarafından görülen son istenen özelliklerine başvuran durum kodudur. İzin verilen değerler: `200` başarılı, `400` geçersiz yapılandırma `412` geçersiz şema sürümüne `417` İstenen özelliklerde boş `500` başarısız oldu |
 | lastDesiredStatus.description | Durum metin açıklaması |
-| DeviceHealth | `healthy`tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
-| configurationHealth. {Deploymentıd} .health | `healthy`{Deploymentıd} dağıtımı tarafından ayarlanmış olan tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
+| deviceHealth | `healthy` tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
+| configurationHealth.{deploymentId}.health | `healthy` {Deploymentıd} dağıtımı tarafından ayarlanmış olan tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
 | runtime.platform.OS | Aygıtta çalışan işletim sistemi raporlama |
-| Runtime.Platform.Architecture | Cihazda raporlama CPU mimarisi |
+| runtime.platform.architecture | Cihazda raporlama CPU mimarisi |
 | systemModules.edgeAgent.runtimeStatus | Edge Aracısı'nın bildirilen durum: {"çalışır" \| "sağlıksız"} |
 | systemModules.edgeAgent.statusDescription | Edge aracının bildirilen durumunu metin açıklaması. |
 | systemModules.edgeHub.runtimeStatus | Edge hub'ın geçerli durum: {"çalışır" \| "durduruldu" \| "başarısız" \| "geri Çekilme" \| "sağlıksız"} |
@@ -249,13 +251,13 @@ Aşağıdaki tabloda, istenen özelliklerinden kopyalandığında bilgileri içe
 | systemModules.edgeHub.lastExitTimeUtc | Zaman zaman kenar hub'ı son çıkıldı |
 | systemModules.edgeHub.lastRestartTimeUtc | Zaman kenar hub en son ne zaman yeniden başlatıldı |
 | systemModules.edgeHub.restartCount | Bu modül yeniden başlatma ilkesi bir parçası olarak yeniden sayısı. |
-| modüller. {Moduleıd} .runtimeStatus | Modülün geçerli durum: {"çalışır" \| "durduruldu" \| "başarısız" \| "geri Çekilme" \| "sağlıksız"} |
-| modüller. {Moduleıd} .statusDescription | Sağlıksız durumunda modülünü geçerli durumunu metin açıklaması. |
-| modüller. {Moduleıd} .exitCode | Çıktı, çıkış kodu modülü kapsayıcı tarafından bildirilen varsa |
-| modüller. {Moduleıd} .startTimeUtc | Modül son başlatıldığı zaman |
-| modüller. {Moduleıd} .lastExitTimeUtc | Zaman zaman modülü son çıkıldı |
-| modüller. {Moduleıd} .lastRestartTimeUtc | Zaman modülü en son ne zaman yeniden başlatıldı |
-| modüller. {Moduleıd} .restartCount | Bu modül yeniden başlatma ilkesi bir parçası olarak yeniden sayısı. |
+| modules.{moduleId}.runtimeStatus | Modülün geçerli durum: {"çalışır" \| "durduruldu" \| "başarısız" \| "geri Çekilme" \| "sağlıksız"} |
+| modules.{moduleId}.statusDescription | Sağlıksız durumunda modülünü geçerli durumunu metin açıklaması. |
+| modules.{moduleId}.exitCode | Çıktı, çıkış kodu modülü kapsayıcı tarafından bildirilen varsa |
+| modules.{moduleId}.startTimeUtc | Modül son başlatıldığı zaman |
+| modules.{moduleId}.lastExitTimeUtc | Zaman zaman modülü son çıkıldı |
+| modules.{moduleId}.lastRestartTimeUtc | Zaman modülü en son ne zaman yeniden başlatıldı |
+| modules.{moduleId}.restartCount | Bu modül yeniden başlatma ilkesi bir parçası olarak yeniden sayısı. |
 
 ## <a name="reference-edge-hub-module-twin"></a>Başvuru: Kenar hub modülü twin
 
@@ -267,7 +269,7 @@ Edge hub'ına yönelik modülü twin adlı `$edgeHub` ve bir cihaz ve IOT hub'ı
 | Özellik | Açıklama | Dağıtım bildiriminde gerekli |
 | -------- | ----------- | -------- |
 | schemaVersion | "1.0" olması gerekir | Evet |
-| yollar. {Routetablename} | Bir sınır hub yolunu temsil eden dize. | `routes` Öğesi var ancak boş olabilir. |
+| routes.{routeName} | Bir sınır hub yolunu temsil eden dize. | `routes` Öğesi var ancak boş olabilir. |
 | storeAndForwardConfiguration.timeToLiveSecs | Edge hub tutar saniye cinsinden zaman bağlantısı kesilmiş yönlendirme uç noktaları durumunda iletileri örneğin kesilmiş IOT hub'ı veya yerel modül | Evet |
 
 ### <a name="edge-hub-twin-reported-properties"></a>Edge hub twin özellikleri bildirdi

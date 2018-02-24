@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -43,6 +43,10 @@ Yükleme hatanın nedenini belirlemek için installer.log gözden geçirin.
 > [!Note]  
 > Aracı yüklemesi Microsoft Update'i kullanmak için makinenize ayarlamak ve Windows Update hizmeti çalışmıyor başarısız olur.
 
+<a id="agent-installation-on-DC"></a>**Aracı yüklemesi başarısız olursa, Active Directory etki alanı denetleyicisinde** deneyin ve bir Windows Server 2008R2 veya işletim sistemi sürümü aşağıda PDC rol sahibi olduğu bir Active Directory etki alanı denetleyicisinde eşitleme Aracısı yüklerseniz, sorunu isabet burada eşitleme Aracı yüklemek başarısız olur.
+
+Çözmek için başka bir etki alanı denetleyicisi çalışan Windows Server 2012 R2 veya daha yeni PDC rolünü aktarma ve eşitleme yükleyin.
+
 <a id="agent-installation-websitename-failure"></a>**Aracı yüklemesi bu hata ile başarısız olur: "Depolama alanı eşitleme Aracısı Sihirbazı erken sona erdi."**  
 IIS Web sitesi varsayılan adı değişirse, bu sorun ortaya çıkabilir. Bu sorunu çözmek için IIS varsayılan Web sitesi olarak "Default Web Site" yeniden adlandırın ve yükleme işlemini yeniden deneyin. Aracısı'nın gelecek bir güncelleştirmede sorun düzeltilecektir. 
 
@@ -51,6 +55,8 @@ Bir sunucu altında listelenmemişse **kayıtlı sunucuları** depolama eşitlem
 1. Kaydetmek istediğiniz sunucuya oturum açın.
 2. Dosya Gezgini'ni açın ve (varsayılan konumu C:\Program Files\Azure\StorageSyncAgent:) depolama eşitleme Aracısı yükleme dizinine gidin. 
 3. ServerRegistration.exe çalıştırın ve sunucuyu bir depolama eşitleme hizmeti ile kaydetmek için sihirbazı tamamlayın.
+
+
 
 <a id="server-already-registered"></a>**Sunucu kaydı Azure dosya eşitleme aracı yükleme işlemi sırasında aşağıdaki iletisini görüntüler: "Bu sunucusu zaten kayıtlı"** 
 
@@ -95,9 +101,7 @@ Bir bulut uç noktası oluşturmak için kullanıcı hesabınızın aşağıdaki
 
 Aşağıdaki yerleşik roller gerekli Microsoft Authorization izinlere sahip:  
 * Sahip
-* Kullanıcı Erişimi Yöneticisi
-
-Kullanıcı hesabı rolünüz gerekli izinlere sahip olup olmadığını belirlemek için:  
+* Kullanıcı hesabı rolünüz gerekli izinlere sahip olup olmadığını belirlemek için kullanıcı erişimi Yöneticisi:  
 1. Azure portalında seçin **kaynak grupları**.
 2. Depolama hesabının bulunduğu kaynak grubunu seçin ve ardından **erişim denetimi (IAM)**.
 3. Seçin **rol** (örneğin, sahibi veya katkıda) kullanıcı hesabınız için.
@@ -105,11 +109,24 @@ Kullanıcı hesabı rolünüz gerekli izinlere sahip olup olmadığını belirle
     * **Rol ataması** olmalıdır **okuma** ve **yazma** izinleri.
     * **Rol tanımı** olmalıdır **okuma** ve **yazma** izinleri.
 
-<a id="server-endpoint-createjobfailed"></a>**Sunucu uç noktası oluşturma başarısız olur, bu hata: "MgmtServerJobFailed" (hata kodu:-2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**Sunucu uç noktası oluşturma başarısız olur, bu hata: "MgmtServerJobFailed" (hata kodu:-2134375898)**                                                                                                                    
 Sunucu bitiş noktası yolu sistem birimi ve bulut üzerinde ise bu sorun oluşur katmanlama etkindir. Bulut katmanlandırma sistem biriminde desteklenmiyor. Sistem biriminde sunucusu uç noktası oluşturmak için bulut sunucusu uç noktası oluşturulurken katmanlama devre dışı bırakın.
 
 <a id="server-endpoint-deletejobexpired"></a>**Sunucu uç noktasını silme başarısız olursa bu hata: "MgmtServerJobExpired"**                
 Sunucu çevrimdışı veya ağ bağlantısı yok, bu sorun oluşur. Sunucu artık kullanılabilir değilse, sunucunun hangi sunucu uç noktalarını siler portalında kaydını silin. Sunucu uç noktalarını silmek için açıklanan adımları izleyin [Azure dosya eşitleme sahip bir sunucu kaydını](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Sunucu uç nokta özellikler sayfasını açın veya Bulut katmanlama ilkesini güncelleştirilemedi**
+
+Sunucusu uç noktası üzerinde bir yönetim işlemi başarısız olursa bu sorun ortaya çıkabilir. Sunucu uç nokta Özellikleri Sayfası Azure portalında açılmazsa, sunucudan PowerShell komutlarını kullanarak sunucu uç noktası güncelleniyor bu sorunu çözebilir. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**I bir dosya doğrudan my Azure dosya paylaşımı SMB üzerinden veya portal üzerinden oluşturduysanız, ne kadar dosya eşitleme gruptaki sunucular için eşitleme için sürer?**  

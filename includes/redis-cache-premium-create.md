@@ -1,4 +1,4 @@
-Premium önbellek oluşturmak için [Azure portalında](https://portal.azure.com) oturum açın; **Yeni** > **Veritabanları** > **Redis Önbelleği**'ne tıklayın.
+Premium önbelleği oluşturmak için oturum için açma [Azure portal](https://portal.azure.com) tıklatıp **kaynak oluşturma** > **veritabanları** > **Redis önbelleği** .
 
 ![Önbellek oluşturma](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 

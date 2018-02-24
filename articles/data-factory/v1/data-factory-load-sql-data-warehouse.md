@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB altında 15 dakika Data Factory ile Azure SQL Data Warehouse'a veri yükleme
 > [!NOTE]
@@ -114,8 +114,8 @@ Bu makalede Kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri 
 
 ## <a name="launch-copy-wizard"></a>Kopyalama Sihirbazı'nı başlatma
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-2. Tıklatın **+ yeni** sol üst köşeden tıklatın **Intelligence + analiz**, tıklatıp **Data Factory**.
-3. **Yeni data factory** dikey penceresinde:
+2. ' I tıklatın **kaynak oluşturma** sol üst köşeden tıklatın **Intelligence + analiz**, tıklatıp **Data Factory**.
+3. İçinde **yeni data factory** bölmesi:
 
    1. Girin **LoadIntoSQLDWDataFactory** için **adı**.
        Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "LoadIntoSQLDWDataFactory" kullanılabilir değil**, veri fabrikası (örneğin, yournameLoadIntoSQLDWDataFactory) adını değiştirin ve oluşturmayı yeniden deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.  

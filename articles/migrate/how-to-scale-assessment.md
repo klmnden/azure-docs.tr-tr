@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 2e17d30dcc95677053fd6c8c1ee75fd3cc0afb5b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d588dc6037b6295594301b577fe9df31d169a9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Bul ve büyük bir VMware ortamı değerlendirin
 
@@ -19,7 +19,7 @@ Bu makalede kullanarak şirket içi sanal makineleri (VM'ler) çok sayıda değe
 ## <a name="prerequisites"></a>Önkoşullar
 
 - **VMware**: geçirmeyi planladığınız sanal makineleri vCenter Server 5.5, 6.0 veya 6.5 sürümü tarafından yönetilmelidir. Ayrıca, bir ESXi ana bilgisayar çalışan sürüm 5.0 veya sonrasını toplayıcısı VM dağıtmak için gerekir.
-- **vCenter hesap**: vCenter Server erişmek için salt okunur bir hesabınızın olması gerekir. Azure geçirme, şirket içi sanal makineleri bulmak için bu hesabı kullanır.
+- **vCenter hesap**: vCenter Server erişmek için salt okunur bir hesabınızın olması gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
 - **İzinleri**: vCenter Server OVA biçimde bir dosyaya aktararak bir VM oluşturmak için izinlere ihtiyacınız vardır.
 - **İstatistikleri ayarları**: dağıtıma başlamadan önce düzeyi 3 vCenter sunucusu istatistikleri ayarlarını ayarlamanız gerekir. Düzey 3'ten daha düşük ise, değerlendirme çalışır, ancak depolama ve ağ için performans verilerini toplanan olmaz. Boyut önerileri bu durumda CPU ve bellek için performans verilerini ve disk ve ağ bağdaştırıcıları için yapılandırma verilerini temel alır.
 
@@ -49,58 +49,66 @@ Bir veya daha fazla projeleri birden çok bulmalarına yapmak için aynı Azure 
 - Değerlendirme amacıyla, değerlendirme ve aynı proje içinde bağımlılıklarını makinelerle tutmanızı öneririz. VCenter Server bağımlı makineler aynı klasörü, veri merkezi veya değerlendirmesi için küme olduğundan emin olun.
 
 
-## <a name="create-a-project"></a>Proje oluştur
+## <a name="create-a-project"></a>Proje oluşturma
 
 Bir Azure geçirmek projesi, gereksinimlerinize uygun şekilde oluşturun:
 
 1. Azure portalında seçin **kaynak oluşturma**.
-2. Arama **Azure geçirmek**ve hizmeti seçin **Azure geçirme (Önizleme)** arama sonuçlarında. Ardından **Oluştur**’u seçin.
+2. **Azure Geçişi** için arama yapın ve arama sonuçlarında **Azure Geçişi (önizleme)** seçeneğini belirleyin. Ardından **Oluştur**’u seçin.
 3. Bir proje adı ve proje için Azure aboneliği belirtin.
 4. Yeni bir kaynak grubu oluşturun.
 5. İstediğiniz projesi oluşturun ve ardından konum belirtin **oluşturma**. Vm'leriniz için farklı bir hedef konum hala değerlendirebilirsiniz unutmayın. Proje için belirtilen konum, şirket içi Vm'lerden toplanan meta verileri depolamak için kullanılır.
 
 ## <a name="set-up-the-collector-appliance"></a>Toplayıcı Gereci ayarlayın
 
-Azure geçirme toplayıcı uygulaması olarak bilinen bir şirket içi VM oluşturur. Bu VM şirket içi VMware sanal makineleri bulur ve bunları hakkındaki meta verileri Azure geçiş hizmetine gönderir. Toplayıcı Gereci ayarlamak için bir OVA dosyasını indirin ve şirket içi vCenter sunucusu örneğine içeri aktarın.
+Azure Geçişi, toplayıcı gereci olarak bilinen bir şirket içi VM oluşturur. Bu VM şirket içi VMware sanal makineleri bulur ve bunları hakkındaki meta verileri Azure geçiş hizmetine gönderir. Toplayıcı Gereci ayarlamak için bir OVA dosyasını indirin ve şirket içi vCenter sunucusu örneğine içeri aktarın.
 
-### <a name="download-the-collector-appliance"></a>Toplayıcı Gereci indirin
+### <a name="download-the-collector-appliance"></a>Toplayıcı gerecini indirin
 
 Birden çok proje varsa, vCenter sunucusuna yalnızca bir kez Toplayıcı Gereci indirme gerekir. Karşıdan yükleme ve Gereci ayarladıktan sonra her proje için çalıştırın ve benzersiz proje kimliği ve anahtarı belirtin.
 
 1. Azure geçirmek projesini seçin **Başlarken** > **bulma & değerlendirin** > **Bul makineler**.
 2. İçinde **Bul makineler**seçin **karşıdan**, OVA dosyasını karşıdan yüklemek için.
-3. İçinde **kopyalama proje kimlik**anahtarı proje için ve Kimliğini kopyalayın. Toplayıcı yapılandırırken bu gerekir.
+3. İçinde **kopyalama proje kimlik**anahtarı proje için ve Kimliğini kopyalayın. Toplayıcıyı yapılandırırken bu bilgilere ihtiyaç duyarsınız.
 
    
-### <a name="verify-the-collector-appliance"></a>Toplayıcı Gereci doğrulayın
+### <a name="verify-the-collector-appliance"></a>Toplayıcı gereci doğrulama
 
 Dağıtmadan önce OVA dosya güvenli olduğundan emin olun:
 
-1. Dosya karşıdan makinede bir yönetici komut penceresi açın.
-2. Karma için OVA oluşturmak için aşağıdaki komutu çalıştırın:
+1. Dosyayı indirdiğiniz makinede yönetici komut penceresi açın.
+2. OVA’nın karmasını oluşturmak için aşağıdaki komutu çalıştırın:
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-   Örnek Kullanım:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Üretilen karma aşağıdaki ayarları eşleştiğinden emin olun.
- 
-    OVA sürüm 1.0.8.49
 
-    **Algoritması** | **Karma değeri**
+    OVA sürüm 1.0.8.59
+
+    **Algoritma** | **Karma değeri**
+    --- | ---
+    MD5 | 71139e24a532ca67669260b3062c3dad
+    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
+    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
+ 
+    OVA 1.0.8.49 sürümü için
+
+    **Algoritma** | **Karma değeri**
     --- | ---
     MD5 | cefd96394198b92870d650c975dbf3b8
     SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
     SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
 
-    OVA sürümü 1.0.8.40:
+    OVA 1.0.8.40 sürümü için:
 
-    **Algoritması** | **Karma değeri**
+    **Algoritma** | **Karma değeri**
     --- | ---
     MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
-## <a name="create-the-collector-vm"></a>Toplayıcı VM oluşturma
+## <a name="create-the-collector-vm"></a>Toplayıcı VM’yi oluşturma
 
 İndirilen Dosya vCenter sunucusuna içeri aktarın:
 
@@ -109,11 +117,11 @@ Dağıtmadan önce OVA dosya güvenli olduğundan emin olun:
     ![OVF dağıtma](./media/how-to-scale-assessment/vcenter-wizard.png)
 
 2. OVF şablon Dağıtma Sihirbazı'nda > **kaynak**, OVA dosyasının konumunu belirtin.
-3. İçinde **adı** ve **konumu**toplayıcısı VM için bir kolay ad belirtin ve stok nesne VM hangi barındırılacak içinde.
-5. İçinde **konak/küme**, konak belirtin veya küme VM Toplayıcı çalıştırdığınız.
-7. Depolama biriminde, VM Toplayıcı depolama hedefini belirtin.
-8. İçinde **Disk biçimi**, disk türünü ve boyutunu belirtin.
-9. İçinde **ağ eşlemesi**, VM Toplayıcı bağlanacağı ağı belirtin. Ağ Azure'a meta veri göndermek için internet bağlantısı gerekir. 
+3. **Ad** ve **Konum** bölümünde toplayıcı VM için bir kolay ad ve VM’nin barındırılacağı envanter nesnesini belirtin.
+5. **Konak/Küme** bölümünde, toplayıcı VM’nin çalıştırılacağı konağı veya kümeyi belirtin.
+7. Depolama’da, toplayıcı VM için depolama hedefini belirleyin.
+8. **Disk Biçimi**’nde disk türünü ve boyutunu belirtin.
+9. **Ağ Eşleme** bölümünde toplayıcı VM’nin bağlanacağı ağı belirtin. Ağ Azure'a meta veri göndermek için internet bağlantısı gerekir. 
 10. Gözden geçirin ve ayarları onaylayın ve ardından **son**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Kimliğini belirlemek ve her proje için anahtar
@@ -145,43 +153,43 @@ Aşağıdaki tabloda, belirli bir sayaç alınamadı, etkilenecek değerlendirme
 > [!WARNING]
 > Daha yüksek bir istatistik düzeyi yeni ayarladıysanız, bu günde bir performans sayaçlarını oluşturmak için kadar sürebilir. Bu nedenle, bir günün ardından bulma çalıştırmanızı öneririz.
 
-## <a name="run-the-collector-to-discover-vms"></a>Sanal makineleri bulmak için toplayıcı çalıştırın
+## <a name="run-the-collector-to-discover-vms"></a>VM’leri bulmak için toplayıcıyı çalıştırma
 
 Yapmanız gereken her bulma için gerekli kapsamında VM'ler bulmak için toplayıcı çalıştırın. Bir bulma art arda çalıştırın. Eşzamanlı bulmaları desteklenmez ve her bir keşfin farklı bir kapsama sahip olmalıdır.
 
-1. VSphere istemci konsolunda VM'ye sağ tıklayın > **açık Konsolu**.
+1. vSphere Client konsolunda VM’ye sağ tıklayın ve **Konsolu Aç** seçeneğini belirleyin.
 2. Dil, saat dilimi ve Gereci parola tercihlerini sağlar.
 3. Masaüstünde seçin **Toplayıcı çalıştırmak** kısayol.
 4. Azure geçirmek Toplayıcı açmak **önkoşulları ayarlama** ve sonra:
 
-   a. Lisans koşullarını kabul edin ve üçüncü taraf bilgileri okuyun.
+   a. Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
 
-   Toplayıcı VM Internet erişimi olduğunu denetler.
+   Toplayıcı, VM’nin İnternet erişimine sahip olup olmadığını denetler.
    
-   b. VM Internet proxy üzerinden erişirse, seçin **Proxy ayarlarını**, proxy adresi ve dinleme bağlantı noktasını belirtin. Proxy kimlik doğrulaması gerektiriyorsa kimlik bilgilerini belirtin.
+   b. VM Internet proxy üzerinden erişirse, seçin **Proxy ayarlarını**, proxy adresi ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin.
 
-   Toplayıcı, Toplayıcı hizmetinin çalıştığını denetler. Hizmeti toplayıcısı VM üzerinde varsayılan olarak yüklenir.
+   Toplayıcı, Toplayıcı hizmetinin çalıştığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
 
    c. VMware Powerclı yükleyip yeniden açın.
 
-5. İçinde **vCenter sunucusu ayrıntılarını belirtin**, aşağıdakileri yapın:
+5. **vCenter Server bilgilerini belirtin** bölümünde şunları yapın:
     - Adı (FQDN) veya vCenter sunucusunun IP adresini belirtin.
     - İçinde **kullanıcı adı** ve **parola**, Toplayıcı VM'ler vCenter Server'da bulmak için kullanacağı salt okunur hesap kimlik bilgilerini belirtin.
-    - İçinde **seçin kapsam**, VM keşfi için kapsamı seçin. Toplayıcı, yalnızca belirtilen kapsamın içindeki VM'ler bulabilir. Kapsamı belirli klasör, veri merkezi veya küme ayarlayabilirsiniz. 1. 000'den fazla VMs içermemelidir. 
+    - İçinde **seçin kapsam**, VM keşfi için kapsamı seçin. Toplayıcı, yalnızca belirtilen kapsamın içindeki VM'ler bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. 1. 000'den fazla VMs içermemelidir. 
 
 6. İçinde **belirt geçiş proje**anahtarı proje için ve Kimliğini belirtin. Kopyaladığınız alamadık, Toplayıcı VM Azure Portalı'nı açın. Projenin üzerinde **genel bakış** sayfasında, **Bul makineler** ve değerleri kopyalayın.  
-7. İçinde **koleksiyonu ilerlemeyi görüntüleme**, Keşif sürecini izleyebilir ve VM'lerin toplanan meta verilerin kapsamında olduğunu denetleyin. Toplayıcı bir yaklaşık bulma süresi sağlar.
+7. İçinde **koleksiyonu ilerlemeyi görüntüleme**, Keşif sürecini izleyebilir ve VM'lerin toplanan meta verilerin kapsamında olduğunu denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar.
 
 
-### <a name="verify-vms-in-the-portal"></a>Portalda VM'ler doğrulayın
+### <a name="verify-vms-in-the-portal"></a>VM’lerin portalda olup olmadığını doğrulama
 
-Kaç tane sanal makinelerin süre bağlıdır bulma, bulma. Genellikle, 100 VM'ler için bulma Toplayıcı çalışması bittikten sonra bir saat tamamlanır. 
+Bulma süresi, kaç VM bulduğunuza bağlıdır. Genellikle, 100 VM'ler için bulma Toplayıcı çalışması bittikten sonra bir saat tamamlanır. 
 
 1. Geçiş Planlayıcısı projedeki seçin **Yönet** > **makineler**.
-2. Bulmak istediğiniz sanal makineleri portalda görünür denetleyin.
+2. Bulmak istediğiniz VM’lerin portalda görüntülenip görüntülenmediğini kontrol edin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bilgi edinmek için nasıl [bir grup oluşturmak](how-to-create-a-group.md) değerlendirmesi için.
-- [Daha fazla bilgi edinin](concepts-assessment-calculation.md) değerlendirmelerinin nasıl hesaplandığını hakkında.
+- Değerlendirmelerin nasıl hesaplandığı hakkında [daha fazla bilgi](concepts-assessment-calculation.md) edinin.

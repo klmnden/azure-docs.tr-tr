@@ -1,34 +1,28 @@
 ---
-title: "Başka bir Azure bölgesi (Önizleme) bir Azure VM Çoğalt"
-description: "Bu hızlı başlangıç farklı bir bölgeye bir Azure bölgesindeki bir Azure VM çoğaltmak için gereken adımları sağlar."
+title: "Bir Azure VM’yi başka bir Azure bölgesine çoğaltma (Önizleme)"
+description: "Bu hızlı başlangıç, bir Azure bölgesindeki Azure VM’yi başka bir bölgeye çoğaltmak için gerekli olan adımları sağlar."
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+ms.topic: quickstart
+ms.date: 02/07/2018
+ms.author: raynew
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2017
-ms.author: rajanaki
 ms.custom: mvc
-<<<<<<< HEAD
-ms.openlocfilehash: 369ffed823bc76ee4273d7866935c0ddc7ffa515
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 213b218a50506ace2298aa3f77721db1b81e2efe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
-=======
-ms.openlocfilehash: 27066c3b5b9d52901dbd3790ba4b5abd97fe7d2b
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Başka bir Azure bölgesi (Önizleme) bir Azure VM Çoğalt
+# <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Bir Azure VM’yi başka bir Azure bölgesine çoğaltma (Önizleme)
 
-[Azure Site Recovery](site-recovery-overview.md) hizmeti tarafından iş uygulamalarınızı çalışır halde tutmaktan planlanan ve planlanmayan kesintiler sırasında kullanılabilir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı. Site Recovery yönetir ve şirket içi makineler ve Azure sanal makineleri (VM'ler), çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma düzenler.
+[Azure Site Recovery](site-recovery-overview.md) hizmeti, planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
 
-Bu Hızlı Başlangıç, farklı bir Azure bölgesine bir Azure VM çoğaltmak açıklar.
+Bu hızlı başlangıç, bir Azure VM’nin farklı bir Azure bölgesine nasıl çoğaltılacağını açıklar.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -36,46 +30,46 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 http://portal.azure.com sayfasından Azure portalda oturum açın.
 
-## <a name="enable-replication-for-the-azure-vm"></a>Azure sanal makine için çoğaltmayı etkinleştirme
+## <a name="enable-replication-for-the-azure-vm"></a>Azure VM için çoğaltmayı etkinleştirme
 
-1. Azure portalında tıklatın **sanal makineleri**ve çoğaltmak istediğiniz VM seçin.
+1. Azure portalında, **Sanal makineler** seçeneğine tıklayın ve çoğaltmak istediğiniz VM’yi seçin.
 
-2. İçinde **ayarları**, tıklatın **olağanüstü durum kurtarma (Önizleme)**.
-3. İçinde **olağanüstü durum kurtarma yapılandırma** > **hedef bölgesi** , çoğaltmak hedef bölgeyi seçin.
-4. Bu Hızlı Başlangıç için diğer varsayılan ayarları kabul edin.
-5. Tıklatın **çoğaltmasını etkinleştir**. Bu sanal makine için çoğaltmayı etkinleştirmek için bir iş başlatır.
+2. **Ayarlar** kısmında, **Olağanüstü durum kurtarma (önizleme)** seçeneğine tıklayın.
+3. **Olağanüstü durum kurtarmayı yapılandır** > **Hedef bölge** bölümünde, çoğaltmak istediğiniz hedef bölgeyi seçin.
+4. Bu Hızlı Başlangıç için, diğer varsayılan ayarları kabul edin.
+5. **Çoğaltmayı etkinleştir**’e tıklayın. Bu VM için çoğaltmayı etkinleştirecek bir iş başlatır.
 
-    ![Çoğaltmayı etkinleştirme](media/azure-to-azure-quickstart/enable-replication1.png)
+    ![çoğaltmayı etkinleştir](media/azure-to-azure-quickstart/enable-replication1.png)
 
 
 
-## <a name="verify-settings"></a>Ayarları doğrulayın
+## <a name="verify-settings"></a>Ayarları doğrulama
 
-Çoğaltma işi tamamlandıktan sonra çoğaltma durumunu denetlemek, çoğaltma ayarlarını değiştirin ve dağıtımı test etme.
+Çoğaltma işlemi bittikten sonra, çoğaltma durumunu denetleyebilir, çoğaltma ayarlarını değiştirebilir ve dağıtımı test edebilirsiniz.
 
-1. VM menüye tıklayın **olağanüstü durum kurtarma (Önizleme)**.
-2. Çoğaltma durumunu, oluşturulmuş kurtarma noktaları ve kaynak doğrulayabilir ve hedef bölgeler harita üzerinde.
+1. VM menüsünde, **Olağanüstü durum kurtarma (önizleme)** seçeneğine tıklayın.
+2. Çoğaltma durumunu, oluşturulan kurtarma noktalarını ve haritadaki kaynak ve hedef bölgelerini doğrulayabilirsiniz.
 
    ![Çoğaltma durumu](media/azure-to-azure-quickstart/replication-status.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Çoğaltmayı devre dışı bıraktığınızda çoğaltma VM birincil bölge içinde durdurur:
+Çoğaltma işlemini devre dışı bıraktığınızda, birincil bölgedeki VM çoğaltmayı durdurur:
 
 - Kaynak çoğaltma ayarları otomatik olarak temizlenir.
-- Ayrıca VM için Site Recovery Faturalaması durdurulur.
+- VM’nin Site Recovery faturalaması da ayrıca durur.
 
-Çoğaltma gibi durdurun:
+Şu adımlara göre çoğaltmayı durdurun:
 
-1. VM seçin.
-2. İçinde **olağanüstü durum kurtarma (Önizleme)**, tıklatın **daha fazla**.
-3. Tıklatın **çoğaltma devre dışı bırakma**.
+1. VM’yi seçin.
+2. **Olağanüstü durum kurtarma (önizleme)** bölümünde, **Diğer** seçeneğine tıklayın.
+3. **Çoğaltmayı Devre Dışı Bırak** seçeneğine tıklayın.
 
-   ![Çoğaltma devre dışı bırak](media/azure-to-azure-quickstart/disable2-replication.png)
+   ![Çoğaltmayı devre dışı bırakma](media/azure-to-azure-quickstart/disable2-replication.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç bir ikincil bölge'ye tek bir VM'ye kopyalanan.
+Bu hızlı başlangıçta, tek bir VM’yi ikincil bir bölgeye çoğalttınız.
 
 > [!div class="nextstepaction"]
-> [Azure VM'ler için olağanüstü durum kurtarma yapılandırma](azure-to-azure-tutorial-enable-replication.md)
+> [Azure VM’leri için olağanüstü durum kurtarmayı yapılandır](azure-to-azure-tutorial-enable-replication.md)

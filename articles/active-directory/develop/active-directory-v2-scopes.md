@@ -15,17 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-<<<<<<< HEAD
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Kapsam, izinleri ve Azure Active Directory v2.0 uç onay
 Azure Active Directory (Azure AD) ile tümleştirme uygulamalarını kullanıcılara bir uygulama verilerini nasıl erişebileceğinizi üzerinde denetim sağlar bir yetkilendirme modelini izler. Yetkilendirme modelini v2.0 uyarlamasını güncelleştirilen ve bir uygulamayı Azure AD ile nasıl etkileşim kurmalıdır değiştirir. Bu makalede, kapsamları, izinler ve onay dahil olmak üzere bu yetkilendirme modelini temel kavramları kapsar.
@@ -38,23 +32,23 @@ Azure Active Directory (Azure AD) ile tümleştirme uygulamalarını kullanıcı
 ## <a name="scopes-and-permissions"></a>Kapsamlar ve izinleri
 Azure AD uygulayan [OAuth 2.0](active-directory-v2-protocols.md) Yetkilendirme Protokolü. OAuth 2.0 üzerinden bir üçüncü taraf uygulama bir kullanıcı adına web barındırılan kaynaklara erişebilir bir yöntemdir. Azure AD ile tümleşir web barındırılan kaynak bir kaynak tanımlayıcısı vardır veya *uygulama kimliği URI'si*. Örneğin, Microsoft'un web barındırılan kaynaklar bazıları şunlardır:
 
-* Office 365 posta API birleşik:`https://outlook.office.com`
-* Azure AD grafik API'si:`https://graph.windows.net`
-* Microsoft Graph:`https://graph.microsoft.com`
+* Office 365 posta API birleşik: `https://outlook.office.com`
+* Azure AD grafik API'si: `https://graph.windows.net`
+* Microsoft Graph: `https://graph.microsoft.com`
 
 Aynı Azure AD ile tümleşik tüm üçüncü taraf kaynaklar için geçerlidir. Bu kaynaklardan herhangi birini de bu kaynak işlevselliğini daha küçük parçalara bölmek için kullanılan izinler kümesini tanımlayabilirsiniz. Örneğin, [Microsoft Graph](https://graph.microsoft.io) diğerlerinin yanı sıra aşağıdaki görevleri gerçekleştirmek için izinler tanımlanır:
 
 * Kullanıcının Takvim okuma
 * Kullanıcının Takvim yazma
-* Kullanıcı olarak posta gönderme
+* Bir kullanıcı olarak posta gönderme
 
 Bu tür izin tanımlayarak, kaynak verilerini ve verilerin açığa hassas denetime sahiptir. Bir üçüncü taraf uygulaması bu izinleri bir uygulama kullanıcıdan isteyebilir. Uygulama kullanıcı, uygulamayı kullanıcının adına işlem yapabileceği önce izinleri onaylamanız gerekir. Daha küçük izin kümeleri kaynağın işlevsellik Öbekleme tarafından işlevleri gerçekleştirmek için ihtiyaç duydukları belirli izinleri istemek için üçüncü taraf uygulamaları derlenebilir. Uygulama kullanıcıların tam olarak bir uygulama verilerini nasıl kullanılacağını bilmeniz ve uygulama ile kötü amaçlı çalışmıyorsa doğrulayabilirse olabilir.
 
 Azure AD'de ve OAuth, izinleri bu tür çağrılır *kapsamları*. Bunlar da olarak da adlandırılır *oAuth2Permissions*. Bir kapsam Azure AD'de bir dize değeri olarak temsil edilir. Microsoft Graph örnekle devam edersek, her izin için kapsam değeridir:
 
-* Kullanıcının takvim kullanarak okuyun`Calendars.Read`
-* Kullanıcının takvim kullanarak yazma`Calendars.ReadWrite`
-* Kullanarak bir kullanıcı tarafından olarak posta gönderme`Mail.Send`
+* Kullanıcının takvim kullanarak okuyun `Calendars.Read`
+* Kullanıcının takvim kullanarak yazma `Calendars.ReadWrite`
+* Kullanarak bir kullanıcı tarafından olarak posta gönderme `Mail.Send`
 
 Bir uygulama, v2.0 uç noktasına istek kapsamlar belirterek bu izinleri isteyebilir.
 
@@ -108,9 +102,9 @@ Bir kiracıdaki tüm kullanıcılar için izni istemek için uygulamanızı yön
 ## <a name="admin-restricted-scopes"></a>Yönetici kısıtlanmış kapsamları
 Bazı yüksek ayrıcalıklı izinlere Microsoft ekosistemindeki ayarlanabilir *yönetici kısıtlanmış*. Bu tür kapsamları örnekleri aşağıdaki izinleri şunlardır:
 
-* Kullanarak bir kuruluşun dizin verilerini okuma`Directory.Read`
-* Kullanarak bir kuruluşun dizinine veri yazma`Directory.ReadWrite`
-* Bir kuruluşun Directory'de güvenlik gruplarını kullanarak okuyun`Groups.Read.All`
+* Kullanarak bir kuruluşun dizin verilerini okuma `Directory.Read`
+* Kullanarak bir kuruluşun dizinine veri yazma `Directory.ReadWrite`
+* Bir kuruluşun Directory'de güvenlik gruplarını kullanarak okuyun `Groups.Read.All`
 
 Bir tüketici kullanıcı bir uygulama bu tür verilerin erişim ancak Kurumsal kullanıcılara hassas şirket verilerini aynı dizi için erişim verme kısıtlanır. Uygulamanızı erişim bu izinleri birine bir kuruluş kullanıcıdan isterse, kullanıcı, uygulamanızın izinlerini onayı yetkiniz yok bildiren bir hata iletisi alır.
 
@@ -153,7 +147,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |İzni istemek için istediğiniz dizin Kiracı. GUID veya kolay ad biçiminde sağlanabilir. |
+| kiracı |Gerekli |İzni istemek için istediğiniz dizin Kiracı. Sağlanan GUID veya kolay ad biçimi veya "ortak" ile örnekte görüldüğü gibi genel başvurulan. |
 | client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanmış. |
 | redirect_uri |Gerekli |Yeniden yönlendirme işlemek uygulamanız için gönderilecek yanıt istediğiniz URI'si. Bu tam olarak yeniden yönlendirme uygulama kayıt Portalı'nda kayıtlı URI'ler biriyle eşleşmelidir. |
 | durum |Önerilen |Belirteç yanıtta döndürülen de istekte bulunan bir değer. İstediğiniz herhangi bir içerik dizesi olabilir. Sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkında bilgi kodlanacak durumunu kullanın. |
@@ -169,7 +163,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parametre | Açıklama |
 | --- | --- | --- |
-| Kiracı |Uygulamanız bu GUID biçiminde istenen izinlerin dizin Kiracı. |
+| kiracı |Uygulamanız bu GUID biçiminde istenen izinlerin dizin Kiracı. |
 | durum |Aynı zamanda isteğinde bir değer belirteci yanıt olarak döndürülür. İstediğiniz herhangi bir içerik dizesi olabilir. Durum, uygulama kullanıcının durumu hakkında bilgi sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için kullanılır. |
 | admin_consent |Ayarlanacak **doğru**. |
 

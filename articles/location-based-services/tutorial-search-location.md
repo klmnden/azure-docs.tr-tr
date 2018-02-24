@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Azure Konum Tabanlı Hizmetler ile yakınlardaki istenen konumları arama
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Azure Konum Tabanlı Hizmetler’i kullanarak yakınlardaki istenen konumları arama
 
 Bu öğreticide, bir Azure Konum Tabanlı Hizmetler hesabı ayarlama ve sağlanan API’leri kullanarak istenen bir konumu arama işlemleri gösterilmektedir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -26,11 +26,11 @@ Bu öğreticide, bir Azure Konum Tabanlı Hizmetler hesabı ayarlama ve sağlana
 > * Azure Konum Tabanlı Hizmetler hesabı oluşturma
 > * Azure Konum Tabanlı Hizmetler hesabınızın birincil anahtarını öğrenme
 > * Harita Denetimi API’sini kullanarak yeni web sayfası oluşturma
-> * Arama Hizmeti’ni kullanarak yakınlardaki istenen konumları bulma
+> * Arama Hizmeti’ni kullanarak yakınlardaki istenen konumu bulma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
-# <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 [Azure Portal](https://portal.azure.com)’da oturum açın.
 
 <a id="createaccount"></a>

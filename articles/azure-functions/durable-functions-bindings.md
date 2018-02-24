@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8198fbe9f919638565357c61ba487e47a8f5229c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) için bağlamaları
 
@@ -42,8 +42,8 @@ Orchestrator işlevleri (örneğin, Azure portalında) komut dosyası dillerde y
 }
 ```
 
-* `orchestration`orchestration adıdır. Bu orchestrator işlevi yeni örneğini başlatmak istediğinizde, istemcileri kullanması gereken değer budur. Bu özellik isteğe bağlıdır. Belirtilmezse, işlevin adı kullanılır.
-* `version`orchestration, sürüm etiketi belirtin. Bir düzenleme yeni bir örneğini başlatılan istemcilere eşleşen sürüm etiketi eklemeniz gerekir. Bu özellik isteğe bağlıdır. Belirtilmezse, boş dize kullanılır. Sürüm oluşturma hakkında daha fazla bilgi için bkz: [sürüm](durable-functions-versioning.md).
+* `orchestration` orchestration adıdır. Bu orchestrator işlevi yeni örneğini başlatmak istediğinizde, istemcileri kullanması gereken değer budur. Bu özellik isteğe bağlıdır. Belirtilmezse, işlevin adı kullanılır.
+* `version` orchestration, sürüm etiketi belirtin. Bir düzenleme yeni bir örneğini başlatılan istemcilere eşleşen sürüm etiketi eklemeniz gerekir. Bu özellik isteğe bağlıdır. Belirtilmezse, boş dize kullanılır. Sürüm oluşturma hakkında daha fazla bilgi için bkz: [sürüm](durable-functions-versioning.md).
 
 > [!NOTE]
 > Ayar değerleri için `orchestration` veya `version` özellikleri şu anda önerilmez.
@@ -116,8 +116,8 @@ Geliştirme için Azure portalını kullanıyorsanız, etkinlik tetikleyici aşa
 }
 ```
 
-* `activity`Etkinlik adıdır. Bu etkinlik işlevi çağırmak için orchestrator işlevlerini kullanmanızı değer budur. Bu özellik isteğe bağlıdır. Belirtilmezse, işlevin adı kullanılır.
-* `version`Etkinliğin sürüm etiketi belirtin. Bir etkinlik çağırma orchestrator işlevleri eşleşen sürüm etiketi eklemeniz gerekir. Bu özellik isteğe bağlıdır. Belirtilmezse, boş dize kullanılır. Daha fazla bilgi için bkz: [sürüm](durable-functions-versioning.md).
+* `activity` Etkinlik adıdır. Bu etkinlik işlevi çağırmak için orchestrator işlevlerini kullanmanızı değer budur. Bu özellik isteğe bağlıdır. Belirtilmezse, işlevin adı kullanılır.
+* `version` Etkinliğin sürüm etiketi belirtin. Bir etkinlik çağırma orchestrator işlevleri eşleşen sürüm etiketi eklemeniz gerekir. Bu özellik isteğe bağlıdır. Belirtilmezse, boş dize kullanılır. Daha fazla bilgi için bkz: [sürüm](durable-functions-versioning.md).
 
 > [!NOTE]
 > Ayar değerleri için `activity` veya `version` özellikleri şu anda önerilmez.
@@ -192,8 +192,8 @@ Komut dosyası dili kullanıyorsanız (örneğin *.csx* dosyaları) geliştirme 
 }
 ```
 
-* `taskHub`-Burada birden çok işlev uygulamalarının aynı depolama hesabını paylaşmak ancak birbirinden yalıtılmış olmasına gerek senaryolarda kullanılır. Belirtilmezse, varsayılan değerden `host.json` kullanılır. Bu değer hedef orchestrator işlevleri tarafından kullanılan değer eşleşmesi gerekir.
-* `connectionName`-Depolama hesabı bağlantı dizesi içeren bir uygulama ayarı adı. Bu bağlantı dizesi tarafından temsil edilen depolama hesabının hedef orchestrator işlevler tarafından kullanılan adla aynı olması gerekir. Belirtilmezse, varsayılan depolama hesabı bağlantı dizesi işlev uygulaması için kullanılır.
+* `taskHub` -Burada birden çok işlev uygulamalarının aynı depolama hesabını paylaşmak ancak birbirinden yalıtılmış olmasına gerek senaryolarda kullanılır. Belirtilmezse, varsayılan değerden `host.json` kullanılır. Bu değer hedef orchestrator işlevleri tarafından kullanılan değer eşleşmesi gerekir.
+* `connectionName` -Depolama hesabı bağlantı dizesi içeren bir uygulama ayarı adı. Bu bağlantı dizesi tarafından temsil edilen depolama hesabının hedef orchestrator işlevler tarafından kullanılan adla aynı olması gerekir. Belirtilmezse, varsayılan depolama hesabı bağlantı dizesi işlev uygulaması için kullanılır.
 
 > [!NOTE]
 > Çoğu durumda, bu özellikleri atlayın ve varsayılan davranışı kullanan öneririz.

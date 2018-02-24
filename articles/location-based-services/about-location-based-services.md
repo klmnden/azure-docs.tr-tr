@@ -5,18 +5,18 @@ services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 11/28/2017
+ms.date: 02/05/2017
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Azure Konum Tabanlı Hizmetler'e (önizleme) giriş
 Azure Konum Tabanlı Hizmetler; Haritalar, Arama, Yönlendirme, Trafik ve Saat dilimlerine yönelik hizmet API'lerini içeren bir jeo-uzamsal hizmetler portföyüdür. Azure OneAPI uyumlu hizmet portföyü bilindik geliştirici araçlarını kullanarak hızlıca konum bilgilerini Azure çözümlerinizle tümleştiren çözümler geliştirmenizi ve bu çözümleri ölçeklendirmenizi sağlar. Azure Konum Tabanlı Hizmetler tüm sektörlerden geliştiriciler ve güçlü jeo-uzamsal özellikler sunar. Ayrıca web ve mobil uygulamalara coğrafi bağlam sağlamak için gerekli olan yeni eşleme verileriyle donatılmıştır. Azure Konum Tabanlı Hizmetler, REST API'lerin Azure One API’siyle uyumlu bir kümesidir ve geliştirmeyi çok kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimiyle birlikte sunulur. 
@@ -65,11 +65,12 @@ Azure Konum Tabanlı Hizmetler hareketlilik için oluşturulmuştur ve programla
 
 Azure Konum Tabanlı Hizmetler anahtar tabanlı kimlik doğrulaması düzeni kullandığı için hizmetlere erişmek için [Azure portalına](http://portal.azure.com) gidip Azure Konum Tabanlı Hizmetler hesabı oluşturmak gerekir. Hesabınızda önceden oluşturulmuş iki anahtar mevcuttur. Bu anahtarlardan birini Azure Konum Tabanlı Hizmetler hizmeti isteklerinde kullanarak uygulamalarınıza doğrudan konum özelliklerini tümleştirebilirsiniz.
 
-**Bing Haritalar ile İlişki** - Bu belgede açıklanan Azure Konum Tabanlı Hizmetlerin Bing Haritalar tarafından sağlanan hizmetlerden farklı olduğunu unutmayın.  Birçok ortak işlevi olmasına rağmen bu iki hizmet birbirinden farklıdır ve birbiriyle ilişkili değildir.  Bing Haritalar ürün teklifi veya yol haritası, Azure’da ayrıca yönetilecek bu yeni hizmetin kullanılabilir olmasından etkilenmez.
+## <a name="relationship-with-bing-maps"></a>Bing Haritalar ile İlişki
+Bu belgede açıklanan Azure Konum Tabanlı Hizmetler, Bing Haritalar tarafından sağlanan hizmetlerden farklıdır.  Birçok ortak işlevi olmasına rağmen bu iki hizmet birbirinden farklıdır ve birbiriyle ilişkili değildir.  Bing Haritalar ürün teklifi veya yol haritası, Azure’da ayrıca yönetilecek bu yeni hizmetin kullanılabilir olmasından etkilenmez.
 
 Microsoft'un amacı, geliştirici topluluğuna konum hizmeti teklifleri bakımından seçenek sunmaktır.  Çeşitli kullanım örnekleri ve müşteri durumları için kullanılacak hizmeti belirleme konusunda geliştiriciler için bazı hızlı yönergeler aşağıda verilmiştir.  Bu rehber Genel Önizleme aşamasında olduğundan şu anda yalnızca Azure LBS için geçerlidir ve 2018 yılı içerisinde Genel Kullanıma sunulduktan sonra güncelleştirilecektir.
 
-| Müşteri Ölçütleri | Azure Konum Tabanlı Hizmetler’in Kullanılacağı Durumlar... | Bing Haritalar’ın Kullanılacağı Durumlar... |
+| Müşteri Ölçütleri | Azure Konum Tabanlı Hizmetler’in kullanılacağı durumlar… | Bing Haritalar’ın kullanılacağı durumlar… |
 | ------------- | ------------- | ------------- |
 | Geliştirme Ortamı | Diğer Azure hizmetlerini derleme veya kullanma | Üçüncü taraf bulut veya diğer geliştirici ortamlarını kullanma |
 | Geliştirme Aşaması  | Azure LBS şu anda Genel Önizleme aşamasında olduğundan, erken aşama testleri ve Kavram Kanıtı geliştirmesi için iyileştirilmiştir | Üretim ortamı için kurumsal düzeyde bir SLA gerekir |
@@ -79,7 +80,7 @@ Microsoft'un amacı, geliştirici topluluğuna konum hizmeti teklifleri bakımı
 | Eşleme İçeriği | Standart yüzey eşlemeleri yeterlidir | Uydu, havadan ve sokak yan görüntüleri gereklidir |
 | Temel Eşleme Kaynağı | TomTom eşleme verileri tercih edilir | HERE eşleme verileri tercih edilir |
 
-[Azure Konum Tabanlı Hizmetler hesabınızı](http://aka.ms/azurelbsportal) hemen oluşturun!
+[Azure Konum Tabanlı Hizmetler hesabınızı hemen](http://aka.ms/azurelbsportal) oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

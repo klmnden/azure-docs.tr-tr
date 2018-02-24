@@ -378,8 +378,8 @@
               href: saas-dbpertenant-restore-single-tenant.md
             - name: Kiracı şemasını yönetme
               href: saas-tenancy-schema-management.md
-            - name: Geçici sorgular çalıştırma
-              href: saas-tenancy-adhoc-analytics.md
+            - name: Kiracılar arası raporlama
+              href: saas-tenancy-cross-tenant-reporting.md
             - name: Analiz için ETL
               href: saas-tenancy-tenant-analytics.md
         - name: Çok kiracılı veritabanı

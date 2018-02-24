@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Birden çok IP yapılandırmalarını Azure portalını kullanarak yük dengelemenin
 
@@ -89,7 +89,7 @@ Yük Dengeleyici yapılandırması için oluşturun:
 
 1. Azure portalına göz atın: http://portal.azure.com. Azure hesabınızla oturum açın.
 
-2. Ekranın üst sol seçin **yeni** > **ağ** > **yük dengeleyici**. Ardından, **oluşturma**.
+2. Ekranın üst sol seçin **kaynak oluşturma** > **ağ** > **yük dengeleyici**. Ardından, **oluşturma**.
 
 3. Altında **oluşturma yük dengeleyici**, yük dengeleyici için bir ad yazın. Bu senaryoda, biz adı kullandığınızdan **mylb**.
 

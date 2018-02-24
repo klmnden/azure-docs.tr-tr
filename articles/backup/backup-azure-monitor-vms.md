@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure sanal makine yedekleme uyarılarını izleme
 Uyarıları olay eşiği karşıladığında veya aşılan hizmetinden yanıtları değildir. Bilerek zaman sorunları başlangıç iş maliyetleri tutarak için kritik olabilir. Uyarıları genellikle bir zamanlamaya göre gerçekleşmez ve bu nedenle uyarılar ortaya sonra mümkün olan en kısa sürede bilmeniz yararlı olur. Örneğin, bir yedekleme veya geri yükleme işi başarısız olduğunda bir uyarı hata beş dakika içinde gerçekleşir. Kasa panosunda, yedekleme uyarıları kutucuğu kritik ve uyarı düzeyi olayları görüntüler. Yedekleme uyarıları ayarlarında tüm olayları görüntüleyebilirsiniz. Ancak ayrı bir sorunu çalışırken bir uyarı ortaya çıkarsa ne yapacaksınız? Uyarı gerçekleştiğinde bunu bilmiyorsanız, küçük bir sorundan dolayı olabilir veya veri tehlikeye atabilecek. Doğru kişilerin oluştuğunda uyarının - farkında olduğundan emin olmak için e-posta üzerinden uyarı bildirimleri göndermek üzere hizmetini yapılandırın. E-posta bildirimlerini ayarlama hakkında daha fazla bilgi için bkz: [bildirimleri yapılandırmak](backup-azure-monitor-vms.md#configure-notifications).
@@ -70,9 +70,9 @@ Uyarılar için e-posta bildirimleri ayarlamak için
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Hangi uyarı türleri için Azure Iaas sanal yedekleme var mı?
    | Uyarı düzeyi | Gönderilen uyarıları |
    | --- | --- |
-   | Kritik |Yedekleme hatası, Kurtarma hatası |
-   | Uyarı |Hiçbiri |
-   | Bilgilendirici |None |
+   | Kritik | Kurtarma hatası yedekleme hatası için |
+   | Uyarı | uyarılarla başarılı bir şekilde yedekleme işleri için (örn: bazı yazıcıları başarısız bir anlık görüntü oluşturulurken) |
+   | Bilgilendirici | şu anda Azure VM yedekleme için hiçbir bilgilendirici uyarılar bulunmaktadır |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Bildirimler yapılandırılmış olsa bile e-postanın gönderilmediği durumlar var mı?
 Bildirimlerin düzgün bir şekilde yapılandırmış olmanıza rağmen bir uyarı gönderilmez, durumlar vardır. Aşağıdaki durumlarda e-postayla aralığını belirterek uyarı sesini önlemek için bildirim gönderilmez:

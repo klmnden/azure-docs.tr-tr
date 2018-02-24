@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: ca4566ced525f0cb732afc15d96d9ef73fd8cff5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: SQL veritabanındaki hassas verileri korumak ve Azure anahtar kasası, şifreleme anahtarlarını saklamak
 
@@ -79,7 +79,7 @@ Aşağıdaki komut dosyasını çalıştırarak, bir anahtar kasası hızlı bir
 
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Git **yeni** > **veri + depolama** > **SQL veritabanı**.
+2. Git **kaynak oluşturma** > **veritabanları** > **SQL veritabanı**.
 3. Oluşturma bir **boş** adlı veritabanı **Clinic** yeni veya var olan bir sunucuda. Azure portalında bir veritabanı oluşturmak konusunda ayrıntılı yönergeler için bkz: [ilk Azure SQL veritabanınızı](sql-database-get-started-portal.md).
    
     ![Boş veritabanı oluşturma](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
@@ -91,7 +91,7 @@ Bağlantı gerekir dize öğreticide daha sonra bu nedenle veritabanı oluşturd
    
     ![Bağlantı dizesini kopyalayın](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Veritabanı SSMS ile bağlanma
+## <a name="connect-to-the-database-with-ssms"></a>SSMS ile veritabanına bağlanma
 SSMS açın ve Clinic veritabanı sunucusuna bağlanın.
 
 1. SSMS açın. (Git **Bağlan** > **veritabanı altyapısı** açmak için **sunucuya Bağlan** açık değilse, pencere.)

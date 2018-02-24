@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54a2defd6bfe2396e24584c686698d3215893cfd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Azure App Service Web Apps özelliğini kullanarak Azure IOT hub'ınızı gerçek zamanlı algılayıcı verilerini görselleştirmek
 
@@ -49,7 +49,7 @@ Bu öğreticide, bir web uygulaması üzerinde barındırılan bir web uygulamas
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-1. İçinde [Azure portal](https://ms.portal.azure.com/), tıklatın **yeni** > **Web + mobil** > **Web uygulaması**.
+1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **kaynak oluşturma** > **Web + mobil** > **Web uygulaması**.
 2. Benzersiz iş adını girin, aboneliğinizi doğrulamak, bir kaynak grubu ve select bir konum belirtin **panoya Sabitle**ve ardından **oluşturma**.
 
    Aynı konumu, kaynak grubu seçmenizi öneririz. Bunun yapılması, işlem hızı yardımcı olur ve veri aktarımı maliyeti azaltır.

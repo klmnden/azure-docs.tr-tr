@@ -11,71 +11,61 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f2fd5e4c1a51fe9d1652c9970bcd8d76b25ab60
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 501210c3fab2659deb9594e1bbd9aa51912187e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Kullanıcı hesapları Azure API Management'te yönetme
 API Yönetimi'nde, geliştiriciler API Management kullanarak kullanıma API'leri kullanıcılardır. Bu kılavuz, API'ları ve ürünlerini kullanmak için için nasıl oluşturulacağını ve geliştiricilerin davet gösterir, API Management örneği ile kendileri için kullanılabilir hale. Kullanıcı hesaplarını program aracılığıyla yönetme hakkında daha fazla bilgi için bkz: [kullanıcı varlığı](https://msdn.microsoft.com/library/azure/dn776330.aspx) belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru.
 
-## <a name="create-developer"></a>Yeni bir geliştirici oluşturma
-Yeni bir geliştirici oluşturmak için tıklatın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda. Bu sizi API Management yayımcı portalına götürür. Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma][Create an API Management service instance].
+## <a name="prerequisites"></a>Önkoşullar
 
-![Yayımcı portalı][api-management-management-console]
+Bu makalede görevleri tamamlayın: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 
-Tıklatın **kullanıcılar** gelen **API Management** sol menüsünde ve ardından **kullanıcı ekleme**.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-![Geliştirici oluşturma][api-management-create-developer]
+## <a name="create-developer"> </a>Yeni bir geliştirici oluşturma
 
-Girin **e-posta**, **parola**, ve **adı** tıklatın ve yeni geliştirici için **kaydetmek**.
+Yeni bir kullanıcı eklemek için bu bölümdeki adımları izleyin:
 
-![Geliştirici oluşturma][api-management-add-new-user]
+1. Seçin **kullanıcılar** ekranın sol sekmesine.
+2. Tuşuna **+ Ekle**.
+3. Kullanıcı için uygun bilgileri girin.
+4. **Ekle**’ye basın.
 
-Varsayılan olarak, yeni oluşturulan Geliştirici hesaplardır **etkin**ve ilişkili **geliştiriciler** grubu.
+    ![Yeni kullanıcı ekleme](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-![Yeni Geliştirici][api-management-new-developer]
+Varsayılan olarak, yeni oluşturulan Geliştirici hesaplardır **etkin**ve ilişkili **geliştiriciler** grubu. Geliştirici hesaplarının bir **etkin** durumu, tüm abonelikleri sahiptirler API'leri erişmek için kullanılabilir. Yeni oluşturulan Geliştirici ek gruplarıyla ilişkilendirmek için bkz: [grupları geliştiricilerle ilişkilendirme][How to associate groups with developers].
 
-Geliştirici hesaplarının bir **etkin** durumu, tüm abonelikleri sahiptirler API'leri erişmek için kullanılabilir. Yeni oluşturulan Geliştirici ek gruplarıyla ilişkilendirmek için bkz: [grupları geliştiricilerle ilişkilendirme][How to associate groups with developers].
+## <a name="invite-developer"> </a>Bir geliştirici davet et
+Bir geliştirici davet etmek için bu bölümdeki adımları izleyin:
 
-## <a name="invite-developer"></a>Geliştirici davet et
-Bir geliştirici davet etmek için tıklatın **kullanıcılar** gelen **API Management** sol menüsünde ve ardından **davet kullanıcı**.
-
-![Geliştirici davet et][api-management-invite-developer]
-
-Geliştirici adını ve e-posta adresini girin ve tıklayın **davet**.
-
-![Geliştirici davet et][api-management-invite-developer-window]
+1. Seçin **kullanıcılar** ekranın sol sekmesine.
+2. Tuşuna **+ davet**.
 
 Bir onay iletisi görüntülenir, fakat daveti kabul ettikten sonra yeni davet edilen Geliştirici kadar listesinde görünmez. 
-
-![Onay davet et][api-management-invite-developer-confirmation]
 
 Bir geliştirici davet, geliştiriciler için bir e-posta gönderilir. Bu e-posta şablonu kullanılarak oluşturulan ve özelleştirilebilir. Daha fazla bilgi için bkz: [yapılandırma e-posta şablonlarını][Configure email templates].
 
 Daveti kabul edildikten sonra hesap etkin hale gelir.
 
-## <a name="block-developer"></a> Devre dışı bırakın veya bir geliştirici hesabını yeniden etkinleştirme
-Varsayılan olarak, yeni oluşturulan veya davet edilen Geliştirici hesaplardır **etkin**. Bir geliştirici hesabını devre dışı bırakmak için tıklatın **blok**. Engellenen Geliştirici hesabı yeniden etkinleştirmek için tıklatın **etkinleştirme**. Engellenen Geliştirici hesabını değil Geliştirici portalına erişmek veya tüm API'leri çağırın. Bir kullanıcı hesabını silmek için tıklatın **silmek**.
+## <a name="block-developer"> </a> Bir geliştirici hesabı yeniden etkinleştirmek veya devre dışı bırakma
 
-![Blok Geliştirici][api-management-new-developer]
+Varsayılan olarak, yeni oluşturulan veya davet edilen Geliştirici hesaplardır **etkin**. Bir geliştirici hesabını devre dışı bırakmak için tıklatın **blok**. Engellenen Geliştirici hesabı yeniden etkinleştirmek için tıklatın **etkinleştirme**. Engellenen Geliştirici hesabını Geliştirici portalına erişmek veya herhangi bir API çağrısı. Bir kullanıcı hesabını silmek için tıklatın **silmek**.
+
+Bir kullanıcıyı engellemek için aşağıdaki adımları izleyin.
+
+1. Seçin **kullanıcılar** ekranın sol sekmesine.
+2. Engellemek istediğiniz kullanıcıya tıklayın.
+3. Tuşuna **blok**.
 
 ## <a name="reset-a-user-password"></a>Kullanıcı parolasını sıfırlama
-Bir kullanıcı hesabının parolasını sıfırlamak için hesap adına tıklayın.
-
-![Parola sıfırlama][api-management-view-developer]
-
-Tıklatın **parola sıfırlama** kullanıcının parolasını sıfırlamak için bir bağlantı göndermek için.
-
-![Parola sıfırlama][api-management-reset-password]
 
 Program aracılığıyla kullanıcı hesapları ile çalışmak için bkz: [kullanıcı varlığı](https://msdn.microsoft.com/library/azure/dn776330.aspx) belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru. Belirli bir değere bir kullanıcı hesabı parolasını sıfırlamak için kullanabileceğiniz [kullanıcıyı güncelleştirmek](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) işlemi ve istenilen parola belirtin.
-
-## <a name="pending-verification"></a>Bekleyen doğrulama
-![Bekleyen doğrulama][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Sonraki adımlar
 Bir geliştirici hesabı oluşturulduktan sonra rolleriyle ilişkilendirmek ve ürünleri ve API'ler için abone olun. Daha fazla bilgi için bkz: [grupları oluşturma ve kullanma konusunda][How to create and use groups].

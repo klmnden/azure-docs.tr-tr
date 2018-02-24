@@ -95,8 +95,6 @@
           href: apache-spark-streaming-overview.md
         - name: YARN’da yüksek oranda kullanılabilir Spark akış işleri oluşturma
           href: apache-spark-streaming-high-availability.md
-        - name: Akış olaylarını işleme
-          href: apache-spark-eventhub-streaming.md
         - name: Event Hubs kullanarak yapılandırılmış akış
           href: apache-spark-eventhub-structured-streaming.md
         - name: Kafka ile Structured Streaming

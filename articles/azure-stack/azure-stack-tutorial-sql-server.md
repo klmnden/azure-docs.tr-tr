@@ -3,8 +3,8 @@ title: "SQL veritabanları Azure yığın kullanıcılarınız için kullanılab
 description: "Öğretici SQL Server Kaynak sağlayıcısı yüklemeniz ve oluşturmak için SQL veritabanları Azure yığın oluşturmalarını sağlayan sunar."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 7/03/2017
-ms.author: erikje
+ms.author: brenduns
+ms.reviewer: 
 ms.custom: mvc
-ms.openlocfilehash: f774888ba3921d0688feddac669ed1dca4667441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL veritabanları Azure yığın kullanıcılarınızın kullanımına sunun
 
@@ -63,7 +64,7 @@ SQL Server Kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturulan gö
 
 ### <a name="create-a-sql-database"></a>SQL veritabanı oluşturma
 
-1. Tıklatın  **+**   >  **veri + depolama** > **SQL veritabanı**.
+1. Tıklatın ** + **  >  **veri + depolama** > **SQL veritabanı**.
 2. Alanlar için varsayılanları bırakabilir veya bu örnekler kullanabilirsiniz:
     - **Veritabanı adı**: SQLdb
     - **MB cinsinden en büyük boyutu**: 100
@@ -71,7 +72,7 @@ SQL Server Kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturulan gö
     - **Kaynak grubu**: SQL RG
 3. Tıklatın **oturum açma ayarları**, veritabanı için kimlik bilgilerini girin ve ardından **Tamam**.
 4. Tıklatın **SKU** > barındıran SQL Server için oluşturulan SQL SKU seçin > **Tamam**.
-5. **Oluştur**'a tıklayın.
+5. **Oluştur**’a tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

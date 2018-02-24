@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health işlemleri
 Bu konuda, Azure Active Directory (Azure AD) Connect Health kullanarak gerçekleştirebileceğiniz çeşitli işlemler açıklanmaktadır.
@@ -42,6 +42,9 @@ Uyarılar kimlik altyapınızı sağlıklı olmadığını belirtir, e-posta bil
 
 ## <a name="delete-a-server-or-service-instance"></a>Bir sunucu veya hizmet örneğini silin
 
+>[!NOTE] 
+> Azure AD premium lisansı silme adımları için gereklidir.
+
 Bazı durumlarda, izlenmekte olan bir sunucuyu kaldırmak isteyebilirsiniz. Azure AD Connect Health hizmetinden bir sunucuyu kaldırmak için bilmeniz gerekenleri burada verilmiştir.
 
 Bir sunucu silmekte olduğunuz, aşağıdakilere dikkat edin:
@@ -51,7 +54,11 @@ Bir sunucu silmekte olduğunuz, aşağıdakilere dikkat edin:
 * Bu eylem bu sunucudan zaten toplanmış verileri silmez. Bu verileri Azure veri bekletme ilkesiyle uygun şekilde silinir.
 * Bu eylemi gerçekleştirdikten sonra aynı sunucu izleme başlatmak istiyorsanız yeniden, kaldırıp sistem durumu aracısı bu sunucuya yeniden yüklemeniz gerekir.
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>Bir sunucu Azure AD Connect Health hizmetinden silmek için
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Azure AD Connect Health hizmetinden bir sunucu silme
+
+>[!NOTE] 
+> Azure AD premium lisansı silme adımları için gereklidir.
+
 Azure AD Connect Health için Active Directory Federasyon Hizmetleri (AD FS) ve Azure AD Connect (eşitleme):
 
 1. Açık **Server** dikey penceresinden **sunucu listesi** dikey kaldırılacak sunucu adını seçin.
@@ -133,7 +140,7 @@ Bir kullanıcının erişim izin vermek için *tüm hizmet örnekleri* düzey Az
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>3. adım: kullanıcıları veya grupları dikey konumu paylaşma
-1. İzinleri atadıktan sonra bir kullanıcı Azure AD Connect Health giderek erişebilir [burada](http://aka.ms/aadconnecthealth).
+1. İzinleri atadıktan sonra bir kullanıcı Azure AD Connect Health giderek erişebilir [burada](https://aka.ms/aadconnecthealth).
 2. Dikey penceresinde kullanıcı dikey veya bunu farklı bölümleri panoya sabitleyebilirsiniz. Tıklamanız yeterlidir **panoya Sabitle** simgesi.<br>
    ![Vurgulanan PIN simgesiyle ekran Azure AD Connect sistem durumu RBAC PIN dikey](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 

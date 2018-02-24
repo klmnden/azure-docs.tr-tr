@@ -23,6 +23,10 @@
       items:
         - name: Linux sanal makinesinden
           href: msi-tutorial-linux-vm-access-arm.md
+    - name: Azure Cosmos DB’ye erişmek için VM MSI kullanma
+      items:
+        - name: Linux sanal makinesinden
+          href: msi-tutorial-linux-vm-access-cosmosdb.md
     - name: Azure Depolama’ya erişmek için VM MSI kullanma
       items:
         - name: Erişim anahtarı kullanarak bir Linux sanal makinesinden

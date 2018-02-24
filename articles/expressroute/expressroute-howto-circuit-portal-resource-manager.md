@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 08582d03428acb860bc304c365ffa6626ba33903
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Oluşturma ve bir expressroute bağlantı hattı değiştirme
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Bir tarayıcıdan [Azure portalına](http://portal.azure.com) gidin ve Azure hes
 > 
 > 
 
-1. Yeni bir kaynak oluşturma seçeneğini seçerek bir expressroute bağlantı hattı oluşturabilirsiniz. Tıklatın **yeni** > **ağ** > **ExpressRoute**aşağıdaki görüntüde gösterildiği gibi:
+1. Yeni bir kaynak oluşturma seçeneğini seçerek bir expressroute bağlantı hattı oluşturabilirsiniz. Tıklatın **kaynak oluşturma** > **ağ** > **ExpressRoute**aşağıdaki görüntüde gösterildiği gibi:
 
   ![ExpressRoute bağlantı hattı oluşturma](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. Tıklattıktan sonra **ExpressRoute**, göreceğiniz **oluşturma expressroute bağlantı hattı** sayfası. Bu sayfada değerleri doldurma sırasında doğru SKU Katmanı (standart veya Premium) ve fatura modelini (sınırsız veya Metered) ölçümü verilerini belirttiğinizden emin olun.

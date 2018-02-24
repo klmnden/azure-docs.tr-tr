@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2018
+ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8bd5bebb04303b83a21bc1434e713ce26de54ae9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0ca77fb49bfdd0a47c7efe746d58a93dd4eafc1
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Bir Azure sanal ağı kullanarak Azure Hdınsight genişletme
 
@@ -210,7 +210,7 @@ Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağı
 
 2. Düğüm ve bir hizmet kullanılabilir bağlantı noktasını belirlemek için bkz: [hdınsight'ta Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](./hdinsight-hadoop-port-settings-for-services.md) belge.
 
-## <a id="networktraffic"></a>Ağ trafiğini denetleme
+## <a id="networktraffic"></a> Ağ trafiğini denetleme
 
 Bir Azure sanal ağlarda ağ trafiğini aşağıdaki yöntemler kullanılarak denetlenebilir:
 
@@ -227,7 +227,7 @@ Yönetilen bir hizmet olarak Hdınsight Azure bulutta Azure sistem durumu ve Yö
 
 Hdınsight, çeşitli bağlantı noktaları üzerinde hizmetleri sunar. Bir sanal gereç Güvenlik Duvarı'nı kullanırken, bu hizmetler için kullanılan bağlantı noktaları üzerinde trafiğe izin vermelidir. Daha fazla bilgi için [gerekli bağlantı noktalarını] bölümüne bakın.
 
-### <a id="hdinsight-ip"></a>Hdınsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar
+### <a id="hdinsight-ip"></a> Hdınsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar
 
 Kullanmayı planlıyorsanız, **ağ güvenlik grubu** veya **kullanıcı tanımlı yollar** ağ trafiğini denetlemek için Hdınsight'ı yüklemeden önce aşağıdaki eylemleri gerçekleştirin:
 
@@ -250,7 +250,7 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar hakkında daha fazla b
 
 Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada bir alt ağdaki tüm trafiği belirli ağ veya şirket içi ağınız gibi konuma zorlanır yapılandırmadır. Hdınsight mu __değil__ destek zorlamalı tünel.
 
-## <a id="hdinsight-ip"></a>Gerekli IP adresi
+## <a id="hdinsight-ip"></a> Gerekli IP adresi
 
 > [!IMPORTANT]
 > Azure sistem durumu ve Yönetim Hizmetleri Hdınsight ile iletişim kurabilmesi gerekir. Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, Hdınsight ulaşmak bu hizmetler için IP adreslerinden gelen trafiğe izin verecek.
@@ -299,6 +299,7 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, Hd�
     | &nbsp; | Doğu ABD | 13.82.225.233</br>40.71.175.99 | 443 | Gelen |
     | &nbsp; | Orta Kuzey ABD | 157.56.8.38</br>157.55.213.99 | 443 | Gelen |
     | &nbsp; | Batı Orta ABD | 52.161.23.15</br>52.161.10.167 | 443 | Gelen |
+    | &nbsp; | Batı ABD | 13.64.254.98</br>23.101.196.19 | 443 | Gelen |
     | &nbsp; | Batı ABD 2 | 52.175.211.210</br>52.175.222.222 | 443 | Gelen |
 
     Azure kamu için kullanılacak IP adresleri hakkında daha fazla bilgi için bkz: [Azure Kamu Intelligence + analiz](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) belge.
@@ -307,7 +308,7 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, Hd�
 
 Daha fazla bilgi için bkz: [ağ trafiğini denetleme](#networktraffic) bölümü.
 
-## <a id="hdinsight-ports"></a>Gerekli bağlantı noktaları
+## <a id="hdinsight-ports"></a> Gerekli bağlantı noktaları
 
 Bir ağı kullanmayı planlıyorsanız, **sanal gereç Güvenlik Duvarı** sanal ağ güvenliğini sağlamak için aşağıdaki bağlantı noktaları üzerinde giden trafiğe izin vermesi gerekir:
 
@@ -499,7 +500,7 @@ Gelen trafik sınırlar, ancak Hdınsight tarafından gerekli IP adreslerinden g
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 > ```
 
-## <a id="example-dns"></a>Örnek: DNS yapılandırması
+## <a id="example-dns"></a> Örnek: DNS yapılandırması
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Sanal bir ağa bağlı şirket içi ağ arasındaki ad çözümlemesi
 

@@ -15,15 +15,13 @@ Kullanılabilirlik kümesi iki seçenekten birini kullanarak içine Klasik sanal
 > 
 > 
 
-## <a id="createset"></a>Seçenek 1: bir sanal makine ve kullanılabilirlik aynı anda kümesi oluşturma
+## <a id="createset"> </a>Seçenek 1: bir sanal makine ve kullanılabilirlik aynı anda kümesi oluşturma
 Bunu yapmak için Azure portalında veya Azure PowerShell komutlarını kullanabilirsiniz.
 
 Azure Portalı'nı kullanmak için:
 
 1. Önceden yapmadıysanız, [Azure portal](https://portal.azure.com)da oturum açın
-2. Hub menüsünde **+ yeni**ve ardından **sanal makine**.
-   
-    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. Tıklatın **kaynak oluşturma** > **işlem**.
 3. Kullanmak istediğiniz Market sanal makine görüntüsü seçin. Bir Linux veya Windows sanal makine oluşturmak seçebilirsiniz.
 4. Seçili sanal makine için dağıtım modeli değerine ayarlandığını doğrulayın **Klasik** ve ardından **oluştur**
    
@@ -38,11 +36,11 @@ Azure Portalı'nı kullanmak için:
 
 Bir Azure sanal makinesi oluşturmak ve yeni veya var olan kullanılabilirlik kümesine eklemek için Azure PowerShell komutlarını kullanmak için bkz: [oluşturmak ve Windows tabanlı sanal makineleri önceden için Azure PowerShell kullanma](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"></a>Seçenek 2: var olan bir sanal makine bir kullanılabilirlik kümesine ekleme
+## <a id="addmachine"> </a>Seçenek 2: var olan bir sanal makine bir kullanılabilirlik kümesi ekleyin.
 Azure Portal'da, mevcut bir kullanılabilirlik Klasik varolan sanal makinelere veya bunları için yeni bir tane oluşturmak ekleyebilirsiniz. (Sanal makineler aynı kullanılabilirlik kümesindeki aynı bulut hizmetine ait olması gerektiğini aklınızda tutun.) Adımlar neredeyse aynıdır. Azure PowerShell ile sanal makine var olan bir kullanılabilirlik kümesine ekleyebilirsiniz.
 
 1. Zaten yapmadıysanız, oturum [Azure portal](https://portal.azure.com).
-2. Hub menüsünde **sanal makineleri (Klasik)**.
+2. Sol menüsünde **sanal makineleri (Klasik)**.
    
     ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. Sanal makineler listesinden kümeye eklemek istediğiniz sanal makinenin adını seçin.
@@ -52,7 +50,7 @@ Azure Portal'da, mevcut bir kullanılabilirlik Klasik varolan sanal makinelere v
 5. Sanal makineye eklemek istediğiniz kullanılabilirlik kümesi seçin. Sanal makine kullanılabilirlik kümesi aynı bulut hizmetine ait olmalıdır.
    
     ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
-6. **Kaydet** düğmesine tıklayın.
+6. **Kaydet**’e tıklayın.
 
 Azure PowerShell komutlarını kullanmak için bir yönetici düzeyi Azure PowerShell oturumu açın ve aşağıdaki komutu çalıştırın. Yer tutucuları için (gibi &lt;VmCloudServiceName&gt;), dahil olmak üzere tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri doğru adlara sahip.
 

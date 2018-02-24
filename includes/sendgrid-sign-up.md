@@ -2,7 +2,7 @@ Azure müşterileri her ay 25.000 ücretsiz e-postanın kilidini açabilir. Bu a
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>SendGrid hesabı açmak için
 1. Oturum [Azure portal][Azure portal].
-2. Sol taraftaki menüden **Yeni**'ye tıklayın.
+2. Soldaki menüde tıklatın **kaynak oluşturma**.
 
     ![komut-çubuğu-yeni][command-bar-new]
 3. **Eklentiler**'e ve ardından **SendGrid E-posta Teslimi**'ne tıklayın.
@@ -45,7 +45,7 @@ Azure müşterileri her ay 25.000 ücretsiz e-postanın kilidini açabilir. Bu a
 
     ![api-anahtarları][api-keys]
 
-3. **API Anahtarı Oluştur** açılır menüsüne tıklayın ve **Genel API Anahtarı**'nı seçin.
+3. Tıklatın **API anahtarı oluşturma**.
 
     ![genel-api-anahtarı][general-api-key]
 4. En azından **Bu anahtarın adı** alanını doldurun, **Posta Gönderimi** için tam erişim verin ve **Kaydet**'i seçin.

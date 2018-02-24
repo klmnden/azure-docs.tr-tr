@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/13/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uygulaması yükseltme
 Azure Service Fabric uygulama hizmetleri koleksiyonudur. Yükseltme sırasında Service Fabric yeni karşılaştırır [uygulama bildirimi](service-fabric-application-and-service-manifests.md) önceki sürümüyle ve hangi uygulama iste güncelleştirmeleri Hizmetleri belirler. Service Fabric önceki sürümde sürüm numaralarıyla numaraları hizmet bildirimlerini sürüm karşılaştırır. Bu hizmet, hizmet değişmemişse yükseltilmez.
@@ -47,16 +47,16 @@ Uygulama yükseltme için öneririz modu yaygın olarak kullanılan modu izlenen
 İzlenmeyen el ile moduna el ile müdahale sonraki güncelleştirme etki alanı yükseltme kapalı kazandırın için bir güncelleştirme etki alanındaki her yükseltme sonrasında gerekir. Herhangi bir Service Fabric sistem durumu denetimi gerçekleştirilir. Yönetici, sonraki güncelleştirme etki alanında Yükseltmeyi başlatmadan önce sistem durumu veya durum denetimi yapar.
 
 ## <a name="upgrade-default-services"></a>Varsayılan Hizmetleri yükseltme
-Varsayılan Hizmetleri Service Fabric uygulaması içindeki bir uygulama yükseltme işlemi sırasında yükseltilebilir. Varsayılan Hizmetleri tanımlanmış [uygulama bildirimi](service-fabric-application-and-service-manifests.md). Varsayılan Hizmetleri yükseltme standart kurallar şunlardır:
+Tanımlanan bazı varsayılan hizmet parametreleri [uygulama bildirimi](service-fabric-application-and-service-manifests.md) uygulama yükseltme işleminin bir parçası ayrıca yükseltilebilir. Aracılığıyla değiştirilmesini destekleyen hizmeti parametreleri [güncelleştirme ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) yükseltme işleminin bir parçası değiştirilebilir. Uygulama yükseltme sırasında varsayılan Hizmetleri değiştirmenin davranış aşağıdaki gibidir:
 
-1. Varsayılan hizmetlerini yeni [uygulama bildirimi](service-fabric-application-and-service-manifests.md) kümede olmayan oluşturulur.
+1. Varsayılan kümede zaten var olmadığından yeni bir uygulama bildirimi Hizmetleri'nde oluşturulur.
+2. Her iki önceki ve yeni uygulama bildirimleri mevcut varsayılan Hizmetleri güncelleştirilir. Yeni bir uygulama bildirimi varsayılan hizmetinde parametrelerinin varolan hizmeti parametrelerinin üzerine yazın. Uygulama yükseltme olacak geri alma otomatik olarak varsayılan hizmet güncelleştirme başarısız olursa.
+3. Yeni uygulama bildiriminde yok varsayılan Hizmetleri varsa bunlar kümede silinir. **Varsayılan hizmet silme tüm bu hizmet silme neden olacağını unutmayın adı durumu ve geri alınamaz.**
+
+Uygulama yükseltme geri, varsayılan hizmet parametreleri yükseltme başladı, ancak silinen Hizmetleri eski durumlarına ile yeniden oluşturulamaz önce eski değerlerine geri alınır.
+
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) aşağıdaki kuralları etkinleştirmek için true olarak ayarlanması gerekir. Bu özellik, v5.5 desteklenir.
-
-2. Varsayılan hem de önceki varolan hizmetlerini [uygulama bildirimi](service-fabric-application-and-service-manifests.md) ve yeni sürümü güncelleştirilir. Hizmet açıklamasında yeni sürümü kümeye de zaten üzerine yazacak. Uygulama yükseltme varsayılan hizmet hatası güncelleştirme sırasında otomatik olarak geri alma olacaktır.
-3. Varsayılan hizmetlerini önceki [uygulama bildirimi](service-fabric-application-and-service-manifests.md) ancak yeni sürümde silinir. **Bu silme varsayılan Hizmetleri değil döndürülebilir unutmayın.**
-
-Bir uygulama durumunda yükseltme geri, yükseltmeyi başlatmadan önce Hizmetleri durumuna geri alınır varsayılan alınır. Ancak silinmiş Hizmetleri hiçbir zaman oluşturulabilir.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) küme yapılandırma ayarı olmalıdır *true* kurallarını 2 etkinleştirmek için) ve 3) (varsayılan hizmet güncelleştirme ve silme) üstünde. Bu özellik, Service Fabric sürüm 5.5 itibaren desteklenmektedir.
 
 ## <a name="application-upgrade-flowchart"></a>Uygulama yükseltme akış çizelgesi
 Bu paragraf aşağıdaki akış çizelgesi, bir Service Fabric uygulama yükseltme işlemini anlamanıza yardımcı olabilir. Özellikle, akışını açıklar nasıl dahil olmak üzere zaman aşımlarını *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, ve *UpgradeHealthCheckInterval*, Yardım Yükseltme tek bir güncelleştirme etki alanındaki bir başarı veya hata olarak kabul edildiğinde denetim.

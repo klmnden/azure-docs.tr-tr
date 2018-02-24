@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Bir anlık görüntü oluşturma 
 
@@ -65,14 +65,14 @@ az snapshot create -g myResourceGroup --source "$osDiskId" --name osDisk-backup
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Bir anlık görüntüsünü için Azure portalını kullanma 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol üst köşede başlayarak, tıklatın **yeni** arayın ve **anlık görüntü**.
+2. Sol üst köşede başlayarak, tıklatın **kaynak oluşturma** arayın ve **anlık görüntü**.
 3. Anlık görüntü dikey penceresinde tıklayın **oluşturma**.
 4. Girin bir **adı** anlık görüntü için.
 5. Varolan [Kaynak grubunu](../../azure-resource-manager/resource-group-overview.md#resource-groups) seçin veya yenisi için adı yazın. 
 6. Azure veri merkezi konum seçin.  
 7. İçin **kaynak disk**, anlık görüntü için yönetilen diski seçin.
 8. Seçin **hesap türü** anlık görüntü deposu için kullanılacak. Öneririz **Standard_LRS** yüksek performanslı bir diskte depolanan gerekmedikçe.
-9. **Oluştur**'a tıklayın.
+9. **Oluştur**’a tıklayın.
 
 Yönetilen bir Disk oluşturmak ve yüksek performanslı olması gereken bir VM eklemek için anlık görüntü kullanmayı planlıyorsanız, parametresini kullanın `--sku Premium_LRS` ile `az snapshot create` komutu. Bu anlık görüntü oluşturur, böylece yönetilen bir Premium Disk depolanır. Katı hal sürücüleri (SSD) olan ancak birden çok standart diskler (HDD'ler) maliyet premium yönetilen diskleri daha iyi gerçekleştirilemiyor.
 

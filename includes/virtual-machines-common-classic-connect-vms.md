@@ -2,7 +2,7 @@
 
 ![Sanal makinelerde tek başına bulut hizmeti](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-Bir sanal ağ, sanal makineleriniz yerleştirirseniz kaç bulut Hizmetleri için kullanmak istediğiniz yük dengeleme ve kullanılabilirlik kümeleri karar verebilirsiniz. Ayrıca, şirket içi ağ ve sanal ağı şirket içi ağınıza bağlanmak ağlardaki sanal makineler aynı şekilde düzenleyebilirsiniz. Örnek aşağıda verilmiştir:
+Bir sanal ağ, sanal makineleriniz yerleştirirseniz kaç bulut Hizmetleri için kullanmak istediğiniz yük dengeleme ve kullanılabilirlik kümeleri karar verebilirsiniz. Ayrıca, şirket içi ağ ve sanal ağı şirket içi ağınıza bağlanmak ağlardaki sanal makineler aynı şekilde düzenleyebilirsiniz. Bir örneği aşağıda verilmiştir:
 
 ![Bir sanal ağdaki sanal makineler](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
@@ -12,11 +12,11 @@ Sanal ağlar, Azure sanal makinelere bağlanmak için önerilen yoldur. En iyi u
 Bir sanal ağdaki sanal makinelere bağlanmak için:
 
 1. Sanal ağ oluşturma [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) ve 'Klasik dağıtım' belirtin.
-2. Bulut Hizmetleri ve Yük Dengeleme tasarımınız kullanılabilirlik kümeleri için yansıtmak üzere dağıtımınız için kümesi oluşturun. Azure portalında tıklatın **yeni > işlem > bulut hizmeti** her bir bulut hizmeti için.
+2. Bulut Hizmetleri ve Yük Dengeleme tasarımınız kullanılabilirlik kümeleri için yansıtmak üzere dağıtımınız için kümesi oluşturun. Azure portalında tıklatın **kaynak oluşturma > işlem > bulut hizmeti** her bir bulut hizmeti için.
 
   Bulut hizmetinin ayrıntılarını dolgu olarak aynı seçin _kaynak grubu_ sanal ağ ile kullanılır.
 
-3. Her yeni bir sanal makine oluşturmak için tıklatın **yeni > işlem**, ardından uygun VM görüntüsünü seçin **öne çıkan uygulamalar**.
+3. Her yeni bir sanal makine oluşturmak için tıklatın **kaynak oluşturma > işlem**, ardından uygun VM görüntüsünü seçin **öne çıkan uygulamalar**.
 
   VM'deki **Temelleri** dikey penceresinde, aynı seçin _kaynak grubu_ sanal ağ ile kullanılır.
 

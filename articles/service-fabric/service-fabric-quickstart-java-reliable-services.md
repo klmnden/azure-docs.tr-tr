@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Service Fabric Java uygulaması oluşturma | Microsoft Docs"
-description: "Bir Java uygulaması için Azure Service Fabric hızlı başlangıç örnek kullanarak oluşturun."
+title: "Azure Service Fabric Java uygulaması oluşturma | Microsoft Docs"
+description: "Service Fabric hızlı başlangıç örneğini kullanarak Azure için Java uygulaması oluşturun."
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,84 +15,110 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-java-application"></a>Bir Java uygulaması oluşturma
-Azure Service Fabric mikro ve kapsayıcıları dağıtma ve yönetme için bir dağıtılmış sistemler platformudur. 
+# <a name="create-a-java-application"></a>Java Uygulaması oluşturma
+Azure Service Fabric; mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
 
-Bu hızlı başlangıç ilk Java uygulamanızı Service Fabric dağıtmak Eclipse IDE kullanarak bir Linux Geliştirici makinede gösterilmiştir. İşlemi tamamladığınızda, durum bilgisi olan bir arka uç hizmeti kümedeki Oylama sonuçlarını kaydeder Java web ön ucuna sahip bir oylama uygulaması sahip.
+Bu hızlı başlangıçta, Linux geliştirici makinesinde Eclipse IDE’yi kullanarak Service Fabric’e ilk Java uygulamanızı dağıtmayla ilgili bilgi verilmektedir. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir Java web ön ucuna sahip oylama uygulaması sağlanır.
 
-![Uygulama ekran görüntüsü](./media/service-fabric-quickstart-java/votingapp.png)
+![Uygulama Ekran Görüntüsü](./media/service-fabric-quickstart-java/votingapp.png)
 
 Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Eclipse aracı olarak Service Fabric Java uygulamalarınız için kullanın.
-> * Yerel kümenizdeki uygulamayı dağıtmak 
-> * Bir kümede Azure uygulamayı dağıtmak
-> * Genişleme uygulama birden çok düğüm arasında
+> * Service Fabric Java uygulamalarınız için Eclipse’ı kullanma
+> * Uygulamayı yerel kümenize dağıtma 
+> * Uygulamayı Azure'da bir kümeye dağıtma
+> * Birden çok düğüm arasında uygulamanın ölçeğini genişletme
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıcı tamamlamak için:
-1. [Service Fabric SDK & hizmeti doku komut satırı arabirimi (CLI) yükle](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [Service Fabric SDK ve Service Fabric Komut Satırı Arabirimi’ni (CLI) yükleme](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Git'i yükleyin](https://git-scm.com/)
-3. [Eclipse yükleyin](https://www.eclipse.org/downloads/)
-4. [Java ortamını ayarlama](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), yapmayı emin Eclipse eklentisini yüklemek için isteğe bağlı adımları izlemek için 
+3. [Eclipse’i yükleyin](https://www.eclipse.org/downloads/)
+4. [Java Environment’ı ayarlayın](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), Eclipse eklentisini yüklemek için isteğe bağlı adımları izlediğinizden emin olun 
 
 ## <a name="download-the-sample"></a>Örneği indirme
-Bir komut penceresinde örnek uygulama depoyu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
+Komut penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 ```
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
 ## <a name="run-the-application-locally"></a>Uygulamayı yerel olarak çalıştırma
-1. Yerel kümenizdeki aşağıdaki komutu çalıştırarak başlatın:
+1. Aşağıdaki komutu çalıştırarak yerel kümenizi başlatın:
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    Yerel küme başlangıç biraz zaman alır. Kümenin tam olarak açık olduğunu onaylamak için Service Fabric Explorer erişim **http://localhost: 19080**. Yerel küme çalışır durumda beş sağlıklı düğümleri gösterir. 
+    Yerel kümenin başlatılması biraz zaman alabilir. Yerel kümenin sorunsuz çalıştığından emin olmak için, **http://localhost:19080** adresinden Service Fabric Explorer’a erişin. Sorunsuz beş düğüm, yerel kümenin çalıştığını belirtir. 
     
-    ![Yerel küme Sağlıklı](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Yerel küme sorunsuz çalışıyor](./media/service-fabric-quickstart-java/localclusterup.png)
 
-2. Eclipse açın.
-3. Dosyasına tıklayın dosya sisteminden Açık Projeler ->... 
-4. Dizin'i tıklatın ve seçin `Voting` gelen dizin `service-fabric-java-quickstart` Github'dan kopyaladığınız klasörü. Son'a tıklayın. 
+2. Eclipse’i açın.
+3. Dosya Sistemi’nde Dosya -> Proje Aç seçeneğine tıklayın... 
+4. Dizin’e tıklayın ve GitHub’dan kopyaladığınız `service-fabric-java-quickstart` klasöründe yer alan `Voting` dizinini seçin. Son'a tıklayın. 
 
-    ![Eclipse içeri aktarma iletişim kutusu](./media/service-fabric-quickstart-java/eclipseimport.png)
+    ![Eclipse İçeri Aktarma İletişim Kutusu](./media/service-fabric-quickstart-java/eclipseimport.png)
     
-5. Artık `Voting` Eclipse paketi Gezgini. 
-6. Sağ tıklayın proje ve select **uygulamasını Yayımla...**  altında **Service Fabric** açılır. Seçin **PublishProfiles/Local.json** hedef profil olarak Yayımla'yı tıklatın. 
+5. Artık, Package Explorer for Eclipse’de `Voting` projesine sahipsiniz. 
+6. Projeye sağ tıklayın ve **Service Fabric** açılan listesinde **Uygulamayı Yayımla...** seçeneğini belirleyin. **PublishProfiles/Local.json** öğesini Hedef Profil olarak seçin ve Yayımla’ya tıklayın. 
 
-    ![İletişim yerel yayımlama](./media/service-fabric-quickstart-java/localjson.png)
+    ![Yayımla İletişim Kutusu Konumu](./media/service-fabric-quickstart-java/localjson.png)
     
-7. Sık kullanılan web tarayıcınızı açın ve uygulama erişerek **http://localhost: 8080**. 
+7. Sık kullandığınız web tarayıcısını açın ve **http://localhost:8080** adresine giderek uygulamaya erişin. 
 
-    ![Ön uç yerel uygulama](./media/service-fabric-quickstart-java/runninglocally.png)
+    ![Uygulama ön ucu Konumu](./media/service-fabric-quickstart-java/runninglocally.png)
     
-Şimdi, oylama seçenekleri kümesi ekleyin ve oy almaya başlayın. Uygulamayı çalışır ve ayrı bir veritabanı gerek kalmadan, Service Fabric kümesindeki tüm verileri depolar.
+Şimdi bir dizi oylama seçeneği ekleyebilir ve oyları almaya başlayabilirsiniz. Uygulama çalıştırılır ve ayrı bir veritabanına gerek kalmadan tüm verileri Service Fabric kümenizde depolar.
 
 ## <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure’a dağıtma
 
-### <a name="set-up-your-azure-service-fabric-cluster"></a>Azure Service Fabric kümesi ayarlayın
-Azure kümesinde uygulamayı dağıtmak için kendi küme oluşturun veya bir taraf kümesi kullanın.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Azure Service Fabric Kümesi’ni ayarlama
+Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi oluşturun.
 
-Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Burada herkes uygulamaları dağıtabilir ve platform hakkında bilgi edinin Service Fabric ekibi tarafından çalıştırılır. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
+Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Service Fabric ekibi tarafından çalıştırılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
 
-Kendi küme oluşturma hakkında daha fazla bilgi için bkz: [Azure üzerinde bir Service Fabric kümesi oluştur](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Güvenli grup kümelerinde yönetim işlemleri gerçekleştirmek için, Service Fabric Explorer, CLI veya PowerShell’i kullanabilirsiniz. Service Fabric Explorer’ı kullanmak için, Grup Kümeleri web sitesinden PFX dosyasını indirmeniz ve sertifikayı, sertifika depolama alanınıza (Windows veya Mac) veya tarayıcının kendisine (Ubuntu) aktarmanız gerekir. Grup kümesindeki otomatik olarak imzalanan sertifikaların parolaları yoktur. 
+
+PowerShell veya CLI ile yönetim işlemleri gerçekleştirmek için, PFX (PowerShell) veya PEM (CLI) gerekir. PFX’i, PEM dosyasına dönüştürmek için lütfen şu komutu çalıştırın:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
+
+Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da Service Fabric kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> Web ön uç hizmeti 8080 bağlantı noktasından gelen trafiği dinleyecek şekilde yapılandırılır. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. Taraf küme kullanıyorsanız, bu bağlantı noktasının açık olduğundan.
+> Spring Boot hizmeti 8080 numaralı bağlantı noktasında gelen trafiği dinleyecek şekilde yapılandırılmıştır. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. Grup Kümesi kullanıyorsanız bu bağlantı noktası açık durumdadır.
 >
 
-### <a name="deploy-the-application-using-eclipse"></a>Eclipse kullanarak uygulamayı dağıtın
-Uygulama ve kümenizi hazır, doğrudan Eclipse kümeye dağıtabilirsiniz.
+### <a name="add-certificate-information-to-your-application"></a>Sertifika bilgilerini uygulamanıza ekleme
 
-1. Açık **Cloud.json** altında dosya **PublishProfiles** dizin ve doldurun `ConnectionIPOrURL` ve `ConnectionPort` uygun şekilde alanları. Bir örnek sağlanmıştır: 
+Service Fabric programlama modellerini kullandığından, sertifika parmak izinin uygulamanıza eklenmesi gerekiyor. 
+
+1. Sertifikanızın parmak izinin, güvenli bir kümede çalışırken ```Voting/VotingApplication/ApplicationManiest.xml``` dosyasında olması gerekir. Sertifikanın parmak izini ayıklamak için aşağıdaki komutu çalıştırın.
+
+    ```bash
+    openssl x509 -in [CERTIFICATE_FILE] -fingerprint -noout
+    ```
+
+2. ```Voting/VotingApplication/ApplicationManiest.xml``` konumunda, aşağıdaki kod parçacığını **ApplicationManifest** etiketi altına ekleyin. **X509FindValue** önceki adımdaki parmak izi olmalıdır (noktalı virgül olmamalı). 
+
+    ```xml
+    <Certificates>
+        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+    </Certificates>   
+    ```
+    
+### <a name="deploy-the-application-using-eclipse"></a>Eclipse kullanarak uygulamayı dağıtma
+Uygulama ve kümeniz hazır olduğuna göre, doğrudan Eclipse’teki bir kümeye dağıtabilirsiniz.
+
+1. **PublishProfiles** dizinindeki **Cloud.json** dosyasını açın ve `ConnectionIPOrURL` ile `ConnectionPort` alanlarını uygun şekilde doldurun. Örnek: 
 
     ```bash
     {
@@ -100,40 +126,40 @@ Uygulama ve kümenizi hazır, doğrudan Eclipse kümeye dağıtabilirsiniz.
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
             "ConnectionPort": "19080",
-            "ClientKey": "",
-            "ClientCert": ""
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
     }
     ```
 
-2. Sağ tıklayın proje ve select **uygulamasını Yayımla...**  altında **Service Fabric** açılır. Seçin **PublishProfiles/Cloud.json** hedef profil olarak Yayımla'yı tıklatın. 
+2. Projeye sağ tıklayın ve **Service Fabric** açılan listesinde **Uygulamayı Yayımla...** seçeneğini belirleyin. **PublishProfiles/Cloud.json** öğesini Hedef Profil olarak seçin ve Yayımla’ya tıklayın. 
 
-    ![İletişim bulut yayımlama](./media/service-fabric-quickstart-java/cloudjson.png)
+    ![İletişim Kutusunu Yayımlama Bulutu](./media/service-fabric-quickstart-java/cloudjson.png)
 
-3. Sık kullanılan web tarayıcınızı açın ve uygulama erişerek **http://\<ConnectionIPOrURL >: 8080**. 
+3. Sık kullandığınız web tarayıcısını açın ve **http://\<ConnectionIPOrURL>:8080** adresine giderek uygulamaya erişin. 
 
-    ![Uygulama ön uç bulut](./media/service-fabric-quickstart-java/runningcloud.png)
+    ![Uygulama ön ucu bulutu](./media/service-fabric-quickstart-java/runningcloud.png)
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Bir kümedeki uygulamaları ve hizmetleri ölçeklendirme
-Hizmetleri, bir değişiklik Hizmetleri üzerindeki yükü için uygun hale getirmek için bir küme içinde genişletilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizin ölçeklendirme birkaç yolu vardır, betikleri veya komutları Service Fabric clı'dan (sfctl) kullanabilirsiniz. Bu örnekte, Service Fabric Explorer kullanıyoruz.
+Hizmet yükündeki bir değişikliği karşılamak için kümedeki hizmetler kolayca ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizi ölçeklendirmenin birçok yolu vardır; Service Fabric CLI'den (sfctl) betikler veya komutlar kullanabilirsiniz. Bu örnekte, Service Fabric Explorer'ı kullanıyoruz.
 
-Service Fabric Explorer tüm Service Fabric kümelerinde çalışır ve kümeleri HTTP yönetim bağlantı noktası (19080), örneğin, göz atarak bir tarayıcıdan erişilebilir `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer tüm Service Fabric kümelerinde çalıştırılır ve tarayıcıdan kümelerin HTTP yönetim bağlantı noktasına (19080) göz atarak (örneğin, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`) erişilebilir.
 
 Web ön uç hizmetini ölçeklendirmek için aşağıdaki adımları gerçekleştirin:
 
-1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
-2. Yanındaki üç nokta (üç nokta) tıklayın **fabric: / oylama/VotingWeb** treeview düğümüne ve **ölçek hizmet**.
+1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+2. Ağaç görünümünde **fabric:/Voting/VotingWeb** düğümünün yanındaki üç noktaya tıklayın ve **Hizmeti Ölçeklendir**'i seçin.
 
-    ![Service Fabric Explorer ölçek hizmeti](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
+    ![Service Fabric Explorer Hizmeti Ölçeklendir](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     Şimdi web ön uç hizmetindeki örnek sayısını ölçeklendirebilirsiniz.
 
 3. Rakamı **2** olarak değiştirin ve **Hizmeti Ölçeklendir**'e tıklayın.
-4. Tıklayın **fabric: / oylama/VotingWeb** ağaç görünümünde düğümünü ve (bir GUID ile temsil edilen) bölüm düğümünü genişletin.
+4. Ağaç görünümünde **fabric:/Voting/VotingWeb** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin.
 
-    ![Service Fabric Explorer ölçek hizmeti tamamlandı](./media/service-fabric-quickstart-java/servicescaled.png)
+    ![Service Fabric Explorer Hizmeti Ölçeklendirme Tamamlandı](./media/service-fabric-quickstart-java/servicescaled.png)
 
-    Artık, hizmet iki örneklerine sahip ve örnekleri çalıştıracağınız hangi düğümlerin gördüğünüz ağaç görünümünde de görebilirsiniz.
+    Hizmette üç örnek olduğunu ve ağaç görünümünde örneklerin çalıştığı düğümleri görebilirsiniz.
 
 Bu basit yönetim görevi sayesinde ön uç hizmetinizde kullanıcı yükünü işleyecek kaynak sayısını iki katına çıkarmış olduk. Bir hizmetin güvenilir bir şekilde çalışması için birden fazla örneğe ihtiyaç duymadığını anlamanız önemlidir. Bir hizmet başarısız olursa Service Fabric kümede yeni bir hizmet örneği çalışmasını sağlar.
 
@@ -141,11 +167,11 @@ Bu basit yönetim görevi sayesinde ön uç hizmetinizde kullanıcı yükünü i
 Bu hızlı başlangıçta şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Eclipse aracı olarak Service Fabric Java uygulamalarınız için kullanın.
-> * Yerel kümenizdeki Java uygulamaları Dağıt 
-> * Bir kümeye Azure içinde Java uygulamalarını dağıtma
-> * Genişleme uygulama birden çok düğüm arasında
+> * Service Fabric Java uygulamalarınız için Eclipse’ı kullanma
+> * Java uygulamalarını yerel kümenize dağıtma 
+> * Java uygulamalarını Azure’da yerel kümenize dağıtma
+> * Birden çok düğüm arasında uygulamanın ölçeğini genişletme
 
-* Daha fazla bilgi edinmek [Eclipse kullanarak Java hizmetlerinde hata ayıklama](service-fabric-debugging-your-application-java.md)
-* Hakkında bilgi edinin [sürekli integreation & Jenkins kullanarak dağıtım ayarlama](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-* Checkout diğer [Java örnekleri](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Eclipse kullanarak Java’da hizmetler için hata ayıklama](service-fabric-debugging-your-application-java.md) hakkında daha fazla bilgi edinin
+* [Jenkins kullanarak sürekli tümleştirme ve dağıtma işlemlerinizi ayarlama](service-fabric-cicd-your-linux-applications-with-jenkins.md) hakkında daha fazla bilgi edinin
+* Diğer [Java Örnekleri](https://github.com/Azure-Samples/service-fabric-java-getting-started)’ne göz atın

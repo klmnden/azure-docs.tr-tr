@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Logic apps ile Kurumsal tümleştirme için Exchange EDIFACT iletileri
 
@@ -42,12 +42,12 @@ Gereksinim duyduğunuz öğeleri şöyledir:
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT sözleşmesi oluşturun 
 
-1.  [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın. Sol menüden seçin **daha fazla hizmet**.
+1.  [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın. Sol menüden seçin **tüm hizmetleri**.
 
     > [!TIP]
-    > Görmüyorsanız, **daha fazla hizmet**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **Göster menüsü**.
+    > Görmüyorsanız, **tüm hizmetleri**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **Göster menüsü**.
 
-    ![Sol menüsünde "Daha fazla Hizmetleri" öğesini seçin](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+    ![Sol menüsünde "Tüm hizmetleri" öğesini seçin](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
 2. Arama kutusuna filtreniz için "tümleştirme" yazın. Sonuçlar listesinde **tümleştirme hesapları**.
 
@@ -74,12 +74,12 @@ Herhangi bir tümleştirme hesabı görmüyorsanız, [oluşturmak ilk](../logic-
     | --- | --- |
     | Ad |Anlaşma adı |
     | Anlaşma türü | EDIFACT olmalıdır |
-    | Ana bilgisayar iş ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Ana bilgisayar iş ortağı sözleşmesi yapılandırır kuruluşu temsil eder. |
-    | Ana bilgisayar kimliği |Ana makine ortak bir tanımlayıcı |
-    | Konuk iş ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Konuk iş ortağı ana iş ortağı iş yapmakta kuruluşu temsil eder. |
-    | Konuk kimlik |Konuk iş ortağı için bir tanımlayıcı |
-    | Ayarlarını alma |Bu özellikleri tüm anlaşmanın tarafından alınan iletileri için geçerlidir. |
-    | Gönderme ayarları |Bu özellikleri anlaşmanın tarafından gönderilen tüm iletiler için geçerlidir. |
+    | Konak İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Ana bilgisayar iş ortağı sözleşmesi yapılandırır kuruluşu temsil eder. |
+    | Konak Kimliği |Ana makine ortak bir tanımlayıcı |
+    | Konuk İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Konuk iş ortağı ana iş ortağı iş yapmakta kuruluşu temsil eder. |
+    | Konuk Kimliği |Konuk iş ortağı için bir tanımlayıcı |
+    | Ayarları Al |Bu özellikleri tüm anlaşmanın tarafından alınan iletileri için geçerlidir. |
+    | Gönderme Ayarları |Bu özellikleri anlaşmanın tarafından gönderilen tüm iletiler için geçerlidir. |
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Anlaşma tanıtıcıları iletileri nasıl alınan yapılandırma
 
@@ -96,55 +96,55 @@ Anlaşma özelliklerini ayarladıysanız, bu anlaşmanın nasıl tanımlar ve bu
 
 Artık sözleşmenizi seçili ayarlarınızı uygun gelen iletileri işlemek hazırdır.
 
-### <a name="identifiers"></a>Tanımlayıcıları
+### <a name="identifiers"></a>Tanımlayıcılar
 
 | Özellik | Açıklama |
 | --- | --- |
-| UNB6.1 (alıcı başvuru parola) |1 ile 14 arasında karakter arasında alfasayısal bir değer girin. |
-| UNB6.2 (alıcı başvuru niteleyici) |En az bir karakter ve en çok iki karakter alfasayısal bir değer girin. |
+| UNB6.1 (Alıcı Başvuru Parolası) |1 ile 14 arasında karakter arasında alfasayısal bir değer girin. |
+| UNB6.2 (Alıcı Başvuru Niteleyicisi) |En az bir karakter ve en çok iki karakter alfasayısal bir değer girin. |
 
 ### <a name="acknowledgments"></a>İlgili kaynaklar
 
 | Özellik | Açıklama |
 | --- | --- |
 | İleti Okundu Bilgisi (CONTRL) |Değişim göndericiye teknik (CONTRL) bildirim için bu onay kutusunu seçin. Bildirim gönderme ayarları anlaşma için temel değişim gönderen gönderilir. |
-| Bildirim (CONTRL) |Bir işlev (CONTRL) bildirim değişim bildirim göndericiye için bu onay kutusunu anlaşma için Gönder ayarlara göre değişim gönderen gönderilir seçin. |
+| Onay (KONTROL) |Bir işlev (CONTRL) bildirim değişim bildirim göndericiye için bu onay kutusunu anlaşma için Gönder ayarlara göre değişim gönderen gönderilir seçin. |
 
 ### <a name="schemas"></a>Şemalar
 
 | Özellik | Açıklama |
 | --- | --- |
-| UNH2.1 (TÜR) |Bir işlem kümesi türü seçin. |
+| UNH2.1 (TYPE) |Bir işlem kümesi türü seçin. |
 | UNH2.2 (SÜRÜM) |İleti sürüm numarası girin. (En az, bir karakter; maksimum, üç karakter). |
 | UNH2.3 (SÜRÜM) |İleti sürüm numarası girin. (En az, bir karakter; maksimum, üç karakter). |
 | UNH2.5 (İLİŞKİLİ ATANAN KODU) |Atanan kodu girin. (En büyük, altı karakter. Alfasayısal olmalıdır). |
 | UNG2.1 (UYGULAMA GÖNDEREN KİMLİĞİ) |En az bir karakter ve en çok 35 karakter alfasayısal bir değer girin. |
 | UNG2.2 (UYGULAMA GÖNDEREN KODU NİTELEYİCİSİ) |En fazla dört karakter alfasayısal bir değer girin. |
-| ŞEMA |İlişkili tümleştirme hesabınızdan kullanmak istediğiniz daha önce yüklenen şemasını seçin. |
+| SCHEMA |İlişkili tümleştirme hesabınızdan kullanmak istediğiniz daha önce yüklenen şemasını seçin. |
 
-### <a name="control-numbers"></a>Denetim numaraları
+### <a name="control-numbers"></a>Denetim Numaraları
 | Özellik | Açıklama |
 | --- | --- |
 | Değişim kontrol numarası çoğaltmaları izin verme |Yinelenen etkileşimler engellemek için bu özelliği seçin. Seçili kod çözme EDIFACT eylem alınan değişim Değişim Denetimi numarası (UNB5) daha önce işlenen değiş tokuş denetim numarası eşleşmiyor denetler. Bir eşleşme algılanırsa, değişim işlenmez. |
 | Her (days) günde bir UNB5 kopyalarını denetle |Yinelenen değişim denetim numaraları izin vermeyecek şekilde seçerseniz, gün sayısını belirtmek için bu ayarı uygun değere vererek denetimi gerçekleştirmek ne zaman. |
 | Yinelenen Grup denetim numaralarına izin verme |Yinelenen grup denetim numaraları (UNG5) ile etkileşimler engellemek için bu özelliği seçin. |
 | Yinelenen İşlem kümesi denetim numaralarına izin verme |Yinelenen işlem kümesi denetim numaraları (UNH1) ile etkileşimler engellemek için bu özelliği seçin. |
-| EDIFACT bildirim denetim sayısı |İşlem kümesi referans numaraları kullanmak için bir bildirim belirlemek için önek, bir dizi başvuru numarası ve bir sonek için bir değer girin. |
+| EDIFACT Onay Kontrol Numarası |İşlem kümesi referans numaraları kullanmak için bir bildirim belirlemek için önek, bir dizi başvuru numarası ve bir sonek için bir değer girin. |
 
-### <a name="validations"></a>Doğrulama
+### <a name="validations"></a>Doğrulamalar
 
 Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. Herhangi bir kuralın belirtmezseniz, doğrulama "Varsayılan" satır kullanır.
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti türü |EDI ileti türünü seçin. |
-| EDI doğrulama |Şema EDI özellikleri, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılar tarafından tanımlanan veri türleri üzerinde EDI doğrulaması gerçekleştirir. |
+| Mesaj Türü |EDI ileti türünü seçin. |
+| EDI Doğrulaması |Şema EDI özellikleri, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılar tarafından tanımlanan veri türleri üzerinde EDI doğrulaması gerçekleştirir. |
 | Genişletilmiş Doğrulama |Veri türü değilse EDI, doğrulama veri öğesi gereksinimdir ve yineleme, numaralandırmalar ve veri öğesi uzunluğu doğrulama (min/max) izin verilir. |
-| Başında ve sonunda sıfır izin ver |Başında veya sonunda sıfır ek korumak ve karakterleri boşluk. Bu karakterleri kaldırmayın. |
-| Başında ve sonunda sıfır kırpma |Baştaki veya sondaki sıfır ve boşluk karakterlerini Kaldır. |
-| Sondaki ayırıcı İlkesi |Sondaki ayırıcılar oluşturur. <p>Seçin **izin** sonundaki sınırlayıcılar ve ayırıcı olarak alınan değişim önlemek için. Değişim sonundaki sınırlayıcılar ve ayırıcılar varsa, değişim geçerli bildirilmedi. <p>Seçin **isteğe bağlı** etkileşimler ile veya olmadan sonundaki sınırlayıcılar ve ayırıcılar kabul etmek için. <p>Seçin **zorunlu** zaman alınan değişim olmalıdır sonundaki sınırlayıcılar ve ayırıcılar. |
+| Başta/Sonda Sıfırlara İzin Ver |Başında veya sonunda sıfır ek korumak ve karakterleri boşluk. Bu karakterleri kaldırmayın. |
+| Baştaki/Sondaki Sıfırları Kırp |Baştaki veya sondaki sıfır ve boşluk karakterlerini Kaldır. |
+| Sonda Ayırıcı İlkesi |Sondaki ayırıcılar oluşturur. <p>Seçin **izin** sonundaki sınırlayıcılar ve ayırıcı olarak alınan değişim önlemek için. Değişim sonundaki sınırlayıcılar ve ayırıcılar varsa, değişim geçerli bildirilmedi. <p>Seçin **isteğe bağlı** etkileşimler ile veya olmadan sonundaki sınırlayıcılar ve ayırıcılar kabul etmek için. <p>Seçin **zorunlu** zaman alınan değişim olmalıdır sonundaki sınırlayıcılar ve ayırıcılar. |
 
-### <a name="internal-settings"></a>İç ayarları
+### <a name="internal-settings"></a>İç Ayarlar
 
 | Özellik | Açıklama |
 | --- | --- |
@@ -169,38 +169,38 @@ Bu anlaşma nasıl tanımlar ve bu anlaşma ile iş ortaklarınıza göndermek g
 
 Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek hazırdır.
 
-### <a name="identifiers"></a>Tanımlayıcıları
+### <a name="identifiers"></a>Tanımlayıcılar
 
 | Özellik | Açıklama |
 | --- | --- |
 | UNB1.2 (sözdizimi sürüm) |Arasında bir değer seçin **1** ve **4**. |
 | UNB2.3 (Gönderici Ters Yönlendirme Adresi) |En az bir karakter ve en çok 14 karakter alfasayısal bir değer girin. |
 | UNB3.3 (Alıcı Ters Yönlendirme Adresi) |En az bir karakter ve en çok 14 karakter alfasayısal bir değer girin. |
-| UNB6.1 (alıcı başvuru parola) |Bir en az ve en çok 14 karakter alfasayısal bir değer girin. |
-| UNB6.2 (alıcı başvuru niteleyici) |En az bir karakter ve en çok iki karakter alfasayısal bir değer girin. |
-| UNB7 (uygulama başvuru kimliği) |En az bir karakter ve en çok 14 karakter alfasayısal bir değer girin |
+| UNB6.1 (Alıcı Başvuru Parolası) |Bir en az ve en çok 14 karakter alfasayısal bir değer girin. |
+| UNB6.2 (Alıcı Başvuru Niteleyicisi) |En az bir karakter ve en çok iki karakter alfasayısal bir değer girin. |
+| UNB7 (Uygulama Başvuru Kimliği) |En az bir karakter ve en çok 14 karakter alfasayısal bir değer girin |
 
 ### <a name="acknowledgment"></a>Bildirim
 | Özellik | Açıklama |
 | --- | --- |
 | İleti Okundu Bilgisi (CONTRL) |Barındırılan ortak bir teknik (CONTRL) bildirim almak görüyorsa bu onay kutusunu seçin. Bu ayar, kimin ileti gönderme, barındırılan ortak konuk iş ortağı onay istekleri belirtir. |
-| Bildirim (CONTRL) |Barındırılan ortak bir işlev (CONTRL) bildirim almak görüyorsa bu onay kutusunu seçin. Bu ayar, kimin ileti gönderme, barındırılan ortak konuk iş ortağı onay istekleri belirtir. |
+| Onay (KONTROL) |Barındırılan ortak bir işlev (CONTRL) bildirim almak görüyorsa bu onay kutusunu seçin. Bu ayar, kimin ileti gönderme, barındırılan ortak konuk iş ortağı onay istekleri belirtir. |
 | Kabul edilen işlem kümeleri için SG1/SG4 döngüsü oluştur |İşlev bildirim istemek seçerseniz, kabul edilen işlem kümeleri için işlevsel CONTRL ilgili kaynaklar içinde SG1/SG4 döngüler nesil zorlamak için bu onay kutusunu seçin. |
 
 ### <a name="schemas"></a>Şemalar
 | Özellik | Açıklama |
 | --- | --- |
-| UNH2.1 (TÜR) |Bir işlem kümesi türü seçin. |
+| UNH2.1 (TYPE) |Bir işlem kümesi türü seçin. |
 | UNH2.2 (SÜRÜM) |İleti sürüm numarası girin. |
 | UNH2.3 (SÜRÜM) |İleti sürüm numarası girin. |
-| ŞEMA |Kullanılacak şema seçin. Şemalar tümleştirme hesabınızda bulunur. Şemalar erişmek için önce tümleştirme hesabınızı mantığı uygulamanıza bağlayın. |
+| SCHEMA |Kullanılacak şema seçin. Şemalar tümleştirme hesabınızda bulunur. Şemalar erişmek için önce tümleştirme hesabınızı mantığı uygulamanıza bağlayın. |
 
 ### <a name="envelopes"></a>Zarflar
 | Özellik | Açıklama |
 | --- | --- |
-| UNB8 (öncelik kodu işleme) |Birden fazla karakter uzunluğunda değil alfabetik bir değer girin. |
-| UNB10 (iletişimi sözleşme) |En az bir karakter ve en çok 40 karakter alfasayısal bir değer girin. |
-| UNB11 (Test göstergesi) |Oluşturulan değişim test verileri olduğunu belirtmek için bu onay kutusunu seçin |
+| UNB8 (İşleme Önceliği Kodu) |Birden fazla karakter uzunluğunda değil alfabetik bir değer girin. |
+| UNB10 (İletişim Anlaşması) |En az bir karakter ve en çok 40 karakter alfasayısal bir değer girin. |
+| UNB11 (Test Göstergesi) |Oluşturulan değişim test verileri olduğunu belirtmek için bu onay kutusunu seçin |
 | UNA Segmentini Uygula (Hizmet Dize Önerisi) |Gönderilecek değişimi için UNA kesimi oluşturmak için bu onay kutusunu seçin. |
 | UNG Segmentlerini Uygula (İşlev Grubu Üstbilgisi) |Konuk iş ortağı gönderilen iletileri işlevsel Grup üstbilgisinde gruplandırma segmentleri oluşturmak için bu onay kutusunu seçin. Aşağıdaki değerleri UNG segmentler oluşturmak için kullanılır: <p>İçin **UNG1**, en az bir karakter ve en fazla altı karakter alfasayısal bir değer girin. <p>İçin **UNG2.1**, en az bir karakter ve en çok 35 karakter alfasayısal bir değer girin. <p>İçin **UNG2.2**, en fazla dört karakter alfasayısal bir değer girin. <p>İçin **UNG3.1**, en az bir karakter ve en çok 35 karakter alfasayısal bir değer girin. <p>İçin **UNG3.2**, en fazla dört karakter alfasayısal bir değer girin. <p>İçin **UNG6**, aşağıdakilerden en az ve en çok üç karakter alfasayısal bir değer girin. <p>İçin **UNG7.1**, en az bir karakter ve en çok üç karakter alfasayısal bir değer girin. <p>İçin **UNG7.2**, en az bir karakter ve en çok üç karakter alfasayısal bir değer girin. <p>İçin **UNG7.3**, en az 1 karakter ve en çok 6 karakter alfasayısal bir değer girin. <p>İçin **UNG8**, en az bir karakter ve en çok 14 karakter alfasayısal bir değer girin. |
 
@@ -210,33 +210,33 @@ Karakter kümesi dışında her ileti türü için kullanılacak sınırlayıcı
 
 | Özellik | Açıklama |
 | --- | --- |
-| UNB1.1 (sistem tanımlayıcısı) |EDIFACT karakter üzerinde giden değişim uygulanacak kümesini seçin. |
+| UNB1.1 (Sistem Tanımlayıcısı) |EDIFACT karakter üzerinde giden değişim uygulanacak kümesini seçin. |
 | Şema |Bir şema aşağı açılan listeden seçin. Her satır tamamladıktan sonra yeni bir satır otomatik olarak eklenir. Seçili şeması için aşağıdaki ayırıcı açıklamalarına göre kullanmak istediğiniz ayırıcıları kümesi seçin. |
-| Giriş türü |Bir input type aşağı açılan listeden seçin. |
-| Bileşen ayırıcı |Bileşik veri öğeleri ayırmak için tek bir karakter girin. |
-| Veri öğesi ayırıcı |Bileşik veri öğeleri içinde basit veri öğeleri ayırmak için tek bir karakter girin. |
+| Giriş Türü |Bir input type aşağı açılan listeden seçin. |
+| Bileşen Ayırıcısı |Bileşik veri öğeleri ayırmak için tek bir karakter girin. |
+| Veri Öğesi Ayırıcısı |Bileşik veri öğeleri içinde basit veri öğeleri ayırmak için tek bir karakter girin. |
 | Segment Sonlandırıcı |EDI segmentinin sonunu belirtmek için tek bir karakter girin. |
-| Son eki |Segment tanımlayıcısı ile kullanılan karakteri seçin. Sonek belirlerseniz, segment Sonlandırıcı veri öğesi boş olamaz. Segment sonlandırıcı boş bırakılırsa, sonek atamanız gerekir. |
+| Sonek |Segment tanımlayıcısı ile kullanılan karakteri seçin. Sonek belirlerseniz, segment Sonlandırıcı veri öğesi boş olamaz. Segment sonlandırıcı boş bırakılırsa, sonek atamanız gerekir. |
 
-### <a name="control-numbers"></a>Denetim numaraları
+### <a name="control-numbers"></a>Denetim Numaraları
 | Özellik | Açıklama |
 | --- | --- |
-| UNB5 (değişim kontrol numarası) |Bir önek, değişim denetimi numarası ve bir sonek için değer aralığını girin. Bu değerler, giden bir değişim oluşturmak için kullanılır. Denetim numarası ederken önek ve sonek isteğe bağlıdır. Denetim sayısı, her yeni ileti artırılır; önek ve sonek aynı kalır. |
-| UNG5 (Grup denetim sayısı) |Bir önek, değişim denetimi numarası ve bir sonek için değer aralığını girin. Bu değerler, Grup kontrol numarası oluşturmak için kullanılır. Denetim numarası ederken önek ve sonek isteğe bağlıdır. En büyük değerine ulaşılana kadar denetim sayısı için her yeni ileti artırılır; önek ve sonek aynı kalır. |
-| UNH1 (ileti üstbilgisi başvuru numarası) |Bir önek, değişim denetimi numarası ve bir sonek için değer aralığını girin. Bu değerler, ileti başlığı başvuru numarası oluşturmak için kullanılır. Başvuru numarası ederken önek ve sonek isteğe bağlıdır. Başvuru numarası yeni her ileti için artırılır; önek ve sonek aynı kalır. |
+| UNB5 (Değişim Kontrol Numarası) |Bir önek, değişim denetimi numarası ve bir sonek için değer aralığını girin. Bu değerler, giden bir değişim oluşturmak için kullanılır. Denetim numarası ederken önek ve sonek isteğe bağlıdır. Denetim sayısı, her yeni ileti artırılır; önek ve sonek aynı kalır. |
+| UNG5 (Grup Kontrol Numarası) |Bir önek, değişim denetimi numarası ve bir sonek için değer aralığını girin. Bu değerler, Grup kontrol numarası oluşturmak için kullanılır. Denetim numarası ederken önek ve sonek isteğe bağlıdır. En büyük değerine ulaşılana kadar denetim sayısı için her yeni ileti artırılır; önek ve sonek aynı kalır. |
+| UNH1 (İleti Üst Bilgisi Başvuru Numarası) |Bir önek, değişim denetimi numarası ve bir sonek için değer aralığını girin. Bu değerler, ileti başlığı başvuru numarası oluşturmak için kullanılır. Başvuru numarası ederken önek ve sonek isteğe bağlıdır. Başvuru numarası yeni her ileti için artırılır; önek ve sonek aynı kalır. |
 
-### <a name="validations"></a>Doğrulama
+### <a name="validations"></a>Doğrulamalar
 
 Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. Herhangi bir kuralın belirtmezseniz, doğrulama "Varsayılan" satır kullanır.
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti türü |EDI ileti türünü seçin. |
-| EDI doğrulama |Şema, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılar EDI özellikleri tarafından tanımlanan veri türleri üzerinde EDI doğrulaması gerçekleştirir. |
+| Mesaj Türü |EDI ileti türünü seçin. |
+| EDI Doğrulaması |Şema, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılar EDI özellikleri tarafından tanımlanan veri türleri üzerinde EDI doğrulaması gerçekleştirir. |
 | Genişletilmiş Doğrulama |Veri türü değilse EDI, doğrulama veri öğesi gereksinimdir ve yineleme, numaralandırmalar ve veri öğesi uzunluğu doğrulama (min/max) izin verilir. |
-| Başında ve sonunda sıfır izin ver |Başında veya sonunda sıfır ek korumak ve karakterleri boşluk. Bu karakterleri kaldırmayın. |
-| Başında ve sonunda sıfır kırpma |Baştaki veya sondaki sıfır karakterleri kaldırın. |
-| Sondaki ayırıcı İlkesi |Sondaki ayırıcılar oluşturur. <p>Seçin **izin** sonundaki sınırlayıcılar ve ayırıcı olarak gönderilen değişim önlemek için. Değişim sonundaki sınırlayıcılar ve ayırıcılar varsa, değişim geçerli bildirilmedi. <p>Seçin **isteğe bağlı** etkileşimler ile veya olmadan sonundaki sınırlayıcılar ve ayırıcılar göndermek için. <p>Seçin **zorunlu** gönderilen değişim sonundaki sınırlayıcılar ve ayırıcıları kullanmanız gerekiyorsa. |
+| Başta/Sonda Sıfırlara İzin Ver |Başında veya sonunda sıfır ek korumak ve karakterleri boşluk. Bu karakterleri kaldırmayın. |
+| Baştaki/Sondaki Sıfırları Kırp |Baştaki veya sondaki sıfır karakterleri kaldırın. |
+| Sonda Ayırıcı İlkesi |Sondaki ayırıcılar oluşturur. <p>Seçin **izin** sonundaki sınırlayıcılar ve ayırıcı olarak gönderilen değişim önlemek için. Değişim sonundaki sınırlayıcılar ve ayırıcılar varsa, değişim geçerli bildirilmedi. <p>Seçin **isteğe bağlı** etkileşimler ile veya olmadan sonundaki sınırlayıcılar ve ayırıcılar göndermek için. <p>Seçin **zorunlu** gönderilen değişim sonundaki sınırlayıcılar ve ayırıcıları kullanmanız gerekiyorsa. |
 
 ## <a name="find-your-created-agreement"></a>Oluşturulan sözleşmenizi Bul
 

@@ -12,250 +12,214 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: ae5ccb83a0088cb7c9668f18620b74f9f3f1e9b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e2f988fd62753e1ebed702728dee7ede65c72c4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>Azure PowerShell ve Resource Manager ile kaynakları yönetme
+# <a name="manage-resources-with-azure-powershell"></a>Azure PowerShell ile kaynakları yönetme
 
-Bu makalede, Azure PowerShell ve Azure Resource Manager çözümlerinizi yönetmek öğrenin. Resource Manager ile bilmiyorsanız bkz [Resource Manager'a genel bakış](resource-group-overview.md). Bu makalede, yönetim görevlerine odaklanır. Yapacaklarınız:
+[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
-1. Kaynak grubu oluşturma
-2. Kaynak kaynak grubuna ekleyin
-3. Bir etiket için kaynak ekleme
-4. Adlarını veya etiket değerlerine göre kaynaklarını sorgulama
-5. Uygulama ve kaynak üzerinde bir kilit kaldırın
-6. Bir kaynak grubu Sil
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Bu makalede, Resource Manager şablonu aboneliğinize dağıtma göstermez. Bu bilgi için bkz: [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy.md).
+Seçerseniz yükle ve yerel olarak PowerShell kullanın, bkz: [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
-## <a name="get-started-with-azure-powershell"></a>Azure PowerShell ile çalışmaya başlama
+## <a name="understand-scope"></a>Kapsam anlama
 
-Azure PowerShell yüklü değilse bkz [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
+[!include[Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
-Azure PowerShell geçmişte yüklü, ancak bu kısa süre önce güncelleştirdiniz değil, en son sürümünü yüklemeyi göz önünde bulundurun. Sürümü yüklemek için kullanılan aynı yöntemi güncelleştirebilirsiniz. Örneğin, Web Platformu yükleyicisi kullandıysanız, yeniden başlatın ve bir güncelleştirme için bakın.
+İşiniz bittiğinde, bu ayarları kolayca kaldırabilmeniz için bu makalede, tüm yönetim ayarlarını bir kaynak grubuna uygulayın.
 
-Azure kaynakları modülü sürümünüz denetlemek için aşağıdaki cmdlet'i kullanın:
+Kaynak grubu oluşturalım.
 
-```powershell
-Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
+```azurepowershell-interactive
+Set-AzureRmContext -Subscription <subscription-name>
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-Bu makale, 3.3.0 sürümü için güncelleştirilmiştir. Önceki bir sürümü varsa, deneyiminiz bu makalede gösterilen adımlar eşleşmeyebilir. Bu sürümde cmdlet'ler hakkında daha fazla belgeler için bkz: [AzureRM.Resources Modülü](/powershell/module/azurerm.resources).
+Kaynak grubu şu anda boştur.
 
-## <a name="log-in-to-your-azure-account"></a>Azure hesabınızda oturum açın
-Çözümünüzü üzerinde çalışmaya başlamadan önce hesabınızda oturum açmalısınız.
+## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
 
-Azure hesabınızda oturum açmak için kullandığınız **Login-AzureRmAccount** cmdlet'i.
+[!include[Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
-```powershell
-Login-AzureRmAccount
+### <a name="assign-a-role"></a>Rol atama
+
+Bu makalede, bir sanal makine ve onun ilişkili sanal ağ dağıtın. Sanal makine çözümleri yönetmek için yaygın olarak gerekli erişim sağlayan üç kaynağa özel rollere vardır:
+
+* [Sanal makine Katılımcısı](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
+* [Ağ Katılımcısı](../active-directory/role-based-access-built-in-roles.md#network-contributor)
+* [Depolama hesabı katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+
+Tek tek kullanıcılara roller atama yerine genellikle daha kolay olur [bir Azure Active Directory grubu oluşturun](../active-directory/active-directory-groups-create-azure-portal.md) benzer önlemler almak için gereken kullanıcılar için. Ardından, bu grup için uygun rolü atayın. Bu makalede basitleştirmek için bir Azure Active Directory grubu üyeleri olmadan oluşturun. Hala bu grubun bir kapsam için bir rol atayabilirsiniz. 
+
+Aşağıdaki örnek, bir grup oluşturur ve kaynak grubu için sanal makine katılımcı rolü atar. Çalıştırmak için `New-AzureAdGroup` komutunu ya da kullanım gerekir [Azure bulut Kabuk](/azure/cloud-shell/overview) veya [Azure AD PowerShell modülünü indirin](https://www.powershellgallery.com/packages/AzureAD/).
+
+```azurepowershell-interactive
+$adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
+  -MailNickName vmDemoGroup `
+  -MailEnabled $false `
+  -SecurityEnabled $true
+New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+  -ResourceGroupName myResourceGroup `
+  -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Bu cmdlet, Azure hesabınıza ilişkin oturum açma kimlik bilgilerinizi girmenizi ister. Oturum açtıktan sonra, Azure PowerShell'de kullanabilmeniz için hesap ayarlarınızı indirir.
+Genellikle, işlem için yineleme **ağ Katılımcısı** ve **depolama hesabı katkıda bulunan** dağıtılan kaynakları yönetmek için atanan kullanıcılar emin olmak için. Bu makalede, bu adımı atlayabilirsiniz.
 
-Cmdlet hesabınızı ve görevler için kullanılacak aboneliği hakkında bilgi döndürür.
+## <a name="azure-policies"></a>Azure ilkeleri
 
-```powershell
-Environment           : AzureCloud
-Account               : example@contoso.com
-TenantId              : {guid}
-SubscriptionId        : {guid}
-SubscriptionName      : Example Subscription One
-CurrentStorageAccount :
+[!include[Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
 
+### <a name="apply-policies"></a>İlkelerini uygula
+
+Birkaç ilke tanımları aboneliğiniz zaten vardır. Mevcut ilke tanımları görmek için kullanın:
+
+```azurepowershell-interactive
+(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
-Birden fazla aboneliğiniz varsa, farklı bir aboneliğe geçebilirsiniz. İlk olarak, hesabınız için tüm abonelikleri görelim.
+Mevcut ilke tanımları bakın. İlke türü olan **yerleşik** veya **özel**. Ata istediğiniz bir koşul açıklayan olanları tanımlarında bakın. Bu makalede, ilkeler, ata:
 
-```powershell
-Get-AzureRmSubscription
+* tüm kaynaklar konumlarını sınırla
+* sanal makineler için SKU'ları sınırlayın
+* sanal makineler, yönetilen diskleri kullanmayın denetleme
+
+```azurepowershell-interactive
+$locations ="eastus", "eastus2"
+$skus = "Standard_DS1_v2", "Standard_E2s_v2"
+
+$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+
+$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+
+New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $locationDefinition `
+  -listOfAllowedLocations $locations
+New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $skuDefinition `
+  -listOfAllowedSKUs $skus
+New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $auditDefinition
 ```
 
-Etkin ve devre dışı abonelikler döndürür.
+## <a name="deploy-the-virtual-machine"></a>Sanal makine dağıtma
 
-```powershell
-SubscriptionName : Example Subscription One
-SubscriptionId   : {guid}
-TenantId         : {guid}
-State            : Enabled
+Çözümünüzü dağıtmak hazırsınız rolleri ve ilkeleri atadınız. Varsayılan boyutu, izin verilen SKU'lar biri Standard_DS1_v2 ' dir. Bu adımı çalıştırırken kimlik bilgileri istenir. Girdiğiniz değerler, sanal makinenin kullanıcı adı ve parolası olarak yapılandırılır.
 
-SubscriptionName : Example Subscription Two
-SubscriptionId   : {guid}
-TenantId         : {guid}
-State            : Enabled
-
-SubscriptionName : Example Subscription Three
-SubscriptionId   : {guid}
-TenantId         : {guid}
-State            : Disabled
+```azurepowershell-interactive
+New-AzureRmVm -ResourceGroupName "myResourceGroup" `
+     -Name "myVM" `
+     -Location "East US" `
+     -VirtualNetworkName "myVnet" `
+     -SubnetName "mySubnet" `
+     -SecurityGroupName "myNetworkSecurityGroup" `
+     -PublicIpAddressName "myPublicIpAddress" `
+     -OpenPorts 80,3389
 ```
 
-Farklı bir aboneliğe geçiş yapmak için abonelik ile ad **Set-AzureRmContext** cmdlet'i.
+Dağıtımınız tamamlandıktan sonra çözüme daha fazla yönetim ayarlarını uygulayabilirsiniz.
 
-```powershell
-Set-AzureRmContext -SubscriptionName "Example Subscription Two"
+## <a name="lock-resources"></a>Kaynakları kilitleme
+
+[!include[Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+
+### <a name="lock-a-resource"></a>Bir kaynak Kilitle
+
+Ağ güvenlik grubu ve sanal makine kilitlemek için kullanın:
+
+```azurepowershell-interactive
+New-AzureRmResourceLock -LockLevel CanNotDelete `
+  -LockName LockVM `
+  -ResourceName myVM `
+  -ResourceType Microsoft.Compute/virtualMachines `
+  -ResourceGroupName myResourceGroup
+New-AzureRmResourceLock -LockLevel CanNotDelete `
+  -LockName LockNSG `
+  -ResourceName myNetworkSecurityGroup `
+  -ResourceType Microsoft.Network/networkSecurityGroups `
+  -ResourceGroupName myResourceGroup
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+Özellikle kilidi kaldırırsanız, sanal makine yalnızca silinebilir. Bu adım gösterilen [kaynakları temizlemek](#clean-up-resources).
 
-Herhangi bir kaynağa aboneliğinize dağıtmadan önce kaynakları içeren bir kaynak grubu oluşturmanız gerekir.
+## <a name="tag-resources"></a>Etiket kaynakları
 
-Bir kaynak grubu oluşturmak için kullanın **New-AzureRmResourceGroup** cmdlet'i. Komut kullanır **adı** parametresini kullanarak kaynak grubu için bir ad belirtin ve **konumu** konumunu belirtmek için parametre.
+[!include[Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
-```powershell
-New-AzureRmResourceGroup -Name TestRG1 -Location "South Central US"
+### <a name="tag-resources"></a>Etiket kaynakları
+
+[!include[Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+
+Bir sanal makineye etiketleri uygulamak için kullanın:
+
+```azurepowershell-interactive
+$r = Get-AzureRmResource -ResourceName myVM `
+  -ResourceGroupName myResourceGroup `
+  -ResourceType Microsoft.Compute/virtualMachines
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
 ```
 
-Çıktı aşağıdaki biçimdedir:
+### <a name="find-resources-by-tag"></a>Etikete göre kaynakları bulun
 
-```powershell
-ResourceGroupName : TestRG1
-Location          : southcentralus
-ProvisioningState : Succeeded
-Tags              :
-ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1
+Bir etiketi ad ve değerli kaynakları bulmak için kullanın:
+
+```azurepowershell-interactive
+(Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
-Kaynak grubu daha sonra alması gerekiyorsa, aşağıdaki cmdlet'i kullanın:
+Döndürülen değerlerin bir etiket değeri olan tüm sanal makineleri durdurma gibi yönetim görevleri için kullanabilirsiniz.
 
-```powershell
-Get-AzureRmResourceGroup -ResourceGroupName TestRG1
+```azurepowershell-interactive
+Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
-Tüm kaynak grupları, aboneliğinizde almak için bir ad belirtmeyin:
+### <a name="view-costs-by-tag-values"></a>Görünüm maliyetler etiket değerlerine göre
 
-```powershell
-Get-AzureRmResourceGroup
+Kaynaklar için etiketler uyguladıktan sonra bu etiketlerin kaynaklarla maliyetlerini görüntüleyebilirsiniz. İşlem maliyetleri henüz göremeyebilirsiniz son kullanım görüntüleyecek şekilde maliyet analizi için biraz zaman alır. Maliyetleri kullanılabilir olduğunda, aboneliğinizde kaynak gruplarında kaynakları maliyetlerini görüntüleyebilirsiniz. Kullanıcılar [fatura bilgilerini abonelik düzeyinde erişime](../billing/billing-manage-access.md) maliyetleri görmek üzere.
+
+Portal etiketinde tarafından maliyetleri görüntülemek için aboneliğinizi seçin ve seçin **maliyet analizi**.
+
+![Maliyet analizi](./media/powershell-azure-resource-manager/select-cost-analysis.png)
+
+Sonra filtre tarafından etiket değeri ve seçin **Uygula**.
+
+![Etiket görünüm maliyeti](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
+
+Aynı zamanda [Azure faturalama API'leri](../billing/billing-usage-rate-card-overview.md) program aracılığıyla maliyetleri görüntülemek için.
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Kilit kaldırılana kadar kilitli ağ güvenlik grubu silinemiyor. Kilidi kaldırmak için kullanın:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceLock -LockName LockVM `
+  -ResourceName myVM `
+  -ResourceType Microsoft.Compute/virtualMachines `
+  -ResourceGroupName myResourceGroup
+Remove-AzureRmResourceLock -LockName LockNSG `
+  -ResourceName myNetworkSecurityGroup `
+  -ResourceType Microsoft.Network/networkSecurityGroups `
+  -ResourceGroupName myResourceGroup
 ```
 
-## <a name="add-resources-to-a-resource-group"></a>Kaynakları bir kaynak grubuna Ekle
-
-Bir kaynak kaynak grubuna eklemek için kullanabileceğiniz **yeni AzureRmResource** cmdlet veya kaynak türü için belirli bir cmdlet oluşturmakta (gibi **New-AzureRmStorageAccount**). Yeni kaynak için gerekli olan özellikler için parametreler içerdiğinden, bir kaynak türü için belirli bir cmdlet'i kullanması daha kolay. Kullanılacak **yeni AzureRmResource**, bunlar için istenmeden ayarlanacak tüm özellikler bilmeniz gerekir.
-
-Ancak, yeni kaynak bir Resource Manager şablonu mevcut olmadığından kaynak cmdlet'leri aracılığıyla ekleme gelecekteki karışıklığa neden olabilir. Microsoft Azure, çözümünüz için altyapıyı Resource Manager şablonunda tanımlama önerir. Şablonlar, güvenilir ve art arda çözümünüzü dağıtmak etkinleştirir. Bu makale için bir PowerShell cmdlet'i ile depolama hesabı oluşturma, ancak daha sonra kaynak grubundan bir şablon oluştur.
-
-Aşağıdaki cmdlet'i bir depolama hesabı oluşturur. Örnekte gösterilen adı kullanmak yerine, depolama hesabı için benzersiz bir ad sağlayın. Ad uzunluğu 3 ile 24 karakter arasında olmalı ve yalnızca rakamlar ve küçük harfler kullanın. Örnekte gösterilen adı kullanırsanız, bu ad zaten kullanımda olduğundan, bir hata alırsınız.
+Artık gerekli değilse, [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanarak kaynak grubunu, VM’yi ve tüm ilgili kaynakları kaldırabilirsiniz.
 
 ```powershell
-New-AzureRmStorageAccount -ResourceGroupName TestRG1 -AccountName mystoragename -Type "Standard_LRS" -Location "South Central US"
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
-
-Daha sonra bu kaynak alması gerekiyorsa, aşağıdaki cmdlet'i kullanın:
-
-```powershell
-Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
-```
-
-## <a name="add-a-tag"></a>Etiket ekleme
-
-Etiketler kaynaklarınızı farklı özelliklere göre düzenlemek etkinleştirin. Örneğin, bazı kaynaklar aynı departmana ait farklı kaynak gruplarında olabilir. Aynı kategoriye ait olarak işaretlemek için bu kaynakları departmanı etiketini ve değer uygulayabilirsiniz. Veya, bir kaynak bir üretim veya test ortamında kullanılıp kullanılmadığını işaretleyebilirsiniz. Bu makalede, yalnızca bir kaynak etiketleri geçerli, ancak ortamınızda büyük olasılıkla tüm kaynaklarınıza etiketler uygulamak için anlamlıdır.
-
-Aşağıdaki cmdlet'i iki etiketleri depolama hesabınıza uygular:
-
-```powershell
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
- ```
-
-Etiketler tek bir nesne olarak güncelleştirilir. Etiketleri içeren bir kaynak için bir etiket eklemek için önce varolan etiketleri alın. Yeni etiket varolan etiketleri içeren nesneyi eklemek ve tüm etiketleri kaynağa yeniden uygulayın.
-
-```powershell
-$tags = (Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1).Tags
-$tags += @{Status="Approved"}
-Set-AzureRmResource -Tag $tags -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
-```
-
-## <a name="search-for-resources"></a>Kaynakları Ara
-
-Kullanım **Bul AzureRmResource** farklı arama koşulu için kaynakları almak üzere.
-
-* Bir kaynak tarafından adını almak için sağlamanız **ResourceNameContains** parametre:
-
-  ```powershell
-  Find-AzureRmResource -ResourceNameContains mystoragename
-  ```
-
-* Tüm kaynaklar bir kaynak grubunda almak için sağlayın **ResourceGroupNameContains** parametre:
-
-  ```powershell
-  Find-AzureRmResource -ResourceGroupNameContains TestRG1
-  ```
-
-* Bir etiket adı ve değeri içeren tüm kaynakları almak için sağlayan **TagName** ve **TagValue** Parametreler:
-
-  ```powershell
-  Find-AzureRmResource -TagName Dept -TagValue IT
-  ```
-
-* Belirli bir kaynak türü ile tüm kaynaklar sağlar **ResourceType** parametre:
-
-  ```powershell
-  Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
-  ```
-
-## <a name="get-resource-id"></a>Kaynak Kimliği alma
-
-Komutların çoğu kaynak kimliği, parametre olarak alın. Bir kaynak ve bir değişkeni deposunda Kimliği almak için kullanın:
-
-```powershell
-$webappID = (Get-AzureRmResource -ResourceGroupName exampleGroup -ResourceName exampleSite).ResourceId
-```
-
-## <a name="lock-a-resource"></a>Bir kaynak Kilitle
-
-Kritik bir kaynak yanlışlıkla silinmiş veya değiştirilmiş emin olmak gerektiğinde bir kilidi kaynağı uygulayın. Ya da belirtebilirsiniz bir **CanNotDelete** veya **salt okunur**.
-
-Oluşturmak veya yönetim kilitleri silmek için erişimi olmalıdır `Microsoft.Authorization/*` veya `Microsoft.Authorization/locks/*` eylemler. Yerleşik roller bu eylemleri yalnızca sahip ve kullanıcı erişimi Yöneticisi verilir.
-
-Kilit uygulamak için aşağıdaki cmdlet'i kullanın:
-
-```powershell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
-```
-
-Önceki örnekte kilitli kaynak kilit kaldırılana kadar silinemez. Kilidi kaldırmak için kullanın:
-
-```powershell
-Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
-```
-
-Ayar kilitleri hakkında daha fazla bilgi için bkz: [Azure Resource Manager ile kaynakları kilitleme](resource-group-lock-resources.md).
-
-## <a name="remove-resources-or-resource-group"></a>Kaynakları veya kaynak grubunu Kaldır
-Bir kaynak veya kaynak grubu kaldırabilirsiniz. Bir kaynak grubu kaldırdığınızda, bu kaynak grubu içindeki tüm kaynaklar da kaldırın.
-
-* Bir kaynak kaynak grubundan silmek için kullanın **Kaldır AzureRmResource** cmdlet'i. Bu cmdlet kaynağı siler, ancak kaynak grubu silmez.
-
-  ```powershell
-  Remove-AzureRmResource -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
-  ```
-
-* Bir kaynak grubu ve tüm kaynaklarını silmek için kullanın **Remove-AzureRmResourceGroup** cmdlet'i.
-
-  ```powershell
-  Remove-AzureRmResourceGroup -Name TestRG1
-  ```
-
-Her iki cmdlet'leri için kaynak veya kaynak grubunu kaldırmak istediğinizden onaylamanız istenir. İşlem başarıyla kaynağı veya kaynak grubunu silip silmediğini, döndürür **doğru**.
-
-## <a name="run-resource-manager-scripts-with-azure-automation"></a>Azure Automation ile Kaynak Yöneticisi komut dosyalarını çalıştır
-
-Bu makale Azure PowerShell ile kaynaklarınızı temel işlemleri gerçekleştirmek nasıl gösterir. Daha gelişmiş yönetim senaryoları için tipik olarak bir komut dosyası oluşturabilir ve bu komut dosyası gerektiğinde veya bir zamanlamaya göre yeniden istediğiniz. [Azure Otomasyonu](../automation/automation-intro.md) sık otomatikleştirmek bir yol kullanılan Azure çözümleri yönetmek komut dosyaları sağlar.
-
-Aşağıdaki konular Azure Otomasyonu, Resource Manager ve PowerShell etkili bir şekilde yönetim görevlerini gerçekleştirmek için nasıl kullanılacağını gösterir:
-
-- Bir runbook oluşturma hakkında daha fazla bilgi için bkz: [ilk PowerShell runbook'um](../automation/automation-first-runbook-textual-powershell.md).
-- Komut dosyaları galerileri ile çalışma hakkında daha fazla bilgi için bkz [Azure Otomasyonu Runbook ve modül galerileri](../automation/automation-runbook-gallery.md).
-- Başlatma ve durdurma sanal makineleri runbook'lar için bkz: [Azure otomasyonu senaryosu: Azure VM başlatma ve kapatma için bir zamanlama oluşturmak için etiketler kullanarak JSON biçimli](../automation/automation-scenario-start-stop-vm-wjson-tags.md).
-- Başlatma ve durdurma sanal makineleri yoğun olmayan saatlerde runbook'lar için bkz: [Başlat/Durdur VM'ler Otomasyon yoğun olmayan saatlerde çözümde sırasında](../automation/automation-solution-vm-management.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Resource Manager şablonları oluşturma hakkında bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
-* Şablonları dağıtma hakkında bilgi edinmek için bkz: [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md).
+* Sanal makinelerinizi izleme hakkında bilgi edinmek için [izlemek ve güncelleştirmek Azure PowerShell ile Windows sanal makine](../virtual-machines/windows/tutorial-monitoring.md).
+* Önerilen güvenlik uygulamaları uygulamak için Azure Güvenlik Merkezi'ni kullanma hakkında bilgi edinmek için [Azure Güvenlik Merkezi'ni kullanarak sanal makine güvenliği izleyin](../virtual-machines/windows/tutorial-azure-security.md).
 * Yeni bir kaynak grubu mevcut kaynakları taşıyabilirsiniz. Örnekler için bkz: [yeni kaynak grubuna veya aboneliğe taşıma kaynaklara](resource-group-move-resources.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
-

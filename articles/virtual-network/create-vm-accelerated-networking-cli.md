@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c051fec3369ef0d309ecf6c68b17272bb396eeec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile Linux sanal makine oluşturma
 
@@ -48,8 +48,8 @@ Hızlandırılmış ağ yararları yalnızca üzerinde etkin VM için de geçerl
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 * **Ubuntu 16.04**: 4.11.0-1013 veya büyük çekirdek sürümü
 * **SLES SP3**: 4.4.92-6.18 veya büyük çekirdek sürümü
-* **RHEL**: 7.4.2017120423 veya büyük çekirdek sürümü
-* **CentOS**: 7.4.20171206 veya büyük çekirdek sürümü
+* **RHEL 7.4**: 7.4.2017120423 veya büyük çekirdek sürümü
+* **CentOS 7.4**: 7.4.20171206 veya büyük çekirdek sürümü
 
 ## <a name="supported-vm-instances"></a>Desteklenen VM örnekleri
 Hızlandırılmış ağ en genel amaçlı ve işlem iyileştirilmiş örnek boyutları 4 veya daha fazla Vcpu'lar ile desteklenir. Hiper iş parçacığı destekleyen örneklerinde D/DSv3 veya E/ESv3 gibi hızlandırılmış ağ 8 veya daha fazla Vcpu'lar ile VM örneklerinde desteklenir.  Desteklenen serisi şunlardır: D/DSv2, D/DSv3, E/ESv3, Fs/F/Fsv2 ve Ms/Mms. 
@@ -78,7 +78,7 @@ az group create --name myResourceGroup --location centralus
 
 Listelenen desteklenen bir Linux bölge seçmelisiniz [Linux hızlandırılmış ağ](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Bir sanal ağ ile oluşturma [az ağ vnet oluşturma](/cli/azure/network/vnet#az_network_vnet_create). Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* bir alt ağ ile:
+[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) komutu ile bir sanal ağ oluşturun. Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVnet* bir alt ağ ile:
 
 ```azurecli
 az network vnet create \
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
-Bir ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup*:
+Bir ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnek *myNetworkSecurityGroup* adında bir ağ güvenlik grubu oluşturur:
 
 ```azurecli
 az network nsg create \
@@ -117,7 +117,7 @@ az network nsg rule create \
 
 ## <a name="create-a-network-interface-with-accelerated-networking"></a>Bir ağ arabirimi ile hızlandırılmış ağ oluşturma
 
-Bir ortak IP adresiyle oluşturma [az ağ genel IP oluşturun](/cli/azure/network/public-ip#az_network_public_ip_create). Sanal makine Internet'ten erişmek için ancak bu makaledeki adımları tamamlamak için planlamıyorsanız bir ortak IP adresi gerekli değilse, gerekli değildir.
+[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) komutu ile bir genel IP adresi oluşturun. Sanal makine Internet'ten erişmek için ancak bu makaledeki adımları tamamlamak için planlamıyorsanız bir ortak IP adresi gerekli değilse, gerekli değildir.
 
 ```azurecli
 az network public-ip create \

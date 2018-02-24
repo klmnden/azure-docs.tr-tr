@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 4a41e4e0be44e855ead253ad76fe5a3af52070ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 838850d38c9df51fabcf620831371bed401e9492
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Azure API Management'te özel önbelleğe alma
 Azure API Management hizmeti için yerleşik destek sahip [HTTP yanıt önbelleğe alma](api-management-howto-cache.md) kaynak URL anahtar olarak kullanma. Anahtar kullanarak istek üstbilgileri tarafından değiştirilebilir `vary-by` özellikleri. Tüm HTTP yanıtlarını (diğer adıyla Beyanları) önbelleğe alma işlemi için yararlıdır, ancak bazen yalnızca önbellek temsili bir kısmı için yararlıdır. Yeni [önbellek arama değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) ve [önbellek deposu değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) ilkeleri, depolama ve ilke tanımları içindeki verileri rasgele parçalarını alma olanağı sağlar. Bu özellik ayrıca değeri önceden sunulan ekler [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) İlkesi çünkü dış hizmetler yanıtlarının şimdi önbelleğe alabilir.
 
 ## <a name="architecture"></a>Mimari
-En fazla ölçek gibi birden çok birimi hala aynı erişimi alırsınız verileri önbelleğe böylece API Management hizmeti Kiracı başına paylaşılan veri önbelleği kullanır. Ancak, bölgeli dağıtımı ile çalışırken, her bölge içinde bağımsız önbellekleri vardır. Bunun nedeni, önbelleğe yalnızca kaynak bilgileri parçasının olduğu bir veri deposu olarak davranmanız değil önemlidir. Vermedi ve daha sonra bölgeli dağıtım yararlanmak karar, seyahat kullanıcılarla müşteriler bu önbelleğe alınmış verileri erişimlerini kaybedebilir.
+API Management hizmeti kullanan Kiracı başına paylaşılan veri önbelleğe alma, Ölçek birden çok birimi kadar olarak hala aynı erişim sağlamak için verileri önbelleğe. Ancak, bölgeli dağıtımı ile çalışırken, her bölge içinde bağımsız önbellekleri vardır. Önbellek yalnızca kaynak bilgileri parçasının olduğu bir veri deposu olarak davran değil önemlidir. Vermedi ve daha sonra bölgeli dağıtım yararlanmak karar, seyahat kullanıcılarla müşteriler bu önbelleğe alınmış verileri erişimlerini kaybedebilir.
 
 ## <a name="fragment-caching"></a>Parça önbelleğe alma
-Burada verilen yanıtları belirlemek pahalıdır ve makul bir süre için henüz yeni kalan verileri kısmı içeren bazı durumlar vardır. Örnek olarak, Uçuş Rezervasyonları, uçuş durumu ile ilgili bilgi sağlayan bir uçak tarafından oluşturulmuş bir hizmeti kullanmayı düşünün. Kullanıcı airlines noktaları program üyesi ise, ayrıca bunların geçerli durumu ve toplanan mesafe ilgili bilgileri gerekir. Bu kullanıcı ile ilgili bilgiler farklı depolanabilir, ancak uçuş durumu ve ayırmaları hakkında döndürülen yanıtlar dahil istenebilir. Bu yapılabilir parça önbelleğe alma adlı bir işlem kullanılarak. Birincil gösterimi kullanıcı ile ilgili bilgiler eklenecek nerede belirtmek için bir tür belirteci kullanarak kaynak sunucudan döndürülebilir. 
+Burada verilen yanıtları belirlemek pahalıdır ve makul bir süre için henüz yeni kalan verileri kısmı içeren bazı durumlar vardır. Örnek olarak, Uçuş Rezervasyonları, uçuş durumu ile ilgili bilgi sağlayan bir uçak tarafından oluşturulmuş bir hizmeti kullanmayı düşünün. Kullanıcı airlines noktaları program üyesi ise, geçerli durumlarıyla ilgili bilgileri de var ve mesafe toplanır. Bu kullanıcı ile ilgili bilgiler farklı depolanabilir, ancak uçuş durumu ve ayırmaları hakkında döndürülen yanıtlar dahil istenebilir. Bu yapılabilir parça önbelleğe alma adlı bir işlem kullanılarak. Birincil gösterimi kullanıcı ile ilgili bilgiler eklenecek nerede belirtmek için bir tür belirteci kullanarak kaynak sunucudan döndürülebilir. 
 
 Arka uç API'si aşağıdaki JSON yanıtı göz önünde bulundurun.
 
@@ -48,7 +48,7 @@ Ve ikincil kaynakta `/userprofile/{userid}` olduğunu gibi görünüyor,
 { "username" : "Bob Smith", "Status" : "Gold" }
 ```
 
-Uygun kullanıcı bilgileri içerecek şekilde belirlemek için biz son kullanıcının kim olduğunu tanımlamanız gerekir. Bu mekanizma bağımlı uygulamasıdır. Örnek olarak, kullanıyorum `Subject` , talep bir `JWT` belirteci. 
+Dahil etmek için API Management uygun kullanıcı bilgileri belirlemek için son kullanıcının kim olduğunu belirlemek gerekir. Bu mekanizma uygulama bağımlıdır. Örnek olarak, kullanıyorum `Subject` , talep bir `JWT` belirteci. 
 
 ```xml
 <set-variable
@@ -56,7 +56,7 @@ Uygun kullanıcı bilgileri içerecek şekilde belirlemek için biz son kullanı
   value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 ```
 
-Bu depolarız `enduserid` daha sonra kullanmak için bir bağlam değişken değeri. Sonraki adım, önceki bir istek daha önce kullanıcı bilgileri alınır ve önbellekte depolanan varsa belirlemektir. Bunun için kullandığımız `cache-lookup-value` ilkesi.
+API Management depoları `enduserid` daha sonra kullanmak için bir bağlam değişken değeri. Sonraki adım, önceki bir istek daha önce kullanıcı bilgileri alınır ve önbellekte depolanan varsa belirlemektir. Bunun için API Management kullanır `cache-lookup-value` ilkesi.
 
 ```xml
 <cache-lookup-value
@@ -64,7 +64,7 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-Anahtar değeri sonra Hayır karşılık gelen önbellek girişi yoksa `userprofile` bağlamının oluşturulur. Biz arama kullanma başarısını denetleyin `choose` kontrol akışı ilkesi.
+Anahtar değeri sonra Hayır karşılık gelen önbellek girişi yoksa `userprofile` bağlamının oluşturulur. API Management denetler arama kullanma başarısını `choose` kontrol akışı ilkesi.
 
 ```xml
 <choose>
@@ -74,7 +74,7 @@ Anahtar değeri sonra Hayır karşılık gelen önbellek girişi yoksa `userprof
 </choose>
 ```
 
-Varsa `userprofile` bağlamının yoksa, ardından bunu almak için bir HTTP isteği yapmak zorunda kalacaklarını.
+Varsa `userprofile` bağlamının yoksa, ardından API Management bunu almak için bir HTTP isteği yapmak zorunda geçmeye.
 
 ```xml
 <send-request
@@ -91,7 +91,7 @@ Varsa `userprofile` bağlamının yoksa, ardından bunu almak için bir HTTP ist
 </send-request>
 ```
 
-Kullanırız `enduserid` kullanıcı profili kaynağı URL'si oluşturulamadı. Yanıt sahibiz sonra biz yanıt dışında gövde metni çekmek ve bir bağlam değişkende saklayın.
+API Management kullanır `enduserid` kullanıcı profili kaynağı URL'si oluşturulamadı. API Management yanıt olduğunda, gövde metni yanıt dışında çeker ve bir bağlam değişkende depolar.
 
 ```xml
 <set-variable
@@ -99,7 +99,7 @@ Kullanırız `enduserid` kullanıcı profili kaynağı URL'si oluşturulamadı. 
     value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 ```
 
-Bize aynı kullanıcı başka bir istekte bulunduğunda bu HTTP isteği yeniden sağlamak zorunda önlemek için biz kullanıcı profili önbellekte saklayabilirsiniz.
+API Management aynı kullanıcı başka bir istekte bulunduğunda bu HTTP isteği yeniden yapmasını önlemek için bir kullanıcı profili önbellekte depolamak için belirtebilirsiniz.
 
 ```xml
 <cache-store-value
@@ -107,11 +107,11 @@ Bize aynı kullanıcı başka bir istekte bulunduğunda bu HTTP isteği yeniden 
     value="@((string)context.Variables["userprofile"])" duration="100000" />
 ```
 
-Biz başlangıçta ile almayı denedi tam aynı anahtarı kullanarak önbelleğinde değeri depolarız. Biz değeri depolamak üzere seçtiğiniz süre hakkında temel gereken genellikle bilgi değişikliklerini ve nasıl dayanıklı kullanıcılar için güncel bilgilerdir. 
+API Management değeri API Management ile almak için ilk olarak çalıştı tam aynı anahtarı kullanarak önbelleğinde saklar. API Management değeri depolamak için seçtiği süresi hakkında temel gereken genellikle bilgi değişikliklerini ve nasıl dayanıklı kullanıcılar için güncel bilgilerdir. 
 
-Önbellekten hala olduğundan bir işlem dışı, ağ isteği ve potansiyel olarak milisaniye onlarca isteği eklemeye devam edebilirsiniz, hayata geçirmek önemlidir. Kullanıcı profili bilgilerini sorgular veya toplama bilgilerinden birden fazla arka uç veritabanı gerek nedeniyle daha önemli ölçüde daha uzun sürer belirlerken avantajları gelir.
+Önbellekten hala olduğundan bir işlem dışı, ağ isteği ve potansiyel olarak milisaniye onlarca isteği eklemeye devam edebilirsiniz, hayata geçirmek önemlidir. Kullanıcı profili bilgilerini, sorgu veya toplama bilgilerinden birden fazla arka uç veritabanı gerek nedeniyle uzun sürdüğünde belirlerken avantajları gelir.
 
-Son işlem döndürülen yanıt bizim kullanıcı profili bilgilerle güncelleştirmek için adımdır.
+Son işlem döndürülen yanıt kullanıcı profili bilgilerini güncelleştirmek için adımdır.
 
 ```xml
 <!-- Update response body with user profile-->
@@ -120,7 +120,7 @@ Son işlem döndürülen yanıt bizim kullanıcı profili bilgilerle güncelleş
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-Tırnak işaretleri belirtecinin bir parçası içermesi Değiştir bile gerçekleşmezse, yanıt hala geçerli JSON zamanki seçtiniz. Öncelikle daha kolay hata ayıklama yapmak için bu.
+Seçtiğiniz Değiştir bile gerçekleşmezse, yanıt hala geçerli bir JSON olmasını sağlamak için tırnak işaretleri belirtecinin bir parçası dahil etmek için kullanabilirsiniz.  
 
 Tüm adımları birleştirmek sonra sonuç aşağıdaki biri gibi görünen bir ilkedir.
 
@@ -137,7 +137,7 @@ Tüm adımları birleştirmek sonra sonuç aşağıdaki biri gibi görünen bir 
           key="@("userprofile-" + context.Variables["enduserid"])"
           variable-name="userprofile" />
 
-        <!-- If we don’t find it in the cache, make a request for it and store it -->
+        <!-- If API Management doesn’t find it in the cache, make a request for it and store it -->
         <choose>
             <when condition="@(!context.Variables.ContainsKey("userprofile"))">
                 <!-- Make HTTP request to get user profile -->
@@ -176,14 +176,14 @@ Tüm adımları birleştirmek sonra sonuç aşağıdaki biri gibi görünen bir 
 </policies>
 ```
 
-Önbelleğe alma bu yaklaşım, tek bir sayfa olarak işlenebilecek böylece burada HTML sunucu tarafında oluşur web siteleri, öncelikle kullanılır. Ancak, bu da yararlı olabilir burada istemcileri bulunulamaz istemci API'ları yan HTTP önbelleğe alma veya bu sorumluluğu istemcide değil yerleştirilecek istenen bir durumdur.
+Önbelleğe alma bu yaklaşım, tek bir sayfa olarak işlenebilecek böylece burada HTML sunucu tarafında oluşur web siteleri, öncelikle kullanılır. Ayrıca, istemcilerin HTTP istemci tarafı önbelleğe alma işlemi yapamazsınız veya bu sorumluluğu istemcide değil yerleştirilecek tercih edilir API'lerde yararlı olabilir.
 
 Parça önbelleğe alma bu aynı tür, arka uç web sunucularında sunucu önbelleği Redis kullanılarak yapılabilir, önbelleğe alınan parçaları birincil daha farklı arka uçları'ten gelen ancak API Management hizmeti kullanarak bu çalışmayı gerçekleştirmek için faydalıdır yanıtlar.
 
 ## <a name="transparent-versioning"></a>Saydam sürüm oluşturma
-Herhangi bir zamanda desteklenmesi için bir API birden çok farklı uygulama sürümlerini yaygın bir uygulamadır. Bu belki de geliştirme, test, üretim, vb., gibi farklı ortamları desteklemek için veya daha yeni sürümüne geçirmek API Tüketiciler için zaman vermek için API eski sürümleri desteklemek için olabilir. 
+Herhangi bir zamanda desteklenmesi için bir API birden çok farklı uygulama sürümlerini yaygın bir uygulamadır. Örneğin, farklı ortamlarda (geliştirme, test, üretim, vb.) desteklemek için ya da daha yeni sürümüne geçirmek API Tüketiciler için zaman vermek için API eski sürümleri desteklemek için. 
 
-Bu URL'lerden değiştirmek istemci geliştiriciler istemek yerine işleme bir yaklaşım `/v1/customers` için `/v2/customers` şu anda istedikleri kullanın ve uygun arka uç URL'si çağırmak için API'ın hangi sürümü tüketicinin profil verileri depolamak için. Belirli bir istemci için çağırmak için doğru arka uç URL'si belirlemek için bazı yapılandırma verileri sorgulamak gereklidir. Bu yapılandırma verileri önbelleğe alarak biz yaşanan bu Arama yapmanın performans sorunları en aza indirebilirsiniz.
+Bu, URL'lerden değiştirmek istemci geliştiriciler istemek yerine işleme bir yaklaşım `/v1/customers` için `/v2/customers` şu anda istedikleri kullanın ve uygun arka uç URL'si çağırmak için API'ın hangi sürümü tüketicinin profil verileri depolamak için. Belirli bir istemci için çağırmak için doğru arka uç URL'si belirlemek için bazı yapılandırma verileri sorgulamak gereklidir. Bu yapılandırma verileri önbelleğe alarak API Management yaşanan bu Arama yapmanın performans sorunları en aza indirebilirsiniz.
 
 İlk adım, istenen sürüm yapılandırmak için kullanılan tanımlayıcı belirlemektir. Bu örnekte, ürün abonelik anahtarı sürüme ilişkilendirilecek seçtiğim. 
 
@@ -191,7 +191,7 @@ Bu URL'lerden değiştirmek istemci geliştiriciler istemek yerine işleme bir y
 <set-variable name="clientid" value="@(context.Subscription.Key)" />
 ```
 
-Biz sonra biz zaten istenen istemci sürümü aldıktan olmadığını görmek için önbellek araması yapın.
+API Management sonra önceden istenen istemci sürümü alınan olup olmadığını görmek için önbellek araması yapar.
 
 ```xml
 <cache-lookup-value
@@ -199,14 +199,14 @@ key="@("clientversion-" + context.Variables["clientid"])"
 variable-name="clientversion" />
 ```
 
-Ardından biz biz bunu önbellekte bulamadı olmadığını denetleyin.
+Ardından, API Management, onu önbellekte bulamadı, olmadığını denetler.
 
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("clientversion"))">
 ```
 
-Git ve bunu alma sonra biz almadıysanız.
+API Management, bulamadıysanız, API Management alır.
 
 ```xml
 <send-request
@@ -243,7 +243,7 @@ Ve son olarak istemci tarafından istenen hizmetin sürümünü seçmek için ar
       base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
 ```
 
-Tamamen ilke aşağıdaki gibidir.
+İlkenin tamamını aşağıdaki gibidir:
 
 ```xml
 <inbound>
@@ -251,7 +251,7 @@ Tamamen ilke aşağıdaki gibidir.
     <set-variable name="clientid" value="@(context.Subscription.Key)" />
     <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
 
-    <!-- If we don’t find it in the cache, make a request for it and store it -->
+    <!-- If API Management doesn’t find it in the cache, make a request for it and store it -->
     <choose>
         <when condition="@(!context.Variables.ContainsKey("clientversion"))">
             <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
@@ -277,7 +277,3 @@ API her abonelik anahtarı için tercih edilen bir sürümünü döndürme yerin
 
 ## <a name="summary"></a>Özet
 Her türlü veri depolamak için Azure API management önbellek kullanma özgürlüğü verimli bir gelen talep işlenen biçimini etkileyebilir yapılandırma verilerine erişim sağlar. Ayrıca, bir arka API döndürülen yanıt genişletebilirsiniz veri parçaları depolamak için de kullanılabilir.
-
-## <a name="next-steps"></a>Sonraki adımlar
-Lütfen bize geri bildirim Disqus iş parçacığı için bu konuda bu ilkeler için etkinleştirdiğiniz diğer senaryolar varsa veya senaryoları varsa elde etmek ister misiniz verin ancak şu anda mümkün olan eşitleyerek değil.
-

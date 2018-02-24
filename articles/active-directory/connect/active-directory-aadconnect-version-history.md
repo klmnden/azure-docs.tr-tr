@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2017
+ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -35,6 +35,73 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 
 Karşıdan yükleme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117490"></a>1.1.749.0
+Durum: müşterileri seçmek üzere serbest bırakılmış
+
+>[!NOTE]
+>Bu yeni sürüme yükseltme işlemi tamamlandığında, bir tam eşitleme ve Azure AD Bağlayıcısı için tam içeri aktarma ve tam bir eşitleme AD Bağlayıcısı için otomatik olarak tetikler. Lütfen bu Azure AD Connect ortamınızın boyutuna bağlı olarak biraz zaman alabilir bu yana Bunu desteklemek veya bunu yapmak için kullanışlı bir dakikanızı bulduğunuz kadar yükseltmeye bekletir için gerekli adımları gerçekleştirdiğinizden emin olun.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Giderilen sorunlar
+* Arka planda zamanlama penceresi düzeltme sayfasında bölüm filtreleme için görevler
+* Sonraki sayfaya geçiş yaparken bölüm filtreleme sayfası için arka plan görevleri zamanlama penceresi düzeltin.
+
+* ConfigDB özel eylemi sırasında erişim ihlali neden hatanın düzeltildiğini
+
+* SQL bağlantı zaman aşımı kurtarmak için bir hata sabit.
+
+* Sertifikaları SAN joker karakterlerle bir önkoşul denetimi başarısız olduğu hatanın düzeltildiğini
+
+* Miiserver.exe çökmesine neden olan bir Azure AD Bağlayıcısı dışa aktarma sırasında bir hata sabit.
+
+* Yapılandırmasını değiştirmek için Azure AD Connect sihirbazını çalıştırırken hangi hatalı parola denemesi günlüğe bir hata DC üzerinde sabit
+
+
+#### <a name="new-features-and-improvements"></a>Yeni özellikleri ve geliştirmeleri
+
+* Genel Tarih koruma düzenleme (GDPR) için gizlilik ayarları ekleniyor.  İçin GDPR biz (telemetri, sistem durumu, vb.), Microsoft ile paylaşılır müşteri veri türlerini ayrıntılı çevrimiçi belgeleri bağlantıları ve tercihlerini değiştirmek için müşterilerimiz için bir yol sağlamak göstermek için gereklidir.  Bu iade şunları ekler:
+
+
+    - Veri paylaşımı ve gizlilik bildirimi temiz EULA sayfası yükleyin.
+    - Veri paylaşımı ve gizlilik bildirimini yükseltme sayfasında.
+    - Yeni bir ek görevi "Gizlilik ayarları" kullanıcı tercihlerini burada değiştirebilirsiniz.
+
+* Uygulama telemetri - yönetici olacaktır bu sınıftaki verilerin açık/kapalı geçebilirsiniz
+
+* Azure AD sistem durumu verileri - yönetim sistem durumu ayarlarını denetlemek için sistem durumu portalını ziyaret edin gerekir.
+   Hizmet İlkesi değiştirilmişse, aracıları okuyun ve onu zorlayın.
+
+* Eklenen cihaz geri yazma yapılandırma eylemleri ve sayfa başlatma için bir ilerleme çubuğu
+
+* Genel tanılama HTML raporu ve ZIP metin tam veri toplama ile geliştirilmiş / HTML raporu
+
+* Otomatik yükseltme ve sunucusunun sistem durumunu belirlenebilir emin olmak için eklenen ek telemetri güvenilirliğini geliştirilmiş
+
+* Kullanılabilir AD Bağlayıcısı hesabındaki ayrıcalıklı hesaplara kısıtlayın
+
+  * Yeni yüklemeler için sihirbazın hesapları ayrıcalıklı izinleri kısıtlar MSOL hesabı oluşturduktan sonra MSOL hesabında sahip.
+
+Değişiklikleri aşağıdakilerden ilgilenebilmek:
+1. Express yüklemeleri
+2. Özel yüklemeler hesabıyla otomatik olarak oluşturma
+
+* Azure AD Connect temiz yükleme SA ayrıcalığına gerektirmeyen şekilde yükleyici değiştirildi
+
+* Belirli bir nesnesi için eşitleme sorunlarını gidermek için yeni bir yardımcı programı eklendi. Azure AD Connect Sihirbazı sorun giderme ek görevi 'Nesne eşitleme sorunlarını giderme' seçeneği altında kullanılabilir. Şu anda, yardımcı program aşağıdakileri denetler:
+
+  * Eşitlenen kullanıcı nesnesi ve Azure AD Kiracı Kullanıcı hesabında arasında UserPrincipalName uyuşmazlığı.
+  * Etki alanı filtreleme nedeniyle gelen nesne filtre durumunda
+  * Nesne filtreleme kuruluş birimi (OU) nedeniyle gelen filtre durumunda
+
+* Belirli bir kullanıcı hesabı için şirket içi Active Directory içinde depolanan geçerli parola karması eşitlemek için yeni bir yardımcı programı eklendi.
+
+Yardımcı program parola değişikliği gerekli değildir. Azure AD Connect Sihirbazı sorun giderme ek görevi 'Sorun giderme parola karması eşitlemesi' seçeneği altında kullanılabilir.
+
+
+
+
+
+
 ## <a name="116540"></a>1.1.654.0
 Durumu: 12 Aralık 2017
 
@@ -50,7 +117,7 @@ Bir geliştirme önerilen izni altında açıklanan bölüm değiştirdiğinden 
 >[!NOTE]
 >Bu sürüm yalnızca hizmet hesabı yükleme işleminin oluşturulduğu Azure AD Connect yeni yüklemeler için güvenlik açığı kaldırır. Var olan yüklemeler için ya da hesap kendiniz verdiğiniz durumlarda bu güvenlik açığı yok emin olmalısınız.
 
-#### <a name="lock"></a>AD DS hesabı için erişim kilitleme
+#### <a name="lock"></a> AD DS hesabı için erişim kilitleme
 Şirket içi aşağıdaki izin değişiklikleri uygulayarak AD DS hesabı için erişim kilitleme AD:  
 
 *   Belirtilen nesne devralmayı devre dışı bırak
@@ -397,7 +464,7 @@ CBool(
     |CertSubject|CertIssuer|CertKeyAlgorithm|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
     |CertSubjectNameOid|CertIssuerDN|IsCert|
-    |CertFriendlyName|Certthumbprınt|CertExtensionOids|
+    |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Şunu seçin:|
@@ -408,14 +475,14 @@ CBool(
 
   * Aşağıdaki öznitelikler MV şemaya eklenmiştir:
     * Grup: AccountName
-    * Grup: domainNetBios
-    * Grup: domainFQDN
-    * Kişi: distinguishedName
+    * Group: domainNetBios
+    * Group: domainFQDN
+    * Person: distinguishedName
 
   * Aşağıdaki öznitelikler Azure AD Bağlayıcısı şemaya eklenmiştir:
-    * Grup: OnPremisesSamAccountName
-    * Grup: NetBiosName
-    * Grup: DNSEtkiAlanıAdı
+    * Group: OnPremisesSamAccountName
+    * Group: NetBiosName
+    * Group: DnsDomainName
     * Kullanıcı: OnPremisesDistinguishedName
 
 * ADSyncDomainJoinedComputerSync cmdlet betik şimdi AzureEnvironment adlı yeni bir isteğe bağlı parametre vardır. Parametresi, ilgili Azure Active Directory Kiracı içinde barındırılan hangi bölgede belirtmek için kullanılır. Geçerli değerler şunlardır:
@@ -431,10 +498,10 @@ CBool(
 #### <a name="issues-fixed"></a>Giderilen sorunlar
 
 * URL'leri kimlik doğrulaması kesinti karşı dayanıklılığı artırmak için Azure AD tarafından sunulan yeni WS-Federasyon uç noktaları ve şirket içi eklenecek AD FS bölümünde, bağlı olan taraf güven yapılandırması:
-  * https://ests.Login.microsoftonline.com/Login.srf
-  * https://stamp2.Login.microsoftonline.com/Login.srf
-  * https://ccs.Login.microsoftonline.com/Login.srf
-  * https://ccs-sdf.Login.microsoftonline.com/Login.srf
+  * https://ests.login.microsoftonline.com/login.srf
+  * https://stamp2.login.microsoftonline.com/login.srf
+  * https://ccs.login.microsoftonline.com/login.srf
+  * https://ccs-sdf.login.microsoftonline.com/login.srf
   
 * AD FS için IssuerID yanlış talep değeri üretmek neden bir sorun düzeltilmiştir. Azure AD kiracısında birden çok doğrulanmış etki alanı vardır ve IssuerID talep oluşturmak için kullanılan userPrincipalName özniteliğinin etki alanı soneki en az ise sorun 3 düzeyleri derin (örneğin, johndoe@us.contoso.com). Talep kuralları tarafından kullanılan regex güncelleştirerek sorun çözüldüğünde.
 

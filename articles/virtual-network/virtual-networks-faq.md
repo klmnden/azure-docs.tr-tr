@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağı sık sorulan sorular (SSS)
 
@@ -81,7 +81,7 @@ Evet. Kullanıcı tanımlı yönlendirme (UDR) kullanabilirsiniz. UDR hakkında 
 Hayır. Çok noktaya yayın veya çok noktaya yayın desteklemez.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Hangi protokolleri içinde sanal ağlar kullanabilir miyim?
-Sanal ağlar içinde TCP, UDP ve TCP/IP'yi ICMP protokoller kullanabilir. Çok noktaya yayın, yayın, IP-kapsüllenmiş IP paketlerinin ve Genel Yönlendirme Kapsüllemesi (GRE) paketleri Vnet'ler engellenir. 
+Sanal ağlar içinde TCP, UDP ve TCP/IP'yi ICMP protokoller kullanabilir. Tek noktaya yayın içinde sanal ağlar, hariç olmak üzere Dinamik Ana Bilgisayar Yapılandırma Protokolü (DHCP) tek noktaya yayın üzerinden desteklenir (bağlantı noktası UDP/68 kaynak / hedef bağlantı noktası UDP/67). Çok noktaya yayın, yayın, IP-kapsüllenmiş IP paketlerinin ve Genel Yönlendirme Kapsüllemesi (GRE) paketleri Vnet'ler engellenir. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Bir sanal ağ içindeki my varsayılan yönlendiricileri ping?
 Hayır.

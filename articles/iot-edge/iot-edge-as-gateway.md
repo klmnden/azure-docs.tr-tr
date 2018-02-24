@@ -1,5 +1,5 @@
 ---
-title: "Diğer cihazlar için nasıl bir Azure IOT sınır cihazı bir ağ geçidi olarak kullanılabileceğini anlamak | Microsoft Docs"
+title: "Ağ geçidi olarak Azure IOT sınır cihazları kullanın | Microsoft Docs"
 description: "Saydam, donuk oluşturmak için Azure IOT kenar veya birden çok aşağı akış aygıtlardan buluta veri gönderir veya yerel olarak işlemleri proxy ağ geçidi cihazı kullanın."
 services: iot-edge
 keywords: 
@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: fe7ad2444b9378550e9624e3d109c8be4fd29f23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Bir IOT sınır cihazı bir ağ geçidi olarak - kullanılabilir nasıl Önizleme
 

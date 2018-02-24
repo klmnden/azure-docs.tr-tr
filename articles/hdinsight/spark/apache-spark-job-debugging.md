@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: fb2487ec854260bacf98789bd1be482172ead6a7
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 5606df8770cf611d7d278800c9871bee17c5b895
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Çalışan Azure Hdınsight'ta Apache Spark işleri hata ayıklama
 
-Bu makalede, izlemek ve YARN kullanıcı Arabiriminde, Spark UI ve Spark geçmişi Server kullanarak Hdınsight kümelerinde çalışan Spark işleri hata ayıklama öğrenin. Bu makalede, biz Spark kümesi ile kullanılabilir bir Not Defteri kullanarak Spark işi Başlat **Machine learning: Yemek İnceleme verileri Mllib'i kullanarak Tahmine dayalı analiz**. Örneğin, gönderilen tüm diğer yaklaşımı de kullanarak bir uygulama izlemek için aşağıdaki adımları kullanabilirsiniz **spark gönderme**.
+Bu makalede, izlemek ve YARN kullanıcı Arabiriminde, Spark UI ve Spark geçmişi Server kullanarak Hdınsight kümelerinde çalışan Spark işleri hata ayıklama öğrenin. Spark kümesi ile kullanılabilir bir Not Defteri kullanarak Spark işi Başlat **Machine learning: Yemek İnceleme verileri Mllib'i kullanarak Tahmine dayalı analiz**. Örneğin, gönderilen tüm diğer yaklaşımı de kullanarak bir uygulama izlemek için aşağıdaki adımları kullanabilirsiniz **spark gönderme**.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Aşağıdakilere sahip olmanız gerekir:
@@ -34,12 +34,12 @@ Aşağıdakilere sahip olmanız gerekir:
 * Not Defteri çalıştıran başlamış olması gereken  **[Machine learning: Yemek İnceleme verileri Mllib'i kullanarak Tahmine dayalı analiz](apache-spark-machine-learning-mllib-ipython.md)**. Bu Not çalıştırma hakkında daha fazla yönerge için bağlantıyı izleyin.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Bir uygulama YARN kullanıcı arabiriminde izleme
-1. YARN kullanıcı arabirimini Başlat. Küme dikey penceresinden tıklayın **küme Panosu**ve ardından **YARN**.
+1. YARN kullanıcı arabirimini Başlat. Tıklatın **küme Panosu**ve ardından **YARN**.
    
     ![YARN kullanıcı arabirimini Başlat](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > Alternatif olarak, Ambari UI YARN Arabiriminden başlatabilirsiniz. Küme dikey penceresinden Ambari kullanıcı arabirimini başlatmak için tıklatın **küme Panosu**ve ardından **Hdınsight küme Panosu**. Ambari Arabiriminden tıklatın **YARN**, tıklatın **hızlı bağlantılar**, etkin Kaynak Yöneticisi'ni tıklatın ve ardından **ResourceManager UI**.    
+   > Alternatif olarak, Ambari UI YARN Arabiriminden başlatabilirsiniz. Ambari kullanıcı arabirimini başlatmak için tıklatın **küme Panosu**ve ardından **Hdınsight küme Panosu**. Ambari Arabiriminden tıklatın **YARN**, tıklatın **hızlı bağlantılar**, etkin Kaynak Yöneticisi'ni tıklatın ve ardından **kaynak yöneticisi kullanıcı Arabirimi**.    
    > 
    > 
 2. Jupyter not defterlerini kullanarak Spark iş başlatıldı çünkü uygulama adına sahip **remotesparkmagics** (Bu defterlerinden başlatılan tüm uygulamalar için addır). İş hakkında daha fazla bilgi almak için uygulama adı karşı uygulama kimliği'ni tıklatın. Bu uygulama görünümünü başlatır.
@@ -102,7 +102,7 @@ Bir iş tamamlandığında iş hakkındaki bilgileri Spark geçmişi Server'da k
    > Alternatif olarak, Spark geçmişi sunucu kullanıcı Arabiriminden Ambari kullanıcı arabirimini başlatabilirsiniz. Küme dikey penceresinden Ambari kullanıcı arabirimini başlatmak için tıklatın **küme Panosu**ve ardından **Hdınsight küme Panosu**. Ambari Arabiriminden tıklatın **Spark**, tıklatın **hızlı bağlantılar**ve ardından **Spark geçmişi sunucu UI**.
    > 
    > 
-2. Listelenen tüm tamamlanan uygulamaları görürsünüz. Daha fazla bilgi için uygulama incelemek için bir uygulama kimliği'ni tıklatın.
+2. Listelenen tüm tamamlanan uygulamaları bakın. Daha fazla bilgi için uygulama incelemek için bir uygulama kimliği'ni tıklatın.
    
     ![Spark geçmişi sunucu başlatma](./media/apache-spark-job-debugging/view-completed-applications.png)
 
@@ -122,7 +122,6 @@ Bir iş tamamlandığında iş hakkındaki bilgileri Spark geçmişi Server'da k
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
 * [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
-* [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](apache-spark-eventhub-streaming.md)
 * [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)

@@ -529,7 +529,11 @@
         - name: Güvenli bir kümeye bağlanma
           href: service-fabric-connect-to-secure-cluster.md
         - name: Küme düğümlerine yama yapma
-          href: service-fabric-patch-orchestration-application.md
+          items:
+            - name: Windows
+              href: service-fabric-patch-orchestration-application.md
+            - name: Linux
+              href: service-fabric-patch-orchestration-application-linux.md
     - name: İzleme ve tanılama
       items:
         - name: OMS
@@ -599,7 +603,7 @@
     - name: Öğrenme yolu
       href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
     - name: MSDN Forumu
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Fiyatlandırma hesaplayıcı

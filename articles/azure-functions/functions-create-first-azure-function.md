@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 01/21/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+experiment: 
+ms.openlocfilehash: 391cf4b5df4b52e6fcbe496c6e31052f1fda4a44
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
 
@@ -30,9 +31,9 @@ Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayım
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Azure portalı açın. Bunu yapmak için, Azure hesabınızla [Azure portalında](https://portal.azure.com/) oturum açın.
+Azure hesabınızla <http://portal.azure.com> sayfasından Azure portalında oturum açın.
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
@@ -64,7 +65,7 @@ Artık bir HTTP isteği göndererek yeni işlevi çalıştırabilirsiniz.
 
 2. İşlev URL'sini tarayıcınızın adres çubuğuna yapıştırın. `&name=<yourname>` sorgu dizesi değerini bu URL’nin sonuna ekleyin ve isteği yürütmek için klavyenizdeki `Enter` tuşuna basın. İşlev tarafından döndürülen yanıtın tarayıcıda gösterildiğini görürsünüz.  
 
-    Edge tarayıcısındaki yanıtın bir örneği aşağıda verilmiştir (diğer tarayıcılar XML gösterebilir):
+    Aşağıdaki örnek, Edge tarayıcısındaki yanıtı gösterir (diğer tarayıcılar XML gösterebilir):
 
     ![Tarayıcıdaki işlev yanıtı.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
@@ -76,7 +77,7 @@ Artık bir HTTP isteği göndererek yeni işlevi çalıştırabilirsiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

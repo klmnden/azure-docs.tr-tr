@@ -1,27 +1,14 @@
----
-title: Postman koleksiyonunu alma
-description: "Bu makale Azure Media Services REST çağrılarını Postman toplamalarında tanımını sağlar."
-services: media-services
-documentationcenter: 
-author: Juliako
-manager: cfowler
-editor: 
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
----
-# <a name="import-the-postman-collection"></a>Postman koleksiyonunu alma
+ ---
+Başlık: Azure isteğe bağlı Akış işlemleri açıklama Postman koleksiyonuyla içeri aktarın: Bu makalede Azure Media Services REST çağrılarını Postman koleksiyonu tanımının sağlar.
+services: media-services documentationcenter: '' author: Juliako manager: cfowler editor: ''
 
-Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Media Services REST API çağrısı HTTP isteklerini gruplandırılır. Bu tanımı tarafından kullanılan [Postman yapılandırmak için Media Services REST API çağrıları](media-rest-apis-with-postman.md) Öğreticisi.
+MS.Service: media services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: ms.date makale: 04/01/2017 ms.author: juliako
+
+---
+
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>İsteğe bağlı Akış işlemleri Postman koleksiyonuyla alma
+
+Bu makalede bir tanımını içeren **Postman** içeren koleksiyon Azure Media Services REST API çağrısı HTTP isteklerini gruplandırılır. Nasıl yapılandırılacağı hakkında bilgi için **Postman** , böylece Media Services REST API'leri çağırmak için bkz: [Postman yapılandırmak için Media Services REST API çağrıları](media-rest-apis-with-postman.md) Öğreticisi.
 
 ```
 {

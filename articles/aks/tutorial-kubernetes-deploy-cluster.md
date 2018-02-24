@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Azure Öğreticisi - küme dağıtma hakkında"
-description: "AKS Öğreticisi - küme dağıtma"
+title: "Azure’da Kubernetes öğreticisi - Kümeyi Dağıtma"
+description: "AKS öğreticisi - Kümeyi Dağıtma"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,49 +9,49 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Bir Azure kapsayıcı hizmeti (AKS) kümeyi dağıtma
+# <a name="deploy-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini dağıtma
 
-Kubernetes, kapsayıcılı uygulamalar için dağıtılmış bir platform sunar. AKS ile basit ve hızlı bir üretim hazır Kubernetes kümenin sağlama. Bu öğreticide, bir parçası üç sekiz, Kubernetes küme AKS içinde dağıtılır. Tamamlanan adımları içerir:
+Kubernetes, kapsayıcılı uygulamalar için dağıtılmış bir platform sunar. AKS ile üretime hazır bir Kubernetes kümesinin sağlanması basit ve hızlıdır. Sekiz parçalık bu öğreticinin üçüncü kısmında, AKS içinde bir Kubernetes kümesi dağıtılır. Tamamlanan adımlar:
 
 > [!div class="checklist"]
 > * Kubernetes AKS kümesini dağıtma
-> * Kubernetes CLI (kubectl) yükleme
+> * Kubernetes CLI (kubectl) yüklemesi
 > * Kubectl yapılandırması
 
-Sonraki öğreticilerde, Azure oy uygulama olduğundan kümeye dağıtılan, ölçeği, güncelleştirilmiş ve Operations Management Suite Kubernetes küme izlemek için yapılandırılır.
+Sonraki öğreticilerde, Azure Vote uygulaması kümeye dağıtılır, ölçeklendirilir, güncelleştirilir ve Operations Management Suite, Kubernetes kümesini izlemek için yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki eğitimlerine bir kapsayıcı görüntüsü oluşturuldu ve Azure kapsayıcı kayıt defteri örneğine yüklenir. Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app].
+Önceki öğreticilerde, bir kapsayıcı görüntüsü oluşturuldu ve Azure Container Registry örneğine yüklendi. Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app] konusuna dönün.
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Azure aboneliğiniz için AKS Önizleme etkinleştirme
-AKS önizlemede olsa da, yeni küme oluşturma aboneliğinizi bir özellik bayrağı gerektirir. Bu özellik için kullanmak istediğiniz abonelikleri herhangi bir sayıda isteyebilir. Kullanım `az provider register` komutu AKS sağlayıcısını kaydetmek için:
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Azure aboneliğiniz için AKS önizlemesini etkinleştirme
+AKS önizlemedeyken, yeni kümeler oluşturmak aboneliğinizde özellik bayrağı olmasını gerektirir. Bu özelliği kullanmak istediğiniz herhangi bir sayıda abonelik için isteyebilirsiniz. AKS sağlayıcıyı kaydetmek için `az provider register` komutunu kullanın:
 
 ```azurecli-interactive
 az provider register -n Microsoft.ContainerService
 ```
 
-Kaydolduktan sonra artık ile AKS Kubernetes küme oluşturmak hazırsınız.
+Kaydettikten sonra, AKS ile bir Kubernetes kümesi oluşturmak için hazırsınız.
 
 ## <a name="create-kubernetes-cluster"></a>Kubernetes kümesi oluşturma
 
-Aşağıdaki örnek adlı bir küme oluşturur `myK8sCluster` adlı bir kaynak grubunda `myResourceGroup`. Bu kaynak grubunun oluşturulduğu [önceki öğretici][aks-tutorial-prepare-acr].
+Şu örnek, `myResourceGroup` adlı Kaynak Grubunda `myAKSCluster` adlı bir küme oluşturur. Bu Kaynak Grubu, [bir önceki öğreticide][aks-tutorial-prepare-acr] oluşturuldu.
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
-Birkaç dakika sonra dağıtım tamamlar ve AKS dağıtımı hakkında bilgi döndürür json biçimli.
+Birkaç dakika sonra dağıtım tamamlanır ve AKS dağıtımı hakkında JSON tarafından biçimlendirilmiş bilgiler döndürür.
 
-## <a name="install-the-kubectl-cli"></a>CLI kubectl yükleyin
+## <a name="install-the-kubectl-cli"></a>kubectl CLI yükleme
 
-İstemci bilgisayarından Kubernetes kümeye bağlanmak için [kubectl][kubectl], Kubernetes komut satırı istemcisi.
+İstemci bilgisayarınızdan Kubernetes kümesine bağlanmak için Kubernetes’in komut satırı istemcisini ([kubectl][kubectl]) kullanın.
 
 Azure CloudShell kullanıyorsanız kubectl zaten yüklüdür. Yerel olarak yüklemek istiyorsanız, aşağıdaki komutu çalıştırın:
 
@@ -61,13 +61,13 @@ az aks install-cli
 
 ## <a name="connect-with-kubectl"></a>kubectl ile bağlanma
 
-Kubernetes kümenize bağlanmak için kubectl yapılandırmak için aşağıdaki komutu çalıştırın:
+kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için aşağıdaki komutu çalıştırın:
 
 ```azurecli
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group=myResourceGroup --name=myAKSCluster
 ```
 
-Kümenize bağlantıyı doğrulamak için Çalıştır [kubectl alma düğümleri] [ kubectl-get] komutu.
+Kümenize yönelik bağlantıyı doğrulamak için [kubectl get nodes][kubectl-get] komutunu çalıştırın.
 
 ```azurecli
 kubectl get nodes
@@ -77,24 +77,24 @@ kubectl get nodes
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
 ```
 
-Eğitmen tamamlandığında, iş yükleri için hazır bir AKS kümesine sahip. Sonraki öğreticilerde, bir çok kapsayıcı uygulama bu kümeye dağıtılan, çıkışı ölçeği, güncelleştirilmiş ve izlenen.
+Öğretici tamamlandığında, iş yüklerine hazır bir AKS kümesine sahip olursunuz. Sonraki öğreticilerde bu kümeye birden çok kapsayıcılı uygulama dağıtılır, ölçeklendirilir, güncelleştirilir ve izlenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir Kubernetes küme içinde AKS dağıtıldı. Aşağıdaki adımlar tamamlandı:
+Bu öğreticide, AKS içinde bir Kubernetes kümesi dağıtıldı. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
-> * Bir Kubernetes AKS kümesi dağıtılmış
-> * Kubernetes CLI (kubectl) yüklü
-> * Yapılandırılmış kubectl
+> * Kubernetes AKS kümesi dağıtıldı
+> * Kubernetes CLI (kubectl) yüklendi
+> * Kubectl yapılandırıldı
 
-Uygulama küme üzerinde çalışan hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Kümede uygulama çalıştırma hakkında daha fazla bilgi için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Kubernetes uygulamasında dağıtma][aks-tutorial-deploy-app]
+> [Kubernetes'te uygulama dağıtma][aks-tutorial-deploy-app]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: ef0dc1b820f42b73af3af3882085729ecc21230c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2741ea2931ddd7989fc05e1cddbeedb80bf30410
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Bir uygulama hizmeti oluşturma ortamını v1 
 
@@ -42,12 +42,12 @@ Değiştiremezsiniz şey haberdar olmanız önemlidir. Oluşturulduktan sonra an
 Bir VNet çekme ve bir alt ağ belirterek yaptığınızda emin gelecekteki büyümesine uyum sağlayacak kadar büyük. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Hizmet ortamı v1 bir uygulama oluşturma
-Gereken Azure Market aramak için bir uygulama hizmeti ortamı v1 oluşturmak için ***uygulama hizmeti ortamı v1***, veya yeni giderek -> Web + mobil -> uygulama hizmeti ortamı. Bir ASEv1 oluşturmak için:
+Bir uygulama hizmeti ortamı v1 oluşturmak için Azure Market arayabilirsiniz ***uygulama hizmeti ortamı v1***, veya geçtikleri **kaynak oluşturma** -> **Web + mobil**  ->  **Uygulama hizmeti ortamı**. Bir ASEv1 oluşturmak için:
 
-1. ANA adını sağlayın. Ana için belirtilen ad ana oluşturulan uygulamalar için kullanılır. ANA adını appsvcenvdemo ise alt etki alanı adı olması. *appsvcenvdemo.p.azurewebsites.net*. Bu nedenle adlı bir uygulama oluşturduysanız *mytestapp* adresindeki adreslenebilir sonra *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Beyaz alan adına, ana kullanamazsınız. Büyük harf karakterler adı kullanırsanız, etki alanı adı bu adı toplam küçük harfli sürümünü olacaktır. Bir ILB kullanırsanız, ardından ana adınızı alt etki alanı içinde kullanılmaz, ancak bunun yerine ana oluşturma sırasında açıkça belirtilmiştir
+1. ANA adını sağlayın. İçin ana belirttiğiniz ad, ana oluşturulan uygulamalar için kullanılır. ANA adı appsvcenvdemo ise, alt etki alanı adı olması: *appsvcenvdemo.p.azurewebsites.net*. Bu nedenle adlı bir uygulama oluşturduysanız *mytestapp*, adresindeki adreslenebilir *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Beyaz alan adına, ana kullanamazsınız. Büyük harf karakterler adı kullanırsanız, etki alanı adı bu adı toplam küçük harfli sürümünü olacaktır. Bir ILB kullanırsanız, ana adınızı alt etki alanı içinde kullanılmaz, ancak bunun yerine ana oluşturma sırasında açıkça belirtilmiştir.
    
     ![][1]
-2. Aboneliğinizi seçin. Ana için kullanılan abonelikle o ana tüm uygulamaları ile oluşturulan bir yetenektir. Başka bir abonelikte bir VNet içinde ana yerleştirilemiyor
+2. Aboneliğinizi seçin. Ana için kullandığınız abonelik, o ana oluşturduğunuz tüm uygulamalar için de geçerli olur. Başka bir abonelikte bir VNet içinde ana yerleştirilemiyor.
 3. Seçin veya yeni bir kaynak grubu belirtin. Kaynak grubu için ana kullanılan ağınız için kullanılan aynı olması gerekir. Önceden var olan bir sanal ağ seçerseniz, ana için kaynak grubu seçimi, sanal ağınızı yansıtacak şekilde güncelleştirilir.
    
     ![][2]

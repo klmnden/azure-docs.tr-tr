@@ -1,6 +1,6 @@
 ---
-title: "Uygulama verilerini azure'da yüksek oranda kullanılabilir hale | Microsoft Docs"
-description: "Coğrafi olarak yedekli depolamaya okuma erişimi uygulama verilerinizin yüksek oranda kullanılabilir yapmak için kullanın"
+title: "Uygulama verilerini Azure'da yüksek oranda kullanılabilir hale getirme | Microsoft Belgeleri"
+description: "Okuma erişimli coğrafi olarak yedekli depolamayı kullanarak uygulama verilerinizi yüksek oranda kullanılabilir yapma"
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -9,39 +9,48 @@ editor:
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: 
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 12/23/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uygulama verilerinizi Azure storage ile yüksek oranda kullanılabilir yap
+# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure depolama ile uygulama verilerinizi yüksek oranda kullanılabilir hale getirme
 
-Bu öğretici bir dizi birini bir parçasıdır. Bu öğretici, uygulama verilerini azure'da yüksek oranda kullanılabilir hale gösterilmiştir. İşlemi tamamladığınızda, bir blob alır ve yükler .NET core konsol uygulaması sahip bir [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabı. RA-GRS işlemleri birincil sunucudan ikincil bölge'ye yineleyerek çalışır. Bu çoğaltma işlemi, verileri ikincil bölge sonuçta tutarlı olmasını sağlar. Uygulamanın kullandığı [devre kesici](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) bağlanmak için hangi uç noktaya belirlemek için desen. Hata benzetimi sırasında uygulama ikincil uç noktasına geçer.
+Bu öğretici, uygulama verilerinizi Azure’da yüksek oranda kullanılabilir hale getirmeyi açıklayan bir serinin ilk bölümüdür. Öğreticiyi tamamladığınızda [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) bir depolama hesabına blob yükleyen ve buradan blob alan bir konsol uygulamanız olur. RA-GRS, birincil bölgedeki işlemleri ikincil bölgede çoğaltarak çalışır. Bu çoğaltma işlemi, ikincil bölgedeki verilerin nihai olarak tutarlı olmasını sağlar. Uygulama, hangi uç noktaya bağlanılacağını belirlemek için [Devre Kesici](/azure/architecture/patterns/circuit-breaker) düzenini kullanır. Bir hatanın simülasyonu yapıldığında uygulama ikincil uç noktaya geçer.
 
-Bölümünde bir dizi öğrenin nasıl yapılır:
+Serinin birinci bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Depolama hesabı oluşturma
 > * Örneği indirme
-> * Bağlantı dizesi ayarlama
-> * Konsol uygulamasını çalıştırın
+> * Bağlantı dizesini ayarlama
+> * Konsol uygulamasını çalıştırma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için:
-
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#sekme/dotnet)
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
   - **Azure geliştirme**
 
-  ![Azure geliştirilme (Web ve bulut)](media/storage-create-geo-redundant-storage/workloads.png)
+  ![Azure geliştirme (Web ve Bulut altında)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* İndirme ve yükleme [Fiddler](https://www.telerik.com/download/fiddler)
+* (İsteğe bağlı) [Fiddler](https://www.telerik.com/download/fiddler)’ı indirip yükleme
+ 
+# <a name="python-tabpython"></a>[Python] (#sekme/python) 
+
+* [Python](https://www.python.org/downloads/)’ı yükleyin
+* [Python için Azure Depolama SDK’sını](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python) indirip yükleme
+* (İsteğe bağlı) [Fiddler](https://www.telerik.com/download/fiddler)’ı indirip yükleme
+
+---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,70 +60,95 @@ Bu öğreticiyi tamamlamak için:
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Bir depolama hesabı depolamak ve Azure storage veri nesnelerinizi erişmek için benzersiz bir ad alanı sağlar.
+Depolama hesabı, Azure Storage veri nesnelerinizi depolamak ve bunlara erişmek için benzersiz ad alanı sağlar.
 
 Okuma erişimli coğrafi olarak yedekli depolama hesabı oluşturmak için aşağıdaki adımları izleyin:
 
-1. Seçin **yeni** düğme Azure portalında sol üst köşesinde bulundu.
+1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesini seçin.
 
-2. Seçin **depolama** gelen **yeni** sayfasında ve seçin **depolama hesabı - blob, dosya, tablo, kuyruk** altında **öne çıkan**.
-3. Aşağıdaki görüntü ve select gösterildiği gibi aşağıdaki bilgileri ile depolama hesabı formu doldurun **oluşturma**:
+2. **Yeni** sayfasında **Depolama**’yı seçin ve **Öne Çıkanlar**’ın altında **Depolama hesabı - blob, dosya, tablo, kuyruk**’u seçin.
+3. Aşağıdaki bilgileri kullanarak depolama hesabı formunu alttaki resimde gösterildiği gibi doldurun ve **Oluştur**’u seçin:
 
    | Ayar       | Önerilen değer | Açıklama |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Ad** | mystorageaccount | Depolama hesabınız için benzersiz bir değer |
-   | **Dağıtım modeli** | Resource Manager  | Kaynak Yöneticisi'ni, en son özellikler içerir.|
-   | **Hesap türü** | Genel amaçlı | Hesap türleri hakkında daha fazla bilgi için bkz: [türlerde depolama hesapları](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Performans** | Standart | Standart Örnek senaryo için yeterli olur. |
-   | **Çoğaltma**| Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) | Bu örnek çalışması gereklidir. |
-   |**Gerekli güvenli aktarımı** | Devre dışı| Güvenli aktarımı bu senaryo için gerekli değildir. |
-   |**Abonelik** | Aboneliğinizi |Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
-   |**Kaynak grubu** | myResourceGroup |Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   |**Konum** | Doğu ABD | Bir konum seçin. |
+   | **Dağıtım modeli** | Resource Manager  | Resource Manager en son özellikleri içerir.|
+   | **Hesap türü** | Genel amaçlı | Hesap türleri hakkında ayrıntılı bilgi almak için bkz. [depolama hesabı türleri](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Performans** | Standart | Standart, örnek senaryo için yeterli olacaktır. |
+   | **Çoğaltma**| Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) | Örneğin çalışması için bunun seçilmesi gereklidir. |
+   |**Güvenli aktarım gerekir** | Devre dışı| Bu senaryo için güvenli aktarım gerekli değildir. |
+   |**Abonelik** | aboneliğiniz |Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
+   |**ResourceGroup** | myResourceGroup |Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   |**Konum** | Doğu ABD | Konum seçin. |
 
-![Depolama hesabı oluşturma](media/storage-create-geo-redundant-storage/figure1.png)
+![depolama hesabı oluşturma](media/storage-create-geo-redundant-storage/figure1.png)
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-[Örnek Proje indirme](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip).
+# <a name="net-tabdotnet"></a>[.NET] (#sekme/dotnet)
 
-Extract (sıkıştırmasını açın) storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip dosyası.
-Örnek Proje bir konsol uygulaması içerir.
-
-## <a name="set-the-connection-string"></a>Bağlantı dizesi ayarlama
-
-Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bu bağlantı dizesi bir ortam değişkeni içinde uygulamayı çalıştıran yerel makinede depolamanız önerilir. Örnekler ortam değişkeni oluşturmak için işletim sistemine bağlı olarak birini izleyin.
-
-Azure Portal'da depolama hesabınıza gidin. Seçin **erişim anahtarları** altında **ayarları** depolama hesabınızdaki. Kopya **bağlantı dizesi** birincil veya ikincil anahtarı. Değiştir \<yourconnectionstring\> gerçek bağlantınızla aşağıdaki komutlardan birini çalıştırarak dize tabanlıdır, işletim sisteminde. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Windows, ortam değişkeni yeniden kadar kullanılamaz **komut istemi** veya kullanmakta olduğunuz Kabuğu'nu. Değiştir  **\<storageConnectionString\>**  aşağıdaki örnekteki:
-
-### <a name="linux"></a>Linux
+[Örnek projeyi indirin](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) ve storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip dosyasını ayıklayın (sıkıştırmasını açın). Geliştirme ortamına uygulamanın bir kopyasını indirmek için [git](https://git-scm.com/) de kullanılabilir. Örnek proje bir konsol uygulaması içerir.
 
 ```bash
-export storageconnectionstring=<yourconnectionstring>
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
+# <a name="python-tabpython"></a>[Python] (#sekme/python) 
 
-### <a name="windows"></a>Windows
+[Örnek projeyi indirin](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) ve storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip dosyasını ayıklayın (sıkıştırmasını açın). Geliştirme ortamına uygulamanın bir kopyasını indirmek için [git](https://git-scm.com/) de kullanılabilir. Örnek proje temel bir Python uygulaması içerir.
 
-```cmd
-setx storageconnectionstring "<yourconnectionstring>"
+```bash
+git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
+---
 
-![Uygulama yapılandırma dosyası](media/storage-create-geo-redundant-storage/figure2.png)
 
-## <a name="run-the-console-application"></a>Konsol uygulamasını çalıştırın
+## <a name="set-the-connection-string"></a>Bağlantı dizesini ayarlama
 
-Visual Studio'da basın **F5** veya seçin **Başlat** uygulama hata ayıklama başlatılamıyor. Visual studio otomatik olarak eksik NuGet paketlerini geri yüklemeler yapılandırdıysanız, ziyaret etmek için [yükleme ve paket geri yüklemesi paketlerle yeniden yükleme](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) daha fazla bilgi için.
+Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bu bağlantı dizesini uygulamayı çalıştıran yerel makine üzerindeki bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
 
-Bir konsol penceresi açılır ve uygulama başlar çalışıyor. Uygulamayı yükler **HelloWorld.png** çözümü bir görüntüden depolama hesabı. Uygulama görüntüsü emin olmak için ikincil RA-GRS uç noktasına çoğaltıldığını denetler. Ardından, 999 kereye kadar görüntü yükleme başlar. Her okuma tarafından temsil edilen bir **P** veya **S**. Burada **P** birincil uç noktasını temsil eder ve **S** ikincil uç noktasını temsil eder.
+Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. İşletim Sisteminize göre aşağıdaki komutlardan birini çalıştırarak \<yourconnectionstring\> değerini kendi bağlantı dizenizle değiştirin. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Bu ortam değişkeni, Windows’da **Komut İstemi** veya kullanmakta olduğunuz kabuk yeniden yüklenene kadar kullanılamaz. Aşağıdaki örnekte **\<storageConnectionString\>**’i değiştirin:
+
+# <a name="linux-tablinux"></a>[Linux] (#sekme/linux) 
+export storageconnectionstring=\<yourconnectionstring\> 
+
+# <a name="windows-tabwindows"></a>[Windows] (#sekme/windows) 
+setx storageconnectionstring "\<yourconnectionstring\>"
+
+---
+
+
+## <a name="run-the-console-application"></a>Konsol uygulamasını çalıştırma
+
+# <a name="net-tabdotnet"></a>[.NET] (#sekme/dotnet)
+Visual Studio'da **F5**’e basarak veya **Başlat**’ı seçerek uygulamada hata ayıklamaya başlayın. Visual Studio, yapılandırılmışsa eksik NuGet paketlerini otomatik olarak geri yükler. Daha fazla bilgi edinmek için [Paket geri yükleme özelliğiyle paketleri yükleme ve yeniden yükleme](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) makalesini ziyaret edin.
+
+Bir konsol penceresi açılır ve uygulama çalışmaya başlar. Uygulama, çözümdeki **HelloWorld.png** resmini depolama hesabına yükler. Uygulama, resmin ikincil RA-GRS uç noktasında çoğaltıldığını denetler. Ardından, resmi 999 kereye kadar indirmeye başlar. Her okuma işlemi bir **P** veya **S** ile temsil edilir. Burada, **P** birincil uç nokta ve **S** ikincil uç nokta demektir.
 
 ![Çalışan konsol uygulaması](media/storage-create-geo-redundant-storage/figure3.png)
 
-Örnek kodda `RunCircuitBreakerAsync` içinde görev `Program.cs` dosyası kullanarak depolama hesabı bir görüntüsünü karşıdan yüklemek için kullanılan [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) yöntemi. İndirme önce bir [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) tanımlanır. Bir yükleme işlemi başarıyla tamamlandığında veya bir yükleme başarısız olur ve olay işleyicileri, işlem bağlamı tanımlar yeniden deneniyor.
+Örnek kodda, [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) yöntemini kullanarak depolama hesabından bir resim indirmek için `Program.cs` dosyasındaki `RunCircuitBreakerAsync` görevi kullanılmaktadır. İndirme işlemi öncesinde bir [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) (İşlem Bağlamı) tanımlanır. İşlem bağlamı, indirme işlemi başarıyla tamamlandığında veya indirme işlemi başarısız olup yeniden denendiğinde başlatılan olay işleyicilerini tanımlar.
 
-### <a name="retry-event-handler"></a>Olay işleyicisi yeniden deneyin
+# <a name="python-tabpython"></a>[Python] (#sekme/python) 
+Uygulamayı bir terminalde veya komut isteminde çalıştırmak için **circuitbreaker.py** dizinine gidip `python circuitbreaker.py` komutunu girin. Uygulama, çözümdeki **HelloWorld.png** resmini depolama hesabına yükler. Uygulama, resmin ikincil RA-GRS uç noktasında çoğaltıldığını denetler. Ardından, resmi 999 kereye kadar indirmeye başlar. Her okuma işlemi bir **P** veya **S** ile temsil edilir. Burada, **P** birincil uç nokta ve **S** ikincil uç nokta demektir.
 
-`OperationContextRetrying` Olay işleyicisi görüntü yükleme başarısız olur ve yeniden denemek için ayarlanmış olduğunda çağrılır. Uygulama içinde tanımlanan yeniden deneme sayısı üst sınırına, [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) isteği değiştirilir `SecondaryOnly`. Bu ayar, ikincil uç noktasından görüntü indirmeye uygulamaya zorlar. Bu yapılandırma, birincil endpoint süresiz olarak denenmez gibi görüntü istemek için harcanan süre azaltır.
+![Çalışan konsol uygulaması](media/storage-create-geo-redundant-storage/figure3.png)
 
+Örnek kodda, [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) yöntemini kullanarak depolama hesabından bir resim indirmek için `circuitbreaker.py` dosyasındaki `run_circuit_breaker` yöntemi kullanılmaktadır. 
+
+Depolama nesnesi yeniden deneme işlevi, doğrusal bir yeniden deneme ilkesine ayarlıdır. Yeniden deneme işlevi, isteklerin yeniden denenip denenmeyeceğini belirler ve isteği yeniden denemeden önce kaç saniye bekleneceğini belirtir. Birincile yapılan istek başarısız olursa aynı isteğin ikincile yeniden denenmesini istiyorsanız **retry\_to\_secondary** değerini true olarak ayarlayın. Örnek uygulamada depolama nesnesinin `retry_callback` işlevinde özel bir yeniden deneme ilkesi tanımlanmıştır.
+ 
+İndirme işlemi öncesinde Hizmet nesnesinin [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) ve [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) işlevleri tanımlanır. Bu işlevler, indirme işlemi başarıyla tamamlandığında veya indirme işlemi başarısız olup yeniden denendiğinde başlatılan olay işleyicilerini tanımlar.  
+
+---
+
+### <a name="retry-event-handler"></a>Yeniden deneme olay işleyicisi
+
+# <a name="net-tabdotnet"></a>[.NET] (#sekme/dotnet)
+
+`OperationContextRetrying` olay işleyicisi, resmin indirilmesi işlemi başarısız olmuşsa ve yeniden denenecek şekilde ayarlanmışsa çağrılır. Uygulamada tanımlı yeniden deneme sayısı üst sınırına ulaşılmışsa isteğin [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) değeri `SecondaryOnly` olarak değiştirilir. Bu ayar, uygulamayı resmi ikincil uç noktadan indirmeyi denemeye zorlar. Birincil uç nokta süresiz olarak yeniden denenmediği için bu yapılandırma resmin istenmesinde harcanan süreyi azaltmış olur.
+
+Örnek kodda, [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) yöntemini kullanarak depolama hesabından bir resim indirmek için `Program.cs` dosyasındaki `RunCircuitBreakerAsync` görevi kullanılmaktadır. İndirme işlemi öncesinde bir [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) (İşlem Bağlamı) tanımlanır. İşlem bağlamı, indirme işlemi başarıyla tamamlandığında veya indirme işlemi başarısız olup yeniden denendiğinde başlatılan olay işleyicilerini tanımlar.
+ 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -139,10 +173,37 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-### <a name="request-completed-event-handler"></a>Tamamlanan olay işleyicisi isteği
+# <a name="python-tabpython"></a>[Python] (#sekme/python) 
+`retry_callback` olay işleyicisi, resmin indirilmesi işlemi başarısız olmuşsa ve yeniden denenecek şekilde ayarlanmışsa çağrılır. Uygulamada tanımlı yeniden deneme sayısı üst sınırına ulaşılmışsa isteğin [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) değeri `SECONDARY` olarak değiştirilir. Bu ayar, uygulamayı resmi ikincil uç noktadan indirmeyi denemeye zorlar. Birincil uç nokta süresiz olarak yeniden denenmediği için bu yapılandırma resmin istenmesinde harcanan süreyi azaltmış olur.  
 
-`OperationContextRequestCompleted` Olay işleyicisi görüntü yükleme başarılı olduğunda çağrılır. Uygulama ikincil uç kullanıyorsanız, uygulama Bu uç noktaya kadar 20 kez kullanmaya devam eder. 20 kez uygulama kümeleri sonra [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) geri `PrimaryThenSecondary` ve birincil uç nokta yeniden dener. İstek başarılı olursa, uygulama birincil uç noktasından okumak devam eder.
+```python
+def retry_callback(retry_context):
+    global retry_count
+    retry_count = retry_context.count
+    sys.stdout.write("\nRetrying event because of failure reading the primary. RetryCount= {0}".format(retry_count))
+    sys.stdout.flush()
 
+    # Check if we have more than n-retries in which case switch to secondary
+    if retry_count >= retry_threshold:
+
+        # Check to see if we can fail over to secondary.
+        if blob_client.location_mode != LocationMode.SECONDARY:
+            blob_client.location_mode = LocationMode.SECONDARY
+            retry_count = 0
+        else:
+            raise Exception("Both primary and secondary are unreachable. "
+                            "Check your application's network connection.")
+```
+
+---
+
+
+### <a name="request-completed-event-handler"></a>İstek tamamlandı olay işleyicisi
+ 
+# <a name="net-tabdotnet"></a>[.NET] (#sekme/dotnet)
+
+`OperationContextRequestCompleted` olay işleyicisi, resmin indirilmesi işlemi başarılı olduğunda çağrılır. Uygulama ikincil uç noktayı kullanıyorsa bu uç noktayı 20 kereye kadar daha kullanmaya devam eder. 20 kereden sonra uygulama [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) değerini yeniden `PrimaryThenSecondary` olarak ayarlar ve birincil uç noktayı tekrar dener. Bir istek başarılı olursa uygulama birincil uç noktadan okumaya devam eder.
+ 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
@@ -160,17 +221,36 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
+# <a name="python-tabpython"></a>[Python] (#sekme/python) 
+
+`response_callback` olay işleyicisi, resmin indirilmesi işlemi başarılı olduğunda çağrılır. Uygulama ikincil uç noktayı kullanıyorsa bu uç noktayı 20 kereye kadar daha kullanmaya devam eder. 20 kereden sonra uygulama [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) değerini yeniden `PRIMARY` olarak ayarlar ve birincil uç noktayı tekrar dener. Bir istek başarılı olursa uygulama birincil uç noktadan okumaya devam eder.
+
+```python
+def response_callback(response):
+    global secondary_read_count
+    if blob_client.location_mode == LocationMode.SECONDARY:
+
+        # You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
+        # then switch back to the primary and see if it is available now.
+        secondary_read_count += 1
+        if secondary_read_count >= secondary_threshold:
+            blob_client.location_mode = LocationMode.PRIMARY
+            secondary_read_count = 0
+```
+
+---
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bölümünde serilerinden biri, bir uygulamanın nasıl gibi RA-GRS depolama hesapları ile yüksek oranda kullanılabilir yapma hakkında öğrenilen:
+Serinin bu ilk bölümünde RA-GRS depolama hesaplarını kullanarak bir uygulamayı yüksek oranda kullanılabilir hale getirme hakkında bilgi edinip aşağıdakilerin nasıl yapılacağını öğrendiniz:
 
 > [!div class="checklist"]
 > * Depolama hesabı oluşturma
 > * Örneği indirme
-> * Bağlantı dizesi ayarlama
-> * Konsol uygulamasını çalıştırın
+> * Bağlantı dizesini ayarlama
+> * Konsol uygulamasını çalıştırma
 
-Serinin arızanın benzetimini gerçekleştirin ve ikincil RA-GRS uç kullanmak için uygulamanızı zorlama hakkında bilgi almak için iki parçası için ilerleyin.
+Bir hata simülasyonu yapıp uygulamanızı ikincil RA-GRS uç noktasını kullanmaya zorlamayı öğrenmek için serinin ikinci bölümüne geçin.
 
 > [!div class="nextstepaction"]
-> [Birincil storage uç noktanız bağlantısında arızanın benzetimini gerçekleştirin](storage-simulate-failure-ragrs-account-app.md)
+> [Birincil depolama uç noktanız ile bağlantıda bir hata simülasyonu yapma](storage-simulate-failure-ragrs-account-app.md)

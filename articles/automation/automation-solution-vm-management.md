@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 4424cbb83bdb31c60e15d62f9387b4050611a98d
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure Otomasyonu (Önizleme) çözümde yoğun olmayan saatlerde sırasında Başlat/Durdur VM'ler
 
@@ -75,7 +75,7 @@ Tüm üst runbook'ları dahil *whatIf* parametresi. Ayarlandığında **True**, 
 |AutoStop_Disable | yok | DISPLAYFILTER uyarılar ve varsayılan zamanlama devre dışı bırakır.| 
 |AutoStop_StopVM_Child | WebHookData | Yalnızca üst runbook'tan çağrılır. Uyarı kuralları bu runbook için VM'yi durdurmak iyi çağırın.|  
 |Bootstrap_Main | yok | Bir kez, genellikle Azure Kaynak Yöneticisi'nden erişilebilir olmayan webhookURI gibi önyükleme yapılandırmaları ayarlamak için kullanılır. Bu runbook başarılı bir şekilde dağıtıldıktan sonra otomatik olarak kaldırılır.|  
-|ScheduledStartStop_Child | VMName <br> Eylem: Durdurmak veya başlatmak <br> resourceGroupName | Yalnızca üst runbook'tan çağrılır. Durdurma veya başlatma zamanlanmış Dur yürütür.|  
+|ScheduledStartStop_Child | VMName <br> Eylem: Durdurmak veya başlatmak <br> ResourceGroupName | Yalnızca üst runbook'tan çağrılır. Durdurma veya başlatma zamanlanmış Dur yürütür.|  
 |ScheduledStartStop_Parent | Eylem: Durdurmak veya başlatmak <br> WhatIf: True veya False | Bu Abonelikteki tüm sanal makineleri etkiler. Düzen **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupNames** bu hedef kaynak grupları yalnızca yürütülecek. Belirli sanal makineleri güncelleştirerek de hariç tutabilirsiniz **External_ExcludeVMNames** değişkeni. *WhatIf* diğer runbook'lar olduğu gibi aynı şekilde davranır.|  
 |SequencedStartStop_Parent | Eylem: Durdurmak veya başlatmak <br> WhatIf: True veya False | Adlı etiketler oluşturma **SequenceStart** ve **SequenceStop** dizisi Başlat/Durdur etkinliğinin istediğiniz her bir VM üzerinde. Etiket değeri başlatmak veya durdurmak istediğiniz sıranın karşılık gelen bir pozitif tamsayı (1, 2, 3) olmalıdır. *WhatIf* diğer runbook'lar olduğu gibi aynı şekilde davranır. <br> **Not**: VM'ler External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames ve External_ExcludeVMNames Azure Otomasyon değişkenleri tanımlanmış kaynak grubu içinde olmalıdır. Etkili olması eylemler için uygun etiketler olmaları gerekir.|
 
@@ -83,7 +83,7 @@ Tüm üst runbook'ları dahil *whatIf* parametresi. Ayarlandığında **True**, 
 
 Aşağıdaki tabloda, Automation hesabında oluşturulan değişkenleri listeler.  Önekine sahip değişkenler yalnızca değiştirmelisiniz **dış**. Değişkenleri değiştirme önekiyle **dahili** istenmeyen etkilere neden oluyor.  
 
-|**Değişken** | **Açıklama**|
+|**değişken** | **Açıklama**|
 ---------|------------|
 |External_AutoStop_Condition | Bir uyarı tetiklemeden önce koşul yapılandırmak için gerekli koşullu işleç. Kabul edilebilir değerler **GreaterThan**, **GreaterThanOrEqual**, **LessThan**, ve **LessThanOrEqual**.|  
 |External_AutoStop_Description | CPU yüzdesi eşiği aşarsa VM durdurmak için uyarı.|  
@@ -129,7 +129,7 @@ Bu çakışan zamanlama eylemleri oluşturabilirsiniz çünkü tüm zamanlamalar
 
 Başlat/Durdur VM'ler sırasında yoğun olmayan saatlerde çözüm Otomasyon hesabınızı eklemek için aşağıdaki adımları gerçekleştirin ve ardından çözümü özelleştirmek için değişkenlerini yapılandırın.
 
-1. Azure portalda **Yeni**’ye tıklayın.<br> ![Azure portalı](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. Azure portalında **Kaynak oluştur**’a tıklayın.<br> ![Azure portalı](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. Market bölmesinde bir anahtar sözcük gibi yazın **Başlat** veya **Başlat/Durdur**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Alternatif olarak, çözümü tam adı bir veya daha fazla kelimeleri yazın ve Enter tuşuna basın.  Seçin **Başlat/Durdur VM'ler yoğun olmayan saatlerde [Önizleme] sırasında** Arama sonuçlarından.  
 3. İçinde **Başlat/Durdur VM'ler yoğun olmayan saatlerde [Önizleme] sırasında** bölmesinde seçilen çözümü için özet bilgilerini inceleyin ve ardından **oluşturma**.  
 4. **Çözüm Ekle** bölmesinde görünür. Otomasyon aboneliğinizi içeri aktarmadan önce çözümü yapılandırmak için istenir.<br><br> ![VM Management Çözüm Ekleme dikey penceresi](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>

@@ -16,29 +16,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Önyükleme kullanarak Hdınsight kümelerini özelleştirme
 
 Bazı durumlarda, içeren yapılandırma dosyaları, yapılandırmak istediğiniz:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * Gateway.XML
-* hbase env.xml
+* hbase-env.xml
 * hbase-site.xml
 * hdfs-site.xml
-* Hive env.xml
-* Hive-site.xml
+* hive-env.xml
+* hive-site.xml
 * mapred site
 * oozie-site.xml
-* oozie env.xml
-* Storm-site.xml
-* Tez-site.xml
+* oozie-env.xml
+* storm-site.xml
+* tez-site.xml
 * webhcat-site.xml
 * yarn-site.xml
 * Server.Properties (kafka Aracısı yapılandırması)
@@ -86,7 +86,7 @@ Tam çalışan bir PowerShell Betiği bulunabilir [ek](#appendix-powershell-samp
 **Değişikliği doğrulamak için:**
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
-2. Sol menüden **Hdınsight kümeleri**. Göremiyorsanız, tıklatın **daha fazla hizmet** ilk.
+2. Sol menüden **Hdınsight kümeleri**. Göremiyorsanız, tıklatın **tüm hizmetleri** ilk.
 3. PowerShell komut dosyasını kullanarak oluşturduğunuz kümesine tıklayın.
 4. Tıklatın **Pano** Ambari kullanıcı arabirimini açmak için dikey pencerenin en üstünden.
 5. Tıklatın **Hive** sol menüden.

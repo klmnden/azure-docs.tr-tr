@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 397afc28b5f4c4f7f84afde13b6d031d83aaced4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Kullanılabilirlik bölgeleri (Önizleme) kullanan bir sanal makine ölçek kümesi oluşturma
 Sanal makine ölçek kümeleri datacenter düzeyi arızasına karşı korumak için kullanılabilirlik dilimlerinde ayarlamak ölçek oluşturabilirsiniz. Kullanılabilirlik bölgeleri destekleyen azure bölgeleri sahip en az üç ayrı bölgeler, her biri kendi bağımsız güç kaynağı, ağ ve soğutma. Daha fazla bilgi için bkz: [kullanılabilirlik bölgeleri genel bakış](../availability-zones/az-overview.md).
@@ -30,13 +30,7 @@ Sanal makine ölçek kümeleri datacenter düzeyi arızasına karşı korumak i�
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Tek bölge ve bölge olarak yedekli ölçek kümeleri
 Bir sanal makine ölçek kümesi dağıttığınızda, tek bir kullanılabilirlik bölge bir bölgede ya da birden fazla bölge kullanmayı seçebilirsiniz.
 
-Tek bir bölge, bölge bu tüm VM örnekleri çalıştırmak ve ölçek kümesini yönetilen kontrol ve yalnızca o bölge içinde autoscales kümesindeki bir ölçek oluşturduğunuzda. Aşağıdaki diyagramda, birden çok tek bölge ölçek nasıl oluşturabileceğinize dair bir örnek trafiği dağıtan bir bölge olarak yedekli yük dengeleyici ile ayarlar gösterilmektedir:
-
-![Bölge olarak yedekli yük dengeleyici ile dağıtım tek bölge ölçek kümesi](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-Bölge olarak yedekli ölçek birden çok bölgelere yayılan bir tek ölçek kümesi oluşturmanıza olanak tanır. VM örnekleri oluşturuldukça, varsayılan olarak bunlar eşit dilimlerinde dengeli. Bir kesinti bölgelerinden biri gerçekleşeceğini, Ölçek kümesini otomatik olarak kullanıma kapasitesini artırmak için ölçeklenmez. CPU veya bellek kullanımına dayalı otomatik ölçeklendirme kurallarını yapılandırmak için en iyi uygulama olacaktır. Otomatik ölçeklendirme kurallarını ölçeği bir bölge VM örnekleri kaybı kalan işletimsel bölgelerde yeni örnekleri ölçeğini yanıt verecek şekilde ayarla olanak tanır. Aşağıdaki diyagramda, birden çok dilimlerinde dağıtılan bir tek ölçek kümesi örneği gösterilmektedir:
-
-![Zonal yedekli ölçek dağıtım ayarlayın ve yük dengeleyici](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+Tek bir bölge, bölge bu tüm VM örnekleri çalıştırmak ve ölçek kümesini yönetilen kontrol ve yalnızca o bölge içinde autoscales kümesindeki bir ölçek oluşturduğunuzda. Bölge olarak yedekli ölçek birden çok bölgelere yayılan bir tek ölçek kümesi oluşturmanıza olanak tanır. VM örnekleri oluşturuldukça, varsayılan olarak bunlar eşit dilimlerinde dengeli. Bir kesinti bölgelerinden biri gerçekleşeceğini, Ölçek kümesini otomatik olarak kullanıma kapasitesini artırmak için ölçeklenmez. CPU veya bellek kullanımına dayalı otomatik ölçeklendirme kurallarını yapılandırmak için en iyi uygulama olacaktır. Otomatik ölçeklendirme kurallarını ölçeği bir bölge VM örnekleri kaybı kalan işletimsel bölgelerde yeni örnekleri ölçeğini yanıt verecek şekilde ayarla olanak tanır.
 
 Kullanılabilirlik bölgeleri kullanmak için ölçek kümesini oluşturulmalıdır bir [Azure bölgesi desteklenen](../availability-zones/az-overview.md#regions-that-support-availability-zones). Ayrıca gerek [kullanılabilirlik bölgeleri Önizleme için kaydetme](http://aka.ms/azenroll). Aşağıdaki yöntemlerden biriyle kullanılabilirlik bölgeleri kullanan bir ölçek kümesi oluşturabilirsiniz:
 

@@ -4,7 +4,7 @@ description: "Bu konu, nasıl Azure depolama için SQL Server Vm'lerinin (Resour
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 21c8b955d48da03559097db93b2cb66029a203ec
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM'ler için depolama yapılandırması
 Azure'da bir SQL Server sanal makine görüntüsü yapılandırdığınızda, Portal depolama yapılandırmanızı otomatikleştirmek için yardımcı olur. Bu, belirli bir performans gereksinimlerinizi en iyi duruma getirmek için bu depolama SQL Server için erişilebilir hale getirme ve bu yapılandırma VM, depolama ekleme içerir.
@@ -27,7 +27,7 @@ Bu konu, nasıl Azure depolama, SQL Server VM'ler için sağlama sırasında hem
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Otomatik depolama yapılandırma ayarlarını kullanmak için sanal makine aşağıdaki özelliklere gerektirir:
 
 * İle sağlanan bir [SQL Server galeri görüntüsü](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -132,7 +132,7 @@ Aşağıdaki tabloda kullanılabilir üç iş yükü türü seçenekleri ve bunl
 
 | İş yükü türü | Açıklama | En iyi duruma getirme |
 | --- | --- | --- |
-| **Genel** |Çoğu iş yükünü destekler varsayılan ayarı |None |
+| Genel |Çoğu iş yükünü destekler varsayılan ayarı |Hiçbiri |
 | **İşlem işleme** |Depolama alanı geleneksel veritabanı OLTP iş yükleri için en iyi duruma getirir |İzleme bayrağı 1117<br/>İzleme bayrağı 1118 |
 | **Veri ambarı** |Çözümleme ve raporlama iş yükleri için depolama en iyi duruma getirir |İzleme bayrağı 610<br/>İzleme bayrağı 1117 |
 

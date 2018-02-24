@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure portalında Azure SQL veritabanı oluşturma
 
@@ -84,7 +84,7 @@ Adventure Works LT örnek verilerini içeren bir SQL veritabanı oluşturmak iç
    >\* Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama mevcuttur: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Orta Kanada, Doğu Kanada, Orta ABD, Fransa Orta, Orta Almanya, Doğu Japonya, Batı Japonya, Orta Kore, Kuzey Orta ABD, Kuzey Avrupa, Güney Orta ABD, Güneydoğu Asya, UK Güney, UK Batı, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. Bu hızlı başlangıç öğreticisi için **standart** hizmet katmanını seçip kaydırıcıyı kullanarak **100 DTU (S3)** ve **400** GB depolama alanını seçin.
+7. Bu hızlı başlangıç öğreticisi için **Standart** hizmet katmanını seçip kaydırıcıyı kullanarak **10 DTU (S0)** ve **1** GB depolama alanını seçin.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -138,17 +138,13 @@ Artık SQL Server Management Studio’yu veya seçtiğiniz başka bir aracı kul
 
 Azure’da bir örnek veritabanı oluşturduktan sonra, veritabanına bağlanabildiğinizi ve verileri sorgulayabildiğinizi onaylamak üzere Azure portalındaki yerleşik sorgu aracını kullanın.
 
-1. Veritabanınızın SQL Veritabanı sayfasında, soldaki menüden **Veri gezgini (önizleme)** öğesini bulup tıklayın
+1. Veritabanınız için SQL Veritabanı sayfasında, sol taraftaki menüde **Sorgu düzenleyicisi (önizleme)**’ne tıklayın, ardından **Oturum aç**’a tıklayın.
 
-   ![sorgu düzenleyicisini bulma](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![oturum açma](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Sunucu yöneticisi oturum açma bilgileri ve daha önce oluşturduğunuz parola ile SQL server kimlik doğrulaması kullanarak oturum açmak için **Oturum aç**’a tıklayın, oturum açma bilgilerini gözden geçirin ve ardından **Tamam**’a tıklayın.
+2. SQL sunucu kimlik doğrulamasını seçin, gerekli oturum açma bilgilerini sağlayın ve sonra oturum açmak için **Tamam**’a tıklayın.
 
-   ![oturum açma](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Oturum açmak için **Tamam**’a tıklayın.
-
-4. **ServerAdmin** olarak kimlik doğrulaması yaptıktan sonra sorgu düzenleyici bölmesine aşağıdaki sorguyu yazın.
+3. **ServerAdmin** olarak kimlik doğrulaması yaptıktan sonra sorgu düzenleyici bölmesine aşağıdaki sorguyu yazın.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,11 +153,11 @@ Azure’da bir örnek veritabanı oluşturduktan sonra, veritabanına bağlanabi
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. **Çalıştır**’a tıklayın ve **Sonuçlar** bölmesindeki sorgu sonuçlarını gözden geçirin.
+4. **Çalıştır**’a tıklayın ve **Sonuçlar** bölmesindeki sorgu sonuçlarını gözden geçirin.
 
    ![sorgu düzenleyicisi sonuçları](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. **Veri gezgini** sayfasını kapatın, kaydedilmemiş düzenlemelerinizi iptal etmek için **Tamam**’a tıklayın.
+5. **Veri gezgini** sayfasını kapatın, kaydedilmemiş düzenlemelerinizi iptal etmek için **Tamam**’a tıklayın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

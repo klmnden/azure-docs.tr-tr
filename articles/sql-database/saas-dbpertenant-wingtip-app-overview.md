@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 2871d2b1208013808958e8a5b0c62fce31af86ec
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Bir SQL veritabanı çok kiracılı SaaS uygulama örneği giriş
+# <a name="introduction-to-a-multi-tenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Kiracı deseni başına veritabanı ile SQL veritabanı kullanan bir çok kiracılı SaaS uygulamasına giriş
 
-*Wingtip SaaS* SQL veritabanı benzersiz avantajları gösteren örnek bir çok kiracılı uygulama, bir uygulamadır. Uygulama, birden fazla kiracıya hizmet vermek için SaaS uygulama düzeni olan kiracı başına veritabanını kullanır. Uygulama, birçok SaaS tasarım ve yönetim desenleri dahil olmak üzere, SaaS senaryoları etkinleştirmek Azure SQL veritabanı özelliklerini göstermek için tasarlanmıştır. Hızlıca başlamak ve çalıştırmak için beş dakikadan daha kısa bir süre içinde Wingtip SaaS uygulamayı dağıtır!
+*Wingtip SaaS* bir örnek çok kiracılı uygulama bir uygulamadır. Uygulama, birden çok kiracıya hizmet için SaaS uygulama düzeni, Kiracı başına veritabanı kullanır. Uygulama, birçok SaaS tasarım ve yönetim modellerini kullanan SaaS senaryoları etkinleştirmek Azure SQL veritabanı özelliklerini gösterir. Hızlıca başlamak ve çalıştırmak için beş dakikadan daha kısa bir süre içinde Wingtip SaaS uygulamayı dağıtır!
 
-Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
+Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Başlamadan önce kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri yönetim komut dosyaları engellemesini kaldırmak.
 
 ## <a name="application-architecture"></a>Uygulama mimarisi
 
@@ -48,13 +48,13 @@ Uygulamayı dağıttıktan sonra ilk dağıtım sırasında yapı aşağıdaki �
 |[İzleme ve performansı yönetme](saas-dbpertenant-performance-monitoring.md)| SQL veritabanı'nın İzleme özelliklerini kullanmayı ve performans eşikler aşıldığında uyarıları ayarlamak nasıl öğrenin. |
 |[Günlük analizi (OMS) ile izleme](saas-dbpertenant-log-analytics.md) | Kullanma hakkında bilgi edinin [günlük analizi](../log-analytics/log-analytics-overview.md) kaynakları, büyük miktarlarda birden çok havuzlardaki izlemek için. |
 |[Tek bir kiracı geri yükleme](saas-dbpertenant-restore-single-tenant.md)| Bir kiracı veritabanı zaman içinde önceki bir noktaya geri öğrenin. Varolan Kiracı veritabanı çevrimiçi bırakarak paralel bir veritabanına geri yükleme için adımlar da dahil edilir. |
-|[Kiracı şema yönetme](saas-tenancy-schema-management.md)| Şemayı Güncelleştir ve tüm Wingtip SaaS kiracılar arasında başvuru verileri güncelleştirmek hakkında bilgi edinin. |
-|[Geçici analizler çalıştırır](saas-tenancy-adhoc-analytics.md) | Bir geçici analytics veritabanı oluşturun ve tüm kiracılar arasında gerçek zamanlı dağıtılmış sorgular çalıştırın.  |
-|[Kiracı analizler çalıştırır](saas-tenancy-tenant-analytics.md) | Kiracı veri ambarında çevrimdışı analitik sorguları çalıştırmak için bir analytics veritabanı veya veri ayıklayın. |
+|[Kiracı veritabanı şeması yönetme](saas-tenancy-schema-management.md)| Şemayı Güncelleştir ve tüm Kiracı veritabanları arasında başvuru verileri güncelleştirmek hakkında bilgi edinin. |
+|[Çapraz Kiracı dağıtılmış sorgular çalıştırın](saas-tenancy-cross-tenant-reporting.md) | Bir geçici analytics veritabanı oluşturun ve tüm kiracılar arasında gerçek zamanlı dağıtılmış sorgular çalıştırın.  |
+|[Ayıklanan Kiracı verilerini analiz çalıştırma](saas-tenancy-tenant-analytics.md) | Kiracı veri ambarında bir analytics veritabanı veya veri çevrimdışı analitik sorguları için ayıklayın. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Kılavuzu ve Azure SQL veritabanı çok kiracılı SaaS uygulama örneği için ipuçları](saas-tenancy-wingtip-app-guidance-tips.md)
+- [Genel rehberlik ve dağıtma ve Wingtip biletleri SaaS uygulama örneği kullanırken ipuçları](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Wingtip SaaS uygulamasına dağıtmak](saas-dbpertenant-get-started-deploy.md)

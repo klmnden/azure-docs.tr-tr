@@ -2,24 +2,18 @@
 title: "Azure Hızlı Başlangıç - Node.js kullanarak nesneleri Azure Blob depolama içine/dışına aktarma | Microsoft Docs"
 description: "Hızlı bir şekilde Node.js kullanarak nesneleri Azure Blob depolama içine/dışına aktarmayı öğrenin"
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Node.js kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
 
@@ -49,7 +43,7 @@ Bu komut, depoyu yerel Git klasörünüze kopyalar. Uygulamayı açmak için, st
 
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 
-Bu uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. `index.js` dosyasını açın ve `connectionString` değişkenini bulun. Değişkenin değerini, Azure portalında kaydettiğiniz bağlantı dizesinin tüm değerleriyle değiştirin. Depolama bağlantı dizeniz, aşağıdakilere benzer şekilde görünmelidir:
+Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. `index.js` dosyasını açın ve `connectionString` değişkenini bulun. Değişkenin değerini, Azure portalında kaydettiğiniz bağlantı dizesinin tüm değerleriyle değiştirin. Depolama bağlantı dizeniz, aşağıdakilere benzer şekilde görünmelidir:
 
 ```javascript
 // Create a blob client for interacting with the blob service from connection string
@@ -109,9 +103,9 @@ Sonraki aşamada, nasıl çalıştığını anlayabilmeniz için örnek kodu inc
 
 ### <a name="get-references-to-the-storage-objects"></a>Depolama nesneleriyle ilgili başvuruları alma
 
-İlk önce, Blob depolamaya erişmek ve Blob depolamayı yönetmek için kullanılan `BlobService`’e başvuru oluşturmaktır. Bu nesneler birbirleri üzerinde derlenir - her bir dosya, listede yanında yer alan dosya tarafından kullanılır.
+İlk önce, Blob depolamaya erişmek ve Blob depolamayı yönetmek için kullanılan **BlobService** nesnesine başvuru oluşturmaktır. Bu nesneler birbirleri üzerinde derlenir - her bir dosya, listede yanında yer alan dosya tarafından kullanılır.
 
-* Depolama hesabınızdaki Blob hizmetine işaret eden bir **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** nesnesi oluşturun.
+* Depolama hesabınızdaki Blob hizmetine işaret eden bir [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor) nesnesi oluşturun.
 
 * Yeni bir kapsayıcı oluşturun ve ardından kapsayıcıdaki izinleri bloblar herkese açık olacak ve bloblara yalnızca bir URL ile erişilebilecek şekilde ayarlayın. Kapsayıcı, **quickstartcontainer-** ile başlar.
 
@@ -199,4 +193,4 @@ Bu hızlı başlangıçta, dosyaları Node.js kullanarak yerel bir disk ve Azure
 > [!div class="nextstepaction"]
 > [Blob Depolama İşlemleri Nasıl Yapılır](storage-nodejs-how-to-use-blob-storage.md)
 
-Depolama Gezgini ve Bloblar hakkında daha fazla bilgi için bkz. [Azure Blob depolama kaynaklarını Depolama Gezgini'yle yönetme](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure Depolama’ya yönelik Node.js başvurusu için bkz. [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).

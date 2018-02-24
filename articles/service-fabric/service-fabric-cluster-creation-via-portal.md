@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/01/2018
+ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 7537d7015ee8739be4b9ba08846866d4cfbe38be
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portal kullanarak Azure'da bir Service Fabric kümesi oluştur
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Uygulama gereksinimlerinizi karşılamak için bir üretim kümesi oluşturursun
 ![Service Fabric kümesi şablonu Azure portalında arayın.][SearchforServiceFabricClusterTemplate]
 
 1. [Azure portalında][azure-portal] oturum açın.
-2. Tıklatın **yeni** yeni bir kaynak şablonu eklemek için. Service Fabric kümesi şablon için arama **Market** altında **her şeyi**.
+2. Tıklatın **kaynak oluşturma** yeni bir kaynak şablonu eklemek için. Service Fabric kümesi şablon için arama **Market** altında **her şeyi**.
 3. Seçin **Service Fabric kümesi** listeden.
 4. Gidin **Service Fabric kümesi** dikey penceresinde tıklatın **oluşturma**,
 5. **Oluşturma Service Fabric kümesi** dikey penceresinde aşağıdaki dört adım vardır:
@@ -134,6 +134,7 @@ Güvenli bir sınama kümesi ayarı sizin için kolaylaştırmak için sağladı
 #####<a name="basic-option"></a>Temel seçeneği
 Eklemek veya mevcut bir keyvault yeniden ve bir sertifika eklemek için ekranları izleyin. Sertifika eklenmesi zaman uyumlu bir işlemdir ve böylece sertifika oluşturulmasını beklemek zorunda kalır.
 
+
 Yukarıdaki işlem tamamlanana kadar uzağa doğru ekran gezinme, buradaki eðilim kaçının.
 
 ![CreateKeyVault]
@@ -142,7 +143,7 @@ Sertifika, keyvault eklenir, erişim ilkeleri, Keyvault için düzenleme isteyen
 
 ![CreateKeyVault2]
 
-Gelişmiş erişim ilkeleri'ne tıklayın ve sanal makinelere erişim dağıtımı için etkinleştirin. Şablon dağıtımı da etkinleştirmeniz önerilir.
+Gelişmiş erişim ilkeleri'ne tıklayın ve sanal makinelere erişim dağıtımı için etkinleştirin. Şablon dağıtımı da etkinleştirmeniz önerilir. Seçimlerinizi yaptıktan sonra tıklamayı değil **kaydetmek** düğmesine tıklayın ve işyeri dışında kapatmak **erişim ilkeleri** bölmesi.
 
 ![CreateKeyVault3]
 

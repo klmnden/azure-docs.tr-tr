@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1ba7a415a56f5147e73faa48fcd51151c3c818a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Bir Web API arka ucu Azure Active Directory ve API Management ile korumak nasıl
 Aşağıdaki videoda, bir Web API arka ucu oluşturmak ve Azure Active Directory ve API Management ile OAuth 2.0 protokolünü kullanarak korumak gösterilmektedir.  Bu makale, genel bir bakış ve video yer alan adımlar için ek bilgiler sağlar. Bu 24 dakikalık videoyu şunların nasıl yapıldığını gösterir için:
@@ -33,24 +33,24 @@ Aşağıdaki videoda, bir Web API arka ucu oluşturmak ve Azure Active Directory
 > 
 
 ## <a name="create-an-azure-ad-directory"></a>Azure AD dizini oluşturma
-İlk olmalıdır Azure Active Directory'yi kullanarak Web API'si arka güvenli hale getirmek için bir AAD kiracısı. Bu videoda adlı bir kiracı **APIMDemo** kullanılır. Bir AAD kiracısı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**Active Directory**->**Directory**->**özel Oluştur**. 
+İlk olmalıdır Azure Active Directory'yi kullanarak Web API'si arka güvenli hale getirmek için bir AAD kiracısı. Bu videoda, bir kiracı adlı **APIMDemo** kullanılır. Bir AAD kiracısı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**Active Directory**->**Directory**->**özel Oluştur**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-Bu örnekte adlı bir dizin **APIMDemo** adlı varsayılan etki alanı ile oluşturulan **DemoAPIM.onmicrosoft.com**. Bu dizin video kullanılır.
+Bu örnekte, adında bir dizin **APIMDemo** adlı varsayılan etki alanı ile oluşturulan **DemoAPIM.onmicrosoft.com**. Bu dizin video kullanılır.
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Azure Active Directory tarafından güvenliği sağlanan bir Web API hizmet oluşturma
-Bu adımda, Visual Studio 2013 kullanarak bir Web API arka uç oluşturulur. Videonun Bu adım 1: 30'da başlar. Visual Studio tıklatın Web API'si arka uç projesi oluşturmak için **dosya**->**yeni**->**proje**ve seçin **ASP.NET Web uygulaması** gelen **Web** şablonları listesi. Bu videoda proje adı **APIMAADDemo**. Projeyi oluşturmak için **Tamam**'a tıklayın. 
+Bu adımda, Visual Studio 2013 kullanarak bir Web API arka uç oluşturulur. Videonun Bu adım 1: 30'da başlar. Visual Studio tıklatın Web API'si arka uç projesi oluşturmak için **dosya**->**yeni**->**proje**ve seçin **ASP.NET Web uygulaması** gelen **Web** şablonları listesi. Bu videoda, proje adı **APIMAADDemo**. Projeyi oluşturmak için **Tamam**'a tıklayın. 
 
 ![Visual Studio][api-management-new-web-app]
 
-Tıklatın **Web API** gelen **şablon listesini seçin** bir Web API projesi oluşturmak için. Azure Directory kimlik doğrulamayı yapılandırmak için **kimlik doğrulamayı Değiştir**.
+Tıklatın **Web API** gelen **şablon listesini seçin** bir Web API projesi oluşturmak için. Azure Directory kimlik doğrulamasını yapılandırmak için tıklatın **kimlik doğrulamayı Değiştir**.
 
 ![Yeni proje][api-management-new-project]
 
-Tıklatın **Kurumsal hesaplar**ve belirtin **etki alanı** AAD kiracınızın. Bu örnekte etki alanıdır **DemoAPIM.onmicrosoft.com**. Dizininizin etki alanından elde edilebilir **etki alanları** dizininizin sekmesi.
+Tıklatın **Kurumsal hesaplar**ve belirtin **etki alanı** AAD kiracınızın. Bu örnekte, etki alanıdır **DemoAPIM.onmicrosoft.com**. Dizininizin etki alanından elde edilebilir **etki alanları** dizininizin sekmesi.
 
 ![Etki Alanları][api-management-aad-domains]
 
@@ -70,14 +70,14 @@ Azure'da oturum açın istenebilir ve daha sonra Web uygulaması yapılandırabi
 
 ![Yapılandırma][api-management-configure-web-app]
 
-Bu örnekte yeni bir **uygulama hizmeti planı** adlı **APIMAADDemo** belirtilir.
+Bu örnekte, yeni bir **uygulama hizmeti planı** adlı **APIMAADDemo** belirtilir.
 
 Tıklatın **Tamam** Web uygulamasını yapılandırma ve projeyi oluşturmak için.
 
 ## <a name="add-the-code-to-the-web-api-project"></a>Web API projesi için kod ekleme
 Video sonraki adımda Web API projesi için kod ekler. Bu adım 4:35 başlatır.
 
-Bu örnekte Web API'sini bir model ve bir denetleyici kullanarak bir temel hesaplayıcı hizmet uygular. Hizmeti için modeli eklemek için sağ tıklatın **modelleri** içinde **Çözüm Gezgini** ve **Ekle**, **sınıfı**. Sınıf adını `CalcInput` tıklatıp **Ekle**.
+Bu örnekte, Web API bir model ve bir denetleyici kullanarak bir temel hesaplayıcı hizmet uygular. Hizmeti için modeli eklemek için sağ tıklatın **modelleri** içinde **Çözüm Gezgini** ve **Ekle**, **sınıfı**. Sınıf adını `CalcInput` tıklatıp **Ekle**.
 
 Aşağıdakileri ekleyin `using` deyimi üstüne `CalcInput.cs` dosya.
 
@@ -192,7 +192,7 @@ API'leri, Azure Portalı aracılığıyla erişilen API yayımcı portalında ya
 
 İşlemleri olabilir [API'leri için el ile eklenen](api-management-howto-add-operations.md), veya içeri aktarılabilir. Bu videoda, Swagger biçiminde 6:40 başlangıç işlemleri alınır.
 
-Adlı bir dosya oluşturun `calcapi.json` aşağıdaki içeriğe sahip ve bilgisayarınıza kaydedin. Emin `host` , Web API uç noktaları özniteliği. Bu örnekte `"host": "apimaaddemo.azurewebsites.net"` kullanıldı.
+Adlı bir dosya oluşturun `calcapi.json` aşağıdaki içeriğe sahip ve bilgisayarınıza kaydedin. Emin `host` , Web API uç noktaları özniteliği. Bu örnekte, `"host": "apimaaddemo.azurewebsites.net"` kullanılır.
 
 ```json
 {
@@ -375,7 +375,7 @@ Arka uç API'si Azure Active Directory tarafından korunduğu için yetkisiz bir
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>Geliştirici Portalı bir AAD uygulaması Kaydet
 Geliştirici Portalı bir AAD uygulaması kaydetmek için OAuth 2.0 kullanan geliştiriciler yetkilendirmek için Geliştirici Portalı yapılandırmada ilk adım olacaktır. Bu 8:27 videoda başlayarak gösterilmiştir.
 
-Bu örnekte bu videonun ilk adım için Azure AD kiracısı gidin **APIMDemo** gidin **uygulamaları** sekmesi.
+Bu örnekte, bu videonun ilk adım için Azure AD kiracısı gidin **APIMDemo** gidin **uygulamaları** sekmesi.
 
 ![Yeni uygulama][api-management-aad-new-application-devportal]
 
@@ -383,13 +383,13 @@ Tıklatın **Ekle** yeni bir Azure Active Directory uygulaması oluşturmak içi
 
 ![Yeni uygulama][api-management-new-aad-application-menu]
 
-Seçin **Web uygulaması ve/veya Web API**, bir ad girin ve İleri okuna tıklayın. Bu örnekte **APIMDeveloperPortal** kullanılır.
+Seçin **Web uygulaması ve/veya Web API**, bir ad girin ve İleri okuna tıklayın. Bu örnekte, **APIMDeveloperPortal** kullanılır.
 
 ![Yeni uygulama][api-management-aad-new-application-devportal-1]
 
-İçin **oturum açma URL'si** API Management hizmetiniz URL'sini girin ve ilave `/signin`. Bu örnekte `https://contoso5.portal.azure-api.net/signin` kullanıldı.
+İçin **oturum açma URL'si** API Management hizmetiniz URL'sini girin ve ilave `/signin`. Bu örnekte, `https://contoso5.portal.azure-api.net/signin` kullanılır.
 
-İçin **uygulama kimliği URL'si** API Management hizmetiniz URL'sini girin ve bazı benzersiz karakterler ekleyin. Bunlar istenen herhangi bir karakter olabilir ve bu örnekte `https://contoso5.portal.azure-api.net/dp` kullanılır. Zaman istenen **uygulama özellikleri** olan yapılandırılmış, uygulama oluşturmak için onay işaretine tıklayın.
+İçin **uygulama kimliği URL'si** API Management hizmetiniz URL'sini girin ve bazı benzersiz karakterler ekleyin. Bunlar istenen herhangi bir karakter olabilir ve bu örnekte, `https://contoso5.portal.azure-api.net/dp` kullanılır. Zaman istenen **uygulama özellikleri** olan yapılandırılmış, uygulama oluşturmak için onay işaretine tıklayın.
 
 ![Yeni uygulama][api-management-aad-new-application-devportal-2]
 
@@ -400,7 +400,7 @@ Tıklatın **güvenlik** soldaki API Management menüden **OAuth 2.0**ve ardınd
 
 ![Yetkilendirme Sunucusu Ekle][api-management-add-authorization-server]
 
-Bir ad ve isteğe bağlı bir açıklama girin **adı** ve **açıklama** alanları. Bu alanlar, API Management hizmet örneği içinde OAuth 2.0 yetkilendirme sunucusu tanımlamak için kullanılır. Bu örnekte **yetkilendirme sunucusu demo** kullanılır. Daha sonra bir API için kimlik doğrulaması için kullanılacak bir OAuth 2.0 sunucu belirttiğinizde, bu ad seçer.
+Bir ad ve isteğe bağlı bir açıklama girin **adı** ve **açıklama** alanları. Bu alanlar, API Management hizmet örneği içinde OAuth 2.0 yetkilendirme sunucusu tanımlamak için kullanılır. Bu örnekte, **yetkilendirme sunucusu demo** kullanılır. Daha sonra bir API için kimlik doğrulaması için kullanılacak bir OAuth 2.0 sunucu belirttiğinizde, bu ad seçer.
 
 İçin **istemci kayıt sayfası URL'si** bir yer tutucu değerini girin `http://localhost`.  **İstemci kayıt sayfası URL'si** kullanıcılar oluşturmak ve kullanıcı hesaplarının yönetimini desteklemek için OAuth 2.0 sağlayıcıları kendi hesaplarını yapılandırmak için kullanabileceğiniz sayfa işaret eder. Bu örnekte, kullanıcıların değil oluşturun ve yer tutucu kullanılmak üzere kendi hesaplarını yapılandırın.
 
@@ -410,7 +410,7 @@ Ardından, belirtin **yetkilendirme uç noktası URL'si** ve **belirteç uç nok
 
 ![Yetkilendirme sunucusu][api-management-add-authorization-server-1a]
 
-Bu değerleri penceresinden alınabilir **uygulama uç noktaları** Geliştirici Portalı için oluşturulmuş AAD uygulama sayfası. Erişim için uç noktalar gidin **Yapılandır** sekmesinde AAD uygulaması için **uç noktaları görüntülemek**.
+Bu değerleri penceresinden alınabilir **uygulama uç noktaları** Geliştirici Portalı için oluşturulmuş AAD uygulama sayfası. Uç noktaları erişmek için gidin **yapılandırma** sekmesinde AAD uygulaması için **uç noktaları görüntülemek**.
 
 ![Uygulama][api-management-aad-devportal-application]
 
@@ -495,7 +495,7 @@ Tıklatın **Gönder** ve not edin **yanıt durumu** , **200 Tamam** ve yanıt i
 Video sonraki yordamda 16: 30'da başlatılır ve API'yi çağırmak için basit bir masaüstü uygulaması yapılandırır. Azure AD'de masaüstü uygulaması kaydetmek ve dizine ve arka uç hizmetine erişim sağlamak için ilk adımdır bakın. 18: 25'hesaplayıcı API'sini üzerinde bir işlemi çağırma masaüstü uygulaması Tanıtımı yoktur.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>İstekleri önceden yetkilendirmek için JWT doğrulama ilkesini yapılandırma
-Video son yordamda 20:48 başlar ve nasıl kullanılacağını gösterir [doğrulamak JWT](https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT) isteklerini her gelen istek erişim belirteçleri doğrulayarak önceden yetkilendirmek için ilke. İstek doğrulamak JWT İlkesi tarafından doğrulanmaz, istek API Management tarafından engellenir ve boyunca arka ucuna aktarılmaz.
+Video son yordamda 20:48 başlar ve nasıl kullanılacağını gösterir [doğrulamak JWT](api-management-access-restriction-policies.md#ValidateJWT) isteklerini her gelen istek erişim belirteçleri doğrulayarak önceden yetkilendirmek için ilke. İstek doğrulamak JWT İlkesi tarafından doğrulanmaz, istek API Management tarafından engellenir ve boyunca arka ucuna aktarılmaz.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

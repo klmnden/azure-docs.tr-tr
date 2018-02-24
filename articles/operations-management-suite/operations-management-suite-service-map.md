@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite içinde hizmet Haritası çözümü kullanın | Microsoft Docs"
-description: "Hizmet eşlemesi otomatik olarak sistemlerde, Windows ve Linux uygulama bileşenleri bulur ve Hizmetleri arasındaki iletişimi eşleyen bir Operations Management Suite çözümüdür. Bu makalede hizmet Haritası ortamınıza dağıtmak ve çeşitli senaryolarda içinde kullanma ile ilgili ayrıntıları sağlar."
+title: "Azure üzerinde hizmet Haritası çözümünü kullanarak | Microsoft Docs"
+description: "Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulan ve hizmetler arasındaki iletişimi eşleyen bir Azure çözümüdür. Bu makalede hizmet Haritası ortamınıza dağıtmak ve çeşitli senaryolarda içinde kullanma ile ilgili ayrıntıları sağlar."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Operations Management Suite hizmet Haritası çözümde kullanın
+# <a name="using-service-map-solution-in-azure"></a>Hizmet eşlemesi çözüm Azure'da kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz şekilde sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine bağlı sistemler. Bir aracı yüklemesini dışındaki bağlantı noktaları üzerinden tüm TCP bağlı mimarisi herhangi bir yapılandırma gerekli ve hizmet eşlemesi sunucuları, işlemleri arasındaki bağlantıları gösterir.
 
-Bu makalede hizmet eşlemesi kullanarak ilişkin ayrıntılar açıklanmaktadır. Hizmet Haritası ve ekleme aracıları yapılandırma hakkında daha fazla bilgi için bkz: [Operations Management Suite yapılandırma hizmet Haritası çözümde](operations-management-suite-service-map-configure.md).
+Bu makalede hizmet eşlemesi kullanarak ilişkin ayrıntılar açıklanmaktadır. Hizmet Haritası ve ekleme aracıları yapılandırma hakkında daha fazla bilgi için bkz: [Azure yapılandırma hizmet Haritası çözümde](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Kullanım: BT'niz olun bağımlılık kullanan işler
@@ -32,7 +32,7 @@ Bu makalede hizmet eşlemesi kullanarak ilişkin ayrıntılar açıklanmaktadır
 Hizmet eşlemesi bağımlılıkları ortak başvuru haritasını sunucularınızı, işlemleri ve üçüncü taraf hizmetleri otomatik olarak oluşturur. Bulur ve beklenmedik biçimde bağlantıları, uzak üçüncü taraf sistemleri üzerinde bağlı ve ağınızın Active Directory gibi geleneksel koyu alanlara bağımlılıkları tanımlayan tüm TCP bağımlılıkları eşler. Hizmet eşlemesi olası sunucu yanlış yapılandırma, hizmet kesintisi ve ağ sorunları belirlemenize yardımcı olmak için yönetilen sistemlerinizde çalıştığınız başarısız ağ bağlantıları bulur.
 
 ### <a name="incident-management"></a>Olay yönetimi
-Hizmet eşlemesi sistemleri nasıl bağlandığını gösteren ve birbirlerine etkileyen sorun yalıtım konusunda güvenilir bilgiler önlenmesine yardımcı olur. Başarısız bağlantı tanımlayan ek olarak, yanlış yapılandırılmış yük Dengeleyiciler, önemli hizmetler, şaşırtıcı veya aşırı yükünü belirleyin ve istemciler, geliştirici makineleri üretim sistemlerine konuşuyormuş gibi standart dışı yardımcı olur. Tümleşik iş akışları Operations Management Suite değiştirmek izleme ile birlikte kullanarak, bir olayın kök nedeni hizmeti açıklar veya değişiklik olayı olup bir arka uç makinede de görebilirsiniz.
+Hizmet eşlemesi sistemleri nasıl bağlandığını gösteren ve birbirlerine etkileyen sorun yalıtım konusunda güvenilir bilgiler önlenmesine yardımcı olur. Başarısız bağlantı tanımlayan ek olarak, yanlış yapılandırılmış yük Dengeleyiciler, önemli hizmetler, şaşırtıcı veya aşırı yükünü belirleyin ve istemciler, geliştirici makineleri üretim sistemlerine konuşuyormuş gibi standart dışı yardımcı olur. Tümleşik iş akışları, değişiklik izleme ile birlikte kullanarak, bir olayın kök nedeni hizmeti açıklar veya değişiklik olayı olup bir arka uç makinede de görebilirsiniz.
 
 ### <a name="migration-assurance"></a>Geçiş güvence
 Hizmet eşlemesi kullanarak, etkili bir şekilde planlayabilir, hızlandırmak ve hiçbir şey geride bıraktığı beklenmedik biçimde kesintiler meydana gelmediğinden emin olun ve yardımcı olan Azure geçişler doğrulayın. Birlikte geçirmek, sistem yapılandırmanıza ve kapasite değerlendirmek ve çalışan bir sistemi kullanıcılar hala sunma veya geçiş yerine yetkisini için bir adaydır olup olmadığını belirlemek için gereken tüm bağımlı sistemleri bulabilir. Taşıma işlemi tamamlandıktan sonra istemci yükleme ve test sistemleri ve müşteriler bağlandığını doğrulamak için kimliği kontrol edebilirsiniz. Alt ağ planlama ve güvenlik duvarı tanımlarınızın sorunlarınız varsa, hizmet Haritası Maps başarısız bağlantıları, bağlantı gereken sistemleri gelin.
@@ -41,7 +41,7 @@ Hizmet eşlemesi kullanarak, etkili bir şekilde planlayabilir, hızlandırmak v
 Azure Site Recovery kullanıyorsanız ve uygulama ortamınız hizmet eşlemesi için kurtarma dizisi tanımlama Yardım otomatik olarak size nasıl sistemleri birbirine emin olmak için kullanır gösterebilir kurtarma planını güvenilirdir. Veya bir grup kritik sunucu seçme ve istemcilerine görüntüleme, sunucunun geri yüklenen ve kullanılabilir olduktan sonra kurtarmak için hangi ön uç sistemleri tanımlayabilirsiniz. Buna karşılık, kritik sunucularının arka uç bağımlılıkları bakarak odak sistemlerinizi geri önce kurtarmak için hangi sistemleri tanımlayabilirsiniz.
 
 ### <a name="patch-management"></a>Düzeltme Eki Yönetimi
-Hizmet eşlemesi, düzeltme eki uygulama sistemlerinizi aşağı olabilmesi bunları önceden bildirebilir şekilde diğer ekipler ve sunucular hizmetinizi üzerinde bağlı olan göstererek Operations Management Suite Sistem Güncelleştirme değerlendirmesi kullanımınız geliştirir. Hizmet eşlemesi, hizmetlerinizin kullanılabilir ve sonra düzgün biçimde bağlı olup bunların düzeltme eki yeniden ve göstererek Operations Management Suite, düzeltme eki yönetimi de geliştirir.
+Hizmet eşlemesi, düzeltme eki uygulama sistemlerinizi aşağı olabilmesi bunları önceden bildirebilir şekilde diğer ekipler ve sunucular hizmetinizi üzerinde bağlı olan göstererek Sistem Güncelleştirme değerlendirmesi kullanımınız geliştirir. Hizmet eşlemesi, hizmetlerinizin kullanılabilir ve sonra düzgün biçimde bağlı olup bunların düzeltme eki yeniden ve göstererek düzeltme eki yönetimi de geliştirir.
 
 
 ## <a name="mapping-overview"></a>Eşleme genel bakış
@@ -54,7 +54,7 @@ Makineler çalışmasını göstermek için eşlemesinde Genişletilebilir işle
 Varsayılan olarak, hizmet Haritası eşlemeleri son 30 dakika bağımlılık bilgi gösterir. Sol üst zamanı denetimlerini kullanarak geçmiş zaman aralıkları (örneğin, bir olay sırasında veya bir değişiklik oluşmadan önce) bağımlılıkları geçmişte nasıl Aranan göstermek için bir saat için maps sorgulayabilirsiniz. Hizmet eşlemesi veri Ücretli çalışma alanlarında 30 gün ve ücretsiz çalışma alanlarında 7 gün için depolanır.
 
 ## <a name="status-badges-and-border-coloring"></a>Durum rozetleri ve kenarlık renklendirme
-Eşlemesindeki her sunucunun altındaki server hakkındaki durum bilgilerini saymayı durum rozetleri listesi olabilir. Rozetleri Operations Management Suite çözüm tümleştirmeler birini sunucudan ilgili bazı bilgiler olduğunu gösterir. Bir gösterge tıklamak sizi doğrudan sağ bölmede durum ayrıntılarını götürür. Şu anda kullanılabilir durum rozetleri uyarılar, hizmet Masası, değişiklikleri, güvenlik ve güncelleştirmeleri içerir.
+Eşlemesindeki her sunucunun altındaki server hakkındaki durum bilgilerini saymayı durum rozetleri listesi olabilir. Rozetleri çözüm tümleştirmeler birini sunucudan ilgili bazı bilgiler olduğunu gösterir. Bir gösterge tıklamak sizi doğrudan sağ bölmede durum ayrıntılarını götürür. Şu anda kullanılabilir durum rozetleri uyarılar, hizmet Masası, değişiklikleri, güvenlik ve güncelleştirmeleri içerir.
 
 Durum rozetleri önem derecesine bağlı olarak, makine düğümünü kenarlık renkli kırmızı (kritik), sarı (uyarı) olması veya (bilgilendirme) mavi. Renk herhangi birinin durumu rozetleri en ciddi durumunu temsil eder. Gri kenarlık hiç durum göstergesi olan bir düğüm gösterir.
 
@@ -135,10 +135,10 @@ Belirli işlemleri belirli rolleri makinelerde hizmet: web sunucuları, uygulama
 ![Rol simgesi](media/oms-service-map/role-icons.png)
 
 
-## <a name="failed-connections"></a>Başarısız bağlantı sayısı
+## <a name="failed-connections"></a>Başarısız bağlantılar
 Başarısız bağlantı gösterilen işlemleri ve bilgisayarlar, hizmet Haritası Maps ile bir işlem veya bağlantı noktası ulaşmak bir istemci sistemi başarısız olduğunu gösteren bir kesikli kırmızı satır. Bu sistem başarısız bağlantı kurmaya çalışan bir ise başarısız bağlantıları dağıtılan bir hizmet Haritası Aracısı ile herhangi bir sistemden raporlanır. Hizmet eşlemesi bağlantı kurmak için başarısız TCP yuvaları izlenerek bu işlem ölçer. Bu hata, bir güvenlik duvarı, istemci veya sunucu ya da kullanılabilir durumda uzak bir hizmet yetersizliğini'ndan neden olabilir.
 
-![Başarısız bağlantı sayısı](media/oms-service-map/failed-connections.png)
+![Başarısız bağlantılar](media/oms-service-map/failed-connections.png)
 
 Başarısız bağlantı sorunlarını giderme ile geçiş doğrulama, güvenlik analizi ve genel mimari anlama yardımcı olabilir anlama. Başarısız bağlantı bazen zararsız, ancak bunlar genellikle doğrudan aniden ulaşılamaz olmadan bir yük devretme ortamında veya Bulut geçişten sonra konuşun erişememe iki uygulama katmanı gibi bir sorun üzerine gelin.
 
@@ -159,7 +159,7 @@ Sunucu bağlantı noktası, sunucu bağlantı noktaları bağımlılık aracıla
 ## <a name="context-menu"></a>Bağlam menüsü
 Üst üç nokta (...) tıklayarak herhangi bir sunucu sağındaki bu sunucu için bağlam menüsünde görüntüler.
 
-![Başarısız bağlantı sayısı](media/oms-service-map/context-menu.png)
+![Başarısız bağlantılar](media/oms-service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Yük sunucu eşleme
 Tıklatarak **yük Server haritasını** yeni odak makine seçilen sunucuyla yeni bir eşleme için alır.
@@ -168,12 +168,12 @@ Tıklatarak **yük Server haritasını** yeni odak makine seçilen sunucuyla yen
 Tıklatarak **Göster Self-Links** başlangıç ve bitiş sunucu süreçlerinde üzerinde TCP bağlantısı olan herhangi bir de dahil olmak üzere sunucu düğümü kendine bağlantılar, çizer. Varsa kendine bağlantılar gösterilir, menü komutu değişiklikleri **Gizle Self-Links**, böylece, bunları kapatabilirsiniz.
 
 ## <a name="computer-summary"></a>Bilgisayar özeti
-**Makine Özet** bölmesinde bir sunucunun işletim sistemi, bağımlılık sayısı ve diğer Operations Management Suite çözümleri verilerden genel bakış içerir. Bu tür veriler performans ölçümleri, hizmet Masası anahtarları, değişiklik izleme, güvenlik ve güncelleştirmeleri içerir.
+**Makine Özet** bölmesinde bir sunucunun işletim sistemi, bağımlılık sayısı ve diğer çözümleri verilerden genel bakış içerir. Bu tür veriler performans ölçümleri, hizmet Masası anahtarları, değişiklik izleme, güvenlik ve güncelleştirmeleri içerir.
 
 ![Makine Özet bölmesi](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Bilgisayar ve işlem özellikleri
-Bir hizmet eşlemini gittiğinizde makineler ve bunların özelliklerini hakkında ek bağlam kazanmak için işlemleri seçebilirsiniz. Makineler DNS adı, IPv4 adresleri, CPU ve bellek kapasitesi, VM türü, işletim sistemi ve sürümü, en son yeniden zaman ve bunların Operations Management Suite ve hizmet eşlemesi aracıları kimlikleri hakkında bilgi sağlar.
+Bir hizmet eşlemini gittiğinizde makineler ve bunların özelliklerini hakkında ek bağlam kazanmak için işlemleri seçebilirsiniz. Makineler DNS adı, IPv4 adresleri, CPU ve bellek kapasitesi, VM türü, işletim sistemi ve sürümü, en son yeniden zaman ve bunların OMS ve hizmet eşlemesi aracıları kimlikleri hakkında bilgi sağlar.
 
 ![Makine Özellikler bölmesi](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ Bir hizmet eşlemini gittiğinizde makineler ve bunların özelliklerini hakkın
 
 ![İşlem Özet bölmesi](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Operations Management Suite uyarıları tümleştirme
-Hizmet eşlemesi seçilen zaman aralığı içinde seçili sunucu için Mazotlu uyarıları göstermek için Operations Management Suite uyarıları ile tümleştirir. Geçerli uyarıların varsa bir simge sunucu görüntüler ve **makine uyarıları** bölmesi uyarıları listeler.
+## <a name="alerts-integration"></a>Uyarıları tümleştirme
+Seçilen zaman aralığı içinde seçili sunucu için Mazotlu uyarıları göstermek için günlük analizi uyarılarını hizmet Haritası tümleşir. Geçerli uyarıların varsa bir simge sunucu görüntüler ve **makine uyarıları** bölmesi uyarıları listeler.
 
 ![Makine uyarıları bölmesi](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ Hizmet eşlemesi seçilen zaman aralığı içinde seçili sunucu için Mazotlu 
 ![Uyarı yapılandırması](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Operations Management Suite günlük olayları tümleştirme
+## <a name="log-events-integration"></a>Günlük olayları tümleştirme
 Hizmet Haritası günlük seçilen zaman aralığı içinde seçili sunucu için tüm kullanılabilir günlük olaylarının sayısını göstermek için arama ile tümleştirir. Listedeki tüm satır günlük arama atlamak ve tek tek günlük olayları görmek için olay sayısının tıklatabilirsiniz.
 
 ![Makine günlük olaylarının bölmesi](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Operations Management Suite hizmeti Masası tümleştirme
-Her iki çözüm de etkin ve Operations Management Suite çalışma alanınızda yapılandırılan hizmet Haritası tümleştirme BT Hizmet Yönetimi Bağlayıcısı ile otomatik olarak yapılır. Hizmet eşlemesinde tümleştirme "Hizmet Masasına." olarak etiketlenmiş Daha fazla bilgi için bkz: [merkezi olarak ITSM iş öğelerini BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak yönetme](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+## <a name="service-desk-integration"></a>Hizmet Masası tümleştirme
+Her iki çözüm de etkin ve günlük analizi çalışma alanınızda yapılandırılan hizmet Haritası tümleştirme BT Hizmet Yönetimi Bağlayıcısı ile otomatik olarak yapılır. Hizmet eşlemesinde tümleştirme "Hizmet Masasına." olarak etiketlenmiş Daha fazla bilgi için bkz: [merkezi olarak ITSM iş öğelerini BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak yönetme](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 **Makine hizmet Masası** bölmesi, seçilen zaman aralığındaki seçili sunucu için tüm BT Hizmet Yönetimi olayları listeler. Sunucu bir simge geçerli öğeler varsa ve bu makine hizmet masasına bölmesinde bunları listeler görüntüler.
 
@@ -214,8 +214,8 @@ Bağlı ITSM çözümünüzde öğesini açmak için tıklatın **görünümü i
 Günlük aramada öğenin ayrıntılarını görüntülemek için **Göster günlük aramada**.
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Operations Management Suite değişiklik izleme tümleştirme
-Her iki çözüm de etkin ve Operations Management Suite çalışma alanınızda yapılandırılan değişiklik izleme ile hizmet Haritası tümleştirme otomatik olarak yapılır.
+## <a name="change-tracking-integration"></a>İzleme tümleştirme değiştirme
+Her iki çözüm de etkin ve günlük analizi çalışma alanınızda yapılandırılan değişiklik izleme ile hizmet Haritası tümleştirme otomatik olarak yapılır.
 
 **Makine değişiklik izleme** bölmesi, ek ayrıntılar için günlük arama aşağıya doğru incelemek için bir bağlantı birlikte en son ilk ile tüm değişiklikleri listeler.
 
@@ -226,7 +226,7 @@ Aşağıdaki resimde görebileceğiniz bir ConfigurationChange olay ayrıntılı
 ![ConfigurationChange olayı](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Operations Management Suite performans tümleştirme
+## <a name="performance-integration"></a>Performans tümleştirme
 **Makine performansını** bölmesi seçilen sunucu için standart performans ölçümleri görüntüler. Ölçümleri tarafından gönderilen ve alınan ağ bayt CPU kullanımı, bellek kullanımı, gönderilen ve alınan ağ bayt ve üst işlemlerin bir listesini içerir.
 
 ![Makine performans bölmesi](media/oms-service-map/machine-performance.png)
@@ -245,20 +245,20 @@ Linux:
 - Adapter(*) ağ\\gönderilen bayt/sn
 - Adapter(*) ağ\\alınan bayt/sn
 
-Ağ performans verilerini almak için ayrıca Operations Management Suite kablo verileri 2.0 çözümde etkinleştirmiş olmanız gerekir.
+Ağ performans verilerini almak için aynı zamanda kablo verileri 2.0 çözüm çalışma alanınızda etkinleştirmiş olmanız gerekir.
  
-## <a name="operations-management-suite-security-integration"></a>Operations Management Suite güvenlik tümleştirme
-Her iki çözüm de etkin ve Operations Management Suite çalışma alanınızda yapılandırılmış güvenlik ve Denetim ile hizmet Haritası tümleştirme otomatik olarak yapılır.
+## <a name="security-integration"></a>Güvenlik tümleştirme
+Her iki çözüm de etkin ve günlük analizi çalışma alanınızda yapılandırılmış güvenlik ve Denetim ile hizmet Haritası tümleştirme otomatik olarak yapılır.
 
-**Makine güvenliği** bölmesi seçilen sunucu için Operations Management Suite güvenlik ve denetim çözümü verileri gösterir. Bölmesi, seçilen zaman aralığı içinde sunucu için bekleyen güvenlik sorunları özetini listeler. Güvenlik sorunları ayrıntısına hiçbirini aşağı içine bunları hakkındaki ayrıntılar için günlük arama'yı tıklatın.
+**Makine güvenliği** bölmesi seçilen sunucu için güvenlik ve denetim çözümü verileri gösterir. Bölmesi, seçilen zaman aralığı içinde sunucu için bekleyen güvenlik sorunları özetini listeler. Güvenlik sorunları ayrıntısına hiçbirini aşağı içine bunları hakkındaki ayrıntılar için günlük arama'yı tıklatın.
 
 ![Makine güvenlik bölmesi](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Operations Management Suite güncelleştirmeleri tümleştirme
-Her iki çözüm de etkin ve Operations Management Suite çalışma alanınızda yapılandırılan güncelleştirme yönetimi ile hizmet Haritası tümleştirme otomatik olarak yapılır.
+## <a name="updates-integration"></a>Güncelleştirmeleri tümleştirme
+Her iki çözüm de etkin ve günlük Anlaytics çalışma alanınızda yapılandırılan güncelleştirme yönetimi ile hizmet Haritası tümleştirme otomatik olarak yapılır.
 
-**Makinesi Güncelleştirmeleri** bölmesi seçilen sunucu için Operations Management Suite güncelleştirme yönetimi çözümü verileri görüntüler. Bölmesi, seçilen zaman aralığı içinde sunucu için eksik güncelleştirmeleri özetini listeler.
+**Makinesi Güncelleştirmeleri** bölmesi seçilen sunucu için güncelleştirme yönetimi çözümü verileri görüntüler. Bölmesi, seçilen zaman aralığı içinde sunucu için eksik güncelleştirmeleri özetini listeler.
 
 ![Makine değişiklik izleme bölmesi](media/oms-service-map/machine-updates.png)
 
@@ -272,8 +272,8 @@ Her benzersiz bir bilgisayar ve bir işlem veya bilgisayar başlatıldığında 
 
 Benzersiz işlemleri ve bilgisayarları tanımlamak için kullanabileceğiniz dahili olarak oluşturulan özellikleri şunlardır:
 
-- Bilgisayar: Kullanım ResourceId veya ResourceName_s bir bilgisayara bir Operations Management Suite çalışma alanı içinde benzersiz şekilde tanımlamak için.
-- İşlem: bir işlemi bir Operations Management Suite çalışma alanı içinde benzersiz şekilde tanımlamak için kullanım ResourceId. ResourceName_s (MachineResourceName_s) işlemin çalıştığı makine bağlamı içinde benzersizdir 
+- Bilgisayar: Kullanım ResourceId veya ResourceName_s günlük analizi çalışma alanı içindeki bir bilgisayarı benzersiz şekilde tanımlamak için.
+- İşlem: bir işlemi günlük analizi çalışma alanı içinde benzersiz şekilde tanımlamak için kullanım ResourceId. ResourceName_s (MachineResourceName_s) işlemin çalıştığı makine bağlamı içinde benzersizdir 
 
 Belirtilen işlem ve belirtilen zaman aralığında bilgisayar için birden çok kayıt bulunabileceğinden sorguları birden fazla kayıt aynı bilgisayarda veya işlem için geri dönebilirsiniz. Yalnızca en son kaydı eklemek için Ekle "| Yinelenenleri kaldırma ResourceId"sorgulanamıyor.
 
@@ -348,10 +348,10 @@ ServiceMapProcess_CL | Burada CommandLine_s contains_cs "sql" | özetlemek arg_m
 (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" aramada | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>IP adresini kullanarak bir makine (en son kayıt) bulunamadı
-(ServiceMapComputer_CL) "10.229.243.232" aramada | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Belirtilen bir makinedeki tüm bilinen işlemleri listele
-ServiceMapProcess_CL | Burada MachineResourceName_s "m-559dbcd8-3130-454d-8d1d-f624e57961bc" == | özetlemek arg_max(TimeGenerated, *) ResourceId tarafından
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>SQL çalıştıran tüm bilgisayarları listeleyin
 ServiceMapComputer_CL | Burada, ResourceName_s (((ServiceMapProcess_CL) aramada "\*sql\*" | farklı MachineResourceName_s)) | ayrı ComputerName_s

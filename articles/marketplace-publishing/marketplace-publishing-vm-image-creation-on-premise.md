@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Bir şirket içi sanal makine görüntüsü için Azure Marketi geliştirin
 Uzak Masaüstü Protokolü kullanarak Azure sanal sabit diskleri (VHD) doğrudan bulutta geliştirmek öneririz. Ancak, gerekirse, bir VHD karşıdan yüklemek ve şirket içi altyapıyı kullanarak geliştirmek mümkündür.  
@@ -75,7 +75,7 @@ Azure Portalı'nı kullanarak ek olarak, kullanabileceğiniz [Kaydet AzureVhd](h
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-Örneğin, kaydetme AzureVhd-kaynak "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath "C:\Users\Administrator\Desktop\baseimagevm.vhd" - depolama anahtarı<String>
+Örneğin, kaydetme AzureVhd-kaynak "https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd" - LocalFilePath "C:\Users\Administrator\Desktop\baseimagevm.vhd" - depolama anahtarı <String>
 
 > [!NOTE]
 > **Kaydet-AzureVhd** de sahip bir **NumberOfThreads** indirme için kullanılabilir bant genişliğini en iyi kullanılmasını sağlamak üzere paralelliği artırmak için kullanılan seçeneği.
@@ -92,12 +92,12 @@ Bir depolama hesabı oluşturmak için kullanabileceğiniz [Microsoft Azure port
 
 **Microsoft Azure Portalı'ndan bir depolama hesabı oluşturma**
 
-1. **Yeni**’ye tıklayın.
+1. Tıklatın **kaynak oluşturma**.
 2. Seçin **depolama**.
 3. Depolama hesabı adı girin ve ardından bir konum seçin.
    
    ![Çizim](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
-4. **Oluştur**'a tıklayın.
+4. **Oluştur**’a tıklayın.
 5. Oluşturulan depolama hesabı için dikey penceresi açık olması gerekir. Aksi takdirde, seçin **Gözat** > **depolama hesapları**. Depolama hesabı dikey penceresinde, oluşturduğunuz depolama hesabını seçin.
 6. Seçin **kapsayıcıları**.
    
@@ -143,7 +143,7 @@ Kullanım [Ekle AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdle
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Mac ve Linux için komut satırı aracını kullanarak bir VHD'yi karşıya yükle
-İle [Linux komut satırı aracı](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), aşağıdakileri kullanın: azure vm görüntüsü oluşturma <image name> --konum <Location of the data center> --OS Linux<LocationOfLocalVHD>
+İle [Linux komut satırı aracı](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), aşağıdakileri kullanın: azure vm görüntüsü oluşturma <image name> --konum <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Market bir sanal makine görüntüsü oluşturma](marketplace-publishing-vm-image-creation.md)

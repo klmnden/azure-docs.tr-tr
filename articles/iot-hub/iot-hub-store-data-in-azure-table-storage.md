@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Azure blob depolama alanınızın algılayıcı verileri içeren IOT hub iletileri kaydetme
 
@@ -45,7 +45,7 @@ Bir Azure depolama hesabı ve blob depolama alanınızın IOT hub iletileri depo
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
 
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **yeni** > **depolama** > **depolama hesabı** > **oluşturma**.
+1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **kaynak oluşturma** > **depolama** > **depolama hesabı**  >  **Oluşturma**.
 
 2. Depolama hesabı için gerekli bilgileri girin:
 
@@ -57,7 +57,7 @@ Bir Azure depolama hesabı ve blob depolama alanınızın IOT hub iletileri depo
 
    * **Panoya sabitle**: Panodan IoT hub'ınıza kolay erişim için bu seçeneği belirleyin.
 
-3. **Oluştur**'a tıklayın.
+3. **Oluştur**’a tıklayın.
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>IOT hub'ınıza iletileri yönlendirmek için depolama alanı hazırlama
 

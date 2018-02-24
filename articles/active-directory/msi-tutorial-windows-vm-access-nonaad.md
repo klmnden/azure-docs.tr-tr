@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 37f50d962ff73330a23c0f7397b93c84dd2e8181
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Azure anahtar kasası erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın 
 
@@ -47,7 +47,7 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 Bu öğretici için yeni bir Windows VM oluşturun. Mevcut bir VM'yi üzerinde MSI de etkinleştirebilirsiniz.
 
-1.  Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1.  Tıklatın **kaynak oluşturma** düğme Azure portalında sol üst köşesinde bulundu.
 2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
 3.  Sanal makine bilgilerini girin. **Kullanıcıadı** ve **parola** için kullandığınız kimlik bilgileri İşte oluşturulan sanal makineye oturum açma.
 4.  Uygun seçin **abonelik** sanal makine açılır.
@@ -77,7 +77,7 @@ MSI kullanarak kodunuzu Azure AD kimlik doğrulamasını destekleyen kaynaklar i
 
 İlk olarak, kimliğinizi bir anahtar kasası oluşturma ve anahtar Kasası'na bizim VM'in kimlik yetkisi vermek gerekiyor.   
 
-1. Sol gezinti çubuğu üstünde seçin **+ yeni** sonra **güvenlik + kimlik** sonra **anahtar kasası**.  
+1. Sol gezinti çubuğu üstünde seçin **kaynak oluşturma** > **güvenlik + kimlik** > **anahtar kasası**.  
 2. Sağlayan bir **adı** yeni anahtar kasası için. 
 3. Anahtar kasası ile aynı abonelik ve kaynak grubunda daha önce oluşturduğunuz VM bulun. 
 4. Seçin **erişim ilkeleri** tıklatıp **yeni Ekle**. 

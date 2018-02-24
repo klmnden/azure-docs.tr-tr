@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: f093c0cfdc6f59133c39cc8c2b10f9fe74692977
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 **Azure etkinlik günlüğü** , Azure'da oluşan abonelik düzeyinde olaylar hakkında bilgi sağlayan bir abonelik günlüktür. Bu verileri, Azure Resource Manager işlemsel veri hizmeti sistem durumu olayları güncelleştirmeleri için bir aralığı içerir. Etkinlik günlüğü önceden aboneliklerinizi yönetim kategorisi raporları denetim düzlemi olayları itibaren "Denetim günlüklerini" veya "İşlem günlükleri," olarak bilinirdi. Etkinlik günlüğü kullanarak, belirleyebilirsiniz ' ne, kimin, ne zaman ve ' herhangi yazma işlemleri (PUT, POST, DELETE) aboneliğinizi kaynaklarında alınan için. İşleminin durumunu ve ilgili diğer özellikleri de anlayabilirsiniz. Etkinlik günlüğü okuma (GET) işlemleri veya işlemleri kullanan Klasik kaynakları için içermeyen / "RDFE" modeli.
@@ -73,9 +73,9 @@ Etkinlik günlüğü ile yapabileceği şeylerden bazıları şunlardır:
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Sorgu Azure portalında etkinlik günlüğü
 Azure portalı içinde çeşitli yerlerde, etkinlik günlüğü görüntüleyebilirsiniz:
-* **Etkinlik günlüğü dikey**, Sol Gezinti Bölmesi'nde "Daha Hizmetleri" altında etkinlik günlüğü arayarak erişebileceğiniz.
-* **İzleyici dikey**, varsayılan olarak sol gezinti bölmesinde görüntülenir. Etkinlik günlüğü bu Azure İzleyici dikey bölümüdür.
-* Herhangi bir kaynağa ait **kaynak dikey**, örneğin, bir sanal makine için yapılandırma dikey. Etkinlik günlüğü, bu kaynak dikey çoğunu bölümleri biri ve otomatik olarak üzerine tıklayarak bu belirli bir kaynağa ilgili olayları filtreleyen ' dir.
+* **Etkinlik günlüğü** altında etkinlik günlüğü için arama yaparak erişebileceği **tüm hizmetleri** sol gezinti bölmesinde.
+* **İzleyici** varsayılan sol gezinti bölmesinde görünür. Etkinlik günlüğü Azure İzleyici bölümüdür.
+* Herhangi bir kaynağa ait **kaynak**, örneğin, bir sanal makine için yapılandırma dikey. Etkinlik günlüğü, bu kaynak dikey çoğunu bölümleri biri ve otomatik olarak üzerine tıklayarak bu belirli bir kaynağa ilgili olayları filtreleyen ' dir.
 
 Azure portalında, etkinlik günlüğü bu alanlara göre filtreleyebilirsiniz:
 * TimeSpan - olaylar için başlangıç ve bitiş zamanı.
@@ -113,7 +113,7 @@ Bu ayarlar, etkinlik günlüğü dikey penceresinde Portalı'nda "Verme" seçene
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Azure portalını kullanarak günlük profillerini yapılandırma
 Bir olay Hub'ına etkinlik günlüğü akışla aktarmak veya bunları Azure portalında "Export" seçeneğini kullanarak bir depolama hesabında depolamak.
 
-1. Gidin **etkinlik günlüğü** portalın sol tarafta menüsünü kullanarak dikey.
+1. Gidin **etkinlik günlüğü** portalın sol tarafta menüsünü kullanarak.
 
     ![Etkinlik günlüğü portalında gidin](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Tıklatın **verme** dikey pencerenin üstündeki düğmesi.
