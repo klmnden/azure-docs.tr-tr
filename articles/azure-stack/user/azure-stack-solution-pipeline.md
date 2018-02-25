@@ -3,7 +3,7 @@ title: "Azure ve Azure uygulamanızı dağıtmak yığını | Microsoft Docs"
 description: "Uygulamaları Azure ve Azure yığını ile karma CI/CD ardışık dağıtmayı öğrenin."
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: 
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/25/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 6c073376db196b7d6c73c38d6a0a7b2c24949528
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6292a846a2c3d7e112558ef0d2b62b3a3fdd3c51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Azure ve Azure uygulamaları dağıtmak yığını
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
@@ -64,7 +64,7 @@ Bu konu ayrıca bazı Azure ve Azure yığın bilgisine sahip olduğunuzu varsay
 Bu bölümde, basit bir ASP.NET uygulaması oluşturma ve VSTS gönderme.  Bu adımları normal Geliştirici iş akışını temsil eder ve geliştirici araçları ve diller için uyarlanmış. 
 
 1.  Visual Studio'yu açın.
-2.  Takım Gezgini alanından ve **çözümleri... ** alanında tıklatın **yeni**.
+2.  Takım Gezgini alanından ve **çözümleri...**  alanında tıklatın **yeni**.
 3.  Seçin **Visual C#** > **Web** > **ASP.NET Web uygulaması (.NET Framework)**.
 4.  ' A tıklayın ve uygulama için bir ad **Tamam**.
 5.  Sonraki ekranda (Web forms) Varsayılanları tutun ve **Tamam**.
@@ -108,7 +108,7 @@ Yayın işlem, önceki adımdan derlemeleri bir ortama nasıl dağıtıldığın
 
 Boş yayın tanımını oluşturdu ve yapı bağlı göre şu adımları Azure ortamı için ekleyin:
 
-1.  Yeşil tıklatın ** + ** görevler eklemek için.
+1.  Yeşil tıklatın  **+**  görevler eklemek için.
 2.  Seçin **tüm**ve ardından listeden ekleyin **FTP Karşıya** seçip **Kapat**.
 3.  Seçin **FTP Karşıya** , yeni eklenen görev ve aşağıdaki parametreleri yapılandırın:
     
@@ -134,7 +134,7 @@ Son olarak, aşağıdaki adımları kullanarak dağıtılmış aracı içeren ar
 Bu adım, Azure üzerinde bir Web uygulaması için ASP.NET uygulama dağıtmak için yeni oluşturulan CI/CD hattınızı kullanır. 
 
 1.  Reklam VSTS içinde seçin **yapı & yayın**ve ardından **derlemeler**.
-2.  Tıklatın **... ** derleme açıklamasında daha önce oluşturulmuş ve select **sıraya yeni derleme**.
+2.  Tıklatın **...**  derleme açıklamasında daha önce oluşturulmuş ve select **sıraya yeni derleme**.
 3.  Varsayılanları kabul edin ve tıklayın **Tamam**.  Yapı başlar ve ilerleme durumunu görüntüler.
 4.  Yapı tamamlandıktan sonra seçerek durumunu izleyebilir **yapı & yayın** ve seçerek **sürümleri**.
 5.  Yapı tamamlandıktan sonra Web uygulaması oluştururken, belirtilen URL'yi kullanarak Web sitesini ziyaret edin.    

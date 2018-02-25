@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: a5b321bc06ef14207eddf5aa77ff983ada1e409f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Market öğesi Azure'dan Azure yığınına indirin.
 
@@ -44,7 +44,7 @@ Azure yığın marketi'ndeki eklemek üzere hangi içerik karar gibi Azure Marke
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Listede istediğiniz ve ardından öğeyi seçin **karşıdan**. Bu VM görüntüsü, seçili öğe için indirme başlatır. Yükleme süreleri değişir.
+5. Listede istediğiniz ve ardından öğeyi seçin **karşıdan**. VM görüntüsü yüklemeye başlar seçili öğe için. Yükleme süreleri değişir.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -62,7 +62,7 @@ Internet bağlantısı olan makineden gerekli Market öğeleri karşıdan yükle
 
 1. Bir yönetici olarak bir PowerShell konsolu açın ve [Azure yığın belirli PowerShell modüllerini yüklemek](azure-stack-powershell-install.md). Yüklediğinizden emin olun **PowerShell sürüm 1.2.11 ya da daha yüksek**.  
 
-2. Azure yığın kaydetmek için kullanılan Azure hesabı ekleyin. Bunu yapmak için çalıştırın **Add-AzureRmAccount** cmdlet parametre olmadan. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz.  
+2. Azure yığın kaydetmek için kullanılan Azure hesabı ekleyin. Hesap eklemek için çalıştırın **Add-AzureRmAccount** cmdlet parametre olmadan. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz.  
 
 3. Birden çok aboneliğiniz varsa, kayıt için kullanılan birini seçmek için aşağıdaki komutu çalıştırın:  
 
@@ -75,16 +75,16 @@ Internet bağlantısı olan makineden gerekli Market öğeleri karşıdan yükle
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -94,7 +94,7 @@ Internet bağlantısı olan makineden gerekli Market öğeleri karşıdan yükle
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -103,15 +103,17 @@ Internet bağlantısı olan makineden gerekli Market öğeleri karşıdan yükle
 
    ![Azure Market öğelerini açılan](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Yüklemek istediğiniz görüntüyü seçin (birden fazla görüntü Ctrl tuşunu basılı tutarak seçebilirsiniz) ve resim sürümünü not edin, bu sürümü bir sonraki bölümde görüntüyü içe aktarmak için kullanacağınız > tıklatın **Tamam** > yasal koşulları kabul tıklayarak **Evet**. Kullanarak görüntüleri listesini filtreleyebilirsiniz **ölçüt eklemek** seçeneği. İndirme görüntünün boyutuna bağlı olarak biraz uzun sürebilir. Bir kez resim yüklemelerini daha önce sağlanan hedef yolu kullanılabilir. İndirme Azpkg biçimde VHD dosyasını ve galeri öğeleri içerir.  
+7. Karşıdan yükle ve resim sürümünü not istediğiniz görüntüyü seçin. Ctrl tuşunu basılı tutarak birden çok görüntü seçebilirsiniz. Sonraki bölümde görüntüyü içe aktarmak için resim sürümünü kullanın.  Bundan sonra öğesini **Tamam**ve ardından tıklayarak yasal koşulları kabul **Evet**. Kullanarak görüntüleri listesini filtreleyebilirsiniz **ölçüt eklemek** seçeneği. 
+
+   İndirme görüntünün boyutuna bağlı olarak biraz uzun sürebilir. Bir kez resim yüklemelerini daha önce sağlanan hedef yolu kullanılabilir. İndirme Azpkg biçimde VHD dosyasını ve galeri öğeleri içerir.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Görüntü alma ve Azure yığın marketinde yayımlama
 
-1. Görüntü & galeri paketi indirdikten sonra bunları ve içeriği çıkarılabilir disk sürücüsüne AzureStack araçları vnext klasörüne kaydedin ve Azure yığın ortamına kopyalayın (için yerel olarak herhangi bir yere gibi kopyalayabilirsiniz: "C:\MarketplaceImages".)   
+1. Görüntü ve galeri paketi indirdikten sonra bunları ve içeriği çıkarılabilir disk sürücüsüne AzureStack araçları ana klasörüne kaydedin ve Azure yığın ortamına kopyalayın (Bu yerel olarak herhangi bir yere gibi kopyalayabilirsiniz: "C:\MarketplaceImages").   
 
 2. Görüntü almadan önce Azure yığın işlecin ortamına açıklanan adımları kullanarak bağlamanız gerekir [Azure yığın işlecin PowerShell ortamını yapılandırma](azure-stack-powershell-configure-admin.md).  
 
-3. Görüntü, Add-AzsVMImage cmdlet'ini kullanarak Azure yığınına içeri aktarın. Bu cmdlet'i kullanırken, yayımcı, teklif ve diğer parametre değerlerini İçeri aktarmakta olduğunuz görüntü değerlerle değiştirdiğinizden emin olun. 6. adımda önceki bölümde "publisher", "Teklif" ve "sku" değerlerini daha önce indirdiğiniz Azpkg dosyasının Imagereference nesnesinden görüntüsünün ve "Sürüm" değerini alabilir.
+3. Görüntü, Add-AzsVMImage cmdlet'ini kullanarak Azure yığınına içeri aktarın. Bu cmdlet'i kullanırken değiştirdiğinizden emin olun *yayımcı*, *teklif*ve İçeri aktarmakta olduğunuz görüntünün değerlerle diğer parametre değerleri. Alma *yayımcı*, *sunar*, ve *sku* Imagereference nesne daha önce indirdiğiniz Azpkg dosyasının görüntüden değerlerini ve  *Sürüm* değerini önceki bölümdeki 6. adım.
 
    ```json
    "imageReference": {
@@ -131,8 +133,8 @@ Internet bağlantısı olan makineden gerekli Market öğeleri karşıdan yükle
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```
