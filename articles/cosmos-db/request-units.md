@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/23/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB birimlerinde isteği
 Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Daha fazla bilgi edinin [, üretilen iş gerektiğini tahmin etme](request-units.md#estimating-throughput-needs).
@@ -44,7 +44,7 @@ Azure Cosmos DB çok model veritabanı olduğundan, bu makale için bir belge AP
 ## <a name="request-units-and-request-charges"></a>İstek birimleri ve istek ücretleri
 Azure Cosmos DB tarafından hızlı ve tahmin edilebilir performans sunar *ayırma* uygulamanızın verimlilik gereken karşılamak için kaynakları.  Uygulama yüklemek ve zaman içinde desenleri değişiklik erişmek için Azure Cosmos DB kolayca artırın veya uygulamanız için kullanılabilir ayrılmış işleme miktarını azaltmak sağlar.
 
-Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsinden belirtilir. İstek birimleri yapabildiği verimlilik para birimi olarak düşünebilirsiniz, *yedek* garantili istek birimleri uygulamanıza kullanılabilir miktardaki saniye başına temelinde.  Azure Cosmos - bir belge yazma, bir belge güncelleştirme bir sorgu gerçekleştirme - DB her bir işlemin CPU, bellek ve IOPS tüketir.  Diğer bir deyişle, her işlemi uygulanan bir *isteği ücret*, içinde ifade *istek birimleri*.  İstek birimi ücretleri, uygulamanızın işleme gereksinimleri etkileyen faktörler anlama, uygulamanızın maliyeti etkili bir şekilde olabildiğince olarak çalıştırmak sağlar. Sorgu Gezgini ayrıca bir sorgu çekirdek test etmek için bir harika aracıdır.
+Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsinden belirtilir. İstek birimleri yapabildiği verimlilik para birimi olarak düşünebilirsiniz, *yedek* garantili istek birimleri uygulamanıza kullanılabilir miktardaki saniye başına temelinde.  Azure Cosmos - bir belge yazma, bir belge güncelleştirme bir sorgu gerçekleştirme - DB her bir işlemin CPU, bellek ve IOPS tüketir.  Diğer bir deyişle, her işlemi uygulanan bir *isteği ücret*, içinde ifade *istek birimleri*.  İstek birimi ücretleri, uygulamanızın işleme gereksinimleri etkileyen faktörler anlama, uygulamanızın maliyeti etkili bir şekilde olabildiğince olarak çalıştırmak sağlar. Azure portalında Veri Gezgini ayrıca bir sorgu çekirdek test etmek için bir harika aracıdır.
 
 İstek birimleri ve Azure Cosmos DB tahmin edilebilir performansla Aravind Ramachandran burada açıklanmaktadır aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz.
 
@@ -118,33 +118,33 @@ Bir istek birimi istek maliyet işleme normalleştirilmiş ölçüsüdür. Bir t
     <tbody>
         <tr>
             <td valign="top"><p><strong>Öğesi boyutu</strong></p></td>
-            <td valign="top"><p><strong>Okuma/saniye</strong></p></td>
-            <td valign="top"><p><strong>Yazma/saniye</strong></p></td>
+            <td valign="top"><p><strong>Reads/second</strong></p></td>
+            <td valign="top"><p><strong>Writes/second</strong></p></td>
             <td valign="top"><p><strong>İstek birimleri</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1) + (100 * 5) = 1.000 RU/s</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1,000 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>1 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 1) + (500 * 5) = 3000 RU/s</p></td>
+            <td valign="top"><p>(500 * 1) + (500 * 5) = 3,000 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1,350 RU/s</p></td>
+            <td valign="top"><p>(500 * 1.3) + (100 * 7) = 1,350 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4,150 RU/s</p></td>
+            <td valign="top"><p>(500 * 1.3) + (500 * 7) = 4,150 RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 KB</p></td>
@@ -190,9 +190,7 @@ Aracını kullanarak basit bir işlemdir:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Azure Cosmos DB istek ücret yanıt üstbilgisi kullanın
-Her yanıt Azure Cosmos DB hizmetinden bir özel üst bilgi içeriyor (`x-ms-request-charge`) istek için kullanılan istek birimleri içerir. Bu üst ayrıca Azure Cosmos DB SDK erişilebilir. .NET SDK'ın RequestCharge ResourceResponse nesnesinin bir özelliğidir.  Sorgular için Azure portalında Azure Cosmos DB sorgu Gezgini yürütülen sorgular için istek ücret bilgileri sağlar.
-
-![Sorgu Gezgini RU ücretlere inceleniyor][1]
+Her yanıt Azure Cosmos DB hizmetinden bir özel üst bilgi içeriyor (`x-ms-request-charge`) istek için kullanılan istek birimleri içerir. Bu üst ayrıca Azure Cosmos DB SDK erişilebilir. .NET SDK'ın RequestCharge ResourceResponse nesnesinin bir özelliğidir.  Sorgular için Azure portalında Azure Cosmos DB Veri Gezgini yürütülen sorgular için istek ücret bilgileri sağlar.
 
 Bu durum dikkate alınarak, uygulamanızın gerektirdiği ayrılmış işleme miktarı tahmin etmek için bir yöntem, uygulamanız tarafından kullanılan ve ardından tahmin etme temsili bir öğe karşı çalışan tipik işlemlerle ilişkili istek birimi ücret kaydetmektir saniyede gerçekleştirme düşündüğünüz işlemlerinin sayısı.  Ölçmek ve tipik sorgular ve Azure Cosmos DB komut dosyası kullanımı da dahil emin olun.
 
@@ -304,8 +302,8 @@ Aşağıdaki tabloda yaklaşık istek birimi giderleri (yaklaşık istek birimi 
 
 | İşlem | İstek birimi ücret |
 | --- | --- |
-| Öğe oluştur |~ 15 RU |
-| Öğe Okuma |~ 1 RU |
+| Öğesi oluşturma |~15 RU |
+| Öğe Okuma |~1 RU |
 | Sorgu öğesi kimliği |~2.5 RU |
 
 Ayrıca, bu tabloda yaklaşık istek birimi ücretleri uygulamada kullanılan tipik sorguları için gösterilir:
@@ -313,9 +311,9 @@ Ayrıca, bu tabloda yaklaşık istek birimi ücretleri uygulamada kullanılan ti
 | Sorgu | İstek birimi ücret | Döndürülen öğe sayısı |
 | --- | --- | --- |
 | Kimliğe göre yemek seçin |~2.5 RU |1 |
-| Üretici tarafından foods seçin |~ 7 RU |7 |
-| Yemek grup ve sipariş ağırlığa göre seçin |~ 70 RU |100 |
-| Üst 10 foods yemek grubunda seçin |~ 10 RU |10 |
+| Üretici tarafından foods seçin |~7 RU |7 |
+| Yemek grup ve sipariş ağırlığa göre seçin |~70 RU |100 |
+| Üst 10 foods yemek grubunda seçin |~10 RU |10 |
 
 > [!NOTE]
 > RU ücretleri döndürülen öğe sayısını göre farklılık gösterir.
@@ -326,7 +324,7 @@ Bu bilgi ile operations ve saniye başına beklediğiniz sorguları sayısını 
 
 | İşlem/sorgu | Saniye başına tahmini sayısı | Gerekli RUs |
 | --- | --- | --- |
-| Öğe oluştur |10 |150 |
+| Öğesi oluşturma |10 |150 |
 | Öğe Okuma |100 |100 |
 | Üretici tarafından foods seçin |25 |175 |
 | Yemek gruplandırma ölçütü seçin |10 |700 |
@@ -334,7 +332,7 @@ Bu bilgi ile operations ve saniye başına beklediğiniz sorguları sayısını 
 
 Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekler.  Yuvarlama kadar yakın 100, bu uygulamanın koleksiyon için 1300 RU/s sağlamak.
 
-## <a id="RequestRateTooLarge"></a>Azure Cosmos DB aşan ayrılmış işleme sınırları
+## <a id="RequestRateTooLarge"></a> Azure Cosmos DB aşan ayrılmış işleme sınırları
 İstek birimi tüketim bütçe boşsa, saniye başına oranı olarak değerlendirilir, geri çağırma. Hızı ayrılmış düzeyin altına düşene kadar kapsayıcı için sağlanan istek birimi hızı aşan uygulamalar için o koleksiyona istekleri kısıtlanan. Bir kısıtlama oluştuğunda sunucunun erken önlem RequestRateTooLargeException (HTTP durum kodu 429) istekle sona erer ve kullanıcı reattempting önce beklemesi gereken milisaniye cinsinden süreyi belirten x-ms-yeniden deneme-sonra-ms üstbilgi döndürür İstek.
 
     HTTP Status 429
@@ -345,7 +343,7 @@ Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekler.  Yuvarlama kadar 
 
 İstek hızı işletim üst üste birden fazla istemciniz varsa varsayılan yeniden deneme davranışı değil yeterli olacaktır ve istemci uygulamaya 429 durum koduyla bir DocumentClientException atar. Bu gibi durumlarda, yeniden deneme davranışı ve yordamları işleme veya kapsayıcı için ayrılmış verimliliği artırma uygulamanızın hata mantığının işleme düşünebilirsiniz.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a>API MongoDB için aşan ayrılmış işleme sınırları
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> API MongoDB için aşan ayrılmış işleme sınırları
 Bir koleksiyon için sağlanan istek birimleri aşan uygulamaları oranı ayrılmış düzeyin altına düşene kadar kısıtlanacak. Bir azaltma ortaya çıktığında, arka uç istekle erken önlem sona erer bir *16500* hata kodu - *çok fazla istek*. Varsayılan olarak, API MongoDB için otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneyecek bir *çok fazla istek* hata kodu. Birçok alıyorsanız *çok fazla istek* hata kodları, uygulamanızın hata yordamları işlemedeki ekleme ya da yeniden deneme davranışı dikkate veya [koleksiyoniçinayrılmışverimliliğiartırma](set-throughput.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -358,7 +356,6 @@ Azure Cosmos DB hakkında daha fazla bilgi için Azure Cosmos DB bkz [belgelerin
 
 Ölçek ve performans testi Azure Cosmos DB ile kullanmaya başlamak için bkz: [performans ve ölçek testi Azure Cosmos DB ile](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

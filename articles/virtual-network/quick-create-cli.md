@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Azure CLI kullanarak bir sanal ağ oluşturma
 
-Bu makalede, bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ oluşturduktan sonra iki sanal makineye sanal ağa dağıtmak ve özel olarak aralarında iletişim.
+Bu makalede, bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ oluşturduktan sonra iki sanal makine özel ağ iletişimi aralarında sınamak için sanal ağda dağıtın.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Yüklü olan sürümü bulmak için Çalıştır `az --version`. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu makalede, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Yüklü olan sürümü bulmak için Çalıştır `az --version`. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -66,9 +66,11 @@ Tüm sanal ağları atanmış bir veya daha fazla adres öneklerini vardır. San
 
 Bilgileri başka bir kısmını döndürülen **addressPrefix** , *10.0.0.0/24* için *varsayılan* komutunda belirtilen alt ağ. Bir sanal ağ sıfır veya daha fazla alt ağlar içeriyor. Komutu oluşturulan adlı tek bir alt ağ *varsayılan*, ancak için alt ağ adresi önek belirtilmedi. Bir sanal ağ veya alt ağ için bir adres öneki belirtilmediğinde, Azure 10.0.0.0/24 varsayılan olarak ilk alt ağ için adres öneki tanımlar. Sonuç olarak, alt ağ 10.0.0.0-10.0.0.254 kapsayan ancak Azure ilk dört adresler (0-3), her alt ağda son adresi ayırdığından yalnızca 10.0.0.4-10.0.0.254 kullanılabilir.
 
-## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
+## <a name="test-network-communication"></a>Test ağ iletişimi
 
-Bir sanal ağ çeşitli özel olarak birbirleri ile iletişim kurmak için Azure kaynaklarını sağlar. Tek bir sanal ağa dağıttığınız kaynak türü, bir sanal makinedir. Doğrulayın ve daha sonraki bir adımda bir sanal ağdaki sanal makineler arasındaki iletişimi nasıl çalıştığını anlamak için iki sanal makineye sanal ağ oluşturun.
+Bir sanal ağ çeşitli özel olarak birbirleri ile iletişim kurmak için Azure kaynaklarını sağlar. Tek bir sanal ağa dağıttığınız kaynak türü, bir sanal makinedir. Sonraki adımda aralarında özel iletişim doğrulamak için iki sanal makineye sanal ağ oluşturun.
+
+### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
 [az vm create](/cli/azure/vm#az_vm_create) komutuyla bir sanal makine oluşturun. Aşağıdaki örnek, bir sanal makine adlı oluşturur *myVm1*. SSH anahtarları varsayılan anahtar konumunda zaten mevcut değilse komutu bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. `--no-wait` Seçeneği bir sonraki adıma devam etmek için bu sanal makine arka planda oluşturur.
 
@@ -110,7 +112,7 @@ Sanal makine oluşturmak için birkaç dakika sürer. Sanal makine oluşturulduk
 
 Örnekte, gördüğünüz **privateIpAddress** olan *10.0.0.5*. Otomatik olarak atanan azure DHCP *10.0.0.5* sanal makineye sonraki kullanılabilir adresi olduğundan *varsayılan* alt ağ. Not edin **Publicıpaddress**. Bu adres sanal makine bir sonraki adımda Internet'ten erişmek için kullanılır. Genel IP adresi alanından sanal ağ veya alt ağ adres öneklerini içinde atanmadı. Gelen atanmış ortak IP adresleri bir [her bir Azure bölgesine atanan adresler havuzuna](https://www.microsoft.com/download/details.aspx?id=41653). Hangi ortak IP adresi bir sanal makineye atanan Azure bilir olsa da, bir sanal makinede çalışan işletim sistemi atanmış tüm ortak IP adresinin hiçbir şeyin sahiptir.
 
-## <a name="connect-to-a-virtual-machine"></a>Bir sanal makineye bağlanma
+### <a name="connect-to-a-virtual-machine"></a>Bir sanal makineye bağlanma
 
 İle bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın *myVm2* sanal makine. Değiştir `<publicIpAddress>` sanal makinenizin ortak IP adresine sahip. Yukarıdaki örnekte, IP adresidir *40.68.254.142*.
 
@@ -118,7 +120,7 @@ Sanal makine oluşturmak için birkaç dakika sürer. Sanal makine oluşturulduk
 ssh <publicIpAddress>
 ```
 
-## <a name="validate-communication"></a>İletişim doğrula
+### <a name="validate-communication"></a>İletişim doğrula
 
 İle iletişim onaylamak için aşağıdaki komutu kullanın *myVm1* gelen *myVm2*:
 
@@ -136,9 +138,11 @@ ping bing.com -c 4
 
 Aratıp dört yanıt alırsınız. Varsayılan olarak, herhangi bir sanal makine bir sanal ağdaki internet giden iletişim kurabilir.
 
+SSH oturumu VM'nize çıkın.
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olduğunda, kullanabileceğiniz [az grubu Sil](/cli/azure/group#az_group_delete) kaynak grubu ve içerdiği kaynakların tümünü kaldırmak için komutu. SSH oturumu VM'nize çıkın ve ardından kaynakları silin.
+Artık gerekli olduğunda, kullanabileceğiniz [az grubu Sil](/cli/azure/group#az_group_delete) kaynak grubu ve içerdiği kaynakların tümünü kaldırmak için komutu:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -146,8 +150,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir varsayılan sanal ağ bir alt ağı ve iki sanal makine ile dağıtılabilir. Birden çok alt ağ ile özel bir sanal ağ oluşturma ve temel yönetim görevlerini gerçekleştirme hakkında bilgi almak için özel bir sanal ağ oluşturma ve yönetmeyi öğretici devam edin.
-
+Bu makalede, bir varsayılan sanal ağ bir alt ağ ile dağıtılabilir. Birden çok alt ağ ile özel bir sanal ağ oluşturmayı öğrenmek için özel bir sanal ağ oluşturmak için öğretici devam edin.
 
 > [!div class="nextstepaction"]
-> [Özel bir sanal ağ oluşturma ve yönetme](virtual-networks-create-vnet-arm-pportal.md#azure-cli)
+> [Özel bir sanal ağ oluşturma](virtual-networks-create-vnet-arm-pportal.md#azure-cli)

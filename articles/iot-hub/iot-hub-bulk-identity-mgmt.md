@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>IOT Hub cihaz kimliklerinizi toplu yönetme
 
@@ -49,7 +49,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > Kullanılacak **RegistryManager** sınıfı, C# kodunda, ekleme **Microsoft.Azure.Devices** NuGet paketini projenize. **RegistryManager** sınıfı olan **Microsoft.Azure.Devices** ad alanı.
 
-Kullanabileceğiniz **RegistryManager** durumunu sorgulamak için sınıf **iş** döndürülen kullanarak **JobProperties** meta verileri.
+Kullanabileceğiniz **RegistryManager** durumunu sorgulamak için sınıf **iş** döndürülen kullanarak **JobProperties** meta verileri. Örneği oluşturmak için **RegistryManager** sınıfı, kullanın **CreateFromConnectionString** yöntemi:
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+Bağlantı dizesi, IOT hub ' ınızı Azure Portalı'nda bulmak için:
+
+- IOT hub'ına gidin.
+- Seçin **paylaşılan erişim ilkeleri**.
+- Gereksinim duyduğunuz izinleri dikkate alarak, bir ilke seçin.
+- Ekranın sağ taraftaki panelinden connectionstring kopyalayın.
 
 Aşağıdaki C# kod parçacığını işin yürütülmesi tamamlandı görmek için beş saniyede yoklamak gösterilmektedir:
 

@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e9fe49873a03867bdc55239eb4af623f0587f4f8
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 8ce1d6300731af5ae972675a08ef64f5c4ffa342
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Hdınsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme
 
@@ -37,21 +37,21 @@ Azure Hizmet Yönetimi (ASM) kullanılarak Hdınsight ile çalışmak için Azur
 
 Hdınsight ile Azure Resource Manager ile çalışmak için temel komutlar şunlardır:
 
-* `azure hdinsight cluster create`-Yeni bir Hdınsight kümesi oluşturur
-* `azure hdinsight cluster delete`-Mevcut bir Hdınsight kümesine siler
-* `azure hdinsight cluster show`-Varolan bir kümeye hakkındaki bilgileri görüntüleme
-* `azure hdinsight cluster list`-Azure aboneliğiniz için Hdınsight kümeleri listeler
+* `azure hdinsight cluster create` -Yeni bir Hdınsight kümesi oluşturur
+* `azure hdinsight cluster delete` -Mevcut bir Hdınsight kümesine siler
+* `azure hdinsight cluster show` -Varolan bir kümeye hakkındaki bilgileri görüntüleme
+* `azure hdinsight cluster list` -Azure aboneliğiniz için Hdınsight kümeleri listeler
 
 Kullanım `-h` parametreleri ve her komut için kullanılabilen anahtarlar incelemek için anahtar.
 
 ### <a name="new-commands"></a>Yeni komutları
 Azure Resource Manager ile kullanılabilen yeni komutlar şunlardır:
 
-* `azure hdinsight cluster resize`-Kümedeki çalışan düğümü sayısını dinamik olarak değiştirir
-* `azure hdinsight cluster enable-http-access`-Küme HTTPs erişmesini sağlar (üzerinde varsayılan olarak)
-* `azure hdinsight cluster disable-http-access`-kümesine HTTPs erişimi devre dışı bırakır
-* `azure hdinsight script-action`-oluşturma/betik eylemleri bir kümede yönetmek için komutlar sağlar
-* `azure hdinsight config`-bir yapılandırma dosyası oluşturma ile birlikte kullanılabilir komutlar sağlar `hdinsight cluster create` yapılandırma bilgilerini sağlamak için komutu.
+* `azure hdinsight cluster resize` -Kümedeki çalışan düğümü sayısını dinamik olarak değiştirir
+* `azure hdinsight cluster enable-http-access` -Küme HTTPs erişmesini sağlar (üzerinde varsayılan olarak)
+* `azure hdinsight cluster disable-http-access` -kümesine HTTPs erişimi devre dışı bırakır
+* `azure hdinsight script-action` -oluşturma/betik eylemleri bir kümede yönetmek için komutlar sağlar
+* `azure hdinsight config` -bir yapılandırma dosyası oluşturma ile birlikte kullanılabilir komutlar sağlar `hdinsight cluster create` yapılandırma bilgilerini sağlamak için komutu.
 
 ### <a name="deprecated-commands"></a>Kullanım dışı komutları
 Kullanırsanız `azure hdinsight job` Hdınsight kümenize iş göndermek için komutları bu ARM komutlarını kullanılabilir değil. İşlerini Hdınsight'a gelen komut dosyalarını program aracılığıyla göndermek gerekiyorsa, bunun yerine Hdınsight tarafından sağlanan REST API'lerini kullanmanız gerekir. REST API'lerini kullanarak işlerini göndermenin daha fazla bilgi için aşağıdaki belgelere bakın.
@@ -65,18 +65,18 @@ MapReduce çalıştırmak için diğer yöntemler hakkında bilgi, Hive ve etkil
 ### <a name="examples"></a>Örnekler
 **Küme oluşturma**
 
-* Eski komutu (ASM)-`azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* Yeni komutu (ARM)-`azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Eski komutu (ASM)- `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* Yeni komutu (ARM)- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **Küme silme**
 
-* Eski komutu (ASM)-`azure hdinsight cluster delete myhdicluster`
-* Yeni komutu (ARM)-`azure hdinsight cluster delete mycluster -g myresourcegroup`
+* Eski komutu (ASM)- `azure hdinsight cluster delete myhdicluster`
+* Yeni komutu (ARM)- `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **Liste kümeleri**
 
-* Eski komutu (ASM)-`azure hdinsight cluster list`
-* Yeni komutu (ARM)-`azure hdinsight cluster list`
+* Eski komutu (ASM)- `azure hdinsight cluster list`
+* Yeni komutu (ARM)- `azure hdinsight cluster list`
 
 > [!NOTE]
 > Liste komutu için kaynak grubunu kullanarak belirtme `-g` yalnızca kümeler belirtilen kaynak grubunda döndürür.
@@ -85,18 +85,18 @@ MapReduce çalıştırmak için diğer yöntemler hakkında bilgi, Hive ve etkil
 
 **Küme bilgilerini göster**
 
-* Eski komutu (ASM)-`azure hdinsight cluster show myhdicluster`
-* Yeni komutu (ARM)-`azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* Eski komutu (ASM)- `azure hdinsight cluster show myhdicluster`
+* Yeni komutu (ARM)- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Azure Resource Manager Azure PowerShell geçirme
 Azure Resource Manager (ARM) modunda Azure PowerShell hakkında genel bilgi şu adreste bulunabilir: [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
 
-Azure PowerShell ARM cmdlet'leri yüklü yan yana ASM cmdlet'leri olabilir. İki modun cmdlet'leri, adlarına göre ayırt edilebilir.  ARM modu *AzureRmHDInsight* için karşılaştırma cmdlet'in adlarındaki *AzureHDInsight* ASM modunda.  Örneğin, *yeni AzureRmHDInsightCluster* vs. *AzureHDInsightCluster yeni*. Parametreleri ve anahtarları haber adlara sahip ve çok sayıda yeni parametreler kullanılabilir ARM kullanırken yoktur.  Örneğin, birkaç cmdlet'leri adlı yeni bir anahtar gerektiren *- ResourceGroupName*. 
+Azure PowerShell ARM cmdlet'leri yüklü yan yana ASM cmdlet'leri olabilir. İki modun cmdlet'leri, adlarına göre ayırt edilebilir.  ARM modu *AzureRmHDInsight* için karşılaştırma cmdlet'in adlarındaki *AzureHDInsight* ASM modunda.  Örneğin, *yeni AzureRmHDInsightCluster* vs. *New-AzureHDInsightCluster*. Parametreleri ve anahtarları haber adlara sahip ve çok sayıda yeni parametreler kullanılabilir ARM kullanırken yoktur.  Örneğin, birkaç cmdlet'leri adlı yeni bir anahtar gerektiren *- ResourceGroupName*. 
 
 Hdınsight cmdlet'lerini kullanabilmek için Azure hesabınıza bağlanın ve yeni bir kaynak grubu oluşturmanız gerekir:
 
 * Login-AzureRmAccount veya [seçin AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx). Bkz: [bir hizmet sorumlusu Azure Resource Manager ile kimlik doğrulaması](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-* [Yeni-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
+* [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>Yeniden adlandırılmış cmdlet'leri
 Windows PowerShell konsolunda Hdınsight ASM cmdlet'leri listelemek için:
@@ -107,53 +107,53 @@ Aşağıdaki tabloda, ASM cmdlet'leri ve ARM modunda adları listelenmektedir:
 
 | ASM cmdlet'leri | ARM cmdlet'leri |
 | --- | --- |
-| Add-AzureHDInsightConfigValues |[Ekleme AzureRmHDInsightConfigValues](https://msdn.microsoft.com/library/mt603530.aspx) |
-| Add-AzureHDInsightMetastore |[Ekleme AzureRmHDInsightMetastore](https://msdn.microsoft.com/library/mt603670.aspx) |
-| Add-AzureHDInsightScriptAction |[Ekleme AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) |
-| Add-AzureHDInsightStorage |[Ekleme AzureRmHDInsightStorage](https://msdn.microsoft.com/library/mt619445.aspx) |
+| Add-AzureHDInsightConfigValues |[Add-AzureRmHDInsightConfigValues](https://msdn.microsoft.com/library/mt603530.aspx) |
+| Add-AzureHDInsightMetastore |[Add-AzureRmHDInsightMetastore](https://msdn.microsoft.com/library/mt603670.aspx) |
+| Add-AzureHDInsightScriptAction |[Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) |
+| Add-AzureHDInsightStorage |[Add-AzureRmHDInsightStorage](https://msdn.microsoft.com/library/mt619445.aspx) |
 | Get-AzureHDInsightCluster |[Get-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619371.aspx) |
 | Get-AzureHDInsightJob |[Get-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603590.aspx) |
 | Get-AzureHDInsightJobOutput |[Get-AzureRmHDInsightJobOutput](https://msdn.microsoft.com/library/mt603793.aspx) |
 | Get-AzureHDInsightProperties |[Get-AzureRmHDInsightProperties](https://msdn.microsoft.com/library/mt603546.aspx) |
-| Grant-AzureHDInsightHttpServicesAccess |[GRANT-AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619407.aspx) |
-| Grant-AzureHdinsightRdpAccess |[GRANT-AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603717.aspx) |
-| Invoke-AzureHDInsightHiveJob |[Çağırma AzureRmHDInsightHiveJob](https://msdn.microsoft.com/library/mt603593.aspx) |
-| New-AzureHDInsightCluster |[AzureRmHDInsightCluster yeni](https://msdn.microsoft.com/library/mt619331.aspx) |
-| New-AzureHDInsightClusterConfig |[AzureRmHDInsightClusterConfig yeni](https://msdn.microsoft.com/library/mt603700.aspx) |
-| New-AzureHDInsightHiveJobDefinition |[AzureRmHDInsightHiveJobDefinition yeni](https://msdn.microsoft.com/library/mt619448.aspx) |
-| New-AzureHDInsightMapReduceJobDefinition |[AzureRmHDInsightMapReduceJobDefinition yeni](https://msdn.microsoft.com/library/mt603626.aspx) |
-| New-AzureHDInsightPigJobDefinition |[AzureRmHDInsightPigJobDefinition yeni](https://msdn.microsoft.com/library/mt603671.aspx) |
-| New-AzureHDInsightSqoopJobDefinition |[AzureRmHDInsightSqoopJobDefinition yeni](https://msdn.microsoft.com/library/mt608551.aspx) |
-| New-AzureHDInsightStreamingMapReduceJobDefinition |[AzureRmHDInsightStreamingMapReduceJobDefinition yeni](https://msdn.microsoft.com/library/mt603626.aspx) |
+| Grant-AzureHDInsightHttpServicesAccess |[Grant-AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619407.aspx) |
+| Grant-AzureHdinsightRdpAccess |[Grant-AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603717.aspx) |
+| Invoke-AzureHDInsightHiveJob |[Invoke-AzureRmHDInsightHiveJob](https://msdn.microsoft.com/library/mt603593.aspx) |
+| New-AzureHDInsightCluster |[New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) |
+| New-AzureHDInsightClusterConfig |[New-AzureRmHDInsightClusterConfig](https://msdn.microsoft.com/library/mt603700.aspx) |
+| New-AzureHDInsightHiveJobDefinition |[New-AzureRmHDInsightHiveJobDefinition](https://msdn.microsoft.com/library/mt619448.aspx) |
+| New-AzureHDInsightMapReduceJobDefinition |[New-AzureRmHDInsightMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
+| New-AzureHDInsightPigJobDefinition |[New-AzureRmHDInsightPigJobDefinition](https://msdn.microsoft.com/library/mt603671.aspx) |
+| New-AzureHDInsightSqoopJobDefinition |[New-AzureRmHDInsightSqoopJobDefinition](https://msdn.microsoft.com/library/mt608551.aspx) |
+| New-AzureHDInsightStreamingMapReduceJobDefinition |[New-AzureRmHDInsightStreamingMapReduceJobDefinition](https://msdn.microsoft.com/library/mt603626.aspx) |
 | Remove-AzureHDInsightCluster |[Remove-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619431.aspx) |
-| Revoke-AzureHDInsightHttpServicesAccess |[REVOKE-AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619375.aspx) |
-| Revoke-AzureHdinsightRdpAccess |[REVOKE-AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603523.aspx) |
+| Revoke-AzureHDInsightHttpServicesAccess |[Revoke-AzureRmHDInsightHttpServicesAccess](https://msdn.microsoft.com/library/mt619375.aspx) |
+| Revoke-AzureHdinsightRdpAccess |[Revoke-AzureRmHDInsightRdpServicesAccess](https://msdn.microsoft.com/library/mt603523.aspx) |
 | Set-AzureHDInsightClusterSize |[Set-AzureRmHDInsightClusterSize](https://msdn.microsoft.com/library/mt603513.aspx) |
 | Set-AzureHDInsightDefaultStorage |[Set-AzureRmHDInsightDefaultStorage](https://msdn.microsoft.com/library/mt603486.aspx) |
 | Start-AzureHDInsightJob |[Start-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603798.aspx) |
 | Stop-AzureHDInsightJob |[Stop-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt619424.aspx) |
-| Use-AzureHDInsightCluster |[Kullanım AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619442.aspx) |
-| Wait-AzureHDInsightJob |[Bekleme AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603834.aspx) |
+| Use-AzureHDInsightCluster |[Use-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619442.aspx) |
+| Wait-AzureHDInsightJob |[Wait-AzureRmHDInsightJob](https://msdn.microsoft.com/library/mt603834.aspx) |
 
 ### <a name="new-cmdlets"></a>Yeni cmdlet’ler
 Yalnızca ARM modunda kullanılabilir yeni cmdlet'leri şunlardır: 
 
 **Betik eylemi cmdlet'leri ilgili:**
 
-* **Get-AzureRmHDInsightPersistedScriptAction**: bir küme için kalıcı betik eylemleri alır ve bunları kronolojik sırada listeler veya ayrıntıları için belirtilen kalıcı betik eylemi alır. 
-* **Get-AzureRmHDInsightScriptActionHistory**: bir küme için betik eylemi geçmişi alır ve geriye doğru kronolojik sırada listeler ya da daha önce yürütülen betik eylemi ayrıntılarını alır. 
-* **Remove-AzureRmHDInsightPersistedScriptAction**: kalıcı betik eylemi bir Hdınsight kümeden kaldırır.
-* **Set-AzureRmHDInsightPersistedScriptAction**: kalıcı betik eylemi olması için daha önce yürütülen betik eylemi ayarlar.
-* **Gönderme AzureRmHDInsightScriptAction**: Azure Hdınsight kümesi için yeni bir betik eylemi gönderir. 
+* **Get-AzureRmHDInsightPersistedScriptAction**: Gets the persisted script actions for a cluster and lists them in chronological order, or gets details for a specified persisted script action. 
+* **Get-AzureRmHDInsightScriptActionHistory**: Gets the script action history for a cluster and lists it in reverse chronological order, or gets details of a previously executed script action. 
+* **Remove-AzureRmHDInsightPersistedScriptAction**: Removes a persisted script action from an HDInsight cluster.
+* **Set-AzureRmHDInsightPersistedScriptAction**: Sets a previously executed script action to be a persisted script action.
+* **Submit-AzureRmHDInsightScriptAction**: Submits a new script action to an Azure HDInsight cluster. 
 
 Ek kullanım bilgileri için bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Clsuter kimlik cmdlet'leri ilgili:**
 
-* **Ekleme AzureRmHDInsightClusterIdentity**: Hdınsight kümesi Azure Data Lake depoları erişebilmesi için bir küme kimliği bir küme yapılandırma nesnesine ekler. Bkz: [Azure PowerShell kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Add-AzureRmHDInsightClusterIdentity**: Adds a cluster identity to a cluster configuration object so that the HDInsight cluster can access Azure Data Lake Stores. Bkz: [Azure PowerShell kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Örnekler
-**Küme oluşturma**
+Küme oluşturma
 
 Eski komutu (ASM): 
 
@@ -187,7 +187,7 @@ Yeni komut (ARM):
         -SshCredential $sshCredentials
 
 
-**Küme silme**
+Küme silme
 
 Eski komutu (ASM):
 

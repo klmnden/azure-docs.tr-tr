@@ -2,24 +2,17 @@
 title: "Azure sayfa bloblarını benzersiz özelliği | Microsoft Docs"
 description: "Azure ilgili genel sayfa BLOB'ları, avantajları ve örnek komut dosyaları durumlarda kullanın."
 services: storage
-documentationcenter: 
 author: anasouma
-manager: timlt
-editor: 
-tags: azure-resource-manager
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: wielriac
-ms.openlocfilehash: 019b793f6d2b4cb70514d867b78c9501240baeda
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3834fea5961a9c69243bb8e852631585c26a103f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure sayfa Bloblarını benzersiz özellikleri
 
@@ -28,28 +21,28 @@ Azure Storage üç tür blob depolama sunar: blok Blobları, ekleme Blobları ve
 ## <a name="overview"></a>Genel Bakış
 Sayfa Bloblarını rastgele bayt aralıkları okuma/yazma yeteneği sağlamak 512 baytlık sayfaların koleksiyonudur. Bu nedenle, sayfa Bloblarını işletim sistemi ve veri diskleri gibi dizin tabanlı ve seyrek veri yapılarını sanal makineler ve veritabanları için depolanması için idealdir. Örneğin, Azure SQL DB, sayfa bloblarını kalıcı temel alınan depolama alanı olarak veritabanları için kullanır. Ayrıca, sayfa Bloblarını de genellikle aralık tabanlı güncelleştirmeli dosyalar için kullanılır.  
 
-Azure sayfa Bloblarını anahtar özellikleri, REST arabirimi, temel alınan depolama ve Azure sorunsuz geçiş yeteneklerine dayanıklılık verilmiştir. Bu özellikleri daha ayrıntılı olarak sonraki bölümde aşağıdakiler ele alınacaktır. Ayrıca, Azure sayfa Bloblarını iki tür depolama üzerinde şu anda desteklenir: Premium depolama ve standart depolama. Premium depolama özellikle tutarlı yüksek performans ve düşük gecikme süresi premium sayfa bloblarını yüksek kullanıcı veri depolama veritabanları için ideal hale gerektiren iş yükleri için tasarlanmıştır.  Standart depolama daha maliyet gecikmeye duyarlı olmayan iş yüklerini çalıştırmak için etkili olur.
+Azure sayfa Bloblarını anahtar özellikleri, REST arabirimi, temel alınan depolama ve Azure sorunsuz geçiş yeteneklerine dayanıklılık verilmiştir. Bu özellikler sonraki bölümünde daha ayrıntılı olarak ele alınmıştır. Ayrıca, Azure sayfa Bloblarını iki tür depolama üzerinde şu anda desteklenir: Premium depolama ve standart depolama. Premium depolama özellikle tutarlı yüksek performans ve düşük gecikme süresi premium sayfa bloblarını yüksek kullanıcı veri depolama veritabanları için ideal hale gerektiren iş yükleri için tasarlanmıştır.  Standart depolama daha maliyet gecikmeye duyarlı olmayan iş yüklerini çalıştırmak için etkili olur.
 
 ## <a name="sample-use-cases"></a>Örnek kullanım durumları
 
 Şimdi sayfa BLOB'ları ile Azure Iaas disklerini başlangıç için birkaç kullanım örnekleri tartışın. Azure sayfa BLOB'ları Azure Iaas sanal diskler platform omurga ' dir. Azure işletim sistemi ve veri diskleri burada verileri Azure Storage platform işlemi kalıcı ve en yüksek performans için sanal makineler için teslim sanal diskleri olarak uygulanır. Azure diskleri Hyper-V kalıcı [VHD biçimi](https://technet.microsoft.com/library/dd979539.aspx) ve olarak depolanan bir [sayfa blobu](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) Azure depolama. Azure Iaas VM'ler için sanal diskler kullanarak ek olarak, sayfa Bloblarını de şu anda SQL veri depolamak için sayfa Bloblarını kullanır, Azure SQL DB hizmeti gibi PaaS ve DBaaS senaryoları veritabanı için hızlı rastgele okuma-yazma işlemleri etkinleştirme. Başka bir örnek işbirliği video düzenleme uygulamalar için paylaşılan ortam erişim için bir PaaS hizmeti varsa, sayfa bloblarını hızlı medya rastgele konumlarda erişmesini olabilir. Ayrıca, hızlı ve verimli düzenleme ve birden çok kullanıcı tarafından aynı ortamının birleştirme de sağlar. 
 
 Azure Site Recovery, Azure Backup yanı sıra, çok sayıda üçüncü taraf geliştiriciler gibi birinci taraf Microsoft hizmetlerini sayfa blob'un REST arabirimini kullanarak endüstri lideri yenilikleri uyguladık. Azure üzerinde uygulanan benzersiz senaryolardan bazıları şunlardır: 
-* Uygulama yönelik artımlı anlık görüntü Yönetimi: uygulamaları yararlanabilir sayfa Blob anlık görüntüler ve REST API'leri uygulama denetim noktaları veri maliyetli çoğaltma yansıtılmasını olmadan kaydetmek için. Bu, tüm veri kopyalama gerektirmeyen sayfa bloblarını için yerel anlık görüntüleri destekliyoruz çünkü mümkündür. Bu ortak anlık görüntü, API erişme ve farkları arasında anlık olarak kopyalanmasını etkinleştirin.
-* Dinamik geçiş uygulama ve şirket verilerini buluta: şirket içi veri kopyalayın ve şirket içi VM çalışmaya devam ederken doğrudan Azure sayfa blobu yazma için REST API'leri kullanın. Hedef yakalanan sonra hızlı bir şekilde bu verileri kullanarak bir Azure VM yük devretme gerçekleştirebilirsiniz. Bu, sanal makineleri geçişini sağlar ve VM ve yük devretme için gereken kapalı kalma süresi kullanmaya devam ederken veri geçişi arka planda gerçekleşir bu yana en az kapalı kalma süresi ile bulut için şirket içi sanal diskleri (dakika) kısa olacaktır.
+* Uygulama yönelik artımlı anlık görüntü Yönetimi: uygulamaları yararlanabilir sayfa Blob anlık görüntüler ve REST API'leri uygulama denetim noktaları veri maliyetli çoğaltma yansıtılmasını olmadan kaydetmek için. Azure Storage tüm blob kopyalama gerektirmeyen sayfa bloblarını için yerel anlık görüntüleri destekler. Bu ortak anlık görüntü, API erişme ve farkları arasında anlık olarak kopyalanmasını etkinleştirin.
+* Dinamik geçiş uygulama ve şirket verilerini buluta: şirket içi veri kopyalayın ve şirket içi VM çalışmaya devam ederken doğrudan Azure sayfa blobu yazma için REST API'leri kullanın. Hedef yakalanan sonra hızlı bir şekilde bu verileri kullanarak bir Azure VM yük devretme gerçekleştirebilirsiniz. Bu şekilde, VM'lerin geçirebilirsiniz ve VM ve yük devretme için gereken kapalı kalma süresi kullanmaya devam ederken veri geçişi arka planda gerçekleşir bu yana en az kapalı kalma süresi ile bulut için şirket içi sanal diskleri (dakika) kısa olacaktır.
 * [SAS tabanlı](../common/storage-dotnet-shared-access-signature-part-1.md) paylaşılan birden çok okuyucular ve eşzamanlılık denetimi desteğiyle tek yazıcı gibi senaryolara olanak sağlar erişim.
 
 ## <a name="page-blob-features"></a>Sayfa blobu özellikleri
 
 ### <a name="rest-api"></a>REST API
-Kullanmaya başlamak için aşağıdaki belgesine bakın [sayfa BLOB'ları kullanarak geliştirme](storage-dotnet-how-to-use-blobs.md). Örnek olarak, bize nasıl sayfa BLOB'ları .NET için depolama istemci kitaplığı kullanılarak erişileceği bakın. 
+Kullanmaya başlamak için aşağıdaki belgesine bakın [sayfa BLOB'ları kullanarak geliştirme](storage-dotnet-how-to-use-blobs.md). Örnek olarak, sayfa Bloblarını .NET için depolama istemci kitaplığı kullanılarak erişmek nasıl bakın. 
 
 Aşağıdaki diyagramda, hesap, kapsayıcıları ve sayfa BLOB'ları arasındaki genel ilişkileri açıklar.
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-certain-size"></a>Belirli bir boyutta boş bir sayfa blobu oluşturma
-Bir sayfa blob'u oluşturmak için öncelikle bir CloudBlobClient nesnesi depolama hesabınız (Şekil 1'de pbaccount) ile birlikte aşağıda gösterildiği gibi StorageCredentialsAccountAndKey nesne için blob depolama alanına erişim için taban URI ile oluşturuyoruz.  Bu örnek daha sonra CloudBlobContainer nesnesine başvuru oluşturma ve zaten yoksa (testvhds) kapsayıcı oluşturma gösterir.  CloudBlobContainer nesnesi kullanılarak sonra istiyoruz erişmek için sayfa blob adı (os4.vhd) belirterek CloudPageBlob nesnesine başvuru oluşturabilir. Ardından diyoruz sayfa blobu oluşturmak için [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) en büyük boyutu için blob geçirme oluşturmak istiyoruz.  BlobSize 512 baytın katlarından biri olması gerekir.
+Bir sayfa blob'u oluşturmak için önce oluşturduğumuz bir **CloudBlobClient** nesnesiyle depolama hesabınız için blob depolama alanına erişim için ana URI (*pbaccount* Şekil 1'de) ile birlikte  **StorageCredentialsAccountAndKey** , aşağıdaki örnekte gösterildiği gibi nesne. Örnek, ardından bir başvuru oluşturma gösterir bir **CloudBlobContainer** nesne ve kapsayıcı oluşturma (*testvhds*) zaten yoksa. Ardından kullanarak **CloudBlobContainer** nesne, bir başvuru oluşturmak bir **CloudPageBlob** sayfa blob adı (os4.vhd) erişimi belirterek nesnesi. Sayfa blobu oluşturmak için arama [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) blob oluşturmak için en büyük boyutu geçirme. *BlobSize* 512 baytın katlarından biri olması gerekir.
 
 ```csharp
 using Microsoft.WindowsAzure.StorageClient;
@@ -78,7 +71,8 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Bir sayfa blobu yazma sayfalarına
-Sayfaları yazmak için [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx) yöntemi.  Bu, sıralı 4MBs kadar sayfalar kümesi yazmanıza olanak sağlar. Üzerine yazılan uzaklığı bir 512 baytlık sınırında başlatmanız gerekir (startingOffset % 512 == 0) ve 512 sınır - 1 sonlandır.  Aşağıdaki kod, biz erişmek için bir blob nesnesi WritePages çağırma örneği gösterir:
+Sayfaları yazmak için [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx) yöntemi.  Bu, sıralı 4MBs kadar sayfalar kümesi yazmanıza olanak sağlar. Üzerine yazılan uzaklığı bir 512 baytlık sınırında başlatmanız gerekir (startingOffset % 512 == 0) ve 512 sınır - 1 sonlandır.  Aşağıdaki kod örneğinde nasıl çağrılacağını gösterir **WritePages** bir blob için:
+
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
 ```
@@ -102,7 +96,7 @@ Aşağıdaki şekilde 256 ve 4352 rangeSize BlobOffSet ile okuma işlemi göster
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
-Yalnızca sıfır bayt egressing için ödeme yapmaktan kaçınmak için ve indirme gecikme süresini azaltmak için geçerli bir sayfa bölgeler indirmek isteyebileceğiniz seyrek doldurulmuş bir blob varsa.  Hangi sayfaların veri tarafından yedeklenen belirlemek için [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). Ardından, döndürülen aralıkları numaralandırır ve her aralığındaki veriler indirin. 
+Seyrek doldurulmuş blob varsa, yalnızca geçerli sayfa bölgeleri sıfır bayt egressing için ödeme yapmaktan kaçınmak için ve indirme gecikme süresini azaltmak için indirme isteyebilirsiniz.  Hangi sayfaların veri tarafından yedeklenen belirlemek için [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). Ardından, döndürülen aralıkları numaralandırır ve her aralığındaki veriler indirin. 
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
 
@@ -121,16 +115,16 @@ foreach (PageRange range in pageRanges)
 ```
 
 #### <a name="leasing-a-page-blob"></a>Bir sayfa blob'u kiralama
-Kira blob'u işlemi oluşturur ve yazma için bir blob üzerinde bir kilit yönetir ve silme işlemleri. Bu işlem, aynı anda yalnızca bir istemci için blob yazabilirsiniz emin olmak için birden çok istemciden alınan bir sayfa blob'u burada erişiliyor senaryolarda oldukça yararlıdır. Azure diskleri, örneğin, yararlanır bu kiralama mekanizması disk yalnızca tek bir VM tarafından yönetildiğinden emin olun. Kilit süresi 15 ila 60 saniye olabilir veya sonsuz olabilir. Belgelerine bakın [burada](/rest/api/storageservices/lease-blob) daha fazla ayrıntı için.
+Kira blob'u işlemi oluşturur ve yazma için bir blob üzerinde bir kilit yönetir ve silme işlemleri. Bu işlem, aynı anda yalnızca bir istemci için blob yazabilirsiniz emin olmak için birden çok istemciden alınan bir sayfa blob'u burada erişiliyor senaryolarda kullanışlıdır. Azure diskleri, örneğin, yararlanır bu kiralama mekanizması disk yalnızca tek bir VM tarafından yönetildiğinden emin olun. Kilit süresi 15 ila 60 saniye olabilir veya sonsuz olabilir. Belgelerine bakın [burada](/rest/api/storageservices/lease-blob) daha fazla ayrıntı için.
 
 > Almak için aşağıdaki bağlantıyı kullanın [kod örnekleri](/resources/samples/?service=storage&term=blob&sort=0) diğer birçok uygulama senaryoları için. 
 
 Zengin REST API'lerini ek olarak, sayfa bloblarını paylaşılan erişim, dayanıklılık ve Gelişmiş güvenlik sağlar. Biz bu avantajlar sonraki paragrafları daha ayrıntılı olarak ele alınacaktır. 
 
 ### <a name="concurrent-access"></a>Eş zamanlı erişim
-Sayfa Blobları REST API ve kiralama mekanizması uygulamaların birden fazla istemcilerden sayfa blobu erişmesine izin verir. Örneğin, depolama nesneleri ile birden çok kullanıcı paylaşan bir dağıtılmış bulut hizmeti oluşturmak gereken varsayalım. Büyük bir görüntü koleksiyonu için birkaç kullanıcıya hizmet veren bir web uygulaması olabilir. Bu uygulama için bir seçenek, bir VM ekli disklerle kullanmaktır. Bu INCLUDE downsides (i) bir disk yalnızca bu nedenle, ölçeklenebilirlik, esneklik, sınırlama ve riskleri artırma tek bir VM için eklenebilecek kısıtlaması. VM veya VM'de çalışan hizmeti ile ilgili bir sorun varsa, kira süresi dolana veya bozuk kadar sonra kira nedeniyle görüntünün erişilemez durumda olacak; ve (II) bir Iaas VM sonucunda ek maliyet. 
+Sayfa Blobları REST API ve kiralama mekanizmasının uygulamaların birden fazla istemcilerden sayfa blobu erişmesine izin verir. Örneğin, depolama nesneleri ile birden çok kullanıcı paylaşan bir dağıtılmış bulut hizmeti oluşturmak gereken varsayalım. Büyük bir görüntü koleksiyonu için birkaç kullanıcıya hizmet veren bir web uygulaması olabilir. Bu uygulama için bir seçenek, bir VM ekli disklerle kullanmaktır. Bu INCLUDE downsides (i) bir disk yalnızca bu nedenle, ölçeklenebilirlik, esneklik, sınırlama ve riskleri artırma tek bir VM için eklenebilecek kısıtlaması. VM veya VM'de çalışan hizmeti ile ilgili bir sorun varsa, kira süresi dolana veya bozuk kadar sonra kira nedeniyle görüntünün erişilemez; ve (II) bir Iaas VM sonucunda ek maliyet. 
 
-Azure Storage REST API'leri aracılığıyla doğrudan sayfa BLOB'ları kullanmak için alternatif bir seçenek vardır. Bu seçeneği maliyetli Iaas VM'ler gereksinimini ortadan kaldırır, birden çok istemcilerden doğrudan erişim tam esneklik sunar, diskleri ekleme/ayırma gereğini ortadan kaldırarak Hizmet Yönetimi basitleştirir ve VM sorunları riskini ortadan kaldırır. Ve aynı düzeyde bir disk olarak rasgele okuma/yazma işlemleri için performans sağlar
+Azure Storage REST API'leri aracılığıyla doğrudan sayfa BLOB'ları kullanmak için alternatif bir seçenek vardır. Bu seçenek maliyetli Iaas VM'ler gereksinimini ortadan kaldırır, birden çok istemcilerden doğrudan erişim tam esneklik sunar, diskleri ekleme/ayırma gereğini ortadan kaldırarak Klasik dağıtım modeli basitleştirir ve VM sorunları riskini ortadan kaldırır. Ve aynı düzeyde bir disk olarak rasgele okuma/yazma işlemleri için performans sağlar
 
 ### <a name="durability-and-high-availability"></a>Dayanıklılık ve yüksek kullanılabilirlik
 Standart ve premium depolama olan dayanıklı depolama burada sayfa blob verileri her zaman dayanıklılık ve yüksek kullanılabilirlik sağlamak için çoğaltılır. Bu Azure depolama artıklığı hakkında daha fazla bilgi için bkz [belgelerine](../common/storage-redundancy.md). Azure tutarlı bir şekilde teslim Kurumsal düzeyde dayanıklılık Iaas disklerini ve sayfa blobları, endüstri lideri ile sıfır % [değer yıllık hata oranı](https://en.wikipedia.org/wiki/Annualized_failure_rate). Diğer bir deyişle, Azure hiçbir zaman bir müşteri'nin sayfa blob verileri kaybetti. 
@@ -141,7 +135,3 @@ Müşteriler ve kendi özelleştirilmiş yedekleme çözümü uygulamak ilgilene
 Ayrıca, birçok işletmenin zaten şirket içi veri merkezlerinde çalışan kritik iş yükleri vardır. İş yükü buluta geçirmek için ana endişelere birini kapalı kalma süresini veri ve beklenmeyen sorunlar riskini sonra geçiş kopyalamak için gerekli olacaktır. Çoğu durumda, bir showstopper buluta geçiş için kapalı kalma süresi olabilir. Sayfa Blobları REST API kullanarak, kritik iş yükleri için en az kesintiyi ile bulut geçiş etkinleştirerek Azure bu sorunu giderir. 
 
 Bir anlık görüntünün nasıl alınacağı ve bir sayfa blob'u bir anlık görüntüden geri yükleme hakkında daha fazla örnekler için lütfen [artımlı anlık görüntülerini kullanarak bir yedekleme işlemi Kurulum](../../virtual-machines/windows/incremental-snapshots.md) makalesi.
-
-
-## <a name="summary"></a>Özet
-Azure müşterilerimizin en iyi sınıf deneyimi sunmak için çalışır. Kritik verilerini sahip Azure müşterilerimizin güvenebileceği şekilde ile Kurumsal düzeyde dayanıklılık veri depolama platform oluşturduğumuz. Azure, başka bir genel bulut platform sağlayabileceği sayfa Bloblarını benzersiz API desteği ve geliştirici deneyimini sunar. Bu sorunsuz bulut geçişler, üstün yedekleme/DR deneyimi, PaaS ve DBaaS desteği, dağıtılmış depolama çözümleri ve diğer yenilikleri Iaas VM'ler/disklerin gibi birçok taraf 1 ve 3. taraf yenilik açmıştır. Genel olarak, tüm genel bulut platformlarıyla, bu benzersiz özellikleri arasında Azure öne çıkması ve Azure müşterilerine avantajları bu değer-ekler başka bir bulut platformlarıyla sağlayabilir.

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/22/2018
 ms.author: rajanaki
-ms.openlocfilehash: 504548abf00cf682c130af22eb29d47d0f47a82a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 67d9164fcf8fb3731c4e3a9d30ac5c38da5908c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>VMM bulutlarındaki Hyper-V sanal makineleri PowerShell ve Azure Resource Manager kullanarak azure'a
 > [!div class="op_single_selector"]
@@ -284,7 +284,7 @@ Dağıtımınızı test etmek için test yük devretme için tek bir sanal makin
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
-## <a name=monitor></a>Etkinliğini izleme
+## <a name=monitor></a> Etkinliğini izleme
 Etkinliğini izlemek için aşağıdaki komutları kullanın. Bitirmek işleme işleri arasında beklemek zorunda unutmayın.
 
     Do

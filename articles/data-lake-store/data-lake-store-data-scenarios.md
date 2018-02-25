@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 6428c6d9fcb577f18221ee48a61456c460bd8176
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: bd69d3c353c7f44efb37e2359412aa3a9f3e8f8d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Azure Data Lake Store için büyük veri gereksinimleri kullanma
 Büyük veri işleme, dört anahtar aşamaları şunlardır:
@@ -40,7 +40,7 @@ Bu, daha küçük veri kümeleri temsil eden bir büyük veri uygulaması için 
 
 | Veri Kaynağı | Kullanarak alma |
 | --- | --- |
-| Yerel bilgisayar |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure platformlar arası CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Visual Studio için Data Lake Araçları'nı kullanarak](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Yerel bilgisayar |<ul> <li>[Azure portalındaki](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure platformlar arası CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Visual Studio için Data Lake Araçları'nı kullanarak](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure depolama blobunu |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy aracı](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Hdınsight küme üzerinde çalışan Distcp'yi](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Akışa
@@ -52,7 +52,7 @@ Kullanabileceğiniz araçlar şunlardır:
 * [Azure Hdınsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) -Storm kümeden doğrudan Data Lake Store'a veri yazabilirsiniz.
 * [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – olayları olay hub'larından almak ve Data Lake Store kullanmaya yazma [Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md).
 
-### <a name="relational-data"></a>İlişkisel veri
+### <a name="relational-data"></a>İlişkisel veriler
 Ayrıca, ilişkisel veritabanlarından veri kaynağı. Bir süre boyunca, büyük miktarlarda verinin büyük veri kanalı yoluyla işlenen anahtar Öngörüler sağlayabilen ilişkisel veritabanları toplayın. Data Lake Store içinde bu tür veri taşımak için aşağıdaki araçları kullanabilirsiniz.
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -71,8 +71,8 @@ Web sunucu günlüğü verileri karşıya yükleme için ve ayrıca verileri (ö
 ### <a name="data-associated-with-azure-hdinsight-clusters"></a>Azure Hdınsight kümeleri ile ilgili veriler
 Çoğu Hdınsight küme türleri (Hadoop, HBase, Storm) Data Lake Store veri depolama depo olarak destekler. Hdınsight kümeleri, Azure Storage Blobları (WASB) veri erişim. Daha iyi performans için verileri WASB kümeyle ilişkili bir Data Lake Store hesabı kopyalayabilirsiniz. Verileri kopyalamak için aşağıdaki araçları kullanabilirsiniz.
 
-* [Apache Distcp'yi](data-lake-store-copy-data-wasb-distcp.md)
-* [AdlCopy hizmeti](data-lake-store-copy-data-azure-storage-blob.md)
+* [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
+* [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Şirket içi veya Iaas Hadoop kümeleri veriler
@@ -117,7 +117,7 @@ Böyle durumlarda, aşağıdaki seçeneklerden birini kullanabilirsiniz:
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
-* [Apache Distcp'yi](data-lake-store-copy-data-wasb-distcp.md)
+* [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
 Kendi komut dosyası/Data Lake Deposu'ndan veri veri indirmek için uygulama yazmak için aşağıdaki yöntemleri de kullanabilirsiniz.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 7a8cd09731ccdf7ad7385f7e707125c3902ebdf2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9e0c602646009b20c8d4f8a29d55b7f44a089131
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Şirket içi VMware/fiziksel sunucu çoğaltma sorunlarını giderme
 VMware sanal makineleri veya fiziksel sunucuları Azure Site RECOVERY'yi kullanarak korurken, belirli bir hata iletisi alabilirsiniz. Bu makalede bazı karşılaştı, sorun giderme bunları gidermek için adımları yanı sıra daha sık karşılaşılan hata iletileri ayrıntılarını verir.
@@ -83,11 +83,11 @@ Bağlanma sorunu, güvenlik duvarı veya bir sonraki adımda açıklandığı gi
 
   `*.backup.windowsazure.com:` Çoğaltma veri aktarımı ve düzenlemesi için kullanılır
 
-  `*.blob.core.windows.net:`Erişim depoları veri kopyalandığı depolama hesabı için kullanılan
+  `*.blob.core.windows.net:` Erişim depoları veri kopyalandığı depolama hesabı için kullanılan
 
   `*.hypervrecoverymanager.windowsazure.com:` Çoğaltma yönetimi işlemleri ve düzenleme için kullanılır
 
-  `time.nist.gov`ve `time.windows.com`: Sistem ve genel saat arasındaki zaman eşitlemesini denetlemek için kullanılır.
+  `time.nist.gov` ve `time.windows.com`: Sistem ve genel saat arasındaki zaman eşitlemesini denetlemek için kullanılır.
 
 URL'ler için **Azure Bulutu**:
 

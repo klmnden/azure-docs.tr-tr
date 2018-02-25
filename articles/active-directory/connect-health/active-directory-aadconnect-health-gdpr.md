@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2018
 ms.author: billmath
-ms.openlocfilehash: b9a0b9027bbead00300040186e453933b3a7f46b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect-health"></a>GDPR uyumluluk ve Azure AD Connect Health 
 
@@ -35,6 +35,8 @@ Azure AD Connect Health döner içine **veri işlemcisi** GDPR sınıflandırma 
 
 ## <a name="data-retention-policy"></a>Veri saklama ilkesi
 Azure AD Connect Health değil raporları oluşturun, analiz gerçekleştirmek veya 30 gün ötesinde Öngörüler sağlayın. Bu nedenle, Azure AD Connect Health depolamaz, işlem veya 30 gün ötesinde herhangi bir veriyi korur. Bu tasarım, GDPR düzenlemeler, Microsoft gizlilik uyumluluk düzenlemeleri ve Azure AD veri bekletme ilkeleri ile uyumludur. 
+
+Etkin sunucularıyla **sistem sağlığı hizmeti verileri güncel değil** **hata** hiçbir veri bu zaman aralığı sırasında Connect Health ulaştı 30 güne önermek için uyarılar. Bu sunucular devre dışı ve Connect Health Portalı'nda gösterilmez. Sunucuları yeniden etkinleştirmek için öncelikle kaldırmanız ve [sistem durumu aracısı yeniden](active-directory-aadconnect-health-agent-install.md). Lütfen bu için uygulanmaz Not **uyarıları** ile aynı uyarı türü. Uyarılar, kısmi veri için uyarılırsınız sunucusundan eksik olduğunu gösterir. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Veri toplama ve Azure AD Connect Health izleme devre dışı bırak
 Azure AD Connect Health, izlenen bir hizmet örneği veya ayrı ayrı her izlenen sunucu için veri toplamayı durdurmak sağlar. Örneğin, Azure AD Connect Health kullanılarak izlenen tek tek ADFS (Active Directory Federasyon Hizmetleri) sunucuları için veri toplama durdurabilirsiniz. Ayrıca, Azure AD Connect Health ile izlenmekte olan tüm ADFS örneği için veri toplama durdurabilirsiniz. Bunu yapmak seçtiğinizde, bunlara karşılık gelen sunucuları Azure AD Connect Health Portalı'ndan veri toplamayı durdurduktan sonra silinir. 
@@ -53,7 +55,7 @@ Veri toplama ve tek bir izlenen sunucu veya izlenen bir hizmet örneği için iz
 - Microsoft Azure veri bekletme ilkesi uyarınca izlenen hizmet örneğine ait tüm veriler silinir.
 
 ### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Veri toplama ve izlenen bir sunucu için izlemeyi devre dışı bırak
-Bkz: [Azure AD Connect Health bir sunucuyu kaldırmak nasıl](active-directory-aadconnect-health-operations.md#to-delete-a-server-from-the-azure-ad-connect-health-service).
+Bkz: [Azure AD Connect Health bir sunucuyu kaldırmak nasıl](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Veri toplama ve izlenen bir hizmet örneği için izleme devre dışı bırak
 Bkz: [Azure AD Connect Health bir hizmet örneği kaldırma](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).

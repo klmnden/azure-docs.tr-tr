@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantı yeniden yönlendirme
 
@@ -27,7 +27,7 @@ Azure AD uygulama proxy'si, şirket içi uygulamalarınızı Uzaktan kullanıcı
 
 Bağlantıları aynı hem içinde hem de Şirket ağınızın dışındaki çalıştığından emin olmak için en iyi yolu, kendi iç URL'ler ile aynı olacak şekilde dış URL'ler uygulamalarınızın yapılandırmaktır. Kullanım [özel etki alanlarını](active-directory-application-proxy-custom-domains.md) varsayılan uygulama proxy etki alanı yerine şirket etki alanı adınızı sağlamak için dış URL'ler yapılandırılır.
 
-Özel etki alanlarını kiracınızda kullanamıyorsanız, uygulama proxy'sinin bağlantı çeviri özelliği, kullanıcılarınızın nerede olursa olsun çalışma bağlantılarınızı tutar. Doğrudan iç uç noktalar veya bağlantı noktası uygulamalar varsa, bu dahili URL'leri yayımlanan dış uygulama Proxy URL'ler eşleyebilirsiniz. Bağlantı çeviri etkinleştirildiğinde ve HTML, CSS ve JavaScript etiketlerin select yayımlanan iç bağlantılar için uygulama proxy'si arar. Böylece kullanıcılarınızın kesintisiz bir deneyim almak uygulama proxy'si hizmeti bunları çevirir.
+Özel etki alanlarını kiracınızda kullanamıyorsanız, uygulama proxy'sinin bağlantı çeviri özelliği, kullanıcılarınızın nerede olursa olsun çalışma bağlantılarınızı tutar. Doğrudan iç uç noktalar veya bağlantı noktası uygulamalar varsa, bu dahili URL'leri yayımlanan dış uygulama Proxy URL'ler eşleyebilirsiniz. Ne zaman bağlantı çevirisi etkin ve kesintisiz bir deneyim kullanıcılarınız alır şekilde yayımlanan iç bağlantılar için uygulama proxy'si aramaları HTML ve CSS aracılığıyla uygulama proxy'si hizmeti bunları çevirir.
 
 >[!NOTE]
 >Bağlantı çeviri özelliğini ne olursa olsun nedeni için özel etki alanlarını uygulamalarını aynı iç ve dış URL'leri olmasını kullanamazsınız, kiracılar içindir. Bu özelliği etkinleştirmek için önce olup [Azure AD uygulama proxy'si özel etki alanlarında](active-directory-application-proxy-custom-domains.md) sizin için çalışabilir.
@@ -64,7 +64,7 @@ Bağlantı çevirisi avantajları uygulama için etkinleştirdiğinizde, giderle
 Performans ve güvenliği iyileştirmek için bazı bağlantılar çevrilen değil:
 
 - Bağlantılar kod etiketleri içinde değil. 
-- Bağlantılar HTML, CSS ve JavaScript içinde değil. 
+- Bağlantılar HTML veya CSS biçiminde değil. 
 - İç bağlantılar diğer programlardan açıldı. Gönderilen e-posta veya anlık ileti veya diğer belgelerde bulunan bağlantılar çevrilmiş olmaz. Kullanıcıların dış URL'sine gitmek için bilmeniz gerekir.
 
 Şu iki senaryodan biri desteklemeniz gerekiyorsa, aynı iç ve dış URL yerine bağlantı çeviri kullanın.  
@@ -84,7 +84,7 @@ Kullanıcıların bu uygulamayı eriştiğinizde, artık, proxy otomatik olarak 
 
 ## <a name="send-feedback"></a>Geri bildirim gönderin
 
-Bu özellik, uygulamalarınız için iş yapmak için Yardım istiyoruz. Biz 30 etiketleri HTML ve CSS arayın ve hangi desteklemek için JavaScript durumlarda değerlendiriyorsanız. Çevrildiğini olmayan oluşturulan bağlantıları örneği varsa, bir kod parçacığı göndermeniz [uygulama Proxy geri bildirim](mailto:aadapfeedback@microsoft.com). 
+Bu özellik, uygulamalarınız için iş yapmak için Yardım istiyoruz. 30 etiketleri HTML ve CSS arayın. Çevrildiğini olmayan oluşturulan bağlantıları örneği varsa, bir kod parçacığı göndermeniz [uygulama Proxy geri bildirim](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure AD uygulama proxy'si ile özel etki alanları kullanabilirsiniz](active-directory-application-proxy-custom-domains.md) aynı iç ve dış URL sağlamak için

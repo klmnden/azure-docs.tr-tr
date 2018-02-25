@@ -2,23 +2,17 @@
 title: "Kapsayıcılar ve Azure Blob depolamada BLOB'lar için herkese okuma erişimi etkinleştir | Microsoft Docs"
 description: "Kapsayıcılar ve bloblar anonim erişim için nasıl oluşturulacağı ve programlı olarak erişmek nasıl öğrenin."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: f52079c72be298daaa45074e516f911022780392
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4ddafb095816b5be82a18faa9c60869094e5e4c6
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Kapsayıcılara ve blob’lara anonim okuma erişimini yönetme
 Bir kapsayıcı ve bloblarını Azure Blob depolamada anonim, ortak okuma erişimi etkinleştirebilirsiniz. Bunu yaparak, hesap anahtarınızı paylaşımı ve paylaşılan erişim imzası (SAS) gerek olmadan bu kaynaklara salt okunur erişim verebilirsiniz.
@@ -36,7 +30,7 @@ Varsayılan olarak, bir kapsayıcı ve içindeki tüm BLOB'ları yalnızca depol
 
 Kapsayıcı izinlerini ayarlamak için aşağıdakileri kullanın:
 
-* [Azure portal](https://portal.azure.com)
+* [Azure portalı](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure CLI 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Program aracılığıyla, depolama istemcisi kitaplıklarını veya REST API'yi birini kullanarak
@@ -130,19 +124,19 @@ Bir kapsayıcının ACL genel erişime izin verecek şekilde ayarladığınızda
 | Kapsayıcı ACL ayarlayın |Yalnızca sahibi |Yalnızca sahibi |
 | Kapsayıcısını silmek |Yalnızca sahibi |Yalnızca sahibi |
 | Liste BLOB'ları |Tümü |Yalnızca sahibi |
-| BLOB yerleştirme |Yalnızca sahibi |Yalnızca sahibi |
+| Put Blob |Yalnızca sahibi |Yalnızca sahibi |
 | BLOB alma |Tümü |Tümü |
 | BLOB özelliklerini alma |Tümü |Tümü |
 | Blob özelliklerini ayarlama |Yalnızca sahibi |Yalnızca sahibi |
-| BLOB meta verileri alma |Tümü |Tümü |
-| BLOB meta verileri ayarlama |Yalnızca sahibi |Yalnızca sahibi |
+| Get Blob Metadata |Tümü |Tümü |
+| Set Blob Metadata |Yalnızca sahibi |Yalnızca sahibi |
 | Blok yerleştirme |Yalnızca sahibi |Yalnızca sahibi |
 | Engelleme listesi (yalnızca kaydedilmiş engeller) Al |Tümü |Tümü |
 | Engelleme listesi (yalnızca kaydedilmemiş blokları veya tüm blokları) Al |Yalnızca sahibi |Yalnızca sahibi |
 | Engelleme listesi yerleştirme |Yalnızca sahibi |Yalnızca sahibi |
 | BLOB Sil |Yalnızca sahibi |Yalnızca sahibi |
 | BLOB kopyalama |Yalnızca sahibi |Yalnızca sahibi |
-| Anlık görüntü Blob |Yalnızca sahibi |Yalnızca sahibi |
+| Snapshot Blob |Yalnızca sahibi |Yalnızca sahibi |
 | Kira blob'u |Yalnızca sahibi |Yalnızca sahibi |
 | Sayfa yerleştirin |Yalnızca sahibi |Yalnızca sahibi |
 | Sayfa aralıklarını alma |Tümü |Tümü |

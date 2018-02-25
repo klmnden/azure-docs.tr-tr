@@ -11,55 +11,208 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 74f99dd6f31ecff7c838d8f710a7fe4279ce0ea9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e9fb3e68db66449d9ca3b43e6974910cb9477e62
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core için Application Insights
-[Application Insights](app-insights-overview.md) , web uygulamanızın kullanılabilirlik, performans ve kullanım izlemenize izin verir. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
 
-![Örnek](./media/app-insights-asp-net-core/sample.png)
+Azure Application Insights web uygulamanıza kod düzeyine ayrıntılı izleme sağlar. Web uygulamanız için kullanılabilirliği, performansı ve kullanımı kolay izleyebilirsiniz. Ayrıca, bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları hızlıca tanımlayıp tespit edebilirsiniz.
 
-Bir aboneliğe gerekir [Microsoft Azure](http://azure.com). Windows, XBox Live veya diğer Microsoft bulut hizmetlerinde kullanıyor olabileceğiniz bir Microsoft hesabıyla oturum açın. Takımınızın kurumsal bir Azure aboneliğine sahip olabilir: sahibinden Microsoft hesabınızı kullanarak eklemeli isteyin.
+Bu makalede, örnek ASP.NET Core oluşturmada size yol gösterilir [Razor sayfalarının](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) Visual Studio ve Azure Application Insights ile izlemeye başlamak nasıl uygulama.
 
-## <a name="getting-started"></a>Başlarken
+## <a name="prerequisites"></a>Önkoşullar
 
-* Visual Studio Çözüm Gezgini'nde, projenize sağ tıklayın ve seçin **yapılandırma Application Insights**, veya **Ekle > Application Insights**. [Daha fazla bilgi edinin](app-insights-asp-net.md).
-* Bu menü komutlarını görmüyorsanız izleyin [alma Başlarken Kılavuzu](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started). Projeniz Visual Studio sürümü ile 2017 önce oluşturulduysa, bunu yapmanız gerekebilir.
+- NET çekirdek 2.0.0 SDK veya sonraki bir sürümü.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.3 veya ASP.NET ve web geliştirme iş yükü ile sonraki bir sürümü.
 
-## <a name="using-application-insights"></a>Application Insights’ı Kullanma
-Oturum [Microsoft Azure portal](https://portal.azure.com)seçin **tüm kaynakları** veya **Application Insights**ve ardından oluşturduğunuz uygulamanızı izlemek için kaynak seçin.
+## <a name="create-an-aspnet-core-project-in-visual-studio"></a>Visual Studio'da bir ASP.NET Core projesi oluşturma
 
-Ayrı bir tarayıcı penceresinde uygulamanızı biraz kullanın. Application Insights grafikte görüntülenen verileri görürsünüz. (Yenile'yi tıklatın gerekebilir.) Geliştirme yapıyorsanız sırasında yalnızca küçük miktarda veri olacaktır, ancak uygulamanızı yayınlama ve çok sayıda kullanıcı varsa bu grafikler gerçekten Canlı gelir. 
+1. Sağ tıklatın ve Başlat **Visual Studio 2017** yönetici olarak.
+2. Seçin **dosya** > **yeni** > **proje** (Ctrl-Shift-N).
 
-Genel bakış sayfasında anahtar performans grafiklerini gösterir: sunucu yanıt süresi, sayfa yükleme süresi ve başarısız isteklerin sayısı. Daha fazla grafikler ve veri görmek için herhangi bir grafiğe tıklayın.
+   ![Visual Studio dosya yeni proje menüsünün ekran görüntüsü](./media/app-insights-asp-net-core/0001-file-new-project.png)
 
-Portal görünümlerde üç ana kategoriye ayrılır:
+3. Genişletme **Visual C#** > seçin **.NET Core** > **ASP.NET Core Web uygulaması**. Girin bir **adı** > **çözüm adı** > denetleyin **oluştur yeni Git deposu**.
 
-* [Ölçüm Gezgini](app-insights-metrics-explorer.md) grafikleri ve ölçümleri ve yanıt sürelerini, başarısızlık oranları veya kendiniz ile oluşturduğunuz ölçümleri gibi sayıları tabloları gösterir [API](app-insights-api-custom-events-metrics.md). Verileri daha iyi uygulamanızı ve kullanıcılarına anlamak almak için özellik değerlerine göre segmentlere ayırmak ve filtreleyebilirsiniz.
-* [Arama Gezgini](app-insights-diagnostic-search.md) belirli istekleri, özel durumlar, günlük izlemelerini veya kendiniz ile oluşturulan olaylar gibi olayları tek tek listeler [API](app-insights-api-custom-events-metrics.md). Filtre ve olayları arayın ve sorunları araştırmak için ilgili olaylar arasında gidin.
-* [Analytics](app-insights-analytics.md) siz telemetrinize SQL benzeri sorguları çalıştırmak sağlar ve güçlü bir Analitik ve tanı aracıdır.
+   ![Visual Studio dosya yeni proje Sihirbazı ekran görüntüsü](./media/app-insights-asp-net-core/0002-new-project-web-application.png)
 
-## <a name="alerts"></a>Uyarılar
-* Otomatik olarak Al [öngörülü tanılama uyarıları](app-insights-proactive-diagnostics.md) , belirtilir başarısızlık oranları ve diğer ölçümleri anormal değişiklikler hakkında.
-* Ayarlanan [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md) sürekli konumlardan dünya çapında Web sitenizi test ve herhangi bir test başarısız olarak e-postaları almak için.
-* Ayarlanan [ölçüm uyarıları](app-insights-monitor-web-app-availability.md) ölçümleri yanıt sürelerini veya özel durum oranları gibi dış kabul edilebilir sınırlar Git olmadığını bilmek.
+4. Seçin **.Net Core** > **ASP.NET Core 2.0** **Web uygulaması** > **Tamam**.
+
+    ![Visual Studio dosya yeni proje seçimi menüsünün ekran görüntüsü](./media/app-insights-asp-net-core/0003-dot-net-core.png)
+
+## <a name="add-application-insights-telemetry"></a>Application Insights Telemetrisi ekleme
+
+1. Seçin **proje** > **Application Insights Telemetrisi Ekle...** (Alternatif olarak sağ **bağlantılı Hizmetler** > bağlı hizmet Ekle.)
+
+    ![Visual Studio dosya yeni proje seçimi menüsünün ekran görüntüsü](./media/app-insights-asp-net-core/0004-add-application-insights-telemetry.png)
+
+2. **Ücretsiz Olarak Başla**’yı seçin.
+
+    ![Visual Studio dosya yeni proje seçimi menüsünün ekran görüntüsü](./media/app-insights-asp-net-core/0005-start-free.png)
+
+3. Uygun bir seçin **abonelik** > **kaynak** > ve koleksiyon 1 GB'den aylık izin verilip verilmeyeceğini > **kaydetmek**.
+
+    ![Visual Studio dosya yeni proje seçimi menüsünün ekran görüntüsü](./media/app-insights-asp-net-core/0006-register.png)
+
+## <a name="changes-made-to-your-project"></a>Projenize Made değiştirir
+
+Application Insights çok düşük ek yükleri olur. Projenize Application Insights telemetri ekleyerek yapılan değişiklikleri gözden geçirmek için:
+
+Seçin **Görünüm** > **Takım Gezgini** (Ctrl +\, Ctrl + M) > **proje** > **değişiklikleri**
+
+- Toplam dört değişiklikler:
+
+  ![Application Insights ekleyerek değiştirilen dosyalar ekran görüntüsü](./media/app-insights-asp-net-core/0007-changes.png)
+
+- Yeni bir dosya oluşturulur:
+
+   **ConnectedService.json**
+
+  ![Application Insights ekleyerek değiştirilen dosyalar ekran görüntüsü](./media/app-insights-asp-net-core/0008-connectedservice-json.png)
+
+- Değiştirilen üç dosyaları:
+
+  **appsettings.json**
+
+   ![Application Insights ekleyerek değiştirilen dosyalar ekran görüntüsü](./media/app-insights-asp-net-core/0009-appsettings-json.png)
+
+  **ContosoDotNetCore.csproj**
+
+   ![Application Insights ekleyerek değiştirilen dosyalar ekran görüntüsü](./media/app-insights-asp-net-core/0010-contoso-netcore-csproj.png)
+
+   **Program.cs**
+
+   ![Application Insights ekleyerek değiştirilen dosyalar ekran görüntüsü](./media/app-insights-asp-net-core/0011-program-cs.png)
+
+## <a name="synthetic-transactions-with-powershell"></a>PowerShell ile yapay işlemler
+
+Uygulamanızı başlatma tıklattıktan sonra geçici bağlantıları el ile test trafiği oluşturmak için kullanılabilir. Ancak, bu genellikle PowerShell'de basit bir yapay işlem oluşturmak yararlıdır.
+
+1. IIS Express'i tıklatarak uygulamanızı çalıştırma ![Ekran görüntüsü, Visual Studio IIS Express simgesi](./media/app-insights-asp-net-core/0012-iis-express.png)
+
+2. Tarayıcınızın adres çubuğundan URL'yi kopyalayın. Biçim http://localhost olduğu: {rastgele bağlantı noktası numarası}
+
+   ![Tarayıcı url adres çubuğunun ekran görüntüsü](./media/app-insights-asp-net-core/0013-copy-url.png)
+
+3. Test uygulamanızı karşı 100 yapay işlemler oluşturmak için aşağıdaki PowerShell döngü çalıştırın. Sonra bağlantı noktası numarasını değiştirin **localhost:** önceki adımda kopyaladığınız url ile eşleşmek üzere.
+
+   ```PS
+   for ($i = 0 ; $i -lt 100; $i++)
+   {
+    Invoke-WebRequest -uri http://localhost:50984/
+   }
+   ```
+
+## <a name="open-application-insights-portal"></a>Açık uygulama Insights portalı
+
+PowerShell önceki bölümden çalıştırdıktan sonra işlemleri görüntüleyebilir ve veri toplanmakta olan onaylamak için Application Insights başlatın. 
+
+Visual Studio menüsünden seçin **proje** > **Application Insights** > **açık uygulama Insights portalı**
+
+   ![Application Insights Overview ekran görüntüsü](./media/app-insights-asp-net-core/0014-portal-01.png)
+
+> [!NOTE]
+> Yukarıdaki örnek ekran görüntüsünde **canlı akış**, **sayfa görünümü yükleme süresi**, ve **başarısız istekler** şu anda toplanmadı. Sonraki bölümde, her eklerken size yol gösterir. Zaten topluyorsanız **canlı akış**, ve **sayfa görünümü yükleme süresi**, yalnızca adımlarını izleyin **başarısız istekler**.
+
+## <a name="collect-failed-requests-live-stream--page-view-load-time"></a>Başarısız istekler, canlı akış ve sayfa görünümü yükleme süresi toplama
+
+### <a name="failed-requests"></a>Başarısız Olan İstekler
+
+Teknik olarak **başarısız istekler** toplanmakta olan, ancak hiçbiri henüz oluşmuş. Bir özel durum boyunca işlemini hızlandırmak için gerçek özel durum benzetimini yapmak için var olan proje eklenebilir. Uygulamanızı hala devam etmeden önce Visual Studio'da çalışıp çalışmadığını **durdurma hata ayıklama** (Shift + F5)
+
+1. İçinde **Çözüm Gezgini** > genişletin **sayfaları** > **About.cshtml** > açmak **About.cshtml.cs**.
+
+   ![Visual Studio çözüm Gezgini'nin ekran görüntüsü](./media/app-insights-asp-net-core/0015-solution-explorer-about.png)
+
+2. Bir özel durum altında ekleme ``Message=`` > değişikliği dosyaya kaydedin.
+
+   ```C#
+   throw new Exception("Test Exception");
+   ```
+
+   ![Özel durum kodu ekran görüntüsü](./media/app-insights-asp-net-core/000016-exception.png)
+
+### <a name="live-stream"></a>Canlı Akış
+
+Application Insights canlı akış işlevlerini ASP.NET Core güncelleştirme ile birlikte erişmek için **Microsoft.ApplicationInsights.AspNetCore 2.2.0** NuGet paketleri.
+
+Visual Studio'dan seçin **proje** > **NuGet paketlerini Yönet** > **Microsoft.ApplicationInsights.AspNetCore** > sürüm **2.2.0** > **güncelleştirme**.
+
+  ![NuGet Paket Yöneticisi'nin ekran görüntüsü](./media/app-insights-asp-net-core/0017-update-nuget.png)
+
+Birden çok onay istekleri ortaya okuyup değişikliklerle onaylıyorsanız kabul edin.
+
+### <a name="page-view-load-time"></a>Sayfa görünümü yükleme süresi
+
+1. Visual Studio'da gidin **Çözüm Gezgini** > **sayfaları** > iki dosya değiştirilmesi gerekir: **_Layout.cshtml**, ve **_ ViewImports.cshtml**
+
+2. İçinde **_viewımports.cshtml**, ekleyin:
+
+   ```C#
+   @using Microsoft.ApplicationInsights.AspNetCore
+   @inject JavaScriptSnippet snippet
+   ```
+     ![Kod değişikliği _viewımports.cshtml için ekran görüntüsü](./media/app-insights-asp-net-core/00018-view-imports.png)
+
+3. İçinde **Layout.cshtml** önce aşağıdaki satırı ekleyin ``</head>`` etiketi, ancak herhangi bir betiği öncesinde.
+
+    ```C#
+    @Html.Raw(snippet.FullScript)
+    ```
+    ![Kod değişikliği layout.cshtml için ekran görüntüsü](./media/app-insights-asp-net-core/0018-layout-cshtml.png)
+
+### <a name="test-failed-requests-page-view-load-time-live-stream"></a>Test başarısız istekleri, sayfa görünümü yükleme süresi, canlı akış
+
+Önceki adımları tamamladığınıza göre çıkışı test ve her şeyin çalıştığını onaylayın.
+
+1. IIS Express'i tıklatarak uygulamanızı çalıştırma ![Ekran görüntüsü, Visual Studio IIS Express simgesi](./media/app-insights-asp-net-core/0012-iis-express.png)
+
+2. Gidin **hakkında** test özel durum tetiklemek için sayfa. (Hata ayıklama modunda çalıştırıyorsanız,'e tıklamanız gerekir **devam** Visual Studio'da Application Insights tarafından çekilmesi özel önce.)
+
+3. Benzetimli PowerShell işlem betikten daha önce yeniden çalıştırın (bağlantı noktası numarası betikteki ayarlamanız gerekebilir.)
+
+4. Uygulamaları Öngörüler genel bakış Visual Studio menüsünden seçeneğini belirleyin, hala açık değilse **proje** > **Application Insights** > **uygulama açın Insights portalında**. 
+
+   > [!TIP]
+   > Yeni trafiğinizi henüz görmüyorsanız denetleyin **zaman aralığı** tıklatıp **yenileme**.
+
+   ![Genel Bakış ekran penceresi](./media/app-insights-asp-net-core/0019-overview-updated.png)
+
+5. Canlı akış seçin
+
+   ![Canlı ölçümleri akışının ekran görüntüsü](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
+
+   (PowerShell komut dosyası, dinamik ölçümleri görmelisiniz hala çalışıyor durduruldu ise betiği yeniden ile canlı akış açık çalıştırın.)
+
+## <a name="app-insights-sdk-comparison"></a>App Insights SDK karşılaştırma
+
+Application Insights ürün grubu sabit özellik eşliği olarak arasında mümkün olduğunca yakın elde etmek için çalışmakta olduğu [tam .NET Framework SDK](https://github.com/Microsoft/ApplicationInsights-dotnet) ve .net Core SDK. 2.2.0 sürümü, [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) için Application Insights büyük ölçüde özelliği boşluk kapattı.
+
+Farkları ve bileşim arasında daha iyi anlamak için [.NET ve .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+
+   | SDK karşılaştırma | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
+  |:-- | :-------------: |:------------------------:|:----------------------:|
+   | **Canlı ölçümleri**      | **+** |**-** | **+** |
+   | **Server Telemetri kanalı** | **+** |**-** | **+**|
+   |**Uyarlamalı örnekleme**| **+** | **-** | **+**|
+   | **SQL bağımlılık çağrıları**     | **+** |**-** | **+**|
+   | **Performans sayaçları*** | **+** | **-**| **-**|
+
+_Performans sayaçları_ bu bağlamda başvurduğu [sunucu tarafı performans sayaçları](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) işlemci, bellek ve disk kullanımı gibi.
+
+## <a name="open-source-sdk"></a>Açık kaynak SDK'sı
+[Okuma ve koda katkıda bulunan](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
-## <a name="open-source"></a>Açık kaynak
-[Okuma ve koda katkıda bulunan](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Web sayfalarınıza telemetri ekleyin](app-insights-javascript.md) sayfa kullanımını izleme ve performans.
-* [İzleme bağımlılıkları](app-insights-asp-net-dependencies.md) REST, SQL veya diğer dış kaynaklara, yavaşlamadan olmadığını görmek için.
+* [Kullanıcıların akar keşfedin](app-insights-usage-flows.md) kullanıcılarınızın uygulamanız nasıl gezindiğini anlamak için.
 * [API kullanan](app-insights-api-custom-events-metrics.md) kendi olayları ve ölçümleri, uygulamanızın performansı ve kullanımı daha ayrıntılı bir görünüm için gönderilecek.
-* [Kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md) uygulamanızdan sürekli dünyanın denetleyin. 
-
+* [Kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md) uygulamanızdan sürekli dünyanın denetleyin.

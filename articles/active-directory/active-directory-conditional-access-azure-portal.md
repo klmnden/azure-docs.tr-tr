@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 30c8911105e95860899385caf40f8a250c1c340e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim
 
@@ -108,7 +108,7 @@ Daha fazla bilgi için bkz: [SharePoint Online ve Exchange Online için koşullu
 
 ### <a name="license-requirements-for-using-conditional-access"></a>Koşullu erişim kullanmak için lisans gereksinimleri
 
-Koşullu erişim kullanarak bir Azure AD Premium gerektirir / Enterprise Mobility + güvenlik lisans. Gereksinimleriniz için doğru lisans bulmak için bkz: [Enterprise Mobility + güvenlik fiyatlandırma seçenekleri](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).
+Koşullu erişim kullanarak Azure AD Premium lisansı gerektirir. Gereksinimleriniz için doğru lisans bulmak için bkz: [ücretsiz, temel ve Premium sürümlerinde genel olarak kullanılabilir özelliklerini karşılaştırma](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

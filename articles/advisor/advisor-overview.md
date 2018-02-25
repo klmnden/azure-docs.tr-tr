@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Danışmanı giriş
 
@@ -52,7 +52,7 @@ Bu kategoride öneriler listesini görüntülemek için bir kategoriye tıklayı
 
 Öneri uygulamak bir öneri için önerilen eylemi seçin.  Basit bir arabirim öneriyi uygulamayı veya uygulama ile yönetmenize yardımcı olan belgelerine başvurun olanak tanıyan açılır.  Bir öneri uygulamaya başladıktan sonra bunu, tanımak Advisor için bir güne kadar sürebilir.
 
-Bir öneriye derhal eylemde istiyorsanız değil, belirli bir süre için uykuda ya da onu yok sayın.  Belirli abonelik veya kaynak grubu için öneriler almak istemiyorsanız, yalnızca belirtilen Abonelikleriniz ve kaynak gruplarınız için öneri oluşturmak amacıyla Danışmanı'nı yapılandırabilirsiniz.
+Bir öneriye derhal eylemde istiyorsanız değil, belirli bir süre için erteleyin veya onu yok sayın.  Belirli abonelik veya kaynak grubu için öneriler almak istemiyorsanız, yalnızca belirtilen Abonelikleriniz ve kaynak gruplarınız için öneri oluşturmak amacıyla Danışmanı'nı yapılandırabilirsiniz.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -69,9 +69,9 @@ Bir abonelik Danışmanı önerileri almak için aboneliğinizi Advisor ile kayd
 
 Advisor sanal makineler, kullanılabilirlik kümeleri, uygulama ağ geçitleri, uygulama hizmetleri, SQL Server, SQL veritabanları ve Redis önbelleği için öneriler sağlar.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Uykuda veya miyim öneri yok sayın?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Erteleyin veya miyim öneri yok sayın?
 
-Uykuda veya bir öneri kapatmak için **uykuda** bağlantı. Erteleme saati dönem veya select belirtebilirsiniz **hiçbir zaman** öneri kapatılamadı.
+Erteleyin veya bir öneri kapatmak için **Ertele'yi** bağlantı. Bir Ertele'yi dönem veya select belirtebilirsiniz **hiçbir zaman** öneri kapatılamadı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

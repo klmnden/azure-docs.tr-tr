@@ -1,6 +1,6 @@
 ---
-title: "İzleyici Resource Manager tarafından dağıtılan sanal makine yedeklerini | Microsoft Docs"
-description: "Olayları ve Resource Manager tarafından dağıtılan sanal makine yedeklerini uyarıları izleyin. Uyarılar temelinde e-posta gönderin."
+title: "Azure sanal makineler için yedekleme uyarıları izleme | Microsoft Docs"
+description: "Olayları ve Azure sanal makine yedekleme işleri uyarıları izleyin. Uyarılar temelinde e-posta gönderin."
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2016
+ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: 1e9f6d44965e8a6cd9529ef860f0fb57fd8e572d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure sanal makine yedekleme uyarılarını izleme
 Uyarıları olay eşiği karşıladığında veya aşılan hizmetinden yanıtları değildir. Bilerek zaman sorunları başlangıç iş maliyetleri tutarak için kritik olabilir. Uyarıları genellikle bir zamanlamaya göre gerçekleşmez ve bu nedenle uyarılar ortaya sonra mümkün olan en kısa sürede bilmeniz yararlı olur. Örneğin, bir yedekleme veya geri yükleme işi başarısız olduğunda bir uyarı hata beş dakika içinde gerçekleşir. Kasa panosunda, yedekleme uyarıları kutucuğu kritik ve uyarı düzeyi olayları görüntüler. Yedekleme uyarıları ayarlarında tüm olayları görüntüleyebilirsiniz. Ancak ayrı bir sorunu çalışırken bir uyarı ortaya çıkarsa ne yapacaksınız? Uyarı gerçekleştiğinde bunu bilmiyorsanız, küçük bir sorundan dolayı olabilir veya veri tehlikeye atabilecek. Doğru kişilerin oluştuğunda uyarının - farkında olduğundan emin olmak için e-posta üzerinden uyarı bildirimleri göndermek üzere hizmetini yapılandırın. E-posta bildirimlerini ayarlama hakkında daha fazla bilgi için bkz: [bildirimleri yapılandırmak](backup-azure-monitor-vms.md#configure-notifications).

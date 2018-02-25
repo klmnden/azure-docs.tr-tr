@@ -3,7 +3,7 @@ title: "Yük devretme için bir Linux ana hedef sunucusu Azure'dan şirket içi 
 description: "Linux sanal makine yeniden korumayı önce bir Linux ana hedef sunucusu gerekir. Bir yüklemeyi öğrenin."
 services: site-recovery
 documentationcenter: 
-author: rajani-janaki-ram
+author: nsoneji
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/22/2017
-ms.author: rajanaki
-ms.openlocfilehash: 11f9385c1082011ee690f48f2579b6f3b156d125
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/22/2018
+ms.author: nisoneji
+ms.openlocfilehash: 27b38eafd9ab5da11d66ede4d446a4952e30c534
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Bir Linux ana hedef sunucusu yükleyin
 Azure sanal makineleriniz başarısız olduktan sonra sanal makineler şirket içi siteye geri başarısız olabilir. Yeniden çalışmak için Azure sanal makineden şirket içi siteye koruyun gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -265,7 +265,7 @@ Saklama diskinin oluşturmak için aşağıdaki adımları kullanın:
     
     Seçin **Ekle** Dosya düzenlemeye başlamak için. Yeni bir satır oluşturun ve sonra aşağıdaki metni ekleyin. Önceki komutu vurgulanan çok yollu Kimliğinden temel disk çok yollu kimliği düzenleyin.
 
-    **/dev/Eşleyici/ <Retention disks multipath id> /mnt/bekletme ext4 rw 0 0**
+     **/dev/Eşleyici/ <Retention disks multipath id> /mnt/bekletme ext4 rw 0 0**
 
     Seçin **Esc**ve ardından **: wq** (yazma ve çıkın) Düzenleyicisi penceresini kapatın.
 

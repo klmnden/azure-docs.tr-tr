@@ -1,27 +1,29 @@
 ---
-title: "Azure zaman serisi Öngörüler ortamınız için bir başvuru veri kümesi ekleme | Microsoft Docs"
-description: "Bu makalede, Azure zaman serisi Öngörüler ortamınız için bir başvuru veri kümesi eklemeyi açıklar. Başvuru verileri değerleri genişletmek için kaynak verilerinizi katılmak kullanışlıdır."
+title: "Azure zaman serisi Öngörüler ortamınız için bir başvuru veri kümesi ekleme"
+description: "Bu makalede, Azure zaman serisi Öngörüler ortamınızda veri büyütmek için bir başvuru veri kümesi eklemeyi açıklar."
 services: time-series-insights
 ms.service: time-series-insights
-author: venkatgct
-ms.author: venkatja
-manager: jhubbard
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 editor: MicrosoftDocs/tsidocs
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 7cdcefbd0daec3b7bab59680afa1470624583c74
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 02/15/2018
+ms.openlocfilehash: e0d11f253d5aa143ff636c4dc8dff7665a80360e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portalı'nı kullanarak, zaman serisinin Öngörüler ortamınız için bir başvuru veri kümesi oluşturma
 
 Bu makalede, Azure zaman serisi Öngörüler ortamınız için bir başvuru veri kümesi eklemeyi açıklar. Başvuru verileri değerleri genişletmek için kaynak verilerinizi katılmak kullanışlıdır.
 
-Başvuru Veri Kümesi, olay kaynağınızdan alınan olaylarla genişletilen bir öğe koleksiyonudur. Zaman Serisi Görüşleri giriş altyapısı, olay kaynağınızdaki bir olay ile başvuru veri kümenizdeki bir öğeyi birleştirir. Bu genişletilmiş olay daha sonra sorgu için kullanılabilir. Bu birleştirme işlemi için başvuru veri kümenizde tanımlı anahtarlar temel alınır.
+Bir başvuru veri kümesi, olay kaynağı olayların büyütmek öğelerin koleksiyonudur. Zaman serisi Öngörüler giriş altyapısı başvuru Veri kümenizi her olay Olay kaynağınızdan karşılık gelen veri satırı ile birleştirir. Bu genişletilmiş olay daha sonra sorgu için kullanılabilir. Bu katılımı başvuru veri kümesinde tanımlanan birincil anahtar sütunları temel alır.
+
+Başvuru verileri firmalarda geriye dönük birleştirilmedi. Bu, yalnızca geçerli ve gelecekteki giriş verileri eşleşen ve yapılandırılmış ve karşıya sonra başvuru tarih kümesine birleşik anlamına gelir.
 
 ## <a name="add-a-reference-data-set"></a>Bir başvuru veri kümesi Ekle
 
@@ -29,21 +31,63 @@ Başvuru Veri Kümesi, olay kaynağınızdan alınan olaylarla genişletilen bir
 
 2. Mevcut zaman serisi Öngörüler ortamınızın bulun. Tıklatın **tüm kaynakları** Azure portalının sol tarafındaki menüde. Zaman Serisi Görüşleri ortamınızı seçin.
 
-3. Altında **ortamı topolojisi** başlığını seçin **başvuru veri kümelerini**.
+3. Seçin **genel bakış** sayfası. Bulun **zaman serisi Öngörüler Gezgini URL'si** ve bağlantıyı açın.  
 
-    ![Zaman Serisi Görüşleri başvuru veri kümenizi oluşturma](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
+   TSI ortamınız için explorer görüntüleyin.
 
-4. Seçin **+ Ekle** yeni başvuru veri kümesi eklemek için.
+4. Ortam Seçici TSI Explorer'da genişletin. Etkin ortam seçin. Başvuru veri simgesine sağ üst explorer sayfasını seçin.
 
-5. Benzersiz bir belirtin **başvuru veri kümesi adı**.
+   ![Başvuru veri ekleme](media/add-reference-data-set/add_reference_data.png)
 
-    ![Zaman Serisi Görüşleri başvuru veri kümesi oluşturma - ayrıntılar](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
+5. Seçin **+ bir veri kümesi Ekle** yeni veri kümesi eklemeye başlamak için düğmesi.
 
-6. Belirtin **anahtar adı** boş alanı seçip kendi **türü**. Bu ada ve türe başvuru verileri katılmak için olay kaynağınızda olayları doğru özelliğinden seçmek için kullanılır. 
+   ![Veri kümesi Ekle](media/add-reference-data-set/add_data_set.png)
 
-   Anahtar adı olarak sağlarsanız, örneğin, **DeviceID** ve olarak yazın **dize**, adında bir özellik için zaman serisi Öngörüler giriş altyapısı arar sonra **DeviceID** türü **Dize** aramak için her gelen olay ayarlama ve katılma. Olay ile birleştirilecek birden fazla anahtar sağlayabilirsiniz. Anahtar adı eşleştirmesi büyük/küçük harfe duyarlıdır.
+6. Üzerinde **yeni veri kümesi başvurusu** sayfasında, verilerin biçimini seçin: 
+   - Seçin **CSV** virgülle ayrılmış veriler için. İlk satırı sütun başlığı kabul edilir. 
+   - Seçin **JSON dizisi** için javascript nesne gösterimi (JSON) veri biçimlendirilmiş.
 
-7. **Oluştur**’u seçin.
+   ![Veri biçimi seçin.](media/add-reference-data-set/add_data.png)
+
+7. İki yöntemden birini kullanarak bu verileri sağlar:
+   - Veri metin düzenleyicisine yapıştırın. Ardından, seçin **ayrıştırma başvuru verileri** düğmesi.
+   - Seçin **Dosya Seç** yerel metin dosyasından veri eklemek için düğmesi. 
+
+   Örneğin, CSV Verileri yapıştırın: ![yapıştırılan CSV verileri](media/add-reference-data-set/csv_data_pasted.png)
+
+   Örneğin, JSON dizi veri yapıştırın: ![JSON Yapıştır verileri](media/add-reference-data-set/json_data_pasted.png)
+
+   Veri değeri ayrıştırılırken bir hata varsa, hata sayfasının alt kısmındaki kırmızı gibi görünür `CSV parsing error, no rows extracted`.
+
+8. Verileri başarıyla ayrıştırılır sonra veri kılavuzu verileri temsil eden satırlar ve sütunlar görüntüleme gösterilir.  Veri Kılavuzu doğruluğundan emin olmak için gözden geçirin.
+
+   ![Başvuru veri ekleme](media/add-reference-data-set/parse_data.png)
+
+9. Veri türü kabul görmek için her bir sütunun gözden geçirin ve gerekirse veri türünü değiştirin.  Veri türü simgesi sütun başlığını seçin:  **#**  çift (sayısal veriler), için **T | F** boolean için veya **Abc** dize.
+
+   ![Veri türlerinde sütun başlıkları seçin.](media/add-reference-data-set/choose_datatypes.png)
+
+10. Sütun üstbilgileri gerekirse yeniden adlandırın. Olay kaynağı karşılık gelen özelliği katılmaya anahtar sütun adı gereklidir. Başvuru veri anahtar sütun adları büyük küçük harf duyarlılığı dahil olmak üzere verilerinize gelen olay adı için tam olarak eşleştiğinden emin olun. Anahtar olmayan sütun adları, ilgili başvuru veri değerleri ile gelen veri büyütmek için kullanılır.
+
+11. Tıklatın **satır eklemek** veya **bir sütun ekleyin** gerektiği gibi birden fazla başvuru veri değeri eklemek için.
+
+12. Bir değer yazın **satırları filtrele...**  alan gerektiği gibi belirli satırlar gözden geçirin. Filtre verileri gözden geçirmek için yararlıdır, ancak verileri karşıya yüklenirken uygulanmıyor.
+ 
+13. Doldurarak veri kümesi adı **veri kümesi adı** veri kılavuzu yukarıda alan.
+
+   ![Veri kümesi adı.](media/add-reference-data-set/name_reference_dataset.png)
+
+14. Sağlamak **birincil anahtar** veri kılavuzu yukarıdaki açılır seçerek veri kümesinde sütun.
+
+   ![Anahtar sütunları seçin.](media/add-reference-data-set/set_primary_key.png)
+
+   İsteğe bağlı olarak, seçin  **+**  birleşik birincil anahtar olarak ikincil bir anahtar sütun eklemek için düğmesi. Seçimi geri almanız gerekiyorsa, boş değer ikincil anahtarı'nı kaldırmak için açılan listeden seçin.
+
+15.  Verileri yüklemek için seçin **karşıya satırları** düğmesi.
+
+   ![Karşıya Yükle](media/add-reference-data-set/upload_rows.png)
+
+   Tamamlanan karşıya yükleme ve iletiyi görüntülemek sayfa onaylar **başarıyla veri kümesi'ni karşıya**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Başvuru verilerini programlamayla yönetin](time-series-insights-manage-reference-data-csharp.md).

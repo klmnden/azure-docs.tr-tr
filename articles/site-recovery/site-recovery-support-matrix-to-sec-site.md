@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 256bad0c3c06182b6be2b647ae27db90fe69724d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Azure Site Recovery ile ikincil siteye çoğaltma için destek matrisi
 
@@ -49,7 +49,7 @@ Site Recovery ile çoğaltılan makineler için işletim sistemi desteği aşağ
 
 **VMware/fiziksel sunucu** | **Hyper-V (VMM ile)**
 --- | ---
-64-bit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6,8 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6 6.7, 6,8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, Red Hat uyumlu çekirdek veya kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) çalıştıran 6,8 <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Herhangi bir işletim sistemi Konuk [Hyper-V tarafından desteklenen](https://technet.microsoft.com/library/mt126277.aspx)
+64-bit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, Red Hat uyumlu çekirdek veya kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) çalıştıran 6,8 <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Herhangi bir işletim sistemi Konuk [Hyper-V tarafından desteklenen](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Linux makine depolama
 
@@ -92,7 +92,7 @@ Multi-NIC | Evet | Evet
 --- | --- | ---
 NFS | Evet | Yok
 SMB 3.0 | Yok | Evet
-SAN (İSCSI) | Evet | Evet
+SAN (ISCSI) | Evet | Evet
 Çok yollu (MPIO) | Evet | Evet
 
 ### <a name="guest-or-physical-server-storage"></a>Konuk veya fiziksel sunucu depolama
@@ -115,7 +115,7 @@ Sık kullanılan Ekle/Kaldır disk | Evet | Hayır
 Diski hariç tutma | Evet | Evet
 Çok yollu (MPIO) | Yok | Evet
 
-## <a name="vaults"></a>kasaları
+## <a name="vaults"></a>Vaults
 
 **Eylem** | **VMware/fiziksel sunucu** | **Hyper-V (VMM ile)**
 --- | --- | ---

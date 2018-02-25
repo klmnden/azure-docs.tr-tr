@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell kullanarak Service Fabric uygulama yükseltme
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ En sık kullanılan ve önerilen yükseltme izlenen yükseltme yaklaşımdır.  
 
 İzlenen uygulama yükseltme yönetilen veya özgün API'leri, PowerShell veya REST kullanılarak gerçekleştirilebilir. Visual Studio kullanarak bir yükseltme gerçekleştirme hakkında yönergeler için bkz: [Visual Studio kullanarak uygulamanızı yükseltme](service-fabric-application-upgrade-tutorial.md).
 
-Service Fabric izlenen kesinti olmadan yükseltme ile Uygulama Yöneticisi uygulama sağlıklı olup olmadığını belirlemek için Service Fabric kullanan sistem durumu değerlendirme ilkesi yapılandırabilirsiniz. Ayrıca, yönetici (Otomatik geri alma işleminden örneğin.) sistem durumu değerlendirmesi başarısız olduğunda gerçekleştirilecek eylem yapılandırabilirsiniz Bu bölümde bir PowerShell kullanan SDK örnekleri için izlenen bir yükseltme anlatılmaktadır. Aşağıdaki Microsoft Virtual Academy video uygulama yükseltme size da yardımcı olur:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
+Service Fabric izlenen kesinti olmadan yükseltme ile Uygulama Yöneticisi uygulama sağlıklı olup olmadığını belirlemek için Service Fabric kullanan sistem durumu değerlendirme ilkesi yapılandırabilirsiniz. Ayrıca, yönetici (Otomatik geri alma işleminden örneğin.) sistem durumu değerlendirmesi başarısız olduğunda gerçekleştirilecek eylem yapılandırabilirsiniz Bu bölümde bir PowerShell kullanan SDK örnekleri için izlenen bir yükseltme anlatılmaktadır. Aşağıdaki Microsoft Virtual Academy video uygulama yükseltme size da yardımcı olur: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -86,7 +86,7 @@ FailureAction geri alma =
 
 HealthCheckStableDurationSec = 60
 
-UpgradeDomainTimeoutSec 1200 =
+UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout 3000 =
 

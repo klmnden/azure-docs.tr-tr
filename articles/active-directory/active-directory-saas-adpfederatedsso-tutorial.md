@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 76bbee514eac36aec8eaf84e8a20f85a27559fc7
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Öğretici: Azure Active Directory Tümleştirme ADP Federasyon SSO ile
 
@@ -122,7 +122,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![ADP Federasyon SSO etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
 
-    İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:`https://fed.adp.com/` 
+    İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `https://fed.adp.com/` 
     
 5. ADP Federasyon SSO uygulaması SAML onaylar SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir. Talep adı her zaman olacaktır **"PersonImmutableID"** ve değeri biz için eşledikten **EmployeeID**. 
 
@@ -132,7 +132,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
-    | Öznitelik adı | Öznitelik değeri |
+    | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |    
     | PersonImmutableID | user.employeeid |
     
@@ -197,9 +197,8 @@ ADP temsilcinizle onayı alındığında ADP hizmete kullanıcı erişimi denetl
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 7. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **bağlantılı oturum açma** uygulamanıza bağlamak için **ADP Federasyon SSO**.
-<!---Loc Comment:Sentence "to link your application to ADP Federated SSO." should be concatenated with the previous sentence--->
 
-    ![Single sign-on linked](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Tekli bağlantılı oturum](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 
 8. Gidin **yapılandırma oturum açma URL'si** bölümünde, aşağıdaki adımları gerçekleştirin:
 

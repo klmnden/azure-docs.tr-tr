@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 02/22/2018
 ms.author: ponatara
-ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b117525a4851dee5366aeda77c8aaefd1fdde375
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Azure Site Recovery kullanarak çok katmanlı Citrix XenApp ve XenDesktop dağıtım Çoğalt
 
@@ -32,7 +32,7 @@ Bugün, Citrix XenApp herhangi olağanüstü durum kurtarma özellikleri sağlam
 Bu belge, Hyper-V ve VMware vSphere platformlarda Citrix XenApp dağıtımları için şirket içi olağanüstü durum kurtarma çözümü oluşturmak için adım adım yönergeler sağlar. Bu belgede bir test yük devretme (olağanüstü durum kurtarma ayrıntıya) ve kurtarma planları, desteklenen yapılandırmalar ve önkoşullar kullanarak Azure planlanmamış yük devretme gerçekleştirme de açıklanmaktadır.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce aşağıdakileri bildiğinizden emin olun:
 
@@ -60,7 +60,7 @@ Bu makalede amacıyla VMware sanal makineleri Citrix dağıtımlarında 6.0 vSph
 
 ### <a name="source-and-target"></a>Kaynak ve hedef
 
-**Senaryo** | **İkincil bir siteye** | **Azure'a**
+**Senaryo** | İkincil bir siteye | **Azure’a**
 --- | --- | ---
 **Hyper-V** | Kapsamda değil | Evet
 **VMware** | Kapsamda değil | Evet

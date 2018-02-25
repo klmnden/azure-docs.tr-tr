@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8a098d2ecc004b1593310579c47c53778858e799
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -84,6 +84,31 @@ public static class SimpleExampleWithOutput
 }
 ```
 
+### <a name="order-of-parameters"></a>Parametreler sırası
+
+İşlev imzası parametrelerinde sırası önemli değildir. Örneğin, önce veya sonra diğer bağlamaları trigger parametreleri koyabilirsiniz ve Günlükçü parametre önce veya sonra tetikleyici veya bağlama parametrelerini koyabilirsiniz.
+
+### <a name="binding-expressions"></a>Bağlama ifadeleri
+
+Bağlama ifadeleri özniteliği Oluşturucu parametreleri ve işlev parametrelerini kullanabilirsiniz. Örneğin, aşağıdaki kod bir uygulama ayarı izlemek için sıra adını alır ve kuyruk iletisi oluşturma süresi alır `insertionTime` parametresi.
+
+```csharp
+public static class BindingExpressionsExample
+{
+    [FunctionName("LogQueueMessage")]
+    public static void Run(
+        [QueueTrigger("%queueappsetting%")] string myQueueItem,
+        DateTimeOffset insertionTime,
+        TraceWriter log)
+    {
+        log.Info($"Message content: {myQueueItem}");
+        log.Info($"Created at: {insertionTime}");
+    }
+}
+```
+
+Daha fazla bilgi için bkz: **ifadeleri ve desenler bağlama** içinde [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md#binding-expressions-and-patterns).
+
 ### <a name="conversion-to-functionjson"></a>Function.json dönüştürme
 
 Derleme işlemi oluşturur bir *function.json* yapı klasöründeki işlevi klasöründe dosya. Daha önce belirtildiği gibi bu dosyayı doğrudan düzenlenmesi için tasarlanmamıştır. Bağlama yapılandırmasını değiştirmek veya bu dosyasını düzenleyerek işlevi devre dışı bırakın. 
@@ -119,22 +144,7 @@ Her bağlama desteklenen türlerinden; yine de sahip istiyor musunuz? örneği i
 
 ## <a name="binding-to-method-return-value"></a>Bağlama yöntemini dönüş değeri
 
-Aşağıdaki örnekte gösterildiği gibi bir çıktı bağlama için bir yöntem dönüş değeri kullanabilirsiniz:
-
-```csharp
-public static class ReturnValueOutputBinding
-{
-    [FunctionName("CopyQueueMessageUsingReturnValue")]
-    [return: Queue("myqueue-items-destination")]
-    public static string Run(
-        [QueueTrigger("myqueue-items-source-2")] string myQueueItem,
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-        return myQueueItem;
-    }
-}
-```
+Yöntemin dönüş değerini öznitelik uygulayarak yönteminin dönüş değeri bir çıktı bağlaması için kullanabilirsiniz. Örnekler için bkz: [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md#using-the-function-return-value).
 
 ## <a name="writing-multiple-output-values"></a>Birden çok çıktı değerleri yazılıyor
 
@@ -162,7 +172,7 @@ public static class ICollectorExample
 
 Çıkış akış günlüklerinizi C# oturum açmak için türünde bir bağımsız değişken dahil `TraceWriter`. Bu ad öneririz `log`. Kullanmaktan kaçının `Console.Write` Azure işlevlerinde. 
 
-`TraceWriter`tanımlanan [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Günlük düzeyi için `TraceWriter` yapılandırılabilir [host.json](functions-host-json.md).
+`TraceWriter` tanımlanan [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Günlük düzeyi için `TraceWriter` yapılandırılabilir [host.json](functions-host-json.md).
 
 ```csharp
 public static class SimpleExample
@@ -202,18 +212,28 @@ public static class AsyncExample
 
 ## <a name="cancellation-tokens"></a>İptal belirteçleri
 
-Bazı işlemler normal şekilde kapatılmasını gerektirir. Her zaman kilitlenen işleyebilir kod yazmak en iyi olmakla birlikte, kapatma isteklerini işlemek istediğiniz durumlarda tanımlayan bir [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) bağımsız değişken belirtilmiş.  A `CancellationToken` bir ana bilgisayar kapatma tetiklenir göstermek için sağlanmıştır.
+Bir işlev kabul edebileceği bir [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) işlevi hakkında sonlandırılacak olduğunda kodunuzu bildirmek işletim sisteminin sağlar parametresi. Bu bildirim, beklenmedik bir şekilde veri tutarsız bir durumda bırakır şekilde sonlandırma işlevi değil emin olmak için kullanabilirsiniz.
+
+Aşağıdaki örnek, yaklaşan işlevi sonlandırma için denetlenecek gösterilmiştir.
 
 ```csharp
 public static class CancellationTokenExample
 {
-    [FunctionName("BlobCopy")]
-    public static async Task RunAsync(
-        [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
-        [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
+    public static void Run(
+        [QueueTrigger("inputqueue")] string inputText,
+        TextWriter logger,
         CancellationToken token)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        for (int i = 0; i < 100; i++)
+        {
+            if (token.IsCancellationRequested)
+            {
+                logger.WriteLine("Function was cancelled at iteration {0}", i);
+                break;
+            }
+            Thread.Sleep(5000);
+            logger.WriteLine("Normal processing for queue message={0}", inputText);
+        }
     }
 }
 ```
@@ -258,7 +278,7 @@ Aşağıdaki gibi bağlama kesinliği tanımlayın:
   }
   ```
 
-  `BindingTypeAttribute`bağlama tanımlayan bir .NET özniteliktir ve `T` , bağlama türü tarafından desteklenen bir giriş veya çıkış türü. `T`olamaz bir `out` parametre türü (gibi `out JObject`). Örneğin, Mobile Apps Tablo Bağlama destekler çıktı [altı türleri çıktı](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ancak yalnızca kullanabilirsiniz [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) veya [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)kesinlik temelli bağlamaya sahip.
+  `BindingTypeAttribute` bağlama tanımlayan bir .NET özniteliktir ve `T` , bağlama türü tarafından desteklenen bir giriş veya çıkış türü. `T` olamaz bir `out` parametre türü (gibi `out JObject`). Örneğin, Mobile Apps Tablo Bağlama destekler çıktı [altı türleri çıktı](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ancak yalnızca kullanabilirsiniz [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) veya [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)kesinlik temelli bağlamaya sahip.
 
 ### <a name="single-attribute-example"></a>Tek öznitelik örneği
 

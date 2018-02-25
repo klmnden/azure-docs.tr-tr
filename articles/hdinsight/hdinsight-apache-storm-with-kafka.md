@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Hdınsight üzerinde Storm ile Apache Kafka kullanın
 
@@ -36,7 +36,7 @@ Bu belgede kullanılan örnek kodunu şu adresten edinilebilir [https://github.c
 
 Bu projeyi derlemek için geliştirme ortamınız için aşağıdaki yapılandırma gerekir:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ya da daha yüksek. Java 8 Hdınsight 3.5 veya daha yükseğini gerektirir.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) ya da daha yüksek. Java 8 Hdınsight 3.5 veya daha yükseğini gerektirir.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -46,11 +46,11 @@ Bu projeyi derlemek için geliştirme ortamınız için aşağıdaki yapılandı
 
 Geliştirme iş istasyonunuza Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsiniz. Ancak, bunlar mevcut olduğundan ve sisteminiz için doğru değerleri içerdikleri denetlemeniz gerekir.
 
-* `JAVA_HOME`-JDK yüklendiği dizinine işaret etmelidir.
-* `PATH`-aşağıdaki yolları içermelidir:
+* `JAVA_HOME` -JDK yüklendiği dizinine işaret etmelidir.
+* `PATH` -aşağıdaki yolları içermelidir:
   
-    * `JAVA_HOME`(veya eşdeğer yolu).
-    * `JAVA_HOME\bin`(veya eşdeğer yolu).
+    * `JAVA_HOME` (veya eşdeğer yolu).
+    * `JAVA_HOME\bin` (veya eşdeğer yolu).
     * Maven'ın yüklendiği dizin.
 
 ## <a name="create-the-clusters"></a>Kümeleri oluşturma
@@ -121,7 +121,7 @@ Bu proje iki topoloji içerir:
     Bu topoloji Storm HdfsBolt Storm kümesi için varsayılan depolama verileri yazmak için kullanır.
 ### <a name="flux"></a>Flux
 
-Topolojileri kullanılarak tanımlanır [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Flux içinde sunulmuştur 0.10.x Storm ve kodun topoloji yapılandırması ayrı olanak sağlar. Flux framework kullanan Topolojileri için topoloji YAML dosyasında tanımlanır. YAML dosya topolojisini bir parçası olarak dahil edilebilir. Bu topoloji gönderdiğinizde kullanılan tek başına dosya de olabilir. Flux çalışma zamanında Bu örnekte kullanılan, değişkeni değiştirme de destekler.
+Topolojileri kullanılarak tanımlanır [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux içinde sunulmuştur 0.10.x Storm ve kodun topoloji yapılandırması ayrı olanak sağlar. Flux framework kullanan Topolojileri için topoloji YAML dosyasında tanımlanır. YAML dosya topolojisini bir parçası olarak dahil edilebilir. Bu topoloji gönderdiğinizde kullanılan tek başına dosya de olabilir. Flux çalışma zamanında Bu örnekte kullanılan, değişkeni değiştirme de destekler.
 
 Aşağıdaki parametreleri bu topolojiler için çalışma zamanında ayarlanır:
 
@@ -131,7 +131,7 @@ Aşağıdaki parametreleri bu topolojiler için çalışma zamanında ayarlanır
 
 * `${kafka.zookeeper.hosts}`: Zookeeper Kafka kümesinde çalışır ana bilgisayar.
 
-Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Karşıdan yükle ve projeyi derleme
 
@@ -255,7 +255,7 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
 
     * `--remote`: Nimbus topolojiye gönderin. Topoloji kümedeki çalışan düğümü dağıtılır.
 
-    * `-R /writer.yaml`: Kullanın `writer.yaml` topolojisini yapılandırmak için dosya. `-R`Bu kaynak jar dosyasına dahil olduğunu gösterir. Bu nedenle jar kök dizininde olduğundan `/writer.yaml` yolu.
+    * `-R /writer.yaml`: Kullanın `writer.yaml` topolojisini yapılandırmak için dosya. `-R` Bu kaynak jar dosyasına dahil olduğunu gösterir. Bu nedenle jar kök dizininde olduğundan `/writer.yaml` yolu.
 
     * `--filter`: Girdileri doldurmak `writer.yaml` değerleri kullanarak topolojisi `dev.properties` dosya. Örneğin, değeri `kafka.topic` dosyasındaki giriş değiştirmek için kullanılan `${kafka.topic}` topoloji tanımı girişi.
 

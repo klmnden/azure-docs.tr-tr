@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Hdınsight'ta R Server için içerik seçeneklerini işlem
 
 Microsoft Azure hdınsight'ta R Server işlem bağlamı ayarlayarak çağrıları nasıl yürütülür denetler. Bu makalede olup olmadığını ve nasıl yürütme kenar düğümüne veya Hdınsight küme çekirdeği arasında paralel birkaç ölçeklendirin belirtmek için kullanılabilir olan seçenekler özetlenmektedir.
 
-Kümenin kenar düğümü kümeye bağlanın ve R komut dosyalarını çalıştırmak için uygun bir yer sağlar. Bir kenar düğümüne ile ScaleR parallelized dağıtılmış işlevleri kenar düğümü sunucu Çekirdeğinde çalıştırırken seçeneğiniz vardır. Ayrıca bunları küme düğümleri arasında ScaleR'ın eşlemesi Hadoop azaltmak kullanarak çalıştırabilirsiniz veya Spark işlem bağlamı.
+Kümenin kenar düğümü kümeye bağlanın ve R komut dosyalarını çalıştırmak için uygun bir yer sağlar. Bir kenar düğümüne ile RevoScaleR parallelized dağıtılmış işlevleri kenar düğümü sunucu Çekirdeğinde çalıştırırken seçeneğiniz vardır. Ayrıca bunları küme düğümleri arasında RevoScaleR'ın eşlemesi Hadoop azaltmak kullanarak çalıştırabilirsiniz veya Spark işlem bağlamı.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Azure hdınsight'ta Microsoft R Server
-[Microsoft Azure hdınsight'ta R Server](r-server-overview.md) R tabanlı analytics için en son özellikleri sağlar. HDFS kapsayıcısında depolanan verileri kullanabilir, [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Depolama") depolama hesabı, bir Data Lake deposu veya yerel Linux dosya sistemi. R Server açık kaynak R kurulu olduğundan, yapı R tabanlı uygulamalar 8000 + R açık kaynak paketlerinden birini uygulayabilirsiniz. Yordamları de kullanabilir [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), R Server'ın içerdiği Microsoft'un büyük veri analizi paket.  
+[Microsoft Azure hdınsight'ta R Server](r-server-overview.md) R tabanlı analytics için en son özellikleri sağlar. HDFS kapsayıcısında depolanan verileri kullanabilir, [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Depolama") depolama hesabı, bir Data Lake deposu veya yerel Linux dosya sistemi. R Server açık kaynak R kurulu olduğundan, yapı R tabanlı uygulamalar 8000 + R açık kaynak paketlerinden birini uygulayabilirsiniz. Yordamları de kullanabilir [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), R Server'ın içerdiği Microsoft'un büyük veri analizi paket.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Bir kenar düğümüne bağlamları işlem
-Genel olarak, R Server edge düğümde çalışan bir R betiği içinde R yorumlayıcı bu düğüm üzerinde çalışır. Özel durumlar ScaleR işlevini çağırın bu adımlardır. ScaleR işlem bağlamı nasıl ayarlanacağını belirlenen bir işlem ortamında ScaleR çağrıları çalıştırın.  R betiği bir kenar düğümden çalıştırdığınızda, işlem bağlamının olası değerler şunlardır:
+Genel olarak, R Server edge düğümde çalışan bir R betiği içinde R yorumlayıcı bu düğüm üzerinde çalışır. Özel durumlar RevoScaleR işlevini çağırın bu adımlardır. RevoScaleR işlem bağlamı nasıl ayarlanacağını belirlenen bir işlem ortamında RevoScaleR çağrıları çalıştırın.  R betiği bir kenar düğümden çalıştırdığınızda, işlem bağlamının olası değerler şunlardır:
 
 - Yerel sıralı (*yerel*)
 - yerel paralel (*localpar*)
 - Harita azaltın
 - Spark
 
-*Yerel* ve *localpar* seçenekleri yalnızca nasıl farklı **rxExec** çağrıları çalıştırılır. Her ikisi de diğer rx işlev çağrılarını paralel bir şekilde kullanılabilir tüm çekirdek arasında ScaleR kullanımla aksi belirtilmediği sürece yürütme **numCoresToUse** seçeneği, örneğin `rxOptions(numCoresToUse=6)`. Paralel yürütme seçeneklerini en iyi performans sunar.
+*Yerel* ve *localpar* seçenekleri yalnızca nasıl farklı **rxExec** çağrıları çalıştırılır. Her ikisi de diğer rx işlev çağrılarını paralel bir şekilde kullanılabilir tüm çekirdek arasında RevoScaleR kullanımla aksi belirtilmediği sürece yürütme **numCoresToUse** seçeneği, örneğin `rxOptions(numCoresToUse=6)`. Paralel yürütme seçeneklerini en iyi performans sunar.
 
 Aşağıdaki tabloda çağrıları nasıl yürütülen ayarlamak için çeşitli işlem bağlamı seçenekler özetlenmektedir:
 
@@ -72,11 +72,11 @@ Bu ilkeler verildiğinde, aşağıdaki bölümlerde bazı genel kurallar için b
 * Genellikle daha yavaş olduğundan yalnızca Spark işlem bağlamına sahip insurmountable bir sorunla karşılaşırsanız harita azaltmak işlem bağlamı kullanın.  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>Satır içi Yardım rxSetComputeContext
-Daha fazla bilgi ve örnekler ScaleR işlem bağlamı için R rxSetComputeContext yöntemi, örneğin yardımcı satır içi bakın:
+Daha fazla bilgi ve örnekler RevoScaleR işlem bağlamı için R rxSetComputeContext yöntemi, örneğin yardımcı satır içi bakın:
 
     > ?rxSetComputeContext
 
-Ayrıca başvurabilirsiniz [ScaleR dağıtılmış bilgi işlem kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) kullanılabilir olan [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) kitaplığı.
+Ayrıca başvurabilirsiniz [dağıtılmış bilgi işlem genel bakış](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) içinde [Machine Learning sunucusu belgelerine](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede ve bunun nasıl yürütme kenar düğümüne veya Hdınsight küme çekirdeği arasında paralel birkaç ölçeklendirin belirtmek için kullanılabilir seçenekler hakkında öğrendiniz. R Server Hdınsight kümeleri ile kullanma hakkında daha fazla bilgi için aşağıdaki konulara bakın:

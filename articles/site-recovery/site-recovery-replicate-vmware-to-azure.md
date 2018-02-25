@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/29/2017
+ms.date: 02/22/2018
 ms.author: asgang
-ms.openlocfilehash: 028aa0f23c3a7c98c4801d9e306c5dcfa35aab80
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Azure için VMware sanal makinelerde çalışan uygulamaların Çoğalt
 
 
 
 Bu makalede, Azure'da VMware üzerinden çalışan sanal makineler (VM'ler) çoğaltmasını ayarlama açıklar.
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede, sahip olduğunuz varsayılmaktadır:
 
@@ -50,7 +50,7 @@ VMware sanal makineleri çoğaltırken:
 1. **2. Adım: Uygulama çoğaltma** > **Kaynak** seçeneklerine tıklayın. Çoğaltmayı ilk kez etkinleştirdikten sonra ek makineler için çoğaltma işlemini etkinleştirmek istiyorsanız kasada **+Çoğalt**'a tıklayın.
 2. İçinde **kaynak** sayfa > **kaynak**, yapılandırma sunucusu seçin.
 3. İçinde **makine türü**seçin **sanal makineleri** veya **fiziksel makineleri**.
-4. İçinde **vCenter/vSphere hiper yönetici**vSphere ana yöneten vCenter sunucusu seçin veya konağı seçin. Bu ayar fiziksel makineleri çoğaltma yapıyorsanız geçerli değildir.
+4. **vCenter/vSphere Hypervisor** bölümünde vSphere konağını yöneten vCenter sunucusunu veya konağı seçin. Bu ayar fiziksel makineleri çoğaltma yapıyorsanız geçerli değildir.
 5. Yapılandırma sunucusunun adı herhangi bir ek işlem sunucusu oluşturmadıysanız olacağı işlem sunucusunu seçin. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltma kaynağı etkinleştir](./media/site-recovery-vmware-to-azure/enable-replication2.png)
@@ -84,7 +84,7 @@ VMware sanal makineleri çoğaltırken:
     >    * Böylece, iş yüklerini yansıtma sanal makineleri ve fiziksel sunucuları birlikte toplayın. Çoklu VM tutarlılığını etkinleştirmek, iş yükü performansını etkileyebilir. Yalnızca makineler aynı iş yükünü çalıştırıyorsa ve tutarlılık ihtiyacınız varsa kullanın.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmware-to-azure/enable-replication7.png)
-14. Tıklatın **çoğaltmasını etkinleştir**. İlerleme durumunu izleyebilirsiniz **korumayı etkinleştir** iş **ayarları** > **işleri** > **Site Recovery işleri**. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
+14. **Çoğaltmayı Etkinleştir**’e tıklayın. **Ayarlar** > **İşler** > **Site Recovery İşleri** bölümünden **Korumayı Etkinleştir** işinin ilerleme durumunu izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
 > [!NOTE]
 > Makine gönderme yüklemesi için hazırlanmış, koruma etkinleştirildiğinde Mobility hizmeti bileşeninin yüklü. Bileşen makineye yüklendikten sonra bir koruma işi başlatır ve başarısız olur. Hatadan sonra el ile her makinenin yeniden başlatmanız gerekir. Yeniden başlatma işleminden sonra koruma işini yeniden başlar ve ilk çoğaltma gerçekleştirilir.
@@ -119,7 +119,7 @@ Ardından, kaynak makine özelliklerini doğrulayın. Azure VM adının uygun ol
     Örneğin, kaynak makinenin iki bağdaştırıcısı varsa ve hedef makine boyutu dört adet bağdaştırıcıyı destekliyorsa hedef makinenin iki bağdaştırıcısı vardır. Kaynak makinenin iki bağdaştırıcısı varken hedef boyut yalnızca bir destekler, hedef makine yalnızca bir bağdaştırıcı bulunur.
     - Sanal makinede birden fazla ağ bağdaştırıcısı varsa, bunların tümü aynı ağa bağlayın. Ayrıca, listedeki ilk gösterilene hale *varsayılan* Azure sanal makine ağ bağdaştırıcısı.
 
-### <a name="azure-hybrid-use-benefit"></a>Azure karma kullanımı avantajı
+### <a name="azure-hybrid-use-benefit"></a>Azure Hibrit Kullanım Teklifi
 
 Microsoft Yazılım Güvencesi müşteriler, Azure'a geçirilir Windows Server makine maliyetlerini lisans kaydetmek veya Azure olağanüstü durum kurtarma için kullanılacak Azure karma kullanma avantajını kullanabilirsiniz. Kullanmak yararlı Azure karma kullanmak uygun değilse, bir yük devretmeyi Azure Site Recovery oluşturur Bu avantajı atanan sanal makine olduğunu belirtebilirsiniz. Bunu yapmak için:
 - Çoğaltılan sanal makinenin işlem ve ağ özellikleri bölümüne gidin.

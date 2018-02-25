@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure için Azure çoğaltma mimarisi
 
@@ -69,10 +69,10 @@ Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olar
  - Office 365 kimlik doğrulaması URL'lerini/IP adresleri
  - Önbellek depolama hesabı IP adresleri
 
-Çoklu VM tutarlılığını etkinleştirmek, çoğaltma grubundaki birbiriyle 20004 bağlantı noktası üzerinden iletişim kurar. Bağlantı noktası 20004 üzerinden VM'ler arasında iç iletişimini engelleyen bir güvenlik duvarı gerecini olduğundan emin olun.
+Çoklu VM tutarlılığını etkinleştirirseniz çoğaltma grubundaki makineler birbiriyle 20004 numaralı bağlantı noktası üzerinden iletişim kurar. VM’ler arasında 20004 numaralı bağlantı noktası üzerinden gerçekleştirilen iç iletişimi engelleyen bir güvenlik duvarı gereci olmadığından emin olun.
 
 > [!IMPORTANT]
-Linux VM'ler, çoğaltma grubunun parçası olmasını istiyorsanız, bağlantı noktası 20004 üzerinde giden trafiğe belirli Linux sürümü Kılavuzu göredir el ile açılmış olmamasını sağlayın.
+Linux VM’lerinin çoğaltma grubunun bir parçası olmasını istiyorsanız, 20004 numaralı bağlantı noktası üzerinden giden trafiğin, belirli Linux sürümünün kılavuzuna göre el ile açıldığından emin olun.
 
 ### <a name="step-3"></a>3. Adım
 

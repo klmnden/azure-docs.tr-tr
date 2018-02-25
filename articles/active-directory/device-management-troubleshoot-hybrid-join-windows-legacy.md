@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5657df412b1f2b7d4d43d7551289620ae4d77de2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey aygıtları birleştirilmiş karma Azure Active Directory sorun giderme 
 
@@ -55,7 +55,6 @@ Bu konu, sorun giderme ile ilgili olası sorunları gidermek nasıl yönergeleri
 
 - İşletim sistemi veya el ile yeniden unregister kaldırıp yeniden kaydettirin oluşturabilir yeni bir kayıt üzerinde Azure AD ve Azure portalında kullanıcı bilgileri sekmesi altında birden çok giriş sonuçlanır. 
 
-
 ## <a name="step-1-retrieve-the-registration-status"></a>1. adım: kayıt durumunu alma 
 
 **Kayıt durumunu doğrulamak için:**  
@@ -87,13 +86,14 @@ Karma Azure AD birleştirme başarılı olmadıysa iletişim kutusu oluştu soru
     
     1. Kullanıcının oturum açtığı etki alanı kullanıcı (örneğin, yerel bir kullanıcı) değildir. Alt düzey cihazlarda karma Azure AD birleştirme yalnızca etki alanı kullanıcıları için desteklenir.
     
-    2. Herhangi bir nedenle Autoworkplace.exe sessizce Azure AD veya AD FS kimlik doğrulaması yapamıyorsa. Birkaç olası nedenleri (Önkoşul denetimi) Azure AD URL'lere dışarı bağlı ağ bağlantısı sorunları olabilir veya kullanıcı için etkin/yapılandırılan MFA, ancak WIAORMUTLIAUTHN (onay yapılandırma adımlarını) federasyon sunucusunda yapılandırılmamış olup olmadığını olabilir. Bu giriş bölgesi bulma (HRD) sayfasını Autoworkplace.exe sessizce elde etmesini engelleyen bir kullanıcı etkileşimi bekliyor başka bir olasılığı olan bir 
+    2. Herhangi bir nedenle Autoworkplace.exe sessizce Azure AD veya AD FS kimlik doğrulaması yapamıyorsa. Birkaç olası nedenleri (Önkoşul denetimi) Azure AD URL'lere dışarı bağlı ağ bağlantısı sorunları olabilir veya kullanıcı için etkin/yapılandırılan MFA, ancak WIAORMUTLIAUTHN (onay yapılandırma adımlarını) federasyon sunucusunda yapılandırılmamış olabilir. Başka bir olasılık, bu giriş bölgesi bulma (HRD) sayfasını Autoworkplace.exe sessizce bir belirteç elde etmesini engelleyen bir kullanıcı etkileşimi bekliyor olabilir.
     
     3. Kuruluş Azure AD kullanıyorsanız sorunsuz çoklu oturum açma, aşağıdaki URL'ler cihazın IE intranet ayarlarını yok:
-    - https://autologon.microsoftazuread-sso.com
-    - https://aadg.windows.net.nsatc.net
     
-    ve Intranet bölgesi için "Durum çubuğunda komut dosyası aracılığıyla izin güncelleştirmeler" ayarının etkinleştirilmesi gerekir.
+       - https://autologon.microsoftazuread-sso.com
+       - https://aadg.windows.net.nsatc.net
+    
+       ve Intranet bölgesi için "Durum çubuğunda komut dosyası aracılığıyla izin güncelleştirmeler" ayarının etkinleştirilmesi gerekir.
 
 - Bir kotasına ulaşıldı
 

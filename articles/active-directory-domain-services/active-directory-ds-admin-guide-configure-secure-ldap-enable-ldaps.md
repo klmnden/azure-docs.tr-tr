@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) Azure AD etki alanı Hizmetleri yönetilen etki alanı için yapılandırma
 
@@ -113,7 +113,6 @@ Aşağıdaki tabloda bir örnek, internet üzerinden güvenli LDAP erişim kilit
 ## <a name="troubleshooting"></a>Sorun giderme
 Güvenli LDAP kullanarak yönetilen etki alanına bağlanma konusunda sorun yaşıyorsanız, aşağıdaki sorun giderme adımları gerçekleştirin:
 * Güvenli LDAP sertifika veren zincirine istemcide güvenilir kabul edildiğinden emin olun. Kök sertifika yetkilisi güven sağlamak için istemcide güvenilen kök sertifika deposuna eklemek tercih edebilirsiniz.
-* Güvenli LDAP sertifika, varsayılan olarak yeni windows makinede güvenilir değil bir ara sertifika yetkilisi tarafından verilmedi doğrulayın.
 * LDAP istemcisi (örneğin, ldp.exe) bir DNS adı, IP adresi kullanarak güvenli LDAP uç noktasına bağlandığını doğrulayın.
 * LDAP istemcisi ortak IP adresine çözümlenecek şekilde yönetilen etki alanı güvenli LDAP bağlanır DNS adını doğrulayın.
 * Yönetilen etki alanınız için güvenli LDAP sertifikası konu veya konu alternatif adlarını özniteliği DNS adına sahip doğrulayın.

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/13/2018
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: cdad0617c59fd5881c3857388809fac2186b36d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uygulaması yükseltme
 Azure Service Fabric uygulama hizmetleri koleksiyonudur. Yükseltme sırasında Service Fabric yeni karşılaştırır [uygulama bildirimi](service-fabric-application-and-service-manifests.md) önceki sürümüyle ve hangi uygulama iste güncelleştirmeleri Hizmetleri belirler. Service Fabric önceki sürümde sürüm numaralarıyla numaraları hizmet bildirimlerini sürüm karşılaştırır. Bu hizmet, hizmet değişmemişse yükseltilmez.

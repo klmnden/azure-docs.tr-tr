@@ -1,25 +1,24 @@
 ---
-title: "Site Recovery ile VMM bulutlarındaki Hyper-V Vm'lerini çoğaltma için Ağ eşlemesi hakkında | Microsoft Docs"
+title: "Azure Site Recovery ile (VMM ile) Hyper-V VM çoğaltması için Ağ eşlemesi hakkında | Microsoft Docs"
 description: "Azure Site Recovery ile VMM bulutlarında yönetilen Hyper-V Vm'lerini çoğaltma için Ağ eşlemesi ayarlamak açıklar."
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/22/2018
 ms.author: raynew
-ms.openlocfilehash: 5b8ebf3bd118a7b082949b3f3c6ef60a07641ba1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="about-network-mapping-for-hyper-v-vm-with-vmm-replication"></a>Ağ eşlemesi hakkında için Hyper-V VM VMM çoğaltma ile 
+# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Hyper-V sanal makinelerini Azure’a çoğaltma işlemi için ağ eşlemesini hazırlama
 
 
-Bu makalede anlamak ve Hyper-V sanal makineleri kullanarak System Center Virtual Machine Manager (VMM) bulutlarında, çoğaltma sırasında ağ eşlemesini planlamanıza yardımcı olacak [Azure Site Recovery hizmeti](site-recovery-overview.md).
+Bu makalede anlamak ve System Center Virtual Machine Manager (VMM) bulutlarında Hyper-V Vm'lerini azure'a veya ikincil bir siteye çoğaltma olduğunda ağ eşlemesi için hazırlanma yardımcı olacak kullanarak [Azure Site Recovery](site-recovery-overview.md) hizmet.
 
-İkincil VMM Bulutu veya Azure'a bir VMM bulutundaki Hyper-V Vm'lerini çoğaltma yönetilen ağ eşlemesi kullanılır.
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Ağ eşlemesi Azure'a çoğaltma için hazırlanma
 
@@ -112,7 +111,7 @@ VM2 (VM1 çoğaltma) | VMNetwork1-Chicago
 
 Şimdi bu ayarlarla olası senaryolar birkaç içinde neler gözden geçirin.
 
-Senaryo | **Sonucu**
+**Senaryo** | **Sonucu**
 ---|---
 Yük devretme işleminden sonra VM-2 Ağ özelliklerinde değişiklik. | VM 1 kaynak ağına bağlı kalır.
 VM-2 ağ özellikleri yük devretme işleminden sonra değiştirilir ve bağlantısı kesilir. | VM 1 kesilir.
@@ -123,4 +122,5 @@ Ağ eşlemesi VMNetwork1 Chicago değiştirilir. | VM-1, şimdi VMNetwork1 Şika
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Hakkında bilgi edinin](hyper-v-vmm-networking.md) ikincil VMM sitesi için yük devretme sonrasında IP adresleme.
+- [Hakkında bilgi edinin](hyper-v-vmm-networking.md) ikincil VMM sitesi için yük devretme sonrasında IP adresleme.
+- [Hakkında bilgi edinin](concepts-on-premises-to-azure-networking.md) azure'a yük devretme sonrasında IP adresleme.

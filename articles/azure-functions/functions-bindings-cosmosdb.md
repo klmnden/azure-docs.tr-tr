@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e1cf4da324d082e0ee09feb3344cd2340ab59af7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1a57d26e0f1188a2dea29beba52fde090aa82ca8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure işlevleri için Azure Cosmos DB bağlamaları
 
@@ -127,7 +127,7 @@ JavaScript kod aşağıdaki gibidir:
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
 Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [tetikleyici - yapılandırma](#trigger---configuration). Burada bir `CosmosDBTrigger` yöntemi imza özniteliği örnekte:
 
@@ -150,12 +150,12 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** || ayarlanmalıdır `cosmosDBTrigger`. |
-|**yönü** || ayarlanmalıdır `in`. Bu parametre, Azure portalında tetikleyici oluşturduğunuzda otomatik olarak ayarlanır. |
-|**adı** || Belge değişikliklerle listesini temsil eden işlevi kod içinde kullanılan değişken adı. | 
+|**Türü** || ayarlanmalıdır `cosmosDBTrigger`. |
+|**Yönü** || ayarlanmalıdır `in`. Bu parametre, Azure portalında tetikleyici oluşturduğunuzda otomatik olarak ayarlanır. |
+|**Adı** || Belge değişikliklerle listesini temsil eden işlevi kod içinde kullanılan değişken adı. | 
 |**connectionStringSetting**|**ConnectionStringSetting** | İzlenmekte olan Azure Cosmos DB hesabınıza bağlanmak için kullanılan bağlantı dizesi içeren bir uygulama ayarı adı. |
 |**databaseName**|**DatabaseName**  | İzlenmekte olan derlemesiyle Azure Cosmos DB veritabanının adı. |
-|**collectionName** |**CollectionName** | İzlenmekte olan koleksiyon adı. |
+|**collectionName** |**collectionName** | İzlenmekte olan koleksiyon adı. |
 |**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (İsteğe bağlı) Kira koleksiyonunu tutan hizmeti ile bağlantı dizesi içeren bir uygulama ayarı adı. Ayarlandığında değil, `connectionStringSetting` değeri kullanılır. Bu parametre, bağlama portalda oluşturulduğunda otomatik olarak ayarlanır. Bağlantı dizesi kiraları koleksiyon için yazma izinlerine sahip olmalıdır.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (İsteğe bağlı) Kira depolamak için kullanılan koleksiyonunu tutan veritabanının adı. Değil olarak ayarlandığında, değeri `databaseName` ayarı kullanılır. Bu parametre, bağlama portalda oluşturulduğunda otomatik olarak ayarlanır. |
 |**leaseCollectionName** | **LeaseCollectionName** | (İsteğe bağlı) Kira depolamak için kullanılan koleksiyon adı. Değil olarak ayarlandığında, değerin `leases` kullanılır. |
@@ -207,7 +207,7 @@ Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-lib
             [FunctionName("SingleEntry")]
             public static void Run(
                 [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
-                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                [CosmosDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
                 TraceWriter log)
             {
                 log.Info( $"Selected Review - {document?.Review}"); 
@@ -363,7 +363,7 @@ Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-lib
     [FunctionName("CosmosDBSample")]
     public static HttpResponseMessage Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
-        [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
+        [CosmosDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
     {
         return req.CreateResponse(HttpStatusCode.OK, documents);
     }
@@ -445,24 +445,24 @@ JavaScript kod aşağıdaki gibidir:
 
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
 Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [yapılandırma bölümü aşağıdaki](#input---configuration). 
 
 ## <a name="input---configuration"></a>Girişi - yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `DocumentDB` özniteliği.
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `CosmosDB` özniteliği.
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü**     || ayarlanmalıdır `documentdb`.        |
-|**yönü**     || ayarlanmalıdır `in`.         |
-|**adı**     || İşlevinde belgeyi temsil bağlama parametresinin adı.  |
+|**Türü**     || ayarlanmalıdır `documentdb`.        |
+|**Yönü**     || ayarlanmalıdır `in`.         |
+|**Adı**     || İşlevinde belgeyi temsil bağlama parametresinin adı.  |
 |**databaseName** |**DatabaseName** |Belge içeren veritabanı.        |
-|**collectionName** |**CollectionName** | Belge içeren koleksiyonu adı. |
+|**collectionName** |**collectionName** | Belge içeren koleksiyonu adı. |
 |**id**    | **Kimlik** | Alınacak belge kimliği. Bu özellik bağlamaları parametreleri destekler. Daha fazla bilgi için bkz: [bir bağlama ifadesinde özel giriş özellikleri bağlamak](functions-triggers-bindings.md#bind-to-custom-input-properties). Her ikisi de ayarlamazsanız **kimliği** ve **sqlQuery** özellikleri. Bunlardan herhangi birinin ayarlamazsanız, tüm koleksiyon alınır. |
 |**sqlQuery**  |**SqlQuery**  | Birden çok belge almak için kullanılan bir Azure Cosmos DB SQL sorgusu. Bu örnekte olduğu gibi çalışma zamanı bağlamaları özelliğini destekler: `SELECT * FROM c where c.departmentId = {departmentId}`. Her ikisi de ayarlamazsanız **kimliği** ve **sqlQuery** özellikleri. Bunlardan herhangi birinin ayarlamazsanız, tüm koleksiyon alınır.|
-|**bağlantı**     |**ConnectionStringSetting**|Azure Cosmos DB bağlantı dizesi içeren uygulama ayarı adı.        |
+|**Bağlantı**     |**ConnectionStringSetting**|Azure Cosmos DB bağlantı dizesi içeren uygulama ayarı adı.        |
 |**partitionKey**|**PartitionKey**|Arama için bölüm anahtarı değerini belirtir. Bağlama parametreler içerebilir.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -500,7 +500,7 @@ Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-lib
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         document = new { Text = myQueueItem, id = Guid.NewGuid() };
     }
@@ -705,15 +705,15 @@ JavaScript kod aşağıdaki gibidir:
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 
-Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [çıktı - yapılandırma](#output---configuration). Burada bir `DocumentDB` yöntemi imza özniteliği örnekte:
+Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [çıktı - yapılandırma](#output---configuration). Burada bir `CosmosDB` yöntemi imza özniteliği örnekte:
 
 ```csharp
     [FunctionName("QueueToDocDB")]        
     public static void Run(
         [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+        [CosmosDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
     {
         ...
     }
@@ -723,19 +723,19 @@ Tam bir örnek için bkz: [çıktısı - C# örnek](#output---c-example).
 
 ## <a name="output---configuration"></a>Çıktı - yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `DocumentDB` özniteliği.
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `CosmosDB` özniteliği.
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü**     || ayarlanmalıdır `documentdb`.        |
-|**yönü**     || ayarlanmalıdır `out`.         |
-|**adı**     || İşlevinde belgeyi temsil bağlama parametresinin adı.  |
+|**Türü**     || ayarlanmalıdır `documentdb`.        |
+|**Yönü**     || ayarlanmalıdır `out`.         |
+|**Adı**     || İşlevinde belgeyi temsil bağlama parametresinin adı.  |
 |**databaseName** | **DatabaseName**|Belgenin oluşturulduğu koleksiyonu içeren veritabanı.     |
-|**collectionName** |**CollectionName**  | Belgenin oluşturulduğu koleksiyon adı. |
+|**collectionName** |**collectionName**  | Belgenin oluşturulduğu koleksiyon adı. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Yoksa koleksiyon oluşturulduğunda olup olmadığını gösteren bir Boole değeri. Varsayılan değer *false* yeni koleksiyonları etkileri maliyet ayrılmış işleme ile oluşturulduğundan. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**PartitionKey** |Zaman `CreateIfNotExists` true ise, oluşturulan koleksiyonu için bölüm anahtar yolu tanımlar.|
 |**collectionThroughput**|**CollectionThroughput**| Zaman `CreateIfNotExists` true ise, tanımlar [işleme](../cosmos-db/set-throughput.md) oluşturulan koleksiyonu.|
-|**bağlantı**    |**ConnectionStringSetting** |Azure Cosmos DB bağlantı dizesi içeren uygulama ayarı adı.        |
+|**Bağlantı**    |**ConnectionStringSetting** |Azure Cosmos DB bağlantı dizesi içeren uygulama ayarı adı.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -750,7 +750,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 | Bağlama | Başvuru |
 |---|---|
-| DocumentDB | [DocumentDB hata kodları](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
+| CosmosDB | [CosmosDB hata kodları](https://docs.microsoft.com/en-us/rest/api/documentdb/http-status-codes-for-documentdb) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
