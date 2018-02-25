@@ -17,11 +17,11 @@ ms.workload: On Demand
 ms.date: 02/20/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c1bb1698723af60544b89f4b3168c44a32d31afd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -128,6 +128,8 @@ Kullanma seçeneğiniz [rol tabanlı erişim denetimi (RBAC)] [ rbac-what-is-813
 
 Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınırlamalara sahiptir:
 
+- Bir Web uygulaması sanal/alt özel IP eşlenebilir. Hizmet uç noktaları verilen VNet/alt ağdan açık olsa bile, Web uygulamasından sunucuya bağlantılar için bir Azure genel IP kaynağı, bir VNet/alt ağ kaynağı gerekir. Sanal ağ güvenlik duvarı kuralları olan bir sunucuyu bir Web uygulaması bağlantısını etkinleştirmek için şunları yapmalısınız **tüm Azure hizmetlerini izin** sunucusunda.
+
 - SQL veritabanınız için Güvenlik Duvarı'nda, her sanal ağ kuralı bir alt ağ başvurur. Bu başvurulan tüm alt ağlar SQL veritabanını barındıran aynı coğrafi bölgede barındırılması gerekir.
 
 - Her Azure SQL veritabanı sunucusu, belirli herhangi bir sanal ağ için 128 ACL girişleri kadar olabilir.
@@ -145,7 +147,7 @@ Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınır
 Azure SQL veritabanı için hizmet uç noktaları kullanırken, aşağıdaki konuları gözden geçirin:
 
 - **Azure SQL veritabanı genel IP'ler için giden gereklidir**: bağlantı izin vermek için Azure SQL veritabanı IP'leri için ağ güvenlik grupları (Nsg'ler) açılır. NSG kullanarak bunu yapabilirsiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) Azure SQL veritabanı için.
-- **Azure veritabanı PostgreSQL ve MySQL için desteklenmeyen**: hizmet uç noktaları PostgreSQL veya MySQL için Azure veritabanı için desteklenmiyor. SQL veritabanı için hizmet uç noktaları etkinleştirme bu hizmetleri için bağlantı çalışmamasına neden olur. Bir azaltma bu sahibiz; temasa  *dmalik@microsoft.com* .
+- **Azure veritabanı PostgreSQL ve MySQL için desteklenmeyen**: hizmet uç noktaları PostgreSQL veya MySQL için Azure veritabanı için desteklenmiyor. SQL veritabanı için hizmet uç noktaları etkinleştirme bu hizmetleri için bağlantı çalışmamasına neden olur. Bir azaltma bu sahibiz; temasa * dmalik@microsoft.com *.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -183,7 +185,7 @@ Azure depolama, depolama hesabı bağlantı sınırlamak izin veren aynı özell
 Bir Azure SQL Server tarafından kullanılan bir depolama hesabıyla bu özelliği kullanmayı seçerseniz, sorunlar çalıştırabilirsiniz. Sonraki bir listesi ve bu tarafından etkilenen Azure SQLDB özelliklerinin tartışma olduğu.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase, veri depolama hesaplarından Azure SQLDW yüklemek için yaygın olarak kullanılır. Yalnızca bir sanal alt ağ kümesi erişim verilerini yükleme depolama hesabı sınırları, hesap PolyBase bağlantısını çalışmamasına neden olur. Bu azaltma yoktur; temasa  *dmalik@microsoft.com*  daha fazla bilgi için.
+PolyBase, veri depolama hesaplarından Azure SQLDW yüklemek için yaygın olarak kullanılır. Yalnızca bir sanal alt ağ kümesi erişim verilerini yükleme depolama hesabı sınırları, hesap PolyBase bağlantısını çalışmamasına neden olur. Bu azaltma yoktur; temasa * dmalik@microsoft.com * daha fazla bilgi için.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob denetimi
 BLOB denetimi denetim günlüklerini kendi depolama hesabına iter. Bu depolama hesabını NCEKİ Hizmeti uç noktaları özelliğini kullanıyorsa, depolama hesabı Azure SQLDB bağlantısını kesintiye uğrar.

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1fe81286c395a529a14ba87edc26390a2bab3f90
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c306c66354f34fc945a5fe0ffa11d63bce4d7005
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Birden çok Hdınsight kümeleri ile bir Azure Data Lake Store hesabınız
 
@@ -42,9 +42,9 @@ Bu klasör yapısı etkili bir şekilde Hdınsight kümeleri tarafından kullan�
 
 |Klasör  |İzinler  |Sahip olan kullanıcı  |Sahip olan grup  | Adlı kullanıcı | Adlı kullanıcı izinleri | Adlandırılmış Grup | Adlandırılmış grup izinleri |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |Yönetici |Yönetici  |Hizmet sorumlusu |--x  |FINGRP   |r-x         |
-|/Clusters | rwxr-x--x |Yönetici |Yönetici |Hizmet sorumlusu |--x  |FINGRP |r-x         |
-|/ kümeleri/Finans | rwxr-x--t |Yönetici |FINGRP  |Hizmet sorumlusu |rwx  |-  |-     |
+|/ | rwxr-x--x  |yönetici |yönetici  |Hizmet sorumlusu |--x  |FINGRP   |r-x         |
+|/Clusters | rwxr-x--x |yönetici |yönetici |Hizmet sorumlusu |--x  |FINGRP |r-x         |
+|/ kümeleri/Finans | rwxr-x--t |yönetici |FINGRP  |Hizmet sorumlusu |rwx  |-  |-     |
 
 Tabloda
 
@@ -63,7 +63,7 @@ Dikkate alınması gereken bazı önemli noktalar.
 
     |Klasör  |İzinler  |Sahip olan kullanıcı  |Sahip olan grup  | Adlı kullanıcı | Adlı kullanıcı izinleri | Adlandırılmış Grup | Adlandırılmış grup izinleri |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/Clusters/finanace/fincluster01 | rwxr-x---  |Hizmet sorumlusu |FINGRP  |- |-  |-   |-  | 
+    |/Clusters/finanace/fincluster01 | rwxr-x---  |Service Principal |FINGRP  |- |-  |-   |-  | 
    
 
 

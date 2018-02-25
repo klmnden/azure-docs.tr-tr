@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure olay kılavuz olay şeması
 
@@ -30,7 +30,7 @@ Aşağıdaki örnek, tüm olay yayımcıları tarafından kullanılan özellikle
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,27 +72,29 @@ Aşağıdaki örnek, tüm olay yayımcıları tarafından kullanılan özellikle
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Olay Özellikleri
 
 Tüm olaylar aynı aşağıdaki üst düzey veri içerir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
-| Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
-| eventType | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
-| EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| id | dize | Olay için benzersiz tanımlayıcı. |
+| Konu | string | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
+| Konu | string | Olay konu yayımcı tarafından tanımlanan yolu. |
+| eventType | string | Bu olay kaynağı için kayıtlı olay türünden biri. |
+| EventTime | string | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
+| id | string | Olay için benzersiz tanımlayıcı. |
 | veriler | nesne | Olay verileri kaynak sağlayıcıya özel. |
-| dataVersion | dize | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
+| dataVersion | string | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
+| metadataVersion | string | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
 Veri nesnesi özellikleri hakkında bilgi edinmek için olay kaynağı bakın:
 
 * [Azure abonelikleri (yönetim işlemlerini)](event-schema-subscriptions.md)
 * [Blob depolama](event-schema-blob-storage.md)
-* [Olay hub'ları](event-schema-event-hubs.md)
+* [Event Hubs](event-schema-event-hubs.md)
+* [Service Bus](event-schema-service-bus.md)
+* [IoT Hub’ı](event-schema-iot-hub.md)
 * [Kaynak grupları (yönetim işlemlerini)](event-schema-resource-groups.md)
 
 Özel konular için olay yayımcısı veri nesnesi belirler. Üst düzey veri standart kaynak tarafından tanımlanan olayları aynı alanları içermelidir. Olaylar için özel konular yayımlarken, Yönlendirme ve filtreleme yardımcı olmak üzere, olayların konu modelleme düşünmelisiniz.

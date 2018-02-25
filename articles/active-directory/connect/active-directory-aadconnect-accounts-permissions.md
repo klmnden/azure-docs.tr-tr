@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesapları ve izinleri
 Azure AD Connect Yükleme Sihirbazı'nı iki farklı yollarını sunar:
@@ -75,7 +75,7 @@ Azure AD Connect sürüm 1.1.524.0 ve daha sonra Azure AD Connect Sihirbazı'nı
 | Azure AD'ye Bağlanma |Azure AD directory kimlik bilgileri |Azure AD genel Yönetici rolüne |<li>Azure AD dizini eşitleme etkinleştiriliyor.</li>  <li>Oluşturulmasını [Azure AD hesabının](#azure-ad-service-account) kullanılan devam eden eşitleme işlemleri için Azure AD içinde.</li> |
 | Dizinlerinizi bağlama |Azure AD ile bağlı her bir orman için şirket içi Active Directory kimlik bilgileri |İzinler hangi özellikleri etkinleştirmek ve bulunabilir bağlıdır [AD DS hesabı oluşturma](#create-the-ad-ds-account) |Bu hesap, okumak ve eşitleme sırasında dizin bilgilerini yazmak için kullanılır. |
 | AD FS Sunucuları |Sihirbazı'nı çalıştıran kullanıcının oturum açma kimlik bilgilerini bağlanmak için yeterli zaman listedeki her sunucu için sihirbaz kimlik bilgilerini toplar. |Etki alanı yöneticisi |Yükleme ve AD FS sunucusu rolü yapılandırması. |
-| Web uygulaması ara sunucuları |Sihirbazı'nı çalıştıran kullanıcının oturum açma kimlik bilgilerini bağlanmak için yeterli zaman listedeki her sunucu için sihirbaz kimlik bilgilerini toplar. |Hedef makinede yerel yönetici |Yükleme ve yapılandırma WAP sunucu rolünün. |
+| Web uygulaması proxy sunucuları |Sihirbazı'nı çalıştıran kullanıcının oturum açma kimlik bilgilerini bağlanmak için yeterli zaman listedeki her sunucu için sihirbaz kimlik bilgilerini toplar. |Hedef makinede yerel yönetici |Yükleme ve yapılandırma WAP sunucu rolünün. |
 | Ara sunucu güveni kimlik bilgileri |Federasyon Hizmeti'ne güvenen kimlik bilgilerini (proxy FS güven sertifikadan kaydetmek için kullandığı kimlik bilgileri |AD FS sunucusunun yerel yönetici olan etki alanı hesabı |İlk kayıttan FS WAP güven sertifikası. |
 | "Bir etki alanı kullanıcı hesabı seçeneğini kullan" AD FS hizmet hesabı sayfası |AD kullanıcı hesabı kimlik bilgileri |Etki alanı kullanıcısı |Kimlik bilgilerini sağlanan AD kullanıcı hesabı AD FS hizmeti oturum açma hesabı olarak kullanılır. |
 
@@ -98,7 +98,7 @@ Belirttiğiniz şirket hesabının **dizinlerinizi bağlama** sayfa yükleme ön
 Bir Azure AD Connect sürümünden yeni sürüme yükselttiğinizde, aşağıdaki izinler gerekir:
 
 >[!IMPORTANT]
->Yapı 1.1.484 ile başlayarak, Azure AD Connect SQL veritabanını yükseltmek için sysadmin izinleri gerektiren bir regresyon hata sunmuştur.  Bu hata, en son sürüme 1.1.614 hala mevcuttur.  Bu yapı yükseltiyorsanız, sysadmin izinleri gerekir.  Dbo izinleri yeterli değil.  Azure AD Connect sysadmin izinleri olmadan yükseltme çalışırsanız, yükseltme başarısız olur ve Azure AD Connect artık doğru daha sonra çalışmaz.  Microsoft, bunun farkında olduğundan ve bu sorunu gidermek için çalışma.
+>Yapı 1.1.484 ile başlayarak, Azure AD Connect SQL veritabanını yükseltmek için sysadmin izinleri gerektiren bir regresyon hata sunmuştur.  Bu hata, yapı 1.1.647 giderilmiştir.  Bu yapı yükseltiyorsanız, sysadmin izinleri gerekir.  Dbo izinleri yeterli değil.  Azure AD Connect sysadmin izinleri olmadan yükseltme çalışırsanız, yükseltme başarısız olur ve Azure AD Connect artık doğru daha sonra çalışmaz.  Microsoft, bunun farkında olduğundan ve bu sorunu gidermek için çalışma.
 
 
 | Sorumlu | Gerekli izinler | İçin kullanılır |
@@ -143,11 +143,11 @@ Gösterge:
 - sMSA - [tek başına yönetilen hizmet hesabı](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA - [Grup yönetilen hizmet hesabı](https://technet.microsoft.com/library/hh831782.aspx)
 
-| | Yerel veritabanı</br>Express | Yerel veritabanı/LocalSQL</br>Özel | Uzak SQL</br>Özel |
+| | Yerel veritabanı</br>Express | LocalDB/LocalSQL</br>Özel | Uzak SQL</br>Özel |
 | --- | --- | --- | --- |
 | **tek başına/çalışma grubu makinesi** | Desteklenmiyor | **VSA**</br>Yerel hesap (2008)</br>Yerel hesap |  Desteklenmiyor |
 | **Makine etki alanına katılmış** | **VSA**</br>Yerel hesap (2008) | **VSA**</br>Yerel hesap (2008)</br>Yerel hesap</br>Etki alanı hesabı</br>smsa'yı, gMSA | **gMSA**</br>Etki alanı hesabı |
-| **Etki alanı denetleyicisi** | **Etki alanı hesabı** | *gMSA*</br>**Etki alanı hesabı**</br>sMSA| *gMSA*</br>**Etki alanı hesabı**|
+| **Etki alanı denetleyicisi** | Etki alanı hesabı | *gMSA*</br>Etki alanı hesabı</br>sMSA| *gMSA*</br>Etki alanı hesabı|
 
 #### <a name="virtual-service-account"></a>Sanal hizmet hesabı
 Bir sanal hizmet hesabı, bir parola sahip değil ve Windows tarafından yönetilen hesap özel türüdür.
@@ -191,9 +191,9 @@ Hesap kullanılır sunucunun adını, kullanıcı adı ikinci bölümünde tanı
 
 Hizmet hesabı dolmayan uzun karmaşık bir parola ile oluşturulur. Özel bir rol verilen **Directory eşitleme hesapları** dizin eşitleme görevleri gerçekleştirmek için yalnızca izinlere sahiptir. Bu özel yerleşik rol dışında Azure AD Connect Sihirbazı verilemez. Azure portalında rol bu hesapla gösterir **kullanıcı**.
 
-Azure AD'de 20 eşitleme hizmet hesapları bir sınırı yoktur. Azure AD içinde var olan Azure AD hizmet hesaplarının listesini almak için aşağıdaki Azure AD PowerShell cmdlet'ini çalıştırın:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Azure AD'de 20 eşitleme hizmet hesapları bir sınırı yoktur. Azure AD içinde var olan Azure AD hizmet hesaplarının listesini almak için aşağıdaki Azure AD PowerShell cmdlet'ini çalıştırın: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Kullanılmayan Azure AD kaldırmak için hizmet hesapları, aşağıdaki Azure AD PowerShell cmdlet'ini çalıştırın:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Kullanılmayan Azure AD kaldırmak için hizmet hesapları, aşağıdaki Azure AD PowerShell cmdlet'ini çalıştırın: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.

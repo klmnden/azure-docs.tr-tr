@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: acfd26674aafab4ed1925d6b33967f917058b1be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: beacf34ae0cf7cfd55b63a862d3dabce99248939
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-application-upgrades"></a>Uygulama yükseltme ile ilgili sorunları giderme
 Bu makalede bazı Azure Service Fabric uygulama ve bunların nasıl çözüleceği yükseltme geçici yaygın sorunların çoğunu kapsar.

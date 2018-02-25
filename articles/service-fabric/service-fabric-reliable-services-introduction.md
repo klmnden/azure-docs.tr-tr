@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: masnider;
-ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="reliable-services-overview"></a>Reliable Services özelliğine genel bakış
 Azure Service Fabric, yazma ve durum bilgisiz ve durum bilgisi olan güvenilir hizmetler yönetme basitleştirir. Bu konu şunları içerir:
@@ -45,7 +45,7 @@ Güvenilir hizmetler, uygulamanız için önemli olan express yardımcı olması
 * Takılabilir iletişim modelini. HTTP ile gibi tercih ettiğiniz taşıması kullanan [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, özel TCP protokolleri ya da başka bir şey. Güvenilir hizmetler, Giden kutusu seçeneklerini kullanabilirsiniz ya da kendi sağlayabilir bazı harika sağlar.
 * Durum bilgisi olan hizmetler için güvenilir hizmetler programlama modeli kullanarak durumunuza sağ hizmetinizi iç tutarlı ve güvenilir bir şekilde depolamak sağlar [güvenilir koleksiyonları](service-fabric-reliable-services-reliable-collections.md). C# koleksiyonları kullanan herkes için tanıdık gelecektir yüksek oranda kullanılabilir ve güvenilir koleksiyon sınıfları basit bir dizi güvenilir koleksiyonlarıdır. Geleneksel olarak, dış sistemler güvenilir durum yönetimi için gereken hizmetleri. Güvenilir koleksiyonlarla aynı yüksek kullanılabilirlik ve güvenilirlik yüksek oranda kullanılabilir dış depoları beklenir gelen yanında, işlem durumunuza depolayabilirsiniz. Hesaplama ve çalışması için gereken durumu birlikte bulundurmak çünkü bu modeli gecikme süresi de geliştirir.
 
-Bu genel bir bakış güvenilir hizmetler için Microsoft Virtual Academy videosunu izleyin.<center>
+Bu genel bir bakış güvenilir hizmetler için Microsoft Virtual Academy videosunu izleyin. <center>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
 <img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
 </a>
@@ -62,7 +62,7 @@ Service Fabric güvenilir Hizmetleri'nde önce yazılmış Hizmetleri'nden farkl
 ## <a name="service-lifecycle"></a>Hizmet yaşam döngüsü
 Durum bilgisi olan veya durum bilgisiz hizmetinizi olup olmadığını belirtir, hızlı bir şekilde kodunuzda takın ve çalışmaya başlama sağlayan basit bir yaşam döngüsü güvenilir hizmetler sağlar.  Hizmetinizi çalışır almak için uygulamanız gereken yalnızca bir veya iki yöntem vardır.
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** -bu hizmeti kullanmak istediği iletişimi stack(s) burada tanımlar bir yöntemdir. Aşağıdaki gibi iletişim yığın [Web API](service-fabric-reliable-services-communication-webapi.md), ne dinleme bitiş noktasını veya (nasıl istemcileri hizmete erişmek) hizmeti için uç noktalar tanımlar değil. Görüntülenen iletileri servis kodunu geri kalanı ile nasıl etkileşim tanımlar.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - This method is where the service defines the communication stack(s) that it wants to use. Aşağıdaki gibi iletişim yığın [Web API](service-fabric-reliable-services-communication-webapi.md), ne dinleme bitiş noktasını veya (nasıl istemcileri hizmete erişmek) hizmeti için uç noktalar tanımlar değil. Görüntülenen iletileri servis kodunu geri kalanı ile nasıl etkileşim tanımlar.
 * **RunAsync** -hizmetiniz, iş mantığını çalıştığı ve burada bu hizmetin ömrü boyunca çalışması gerektiğini herhangi bir arka plan görevi devre dışı kazandırın bu yöntemidir. Sağlanan iptal belirteci zaman bu iş durması gerektiğini sinyaldir. Örneğin, hizmet iletileri güvenilir bir sıra dışında çekmek ve bunları işlemek gerekirse, bu iş yeri olur budur.
 
 İlk kez güvenilir hizmetler öğrendiğiniz okumaya devam edin! Güvenilir hizmetler yaşam döngüsü için ayrıntılı bilgileri arıyorsanız, üzerinden için head [bu makalede](service-fabric-reliable-services-lifecycle.md).

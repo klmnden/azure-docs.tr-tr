@@ -12,23 +12,23 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: ce579bc2844d321e4fbc70726b57120e17e4788d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3d561e3ebab886cd4976e5f1c2e8f2ddde3d6c14
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Azure Site Recovery dağıtımları yönetmek için rol tabanlı erişim denetimi kullanma
 
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, ekibiniz içinde sorumlulukları kurabilmeleri ve belirli işlerini gerçekleştirmek için gereken şekilde kullanıcılara yalnızca belirli erişim izinleri verin.
 
-Azure Site Recovery Site Recovery yönetim işlemlerini denetlemek için 3 yerleşik roller sağlar. Daha fazla bilgi almak [Azure RBAC yerleşik rolleri](../active-directory/role-based-access-built-in-roles.md)
+Azure Site Recovery Site Recovery yönetim işlemlerini denetlemek için 3 yerleşik roller sağlar. [Azure RBAC yerleşik rolleri](../active-directory/role-based-access-built-in-roles.md) hakkında daha fazla bilgi edinin
 
-* [Site kurtarma katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) -bu rol bir kurtarma Hizmetleri kasası Azure Site Recovery işlemlerini yönetmek için gerekli tüm izinlere sahiptir. Bu rolüne sahip bir kullanıcı ancak oluşturmak veya bir kurtarma Hizmetleri kasası silemez veya diğer kullanıcıların erişim hakları atayın. Bu rol etkinleştirin ve olağanüstü durum kurtarma uygulamaları ya da tüm kuruluşlar için olarak durumda may olmak yönetmek olağanüstü durum kurtarma yöneticileri için uygundur.
-* [Site kurtarma işleci](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) -yürütme izni ve yük devretme ve yeniden çalışma operations manager bu rolü vardır. Bu rolüne sahip bir kullanıcı etkinleştirmek veya çoğaltma devre dışı bırakmak, oluşturmak veya kasalarını silmek, yeni altyapı kaydedilemiyor veya diğer kullanıcıların erişim hakları atayın. Bu rol kimin yük devretme sanal makinelerin olağanüstü durum kurtarma işleci için uygundur veya uygulama sahipleri ve gerçek veya sanal olağanüstü durumda bir DR gibi BT yöneticileri tarafından istendiğinde uygulamaları ayrıntıya gidin. POST olağanüstü durum çözümlemesi, DR işleci yeniden koruyabilir ve geri dönme sanal makineler.
-* [Site kurtarma okuyucu](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) -bu rol tüm Site Recovery yönetim işlemlerini görüntülemek için gerekli izinlere sahip. Bu rol kimin koruma geçerli durumunu izleyebilir ve Destek biletlerini gerekli olursa BT izleme yöneticinin için uygundur.
+* [Site Recovery Katkıda Bulunanı](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) - Bu rol, Kurtarma Hizmetleri kasasında Site Recovery işlemlerini yönetmek için gereken tüm izinlere sahiptir. Ancak bu role sahip kullanıcı, Kurtarma Hizmetleri kasasını oluşturamaz veya silemez ya da diğer kullanıcılara erişim hakkı atayamaz. Bu rol etkinleştirin ve olağanüstü durum kurtarma uygulamaları ya da tüm kuruluşlar için olarak durumda may olmak yönetmek olağanüstü durum kurtarma yöneticileri için uygundur.
+* [Site Recovery Operatörü](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) - Bu rol, Yük Devretme ve Yeniden Çalışma işlemlerini yürütme ve yönetme izinlerine sahiptir. Bu rolüne sahip bir kullanıcı etkinleştirmek veya çoğaltma devre dışı bırakmak, oluşturmak veya kasalarını silmek, yeni altyapı kaydedilemiyor veya diğer kullanıcıların erişim hakları atayın. Bu rol kimin yük devretme sanal makinelerin olağanüstü durum kurtarma işleci için uygundur veya uygulama sahipleri ve gerçek veya sanal olağanüstü durumda bir DR gibi BT yöneticileri tarafından istendiğinde uygulamaları ayrıntıya gidin. POST olağanüstü durum çözümlemesi, DR işleci yeniden koruyabilir ve geri dönme sanal makineler.
+* [Site Recovery Okuyucusu](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) - Bu rol tüm Site Recovery yönetim işlemlerini görüntüleme iznine sahiptir. Bu rol kimin koruma geçerli durumunu izleyebilir ve Destek biletlerini gerekli olursa BT izleme yöneticinin için uygundur.
 
 Daha fazla denetim için kendi rolleri tanımlamak için arıyorsanız, bkz: nasıl yapılır [özel roller yapı](../active-directory/role-based-access-control-custom-roles.md) Azure.
 

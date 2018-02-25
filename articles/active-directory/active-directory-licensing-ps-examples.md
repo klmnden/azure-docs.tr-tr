@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6a518f9c7ddb11de2b459d5d28c404316eb62355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Grup tabanlı Azure AD'de lisans için PowerShell örnekleri
 
@@ -27,6 +27,9 @@ Grup tabanlı lisans için tam işlevsellik aracılığıyla kullanılabilir [Az
 
 > [!NOTE]
 > Cmdlet'leri çalıştırmayı başlamadan önce bağlandığınız kiracınız için ilk olarak, çalıştırarak emin olun `Connect-MsolService` cmdlet'i.
+
+>[!WARNING]
+>Bu kod örneği tanıtım amacıyla sağlanır. Ortamınızda kullanmak istiyorsanız, küçük bir ölçekte veya ayrı bir test Kiracı ilk test göz önünde bulundurun. Ortamınıza özel ihtiyaçlarını karşılamak için kodu ayarlamanız gerekebilir.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Bir gruba atanan görünüm ürün lisansları
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet, Grup nesnesini almak ve denetlemek için kullanılabilir *lisansları* özelliği: gruba atanmış tüm ürün lisansları listeler.
@@ -70,7 +73,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ```
 
 ## <a name="get-statistics-for-groups-with-licenses"></a>Lisans grupları için istatistiklerini alın
-Lisans grupları için temel istatistikleri bildirebilirsiniz. Aşağıdaki örnekte toplam kullanıcı sayısı, grubu tarafından zaten atanmış lisansları olan kullanıcı sayısı ve kendisi için lisans grubu tarafından atanamadı kullanıcı sayısını listeler.
+Lisans grupları için temel istatistikleri bildirebilirsiniz. Aşağıdaki örnekte, komut dosyasını toplam kullanıcı sayısı, grubu tarafından zaten atanmış lisansları olan kullanıcı sayısı ve kendisi için lisans grubu tarafından atanamadı kullanıcı sayısını listeler.
 
 ```
 #get all groups with licenses
@@ -141,7 +144,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Tüm kullanıcıların Lisans hatalarla bir grupta alın.
 
-Bazı içeren bir grup verilen ilgili hatalar lisans, bu hataları tarafından etkilenen tüm kullanıcılar artık listeleyebilirsiniz. Bir kullanıcının diğer grupları hatalardan çok olabilir. Ancak, hesabınıza sınır sonuçları yalnızca söz konusu gruba ilgili hataları kontrol ederek bu örnekte **ReferencedObjectId** her özellik **IndirectLicenseError** kullanıcı girişi.
+Bazı lisans ile ilgili hataları içeren bir grubu verildiğinde, bu hataları tarafından etkilenen tüm kullanıcılar artık listeleyebilirsiniz. Bir kullanıcının diğer grupları hatalardan çok olabilir. Ancak, hesabınıza sınır sonuçları yalnızca söz konusu gruba ilgili hataları kontrol ederek bu örnekte **ReferencedObjectId** her özellik **IndirectLicenseError** kullanıcı girişi.
 
 ```
 #a sample group with errors
@@ -167,7 +170,7 @@ ObjectId                             DisplayName      License Error
 ```
 ## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Tüm kullanıcıların tüm Kiracı lisans hatalarla Al
 
-Bir veya daha fazla gruplarından lisans hataları olan tüm kullanıcıları listelemek için aşağıdaki komut dosyası kullanılabilir. Bu komut dosyası kullanıcı her hatanın kaynağını NET bir şekilde belirlemesine izin veren lisans hatası başına bir satır listeler.
+Aşağıdaki komut dosyası, bir veya daha fazla gruplarından lisans hataları olan tüm kullanıcıları almak için kullanılabilir. Komut dosyası kullanıcı açıkça her hatanın kaynağını belirlemenize olanak tanır lisans hatası başına bir satır yazdırır.
 
 > [!NOTE]
 > Bu komut dosyası büyük kiracılar için en iyi olmayabilir Kiracı tüm kullanıcılar numaralandırır.
@@ -213,7 +216,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
 
 ## <a name="check-if-user-license-is-assigned-directly-or-inherited-from-a-group"></a>Kullanıcı lisansı doğrudan atanmış veya gruptan devralınan olmadığını denetleyin
 
-Bir kullanıcı nesnesi için belirli ürün lisans bir gruptan atanmışsa veya doğrudan atanırsa denetlemek mümkündür.
+Kullanıcı nesnesi için belirli ürün lisans bir gruptan atanmışsa veya doğrudan atanırsa denetlemek mümkündür.
 
 Aşağıdaki iki örnek işlevleri tek bir kullanıcıya atamada türünü çözümlemek için kullanılabilir:
 ```
@@ -302,7 +305,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Kullanıcılar için doğrudan lisans grubu lisansların Kaldır
 Zaten bir gruptan aynı lisans devral kullanıcılar gereksiz doğrudan lisansları kaldırmak için bu betiği amacı.; Örneğin, bir parçası olarak bir [grup tabanlı lisans için geçiş](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
 > [!NOTE]
-> İlk kaldırılacak doğrudan lisansları devralınmış lisansı sayısından daha fazla hizmet işlevsellik etkinleştirmeyin doğrulamak önemlidir. Aksi takdirde, doğrudan lisans kaldırma hizmetlere ve veri erişim kullanıcılar için devre dışı bırakabilir. Şu anda hangi hizmetlerin doğrudan devralınan lisansları vs etkinleştirilir PowerShell yoluyla denetlemek olası değil. Komut dosyasında biz biliyoruz Hizmetleri en düşük düzeyde devralındığı gruplarından ve biz, karşı denetler belirtmeniz gerekecektir.
+> İlk kaldırılacak doğrudan lisansları devralınmış lisansı sayısından daha fazla hizmet işlevsellik etkinleştirmeyin doğrulamak önemlidir. Aksi takdirde, doğrudan lisans kaldırma hizmetlere ve veri erişim kullanıcılar için devre dışı bırakabilir. Şu anda hangi hizmetlerin doğrudan devralınan lisansları vs etkinleştirilir PowerShell yoluyla denetlemek olası değil. Komut dosyasında biz, karşı emin olmak için kullanıcıların beklenmedik bir şekilde hizmetlere erişimi kaybetmemek gruplarından devralınan ve denetleme biliyoruz Hizmetleri minimum düzeyini belirtin.
 
 ```
 #BEGIN: Helper functions used by the script
@@ -382,7 +385,7 @@ function GetDisabledPlansForSKU
 {
     Param([string]$skuId, [string[]]$enabledPlans)
 
-    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
+    $allPlans = Get-MsolAccountSku | where {$_.AccountSkuId -ieq $skuId} | Select -ExpandProperty ServiceStatus | Where {$_.ProvisioningStatus -ine "PendingActivation" -and $_.ServicePlan.TargetClass -ieq "User"} | Select -ExpandProperty ServicePlan | Select -ExpandProperty ServiceName
     $disabledPlans = $allPlans | Where {$enabledPlans -inotcontains $_}
 
     return $disabledPlans
@@ -476,7 +479,7 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Grupları üzerinden lisans yönetimi için ayarlama özelliği hakkında daha fazla bilgi için aşağıdakilere bakın:
+Grupları üzerinden lisans yönetimi için ayarlama özelliği hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 * [Grup tabanlı Azure Active Directory lisanslaması nedir?](active-directory-licensing-whatis-azure-portal.md)
 * [Azure Active Directory'deki bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)

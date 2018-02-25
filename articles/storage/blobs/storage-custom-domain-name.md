@@ -2,23 +2,17 @@
 title: "Azure Blob storage uç noktanız için özel etki alanı adı yapılandırma | Microsoft Docs"
 description: "Bir Azure depolama hesabındaki Blob storage uç kendi kurallı ad (CNAME) eşleştirmek için Azure portalını kullanın."
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Blob depolama uç noktası için özel etki alanı adınızı yapılandırma
 
@@ -32,9 +26,9 @@ Adlı bir depolama hesabında bulunan blob veriler için birkaç örnek URL'leri
 
 | Kaynak Türü | Varsayılan URL | Özel etki alanı URL'si |
 | --- | --- | --- |
-| Depolama hesabı | http://mystorageaccount.BLOB.Core.Windows.NET | http://www.contoso.com |
-| Blob |http://mystorageaccount.BLOB.Core.Windows.NET/MyContainer/myblob | http://www.contoso.com/MyContainer/myblob |
-| Kök kapsayıcı | http://mystorageaccount.BLOB.Core.Windows.NET/myblob veya http://mystorageaccount.blob.core.windows.net/$ kök/myblob| http://www.contoso.com/myblob ya da http://www.contoso.com/$ kök/myblob |
+| Depolama hesabı | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
+| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
+| Kök kapsayıcı | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob ya da http://www.contoso.com/$ kök/myblob |
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Doğrudan ara etki alanı eşleme karşılaştırması
 

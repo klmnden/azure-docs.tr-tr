@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 2c5377f7193f8357a7e99ed1ef1a61b066b8ce5f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f94d80b5c0f4f67ccf4172df22babfb364c57902
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Hedef (VMware Azure için) hazırlama
 > [!div class="op_single_selector"]

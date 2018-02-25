@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: ericrad
-ms.openlocfilehash: 79cbdb4d7c11fac0ca27758e92b44799ce0c1a3e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: 1f4c542c179f196e61457ddba6b9dfe76dd1dc79
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler için zamanlanmış olaylar
 
@@ -27,7 +27,8 @@ Zamanlanmış olaylar hizmettir bir Azure meta verileri, sanal makine (VM) bakı
 
 Windows zamanlanan olaylar hakkında daha fazla bilgi için bkz: [zamanlanmış olaylar için Windows Vm'lerini](../windows/scheduled-events.md).
 
-[!IMPORTANT] Zamanlanmış olaylar tüm Azure bölgelerde genel olarak kullanılabilir. Bkz: [sürümü ve bölge kullanılabilirliği](#version-and-region-availability) en son sürüm bilgileri için.
+> [!Note] 
+> Zamanlanmış olaylar tüm Azure bölgelerde genel olarak kullanılabilir. Bkz: [sürümü ve bölge kullanılabilirliği](#version-and-region-availability) en son sürüm bilgileri için.
 
 ## <a name="why-use-scheduled-events"></a>Zamanlanmış olayları neden kullanılır?
 

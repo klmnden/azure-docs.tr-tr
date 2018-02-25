@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 02/22/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 77bc7e068629c5dbf650b39844912b1b7a6155b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cb5c387319b9659b16f0c98dc38cb79d72987e2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Site Recovery kasası Sil
 Bağımlılıklar, bir Azure Site Recovery kasası silmesini engelleyebilirsiniz. Size gereken eylemleri Site kurtarma senaryosunda göre farklılık gösterir: VMware azure'a, Hyper-V (ile arama ve Sistem Merkezi Sanal Makine Yöneticisi olmadan) Azure ve Azure yedekleme için. Azure Backup ile kullanılan bir kasa silmek için bkz: [Azure yedekleme kasasına silme](../backup/backup-azure-delete-vault.md).

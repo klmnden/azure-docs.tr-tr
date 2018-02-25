@@ -6,13 +6,15 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 02/22/2018
 ms.author: anoopkv
-ms.openlocfilehash: ff927a4846ba63d3f00d0e81b8cb818af1441449
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: 2b6b0e5cc95f28b5596e7e898f5f035e3647d9c5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Kaynak ortamı (VMware Azure) ayarlama
 > [!div class="op_single_selector"]

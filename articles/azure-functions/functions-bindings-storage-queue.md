@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -213,11 +213,11 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok| ayarlanmalıdır `queueTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü**| yok | İçinde *function.json* yalnızca dosya. ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | yok |İşlev kodu sırada temsil eden değişken adı.  | 
+|**Türü** | yok| ayarlanmalıdır `queueTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**Yönü**| yok | İçinde *function.json* yalnızca dosya. ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**Adı** | yok |İşlev kodu sırada temsil eden değişken adı.  | 
 |**queueName** | **QueueName**| Yoklamak için kuyruk adı. | 
-|**bağlantı** | **Bağlantı** |Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
+|**Bağlantı** | **Bağlantı** |Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -234,16 +234,16 @@ JavaScript kullanılması `context.bindings.<name>` sıra öğesi yükü erişme
 
 ## <a name="trigger---message-metadata"></a>Tetikleyici - ileti meta verileri
 
-Sıra tetikleyici çeşitli meta veri özelliklerini sağlar. Bu özellikler, diğer bağlamaları bağlama ifadelerinde bir parçası olarak ya da kodunuzu parametre olarak kullanılabilir. Değerleri olarak aynı semantiklerine sahip [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
+Sıra tetikleyici birkaç sağlar [meta veri özelliklerini](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Bu özellikler, diğer bağlamaları bağlama ifadelerinde bir parçası olarak ya da kodunuzu parametre olarak kullanılabilir. Değerleri olarak aynı semantiklerine sahip [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
 |Özellik|Tür|Açıklama|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Sıra Yükü (geçerli bir dize ise). Sıranın yükü bir dize olarak olursa `QueueTrigger` tarafından adlı değişken aynı değere sahip `name` özelliğinde *function.json*.|
 |`DequeueCount`|`int`|Bu iletiyi kuyruktan çıkarıldı sayısı.|
-|`ExpirationTime`|`DateTimeOffset?`|İleti sona ereceği saat.|
+|`ExpirationTime`|`DateTimeOffset`|İleti sona ereceği saat.|
 |`Id`|`string`|Sıra ileti kimliği.|
-|`InsertionTime`|`DateTimeOffset?`|İleti sıraya eklenen süre.|
-|`NextVisibleTime`|`DateTimeOffset?`|Sonraki ileti görebileceği süre.|
+|`InsertionTime`|`DateTimeOffset`|İleti sıraya eklenen süre.|
+|`NextVisibleTime`|`DateTimeOffset`|Sonraki ileti görebileceği süre.|
 |`PopReceipt`|`string`|İleti pop giriş.|
 
 ## <a name="trigger---poison-messages"></a>Tetikleyici - zarar iletileri
@@ -251,6 +251,18 @@ Sıra tetikleyici çeşitli meta veri özelliklerini sağlar. Bu özellikler, di
 Bir sıra Tetik işlevi başarısız olduğunda, Azure işlevleri işlev en fazla beş kez ilk denemede dahil olmak üzere belirli sıradaki ileti yeniden dener. Tüm beş deneme başarısız olursa işlevleri çalışma zamanı adlandırılan bir kuyruğun bir ileti ekler  *&lt;originalqueuename >-zararlı*. Günlüğe yazma veya el ile ilgili dikkat bir bildirim göndererek zararlı sırasından iletilerini işlemek için bir işlev gerekli yazabilirsiniz.
 
 El ile zarar iletileri işlemek için denetleme [dequeueCount](#trigger---message-metadata) kuyruk iletisi.
+
+## <a name="trigger---polling-algorithm"></a>Tetikleyici - yoklama algoritması
+
+Sıra tetikleyici boşta kuyruk depolama işlem maliyetleri yoklama etkisini azaltmak için bir rastgele üstel geri alma algoritması uygular.  Bir ileti bulunduğunda, çalışma zamanı iki saniye bekler ve ardından başka bir ileti için denetler; bir ileti bulunduğunda, yeniden denemeden önce yaklaşık dört saniye bekler. Bir kuyruk iletisi almak için sonraki başarısız girişimden sonra bekleme süresini bir dakika olarak varsayılan olarak en fazla bekleme süresi ulaşana kadar artmaya devam eder. En fazla bekleme süresi aracılığıyla yapılandırılabilir `maxPollingInterval` özelliğinde [host.json dosya](functions-host-json.md#queues).
+
+## <a name="trigger---concurrency"></a>Tetikleyici - eşzamanlılık
+
+Bekleyen birden çok sıraya ileti olduğunda sıra tetikleyici toplu iletiler alır ve eşzamanlı olarak işlemek için işlevi örnekleri çağırır. Varsayılan olarak, toplu iş boyutu 16'dır. İşlenmekte olan sayısı 8'e aldığında, çalışma zamanı başka bir toplu iş alır ve bu iletileri işleme başlatır. Bu nedenle en fazla eş zamanlı iletileri işlevi bir sanal makineye (VM) başına işlenmekte olan 24 sayısıdır. Bu sınır ayrı ayrı her bir VM üzerinde her sıra tetiklenen işlevi uygulanır. Birden çok VM çıkışı işlevi uygulamanızı ölçekler, her VM için Tetikleyicileri bekleyin ve işlevleri çalıştırmayı deneyin. Bir işlev uygulaması çıkışı 3 VM ölçekler, örneğin, varsayılan en fazla eşzamanlı bir sıra tetiklemeli işlevin örneklerini 72 sayısıdır.
+
+Toplu iş boyutu ve yeni bir toplu işi alınırken için eşik içinde yapılandırılabilir [host.json dosya](functions-host-json.md#queues). Paralel yürütme sırası tetiklenen bir işlev uygulaması işlevlerde için en aza indirmek istiyorsanız, yığın boyutu 1 olarak ayarlayın. Bu ayar, yalnızca tek bir sanal makinede (VM) işlevi uygulamanızın çalıştırdığı sürece eşzamanlılık ortadan kaldırır. 
+
+Sıra tetikleyici otomatik olarak bir işlev bir kuyruk iletisi birden çok kez önlediği; İşlevler ıdempotent olmasını yazılması gerekmez.
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - host.json properties
 
@@ -435,11 +447,11 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | ayarlanmalıdır `queue`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | yok | ayarlanmalıdır `out`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | yok | İşlev kodu sırada temsil eden değişken adı. Kümesine `$return` işlevi dönüş değeri başvurmak için.| 
+|**Türü** | yok | ayarlanmalıdır `queue`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**Yönü** | yok | ayarlanmalıdır `out`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**Adı** | yok | İşlev kodu sırada temsil eden değişken adı. Kümesine `$return` işlevi dönüş değeri başvurmak için.| 
 |**queueName** |**QueueName** | Kuyruk adı. | 
-|**bağlantı** | **Bağlantı** |Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
+|**Bağlantı** | **Bağlantı** |Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

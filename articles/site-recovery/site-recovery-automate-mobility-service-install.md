@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 02/22/2018
 ms.author: krnese
-ms.openlocfilehash: 118a2e775ae3d036f58989d9778104e372e8c701
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: eb837858fe81fa1f2d4966051bd4b7b068defe8b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Azure Otomasyonu DSC Mobility hizmetiyle VM çoğaltması için dağıtma
 Operations Management Suite biz kapsamlı yedekleme ve iş sürekliliği planınızın bir parçası olarak kullanabileceğiniz olağanüstü durum kurtarma çözümü sağlar.
@@ -47,7 +47,7 @@ Bu makalede, emin olmak için Azure Otomasyonu istenen durum yapılandırması (
 * Mobility hizmeti ve Azure VM aracısını korumak istediğiniz Windows makineler dağıtılır.
 * Çoğaltma hedefi Azure olduğunda Mobility hizmeti ve Azure VM Aracısı her zaman çalışır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Gerekli Kurulum depolamak için bir depo
 * Yönetim sunucusu ile kaydetmek için gerekli parolayı depolamak için bir depo
 
@@ -70,7 +70,7 @@ Mobility hizmetinin komut satırından yüklenebilir ve birkaç bağımsız değ
 
     Bu klasörde, adlandırılmış bir MSI dosyası görmeniz gerekir:
 
-    **Microsoft ASR_UA_version_Windows_GA_date_Release.exe**
+    **Microsoft-ASR_UA_version_Windows_GA_date_Release.exe**
 
     Yükleyici ayıklamak için aşağıdaki komutu kullanın:
 
@@ -355,7 +355,7 @@ Temelde Automation DSC'den alma aynı yetenekleri sağlamak için ortamınızdak
 
 Bu örnekte, bilgisayar adı için ek bir parametre yoktur. Uzak dosyalar, artık korumak istediğiniz makinelere tarafından erişilebilir olması gereken bir uzak paylaşım bulunur. Komut dosyasının sonuna yapılandırma enacts ve DSC yapılandırması hedef bilgisayara uygulanan başlar.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 XPSDesiredStateConfiguration PowerShell Modülü yüklü olduğundan emin olun. WMF 5.0 yüklü olduğu Windows makineler için aşağıdaki cmdlet'i hedef makinelerde çalıştırarak xPSDesiredStateConfiguration modülü yükleyebilirsiniz:
 
 ```powershell

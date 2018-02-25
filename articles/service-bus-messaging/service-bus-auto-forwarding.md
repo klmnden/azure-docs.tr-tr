@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: 6c92acee9d7609f4fedcddd40563b1a55fa08fac
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: be23d919b0c96d6c9b96ee328d1b18ad978a9dcc
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Hizmet veri yolu varlıklarını otomatik iletme ile zincirleme
 
 Hizmet veri yolu *otomatik iletme* özelliği, kuyruk veya başka bir sıraya veya aynı ad parçası olan konu aboneliği zincir olanak tanır. Otomatik iletme etkinleştirildiğinde, Service Bus otomatik olarak ilk sıra ya da abonelik (kaynak) yerleştirilen iletileri kaldırır ve ikinci sıra ya da konu (hedef) koyar. Bir ileti hedef varlık göndermek doğrudan hala mümkün olduğunu unutmayın. Ayrıca, bir sahipsiz sıraya, başka bir kuyruk veya konu gibi bir alt sırasına zincir mümkün değil.
 
 ## <a name="using-auto-forwarding"></a>Otomatik iletme kullanma
-Otomatik iletme ayarlayarak etkinleştirebilirsiniz [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] veya [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] özellikleri [QueueDescription] [ QueueDescription] veya [SubscriptionDescription] [ SubscriptionDescription] olarak kaynak için nesneleri Aşağıdaki örnek.
+
+Otomatik iletme ayarlayarak etkinleştirebilirsiniz [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] veya [SubscriptionDescription.ForwardTo] [ SubscriptionDescription.ForwardTo] özellikleri [QueueDescription] [ QueueDescription] veya [SubscriptionDescription] [ SubscriptionDescription] olarak kaynak için nesneleri Aşağıdaki örnek:
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -35,7 +36,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 Hedef varlık, kaynak varlık oluşturulduğunda mevcut olması gerekir. Hizmet veri yolu, hedef varlık mevcut değilse, kaynak varlık oluşturmak için sorulduğunda bir özel durum döndürür.
 
-Tek bir konuyu ölçeklendirmek için otomatik iletme kullanabilirsiniz. Hizmet veri yolu sınırları [belirli bir konu Aboneliklerde sayısı](service-bus-quotas.md) 2.000 için. İkinci düzey konuları oluşturarak ek abonelikleri barındırabilir. Service Bus sınırlaması tarafından abonelikleri sayısına bağlı olmayan olsa bile, ikinci düzey konuları ekleme Konunuzu, genel üretilen işi artırabilir olduğunu unutmayın.
+Tek bir konuyu ölçeklendirmek için otomatik iletme kullanabilirsiniz. Hizmet veri yolu sınırları [belirli bir konu Aboneliklerde sayısı](service-bus-quotas.md) 2.000 için. İkinci düzey konuları oluşturarak ek abonelikleri barındırabilir. Service Bus sınırlaması tarafından abonelikleri sayısına bağlı olmayan olsa bile, ikinci düzey konuları ekleme, konunun genel üretilen işi artırabilir.
 
 ![Otomatik iletme senaryosu][0]
 
@@ -47,7 +48,7 @@ Alice tatil, kendi kişisel kuyruk, yerine ERP konu kalırsa, dolar. Bir satış
 
 ## <a name="auto-forwarding-considerations"></a>Otomatik iletme konuları
 
-Hedef varlık çok fazla ileti toplanır ve kota aşılıyor veya hedef varlık devre dışıysa, kaynak varlık iletileri ekler, [sahipsiz sırayı](service-bus-dead-letter-queues.md) hedef (veya bir varlık içindeki alan kadar yeniden etkin). Bu iletiler, açıkça almak ve bunları sahipsiz sıradan işlemek için sahipsiz sıraya Canlı devam eder.
+Hedef varlık çok fazla ileti toplanır ve kota aşılıyor veya hedef varlık devre dışıysa, kaynak varlık iletileri ekler, [sahipsiz sırayı](service-bus-dead-letter-queues.md) hedef (veya bir varlık içindeki alan kadar yeniden etkin). Bu iletiler, açıkça almak ve bunları sahipsiz sıradan işlemek için sahipsiz sıraya Canlı devam edin.
 
 Birçok abonelikler ile bileşik bir konu elde etmek için tek tek konuları birlikte zincirleme kullanırken Orta sayıda birinci düzey konu Aboneliklerde ve ikinci düzey konuları birçok Aboneliklerde sahip önerilir. Örneğin, bunların 200 Abonelikleri, ikinci düzey konuyla zincir her birini 20 abonelikleri birinci düzey konuyla sağlar birinci düzey konu 200 aboneliklerle daha yüksek verimlilik için her bir ikinci düzey konuya 20 aboneliklerle zincirleme.
 

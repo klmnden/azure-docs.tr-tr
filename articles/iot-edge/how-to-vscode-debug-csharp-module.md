@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Bir C# modül Azure IOT Edge ile hata ayıklamak için Visual Studio Code kullanma
 Bu makalede kullanmaya yönelik ayrıntılı yönergeler sağlanmaktadır [Visual Studio Code](https://code.visualstudio.com/) Azure IOT kenar modüllerinizi hata ayıklamak için ana geliştirme aracı olarak.
@@ -47,7 +47,7 @@ Bu kılavuza başlamadan önce aşağıdaki Eğitmeni tamamlayın:
 
 2. İçinde `launch.json`, Gözat **hata ayıklama IOT kenar özel modül (.NET Core)** bölümü. Altında **pipeArgs**, doldurmak `<container_name>`. Olmalıdır `filtermodule` bu öğreticideki.
 
-    ![VS Code ekran hata ayıklama penceresi](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Ekran görüntüsü VS Code Launch.json'u](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. Gözat **Program.cs**. İçinde bir kesme noktası ekleme `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Tuşuna **F5** yeniden ve ekleme işlemini seçin. Bu öğreticide, işlem adı olmalıdır `FilterModule.dll`.

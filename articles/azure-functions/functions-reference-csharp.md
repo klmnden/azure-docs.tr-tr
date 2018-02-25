@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5e94ba1a45bccefedfa0017ad0123942e66f70bb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 683ef1ebffaec74df95b454d717857d55b8026dd
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure işlevleri C# betik (.csx) Geliştirici Başvurusu
 
@@ -191,32 +191,15 @@ public class Order
 
 Göreli bir yol ile kullanabileceğiniz `#load` yönergesi:
 
-* `#load "mylogger.csx"`işlev klasöründe bir dosya yükler.
-* `#load "loadedfiles\mylogger.csx"`işlev klasöründe bulunan bir dosya yükler.
-* `#load "..\shared\mylogger.csx"`diğer bir deyişle, işlevi klasör ile aynı düzeyde bir klasörde bulunan bir dosya yükler doğrudan altında *wwwroot*.
+* `#load "mylogger.csx"` işlev klasöründe bir dosya yükler.
+* `#load "loadedfiles\mylogger.csx"` işlev klasöründe bulunan bir dosya yükler.
+* `#load "..\shared\mylogger.csx"` diğer bir deyişle, işlevi klasör ile aynı düzeyde bir klasörde bulunan bir dosya yükler doğrudan altında *wwwroot*.
 
 `#load` Yönergesi çalışır yalnızca *.csx* dosyaları değil *.cs* dosyaları.
 
 ## <a name="binding-to-method-return-value"></a>Bağlama yöntemini dönüş değeri
 
-Adını kullanarak bir yöntemin dönüş değeri bir çıktı bağlaması için kullanabileceğiniz `$return` içinde *function.json*:
-
-```json
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "$return",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnectionString",
-}
-```
-
-```csharp
-public static string Run(string input, TraceWriter log)
-{
-    return input;
-}
-```
+Adını kullanarak bir yöntemin dönüş değeri bir çıktı bağlaması için kullanabileceğiniz `$return` içinde *function.json*. Örnekler için bkz: [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md#using-the-function-return-value).
 
 ## <a name="writing-multiple-output-values"></a>Birden çok çıktı değerleri yazılıyor
 
@@ -236,7 +219,7 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 
 Çıkış akış günlüklerinizi C# oturum açmak için türünde bir bağımsız değişken dahil `TraceWriter`. Bu ad öneririz `log`. Kullanmaktan kaçının `Console.Write` Azure işlevlerinde. 
 
-`TraceWriter`tanımlanan [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Günlük düzeyi için `TraceWriter` yapılandırılabilir [host.json](functions-host-json.md).
+`TraceWriter` tanımlanan [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Günlük düzeyi için `TraceWriter` yapılandırılabilir [host.json](functions-host-json.md).
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -264,17 +247,31 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>İptal belirteçleri
 
-Bazı işlemler normal şekilde kapatılmasını gerektirir. Her zaman kilitlenen işleyebilir kod yazmak en iyi olmakla birlikte, kapatma isteklerini işlemek istediğiniz durumlarda tanımlayan bir [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) bağımsız değişken belirtilmiş.  A `CancellationToken` bir ana bilgisayar kapatma tetiklenir göstermek için sağlanmıştır.
+Bir işlev kabul edebileceği bir [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) işlevi hakkında sonlandırılacak olduğunda kodunuzu bildirmek işletim sisteminin sağlar parametresi. Bu bildirim, beklenmedik bir şekilde veri tutarsız bir durumda bırakır şekilde sonlandırma işlevi değil emin olmak için kullanabilirsiniz.
+
+Aşağıdaki örnek, yaklaşan işlevi sonlandırma için denetlenecek gösterilmiştir.
 
 ```csharp
-public async static Task ProcessQueueMessageAsyncCancellationToken(
-    string blobName,
-    Stream blobInput,
-    Stream blobOutput,
+using System;
+using System.IO;
+using System.Threading;
+
+public static void Run(
+    string inputText,
+    TextWriter logger,
     CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
     {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
+        if (token.IsCancellationRequested)
+        {
+            logger.WriteLine("Function was cancelled at iteration {0}", i);
+            break;
+        }
+        Thread.Sleep(5000);
+        logger.WriteLine("Normal processing for queue message={0}", inputText);
     }
+}
 ```
 
 ## <a name="importing-namespaces"></a>Ad alanlarını alma
@@ -432,7 +429,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`bağlama tanımlayan bir .NET özniteliktir ve `T` , bağlama türü tarafından desteklenen bir giriş veya çıkış türü. `T`olamaz bir `out` parametre türü (gibi `out JObject`). Örneğin, Mobile Apps Tablo Bağlama destekler çıktı [altı türleri çıktı](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ancak yalnızca kullanabilirsiniz [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) veya [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)için `T`.
+`BindingTypeAttribute` bağlama tanımlayan bir .NET özniteliktir ve `T` , bağlama türü tarafından desteklenen bir giriş veya çıkış türü. `T` olamaz bir `out` parametre türü (gibi `out JObject`). Örneğin, Mobile Apps Tablo Bağlama destekler çıktı [altı türleri çıktı](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ancak yalnızca kullanabilirsiniz [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) veya [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)için `T`.
 
 ### <a name="single-attribute-example"></a>Tek öznitelik örneği
 

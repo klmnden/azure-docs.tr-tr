@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ed26abdb76083b9a18f79276ebf4294b4b6967b1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 472d61debff016cfd3df79bae1f63e176c14849d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -56,6 +56,8 @@ public static void Run(
 }
 ```
 
+Bu örnek için Azure işlevleri sürümdür 1.x; 2.x için [erişim hakları parametreyi](#trigger---configuration).
+ 
 ### <a name="trigger---c-script-example"></a>Tetikleyici - C# kod örneği
 
 Aşağıdaki örnek, bağlama Service Bus tetikleyici gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlevi bir Service Bus kuyruk iletisi günlüğe kaydeder.
@@ -150,7 +152,9 @@ module.exports = function(context, myQueueItem) {
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
-  Özniteliğin Oluşturucusu kuyruk veya konu ve abonelik adını alır. Bağlantının erişim hakları de belirtebilirsiniz. Erişim hakları belirtmezseniz, varsayılan değer `Manage`. Erişim hakları ayarlama seçme açıklandığı [tetikleyici - yapılandırma](#trigger---configuration) bölümü. Aşağıda, bir dize parametresi ile kullanılan öznitelik gösteren bir örnek verilmiştir:
+  Özniteliğin Oluşturucusu kuyruk veya konu ve abonelik adını alır. Azure işlevleri sürümünde 1.x, bağlantının erişim hakları de belirtebilirsiniz. Erişim hakları belirtmezseniz, varsayılan değer `Manage`. Daha fazla bilgi için bkz: [tetikleyici - yapılandırma](#trigger---configuration) bölümü.
+
+  Aşağıda, bir dize parametresi ile kullanılan öznitelik gösteren bir örnek verilmiştir:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -207,26 +211,27 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | "ServiceBusTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | yok | İşlev kodu kuyruk veya konu iletisinde temsil eden değişken adı. İşlev dönüş değeri başvurmak için "$return" ayarlayın. | 
+|**Türü** | yok | "ServiceBusTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**Yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**Adı** | yok | İşlev kodu kuyruk veya konu iletisinde temsil eden değişken adı. İşlev dönüş değeri başvurmak için "$return" ayarlayın. | 
 |**queueName**|**QueueName**|İzlemek için sırasının adı.  Yalnızca bir konu için bir sıra izliyorsanız seçin.
 |**topicName**|**TopicName**|İzlemek için konu adı. Yalnızca bir sıra için bir konu izliyorsanız seçin.|
-|**varlığıyla subscriptionName**|**Varlığıyla SubscriptionName**|İzlemek için Abonelik adı. Yalnızca bir sıra için bir konu izliyorsanız seçin.|
-|**bağlantı**|**Bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyServiceBus." adlı "MyServiceBus" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan hizmet veri yolu bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarını kullanır.<br><br>Bir bağlantı dizesi edinmek için gösterilen adımları izleyin [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır. |
-|**accessRights**|**Erişim**|Bağlantı dizesi için erişim hakları. Kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, hangi gösterir `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izni, `accessRights` "dinlemek için". Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin.|
+|**varlığıyla subscriptionName**|**varlığıyla subscriptionName**|İzlemek için Abonelik adı. Yalnızca bir sıra için bir konu izliyorsanız seçin.|
+|**Bağlantı**|**Bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyServiceBus." adlı "MyServiceBus" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan hizmet veri yolu bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarını kullanır.<br><br>Bir bağlantı dizesi edinmek için gösterilen adımları izleyin [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır. |
+|**accessRights**|**Erişim**|Bağlantı dizesi için erişim hakları. Kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, hangi gösterir `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izni, `accessRights` "dinlemek için". Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin. Azure işlevleri sürümünde 2.x, bu özellik kullanılamıyor depolama SDK'ın en son sürümünü desteklemediğinden işlemleri yönetme.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
-C# ve C# kod kuyruk veya konu gibi bir yöntem parametresi kullanılarak erişim iletisi `string paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Yerine aşağıdaki türlerinden herhangi birini kullanabilirsiniz `string`:
+C# ve C# betiği aşağıdaki parametre türleri kuyruk veya konu ileti için kullanabilirsiniz:
 
-* `byte[]`-İkili veriler için kullanışlıdır.
+* `string` -İleti metni ise.
+* `byte[]` -İkili veriler için kullanışlıdır.
 * JSON, ileti içeriyorsa, özel bir tür - Azure işlevleri JSON verilerini seri durumdan dener.
-* `BrokeredMessage`-Seri durumdan çıkarılmış iletiyle verir [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) yöntemi.
+* `BrokeredMessage` -Seri durumdan çıkarılmış iletiyle verir [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) yöntemi.
 
-JavaScript'te, kuyruk veya konu ileti kullanarak erişim `context.bindings.<name>`. `<name>`değeri belirtilen `name` özelliği *function.json*. Hizmet veri yolu ileti işlevine bir dize veya JSON nesnesi olarak geçirilir.
+JavaScript'te, kuyruk veya konu ileti kullanarak erişim `context.bindings.<name from function.json>`. Hizmet veri yolu ileti işlevine bir dize veya JSON nesnesi olarak geçirilir.
 
 ## <a name="trigger---poison-messages"></a>Tetikleyici - zarar iletileri
 
@@ -445,29 +450,32 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | "ServiceBus" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | yok | Out"için" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | yok | Sıra veya işlev kodu konudaki temsil eden değişken adı. İşlev dönüş değeri başvurmak için "$return" ayarlayın. | 
+|**Türü** | yok | "ServiceBus" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**Yönü** | yok | Out"için" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**Adı** | yok | Sıra veya işlev kodu konudaki temsil eden değişken adı. İşlev dönüş değeri başvurmak için "$return" ayarlayın. | 
 |**queueName**|**QueueName**|Kuyruk adı.  Yalnızca bir konu için sıraya ileti göndermek istiyorsanız ayarlayın.
 |**topicName**|**TopicName**|İzlemek için konu adı. Yalnızca bir kuyruk için konu ileti göndermek istiyorsanız ayarlayın.|
-|**varlığıyla subscriptionName**|**Varlığıyla SubscriptionName**|İzlemek için Abonelik adı. Yalnızca bir kuyruk için konu ileti göndermek istiyorsanız ayarlayın.|
-|**bağlantı**|**Bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyServiceBus." adlı "MyServiceBus" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan hizmet veri yolu bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarını kullanır.<br><br>Bir bağlantı dizesi edinmek için gösterilen adımları izleyin [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır.|
-|**accessRights**|**Erişim** |Bağlantı dizesi için erişim hakları. Değerleri, "manage" ve "dinleme" kullanılabilir. "Manage", bağlantı olduğunu belirten varsayılandır **Yönet** izinleri. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izinleri ayarlamanızı `accessRights` "dinlemek için". Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin.|
+|**varlığıyla subscriptionName**|**varlığıyla subscriptionName**|İzlemek için Abonelik adı. Yalnızca bir kuyruk için konu ileti göndermek istiyorsanız ayarlayın.|
+|**Bağlantı**|**Bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyServiceBus." adlı "MyServiceBus" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan hizmet veri yolu bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarını kullanır.<br><br>Bir bağlantı dizesi edinmek için gösterilen adımları izleyin [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır.|
+|**accessRights**|**Erişim**|Bağlantı dizesi için erişim hakları. Kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, hangi gösterir `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izni, `accessRights` "dinlemek için". Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin. Azure işlevleri sürümünde 2.x, bu özellik kullanılamıyor depolama SDK'ın en son sürümünü desteklemediğinden işlemleri yönetme.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Çıktı - kullanım
 
-C# ve C# betik kuyruk veya konu gibi bir yöntem parametresi kullanılarak erişim `out string paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Aşağıdaki parametre türlerinden herhangi birini kullanabilirsiniz:
+Azure işlevlerinde 1.x, çalışma zamanı oluşturur sıranın mevcut değil ve ayarladığınız `accessRights` için `manage`. İşlevler sürümünde 2.x, kuyruk veya konu zaten mevcut olmalıdır; bir kuyruk veya yok konu belirtirseniz, işlev başarısız olur. 
 
-* `out T paramName` - `T`JSON seri hale getirilebilir türler olabilir. Parametre değeri null ise, işlev çıktığında işlevleri null bir nesne ile iletisi oluşturur.
-* `out string`-İşlevi çıktığında parametre değeri null ise, işlevleri oluşturmaz bir ileti.
-* `out byte[]`-İşlevi çıktığında parametre değeri null ise, işlevleri oluşturmaz bir ileti.
-* `out BrokeredMessage`-İşlevi çıktığında parametre değeri null ise, işlevleri oluşturmaz bir ileti.
+C# ve C# betiği aşağıdaki parametre türleri için çıktı bağlama kullanabilirsiniz:
 
-Bir C# veya C# betik işlevinde birden çok ileti oluşturmak için kullanabilirsiniz `ICollector<T>` veya `IAsyncCollector<T>`. Çağırdığınızda bir ileti oluşturulur `Add` yöntemi.
+* `out T paramName` - `T` JSON seri hale getirilebilir türler olabilir. Parametre değeri null ise, işlev çıktığında işlevleri null bir nesne ile iletisi oluşturur.
+* `out string` -İşlevi çıktığında parametre değeri null ise, işlevleri oluşturmaz bir ileti.
+* `out byte[]` -İşlevi çıktığında parametre değeri null ise, işlevleri oluşturmaz bir ileti.
+* `out BrokeredMessage` -İşlevi çıktığında parametre değeri null ise, işlevleri oluşturmaz bir ileti.
+* `ICollector<T>` veya `IAsyncCollector<T>` - birden çok ileti oluşturmak için. Çağırdığınızda bir ileti oluşturulur `Add` yöntemi.
 
-JavaScript'te, kuyruk veya konu başlığı kullanarak erişim `context.bindings.<name>`. `<name>`değeri belirtilen `name` özelliği *function.json*. Bir dize, bir bayt dizisi veya (JSON'a seri durumdan) bir Javascript nesnesi atayabileceğiniz `context.binding.<name>`.
+Zaman uyumsuz işlevlerde dönüş değerini kullanın veya `IAsyncCollector` yerine bir `out` parametresi.
+
+JavaScript'te, kuyruk veya konu başlığı kullanarak erişim `context.bindings.<name from function.json>`. Bir dize, bir bayt dizisi veya (JSON'a seri durumdan) bir Javascript nesnesi atayabileceğiniz `context.binding.<name>`.
 
 ## <a name="exceptions-and-return-codes"></a>Özel durumlar ve dönüş kodları
 

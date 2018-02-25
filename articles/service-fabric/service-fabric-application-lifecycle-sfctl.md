@@ -2,23 +2,23 @@
 title: "Azure Service Fabric CLI kullanarak Azure Service Fabric uygulamaları yönetme"
 description: "Dağıtma ve uygulamaları, Azure Service Fabric CLI kullanarak bir Azure Service Fabric kümesinden kaldırma hakkında bilgi edinin"
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
-ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: bikang
+ms.openlocfilehash: 2d330921b66a1c261298601dad46f00f66659037
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Azure Service Fabric uygulaması Azure Service Fabric CLI kullanarak yönetme
 
 Oluşturma ve bir Azure Service Fabric kümede çalışan uygulamaları silme öğrenin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Service Fabric CLI yükleyin. Ardından, Service Fabric kümesi seçin. Daha fazla bilgi için bkz: [Service Fabric CLI ile çalışmaya başlama](service-fabric-cli.md).
 
@@ -75,7 +75,7 @@ Uygulama paketi görüntü deposundan silmek için aşağıdaki komutu kullanın
 sfctl store delete --content-path app_package_dir
 ```
 
-`content-path`Uygulama oluşturduğunuzda, karşıya yüklediğiniz dizin adı olmalıdır.
+`content-path` Uygulama oluşturduğunuzda, karşıya yüklediğiniz dizin adı olmalıdır.
 
 ### <a name="create-an-application-from-an-application-type"></a>Bir uygulama türü ile uygulama oluşturma
 
@@ -85,7 +85,7 @@ Uygulama sağlama sonra ad ve uygulamanızı oluşturmak için aşağıdaki komu
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-`app-name`Uygulama örneği için kullanmak istediğiniz addır. Daha önceden hazırlanan uygulama bildirimden ek parametreler elde edebilirsiniz.
+`app-name` Uygulama örneği için kullanmak istediğiniz addır. Daha önceden hazırlanan uygulama bildirimden ek parametreler elde edebilirsiniz.
 
 Uygulama adı öneki ile başlamalıdır `fabric:/`.
 

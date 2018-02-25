@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -63,6 +63,8 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
+Dize `{name}` blob tetikleyici yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) tetikleme blob dosya adını erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için bkz: [Blob adı desenleri](#trigger---blob-name-patterns) bu makalenin ilerisinde yer.
+
 Hakkında daha fazla bilgi için `BlobTrigger` özniteliği için bkz: [tetikleyici - öznitelikleri](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Tetikleyici - C# kod örneği
@@ -79,14 +81,16 @@ Veri bağlama işte *function.json* dosyası:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-[Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
+Dize `{name}` blob tetikleyici yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) tetikleme blob dosya adını erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için bkz: [Blob adı desenleri](#trigger---blob-name-patterns) bu makalenin ilerisinde yer.
+
+Hakkında daha fazla bilgi için *function.json* dosya özellikleri için bkz: [yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
 İçin bağlayan bir C# kodu İşte bir `Stream`:
 
@@ -112,7 +116,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Tetikleyici - JavaScript örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [JavaScript kodu] bağlama kullanır (işlevleri başvuru node.md). Bir blob eklendiğinde veya güncelleştirdiğiniz işlevi günlüğe yazar `samples-workitems` kapsayıcı.
+Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [JavaScript kodu](functions-reference-node.md) bağlama kullanır. Bir blob eklendiğinde veya güncelleştirdiğiniz işlevi günlüğe yazar `samples-workitems` kapsayıcı.
 
 Burada *function.json* dosyası:
 
@@ -124,14 +128,16 @@ Burada *function.json* dosyası:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-[Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
+Dize `{name}` blob tetikleyici yolunda `samples-workitems/{name}` oluşturur bir [ifade bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns) tetikleme blob dosya adını erişmek için işlev kodu kullanabilirsiniz. Daha fazla bilgi için bkz: [Blob adı desenleri](#trigger---blob-name-patterns) bu makalenin ilerisinde yer.
+
+Hakkında daha fazla bilgi için *function.json* dosya özellikleri için bkz: [yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
 JavaScript kod aşağıdaki gibidir:
 
@@ -214,12 +220,13 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
-Yöntem parametresi gibi kullanarak, C# ve C# betik blob veri erişim `T paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
+C# ve C# betiği aşağıdaki parametre türleri için tetikleyici blob kullanabilirsiniz:
 
 * `Stream`
 * `TextReader`
-* `Byte[]`
 * `string`
+* `Byte[]`
+* JSON olarak serileştirilebilir bir POCO
 * `ICloudBlob` ("ınout" bağlama yönde gerektirir *function.json*)
 * `CloudBlockBlob` ("ınout" bağlama yönde gerektirir *function.json*)
 * `CloudPageBlob` ("ınout" bağlama yönde gerektirir *function.json*)
@@ -227,9 +234,9 @@ Yöntem parametresi gibi kullanarak, C# ve C# betik blob veri erişim `T paramNa
 
 Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *function.json*. Gelişmiş Düzenleyicisi'ni kullanmanız gerekir böylece bu yönünü Azure portalında standart Düzenleyicisi tarafından desteklenmiyor.
 
-Metin BLOB'ları beklenir, bağlayabilirsiniz `string` türü. Bu, yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu, küçükse önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü. Daha fazla bilgi için bkz: [eşzamanlılık ve bellek kullanımı](#trigger---concurrency-and-memory-usage) bu makalenin ilerisinde yer.
+Bağlama `string`, `Byte[]`, veya POCO yalnızca önerilen blob boyutu küçükse, tüm blob olarak belleğe içeriği yüklenir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü. Daha fazla bilgi için bkz: [eşzamanlılık ve bellek kullanımı](#trigger---concurrency-and-memory-usage) bu makalenin ilerisinde yer.
 
-JavaScript'te, kullanarak giriş blob veri erişim `context.bindings.<name>`.
+JavaScript'te, kullanarak giriş blob veri erişim `context.bindings.<name from function.json>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Tetikleyici - blob adı desenleri
 
@@ -242,7 +249,7 @@ Aşağıdaki örnek, blob dosya adını ve uzantısını ayrı olarak bağlamak 
 ```json
 "path": "input/{blobname}.{blobextension}",
 ```
-Blob ise *özgün Blob1.txt*, değeri `blobname` ve `blobextension` değişkenleri işlevi kodda *özgün Blob1* ve *txt*.
+Blob ise *özgün Blob1.txt*, değerlerini `blobname` ve `blobextension` değişkenleri işlevi kodda *özgün Blob1* ve *txt*.
 
 ### <a name="filter-on-blob-name"></a>BLOB adına göre filtrele
 
@@ -276,13 +283,28 @@ Blob ise *{20140101}-soundfile.mp3*, `name` işlevi kodda değişken değeri *so
 
 Blob tetikleyici çeşitli meta veri özelliklerini sağlar. Bu özellikler, diğer bağlamaları bağlama ifadelerinde bir parçası olarak ya da kodunuzu parametre olarak kullanılabilir. Bu değerler olarak aynı semantiklerine sahip [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) türü.
 
-
 |Özellik  |Tür  |Açıklama  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Tetikleyici blob yolu.|
 |`Uri`|`System.Uri`|Birincil konumu için blob'un URI.|
 |`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Blob'un Sistem Özellikleri. |
 |`Metadata` |`IDictionary<string,string>`|Kullanıcı tanımlı meta veriler blob'a.|
+
+Örneğin, aşağıdaki C# komut dosyası ve JavaScript örnekler yolu kapsayıcı dahil olmak üzere tetikleme blob oturum:
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+{
+    log.Info($"Full blob path: {blobTrigger}");
+} 
+```
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
 
 ## <a name="trigger---blob-receipts"></a>Tetikleyici - blob giriş
 
@@ -316,9 +338,9 @@ En fazla eş zamanlı işlev çağrılarını tarafından denetlenir blob tetikl
 
 [Tüketim planı](functions-scale.md#how-the-consumption-plan-works) 1,5 GB bellek bir sanal makineye (VM) üzerinde bir işlev uygulaması sınırlar. Bellek işlevleri çalışma ve her eş zamanlı yürütme işlevi örneği tarafından kullanılır. Belleğe tüm blob blob tetiklenen bir işlev, bu işlev tarafından yalnızca BLOB'lar için kullanılan en fazla bellek 24 ise * maksimum blob boyutu. Örneğin, bir işlev uygulaması üç blob tetiklemeli işlevleri ve varsayılan ayarlarıyla 3 * 24 = 72 en fazla VM başına eşzamanlılığı olurdu işlev çağrılarını.
 
-JavaScript işlevleri tüm blob belleğe yüklenemedi ve C# işlevleri yaparsanız, için bağlama `string`.
+JavaScript işlevleri tüm blob belleğe yüklenemedi ve C# işlevleri yaparsanız, için bağ `string`, `Byte[]`, veya POCO.
 
-## <a name="trigger---polling-for-large-containers"></a>Tetikleyici - büyük kapsayıcıları için yoklama
+## <a name="trigger---polling"></a>Tetiklemek - yoklama
 
 İzlenmekte olan blob kapsayıcısı 10. 000'den fazla BLOB'ları içeriyorsa, işlevleri çalışma zamanı taramaları için yeni veya değiştirilmiş BLOB'lar izlemek için günlük dosyalarını. Bu işlem gecikmelere yol açabilir. Blob oluşturulduktan sonra bir işlev birkaç dakika kadar veya daha uzun tetiklenen değil. Ayrıca, [depolama günlüklerine "en iyi çaba" üzerinde oluşturulan](/rest/api/storageservices/About-Storage-Analytics-Logging) temel. Tüm olayları yakalanır garantisi yoktur. Bazı koşullarda günlükleri eksik olabilir. Daha hızlı veya daha güvenilir blob işleme gerekiyorsa oluşturma göz önünde bulundurun bir [kuyruk iletisi](../storage/queues/storage-dotnet-how-to-use-queues.md) blob oluşturduğunuzda. Ardından bir [sıra tetikleyici](functions-bindings-storage-queue.md) blob işlemek için bir blob tetikleyici yerine. Olay kılavuzunu kullanın başka bir seçenektir; öğretici bkz [otomatikleştirme yeniden boyutlandırma karşıya olay kılavuz kullanarak görüntüleri](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
@@ -498,12 +520,12 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ## <a name="input---usage"></a>Giriş - kullanım
 
-C# sınıfı kitaplıklar ve C# betik blob gibi bir yöntem parametresi kullanılarak erişim `Stream paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
+C# ve C# betiği aşağıdaki parametre türleri için blob giriş bağlama kullanabilirsiniz:
 
+* `Stream`
 * `TextReader`
 * `string`
 * `Byte[]`
-* `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob` ("ınout" bağlama yönde gerektirir *function.json*)
@@ -513,9 +535,9 @@ C# sınıfı kitaplıklar ve C# betik blob gibi bir yöntem parametresi kullanı
 
 Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *function.json*. Gelişmiş Düzenleyicisi'ni kullanmanız gerekir böylece bu yönünü Azure portalında standart Düzenleyicisi tarafından desteklenmiyor.
 
-Metin BLOB'ları okuyorsanız bağlayabilirsiniz bir `string` türü. Bu tür yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu küçüktür önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü.
+Bağlama `string` veya `Byte[]` yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu küçük olup olmadığını önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü. Daha fazla bilgi için bkz: [eşzamanlılık ve bellek kullanımı](#trigger---concurrency-and-memory-usage) bu makalenin önceki.
 
-JavaScript'te, blob verileri kullanarak erişim `context.bindings.<name>`.
+JavaScript'te, blob verileri kullanarak erişim `context.bindings.<name from function.json>`.
 
 ## <a name="output"></a>Çıktı
 
@@ -709,7 +731,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ## <a name="output---usage"></a>Çıktı - kullanım
 
-C# sınıfı kitaplıklar ve C# betik blob gibi bir yöntem parametresi kullanılarak erişim `Stream paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
+C# ve C# betik aşağıdakileri kullanabilirsiniz parametre türleri blob'a bağlama çıktı:
 
 * `TextWriter`
 * `out string`
@@ -725,9 +747,12 @@ C# sınıfı kitaplıklar ve C# betik blob gibi bir yöntem parametresi kullanı
 
 Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *function.json*. Gelişmiş Düzenleyicisi'ni kullanmanız gerekir böylece bu yönünü Azure portalında standart Düzenleyicisi tarafından desteklenmiyor.
 
-Metin BLOB'ları okuyorsanız bağlayabilirsiniz bir `string` türü. Bu tür yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu küçüktür önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü.
+Zaman uyumsuz işlevlerde dönüş değerini kullanın veya `IAsyncCollector` yerine bir `out` parametresi.
 
-JavaScript'te, blob verileri kullanarak erişim `context.bindings.<name>`.
+Bağlama `string` veya `Byte[]` yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu küçük olup olmadığını önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü. Daha fazla bilgi için bkz: [eşzamanlılık ve bellek kullanımı](#trigger---concurrency-and-memory-usage) bu makalenin önceki.
+
+
+JavaScript'te, blob verileri kullanarak erişim `context.bindings.<name from function.json>`.
 
 ## <a name="exceptions-and-return-codes"></a>Özel durumlar ve dönüş kodları
 

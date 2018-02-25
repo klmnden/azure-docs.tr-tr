@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: be43e34976682847c4756e062ec5b638ebc26063
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure Azure VM çoğaltma sorunlarını giderme
 
@@ -22,7 +22,7 @@ Bu makalede, Azure Site Recovery çoğaltma ve Azure sanal makineleri başka bir
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure kaynak kotası sorunları (hata kodu 150097)
 Aboneliğiniz Azure VM'ler için olağanüstü durum kurtarma bölgeniz olarak kullanmayı planlıyorsanız hedef bölgesi oluşturmak için etkinleştirilmiş olmalıdır. Ayrıca, aboneliğinizin etkin VM'ler belirli boyutu oluşturmak için yeterli kotası olması gerekir. Varsayılan olarak, Site Recovery aynı boyutta hedef VM için VM kaynağı olarak seçer. Eşleşen boyutu kullanılabilir değilse, en yakın olası boyutu otomatik olarak çekilir. Kaynak VM yapılandırmayı destekleyen eşleşen boyut ise, bu hata iletisi görüntülenir:
 
-Hata kodu | **Olası nedenler** | Öneri
+**Hata kodu** | **Olası nedenler** | **Öneri**
 --- | --- | ---
 150097<br></br>**İleti**: VmName sanal makinesi için çoğaltma etkinleştirilemedi. | -Abonelik Kimliğinizi hedef bölge konumda bulunan herhangi bir VM oluşturmak için etkinleştirilmemiş olabilir.</br></br>-Abonelik Kimliğinizi etkinleştirilmemiş veya belirli VM boyutları hedef bölge konumunda oluşturmak için yeterli kotası yok.</br></br>Kaynak VM NIC sayısı (2) ile eşleşen VM boyutu uygun hedef abonelik kimliği için hedef bölge konumunda bulunan değil.| Kişi [Azure Fatura Desteği](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) aboneliğiniz için hedef konumda gerekli VM boyutları için VM oluşturmayı etkinleştirmek üzere. Bu özellik etkinleştirildikten sonra başarısız olan işlemi yeniden deneyin.
 
@@ -35,7 +35,7 @@ Hedef konumu bir kapasite kısıtlaması yoksa, çoğaltmayı devre dışı bır
 
 Tüm son güvenilen kök sertifikalar VM mevcut değilse, "çoğaltma etkinleştir" işinizi başarısız olabilir. Sertifikaları olmadan, Site Recovery hizmeti çağrıları VM'den yetkilendirme ve kimlik doğrulama başarısız. Başarısız "çoğaltma etkinleştir" Site kurtarma işi için hata iletisi görüntülenir:
 
-Hata kodu | **Olası neden** | **Öneriler**
+**Hata kodu** | **Olası neden** | **Öneriler**
 --- | --- | ---
 151066<br></br>**İleti**: Site Recovery yapılandırma başarısız oldu. | Gerekli kök sertifikaları yetkilendirme için kullanılan kimlik doğrulaması olmayan makinede güvenilir ve. | -Windows işletim sistemi çalıştıran bir VM için güvenilen kök sertifikaları makinede mevcut olduğundan emin olun. Bilgi için bkz: [yapılandırma Güvenilen Kökleri ve izin verilmeyen sertifikaları](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Linux işletim sistemi çalıştıran bir VM için Linux işletim sistemi sürümü dağıtımcı tarafından yayımlanan güvenilen kök sertifikalar için yönergeleri izleyin.
 
@@ -161,7 +161,7 @@ Güvenilir listeye [gerekli URL'leri](azure-to-azure-about-networking.md#outboun
 
 VM'ye bağlı yeni bir disk başlatılması gerekir.
 
-Hata kodu | **Olası nedenler** | **Öneriler**
+**Hata kodu** | **Olası nedenler** | **Öneriler**
 --- | --- | ---
 150039<br></br>**İleti**: mantıksal birim numarası (LUN) (LUNValue) ile Azure veri diski (DiskName) (DiskURI) karşılık gelen bir diske aynı LUN değerine sahip VM içinden rapor edilen eşlenmiş. | -Yeni veri diski VM'ye bağlı, ancak başlatılmış değildi.</br></br>-VM içindeki veri diski diski VM'ye iliştirildiği LUN değeri doğru raporlama değil.| Veri diskleri başlatılır ve işlemi yeniden deneyin emin olun.</br></br>Windows: [Attach ve başlatma yeni bir disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Linux: [Linux yeni bir veri diski başlatma](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 

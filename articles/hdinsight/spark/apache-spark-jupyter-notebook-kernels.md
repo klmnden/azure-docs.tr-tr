@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure hdınsight'ta Spark kümeleri Jupyter not defteri için tekrar 
 
@@ -135,7 +135,11 @@ Açabilirsiniz **00 - [okuma önce BENİ] Spark Sihirli çekirdek Özellikler** 
 
 ## <a name="where-are-the-notebooks-stored"></a>Not defterlerini depolandığı?
 
-Jupyter not defterleri altında kümeyle ilişkili depolama hesabına kaydedilir **/HdiNotebooks** klasör.  Dizüstü bilgisayarlar, metin dosyaları ve Jupyter içinde oluşturduğunuz klasörler depolama hesabından erişilebilir.  Örneğin, bir klasör oluşturmak için Jupyter kullanırsanız **Klasörüm'ün** ve dizüstü **myfolder/mynotebook.ipynb**, o not defteri konumunda erişebilirsiniz `/HdiNotebooks/myfolder/mynotebook.ipynb` depolama hesabındaki.  Doğrudan depolama hesabınız için bir not defteri karşıya ters ayrıca diğer bir deyişle, true ise `/HdiNotebooks/mynotebook1.ipynb`, Jupyter Not Defteri de görülebilir.  Küme bile silindikten sonra not defterlerini depolama hesabında kalır.
+Kümenizi varsayılan depolama hesabı olarak Azure Storage kullanıyorsa, Jupyter not defterleri depolama hesabı altında kaydedilir **/HdiNotebooks** klasör.  Dizüstü bilgisayarlar, metin dosyaları ve Jupyter içinde oluşturduğunuz klasörler depolama hesabından erişilebilir.  Örneğin, bir klasör oluşturmak için Jupyter kullanırsanız **Klasörüm'ün** ve dizüstü **myfolder/mynotebook.ipynb**, o not defteri konumunda erişebilirsiniz `/HdiNotebooks/myfolder/mynotebook.ipynb` depolama hesabındaki.  Doğrudan depolama hesabınız için bir not defteri karşıya ters ayrıca diğer bir deyişle, true ise `/HdiNotebooks/mynotebook1.ipynb`, Jupyter Not Defteri de görülebilir.  Küme bile silindikten sonra not defterlerini depolama hesabında kalır.
+
+> [!NOTE]
+> Hdınsight kümeleri varsayılan depolama alanı olarak Azure Data Lake Store ile ilişkili depolama not defterlerini depolamayın.
+>
 
 Dizüstü bilgisayarlar depolama hesabına kaydedilir ile HDFS uyumlu yoludur. Bunu, SSH kullanabilirsiniz kümesine yönetimi komutları aşağıdaki kod parçacığında gösterildiği gibi dosyası varsa:
 
@@ -143,8 +147,7 @@ Dizüstü bilgisayarlar depolama hesabına kaydedilir ile HDFS uyumlu yoludur. B
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-Durumunda küme için depolama hesabına erişim sorunları, dizüstü bilgisayarlar üzerinde headnode de kaydedilir `/var/lib/jupyter`.
+Olup küme Azure Storage veya Azure Data Lake Store varsayılan depolama hesabı olarak kullanan bağımsız olarak, dizüstü bilgisayarlar ayrıca küme headnode kaydedilir `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Desteklenen tarayıcı
 

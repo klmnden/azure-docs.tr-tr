@@ -1,11 +1,11 @@
---Başlık: için Service Fabric .NET uygulaması oluşturma | Microsoft Docs Açıklama: bir ASP.NET Core ön uç ve bir güvenilir hizmet durum bilgisi olan arka uç ile uygulama oluşturma ve bir küme için uygulama dağıtma hakkında bilgi edinin.
+--Başlık: için Service Fabric .NET uygulaması oluşturma | Microsoft Docs açıklaması: Bu öğreticide, bir ASP.NET Core ön uç ve bir güvenilir hizmet durum bilgisi olan arka uç ile uygulama oluşturma ve bir küme için uygulama dağıtma hakkında bilgi edinin.
 services: service-fabric documentationcenter: .net author: rwike77 manager: timlt editor: ''
 
 ms.assetid: ms.service: service-fabric ms.devlang: dotNet ms.topic: tutorial ms.tgt_pltfrm: NA ms.workload: NA ms.date: 01/29/2018 ms.author: ryanwi ms.custom: mvc
 
 ---
 
-# <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>ASP.NET Core Web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Öğretici: oluşturma ve ASP.NET Core Web API ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti ile bir uygulama dağıtma
 Bu öğretici, bir dizinin birinci bölümüdür.  Verileri depolamak için ASP.NET Core Web API'si ön ucu ve durum bilgisi olan bir arka uç hizmetiyle Azure Service Fabric uygulaması oluşturmayı öğreneceksiniz. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir ASP.NET Core web ön ucuna sahip oylama uygulaması sağlanır. Oylama uygulamasını el ile oluşturmak istemiyorsanız, tamamlanmış uygulamanın [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) ve [Oylama örnek uygulamasında izlenecek yol](#walkthrough_anchor) bölümüne atlayabilirsiniz.
 
 ![Uygulama Diyagramı](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)

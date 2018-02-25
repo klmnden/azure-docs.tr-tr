@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Service Fabric istemciler için rol tabanlı erişim denetimi
 Azure Service Fabric Service Fabric kümeye bağlı istemciler için iki farklı erişim denetim türlerini destekler: Yönetici ve kullanıcı. Erişim denetimi, belirli küme işlemleri farklı küme daha güvenli hale getirme kullanıcı grupları için erişimi sınırlamak Küme Yöneticisi sağlar.  
@@ -50,7 +50,7 @@ Yönetici erişim denetim türü için tüm FabricClient API'leri tam erişimi v
 * **RecoverServicePartitions**: hizmet bölümlerini kurtarma                             
 * **RecoverSystemPartitions**: sistem hizmeti bölümleri kurtarma                             
 
-### <a name="cluster-operations"></a>Küme işlemleri
+### <a name="cluster-operations"></a>Küm işlemleri
 * **ProvisionFabric**: MSI ve/veya küme bildirim sağlama                             
 * **UpgradeFabric**: Küme yükseltme başlatılıyor                             
 * **UnprovisionFabric**: MSI ve/veya küme bildirimi sağlamanın kaldırılması                         
@@ -94,7 +94,7 @@ Kullanıcı erişim denetimi türü varsayılan olarak, aşağıdaki işlemleri 
 * **InvokeInfrastructureQuery**: altyapısı görevlerini sorgulama                             
 * **Liste**: görüntü deposu istemci dosya listesi işlemi                             
 * **ResetPartitionLoad**: bir yük devretme biriminin yükünü sıfırlama                             
-* **ToggleVerboseServicePlacementHealthReporting**: ayrıntılı hizmet sistem durumu yerleştirme raporlama geçiş                             
+* **ToggleVerboseServicePlacementHealthReporting**: toggling verbose service placement health reporting                             
 
 Yönetici erişim denetimi önceki işlemleri de erişebilir.
 
