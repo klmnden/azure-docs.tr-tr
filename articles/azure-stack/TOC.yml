@@ -57,8 +57,12 @@
         - name: Azure yığın dağıtım PKI gereksinimleri
           href: azure-stack-pki-certs.md
           items:
-            - name: Azure yığın dağıtımı için PKI sertifikaları alma
+            - name: Azure yığın PKI sertifikaları alma
               href: azure-stack-get-pki-certs.md
+            - name: Azure yığın PKI sertifikaları hazırlama
+              href: prepare-pki-certs.md
+            - name: Azure yığın PKI sertifikaları doğrula
+              href: validate-pki-certs.md
         - name: Kimlik Tümleştirme
           href: azure-stack-integrate-identity.md
         - name: Azure yığın kaydetme
@@ -168,6 +172,10 @@
           href: azure-stack-security-foundations.md
         - name: Kimlik
           items:
+            - name: Kimliği'ne genel bakış
+              href: azure-stack-identity-overview.md
+            - name: Kimlik mimarisi
+              href: azure-stack-identity-architecture.md
             - name: RBAC’yi yönetme
               href: azure-stack-manage-permissions.md
             - name: Kullanıcıları Azure AD’ye ekleme
@@ -288,13 +296,15 @@
       href: /azure/azure-stack/user/
 - name: Kaynaklar
   items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN forumu
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Azure yığın yol haritası
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure yığın MSDN Forumu
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure yığın belgelerine geri bildirim
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Fiyatlandırma bilgileri
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Eğitim ve sertifika
-      href: azure-stack-train-and-cert.md
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
