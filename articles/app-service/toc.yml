@@ -4,7 +4,7 @@
   items:
     - name: Web Apps hakkında
       href: app-service-web-overview.md
-    - name: Kapsayıcılar için Web App hakkında
+    - name: Linux’ta App Service hakkında
       href: containers/app-service-linux-intro.md
     - name: App Service Ortamları hakkında
       href: environment/intro.md
