@@ -87,28 +87,28 @@
           href: site-recovery-migrate-to-azure.md
     - name: Rol tabanlı erişim izinleri
       href: site-recovery-role-based-linked-access-control.md
+    - name: Azure Site Recovery ile Azure Traffic Manager
+      href: concepts-traffic-manager-with-site-recovery.md
     - name: SSS
       href: site-recovery-faq.md
 - name: Nasıl Yapılır Kılavuzları
   items:
     - name: Ağ
       items:
-        - name: Azure VM’lerinde olağanüstü durum kurtarma için ağı ayarlama (Önizleme)
+        - name: Azure VM’lerinde olağanüstü durum kurtarma için ağı yönetme (Önizleme)
           href: azure-to-azure-about-networking.md
-        - name: Azure VM’lerinde olağanüstü durum kurtarma için ağ eşlemesini ayarlama (Önizleme)
+        - name: Azure VM’lerinde olağanüstü durum kurtarmada ağ eşlemesini hazırlama
           href: azure-to-azure-network-mapping.md
-        - name: VMM’deki Hyper-V VM’lerinin ağ eşleme çoğaltmasını ayarlama
-          href: hyper-v-vmm-network-mapping.md
-        - name: Azure VM’lerinde olağanüstü durum kurtarma için IP koruma (Önizleme)
+        - name: Azure VM yük devretmesi sonrasında IP adresini ayarlama
           href: site-recovery-retain-ip-azure-vm-failover.md
-        - name: Hyper-V sanal makinelerini Azure’a çoğaltma işlemi için ağ eşlemesini hazırlama
-          href: site-recovery-network-mapping.md
-        - name: Yük devretmenin ardından Azure'a erişim için IP adresini ayarlama
-          href: concepts-on-premises-to-azure-networking.md
-        - name: Yük devretmenin ardından ikincil siteye erişim için IP adresini ayarlama
-          href: hyper-v-vmm-networking.md
-        - name: Şirket içi Azure senaryoları için ağ arabirimi yönetimi
+        - name: Azure olağanüstü durum kurtarmaya şirket için ağ ara birimlerini ayarlama
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
+        - name: Hyper-V VM’lerinde olağanüstü durum kurtarmada ağ eşlemesini hazırlama
+          href: hyper-v-vmm-network-mapping.md
+        - name: Azure’a yük devretmenin ardından IP adresini ayarlama
+          href: concepts-on-premises-to-azure-networking.md
+        - name: İkincil siteye yük devretmenin ardından IP adresini ayarlama
+          href: hyper-v-vmm-networking.md
     - name: Olağanüstü durum kurtarma
       items:
         - name: Azure geçişinden sonra Azure VM'leri olağanüstü durumdan kurtarma
