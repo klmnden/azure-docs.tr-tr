@@ -36,14 +36,16 @@
       href: delivery-and-retry.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Özel konuya gönderme
+      href: post-to-custom-topic.md
     - name: HTTP uç noktasına olayları alma
       href: receive-events.md
     - name: Event Hubs’tan veri ambarına veri akışı yapma
       href: event-grid-event-hubs-integration.md
     - name: IoT Hub olayları hakkında bildirimler gönderme
       href: publish-iot-hub-events-to-logic-apps.md
-    - name: Özel konuya gönderme
-      href: post-to-custom-topic.md
+    - name: İşlevler ve Logic Apps ile Service Bus olayları dinleme
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Olay aboneliklerine yönelik şablonlar
       href: event-subscription-template.md
     - name: Olay teslimi izleme

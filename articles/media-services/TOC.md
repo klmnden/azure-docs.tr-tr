@@ -36,11 +36,9 @@
 #### [Birden çok depolama hesabında yer alan varlıkları yönetme](meda-services-managing-multiple-storage-accounts.md)
 ### [Kotalar ve sınırlamalar](media-services-quotas-and-limitations.md)
 ## [Postman yapılandırma](media-rest-apis-with-postman.md)
-### İsteğe bağlı akış
-#### [Ortam](postman-environment.md)
-#### [Koleksiyon](postman-collection.md)
-### Canlı akış
-#### [Koleksiyon](postman-live-streaming-collection.md)
+### [İsteğe bağlı akış koleksiyonu](postman-collection.md)
+### [Canlı akış koleksiyonu](postman-live-streaming-collection.md)
+### [Ortam](postman-environment.md)
 ## İçerik yükleme
 ### Bir hesaba dosya yükleme
 #### [Azure portalı](media-services-portal-upload-files.md)

@@ -48,61 +48,62 @@
           href: security-center-customize-os-security-config.md
         - name: Azure ilkesi kullanarak güvenlik ilkesi
           href: security-center-azure-policy.md
-    - name: Güvenlik durumunu izleme
-      href: security-center-monitoring.md
-    - name: Kimlik ve Erişim
-      href: security-center-identity-access.md
     - name: Güvenlik önerileri uygulama
       href: security-center-recommendations.md
-    - name: İşlem güvenliği
-      href: security-center-virtual-machine-recommendations.md
+    - name: Güvenlik durumunu izleme
+      href: security-center-monitoring.md
       items:
-        - name: Disk şifrelemesi uygulayın
-          href: security-center-apply-disk-encryption.md
-        - name: Sistem güncelleştirmelerini uygulayın
-          href: security-center-apply-system-updates.md
-        - name: Depolama hesabı için şifrelemeyi etkinleştirme
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: VM Aracısını etkinleştirin
-          href: security-center-enable-vm-agent.md
-        - name: Endpoint Protection yükleyin
-          href: security-center-install-endpoint-protection.md
-        - name: Sistem güncelleştirmelerinden sonra yeniden başlatın
-          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Güvenlik yapılandırmalarını düzeltme
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: İşletim sistemi sürümünü güncelleştirme
-          href: security-center-update-os-version.md
-        - name: Güvenlik açığı değerlendirmesi yüklü değil
-          href: security-center-vulnerability-assessment-recommendations.md
-    - name: Ağ güvenliği
-      href: security-center-network-recommendations.md
-      items:
-        - name: Yeni nesil güvenlik duvarı ekleme
-          href: security-center-add-next-generation-firewall.md
-        - name: Ağ Güvenlik Gruplarını Etkinleştirme
-          href: security-center-enable-network-security-groups.md
-        - name: İnternet’e yönelik uç noktalarla erişimi sınırlama
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: Trafiği yalnızca NGFW aracılığıyla yönlendirme
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-    - name: Depolama ve veri güvenliği
-      href: security-center-sql-service-recommendations.md
-      items:
-        - name: SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: SQL sunucularında denetim ve tehdit algılamayı etkinleştirme
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: Saydam Veri Şifrelemesini Etkinleştirme
-          href: security-center-enable-transparent-data-encryption.md
-    - name: Uygulama güvenliği
-      href: security-center-application-recommendations.md
-      items:
-        - name: Web uygulaması güvenlik duvarı ekleme
-          href: security-center-add-web-application-firewall.md
-        - name: Uygulama korumasını sonlandırma
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-    - name: Bulut savunma
+        - name: İşlem güvenliği
+          href: security-center-virtual-machine-recommendations.md
+          items:
+            - name: Disk şifrelemesi uygulayın
+              href: security-center-apply-disk-encryption.md
+            - name: Sistem güncelleştirmelerini uygulayın
+              href: security-center-apply-system-updates.md
+            - name: Depolama hesabı için şifrelemeyi etkinleştirme
+              href: security-center-enable-encryption-for-storage-account.md
+            - name: VM Aracısını etkinleştirin
+              href: security-center-enable-vm-agent.md
+            - name: Endpoint Protection yükleyin
+              href: security-center-install-endpoint-protection.md
+            - name: Sistem güncelleştirmelerinden sonra yeniden başlatın
+              href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+            - name: Güvenlik yapılandırmalarını düzeltme
+              href: security-center-remediate-os-vulnerabilities.md
+            - name: İşletim sistemi sürümünü güncelleştirme
+              href: security-center-update-os-version.md
+            - name: Güvenlik açığı değerlendirmesi yüklü değil
+              href: security-center-vulnerability-assessment-recommendations.md
+        - name: Ağ güvenliği
+          href: security-center-network-recommendations.md
+          items:
+            - name: Yeni nesil güvenlik duvarı ekleme
+              href: security-center-add-next-generation-firewall.md
+            - name: Ağ Güvenlik Gruplarını Etkinleştirme
+              href: security-center-enable-network-security-groups.md
+            - name: İnternet’e yönelik uç noktalarla erişimi sınırlama
+              href: security-center-restrict-access-through-internet-facing-endpoints.md
+            - name: Trafiği yalnızca NGFW aracılığıyla yönlendirme
+              href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+        - name: Depolama ve veri güvenliği
+          href: security-center-sql-service-recommendations.md
+          items:
+            - name: SQL veritabanlarında denetim ve tehdit algılamayı etkinleştirme
+              href: security-center-enable-auditing-on-sql-databases.md
+            - name: SQL sunucularında denetim ve tehdit algılamayı etkinleştirme
+              href: security-center-enable-auditing-on-sql-servers.md
+            - name: Saydam Veri Şifrelemesini Etkinleştirme
+              href: security-center-enable-transparent-data-encryption.md
+        - name: Uygulama güvenliği
+          href: security-center-application-recommendations.md
+          items:
+            - name: Web uygulaması güvenlik duvarı ekleme
+              href: security-center-add-web-application-firewall.md
+            - name: Uygulama korumasını sonlandırma
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: Kimlik ve Erişim
+          href: security-center-identity-access.md
+    - name: Bulut savunmalarını uygulama
       items:
         - name: Tam zamanında erişim
           href: security-center-just-in-time.md
@@ -136,7 +137,7 @@
           href: security-center-threat-intel.md
         - name: Araştırma
           href: security-center-investigation.md
-    - name: Otomatikleştirme ve düzenleme
+    - name: Güvenlik iş akışlarını otomatik hale getirme
       items:
         - name: Logic Apps playbook’ları
           href: security-center-playbooks.md
