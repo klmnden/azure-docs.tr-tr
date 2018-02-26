@@ -107,7 +107,7 @@
           href: 'https://docs.loganalytics.io'
         - name: Eski dilden geçiş
           href: log-analytics-log-search-transition.md
-        - name: Çalışma alanlarında çapraz aramalar
+        - name: Kaynaklar arası aramalar
           href: log-analytics-cross-workspace-search.md
         - name: Arama sonuçlarına göre işlem yapma
           href: log-analytics-log-search-takeaction.md
