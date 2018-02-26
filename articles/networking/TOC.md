@@ -23,6 +23,7 @@
 ### [Şirket içi bağlanma - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Şirket içi bağlanma - adanmış](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
+
 # başlarken
 ## [İlk sanal ağınızı oluşturma](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -47,6 +48,7 @@
 ### [Paket yakalamayı yönetme](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Yönlendirmede sonraki atlamayı belirleme](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Bir VM için IP akışlarını doğrulama](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Ağ İzlemeye Genel Bakış](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Örnek komut dosyaları
 ### [Azure CLI](cli-samples.md)

@@ -19,6 +19,8 @@
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [VPN cihazı yapılandırma komut dosyalarını indirme](vpn-gateway-download-vpndevicescript.md)
+
 ## Noktada Siteye bağlantıları yapılandırma - Yerel Azure sertifika kimlik doğrulaması
 ### P2S VPN yapılandırma
 #### [Azure portalı](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

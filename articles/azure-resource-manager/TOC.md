@@ -3,6 +3,7 @@
 ## [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md)
 ## [Resource Manager ve Klasik dağıtım](resource-manager-deployment-model.md)
 ## [Abonelik idaresi](resource-manager-subscription-governance.md)
+## [Yönetim gruplarıyla kaynakları düzenleme](management-groups-overview.md)
 
 # başlarken
 ## [Şablon oluşturma ve dağıtma](resource-manager-create-first-template.md)
@@ -45,7 +46,8 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
-### [Yönetim gruplarıyla abonelikleri düzenleme](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Yönetim grupları oluşturma](management-groups-create.md)
+### [Yönetim gruplarınızı yönetme](management-groups-manage.md)
 ### [İdare örnekleri](resource-manager-subscription-examples.md)
 ### [Yönetilen uygulamalar](../managed-applications/overview.md)
 

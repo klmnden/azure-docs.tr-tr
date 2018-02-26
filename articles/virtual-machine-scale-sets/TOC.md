@@ -42,7 +42,7 @@
 #### [Azure PowerShell’i kullanma](virtual-machine-scale-sets-manage-powershell.md)
 ### [Ölçek kümesinde dikey ölçeklendirme](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Otomatik işletim sistemi yükseltmeleri](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Ölçek kümeleri için yükseltmeler](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Ölçek kümesini değiştirme](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [DSC ve ölçek kümelerini kullanma](virtual-machine-scale-sets-dsc.md)
 ### [Ölçek kümeleri için ağ oluşturma](virtual-machine-scale-sets-networking.md)
 ### [Bir şablonu yönetilen disklere dönüştürme](virtual-machine-scale-sets-convert-template-to-md.md)

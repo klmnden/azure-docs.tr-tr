@@ -55,6 +55,8 @@
       items:
         - name: Statik IP adresi
           href: static-ip.md
+        - name: Giriş ve TLS
+          href: ingress.md
     - name: Güvenlik ve kimlik doğrulaması
       items:
         - name: Hizmet sorumlusu oluşturma
