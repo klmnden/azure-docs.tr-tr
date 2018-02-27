@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a8b9efffd6373ee33026e915b0a14e15d41295b3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3cedc16e3a420fd846b7860b69f4b19591ad1777
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows Azure veri bilimi sanal makine için giriş
 
-Veri bilimi sanal makine (DSVM) veri bilimi özellikle yapmak için Microsoft Azure bulut üzerinde özelleştirilmiş bir VM görüntüsü ' dir. Gelişmiş analiz için akıllı uygulamalar derlemeye hızlı giriş yapmak için önceden yüklenmiş ve önceden yapılandırılmış birçok popüler veri bilimi araçlarına ve diğer araçlara sahiptir. Windows Server ve Linux üzerinde kullanılabilir. DSVM'nin Windows sürümünü Server 2016 ve Server 2012'de sunuyoruz. DSVM'nin Linux sürümünü Ubuntu 16.04 LTS ve OpenLogic 7.2 CentOS tabanlı Linux dağıtımlarında sunuyoruz. 
+Veri bilimi sanal makine (DSVM) veri bilimi özellikle yapmak için Microsoft Azure bulut üzerinde özelleştirilmiş bir VM görüntüsü ' dir. Gelişmiş analiz için akıllı uygulamalar derlemeye hızlı giriş yapmak için önceden yüklenmiş ve önceden yapılandırılmış birçok popüler veri bilimi araçlarına ve diğer araçlara sahiptir. Windows Server ve Linux üzerinde kullanılabilir. DSVM'nin Windows sürümünü Server 2016 ve Server 2012'de sunuyoruz. Ubuntu 16.04 LTS ve CentOS 7.4 DSVM Linux sürümleri sunuyoruz.
 
 Bu konuda veri bilimi VM ile neler yapabileceğinizi açıklar, bazı VM kullanmaya yönelik temel senaryolar açıklanmaktadır, Windows ve Linux sürümlerinde kullanılabilir anahtar özellikler maddeler halinde listelemektedir ve bunları kullanmaya başlamak yönergeler sağlar.
 
@@ -49,7 +49,7 @@ Veri bilimi hackathons/competitions veya büyük ölçekli veri modellemesi ve a
 Veri bilimi VM olabilir Visual Studio Araçları, derin öğrenme Jupyter / ML araç takımları ve yeni araçları ile en az topluluğuna popüler Kurulum çaba değerlendirmek veya Microsoft ML Server, SQL Server gibi araçları öğrenmek için kullanılır. Veri bilimi VM hızlı bir şekilde ayarlanabilir beri tanıtımlar çevrimiçi oturumları veya konferans öğreticileri aşağıdaki yönergelerde yürütme yayımlanan denemeler çoğaltma gibi diğer kısa süreli kullanım senaryolarda uygulanabilir.
 
 ### <a name="deep-learning"></a>Derin öğrenme
-Veri bilimi VM derin learning algoritmaları GPU (grafik işlem birimleri) tabanlı donanım kullanarak eğitim modeli için kullanılabilir. Azure bulut özellikleri ölçeklendirme VM, DSVM GPU tabanlı donanım gereksinimi göredir bulut üzerinde kullanmanıza yardımcı olur. Bir GPU tabanlı bir VM büyük modelleri eğitimindeki geçiş veya aynı işletim sistemi diski tutarken yüksek hızlı hesaplamalar gerekir.  DSVM Windows Server 2016 sürümünü GPU sürücüleri, çerçeveler ve learning algoritmaları derin GPU sürümü ile önceden yüklenmiş olarak gelir. Linux'ta GPU üzerinde öğrenme derin yalnızca etkin [veri bilimi sanal makine (Ubuntu) Linux sürümü için](http://aka.ms/dsvm/ubuntu). Veri bilimi VM Windows/Ubuntu-2016 sürümü olmayan GPU tabanlı Azure sanal makine durumda çerçeveleri CPU moduna geri dönüş öğrenme tüm derin dağıtabilirsiniz. Daha önce Windows Server 2012 için biz yayımlanan bir [derin Araç Seti öğrenme](http://aka.ms/dsvm/deeplearning) ancak artık Windows tabanlı derin öğrenme iş yükleri için Windows Server 2016 kullanmanızı öneririz. DSVM sürümü yalnızca içeren CentOS tabanlı Linux CPU Araçlar (Microsoft Bilişsel araç seti, TensorFlow, MXNet) öğrenme derin bazıları derlemeler ancak GPU sürücüleri ve çerçeveleri ile önceden yüklenmiş gelmez. 
+Veri bilimi VM derin learning algoritmaları GPU (grafik işlem birimleri) tabanlı donanım kullanarak eğitim modeli için kullanılabilir. Azure bulut özellikleri ölçeklendirme VM, DSVM GPU tabanlı donanım gereksinimi göredir bulut üzerinde kullanmanıza yardımcı olur. Bir GPU tabanlı bir VM büyük modelleri eğitimindeki geçiş veya aynı işletim sistemi diski tutarken yüksek hızlı hesaplamalar gerekir.  DSVM Windows Server 2016 sürümünü GPU sürücüleri, çerçeveler ve derin öğrenme çerçeveleri GPU sürümleri önceden yüklenmiş olarak gelir. Linux'ta GPU üzerinde öğrenme derin CentOS ve Ubuntu DSVMs üzerinde etkindir. Tüm derin öğrenme çerçeveleri CPU moduna geri dönüş; bu durumda olur, veri bilimi VM Ubuntu, CentOS ya da Windows 2016 sürümü GPU tabanlı olmayan Azure sanal makinesi dağıtabilirsiniz. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Veri bilimi VM'yi neler dahildir?
 Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve yapılandırılmış araçları öğrenme derin vardır. Ayrıca, çeşitli Azure verileri ve çözümlemeler ürünleriyle çalışmak üzere kolaylaştıran araçlar içerir. Keşfetmek ve büyük ölçekli veri (R, Python) Microsoft ML Server veya SQL Server 2017 kullanarak kümeleri Tahmine dayalı modelleri oluşturun. Bir ana bilgisayar diğer Araçları'nın açık kaynak topluluktan ve Microsoft: de dahil, aynı zamanda örnek kod ve dizüstü bilgisayarlar. Aşağıdaki tabloda maddeler halinde listelemektedir ve Windows ve Linux sürümlerinde, veri bilimi sanal makine bulunan ana bileşenler karşılaştırır.
@@ -58,12 +58,12 @@ Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve y
 | **Aracı**                                                           | **Windows sürümü** | **Linux sürümü** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R açık](https://mran.microsoft.com/open/) önceden yüklenmiş popüler paketleriyle   |E                      | E             |
-| [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) içeren Geliştirici sürümü <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) paralel ve dağıtılmış yüksek performanslı framework (R ve Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) -Microsoft'tan yeni durumu resim ML algoritmaları <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R ve Python Operationalization](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |E                      | E |
+| [Microsoft ML Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) içeren Geliştirici sürümü <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) parallel and distributed high-performance framework (R & Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) -Microsoft'tan yeni durumu resim ML algoritmaları <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R ve Python Operationalization](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |E                      | E |
 | [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) paylaşılan etkinleştirme - Excel, Word ve PowerPoint profesyonel artı   |E                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, önceden yüklenmiş popüler paketleriyle 3.5    |E                      |E              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) önceden yüklenmiş Jale dil için popüler paketleriyle                         |E                      |E              |
 | İlişkisel Veritabanları                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Geliştirici sürümü| [PostgreSQL](https://www.postgresql.org/)(yalnızca CentOS) |
-| Veritabanı Araçları                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [BCP, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * ODBC/JDBC sürücüleri| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (sorgulama. aracı), <br /> * bcp, sqlcmd <br /> * ODBC/JDBC sürücüleri|
+| Veritabanı Araçları                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * ODBC/JDBC drivers| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (sorgulama. aracı), <br /> * bcp, sqlcmd <br /> * ODBC/JDBC drivers|
 | Ölçeklenebilir veritabanı analytics ile SQL Server ML Hizmetleri (R, Python) | E     |N              |
 | **[Jupyter not defteri sunucu](http://jupyter.org/) aşağıdaki çekirdekleri ile**                                  | E     | E |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | E | E |
@@ -74,10 +74,10 @@ Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve y
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | E |
 | JupyterHub (çok kullanıcılı not defterlerini sunucusu)| N | E |
 | **Geliştirme araçları, IDE ve Kod Düzenleyicisi**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) > Git eklentisi, Azure Hdınsight (Hadoop), Data Lake, SQL Server veri araçları ile [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs), ve [R Visual Studio (RTVS) için araçları](http://microsoft.github.io/RTVS-docs/) | E | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) > Git eklentisi, Azure Hdınsight (Hadoop), Data Lake, SQL Server veri araçları ile [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs), ve [Visual için R araçları Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | E | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | E | E |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Rstudio'dan Masaüstü](https://www.rstudio.com/products/rstudio/#Desktop) | E | E |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Rstudio'dan sunucu](https://www.rstudio.com/products/rstudio/#Server) | N | E |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | E | E |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm](https://www.jetbrains.com/pycharm/) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Atom](https://atom.io/) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (Jale IDE)](http://junolab.org/)| E | E |
@@ -85,13 +85,14 @@ Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve y
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git ve Gitbash'i | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .net framework | E | N |
-| Desktop'a | E | N |
+| PowerBI Desktop | E | N |
 | Azure ve hizmetlerin Cortana Intelligence Suite erişmek için SDK'ları | E | E |
 | **Veri taşıma ve Yönetim Araçları** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Storage Gezgini | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azure CLI](https://docs.microsoft.com/cli/azure/overview) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | E | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | E | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [BLOB SİGORTASI sürücüsü](https://github.com/Azure/azure-storage-fuse) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy (Azure Data Lake Store)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | E | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [DocDB veri geçiş aracı](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | E | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Veri Yönetimi ağ geçidi](https://msdn.microsoft.com/library/dn879362.aspx): OnPrem ve bulut arasında veri taşıma | E | N |
@@ -102,10 +103,10 @@ Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve y
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | E | E |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Çıngırağı](http://rattle.togaware.com/) | E | E |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (yalnızca Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | N | Y (yalnızca Ubuntu) |
-| **GPU tabanlı derin araçları öğrenme** |Windows Server 2016 sürümü  |Ubuntu sürüm |
+| **GPU tabanlı derin araçları öğrenme** |Windows Server 2016 sürümü  | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Bilişsel (önceki adıyla CNTK da bilinir) Araç Seti](https://www.microsoft.com/en-us/cognitive-toolkit/) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | E | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | E | E|
@@ -113,7 +114,10 @@ Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve y
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| N | E |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](http://pytorch.org/)| N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [NVIDIA basamak](https://github.com/NVIDIA/DIGITS) | N | E |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet Model sunucu](https://github.com/awslabs/mxnet-model-server) | N | E |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow sunma](https://www.tensorflow.org/serving/) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, CUDNN, NVIDIA sürücüsü](https://developer.nvidia.com/cuda-toolkit) | E | E |
 | **Büyük veri Platformu (yalnızca Devtest)**|||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Yerel [Spark](http://spark.apache.org/) tek başına | N | E |
@@ -137,7 +141,7 @@ Veri bilimi sanal makine, birçok popüler veri bilimi ve zaten yüklenmiş ve y
 
   or
 
-  * [OpenLogic CentOS DSVM dayalı](http://aka.ms/dsvm/centos)
+  * [CentOS DSVM dayalı](http://aka.ms/dsvm/centos)
 
   
 * Tıklatın **Şimdi Al** düğmesi.

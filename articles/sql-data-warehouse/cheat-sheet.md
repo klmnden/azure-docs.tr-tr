@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 12/14/2017
+ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: a16c2230c26865913285cb8cbd5b0f81426acdd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse için kopya sayfası
 Bu kopya sayfası yararlı ipuçları ve Azure SQL Data Warehouse çözümlerinizi oluşturmaya yönelik en iyi yöntemler sağlar. Başlamadan önce her adım ayrıntılı hakkında daha fazla okuyarak bilgi [Azure SQL veri ambarı iş yükü desenleri ve koruma desenleri](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), SQL Data Warehouse nedir ve ne değil açıklar.
@@ -121,7 +121,7 @@ Son olarak, en iyi duruma getirilmiş işlem katmanı kullanarak, her kaynak sı
 Çalışmak nasıl daha fazla bilgi [kaynak sınıfları ve eşzamanlılık].
 
 ## <a name="lower-your-cost"></a>Maliyetlerinizi alt
-Anahtar, bir SQL Data Warehouse işlem kaynaklarını ödeme durdurur, kullanmadığınızda duraklatmak olanağı özelliğidir. Bir diğer önemli özellik ise kaynakları ölçeklendirmektir. Duraklatma ve ölçeklendirme Azure portalı üzerinden veya PowerShell komutları ile yapılabilir.
+Anahtar, bir SQL Data Warehouse yeteneği özelliğidir [işlem kaynaklarının yönetilmesine](sql-data-warehouse-manage-compute-overview.md). Kullanmadığınızda, işlem kaynaklarını ödeme durdurur veri ambarı duraklatabilirsiniz. Performans taleplerini karşılamak için kaynakları ölçeklendirebilirsiniz. Duraklatmak için kullanmak [Azure portal](pause-and-resume-compute-portal.md) veya [PowerShell](pause-and-resume-compute-powershell.md). Ölçeklendirmek için kullanmak [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), veya bir [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Otomatik ölçeklendirme artık zamanında Azure işlevleriyle istiyor:
 

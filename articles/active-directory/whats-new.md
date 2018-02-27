@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ccee4fd0359ab9fe8bd025ead9a2d0993bb718f2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
@@ -219,7 +219,7 @@ Daha fazla bilgi için bkz: [daha az sayıda oturum açma komut istemleri: yeni 
 
 **Tür:** yeni özellik  
 **Servis kategorisi:** kullanım koşulları  
-**Ürün yetenek:** idare
+**Ürün yetenek:** idare/uyumluluk
  
 Yöneticiler için bir seçenek koşulları kabul etmeden önce Kullanım Koşulları'nı genişletin, kullanıcılar gerektirir.
 
@@ -251,7 +251,7 @@ Daha fazla bilgi için bkz: [Azure AD Privileged Identity Management nedir?](htt
  
 Aralık 2017 ' aşağıdaki yeni uygulamalar Federasyonu Desteği ile uygulama galerisinde eklendi:
 
-[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe deneyimi Yöneticisi [EFI dijital mağaza](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [görüntü WORKS](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD tümleştirme](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO GmbHçözünürlüğünBambuiçin](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO GmbH çözünürlüğün Bitbucket için](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, Zenegy Azure AD tümleştirme.
+[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe deneyimi Yöneticisi [EFI dijital mağaza](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [görüntü WORKS](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD tümleştirme](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO GmbH çözünürlüğün Bambu için](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO GmbH çözünürlüğün Bitbucket için](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, Zenegy Azure AD tümleştirme.
 
 Tüm kullanılabilir öğreticileri eksiksiz bir genel bakış için bkz: [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial).
 
@@ -494,7 +494,7 @@ Artık içerir (dışlamak macOS cihaz platformu koşul olarak Azure AD koşullu
 
 Daha fazla bilgi için bkz.
 
-- [Intune ile macOS cihazlar için cihaz uyumluluk ilkesi oluşturma](https://aka.ms/macoscompliancepolicy)
+- [Intune ile macOS cihazları için cihaz uyumluluğu ilkesi oluşturma](https://aka.ms/macoscompliancepolicy)
 - [Azure AD'de koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 
@@ -666,7 +666,7 @@ Daha fazla bilgi için bkz: [MFA Azure portalında raporlama için başvuru](htt
 
 **Tür:** yeni özellik  
 **Servis kategorisi:** kullanım koşulları  
-**Ürün yetenek:** idare  
+**Ürün yetenek:** idare/uyumluluk  
 
 
 
@@ -709,7 +709,7 @@ Daha fazla bilgi için bkz: [Azure kaynakları için Privileged Identity Managem
 
 **Tür:** yeni özellik  
 **Servis kategorisi:** erişim gözden geçirme  
-**Ürün yetenek:** idare  
+**Ürün yetenek:** idare/uyumluluk  
 
 
 

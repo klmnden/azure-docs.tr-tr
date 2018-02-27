@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 903177506c31ec96452cbbdbade4a3d91dbf7571
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti
 
@@ -302,7 +302,7 @@ alt ağ/adresi | VM alt ağ adresi | 2017-04-02
 alt ağ/öneki | Alt ağ öneki, örnek 24 | 2017-04-02 
 ipv6/ipAddress | VM yerel IPv6 adresi | 2017-04-02 
 macAddress | VM mac adresi | 2017-04-02 
-scheduledevents | Şu anda genel önizlemede. Bkz: [zamanlanmış olayları](scheduled-events.md) | 2017-03-01
+scheduledevents | Bkz: [zamanlanmış olayları](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Kullanım için örnek senaryolar  
 
@@ -411,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinmek [zamanlanmış olayları](scheduled-events.md) API **genel önizlemede** örneği meta veri hizmeti tarafından sağlanan.
+- Daha fazla bilgi edinmek [zamanlanmış olayları](scheduled-events.md)

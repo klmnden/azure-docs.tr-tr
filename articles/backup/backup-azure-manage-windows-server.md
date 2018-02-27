@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Windows makineleri için Azure kurtarma hizmetleri kasaları ile sunucularını izleme ve yönetme
 
@@ -32,13 +32,11 @@ Bu makale Azure portalı ve Microsoft Azure Yedekleme aracısı kullanılabilir 
 Kurtarma Hizmetleri kasa Panosu ayrıntıları veya bir kurtarma Hizmetleri kasası özniteliklerini gösterir.
 
 1. Oturum [Azure Portal](https://portal.azure.com/) Azure aboneliğinizi kullanarak.
-2. Hub menüsünde **daha Hizmetleri**.
-
-    ![Kurtarma Hizmetleri kasaları adım 1'in açık listesi](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Tıklatın **tüm hizmetleri**. 
 
 3. Kurtarma Hizmetleri kasası açmak istiyor. İletişim kutusunda yazmaya başlayın **kurtarma Hizmetleri**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Tıklatın **kurtarma Hizmetleri kasaları** aboneliğinizde kurtarma Hizmetleri kasalarının listesini görüntülemek için.
 
-    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Kurtarma Hizmetleri kasaları adım 1'in açık listesi](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     Kurtarma Hizmetleri kasalarının listesi açılır.
 
@@ -74,9 +72,9 @@ Pano üstten:
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Azure Yedekleme aracısı kullanarak yedeklemeler için uyarılar:
 | Uyarı düzeyi | Gönderilen uyarıları |
 | --- | --- |
-| Kritik |Yedekleme hatası, Kurtarma hatası |
-| Uyarı |Yedekleme (< 100 dosyaları bozulması sorunları nedeniyle yedeklenmez ve > 1.000.000 dosyalar başarıyla yedeklendi olduğunda) uyarılarla tamamlandı |
-| Bilgilendirme |None |
+| Kritik | birisi korumasıyla durduğunda yedekleme hatası, Kurtarma hatası ve ertelenmiş silme için başka bir deyişle, verilerini sil |
+| Uyarı | Yedekleme (< 100 dosyaları bozulması sorunları nedeniyle yedeklenmez ve > 1.000.000 dosyalar başarıyla yedeklendi olduğunda) uyarılarla tamamlandı |
+| Bilgilendirici | şu anda hiçbir bilgilendirici uyarılar için Azure Yedekleme aracısı bulunmaktadır |
 
 ## <a name="manage-backup-alerts"></a>Yedekleme Uyarıları yönetme
 Tıklatın **yedekleme uyarıları** açmak için kutucuğa **yedekleme uyarıları** menü uyarıları ve yönetin.
@@ -94,7 +92,7 @@ Yedekleme uyarıları menüsünden:
 
 * Uyarılarınızı ile dahil etmek için uygun bilgileri seçin.
 
-    ![Sütunları seçin](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
+    ![Sütun seçin](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
 * Önem derecesi durumu için uyarıları filtrelemek ve başlangıç/bitiş saatleri.
 
     ![Filtre uyarıları](./media/backup-azure-manage-windows-server/filter-alerts.png)
@@ -109,8 +107,8 @@ Varsa **saatlik Özet** olarak seçilen **bildirim** sıklığı, bir e-posta ç
 Uyarılar için aşağıdaki önem düzeylerini gönderilebilir:
 
 * Kritik
-* Uyarı
-* Bilgi
+* uyarı
+* bilgi
 
 Uyarı ile devre dışı bırak **devre dışı bırak** iş ayrıntıları menü düğmesi. ' I tıklattığınızda devre dışı bırak, çözümleme notları sağlayabilir.
 
@@ -146,7 +144,7 @@ Listeden belirli bir yedekleme öğesi seçeneğini belirlerseniz bu öğenin te
 
 Pano yedekleme bölümünde yedekleme işi kutucuğunu işlerinin sayısını gösterir:
 
-* Sürüyor
+* devam ediyor
 * Son 24 saat içinde başarısız oldu.
 
 Yedekleme işlerini yönetmek için tıklatın **yedekleme işleri** döşeme, hangi yedekleme işleri menüsü açılır.
@@ -244,7 +242,7 @@ Azaltmayı etkinleştirmek için:
     Azaltma etkinleştirdikten sonra sırasında yedek veri aktarımı için izin verilen bant genişliğini belirtin **çalışma saatleri** ve **çalışılmayan saatler**.
 
     Bant genişliği değerler 512 KB / saniye (Kbps) başlar ve en fazla 1023 MB / saniye (Mbps) gidebilirsiniz. Ayrıca başlangıç belirleyin ve için son **çalışma saatleri**, ve haftanın hangi günleri iş dikkate gün. Belirtilen iş saatleri dışında saat İş dışı saatler olarak kabul edilir.
-3. **Tamam** düğmesine tıklayın.
+3. **Tamam**’a tıklayın.
 
 ## <a name="manage-exclusion-settings"></a>Dışarıda bırakma ayarları yönetme
 1. Açık **Microsoft Azure Yedekleme aracısı** (makinenizi arayarak bulabilirsiniz *Microsoft Azure yedekleme*).
@@ -307,7 +305,7 @@ Y3. Aşağıdaki durumlarda alındığında uyarı gürültü azaltmak için bil
 2. İşlemi çalışmıyor varsayılarak açmak **Denetim Masası** ve hizmetlerin listesini bulun. Başlatma veya yeniden **Microsoft Azure kurtarma Hizmetleri yönetim Aracısı**.
 
     Daha fazla bilgi için günlüklerine göz atın:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Örneğin:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Örneğin:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1b3da4d6e4593f3c71995ef9331fcea2d5b6ec19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdd4b7ddd5ebaf0187ed4943a518a83fc2531da4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Paket yakalama öngörülü ağ izleme için uyarıları ve Azure işlevleri kullanın
 
@@ -32,7 +32,7 @@ Ağ İzleyicisi'ni kullanarak, uyarı ve işlevlerden Azure ekosistemi içinde v
 
 ![Senaryo][scenario]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * En son sürümünü [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Ağ İzleyicisi var olan bir örneği. Zaten yoksa, [Ağ İzleyicisi örneği oluşturun](network-watcher-create.md).
@@ -65,7 +65,7 @@ Bu senaryo şunları yapar:
 
 İlk adımı, uyarıyı işlemek ve paket yakalama oluşturmak için bir Azure işlevi oluşturmaktır.
 
-1. İçinde [Azure portal](https://portal.azure.com)seçin **yeni** > **işlem** > **işlev uygulaması**.
+1. İçinde [Azure portal](https://portal.azure.com)seçin **kaynak oluşturma** > **işlem** > **işlev uygulaması**.
 
     ![Bir işlev uygulaması oluşturma][1-1]
 
@@ -76,9 +76,9 @@ Bu senaryo şunları yapar:
     |**Uygulama adı**|PacketCaptureExample|İşlev uygulaması adı.|
     |**Abonelik**|[Aboneliğinizi] Abonelik için işlev uygulaması oluşturmak için.||
     |**Kaynak Grubu**|PacketCaptureRG|İşlev uygulaması içeren kaynak grubu.|
-    |**Barındırma planı**|Tüketim planı| Türü, işlev uygulaması kullanır planlayın. Seçenekler şunlardır tüketimi veya Azure uygulama hizmeti planı. |
+    |**Barındırma Planı**|Tüketim Planı| Türü, işlev uygulaması kullanır planlayın. Seçenekler şunlardır tüketimi veya Azure uygulama hizmeti planı. |
     |**Konum**|Orta ABD| Bölge, işlev uygulaması oluşturmak kullanın.|
-    |**Depolama hesabı**|{otomatik olarak oluşturulur}| Azure işlevleri için genel amaçlı depolama alanı ihtiyaçlarınızı depolama hesabı.|
+    |**Depolama Hesabı**|{otomatik olarak oluşturulur}| Azure işlevleri için genel amaçlı depolama alanı ihtiyaçlarınızı depolama hesabı.|
 
 3. Üzerinde **PacketCaptureExample işlev uygulamalarının** dikey penceresinde, select **işlevleri** > **özel işlevi**  >  **+**.
 
@@ -88,7 +88,7 @@ Bu senaryo şunları yapar:
     |---|---|---|
     |**Senaryo**|Deneysel|Tür senaryosu|
     |**İşlevinizi adlandırın**|AlertPacketCapturePowerShell|İşlevin adı|
-    |**Yetkilendirme düzeyi**|İşlevi|Yetki düzeyini işlevi|
+    |**Yetkilendirme düzeyi**|İşlev|Yetki düzeyini işlevi|
 
 ![İşlevleri örneği][functions1]
 
@@ -119,7 +119,7 @@ Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması son 
 
 1. Seçin **işlev uygulaması ayarları** > **App Service Düzenleyici'ye gidin**.
 
-    ![İşlev uygulama ayarları][functions2]
+    ![İşlev uygulaması ayarları][functions2]
 
 1. Sağ **AlertPacketCapturePowershell** klasörünü ve ardından adlı bir klasör oluşturun **azuremodules**. 
 
@@ -135,7 +135,7 @@ Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması son 
 
 1. Sağ **AzureRM.Network** alt ve ardından **dosya yükleme**. 
 
-6. Azure modüllerinizi gidin. Yerel **AzureRM.Network** klasörü, klasördeki tüm dosyaları seçin. Ardından **Tamam**. 
+6. Azure modüllerinizi gidin. Yerel **AzureRM.Network** klasörü, klasördeki tüm dosyaları seçin. Sonra **Tamam**’ı seçin. 
 
 7. İçin bu adımları yineleyin **AzureRM.Profile** ve **AzureRM.Resources**.
 

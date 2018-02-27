@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 37310689881e403aa5e3f4f4d4a18180cbccc05d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure kapsayıcı durumlarda bir Azure dosya paylaşımını bağlama
 
@@ -74,8 +74,8 @@ Bir kapsayıcıda bir birim olarak Azure dosya paylaşımının bağlamak için 
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image seanmckenna/aci-hellofiles \
-    --ip-address Public \
+    --image microsoft/aci-hellofiles \
+    --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
     --azure-file-volume-account-key $STORAGE_KEY \
@@ -83,12 +83,14 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
+`--dns-name-label` Değeri Azure bölgesinde benzersiz olmalıdır kapsayıcı örneği oluşturun. Yukarıdaki komut değeri alırsanız güncelleştirin bir **DNS ad etiketi** hata iletisi komutu yürütün.
+
 ## <a name="manage-files-in-mounted-volume"></a>Takılan birimin dosyalarını yönetme
 
-Kapsayıcı başlatıldığında sonra aracılığıyla dağıtılan basit web uygulaması kullanarak [aci/seanmckenna-hellofiles] [ aci-hellofiles] belirttiğiniz bağlama yolundaki Azure dosya paylaşımında dosyaları yönetmek için resim. Web uygulaması ile IP adresi al [az kapsayıcı Göster] [ az-container-show] komutu:
+Kapsayıcı başlatıldığında sonra aracılığıyla dağıtılan basit web uygulaması kullanarak [aci/microsoft-hellofiles] [ aci-hellofiles] belirttiğiniz bağlama yolundaki Azure dosya paylaşımında dosyaları yönetmek için resim. Web uygulamanızın tam etki alanı adı (FQDN) ile elde [az kapsayıcı Göster] [ az-container-show] komutu:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
 ```
 
 Kullanabileceğiniz [Azure portal] [ portal] veya bir aracı [Microsoft Azure Storage Gezgini] [ storage-explorer] almak ve yazılan dosyasını inceleyin Dosya Paylaşımı.
@@ -142,7 +144,7 @@ Azure kapsayıcı örnekleri diğer birim türlerinde bağlama öğrenin:
 * [Azure kapsayıcı durumlarda gizli bir birim](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

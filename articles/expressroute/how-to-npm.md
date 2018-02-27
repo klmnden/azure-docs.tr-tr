@@ -1,9 +1,9 @@
 ---
-title: "Ağ Performans İzleyicisi'ni (Önizleme) Azure ExpressRoute bağlantı hatları için yapılandırma | Microsoft Docs"
-description: "NPM Azure ExpressRoute bağlantı hatları için yapılandırın. (Önizleme)"
+title: "Ağ Performansı İzleyicisi Azure ExpressRoute bağlantı hatları için yapılandırma | Microsoft Docs"
+description: "Azure ExpressRoute bağlantı hatları için bulut tabanlı ağ izlemeyi yapılandırın."
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: ajaycode
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
-ms.author: pareshmu
-ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
-ms.translationtype: MT
+ms.date: 02/14/2018
+ms.author: agummadi
+ms.openlocfilehash: 4d5bf1550ecd5982e51c0ae8d3917102d2f7c253
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Ağ Performans İzleyicisi'ni (Önizleme) ExpressRoute için yapılandırma
+# <a name="configure-network-performance-monitor-for-expressroute"></a>Ağ Performansı İzleyicisi ExpressRoute için yapılandırma
 
 Ağ Performans İzleyicisi'ni (NPM) izleme Azure bulut dağıtımları ve şirket içi konumlara (şube ofisleri, vb.) arasında bağlantı izler çözümü bir bulut tabanlı bir ağdır. NPM Microsoft Operations Management Suite (OMS) bir parçasıdır. NPM, özel eşleme kullanmak üzere yapılandırılmış ExpressRoute bağlantı hatları ağ performansını izlemenize izin verir ExpressRoute için artık bir uzantı sunar. ExpressRoute için NPM yapılandırma ağ sorunları belirlemek ve gidermek için algılayabilir.
 
@@ -62,9 +62,15 @@ ExpressRoute bağlantı hatları dünya herhangi bir parçası olarak barındır
 
 Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zaten kullanıyorsanız ve çalışma alanı desteklenen bölgelerinden birinde zaten varsa, adım 1 ve 2. adımı atlayın ve yapılandırmanızı 3. adım ile başlayın.
 
-## <a name="configure"></a>1. adım: (Abonelikteki sanal ağlar için ExpressRoute Circuit(s)) bağlı olan bir çalışma alanı oluşturma
+## <a name="configure"></a>1. adım: bir çalışma alanı oluşturma
+
+ExpressRoute circuit(s) sanal ağlara bağlantı sahip Abonelikteki bir çalışma alanı oluşturun.
 
 1. İçinde [Azure portal](https://portal.azure.com), sanal ağlar sahip aboneliği seçin, expressroute bağlantı hattı eşlenen. Hizmet listesini arama **Market** 'Ağ Performans İzleyicisi'. Return açmak için tıklatın **Ağ Performansı İzleyicisi** sayfası.
+
+>[!NOTE]
+>Yeni bir çalışma alanı oluşturun veya varolan bir çalışma alanını kullanın.  Varolan bir çalışma alanı kullanmak isterseniz, yeni sorgu dili çalışma geçirildiğinden emin olun gerekir. [Daha fazla bilgi...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+>
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Ana sonundaki **Ağ Performansı İzleyicisi** sayfasında, **oluşturma** açmak için **Ağ Performansı İzleyicisi - oluştur yeni çözüm** sayfası. Tıklatın **OMS çalışma alanı - çalışma alanı seçin** çalışma sayfasını açın. Tıklatın **+ oluştur yeni çalışma** çalışma sayfasını açın.
@@ -79,29 +85,25 @@ Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zat
   >[!NOTE]
   >Expressroute bağlantı hattı dünyada herhangi bir yerde olabilir ve çalışma alanı ile aynı bölgede olması gerekmez.
   >
-
-
+  
   ![Çalışma alanı](.\media\how-to-npm\4.png)<br><br>
 4. Tıklatın **Tamam** kaydetmek ve ayarları şablonu dağıtmak için. Şablon doğrular sonra tıklayın **oluşturma** çalışma dağıtmak için.
 5. Çalışma alanı dağıtıldıktan sonra gidin **NetworkMonitoring(name)** oluşturduğunuz kaynak. Ayarları doğrulayın ve ardından **çözüm ek yapılandırma gerektirir**.
 
   ![ek yapılandırma](.\media\how-to-npm\5.png)
-6. Üzerinde **ağ Performans İzleyicisi'na Hoş** sayfasında, **yapay işlemler için kullanım TCP**, ardından **gönderme**. TCP işlemler yapmak ve bağlantıyı kesmek için kullanılır. Hiçbir veri bu TCP bağlantıları üzerinden gönderilir.
-
-  ![Yapay işlemler için TCP](.\media\how-to-npm\6.png)
 
 ## <a name="agents"></a>2. adım: Yükleme ve aracıları yapılandırma
 
 ### <a name="download"></a>2.1: Aracısı kurulum dosyasını karşıdan yükleyin
 
-1. Üzerinde **ağ Performans İzleyicisi'ni yapılandırma - TCP Kurulum sayfasında** , kaynak için de **OMS aracıları Yükle** bölümünde, sunucunuzun işlemci ve indirme karşılık gelen Aracısı'nı tıklatın Kurulum dosyasını çalıştırın.
+1. Git **ortak ayarları** sekmesinde **ağ Performans İzleyicisi'ni yapılandırma** kaynağınız için sayfa. Sunucunuzun işlemcisine karşılık gelen Aracısı'nı **OMS aracıları Yükle** bölümünde ve kurulum dosyasını karşıdan yükleyin.
 
   >[!NOTE]
   >Aracı bir Windows sunucusuna yüklenmesi gerekir (2008 SP1 veya üstü). Windows masaüstü işletim sistemi ve Linux işletim sistemi kullanarak ExpressRoute bağlantı hatları izleme desteklenmiyor. 
   >
   >
 2. Ardından, kopyalama **çalışma alanı kimliği** ve **birincil anahtar** Defteri'ne.
-3. İçinde **yapılandırma aracıları** bölümünde, Powershell komut dosyasını karşıdan yükleyin. PowerShell Betiği TCP işlemler için ilgili güvenlik duvarı bağlantı noktasını açın yardımcı olur.
+3. Gelen **TCP protokolü kullanılarak izleme için OMS aracıları yapılandırma** bölümünde, Powershell komut dosyasını karşıdan yükleyin. PowerShell Betiği TCP işlemler için ilgili güvenlik duvarı bağlantı noktasını açın yardımcı olur.
 
   ![PowerShell betiği](.\media\how-to-npm\7.png)
 

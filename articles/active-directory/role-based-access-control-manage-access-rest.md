@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Rol tabanlı erişim denetimini REST API ile yönetme
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Rol tabanlı erişim denetimi (RBAC) Azure portalında ve Azure Resource Manager API abonelik ve ayrıntılı bir düzeyde kaynaklara erişimi yönetmenize yardımcı olur. Bu özellik ile bazı roller belirli bir kapsamda atayarak Active Directory Kullanıcıları, grupları veya hizmet asıl adı için erişim izni verebilir.
+Rol tabanlı erişim denetimi (RBAC) ile belirli bir kapsamda rolleri atayarak erişim için kullanıcıları, grupları ve hizmet asıl adı tanımlayın. Bu makalede, REST API kullanarak erişimi yönetmek üzere açıklar.
 
 ## <a name="list-all-role-assignments"></a>Tüm rol atamalarını listesi
 Belirtilen kapsam ve subscopes tüm rol atamalarını listeler.
@@ -48,9 +48,9 @@ URI içinde isteğiniz özelleştirmek için aşağıdaki alternatifleri olun:
 2. Değiştir *{api-version}* 2015-07-01 ile.
 3. Değiştir *{filtre}* rol ataması listesini filtrelemek için uygulamak istediğiniz koşulu ile:
 
-   * Rol atamaları subscopes olarak dahil değil yalnızca belirtilen kapsam için rol atamalarını listesi:`atScope()`    
-   * Belirli bir kullanıcı, Grup veya uygulama için rol atamalarını listesi:`principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   * Liste olanları gruplarından devralınan dahil olmak üzere belirli bir kullanıcı için rol atamalarını |`assignedTo('{objectId of user}')`
+   * Rol atamaları subscopes olarak dahil değil yalnızca belirtilen kapsam için rol atamalarını listesi: `atScope()`    
+   * Belirli bir kullanıcı, Grup veya uygulama için rol atamalarını listesi: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
+   * Liste olanları gruplarından devralınan dahil olmak üzere belirli bir kullanıcı için rol atamalarını | `assignedTo('{objectId of user}')`
 
 ### <a name="response"></a>Yanıt
 Durum kodu: 200
@@ -153,7 +153,7 @@ URI içinde isteğiniz özelleştirmek için aşağıdaki alternatifleri olun:
 
 | Öğe adı | Gerekli | Tür | Açıklama |
 | --- | --- | --- | --- |
-| roleDefinitionId |Evet |Dize |Rol tanımlayıcısı. Tanımlayıcı biçimdedir:`{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| roleDefinitionId |Evet |Dize |Rol tanımlayıcısı. Tanımlayıcı biçimdedir: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Evet |Dize |objectID rolü atanmış Azure AD asıl (kullanıcı, Grup veya hizmet sorumlusu). |
 
 ### <a name="response"></a>Yanıt
@@ -238,8 +238,8 @@ URI içinde isteğiniz özelleştirmek için aşağıdaki alternatifleri olun:
 2. Değiştir *{api-version}* 2015-07-01 ile.
 3. Değiştir *{filtre}* rollerin listesini filtrelemek için uygulamak istediğiniz koşulu ile:
 
-   * Liste roller kendi alt kapsamını atama için belirtilen kapsamda ve diğer kullanılabilir:`atScopeAndBelow()`
-   * Tam ekran adını kullanarak bir rolü arayın: `roleName%20eq%20'{role-display-name}'`. Rolün tam görünen adı, URL kodlanmış form kullanın. Örneğin,`$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * Liste roller kendi alt kapsamını atama için belirtilen kapsamda ve diğer kullanılabilir: `atScopeAndBelow()`
+   * Tam ekran adını kullanarak bir rolü arayın: `roleName%20eq%20'{role-display-name}'`. Rolün tam görünen adı, URL kodlanmış form kullanın. Örneğin, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### <a name="response"></a>Yanıt
 Durum kodu: 200

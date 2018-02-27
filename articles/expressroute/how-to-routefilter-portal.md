@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft eşliği için rota filtrelerini yapılandırın: Azure portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](how-to-routefilter-portal.md)
+> * [Azure portalındaki](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 
@@ -92,7 +92,7 @@ Rota filtrede kullanmak istediğiniz BGP topluluk değerlerini listesini hazırl
 Bir rota filtre yalnızca bir kuralınız olabilir ve kural 'İzin ver' türünde olmalıdır. Bu kural, kendisiyle ilişkilendirilmiş BGP topluluk değerlerini listesini olabilir.
 
 ### <a name="1-create-a-route-filter"></a>1. Bir rota filtresi oluşturma
-Yeni bir kaynak oluşturma seçeneğini seçerek bir rota filtre oluşturabilirsiniz. Tıklatın **yeni** > **ağ** > **RouteFilter**aşağıdaki görüntüde gösterildiği gibi:
+Yeni bir kaynak oluşturma seçeneğini seçerek bir rota filtre oluşturabilirsiniz. Tıklatın **kaynak oluşturma** > **ağ** > **RouteFilter**aşağıdaki görüntüde gösterildiği gibi:
 
 ![Bir rota filtresi oluşturma](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
 

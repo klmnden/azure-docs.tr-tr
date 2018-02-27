@@ -4,7 +4,7 @@ description: "Bu öğretici Azure sanal makineler üzerinde bir SQL Server her z
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma her zaman üzerindeki kullanılabilirlik grubu Azure VM'de el ile
 
@@ -32,7 +32,7 @@ Aşağıdaki diyagramda, öğreticide yapı açıklanmıştır.
 
 ![Kullanılabilirlik grubu](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Öğretici, SQL Server Always On kullanılabilirlik grupları temel bilgilere sahip varsayar. Daha fazla bilgi için bkz: [genel bakış, Always On kullanılabilirlik grupları (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -40,13 +40,13 @@ Aşağıdaki tabloda bu öğreticiye başlamadan önce tamamlamanız gereken ön
 
 |  |Gereksinim |Açıklama |
 |----- |----- |----- |
-|![Kare](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | İki SQL sunucuları | -Bir Azure kullanılabilirlik kümesine <br/> -Tek bir etki alanı <br/> -Yük Devretme Kümelemesi özelliği yüklü olan |
-|![Kare](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Küme Tanık dosya paylaşımı |  
-|![Kare](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server hizmet hesabı | Etki alanı hesabı |
-|![Kare](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Aracısı hizmet hesabı | Etki alanı hesabı |  
-|![Kare](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Güvenlik Duvarı bağlantı noktalarını açın | -SQL Server: **1433** varsayılan örnek için <br/> -Veritabanı yansıtma uç noktası: **5022** veya tüm kullanılabilir bağlantı noktası <br/> -Azure yük dengeleyici araştırmasını: **59999** veya tüm kullanılabilir bağlantı noktası |
-|![Kare](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Yük Devretme Kümelemesi özelliği Ekle | Bu özellik, her iki SQL sunucuları gerektirir |
-|![Kare](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Yükleme etki alanı hesabı | -Her bir SQL Server yerel yönetici <br/> -Her SQL Server örneği için SQL Server sysadmin sabit sunucu rolünün üyesi  |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | İki SQL sunucuları | -Bir Azure kullanılabilirlik kümesine <br/> -Tek bir etki alanı <br/> -Yük Devretme Kümelemesi özelliği yüklü olan |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Küme Tanık dosya paylaşımı |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server hizmet hesabı | Etki alanı hesabı |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Aracısı hizmet hesabı | Etki alanı hesabı |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Güvenlik Duvarı bağlantı noktalarını açın | -SQL Server: **1433** varsayılan örnek için <br/> -Veritabanı yansıtma uç noktası: **5022** veya tüm kullanılabilir bağlantı noktası <br/> -Azure yük dengeleyici araştırmasını: **59999** veya tüm kullanılabilir bağlantı noktası |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Yük Devretme Kümelemesi özelliği Ekle | Bu özellik, her iki SQL sunucuları gerektirir |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Yükleme etki alanı hesabı | -Her bir SQL Server yerel yönetici <br/> -Her SQL Server örneği için SQL Server sysadmin sabit sunucu rolünün üyesi  |
 
 
 Öğreticiye başlamadan önce şunları gerçekleştirmeniz [tamamlamak Azure sanal makinelerinde Always On kullanılabilirlik grupları oluşturmak için Önkoşullar](virtual-machines-windows-portal-sql-availability-group-prereq.md). Bu Önkoşullar zaten tamamladıysanız, atlayabilirsiniz [küme oluşturma](#CreateCluster).
@@ -55,7 +55,7 @@ Aşağıdaki tabloda bu öğreticiye başlamadan önce tamamlamanız gereken ön
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-##Küme oluşturma
+## Küme oluşturma
 
 Önkoşullar tamamlandıktan sonra ilk adım iki SQL Server'lar içeren Windows Server Yük devretme kümesi ve bir Tanık oluşturmaktır.  
 
@@ -71,7 +71,7 @@ Aşağıdaki tabloda bu öğreticiye başlamadan önce tamamlamanız gereken ön
 
    | Sayfa | Ayarlar |
    | --- | --- |
-   | Başlamadan önce |Varsayılanları kullanın |
+   | Başlamadan önce |Varsayılanları kullan |
    | Sunucuları seçin |İlk SQL Server adı yazın **sunucu adını girin** tıklatıp **Ekle**. |
    | Doğrulama uyarısı |Seçin **ı bu küme için Microsoft desteğine gereksiniminiz ve bu nedenle doğrulama testlerini çalıştırmak istemiyorsanız Hayır. Sonraki tıkladığınızda, kümeyi oluşturmaya devam**. |
    | Kümeyi yönetmek için erişim noktası |Bir küme adı yazın, örneğin **SQLAGCluster1** içinde **küme adı**.|
@@ -143,7 +143,7 @@ Bu örnekte, Küme çekirdeğini oluşturmak için bir dosya paylaşımı Window
 
    ![Yeni paylaşım](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**’a tıklayın.
 
 1. İçinde **paylaşılan klasör izinlerini**, tıklatın **son**. Tıklatın **son** yeniden.  
 
@@ -221,7 +221,7 @@ Repeat these steps on the second SQL Server.
 7. İçinde **Object Explorer**, sağ **veritabanları** tıklatıp **yeni veritabanı**.
 8. İçinde **veritabanı adı**, türü **MyDB1**, ardından **Tamam**.
 
-### <a name="backupshare"></a>Bir yedekleme paylaşımı oluşturun
+### <a name="backupshare"></a> Bir yedekleme paylaşımı oluşturun
 
 1. İlk SQL sunucusuna **Sunucu Yöneticisi'ni**, tıklatın **Araçları**. Açık **Bilgisayar Yönetimi**.
 
@@ -245,7 +245,7 @@ Repeat these steps on the second SQL Server.
 
    ![Yeni paylaşım](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**’a tıklayın.
 
 1. İçinde **paylaşılan klasör izinlerini**, tıklatın **son**. Tıklatın **son** yeniden.  
 
@@ -337,7 +337,7 @@ Bu noktada, çoğaltmalar SQL Server'ın iki örneği üzerinde kullanılabilirl
 
 <a name="configure-internal-load-balancer"></a>
 
-## <a name="create-an-azure-load-balancer"></a>Bir Azure yük dengeleyici oluşturma
+## <a name="create-an-azure-load-balancer"></a>Azure yük dengeleyici oluşturma
 
 Azure sanal makinelerde SQL Server kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici için kullanılabilirlik grubu dinleyici IP adresini tutar. Bu bölümde Azure portalında yük dengeleyici oluşturma özetlenmektedir.
 
@@ -346,7 +346,7 @@ Azure sanal makinelerde SQL Server kullanılabilirlik grubu yük dengeleyici ger
 
    ![Yük Devretme Kümesi Yöneticisi'nde AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1.  **Oluştur**'a tıklayın.
+1.  **Oluştur**’a tıklayın.
 3. Yük Dengeleyici için aşağıdaki parametreleri yapılandırın.
 
    | Ayar | Alan |
@@ -404,7 +404,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir araştırma olu�
    | **Ad** | Metin | SQLAlwaysOnEndPointProbe |
    | **Protokol** | TCP seçin | TCP |
    | **Bağlantı Noktası** | Kullanılmayan bir bağlantı noktası | 59999 |
-   | **Aralığı**  | Saniye cinsinden araştırma girişimleri arasındaki süre |5 |
+   | **Aralık**  | Saniye cinsinden araştırma girişimleri arasındaki süre |5 |
    | **Sağlıksız durum eşiği.** | Sağlıksız olarak kabul edilmesi bir sanal makine için oluşması gereken arka arkaya araştırma hatası sayısı  | 2 |
 
 1. Tıklatın **Tamam** durumu araştırması ayarlamak için.
@@ -431,7 +431,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir araştırma olu�
 
 1. Tıklatın **Tamam** Yük Dengeleme kuralları ayarlamak için.
 
-## <a name="configure-listener"></a>Dinleyici yapılandırın
+## <a name="configure-listener"></a> Dinleyici yapılandırın
 
 Sonraki bir şey yapmak için yük devretme kümesinde bir kullanılabilirlik grubu dinleyicisi yapılandırmaktır.
 

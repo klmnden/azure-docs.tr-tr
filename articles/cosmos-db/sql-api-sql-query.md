@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB SQL sorguları
 
@@ -174,7 +174,7 @@ Dikkat çekmek için birkaç önemli yönleri kadarki gördük örnekler üzerin
 * Cosmos DB yalnızca Katı JSON belgelerini destekler. Bu tür sistemi ve ifadeler yalnızca JSON türleri ile mücadele etmek için sınırlı olduğu anlamına gelir. Başvurmak [JSON belirtimi](http://www.json.org/) daha fazla ayrıntı için.  
 * Cosmos DB koleksiyon JSON belgeleri, şemasız bir kapsayıcısıdır. İlişkileri veri varlıklarında içinde ve bir koleksiyondaki belgeler arasında örtük olarak kapsama ve birincil anahtar ve yabancı anahtar ilişkileri tarafından yakalanır. Bu makalenin sonraki bölümlerinde ele alınan içi belge birleştirmeler etkinliğinin düzenleyicileri gösteren değer önemli bir yönü budur.
 
-## <a id="Indexing"></a>Cosmos DB dizin oluşturma
+## <a id="Indexing"></a> Cosmos DB dizin oluşturma
 Biz SQL söz dizimi alın önce Azure Cosmos DB dizin tasarımında incelenmesi yararlı vardır. 
 
 Veritabanı dizinlerini amacı, çeşitli formlar ve şekiller sorgularda (örneğin, CPU ve giriş/çıkış) en düşük kaynak kullanımına sahip görev iyi performans ve düşük gecikme süresi sunarken yapmaktır. Genellikle, bir veritabanını sorgulamak için doğru dizin seçimi kadar planlama ve deneme gerektirir. Bu yaklaşım, burada veri katı bir şemaya uygun değil ve hızlı bir şekilde dönüşmesi şema daha az veritabanları için bir zorluk oluşturur. 
@@ -203,7 +203,7 @@ Her sorgu, bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan 
 
 Bir sorgu ister `SELECT * FROM Families` tüm aileleri koleksiyon üzerinden numaralandırmak kaynak olduğunu gösterir. Özel bir tanımlayıcısı kök, koleksiyon adını kullanmak yerine koleksiyonu temsil etmek için kullanılabilir. Aşağıdaki listede sorgu zorlanan kurallarını içerir:
 
-* Koleksiyon gibi diğer adı, olabilir `SELECT f.id FROM Families AS f` ya da yalnızca `SELECT f.id FROM Families f`. Burada `f` eşdeğerdir `Families`. `AS`diğer isteğe bağlı bir anahtar sözcüğü tanımlayıcısıdır.
+* Koleksiyon gibi diğer adı, olabilir `SELECT f.id FROM Families AS f` ya da yalnızca `SELECT f.id FROM Families f`. Burada `f` eşdeğerdir `Families`. `AS` diğer isteğe bağlı bir anahtar sözcüğü tanımlayıcısıdır.
 * Bir kez diğer adı, özgün kaynak bağlanamaz. Örneğin, `SELECT Families.id FROM Families f` "Aileleri" tanımlayıcısı artık çözümlenemiyor beri sözdizimsel olarak geçersiz.
 * Başvurulması gerekiyorsa tüm özellikleri tam olarak nitelenmiş olmalıdır. Kesin Şema bağlılığı olmaması durumunda, bu öğeler belirsiz herhangi bağlamalar önlemek için uygulanır. Bu nedenle, `SELECT id FROM Families f` özelliği bu yana sözdizimsel olarak geçersiz `id` bağlı değil.
 
@@ -924,7 +924,7 @@ Filtrelerle birlikte toplamalar de gerçekleştirebilirsiniz. Örneğin, aşağ�
 
     [ 1 ]
 
-Aşağıdaki tabloda SQL API desteklenen toplama işlevleri listesini gösterir. `SUM`ve `AVG` ise sayısal değer üzerinde gerçekleştirilen `COUNT`, `MIN`, ve `MAX` numaraları, dizeleri, Boole değerlerini ve null değerlere gerçekleştirilebilir. 
+Aşağıdaki tabloda SQL API desteklenen toplama işlevleri listesini gösterir. `SUM` ve `AVG` ise sayısal değer üzerinde gerçekleştirilen `COUNT`, `MIN`, ve `MAX` numaraları, dizeleri, Boole değerlerini ve null değerlere gerçekleştirilebilir. 
 
 | Kullanım | Açıklama |
 |-------|-------------|
@@ -937,7 +937,7 @@ Aşağıdaki tabloda SQL API desteklenen toplama işlevleri listesini gösterir.
 Toplamalar, bir dizi yineleme sonuçları de gerçekleştirilebilir. Daha fazla bilgi için bkz: [dizi yineleme sorgularda](#Iteration).
 
 > [!NOTE]
-> Azure portal'ın sorgu Gezgini kullanırken, toplama sorguları sorgu sayfası kısmen toplanmış sonuçlar döndürebilir unutmayın. SDK'ları tüm sayfalardaki tek bir toplu değer oluşturur. 
+> Azure portal'ın Veri Gezgini'ni kullanırken toplama sorguları sorgu sayfası kısmen toplanmış sonuçlar döndürebilir unutmayın. SDK'ları tüm sayfalardaki tek bir toplu değer oluşturur. 
 > 
 > Kod kullanarak toplama sorguları gerçekleştirmek için .NET SDK'sı 1.12.0, .NET Core SDK 1.1.0 veya Java SDK'sı 1.9.5 gerekir veya üstü.    
 >
@@ -1205,7 +1205,7 @@ Bu örnek önceki örnekte doğal bir uzantıdır ve çift birleştirme gerçekl
         }
     }
 
-`AndersenFamily`bir evcil hayvan sahip bir alt sahiptir. Bu nedenle, bir satır çapraz ürün verir (1\*1\*1) bu aile gelen. WakefieldFamily ancak iki alt öğe, ancak yalnızca bir alt "Jesse" Evcil Hayvanlar içeriyor. Jesse iki Evcil Hayvanlar yine de vardır. Bu nedenle çapraz ürün 1 verir\*1\*2 = 2 Bu ailesinden satırlar.
+`AndersenFamily` bir evcil hayvan sahip bir alt sahiptir. Bu nedenle, bir satır çapraz ürün verir (1\*1\*1) bu aile gelen. WakefieldFamily ancak iki alt öğe, ancak yalnızca bir alt "Jesse" Evcil Hayvanlar içeriyor. Jesse iki Evcil Hayvanlar yine de vardır. Bu nedenle çapraz ürün 1 verir\*1\*2 = 2 Bu ailesinden satırlar.
 
 Sonraki örnekte olduğundan bir ek filtre `pet`. Burada Evcil adı "Gölge" değil tüm başlıklar dışlar. Biz diziler dizileri, herhangi bir tanımlama grubu öğelerinin filtre gelen derleme ve öğeleri herhangi bir bileşimini proje olduğuna dikkat edin. 
 
@@ -1784,7 +1784,7 @@ SQL .NET SDK'sı ile dahil LINQ Sağlayıcısı'nda desteklenen LINQ işleçleri
 * **Burada**: filtreleri SQL WHERE için çevirin ve Destek arasında çeviri & &, || ve! SQL işleçleri
 * **SelectMany**: SQL JOIN yan tümcesine dizi geriye doğru izleme sağlar. Dizi öğeleri filtrelemek için ifadeleri zinciri/iç içe geçirme için kullanılabilir
 * **OrderBy ve OrderByDescending**: ORDER BY artan/azalan şekilde çevirir
-* **Count**, **toplam**, **Min**, **Max**, ve **ortalama** toplama ve zaman uyumsuz eşdeğerlerine işleçleri **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, ve **AverageAsync**.
+* **Count**, **toplam**, **Min**, **Max**, ve **ortalama** toplama ve zaman uyumsuz eşdeğerlerine işleçleri**CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, ve **AverageAsync**.
 * **CompareTo**: aralık karşılaştırmaları çevirir. .NET ile karşılaştırılabilir değilseniz bu yana dizeleri için yaygın olarak kullanılan
 * **Ele**: bir sorgunun sonuçlarına sınırlama SQL üstüne çevirir
 * **Matematik işlevleri**: çevrilmesi destekler. NET'in Abs, Acos, Asin Cos tavan Atan, Exp, Floor, günlük, Log10, Pow, hepsini, oturum, Sin, Sqrt, Bronz, eşdeğer SQL yerleşik işlevler Truncate.
@@ -2212,7 +2212,7 @@ Sonraki örnek LINQ SelectMany ifade birleştirmeler gösterir.
 
 .NET istemci otomatik olarak yukarıda gösterildiği gibi foreach blokları sorgu sonuçlarında tüm sayfaları aracılığıyla yineler. REST API bölümünde sunulan sorgu seçeneklerini de .NET SDK kullanarak kullanılabilir `FeedOptions` ve `FeedResponse` CreateDocumentQuery yöntemi sınıflarda. Sayfa sayısı kullanılarak denetlenebilir `MaxItemCount` ayarı. 
 
-Disk belleği oluşturarak açıkça kontrol edebilirsiniz `IDocumentQueryable` kullanarak `IQueryable` okuyarak ardından nesne` ResponseContinuationToken` değerleri ve bunları geçirme geri olarak `RequestContinuationToken` içinde `FeedOptions`. `EnableScanInQuery`Sorgu yapılandırılmış bir dizin oluşturma ilkesi tarafından desteklendiğinde taramaları etkinleştirmek için ayarlanabilir. Bölümlenmiş koleksiyonlar için kullandığınız `PartitionKey` karşı tek bir sorguyu çalıştırmak için bölüm (Cosmos DB otomatik olarak bu sorgu metni ayıklayabilirsiniz rağmen), ve `EnableCrossPartitionQuery` karşı birden çok bölüm çalıştırılması gereken sorguları çalıştırmak için. 
+Disk belleği oluşturarak açıkça kontrol edebilirsiniz `IDocumentQueryable` kullanarak `IQueryable` okuyarak ardından nesne` ResponseContinuationToken` değerleri ve bunları geçirme geri olarak `RequestContinuationToken` içinde `FeedOptions`. `EnableScanInQuery` Sorgu yapılandırılmış bir dizin oluşturma ilkesi tarafından desteklendiğinde taramaları etkinleştirmek için ayarlanabilir. Bölümlenmiş koleksiyonlar için kullandığınız `PartitionKey` karşı tek bir sorguyu çalıştırmak için bölüm (Cosmos DB otomatik olarak bu sorgu metni ayıklayabilirsiniz rağmen), ve `EnableCrossPartitionQuery` karşı birden çok bölüm çalıştırılması gereken sorguları çalıştırmak için. 
 
 Başvurmak [Azure Cosmos DB .NET örnekleri](https://github.com/Azure/azure-documentdb-net) sorguları içeren daha fazla örnekleri için. 
 

@@ -8,7 +8,7 @@ Ayrılmış sanal makine örnekleri satın alabileceğiniz [Azure portal](https:
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Ayrılmış sanal makine örneğini satın alın
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-2. Seçin **daha fazla hizmet** > **ayırmaları**.
+2. Seçin **tüm hizmetleri** > **ayırmaları**.
 3. Seçin **Ekle** yeni bir ayırma satın alın.
 4. Gerekli alanları doldurun. Çalışan VM ayırma indirim almak için seçtiğiniz özniteliklerine nitelemek eşleşen örnekler. İndirim almak üzerindeki VM örneklerinize gerçek sayısını kapsam ve seçili miktar bağlıdır.
 

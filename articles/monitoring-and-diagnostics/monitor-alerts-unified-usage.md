@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Oluşturun, görüntüleyin ve Uyarıları yönetme Azure İzleyicisi - uyarıları (Önizleme) kullanma
 
@@ -28,14 +28,14 @@ Bu makalede Azure portalın içinde yeni uyarılar (Önizleme) arabirimini kulla
 - Ölçüt: Belirli bir koşulun veya mantığı, sinyalin görülen, eylem tetiklemesi gereken
 - Eylem: Belirli çağrısı bir bildirim - alıcıya gönderilen, SMS, Web kancası vb. e-posta.
 
-Uyarıları (Önizleme) kullanan terimi **günlük uyarıları** sinyal dayalı özel sorgu olduğu uyarıları açıklamak için [Azure günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md). Ölçüm uyarı yetenek adlı [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md) varolan uyarıları deneyimi olarak adlandırılır **ölçüm uyarıları** uyarılar (Önizleme). İçinde *ölçüm uyarıları*, bazı kaynak türleri sağlar [çok boyutlu ölçümleri](monitoring-metric-charts.md) belirli Azure kaynak için ve bu nedenle böyle kaynak ek filtreler kullanarak daha belirgin hale getirilebilir için uyarılar Boyutlar; Bu tür uyarılar denir **çok boyutlu ölçüm uyarıları**.
+Uyarı (Önizleme) kullanan terimi **günlük uyarıları** sinyal dayalı özel sorgu olduğu uyarıları açıklamak için [Azure günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Azure Application Insights](../application-insights/app-insights-analytics.md). Ölçüm uyarı yetenek adlı [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md) varolan uyarıları deneyimi olarak adlandırılır **ölçüm uyarıları** uyarılar (Önizleme). İçinde *ölçüm uyarıları*, bazı kaynak türleri sağlar [çok boyutlu ölçümleri](monitoring-metric-charts.md) belirli Azure kaynak için ve bu nedenle böyle kaynak ek filtreler kullanarak daha belirgin hale getirilebilir için uyarılar Boyutlar; Bu tür uyarılar denir **çok boyutlu ölçüm uyarıları**.
 Azure uyarıları (Önizleme), ayrıca tüm uyarı kuralları ve tek bir konumdan yönetme becerisini birleşik bir görünüm sağlar; Çözümlenmemiş tüm uyarıları görüntüleme dahil olmak üzere. İşlevinden hakkında daha fazla bilgi [Azure Alerts(Preview) - genel bakış](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
 > Azure Uyarıları'ni (Önizleme) ile Azure uyarıları oluşturmak için yeni ve geliştirilmiş bir deneyim sunan yapılırken. Varolan [Azure uyarıları](monitoring-overview-alerts.md) deneyimi kullanılabilir kalır
 >
 
-Aşağıdaki ayrıntılı Azure Uyarıları'ni (Önizleme) kullanarak adım adım kılavuzu olandır.
+Ayrıntılı İleri Azure Uyarıları'ni (Önizleme) kullanarak adım adım Kılavuzu ' dir.
 
 ## <a name="create-an-alert-rule-with-the-azure-portal"></a>Azure portalıyla bir uyarı kuralı oluşturma
 1. İçinde [portal](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarıları (Önizleme)**.  
@@ -81,16 +81,13 @@ Aşağıdaki ayrıntılı Azure Uyarıları'ni (Önizleme) kullanarak adım adı
 
     ![Çok boyutlu ölçüm için sinyal mantığını yapılandırın](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Oturum uyarıları*: olun **kaynak türü** gibi analytics kaynağıdır *günlük analizi*/*Application Insights*, sonra bir kez uygun **kaynak** olan seçilen, tıklatın *Bitti*. Sonraki kullanmak **ölçüt eklemek** sinyal seçenekleri kaynağın ve sinyal listesinden kullanılabilir bir listesini görüntüle düğmesini **özel günlük arama** monitor hizmeti gibi seçilen günlüğü için seçenek *günlük Analytics*/*Application Insights*.
+8. *Oturum uyarıları*: olun **kaynak türü** gibi analytics kaynağıdır *günlük analizi* veya *Application Insights*, sonra bir kez uygun  **Kaynak** olan seçilen, tıklatın *Bitti*. Sonraki kullanmak **ölçüt eklemek** sinyal seçenekleri kaynağın ve sinyal listesinden kullanılabilir bir listesini görüntüle düğmesini **özel günlük arama** monitor hizmeti gibi seçilen günlüğü için seçenek *günlük Analytics* veya *Application Insights*.
 
    ![Bir kaynak - özel günlük arama seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > **Uyarıları Önizleme** kaydedilmiş Listeleri günlük seçilen kaynak günlük analizi olduğunda sinyal türü - (kaydedilmiş sorgu), günlük olarak arar.
-   Böylece Analytics sorgunuzda mükemmel ve bunları gelecekte kullanılmak üzere - kaydetmek daha adresinde ayrıntıları [günlük arama günlük analizi kullanarak](../log-analytics/log-analytics-log-searches.md). Ardından aşağıdaki örnek ekran Kaydedilmiş aramaları ile gösterildiği gibi doğrudan bu sorguları temel alan uyarı kuralları oluşturabilirsiniz:
-
-   ![Bir kaynak - özel günlük arama seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > (Önizleme) listeleri analytics sorgu sinyal türü - olarak alabilir uyarıları **günlük (kayıtlı sorgunun)**, çizimde görülen. Böylece kullanıcılar Analytics sorgunuzda mükemmel ve gelecekte kullanılmak üzere uyarılar - Kaydet daha fazla ayrıntı sorgu adresinde kaydetme kullanarak [günlük arama günlük analizi kullanarak](../log-analytics/log-analytics-log-searches.md) veya [paylaşılan sorguda application ınsights Analytics](../log-analytics/log-analytics-overview.md). 
 
 9.  *Oturum uyarıları*: içinde seçildikten sonra uyarı verme sorgu belirtilebilir **arama sorgusu** sorgu sözdizimi yanlışsa alan kırmızı hata görüntüler; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş verileri son altı saat zaman penceresinden geçen hafta için ince ayar seçeneğiyle bir grafik olarak gösterilir.
 

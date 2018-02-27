@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 7f86c5abb47cdd69cf07410570b02ba0076d1c18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Depolama Gezgini (Önizleme) ile çalışmaya başlama
 ## <a name="overview"></a>Genel Bakış
@@ -28,6 +28,16 @@ Azure Depolama Gezgini (Önizleme) Windows, macOS ve Linux’ta Azure Depolama i
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Depolama Gezgini (Önizleme) indirip yükleme](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Ubuntu 16.04 dışında Linux distro'lar için bazı bağımlılıklar el ile yüklemeniz gerekebilir. Genel olarak, aşağıdaki paketler gereklidir:
+> * libgconf-2-4
+> * libsecret
+> * Güncel GCC
+>
+> Distro bağlı olarak yüklemek için gereken diğer paket olabilir. Depolama Gezgini [sürüm notları](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) bazı distro'lar için belirli adımlar içerir.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Bir depolama hesabı veya hizmetine bağlanmak
 Depolama Gezgini (Önizleme) depolama hesaplarına bağlamak için birçok yol sağlar. Örneğin, şunları yapabilirsiniz:
@@ -240,18 +250,18 @@ Bir bağlantı dizesi kullanmak için bir Azure Cosmos DB bağlayan alternatif b
     ![bağlantı dizesi][22]
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Azure Data Lake Store URI tarafından bağlanın
-Aboneliğinizde var olmadığından kaynaklar için erişim almak istiyorsanız. Ancak, diğerleri URI kaynaklarını almanızı verin. Bu durumda, oturum açtıktan sonra URI'ı kullanarak Data Lake Store'a bağlanabilir. Adımları bakın.
+Aboneliğinizde olmayan kaynaklara erişmek istiyorsanız. Ancak diğer kullanıcılar kaynaklar için URI’yi alma izni veriyorsa. Bu durumda, oturum açtıktan sonra URI’yi kullanarak Data Lake Store’a bağlanabilirsiniz. Aşağıdaki adımlara bakın.
 1. Depolama Gezgini’ni (Önizleme) açın.
-2. Sol bölmede **yerel ve iliştirildiği**.
-3. Sağ **Data Lake Store**ve - bağlam menüsünden - seçin **Data Lake Store Bağlan...** .
+2. Sol bölmede, **Yerel ve Ekli** öğesini genişletin.
+3. **Data Lake Store**’a sağ tıklayıp bağlam menüsünden **Data Lake Store’a bağlan...** seçeneğine tıklayın.
 
-    ![Data Lake Store bağlam menüsü Bağlan](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+    ![Data Lake Store’a bağlanma bağlam menüsü](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
 
-4. Girdiğiniz URL konumuna aracı gider sonra URI girin.
+4. Siz URI’yi girdikten sonra araç girdiğiniz URL’nin konumuna gider.
 
-    ![Data Lake Store bağlam iletişim kutusuna bağlanın](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+    ![Data Lake Store’a bağlanma bağlam iletişimi](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-    ![Data Lake Store sonucu Bağlan](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+    ![Data Lake Store’a bağlanma sonucu](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## <a name="search-for-storage-accounts"></a>Depolama hesapları arama
 Depolama kaynağı bulmanız gerekiyorsa ve olduğu bilmiyorsanız, kaynağı aramak için sol bölmenin en üstünde arama kutusunu kullanabilirsiniz.

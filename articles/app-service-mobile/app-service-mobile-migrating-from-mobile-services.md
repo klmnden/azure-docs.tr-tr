@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>Mevcut Azure mobil hizmetiniz Azure App Service'e geçirme
 İle [Azure uygulama hizmeti genel kullanılabilirliğini], Azure Mobile Services siteleri kolayca geçiş yapabilir yerinde Azure App Service'in tüm özelliklerden yararlanmak için.  Bu belgede, sitenizin Azure App Service için Azure Mobile Services geçirilirken beklenmesi gerekenler açıklanmaktadır.
@@ -32,7 +32,7 @@ Azure Mobile hizmetinizi geçişini kapatır mobil hizmetiniz bir [Azure App Ser
 Microsoft Azure uygulama hizmeti özelliklerden yararlanmak için Azure mobil hizmetiniz geçirmek öneren:
 
 * [WebJobs] dahil yeni ana bilgisayara özellikleri ve [özel etki alanı adlarını].
-* İzleme ve sorun giderme ile New Relic veya [Application Insights].
+* İzleme ve sorunlarını giderme [Application Insights].
 * Yerleşik DevOps araçları dahil olmak üzere [yuvaları hazırlama], geri alma ve üretim sınama.
 * [Otomatik ölçek], Yük Dengeleme, ve [performans izleme].
 
@@ -127,7 +127,7 @@ PublishSettings dosyasını bilgisayarınıza yüklenir.  Normalde adlı *sitena
 
 1. Visual Studio ve Azure mobil hizmet projenizi açın.
 2. Projenize sağ **Çözüm Gezgini** seçip **Yayımla...**
-3. Tıklatın **alma**
+3. **İçeri Aktar**'a tıklayın
 4. Tıklatın **Gözat** ve seçin, indirilen yayımlama ayarları dosyası.  **Tamam**’a tıklayın.
 5. Tıklatın **bağlantıyı doğrula** yayımlama ayarları çalışmasını sağlamak için.
 6. Tıklatın **Yayımla** sitenizi yayımlamak için.
@@ -173,7 +173,7 @@ Tüm kimlik doğrulama ayarları, uygulama ayarları geçirilen siteniz olarak k
 | Facebook |**MS\_FacebookAppID** |**MS\_FacebookAppSecret** | |
 | Twitter |**MS\_TwitterConsumerKey** |**MS\_TwitterConsumerSecret** | |
 | Google |**MS\_GoogleClientID** |**MS\_GoogleClientSecret** | |
-| Azure AD |**MS\_Aadclientıd** | |**MS\_AadTenants** |
+| Azure AD |**MS\_AadClientID** | |**MS\_AadTenants** |
 
 Not: **MS\_AadTenants** Kiracı etki alanı ("İzin verilen kiracılar" alanları Mobile Services Portalı'nda) virgülle ayrılmış bir liste olarak depolanır.
 
@@ -230,7 +230,7 @@ Zamanlanan işler geçişten önce belirtilen sıklığı birlikte listelenmişt
 
 İsteğe bağlı işleriniz bulunan `App_Data/config/scripts/scheduler post-migration`.  Tüm isteğe bağlı işleri [WebJobs] için dönüştürme öneririz veya [işlevler].  Yeni zamanlayıcı işlerinin [WebJobs] olarak yazma veya [işlevler].
 
-### <a name="notification-hubs"></a>Bildirim hub'ları
+### <a name="notification-hubs"></a>Notification Hubs
 Mobile Services anında iletme bildirimleri için Notification Hubs'ı kullanır.  Aşağıdaki uygulama ayarları, bildirim hub'ı geçişten sonra mobil hizmetinize bağlamak için kullanılır:
 
 | Uygulama ayarı | Açıklama |
@@ -269,7 +269,7 @@ Aşağıdaki ek uygulama ayarları, mobil hizmetinizden geçirilen ve altında k
 | Uygulama ayarı | Açıklama |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Uygulama adı |
-| **MS\_MobileServiceDomainSuffix** |Etki alanı öneki. yani Azure mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Etki alanı öneki. i.e azure-mobile.net |
 | **MS\_ApplicationKey** |Uygulama anahtarı |
 | **MS\_MasterKey** |Uygulama ana anahtarı |
 

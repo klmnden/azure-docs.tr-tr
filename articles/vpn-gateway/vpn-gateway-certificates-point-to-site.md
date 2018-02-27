@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 02/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5e041de12105770a16e43b5ff4f918a1eba92b2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ff590ecb5091695d6105b510f563251fe43412fe
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Oluşturma ve Windows 10 veya Windows Server 2016 PowerShell kullanarak noktadan siteye bağlantıları için sertifikaları verme
 
@@ -78,7 +78,7 @@ Bu örnek önceki bölümden bildirilen '$cert' değişkeni kullanır. PowerShel
 Değiştirme ve bir istemci sertifikasını oluşturmak için örnek çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, 'P2SChildCert' adlı bir istemci sertifikası sonucudur.  Alt sertifika başka bir ad vermek istiyorsanız, CN değeri değiştirin. Bu örnek çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli User\Personal\Certificates' otomatik olarak yüklenir.
 
 ```powershell
-New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
 -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
 -HashAlgorithm sha256 -KeyLength 2048 `
 -CertStoreLocation "Cert:\CurrentUser\My" `
@@ -116,7 +116,7 @@ Ek istemci sertifikalarını oluşturmakta ya da otomatik olarak imzalanan serti
 4.  Değiştirme ve bir istemci sertifikasını oluşturmak için örnek çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, 'P2SChildCert' adlı bir istemci sertifikası sonucudur. Alt sertifika başka bir ad vermek istiyorsanız, CN değeri değiştirin. Bu örnek çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli User\Personal\Certificates' otomatik olarak yüklenir.
 
   ```powershell
-  New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+  New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
   -HashAlgorithm sha256 -KeyLength 2048 `
   -CertStoreLocation "Cert:\CurrentUser\My" `
