@@ -31,7 +31,7 @@ Akış günlüğü etkin ağınızda, birçok ağ güvenlik grupları olabilir. 
 
 Ağ güvenlik grubu akış günlükleri, Ağ İzleyicisi'ni kullanarak etkinleştirilir. Akış günlükleri akışı Azure blob depolama. Logstash eklentisi bağlanmak ve blob depolamadan akış günlükleri işlemek ve bunları Graylog için göndermek için kullanılır. Akış günlükleri Graylog depolandıktan sonra bunlar analiz ve değiştirebilirsiniz özelleştirilmiş panolarında oturum görselleştirilen.
 
-! [Graylog iş akışı]] (. / media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Graylog iş akışı]](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## <a name="installation-steps"></a>Yükleme Adımları
 
