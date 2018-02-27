@@ -3,8 +3,8 @@ title: "Oluşturma ve yayımlama Market öğesi Market araç kullanma | Microsof
 description: "Market öğesi ile Araç Seti yayımlama hızlı bir şekilde oluşturmayı öğrenin"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Yayımlama aracını kullanarak Market öğesi ekleme
 İçeriğinizi ekleme [Azure yığın Market](azure-stack-marketplace.md) çözümlerinizi sizin ve kiracılarınızın dağıtımı için kullanılabilir yapar.  Market araç seti, Iaas Azure Resource Manager şablonları veya VM uzantıları göre Azure Market paketleri (.azpkg) dosyaları oluşturur.  Market Araç Seti .azpkg dosyaları, aracı ile oluşturulmuş veya kullanarak yayımlamak için de kullanabilirsiniz [el ile](azure-stack-create-and-publish-marketplace-item.md) adımları.  Bu konu, aracı yükleme, bir VM şablonunu temel alan bir Market öğesi oluşturma ve ardından bu öğeyi Azure yığın Marketinde yayımlama kılavuzluk eder.     
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
  - Araç Seti Azure yığın ana bilgisayarda çalıştırmak veya sahip [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) aracını çalıştırdığınız makineden bağlantısını.
 
  - Karşıdan [Azure yığın hızlı başlangıç şablonlarını](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) ve ayıklayın.
@@ -72,9 +73,9 @@ Bu bölümde, Market öğesi, Azure yığın Marketinde yayımlama.
     
     |Alan|Açıklama|
     |-----|-----|
-    | Hizmet Yöneticisi adı | Hizmet yöneticisi hesabı.  Örnek:ServiceAdmin@mydomain.onmicrosoft.com |
+    | Hizmet Yöneticisi adı | Hizmet yöneticisi hesabı.  Örnek:  ServiceAdmin@mydomain.onmicrosoft.com |
     | Parola | Hizmet yönetici hesabının parolası. |
-    | API uç noktası | Azure yığın Azure Resource Manager uç noktası.  Örnek: management.local.azurestack.external |
+    | API Endpoint | Azure yığın Azure Resource Manager uç noktası.  Örnek: management.local.azurestack.external |
 2.  Tıklatın **Yayımla** ve yayımlama günlük görüntülenir.
 3.  Artık Azure yığın Portalı aracılığıyla yayımlanan öğenizi dağıtamaz.
 
@@ -88,10 +89,10 @@ Market Araç Seti içeren bir *solution.parameters.ps1* kendi parametreler dosya
 ## <a name="support-files"></a>Destek dosyaları
 | Açıklama | Örnek |
 | ----- | ----- |
-| 40 x 40 .png simgesi | ![](./media/azure-stack-marketplace-publisher/image1.png) |
+| 40x40 .png icon | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | 90 x 90 .png simgesi | ![](./media/azure-stack-marketplace-publisher/image2.png) |
-| 115 x 115 .png simgesi | ![](./media/azure-stack-marketplace-publisher/image3.png) |
-| 255 x 115 .png simgesi | ![](./media/azure-stack-marketplace-publisher/image4.png) |
+| 115x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image3.png) |
+| 255x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image4.png) |
 | 533 x 324 .png küçük resim | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
 

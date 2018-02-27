@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/02/2018
 ms.author: larryfr
-ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Apache Hive ile Beeline İstemcisi'ni kullanın
 
@@ -29,9 +29,9 @@ Nasıl kullanacağınızı öğrenin [Beeline](https://cwiki.apache.org/confluen
 
 Beeline, Hdınsight kümesi baş düğümler üzerinde bulunan bir Hive istemcidir. Beeline JDBC HiveServer2, Hdınsight kümenize üzerinde barındırılan bir hizmete bağlanmak için kullanır. Beeline, hdınsight'ta Hive internet üzerinden uzaktan erişim için de kullanabilirsiniz. Aşağıdaki örnekler Hdınsight'a Beeline bağlanmak için kullanılan en yaygın bağlantı dizeleri sağlar:
 
-* __Beeline headnode veya edge düğüm için bir SSH bağlantısı kullanarak__:`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
-* __Hdınsight için bir Azure sanal ağı üzerinden bağlanan bir istemci Beeline kullanarak__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Hdınsight'a genel internet üzerinden bağlanan bir istemci Beeline kullanarak__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
+* __Beeline headnode veya edge düğüm için bir SSH bağlantısı kullanarak__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+* __Hdınsight için bir Azure sanal ağı üzerinden bağlanan bir istemci Beeline kullanarak__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Hdınsight'a genel internet üzerinden bağlanan bir istemci Beeline kullanarak__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]
 > Değiştir `admin` kümeniz için küme oturum açma hesabıyla.
@@ -44,7 +44,7 @@ Beeline, Hdınsight kümesi baş düğümler üzerinde bulunan bir Hive istemcid
 
 ## <a id="prereq"></a>Önkoşullar
 
-* Linux tabanlı Hadoop Hdınsight kümesi üzerinde.
+* Bir Linux tabanlı Hadoop Hdınsight kümesi sürüm 3.4 veya daha büyük.
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -53,7 +53,7 @@ Beeline, Hdınsight kümesi baş düğümler üzerinde bulunan bir Hive istemcid
 
     SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Beeline kullanın
+## <a id="beeline"></a>Hive sorgusu çalıştırma
 
 1. Beeline başlatırken Hdınsight kümenize HiveServer2 için bir bağlantı dizesi belirtmeniz gerekir:
 
@@ -116,25 +116,34 @@ Beeline, Hdınsight kümesi baş düğümler üzerinde bulunan bir Hive istemcid
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
 
-    * `DROP TABLE`-Tablo varsa, bu silinir.
+    * `DROP TABLE` -Tablo varsa, bu silinir.
 
-    * `CREATE EXTERNAL TABLE`-Oluşturur bir **dış** Hive tablo. Dış tablolara tablo tanımı kovanında yalnızca depolar. Veriler özgün konumda kalır.
+    * `CREATE EXTERNAL TABLE` -Oluşturur bir **dış** Hive tablo. Dış tablolara tablo tanımı kovanında yalnızca depolar. Veriler özgün konumda kalır.
 
-    * `ROW FORMAT`-Nasıl veri biçimlendirilir. Bu durumda, her günlüğün içinde alanlar boşlukla ayrılır.
+    * `ROW FORMAT` -Nasıl veri biçimlendirilir. Bu durumda, her günlüğün içinde alanlar boşlukla ayrılır.
 
-    * `STORED AS TEXTFILE LOCATION`-Verinin depolanma biçimini ve hangi dosya biçiminde.
+    * `STORED AS TEXTFILE LOCATION` -Verinin depolanma biçimini ve hangi dosya biçiminde.
 
-    * `SELECT`-Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu sorgunun döndürdüğü değeri **3** bu değeri içeren üç satır olarak.
+    * `SELECT` -Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu sorgunun döndürdüğü değeri **3** bu değeri içeren üç satır olarak.
 
-    * `INPUT__FILE__NAME LIKE '%.log'`-Dizindeki tüm dosyaları şema uygulamak hive çalışır. Bu durumda, dizin şeması eşleşmiyor dosyalarını içerir. Çöp veri sonuçlarında önlemek için bu bildirimi Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Dizindeki tüm dosyaları şema uygulamak hive çalışır. Bu durumda, dizin şeması eşleşmiyor dosyalarını içerir. Çöp veri sonuçlarında önlemek için bu bildirimi Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük.
 
   > [!NOTE]
   > Dış kaynak tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya bir MapReduce işlemi.
@@ -167,7 +176,7 @@ Beeline, Hdınsight kümesi baş düğümler üzerinde bulunan bir Hive istemcid
 
 5. Beeline çıkmak için kullanmak `!exit`.
 
-## <a id="file"></a>HiveQL dosyasını çalıştırmak için Beeline kullanın
+### <a id="file"></a>HiveQL dosyasını çalıştırmak için Beeline kullanın
 
 Bir dosya oluşturun, sonra Beeline kullanarak çalıştırmak için aşağıdaki adımları kullanın.
 
@@ -225,11 +234,11 @@ Bir dosya oluşturun, sonra Beeline kullanarak çalıştırmak için aşağıdak
 
 Yerel olarak yüklenmiş Beeline varsa ve ortak internet üzerinden bağlanma, aşağıdaki parametreleri kullanın:
 
-* __Bağlantı dizesi__:`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
+* __Bağlantı dizesi__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
 
-* __Küme oturum açma adı__:`-n admin`
+* __Küme oturum açma adı__: `-n admin`
 
-* __Küme oturum açma parolasını__`-p 'password'`
+* __Küme oturum açma parolası__ `-p 'password'`
 
 Değiştir `clustername` Hdınsight kümenizin adıyla bağlantı dizesinde.
 
@@ -237,7 +246,7 @@ Değiştir `admin` küme oturum açma ve değiştirme adıyla `password` , küme
 
 Yerel olarak yüklenmiş Beeline varsa ve bir Azure sanal ağ üzerinden bağlanma, aşağıdaki parametreleri kullanın:
 
-* __Bağlantı dizesi__:`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Bağlantı dizesi__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
 Bir headnode tam etki alanı adını bulmak için yer alan bilgileri kullanın. [Ambari REST API kullanarak Hdınsight'ta yönetmek](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) belge.
 

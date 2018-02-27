@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: dc652b1d0357a815b14820fc837d7a287e5d4ba0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulama keşfedin
 
@@ -59,11 +59,11 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 
 #### <a name="plan-the-names"></a>Adları planlama
 
-Bu bölüm, aşağıdaki adımlarda, burada girmelisiniz adlar iki yerde vardır bir *kullanıcı* ve yeni için *kaynak grubu*. Adlı bir kişi için *Ann Finley*, aşağıdaki adları öneririz:
-- *Kullanıcı:* &nbsp; **af1** &nbsp; *(kendi baş harflerini ve bir rakam.)*
-- *Kaynak grubu:* &nbsp; **wingtip af1** &nbsp; *(tamamen küçük harfli öneririz. Daha sonra kullanıcı adı bir tire ekleyin.)*
+Bu bölüm, aşağıdaki adımlarda, sağladığınız bir *kullanıcı* kaynak adları genel benzersiz olduğundan emin olmak için kullanılan değeri ve için bir ad *kaynak grubu* bir dağıtım tarafından oluşturulan tüm kaynaklar içeriyor uygulama. Adlı bir kişi için *Ann Finley*, öneririz:
+- *Kullanıcı:* **af1***(kendi baş harflerini artı bir sayı. İkinci kez uygulama dağıttığınızda farklı bir değer (örneğin af2) kullanın.)*
+- *Kaynak grubu:* **wingtip dpt af1** *(wingtip dpt gösterir Kiracı başına veritabanı uygulama budur. Kullanıcı adı af1 ekleme içerdiği kaynakların adları ile kaynak grubu adı hatalarla ilintilidir.)*
 
-Adlarınızı şimdi seçin ve not edin.
+Adlarınızı şimdi seçin ve not edin. 
 
 #### <a name="steps"></a>Adımlar
 
@@ -72,7 +72,7 @@ Adlarınızı şimdi seçin ve not edin.
 
     [![Düğme için Azure'a dağıtın.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-2. Dağıtım için gerekli parametre değerlerini girin.
+1. Dağıtım için gerekli parametre değerlerini girin.
 
     > [!IMPORTANT]
     > Bu Tanıtım için tüm önceden var olan kaynak grupları, sunucular veya havuzları kullanmayın. Bunun yerine, seçin **yeni bir kaynak grubu oluşturma**. İlgili faturalandırmayı durdurmak için uygulamayla işiniz bittiğinde bu kaynak grubunu silin.
@@ -82,12 +82,12 @@ Adlarınızı şimdi seçin ve not edin.
         - Seçin bir **konumu** aşağı açılan listeden.
     - İçin **kullanıcı** -kısa seçmenizi öneririz **kullanıcı** değeri.
 
-3. **Uygulamayı dağıtın**.
+1. **Uygulamayı dağıtın**.
 
     - Hüküm ve koşulları kabul için tıklatın.
     - **Satın al**’a tıklayın.
 
-4. Dağıtım durumunu izlemek tıklayarak **bildirimleri**, arama kutusunun sağındaki zil simgesine olduğu. Wingtip uygulama dağıtma yaklaşık beş dakika sürer.
+1. Dağıtım durumunu izlemek tıklayarak **bildirimleri**, arama kutusunun sağındaki zil simgesine olduğu. Wingtip uygulama dağıtma yaklaşık beş dakika sürer.
 
    ![dağıtım başarılı](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -127,7 +127,7 @@ Bunların olaylarını listelemek ve bilet satabilir için kişiselleştirilmiş
 Merkezi bir **olay hub'ı** Web sayfası kendi dağıtımınıza içindeki kiracıların bağlantıların listesini sağlar. Denemek için aşağıdaki adımları kullanın **olay hub'ı** Web sayfası ve tek tek web uygulaması:
 
 1. Açık **olay hub'ı** web tarayıcınızda:
-    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(Replace &lt;USER&gt; with your deployment's user value.)*
+    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Replace &lt;user&gt; with your deployment's user value.)*
 
     ![olay hub’ı](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -139,7 +139,7 @@ Merkezi bir **olay hub'ı** Web sayfası kendi dağıtımınıza içindeki kirac
 
 Gelen istekleri dağıtımını denetlemek için Wingtip uygulamanın kullandığı [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Her bir kiracı için olayları sayfası, URL'de Kiracı adını içerir. Her URL Ayrıca belirli, kullanıcı değeri içerir. Her URL, aşağıdaki adımları kullanarak gösterilen biçimde obeys:
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Olayları uygulama URL'den Kiracı adı ayrıştırır. Kiracı adı *fabrikamjazzclub* önceki örnek URL.
 2. Uygulama Kataloğu'nu kullanarak erişmek için bir anahtar oluşturmak için Kiracı adı sonra karmaları [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kapsayıcıları için Web uygulaması ile sürekli dağıtımı
 
@@ -71,7 +71,7 @@ Kapsayıcı görüntüsünü içeren depo kapsamını tanımlamak emin olun.
 
 Görüntü güncelleştirilir, web uygulaması otomatik olarak güncelleştirilen sahip yeni bir görüntü.
 
-### <a name="docker-hub"></a>Docker hub'a
+### <a name="docker-hub"></a>Docker Hub
 
 Docker hub'a sayfanızı tıklatın **Kancalarını**, ardından **bir Web KANCASI oluşturma**.
 
@@ -87,8 +87,8 @@ Görüntü güncelleştirilir, web uygulaması otomatik olarak güncelleştirile
 
 * [Linux üzerinde Azure App Service nedir?](./app-service-linux-intro.md)
 * [Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/)
-* [Azure uygulama hizmetinde Linux'ta .NET Core kullanma](quickstart-dotnetcore.md)
-* [Azure uygulama hizmetinde Linux'ta Ruby kullanma](quickstart-ruby.md)
-* [Kapsayıcıları için Web uygulaması için özel bir Docker görüntü kullanma](quickstart-custom-docker-image.md)
-* [Azure App Service Web uygulaması için kapsayıcı SSS](./app-service-linux-faq.md)
+* [Linux üzerinde Azure App Service’te .NET Core Kullanma](quickstart-dotnetcore.md)
+* [Linux üzerinde Azure App Service’te Ruby Kullanma](quickstart-ruby.md)
+* [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](quickstart-docker-go.md)
+* [Kapsayıcılar için Azure App Service Web App SSS](./app-service-linux-faq.md)
 * [Web uygulaması için Azure CLI 2.0 kullanarak kapsayıcıları yönetme](./app-service-linux-cli.md)

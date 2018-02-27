@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: d15f91c91281eae28ddaff52af3ee8e617f142c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Advisor’ı kullanmaya başlama
 
@@ -66,17 +66,17 @@ Sizin için en önemli nedir aşağıya doğru incelemek için öneriler filtrel
 
     ![Advisor arama filtre ölçütü](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Uykuda veya Advisor önerileri kapatın
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Erteleyin veya Advisor önerileri kapatın
 
 1. Oturum [Azure portal](https://portal.azure.com)ve ardından açın [Danışmanı](https://aka.ms/azureadvisordashboard).
 
-2. Uykuda veya kapatmak istediğiniz öneri gidin.
+2. Erteleyin veya kapatmak istediğiniz öneri gidin.
 
 3. Öneri'ı tıklatın.
 
-4. Tıklatın **uykuda**. 
+4. Tıklatın **erteleyin**. 
 
-5. Erteleme zaman aralığını belirtin veya seçin **hiçbir zaman** öneri kapatılamadı.
+5. Bir Ertele'yi zaman aralığını belirtin veya seçin **hiçbir zaman** öneri kapatılamadı.
 
 ## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Abonelik veya kaynak grupları danışmanına tut
 

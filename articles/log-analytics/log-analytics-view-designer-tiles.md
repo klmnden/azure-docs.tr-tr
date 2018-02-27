@@ -1,6 +1,6 @@
 ---
-title: "Görünüm Tasarımcısı'nda Azure günlük analizi için başvuru döşeme | Microsoft Docs"
-description: "Görünüm Tasarımcısı'nda günlük analizi veri günlük analizi çalışma alanınızdaki farklı görsel öğeleri içeren Azure portalında özel görünümler oluşturmanıza olanak sağlar. Bu makalede her özel görünümlerde kullanılabilir döşeme ayarlarını bir başvuru sağlar."
+title: "Azure günlük analizi Görünüm Tasarımcısı döşemeleri Başvuru Kılavuzu | Microsoft Docs"
+description: "Günlük analizi Görünüm Tasarımcısı kullanarak veri görselleştirmeleri çeşitli günlük analizi çalışma alanınızda görüntülemek Azure Portalı'nda özel görünümler oluşturabilirsiniz. Bu makalede, ayarları özel görünümlerde kullanılabilir döşeme için bir başvuru kılavuzdur."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,166 +14,168 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="log-analytics-view-designer-tile-reference"></a>Günlük analizi Görünüm Tasarımcısı döşeme başvurusu
-Görünüm Tasarımcısı'nda günlük analizi veri günlük analizi çalışma alanınızdaki farklı görsel öğeleri içeren Azure portalında özel görünümler oluşturmanıza olanak sağlar. Bu makalede her özel görünümlerde kullanılabilir döşeme ayarlarını bir başvuru sağlar.
+# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Günlük analizi Görünüm Tasarımcısı döşemeleri Başvuru Kılavuzu
+Azure günlük analizi Görünüm Tasarımcısı kullanarak veri görselleştirmeleri günlük analizi çalışma alanınızdaki çeşitli sunmak Azure Portalı'nda özel görünümler oluşturabilirsiniz. Bu makalede, ayarları özel görünümlerde kullanılabilir döşeme için bir başvuru kılavuzdur.
 
-Görünüm Tasarımcısı için kullanılabilir diğer makaleler şunlardır:
+Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 
-* [Görüntüleme Tasarımcısı](log-analytics-view-designer.md) -yordamlarına oluşturma ve düzenleme özel görünümleri ve Görünüm Tasarımcısı genel bakış.
-* [Görselleştirme bölümü başvuru](log-analytics-view-designer-parts.md) -her özel görünümlerde kullanılabilir döşeme ayarlarını başvuru.
+* [Görüntüleme Tasarımcısı](log-analytics-view-designer.md): oluşturma ve özel görünümler düzenleme Görünüm Tasarımcısı ve yordamları genel bakış sağlar.
+* [Görselleştirme bölümü başvuru](log-analytics-view-designer-parts.md): başvuru kılavuzu için özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlar sağlar.
 
->[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), tüm görünümleri sorgularda yazılmalıdır sonra [yeni sorgu dili](https://go.microsoft.com/fwlink/?linkid=856078).  Çalışma alanı yükseltilmeden önce oluşturulan görünümleri dönüştürülen automtically olacaktır.
+> [!NOTE]
+> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), tüm görünümleri sorgularda yazılmalıdır [yeni sorgu dili](https://go.microsoft.com/fwlink/?linkid=856078). Çalışma alanı yükseltmeden önce oluşturulmuş görünümler otomatik olarak dönüştürülür.
 
-Aşağıdaki tabloda döşeme görünümü Tasarımcısı'nda kullanılabilir farklı türlerini listeler.  Aşağıdaki bölümler her döşeme türü ayrıntı ve bunların özelliklerini açıklar.
+Kullanılabilir Görünüm Tasarımcısı döşeme aşağıdaki tabloda açıklanmıştır:  
 
-| Kutucuk | Açıklama |
+| Döşeme | Açıklama |
 |:--- |:--- |
-| [Sayı](#number-tile) |Bir sorgu ndeki kayıtları sayısını gösteren tek bir sayı. |
-| [İki sayı](#two-numbers-tile) |İki farklı sorgular kayıtları sayısını gösteren iki tek sayı. |
-| [Halka](#donut-tile) |Halka grafiği Merkezi'ndeki Özet bir değeri ile bir sorguyu temel. |
-| [Çizgi grafiği & belirtme](#line-chart-amp-callout-tile) |Bir sorgu ve bir Özet değerle belirtme çizgisi temel çizgi grafiği. |
-| [Çizgi grafiği](#line-chart-tile) |Bir sorguyu temel çizgi grafiği. |
-| [İki zaman çizelgeleri](#two-timelines-tile) |Sütun grafiği her ayrı bir sorguyu temel iki dizi. |
+| [Sayı](#number-tile) |Sorgudan kayıt sayısı. |
+| [İki sayı](#two-numbers-tile) |İki farklı sorgular kayıtları sayar. |
+| [Halka](#donut-tile) | Merkezi'ndeki Özet bir değerle bir sorgu dayalı bir grafik. |
+| [Çizgi grafiği ve belirtme](#line-chart-amp-callout-tile) | Bir sorgu ve bir Özet değerle belirtme çizgisi temel çizgi grafiği. |
+| [Çizgi grafiği](#line-chart-tile) |Sorgu temelli bir çizgi grafiği. |
+| [İki zaman çizelgeleri](#two-timelines-tile) | İki serinin içeren bir sütun grafik, her ayrı bir sorguyu temel. |
+
+Sonraki bölümlerde kutucuğu türleri ve özelliklerinin ayrıntılı açıklanmaktadır.
 
 ## <a name="number-tile"></a>Sayı döşeme
-**Numarası** kutucuğu günlük sorgu ve etiket kayıtları sayısını gösteren tek bir sayı görüntüler.
+**Numarası** kutucuğu, her iki günlük sorgu ve etiket kayıtları sayısını görüntüler.
 
 ![Sayı döşeme](media/log-analytics-view-designer/tile-number.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
-| Ad |Döşeme üstünde görüntülenecek metin. |
-| Açıklama |Döşeme adla görüntülenecek metin. |
+| Ad |Döşeme üstünde görüntülenen metin. |
+| Açıklama |Döşeme adı altında görüntülenen metin. |
 | **Döşeme** | |
-| Gösterge |Değerin altında görüntülenecek metin. |
-| Sorgu |Çalıştırılacak sorgu.  Sorgu tarafından döndürülen kayıt sayısını görüntülenir. |
+| Gösterge |Değerin altında görüntülenen metin. |
+| Sorgu |Çalıştırılacak sorgu. Sorgu tarafından döndürülen kayıt sayısı görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama için döşeme etkinleştirilmesi gerekiyorsa seçin.  Bu, veri bölme için kullanılabilir değilse, alternatif bir ileti sağlar.  Bu, genellikle zaman görünümü yüklenir ve veriler kullanılabilir gelir geçici süresi boyunca bir ileti sağlamak için kullanılır. |
-| Sorgu |Veri görünümü için kullanılabilir olup olmadığını denetlemek için çalıştırılacak sorgu.  Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
-| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenecek ileti.  İleti yok, sağlarsanız, *gerçekleştirme değerlendirme* görüntülenir. |
+| Etkin |Veri akışı doğrulama bölme için etkinleştirilmesi gerekir, bu bağlantıyı seçin. Veriler kullanılamıyorsa, bu yaklaşımın bir alternatif mesajı sağlar. Normalde zaman görünümü yüklenir ve veriler kullanılabilir duruma geçici süresi boyunca bir ileti sağlamak için yaklaşımı kullanın. |
+| Sorgu |Veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın sorgu. Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
+| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız, bir *gerçekleştirme değerlendirme* durum iletisi görüntülenir. |
 
 
 ## <a name="two-numbers-tile"></a>İki sayı döşeme
-**İki sayı** kutucuğu, her biri için iki farklı günlük sorgular ve etiket kayıtlarından sayıyı gösteren iki sayı görüntüler.
+Bu kutucuğu her iki farklı günlük sorgular ve etiket kayıtları sayısını görüntüler.
 
 ![İki sayı döşeme](media/log-analytics-view-designer/tile-two-numbers.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
-| Ad |Döşeme üstünde görüntülenecek metin. |
-| Açıklama |Döşeme adla görüntülenecek metin. |
+| Ad |Döşeme üstünde görüntülenen metin. |
+| Açıklama |Döşeme adı altında görüntülenen metin. |
 | **İlk döşeme** | |
-| Gösterge |Değerin altında görüntülenecek metin. |
-| Sorgu |Çalıştırılacak sorgu.  Sorgu tarafından döndürülen kayıt sayısını görüntülenir. |
+| Gösterge |Değerin altında görüntülenen metin. |
+| Sorgu |Çalıştırılacak sorgu. Sorgu tarafından döndürülen kayıt sayısı görüntülenir. |
 | **İkinci döşeme** | |
-| Gösterge |Değerin altında görüntülenecek metin. |
-| Sorgu |Çalıştırılacak sorgu.  Sorgu tarafından döndürülen kayıt sayısını görüntülenir. |
+| Gösterge |Değerin altında görüntülenen metin. |
+| Sorgu |Çalıştırılacak sorgu. Sorgu tarafından döndürülen kayıt sayısı görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama için döşeme etkinleştirilmesi gerekiyorsa seçin.  Bu, veri bölme için kullanılabilir değilse, alternatif bir ileti sağlar.  Bu, genellikle zaman görünümü yüklenir ve veriler kullanılabilir gelir geçici süresi boyunca bir ileti sağlamak için kullanılır. |
-| Sorgu |Veri görünümü için kullanılabilir olup olmadığını denetlemek için çalıştırılacak sorgu.  Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
-| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenecek ileti.  İleti yok, sağlarsanız, *gerçekleştirme değerlendirme* görüntülenir. |
+| Etkin |Veri akışı doğrulama bölme için etkinleştirilmesi gerekir, bu bağlantıyı seçin. Veriler kullanılamıyorsa, bu yaklaşımın bir alternatif mesajı sağlar. Normalde zaman görünümü yüklenir ve veriler kullanılabilir duruma geçici süresi boyunca bir ileti sağlamak için yaklaşımı kullanın. |
+| Sorgu |Veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın sorgu. Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
+| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız, bir *gerçekleştirme değerlendirme* durum iletisi görüntülenir. |
 
 
 ## <a name="donut-tile"></a>Halka döşeme
-**Halka** kutucuğu günlük sorguda değer sütundan özetlenen tek bir sayı görüntüler.  Halka grafik üst üç kayıt sonuçlarını görüntüler.
+**Halka** kutucuğu günlük sorgu değer sütununda özetlenir tek bir sayı görüntüler. Halka grafik üst üç kayıt sonuçlarını görüntüler.
 
 ![Halka döşeme](media/log-analytics-view-designer/tile-donut.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
-| Ad |Döşeme üstünde görüntülenecek metin. |
-| Açıklama |Döşeme adla görüntülenecek metin. |
+| Ad |Döşeme üstünde görüntülenen metin. |
+| Açıklama |Döşeme adı altında görüntülenen metin. |
 | **Halka** | |
-| Sorgu |Halka için çalıştırılacak sorgu.  İlk özelliği, bir metin değeri ve ikinci özelliğini sayısal bir değer olmalıdır.  Bu genellikle kullanan bir sorgu olur **ölçü** sonuçları özetlemek için anahtar sözcüğü. |
+| Sorgu |Halka için Çalıştır sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. |
 | **Halka** |**> Center** |
-| Metin |Halka içindeki değeri altında görüntülenecek metin. |
-| İşlem |Tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<br><br>-TOPLA: tüm kayıtları değerleri özellik değeriyle ekleyin.<br>-Yüzdesi: Yüzdesini kayıtlardan toplanan değerler tüm kayıtları toplanan değerleriyle karşılaştırılan özellik değerine sahip. |
-| Merkezi işleminde kullanılan sonuç değerleri |İsteğe bağlı olarak bir veya daha fazla değer eklemek için artı işaretine tıklayın.  Sorgu sonuçlarını belirttiğiniz özellik değerlerini kayıtlarıyla sınırlı olacaktır.  Hiçbir değer eklediyseniz, tüm kayıtları sorguda dahil edilir. |
+| Metin |Halka içindeki değeri altında görüntülenen metin. |
+| İşlem |Tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Toplam: tüm kayıtları değerleri özellik değeriyle ekleyin.</li><li>Yüzdesi: Tüm kayıtları toplanan değerleriyle karşılaştırılan özellik değeri toplanan değerlerle kayıtlarından yüzdesi.</li></ul> |
+| Merkezi işleminde kullanılan sonuç değerleri |İsteğe bağlı olarak, bir veya daha fazla değer eklemek için artı işareti (+) seçin. Sorgu sonuçlarını kayıtları belirttiğiniz özellik değerleri ile sınırlıdır. Hiçbir değer eklediyseniz, tüm kayıtları sorguda dahil edilir. |
 | **Halka** |**> Ek seçenekler** |
-| Renkleri |Her üç üst özellik için görüntülenecek rengi.  Belirli özellik değerleri için alternatif renkleri belirtmek istiyorsanız, gelişmiş renk eşleme kullanın. |
-| Gelişmiş renk eşleme |Belirli özellik değerleri için renk görüntüler.  Belirttiğiniz değer üst üç ise, alternatif renk yerine standart bir renk görüntülenir.  Özelliği üst üç durumda değilse, renk görüntülenmez. |
+| Renkleri |Her üç üst özellikleri için görüntülenen rengi. Belirli özellik değerleri için alternatif renkleri belirtmek için kullanın *gelişmiş renk eşleme*. |
+| Gelişmiş renk eşleme |Belirli özellik değerlerini temsil eden bir renk görüntüler. Belirttiğiniz değerle ilk üç ise, alternatif renk yerine standart bir renk görüntülenir. Özelliği ilk üç durumda değilse, renk görüntülenmez. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama için döşeme etkinleştirilmesi gerekiyorsa seçin.  Bu, veri bölme için kullanılabilir değilse, alternatif bir ileti sağlar.  Bu, genellikle zaman görünümü yüklenir ve veriler kullanılabilir gelir geçici süresi boyunca bir ileti sağlamak için kullanılır. |
-| Sorgu |Veri görünümü için kullanılabilir olup olmadığını denetlemek için çalıştırılacak sorgu.  Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
-| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenecek ileti.  İleti yok, sağlarsanız, *gerçekleştirme değerlendirme* görüntülenir. |
+| Etkin |Veri akışı doğrulama bölme için etkinleştirilmesi gerekir, bu bağlantıyı seçin. Veriler kullanılamıyorsa, bu yaklaşımın bir alternatif mesajı sağlar. Normalde zaman görünümü yüklenir ve veriler kullanılabilir duruma geçici süresi boyunca bir ileti sağlamak için yaklaşımı kullanın. |
+| Sorgu |Veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın sorgu. Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
+| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız, bir *gerçekleştirme değerlendirme* durum iletisi görüntülenir. |
 
 
 ## <a name="line-chart-tile"></a>Satır grafiği döşeme
-**Çizgi grafiği** kutucuğu, zaman içinde bir günlük sorgudan birden fazla seri ile bir çizgi grafiği görüntüler.  
+Bu kutucuğu zaman içinde bir günlük sorgudan birden fazla seri görüntüleyen bir çizgi grafiği ' dir. 
 
-![Çizgi grafiği & belirtme çizgisi döşeme](media/log-analytics-view-designer/tile-line-chart.png)
+![Satır grafiği ve belirtme çizgisi bölmesi](media/log-analytics-view-designer/tile-line-chart.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
-| Ad |Döşeme üstünde görüntülenecek metin. |
-| Açıklama |Döşeme adla görüntülenecek metin. |
+| Ad |Döşeme üstünde görüntülenen metin. |
+| Açıklama |Döşeme adı altında görüntülenen metin. |
 | **Çizgi grafiği** | |
-| Sorgu |Çizgi grafiği için çalıştırılacak sorgu.  İlk özelliği, bir metin değeri ve ikinci özelliğini sayısal bir değer olmalıdır.  Bu genellikle kullanan bir sorgu olur **ölçü** sonuçları özetlemek için anahtar sözcüğü.  Sorgu kullanıyorsa **aralığı** anahtar sözcüğü sonra grafiğin x ekseni bu zaman aralığı kullanır.  Sorgu içermiyorsa **aralığı** anahtar sözcüğü sonra saatlik aralıklarla x ekseni için kullanılır. |
+| Sorgu |Çizgi grafiği için Çalıştır sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. Sorgu kullanıyorsa *aralığı* anahtar sözcüğü, x ekseni bu zaman aralığı kullanır. Sorgu kullanmıyorsa *aralığı* anahtar sözcüğü, x ekseni kullanır saatlik aralıklarla. |
 | **Çizgi grafiği** |**> Y ekseni** |
-| Logaritmik ölçek kullan |Logaritmik ölçek y ekseni için kullanmayı seçin. |
-| Birimler |Sorgu tarafından döndürülen değer birimlerini belirtin.  Bu bilgiler, değer türleri gösteren grafik ve isteğe bağlı olarak değerleri dönüştürmek için etiketleri görüntülemek için kullanılır.  **Birim türü** birim kategorisini belirtir ve tanımlar **geçerli birim türü** kullanılabilir değerler.  Bir değer seçerseniz **dönüştürmek** gelen sayısal değerleri dönüştürülür sonra **geçerli birim** için yazın **dönüştürmek** türü. |
-| Özel Etiket |Unit türü etiketi yanındaki Y ekseni için görüntülenecek metin.  Hiçbir etiket belirtilirse, yalnızca birim türü görüntülenir. |
+| Logaritmik ölçek kullan |Logaritmik ölçek y ekseni için kullanmak için bu bağlantıyı seçin. |
+| Birimler |Sorgu tarafından döndürülen değer birimlerini belirtin. Bu bilgiler, değer türleri gösteren grafik ve isteğe bağlı olarak değerleri dönüştürmek için etiketleri görüntülemek için kullanılır. **Birim türü** birim kategorisini belirtir ve tanımlar **geçerli birim türü** kullanılabilir değerler. Bir değer seçerseniz **dönüştürmek** gelen sayısal değerleri dönüştürülür sonra **geçerli birim** için yazın **dönüştürmek** türü. |
+| Özel Etiket |Y eksenine etiketi yanında görüntülenen metin *birim* türü. Etiket yok, yalnızca belirtilmişse *birim* türü görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama için döşeme etkinleştirilmesi gerekiyorsa seçin.  Bu, veri bölme için kullanılabilir değilse, alternatif bir ileti sağlar.  Bu, genellikle zaman görünümü yüklenir ve veriler kullanılabilir gelir geçici süresi boyunca bir ileti sağlamak için kullanılır. |
-| Sorgu |Veri görünümü için kullanılabilir olup olmadığını denetlemek için çalıştırılacak sorgu.  Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
-| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenecek ileti.  İleti yok, sağlarsanız, *gerçekleştirme değerlendirme* görüntülenir. |
+| Etkin |Veri akışı doğrulama bölme için etkinleştirilmesi gerekir, bu bağlantıyı seçin. Veriler kullanılamıyorsa, bu yaklaşımın bir alternatif mesajı sağlar. Normalde zaman görünümü yüklenir ve veriler kullanılabilir duruma geçici süresi boyunca bir ileti sağlamak için yaklaşımı kullanın. |
+| Sorgu |Veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın sorgu. Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
+| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız, bir *gerçekleştirme değerlendirme* durum iletisi görüntülenir. |
 
 
-## <a name="line-chart--callout-tile"></a>Satır Grafiği & belirtme çizgisi döşeme
-**Çizgi grafiği & belirtme çizgisi** kutucuğu, saat ve özetlenen bir değerle belirtme çizgisi üzerinde birden fazla dizi günlük sorgudan bir çizgi grafiği görüntüler.  
+## <a name="line-chart-and-callout-tile"></a>Satır grafiği ve belirtme çizgisi bölmesi
+Bu kutucuğu zaman ve özetlenen bir değerle belirtme çizgisi üzerinde birden fazla seri günlükten sorgu görüntüleyen grafik hem bir satır var. 
 
-![Çizgi grafiği & belirtme çizgisi döşeme](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Satır grafiği ve belirtme çizgisi bölmesi](media/log-analytics-view-designer/tile-line-chart-callout.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
-| Ad |Döşeme üstünde görüntülenecek metin. |
-| Açıklama |Döşeme adla görüntülenecek metin. |
+| Ad |Döşeme üstünde görüntülenen metin. |
+| Açıklama |Döşeme adı altında görüntülenen metin. |
 | **Çizgi grafiği** | |
-| Sorgu |Çizgi grafiği için çalıştırılacak sorgu.  İlk özelliği, bir metin değeri ve ikinci özelliğini sayısal bir değer olmalıdır.  Bu genellikle kullanan bir sorgu olur **ölçü** sonuçları özetlemek için anahtar sözcüğü.  Sorgu kullanıyorsa **aralığı** anahtar sözcüğü sonra grafiğin x ekseni bu zaman aralığı kullanır.  Sorgu içermiyorsa **aralığı** anahtar sözcüğü sonra saatlik aralıklarla x ekseni için kullanılır. |
+| Sorgu |Çizgi grafiği için Çalıştır sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. Sorgu kullanıyorsa *aralığı* anahtar sözcüğü, x ekseni bu zaman aralığı kullanır. Sorgu kullanmıyorsa *aralığı* anahtar sözcüğü, x ekseni kullanır saatlik aralıklarla. |
 | **Çizgi grafiği** |**> Belirtme** |
-| Belirtme çizgisi |Belirtme çizgisi değerini görüntülemek için başlık metni. |
-| Seri adı |Belirtme çizgisi değeri kullanmak seri için özellik değeri.  Seri sağlanırsa, sorgudaki tüm kayıtları kullanılır. |
-| İşlem |Belirtme çizgisi için tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<br>-Ortalama: Tüm kayıtları değerinden ortalama.<br><br>-Count: Sorgu tarafından döndürülen tüm kayıtları sayısı.<br>-Son örnek: Grafikte dahil son aralığında değer.<br>-Max: Grafikte dahil aralıkları maksimum değeri.<br>-Min: Grafikte dahil aralıkları Minimum değeri.<br>-TOPLA: Tüm kayıtları değerinden toplamı. |
+| Belirtme çizgisi başlık | Belirtme çizgisi değerin görüntülenen metin. |
+| Seri adı |Belirtme çizgisi değeri olarak kullanılacak seri özellik değeri. Seri sağlanırsa, sorgudaki tüm kayıtları kullanılır. |
+| İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Ortalama: Tüm kayıtları değerleri ortalama.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtları sayısı.</li><li>En son örnek: grafikte dahil son aralığı değeri.</li><li>En fazla: En yüksek değer grafikte dahil edilen aralık.</li><li>En küçük: En düşük değer grafikte dahil edilen aralık.</li><li>Toplam: Tüm kayıtları değerleri toplamı.</li></ul> |
 | **Çizgi grafiği** |**> Y ekseni** |
-| Logaritmik ölçek kullan |Logaritmik ölçek y ekseni için kullanmayı seçin. |
-| Birimler |Sorgu tarafından döndürülen değer birimlerini belirtin.  Bu bilgiler, değer türleri gösteren grafik ve isteğe bağlı olarak değerleri dönüştürmek için etiketleri görüntülemek için kullanılır.  **Birim türü** birim kategorisini belirtir ve tanımlar **geçerli birim türü** kullanılabilir değerler.  Bir değer seçerseniz **dönüştürmek** gelen sayısal değerleri dönüştürülür sonra **geçerli birim** için yazın **dönüştürmek** türü. |
-| Özel Etiket |Unit türü etiketi yanındaki Y ekseni için görüntülenecek metin.  Hiçbir etiket belirtilirse, yalnızca birim türü görüntülenir. |
+| Logaritmik ölçek kullan |Logaritmik ölçek y ekseni için kullanmak için bu bağlantıyı seçin. |
+| Birimler |Sorgu tarafından döndürülen birimler için değerleri belirtin. Bu bilgiler değer türleri gösteren görüntü grafik etiketleri ve, isteğe bağlı olarak, için kullanılan değerleri dönüştürün. *Birim* türü birim kategorisini belirtir ve kullanılabilir tanımlar *geçerli birim* değerler girin. Bir değer seçerseniz *dönüştürmek*, gelen sayısal değerleri dönüştürülür *geçerli birim* için yazın *dönüştürmek* türü. |
+| Özel Etiket |Y eksenine etiketi yanında görüntülenen metin *birim* türü. Etiket yok, yalnızca belirtilmişse *birim* türü görüntülenir. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama için döşeme etkinleştirilmesi gerekiyorsa seçin.  Bu, veri bölme için kullanılabilir değilse, alternatif bir ileti sağlar.  Bu, genellikle zaman görünümü yüklenir ve veriler kullanılabilir gelir geçici süresi boyunca bir ileti sağlamak için kullanılır. |
-| Sorgu |Veri görünümü için kullanılabilir olup olmadığını denetlemek için çalıştırılacak sorgu.  Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
-| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenecek ileti.  İleti yok, sağlarsanız, *gerçekleştirme değerlendirme* görüntülenir. |
+| Etkin |Veri akışı doğrulama bölme için etkinleştirilmesi gerekir, bu bağlantıyı seçin. Veriler kullanılamıyorsa, bu yaklaşımın bir alternatif mesajı sağlar. Normalde zaman görünümü yüklenir ve veriler kullanılabilir duruma geçici süresi boyunca bir ileti sağlamak için yaklaşımı kullanın. |
+| Sorgu |Veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın sorgu. Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
+| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız, bir *gerçekleştirme değerlendirme* durum iletisi görüntülenir. |
 
 
 ## <a name="two-timelines-tile"></a>İki zaman çizelgelerini döşeme
-**İki zaman çizelgelerini** kutucuğu sütun grafikleri olarak zaman içinde iki günlük sorguların sonuçlarını görüntüler.  Belirtme çizgisi her seri için görüntülenir.  
+**İki zaman çizelgelerini** kutucuğu sütun grafikleri olarak zaman içinde iki günlük sorguların sonuçlarını görüntüler. Belirtme çizgisi her seri için görüntülenir. 
 
 ![İki zaman çizelgelerini döşeme](media/log-analytics-view-designer/tile-two-timelines.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
-| Ad |Döşeme üstünde görüntülenecek metin. |
-| Açıklama |Döşeme adla görüntülenecek metin. |
+| Ad |Döşeme üstünde görüntülenen metin. |
+| Açıklama |Döşeme adı altında görüntülenen metin. |
 | İlk grafik | |
-| Gösterge |Belirtme çizgisi ilk serisinin altında görüntülenecek metin. |
-| Renk |İlk serisindeki sütunlar için kullanılacak rengi. |
-| Grafik sorgu |İlk seri için çalıştırılacak sorgu.  Her zaman aralığı içindeki kayıtları sayısını grafik sütunlara göre temsil edilir. |
-| İşlem |Belirtme çizgisi için tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<br><br>-Ortalama: Tüm kayıtları değerinden ortalama.<br>-Count: Sorgu tarafından döndürülen tüm kayıtları sayısı.<br>-Son örnek: Grafikte dahil son aralığında değer.<br>-Max: Grafikte dahil aralıkları maksimum değeri. |
+| Gösterge |Belirtme çizgisi ilk serisinin altında görüntülenen metin. |
+| Renk |İlk serisindeki sütunlar için kullanılan rengi. |
+| Grafik sorgu |İlk seri için Çalıştır sorgu. Her zaman aralığı üzerinden kayıt sayısı grafik sütunlara göre temsil edilir. |
+| İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Ortalama: Tüm kayıtları değerleri ortalama.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtları sayısı.</li><li>En son örnek: grafikte dahil son aralığı değeri.</li><li>En fazla: En yüksek değer grafikte dahil edilen aralık.</li></ul> |
 | **İkinci grafik** | |
-| Gösterge |İkinci seri için belirtme çizgisi altında görüntülenecek metin. |
-| Renk |İkinci serideki sütunlar için kullanılacak rengi. |
-| Grafik sorgu |İkinci seri için çalıştırılacak sorgu.  Her zaman aralığı içindeki kayıtları sayısını grafik sütunlara göre temsil edilir. |
-| İşlem |Belirtme çizgisi için tek bir değer özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<br><br>-Ortalama: Tüm kayıtları değerinden ortalama.<br>-Count: Sorgu tarafından döndürülen tüm kayıtları sayısı.<br>-Son örnek: Grafikte dahil son aralığında değer.<br>-Max: Grafikte dahil aralıkları maksimum değeri. |
+| Gösterge |İkinci seri için belirtme çizgisi altında görüntülenen metin. |
+| Renk |İkinci serideki sütunlar için kullanılan rengi. |
+| Grafik sorgu |İkinci seri için Çalıştır sorgu. Her zaman aralığı üzerinden kayıt sayısı grafik sütunlara göre temsil edilir. |
+| İşlem |Belirtme çizgisi için tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilen işlem.<ul><li>Ortalama: Tüm kayıtları değerleri ortalama.</li><li>Sayısı: Sorgu tarafından döndürülen tüm kayıtları sayısı.</li><li>En son örnek: grafikte dahil son aralığı değeri.</li><li>En fazla: En yüksek değer grafikte dahil edilen aralık. |
 | **Gelişmiş** |**> Veri akışı doğrulama** |
-| Etkin |Veri akışı doğrulama için döşeme etkinleştirilmesi gerekiyorsa seçin.  Bu, veri bölme için kullanılabilir değilse, alternatif bir ileti sağlar.  Bu, genellikle zaman görünümü yüklenir ve veriler kullanılabilir gelir geçici süresi boyunca bir ileti sağlamak için kullanılır. |
-| Sorgu |Veri görünümü için kullanılabilir olup olmadığını denetlemek için çalıştırılacak sorgu.  Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
-| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenecek ileti.  İleti yok, sağlarsanız, *gerçekleştirme değerlendirme* görüntülenir. |
+| Etkin |Veri akışı doğrulama bölme için etkinleştirilmesi gerekir, bu bağlantıyı seçin. Veriler kullanılamıyorsa, bu yaklaşımın bir alternatif mesajı sağlar. Normalde zaman görünümü yüklenir ve veriler kullanılabilir duruma geçici süresi boyunca bir ileti sağlamak için yaklaşımı kullanın. |
+| Sorgu |Veri görünümü için kullanılabilir olup olmadığını belirlemek için çalıştırın sorgu. Sorgu hiç sonuç döndürürse, ana sorgu değeri yerine bir ileti görüntülenir. |
+| İleti |Veri akışı doğrulama sorgu hiç veri döndürürse görüntülenen ileti. İleti yok, sağlarsanız, bir *gerçekleştirme değerlendirme* durum iletisi görüntülenir. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

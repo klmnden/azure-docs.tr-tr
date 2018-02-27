@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8540409c6174ad02bd2d9d57c53e0279f49871
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Bir uygulama hizmeti ortamı v1 bir web uygulaması oluşturma
 
@@ -34,11 +34,11 @@ Bu öğreticide web uygulamaları oluşturmak nasıl gösterilir ve App Service 
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici, bir uygulama hizmeti ortamı oluşturduğunuz varsayar. Henüz yapmadıysanız bkz [bir uygulama hizmeti ortamı oluşturma](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
-1. İçinde [Azure Portal](https://portal.azure.com/), tıklatın **yeni > Web + mobil > Web uygulaması**. 
+1. İçinde [Azure Portal](https://portal.azure.com/), tıklatın **kaynak oluşturma > Web + mobil > Web uygulaması**. 
    
     ![][1]
 2. Aboneliğinizi seçin.  
@@ -47,7 +47,7 @@ Bu öğretici, bir uygulama hizmeti ortamı oluşturduğunuz varsayar. Henüz ya
 3. Kaynak grubunu seçin veya oluşturun.
    
     *Kaynak grupları* bir birim olarak ilgili Azure kaynaklarını yönetmenizi sağlayan ve kurulurken faydalıdır *rol tabanlı erişim denetimi* (RBAC) kuralları, uygulamalarınız için. Daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış][ResourceGroups]. 
-4. Bir uygulama hizmeti planı oluşturun veya seçin.
+4. Bir App Service planı seçin ya da oluşturun.
    
     *Uygulama hizmeti planları* web uygulamaları yönetilen kümeleridir.  Normalde fiyatlandırma seçtiğinizde, ücret fiyat uygulama hizmeti planına yerine tek tek uygulamalara uygulanır. Ana için ayrılan işlem örnekleri için ödeme ASE'de ASP ile listelenen yerine.  App Service örneği ölçeklendirme bir web uygulaması örnek sayısı ölçeklendirmek için plan ve etkiler tüm web uygulamalarının bu planında.  Site yuvaları veya VNET tümleştirme gibi bazı özellikler de planı içinde miktar kısıtlamaları vardır.  Daha fazla bilgi için bkz: [Azure App Service planlarına genel bakış](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
    
@@ -63,7 +63,7 @@ Bu öğretici, bir uygulama hizmeti ortamı oluşturduğunuz varsayar. Henüz ya
     Ana olması, ana iç VIP bir uygulamanın URL'sini kullanırsa: [*sitename*]. [ *ana oluşturma sırasında belirtilen alt etki alanı*]   
     Ana oluşturma sırasında ASP seçtikten sonra aşağıda güncelleştirme alt etki alanı görürsünüz **adı**
 
-## <a name="createplan"></a>Bir uygulama hizmeti planı oluştur
+## <a name="createplan"></a> Bir uygulama hizmeti planı oluştur
 Uygulama hizmeti ortamı'nda bir uygulama hizmeti planı oluşturduğunuzda, çalışan seçimlerinizi ASE'de paylaşılan çalışanlar olduğundan farklıdır.  Kullanmak zorunda çalışanları için ana yönetici tarafından ayrılan olanlardır  Bu yeni bir plan oluşturmak için tüm bu çalışan havuzunda zaten planlarınıza örneklerin toplam sayısından ana çalışan havuzuna ayrılmış daha fazla çalışanlarının gerektiği anlamına gelir.  Planınızı oluşturmak için ana çalışan havuzunda yeterli çalışanları yoksa, bunları eklenen almak için ana yöneticinize çalışması gerekir.
 
 Bir uygulama hizmeti ortamı tarafından barındırılan uygulama hizmeti planına sahip başka bir fark seçimi fiyatlandırma yetersizliğidir.  Bir uygulama hizmeti ortamı olduğunda sistem tarafından kullanılan işlem kaynakları için ödeme ve planlar için ek ücret, ortamda sahip değil.  Normalde, bir uygulama hizmeti planı oluşturduğunuzda, faturalama belirleyen bir fiyatlandırma planı seçin.  Bir uygulama hizmeti ortamı temelde içeriği oluşturabileceğiniz özel bir konum değil.  İçeriğinizi barındırmak değil ve ortam için ücret ödersiniz.

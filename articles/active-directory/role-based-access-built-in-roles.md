@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
 Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve hizmetlere atanmış aşağıdaki yerleşik rolleri ile birlikte gelir. Yerleşik rol tanımlarını değiştiremezsiniz. Ancak, oluşturabileceğiniz [Azure rbac'de özel roller](role-based-access-control-custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
@@ -51,6 +51,7 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [BizTalk katkıda bulunan](#biztalk-contributor) |BizTalk Hizmetleri yönetebilir. |
 | [ClearDB MySQL DB katkıda bulunan](#cleardb-mysql-db-contributor) |ClearDB MySQL veritabanları yönetebilirsiniz |
 | [Katkıda bulunan](#contributor) |Erişim dışında her şeyi yönetebilir. |
+| [Cosmos DB hesap okuyucu rolü](#cosmos-db-account-reader-role) |Azure Cosmos DB hesap verileri okuyabilir |
 | [Veri Fabrikası katkıda bulunan](#data-factory-contributor) |Oluşturabilir ve veri fabrikaları ve bunların içindeki alt kaynakları yönetebilirsiniz. |
 | [DevTest Labs kullanıcı](#devtest-labs-user) |Her şeyi görüntüleyebilir ve bağlanmak, Başlat, yeniden başlatma ve kapatma sanal makineler |
 | [DNS bölgesi katkıda bulunan](#dns-zone-contributor) |DNS bölgeleri ve kayıtları yönetebilir |
@@ -307,10 +308,23 @@ Erişim dışında her şeyi yönetebilir
 | --- | --- |
 | * |Oluşturma ve tüm türlerinin kaynakları yönetme |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Rolleri ve rol atamalarını silinemiyor |
 | Microsoft.Authorization/*/Write |Rolleri ve rol atamalarını oluşturulamıyor |
+
+### <a name="cosmos-db-account-reader-role"></a>Cosmos DB Hesabı Okuyucusu Rolü
+Azure Cosmos DB hesap verileri okuyabilir. Bkz: [DocumentDB hesabı katkıda bulunan](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetmek için.
+
+| **Eylemler** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Okuma rolleri ve rol atamaları, her bir kullanıcıya verilen izinler okuyabilir|
+|Microsoft.DocumentDB/*/read|Herhangi bir koleksiyonu okuma|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Salt okunur anahtarları bölmesinde okuma|
+|Microsoft.Insights/Metrics/read|Hesap ölçümleri|
+|Microsoft.Insights/MetricDefinitions/read|Ölçüm tanımlarını oku|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Kaynak gruplarını oku|
+|Microsoft.Support/*|Oluşturma ve Destek biletlerini yönetme|
 
 ### <a name="data-factory-contributor"></a>Data Factory Katılımcısı
 Oluşturun ve veri fabrikaları ve bunların içindeki alt kaynakları yönetin.
@@ -677,7 +691,7 @@ SQL veritabanları ancak değil güvenlikle ilgili ilkelerini yönetebilirsiniz.
 | Microsoft.Sql/servers/read |SQL Server'lar okuma |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/databases/auditingPolicies/* |Denetim ilkeleri düzenleyemezsiniz |
 | Microsoft.Sql/servers/databases/auditingSettings/* |Denetim ayarlarını düzenleyemezsiniz |
@@ -727,7 +741,7 @@ SQL sunucuları ve veritabanları ancak değil güvenlikle ilgili ilkelerini yö
 | Microsoft.Sql/servers/* |Oluşturun ve SQL sunucularını yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-| NotActions |  |
+| **NotActions** |  |
 | --- | --- |
 | Microsoft.Sql/servers/auditingPolicies/* |SQL server denetim ilkeleri düzenleyemezsiniz |
 | Microsoft.Sql/servers/auditingSettings/* |SQL server denetim ayarları düzenleyemezsiniz |

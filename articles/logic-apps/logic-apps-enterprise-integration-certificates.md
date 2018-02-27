@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Sertifikalar ve Enterprise Integration Pack hakkında bilgi edinin
 ## <a name="overview"></a>Genel Bakış
@@ -44,7 +44,7 @@ Bir sertifika yükledikten sonra nesnelerin özelliklerini tanımlarken B2B ilet
 
 Azure portalında oturum açtıktan sonra ortak sertifikalarınızı tümleştirme hesabınızda karşıya yükleme için ayrıntılı adımlar şunlardır:
 
-1. Seçin **daha fazla hizmet** ve girin **tümleştirme** filtre arama kutusuna. Seçin **tümleştirme hesapları** sonuçları listesinden     
+1. Seçin **tüm hizmetleri** ve girin **tümleştirme** filtre arama kutusuna. Seçin **tümleştirme hesapları** sonuçları listesinden     
 ![Gözat seçin](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 2. Sertifika eklemek istediğiniz tümleştirme hesabı seçin.  
 ![Sertifika eklemek istediğiniz tümleştirme hesabı seçin](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
@@ -67,7 +67,7 @@ Kullanılacak bir *özel sertifika* B2B özellikleriyle logic apps içinde özel
 1. [Anahtar Kasası'na özel anahtarınızı karşıya](../key-vault/key-vault-get-started.md "anahtar kasası hakkında bilgi edinin") ve sağlayan bir **anahtar adı** 
    
    > [!TIP]
-   > Anahtar kasası işlemleri gerçekleştirmek için Logic Apps yetkilendirmeniz gerekir. Aşağıdaki PowerShell komutunu kullanarak Logic Apps hizmet sorumlusuna erişim izni verebilir:`Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
+   > Anahtar kasası işlemleri gerçekleştirmek için Logic Apps yetkilendirmeniz gerekir. Aşağıdaki PowerShell komutunu kullanarak Logic Apps hizmet sorumlusuna erişim izni verebilir: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
    > 
    > 
 

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: lbosq
-ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6bae97783b63b76d2de2dbcd5e618f75bc4d701d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>Azure Cosmos DB grafik .NET API: İndirme ve sürüm notları
 
@@ -32,6 +32,8 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="release-notes"></a>Sürüm notları
 
+.NET için Gremlin.Net açık kaynak Gremlin sürücüsü kullanmanızı öneririz. Kullanmaya başlama öğrenin [Azure Cosmos DB: .NET ve grafik API'sini kullanarak bir grafik uygulaması oluşturma](create-graph-dotnet.md).
+
 ### <a name="a-name031-preview031-preview"></a><a name="0.3.1-preview"/>0.3.1-Preview
 
 #### <a name="bug-fixes"></a>Hata düzeltmeleri
@@ -44,8 +46,8 @@ ms.lasthandoff: 12/11/2017
 ### <a name="a-name030-preview030-preview"></a><a name="0.3.0-preview"/>0.3.0-Preview
 
 #### <a name="whats-new"></a>Yenilikler
-* Desteği eklendi`.netstandard 1.6`
-  * Gerektirir`Microsoft.Azure.DocumentDB.Core >= 1.5.1`
+* Desteği eklendi `.netstandard 1.6`
+  * Gerektirir `Microsoft.Azure.DocumentDB.Core >= 1.5.1`
 * Yeni eklenen `gremlin-groovy` varolan ayrıştırıcı değiştirmek için ayrıştırıcı. Bir alt kümesini Tinkerpop'ın bu ayrıştırıcı destekler `gremlin-groovy` sözdizimi ve içerir:
   * 2 x ayrıştırma performansı geliştirildi.
   * Dizeleri, yanlış işlenmesi değişmez değerler ve diğer eski ayrıştırıcı sıradışı kaçış karakteri sorunlarını bir dizi ilgili çözümlendi.
@@ -57,7 +59,7 @@ ms.lasthandoff: 12/11/2017
 * .NET Framework 4.5.1 için kaldırılan destek
 
 * İle yeni ayrıştırıcı hizalar `gremlin-groovy` dilbilgisi. Sonuç olarak, daha önce çalışan bazı ifadeler için yeni ayrıştırıcı belirsiz. Bir durum Not:
-  * `in`ve `as` ayrılmış sözcükler `gremlin-groovy`, şu adımları ile nitelenmelidir `.in()` veya `.as()` sözdizimi hataları önlemek için. Örneğin: `g.V().repeat(in()).times(2)`  ->  _bir sözdizimi hatası oluşturur_  
+  * `in` ve `as` ayrılmış sözcükler `gremlin-groovy`, şu adımları ile nitelenmelidir `.in()` veya `.as()` sözdizimi hataları önlemek için. Örneğin: `g.V().repeat(in()).times(2)`  ->  _bir sözdizimi hatası oluşturur_  
  `g.V().repeat(__.in()).times(2)` -> _başarılı_
 
 ### <a name="a-name024-preview024-preview"></a><a name="0.2.4-preview"/>0.2.4-Preview

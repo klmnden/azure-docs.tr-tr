@@ -3,8 +3,8 @@ title: "SQL Server VM üzerinde bir SQL Server veritabanı geçirilecek | Micros
 description: "Bir şirket içi kullanıcı veritabanını SQL Server'a bir Azure sanal makine geçirme hakkında bilgi edinin."
 services: virtual-machines-windows
 documentationcenter: 
-author: sabotta
-manager: jhubbard
+author: rothja
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: carlasab
-ms.openlocfilehash: 68767534298783083a441aa295611914d0df9db0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/13/2018
+ms.author: jroth
+ms.openlocfilehash: 23538e933c8d1c2165cec1bdf1e9db28e0065801
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Bir SQL Server veritabanını Azure VM’deki SQL Server’a geçirme
 
@@ -35,7 +35,7 @@ Birincil geçiş yöntemler şunlardır:
 * Ayırın ve ardından Azure blob depolama alanına veri ve günlük dosyaları kopyalayın ve ardından Azure VM'deki SQL Server URL'den ekleyin.
 * Hyper-V VHD'ye şirket içi fiziksel makineyi Dönüştür, Azure Blob depolama alanına yükleme ve sonra yeni VM kullanarak VHD karşıya olarak dağıtma
 * Sevk sabit sürücü Windows içeri/dışarı aktarma hizmeti kullanma
-* Varsa bir AlwaysOn dağıtımını şirket içi, kullanın [Azure çoğaltma Ekleme Sihirbazı'nı](../classic/sql-onprem-availability.md) kullanıcılar Azure ve sonra Yük devretme bir çoğaltma oluşturmak için Azure veritabanı örneğine işaret eden
+* Varsa bir AlwaysOn dağıtımını şirket içi, kullanın [Azure çoğaltma Ekleme Sihirbazı'nı](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) kullanıcılar Azure ve sonra Yük devretme bir çoğaltma oluşturmak için Azure veritabanı örneğine işaret eden
 * SQL Server kullanmak [işlemsel çoğaltma](https://msdn.microsoft.com/library/ms151176.aspx) kullanıcılar Azure SQL Server örneği bir abone olarak yapılandırmak ve çoğaltma devre dışı bırakmak için Azure veritabanı örneğine işaret eden
 
 > [!TIP]
@@ -60,8 +60,8 @@ Aşağıdaki tabloda birincil geçiş yöntemlerinin her birini listeler ve her 
 | [Detach, Azure blob depolama alanına veri ve günlük dosyalarını kopyalayabilir ve URL'den'da Azure sanal makinede SQL Server'a iliştirin](#detach-and-attach-from-url) |SQL Server 2005 veya üzeri |SQL Server 2014 veya üzeri |[Azure VM depolama sınırı](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Bu yöntemi kullanmak için planlama yaparken [Azure Blob Depolama hizmetinin kullanarak bu dosyaları saklamak](https://msdn.microsoft.com/library/dn385720.aspx) ve bunları Azure VM'deki, özellikle çok büyük veritabanları ile çalışan SQL Server ekleme |
 | [Şirket içi makineyi Hyper-V VHD'leri dönüştürme, Azure Blob depolama alanına yükleme ve karşıya yüklenen VHD kullanarak yeni bir sanal makine dağıtma](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 veya üzeri |SQL Server 2005 veya üzeri |[Azure VM depolama sınırı](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Şu durumlarda kullanın [kendi SQL Server lisansınızı getiren](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md), SQL Server'ın eski bir sürümünde çalışacak bir veritabanı geçirilirken veya sistem ve kullanıcı veritabanlarını veritabanının diğer kullanıcı veritabanlarını ve/veya sistem veritabanları üzerinde bağımlı geçiş işleminin parçası olarak birlikte geçirilirken. |
 | [Sevk sabit sürücü Windows içeri/dışarı aktarma hizmeti kullanma](#ship-hard-drive) |SQL Server 2005 veya üzeri |SQL Server 2005 veya üzeri |[Azure VM depolama sınırı](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Kullanım [Windows içeri/dışarı aktarma hizmeti](../../../storage/common/storage-import-export-service.md) el ile kopyalama yöntemi olduğunda çok büyük veritabanları ile çok yavaşsa, gibi |
-| [Kullanım Azure Yineleme Sihirbazı Ekle](../classic/sql-onprem-availability.md) |SQL Server 2012 veya daha büyük |SQL Server 2012 veya daha büyük |[Azure VM depolama sınırı](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |AlwaysOn şirket içi dağıtıma sahip olduğunuzda kullanın kapalı kalma süresi en aza indirir |
-| [SQL Server işlem çoğaltma kullanın](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 veya üzeri |SQL Server 2005 veya üzeri |[Azure VM depolama sınırı](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Kapalı kalma süresini en aza indirmek gerektiğinde kullanın ve AlwaysOn şirket içi dağıtıma sahip değil |
+| [Kullanım Azure Yineleme Sihirbazı Ekle](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 veya daha büyük |SQL Server 2012 veya daha büyük |[Azure VM depolama sınırı](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Her zaman açık şirket içi dağıtıma sahip olduğunuzda kullanın kapalı kalma süresi en aza indirir |
+| [SQL Server işlem çoğaltma kullanın](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 veya üzeri |SQL Server 2005 veya üzeri |[Azure VM depolama sınırı](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Kapalı kalma süresini en aza indirmek gerektiğinde kullanın ve her zaman açık şirket içi dağıtıma sahip değil |
 
 ## <a name="backup-and-restore"></a>Yedekleme ve geri yükleme
 Veritabanınızı sıkıştırmayla yedekleyin VM yedekleme kopyalayın ve veritabanını geri yükleyin. Yedekleme dosyanızı 1 TB'den büyükse, bir VM disk maksimum boyutu 1 TB olduğundan bu şeritler gerekir. Bu el ile yükleme yöntemini kullanarak bir kullanıcı veritabanı geçirmek için aşağıdaki genel adımları kullanın:

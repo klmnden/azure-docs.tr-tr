@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD ile eşitliyorsanız değil bir nesne sorun giderme
 
 Bir nesne için Azure AD beklendiği gibi eşitlemiyor, nedeniyle birkaç nedeni olabilir. Bir hata e-posta Azure AD'den alınan veya Azure AD Connect Health hataya bakın, sonra okuma [verme hatalarında sorun giderme](active-directory-aadconnect-troubleshoot-sync-errors.md) yerine. Ancak nesne Azure AD içinde olduğu bir sorun gideriyorsanız, ardından bu konu. Şirket içi Bileşen Azure AD Connect eşitleme hatalarını bulmak nasıl açıklar.
+
+>[!IMPORTANT]
+>Azure Active Directory (AAD) Bağlan dağıtım sürümüyle <verison> ya da daha yüksek kullanım [görev sorun giderme](active-directory-aadconnect-troubleshoot-objectsync.md) nesne eşitleme sorunlarını gidermek için sihirbazdaki. 
 
 Hataları bulmak için aşağıdaki sırayla birkaç farklı yerde bakmak olacak:
 
@@ -36,11 +39,11 @@ Başlat [Eşitleme Hizmeti Yöneticisi'ni](active-directory-aadconnectsync-servi
 Sorun gidermeyi nereden başlamanız işlemleri sekme Eşitleme Hizmeti Yöneticisi'nde kullanılabilir. İşlem sekmesi en son işlemleri sonuçlarından gösterir.  
 ![Eşitleme Hizmeti Yöneticisi](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-Üst yarısındaki tüm metinler chronic sırayla gösterir. Varsayılan olarak, operations son yedi gün tutar bilgilerini günlüğe, ancak bu ayar değiştirilebilir [Zamanlayıcı](active-directory-aadconnectsync-feature-scheduler.md). Başarı durumunu göstermez herhangi çalıştırmak için aramak istediğiniz. Üstbilgilerini tıklatarak sıralama değiştirebilirsiniz.
+Üst yarısındaki tüm metinler kronolojik sırada gösterir. Varsayılan olarak, operations son yedi gün tutar bilgilerini günlüğe, ancak bu ayar değiştirilebilir [Zamanlayıcı](active-directory-aadconnectsync-feature-scheduler.md). Başarı durumunu göstermez herhangi çalıştırmak için aramak istediğiniz. Üstbilgilerini tıklatarak sıralama değiştirebilirsiniz.
 
 **Durum** sütunu en önemli bilgiler ve bir çalışma için en önemli bir sorun gösterir. En sık kullanılan durumlarını araştırmak için öncelik sırasına göre hızlı bir özeti aşağıda verilmiştir (burada * birkaç olası hata dizeleri gösterir).
 
-| Durum | Yorum |
+| Durum | Açıklama |
 | --- | --- |
 | durdurulmuş-* |Çalıştır tamamlanamadı. Örneğin, uzak sistem kapalı ve bağlantı kurulamıyor. |
 | durduruldu-hata-sınırı |5. 000'den fazla hataları vardır. Çalıştır otomatik olarak çok sayıda hata nedeniyle durduruldu. |
@@ -78,7 +81,7 @@ Nesne bulamazsanız, aradığınız sonra onu ile filtrelendi [etki alanı taban
 
 Azure AD Bağlayıcısı seçmek için başka bir yararlı arama olan **kapsam** seçin **bekleyen alma**seçip **Ekle** onay kutusu. Bu arama bir şirket içi nesne ile ilişkili olamaz Azure AD'de tüm eşitlenmiş nesnelerin sağlar.  
 ![Bağlayıcı alanı arama artık](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Bu nesneleri başka bir eşitleme altyapısı veya farklı bir filtreleme yapılandırması ile eşitleme altyapısı tarafından oluşturuldu. Bu görünüm listesidir **artık** artık yönetilen nesneleri. Bu listeyi gözden geçirin ve kullanarak bu nesneleri kaldırmayı düşünün [Azure AD PowerShell](http://aka.ms/aadposh) cmdlet'leri.
+Bu nesneleri başka bir eşitleme altyapısı veya farklı bir filtreleme yapılandırması ile eşitleme altyapısı tarafından oluşturuldu. Bu görünüm listesidir **artık** artık yönetilen nesneleri. Bu listeyi gözden geçirin ve kullanarak bu nesneleri kaldırmayı düşünün [Azure AD PowerShell](https://aka.ms/aadposh) cmdlet'leri.
 
 ### <a name="cs-import"></a>CS alma
 Cs nesnesini açtığınızda, en üstünde birden çok sekme vardır. **Alma** sekmesi bir içeri aktarma işleminden sonra hazırlanan veriler gösterir.  

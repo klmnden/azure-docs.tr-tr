@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 49683da9f03871cbe5c27dd06d27111864eb489e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
 > [!NOTE]
@@ -55,7 +55,7 @@ Bu kılavuzda başlamadan önce aşağıdaki önkoşullara sahip olmalıdır:
 Bu adımda, Azure portalında adlı bir Azure Data Factory örneğini oluşturmak için kullandığınız **ADFTutorialOnPremDF**.
 
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-2. Tıklatın **+ yeni**, tıklatın **Intelligence + analiz**, tıklatıp **Data Factory**.
+2. ' I tıklatın **kaynak oluşturma**, tıklatın **Intelligence + analiz**, tıklatıp **Data Factory**.
 
    ![Yeni->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. İçinde **yeni data factory** want **ADFTutorialOnPremDF** adı.
@@ -131,7 +131,7 @@ Bu adımda, Azure portalında adlı bir Azure Data Factory örneğini oluşturma
    * **Zamanlama güncelleştirmeleri** günün belirli bir zamanda yüklenecek.
    * Ağ geçidi olduğu zaman görüntülemek **son güncelleştirme**.
    * Ağ geçidi için bir güncelleştirme yüklenebilmesi için süreyi belirtin.
-8. Geçiş **ayarları** sekmesi. Belirtilen sertifika **sertifika** bölüm portalda belirttiğiniz şirket içi veri depolama alanı için kimlik bilgilerini şifreleme/şifre çözme için kullanılır. (isteğe bağlı) Tıklatın **değişiklik** kullanarak kendi sertifikanızı kullanmayı. Varsayılan olarak, ağ geçidinin Data Factory hizmeti tarafından otomatik olarak oluşturulan sertifikayı kullanır.
+8. **Ayarlar** sekmesine geçin. Belirtilen sertifika **sertifika** bölüm portalda belirttiğiniz şirket içi veri depolama alanı için kimlik bilgilerini şifreleme/şifre çözme için kullanılır. (isteğe bağlı) Tıklatın **değişiklik** kullanarak kendi sertifikanızı kullanmayı. Varsayılan olarak, ağ geçidinin Data Factory hizmeti tarafından otomatik olarak oluşturulan sertifikayı kullanır.
 
     ![Ağ geçidi sertifika yapılandırma](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 

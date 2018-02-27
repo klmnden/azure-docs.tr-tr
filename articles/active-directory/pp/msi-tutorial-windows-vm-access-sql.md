@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6e7b431655d84c6371c62bbab83244ac88391442
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Azure SQL erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -45,7 +45,7 @@ Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Windows sanal makine 
 
 Bu öğretici için yeni bir Windows VM oluşturun.  Mevcut bir VM'yi üzerinde MSI de etkinleştirebilirsiniz.
 
-1.  Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1.  Tıklatın **kaynak oluşturma** Azure portalının sol üst köşedeki üzerinde.
 2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
 3.  Sanal makine bilgilerini girin. **Kullanıcıadı** ve **parola** için kullandığınız kimlik bilgileri İşte oluşturulan sanal makineye oturum açma.
 4.  Uygun seçin **abonelik** sanal makine açılır.
@@ -156,7 +156,7 @@ Bu sonraki adım için size gereken [Microsoft SQL Server Management Studio](htt
 1.  SQL Server Management Studio’yu başlatın.
 2.  İçinde **sunucuya Bağlan** iletişim kutusunda, SQL server'ınızın adını Enter **sunucu adı** alan.
 3.  İçinde **kimlik doğrulaması** alan, select **Active Directory - Evrensel MFA desteğiyle**.
-4.  İçinde **kullanıcı adı** alanında, sunucu yöneticisi olarak, örneğin, ayarladığınız Azure AD hesabının adını girinhelen@woodgroveonline.com
+4.  İçinde **kullanıcı adı** alanında, sunucu yöneticisi olarak, örneğin, ayarladığınız Azure AD hesabının adını girin helen@woodgroveonline.com
 5.  **Seçenekler**’e tıklayın.
 6.  İçinde **veritabanına bağlan** alanında, yapılandırmak istediğiniz sistem dışı veritabanının adını girin.
 7.  **Bağlan**'a tıklayın.  Oturum açma işlemini tamamlayın.

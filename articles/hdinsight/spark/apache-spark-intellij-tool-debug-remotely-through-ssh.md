@@ -17,20 +17,20 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: dfffe935cd7e896fb251a3ed40a5493fbf836a6c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Spark uygulamalarında yerel olarak veya uzaktan Hdınsight kümesinde Azure araç seti ile SSH aracılığıyla Intellij için hata ayıklama
 
 Bu makalede, Hdınsight araçları Azure Araç Seti Intellij için Hdınsight kümesi üzerinde uzaktan uygulamalarında hata ayıklamak için nasıl kullanılacağı hakkında adım adım yönergeler sağlar. Projenizin hatalarını ayıklamak için de görüntüleyebilirsiniz [Intellij için Hdınsight Spark hata ayıklama uygulamaları Azure araç seti ile](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video.
 
 **Önkoşullar**
-* **Azure Araç Seti Intellij için Hdınsight Araçları**. Bu araç Intellij için Azure araç seti bir parçasıdır. Daha fazla bilgi için bkz: [Intellij için Azure Araç Seti yüklemek](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). Ve **Intellij için Azure Araç Seti**. Bu araç seti, Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın. Daha fazla bilgi için ' ndaki yönergeleri izleyin [Spark Hdınsight kümesi için uygulamalar oluşturmak üzere Intellij için kullanım Azure Araç Seti](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
+* **Azure Araç Seti Intellij için Hdınsight Araçları**. Bu araç Intellij için Azure araç seti bir parçasıdır. Daha fazla bilgi için bkz: [Intellij için Azure Araç Seti yüklemek](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). Ve **Intellij için Azure Araç Seti**. Bu araç seti, Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın. Daha fazla bilgi için ' ndaki yönergeleri izleyin [Spark Hdınsight kümesi için uygulamalar oluşturmak üzere Intellij için kullanım Azure Araç Seti](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
 
-* **Hdınsight SSH hizmeti kullanıcı adı ve parola yönetimi ile**. Daha fazla bilgi için bkz: [SSH kullanarak Hdınsight (Hadoop) Bağlan](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) ve [Ambari erişmek için tünel SSH kullanma web kullanıcı Arabirimi, kaynak, iş, Oozie ve diğer web Uı'lar](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **Hdınsight SSH hizmeti kullanıcı adı ve parola yönetimi ile**. Daha fazla bilgi için bkz: [SSH kullanarak Hdınsight (Hadoop) Bağlan](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) ve [Ambari erişmek için tünel SSH kullanma web kullanıcı Arabirimi, kaynak, iş, Oozie ve diğer web Uı'lar](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
 ## <a name="learn-how-to-perform-local-run-and-debugging"></a>Yerel gerçekleştirmek çalıştırın ve hata ayıklama öğrenin
 ### <a name="scenario-1-create-a-spark-scala-application"></a>Senaryo 1: bir Spark Scala uygulaması oluşturma 
@@ -57,7 +57,7 @@ Bu makalede, Hdınsight araçları Azure Araç Seti Intellij için Hdınsight k�
 
       ![Hata ayıklama projesi oluşturma](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-   d. Seçin **sonraki**.     
+   d. **İleri**’yi seçin.     
  
 2. Sonraki **yeni proje** penceresinde aşağıdakileri yapın:
 
@@ -102,7 +102,7 @@ Bu hatayı gidermek için [yürütülebilir dosya indirme](http://public-repo-1.
 
 1. Erişim için **yapılandırmalarını Düzenle** menüsünde sağ üst köşedeki simgeyi seçin. Bu menüden oluşturabilir veya uzaktan hata ayıklama için yapılandırmaları düzenleyebilirsiniz.
 
-   ![Yapılandırmaları Düzenle](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
+   ![Yapılandırmaları düzenle](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
 2. İçinde **Çalıştır/hata ayıklama yapılandırmaları** iletişim kutusunda, artı işaretini seçin (**+**). Ardından **Azure Hdınsight Spark işi** seçeneği.
 
@@ -153,7 +153,7 @@ Bu hatayı gidermek için [yürütülebilir dosya indirme](http://public-repo-1.
 
 6. Hedef sağ **hata ayıklama** sekmesini tıklatın ve ardından **değeri ayarlanmış**. Ardından, değişken için yeni bir değer girin. Ardından **Enter** değeri kaydetmek için. 
 
-   ![Değerini ayarla](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
+   ![Değer ata](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-set-value.png) 
 
 7. Seçin **Sürdür Program** program çalıştırmaya devam etmek için simge. Bu süre, hiçbir özel durum yakalandı. Proje başarıyla tüm özel durumlar çalışır görebilirsiniz.
 
@@ -170,7 +170,6 @@ Bu hatayı gidermek için [yürütülebilir dosya indirme](http://public-repo-1.
 * [BI ile Spark: BI araçlarıyla Hdınsight'ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için hdınsight'ta Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark akış: Gerçek zamanlı akış uygulamaları oluşturmak için hdınsight'ta Spark kullanma](apache-spark-eventhub-streaming.md)
 * [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma

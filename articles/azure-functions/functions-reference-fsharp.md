@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F # Geliştirici Başvurusu
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -82,7 +82,7 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
     output <- input
 ```
 
-## <a name="async"></a>Zaman uyumsuz
+## <a name="async"></a>Async
 `async` İş akışı kullanılabilir, ancak sonuç döndürmesi gerekir bir `Task`. Bu, yapılabilir `Async.StartAsTask`, örneğin:
 
 ```fsharp
@@ -172,7 +172,7 @@ F # derleyici hizmetlerini destekleyen bir düzenleyici ad alanları ve Azure i�
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -184,7 +184,7 @@ Azure işlevleri, kodunuzu yürütüldüğünde, kaynağıyla işler `COMPILED` 
 <a name="package"></a>
 
 ## <a name="package-management"></a>Paket Yönetimi
-NuGet paketlerini bir F # işlevi kullanmak için ekleyin bir `project.json` dosya işlevi uygulamanın dosya sistemi işlevin klasöründe. İşte bir örnek `project.json` NuGet paketi başvuru ekler dosya `Microsoft.ProjectOxford.Face` sürüm 1.1.0:
+NuGet paketlerini bir F # işlevi kullanmak için ekleyin bir `project.json` dosyasını işlevin klasöre işlevi uygulamanın dosya sistemi. İşte bir örnek `project.json` NuGet paketi başvuru ekler dosya `Microsoft.ProjectOxford.Face` sürüm 1.1.0:
 
 ```json
 {
@@ -258,9 +258,9 @@ let mylog(log: TraceWriter, text: string) =
 
 Yollar sağlar için `#load` göreli konumunu yönerge olan, `.fsx` dosya.
 
-* `#load "logger.fsx"`işlev klasöründe bir dosya yükler.
-* `#load "package\logger.fsx"`bulunan bir dosya yükler `package` işlevi klasöründe.
-* `#load "..\shared\mylogger.fsx"`bulunan bir dosya yükler `shared` klasör başka bir deyişle, işlevi klasör ile aynı düzeyde doğrudan altında `wwwroot`.
+* `#load "logger.fsx"` işlev klasöründe bir dosya yükler.
+* `#load "package\logger.fsx"` bulunan bir dosya yükler `package` işlevi klasöründe.
+* `#load "..\shared\mylogger.fsx"` bulunan bir dosya yükler `shared` klasör başka bir deyişle, işlevi klasör ile aynı düzeyde doğrudan altında `wwwroot`.
 
 `#load` Yönergesi yalnızca çalışır `.fsx` (F # betik) dosyaları ve değil `.fs` dosyaları.
 

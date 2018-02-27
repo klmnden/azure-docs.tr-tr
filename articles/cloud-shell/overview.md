@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: da415f4fb276f3d86d3ff1634a08fa11eabe6e7f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure bulut Kabuk genel bakış
 Azure bulut Kabuk Azure kaynaklarını yönetmek için etkileşimli, tarayıcı erişilebilir bir kabuk ' dir.
@@ -69,9 +69,9 @@ Bir kaynak oluşturmak için bulut Kabuk ister ilk başlatılırken grubu, depol
 Bir yerel olarak yedekli depolama (LRS) hesabı ve Azure dosya paylaşımı sizin adınıza oluşturulabilir. Her ikisi de kullanmayı seçerseniz Azure dosya paylaşımı Bash ve PowerShell ortamları için kullanılır. Normal depolama ücretleri.
 
 Üç kaynakları sizin adınıza oluşturulacak:
-1. Kaynak grubu adı:`cloud-shell-storage-<region>`
-2. Adlı depolama hesabı:`cs<uniqueGuid>`
-3. Adlı dosya paylaşımı:`cs-<user>-<domain>-com-<uniqueGuid>`
+1. Kaynak grubu adı: `cloud-shell-storage-<region>`
+2. Adlı depolama hesabı: `cs<uniqueGuid>`
+3. Adlı dosya paylaşımı: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
 > Bulut Kabuk bash'te da bir varsayılan 5 GB disk yansımasını oluşturur `$Home`. SSH anahtarları gibi $Home dizininizdeki tüm dosyalara, bağlı Azure dosya paylaşımında depolanan kullanıcı disk görüntünüzdeki kalıcıdır. Dosyaları, $Home dizin ve bağlı Azure dosya paylaşımı kaydedilirken en iyi yöntemleri uygulayın.
@@ -83,7 +83,7 @@ Gelişmiş bir seçenek bulut Kabuğu mevcut kaynaklarla ilişkilendirmek için 
 "Göster Gelişmiş ayarları" depolama Kurulum isteminde tıklatın ek seçenekleri göstermek için.
 
 > [!Note]
-> Bırakmalar önceden atanmış bulut Kabuk bölge ve LRS/GRS depolama hesapları için filtrelenir.
+> Bırakmalar önceden atanmış bulut Kabuk bölge ve GRS/LRS/ZRS depolama hesapları için filtrelenir.
 
 [Öğrenin bulut Kabuk depolama hakkında Azure dosya paylaşımları güncelleştirme ve karşıya yükleme ve indirme dosyaları.](persisting-shell-storage.md)
 

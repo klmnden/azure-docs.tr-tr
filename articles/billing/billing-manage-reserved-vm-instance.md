@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: 8f75bab7fc795a59dabfedca5a4889622f66b73a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Ayrılmış sanal makine örneklerini yönetme
 
@@ -28,7 +28,7 @@ Bir Azure ayrılmış VM örnek satın sonra farklı bir abonelik satın alma s�
 
 Ayırma kapsamı güncelleştirmek için: 
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-2. Seçin **daha fazla hizmet** > **ayırmaları**.
+2. Seçin **tüm hizmetleri** > **ayırmaları**.
 3. Ayırma seçin.
 4. Seçin **ayarları** > **yapılandırma**.
 5. Kapsamı değiştirin. Gelen tek bir kapsam için paylaşılan değiştirirseniz, yalnızca sahibi olduğunuz abonelikleri seçebilirsiniz. Yalnızca abonelikleri ayırma ile aynı fatura bağlamında seçilebilir. Fatura içerik ayırma satın zaman seçtiğiniz abonelik tarafından belirlenir. Kapsam yalnızca teklifinden Kullandıkça Öde teklifine MS-AZR - 0003 P abonelikleri ve kurumsal teklif MS-AZR - 0017 P abonelikler için geçerlidir. Kurumsal Anlaşma için geliştirme ve test abonelikleri ayırma indirim almak uygun değildir.
@@ -69,7 +69,7 @@ Erişim ayırmaları bağımsız olarak ayırma indirim almak aboneliklerden yö
  
 Erişim yönetimi bir ayırma için temsilci atamak için: 
 1.  [Azure Portal](https://portal.azure.com)’da oturum açın.
-2.  Seçin **daha Hizmetleri** > **ayırma** erişiminiz listesi ayırmaları için.
+2.  Seçin **tüm hizmetleri** > **ayırma** erişiminiz listesi ayırmaları için.
 3.  Diğer kullanıcılara erişim vermek istediğiniz ayırma seçin.
 4.  Seçin **erişim denetimi (IAM)** menüde.
 5.  Seçin **Ekle** > **rol** > **sahibi** (veya sınırlı erişim vermek istiyorsanız, farklı bir rol). 

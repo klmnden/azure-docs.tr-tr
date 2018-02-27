@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 | **Kimlik mimarisi / geliştirme ekibi** | Bu genellikle çözümü tasarlarken, prototipleri uygulayan, onayları sürücüler ve son olarak kapatmak için işlemleri aktarır bir Ekiptir | Ortamlar sağlarlar ve olanları yönetilebilirlik açısından farklı senaryolar değerlendirme |
 | **Şirket içi kimlik işletim ekibi** | Farklı kimliğe kaynakları şirket içi yönetir: Active Directory ormanları, LDAP dizinleri, ik sistemleri ve Federasyon kimlik sağlayıcıları. | Şirket içi erişim sağlamak PT senaryoları için gerekli kaynakları.<br/>Bunlar mümkün olduğunca az söz konusu|
 | **Uygulama teknik sahipleri** | Teknik sahipleri farklı bulut uygulamaları ve Azure AD ile tümleştirme hizmetleri | SaaS uygulamaları (test etmek için örnekler) büyük olasılıkla ayrıntılarını sağlayın |
-| **Azure AD genel yönetici** | Azure AD yapılandırmasını yönetir | Eşitleme hizmeti yapılandırmak için kimlik bilgilerini sağlayın. Genellikle aynı kimlik mimari PoC sırasında ekip ancak operations aşamasında ayrı|
+| **Azure AD Global Admin** | Azure AD yapılandırmasını yönetir | Eşitleme hizmeti yapılandırmak için kimlik bilgilerini sağlayın. Genellikle aynı kimlik mimari PoC sırasında ekip ancak operations aşamasında ayrı|
 | **Veritabanı ekibi** | Veritabanı altyapısı sahipleri | SQL ortamı (ADFS veya Azure AD Connect) erişim için belirli bir senaryoyu hazırlıklar sağlar.<br/>Bunlar mümkün olduğunca az söz konusu |
 | **Ağ ekibi** | Ağ altyapısı sahipleri | Eşitleme sunucularının düzgün veri kaynaklarına erişmek ve bulut hizmetlerine (güvenlik duvarı kuralları, açılan bağlantı noktaları, IPSec kuralları vb.) ağ düzeyinde gerekli erişim sağlayın |
 | **Güvenlik ekibi** | Güvenlik stratejisi tanımlar, güvenlik raporları çeşitli kaynaklardan analiz eder ve bulguları üzerinde aşağıdaki. | Değerlendirme senaryoları hedef güvenlik sağlar |
@@ -314,7 +314,7 @@ Yaklaşık tam süre: 10 dakika
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Uygulamaya erişim izni grubunu tanımlayın ve verilen sahibi yapılandırma grubu| [Azure Active Directory'deki bir gruba ayarlarını yönetme](active-directory-groups-settings-azure-portal.md) |
+| Uygulamaya erişim izni grubunu tanımlayın ve verilen sahibi yapılandırma grubu| [Azure Active Directory'deki bir gruba ayarlarını yönetme ](active-directory-groups-settings-azure-portal.md) |
 | Grup sahibi olarak oturum açın, bkz: Grup üyeliğini grupları sekmesinde erişim paneli | [Azure Active Directory grupları Management sayfası](https://account.activedirectory.windowsazure.com/r/#/groups) |
 | Test etmek istediğiniz bilgi çalışanı Ekle |  |
 | Bilgi çalışanı olarak oturum açın, döşeme kullanılabilir onaylayın | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
@@ -371,7 +371,7 @@ Yaklaşık tam süre: 10 dakika
 
 Seçilen uygulamaların gereksinimlerini sağlama olabilir, bu nedenle hemen uygulamaya giderek bazı hatalara neden olabilir. Seçilen uygulama azure ad ile sağlama destekliyorsa ve yapılandırıldığından, bu bir fırsat olarak uçtan uca çalışan tüm akışını göstermek için kullanabilirsiniz. Yapı bloğu için bkz: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) daha fazla önerileri için
 
-## <a name="self-service-password-reset"></a>Self Servis parola sıfırlama
+## <a name="self-service-password-reset"></a>Self Servis Parolası Sıfırlama
 
 Yaklaşık tam süresi: 15 dakika
 
@@ -391,7 +391,7 @@ Yaklaşık tam süresi: 15 dakika
 | Azure AD Yönetim Portalı'na gidin: parola sıfırlama | [Azure AD yönetim portalında: Parola sıfırlama](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Parola sıfırlama İlkesi belirler. POC amacıyla, telefon araması ve soru- cevap kullanabilirsiniz Oturum açma erişim paneli gerekli kaydını etkinleştirmek için önerilir. |  |
 | Oturumu kapatın ve bir bilgi çalışanı oturum açın |  |
-| 2. adım yapılandırıldığı gibi Self Servis parola sıfırlama verileri kaynağı | http://aka.MS/ssprsetup |
+| 2. adım yapılandırıldığı gibi Self Servis parola sıfırlama verileri kaynağı | https://aka.ms/ssprsetup |
 | Tarayıcıyı kapatın |  |
 | 4. adımda kullanılan bilgi çalışanı olarak oturum açma işlemini Başlat |  |
 | Parola sıfırlama | [Kendi parolanızı güncelleştirin: parolamı sıfırla](active-directory-passwords-update-your-own-password.md) |
@@ -442,7 +442,7 @@ Yaklaşık tam süre: 10 dakika
 | SaaS uygulamasına zaten yapılandırıldı |  |
 | PoC kullanıcıların uygulamayı zaten atanmış |  |
 | POC kullanıcı kimlik bilgilerini kullanılabilir |  |
-| POC kullanıcı MFA için kayıtlı. Bir telefon ile iyi almayı kullanma | http://aka.MS/ssprsetup |
+| POC kullanıcı MFA için kayıtlı. Bir telefon ile iyi almayı kullanma | https://aka.ms/ssprsetup |
 | İç ağ aygıtı. İç adres aralığındaki yapılandırılmış IP adresi | IP adresi Bul: https://www.bing.com/search?q=what%27s+my+ip |
 | (Taşıyıcı ağını kullanarak bir telefon olabilir) dış ağ aygıtı |  |
 
@@ -508,7 +508,7 @@ Yaklaşık tam süresi: 20 dakika
 | Açık tor tarayıcı | [Tor tarayıcı yükleyin](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Https://myapps.microsoft.com POC kullanıcı hesabıyla oturum açın | [Azure Active Directory kimlik koruması Kılavuzu: Risk olaylarını benzetimini yapma](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | 5-7 dakika bekleyin |  |
-| Https://portal.azure.com için genel yönetici olarak oturum açın ve kimlik koruması dikey penceresini açın | https://aka.MS/aadipgetstarted |
+| Https://portal.azure.com için genel yönetici olarak oturum açın ve kimlik koruması dikey penceresini açın | https://aka.ms/aadipgetstarted |
 | Risk olaylar dikey penceresini açın. "Oturum açma işlemleri anonim IP adreslerinden" altında bir girdi görmeniz gerekir  | [Azure Active Directory kimlik koruması Kılavuzu: Risk olaylarını benzetimini yapma](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
@@ -532,8 +532,8 @@ Yaklaşık tam süre: 10 dakika
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Https://portal.azure.com için genel yönetici olarak oturum açın ve kimlik koruması dikey penceresini açın | https://aka.MS/aadipgetstarted |
-| Oturum açma risk ilkesine aşağıdaki gibi etkinleştirin:<br/>-Atanan: POC kullanıcı<br/>-Koşullar: Oturum açma riski Orta veya yüksek (oturum açma anonim konumdan kabul Orta risk düzeyi)<br/>-Denetimleri: MFA gerektirir | [Azure Active Directory kimlik koruması Kılavuzu: oturum açma riski](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| Https://portal.azure.com için genel yönetici olarak oturum açın ve kimlik koruması dikey penceresini açın | https://aka.ms/aadipgetstarted |
+| Oturum açma risk ilkesine aşağıdaki gibi etkinleştirin:<br/>-Atanan: POC kullanıcı<br/>-Koşullar: Oturum açma riski Orta veya yüksek (oturum açma anonim konumdan kabul Orta risk düzeyi)<br/>-Denetimleri: MFA gerektirir | [Azure Active Directory kimlik koruması Kılavuzu: oturum açma riski](active-directory-identityprotection-playbook.md) |
 | Açık tor tarayıcı | [Tor tarayıcı yükleyin](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Https://myapps.microsoft.com PoC kullanıcı hesabıyla oturum açın |  |
 | MFA testini dikkat edin | [Azure AD kimlik koruması ile karşılaştığında oturum açma: oturum açma riskli kurtarma](active-directory-identityprotection-flows.md#risky-sign-in-recovery)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belge kapsamlı bir listesini sağlar.
@@ -53,7 +53,7 @@ Bu bölümde, ilgili sorun giderme kılavuzları hızlı erişim sağlar. Bu say
 | Makale Kılavuzu |  |
 |:---:| --- |
 | Federasyon ve diğer türleri oturum açma giriş |[Azure AD ile çoklu oturum açma](active-directory-appssoaccess-whatis.md) |
-| SaaS uygulamaları ile Azure AD ile önceden tümleştirilmiş binlerce Basitleştirilmiş tek oturum açma yapılandırma adımları |[Azure AD uygulama Galerisi'ni kullanmaya başlama](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon desteği önceden tümleştirilmiş uygulamaların tam listesi](http://aka.ms/aadfederatedapps)<br /><br />[Azure AD uygulama galerisinde uygulamanızı ekleme](active-directory-app-gallery-listing.md) |
+| SaaS uygulamaları ile Azure AD ile önceden tümleştirilmiş binlerce Basitleştirilmiş tek oturum açma yapılandırma adımları |[Azure AD uygulama Galerisi'ni kullanmaya başlama](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon desteği önceden tümleştirilmiş uygulamaların tam listesi](active-directory-saas-tutorial-list.md)<br /><br />[Azure AD uygulama galerisinde uygulamanızı ekleme](active-directory-app-gallery-listing.md) |
 | 150'den fazla uygulama öğreticileri nasıl yapılandırılacağı hakkında çoklu oturum açmayı uygulamalar gibi [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md)ve çok daha fazlası |[Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md) |
 | El ile ayarlamak ve çoklu oturum açma yapılandırmanızı özelleştirmek nasıl |[Nasıl için yapılandırma federe çoklu oturum açma, Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Önceden tümleştirilen uygulamalar için SAML belirtecinde verilen talepler özelleştirme](active-directory-saml-claims-customization.md) |
 | SAML protokolünü kullanan Federasyon uygulamaları için sorun giderme kılavuzu |[Sorun giderme SAML tabanlı çoklu oturum açma](active-directory-saml-debugging.md) |
