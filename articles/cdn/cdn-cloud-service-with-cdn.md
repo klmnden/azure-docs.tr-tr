@@ -63,7 +63,7 @@ Bu bölümde, bir bulut hizmeti Web rolü için varsayılan ASP.NET MVC uygulama
 1. Visual Studio 2015'te, giderek menü çubuğundan yeni bir Azure bulut hizmeti oluşturma **Dosya > Yeni > Proje > bulut > Azure bulut hizmeti**. Bir ad verin ve tıklatın **Tamam**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
-2. Seçin **ASP.NET Web rolü** tıklatıp ** > ** düğmesi. Tamam'a tıklayın.
+2. Seçin **ASP.NET Web rolü** tıklatıp **>** düğmesi. Tamam'a tıklayın.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG)
 3. Seçin **MVC** tıklatıp **Tamam**.
@@ -72,7 +72,7 @@ Bu bölümde, bir bulut hizmeti Web rolü için varsayılan ASP.NET MVC uygulama
 4. Şimdi, bu Web rolü için bir Azure bulut hizmeti yayımlayın. Bulut hizmeti projesine sağ tıklatın ve **Yayımla**.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
-5. Henüz Microsoft Azure'da oturum değil,'ı tıklatın **Hesap Ekle... ** açılır tıklatıp **Hesap Ekle** menü öğesi.
+5. Henüz Microsoft Azure'da oturum değil,'ı tıklatın **Hesap Ekle...** açılır tıklatıp **Hesap Ekle** menü öğesi.
    
     ![](media/cdn-cloud-service-with-cdn/cdn-cs-5-publish-signin.png)
 6. Oturum açma sayfası Azure hesabınızı etkinleştirmek için kullanılan Microsoft hesabıyla oturum açın.
@@ -120,7 +120,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
    
     ![Uç nokta ekle düğmesi][cdn-new-endpoint-button]
    
-     **Uç nokta ekleme** dikey penceresi görünür.
+    **Uç nokta ekleme** dikey penceresi görünür.
    
     ![Uç nokta ekleme dikey penceresi][cdn-add-endpoint]
 3. Bu CDN uç noktası için bir **Ad** girin.  Bu ad, `<EndpointName>.azureedge.net` etki alanındaki önbelleğe alınmış kaynaklarınıza erişmek için kullanılır.
@@ -138,7 +138,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
    > 
 
 ## <a name="test-the-cdn-endpoint"></a>CDN uç noktasını sınama
-Yayımlama durumu olduğunda **tamamlandı**, bir tarayıcı penceresi açın ve gidin * *http://<cdnName>*.azureedge.net/Content/bootstrap.css**. My Kurulum, bu URL'yi şöyledir:
+Yayımlama durumu olduğunda **tamamlandı**, bir tarayıcı penceresi açın ve gidin **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. My Kurulum, bu URL'yi şöyledir:
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -146,18 +146,18 @@ Hangi CDN uç noktası aşağıdaki kaynak URL'de karşılık gelir:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Ne zaman gezinmek için * *http://*&lt;cdnName >*indirin veya gelen bootstrap.css açmak için bağlı olarak istenir, tarayıcınızdaki.azureedge.net/Content/bootstrap.css** yayımlanan Web uygulamanızdan.
+Ne zaman gezinmek için **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** indirin veya gelen bootstrap.css açmak için bağlı olarak istenir, tarayıcınızdaki yayımlanan Web uygulamanızdan.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-Genel olarak erişilebilir bir URL'de benzer şekilde erişebilirsiniz * *http://*&lt;serviceName >*doğrudan CDN uç noktanız gelen.cloudapp.net/**. Örneğin:
+Genel olarak erişilebilir bir URL'de benzer şekilde erişebilirsiniz **http://*&lt;serviceName>*.cloudapp.net/** doğrudan CDN uç noktanız gelen. Örneğin:
 
 * / Script yolundan .js dosya
 * / Content içerik dosyanın yolu
 * Herhangi bir denetleyici/eylem
 * CDN uç noktanız, sorgu dizeleri içeren herhangi bir URL, sorgu dizesi etkinleştirilirse
 
-Aslında, yukarıdaki yapılandırma ile tüm bulut hizmetinden barındırabilir * *http://*&lt;cdnName >*.azureedge.net/**. İçin giderseniz **http://camservice.azureedge.net/**, ev/dizinden eylem sonucu alıyorum.
+Aslında, yukarıdaki yapılandırma ile tüm bulut hizmetinden barındırabilir **http://*&lt;cdnName>*.azureedge.net/**. İçin giderseniz **http://camservice.azureedge.net/**, ev/dizinden eylem sonucu alıyorum.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ Bu denetleyici eylemi kurulumu için yukarıdaki adımları izleyin:
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. Bulut hizmeti yeniden yayımlamanız ve gidin * *http://*&lt;serviceName >*tarayıcınızda.cloudapp.net/MemeGenerator/Index**.
+5. Bulut hizmeti yeniden yayımlamanız ve gidin **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** tarayıcınızda.
 
 Form değerleri gönderdiğiniz zaman `/MemeGenerator/Index`, `Index_Post` eylem yöntemine döndürür bağlantı `Show` eylem yöntemi ile ilgili giriş tanımlayıcısı. Bağlantıya tıkladığınızda, aşağıdaki kodu ulaşmak:  
 
@@ -444,9 +444,9 @@ ASP.NET tümleştirme paketleme ve küçültme ile CDN uç noktanız için aşa�
    
    * Bu CDN URL kaynağı `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, bulut hizmetinizin komut dosyası pakette gerçekte sanal dizinin olduğu.
    * CDN Oluşturucusu kullandığımızdan, paket için CDN komut dosyası etiketinin artık işlenmiş URL'de otomatik olarak oluşturulan sürüm dizesi içerir. Önbellek isabetsizliği Azure CDN adresindeki zorlamak için komut dosyası paket değiştiren her zaman bir benzersiz sürüm dizesi el ile oluşturmanız gerekir. Aynı anda bu benzersiz sürüm dizesi paket dağıtıldıktan sonra Azure CDN adresindeki İsabetli Önbellek okuma sayısı en üst düzeye çıkarmak için dağıtımı yaşam sabit kalması gerekir.
-   * Sorgu dizesi v < W.X.Y.Z > çeken gelen = *Properties\AssemblyInfo.cs* Web rolü projenizdeki. Derleme sürümü için Azure yayımlama her zaman artırma içeren bir dağıtım iş akışı olabilir. Veya yalnızca değiştirebileceğiniz *Properties\AssemblyInfo.cs* projenize sürüm dizesi joker karakter kullanarak oluşturduğunuz her zaman otomatik olarak artırmak için ' *'. Örneğin:
+   * Sorgu dizesi v < W.X.Y.Z > çeken gelen = *Properties\AssemblyInfo.cs* Web rolü projenizdeki. Derleme sürümü için Azure yayımlama her zaman artırma içeren bir dağıtım iş akışı olabilir. Veya yalnızca değiştirebileceğiniz *Properties\AssemblyInfo.cs* projenize sürüm dizesi joker karakter kullanarak oluşturduğunuz her zaman otomatik olarak artırmak için '\*'. Örneğin:
      
-        [derleme: AssemblyVersion("1.0.0.*")]
+        [derleme: AssemblyVersion("1.0.0.\*")]
      
      Bir dağıtım ömrü için benzersiz bir dize oluşturma kolaylaştırmak için diğer bir strateji burada çalışır.
 2. Bulut hizmeti yeniden yayımlamanız ve giriş sayfasına erişebilirsiniz.
