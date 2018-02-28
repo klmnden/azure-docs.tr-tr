@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 02/22/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 8ccce6f780314ed04e9fe2e3b28df76a7f7ab7c4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 5242e40c0cca727e2702b3cd49ffa3de695450ca
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Azure Active Directory ile SaaS uygulama tümleştirmesi
 
@@ -72,6 +72,7 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-assetbank-tutorial.png)| [Varlık banka](active-directory-saas-assetbank-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian bulut](active-directory-saas-atlassian-cloud-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-atomiclearning-tutorial.png)| [Atomik öğrenme](active-directory-saas-atomiclearning-tutorial.md)|
+| ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-attendancemanagementservices-tutorial.png)| [Katılım Yönetim Hizmetleri](active-directory-saas-attendancemanagementservices-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-autotaskworkplace-tutorial.png)| [Autotask çalışma](active-directory-saas-autotaskworkplace-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-bamboo-hr-tutorial.png)| [BambooHR](active-directory-saas-bamboo-hr-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-bambubysproutsocial-tutorial.png)| [Sprout sosyal tarafından Bambu](active-directory-saas-bambubysproutsocial-tutorial.md)|
@@ -143,6 +144,7 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Dow Jones Factiva](active-directory-saas-dowjones-factiva-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [İş için açılan kutu](active-directory-saas-dropboxforbusiness-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](active-directory-saas-druva-tutorial.md)|
+| ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-esalesmanagerremix-tutorial.png)| [E satış yöneticisi Remix](active-directory-saas-esalesmanagerremix-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-easyterritory-tutorial.png)| [EasyTerritory](active-directory-saas-easyterritory-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-ebsco-tutorial.png)| [EBSCO](active-directory-saas-ebsco-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-edcor-tutorial.png)| [Edcor](active-directory-saas-edcor-tutorial.md)|
@@ -368,8 +370,8 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-saphana-tutorial.png)| [SAP HANA](active-directory-saas-saphana-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-sap-netweaver-tutorial.png)| [SAP NetWeaver](active-directory-saas-sap-netweaver-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-scalexenterprise-tutorial.png)| [ScaleX Enterprise](active-directory-saas-scalexenterprise-tutorial.md)|
-| ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-scc-lifecycle-tutorial.png)| [SCC LifeCycle](active-directory-saas-scc-lifecycle-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-scclifecycle-tutorial.png)| [SCC LifeCycle](active-directory-saas-scclifecycle-tutorial.md)|
+| ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-scc-lifecycle-tutorial.png)| [SCC LifeCycle](active-directory-saas-scc-lifecycle-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-schoox-tutorial.png)| [Schoox](active-directory-saas-schoox-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-sciforma-tutorial.png)| [Sciforma](active-directory-saas-sciforma-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-sciquest-spend-director-tutorial.png)| [SciQuest Spend Director](active-directory-saas-sciquest-spend-director-tutorial.md)|
