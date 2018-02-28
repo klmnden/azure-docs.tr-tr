@@ -1,6 +1,6 @@
 ---
-title: "Azure kurtarma Hizmetleri kasaları ve sunucuları yönetmek | Microsoft Docs"
-description: "Azure kurtarma Hizmetleri kasaları ve sunucuları yönetmek nasıl öğrenmek için bu öğreticiyi kullanın."
+title: "Azure kurtarma Hizmetleri kasa ve sunucularınızı yönetebilirsiniz | Microsoft Docs"
+description: "Azure kurtarma Hizmetleri kasalarının ve sunucuları yönetmek için bu makaleyi kullanın."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 925aa88d32f6f5cea252616cf079faf35857eb8a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
-ms.translationtype: HT
+ms.openlocfilehash: 2e5fd9e7e3cae1665519e4f08604fddf7834fd51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Windows makineleri için Azure kurtarma hizmetleri kasaları ile sunucularını izleme ve yönetme
 
