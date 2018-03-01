@@ -14,22 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: 57f9dae1b353b873fdc0ec5903018d160cfe384f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: db6ad8b83ce34a8b86de822bc074e8a13345a1b4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Windows Geliştirici makinenizde Linux Service Fabric kümesi ayarlayın
 
 Bu belge Windows geliştirme makinelerde yerel bir Linux Service Fabric ayarlamak nasıl ele alınmaktadır. Yerel Linux kümesi ayarlama hızlı bir şekilde Linux kümeleri için hedeflenen uygulamaları test etmek kullanışlıdır ancak bir Windows makinesinde geliştirilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Linux tabanlı Service Fabric kümeleri Windows üzerinde yerel olarak çalıştırmayın. Yerel bir Service Fabric kümesi çalıştırmak için önceden yapılandırılmış bir Docker kapsayıcısı görüntü sağlanır. Başlamadan önce şunlar gereklidir:
 
 * En az 4 GB RAM
 * [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)'ın en son sürümü
-* Service Fabric One-box Docker kapsayıcı [görüntüsüne](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) erişim
 
 >[!TIP]
 > * Resmi Docker içinde belirtilen adımları takip edebilirsiniz [belgelerine](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) Docker, Windows yüklemek için. 
@@ -37,15 +36,15 @@ Linux tabanlı Service Fabric kümeleri Windows üzerinde yerel olarak çalışt
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Yerel bir kapsayıcı oluşturma ve Service Fabric’i ayarlama
-Yerel bir Docker kapsayıcısı ayarlama ayarlamak ve üzerini çalıştıran bir service fabric kümesi sağlamak için aşağıdaki adımları gerçekleştirin:
+Yerel bir Docker kapsayıcısı ayarlamak ve üzerinde bir service fabric kümesi çalıştırmak aşağıdaki adımları uygulayın:
 
 1. Docker merkez deposundan görüntü çekme:
 
     ```powershell
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
-2. Ana bilgisayarınız Docker arka plan programı yapılandırmasını aşağıdaki satırla güncelleştirin ve Docker arka plan programı yeniden başlatın: 
+2. Ana bilgisayarınızda Docker daemon yapılandırmasını aşağıdakiyle güncelleştirin ve Docker daemon programını yeniden başlatın: 
 
     ```json
     {
@@ -58,13 +57,13 @@ Yerel bir Docker kapsayıcısı ayarlama ayarlamak ve üzerini çalıştıran bi
 3. Görüntü ile bir Service Fabric One-box kapsayıcı örneği başlatın:
 
     ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     > * Kapsayıcı örneğinize için bir ad belirterek, örneğinizi daha okunaklı bir biçimde işleyebilirsiniz. 
-    > * Uygulamanızı dinleme belirli bağlantı noktaları, ek -p etiketleri kullanılarak belirtilmelidir. Örneğin, uygulamanızın 8080 bağlantı noktasında dinleme, çalışma docker çalıştırırsanız - itd -p 19080:19080 -p 8080:8080--ad sfonebox servicefabricoss/service-doku-onebox
+    > * Uygulamanız belirli bağlantı noktalarını dinliyorsa, ek -p etiketleri kullanılarak belirtilmelidir. Örneğin, uygulamanızın 8080 bağlantı noktasında dinleme, çalışma docker çalıştırırsanız - itd -p 19080:19080 -p 8080:8080--ad sfonebox microsoft/service-doku-onebox
 
-4. Etkileşimli Docker kapsayıcısında ssh modu oturum açın:
+4. Etkileşimli ssh modunda Docker kapsayıcısı oturumunu açın:
 
     ```powershell
     docker exec -it sfonebox bash
@@ -80,10 +79,10 @@ Yerel bir Docker kapsayıcısı ayarlama ayarlamak ve üzerini çalıştıran bi
 6. 5. adım başarıyla tamamlandıktan sonra gidebilirsiniz ``http://localhost:19080`` , Windows ve, Service Fabric explorer görmeye olacaktır. Bu noktada, Windows Geliştirici makinenizden herhangi bir aracı kullanarak bu kümeye bağlanın ve Linux Service Fabric kümeleri için hedeflenen uygulamayı dağıtın. 
 
     > [!NOTE]
-    > Eclipse eklentisi Windows üzerinde şu anda desteklenmiyor. 
+    > Eclipse eklentisi Windows üzerinde şu anda desteklenmemektedir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanmaya başlama [Eclipse](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse)
+* Kullanmaya başlama [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Diğer denetleyin [Java örnekleri](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 

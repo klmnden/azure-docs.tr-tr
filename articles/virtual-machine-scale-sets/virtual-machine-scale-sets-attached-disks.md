@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52ea7e35b941d5b1e45f39203757e4a3644cc9a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure sanal makine ölçek kümeleri ve bağlı veri diskleri
 Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), bağlı veri diskleri olan sanal makineleri artık desteklemektedir. Veri diskleri, Azure Yönetilen Diskler ile oluşturulmuş olan ölçek kümeleri için depolama profilinde tanımlanabilir. Daha önce, ölçek kümelerindeki sanal makinelere doğrudan bağlı depolama seçeneği olarak yalnızca işletim sistemi sürücüsü ve geçici sürücüler kullanılabiliyordu.
@@ -61,6 +61,59 @@ Bağlı diskleri olan bir ölçek kümesi oluşturmanın başka bir yolu ise bir
 ```
 
 Bağlı diski olan bir ölçek kümesi şablonunun dağıtıma hazır, tam bir örneğini şurada görebilirsiniz: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
+
+## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Eklenen veri diskleri ile bir Service Fabric kümesi oluşturma
+Azure’da çalışan bir [Service Fabric](/azure/service-fabric) kümesindeki her [düğüm türü](../service-fabric/service-fabric-cluster-nodetypes.md), bir sanal makine ölçek kümesi tarafından desteklenir.  Azure Resource Manager şablonunu kullanarak, Service Fabric kümesini oluşturan ölçek kümelerine veri diskleri ekleyebilirsiniz. Başlangıç noktası olarak [mevcut bir şablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates) kullanabilirsiniz. Şablonda, _Microsoft.Compute/virtualMachineScaleSets_ kaynaklarının _storageProfile_ seçeneğine _dataDisks_ bölümü ekleyin ve şablonu dağıtın. Aşağıdaki örnekte 128 GB veri diski kullanıma açılır:
+
+```json
+"dataDisks": [
+    {
+    "diskSizeGB": 128,
+    "lun": 0,
+    "createOption": "Empty"
+    }
+]
+```
+
+Küme dağıtıldığında veri disklerini otomatik olarak bölebilir, biçimlendirebilir ve bağlayabilirsiniz.  Ölçek kümelerinin _virtualMachineProfile_ bölümünün _extensionProfile_ öğesine özel bir betik uzantısı ekleyin.
+
+Bir Windows kümesinde veri disklerini otomatik olarak hazırlamak için şunları ekleyin:
+
+```json
+{
+    "name": "customScript",    
+    "properties": {    
+        "publisher": "Microsoft.Compute",    
+        "type": "CustomScriptExtension",    
+        "typeHandlerVersion": "1.8",    
+        "autoUpgradeMinorVersion": true,    
+        "settings": {    
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
+        ],
+        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
+        }
+    }
+}
+```
+Bir Linux kümesinde veri disklerini otomatik olarak hazırlamak için şunları ekleyin:
+```json
+{
+    "name": "lapextension",
+    "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"
+        ],
+        "commandToExecute": "bash prepare_vm_disks.sh"
+        }
+    }
+}
+```
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Mevcut ölçek kümesine veri diski ekleme
 > [!NOTE]

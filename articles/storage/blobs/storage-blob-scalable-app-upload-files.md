@@ -1,48 +1,45 @@
 ---
-title: "Büyük miktarda rastgele verilerin Azure Storage'a paralel karşıya | Microsoft Docs"
-description: "Büyük miktarda paralel bir Azure depolama hesabı için rastgele verilerin karşıya yüklemek için Azure SDK'sını kullanmayı öğrenin"
+title: "Büyük miktarda rastgele verileri paralel şekilde Azure Depolama’ya yükleme | Microsoft Docs"
+description: "Büyük miktarda rastgele verileri paralel şekilde Azure Depolama hesabına yüklemek için Azure SDK’nın nasıl kullanılacağını öğrenin"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 98f3f69c6025d61caac20e13b573651854952432
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Büyük miktarda Azure depolama paralel rastgele verilerin karşıya yükle
+# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Büyük miktarda rastgele verileri paralel şekilde Azure Depolama’ya yükleme
 
-Bu öğretici iki serinin bir parçasıdır. Bu öğretici bir Azure depolama hesabı büyük miktarda rastgele veri yükleyen bir uygulama dağıttığınız gösterir.
+Bu öğretici, bir dizinin ikinci bölümüdür. Bu öğretici, büyük miktarda rastgele verileri Azure depolama hesabına yükleyen bir uygulamayı nasıl dağıtacağınızı gösterir.
 
-Bölümünde dizisinin iki bilgi nasıl yapılır:
+Serinin ikinci bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Bağlantı dizesini yapılandırma
 > * Uygulama oluşturma
 > * Uygulamayı çalıştırma
-> * Bağlantı sayısını doğrula
+> * Bağlantı sayısını doğrulama
 
-Azure blob depolama, verilerinizi depolamak için ölçeklenebilir bir hizmet sunar. Uygulamanızı nasıl blob depolama works önerilen bir anlamak mümkün olduğunca kullanıcı olarak sağlamaktır. Azure BLOB'ları için sınırları bilgisi önemlidir, öğrenmek için bu sınırları hakkında daha fazla ziyaret edin: [depolama ölçeklenebilirlik hedefleri blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Azure blob depolama, verilerinizi depolamak için ölçeklenebilir bir hizmet sağlar. Uygulamanızın mümkün olduğunca yüksek performanslı olmasını sağlamak için, blob depolamanın nasıl çalıştığının anlaşılması önerilir. Azure bloblarının sınırlarının bilinmesi önemlidir. Bu sınırlar hakkında daha fazla bilgi edinmek için bkz. [blob depolama ölçeklenebilirlik hedefleri](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-[Bölüm adlandırma](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) başka bir önemli BLOB'ları kullanarak yüksek performanslı bir uygulama tasarlarken faktördür. Azure depolama bir aralık tabanlı bölümleme düzeni ölçek ve yük dengelemek için kullanır. Bu yapılandırma dosyaları benzer adlandırma kuralları veya öneki ile aynı bölüme gidin anlamına gelir. Bu mantığı dosyaları karşıya yüklenen kapsayıcının adını içerir. Bu öğreticide, GUID'ler adları için rastgele iyi olarak oluşturulmuş içerik olarak dosyaları kullanın. Bunlar daha sonra rastgele adlarıyla beş farklı kapsayıcılar yüklenir.
+[Bölüm adlandırma](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47), bloblar kullanılarak yüksek performanslı bir uygulama tasarlanırken dikkate alınan bir diğer önemli faktördür. Azure depolama, ölçeklemek ve yük dengelemesi yapmak için aralık temelinde bir bölümleme şeması kullanır. Bu yapılandırma, benzer adlandırma kurallarına veya ön eklere sahip dosyaların aynı bölüme gideceği anlamına gelir. Bu mantık, dosyaların yüklendiği kapsayıcının adını içerir. Bu öğreticide, rastgele oluşturulan içerik ve adlar için GUID’e sahip olan dosyaları kullanırsınız. Bunlar daha sonra rastgele adlarla beş farklı kapsayıcıya yüklenir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için önceki depolama öğretici tamamlamış olmanız gerekir: [bir sanal makine ve ölçeklenebilir bir uygulama için depolama hesabı oluşturma][previous-tutorial].
+Bu öğreticiyi tamamlamak için önceki şu Depolama öğreticisini tamamlamış olmanız gerekir: [Ölçeklenebilir uygulama için sanal makine ve depolama hesabı oluşturma][previous-tutorial].
 
-## <a name="remote-into-your-virtual-machine"></a>Sanal makineniz içine uzaktan
+## <a name="remote-into-your-virtual-machine"></a>Sanal makinenize uzaktan bağlanma
 
-Sanal makineyle bir Uzak Masaüstü oturumu oluşturmak için yerel makinenizde aşağıdaki komutu kullanın. IP adresi, sanal makinenize Publicıpaddress ile değiştirin. İstendiğinde, sanal makine oluştururken kullanılacak kimlik bilgilerini girin.
+Sanal makine ile bir uzak masaüstü oturumu oluşturmak için yerel makinenizde aşağıdaki komutu kullanın. IP adresini, sanal makinenizin publicIPAddress değeriyle değiştirin. İstendiğinde, sanal makineyi oluştururken kullandığınız kimlik bilgilerini girin.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -50,36 +47,36 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>Bağlantı dizesini yapılandırma
 
-Azure Portal'da depolama hesabınıza gidin. Seçin **erişim anahtarları** altında **ayarları** depolama hesabınızdaki. Kopya **bağlantı dizesi** birincil veya ikincil anahtarı. Önceki öğreticide oluşturduğunuz sanal makine oturum açın. Açık bir **komut istemi** bir yönetici ve çalışma olarak `setx` komutunu `/m` anahtarı, bu komut bir makine ayar ortam değişkenine kaydeder. Ortam değişkeni, yeniden kadar kullanılamaz **komut istemi**. Değiştir  **\<storageConnectionString\>**  aşağıdaki örnekteki:
+Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. Önceki öğreticide oluşturduğunuz sanal makinede oturum açın. Bir **Komut İstemini** yönetici olarak açın ve `/m` anahtarıyla `setx` komutunu çalıştırın. Bu komut bir makine ayarı ortam değişkenini kaydeder. Bu ortam değişkeni, **Komut İstemi** yeniden yükleninceye kadar kullanılamaz. Aşağıdaki örnekte **\<storageConnectionString\>**’i değiştirin:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
-Tamamlandığında, başka bir açık **komut istemi**, gitmek `D:\git\storage-dotnet-perf-scale-app` ve türü `dotnet build` uygulamayı yapılandırmak için.
+Tamamlandığında, başka bir **Komut İstemi** açın, `D:\git\storage-dotnet-perf-scale-app` sayfasına gidin ve `dotnet build` yazarak uygulamayı oluşturun.
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Gidin `D:\git\storage-dotnet-perf-scale-app`.
+`D:\git\storage-dotnet-perf-scale-app` sayfasına gidin.
 
-Tür `dotnet run` uygulamayı çalıştırın. İlk çalıştırdığınızda `dotnet` geri yükleme hızını artırmak ve çevrimdışı erişimi etkinleştirmek için yerel paket önbelleğiniz doldurur. Bu komutun tamamlanması için bir dakika sürer ve yalnızca bir kez gerçekleşir.
+Uygulamayı çalıştırmak için `dotnet run` yazın. `dotnet` ilk çalıştırıldığında, geri yükleme hızını artırmak ve çevrimdışı erişimi etkinleştirmek için yerel paket önbelleğinizi doldurur. Bu komutun tamamlanması bir dakika süre ve yalnızca bir kez gerçekleşir.
 
 ```
 dotnet run
 ```
 
-Uygulama beş rastgele adlandırılmış kapsayıcıları oluşturur ve hazırlama dizindeki dosyaların depolama hesabına yükleniyor başlar. Uygulamanın en az iş parçacığı 100'e ayarlar ve [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) çok sayıda eşzamanlı bağlantı ne zaman izin verildiğinden emin olmak için 100'e uygulamayı çalıştırmayı.
+Uygulama, beş adet rastgele adlandırılmış kapsayıcı oluşturur ve hazırlama dizinindeki dosyaları depolama hesabına yüklemeye başlar. Uygulama, çalışması sırasında çok sayıda eş zamanlı bağlantıya izin verilmesini sağlamak için en az iş parçacığı sayısını 100 olarak ve [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) değerini de 100 olarak ayarlar.
 
-İş parçacığı oluşturma ve bağlantı sınırı ayarları ayarı yanı sıra [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) için [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) yöntemi paralellik kullanın ve MD5 karma doğrulama devre dışı bırakmak için yapılandırılır. 100 mb bloklarında karşıya yüklenen dosyaların, bu yapılandırma daha iyi performans sağlar, ancak kötü gerçekleştirme kullanıyorsanız, ağ hatası tüm 100 mb blok ise olarak denenir maliyetli olabilir.
+İş parçacığı sayısı ve bağlantı sınırı ayarlarının belirlenmesine ek olarak, [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) yöntemi için [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) yapılandırılarak paralellik kullanılır ve MD5 karma doğrulaması devre dışı bırakılır. Dosyalar 100 mb’lık bloklar halinde karşıya yüklenir, bu yapılandırma daha iyi performans sağlar ancak düşük performanslı bir ağ kullanıldığında bir hata varmış gibi 100 mb’lık bloğun tamamı yeniden denendiğinden bu maliyetli olabilir.
 
 |Özellik|Değer|Açıklama|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Ayar blob karşıya yüklenirken bloklarda keser. En yüksek performans için bu değer çekirdek sayısı 8 kat olmalıdır. |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| doğru| Bu özellik MD5 karma değeri karşıya içerik denetimi devre dışı bırakır. MD5 doğrulama devre dışı bırakılması daha hızlı bir aktarım üretir. Geçerlilik ya da aktarılan dosyaların bütünlüğünü doğrulamak değil ancak.   |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| yanlış| Bu özellik, bir MD5 karma hesaplanır ve dosyasıyla birlikte saklanır, belirler.   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 2-ikinci geri Çekilme 10 en fazla yeniden deneme ile |Yeniden deneme ilkesi isteklerinin belirler. Bağlantı hataları yeniden deneme işlemi, bu örnekte bir [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) İlkesi 2 saniyelik geri Çekilme ve maksimum yeniden deneme sayısı 10 ile yapılandırılır. Bu ayar, uygulamanızın basarsa yakın aldığında önemlidir [depolama ölçeklenebilirlik hedefleri blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Ayar, karşıya yükleme sırasında blobu bloklar halinde böler. En yüksek performans için bu değer, çekirdek sayısının 8 katı olmalıdır. |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| doğru| Bu özellik, karşıya yüklenen içeriğin MD5 karmasının denetimini devre dışı bırakır. MD5 doğrulaması devre dışı bırakıldığında daha hızlı bir aktarım üretilir. Ancak aktarılan dosyaların geçerliliğini veya bütünlüğünü onaylamaz.   |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| yanlış| Bu özellik, bir MD5 karmasının hesaplanıp dosyayla birlikte depolanıp depolanmayacağını belirler.   |
+| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| En fazla 10 yeniden deneme ile 2 saniyelik geri alma |İsteklerin yeniden deneme ilkesini belirler. Bağlantı hataları yeniden denenir. Bu örnekte 2 saniyelik geri alma ve en fazla 10 yeniden deneme sayısı ile bir [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) ilkesi yapılandırılmaktadır. Uygulamanız, [blob depolama ölçeklenebilirlik hedeflerine](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets) yaklaştığında bu ayar önemlidir.  |
 
-`UploadFilesAsync` Görev, aşağıdaki örnekte gösterilir:
+Aşağıdaki örnekte `UploadFilesAsync` görevi gösterilmektedir:
 
 ```csharp
 private static async Task UploadFilesAsync()
@@ -156,7 +153,7 @@ private static async Task UploadFilesAsync()
 }
 ```
 
-Windows sistemi üzerinde çalışan bir kesilmiş uygulama çıkış örneğidir.
+Aşağıdaki örnek, Windows sisteminde çalışan kesilmiş bir uygulama çıktısı örneğidir.
 
 ```
 Created container https://mystorageaccount.blob.core.windows.net/9efa7ecb-2b24-49ff-8e5b-1d25e5481076
@@ -175,9 +172,9 @@ Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\5129b385-5781-43b
 Upload has been completed in 142.0429536 seconds. Press any key to continue
 ```
 
-### <a name="validate-the-connections"></a>Bağlantıları doğrula
+### <a name="validate-the-connections"></a>Bağlantıları doğrulama
 
-Dosyaları karşıya olsa da, depolama hesabınıza eşzamanlı bağlantı sayısını doğrulayabilirsiniz. Açık bir **komut istemi** ve türü `netstat -a | find /c "blob:https"`. Bu komutu kullanarak şu anda açıldığından bağlantı sayısını gösterir `netstat`. Aşağıdaki örnek öğretici kendiniz çalıştırırken gördüğünüz için benzer bir çıktıya gösterir. Örnekte görebildiğiniz gibi 800 bağlantıları depolama hesabı için rastgele dosyaları karşıya yüklenirken açın. Bu değer, karşıya yükleme çalıştıran boyunca değişir. Paralel blok yığınlar halinde karşıya yükleyerek içeriği aktarmak için gereken süreyi önemli ölçüde azalır.
+Dosyalar karşıya yüklenirken, depolama hesabınıza yönelik eş zamanlı bağlantı sayısını doğrulayabilirsiniz. Bir **Komut İstemi** açın ve `netstat -a | find /c "blob:https"` yazın. Bu komut şu anda `netstat` kullanılarak açılan bağlantı sayısını gösterir. Aşağıdaki örnek, öğreticiyi kendiniz çalıştırırken gördüğünüze benzer bir çıktıyı gösterir. Örnekte görebileceğiniz gibi, rastgele dosyalar depolama hesabına yüklenirken 800 bağlantı açıktı. Karşıya yükleme çalıştırılırken bu değer değişir. Blok yığınlar paralel şekilde karşıya yüklenerek, içerikleri aktarmak için gereken süre büyük ölçüde azalır.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -188,17 +185,17 @@ C:\>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bölümünde seri iki, bir depolama hesabına nasıl gibi paralel büyük miktarlarda rastgele verilerin karşıya öğrenilen:
+Serinin ikinci kısmında, büyük miktarlarda rastgele verileri paralel şekilde bir depolama hesabına yüklemeyle ilgili aşağıda örnekleri verilen işlemleri öğrendiniz:
 
 > [!div class="checklist"]
 > * Bağlantı dizesini yapılandırma
 > * Uygulama oluşturma
 > * Uygulamayı çalıştırma
-> * Bağlantı sayısını doğrula
+> * Bağlantı sayısını doğrulama
 
-Büyük miktarlarda verinin bir depolama hesabından karşıdan yüklemek için seri üç kısmına ilerleyin.
+Bir depolama hesabından büyük miktarlarda verileri indirmek için serinin üçüncü kısmına ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Büyük miktarda depolama hesabı paralel büyük dosyaları karşıya yükleme](storage-blob-scalable-app-download-files.md)
+> [Bir depolama hesabına paralel şekilde büyük miktarlarda dosyaları yükleme](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

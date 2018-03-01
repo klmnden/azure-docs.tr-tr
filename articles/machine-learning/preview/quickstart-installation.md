@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1f25e6daa7378be4463bb0322cd702163dff5c3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Azure Machine Learning Önizleme hesapları oluşturma ve Azure Machine Learning Workbench'i yükleme
 Azure Machine Learning hizmetleri (önizleme) tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm uzman veri bilimcilerin bulut ölçeğinde veri hazırlamasına, deneme geliştirmesine ve model dağıtmasına yardımcı olur.
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="create-azure-machine-learning-accounts"></a>Azure Machine Learning hesapları oluşturma
 Azure Machine Learning hesapları sağlamak için Azure portalını kullanın: 
-1. Portalın sol üst köşesinde bulunan **Yeni** düğmesini (+) seçin.
+1. Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin.
 
 2. Arama çubuğuna **Machine Learning** yazın. **Machine Learning Denemesi (önizleme)** adlı arama sonucunu seçin.  Bu seçimi Azure portalında sık kullanılanlara eklemek için yıldız simgesine tıklayın.
 

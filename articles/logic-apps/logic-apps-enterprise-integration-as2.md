@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: fa61bbecc51c4f3163bd1cc077391bb102662297
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Logic apps ile Kurumsal tümleştirme için Exchange AS2 iletileri
 
@@ -40,23 +40,22 @@ Gereksinim duyduğunuz öğeleri şöyledir:
 
 1.  [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın.  
 
-2.  Sol menüden seçin **tüm hizmetleri**. Arama kutusuna **tümleştirme** filtre olarak. Sonuçlar listesinde **tümleştirme hesapları**.
+2. Azure ana menüde seçin **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.
 
-    > [!TIP]
-    > Görmüyorsanız, **tüm hizmetleri**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **Göster menüsü**.
+   ![Tümleştirme hesabınızı Bul](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-    !["Tümleştirme hesapları" tüm hizmetleri, "tümleştirme" filtresini seçin](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > Görmüyorsanız, **tüm hizmetleri**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **metin etiketlerini göster**.
 
-3. İçinde **tümleştirme hesapları** açar, dikey penceresinde, anlaşmayı oluşturmak istediğiniz tümleştirme hesabını seçin.
-Herhangi bir tümleştirme hesabı görmüyorsanız, [oluşturmak ilk](../logic-apps/logic-apps-enterprise-integration-accounts.md "tümleştirme hesapları hakkında").  
+3. Altında **tümleştirme hesapları**, anlaşmayı oluşturmak istediğiniz tümleştirme hesabı seçin.
 
-    ![Tümleştirme hesabı anlaşmayı oluşturulacağı konumu seçin](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Tümleştirme hesabı anlaşmayı oluşturulacağı konumu seçin](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Seçin **anlaşmaları** döşeme. Anlaşmaları döşeme yoksa, ilk kutucuğu ekleyin.
 
     !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. Açılır anlaşmaları dikey penceresinde, seçin **Ekle**.
+5. Altında **anlaşmaları**, seçin **Ekle**.
 
     !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -166,13 +165,13 @@ Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek haz
 
 ## <a name="find-your-created-agreement"></a>Oluşturulan sözleşmenizi Bul
 
-1.  Üzerinde anlaşma özelliklerinizi ayarlama işlemini tamamladıktan sonra **Ekle** dikey penceresinde, seçin **Tamam** sözleşmenizi oluşturmayı tamamlamak ve tümleştirme hesabı dikey penceresine geri dönün.
+1. Üzerinde anlaşma özelliklerinizi ayarlama işlemini tamamladıktan sonra **Ekle** sayfasında, **Tamam** sözleşmenizi oluşturmayı tamamlamak ve tümleştirme hesabınıza dönmek için.
 
     Yeni eklenen sözleşmenizi artık görünür, **anlaşmaları** listesi.
 
-2.  Ayrıca, tümleştirme hesabına genel bakış sözleşmelerinizi görüntüleyebilirsiniz. Tümleştirme hesabı dikey penceresinde, seçin **genel bakış**seçeneğini belirleyip **anlaşmaları** döşeme. 
+2. Ayrıca, tümleştirme hesabına genel bakış sözleşmelerinizi görüntüleyebilirsiniz. Tümleştirme hesap menünüzde seçin **genel bakış**seçeneğini belirleyip **anlaşmaları** döşeme. 
 
-    ![Tüm anlaşmalar görüntülemek için "Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![Tüm anlaşmalar görüntülemek için "Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Swagger görüntüleyin
 Bkz: [ayrıntıları swagger](/connectors/as2/). 

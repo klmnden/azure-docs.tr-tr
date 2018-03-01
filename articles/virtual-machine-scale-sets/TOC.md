@@ -1,3 +1,5 @@
+# [Sanal Makine Ölçek Kümeleri Belgeleri](index.md)
+
 # Genel Bakış
 ## [Sanal makine ölçek kümeleri nedir?](virtual-machine-scale-sets-overview.md)
 

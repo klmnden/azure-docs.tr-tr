@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5160913b2f08a04f0a985d8ddadd6641a664b258
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Logic apps ile şirket içi veri ağ geçidi şirket içi veri kaynaklarına bağlayın
 
@@ -75,7 +75,7 @@ Yerel bir bilgisayarda ağ geçidi'ni yükledikten sonra bir kaynak olarak Azure
 
 1. [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın. Ağ geçidi yüklemek için kullanılan e-posta adresi okul veya aynı Azure iş emin olun.
 
-2. Ana Azure menüsünde, **kaynak oluşturma** > **Kurumsal tümleştirme** > **şirket içi veri ağ geçidi**:
+2. Ana Azure menüsünde, **kaynak oluşturma** > **Kurumsal tümleştirme** > **şirket içi veri ağ geçidi**.
 
    !["Şirket içi veri ağ geçidi" Bul](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -107,9 +107,10 @@ Yerel bir bilgisayarda ağ geçidi'ni yükledikten sonra bir kaynak olarak Azure
 
     ![Şirket içi veri ağ geçidi oluşturmak için ayrıntıları belirtin](./media/logic-apps-gateway-connection/createblade.png)
 
-    Bulma veya ana Azure menüsünden herhangi bir zamanda data gateway görüntülemek için Git **daha Hizmetleri** > **Kurumsal tümleştirme** > **şirket içi veri ağ geçidi** .
+    Bulma veya ana Azure menüsünden herhangi bir zamanda data gateway görüntülemek için seçin **tüm hizmetleri**. 
+    Arama kutusuna "veri ağ geçidi şirket içi" girin ve ardından **şirket içi veri ağ geçidi**.
 
-    !["Daha fazla Hizmetleri", "Kurumsal tümleştirme", "şirket içi veri ağ geçidi" sayfasına gidin](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    !["Şirket içi veri ağ geçidi" Bul](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
 

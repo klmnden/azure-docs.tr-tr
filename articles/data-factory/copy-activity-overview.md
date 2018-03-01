@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: faad821d406ac155516696c1207c8c9deef8fdab
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory kopyalama etkinliği
 
@@ -152,11 +152,11 @@ Kopya etkinliği Azure Data Factory "Yazar & İzleyicisi" UI veya program aracı
 
 Görsel olarak çalıştır Kopyala etkinliğini izlemek için veri fabrikası -> **Yazar & İzleyici** -> **İzleyici sekmesi**, ardışık düzen listesini çalışır bir"Görünümüetkinlikçalışır"bağlantısınabakın **Eylemler** sütun. 
 
-![İşlem hattını izleme çalıştırır](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+![İşlem hattı çalıştırmalarını izleme](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
 Bu ardışık düzen çalıştırmada etkinliklerin listesini görmek için tıklatın. İçinde **Eylemler** sütun bağlantılarını kopyalama etkinliği giriş, çıkış, (kopyalama etkinliği çalıştırmak başarısız olursa) hataları ve ayrıntılar bulunur.
 
-![Monitör etkinliği çalıştırır](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+![Etkinlik çalıştırmalarını izleme](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
 Tıklayın "**ayrıntıları**" altında bağlantı **Eylemler** kopyalama etkinliği'nin yürütme ayrıntıları ve performans özelliklerini görmek için. Dahil olmak üzere birim/satır/dosyaları veri kopyalanan kaynak havuzu, işleme, ile ilgili süre geçtiği ve yapılandırmaları kopyalama senaryonuz için kullanılan adımları bilgiler gösterir.
 

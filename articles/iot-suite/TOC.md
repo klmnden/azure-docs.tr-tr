@@ -1,3 +1,5 @@
+# [IoT Paketi Belgeleri](index.md)
+
 # Genel Bakış
 ## [IoT mimarisi kavramları](iot-suite-what-is-azure-iot.md)
 ## [Azure IoT seçeneklerini karşılaştırma](iot-suite-options.md)

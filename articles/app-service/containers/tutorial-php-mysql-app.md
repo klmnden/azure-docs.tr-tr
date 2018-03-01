@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te bir PHP ve MySQL web uygulaması derleme
 
@@ -85,7 +85,7 @@ quit
 ## <a name="create-a-php-app-locally"></a>Yerel olarak PHP uygulaması oluşturma
 Bu adımda bir Laravel örnek uygulaması edinir, veritabanı bağlantısını yapılandırır ve yerel olarak çalıştırırsınız. 
 
-### <a name="clone-the-sample"></a>Örneği
+### <a name="clone-the-sample"></a>Örneği kopyalama
 
 Terminal penceresinde, `cd` ile bir çalışma dizinine gidin.
 
@@ -95,7 +95,7 @@ Terminal penceresinde, `cd` ile bir çalışma dizinine gidin.
 git clone https://github.com/Azure-Samples/laravel-tasks
 ```
 
-`cd` kopyalanmış dizininize kopyalayın.
+`cd` komutuyla kopyalanmış dizininize geçin.
 Gereken paketleri yükleyin.
 
 ```bash
@@ -320,7 +320,7 @@ Bu adımda, MySQL’e bağlı PHP uygulamasını Azure App Service'e dağıtırs
 Laravel uygulaması _/public_ dizininde başlar. App Service için varsayılan PHP Docker görüntüsü, Apache kullanır ve Laravel için `DocumentRoot` öğesini özelleştirmenize izin vermez. Bununla birlikte, `.htaccess` kullanarak tüm istekleri kök dizin yerine _/public_ dizinini işaret edecek şekilde yeniden yazabilirsiniz. Depo köküne bu amaçla bir `.htaccess` zaten eklenmiştir. Bununla, Laravel uygulamanız dağıtılmaya hazırdır.
 
 > [!NOTE] 
-> _.htaccess_ yeniden yazma işlemini kullanmazsanız, Laravel uygulamanızı bunun yerine bir [özel Docker görüntüsü](quickstart-custom-docker-image.md) ile dağıtabilirsiniz.
+> _.htaccess_ yeniden yazma işlemini kullanmazsanız, Laravel uygulamanızı bunun yerine bir [özel Docker görüntüsü](quickstart-docker-go.md) ile dağıtabilirsiniz.
 >
 >
 

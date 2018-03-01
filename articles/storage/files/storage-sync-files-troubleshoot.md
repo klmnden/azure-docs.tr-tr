@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -145,15 +145,14 @@ Bir sunucuda eşitleme başarısız olursa:
 <a id="replica-not-ready"></a>**Eşitleme başarısız olursa bu hata: "0x80c8300f - çoğaltma gerekli işlemi gerçekleştirmek hazır değil"**  
 Bu sorun, veri içeren bir bulut uç noktası oluşturun ve bir Azure dosya paylaşımı kullanırsanız beklenir. (24 saate kadar sürebilir) Azure dosya paylaşımında çalıştıran değişiklik algılama işi sona erdiğinde, eşitleme düzgün çalışmasını başlamanız gerekir.
 
-<a id="broken-sync-files"></a>**Eşitlemesi başarısız tek tek dosya sorunlarını giderme**  
-Tek tek dosyaların eşitlemesi başarısız oluyorsa:
-1. Olay Görüntüleyicisi'nde çalıştığını ve tanılama olay uygulamalar ve Services\Microsoft\FileSync\Agent altında bulunan günlüklerini gözden geçirin.
-2. Dosya tanımlayıcıları hiçbir açık olduğunu doğrulayın.
 
     > [!NOTE]
-    > Azure dosya eşitleme, VSS anlık görüntüleri tanımlayıcıları açık dosyaları eşitlemek için düzenli aralıklarla alır.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 Şu anda başka bir abonelik veya taşıma için kaynak taşıma desteklemiyoruz için farklı bir Azure AD Kiracı.  Abonelik için farklı bir kiracı geçerse, Azure dosya paylaşımı için sahiplik değişikliği göre hizmetimizi erişilemez duruma gelir. Kiracı değiştirdiyseniz, sunucu uç noktaları ve bulut uç noktası silmeniz gerekir (bkz: eşitleme Grup Yönetimi yeniden kullanılacak Azure dosya paylaşımı temizlemek nasıl yönergeler için bölüm) ve eşitleme grubunu yeniden oluşturun.
+
+<a id="doesnt-have-enough-free-space"></a>**Bu bilgisayarda yeterli boş alan hatası yok**  
+Portal "Bu bilgisayarda yeterli boş alana sahip değil" durumu görünüyorsa sorunu 1 GB boş alan daha az birim üzerinde kalır olabilir.  1,5 GB birim varsa, örneğin, eşitleme yalnızca bu sorunu isabet durumunda .5GB kullanmaya açabilirler Lütfen sunucusu uç noktası için kullanılan birimin boyutunu genişletin.
 
 ## <a name="cloud-tiering"></a>Bulut katmanlaması 
 Bulutta hataları için iki yol katmanlama:

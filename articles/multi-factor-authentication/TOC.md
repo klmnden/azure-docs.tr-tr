@@ -1,3 +1,5 @@
+# [Multi-Factor Authentication Belgeleri](index.md)
+
 # Genel Bakış
 ## [Azure Multi-Factor Authentication nedir?](multi-factor-authentication.md)
 ## [Nasıl çalışır?](multi-factor-authentication-how-it-works.md)
@@ -10,7 +12,7 @@
 ## [O365 kullanıcıları için MFA](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [En iyi güvenlik uygulamaları](multi-factor-authentication-security-best-practices.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Dağıtma ve kullanma
 ### [Ayarları yapılandırma](multi-factor-authentication-whats-next.md)
 ### [MFA’da raporlar](multi-factor-authentication-manage-reports.md)

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b8577a02f0c9396b64af986950fddaa1e00925ec
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 247f86dafe35d69dd742583d246862b739d9fe90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-use-availability-sets"></a>Kullanılabilirlik kümelerini kullanma
 
@@ -119,7 +119,7 @@ Get-AzureRmVMSize `
 
 Ayrıca VM’lerinizin kullanılabilirliğini geliştirmeye yönelik yollar hakkında daha fazla bilgi edinmek için Azure Danışmanı’nı kullanabilirsiniz. Azure Danışmanı, Azure dağıtımlarınızı iyileştirecek en iyi uygulamaları izlemenize yardımcı olur. Danışman, kaynak yapılandırmanızı ve kullanım telemetrinizi analiz ederek Azure kaynaklarınızın maliyet verimliliğini, performansını, yüksek kullanılabilirliğini ve güvenliğini geliştirmenize yardımcı olabilecek çözümler önerir.
 
-[Azure portal](https://portal.azure.com)’ında oturum açın, **Diğer hizmetler**’i seçin ve **Danışman** yazın. Danışman panosu, seçili abonelik için kişiselleştirilmiş önerileri görüntüler. Daha fazla bilgi için bkz. [Azure Danışmanı’nı kullanmaya başlayın](../../advisor/advisor-get-started.md).
+[Azure portal](https://portal.azure.com)’ında oturum açın, **Tüm hizmetler**’i seçin ve **Danışman** yazın. Danışman panosu, seçili abonelik için kişiselleştirilmiş önerileri görüntüler. Daha fazla bilgi için bkz. [Azure Danışmanı’nı kullanmaya başlayın](../../advisor/advisor-get-started.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>Dağıtma
 
@@ -27,8 +27,8 @@ Bu derste, Azure Analysis Services sunucusunun model için bir ad belirtmesini s
   
 Bu dersin tahmini tamamlanma süresi: **5 dakika**  
   
-## <a name="prerequisites"></a>Önkoşullar  
-Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [12. Ders: Excel’de çözümleme](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+## <a name="prerequisites"></a>Ön koşullar  
+Bu makale, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [12. Ders: Excel’de çözümleme](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > Uzak Analysis Services sunucusunu dağıtmak için sunucu üzerinde [Yönetici izinlerine](../analysis-services-server-admins.md) sahip olmanız gerekir.  
@@ -67,6 +67,9 @@ Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğr
   
 3. Dağıtım başarıyla tamamlandığında devam edin ve **Kapat**’a tıklayın.  
   
+
+Bu ders, SSDT’den bir tablosal model dağıtmanın en yaygın ve en kolay yöntemini açıklar. Dağıtım Sihirbazı ya da XMLA ve ÇYN ile otomatikleştirme gibi gelişmiş dağıtım seçenekleri daha iyi esneklik, tutarlılık ve zamanlanmış dağıtım sağlar. Daha fazla bilgi edinmek için bkz. [Tablosal model çözümü dağıtımı](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## <a name="conclusion"></a>Sonuç  
 Tebrikler! İlk Analysis Services Tablo modelinizi yazma ve dağıtma işlemini tamamladınız. Bu öğretici, bir tablo modeli oluştururken en yaygın görevleri tamamlamanıza yardımcı olmuştur. Adventure Works İnternet Satışları modeliniz artık dağıtıldığına göre SQL Server Management Studio’yu kullanarak modeli yönetebilir, işlem betikleri ve bir yedek plan oluşturabilirsiniz. Kullanıcılar artık ayrıca Microsoft Excel veya Power BI gibi bir raporlama istemci uygulaması kullanarak modele bağlanabilir.  
 

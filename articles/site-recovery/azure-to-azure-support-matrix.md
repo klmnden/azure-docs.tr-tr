@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 73b8a28fa2f2b432f12a230be9326b6696d3908a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure'dan Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -39,7 +39,7 @@ Bu makalede, Azure Site Recovery çoğaltma ve Azure sanal makineleri başka bir
 
 **Kaynak taşıma türü** | **Desteklenen / desteklenmeyen** | **Açıklamalar**  
 --- | --- | ---
-Kasa kaynak grupları arasında taşıma | Desteklenmiyor |Kurtarma Hizmetleri kasası kaynak gruplarında taşınamıyor.
+**Kasa kaynak grupları arasında taşıma** | Desteklenmiyor |Kurtarma Hizmetleri kasası kaynak gruplarında taşınamıyor.
 **İşlem, depolama ve ağ kaynak grupları arasında taşıma** | Desteklenmiyor |Çoğaltma etkinleştirdikten sonra bir sanal makine (veya ilişkili bileşenlerini depolama ve ağ gibi) taşırsanız çoğaltmasını devre dışı bırakın ve sanal makine için çoğaltma işlemini yeniden etkinleştirmeniz gerekir.
 
 
@@ -93,7 +93,7 @@ Destek sözü edilen işletim sisteminde çalışan herhangi bir iş yükü içi
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure sanal makineler için desteklenen Ubuntu çekirdek sürümleri
 
-Sürüm | **Mobility hizmeti sürümü** | Çekirdek sürümü |
+**Sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic 3.13.0-121-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-81-generic 4.4.0-21-Generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic 3.13.0-125-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-83-generic 4.4.0-21-Generic |
@@ -153,8 +153,8 @@ Geçici disk | Her zaman Çoğaltmada hariç | Geçici disk her zaman çoğaltma
 Disk üzerinde veri değişiklik oranı | En fazla 10 MB/sn Premium depolama için disk başına ve standart depolama için disk başına 2 MB/sn | Ortalama veri değişikliği hızını diskteki 10 MB/sn (için Premium) ile 2 MB/sn (için standart) sürekli olarak ise, çoğaltma yakalar değildir. Ancak, bazen veri veri bloğu ise ve veri değişikliği hızını 10 MB/sn (için Premium) ve 2 için MB/sn (standart) belirli bir süre için değerinden daha büyük ve gelir, çoğaltma Yakala. Bu durumda, biraz Gecikmeli kurtarma noktalarını görebilirsiniz.
 Standart depolama hesapları disklerde | Desteklenen |
 Premium depolama hesapları disklerde | Desteklenen | Bir VM premium ve standart depolama hesapları üzerinden yayılan diskler varsa, hedef bölgede aynı depolama yapılandırmasına sahip olmak her disk için farklı bir hedef depolama hesabı seçin
-Standart yönetilen disk | Desteklenmiyor |  
-Premium yönetilen diskleri | Desteklenmiyor |
+Standart yönetilen disk | Azure Site Recovery desteklendiği Azure bölgelerinde desteklenir. Kamu Bulutlar şu anda desteklenmemektedir.  |  
+Premium yönetilen diskleri | Azure Site Recovery desteklendiği Azure bölgelerinde desteklenir. Kamu Bulutlar şu anda desteklenmemektedir. |
 Depolama alanları | Desteklenen |         
 Bekleyen (SSE) şifreleme | Desteklenen | Önbellek ve hedef depolama hesapları için etkin SSE depolama hesabı seçebilirsiniz.     
 Azure Disk şifrelemesi (ADE) | Desteklenmiyor |

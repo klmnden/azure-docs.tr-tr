@@ -1,84 +1,86 @@
 ---
-title: "Azure kapsayıcı örnekleri Öğreticisi - app dağıtma"
-description: "Azure kapsayıcı örnekleri Öğreticisi bölüm 3 / 3 - uygulamayı dağıtmak"
+title: "Azure Container Instances öğreticisi - Uygulamayı dağıtma"
+description: "Azure Container Instances öğreticisi bölüm 3/3 - Uygulamayı dağıtma"
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="deploy-a-container-to-azure-container-instances"></a>Azure kapsayıcı örnekleri bir kapsayıcı dağıtma
+# <a name="deploy-a-container-to-azure-container-instances"></a>Azure Container Instances‘a kapsayıcı dağıtma
 
-Son üç bölümlük öğreticide budur. Serideki önceki [bir kapsayıcı görüntüsü oluşturuldu](container-instances-tutorial-prepare-app.md) ve [bir Azure kapsayıcı kayıt defterine gönderilen](container-instances-tutorial-prepare-acr.md). Bu makalede, Azure kapsayıcı örnekleri kapsayıcı dağıtarak öğretici serisi tamamlar.
+Bu, üç kısımdan oluşan serinin son öğreticisidir. Serinin önceki kısımlarında [bir kapsayıcı görüntüsü oluşturuldu](container-instances-tutorial-prepare-app.md) ve [Azure Container Registry’ye gönderildi](container-instances-tutorial-prepare-acr.md). Bu makalede, kapsayıcı Azure Container Instances’a dağıtılarak öğretici serisi tamamlanır.
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Azure CLI kullanarak Azure kapsayıcı kayıt defterinden kapsayıcı dağıtma
+> * Azure CLI’yi kullanarak Azure Container Registry’den kapsayıcıyı dağıtma
 > * Uygulamayı tarayıcıda görüntüleme
-> * Kapsayıcı günlükleri görüntüle
+> * Kapsayıcı günlüklerini görüntüleme
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu öğretici, Azure CLI Sürüm 2.0.23 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Gerekirse yükleyin veya yükseltin, bakın [Azure CLI 2.0 yükleme][azure-cli-install].
+Bu öğretici için Azure CLI 2.0.23 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme][azure-cli-install].
 
-Bu öğreticiyi tamamlamak için yerel olarak yüklenmiş bir Docker geliştirme ortamı gerekir. Docker sağlar kolayca Docker herhangi yapılandırdığınız paketler [Mac][docker-mac], [Windows][docker-windows], veya [Linux] [ docker-linux] sistem.
+Bu öğreticiyi tamamlamak için yerel olarak yüklü bir Docker geliştirme ortamı gerekir. Docker [Mac][docker-mac], [Windows][docker-windows] veya [Linux][docker-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
-Azure bulut Kabuk her adımı tamamlamak için gereken Docker bileşenleri Bu öğretici içermez. Bu öğreticiyi tamamlamak için yerel bilgisayarınızda Azure CLI ve Docker geliştirme ortamı yüklemeniz gerekir.
+Azure Cloud Shell, bu öğreticideki her adımı tamamlamak için gerekli olan Docker bileşenlerini içermez. Bu öğreticiyi tamamlamak için, yerel bilgisayarınıza Azure CLI ve Docker geliştirme ortamını yüklemeniz gerekir.
 
-## <a name="deploy-the-container-using-the-azure-cli"></a>Azure CLI kullanarak kapsayıcı dağıtma
+## <a name="deploy-the-container-using-the-azure-cli"></a>Azure CLI’yi kullanarak kapsayıcıyı dağıtma
 
-Azure CLI Azure kapsayıcı örnekleri için bir kapsayıcı tek bir komut içinde dağıtımını sağlar. Kapsayıcı görüntü özel Azure kapsayıcı kayıt defterinde barındırılan beri erişmek için gerekli kimlik bilgilerini eklemeniz gerekir. Aşağıdaki Azure CLI komutları kimlik bilgilerini edinin.
+Azure CLI, tek bir komutta bir kapsayıcının Azure Container Instances’a dağıtımını sağlar. Kapsayıcı görüntüsü özel Azure Container Registry’de barındırıldığından, ona erişmek için gerekli kimlik bilgilerini dahil etmeniz gerekir. Aşağıdaki Azure CLI komutlarıyla kimlik bilgilerini edinin.
 
-Kapsayıcı kayıt defteri oturum açma sunucusu (kayıt defteri adınızı güncelleştirmesiyle):
+Kapsayıcı kayıt defteri oturum açma sunucusu (kayıt defteri adınızla güncelleştirin):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Kapsayıcı kayıt defteri parola:
+Kapsayıcı kayıt defteri parolası:
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Kapsayıcı görüntünüzü 1 CPU çekirdek kaynak isteği ve 1 GB bellek ile kapsayıcı kayıt defterinden dağıtmak için aşağıdaki komutu çalıştırın. Değiştir `<acrLoginServer>` ve `<acrPassword>` önceki iki komutlarından elde edilen değerleri ile.
+1 CPU çekirdeği ve 1 GB bellek için kaynak isteğiyle kapsayıcı kayıt defterinden kapsayıcı görüntünüzü dağıtmak için aşağıdaki komutu çalıştırın. `<acrLoginServer>` ve `<acrPassword>` değerlerini, önceki iki komuttan aldığınız değerlerle değiştirin. `<acrName>` komutunu, kapsayıcı kayıt defterinizin adıyla değiştirin.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Birkaç saniye içinde Azure Kaynak Yöneticisi'nden bir ilk yanıt almanız gerekir. Dağıtım durumunu görüntülemek için kullanın [az kapsayıcı Göster][az-container-show]:
+Birkaç saniye içinde Azure Resource Manager’dan bir ilk yanıt almanız gerekir. `--dns-name-label` değeri, kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Komutu yürütürken bir **DNS ad etiketi** hata iletisi alırsanız önceki örnekte yer alan değeri güncelleştirin.
+
+Dağıtımın durumunu görüntülemek için [az container show][az-container-show] komutunu kullanın:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Yineleme [az kapsayıcı Göster] [ az-container-show] durumu değişiklikleri kadar komut *bekleyen* için *çalıştıran*, altında bir dakika almalıdır. Kapsayıcı olduğunda *çalıştıran*, sonraki adıma geçebilirsiniz.
+*Beklemede* olan durum *Çalışıyor* olarak değişinceye kadar [az container show][az-container-show] komutunu yineleyin; bu bir dakikadan kısa sürecektir. Kapsayıcı *Çalışıyor* durumunda olduğunda sonraki adıma ilerleyin.
 
-## <a name="view-the-application-and-container-logs"></a>Uygulama ve kapsayıcı günlükleri görüntüleme
+## <a name="view-the-application-and-container-logs"></a>Uygulama ve kapsayıcı günlüklerini görüntüleme
 
-Dağıtım başarılı olduktan sonra kapsayıcının ortak IP adresiyle görüntülemek [az kapsayıcı Göster] [ az-container-show] komutu:
+Dağıtım başarılı olduktan sonra, [az container show][az-container-show] komutuyla kapsayıcının tam etki alanı adını görüntüleyin:
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Örnek çıktı:`"13.88.176.27"`
+Örnek çıktı: `"aci-demo.eastus.azurecontainer.io"`
 
-Çalışan uygulama görmek için en sevdiğiniz tarayıcınızda ortak IP adresine gidin.
+Çalışan uygulamayı görmek için, sık kullandığınız tarayıcıda görüntülenen DNS adına gidin:
 
-![Hello world uygulamayı tarayıcıda][aci-app-browser]
+![Tarayıcıdaki Merhaba Dünya uygulaması][aci-app-browser]
 
-Ayrıca, kapsayıcı günlük çıktısı görüntüleyebilirsiniz:
+Kapsayıcının günlük çıktısını da görüntüleyebilirsiniz:
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name aci-tutorial-app
@@ -94,7 +96,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğretici serisinde oluşturduğunuz kaynaklardan herhangi birini artık ihtiyacınız varsa, yürütebilir [az grubu Sil] [ az-group-delete] kaynak grubu ve içerdiği tüm kaynaklar kaldırmak için komutu. Bu komut, oluşturduğunuz kapsayıcı kayıt defteri yanı sıra çalışan kapsayıcısı ve tüm ilişkili kaynakları siler.
+Artık bu öğretici serisinde oluşturduğunuz kaynakların herhangi birine ihtiyacınız yoksa, kaynak grubunu ve içerdiği tüm kaynakları kaldırmak için [az group delete][az-group-delete] komutunu yürütebilirsiniz. Bu komut, oluşturduğunuz kapsayıcı kayıt defterinin yanı sıra çalışan kapsayıcıyı ve tüm ilişkili kaynakları siler.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -102,12 +104,12 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure kapsayıcı örnekleri, kapsayıcıları dağıtma işlemi tamamlandı. Aşağıdaki adımlar tamamlandı:
+Bu öğreticide, Azure Container Instances’a kapsayıcıları dağıtma işlemini tamamladınız. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
-> * Azure CLI kullanarak Azure kapsayıcı kayıt defterinden kapsayıcı dağıtılan
-> * Uygulamayı tarayıcıda görüntülenen
-> * Kapsayıcı günlükleri görüntülenebilir
+> * Azure CLI kullanılarak Azure Container Registry’den kapsayıcı dağıtıldı
+> * Tarayıcıda uygulama görüntülendi
+> * Kapsayıcı günlükleri görüntülendi
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

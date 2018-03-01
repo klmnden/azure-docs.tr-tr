@@ -1,10 +1,10 @@
 ---
-title: "Azure Portal’da SQL Server Windows Sanal Makinesi Oluşturma | Microsoft Docs"
+title: "Portalda SQL Server Windows Sanal Makinesi oluşturma | Microsoft Docs"
 description: "Bu öğreticide Azure portalında Windows SQL Server 2017 sanal makinesi oluşturma adımları gösterilmiştir."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 2bf2382094f88c8c57077df10473b5f3a2e4c127
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e6ae3937a9805dfec8784efaf8370117754a03ad
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Azure Portal’da SQL Server 2017 Windows sanal makinesi oluşturma
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında SQL Server 2017 Windows sanal makinesi oluşturma
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -27,13 +27,16 @@ ms.lasthandoff: 12/12/2017
 
 Bu hızlı başlangıç, Azure Portal’da SQL Server sanal makinesi oluşturma adımlarında yol gösterir.
 
+> [!TIP]
+> Bu hızlı başlangıç, hızlı bir şekilde bir SQL VM sağlama ve VM’ye bağlanma yolu sağlar. Diğer SQL VM sağlama seçimleri hakkında daha fazla bilgi için bkz. [Azure portalında Windows SQL Server VM'leri için sağlama kılavuzu](virtual-machines-windows-portal-sql-server-provision.md).
+
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a id="select"></a> SQL Server VM görüntüsü seçme
 
 1. Hesabınızı kullanarak [Azure portal](https://portal.azure.com)da oturum açın.
 
-1. Azure portalda **Yeni**’ye tıklayın. Portalda **Yeni** penceresi açılır.
+1. Azure portalında **Kaynak oluştur**’a tıklayın. 
 
 1. Arama alanına **Windows Server 2016 üzerinde SQL Server 2017 Developer** yazın ve ENTER tuşuna basın.
 
@@ -44,7 +47,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
    > [!TIP]
    > Geliştirme testi amacıyla kullanım için ücretsiz olan tam özellikli SQL Server sürümü olduğundan bu öğreticide Developer sürümü kullanılmıştır. Yalnızca çalışan VM'ler için ücret ödersiniz. Fiyatlandırma konusunda dikkate alınacak tüm noktalar için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
 ## <a id="configure"></a> Temel ayrıntıları sağlama
 
@@ -142,4 +145,4 @@ SQL VM’nizin sürekli çalıştırılması gerekmiyorsa, kullanımda olmadığ
 Bu hızlı başlangıçta, Azure Portal’da bir SQL Server 2017 sanal makinesi oluşturdunuz. Verilerinizi yeni SQL Server’a geçirme hakkında daha fazla bilgi edinmek için, aşağıdaki makaleye bakın.
 
 > [!div class="nextstepaction"]
-> [Veritabanını SQL VM’ye geçirme](virtual-machines-windows-migrate-sql.md)
+> [Veritabanını SQL VM'ye geçirme](virtual-machines-windows-migrate-sql.md)

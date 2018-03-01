@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 365101fc6267a5a295462d7a9902e5fd25964086
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: fe27577b73c26731647a217c249913d8332c0c59
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/23/2018
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* Sabit aralıklı SessionConsistency yarış durumu.
+* Aralıklı olarak sonuçları için belirli yarış koşullarda isabet sabit hata "Microsoft.Azure.Documents.NotFoundException: Okuma oturum giriş Oturum belirteci için kullanılabilir değil" oturum tutarlılığı düzeyini kullanırken hataları.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 

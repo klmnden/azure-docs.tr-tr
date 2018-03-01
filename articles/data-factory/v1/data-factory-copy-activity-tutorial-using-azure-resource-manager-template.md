@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898d3a6fe7b3fa5be6f70eb2e0e7f3a48f82adef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Öğretici: Verileri kopyalamak üzere bir Data Factory işlem hattı oluşturmak için Azure Resource Manager şablonunu kullanma 
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFCopyTutori
 ## <a name="monitor-pipeline"></a>İşlem hattını izleme
 
 1. Azure hesabınızı kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
-2. Sol menüdeki **Veri fabrikaları**’na tıklayın (veya) **INTELLIGENCE + ANALYTICS** kategorisi altındaki **Diğer hizmetler** ve **Veri fabrikaları** öğelerine tıklayın.
+2. Sol menüdeki **Veri fabrikaları**’na tıklayın (veya) **INTELLIGENCE + ANALYTICS** kategorisi altındaki **Tüm hizmetler** ve **Veri fabrikaları** öğelerine tıklayın.
    
     ![Veri fabrikaları menüsü](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. **Veri fabrikaları** sayfasında veri fabrikanızı (AzureBlobToAzureSQLDatabaseDF) bulun. 

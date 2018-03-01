@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Sanal Ağ Hizmet Uç Noktalarını Yapılandırma
 
@@ -62,8 +62,8 @@ Hizmet uç noktaları [Azure portalı](#azure-portal), [Azure PowerShell](#azure
 
 1. [Azure portalını](https://portal.azure.com/) açın.
 Azure hesabınızı kullanarak Azure'da oturum açın. Azure hesabınız yoksa ücretsiz denemeye kaydolabilirsiniz. Hesap, sanal ağ ve hizmet uç noktası oluşturma [izinlerine](#provisioning) sahip olmalıdır.
-2. +Yeni > Ağ > Sanal ağ > +Ekle'ye tıklayın.
-3. "Sanal ağ oluştur" sayfasına aşağıdaki değerleri girin ve Oluştur'a tıklayın:
+2. **Kaynak oluştur** > **Ağ** > **Sanal ağ** > **+Ekle** seçeneğine tıklayın.
+3. "Sanal ağ oluştur" sayfasına aşağıdaki değerleri girin ve **Oluştur**'a tıklayın:
 
 Ayar | Değer
 ------- | -----

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Market öğesi Azure'dan Azure yığınına indirin.
 
@@ -109,7 +109,7 @@ Internet bağlantısı olan makineden gerekli Market öğeleri karşıdan yükle
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Görüntü alma ve Azure yığın marketinde yayımlama
 
-1. Görüntü ve galeri paketi indirdikten sonra bunları ve içeriği çıkarılabilir disk sürücüsüne AzureStack araçları ana klasörüne kaydedin ve Azure yığın ortamına kopyalayın (Bu yerel olarak herhangi bir yere gibi kopyalayabilirsiniz: "C:\MarketplaceImages").   
+1. Görüntü ve galeri paketi indirdikten sonra bunları ve içeriği çıkarılabilir disk sürücüsüne AzureStack araçları ana klasörüne kaydedin ve Azure yığın ortamına kopyalayın (Bu yerel olarak herhangi bir yere gibi kopyalayabilirsiniz: "C:\MarketplaceImages").     
 
 2. Görüntü almadan önce Azure yığın işlecin ortamına açıklanan adımları kullanarak bağlamanız gerekir [Azure yığın işlecin PowerShell ortamını yapılandırma](azure-stack-powershell-configure-admin.md).  
 

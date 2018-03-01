@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: rajanaki
 ms.openlocfilehash: 67d9164fcf8fb3731c4e3a9d30ac5c38da5908c7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>VMM bulutlarındaki Hyper-V sanal makineleri PowerShell ve Azure Resource Manager kullanarak azure'a
 > [!div class="op_single_selector"]

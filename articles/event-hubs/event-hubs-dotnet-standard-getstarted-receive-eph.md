@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard'da Olay İşlemcisi Konağı ile iletiler almaya başlama
 
@@ -42,7 +42,7 @@ Bu öğreticide, **Olay İşlemcisi Konağı** kitaplığını kullanarak bir ol
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma  
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.  
-2. Portalın sol gezinti bölmesinde **Yeni**'ye tıklayın, ardından **Depolama**'ya ve **Depolama Hesabı**'na tıklayın.  
+2. Portalın sol gezinti bölmesinde **Kaynak oluştur**'a, **Depolama**'ya ve ardından **Depolama Hesabı**'na tıklayın.  
 3. Depolama hesabı penceresindeki alanları doldurun ve **Oluştur**'a tıklayın.
 
     ![Depolama hesabı oluştur][1]

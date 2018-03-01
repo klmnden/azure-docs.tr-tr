@@ -1,3 +1,5 @@
+# [DNS Belgeleri](index.md)
+
 # Genel Bakış
 
 ## [Azure DNS nedir?](dns-overview.md)
@@ -6,10 +8,10 @@
 ## [DNS SSS](dns-faq.md)
 ## [Özel DNS bölgelerini kullanma](private-dns-overview.md)
 
-# Kullanmaya Başlama
+# Başlarken
 
 ## DNS bölgesi ve kaydı oluşturma
-### [Azure portal](dns-getstarted-portal.md)
+### [Azure portalı](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
@@ -21,12 +23,12 @@
 # Nasıl yapılır
 
 ## DNS bölgelerini yönetme
-### [Azure portal](dns-operations-dnszones-portal.md)
+### [Azure portalı](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## DNS kayıtlarını yönetme
-### [Azure portal](dns-operations-recordsets-portal.md)
+### [Azure portalı](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 

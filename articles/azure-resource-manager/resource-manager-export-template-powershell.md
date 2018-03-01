@@ -11,28 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7543811eb9448222b6e7c266756e68debc7d54be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6e36e12717eea61477f55d2d98c00bff31ec643
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>PowerShell ile Azure Resource Manager şablonları dışarı aktarma
 
 Resource Manager, aboneliğinizde var olan kaynaklardan bir Resource Manager şablonunu dışarı aktarmanızı sağlar. Bu oluşturulan şablonu şablon söz dizimi hakkında bilgi edinmek veya çözümünüzün yeniden dağıtımını gerektiği gibi otomatikleştirmek için kullanabilirsiniz.
 
-Bir şablonu dışarı aktarmak için iki farklı yol vardır:
+Bir şablonu dışarı aktarmak için iki farklı yolları da olduğunu dikkate almak önemlidir:
 
-* Dağıtım için kullandığınız gerçek şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablonda, tüm parametreler ve değişkenler özgün şablondaki gibidir. Bir şablon almanız gerektiğinde, bu yararlı bir yaklaşımdır.
-* Kaynak grubunun geçerli durumunu temsil eden bir şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablon, dağıtım için kullandığınız herhangi bir şablonu temel almaz. Bunun yerine, kaynak grubunun anlık görüntüsü olan bir şablon oluşturur. Dışarı aktarılan şablon birçok sabit kodlu değer ve büyük olasılıkla normalde tanımlayacağınızdan daha az sayıda parametre içerir. Bu yaklaşım, kaynak grubu değiştirdiniz. yararlıdır. Şimdi kaynak grubunu bir şablon olarak yakalamalısınız.
+* Dışa aktarabilirsiniz **bir dağıtım için kullanılan gerçek şablonu**. Dışarı aktarılan şablonda, tüm parametreler ve değişkenler özgün şablondaki gibidir. Bir şablon almanız gerektiğinde, bu yararlı bir yaklaşımdır.
+* **Kaynak grubunun geçerli durumunu temsil eden, oluşturulmuş bir şablonu** dışarı aktarabilirsiniz. Dışarı aktarılan şablon, dağıtım için kullandığınız herhangi bir şablonu temel almaz. Bunun yerine, bir "anlık görüntüsü" veya "yedek" kaynak grubunun olan bir şablon oluşturur. Dışarı aktarılan şablon birçok sabit kodlu değer ve büyük olasılıkla normalde tanımlayacağınızdan daha az sayıda parametre içerir. Kaynaklar aynı kaynak grubuna yeniden dağıtmak için bu seçeneği kullanın. Başka bir kaynak grubu için bu şablonu kullanmak için önemli ölçüde değiştirmeniz gerekebilir.
 
-Bu konuda, iki yaklaşım ortaya koyulmaktadır.
+Bu makalede her iki yaklaşımın gösterilmektedir.
 
 ## <a name="deploy-a-solution"></a>Bir çözüm dağıtma
 
-Bir şablonu dışarı aktarmak için her iki yaklaşımın göstermek için Aboneliğinize bir çözümü başlayalım. Aboneliğinizdeki vermek istediğiniz bir kaynak grubu zaten varsa, bu çözümü dağıtmak gerekmez. Ancak, bu makalenin sonraki bölümlerinde Bu çözüm için şablonu ifade eder. Örnek komut dosyasını bir depolama hesabı dağıtır.
+Bir şablonu dışarı aktarmak için her iki yaklaşımın göstermek için Aboneliğinize bir çözümü başlayalım. Aboneliğinizdeki vermek istediğiniz bir kaynak grubu zaten varsa, bu çözümü dağıtmak gerekmez. Ancak, bu makalenin geri kalanında bu çözüm için şablonu ifade eder. Örnek komut dosyasını bir depolama hesabı dağıtır.
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
@@ -61,7 +61,7 @@ Dosyasını açın ve dağıtımı için kullanılan tam şablon olduğuna dikka
 
 ## <a name="export-resource-group-as-template"></a>Kaynak grubunu şablon olarak dışarı aktarma
 
-Bir şablonu dağıtım geçmişinden almanın yerine kullanarak bir kaynak grubunun geçerli durumunu temsil eden bir şablonu alabilir [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup) komutu. Kaynak grubu için çok sayıda değişiklik yaptınız ve tüm değişiklikleri olan bir şablonunu temsil ettiğinde bu komutu kullanın.
+Bir şablonu dağıtım geçmişinden almanın yerine kullanarak bir kaynak grubunun geçerli durumunu temsil eden bir şablonu alabilir [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup) komutu. Kaynak grubu için çok sayıda değişiklik yaptınız ve tüm değişiklikleri olan bir şablonunu temsil ettiğinde bu komutu kullanın. Aynı kaynak grubuna dağıtmak için kullanabileceğiniz kaynak grubunun anlık görüntü olarak tasarlanmıştır. Diğer çözümleri için dışarı aktarılan şablonu kullanmak için önemli ölçüde değiştirmeniz gerekir.
 
 ```powershell
 Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup

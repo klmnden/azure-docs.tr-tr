@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: raynew
 ms.openlocfilehash: 4dd9d4f5f26d70f9130f48e2bf40ce71943a6c6d
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware Azure çoğaltma mimarisi
 

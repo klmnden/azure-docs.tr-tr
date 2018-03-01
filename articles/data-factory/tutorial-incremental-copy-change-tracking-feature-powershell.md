@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d2cf578d6328e6e53d1081b9ab4de3ad262390df
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 69a2967be1709c3b3e3bd9fa5854482ecc5e3aba
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  
@@ -445,7 +445,7 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 ### <a name="monitor-the-full-copy-pipeline"></a>Tam kopyalama işlem hattını izleme
 
 1. [Azure portalı](https://portal.azure.com)’nda oturum açın.
-2. **Diğer hizmetler**’e tıklayın, `data factories` anahtar sözcüğüyle arama yapın ve **Veri fabrikaları** seçeneğini belirleyin. 
+2. **Tüm hizmetler**’e tıklayın, `data factories` anahtar sözcüğüyle arama yapın ve **Veri fabrikaları** seçeneğini belirleyin. 
 
     ![Veri fabrikaları menüsü](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
 3. Veri fabrikaları listesinde **veri fabrikanızı** arayın ve bunu seçerek Veri fabrikası sayfasını başlatın. 

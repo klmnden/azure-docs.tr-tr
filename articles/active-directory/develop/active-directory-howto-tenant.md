@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı edinme
 Azure Active Directory'de (Azure AD) [kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant), bir kuruluşun temsilcisidir.  Bir kuruluşun, Azure, Microsoft Intune veya Office 365 gibi bir Microsoft bulut hizmetine kaydolduğunda aldığı ve sahip olduğu adanmış bir Azure AD hizmeti örneğidir.  Her Azure AD kiracısı benzersizdir ve diğer Azure AD kiracılarından ayrıdır.  
@@ -44,7 +44,7 @@ Daha önce bireysel Microsoft Hesabınız ile bir Azure aboneliğine kaydolduysa
 Bunu yapmak için şu adımları uygulayın.  Alternatif olarak, benzer bir işlemi izleyerek yeni bir kiracı oluşturmak ve kiracı içinde bir yönetici oluşturmak isteyebilirsiniz.
 
 1. Bireysel hesabınızla [Azure portalı](https://portal.azure.com)'nda oturum açın
-2. Portalın "Azure Active Directory" bölümüne (sol gezinti çubuğunda, **Diğer Hizmetler**’in altında bulunur) gidin
+2. Portalın "Azure Active Directory" bölümüne (sol gezinti çubuğunda, **Tüm hizmetler**’in altında bulunur) gidin
 3. Otomatik olarak "Varsayılan Dizin"de oturumunuzun açılması gerekir. Oturum açılmazsa sağ üst köşede hesap adınıza tıklayarak dizinleri değiştirebilirsiniz.
 4. **Hızlı Görevler** bölümünde **Kullanıcı ekle**’yi seçin.
 5. Kullanıcı Ekleme Formu'nda şu bilgileri sağlayın:
@@ -58,7 +58,7 @@ Bunu yapmak için şu adımları uygulayın.  Alternatif olarak, benzer bir işl
 8. Geçici parolayı değiştirmek için [https://login.microsoftonline.com](https://login.microsoftonline.com) adresinde bu yeni kullanıcı hesabı ile oturum açın ve istendiğinde parolayı değiştirin.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Kuruluş Azure aboneliği kullanma
-Daha önce kuruluş hesabınızla bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  [Azure portalı](https://portal.azure.com)’nda, "Diğer Hizmetler" ve "Azure Active Directory"e gittiğinizde bir kiracı bulmanız gerekir.  Bu kiracıyı uygun gördüğünüz şekilde kullanabilirsiniz.
+Daha önce kuruluş hesabınızla bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  [Azure portalı](https://portal.azure.com)’nda, "Tüm hizmetler" ve "Azure Active Directory"e gittiğinizde bir kiracı bulmanız gerekir.  Bu kiracıyı uygun gördüğünüz şekilde kullanabilirsiniz.
 
 ## <a name="start-from-scratch"></a>Sıfırdan başlama
 Yukarıdakilerin hiçbiri sizin için bir anlam ifade etmiyorsa endişelenmeyin. Yeni bir Azure AD dizini oluşturmak için [Azure portalı](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)’nı ziyaret edin. İşlemi tamamladıktan sonra, kayıt sırasında seçtiğiniz etki alanı adıyla kendi Azure AD kiracınıza sahip olursunuz.  [Azure portalı](https://portal.azure.com)'nda, sol gezinti çubuğunda bulunan **Azure Active Directory** konumuna giderek kiracınızı bulabilirsiniz.

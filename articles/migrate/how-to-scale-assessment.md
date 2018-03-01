@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d588dc6037b6295594301b577fe9df31d169a9e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Bul ve büyük bir VMware ortamı değerlendirin
 
@@ -84,7 +84,15 @@ Dağıtmadan önce OVA dosya güvenli olduğundan emin olun:
    Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Üretilen karma aşağıdaki ayarları eşleştiğinden emin olun.
 
-    OVA sürüm 1.0.8.59
+    OVA sürüm 1.0.9.2
+
+    **Algoritma** | **Karma değeri**
+    --- | ---
+    MD5 | 7326020e3b83f225b794920b7cb421fc
+    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
+    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+
+    OVA 1.0.8.59 sürümü için
 
     **Algoritma** | **Karma değeri**
     --- | ---
@@ -158,7 +166,7 @@ Aşağıdaki tabloda, belirli bir sayaç alınamadı, etkilenecek değerlendirme
 Yapmanız gereken her bulma için gerekli kapsamında VM'ler bulmak için toplayıcı çalıştırın. Bir bulma art arda çalıştırın. Eşzamanlı bulmaları desteklenmez ve her bir keşfin farklı bir kapsama sahip olmalıdır.
 
 1. vSphere Client konsolunda VM’ye sağ tıklayın ve **Konsolu Aç** seçeneğini belirleyin.
-2. Dil, saat dilimi ve Gereci parola tercihlerini sağlar.
+2. Gereç için dil, saat dilimi ve parola tercihlerini belirtin.
 3. Masaüstünde seçin **Toplayıcı çalıştırmak** kısayol.
 4. Azure geçirmek Toplayıcı açmak **önkoşulları ayarlama** ve sonra:
 
@@ -168,7 +176,7 @@ Yapmanız gereken her bulma için gerekli kapsamında VM'ler bulmak için toplay
    
    b. VM Internet proxy üzerinden erişirse, seçin **Proxy ayarlarını**, proxy adresi ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin.
 
-   Toplayıcı, Toplayıcı hizmetinin çalıştığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
+   Toplayıcı, toplayıcı hizmetinin çalışıp çalışmadığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
 
    c. VMware Powerclı yükleyip yeniden açın.
 

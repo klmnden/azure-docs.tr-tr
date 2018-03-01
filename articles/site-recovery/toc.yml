@@ -24,13 +24,13 @@
         - name: Azure’u hazırlama
           href: tutorial-prepare-azure.md
         - name: Şirket içi VMware’leri hazırlama
-          href: tutorial-prepare-on-premises-vmware.md
+          href: vmware-azure-tutorial-prepare-on-premises.md
         - name: Olağanüstü durum kurtarma işlemini ayarlama
-          href: tutorial-vmware-to-azure.md
+          href: vmware-azure-tutorial.md
         - name: Olağanüstü durum kurtarma tatbikatı çalıştırma
           href: tutorial-dr-drill-azure.md
         - name: Yük devretme ve yeniden çalışma işlemlerini çalıştırma
-          href: tutorial-vmware-to-azure-failover-failback.md
+          href: vmware-azure-tutorial-failover-failback.md
     - name: Hyper-V Sanal Makineleri
       items:
         - name: Azure’u hazırlama
@@ -50,9 +50,9 @@
         - name: Azure’ı şirket içi çoğaltmaya hazırlama
           href: tutorial-prepare-azure.md
         - name: Şirket içi makineleri Azure’a geçirme
-          href: tutorial-migrate-on-premises-to-azure.md
+          href: migrate-tutorial-on-premises-azure.md
         - name: AWS örneklerini Azure’a geçirme
-          href: tutorial-migrate-aws-to-azure.md
+          href: migrate-tutorial-aws-azure.md
         - name: Azure VM’lerini başka bir bölgeye geçirme
           href: azure-to-azure-tutorial-migrate.md
 - name: Kavramlar
@@ -62,11 +62,11 @@
         - name: Azure-Azure arası mimari
           href: azure-to-azure-architecture.md
         - name: VMware-Azure arası mimari
-          href: concepts-vmware-to-azure-architecture.md
+          href: vmware-azure-architecture.md
         - name: Hyper-V-Azure arası mimari
           href: hyper-v-azure-architecture.md
         - name: Fiziksel sunucu-Azure arası mimari
-          href: concepts-physical-to-azure-architecture.md
+          href: physical-azure-architecture.md
         - name: Hyper-V-ikincil bir site arası mimari
           href: hyper-v-vmm-architecture.md
     - name: Destek gereksinimleri matrisi
@@ -114,11 +114,11 @@
         - name: Azure geçişinden sonra Azure VM'leri olağanüstü durumdan kurtarma
           href: azure-to-azure-replicate-after-migration.md
         - name: Fiziksel sunucuları olağanüstü durumdan Azure’a kurtarma
-          href: tutorial-physical-to-azure.md
+          href: physical-azure-disaster-recovery.md
         - name: Hyper-V VM’lerinin ikincil bir siteye olağanüstü durum kurtarması
           href: hyper-v-vmm-disaster-recovery.md
         - name: VMware VM’lerinin ve fiziksel sunucuların ikincil bir olağanüstü durum kurtarması
-          href: tutorial-vmware-to-vmware.md
+          href: vmware-physical-secondary-disaster-recovery.md
         - name: Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
           href: site-recovery-test-failover-to-azure.md
         - name: Hyper-V VM'lerinin ikincil bir siteye olağanüstü durum kurtarması
@@ -236,7 +236,7 @@
         - name: Azure’a Hyper-V çoğaltma işlemini (VMM olmadan) PowerShell kullanarak ayarlama
           href: hyper-v-azure-powershell-resource-manager.md
         - name: Azure’a Hyper-V çoğaltma işlemini (VMM ile) PowerShell kullanarak ayarlama
-          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
         - name: İkincil VMM sitesine Hyper-V çoğaltma işlemini PowerShell kullanarak ayarlama
           href: hyper-v-vmm-powershell-resource-manager.md
     - name: İş yükleri
@@ -290,7 +290,7 @@
         - name: Azure'a yük devretme sorunları
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Yeniden koruma ve yeniden çalışma sorunları
-          href: troubleshoot-failback-reprotect.md
+          href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Azure Site Recovery’yi izleme
           href: site-recovery-monitor-and-troubleshoot.md
 - name: Başvuru

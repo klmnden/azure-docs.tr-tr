@@ -10,19 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 42643c73368597d1caea4aba12bc7b64b7440970
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 51318a6bb4f88759984531b005c65712b6817ec0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure anahtar kasası kimlik bilgisi deposu
 
-Veri depolarında kimlik bilgilerini depolamak bir [Azure anahtar kasası](../key-vault/key-vault-whatis.md). Azure Data Factory veri deposunu kullanan bir etkinliği yürütülürken kimlik bilgilerini alır.
+Veri depoları ve içinde hesaplar için kimlik bilgilerini depolamak bir [Azure anahtar kasası](../key-vault/key-vault-whatis.md). Azure Data Factory veri deposu/işlem kullanan bir etkinliği yürütülürken kimlik bilgilerini alır.
 
-Şu anda bu özelliği - kopyalama etkinliği ile tüm bağlayıcılar türlerini destekler "bağlantılı hizmet özellikleri" bölümüne bakın [her bağlayıcı konu](copy-activity-overview.md#supported-data-stores-and-formats) Ayrıntılar için. Diğer etkinlik türleri için destek ve işlem bağlantılı hizmet daha sonra gelecektir.
+Şu anda bu özelliği özel etkinlik dışındaki tüm etkinlik türlerini destekler. Bağlayıcı yapılandırması için özellikle "bağlantılı hizmet özellikleri" bölümüne bakın [her bağlayıcı konu](copy-activity-overview.md#supported-data-stores-and-formats) Ayrıntılar için.
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory version1 belgelerine](v1/data-factory-introduction.md).

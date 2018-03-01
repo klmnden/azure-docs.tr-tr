@@ -1,83 +1,83 @@
 ---
-title: "Dosyaları bir Windows sunucusuna Azure yedeklemeden kurtarmak | Microsoft Docs"
-description: "Bu öğretici, bir Windows sunucusuna Azure kurtarma öğeleri ayrıntıları verilmektedir."
+title: "Azure’dan Windows Server’a dosya kurtarma | Microsoft Docs"
+description: "Bu öğretici, Azure’dan Windows Server’a öğelerin kurtarılmasını açıklar."
 services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
-keywords: "Windows server yedekleme; dosyaları windows server geri; Yedekleme ve olağanüstü durum kurtarma"
+keywords: "windows server yedekleme; windows server’a dosyaları geri yükleme; yedekleme ve olağanüstü durum kurtarma"
 ms.assetid: 
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: b5f77ec04ef6d267583a6dc6a4476f118a4d0f74
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 3bda261bae8155ccb48196a980b14afc56004da8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="recover-files-from-azure-to-a-windows-server"></a>Dosyaları bir Windows Server'a Azure'dan kurtarma
+# <a name="recover-files-from-azure-to-a-windows-server"></a>Azure’dan Windows Server’a dosya kurtarma
 
-Azure yedekleme, Windows Server Yedekleme tek tek öğelerin kurtarma sağlar. Bağımsız dosyaları kurtarmada, hızlı bir şekilde yanlışlıkla silinen dosyaları geri yüklemeniz gerekiyorsa yardımcı olur. Bu öğretici, Azure'da zaten gerçekleştirmiş yedeklerden öğeleri kurtarmak için Microsoft Azure kurtarma Hizmetleri Aracısı (MARS) Aracısı'nı nasıl kullanabileceğiniz kapsar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Azure Backup, Windows Server’ınızın yedeklemelerinden tek tek öğelerin kurtarılmasını sağlar. Yanlışlıkla silinen dosyaları hızlı şekilde geri yüklemeniz gerekirse tek tek dosyaların kurtarılması yararlı olur. Bu öğretici, Azure'da önceden gerçekleştirdiğiniz yedeklemelerden öğeleri kurtarmak için Microsoft Azure Kurtarma Hizmetleri Aracısı (MARS) aracısını kullanabilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Tek tek öğelerin kurtarma 
-> * Bir kurtarma noktası seçin 
-> * Öğeleri bir kurtarma noktasından geri yükleme
+> * Tek tek öğelerin kurtarmasını başlatma 
+> * Bir kurtarma noktası seçme 
+> * Bir kurtarma noktasından öğeleri geri yükleme
 
-Bu öğretici, zaten gerçekleştirdikten adımlarına varsayar [Azure için Windows Server Yedekleme](backup-configure-vault.md) ve Windows Server dosyalarınızda Azure en az bir yedeğine sahip.
+Bu öğreticide, önceden [Windows Server’ı Azure’da yedekleme](backup-configure-vault.md) adımlarını gerçekleştirdiğiniz ve Azure’da Windows Server dosyalarınızın en az bir yedeklemesine sahip olduğunuz varsayılır.
 
-## <a name="initiate-recovery-of-individual-items"></a>Tek tek öğelerin kurtarma
+## <a name="initiate-recovery-of-individual-items"></a>Tek tek öğelerin kurtarmasını başlatma
 
-Microsoft Azure yedekleme adlı yararlı Kullanıcı Arabirimi Sihirbazı ile Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı yüklenir. Azure'da depolanan kurtarma noktalarından yedekleme verileri almak için Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile Microsoft Azure Yedekleme Sihirbazı çalışır. Dosyaları veya Windows Server geri yüklemek istediğiniz klasörleri belirlemek için Microsoft Azure Yedekleme Sihirbazı'nı kullanın. 
+Microsoft Azure Kurtarma Hizmetleri (MARS) aracısı ile Microsoft Azure Backup adlı yardımcı bir kullanıcı arabirimi sihirbazı yüklenir. Microsoft Azure Backup sihirbazı, Azure’da depolanan kurtarma noktalarından yedekleme verilerini almak için Microsoft Azure Kurtarma Hizmetleri (MARS) aracısı ile birlikte çalışır. Windows Server’a geri yüklemek istediğiniz dosyaları veya klasörleri belirlemek için Microsoft Azure Backup sihirbazını kullanın. 
 
-1. Açık **Microsoft Azure yedekleme** ek bileşenini. Bunu, makinenizde **Microsoft Azure Backup** aramasını yaparak bulabilirsiniz.
+1. **Microsoft Azure Backup** ek bileşenini açın. Bunu, makinenizde **Microsoft Azure Backup** aramasını yaparak bulabilirsiniz.
 
     ![Yedekleme beklemede](./media/tutorial-backup-restore-files-windows-server/mars.png)
 
-2. Sihirbazı'nda tıklatın **verileri kurtarabilirsiniz** içinde **Eylemler bölmesi** başlatmak için aracı konsolunun **verileri kurtarabilirsiniz** Sihirbazı.
+2. Sihirbazda, **Veri Kurtarma** sihirbazını başlatmak için aracı konsolunun **Eylemler Bölmesi**’nde **Veri Kurtar**’a tıklayın.
 
     ![Yedekleme beklemede](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
 
-3. Üzerinde **Başlarken** sayfasında, **bu sunucu (sunucu adı)** tıklatıp **sonraki**.
+3. **Başlarken** sayfasında **Bu sunucu (sunucu adı)** seçeneğini belirleyin ve **İleri**’ye tıklayın.
 
-4. Üzerinde **seçin kurtarma moduna** sayfasında **dosyalara ve klasörlere** ve ardından **sonraki** kurtarma noktası seçimi işlemine başlamak için.
+4. **Kurtarma Modunu Seç** sayfasında **Tek tek dosyalar ve klasörler** seçeneğini belirleyin ve sonra **İleri**’ye tıklayarak kurtarma noktası seçim işlemini başlatın.
  
-5. Üzerinde **birim seçin ve tarih** sayfasında, dosya veya klasörleri tıklatın ve geri yüklemek istediğiniz içeren birimi seçin **bağlama**. Bir tarih seçin ve bir kurtarma noktası karşılık gelen açılan menüsünde bir saat seçin. İçinde tarihleri **kalın** o gün en az bir kurtarma noktası kullanılabilirliğini gösterir.
+5. **Birim ve Tarih Seçin** sayfasında, geri yüklemek istediğiniz dosyaları veya klasörleri içeren birimi seçin ve **Bağla**’ya tıklayın. Bir tarih seçin ve bir kurtarma noktasına karşılık gelen açılır menüden bir saat seçin. **Kalın** yazılan tarihler, o günde en az bir kurtarma noktasının kullanılabilir olduğunu belirtir.
 
     ![Yedekleme beklemede](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
  
-    Tıkladığınızda **bağlama**, Azure yedekleme kurtarma noktası bir disk olarak kullanılabilir yapar. Göz atın ve dosyaları diskten kurtarma.
+    **Bağla**’ya tıkladığınızda Azure Backup, kurtarma noktasını bir disk olarak kullanılabilir hale getirir. Göz atıp diskteki dosyaları kurtarın.
 
-## <a name="restore-items-from-a-recovery-point"></a>Öğeleri bir kurtarma noktasından geri yükleme
+## <a name="restore-items-from-a-recovery-point"></a>Bir kurtarma noktasından öğeleri geri yükleme
 
-1. Kurtarma birimi bağlandıktan sonra tıklatın **Gözat** Windows Gezgini'ni açın ve kurtarmak istediğiniz klasörleri ve dosyaları bulmak için. 
+1. Kurtarma birimi bağlandıktan sonra **Gözat**’a tıklayıp Windows Gezgini'ni açın ve kurtarmak istediğiniz dosyaları ve klasörleri bulun. 
 
     ![Yedekleme beklemede](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
 
-    Doğrudan kurtarma birimden dosyaları açmak ve dosyaları doğrulayabilirsiniz.
+    Doğrudan kurtarma biriminden dosyaları açabilir ve dosyaları doğrulayabilirsiniz.
 
-2. Windows Gezgini'nde, dosyaları ve/veya geri yükleme ve sunucu üzerindeki herhangi bir istenen konuma yapıştırmak için istediğiniz klasörleri kopyalayın.
+2. Windows Gezgini'nde, geri yüklemek istediğiniz dosyaları ve/veya klasörleri kopyalayıp sunucuda istediğiniz bir konuma yapıştırın.
 
     ![Yedekleme beklemede](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
 
-3. Dosyaları ve/veya klasörleri üzerinde geri yüklemeyi tamamladıktan sonra **göz atın ve kurtarma dosyaları** sayfasında **verileri kurtarabilirsiniz** Sihirbazı'nı tıklatın **çıkarma**. 
+3. Dosyaları ve/veya klasörleri geri yükleme işlemini tamamladığınızda, **Veri Kurtarma** sihirbazının **Dosyalara Göz At ve Dosyaları Kurtar** sayfasında **Çıkar**’a tıklayın. 
 
     ![Yedekleme beklemede](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.  Tıklatın **Evet** birim kaldırmak istediğinizi onaylamak için.
+4.  Birimi çıkarmak istediğinizi doğrulamak için **Evet**’e tıklayın.
 
-    Anlık görüntü kaldırılan, olduğunda **işi tamamlandı** görünür **işleri** Aracısı Konsol bölmesinde.
+    Anlık görüntü çıkarıldıktan sonra, aracı konsolunun **İşler** bölmesinde **İş Tamamlandı** görüntülenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu, yedekleme ve Windows Server verileri için Azure geri öğreticileri tamamlar. Azure yedekleme hakkında daha fazla bilgi için şifrelenmiş sanal makineleri yedekleme için PowerShell örnek bakın.
+Böylece, Windows Server verilerinin Azure’a yedeklenmesi ve geri yüklenmesi ile ilgili öğreticiler tamamlanmış olur. Azure Backup hakkında daha fazla bilgi edinmek için, şifrelenmiş sanal makinelerin yedeklenmesine yönelik PowerShell örneğine bakın.
 
 > [!div class="nextstepaction"]
-> [Şifrelenmiş VM'yi yedeklemek](./scripts/backup-powershell-sample-backup-encrypted-vm.md)
+> [Şifrelenmiş sanal makineyi yedekleme](./scripts/backup-powershell-sample-backup-encrypted-vm.md)

@@ -12,25 +12,25 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-node"></a>sfctl düğümü
+# <a name="sfctl-node"></a>sfctl node
 Bir küme düğümleri yönetin.
 
 ## <a name="commands"></a>Komutlar
 
 |Komut|Açıklama|
 | --- | --- |
-|    Devre dışı bırak       | Belirtilen devre dışı bırakma hedefine olan bir Service Fabric küme düğümü devre dışı bırakın.|
-|    Etkinleştir        | Şu anda devre dışı bir Service Fabric küme düğümü etkinleştirin.|
-|    Sistem durumu        | Service Fabric düğümü durumunu alır.|
-|    bilgileri          | Service Fabric kümedeki düğümlerin listesini alır.|
+|    devre dışı bırak       | Belirtilen devre dışı bırakma hedefine olan bir Service Fabric küme düğümü devre dışı bırakın.|
+|    etkinleştir        | Şu anda devre dışı bir Service Fabric küme düğümü etkinleştirin.|
+|    sistem durumu        | Service Fabric düğümü durumunu alır.|
+|    bilgileri          | Service Fabric kümesi içinde belirli bir düğüme hakkındaki bilgileri alır.|
 |    liste          | Service Fabric kümedeki düğümlerin listesini alır.|
 |    yükleme          | Service Fabric düğümü yük bilgilerini alır.|
 |    durumu kaldırma  | Service Fabric kalıcı durum bir düğümde kalıcı olarak kaybolur veya kaldırılmış olduğunu bildirir.|
@@ -50,7 +50,7 @@ Belirtilen devre dışı bırakma hedefine olan bir Service Fabric küme düğü
 |Bağımsız değişken|Açıklama|
 | --- | --- |
 | --düğüm adı [gerekli]| Düğümün adı.|
-| --deactivation-intent | Hedefi veya düğüm devre dışı bırakma nedeni açıklanmaktadır. Olası değerler aşağıdaki. -Pause - düğümü duraklatılmış olduğunu gösterir. Değer 1'dir. -Yeniden başlatma - hedefi kısa bir süre sonra yeniden başlatılmasını düğümü için olduğunu belirtir. Değer 2'dir. -RemoveData - düğüm verileri kaldırmak amacı olduğunu gösterir. Değer 3'tür. .|
+| --deactivation-intent | Hedefi veya düğüm devre dışı bırakma nedeni açıklanmaktadır. |
 | --zaman aşımı -t       | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
@@ -109,9 +109,9 @@ Service Fabric düğümü durumunu alır. Sistem durumu olayları sistem durumun
 | --verbose                | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-node-info"></a>sfctl düğüm bilgisi
-Service Fabric kümedeki düğümlerin listesini alır.
+Service Fabric kümesi içinde belirli bir düğüme hakkındaki bilgileri alır.
 
-Service Fabric kümesi içinde belirli bir düğüme hakkındaki bilgileri alır. Yanıt adı, durumu, kimliği, sistem durumu, açık kalma süresi ve diğer düğümün ayrıntılarını içerir.
+Bilgi alır yanıt Service Fabric Cluster.The belirli bir düğümünde hakkında adı, durumu, kimliği, sistem durumu, açık kalma süresi ve diğer düğümün ayrıntılarını içerir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
@@ -133,14 +133,14 @@ Service Fabric kümesi içinde belirli bir düğüme hakkındaki bilgileri alır
 ## <a name="sfctl-node-list"></a>sfctl düğüm listesi
 Service Fabric kümedeki düğümlerin listesini alır.
 
-Düğümleri endpoint Service Fabric kümesi düğümlerin hakkında bilgi verir. Yanıt adı, durumu, kimliği, sistem durumu, açık kalma süresi ve diğer düğümün ayrıntılarını içerir.
+Service Fabric kümedeki düğümlerin listesini alır. Yanıt adı, durumu, kimliği, sistem durumu, açık kalma süresi ve diğer düğümün ayrıntılarını içerir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
 | --devamlılık belirteci| Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır. Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değere sahip API yanıt olarak dahil edilir.      Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır.|
-| --düğüm Durumu Filtresi| Üzerinde NodeStatus bağlı düğümler filtrelemeye izin verir. Yalnızca belirtilen filtre değeri eşleşen düğümleri döndürülür. Filtre değeri aşağıdakilerden biri olabilir. -Varsayılan - tüm düğümlerin bu filtre değeri eşleşen durum raporlarla bilinmeyen veya kaldırılan olarak excepts. -Tüm - bu filtre değeri tüm düğümleri eşleşir. Bu filtre - - yukarı düğümlerini değerle eşleşir. Bu filtre - kapalı - kapalı olan düğümler değerle eşleşir. -Etkinleştirme olarak durumundaki etkinleştiriliyor sürecinde olan bu filtre değeri eşleşme düğümleri etkinleştirme -. -devre dışı bırakılması olarak durumundaki devre dışı sürecinde olan bu filtre değeri eşleşme düğümleri devre dışı bırakma -. -devre dışı bırakılır Bu filtre değeri eşleşme düğümleri devre dışı -. -Bilinmeyen - Bu filtre değeri ile eşleşen düğümlerin durumu bilinmiyor. Service Fabric bu düğüme hakkında yetkili bilgi yoksa, bir düğüm bilinmeyen bir durumda olacaktır. Çalışma zamanında bir düğüm hakkında sistem öğrenir bu durum meydana gelebilir. -durumu kaldırılır Bu filtre değeri eşleşme düğümleri kaldırıldı -. RemoveNodeState API kullanarak kümeden kaldırılmış düğümleri bunlar. .      Default: default.|
+| --düğüm Durumu Filtresi| Üzerinde NodeStatus bağlı düğümler filtrelemeye izin verir. Yalnızca belirtilen filtre değeri eşleşen düğümleri döndürülür. Filtre değeri aşağıdakilerden biri olabilir. Default: default.|
 | --zaman aşımı -t     | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
@@ -156,7 +156,7 @@ Düğümleri endpoint Service Fabric kümesi düğümlerin hakkında bilgi verir
 ## <a name="sfctl-node-load"></a>sfctl düğümü yükleme
 Service Fabric düğümü yük bilgilerini alır.
 
-Service Fabric düğümü yük bilgilerini alır.
+Yük ya da tanımlanmış kapasite sahip tüm ölçümler için Service Fabric düğümünün yük bilgilerini alır.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
@@ -203,7 +203,7 @@ Zaten başlatılmış bir Service Fabric küme düğümü yeniden başlatır.
 Başlatır veya bir küme düğümü durdurur.
 
 Başlatır veya bir küme düğümü durdurur.  Bir küme düğümü bir, işletim sistemi örneği kendisini değil işlemidir.
-Bir düğüm başlatmak için NodeTransitionType parametresi için "Başlangıç" geçirin. Bir düğüm durdurmak için NodeTransitionType parametresi için "Durdur" geçirin. Düğüm henüz geçiş tamamlanmadığından API geri döndüğünde bu API - işlemini başlatır. İşlemin ilerlemesi almak için aynı Operationıd ile GetNodeTransitionProgress çağırın. .
+Bir düğüm başlatmak için NodeTransitionType parametresi için "Başlangıç" geçirin. Bir düğüm durdurmak için NodeTransitionType parametresi için "Durdur" geçirin. Düğüm henüz geçiş tamamlanmadığından API geri döndüğünde bu API - işlemini başlatır. İşlemin ilerlemesi almak için aynı Operationıd ile GetNodeTransitionProgress çağırın. 
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
@@ -211,7 +211,7 @@ Bir düğüm başlatmak için NodeTransitionType parametresi için "Başlangıç
 | --- | --- |
 | --düğümü-örnek-kimliği [gerekli]| Hedef düğüm düğümü örnek kimliği. Bu GetNodeInfo API aracılığıyla belirlenebilir.|
 | --düğüm adı [gerekli]| Düğümün adı.|
-| --düğümü-geçiş-type [gerekli]| Gerçekleştirmek için geçiş türünü belirtir.                       NodeTransitionType.Start durdurulmuş bir düğüm başlatır.                       NodeTransitionType.Stop çalışır durumda bir düğüm durdurur. -Geçersiz - ayrılmış.  API geçmeyin. -Start - yukarı durdurulmuş bir düğüme geçer. -Stop - bir yukarı durduruldu düğüme geçer. .|
+| --düğümü-geçiş-type [gerekli]| Gerçekleştirmek için geçiş türünü belirtir.                       NodeTransitionType.Start durdurulmuş bir düğüm başlatır.                       NodeTransitionType. Stop çalışır durumda bir düğüm durdurur. |
 | --işlem kimliği [gerekli]| Bu API çağrısının tanımlayan bir GUID.  Bu, karşılık gelen GetProgress API geçirilir.|
 | --stop-süresi-içinde-[gerekli] (saniye)| Saniye cinsinden süre düğümünü korumak için durduruldu.  En düşük değer 600, en fazla 14400. Bu süre dolduktan sonra düğümü otomatik olarak geri gelir.|
 | --zaman aşımı -t                      | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|

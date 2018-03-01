@@ -1,6 +1,6 @@
 ---
-title: "Azure ilke json örnek - faturalama etiketler İlkesi Initiative | Microsoft Docs"
-description: "Bu json örnek ilke kümesi için maliyet merkezi ve ürün adı belirtilen etiket değerleri gerektirir."
+title: "Azure İlkesi json örneği - Fatura etiketleri ilkesi girişimi| Microsoft Docs"
+description: "Bu json örnek ilke kümesi, maliyet merkezi ve ürün adı için belirtilen etiket değerlerini gerektirir."
 services: azure-policy
 documentationcenter: 
 author: bandersmsft
@@ -15,23 +15,23 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: decceb2acc11cc7b3457c6d9364d57ee9c252a4a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: d9f964ed6d2f04898b649194d0824cb7f3c31e2d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="billing-tags-policy-initiative"></a>Faturalama etiketleri İlkesi girişimi
+# <a name="billing-tags-policy-initiative"></a>Fatura etiketleri ilkesi girişimi
 
-Bu ilke kümesi için maliyet merkezi ve ürün adı belirtilen etiket değerleri gerektirir. Yerleşik ilkelerini uygulamak ve gerekli etiketleri zorlamak için kullanır. Etiketleri için gereken değerleri belirtin.
+Bu ilke kümesi, maliyet merkezi ve ürün adı için belirtilen etiket değerlerini gerektirir. Gerekli etiketleri uygulamak ve zorlamak için yerleşik ilkeleri kullanır. Etiketler için gereken değerleri belirtin.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-template"></a>Örnek şablonu
+## <a name="sample-template"></a>Örnek şablon
 
 [!code-json[main](../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-Bu şablonu kullanarak dağıtabilirsiniz [Azure portal](#deploy-with-the-portal) veya [PowerShell](#deploy-with-powershell).
+[Azure portalı](#deploy-with-the-portal) veya [PowerShell](#deploy-with-powershell) kullanarak bu şablonu dağıtabilirsiniz.
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
@@ -50,14 +50,35 @@ $policyset= New-AzureRmPolicySetDefinition -Name "multiple-billing-tags" -Displa
 New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -costCenterValue <required value for Cost Center tag> -productNameValue <required value for product Name tag>  -Sku @{"Name"="A1";"Tier"="Standard"}
 ```
 
-### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtım temizleme
+### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
+## <a name="apply-tags-to-existing-resources"></a>Mevcut kaynaklara etiket uygulama
+
+İlkeleri atadıktan sonra, eklediğiniz etiket ilkelerini zorlamak için tüm mevcut kaynaklara bir güncelleştirme tetikleyebilirsiniz. Aşağıdaki betik, kaynaklarda var olmuş diğer tüm etiketleri korur:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
+}
+```
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ek Azure ilke şablonu örneklerdir adresindeki [Azure ilke şablonları](../json-samples.md).
+- Ek Azure İlkesi şablonu örnekleri [Azure İlkesi Şablonları](../json-samples.md)’ndadır.

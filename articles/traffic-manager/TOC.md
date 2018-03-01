@@ -1,3 +1,5 @@
+# [Traffic Manager Belgeleri](index.md)
+
 # Genel Bakış
 ## [Traffic Manager nedir?](traffic-manager-overview.md)
 ## [Yönlendirme yöntemleri](traffic-manager-routing-methods.md)
@@ -9,10 +11,10 @@
 ## [Trafik Görünümü](traffic-manager-traffic-view-overview.md)
 ## [SSS](traffic-manager-FAQs.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Traffic Manager profili oluşturma](traffic-manager-create-profile.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 
 ## [Coğrafi yönlendirme yöntemini yapılandırma](traffic-manager-configure-geographic-routing-method.md)
 ## [Öncelikli yönlendirme yöntemini yapılandırma](traffic-manager-configure-priority-routing-method.md)

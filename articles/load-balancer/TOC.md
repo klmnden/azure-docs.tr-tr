@@ -1,3 +1,5 @@
+# [Load Balancer Belgeleri](index.md)
+
 # Genel Bakış
 ## [Yük Dengeleyici nedir?](load-balancer-overview.md)
 ## [Load Balancer Standard nedir?](load-balancer-standard-overview.md)
@@ -10,7 +12,7 @@
 ## [Birden çok VIP](load-balancer-multivip-overview.md)
 ## [Giden bağlantılar hakkında bilgi edinme](load-balancer-outbound-connections.md)
 
-# Kullanmaya Başlama
+# Başlarken
 
 ## [İç Load Balancer’ı yapılandırma](load-balancer-get-started-ilb-arm-portal.md)
 ### [İç Load Balancer’ı yapılandırma (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
@@ -30,7 +32,7 @@
 ### [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma (CLI)](load-balancer-get-started-internet-az-cli.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## [Yük Dengeleyici için TCP boşta kalma zaman aşımı yapılandırma](load-balancer-tcp-idle-timeout.md)
 ## [Yük Dengeleyici için Dağıtım modunu yapılandırma](load-balancer-distribution-mode.md)
 ## [SQL AlwaysOn için İç Yük Dengeleyiciyi yapılandırma](load-balancer-configure-sqlao.md)

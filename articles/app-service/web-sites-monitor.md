@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fdc4329806d416811352d0d4dbc8dd3bce25aa0b
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Nasıl yapılır: Azure uygulama hizmetinde uygulamaları izleme
 [Uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714) yerleşik izleme işlevselliği sağlayan [Azure portal](https://portal.azure.com).
@@ -97,7 +97,7 @@ Kotalar artırılabilir veya uygulama hizmeti planınızı yükselterek uygulama
   * Bir HTTP durum kodunu kaynaklanan isteklerin sayısı > = 500 ancak < 600.
 * **Bellek çalışma kümesi**
   * Geçerli MIB uygulama tarafından kullanılan bellek miktarı.
-* **İstekleri**
+* **istekleri**
   * Sonuçta elde edilen HTTP durum kodunu ne olursa olsun istekleri toplam sayısı.
 
 İçin bir **uygulama hizmeti planı**, kullanılabilir ölçümler şunlardır:
@@ -143,7 +143,7 @@ Farklı durumunu gözden geçirebilirsiniz **kotaları** ve **ölçümleri** bir
 **Kotalar** ayarlar altında bulunabilir >**kotaları**. UX gözden geçirmenizi sağlar: (1 kotaları adı, (2), sıfırlama aralığı, (3), geçerli sınırı ve (4) geçerli değeri.
 
 ![][metrics]
-**Ölçümleri** doğrudan kaynak sayfasından erişim olabilir. Grafik tarafından da özelleştirebilirsiniz: (1) **tıklatın** ve seçin (2) üzerinde **grafiği Düzenle**.
+**Ölçümleri** doğrudan kaynak sayfasından erişilebilir. Grafik tarafından da özelleştirebilirsiniz: (1) **tıklatın** ve seçin (2) üzerinde **grafiği Düzenle**.
 Buradan, (3) değiştirebilirsiniz **zaman aralığı**, (4) **grafik türü**ve (5) **ölçümleri** görüntülemek için.  
 
 Burada ölçümler hakkında daha fazla bilgi edinebilirsiniz: [izleme hizmeti ölçümleri](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).

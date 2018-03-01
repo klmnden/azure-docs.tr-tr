@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
-ms.openlocfilehash: 68b36e1806d3338b07d4c2c400de233aff270132
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR uyumluluk ve Azure AD Connect 
 
@@ -33,7 +33,7 @@ Genel veri koruma düzenleme uyumluluk Azure AD Connect yüklemeleri için iki y
 1.  İstek, bir kişi için verileri ayıklamak ve yüklemeleri bu kişiden veri kaldırın
 2.  Hiçbir veri 48 saat dışında tutulur emin olun.
 
-Öneri Azure AD Connect takım ikinci seçeneği önerir.  Olmasının, nedeni göre ne kadar kolay uygulama ve koruma olduğundan.
+Uygulama ve koruma çok daha kolay olduğundan Azure AD Connect takım ikinci seçeneği önerir.
 
 Bir Azure AD Connect eşitleme sunucusu GDPR uyumluluk için kapsam olarak aşağıdaki verileri depolar:
 1.  Bir kişi hakkındaki verileri **Azure AD Connect veritabanı**

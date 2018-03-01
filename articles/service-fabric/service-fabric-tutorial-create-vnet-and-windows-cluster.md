@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Azure sanal ağına Service Fabric Windows kümesi dağıtma
 Bu öğretici, bir serinin birinci bölümüdür. PowerShell ile bir şablon kullanarak bir [Azure sanal ağına (VNET)](../virtual-network/virtual-networks-overview.md) ve [ağ güvenlik grubuna](../virtual-network/virtual-networks-nsg.md) Windows çalıştıran bir Service Fabric kümesi dağıtmayı öğrenirsiniz. Öğreticiyi tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur.  Azure CLI kullanarak Linux kümesi oluşturmak için bkz. [Azure’da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -39,7 +39,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
 > * Azure’da güvenli bir küme oluşturma
-> * [Bir kümenin ölçeğini daraltma veya genişletme](/service-fabric-tutorial-scale-cluster.md)
+> * [Bir kümenin ölçeğini daraltma veya genişletme](service-fabric-tutorial-scale-cluster.md)
 > * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md)
 > * [Service Fabric ile API Management dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
@@ -66,7 +66,7 @@ Küme sertifikası:
 
 Azure’da Service Fabric kümelerine ait sertifikaları yönetmek için Azure Key Vault kullanılır.  Azure’da bir küme dağıtıldığında, Azure Service Fabric kümeleri oluşturmaktan sorumlu Azure kaynak sağlayıcısı sertifikaları Key Vault’tan çeker ve küme VM’lerine yükler.
 
-Bu öğreticide tek bir küme türündeki beş düğüme sahip bir küme dağıtılır. Bununla birlikte, tüm küme dağıtımları için [kapasite planlaması](service-fabric-cluster-capacity.md) önemli bir adımdır. Bu süreç kapsamında dikkat etmeniz gerekenler şunlardır:
+Bu öğreticide tek bir düğüm türündeki beş düğüme sahip bir küme gösterilir. Bununla birlikte, tüm küme dağıtımları için [kapasite planlaması](service-fabric-cluster-capacity.md) önemli bir adımdır. Bu süreç kapsamında dikkat etmeniz gerekenler şunlardır:
 
 - Kümeniz için gerekli düğüm sayısı ve türleri 
 - Her düğüm türünün özellikleri (örneğin boyut, birincil, İnternet’e yönelik ve VM sayısı)

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: ab0c10b2eeaa4388ef9b4dab90b99b37fa32df74
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 54f81a93876549d624cef6c37dd659af084d0b37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Iris sınıflandırma bölüm 3: Model dağıtma
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
@@ -285,7 +285,7 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Depolama hesaplarınızı bulun. Bunun için **Diğer Hizmetler**'i seçin.
+2. Depolama hesaplarınızı bulun. Bunun için **Tüm Hizmetler**'i seçin.
 
 3. Arama kutusuna **Depolama hesapları**’nı girin ve ardından **Enter** düğmesini seçin.
 

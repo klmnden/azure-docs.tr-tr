@@ -1,3 +1,5 @@
+# [DevTest Labs Belgeleri](index.md)
+
 # Genel Bakış
 ## [Azure DevTest Labs hakkında](devtest-lab-overview.md)
 ## [Kavramlar ](devtest-lab-concepts.md)

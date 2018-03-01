@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js için Batch SDK'sını kullanmaya başlama
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 >
 >
 
-[Azure Batch Node.js SDK'sını](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) kullanarak Node.js’de Batch istemcisi oluşturma hakkında temel bilgileri öğrenin. Batch uygulaması için bir senaryoyu anlayıp ardından bir Node.js istemcisi kullanarak bu senaryoyu ayarlama adımlarından oluşan bir yaklaşım uyguluyoruz.  
+[Azure Batch Node.js SDK'sını](/javascript/api/overview/azure/batch) kullanarak Node.js’de Batch istemcisi oluşturma hakkında temel bilgileri öğrenin. Batch uygulaması için bir senaryoyu anlayıp ardından bir Node.js istemcisi kullanarak bu senaryoyu ayarlama adımlarından oluşan bir yaklaşım uyguluyoruz.  
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu makalede, Node.js hakkında bilgi sahibi olduğunuz ve Linux kullanmaya alışkın olduğunuz varsayılmaktadır. Ayrıca, Batch ve Depolama hizmetleri oluşturmak için erişim haklarına sahip bir Azure hesabınız olduğu varsayılmıştır.
@@ -73,7 +73,7 @@ Bu komut azure batch node SDK’sının en son sürümünü yükler.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>2. Adım: Azure Batch hesabı oluşturma
 
-Azure Batch hesabını [Azure Portal](batch-account-create-portal.md)’dan veya komut satırından ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)) oluşturabilirsiniz.
+Azure Batch hesabını [Azure Portal](batch-account-create-portal.md)’dan veya komut satırından ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure/overview)) oluşturabilirsiniz.
 
 Azure CLI aracılığıyla oluşturmak için kullanılacak komutlar aşağıdadır.
 
@@ -360,5 +360,5 @@ Portalda görevler ve iş durumları hakkında ayrıntılı görünümler bulunu
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Hizmetle yeni tanışıyorsanız önerdiğimiz [Azure Batch özelliklerine genel bakış](batch-api-basics.md) makalesini gözden geçirin.
-- Batch API’sini keşfetmek için bkz. [Batch Node.js başvurusu](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/).
+- Batch API’sini keşfetmek için bkz. [Batch Node.js başvurusu](/javascript/api/overview/azure/batch).
 

@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: abaad6514b24bd4bcc923d87a7b721cc80648c47
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Azure IOT paketi Uzaktan izleme için IOT DevKit AZ3166 Bağlan
 
 Bu öğreticide, Azure IOT paketi algılayıcı verileri göndermek için DevKit üzerinde bir örnek uygulamayı çalıştırma öğrenin.
+
+[MXChip IOT DevKit](https://aka.ms/iot-devkit) bir hepsi bir arada Arduino uyumlu zengin çevre birimleri ve algılayıcılar panosudur. Bunun için kullanarak geliştirebilirsiniz [Arduino için Visual Studio Code uzantısı](https://aka.ms/arduino). Ve büyüyen ile gelir [projeleri katalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) Microsoft Azure hizmetlerini yararlanmak prototip nesnelerin interneti (IOT) çözümleri size yol gösterecek.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
@@ -122,3 +124,4 @@ Sorunlarla karşılaşırsanız, başvurmak [SSS](https://microsoft.github.io/az
 Azure IOT paketi DevKit aygıt bağlanmak ve algılayıcı verileri görselleştirmek öğrendiniz, önerilen sonraki adımlar şunlardır:
 
 * [Azure IOT Paketi'ne Genel Bakış](https://docs.microsoft.com/azure/iot-suite/)
+* [Microsoft IoT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)

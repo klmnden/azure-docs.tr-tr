@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 9b904190e7a799d480446fcdcd57316a21051d1e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a620da9dbe9823b9876fa80dc0200aa91fbf9920
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında Azure SQL veri ambarı oluşturma ve sorgulama
 
@@ -41,7 +41,7 @@ Azure SQL veri ambarı bir dizi [işlem kaynağı](performance-tiers.md) ile olu
 
 AdventureWorksDW örnek verileri içeren bir SQL veri ambarı oluşturmak için bu adımları izleyin. 
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 
 2. **Yeni** sayfasından **Veritabanları**’nı seçin ve **Yeni** sayfasında **Öne Çıkan** altından **SQL Veri Ambarı**’nı seçin.
 

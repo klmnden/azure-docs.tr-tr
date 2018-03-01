@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 084d3e4244bc6f19797fadab93265291494cf066
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -70,7 +70,7 @@ Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-lib
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
 {
     log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
@@ -80,7 +80,7 @@ Olay meta verilerine erişmek için bağlamak bir [EventData](/dotnet/api/micros
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] EventData myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
 {
     log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
 }
@@ -89,7 +89,7 @@ Bir toplu işlemde olaylarını almak için olun `string` veya `EventData` bir d
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string[] eventHubMessages, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, TraceWriter log)
 {
     foreach (var message in eventHubMessages)
     {
@@ -110,7 +110,7 @@ Veri bağlama işte *function.json* dosyası:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 C# betik kod aşağıdaki gibidir:
@@ -161,7 +161,7 @@ Veri bağlama işte *function.json* dosyası:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 
@@ -184,7 +184,7 @@ Veri bağlama işte *function.json* dosyası:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 
@@ -205,7 +205,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
 {
     ...
 }
@@ -224,7 +224,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**Adı** | yok | İşlev kodu olay öğesinde temsil eden değişken adı. | 
 |**Yol** |**EventHubName** | Olay hub'ın adı. | 
 |**consumerGroup** |**ConsumerGroup** | Ayarlar isteğe bağlı bir özellik [tüketici grubu](../event-hubs/event-hubs-features.md#event-consumers) hub olaylara abone olmak için kullanılır. Atlanırsa, `$Default` tüketici grubu kullanılır. | 
-|**Bağlantı** |**Bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini *ad alanı*, olay hub kendisini değil. Bu bağlantı dizesi en az tetikleyici etkinleştirmek için Okuma izinleriniz olmalıdır.|
+|**Bağlantı** |**Bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini [ad alanı](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), olay hub kendisini değil. Bu bağlantı dizesi en az tetikleyici etkinleştirmek için Okuma izinleriniz olmalıdır.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -253,7 +253,7 @@ Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-lib
 
 ```csharp
 [FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
     log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -272,7 +272,7 @@ Veri bağlama işte *function.json* dosyası:
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -313,7 +313,7 @@ Veri bağlama işte *function.json* dosyası:
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -338,7 +338,7 @@ Veri bağlama işte *function.json* dosyası:
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -377,7 +377,7 @@ module.exports = function(context) {
 
 ```csharp
 [FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
     ...

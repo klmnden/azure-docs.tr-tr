@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5316add4b7806a03e777aee1757841ed866070
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -34,7 +34,7 @@ Bu öğreticiye başlamadan önce bir **Azure aboneliğinizin** olması gerekir.
 Şimdi aynı anda bir Data Lake Analytics ve Data Lake Store hesabı oluşturun.  Bu basit bir adımdır ve tamamlanması yaklaşık olarak 60 saniye sürer.
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
-2. **Yeni** >  **Veri + Analiz** > **Data Lake Analytics**’e tıklayın.
+2. **Kaynak oluştur** >  **Veri ve Analiz** > **Data Lake Analytics** seçeneğine tıklayın.
 3. Aşağıdaki öğeler için değerleri seçin:
    * **Ad**: Data Lake Analytics hesabınızı adlandırın (Yalnızca küçük harf ve sayı kullanılabilir).
    * **Abonelik**: Analytics hesabı için kullanılan Azure aboneliğini seçin.

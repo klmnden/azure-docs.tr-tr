@@ -1,3 +1,5 @@
+- name: Azure Belgeleri’nde Terraform
+  href: index.yml
 - name: Genel Bakış
   items:
     - name: Azure üzerinde Terraform hakkında

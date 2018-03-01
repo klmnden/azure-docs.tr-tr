@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 803d9e9ea7411c6de4dd15670f495fa8e169a989
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Taslak Azure kapsayıcı hizmeti (AKS) kullanın
 
@@ -21,34 +21,13 @@ Taslak paketi yardımcı olur ve kod Kubernetes kümede çalışacak bir açık 
 
 Bu belge ayrıntıları AKS Kubernetes kümede taslak kullanarak.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğeler gerekirse bkz [AKS quickstart][aks-quickstart].
 
 Ayrıca özel Docker kayıt defteri Azure kapsayıcı kayıt defteri (ACR) gerekir. ACR örneğini dağıtma ile ilgili yönergeler için bkz: [Azure kapsayıcı kayıt defteri Quickstart][acr-quickstart].
 
-## <a name="install-helm"></a>Helm yükleyin
-
-Helm CLI geliştirme sisteminizde çalıştıran ve başlatma, durdurma ve Helm grafiklerle uygulamaları yönetmenize olanak sağlayan bir istemci olur.
-
-Mac üzerinde Helm CLI yüklemek için kullandığınız `brew`. Ek yükleme seçenekleri için bkz [yükleme Helm][install-helm].
-
-```console
-brew install kubernetes-helm
-```
-
-Çıktı:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.6.2.sierra.bottle.1.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
-```
+Helm AKS kümenizdeki ayrıca yüklenmesi gerekir. Helm yükleme hakkında daha fazla bilgi için bkz: [kullanım Helm Azure kapsayıcı hizmeti (AKS) ile][aks-helm].
 
 ## <a name="install-draft"></a>Taslak yükleyin
 
@@ -227,13 +206,13 @@ Başlangıçta, *dış IP* olarak hizmet görünür `pending`.
 deadly-squid-java   10.0.141.72   <pending>     80:32150/TCP   14m
 ```
 
-DIŞ IP adresi değiştiğinden sonra `pending` için bir `IP address`, kullanın `Control+C` kubectl izleme işlemi durdurmak için.
+EXTERNAL-IP adresi `pending` durumundan `IP address` değerine değiştiğinde kubectl izleme işlemini durdurmak için `Control+C` komutunu kullanın.
 
 ```
 deadly-squid-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
 ```
 
-Uygulama görmek için dış IP adresine göz atın.
+Uygulamayı görmek için dış IP adresine gözatın.
 
 ```console
 curl 52.175.224.118
@@ -307,10 +286,10 @@ Taslak kullanma hakkında daha fazla bilgi için Github'da taslak belgelerine ba
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
 [install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
-[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-helm]: ./kubernetes-helm.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

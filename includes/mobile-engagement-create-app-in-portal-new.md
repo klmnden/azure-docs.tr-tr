@@ -1,6 +1,6 @@
 
 1. [Azure Portal](https://portal.azure.com)'da oturum açın.
-2. **Yeni**, ardından **Web + Mobil** ve sonra **Mobile Engagement**’a tıklayın.
+2. **Kaynak oluştur**, ardından **Web ve Mobil** ve sonra da **Mobile Engagement**’a tıklayın.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
 3. Açılan **Yeni Mobile Engagement Uygulama Koleksiyonu** dikey penceresinde bir Uygulama Koleksiyonu oluşturursunuz. Aşağıdaki bilgileri girin:

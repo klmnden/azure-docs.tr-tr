@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6793bd8d2c561554213e9fe645aab018dba7a925
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="network-monitoring-solutions"></a>Ağ çözümleri izleme 
 
@@ -44,6 +44,8 @@ Performans İzleyicisi'ni NPM bir parçasıdır ve ağ bulut, karma ve şirket i
 * İçin performans sorumlu olduğu ağ, belirli kesiminde belirleme
 * SNMP gerek kalmadan ağ durumunu izleyin
 
+![NPM topoloji Haritası](./media/network-monitoring-overview/npm-topology-map.png) 
+
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Bir ağ Performans İzleyicisi çözümü günlük analizi yapılandırın](../log-analytics/log-analytics-network-performance-monitor.md) 
@@ -64,6 +66,22 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [ExpressRoute için Ağ Performansı İzleyicisini Yapılandırma](../expressroute/how-to-npm.md)
 * [blog gönderisi](https://aka.ms/NPMExRmonitorGA)
+
+## <a name="service-endpoint-monitor"></a>Hizmet uç noktası İzleyicisi
+
+Hizmet uç noktası izleme ile artık ulaşılabilirlik uygulamaların test edin ve şirket içi, taşıyıcı ağlar ve bulut/özel veri merkezleri üzerinden performans sorunları algılar.
+
+* Uçtan uca ağ bağlantısı uygulamaları izleme
+* Uygulama teslim ağ performansı ile ilişkilendirmek, düşmesine yol kullanıcı ve uygulama arasında kesin konumunu Algıla
+* Dünya çapında uygulama ulaşılabilirlik birden çok kullanıcı konumlardan gelen sınama
+* Ağ gecikme süresi ve paket kaybı hattınızın iş ve SaaS uygulamaları için belirleme
+* Etkin noktalar zayıf uygulama performans neden olabilecek, ağdaki belirleme
+* Microsoft Office 365, Dynamics 365 Skype Kurumsal için yerleşik testleri ve diğer Microsoft hizmetlerini kullanarak Office 365 uygulamalarına ulaşılabilirlik izleme
+
+Daha fazla bilgi için aşağıdaki makalelere bakın:
+
+* [Hizmet uç noktaları izleme için ağ Performans İzleyicisi'ni yapılandırma](https://aka.ms/applicationconnectivitymonitorguide)
+* [blog gönderisi](https://aka.ms/svcendptmonitor)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,3 +1,5 @@
+# [CDN Belgeleri](index.md)
+
 # [Genel Bakış](cdn-overview.md)
 ## [Azure CDN nedir?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 

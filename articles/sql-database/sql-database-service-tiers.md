@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/12/2018
+ms.date: 02/26/2018
 ms.author: carlrab
-ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database hizmet katmanları nelerdir?
 
@@ -35,8 +35,8 @@ Bir hizmet katmanı seçme özelliği öncelikle iş sürekliliği, depolama ve 
 |Çalışma Süresi SLA'sı|%99,99|%99,99|%99,99|Önizleme sırasında yok|
 |Yedekleri bekletme|7 gün|35 gün|35 gün|
 |CPU|Düşük|Düşük, Orta, yüksek|Orta, yüksek|
-|G/ç işleme|Düşük  | Orta | Büyüklük standart yüksek|
-|G/ç gecikmesi|Premium değerinden yüksek|Premium değerinden yüksek|Temel ve standart değerinden daha düşük|
+|G/ç işleme (yaklaşık) |2.5 DTU başına IOPS  | 2.5 DTU başına IOPS | DTU başına 48 IOPS|
+|G/ç gecikmesi (yaklaşık)|5 (okuma), ms 10 ms (yazma)|5 (okuma), ms 10 ms (yazma)|2 ms (okuma/yazma)|
 |Columnstore dizinini ve bellek içi OLTP|Yok|Yok|Desteklenen|
 |||||
 

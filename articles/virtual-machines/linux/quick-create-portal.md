@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2017
+ms.date: 12/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: a9a2e2ace4c4b6867e5d8b318c5d80a9df124ecc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Azure portal ile Linux sanal makinesi oluşturma
 
@@ -46,7 +46,7 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin. 
 

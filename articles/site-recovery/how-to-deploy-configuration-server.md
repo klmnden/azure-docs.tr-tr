@@ -6,21 +6,21 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 02/25/2018
 ms.author: anoopkv
-ms.openlocfilehash: 3b09c11d76d5c88b904afa3c6d256bc475992339
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f7ec02cb4723d8a4ea0847810b1a1822cf20e957
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
-Kullanırken bir şirket içi yapılandırma sunucusu dağıtmak [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuların azure'a olağanüstü durum kurtarma. Yapılandırma sunucusu koordinatları iletişimleri arasında şirket içi VMware ve Azure. Ayrıca, veri çoğaltma yönetir. Bu makalede yapılandırma sunucusu dağıtmak için gereken adımlarda size yol gösterir.
+Kullanırken bir şirket içi yapılandırma sunucusu dağıtmak [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuların azure'a olağanüstü durum kurtarma. Yapılandırma sunucusu koordinatları iletişimleri arasında şirket içi VMware ve Azure. Ayrıca, veri çoğaltma yönetir. Bu makalede, VMware Vm'lerini Azure'a çoğaltırken yapılandırma sunucusu dağıtmak için gereken adımlar anlatılmaktadır. [Bu makalede izleyin](site-recovery-set-up-physical-to-azure.md) fiziksel sunucu çoğaltma için yapılandırma sunucusu kurma gerekiyorsa.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Yüksek oranda kullanılabilir bir VMware VM olarak yapılandırma sunucusu dağıtmanızı öneririz. Fiziksel sunucu çoğaltma için bir fiziksel makine yapılandırma sunucusu ayarlanabilir. En düşük donanım gereksinimleri aşağıdaki tabloda özetlenmiştir.
+Yüksek oranda kullanılabilir bir VMware VM olarak yapılandırma sunucusu dağıtmanızı öneririz. En düşük donanım gereksinimleri aşağıdaki tabloda özetlenmiştir.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -118,4 +118,4 @@ Ek bir NIC yapılandırma sunucusuna eklemek istiyorsanız, sunucuyu kasaya kayd
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öğreticiler olağanüstü durum kurtarma ayarlama konusunda gözden [VMware Vm'lerini](tutorial-vmware-to-azure.md) ve [fiziksel sunucuları](tutorial-physical-to-azure.md) Azure.
+Olağanüstü durum kurtarma ayarlamak [VMware Vm'lerini](tutorial-vmware-to-azure.md) azure'a.

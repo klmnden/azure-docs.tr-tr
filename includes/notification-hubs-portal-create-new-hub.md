@@ -2,7 +2,7 @@
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. **Yeni** > **Web + Mobil** > **Bildirim Hub'ı** öğesini seçin.
+2. **Kaynak oluştur** > **Web ve Mobil** > **Bildirim Hub'ı** seçeneğini belirleyin.
    
       ![Azure portalı - Bildirim hub'ı oluşturma](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       

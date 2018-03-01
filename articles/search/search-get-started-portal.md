@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Portalda Azure Search dizinini oluşturma, sorgulama ve filtreleme
 
@@ -43,10 +43,10 @@ Bu öğretici, bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-t
 Hemen bir hizmet sağlamak istemiyorsanız, bu [Azure Search’e Genel Bakış videosunun](https://channel9.msdn.com/Events/Connect/2016/138) üçüncü dakikasından izlemeye başlayarak bu öğreticideki adımların 6 dakikalık bir gösterimini izleyebilirsiniz.
 
 ## <a name="find-your-service"></a>Hizmetinizi bulma
-1. [Azure portalında](https://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Azure Search hizmetinizin hizmet panosunu açın. Hizmet kutucuğunu panonuza sabitlemediyseniz hizmetinizi şu şekilde bulabilirsiniz: 
    
-   * Atlama Çubuğu’nda soldaki gezinti bölmesinin en altında bulunan **Diğer hizmetler**’e tıklayın.
+   * Jumpbar’da, sol gezinti bölmesinde **Tüm hizmetler**’e tıklayın.
    * Aboneliğinizde kullanılabilen arama hizmetlerinin listesini görmek için arama kutusuna *arama* yazın. Hizmetiniz listede görünür. 
 
 ## <a name="check-for-space"></a>Alan denetleme

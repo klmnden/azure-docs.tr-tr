@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6abdb15917508152529990c434eb48a9983b9432
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/28/2018
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
 
@@ -43,7 +43,7 @@ Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya da
 
 HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
-1. [Azure portalı](https://portal.azure.com)ndan **+YENİ**, **Veri ve Analiz** ve ardından **HDInsight**'ı seçin.
+1. [Azure portalında](https://portal.azure.com) **+Kaynak oluştur**, **Veri ve Analiz**, **HDInsight** adımlarını izleyin.
 
     ![HDInsight kümesi oluşturma](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -65,8 +65,6 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
     * **İşletim Sistemi**: Linux
 
     * **Sürüm**: Storm 1.1.0 (HDI 3.6)
-
-    * **Küme Katmanı**: Standart
 
    Son olarak, **Seç** düğmesini kullanarak ayarları kaydedin.
 

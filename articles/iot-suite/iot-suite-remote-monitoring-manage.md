@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Yönetmek ve cihazlarınızı yapılandırmak
 
@@ -34,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Aygıt yöntemlerini çözümden çağırın.
 > * Bir aygıt yeniden yapılandırın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
@@ -42,11 +42,11 @@ Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, 
 
 ## <a name="add-a-simulated-device"></a>Bir sanal cihaz ekleme
 
-Gidin **aygıtları** sayfasında çözümde ve ardından **yeni cihaz**. İçinde **yeni cihaz** paneli, seçin **benzetimli**:
+Gidin **aygıtları** sayfasında çözümde ve ardından **+ yeni cihaz**. İçinde **yeni cihaz** paneli, seçin **benzetimli**:
 
 ![Bir sanal cihaz sağlama](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Kümesine sağlamak için aygıt sayısını bırakın **1**. Seçin **hatalı altyapısı** olarak **cihaz modeli**ve ardından **Uygula** sanal cihazı oluşturmak için:
+Kümesine sağlamak için aygıt sayısını bırakın **1**. Seçin **hatalı altyapısı** cihaz modeli ve ardından **Uygula** sanal cihazı oluşturmak için:
 
 ![Benzetimli altyapısı cihazı hazırlama](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 

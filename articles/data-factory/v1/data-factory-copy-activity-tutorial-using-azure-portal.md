@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6b22e06cc569ff58f4e988a014d39c90245bf260
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 555422356ef16319716a6f54d3ba90082ee25838
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Öğretici: Verileri kopyalamak amacıyla Data Factory işlem hattı oluşturmak için Azure portalını kullanma | Microsoft Docs 
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ Bu eğitimin bir parçası olarak gerçekleştireceğiniz adımlar şunlardır:
 
 Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, verileri bir kaynaktan bir hedef veri deposuna kopyalamak için Kopyalama Etkinliği, giriş verilerini ürün çıkış verilerine dönüştürecek Hive betiğini çalıştırmak için de HDInsight Hive etkinliği. Bu adımda data factory oluşturmayla başlayalım.
 
-1. [Azure portalında](https://portal.azure.com/) oturum açtıktan sonra sol taraftaki menüde **Yeni**'ye tıklayın, **Zeka + Analiz**'i seçin ve **Data Factory**'ye tıklayın. 
+1. [Azure portalında](https://portal.azure.com/) oturum açtıktan sonra sol taraftaki menüde **Kaynak oluştur**’a, **Veri ve Analiz**’e ve **Data Factory**'ye tıklayın. 
    
    ![Yeni->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. **Yeni data factory** dikey penceresinde:

@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5b30d3732ff00e5bb79e2d58a9f0b3e5b29dedf8
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-service"></a>sfctl hizmeti
+# <a name="sfctl-service"></a>sfctl service
 Oluşturma, silme ve hizmet, hizmet türlerini ve hizmet paketleri yönetin.
 
 ## <a name="commands"></a>Komutlar
@@ -34,6 +34,7 @@ Oluşturma, silme ve hizmet, hizmet türlerini ve hizmet paketleri yönetin.
 |    dağıtılan türü  | Service Fabric kümesindeki bir düğümde dağıtılan uygulamayı belirtilen hizmet türü hakkındaki bilgileri alır.|
 |    deployed-type-list| Service Fabric kümesindeki bir düğümde dağıtılan uygulamalardan hizmet türleri hakkında bilgi içeren listeyi alır.|
 |    açıklama    | Var olan bir Service Fabric hizmetini açıklamasını alır.|
+|Get kapsayıcı günlükleri| Service Fabric düğümde dağıtılan kapsayıcısı için kapsayıcı günlüklerini alır.|
 |    sistem durumu         | Belirtilen Service Fabric hizmet durumunu alır.|
 |    bilgileri           | Bir Service Fabric uygulamaya ait belirli hizmet hakkındaki bilgileri alır.|
 |    liste           | Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetler hakkındaki bilgileri alır|
@@ -56,7 +57,7 @@ Belirtilen Service Fabric hizmeti açıklamasından oluşturur.
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli]| Üst uygulama kimliği. Bu genellikle tam uygulamayı olmadan kimliğidir ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile sınırlandırılmıştır ' ~' karakter. Örneğin, uygulama adı 'fabric://myapp/app1' ise, uygulama kimliği olması ' Uygulamam ~ app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki.|
+| --Uygulama kimliği [gerekli]| Üst uygulama kimliği. Bu genellikle tam uygulamayı olmadan kimliğidir ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile sınırlandırılmıştır ' ~' karakter. Örneğin, uygulama adı ise ' fabric: / myapp/app1 ', uygulama kimliği olacaktır ' Uygulamam ~ app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki.|
 | --Ad [gerekli]| Hizmetin adı. Bu bir alt uygulama kimliği olmalıdır           Bu tam olduğu da dahil olmak üzere `fabric:` URI. Örneğin hizmet `fabric:/A/B` uygulama alt `fabric:/A`.|
 | --Hizmet türü [gerekli]| Hizmet türünün adı.|
 | --activation-mode     | Hizmet Paketi için etkinleştirme modu.|
@@ -104,7 +105,7 @@ Var olan bir Service Fabric hizmeti siler. Bir hizmet silinebilmesi için önce 
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı fabric://myapp/app1/svc1 ise ", hizmet kimliği olacaktır" Uygulamam ~ app1 ~ svc1 "6.0 + ve" myapp/app1/svc1"önceki sürümlerinde.|
+| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adını doku ise: / myapp/app1/svc1 ", hizmet kimliği olacaktır" Uygulamam ~ app1 ~ svc1 "6.0 + ve" myapp/app1/svc1"önceki sürümlerinde.|
 | --zorla Kaldır      | Bir Service Fabric uygulaması veya hizmeti zorla kapama sırası geçmeden kaldırın. Bu parametre zorla bir uygulamayı silmek için kullanılan veya hizmet için hangi silmeyi zaman aşımına uğramadan engelleyen hizmet kodda sorunları nedeniyle normal olduğundan kopyaları kapatın.|
 | --zaman aşımı -t        | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
@@ -127,7 +128,7 @@ Var olan bir Service Fabric hizmetini açıklamasını alır. Bir hizmet açıkl
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı "fabric://myapp/app1/svc1" ise, hizmet kimliği olması "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
+| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Hizmet adı; Örneğin, "fabric: / myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
 | --zaman aşımı -t        | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
@@ -143,13 +144,13 @@ Var olan bir Service Fabric hizmetini açıklamasını alır. Bir hizmet açıkl
 ## <a name="sfctl-service-health"></a>sfctl hizmet durumu
 Belirtilen Service Fabric hizmet durumunu alır.
 
-Belirtilen hizmet sistem durumu bilgilerini alır. Sistem durumu olayları sistem durumuna bağlı hizmet bildirilen koleksiyonu filtrelemek için EventsHealthStateFilter kullanın. Döndürülen bölüm koleksiyonu filtrelemek için PartitionsHealthStateFilter kullanın. Health store içinde yok. bir hizmeti belirtirseniz, bu cmdlet bir hata döndürür. .
+Belirtilen hizmet sistem durumu bilgilerini alır. Sistem durumu olayları sistem durumuna bağlı hizmet bildirilen koleksiyonu filtrelemek için EventsHealthStateFilter kullanın. Döndürülen bölüm koleksiyonu filtrelemek için PartitionsHealthStateFilter kullanın. Health store içinde yok. bir hizmeti belirtirseniz, bu cmdlet bir hata döndürür.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı "fabric://myapp/app1/svc1" ise, hizmet kimliği olması "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
+| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Hizmet adı; Örneğin, "fabric: / myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
 | --events-health-state-filter | Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
 |--exclude-health-statistics     | Sistem durumu istatistikleri sorgu sonucu bir parçası olarak döndürülüp döndürülmeyeceğini gösterir. Varsayılan değer false. Sistem durumu Tamam, uyarı ve hata istatistiklerini varlıklar alt sayısını gösterir.|
 | --bölümleri sağlık Durumu Filtresi| Sistem sağlığı durumlarına bağlı hizmet sistem durumu sorgusunun sonucu döndürdü bölümleri sistem durumu nesnelerini filtreleme sağlar. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen bölümleri döndürülür. Tüm bölümleri toplanan sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Örneğin, "6" sağlanan değer ise, ardından Tamam (2) ve uyarı (4), HealthState değeriyle bölümlerinin sistem durumu döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir.                  Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
@@ -174,8 +175,8 @@ Belirtilen Service Fabric uygulamaya ait belirtilen hizmeti hakkında bilgi dön
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, uygulama adı "fabric://myapp/app1" ise, uygulama kimliği olması "Uygulamam ~ app1" 6.0 + ve "myapp/app1" önceki sürümlerinde.|
-| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı "fabric://myapp/app1/svc1" ise, hizmet kimliği olması "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
+| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, uygulama adı ise "fabric: / myapp/app1", uygulama kimliği olacaktır "Uygulamam ~ app1" 6.0 + ve "myapp/app1" önceki sürümlerinde.|
+| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Hizmet adı; Örneğin, "fabric: / myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
 | --zaman aşımı -t            | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
@@ -197,7 +198,7 @@ Uygulama kimliği ile belirtilen uygulamaya ait tüm hizmetleri hakkında bilgi 
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, uygulama adı "fabric://myapp/app1" ise, uygulama kimliği olması "Uygulamam ~ app1" 6.0 + ve "myapp/app1" önceki sürümlerinde.|
+| --Uygulama kimliği [gerekli]| Uygulama kimliği. Bu genellikle tam uygulamayı olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, uygulama adı ise "fabric: / myapp/app1", uygulama kimliği olacaktır "Uygulamam ~ app1" 6.0 + ve "myapp/app1" önceki sürümlerinde.|
 | --devamlılık belirteci    | Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır. Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değere sahip API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır.|
 | --Hizmet türü adı     | Hizmetler için sorgu filtre uygulamak için kullanılan hizmet türü adı.|
 | --zaman aşımı -t            | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
@@ -245,7 +246,7 @@ Service Fabric kümesi şu anda çekirdek kaybında takıldı belirtilen hizmet 
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı fabric://myapp/app1/svc1 ise ", hizmet kimliği olacaktır" Uygulamam ~ app1 ~ svc1 "6.0 + ve" myapp/app1/svc1"önceki sürümlerinde.|
+| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adını doku ise: / myapp/app1/svc1 ", hizmet kimliği olacaktır" Uygulamam ~ app1 ~ svc1 "6.0 + ve" myapp/app1/svc1"önceki sürümlerinde.|
 | --zaman aşımı -t        | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
@@ -267,7 +268,7 @@ Hizmet çoğaltmaları uç noktalarına almak için Service Fabric hizmeti böl�
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı "fabric://myapp/app1/svc1" ise, hizmet kimliği olması "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
+| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Hizmet adı; Örneğin, "fabric: / myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
 | --Bölüm anahtarı türü| Bölüm için anahtar türü. Hizmet bölüm düzeni Int64Range veya adlandırılmış ise bu parametre gereklidir. Olası değerler aşağıdaki. -Yok (1) - gösterir PartitionKeyValue parametresi belirtilmedi. Bu, bölümleme düzeni Singleton olarak ile bölümler için geçerlidir. Varsayılan değer budur. Değer 1'dir. -Int64Range (2) - PartitionKeyValue parametresi bir Int64 bölüm anahtarı olduğunu gösterir. Bu, bölümleme düzeni olarak Int64Range ile bölümler için geçerlidir. Değer 2'dir. -(3) - adlı PartitionKeyValue parametresi bölümün adı olduğunu gösterir. Bu, bölümleme düzeni olarak adlandırılmış ile bölümler için geçerlidir. Değer 3'tür.|
 | --Bölüm anahtarı değeri  | Bölüm anahtarı. Hizmet bölüm düzeni Int64Range veya adlandırılmış ise, bu gereklidir.|
 | --rsp sürüm önceki | Daha önce alındı yanıtının sürüm alanındaki değer. Kullanıcı var sonuç daha önce eski biliyorsa, bu gereklidir.|
@@ -290,7 +291,7 @@ Belirtilen güncelleştirme açıklamasını kullanarak belirtilen hizmeti günc
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli]| Hizmetinin hedefi. Bu genellikle tam hizmeti olmadan kimliğidir ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı 'fabric://myapp/app1/svc1' ise, hizmet kimliği olması ' Uygulamam ~ app1 ~ svc1' 6.0 + ve ' myapp/app1/svc1' önceki sürümlerinde.|
+| --hizmeti kimliği [gerekli]| Hizmetinin hedefi. Bu genellikle tam hizmeti olmadan kimliğidir ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı ise ' fabric: / app1/myapp/svc1 ', hizmet kimliği olacaktır ' Uygulamam ~ app1 ~ svc1' 6.0 + ve ' myapp/app1/svc1' önceki sürümlerinde.|
 | --kısıtlamaları         | Dize olarak yerleştirme kısıtlamaları. Kısıtlamalarından düğüm özellikleri boolean ifadeleri ve hizmet gereksinimlerine bağlı olarak belirli düğümler için bir hizmet sınırlamak için izin veren. Örneğin, yerleştirmek için bir hizmet NodeType olduğu mavi düğümlerde belirtin aşağıdaki: "NodeColor mavi ==".|
 | --correlated-service  | İle ilişkilendirmek için hedef hizmet adı.|
 | --Bağıntı         | Hizmet hizalama benzeşim kullanarak var olan bir hizmeti ile ilişkilendirilmesi.|

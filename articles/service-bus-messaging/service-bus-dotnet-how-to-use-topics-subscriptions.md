@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus konuları ile çalışmaya başlama
 
@@ -52,7 +52,7 @@ Daha önce bir Service Bus Mesajlaşma ad alanı oluşturduysanız [Azure portal
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Azure portalını kullanarak konu oluşturma
 
 1. [Azure portalında][azure-portal] oturum açın.
-2. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Diğer hizmetler**'e veya **Tüm Kaynaklar**'a tıklayın). Konuyu oluşturmak istediğiniz ad alanına tıklayın. 
+2. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Tüm hizmetler**'e veya **Tüm kaynaklar**'a tıklayın). Konuyu oluşturmak istediğiniz ad alanına tıklayın. 
 3. Ad alanına genel bakış penceresi görünür. **Konular**’a tıklayın:
    
     ![Konu başlığı oluşturma][createtopic1]

@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-partition"></a>sfctl bölüm
+# <a name="sfctl-partition"></a>sfctl partition
 Sorgulamak ve herhangi bir hizmet için bölüm yönetin.
 
 ## <a name="commands"></a>Komutlar
@@ -48,7 +48,7 @@ Sorgulamak ve herhangi bir hizmet için bölüm yönetin.
 Belirtilen Service Fabric bölüm durumunu alır.
 
 Belirtilen bölüm sistem durumu bilgilerini alır. Sistem durumu olayları sistem durumuna bağlı hizmet bildirilen koleksiyonu filtrelemek için EventsHealthStateFilter kullanın.
-ReplicasHealthStateFilter bölüme ReplicaHealthState nesne koleksiyonundaki filtre uygulamak için kullanın. Health store içinde yok. bir bölüm belirtirseniz, bu cmdlet bir hata döndürür. .
+ReplicasHealthStateFilter bölüme ReplicaHealthState nesne koleksiyonundaki filtre uygulamak için kullanın. Health store içinde yok. bir bölüm belirtirseniz, bu cmdlet bir hata döndürür.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
@@ -101,7 +101,7 @@ Service Fabric hizmetinin bölümleri listesini alır. S bölüm kimliği, böl�
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı "fabric://myapp/app1/svc1" ise, hizmet kimliği olması "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
+| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Hizmet adı; Örneğin, "fabric: / myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki sürümlerinde.|
 | --devamlılık belirteci| Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır.         Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değere sahip API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır.|
 | --zaman aşımı -t        | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
@@ -162,7 +162,7 @@ Service Fabric kümesi şu anda çekirdek kaybında takıldı belirli bir bölü
 ## <a name="sfctl-partition-restart"></a>sfctl bölümü yeniden başlatma
 Bu API, bazı veya tüm çoğaltmaları ya da belirtilen bölüm örneklerini yeniden başlatır.
 
-Bu API, yük devretme test etmek için kullanışlıdır. Durum bilgisiz hizmet bölüm hedeflemek için kullanılan RestartPartitionMode AllReplicasOrInstances olması gerekir. İlerleme durumunu almak için aynı Operationıd kullanarak GetPartitionRestartProgress API çağrısı. .
+Bu API, yük devretme test etmek için kullanışlıdır. Durum bilgisiz hizmet bölüm hedeflemek için kullanılan RestartPartitionMode AllReplicasOrInstances olması gerekir. İlerleme durumunu almak için aynı Operationıd kullanarak GetPartitionRestartProgress API çağrısı.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
@@ -170,8 +170,8 @@ Bu API, yük devretme test etmek için kullanışlıdır. Durum bilgisiz hizmet 
 | --- | --- |
 | --işlem kimliği [gerekli]| Bu API çağrısının tanımlayan bir GUID.  Bu, karşılık gelen GetProgress API geçirilir.|
 | --bölüm kimliği [gerekli]| Bölüm kimliği.|
-| --yeniden bölüm-[gerekli] modu| -Geçersiz - ayrılmış.  API geçmeyin. -                     AllReplicasOrInstances - All replicas or instances in the                     partition are restarted at once. -OnlyActiveSecondaries - yalnızca ikincil çoğaltmaları yeniden başlatılır. .|
-| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Örneğin, hizmet adı "fabric://myapp/app1/svc1" ise, hizmet kimliği olması "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki v ersions.|
+| --yeniden bölüm-[gerekli] modu| Yeniden başlatmak için hangi bölümleri açıklanmaktadır.|
+| --hizmeti kimliği [gerekli]| Hizmet kimliği. Bu genellikle tam hizmeti olmadan adıdır ' doku:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmış "~" karakter. Hizmet adı; Örneğin, "fabric: / myapp/app1/svc1", hizmet kimliği olacaktır "Uygulamam ~ app1 ~ svc1" 6.0 + ve "myapp/app1/svc1" önceki ve rsions.|
 | --zaman aşımı -t                    | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler

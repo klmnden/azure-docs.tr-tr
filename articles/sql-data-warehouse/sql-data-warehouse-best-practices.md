@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: barbkess
-ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için en iyi yöntemler
 Bu makalede, Azure SQL Veri Ambarı çözümünüzden yüksek performans almanıza yardımcı olacak en iyi yöntemler bir arada sunulmaktadır.  Bu makalede, temel ve kolay anlaşılır kavramların yanı sıra ileri düzey kavramlarla ilgili özet bilgilere yer verilmektedir.  Bu makalenin amacı, veri ambarınızı oluşturmanız sırasında size temel noktalarda rehberlik yapmak ve odaklanmanız gereken önemli noktalara dikkat çekmektir.  Her bölümde bir kavram tanıtılmakta ve ardından ilgili kavramı ayrıntılı bir şekilde açıklayan ileri düzey makalelere bağlantı verilmektedir.
@@ -29,14 +29,8 @@ Azure SQL Veri Ambarı ile çalışmaya yeni başladıysanız, bu makale gözün
 Yüklemeyle ilgili rehber için bkz. [Veri yükleme rehberi](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Duraklatma ve ölçeklendirme ile maliyetleri azaltın
-SQL Veri Ambarı’nın önemli özelliklerinden biri, kullanmadığınız zaman duraklatarak işlem kaynakların maliyetlerini durdurma şansına sahip olmanızdır.  Bir diğer önemli özellik ise kaynakları ölçeklendirmektir.  Duraklatma ve Ölçeklendirme işlemlerini Azure portal üzerinden veya PowerShell komutları aracılığıyla yapabilirsiniz.  Veri ambarınız kullanılmadığında ilgili maliyetleri önemli ölçüde düşürebildiğinden bu özellikleri inceleyip keşfetmeniz önerilir.  Veri ambarınızın her zaman erişilebilir durumda olmasını istiyorsanız, duraklatmak yerine en küçük boyut olan DW100’e ölçeklendirmeyi tercih edebilirsiniz.
+Duraklatma ve ölçeklendirme aracılığıyla maliyetleri azaltma hakkında daha fazla bilgi için bkz. [İşlem yönetme](sql-data-warehouse-manage-compute-overview.md). 
 
-Ayrıca bkz. [İşlem kaynaklarını duraklatma][Pause compute resources], [İşlem kaynaklarını sürdürme][Resume compute resources], [İşlem kaynaklarını ölçeklendirme].
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>Duraklatma veya ölçeklendirme öncesinde işlemleri boşaltın
-SQL Veri Ambarınız için duraklatma veya ölçeklendirme isteğinde bulunduğunuzda, arka planda sorgularınız iptal edilir.  Basit bir SELECT sorgusunu hızlıca ve örnek duraklatma veya ölçeklendirme süresini neredeyse hiç etkilemeden iptal edebilirsiniz.  Ancak, verilerinizi veya verilerinizin yapısını değiştiren işlem sorguları o kadar hızlı durdurulamayabilir.  **Bir işlem sorgusunun tamamlanması veya yaptığı değişiklikleri geri alması gerekir.**  Bir işlem sorgusunun tamamladığı işi geri almak, sorgunun değişiklik yapmak için harcadığı süre kadar, hatta bazen daha fazla zaman alabilir.  Örneğin, bir saattir çalışan ve satır silen bir sorguyu iptal etmeniz halinde sistemin silinmiş olan satırları geri eklemesi bir saat sürebilir.  Duraklatma veya ölçeklendirme isteklerini işlemler devam ederken çalıştırmanız halinde, devam etmek için geri alma işleminin tamamlanmasını bekleyeceğinden ilgili duraklatma veya ölçeklendirme işleminin tamamlanması uzun sürebilir.
-
-Ayrıca bkz. [İşlemleri anlama][Understanding transactions], [İşlemleri iyileştirme][Optimizing transactions]
 
 ## <a name="maintain-statistics"></a>İstatistiklerin bakımını yapın
 Sütunlarla ilgili istatistikleri otomatik olarak algılayıp oluşturan veya güncelleştiren SQL Server’dan farklı olarak, SQL Veri Ambarı’nda istatistiklerin bakımının kullanıcı tarafından yapılması gerekir.  Bu özelliği ilerleyen zamanlarda değiştirmeyi planlıyoruz ancak şimdilik SQL Veri Ambarı planlarının iyileştirilmiş olduğundan emin olmak için istatistiklerin bakımını sizin yapmanız gerekiyor.  İyileştirici tarafından oluşturulan planların verimi, istatistiklere bağlıdır.  **İstatistik tutmaya başlamanın kolay yollarından biri, her sütun için örnek istatistik oluşturmaktır.**  İstatistiklerin güncelleştirilmesi, verilerinizde yapılan değişiklikler kadar önemlidir.  Garanti yaklaşımlardan biri, istatistiklerinizi her gün veya her yükleme sonrasında güncelleştirmektir.  İstatistiklerin sıfırdan oluşturulması veya mevcut olanların güncelleştirilmesi konusunda karar vermek için performans ve maliyet açısından değerlendirme yapmanız gerekir. Tüm istatistiklerin bakımını yapmanın çok uzun sürdüğünü düşünüyorsanız, istatistik tutulması veya sık güncelleştirilmesi gereken sütunlar konusunda daha ayrıntılı bir seçim yapabilirsiniz.  Örneğin, yeni değer eklenme ihtimali olan tarih sütunlarını her gün güncelleştirmeyi tercih edebilirsiniz. **En çok faydayı birleştirmelerin bulunduğu sütunlar, WHERE yan tümcesinde kullanılan sütunlar ve GROUP BY içinde bulunan sütunlar için istatistik tutarak elde edebilirsiniz.**
@@ -138,7 +132,7 @@ Son olarak özellik isteğinde bulunmak için lütfen [Azure SQL Veri Ambarı Ge
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[İşlem kaynaklarını ölçeklendirme]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md

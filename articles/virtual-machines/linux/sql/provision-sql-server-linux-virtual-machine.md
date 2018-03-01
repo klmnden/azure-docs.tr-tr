@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Linux SQL Server sanal makinesi sağlama
 
@@ -41,9 +41,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. Sol bölmede **Yeni**'ye tıklayın.
+1. Sol bölmede **Kaynak oluştur**’a tıklayın.
 
-1. **Yeni** bölmesinde **İşlem**'e tıklayın.
+1. **Kaynak oluştur** bölmesinde, **İşlem**’e tıklayın.
 
 1. **Öne Çıkanlar** başlığının yanındaki **Tümünü gör**'e tıklayın.
 
@@ -60,7 +60,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
    > [!TIP]
    > Developer sürümü SQL Server lisanslama maliyeti olmadan Enterprise sürümü özellikleriyle test veya geliştirme yapmanızı sağlar. Yalnızca Linux VM çalıştırma maliyetleri için ödeme yaparsınız.
 
-1. **Oluştur**'a tıklayın.
+1. **Oluştur**’a tıklayın.
 
 1. **Temel Bilgiler** penceresine Linux VM bilgilerini girin. 
 
@@ -69,7 +69,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
     > [!Note]
     > Kimlik doğrulaması için SSH ortak anahtarı veya Parola kullanabilirsiniz. SSH daha güvenlidir. SSH anahtarı oluşturma talimatları için bkz. [Azure'daki Linux VM için Linux ve Mac üzerinde SSH anahtarı oluşturma](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**’a tıklayın.
 
 1. **Boyut** penceresinden bir makine boyutu seçin. Diğer boyutları görmek için **Tümünü görüntüle**'yi seçin. VM boyutları hakkında daha fazla bilgi için bkz. [Linux VM boyutları](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
@@ -82,7 +82,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. **Ayarlar** penceresindeki ayarları değiştirebilir veya varsayılan ayarları tutabilirsiniz.
 
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**’a tıklayın.
 
 1. **Özet** sayfasında **Satın al**'a tıklayarak VM'yi oluşturun.
 

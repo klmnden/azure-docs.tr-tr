@@ -1,3 +1,5 @@
+# [VPN Gateway Belgeleri](index.md)
+
 # Genel Bakış
 ## [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway ile ilgili SSS](vpn-gateway-vpn-faq.md)

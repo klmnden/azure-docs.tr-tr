@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5274ec13ec2d04194e2dd4c8ec93be0f78329b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Azure portalını kullanarak iç yük dengeleyici oluşturma
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/11/2018
 Azure portalından iç yük dengeleyici oluşturmak için aşağıdaki adımları uygulayın.
 
 1. Tarayıcı penceresi açın, [Azure portalına](http://portal.azure.com) gidin ve Azure hesabınızla oturum açın.
-2. Ekranın sol üst kenarından **Yeni** > **Ağ** > **Yük dengeleyici**’yi seçin.
+2. Ekranın sol üst kenarından **Kaynak oluştur** > **Ağ** > **Yük dengeleyici**’ye tıklayın.
 3. **Yük dengeleyici oluştur** dikey penceresinde yük dengeleyiciniz için bir **Ad** girin.
 4. **Tür** altında **İç**’e tıklayın.
 5. **Sanal ağ**’a tıklayıp yük dengeleyiciyi oluşturmak istediğiniz sanal ağı seçin.

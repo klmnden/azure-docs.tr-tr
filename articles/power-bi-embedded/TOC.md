@@ -1,3 +1,5 @@
+# [Power BI Embedded Belgeleri](index.md)
+
 # Genel Bakış
 ## [Power BI Embedded hakkında](what-is-power-bi-embedded.md)
 

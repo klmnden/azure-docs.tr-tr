@@ -1,35 +1,33 @@
 ---
-title: "Azure'da ölçeklenebilir bir uygulama için bir VM ve depolama hesabı oluşturma | Microsoft Docs"
-description: "Azure blob storage kullanarak ölçeklenebilir bir uygulamayı çalıştırmak için kullanılacak bir VM dağıtmayı öğrenin"
+title: "Azure’da ölçeklenebilir bir uygulama için VM ve depolama hesabı oluşturma | Microsoft Docs"
+description: "Azure blob depolama kullanarak ölçeklenebilir bir uygulama çalıştırmak için kullanılacak bir VM’yi dağıtmayı öğrenme"
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: aafb79a021b76b1347314815b1786a23f699be7a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Bir sanal makine ve ölçeklenebilir bir uygulama için depolama hesabı oluşturma
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Ölçeklenebilir bir uygulama için sanal makine ve depolama hesabı oluşturma
 
-Bu öğretici bir dizi birini bir parçasıdır. Bu öğretici, yükler ve büyük miktarlarda bir Azure depolama hesabıyla rastgele veri indirme bir uygulama dağıttığınız gösterir. İşlemi tamamladığınızda, karşıya yükleme ve büyük miktarlarda verinin bir depolama hesabına indirme bir sanal makinede çalışan bir konsol uygulaması sahip.
+Bu öğretici, bir dizinin birinci bölümüdür. Bu öğretici, Azure depolama hesabı ile büyük miktarda rastgele veri yükleyen ve indiren bir uygulamayı nasıl dağıtacağınızı gösterir. İşinizi tamamladığınızda, bir sanal makine üzerinde bir depolama hesabına büyük miktarlarda veri yükleyip indirdiğiniz bir konsol uygulaması çalıştırırsınız.
 
-Bölümünde bir dizi öğrenin nasıl yapılır:
+Serinin birinci bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Depolama hesabı oluşturma
 > * Sanal makine oluşturma
-> * Bir özel betik uzantısı yapılandırma
+> * Özel betik uzantısı yapılandırma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -47,9 +45,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
  
-Örnek bir Azure depolama hesabındaki bir blob kapsayıcısını 50 büyük dosyaları karşıya yükleme. Bir depolama hesabı depolamak ve Azure storage veri nesnelerinizi erişmek için benzersiz bir ad alanı sağlar. Bir depolama hesabı kullanılarak oluşturulan kaynak grubu oluşturun [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) komutu.
+Örnek, 50 büyük dosyayı bir Azure Depolama hesabındaki blob kapsayıcısına yükler. Depolama hesabı, Azure Storage veri nesnelerinizi depolamak ve bunlara erişmek için benzersiz ad alanı sağlar. Oluşturduğunuz kaynak grubunda [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) komutunu kullanarak bir depolama hesabı oluşturun.
 
-Aşağıdaki komutta, kendi gördüğünüz Blob storage hesabı için genel olarak benzersiz bir ad yerine `<blob_storage_account>` yer tutucu.
+Aşağıdaki komutta, Blob depolama hesabına ilişkin kendi genel benzersiz adınızı `<blob_storage_account>` yer tutucusunu gördüğünüz yere yerleştirin.
 
 ```powershell-interactive
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
@@ -102,19 +100,19 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 Write-host "Your public IP address is $($pip.IpAddress)"
 ```
 
-## <a name="deploy-configuration"></a>Yapılandırma dağıtma
+## <a name="deploy-configuration"></a>Yapılandırmayı dağıtma
 
-Bu öğretici için sanal makinede yüklü olması gereken önkoşulları vardır. Özel betik uzantısı, aşağıdaki görevleri tamamlar bir PowerShell betiğini çalıştırmak için kullanılır:
+Bu öğretici için, sanal makine üzerinde yüklenmesi gereken önkoşullar bulunur. Özel betik uzantısı aşağıdaki görevleri tamamlayan bir PowerShell betiği çalıştırmak için kullanılır:
 
 > [!div class="checklist"]
-> * .NET core 2.0 yükleyin
-> * Yükleme chocolatey
-> * GİT'i yükleyin
+> * .NET core 2.0’ı yükleme
+> * chocolatey’i yükleme
+> * GIT’i yükleme
 > * Örnek depoyu kopyalama
-> * NuGet paketlerini geri yüklemek
-> * Rastgele verilerle 50 1 GB dosyaları oluşturur
+> * NuGet paketlerini geri yükleme
+> * Rastgele veriler ile 50 adet 1 GB dosya oluşturur
 
-Sanal makinenin yapılandırmasını sonlandırmak için aşağıdaki cmdlet'i çalıştırın. Bu adımı tamamlamak için 5-15 dakika sürer.
+Sanal makinenin yapılandırmasını tamamlamak için aşağıdaki cmdlet’i çalıştırın. Bu adımın tamamlanması 5-15 dakika sürer.
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
@@ -128,14 +126,14 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir depolama hesabı oluşturma, bir sanal makine dağıtımı ve gerekli önkoşulların nasıl gibi ile sanal makine yapılandırma hakkında öğrenilen bölümünde bir dizi:
+Serinin birinci bölümünde, bir depolama hesabı oluşturmayı, bir sanal makine dağıtmayı ve sanal makineyi aşağıdakiler gibi gerekli önkoşullar ile yapılandırmayı öğrendiniz:
 
 > [!div class="checklist"]
 > * Depolama hesabı oluşturma
 > * Sanal makine oluşturma
-> * Bir özel betik uzantısı yapılandırma
+> * Özel betik uzantısı yapılandırma
 
-Büyük miktarlarda verinin üstel yeniden deneme ve paralellik kullanarak bir depolama hesabına yüklemek için seri iki kısmına ilerleyin.
+Üstel yeniden deneme ve paralelliği kullanarak depolama hesabına büyük miktarlarda veri yüklemek için serinin ikinci bölümüne ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Büyük miktarda depolama hesabı paralel büyük dosyaları karşıya yükleme](storage-blob-scalable-app-upload-files.md)
+> [Bir depolama hesabına paralel şekilde büyük miktarlarda dosyaları yükleme](storage-blob-scalable-app-upload-files.md)

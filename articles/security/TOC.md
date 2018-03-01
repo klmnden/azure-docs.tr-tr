@@ -1,4 +1,3 @@
-
 # [Azure Güvenlik Belgeleri](index.md)
 # [Mimari ve tasarım](azure-security.md)
 ## [Gelişmiş tehdit algılama](azure-threat-detection.md)
@@ -56,7 +55,7 @@
 ### [Uzaktan yönetim güvenliği](azure-security-management.md)
 ### Azure günlük tümleştirmesi
 #### [Giriş](security-azure-log-integration-overview.md)
-#### [Kullanmaya Başlama](security-azure-log-integration-get-started.md)
+#### [Kullanmaya başlama](security-azure-log-integration-get-started.md)
 #### [Azure AD denetim günlüklerini tümleştirme](security-azure-log-integration-ad.md)
 #### [Güvenlik Merkezi uyarılarını tümleştirme](security-azure-log-integration-security-center.md)
 #### [Key Vault’tan günlükleri tümleştirme](security-azure-log-integration-keyvault-eventhub.md)
@@ -110,9 +109,9 @@
 ### [Gereksinim 10 - İzleme](./blueprints/pci-dss-requirement-10-monitoring.md)
 ### [Gereksinim 11 - Test etme](./blueprints/pci-dss-requirement-11-testing.md)
 ### [Gereksinim 12 - İlke](./blueprints/pci-dss-requirement-12-policy.md)
-
 ## [UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ### [İlkelere genel bakış](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+## [HIPAA/HITRUST Sistem Durumu Verileri ve Yapay Zeka](./blueprints/azure-health.md)
 
 # [Teknik incelemeler](security-white-papers.md)
 # [Teknik genel bakışlar](security-overviews.md)
@@ -139,5 +138,4 @@
 #### [Giriş doğrulaması](azure-security-threat-modeling-tool-input-validation.md)
 #### [Hassas veriler](azure-security-threat-modeling-tool-sensitive-data.md)
 #### [Oturum yönetimi](azure-security-threat-modeling-tool-session-management.md)
-
 

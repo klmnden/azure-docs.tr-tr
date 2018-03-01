@@ -1,37 +1,37 @@
 ---
-title: "Azure için Windows Server Yedekleme | Microsoft Docs"
-description: "Şirket içi Windows sunucularını bir kurtarma Hizmetleri kasasına yedekleme Bu öğretici ayrıntıları."
-services: back up
+title: "Windows Server’ı Azure’da Yedekleme | Microsoft Docs"
+description: "Bu öğretici, şirket içi Windows Server’ların bir Kurtarma Hizmetleri kasasında yedeklenmesi işlemini açıklar."
+services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
-keywords: "Windows server yedekleme; Windows server'ı Yedekle; Yedekleme ve olağanüstü durum kurtarma"
+keywords: "windows server yedekleme; windows server’ı yedekleme; yedekleme ve olağanüstü durum kurtarma"
 ms.assetid: 
-ms.service: back up
-ms.workload: storage-back up-recovery
+ms.service: backup
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/23/2017
+ms.date: 2/14/2018
 ms.author: saurabhsensharma;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 0dbf3850c7fcccb1a02e70a19b498522a4ce0e79
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: de0398b7f295894a3cac7c67b68cef237c3ac2c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-windows-server-to-azure"></a>Windows Server’ı Azure’da Yedekleme
 
 
-Windows Server'ınızın bozulmaları, saldırıları ve olağanüstü korumak için Azure Backup kullanabilirsiniz. Azure Backup Microsoft Azure kurtarma Hizmetleri (MARS) aracısı olarak bilinen basit bir araç sağlar. MARS Aracısı'nı, dosya ve klasörleri ve Windows Server sistem durumu aracılığıyla sunucu yapılandırma bilgilerini korumak için Windows Server yüklenir. Bu öğretici, Azure için Windows Sunucunuzu Yedekleme için MARS Aracısı nasıl kullanabileceğiniz açıklanır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz: 
+Windows Server'ınızı bozulmalara, saldırılara ve olağanüstü durumlara karşı korumak için Azure Backup’ı kullanabilirsiniz. Azure Backup, Microsoft Azure Kurtarma Hizmetleri (MARS) aracısı olarak bilinen basit bir araç sağlar. Windows Server Sistem Durumu aracılığıyla sunucu yapılandırmasını, dosyaları ve klasörleri korumak için Windows Server’a MARS aracısı yüklenir. Bu öğretici, Windows Server’ınızı Azure’da yedeklemek için MARS Aracısını nasıl kullanabileceğinizi açıklar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz: 
 
 
 > [!div class="checklist"]
-> * Karşıdan yükleme ve MARS aracısını ayarlama
-> * Geri süreleri yapılandırmak ve sunucunuzun yedeklemeler için bekletme zamanlaması
-> * Bir geçici yedekleme gerçekleştirin
+> * MARS Aracısını indirip ayarlama
+> * Sunucunuzun yedeklemeleri için yedekleme zamanlarını ve bekletme zamanlamasını yapılandırma
+> * Geçici yedekleme gerçekleştirme
 
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
@@ -40,121 +40,121 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
-Windows Server Yedekleme önce yedeklemeler için yer oluşturun veya depolanması için geri yükleme noktalarını gerekir. A [kurtarma Hizmetleri kasası](backup-azure-recovery-services-vault-overview.md) Windows Server'ınızın yedeklemelerden depolar azure'da bir kapsayıcıdır. Azure portalında bir kurtarma Hizmetleri kasası oluşturmak için aşağıdaki adımları izleyin. 
+Windows Server’ı yedekleyebilmeniz için önce yedeklemelerin veya geri yükleme noktalarının depolanacağı bir yer oluşturmanız gerekir. [Kurtarma Hizmetleri kasası](backup-azure-recovery-services-vault-overview.md), Windows Server’ınızdan yedeklemeleri depolayan Azure’daki bir kapsayıcıdır. Azure portalında Kurtarma Hizmetleri kasası oluşturmak için aşağıdaki adımları izleyin. 
 
-1. Sol taraftaki menüden seçin **tüm hizmetleri** ve Hizmetler listesinde yazın **kurtarma Hizmetleri**. Tıklatın **kurtarma Hizmetleri kasaları**.
+1. Sol taraftaki menüden **Tüm hizmetler**’i seçin ve hizmet listesinde **Kurtarma Hizmetleri** yazın. **Kurtarma Hizmetleri kasaları**’na tıklayın.
 
-   ![Açık kurtarma Hizmetleri kasası](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
+   ![Kurtarma Hizmetleri kasasını açma](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  **Kurtarma Hizmetleri kasaları** menüsünde **Ekle**'ye tıklayın.
 
-   ![Kasa için bilgileri sağlayın](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
+   ![kasa için bilgileri sağlama](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  İçinde **kurtarma Hizmetleri kasası** menüsünde
+3.  **Kurtarma Hizmetleri kasası** menüsünde,
 
-    - Tür *myRecoveryServicesVault* içinde **adı**.
-    - Geçerli abonelik kimliği görünür **abonelik**.
-    - İçin **kaynak grubu**seçin **var olanı kullan** ve *myResourceGroup*. Varsa *myResourceGroup* mevcut değil, seçin **Yeni Oluştur** ve türü *myResourceGroup*. 
-    - Gelen **konumu** açılır menü seçin *Batı Avrupa*.
-    - Tıklatın **oluşturma** , Kurtarma Hizmetleri kasası oluşturmak için.
+    - **Ad** alanına *myRecoveryServicesVault* yazın.
+    - **Abonelik** bölümünde geçerli abonelik kimliği görüntülenir.
+    - **Kaynak grubu** için **Var olanı kullan**’ı seçin ve sonra *myResourceGroup* seçeneğini belirleyin. *myResourceGroup* yoksa **Yeni Oluştur**’u seçin ve *myResourceGroup* yazın. 
+    - **Konum** açılır menüsünden *Batı Avrupa*’yı seçin.
+    - Kurtarma Hizmetleri kasanızı oluşturmak için **Oluştur**’a tıklayın.
  
 Kasanız oluşturulduktan sonra Kurtarma Hizmetleri kasaları listesinde görünür.
 
-## <a name="download-recovery-services-agent"></a>Kurtarma Hizmetleri Aracısı'nı indirme
+## <a name="download-recovery-services-agent"></a>Kurtarma Hizmetleri aracısını indirme
 
-Microsoft Azure kurtarma Hizmetleri (MARS) Aracısı'nı Windows Server ve kurtarma Hizmetleri kasanız arasında bir ilişki oluşturur. Aşağıdaki yordam, sunucunuza Aracısı'nı indirme açıklanmaktadır.
+Microsoft Azure Kurtarma Hizmetleri (MARS) aracısı, Windows Server ile Kurtarma Hizmetleri kasanız arasında bir ilişkilendirme oluşturur. Aşağıdaki yordamda, aracının sunucunuza nasıl indirileceği açıklanmaktadır.
 
-1.  Kurtarma Hizmetleri kasalarının listesinden seçin **myRecoveryServicesVault** kendi panosunu açın.
+1.  Kurtarma Hizmetleri kasalarının listesinden **myRecoveryServicesVault** kasasını seçerek panosunu açın.
 
-   ![Kasa için bilgileri sağlayın](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
+   ![kasa için bilgileri sağlama](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  Kasa Panosu menüsünden tıklatın **yedekleme**.
+2.  Kasa panosu menüsünde **Yedekle**’ye tıklayın.
 
-3.  Üzerinde **yedekleme hedefi** menüsü:
+3.  **Yedekleme Hedefi** menüsünde:
 
-    - için **, iş yükünü çalıştırdığı?**seçin**şirket içi**, 
-    - için **neleri yedeklemek istiyorsunuz?**seçin **dosya ve klasörleri** ve **sistem durumu** 
+    - **İş yükünüz nerede çalışıyor?** için **Şirket içi**'ni seçin, 
+    - **Neleri yedeklemek istiyorsunuz?** için **Dosyalar ve klasörler**'i ve **Sistem Durumu**’nu seçin 
 
-    ![Kasa için bilgileri sağlayın](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+    ![kasa için bilgileri sağlama](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
     
-4.  Tıklatın **altyapıyı hazırlama** açmak için **altyapıyı hazırlama** menüsü.
-5.  Üzerinde **altyapıyı hazırlama** menüsünde tıklatın **karşıdan aracısı için Windows Server veya Windows İstemcisi** indirmek için *MARSAgentInstaller.exe*. 
+4.  **Altyapıyı hazırlama** menüsünü açmak için **Altyapıyı hazırlama**’ya tıklayın.
+5.  **Altyapıyı hazırlama** menüsünde **Windows Server veya Windows İstemcisi Aracısı'nı indirin**’e tıklayarak *MARSAgentInstaller.exe* dosyasını indirin. 
 
     ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
-    Yükleyici ayrı bir tarayıcı açar ve yüklemeleri **MARSAgentInstaller.exe**.
+    Yükleyici ayrı bir tarayıcı açar ve **MARSAgentInstaller.exe** dosyasını indirir.
  
-6.  İndirilen Dosya çalıştırmadan önce tıklatın **karşıdan** yükleyip kaydetmek için altyapıyı hazırlama dikey penceresinde düğmesinde **kasa kimlik bilgileri** dosya. Bu dosya, MARS Aracısı kurtarma Hizmetleri kasası ile bağlanmak için gereklidir.
+6.  İndirilen dosyayı çalıştırmadan önce, Altyapıyı hazırlama dikey penceresindeki **İndir** düğmesine tıklayarak **Kasa Kimlik Bilgileri** dosyasını indirip kaydedin. MARS Aracısı ile Kurtarma Hizmetleri Kasasını bağlamak için bu dosya gerekir.
 
     ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
 ## <a name="install-and-register-the-agent"></a>Aracıyı yükleme ve kaydetme
 
-1. Bulun ve indirilen çift **MARSagentinstaller.exe**.
-2. **Microsoft Azure kurtarma Hizmetleri Aracısı Kurulum Sihirbazı** görüntülenir. Sihirbazda ilerledikçe, istendiğinde aşağıdaki bilgileri sağlayın ve tıklayın **kaydetmek**.
-    - Yükleme ve önbellek klasörünün konumu.
-    - Internet'e bağlanmak üzere bir proxy sunucu kullanıyorsanız, proxy sunucu bilgileri.
-    - Doğrulanmış bir proxy kullanıyorsanız kullanıcı adı ve parola bilgilerinizi.
+1. İndirilen **MARSagentinstaller.exe** dosyasını bulup üzerine çift tıklayın.
+2. **Microsoft Azure Kurtarma Hizmetleri Aracısı Kurulum Sihirbazı** görüntülenir. Sihirbazda ilerledikçe, istendiğinde aşağıdaki bilgileri sağlayın ve **Kaydol**’a tıklayın.
+    - Yükleme ve önbellek klasörü için konum.
+    - İnternet'e bağlanmak için bir ara sunucu kullanıyorsanız ara sunucu bilgileri.
+    - Kimliği doğrulanmış bir ara sunucu kullanıyorsanız kullanıcı adı ve parola bilgileriniz.
 
     ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
-3. Sihirbazın sonunda'i **devam etmek için kayıt** ve sağlamak **kasa kimlik bilgileri** önceki yordamda yüklediğiniz dosya.
+3. Sihirbazın sonunda, **Kayıt İşlemine Geç**’e tıklayın ve önceki yordamda indirdiğiniz **Kasa Kimlik Bilgileri** dosyasını sağlayın.
  
-4. İstendiğinde, Windows Server yedeklemeleri şifrelemek için bir şifreleme parolası sağlayın. Kayıp ise Microsoft parolayı kurtaramazsınız olarak parolayı güvenli bir konuma kaydedin.
+4. İstendiğinde, Windows Server’dan yedeklemeleri şifrelemek için bir şifreleme parolası sağlayın. Kaybolması durumunda Microsoft parolayı kurtaramadığından parolayı güvenli bir konuma kaydedin.
 
 5. **Son**'a tıklayın. 
 
-## <a name="configure-backup-and-retention"></a>Yedekleme ve bekletme yapılandırma
+## <a name="configure-backup-and-retention"></a>Yedekleme ve Bekletmeyi Yapılandırma
 
-Azure yedeklemeleri ortaya çıktığında Windows Server'da zamanlamak için Microsoft Azure kurtarma Hizmetleri Aracısı'nı kullanın. Aracı indirdiğiniz sunucusunda aşağıdaki adımları yürütün.
+Windows Server’da, Azure’daki yedeklemelerin ne zaman gerçekleşeceğini zamanlamak için Microsoft Azure Kurtarma Hizmetleri aracısını kullanırsınız. Aracıyı indirdiğiniz sunucuda aşağıdaki adımları yürütün.
 
 1. Microsoft Azure Kurtarma Hizmetleri aracısını açın. Bunu, makinenizde **Microsoft Azure Backup** aramasını yaparak bulabilirsiniz.
 
-2.  Kurtarma Hizmetleri Aracısı konsolunda **yedekleme zamanlaması** altında **Eylemler bölmesi**.
+2.  Kurtarma Hizmetleri aracısı konsolunda, **Eylemler Bölmesi** bölümündeki **Yedeklemeyi Zamanla**’ya tıklayın.
 
     ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-3. Tıklatın **sonraki** gitmek için **yukarı geri öğelerine seçin** sayfası.
+3. **İleri**’ye tıklayarak **Yedeklenecek Öğeleri Seçin** sayfasına gidin.
 
-4. Tıklatın **öğeleri Ekle** ve açılan iletişim kutusundan seçin **sistem durumu** ve dosya veya de yedeklemek istediğiniz klasörleri. Daha sonra, **Tamam**'a tıklayın.
+4. **Öğeleri Ekle**’ye tıklayın ve açılan iletişim kutusundan **Sistem Durumu**’nu ve yedeklemek istediğiniz dosyaları veya klasörleri seçin. Daha sonra, **Tamam**'a tıklayın.
 
 5. **İleri**’ye tıklayın.
 
-6. Üzerinde **yedekleme zamanlamasını belirtin (sistem durumu)** sayfasında, gün veya hafta yedeklemeleri gerektiğinde için sistem durumu tetiklenmesi tıklatıp süresini belirtin **sonraki** 
+6. **Yedekleme Zamanlamasını Belirtin (Sistem Durumu)** sayfasında, Sistem Durumu için yedeklemelerin tetiklenmesinin gerektiği günün saatini veya haftayı belirtin ve **İleri**’ye tıklayın 
 
-7.  Üzerinde **bekletme ilkesi seçin (sistem durumu)** sayfasında yedekleme kopyası için sistem durumu için bekletme ilkesi seçin ve tıklayın **sonraki**
-8. Benzer şekilde, seçili dosya ve klasörler için yedekleme zamanlaması ve bekletme ilkesi seçin. 
-8.  Üzerinde **seçin ilk yedekleme türünü** sayfasında, seçeneğini bırakın **otomatik olarak ağ üzerinden** seçili ve ardından **sonraki**.
-9.  Üzerinde **onay** sayfasında, bilgileri gözden geçirin ve ardından **son**.
+7.  **Bekletme İlkesi Seçin (Sistem Durumu)** sayfasında, Sistem Durumu için yedekleme kopyasına yönelik Bekletme İlkesini seçin ve **İleri**’ye tıklayın
+8. Benzer şekilde, seçilen dosyalar ve klasörler için yedekleme zamanlamasını ve bekletme ilkesini seçin. 
+8.  **İlk Yedekleme Türünü Seçin** sayfasında **Ağ üzerinden otomatik olarak** seçeneğini işaretli bırakın ve ardından **İleri**'ye tıklayın.
+9.  **Onay** sayfasında bilgileri gözden geçirin ve ardından **Son**'a tıklayın.
 10. Sihirbaz yedekleme zamanlamasını oluşturduktan sonra **Kapat**'a tıklayın.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Bir geçici yedekleme gerçekleştirin
+## <a name="perform-an-ad-hoc-back-up"></a>Geçici yedekleme gerçekleştirme
 
-Yedekleme işleri çalıştırdığınızda, zamanlama oluşturulur. Ancak, siz sunucusunda yedeklediğiniz değil. Bu veri dayanıklılığı sunucunuz için emin olmak için bir isteğe bağlı yedekleme çalıştırmak için bir olağanüstü durum kurtarma en iyi uygulamadır.
+Yedekleme işlerinin çalıştırılması için zamanlamayı belirlediniz. Ancak henüz sunucuyu yedeklemediniz. Sunucunuz için veri dayanıklılığını sağlamak amacıyla isteğe bağlı yedekleme çalıştırmak ideal bir olağanüstü durum kurtarma uygulamasıdır.
 
-1.  Microsoft Azure kurtarma Hizmetleri Aracısı konsolunda **Şimdi Yedekle**.
+1.  Microsoft Azure Kurtarma Hizmetleri aracısı konsolunda **Şimdi Yedekle**’ye tıklayın.
 
     ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
-2.  Üzerinde **Şimdi Yedekle** seçin makineden **dosya ve klasörleri** veya **sistem durumu** yedeklemek ve tıklatın istediğiniz **sonraki** 
-3. Üzerinde **onay** sayfasında, ayarları gözden geçirin, **Şimdi Yedekle** Sunucunuzu Yedekleme için Sihirbazı'nı kullanır. Ardından **Yedekle**'ye tıklayın.
-4.  Sihirbazı kapatmak için **Kapat**'a tıklayın. Sihirbaz yedekleme işlemi tamamlanmadan önce kapatırsanız, sihirbaz arka planda çalışmaya devam eder.
-4.  İlk Yedekleme tamamlandıktan sonra **işi tamamlandı** durumu görünür **işleri** MARS Aracısı konsolunun bölmesinde.
+2.  **Şimdi Yedekle** sihirbazında, **Dosyalar ve Klasörler** veya **Sistem Durumu** içinden, yedeklemek istediğinizi seçin ve **İleri**’ye tıklayın 
+3. **Onay** sayfasında, **Şimdi Yedekle** sihirbazının sunucunuzu yedeklemek için kullandığı ayarları gözden geçirin. Ardından **Yedekle**'ye tıklayın.
+4.  Sihirbazı kapatmak için **Kapat**'a tıklayın. Yedekleme işlemi tamamlanmadan önce sihirbazı kapatırsanız, sihirbaz arka planda çalışmaya devam eder.
+4.  İlk yedekleme tamamlandıktan sonra, MARS aracısı konsolunun **İşler** bölmesinde **İş tamamlandı** durumu görüntülenir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide Azure portalına kullanılır: 
+Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirdiniz: 
  
 > [!div class="checklist"] 
 > * Kurtarma Hizmetleri kasası oluşturma 
-> * Microsoft Azure kurtarma Hizmetleri Aracısı'nı indirme 
-> * Aracıyı yükleyin 
-> * Windows Server için yedekleme yapılandırın 
-> * Bir talep üzerine yedekleme gerçekleştirin 
+> * Microsoft Azure Kurtarma Hizmetleri aracısını indirme 
+> * Aracıyı yükleme 
+> * Windows Server için yedeklemeyi yapılandırma 
+> * İsteğe bağlı yedekleme gerçekleştirme 
 
-Dosyalar, Windows Server için Azure yedeklemeden kurtarmak için sonraki öğretici devam
+Azure’dan Windows Server’a dosyaları kurtarmak için sonraki öğreticiye devam edin
 
 > [!div class="nextstepaction"] 
-> [Dosyaları, Windows Server Azure'dan geri yükle](./tutorial-backup-restore-files-windows-server.md) 
+> [Azure’dan Windows Server’a dosyaları kurtarma](./tutorial-backup-restore-files-windows-server.md) 
 

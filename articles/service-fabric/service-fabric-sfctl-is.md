@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3a4c7a308bdf7132cebffc13a5e7214ec73eaf2
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-is"></a>sfctl olduğu
+# <a name="sfctl-is"></a>sfctl is
 Sorgulamak ve hizmet altyapı komutlar gönderebilirsiniz.
 
 ## <a name="commands"></a>Komutlar
@@ -34,14 +34,14 @@ Sorgulamak ve hizmet altyapı komutlar gönderebilirsiniz.
 ## <a name="sfctl-is-command"></a>sfctl komutudur.
 Verilen altyapı hizmeti örneği bir yönetimsel komutu çalıştırır.
 
-Hizmet altyapı yapılandırılmış bir veya daha fazla örnekleri sahip kümeler için bu API altyapı özgü komutlar hizmet altyapı belirli bir örneğini göndermenin bir yolunu sağlar. Kullanılabilir komutlar ve bunların karşılık gelen yanıt biçimleri küme üzerinde çalıştığı altyapı olarak değişir. Bu API, Service Fabric platformundan destekler; doğrudan kodunuzdan kullanılmak üzere tasarlanmamıştır. .
+Hizmet altyapı yapılandırılmış bir veya daha fazla örnekleri sahip kümeler için bu API altyapı özgü komutlar hizmet altyapı belirli bir örneğini göndermenin bir yolunu sağlar. Kullanılabilir komutlar ve bunların karşılık gelen yanıt biçimleri küme üzerinde çalıştığı altyapı olarak değişir. Bu API, Service Fabric platformundan destekler; doğrudan kodunuzdan kullanılmak üzere tasarlanmamıştır. 
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --[gerekli] komutu| Çağrılacak komut metni. Komut içeriğini altyapı özeldir.  Varsayılan: komuttur.|
-| --service-id     | Altyapı hizmeti kimliği. Bu hizmet altyapı tam adıdır ' doku:' URI düzeni. Bu parametre altyapı hizmeti çalıştıran birden fazla örneğine sahip kümeler için gereklidir.|
+| --[gerekli] komutu| Çağrılacak komut metni. Komut içeriğini altyapı özeldir. |
+| --service-id     | Altyapı hizmeti kimliği. Hizmet altyapı tam adını kimliği: ' doku:' URI düzeni. Bu parametre altyapı hizmeti çalıştıran birden fazla örneğine sahip kümeler için gereklidir.|
 | --zaman aşımı -t     | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
@@ -63,8 +63,8 @@ Hizmet altyapı yapılandırılmış bir veya daha fazla örnekleri sahip kümel
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --[gerekli] komutu| Çağrılacak komut metni. Komut içeriğini altyapı özeldir.  Varsayılan: sorgudur.|
-| --service-id     | Altyapı hizmeti kimliği. Bu hizmet altyapı tam adıdır ' doku:' URI düzeni. Bu parametre, altyapı hizmeti çalıştıran birden fazla örneğine sahip kümeler için gereklidir.|
+| --[gerekli] komutu| Çağrılacak komut metni. Komut içeriğini altyapı özeldir.|
+| --service-id     | Altyapı hizmeti kimliği. Hizmet altyapı tam adını kimliği: ' doku:' URI düzeni. Bu parametre, altyapı hizmeti çalıştıran birden fazla örneğine sahip kümeler için gereklidir.|
 | --zaman aşımı -t     | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler

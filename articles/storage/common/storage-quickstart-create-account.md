@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
@@ -161,7 +161,7 @@ Depolama hesabınızı adlandırırken şu kuralları göz önünde bulundurun:
 
 Azure portalında genel amaçlı v2 bir depolama hesabı oluşturmak için aşağıdaki adımları izleyin:
 
-1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve **Diğer Hizmetler**'i seçin. Ardından **Depolama** bölümüne inin ve **Depolama hesapları**'nı seçin. Açılan **Depolama Hesapları** penceresinde **Ekle**'yi seçin.
+1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve **Tüm hizmetler**'i seçin. Ardından **Depolama** bölümüne inin ve **Depolama hesapları**'nı seçin. Açılan **Depolama Hesapları** penceresinde **Ekle**'yi seçin.
 2. Depolama hesabınız için bir ad girin.
 3. **Hesap türü** alanını, **StorageV2 (genel amaçlı v2)** olarak ayarlayın.
 4. **Çoğaltma** alanını, **Yerel Olarak Yedekli Depolama (LRS)** olarak bırakın. Alternatif olarak, **Bölgesel olarak yedekli depolama (ZRS Önizlemesi)**, **Coğrafi olarak yedekli depolama (GRS)** veya **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)** seçeneklerinden birini de belirleyebilirsiniz.

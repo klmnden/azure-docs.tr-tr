@@ -1,73 +1,60 @@
 ---
-title: "Azure CLI betik örnek - Batch hesabı oluşturun. | Microsoft Docs"
-description: "Azure CLI betik örnek - Batch hesabı oluşturma"
+title: "Azure CLI Betiği Örneği - Batch hesabı oluşturma - Batch hizmeti | Microsoft Docs"
+description: "Azure CLI Betiği Örneği - Batch hizmeti modunda Batch hesabı oluşturma"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: e8e8e475c1fe32346dde39e187a007ec7f62a2f3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-batch-account-with-the-azure-cli"></a>Azure CLI ile bir toplu işlem hesabı oluşturun
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI örneği: Batch hizmeti modunda Batch hesabı oluşturma
 
-Bu komut dosyasını bir Azure Batch hesabı oluşturur ve hesabın nasıl çeşitli özellikleri sorgulanan ve güncelleştirilmiş gösterir.
+Bu betik Batch hizmeti modunda bir Azure Batch hesabı oluşturur ve hesabın çeşitli özelliklerini sorgulamayı veya güncelleştirmeyi gösterir. Varsayılan Batch hizmeti modunda bir Batch hesabı oluşturduğunuzda, işlem düğümleri Batch hizmeti tarafından dahili olarak atanır. Ayrılmış işlem düğümleri ayrı bir vCPU (çekirdek) kotasına tabidir ve hesap paylaşılan anahtar kimlik bilgileri veya bir Azure Active Directory belirteci aracılığıyla doğrulanabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Sağlanan yönergeleri kullanarak Azure CLI yükleme [Azure CLI Yükleme Kılavuzu'na](https://docs.microsoft.com/cli/azure/install-azure-cli)zaten yapmadıysanız,.
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0.20 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
 
-## <a name="batch-account-sample-script"></a>Toplu işlem hesabı örnek komut dosyası
+## <a name="example-script"></a>Örnek betik
 
-Varsayılan olarak, bir toplu işlem hesabı oluşturduğunuzda, işlem düğümlerini Batch hizmeti tarafından dahili olarak atanır. Hesap ya da paylaşılan anahtar kimlik bilgileri veya bir Azure Active Dirctory belirteci aracılığıyla doğrulanabilir ve ayrılmış işlem düğümleri ayrı çekirdek kotası tabi olacaktır.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
-
-## <a name="batch-account-using-user-subscription-sample-script"></a>Toplu işlem hesabı kullanıcı abonelik örnek komut dosyası kullanma
-
-Toplu işlem düğümlerinden kendi Azure aboneliği oluşturmak için tercih edebilirsiniz.
-Allocate hesapları işlem düğümlerin aboneliğinizi içine bir Azure Active Directory token kimlik doğrulaması gerekir ve ayrılan işlem düğümleri abonelik kotanızı sayılacaktır. Bu modda bir hesap oluşturmak için bir anahtar kasası başvuru hesabı oluştururken belirtmeniz gerekir.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Yukarıdaki örnek betikler birini çalıştırdıktan sonra kaynak grubunu kaldırmak için aşağıdaki komutu çalıştırın ve ilişkili tüm kaynaklar (toplu işlem hesabı, Azure depolama hesapları ve Azure anahtar kasalarını dahil).
+Kaynak grubunu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut, bir kaynak grubu, toplu işlem hesabı ve tüm ilgili kaynaklar oluşturmak için aşağıdaki komutları kullanır. Komut özgü belgelere Tablo bağlantıları her komut.
+Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az toplu işlem hesabı oluşturun](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | Toplu işlem hesabı oluşturur.  |
-| [az toplu işlem hesabı ayarlama](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | Batch hesabı özelliklerini güncelleştirir.  |
-| [az toplu işlem hesabı Göster](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | Belirtilen toplu işlem hesabı ayrıntılarını alır.  |
-| [az batch hesabı anahtarları listesi](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | Belirtilen toplu işlem hesabı erişim anahtarları alır.  |
-| [az toplu işlem hesabı oturum açma](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Daha fazla CLI etkileşim için belirtilen toplu işlem hesabı karşı doğrular.  |
-| [az depolama hesabı oluşturma](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Bir depolama hesabı oluşturur. |
-| [az keyvault oluşturma](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Bir anahtar kasası oluşturur. |
-| [az keyvault-ilkesini ayarlama](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Belirtilen anahtar kasası güvenlik ilkesini güncelleştirin. |
-| [az grubu Sil](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
+| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Batch hesabını oluşturur. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Bir depolama hesabı oluşturur. |
+| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Batch hesabının özelliklerini güncelleştirir.  |
+| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Belirtilen Batch hesabının ayrıntılarını alır.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Belirtilen Batch hesabının erişim anahtarlarını alır.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Daha fazla CLI etkileşimi için belirtilen Batch hesabına karşı kimlik doğrulaması yapar.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
-
-Ek toplu CLI kod örnekleri bulunabilir [Azure Batch CLI belgelerine](../batch-cli-samples.md).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](/cli/azure/overview).

@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure veritabanı için MySQL seçenekleri ve performansı: her fiyatlandırma katmanında nelerin kullanılabildiğini anlama
 MySQL sunucusu için bir Azure veritabanı oluşturduğunuzda, bu sunucu için ayrılan kaynaklar yapılandırmak için üç ana seçeneğiniz bağlı karar verin. Bu seçenek, performansı ve sunucunun ölçeği etkileyebilir.
@@ -72,12 +72,12 @@ MySQL sunucusu için tek bir Azure veritabanı için kullanılabilir olmasını 
 | **Performans düzeyi** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | En fazla işlem birimleri | 100 | 200 | 400 | 800 |
-| Eklenen depolama boyutu ve sağlanan IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS | 125 GB<br/> 375 IOPS |
+| Eklenen depolama boyutu ve sağlanan IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS | 125 GB,<br/> 375 IOPS |
 | En fazla sunucu depolama boyutu\* | 1 TB | 1 TB | 1 TB | 1 TB |
-| En fazla sunucu IOPS sağlanması | 3000 IOPS | 3000 IOPS | 3000 IOPS | 3000 IOPS |
+| En fazla sunucu IOPS sağlanması | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS |
 | IOPS GB başına en fazla sunucu sağlandı | Her GB sabit 3 IOPS | Her GB sabit 3 IOPS | Her GB sabit 3 IOPS | Her GB sabit 3 IOPS |
 
-\*En fazla sunucu depolama boyutu sunucunuz için en fazla sağlanan depolama boyutunu ifade eder.
+\* En fazla sunucu depolama boyutu sunucunuz için en fazla sağlanan depolama boyutunu ifade eder.
 
 ## <a name="storage"></a>Depolama 
 Depolama yapılandırması kullanılabilir depolama kapasitesi miktarını MySQL sunucusu için bir Azure veritabanı tanımlar. Veritabanı dosyaları, işlem günlüklerinin ve MySQL sunucu günlükleri hizmeti tarafından kullanılan depolama alanını içerir. Veritabanlarınızı ve performans gereksinimlerini (IOPS) depolama yapılandırması seçerken barındırmak için gerekli depolama alanının boyutunu göz önünde bulundurun.

@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 87ed4015e06e0a05e628e8e356b835b9b886eb5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Azure'da Python ve PostgreSQL web uygulaması oluşturma
 
@@ -47,7 +47,7 @@ Bu öğreticiyi tamamlamak için:
 
 1. [Git'i yükleyin](https://git-scm.com/)
 1. [Python'ı yükleyin](https://www.python.org/downloads/)
-1. [PostgreSQL’i yükleme ve çalıştırma](https://www.postgresql.org/download/)
+1. [PostgreSQL’i yükleyin ve çalıştırın](https://www.postgresql.org/download/)
 
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Yerel PostgreSQL yüklemesini test etme ve bir veritabanı oluşturma
 
@@ -59,7 +59,7 @@ sudo -u postgres psql
 
 Bağlantınız başarılı olursa, PostgreSQL veritabanınız çalışır. Aksi takdirde, yerel PostgresQL veritabanınızın [İndirmeler - PostgreSQL Çekirdek Dağıtım](https://www.postgresql.org/download/) konusundaki adımlar izlenilerek başlatıldığından emin olun.
 
-*eventregistration* adlı bir veritabanı oluşturun ve *supersecretpass* parolasıyla *manager* adlı ayrı bir veritabanı ayarlayın.
+*eventregistration* adlı bir veritabanı oluşturun ve *supersecretpass* parolasıyla *manager* adlı ayrı bir veritabanı kullanıcısı ayarlayın.
 
 ```bash
 CREATE DATABASE eventregistration;
@@ -112,7 +112,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Bir tarayıcıda `http://localhost:5000` sayfasına gidin. **Kaydet!**'e tıklayın ve bir test kullanıcısı oluşturun.
+Bir tarayıcıda `http://localhost:5000` sayfasına gidin. **Kaydet!** öğesine tıklayın ve bir test kullanıcısı oluşturun.
 
 ![Yerel olarak çalışan Python Flask uygulaması](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
@@ -226,7 +226,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Bir tarayıcıda http://localhost:5000 konumuna gidin. **Kaydet!**'e tıklayın ve bir test kaydı oluşturun. Artık Azure’da veritabanına veri yazıyorsunuz.
+Bir tarayıcıda http://localhost:5000 konumuna gidin. **Kaydet!** öğesine tıklayın ve bir test kaydı oluşturun. Artık Azure’da veritabanına veri yazıyorsunuz.
 
 ![Yerel olarak çalışan Python Flask uygulaması](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
@@ -247,7 +247,7 @@ Git deponuz, App Service'te Flask web uygulamasını çalıştırmak için gerek
 
 ### <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
 ### <a name="create-a-web-app"></a>Web uygulaması oluşturma

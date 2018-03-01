@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -164,6 +164,12 @@ Kullanıcı başına bağlı sürücüler. Uygulama veya hizmet takılı sürüc
 
 -   Sürücü uygulamayı içeren kullanıcı hesabından bağlayın. PsExec gibi bir araç kullanabilirsiniz.
 - Kullanıcı adı depolama hesabı adı ve anahtarı geçirin ve net parola parametrelerini komutunu kullanın.
+- Kimlik bilgileri kimlik bilgisi Yöneticisi'ne eklemek için cmdkey komutunu kullanın. Bu hizmet hesabı bağlamında, etkileşimli oturum açma yoluyla veya runas komutunu kullanarak bir komut satırından gerçekleştirin.
+  
+  `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- Paylaşımı doğrudan eşlenen sürücü harfini kullanmadan eşleyin. Tam UNC yolu kullanarak daha güvenilir olabilir bazı uygulamalar için sürücü harfi düzgün şekilde yeniden değil. 
+
+  `net use * \\storage-account-name.file.core.windows.net\share`
 
 Bu yönergeleri izledikten sonra sistem/ağ hizmeti hesabı için net kullanım çalıştırdığınızda aşağıdaki hata iletisini alabilirsiniz: "1312 sistem hatası oluştu. Belirtilen oturum yok. Bunu zaten kapatılmış olabilir." Bu gerçekleşirse, net use yöntemine geçirilen kullanıcı adı etki alanı bilgileri içerdiğinden emin olun (örneğin: "[depolama hesabı adı]. file.core.windows .net").
 
@@ -180,7 +186,7 @@ Ağ üzerinden dosya kopyalamak için önce şifresini gerekir. Aşağıdaki yö
 
 - Kullanım **/d kopyalama** komutu. Hedef konumda şifresi çözülen dosyaları olarak kaydedilecek şifrelenmiş dosyaları sağlar.
 - Aşağıdaki kayıt defteri anahtarını ayarlayın:
-  - Yol HKLM\Software\Policies\Microsoft\Windows\System =
+  - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Değer türü = DWORD
   - Adı CopyFileAllowDecryptedRemoteDestination =
   - Değer = 1

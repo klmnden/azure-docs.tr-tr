@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c82ee87b341de4e85e2eab566f7a3c6fcffdace1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="virtual-machine-extensions"></a>Sanal Makine Uzantıları
-İhtiyaç duyduğunuz VM uzantıları için güncelleştirmeler olduğunda bu indirmek için önerilir. Üründe gönderilen uzantıları normal düzeltme ve güncelleştirme işlemine güncelleştirilmemiş; Lütfen sık güncelleştirmeleri denetleyin. Diğer uzantılar yalnızca Market Yönetimi üzerinden kullanılabilir.
+Kullandığınız sanal makine (VM) uzantıları için güncelleştirmeler olduğunda bunları indirmelisiniz. Üründe gönderilen uzantıları normal düzeltme ve güncelleştirme işlemine güncelleştirilmiyor; Bu nedenle sık güncelleştirmeleri denetleyin. Diğer uzantılar yalnızca Market Yönetimi üzerinden kullanılabilir.
 
 |  | Öğe adı | Açıklama | Yayımcı | İşletim Sistemi Türü |
 | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft sanal makine görüntüleri ve çözüm şablonları
 
-Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonları destekler. Lütfen bağımlılıkları belirtildiği gibi ayrı olarak yükleyin. SQL Server ve makine öğrenme Server gibi uygulamalar uygun, ücretsiz veya deneme işaretlenmiş burada dışında lisans gerektirir.
+Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonları destekler. Bağımlılıkları belirtildiği gibi ayrı olarak yükleyin. SQL Server ve makine öğrenme Server gibi uygulamalar uygun, ücretsiz veya deneme işaretlenmiş burada dışında lisans gerektirir.
 
 |  | Öğe adı | Açıklama | Yayımcı |
 | --- | --- | --- | --- |
@@ -71,9 +71,9 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | SQL Server 2016 SP1 ücretsiz express sürümü. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 üzerinde SQL Server 2017 Enterprise SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Veritabanı platform akıllı, görev açısından kritik uygulamalar için. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web on SUSE Linux Enterprise Server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Veritabanı platform akıllı, görev açısından kritik uygulamalar için. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makinesi ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makine. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme. | Microsoft + kurallı |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine CentOS Linux 7.2 9.2.1 sunucuda öğrenme ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Server 9.2.1 CentOS Linux 7.2 öğrenme makine. | Microsoft + dolandırıcı Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Windows Server 2016 9.3.0 sunucuda öğrenme makinesi ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Microsoft Windows Server 2016 9.3.0 sunucuda öğrenme makine. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine Ubuntu 16.04 9.3.0 sunucuda öğrenme ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft makine Ubuntu 16.04 9.3.0 sunucuda öğrenme. | Microsoft + kurallı |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine CentOS Linux 7.2 9.3.0 sunucuda öğrenme ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Server 9.3.0 CentOS Linux 7.2 öğrenme makine. | Microsoft + dolandırıcı Wave |
 
 
 ## <a name="linux-distributions"></a>Linux dağıtımları

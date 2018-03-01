@@ -1,72 +1,69 @@
 ---
-title: Azure bulut depolama uygulamada izleyebilir ve | Microsoft Docs
-description: "Tanılama araçları, ölçümleri ve uyarı sorun giderme ve bir bulut uygulama izlemek için kullanın."
+title: "Azure’da bir bulut depolama uygulamasını izleme ve sorunlarını giderme | Microsoft Docs"
+description: "Bir bulut uygulamasını izlemek ve sorunlarını gidermek için tanılama araçlarını, ölçümleri ve uyarıları kullanın."
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: db88c331f79d83e0124519f8b6dbb34514b456dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>İzleme ve bulut depolama uygulama sorunlarını giderme
+# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Bulut depolama uygulamasını izleme ve sorunlarını giderme
 
-Bu öğretici dört ve bir dizi son bölümü parçasıdır. İzleme ve bulut depolama uygulama sorunlarını giderme hakkında bilgi edinin.
+Bu öğretici, bir serinin dördüncü ve son kısmıdır. Bulut depolama uygulamasının nasıl izleneceğini ve sorunlarının nasıl giderileceğini öğreneceksiniz.
 
-Bölümünde dizisinin dört öğrenin nasıl yapılır:
+Serinin dördüncü kısmında öğrenecekleriniz:
 
 > [!div class="checklist"]
-> * Günlüğe kaydetme ve ölçümleri Aç
-> * Yetkilendirme hataları için uyarıları etkinleştir
-> * Test trafiğini yanlış SAS belirteci ile Çalıştır
-> * Karşıdan yükle ve günlüklerini analiz edin
+> * Günlük kaydını ve ölçümleri açma
+> * Yetkilendirme hataları için uyarıları etkinleştirme
+> * Yanlış SAS belirteçleri ile trafik testi çalıştırma
+> * Günlükleri indirme ve analiz etme
 
-[Azure depolama çözümlemeleri](../common/storage-analytics.md) için bir depolama hesabı oturum açma ve ölçüm verilerini sağlar. Bu veri depolama hesabınızın durumu fikir sağlar. Depolama hesabınızda görünürlük kullanılabilmesi için öncelikle, veri toplama ayarlamanız gerekir. Bu işlem günlüğü, ölçümleri yapılandırma ve Uyarıları etkinleştirme kapatma içerir.
+[Azure Depolama Analizi](../common/storage-analytics.md), bir depolama hesabı için günlük kaydı ve ölçüm verileri sağlar. Bu veriler, depolama hesabınızın durumuna ilişkin öngörüler sağlar. Depolama hesabınızı görebilmeniz için veri toplamayı ayarlamanız gerekir. Bu işlem, günlük kaydının açılmasını, ölçümlerin yapılandırılmasını ve uyarıların etkinleştirilmesini içerir.
 
-Günlüğe kaydetme ve depolama hesapları arasından ölçümleri etkin gelen **tanılama** Azure portalında sekmesi. Ölçümleri iki tür vardır. **Birleşik** ölçümleri toplamak giriş/çıkış, kullanılabilirlik, gecikme ve başarı yüzdeleri. Bu ölçümler blob, kuyruk, tablo ve Dosya Hizmetleri için toplanır. **API başına** Azure depolama hizmeti API'si her depolama işlem ölçümlerini aynı kümesini toplar. Depolama günlüğe kaydetme, depolama hesabınızdaki hem başarılı hem başarısız istekler için kayıt ayrıntıları sağlar. Bu günlükler, okuma, yazma ve silme işlemlerinin Azure tabloları, kuyrukları ve blobları karşı ayrıntılarını görmek etkinleştirin. Bunlar ayrıca başarısız olan istekler zaman aşımları, azaltma ve yetkilendirme hataları gibi nedenlerle görmek etkinleştirin.
+Depolama hesaplarından günlük kaydı ve ölçümler, Azure portalındaki **Tanılama** sekmesinden etkinleştirilir. İki tür ölçüm vardır. **Toplu** ölçümler, giriş/çıkış, kullanılabilirlik, gecikme süresi ve başarı yüzdelerini toplar. Bu ölçümler; blob, kuyruk, tablo ve dosya hizmetleri için toplanır. **API Başına**, Azure Depolama hizmeti API’sindeki her bir depolama işlemi için aynı ölçüm kümesini toplar. Depolama günlüğü, depolama hesabınızdaki başarılı ve başarısız istekler için ayrıntıları kaydetmenize olanak sağlar. Bu günlükler, Azure tablolarınıza, kuyruklarınıza ve bloblarınıza karşı okuma, yazma ve silme işlemlerinin ayrıntılarını görmenize olanak sağlar. Bunlar ayrıca zaman aşımları, azaltma ve yetkilendirme hataları gibi başarısız isteklerin nedenlerini görmenize de olanak sağlar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
 [Azure portalı](https://portal.azure.com)’nda oturum açın
 
-## <a name="turn-on-logging-and-metrics"></a>Günlüğe kaydetme ve ölçümleri Aç
+## <a name="turn-on-logging-and-metrics"></a>Günlük kaydını ve ölçümleri açma
 
-Sol menüden seçin **kaynak grupları**seçin **myResourceGroup**ve ardından kaynak listesinde depolama hesabınızı seçin.
+Sol menüden **Kaynak Grupları**’nı seçin, **myResourceGroup** seçeneğini belirleyin ve sonra kaynak listesinden depolama hesabınızı seçin.
 
-Altında **tanılama** ayarlamak **durum** için **üzerinde**. Olun **Blob toplama ölçümleri**, **API ölçümleri başına Blob**, ve **Blob günlükleri** etkinleştirilir.
+**Tanılama** bölümünde **Durum**’u **Açık** olarak ayarlayın. **Blob toplu ölçümleri**, **Blob API başına ölçümler** ve **Blob günlükleri**’nin etkinleştirildiğinden emin olun.
 
-Tamamlandığında, tıklayın **Kaydet**
+İşlem tamamlandığında **Kaydet**’e tıklayın
 
 ![Tanılama bölmesi](media/storage-monitor-troubleshoot-storage-application/figure1.png)
 
-## <a name="enable-alerts"></a>Uyarılarını etkinleştir
+## <a name="enable-alerts"></a>Uyarıları etkinleştirme
 
-Uyarıları Yöneticiler e-posta veya bir eşik ihlal bir ölçümü tabanlı bir Web kancası tetiklemek için bir yol sağlar. Bu örnekte, bir uyarı için etkinleştirme `SASClientOtherError` ölçüm.
+Uyarılar, bir eşiği ihlal eden bir ölçüm temelinde yöneticilere e-posta göndermenin veya bir web kancası tetiklemenin yolunu sağlar. Bu örnekte, `SASClientOtherError` ölçümü için bir uyarıyı etkinleştirirsiniz.
 
-### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Azure Portal'da depolama hesabı gidin
+### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Azure portalında depolama hesabına gidin
 
-Sol menüden seçin **kaynak grupları**seçin **myResourceGroup**ve ardından kaynak listesinde depolama hesabınızı seçin.
+Sol menüden **Kaynak Grupları**’nı seçin, **myResourceGroup** seçeneğini belirleyin ve sonra kaynak listesinden depolama hesabınızı seçin.
 
-Altında **izleme** bölümünde, select **uyarı kuralları**.
+**İzleme** bölümünde **Uyarı kuralları**’nı seçin.
 
-Seçin **+ uyarı Ekle**altında **uyarı kuralı eklemek**, gerekli bilgileri doldurun. Seçin `SASClientOtherError` gelen **ölçüm** açılır.
+**Bir uyarı kuralı ekle** bölümünde **+ Uyarı ekle** seçeneğini belirleyin ve gerekli bilgileri doldurun. **Ölçüm** açılır listesinden `SASClientOtherError` seçeneğini belirleyin.
 
 ![Tanılama bölmesi](media/storage-monitor-troubleshoot-storage-application/figure2.png)
 
-## <a name="simulate-an-error"></a>Hata benzetimi
+## <a name="simulate-an-error"></a>Bir hatanın benzetimini yapma
 
-Geçerli bir uyarı benzetimini yapmak için mevcut olmayan blob depolama hesabınızdan isteği deneyebilirsiniz. Bunu yapmak için yerini `<incorrect-blob-name>` var olmayan bir değerle. Aşağıdaki kod örneği birkaç kez çalıştırmak benzetimini yapmak için blob isteği başarısız oldu.
+Geçerli bir uyarının benzetimini yapmak için, depolama hesabınızdan mevcut olmayan bir blobu isteme girişiminde bulunabilirsiniz. Bunu yapmak için `<incorrect-blob-name>` değerini, mevcut olmayan bir değerle değiştirin. Başarısız olan blob isteklerinin benzetimini yapmak için aşağıdaki kod örneğini birkaç defa çalıştırın.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
@@ -81,49 +78,49 @@ sasToken=$(az storage blob generate-sas \
 curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
 ```
 
-Aşağıdaki resimde, önceki örnekle benzetimli hatası dayalı bir örnek uyarı çalıştırıldı ' dir.
+Aşağıdaki görüntü, önceki örnekle birlikte çalıştırılan benzetimi yapılmış bir hatayı temel alan örnek bir uyarıdır.
 
- ![Örnek Uyarısı](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![Örnek uyarı](media/storage-monitor-troubleshoot-storage-application/alert.png)
 
-## <a name="download-and-view-logs"></a>Karşıdan yükleme ve görünüm günlükleri
+## <a name="download-and-view-logs"></a>Günlükleri indirme ve görüntüleme
 
-Depolama günlükleri bir dizi blobun gruplandırılmasını adlı blob kapsayıcısında veri deposunda **$logs** depolama hesabınızdaki. Bu kapsayıcıdaki tüm blob kapsayıcıları hesabınızda listesinde ancak doğrudan erişim içeriğini görebilirsiniz gösterilmez.
+Depolama günlükleri, verileri, depolama hesabınızdaki **$logs** adlı bir blob kapsayıcısında blob kümeleri halinde depolar. Hesabınızdaki tüm blob kapsayıcılarını listelerseniz bu kapsayıcı gösterilmez, ancak doğrudan erişirseniz içeriklerini görebilirsiniz.
 
-Bu senaryoda, kullandığınız [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) Azure storage hesabıyla etkileşime geçmek için.
+Bu senaryoda, Azure depolama hesabınızla etkileşim kurmak için [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)’ı kullanırsınız.
 
-### <a name="download-microsoft-message-analyzer"></a>Microsoft Message Analyzer'ı karşıdan yükle
+### <a name="download-microsoft-message-analyzer"></a>Microsoft Message Analyzer’ı indirme
 
-Karşıdan [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) ve uygulamayı yükleyin.
+[Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226)’ı indirip uygulamayı yükleyin.
 
-Uygulamayı başlatın ve seçin **dosya** > **açık** > **diğer dosya kaynaklardan**.
+Uygulamayı başlatın ve **Dosya** > **Aç** > **Diğer Dosya Kaynaklarından** seçeneklerini belirleyin.
 
-İçinde **dosya Seçici** iletişim kutusunda **+ Azure Bağlantısı Ekle**. Girin, **depolama hesabı adı** ve **hesap anahtarı** tıklatıp **Tamam**.
+**Dosya Seçici** iletişim kutusunda **+ Azure Bağlantısı Ekle**’yi seçin. **Depolama hesabı adı** ve **hesap anahtarı** bilgilerinizi girin ve **Tamam**’a tıklayın.
 
-![Microsoft Message Analyzer - Azure depolama bağlantı iletişim kutusu ekleme](media/storage-monitor-troubleshoot-storage-application/figure3.png)
+![Microsoft Message Analyzer - Azure Depolama Bağlantısı Ekle İletişim Kutusu](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
-Bağlandıktan sonra depolama ağaç kapsayıcılarında görünümünü için günlük BLOB'ları genişletin. En son günlük tıklatıp **Tamam**.
+Bağlandıktan sonra, günlük bloblarını görüntülemek için depolama ağacı görünümündeki kapsayıcıları genişletin. En son günlüğü seçin ve **Tamam**’a tıklayın.
 
-![Microsoft Message Analyzer - Azure depolama bağlantı iletişim kutusu ekleme](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Microsoft Message Analyzer - Azure Depolama Bağlantısı Ekle İletişim Kutusu](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
-Üzerinde **yeni oturum** iletişim kutusunda, tıklatın **Başlat** , günlüğünü görüntülemek için.
+**Yeni Oturum** iletişim kutusunda **Başlat**’a tıklayarak günlüğünüzü görüntüleyin.
 
-Oturum açan sonra depolama olayları görüntüleyebilirsiniz. Aşağıdaki görüntüden gördüğünüz oluştu bir `SASClientOtherError` depolama hesabında tetiklendi. Depolama günlüğe kaydetme hakkında ek bilgi için ziyaret [depolama çözümlemeleri](../common/storage-analytics.md).
+Günlük açıldıktan sonra depolama olaylarını görüntüleyebilirsiniz. Aşağıdaki görüntüde gördüğünüz gibi, depolama hesabında tetiklenen bir `SASClientOtherError` oldu. Depolama günlük kaydı hakkında ek bilgi için [Depolama Analizi](../common/storage-analytics.md)’ni ziyaret edin.
 
-![Microsoft Message Analyzer - olayları görüntüleme](media/storage-monitor-troubleshoot-storage-application/figure5.png)
+![Microsoft Message Analyzer - Olayları görüntüleme](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) dahil olmak üzere, depolama hesapları ile etkileşim kurmak için kullanılan bir diğer araç **$logs** kapsayıcı ve içinde bulunan günlükleri.
+[Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/), **$logs** kapsayıcısı ve içinde bulunan günlükler de dahil olmak üzere depolama hesaplarınızla etkileşim kurmak için kullanılabilen başka bir araçtır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Dört bölümü ve seri son bölümü, izlemek ve nasıl gibi depolama hesabınız ilgili sorunları giderme hakkında bilgi edindiniz:
+Serinin dördüncü ve son kısmında, aşağıdaki işlemleri kapsayacak şekilde depolama hesabınızın nasıl izleneceğini ve sorunlarının nasıl giderileceğini öğrendiniz:
 
 > [!div class="checklist"]
-> * Günlüğe kaydetme ve ölçümleri Aç
-> * Yetkilendirme hataları için uyarıları etkinleştir
-> * Test trafiğini yanlış SAS belirteci ile Çalıştır
-> * Karşıdan yükle ve günlüklerini analiz edin
+> * Günlük kaydını ve ölçümleri açma
+> * Yetkilendirme hataları için uyarıları etkinleştirme
+> * Yanlış SAS belirteçleri ile trafik testi çalıştırma
+> * Günlükleri indirme ve analiz etme
 
-Önceden oluşturulmuş depolama örnekleri görmek için bu bağlantıyı izleyin.
+Önceden oluşturulmuş depolama örneklerini görmek için bu bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
-> [Azure depolama kod örnekleri](storage-samples-blobs-cli.md)
+> [Azure depolama betiği örnekleri](storage-samples-blobs-cli.md)

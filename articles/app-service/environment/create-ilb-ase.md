@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -55,7 +55,7 @@ ILB ASE’yi kullanırken bazı işlemleri yapamazsınız:
 
 ILB ASE oluşturmak için:
 
-1. Azure portalında **Yeni** > **Web ve Mobil** > **App Service Ortamı**’nı seçin.
+1. Azure portalında **Kaynak oluştur** > **Web ve Mobil** > **App Service Ortamı**’nı seçin.
 
 2. Aboneliğinizi seçin.
 
@@ -106,7 +106,7 @@ ILB ASE oluşturmak için:
 
 ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturma işlemiyle aynıdır.
 
-1. Azure portalında **Yeni** > **Web ve Mobil** > **Web** veya **Mobil** ya da **API Uygulaması**’nı seçin.
+1. Azure portalında **Kaynak oluştur** > **Web ve Mobil** > **Web**, **Mobil** ya da **API Uygulaması** seçeneğini belirleyin.
 
 2. Uygulamanın adını girin.
 

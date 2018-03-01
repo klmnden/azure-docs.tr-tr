@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 36b9379f88ce024c1dcbf9977a873d95076d10df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Azure Load Balancer için günlük analizi
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 Azure'da günlükleri farklı türlerde yönetmek ve yük dengeleyici sorunlarını gidermek için kullanabilirsiniz. Bu günlükler bazıları Portalı aracılığıyla erişilebilir. Tüm günlükleri Azure blob depolama alanından ayıklanan ve farklı araçlar, Excel ve Powerbı gibi görüntülenebilir. Aşağıdaki listeden günlükleri farklı türleri hakkında daha fazla bilgi edinebilirsiniz.
 
 * **Denetim günlüklerini:** kullanabileceğiniz [Azure denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md) (eskiden İşlem günlükleri olarak bilinir) Azure Abonelikleriniz ve durumlarını gönderilen tüm işlemleri görüntülemek için. Denetim günlüklerini varsayılan olarak etkindir ve Azure Portalı'nda görüntülenebilir.
-* **Uyarı olayı günlükleri:** yük dengeleyici tarafından uyarıları rasied görüntülemek için bu günlük kullanabilirsiniz. Yük Dengeleyici için durum her beş dakikada toplanır. Bu günlük yalnızca bir yük dengeleyici uyarı olayı tetiklenir yazılır.
+* **Uyarı olayı günlükleri:** yük dengeleyici tarafından oluşturulan uyarılar görüntülemek için bu günlük kullanabilirsiniz. Yük Dengeleyici için durum her beş dakikada toplanır. Bu günlük yalnızca bir yük dengeleyici uyarı olayı tetiklenir yazılır.
 * **Sistem durumu araştırma günlüklerini:** , arka uç havuzundaki istekleri sistem durumu araştırma hataları nedeniyle yük dengeleyiciden gösterilmeyen örnek sayısı gibi sistem durumu araştırma tarafından algılanan sorunları görüntülemek için bu günlük kullanabilirsiniz. Sistem durumu araştırma durumundaki bir değişiklik olduğunda bu günlük yazılır.
 
 > [!IMPORTANT]
@@ -52,14 +52,14 @@ Oturum açma için [Azure portal](http://portal.azure.com). Bir yük dengeleyici
 5. İçinde **tanılama** bölmesi altında **durum**seçin **üzerinde**.
 6. Tıklatın **depolama hesabı**.
 7. Altında **GÜNLÜKLERİ**, mevcut bir depolama hesabını seçin veya yeni bir tane oluşturun. Olay verilerini kaç gün olay günlüklerinde depolanacak belirlemek için kaydırıcıyı kullanın. 
-8. **Kaydet** düğmesine tıklayın.
+8. **Kaydet**’e tıklayın.
 
     ![Portal - tanılama günlükleri](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
 > Denetim günlükleri ayrı bir depolama hesabı gerektirmez. Kullanım olay ve sistem durumu depolama araştırma günlük kaydı hizmeti ücret uygulanabilir.
 
-## <a name="audit-log"></a>Denetim günlüğü
+## <a name="audit-log"></a>Denetleme günlüğü
 
 Denetim günlüğü varsayılan olarak oluşturulur. Günlükleri 90 gün boyunca Azure'nın olay günlüklerini deposunda saklanır. Bu günlükler hakkında daha fazla bilgi okuyarak [olayları görüntülemek ve Denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md) makale.
 

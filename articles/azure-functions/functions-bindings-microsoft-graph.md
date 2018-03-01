@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
@@ -49,10 +49,10 @@ Bir işlev uygulaması işlevleri çalışma zamanı Önizleme 2.0 sürümünü 
 
 Azure portalından bir uzantı yüklemek için bir şablonu veya başvurduğu bağlama gidin. Yeni bir işlev oluşturun ve şablon seçim ekranına karşın, "Microsoft Graph" senaryo seçin. Bu senaryodan şablonlardan birini seçin. Alternatif olarak, var olan bir işlev "Tümleştirme" sekmesine gidin ve bu makalede ele alınan bağlamaları birini seçin.
 
-Her iki durumda da, yüklenecek uzantısı belirten bir uyarı görüntülenir. Tıklatın **yükleme** uzantısı elde edilir.
+Her iki durumda da, yüklenecek uzantısı belirten bir uyarı görüntülenir. Tıklatın **yükleme** uzantısı elde edilir. Her bir uzantı yalnızca işlev uygulaması bir kez yüklü olması gerekir. 
 
 > [!Note] 
-> Her bir uzantı yalnızca işlev uygulaması bir kez yüklü olması gerekir. Portal yükleme işlemi tüketim plan üzerinde 10 dakikaya kadar sürebilir.
+> Portal yükleme işlemi tüketim plan üzerinde 10 dakikaya kadar sürebilir.
 
 Visual Studio kullanıyorsanız, bu NuGet paketlerini yükleyerek uzantıları alabilirsiniz:
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
@@ -207,10 +207,10 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**adı**||Gerekli - için kimlik doğrulama belirteci işlevi kod içinde kullanılan değişken adı. Bkz: [bir kimlik doğrulama belirteci kullanılarak bağlama kodundan giriş](#token-input-code).|
-|**türü**||Gerekli - kümesine olmalıdır `token`.|
-|**yönü**||Gerekli - kümesine olmalıdır `in`.|
-|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code>-Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code>-Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code>-Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code>-İşlevi uygulama kimliğini kullanır.</li></ul>|
+|**Adı**||Gerekli - için kimlik doğrulama belirteci işlevi kod içinde kullanılan değişken adı. Bkz: [bir kimlik doğrulama belirteci kullanılarak bağlama kodundan giriş](#token-input-code).|
+|**Türü**||Gerekli - kümesine olmalıdır `token`.|
+|**Yönü**||Gerekli - kümesine olmalıdır `in`.|
+|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulama kimliğini kullanır.</li></ul>|
 |**userId**|**UserId**  |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
 |**Kaynak**|**Kaynak**|Gerekli - belirteç istenmektedir bir Azure AD kaynak URL.|
@@ -340,13 +340,13 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**adı**||Gerekli - işlev kodu Excel tablosu için kullanılan değişken adı. Bkz: [bir Excel tablosu kullanarak giriş kodundan bağlama](#excel-input-code).|
-|**türü**||Gerekli - kümesine olmalıdır `excel`.|
-|**yönü**||Gerekli - kümesine olmalıdır `in`.|
-|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code>-Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code>-Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code>-Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code>-İşlevi uygulama kimliğini kullanır.</li></ul>|
+|**Adı**||Gerekli - işlev kodu Excel tablosu için kullanılan değişken adı. Bkz: [bir Excel tablosu kullanarak giriş kodundan bağlama](#excel-input-code).|
+|**Türü**||Gerekli - kümesine olmalıdır `excel`.|
+|**Yönü**||Gerekli - kümesine olmalıdır `in`.|
+|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulama kimliğini kullanır.</li></ul>|
 |**userId**|**UserId**  |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
-|**yol**|**Path**|Gerekli - onedrive'da Excel çalışma kitabı yolu.|
+|**Yol**|**Path**|Gerekli - onedrive'da Excel çalışma kitabı yolu.|
 |**worksheetName**|**WorksheetName**|Tablo bulunduğu çalışma sayfası.|
 |**tableName**|**TableName**|Tablonun adı. Belirtilmezse, çalışma kitabının içeriğini kullanılır.|
 
@@ -500,16 +500,16 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**adı**||Gerekli - için kimlik doğrulama belirteci işlevi kod içinde kullanılan değişken adı. Bkz: [bir Excel tablosu kullanarak çıktıyı kodundan bağlama](#excel-output-code).|
-|**türü**||Gerekli - kümesine olmalıdır `excel`.|
-|**yönü**||Gerekli - kümesine olmalıdır `out`.|
-|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code>-Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code>-Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code>-Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code>-İşlevi uygulama kimliğini kullanır.</li></ul>|
+|**Adı**||Gerekli - için kimlik doğrulama belirteci işlevi kod içinde kullanılan değişken adı. Bkz: [bir Excel tablosu kullanarak çıktıyı kodundan bağlama](#excel-output-code).|
+|**Türü**||Gerekli - kümesine olmalıdır `excel`.|
+|**Yönü**||Gerekli - kümesine olmalıdır `out`.|
+|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulama kimliğini kullanır.</li></ul>|
 |**UserId** |**userId** |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
-|**yol**|**Path**|Gerekli - onedrive'da Excel çalışma kitabı yolu.|
+|**Yol**|**Path**|Gerekli - onedrive'da Excel çalışma kitabı yolu.|
 |**worksheetName**|**WorksheetName**|Tablo bulunduğu çalışma sayfası.|
 |**tableName**|**TableName**|Tablonun adı. Belirtilmezse, çalışma kitabının içeriğini kullanılır.|
-|**updateType**|**UpdateType**|Gerekli - tabloya yapmak için değişiklik türü. Aşağıdaki değerlerden biri olabilir:<ul><li><code>update</code>-OneDrive tabloda içeriğini değiştirir.</li><li><code>append</code>-Yükü OneDrive tabloda sonuna yeni satırlar oluşturarak ekler.</li></ul>|
+|**updateType**|**UpdateType**|Gerekli - tabloya yapmak için değişiklik türü. Aşağıdaki değerlerden biri olabilir:<ul><li><code>update</code> -OneDrive tabloda içeriğini değiştirir.</li><li><code>append</code> -Yükü OneDrive tabloda sonuna yeni satırlar oluşturarak ekler.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### <a name="excel-output---usage"></a>Çıktı - Excel kullanımı
@@ -644,13 +644,13 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**adı**||Gerekli - işlev kodu dosya için kullanılan değişken adı. Bkz: [OneDrive dosyasını kullanarak giriş kodundan bağlama](#onedrive-input-code).|
-|**türü**||Gerekli - kümesine olmalıdır `onedrive`.|
-|**yönü**||Gerekli - kümesine olmalıdır `in`.|
-|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code>-Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code>-Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code>-Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code>-İşlevi uygulama kimliğini kullanır.</li></ul>|
+|**Adı**||Gerekli - işlev kodu dosya için kullanılan değişken adı. Bkz: [OneDrive dosyasını kullanarak giriş kodundan bağlama](#onedrive-input-code).|
+|**Türü**||Gerekli - kümesine olmalıdır `onedrive`.|
+|**Yönü**||Gerekli - kümesine olmalıdır `in`.|
+|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulama kimliğini kullanır.</li></ul>|
 |**userId**|**UserId**  |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
-|**yol**|**Path**|Gerekli - onedrive'da dosyasının yolu.|
+|**Yol**|**Path**|Gerekli - onedrive'da dosyasının yolu.|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>Giriş - dosya kullanım
@@ -663,7 +663,7 @@ Bu bağlama aşağıdaki Azure AD izinleri gerektirir:
 Bağlama .NET işlevlerine aşağıdaki türü ortaya çıkarır:
 - Byte]
 - Akış
-- dize
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -789,13 +789,13 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**adı**||Gerekli - işlev kodu dosyası için kullanılan değişken adı. Bkz: [OneDrive dosyasını kullanarak çıktıyı kodundan bağlama](#onedrive-output-code).|
-|**türü**||Gerekli - kümesine olmalıdır `onedrive`.|
-|**yönü**||Gerekli - kümesine olmalıdır `out`.|
-|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code>-Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code>-Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code>-Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code>-İşlevi uygulama kimliğini kullanır.</li></ul>|
+|**Adı**||Gerekli - işlev kodu dosyası için kullanılan değişken adı. Bkz: [OneDrive dosyasını kullanarak çıktıyı kodundan bağlama](#onedrive-output-code).|
+|**Türü**||Gerekli - kümesine olmalıdır `onedrive`.|
+|**Yönü**||Gerekli - kümesine olmalıdır `out`.|
+|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulama kimliğini kullanır.</li></ul>|
 |**UserId** |**userId** |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
-|**yol**|**Path**|Gerekli - onedrive'da dosyasının yolu.|
+|**Yol**|**Path**|Gerekli - onedrive'da dosyasının yolu.|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>Çıktı - dosya kullanım
@@ -808,7 +808,7 @@ Bu bağlama aşağıdaki Azure AD izinleri gerektirir:
 Bağlama .NET işlevlerine aşağıdaki türü ortaya çıkarır:
 - Byte]
 - Akış
-- dize
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -938,10 +938,10 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**adı**||Gerekli - posta iletisi için işlevi kod içinde kullanılan değişken adı. Bkz: [Outlook iletisi kullanarak çıktıyı kodundan bağlama](#outlook-output-code).|
-|**türü**||Gerekli - kümesine olmalıdır `outlook`.|
-|**yönü**||Gerekli - kümesine olmalıdır `out`.|
-|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code>-Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code>-Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code>-Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code>-İşlevi uygulama kimliğini kullanır.</li></ul>|
+|**Adı**||Gerekli - posta iletisi için işlevi kod içinde kullanılan değişken adı. Bkz: [Outlook iletisi kullanarak çıktıyı kodundan bağlama](#outlook-output-code).|
+|**Türü**||Gerekli - kümesine olmalıdır `outlook`.|
+|**Yönü**||Gerekli - kümesine olmalıdır `out`.|
+|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulama kimliğini kullanır.</li></ul>|
 |**userId**|**UserId**  |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
 
@@ -956,7 +956,7 @@ Bu bağlama aşağıdaki Azure AD izinleri gerektirir:
 Bağlama .NET işlevlerine aşağıdaki türü ortaya çıkarır:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- dize
+- string
 - Özel nesne türleri (yapısal model bağlama kullanarak)
 
 
@@ -1079,10 +1079,10 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**adı**||Gerekli - posta iletisi için işlevi kod içinde kullanılan değişken adı. Bkz: [Outlook iletisi kullanarak çıktıyı kodundan bağlama](#outlook-output-code).|
-|**türü**||Gerekli - kümesine olmalıdır `graphWebhook`.|
-|**yönü**||Gerekli - kümesine olmalıdır `trigger`.|
-|**resourceType**|**ResourceType**|Gerekli - grafik kaynak bu işlev için Web kancası kullanmalıdır. Aşağıdaki değerlerden biri olabilir:<ul><li><code>#Microsoft.Graph.Message</code>-Outlook iletileri yapılan değişiklikler.</li><li><code>#Microsoft.Graph.DriveItem</code>-OneDrive kök öğelerine yapılan değişiklikler.</li><li><code>#Microsoft.Graph.Contact</code>-Outlook Kişisel kişilere yapılan değişiklikler.</li><li><code>#Microsoft.Graph.Event</code>-Outlook Takvim öğelerine yapılan değişiklikler.</li></ul>|
+|**Adı**||Gerekli - posta iletisi için işlevi kod içinde kullanılan değişken adı. Bkz: [Outlook iletisi kullanarak çıktıyı kodundan bağlama](#outlook-output-code).|
+|**Türü**||Gerekli - kümesine olmalıdır `graphWebhook`.|
+|**Yönü**||Gerekli - kümesine olmalıdır `trigger`.|
+|**resourceType**|**ResourceType**|Gerekli - grafik kaynak bu işlev için Web kancası kullanmalıdır. Aşağıdaki değerlerden biri olabilir:<ul><li><code>#Microsoft.Graph.Message</code> -Outlook iletileri yapılan değişiklikler.</li><li><code>#Microsoft.Graph.DriveItem</code> -OneDrive kök öğelerine yapılan değişiklikler.</li><li><code>#Microsoft.Graph.Contact</code> -Outlook Kişisel kişilere yapılan değişiklikler.</li><li><code>#Microsoft.Graph.Event</code> -Outlook Takvim öğelerine yapılan değişiklikler.</li></ul>|
 
 > [!Note]
 > Bir işlev uygulaması karşı kayıtlı bir işlevi yalnızca olabilir bir verilen `resourceType` değer.
@@ -1230,9 +1230,9 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**adı**||Gerekli - posta iletisi için işlevi kod içinde kullanılan değişken adı. Bkz: [Outlook iletisi kullanarak çıktıyı kodundan bağlama](#outlook-output-code).|
-|**türü**||Gerekli - kümesine olmalıdır `graphWebhookSubscription`.|
-|**yönü**||Gerekli - kümesine olmalıdır `in`.|
+|**Adı**||Gerekli - posta iletisi için işlevi kod içinde kullanılan değişken adı. Bkz: [Outlook iletisi kullanarak çıktıyı kodundan bağlama](#outlook-output-code).|
+|**Türü**||Gerekli - kümesine olmalıdır `graphWebhookSubscription`.|
+|**Yönü**||Gerekli - kümesine olmalıdır `in`.|
 |**Filtre**|**Filtre**| Varsa kümesine `userFromRequest`, bağlama yalnızca arama kullanıcıya ait abonelikleri alacak sonra (yalnızca geçerli [HTTP tetikleyicisini]).| 
 
 ### <a name="webhook-input---usage"></a>Web kancası girişi - kullanım
@@ -1370,20 +1370,20 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**adı**||Gerekli - posta iletisi için işlevi kod içinde kullanılan değişken adı. Bkz: [Outlook iletisi kullanarak çıktıyı kodundan bağlama](#outlook-output-code).|
-|**türü**||Gerekli - kümesine olmalıdır `graphWebhookSubscription`.|
-|**yönü**||Gerekli - kümesine olmalıdır `out`.|
-|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code>-Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code>-Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code>-Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code>-İşlevi uygulama kimliğini kullanır.</li></ul>|
+|**Adı**||Gerekli - posta iletisi için işlevi kod içinde kullanılan değişken adı. Bkz: [Outlook iletisi kullanarak çıktıyı kodundan bağlama](#outlook-output-code).|
+|**Türü**||Gerekli - kümesine olmalıdır `graphWebhookSubscription`.|
+|**Yönü**||Gerekli - kümesine olmalıdır `out`.|
+|**identity**|**Kimlik**|Gerekli - eylemi gerçekleştirmek için kullanılan kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisini]. Arayan Kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirtecin tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulama kimliğini kullanır.</li></ul>|
 |**userId**|**UserId**  |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
-|**Eylem**|**Eylem**|Gerekli - bağlama eylem gerçekleştirmesi gerektiğini belirtir. Aşağıdaki değerlerden biri olabilir:<ul><li><code>create</code>-Yeni bir abonelik kaydeder.</li><li><code>delete</code>-Belirtilen bir abonelik siler.</li><li><code>refresh</code>-Süresinin dolmasını tutmak için belirtilen abonelik yeniler.</li></ul>|
+|**Eylem**|**Eylem**|Gerekli - bağlama eylem gerçekleştirmesi gerektiğini belirtir. Aşağıdaki değerlerden biri olabilir:<ul><li><code>create</code> -Yeni bir abonelik kaydeder.</li><li><code>delete</code> -Belirtilen bir abonelik siler.</li><li><code>refresh</code> -Süresinin dolmasını tutmak için belirtilen abonelik yeniler.</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|Gerekli olduğunda ve yalnızca _eylem_ ayarlanır `create`. Değişiklikleri izlenen Microsoft Graph kaynağı belirtir. Bkz: [kancalarını Microsoft Graph ile çalışma]. |
 |**changeType**|**ChangeType**|Gerekli olduğunda ve yalnızca _eylem_ ayarlanır `create`. Bir bildirim oluşturacak abone olduğunuz kaynak değişiklik türünü belirtir. Desteklenen değerler: `created`, `updated`, `deleted`. Virgülle ayrılmış bir liste kullanarak birden çok değer birleştirilebilir.|
 
 ### <a name="webhook-output---usage"></a>Web kancası çıktı - kullanım
 
 Bağlama .NET işlevlerine aşağıdaki türü ortaya çıkarır:
-- dize
+- string
 - Microsoft.Graph.Subscription
 
 

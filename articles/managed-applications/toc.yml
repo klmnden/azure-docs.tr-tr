@@ -1,10 +1,11 @@
-- name: Azure tarafından yönetilen uygulamalar
+- name: Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler
   href: index.yml
 - name: Genel Bakış
   items:
     - name: Yönetilen uygulamalar hakkında
       href: overview.md
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: Yönetilen uygulama oluşturma
       href: managed-apps-quickstart-cli.md

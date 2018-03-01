@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -122,7 +122,7 @@ Sanal ağ, bulut ağınızdaki mantıksal bir gösterimidir. IPSec VPN (siteden 
 
 Kendini barındıran tümleştirmesi çalışma zamanı yapılandırma önerileri kaynak ve hedef birleşimlerini üzerinde karma veri taşıma için konumları tabanlı ve ağ aşağıdaki tabloda özetlenmiştir.
 
-| Kaynak      | Hedef                              | Ağ yapılandırması                    | Tümleştirme çalışma zamanı modülü kurulumu                |
+| Kaynak      | Hedef                              | Ağ yapılandırması                    | Tümleştirme çalışma zamanı kurulumu                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Şirket içi | Sanal makineler ve sanal ağlarda dağıtılan bulut Hizmetleri | IPSec VPN (noktadan siteye veya siteden siteye) | Kendini barındıran tümleştirmesi çalışma zamanı olabilir ya da şirket içi yüklü veya bir Azure sanal üzerinde (VM) içinde sanal makine |
 | Şirket içi | Sanal makineler ve sanal ağlarda dağıtılan bulut Hizmetleri | ExpressRoute (özel eşleme)           | Kendini barındıran tümleştirmesi çalışma zamanı olabilir ya da şirket içi yüklü veya bir Azure VM VNet içinde |
@@ -150,8 +150,8 @@ Aşağıdaki tabloda verilmiştir **giden bağlantı noktası** ve etki alanı g
 | `*.servicebus.windows.net`    | 443, 80        | Kendini barındıran tümleştirmesi çalışma zamanı tarafından veri fabrikasında veri taşıma hizmetleri bağlanmak için gereken |
 | `*.core.windows.net`          | 443            | Kendini barındıran tümleştirmesi çalışma zamanı tarafından kullandığınızda Azure depolama hesabına bağlanmak için kullanılan [kopyalama hazırlanan](copy-activity-performance.md#staged-copy) özelliği. |
 | `*.frontend.clouddatahub.net` | 443            | Azure Data Factory hizmetine bağlanmak için kendi kendini barındıran tümleştirmesi çalışma zamanı tarafından gerekli. |
-| `*.database.windows.net`      | 1433           | (İsteğe bağlı) gerekli Hedefinizi Azure SQL veritabanı olduğunda / Azure SQL veri ambarı. Bağlantı noktası 1433 açmadan Azure SQL veritabanı/Azure SQL Data Warehouse için verileri kopyalamak için hazırlanmış kopyalama özelliğini kullanın. |
-| `*.azuredatalakestore.net`    | 443            | (İsteğe bağlı), hedef Azure Data Lake deposu olduğunda gerekli |
+| `*.database.windows.net`      | 1433           | (İsteğe bağlı) gerekli/Azure SQL veritabanına kopyaladığınızda, / Azure SQL veri ambarı. Bağlantı noktası 1433 açmadan Azure SQL veritabanı/Azure SQL Data Warehouse için verileri kopyalamak için hazırlanmış kopyalama özelliğini kullanın. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (İsteğe bağlı), kopyalama, ihtiyaç/Azure Data Lake deposu kullanmaktır |
 
 > [!NOTE] 
 > Bağlantı noktaları yönetmek zorunda kalabilirsiniz / uygulamaları güvenilir listeye almayı etki alanları Kurumsal güvenlik duvarında düzey gerektiği gibi ilgili veri kaynakları tarafından. Bu tablo yalnızca Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store örnek olarak kullanır.   

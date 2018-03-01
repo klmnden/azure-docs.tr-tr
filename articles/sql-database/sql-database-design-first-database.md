@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: d7c0ba8a8ac477e7e3175d590a6de13fb3f460cb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5c5402c89091b84cd3b49815d892c9fa0d59e22a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>İlk Azure SQL veritabanınızı tasarlama
 
@@ -53,7 +53,7 @@ Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-servi
 
 Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin. 
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 
 2. **Yeni** penceresinden **Veritabanları**’nı seçin ve **Yeni** sayfasında **SQL Veritabanı** altından **Oluştur**’u seçin.
 
@@ -83,7 +83,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 
 6. Hizmet katmanını, DTU'ların sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanılabilir DTU sayısı ve depolama alanı seçeneklerini araştırın. 
 
-7. Bu öğretici için **standart** hizmet katmanını seçip kaydırıcıyı kullanarak **100 DTU (S3)** ve **400** GB depolama alanını seçin.
+7. Bu öğreticide, **standart** hizmet katmanını seçip kaydırıcıyı kullanarak **100 DTU (S3)** ve **400** GB depolama alanını seçin.
 
    ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 

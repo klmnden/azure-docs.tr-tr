@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 1f4c542c179f196e61457ddba6b9dfe76dd1dc79
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler için zamanlanmış olaylar
 

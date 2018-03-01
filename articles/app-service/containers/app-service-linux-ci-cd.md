@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9759eac01e2db62154cd7f6bf9fcccf13282b4b4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kapsayıcıları için Web uygulaması ile sürekli dağıtımı
 
@@ -41,7 +41,7 @@ az webapp deployment container config -n sname -g rgname -e true
 
 Docker hub'a sürekli dağıtımı için yapılandırmak istediğiniz, uygulamanızın adına tıklayın.
 
-İçinde **uygulama ayarları**, denilen bir uygulama ekleyin `DOCKER_ENABLE_CI` değerle `true`.
+İçinde **Docker kapsayıcısı**, 'On' ı sonra sürekli dağıtımını etkinleştirmek için Kaydet'e basın.
 
 ![uygulama ayarı görüntüsü Ekle](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 

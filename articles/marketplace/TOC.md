@@ -1,3 +1,5 @@
+# [Azure Market Belgeleri](index.md)
+
 # [Azure Market yayımcı kılavuzu](marketplace-publishers-guide.md)
 # [İşletmenizi Azure Market ile büyütme](grow-your-business-azure-marketplace.md)
 # [Bulut İş Ortağı Portalı](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)

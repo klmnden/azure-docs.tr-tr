@@ -3,21 +3,21 @@ title: "Resource Manager şablonu kullanarak Azure veri fabrikası oluşturma | 
 description: "Bu öğreticide, bir Azure Resource Manager şablonu kullanarak örnek bir Azure Data Factory işlem hattı oluşturacaksınız."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
-editor: monicar
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.author: douglasl
+ms.openlocfilehash: 50f6bebffbf9eb88ec2c725184793d1ea9291312
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak Azure veri fabrikası oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -428,7 +428,7 @@ Dağıtılan tetikleyici durdurulmuş durumdadır. Tetikleyici başlatmanın yol
     ```
 
 ## <a name="monitor-the-pipeline"></a>İşlem hattını izleme
-1. [Azure portalında](https://portal.azure.com/) oturum açtıktan sonra **Diğer hizmetler**’e tıklayın, **veri fa** gibi bir anahtar sözcükle arama yapın ve **Veri fabrikaları**’nı seçin.
+1. [Azure portalında](https://portal.azure.com/) oturum açtıktan sonra **Tüm hizmetler**’e tıklayın, **veri fa** gibi bir anahtar sözcükle arama yapın ve **Veri fabrikaları**’nı seçin.
 
     ![Veri fabrikaları menüsüne göz atma](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. **Veri Fabrikaları** sayfasında, oluşturduğunuz veri fabrikasına tıklayın. Gerekirse, veri fabrikanızın adıyla listeyi filtreleyin.  

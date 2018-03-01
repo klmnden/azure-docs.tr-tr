@@ -1,3 +1,5 @@
+# [Service Bus Geçişi Belgeleri](index.md)
+
 # Genel Bakış
 ## [Geçiş Nedir?](relay-what-is-it.md)
 ## [SSS](relay-faq.md)

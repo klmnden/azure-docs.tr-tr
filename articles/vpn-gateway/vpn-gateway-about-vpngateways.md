@@ -1,10 +1,10 @@
 ---
 title: "VPN Gateway’e Genel Bakış: Azure sanal ağları ile şirketler arası VPN bağlantıları oluşturma | Microsoft Docs"
-description: "Bu VPN Gateway’e Genel Bakış bölümünde Internet üzerinden bir VPN bağlantısı kullanılarak Azure sanal ağlarına bağlanma yolları açıklanmaktadır. Temel bağlantı yapılandırmaları da buraya eklenmiştir."
+description: "Bu makalede, VPN Gateway’in ne olduğu ve İnternet üzerinden bir VPN bağlantısı kullanılarak Azure sanal ağlarına bağlanma yolları açıklanmaktadır. Temel bağlantı yapılandırmaları da buraya eklenmiştir."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: ebecbfa3279a71cda005f60c32247e9e95dd6646
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway hakkında
 
@@ -27,15 +27,11 @@ VPN ağ geçidi, ortak bağlantı üzerinden şirket içi konuma şifrelenmiş t
 
 Her bir sanal ağ yalnızca bir VPN ağ geçidi içerebilir ancak aynı VPN ağ geçidi için birden çok bağlantı oluşturabilirsiniz. Çok Siteli bağlantı yapılandırması bunun bir örneğidir. Aynı VPN ağ geçidi ile birden fazla bağlantı oluşturduğunuzda, Noktadan Siteye VPN’ler dahil tüm VPN tünelleri, ağ geçidinin bant genişliğini paylaşır.
 
-### <a name="whatis"></a>Sanal ağ geçidi nedir?
+## <a name="whatis"></a>Sanal ağ geçidi nedir?
 
 Sanal ağ geçidi GatewaySubnet adı verilen belirli bir alt ağa dağıtılan iki veya daha fazla sanal makineden oluşur. GatewaySubnet'te bulunan VM'ler, sanal ağ geçidini ayarladığınızda oluşturulur. Sanal ağ geçidi VM'leri, ağ geçidine özgü yönlendirme tablolarını ve ağ geçidi hizmetlerini içerecek şekilde yapılandırılır. Sanal ağ geçidinin parçası olan VM'leri doğrudan yapılandıramazsınız ve GatewaySubnet'e hiçbir koşulda ek kaynak dağıtmamanız gerekir.
 
 "Vpn" ağ geçidi türünü kullanarak sanal ağ geçidi oluşturduğunuzda, trafiği şifreleyen özel bir sanal ağ geçidi türü olan VPN ağ geçidi oluşturulur. Bir VPN ağ geçidinin oluşturulması 45 dakika sürebilir. Bu süre içinde VPN ağ geçidine ilişkin VM'ler, GatewaySubnet'e dağıtılır ve belirttiğiniz ayarlarla yapılandırılır. Seçtiğiniz Gateway SKU'su VM'lerin gücünü belirler.
-
-## <a name="gwsku"></a>Ağ Geçidi SKU'ları
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>VPN Gateway yapılandırma
 
@@ -52,6 +48,10 @@ Azure portalı gibi bir yapılandırma aracını kullanarak kaynakları oluştur
 ### <a name="models"></a>Dağıtım modeli
 
 VPN Gateway'i yapılandırırken uygulayacağınız adımlar, sanal ağınızı oluşturmak için kullandığınız dağıtım modeline bağlıdır. Örneğin,VNet'inizi klasik dağıtım modeli kullanarak oluşturduysanız VPN ağ geçidi ayarlarınızı oluşturmak ve yapılandırmak için klasik dağıtım modeline ilişkin yönergeleri kullanırsınız. Dağıtım modelleri hakkında daha fazla bilgi için bkz. [Resource Manager’ı ve klasik dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="gwsku"></a>Ağ Geçidi SKU'ları
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="diagrams"></a>Bağlantı topolojisi diyagramları
 

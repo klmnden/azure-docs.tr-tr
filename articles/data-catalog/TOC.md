@@ -1,9 +1,11 @@
+# [Veri Kataloğu Belgeleri](index.md)
+
 # Genel Bakış
 ## [Veri Kataloğu nedir?](data-catalog-what-is-data-catalog.md)
 ## [Yaygın senaryolar](data-catalog-common-scenarios.md)
 ## [Desteklenen veri kaynakları](data-catalog-dsr.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Azure Veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md)
 ## [Azure Veri Kataloğu'nu benimseme](data-catalog-adopting-data-catalog.md)
 ## [Önkoşullar](data-catalog-prerequisites.md)

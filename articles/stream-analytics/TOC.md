@@ -1,3 +1,5 @@
+# [Akış Analizi Belgeleri](index.md)
+
 # Genel Bakış
 ## [Akış Analizi nedir?](stream-analytics-introduction.md)
 ## [Storm ve Akış Analizi Karşılaştırması](stream-analytics-comparison-storm.md)

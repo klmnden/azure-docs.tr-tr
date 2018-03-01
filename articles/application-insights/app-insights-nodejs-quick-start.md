@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 30b75f577b5e68614131e6476586921a752768dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js Web Uygulamanızı İzlemeye Başlama
 
@@ -40,11 +40,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 Application Insights, şirket içinde veya bulutta çalışmasından bağımsız olarak İnternet’e bağlı herhangi bir uygulamadan telemetri verilerini toplayabilir. Bu verileri görüntülemeyi başlatmak için aşağıdaki adımları kullanın.
 
-1. **Yeni** > **İzleme + Yönetim** > **Application Insights**’ı seçin.
+1. **Kaynak oluştur** > **İzleme ve Yönetim** > **Application Insights**’ı seçin.
 
    ![Application Insights Kaynağı ekleme](./media/app-insights-nodejs-quick-start/001-u.png)
 
-   Bir yapılandırma kutusu görünür; giriş alanlarını doldurmak için aşağıdaki tabloyu kullanın.
+   Bir yapılandırma kutusu görünür. Giriş alanlarını doldurmak için aşağıdaki tabloyu kullanın.
 
     | Ayarlar        | Değer           | Açıklama  |
    | ------------- |:-------------|:-----|
@@ -53,7 +53,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
    | **Kaynak Grubu**     | myResourceGroup      | App Insights verilerini barındıran yeni kaynak grubunun adı |
    | **Konum** | Doğu ABD | Yakınınızda bulunan veya uygulamanızın barındırıldığı konumun yakınında olan bir konum seçin |
 
-2. **Oluştur**'a tıklayın.
+2. **Oluştur**’a tıklayın.
 
 ## <a name="configure-app-insights-sdk"></a>App Insights SDK’sını Yapılandırma
 

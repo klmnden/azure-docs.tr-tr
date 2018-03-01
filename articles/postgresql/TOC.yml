@@ -58,9 +58,7 @@
     - name: Kaynaklar
       items:
         - name: Fiyatlandırma katmanları
-          href: concepts-service-tiers.md
-        - name: İşlem Birimleri
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Sınırlar
           href: concepts-limits.md
     - name: Veri erişimi ve güvenlik
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: SSL yapılandırma
           href: concepts-ssl-connection-security.md
+    - name: İş sürekliliği
+      items:
+        - name: Genel Bakış
+          href: concepts-business-continuity.md
+        - name: Yedekleme ve geri yükleme
+          href: concepts-backup.md
     - name: İzleme
       href: concepts-monitoring.md
     - name: Geliştirme
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Güvenlik duvarı kuralları
+    - name: Kullanıcı oluşturma
+      href: howto-create-users.md
+    - name: Güvenlik duvarını yönetme
       items:
         - name: Azure portalına
           href: howto-manage-firewall-using-portal.md

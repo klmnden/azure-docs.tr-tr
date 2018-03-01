@@ -1,10 +1,11 @@
-- name: Azure IoT Edge belgeleri
+- name: Azure IoT Edge Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
     - name: Azure IoT Edge hakkında
       href: how-iot-edge-works.md
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: Uca dağıtma - Linux/Mac
       href: quickstart-linux.md

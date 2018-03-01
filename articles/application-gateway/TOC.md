@@ -1,3 +1,5 @@
+# [Application Gateway Belgeleri](index.md)
+
 # Genel Bakış
 ## [Application Gateway Nedir?](application-gateway-introduction.md)
 ## [Application Gateway hakkında SSS](application-gateway-faq.md)

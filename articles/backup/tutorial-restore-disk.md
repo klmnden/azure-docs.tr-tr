@@ -1,56 +1,56 @@
 ---
-title: Azure yedekleme ile VM diski geri | Microsoft Docs
-description: "Bir disk geri yüklemek ve bir kurtarma, yedekleme ve kurtarma Hizmetleri ile azure'da bir VM oluşturma hakkında bilgi edinin."
-services: backup, virtual-machines
+title: "Azure Backup ile sanal makine diskini geri yükleme | Microsoft Docs"
+description: "Yedekleme ve Kurtarma Hizmetleri ile Azure’da bir diskin nasıl geri yükleneceğini ve kurtarılan bir sanal makinenin nasıl oluşturulacağını öğrenin."
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9bc6da13786eb9eb6186ceadf0432b3a3ec2c941
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: 571d40c46771f43ad5ea78fe92398de09e87393c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Bir disk geri yüklemek ve kurtarılan bir VM oluşturma
-Azure yedekleme coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yüklediğinizde, tüm VM veya tek tek dosyaları geri yükleyebilirsiniz. Bu makalede, tam bir VM geri açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+# <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Azure’da bir diski geri yükleme ve kurtarılan bir VM oluşturma
+Azure Backup, coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yüklediğinizde, tüm sanal makineyi veya tek tek dosyaları geri yükleyebilirsiniz. Bu makalede, tam bir sanal makinenin nasıl geri yükleneceği açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Liste ve select kurtarma noktaları
-> * Bir disk kurtarma noktasından geri yükleme
-> * Geri yüklenen diskten bir VM oluşturma
+> * Kurtarma noktalarını listeleme ve seçme
+> * Bir kurtarma noktasından diski geri yükleme
+> * Geri yüklenen diskten sanal makine oluşturma
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.18 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.18 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğretici, korunan bir Linux VM Azure yedekleme ile gerektirir. Yanlışlıkla VM silme ve kurtarma işlemi benzetimini yapmak için bir kurtarma noktasındaki bir diskten VM oluşturun. Korunan bir Linux VM Azure yedekleme ile gerekirse bkz [CLI ile azure'da bir sanal makine yedekleme](quick-backup-vm-cli.md).
+Bu öğretici için Azure Backup ile korunmuş olan bir Linux sanal makinesi gerekir. Yanlışlıkla bir sanal makineyi silme ve kurtarma işleminin benzetimini yapmak için, bir kurtarma noktasındaki diskten bir sanal makine oluşturursunuz. Azure Backup ile korunan bir Linux sanal makinesine ihtiyacınız varsa bkz. [CLI ile Azure’da bir sanal makineyi yedekleme](quick-backup-vm-cli.md).
 
 
 ## <a name="backup-overview"></a>Backup’a genel bakış
-Azure yedekleme başlattığında, yedekleme uzantısını VM üzerinde bir zaman içinde nokta anlık görüntüsünü alır. İlk yedek istendiğinde yedekleme uzantısını VM yüklenir. Yedekleme gerçekleştiğinde VM çalışmıyorsa, azure yedekleme anlık görüntü temel alınan depolama da alabilir.
+Azure bir yedekleme başlattığında sanal makinedeki yedekleme uzantısı, belirli bir noktanın anlık görüntüsünü alır. İlk yedekleme istendiğinde sanal makineye yedekleme uzantısı yüklenir. Azure Backup, yedekleme gerçekleştiğinde sanal makine çalışmıyorsa temel depolamanın anlık görüntüsünü de alabilir.
 
-Varsayılan olarak, Azure Backup dosya sisteminin tutarlı bir yedeklemenin alır. Azure yedekleme anlık görüntüsünü alır sonra veri kurtarma Hizmetleri Kasası'na aktarılır. Verimliliği en üst düzeye çıkarmak için Azure Backup tanımlar ve yalnızca son yedeklemeden sonra değiştirilen veri blokları aktarır.
+Varsayılan olarak Azure Backup, bir dosya sisteminin tutarlı yedeklemesini alır. Azure Backup, anlık görüntüyü aldığında veriler Kurtarma Hizmetleri kasasına aktarılır. Verimliliği en üst düzeye çıkarmak için Azure Backup yalnızca önceki yedeklemeden itibaren değişmiş olan veri bloklarını belirler ve aktarır.
 
 Veri aktarımı tamamlandığında, anlık görüntü kaldırılır ve bir kurtarma noktası oluşturulur.
 
 
-## <a name="list-available-recovery-points"></a>Liste kullanılabilir kurtarma noktaları
-Bir disk geri yüklemek için Kurtarma veri kaynağı olarak bir kurtarma noktası seçin. Varsayılan ilke her gün bir kurtarma noktası oluşturur ve bunları 30 gün boyunca korur gibi belirli bir noktaya kurtarma zamanında seçmenize olanak tanır kurtarma noktaları birtakım kullanmaya devam edebilir. 
+## <a name="list-available-recovery-points"></a>Kullanılabilir kurtarma noktalarını listeleme
+Bir diski geri yüklemek için, kurtarma verileri kaynağı olarak bir kurtarma noktası seçersiniz. Varsayılan ilke her gün bir kurtarma noktası oluşturup 30 gün boyunca bunları beklettiğinden, kurtarma için belirli bir nokta seçmenize olanak sağlayan bir kurtarma noktaları kümesini tutabilirsiniz. 
 
-Kullanılabilir kurtarma noktalarının bir listesini görmek için [az yedekleme recoverypoint listesi](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). Kurtarma noktası **adı** diskleri kurtarmak için kullanılır. Bu öğreticide, en son kurtarma noktası istiyoruz. `--query [0].name` Parametresi en son kurtarma noktası adı şu şekilde seçer:
+Kullanılabilir kurtarma noktalarının listesini görmek için [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) komutunu kullanın. Diskleri kurtarmak için kurtarma noktası **adı** kullanılır. Bu öğreticide, kullanılabilir en son kurtarma noktasını istiyoruz. `--query [0].name` parametresi aşağıdaki şekilde en son kurtarma noktası adını seçer:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -63,10 +63,10 @@ az backup recoverypoint list \
 ```
 
 
-## <a name="restore-a-vm-disk"></a>Bir VM disk geri yükleme
-Diskinizin kurtarma noktasından geri yüklemek için ilk Azure storage hesabı oluşturun. Bu depolama hesabı, geri yüklenen disk depolamak için kullanılır. Ek adımlarda, geri yüklenen diski, bir VM oluşturmak için kullanılır.
+## <a name="restore-a-vm-disk"></a>Sanal makine diskini geri yükleme
+Kurtarma noktasından diskinizi geri yüklemek için önce bir Azure depolama hesabı oluşturun. Bu depolama hesabı, geri yüklenen diski depolamak için kullanılır. Ek adımlarda, sanal makine oluşturmak için geri yüklenen disk kullanılır.
 
-1. Bir depolama hesabı oluşturmak için kullanmak [az depolama hesabı oluşturma](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create). Depolama hesabı adı tamamen küçük harfli olması ve genel olarak benzersiz olması gerekir. Değiştir *mystorageaccount* kendi benzersiz bir ad ile:
+1. Depolama hesabı oluşturmak için [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) komutunu kullanın. Depolama hesabı adı tamamen küçük harflerden oluşmalı ve genel olarak benzersiz olmalıdır. *mystorageaccount* değerini kendi benzersiz adınızla değiştirin:
 
     ```azurecli-interactive
     az storage account create \
@@ -75,7 +75,7 @@ Diskinizin kurtarma noktasından geri yüklemek için ilk Azure storage hesabı 
         --sku Standard_LRS
     ```
 
-2. Disk kurtarma noktası ile geri [az yedeklemeyi geri yükleme diskleri geri](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). Değiştir *mystorageaccount* önceki komutta oluşturulan depolama hesabı adı. Değiştir *myRecoveryPointName* aldığınız önceki çıktıda kurtarma noktası adına sahip [az yedekleme recoverypoint listesi](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) komutu:
+2. [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks) komutuyla kurtarma noktanızdan diski geri yükleyin. *mystorageaccount* değerini, önceki komutta oluşturduğunuz depolama hesabının adıyla değiştirin. *myRecoveryPointName* değerini, önceki [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) komutunun çıktısından elde ettiğiniz kurtarma noktası adıyla değiştirin:
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,8 +88,8 @@ Diskinizin kurtarma noktasından geri yüklemek için ilk Azure storage hesabı 
     ```
 
 
-## <a name="monitor-the-restore-job"></a>Geri yükleme işi İzleyicisi
-Geri yükleme işi durumunu izlemek için kullanmak [az yedekleme işi listesi](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list):
+## <a name="monitor-the-restore-job"></a>Geri yükleme işini izleme
+Geri yükleme işinin durumunu izlemek için [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list) komutunu kullanın:
 
 ```azurecli-interactive 
 az backup job list \
@@ -98,7 +98,7 @@ az backup job list \
     --output table
 ```
 
-Geri yükleme işi gösteren bir aşağıdaki örneğe benzer bir çıkış *devam ediyor*:
+Çıktı, geri yükleme işinin *İlerliyor* durumunda olduğunu gösteren aşağıdaki örneğe benzer olacaktır:
 
 ```
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -108,13 +108,13 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Zaman *durum* geri yükleme işi raporları *tamamlandı*, disk depolama hesabına geri yüklendi.
+Geri yükleme işinin *Durumu* *Tamamlandı* olarak bildirildiğinde depolama hesabına disk geri yüklenmiş olur.
 
 
-## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Geri yüklenen disk yönetilen bir diske Dönüştür
-Geri yükleme işi yönetilmeyen bir disk oluşturur. Diskten bir VM oluşturmak için öncelikle yönetilen bir diske dönüştürülmesi gerekir.
+## <a name="convert-the-restored-disk-to-a-managed-disk"></a>Geri yüklenen diski Yönetilen Diske dönüştürme
+Geri yükleme işi, yönetilmeyen bir disk oluşturur. Diskten bir sanal makine oluşturmak için öncelikle diskin bir yönetilen diske dönüştürülmesi gerekir.
 
-1. Depolama hesabıyla ilgili bağlantı bilgilerini elde [az depolama hesabı Göster bağlantı dizesi](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string). Değiştir *mystorageaccount* depolama alanınızın adıyla hesap gibi:
+1. [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string) komutuyla depolama hesabınız için bağlantı bilgilerini alın. *mystorageaccount* değerini aşağıdaki şekilde depolama hesabınızın adıyla değiştirin:
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -123,7 +123,7 @@ Geri yükleme işi yönetilmeyen bir disk oluşturur. Diskten bir VM oluşturmak
         --name mystorageaccount )
     ```
 
-2. Yönetilmeyen diskinizin depolama hesabında güvenli hale getirilir. Aşağıdaki komutlar, yönetilmeyen disk hakkında bilgi almak ve adlı bir değişken oluşturun *URI* kullanılan sonraki adımda, yönetilen Disk oluşturduğunuzda.
+2. Yönetilmeyen diskiniz, depolama hesabında güvenli hale getirilir. Aşağıdaki komutlar, yönetilmeyen diskinizle ilgili bilgileri alır ve Yönetilen Diski oluştururken sonraki adımda kullanılan *uri* adlı bir değişken oluşturur.
 
     ```azurecli-interactive
     container=$(az storage container list --query [0].name -o tsv)
@@ -131,7 +131,7 @@ Geri yükleme işi yönetilmeyen bir disk oluşturur. Diskten bir VM oluşturmak
     uri=$(az storage blob url --container-name $container --name $blob -o tsv)
     ```
 
-3. Kurtarılan diskinizden ile yönetilen bir Disk oluşturmak üzere, şimdi [az disketi](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create). *URI* önceki adımı değişkeninden yönetilen diskiniz için kaynak olarak kullanılır.
+3. Şimdi [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create) komutuyla kurtarılan diskinizden bir Yönetilen Disk oluşturabilirsiniz. Önceki adımda yer alan *uri* değişkeni, Yönetilen Diskinizin kaynağı olarak kullanılır.
 
     ```azurecli-interactive
     az disk create \
@@ -140,7 +140,7 @@ Geri yükleme işi yönetilmeyen bir disk oluşturur. Diskten bir VM oluşturmak
         --source $uri
     ```
 
-4. Geri yüklenen diskinizden şimdi yönetilen bir diski olması gibi yönetilmeyen disk ve depolama hesabıyla Temizleme [az depolama hesabını silme](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete). Değiştir *mystorageaccount* depolama alanınızın adıyla hesap gibi:
+4. Şimdi geri yüklenen diskinizden bir Yönetilen Diskiniz olduğuna göre, [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete) komutuyla yönetilmeyen diski ve depolama hesabını temizleyin. *mystorageaccount* değerini aşağıdaki şekilde depolama hesabınızın adıyla değiştirin:
 
     ```azurecli-interactive
     az storage account delete \
@@ -149,10 +149,10 @@ Geri yükleme işi yönetilmeyen bir disk oluşturur. Diskten bir VM oluşturmak
     ```
 
 
-## <a name="create-a-vm-from-the-restored-disk"></a>Geri yüklenen diskten bir VM oluşturma
-Son adım, yönetilen diskten bir VM oluşturmaktır.
+## <a name="create-a-vm-from-the-restored-disk"></a>Geri yüklenen diskten sanal makine oluşturma
+Son adım, Yönetilen Diskten bir sanal makine oluşturulmasıdır.
 
-1. İle yönetilen diskten bir VM oluşturma [az vm oluşturma](/cli/azure/vm?view=azure-cli-latest#az_vm_create) gibi:
+1. [az vm create](/cli/azure/vm?view=azure-cli-latest#az_vm_create) komutuyla aşağıdaki şekilde Yönetilen Diskinizden bir sanal makine oluşturun:
 
     ```azurecli-interactive
     az vm create \
@@ -162,7 +162,7 @@ Son adım, yönetilen diskten bir VM oluşturmaktır.
         --os-type linux
     ```
 
-2. VM kurtarılan diskinizden oluşturulduğunu doğrulamak için kaynak grubunuzun içindeki Vm'leri listelemek [az vm listesi](/cli/azure/vm?view=azure-cli-latest#az_vm_list) gibi:
+2. Kurtarılan diskinizden sanal makinenizin oluşturulduğunu onaylamak için [az vm list](/cli/azure/vm?view=azure-cli-latest#az_vm_list) komutuyla aşağıdaki şekilde kaynak grubunuzdaki sanal makineleri listeleyin:
 
     ```azurecli-interactive
     az vm list --resource-group myResourceGroup --output table
@@ -170,15 +170,15 @@ Son adım, yönetilen diskten bir VM oluşturmaktır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir disk kurtarma noktasından geri ve ardından diskten VM oluşturdunuz. Şunları öğrendiniz:
+Bu öğreticide, bir kurtarma noktasından bir diski geri yüklediniz ve sonra diskten bir sanal makine oluşturdunuz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Liste ve select kurtarma noktaları
-> * Bir disk kurtarma noktasından geri yükleme
-> * Geri yüklenen diskten bir VM oluşturma
+> * Kurtarma noktalarını listeleme ve seçme
+> * Bir kurtarma noktasından diski geri yükleme
+> * Geri yüklenen diskten sanal makine oluşturma
 
-Tek tek dosyaların bir kurtarma noktasından geri yükleme hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Bir kurtarma noktasından tek tek dosyaları geri yükleme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Azure'da sanal makine için dosyaları geri yükle](tutorial-restore-files.md)
+> [Azure’da dosyaları sanal makineye geri yükleme](tutorial-restore-files.md)
 

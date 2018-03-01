@@ -1,6 +1,6 @@
 ---
-title: "Görüntülemek veya toplanan Azure günlük analizi veri çözümleme | Microsoft Docs"
-description: "Bu makalede günlük aramalar oluşturun ve günlük arama Portalı'nı kullanarak, günlük analizi kaynağında depolanan verileri çözümleyen açıklar bir öğretici içerir.  Öğretici, farklı türdeki veri ve analiz etme sonuçları döndürmek için bazı basit sorgu çalıştırmayı içerir."
+title: "Toplanan Azure Log Analytics verilerini görüntüleme veya çözümleme | Microsoft Docs"
+description: "Bu makale, günlük aramalarının oluşturulması ve Log Analytics kaynağınızdaki verilerin Günlük Araması portalı kullanılarak çözümlenmesine ilişkin bir öğretici içerir.  Öğreticiye farklı veri türlerinin döndürülmesine ve sonuçların çözümlenmesi için bazı basit sorguların çalıştırılması da dahildir."
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,48 +14,48 @@ ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: MT
+ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Görüntülemek veya günlük analizi günlük arama ile toplanan verileri analiz etme
+# <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics günlük araması ile toplanan verileri görüntüleme veya çözümleme
 
-Günlük analizi toplanan verileri çözümlemek, özelleştirebileceğiniz önceden varolan Pano en değerli aramalarınız Grafik görünümlerini kullanın sorguları oluşturarak günlük aramaları yararlanabilirsiniz.  Bu öğreticide, Azure Vm'leri ve etkinlik günlükleri işletimsel veri toplamayı tanımladığınız, bilgi nasıl yapılır:
+Log Analytics’te, toplanan verileri çözümlemek için sorguları yapılandırarak günlük aramalarından yararlanabilir, en fazla önem verdiğiniz aramaların grafik görünümleriyle özelleştirebileceğiniz önceden mevcut olan panoları kullanabilirsiniz.  Azure VM’lerinizden ve Etkinlik Günlüklerinizden işletimsel verileri toplamayı tanımladığınıza göre bu öğreticide aşağıdaki konularda bilgi edinebilirsiniz:
 
 > [!div class="checklist"]
-> * Yeni sorgu dili Azure günlük analizi kaynağınız yükseltme 
-> * Basit Arama olay verilerini gerçekleştirir ve özelliklerini değiştirmek ve sonuçlara filtre uygulamak için kullanma 
-> * Performans verileri ile çalışma konusunda bilgi edinin
+> * Azure Log Analytics kaynağınızı yeni sorgu diline yükseltme 
+> * Olay verilerinde basit bir arama gerçekleştirme ve sonuçları değiştirip filtrelemek için özellikleri kullanma 
+> * Performans verileriyle çalışmayı öğrenme
 
-Bu öğreticide örnek tamamlamak için var olan bir sanal makine olması [için günlük analizi çalışma alanına bağlı](log-analytics-quick-collect-azurevm.md).  
+Bu öğreticideki örneği tamamlamak için [Log Analytics çalışma alanına bağlı](log-analytics-quick-collect-azurevm.md) mevcut bir sanal makinenizin olması gerekir.  
 
-Oluşturma ve etkileşimli olarak döndürülen verilerle çalışma yanı sıra sorguları düzenleme iki yolla başarılı biri olabilir.  Temel sorguları için günlük arama sayfası Azure portalında kullanmak veya gelişmiş sorgulama için Gelişmiş Analytics Portalı'nı kullanabilirsiniz. İşlev iki portalı arasındaki fark hakkında daha fazla bilgi için bkz: [oluşturma ve Azure günlük analizi günlük sorgularda düzenleme için portalları](log-analytics-log-search-portals.md)
+Döndürülen verilerle etkileşimli bir şekilde çalışmanın yanı sıra sorguları oluşturma ve düzenleme, iki yöntemden biri kullanılarak gerçekleştirilebilir.  Temel sorgular için Azure portalında Günlük Araması sayfasını, gelişmiş sorgulama için de Gelişmiş Analiz portalını kullanabilirsiniz. İki portal arasındaki işlev farkları hakkında daha fazla bilgi için bkz. [Azure Log Analytics’te günlük sorguları oluşturmaya ve düzenlemeye yönelik portallar](log-analytics-log-search-portals.md)
 
-Bu öğreticide, biz günlük arama ile Azure portalında çalışacaksınız. 
+Bu öğreticide, Azure portalındaki Günlük Araması özelliğiyle çalışacağız. 
 
 ## <a name="log-in-to-azure-portal"></a>Azure portalında oturum açın
-Oturum açtığınızda Azure portalında [https://portal.azure.com](https://portal.azure.com). 
+[https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın. 
 
-## <a name="open-the-log-search-portal"></a>Günlük arama portalını açın 
-Günlük arama Portalı'nı açarak başlayın.   
+## <a name="open-the-log-search-portal"></a>Günlük Araması portalını açma 
+Günlük Araması portalını açarak işleme başlayın.   
 
-1. Azure portalında tıklatın **daha fazla hizmet** sol alt köşesindeki üzerinde bulunamadı. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **oturum Analytics**.
-2. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **günlük arama** döşeme.<br> ![Günlük Ara düğmesi](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
+1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
+2. Log Analytics abonelikleri bölmesinde, bir çalışma alanını ve sonra **Günlük Araması** kutucuğunu seçin.<br> ![Günlük Araması düğmesi](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
-Başlık yükseltmek için davet portalında günlük analizi kaynak sayfanızın üstte fark etmiş.<br> ![Azure Portalı'ndaki bildirim günlük analizi yükseltme](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
+Portalda Log Analytics kaynak sayfanızın üst tarafında yükseltme yapmanızı isteyen başlığı görmüş olabilirsiniz.<br> ![Azure portalında Log Analytics yükseltme bildirimi](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
 
-Günlük analizi oluşturmak kolaylaştırır sorgular yapar yakın zamanda yeni bir sorgu dili sunulan, çeşitli correlate veri kaynakları ve eğilimleri veya sorunlarını hızlı bir şekilde tanımlamak için analiz.
+Log Analytics; sorguların oluşturulmasını, çeşitli kaynaklara ait verilerin ilişkilendirilmesini ve eğilimlerin veya sorunların hızlıca belirlenmesine yönelik analizi kolaylaştırmak için kısa bir süre önce yeni bir sorgu dilini kullanıma sunmuştur.
 
-Yükseltme basit bir işlemdir.  Bildiren başlığında tıklatarak işlemi başlatabilirsiniz **daha fazla bilgi edinin ve yükseltme**.  Yükseltme hakkında ek bilgi yükseltme bilgileri sayfasında aracılığıyla okuyun ve ardından **Şimdi Yükselt**.
+Yükseltme basit bir işlemdir.  **Daha fazla bilgi edinin ve yükseltin** ifadesinin yer aldığı başlığa tıklayarak işleme başlayın.  Yükseltme ile ilgili daha fazla bilgi için yükseltme bilgileri sayfasını okuyun ve sonra **Şimdi Yükseltin**’e tıklayın.
 
-İşlemin tamamlanması birkaç dakika sürer ve bu süre boyunca altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde. Hakkında daha fazla bilgiyi [yeni sorgu dili yararları](log-analytics-log-search-upgrade.md#why-the-new-language).
+İşlemin tamamlanması birkaç dakika sürebilir ve bu sırada ilerleme durumunu menüdeki **Bildirimler** bölümünde izleyebilirsiniz. [Yeni sorgu dilinin avantajları](log-analytics-log-search-upgrade.md#why-the-new-language) hakkında daha fazla bilgi edinebilirsiniz.
 
-## <a name="create-a-simple-search"></a>Basit Arama oluşturma
-Tablodaki tüm kayıtları döndürür basit bir sorgu çalışmak için bazı veri almak için en hızlı yoludur.  Varsa tüm Windows veya Linux istemcileri, çalışma alanına bağlı sonra verileri olay (Windows) veya Syslog (Linux) tablosu sahip olacaksınız.
+## <a name="create-a-simple-search"></a>Basit bir arama oluşturma
+Üzerinde çalışılacak bazı verileri almanın en hızlı yolu, tablodaki tüm kayıtları döndüren basit bir sorgudur.  Çalışma alanınıza bağlı Windows veya Linux istemcileriniz varsa Olay (Windows) veya Syslog (Linux) tablosunda verileriniz olur.
 
-Aşağıdaki sorgularda arama kutusuna yazın ve arama düğmesini tıklatın.  
+Arama kutusuna aşağıdaki sorgulardan birini yazın ve arama düğmesine tıklayın.  
 
 ```
 Event
@@ -64,16 +64,16 @@ Event
 Syslog
 ```
 
-Varsayılan liste görünümünde veriler döndürülür ve kaç tane toplam kaydı döndürülmedi görebilirsiniz.
+Veriler, varsayılan liste görünümünde döndürülür ve toplamda kaç kaydın döndürüldüğünü görebilirsiniz.
 
-![Basit Sorgu](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-01.png)
+![Basit sorgu](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-01.png)
 
-Her kayıt yalnızca ilk birkaç özellikleri görüntülenir.  Tıklatın **daha fazla Göster** belirli bir kaydın tüm özelliklerini görüntülemek için.
+Her kaydın yalnızca ilk birkaç özelliği görüntülenir.  Belirli bir kayda ait tüm özellikleri görüntülemek için **daha fazla göster** seçeneğine tıklayın.
 
-## <a name="filter-results-of-the-query"></a>Filtre sorgusunun sonuçları
-Ekranın sol tarafındaki filtreleme için sorgu doğrudan değiştirmeden eklemenize olanak sağlayan Filtre Bölmesi ' dir.  Bu kayıt türü için çeşitli kaydı özellikler görüntülenir ve arama sonuçlarınızı daraltmak için bir veya daha fazla özellik değerlerini seçebilirsiniz.
+## <a name="filter-results-of-the-query"></a>Sorgu sonuçlarını filtreleme
+Ekranın sol tarafında, doğrudan değişiklik yapmadan sorguya filtreleme eklemenize olanak tanıyan bir filtre bölmesi mevcuttur.  Söz konusu kayıt türü için çeşitli kayıt özellikleri görüntülenir ve arama sonuçlarınızı daraltmak için bir veya daha fazla özellik değeri seçebilirsiniz.
 
-İle çalışıyorsanız **olay**, yanındaki onay kutusunu işaretleyin **hata** altında **EVENTLEVELNAME**.   İle çalışıyorsanız **Syslog**, yanındaki onay kutusunu işaretleyin **hata** altında **önem düzeyi**.  Bu, sorgu sonuçları hata olayları sınırlandırmak için aşağıdakilerden birine değiştirir.
+**Event** ile çalışıyorsanız **EVENTLEVELNAME**’in altındaki **Error**’ın yanındaki onay kutusunu işaretleyin.   **Syslog** ile çalışıyorsanız **SEVERITYLEVEL**’ın altındaki **err**’in yanındaki onay kutusunu işaretleyin.  Bu, sonuçları hata olaylarıyla sınırlamak için sorguyu aşağıdakilerden birine değiştirir.
 
 ```
 Event | where (EventLevelName == "Error")
@@ -84,44 +84,44 @@ Syslog | where (SeverityLevel == "err")
 
 ![Filtre](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-02.png)
 
-Özellikler Filtre bölmesini seçerek eklemek **için Filtre Ekle** menüsünden özelliği kayıtları biri.
+Kayıtlardan birindeki özellik menüsünden **Filtrelere ekle** seçeneğini belirleyerek filtre bölmesine özellik ekleyin.
 
-![Filtre menü ekleme](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-03.png)
+![Filtreye ekle menüsü](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-03.png)
 
-Seçerek, aynı filtre ayarlayabilirsiniz **filtre** filtrelemek istediğiniz değer içeren bir kayıt özelliği menüsünden.  
+Filtrelemek istediğiniz değere sahip bir kayıt için özellik menüsünden **Filtre** seçeneğini belirleyerek aynı filtreyi ayarlayabilirsiniz.  
 
-Yalnızca **filtre** adlarının üzerine geldiğinizde mavi olan özellikleri seçeneği.  Bunlar *aranabilir* için dizin alanları arama koşulları.  Gri alanlar *serbest metin aranabilir* yalnızca olan alanları **Göster başvuruları** seçeneği.  Bu seçenek, o değeri herhangi bir özellik olan kayıtları döndürür.
+**Filtre** seçeneğine yalnızca, üzerine geldiğinizde adları mavi renkte görünen özellikler için sahip olursunuz.  Bunlar, arama koşulları için dizini oluşturulmuş *aranabilir* alanlardır.  Gri alanlar yalnızca **Başvuruları göster** seçeneğinin bulunduğu *serbest metin aranabilir* alanlardır.  Bu seçenek, herhangi bir özellikte söz konusu değere sahip kayıtları döndürür.
 
-Tek bir özellik sonuçlarına seçerek gruplandırabilirsiniz **Group by** kaydı menü seçeneği.  Bu ekler bir [özetlemek](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) sonuçları bir grafik görüntüler, sorgu işleci.  Birden fazla özellik gruplandırabilirsiniz, ancak sorgu doğrudan düzenlemeniz gerekir.  Kayıt sonraki menüsünü **bilgisayar** özelliği ve select **'Bilgisayar' grupla**.  
+Kayıt menüsünde **Gruplandırma ölçütü** seçeneğini belirleyerek tek bir özellikteki sonuçları gruplandırabilirsiniz.  Bu işlem, sorgunuza sonuçları bir grafikte görüntüleyen bir [özetleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) işleci ekler.  Birden fazla özelliği gruplandırabilirsiniz, ancak sorguyu doğrudan düzenlemeniz gerekir.  **Computer** özelliğinin yanındaki kayıt menüsünü seçin ve **'Bilgisayara' Göre Gruplandır** seçeneğini belirleyin.  
 
-![Bilgisayar grubu](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
+![Bilgisayara göre gruplandırma](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
-## <a name="work-with-results"></a>Sonuçları ile çalışma
-Günlük arama portal çeşitli bir sorgunun sonuçlarını ile çalışmak için özellikler vardır.  Sıralayabilir, filtre ve gerçek sorgu değiştirilmeden verileri çözümlemek için Grup sonuçları.  Varsayılan olarak bir sorgunun sonuçlarını sıralı değil.
+## <a name="work-with-results"></a>Sonuçlar üzerinde çalışma
+Günlük Araması portalında, bir sorgunun sonuçları üzerinde çalışılmasına yönelik çeşitli özellikler mevcuttur.  Asıl sorguyu değiştirmeden verileri çözümlemek için sonuçları sıralayabilir, filtreleyebilir ve gruplandırabilirsiniz.  Bir sorgunun sonuçları varsayılan olarak sıralı değildir.
 
-Verileri filtreleme ve sıralama için ek seçenekler sağlayan Tablo formunda görüntülemek için tıklatın **tablo**.  
+Verileri, filtreleme ve sıralama için ek seçenekler sunan bir tablo formunda görüntülemek için **Tablo** seçeneğine tıklayın.  
 
 ![Tablo görünümü](media/log-analytics-tutorial-viewdata/log-search-portal-table-01.png)
 
-Bu kayıt ayrıntılarını görüntülemek için bir kayıt tarafından oka tıklayın.
+Bu kaydın ayrıntılarını görüntülemek için bir kaydın yanındaki oka tıklayın.
 
-![Sıralama sonuçları](media/log-analytics-tutorial-viewdata/log-search-portal-table-02.png)
+![Sonuçları sıralama](media/log-analytics-tutorial-viewdata/log-search-portal-table-02.png)
 
-Herhangi bir alanı kendi sütun başlığına tıklayarak sıralayın.
+Herhangi bir alanın sütun başlığına tıklayarak bu alan üzerinde sıralama yapın.
 
-![Sıralama sonuçları](media/log-analytics-tutorial-viewdata/log-search-portal-table-03.png)
+![Sonuçları sıralama](media/log-analytics-tutorial-viewdata/log-search-portal-table-03.png)
 
-Belirli bir sütun değeri sonuçlarına filtre düğmesini tıklatarak ve bir filtre koşulu sağlayan filtreleyin.
+Filtre düğmesine tıklayarak ve bir filtre koşulu sağlayarak sütundaki belirli bir değerdeki sonuçları filtreleyin.
 
-![Sonuçları filtresi](media/log-analytics-tutorial-viewdata/log-search-portal-table-04.png)
+![Sonuçları filtreleme](media/log-analytics-tutorial-viewdata/log-search-portal-table-04.png)
 
-Bir sütun üzerinde sonuçları üstündeki sütun başlığını sürükleyerek grup.  Birden çok sütun dön sürükleyerek üzerinde birden çok alan gruplandırabilirsiniz.
+Bir sütun başlığını sonuçların üst tarafına sürükleyerek söz konusu sütun üzerinde gruplandırma yapın.  Birden çok sütunu üst tarafa sürükleyerek birden çok alan üzerinde gruplandırma yapabilirsiniz.
 
-![Grup sonuçları](media/log-analytics-tutorial-viewdata/log-search-portal-table-05.png)
+![Sonuçları gruplandırma](media/log-analytics-tutorial-viewdata/log-search-portal-table-05.png)
 
 
-## <a name="work-with-performance-data"></a>Performans verileri ile çalışma
-Windows ve Linux aracıları için performans verilerini günlük analizi çalışma alanında depolanan **Perf** tablo.  Diğer kaydı gibi performans kayıtları aramak ve tüm performans kayıtları olayları ile olduğu gibi veren basit bir sorgu yazmak için kalacaklarını.
+## <a name="work-with-performance-data"></a>Performans verileriyle çalışma
+Hem Windows hem de Linux aracıları için performans verileri depolanan **Perf** tablosundaki Log Analytics çalışma alanında depolanmaktadır.  Performans kayıtları diğer tüm kayıtlar gibi görünür ve biz de şimdi olaylarda olduğu gibi tüm performans kayıtlarını döndüren basit bir sorgu yazacağız.
 
 ```
 Perf
@@ -129,7 +129,7 @@ Perf
 
 ![Performans verileri](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-01.png)
 
-Tüm performans nesneleri ve sayaçları kayıtlarını milyonlarca ancak döndüren çok kullanışlı değildir.  Verileri filtreleyin veya yalnızca aşağıdaki sorguyu doğrudan günlük arama kutusuna yukarıda kullanılan aynı yöntemleri kullanabilirsiniz.  Bu, Windows ve Linux bilgisayarlar için kullanım kayıtları yalnızca işlemci döndürür.
+Ancak tüm performans nesneleri ve sayaçları için milyonlarca kaydın döndürülmesi çok kullanışlı değildir.  Verileri filtrelemek için, yukarıda kullandığınız yöntemleri kullanabilir veya aşağıdaki sorguyu doğrudan günlük araması kutusuna yazabilirsiniz.  Bu hem Windows hem de Linux bilgisayarlar için yalnızca işlemci kullanımı kayıtlarını döndürür.
 
 ```
 Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time")
@@ -137,24 +137,24 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 
 ![İşlemci kullanımı](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-Bu verileri belirli bir sayaç için sınırlar, ancak bunu hala bu özellikle yararlı bir formda put değil.  Veri bir çizgi grafiği görüntüler, ancak ilk bilgisayar ve TimeGenerated göre gruplandırmanız gerekir.  Birden çok alanları gruplandırmak için sorguyu doğrudan değiştirin, gerekir böylece şu sorguyu değiştirin.  Bu kullanır [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) üzerinde işlev **CounterValue** her bir saat ortalama değerini hesaplamak için özellik.
+Bu, verileri belirli bir sayaç ile sınırlar ancak yine de özellikle kullanışlı olacak bir biçime getirmez.  Verileri bir çizgi grafikte görüntüleyebilirsiniz, ancak öncelikle Computer ve TimeGenerated özelliklerine göre gruplandırmanız gerekir.  Birden çok alan üzerinde gruplandırma yapmak için sorguyu doğrudan değiştirmeniz gerekir, bu nedenle sorguyu aşağıdaki şekilde değiştirin.  Bu, her saat için ortalama değeri hesaplamak üzere **CounterValue** özelliğindeki [ort](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) işlevini kullanır.
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
 ```
 
-![Performans veri grafiği](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
+![Performans verileri grafiği](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-Veriler uygun gruplandırılır, onu visual grafik ekleyerek görüntüleyebileceğiniz [işleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) işleci.  
+Veriler uygun şekilde gruplandırıldığına göre [işleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) işlecini ekleyerek bunları görsel bir grafikte görüntüleyebilirsiniz.  
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
 ```
 
-![Çizgi grafiği](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)
+![Çizgi grafik](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, olay ve performans verileri çözümlemek için temel günlük aramalarını oluşturmak öğrendiniz.  Pano oluşturarak verileri görselleştirmek öğrenmek için sonraki öğretici ilerleyin.
+Bu öğreticide, olay ve performans verilerini çözümlemeye yönelik temel günlük aramaları oluşturmayı öğrendiniz.  Verileri pano oluşturarak görselleştirmeyi öğrenmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Günlük analizi panoları paylaşmak ve oluşturma](log-analytics-tutorial-dashboards.md)
+> [Log Analytics panoları oluşturma ve paylaşma](log-analytics-tutorial-dashboards.md)

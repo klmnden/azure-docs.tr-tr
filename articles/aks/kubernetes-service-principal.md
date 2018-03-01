@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 11/30/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Azure Container Service (AKS) ile hizmet sorumluları
 
@@ -26,7 +26,7 @@ Bu makalede AKS'deki Kubernetes kümeniz için hizmet sorumlusu ayarlamak üzere
 
 Azure AD hizmet sorumlusu oluşturmak için, Azure AD kiracınızla bir uygulamayı kaydetme ve uygulamanızı aboneliğinizdeki bir role atama izinlerinizin olması gerekir. Gerekli izinlere sahip değilseniz Azure AD veya abonelik yöneticinizden gerekli izinleri atamasını istemeniz veya Kubernetes kümesi için bir hizmet sorumlusu oluşturma ön işlemlerini tamamlamanız gerekebilir.
 
-Ayrıca Azure CLI sürüm 2.0.21 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI sürüm 2.0.27 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="create-sp-with-aks-cluster"></a>AKS kümesi ile hizmet sorumlusu oluşturma
 
@@ -83,7 +83,6 @@ AKS ve Azure AD hizmet sorumlularıyla çalışırken aşağıdaki noktalara dik
 * Hizmet sorumlusu **İstemci Kimliğini** belirtirken `appId` değerini (bu makalede gösterilen şekilde) veya karşılık gelen hizmet sorumlusu `name` değerini (örneğin, `https://www.contoso.org/example`) kullanabilirsiniz.
 * Kubernetes kümesindeki ana VM’lerde ve düğüm VM'lerinde hizmet sorumlusu kimlik bilgileri, `/etc/kubernetes/azure.json` dosyasında depolanır.
 * Hizmet sorumlusunu otomatik olarak oluşturmak için `az aks create` komutunu kullandığınızda, hizmet sorumlusu kimlik bilgileri komutun çalıştırıldığı makinede `~/.azure/acsServicePrincipal.json` dosyasına yazılır.
-* `az aks create` komutu ile hizmet sorumlusunu otomatik olarak oluşturduğunuzda, hizmet sorumlusu aynı abonelikte oluşturulan bir [Azure kapsayıcı kayıt defteri][acr-intro] ile de kimlik doğrulaması yapabilir.
 * `az aks create` tarafından oluşturulan bir AKS kümesi silinirken, otomatik olarak oluşturulan hizmet sorumlusu silinmez. Silmek için `az ad sp delete --id $clientID` kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar

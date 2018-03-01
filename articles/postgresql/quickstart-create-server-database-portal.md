@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/03/2017
-ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: de35254183798dd0aea32b63eb0689d33ae5b247
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Azure portalında PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
@@ -30,7 +30,7 @@ Web tarayıcınızı açın ve [portala](https://portal.azure.com/) gidin. Porta
 PostgreSQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depolama kaynağı](./concepts-compute-unit-and-storage.md) ile oluşturulur. Sunucu, [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) içinde oluşturulur.
 
 PostgreSQL için Azure Veritabanı sunucusu oluşturmak için şu adımları uygulayın:
-1. Portalın sol üst köşesinde bulunan **Yeni** düğmesini (+) seçin.
+1. Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin.
 
 2. **Veritabanları** > **PostgreSQL için Azure Veritabanı**'nı seçin.
 

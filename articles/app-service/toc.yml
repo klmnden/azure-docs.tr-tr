@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
+    - name: Resource Manager şablonları
+      href: app-service-rm-template-samples.md
 - name: Kavramlar
   items:
     - name: App Service nasıl çalışır?
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: Hazırlama ortamları oluşturma
           href: web-sites-staged-publishing.md
+        - name: Resource Manager şablon kılavuzu
+          href: web-sites-rm-template-guidance.md
     - name: Özel etki alanı eşleme
       items:
         - name: Etki alanı satın alma

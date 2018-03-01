@@ -35,7 +35,7 @@ Premium depolama özelliklerden bazıları şunlardır:
 
 * **Premium depolama diskleri**
 
-    Premium depolama belirli boyutu-serisi VM'ler eklenebilecek VM diskleri destekler. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi, Ls-serisi ve Fs-serisi VM'ler. Yedi disk boyutları seçmesini: P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 ve P6 disk boyutları henüz yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, VM için bir veya daha fazla disk ekleyebilirsiniz. Biz belirtimleri daha ayrıntılı olarak açıklayan [Premium Storage ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
+    Premium depolama belirli boyutu-serisi VM'ler eklenebilecek VM diskleri destekler. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi, Ls serisi, Fs-serisi ve Esv3 serisi VM'ler. Yedi disk boyutları seçmesini: P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 ve P6 disk boyutları henüz yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, VM için bir veya daha fazla disk ekleyebilirsiniz. Biz belirtimleri daha ayrıntılı olarak açıklayan [Premium Storage ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
 
 * **Premium sayfa BLOB'ları**
 
@@ -62,11 +62,11 @@ Premium depolama özelliklerden bazıları şunlardır:
 ## <a name="supported-vms"></a>Desteklenen VM'ler
 Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi, Ls serisi, Fs-serisi ve B-serisi VM'ler. Bu VM türleriyle standart ve premium depolama diskleri kullanabilirsiniz. Premium depolama diskleri depolama uyumlu Premium olmayan VM dizisi ile kullanamazsınız.
 
-VM türler ve Windows için Azure boyutları hakkında daha fazla bilgi için bkz: [Windows VM boyutları](../articles/virtual-machines/windows/sizes.md). Linux VM türler ve Azure boyutları hakkında bilgi için bkz: [Linux VM boyutları](../articles/virtual-machines/linux/sizes.md).
+Windows için Azure’da VM türleri ve boyutları hakkında bilgi edinmek için bkz. [Windows VM boyutları](../articles/virtual-machines/windows/sizes.md). Linux için Azure’da VM türleri ve boyutları hakkında bilgi edinmek için bkz. [Linux VM boyutları](../articles/virtual-machines/linux/sizes.md).
 
 DS serisi, DSv2 serisi, GS serisi özelliklerden bazıları bunlar Ls-serisi ve Fs-serisi VM'ler:
 
-* **Bulut hizmeti**
+* **Cloud service**
 
     DS serisi VM'ler yalnızca DS serisi VM'ler sahip bir bulut hizmeti ekleyebilirsiniz. DS serisi VM'ler DS serisi VM'ler dışında türünde olan bir bulut hizmetini eklemeyin. Yalnızca DS serisi VM'ler çalıştıran yeni bir bulut hizmeti için mevcut Vhd'lerinizi geçirebilirsiniz. Aynı sanal IP adresi kullanım sizin DS serisi VM'ler barındıran bir yeni bulut hizmeti kullanmak istiyorsanız, [ayrılmış IP adresi](../articles/virtual-network/virtual-networks-instance-level-public-ip.md). GS serisi VM'ler yalnızca GS serisi VM'ler sahip mevcut bir bulut hizmeti eklenebilir.
 
@@ -164,7 +164,7 @@ Premium Storage ölçeklenebilirlik ve performans hedefleri hakkında bilmeniz g
     | --- | --- | --- |
     | 100 MB/s | 100 MB/s | 0 |
     | 100 MB/s | 0 | 100 MB/s |
-    | 100 MB/s | 60 MB/sn | 40 MB/sn |
+    | 100 MB/s | 60 MB/sn | 40 MB/s |
 
 * **İsabetli Önbellek okuma sayısı**
 

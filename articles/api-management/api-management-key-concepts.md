@@ -14,21 +14,15 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0410e0176d5c853e1110fe3460c7d9314e7fd397
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-api-management"></a>API Management nedir?
 
 API Management (APIM), kuruluşların kendi veri ve hizmet potansiyellerini ortaya çıkarmak üzere API’leri dış, iş ortağı ve iç geliştiricilere yayımlamalarına yardımcı olur. Her yerdeki işletmeler, bir dijital platform olarak işlemlerini genişletmek, yeni kanallar oluşturmak, yeni müşteriler bulmak ve mevcut müşterilerle daha derin etkileşimi yürütmeyi amaçlar. API Management; geliştirici katılımı, iş öngörüleri, analizler, güvenlik ve koruma aracılığıyla başarılı bir API programı yürütmeye ilişkin temel uzmanlıklar sağlar. Azure API Management’i bir arka uç almak ve bunu temel alan tam özellikli bir API programını başlatmak için kullanabilirsiniz.
-
-Azure API Management’e genel bakış için aşağıdaki videoyu izleyin ve erişim denetimi, hız sınırlaması, izleme, olay günlüğüne kaydetme ve yanıt önbelleğe alma gibi birçok özelliği minimum çabayla API’nize eklemek için API Management’i kullanmayı öğrenin.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
-> 
-> 
 
 Bu makale, APIM içeren yaygın senaryolara genel bakış sağlar.  Ayrıca, APIM sisteminin ana bileşenlerine de kısa bir genel bakış sağlar. Böylece makale, her bir bileşene daha ayrıntılı bir genel bakış sunmuş olur.
 

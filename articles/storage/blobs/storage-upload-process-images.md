@@ -3,22 +3,20 @@ title: "Azure Depolama ile buluta görüntü verileri yükleme | Microsoft Docs"
 description: "Uygulama verilerini depolamak için bir web uygulaması ile Azure blob depolama kullanma"
 services: storage
 documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Azure Depolama ile buluta görüntü verileri yükleme
 
@@ -67,11 +65,11 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>Blob depolama kapsayıcıları oluşturma
  
-Uygulama, Blob depolama hesabında iki kapsayıcı kullanır. Kapsayıcılar klasörlere benzer ve blobları depolamak için kullanılır. _Images_ kapsayıcısı, uygulamanın tam çözünürlüklü görüntüleri yüklediği yerdir. Serinin sonraki bölümlerinde bir Azure işlev uygulaması, yeniden boyutlandırılan küçük resimleri _thumbs_ kapsayıcısına yükler. 
+Uygulama, Blob depolama hesabında iki kapsayıcı kullanır. Kapsayıcılar klasörlere benzer ve blobları depolamak için kullanılır. _Images_ kapsayıcısı, uygulamanın tam çözünürlüklü görüntüleri yüklediği yerdir. Serinin sonraki bölümlerinde bir Azure işlev uygulaması, yeniden boyutlandırılan küçük resimleri _thumbnails_ kapsayıcısına yükler. 
 
 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) komutunu kullanarak depolama hesabı anahtarını alın. Daha sonra bu anahtar ile [az storage container create](/cli/azure/storage/container#az_storage_container_create) komutunu kullanarak iki kapsayıcı oluşturun.  
  
-Bu örnekte `<blob_storage_account>`, oluşturduğunuz Blob depolama hesabının adıdır. _Images_ kapsayıcısının genel erişimi `off`, _thumbs_ kapsayıcısının genel erişimi ise `container` olarak ayarlanır. `container` genel erişim ayarı, web sayfasını ziyaret eden kişilerin küçük resimleri görüntüleyebilmesine olanak tanır.
+Bu örnekte `<blob_storage_account>`, oluşturduğunuz Blob depolama hesabının adıdır. _Images_ kapsayıcısının genel erişimi `off`, _thumbnails_ kapsayıcısının genel erişimi ise `container` olarak ayarlanır. `container` genel erişim ayarı, web sayfasını ziyaret eden kişilerin küçük resimleri görüntüleyebilmesine olanak tanır.
  
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -82,7 +80,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -135,7 +133,7 @@ Aşağıdaki komutta `<blob_storage_account>`, Blob depolama hesabınızın adı
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -196,15 +194,15 @@ Kapsayıcıda görüntünün gösterildiğini doğrulayın.
 
 Küçük resim görüntülemeyi test etmek için, küçük resim kapsayıcısına bir görüntü yükleyerek uygulamanın küçük resim kapsayıcısını okuyabildiğinden emin olmanız gerekir.
 
-[Azure Portal](https://portal.azure.com) oturum açın. Soldaki menüden **Depolama hesapları**’nı ve sonra depolama hesabınızın adını seçin. **Blob Hizmeti** altında **Kapsayıcılar**’ı ve **thumbs** kapsayıcısını seçin. **Karşıya Yükle**’yi seçerek **Blobu karşıya yükle** bölmesini açın.
+[Azure Portal](https://portal.azure.com) oturum açın. Soldaki menüden **Depolama hesapları**’nı ve sonra depolama hesabınızın adını seçin. **Blob Hizmeti** altında **Kapsayıcılar**’ı ve **thumbnails** kapsayıcısını seçin. **Karşıya Yükle**’yi seçerek **Blobu karşıya yükle** bölmesini açın.
 
 Dosya seçicisini kullanarak bir dosya belirleyip **Karşıya Yükle**’yi seçin.
 
-**thumbs** kapsayıcısına yüklenen görüntünün görünür olduğunu doğrulamak için uygulamanıza geri gidin.
+**thumbnails** kapsayıcısına yüklenen görüntünün görünür olduğunu doğrulamak için uygulamanıza geri gidin.
 
 ![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/figure2.png)
 
-Azure portalındaki **thumbs** kapsayıcısında, karşıya yüklediğiniz görüntüyü seçin ve **Sil**’i seçerek görüntüyü silin. Serinin ikinci bölümünde, küçük resim görüntülerini oluşturma işlemini otomatik hale getireceksiniz; bu nedenle bu test görüntüsü gerekli değildir.
+Azure portalındaki **thumbnails** kapsayıcısında, karşıya yüklediğiniz görüntüyü seçin ve **Sil**’i seçerek görüntüyü silin. Serinin ikinci bölümünde, küçük resim görüntülerini oluşturma işlemini otomatik hale getireceksiniz; bu nedenle bu test görüntüsü gerekli değildir.
 
 CDN, Azure depolama hesabınızdan içeriği önbelleğe almak için etkinleştirilebilir. Bu öğreticide açıklanmamasına rağmen, Azure depolama hesabınızla CDN’yi etkinleştirme hakkında bilgi almak için şu makaleyi ziyaret edebilirsiniz: [Azure depolama hesabını Azure CDN ile tümleştirme](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
