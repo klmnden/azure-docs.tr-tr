@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Cihaz çiftlerini, işler ve ileti yönlendirme için IOT hub'ı sorgulama dili
 
@@ -298,27 +298,27 @@ IOT Hub aşağıdaki JSON gösterimi ileti yönlendirme iletisi üstbilgilerinin
 
 ```json
 {
-    "$messageId": "",
-    "$enqueuedTime": "",
-    "$to": "",
-    "$expiryTimeUtc": "",
-    "$correlationId": "",
-    "$userId": "",
-    "$ack": "",
-    "$connectionDeviceId": "",
-    "$connectionDeviceGenerationId": "",
-    "$connectionAuthMethod": "",
-    "$content-type": "",
-    "$content-encoding": "",
-
-    "userProperty1": "",
-    "userProperty2": ""
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
 }
 ```
 
 İleti sistemi özelliklerini öneki ile `'$'` simgesi.
-Kullanıcı özellikleri her zaman kendi adıyla erişilir. Bir kullanıcı özellik adı bir sistem özelliği ile çakışan varsa (gibi `$to`), kullanıcı özelliği ile alınır `$to` ifade.
-Köşeli ayraçlar kullanarak sistem özelliği her zaman erişebilirsiniz `{}`: ifade örneği için kullanabileceğiniz `{$to}` sistem özelliğine erişmek için `to`. Köşeli parantez içindeki özellik adları, her zaman karşılık gelen sistem özelliği alır.
+Kullanıcı özellikleri her zaman kendi adıyla erişilir. Bir kullanıcı özellik adı bir sistem özelliği ile çakışan varsa (gibi `$contentType`), kullanıcı özelliği ile alınır `$contentType` ifade.
+Köşeli ayraçlar kullanarak sistem özelliği her zaman erişebilirsiniz `{}`: ifade örneği için kullanabileceğiniz `{$contentType}` sistem özelliğine erişmek için `contentType`. Köşeli parantez içindeki özellik adları, her zaman karşılık gelen sistem özelliği alır.
 
 Özellik adları büyük küçük harfe duyarlı olduğunu unutmayın.
 
@@ -350,12 +350,58 @@ Başvurmak [ifade ve koşullar] [ lnk-query-expressions] desteklenen işleçler 
 
 IOT Hub, ileti gövdesinde dayalı yalnızca yönlendirebilirsiniz ileti gövdesi doğru ise, içeriği biçimlendirilmiş JSON UTF-8, UTF-16 veya UTF-32 kodlanmış. İletiye içerik türü ayarlayın `application/json`. İçerik bir ileti üstbilgilerinde desteklenen UTF Kodlamalar kodlama ayarlayın. Üstbilgileri birini belirtilmezse, IOT hub'ı karşı ileti gövdesi içeren herhangi bir sorgu ifade değerlendirilecek denemez. İleti bir JSON ileti değilse veya ileti içerik türü ve içerik kodlamasını belirtmiyorsa, ileti yönlendirme iletisi başlıklarını temel ileti yönlendirmek için kullanmaya devam edebilirsiniz.
 
+Aşağıdaki örnekte, doğru biçimlendirilmiş ve kodlanmış JSON gövdesi ile bir ileti oluşturulacağını gösterir:
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 Kullanabileceğiniz `$body` ileti yönlendirmek için sorgu ifadesinde. Sorgu ifadesinde basit gövde başvurusu, gövde dizi başvuru ya da birden fazla gövde başvuru kullanabilirsiniz. Sorgu ifadesi ayrıca gövde başvuru iletisi başlığı başvurusu ile birleştirebilirsiniz. Örneğin, tüm geçerli sorgu ifadeleri şunlardır:
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
@@ -513,7 +559,7 @@ Yollar koşullarda, aşağıdaki tür denetleme ve atama işlevleri desteklenir:
 
 | İşlev | Açıklama |
 | -------- | ----------- |
-| AS_NUMBER | Giriş dizesini sayıya dönüştürür. `noop`Giriş bir sayı ise; `Undefined` dize bir sayıyı temsil etmiyor durumunda.|
+| AS_NUMBER | Giriş dizesini sayıya dönüştürür. `noop` Giriş bir sayı ise; `Undefined` dize bir sayıyı temsil etmiyor durumunda.|
 | IS_ARRAY | Belirtilen ifade türü bir dizi olup olmadığını gösteren bir Boole değeri döndürür. |
 | IS_BOOL | Belirtilen ifade türü bir Boole değeri olup olmadığını gösteren bir Boole değeri döndürür. |
 | IS_DEFINED | Özellik değeri atanmış olan gösteren bir Boole değeri döndürür. |

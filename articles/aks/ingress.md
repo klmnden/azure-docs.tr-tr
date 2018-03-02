@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 2/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f0a674daab177d71658c546fa4719892a33ed869
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4d5f1ddbb3d56d4c7af90ddb4f7d37f082a751c8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS giriş Azure kapsayıcı hizmeti (AKS)
 
 Bir giriş denetleyicisi ters proxy, yapılandırılabilir trafik yönlendirme ve TLS sonlandırma Kubernetes hizmetleri sağlayan yazılım parçasıdır. Kubernetes giriş kaynakları giriş kuralları ve tek tek Kubernetes Hizmetleri için rotalar yapılandırmak için kullanılır. Bir giriş denetleyicisi ve giriş kurallarını kullanarak, tek bir dış adresi Kubernetes kümedeki birden fazla hizmet için trafiği yönlendirmek için kullanılabilir.
 
-Bu belgede bir örnek dağıtımında kılavuzluk etmektedir [NGIX giriş denetleyicisi] [ nginx-ingress] bir Azure kapsayıcı hizmeti (AKS) kümesindeki. Ayrıca, [KUBE LEGO] [ kube-lego] proje otomatik olarak oluşturmak ve yapılandırmak için kullanılan [şimdi şifrelemek] [ lets-encrypt] sertifikalar. Son olarak, bazı uygulamalar, her biri tek bir adresi erişilebilen AKS kümedeki çalıştırılır.
+Bu belgede bir örnek dağıtımında kılavuzluk etmektedir [NGINX giriş denetleyicisi] [ nginx-ingress] bir Azure kapsayıcı hizmeti (AKS) kümesindeki. Ayrıca, [KUBE LEGO] [ kube-lego] proje otomatik olarak oluşturmak ve yapılandırmak için kullanılan [şimdi şifrelemek] [ lets-encrypt] sertifikalar. Son olarak, bazı uygulamalar, her biri tek bir adresi erişilebilen AKS kümedeki çalıştırılır.
 
 ## <a name="install-an-ingress-controller"></a>Bir giriş denetleyicisi yükleme
 

@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8c3ceb8a455ea32ebbd1393aa2484b8b8c898ef8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee8b89ab93fd10129cbb0e0634c5c920a928f1c1
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Varolan NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -46,7 +46,7 @@ Gereksinim duyduğunuz kadar Azure MFA etkin NPS sunucusu oluşturabilirsiniz. B
 
 Yeni Azure MFA etkin NPS sunucularını bilmeniz gereken şekilde VPN sunucularını kimlik doğrulama isteklerini yönlendirir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 NPS uzantısı, mevcut altyapınızı ile çalışmak için tasarlanmıştır. Başlamadan önce aşağıdaki önkoşullara sahip olduğunuzdan emin olun.
 
@@ -63,7 +63,7 @@ Windows Server 2008 R2 SP1 veya üstü.
 Bu kitaplıklar uzantısı ile otomatik olarak yüklenir.
 
 -   [Visual Studio 2013 (X64) için Visual C++ yeniden dağıtılabilir paketleri](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure Active Directory için Windows PowerShell modülü sürümü 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-   [Microsoft Azure Active Directory için Windows PowerShell modülü sürümü 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Microsoft Azure Active Directory için Windows PowerShell modülü, zaten var, Kurulum işleminin bir parçası olarak çalışan bir yapılandırma komut dosyası aracılığıyla değilse yüklenir. Zaten yüklü değilse bu modül önceden yüklemeye gerek yoktur.
 

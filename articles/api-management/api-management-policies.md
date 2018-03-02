@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d0d10096c004b50688ad5e6550bf248ceb5ef878
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policies"></a>API Management ilkeleri
 Bu bölümde aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
   
  Yapılandırma yoluyla API'nin davranışını değiştirmek yayımcının sisteminin güçlü bir özellik ilkelerdir. İstek üzerinde sırayla yürütülen deyimlerin bir koleksiyon veya bir API yanıtını ilkelerdir. Sık kullanılan deyimler, XML'den JSON biçimi dönüştürme içerir ve bir geliştiriciden gelen çağrıların miktarını sınırlamak için hız sınırı çağırın. Kutudan çıktığında çok daha fazla ilke kullanılabilir.  
   
- İlke ifadeleri herhangi bir API Management ilkesinde, ilke aksini belirtmedikçe, öznitelik değerleri ya da metin değerleri olarak kullanılabilir. [Akışı denetle](api-management-advanced-policies.md#choose) ve [Değişken ayarla](api-management-advanced-policies.md#set-variable) gibi bazı ilkeler ilke ifadelerini temel alır. Daha fazla bilgi için bkz: [ilkeleri Gelişmiş](api-management-advanced-policies.md#AdvancedPolicies) ve [ilke ifadelerini](api-management-policy-expressions.md).  
+ İlke ifadeleri herhangi bir API Management ilkesinde, ilke aksini belirtmedikçe, öznitelik değerleri ya da metin değerleri olarak kullanılabilir. [Akışı denetle](api-management-advanced-policies.md#choose) ve [Değişken ayarla](api-management-advanced-policies.md#set-variable) gibi bazı ilkeler ilke ifadelerini temel alır. Daha fazla bilgi için bkz. [Gelişmiş ilkeler](api-management-advanced-policies.md#AdvancedPolicies) ve [İlke ifadeleri](api-management-policy-expressions.md).  
   
-##  <a name="ProxyPolicies"></a>İlkeleri  
+##  <a name="ProxyPolicies"></a> ilkeleri  
   
 -   [Erişimi kısıtlama ilkeleri](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [Onay HTTP üstbilgisi](api-management-access-restriction-policies.md#CheckHTTPHeader) -varlığı ve/veya bir HTTP üstbilgisi değerini zorlar.  
@@ -74,11 +74,7 @@ Bu bölümde aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme v
     -   [URL yeniden yazma](api-management-transformation-policies.md#RewriteURL) -bir istek URL'sini ortak formundan web hizmeti tarafından beklenen biçime dönüştürür.  
     -   [XSLT kullanarak XML dönüştürme](api-management-transformation-policies.md#XSLTransform) -XSL dönüşümü istek veya yanıt gövdesinde XML için geçerlidir.  
 
-## <a name="video"></a>Video
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 İlkeleriyle çalışma daha fazla bilgi için bkz:

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2018
 ms.author: rithorn
-ms.openlocfilehash: bc7d98851e8d84d7db8586138608220c838ca776
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d1974ff9716d6b84a5f4b4f1795a84483d277a05
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme 
 
@@ -70,7 +70,7 @@ While herhangi [yerleşik RBAC rolü](../active-directory/role-based-access-cont
 Yönetim grupları hakkında daha fazla bilgi için bkz: 
 - [Azure kaynaklarını düzenlemek için yönetim grubu oluşturma](management-groups-create.md)
 - [Değiştirme, silme veya Yönetim gruplarını yönet](management-groups-manage.md)
-- [Azure Powershell modülünü yükleyin](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
+- [Azure PowerShell modülünü yükleyin](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [REST API Spec gözden geçirin](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
 - [Azure CLI uzantısını yükleyin](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
 

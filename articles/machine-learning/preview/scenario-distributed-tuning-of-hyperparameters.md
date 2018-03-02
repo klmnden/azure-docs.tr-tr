@@ -10,17 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-<<<<<<< HEAD
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
-=======
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak hyperparameters ayarlama dağıtılmış
 
@@ -45,19 +39,14 @@ Hyperparameters ayarlama yaygın olarak kullanılan bir tekniktir bir *kılavuz 
 * Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md) aşağıdaki [yükleme ve hızlı başlangıç oluşturma](./quickstart-installation.md) çalışma ekranı yükleyip hesapları oluşturun.
 * Bu senaryo, Azure ML çalışma ekranı Windows 10 veya MacOS yerel olarak yüklenmiş Docker altyapısıyla çalıştığını varsayar. 
 * Senaryo ile uzak bir Docker kapsayıcısı çalıştırmak için Ubuntu veri bilimi sanal makine (DSVM) izleyerek sağlamak [yönergeleri](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). En az 8 çekirdek ve bellek 28 Gb ile bir sanal makine kullanmanızı öneririz. Sanal makineler D4 örneklerini böyle kapasiteye sahip. 
-* Bu senaryo bir Spark kümesiyle çalıştırmak için sağlama Azure Hdınsight kümesi bu izleyerek [yönergeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-İle bir kümede en az olması önerilir:
-    - altı çalışan düğümleri
+* Bu senaryo bir Spark kümesiyle çalıştırmak için sağlama Spark Hdınsight kümesi bu izleyerek [yönergeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Üstbilgi ve alt düğümler aşağıdaki yapılandırmaya sahip bir kümeye sahip öneririz:
+    - dört alt düğüm
     - sekiz Çekirdeği
-    - Üstbilgi ve çalışan düğümleri bellekte 28 Gb. Sanal makineler D4 örneklerini böyle kapasiteye sahip.       
-    - Kümenin performansını en üst düzeye çıkarmak için aşağıdaki parametreleri değiştirme öneririz:
-        - Spark.Executor.instances
-        - Spark.Executor.cores
-        - Spark.Executor.Memory 
+    - 28 Gb bellek  
+      
+  Sanal makineler D4 örneklerini böyle kapasiteye sahip. 
 
-Bu takip edebilirsiniz [yönergeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) ve "özel spark varsayılan olarak" bölümündeki tanımları düzenleyin.
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Sorun giderme**: bilgisayarınızı Azure aboneliği kota kullanılabilir çekirdek sayısına sahip olabilir. Azure portalı, küme oluşturma sayısı kotayı aşan çekirdek izin vermiyor. Kota bulmak için abonelikleri bölümüne Azure portalında bir küme dağıtmak için kullanılan aboneliğe tıklayın ve ardından tıklatın gidin **kullanım + kotaları**. Genellikle kotaları Azure bölge başına tanımlanır ve yeterli boş çekirdeğe sahip olduğu bir bölgede Spark kümesi dağıtmayı seçebilirsiniz. 
 
 * Veri kümesi depolamak için kullanılan bir Azure depolama hesabı oluşturun. İzleyin [yönergeleri](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) bir depolama hesabı oluşturmak için.
 
@@ -124,7 +113,7 @@ IP adresi, kullanıcı adınızı ve parolanızı DSVM ile. IP adresi DSVM DSVM 
 
 Spark ortamını ayarlamak için CLI çalıştırın
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 Küme, kümenin SSH kullanıcı adı ve parola adı ile. SSH kullanıcı adı varsayılan değeri `sshuser`sürece küme hazırlama sırasında değiştirildi. Küme adı, küme sayfanızı özellikleri bölümünde Azure portalında bulunabilir:
 
@@ -132,14 +121,20 @@ Küme, kümenin SSH kullanıcı adı ve parola adı ile. SSH kullanıcı adı va
 
 Spark sklearn paket dağıtılmış hyperparameters ayarlama yürütme ortamı olarak Spark sağlamak için kullanırız. Biz, Spark yürütme ortamı kullanıldığında, bu paketi yüklemek için spark_dependencies.yml dosyasını değiştirilme tarihi:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -205,9 +200,9 @@ CLI penceresinde.
 Yerel ortamdaki tüm ayarlar özellik bilgi işlem için çok küçük olduğundan, biz büyük belleğe sahip uzak DSVM geçin. DSVM içinde yürütme AML çalışma ekranı tarafından yönetilen Docker kapsayıcısı içinde yapılır. Bu DSVM kullanarak tüm özellikleri işlem ve modelleri eğitme ve hyperparameters (sonraki bölüme bakın) ayarlamak için duyuyoruz. singleVM.py dosya Tamamlama özelliği hesaplama ve kod modelleme vardır. Sonraki bölümde uzak DSVM singleVM.py çalıştırma göstereceğiz. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Uzak DSVM kullanarak hyperparameters ayarlama
-Kullanırız [xgboost](https://anaconda.org/conda-forge/xgboost) gradyan ağaç artırmanın, uygulama [1]. Kullanırız [scikit-öğrenin](http://scikit-learn.org/) xgboost hyperparameters ayarlamak için paket. Xgboost scikit bir parçası olmasa da-paket, bilgi scikit uygulayan-API öğrenmek ve bu nedenle scikit işlevlerini ayarlama hyperparameter ile birlikte kullanılabilir-öğrenin. 
+Kullanırız [xgboost](https://anaconda.org/conda-forge/xgboost) gradyan ağaç artırmanın, uygulama [1]. Ayrıca kullanırız [scikit-öğrenin](http://scikit-learn.org/) xgboost hyperparameters ayarlamak için paket. Xgboost scikit bir parçası olmasa da-paket, bilgi scikit uygulayan-API öğrenmek ve bu nedenle scikit işlevlerini ayarlama hyperparameter ile birlikte kullanılabilir-öğrenin. 
 
-Xgboost sekiz hyperparameters sahiptir:
+Xgboost sahip açıklanan sekiz hyperparameters [burada](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators
 * max_depth
 * reg_alpha
@@ -216,14 +211,13 @@ Xgboost sekiz hyperparameters sahiptir:
 * learning_rate
 * colsample\_by_level
 * subsample
-* Bu hyperparameters açıklamasını bulunabilir hedefi
-- http://xgboost.readthedocs.io/en/Latest/Python/python_api.HTML#Module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
-- 
+* Hedefi  
+ 
 Başlangıçta, uzak DSVM kullanır ve küçük bir kılavuz adayı değerlerin gelen hyperparameters ince ayar:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
-Bu kılavuz hyperparameters değerlerini dört birleşimlerini sahiptir. 5-fold çapraz doğrulama kullanıyoruz, sonuçta elde edilen 4 x 5 = 20 xgboost çalıştırılır. Modelleri performansını ölçmek için negatif günlük kaybı ölçüm kullanırız. Aşağıdaki kod arası doğrulanmış negatif günlük kaybını en üst düzeye hyperparameters kılavuz gelen değerlerini bulur. Kod bu değerleri tam eğitim küme üzerinde son modeli eğitmek için de kullanır:
+Bu kılavuz hyperparameters değerlerini dört birleşimlerini sahiptir. 5-fold çapraz doğrulama kullanırız 4 x 5 = 20 kaynaklanan xgboost çalışır. Modelleri performansını ölçmek için negatif günlük kaybı ölçüm kullanırız. Aşağıdaki kod arası doğrulanmış negatif günlük kaybını en üst düzeye hyperparameters kılavuz gelen değerlerini bulur. Kod bu değerleri tam eğitim küme üzerinde son modeli eğitmek için de kullanır:
 
     clf = XGBClassifier(seed=0)
     metric = 'neg_log_loss'
@@ -291,7 +285,7 @@ Spark kümesi hyperparameters ayarlama ölçeklendirme ve daha büyük kılavuz 
 
 Bu kılavuz hyperparameters değerlerini 16 birleşimlerini sahiptir. Biz 5-fold çapraz doğrulama kullandığından, biz xgboost 16 x 5 = 80 çalıştırmak kez.
 
-scikit-paket Spark kümesi kullanarak hyperparameters ayarlama, yerel bir desteği yok öğrenin. Neyse ki, [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) Databricks paketinden bu boşluğu doldurur. Bu paket scikit neredeyse aynı API GridSearchCV işlevi olarak olan GridSearchCV işlev sağlar-öğrenin. Spark sklearn kullanın ve Spark kullanarak hyperparameters ayarlamak için Spark bağlam oluşturmak için bağlanmak ihtiyacımız
+scikit-paket Spark kümesi kullanarak hyperparameters ayarlama, yerel bir desteği yok öğrenin. Neyse ki, [spark sklearn](https://spark-packages.org/package/databricks/spark-sklearn) Databricks paketinden bu boşluğu doldurur. Bu paket scikit neredeyse aynı API GridSearchCV işlevi olarak olan GridSearchCV işlev sağlar-öğrenin. Spark sklearn kullanın ve Spark bağlam oluşturmak için ihtiyacımız Spark kullanarak hyperparameters ayarlamak için
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

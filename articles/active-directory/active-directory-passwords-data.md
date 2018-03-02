@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 929843825d19c003b5a97363a03ffdd3ae2a2f7d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Parola sıfırlama son kullanıcı kayıt gerektirmeden dağıtma
 
@@ -48,7 +48,7 @@ Bir kullanıcı kimlik doğrulama verilerini onaylayıncaya kadar bu alanları b
 
 Genel yönetici, aşağıdaki ekran görüntüsünde gösterildiği kullanıcı için kimlik doğrulama kişi bilgilerini el ile ayarlayabilirsiniz.
 
-![İlgili kişi][Contact]
+![lgili kişi][Contact]
 
 ## <a name="security-questions-and-answers"></a>Güvenlik sorularını ve yanıtlarını
 
@@ -112,7 +112,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>PowerShell sürüm 2 kullanın
 
-Başlamak için yapmanız [Azure AD sürüm 2 PowerShell modülünü yükleyip](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Yüklemediyseniz sonra her bir alan yapılandırmak için izlediği adımları kullanabilirsiniz.
+Başlamak için yapmanız [Azure AD sürüm 2 PowerShell modülünü yükleyip](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). Yüklemediyseniz sonra her bir alan yapılandırmak için izlediği adımları kullanabilirsiniz.
 
 Install-Module destekleyen en son sürümlerinden PowerShell hızlı bir şekilde yüklemek için aşağıdaki komutları çalıştırın. (İlk satırı modül zaten yüklü olup olmadığını denetler.)
 

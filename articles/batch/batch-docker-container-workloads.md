@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch kapsayıcı uygulamaları çalıştırma
 
@@ -27,7 +27,7 @@ Bu makale, Docker kapsayıcısı kavramları ve Batch havuzu ve .NET SDK kullana
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* SDK sürümleri: Batch SDK'ları destek kapsayıcı görüntüleri aşağıdaki sürümler:
+* SDK sürümleri: Batch SDK'ları destek kapsayıcı görüntüleri aşağıdaki sürümlerinden itibaren:
     * Batch REST API'si sürüm 2017 09 01.6.0
     * Batch .NET SDK sürüm 8.0.0
     * Batch Python SDK'sı sürüm 4.0
@@ -87,7 +87,7 @@ Uygulama kodunuzda havuzun işlem düğümleri oluşturulurken kullanılacak VM 
 
     Azure portalından bu görüntü Kimliğini almak için açık **tüm kaynakları**, özel görüntüyü seçin ve **genel bakış** bölüm yolu görüntü kanadında kopyalayın **kaynak kimliği**.
 
-* Kullanıyorsanız bir [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) görüntü, bir grup görüntüsünü açıklayan parametrelerinin sağlayın: Teklif türü, yayımcı, SKU ve sürümü içinde listelenen görüntünün [sanal makine görüntülerini listesi](batch-linux-nodes.md#list-of-virtual-machine-images):
+* Kullanıyorsanız bir [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) görüntü, bir grup görüntüsünü açıklayan parametrelerinin sağlayın: Yayımcı, Teklif türü, SKU ve içinde listelenen görüntünün sürümünü [sanal makine görüntülerini listesi](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Toplu ayrıntılı bir bakış için bkz: [geliştirme büyük ölçekli paralel işlem çözümleri yığın](batch-api-basics.md).
+* Ayrıca bkz. [toplu Shipyard](https://github.com/Azure/batch-shipyard) kapsayıcı iş yüklerinin Azure batch kolay dağıtım için Araç Seti [Shipyard tarif](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * Yükleme ve Docker CE Linux'ta kullanma hakkında daha fazla bilgi için bkz: [Docker](https://docs.docker.com/engine/installation/) belgeleri.
 

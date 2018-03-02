@@ -1,10 +1,11 @@
-- name: Azure Zaman Serisi Görüşleri
+- name: Azure Time Series Insights Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
     - name: Time Series Insights hakkında
       href: time-series-insights-overview.md
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: Time Series Insights’ı keşfedin
       href: time-series-quickstart.md

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 764a41dc9e890de85c3bfab3d2f78d5a07b39dff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Bir Windows tabanlı Hdınsight kümeden Linux tabanlı bir kümeye geçirme
 
@@ -132,7 +132,7 @@ Parola kullanmaktan daha güvenli olduğu gibi ortak anahtar sertifikası kullan
 
 Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-### <a name="cluster-customization"></a>Küme özelleştirme
+### <a name="cluster-customization"></a>Küme özelleştirmesi
 
 **Betik eylemleri** ile kullanılan Linux tabanlı kümelerde Bash komut dosyasında yazılması gerekir. Linux tabanlı kümelerde betik eylemleri sırasında veya Küme oluşturulduktan sonra kullanabilirsiniz. Daha fazla bilgi için bkz: [özelleştirme Linux tabanlı Hdınsight ile betik eylemleri](hdinsight-hadoop-customize-cluster-linux.md) ve [betik eylemi geliştirme Linux tabanlı Hdınsight için](hdinsight-hadoop-script-actions-linux.md).
 
@@ -172,8 +172,8 @@ Linux küme dosya sistemi Windows tabanlı Hdınsight kümeleri farklı yerleşt
 | --- | --- |
 | Yapılandırma |`/etc`. Örneğin, `/etc/hadoop/conf/core-site.xml` |
 | Günlük dosyaları |`/var/logs` |
-| Hortonworks veri Platformu (HDP) |`/usr/hdp`. İki dizini bulunan Burada, geçerli HDP sürümü olan bir vardır ve `current`. `current` Dizin dosyaları ve dizinleri sürüm numarası dizininde sembolik bağlantılar içerir. `current` Dizindir sağlanan sürüm HDP dosyaları bu yana sürüm numarası değişikliklerini HDP erişmek için kolay bir yol olarak güncelleştirilir. |
-| hadoop streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
+| Hortonworks Data Platform (HDP) |`/usr/hdp`. İki dizini bulunan Burada, geçerli HDP sürümü olan bir vardır ve `current`. `current` Dizin dosyaları ve dizinleri sürüm numarası dizininde sembolik bağlantılar içerir. `current` Dizindir sağlanan sürüm HDP dosyaları bu yana sürüm numarası değişikliklerini HDP erişmek için kolay bir yol olarak güncelleştirilir. |
+| hadoop-streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 Genel olarak, dosyanın adını biliyorsanız, dosya yolunu bulmak için bir SSH oturumunda aşağıdaki komutu kullanabilirsiniz:
 
@@ -200,11 +200,11 @@ Aşağıdaki grafikte, Hive iş yüklerinizi geçirme hakkında yönergeler sağ
 
 | Üzerinde Windows tabanlı kullanmam... | Linux tabanlı... |
 | --- | --- |
-| **Hive düzenleyicisinin** |[Ambari Hive görünümünü](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;`Tez etkinleştirmek için |Tez Linux tabanlı kümeler için varsayılan yürütme altyapısı olduğundan set deyimi artık gerekli değildir. |
+| **Hive Editor** |[Ambari Hive görünümünü](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| `set hive.execution.engine=tez;` Tez etkinleştirmek için |Tez Linux tabanlı kümeler için varsayılan yürütme altyapısı olduğundan set deyimi artık gerekli değildir. |
 | C# kullanıcı tanımlı işlevler | C# Linux tabanlı Hdınsight bileşenleriyle doğrulama hakkında daha fazla bilgi için bkz: [Linux tabanlı Hdınsight geçirmek .NET çözümleri](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD dosyaları veya bir Hive işi bir parçası olarak çağrılan sunucuda komut dosyaları |Bash betiklerini kullanın |
-| `hive`komut Uzak Masaüstü |Kullanım [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) veya [Hive bir SSH oturumunda](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` komut Uzak Masaüstü |Kullanım [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) veya [Hive bir SSH oturumunda](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 

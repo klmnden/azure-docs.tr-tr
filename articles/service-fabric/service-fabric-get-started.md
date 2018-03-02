@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: a4000791afca35dca6d2e3d7a8fb6a003b17d066
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a24ca874abd29816a67f3bb7c83fb8b389d8435f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -88,6 +88,7 @@ Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama
 * [Service Fabric Explorer kullanarak kümenizi görselleştirme](service-fabric-visualizing-your-cluster.md)
 * [Platforma yönelik daha geniş kapsamlı bilgi edinmek için Service Fabric öğrenme yolunu uygulayın](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * [Service Fabric destek seçenekleri](service-fabric-support.md) hakkında bilgi edinin
+* [Kümenizde işletim sistemi düzeltme eki uygulama işlemini otomatikleştirme](service-fabric-patch-orchestration-application.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric kampanya sayfası"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

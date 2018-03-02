@@ -1,84 +1,81 @@
 ---
-title: "Azure portalında bir depolama hesabı için üretilen iş ve gecikmeyi ölçümleri doğrulayın | Microsoft Docs"
-description: "Bir depolama hesabı portalında üretilen iş ve gecikmeyi ölçümlerini doğrulayın öğrenin."
+title: "Azure portalında bir depolama hesabı için aktarım hızı ve gecikme süresi ölçümlerini doğrulama | Microsoft Docs"
+description: "Portalda bir depolama hesabı için aktarım hızı ve gecikme süresi metriklerinin nasıl doğrulanacağını öğrenin."
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: b3102bd4e40e10fe88c12295794da37e359c56f1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Bir depolama hesabı için üretilen iş ve gecikmeyi ölçümleri doğrulayın
+# <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Bir depolama hesabı için aktarım hızı ve gecikme süresi ölçümlerini doğrulama
 
-Bu öğretici dört ve bir dizi son bölümü parçasıdır. Önceki eğitimlerine karşıya yükleme ve bir Azure depolama hesabı larges miktarda rastgele veri indirme öğrendiniz. Bu öğretici Azure portalında üretilen iş ve gecikmeyi görüntülemek için ölçümleri nasıl kullanabileceğinizi gösterir.
+Bu öğretici, bir serinin dördüncü ve son kısmıdır. Önceki öğreticilerde, büyük miktarlarda rastgele verilerin Azure depolama hesabına nasıl yüklenip indirileceğini öğrendiniz. Bu öğretici, Azure portalında aktarım hızını ve gecikme süresini görüntülemek için ölçümleri nasıl kullanabileceğinizi gösterir.
 
-Bölümünde dizisinin dört öğrenin nasıl yapılır:
+Serinin dördüncü kısmında öğrenecekleriniz:
 
 > [!div class="checklist"]
-> * Azure portalında grafikleri yapılandırın
+> * Azure portalındaki grafikleri yapılandırma
 > * Aktarım hızı ve gecikme süresi ölçümlerini doğrulama
 
-[Azure storage ölçümleri](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) Azure İzleyicisi, performans ve kullanılabilirlik depolama hesabınızın birleştirilmiş görünüme sağlamak için kullanır.
+[Azure depolama ölçümleri](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), depolama hesabınızın performansına ve kullanılabilirliğine ilişkin birleşik bir görünüm sağlamak için Azure izleyiciyi kullanır.
 
-## <a name="configure-metrics"></a>Ölçümlerini yapılandırın
+## <a name="configure-metrics"></a>Ölçümleri yapılandırma
 
-Gidin **ölçümleri (Önizleme)** altında **ayarları** depolama hesabınızdaki.
+Depolama hesabınızdaki **AYARLAR** bölümünde **Ölçümler (önizleme)** seçeneğine gidin.
 
-BLOB üzerinden seçin **alt hizmet** açılır.
+**ALT HİZMET** açılır listesinden Blob’u seçin.
 
-Altında **ÖLÇÜM**, aşağıdaki tabloda bulunan ölçümleri birini seçin:
+**ÖLÇÜM** bölümünden, aşağıdaki tabloda bulunan ölçümlerden birini seçin:
 
-Aşağıdaki ölçümleri gecikme süresi ve verimlilik uygulamanın hakkında bir fikir verir. Portalda yapılandırma 1 dakikalık ortalamalar ölçümleridir. Dakika verileri halfed ortalama için ise bir dakika ortasında bir işlem tamamlandı. Uygulama yükleme ve indirme işlemleri zaman aşımına ve gerçek süre miktarı çıktı sağlanan dosyaları yükleme ve indirme sürdü. Bu bilgiler, portal ölçümleri birlikte işleme tam olarak anlamak için kullanılabilir.
+Aşağıdaki ölçümler size uygulamanın gecikme süresi ve aktarım hızına dair bir fikir sunar. Portalda yapılandırdığınız ölçümler 1’er dakikalık ortalamalardır. Bir işlem bir dakikalık sürenin ortasında bittiyse, ortalama için o dakika verileri ikiye bölünür. Uygulamada, karşıya yükleme ve indirme işlemleri zamanlanmış ve size dosyaları karşıya yükleyip indirmenin gerçekte ne kadar sürdüğüne dair çıktı sağlanmıştır. Bu bilgiler, aktarım hızını tam olarak anlamak için portal ölçümleriyle birlikte kullanılabilir.
 
 |Ölçüm|Tanım|
 |---|---|
-|**Başarı E2E gecikme süresi**|Bir depolama birimi hizmeti veya belirtilen API işlemi yapılan başarılı istekleri ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|
-|**Başarı sunucu gecikme süresi**|Başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama süre. Bu değer SuccessE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir. |
-|**İşlemler**|Depolama hizmet ya da belirtilen API işlemi için yapılan isteklerin sayısı. Bu sayı, hataları üretilen istekleri yanı sıra başarılı ve başarısız istekleri içerir. Örnekte, blok boyutu 100 MB olarak ayarlandı. Bu durumda, her 100 MB bloğu bir işlem olarak kabul edilir.|
-|**Giriş**|Giriş verileri miktarını. Bu sayı, Azure içinde giriş yanı sıra Azure Storage içine bir dış istemcinin giriş içerir. |
-|**Çıkış**|Çıkış veri miktarı. Bu sayı, çıkış Azure içinde yanı sıra Azure Storage içine dış bir istemciden çıkış içerir. Sonuç olarak, bu sayı Faturalanabilir çıkış yansıtmaz. |
+|**Başarı E2E Gecikme Süresi**|Bir depolama hizmetine yapılan başarılı isteklerin veya belirtilen API işleminin ortalama uçtan uca gecikme süresi. Bu değer, isteği okumak, yanıtı göndermek ve yanıtın onayını almak için Azure Depolama içinde gerekli işleme süresini içerir.|
+|**Başarı Sunucu Gecikme Süresi**|Azure Depolama tarafından gerçekleştirilen başarılı bir isteği işlemek için kullanılan ortalama süre. Bu değer, Başarı E2E Gecikme Süresi’nde belirtilen ağ gecikme süresini içermez. |
+|**İşlemler**|Bir depolama hizmetine yapılan isteklerin veya belirtilen API işlemi sayısı. Bu sayı, başarılı ve başarısız istekleri ve hata üreten istekleri içerir. Örnekte, blok boyutu 100 MB olarak ayarlanmıştır. Bu durumda her 100 MB’lık blok bir işlem olarak değerlendirilir.|
+|**Giriş**|Giriş verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya giren ve Azure içinde giren verileri içerir. |
+|**Çıkış**|Çıkış verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya çıkan ve Azure içinde çıkan verileri içerir. Sonuç olarak bu sayı, faturalanabilir çıkışı yansıtmaz. |
 
-Seçin **son 24 saat (otomatik)** yanına **zaman**. Seçin **son bir saat** ve **Minute** için **zaman ayrıntı düzeyi**, ardından **Uygula**.
+**Saat**’in yanındaki **Son 24 saat (Otomatik)** seçeneğini belirleyin. **Zaman ayrıntı düzeyi** için **Son saat** ve **Dakika** seçeneğini belirleyin, sonra **Uygula**’ya tıklayın.
 
 ![Depolama hesabı ölçümleri](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
 
-Grafikler atanmış birden fazla ölçüm olabilir, ancak Grup yeteneği boyutlara göre bir doğrudan birden fazla ölçüm atama devre dışı bırakır.
+Grafiklere birden fazla ölçüm atanmış olabilir, ancak birden fazla ölçüm atandığında boyutlara göre gruplama yeteneği devre dışı bırakılır.
 
 ## <a name="dimensions"></a>Boyutlar
 
-[Boyutlar](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) grafikler daha derin arayın ve daha ayrıntılı bilgi almak için kullanılır. Farklı ölçümleri farklı boyutlarda. Kullanılabilir bir boyuttur **API adı** boyut. Bu boyut her ayrı API çağrısı şemasına çıkışı keser. Aşağıdaki ilk görüntü toplam işlemleri bir depolama hesabı için bir örnek grafiğini gösterir. İkinci görüntü aynı grafik ancak API ile seçilen boyutu adı gösterir. Gördüğünüz gibi her bir işlem daha fazla ayrıntı kaç çağrıları API adı tarafından yapılan içine vermiş listelenir.
+Grafikleri daha ayrıntılı incelemek ve daha ayrıntılı bilgi edinmek için [Boyutlar](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) kullanılır. Farklı ölçümlerin farklı boyutları vardır. Kullanılabilir tek boyut, **API adı** boyutudur. Bu boyut, her bir ayrı API çağrısı bazında grafiğin dökümünü oluşturur. Aşağıdaki ilk görüntü, bir depolama hesabı için toplam işlemlerin örnek bir grafiğini gösterir. İkinci görüntü, API adı boyutu seçilmiş şekilde aynı grafiği gösterir. Gördüğünüz gibi her bir işlem listelenerek API adı tarafından kaç tane çağrı yapıldığına ilişkin daha fazla ayrıntı sunar.
 
-![Depolama hesabı ölçümleri - işlemler boyut olmadan](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
+![Depolama hesabı ölçümleri - boyut içermeyen işlemler](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 
-![Depolama hesabı ölçümleri - işlemleri](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
+![Depolama hesabı ölçümleri - işlemler](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olmadığında kaynak grubunu, sanal makineyi ve tüm ilişkili kaynakları silin. Bunu yapmak için VM için kaynak grubu seçin ve Sil'e tıklayın.
+Artık gerekli olmadığında kaynak grubunu, sanal makineyi ve tüm ilişkili kaynakları silin. Bunu yapmak için, sanal makinenin kaynak grubunu seçin ve Sil’e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bölümünde dizisinin dört nasıl gibi örnek çözümü için ölçümleri görüntüleme hakkında öğrenilen:
+Serinin dördüncü kısmında, örnek çözüm için ölçümleri görüntüleme hakkında aşağıda örnekleri verilen işlemleri öğrendiniz:
 
 > [!div class="checklist"]
-> * Azure portalında grafikleri yapılandırın
+> * Azure portalındaki grafikleri yapılandırma
 > * Aktarım hızı ve gecikme süresi ölçümlerini doğrulama
 
-Önceden oluşturulmuş depolama örnekleri görmek için bu bağlantıyı izleyin.
+Önceden oluşturulmuş depolama örneklerini görmek için bu bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
-> [Azure depolama kod örnekleri](storage-samples-blobs-cli.md)
+> [Azure depolama betiği örnekleri](storage-samples-blobs-cli.md)
 
 [previous-tutorial]: storage-blob-scalable-app-download-files.md

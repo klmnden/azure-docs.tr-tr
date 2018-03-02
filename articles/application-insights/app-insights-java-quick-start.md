@@ -5,16 +5,16 @@ services: application-insights
 keywords: 
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java Web Uygulamanızı İzlemeye Başlama
 
@@ -42,11 +42,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 Application Insights, şirket içinde veya bulutta çalışmasından bağımsız olarak İnternet’e bağlı herhangi bir uygulamadan telemetri verilerini toplayabilir. Bu verileri görüntülemeyi başlatmak için aşağıdaki adımları kullanın.
 
-1. **Yeni** > **İzleme + Yönetim** > **Application Insights**’ı seçin.
+1. **Kaynak oluştur** > **İzleme ve Yönetim** > **Application Insights**’ı seçin.
 
    ![Application Insights Kaynağı ekleme](./media/app-insights-java-quick-start/001-j.png)
 
-   Bir yapılandırma kutusu görünür; giriş alanlarını doldurmak için aşağıdaki tabloyu kullanın.
+   Bir yapılandırma kutusu görünür. Giriş alanlarını doldurmak için aşağıdaki tabloyu kullanın.
 
     | Ayarlar        | Değer           | Açıklama  |
    | ------------- |:-------------|:-----|
@@ -55,7 +55,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
    | **Kaynak Grubu**     | myResourceGroup      | App Insights verilerini barındıran yeni kaynak grubunun adı |
    | **Konum** | Doğu ABD | Yakınınızda bulunan veya uygulamanızın barındırıldığı konumun yakınında olan bir konum seçin |
 
-2. **Oluştur**'a tıklayın.
+2. **Oluştur**’a tıklayın.
 
 ## <a name="install-app-insights-plugin"></a>App Insights Eklentisini yükleme
 

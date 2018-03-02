@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI komut dosyası oluştur yüksek kullanılabilirlik için yük devretme ilke | Microsoft Docs"
-description: "Azure CLI betik örnek - yüksek kullanılabilirlik için yük devretme ilkesi oluşturma"
+title: "Azure CLI Betiği-Yüksek kullanılabilirlik için yük devretme ilkesi oluşturma | Microsoft Docs"
+description: "Azure CLI Betik Örneği - Yüksek kullanılabilirlik için yük devretme ilkesi oluşturma"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,45 +16,45 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 96083d66cc1a2ef179f9313c1b3ed04162c1c048
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 139679eb58516c9eda02f048e8c839e1b7bceb48
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Azure CLI kullanarak yüksek kullanılabilirlik için yük devretme ilkesi oluşturma
 
-Bu örnek CLI betik bir Azure Cosmos DB hesabı oluşturur ve yüksek kullanılabilirlik için yapılandırılır.
+Bu örnek CLI betiği bir Azure Cosmos DB hesabı oluşturur ve yüksek kullanılabilirlik için yapılandırır.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/high-availability-cosmosdb-configure-failover/high-availability-cosmosdb-configure-failover.sh?highlight=23-27 "Create an Azure Cosmos DB failover policy")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Komut dosyası örneği çalıştırdıktan sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu kullanılabilir.
+Betik örneği çalıştırıldıktan sonra, kaynak grubunu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komut kullanılabilir.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](/cli/azure/group#create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az cosmosdb oluşturma](/cli/azure/sql/server#create) | Bir Azure Cosmos DB hesabı oluşturur. |
-| [az cosmosdb güncelleştirme](/cli/azure/cosmosdb#update) | Azure Cosmos DB hesabını güncelleştirir. |
-| [az grubu Sil](/cli/azure/resource#delete) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
+| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az cosmosdb create](/cli/azure/sql/server#az_sql_server_create) | Azure Cosmos DB hesabı oluşturur. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Azure Cosmos DB hesabını güncelleştirir. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).
 
-Ek Azure Cosmos DB CLI kod örnekleri bulunabilir [Azure Cosmos DB CLI belgelerine](../cli-samples.md).
+Ek Azure Cosmos DB CLI betiği örnekleri, [Azure Cosmos DB CLI belgelerinde](../cli-samples.md) bulunabilir.

@@ -1,19 +1,19 @@
 ---
-title: "Kullanıcılar Azure veritabanı'nda MySQL sunucusu için oluşturun. | Microsoft Docs"
+title: "Kullanıcılar Azure veritabanı'nda MySQL sunucusu için oluşturma"
 description: "Bu makalede, MySQL sunucusu için bir Azure veritabanıyla etkileşim kurmak için yeni kullanıcı hesapları nasıl oluşturabileceğiniz açıklanmaktadır."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 8adb74e11570ac60ad3b898b737cff4699f2bbf1
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 9fd592efe48adefc6aca7a6caea24f546da23fa5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Kullanıcılar Azure veritabanı'nda MySQL sunucusu için oluşturma 
 Bu makalede, MySQL sunucusu için bir Azure veritabanındaki kullanıcıların nasıl oluşturabileceğiniz açıklanmaktadır.
@@ -80,7 +80,7 @@ MySQL sunucusu için Azure veritabanı oluşturulduktan sonra ek kullanıcılar 
 5. Yeni bir kullanıcı adı ve parola kullanarak belirlenen veritabanı belirtme sunucuya oturum açın. Bu örnek, mysql komut satırı gösterir. Bu komutla, kullanıcı adı için parola istenir. Kendi sunucu adı, veritabanı adı ve kullanıcı adı ile değiştirin.
 
    ```azurecli-interactive
-   mysql --host myserver4demo.mysql.database.azure.com --database testdb --user db_user@myserver4demo -p
+   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -6,7 +6,7 @@ Azure portalını kullanarak Resource Manager dağıtımında bir VNet oluşturm
 >
 
 1. Bir tarayıcıdan [Azure portalına](http://portal.azure.com) gidin ve Azure hesabınızla oturum açın.
-2. **Yeni**’ye tıklayın. **Markette ara** alanına 'sanal ağ' yazın. Döndürülen listeden **Sanal ağ**’ı bulun ve tıklayarak **Sanal Ağ** sayfasını açın.
+2. **Kaynak oluştur**’a tıklayın. **Markette ara** alanına 'sanal ağ' yazın. Döndürülen listeden **Sanal ağ**’ı bulun ve tıklayarak **Sanal Ağ** sayfasını açın.
 3. Sanal Ağ sayfasının en altına doğru, **Bir dağıtım modeli seçin** listesinden **Resource Manager**’ı seçip **Oluştur**’a tıklayın. Bu işlem "Sanal ağ geçidi oluştur" sayfasını açar.
 
     ![Sanal ağ oluşturma sayfası](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Sanal ağ oluşturma sayfası")
@@ -19,4 +19,4 @@ Azure portalını kullanarak Resource Manager dağıtımında bir VNet oluşturm
   - **Konum**: Sanal ağınızın konumunu seçin. Konum bu sanal ağa dağıttığınız kaynakların nerede olacağını belirler.
   - **Alt ağ**: İlk alt ağ adını ve alt ağ adres aralığını ekleyin. Bu VNet'i oluşturduktan sonra ağ geçidi alt ağı ve başka alt ağlar ekleyebilirsiniz. 
 
-5. VNet’inizi panoda kolay bulmak istiyorsanız **Panoya sabitle**’yi seçin ve ardından **Oluştur**’a tıklayın. **Oluştur**’a tıkladıktan sonra panonuzda sanal ağınızın ilerleme durumunu yansıtacak bir kutucuk göreceksiniz. Sanal ağ oluşturulurken kutucuk değişir.
+5. Sanal ağınızı panoda kolay bulmak istiyorsanız **Panoya sabitle**’yi seçin ve ardından **Oluştur**’a tıklayın. **Oluştur**’a tıkladıktan sonra panonuzda sanal ağınızın ilerleme durumunu yansıtacak bir kutucuk göreceksiniz. Sanal ağ oluşturulurken kutucuk değişir.

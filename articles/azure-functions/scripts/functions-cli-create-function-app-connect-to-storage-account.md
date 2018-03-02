@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure depolama alanına bağlanan bir Azure işlevi oluşturma | Microsoft Docs"
-description: "Azure CLI betik örnek - bir Azure depolama alanına bağlanan bir Azure işlevi oluşturma"
+title: "Bir Azure Depolama’ya bağlanan bir Azure İşlevi oluşturma | Microsoft Docs"
+description: "Azure CLI Betiği Örneği - Azure Depolama’ya bağlanan bir Azure İşlevi oluşturma"
 services: functions
 documentationcenter: functions
 author: ggailey777
@@ -16,49 +16,51 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 363a3fd1c80538495658720274840b921baa8675
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.openlocfilehash: b4dad0bba7a147f294c5d9ce3a1a1aa8e95058f3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="integrate-function-app-into-azure-storage-account"></a>Azure Storage hesabınıza işlev uygulaması tümleştirme
+# <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Bir Azure Depolama hesabına bağlanan bir işlev uygulaması oluşturma
 
-Bu örnek betik, bir işlev uygulaması ve depolama hesabı oluşturur.
+Bu Azure İşlevleri örnek betiği, bir işlev uygulaması oluşturur ve işlevi bir Azure Depolama hesabına bağlar. Bağlantıyı içeren oluşturulan uygulama ayarı, bir [depolama tetikleyicisi veya bağlaması](..\functions-bindings-storage-blob.md) ile birlikte kullanılabilir. 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI yerel olarak kullanırsanız, Azure CLI Sürüm 2.0 veya sonraki sürümünü çalıştırdığından emin olun. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+CLI’yi yerel olarak kullanırsanız, Azure CLI sürüm 2.0 veya sonraki bir sürümü çalıştırdığınızdan emin olun. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
-Bu örnek bir Azure işlevi uygulamasını oluşturur ve bir uygulama ayarı için depolama bağlantı dizesi ekler.
+Bu örnek bir Azure İşlev uygulaması oluşturur ve depolama bağlantı dizesini bir uygulama ayarına ekler.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
 
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Komut dosyası örneği çalıştırdıktan sonra kaynak grubunu kaldırmak için aşağıdaki komutu çalıştırın ve ilişkili tüm kaynakları:
+Betik örneği çalıştırıldıktan sonra, kaynak grubunu ve ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın:
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az oturum açma](https://docs.microsoft.com/cli/azure/#login) | Azure'da oturum açın. |
-| [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) | Konumu ile kaynak grubu oluştur |
-| [az depolama hesabı oluşturma](https://docs.microsoft.com/cli/azure/storage/account) | Depolama hesabı oluşturma |
-| [az functionapp oluşturma](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Yeni bir işlev uygulaması oluşturma |
-| [az grubu Sil](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Temizleme |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Azure'da oturum açın. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Konum ile bir kaynak grubu oluşturun |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Depolama hesabı oluşturma |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Yeni bir işlev uygulaması oluşturun |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Temizleme |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).
 
-Ek Azure işlevleri CLI kod örnekleri bulunabilir [Azure işlevleri belgelerine](../functions-cli-samples.md).
+Ek Azure İşlevleri CLI betiği örnekleri, [Azure İşlevleri belgelerinde](../functions-cli-samples.md) bulunabilir.

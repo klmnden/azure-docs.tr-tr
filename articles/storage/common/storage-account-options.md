@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure Depolama hesabı seçenekleri
 
@@ -125,7 +125,7 @@ Bu ayar tüm depolama hesabına uygulandığından aşağıdaki örneklerde eri�
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Hub menüsünde, **Yeni** > **Veri + Depolama** > **Depolama hesabı**’nı seçin.
+2. Hub menüsünde, **Kaynak oluştur** > **Veri ve Depolama** > **Depolama hesabı**’nı seçin.
 
 3. Depolama hesabınız için bir ad girin.
 
@@ -159,7 +159,7 @@ Bu ayar tüm depolama hesabına uygulandığından aşağıdaki örneklerde eri�
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Depolama hesabınıza gitmek için Tüm Kaynaklar’ı ve ardından depolama hesabınızı seçin.
+2. Depolama hesabınıza gitmek için **Tüm kaynaklar**’ı ve ardından depolama hesabınızı seçin.
 
 3. Ayarlar bölümünde **Yapılandırma**’ya tıklayın.
 
@@ -173,7 +173,7 @@ Bu ayar tüm depolama hesabına uygulandığından aşağıdaki örneklerde eri�
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Depolama hesabınıza gitmek için Tüm Kaynaklar’ı ve ardından depolama hesabınızı seçin.
+2. Depolama hesabınıza gitmek için **Tüm kaynaklar**’ı ve ardından depolama hesabınızı seçin.
 
 3. Ayarlar dikey penceresinde **Yapılandırma**’ya tıklayarak hesap yapılandırmasını görüntüleyin ve/veya değiştirin.
 
@@ -185,7 +185,7 @@ Bu ayar tüm depolama hesabına uygulandığından aşağıdaki örneklerde eri�
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Depolama hesabınızdaki blobunuza gitmek için Tüm Kaynaklar’ı seçin, depolama hesabınızı seçin, kapsayıcınızı seçin ve ardından blobunuzu seçin.
+2. Depolama hesabınızdaki blobunuza gitmek için **Tüm kaynaklar**’ı seçin, depolama hesabınızı seçin, kapsayıcınızı seçin ve ardından blobunuzu seçin.
 
 3. Blob özellikleri dikey penceresinde **Erişim Katmanı** açılan menüsüne tıklayarak **Sık Erişilen**, **Seyrek Erişilen** veya **Arşiv** depolama katmanını seçin.
 

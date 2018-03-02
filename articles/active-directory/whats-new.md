@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
@@ -41,6 +41,256 @@ Azure AD geliştirmeleri düzenli olarak alır. En son gelişmeler ile güncel k
 Bu sayfayı aylık güncelleştirilir, böylece, düzenli aralıklarla yeniden ziyaret.
 
 
+
+## <a name="february-2018"></a>Şubat 2018
+ 
+
+### <a name="improved-navigation-for-managing-users-and-groups"></a>Kullanıcıları ve grupları yönetmek için geliştirilmiş gezinme
+
+**Tür:** değişiklik planı  
+**Servis kategorisi:** dizin yönetimi  
+**Ürün yetenek:** dizini
+ 
+
+Kullanıcıları ve grupları yönetmek için gezinme deneyimi basitleştirilmiştir. Artık dizin genel bakış'tan doğrudan silinen kullanıcıların listesini daha kolay erişimi olan tüm kullanıcıların listesini gidebilirsiniz. Grup Yönetimi Ayarları kolay erişim olan tüm gruplar listesine doğrudan dizin genel bakış'tan de gidebilirsiniz. Ve ayrıca dizin genel bakış sayfasında, bir kullanıcı, Grup, Kurumsal uygulama veya uygulama kaydı için arama yapabilirsiniz.
+ 
+
+---
+
+
+### <a name="availability-of-sign-ins-and-audit-reports-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>Oturum açma işlemleri ve denetim kullanılabilirliğini raporlar 21Vianet tarafından işletilen Microsoft Azure (Azure Çin'de 21Vianet)
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** Sovereign Bulutlar  
+**Ürün yetenek:** izleme ve Raporlama
+ 
+
+Azure AD etkinlik günlüğü raporları şimdi 21Vianet (Azure Çin'de 21Vianet) örnekleri tarafından işletilen Microsoft Azure mevcuttur. Günlükleri eklenmiştir:
+
+- **Oturum açma işlemleri etkinlik günlükleri** -tüm oturum açma işlemleri içerir, Kiracı ile ilişkilendirilen günlükleri.
+
+- **Self Servis parola denetim günlüklerini** -tüm SSPR denetim günlüklerini içerir.
+
+- **Dizin Yönetimi denetim günlüklerini** -ilişkili tüm dizin yönetimi içerir denetim günlüklerini kullanıcı yönetimi, uygulama yönetimi ve diğerleri gibi.
+
+Bu günlükler ile ortamınızı nasıl çalıştığını içine Öngörüler elde edebilirsiniz. Sağlanan verilerle:
+
+- Uygulamaları ve Hizmetleri kullanıcılarınız tarafından nasıl yararlanılmıştır belirler.
+
+- Kullanıcılarınızın işlerini alma engelleme sorunları giderin.
+
+Bu raporların nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure Active Directory raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal).
+ 
+
+---
+
+
+### <a name="use-report-reader-role-non-admin-role-to-view-azure-ad-activity-reports"></a>Azure AD etkinlik raporları görüntülemek için "Rapor okuyucu" rolünü (yönetici olmayan rolü) kullanın
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** raporlama  
+**Ürün yetenek:** izleme ve Raporlama
+ 
+
+Parçası olmayan yönetici rolleri Azure AD etkinlik erişimi etkinleştirmek için müşteri geri bildirim günlükleri gibi biz erişim gerçekleştirilen oturum açma ve Azure Portal yanı sıra bizim grafik API'lerini kullanarak içinde denetim etkinlik için "Rapor okuyucu" rolündeki kullanıcılar için özelliğini etkinleştirdiniz. 
+
+Daha fazla bilgi için bu raporları kullanma hakkında [Azure Active Directory raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
+
+---
+ 
+
+
+### <a name="employeeid-claim-available-as-user-attribute-and-user-identifier"></a>Kullanıcı özniteliği ve kullanıcı tanımlayıcısı olarak kullanılabilir EmployeeID talep
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** Kurumsal uygulamaları  
+**Ürün yetenek:** SSO
+ 
+
+Yapılandırabileceğiniz **EmployeeID** üye kullanıcılar ve uygulamalarda SAML tabanlı oturum açma kullanıcı Arabirimi Kurumsal uygulamadan B2B konuklar için kullanıcı özniteliği ve kullanıcı tanımlayıcısı olarak.
+
+Daha fazla bilgi için bkz: [Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepler özelleştiriliyor](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
+ 
+
+---
+
+
+### <a name="simplified-application-management-using-wildcards-in-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si joker karakterler kullanarak Basitleştirilmiş uygulama yönetimi
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** uygulama proxy'si  
+**Ürün yetenek:** kullanıcı kimlik doğrulaması
+ 
+
+Uygulama dağıtımı kolaylaştırmak ve yönetim yükünüzü azaltmak için artık joker karakterler kullanarak uygulama Yayımlama özelliği desteklenmektedir. Joker uygulama yayımlamak için standart uygulama yayımlama akış izleyin, ancak iç ve dış URL'ler içinde bir joker karakter kullanın.
+
+Daha fazla bilgi için bkz: [joker uygulamalarında Azure Active Directory Uygulama proxy'si](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+
+ 
+
+---
+ 
+### <a name="new-cmdlets-to-support-configuration-of-application-proxy"></a>Uygulama proxy'si yapılandırmasını desteklemek için yeni cmdlet'leri
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** uygulama proxy'si  
+**Ürün yetenek:** Platform
+ 
+
+En son sürümünü Azuread'i PowerShell Önizleme modülü uygulama Proxy PowerShell kullanarak uygulamalarını yapılandırmak müşterilerin sağlayan yeni cmdlet'ler içerir.
+
+Yeni cmdlet'leri şunlardır: 
+
+- Get-AzureADApplicationProxyApplication
+- Get-AzureADApplicationProxyApplicationConnectorGroup
+- Get-AzureADApplicationProxyConnector
+- Get-AzureADApplicationProxyConnectorGroup
+- Get-AzureADApplicationProxyConnectorGroupMembers
+- Get-AzureADApplicationProxyConnectorMemberOf
+- New-AzureADApplicationProxyApplication
+- New-AzureADApplicationProxyConnectorGroup
+- Remove-AzureADApplicationProxyApplication
+- Remove-AzureADApplicationProxyApplicationConnectorGroup
+- Remove-AzureADApplicationProxyConnectorGroup
+- Set-AzureADApplicationProxyApplication
+- Set-AzureADApplicationProxyApplicationConnectorGroup
+- Set-AzureADApplicationProxyApplicationCustomDomainCertificate
+- Set-AzureADApplicationProxyApplicationSingleSignOn
+- Set-AzureADApplicationProxyConnector
+- Set-AzureADApplicationProxyConnectorGroup
+
+
+ 
+
+---
+ 
+
+### <a name="new-cmdlets-to-support-configuration-of-groups"></a>Grupları yapılandırmasını desteklemek için yeni cmdlet'leri
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** uygulama proxy'si  
+**Ürün yetenek:** Platform
+ 
+
+En son sürümü Azuread'i PowerShell modülünün Azure AD'de grupları yönetmek için cmdlet'leri içerir. Bu cmdlet'ler AzureADPreview modülünde önceden kullanılabilir ve şimdi Azuread'i modülü eklenir
+
+Şimdi sürüm genel kullanılabilirlik için olan Grup cmdlet'leri şunlardır: 
+
+- Get-AzureADMSGroup
+- New-AzureADMSGroup
+- Remove-AzureADMSGroup
+- Set-AzureADMSGroup
+- Get-AzureADMSGroupLifecyclePolicy
+- New-AzureADMSGroupLifecyclePolicy
+- Remove-AzureADMSGroupLifecyclePolicy
+- Add-AzureADMSLifecyclePolicyGroup
+- Remove-AzureADMSLifecyclePolicyGroup
+- Reset-AzureADMSLifeCycleGroup   
+- Get-AzureADMSLifecyclePolicyGroup
+ 
+
+---
+ 
+### <a name="a-new-release-of-azure-ad-connect-is-available"></a>Azure AD Connect yeni bir sürüm kullanılabilir
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** AD eşitleme  
+**Ürün yetenek:** Platform
+ 
+
+Azure AD Connect, Azure AD arasında ve Windows Server Active Directory ve LDAP dahil olmak üzere şirket içi veri kaynakları ile veri eşitlemek için tercih edilen bir araçtır.
+
+**Önemli**
+ 
+Bu yapı şema ve eşitleme tanıtır kural değişiklikleri. Azure AD Connect eşitleme hizmeti bir yükseltmeden sonra bir tam içeri aktarma ve tam eşitleme adımları tetikler. Bu davranış değiştirme hakkında daha fazla bilgi için bkz: [yükselttikten sonra tam eşitleme erteleme nasıl](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#how-to-defer-full-synchronization-after-upgrade).
+
+Bu sürüm aşağıdaki güncelleştirmeler ve değişiklikler bulunur:
+
+**Giderilen sorunlar**
+
+- Sonraki sayfaya geçiş yaparken Paritition filtreleme sayfası için arka plan görevleri zamanlama penceresi düzeltin.
+- ConfigDB özel eylemi sırasında erişim ihlali neden olan bir hata sabit.
+- SQL bağlantı zaman aşımı kurtarmak için bir hata sabit.
+- Bir hata olduğu SAN joker karakterlerle sertifikaları Önkoşul denetimi başarısız sabit.
+- AAD bağlayıcı dışa aktarma sırasında miiserver.exe kilitlenme neden olan bir hata sabit.
+- AAD çalıştırırken DC'de oturum hangi hatalı parola denemesi connect yapılandırmasını değiştirmek için Sihirbazı hatanın düzeltildiğini
+
+**Yeni özellikleri ve geliştirmeleri**
+
+- GDPR için biz (telemetri, sistem durumu, vb.), Microsoft ile paylaşılır müşteri veri türlerini ayrıntılı çevrimiçi belgeleri bağlantıları ve tercihleriniz değiştirmek için bir şekilde sağlamak göstermek için gereklidir.  Bu iade şunları ekler:
+    - Veri paylaşımı ve gizlilik bildirimi temiz EULA sayfası yükleyin.
+
+    - Veri paylaşımı ve gizlilik bildirimini yükseltme sayfasında.
+
+    - Yeni bir ek görevi **gizlilik ayarları** burada kullanıcısı değiştirebilir tercihlerini.
+ 
+- Uygulama telemetri - Yöneticiler bu sınıfın açık/kapalı veri geçiş yapabilirsiniz.
+
+- Azure AD sistem durumu verileri - yöneticiler kendi sistem durumu ayarlarını denetlemek için sistem durumu portalını ziyaret edin gerekir. Hizmet İlkesi değiştirilmişse, aracıları okuyun ve onu zorlayın.
+
+- Cihaz geri yazma yapılandırma işlemleri ve sayfa başlatma için bir ilerleme çubuğu eklendi.
+
+- Genel tanılama HTML raporu ve ZIP metin tam veri toplama ile geliştirilmiş / HTML raporu.
+
+- Geliştirilmiş güvenilirliğini otomatik yükseltme ve sunucusunun sistem durumunu belirlenebilir emin olmak için ek telemetri eklenir.
+
+- Kullanılabilir AD Bağlayıcısı hesabındaki ayrıcalıklı hesaplara kısıtlayın. Yeni yüklemeler için sihirbazın hesapları ayrıcalıklı izinleri kısıtlar MSOL hesabı oluşturduktan sonra MSOL hesabında sahip. Değişiklikler express yüklemeleri ve otomatik olarak oluşturma hesabıyla özel yüklemeler etkiler.
+
+- Yükleyici AADConnect temiz yüklemesini SA ayrıcalığına gerektirmeyecek şekilde değiştirildi.
+
+- Belirli bir nesnesi için eşitleme sorunlarını gidermek için yeni yardımcı program'ı seçin. Şu anda, yardımcı program aşağıdakileri denetler:
+
+    - Eşitlenen kullanıcı nesnesi ve Azure AD Kiracı Kullanıcı hesabında arasında UserPrincipalName uyuşmazlığı.
+  
+    - Etki alanı filtreleme nedeniyle gelen nesne filtre durumunda
+  
+    - Nesne filtreleme kuruluş birimi (OU) nedeniyle gelen filtre durumunda
+
+- Belirli bir kullanıcı hesabı için şirket içi Active Directory içinde depolanan geçerli parola karması eşitlemek için yeni yardımcı program'ı seçin. Yardımcı program parola değişikliği gerekli değildir. 
+ 
+
+---
+ 
+
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>Uygulamalar için destek Intune App koruma ilkeleri eklenen Azure AD uygulama tabanlı koşullu erişim ile kullanma
+
+**Tür:** değiştirilen özelliği  
+**Servis kategorisi:** koşullu erişim  
+**Ürün yetenek:** kimlik güvenlik ve koruma
+ 
+
+Uygulama tabanlı koşullu erişimi destekleyen daha fazla uygulama ekledik. Şimdi, Office 365 ve bu onaylanmış istemci uygulamalarını kullanarak diğer Azure AD bağlı bulut uygulamalarına erişim alabilirsiniz.
+
+Aşağıdaki uygulamalar Şubat sonuna eklenir 
+
+- Microsoft PowerBI
+
+- Microsoft Launcher
+
+- Microsoft faturalama
+
+Daha fazla bilgi için bkz.
+
+- [Onaylanmış istemci uygulama gereksinimi](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Azure AD uygulama temelli koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+ 
+
+---
+ 
+
+### <a name="terms-of-use-update-to-mobile-experience"></a>Mobil deneyim için kullanım koşullarını güncelleştirin 
+
+**Tür:** değiştirilen özelliği  
+**Servis kategorisi:** kullanım koşulları  
+**Ürün yetenek:** idare
+ 
+
+Kullanım koşulları görüntülendiğinde, şimdi tıklayabilirsiniz **sorun görüntüleme sahip mi? Burayı**. Bu bağlantıya tıkladıklarında, Cihazınızda yerel kullanım koşullarını açar. Belge yazı tipi boyutu veya aygıt ekran boyutunu bağımsız olarak, yakınlaştırma ve gerektiğinde belgeyi okuyun. 
+ 
+
+---
+ 
 ## <a name="january-2018"></a>Ocak 2018
  
 

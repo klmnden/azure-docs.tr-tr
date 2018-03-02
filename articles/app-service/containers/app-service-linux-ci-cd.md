@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 84bc344438d5542cc6409fa50aa6e55eb547c6a8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: HT
+ms.author: aelnably;msangapu
+ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kapsayıcıları için Web uygulaması ile sürekli dağıtımı
 
@@ -34,14 +34,14 @@ Oturum [Azure portalı](https://portal.azure.com)
 Sürekli dağıtım özelliğini kullanarak etkinleştirebilirsiniz [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ve aşağıdaki komutu yürütme
 
 ```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
+az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
 İçinde  **[Azure portal](https://portal.azure.com/)**, tıklatın **uygulama hizmeti** sayfanın sol seçeneği.
 
 Docker hub'a sürekli dağıtımı için yapılandırmak istediğiniz, uygulamanızın adına tıklayın.
 
-İçinde **uygulama ayarları**, denilen bir uygulama ekleyin `DOCKER_ENABLE_CI` değerle `true`.
+İçinde **Docker kapsayıcısı**, 'On' ı sonra sürekli dağıtımını etkinleştirmek için Kaydet'e basın.
 
 ![uygulama ayarı görüntüsü Ekle](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
@@ -50,7 +50,7 @@ Docker hub'a sürekli dağıtımı için yapılandırmak istediğiniz, uygulaman
 Web kancası URL'si kullanarak elde edebilirsiniz [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ve aşağıdaki komutu yürütme
 
 ```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
+az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
 Web kancası URL'si, aşağıdaki uç nokta içerecek şekilde gerekir: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.

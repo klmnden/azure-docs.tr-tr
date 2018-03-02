@@ -8,11 +8,11 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure portalı ve Event Grid ile özel olaylar oluşturma ve yönlendirme
 
@@ -43,7 +43,7 @@ Event Grid konuları Azure kaynaklarıdır ve bir Azure kaynak grubuna yerleşti
 
 Konu, olaylarınızı gönderdiğiniz kullanıcı tanımlı bir uç nokta sağlar. 
 
-1. Kaynak grubunuzda bir konu oluşturmak için **Diğer hizmetler**'i seçin ve *olay kılavuzu* araması yapın. Açılan seçeneklerden **Olay Kılavuzu Konuları**'nı seçin.
+1. Kaynak grubunuzda bir konu oluşturmak için **Tüm hizmetler**'i seçin ve *olay kılavuzu* araması yapın. Açılan seçeneklerden **Olay Kılavuzu Konuları**'nı seçin.
 
    ![Olay kılavuzu konusu oluşturma](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -67,7 +67,7 @@ Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Konuya
 
 Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. 
 
-1. Event Grid aboneliği oluşturmak için yine **Diğer Hizmetler**'i seçin ve *olay kılavuzu* araması yapın. Açılan seçeneklerden **Olay Kılavuzu Abonelikleri**'ni seçin.
+1. Event Grid aboneliği oluşturmak için yine **Tüm Hizmetler**'i seçin ve *olay kılavuzu* araması yapın. Açılan seçeneklerden **Olay Kılavuzu Abonelikleri**'ni seçin.
 
    ![Olay kılavuzu aboneliği oluşturma](./media/custom-event-quickstart-portal/create-subscription.png)
 

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ea842ecb40e2aff3316ed255388412597bb28eae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure’daki sanal makine ölçek kümeleri nedir?
 Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure işlem kaynağıdır. Tüm sanal makinelerin aynı şekilde yapılandırıldığı ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır ve sanal makinelerin önceden hazırlanması gerekmez. Bu nedenle büyük işlem, büyük veri ve kapsayıcı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
@@ -33,7 +33,7 @@ Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kü
 * [Guy Bowerman ile Sanal Makine Ölçek Kümeleri](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Ölçek kümeleri oluşturma ve yönetme
-[Azure portalında](https://portal.azure.com) **yeni** öğesini seçip arama çubuğuna **ölçek** yazarak bir ölçek kümesi oluşturabilirsiniz. Sonuçlar arasında **Sanal makine ölçek kümesi** seçeneği listelenir. Buradan gerekli alanları doldurarak ölçek kümenizi özelleştirip dağıtabilirsiniz. Portalda CPU kullanımına göre temel otomatik ölçeklendirme kurallarını ayarlamaya yönelik seçenekler de mevcuttur. Ölçek kümenizi yönetmek için Azure portalını, [Azure PowerShell cmdlet'lerini](virtual-machine-scale-sets-windows-manage.md) veya Azure CLI 2.0'ı kullanabilirsiniz.
+[Azure portalında](https://portal.azure.com) **Kaynak oluştur** öğesini seçip arama çubuğuna **ölçek** yazarak bir ölçek kümesi oluşturabilirsiniz. Sonuçlar arasında **Sanal makine ölçek kümesi** seçeneği listelenir. Buradan gerekli alanları doldurarak ölçek kümenizi özelleştirip dağıtabilirsiniz. Portalda CPU kullanımına göre temel otomatik ölçeklendirme kurallarını ayarlamaya yönelik seçenekler de mevcuttur. Ölçek kümenizi yönetmek için Azure portalını, [Azure PowerShell cmdlet'lerini](virtual-machine-scale-sets-windows-manage.md) veya Azure CLI 2.0'ı kullanabilirsiniz.
 
 Ölçek kümeleri bir [kullanılabilirlik alanları](virtual-machine-scale-sets-use-availability-zones.md) genelinde dağıtılabilir.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2b822794cbafa037d4ab3cb23d2a885914c83607
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -97,7 +97,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
     Azure Cosmos DB SDK'ları en iyi performansı sağlamak için sürekli geliştirilen. Bkz: [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) en son SDK belirlemek ve geliştirmeleri gözden geçirmek için sayfaları.
 2. **Bir singleton Azure Cosmos DB istemci uygulamanızın ömrü boyunca kullanın**
 
-    Efach DocumentClient örnek iş parçacığı açısından güvenli ve verimli bağlantı yönetimi ve doğrudan modunda çalışırken adresi önbelleğe alma gerçekleştirir. Verimli bağlantı yönetimi ve daha iyi performans DocumentClient ile izin vermek için uygulama yaşam süresi için DocumentClient AppDomain başına tek bir örneğini kullanmak için önerilir.
+    Her DocumentClient örnek iş parçacığı açısından güvenli ve verimli bağlantı yönetimi ve doğrudan modunda çalışırken adresi önbelleğe alma gerçekleştirir. Verimli bağlantı yönetimi ve daha iyi performans DocumentClient ile izin vermek için uygulama yaşam süresi için DocumentClient AppDomain başına tek bir örneğini kullanmak için önerilir.
 
    <a id="max-connection"></a>
 3. **Ağ geçidi modu kullanırken System.Net MaxConnections ana bilgisayar başına artırın**

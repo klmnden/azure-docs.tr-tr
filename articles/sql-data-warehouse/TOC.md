@@ -1,3 +1,5 @@
+# [SQL Veri Ambarı Belgeleri](index.md)
+
 # Genel Bakış
 
 ## [SQL Veri Ambarı Hakkında](sql-data-warehouse-overview-what-is.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: bac84043eb6456feae35c59b6ee12f9be5f46297
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: fe460113441933d655b183e87cceefee4dd24d24
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Sertifika kimlik doğrulaması kullanarak Noktadan Siteye VNet bağlantısını yapılandırma (klasik): Azure portalı
 
@@ -80,9 +80,7 @@ Başlamadan önce, bir Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure 
 Sanal ağınız yoksa bir sanal ağ oluşturun. Ekran görüntüleri örnek olarak verilmiştir. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Azure portalını kullanarak sanal ağ oluşturmak için şu adımları uygulayın:
 
 1. Tarayıcıdan [Azure portalına](http://portal.azure.com) gidin ve gerekiyorsa Azure hesabınızda oturum açın.
-2. **Yeni**’ye tıklayın. **Markette ara** alanına 'Sanal Ağ' yazın. Döndürülen listeden **Sanal Ağ**’ı bulun ve tıklayarak **Sanal Ağ** sayfasını açın.
-
-  ![Sanal ağ ara sayfası](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
+2. **Kaynak oluştur** > **Ağ** > **Sanal Ağ** seçeneğine tıklayın. 
 3. Sanal Ağ sayfasının en altına doğru, **Bir dağıtım modeli seçin** listesinden **Klasik**’i seçip **Oluştur**’a tıklayın.
 
   ![Dağıtım modeli seçme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
@@ -184,6 +182,11 @@ Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayar
 ## <a name="connect"></a>5. Azure'a Bağlanma
 
 ### <a name="connect-to-your-vnet"></a>Sanal ağınıza bağlanma
+
+>[!NOTE]
+>Bağlanmakta olduğunuz istemci bilgisayarında Yönetici haklarına sahip olmanız gerekir.
+>
+>
 
 1. İstemci bilgisayarda sanal ağınıza bağlanmak için VPN bağlantılarında gezinin ve oluşturduğunuz VPN bağlantısını bulun. Bu VPN bağlantısı sanal ağınızla aynı ada sahiptir. **Bağlan**'a tıklayın. Sertifika kullanımına ilişkin bir açılır ileti görüntülenebilir. Böyle bir durumla karşılaşırsanız yükseltilmiş ayrıcalıkları kullanmak için **Devam**'a tıklayın.
 2. **Bağlantı** durum sayfasında **Bağlan**'a tıklayarak bağlantıyı başlatın. Bir **Sertifika Seç** ekranı çıkarsa, gösterilen istemci sertifikasının bağlanmak için kullanmak istediğiniz sertifika olduğunu doğrulayın. Başka bir sertifika gösteriliyorsa, açılan liste okunu kullanarak doğru sertifikayı seçin ve **Tamam**’a tıklayın.

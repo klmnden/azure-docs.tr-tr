@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 903177506c31ec96452cbbdbade4a3d91dbf7571
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti
 
@@ -63,7 +63,7 @@ Yeni sürümler eklendikçe komut dosyalarınızı belirli veri biçimleri üzer
 Örnek meta verileri oluşturulan yönetilen/kullanarak sanal makineleri çalıştırmak için kullanılabilir [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Aşağıdaki isteği kullanarak bir sanal makine örneği için tüm veri kategorilerini erişebilirsiniz:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 > [!NOTE] 
@@ -81,7 +81,7 @@ API | Varsayılan veri biçimi | Diğer biçimlere
 Varsayılan olmayan yanıt biçimi erişmek için bir istek sorgu dizesi parametresi olarak istenen biçim belirtin. Örneğin:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 ### <a name="security"></a>Güvenlik
@@ -149,7 +149,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 #### <a name="retrieving-public-ip-address"></a>Genel IP adresi alınıyor
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="retrieving-all-metadata-for-an-instance"></a>Bir örneği için tüm meta veri alma
@@ -218,13 +218,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Örnek meta verileri alınabilir Windows PowerShell yardımcı programı `curl`: 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
 Aracılığıyla veya `Invoke-RestMethod` cmdlet:
     
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
 ```
 
 **Yanıt**
@@ -313,7 +313,7 @@ Bir hizmet sağlayıcısı olarak yazılımınızı çalışan VM sayısı izlem
 **İstek**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **Yanıt**
@@ -330,7 +330,7 @@ Bu veri örneği meta veri hizmeti üzerinden doğrudan sorgulayabilir.
 **İstek**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" 
 ```
 
 **Yanıt**
@@ -346,7 +346,7 @@ Bir hizmet sağlayıcısı olarak, burada VM hakkında daha fazla bilgiye istedi
 **İstek**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
 ```
 
 **Yanıt**

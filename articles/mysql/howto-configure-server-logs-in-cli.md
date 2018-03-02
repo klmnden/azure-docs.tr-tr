@@ -1,25 +1,25 @@
 ---
-title: "Erişim sunucusu, Azure CLI kullanarak MySQL için Azure veritabanı'nda oturum | Microsoft Docs"
+title: "Erişim sunucusu Azure veritabanı'nda MySQL için Azure CLI kullanarak kaydeder."
 description: "Bu makalede, Azure CLI komut satırı yardımcı programını kullanarak MySQL için Azure veritabanı sunucusu günlüklerine erişmek açıklar."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 908f28d8bd3d0dcbd03636e69cd47b5c47f3cfde
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 02/28/2018
+ms.openlocfilehash: 8cd83722569eef503030b7e7438a73209cb812d6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Yapılandırma ve Azure CLI kullanarak sunucu günlüklerine erişme
 Azure veritabanı için MySQL server günlüklerini Azure CLI, Azure'nın komut satırı yardımcı programını kullanarak yükleyebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Nasıl yapılır bu kılavuzu adım için gerekir:
 - [MySQL sunucusu için Azure veritabanı](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) veya tarayıcıda Azure bulut Kabuğu'nu kullanın.
@@ -33,25 +33,25 @@ Bkz: [sunucu parametreleri yapılandırmak için nasıl](howto-configure-server-
 
 Örneğin, aşağıdaki CLI komutu yavaş sorgu oturum açar, uzun sorgu süresi 10 saniye olarak ayarlar ve yavaş yönetici deyiminin günlüğünü kapatır. Son olarak, gözden geçirmeniz için yapılandırma seçeneklerini listeler.
 ```azurecli-interactive
-az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server myserver4demo --value ON
-az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server myserver4demo --value 10
-az mysql server configuration set --name log_slow_admin_statements --resource-group myresourcegroup --server myserver4demo --value OFF
-az mysql server configuration list --resource-group myresourcegroup --server myserver4demo
+az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
+az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server mydemoserver --value 10
+az mysql server configuration set --name log_slow_admin_statements --resource-group myresourcegroup --server mydemoserver --value OFF
+az mysql server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>MySQL sunucusu için Azure veritabanı için liste günlükleri
 Sunucunuz için kullanılabilir günlük dosyaları listelemek için Çalıştır [az mysql server günlüklerini listesi](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) komutu.
 
-Sunucu için günlük dosyalarını listeleyebilirsiniz **myserver4demo.mysql.database.azure.com** kaynak grubu altında **myresourcegroup**hem de adlı bir metin dosyası doğrudan **günlük\_dosyaları \_list.txt.**
+Sunucu için günlük dosyalarını listeleyebilirsiniz **mydemoserver.mysql.database.azure.com** kaynak grubu altında **myresourcegroup**hem de adlı bir metin dosyası doğrudan **günlük\_dosyaları \_list.txt.**
 ```azurecli-interactive
-az mysql server-logs list --resource-group myresourcegroup --server myserver4demo > log_files_list.txt
+az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Günlükleri sunucudan indirme
 [Az mysql server-günlükleri indirmek](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) komutu sunucunuz için ayrı günlük dosyalarını indirmek sağlar. 
 
-Bu örnek sunucu için belirli günlük dosyasını karşıdan **myserver4demo.mysql.database.azure.com** kaynak grubu altında **myresourcegroup** yerel ortamınıza.
+Bu örnek sunucu için belirli günlük dosyasını karşıdan **mydemoserver.mysql.database.azure.com** kaynak grubu altında **myresourcegroup** yerel ortamınıza.
 ```azurecli-interactive
-az mysql server-logs download --name 20170414-myserver4demo-mysql.log --resource-group myresourcegroup --server myserver4demo
+az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-group myresourcegroup --server mydemoserver
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar

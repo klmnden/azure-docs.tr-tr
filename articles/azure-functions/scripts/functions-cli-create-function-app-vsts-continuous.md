@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio Team Services dağıtılan Azure işlevi oluşturma | Microsoft Docs"
-description: "Bir işlev uygulaması oluşturma ve Visual Studio Team Services işlevi koddan dağıtma"
+title: "Azure’da Visual Studio Team Services’ten dağıtılmış bir işlev oluşturma | Microsoft Docs"
+description: "Bir İşlev Uygulaması oluşturma ve işlev kodunu Visual Studio Team Services’ten dağıtma"
 services: functions
 keywords: 
 author: syntaxc4
@@ -9,46 +9,50 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-ms.translationtype: MT
+ms.openlocfilehash: 789f4e0b325475ddc3ff7aeb6e014f3814ac3458
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Visual Studio Team Services dağıtılan Azure işlevi oluşturma
+# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Bir işlev uygulaması oluşturma ve işlev kodunu Visual Studio Team Services’ten dağıtma
 
-Bu konuda Azure işlevlerinin oluşturmak için nasıl kullanılacağı gösterilmektedir bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) uygulama işlevini kullanarak [tüketim planı](../functions-scale.md#consumption-plan). İşlevlerinizi için bir kapsayıcıdır, işlev uygulaması, bir Visual Studio Team Services (VSTS) depodan sürekli olarak dağıtılır. Bu konuda tamamlamak için şunlara sahip olmalısınız:
+Bu konu başlığında, [tüketim planını](../functions-scale.md#consumption-plan) kullanarak [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) bir işlev uygulaması oluşturmak için Azure İşlevleri kullanma gösterilir. İşlevleriniz için bir kapsayıcı olan işlev uygulaması, bir Visual Studio Team Services (VSTS) deposundan sürekli olarak dağıtılır. 
 
-* İşlev uygulaması projenize içeren ve yönetim izinlerine sahip bir VSTS deposu.
-* A [kişisel erişim belirteci (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) VSTS deponuz erişmek için.
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+Bu konuyu tamamlamak için şunlara sahip olmalısınız:
+
+* İşlev uygulaması projenizi içeren ve yönetim izinlerine sahip olduğunuz bir VSTS deposu.
+* VSTS deponuza erişmek için bir [kişisel erişim belirteci (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Bunun yerine Azure CLI yerel olarak kullanırsanız, yüklemeniz ve sürüm 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Azure CLI Sürüm belirlemek için çalıştırın `az --version`. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bunun yerine Azure CLI’yi yerel olarak kullanırsanız, sürüm 2.0 veya sonraki bir sürümü yükleyip kullanmanız gerekir. Azure CLI sürümünü belirlemek için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
-Bu örnek bir Azure işlevi uygulamasını oluşturur ve Visual Studio Team Services işlevi koddan dağıtır.
+Bu betik, bir Azure İşlev uygulaması oluşturur ve işlev kodunu Visual Studio Team Services’ten dağıtır.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut, bir kaynak grubu, depolama hesabı, işlev uygulaması ve tüm ilgili kaynaklar oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik, bir kaynak grubu, depolama hesabı, işlev uygulaması ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az depolama hesabı oluşturma](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | App Service planı oluşturur. |
-| [az functionapp oluşturma](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [az appservice web kaynak denetimi yapılandırma](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Bir işlev uygulaması Git veya Mercurial deposu ile ilişkilendirir. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | App Service planı oluşturur. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
+| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Bir işlev uygulamasını Git veya Mercurial deposu ile ilişkilendirir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).
 
-Ek Azure işlevleri CLI kod örnekleri bulunabilir [Azure işlevleri belgelerine](../functions-cli-samples.md).
+Ek Azure İşlevleri CLI betiği örnekleri, [Azure İşlevleri belgelerinde](../functions-cli-samples.md) bulunabilir.

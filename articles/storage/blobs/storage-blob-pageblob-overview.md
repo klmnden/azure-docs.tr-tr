@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: wielriac
-ms.openlocfilehash: 3834fea5961a9c69243bb8e852631585c26a103f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 56e8c4c9f7ab9b40a210f284960f959a437a4e20
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure sayfa Bloblarını benzersiz özellikleri
 
@@ -117,7 +117,7 @@ foreach (PageRange range in pageRanges)
 #### <a name="leasing-a-page-blob"></a>Bir sayfa blob'u kiralama
 Kira blob'u işlemi oluşturur ve yazma için bir blob üzerinde bir kilit yönetir ve silme işlemleri. Bu işlem, aynı anda yalnızca bir istemci için blob yazabilirsiniz emin olmak için birden çok istemciden alınan bir sayfa blob'u burada erişiliyor senaryolarda kullanışlıdır. Azure diskleri, örneğin, yararlanır bu kiralama mekanizması disk yalnızca tek bir VM tarafından yönetildiğinden emin olun. Kilit süresi 15 ila 60 saniye olabilir veya sonsuz olabilir. Belgelerine bakın [burada](/rest/api/storageservices/lease-blob) daha fazla ayrıntı için.
 
-> Almak için aşağıdaki bağlantıyı kullanın [kod örnekleri](/resources/samples/?service=storage&term=blob&sort=0) diğer birçok uygulama senaryoları için. 
+> Almak için aşağıdaki bağlantıyı kullanın [kod örnekleri](/resources/samples/?service=storage&term=blob&sort=0 ) diğer birçok uygulama senaryoları için. 
 
 Zengin REST API'lerini ek olarak, sayfa bloblarını paylaşılan erişim, dayanıklılık ve Gelişmiş güvenlik sağlar. Biz bu avantajlar sonraki paragrafları daha ayrıntılı olarak ele alınacaktır. 
 

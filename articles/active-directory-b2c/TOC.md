@@ -1,3 +1,5 @@
+# [Azure AD B2C Belgeleri](index.md)
+
 # [Genel Bakış](active-directory-b2c-overview.md)
 
 # başlarken

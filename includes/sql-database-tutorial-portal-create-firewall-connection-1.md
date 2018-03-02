@@ -8,11 +8,11 @@ Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](../articles/sql-da
 
 Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin. 
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 
 2. **Yeni** penceresinden **Veritabanları**’nı seçin ve **Yeni** sayfasında **SQL Veritabanı** altından **Oluştur**’u seçin.
 
-   ![Boş veritabanı oluşturma](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
+   ![create empty-database](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
 3. SQL Veritabanı formunu, önceki görüntüde gösterildiği gibi aşağıdaki bilgilerle doldurun:   
 
@@ -38,7 +38,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 
 6. Hizmet katmanını, DTU'ların sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanılabilir DTU'lar ve depolama alanı miktarı seçeneklerini araştırın. 
 
-7. Bu öğretici için seçin **standart** hizmet katmanı ve seçmek için kaydırıcıyı kullanın **100 Dtu'lar (S3)** ve **400** GB depolama alanı.
+7. Bu öğreticide, **standart** hizmet katmanını seçip kaydırıcıyı kullanarak **100 DTU (S3)** ve **400** GB depolama alanını seçin.
 
    ![create database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
@@ -47,14 +47,14 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
    > [!IMPORTANT]
    > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\*Premium katmanındaki birden fazla 1 TB depolama alanı aşağıdaki bölgelerde şu anda kullanılabilir değil: Avustralya Doğu, Avustralya Güneydoğu, Orta Kanada, Doğu Kanada, Fransa Merkezi, Almanya merkezi Japonya, Doğu merkezi Kore, Güney Orta ABD, Güney Doğu Asya, BİZE East2 , Batı ABD, ABD kamu Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama alanı mevcuttur: Avustralya Doğu, Avustralya Güneydoğu, Orta Kanada, Doğu Kanada, Fransa Orta, Orta Almanya, Doğu Japonya, Orta Kore, Güney Orta ABD, Güneydoğu Asya, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  
 
-10. Seçin bir **harmanlama** boş veritabanı için (Bu öğretici için varsayılan değeri kullanın). Harmanlamaları hakkında daha fazla bilgi için bkz: [harmanlamaları](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Boş veritabanı için bir **harmanlama** seçin (bu öğretici için varsayılan değeri kullanın). Harmanlamalar hakkında daha fazla bilgi için bkz. [Harmanlamalar](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-11. Veritabanını sağlamak için **Oluştur**’a tıklayın. Bir dakika ve bir tamamlamak için altı hakkında alır sağlama. 
+11. Veritabanını sağlamak için **Oluştur**’a tıklayın. Sağlama işleminin tamamlanması yaklaşık olarak bir buçuk dakika sürer. 
 
 12. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
     
@@ -68,13 +68,13 @@ SQL Veritabanı hizmeti, güvenlik duvarını belirli IP adreslerine açmaya yö
 > SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
 >
 
-1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınız için genel bakış sayfası açılır ve tam sunucu adını gösteren (gibi **mynewserver20170824.database.windows.net**) ve diğer yapılandırmalar için seçenekler sağlar. 
+1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adı (örneğin, **mynewserver20170824.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur. 
 
 2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. 
 
    ![sunucu adı](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-3. Tıklatın **ayarlayın sunucu Güvenlik Duvarı** araç çubuğunda. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
+3. Araç çubuğunda **Sunucu güvenlik duvarını ayarla**’ya tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
 
    ![sunucu güvenlik duvarı kuralı](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 

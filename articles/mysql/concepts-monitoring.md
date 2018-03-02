@@ -1,19 +1,19 @@
 ---
-title: "MySQL için Azure veritabanında izleme | Microsoft Docs"
+title: "MySQL için Azure veritabanında izleme"
 description: "Bu makalede izleme ve Azure veritabanı için CPU, sınırları, depolama ve bağlantı istatistikleri de dahil olmak üzere MySQL için uyarı için ölçümleri açıklanmaktadır."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 9af447d54faa8ee96e4b79beb274b437eea57626
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 7ecfb8151cd81fb588f964fdfa3a74aacab24874
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>MySQL için Azure veritabanında izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve işleminizi iş yükü için en iyi duruma yardımcı olur. Azure veritabanı MySQL için MySQL server destekleyen kaynaklarda davranışını bir anlayış veren çeşitli ölçümleri sağlar. 
@@ -41,9 +41,6 @@ Bu ölçümleri, Azure veritabanı için MySQL için kullanılabilir:
 |active_connections|Toplam etkin bağlantılar|Sayı|Sunucuya etkin bağlantı sayısı.|
 |connections_failed|Toplam başarısız bağlantıları|Sayı|Sunucuya başarısız bağlantılarının sayısı.|
 
-
-> [!NOTE]
-> İşlem bellek ve CPU birim oluşur. İşlem birim yüzdesidir max (% bellek, cpu %). Hangi işlem birim yüzdesi değişiklikler katkıda bulunan saptamak için bellek ve cpu grafiklerini inceleyin. Daha fazla bilgi için bkz: [birimleri işlem](concepts-compute-unit-and-storage.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Adım adım yönergeler için bkz [uyarıları ayarlamak nasıl](howto-alert-on-metric.md). 

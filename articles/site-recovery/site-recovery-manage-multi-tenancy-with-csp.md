@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: a49da33c8038ad467389c66e59727c7e195baf82
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6dc8b573e66eaae1b5cb923ae72333fb959d0969
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>Çoklu kiracı bulut çözümü sağlayıcısı (CSP) programı ile yönetme
 
@@ -28,7 +28,7 @@ Azure Site Recovery ile iş ortakları, müşteriler CSP aracılığıyla doğru
 
 Bu makalede, bir iş ortağı nasıl oluşturabilir ve CSP, Kiracı aboneliği için çok kiracılı VMware Kurulum yönetebilirsiniz açıklanmaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - [Hazırlama](tutorial-prepare-azure.md) bir Azure aboneliği, Azure sanal ağı ve bir depolama hesabı gibi Azure kaynakları.
 - [Hazırlama](tutorial-prepare-on-premises-vmware.md) VMware şirket içi VMware sunucularını ve Vm'leri.
@@ -76,14 +76,14 @@ Kiracının abonelik açıklandığı gibi Microsoft iş ortağı merkezi Pano e
 
     Tıklatarak **tüm kaynakları** kiracının Azure abonelikleri erişim sağlar. Üst Azure Active Directory bağlantısını tıklatarak erişim doğrulayabilirsiniz Azure portalının sağ.
 
-    ![Azure Active Directory bağlantısı](./media/site-recovery-manage-multi-tenancy-with-csp/aad-admin-display.png)
+    ![Azure Active Directory link](./media/site-recovery-manage-multi-tenancy-with-csp/aad-admin-display.png)
 
 Artık Azure Portalı aracılığıyla Kiracı için tüm site kurtarma işlemleri ve olağanüstü durum kurtarma işlemlerini yönetebilirsiniz. Kiracı aboneliği, yönetilen olağanüstü durum kurtarma için CSP erişmek için yukarıda açıklanan süreci izleyin.
 
 ## <a name="deploy-resources-to-the-tenant-subscription"></a>Kaynaklar için Kiracı aboneliği dağıtma
 1. Azure portalında bir kaynak grubu oluşturun ve sonra bir kurtarma Hizmetleri kasası normal işlem başına dağıtın.
 
-2. Kasa kayıt anahtarını indir
+2. Kasa kayıt anahtarını indirin.
 
 3. CS kasa kayıt anahtarını kullanarak Kiracı için kaydedin.
 

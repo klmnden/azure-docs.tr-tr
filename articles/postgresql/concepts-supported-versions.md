@@ -1,19 +1,19 @@
 ---
-title: "Azure veritabanı'nda desteklenen sürümleri için PostgreSQL | Microsoft Docs"
+title: "Azure veritabanında PostgreSQL için desteklenen sürümleri"
 description: "Azure veritabanı'nın desteklenen sürümleri için PostgreSQL açıklar."
 services: postgresql
 author: kamathsun
 ms.author: sukamat
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 646e95f5c3c7bc9bb175a5532435b28bb998b49b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 2065631922d25deaa94601484da9b8de3fd62b22
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="supported-postgresql-database-versions"></a>Desteklenen PostgreSQL veritabanı sürümleri
 Microsoft Azure şu anda yayımlanmış ana sürüm (n) ve iki önceki ana sürüm (-2) anlamına veritabanında PostgreSQL hizmeti PostgreSQL altyapısı n-2 sürümleri desteklemek için amaçlar.

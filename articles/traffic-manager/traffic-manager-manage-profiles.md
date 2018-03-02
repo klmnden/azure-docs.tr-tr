@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19f8f373fed8c7e9ab64f2fc9e34eba182af717
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Bir Azure Traffic Manager profilini yönetme
 
@@ -31,8 +31,8 @@ Azure portalını kullanarak bir Traffic Manager profili oluşturabilirsiniz. Pr
 ### <a name="to-create-a-traffic-manager-profile"></a>Traffic Manager profili oluşturma
 
 1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın. Henüz bir hesabınız yoksa, [bir aylık ücretsiz denemeye](https://azure.microsoft.com/free/) kaydolabilirsiniz. 
-2. **Hub** menüsünde **Yeni** > **Ağ** > **Tümünü gör**’e tıklayın, **Traffic Manager** profiline tıklayarak **Traffic Manager profili oluştur** dikey penceresini açın, ardından **Oluştur**’a tıklayın.
-3. **Traffic Manager profili oluştur** dikey penceresini aşağıdaki gibi doldurun:
+2. **Kaynak oluştur** > **Ağ** > **Traffic Manager profili** > **Oluştur** seçeneğine tıklayın.
+4. **Traffic Manager profili oluştur** dikey penceresini aşağıdaki gibi doldurun:
     1. **Ad** alanında profiliniz için bir ad belirtin. Bu adın trafficmanager.net bölgesinde benzersiz olması ve Traffic Manager profilinize erişmek için kullanılan <name>, trafficmanager.net DNS adı ile sonuçlanması gerekir.
     2. **Yönlendirme yöntemi** alanında **Öncelik** yönlendirme yöntemini seçin.
     3. **Abonelik** alanında bu profili hangi abonelik altında oluşturacağınızı seçin
@@ -51,21 +51,23 @@ Mevcut bir profili devre dışı bırakarak Traffic Manager’ın kullanıcı is
 2. Traffic Manager profil ayarları aracılığıyla trafiğin uç noktalara yönlendirilmesi durdurulur.
 3. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
-3. **Traffic Manager profili** dikey penceresinde **Genel Bakış**’a, Genel Bakış dikey penceresinde **Devre Dışı Bırak**’a tıklayın ve ardından Traffic Manager profilini devre dışı bırakmak istediğinizi onaylayın.
+3. **Genel bakış** > **Devre dışı bırak** seçeneğine tıklayın.
+4. Traffic Manager profilini devre dışı bırakmak için onaylayın.
 
 ### <a name="to-enable-a-profile"></a>Bir profili etkinleştirme
 
 1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
-3. **Traffic Manager profili** dikey penceresinde **Genel Bakış**’a ve sonra Genel Bakış dikey penceresinde **Etkinleştir**’e tıklayın.
-5. Özel etki alanı adı kullanıyorsanız İnternet DNS sunucunuzda Traffic Manager profilinizin etki alanı adını gösterecek bir CNAME kaynak kaydı oluşturun.
-6. Trafik yeniden uç noktalara yönlendirilir.
+3. **Genel bakış** > **Etkinleştir** seçeneğine tıklayın.
+1. Özel etki alanı adı kullanıyorsanız İnternet DNS sunucunuzda Traffic Manager profilinizin etki alanı adını gösterecek bir CNAME kaynak kaydı oluşturun.
+2. Trafik yeniden uç noktalara yönlendirilir.
 
 ### <a name="to-delete-a-profile"></a>Bir profili silme
 
 1. İnternet DNS sunucunuzdaki DNS kaynak kaydının Traffic Manager profilinize ait etki alanı adına işaret eden bir CNAME kaynak kaydını artık kullanmadığından emin olun.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
-3. **Traffic Manager profili** dikey penceresinde **Genel Bakış**’a, Genel Bakış dikey penceresinde **Sil**’e tıklayın ve ardından Traffic Manager profilini silmek istediğinizi onaylayın.
+3. **Genel bakış** > **Sil** seçeneğine tıklayın.
+4. Traffic Manager profilini silmek için onaylayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure Data Lake Analytics'i Azure PowerShell'i kullanarak yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Azure Data Lake Analytics hesapları, veri kaynaklarını, işlerini ve Azure PowerShell'i kullanarak katalog öğeleri yönetmeyi öğrenin. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bir Data Lake Analytics hesabı oluştururken bilmeniz gerekir:
 
@@ -99,13 +99,13 @@ Bir hesap ayrıntılarını alın.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Belirli bir Data Lake Analytics hesabı var olup olmadığını denetleyin. Cmdlet döndürür `True` veya `False`.
+Belirli bir Data Lake Analytics hesabı var olup olmadığını denetleyin. Cmdlet döndürür `$true` veya `$false`.
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-Belirli bir Data Lake Store hesabı var olup olmadığını denetleyin. Cmdlet döndürür `True` veya `False`.
+Belirli bir Data Lake Store hesabı var olup olmadığını denetleyin. Cmdlet döndürür `$true` veya `$false`.
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -154,8 +154,6 @@ Bir güvenlik duvarı kuralı kaldırın.
 ```powershell
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
-
-
 
 Azure IP adreslerini verin.
 
@@ -239,7 +237,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### <a name="submit-a-file-as-a-u-sql-script"></a>U-SQL komut dosyası olarak bir dosya gönderin
 
 ```powershell
@@ -258,15 +255,13 @@ Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-the-top-n-jobs"></a>İlk N işleri listelemek
 
-### <a name="list-a-specific-number-of-jobs"></a>İşlerini belirli sayıda listesi
-
-İşlerin listesini üzerinde sıralanır varsayılan saat gönderin. Bu nedenle en son gönderilen işler ilk görünür. Varsayılan olarak, 180 gün için işleri ADLA hesap hatırlıyor ancak Ge AdlJob cmdlet'i varsayılan olarak yalnızca ilk 500 döndürür. Kullanın - işleri belirli sayıda listelemek için üst parametre.
+İşlerin listesini üzerinde sıralanır varsayılan saat gönderin. Bu nedenle en son gönderilen işler ilk görünür. Varsayılan olarak, 180 gün için işleri ADLA hesap hatırlıyor ancak Get-AdlJob cmdlet'i varsayılan olarak yalnızca ilk 500 döndürür. Kullanın - işleri belirli sayıda listelemek için üst parametre.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>Proje özelliği değere göre listesi işleri
 
@@ -296,8 +291,8 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 Kullanım `-Result` sona erdi işler başarıyla tamamlandığında olup olmadığını algılamak için parametre. Bu değer vardır:
 
 * İptal edildi
-* Başarısız oldu
-* None
+* Başarısız
+* Hiçbiri
 * Başarılı oldu
 
 ``` powershell
@@ -307,7 +302,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 # List Failed jobs.
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
-
 
 `-Submitter` Parametre kullanan bir işin gönderildiği belirlemenize yardımcı olur.
 
@@ -338,7 +332,6 @@ Kullanım `Get-AdlJobPipeline` ardışık düzen bilgileri görmek için cmdlet 
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 

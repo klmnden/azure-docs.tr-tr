@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps sınırları ve yapılandırma
 
@@ -58,15 +58,22 @@ Bu sınırlar, tek bir HTTP istek veya bir bağlayıcı çağrı için geçerlid
 
 Bu sınırlar çalıştıran tek bir mantıksal uygulama için geçerlidir.
 
-| Ad | Sınır | 
-| ---- | ----- | 
-| Çalışma süresi | 90 gün | 
-| Depolama bekletme | Başlangıç zamanı çalışmanın 90 gün | 
-| En az yinelenme aralığı | 1 saniye </br>Logic apps ile bir uygulama hizmeti planı için: 15 saniye | 
-| En fazla yineleme aralığı | 500 gün | 
-||| 
+| Ad | Varsayılan | Sınır |
+| ---- | ------- | ----- |
+| Çalışma süresi   | 90 gün | 7-90 gün |
+| Depolama bekletme | Başlangıç zamanı çalışmanın 90 gün |  çalışmanın başlangıç zamanından itibaren 7-90 gün |
+||||
 
 Çalışma süresi veya depolama bekletme, normal işlem akışında sınırları aşan [ürün ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi Yardım almak için.
+
+
+### <a name="recurrence-interval"></a>Yinelenme aralığı
+
+| Ad | Sınır |
+| ---- | ------- |
+| En az yinelenme aralığı | 1 saniye </br>Logic apps ile bir uygulama hizmeti planı için: 15 saniye |
+| En fazla yineleme aralığı | 500 gün |
+|||
 
 ### <a name="looping-and-debatching-limits"></a>Döngü ve sınırları debatching
 
@@ -75,7 +82,7 @@ Bu sınırlar çalıştıran tek bir mantıksal uygulama için geçerlidir.
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
 | ForEach öğeleri | 100,000 | Kullanabileceğiniz [sorgu eylem](../connectors/connectors-native-query.md) gerektiği gibi daha büyük diziler filtre uygulamak için. | 
-| Kadar yineleme | 5,000 | | 
+| Kadar yineleme | 5.000 | | 
 | SplitOn öğeleri | 100,000 | | 
 | ForEach paralellik | 50 | Varsayılan değer 20'dir. <p>ForEach döngüde paralellik belirli bir düzeyde ayarlamak için ayarlayın `runtimeConfiguration` özelliğinde `foreach` eylem. <p>ForEach döngüsü sıralı olarak çalışacak şekilde ayarlanmış `operationOptions` "Sıralı" özelliğine `foreach` eylem. | 
 |||| 
@@ -109,10 +116,10 @@ Bu sınırlar bir tek mantığı uygulama tanımı için geçerlidir.
 | İş akışı başına değişkenleri sayısı | 250 | | 
 | İfade başına en fazla karakter | 8,192 | | 
 | Max `trackedProperties` karakter cinsinden boyut | 16,000 | 
-| `action`/`trigger`ad sınırı | 80 | | 
-| `description`uzunluk sınırı | 256 | | 
-| `parameters`sınırı | 50 | | 
-| `outputs`sınırı | 10 | | 
+| `action`/`trigger` ad sınırı | 80 | | 
+| `description` uzunluk sınırı | 256 | | 
+| `parameters` Sınırı | 50 | | 
+| `outputs` Sınırı | 10 | | 
 |||| 
 
 <a name="custom-connector-limits"></a>

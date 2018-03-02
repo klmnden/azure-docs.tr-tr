@@ -13,17 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-<<<<<<< HEAD
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
-=======
-ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Gezinti ve Application Insights portalında panoları
 Sonra [projenizde Application Insights'ı ayarlamak](app-insights-overview.md), uygulamanızın performansı ve kullanımı hakkında telemetri verileri projenizin Application Insights kaynağını görünür [Azure portal](https://portal.azure.com).
@@ -123,7 +117,6 @@ Genel Bakış dikey penceresinde uygulamanızı hakkında daha fazla bilgi için
 
 ### <a name="essentials-tab"></a>Essentials sekmesi
 * [İzleme anahtarını](app-insights-create-new-resource.md#copy-the-instrumentation-key) -bu uygulama kaynak tanımlar.
-* Fiyatlandırma - özellikler kullanılabilir ve ayarlanmış birim caps olun.
 
 ### <a name="app-navigation-bar"></a>Uygulama gezinti çubuğu
 ![Sol gezinti çubuğu](./media/app-insights-dashboards/app-left-nav-bar.png)

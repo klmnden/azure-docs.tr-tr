@@ -31,8 +31,8 @@ sql-database-elastic-pool.md
 | Havuz başına maks. eş zamanlı çalışan (istek) | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Havuz başına maks. eş zamanlı oturum | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Havuz başına maks. eş zamanlı oturum | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Veritabanı ** başına Min Edtu'lar seçenekleri | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Veritabanı ** başına maksimum Edtu seçenekleri | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
+| Veritabanı başına minimum Edtu seçenekleri | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Veritabanı başına maksimum Edtu seçenekleri | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
 | Veritabanı başına maks. depolama alanı (GB)* | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
@@ -47,8 +47,8 @@ sql-database-elastic-pool.md
 | Havuz başına maks. eş zamanlı çalışan (istek) | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Havuz başına maks. eş zamanlı oturum | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Havuz başına maks. eş zamanlı oturum | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Veritabanı ** başına Min Edtu'lar seçenekleri | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Veritabanı ** başına maksimum Edtu seçenekleri | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
+| Veritabanı başına minimum Edtu seçenekleri | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Veritabanı başına maksimum Edtu seçenekleri | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
 | Veritabanı (GB) başına en fazla depolama seçenekleri * | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
@@ -87,7 +87,6 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/). Önizlemede bulunan depolama alanı miktarını büyük depolama boyutları ve ek maliyetlerden uygulayın. Ayrıntılar için bkz [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* Premium katmanındaki birden fazla 1 TB depolama alanı aşağıdaki bölgelerde şu anda kullanılabilir değil: Avustralya Doğu, Avustralya Güneydoğu, Orta Kanada, Doğu Kanada, Fransa Merkezi, Almanya merkezi Japonya, Doğu merkezi Kore, Güney Orta ABD, Güney Doğu Asya, BİZE East2 , Batı ABD, ABD kamu Virginia ve Batı Avrupa. 
+> \* Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama alanı mevcuttur: Avustralya Doğu, Avustralya Güneydoğu, Orta Kanada, Doğu Kanada, Fransa Orta, Orta Almanya, Doğu Japonya, Orta Kore, Güney Orta ABD, Güneydoğu Asya, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. 
 >
->\*\* Veritabanı 200 Edtu ve daha yüksek başlayarak başına min/max Edtu'lar **standart** havuzları olan önizlemede.
->
+

@@ -1,19 +1,19 @@
 ---
-title: "MySQL için Azure veritabanı en düşük kapalı kalma geçiş | Microsoft Docs"
+title: "MySQL için Azure veritabanı en düşük kapalı kalma geçiş"
 description: "Bu makalede MySQL için bir MySQL veritabanı Azure veritabanı en düşük kapalı kalma geçişini gerçekleştirmek ve ilk yükleme ve sürekli veri eşitleme kaynak veritabanından hedef veritabanına Attunity çoğaltmak için Microsoft kullanarak ayarlamak açıklar Geçişler."
 services: mysql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: d23628fd8446f6e7e0e5ed14b98da13c09b2d592
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: e1be72d97570643cc8a7c6eb05d3d363e96357b6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>MySQL için Azure veritabanı en düşük kapalı kalma geçiş
 Mevcut MySQL veritabanınız için Microsoft Migrations Attunity Replicate kullanarak MySQL için Azure veritabanına geçirebilirsiniz. Attunity Replicate Attunity ve Microsoft tarafından birleşik bir tekliftir. Azure veritabanı geçiş hizmeti ile birlikte Microsoft müşterileri için hiçbir ek ücret ödemeden dahil edilir. 

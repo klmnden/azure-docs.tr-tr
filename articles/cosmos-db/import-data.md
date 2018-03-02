@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
 
@@ -34,7 +34,7 @@ Hangi API Azure Cosmos DB ile kullanacağınız?
 * **[MongoDB API](mongodb-introduction.md)**  -veri geçiş aracı desteklememektedir Azure Cosmos DB MongoDB API'si bir kaynak veya hedef olarak. İçinde veya Azure Cosmos DB MongoDB API koleksiyonlarda dışında veri geçirmek istiyorsanız, başvurmak [Azure Cosmos DB: MongoDB API'si veri geçirmek nasıl](mongodb-migrate.md) ilişkin yönergeler. SQL API ile kullanmak için Azure Cosmos DB SQL API koleksiyonlara adresinden verilerini dışarı aktarmak için veri geçiş aracı kullanmaya devam edebilirsiniz. 
 * **[Grafik API'si](graph-introduction.md)**  -veri geçiş aracı değil grafik API'si hesapları için desteklenen alma aracı şu anda. 
 
-Bu öğretici, aşağıdaki görevleri içerir:
+Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Veri geçiş aracı yükleme
@@ -61,12 +61,12 @@ Veri Geçiş Aracı, verileri Azure Cosmos DB bir çeşitli kaynaklardan dahil o
 Bir grafik kullanıcı arabirimi (dtui.exe) alma aracı içerir, ancak bunu da komut satırından (dt.exe) bulunarak belirlenebilir. Aslında, kullanıcı Arabirimi aracılığıyla içe kurduktan sonra ilişkili komut çıktısı için bir seçenek yoktur. Hiyerarşik ilişkileri (alt) içeri aktarma sırasında oluşturulabilir, tablo kaynak verileri (örn. SQL Server ya da CSV dosyaları) dönüştürülebilir. Kaynak seçenekleri hakkında daha fazla bilgi için her bir kaynak, hedef seçenekleri ve görüntüleme içeri aktarma sonuçları almak için komut satırları örnek okuma tutun.
 
 ## <a id="Install"></a>Yükleme
-Geçiş Aracı kaynak kodu Github'da üzerinde kullanılabilir [bu havuzda](https://github.com/azure/azure-documentdb-datamigrationtool) ve derlenmiş bir sürüm kullanılabilir [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Çözümü derlemek veya yalnızca karşıdan yükleyip derlenmiş sürümünü tercih ettiğiniz bir dizine ayıklayın. Ardından çalıştırın:
+Geçiş Aracı kaynak kodu Github'da üzerinde kullanılabilir [bu havuzda](https://github.com/azure/azure-documentdb-datamigrationtool). Karşıdan yükle ve yerel olarak çözüm derlemek sonra çalıştırın:
 
 * **Dtui.exe**: grafik arabirim aracı sürümü
 * **Dt.exe**: komut satırı aracı sürümü
 
-## <a name="select-data-source"></a>Veri kaynağını seçin
+## <a name="select-data-source"></a>Veri kaynağı seç
 
 Aracı yükledikten sonra verilerinizi almak için zaman yapılır. Ne tür verileri içeri aktarmak istiyor musunuz?
 
@@ -77,7 +77,7 @@ Aracı yükledikten sonra verilerinizi almak için zaman yapılır. Ne tür veri
 * [CSV dosyaları](#CSV)
 * [Azure Tablo Depolama](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
-* [BLOB](#BlobImport)
+* [Blob](#BlobImport)
 * [Azure Cosmos DB koleksiyonları](#SQLSource)
 * [HBase](#HBaseSource)
 * [Azure Cosmos DB toplu içeri aktarma](#SQLBulkImport)

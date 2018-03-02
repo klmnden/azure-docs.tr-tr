@@ -1,19 +1,19 @@
 ---
-title: "PostgreSQL uzantıları için PostgreSQL Azure veritabanı'ndaki kullanarak | Microsoft Docs"
+title: "PostgreSQL uzantıları Azure veritabanı'nda PostgreSQL için kullanın."
 description: "Uzantıları için PostgreSQL Azure veritabanı'nda kullanarak veritabanını işlevselliğini genişletme olanağı açıklar."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.date: 02/28/2018
+ms.openlocfilehash: 0b4150fcd7d32c823173c3e2676e226634346a2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Azure veritabanı PostgreSQL için PostgreSQL uzantıları
 PostgreSQL uzantıları kullanarak veritabanını işlevselliğini genişletme olanağı sağlar. Birden çok ilişkili SQL nesneleri birlikte yüklenen veya tek bir komutla veritabanınızdan kaldırılan tek bir pakette paketleme için uzantılar sağlar. Yerleşik özellikler gibi veritabanında yüklenen sonra uzantıları çalışabilir. PostgreSQL uzantıları hakkında daha fazla bilgi için bkz: [uzantı paketleme ilgili nesnelerini](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -35,7 +35,7 @@ Azure veritabanı tarafından PostgreSQL için şu anda desteklenen standart Pos
 | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Bir küçük harf karakter dize türü sağlar. |
 | [Küp](https://www.postgresql.org/docs/9.6/static/cube.html) | Bir veri türü için boyutlu küp sağlar. |
 | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Anahtar/değer çiftleri kümesi depolamak için bir veri türü sağlar. |
-| [yüklenmez](https://www.postgresql.org/docs/9.6/static/isn.html) | Veri türleri standartları numaralandırma Uluslararası Ürün sağlar. |
+| [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Veri türleri standartları numaralandırma Uluslararası Ürün sağlar. |
 | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Bir veri türü için hiyerarşik ağaç benzeri yapıları sağlar. |
 
 ### <a name="functions-extensions"></a>İşlevler uzantıları
@@ -47,10 +47,10 @@ Azure veritabanı tarafından PostgreSQL için şu anda desteklenen standart Pos
 | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Benzerlikler ve dizeler arasındaki uzaklığı belirlemek için çeşitli işlevleri sağlar. |
 | [int](https://www.postgresql.org/docs/9.6/static/intarray.html) | İşlevler ve işleçler null serbest diziler tamsayıların yönlendirmek için sağlar. |
 | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Şifreleme işlevleri sağlar. |
-| [PG\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Bölümlenmiş tablolar zaman ya da kimliği tarafından yönetir. |
-| [PG\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | İşlevler ve işleçler trigram eşleşmesini temel alan alfasayısal metin benzerlik belirlemek için sağlar. |
+| [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Bölümlenmiş tablolar zaman ya da kimliği tarafından yönetir. |
+| [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | İşlevler ve işleçler trigram eşleşmesini temel alan alfasayısal metin benzerlik belirlemek için sağlar. |
 | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Çapraz dahil olmak üzere tüm tablolar işlemek işlevleri sağlar. |
-| [UUID ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Evrensel benzersiz tanımlayıcıları (UUID) oluşturur. |
+| [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Evrensel benzersiz tanımlayıcıları (UUID) oluşturur. |
 
 ### <a name="full-text-search-extensions"></a>Tam metin araması uzantıları
 
@@ -80,7 +80,7 @@ Azure veritabanı tarafından PostgreSQL için şu anda desteklenen standart Pos
 > [!div class="mx-tableFixed"]
 | **Uzantısı** | **Açıklama** |
 |---|---|
-| [PG\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Gerçek zamanlı paylaşılan arabellek önbelleğindeki neler olduğunu incelemek için bir yol sağlar. |
+| [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Gerçek zamanlı paylaşılan arabellek önbelleğindeki neler olduğunu incelemek için bir yol sağlar. |
 | [PG\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Arabellek önbelleğine ilişkisi verilerini yüklemek için bir yol sağlar. |
 | [PG\_stat\_deyimleri](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Bir sunucu tarafından yürütülen tüm SQL deyimlerini Yürütme istatistiklerini izlemek için bir yol sağlar. |
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Satır düzeyi kilitleme bilgi göstermek için bir yol sağlar. |

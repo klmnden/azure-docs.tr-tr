@@ -1,45 +1,42 @@
 ---
-title: "Azure Storage ile bulutta bir uygulamanın verilerinin güvenli | Microsoft Docs"
-description: "Bulutta uygulamanızın veri güvenliğini sağlamak için SAS belirteçler, şifreleme ve HTTPS kullanın"
+title: "Azure Depolama ile bulutta uygulama verilerine erişimin güvenliğini sağlama | Microsoft Docs"
+description: "Bulutta uygulamanızın veri güvenliğini sağlamak için SAS belirteçlerini, şifrelemeyi ve HTTPS’yi kullanın"
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Bulutta bir uygulamanın verilere güvenli erişim
+# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Bulutta uygulama verilerine erişimin güvenliğini sağlama
 
-Bu öğretici üç serinin bir parçasıdır. Güvenli Depolama hesabı erişim öğrenin. 
+Bu öğretici, bir serinin üçüncü bölümüdür. Depolama hesabına erişim güvenliğinin nasıl sağlanacağını öğrenirsiniz. 
 
-Bölümünde dizisinin üç bilgi nasıl yapılır:
+Serinin üçüncü bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Küçük resimler erişmek için SAS belirteci kullanın
-> * Sunucu Tarafı Şifrelemesi özelliğini Aç
-> * Yalnızca HTTPS taşıma etkinleştir
+> * Küçük resimlere erişmek için SAS belirteçlerini kullanma
+> * Sunucu tarafı şifrelemesini açma
+> * Yalnızca HTTPS taşımasını etkinleştirme
 
-[Azure blob depolama](../common/storage-introduction.md#blob-storage) uygulamaları için dosyalarını depolamak için sağlam bir hizmet sunar. Bu öğretici genişletir [önceki konu] [ previous-tutorial] bir web uygulamasından depolama hesabınıza güvenli erişim göstermek için. İşiniz bittiğinde görüntüleri şifrelenir ve küçük resmini erişmek için web uygulaması güvenli SAS belirteçlerini kullanır.
+[Azure blob depolama](../common/storage-introduction.md#blob-storage), uygulamalara ilişkin dosyaları depolamak için sağlam bir hizmet sağlar. Bu öğretici, bir web uygulamasından depolama hesabınıza erişim güvenliğinin nasıl sağlanacağını göstermek için [önceki konuyu][previous-tutorial] genişletir. İşiniz bittiğinde görüntüler şifrelenir ve web uygulaması, küçük resimlere erişmek için güvenli SAS belirteçlerini kullanır.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için önceki depolama öğretici tamamlamış olmanız gerekir: [otomatikleştirme yeniden boyutlandırma karşıya olay kılavuz kullanarak görüntüleri][previous-tutorial]. 
+Bu öğreticiyi tamamlamak için önceki şu Depolama öğreticisini tamamlamış olmanız gerekir: [Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme][previous-tutorial]. 
 
-## <a name="set-container-public-access"></a>Set kapsayıcısı genel erişim
+## <a name="set-container-public-access"></a>Kapsayıcı genel erişimini ayarlama
 
-Bu öğretici serisi bölümünde, SAS belirteci küçük resimleri erişmek için kullanılır. Bu adımda ayarladığınız ortak erişimini _başparmak_ kapsayıcıya `off`.
+Öğretici serisinin bu kısmında, küçük resimlere erişmek için SAS belirteçleri kullanılır. Bu adımda, _küçük resim_ kapsayıcısının genel erişimini `off` olarak ayarlarsınız.
 
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -51,13 +48,13 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 --public-access off
 ``` 
 
-## <a name="configure-sas-tokens-for-thumbnails"></a>Küçük resimleri için SAS belirteci yapılandırın
+## <a name="configure-sas-tokens-for-thumbnails"></a>Küçük resimler için SAS belirteçlerini yapılandırma
 
-Bölümünde Bu öğretici serilerinden biri, web uygulaması bir ortak kapsayıcı görüntülerden gösteren oluştu. Bu seriyi bölümünde kullandığınız [güvenli erişim imzası (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) küçük resim görüntüleri almak için belirteçleri. SAS belirteci, bir kapsayıcı veya blob tabanlı IP, protokol, zaman aralığı veya izin verilen hakları kısıtlı erişim sağlamak izin verir.
+Bu öğretici serisinin birinci kısmında web uygulaması, bir genel kapsayıcıdaki görüntüleri gösteriyordu. Serinin bu kısmında, küçük resimleri almak için [Paylaşılan Erişim İmzası (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) belirteçlerini kullanırsınız. SAS belirteçleri; IP, protokol, zaman aralığı veya izin verilen haklar temelinde bir kapsayıcıya ya da bloba kısıtlı erişim sağlamanıza olanak verir.
 
-Bu örnekte, kaynak kodu deposu kullanır `sasTokens` güncelleştirilmiş kod örneği sahip şube. Var olan GitHub dağıtımı Sil [az webapp dağıtım kaynağı silme](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Ardından, GitHub dağıtımı ile web uygulaması için yapılandırma [az webapp dağıtım kaynağı config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) komutu.  
+Bu örnekte kaynak kod deposu, güncelleştirilmiş bir kod örneği içeren `sasTokens` dalını kullanır. [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete) komutuyla mevcut GitHub dağıtımını silin. Sonra [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) komutuyla web uygulamasına GitHub dağıtımını yapılandırın.  
 
-Aşağıdaki komutta `<web-app>` web uygulamanızın adıdır.  
+Aşağıdaki komutta `<web-app>`, web uygulamanızın adıdır.  
 
 ```azurecli-interactive 
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
@@ -67,7 +64,7 @@ az webapp deployment source config --name <web_app> \
 --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ``` 
 
-`sasTokens` Depo güncelleştirmeleri dalı `StorageHelper.cs` dosya. Yerini `GetThumbNailUrls` aşağıdaki kod örneği olan görev. Küçük resim güncelleştirilmiş görev alır ayarlayarak URL'leri bir [SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet) başlangıç zamanı, bitiş saati ve SAS belirteci izinlerini belirtmek için. Artık web uygulaması dağıtıldığında küçük bir SAS belirteci kullanarak bir URL ile alır. Güncelleştirilmiş görev aşağıdaki örnekte gösterilmiştir:
+Deponun `sasTokens` dalı, `StorageHelper.cs` dosyasını güncelleştirir. `GetThumbNailUrls` görevini, aşağıdaki kod örneğiyle değiştirir. Güncelleştirilmiş görev, SAS belirtecine yönelik izinleri, başlangıç zamanını ve süre sonunu belirtmek için bir [SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet) ayarlayarak küçük resim URL’lerini alır. Dağıtıldıktan sonra web uygulaması artık bir SAS belirteci kullanarak URL ile küçük resimleri alır. Aşağıdaki örnekte güncelleştirilmiş görev gösterilmektedir:
     
 ```csharp
 public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _storageConfig)
@@ -133,7 +130,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 }
 ```
 
-Aşağıdaki sınıfları, özellikleri ve yöntemleri önceki görevde kullanılır:
+Yukarıdaki görevde, aşağıdaki sınıflar, özellikler ve yöntemler kullanılır:
 
 |Sınıf  |Özellikler| Yöntemler  |
 |---------|---------|---------|
@@ -142,23 +139,23 @@ Aşağıdaki sınıfları, özellikleri ve yöntemleri önceki görevde kullanı
 |[CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet)     | |[GetContainerReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobClient_GetContainerReference_System_String_)         |
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)     | |[SetPermissionsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.setpermissionsasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_SetPermissionsAsync_Microsoft_WindowsAzure_Storage_Blob_BlobContainerPermissions_) <br> [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmentedAsync_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_)       |
 |[BlobContinuationToken](/dotnet/api/microsoft.windowsazure.storage.blob.blobcontinuationtoken?view=azure-dotnet)     |         |
-|[BlobResultSegment](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment?view=azure-dotnet)    | [Sonuçları](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment.results?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobResultSegment_Results)         |
+|[BlobResultSegment](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment?view=azure-dotnet)    | [Sonuçlar](/dotnet/api/microsoft.windowsazure.storage.blob.blobresultsegment.results?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobResultSegment_Results)         |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)    |         | [GetSharedAccessSignature](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_GetSharedAccessSignature_Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_)
 |[SharedAccessBlobPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy?view=azure-dotnet)     | [SharedAccessStartTime](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.sharedaccessstarttime?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_SharedAccessStartTime)<br>[SharedAccessExpiryTime](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.sharedaccessexpirytime?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_SharedAccessExpiryTime)<br>[İzinler](/dotnet/api/microsoft.windowsazure.storage.blob.sharedaccessblobpolicy.permissions?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_SharedAccessBlobPolicy_Permissions) |        |
 
-## <a name="server-side-encryption"></a>Sunucu tarafı şifreleme
+## <a name="server-side-encryption"></a>Sunucu tarafı şifrelemesi
 
-[Azure Storage hizmeti şifreleme (SSE)](../common/storage-service-encryption.md) korumak ve verilerinizi korumaya yardımcı olur. SSE şifreleme, şifre çözme ve anahtar yönetimi işleme rest, verileri şifreler. Tüm veriler, 256 bit kullanılarak şifrelenir [AES şifreleme](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), güçlü blok birini şifrelemeleri kullanılabilir.
+[Azure Depolama Hizmeti Şifrelemesi (SSE)](../common/storage-service-encryption.md), verilerinizi korumanıza ve muhafaza etmenize yardımcı olur. SSE, bekleyen verileri şifreleyerek şifreleme, şifre çözme ve anahtar yönetimini işler. Verilerin tamamı, mevcut en güçlü blok şifreleme özelliklerinden biri olan 256 bit [AES şifrelemesi](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) ile şifrelenir.
 
-Aşağıdaki örnekte BLOB'lar için şifrelemeyi etkinleştirir. Mevcut BLOB'ları şifreleme etkinleştirmeden önce oluşturulan şifrelenmez. `x-ms-server-encrypted` Bir blob için bir istek başlığında blob şifreleme durumunu gösterir.
+Aşağıdaki örnekte bloblar için şifrelemeyi etkinleştirirsiniz. Şifreleme etkinleştirilmeden önce oluşturulan mevcut bloblar şifrelenmez. Bir blob için istekteki `x-ms-server-encrypted` üst bilgisi, blobun şifreleme durumunu gösterir.
 
 ```azurecli-interactive
 az storage account update --encryption-services blob --name <storage-account-name> --resource-group myResourceGroup
 ```
 
-Şifreleme etkin göre yeni bir resim web uygulamasını yükleyin.
+Şimdi şifreleme etkinleştirildiğine göre web uygulamasına yeni bir görüntü yükleyin.
 
-Kullanarak `curl` anahtarıyla `-I` yalnızca üstbilgileri almak için kendi değerlerinizi yerleştirin `<storage-account-name>`, `<container>`, ve `<blob-name>`.  
+Yalnızca üst bilgileri almak için `-I` anahtarı ile `curl` kullanarak `<storage-account-name>`, `<container>` ve `<blob-name>` için kendi değerlerinizi yerleştirin.  
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
@@ -173,7 +170,7 @@ sasToken=$(az storage blob generate-sas \
 curl https://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>?$sasToken -I
 ```
 
-Yanıtta, Not `x-ms-server-encrypted` üstbilgi gösterir `true`. Bu üst verileri SSE ile artık şifrelenmiş olduğunu tanımlar.
+Yanıtta `x-ms-server-encrypted` üst bilgisinin `true` değerini gösterdiğine dikkat edin. Bu üst bilgi, verilerin şimdi SSE ile şifrelendiğini belirler.
 
 ```
 HTTP/1.1 200 OK
@@ -192,21 +189,21 @@ x-ms-server-encrypted: true
 Date: Mon, 11 Sep 2017 19:27:46 GMT
 ```
 
-## <a name="enable-https-only"></a>Yalnızca HTTPS etkinleştirme
+## <a name="enable-https-only"></a>Yalnızca HTTPS'yi etkinleştirme
 
-Veri istekleri için ve bir depolama hesabından güvenli olduğundan emin olmak için yalnızca HTTPS isteklerine sınırlayabilirsiniz. Depolama hesabı gerekli protokolü kullanarak güncelleştirme [az depolama hesabı güncelleştirme](/cli/azure/storage/account#az_storage_account_update) komutu.
+Depolama hesabına gelen ve depolama hesabından giden isteklerin güvenli olduğundan emin olmak için istekleri yalnızca HTTPS ile sınırlayabilirsiniz. [az storage account update](/cli/azure/storage/account#az_storage_account_update) komutunu kullanarak depolama hesabı için gerekli protokolü güncelleştirin.
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true
 ```
 
-Bağlantı kullanarak test `curl` kullanarak `HTTP` protokolü.
+`HTTP` protokolünü kullanarak `curl` kullanan bağlantıyı test edin.
 
 ```azurecli-interactive
 curl http://<storage-account-name>.blob.core.windows.net/<container>/<blob-name> -I
 ```
 
-Güvenli aktarımı gereklidir, şu iletiyi alırsınız:
+Artık güvenli aktarım gerekli olduğundan şu iletiyi alırsınız:
 
 ```
 HTTP/1.1 400 The account being accessed does not support http.
@@ -214,16 +211,16 @@ HTTP/1.1 400 The account being accessed does not support http.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bölümünde seri üç, güvenli nasıl gibi depolama hesabı erişim öğrendiniz:
+Serinin üçüncü kısmında, aşağıda örnekleri verilen eylemlerle birlikte depolama hesabına erişim güvenliğinin nasıl sağlanacağını öğrendiniz:
 
 > [!div class="checklist"]
-> * Küçük resimler erişmek için SAS belirteci kullanın
-> * Sunucu Tarafı Şifrelemesi özelliğini Aç
-> * Yalnızca HTTPS taşıma etkinleştir
+> * Küçük resimlere erişmek için SAS belirteçlerini kullanma
+> * Sunucu tarafı şifrelemesini açma
+> * Yalnızca HTTPS taşımasını etkinleştirme
 
-İzleme ve bulut depolama uygulama sorunlarını giderme konusunda bilgi almak için dizisinin dört bölümü için ilerleyin.
+Bulut depolama uygulamasının nasıl izleneceğini ve sorunlarının nasıl giderileceğini öğrenmek için serinin dördüncü kısmına ilerleyin.
 
 > [!div class="nextstepaction"]
-> [İzleme ve uygulama bulut uygulama depolama sorun giderme](storage-monitor-troubleshoot-storage-application.md)
+> [Uygulama bulut uygulama depolamasını izleme ve sorunlarını giderme](storage-monitor-troubleshoot-storage-application.md)
 
 [previous-tutorial]: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
