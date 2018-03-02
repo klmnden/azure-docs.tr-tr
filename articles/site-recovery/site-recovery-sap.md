@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: ff0806fbae419e319a02e469f0e6cf77a83e1a83
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b6ab734186f23d51d60e51bd0946329d5209097b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Site Recovery kullanarak çok katmanlı SAP NetWeaver uygulama dağıtımı koruyun
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/04/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dd3e5904ee21ee74da5adaa65abd7865a82c8b36
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: e48e9f833db86f01d944133c8a32d2c6b27b7b48
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>REST kullanarak Hdınsight'ta Hadoop ile MapReduce işleri çalıştırma
 
@@ -33,23 +33,46 @@ Hdınsight kümesinde bir Hadoop MapReduce işleri çalıştırmayı WebHCat RES
 ## <a id="prereq"></a>Önkoşullar
 
 * Hdınsight kümesi Hadoop'ta
-* [Curl](http://curl.haxx.se/)
-* [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell veya [Curl](http://curl.haxx.se/) ve [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Curl kullanarak MapReduce işleri çalıştırma
+## <a id="curl"></a>Bir MapReduce işi çalıştırma
 
 > [!NOTE]
 > WebHCat ile Curl veya başka bir REST iletişimini kullanırken Hdınsight küme yönetici kullanıcı adını ve parolasını sağlayarak isteklerin kimliğini doğrulaması gerekir. Sunucuya istek göndermek için kullanılan URI'ın bir parçası olarak küme adını kullanmanız gerekir.
 >
-> Bu bölümdeki komutlar için değiştirme **yönetici** küme kimlik doğrulaması için kullanıcı. **CLUSTERNAME** değerini kümenizin adıyla değiştirin. İstendiğinde, kullanıcı hesabı için parola sağlayın.
->
 > REST API kullanarak güvenli [temel erişimi kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication). Ayrıca, kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için HTTPS kullanarak istekleri her zaman yapmanız gerekir.
 
-
-1. HDInsight kümenize bağlanabildiğinizi doğrulamak için bir komut satırında aşağıdaki komutu kullanın:
+1. Bu belgedeki komut dosyaları tarafından kullanılan Küme oturum açma ayarlamak için followig komutlarından birini kullanın:
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    read -p "Enter your cluster login account name: " LOGIN
+    ```
+
+    ```powershell
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    ```
+
+2. Küme adı ayarlamak için aşağıdaki komutlardan birini kullanın:
+
+    ```bash
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+    ```powershell
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    ```
+
+3. HDInsight kümenize bağlanabildiğinizi doğrulamak için bir komut satırında aşağıdaki komutu kullanın:
+
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
+        -Credential $creds `
+        -UseBasicParsing
+    $resp.Content
     ```
 
     Aşağıdaki JSON benzer bir yanıt alırsınız:
@@ -63,15 +86,33 @@ Hdınsight kümesinde bir Hadoop MapReduce işleri çalıştırmayı WebHCat RES
 
    URI başlangıcını **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, tüm istekler için aynıdır.
 
-2. Bir MapReduce işi göndermek için aşağıdaki komutu kullanın:
+4. Bir MapReduce işi göndermek için aşağıdaki komutu kullanın:
 
     ```bash
-    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+    JOBID=`curl -u $LOGIN -d user.name=$LOGIN -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar | jq .id`
+    echo $JOBID
+    ```
+
+    ```powershell
+    $reqParams = @{}
+    $reqParams."user.name" = "admin"
+    $reqParams.jar = "/example/jars/hadoop-mapreduce-examples.jar"
+    $reqParams.class = "wordcount"
+    $reqParams.arg = @()
+    $reqParams.arg += "/example/data/gutenberg/davinci.txt"
+    $reqparams.arg += "/example/data/output"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/mapreduce/jar" `
+       -Credential $creds `
+       -Body $reqParams `
+       -Method POST `
+       -UseBasicParsing
+    $jobID = (ConvertFrom-Json $resp.Content).id
+    $jobID
     ```
 
     Bu istek bir sınıftan jar dosyasındaki bir MapReduce işi başlatır WebHCat (/ mapreduce/jar) URI sonuna söyler. Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
-   * **-d**: `-G` isteği için POST yöntemini Varsayılanları şekilde, kullanılmaz. `-d`istekle birlikte gönderilen veri değerleri belirtir.
+   * **-d**: `-G` isteği için POST yöntemini Varsayılanları şekilde, kullanılmaz. `-d` istekle birlikte gönderilen veri değerleri belirtir.
     * **User.Name**: komutu çalıştıran kullanıcının
     * **jar**: olmasını sınıfı içeren jar dosyasını konumunu çalıştı
     * **sınıf**: MapReduce mantığı içeren sınıfı
@@ -79,22 +120,32 @@ Hdınsight kümesinde bir Hadoop MapReduce işleri çalıştırmayı WebHCat RES
 
    Bu komut, iş durumunu denetlemek için kullanılan bir iş kimliği döndürmesi gerekir:
 
-       {"id":"job_1415651640909_0026"}
+       job_1415651640909_0026
 
-3. İş durumunu denetlemek için aşağıdaki komutu kullanın:
+5. İş durumunu denetlemek için aşağıdaki komutu kullanın:
 
     ```bash
-    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
     ```
 
-    Değiştir **JOBID** önceki adımda döndürülen değer. Örneğin, dönüş değeri `{"id":"job_1415651640909_0026"}`, JOBID şu şekilde olacaktır `job_1415651640909_0026`.
+    ```powershell
+    $reqParams=@{"user.name"="admin"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobID" `
+       -Credential $creds `
+       -Body $reqParams `
+       -UseBasicParsing
+    # ConvertFrom-JSON can't handle duplicate names with different case
+    # So change one to prevent the error
+    $fixDup=$resp.Content.Replace("jobID","job_ID")
+    (ConvertFrom-Json $fixDup).status.state
+    ```
 
     İş tamamlandıktan durumu döndürülür `SUCCEEDED`.
 
    > [!NOTE]
    > Bu Curl isteği bir JSON belgesi işle ilgili bilgilerle döndürür. Jq yalnızca durum değeri almak için kullanılır.
 
-4. İş durumunu değiştiği için `SUCCEEDED`, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre çıkış dosyasının konumunu içerir. Bu örnekte, konumdur `/example/curl`. Bu adres iş çıktısı adresinde kümeleri varsayılan depolama depolar `/example/curl`.
+6. İş durumunu değiştiği için `SUCCEEDED`, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre çıkış dosyasının konumunu içerir. Bu örnekte, konumdur `/example/curl`. Bu adres iş çıktısı adresinde kümeleri varsayılan depolama depolar `/example/curl`.
 
 Liste ve kullanarak bu dosyaları indirmek [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI bloblarından ile çalışma hakkında daha fazla bilgi için bkz: [Azure Storage ile Azure CLI 2.0 kullanan](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) belge.
 

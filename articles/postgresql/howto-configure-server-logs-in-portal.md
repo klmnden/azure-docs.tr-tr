@@ -1,19 +1,19 @@
 ---
-title: "Yapılandırma ve Azure Portalı'nda PostgreSQL için sunucu günlüklerine erişim | Microsoft Docs"
+title: "Yapılandırma ve Azure Portalı'nda PostgreSQL için sunucu günlüklerine erişim"
 description: "Bu makalede, yapılandırmak ve sunucu günlüklerini Azure veritabanındaki PostgreSQL Azure portalından erişmek açıklar."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/28/2018
+ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Yapılandırma ve erişim sunucusu Azure portalında oturum
 
@@ -36,19 +36,13 @@ Sorgu ve hata günlükleri erişimi yapılandırın.
 
 4. Başlığı seçin **günlüklerini etkinleştirmek ve günlük parametreleri yapılandırmak için burayı tıklatın** sunucu parametreleri görmek için.
 
-5. Seçin **daha fazla Göster** genişletilmiş bir kullanılabilir parametrelerin listesini görmek için genişletici. 
-
-   Parametreleri tanımları hakkında daha fazla bilgi için üzerinde PostgreSQL belgelerine bakın. [hata bildirimi ve günlüğü](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
-
-   ![Günlük parametrelerin listesi kısa. Daha uzun süre için Göster'i tıklatın](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Ayarlamanız gereken parametrelerini değiştirin. Bu oturumda yaptığınız tüm değişiklikleri mor ile vurgulanır.
+5. Ayarlamanız gereken parametrelerini değiştirin. Bu oturumda yaptığınız tüm değişiklikleri mor ile vurgulanır.
 
    Parametreleri değişti sonra tıklayabilirsiniz **kaydetmek**. Veya **atmak** değişikliklerinizi. 
 
    ![Değişiklikleri kaydedin veya atın parametrelerle uzun listesi](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Tıklayarak günlükleri listesine dönmek **Kapat düğmesini** (X simgesi) üzerinde **sunucu parametreleri** sayfası.
+6. Tıklayarak günlükleri listesine dönmek **Kapat düğmesini** (X simgesi) üzerinde **sunucu parametreleri** sayfası.
 
 ## <a name="view-list-and-download-logs"></a>Listesini görüntülemek ve günlükleri indirmek
 Günlüğe kaydetme başladıktan sonra kullanılabilir günlüklerini listesini görüntülemek ve sunucu günlüklerini bölmesinde ayrı günlük dosyalarını yükleyin. 

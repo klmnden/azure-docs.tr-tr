@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple veri Yöneticisi çözümüne genel bakış
 
@@ -56,9 +56,9 @@ StorSimple veri Yöneticisi aşağıdaki 7 bölgelerde kullanılabilir:
 
 Ancak, StorSimple veri Yöneticisi aşağıdaki bölgelerde verileri dönüştürmek için kullanılabilir. 
 
-![Verileri için kullanılabilir bölgeleri](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![Verileri için kullanılabilir bölgeleri](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-Yukarıdaki bölgeler hiçbirinde kaynak dağıtım dönüştürme işlemini getiren yeteneğine sahip olduğu için bu küme daha büyük olan bölgeler aşağıda. Bu nedenle, verilerinizi 26 bölgelerinin herhangi birinde bulunduğu sürece, bu hizmet kullanarak verilerinizi dönüştürebilirsiniz.
+Yukarıdaki bölgeler hiçbirinde kaynak dağıtım dönüştürme işlemini getiren yeteneğine sahip olduğu için bu küme daha büyük olan bölgeler aşağıda. Bu nedenle, verilerinizi 19 bölgelerinin herhangi birinde bulunduğu sürece, bu hizmet kullanarak verilerinizi dönüştürebilirsiniz.
 
 
 ## <a name="choosing-a-region"></a>Bir bölge seçme

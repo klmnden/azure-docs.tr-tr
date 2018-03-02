@@ -9,11 +9,19 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 2fedd615733e3bf51469d3b69d5fe51e3e99087e
 ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/24/2018
+=======
+ms.openlocfilehash: 0f55e368586910b771115b39b5ec9b286f031069
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/21/2018
+>>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
 ---
 # <a name="monitor-azure-container-service-aks"></a>Azure Container Service’i (AKS) izleme
 

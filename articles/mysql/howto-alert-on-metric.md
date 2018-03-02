@@ -1,19 +1,19 @@
 ---
-title: "Ölçümleri uyarıları Azure veritabanı için MySQL için Azure portalında yapılandırın | Microsoft Docs"
+title: "Ölçümleri uyarıları Azure veritabanı için MySQL için Azure portalında yapılandırın"
 description: "Bu makalede nasıl yapılandırılacağı ve erişim ölçüm uyarıları Azure veritabanı için MySQL için Azure portalından açıklanmaktadır."
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 5b4263e76f89ae27b9c9f317db3038def01e3e6b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 025e7089f797b0accf8ee7d14028e5b5ab23c113
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Azure portal ölçümleri uyarılar Azure veritabanı için MySQL için ayarlamak için kullanın 
 
@@ -24,10 +24,10 @@ Belirtilen bir ölçüm değerini atadığınız bir eşik kestiği olduğunda u
 Tetikler aşağıdaki işlemleri yapmak için bir uyarı yapılandırabilirsiniz:
 * Hizmet yöneticisini ve ortak Yöneticiler e-posta bildirimleri gönder
 * Belirttiğiniz ek e-postalar için e-posta gönderin.
-* bir Web kancası çağırın
+* Web kancası çağırma
 
 Yapılandırın ve uyarı kuralları kullanma hakkında bilgi alın:
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure portalı](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Komut satırı arabirimi (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -49,7 +49,7 @@ Yapılandırın ve uyarı kuralları kullanma hakkında bilgi alın:
    |---------|---------|
    | Ad | Uyarı kuralı için bir ad sağlayın. Bu değer uyarı bildirim e-postayla gönderilir. |
    | Açıklama | Uyarı kuralı kısa bir açıklamasını sağlar. Bu değer uyarı bildirim e-postayla gönderilir. |
-   | Uyar | Seçin **ölçümleri** bu tür bir uyarı için. |
+   | Uyarı verilecek olay | Seçin **ölçümleri** bu tür bir uyarı için. |
    | Abonelik | Bu alan için MySQL Azure veritabanınızı barındıran abonelik ile önceden doldurulmaz. |
    | Kaynak grubu | Bu alan, Azure veritabanınızın kaynak grubuyla MySQL için önceden doldurulmaz. |
    | Kaynak | Bu alan, Azure veritabanı adıyla MySQL için önceden doldurulmaz. |

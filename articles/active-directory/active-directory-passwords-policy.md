@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 48ec84cd01126f431f22457a4ace451e4d9bce42
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -86,8 +86,8 @@ Azure AD ile oturum açmak için gereken her bir kullanıcı hesabını hesaplar
 | Özellik | UserPrincipalName gereksinimleri |
 | --- | --- |
 | İzin verilen karakter |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-| Karakterlere izin verilmez |<ul> <li>Tüm "@" kullanıcı etki alanı adından ayırarak olmayan karakter.</li> <li>Nokta karakteri içeremez "." hemen önceki "@" simgesi</li></ul> |
-| Uzunluk kısıtlamaları |<ul> <li>Toplam uzunluğu 113 karakterden uzun olamaz</li><li>Önce en fazla 64 karakter olabilir "@" simgesi</li><li>Sonra en fazla 48 karakter olabilir "@" simgesi</li></ul> |
+| Karakterlere izin verilmez |<ul> <li>Tüm "\@ \" kullanıcı etki alanı adından ayırarak olmayan karakter.</li> <li>Nokta karakteri içeremez "." hemen önceki "\@ \" simgesi</li></ul> |
+| Uzunluk kısıtlamaları |<ul> <li>Toplam uzunluğu 113 karakterden uzun olamaz</li><li>Önce en fazla 64 karakter olabilir "\@ \" simgesi</li><li>Sonra en fazla 48 karakter olabilir "\@ \" simgesi</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Yalnızca bulut kullanıcı hesapları için geçerli parola ilkeleri
 
@@ -96,7 +96,7 @@ Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesapla
 | Özellik | Gereksinimler |
 | --- | --- |
 | İzin verilen karakter |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| Karakterlere izin verilmez |<ul><li>Unicode karakterler.</li><li>Alanları.</li><li> Güçlü parolalar: bir nokta karakterini içeremez "." hemen önceki "@" simgesi.</li></ul> |
+| Karakterlere izin verilmez |<ul><li>Unicode karakterler.</li><li>Alanları.</li><li> Güçlü parolalar: bir nokta karakterini içeremez "." hemen önceki "\@ \" simgesi.</li></ul> |
 | Parola kısıtlamaları |<ul><li>En az 8 karakter ve en fazla 16 karakter.</li><li>Güçlü parolalar: dışı üç dört birini gerektirir:<ul><li>Küçük harf karakterler.</li><li>Büyük harf karakterler.</li><li>Sayılar (0-9).</li><li>Simgeler (önceki parola kısıtlamaları bakın).</li></ul></li></ul> |
 | Parola geçerlilik süresi |<ul><li>Varsayılan değer: **90** gün.</li><li>Kullanarak yapılandırılabilir bir değerdir `Set-MsolPasswordPolicy` Azure Active Directory modülü için Windows PowerShell cmdlet'i.</li></ul> |
 | Parola sona erme bildirimi |<ul><li>Varsayılan değer: **14** (parolasının süresi dolmadan).</li><li>Kullanarak yapılandırılabilir bir değerdir `Set-MsolPasswordPolicy` cmdlet'i.</li></ul> |
@@ -124,24 +124,24 @@ Başlamak için yapmanız [Azure AD PowerShell modülü yükleyip](https://docs.
 1. Windows PowerShell, şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
 2. Aşağıdaki komutlardan birini yürütün:
 
-   * Tek bir kullanıcının parolasını ermeyecek şekilde ayarlanmış olup olmadığını görmek için UPN kullanarak aşağıdaki cmdlet'i çalıştırın (örneğin,  *aprilr@contoso.onmicrosoft.com* ) ya da denetlemek istediğiniz kullanıcının kullanıcı kimliği:`Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Görmek için **parola her zaman geçerli olsun** tüm kullanıcılar için ayarlama, aşağıdaki cmdlet'i çalıştırın:`Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Tek bir kullanıcının parolasını ermeyecek şekilde ayarlanmış olup olmadığını görmek için UPN kullanarak aşağıdaki cmdlet'i çalıştırın (örneğin,  *aprilr@contoso.onmicrosoft.com* ) ya da denetlemek istediğiniz kullanıcının kullanıcı kimliği: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * Görmek için **parola her zaman geçerli olsun** tüm kullanıcılar için ayarlama, aşağıdaki cmdlet'i çalıştırın: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ### <a name="set-a-password-to-expire"></a>Parola süresi dolacak şekilde ayarlama
 
 1. Windows PowerShell, şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
 2. Aşağıdaki komutlardan birini yürütün:
 
-   * Parola süresinin dolduğu şekilde bir kullanıcının parolasını ayarlamak için UPN veya kullanıcının kullanıcı Kimliğini kullanarak aşağıdaki cmdlet'i çalıştırın:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * Süreleri doluncaya kuruluşunuzdaki tüm kullanıcıların parolalarının ayarlamak için aşağıdaki cmdlet'i kullanın:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Parola süresinin dolduğu şekilde bir kullanıcının parolasını ayarlamak için UPN veya kullanıcının kullanıcı Kimliğini kullanarak aşağıdaki cmdlet'i çalıştırın: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
+   * Süreleri doluncaya kuruluşunuzdaki tüm kullanıcıların parolalarının ayarlamak için aşağıdaki cmdlet'i kullanın: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
 
 ### <a name="set-a-password-to-never-expire"></a>Süresi dolmayacak için bir parola ayarlama
 
 1. Windows PowerShell, şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
 2. Aşağıdaki komutlardan birini yürütün:
 
-   * Süresi dolmayacak bir kullanıcının parolasını ayarlamak için UPN veya kullanıcının kullanıcı Kimliğini kullanarak aşağıdaki cmdlet'i çalıştırın:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * Tüm kullanıcıların parolalarının süresi dolmayacak kuruluştaki ayarlamak için aşağıdaki cmdlet'i çalıştırın:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Süresi dolmayacak bir kullanıcının parolasını ayarlamak için UPN veya kullanıcının kullanıcı Kimliğini kullanarak aşağıdaki cmdlet'i çalıştırın: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
+   * Tüm kullanıcıların parolalarının süresi dolmayacak kuruluştaki ayarlamak için aşağıdaki cmdlet'i çalıştırın: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
    > [!WARNING]
    > Parolalar ayarlamak `-PasswordNeverExpires $true` hala bağlı yaş `pwdLastSet` özniteliği. Süresi dolmayacak kullanıcı parolaları ayarlamanız ve ardından 90 gün gidin, parolaların süreleri. Temel `pwdLastSet` bitiş tarihine değiştirirseniz, öznitelik `-PasswordNeverExpires $false`, gereken tüm parolaların bir `pwdLastSet` 90 gün oturum açtığında değiştirmek kullanıcının gerektiren daha eski. Bu değişiklik, çok sayıda kullanıcı etkileyebilir. 

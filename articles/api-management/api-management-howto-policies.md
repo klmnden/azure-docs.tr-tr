@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 54fbba197f6609731ffaf3ff15143a28e70a955f
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management ilkeleri
 
@@ -27,7 +27,7 @@ Azure API Management (APIM) yapılandırma yoluyla API'nin davranışını deği
 
 İlke ifadeleri herhangi bir API Management ilkesinde, ilke aksini belirtmedikçe, öznitelik değerleri ya da metin değerleri olarak kullanılabilir. Gibi bazı ilkeler [kontrol akışı] [ Control flow] ve [değişken Ayarla] [ Set variable] ilkeler ilke ifadelerini temel alarak. Daha fazla bilgi için bkz: [ilkeleri Gelişmiş] [ Advanced policies] ve [ilke ifadelerini][Policy expressions].
 
-## <a name="sections"></a>Anlama ilkesi yapılandırma
+## <a name="sections"> </a>Anlama ilkesi yapılandırma
 
 İlke tanımı gelen ve giden ifadeler tanımlayan basit bir XML dosyasıdır. XML tanımı penceresinden doğrudan düzenlenebilir. Deyimleri listesini sağa sağlanır ve deyimleri geçerli kapsam için geçerli etkin ve vurgulanır.
 
@@ -60,7 +60,7 @@ Yapılandırma bölünmüştür `inbound`, `backend`, `outbound`, ve `on-error`.
 
 Bir isteğin işlenmesi sırasında bir hata varsa, tüm kalan adımları `inbound`, `backend`, veya `outbound` bölümleri atlanır ve yürütme atlar ifadeler için `on-error` bölümü. İlke deyimlerinde yerleştirerek `on-error` gözden geçirebileceğiniz hata kullanarak bölüm `context.LastError` özelliği inceleyebilir ve hata yanıtı kullanarak özelleştirin `set-body` İlkesi ve bir hata oluşursa ne olacağını yapılandırın. Hata kodları ve ilke deyimleri işleme sırasında oluşabilecek hatalar için yerleşik adımları vardır. Daha fazla bilgi için bkz: [hata API Management ilkeleri işleme](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-## <a name="scopes"></a>İlkelerinin nasıl yapılandırılacağını
+## <a name="scopes"> </a>İlkeleri yapılandırma
 
 İlkeleri yapılandırma hakkında daha fazla bilgi için bkz: [ayarlayın veya ilkeleri düzenleme](set-edit-policies.md).
 
@@ -112,12 +112,6 @@ Gelen istekleri sınırlamak ve kabul etmek için yalnızca bir IP adresinden, 1
     <address>1.2.3.4</address>
 </ip-filter>
 ```
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

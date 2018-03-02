@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 038cfb72cfc98fdddaca6751b321c11066527e56
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ff2f1dd89796a30d4e0fee0810ff45ff57f5f8bf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>Azure portalında bir model oluşturma
 
@@ -27,15 +27,19 @@ Azure portalında Azure Analysis Services web Tasarımcısı (Önizleme) özelli
 
 Unutmayın, web Designer **Önizleme**. Her zaman Önizleme, eklenmiş yeni işlevi sırada işlevselliği sınırlıdır. Daha gelişmiş modeli geliştirme ve test için Visual Studio (SSDT) ve SQL Server Management Studio (SSMS) kullanmak en iyisidir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="before-you-begin"></a>Başlamadan önce
 
 - Bir standart veya Geliştirici katmanı Azure Analysis Services sunucusunda. Web Tasarımcısı'nı kullanarak oluşturduğunuz yeni modelleri DirectQuery, bu Katmanlar tarafından desteklenen ' dir.
 - Bir Azure SQL Database, Azure SQL Data Warehouse veya Power BI Desktop (.pbix) dosyası olarak bir veri kaynağı. Yeni modelleri veri kaynaklarını Power BI Desktop dosyaları destek Azure SQL Database, Azure SQL Data Warehouse, Oracle ve Teradata oluşturulur.
 - Bir SQL Server hesabı ve Azure SQL Database veya Azure SQL veri ambarı veri kaynaklarına bağlanmak için parola.
 
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
+
+[Azure Portal](https://portal.azure.com/) oturum açın.
+
 ## <a name="to-create-a-new-tabular-model"></a>Yeni bir tablolu model oluşturmak için
 
-1. Sunucunuzun içinde **genel bakış** dikey > **Web Tasarımcısı**, tıklatın **açık**.
+1. Sunucunuzdaki **genel bakış** > **Web Tasarımcısı**, tıklatın **açık**.
 
     ![Azure portalında bir model oluşturma](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

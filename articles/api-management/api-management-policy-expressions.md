@@ -14,34 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policy-expressions"></a>API Management ilke ifadeleri
-İlke ifadeleri sözdizimi C# 6.0 şeklindedir. Her bir ifadenin örtük olarak sağlanan erişimi [bağlamı](api-management-policy-expressions.md#ContextVariables) değişkeni ve bir izin verilen [alt](api-management-policy-expressions.md#CLRTypes) .NET Framework türü.  
-  
-> [!TIP]
->  İlke ifadeleri hakkında daha fazla bilgi için bkz: [ilke ifadelerini](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
->   
->  İlke ifadelerini kullanarak ilkeleri yapılandırma gösterim için bkz: [bulut kapak bölüm 177: daha Vlad Vinogradsky ile yönetim özelliklerini API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Bu videoda, aşağıdaki ilke ifade gösterim içerir:  
->   
->  -   10:30 - arka uç hizmetinizin bağlam bilgileri sağlamak nasıl bakın. Kullanım [ayarlamak sorgu dizesi parametresi](api-management-transformation-policies.md#SetQueryStringParameter) ve [ayarlamak HTTP üstbilgisi](api-management-transformation-policies.md#SetHTTPheader) ilkeleri bu bilgileri sağlayın. 12:10, bu ilkeler işyerindeki görebileceğiniz bir işlem Geliştirici Portalı'nda arama demo yoktur.  
-> -   13:50 - bkz nasıl kullanılacağını [doğrulamak JWT](api-management-access-restriction-policies.md#ValidateJWT) işlemlerine erişim önceden yetkilendirmek için ilke tabanlı belirteç talep. İlke Düzenleyicisi'nde ilkelerin nasıl yapılandırıldığına görmek için 15:00 için ileri sarma. 18:50, hem ile hem olmadan, gerekli yetkilendirme belirtecini Geliştirici portalından bir işlem arama Tanıtımı bakın.  
-> -   21:00 - kullanım bir [API denetçisi](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) ilkelerinin nasıl değerlendirildiği görmek için izleme ve bu değerlendirme sonuçları.  
-> -   25:25 - ifadelerle kullanılması hakkında bilgi [önbellekten alma](api-management-caching-policies.md#GetFromCache) ve [önbellek deposuna](api-management-caching-policies.md#StoreToCache) API Management yanıt önbelleğe alınmasını yapılandırmak için ilkeleri. Yanıt olarak belirtilen arka uç hizmeti tarafından yedeklenmiş hizmetin önbelleğe almayı eşleşen süreyi belirlemek `Cache-Control` yönergesi.  
-> -   34:30 - içerik filtreleme gerçekleştirme bakın. Arka uç kullanımından alınan yanıtta veri öğeleri kaldırma [kontrol akışı](api-management-advanced-policies.md#choose) ve [ayarlamak gövde](api-management-transformation-policies.md#SetBody) ilkeleri. Genel bir bakış görmek 31:50 Başlat [tahmin koyu Sky API](https://developer.forecast.io/) bu tanıtım için kullanılır.  
-> -   Bu videoda kullanılan ilke ifadelerini indirmek için bkz: [ilkelerinin yönetimi API örnekleri](https://github.com/Azure/api-management-samples/tree/master/policies) github depo.  
+Bu makalede ele ilke ifadeleri sözdizimi C# 6.0 değil. Her bir ifadenin örtük olarak sağlanan erişimi [bağlamı](api-management-policy-expressions.md#ContextVariables) değişkeni ve bir izin verilen [alt](api-management-policy-expressions.md#CLRTypes) .NET Framework türü.  
+
+Daha fazla bilgi için:
+
+- Arka uç hizmetinizin bağlam bilgileri sağlamak bkz. Kullanım [ayarlamak sorgu dizesi parametresi](api-management-transformation-policies.md#SetQueryStringParameter) ve [ayarlamak HTTP üstbilgisi](api-management-transformation-policies.md#SetHTTPheader) ilkeleri bu bilgileri sağlayın.
+- Nasıl kullanacağınızı öğrenin [doğrulamak JWT](api-management-access-restriction-policies.md#ValidateJWT) işlemlerine erişim önceden yetkilendirmek için ilke tabanlı belirteç talep.   
+- Nasıl kullanacağınızı öğrenin bir [API denetçisi](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) ilkelerinin nasıl değerlendirildiği görmek için izleme ve bu değerlendirme sonuçları.  
+- İfadelerle kullanılması hakkında bilgi [önbellekten alma](api-management-caching-policies.md#GetFromCache) ve [önbellek deposuna](api-management-caching-policies.md#StoreToCache) API Management yanıt önbelleğe alınmasını yapılandırmak için ilkeleri. Yanıt olarak belirtilen arka uç hizmeti tarafından yedeklenmiş hizmetin önbelleğe almayı eşleşen süreyi belirlemek `Cache-Control` yönergesi.  
+- İçerik filtreleme gerçekleştirme bakın. Arka uç kullanımından alınan yanıtta veri öğeleri kaldırma [kontrol akışı](api-management-advanced-policies.md#choose) ve [ayarlamak gövde](api-management-transformation-policies.md#SetBody) ilkeleri. 
+- İlke deyimleri indirmek için bkz: [ilkelerinin yönetimi API örnekleri](https://github.com/Azure/api-management-samples/tree/master/policies) github depo.  
   
   
-##  <a name="Syntax"></a>Sözdizimi  
+##  <a name="Syntax"></a> Sözdizimi  
  Tek bir deyimde ifadeleri içine alınmıştır `@(expression)`, burada `expression` doğru biçimlendirilmiş bir C# ifade ifadesi.  
   
  Birden fazla deyim ifadeleri içine alınmıştır `@{expression}`. Birden fazla deyim ifadeleri içindeki tüm kod yollarının ile bitmelidir bir `return` deyimi.  
   
-##  <a name="PolicyExpressionsExamples"></a>Örnekler  
+##  <a name="PolicyExpressionsExamples"></a> Örnekler  
   
 ```  
 @(true)  
@@ -67,13 +64,13 @@ ms.lasthandoff: 01/17/2018
 }  
 ```  
   
-##  <a name="PolicyExpressionsUsage"></a>Kullanım  
+##  <a name="PolicyExpressionsUsage"></a> Kullanım  
  İfadeler, öznitelik değerleri ya da herhangi bir API yönetim metin değerleri olarak kullanılabilir [ilkeleri](api-management-policies.md) (Grup İlkesi başvurusu aksini belirtmedikçe).  
   
 > [!IMPORTANT]
 >  İlke ifadeleri kullandığınızda, yalnızca sınırlı doğrulama ilke ifadelerini tanımlanmış bir ilke zaman değildir. İfadeler, ağ geçidi çalışma zamanında, bir çalışma zamanı hatası ilke ifadeleri sonucu tarafından oluşturulan özel durumlar olarak yürütülür.  
   
-##  <a name="CLRTypes"></a>İlke ifadelerde izin verilen .NET framework türleri  
+##  <a name="CLRTypes"></a> İlke ifadelerde izin verilen .NET framework türleri  
  Aşağıdaki tabloda, .NET Framework türleri ve ilke ifadelerde izin verilen üyeleri listeler.  
   
 |CLR türü|Desteklenen yöntemler|  
@@ -167,7 +164,7 @@ ms.lasthandoff: 01/17/2018
 |System.Xml.Linq.XText|Tüm yöntemleri desteklenir|  
 |System.Xml.XmlNodeType|Tümü|  
   
-##  <a name="ContextVariables"></a>Bağlam değişkeni  
+##  <a name="ContextVariables"></a> Bağlam değişkeni  
  Adlı bir değişkende `context` her ilkesinde örtük olarak kullanılabilir [ifade](api-management-policy-expressions.md#Syntax). Üyeleri için ilgili bilgiler `\request`. Tüm `context` üyeleri salt okunur.  
   
 |Bağlam değişkeni|İzin verilen yöntemler, özellikler ve parametre değerleri|  
@@ -206,10 +203,7 @@ ms.lasthandoff: 01/17/2018
 |Byte [] şifresini çözme (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm)|Giriş - Şifresi çözülecek metne<br /><br />algoritma - şifreleme algoritması<br /><br />Düz metin döndürür.|
 |Byte [] şifresini çözme (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm, anahtarı: byte [], iv:byte[])|Şifresi çözülecek giriş - giriş - şifre metin<br /><br />algoritma - şifreleme algoritması<br /><br />anahtar - şifreleme anahtarı<br /><br />IV - başlatma vektörü<br /><br />Düz metin döndürür.|
 
-## <a name="video"></a>Video
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
->
 ## <a name="next-steps"></a>Sonraki adımlar
 
 İlkeleriyle çalışma daha fazla bilgi için bkz:

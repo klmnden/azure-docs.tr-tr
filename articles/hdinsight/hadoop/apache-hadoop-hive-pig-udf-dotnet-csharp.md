@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ad6ba7126b210ddc671026244c4c614d7010000
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 8455a45f1c39c5cb04f742d57a16a81776f850e0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>C# kullanıcı tanımlı işlevler Hive veya Pig hdınsight'ta Hadoop akış ile kullanma
 
@@ -31,7 +31,7 @@ Apache Hive ve Hdınsight üzerinde Pig C# kullanıcı tanımlı işlevler (UDF)
 
 Her ikisi de Hive ve Pig işleme için dış uygulamalara veri geçirebilirsiniz. Bu işlem olarak bilinir _akış_. .NET uygulaması kullanırken, veriler üzerinde STDIN uygulamaya gönderilir ve uygulama STDOUT üzerinde sonuçları döndürür. STDIN ve STDOUT okuma ve yazma için kullanabileceğiniz `Console.ReadLine()` ve `Console.WriteLine()` bir konsol uygulamasından.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Yazma ve .NET Framework 4.5 hedefleyen C# kod oluşturma ile benzer.
 
@@ -49,7 +49,7 @@ Her ikisi de Hive ve Pig işleme için dış uygulamalara veri geçirebilirsiniz
 
 ## <a name="net-on-hdinsight"></a>Hdınsight üzerinde .NET
 
-* __Linux tabanlı Hdınsight__ kullanarak kümeleri [Mono (https://mono-project.com)](https://mono-project.com) .NET uygulamalarını çalıştırmak için. Mono sürüm 4.2.1 Hdınsight sürüm 3.5 ile dahil edilir.
+* __Linux tabanlı Hdınsight__ kullanarak kümeleri [Mono (https://mono-project.com)](https://mono-project.com) .NET uygulamalarını çalıştırmak için. Mono sürüm 4.2.1 sürüm 3.6 Hdınsight ile dahil edilir.
 
     .NET Framework sürümleri Mono uyumluluğu hakkında daha fazla bilgi için bkz: [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/).
 

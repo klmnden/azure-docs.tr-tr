@@ -1,23 +1,23 @@
 ---
-title: "SSL bağlantısı Azure veritabanı'nda PostgreSQL için yapılandırma | Microsoft Docs"
+title: "SSL bağlantısı Azure veritabanı'nda PostgreSQL için yapılandırın."
 description: "Yönergeleri ve bilgileri Azure veritabanı PostgreSQL ve düzgün şekilde SSL bağlantılarını kullanmak için ilişkili uygulamalar için yapılandırılır."
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 02/28/2018
+ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL bağlantısı Azure veritabanı'nda PostgreSQL için yapılandırın.
-Azure veritabanı PostgreSQL için istemci uygulamalarınızı Güvenli Yuva Katmanı (SSL) kullanarak PostgreSQL hizmetine bağlanma tercih eder. Veritabanı sunucunuz ve istemci uygulamalarınız arasında SSL bağlantılarını zorlamayı "ortadaki adam" saldırılarına karşı uygulamanız ile sunucu arasındaki veri akışını şifreleyerek korunmasına yardımcı.
+Azure veritabanı PostgreSQL için istemci uygulamalarınızı Güvenli Yuva Katmanı (SSL) kullanarak PostgreSQL hizmetine bağlanma tercih eder. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur.
 
 Varsayılan olarak, PostgreSQL veritabanı hizmeti bir SSL bağlantısı gerektiren yapılandırılır. İsteğe bağlı olarak, istemci uygulamanız SSL bağlantısını desteklemiyorsa, veritabanı hizmetine bağlanmak SSL gerektirme devre dışı bırakabilirsiniz. 
 
@@ -40,7 +40,7 @@ Ayar görüntüleyerek onaylayabilirsiniz **genel bakış** görmek için sayfay
 Etkinleştirmek veya devre dışı bırakabileceğiniz **ssl zorlama** parametresini kullanarak `Enabled` veya `Disabled` Azure CLI sırasıyla değerleri.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Uygulama veya framework destekler, SSL bağlantılarını emin olun
@@ -116,11 +116,11 @@ Aşağıdaki örnek başarıyla psql komut satırı yardımcı programını kull
 
 PostgreSQL komut satırı arabirimi kullanarak, aşağıdaki komutu yürütün:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 Başarılı olursa, aşağıdaki çıkış alırsınız:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference

@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 71e28d7c91526de07e64a294873d3f25fe5378f7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Active Directory ve DNS korumak için Azure Site Recovery kullanma
 
@@ -80,7 +80,7 @@ Birçok uygulama, bir etki alanı denetleyicisi veya bir DNS sunucusu bulunması
     ![Azure test ağı](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site kurtarma denemeleri test sanal makineleri aynı ada sahip ve sağlanan aynı IP adresini kullanarak bir alt ağ oluşturmak **işlem ve ağ** sanal makinenin ayarlarını. Aynı ada sahip bir alt ağ yük devretme sınaması için sağlanan Azure sanal ağındaki kullanılabilir değilse, sınama sanal makinesini alfabetik olarak ilk alt ağ içinde oluşturulur. 
+    > Site kurtarma denemeleri test sanal makineleri aynı ada sahip ve sağlanan aynı IP adresini kullanarak bir alt ağ oluşturmak **işlem ve ağ** sanal makinenin ayarlarını. Aynı ada sahip bir alt ağ yük devretme sınaması için sağlanan Azure sanal ağındaki kullanılabilir değilse, sınama sanal makinesini alfabetik olarak ilk alt ağ içinde oluşturulur.
     >
     > Hedef IP adresi seçilen alt ağın parçası ise, hedef IP adresini kullanarak test yük devretme sanal makine oluşturmak Site Recovery çalışır. Hedef IP seçilen alt ağının parçası değilse, test yük devretme sanal makinesi seçilen alt ağ içindeki bir sonraki kullanılabilir IP kullanılarak oluşturulur.
     >
@@ -110,7 +110,7 @@ Windows Server 2012 ile başlayan [ek güvenlik önlemleri, Active Directory etk
 
 Zaman **VM-Generationıd** sıfırlanır, **Invocationıd** değeri AD DS veritabanının, ayrıca sıfırlanır. Ayrıca, RID havuzu atılır ve SYSVOL'ü yetkisiz olarak işaretlenir. Daha fazla bilgi için bkz: [Active Directory etki alanı Hizmetleri sanallaştırma giriş](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) ve [DFSR güvenli şekilde sanallaştırılmasını](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Azure yapabilmesini neden olabilecek **VM-Generationıd** sıfırlanır. Sıfırlama **VM-Generationıd** etki alanı denetleyicisi sanal makine Azure'da başladığında ek korumalarını tetikler. Bu sonuçlanabilir bir *önemli gecikme* etki alanı denetleyicisi sanal makinede oturum durum içinde. 
+Azure yapabilmesini neden olabilecek **VM-Generationıd** sıfırlanır. Sıfırlama **VM-Generationıd** etki alanı denetleyicisi sanal makine Azure'da başladığında ek korumalarını tetikler. Bu sonuçlanabilir bir *önemli gecikme* etki alanı denetleyicisi sanal makinede oturum durum içinde.
 
 Bu etki alanı denetleyicisi yalnızca bir test yük devretme kümesinde kullanıldığından, sanallaştırma korumalarını gerekli değildir. Emin olmak için **VM-Generationıd** etki alanı denetleyicisi sanal makine için değer değiştirmez, aşağıdaki DWORD değerini değiştirebilir **4** şirket içi etki alanı denetleyicisinde:
 
@@ -165,20 +165,20 @@ Bir test yük devretme sonrasında sanallaştırma korumaları tetiklenir, bir v
 Yukarıdaki koşullar sağlanırsa, etki alanı denetleyicisinin düzgün olasıdır. Değilse, aşağıdaki adımları tamamlayın:
 
 1. Etki alanı denetleyicisinin yetkili geri yükleme yapın. Aşağıdaki bilgileri unutmayın:
-    * Öneririz yoktur ancak [FRS çoğaltma](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), FRS çoğaltma kullanıyorsanız, yetkili geri yükleme adımlarını izleyin. İşlem açıklanan [dosya çoğaltma hizmeti yeniden başlatmak için BurFlags kayıt anahtarının kullanılması](https://support.microsoft.com/kb/290762). 
-    
+    * Öneririz yoktur ancak [FRS çoğaltma](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), FRS çoğaltma kullanıyorsanız, yetkili geri yükleme adımlarını izleyin. İşlem açıklanan [dosya çoğaltma hizmeti yeniden başlatmak için BurFlags kayıt anahtarının kullanılması](https://support.microsoft.com/kb/290762).
+
         BurFlags hakkında daha fazla bilgi için blog gönderisine bakın [D2 ve D4: için nedir?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * DFSR çoğaltma kullanırsanız, yetkili geri yükleme adımlarını tamamlayın. İşlem açıklanan [DFSR ile çoğaltılan SYSVOL (örneğin, "D4/D2" FRS için) bir yetkili ve yetkili olmayan eşitleme zorla](https://support.microsoft.com/kb/2218556). 
-    
+    * DFSR çoğaltma kullanırsanız, yetkili geri yükleme adımlarını tamamlayın. İşlem açıklanan [DFSR ile çoğaltılan SYSVOL (örneğin, "D4/D2" FRS için) bir yetkili ve yetkili olmayan eşitleme zorla](https://support.microsoft.com/kb/2218556).
+
         PowerShell işlevleri de kullanabilirsiniz. Daha fazla bilgi için bkz: [SYSVOL DFSR yetkili/yetkili olmayan geri yükleme PowerShell işlevleri](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
-2. Aşağıdaki kayıt defteri anahtarını ayarlayarak ilk eşitleme gereksinimi atlama **0** şirket içi etki alanı denetleyicisinde. DWORD yoksa, bunun altında oluşturabilirsiniz **parametreleri** düğümü. 
+2. Aşağıdaki kayıt defteri anahtarını ayarlayarak ilk eşitleme gereksinimi atlama **0** şirket içi etki alanı denetleyicisinde. DWORD yoksa, bunun altında oluşturabilirsiniz **parametreleri** düğümü.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     Daha fazla bilgi için bkz: [DNS olay kimliği 4013 sorunlarını giderme: DNS sunucusu yükleyemedi AD tümleşik DNS bölgeleri](https://support.microsoft.com/kb/2001093).
 
-3. Bir genel katalog sunucusu kullanıcı oturum açma doğrulamak kullanılabilir olması gereksinimini devre dışı bırakın. Bu, şirket içi etki alanı denetleyicisi yapmak için aşağıdaki kayıt defteri anahtarını ayarlamak **1**. DWORD yoksa, bunun altında oluşturabilirsiniz **Lsa** düğümü. 
+3. Bir genel katalog sunucusu kullanıcı oturum açma doğrulamak kullanılabilir olması gereksinimini devre dışı bırakın. Bu, şirket içi etki alanı denetleyicisi yapmak için aşağıdaki kayıt defteri anahtarını ayarlamak **1**. DWORD yoksa, bunun altında oluşturabilirsiniz **Lsa** düğümü.
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

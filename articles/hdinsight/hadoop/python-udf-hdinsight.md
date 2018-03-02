@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f98fe82a9637cfdddf7af1dcb6aaf979bffcad6f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Hdınsight'ta kullanım Python kullanıcı tanımlı işlevler (UDF) Hive veya Pig ile
 
@@ -126,8 +126,8 @@ Bir Python komut dosyası Pig gelen bir UDF olarak kullanılabilir `GENERATE` de
 
 Python yorumlayıcı belirtmek için kullanın `register` Python betiğini başvururken. Aşağıdaki örnekler Pig betikleri kaydolmalı `myfuncs`:
 
-* **Jython kullanmak için**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **C Python kullanma**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Jython kullanmak için**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **C Python kullanma**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]
 > Jython kullanırken, bir yerel yol veya bir WASB pig_jython dosyasının yolu olabilir: / / yolu. Ancak, C Python kullanırken, Pig işi göndermek için kullanmakta olduğunuz düğümünün yerel dosya sistemindeki bir dosyaya başvurmalıdır.
@@ -145,7 +145,7 @@ Bu örnek yaptığı aşağıda verilmiştir:
 
 1. Örnek veri dosyası, ilk satırı yükler `sample.log` içine `LOGS`. Ayrıca her kayıt olarak tanımlayan bir `chararray`.
 2. Sonraki satıra işleminin sonucu depolamak herhangi bir null değeri filtreleyen `LOG`.
-3. Ardından, kayıtları üzerinden tekrarlanan `LOG` ve kullandığı `GENERATE` çağrılacak `create_structure` Python/Jython komut dosyasında yer alan yöntemi yüklü olarak `myfuncs`. `LINE`Geçerli kayıt işleve geçirmek için kullanılır.
+3. Ardından, kayıtları üzerinden tekrarlanan `LOG` ve kullandığı `GENERATE` çağrılacak `create_structure` Python/Jython komut dosyasında yer alan yöntemi yüklü olarak `myfuncs`. `LINE` Geçerli kayıt işleve geçirmek için kullanılır.
 4. Son olarak, çıkışları STDOUT atılır kullanarak `DUMP` komutu. İşlem tamamlandıktan sonra bu komutun sonuçlarını görüntüler.
 
 ### <a name="create-the-pigudfpy-file"></a>Pigudf.py dosyası oluşturma
@@ -380,8 +380,8 @@ Ayrıca hata bilgilerini (STDERR) ve (STDOUT) iş sonucunu Hdınsight depolama a
 
 | Bu iş için... | Bu dosyalar blob kapsayıcısında bakın |
 | --- | --- |
-| Hive |/ HivePython/stderr<p>/ HivePython/stdout |
-| Pig |/ PigPython/stderr<p>/ PigPython/stdout |
+| Hive |/HivePython/stderr<p>/HivePython/stdout |
+| Pig |/PigPython/stderr<p>/PigPython/stdout |
 
 ## <a name="next"></a>Sonraki adımlar
 

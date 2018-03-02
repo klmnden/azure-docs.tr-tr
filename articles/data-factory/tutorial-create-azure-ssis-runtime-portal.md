@@ -3,7 +3,7 @@ title: "Azure Data Factory kullanarak SSIS tümleştirme çalışma zamanı sağ
 description: "Bu makalede Azure Data Factory kullanarak Azure-SSIS tümleştirme çalışma zamanı oluşturma açıklanır."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,21 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: hero-article
 ms.date: 01/29/2018
+<<<<<<< HEAD
 ms.author: spelluru
 ms.openlocfilehash: 52df89ea8562b343e1bcfb3175016c415e78a1a1
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+=======
+ms.author: douglasl
+ms.openlocfilehash: 2e3e1fff385de87e69ea36d8ffec128f662f6e50
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/28/2018
+>>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Azure Data Factory kullanıcı arabirimini kullanarak Azure SSIS tümleştirme çalışma zamanı sağlama
 Bu öğretici, Azure portalını kullanarak Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma zamanı (IR) sağlama adımlarını sunar. Daha sonra, SQL Server Veri Araçları veya SQL Server Management Studio’yu kullanarak Azure’da bu çalışma zamanına SQL Server Integration Services (SSIS) paketleri dağıtabilirsiniz. Azure-SSIS IR’ler hakkında kavramsal bilgiler için bkz. [Azure SSIS tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md#azure-ssis-integration-runtime).

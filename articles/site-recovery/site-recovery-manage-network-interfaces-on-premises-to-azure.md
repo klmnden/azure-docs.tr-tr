@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 036d5c2945bd6730d65f88f72c9377047fefcde6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>Şirket içi Azure senaryoları için sanal makine ağ arabirimleri yönetme
 
-Azure'da sanal makine (VM) ekli en az bir ağ arabirimine sahip olmalıdır. Birçok ağ arabirimleri VM boyutu destekler bağlı olarak sağlayabilirsiniz. 
+Azure'da sanal makine (VM) ekli en az bir ağ arabirimine sahip olmalıdır. Birçok ağ arabirimleri VM boyutu destekler bağlı olarak sağlayabilirsiniz.
 
 Varsayılan olarak, bir Azure sanal makinesine bağlı ilk ağ arabirimi birincil ağ arabirimi olarak tanımlanır. Sanal makineyi diğer tüm ağ arabirimlerini ikincil ağ arabirimlerine ' dir. Ayrıca varsayılan olarak, sanal makineden giden tüm trafiği birincil ağ arabirimi birincil IP yapılandırması için atanan IP adresi çıkışı gönderilir.
 

@@ -9,11 +9,19 @@ ms.topic: get-started-article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
 ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/27/2018
+=======
+ms.openlocfilehash: 1bf366d08ba9b8cf28c266aa4ac2d521465db44b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/22/2018
+>>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Azure Container Service (AKS) ile hizmet sorumluları
 

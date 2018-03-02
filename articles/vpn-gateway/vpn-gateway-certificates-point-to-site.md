@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: ff590ecb5091695d6105b510f563251fe43412fe
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 410fe05e0a545905024f223e6f7297066b326d14
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>Oluşturma ve Windows 10 veya Windows Server 2016 PowerShell kullanarak noktadan siteye bağlantıları için sertifikaları verme
 
@@ -34,12 +34,11 @@ Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullan�
 > 
 > 
 
-
 Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda bu makaledeki adımları uygulamanız gerekir. Sertifikalarını oluşturmak için kullandığınız PowerShell cmdlet'leri işletim sisteminin bir parçasıdır ve diğer Windows sürümlerinde çalışmaz. Windows 10 veya Windows Server 2016 bilgisayar yalnızca sertifikalarını oluşturmak için gereklidir. Sertifikaları oluşturduktan sonra bunları karşıya yükleyebilir veya tüm desteklenen istemci işletim sistemine yükleyin. 
 
 Windows 10 veya Windows Server 2016 bir bilgisayara erişiminiz yoksa kullanabileceğiniz [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) sertifikalarını oluşturmak için. Her iki yöntemi kullanarak oluşturduğunuz sertifikalar herhangi yüklenebilir [desteklenen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) istemci işletim sistemi.
 
-## <a name="rootcert"></a>Otomatik olarak imzalanan sertifika oluştur
+## <a name="rootcert"></a>1. Otomatik olarak imzalanan sertifika oluştur
 
 Bir otomatik olarak imzalanan sertifika oluşturmak için New-SelfSignedCertificate cmdlet'ini kullanın. Ek parametre bilgi için bkz: [yeni SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
@@ -53,17 +52,7 @@ Bir otomatik olarak imzalanan sertifika oluşturmak için New-SelfSignedCertific
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-### <a name="cer"></a>Ortak anahtarı (.cer) aktarın
-
-[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
-
-Exported.cer dosyasını Azure'a yüklenmelidir. Yönergeler için bkz: [noktadan siteye bağlantı yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md#upload). Bir ek güvenilen kök sertifika eklemek için [Bu bölümde](vpn-gateway-howto-point-to-site-rm-ps.md#addremovecert) makalenin.
-
-### <a name="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional"></a>(İsteğe bağlı) depolamak için ortak anahtar ve otomatik olarak imzalanan kök sertifikasını dışarı aktarma
-
-Otomatik olarak imzalanan kök sertifikasını dışarı aktarma ve güvenli bir şekilde depolamak isteyebilirsiniz. Varsa olmadan, yapabilir daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci sertifikalarını oluşturmak veya başka bir .cer dosyasına dışarı aktarma. Bir .pfx otomatik olarak imzalanan kök sertifikasını dışarı aktarmak için kök sertifikasını seçin ve açıklandığı gibi aynı adımları kullanın [bir istemci sertifikası verme](#clientexport).
-
-## <a name="clientcert"></a>İstemci sertifikası oluşturma
+## <a name="clientcert"></a>2. İstemci sertifikası oluşturma
 
 Noktadan Siteye bağlantı kullanarak bir sanal ağa bağlanan her istemci bilgisayarda bir istemci sertifikası yüklü olmalıdır. Ardından dışa otomatik olarak imzalanan kök sertifikasından bir istemci sertifikasını oluşturmak ve istemci sertifikasını yükleyin. İstemci sertifikası yüklü değilse, kimlik doğrulaması başarısız olur. 
 
@@ -123,19 +112,30 @@ Ek istemci sertifikalarını oluşturmakta ya da otomatik olarak imzalanan serti
   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
   ```
 
-## <a name="clientexport"></a>Bir istemci sertifikasını dışarı aktarma   
+## <a name="cer"></a>3. Kök sertifika ortak anahtarı (.cer) dışarı aktarma
+
+[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
+
+
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Otomatik olarak imzalanan kök sertifikayı ve (isteğe bağlı) depolamak için özel anahtarı dışarı aktar
+
+Otomatik olarak imzalanan sertifika vermek ve depolamak güvenli olarak yedekleme isteyebilirsiniz. Varsa olabilir, daha sonra başka bir bilgisayara yükleyin ve daha fazla istemci certifiates oluşturur. Bir .pfx otomatik olarak imzalanan kök sertifikasını dışarı aktarmak için kök sertifikasını seçin ve açıklandığı gibi aynı adımları kullanın [bir istemci sertifikası verme](#clientexport).
+
+## <a name="clientexport"></a>4. İstemci sertifikasını dışarı aktarma
 
 [!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
 
-## <a name="install"></a>Dışarı aktarılan istemci sertifikası yükleme
+
+## <a name="install"></a>5. Dışarı aktarılan bir istemci sertifikasını yükleme
+
+Vnet'e P2S bağlantısı üzerinden bağlanan her bir istemci bir istemci sertifikası, yerel olarak yüklü olmasını gerektirir.
 
 Bir istemci sertifikası yüklemek için bkz: [noktadan siteye bağlantıları için bir istemci sertifikası yüklemek](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Sonraki adımlar
+## <a name="install"></a>6. P2S yapılandırma adımlarını uygulayın
 
 Noktası Site yapılandırmanızı ile devam edin.
 
 * İçin **Resource Manager** dağıtım modeli adımları bkz [yapılandırma P2S yerel Azure sertifika kimlik doğrulaması kullanarak](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
 * İçin **Klasik** dağıtım modeli adımları bkz [bir sanal ağ (Klasik) bir noktadan siteye VPN bağlantısı yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
-
-P2S için sorun giderme bilgileri için bkz: [sorun giderme Azure noktadan siteye bağlantıları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+* P2S için sorun giderme bilgileri için bkz: [sorun giderme Azure noktadan siteye bağlantıları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

@@ -1,19 +1,19 @@
 ---
-title: "Sunucu, PostgreSQL için Azure veritabanında kaydeder | Microsoft Docs"
-description: "Sorgu ve Hata günlüklerini PostgreSQL için Azure veritabanı'nda oluşturur."
+title: "Sunucu, Azure veritabanında PostgreSQL için kaydeder."
+description: "Bu makalede, Azure veritabanı PostgreSQL sorgu ve hata günlükleri oluşturur ve saklama nasıl oturum nasıl yapılandırıldığını açıklar."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 696af85cd5609171a719a7e77efbfcdeba0aaaaa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 02/28/2018
+ms.openlocfilehash: a8d560aa8906e3ba1f65758239b645cd1b1df032
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Sunucu, Azure veritabanında PostgreSQL için kaydeder. 
 Azure veritabanı PostgreSQL için oluşturur Sorgu ve hata günlükleri. Ancak, işlem günlükleri için erişim desteklenmiyor. Sorgu ve Hata günlüklerini tanımlamak, sorun giderme ve yapılandırma hataları ve performansın onarmak için kullanılabilir. Daha fazla bilgi için bkz: [hata bildirimi ve günlüğü](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html).

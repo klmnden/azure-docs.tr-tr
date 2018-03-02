@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ed98856753854b0d6baee5bfa74d0623043aa99
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 983e167d248d711efde9c64a70f59d5a9e81769a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI kullanarak Hdınsight kümeleri oluşturma
 

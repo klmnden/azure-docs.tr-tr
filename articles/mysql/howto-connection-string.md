@@ -1,25 +1,25 @@
 ---
-title: "MySQL için Azure veritabanı uygulamalarını bağlamak | Microsoft Docs"
+title: "MySQL için uygulamaları Azure veritabanına bağlan"
 description: "Bu belge, uygulamalarının ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python ve Ruby gibi MySQL için Azure veritabanı ile bağlantı şu anda desteklenen bağlantı dizeleri listeler."
 services: mysql
 author: mswutao
 ms.author: wuta
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: c9fe0a892bd5e81d2b33987b6ca55ec753550a01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: e7b200fd1de79f0bca680bdedc34fa376cf07d68
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>MySQL için Azure veritabanı uygulamalara bağlanma
 Bu konuda, Azure veritabanı tarafından MySQL için şablon ve örnek ile birlikte desteklenen bağlantı dizesi türleri listelenmektedir. Bağlantı dizenizi farklı parametreler ve ayarları olabilir.
 
 - Sertifikayı edinmek için bkz: [SSL nasıl yapılandırılacağı](./howto-configure-ssl.md).
-- {your_host} = <servername>. mysql.database.azure.com
+- {your_host} = <servername>.mysql.database.azure.com
 - {your_user}@{servername} UserID biçimi kimlik doğrulaması için doğru =.  UserId yalnızca kullanırsanız, kimlik doğrulaması başarısız olur.
 
 ## <a name="adonet"></a>ADO.NET
@@ -27,10 +27,10 @@ Bu konuda, Azure veritabanı tarafından MySQL için şablon ve örnek ile birli
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-Bu örnekte, sunucu adı olan `myserver4demo`, veritabanı adı `wpdb`, kullanıcı adı `WPAdmin`, ve parola `mypassword!2`. Sonuç olarak, bağlantı dizesi olması gerekir:
+Bu örnekte, sunucu adı olan `mydemoserver`, veritabanı adı `wpdb`, kullanıcı adı `WPAdmin`, ve parola `mypassword!2`. Sonuç olarak, bağlantı dizesi olması gerekir:
 
 ```ado.net
-Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
+Server= "mydemoserver.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
 ```
 
 ## <a name="jdbc"></a>JDBC
