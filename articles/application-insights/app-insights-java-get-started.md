@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
@@ -70,12 +70,12 @@ Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yeniley
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `<version>1.0.n</version>` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitemizde bulacaksınız.
+* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `<version>2.0.n</version>` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitemizde bulacaksınız.
 * *Yeni SDK’ye mi güncelleştirmeniz gerekiyor?* Proje bağımlılıklarınızı yenileyin.
 
 #### <a name="if-youre-using-gradle"></a>Gradle kullanıyorsanız...
@@ -90,19 +90,19 @@ Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yeniley
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *Derleme veya sağlama toplamı doğrulama hataları mı var? `version:'1.0.n'` gibi belirli bir sürümü kullanmayı deneyin*. *En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) bulabilirsiniz.*
+* *Derleme veya sağlama toplamı doğrulama hataları mı var? `version:'2.0.n'` gibi belirli bir sürümü kullanmayı deneyin*. *En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) bulabilirsiniz.*
 * *Yeni SDK’ya güncelleştirmek için*
   * Proje bağımlılıklarınızı yenileyin.
 
 #### <a name="otherwise-"></a>Aksi taktirde...
 SDK'yi el ile ekleyin:
 
-1. [Java için Application Insights SDK’sı](https://aka.ms/aijavasdk) indirin.
+1. [Java için Application Insights SDK’sı](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) indirin.
 2. İkili dosyaları zip dosyasından ayıklayıp projenize ekleyin.
 
 ### <a name="questions"></a>Sorular...
@@ -112,7 +112,7 @@ SDK'yi el ile ekleyin:
   * `applicationinsights-web`, HTTP istek sayısını ve yanıt sürelerini izleyen ölçümleri sağlar. Bu telemetrinin otomatik olarak toplanmasını istemiyorsanız, bu bileşeni atlayabilirsiniz. Örneğin, kendiniz yazmak istiyorsanız.
 * *Değişiklikleri yayımladığınızda SDK’yı güncelleştirmek için*
 
-  * En son [Java için Application Insights SDK’si](https://aka.ms/qqkaq6)’ni indirin ve eskilerle değiştirin.
+  * En son [Java için Application Insights SDK’si](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)’ni indirin ve eskilerle değiştirin.
   * Değişiklikler [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) açıklanmıştır.
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Application Insights .xml dosyasını ekleme

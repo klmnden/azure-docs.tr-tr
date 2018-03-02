@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure portalıyla Batch hesabı oluşturma
 
@@ -41,7 +41,7 @@ Batch hesapları ve senaryoları hakkında arka plan bilgileri için bkz. [özel
 > Batch hesabı oluştururken genelde varsayılan **Batch hizmeti** modunu seçmeniz gerekir. Bu mod kullanıldığında havuzlar Azure tarafından yönetilen aboneliklerde, arka planda ayrılır. Kullanılması artık çoğu senaryo için önerilmeyen alternatif **kullanıcı aboneliği** modunda bir havuz oluşturulduğunda Batch VM'leri ve diğer kaynaklar doğrudan aboneliğinizde oluşturulur. Kullanıcı aboneliği modunda bir Batch hesabı oluşturmak için aboneliğinizi Azure Batch hizmetine kaydetmeniz ve hesabı bir Azure Key Vault ile ilişkilendirmeniz de gerekir.
 
 1. [Azure portalında][azure_portal] oturum açın.
-2. **Yeni**'ye tıklayın ve Market içinde **Batch Hizmeti** araması yapın.
+2. **Kaynak oluştur**'a tıklayın ve Market içinde **Batch Hizmeti** araması yapın.
 
     ![Market’te Batch][marketplace_portal]
 3. **Batch Hizmeti**'ni seçin, **Oluştur**'a tıklayın ve **Yeni Batch hesabı ayarları** yazın. Aşağıdaki ayrıntılara bakın.

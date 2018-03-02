@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 734243a28dc59518dc30d9d86064235795e794ab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c867f9ed7ede0dddf6b327b212adbbccbf3d64b0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini dağıtma
 
@@ -51,7 +51,7 @@ Sonra, hizmet sorumlusu için bir parola eklemeniz gerekir. **Tüm Ayarlar** > *
 
 ## <a name="create-aks-cluster"></a>AKS kümesi oluşturma
 
-**Yeni** > **Kapsayıcılar** > **Azure Container Service - AKS (önizleme)** seçeneğini belirleyin.
+**Kaynak oluştur** > **Kapsayıcılar** > **Azure Container Service - AKS (önizleme)** seçeneğini belirleyin.
 
 Küme için bir küme adı, DNS ön eki, kaynak grubu adı, konum ve Kubernetes sürümü belirtin. Küme adı ve kaynak grubu adını not adın; kümeye bağlanırken bunlar gereklidir.
 

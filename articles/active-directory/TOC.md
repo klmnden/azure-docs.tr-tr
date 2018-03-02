@@ -1,3 +1,5 @@
+# [Azure Active Directory Belgeleri](index.md)
+
 # Genel Bakış
 ## [Azure Active Directory nedir?](active-directory-whatis.md)
 ## [Azure kimlik yönetimi hakkında](identity-fundamentals.md)
@@ -248,6 +250,13 @@
 ##### [Yapılandırma](active-directory-application-config-content-map.md)
 ##### [Oturum açma](active-directory-application-sign-in-content-map.md)
 ##### [Sağlama](active-directory-application-provisioning-content-map.md)
+###### [Kullanıcının sağlanmasını doğrulama](application-provisioning-when-will-provisioning-finish-specific-user.md)
+###### [Sağlama uzun sürüyor](application-provisioning-when-will-provisioning-finish.md)
+###### [Kullanıcı sağlamayı yapılandırma](application-provisioning-config-how-to.md)
+###### [Sağlama yapılandırma sorunu](application-provisioning-config-problem.md)
+###### [Yönetici kimlik bilgilerini kaydetme sorunu](application-provisioning-config-problem-storage-limit.md)
+###### [Hiçbir kullanıcı sağlanmıyor](application-provisioning-config-problem-no-users-provisioned.md)
+###### [Yanlış kullanıcılar sağlanıyor](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Erişimi yönetme](active-directory-application-access-content-map.md)
 ##### [Erişim Paneli](active-directory-application-access-panel-content-map.md)
 ##### [Uygulama Proxy’si](active-directory-application-proxy-content-map.md)

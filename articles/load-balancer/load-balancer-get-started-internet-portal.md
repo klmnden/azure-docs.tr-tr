@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Azure portalını kullanarak İnternet'e yönelik Yük Dengeleyici oluşturma
 
@@ -57,7 +57,7 @@ Azure Resource Manager içindeki yük dengeleyici bileşenleri hakkında daha fa
 > Bu örnekte **myVNet** adında bir sanal ağınız olduğu varsayılmaktadır. Bu ağı oluşturmak için [sanal ağ oluşturma](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) bölümüne bakın. Örnekte ayrıca **myVNet** içinde **LB-Subnet-BE** ile **web1** ve **web2** adında ve sırasıyla **myAvailSet** ve **myVNet** adlı kullanılabilirlik kümesinde iki VM olduğu varsayılmaktadır. VM oluşturmak için [bu bağlantıya](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) başvurun.
 
 1. Tarayıcıdan Azure portalına ([http://portal.azure.com](http://portal.azure.com)) gidin ve Azure hesabınızla oturum açın.
-2. Ekranın sol üst tarafından **Yeni** > **Ağ** > **Yük Dengeleyici**’yi seçin.
+2. Ekranın sol üst kenarından **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici**’yi seçin.
 3. **Yük dengeleyici oluştur** dikey penceresinde yük dengeleyiciniz için bir ad girin. Burada **myLoadBalancer** kullanılmıştır.
 4. **Tür** bölümünde **Genel**’i seçin.
 5. **Genel IP adresi** bölümünde **myPublicIP** adında yeni bir genel IP oluşturun.

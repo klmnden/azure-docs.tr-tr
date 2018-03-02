@@ -1,60 +1,61 @@
 ---
-title: "Azure CLI toplu işleminde bir uygulama eklemek örnek - komut dosyası | Microsoft Docs"
-description: "Azure CLI toplu işleminde bir uygulama eklemek örnek - komut dosyası"
+title: "Azure CLI Betik Örneği - Batch’te Uygulama Ekleme | Microsoft Docs"
+description: "Azure CLI Betik Örneği - Batch’te Uygulama Ekleme"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: 348e94e745350173196aeb64df3a814a05dd9144
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Azure CLI ile Azure Batch uygulamalarına ekleme
+# <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI örneği: Azure Batch hesabına uygulama ekleme
 
-Bu komut, bir uygulama için bir Azure Batch havuzu ya da görev ile kullanmak üzere ayarlamak gösterilmiştir. Bir uygulamayı kurmak için bir .zip dosyasına tüm bağımlılıkları ile birlikte, yürütülebilir paketi. Bu örnekte yürütülebilir zip dosyası olarak adlandırılır ' my-uygulama-exe.zip'.
+Bu betik, kullanmak üzere bir Azure Batch havuzu veya göreviyle uygulama eklemeyi gösterir. Batch hesabınıza eklemek üzere bir uygulama ayarlamak için, yürütülebilir dosyanızı tüm bağımlılıklarıyla birlikte bir zip dosyasına paketleyin. 
 
-## <a name="prerequisites"></a>Ön koşullar
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-- Sağlanan yönergeleri kullanarak Azure CLI yükleme [Azure CLI Yükleme Kılavuzu'na](https://docs.microsoft.com/cli/azure/install-azure-cli)zaten yapmadıysanız,.
-- Zaten yoksa, bir toplu işlem hesabı oluşturun. Bkz: [Azure CLI ile bir toplu işlem hesabı oluşturun](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) bir hesap oluşturan bir örnek komut dosyası için.
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0.20 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="example-script"></a>Örnek betik
 
-[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
-## <a name="clean-up-application"></a>Uygulamayı oluşturan Temizle
+## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Yukarıdaki örnek komut dosyasını çalıştırdıktan sonra uygulama ve onun karşıya yüklenen uygulama paketleri kaldırmak için aşağıdaki komutları çalıştırın.
+Kaynak grubunu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
-```azurecli
-az batch application package delete -g myresourcegroup -n mybatchaccount --application-id myapp --version 1.0 --yes
-az batch application delete -g myresourcegroup -n mybatchaccount --application-id myapp --yes
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut, bir uygulama oluşturmak ve bir uygulama paketini karşıya yüklemek için aşağıdaki komutları kullanır.
-Komut özgü belgelere Tablo bağlantıları her komut.
+Bu betik aşağıdaki komutları kullanır.
+Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az batch uygulaması oluşturma](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_create) | Bir uygulama oluşturur.  |
-| [az toplu uygulama ayarlama](https://docs.microsoft.com/cli/azure/batch/application#az_batch_application_set) | Bir uygulamanın özelliklerini güncelleştirir.  |
-| [az toplu uygulama paketi oluşturma](https://docs.microsoft.com/cli/azure/batch/application/package#az_batch_application_package_create) | Belirtilen uygulama için bir uygulama paketi ekler.  |
+| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Bir depolama hesabı oluşturur. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Batch hesabını oluşturur. |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Daha fazla CLI etkileşimi için belirtilen Batch hesabına karşı kimlik doğrulaması yapar.  |
+| [az batch application create](/cli/azure/batch/application#az_batch_application_create) | Uygulama oluşturur.  |
+| [az batch application package create](/cli/azure/batch/application/package#az_batch_application_package_create) | Belirtilen uygulamaya bir uygulama paketi ekler.  |
+| [az batch application set](/cli/azure/batch/application#az_batch_application_set) | Bir uygulamanın özelliklerini güncelleştirir.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Tüm iç içe kaynakların dahil olduğu bir kaynak grubunu siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
-
-Ek toplu CLI kod örnekleri bulunabilir [Azure Batch CLI belgelerine](../batch-cli-samples.md).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).

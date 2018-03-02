@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 5c877222c9ce409ea8758d5830f79e4a8b64fd8f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 905c257ab40057f05081e54e8680bd818023d886
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Azure uygulama hizmeti Linux üzerinde SSH desteği
 
@@ -29,7 +29,7 @@ Linux üzerinde App Service, her yeni web uygulamaları için çalışma zamanı
 
 ![Çalışma zamanı yığınları](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-Bu konu başlığı altında açıklandığı gibi yapılandırma ve görüntünün bir parçası olarak SSH sunucusu dahil olmak üzere özel Docker görüntülerinizi ile SSH kullanabilirsiniz.
+Bu makalede açıklanan yapılandırma ve görüntünün bir parçası olarak SSH sunucusu dahil olmak üzere özel Docker görüntülerinizi ile SSH kullanabilirsiniz.
 
 ## <a name="making-a-client-connection"></a>Bir istemci bağlantısını yapma
 
@@ -49,7 +49,7 @@ https://<your sitename>.scm.azurewebsites.net/webssh/host
 
 Azure portalında kapsayıcı ve istemci arasındaki SSH iletişimi desteklemek özel bir Docker görüntü için sırayla Docker görüntüsü için aşağıdaki adımları gerçekleştirin.
 
-Bu adımlar Azure uygulama hizmeti deposu olarak gösterilen [örnek](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
+Azure uygulama hizmeti deposu olarak bu adımları gösterilen [örnek](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Dahil `openssh-server` yüklemesinde [ `RUN` yönerge](https://docs.docker.com/engine/reference/builder/#run) Dockerfile görüntü ve kök parolasını hesap için kümesi içinde `"Docker!"`.
 
@@ -65,7 +65,7 @@ Bu adımlar Azure uygulama hizmeti deposu olarak gösterilen [örnek](https://gi
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Ekleme bir [ `COPY` yönerge](https://docs.docker.com/engine/reference/builder/#copy) Dockerfile kopyalamak için bir [sshd_config](http://man.openbsd.org/sshd_config) dosya */vb./ssh/* dizin. Yapılandırma dosyanızı Azure App Service GitHub deposuna bizim sshd_config dosyasında dayanmalıdır [burada](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+1. Ekleme bir [ `COPY` yönerge](https://docs.docker.com/engine/reference/builder/#copy) Dockerfile kopyalamak için bir [sshd_config](http://man.openbsd.org/sshd_config) dosya */vb./ssh/* dizin. Yapılandırma dosyanızı Azure App Service GitHub deposuna sshd_config dosyasında dayanmalıdır [burada](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > *Sshd_config* dosyası şunları içermelidir veya bağlantı başarısız olur: 
@@ -82,26 +82,28 @@ Bu adımlar Azure uygulama hizmeti deposu olarak gösterilen [örnek](https://gi
     EXPOSE 2222 80
     ```
 
-1. Emin olun [Başlat ssh hizmeti](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) bir kabuk betiği kullanarak */bin* dizin.
+1. Bir kabuk betiği'ni kullanarak SSH hizmetini başlatmak emin olun (örneğe bakın [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-Dockerfile kullanan [ `CMD` yönerge](https://docs.docker.com/engine/reference/builder/#cmd) komut dosyasını çalıştırmak için.
+Dockerfile kullanan [ `ENTRYPOINT` yönerge](https://docs.docker.com/engine/reference/builder/#entrypoint) komut dosyasını çalıştırmak için.
 
     ```docker
-    COPY init_container.sh /bin/
+    COPY startup /opt/startup
     ...
-    RUN chmod 755 /bin/init_container.sh
+    RUN chmod 755 /opt/startup/init_container.sh
     ...
-    CMD ["/bin/init_container.sh"]
+    ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Web uygulaması kapsayıcıları için ilgili daha fazla bilgi için aşağıdaki bağlantılara bakın. Sorularınızı ve çekincelerinizi [forumumuzda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview) paylaşabilirsiniz.
+Hakkında sorular ve sorunları nakledebilirsiniz [Azure Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+
+Kapsayıcıları için Web uygulaması hakkında daha fazla bilgi için bkz:
 
 * [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](quickstart-docker-go.md)
 * [Linux üzerinde Azure App Service’te .NET Core Kullanma](quickstart-dotnetcore.md)

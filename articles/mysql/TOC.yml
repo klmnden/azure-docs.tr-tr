@@ -66,9 +66,7 @@
     - name: Kaynaklar
       items:
         - name: Fiyatlandırma katmanları
-          href: concepts-service-tiers.md
-        - name: İşlem birimleri
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Sınırlar
           href: concepts-limits.md
     - name: Veri erişimi ve güvenlik
@@ -77,6 +75,12 @@
           href: concepts-firewall-rules.md
         - name: SSL’i Yapılandırma
           href: concepts-ssl-connection-security.md
+    - name: İş sürekliliği
+      items:
+        - name: Genel Bakış
+          href: concepts-business-continuity.md
+        - name: Yedekleme ve geri yükleme
+          href: concepts-backup.md
     - name: İzleme
       href: concepts-monitoring.md
     - name: Geliştirme
@@ -137,6 +141,12 @@
       items:
         - name: Ölçümler üzerinde uyarı oluşturma
           href: howto-alert-on-metric.md
+    - name: Sorun giderme
+      items:
+        - name: Sorgu performansı sorunlarını giderme
+          href: howto-troubleshoot-query-performance.md
+        - name: Sys şemasında görünümleri kullanma
+          href: howto-troubleshoot-sys-schema.md
 - name: Başvuru
   items:
     - name: Azure CLI

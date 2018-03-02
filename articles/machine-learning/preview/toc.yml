@@ -9,17 +9,17 @@
       href: model-management-overview.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Yükleme ve oluşturma
+    - name: Yükleme ve başlama
       href: quickstart-installation.md
 - name: Öğreticiler
   items:
-    - name: 1 - Verileri hazırlama
+    - name: '1: Verileri hazırlama'
       href: tutorial-classifying-iris-part-1.md
-    - name: 2 - Model oluşturma
+    - name: '2: Modelleri oluşturma'
       href: tutorial-classifying-iris-part-2.md
-    - name: 3 - Model dağıtma
+    - name: '3: Modelleri dağıtma'
       href: tutorial-classifying-iris-part-3.md
-    - name: 4 - Gelişmiş veri hazırlama
+    - name: '4: Gelişmiş veri hazırlama'
       href: tutorial-bikeshare-dataprep.md
 - name: Kavramlar
   items:

@@ -1,13 +1,15 @@
+# [Anahtar Kasası Belgeleri](index.md)
+
 # Genel Bakış
 ## [Anahtar Kasası nedir?](key-vault-whatis.md)
 ## [Hizmete genel bakış](https://azure.microsoft.com/services/key-vault/)
 
-# Başlarken
+# başlarken
 ## [Anahtar Kasasını kullanmaya başlama](key-vault-get-started.md)
 ## [Anahtar değiştirme ve denetimi ayarlama](key-vault-key-rotation-log-monitoring.md)
 ## [Bir web uygulamasından Anahtar Kasası’nı kullanma](key-vault-use-from-web-application.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Geliştirme
 ### [Geliştiricilere yönelik hızlı başlangıç videosu](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
 ### [Anahtar Kasası geliştirici kılavuzu](key-vault-developers-guide.md)
@@ -23,7 +25,7 @@
 #### [Depolama hesabı anahtarları](key-vault-ovw-storage-keys.md)
 #### [Azaltma](key-vault-ovw-throttling.md)
 
-## Yönet
+## Yönetme
 ### [Azure Key Vault günlüğü](key-vault-logging.md)
 ### [Güvenlik duvarı arkasına erişme](key-vault-access-behind-firewall.md)
 ### [Kullanılabilirlik ve yedekleme](key-vault-disaster-recovery-guidance.md)

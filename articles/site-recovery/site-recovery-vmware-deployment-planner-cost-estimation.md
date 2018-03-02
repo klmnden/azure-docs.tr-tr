@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/28/2017
+ms.date: 02/22/2018
 ms.author: nisoneji
-ms.openlocfilehash: 62308b4ab6c9aedf2f7f7e5a40ff476cce171988
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0a4d8958c0bbbe8b0242bfe8943d01ef66afec74
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery dağıtım planlayıcısı maliyet tahmini raporu  
 
@@ -154,7 +154,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Desteklenen para birimleri
 Azure Site Recovery Dağıtım Planlayıcısı aşağıdaki para birimlerinin tümünde maliyet raporu oluşturabilir.
 
-|Para birimi|Ad||Para birimi|Ad||Para birimi|Ad|
+|Para birimi|Adı||Para birimi|Adı||Para birimi|Adı|
 |---|---|---|---|---|---|---|---|
 |ARS|Arjantin Pesosu ($)||AUD|Avustralya Doları ($)||BRL|Brezilya Reali (R$)|
 |CAD|Kanada Doları ($)||CHF|İsviçre Frangı (chf)||DKK|Danimarka Kronu (kr)|
@@ -166,4 +166,4 @@ Azure Site Recovery Dağıtım Planlayıcısı aşağıdaki para birimlerinin t�
 |TRY|Türk Lirası (TL)||USD| ABD Doları ($)||ZAR|Güney Afrika Randı (R)|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure Site Recovery kullanarak VMware VM'lerden Azure'a dağıtımı](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-vmware-to-azure) koruma hakkında daha fazla bilgi edinin.
+[Azure Site Recovery kullanarak VMware VM'lerden Azure'a dağıtımı](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure) koruma hakkında daha fazla bilgi edinin.

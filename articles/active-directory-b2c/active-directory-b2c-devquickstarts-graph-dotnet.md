@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API kullanın
 
@@ -99,13 +99,13 @@ Uygulamanızı şimdi de B2C kiracınızın kullanıcıları silme izni vardır.
 ## <a name="download-configure-and-build-the-sample-code"></a>Karşıdan yükleme, yapılandırma ve örnek kod derleme
 İlk olarak, örnek kodu indirin ve çalışmasını alın. Ardından biz yakından bakmak sürer.  Yapabilecekleriniz [örnek kod bir .zip dosyası olarak karşıdan](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Ayrıca tercih ettiğiniz dizinine kopyalayabilirsiniz:
 
-```
+```cmd
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ```
 
 Açık `B2CGraphClient\B2CGraphClient.sln` Visual Studio çözümü Visual Studio'da. İçinde `B2CGraphClient` projesi, dosyayı açma `App.config`. Üç uygulama ayarlarını kendi değerlerinizle değiştirin:
 
-```
+```xml
 <appSettings>
     <add key="b2c:Tenant" value="{Your Tenant Name}" />
     <add key="b2c:ClientId" value="{The ApplicationID from above}" />
@@ -120,9 +120,9 @@ Ardından, sağ tıklayın `B2CGraphClient` çözüm ve örnek yeniden oluşturm
 ## <a name="build-user-crud-operations-by-using-the-graph-api"></a>Grafik API'sini kullanarak yapı kullanıcı CRUD işlemleri
 B2CGraphClient kullanmak için açık bir `cmd` Windows komut istemine ve dizininize değiştirmek `Debug` dizin. Ardından çalıştırın `B2C Help` komutu.
 
-```
-> cd B2CGraphClient\bin\Debug
-> B2C Help
+```cmd
+cd B2CGraphClient\bin\Debug
+B2C Help
 ```
 
 Bu her komut kısa bir açıklamasını görüntüler. Aşağıdaki komutlardan birini çağırma her zaman `B2CGraphClient` Azure AD grafik API'sine isteğinde bulunur.
@@ -179,8 +179,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Bu istek görmek için çalıştırın:
 
- ```
- > B2C Get-User
+ ```cmd
+ B2C Get-User
  ```
 
 Dikkat edilecek iki önemli noktalar şunlardır:
@@ -245,9 +245,9 @@ Bu isteği bu özelliklerin çoğu tüketici kullanıcıları oluşturmak için 
 
 İstek görmek için aşağıdaki komutlardan birini çalıştırın:
 
-```
-> B2C Create-User ..\..\..\usertemplate-email.json
-> B2C Create-User ..\..\..\usertemplate-username.json
+```cmd
+B2C Create-User ..\..\..\usertemplate-email.json
+B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
 `Create-User` Komutu bir .json dosyası olarak bir giriş parametresi alır. Bu, bir kullanıcı nesnesinin bir JSON temsili içerir. Örnek kodda iki örnek .json dosyası vardır: `usertemplate-email.json` ve `usertemplate-username.json`. Bu dosyalar, gereksinimlerinize uyacak şekilde değiştirebilirsiniz. Yukarıdaki gerekli alanlara ek olarak, bu dosyaları kullanabileceğiniz birkaç isteğe bağlı alanları dahil edilir. İsteğe bağlı alanları ayrıntıları bulunabilir [Azure AD Graph API varlık başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
@@ -279,9 +279,9 @@ Content-Length: 37
 
 Bir kullanıcı yeni verilerle, JSON dosyalarınızın güncelleştirerek güncelleştirmeyi deneyin. Daha sonra kullanabilirsiniz `B2CGraphClient` aşağıdaki komutlardan birini çalıştırmak için:
 
-```
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
-> B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
+```cmd
+B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
+B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
 
 İnceleme `B2CGraphClient.SendGraphPatchRequest(...)` bu isteği göndermek hakkında ayrıntılar için yöntem.
@@ -291,16 +291,16 @@ B2C kiracınızda çeşitli şekillerde kullanıcılar için arama yapabilirsini
 
 Belirli bir kullanıcı için aramak için aşağıdaki komutlardan birini çalıştırın:
 
-```
-> B2C Get-User <user-object-id>
-> B2C Get-User <filter-query-expression>
+```cmd
+B2C Get-User <user-object-id>
+B2C Get-User <filter-query-expression>
 ```
 
 Aşağıda birkaç örnek verilmiştir:
 
-```
-> B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
-> B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
+```cmd
+B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
+B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
 ```
 
 ### <a name="delete-users"></a>Kullanıcıları silme
@@ -313,8 +313,8 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Bir örnek görmek için şu komutu girin ve konsola yazdırılır silme isteği görüntüleyin:
 
-```
-> B2C Delete-User <object-id-of-user>
+```cmd
+B2C Delete-User <object-id-of-user>
 ```
 
 İnceleme `B2CGraphClient.SendGraphDeleteRequest(...)` bu isteği göndermek hakkında ayrıntılar için yöntem.
@@ -328,14 +328,14 @@ Azure AD grafik API'si kullanıcı yönetimine ek olarak birçok başka eylemler
 
 B2C kiracınızda kullanarak tanımlanan özel özniteliklere görüntüleyebilirsiniz `B2CGraphClient`:
 
-```
-> B2C Get-B2C-Application
-> B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
+```cmd
+B2C Get-B2C-Application
+B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
 Bu işlevler çıktısı gibi her özel öznitelik ayrıntılarını ortaya çıkarır:
 
-```JSON
+```json
 {
       "odata.type": "Microsoft.DirectoryServices.ExtensionProperty",
       "objectType": "ExtensionProperty",
@@ -353,8 +353,8 @@ Bu işlevler çıktısı gibi her özel öznitelik ayrıntılarını ortaya çı
 
 Tam adı gibi kullanabilir `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, kullanıcı nesneleri bir özellik olarak.  Yeni özellik ve özelliği için bir değer ile .json dosyanızı güncelleştirin ve ardından çalıştırın:
 
-```
-> B2C Update-User <object-id-of-user> <path-to-json-file>
+```cmd
+B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
 Kullanarak `B2CGraphClient`, B2C Kiracı kullanıcılarınızın program aracılığıyla yönetebilen bir hizmet uygulaması sahip. `B2CGraphClient` Azure AD grafik API'sine kimliğini doğrulamak için kendi uygulama kimliğini kullanır. Ayrıca, istemci parolasını kullanarak belirteçleri da alır. Bu işlev uygulamanıza dahil, B2C uygulamalar için birkaç önemli nokta unutmayın:

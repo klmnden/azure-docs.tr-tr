@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-compose"></a>sfctl oluştur
+# <a name="sfctl-compose"></a>sfctl compose
 Oluşturma, silme ve Docker Compose dağıtımlarını yönetin.
 
 ## <a name="commands"></a>Komutlar
@@ -160,10 +160,9 @@ Sağlanan yükseltme parametreleri doğrular ve dağıtım yükseltmeyi başlat�
 | --- | --- |
 |   --debug                      | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 |    --help -h                    | Bu yardım iletisini ve çıkış gösterir.|
- |   ---o çıktı                  | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.
-                                   Varsayılan: json.|
- |   --Sorgu                      | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
- |   --verbose                    | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+|   ---o çıktı                  | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv. Varsayılan: json.|
+|   --Sorgu                      | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+|   --verbose                    | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Ayarlanan](service-fabric-cli.md) Service Fabric CLI.

@@ -2,23 +2,19 @@
 title: "Uygulama verilerini Azure'da yüksek oranda kullanılabilir hale getirme | Microsoft Belgeleri"
 description: "Okuma erişimli coğrafi olarak yedekli depolamayı kullanarak uygulama verilerinizi yüksek oranda kullanılabilir yapma"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure depolama ile uygulama verilerinizi yüksek oranda kullanılabilir hale getirme
 
@@ -64,7 +60,7 @@ Depolama hesabı, Azure Storage veri nesnelerinizi depolamak ve bunlara erişmek
 
 Okuma erişimli coğrafi olarak yedekli depolama hesabı oluşturmak için aşağıdaki adımları izleyin:
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesini seçin.
+1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesini seçin.
 
 2. **Yeni** sayfasında **Depolama**’yı seçin ve **Öne Çıkanlar**’ın altında **Depolama hesabı - blob, dosya, tablo, kuyruk**’u seçin.
 3. Aşağıdaki bilgileri kullanarak depolama hesabı formunu alttaki resimde gösterildiği gibi doldurun ve **Oluştur**’u seçin:

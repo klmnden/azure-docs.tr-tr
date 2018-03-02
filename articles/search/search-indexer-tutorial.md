@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Azure Search dizin oluşturucuyu kullanarak Azure SQL veritabanında gezinme
 
@@ -38,7 +38,7 @@ Bu öğreticide, [Azure Search .NET istemci kitaplıklarını](https://aka.ms/se
 > * Dizinde arama yapma
 > * Portalda dizin oluşturucu yapılandırmasını görüntüleme
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * Etkin bir Azure hesabı. Hesabınız yoksa, [ücretsiz deneme için kaydolabilirsiniz](https://azure.microsoft.com/free/). 
 
@@ -121,7 +121,7 @@ Aşağıdaki alıştırmada, mevcut sunucu veya veritabanı olmadığı varsayı
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın. 
 
-2. Veritabanı, sunucu ve kaynak grubu oluşturmak için **Yeni** > **SQL Veritabanı**'na tıklayın. Varsayılan değerleri ve en düşük düzey fiyatlandırma katmanını kullanabilirsiniz. Sunucu oluşturmanın bir avantajı, yönetici kullanıcı adı ve parolası belirtebilmenizdir; çünkü sonraki adımda tabloları oluşturmak ve yüklemek için bunlar gerekecektir.
+2. Veritabanı, sunucu ve kaynak grubu oluşturmak için **Kaynak oluştur** > **SQL Veritabanı**'na tıklayın. Varsayılan değerleri ve en düşük düzey fiyatlandırma katmanını kullanabilirsiniz. Sunucu oluşturmanın bir avantajı, yönetici kullanıcı adı ve parolası belirtebilmenizdir; çünkü sonraki adımda tabloları oluşturmak ve yüklemek için bunlar gerekecektir.
 
    ![Yeni veritabanı sayfası](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

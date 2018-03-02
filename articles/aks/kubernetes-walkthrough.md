@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 03/20/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: f0ed49c94dc83624b5f6f1ee0a4dcdff9284d5a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini dağıtma
 
@@ -25,7 +25,7 @@ Bu hızlı başlangıçta temel Kubernetes kavramlarını bildiğiniz varsayılm
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.21 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.27 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Azure aboneliğiniz için AKS önizlemesini etkinleştirme
 AKS önizlemedeyken, yeni kümeler oluşturmak aboneliğinizde özellik bayrağı olmasını gerektirir. Bu özelliği kullanmak istediğiniz herhangi bir sayıda abonelik için isteyebilirsiniz. AKS sağlayıcıyı kaydetmek için `az provider register` komutunu kullanın:
@@ -209,18 +209,6 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 Artık Azure Vote Uygulamasını görmek için dış IP adresine göz atabilirsiniz.
 
 ![Azure Vote’a göz atma görüntüsü](media/container-service-kubernetes-walkthrough/azure-vote.png)
-
-## <a name="open-kubernetes-dashboard"></a>Kubernetes panosunu açma
-
-Azure CLI, ayrıca Kubernetes panosu ile bir bağlantı ayarlamak için de kullanılabilir. Bunu yapmak için [az aks browse][az-aks-browse] komutunu kullanın.
-
-```azurecli-interactive
-az aks browse --resource-group myResourceGroup --name myAKSCluster
-```
-
-Çalıştırıldıktan sonra, bir tarayıcı Kubernetes panosunu açar.
-
-![Kubernetes panosu](media/container-service-kubernetes-walkthrough/k8s-dashboard.png)
 
 ## <a name="delete-cluster"></a>Kümeyi silme
 

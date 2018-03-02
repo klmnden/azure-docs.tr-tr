@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: eaf935c1060e53673351936111083d8bb44f05e7
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma
 
@@ -27,7 +27,7 @@ https://portal.azure.com adresindeki Azure portalında oturum açın.
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
-**Yeni** > **Kapsayıcılar** > **Azure Container Registry** seçeneğini belirleyin.
+**Kaynak oluştur** > **Kapsayıcılar** > **Azure Container Registry** seçeneklerini belirleyin.
 
 ![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-01]
 

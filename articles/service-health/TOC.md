@@ -1,3 +1,5 @@
+# [Azure Hizmet Durumu](index.md)
+
 # Genel Bakış
 ## [Azure Hizmet Durumu nedir?](service-health-overview.md)
 ## [Azure Kaynak Durumu nedir?](resource-health-overview.md)

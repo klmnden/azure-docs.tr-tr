@@ -1,43 +1,41 @@
 ---
-title: "Azure depolama biriminden büyük miktarlarda rastgele veri indirme | Microsoft Docs"
-description: "Bir Azure depolama hesabından büyük miktarlarda rastgele veri indirmek için Azure SDK'sını kullanmayı öğrenin"
+title: "Azure Depolama’dan büyük miktarda rastgele verileri indirme | Microsoft Docs"
+description: "Azure Depolama hesabından büyük miktarda rastgele verileri indirmek için Azure SDK’nın nasıl kullanılacağını öğrenin"
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: MT
+ms.openlocfilehash: 673dc8fc7fd5d08f9541595af16078d44c7f8308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Azure depolama biriminden büyük miktarlarda rastgele veri indirme
+# <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Azure Depolama’dan büyük miktarda rastgele verileri indirme
 
-Bu öğretici üç serinin bir parçasıdır. Bu öğretici Azure depolama biriminden büyük miktarlarda verinin indirmeyi gösterir.
+Bu öğretici, bir serinin üçüncü bölümüdür. Bu öğretici, Azure Depolama’dan büyük miktarda verileri nasıl indireceğinizi gösterir.
 
-Bölümünde dizisinin üç bilgi nasıl yapılır:
+Serinin üçüncü bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Uygulamayı güncelleştirme
 > * Uygulamayı çalıştırma
-> * Bağlantı sayısını doğrula
+> * Bağlantı sayısını doğrulama
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için önceki depolama öğretici tamamlamış olmanız gerekir: [karşıya rastgele verileri Azure depolama paralel büyük miktarlarda][previous-tutorial].
+Bu öğreticiyi tamamlamak için önceki şu Depolama öğreticisini tamamlamış olmanız gerekir: [Büyük miktarda rastgele verileri paralel şekilde Azure Depolama’ya yükleme][previous-tutorial].
 
-## <a name="remote-into-your-virtual-machine"></a>Sanal makineniz içine uzaktan
+## <a name="remote-into-your-virtual-machine"></a>Sanal makinenize uzaktan bağlanma
 
- Sanal makineyle bir Uzak Masaüstü oturumu oluşturmak için yerel makinenizde aşağıdaki komutu kullanın. IP adresi, sanal makinenize Publicıpaddress ile değiştirin. İstendiğinde, sanal makine oluşturulurken kullanılan kimlik bilgilerini girin.
+ Sanal makine ile bir uzak masaüstü oturumu oluşturmak için yerel makinenizde aşağıdaki komutu kullanın. IP adresini, sanal makinenizin publicIPAddress değeriyle değiştirin. İstendiğinde, sanal makine oluşturulurken kullanılan kimlik bilgilerini girin.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -45,7 +43,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="update-the-application"></a>Uygulamayı güncelleştirme
 
-Önceki öğreticide, yalnızca depolama hesabına dosya karşıya. Açık `D:\git\storage-dotnet-perf-scale-app\Program.cs` bir metin düzenleyicisinde. Değiştir `Main` aşağıdaki örnekle yöntemi. Bu örnek açıklamalar karşıya yükleme görev out ve indirme görev ve görev tamamlandığında depolama hesabındaki içerik silmek için uncomments.
+Önceki öğreticide, yalnızca depolama hesabına dosyaları yüklediniz. `D:\git\storage-dotnet-perf-scale-app\Program.cs` dosyasını bir metin düzenleyicisinde açın. `Main` yöntemini aşağıdaki örnekle değiştirin. Bu örnek, karşıya yükleme görevini açıklama satırı yapar ve tamamlandığında indirme görevinin ve depolama hesabındaki içeriği silme görevinin açıklamasını kaldırır.
 
 ```csharp
 public static void Main(string[] args)
@@ -85,7 +83,7 @@ public static void Main(string[] args)
 }
 ```
 
-Uygulama güncelleştirildikten sonra uygulamayı yeniden derleme gerekir. Açık bir `Command Prompt` gidin `D:\git\storage-dotnet-perf-scale-app`. Uygulamayı çalıştırarak yeniden `dotnet build` aşağıdaki örnekte görüldüğü gibi:
+Uygulama güncelleştirildikten sonra uygulamayı tekrar derlemeniz gerekir. Bir `Command Prompt` açın ve `D:\git\storage-dotnet-perf-scale-app` dizinine gidin. Aşağıdaki örnekte görüldüğü gibi `dotnet build` çalıştırarak uygulamayı yeniden derleyin:
 
 ```
 dotnet build
@@ -93,23 +91,23 @@ dotnet build
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Uygulama yeniden göre uygulama ile güncelleştirilmiş kod çalıştırma zamanı geldi. Zaten açık değilse, açık bir `Command Prompt` gidin `D:\git\storage-dotnet-perf-scale-app`.
+Şimdi uygulama yeniden derlendiğine göre güncelleştirilmiş kod ile uygulamayı çalıştırmaya sıra gelir. Açık değilse bir `Command Prompt` açın ve `D:\git\storage-dotnet-perf-scale-app` dizinine gidin.
 
-Tür `dotnet run` uygulamayı çalıştırın.
+Uygulamayı çalıştırmak için `dotnet run` yazın.
 
 ```
 dotnet run
 ```
 
-Belirtilen depolama hesabında bulunan kapsayıcıları uygulaması okur **storageconnectionstring**. Kullanarak bir defada BLOB'lar 10 dolaşır [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) kapsayıcıları ve bunları yerel makine kullanarak yüklemeleri yönteminde [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) yöntemi.
-Aşağıdaki tabloda [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) tanımlanmış her bir blob olarak yüklenir.
+Uygulama, **storageconnectionstring** içinde belirtilen depolama hesabında bulunan kapsayıcıları okur. Kapsayıcılarda [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) yöntemini kullanarak aynı anda 10 blobda gezinir ve [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) yöntemini kullanarak bunları yerel makineye indirir.
+Aşağıdaki tabloda, indirilen her blob için tanımlanan [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) gösterilir.
 
 |Özellik|Değer|Açıklama|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| doğru| Bu özellik MD5 karma değeri karşıya içerik denetimi devre dışı bırakır. MD5 doğrulama devre dışı bırakılması daha hızlı bir aktarım üretir. Geçerlilik ya da aktarılan dosyaların bütünlüğünü doğrulamak değil ancak. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| yanlış| Bu özellik, bir MD5 karma hesaplanır ve depolanan olup olmadığını belirler.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Bu özellik, karşıya yüklenen içeriğin MD5 karmasının denetimini devre dışı bırakır. MD5 doğrulaması devre dışı bırakıldığında daha hızlı bir aktarım üretilir. Ancak aktarılan dosyaların geçerliliği veya bütünlüğü onaylanmaz. |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Bu özellik, bir MD5 karmasının hesaplanıp hesaplanmayacağını ve depolanıp depolanmayacağını belirler.   |
 
-`DownloadFilesAsync` Görev, aşağıdaki örnekte gösterilir:
+Aşağıdaki örnekte `DownloadFilesAsync` görevi gösterilmektedir:
 
 ```csharp
 private static async Task DownloadFilesAsync()
@@ -193,9 +191,9 @@ private static async Task DownloadFilesAsync()
 }
 ```
 
-### <a name="validate-the-connections"></a>Bağlantıları doğrula
+### <a name="validate-the-connections"></a>Bağlantıları doğrulama
 
-Dosyaları karşıdan yüklenirken eşzamanlı bağlantı sayısını da depolama hesabınıza doğrulayabilirsiniz. Açık bir `Command Prompt` ve türü `netstat -a | find /c "blob:https"`. Bu komutu kullanarak şu anda açıldığından bağlantı sayısını gösterir `netstat`. Aşağıdaki örnek öğretici kendiniz çalıştırırken gördüğünüz için benzer bir çıktıya gösterir. Örnekte görebildiğiniz gibi üzerinde 280 bağlantıları rastgele dosyalar depolama hesabından indirirken açın.
+Dosyalar indirilirken, depolama hesabınıza yönelik eş zamanlı bağlantı sayısını doğrulayabilirsiniz. Bir `Command Prompt` açın ve `netstat -a | find /c "blob:https"` yazın. Bu komut şu anda `netstat` kullanılarak açılan bağlantı sayısını gösterir. Aşağıdaki örnek, öğreticiyi kendiniz çalıştırırken gördüğünüze benzer bir çıktıyı gösterir. Örnekte görebileceğiniz gibi, depolama hesabından rastgele dosyalar indirilirken 280’den fazla bağlantı açıktı.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -206,15 +204,15 @@ C:\>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bölümünde seri üç, büyük miktarlarda rastgele verilerin nasıl gibi bir depolama hesabından karşıdan yükleme konusunda öğrenilen:
+Serinin üçüncü kısmında, aşağıda örnekleri verilen eylemlerle birlikte bir depolama hesabından büyük miktarlarda rastgele verilerin indirilmesiyle ilgili bilgi edindiniz:
 
 > [!div class="checklist"]
 > * Uygulamayı çalıştırma
-> * Bağlantı sayısını doğrula
+> * Bağlantı sayısını doğrulama
 
-Üretilen iş ve gecikmeyi ölçümleri Portalı'nda doğrulamak için seri dört kısmına ilerleyin.
+Portalda aktarım hızı ve gecikme süresi ölçümlerini doğrulamak için serinin dördüncü kısmına ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Üretilen iş ve gecikmeyi ölçümleri portalında doğrulayın](storage-blob-scalable-app-verify-metrics.md)
+> [Portalda aktarım hızı ve gecikme süresi ölçümlerini doğrulama](storage-blob-scalable-app-verify-metrics.md)
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md

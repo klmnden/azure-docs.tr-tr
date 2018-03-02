@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 959c0e8693f4bba49488bbe85e334599823ad0ed
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama
 Bu makale Azure Güvenlik Merkezi'nde bulunan farklı güvenlik uyarısı türlerini ve ilgili öngörüleri anlamanıza yardımcı olur. Uyarıların ve olayların nasıl yönetileceği hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md).
@@ -93,16 +93,11 @@ Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren 
 * **IIS günlük dosyalarını devre dışı bırakma ve silme**: Bu uyarı IIS günlük dosyasının devre dışı bırakıldığını ve/veya silindiğini belirtir; bu işlem genellikle saldırganlar tarafından izlerini örtmek için kullanılır.
 * **Şüpheli dosya silme**: Bu uyarı bir saldırgan tarafından kötü amaçlı ikili dosyaların kanıtını ortadan kaldırmak için kullanılabilecek şüpheli dosya silme işlemini belirtir.
 * **Tüm dosya gölge kopyaları silindi**: Bu uyarı gölge kopyaların silindiğini belirtir.
-* **Bir geçmiş dosyası temizlendi**: Bu uyarı, bir saldırgan tarafından izlerini örtmek için kullanılabilecek bir komut geçmişi günlük dosyasının silindiğini belirtir.
 * **Şüpheli dosya temizleme komutları**: Bu uyarı, tehlike sonrası otomatik temizleme etkinliği gerçekleştirmek için kullanılan sistem bilgisi komutlarının bir birleşimini belirtir.  *systeminfo.exe* yasal bir Windows aracı olsa da, burada gerçekleşen şekilde bir silme komutundan sonra art arda iki kez çalıştırılması nadiren görülür.
 * **Şüpheli hesap oluşturma**: Bu uyarı, var olan yerleşik bir yönetici ayrıcalığı hesabına yakından benzeyen bir hesabın oluşturulduğunu belirtir. Bu teknik, algılanmayacak bir dolandırıcı hesabı oluşturmak üzere saldırganlar tarafından kullanılabilir.
-* **Şüpheli oturum açma etkinliği**: Bu uyarı, bir Sunucu İleti Bloğu (SMB) deneme yanılma saldırısını ifade edebilen olağan dışı bir oturum açma etkinliğini belirtir. Etkilenen kaynak bir IIS sunucusu gibi davranıyorsa, bu uyarı yasal bir IIS kimlik doğrulaması yapılandırmasından kaynaklanabilir.
 * **Şüpheli birim gölge kopya etkinliği**: Bu uyarı, kaynakta gölge kopya silme etkinliği olduğunu belirtir. Birim Gölge Kopyası (VSC), veri anlık görüntülerini depolayan önemli bir yapıttır. Bu etkinlik genellikle Ransowmare ile ilişkilendirilir, ancak aynı zamanda yasal olabilir.
 * **Windows kayıt defteri kalıcılık yöntemi**: Bu uyarı, yürütülebilir bir dosyayı Windows kayıt defterinde kalıcı hale getirme girişimini belirtir. Kötü amaçlı yazılımlar genellikle bir önyüklemeden kurtulmak için böyle bir teknik kullanır.
-* **Windows güvenlik duvarı devre dışı bırakıldı**: Bu uyarı bir Windows güvenlik duvarının devre dışı bırakıldığını belirtir.
 * **Şüpheli yeni güvenlik duvarı kuralı**: Bu uyarı, şüpheli bir konumdaki yürütülebilir dosyadan gelen trafiğe izin vermek için *netsh.exe* aracılığıyla yeni bir Güvenlik Duvarı kuralının eklendiğini belirtir.
-* **Yönetici grubuna yeni kullanıcı eklendi**: Bu uyarı yerel yönetici grubuna yeni bir kullanıcının eklendiğini belirtir.
-* **Yeni bir hizmet oluşturuldu**: Bu uyarı yeni bir hizmetin oluşturulduğunu belirtir.
 * **Şüpheli XCOPY yürütmeleri**: Bu uyarı, makinelerinizden herhangi birinin tehlikeye girdiği ve kötü amaçlı yazılım yaymak için kullanıldığı anlamına gelebilecek bir dizi XCOPY yürütme işlemi yapıldığını belirtir.
 * **Oturum açma sırasında kullanıcılara gösterilen yasal bildirimi gizleme**: Bu uyarı, oturum açma sırasında kullanıcılara yasal bir bildirim gösterilip gösterilmeyeceğini denetleyen kayıt defteri anahtarında bir değişiklik yapıldığını belirtir. Bu, bir konağı tehlikeye attıktan sonra saldırganlar tarafından gerçekleştirilen yaygın bir etkinliktir.
 * **Komut satırında büyük ve küçük harflerin anormal karışımı algılandı**: Bu uyarı, büyük/küçük harfe duyarlı veya karma tabanlı makine kuralından gizlenmek için saldırganlar tarafından kullanılan bir teknik olarak komut satırında büyük ve küçük harflerin anormal bir karışımının kullanıldığını belirtir.
@@ -123,15 +118,10 @@ Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren 
 * **Şüpheli Set-ExecutionPolicy ve WinRM değişiklikleri**: Bu uyarı, kötü amaçlı ChinaChopper web kabuğunun kullanımıyla ilişkili yapılandırma değişikliklerini belirtir.
 * **Kritik hizmetleri devre dışı bırakma**: Bu uyarı, SharedAccess veya Windows Güvenlik Merkezi gibi kritik hizmetleri durdurmak için "net.exe stop" komutunun kullanıldığını belirtir.
 * **FTP -s anahtarının şüpheli kullanımı**: Bu uyarı, uzak bir FTP sunucusuna bağlanmak ve ek kötü amaçlı ikili dosyalar indirmek için kötü amaçlı yazılım tarafından kullanılabilen FTP "-s" anahtarının kullanımını belirtir.
-* **IIS arka kapısından belge sızdırmaya hazırlanma**: Bu uyarı, belgelerin toplandığını ve sızdırma için hazırlandığını belirtir.
 * **Şüpheli VBScript.Encode komutu yürütme**: Bu uyarı, betikleri okunamaz metinler halinde kodlayarak kullanıcıların kodu incelemesini zorlaştıran *VBScript.Encode* komutunun yürütüldüğünü belirtir.
 * **VBScript HTTP nesne ayırma**: Bu uyarı, Komut İstemi ile bir VBScript dosyasının oluşturulduğunu belirtir; bu dosya, kötü amaçlı dosyaları indirmek için kullanılabilir.
 * **Yapışkan tuş saldırısı**: Bu uyarı, bir saldırganın arka kapı erişimi sağlamak için bir erişilebilirlik ikili dosyasını (örneğin yapışkan tuşlar, ekran klavyesi, ekran okuyucusu) bozduğunu belirtir.
 * **Petya fidye yazılımı göstergeleri**: Bu uyarı, Petya fidye yazılımı ile ilişkili tekniklerin gözlendiğini belirtir.
-* **Bir çekirdek modülü yüklendi**: Bu uyarı bir çekirdek modülünün yüklendiğini belirtir.
-* **Bir çekirdek modülü kaldırıldı**: Bu uyarı bir çekirdek modülünün kaldırıldığını belirtir.
-* **Bir makinede anormal oturum açma**: Bu uyarı, bir kullanıcının olağan dışı bir IP adresinden oturum açtığını belirtir.
-* **Bir dosya indirildi ve yürütüldü**: Bu uyarı bir makineye dosya indirildiğini, dosyaya yürütme ayrıcalıkları verildiğini ve sonra dosyanın yürütüldüğünü belirtir.
 * **AMSI’yi devre dışı bırakma denemesi**: Bu uyarı, kötü amaçlı yazılımdan koruma algılamasını devre dışı bırakabilecek kötü amaçlı yazılımdan koruma tarama arabirimi (AMSI) özelliğini devre dışı bırakma denemesi yapıldığını belirtir.
 * **Fidye yazılımı göstergeleri**: Bu uyarı, geleneksel olara kilit ekranı ve şifreleme fidye yazılımı ile ilişkilendirilen şüpheli bir etkinliği belirtir.
 * **Şüpheli izleme toplama çıkış dosyası**: Bu uyarı bir izlemenin (örneğin, ağ etkinliği) toplandığını ve olağan dışı bir dosya türünde çıkarıldığını belirtir.
@@ -145,14 +135,8 @@ Güvenlik Merkezi; sanal makine günlüklerinin analizine göre tehlikeye giren 
 * **Dinamik PS betiği oluşturma**: Bu uyarı bir PowerShell betiğinin dinamik olarak oluşturulduğunu belirtir. Saldırganlar IDS sistemlerinden kurtulmak amacıyla aşamalı olarak betik derlemek için bu tekniği kullanır.
 * **Metasploit göstergeleri**: Bu uyarı, bir dizi saldırgan yeteneği ve aracı sağlayan Metasploit çerçevesiyle ilişkili etkinliği gösterir.
 * **Şüpheli hesap etkinliği**: Bu uyarı yakın zamanda güvenliği aşılmış bir hesabı kullanarak bir makineye bağlanma girişiminde bulunulduğunu gösterir.
-* **Olası şüpheli zamanlama görevlerine erişim**: Bu uyarı, saldırganlar tarafından planlı bir şekilde kötü amaçlı programları yürütmek için kullanılabilen bir cron işinin yürütüldüğünü belirtir.
-* **Olası şüpheli komut geçmişi dosya erişimi**: Bu uyarı, komut geçmişi dosyasına olağan dışı erişim olduğunu belirtir.
 * **Hesap oluşturma**: Bu uyarı, makine üzerinde yeni bir hesap oluşturulduğunu belirtir.
-* **Bash ayarı değiştirildi**: Bu uyarı, bir Bash Profili dosyasına erişildiğini belirtir; bu durum, bir saldırganın planlı olarak kötü amaçlı programlar yürütmeye çalıştığının kanıtı olabilir.
-* **Şüpheli başarısız sudo denemeleri dizisi**: Bu uyarı, genellikle yetkisiz kullanıcılar tarafından ayrıcalıkları yükseltmeyi amaçlayan deneme yanılma girişimlerinde gözlemlenen başarısız bir sudo komutları dizisi olduğunu belirtir.
-* **Şüpheli başarılı sudo denemeleri dizisi**: Bu uyarı, genellikle yetkisiz kullanıcılar tarafından ayrıcalıkları yükseltmeyi amaçlayan deneme yanılma girişimlerinde gözlemlenen başarılı bir sudo girişiminin ardından başarısız sudo girişimleri dizisi olduğunu belirtir.
-* **Sudoers grubuna yeni bir kullanıcı eklendi**: Bu uyarı, üyelerinin yüksek ayrıcalıklarla komutlar yürütmesini sağlayan sudoers grubuna bir kullanıcı eklendiğini belirtir.
-* **Düz metin kimlik bilgileri ile ağda oturum açma**: Bu uyarı, parolanın ağ üzerinden açık metin biçiminde gönderildiği bir ağ oturumu açma işleminin gözlemlendiğini belirtir. Bu uyarı genellikle ADVAPI kullanarak bir ASP betiğinden oturum açma sırasında ya da kullanıcı IIS’nin temel kimlik doğrulama modunu kullanarak IIS’de oturum açtığında yaygın olarak görülür. Temel kimlik doğrulaması, SSL gibi bir şifreleme katmanında (yalnızca HTTPS bağlantıları kullanılarak) sarmalanmadığı sürece önerilen yöntem değildir.
+
 
 ### <a name="crash-analysis"></a>Kilitlenme analizi
 
@@ -206,6 +190,8 @@ Sağlanan ek bilgiler (varsa) uyarı listesinin altındaki Güvenlik Olayında g
 - Günlük temizleme olayları
 - Bilinmeyen bir cihaza takılı olan PNP cihazı
 - Eyleme dönüştürülemeyen uyarılar
+- Yeni hesap oluşturma
+- CertUtil aracı kullanılarak kodu çözülen dosya 
 
 ![Olağan dışı erişim uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

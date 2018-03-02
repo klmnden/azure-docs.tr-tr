@@ -1,3 +1,5 @@
+# [Data Lake Analytics Belgeleri](index.md)
+
 # Genel Bakış
 ## [Data Lake Analytics nedir?](data-lake-analytics-overview.md)
 

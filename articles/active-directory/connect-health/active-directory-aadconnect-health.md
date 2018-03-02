@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Buluttaki şirket içi kimlik altyapınızı ve eşitleme hizmetlerini izleyin
 Azure Active Directory (Azure AD) Connect Health, şirket içi kimlik altyapınızı ve eşitleme hizmetlerini izlemenize ve daha iyi kavramanıza yardımcı olur. Active Directory Federasyon Hizmetleri (AD FS) sunucuları, Azure AD Connect sunucuları (diğer adıyla eşitleme altyapısı), Active Directory etki alanı denetleyicileri gibi anahtar kimlik bileşenlerinizi izleme işlevleri sağlayarak Office 365 ve Microsoft Online Services ile güvenilir bir bağlantı sürdürmenizi sağlar. Aynı zamanda, bu bileşenlere ait önemli veri noktalarını kolayca erişilebilir hale getirir. Böylece, bilgiye dayalı kararlar almak için kullanım bilgilerini ve diğer önemli öngörüleri almayı kolaylaştırır.
@@ -110,7 +110,7 @@ Azure AD Connect Health ile çalışmaya başlamak için aşağıdaki adımları
 Azure AD Connect Health portalı; uyarıları, performans izlemeyi ve kullanım analizini görüntüler. https://aka.ms/aadconnecthealth URL'si sizi Azure AD Connect Health'in ana dikey penceresine götürür. Dikey pencereyi bir pencere olarak düşünebilirsiniz. Ana dikey pencerede **Hızlı Başlangıç**'ı, Azure AD Connect Health'teki hizmetleri ve ek yapılandırma seçeneklerini görebilirsiniz. Aşağıdaki ekran görüntüsünü ve altındaki kısa açıklamaları inceleyin. Aracıları dağıttıktan sonra sistem durumu hizmeti Azure AD Connect Health tarafından izlenen hizmetleri otomatik olarak tanımlar.
 
 > [!NOTE]
-> Lisans bilgileri için bkz. [Azure AD Connect SSS](active-directory-aadconnect-health-faq.md) veya [Azure AD Fiyatlandırma sayfası](https://aka.ms/aadpricing).
+> Lisans bilgileri için bkz. [Azure AD Connect Health SSS](active-directory-aadconnect-health-faq.md) veya [Azure AD Fiyatlandırma sayfası](https://aka.ms/aadpricing).
     
 ![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health/portal4.png)
 

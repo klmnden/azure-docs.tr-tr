@@ -1,10 +1,11 @@
 - name: Service Fabric Belgeleri
-  href: /azure/service-fabric
+  href: index.yml
 - name: Genel Bakış
   items:
     - name: Service Fabric nedir?
       href: service-fabric-overview.md
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: .NET uygulaması oluşturma
       href: service-fabric-quickstart-dotnet.md

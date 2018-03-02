@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Aygıt sorunlarını gidermek ve
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Kullanım **Bakım** uyarı araştırmak için sayfası
 > * Sorunu düzeltmek için bir aygıt yöntemini çağırın
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
@@ -58,6 +58,8 @@ Uyarı onaylamak için seçin **Alarm oluşum** ve **kabul**. Bu eylem uyarı g�
 
 ![Alarmlar Onayla](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+Uyarı onayladığınızda oluşum durum değişikliklerini **onaylanan**.
+
 Listede, gördüğünüz **prototip** aygıt sıcaklık alarm tetikleme sorumlu:
 
 ![Uyarı neden cihazlar listesi](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -84,7 +86,7 @@ Belirli bir proje veya yöntem çağrısı ayrıntılarını görüntülemek iç
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, biz, nasıl gösterdi için:
+Bu öğreticide gördüğünüz nasıl yapılır:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

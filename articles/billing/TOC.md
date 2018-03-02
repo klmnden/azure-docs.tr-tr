@@ -1,3 +1,5 @@
+# [Azure Faturalama Belgeleri](index.md)
+
 # başlarken
 ## [Beklenmeyen maliyetleri engelleme](billing-getting-started.md)
 ## [Ücretsiz hesaba dahil hizmetler oluşturma](billing-create-free-services-included-free-account.md)
@@ -9,7 +11,7 @@
 ## [Ayrılmış VM Örnekleri ile tasarruf etme](billing-save-compute-costs-reservations.md)
 ## [Limitler ve kotalar](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Kullanımı ve maliyetleri izleme
 ### [Fatura ve kullanım bilgilerini alma](billing-download-azure-invoice-daily-usage-date.md)
 ### [Ücretsiz hizmetlerin kullanımını denetleme](billing-check-free-service-usage.md)

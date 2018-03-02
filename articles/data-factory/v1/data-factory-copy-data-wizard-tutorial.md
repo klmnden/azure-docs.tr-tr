@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f6fc7e0597176e2c23bc82581c86b951542fbc23
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 462038d21ea061e7cff8322ab4ce12f45844dca7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Öğretici: Data Factory Kopyalama Sihirbazı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Bu öğreticiyi uygulamadan önce [Öğreticiye Genel Bakış](data-factory-copy
 Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak için Azure Portal’ı kullanırsınız.
 
 1. [Azure portalı](https://portal.azure.com)’nda oturum açın.
-2. Sol üst köşedeki **+YENİ** öğesine **Veri + analiz**’e ve **Data Factory** öğesine tıklayın. 
+2. Sol üst köşedeki **Kaynak oluştur** öğesine **Veri ve analiz**’e ve **Data Factory** öğesine tıklayın. 
    
    ![Yeni->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. **Yeni data factory** dikey penceresinde:

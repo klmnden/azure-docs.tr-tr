@@ -7,8 +7,10 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Otomatik sağlamayı ayarlama
+    - name: Otomatik sağlamayı ayarlama - Portal
       href: quick-setup-auto-provision.md
+    - name: Otomatik sağlamayı ayarlama - Şablon
+      href: quick-setup-auto-provision-rm.md
     - name: Sanal cihaz oluşturma
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Cihaz sağlamasını kaldırma
       href: how-to-unprovision-devices.md
+    - name: X.509 sertifikalarına sahip olduğunuzu kanıtlama işlemini gerçekleştirme
+      href: how-to-verify-certificates.md
     - name: SDK ile HSM kullanma
       href: use-hsm-with-sdk.md
     - name: Sağlama Hizmeti’ne erişimi denetleme
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Geliştirme için SDK araçlarını kullanma
       href: how-to-use-sdk-tools.md
+    - name: MXChip IoT DevKit’e bağlanma
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Başvuru
   items:
     - name: REST

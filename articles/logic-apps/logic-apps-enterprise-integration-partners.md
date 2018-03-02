@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 950cb449b53f400f0f0f860caf5415bbb5212269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89066ba062c2b243136a03a52144fd99ae87eddc
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Ekleyin veya iş iş akışınızı sözleşmelerde ortakları güncelleştirin
 
 İşletmeden işletmeye (B2B) işlemlere katılmasına ve birbirleri arasındaki iletileri exchange varlıklar ortaklarıdır. Ve bu işlemler başka bir kuruluştaki temsil eden iş ortakları oluşturabilmeniz için önce her ikisi gerekir tanımlar ve diğer tarafından gönderilen iletileri doğrular bilgileri paylaşabilir. Bu ayrıntıları ele almaktadır ve iş ilişkiniz başlamak hazır sonra her iki temsil etmek için tümleştirme hesabınızı ortakları oluşturabilirsiniz.
 
-## <a name="what-roles-do-partners-have-in-your-integration-account"></a>Hangi rollerin ortakları tümleştirme hesabınız var mı?
+## <a name="what-roles-do-partners-play-in-your-integration-account"></a>Hangi rollerin ortakları tümleştirme hesabınızda yürütülüyor?
 
 İş ortakları arasında alınıp ileti ayrıntılarını tanımlamak için bu iş ortakları arasında anlaşmaları oluşturun. Bir anlaşma oluşturmadan önce ancak, en az iki iş ortağı tümleştirme hesabınıza eklemiş olmanız gerekir. Kuruluşunuz anlaşmanın bir parçası olmalıdır **ana iş ortağı**. Diğer ortağı veya **Konuk iş ortağı** iletileri kuruluşunuz ile alış verişleri kuruluşu temsil eder. Konuk iş ortağı, başka bir şirket veya hatta bir bölüm veya kendi kuruluşunuzdaki olabilir.
 
@@ -33,61 +33,67 @@ Bu iş ortaklarının ekledikten sonra bir anlaşma oluşturabilirsiniz.
 
 Gönderip ayarları açısından bakıldığında barındırılan ortağının yerleştirilir. Örneğin, bir anlaşma alma ayarlarında nasıl barındırılan ortak bir konuk ortağından gönderilen iletileri alan belirler. Benzer şekilde, nasıl barındırılan iş ortağı Konuk iş ortağı iletileri gönderir anlaşmasında gönderme ayarlarını belirtin.
 
-## <a name="how-to-create-a-partner"></a>Bir iş ortağı oluşturmak nasıl?
+## <a name="create-partner"></a>İş ortağı oluşturun
 
-1. Azure portalında seçin **Gözat**.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+2. Azure ana menüde seçin **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.
 
-2. Filtre Arama kutusuna **tümleştirme**seçeneğini belirleyip **tümleştirme hesapları** sonuçlar listesinde.
+   ![Tümleştirme hesabı bulunamadı](./media/logic-apps-enterprise-integration-partners/account-1.png)
 
-    ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+3. Altında **tümleştirme hesapları**, ortaklarınızın eklemek istediğiniz tümleştirme hesabı seçin.
 
-3. Ortaklarınızın eklemek istediğiniz tümleştirme hesabı seçin.
-
-    ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Tümleştirme hesabı seçin](./media/logic-apps-enterprise-integration-partners/account-2.png)
 
 4. Seçin **ortakları** döşeme.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-1.png)
+   !["Partners" seçin](./media/logic-apps-enterprise-integration-partners/partner-1.png)
 
-5. İş ortakları dikey penceresinde, seçin **Ekle**.
+5. Altında **ortakları**, seçin **Ekle**.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-2.png)
+   !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-partners/partner-2.png)
 
-6. İş ortağınız için bir ad girin ve ardından bir **niteleyicisi**. Son olarak, girin bir **değeri** uygulamalarınızla gelen belgeleri tanımlamaya yardımcı olmak için.
+6. İş ortağınız için bir ad girin ve ardından bir **niteleyicisi**. Girin bir **değeri** uygulamalarınızı alma belgelerini tanımlamak için. İşiniz bittiğinde seçin **Tamam**.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-3.png)
+   ![İş ortağı ayrıntılarını Ekle](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 
-7. İş ortağı oluşturma işlemi için ilerleme durumunu görmek için seçin *zil* bildirim simgesi.
+7. Seçin **ortakları** yeniden döşeme.
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-4.png)
+   !["Partners" kutucuğunu seçin](./media/logic-apps-enterprise-integration-partners/partner-5.png)
 
-8. Yeni iş ortaklarınıza başarıyla eklendiğini doğrulamak için şunu seçin **ortakları** döşeme.
+   Yeni iş ortağınız artık görünür. 
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-5.png)
+   ![Görünüm yeni iş ortağı](./media/logic-apps-enterprise-integration-partners/partner-6.png)
 
-    İş ortakları döşeme seçtikten sonra yeni eklenen iş ortakları ortakları dikey penceresinde de görürsünüz.
+## <a name="edit-partner"></a>İş ortağı Düzenle
 
-    ![](./media/logic-apps-enterprise-integration-partners/partner-6.png)
+1. İçinde [Azure portal](https://portal.azure.com), bulma ve tümleştirme hesabınızı seçin. Seçin **ortakları** döşeme.
 
-## <a name="how-to-edit-existing-partners-in-your-integration-account"></a>Var olan iş ortakları tümleştirme hesabınızda düzenleme
+   !["Partners" kutucuğunu seçin](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-1. Seçin **ortakları** döşeme.
-2. İş ortakları dikey penceresi açıldıktan sonra düzenlemek istediğiniz iş ortağını seçin.
-3. Üzerinde **güncelleştirme iş ortağı** döşeme, istediğiniz değişiklikleri yapın.
-4. Bitirdikten sonra seçin **kaydetmek**, yaptığınız değişiklikleri iptal etmek için seçin **atmak**.
+2. Altında **ortakları**, düzenlemek istediğiniz iş ortağını seçin.
 
-    ![](./media/logic-apps-enterprise-integration-partners/edit-1.png)
+   ![Silmek için iş ortağı seçin](./media/logic-apps-enterprise-integration-partners/edit-1.png)
 
-## <a name="how-to-delete-a-partner"></a>Bir iş ortağı silme
+3. Altında **güncelleştirme iş ortağı**, istediğiniz değişiklikleri yapın.
+Bitirdikten sonra seçin **kaydetmek**. 
 
-1. Seçin **ortakları** döşeme.
-2. İş ortağı dikey penceresi açıldıktan sonra silmek istediğiniz iş ortağını seçin.
-3. Seçin **silmek**.
+   ![Yapın ve değişikliklerinizi kaydedin](./media/logic-apps-enterprise-integration-partners/edit-2.png)
 
-    ![](./media/logic-apps-enterprise-integration-partners/delete-1.png)
+   Yaptığınız değişiklikleri iptal etmek için seçin **atmak**.
+
+## <a name="delete-partner"></a>İş ortağı Sil
+
+1. İçinde [Azure portal](https://portal.azure.com), bulma ve tümleştirme hesabınızı seçin. Seçin **ortakları** döşeme.
+
+   !["Partners" kutucuğunu seçin](./media/logic-apps-enterprise-integration-partners/delete.png)
+
+2. Altında **ortakları**, silmek istediğiniz iş ortağını seçin.
+Seçin **silmek**.
+
+   ![İş ortağı Sil](./media/logic-apps-enterprise-integration-partners/delete-1.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Anlaşmaları hakkında daha fazla bilgi](../logic-apps/logic-apps-enterprise-integration-agreements.md "Kurumsal tümleştirme anlaşmaları hakkında bilgi edinin")  
 

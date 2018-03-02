@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Ölçüm değeri bir koşula uyduğunda bildirim alma
 
@@ -30,11 +30,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="create-a-logic-app"></a>Mantıksal Uygulama oluşturma
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
 
-2. **Mantıksal Uygulama**'yı arayıp bulun ve seçin. **myResourceGroup** adlı yeni bir kaynak grubu oluşturun. Varsayılan konumu kullanın. **Oluştur** düğmesine tıklayın.
+2. **Mantıksal Uygulama**'yı arayıp bulun ve seçin. **Oluştur** düğmesine tıklayın.
 
-3. Mantıksal uygulama bilgilerini girin ve **Panoya Sabitle** seçeneğini işaretleyin. Tamamlandığında **Oluştur**’a tıklayın.
+3. Şu resimde gösterilen mantıksal uygulama bilgilerini girin.  Varsayılan konumu kullanın. **Panoya Sabitle** seçeneğini işaretleyin.  Tamamlandığında **Oluştur**’a tıklayın. 
 
     ![Portalda mantıksal uygulamanızla ilgili temel bilgileri girin](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -59,7 +59,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 11. **Yöntem** olarak POST ve **Uri** olarak dilediğiniz bir web adresini ayarlayın.
 
-12. **Kaydet** düğmesine tıklayın.
+12. **Kaydet**’e tıklayın.
+
+13. Mantıksal uygulama çalıştırma eylemlerinin gerçekleşmesi 5 dakikayı bulabilir.  
 
 ## <a name="view-metrics-for-your-logic-app"></a>Mantıksal uygulamanızın ölçümlerini görüntüleme
 
@@ -71,7 +73,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 4. Geçtiğimiz saatin verilerini görüntülemek için grafiğin **Zaman aralığı**'nı değiştirin.
 
-5. Artık geçtiğimiz saat içinde mantıksal uygulamanızın başlatmış olduğu toplam çalıştırma sayısının çizildiği grafiği görmelisiniz.
+5. Artık geçtiğimiz saat içinde mantıksal uygulamanızın başlatmış olduğu toplam çalıştırma sayısının çizildiği grafiği görmelisiniz. Görmüyorsanız, yukarıdaki adımdan sonra en az 5 dakika beklediğinizden emin olun. Ardından tarayıcınızı yenileyin. 
 
     ![Mantıksal uygulama kaynağı için bir ölçüm grafiği çizin](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 

@@ -83,9 +83,9 @@
 
 ## [Azure CLI](/cli/azure/batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
-## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](/nodejs/api/overview/azure/batch)
+## [.NET](/dotnet/api/overview/azure/batch)
+## [Java](/java/api/overview/azure/batch)
+## [Node.js](/javascript/api/overview/azure/batch)
 ## [Python](/python/api/overview/azure/batch)
 ## REST
 ### [Batch Hizmeti](/rest/api/batchservice)
@@ -100,7 +100,6 @@
 ### [Görev tamamlama olayı](batch-task-complete-event.md)
 ### [Görev başarısızlık olayı](batch-task-fail-event.md)
 ## [Batch işlem düğümü ortam değişkenleri](batch-compute-node-environment-variables.md)
-### [Resource Manager Şablonu](/templates/microsoft.batch/batchaccounts)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
@@ -110,6 +109,7 @@
 ## [Azure’da HPC çözümleri](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/batch/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
+## [Resource Manager Şablonu](/azure/templates/microsoft.batch/batchaccounts)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=batch)

@@ -1,10 +1,12 @@
+# [BizTalk Services Belgeleri](index.md)
+
 # Genel Bakış
 ## [Sürümler](biztalk-editions-feature-chart.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [BizTalk Services oluşturma](biztalk-provision-services.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Yönetici ve geliştirici görev listesi](biztalk-services-administration-and-development-task-list.md)
 ## [Yedekleme ve geri yükleme](biztalk-backup-restore.md)

@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: MV’lerinize yönelik güncelleştirmeleri yönetme
       href: automation-tutorial-update-management.md
-    - name: Güncelleştirme ekleme ve değişiklik izleme
+    - name: Runbook ile güncelleştirme ekleme ve değişiklik izleme
       href: automation-onboard-solutions.md
     - name: VM üzerinde yazılım tanımlama
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Nasıl yapılır
   items:
-    - name: Güncelleştirme yönetimi
+    - name: Ekleme
       items:
-        - name: Genel Bakış
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Azure VM’den ekleme
+          href: automation-onboard-solutions-from-vm.md
+        - name: Otomasyon hesabından ekleme
+          href: automation-onboard-solutions-from-automation-account.md
+    - name: Güncelleştirme Yönetimi
+      items:
+        - name: Güncelleştirme Yönetimine genel bakış
+          href: automation-update-management.md
         - name: Birden çok VM için güncelleştirmesini yönetme
           href: manage-update-multi.md
-        - name: SCCM’yi OMS Güncelleştirme Yönetimi ile Tümleştirme
+        - name: SCCM’yi Güncelleştirme Yönetimi ile Tümleştirme
           href: oms-solution-updatemgmt-sccmintegration.md
-    - name: Değişiklik izleme
+    - name: Değişiklik İzleme
       items:
-        - name: Genel Bakış
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: VM'lerinizdeki değişiklikleri izleme
-          href: automation-vm-change-tracking.md
+        - name: Değişiklik İzlemeye genel bakış
+          href: automation-change-tracking.md
     - name: Envanter
       items:
         - name: Stok koleksiyonuyla VM yönetme

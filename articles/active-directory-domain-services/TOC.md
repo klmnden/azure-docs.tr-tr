@@ -1,8 +1,11 @@
+# [Azure AD Etki Alanı Hizmetleri Belgeleri](index.md)
+
 # Genel Bakış
 ## [Azure AD Etki Alanı Hizmetleri nedir?](active-directory-ds-overview.md)
 ## Bu sizin için geçerli mi?
 ### [Windows Server AD ile karşılaştırma](active-directory-ds-comparison.md)
 ### [Azure AD katılma ile karşılaştırma](active-directory-ds-compare-with-azure-ad-join.md)
+## [Yenilikler](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Özellikler](active-directory-ds-features.md)
 ## [Senaryolar](active-directory-ds-scenarios.md)
 ## [Eşitleme nasıl çalışır?](active-directory-ds-synchronization.md)
@@ -16,6 +19,7 @@
 ## [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 
 # Nasıl yapılır
+## [Yönetilen bir etki alanının sistem durumunu denetleme](active-directory-ds-check-health.md)
 ## [Azure CSP aboneliklerinde Azure AD Domain Services kullanma](active-directory-ds-csp.md)
 ## [PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme](active-directory-ds-enable-using-powershell.md)
 ## Yönetilen bir etki alanına katılma
@@ -28,7 +32,7 @@
 ## Yönetilen etki alanını yönetme
 ### [Yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
 ### [Yönetilen etki alanında DNS’yi yönetme](active-directory-ds-admin-guide-administer-dns.md)
-### [Etki alanınızın sistem durumunu denetleme](active-directory-ds-check-health.md)
+
 ### Yönetilen bir etki alanı için güvenli LDAP yapılandırma
 #### [1. Görev: Güvenli LDAP için sertifika alma](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [2. Görev: Güvenli LDAP sertifikasını dışarı aktarma](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

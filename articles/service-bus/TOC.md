@@ -1,3 +1,4 @@
+# [Service Bus Belgeleri](index.md)
 # [Service Bus](/azure/service-bus-messaging)
 # [Geçiş](/azure/service-bus-relay)
 # Kaynaklar

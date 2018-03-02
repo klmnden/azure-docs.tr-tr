@@ -1,9 +1,11 @@
+# [IoT Hub Belgeleri](index.md)
+
 # Genel Bakış
 ## [Azure ve IoT](iot-hub-what-is-azure-iot.md)
 ## [Azure IoT Hub nedir?](iot-hub-what-is-iot-hub.md)
 ## [Cihaz yönetimine genel bakış](iot-hub-device-management-overview.md)
 
-# [Başlarken](iot-hub-get-started.md)
+# [Kullanmaya başlama](iot-hub-get-started.md)
 
 ## Cihazınızı kurma
 ### [Bilgisayarınızda bir cihazı benzetme](iot-hub-get-started-simulated.md)

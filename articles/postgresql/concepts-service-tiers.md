@@ -11,10 +11,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: 9de2d93735942903df9320741baadf2c934bd7ab
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure veritabanı PostgreSQL seçenekleri ve performans: her fiyatlandırma katmanında nelerin kullanılabildiğini anlama
 PostgreSQL sunucu için bir Azure veritabanı oluşturduğunuzda, bu sunucu için ayrılan kaynaklar yapılandırmak için üç ana seçeneğiniz bağlı karar verin. Bu seçenek, performansı ve sunucunun ölçeği etkileyebilir.
@@ -78,7 +78,7 @@ Tek bir Azure veritabanı PostgreSQL sunucu için kullanılabilir olmasını gar
 | En fazla sunucu IOPS sağlanması | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS |
 | IOPS GB başına en fazla sunucu sağlandı | Her GB sabit 3 IOPS | Her GB sabit 3 IOPS | Her GB sabit 3 IOPS | Her GB sabit 3 IOPS |
 
-\*En fazla sunucu depolama boyutu sunucunuz için en fazla sağlanan depolama boyutunu ifade eder.
+\* En fazla sunucu depolama boyutu sunucunuz için en fazla sağlanan depolama boyutunu ifade eder.
 
 ## <a name="storage"></a>Depolama 
 Depolama yapılandırması kullanılabilir depolama kapasitesi miktarını PostgreSQL sunucu için bir Azure veritabanı tanımlar. Veritabanı dosyaları, geçici dosyaları, işlem günlüklerinin ve PostgreSQL sunucu günlüklerini hizmet tarafından kullanılan depolama alanını içerir. Veritabanlarınızı ve performans gereksinimlerini (IOPS) depolama yapılandırması seçerken barındırmak için gerekli depolama alanının boyutunu göz önünde bulundurun.

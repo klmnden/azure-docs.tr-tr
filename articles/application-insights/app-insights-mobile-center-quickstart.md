@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 897c45322148aeb088f1ec2e7f8d9f46b58c71aa
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 04e379e1bbd84929fca68cf2de8ebfcc217a51d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Mobil uygulamanızı App Center ve Application Insights ile analiz etmeye başlama
 
@@ -25,7 +25,7 @@ Bu hızlı başlangıç, uygulamanızın App Center örneğini Application Insig
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
 - Azure aboneliği.
-- iOS, Android, Xamarin, Universal Windows veya React Native uygulaması.
+- iOS, Android, Xamarin, Evrensel Windows veya React Native uygulaması.
  
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -59,14 +59,14 @@ Analytics.trackEvent("Video clicked")
 
 Diğer uygulama platformlarından özel olayları göndermek için, App Center SDK'larında `trackEvent` yöntemlerini kullanın.
 
-Özel olaylarınızın alındığından emin olmak için, App Center'daki **Analitik** sekmesinin altında **Olaylar** bölümüne gidin. Uygulamanızdan gönderilen olayların gittikleri zamandan gösterilmesi birkaç dakika sürebilir.
+Özel olaylarınızın alındığından emin olmak için, App Center'daki **Analiz** bölümünün altında **Olaylar** sekmesine gidin. Uygulamanızdan gönderilen olayların gösterilmesi birkaç dakika sürebilir.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights kaynağı oluşturma
 
 Uygulamanız özel olayları gönderdikten ve bunlar App Center tarafından alındıktan sonra, Azure Portal'da App Center türünde bir Application Insights kaynağı oluşturmalısınız:
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. **Yeni** > **İzleme + Yönetim** > **Application Insights**’ı seçin.
+2. **Kaynak oluştur** > **İzleme ve Yönetim** > **Application Insights**’ı seçin.
 
     ![Application Insights kaynağı ekleme](./media/app-insights-mobile-center-quickstart/add.png)
 
@@ -102,7 +102,7 @@ Uygulamanızın desteklediği her platformda bu işlemi yinelemeyi unutmayın.
 
 ## <a name="start-monitoring-your-app"></a>Uygulamanızı izlemeyi başlatma
 
-Application Insights, özel olay telemetrisini App Center'ın sağladığı analiz araçlarının çok ötesinde sorgulayabilir, segmentlere ayırabilir, filtreleyebilir ve analiz edebilir.
+Application Insights, uygulamalarınızın özel olay telemetrisini App Center'ın sağladığı analiz araçlarının çok ötesinde sorgulayabilir, segmentlere ayırabilir, filtreleyebilir ve analiz edebilir.
 
 1. **Özel olay telemetrinizi sorgulayın.** Application Insights **Genel Bakış** sayfasında, **Analiz**'i seçin. 
 
@@ -141,7 +141,7 @@ Application Insights, özel olay telemetrisini App Center'ın sağladığı anal
 
    ![Kullanıcı Akışları aracı](./media/app-insights-mobile-center-quickstart/user-flows.png)
 
-   Kullanıcı Akışları aracı bazı başlangıç olaylarından sonra kullanıcıların gönderdiği olayları görselleştirir. Kullanıcıların uygulamanızdaki gezintilerinin genel bir görünümünü elde etme açısından yararlı olur. Ayrıca, kullanıcıların uygulamanızda karıştırdığı veya aynı eylemleri tekrar tekrar kullandığı yerleri ortaya koyabilir.
+   Kullanıcı Akışları aracı bazı başlangıç olaylarından sonra kullanıcıların gönderdiği olayları görselleştirir. Kullanıcıların uygulamanızdaki gezintilerinin genel bir görünümünü elde etme açısından yararlı olur. Ayrıca, kullanıcıların uygulamanızdan ayrıldığı veya aynı eylemleri tekrar tekrar kullandığı yerleri ortaya koyabilir.
 
    Kullanıcı Akışları'na ek olarak, Application Insights'ta belirli soruları yanıtlamak için başka kullanım analizi araçları da vardır:
 

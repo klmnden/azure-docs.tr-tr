@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: c06270c75ae16ba516e71a5dde9db4a7277d7e38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 465e3d2c0c2b7c5d811441ede20adb9da2dbe847
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
@@ -90,7 +90,7 @@ SCM sitesine **Geliştirme Araçları** menüsündeki **Gelişmiş Araçlar**’
 
 Linux’ta App Service kullanmaya başlamak için aşağıdaki bağlantılara bakın. Sorularınızı ve çekincelerinizi [forumumuzda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview) paylaşabilirsiniz.
 
-* [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](quickstart-custom-docker-image.md)
+* [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](quickstart-docker-go.md)
 * [Linux üzerinde Azure App Service’te .NET Core Kullanma](quickstart-dotnetcore.md)
 * [Linux üzerinde Azure App Service’te Ruby Kullanma](quickstart-ruby.md)
 * [Kapsayıcılar için Azure App Service Web App SSS](app-service-linux-faq.md)

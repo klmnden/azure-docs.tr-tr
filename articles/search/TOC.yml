@@ -5,6 +5,7 @@
     - name: Azure Search Hakkında
       href: search-what-is-azure-search.md
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: Hizmet oluşturma
       href: search-create-service-portal.md

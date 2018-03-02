@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-cluster"></a>sfctl küme
+# <a name="sfctl-cluster"></a>sfctl cluster
 Seçin, yönetmek ve Service Fabric kümeleri çalışmayabilir.
 
 ## <a name="commands"></a>Komutlar
@@ -144,7 +144,7 @@ Güvenli kümesine bağlanma, hem (.pem) bir sertifika (.crt) ve anahtar dosyas�
 ## <a name="sfctl-cluster-unprovision"></a>sfctl küme sağlamayı kaldırma
 Service Fabric kümesi kod veya yapılandırma paketleri sağlama.
 
-Service Fabric kümesi kod veya yapılandırma paketleri sağlama.
+Service Fabric kümesi kod veya yapılandırma paketleri sağlama. Kod ve yapılandırma ayrı olarak sağlamasını desteklenir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 |Bağımsız değişken|Açıklama|

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>SQL Server veritabanını Azure SQL Veritabanına geçirme
 
@@ -32,7 +32,7 @@ SQL Server veritabanınızı Azure SQL Veritabanına geçirmek çok basittir; Az
 > * SQL Server veritabanınızı boş Azure SQL veritabanına aktarmak için [Veri Geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)'nı (DMA) kullanma 
 > * Veritabanı özelliklerini değiştirmek için [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)'yu (SSMS) kullanma.
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -52,7 +52,7 @@ Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](sql-database-servi
 
 Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin. 
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 
 2. **Yeni** penceresinden **Veritabanları**’nı seçin ve **Yeni** sayfasında **SQL Veritabanı** altından **Oluştur**’u seçin.
 

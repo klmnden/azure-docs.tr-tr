@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 84758fbf8f19728370280d5d94acb478ff739019
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Yeni bir Azure API Management hizmeti örneği oluşturma
 
@@ -34,9 +34,9 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 ## <a name="create-a-new-service"></a>Yeni hizmet oluşturma
 
-1. [Azure portalı](https://portal.azure.com/)’nda **Yeni** > **Kurumsal Tümleştirme** > **API yönetimi**’ni seçin.
+1. [Azure portalı](https://portal.azure.com/)’nda **Kaynak oluştur** > **Kurumsal Tümleştirme** > **API yönetimi**’ni seçin.
 
-    Alternatif olarak, **Yeni**’yi seçip arama kutusuna `API management` yazabilir ve Enter tuşuna basabilirsiniz. **Oluştur**'a tıklayın.
+    Alternatif olarak, **Yeni**’yi seçip arama kutusuna `API management` yazabilir ve Enter tuşuna basabilirsiniz. **Oluştur**’a tıklayın.
 
 2. **API Management hizmeti** penceresine ayarları girin.
 

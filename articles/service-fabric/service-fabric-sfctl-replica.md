@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="sfctl-replica"></a>sfctl çoğaltma
+# <a name="sfctl-replica"></a>sfctl replica
 Hizmet bölümlerini ait çoğaltmaları yönetin.
 
 ## <a name="commands"></a>Komutlar
@@ -29,7 +29,7 @@ Hizmet bölümlerini ait çoğaltmaları yönetin.
 | --- | --- |
 |    Dağıtılan  | Service Fabric düğümde dağıtılan çoğaltma ayrıntılarını alır.|
 |    dağıtılan listesi| Service Fabric düğümde dağıtılan çoğaltmaların listesini alır.|
-|    Sistem durumu    | Service Fabric durum bilgisi olan hizmet çoğaltma veya durum bilgisiz hizmet örneği durumunu alır.|
+|    sistem durumu    | Service Fabric durum bilgisi olan hizmet çoğaltma veya durum bilgisiz hizmet örneği durumunu alır.|
 |    bilgileri      | Service Fabric bölümü bir çoğaltma bilgilerini alır.|
 |    liste      | Bir Service Fabric hizmeti bölüm çoğaltmaları bilgilerini alır.|
 |    kaldır    | Bir düğüm üzerinde çalışan bir hizmet çoğaltmaları kaldırır.|
@@ -64,7 +64,7 @@ Service Fabric düğümde dağıtılan çoğaltma ayrıntılarını alır. Bu bi
 ## <a name="sfctl-replica-health"></a>sfctl çoğaltma durumu
 Service Fabric durum bilgisi olan hizmet çoğaltma veya durum bilgisiz hizmet örneği durumunu alır.
 
-Service Fabric çoğaltma durumunu alır. Sistem durumu olayları sistem durumuna bağlıdır çoğaltma bildirilen koleksiyonu filtrelemek için EventsHealthStateFilter kullanın. .
+Service Fabric çoğaltma durumunu alır. Sistem durumu olayları sistem durumuna bağlıdır çoğaltma bildirilen koleksiyonu filtrelemek için EventsHealthStateFilter kullanın.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
@@ -72,7 +72,7 @@ Service Fabric çoğaltma durumunu alır. Sistem durumu olayları sistem durumun
 | --- | --- |
 | --bölüm kimliği [gerekli]| Bölüm kimliği.|
 | --Çoğaltma kimliği [gerekli]| Çoğaltma tanımlayıcısı.|
-| --events-health-state-filter| Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer Bitsel 'Veya' işlecini kullanarak alınan bu değer, bir birleşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
+| --events-health-state-filter| Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
 | --zaman aşımı -t             | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
@@ -82,13 +82,13 @@ Service Fabric çoğaltma durumunu alır. Sistem durumu olayları sistem durumun
 | --debug                  | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h                | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı              | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu                  | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+| --Sorgu                  | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın.|
 | --verbose                | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 Service Fabric bölümü bir çoğaltma bilgilerini alır.
 
-Respons kimliği, rol, durum, sistem durumu, düğüm adı, açık kalma süresi ve çoğaltma ile ilgili diğer ayrıntıları içerir.
+Yanıt kimliği, rol, durum, sistem durumu, düğüm adı, açık kalma süresi ve çoğaltma ile ilgili diğer ayrıntıları içerir.
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
@@ -96,7 +96,7 @@ Respons kimliği, rol, durum, sistem durumu, düğüm adı, açık kalma süresi
 | --- | --- |
 | --bölüm kimliği [gerekli]| Bölüm kimliği.|
 | --Çoğaltma kimliği [gerekli]| Çoğaltma tanımlayıcısı.|
-| --devamlılık belirteci  | Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır. Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değere sahip API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır.|
+| --devamlılık belirteci  | Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır. Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değere sahip API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır.|
 | --zaman aşımı -t          | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
@@ -106,7 +106,7 @@ Respons kimliği, rol, durum, sistem durumu, düğüm adı, açık kalma süresi
 | --debug               | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h             | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı           | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu               | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+| --Sorgu               | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın.|
 | --verbose             | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-replica-list"></a>sfctl çoğaltma listesi

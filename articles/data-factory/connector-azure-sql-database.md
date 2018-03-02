@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e4d14f396b3a928975b671d10254cfbcc822a0d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a4d2ccb4b4ba27983537f26e66b5c279f427d466
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veritabanından veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,12 @@ Tüm desteklenen havuz veri deposuna başlangıç/bitiş Azure SQL veritabanına
 
 Özellikle, bu Azure SQL veritabanı bağlayıcı destekler:
 
-- SQL kimlik doğrulaması kullanarak veri kopyalama.
+- Verileri kullanarak kopyalama **SQL kimlik doğrulaması**, ve **Azure Active Directory Uygulama belirteci kimlik doğrulaması** hizmet sorumlusu veya yönetilen hizmet kimliği (MSI).
 - SQL sorgusu veya saklı yordam kullanarak veri kaynağı olarak alınıyor.
 - Havuz veri hedef tablo ya da kopyalama sırasında özel mantık olan bir saklı yordam çağırma sonuna ekleme.
+
+> [!IMPORTANT]
+> Azure tümleştirmesi çalışma zamanı kullanarak verileri kopyalarsanız, yapılandırma [Azure SQL Server Güvenlik Duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) için [Azure hizmetlerinin sunucuya erişimine izin](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Self-hosted tümleştirme çalışma zamanı kullanarak verileri kopyalarsanız, Azure SQL veritabanına bağlanmak için kullanılan makinenin IP de dahil olmak üzere uygun IP aralığını izin vermek için Azure SQL Server Güvenlik Duvarı'nı yapılandırın.
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -52,13 +55,21 @@ Aşağıdaki özellikler, Azure SQL veritabanı bağlantılı hizmeti için dest
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AzureSqlDatabase** | Evet |
-| connectionString |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. Yalnızca temel kimlik doğrulama desteklenir. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
+| connectionString |ConnectionString özelliği için Azure SQL veritabanı örneğine bağlanmak için gereken bilgileri belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
+| servicePrincipalId | Uygulamanın istemci kimliği belirtin. | AAD kimlik doğrulama ile hizmet sorumlusu kullanırken, Evet. |
+| servicePrincipalKey | Uygulamanın anahtarını belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | AAD kimlik doğrulama ile hizmet sorumlusu kullanırken, Evet. |
+| kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | AAD kimlik doğrulama ile hizmet sorumlusu kullanırken, Evet. |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
-> [!IMPORTANT]
-> Yapılandırma [Azure SQL veritabanı Güvenlik Duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) veritabanı sunucusuna [Azure hizmetlerinin sunucuya erişimine izin](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Dış Azure data factory ile şirket içi veri kaynaklarından kendini barındıran tümleştirmesi çalışma zamanı dahil olmak üzere Azure SQL veritabanına veri kopyalıyorsanız, ayrıca, Azure SQL veri gönderme makine için uygun IP adresi aralığı yapılandırın Veritabanı.
+Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örnekleri aşağıdaki bölümlere bakın:
 
-**Örnek:**
+- [SQL kimlik doğrulaması kullanma](#using-sql-authentication)
+- [AAD uygulama belirteci kimlik doğrulaması - hizmet sorumlusunu kullanarak](#using-service-principal-authentication)
+- [AAD uygulama belirteci kimlik doğrulaması - yönetilen hizmet kimliği kullanma](#using-managed-service-identity-authentication)
+
+### <a name="using-sql-authentication"></a>SQL kimlik doğrulaması kullanma
+
+**SQL kimlik doğrulaması kullanarak bağlantılı hizmet örneği:**
 
 ```json
 {
@@ -69,6 +80,113 @@ Aşağıdaki özellikler, Azure SQL veritabanı bağlantılı hizmeti için dest
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>Hizmet asıl kimlik doğrulaması kullanma
+
+Hizmet asıl tabanlı AAD uygulama belirteci kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
+
+1. **[Bir Azure Active Directory uygulaması Azure portalından oluşturmak](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Uygulama adı ve bağlantılı hizmet tanımlamak üzere kullanabileceğiniz aşağıdaki değerleri not edin:
+
+    - Uygulama Kimliği
+    - Uygulama anahtarı
+    - Kiracı Kimliği
+
+2. **[Azure Active Directory yönetici sağlamak](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  bunu yapmadıysanız Azure Portal'da Azure SQL Server. AAD yönetici bir AAD kullanıcısı veya AAD grubu olması gerekiyor, ancak bir hizmet sorumlusu olamaz. Sonraki adımda, bir kapsanan veritabanı kullanıcı için hizmet sorumlusu oluşturmak için bir AAD kimlik kullanabilmeniz için bu adım gerçekleştirilir.
+
+3. **Kapsanan veritabanı kullanıcı için hizmet sorumlusu oluşturmak**, bağlayarak veritabanından/SSMS gibi araçları kullanarak veri kopyalamak istediğiniz bir AAD ile kimlik en az olması ALTER herhangi bir kullanıcı izni ve aşağıdaki T-SQL yürütme. Kapsanan veritabanı kullanıcıdan hakkında daha fazla bilgi edinin [burada](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Hizmet sorumlusu gerekli izinleri vermek** , SQL kullanıcılar için Örneğin aşağıda çalıştırarak her zamanki gibi:
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. ADF içinde bir Azure SQL bağlı veritabanı hizmetini yapılandırın.
+
+
+**Hizmet asıl kimlik doğrulaması kullanarak bağlantılı hizmet örneği:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>Yönetilen hizmet kimlik doğrulama kullanılarak
+
+Data factory ile ilişkilendirilebilir bir [yönetilen hizmet kimliği (MSI)](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği başlangıç/bitiş veritabanınızı erişim ve kopyalama verilere atanmış bu Fabrika sağlayan, Azure SQL veritabanı kimlik doğrulaması için kullanabilirsiniz.
+
+Tabanlı AAD uygulama belirteci kimlik doğrulaması MSI kullanmak için aşağıdaki adımları izleyin:
+
+1. **Azure AD'de bir grup oluşturun ve MSI Fabrika grubunun bir üyesi yapın**.
+
+    a. Azure Portalı'ndan veri fabrikası hizmet kimliği bulunamıyor. Veri fabrikanızın -> Özellikler kopyalama -> **hizmet kimlik kimliği**.
+
+    b. Yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) Modülü'nü kullanarak oturum `Connect-AzureAD` komut ve bir grup oluşturun ve veri fabrikası MSI üyesi olarak eklemek için aşağıdaki komutları çalıştırın.
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. **[Azure Active Directory yönetici sağlamak](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  bunu yapmadıysanız Azure Portal'da Azure SQL Server. AAD yönetici bir AAD kullanıcı veya AAD grup olabilir. MSI grubuyla Yönetici rolü izni varsa, yönetici DB tam erişim yaptığınız gibi adım 3 ve 4 aşağıda atlayın.
+
+3. **AAD grubu için kapsanan veritabanı kullanıcısı oluşturmak**, bağlayarak veritabanından/SSMS gibi araçları kullanarak veri kopyalamak istediğiniz bir AAD ile kimlik en az olması ALTER herhangi bir kullanıcı izni ve aşağıdaki T-SQL yürütme. Kapsanan veritabanı kullanıcıdan hakkında daha fazla bilgi edinin [burada](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **AAD Grup gerekli izinleri vermek** , SQL kullanıcılar için Örneğin aşağıda çalıştırarak her zamanki gibi:
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. ADF içinde bir Azure SQL bağlı veritabanı hizmetini yapılandırın.
+
+**MSI kimlik doğrulaması kullanarak bağlantılı hizmet örneği:**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {
@@ -455,9 +573,9 @@ Başlangıç/bitiş Azure SQL veritabanı veri kopyalama işlemi sırasında aş
 | İkili |Byte] |
 | bit |Boole |
 | char |Dize, Char] |
-| tarih |Tarih Saat |
-| Tarih saat |Tarih Saat |
-| datetime2 |Tarih Saat |
+| tarih |DateTime |
+| Tarih saat |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
@@ -471,7 +589,7 @@ Başlangıç/bitiş Azure SQL veritabanı veri kopyalama işlemi sırasında aş
 | nvarchar |Dize, Char] |
 | Gerçek |Bekar |
 | rowVersion |Byte] |
-| smalldatetime |Tarih Saat |
+| smalldatetime |DateTime |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |

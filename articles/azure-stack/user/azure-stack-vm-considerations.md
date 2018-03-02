@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Sanal makineler Azure yığınında dikkate alınacak noktalar
 
@@ -41,19 +41,25 @@ Sanal makine, bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynakları Azu
 |Sanal makine ölçek kümeleri|Otomatik ölçek desteklenen|Otomatik-ölçek desteklenmiyor.<br>Daha fazla örnek portal, Resource Manager şablonları veya PowerShell kullanılarak ayarlanan bir ölçek ekleyin.
 
 ## <a name="virtual-machine-sizes"></a>Sanal makine boyutları
+Azure kaynak sınırlarını (sunucu yerel ve hizmet düzeyi) kaynakların operasyonda ekstra tüketimi önlemek için çeşitli şekillerde uygular. Kaynakları gürültülü komşu overconsumes zaman bazı sınırlar bir kaynak kiracıların kullanımına koymadan Kiracı deneyimi olumsuz etkilenebilir. 
+- Sanal makineden ağ çıkışı için yerinde bant genişliği vardır. Azure yığınında Caps Azure caps eşleşir.  
+- Depolama kaynakları için Azure yığın depolama erişimi için kiracılar tarafından kaynakların temel operasyonda ekstra tüketimi önlemek için depolama IOPS sınırları uygular. 
+- Birden çok ekli veriler diske sahip VM'ler için her tek tek veri diski en büyük verimi HHDs için 500 IOPS, SSD için 2300 IOPS ise.
 
-Azure yığın aşağıdaki boyutları destekler:
+Aşağıdaki tabloda Azure yığında yapılandırmalarını yanı sıra desteklenen VM'ler listelenmektedir:
 
-| Tür | Boyut | Desteklenen boyutlar aralığı |
-| --- | --- | --- |
-|Genel amaçlı |Temel A|A0 - A4|
-|Genel amaçlı |Standart bir|A0 - A7|
-|Genel amaçlı |D Serisi|D1 - D4|
-|Genel amaçlı |Dv2 Serisi|D1_v2 - D5_v2|
-|Genel amaçlı |DS serisi|DS1 - DS4|
-|Genel amaçlı |DSv2 serisi|DS1_v2 - DS5_v2|
-|Bellek için iyileştirilmiş|DS serisi|DS11 - DS14|
-|Bellek için iyileştirilmiş |DSv2 serisi|DS11_v2 - DS14_v2|
+| Tür           | Boyut          | Desteklenen boyutlar aralığı |
+| ---------------| ------------- | ------------------------ |
+|Genel amaçlı |Temel A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Genel amaçlı |Standart bir     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Genel amaçlı |D Serisi       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Genel amaçlı |Dv2 Serisi     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Genel amaçlı |DS serisi      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Genel amaçlı |DSv2 serisi    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Bellek için iyileştirilmiş|D Serisi       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Bellek için iyileştirilmiş|DS serisi      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Bellek için iyileştirilmiş|Dv2 Serisi     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Bellek için iyileştirilmiş|DSv2 serisi-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Sanal makine boyutları ve bunların ilişkili kaynak miktarları Azure yığını ve Azure arasında tutarlı değil. Örneğin, bu tutarlılık çekirdek sayısı ve sayı/oluşturulabilmesi için veri diski boyutunun bellek miktarını içerir. Ancak, aynı VM boyutu Azure yığınında performansını belirli bir Azure yığın ortamda temel özelliklerine bağlıdır.
 

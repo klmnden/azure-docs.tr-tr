@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7a274ad33b7181d238203290cf63937df5f13bbc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Logic apps ile Kurumsal tümleştirme için Exchange X12 iletileri
 
@@ -31,37 +31,34 @@ X12 exchange önce iletileri Azure mantıksal uygulamaları için bir X12 oluşt
 
 Gereksinim duyduğunuz öğeleri şöyledir:
 
-* Bir [tümleştirme hesabını](../logic-apps/logic-apps-enterprise-integration-accounts.md) , daha önce tanımlanan ve Azure aboneliğinizle ilişkili
+* Bir [tümleştirme hesabını](logic-apps-enterprise-integration-create-integration-account.md) , daha önce tanımlanan ve Azure aboneliğinizle ilişkili
 * En az iki [ortakları](../logic-apps/logic-apps-enterprise-integration-partners.md) , tümleştirme hesabınızda tanımlanır ve X12 ile yapılandırılmış altında tanımlayıcı **iş kimlikleri**    
-* Gerekli [şema](../logic-apps/logic-apps-enterprise-integration-schemas.md) için karşıya yükleme için [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+* Gerekli [şema](../logic-apps/logic-apps-enterprise-integration-schemas.md) tümleştirme hesabınıza yükleyebileceğiniz
 
-Çalıştırdıktan sonra [tümleştirme hesap oluşturmak](../logic-apps/logic-apps-enterprise-integration-accounts.md), [ortakları eklemek](logic-apps-enterprise-integration-partners.md)ve bir [şema](../logic-apps/logic-apps-enterprise-integration-schemas.md) kullanmak istiyorsanız, bir X12 oluşturabileceğiniz aşağıdaki adımları izleyerek anlaşma.
+Çalıştırdıktan sonra [tümleştirme hesap oluşturmak](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [ortakları eklemek](logic-apps-enterprise-integration-partners.md)ve bir [şema](../logic-apps/logic-apps-enterprise-integration-schemas.md) kullanmak istiyorsanız, bir X12 oluşturabileceğiniz aşağıdaki adımları izleyerek anlaşma.
 
 ## <a name="create-an-x12-agreement"></a>Bir X12 oluşturma Sözleşmesi
 
-1.  [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın. Sol menüden seçin **tüm hizmetleri**. 
+1. [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın. 
 
-    > [!TIP]
-    > Görmüyorsanız, **tüm hizmetleri**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **Göster menüsü**.
+2. Ana Azure menüsünden seçin **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.  
 
-    ![Sol menüsünde "Tüm hizmetleri" öğesini seçin](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![Tümleştirme hesabınızı Bul](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.  Arama kutusuna "tümleştirme", filtre olarak yazın. Sonuçlar listesinde **tümleştirme hesapları**.  
+   > [!TIP]
+   > Varsa **tüm hizmetleri** görünmüyor menüyü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **Göster menüsü**.
 
-    ![Filtre "tümleştirme üzerinde", "Tümleştirme hesapları" seçin](./media/logic-apps-enterprise-integration-x12/account-2.png)
+3. Altında **tümleştirme hesapları**, anlaşmayı eklemek istediğiniz tümleştirme hesabı seçin.
 
-3. İçinde **tümleştirme hesapları** açar, dikey penceresinde, anlaşmayı eklemek istediğiniz tümleştirme hesabını seçin.
-Herhangi bir tümleştirme hesabı görmüyorsanız, [oluşturmak ilk](../logic-apps/logic-apps-enterprise-integration-accounts.md "tümleştirme hesapları hakkında").
-
-    ![Tümleştirme hesabı anlaşmayı oluşturulacağı konumu seçin](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![Tümleştirme hesabı anlaşmayı oluşturulacağı konumu seçin](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Seçin **genel bakış**seçeneğini belirleyip **anlaşmaları** döşeme. Anlaşmaları döşeme yoksa, ilk kutucuğu ekleyin. 
 
-    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. Açılır anlaşmaları dikey penceresinde, seçin **Ekle**.
+5. Altında **anlaşmaları**, seçin **Ekle**.
 
-    !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Altında **Ekle**, girin bir **adı** sözleşmenizi için. Anlaşma türü için **X12**. Seçin **ana iş ortağı**, **konak kimliği**, **Konuk iş ortağı**, ve **Konuk kimlik** sözleşmenizi için. Daha fazla özellik Ayrıntılar için bu adımı bölümündeki tabloya bakın.
 
@@ -291,13 +288,13 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 
 ## <a name="find-your-created-agreement"></a>Oluşturulan sözleşmenizi Bul
 
-1.  Üzerinde anlaşma özelliklerinizi ayarlama işlemini tamamladıktan sonra **Ekle** dikey penceresinde, seçin **Tamam** sözleşmenizi oluşturmayı tamamlamak ve tümleştirme hesabı dikey penceresine geri dönün.
+1.  Üzerinde anlaşma özelliklerinizi ayarlama işlemini tamamladıktan sonra **Ekle** sayfasında, **Tamam** sözleşmenizi oluşturmayı tamamlamak ve tümleştirme hesabınıza dönmek için.
 
     Yeni eklenen sözleşmenizi artık görünür, **anlaşmaları** listesi.
 
-2.  Ayrıca, tümleştirme hesabına genel bakış sözleşmelerinizi görüntüleyebilirsiniz. Tümleştirme hesabı dikey penceresinde, seçin **genel bakış**seçeneğini belirleyip **anlaşmaları** döşeme.
+2.  Ayrıca, tümleştirme hesabına genel bakış sözleşmelerinizi görüntüleyebilirsiniz. Tümleştirme hesap menünüzde seçin **genel bakış**seçeneğini belirleyip **anlaşmaları** döşeme.
 
-    ![Tüm anlaşmalar görüntülemek için "Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## <a name="view-the-swagger"></a>Swagger görüntüleyin
 Bkz: [ayrıntıları swagger](/connectors/x12/). 

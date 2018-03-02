@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 9e714b1dc97fb12c2994537d33cefd98b5c9cf99
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Hdınsight üzerinde Storm ile Apache Kafka kullanın
 
@@ -172,7 +172,7 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
     ```
 
     > [!IMPORTANT]
-    > Bash örnek varsayar `$CLUSTERNAME` Hdınsight kümesi adını içerir. Ayrıca varsayılmaktadır [jq](https://stedolan.github.io/jq/) yüklenir. İstendiğinde, küme oturum açma hesabı için parolayı girin.
+    > Bash örnek varsayar `$CLUSTERNAME` Hdınsight kümesi adını içerir. Ayrıca varsayılmaktadır [jq](https://stedolan.github.io/jq/) 1.5 veya daha büyük bir sürümü yüklü. İstendiğinde, küme oturum açma hesabı için parolayı girin.
 
     Döndürülen değer aşağıdakine benzer:
 
@@ -218,7 +218,7 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
 4. Kaydet `dev.properties` dosya ve Storm kümesi karşıya yüklemek için aşağıdaki komutu kullanın:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Değiştir **kullanıcıadı** küme için SSH kullanıcı adı. Değiştir **BASENAME** küme oluştururken kullandığınız temel ada sahip.
@@ -287,6 +287,9 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
     Komut dosyası durdurmak için CTRL + c'ı kullanın.
 
 ## <a name="start-the-reader"></a>Okuyucu Başlat
+
+> [!NOTE]
+> Storm kullanıcı Arabirimi okuyucusunda görüntülerken görebileceğiniz bir __topoloji spout'lar öteleme hata__ bölümü. Bu örnekte, bu hatayı yoksayabilirsiniz.
 
 1. Storm kümesi için SSH oturumundan okuyucu topoloji başlatmak için aşağıdaki komutu kullanın:
 

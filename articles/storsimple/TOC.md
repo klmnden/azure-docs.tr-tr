@@ -1,3 +1,5 @@
+# [StorSimple Belgeleri](index.md)
+
 # StorSimple Sanal Dizisi
 
 ## Genel Bakış

@@ -12,11 +12,19 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: 697196f725f0cb8ad3054bd8336b588c17dddc3d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/27/2018
+=======
 ms.openlocfilehash: 77c8a6a5e384d27dca2582cc0fedc2bd23c0592e
 ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+>>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaza hizmet sağlama MXChip IOT DevKit bağlanma
 
@@ -27,8 +35,11 @@ Bu makalede, IOT Hub cihaz sağlama hizmeti kullanılarak otomatik olarak kayded
 * Bir cihaz kaydetme
 * Cihaz kayıtlı doğrulayın
 
+<<<<<<< HEAD
+=======
 [MXChip IOT DevKit](https://aka.ms/iot-devkit) bir hepsi bir arada Arduino uyumlu zengin çevre birimleri ve algılayıcılar panosudur. Bunun için kullanarak geliştirebilirsiniz [Arduino için Visual Studio Code uzantısı](https://aka.ms/arduino). Ve büyüyen ile gelir [projeleri katalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) Microsoft Azure hizmetlerini yararlanmak prototip nesnelerin interneti (IOT) çözümleri size yol gösterecek.
 
+>>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Bu öğreticide adımları tamamlamak için aşağıdakiler gerekir:

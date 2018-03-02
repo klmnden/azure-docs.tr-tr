@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: cbc3e2eecf9a17a8d0a0ec59dbb2b653f13ad4e3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9952660dc177b542d8477dc85c62d76d16e8c54e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Azure PowerShell ile sanal makine Yönetimi
 
@@ -55,7 +55,7 @@ Sanal makine çözümleri yönetmek için yaygın olarak gerekli erişim sağlay
 
 Tek tek kullanıcılara roller atama yerine genellikle daha kolay olur [bir Azure Active Directory grubu oluşturun](../../active-directory/active-directory-groups-create-azure-portal.md) benzer önlemler almak için gereken kullanıcılar için. Ardından, bu grup için uygun rolü atayın. Bu makalede basitleştirmek için bir Azure Active Directory grubu üyeleri olmadan oluşturun. Hala bu grubun bir kapsam için bir rol atayabilirsiniz. 
 
-Aşağıdaki örnek adlı bir Azure Active Directory grubu oluşturur *VMDemoContributors* bir posta takma adı ile *vmDemoGroup*.
+Aşağıdaki örnek adlı bir Azure Active Directory grubu oluşturur *VMDemoContributors* bir posta takma adı ile *vmDemoGroup*. Posta takma ad grubu için bir diğer ad olarak görev yapar.
 
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `

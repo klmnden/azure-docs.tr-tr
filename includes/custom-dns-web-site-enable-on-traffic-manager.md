@@ -21,7 +21,7 @@ Trafik Yöneticisi uç noktası olarak web uygulamanızı eklemediyseniz, ad ç�
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Tıklatın **doğrulama** etki alanı adı yapılandırmasını kaydetmek için.
-6. Tıklatarak bağlı **doğrulama** Azure etki alanı doğrulama iş akışı kazandırın. Bu etki alanı sahipliğini yanı sıra ana bilgisayar adı kullanılabilirliğini ve rapor başarı veya düzenleyici kılavuzluk hatayı düzeltin konusunda ayrıntılı hata kontrol eder.    
+6. Tıklatarak bağlı **doğrulama** Azure etki alanı doğrulama iş akışı kazandırın. Bu etki alanı sahipliğini yanı sıra ana bilgisayar adı kullanılabilirliğini ve rapor başarı veya hata düzeltme konusunda tavsiyeler ayrıntılı hata kontrol eder.    
 7. Doğrulama başarılı bağlı **ana bilgisayar adını eklemek** düğmesi etkin olacak ve, Ata ana bilgisayar adı için kullanamazsınız. Özel etki alanı adınızı bir tarayıcıda şimdi gidin. Özel etki alanı adınızı kullanarak, uygulama çalışan görmelisiniz. 
    
    Yapılandırma tamamlandıktan sonra özel etki alanı adı listelenir **etki alanı adları** , web uygulamanızın bölümü.

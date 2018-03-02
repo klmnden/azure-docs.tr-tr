@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 33725eb64399f446ff540a36f702c80107958242
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 4ee59782a0e40f9d09023a75862ab0f8415e6d12
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Azure Container Service’te (AKS) uygulamaları çalıştırma
 
@@ -104,6 +104,10 @@ azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 Uygulamayı görmek için dış IP adresine gözatın.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/azure-vote.png)
+
+Uygulama yüklenmediyse, bunun nedeni görüntü kayıt defterinizdeki bir yetkilendirme sorunu olabilir.
+
+Lütfen bu adımları izleyerek [bir Kubernetes gizli dizisi aracılığıyla erişime izin verin](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

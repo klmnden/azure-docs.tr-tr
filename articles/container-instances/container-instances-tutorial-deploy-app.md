@@ -6,6 +6,16 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
+<<<<<<< HEAD
+ms.date: 02/20/2018
+ms.author: seanmck
+ms.custom: mvc
+ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/22/2018
+=======
 ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
@@ -14,6 +24,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/24/2018
+>>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Azure Container Instances‘a kapsayıcı dağıtma
 
@@ -28,7 +39,11 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
+<<<<<<< HEAD
+Bu öğretici için Azure CLI 2.0.23 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme][azure-cli-install].
+=======
 Bu öğretici için Azure CLI 2.0.27 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme][azure-cli-install].
+>>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
 
 Bu öğreticiyi tamamlamak için yerel olarak yüklü bir Docker geliştirme ortamı gerekir. Docker [Mac][docker-mac], [Windows][docker-windows] veya [Linux][docker-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 

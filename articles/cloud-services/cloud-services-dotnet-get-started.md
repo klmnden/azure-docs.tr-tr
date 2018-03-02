@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
@@ -116,7 +116,7 @@ Uygulamayı bulutta çalıştırmak için aşağıdaki adımları gerçekleştir
 Azure bulut hizmeti, uygulamanın çalıştırılacağı ortamıdır.
 
 1. Tarayıcınızda [Azure portalı](https://portal.azure.com)’nı açın.
-2. **Yeni > Hesapla > Bulut Hizmeti**’ne tıklayın.
+2. **Kaynak oluştur > Hesapla > Bulut Hizmeti**’ne tıklayın.
 
 3. DNS adı giriş kutusuna bulut hizmeti için bir URL ön eki girin.
 
@@ -126,7 +126,7 @@ Azure bulut hizmeti, uygulamanın çalıştırılacağı ortamıdır.
 5. Uygulamayı dağıtmak istediğiniz bölgeyi seçin.
 
     Bu alan, bulut hizmetinizin hangi veri merkezinde barındırılacağını belirtir. Bir üretim uygulaması için müşterilerinize en yakın bölgeyi seçmeniz gerekir. Bu öğretici için size en yakın bölgeyi seçin.
-5. **Oluştur**'a tıklayın.
+5. **Oluştur**’a tıklayın.
 
     Aşağıdaki görüntüde bulut hizmeti CSvccontosoads.cloudapp.net URL’si ile oluşturulur.
 
@@ -135,7 +135,7 @@ Azure bulut hizmeti, uygulamanın çalıştırılacağı ortamıdır.
 ### <a name="create-an-azure-sql-database"></a>Bir Azure SQL veritabanı oluşturma
 Uygulama bulutta çalıştırıldığında bulut tabanlı bir veritabanı kullanır.
 
-1. [Azure portalı](https://portal.azure.com)’nda **Yeni > Veritabanları > SQL Veritabanı**’na tıklayın.
+1. [Azure portalı](https://portal.azure.com)’nda **Kaynak oluştur > Veritabanları > SQL Veritabanı**’na tıklayın.
 2. **Veritabanı Adı** kutusuna *contosoads* yazın.
 3. **Kaynak grubu**’nda **Var olanı kullan**’a tıklayın ve bulut hizmeti için kullanılan kaynak grubunu seçin.
 4. Aşağıdaki görüntüde, **Sunucu - Gerekli ayarları yapılandır**’a ve **Yeni sunucu oluştur**’a tıklayın.
@@ -155,14 +155,14 @@ Uygulama bulutta çalıştırıldığında bulut tabanlı bir veritabanı kullan
 9. Yeni sunucu için **Seçin**’e tıklayın.
 
     ![Yeni SQL Veritabanı sunucusu](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. **Oluştur**'a tıklayın.
+10. **Oluştur**’a tıklayın.
 
 ### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
 Azure Storage hesabı kuyruk ve blob verilerini buluta depolamaya yönelik kaynaklar sağlar.
 
 Gerçek bir uygulamada genellikle uygulama verilerine karşı günlük verileri için ve test verilerine karşı üretim verileri için ayrı hesaplar oluşturursunuz. Bu öğreticide yalnızca tek bir hesap kullanacaksınız.
 
-1. [Azure portalı](https://portal.azure.com)’nda **Yeni > Depolama > Depolama hesabı - blob, dosya, tablo, kuyruk**’a tıklayın.
+1. [Azure portalı](https://portal.azure.com)’nda **Kaynak oluştur > Depolama > Depolama hesabı - blob, dosya, tablo, kuyruk**’a tıklayın.
 2. **Ad** kutusuna bir URL ön eki girin.
 
     Bu ön ek ile birlikte kutunun altında gördüğünüz metin, depolama hesabınızın benzersiz URL’si olacaktır. Girdiğiniz ön ek başka bir kişi tarafından zaten kullanılıyorsa farklı bir ön ek seçmeniz gerekir.
@@ -178,7 +178,7 @@ Gerçek bir uygulamada genellikle uygulama verilerine karşı günlük verileri 
     Bulut hizmeti ve depolama hesabı farklı veri merkezlerinde (farklı bölgelerde) olduğunda gecikme artar ve veri merkezinin dışındaki bant genişliği için sizden ücret alınır. Bir veri merkezi içinde bant genişliği ücretsizdir.
 
     Azure benzeşim grupları bir veri merkezinde bulunan kaynaklar arasındaki uzaklığı en aza indirmeye yönelik bir mekanizma sağlar. Bu öğretici benzeşim gruplarını kullanmaz. Daha fazla bilgi için bkz. [Azure’da Benzeşim Grubu Oluşturma](http://msdn.microsoft.com/library/jj156209.aspx).
-7. **Oluştur**'a tıklayın.
+7. **Oluştur**’a tıklayın.
 
     ![Yeni depolama hesabı](./media/cloud-services-dotnet-get-started/newstorage.png)
 

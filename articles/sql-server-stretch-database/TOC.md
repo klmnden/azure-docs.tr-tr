@@ -1,3 +1,5 @@
+# [SQL Server Esnetme Veritabanı Belgeleri](index.md)
+
 # Genel Bakış
 ## [Esnetme Veritabanı nedir?](/sql/sql-server/stretch-database/stretch-database)
 ## [Sınırlamalar ve engelleme sorunları](/sql/sql-server/stretch-database/limitations-for-stretch-database)
@@ -6,12 +8,12 @@
 ## [Veritabanlarını ve tabloları belirleme](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
 ## [Sihirbazı çalıştırma](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Etkinleştirme
 ### [Veritabanı etkinleştirme](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
 ### [Tablo etkinleştirme](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
 ### [Geçirilecek satırları seçme](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
-## Yönet
+## Yönetme
 ### [Veri geçişini izleme](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
 ### [Geçişi duraklatma ve sürdürme](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
 ### [Yönetme ve sorun giderme](/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database)

@@ -1,8 +1,10 @@
+# [Mobile Engagement Belgeleri](index.md)
+
 # [Genel Bakış](mobile-engagement-overview.md)
 ## [İlgili hizmetlerle karşılaştırma](mobile-engagement-comparison.md)
 ## [Özelliklere genel bakış](mobile-engagement-key-features.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Android](mobile-engagement-android-get-started.md)
 ## [Cordova](mobile-engagement-cordova-get-started.md)
 ## [iOS Objective-C](mobile-engagement-ios-get-started.md)
@@ -15,7 +17,7 @@
 ## [Xamarin.Android](mobile-engagement-xamarin-android-get-started.md)
 ## [Xamarin.iOS](mobile-engagement-xamarin-ios-get-started.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [En iyi uygulamalar](mobile-engagement-getting-started-best-practices.md)
 ### [Kavramlar ](mobile-engagement-concepts.md)

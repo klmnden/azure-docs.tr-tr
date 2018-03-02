@@ -13,17 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-<<<<<<< HEAD
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2131a9fbb8fcb77a00045924169420773893f91
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Program aracılığıyla Azure panolar oluşturun
 
@@ -33,7 +27,7 @@ Bu belge, program aracılığıyla oluşturma ve Azure panolar yayımlama işlem
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure olan panolarında paylaşılan [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineleri ve depolama hesapları.  Bu nedenle, bunlar program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell komutlarını](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)ve birçok [ Azure portal](https://portal.azure.com) özellikleri oluşturmak kaynak yönetimini kolaylaştırmak için bu API'leri üstünde.  
+Azure olan panolarında paylaşılan [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineleri ve depolama hesapları.  Bu nedenle, bunlar program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell komutlarını](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)ve birçok [ Azure portal](https://portal.azure.com) özellikleri oluşturmak kaynak yönetimini kolaylaştırmak için bu API'leri üstünde.  
 
 Her API ve araçları, listesi oluşturmak için yol almak, değiştirmek ve kaynakları silmek sunar.  Panolar kaynaklar olduğundan, sık kullanılan API'nizi çekme / aracı.
 

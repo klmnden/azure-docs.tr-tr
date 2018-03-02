@@ -1,9 +1,9 @@
-
+# [Scheduler Belgeleri](index.md)
 
 # Genel Bakış
 ## [Scheduler nedir?](scheduler-intro.md)
 
-# Başlarken
+# başlarken
 ## [İş oluşturma ve yönetme](scheduler-get-started-portal.md)
 ## [Kavramlar ve terminoloji](scheduler-concepts-terms.md)
 

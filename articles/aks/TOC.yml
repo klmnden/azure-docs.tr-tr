@@ -77,6 +77,10 @@
       items:
         - name: Kubernetes panosunu kullanma
           href: kubernetes-dashboard.md
+    - name: Sorun giderme
+      items:
+        - name: SSH düğümü erişimi
+          href: aks-ssh.md
 - name: Başvuru
   items:
     - name: Azure CLI

@@ -1,3 +1,5 @@
+# [Azure Advisor Belgeleri](index.md)
+
 # Genel Bakış
 ## [Azure Advisor nedir?](advisor-overview.md)
 
@@ -7,7 +9,7 @@
 ## [Yüksek Kullanılabilirlik önerileri](advisor-high-availability-recommendations.md)
 ## [Güvenlik önerileri](advisor-security-recommendations.md)
 
-# Başlarken
+# başlarken
 ## [Danışman’ı kullanmaya başlama](advisor-get-started.md)
 
 # Başvuru
