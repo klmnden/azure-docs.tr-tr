@@ -1,6 +1,6 @@
-1. [Azure Portal] oturum açın.
+1. [Azure Portal]’da oturum açın.
 
-2. **Yeni**’ye tıklayın.
+2. **Kaynak oluştur**’a tıklayın.
 
 3. Arama kutusuna **Mobile Apps** yazın.
 
@@ -10,7 +10,7 @@
  
 5. **Kaynak Grubu** altında mevcut bir kaynak grubunu seçin ya da yeni bir tane oluşturun (uygulamanızla aynı adı kullanarak).
 
-6. **Oluştur**'a tıklayın. Devam etmeden önce hizmetin sorunsuz dağıtılması için birkaç dakika bekleyin.
+6. **Oluştur**’a tıklayın. Devam etmeden önce hizmetin sorunsuz dağıtılması için birkaç dakika bekleyin.
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png

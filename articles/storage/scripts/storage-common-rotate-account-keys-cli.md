@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI komut dosyası örneği - döndürme depolama hesabı erişim anahtarlarını | Microsoft Docs"
-description: "Bir Azure depolama hesabı oluşturma sonra almak ve kendi hesabı erişim anahtarlarını döndürün."
+title: "Azure CLI Betiği Örneği - Depolama hesabı erişim anahtarlarını döndürme | Microsoft Docs"
+description: "Bir Azure Depolama hesabı oluşturun, sonra da hesap erişim anahtarlarını alıp döndürün."
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,45 +15,45 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: c8c99dd8663eab5b5c1c47d34f110f9dceaace6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: 52531d227c61cddabb7e8471f536e6d5786e95a3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Depolama hesabı oluşturma ve kendi hesabı erişim anahtarlarını döndürün
+# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Bir depolama hesabı oluşturma ve hesap erişim anahtarlarını döndürme
 
-Bu komut dosyası Azure depolama hesabı oluşturur, yeni depolama hesabının erişim anahtarlarını görüntüler ve ardından yeniler (döndüğü) anahtarları.
+Bu betik, bir Azure Depolama hesabı oluşturur, yeni depolama hesabının erişim anahtarlarını görüntüler ve ardından anahtarları yeniler (döndürür).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh "Rotate storage account keys")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Kaynak grubu, depolama hesabı ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, depolama hesabını ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut, depolama hesabı oluşturmak ve almak ve erişim anahtarlarını döndürmek için aşağıdaki komutları kullanır. Komut özgü belgelere Tablo bağlantıları her öğe.
+Bu komut, depolama hesabını oluşturmak ve erişim anahtarlarını alıp döndürmek için aşağıdaki komutları kullanır. Tablodaki her öğe, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](/cli/azure/group#create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az depolama hesabı oluşturma](/cli/azure/storage/account#create) | Bir Azure Storage hesabı içinde belirtilen kaynak grubu oluşturur. |
-| [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#list) | Belirtilen hesap için depolama hesabı erişim anahtarlarını görüntüler. |
-| [az depolama hesabı anahtarlarını yenileme](/cli/azure/storage/account/keys#renew) | Birincil veya ikincil depolama hesabının erişim anahtarı yeniden oluşturur. |
+| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Belirtilen kaynak grubunda bir Azure Depolama hesabı oluşturur. |
+| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Belirtilen hesap için depolama hesabı erişim anahtarlarını görüntüler. |
+| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | Birincil veya ikincil depolama hesabı erişim anahtarını yeniden oluşturur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](/cli/azure/overview).
 
-Ek depolama alanı CLI kod örnekleri bulunabilir [Azure Blob Depolama için Azure CLI örnek](../blobs/storage-samples-blobs-cli.md).
+Ek depolama CLI betiği örnekleri, [Azure Blob depolama için Azure CLI örneklerinde](../blobs/storage-samples-blobs-cli.md) bulunabilir.

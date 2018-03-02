@@ -5,16 +5,16 @@ services: application-insights
 keywords: 
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 065638c1d724865f45b0c1e2691041848f90ad00
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core Web Uygulamanızı İzlemeye Başlama
 
@@ -44,11 +44,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 Application Insights, şirket içinde veya bulutta çalışmasından bağımsız olarak İnternet’e bağlı herhangi bir uygulamadan telemetri verilerini toplayabilir. Bu verileri görüntülemeyi başlatmak için aşağıdaki adımları kullanın.
 
-1. **Yeni** > **İzleme + Yönetim** > **Application Insights**’ı seçin.
+1. **Kaynak oluştur** > **İzleme ve Yönetim** > **Application Insights**’ı seçin.
 
    ![Application Insights Kaynağı ekleme](./media/app-insights-dotnetcore-quick-start/0001-dc.png)
 
-    Bir yapılandırma kutusu görünür; giriş alanlarını doldurmak için aşağıdaki tabloyu kullanın.
+    Bir yapılandırma kutusu görünür. Giriş alanlarını doldurmak için aşağıdaki tabloyu kullanın.
 
     | Ayarlar        |  Değer           | Açıklama  |
    | ------------- |:-------------|:-----|
@@ -57,7 +57,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
    | **Kaynak Grubu**     | myResourceGroup      | App Insights verilerini barındıran yeni kaynak grubunun adı |
    | **Konum** | Doğu ABD | Yakınınızda bulunan veya uygulamanızın barındırıldığı konumun yakınında olan bir konum seçin |
 
-2. **Oluştur**'a tıklayın.
+2. **Oluştur**’a tıklayın.
 
 ## <a name="configure-app-insights-sdk"></a>App Insights SDK’sını Yapılandırma
 

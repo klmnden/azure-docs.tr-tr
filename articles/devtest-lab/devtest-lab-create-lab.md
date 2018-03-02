@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 3fd1f0ca01e9a800eaf3ba9843c7e3165023ccef
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a2148f8891c94f457a95282b8a3b7067c86c62ed
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de laboratuvar oluşturma
 Azure DevTest Labs'deki bir laboratuvar, Sanal Makineler (VM'ler) gibi kaynaklardan oluşan grupları kapsayan ve limitlerin yanı sıra kotalar belirleyerek söz konusu kaynakları daha iyi yönetmenizi sağlayan bir altyapıdır. Bu makalede, Azure portalını kullanarak laboratuvar oluşturma işlemi ayrıntılı olarak açıklanmıştır.
@@ -32,9 +32,9 @@ Laboratuvar oluşturmak için aşağıdakilere ihtiyacınız vardır:
 Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bir laboratuvar oluşturulacağını göstermektedir. 
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
-1. Sol taraftaki ana menüden **Diğer Hizmetler**'i (listenin en alt kısmında) seçin.
+1. Sol taraftaki ana menüden **Tüm Hizmetler**'i (listenin en üst kısmında) seçin.
 
-    ![Diğer hizmetler menü seçeneği](./media/devtest-lab-create-lab/more-services-menu-option.png)
+    ![Tüm hizmetler menü seçeneği](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. Mevcut hizmetler listesinden **DevTest Labs**'i seçin.
 1. **DevTest Labs** bölümünde **Ekle**'yi seçin.

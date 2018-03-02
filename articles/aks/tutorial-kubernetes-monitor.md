@@ -1,6 +1,6 @@
 ---
-title: "Azure Öğreticisi - İzleyici Kubernetes üzerinde Kubernetes"
-description: "AKS Öğreticisi - İzleyici Kubernetes Microsoft Operations Management Suite (OMS)"
+title: "Azure’da Kubernetes öğreticisi - Kubernetes’i izleme"
+description: "AKS öğreticisi - Microsoft Operations Management Suite (OMS) ile Kubernetes’i izleme"
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,58 +9,58 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 0f55e368586910b771115b39b5ec9b286f031069
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>İzleyici Azure kapsayıcı hizmeti (AKS)
+# <a name="monitor-azure-container-service-aks"></a>Azure Container Service’i (AKS) izleme
 
-İzleme Kubernetes küme ve kapsayıcıları özellikle bir üretim kümesi ölçekli olarak birden çok uygulama ile çalışırken, önemlidir.
+Kubernetes kümenizin ve kapsayıcılarınızın izlenmesi, özellikle de birden fazla uygulama ile ölçekli olarak bir üretim kümesi çalıştırılırken kritik önem taşır.
 
-Bu öğreticide, AKS küme kullanarak İzlemeyi Yapılandır [kapsayıcıları çözüm günlük analizi için][log-analytics-containers].
+Bu öğreticide, [Log Analytics için kapsayıcı çözümü][log-analytics-containers] bölümünü kullanarak AKS kümenizin izlemesini yapılandırırsınız.
 
-Bu öğretici, parçası yedi sekiz, aşağıdaki görevleri içerir:
+Sekizinci bölümün yedinci kısmını oluşturan bu öğretici aşağıdaki görevleri içerir:
 
 > [!div class="checklist"]
-> * Kapsayıcı çözüm izleme yapılandırma
-> * İzleme aracıları yapılandırma
-> * Azure portalında izleme bilgilerini erişim
+> * Kapsayıcı izleme çözümünü yapılandırma
+> * İzleme aracılarını yapılandırma
+> * Azure portalında izleme bilgilerine erişme
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki eğitimlerine uygulama kapsayıcı görüntüleri, Azure kapsayıcı kayıt defterine karşıya bu görüntüler ve oluşturulan Kubernetes küme paketlenmiştir.
+Önceki öğreticilerde, bir uygulama kapsayıcı görüntülerine paketlendi, bu görüntüler Azure Container Registry’ye yüklendi ve bir Kubernetes kümesi oluşturuldu.
 
-Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app].
+Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app] konusuna dönün.
 
-## <a name="configure-the-monitoring-solution"></a>İzleme çözümü yapılandırmak
+## <a name="configure-the-monitoring-solution"></a>İzleme çözümünü yapılandırma
 
-Azure portalında seçin **yeni** arayın ve `Container Monitoring Solution`. Bulunduktan sonra seçin **oluşturma**.
+Azure portalında **Kaynak oluştur**’u seçin ve `Container Monitoring Solution` araması yapın. Bulunduktan sonra **Oluştur**’u seçin.
 
-![Çözüm Ekle](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
+![Çözüm ekleme](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Yeni bir OMS çalışma alanı oluşturun veya varolan bir tanesini seçin. OMS çalışma formun bu işleminde size rehberlik eder.
+Yeni bir OMS çalışma alanı oluşturun veya mevcut bir çalışma alanını seçin. OMS Çalışma Alanı formu, bu işlem boyunca size yol gösterir.
 
-Çalışma alanı oluştururken, seçim **panoya Sabitle** kolay alınamayabilir.
+Çalışma alanını oluştururken kolayca almak için **Panoya sabitle**’yi seçin.
 
 ![OMS Çalışma Alanı](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
-İşiniz bittiğinde, seçin **Tamam**. Doğrulama tamamlandıktan sonra seçin **oluşturma** izleme çözümü kapsayıcısı oluşturmak için.
+İşiniz bittiğinde **Tamam**’ı seçin. Doğrulama tamamlandıktan sonra **Oluştur**’u seçerek kapsama izleme çözümünü oluşturun.
 
-Çalışma alanı oluşturulduktan sonra Azure portalında sunulur.
+Çalışma alanı oluşturulduktan sonra Azure portalında size sunulur.
 
-## <a name="get-workspace-settings"></a>Çalışma alanı ayarlarını al
+## <a name="get-workspace-settings"></a>Çalışma Alanı ayarlarını alma
 
-Günlük analizi çalışma alanı kimliği ve anahtarı Kubernetes düğümlerinde çözüm Aracısı'nı yapılandırmak için gereklidir.
+Kubernetes düğümlerinde çözüm aracısını yapılandırmak için Log Analytics Çalışma Alanı Kimliği ve Anahtarı gereklidir.
 
-Bu değerleri almaya seçin **OMS çalışma** kapsayıcı çözümleri sol taraftaki menüden. Seçin **Gelişmiş ayarları** ve not edin **çalışma alanı kimliği** ve **birincil anahtar**.
+Bu değerleri almak için kapsayıcı çözümlerinin sol tarafındaki menüden **OMS Çalışma Alanı**’nı seçin. **Gelişmiş ayarlar**’ı seçin ve **ÇALIŞMA ALANI KİMLİĞİ** ve **BİRİNCİL ANAHTAR** bilgilerini not alın.
 
-## <a name="configure-monitoring-agents"></a>İzleme aracıları yapılandırma
+## <a name="configure-monitoring-agents"></a>İzleme aracılarını yapılandırma
 
-Aşağıdaki Kubernetes bildirim dosyası, izleme aracıları Kubernetes kümede kapsayıcı yapılandırmak için kullanılabilir. Bir Kubernetes oluşturur [DaemonSet][kubernetes-daemonset], her küme düğümünde tek pod çalıştırır.
+Aşağıdaki Kubernetes bildirim dosyası, bir Kubernetes kümesindeki kapsayıcı izleme aracılarını yapılandırmak için kullanılabilir. Her küme düğümünde tek pod çalıştıran bir Kubernetes [DaemonSet][kubernetes-daemonset] oluşturur.
 
-Aşağıdaki metni adlı bir dosyaya kaydedin `oms-daemonset.yaml`ve yer tutucu değerlerini değiştirme `WSID` ve `KEY` günlük analizi çalışma alanı kimliği ve anahtarı.
+Aşağıdaki metni `oms-daemonset.yaml` adlı bir dosyaya kaydedip `WSID` ve `KEY` için yer tutucu değerlerini, Log Analytics Çalışma Alanı Kimliğiniz ve Anahtarınızla değiştirin.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -131,13 +131,13 @@ spec:
        path: /var/lib/docker/containers/
 ```
 
-DaemonSet aşağıdaki komutla oluşturun:
+Aşağıdaki komut ile DaemonSet oluşturun:
 
 ```azurecli-interactive
 kubectl create -f oms-daemonset.yaml
 ```
 
-DaemonSet oluşturduğunuz görmek için çalıştırın:
+DaemonSet’in oluşturulduğunu görmek için şunu çalıştırın:
 
 ```azurecli-interactive
 kubectl get daemonset
@@ -150,29 +150,29 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-Aracılar çalışan sonra alma ve verileri işlemek OMS birkaç dakika sürer.
+Aracılar çalıştırıldıktan sonra OMS’nin verileri alıp işlemesi birkaç dakika sürer.
 
-## <a name="access-monitoring-data"></a>İzleme verilerine erişim
+## <a name="access-monitoring-data"></a>İzleme verilerine erişme
 
-Azure portalında portal panosuna sabitlendi günlük analizi çalışma alanını seçin. Tıklayın **kapsayıcı izlemesi çözümü** döşeme. Burada AKS küme ve küme kapsayıcılardan hakkında bilgi bulabilirsiniz.
+Azure portalında, portal panosuna sabitlenen Log Analytics çalışma alanını seçin. **Kapsayıcı İzleme Çözümü** kutucuğuna tıklayın. Burada, AKS kümesi ve kümedeki kapsayıcılar hakkında bilgi bulabilirsiniz.
 
 ![Pano](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Bkz: [Azure günlük analizi belgeleri] [ log-analytics-docs] sorgulama ve izleme verilerini analiz etme konusunda ayrıntılı yönergeler için.
+Verileri sorgulamaya ve analiz etmeye ilişkin ayrıntılı yönergeler için [Azure Log Analytics belgelerine][log-analytics-docs] bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, OMS Kubernetes kümenizle izlenen. Görevleri dahil ele:
+Bu öğreticide, OMS ile Kubernetes kümenizi izlediniz. Dahil edilen görevler:
 
 > [!div class="checklist"]
-> * Kapsayıcı çözüm izleme yapılandırma
-> * İzleme aracıları yapılandırma
-> * Azure portalında izleme bilgilerini erişim
+> * Kapsayıcı izleme çözümünü yapılandırma
+> * İzleme aracılarını yapılandırma
+> * Azure portalında izleme bilgilerine erişme
 
-Kubernetes yeni bir sürüme yükseltme hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Kubernetes’i yeni bir sürüme yükseltme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Yükseltme Kubernetes][aks-tutorial-upgrade]
+> [Kubernetes’i yükseltme][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/

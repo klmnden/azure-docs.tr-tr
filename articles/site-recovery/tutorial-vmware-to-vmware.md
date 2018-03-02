@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 9de0cb3d22a4e500b66640f70f936ae955bbadb8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makineleri veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarma ayarlama
 
 Inmage Scout [Azure Site Recovery](site-recovery-overview.md) VMware siteleri arasında şirket içi gerçek zamanlı çoğaltma sağlar. Inmage Scout Azure Site Recovery hizmeti Aboneliklerde dahil edilir. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -33,7 +33,7 @@ Bu öğreticiyi tamamlamak için:
 - Çoğaltmak istediğiniz makineleri ile uyumlu olduğundan emin olun [makine desteği çoğaltılan](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
 
 
-## <a name="create-a-vault"></a>Bir kasa oluşturun
+## <a name="create-a-vault"></a>Kasa oluşturma
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
@@ -62,10 +62,10 @@ Güncelleştirmeleri gibi yükleyin:
 >Tüm Scout bileşenleri dosya güncelleştirme sürümü güncelleştirme .zip dosyasını aynı olmayabilir. Eski sürümü olduğunu bileşen değişiklik bu güncelleştirme için önceki güncelleştirmeden bu yana gösterir.
 
 Karşıdan [güncelleştirme](https://aka.ms/asr-scout-update6) .zip dosyası. Dosya aşağıdaki bileşenleri içerir: 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.Tar.gz
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
   - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - UA update4 BITS RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. .Zip dosyalarını ayıklayın.
@@ -106,7 +106,7 @@ Scout güncelleştirme 6 birikmeli bir güncelleştirmedir. Güncelleştirme 1'd
     - Red Hat Enterprise Linux (RHEL) 6.9
     - CentOS 6.9
     - Oracle Linux 5.11
-    - Oracle Linux 6,8
+    - Oracle Linux 6.8
 * VMware merkezi 6.5 için destek eklenmiştir
 
 > [!NOTE]
@@ -124,7 +124,7 @@ Scout güncelleştirme 5 birikmeli bir güncelleştirmedir. Güncelleştirme 4 i
 - Ardından kaynak sunucular, ana hedef, yapılandırma, işlem ve RX sunucuları zaten güncelleştirme 4 çalıştırıyorsanız, yalnızca ana hedef sunucusunda uygulayın. 
 
 #### <a name="new-platform-support"></a>Yeni platform desteği
-* SUSE Linux Enterprise Server 11 hizmet paketi 4(SP4)
+* SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
 * SLES 11 SP4 64 bit **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** temel Scout GA paketi ile birlikte paketlenmiştir (**InMage_Scout_Standard_8.0.1 GA.zip**). Bölümünde açıklandığı gibi portaldan GA paketini karşıdan yükle [bir kasa oluşturun](#create-a-vault).
 
 
@@ -155,8 +155,8 @@ Scout güncelleştirme 4 birikmeli bir güncelleştirmedir. Güncelleştirme 3 g
 * Bu Linux işletim sistemleri için destek eklenmiştir:
   * Red Hat Enterprise Linux (RHEL) 7.0, 7.1 ve 7.2
   * CentOS 7.0, 7.1 ve 7.2
-  * Red Hat Enterprise Linux (RHEL) 6,8
-  * CentOS 6,8
+  * Red Hat Enterprise Linux (RHEL) 6.8
+  * CentOS 6.8
 
 > [!NOTE]
 > RHEL/CentOS 7 64-bit **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** temel Scout GA paketi ile birlikte paketlenmiştir **InMage_Scout_Standard_8.0.1 GA.zip**. Bölümünde açıklandığı gibi portaldan Scout GA paketini karşıdan yükle [bir kasa oluşturun](#create-a-vault).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Öğretici: Azure Active Directory Tümleştirme Rollbar ile
 
@@ -108,15 +108,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Rollbar etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://saml.rollbar.com`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://saml.rollbar.com`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://rollbar.com/<accountname>/saml/sso/azure/`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
     ![Rollbar etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://rollbar.com/<accountname>/saml/login/azure/`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://rollbar.com/<accountname>/saml/login/azure/`
      
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Rollbar istemci destek ekibi](mailto:support@rollbar.com) bu değerleri almak için. 
@@ -149,11 +149,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     c. **Kaydet**’e tıklayın.
 
-11. Kaydet'ı tıklattıktan sonra düğmesi, ekran olacak şuna benzer. Bu bölümde aşağıdaki adımları gerçekleştirin:
+11. Kaydet'ı tıklattıktan sonra düğmesi, ekran olacak şuna benzer:
     
     ![Yapılandırma](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Aşağıdaki adımı tamamlamak için önce kendiniz bir kullanıcı olarak Azure Rollbar uygulamada eklemeniz gerekir.
+    a. Tüm kullanıcıların Azure üzerinden kimlik doğrulaması ve ardından gerekli olmasını istediğiniz **kimlik sağlayıcınız oturum açma** Azure üzerinden yeniden kimlik doğrulaması için.  
 
-    a. Seçin **SAML kimlik sağlayıcısı üzerinden oturum açma gerektirir** onay kutusu.
+    b.  Ekrana dönersiniz sonra seçeneğini **SAML kimlik sağlayıcısı üzerinden oturum açma gerektirir** onay kutusu.
 
     b. **Kaydet**’e tıklayın.
 

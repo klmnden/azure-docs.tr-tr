@@ -13,49 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/12/2017
+ms.date: 02/27/2018
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 21f2d586a4c468071bec55c65005b35baf323fe7
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 3a59d85ea19ba6670ffbb60aa9b764560a3567a0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Azure sanal ağlar ve Azure PowerShell ile Windows sanal makineleri yönetme
 
-Azure sanal makineler, iç ve dış ağ iletişimi için Azure ağ kullanın. Bu öğreticide iki sanal makine dağıtma ve bu VM'ler için Azure ağı yapılandırma açıklanmaktadır. Bir uygulama öğreticide dağıtılmamış ancak bu öğreticide örneklerde, sanal makineleri bir veritabanı arka uç, web uygulamasıyla barındırıyorsanız varsayılmaktadır. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Azure sanal makineleri, iç ve dış ağ iletişimi için Azure ağını kullanır. Bu öğretici, iki sanal makineyi dağıtma ve bu VM’ler için Azure ağını yapılandırma konusunda rehberlik sunar. Bu öğreticideki örneklerde VM’lerde veritabanı arka ucuna sahip bir web uygulaması barındırıldığı varsayılır, ancak öğreticide uygulama dağıtılmaz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir sanal ağ ve alt ağ oluşturun
+> * Sanal ağ ve alt ağ oluşturma
 > * Genel IP adresi oluşturma
-> * Bir ön uç VM oluşturma
-> * Ağ trafiğinin güvenliğini sağlayın
-> * Arka uç VM oluşturma
+> * Ön uç VM’si oluşturma
+> * Ağ trafiğinin güvenliğini sağlama
+> * Arka uç VM’si oluşturma
 
-Bu öğreticiyi tamamlamak sırasında oluşturulan bu kaynakları görebilirsiniz:
 
-![İki alt ağ ile sanal ağ](./media/tutorial-virtual-network/networktutorial.png)
 
-- *myVNet* -birbirine ve internet ile iletişim kurmak için sanal makineleri kullanan sanal ağ.
-- *myFrontendSubnet* -alt ağda *myVNet* ön uç kaynaklar tarafından kullanılır.
-- *myPublicIPAddress* -kullanılan genel IP adresine erişimi *myFrontendVM* internet'ten.
-- *myFrontentNic* -tarafından kullanılan ağ arabirimini *myFrontendVM* ile iletişim kurmak için *myBackendVM*.
-- *myFrontendVM* -VM Internet arasında iletişim kurmak için kullanılır ve *myBackendVM*.
-- *myBackendNSG* -arasındaki iletişimi denetleyen ağ güvenlik grubu *myFrontendVM* ve *myBackendVM*.
-- *myBackendSubnet* -alt ağ ile ilişkili *myBackendNSG* ve arka uç kaynaklar tarafından kullanılır.
-- *myBackendNic* -tarafından kullanılan ağ arabirimini *myBackendVM* ile iletişim kurmak için *myFrontendVM*.
+Bu öğretici AzureRM.Compute Modül sürümü 4.3.1 gerektirir veya sonraki bir sürümü. Sürümü bulmak için `Get-Module -ListAvailable AzureRM.Compute` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+
+## <a name="vm-networking-overview"></a>VM ağına genel bakış
+
+Azure sanal ağları, sanal makineler ile İnternet ve Azure SQL veritabanı gibi diğer Azure hizmetleri arasında güvenli ağ bağlantıları kurulmasını sağlar. Sanal ağlar, alt ağ adı verilen mantıksal segmentlere ayrılır. Alt ağlar, ağ akışını denetlemek için ve güvenlik sınırı olarak kullanılır. Bir VM dağıtılırken, genellikle bir alt ağa eklenmiş sanal ağ arabirimine sahiptir.
+
+Bu öğreticiyi tamamladığınızda şu kaynakların oluşturulduğunu görebilirsiniz:
+
+![İki alt ağ içeren sanal ağ](./media/tutorial-virtual-network/networktutorial.png)
+
+- *myVNet* - VM’lerin birbirleriyle ve İnternet’le iletişim kurmak için kullandığı sanal ağ.
+- *myFrontendSubnet* - Ön uç kaynakları tarafından kullanılan *myVNet*’teki alt ağ.
+- *myPublicIPAddress* - İnternet’ten *myFrontendVM*’ye erişmek için kullanılan genel IP adresi.
+- *myFrontentNic* - *myBackendVM* ile iletişim kurmak için *myFrontendVM* tarafından kullanılan ağ arabirimi.
+- *myFrontendVM* - İnternet ile *myBackendVM* arasında iletişim kurmak için kullanılan VM.
+- *myBackendNSG* - *myFrontendVM* ile *myBackendVM* arasındaki iletişimi denetleyen ağ güvenlik grubu.
+- *myBackendSubnet* - *myBackendNSG* ile ilişkilendirilmiş ve arka uç kaynakları tarafından kullanılan alt ağ.
+- *myBackendNic* - *myFrontendVM* ile iletişim kurmak için *myBackendVM* tarafından kullanılan ağ arabirimi.
 - *myBackendVM* -bağlantı noktası 1433 ile iletişim kurmak için kullandığı VM *myFrontendVM*.
 
-Bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
 
-## <a name="vm-networking-overview"></a>VM ağ genel bakış
+## <a name="create-a-virtual-network-and-subnet"></a>Sanal ağ ve alt ağ oluşturma
 
-Azure sanal ağlar arasında sanal makineleri, internet ve diğer Azure hizmetleriyle Azure SQL veritabanı gibi güvenli ağ bağlantıları etkinleştirin. Sanal ağlar alt ağ olarak adlandırılan mantıksal parçalara bölünür. Alt ağ akış denetimi ve güvenlik sınırı olarak kullanılır. Bir VM dağıtırken, genellikle bir alt ağa bağlı bir sanal ağ arabirimi içerir.
-
-## <a name="create-a-virtual-network-and-subnet"></a>Bir sanal ağ ve alt ağ oluşturun
-
-Bu öğreticide, tek bir sanal ağı iki alt ağ ile oluşturulur. Bir web uygulamasını barındırmak için bir ön uç alt ağı ve bir veritabanı sunucusunu barındırmak için bir arka uç alt ağ.
+Bu öğreticide iki alt ağa sahip tek bir sanal ağ oluşturulur. Web uygulamasını barındırmak için bir ön uç alt ağı ve veritabanı sunucusunu barındırmak için bir arka uç alt ağı.
 
 Bir kaynak grubunu kullanarak bir sanal ağ oluşturmadan önce oluşturmanız [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek, bir kaynak grubu oluşturur *myRGNetwork* içinde *EastUS* konumu:
 
@@ -94,13 +97,13 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $frontendSubnet, $backendSubnet
 ```
 
-Bu noktada, ağ oluşturulduğundan ve iki alt ağ, ön uç Hizmetleri için bir tane ve arka uç hizmetlerini için başka bir içine bölümlenmiş. Sonraki bölümde, sanal makineleri oluşturulur ve bu alt ağlara bağlı.
+Bu noktada ağ oluşturulur ve biri ön uç hizmetlerine, diğeri ise arka uç hizmetlerine yönelik olan iki alt ağ segmentine ayrılır. Sonraki bölümde sanal makineler oluşturulacak ve bu alt ağlara bağlanacak.
 
 ## <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
 
-Bir ortak IP adresi Internet üzerinden erişilebilir olması Azure kaynaklarını sağlar. Genel IP adresi ayırma yöntemi dinamik veya statik olarak yapılandırılmış olmalıdır. Varsayılan olarak, bir ortak IP adresi dinamik olarak ayrılır. Bir VM serbest bırakıldığında dinamik IP adresleri serbest bırakılır. Bu davranış VM ayırmayı kaldırma içeren herhangi bir işlem sırasında değiştirmek IP adresi neden olur.
+Genel IP adresi, Azure kaynaklarına İnternet’ten erişilmesine izin verir. Genel IP adresi ayırma yöntemi dinamik veya statik olarak yapılandırılabilir. Genel IP adresi varsayılan olarak dinamik biçimde ayrılır. Bir VM serbest bırakıldığında dinamik IP adresleri de serbest bırakılır. Bu davranış, VM’nin serbest bırakılmasını içeren tüm işlemlerde IP adresinin değişmesine neden olur.
 
-IP adresi deallocated durumundayken bile bir VM için atanan kalmasını sağlar statik ayırma yöntemi ayarlanabilir. Statik olarak ayrılmış bir IP adresi kullanıldığında, IP adresi belirtilemez. Bunun yerine, kullanılabilir adresler havuzundan tahsis edilir.
+Ayırma yöntemi statik olarak ayarlanabilir; bu yöntem, VM serbest bırakılsa bile IP adresinin VM’ye atanmış olarak kalmasını sağlar. Statik olarak ayrılan bir IP adresi kullanılırken IP adresi belirtilemez. Bunun yerine IP adresi, kullanılabilen adresler havuzundan ayrılır.
 
 Adlı bir ortak IP adresi oluşturma *myPublicIPAddress* kullanarak [yeni AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
@@ -114,7 +117,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 -AllocationMethod parametresi değişebilir `Static` bir statik genel IP adresi atamak için.
 
-## <a name="create-a-front-end-vm"></a>Bir ön uç VM oluşturma
+## <a name="create-a-front-end-vm"></a>Ön uç VM’si oluşturma
 
 Bir VM sanal ağ içinde iletişim kurmak bir sanal ağ arabirimi (NIC) gerekir. Kullanarak bir NIC oluşturun [yeni AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
 
@@ -122,7 +125,7 @@ Bir VM sanal ağ içinde iletişim kurmak bir sanal ağ arabirimi (NIC) gerekir.
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
-  -Name myFrontendNic `
+  -Name myFrontend `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id
 ```
@@ -133,53 +136,33 @@ Kullanıcı adı ve parola kullanarak VM üzerinde yönetici hesabı için gerek
 $cred = Get-Credential
 ```
 
-Kullanarak sanal makineleri oluşturmak [yeni AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [kümesi AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [kümesi AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Ekleme AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface), ve [AzureRmVM yeni](/powershell/module/azurerm.compute/new-azurermvm):
+Kullanarak sanal makineleri oluşturmak [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
-$frontendVM = New-AzureRmVMConfig `
-    -VMName myFrontendVM `
-    -VMSize Standard_D1
-$frontendVM = Set-AzureRmVMOperatingSystem `
-    -VM $frontendVM `
-    -Windows `
-    -ComputerName myFrontendVM `
-    -Credential $cred `
-    -ProvisionVMAgent `
-    -EnableAutoUpdate
-$frontendVM = Set-AzureRmVMSourceImage `
-    -VM $frontendVM `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest
-$frontendVM = Set-AzureRmVMOSDisk `
-    -VM $frontendVM `
-    -Name myFrontendOSDisk `
-    -DiskSizeInGB 128 `
-    -CreateOption FromImage `
-    -Caching ReadWrite
-$frontendVM = Add-AzureRmVMNetworkInterface `
-    -VM $frontendVM `
-    -Id $frontendNic.Id
 New-AzureRmVM `
-    -ResourceGroupName myRGNetwork `
-    -Location EastUS `
-    -VM $frontendVM
+   -Credential $cred `
+   -Name myFrontend `
+   -PublicIpAddressName myPublicIPAddress `
+   -ResourceGroupName myRGNetwork `
+   -Location "EastUS" `
+   -Size Standard_D1 `
+   -SubnetName myFrontendSubnet `
+   -VirtualNetworkName myVNet
 ```
 
-## <a name="secure-network-traffic"></a>Ağ trafiğinin güvenliğini sağlayın
+## <a name="secure-network-traffic"></a>Ağ trafiğinin güvenliğini sağlama
 
-Ağ güvenlik grubu (NSG), Azure Sanal Ağlara (VNet) bağlı kaynaklara ağ trafiğine izin veren veya reddeden güvenlik kurallarının listesini içerir. Nsg'ler alt ağları veya tek tek ağ arabirimleri için ilişkili olabilir. Bir NSG'yi bir ağ arabirimi ile ilişkili olduğunda, yalnızca ilişkili VM geçerlidir. Bir NSG bir alt ağ ile ilişkilendirildiğinde kurallar alt ağa bağlı tüm kaynaklar için geçerli olur.
+Ağ güvenlik grubu (NSG), Azure Sanal Ağlara (VNet) bağlı kaynaklara ağ trafiğine izin veren veya reddeden güvenlik kurallarının listesini içerir. NSG’ler alt ağlarla veya tek tek ağ arabirimleriyle ilişkilendirilebilir. Bir NSG ağ arabirimiyle ilişkilendirildiğinde, yalnızca ilişkili VM için geçerli olur. Bir NSG bir alt ağ ile ilişkilendirildiğinde kurallar alt ağa bağlı tüm kaynaklar için geçerli olur.
 
 ### <a name="network-security-group-rules"></a>Ağ güvenlik grubu kuralları
 
-NSG kuralları üzerinden trafik izin verilen veya reddedilen ağ bağlantı noktalarını tanımlar. Böylece belirli sistemleri veya alt ağlar arasında trafiği denetlenir kuralları kaynak ve hedef IP adresi aralıklarını içerebilir. NSG kuralları da dahil bir öncelik (1 arasında — ve 4096). Kurallar öncelik sırasına göre değerlendirilir. 100 önceliğine sahip bir kural 200 önceliğine sahip bir kural önce değerlendirilir.
+NSG kuralları trafiğe izin verilen veya trafiğin engellendiği ağ bağlantı noktalarını tanımlar. Trafiğin belirli sistemler veya alt ağlar arasında denetlenmesi için kurallar, kaynak ve hedef IP adresi aralıkları içerebilir. Ayrıca NSG kuralları öncelik (1 ile 4.096 arasında) içerir. Kurallar öncelik sırasına göre değerlendirilir. 100 önceliğine sahip bir kural, 200 önceliğine sahip kuraldan önce değerlendirilir.
 
 Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar silinemez ancak en düşük önceliğe atanmış oldukları için sizin oluşturduğunuz kurallar tarafından geçersiz kılınabilirler.
 
-- **Sanal ağ** - kaynaklanan trafiği ve sanal ağ içinde bitiş hem gelen ve giden yönlerde izin verilir.
-- **Internet** - giden trafiğe izin verilir, ancak gelen trafik engellenir.
-- **Yük Dengeleyici** -VM'ler ve rol örneklerinin durumunu araştırma için izin Azure'nın yük dengeleyici. Yük dengelenmiş bir küme kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
+- **Sanal ağ** - Kaynağı bir sanal ağ olan ve bir sanal ağda biten trafiğe hem gelen hem de giden yönlerde izin verilir.
+- **İnternet** - Giden trafiğe izin verilir, ancak gelen trafik engellenir.
+- **Yük dengeleyici** - VM’lerinizin ve rol örneklerinizin sistem durumunu araştıran Azure yük dengeleyicisine izin verir. Yük dengeli bir küme kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
 
 ### <a name="create-network-security-groups"></a>Ağ güvenlik grupları oluşturma
 
@@ -254,7 +237,7 @@ $backendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
-## <a name="create-a-back-end-vm"></a>Bir arka uç VM oluşturma
+## <a name="create-a-back-end-vm"></a>Arka uç VM’si oluşturma
 
 Bu öğretici için arka uç VM oluşturmak için en kolay yolu, bir SQL Server görüntüsü kullanmaktır. Bu öğretici yalnızca VM veritabanı sunucusuyla oluşturur, ancak veritabanı erişme hakkında bilgi sağlamaz.
 
@@ -264,7 +247,7 @@ Oluşturma *myBackendNic*:
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
-  -Name myBackendNic `
+  -Name myBackend `
   -SubnetId $vnet.Subnets[1].Id
 ```
 
@@ -274,52 +257,31 @@ Kullanıcı adı ve parola Get-Credential ile VM üzerinde yönetici hesabı iç
 $cred = Get-Credential
 ```
 
-Oluşturma *myBackendVM*:
+Oluşturma *myBackendVM*.
 
 ```azurepowershell-interactive
-$backendVM = New-AzureRmVMConfig `
-  -VMName myBackendVM `
-  -VMSize Standard_D1
-$backendVM = Set-AzureRmVMOperatingSystem `
-  -VM $backendVM `
-  -Windows `
-  -ComputerName myBackendVM `
-  -Credential $cred `
-  -ProvisionVMAgent `
-  -EnableAutoUpdate
-$backendVM = Set-AzureRmVMSourceImage `
-  -VM $backendVM `
-  -PublisherName MicrosoftSQLServer `
-  -Offer SQL2016SP1-WS2016 `
-  -Skus Enterprise `
-  -Version latest
-$backendVM = Set-AzureRmVMOSDisk `
-  -VM $backendVM `
-  -Name myBackendOSDisk `
-  -DiskSizeInGB 128 `
-  -CreateOption FromImage `
-  -Caching ReadWrite
-$backendVM = Add-AzureRmVMNetworkInterface `
-  -VM $backendVM `
-  -Id $backendNic.Id
 New-AzureRmVM `
-  -ResourceGroupName myRGNetwork `
-  -Location EastUS `
-  -VM $backendVM
+   -Credential $cred `
+   -Name myBackend `
+   -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
+   -ResourceGroupName myRGNetwork `
+   -Location "EastUS" `
+   -SubnetName myFrontendSubnet `
+   -VirtualNetworkName myVNet
 ```
 
 Kullanılan görüntü SQL Server'ın yüklü, ancak bu öğreticide kullanılmaz. Web trafiğini işlemek için bir VM ve veritabanı yönetimi işlemek için bir VM nasıl yapılandırabileceğiniz göstermek için dahil edilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide oluşturduğunuz ve Azure ağları sanal makinelerle ilgili olarak güvenli. 
+Bu öğreticide sanal makinelerle ilgili Azure ağlarını oluşturup ve güvenliğini sağladınız. 
 
 > [!div class="checklist"]
-> * Bir sanal ağ ve alt ağ oluşturun
+> * Sanal ağ ve alt ağ oluşturma
 > * Genel IP adresi oluşturma
-> * Bir ön uç VM oluşturma
-> * Ağ trafiğinin güvenliğini sağlayın
-> * Bir arka uç VM oluşturma
+> * Ön uç VM’si oluşturma
+> * Ağ trafiğinin güvenliğini sağlama
+> * Arka uç VM’si oluşturma
 
 Azure Yedekleme'yi kullanarak sanal makinelerde güvenli hale getirme verileri izleme hakkında bilgi edinmek için sonraki öğretici ilerleyin.
 

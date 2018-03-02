@@ -1,3 +1,5 @@
+# [Notification Hubs Belgeleri](index.md)
+
 # Genel Bakış
 ## [Azure Notification Hubs nedir?](notification-hubs-push-notification-overview.md)
 # Başlarken
@@ -12,7 +14,7 @@
 ## [Xamarin.iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
 ## [Sık Sorulan Sorular](notification-hubs-push-notification-faq.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Kurumsal gönderme mimari kılavuzu](notification-hubs-enterprise-push-notification-architecture.md)
 
@@ -42,7 +44,7 @@
 #### [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 #### [Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
-## Yönet
+## Yönetme
 ### [Kayıtlar](notification-hubs-push-notification-registration-management.md)
 ### [APNS belirteç tabanlı kimlik doğrulama](notification-hubs-push-notification-http2-token-authentification.md)
 

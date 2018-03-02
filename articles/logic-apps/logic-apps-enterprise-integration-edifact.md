@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Logic apps ile Kurumsal tümleştirme için Exchange EDIFACT iletileri
 
@@ -32,65 +32,63 @@ Azure mantıksal uygulamaları için EDIFACT iletileri değiştirebilir önce ED
 
 Gereksinim duyduğunuz öğeleri şöyledir:
 
-* Bir [tümleştirme hesabını](../logic-apps/logic-apps-enterprise-integration-accounts.md) , daha önce tanımlanan ve Azure aboneliğinizle ilişkili  
+* Bir [tümleştirme hesabını](logic-apps-enterprise-integration-create-integration-account.md) , daha önce tanımlanan ve Azure aboneliğinizle ilişkili  
 * En az iki [ortakları](logic-apps-enterprise-integration-partners.md) tümleştirme hesabınızda zaten tanımlanmış
 
 > [!NOTE]
 > Bir sözleşme oluşturduğunuzda, alan veya ve ortaktan Gönder iletileri içeriği anlaşma türünü eşleşmesi gerekir.
 
-Çalıştırdıktan sonra [tümleştirme hesap oluşturmak](../logic-apps/logic-apps-enterprise-integration-accounts.md) ve [ortakları eklemek](logic-apps-enterprise-integration-partners.md), aşağıdaki adımları izleyerek bir EDIFACT sözleşmesi oluşturabilirsiniz.
+Çalıştırdıktan sonra [tümleştirme hesap oluşturmak](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve [ortakları eklemek](logic-apps-enterprise-integration-partners.md), aşağıdaki adımları izleyerek bir EDIFACT sözleşmesi oluşturabilirsiniz.
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT sözleşmesi oluşturun 
 
-1.  [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın. Sol menüden seçin **tüm hizmetleri**.
+1. [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın. 
 
-    > [!TIP]
-    > Görmüyorsanız, **tüm hizmetleri**, menü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **Göster menüsü**.
+2. Azure ana menüde seçin **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.
 
-    ![Sol menüsünde "Tüm hizmetleri" öğesini seçin](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+   ![Tümleştirme hesabınızı Bul](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
-2. Arama kutusuna filtreniz için "tümleştirme" yazın. Sonuçlar listesinde **tümleştirme hesapları**.
+   > [!TIP]
+   > Varsa **tüm hizmetleri** görünmüyor menüyü ilk genişletmeniz gerekebilir. Daraltılmış menüsünün üstünde seçin **metin etiketlerini göster**.
 
-    ![Filtre "tümleştirme üzerinde", "Tümleştirme hesapları" seçin](./media/logic-apps-enterprise-integration-edifact/edifact-1-3.png)
+3. Altında **tümleştirme hesapları**, anlaşmayı oluşturmak istediğiniz tümleştirme hesabı seçin.
 
-3. İçinde **tümleştirme hesapları** açar, dikey penceresinde, anlaşmayı oluşturmak istediğiniz tümleştirme hesabını seçin.
-Herhangi bir tümleştirme hesabı görmüyorsanız, [oluşturmak ilk](../logic-apps/logic-apps-enterprise-integration-accounts.md "tümleştirme hesapları hakkında").  
+   ![Tümleştirme hesabı anlaşmayı oluşturulacağı konumu seçin](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
 
-    ![Tümleştirme hesabı anlaşmayı oluşturulacağı konumu seçin](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+4. Seçin **anlaşmaları**. Anlaşmaları döşeme yoksa, ilk kutucuğu ekleyin.   
 
-4. Seçin **anlaşmaları** döşeme. Anlaşmaları döşeme yoksa, ilk kutucuğu ekleyin.   
+   !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
 
-    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
+5. Anlaşmaları sayfada seçin **Ekle**.
 
-5. Açılır anlaşmaları dikey penceresinde, seçin **Ekle**.
-
-    !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
+   !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
 
 6. Altında **Ekle**, girin bir **adı** sözleşmenizi için. İçin **anlaşma türünü**seçin **EDIFACT**. Seçin **ana iş ortağı**, **konak kimliği**, **Konuk iş ortağı**, ve **Konuk kimlik** sözleşmenizi için.
 
-    ![Anlaşma ayrıntılarını sağlayın](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
+   ![Anlaşma ayrıntılarını sağlayın](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-    | Özellik | Açıklama |
-    | --- | --- |
-    | Ad |Anlaşma adı |
-    | Anlaşma türü | EDIFACT olmalıdır |
-    | Konak İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Ana bilgisayar iş ortağı sözleşmesi yapılandırır kuruluşu temsil eder. |
-    | Konak Kimliği |Ana makine ortak bir tanımlayıcı |
-    | Konuk İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Konuk iş ortağı ana iş ortağı iş yapmakta kuruluşu temsil eder. |
-    | Konuk Kimliği |Konuk iş ortağı için bir tanımlayıcı |
-    | Ayarları Al |Bu özellikleri tüm anlaşmanın tarafından alınan iletileri için geçerlidir. |
-    | Gönderme Ayarları |Bu özellikleri anlaşmanın tarafından gönderilen tüm iletiler için geçerlidir. |
+   | Özellik | Açıklama |
+   | --- | --- |
+   | Ad |Anlaşma adı |
+   | Anlaşma türü | EDIFACT olmalıdır |
+   | Konak İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Ana bilgisayar iş ortağı sözleşmesi yapılandırır kuruluşu temsil eder. |
+   | Konak Kimliği |Ana makine ortak bir tanımlayıcı |
+   | Konuk İş Ortağı |Bir anlaşma hem konak hem de Konuk iş ortağı gerekir. Konuk iş ortağı ana iş ortağı iş yapmakta kuruluşu temsil eder. |
+   | Konuk Kimliği |Konuk iş ortağı için bir tanımlayıcı |
+   | Ayarları Al |Bu özellikleri tüm anlaşmanın tarafından alınan iletileri için geçerlidir. |
+   | Gönderme Ayarları |Bu özellikleri anlaşmanın tarafından gönderilen tüm iletiler için geçerlidir. |
+   ||| 
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Anlaşma tanıtıcıları iletileri nasıl alınan yapılandırma
 
 Anlaşma özelliklerini ayarladıysanız, bu anlaşmanın nasıl tanımlar ve bu anlaşma ile ortaktan alınan gelen iletileri işleme yapılandırabilirsiniz.
 
-1.  Altında **Ekle**seçin **alma ayarı**.
+1. Altında **Ekle**seçin **alma ayarı**.
 İletiler birlikte alış verişleri iş ortağı ile sözleşmenizde göre bu özelliklerini yapılandırın. Özellik açıklamaları için bu bölümdeki tablolarda bakın.
 
-    **Alma ayarlarını** şu bölümlere düzenlenmiştir: tanımlayıcılar, bildirim, şemalar, denetim numaraları, doğrulama ve iç ayarlar.
+   **Alma ayarlarını** şu bölümlere düzenlenmiştir: tanımlayıcılar, bildirim, şemalar, denetim numaraları, doğrulama ve iç ayarlar.
 
-    !["Alma ayarlarını" yapılandırma](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
+   !["Alma ayarlarını" yapılandırma](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
 2. Bitirdikten sonra seçerek ayarlarınızı kaydettiğinizden emin olun **Tamam**.
 
@@ -240,13 +238,13 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 
 ## <a name="find-your-created-agreement"></a>Oluşturulan sözleşmenizi Bul
 
-1.  Üzerinde anlaşma özelliklerinizi ayarlama işlemini tamamladıktan sonra **Ekle** dikey penceresinde, seçin **Tamam** sözleşmenizi oluşturmayı tamamlamak ve tümleştirme hesabı dikey penceresine geri dönün.
+1.  Üzerinde anlaşma özelliklerinizi ayarlama işlemini tamamladıktan sonra **Ekle** sayfasında, **Tamam** sözleşmenizi oluşturmayı tamamlamak ve tümleştirme hesabınıza dönmek için.
 
     Yeni eklenen sözleşmenizi artık görünür, **anlaşmaları** listesi.
 
-2.  Ayrıca, tümleştirme hesabına genel bakış sözleşmelerinizi görüntüleyebilirsiniz. Tümleştirme hesabı dikey penceresinde, seçin **genel bakış**seçeneğini belirleyip **anlaşmaları** döşeme. 
+2.  Ayrıca, tümleştirme hesabına genel bakış sözleşmelerinizi görüntüleyebilirsiniz. Tümleştirme hesap menünüzde seçin **genel bakış**seçeneğini belirleyip **anlaşmaları** döşeme. 
 
-    ![Tüm anlaşmalar görüntülemek için "Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="view-swagger-file"></a>Görünüm Swagger dosyası
 EDIFACT bağlayıcı Swagger ayrıntılarını görüntülemek için bkz: [EDIFACT](/connectors/edifact/).

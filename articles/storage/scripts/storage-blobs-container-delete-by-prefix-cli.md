@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI komut dosyası örneği - Sil kapsayıcıları ön eke göre | Microsoft Docs"
-description: "Kapsayıcı adı ön ekini temel alarak Azure Storage blobu kapsayıcıları silin."
+title: "Azure CLI Betiği Örneği - Kapsayıcıları ön eke göre silme | Microsoft Docs"
+description: "Azure Depolama blob’u kapsayıcılarını, bir kapsayıcı adı ön ekine göre silin."
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,46 +15,46 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: d14195abf1c17d11e259ed9edb5112626b063112
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.openlocfilehash: 3eab1878c2a5f6b1d031ef3208e30a4df19dc41e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="delete-containers-based-on-container-name-prefix"></a>Kapsayıcı adı ön ekini temel alarak kapsayıcıları Sil
+# <a name="delete-containers-based-on-container-name-prefix"></a>Kapsayıcıları, kapsayıcı adı ön ekine göre silme
 
-Bu komut dosyası ilk Azure Blob depolama alanına birkaç örnek kapsayıcılarını oluşturur ve sonra bir kapsayıcı adı ön ekini temel kapsayıcıları bazıları siler.
+Bu betik ilk olarak Azure Blob depolama alanında birkaç örnek kapsayıcı oluşturur, sonra da kapsayıcı adındaki bir ön eke göre bazı kapsayıcıları siler.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.sh?highlight=2-3 "Delete containers by prefix")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Kapsayıcılar, kalan kaynak grubunu kaldırmak için aşağıdaki komutu çalıştırın ve ilişkili tüm kaynakları.
+Kaynak grubunu, kalan kapsayıcıları ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyası kapsayıcı adı ön ekini temel alarak kapsayıcıları silmek için aşağıdaki komutları kullanır. Komut özgü belgelere Tablo bağlantıları her öğe.
+Bu betik, kapsayıcıları, kapsayıcı adı ön ekine göre silmek için aşağıdaki komutları kullanır. Tablodaki her öğe, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](/cli/azure/group#create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az depolama hesabı oluşturma](/cli/azure/storage/account#create) | Bir Azure Storage hesabı içinde belirtilen kaynak grubu oluşturur. |
-| [az depolama kapsayıcısı oluşturma](/cli/azure/storage/container#create) | Azure Blob depolama alanına bir kapsayıcı oluşturur. |
-| [az depolama kapsayıcısı listesi](/cli/azure/storage/container#list) | Bir Azure depolama hesabında kapsayıcıları listeler. |
-| [az depolama kapsayıcısı Sil](/cli/azure/storage/container#delete) | Bir Azure depolama hesabında kapsayıcıları siler. |
+| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Belirtilen kaynak grubunda bir Azure Depolama hesabı oluşturur. |
+| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Azure Blob depolama alanında bir kapsayıcı oluşturur. |
+| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Bir Azure Depolama hesabındaki kapsayıcıları listeler. |
+| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Bir Azure Depolama hesabındaki kapsayıcıları siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](/cli/azure/overview).
 
-Ek depolama alanı CLI kod örnekleri bulunabilir [Azure depolama için Azure CLI örnek](../blobs/storage-samples-blobs-cli.md).
+Ek depolama CLI betiği örnekleri, [Azure Depolama için Azure CLI örneklerinde](../blobs/storage-samples-blobs-cli.md) bulunabilir.

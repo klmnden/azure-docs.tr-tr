@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Azure geçiş SSS
 
@@ -76,14 +76,13 @@ Genel olarak, Faturalanabilir iletileri geçişler için daha önce açıklanan 
 Kullanarak açık geçişler **netTCPRelay** WCF bağlama tek bir ileti olarak değil, ancak sistem üzerinden akan bir veri akışı olarak iletileri kabul eder. Bu bağlama kullandığınızda, yalnızca gönderen ve dinleyici gönderilen ve alınan tek bir ileti çerçeveleme görünürlüğe sahip. Geçişleri kullanan **netTCPRelay** bağlama, tüm verileri olarak değerlendirilir Faturalanabilir iletileri hesaplamak için bir akış. Bu durumda, Service Bus toplam gönderilen veya alınan 5 dakikalık aralıklarla tek tek her geçiş aracılığıyla veri miktarını hesaplar. Ardından, bu süre içinde bu geçiş Faturalanabilir ileti sayısını belirlemek için 64 KB toplam veri miktarı böler.
 
 ## <a name="quotas"></a>Kotalar
-| Kota adı | Kapsam | Tür | Aşıldığında davranışı | Değer |
-| --- | --- | --- | --- | --- |
-| Bir geçiş üzerinde eşzamanlı dinleyicileri |Varlık |Statik |Sonraki istekleri için ek bağlantıları reddedilir ve arama kodun bir özel durum aldı. |25 |
-| Eşzamanlı geçiş dinleyicileri |Sistem çapında |Statik |Sonraki istekleri için ek bağlantıları reddedilir ve arama kodun bir özel durum aldı. |2,000 |
-| Bir hizmet ad alanındaki tüm geçiş uç noktaları başına eşzamanlı geçiş bağlantıları |Sistem çapında |Statik |- |5,000 |
-| Hizmet ad alanı başına geçiş uç noktaları |Sistem çapında |Statik |- |10,000 |
-| İleti boyutu için [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) ve [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) geçişleri |Sistem çapında |Statik |Bu kotalar aşan gelen iletileri reddedilir ve arama kodun bir özel durum aldı. |64 KB |
-| İleti boyutu için [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) ve [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) geçişleri |Sistem çapında |Statik |- |Sınırsız |
+| Kota adı | Kapsam |  Notlar | Değer |
+| --- | --- | --- | --- |
+| Bir geçiş üzerinde eşzamanlı dinleyicileri |Varlık |Sonraki istekleri için ek bağlantıları reddedilir ve arama kodun bir özel durum aldı. |25 |
+| Bir hizmet ad alanındaki tüm geçiş uç noktaları başına eşzamanlı geçiş bağlantıları |Ad Alanı |- |5.000 |
+| Hizmet ad alanı başına geçiş uç noktaları |Ad Alanı |- |10,000 |
+| İleti boyutu için [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) ve [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) geçişleri |Ad Alanı |Bu kotalar aşan gelen iletileri reddedilir ve arama kodun bir özel durum aldı. |64 KB |
+| İleti boyutu için [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) ve [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) geçişleri |Ad Alanı |İleti boyutu sınırlama yoktur. |Sınırsız |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Geçiş tüm kullanım kotalarını var mı?
 Varsayılan olarak, tüm bulut hizmeti için tüm müşteri'nin abonelikler arasında hesaplanan bir toplama aylık kullanım kotası Microsoft ayarlar. Bazen gereksinimlerinizi bu sınırları aşabilir olduğunu anlayın. Biz gereksinimlerinizi anlamak ve bu sınırları uygun şekilde ayarlamak için Müşteri Hizmetleri herhangi bir zamanda başvurabilirsiniz. Hizmet veri yolu için toplam kullanım kotalarını aşağıdaki gibidir:

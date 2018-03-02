@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: cb07f173a0ff669cc8fa56d1ba37a4a3df8d8753
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0db3df1666a56ca96af208a4e43f814105de40d5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>C# MapReduce hdınsight'ta Hadoop akış ile kullanma
 
@@ -33,7 +33,7 @@ Hadoop akış bir betik veya yürütülebilir dosyası kullanan MapReduce işler
 
 ## <a name="net-on-hdinsight"></a>Hdınsight üzerinde .NET
 
-__Linux tabanlı Hdınsight__ kümeleri kullanım [Mono (https://mono-project.com)](https://mono-project.com) .NET uygulamalarını çalıştırmak için. Mono sürüm 4.2.1 Hdınsight sürüm 3.5 ile dahil edilir. Hdınsight ile dahil Mono sürümü hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü](../hdinsight-component-versioning.md). Mono belirli bir sürümünü kullanmak için bkz: [yükleme veya güncelleştirme Mono](../hdinsight-hadoop-install-mono.md) belge.
+__Linux tabanlı Hdınsight__ kümeleri kullanım [Mono (https://mono-project.com)](https://mono-project.com) .NET uygulamalarını çalıştırmak için. Mono sürüm 4.2.1 sürüm 3.6 Hdınsight ile dahil edilir. Hdınsight ile dahil Mono sürümü hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü](../hdinsight-component-versioning.md). Mono belirli bir sürümünü kullanmak için bkz: [yükleme veya güncelleştirme Mono](../hdinsight-hadoop-install-mono.md) belge.
 
 .NET Framework sürümleri Mono uyumluluğu hakkında daha fazla bilgi için bkz: [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -49,7 +49,7 @@ Bu belgede akış için kullanılan temel işlem aşağıdaki gibidir:
 
 Akış ile ilgili daha fazla bilgi için bkz: [Hadoop akış (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Yazma ve .NET Framework 4.5 hedefleyen C# kod oluşturma ile benzer. Bu belgede yer alan adımlar, Visual Studio 2017 kullanın.
 

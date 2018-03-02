@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive sorgularını kullanarak bir Hadoop kümesinde veri özellikleri oluşturma
 Bu belge Hive sorgularını kullanarak, Azure Hdınsight Hadoop kümesi depolanan verilerin özelliklerini oluşturulacağını gösterir. Bu Hive sorguları katıştırılmış Hive User-Defined olduğu için komut dosyalarını sağlanan işlevler (UDF'ler) kullanın.
@@ -31,7 +31,7 @@ Sunulan sorguları örnekler için belirli [NYC ücreti seyahat veri](http://chr
 
 Bu **menü** özellikleri veriler için çeşitli ortamlar oluşturmak nasıl açıklayan konulara bağlantılar. Bu görev bir adımdır [takım veri bilimi işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, sahip olduğunuz varsayılmaktadır:
 
 * Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -93,14 +93,14 @@ Hive, datetime alanları işlemek için UDF'ler kümesiyle birlikte gelir. Kovan
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Bu Hive sorgusu varsayar *&#60; datetime alan >* varsayılan tarih saat biçiminde değil.
+Bu Hive sorgusu varsayar  *<datetime field>*  varsayılan tarih saat biçiminde değil.
 
 Bir datetime alanı varsayılan biçiminde değilse, datetime alanı UNIX zaman damgası dönüştürmeniz ve UNIX zaman damgası varsayılan biçiminde bir tarih saat dizeye dönüştürmeniz gerekir. Datetime biçim varsayılan olduğunda, kullanıcılar katıştırılmış datetime özellikleri ayıklamak için UDF'ler uygulayabilir.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Bu sorgu, *&#60; datetime alanı >* gibi düzeni sahip *03/26/2015 12:04:39*, *' &#60; datetime alanı desenini >'* olmalıdır `'MM/dd/yyyy HH:mm:ss'`. Test etmek için kullanıcıların çalıştırabileceği
+Bu sorgu,  *<datetime field>*  gibi düzeni sahip *03/26/2015 12:04:39*,  *<pattern of the datetime field>'* olmalıdır `'MM/dd/yyyy HH:mm:ss'`. Test etmek için kullanıcıların çalıştırabileceği
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -136,11 +136,11 @@ Bu sorguda kullanılan adlı, toplama ve dropoff konumları GPS koordinatları a
 
 İki GPS koordinatları arasındaki uzaklığı hesaplamak matematiksel denklemini bulunabilir <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">taşınabilir tür betikleri</a> Peter Lapisu tarafından yazılan site. Bu Javascript işlevi içinde `toRad()` tıpkı *lat_or_lon*pi/180 *, radyan için derece dönüştürür. Burada, *lat_or_lon* enlem veya boylam. Hive işlevi sağlamadığından `atan2`, ancak işlev sağlar `atan`, `atan2` işlevi tarafından gerçekleştirilir `atan` sağlanan tanımı kullanılarak yukarıdaki Hive sorgusu işlevinde <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
-![Çalışma alanı oluşturma](./media/create-features-hive/atan2new.png)
+![Çalışma alanı oluştur](./media/create-features-hive/atan2new.png)
 
 Katıştırılmış UDF'ler bulunabilir Hive tam listesi **yerleşik işlevler** bölümünde <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Gelişmiş konular: Sorgu hızını artırmak için ayarlama Hive parametreleri
+## <a name="tuning"></a> Gelişmiş konular: Sorgu hızını artırmak için ayarlama Hive parametreleri
 Varsayılan parametre ayarları Hive kümesinin Hive sorguları ve sorguları işlerken veri için uygun olmayabilir. Bu bölümde, kullanıcıların Hive sorguları performansını artırmak için ayarlayabilirsiniz bazı parametreler açıklanmaktadır. Kullanıcıların veri işleme sorguları önce sorguları ayarlama parametresini eklemeniz gerekir.
 
 1. **Java yığın alanı**: büyük veri kümeleri katılma veya uzun kayıtlarının işlenmesinden içeren sorgular için **yığın alana sahip** sık karşılaşılan biridir. Bu hata parametrelerini ayarlayarak önlenebilir *mapreduce.map.java.opts* ve *mapreduce.task.io.sort.mb* istenen değerleri için. Örnek aşağıda verilmiştir:

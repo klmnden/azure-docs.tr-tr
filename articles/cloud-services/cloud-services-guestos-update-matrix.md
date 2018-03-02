@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/4/2018
+ms.date: 2/27/2018
 ms.author: raiye
-ms.openlocfilehash: 73d5225653929d4ce4da66eef6b9365a7b5d13fe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizmetlerini yayımları sağlar. Bu bilgiler, bir konuk işletim sistemi devre dışı önce yükseltme yolunuza planlamanıza yardımcı olur. Rollerinizi kullanacak şekilde yapılandırırsanız, *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı gibi [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -143,7 +143,7 @@ Haziran konuk işletim sistemi dağıtımı Haziran 16 başlatıyor ve 11 Temmuz
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.57_2017801-01 |29 Ocak 2018 |POST 3.59 |TBD |
+| WA-GUEST-OS-3.57_201801-01 |29 Ocak 2018 |POST 3.59 |TBD |
 | WA-GUEST-OS-3.56_201712-01 |4 Ocak 2018 |POST 3.58 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 Aralık 2017 |29 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |

@@ -3,7 +3,7 @@ title: "Azure SSIS tümleştirmesi çalışma zamanı zamanlama | Microsoft Docs
 description: "Bu makalede, başlatma ve Azure Automation ve Data Factory kullanarak bir Azure SSIS tümleştirme çalışma zamanını durdurma zamanlama açıklar."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Başlatma ve durdurma bir Azure SSIS tümleştirmesi çalışma zamanı zamanlama 
 Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir ücret sahiptir. Bu nedenle, yalnızca Azure'da SSIS paketleri çalıştırmak ve onu gerekmediğinde durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)). Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Bu makalede açıklanan üst düzey adımlar şunlardır:
@@ -44,7 +44,7 @@ Bu bölümde, aşağıdaki adımları gerçekleştirin:
 ### <a name="create-an-azure-automation-account"></a>Azure Otomasyonu hesabı oluşturma
 Bir Azure Otomasyonu hesabı yoksa, bu adımı'ndaki yönergeleri izleyerek oluşturun. Ayrıntılı adımlar için bkz: [Azure Automation hesabı oluşturma](../automation/automation-quickstart-create-account.md). Bu adım bir parçası olarak, oluşturduğunuz bir **Azure Farklı Çalıştır** hesabı (hizmet Azure Active Directory'yi sorumlusu) ve ekleyin **katkıda bulunan** Azure aboneliğinizin rol. Azure SSIS IR sahip veri fabrikası içeren abonelik aynı olduğundan emin olun Azure Otomasyonu, Azure Resource Manager kimliğini doğrulamak ve kaynaklarınızı üzerinde çalıştırmak için bu hesabı kullanır. 
 
-1. Başlatma **Microsoft Edge** veya **Google Chrome** web tarayıcısı. Şu anda, veri fabrikası UI yalnızca Microsoft Edge ve Google Chrome web tarayıcılarda desteklenir.
+1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
 2. [Azure Portal](https://portal.azure.com/)’da oturum açın.    
 3. Seçin **yeni** soldaki menüden seçin **izleme + Yönetim**seçip **Otomasyon**. 
 

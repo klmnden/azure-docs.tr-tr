@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9015347042ea9cce221ec5febd4ae60cbeac9315
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>Zaman uyumsuz Azure işlemleri izleme
 Bazı Azure REST işlemlerini zaman uyumsuz olarak çalışır, çünkü işlem hızlı bir şekilde tamamlanamıyor. Bu konu, yanıtta döndürülen değerleri arasında zaman uyumsuz işlemleri durumunu izlemek açıklar.  
@@ -39,9 +39,9 @@ Başvurmak [REST API belgeleri](/rest/api/) yürütme işlemi için yanıtlar g�
 ## <a name="monitor-status-of-operation"></a>İşlemin durumunu izleyin
 Zaman uyumsuz REST işlemlerini işlemin durumunu belirlemek için kullanılan üstbilgi değerleri döndürür. İncelemek için büyük olasılıkla üç üstbilgi değerleri şunlardır:
 
-* `Azure-AsyncOperation`-İşlemi devam eden durumunu denetlemek için URL. İşleminizi bu değer döndürürse, her zaman bu (konum yerine) işlemin durumunu izlemek için kullanın.
-* `Location`-Ne zaman bir işlemin tamamlanmasını belirlemek için URL. Yalnızca Azure AsyncOperation alınmadı olduğunda bu değeri kullanın.
-* `Retry-After`-Zaman uyumsuz işlemin durumunu denetlemeden önce beklenecek saniye sayısı.
+* `Azure-AsyncOperation` -İşlemi devam eden durumunu denetlemek için URL. İşleminizi bu değer döndürürse, her zaman bu (konum yerine) işlemin durumunu izlemek için kullanın.
+* `Location` -Ne zaman bir işlemin tamamlanmasını belirlemek için URL. Yalnızca Azure AsyncOperation alınmadı olduğunda bu değeri kullanın.
+* `Retry-After` -Zaman uyumsuz işlemin durumunu denetlemeden önce beklenecek saniye sayısı.
 
 Bununla birlikte, her zaman uyumsuz işlemi bu tüm değerleri döndürür. Örneğin, bir işlem için Azure AsyncOperation üstbilgisi değeri ve başka bir işlem için konum üstbilgisi değeri değerlendirmek gerekebilir. 
 
@@ -82,7 +82,7 @@ Yalnızca `status` tüm yanıtlar için döndürülür. Başarısız veya iptal 
 Bir kaynak oluşturma, güncelleştirme veya silme (PUT, PATCH, Sil) işlemleri genellikle dönmek bir `provisioningState` değeri. Bir işlem tamamlandığında, aşağıdaki üç değerden birini verilir: 
 
 * Başarılı oldu
-* Başarısız oldu
+* Başarısız
 * İptal edildi
 
 Diğer tüm değerler işlemi hala çalışıyor gösterir. Kaynak sağlayıcısı durumunu gösteren özelleştirilmiş bir değeri geri dönebilirsiniz. Örneğin, alabileceğiniz **kabul edilen** alınan ve çalışan istek olduğunda.
@@ -194,5 +194,4 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Her REST işlemini ilgili belgeler için bkz: [REST API belgeleri](/rest/api/).
-* Resource Manager REST API'si aracılığıyla kaynaklarını yönetme hakkında daha fazla bilgi için bkz: [Resource Manager REST API kullanarak](resource-manager-rest-api.md).
 * Resource Manager REST API'si aracılığıyla şablonları dağıtma hakkında daha fazla bilgi için bkz: [Resource Manager şablonları ve Resource Manager REST API kaynaklarla dağıtmak](resource-group-template-deploy-rest.md).

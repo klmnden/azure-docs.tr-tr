@@ -1,3 +1,5 @@
+# [Redis Önbelleği Belgeleri](index.md)
+
 # Genel Bakış
 ##[Neden Redis önbelleği kullanmalısınız?](https://azure.microsoft.com/services/cache/)
 ##[Premium katman özelliklerini keşfetme](cache-premium-tier-intro.md)
@@ -9,7 +11,7 @@
 ###[Modelleri ve Uygulamaları Önbelleğe Alma kılavuzu](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 
-# Başlarken
+# başlarken
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ##[Node](cache-nodejs-get-started.md)
@@ -17,7 +19,7 @@
 ##[Python](cache-python-get-started.md)
 ##[Redis Önbelleği ile ilgili SSS](cache-faq.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama
 ###[Önbellek katmanı seçme](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 ###[Redis veri kalıcılığı ile önbelleğinizi koruyun](cache-how-to-premium-persistence.md)
@@ -31,7 +33,7 @@
 ## ASP.NET ile tümleştirme
 ###[Oturum durumu sağlayıcısı](cache-aspnet-session-state-provider.md)
 ###[Çıkış önbelleği sağlayıcısı](cache-aspnet-output-cache-provider.md)
-## Yönet
+## Yönetme
 ###[Azure portalında yapılandırma](cache-configure.md)
 ###[Coğrafi çoğaltmayı yapılandırma](cache-how-to-geo-replication.md)
 ###[Verileri İçeri/Dışarı Aktarma](cache-how-to-import-export-data.md)

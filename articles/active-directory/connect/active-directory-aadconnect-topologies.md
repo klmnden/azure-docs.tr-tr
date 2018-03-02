@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
 Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makalede, desteklenen ve desteklenmeyen yapılandırmalar içerir.
@@ -144,7 +144,9 @@ Bu topolojide, her bir Azure AD Kiracı için bir Azure AD Connect eşitleme sun
 
 Bir DNS etki alanı yalnızca tek bir kaydedilebilir Azure AD kiracısı. Kullanıcıların şirket içi Active Directory örneğinde UPN'ler ayrıca ayrı ad alanları kullanmanız gerekir. Örneğin, önceki resimde, üç ayrı UPN soneki şirket içi Active Directory örneğinde kayıtlı: contoso.com, fabrikam.com ve wingtiptoys.com. Her şirket içi Active Directory etki alanındaki kullanıcıların farklı bir ad kullanın.
 
-Azure AD Kiracı örnekleri arasında hiçbir GALSync yoktur. Adres Defteri Exchange Online ve Skype iş gösterir yalnızca kullanıcılar aynı Kiracı için.
+>[!NOTE]
+>Genel adres listesi eşitleme (GalSync) otomatik olarak bu topolojide belirtilmez ve her bir kiracı bir tam genel adres listesi'nı (GAL) Exchange Online sahip olmak için ek özel MIM uygulama ve Skype Kurumsal çevrimiçi gerektirir.
+
 
 Bu topoloji aşağıdaki sahip başka kısıtlamalar desteklenen senaryolar:
 

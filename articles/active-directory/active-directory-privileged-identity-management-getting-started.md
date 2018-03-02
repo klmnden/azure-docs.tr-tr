@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/17/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 11b5d1bc4e931ad902b623fe55e62097ae40d8ef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9f51daabef7d1e02917869e4e6943b8ea28b56f5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ı kullanmaya başlama
 
@@ -33,7 +33,7 @@ Azure AD Privileged Identity Management'ı kullanmadan önce uygulamayı Azure p
 
 1. [Azure portalında](https://portal.azure.com/) dizininizin genel yöneticisi olarak oturum açın.
 2. Kuruluşunuz birden fazla dizine sahipse Azure portalının sağ üst köşesinde kullanıcı adınızı seçin. PIM'i kullanmak istediğiniz dizini seçin.
-3. **Daha fazla hizmet** seçeneğini belirleyin ve **Azure AD Privileged Identity Management** araması yapmak için Filtre metin kutusunu kullanın.
+3. **Tüm hizmetler** seçeneğini belirleyin ve **Azure AD Privileged Identity Management** araması yapmak için Filtre metin kutusunu kullanın.
 4. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur**’a tıklayın. Privileged Identity Management uygulaması açılır.
 
 Dizininizde Azure AD Privileged Identity Management’ı kullanan ilk kişiyseniz, dizinde **Güvenlik yöneticisi** ve **Ayrıcalıklı rol yöneticisi** rolleri otomatik olarak size atanır. Kullanıcıların Azure AD dizini rol atamaları, yalnızca ayrıcalıklı rol yöneticileri tarafından yönetilebilir. Ayrıca [güvenlik sihirbazını](active-directory-privileged-identity-management-security-wizard.md) çalıştırmayı da seçebilirsiniz. Bu sihirbaz ilk keşif ve atama deneyiminde size yol gösterir.

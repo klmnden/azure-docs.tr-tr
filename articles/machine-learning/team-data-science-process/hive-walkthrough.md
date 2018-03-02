@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: daf5168ba9a21a56d72fc14649c349b0fb63a167
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Eylem takım veri bilimi işleminde: kullanım Azure Hdınsight Hadoop kümeleri
 Bu kılavuzda, kullandığımız [takım veri bilimi işlem (TDSP)](overview.md) bir uçtan uca senaryosunda. Kullanırız bir [Azure Hdınsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek ve genel kullanıma açık özellik mühendislik verilerden [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. Çok sınıflı ve ikili sınıflandırma ve regresyon Tahmine dayalı görevler işlemek için size Azure Machine Learning ile veri modelleri oluşturabilir. 
@@ -104,10 +104,10 @@ Burada, AzCopy verileri içeren dosyaları aktarmak için nasıl kullanılacağ�
 
 Aşağıdaki AzCopy komutlarda, aşağıdaki parametreleri Hadoop kümesi oluştururken, belirtilen gerçek değerlerle değiştirin ve veri dosyalarını unzipping.
 
-* ***&#60; path_to_data_folder >*** (yol) yanı sıra dizin makinenizde sıkıştırması açılmış veri dosyalarını içerir.  
-* ***&#60; Hadoop küme depolama hesap adı >*** Hdınsight kümenizle ilişkilendirilmiş depolama hesabına.
-* ***&#60; varsayılan kapsayıcı Hadoop küme >*** , küme tarafından kullanılan varsayılan kapsayıcı. Varsayılan kapsayıcı adı genellikle küme adıyla aynı olmadığını unutmayın. Örneğin, küme "abc123.azurehdinsight.net" olarak adlandırılır, varsayılan kapsayıcı abc123 olur.
-* ***&#60; depolama hesabı anahtarı >*** , küme tarafından kullanılan depolama hesabı anahtarı.
+* ***< Path_to_data_folder >*** (yol) yanı sıra dizin makinenizde sıkıştırması açılmış veri dosyalarını içerir.  
+* ***<storage account name of Hadoop cluster>*** Hdınsight kümenizle ilişkilendirilmiş depolama hesabı.
+* ***<default container of Hadoop cluster>*** Küme tarafından kullanılan varsayılan kapsayıcı. Varsayılan kapsayıcı adı genellikle küme adıyla aynı olmadığını unutmayın. Örneğin, küme "abc123.azurehdinsight.net" olarak adlandırılır, varsayılan kapsayıcı abc123 olur.
+* ***<storage account key>*** Küme tarafından kullanılan depolama hesabı anahtarı.
 
 Bir komut istemi veya bir Windows PowerShell penceresi, aşağıdaki iki AzCopy komutları çalıştırın.
 
@@ -561,7 +561,7 @@ Belirli bir dosya içeriğini görmek için deyin **000000\_0**, Hadoop'ın kull
     hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
 > [!WARNING]
-> `copyToLocal`büyük dosyalar için çok yavaş olabilir ve bunları ile kullanım için önerilmez.  
+> `copyToLocal` büyük dosyalar için çok yavaş olabilir ve bunları ile kullanım için önerilmez.  
 > 
 > 
 

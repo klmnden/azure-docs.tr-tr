@@ -1,3 +1,5 @@
+# [Data Lake Store Belgeleri](index.md)
+
 # Genel Bakış
 ## [Azure Data Lake Store'a Genel Bakış](data-lake-store-overview.md)
 ## [Azure Data Lake Store ile Azure Depolama karşılaştırması](data-lake-store-comparison-with-blob-storage.md)

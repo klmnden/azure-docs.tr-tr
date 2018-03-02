@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: e7141d92a186bec67c374bd5046ee08047feedec
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -31,7 +31,7 @@ A *tetikleyici* bir işlev nasıl çağrıldığını tanımlar. Bir işlev tam 
 
 Giriş ve çıkış *bağlamaları* kodunuzu içindeki verileri bağlanmak için bildirim temelli bir yolunu sağlar. Bağlamaları isteğe bağlıdır ve bir işlev birden fazla giriş varsa ve bağlamaları çıktı. 
 
-Tetikleyicileri ve bağlamaları cmdlet'e kod çalıştığınız Hizmetleri ayrıntılarını engellemenize olanak tanır. Verileri (örneğin, bir kuyruk iletisi içeriği), işlevi işlevi parametreleri alır. İşlev dönüş değerini kullanarak (örneğin, bir kuyruk iletisi oluşturmak için) veri gönderme bir `out` parametresi veya [Toplayıcı nesnesi](functions-reference-csharp.md#writing-multiple-output-values).
+Tetikleyicileri ve bağlamaları cmdlet'e kod çalıştığınız Hizmetleri ayrıntılarını engellemenize olanak tanır. İşlevinizi verileri (örneğin, bir kuyruk iletisi içeriği) işlevi parametreleri alır. İşlev dönüş değerini kullanarak (örneğin, bir kuyruk iletisi oluşturmak için) veri gönderme bir `out` parametresi veya [Toplayıcı nesnesi](functions-reference-csharp.md#writing-multiple-output-values).
 
 Azure portalını kullanarak işlevleri geliştirirken Tetikleyicileri ve bağlamaları yapılandırılan bir *function.json* dosya. Portal, bu yapılandırma için bir kullanıcı Arabirimi sağlar ancak doğrudan değiştirerek dosyasını düzenleyebilirsiniz **Gelişmiş Düzenleyici**.
 
@@ -42,6 +42,50 @@ Sınıf kitaplığı oluşturmak için Visual Studio kullanarak işlevleri geli�
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Bağlamaları önizlemede veya üretim kullanımı için onaylanan olduğu hakkında bilgi için bkz: [desteklenen diller](supported-languages.md).
+
+## <a name="register-binding-extensions"></a>Bağlama uzantılarını kaydetme
+
+Sürümünde 2.x Azure işlevleri çalışma zamanı açıkça kaydetmeniz gerekir [uzantıları bağlama](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) işlevi uygulamanızda kullanan. 
+
+Uzantıları NuGet paketleri, paket adı genellikle başladığı ile olarak teslim edilir [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  İşlevlerinizi nasıl geliştirmek yüklemek ve bağlama uzantıları kaydetmek yönteminiz bağlıdır: 
+
++ [Yerel olarak Visual Studio veya VS kodu kullanarak C# içinde](#precompiled-functions-c)
++ [Yerel olarak Azure işlevleri çekirdek araçlarını kullanma](#local-development-azure-functions-core-tools)
++ [Azure portalında](#azure-portal-development) 
+
+Sürümünde bağlamaları çekirdek kümesi vardır uzantıları olarak sağlanmayan 2.x. Aşağıdaki Tetikleyicileri ve bağlamaları için Uzantılar kaydetmeniz gerekmez: HTTP, Zamanlayıcı ve Azure depolama. 
+
+Bir işlev uygulaması sürümü kullanmak için ayarlama hakkında bilgi için işlevleri çalışma zamanı 2.x bkz [Azure işlevleri çalışma zamanı sürümlerini hedefleyen nasıl](set-runtime-version.md). Sürüm 2.x işlevleri çalışma zamanı şu anda önizlemede. 
+
+Bu bölümde gösterilen paket sürümlerinin yalnızca örnektir. Denetleme [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) işlevi uygulamanızda başka bir bağımlılık tarafından gerekli verilen bir uzantı sürümünü belirlemek için.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Visual Studio veya VS Code kullanılarak olan yerel C# geliştirme 
+
+Yerel olarak C# işlevleri geliştirmek için Visual Studio veya Visual Studio Code kullandığınızda, uzantı için NuGet paketini eklemeniz yeterlidir. 
+
++ **Visual Studio**: NuGet Paket Yöneticisi araçları kullanın. Aşağıdaki [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) komut Paket Yöneticisi Konsolu'ndan Azure Cosmos DB uzantısı yükler:
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**: komut istemi kullanımından paketlerini yükleyebilirsiniz [dotnet eklemek paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) .NET CLI gibi komutu:
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Yerel geliştirme Azure işlevleri çekirdek araçları
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Azure portal geliştirme
+
+Bir işlev oluşturun veya varolan bir işlev bağlama eklemek, tetikleyici veya eklenmekte olan bağlama uzantısı kayıt gerektirdiğinde istenir.   
+
+Yüklenmesini istediğiniz uzantıyı için bir uyarı görünür sonra tıklayın **yükleme** uzantısını kaydetmek için. Yalnızca bir kez verilen işlev uygulaması için her bir uzantı yüklemeniz gerekir. 
+
+>[!Note] 
+>Portal yükleme işlemi tüketim plan üzerinde 10 dakikaya kadar sürebilir.
 
 ## <a name="example-trigger-and-binding"></a>Örnek tetikleyici ve bağlama
 
@@ -70,9 +114,9 @@ Burada bir *function.json* bu senaryo için dosya.
 }
 ```
 
-İlk öğe `bindings` kuyruk depolama tetikleyici dizisidir. `type` Ve `direction` özelliklerini tetikleyici tanımlayın. `name` Özelliği kuyruk iletisi içeriği alacak işlev parametresi tanımlar. İzlemek için sırasının adı olarak `queueName`, ve bağlantı dizesi tarafından tanımlanan uygulama ayarı `connection`.
+İlk öğe `bindings` kuyruk depolama tetikleyici dizisidir. `type` Ve `direction` özelliklerini tetikleyici tanımlayın. `name` Özelliği sıraya ileti içeriğini alan işlev parametresi tanımlar. İzlemek için sırasının adı olarak `queueName`, ve bağlantı dizesi tarafından tanımlanan uygulama ayarı `connection`.
 
-İkinci öğe `bindings` dizidir Azure Table Storage bağlama çıktı. `type` Ve `direction` özelliklerini bağlama tanımlayın. `name` Özelliği, nasıl işlevi yeni tablo satırı bu durumda işlevin dönüş değerini kullanarak sağlayacak belirtir. Tablonun adını bulunduğu `tableName`, ve bağlantı dizesi tarafından tanımlanan uygulama ayarı `connection`.
+İkinci öğe `bindings` dizidir Azure Table Storage bağlama çıktı. `type` Ve `direction` özelliklerini bağlama tanımlayın. `name` Dönüş değeri işlevini kullanarak bu durumda, özellik belirtir nasıl yeni tablo satırı işlevi sağlar. Tablonun adını bulunduğu `tableName`, ve bağlantı dizesi tarafından tanımlanan uygulama ayarı `connection`.
 
 Görüntülemek ve içeriğini düzenlemek için *function.json* Azure portalında tıklatın **Gelişmiş Düzenleyici** seçeneği **tümleştir** işlevinizi sekmesinde.
 

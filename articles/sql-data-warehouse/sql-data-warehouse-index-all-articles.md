@@ -16,10 +16,10 @@ ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Azure SQL Data Warehouse hizmeti için tüm konuları
 Bu konuda doğrudan uygulayan her konuda listelenmiştir **SQL Data Warehouse** Azure hizmet. Anahtar sözcükler için bu Web sayfasını kullanarak arayabilirsiniz **Ctrl + F**, geçerli ilgi konuları bulmak için.
@@ -72,7 +72,7 @@ Bu bölümde, kısa bir süre önce güncelleştirildi makaleleri listeler büy�
 | 29 |[SQL veri ambarı görünümlerde](sql-data-warehouse-develop-views.md) |Çözümleri geliştirme için Azure SQL Data Warehouse'da Transact-SQL görünümlerini kullanma ipuçları. |
 | 30 |[SQL Data Warehouse için tasarım kararları ve kodlama teknikleri](sql-data-warehouse-overview-develop.md) |Geliştirme kavramları, tasarım kararları, öneriler ve SQL Data Warehouse için kodlama teknikleri. |
 
-## <a name="manage"></a>Yönet
+## <a name="manage"></a>Yönetme
 | &nbsp; | Başlık | Açıklama |
 | ---:|:--- |:--- |
 | 31 |[Azure SQL Data warehouse'da (genel bakış) işlem güç yönetimi](sql-data-warehouse-manage-compute-overview.md) |Azure SQL veri ambarı özellikleri genişletme performans. Dwu ayarlayarak ölçeğini veya duraklatıp işlem kaynakları maliyet tasarrufu sağlamak. |

@@ -13,82 +13,100 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: 33115ee35670407c3b046f70a5fbebc47284b4b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e2f7e356b260c0e5af67d28811bd88a63a601312
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services içinde desteklenen veri kaynakları
-Azure Analysis Services sunucuları, bulut veri kaynaklarında ve şirket içi kuruluşunuzdaki bağlanmasını destekler. Ek desteklenen veri kaynaklarının her zaman eklenir. Geri sık sık kontrol edin. 
 
-Aşağıdaki veri kaynakları şu anda desteklenir:
+Veri kaynakları ve Veri Al veya Visual Studio'da İçeri Aktarma Sihirbazı'nda gösterilen bağlayıcıları Azure Analysis Services ve SQL Server Analysis Services için gösterilir. Ancak, tüm veri kaynakları ve gösterilen bağlayıcıları Azure Analysis Services içinde desteklenir. Uyumluluk düzeyi, kullanılabilir veri bağlayıcılar, kimlik doğrulama türü, sağlayıcıları ve şirket içi veri ağ geçidi desteği gibi birçok faktöre bağlıdır bağlandığınız veri kaynağı türleri model. 
 
-| Bulut  |
-|---|
-| Azure Blob Depolama *  |
-| Azure SQL Database  |
-| Azure veri ambarı |
+## <a name="azure-data-sources"></a>Azure veri kaynakları
 
+|Veri kaynağı  |Bellek içi  |DirectQuery  |
+|---------|---------|---------|
+|Azure SQL Database     |   Evet      |    Evet      |
+|Azure SQL Veri Ambarı     |   Evet      |   Evet       |
+|Azure Blob Depolama *     |   Evet       |    Hayır      |
+|Azure tablo depolama *    |   Evet       |    Hayır      |
+|Azure Cosmos DB (Beta)*     |  Evet        |  Hayır        |
+|Azure Data Lake Store*     |   Evet       |    Hayır      |
+|Azure Hdınsight HDFS *     |     Evet     |   Hayır       |
+|Azure Hdınsight Spark (Beta) *     |   Evet       |   Hayır       |
+|Azure veritabanı için MySQL (Önizleme) *     |   Evet       |   Hayır      |
+|Azure veritabanı PostgreSQL (Önizleme) için *     | Evet         |  Hayır       |
+||||
 
-| Şirket içi  |   |   |   |
-|---|---|---|---|
-| Access veritabanı  | Klasör * | Oracle Veritabanı  | Teradata Database |
-| Active Directory*  | JSON belgesini *  | Postgre SQL veritabanı *  |XML tablo * |
-| Analysis Services  | Satırlarından ikili *  | SAP HANA*  |
-| Analiz platformu sistemi  | MySQL Veritabanı  | SAP Business Warehouse *  | |
-| Dynamics CRM*  | OData akışı *  | SharePoint*  |
-| Excel çalışma kitabı  | ODBC sorgu  | SQL Database  |
-| Exchange*  | OLE DB  | Sybase Veritabanı  |
+\* Yalnızca tablolu 1400 modeller için.
 
-\* Yalnızca tablolu 1400 modeller için. 
+**Sağlayıcı**   
+Bellek içi ve Azure veri kaynaklarına bağlanma DirectQuery modellerinde SQL Server için .NET Framework veri sağlayıcısı kullanın.
+
+## <a name="on-premises-data-sources"></a>Şirket içi veri kaynakları
+
+Bağlanan veri kaynakları bir şirket içi ağ geçidi gerektiren şirket içi. Bir ağ geçidi kullanırken, 64-bit sağlayıcıları yüklü olduğundan emin olun.
+
+### <a name="in-memory-and-directquery"></a>Bellek içi ve DirectQuery
+
+|Veri kaynağı | Bellek içi sağlayıcısı | DirectQuery provider |
+|  --- | --- | --- |
+| SQL Server |SQL Server Native Client 11.0, SQL Server için Microsoft OLE DB sağlayıcısı, SQL Server için .NET Framework veri sağlayıcısı | SQL Server için .NET framework veri sağlayıcısı |
+| SQL Server veri ambarı |SQL Server Native Client 11.0, SQL Server için Microsoft OLE DB sağlayıcısı, SQL Server için .NET Framework veri sağlayıcısı | SQL Server için .NET framework veri sağlayıcısı |
+| Oracle |Oracle, .NET için Oracle veri sağlayıcısı için Microsoft OLE DB sağlayıcısı |.NET için Oracle veri sağlayıcısı | |
+| Teradata |Teradata için .NET Teradata veri sağlayıcısı için OLE DB sağlayıcısı |.NET için Teradata veri sağlayıcısı | |
+| | | |
+
+\* Yalnızca tablolu 1400 modeller için.
+
+### <a name="in-memory-only"></a>Bellek içi yalnızca
 
 > [!IMPORTANT]
-> Şirket içi veri kaynaklarına bağlanma gerektiren bir [şirket içi veri ağ geçidi](analysis-services-gateway.md) ortamınızdaki bir bilgisayara yüklenmiş.
+> Aşağıdaki veri kaynakları için sağlayıcıları test etme devam etmektedir. 
 
-## <a name="data-providers"></a>Veri sağlayıcıları
+|Veri kaynağı  |  
+|---------|---------|
+|Access veritabanı     |  
+|Active Directory*     |  
+|Analysis Services     | 
+|Analiz platformu sistemi     |  
+|Dynamics CRM*     |  
+|Excel çalışma kitabı     | 
+|Exchange*     |  
+|Klasör *     | 
+|JSON belgesini *     |  
+|Satırlarından ikili *     | 
+|MySQL Veritabanı     | 
+|OData akışı *     | 
+|ODBC sorgu     | 
+|OLE DB     |  
+|Postgre SQL veritabanı *    | 
+|SAP HANA*    |   
+|SAP Business Warehouse *    |  
+|SharePoint*     |   
+|Sybase Veritabanı     |  
+|XML tablo *    |  
+|||
+ 
+\* Yalnızca tablolu 1400 modeller için.
 
-Azure Analysis Services veri modelleri farklı veri sağlayıcıları belirli veri kaynaklarına bağlanırken gerektirebilir. Bazı durumlarda, tablolu modeller SQL Server Native Client (SQLNCLI11) gibi yerel sağlayıcılarını kullanarak veri kaynaklarına bağlanırken bir hata döndürebilir.
+## <a name="specifying-a-different-provider"></a>Farklı bir sağlayıcı belirtme
 
-Bulut veri bağlanmak veri modelleri için kaynak gibi Azure SQL veritabanı, yerel sağlayıcıları SQLOLEDB dışında kullanırsanız, hata iletisi görebilirsiniz: **"Sağlayıcı 'SQLNCLI11.1' kayıtlı değil."** Ya da yerel sağlayıcıları kullanıyorsanız, şirket içi veri kaynaklarına bağlanma DirectQuery modeli varsa hata iletisi görebilirsiniz: **"OLE DB satır kümesi oluşturulurken hata oluştu. 'Sınırı' yakınındaki sözdizimi yanlış "**.
-
-Aşağıdaki veri kaynağı sağlayıcıları, bulutta veya şirket içi veri kaynaklarına bağlanırken bellek içi veya DirectQuery veri modelleri için desteklenir:
-
-### <a name="cloud"></a>Bulut
-| **Veri kaynağı** | **Bellek içi** | **DirectQuery** |
-|  --- | --- | --- |
-| Azure SQL Veri Ambarı |SQL Server için .NET framework veri sağlayıcısı |SQL Server için .NET framework veri sağlayıcısı |
-| Azure SQL Database |SQL Server için .NET framework veri sağlayıcısı |SQL Server için .NET framework veri sağlayıcısı | |
-
-### <a name="on-premises-via-gateway"></a>Şirket içi (yoluyla ağ geçidi)
-|**Veri kaynağı** | **Bellek içi** | **DirectQuery** |
-|  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0 |SQL Server için .NET framework veri sağlayıcısı |
-| SQL Server |SQL Server için Microsoft OLE DB sağlayıcısı |SQL Server için .NET framework veri sağlayıcısı | |
-| SQL Server |SQL Server için .NET framework veri sağlayıcısı |SQL Server için .NET framework veri sağlayıcısı | |
-| Oracle |Oracle için Microsoft OLE DB sağlayıcısı |.NET için Oracle veri sağlayıcısı | |
-| Oracle |.NET için Oracle veri sağlayıcısı |.NET için Oracle veri sağlayıcısı | |
-| Teradata |Teradata için OLE DB sağlayıcısı |.NET için Teradata veri sağlayıcısı | |
-| Teradata |.NET için Teradata veri sağlayıcısı |.NET için Teradata veri sağlayıcısı | |
-| Analiz platformu sistemi |SQL Server için .NET framework veri sağlayıcısı |SQL Server için .NET framework veri sağlayıcısı | |
-
-> [!NOTE]
-> 64-bit sağlayıcıları, şirket içi ağ geçidi kullanırken yüklü olduğundan emin olun.
-> 
-> 
+Azure Analysis Services veri modelleri farklı veri sağlayıcıları belirli veri kaynaklarına bağlanırken gerektirebilir. Bazı durumlarda, tablolu modeller SQL Server Native Client (SQLNCLI11) gibi yerel sağlayıcılarını kullanarak veri kaynaklarına bağlanırken bir hata döndürebilir. SQLOLEDB dışındaki yerel sağlayıcıları kullanıyorsanız, hata iletisi görebilirsiniz: **Sağlayıcı 'SQLNCLI11.1' kayıtlı değil**. Ya da şirket içi veri kaynaklarına bağlanma DirectQuery modeli varsa ve yerel sağlayıcıları kullanır, hata iletisi görebilirsiniz: **OLE DB satır kümesi oluşturulurken hata oluştu. 'Sınırı' yakınındaki sözdizimi yanlış**.
 
 Bir şirket içi SQL Server Analysis Services tablolu model Azure Analysis Services geçirirken, sağlayıcı değiştirmek gerekli olabilir.
 
-**Bir veri kaynağı sağlayıcısı belirtmek için**
+**Bir sağlayıcı belirtmek için**
 
 1. Ssdt'de > **tablolu Model Gezgini** > **veri kaynakları**, bir veri kaynağı bağlantısı sağ tıklayın ve ardından **veri kaynağını Düzenle**.
 2. İçinde **bağlantı Düzenle**, tıklatın **Gelişmiş** Gelişmiş Özellikler penceresini açın.
 3. İçinde **gelişmiş özelliklerini ayarla** > **sağlayıcıları**, uygun sağlayıcıyı seçin.
 
 ## <a name="impersonation"></a>Kimliğe bürünme
-Bazı durumlarda, farklı kimliğe bürünme hesabı belirtmeniz gerekebilir. Kimliğe bürünme hesabı SSDT veya SSMS belirtilebilir.
+Bazı durumlarda, farklı kimliğe bürünme hesabı belirtmeniz gerekebilir. Kimliğe bürünme hesabı, Visual Studio (SSDT) veya SSMS belirtilebilir.
 
 Şirket içi veri kaynakları için:
 
@@ -100,6 +118,6 @@ Bulut veri kaynakları için:
 * SQL kimlik doğrulamasını kullanıyorsanız, kimliğe bürünme hizmet hesabı olması gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şirket içi veri kaynakları varsa, yüklediğinizden emin olun [şirket içi ağ geçidi](analysis-services-gateway.md).   
-Sunucunuzu SSDT veya SSMS yönetme hakkında daha fazla bilgi için bkz: [sunucunuzu yönetin](analysis-services-manage.md).
+[Şirket içi ağ geçidi](analysis-services-gateway.md)   
+[Sunucunuzu Yönetin](analysis-services-manage.md)   
 

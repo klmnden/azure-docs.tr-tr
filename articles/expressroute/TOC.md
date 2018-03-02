@@ -1,3 +1,5 @@
+# [ExpressRoute Belgeleri](index.md)
+
 # Genel Bakış
 ## [ExpressRoute nedir?](expressroute-introduction.md)
 ## [ExpressRoute ile ilgili SSS](expressroute-faqs.md)
@@ -8,7 +10,7 @@
 ### [Sağlayıcıya göre konumlar](expressroute-locations.md)
 ## [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Önkoşullar](expressroute-prerequisites.md)
 ## [İş akışları](expressroute-workflows.md)
 ## [Yönlendirme gereksinimleri](expressroute-routing.md)
@@ -21,20 +23,20 @@
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Azure CLI](howto-circuit-cli.md)
 ## Eşleme yapılandırması oluşturma ve değiştirme
-### [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
 ## ExpressRoute bağlantı hattına bir sanal ağı bağlama
-### [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
 ## [Microsoft eşlemesi üzerinde siteden siteye VPN bağlantısını yapılandırma](site-to-site-vpn-over-microsoft-peering.md)
 ## ExpressRoute için sanal ağ geçidi yapılandırma
-### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [Azure portalı](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Birlikte bulunan ExpressRoute bağlantıları ile siteden siteye bağlantıları yapılandırma](expressroute-howto-coexist-resource-manager.md)
 ## Microsoft eşlemesi için rota filtreleri yapılandırma
-### [Azure portal](how-to-routefilter-portal.md)
+### [Azure portalı](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Azure CLI](how-to-routefilter-cli.md)
 ## [Ortak eşlemeden Microsoft eşlemesine geçiş yapma](how-to-move-peering.md)

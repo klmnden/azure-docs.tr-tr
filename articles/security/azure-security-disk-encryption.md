@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows ve Linux Iaas VM'ler için Azure Disk şifrelemesi
 Microsoft Azure veri gizliliği, veri egemenliği ve etkinleştirir, Azure veri aralığı boyunca barındırılan denetime Gelişmiş Şifreleme teknolojileri denetlemek ve şifreleme anahtarlarını yönetmek sağlamak için kesinlikle kaydedilmiş veri denetim & Denetim erişimi. Bu Azure müşterilerin kendi iş gereksinimlerine en uygun çözümü seçim yapma esnekliği sağlar. Bu yazıda, biz, yeni bir teknoloji çözümüne "Azure Disk şifrelemesi Windows ve Linux Iaas VM'ın" korumak ve Kuruluş güvenliği ve uyumluluk taahhüt karşılamak için verilerinizi korumaya yardımcı olmak için tanıtılacaktır. Kağıt desteklenen senaryolar ve kullanıcı da dahil olmak üzere Azure disk şifrelemesi özelliklerinin nasıl kullanılacağı hakkında ayrıntılı yönergeler deneyimleri sağlar.
@@ -141,34 +141,7 @@ Disk şifrelemesi Iaas VM'ler için devre dışı bırakmak için aşağıdaki �
 > [!NOTE]
 > Windows Server 2008 R2 için .NET Framework 4.5 Azure şifreleme etkinleştirmeden önce yüklü olması gerekir. Windows Update'ten isteğe bağlı bir güncelleştirme Windows Server 2008 R2 x64 tabanlı sistemler için Microsoft .NET Framework 4.5.2 yükleyerek yükleyebilirsiniz ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk şifrelemesi aşağıdaki üzerinde desteklenen Azure Galerisi tabanlı Linux sunucu dağıtımları ve sürümler:
-
-| Linux dağıtım | Sürüm | Şifreleme için desteklenen birim türü|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | İşletim sistemi ve veri diski |
-| Ubuntu | 14.04.5-DAILY-LTS | İşletim sistemi ve veri diski |
-| Ubuntu | 12.10 | Veri diski |
-| Ubuntu | 12.04 | Veri diski |
-| RHEL | 7.4 | İşletim sistemi ve veri diski |
-| RHEL | 7.3 | İşletim sistemi ve veri diski |
-| RHEL | LVM 7.3 | İşletim sistemi ve veri diski |
-| RHEL | 7.2 | İşletim sistemi ve veri diski |
-| RHEL | 6.8 | İşletim sistemi ve veri diski |
-| RHEL | 6.7 | Veri diski |
-| CentOS | 7.3 | İşletim sistemi ve veri diski |
-| CentOS | 7.2n | İşletim sistemi ve veri diski |
-| CentOS | 6.8 | İşletim sistemi ve veri diski |
-| CentOS | 7.1 | Veri diski |
-| CentOS | 7.0 | Veri diski |
-| CentOS | 6.7 | Veri diski |
-| CentOS | 6.6 | Veri diski |
-| CentOS | 6.5 | Veri diski |
-| openSUSE | 13.2 | Veri diski |
-| SLES | 12 SP1 | Veri diski |
-| SLES | 12-SP1 (Premium) | Veri diski |
-| SLES | HPC 12 | Veri diski |
-| SLES | 11-SP4 (Premium) | Veri diski |
-| SLES | 11 SP4 | Veri diski |
+* Azure Disk şifrelemesi yalnızca üzerinde desteklenen belirli Azure Galerisi Linux sunucu dağıtımları ve sürümleri dayalıdır.  Şu anda desteklenen sürümlerin listesi için lütfen [Azure Disk şifrelemesi ile ilgili SSS](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk şifrelemesi, anahtar kasası ve VM'lerin aynı Azure bölgesinde ve abonelik bulunmasını gerektirir.
 
@@ -451,7 +424,7 @@ Aşağıdaki tabloda, Azure AD İstemci Kimliğini kullanarak Market senaryodan 
 | Parametre | Açıklama |
 | --- | --- |
 | adminUserName | Sanal makine için yönetici kullanıcı adı. |
-| Admınpassword | Sanal makine için yönetici kullanıcı parolası. |
+| adminPassword | Sanal makine için yönetici kullanıcı parolası. |
 | newStorageAccountName | İşletim sistemi ve veri VHD'ler depolamak için depolama hesabının adı. |
 | vmSize | VM boyutu. Şu anda yalnızca standart bir, D ve G serisi desteklenir. |
 | virtualNetworkName | VM NIC ait olması gereken Vnet'in adı. |
@@ -792,7 +765,7 @@ Windows Server 2008 R2 için aşağıdaki komutu kullanın:
 
     ServerManagerCmd -install BitLockers
 
-#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>İşletim sistemi birimi için BitLocker'ı kullanarak hazırlama`bdehdcfg`
+#### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>İşletim sistemi birimi için BitLocker'ı kullanarak hazırlama `bdehdcfg`
 İşletim sistemi bölümü Sıkıştır ve makine BitLocker için hazırlamak için aşağıdaki komutu yürütün:
 
     bdehdcfg -target c: shrink -quiet
@@ -1285,9 +1258,6 @@ Kullanım `$KeyEncryptionKey` ve `$secretUrl` için sonraki adımda [KEK kullana
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
 
-## <a name="download-this-guide"></a>Bu Kılavuzu'nu indirin
-Bu Rehberde indirebilirsiniz [TechNet Galerisi](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
-
-## <a name="for-more-information"></a>Daha fazla bilgi için
+## <a name="for-more-information"></a>Daha fazla bilgi edinmek için
 [Azure PowerShell - bölüm 1 ile Azure Disk şifrelemesi keşfedin](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  
 [Azure PowerShell - bölüm 2 ile Azure Disk şifrelemesi keşfedin](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)

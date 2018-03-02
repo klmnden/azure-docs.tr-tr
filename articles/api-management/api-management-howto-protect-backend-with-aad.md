@@ -1,48 +1,24 @@
+--Başlık: Web API'si arka uç Azure Active Directory ve API Management ile koruma | Microsoft Docs Açıklama: Azure Active Directory ve API Management ile Web API arka uç korumayı öğrenin.
+services: api-management documentationcenter: '' author: juliako manager: cfowler editor: ''
+
+MS.Service: API management ms.workload: Mobil ms.tgt_pltfrm: na ms.devlang: na ms.topic: ms.date makale: 30/10/2017 ms.author: apimpm
 ---
-title: Bir Web API arka ucu Azure Active Directory ve API Management ile koruma | Microsoft Docs
-description: "Bir Web API arka ucu Azure Active Directory ve API Management ile korumak öğrenin."
-services: api-management
-documentationcenter: 
-author: juliako
-manager: cfowler
-editor: 
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/30/2017
-ms.author: apimpm
-ms.openlocfilehash: 695db2f5e6ffe794d76d0b9126dc231ed8a87d2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
----
+
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Bir Web API arka ucu Azure Active Directory ve API Management ile korumak nasıl
-Aşağıdaki videoda, bir Web API arka ucu oluşturmak ve Azure Active Directory ve API Management ile OAuth 2.0 protokolünü kullanarak korumak gösterilmektedir.  Bu makale, genel bir bakış ve video yer alan adımlar için ek bilgiler sağlar. Bu 24 dakikalık videoyu şunların nasıl yapıldığını gösterir için:
 
-* Bir Web API arka ucu oluşturmak ve aad'ye - 1: 30'da başlayan güvenli
-* API Management - 7:10 Başlangıç API aktarın
-* 9:09 başlayan API - çağırmak için Geliştirici Portalı'nı yapılandırma
-* 18:08 başlayan API - çağırmak için bir masaüstü uygulamasını yapılandırma
-* İsteklerini - 20:47 başlatma öncesi yetkilendirmek için JWT doğrulama ilkesini yapılandırma
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
-> 
-> 
+Bu konuda, bir Web API arka ucu oluşturmak ve Azure Active Directory ve API Management ile OAuth 2.0 protokolünü kullanarak korumak gösterilmektedir.  
 
 ## <a name="create-an-azure-ad-directory"></a>Azure AD dizini oluşturma
-İlk olmalıdır Azure Active Directory'yi kullanarak Web API'si arka güvenli hale getirmek için bir AAD kiracısı. Bu videoda, bir kiracı adlı **APIMDemo** kullanılır. Bir AAD kiracısı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**Active Directory**->**Directory**->**özel Oluştur**. 
+Azure Active Directory'yi kullanarak Web API'si arka güvenli hale getirmek için öncelikle bir AAD kiracısı olması gerekir. Bir AAD kiracısı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**Active Directory**->**Directory**->**özel Oluştur**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-Bu örnekte, adında bir dizin **APIMDemo** adlı varsayılan etki alanı ile oluşturulan **DemoAPIM.onmicrosoft.com**. Bu dizin video kullanılır.
+Bu örnekte, adında bir dizin **APIMDemo** adlı varsayılan etki alanı ile oluşturulan **DemoAPIM.onmicrosoft.com**. 
 
 ![Azure Active Directory][api-management-create-aad]
 
 ## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Azure Active Directory tarafından güvenliği sağlanan bir Web API hizmet oluşturma
-Bu adımda, Visual Studio 2013 kullanarak bir Web API arka uç oluşturulur. Videonun Bu adım 1: 30'da başlar. Visual Studio tıklatın Web API'si arka uç projesi oluşturmak için **dosya**->**yeni**->**proje**ve seçin **ASP.NET Web uygulaması** gelen **Web** şablonları listesi. Bu videoda, proje adı **APIMAADDemo**. Projeyi oluşturmak için **Tamam**'a tıklayın. 
+Bu adımda, Visual Studio 2013 kullanarak bir Web API arka uç oluşturulur. Visual Studio tıklatın Web API'si arka uç projesi oluşturmak için **dosya**->**yeni**->**proje**ve seçin **ASP.NET Web uygulaması** gelen **Web** şablonları listesi. 
 
 ![Visual Studio][api-management-new-web-app]
 
@@ -75,7 +51,6 @@ Bu örnekte, yeni bir **uygulama hizmeti planı** adlı **APIMAADDemo** belirtil
 Tıklatın **Tamam** Web uygulamasını yapılandırma ve projeyi oluşturmak için.
 
 ## <a name="add-the-code-to-the-web-api-project"></a>Web API projesi için kod ekleme
-Video sonraki adımda Web API projesi için kod ekler. Bu adım 4:35 başlatır.
 
 Bu örnekte, Web API bir model ve bir denetleyici kullanarak bir temel hesaplayıcı hizmet uygular. Hizmeti için modeli eklemek için sağ tıklatın **modelleri** içinde **Çözüm Gezgini** ve **Ekle**, **sınıfı**. Sınıf adını `CalcInput` tıklatıp **Ekle**.
 
@@ -161,14 +136,13 @@ public class CalcController : ApiController
 Tuşuna **F6** oluşturun ve çözümü doğrulayın.
 
 ## <a name="publish-the-project-to-azure"></a>Projeyi Azure'da yayımlama
-Bu adımda Visual Studio projesi için Azure yayımlanır. Bu adım 5:45 video başlar.
 
 Projeyi Azure'a yayımlamak için sağ **APIMAADDemo** Visual Studio'da ve seçin **Yayımla**. Varsayılan ayarları korumak **Web'i Yayımla** iletişim kutusu ve tıklatın **Yayımla**.
 
 ![Web yayımlama][api-management-web-publish]
 
 ## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Azure AD arka uç hizmeti uygulama izinleri
-Arka uç hizmeti için yeni bir uygulama, Web API projesi yapılandırma ve yayımlama işleminin bir parçası olarak, Azure AD dizini oluşturulur. Videonun 6:13 başlayarak Bu adımda Web API'si arka ucuna izinleri verilir.
+Arka uç hizmeti için yeni bir uygulama, Web API projesi yapılandırma ve yayımlama işleminin bir parçası olarak, Azure AD dizini oluşturulur.
 
 ![Uygulama][api-management-aad-backend-app]
 
@@ -352,7 +326,7 @@ Hesaplayıcı API'sini yapılandırmak için aşağıdaki adımları gerçekleş
 API içeri aktarıldığında, yayımcı portalında API’nin özet sayfası gösterilir.
 
 ## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>Geliştirici Portalı'ndan başarısız API çağrısı
-Bu noktada, API API yönetime içeri aktarıldı ancak arka uç hizmetine Azure AD kimlik doğrulaması ile korunduğu için henüz başarıyla Geliştirici portalından çağrılamaz. Bu 7: aşağıdaki adımları kullanarak 40 başlangıç video gösterilmiştir.
+Bu noktada, API API yönetime içeri aktarıldı ancak arka uç hizmetine Azure AD kimlik doğrulaması ile korunduğu için henüz başarıyla Geliştirici portalından çağrılamaz. 
 
 Tıklatın **Geliştirici Portalı** yayımcı portalının sağ üst tarafındaki.
 
@@ -373,9 +347,9 @@ Tıklatın **Gönder** ve yanıt durumu Not **401 Yetkisiz**.
 Arka uç API'si Azure Active Directory tarafından korunduğu için yetkisiz bir istektir. Geliştirici başarıyla API çağırmadan önce portal geliştiricilerinin OAuth 2.0 kullanan yetkilendirmek için yapılandırılmış olması gerekir. Bu işlem aşağıdaki bölümlerde açıklanmıştır.
 
 ## <a name="register-the-developer-portal-as-an-aad-application"></a>Geliştirici Portalı bir AAD uygulaması Kaydet
-Geliştirici Portalı bir AAD uygulaması kaydetmek için OAuth 2.0 kullanan geliştiriciler yetkilendirmek için Geliştirici Portalı yapılandırmada ilk adım olacaktır. Bu 8:27 videoda başlayarak gösterilmiştir.
+Geliştirici Portalı bir AAD uygulaması kaydetmek için OAuth 2.0 kullanan geliştiriciler yetkilendirmek için Geliştirici Portalı yapılandırmada ilk adım olacaktır. 
 
-Bu örnekte, bu videonun ilk adım için Azure AD kiracısı gidin **APIMDemo** gidin **uygulamaları** sekmesi.
+Azure AD kiracısı gidin. Bu örnekte seçin **APIMDemo** gidin **uygulamaları** sekmesi.
 
 ![Yeni uygulama][api-management-aad-new-application-devportal]
 
@@ -394,7 +368,7 @@ Seçin **Web uygulaması ve/veya Web API**, bir ad girin ve İleri okuna tıklay
 ![Yeni uygulama][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Bir API Management OAuth 2.0 yetkilendirme sunucusu yapılandırın
-Sonraki adım, bir OAuth 2.0 yetkilendirme Sunucusu API Management'te yapılandırmaktır. Bu adım 9:43 başlayan videoda gösterilmiştir.
+Sonraki adım, bir OAuth 2.0 yetkilendirme Sunucusu API Management'te yapılandırmaktır. 
 
 Tıklatın **güvenlik** soldaki API Management menüden **OAuth 2.0**ve ardından **yetkilendirme eklemek** sunucu.
 
@@ -466,7 +440,7 @@ Tıklatın **izinlere temsilci** için **APIMAADDemo** ve için kutuyu **erişim
 ![İzin ekle][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>OAuth 2.0 kullanıcı yetkilendirme hesaplayıcı API'si etkinleştir
-OAuth 2.0 sunucu yapılandırılır, API'nizi için güvenlik ayarlarını belirtebilirsiniz. Bu adım, 14: 30'da başlayan videoda gösterilmiştir.
+OAuth 2.0 sunucu yapılandırılır, API'nizi için güvenlik ayarlarını belirtebilirsiniz. 
 
 Tıklatın **API'leri** sol menüsüne ve ardından içinde **hesaplayıcı** görüntülemek ve ayarlarını yapılandırmak için.
 
@@ -477,7 +451,7 @@ Gidin **güvenlik** sekmesi, onay **OAuth 2.0** onay kutusunu istenen yetkilendi
 ![Hesaplayıcı API'sini][api-management-enable-aad-calculator]
 
 ## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>Hesaplayıcı API'sini Geliştirici Portalı'ndan başarıyla çağırın
-OAuth 2.0 yetkilendirme API yapılandırılır, işlemlerini başarıyla Geliştirici Merkezi'nden çağrılabilir. Bu adım, 15: 00'dan başlayarak videoda gösterilmiştir.
+OAuth 2.0 yetkilendirme API yapılandırılır, işlemlerini başarıyla Geliştirici Merkezi'nden çağrılabilir. 
 
 Geri gidin **iki tamsayı Ekle** işlemi tıklatın ve Geliştirici Portalı hesap makinesi hizmetinin **deneyin**. Yeni öğesini Not **yetkilendirme** yeni eklenen yetkilendirme sunucusu karşılık gelen bölüm.
 
@@ -492,10 +466,12 @@ Tıklatın **Gönder** ve not edin **yanıt durumu** , **200 Tamam** ve yanıt i
 ![Hesaplayıcı API'sini][api-management-devportal-response]
 
 ## <a name="configure-a-desktop-application-to-call-the-api"></a>API'yi çağırmak için bir masaüstü uygulamasını yapılandırma
-Video sonraki yordamda 16: 30'da başlatılır ve API'yi çağırmak için basit bir masaüstü uygulaması yapılandırır. Azure AD'de masaüstü uygulaması kaydetmek ve dizine ve arka uç hizmetine erişim sağlamak için ilk adımdır bakın. 18: 25'hesaplayıcı API'sini üzerinde bir işlemi çağırma masaüstü uygulaması Tanıtımı yoktur.
+
+API'yi çağırmak için basit bir masaüstü uygulaması yapılandırın. Azure AD'de masaüstü uygulaması kaydetmek ve dizine ve arka uç hizmetine erişim sağlamak için ilk adımdır bakın. 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>İstekleri önceden yetkilendirmek için JWT doğrulama ilkesini yapılandırma
-Video son yordamda 20:48 başlar ve nasıl kullanılacağını gösterir [doğrulamak JWT](api-management-access-restriction-policies.md#ValidateJWT) isteklerini her gelen istek erişim belirteçleri doğrulayarak önceden yetkilendirmek için ilke. İstek doğrulamak JWT İlkesi tarafından doğrulanmaz, istek API Management tarafından engellenir ve boyunca arka ucuna aktarılmaz.
+
+Kullanım [doğrulamak JWT](api-management-access-restriction-policies.md#ValidateJWT) isteklerini her gelen istek erişim belirteçleri doğrulayarak önceden yetkilendirmek için ilke. İstek doğrulamak JWT İlkesi tarafından doğrulanmaz, istek API Management tarafından engellenir ve boyunca arka ucuna aktarılmaz.
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -508,7 +484,7 @@ Video son yordamda 20:48 başlar ve nasıl kullanılacağını gösterir [doğru
 </validate-jwt>
 ```
 
-Yapılandırma ve bu ilkeyi kullanarak başka bir sunum için bkz: [bulut kapak bölüm 177: daha API yönetimi özellikleri](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve ileri sarma 13:50. İlke Düzenleyicisi'nde yapılandırılmış ilkeler görmek için 15:00 ve 18:50 hem ile hem de gerekli yetkilendirme belirteci olmadan Geliştirici portalından bir işlem arama tanıtımı için ileri sarma.
+Daha fazla bilgi için bkz: [bulut kapak bölüm 177: daha fazla API yönetimi özellikleri](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve ileri sarma 13:50. İlke Düzenleyicisi'nde yapılandırılmış ilkeler görmek için 15:00 ve 18:50 hem ile hem de gerekli yetkilendirme belirteci olmadan Geliştirici portalından bir işlem arama tanıtımı için ileri sarma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi denetleyin [videolar](https://azure.microsoft.com/documentation/videos/index/?services=api-management) API Management hakkında.

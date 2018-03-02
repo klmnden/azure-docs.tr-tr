@@ -1,19 +1,19 @@
 ---
-title: "Azure veritabanında PostgreSQL için yüksek kullanılabilirlik kavramları | Microsoft Docs"
-description: "Azure veritabanı PostgreSQL için kullanırken bu konu, yüksek kullanılabilirlik bilgileri sağlar"
+title: "Azure veritabanı PostgreSQL için yüksek kullanılabilirlik kavramlar"
+description: "Bu makalede, Azure veritabanı için PostgreSQL kullanırken yüksek kullanılabilirlik bilgi verilmektedir."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: 600896cf064770a5b294f874dc29081f0ce7d942
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 02/28/2018
+ms.openlocfilehash: 203a142a21153935e172508e62b813dca95468cb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Azure veritabanı PostgreSQL için yüksek kullanılabilirlik kavramlar
 Azure veritabanı PostgreSQL hizmeti için bir garanti edilen yüksek düzeyde kullanılabilirlik sağlar. Mali yedeklenmiş hizmet düzeyi sözleşmesi (SLA) genel kullanılabilirliğine bağlı % 99,99 ' dir. Uygulama yok neredeyse kesinti işbu hizmeti kullanırken.

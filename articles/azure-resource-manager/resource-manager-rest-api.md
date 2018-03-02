@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/26/2018
 ---
 # <a name="resource-manager-rest-apis"></a>Resource Manager REST API'leri
 > [!div class="op_single_selector"]
@@ -211,7 +211,7 @@ Dağıtım şablonu, diğer API'leri çağırmak nasıl çok farklı değildir. 
 
 Bu örnekte, kullanılabilir bir genel olarak sunulan şablon kullanırız [GitHub](https://github.com/Azure/azure-quickstart-templates). Kullanırız şablonu, Batı ABD bölgesi için bir Linux VM dağıtır. Bu örnek, GitHub gibi ortak bir havuzda kullanılabilir bir şablonu kullanıyor olsa bile, bunun yerine tam şablon isteğin bir parçası geçiş yapabilir. Dağıtılan şablonu içinde kullanılan parametre değerlerini istekte sağladığımız unutmayın.
 
-(İsteğiniz uygun değerlere ABONELİK_KİMLİĞİ, RESOURCE_GROUP_NAME, DEPLOYMENT_NAME, YOUR_ACCESS_TOKEN, GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME, ADMIN_USER_NAME, ADMIN_PASSWORD ve DNS_NAME_FOR_PUBLIC_IP değiştirin)
+(Replace SUBSCRIPTION_ID, RESOURCE_GROUP_NAME, DEPLOYMENT_NAME, YOUR_ACCESS_TOKEN, GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME, ADMIN_USER_NAME, ADMIN_PASSWORD and DNS_NAME_FOR_PUBLIC_IP to values appropriate for your request)
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.resources/deployments/DEPLOYMENT_NAME?api-version=2015-01-01 HTTP/1.1

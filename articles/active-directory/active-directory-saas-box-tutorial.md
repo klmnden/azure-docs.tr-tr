@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Öğretici: Azure Active Directory Tümleştirme kutusu
 
@@ -108,13 +108,12 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Kutusunu etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-box-tutorial/url3.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.box.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.box.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`box.net`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `box.net`
      
     > [!NOTE] 
     > Bu değer gerçek değil. Değerin gerçek oturum açma URL'si ile güncelleştirin. Kişi [kutusunu istemci destek ekibi](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) bu değeri alınamıyor. 
-
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
@@ -123,7 +122,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. Uygulamanız için yapılandırılmış SSO almak için başvurun [kutusunu istemci destek ekibi](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) ve indirilen XML dosyasıyla verin.
+6. Uygulamanız için yapılandırılmış SSO almak için adımları uygulayın [ayarı yukarı SSO üzerinde kendiniz](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown)
+
+> [!NOTE] 
+> Çoklu oturum açma ayarlarını kutusu hesabınız için etkinleştirmeyi erişemiyorsanız başvurmanız gerekebilir [kutusunu istemci destek ekibi](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) ve indirilen XML dosyasıyla verin.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)

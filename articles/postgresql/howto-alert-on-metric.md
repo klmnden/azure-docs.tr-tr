@@ -1,19 +1,19 @@
 ---
-title: "Ölçümleri uyarılar için PostgreSQL Azure veritabanı için Azure portalında yapılandırın. | Microsoft Docs"
+title: "Ölçümleri uyarılar için PostgreSQL Azure veritabanı için Azure portalında yapılandırın."
 description: "Bu makalede nasıl yapılandırılacağı ve erişim ölçüm uyarıları Azure veritabanı için PostgreSQL için Azure portalından açıklanmaktadır."
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 3a09be8131b57381eb470027a134109c116467ed
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Azure portal ölçümleri uyarılar için Azure veritabanı için PostgreSQL ayarlamak için kullanın 
 
@@ -27,7 +27,7 @@ Tetikler aşağıdaki işlemleri yapmak için bir uyarı yapılandırabilirsiniz
 * Bir Web kancası çağırın.
 
 Yapılandırın ve uyarı kuralları kullanma hakkında bilgi alın:
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure portalı](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Komut satırı arabirimi (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -49,7 +49,7 @@ Yapılandırın ve uyarı kuralları kullanma hakkında bilgi alın:
    |---------|---------|
    | Ad | Uyarı kuralı için bir ad sağlayın. Bu değer uyarı bildirim e-postayla gönderilir. |
    | Açıklama | Uyarı kuralı kısa bir açıklamasını sağlar. Bu değer uyarı bildirim e-postayla gönderilir. |
-   | Uyar | Seçin **ölçümleri** bu tür bir uyarı için. |
+   | Uyarı verilecek olay | Seçin **ölçümleri** bu tür bir uyarı için. |
    | Abonelik | Bu alan için PostgreSQL Azure veritabanınızı barındıran abonelik ile önceden doldurulmaz. |
    | Kaynak grubu | Bu alan, Azure veritabanınızın kaynak grubuyla PostgreSQL için önceden doldurulmaz. |
    | Kaynak | Bu alan Azure veritabanınızın adı ile PostgreSQL için önceden doldurulmaz. |

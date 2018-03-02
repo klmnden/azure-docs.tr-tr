@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>İş yükü yönetimi için kaynak sınıfları
 Eşzamanlı olarak çalıştıran ve işlem kaynaklarını Azure SQL Data Warehouse sorguları için eş zamanlı sorguları sayısını yönetmek için kaynak sınıfları kullanmaya yönelik kılavuz.
@@ -41,7 +41,7 @@ Kaynak sınıfları veri yönetim ve düzenleme etkinlikleri için tasarlanmış
 
 Aşağıdaki işlemleri kaynak sınıfları tarafından yönetilir:
 
-* EKLE-SELECT, UPDATE, DELETE
+* INSERT-SELECT, UPDATE, DELETE
 * (Kullanıcı tablosu sorgulanırken) seçin
 * ALTER INDEX - yeniden oluşturma veya yeniden Düzenle
 * ALTER TABLE YENİDEN OLUŞTURMA
@@ -85,6 +85,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 Hizmet Yöneticisi kaynak sınıfının sabittir ve değiştirilemez.  Sağlama işlemi sırasında oluşturulan kullanıcı hizmet yöneticisidir.
 
+> [!NOTE]
+> Kullanıcıları veya Active Directory Yöneticisi tanımlanan Ayrıca hizmet yöneticileri gruplarıdır.
+>
+>
+
 ### <a name="default-resource-class"></a>Varsayılan kaynak sınıfı
 Varsayılan olarak, her kullanıcı küçük kaynak sınıfı üyesidir **smallrc**. 
 
@@ -126,7 +131,7 @@ Removed as these two are not confirmed / supported under SQLDW
 Biz belirli bir sorgu türü çalıştırmaya adanmış bir kullanıcı oluşturulması önerilir ya da işlemleri yükleyin. Ardından o kullanıcı kaynak sınıfı düzenli aralıklarla değiştirme yerine kalıcı kaynak sınıfı verin. İş yükü hakkında daha fazla genel denetim statik kaynak sınıfları göze koşuluyla, dinamik kaynak sınıfları belirlemeden önce bu ilk kullanılarak da öneririz.
 
 ### <a name="resource-classes-for-load-users"></a>Yük kullanıcılar için kaynak sınıfları
-`CREATE TABLE`Varsayılan olarak kullanan kümelenmiş columnstore dizinleri. Bir columnstore verileri sıkıştırma dizin bellek yoğunluklu bir işlemdir ve bellek baskısı dizin kalitesini düşürebilir. Bu nedenle, daha yüksek bir kaynak sınıfı verileri yüklenirken gerektirecek şekilde olasılığı daha yüksektir. Yükleri yeterli belleğe sahip olmak için yüklerini çalıştırmak için tasarlanmış bir kullanıcı oluşturun ve bu kullanıcıyı daha yüksek bir kaynak sınıfı atayın.
+`CREATE TABLE` Varsayılan olarak kullanan kümelenmiş columnstore dizinleri. Bir columnstore verileri sıkıştırma dizin bellek yoğunluklu bir işlemdir ve bellek baskısı dizin kalitesini düşürebilir. Bu nedenle, daha yüksek bir kaynak sınıfı verileri yüklenirken gerektirecek şekilde olasılığı daha yüksektir. Yükleri yeterli belleğe sahip olmak için yüklerini çalıştırmak için tasarlanmış bir kullanıcı oluşturun ve bu kullanıcıyı daha yüksek bir kaynak sınıfı atayın.
 
 Yüklerini verimli bir şekilde işlemek için gereken bellek yüklenen tablo ve veri boyutu yapısını bağlıdır. Bellek gereksinimleri hakkında daha fazla bilgi için bkz: [satır grubu kimliğinde kalite en üst düzeye](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -168,9 +173,9 @@ Bu saklı yordam amacı şöyledir:
 ### <a name="usage-example"></a>Kullanım örneği:
 Sözdizimi:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Ya geçerli DWU DW DB'den ayıklamak veya desteklenen tüm DWU 'DW100' biçiminde sağlamak için bir NULL parametresi sağlayın
-2. @SCHEMA_NAME:Tablo şema adını belirtin
-3. @TABLE_NAME:İlgilendiğiniz bir tablo adı sağlayın
+1. @DWU: Ya geçerli DWU DW DB'den ayıklamak veya desteklenen tüm DWU 'DW100' biçiminde sağlamak için bir NULL parametresi sağlayın
+2. @SCHEMA_NAME: Tablo şema adını belirtin
+3. @TABLE_NAME: İlgilendiğiniz bir tablo adı sağlayın
 
 Bu saklı yordam yürütme örnekler:  
 ```sql  

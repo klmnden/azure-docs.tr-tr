@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Azure sanal makinelerini Kurtarma Hizmetleri kasalarına yedekleme
 
@@ -50,9 +50,9 @@ Korumak istediğiniz sanal makine sayısına bağlı olarak farklı başlangıç
 Aşağıdaki adımları, Azure portalında sanal makine yönetimi dikey penceresinden yedekleme işini yapılandırmak için kullanın. Aşağıdaki adımlar yalnızca Azure portalındaki sanal makineler için geçerlidir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Hub menüsünde **Diğer Hizmetler**’e tıklayıp Filtre listesine **Sanal makineler** yazın. Siz yazarken kaynakların listesini filtrelenir. Sanal makineler seçeneğini gördüğünüzde seçin.
+2. Hub menüsünde **Tüm hizmetler**’e tıklayıp Filtre iletişim kutusuna **Sanal makineler** yazın. Siz yazarken kaynakların listesini filtrelenir. Sanal makineler seçeneğini gördüğünüzde seçin.
 
-  ![Hub menüsünde metin iletişim kutusunu açmak için Diğer Hizmetler'e tıklayın ve Sanal makineler yazın](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Tüm hizmetlerdeki sanal makinelere nasıl gidileceğini gösteren ekran görüntüsü](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   Abonelikteki sanal makineler (VM) listesi görüntülenir.
 
@@ -131,7 +131,7 @@ Kurtarma Hizmetleri kasası, zaman içinde oluşturulan tüm yedeklemeleri ve ku
 Kurtarma Hizmetleri kasası oluşturmak için:
 
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com/) oturum açın.
-2. Hub menüsünde **Diğer hizmetler**’e tıklayıp Filtre iletişim kutusunda **Kurtarma Hizmetleri** yazın. Siz yazarken kaynakların listesini filtrelenir. Listede Kurtarma Hizmetleri kasaları seçeneğini gördüğünüzde buna tıklayın.
+2. Hub menüsünde **Tüm hizmetler**’e tıklayıp Filtre iletişim kutusunda **Kurtarma Hizmetleri** yazın. Siz yazarken kaynakların listesini filtrelenir. Listede Kurtarma Hizmetleri kasaları seçeneğini gördüğünüzde buna tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ Depolama çoğaltma ayarını düzenlemek için:
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Yedekleme hedefi seçme, ilke ayarlama ve korunacak öğeleri tanımlama
 VM'yi bir kasaya kaydetmeden önce, aboneliğe eklenmiş olan yeni sanal makinelerin tanımlandığından emin olmak için bulma işlemini çalıştırın. Bu işlem, bulut hizmeti adı ve bölge gibi ek bilgilerle birlikte abonelikteki sanal makinelerin listesi için Azure'ı sorgular. Azure portalda, senaryo, kurtarma hizmetleri kasasına yerleştireceğiniz içeriğe başvuruda bulunur. İlke, kurtarma noktalarının ne sıklıkta ve ne zaman alınacağına yönelik zamanlamadır. İlke aynı zamanda kurtarma noktaları için bekletme aralığını içerir.
 
-1. Açık bir kurtarma hizmetleri kasanız zaten varsa 2. adıma geçin. Bu seçeneği görmezseniz, Hub menüsünde **Diğer hizmetler**'e tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazıp **Kurtarma Hizmetleri kasaları** seçeneğine tıklayın.
+1. Açık bir kurtarma hizmetleri kasanız zaten varsa 2. adıma geçin. Aksi takdirde **Tüm hizmetler**’e tıklayın. **Kurtarma Hizmetleri** yazın ve **Kurtarma Hizmetleri kasaları**’na tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: c6a227ca78a1312fe315cc6838834ec956a08b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 442e9df550bec750afe0eab6e94b7e8550015fdd
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Azure Site kurtarma için yük devretme sınaması
 
@@ -29,8 +29,8 @@ Bu yordam, bir yük devretme sınaması için bir kurtarma planı Çalıştır a
 
 
 1. Azure portalında Site Recovery içinde tıklatın **kurtarma planları** > *recoveryplan_name* > **yük devretme testi**.
-2. Seçin bir **kurtarma noktası** yük devri yapılacağı. Aşağıdaki seçeneklerden birini kullanabilirsiniz:
-    - **En son işlenen**: Bu seçenek tüm sanal makineleri Site Recovery tarafından işlenen en son kurtarma noktası plana başarısız olur. En son kurtarma için belirli bir VM'yi noktası görmek için kontrol **en son kurtarma noktası** VM Ayarları'nda. Bu seçenek, hiçbir zaman işlenmemiş verileri işlerken harcanan çünkü düşük RTO (Kurtarma süresi hedefi) sağlar.
+2. Seçin bir **kurtarma noktası** yük devri yapılacağı. Şu seçeneklerden birini kullanabilirsiniz:
+    - **En son işlenen**: Bu seçenek tüm sanal makineleri Site Recovery tarafından işlenen en son kurtarma noktası plana başarısız olur. En son kurtarma için belirli bir VM'yi noktası görmek için kontrol **en son kurtarma noktası** VM Ayarları'nda. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
     - **Son uygulama tutarlı**: Bu seçenek tüm sanal makineleri Site Recovery tarafından işlenen en son uygulama tutarlı kurtarma noktası plana başarısız olur. En son kurtarma için belirli bir VM'yi noktası görmek için kontrol **en son kurtarma noktası** VM Ayarları'nda. 
     - **En son**: Bu seçenek ilk Site Recovery hizmetine ona üzerinden başarısız olmadan önce her bir VM için bir kurtarma noktası oluşturmak üzere gönderilen tüm verileri işler. Yük devretme yük devretme tetiklendiğinde Site Recovery çoğaltılan tüm verileri sonra VM oluşturduğundan bu seçenek en düşük RPO (kurtarma noktası hedefi) sağlar.
     - **En son çoklu işlenen VM**: Bu seçenek çoklu VM tutarlılığı etkin olan bir veya daha fazla sanal makineleri içeren kurtarma planları için kullanılabilir. En son ortak çoklu VM tutarlı bir kurtarma noktası ayarı etkin olan VM'ler devredin. Diğer Vm'leri üzerinde en son işlenen kurtarma noktası başarısız.  
@@ -45,7 +45,7 @@ Bu yordam, bir yük devretme sınaması için bir kurtarma planı Çalıştır a
 5. Yük devretme işleminin ilerleyişini izlemek **işleri** sekmesi. Azure portalında test yineleme makine görebilmeniz gerekir.
 6. Azure VM için RDP bağlantısı başlatmak için yapmanız [bir ortak IP adresi eklemek](https://aka.ms/addpublicip) devredilen VM'ye ağ arabiriminde. 
 7. Her şeyin beklendiği gibi çalıştığını, tıklatın **temizleme yük devretme testi**. Yük devretme testi sırasında oluşturulan sanal makineleri siler.
-8. İçinde **notları**, kaydetme ve yük devretme testiyle ilişkili gözlemlerinizi kaydetmek. 
+8. Yük devretme testiyle ilişkili gözlemlerinizi **Notlar**’da kaydedin veya saklayın. 
 
 
 ![Yük Devretme Sınaması](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
@@ -81,7 +81,7 @@ Tüm diğer durumlarda, hiçbir ara adım gerekli değildir ve yük devretme ön
 Yük devretme sınaması için yalıtılmış olan bir ağ ağdan üretim kurtarma site içinde belirli seçmeniz önerilir **işlem ve ağ** her VM için ayarları. Bir Azure sanal ağı oluşturduğunuzda varsayılan olarak, bu diğer ağlardan yalıtılır. Test ağı üretim ağınızdan taklit etmelidir:
 
 - Test ağı üretim ağınızdan alt ağlar aynı sayıda olmalıdır. Alt ağlar aynı adlara sahip olmalıdır.
-- Test ağı aynı IP adresi rangek kullanmanız gerekir.
+- Test ağı aynı IP adres aralığını kullanmanız gerekir.
 - Test ağı DNS DNS VM için belirtilen IP adresi ile güncelleştirmeniz **işlem ve ağ** ayarlar. Okuma [test Active Directory için yük devretme konuları](site-recovery-active-directory.md#test-failover-considerations) daha fazla ayrıntı için.
 
 
@@ -106,9 +106,9 @@ Yük devretmeden sonra RDP kullanarak Azure vm'lerine bağlanmak isterseniz, tab
 **Yük devretme** | **Konum** | **Eylemler**
 --- | --- | ---
 **Windows çalıştıran azure VM** | Yük devretme işleminden önce şirket içi makine | Azure VM Internet üzerinden erişmek için RDP etkinleştirip için TCP ve UDP kurallarının eklendiğinden emin olun **ortak**, ve RDP tüm profilleri için izin verilen **Windows Güvenlik Duvarı**  >  **Uygulamalara izin**.<br/><br/> Azure VM'de bir siteden siteye bağlantı üzerinden erişmek için makinede RDP'yi etkinleştirir ve RDP izin verildiğinden emin olun **Windows Güvenlik Duvarı** -> **verilen uygulamalar ve Özellikler**, için**Etki alanı ve özel** ağlar.<br/><br/>  İşletim sisteminin SAN ilkesinin emin olun kümesine **OnlineAll**. [Daha fazla bilgi edinin](https://support.microsoft.com/kb/3031135).<br/><br/> Bekleyen hiçbir Windows güncelleştirmeleri VM üzerinde bir yük devretme tetiklemek zaman olmadığından emin olun. Windows update üzerinden başarısız ve VM güncelleştirme tamamlanana kadar oturum açamazsınız başlayabilir. 
-**Windows çalıştıran azure VM** | Yük devretme sonrasında Azure VM |  [Bir ortak IP adresi eklemek](https://aka.ms/addpublicip) VM için.<br/><br/> RDP bağlantı noktasına gelen bağlantılara izin vermek ağ güvenlik grubu kurallarının devredilen VM'deki (ve bağlı olduğu Azure alt ağ) gerekir.<br/><br/> Denetleme **önyükleme tanılama** ekran VM görüntüsünü doğrulamak için.<br/><br/> Bağlanamıyorsanız, VM çalıştıran ve bunlar gözden olduğunu denetleyin [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Windows çalıştıran azure VM** | Yük devretme sonrasında Azure VM |  VM için bir [ortak IP adresi ekleyin](https://aka.ms/addpublicip).<br/><br/> RDP bağlantı noktasına gelen bağlantılara izin vermek ağ güvenlik grubu kurallarının devredilen VM'deki (ve bağlı olduğu Azure alt ağ) gerekir.<br/><br/> Denetleme **önyükleme tanılama** ekran VM görüntüsünü doğrulamak için.<br/><br/> Bağlanamıyorsanız, VM çalıştıran ve bunlar gözden olduğunu denetleyin [sorun giderme ipuçları](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Linux çalıştıran azure VM** | Yük devretme işleminden önce şirket içi makine | VM'de Secure Shell hizmetinin sistem önyüklemesinde otomatik olarak başlatılacak şekilde ayarlandığından emin olun.<br/><br/> Güvenlik duvarı kurallarının gerçekleştirilecek SSH bağlantısına izin verdiğinden emin olun.
-**Linux çalıştıran azure VM** | Yük devretme sonrasında Azure VM | SSH bağlantı noktasına gelen bağlantılara izin vermek ağ güvenlik grubu kurallarının devredilen VM'deki (ve bağlı olduğu Azure alt ağ) gerekir.<br/><br/> [Bir ortak IP adresi eklemek](https://aka.ms/addpublicip) VM için.<br/><br/> Denetleme **önyükleme tanılama** bir ekran görüntüsünü VM için.<br/><br/>
+**Linux çalıştıran azure VM** | Yük devretme sonrasında Azure VM | SSH bağlantı noktasına gelen bağlantılara izin vermek ağ güvenlik grubu kurallarının devredilen VM'deki (ve bağlı olduğu Azure alt ağ) gerekir.<br/><br/> VM için bir [ortak IP adresi ekleyin](https://aka.ms/addpublicip).<br/><br/> Denetleme **önyükleme tanılama** bir ekran görüntüsünü VM için.<br/><br/>
 
 
 

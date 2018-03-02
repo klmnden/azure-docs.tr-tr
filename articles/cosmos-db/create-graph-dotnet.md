@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c7fff37e1b59fd90952826a1410a8dd8c6931e77
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 38869444d43a3fb5c37a222ef58d30fc607106aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API’si kullanarak bir .NET Framework/Core uygulaması derleme
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, veritabanını ve grafiği (kapsayıcı) nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [Graph API](graph-sdk-dotnet.md) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz.  
+Bu hızlı başlangıç belgesinde Azure portalı kullanarak bir Azure Cosmos DB hesabını, veritabanını ve grafiği (kapsayıcı) nasıl oluşturacağınız anlatılmıştır. Daha sonra açık kaynaklı [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) sürücüsünü kullanarak bir konsol uygulaması oluşturabilir ve çalıştırabilirsiniz.  
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -47,61 +47,96 @@ Visual Studio 2017 zaten yüklüyse, [Visual Studio 2017 Güncelleştirme 3](htt
 
 Şimdi GitHub'dan bir Graph API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
-Örnek proje .NET Core proje biçimini kullanır ve aşağıdaki çerçeveleri hedeflemek için yapılandırılmıştır:
- - netcoreapp2.0
- - net461
-
-1. Git bash gibi bir git terminal penceresi açın ve `cd` ile çalışma dizinine gidin.  
+1. Git bash gibi bir git terminal penceresi açın ve `cd` ile çalışma dizininize gidin.  
 
 2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started.git
     ```
 
-3. Ardından Visual Studio’yu ve çözüm dosyasını açın. 
+3. Ardından Visual Studio’yu ve çözüm dosyasını açın.
+
+4. Projedeki NuGet paketlerini geri yükleyin. Bu Gremlin.Net sürücüsünü ve Newtonsoft.Json paketini içermelidir.
+
+5. Ayrıca NuGet paket yöneticisi veya [NuGet komut satırı aracını](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools) kullanarak Gremlin.Net sürüm 3.2.7’yi el ile yükleyebilirsiniz: 
+
+    ```bash
+    nuget install Gremlin.Net -Version 3.2.7
+    ```
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
 Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Program.cs dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
 
-* DocumentClient başlatılır. 
+* Yukarıda oluşturulan hesaba göre bağlantı parametrelerinizi ayarlayın (Satır 19): 
 
     ```csharp
-    using (DocumentClient client = new DocumentClient(
-        new Uri(endpoint),
-        authKey,
-        new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp }))
+    private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";
+    private static int port = 443;
+    private static string authKey = "your-authentication-key";
+    private static string database = "your-database";
+    private static string collection = "your-collection-or-graph";
     ```
 
-* Yeni bir veritabanı oluşturulur.
+* Yürütülecek Gremlin komutları bir Sözlük içinde listelenir (Satır 26):
 
     ```csharp
-    Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" });
-    ```
-
-* Yeni bir grafik oluşturulur.
-
-    ```csharp
-    DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync(
-        UriFactory.CreateDatabaseUri("graphdb"),
-        new DocumentCollection { Id = "graph" },
-        new RequestOptions { OfferThroughput = 1000 });
-    ```
-* Bir dizi Gremlin adımı `CreateGremlinQuery` yöntemi kullanılarak çalıştırılır.
-
-    ```csharp
-    // The CreateGremlinQuery method extensions allow you to execute Gremlin queries and iterate
-    // results asychronously
-    IDocumentQuery<dynamic> query = client.CreateGremlinQuery<dynamic>(graph, "g.V().count()");
-    while (query.HasMoreResults)
+    private static Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
     {
-        foreach (dynamic result in await query.ExecuteNextAsync())
-        {
-            Console.WriteLine($"\t {JsonConvert.SerializeObject(result)}");
-        }
-    }
+        { "Cleanup",        "g.V().drop()" },
+        { "AddVertex 1",    "g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44)" },
+        { "AddVertex 2",    "g.addV('person').property('id', 'mary').property('firstName', 'Mary').property('lastName', 'Andersen').property('age', 39)" },
+        { "AddVertex 3",    "g.addV('person').property('id', 'ben').property('firstName', 'Ben').property('lastName', 'Miller')" },
+        { "AddVertex 4",    "g.addV('person').property('id', 'robin').property('firstName', 'Robin').property('lastName', 'Wakefield')" },
+        { "AddEdge 1",      "g.V('thomas').addE('knows').to(g.V('mary'))" },
+        { "AddEdge 2",      "g.V('thomas').addE('knows').to(g.V('ben'))" },
+        { "AddEdge 3",      "g.V('ben').addE('knows').to(g.V('robin'))" },
+        { "UpdateVertex",   "g.V('thomas').property('age', 44)" },
+        { "CountVertices",  "g.V().count()" },
+        { "Filter Range",   "g.V().hasLabel('person').has('age', gt(40))" },
+        { "Project",        "g.V().hasLabel('person').values('firstName')" },
+        { "Sort",           "g.V().hasLabel('person').order().by('firstName', decr)" },
+        { "Traverse",       "g.V('thomas').out('knows').hasLabel('person')" },
+        { "Traverse 2x",    "g.V('thomas').out('knows').hasLabel('person').out('knows').hasLabel('person')" },
+        { "Loop",           "g.V('thomas').repeat(out()).until(has('id', 'robin')).path()" },
+        { "DropEdge",       "g.V('thomas').outE('knows').where(inV().has('id', 'mary')).drop()" },
+        { "CountEdges",     "g.E().count()" },
+        { "DropVertex",     "g.V('thomas').drop()" },
+    };
+    ```
 
+
+* Yukarıda sağlanan parametreleri kullanarak bir `GremlinServer` bağlantı nesnesi oluşturun (Satır 52):
+
+    ```csharp
+    var gremlinServer = new GremlinServer(hostname, port, enableSsl: true, 
+                                                    username: "/dbs/" + database + "/colls/" + collection, 
+                                                    password: authKey);
+    ```
+
+* Yeni bir `GremlinClient` nesnesi oluşturun (Satır 56):
+
+    ```csharp
+    var gremlinClient = new GremlinClient(gremlinServer);
+    ```
+
+* Zaman uyumsuz bir görev içinde `GremlinClient` nesnesini kullanarak her bir Gremlin sorgusunu yürütün (Satır 63). Bu yukarıda tanımlanan sözlükten Gremlin sorgularını okur (Satır 26):
+
+    ```csharp
+    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
+    task.Wait();
+    ```
+
+* Newtonsoft.Json öğesinden `JsonSerializer` sınıfını kullanarak sonucu alın ve sözlük olarak biçimlendirilen değerleri okuyun:
+
+    ```csharp
+    foreach (var result in task.Result)
+    {
+        // The vertex results are formed as dictionaries with a nested dictionary for their properties
+        string output = JsonConvert.SerializeObject(result);
+        Console.WriteLine(String.Format("\tResult:\n\t{0}", output));
+    }
     ```
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
@@ -114,43 +149,41 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar sayfası](./media/create-graph-dotnet/keys.png)
 
-2. Visual Studio 2017'de, appsettings.json dosyasını açın ve değeri `endpoint` içinde `FILLME` üzerine yapıştırın. 
+2. Program.cs içinde değeri satır 19’daki `hostname` değişkeninde `your-endpoint` üzerine yapıştırın. 
 
-    `"endpoint": "https://FILLME.documents.azure.com:443/",`
+    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
 
     Uç nokta değeri şimdi şöyle görünmelidir:
 
-    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+    `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. Portaldaki **BİRİNCİL ANAHTAR** değerinizi kopyalayın ve App.config dosyasındaki AuthKey anahtarının değeri yaptıktan sonra değişikliklerinizi kaydedin. 
+3. Portaldan **BİRİNCİL ANAHTAR** değerinizi kopyalayın ve satır 21’de `"your-authentication-key"` yer tutucusunu değiştirerek `authkey` değişkeni içinde yapıştırın. 
 
-    `"authkey": "FILLME"`
+    `private static string authKey = "your-authentication-key";`
 
-4. Appsettings.json dosyasını kaydedin. 
+4. Yukarıda oluşturulan veritabanının bilgilerini kullanarak, veritabanı adını satır 22’de `database` değişkeni içinde yapıştırın. 
+
+    `private static string database = "your-database";`
+
+5. Benzer şekilde, yukarıda oluşturulan koleksiyonun bilgilerini kullanarak, koleksiyonu (aynı zamanda grafik adı) satır 23’teki `collection` değişkeninin içinde yapıştırın. 
+
+    `private static string collection = "your-collection-or-graph";`
+
+6. Program.cs dosyasını kaydedin. 
 
 Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
 ## <a name="run-the-console-app"></a>Konsol uygulamasını çalıştırma
 
-Uygulamayı çalıştırmadan önce, *Microsoft.Azure.Graphs* paketini son sürüme güncelleştirmeniz önerilir.
+Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın. Uygulama hem Gremlin sorgu komutlarını hem de konsol sonuçlarını yazdırır.
 
-1. Visual Studio'nun **Çözüm Gezgini** bölümünde **GraphGetStarted** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
-
-2. NuGet Paket Yöneticisi **Güncelleştirmeler** kutusuna *Microsoft.Azure.Graphs* yazın ve **Ön Sürümü Dahil Et** kutusunu işaretleyin. 
-
-3. Sonuçlardan, **Microsoft.Azure.Graphs** kitaplığını paketin son sürümüne güncelleştirin. Bu işlem Azure Cosmos DB grafik uzantısı kitaplık paketini ve tüm bağımlılıklarını yükler.
-
-    Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
-
-4. Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın.
-
-   Konsol penceresinde grafiğe eklenmekte olan kenarlar ve köşeler gösterilir. Betik tamamlandığında, ENTER tuşuna iki kez basarak konsol penceresini kapatın.
+   Konsol penceresinde grafiğe eklenmekte olan kenarlar ve köşeler gösterilir. Betik tamamlandığında, ENTER tuşuna basarak konsol penceresini kapatın.
 
 ## <a name="browse-using-the-data-explorer"></a>Veri Gezgini'ni kullanarak göz atma
 
 Şimdi Azure portalındaki Veri Gezgini'ne dönerek yeni grafik verilerinize göz atıp sorgu gönderebilirsiniz.
 
-1. Yeni veritabanı, Veri Gezgini'nin Graflar bölmesinde görüntülenir. **graphdb**, **graphcollz** öğelerini genişletip **Graf** öğesine tıklayın.
+1. Yeni veritabanı, Veri Gezgini'nin Graflar bölmesinde görüntülenir. Veritabanını ve koleksiyon düğümlerini genişletip **Graf**’a tıklayın.
 
 2. Graftaki tüm köşeleri görüntülemek üzere varsayılan sorguyu kullanmak için **Filtre Uygula** düğmesine tıklayın. Örnek uygulama tarafından oluşturulan veriler Grafikler bölmesinde görüntülenir.
 

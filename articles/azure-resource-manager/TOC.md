@@ -1,3 +1,5 @@
+# [Azure Resource Manager Belgeleri](index.md)
+
 # Genel Bakış
 ## [Resource Manager nedir?](resource-group-overview.md)
 ## [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md)
@@ -43,13 +45,11 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure portalı](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
 ### [Yönetim grupları oluşturma](management-groups-create.md)
 ### [Yönetim gruplarınızı yönetme](management-groups-manage.md)
 ### [İdare örnekleri](resource-manager-subscription-examples.md)
-### [Yönetilen uygulamalar](../managed-applications/overview.md)
 
 ## Erişim Denetleme
 ### Hizmet sorumlusu oluşturma

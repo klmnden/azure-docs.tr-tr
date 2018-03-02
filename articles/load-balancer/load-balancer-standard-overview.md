@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure yük dengeleyici standart genel bakış (Önizleme)
 
@@ -302,9 +302,11 @@ SKU'ları değişebilir değildir. SKU bir kaynak grubundan diğerine taşımak 
 
 1. Yeni bir standart kaynağı (yük dengeleyici ve genel gerektiğinde IP'ler) oluşturun. Kurallarınızı oluşturun ve tanımları araştırma.
 
-2. Temel SKU kaynakları (yük dengeleyici ve geçerli genel IP'ler) tüm VM örnekleri kaldırın. Ayrıca bir kullanılabilirlik kümesi tüm VM örnekleri kaldırdığınızdan emin olun.
+2. Yeni oluşturun veya varolan NSG NIC veya alt ağ üzerinde izin vermek istediğiniz diğer tüm trafik yanı sıra beyaz liste yükü dengelenmiş trafiği, araştırma güncelleştirin.
 
-3. Tüm VM örnekleri için yeni standart SKU kaynaklar bağlayın.
+3. Temel SKU kaynakları (yük dengeleyici ve geçerli genel IP'ler) tüm VM örnekleri kaldırın. Ayrıca bir kullanılabilirlik kümesi tüm VM örnekleri kaldırdığınızdan emin olun.
+
+4. Tüm VM örnekleri için yeni standart SKU kaynaklar bağlayın.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Temel SKU standart geçirme
 
@@ -349,7 +351,7 @@ Aşağıdaki tabloda sınırları ve yük dengeleyici temel ve standart SKU'lar�
 |Kullanılabilirlik bölgeleri senaryoları | Yalnızca Zonal | Zonal, bölge olarak yedekli, çapraz bölge Yük Dengeleme |
 | Giden SNAT algoritması | İsteğe bağlı | Önceden ayrılmış |
 | Giden SNAT ön uç seçimi | Yapılandırılamaz, birden çok adayları | Aday azaltmak için isteğe bağlı yapılandırma |
-| Ağ Güvenlik Grubu | NIC/alt ağdaki isteğe bağlı | Gerekli |
+| Ağ Güvenliği Grubu | NIC/alt ağdaki isteğe bağlı | Gerekli |
 
 Aşağıdaki tabloda sınırları ve ortak IP temel ve standart SKU'ları yeteneklerini karşılaştırılır:
 
@@ -359,7 +361,7 @@ Aşağıdaki tabloda sınırları ve ortak IP temel ve standart SKU'ları yetene
 | Hızlı IP hareketlilik | Desteklenmiyor | Kullanılabilir |
 | VIP kullanılabilirliği | Desteklenmiyor | Kullanılabilir |
 | Sayaçları | Desteklenmiyor | Kullanılabilir |
-| Ağ Güvenlik Grubu | NIC üzerinde isteğe bağlı | Gerekli |
+| Ağ Güvenliği Grubu | NIC üzerinde isteğe bağlı | Gerekli |
 
 
 ## <a name="preview-sign-up"></a>Önizleme kaydolma

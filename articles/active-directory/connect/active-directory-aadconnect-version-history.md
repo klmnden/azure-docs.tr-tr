@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 63ae975426f1057b178171ef89ce98402ff18725
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -36,8 +36,7 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 Karşıdan yükleme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117490"></a>1.1.749.0
-Durum: müşterileri seçmek üzere serbest bırakılmış
-
+Durum: Bu sürüm otomatik yükseltme etkinleştirdiyseniz AADConnect kiracılar küçük ve rastgele bölümünü şu anda dağıtılmış müşterileri seçmek üzere'yi yayınladı. Biz kiracılar bu grubu otomatik yükseltme müşterilerimizin % 100 bu sürümde aldığınız kadar önümüzdeki haftalarda genişletin. Bundan sonra biz sonrası derleme genel indirmek için yukarıdaki indirme bağlantısında - şu anda planlanan için Orta Mart 2018.
 >[!NOTE]
 >Bu yeni sürüme yükseltme işlemi tamamlandığında, bir tam eşitleme ve Azure AD Bağlayıcısı için tam içeri aktarma ve tam bir eşitleme AD Bağlayıcısı için otomatik olarak tetikler. Lütfen bu Azure AD Connect ortamınızın boyutuna bağlı olarak biraz zaman alabilir bu yana Bunu desteklemek veya bunu yapmak için kullanışlı bir dakikanızı bulduğunuz kadar yükseltmeye bekletir için gerekli adımları gerçekleştirdiğinizden emin olun.
 
@@ -59,7 +58,7 @@ Durum: müşterileri seçmek üzere serbest bırakılmış
 
 #### <a name="new-features-and-improvements"></a>Yeni özellikleri ve geliştirmeleri
 
-* Genel Tarih koruma düzenleme (GDPR) için gizlilik ayarları ekleniyor.  İçin GDPR biz (telemetri, sistem durumu, vb.), Microsoft ile paylaşılır müşteri veri türlerini ayrıntılı çevrimiçi belgeleri bağlantıları ve tercihlerini değiştirmek için müşterilerimiz için bir yol sağlamak göstermek için gereklidir.  Bu iade şunları ekler:
+* Genel veri koruma düzenleme (GDPR) için gizlilik ayarları ekleniyor.  İçin GDPR biz (telemetri, sistem durumu, vb.), Microsoft ile paylaşılır müşteri veri türlerini ayrıntılı çevrimiçi belgeleri bağlantıları ve tercihlerini değiştirmek için müşterilerimiz için bir yol sağlamak göstermek için gereklidir.  Bu iade şunları ekler:
 
 
     - Veri paylaşımı ve gizlilik bildirimi temiz EULA sayfası yükleyin.

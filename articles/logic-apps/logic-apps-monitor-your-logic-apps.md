@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Durum İzleme, tanılama günlük ayarlama ve Azure Logic Apps için uyarılarını Aç
 
@@ -131,7 +131,7 @@ Bulma ve mantıksal uygulamanızı olaylarını görüntüleme gibi için olayla
 
 5. Arama kutusuna, bulmak ve basın istediğiniz bir alanı belirtmek **Enter**. Yazmaya başladığınızda, OMS olası eşleşmeler ve kullanabileceğiniz işlemleri gösterir. 
 
-   Örneğin, ilk 10 olayları bulmak için girin ve bu arama sorgusuna seçin: **kategori WorkflowRuntime = | üst 10**
+   Örneğin, ilk 10 olayları bulmak için girin ve bu arama sorgusuna seçin: **kategori arama "WorkflowRuntime" == | 10 sınırla**
 
    ![Arama dizesini girin](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

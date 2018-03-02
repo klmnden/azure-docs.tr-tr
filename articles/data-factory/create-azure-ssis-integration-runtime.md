@@ -3,7 +3,7 @@ title: "Azure Data Factory'de Azure SSIS tümleştirmesi çalışma zamanı olu�
 description: "SSIS paketi Azure bulutunda çalıştırabilmeniz için bir Azure SSIS tümleştirmesi çalışma zamanı oluşturmayı öğrenin."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
-ms.openlocfilehash: f3616214dc63716a382b4374ff82bec33e876177
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: douglasl
+ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory'de bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma
 Bu makalede Azure Data Factory bir Azure SSIS tümleştirmesi çalışma zamanı sağlamak için adımları sağlar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio’yu (SSMS) kullanarak Azure’da bu çalışma zamanına SQL Server Integration Services (SSIS) paketleri dağıtabilirsiniz.
@@ -40,7 +40,7 @@ Bu makalede Azure SSIS IR sağlama farklı yolu gösterilmektedir:
 
 Bir Azure SSIS IR oluşturduğunuzda, veri fabrikası, Azure SQL SSIS Katalog veritabanı (SSISDB) hazırlamak için veritabanına bağlar. Betik ayrıca belirtilmişse sanal ağınıza ilişkin izin ve ayarları yapılandırır ve yeni Azure SSIS tümleştirme çalışma zamanı örneğini sanal ağa ekler.
 
-Azure SSIS IR örneği sağladığınızda, SSIS ve erişim Redistributable için Azure özellik paketi de yüklenir. Bu bileşenler, Excel ile Access dosyalarıyla ve yerleşik bileşenler tarafından desteklenen veri kaynaklarına ek olarak çeşitli Azure veri kaynaklarıyla bağlantı kurma olanağı sunar. Şimdilik SSIS için üçüncü taraf bileşenler (Attunity tarafından sağlanan Oracle ve Teradata bileşenleri ile SAP BI bileşenleri gibi Microsoft’un üçüncü taraf bileşenleri dahil) yükleyemezsiniz.
+Bir Azure-SSIS IR örneğini sağladığınızda, SSIS için Azure Feature Pack ve Access Redistributable da yüklenir. Bu bileşenler, Excel ile Access dosyalarıyla ve yerleşik bileşenler tarafından desteklenen veri kaynaklarına ek olarak çeşitli Azure veri kaynaklarıyla bağlantı kurma olanağı sunar. Şimdilik SSIS için üçüncü taraf bileşenler (Attunity tarafından sağlanan Oracle ve Teradata bileşenleri ile SAP BI bileşenleri gibi Microsoft’un üçüncü taraf bileşenleri dahil) yükleyemezsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -54,8 +54,8 @@ Azure SSIS IR örneği sağladığınızda, SSIS ve erişim Redistributable içi
 - **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin. Bulutta SSIS paketleri çalıştıran bir Azure-SSIS tümleştirme çalışma zamanı sağlamak üzere betik çalıştırmak için PowerShell kullanıyorsanız. 
 
 > [!NOTE]
-> - Sürüm 2, veri fabrikası aşağıdaki bölgelerde oluşturabilirsiniz: Doğu ABD, Doğu ABD 2, Güneydoğu Asya ve Batı Avrupa. 
-> - Bir Azure SSIS IR aşağıdaki bölgelerde oluşturabilirsiniz: Doğu ABD, Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Doğu Avustralya.
+> - Sürüm 2’nin veri fabrikasını şu bölgelerde oluşturabilirsiniz: Doğu ABD, Doğu ABD 2, Güneydoğu Asya ve Batı Avrupa. 
+> - Azure SSIS IR’yi şu bölgelerde oluşturabilirsiniz: Doğu ABD, Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Avustralya Doğu.
 
 ## <a name="azure-portal"></a>Azure portalına
 Bu bölümde, bir Azure SSIS IR oluşturmak için Azure portal, veri fabrikası UI özellikle kullanın 

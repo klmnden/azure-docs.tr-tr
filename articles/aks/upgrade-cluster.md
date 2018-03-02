@@ -6,14 +6,14 @@ author: gabrtv
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 2ba18f638d3cc56437b659b7ab6754338a2220cf
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b94f858aa896eaa93430a12cd74e12d9bf02008
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini karşıya yükleme
 

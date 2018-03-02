@@ -7,18 +7,15 @@ ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3269b865c4ef3c11a674d7b755faab2bbf5970e3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
-Azure Geçişi hizmeti, Azure’a geçiş için şirket içi iş yüklerini değerlendirir. Hizmet, geçişe uygunluğu ve performans tabanlı boyutlandırmayı değerlendirir ve şirket içi makinelerinizi Azure’da çalıştırmaya yönelik maliyet tahminleri sağlar. Lift-and-shift ile taşımayı düşünüyorsanız veya geçişin ilk değerlendirme aşamalarındaysanız bu hizmet size uygundur. Değerlendirme sonrasında, makineleri Azure’a geçirmek için Azure Site Recovery ve Azure Veritabanı Geçişi gibi hizmetleri kullanabilirsiniz.
-
-> [!NOTE]
-> Azure Geçişi şu anda önizleme aşamasındadır ve üretim iş yüklerini destekler.
+Azure Geçişi hizmeti, Azure’a geçiş için şirket içi iş yüklerini değerlendirir. Hizmet, şirket içi makinelerin Azure’a geçiş uygunluğunu ve performans tabanlı boyutlandırmayı değerlendirip şirket içi makinelerinizi Azure’da çalıştırmaya yönelik maliyet tahminleri sağlar. Lift-and-shift ile taşımayı düşünüyorsanız veya geçişin ilk değerlendirme aşamalarındaysanız bu hizmet size uygundur. Değerlendirme sonrasında, makineleri Azure’a geçirmek için [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) ve [Azure Veritabanı Geçiş Hizmeti](https://docs.microsoft.com/azure/dms/dms-overview) gibi hizmetleri kullanabilirsiniz.
 
 ## <a name="why-use-azure-migrate"></a>Azure Geçişi hizmetini neden kullanmalısınız?
 
@@ -27,18 +24,17 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 - **Azure için hazır olma durumunu değerlendirme**: Şirket içi makinelerinizin Azure’da çalıştırılmaya uygun olup olmadığını değerlendirme. 
 - **Boyut önerileri alma**: Şirket içi VM’lerin performans geçmişine göre Azure VM’leri için boyut önerileri alın. 
 - **Aylık maliyetleri tahmin etme**: Azure’da çalışan şirket içi makineler için tahmini maliyetleri alın.  
-- **Yüksek güvenle geçirme**: Birlikte değerlendirip geçireceğiniz makine grupları oluşturmak için şirket içi makinelerin bağımlılıklarını görselleştirin. Belirli bir makinenin veya bir gruptaki tüm makinelerin bağımlılıklarını doğru bir şekilde görüntüleyebilirsiniz.
+- **Yüksek güvenle geçirme**: Birlikte değerlendirip geçireceğiniz makine grupları oluşturmak için şirket içi makinelerin bağımlılıklarını görselleştirin. 
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
-- Şu anda, şirket içi VMware sanal makinelerini (VM) Azure VM’lerine geçiş için değerlendirebilirsiniz.
+- Şu anda Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0 veya 6.5) tarafından yönetilmelidir
 
 > [!NOTE]
-> Yol haritasında bulunan Hyper-V desteği kısa süre içinde etkinleştirilecektir. Bu arada, Hyper-V iş yüklerinin geçişini planlamak için [Azure Site Recovery Dağıtım Planlayıcısı](http://aka.ms/asr-dp-hyperv-doc)’nı kullanmanız önerilir. 
+> Hyper-V desteği, yol haritasında yer almakta olup kısa süre sonra etkinleştirilecektir. Bu arada, Hyper-V iş yüklerinin geçişini planlamak için [Azure Site Recovery Dağıtım Planlayıcısı](http://aka.ms/asr-dp-hyperv-doc)’nı kullanmanız önerilir. 
 
 - Tek keşifte en çok 1000 sanal makine ve tek projede en çok 1500 sanal makine bulabilirsiniz. Ayrıca, tek değerlendirmede en çok 400 sanal makineyi değerlendirebilirsiniz. Daha fazla makineyi bulmanız veya değerlendirmeniz gerekiyorsa, keşiflerin veya değerlendirmelerin sayısını artırabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md).
-- Değerlendirmek istediğiniz VM, vCenter Server sürüm 5.5, 6.0 veya 6.5 ile yönetilmelidir.
-- Azure Geçişi projesini yalnızca Orta Batı ABD bölgesinde oluşturabilirsiniz. Ancak, bu kısıtlama farklı bir hedef Azure konumu için geçiş planlamanızı engellemez. Geçiş projesinin konumu yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır.
+- Azure Geçişi projesini yalnızca Batı Orta ABD veya Doğu ABD bölgesinde oluşturabilirsiniz. Ancak, bu kısıtlama farklı bir hedef Azure konumu için geçiş planlamanızı engellemez. Geçiş projesinin konumu yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
 
 ## <a name="what-do-i-need-to-pay-for"></a>Ne için ödeme yapmam gerekiyor?
@@ -48,15 +44,16 @@ Azure Geçişi fiyatlandırması hakkında daha fazla bilgiyi [burada](https://a
 
 ## <a name="whats-in-an-assessment"></a>Bir değerlendirme neleri içerir?
 
-Değerlendirme, şirket içi VM’lerin Azure uygunluğunu tanımlamanıza yardımcı olur, doğru boyutlandırma önerilerini ve Azure’da sanal makineleri çalıştırmak için maliyet tahminlerini alın. Değerlendirmeler, aşağıdaki tabloda özetlenen özellikleri temel alır. Bu özellikleri Azure Geçişi portalında değiştirebilirsiniz. 
+Değerlendirme, şirket içi VM’lerin Azure uygunluğunu tanımlamanıza yardımcı olur, doğru boyutlandırma önerilerini ve Azure’da sanal makineleri çalıştırmak için maliyet tahminlerini alın. Değerlendirmelerin özellikleri değiştirilerek değerlendirmeler ihtiyaçlarınıza göre özelleştirilebilir. Aşağıda, bir değerlendirme oluşturulurken değerlendirilen özellikler verilmiştir. 
 
 **Özellik** | **Ayrıntılar**
 --- | ---
 **Hedef konum** | Geçişi yapmak istediğiniz Azure konumu. Varsayılan hedef konum, Batı ABD 2 olarak ayarlanır. 
-**Depolama yedekliliği** | Azure VM’lerinin geçişten sonra kullanacağı depolama türü. Varsayılan seçenek LRS’dir.
-**Fiyatlandırma planları** | Değerlendirme, yazılım güvencesine kaydolup kaydolmadığınızı ve [Azure Hibrit Avantajı](https://azure.microsoft.com/pricing/hybrid-use-benefit/)’nı kullanıp kullanamayacağınızı göz önünde bulundurur. Ayrıca, uygulanması gereken Azure tekliflerini göz önünde bulundurur ve teklifle birlikte alacağınız aboneliğe özel indirimler (%) belirtmenize olanak tanır. 
-**Fiyatlandırma katmanı** | Azure VM’lerinin [fiyatlandırma katmanını (temel/standart)](../virtual-machines/windows/sizes-general.md) belirtebilirsiniz. Bunun yapılması, bir üretim ortamında olup olmamanıza bağlı olarak uygun bir Azure VM ailesine geçiş yapmanıza yardımcı olur. Varsayılan olarak [standart](../virtual-machines/windows/sizes-general.md) katmanı kullanılır.
-**Performans geçmişi** | Varsayılan olarak, Azure Geçişi %95 yüzdebirlik değer ile bir aylık geçmişi kullanarak şirket içi makinelerin performansını değerlendirir. Bu ayarı değiştirebilirsiniz.
+**Depolama yedekliliği** | Azure sanal makinelerinin geçişten sonra kullanacağı [depolama yedekliliği](https://docs.microsoft.com/azure/storage/common/storage-redundancy) türü. Yerel Olarak Yedekli Depolama (LRS) varsayılandır. Azure Geçişi’nin yalnızca yönetilen diskleri temel alan değerlendirmeleri desteklediğini ve yönetilen disklerin yalnızca LRS’yi desteklediğini; bu nedenle de özelliğin şu anda yalnızca LRS seçeneğini içerdiğini unutmayın. 
+**Boyutlandırma Ölçütü** | Azure için sanal makineleri doğru şekilde boyutlandırmak üzere Azure Geçişi tarafından kullanılacak ölçüt. Şirket içi sanal makinelerin *performans geçmişini* temel alarak boyutlandırma yapabilir veya performans geçmişini dikkate almadan Azure için *şirket içi olarak* sanal makineleri boyutlandırabilirsiniz. Varsayılan değer, performans tabanlı boyutlandırmadır.
+**Fiyatlandırma planları** | Maliyet hesaplamaları için bir değerlendirme, yazılım güvencesine sahip olup olmadığınızı ve [Azure Hibrit Avantajı](https://azure.microsoft.com/pricing/hybrid-use-benefit/) için uygun olup olmadığınızı göz önünde bulundurur. Ayrıca, kaydolabileceğiniz [Azure Tekliflerini](https://azure.microsoft.com/support/legal/offer-details/) göz önünde bulundurur ve teklifle birlikte alabileceğiniz aboneliğe özel indirimleri (%) belirtmenize olanak sağlar. 
+**Fiyatlandırma katmanı** | Hedef Azure sanal makineleri için [fiyatlandırma katmanını (Temel/Standart)](../virtual-machines/windows/sizes-general.md) belirtebilirsiniz. Örneğin, bir üretim ortamına geçiş yapmayı planlıyorsanız, daha düşük gecikme süresi ile sanal makineler sağlayan, ancak daha fazla maliyetli olabilecek Standart katmanını göz önünde bulundurmak istersiniz. Öte yandan, bir Geliştirme ve Test ortamınız varsa, daha yüksek gecikme süresi ve daha düşük maliyetle sanal makineler içeren Temel katmanını göz önünde bulundurmak isteyebilirsiniz. Varsayılan olarak [Standart](../virtual-machines/windows/sizes-general.md) katmanı kullanılır.
+**Performans geçmişi** | Yalnızca boyutlandırma ölçütü performans tabanlı olduğunda uygulanabilir. Varsayılan olarak Azure Geçişi, %95 yüzdebirlik değer ile son bir günün performans geçmişini kullanarak şirket içi makinelerin performansını değerlendirir. Değerlendirme özelliklerinde bu değerleri değiştirebilirsiniz. 
 **Konfor katsayısı** | Azure Geçişi, değerlendirme sırasında bir tamponu (konfor katsayısı) göz önünde bulundurur. Bu tampon, VM’lerin makine kullanım verilerinin (CPU, bellek, disk ve ağ) üzerine uygulanır. Konfor katsayısı; sezona özgü kullanım, kısa performans geçmişi ve gelecek kullanımlarda oluşabilecek artışlar gibi konuları hesaba katar.<br/><br/> Örneğin, %20 kullanıma sahip 10 çekirdekli bir VM normalde 2 çekirdekli VM ile sonuçlanır. Ancak, 2.0x konfor katsayısı ile sonuç 4 çekirdekli VM olur. Varsayılan konfor ayarı 1,3x’tir.
 
 
@@ -82,7 +79,7 @@ Tabloda Azure Geçişi iletişimleri için gereken bağlantı noktaları özetle
 |Bileşen          |Şununla iletişim kurmak için     |Gereken bağlantı noktası  |Neden   |
 |-------------------|------------------------|---------------|---------|
 |Toplayıcı          |Azure Geçişi hizmeti   |TCP 443        |Toplayıcı SSL bağlantı noktası 443 üzerinden hizmete bağlanır|
-|Toplayıcı          |vCenter Server          |Varsayılan 9443   | Varsayılan olarak, toplayıcı bağlantı noktası 9443 üzerinden vCenter sunucusuna bağlanır. Sunucu farklı bir bağlantı noktasında dinliyorsa, toplayıcı VM üzerinde giden bağlantı noktası olarak yapılandırılması gerekir. |
+|Toplayıcı          |vCenter Server          |Varsayılan 9443   | Varsayılan olarak toplayıcı, 9443 numaralı bağlantı noktası üzerinden vCenter Server’a bağlanır. Sunucu farklı bir bağlantı noktasında dinliyorsa, toplayıcı VM üzerinde giden bağlantı noktası olarak yapılandırılması gerekir. |
 |Şirket içi VM     | Operations Management Suite (OMS) Çalışma Alanı          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |MMA aracısı Log Analytics’e bağlanmak için TCP 443’ü kullanır. Bu bağlantı noktası yalnızca bağımlılık görselleştirmesi özelliğini kullanıyorsanız ve Microsoft Monitoring Agent’ı (MMA) yüklüyorsanız gereklidir. |
 
 

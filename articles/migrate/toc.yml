@@ -1,4 +1,4 @@
-- name: Azure Geçişi belgeleri
+- name: Azure Geçişi Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
@@ -10,6 +10,8 @@
       href: tutorial-assessment-vmware.md
 - name: Kavramlar
   items:
+    - name: Toplayıcı Kavramları
+      href: concepts-collector.md
     - name: Değerlendirme hesaplamaları
       href: concepts-assessment-calculation.md
     - name: Bağımlılık görselleştirme

@@ -1,19 +1,19 @@
 ---
-title: "Sunucu parametreleri Azure veritabanında MySQL için yapılandırma | Microsoft Docs"
+title: "Sunucu parametreleri Azure veritabanında MySQL için yapılandırma"
 description: "Bu makalede, Azure portalını kullanarak MySQL için Azure veritabanı'nda MySQL server parametreleri yapılandırmak açıklar."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 59eeed42356a276c259bd8da55890b7ada67d729
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.date: 02/28/2018
+ms.openlocfilehash: b3510c616d2a9ba66cb83cb998c42e03fdbb0f2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Sunucu parametreleri Azure veritabanı'nda MySQL için Azure portalını kullanarak nasıl yapılandırılır
 
@@ -22,10 +22,14 @@ Azure veritabanı MySQL için bazı sunucu parametreleri yapılandırmasını de
 ## <a name="navigate-to-server-parameters-on-azure-portal"></a>Azure Portal'da sunucu parametreleri gidin
 1. Azure portalında oturum açın ve ardından Azure veritabanınızı MySQL sunucusu için bulun.
 2. Altında **ayarları** 'yi tıklatın **sunucu parametreleri** sunucu parametreleri sayfası Azure veritabanı için MySQL için açın.
-3. Ayarlamanız gereken herhangi bir ayarı bulun. Gözden geçirme **açıklama** amacı ve izin verilen değerler anlamak için sütun. 
-4. Tıklatın **kaydetmek** yaptığınız değişiklikleri kaydetmek için.
-
 ![Azure portal sunucusu parametreleri sayfası](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+3. Ayarlamanız gereken herhangi bir ayarı bulun. Gözden geçirme **açıklama** amacı ve izin verilen değerler anlamak için sütun. 
+![Aşağı açılan listeleme](./media/howto-server-parameters/3-toggle_parameter.png)
+4. Tıklatın **kaydetmek** yaptığınız değişiklikleri kaydetmek için.
+![Kaydet veya değişiklikleri at](./media/howto-server-parameters/4-save_parameters.png)
+5. Yeni parametre değerlerini kaydettiyseniz, her zaman varsayılan değerleri dön her şeyi seçerek geri dönebilirsiniz **tümünü Varsayılana Sıfırla**.
+![Tüm Varsayılana sıfırla](./media/howto-server-parameters/5-reset_parameters.png)
+
 
 ## <a name="list-of-configurable-server-parameters"></a>Yapılandırılabilir sunucu parametrelerin listesi
 
@@ -34,14 +38,27 @@ Desteklenen sunucu parametrelerin listesi sürekli olarak artmaktadır. Sunucu p
 ## <a name="nonconfigurable-server-parameters"></a>Nonconfigurable sunucu parametreleri
 InnoDB arabellek havuzu ve en fazla bağlantı olmayan yapılandırılabilir ve bağlı için [fiyatlandırma katmanı](concepts-service-tiers.md). 
 
-| **Fiyatlandırma katmanı** | **InnoDB arabellek havuzu (MB)** | **En fazla bağlantı** |
-| :------------------------ | :-------- | :----------- |
-| Temel 50 | 1024 | 50 | 
-| Temel 100  | 2560 | 100 | 
-| Standart 100 | 2560 | 200 | 
-| Standart 200 | 5120 | 400 | 
-| Standart 400 | 10240 | 800 | 
-| Standart 800 | 20480 | 1600 |
+|**Fiyatlandırma Katmanı**| **İşlem oluşturma**|**vCore(s)**|**InnoDB arabellek havuzu (MB)**| **En fazla bağlantı**|
+|---|---|---|---|--|
+|Temel| Gen 4| 1| 1024| 50 |
+|Temel| Gen 4| 2| 2560| 100 |
+|Temel| Gen 5| 1| 1024| 50 |
+|Temel| Gen 5| 2| 2560| 100 |
+|Genel Amaçlı| Gen 4| 2| 2560| 200|
+|Genel Amaçlı| Gen 4| 4| 5120| 400|
+|Genel Amaçlı| Gen 4| 8| 10240| 800|
+|Genel Amaçlı| Gen 4| 16| 20480| 1600|
+|Genel Amaçlı| Gen 4| 32| 40960| 3200|
+|Genel Amaçlı| Gen 5| 2| 2560| 200|
+|Genel Amaçlı| Gen 5| 4| 5120| 400|
+|Genel Amaçlı| Gen 5| 8| 10240| 800|
+|Genel Amaçlı| Gen 5| 16| 20480| 1600|
+|Genel Amaçlı| Gen 5| 32| 40960| 3200|
+|Bellek için İyileştirilmiş| Gen 5| 2| 7168| 600|
+|Bellek için İyileştirilmiş| Gen 5| 4| 15360| 1250|
+|Bellek için İyileştirilmiş| Gen 5| 8| 30720| 2500|
+|Bellek için İyileştirilmiş| Gen 5| 16| 62464| 5000|
+|Bellek için İyileştirilmiş| Gen 5| 32| 125952| 10000| 
 
 Bu ek sunucu parametreler sistemde yapılandırılabilir değildir:
 

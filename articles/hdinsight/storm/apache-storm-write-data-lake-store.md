@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Hdınsight üzerinde Apache Storm HDFS için yazma
 
@@ -40,11 +40,11 @@ Bu projeyi derlemek için geliştirme ortamınız için aşağıdaki yapılandı
 
 Geliştirme iş istasyonunuza Java ve JDK yüklediğinizde aşağıdaki ortam değişkenleri ayarlayabilirsiniz. Ancak, bunlar mevcut olduğundan ve sisteminiz için doğru değerleri içerdikleri denetlemeniz gerekir.
 
-* `JAVA_HOME`-JDK yüklendiği dizinine işaret etmelidir.
-* `PATH`-aşağıdaki yolları içermelidir:
+* `JAVA_HOME` -JDK yüklendiği dizinine işaret etmelidir.
+* `PATH` -aşağıdaki yolları içermelidir:
   
-    * `JAVA_HOME`(veya eşdeğer yolu).
-    * `JAVA_HOME\bin`(veya eşdeğer yolu).
+    * `JAVA_HOME` (veya eşdeğer yolu).
+    * `JAVA_HOME\bin` (veya eşdeğer yolu).
     * Maven'ın yüklendiği dizin.
 
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>Hdınsight ile HdfsBolt kullanma
@@ -140,7 +140,7 @@ Flux framework hakkında daha fazla bilgi için bkz: [https://storm.apache.org/r
 
 Varsayılan olarak, Hdınsight üzerinde Storm HdfsBolt Storm'ın sınıf yolunda Azure Storage veya Data Lake Store ile iletişim kurmak için kullandığı bileşenlerinin içermez. Bu bileşenler eklemek için aşağıdaki betik eylemi kullanın `extlib` kümenizdeki Storm için dizin:
 
-* Betik URI:`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
+* Betik URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Uygulamak için düğümleri: Nimbus, yönetici
 * Parametreler: yok
 
@@ -160,7 +160,7 @@ Bu komut dosyası kullanmayı hakkında daha fazla bilgi için bkz: [özelleşti
 
 1. Topoloji Hdınsight kümesine kopyalamak için aşağıdaki komutu kullanın. Değiştir **kullanıcı** küme oluştururken kullandığınız SSH kullanıcı adı. **CLUSTERNAME** değerini kümenin adıyla değiştirin.
    
-        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs1.0-SNAPSHOT.jar
+        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs-1.0-SNAPSHOT.jar
    
     İstendiğinde, küme için SSH kullanıcısı oluştururken kullanılan parolayı girin. Parola yerine bir ortak anahtar kullandıysanız kullanmanız gerekebilir `-i` parametresi eşleşen özel anahtara yolunu belirtin.
    

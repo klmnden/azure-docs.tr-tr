@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -34,7 +34,7 @@ Bir çalışma alanı oluşturmak için şunlar gereklidir:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>İhtiyacınız olan çalışma alanı sayısını belirleme
 Çalışma alanı, bir Azure kaynağıdır. Bu alan, verilerin toplandığı, derlendiği, çözümlendiği ve Azure portalında sunulduğu bir kapsayıcıdır.
 
-Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve birden çok çalışma alanına erişebilirsiniz. Çalışma alanlarının sayısını en aza indirmek, birden çok çalışma alanı arasında sorgu çalıştırmak mümkün olmadığından, verilerinizin çoğunda sorgu çalıştırmanıza ve bağıntı kurmanıza olanak sağlar. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
+Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve birden çok çalışma alanına erişebilirsiniz. Daha önce verileri yalnızca geçerli çalışma alanından çözümleyebiliyordunuz ve bu, aboneliğinizde tanımlanmış olan birden çok çalışma alanında sorgu yapabilmenizi kısıtlıyordu. Artık [birden çok çalışma alanında sorgu yapabilirsiniz](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), bu da verilerinize sistem genelinde bir görünüm sunar. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
 
 Günümüzde bir çalışma alanı aşağıdakileri sağlar:
 
@@ -62,10 +62,10 @@ Azure portalında çalışma alanınızla ilgili bilgileri görüntüleyebilirsi
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Çalışma alanı bilgilerini Azure portalında görüntüleme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın.  Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
-    ![Azure hub'ı](./media/log-analytics-manage-access/hub.png)  
-3. Log Analytics abonelikler dikey penceresinden bir çalışma alanı seçin.
-4. Çalışma alanı dikey penceresinde çalışma alanıyla ilgili bilgiler ve ek bilgi bağlantıları gösterilir.  
+2. **Tüm hizmetler**’e tıklayın.  Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
+    ![Azure sol menüsünü gösteren ekran görüntüsü](./media/log-analytics-manage-access/hub.png)  
+3. Log Analytics abonelikler sayfasında bir çalışma alanı seçin.
+4. Çalışma alanı sayfasında çalışma alanıyla ilgili ayrıntılar ve ek bilgi bağlantıları gösterilir.  
     ![çalışma alanı ayrıntıları](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -83,8 +83,8 @@ Aşağıdaki tabloda her bir izin modeli kullanılarak ayarlanabilen erişim öz
 
 |                          | Log Analytics portalı | Azure portalına | API (PowerShell dahil) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Log Analytics kullanıcı rolleri | Evet                  | Hayır           | Hayır                         |
-| Azure rol tabanlı erişim  | Evet                  | Evet          | Evet                        |
+| Log Analytics kullanıcı rolleri | Yes                  | Hayır           | Hayır                         |
+| Azure rol tabanlı erişim  | Yes                  | Yes          | Yes                        |
 
 > [!NOTE]
 > Log Analytics, izin modeli olarak Log Analytics kullanıcı rolleri yerine Azure rol tabanlı erişime geçiş yapıyor.

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2017
+ms.date: 02/22/2018
 ms.author: sutalasi
-ms.openlocfilehash: a5d0eb5b8cd5ba49a602d7000291270af31fb222
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 0a567f31bf1991d4c2a95468d2abc31c51a878f3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>VMware’den Azure’a çoğaltma ilkesini yönetme
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 11/22/2017
 
 7. **Uygulamayla tutarlı anlık görüntü sıklığı** kısmında, uygulamayla tutarlı anlık görüntüleri içeren kurtarma noktalarının hangi sıklıkta oluşturulacağını (dakika cinsinden) belirtin.
 
-8. **Tamam** düğmesine tıklayın. İlke, 30 ila 60 saniye içinde oluşturulur.
+8. **Tamam**’a tıklayın. İlke, 30 ila 60 saniye içinde oluşturulur.
 
 ![Çoğaltma ilkesi üretme](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/22/2017
 ![Yapılandırma sunucusunu ilişkilendirme](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
 3. Sunucu listesinden yapılandırma sunucusunu seçin.
-4. **Tamam** düğmesine tıklayın. Yapılandırma sunucusu, bir ila iki dakika içinde ilişkilendirilir.
+4. **Tamam**’a tıklayın. Yapılandırma sunucusu, bir ila iki dakika içinde ilişkilendirilir.
 
 ![Yapılandırma sunucusu ilişkilendirme](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/22/2017
 1. Yapılandırma sunucusunu ilişkilendirmek istediğiniz çoğaltma ilkesini seçin.
 2. **İlişkilendirmeyi Kaldır**’a tıklayın.
 3. Sunucu listesinden yapılandırma sunucusunu seçin.
-4. **Tamam** düğmesine tıklayın. Yapılandırma sunucusunun ilişkisi, bir ila iki dakika içinde kaldırılır.
+4. **Tamam**’a tıklayın. Yapılandırma sunucusunun ilişkisi, bir ila iki dakika içinde kaldırılır.
 
     > [!NOTE]
     > İlkeyi kullanan en az bir çoğaltılmış öğe varsa yapılandırma sunucusunun ilişkisini kaldıramazsınız. Yapılandırma sunucusunun ilişkisini kaldırmadan önce ilkeyi kullanan çoğaltılmış bir öğe bulunmadığından emin olun.

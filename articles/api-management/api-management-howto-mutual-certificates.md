@@ -13,27 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-<<<<<<< HEAD
-ms.openlocfilehash: c8573c73b0a6dc1b2644f78276d2f3e4fd442cea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması Azure API Management'te güvenliğini sağlama
 API Management istemci sertifikalarını kullanan güvenli bir API'nin arka uç hizmetine erişim olanağı sağlar. Bu kılavuz, API yayımcı portalına sertifikaları yönetme ve arka uç hizmetine erişmek için bir sertifika kullanmak üzere bir API yapılandırma gösterir.
 
 API Management REST API kullanarak sertifikaların yönetilmesi hakkında daha fazla bilgi için bkz: [Azure API Management REST API sertifikası varlık][Azure API Management REST API Certificate entity].
 
-## <a name="prerequisites"></a>Önkoşulları
+## <a name="prerequisites"> </a>Önkoşulları
 Bu kılavuz bir API arka uç hizmetine erişim için istemci sertifikası kimlik doğrulamasını kullanmak için API Management hizmet örneği yapılandırmak nasıl gösterir. Bu konudaki adımları izlemeden önce arka uç hizmeti istemci sertifikası kimlik doğrulaması için yapılandırılmış olması gerekir ([Azure Web siteleri sertifika kimlik doğrulaması yapılandırmak için bu makalesine başvurun][to configure certificate authentication in Azure WebSites refer to this article]), ve sertifika ve parola için API Management yayımcı Portalı'nda yüklemeyle sertifikanın erişebilir.
 
-## <a name="step1"></a>Bir istemci sertifikasını karşıya yükle
+## <a name="step1"> </a>Bir istemci sertifikasını karşıya yükle
 Kullanmaya başlamak için API Management hizmetiniz için Azure Portal'da **Yayımcı portalı**’na tıklayın. Bu sizi API Management yayımcı portalına götürür.
 
 ![API yayımcı portalı][api-management-management-console]
@@ -64,7 +58,7 @@ Tıklatın **karşıya** sertifikayı karşıya yüklemek için.
 > 
 > 
 
-![Karşıya sertifika][api-management-certificate-uploaded]
+![Sertifika karşıya yüklendi][api-management-certificate-uploaded]
 
 Sertifika yüklendikten sonra göründüğü **istemci sertifikalarını** sekmesi. Birden fazla sertifika varsa, konu not ya da parmak izi sertifikalarını kullanmak için bir API aşağıdakileri anlatıldığı gibi yapılandırırken sertifikayı seçmek için kullanılan son dört karakterini olun [kullanmak için bir API'nin bir Ağ Geçidi kimlik doğrulaması için istemci sertifikası] [ Configure an API to use a client certificate for gateway authentication] bölümü.
 
@@ -72,7 +66,7 @@ Sertifika yüklendikten sonra göründüğü **istemci sertifikalarını** sekme
 > 
 > 
 
-## <a name="step1a"></a>Bir istemci sertifikası silme
+## <a name="step1a"> </a>Bir istemci sertifikası silme
 Bir sertifikayı silmek için tıklatın **silmek** istenen sertifikanın yanındaki.
 
 ![Sertifikayı sil][api-management-certificate-delete]
@@ -85,7 +79,7 @@ Sertifika bir API tarafından kullanılıyorsa, bir uyarı ekranı görüntülen
 
 ![Silmeyi onayla][api-management-confirm-delete-policy]
 
-## <a name="step2"></a>Bir API Ağ Geçidi kimlik doğrulaması için bir istemci sertifikası kullanacak şekilde yapılandırma
+## <a name="step2"> </a>Bir API Ağ Geçidi kimlik doğrulaması için bir istemci sertifikası kullanacak şekilde yapılandırma
 Tıklatın **API'leri** gelen **API Management** , soldaki menüde istenen API adına tıklayın ve'ı tıklatın **güvenlik** sekmesi.
 
 ![API Güvenlik][api-management-api-security]
@@ -120,13 +114,6 @@ Otomatik olarak imzalanan sertifikalar kullanıyorsanız, API Management'ı arka
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
-
-## <a name="next-steps"></a>Sonraki adımlar
-HTTP temel veya paylaşılan gizli kimlik doğrulaması gibi arka uç hizmetinizin güvenliğini sağlamak için diğer yöntemler hakkında daha fazla bilgi için aşağıdaki videoya bakın.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
-> 
-> 
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png

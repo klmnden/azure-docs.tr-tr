@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"> </a>Mobile Services kullanıyorum, App Service bana nasıl yardımcı olur?
 ## <a name="overview"></a>Genel Bakış
@@ -28,7 +28,7 @@ Mevcut Mobil Hizmetiniz güvendedir ve desteklenmeye devam edecektir. Ancak *Azu
 * Web İşleri, özel CNames, daha iyi izleme dahil yeni ana bilgisayara özellikleri.
 * Traffic Manager ile tümleştirme
 * Karma Bağlantılara ek olarak, VNet kullanarak şirket içi kaynaklarınıza ve VPN’lere bağlantı
-* NewRelic veya AppInsights kullanarak uygulamanız için izleme, uyarma ve sorun giderme.
+* AppInsights kullanarak uygulamanız için izleme, uyarma ve sorun giderme
 * Temel hesaplama kaynakları ve fiyatlandırma için daha zengin yelpaze
 * Yerleşik otomatik ölçeklendirme, yük dengeleme ve performans izleme
 * Yerleşik hazırlık, yedekleme, geri alma ve üretim sırasında test etme özellikleri
@@ -54,7 +54,7 @@ Günümüzde, Mobile Services ile şirket için kaynaklara erişim için Karma B
 Mobile Services ile arka uç kodunuzun tm örnekleri küçük VM’lerde çalışıyordu. *Azure App Service*, VM boyutlarını çok daha zengin seçeneklerle seçmenizi sağlar. Ayrıca çeşitli performans ölçümleri temelinde, gelen müşteri yükünü işlemek için hızlı şekilde ölçeği artırabilir ya da genişletebilirsiniz.
 
 ## <a name="be-in-the-know"></a>“Haberdar” olun
-Sizi ve ekibinizi otomatik bilgilendiren izleme ve uyarılarla gerçek zamanlı olarak sorulara yanıt verin. Mobil uygulamanızın nasıl çalıştığına ilişkin öngörü sahibi olmak için New Relic ve AppInsights’dan gelen gelişmiş uygulama analizi ve izleme işlevlerini tümleştirin. *Azure App Service* ile programlı şekilde ya da Azure Portal aracılığıyla, çeşitli performans ölçümleri temelinde uyarılar ayarlayabilirsiniz.
+Sizi ve ekibinizi otomatik bilgilendiren izleme ve uyarılarla gerçek zamanlı olarak sorulara yanıt verin. Mobil uygulamanızın nasıl çalıştığına ilişkin öngörü sahibi olmak için AppInsights’tan gelen gelişmiş uygulama analizi ve izleme işlevlerini tümleştirin. *Azure App Service* ile programlı şekilde ya da Azure Portal aracılığıyla, çeşitli performans ölçümleri temelinde uyarılar ayarlayabilirsiniz.
 
 ## <a name="keep-your-assets-safe"></a>Varlıklarınızı güvende tutun
 Arka ucunuzu ve veritabanınızı otomatik olarak yedekleyin. Kodunuz ve verileriniz olağanüstü durumlara karşı güvendedir ve kolayca geri yüklenebilir, böylece işletmenizi güvenle çalıştırabilirsiniz.

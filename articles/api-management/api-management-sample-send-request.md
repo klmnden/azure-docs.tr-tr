@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 7f3cc81327d1d247fb8e19e256eafb009a5bf162
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d7c32e5ae02e294ee88c19f058e04249c7c9969e
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management hizmetinden dış hizmetler kullanarak
 Azure API Management hizmetinde kullanılabilir ilkeler çeşitli yararlı iş tamamen gelen istek, giden yanıt ve temel yapılandırma bilgileri göre yapabilirsiniz. Ancak, dış API Management hizmetlerinden etkileşimde yapamamasına ilkeleri açılır pek çok daha fazla fırsatı.
@@ -282,11 +282,4 @@ Yer tutucu işlemi yapılandırmasında en az bir saat için önbelleğe alınac
 
 ## <a name="summary"></a>Özet
 Azure API Management hizmeti, HTTP trafiği için seçmeli olarak uygulanabilir esnek ilkeler sağlar ve arka uç hizmetlerinin birleşim etkinleştirir. Uyarı İşlevler, doğrulama, doğrulama yetenekleri ile API ağ geçidi geliştirmek veya birden fazla arka uç hizmetlerini temel alarak yeni bileşik kaynakları oluşturmak isteyip istemediğinizi `send-request` ve ilgili ilkeler olanaklar dünyası açın.
-
-## <a name="watch-a-video-overview-of-these-policies"></a>Bu ilkelerin video genel izleyin
-Daha fazla bilgi için [bir şekilde İsteği Gönder](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), ve [return yanıt](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) bu makalede ele alınan ilkeleri aşağıdaki videoyu izleyin:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
-> 
-> 
 

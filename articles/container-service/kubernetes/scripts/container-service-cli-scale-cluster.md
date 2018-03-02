@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI komut dosyası örneği - ölçek ACS küme | Microsoft Docs"
-description: "Azure CLI komut dosyası örneği - ölçek ACS küme"
+title: "Azure CLI Betik Örneği - ACS Kümesini Ölçeklendirme | Microsoft Docs"
+description: "Azure CLI Betik Örneği - ACS Kümesini Ölçeklendirme"
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -16,21 +16,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 14e9f9d85bc0c1428240f15831632eafe2a0f80e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: d12299d08fa989c0990ae45a41c638470e1075a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Bir Azure kapsayıcı hizmeti kümesini ölçeklendirin
+# <a name="scale-an-azure-container-service-cluster"></a>Azure Container Service Kümesini Ölçeklendirme
 
-Bu örnek ölçekler ve Azure kapsayıcı hizmeti. 
+Bu örnek Azure Container Service’i ölçeklendirir. 
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myK8SCluster --new-agent-count 5
@@ -38,23 +38,23 @@ az acs scale --resource-group myResourceGroup --name myK8SCluster --new-agent-co
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyası dağıtımı oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her öğe.
+Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tablodaki her öğe, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az acs ölçek](/cli/azure/acs#scale) | Bir ACS küme ölçeklendirme. |
+| [az acs scale](/cli/azure/acs#az_acs_scale) | ACS kümesini ölçeklendirin. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).
 
-Ek Azure kapsayıcı hizmeti CLI kod örnekleri bulunabilir [Azure kapsayıcı hizmeti belgeleri](../cli-samples.md).
+Ek Azure Container Service CLI betik örnekleri, [Azure Container Service belgelerinde](../cli-samples.md) bulunabilir.
 

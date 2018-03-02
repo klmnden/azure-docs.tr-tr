@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 751bcc21397effc501931c00afef05f2dab24e4a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: estfan; LADocs
+ms.openlocfilehash: cca13db916dc2560ff78d477a0faa241e032ab27
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-logic-apps-features"></a>Logic Apps özelliklerini kullanma
 
@@ -85,7 +85,7 @@ Mantıksal uygulamanızı yalnızca veri belirli ölçütleri karşıladığınd
 
 ## <a name="repeat-actions-over-a-list-with-foreach"></a>Eylemler forEach ile bir liste üzerinden yineleme
 
-ForEach döngüsü üzerinden bir eylem yinelenecek dizisini belirtir. Bir dizi değil akış başarısız olur. Örneğin, bir dizi iletileri çıkarır action1 varsa ve her ileti göndermek istediğiniz eyleminizi özelliklerinde bu forEach deyimi içerebilir:`forEach : "@action('action1').outputs.messages"`
+ForEach döngüsü üzerinden bir eylem yinelenecek dizisini belirtir. Bir dizi değil akış başarısız olur. Örneğin, bir dizi iletileri çıkarır action1 varsa ve her ileti göndermek istediğiniz eyleminizi özelliklerinde bu forEach deyimi içerebilir: `forEach : "@action('action1').outputs.messages"`
 
 ## <a name="edit-the-code-definition-for-a-logic-app"></a>Bir mantıksal uygulama kodu tanımını düzenleme
 
@@ -117,12 +117,12 @@ Bu örnek için sorgu Terime parametreleri kullanabilmesi için var olan mantık
             "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
         }
 
-2. Git `When_a_feed-item_is_published` eylemi bulma `queries` bölümünde ve sorgu değerle değiştirin:`"feedUrl": "#@{parameters('currentFeedUrl')}"` 
+2. Git `When_a_feed-item_is_published` eylemi bulma `queries` bölümünde ve sorgu değerle değiştirin: `"feedUrl": "#@{parameters('currentFeedUrl')}"` 
 
     İki veya daha fazla katılmak için de kullanabilirsiniz `concat` işlevi. 
     Örneğin, `"@concat('#',parameters('currentFeedUrl'))"` yukarıdaki gibi aynı şekilde çalışır.
 
-3.  İşiniz bittiğinde seçin **kaydetmek**. 
+3.  İşiniz bittiğinde **Kaydet**’i seçin. 
 
     Web sitesinin RSS yoluyla farklı bir URL geçirerek akışı değiştirebileceğiniz artık `currentFeedURL` nesnesi.
 

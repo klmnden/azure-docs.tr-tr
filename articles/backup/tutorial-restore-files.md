@@ -1,92 +1,92 @@
 ---
-title: "Azure yedekleme ile bir VM dosyaları geri | Microsoft Docs"
-description: "Yedekleme ve kurtarma Hizmetleri ile Azure VM'de dosya düzeyinde geri yüklemeler gerçekleştirmeyi öğrenin."
-services: backup, virtual-machines
+title: "Azure Backup ile sanal makineye dosyaları geri yükleme | Microsoft Docs"
+description: "Backup ve Recovery Services ile bir Azure sanal makinesinde nasıl dosya düzeyinde geri yüklemeler gerçekleştirileceğini öğrenin."
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e1bbae56b70c50fcf691db47efd9dc587686e7da
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.openlocfilehash: 77084c5663f9e12347c243c4e78160657d7443b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure'da sanal makine için dosyaları geri yükle
-Azure yedekleme coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yüklediğinizde, tüm VM veya tek tek dosyaları geri yükleyebilirsiniz. Bu makalede tek tek dosyaları geri yükleme ayrıntılı olarak açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+# <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure’da dosyaları sanal makineye geri yükleme
+Azure Backup, coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yüklediğinizde, tüm sanal makineyi veya tek tek dosyaları geri yükleyebilirsiniz. Bu makalede tek tek dosyaların nasıl geri yükleneceği açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Liste ve select kurtarma noktaları
-> * Bir kurtarma noktası bir VM'ye bağlanın
-> * Dosyaları bir kurtarma noktasından geri yükle
+> * Kurtarma noktalarını listeleme ve seçme
+> * Bir kurtarma noktasını sanal makineye bağlama
+> * Bir kurtarma noktasından dosyaları geri yükleme
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.18 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.18 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğretici, korunan bir Linux VM Azure yedekleme ile gerektirir. Yanlışlıkla dosya silme ve kurtarma işlemi benzetimini yapmak için bir web sunucusundan bir sayfayı silin. Bir Web sunucusu çalıştıran ve korunan bir Linux VM Azure yedekleme ile gerekirse bkz [CLI ile azure'da bir sanal makine yedekleme](quick-backup-vm-cli.md).
+Bu öğretici için Azure Backup ile korunmuş olan bir Linux sanal makinesi gerekir. Yanlışlıkla dosya silme ve kurtarma işleminin benzetimini yapmak için bir web sunucusundan bir sayfayı silin. Bir web sunucusu çalıştıran ve Azure Backup ile korunan bir Linux sanal makinesine ihtiyacınız varsa bkz. [CLI ile Azure’da bir sanal makineyi yedekleme](quick-backup-vm-cli.md).
 
 
 ## <a name="backup-overview"></a>Backup’a genel bakış
-Azure yedekleme başlattığında, yedekleme uzantısını VM üzerinde bir zaman içinde nokta anlık görüntüsünü alır. İlk yedek istendiğinde yedekleme uzantısını VM yüklenir. Yedekleme gerçekleştiğinde VM çalışmıyorsa, azure yedekleme anlık görüntü temel alınan depolama da alabilir.
+Azure bir yedekleme başlattığında sanal makinedeki yedekleme uzantısı, belirli bir noktanın anlık görüntüsünü alır. İlk yedekleme istendiğinde sanal makineye yedekleme uzantısı yüklenir. Azure Backup, yedekleme gerçekleştiğinde sanal makine çalışmıyorsa temel depolamanın anlık görüntüsünü de alabilir.
 
-Varsayılan olarak, Azure Backup dosya sisteminin tutarlı bir yedeklemenin alır. Azure yedekleme anlık görüntüsünü alır sonra veri kurtarma Hizmetleri Kasası'na aktarılır. Verimliliği en üst düzeye çıkarmak için Azure Backup tanımlar ve yalnızca son yedeklemeden sonra değiştirilen veri blokları aktarır.
+Varsayılan olarak Azure Backup, bir dosya sisteminin tutarlı yedeklemesini alır. Azure Backup, anlık görüntüyü aldığında veriler Kurtarma Hizmetleri kasasına aktarılır. Verimliliği en üst düzeye çıkarmak için Azure Backup yalnızca önceki yedeklemeden itibaren değişmiş olan veri bloklarını belirler ve aktarır.
 
 Veri aktarımı tamamlandığında, anlık görüntü kaldırılır ve bir kurtarma noktası oluşturulur.
 
 
-## <a name="delete-a-file-from-a-vm"></a>Bir sanal makineden dosya silme
-Yanlışlıkla silme veya bir dosyaya değişiklik, tek tek dosyaların bir kurtarma noktasından geri yükleyebilirsiniz. Bu işlem, bir kurtarma noktası olarak yedeklenen dosyalara gözatın ve yalnızca gereksinim duyduğunuz dosyalarını geri olanak sağlar. Bu örnekte, biz dosya düzeyinde kurtarma işlemini göstermek için bir web sunucusundan bir dosyayı silin.
+## <a name="delete-a-file-from-a-vm"></a>Sanal makineden bir dosyayı silme
+Yanlışlıkla bir dosyayı siler veya dosya üzerinde değişiklik yaparsanız, bir kurtarma noktasından tek tek dosyaları geri yükleyebilirsiniz. Bu işlem, bir kurtarma noktasında yedeklenen dosyalara göz atmanıza ve yalnızca ihtiyaç duyduğunuz dosyaları geri yüklemenize olanak sağlar. Bu örnekte, dosya düzeyinde kurtarma işlemini göstermek için bir web sunucusundan dosyayı sileriz.
 
-1. VM'nize bağlanmak için VM ile IP adresi elde [az vm Göster](/cli/azure/vm?view=azure-cli-latest#az_vm_show):
+1. Sanal makinenize bağlanmak için [az vm show](/cli/azure/vm?view=azure-cli-latest#az_vm_show) ile sanal makinenizin IP adresini edinin:
 
      ```azurecli-interactive
      az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
      ```
 
-2. Web siteniz şu anda çalıştığını doğrulamak için VM genel IP adresi için bir web tarayıcısı açın. Web tarayıcı penceresini açık bırakın.
+2. Web sitenizin şu anda çalıştığını onaylamak için, sanal makinenizin genel IP adresiyle bir web tarayıcısını açın. Web tarayıcısı penceresini açık bırakın.
 
     ![Varsayılan NGINX web sayfası](./media/tutorial-restore-files/nginx-working.png)
 
-3. SSH ile VM bağlayın. Değiştir *Publicıpaddress* önceki komutta edinilen ortak IP adresine sahip:
+3. SSH ile sanal makinenize bağlanın. *publicIpAddress* değerini, önceki bir komutta aldığınız genel IP adresiyle değiştirin:
 
     ```bash
     ssh publicIpAddress
     ```
 
-4. Varsayılan sayfa web sunucusunda silin */var/www/html/index.nginx-debian.html* gibi:
+4. */var/www/html/index.nginx-debian.html* adresindeki web sunucusundan varsayılan sayfayı aşağıdaki şekilde silin:
 
     ```bash
     sudo rm /var/www/html/index.nginx-debian.html
     ```
 
-5. Web tarayıcınızda web sayfasını yenileyin. Web sitesi sayfasında, aşağıdaki örnekte gösterildiği gibi artık yükler:
+5. Web tarayıcınızda web sayfasını yenileyin. Aşağıdaki örnekte gösterildiği gibi web sitesi sayfası artık sayfayı yüklemez:
 
-    ![Varsayılan sayfa artık NGINX web sitesini yükler](./media/tutorial-restore-files/nginx-broken.png)
+    ![NGINX web sitesi artık varsayılan sayfayı yüklemez](./media/tutorial-restore-files/nginx-broken.png)
 
-6. Aşağıdaki gibi VM SSH oturumu kapatın:
+6. Sanal makinenize yönelik SSH oturumunu aşağıdaki şekilde kapatın:
 
     ```bash
     exit
     ```
 
 
-## <a name="generate-file-recovery-script"></a>Dosya Kurtarma komut dosyası oluştur
-Dosyalarınızı geri yüklemek için Azure yedekleme, kurtarma noktası bir yerel sürücü olarak bağlanan VM üzerinde çalıştırılacak bir komut dosyası sağlar. Bu yerel diske göz atın, VM için dosyaları geri ardından Kurtarma noktası bağlantısını kesin. Azure yedekleme zamanlaması ve bekletme için atanan ilkesini temel alarak, verilerinizi yedeklemek devam eder.
+## <a name="generate-file-recovery-script"></a>Dosya kurtarma betiği oluşturma
+Dosyalarınızı geri yüklemek için Azure Backup, yerel dosya olarak kurtarma noktanızı bağlayan sanal makinenizde çalıştırılacak bir betik sağlar. Bu yerel sürücüye göz atabilir, sanal makineye dosyaları geri yükleyebilir, ardından kurtarma noktasının bağlantısını kesebilirsiniz. Azure Backup, zamanlama ve bekletme için atanan ilke temelinde verilerinizi yedeklemeye devam eder.
 
-1. VM, kullanım için liste kurtarma noktalarına [az yedekleme recoverypoint listesi](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list). Bu örnekte, biz en son kurtarma noktası adlı VM için seçin *myVM* içinde korumalı *myRecoveryServicesVault*:
+1. Sanal makinenize yönelik kurtarma noktalarını listelemek için [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) komutunu kullanın. Bu örnekte, *myRecoveryServicesVault* içinde korunan *myVM* adlı sanal makine için en son kurtarma noktasını seçiyoruz:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -98,9 +98,9 @@ Dosyalarınızı geri yüklemek için Azure yedekleme, kurtarma noktası bir yer
         --output tsv
     ```
 
-2. Bağlanan veya bağlar, kurtarma noktası, VM için komut dosyası elde etmesini [az yedekleme geri yükleme dosyaları bağlama rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp). Aşağıdaki örnek komut dosyası adlı VM için alır *myVM* içinde korumalı *myRecoveryServicesVault*.
+2. Kurtarma noktasını sanal makinenize bağlayan veya takan betiği almak için [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) komutunu kullanın. Aşağıdaki örnek, *myRecoveryServicesVault* içinde korunan *myVM* adlı sanal makine için betiği alır.
 
-    Değiştir *myRecoveryPointName* önceki komutta elde edilen kurtarma noktası adı:
+    *myRecoveryPointName* değerini, önceki komutta aldığınız kurtarma noktasının adıyla değiştirin:
 
     ```azurecli-interactive
     az backup restore files mount-rp \
@@ -111,43 +111,43 @@ Dosyalarınızı geri yüklemek için Azure yedekleme, kurtarma noktası bir yer
         --rp-name myRecoveryPointName
     ```
 
-    Komut dosyası indirilir ve parola, aşağıdaki örnekte olduğu gibi görüntülenir:
+    Aşağıdaki örnekte olduğu gibi betik indirilir ve parola görüntülenir:
 
     ```
     File downloaded: myVM_we_1571974050985163527.sh. Use password c068a041ce12465
     ```
 
-3. VM'nize komut dosyasını aktarmak için güvenli kopyalama (SCP) kullanın. İndirilen komut adını sağlayın ve değiştirme *Publicıpaddress* vm'nizin ortak IP adresine sahip. Sondaki eklediğinizden emin olun `:` SCP sonunda komut aşağıdaki gibi:
+3. Betiği sanal makinenize aktarmak için Güvenli Kopya (SCP) kullanın. İndirdiğiniz betiğin adını belirtin ve *publicIpAddress* değerini sanal makinenizin genel IP adresiyle değiştirin. SCP komutunun sonuna aşağıdaki şekilde `:` eklediğinizden emin olun:
 
     ```bash
     scp myVM_we_1571974050985163527.sh 52.174.241.110:
     ```
 
 
-## <a name="restore-file-to-your-vm"></a>VM'nize dosya geri yükleme
-Şimdi, VM'ye kopyalanan kurtarma betiği ile kurtarma noktası bağlanabilir ve dosyaları geri yükle.
+## <a name="restore-file-to-your-vm"></a>Dosyayı sanal makinenize geri yükleme
+Sanal makinenize kurtarma betiği kopyalandığına göre artık kurtarma noktasını bağlayabilir ve dosyaları geri yükleyebilirsiniz.
 
-1. SSH ile VM bağlayın. Değiştir *Publicıpaddress* vm'nizin aşağıdaki gibi ortak IP adresine sahip:
+1. SSH ile sanal makinenize bağlanın. *publicIpAddress* değerini, aşağıdaki şekilde sanal makinenizin genel IP adresiyle değiştirin:
 
     ```bash
     ssh publicIpAddress
     ```
 
-2. Ekle düzgün çalışması komut dosyanızı izin vermek için yürütme izinleri ile **chmod**. Kendi komut dosyasının adını girin:
+2. Betiğinizin düzgün şekilde çalışmasını sağlamak için **chmod** ile yürütme izinleri ekleyin. Kendi betiğinizin adını girin:
 
     ```bash
     chmod +x myVM_we_1571974050985163527.sh
     ```
 
-3. Kurtarma noktası bağlamak için komut dosyasını çalıştırın. Kendi komut dosyasının adını girin:
+3. Kurtarma noktasını bağlamak için betiği çalıştırın. Kendi betiğinizin adını girin:
 
     ```bash
     ./myVM_we_1571974050985163527.sh
     ```
 
-    Komut dosyasını çalıştırır gibi kurtarma noktası erişmek için bir parola girmeniz istenir. Önceki çıktıda gösterilen parolayı girmeniz [az yedekleme geri yükleme dosyaları bağlama rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) kurtarma betiği oluşturulan komutu.
+    Komut dosyası çalıştırılırken, kurtarma noktasına erişmek için bir parola girmeniz istenir. Kurtarma betiğini oluşturan önceki [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) komutundan elde edilen çıktıda gösterilen parolayı girin.
 
-    Komut dosyası çıktısı için kurtarma noktası yol sağlar. Aşağıdaki örnek çıkış kurtarma noktası adresindeki bağlandığını gösterir */home/azureuser/myVM-20170919213536/Volume1*:
+    Betikteki çıktı size kurtarma noktasının yolunu sunar. Aşağıdaki örnek çıktı, */home/azureuser/myVM-20170919213536/Volume1* dizinine bağlanan kurtarma noktasını gösterir:
 
     ```
     Microsoft Azure VM Backup - File Recovery
@@ -169,25 +169,25 @@ Dosyalarınızı geri yüklemek için Azure yedekleme, kurtarma noktası bir yer
     ************ Open File Explorer to browse for files. ************
     ```
 
-4. Kullanım **cp** takılı kurtarma noktasından NGINX varsayılan web sayfası kopyalamak için özgün dosya konumuna yedekleyin. Değiştir */home/azureuser/myVM-20170919213536/Volume1* bağlama noktası kendi konumu ile:
+4. Bağlanan kurtarma noktasından varsayılan NGINX web sayfasını özgün dosya konumuna geri kopyalamak için **cp** kullanın. */home/azureuser/myVM-20170919213536/Volume1* bağlama noktasını kendi konumunuzla değiştirin:
 
     ```bash
     sudo cp /home/azureuser/myVM-20170919213536/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
 
-6. Web tarayıcınızda web sayfasını yenileyin. Web sitesi artık doğru şekilde yeniden, aşağıdaki örnekte gösterildiği gibi yükler:
+6. Web tarayıcınızda web sayfasını yenileyin. Aşağıdaki örnekte gösterildiği gibi web sitesi artık düzgün şekilde yüklenir:
 
-    ![NGINX web sitesi artık doğru yükler](./media/tutorial-restore-files/nginx-restored.png)
+    ![NGINX web sitesi artık düzgün şekilde yüklenir](./media/tutorial-restore-files/nginx-restored.png)
 
-7. Aşağıdaki gibi VM SSH oturumu kapatın:
+7. Sanal makinenize yönelik SSH oturumunu aşağıdaki şekilde kapatın:
 
     ```bash
     exit
     ```
 
-8. Kurtarma noktası ile bir VM'den çıkarın [az yedekleme geri yükleme dosyaları çıkarın rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp). Aşağıdaki örnek kurtarma noktası adlı VM'den çıkarır *myVM* içinde *myRecoveryServicesVault*.
+8. [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp) ile sanal makinenizden kurtarma noktasını çıkarın. Aşağıdaki örnek, *myRecoveryServicesVault* içindeki *myVM* adlı sanal makineden kurtarma noktasını çıkarır.
 
-    Değiştir *myRecoveryPointName* önceki komutlar elde kurtarma noktanızın adını:
+    *myRecoveryPointName* değerini, önceki komutlarda aldığınız kurtarma noktasının adıyla değiştirin:
     
     ```azurecli-interactive
     az backup restore files unmount-rp \
@@ -199,15 +199,15 @@ Dosyalarınızı geri yüklemek için Azure yedekleme, kurtarma noktası bir yer
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir kurtarma noktası bir VM'ye bağlı ve bir web sunucusu için dosyalar geri. Şunları öğrendiniz:
+Bu öğreticide, bir kurtarma noktasını sanal makineye bağladınız ve bir web sunucusu için dosyaları geri yüklediniz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Liste ve select kurtarma noktaları
-> * Bir kurtarma noktası bir VM'ye bağlanın
-> * Dosyaları bir kurtarma noktasından geri yükle
+> * Kurtarma noktalarını listeleme ve seçme
+> * Bir kurtarma noktasını sanal makineye bağlama
+> * Bir kurtarma noktasından dosyaları geri yükleme
 
-Azure için Windows Server'ı Yedekle konusunda bilgi edinmek için sonraki öğretici ilerleyin.
+Windows Server’ın Azure’da nasıl yedekleneceği hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Azure için Windows Server'ı Yedekle](tutorial-backup-windows-server-to-azure.md)
+> [Windows Server’ı Azure’da Yedekleme](tutorial-backup-windows-server-to-azure.md)
 

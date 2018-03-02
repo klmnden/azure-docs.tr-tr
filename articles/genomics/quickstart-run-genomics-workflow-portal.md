@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 71f5e4d1288a361c4b52ff45fb4c6601fa39a757
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ed2048755317649d160bcfd71519af715067b99b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Hızlı Başlangıç: Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma
 
@@ -84,7 +84,7 @@ Bu paketleri `pip`, `easy_install` veya standart `setup.py` yordamlarını kulla
 
 
 ### <a name="test-the-microsoft-genomics-client"></a>Microsoft Genomiks istemcisini test etme
-Microsoft Genomiks istemcisini test etmek için genomiks hesabınızdan yapılandırma dosyasını indirin. Sol altta bulunan **Diğer hizmetler**'e tıklayarak genomiks hesaplarını filtreleyebilir, istediğiniz genomiks hesabını seçebilirsiniz.
+Microsoft Genomiks istemcisini test etmek için genomiks hesabınızdan yapılandırma dosyasını indirin. Sol üstte bulunan **Tüm hizmetler**'e tıklayıp, filtreleyip genomiks hesaplarını seçerek, genomiks hesabınıza gidebilirsiniz.
 
 
 ![Azure portalında Microsoft Genomiks hesaplarını filtreleme](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Azure portalında Microsoft Genomiks hesaplarını filtreleme")

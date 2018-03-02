@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 4b2561aa338707567b44237e668e9d6d1a01bfea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Salesforce veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - genel olarak kullanılabilir](v1/data-factory-salesforce-connector.md)
+> * [Sürüm 1 - Genel kullanıma sunuldu](v1/data-factory-salesforce-connector.md)
 > * [Sürüm 2 - Önizleme](connector-salesforce.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de ilk ve son Salesforce veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
@@ -187,6 +187,7 @@ Salesforce verileri kopyalamak için kopyalama etkinliği için kaynak türünü
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak **SalesforceSource**. | Evet |
 | sorgu |Verileri okumak için özel sorgu kullanın. Bir SQL-92 sorgu kullanabilirsiniz veya [Salesforce nesnesi sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgu. `select * from MyTable__c` bunun bir örneğidir. | (Veri kümesinde "tableName" belirtilmişse) yok |
+| readBehavior | Silinen olanlar da dahil olmak üzere tüm kayıtları sorgu veya mevcut kayıtları sorguyu gösterir. Belirtilmezse, varsayılan davranışı eski olur. <br>İzin verilen değerler: **sorgu** (varsayılan), **queryAll**.  | Hayır |
 
 > [!IMPORTANT]
 > "__C" bölümünü **API adı** herhangi bir özel nesnesi için gereklidir.
@@ -292,8 +293,8 @@ Salesforce dönüşüm geçici silinen kayıtlarını sorgulamak için belirleye
 
 SOQL veya SQL sorgusu belirttiğinizde, DateTime biçimi fark dikkat edin. Örneğin:
 
-* **SOQL örnek**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **SQL örneği**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
+* **SOQL örnek**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **SQL örneği**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Salesforce için eşleme veri türü
 
@@ -304,8 +305,8 @@ Salesforce verileri kopyaladığınızda, aşağıdaki eşlemelerini Salesforce 
 | Otomatik numara |Dize |
 | Onay kutusu |Boole |
 | Para birimi |Çift |
-| Tarih |Tarih Saat |
-| Tarih/Saat |Tarih Saat |
+| Tarih |DateTime |
+| Tarih/Saat |DateTime |
 | E-posta |Dize |
 | Kimlik |Dize |
 | Arama ilişkisi |Dize |

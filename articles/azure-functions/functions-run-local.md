@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8b85457c5df9fb15c7eebe8b6fe8fb904f9e6009
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Yerel kod ve test Azure işlevleri
 
@@ -106,6 +106,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 
 Yerel bir Git deposu olmadan projesi oluşturmak için kullanın `--no-source-control [-n]` seçeneği.
 
+## <a name="register-extensions"></a>Uzantılarını kaydetme
+
+Sürümünde 2.x Azure işlevleri çalışma zamanı açıkça kaydetmeniz gerekir [uzantıları bağlama](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) işlevi uygulamanızda kullanan. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Daha fazla bilgi için bkz: [Azure işlevleri Tetikleyicileri ve bağlamaları kavramları](functions-triggers-bindings.md#register-binding-extensions).
+
 ## <a name="local-settings-file"></a>Yerel ayarlar dosyası
 
 Dosya local.settings.json uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları ayarlarını saklar. Aşağıdaki yapı vardır:
@@ -129,7 +137,7 @@ Dosya local.settings.json uygulama ayarları, bağlantı dizeleri ve Azure işle
 | Ayar      | Açıklama                            |
 | ------------ | -------------------------------------- |
 | **Isencrypted** | Ayarlandığında **doğru**, tüm değerleri yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer **false**. |
-| **Değerleri** | Uygulama ayarlarını yerel olarak çalıştırırken kullanılan koleksiyonu. **AzureWebJobsStorage** ve **AzureWebJobsDashboard** örnekler; tam bir listesi için bkz: [uygulama ayarları başvurusu](functions-app-settings.md).  |
+| **Değerler** | Uygulama ayarlarını yerel olarak çalıştırırken kullanılan koleksiyonu. **AzureWebJobsStorage** ve **AzureWebJobsDashboard** örnekler; tam bir listesi için bkz: [uygulama ayarları başvurusu](functions-app-settings.md).  |
 | **Ana Bilgisayar** | Bu bölümdeki ayarlarını işlevleri ana bilgisayar işlemi yerel olarak çalıştırırken özelleştirin. | 
 | **LocalHttpPort** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
 | **CORS** | İzin verilen çıkış noktası tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Çıkış boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
@@ -312,6 +320,10 @@ Bir işlev doğrudan kullanarak da çağırabilirsiniz `func run <FunctionName>`
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
+### <a name="viewing-log-files-locally"></a>Günlük dosyaları yerel olarak görüntüleme
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
+
 ## <a name="publish"></a>Azure'a yayımlama
 
 Bir işlev uygulaması Azure işlevleri proje yayımlamak için kullanın `publish` komutu:
@@ -347,5 +359,5 @@ Bir hata veya özellik isteği dosyasına [GitHub sorunu açmak](https://github.
 
 <!-- LINKS -->
 
-[Azure işlevleri çekirdek araçları]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure portalı]: https://portal.azure.com 
+[Azure işlevleri çekirdek Araçları]: https://www.npmjs.com/package/azure-functions-core-tools
+[Azure portal]: https://portal.azure.com 

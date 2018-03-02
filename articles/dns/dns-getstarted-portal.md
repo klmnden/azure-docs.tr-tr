@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Azure portal ile Azure DNS’i kullanmaya başlama
 
 > [!div class="op_single_selector"]
-> * [Azure portal](dns-getstarted-portal.md)
+> * [Azure portalı](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
@@ -34,8 +34,8 @@ DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak 
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
-1. Azure portalında oturum açın
-2. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak **DNS bölgesi oluştur** sayfasını açın.
+1. Azure Portal’da oturum açın.
+2. Hub menüsünde **Kaynak oluştur > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak **DNS bölgesi oluştur** sayfasını açın.
 
     ![DNS bölgesi](./media/dns-getstarted-portal/openzone650.png)
 

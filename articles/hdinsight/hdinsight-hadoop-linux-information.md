@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4449dfa1b189f51292d24af884ba9d2addf1fe24
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
@@ -29,13 +29,13 @@ Azure Hdınsight kümeleri Hadoop Azure bulutta çalışan bir bilinen Linux ort
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu belgede yer alan adımlar birçoğu, sisteminizde yüklü gereken aşağıdaki yardımcı programlar, kullanın.
 
 * [cURL](https://curl.haxx.se/) - web tabanlı Hizmetleri ile iletişim kurmak için kullanılan
 * [jq](https://stedolan.github.io/jq/) - JSON belgeleri ayrıştırmak için kullanılan
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (Önizleme) - Azure hizmetlerini uzaktan yönetmek için kullanılır
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) - Azure hizmetlerini uzaktan yönetmek için kullanılan
 
 ## <a name="users"></a>Kullanıcılar
 
@@ -86,7 +86,7 @@ Bu komut hizmet açıklayan bir JSON belgesi döndürür ve ardından jq yalnız
     >
     > Kimlik doğrulama düz metin - her zaman bağlantı güvenliğini sağlamaya yardımcı olmak için HTTPS kullanır.
 
-* **SSH** - &lt;clustername >-ssh.azurehdinsight.net bağlantı noktası 22 veya 23. Bağlantı noktası 22 23 ikincil bağlanmak için kullanılırken birincil headnode için bağlanmak için kullanılır. Baş düğümler hakkında daha fazla bilgi için bkz. [HDInsight’ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net on port 22 or 23. Bağlantı noktası 22 23 ikincil bağlanmak için kullanılırken birincil headnode için bağlanmak için kullanılır. Baş düğümler hakkında daha fazla bilgi için bkz. [HDInsight’ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği](hdinsight-high-availability-linux.md).
 
     > [!NOTE]
     > Yalnızca bir istemci makinesinden SSH küme baş düğümler erişebilir. Bağlandıktan sonra daha sonra bir headnode SSH kullanarak çalışan düğümleri erişebilirsiniz.
@@ -100,7 +100,7 @@ Hadoop ilgili dosyaları küme düğümlerinde bulunabilir `/usr/hdp`. Bu dizin,
 * **2.2.4.9-1**: dizin adı Hdınsight tarafından kullanılan Hortonworks veri platformu sürümüdür. Kümenizde sayı burada listelenen olandan farklı olabilir.
 * **Geçerli**: Bu dizin altında alt dizinleri bağlantılar içeren **2.2.4.9-1** dizini. Sürüm numarasını hatırlamanız gerekmez, bu dizin zaten var.
 
-Hadoop dağıtılmış dosya sistemi üzerinde örnek veriler ve JAR dosyalarını bulunabilir `/example` ve`/HdiSamples`
+Hadoop dağıtılmış dosya sistemi üzerinde örnek veriler ve JAR dosyalarını bulunabilir `/example` ve `/HdiSamples`
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure depolama ve veri Gölü deposu
 
@@ -151,11 +151,11 @@ Ambari, kümenin varsayılan depolama yapılandırması almak için kullanabilir
 
 Bu komutu aşağıdaki URI'ler benzer bir değer döndürür:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`bir Azure depolama hesabı kullanıyorsanız.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` bir Azure depolama hesabı kullanıyorsanız.
 
     Hesap adı Azure depolama hesabının adıdır. Küme depolama köküdür blob kapsayıcısı kapsayıcı adıdır.
 
-* `adl://home`Azure Data Lake Store kullanıyorsanız. Data Lake Store adını almak için aşağıdaki REST çağrısı kullanın:
+* `adl://home` Azure Data Lake Store kullanıyorsanız. Data Lake Store adını almak için aşağıdaki REST çağrısı kullanın:
 
     ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
@@ -231,7 +231,7 @@ Farklı küme türü gibi ölçeklendirme tarafından etkilenir:
 
     * **Storm kullanıcı Arabirimi**: Storm kullanıcı arabirimini kullanarak bir topoloji yeniden dengelemeniz için aşağıdaki adımları kullanın.
 
-        1. Açık **https://CLUSTERNAME.azurehdinsight.net/stormui** web tarayıcısında, burada CLUSTERNAME Storm kümenizin adıdır. İstenirse, Hdınsight Küme Yöneticisi (Yönetici) adını ve küme oluştururken belirttiğiniz parolayı girin.
+        1. Open **https://CLUSTERNAME.azurehdinsight.net/stormui** in your web browser, where CLUSTERNAME is the name of your Storm cluster. İstenirse, Hdınsight Küme Yöneticisi (Yönetici) adını ve küme oluştururken belirttiğiniz parolayı girin.
         2. Yeniden dengelemeniz ve ardından istediğiniz topolojiyi seçin **yeniden dengelemeniz** düğmesi. Yeniden dengeleyin işlem gerçekleştirilmeden önce gecikme girin.
 
 * **Kafka**: işlemleri ölçeklendirme sonra çoğaltmalarını yeniden dengelemeniz gerekir. Daha fazla bilgi için bkz: [hdınsight'ta Kafka verilerle yüksek kullanılabilirliğini](./kafka/apache-kafka-high-availability.md) belge.

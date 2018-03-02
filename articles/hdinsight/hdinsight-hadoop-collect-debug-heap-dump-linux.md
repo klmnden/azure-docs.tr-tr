@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dcc04e5bba28d0cb32e8633542ab8d3c125003ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2bc7b35a87f3973c59fb36372d4edad86412ea0e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Linux tabanlı hdınsight'ta Hadoop Hizmetleri için yığın dökümleri etkinleştir
 
@@ -51,8 +51,8 @@ Her komut dosyasında bir dışarı aktarma için yoktur  **\* \_OPTS**, JVM ge�
 
 Eşleme ve azaltma MapReduce hizmeti bir alt işlemi bu işlemleri olduğu gibi işlemleri biraz farklı. Her eşleme ya da azaltmak işlem bir alt kapsayıcıda çalışır ve JVM seçenekleri içeren iki girdi vardır. İçinde yer alan her ikisi de **mapred-site.xml**:
 
-* **mapreduce.Admin.Map.Child.Java.opts**
-* **mapreduce.Admin.reduce.Child.Java.opts**
+* **mapreduce.admin.map.child.java.opts**
+* **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
 > Komut dosyaları ve mapred-site.xml ayarları, kümedeki düğümler arasında değişiklikleri çoğaltmaya Ambari işleyici olarak değiştirmek için Ambari kullanmanızı öneririz. Bkz: [Ambari kullanarak](#using-ambari) belirli adımlar için bölüm.
@@ -63,7 +63,7 @@ Bir OutOfMemoryError oluştuğunda aşağıdaki yığın dökümleri sağlar:
 
     -XX:+HeapDumpOnOutOfMemoryError
 
- **+**  Bu seçeneği etkin olduğunu gösterir. Varsayılan devre dışıdır.
+ **+**  Bu seçeneği etkin olduğunu gösterir. Varsayılan olarak devre dışı seçeneği kullanılır.
 
 > [!WARNING]
 > Döküm dosyaları büyük olabileceğinden yığın dökümleri hdınsight'ta Hadoop Hizmetleri için varsayılan olarak etkin değildir. Sorunu yeniden ve döküm dosyaları toplanan sonra bunları devre dışı bırakmak, bunları gidermek için etkinleştirirseniz, unutmayın.

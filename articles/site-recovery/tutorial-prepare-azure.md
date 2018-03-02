@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile kullanmak için kaynakları oluşturun | Microsoft Docs"
-description: "Azure Azure Site Recovery hizmetini kullanarak şirket içi makineleri çoğaltma için hazırlanamadı öğrenin."
+title: "Azure Site Recovery ile kullanılacak kaynaklar oluşturma | Microsoft Docs"
+description: "Azure Site Recovery hizmetini kullanarak şirket içi makinelerin çoğaltması için Azure’un nasıl hazırlanacağını öğrenin."
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,22 +8,22 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: MT
+ms.openlocfilehash: d1aadd6b44d64f0bdb35ea02d628bedfc366ad3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Şirket içi makineleri çoğaltma için Azure kaynaklarını hazırlama
+# <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Şirket içi makinelerin çoğaltması için Azure kaynaklarını hazırlama
 
-[Azure Site Recovery](site-recovery-overview.md) hizmet iş uygulamalarınızı tutmaktan ve planlanan ve planlanmayan kesintiler sırasında çalıştırarak iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı. Site Recovery yönetir ve şirket içi makineler ve Azure sanal makineleri (VM'ler), çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma düzenler.
+[Azure Site Recovery](site-recovery-overview.md) hizmeti, planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
 
-Bu öğretici, şirket içi sanal makineleri (Hyper-V veya VMware) veya Windows/Linux fiziksel sunucuları Azure'a çoğaltmak istediğiniz zaman Azure bileşenleri hazırlamak nasıl gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğretici, şirket içi sanal makineleri (Hyper-V veya VMware) veya Windows/Linux fiziksel sunucuları Azure'a çoğaltmak istediğinizde Azure bileşenlerini nasıl hazırlayacağını gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Hesabınızın çoğaltma izinleri olduğundan emin olun
+> * Hesabınızın çoğaltma izinlerine sahip olduğunu doğrulama
 > * Bir Azure Storage hesabı oluşturun.
-> * Bir Azure ağı ayarlayın. Azure Vm'lerinin yük devretme sonrasında oluşturulduğunda Azure bu ağa alanına.
+> * Bir Azure ağını ayarlama. Yük devretmeden sonra Azure sanal makineleri oluşturulduğunda sanal makineler bu Azure ağına katılır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
 
@@ -31,66 +31,64 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 http://portal.azure.com sayfasından Azure portalda oturum açın.
 
-## <a name="verify-account-permissions"></a>Hesap izinlerini doğrulayın
+## <a name="verify-account-permissions"></a>Hesap izinlerini doğrulama
 
-Ücretsiz Azure hesabınız az önce oluşturduğunuz, aboneliğinizi yönetici demektir. Abonelik Yöneticisi değilse, gereksinim duyduğunuz izinleri atamak için yöneticinizle birlikte çalışarak. Yeni bir sanal makine için çoğaltmayı etkinleştirmek için şunlara sahip olmalısınız:
+Ücretsiz Azure hesabınızı oluşturduysanız aboneliğinizin yöneticisi siz olursunuz. Abonelik yöneticisi değilseniz, ihtiyaç duyduğunuz izinleri atamak için yöneticiyle birlikte çalışın. Yeni bir sanal makineye yönelik çoğaltmayı etkinleştirmek için şunlara sahip olmalısınız:
 
-- Seçilen kaynak grubunda bir VM oluşturma izni
-- Seçilen sanal ağ içinde bir VM oluşturma izni
+- Seçilen kaynak grubunda sanal makine oluşturma izni
+- Seçilen sanal ağda sanal makine oluşturma izni
 - Seçilen depolama hesabına yazma izni
 
-'Sanal makine Katılımcısı' yerleşik rolü bu izinlere sahiptir. Azure Site Recovery işlemlerini yönetme izni de gerekir. 'Site kurtarma katılımcı' rolü bir kurtarma Hizmetleri kasası Site Recovery işlemlerini yönetmek için gerekli tüm izinlere sahiptir.
+'Sanal Makine Katılımcısı' yerleşik rolü bu izinlere sahiptir. Azure Site Recovery işlemlerini yönetme izni de gerekir. 'Site Recovery Katkıda Bulunanı' rolü, Kurtarma Hizmetleri kasasındaki Site Recovery işlemlerini yönetmek için gereken tüm izinlere sahiptir.
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Azure depolama alanında çoğaltılan makinelerin görüntüleri tutulur. Azure VM'ler, şirket içinden Azure'a yük depolama biriminden oluşturulur.
+Çoğaltılan makinelerin görüntüleri Azure depolama alanında tutulur. Şirket içinden Azure’a yük devretme gerçekleştirdiğinizde depolama alanından Azure sanal makineleri oluşturulur.
 
-1. İçinde [Azure portal](https://portal.azure.com) menüsünde tıklatın **yeni** -> **depolama** -> **depolama hesabı**.
-2. İçinde **depolama hesabı oluşturma**, hesap için bir ad girin. Bu öğreticileri için ad kullanacağız **contosovmsacct1910171607**. Adı Azure içinde benzersiz olması ve numaraları ve yalnızca küçük harfler 3 ile 24 karakter arasında olması gerekir.
-3. Kullanım **Resource Manager** dağıtım modeli.
-4. Seçin **genel amaçlı** > **standart**. BLOB storage'ı seçmeyin.
-5. Varsayılan seçmek **RA-GRS** depolama artıklığı.
+1. [Azure portal](https://portal.azure.com) menüsünde **Yeni** -> **Depolama** -> **Depolama hesabı**’na tıklayın.
+2. **Depolama hesabı oluştur** bölümüne hesap için bir ad girin. Bu öğreticiler için **contosovmsacct1910171607** adını kullanacağız. Ad, Azure içinde benzersiz olmalı, 3 ila 24 karakter uzunluğunda olmalı ve yalnızca rakamlar ve küçük harfler içermelidir.
+3. **Resource Manager** dağıtım modelini kullanın.
+4. **Genel amaçlı** > **Standart** seçeneklerini belirleyin. Blob depolamayı seçmeyin.
+5. Depolama yedekliliği için varsayılan **RA-GRS** seçeneğini belirleyin.
 6. Yeni depolama hesabını oluşturmak istediğiniz aboneliği seçin.
-7. Yeni bir kaynak grubu belirtin. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bu öğreticileri için kullanırız adı **ContosoRG**.
-8. Depolama hesabınız için coğrafi konumu seçin. Depolama hesabı kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Bu öğreticileri için kullandığımız **Batı Avrupa** bölge.
+7. Yeni bir kaynak grubu belirtin. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bu öğreticiler için **ContosoRG** adını kullanırız.
+8. Depolama hesabınız için coğrafi konumu seçin. Depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Bu öğreticiler için **Batı Avrupa** bölgesini kullanırız.
 
    ![create-storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
 9. Depolama hesabını oluşturmak için **Oluştur**’a tıklayın.
 
-## <a name="create-a-vault"></a>Bir kasa oluşturun
+## <a name="create-a-vault"></a>Kasa oluşturma
 
-1. Azure portal menüsünde tıklatın **yeni** > **izleme ve Yönetim** >
-    **yedekleme ve Site kurtarma**.
-2. **Ad** alanında, kasayı tanımlamak için bir kolay ad belirtin. Bu öğretici için kullandığımız **ContosoVMVault**.
-3. Adlı varolan bir kaynak grubu seçin **contosoRG**.
-4. Azure bölgesini belirtin **Batı Avrupa**, biz bu öğreticileri kümesinde kullandığınız.
-5. Kasa panodan hızlı bir şekilde erişmek için tıklatın **panoya Sabitle** > **oluşturma**.
+1. Azure portalında **Kaynak oluştur** > **İzleme ve Yönetim** > **Backup and Site Recovery** seçeneklerine tıklayın.
+2. **Ad** alanında, kasayı tanımlamak için bir kolay ad belirtin. Bu öğretici için **ContosoVMVault** adını kullanırız.
+3. **contosoRG** adlı mevcut kaynak grubunu seçin.
+4. Bu öğretici kümesinde kullandığımız **Batı Avrupa** Azure bölgesini belirtin.
+5. Panodan kasaya hızlıca erişmek için **Panoya sabitle** > **Oluştur** seçeneğine tıklayın.
 
    ![Yeni kasa](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   Yeni kasa görünür **Pano** > **tüm kaynakları**ve ana **kurtarma Hizmetleri kasaları** sayfası.
+   Yeni kasa, **Pano** > **Tüm kaynaklar** kısmında ve ana **Kurtarma Hizmetleri kasaları** sayfasında görüntülenir.
 
 ## <a name="set-up-an-azure-network"></a>Azure ağı ayarlama
 
-Yük devretme sonrasında oluşturulan Azure Vm'lerinin depolama biriminden, bu ağa katılmış.
+Yük devretmeden sonra depolamadan Azure sanal makineleri oluşturulduğunda sanal makineler bu ağa katılır.
 
-1. İçinde [Azure portal](https://portal.azure.com) menüsünde tıklatın **yeni** > **ağ** >
-    **sanal ağ**
-2. Bırakın **Resource Manager** dağıtım modeli olarak seçildi. Kaynağın, tercih edilen dağıtım modeline yöneticisidir.
-   - Bir ağ adı belirtin. Ad Azure kaynak grubun içinde benzersiz olmalıdır. Adı kullanacağız **ContosoASRnet**
-   - Varolan bir kaynak grubunu kullanın **contosoRG**.
-   - Ağ 10.0.0.0/24 adres aralığını belirtin.
-   - Bu öğretici için bir alt ağ gerekli değil.
-   - Ağ oluşturulacağı aboneliği seçin.
-   - Konumu seçin **Batı Avrupa**. Ağın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
+1. [Azure portalında](https://portal.azure.com) **Kaynak oluştur** > **Ağ** > **Sanal ağ** seçeneklerine tıklayın.
+2. Dağıtım modeli olarak **Resource Manager**’ı seçili bırakın. Tercih edilen dağıtım modeli Resource Manager'dır.
+   - Bir ağ adı belirtin. Ad, Azure kaynak grubu içinde benzersiz olmalıdır. **ContosoASRnet** adını kullanacağız
+   - **contosoRG** mevcut kaynak grubunu kullanın.
+   - Ağ adres aralığını 10.0.0.0/24 olarak belirtin.
+   - Bu öğretici için bir alt ağ gerekmez.
+   - Ağın oluşturulacağı aboneliği seçin.
+   - **Batı Avrupa** konumunu seçin. Ağın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
 3. **Oluştur**’a tıklayın.
 
    ![create-network](media/tutorial-prepare-azure/create-network.png)
 
-   Sanal ağ oluşturmak için birkaç saniye sürer. Oluşturulduktan sonra Azure portal panosunda konusuna bakın.
+   Sanal ağın oluşturulması birkaç saniye sürer. Oluşturulduktan sonra, Azure portalı panosunda görünür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Olağanüstü durum kurtarma Azure için şirket içi VMware altyapıyı hazırlama](tutorial-prepare-on-premises-vmware.md)
+> [Azure’da olağanüstü durum kurtarma için şirket içi VMware altyapısını hazırlama](tutorial-prepare-on-premises-vmware.md)
