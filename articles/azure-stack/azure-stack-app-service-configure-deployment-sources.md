@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-deployment-sources"></a>Dağıtım kaynaklarını yapılandırma
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 Azure yığın uygulama hizmeti birden çok kaynak denetim sağlayıcılarından isteğe bağlı dağıtımını destekler. Bu özellik uygulama geliştiricileri kendi kaynak denetimi havuzların doğrudan dağıtmanıza olanak sağlar. Kullanıcılar kendi depoları bağlanmak için uygulama hizmeti yapılandırmak istiyorsanız, bir bulut işleci öncelikle Azure yığın uygulama hizmeti ve kaynak denetimi sağlayıcısı arasında tümleştirme yapılandırmanız gerekir.  
 
-Kaynak denetimi sağlayıcısı, yerel Git yanı sıra, desteklenen şunlardır:
+Yerel Git ek olarak, aşağıdaki kaynak denetimi sağlayıcısı desteklenir:
 
 * GitHub
 * BitBucket
@@ -94,7 +94,8 @@ Bu görevi tamamlamak için Microsoft OneDrive hesabınıza bağlı Account olma
 2. Altında **uygulamalarım**, tıklatın **bir uygulama ekleyin**.
 ![OneDrive uygulamalar][10]
 3. Girin bir **adı** yeni uygulama kaydı için girin **Azure yığın uygulama hizmeti**, tıklatıp **uygulaması oluştur**
-4. Sonraki ekranda, yeni uygulamanızı özelliklerini listeler. Kayıt **uygulama kimliği**. ![OneDrive uygulama özellikleri][11]
+4. Sonraki ekranda, yeni uygulamanızı özelliklerini listeler. Kayıt **uygulama kimliği**.
+![OneDrive uygulama özellikleri][11]
 5. Altında **uygulama parolaları**, tıklatın **yeni bir parola oluşturmak**. Not **oluşturulan yeni bir parola**. Bu, uygulama gizli anahtarı ve tıklattıktan sonra alınabilir değil **Tamam** bu aşamada.
 6. Altında **platformları** tıklatın **eklemek Platform** seçip **Web**.
 7. Girin **yeniden yönlendirme URI'si**.  Etki alanınız azurestack.local için farklı bir etki alanı yerine altında çalışan bir varsayılan Azure yığın dağıtımda, yeniden yönlendirme URI'si form https://portal.local.azurestack.external/tokenauthorize içinde ise ![OneDrive uygulama - Ekle Web Platformu][12]

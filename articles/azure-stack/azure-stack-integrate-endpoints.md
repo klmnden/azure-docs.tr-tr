@@ -3,31 +3,32 @@ title: "Azure veri merkezi tümleştirme yığın - uç noktalarını yayımlama
 description: "Azure yığın uç noktaları, veri merkezinizde yayımlama öğrenin"
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure veri merkezi tümleştirme yığın - uç noktalarını yayımlama
-Azure yığın birden fazla sanal IP adresleri (VIP), altyapı rolleri için ayarlar. Bu Vıp'lerin ortak IP adresi havuzundan ayrılır. Her VIP yazılım tanımlı ağ katmanı bir erişim denetim listesi (ACL) ile korunmaktadır. ACL, fiziksel anahtarlar (TORs ve BMC) arasında daha fazla çözüm sağlamlaştırmak için de kullanılır. Dağıtım sırasında belirtilen dış DNS bölge içindeki her bir uç nokta için bir DNS girişi oluşturulur.
+Azure yığın altyapı rollerini sanal IP adresleri (VIP) ayarlar. Bu Vıp'lerin ortak IP adresi havuzundan ayrılır. Her VIP yazılım tanımlı ağ katmanı bir erişim denetim listesi (ACL) ile korunmaktadır. ACL, fiziksel anahtarlar (TORs ve BMC) arasında daha fazla çözüm sağlamlaştırmak için de kullanılır. Dağıtım sırasında belirtilen dış DNS bölge içindeki her bir uç nokta için bir DNS girişi oluşturulur.
 
 
 Aşağıdaki Mimari diyagramı ACL'ler ve farklı ağ katmanları gösterilmektedir:
 
-![Mimari diyagramı](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Yapısal resmi](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>Bağlantı noktalarını ve protokolleri (gelen)
 
-Dış ağlara yayımlama Azure yığın uç noktalar için gerekli altyapı VIP'ler aşağıda listelenmiştir. Liste her gösterir uç noktası, gerekli bağlantı noktası ve protokol. SQL kaynak sağlayıcısı ve diğerleri gibi ek kaynak sağlayıcıları için gerekli uç noktaları belirli bir kaynak sağlayıcısı dağıtım belgelerinde ele alınmıştır.
+Altyapı kümesi VIP'ler dış ağlara yayımlama Azure yığın uç noktalar için gereklidir. *Uç noktası (VIP)* tablo gösterir her uç nokta, gerekli bağlantı noktası ve protokol. SQL kaynak sağlayıcısı gibi ek kaynak sağlayıcıları Gerektirdiğiniz için belirli bir kaynak sağlayıcısı dağıtım belgelerine bakın.
 
-İç altyapı yayımlama Azure yığını için gerekli olmadıklarını olduğundan VIP'ler listelenmez.
+VIP'ler yayımlama Azure yığını için gerekli olmadığınız için listelenmeyen iç altyapı.
 
 > [!NOTE]
 > Azure yığın işleci tarafından hiçbir denetimiyle kullanıcıların kendileri tarafından tanımlanan kullanıcı VIP'ler dinamik.
@@ -36,7 +37,7 @@ Dış ağlara yayımlama Azure yığın uç noktalar için gerekli altyapı VIP'
 |Endpoint (VIP)|DNS ana bilgisayar bir kaydı|Protokol|Bağlantı Noktaları|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portal (Yönetici)|Adminportal.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Portal (Yönetici)|adminportal.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
 |Azure Kaynak Yöneticisi (Yönetici)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |Portal (kullanıcı)|Portal.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (kullanıcı)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
@@ -70,4 +71,5 @@ Azure yığını yalnızca saydam proxy sunucuları destekler. Bir dağıtımda 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Azure yığın PKI gereksinimleri](azure-stack-pki-certs.md)

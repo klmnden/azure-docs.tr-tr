@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 7a0fe4e02cf7a5feee90c3a0bf5596b44d5f9038
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure yığınında hizmetleri sunan genel bakış
 
@@ -44,5 +44,5 @@ Teklifleriniz planlıyorsanız, aşağıdaki noktaları göz önünde bulundurun
 **Temsilci sağlayıcıları**: başkalarının ortamınızdaki teklifler oluşturmanıza olanak verebilir. Örneğin, bir hizmet sağlayıcı barındırıyorsanız, yapabilecekleriniz [temsilci](azure-stack-delegated-provider.md) , yetkili satıcılar için bu özelliği. Veya, bir kuruluşun değilseniz, diğer bölümler/kuruluşlarının devredebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Teklifler, planları, kotalar ve abonelikler hakkında daha fazla bilgi edinin](azure-stack-plan-offer-quota-overview.md)
+[Bir teklifi Azure yığınında oluşturma](azure-stack-create-offer.md)
 

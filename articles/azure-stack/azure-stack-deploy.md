@@ -14,17 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-<<<<<<< HEAD
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack dağıtım önkoşulları
 
@@ -64,7 +58,7 @@ Dağıtmadan önce [Azure yığın Geliştirme Seti](azure-stack-poc.md), bilgis
 * SAS SSD + SAS HDD
 * NVMe
 
-\*RAID denetleyiciler geçiş yetenek olmadan medya türü tanıyamıyor. Bu tür denetleyiciler, hem HDD'yi hem de SSD'yi Belirtilmemiş olarak işaretler. Bu durumda, kalıcı depolama alanı olarak önbelleğe alma cihazları yerine SSD kullanılır. Bu nedenle, bu SSD Geliştirme Seti dağıtabilirsiniz.
+\* RAID denetleyiciler geçiş yetenek olmadan medya türü tanıyamıyor. Bu tür denetleyiciler, hem HDD'yi hem de SSD'yi Belirtilmemiş olarak işaretler. Bu durumda, kalıcı depolama alanı olarak önbelleğe alma cihazları yerine SSD kullanılır. Bu nedenle, bu SSD Geliştirme Seti dağıtabilirsiniz.
 
 **Örnek HBA'lar**: geçiş modunda LSI 9207-8i, LSI-9300-8i veya LSI-9265-8i
 
@@ -128,9 +122,9 @@ Ağ üzerinde NIC'nin bağlanabileceği kullanılabilir bir DHCP sunucusunun old
 ### <a name="internet-access"></a>İnternet erişimi
 Azure yığını, doğrudan ya da saydam bir proxy üzerinden Internet erişimi gerektirir. Azure yığın Internet erişimi etkinleştirmek için bir web proxy yapılandırmasını desteklemez. Hem ana bilgisayar IP hem de (DHCP veya statik IP) için MAS BGPNAT01 atanan yeni IP Internet erişimine sahip olmalıdır. 80 ve 443 numaralı bağlantı noktalarını altındaki graph.windows.net ve login.microsoftonline.com etki alanları kullanılır.
 
+S: Azure VM temelinde ASDK çalıştırmak mümkün mü? A: No. Bugünden itibaren resmi olarak desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure yığın Geliştirme Seti dağıtım paketini karşıdan yükle](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Azure yığın Geliştirme Seti dağıtma](azure-stack-run-powershell-script.md)
-

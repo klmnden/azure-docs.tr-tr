@@ -3,22 +3,21 @@ title: "DNS Azure yığınında | Microsoft Docs"
 description: "Azure Stack’te DNS"
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: byronr
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 394abe5295af4ed99e48d50b5886ac93af87e875
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dns-in-azure-stack"></a>Azure Stack’te DNS
 
@@ -68,7 +67,7 @@ Aşağıdaki bilgiler, özellikle Azure yığın DNS için geçerlidir ve Azure 
 
 DNS bölge kaynakları Azure Resource Manager etiketleri kullanarak Azure yığın DNS destekler. Alternatif 'meta verileri' desteklenir gibi DNS kaydı sonraki açıklandığı gibi ayarlar ancak DNS kayıt kümelerini üzerinde etiketleri desteklemez.
 
-**Meta veriler**
+**Metadata**
 
 Kayıt kümesi etiketleri alternatif olarak, Azure yığın DNS kayıt kümelerini 'meta verileri' kullanarak açıklanmasını destekler. Benzer şekilde etiketleri, meta verileri, ad-değer çiftleri her bir kayıt kümesi ile ilişkilendirmek sağlar. Örneğin, bu amacı, her bir kayıt kümesi kaydetmek yararlı olabilir. Etiketler, aksine meta verileri Azure faturasını filtre uygulanmış bir görünümünü sağlamak için kullanılamaz ve bir Azure Resource Manager ilkesinde belirtilemez.
 
@@ -82,7 +81,7 @@ Varsayılan olarak, Azure yığın DNS PowerShell Etag'ler bölgelere eşzamanl�
 
 Azure yığın DNS REST API düzeyinde Etag'ler HTTP üstbilgileri kullanılarak belirtilir. Davranışlarını aşağıdaki tabloda verilmiştir:
 
-| Üstbilgi | Davranışı|
+| Üst bilgi | Davranış|
 |--------|---------|
 | None   | PUT (Etag denetimleri) her zaman başarılı|
 | IF-match| PUT yalnızca kaynak var ve Etag eşleşiyorsa başarılı|

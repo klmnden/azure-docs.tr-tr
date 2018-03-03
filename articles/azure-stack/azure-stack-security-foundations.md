@@ -3,8 +3,8 @@ title: "Azure yığın güvenlik denetimleri anlama | Microsoft Docs"
 description: "Hizmet Yöneticisi olarak Azure yığına uygulanan güvenlik denetimleri hakkında bilgi edinin"
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure yığın altyapı güvenlik yaklaşımı
 
@@ -31,10 +31,10 @@ Azure yığınında bir arada iki güvenlik tutumunu katman vardır. İlk katman
 ## <a name="security-approach"></a>Güvenlik yaklaşımı
 Azure yığını ile güvenlik tutumunu modern tehditlere karşı korumak için tasarlanmıştır ve ana uyumluluk standartlarını gereksinimlerden karşılamak için oluşturuldu. Sonuç olarak, güvenlik tutumunu Azure yığın altyapısının üzerinde iki ayaklar yerleşik olarak bulunur:
 
- - **İhlali varsayalım.** Sistem zaten ihlal edildiği varsayılır başlayarak, biz odaklanmak *algılama ve ihlallerinden etkilerini sınırlayarak* karşı saldırıları önlemek yalnızca çalışıyor. 
- - **Varsayılan olarak sıkı.**  İyi tanımlanmış donanım ve yazılım, altyapı çalışır olduğundan biz *etkinleştirmek, yapılandırmak ve güvenlik özellikleri doğrulama* , genellikle bırakılır uygulamak için müşteriler için.
+ - **İhlali varsayalım.** Odağı sistem zaten ihlal edildiği varsayılır başlayarak, *algılama ve ihlallerinden etkilerini sınırlayarak* karşı saldırıları önlemek yalnızca çalışıyor. 
+ - **Varsayılan olarak sıkı.**  İyi tanımlanmış donanım ve yazılım, altyapı çalışır olduğundan *etkinleştirmek, yapılandırmak ve güvenlik özellikleri doğrulamak* uygulamak müşterilere bırakılır.
 
-Azure yığın tümleşik bir sistem olarak teslim edildiğinden Azure yığın altyapısının güvenlik tutumunu Microsoft tarafından tanımlanır.  Gibi Azure'da, kiracılar, Kiracı iş yüklerini güvenlik duruşunu tanımlamak için sorumludur. Bu belge, Azure yığın altyapı güvenlik yaklaşımı hakkında temel bilgi sağlar.
+Azure yığın tümleşik bir sistem olarak teslim edildiğinden Azure yığın altyapısının güvenlik tutumunu Microsoft tarafından tanımlanır. Gibi Azure'da, kiracılar, Kiracı iş yüklerini güvenlik duruşunu tanımlamak için sorumludur. Bu belge, Azure yığın altyapı güvenlik yaklaşımı hakkında temel bilgi sağlar.
 
 ## <a name="data-at-rest-encryption"></a>Veri bekleyen şifreleme
 Tüm Azure yığın altyapı ve Kiracı verileri Bitlocker kullanılarak bekleme sırasında şifrelenir. Bu şifreleme fiziksel kaybedilmesi veya çalınması Azure yığın depolama bileşenlerinin karşı korur. 
@@ -71,7 +71,7 @@ Azure yığınında yönetimi, her biri belirli bir amaca sahip üç giriş nokt
 3. Belirli düşük düzey işlemler, örneğin veri merkezi tümleştirme veya senaryoları desteklemek için Azure yığın adlı bir PowerShell uç noktasını kullanıma sunar [ayrıcalıklı uç nokta](azure-stack-privileged-endpoint.md). Yalnızca Güvenilenler listesine kümesi cmdlet'leri Bu uç noktasını kullanıma sunar ve yoğun olarak denetlenir.
 
 ## <a name="network-controls"></a>Ağ denetimleri
-Azure yığın altyapı birden çok ağ erişim denetimi List(ACL) katman ile birlikte gelir.  ACL'ler altyapı bileşenleri için yetkisiz erişimi engellemek ve altyapı iletişimi kendi çalışması için gerekli olan yollara kısıtlayabilirsiniz. 
+Azure yığın altyapı birden çok ağ erişim denetimi List(ACL) katman ile birlikte gelir. ACL'ler altyapı bileşenleri için yetkisiz erişimi engellemek ve altyapı iletişimi kendi çalışması için gerekli olan yollara kısıtlayabilirsiniz. 
 
 Ağ ACL'leri üç katmanında uygulanır:
 1.  Raf üstündeki geçer

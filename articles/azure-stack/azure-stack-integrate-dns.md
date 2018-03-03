@@ -3,17 +3,18 @@ title: "Azure yığın datacenter tümleştirmesi - DNS"
 description: "Azure yığın DNS'yi veri merkeziniz ile DNS tümleştirme öğrenin"
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 504cbabe6ea4b7ad71601186dac853515f8c4709
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure yığın datacenter tümleştirmesi - DNS
 Azure yığın uç noktaları erişebilmeleri için (`portal`, `adminportal`, `management`, `adminmanagement`vb..)  Dış Azure yığınından Azure yığınında kullanmak istediğiniz DNS bölgeleri barındıran DNS sunucularını Azure yığın DNS hizmetleri tümleştirileceğini gerekir.
@@ -125,8 +126,8 @@ DNS ile koşullu iletme nasıl alışık değilseniz, şu TechNet makalesine bak
 
 Örnek:
 
-- Kurumsal DNS etki alanı adı:`contoso.com`
-- Azure yığın dış DNS etki alanı adı:`azurestack.contoso.com`
+- Kurumsal DNS etki alanı adı: `contoso.com`
+- Azure yığın dış DNS etki alanı adı: `azurestack.contoso.com`
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Azure yığınına dış DNS bölgesi için temsilci seçme
 

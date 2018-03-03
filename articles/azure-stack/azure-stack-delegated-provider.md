@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 287bc04660664facbe99d2cb80ae6c92e41c4111
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack’te teklifleri yetkilendirme
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Azure yığın operatör olarak genellikle teklifleri oluşturma ve kullanıcıları imzalama sorumlu diğer kişilerin yerleştirmek istediğiniz. Örneğin, bir hizmet sağlayıcısı varsa, satıcılar müşterileri oturum ve bunları sizin adınıza yönetmek isteyebilirsiniz. Ya da bir kuruluşta merkezi BT grubunun bir parçası değilseniz, kullanıcıları, müdahalesi olmadan oturum yan kuruluşlarının isteyebilirsiniz.
+Azure yığın operatör olarak genellikle teklifleri oluşturma ve kullanıcıları imzalama sorumlu diğer kişilerin yerleştirmek istediğiniz. Örneğin, bir hizmet sağlayıcı barındırıyorsanız, satıcılar müşterileri oturum ve bunları sizin adınıza yönetmek isteyebilirsiniz. Ya da bir kuruluşta merkezi BT grubunun bir parçası değilseniz, kullanıcıları, müdahalesi olmadan oturum yan kuruluşlarının isteyebilirsiniz.
 
 Temsilci seçme, bu görevleri erişmek ve doğrudan daha fazla kullanıcı yönetmek sağlayarak yardımcı olur. Aşağıdaki çizimde bir temsilci düzeyini gösterir, ancak Azure yığını birden çok düzeyi destekler. Temsilci sağlayıcıları (DPs) sırayla beş düzeye kadar diğer sağlayıcıları için temsilci seçebilirsiniz.
 
@@ -58,7 +58,7 @@ Aşağıdaki bölümlerde, bir temsilci sağlayıcısı oluşturmak için bir te
 
 ## <a name="set-up-roles"></a>Rolleri ayarlamanız
 
-Ek Azure ihtiyacınız iş temsilci sağlayıcısındaki görmek için Azure yığın işleci hesabınızı yanı sıra AD hesaplar. Bunları yoksa iki hesap oluşturun. Herhangi bir Azure AD kullanıcı hesapları ait olabilir. Biz kendilerine atanmış sağlayıcı ve kullanıcı bakın.
+Ek Azure ihtiyacınız iş temsilci sağlayıcısındaki görmek için Azure yığın işleci hesabınızı yanı sıra AD hesaplar. Bu iki hesap yoksa, bunları oluşturun. Hesapları için herhangi bir Azure AD kullanıcı ait olabilir ve temsilci sağlayıcı ve kullanıcı olarak sonuna denir.
 
 | **Rol** | **Kuruluş hakları** |
 | --- | --- |
@@ -71,9 +71,9 @@ Ek Azure ihtiyacınız iş temsilci sağlayıcısındaki görmek için Azure yı
 2. Kullanıcıların temsilci sağlayıcıları olmasını sağlayan teklif oluşturun:
    
    a.  [Bir plan oluşturmak](azure-stack-create-plan.md).
-       Bu plan yalnızca abonelik hizmeti içermelidir. Bu makalede, kullanırız adlı bir planı **PlanForDelegation**.
+       Bu plan yalnızca abonelik hizmeti içermelidir. Bu makalede adlı bir planı kullanan **PlanForDelegation**.
    
-   b.  [Bir teklif oluşturmak](azure-stack-create-offer.md) bu plana göre. Bu makalede, kullandığımız adlı bir teklif **OfferToDP**.
+   b.  [Bir teklif oluşturmak](azure-stack-create-offer.md) bu plana göre. Bu makalede adı verilen bir teklif kullanan **OfferToDP**.
    
    c.  Teklif oluşturma işlemi tamamlandıktan sonra temsilci sağlayıcısı bu teklif için bir abone olarak ekleyin. Seçerek bunu **abonelikleri** > **Ekle** > **yeni Kiracı aboneliği**.
    
@@ -86,9 +86,9 @@ Ek Azure ihtiyacınız iş temsilci sağlayıcısındaki görmek için Azure yı
 
 ## <a name="azure-stack-operator-creates-the-delegated-offer"></a>Temsilci teklif Azure yığın işleci oluşturur
 
-Temsilci sağlayıcınız şimdi kurduğunuz. Sonraki adım, plan ve temsilci seçmek için uygulayacağınız ve müşterileriniz kullanacağı teklif oluşturmaktır. Bu teklif temsilci sağlayıcısı planları ve içerdiği kotaları değiştirmek erişemeyeceğiniz görmek için müşteriler tam olarak istediğiniz olarak tanımlamak için iyi bir fikirdir.
+Temsilci sağlayıcınız şimdi kurduğunuz. Sonraki adım, plan ve temsilci seçmek için uygulayacağınız ve müşterileriniz kullanacağı teklif oluşturmaktır. Bu teklif temsilci sağlayıcısı planları ve içerdiği kotaları değiştiremediğinizden görmek için müşteriler tam olarak istediğiniz olarak tanımlamak için iyi bir fikirdir.
 
-1. Bir Azure yığın işleç olarak [bir plan oluşturmak](azure-stack-create-plan.md) ve [bir teklif](azure-stack-create-offer.md) dayalı. Bu makale için kullandığımız adlı bir teklif **DelegatedOffer.**
+1. Bir Azure yığın işleç olarak [bir plan oluşturmak](azure-stack-create-plan.md) ve [bir teklif](azure-stack-create-offer.md) dayalı. Bu makalede adı verilen bir teklif kullanan **DelegatedOffer.**
    
    > [!NOTE]
    > Bu teklif ortak olmak zorunda değildir. Seçerseniz, ortak yapabilirsiniz. Çoğu durumda, ancak yalnızca erişmesi için temsilci sağlayıcıları istiyor. Aşağıdaki adımlarda açıklandığı gibi özel bir tekliftir temsilci sonra temsilci sağlayıcısı erişimi vardır.
@@ -104,14 +104,14 @@ Temsilci sağlayıcınız şimdi kurduğunuz. Sonraki adım, plan ve temsilci se
 
 ## <a name="delegated-provider-customizes-the-offer"></a>Teklif temsilci sağlayıcısı özelleştirir
 
-Kullanıcı Portalı'na temsilci sağlayıcısı olarak oturum açın. Ardından yeni bir teklif şablon olarak yetkilendirilmiş teklif kullanarak oluşturun.
+Kullanıcı Portalı temsilci sağlayıcısı olarak oturum açın ve sonra bir şablon olarak yetkilendirilmiş teklif kullanarak yeni bir teklif oluşturun.
 
 1. Seçin **yeni** > **Kiracı sunar + planları** > **teklif**.
 
     ![Yeni bir teklif oluşturma](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Teklif için bir ad atayın. Burada size seçtiğiniz **ResellerOffer**. Temsilci teklif, temel ve ardından seçin **oluşturma**.
+1. Teklif için bir ad atayın. Bu makalede kullanan **ResellerOffer**. Temsilci teklif, temel ve ardından seçin **oluşturma**.
    
    ![Bir ad atayın](media/azure-stack-delegated-provider/image6.png)
 
@@ -122,7 +122,7 @@ Kullanıcı Portalı'na temsilci sağlayıcısı olarak oturum açın. Ardından
 
 2. Temsilci sağlayıcı kendi portal üzerinden bu teklifleri sunar URL. Bu teklif yalnızca temsilci Portalı aracılığıyla görülebilir. Bul ve bu URL'yi değiştirmek için:
    
-    a.  Seçin **Gözat** > **daha fazla hizmet** >  **abonelikleri**. Ardından yetkilendirilmiş sağlayıcısı aboneliğini seçin. Bu örnekte bunun **DPSubscription** > **özellikleri**.
+    a.  Seçin **Gözat** > **daha fazla hizmet** > **abonelikleri**. Ardından yetkilendirilmiş sağlayıcısı aboneliğini seçin. Örneğin, **DPSubscription** > **özellikleri**.
    
     b.  Portal kopyalama Not Defteri gibi ayrı bir konuma URL.
    
@@ -134,7 +134,7 @@ Kullanıcı Portalı'na temsilci sağlayıcısı olarak oturum açın. Ardından
 1. Yeni bir tarayıcı penceresinde temsilci Portalı'na gidin önceki adımda kaydettiğiniz URL. Portal için bir kullanıcı olarak oturum açın. 
    
    >[!NOTE]
-   > Bu adım için temsilci Portalı'nı kullanın. Temsilci teklifleri aksi görünür değildir.
+   >Temsilci portal kullanmadığınız sürece temsilci teklifleri görünür değildir. 
 
 2. Panoda seçin **bir abonelik edinmeniz**. Temsilci sağlayıcı tarafından oluşturulan temsilci teklifleri kullanıcıya sunulan bakın:
 
