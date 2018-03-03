@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Azure kapsayıcı örnekleri dağıtım sorunlarını giderme
 
@@ -91,6 +91,10 @@ az container show --resource-group myResourceGroup --name mycontainer
 ## <a name="common-deployment-issues"></a>Genel dağıtım sorunları
 
 Bu hesaba hataların çoğu dağıtımda bazı yaygın sorunlar vardır.
+
+## <a name="image-version-not-supported"></a>Görüntü sürümü desteklenmiyor
+
+Görüntüyü Azure kapsayıcı örnekler destekleyemiyor belirtilirse, formun bir hata döndürülür `ImageVersionNotSupported`. Hata değeri gösterecektir `The version of image '{0}' is not supported.`. Bu hata Windows 1709 görüntüleri kullanmak azaltmak için şu anda bir LTS Windows görüntüsüne uygular. Windows 1709 görüntüler için destek işleniyor.
 
 ## <a name="unable-to-pull-image"></a>Çekme görüntü oluşturulamıyor
 

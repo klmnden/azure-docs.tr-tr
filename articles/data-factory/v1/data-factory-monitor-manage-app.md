@@ -3,7 +3,7 @@ title: "İzleme ve veri ardışık - Azure yönetme | Microsoft Docs"
 description: "Azure data factory'leri ve ardışık düzen yönetmek ve izlemek için izleme ve yönetim uygulaması kullanmayı öğrenin."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d4371b1372a7ed492faacf16813ae3e3f4c4697
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>İzleme ve Azure Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetme
 > [!div class="op_single_selector"]
@@ -150,10 +150,10 @@ Diyagram görünümü en altında bu düğmeleri Bkz: Yakınlaştır, uzaklaşt�
 
 ![Diyagram görünümü yakınlaştırma komutları](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
-### <a name="activity-windows-list"></a>Etkinlik Windows listesi
+### <a name="activity-windows-list"></a>Etkinlik Pencereleri listesi
 Etkinlik Windows orta bölmesinde altındaki tüm etkinlik windows kaynak Gezgini ya da diyagram görünümünde seçilen veri kümesi için görüntüler. Varsayılan olarak, en son etkinlik pencerenin en üstünde gördüğünüz anlamına gelir, azalan sırada listesidir.
 
-![Etkinlik Windows listesi](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
+![Etkinlik Pencereleri listesi](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
 Bu liste otomatik yenileme değil, bu nedenle el ile yenilemek için araç çubuğunda Yenile düğmesini kullanın.  
 
@@ -324,7 +324,7 @@ Aşağıdaki tabloda kullanılabilir olayları ve durumları (ve alt durumlar) l
 
 | Olay adı | Durum | Alt durum |
 | --- | --- | --- |
-| Başlatılan Çalıştır etkinliği |Başlatıldı |Başlangıç |
+| Başlatılan Çalıştır etkinliği |Başlatıldı |Başlatılıyor |
 | Tamamlanan etkinlik |Başarılı oldu |Başarılı oldu |
 | Tamamlanan etkinlik |Başarısız |Başarısız olan kaynak ayırma<br/><br/>Başarısız yürütme<br/><br/>Zaman Aşımı<br/><br/>Başarısız doğrulamayı<br/><br/>Abandoned |
 | İsteğe bağlı HDI kümesi oluşturma başlatıldı |Başlatıldı |-|

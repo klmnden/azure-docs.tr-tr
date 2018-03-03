@@ -1,5 +1,5 @@
 ---
-title: ".NET SDK'sı akış uç noktalarını yönetin. | Microsoft Belgeleri"
+title: ".NET SDK'sı akış uç noktalarını yönetin. | Microsoft Docs"
 description: "Bu makalede Azure portal ile akış uç noktalarını yönetme gösterilmektedir."
 services: media-services
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: ba17e7a89ebfeb3bd854bb906bdb887b0cd54064
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73a2dc47a6502712ebd1879170be552c9459b741
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>.NET SDK'sı akış uç noktalarını yönetme
 
@@ -55,7 +55,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
     
 Program.cs kodu aşağıdaki kodla değiştirin:
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;

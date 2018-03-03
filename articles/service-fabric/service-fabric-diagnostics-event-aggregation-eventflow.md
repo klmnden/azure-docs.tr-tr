@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 69750db615460b3ac69ba9ffe707a970ca8e2e11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Olay toplama ve EventFlow kullanarak koleksiyonu
 
@@ -32,12 +32,12 @@ EventFlow ikili dosyaları NuGet paketlerini bir dizi kullanılabilir. Bir Servi
 
 Çeşitli paketler, "Girdi" ve "Çıkaran" etiketli gösteri listesini görürsünüz. EventFlow çeşitli farklı günlüğü sağlayıcıları ve çözümleyiciler destekler. EventFlow barındırma hizmeti için kaynak ve hedef uygulama günlüklerini bağlı olarak uygun paketleri içermelidir. Çekirdek ServiceFabric paketi yanı sıra da en az bir giriş gerekir ve çıktı yapılandırılır. Örneğin, aşağıdaki paketleri Application Insights gönderilen EventSource olaylarını ekleyebilirsiniz:
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource`verileri hizmetin EventSource sınıfı ve standart EventSources gibi yakalamak için *Microsoft ServiceFabric Hizmetleri* ve *Microsoft ServiceFabric aktörler*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`(biz günlükleri için Azure Application Insights kaynağı göndereceğiniz)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` verileri hizmetin EventSource sınıfı ve standart EventSources gibi yakalamak için *Microsoft ServiceFabric Hizmetleri* ve *Microsoft ServiceFabric aktörler*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (biz günlükleri için Azure Application Insights kaynağı göndereceğiniz)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(Service Fabric hizmet yapılandırmasını EventFlow ardışık düzen başlatma sağlar ve Service Fabric sistem durumu raporlarının Tanılama verileri gönderme ile herhangi bir sorun raporları)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource`Paketi, .NET Framework 4.6 veya daha yeni hedeflemek için hizmet projesi gerektiriyor. Bu paketi yüklemeden önce Proje Özellikleri'nde uygun hedef Framework'ü ayarladığınızdan emin olun.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` Paketi, .NET Framework 4.6 veya daha yeni hedeflemek için hizmet projesi gerektiriyor. Bu paketi yüklemeden önce Proje Özellikleri'nde uygun hedef Framework'ü ayarladığınızdan emin olun.
 
 Tüm paketler yüklendikten sonra sıradaki adım yapılandırın ve hizmeti EventFlow etkinleştirin olacak.
 
@@ -147,7 +147,7 @@ EventFlow EventFlow ayarlarını yapılandırmak için Service Fabric ayarları 
 servicefabric:/<section-name>/<setting-name>
 ```
 
-`<section-name>`Service Fabric yapılandırma bölümü adıdır ve `<setting-name>` EventFlow ayarını yapılandırmak için kullanılan değer sağlayan yapılandırma ayarı. Okumak için bunun nasıl yapılacağı hakkında daha fazla Git [Service Fabric ayarları ve uygulama parametreleri desteği](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
+`<section-name>` Service Fabric yapılandırma bölümü adıdır ve `<setting-name>` EventFlow ayarını yapılandırmak için kullanılan değer sağlayan yapılandırma ayarı. Okumak için bunun nasıl yapılacağı hakkında daha fazla Git [Service Fabric ayarları ve uygulama parametreleri desteği](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters).
 
 ## <a name="verification"></a>Doğrulama
 

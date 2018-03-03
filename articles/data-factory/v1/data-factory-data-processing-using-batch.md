@@ -3,7 +3,7 @@ title: "Veri Fabrikası ve toplu kullanarak büyük ölçekli veri kümeleri iş
 description: "Azure Batch yeteneğini işleme paralel kullanarak büyük miktarlarda bir Azure Data Factory işlem hattı verileri işlemek açıklar."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af2c12cac5846ae1c4bc693bacaf72ab327fb87f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3b886babe07a0bd1fa725286b5471055fc626dc1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Veri Fabrikası ve toplu kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
-> Bu makale, genel olarak kullanılabilir olduğu Azure Data Factory, 1 sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [özel etkinlikleri sürüm 2 veri fabrikasında](../transform-data-using-dotnet-custom-activity.md).
+> Bu makale, Azure Data Factory’nin genel kullanıma açık olan 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [özel etkinlikleri sürüm 2 veri fabrikasında](../transform-data-using-dotnet-custom-activity.md).
 
 Bu makalede bir taşır ve büyük ölçekli veri kümeleri otomatik ve zamanlanmış bir şekilde işleyen örnek bir çözüm mimarisini açıklar. Ayrıca, veri fabrikası ve Azure Batch kullanarak çözümü uygulamak için bir uçtan uca izlenecek yol da sağlar.
 
@@ -130,7 +130,7 @@ Kullandığınız [Azure Depolama Gezgini 6](https://azurestorageexplorer.codepl
 
    ![Klasör ve alt klasör yapısı](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`ve `outputfolder` en üst düzey klasörlerde bulunan `mycontainer`. `inputfolder` Klasörü tarih-saat Damgalar (YYYY-AA-GG-ss) ile alt klasörler bulunur.
+   `Inputfolder` ve `outputfolder` en üst düzey klasörlerde bulunan `mycontainer`. `inputfolder` Klasörü tarih-saat Damgalar (YYYY-AA-GG-ss) ile alt klasörler bulunur.
 
    Depolama Gezgini, sonraki adımda kullanırsanız, şu adlara sahip dosyaları karşıya yükleme: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`ve benzeri. Bu adım, klasörleri otomatik olarak oluşturur.
 
@@ -556,9 +556,9 @@ Bağlı hizmetler veri depolarını veya işlem Hizmetleri veri fabrikası için
 
    ![Yeni veri deposu](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. Değiştir **hesap adı** depolama hesabınızın adı. Değiştir **hesap anahtarı** depolama hesabının erişim anahtarı ile. Depolama erişim anahtarınızı alma hakkında bilgi için bkz: [görüntüleme, kopyalama ve erişim anahtarları yeniden oluşturma depolama](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. **Hesap adı** değerini depolama hesabınızın adıyla değiştirin. **Hesap anahtarı** değerini depolama hesabının erişim anahtarıyla değiştirin. Depolama erişim anahtarınızı alma hakkında bilgi için bkz: [görüntüleme, kopyalama ve erişim anahtarları yeniden oluşturma depolama](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-4. Seçin **dağıtma** bağlı hizmeti dağıtmak için komut çubuğunda.
+4. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 
    ![Dağıtma](./media/data-factory-data-processing-using-batch/image8.png)
 
@@ -593,12 +593,12 @@ Bu adımda, veri fabrikası özel etkinliği çalıştırmak için kullanılan, 
    
    e. Belirtin **StorageLinkedService** için **linkedServiceName** özelliği. Bu bağlı hizmeti önceki adımda oluşturduğunuz. Bu depolama dosyaları ve günlükleri için hazırlama alanı kullanılır.
 
-3. Seçin **dağıtma** bağlı hizmeti dağıtmak için komut çubuğunda.
+3. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 
 #### <a name="step-3-create-datasets"></a>3. adım: veri kümeleri oluşturma
 Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma.
 
-#### <a name="create-the-input-dataset"></a>Girdi veri kümesi oluşturma
+#### <a name="create-the-input-dataset"></a>Girdi veri kümesini oluşturma
 1. Data Factory düzenleyici seçin **yeni veri kümesi** araç çubuğunda. Seçin **Azure Blob Depolama** aşağı açılan listeden.
 
 2. Sağ bölmedeki JSON betiği aşağıdaki JSON parçacığıyla değiştirin:
@@ -665,7 +665,7 @@ Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma
 
     Her dilim için başlangıç saatini tarafından temsil edilen **SliceStart** önceki JSON parçacığında bulunan sistem değişkeni. Burada, her dilim için başlangıç zamanlarını bulunmaktadır.
 
-    | **Dilim** | **Başlangıç zamanı**          |
+    | **Dilim** | **Başlangıç saati**          |
     |-----------|-------------------------|
     | 1         | 2015-11-16T**00**:00:00 |
     | 2         | 2015-11-16T**01**:00:00 |
@@ -675,7 +675,7 @@ Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma
 
     **FolderPath** dilim başlangıç zamanı yıl, ay, gün ve saat parçası kullanılarak hesaplanır (**SliceStart**). İşte bir giriş klasörü için bir dilim nasıl eşlendi.
 
-    | **Dilim** | **Başlangıç zamanı**          | **Giriş klasörü**  |
+    | **Dilim** | **Başlangıç saati**          | **Giriş klasörü**  |
     |-----------|-------------------------|-------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
@@ -685,7 +685,7 @@ Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma
 
 3. Seçin **dağıtma** oluşturmak ve dağıtmak için araç çubuğunda **InputDataset** tablo.
 
-#### <a name="create-the-output-dataset"></a>Çıktı veri kümesi oluşturma
+#### <a name="create-the-output-dataset"></a>Çıktı veri kümesini oluşturma
 Bu adımda, çıktı verilerini göstermek için AzureBlob türünde başka bir veri kümesi oluşturun.
 
 1. Data Factory düzenleyici seçin **yeni veri kümesi** araç çubuğunda. Seçin **Azure Blob Depolama** aşağı açılan listeden.
@@ -722,7 +722,7 @@ Bu adımda, çıktı verilerini göstermek için AzureBlob türünde başka bir 
 
     Bir çıkış blob/dosyası, her girdi dilimi için oluşturulur. İşte bir çıktı dosyası için her dilimi nasıl adlandırılır. Bir çıkış klasöründe oluşturulan tüm çıktı dosyaları `mycontainer\\outputfolder`.
 
-    | **Dilim** | **Başlangıç zamanı**          | **Çıkış dosyası**       |
+    | **Dilim** | **Başlangıç saati**          | **Çıkış dosyası**       |
     |-----------|-------------------------|-----------------------|
     | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
@@ -803,7 +803,7 @@ Bu adımda, bir etkinlik, daha önce oluşturduğunuz özel etkinliği ile işle
     - **İsPaused** özelliği varsayılan olarak false değerine ayarlanır. Geçmişte dilimleri başlatmak için ardışık düzen hemen bu örnekte çalışır. Bu özelliği ayarlamak **true** yedeklemek için ayarlama ve ardışık düzen duraklatmak için **false** yeniden başlatmak için.
     -   **Başlat** ve **son** kez beş saatten birbirinden olur. Ardışık düzen tarafından beş dilimlerinin şekilde dilimler saatlik, oluşturulur.
 
-3. Seçin **dağıtma** işlem hattını dağıtmak için komut çubuğunda.
+3. İşlem hattını dağıtmak için komut çubuğundan **Dağıt**’ı seçin.
 
 #### <a name="step-5-test-the-pipeline"></a>5. adım: Test ardışık düzeni
 Bu adımda, ardışık düzen giriş klasörler halinde dosyaları bırakarak sınayın. Her giriş klasörü için bir dosya ile işlem hattı test ederek başlatın.

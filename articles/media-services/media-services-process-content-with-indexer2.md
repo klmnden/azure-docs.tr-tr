@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c78a4d2d3a1b0f84d488e7358c875c9708ac6107
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 Önizleme ile medya dosyalarını dizin oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -56,6 +56,7 @@ Bir dizin oluşturma, görev ile **Azure Media Indexer 2 Önizleme**, bir yapıl
 
 Aşağıdaki JSON kullanılabilir parametreleri ayarlar.
 
+```json
     {
       "version":"1.0",
       "Features":
@@ -69,6 +70,7 @@ Aşağıdaki JSON kullanılabilir parametreleri ayarlar.
            "Type":"SpReco"
         }]
     }
+```
 
 ## <a name="supported-languages"></a>Desteklenen diller
 Azure Media Indexer 2 Önizleme konuşma metin (dil adı görev yapılandırmasında, kullanım 4 karakter kodu köşeli aşağıda gösterildiği gibi belirtirken) için şu dilleri destekler:
@@ -96,20 +98,23 @@ Aşağıdaki program gösterir nasıl yapılır:
 
 1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
 2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir dizin oluşturma görevini içeren bir iş oluşturun:
-   
-        {
-          "version":"1.0",
-          "Features":
-            [
-               {
-               "Options": {
-                    "Formats":["WebVtt","ttml"],
-                    "Language":"enUs",
-                    "Type":"RecoOptions"
-               },
-               "Type":"SpReco"
-            }]
-        }
+
+    ```json
+            {
+            "version":"1.0",
+            "Features":
+                [
+                {
+                "Options": {
+                        "Formats":["WebVtt","ttml"],
+                        "Language":"enUs",
+                        "Type":"RecoOptions"
+                },
+                "Type":"SpReco"
+                }]
+            }
+    ```
+    
 3. Çıktı dosyalarını indirin. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
@@ -118,7 +123,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 #### <a name="example"></a>Örnek
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

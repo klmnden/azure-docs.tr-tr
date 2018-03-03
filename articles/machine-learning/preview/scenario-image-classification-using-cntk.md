@@ -6,16 +6,16 @@ documentationcenter:
 author: PatrickBue
 ms.author: pabuehle
 manager: mwinkle
-ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
+ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: c3ad1cf8651858a2cb1fdadc2beed4e5c7bef56c
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: aab397e6e8006cd0a3464ed7b022327fd6f821ac
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak görüntü sınıflandırma
 

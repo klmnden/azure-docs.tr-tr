@@ -4,20 +4,20 @@ description: "Çoklu oturum açma Azure Active Directory ile Slack'e arasında y
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 67d95b48520cd990428447dc775d9af22528c0f0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Öğretici: Azure Active Directory Tümleştirme kayma ile
 
@@ -31,7 +31,7 @@ Kayma Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme kayma ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,9 +110,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-slack-tutorial/tutorial_slack_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.slack.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<companyname>.slack.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://slack.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://slack.com`
 
     > [!NOTE] 
     > Değer gerçek değil. Değerin gerçek oturum üzerinde URL ile güncelleştirmeniz gerekir. Kişi [Slack destek ekibi](https://slack.com/help/contact) değeri alınamıyor
@@ -121,14 +121,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+    > [!NOTE] 
+    > Kullanıcının varsa **e-posta adresi** yalnızca onu, aksi takdirde doldurulur Office365 kullanılarak atanan **e-posta adresi** talep SAML belirteci görünmez.
+
 5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda **user.mail** olarak **kullanıcı tanımlayıcısı** ve aşağıdaki tabloda gösterilen her satır için aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı | Öznitelik Değeri |
     | --- | --- |
-    | ilk_ad | User.givenName |
-    | Soyadı | User.surname |
-    | User.Email | User.Mail |  
-    | User.Username | User.userPrincipalName |
+    | first_name | user.givenname |
+    | last_name | user.surname |
+    | User.Email | user.mail |  
+    | User.Username | user.userprincipalname |
 
     a. Tıklayın **özniteliği** açmak için **öznitelik Düzenle** iletişim kutusuna ve aşağıdaki adımları gerçekleştirin:
 
@@ -137,8 +140,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     a. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
     
     b. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri seçin.
+
+    c. Bırakın **Namespace** boş.
     
-    c. **Tamam**’a tıklayın.
+    d. **Tamam**’a tıklayın.
 
 6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
@@ -215,7 +220,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-slack-test-user"></a>Slack test kullanıcısı oluşturma
 

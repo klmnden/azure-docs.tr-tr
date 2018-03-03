@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d1974ff9716d6b84a5f4b4f1795a84483d277a05
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme 
 
-Birden çok aboneliğiniz varsa, bunları "Yönetim grupları" olarak adlandırılan kapsayıcılarına düzenleyebilirsiniz erişim, ilke ve uyumluluk aboneliklerinizi yönetmenize yardımcı olmak için. Bu kapsayıcılar abonelikleri türüne sahip olabileceğiniz olsun büyük ölçekli Kurumsal düzeyde yönetim verin.  
+Birden çok aboneliğiniz varsa, bunları "Yönetim grupları" olarak adlandırılan kapsayıcılarına düzenleyebilirsiniz erişim, ilke ve uyumluluk aboneliklerinizi yönetmenize yardımcı olmak için. Yönetim grupları abonelikleri türüne sahip olabileceğiniz olsun büyük ölçekli Kurumsal düzeyde yönetim verin.  
 
 Yönetim grubu özelliğini genel önizleme olarak kullanılabilir. Management'ı kullanmaya başlamak için gruplar, oturum açma [Azure portal](https://portal.azure.com) arayın ve **Yönetim grupları** içinde **tüm hizmetleri** bölümü. 
 

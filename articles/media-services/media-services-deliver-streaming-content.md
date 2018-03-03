@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 979c88b72aba6e054bc507e22f48cae1441957cb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>.NET kullanarak Azure Media Services içerik yayımlama
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ OnDemand akış Bulucusu oluşturmak ve URL'leri almak için şunları yapmanız
 ### <a name="use-media-services-net-sdk"></a>Media Services .NET SDK'yı kullanın
 Akış URL'leri derleme 
 
+```csharp
     private static void BuildStreamingURLs(IAsset asset)
     {
 
@@ -93,6 +94,7 @@ Akış URL'leri derleme
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
+```
 
 Çıktı:
 
@@ -111,6 +113,7 @@ Akış URL'leri derleme
 
 Aşamalı indirme URL'leri derleme 
 
+```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
         // Create a 30-day readonly access policy. 
@@ -138,7 +141,7 @@ Aşamalı indirme URL'leri derleme
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
-
+```
 Çıktı:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +153,7 @@ Aşamalı indirme URL'leri derleme
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Media Services .NET SDK uzantıları kullanma
 Aşağıdaki kod bir Bulucu oluşturmanız ve Uyarlamalı akış için kesintisiz akış, HLS ve MPEG-DASH URL'ler oluşturmak .NET SDK uzantıları yöntemleri çağırır.
-
+```csharp
     // Create a loctor.
     _context.Locators.Create(
         LocatorType.OnDemandOrigin,
@@ -166,7 +169,7 @@ Aşağıdaki kod bir Bulucu oluşturmanız ve Uyarlamalı akış için kesintisi
     Console.WriteLine(smoothStreamingUri);
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
-
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ADP Federasyon SSO ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile ADP Federasyon SSO arasında yapılandırmayı öğrenin."
+title: "Öğretici: Azure Active Directory Tümleştirme ADP ile | Microsoft Docs"
+description: "Çoklu oturum açma Azure Active Directory ile ADP arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 02/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1e0a35fd76f9eb6335685f05b8936b0b5105f6b2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Öğretici: Azure Active Directory Tümleştirme ADP Federasyon SSO ile
+# <a name="tutorial-azure-active-directory-integration-with-adp"></a>Öğretici: Azure Active Directory Tümleştirme ADP ile
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile ADP Federasyon SSO tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile ADP tümleştirmek öğrenin.
 
-ADP Federasyon SSO Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+ADP Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- ADP Federasyon SSO erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak ADP Federasyon SSO için (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
+- ADP erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak ADP (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme ADP Federasyon SSO ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirme ADP ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Abonelik bir ADP Federasyon SSO etkin
+- Bir etkin ADP aboneliği
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
@@ -50,13 +50,13 @@ Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden ADP Federasyon SSO ekleme
+1. Galeriden ADP ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-adp-federated-sso-from-the-gallery"></a>Galeriden ADP Federasyon SSO ekleme
-Azure AD ADP Federasyon SSO tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden ADP Federasyon SSO eklemeniz gerekir.
+## <a name="adding-adp-from-the-gallery"></a>Galeriden ADP ekleme
+Azure AD ADP tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden ADP eklemeniz gerekir.
 
-**Galeriden ADP Federasyon SSO eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden ADP eklemek için aşağıdaki adımları gerçekleştirin:**
 
 1.  Microsoft Azure kimlik sağlayıcısı ortamınız için bir yönetici olarak oturum açın.
 
@@ -72,35 +72,35 @@ Azure AD ADP Federasyon SSO tümleştirilmesi yapılandırmak için yönetilen S
 
     ![Yeni Uygulama düğmesi][3]
 
-5. Arama kutusuna **ADP Federasyon SSO**seçin **ADP Federasyon SSO** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+5. Arama kutusuna **ADP**seçin **ADP** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Sonuçlar listesinde ADP Federasyon SSO](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addfromgallery.png)
+    ![Sonuçlar listesinde ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı ADP Federasyon SSO ile test etme.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı ADP sınayın.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen ADP Federasyon SSO bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ADP Federasyon SSO ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tekli çalışmaya oturum için Azure AD ne karşılık gelen ADP'de bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı ADP'de arasında bir bağlantı ilişkisi kurulması gerekir.
 
-ADP Federasyon SSO içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+ADP içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma ADP Federasyon SSO ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma ADP ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
 1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[ADP Federasyon SSO test kullanıcısı oluşturma](#create-an-adp-federated-sso-test-user)**  - Britta Simon, karşılık gelen ADP Federasyon SSO kullanıcı Azure AD gösterimini bağlı sağlamak için.
+3. **[ADP test kullanıcısı oluşturma](#create-an-adp-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı ADP sağlamak için.
 4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
 5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma ADP Federasyon SSO uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma ADP uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma ADP Federasyon SSO ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile ADP yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **ADP Federasyon SSO** uygulama tümleştirme sayfası, tıklatıldığında **özellikler sekmesi** ve aşağıdaki adımları gerçekleştirin: 
+1. Azure portalında üzerinde **ADP** uygulama tümleştirme sayfası, tıklatıldığında **özellikler sekmesi** ve aşağıdaki adımları gerçekleştirin: 
 
-    ![Çoklu oturum açma özellikleri](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_prop.png)
+    ![Çoklu oturum açma özellikleri](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_prop.png)
 
     a. Ayarlama **kullanıcıların oturum açma için etkinleştirilen** alan için değer **Evet**.
 
@@ -110,25 +110,25 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     d. Ayarlama **kullanıcılara görünür** alan için değer **Hayır**.
 
-2. Tıklatın **çoklu oturum açma** üzerinde **ADP Federasyon SSO** uygulama tümleştirme sayfası.
+2. Tıklatın **çoklu oturum açma** üzerinde **ADP** uygulama tümleştirme sayfası.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 3. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_samlbase.png)
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_samlbase.png)
 
-4. Üzerinde **ADP Federasyon SSO etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **ADP etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![ADP Federasyon SSO etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_url.png)
+    ![ADP etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_url.png)
 
     İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `https://fed.adp.com/` 
     
-5. ADP Federasyon SSO uygulaması SAML onaylar SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir. Talep adı her zaman olacaktır **"PersonImmutableID"** ve değeri biz için eşledikten **EmployeeID**. 
+5. ADP uygulaması SAML onaylar SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir. Talep adı her zaman olacaktır **"PersonImmutableID"** ve değeri biz için eşledikten **EmployeeID**. 
 
-    Üzerinde Azure AD kullanıcı eşlemesinden ADP Federasyon SSO için burada yapılır **EmployeeID** ancak bu uygulama ayarlarınıza göre farklı bir değer eşleyebilirsiniz. İş, bu nedenle Lütfen ile [ADP destek ekibi](https://www.adp.com/contact-us/overview.aspx) önce bir kullanıcının doğru tanıtıcısı kullanın ve bu değeri ile eşlemek için **"PersonImmutableID"** talep.
+    Üzerinde Azure AD kullanıcı eşlemesinden ADP için burada yapılır **EmployeeID** ancak bu uygulama ayarlarınıza göre farklı bir değer eşleyebilirsiniz. İş, bu nedenle Lütfen ile [ADP destek ekibi](https://www.adp.com/contact-us/overview.aspx) önce bir kullanıcının doğru tanıtıcısı kullanın ve bu değeri ile eşlemek için **"PersonImmutableID"** talep.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_attribute.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_attribute.png)
 
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
@@ -153,9 +153,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 7. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_certificate.png) 
 
-8. Çoklu oturum açma yapılandırmak için **ADP Federasyon SSO** yan, indirilen karşıya yüklemek için ihtiyacınız **meta veri XML** üzerinde [ADP Federasyon SSO Web sitesi](https://adpfedsso.adp.com/public/login/index.fcc).
+8. Çoklu oturum açma yapılandırmak için **ADP** yan, indirilen karşıya yüklemek için ihtiyacınız **meta veri XML** üzerinde [ADP Web sitesi](https://adpfedsso.adp.com/public/login/index.fcc).
 
 > [!NOTE]  
 > Bu işlem birkaç gün sürebilir. 
@@ -178,13 +178,13 @@ ADP temsilcinizle onayı alındığında ADP hizmete kullanıcı erişimi denetl
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **ADP Federasyon SSO**seçin **ADP Federasyon SSO** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **ADP**seçin **ADP** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Sonuçlar listesinde ADP Federasyon SSO](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_addservicegallery.png)
+    ![Sonuçlar listesinde ADP](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_addservicegallery.png)
 
-5. Azure portalında üzerinde **ADP Federasyon SSO** uygulama tümleştirme sayfası, tıklatıldığında **özellikler sekmesi** ve aşağıdaki adımları gerçekleştirin:  
+5. Azure portalında üzerinde **ADP** uygulama tümleştirme sayfası, tıklatıldığında **özellikler sekmesi** ve aşağıdaki adımları gerçekleştirin:  
 
-    ![Çoklu oturum açma linkedproperties](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedproperties.png)
+    ![Çoklu oturum açma linkedproperties](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  Ayarlama **kullanıcıların oturum açma için etkinleştirilen** alan için değer **Evet**.
 
@@ -192,19 +192,19 @@ ADP temsilcinizle onayı alındığında ADP hizmete kullanıcı erişimi denetl
 
     c.  Ayarlama **kullanıcılara görünür** alan için değer **Evet**.
 
-6. Tıklatın **çoklu oturum açma** üzerinde **ADP Federasyon SSO** uygulama tümleştirme sayfası.
+6. Tıklatın **çoklu oturum açma** üzerinde **ADP** uygulama tümleştirme sayfası.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-7. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **bağlantılı oturum açma** uygulamanıza bağlamak için **ADP Federasyon SSO**.
+7. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **bağlantılı oturum açma**. uygulamanıza bağlamak için **ADP**.
 
-    ![Tekli bağlantılı oturum](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
+    ![Tekli bağlantılı oturum](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
 8. Gidin **yapılandırma oturum açma URL'si** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linkedsignon.png)
+    ![Çoklu oturum açma prop](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
                                                               
-    a. Yapıştır **kullanıcı erişim URL'si**, yukarıda kopyalanan **özellikler sekmesi** (uygulamasından ana ADP Federasyon SSO).
+    a. Yapıştır **kullanıcı erişim URL'si**, yukarıda kopyalanan **özellikler sekmesi** (uygulamasından ana ADP).
                                                              
     b. Şunlardır 5 farklı destekleyen uygulamalar **geçiş durumu URL'leri**. Uygun eklemek zorunda **geçiş durumu URL** belirli uygulama için el ile çok değer **kullanıcı erişim URL'si**.
     
@@ -274,25 +274,25 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="create-an-adp-federated-sso-test-user"></a>ADP Federasyon SSO test kullanıcısı oluşturma
+### <a name="create-an-adp-test-user"></a>ADP test kullanıcısı oluşturma
 
-Bu bölümün amacı ADP Federasyon SSO içinde Britta Simon adlı bir kullanıcı oluşturmaktır. Çalışmak [ADP destek ekibi](https://www.adp.com/contact-us/overview.aspx) ADP Federasyon SSO hesabında kullanıcıları eklemek için.
+Bu bölümün amacı ADP içinde Britta Simon adlı bir kullanıcı oluşturmaktır. Çalışmak [ADP destek ekibi](https://www.adp.com/contact-us/overview.aspx) ADP hesap kullanıcılar eklemek için.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta ADP Federasyon SSO erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Britta ADP erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**ADP Federasyon SSO Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**ADP Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **ADP Federasyon SSO**.
+2. Uygulamalar listesinde **ADP**.
 
-    ![Uygulamalar listesinde ADP Federasyon SSO bağlantı](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_app.png)  
+    ![Uygulamalar listesinde ADP bağlantı](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
@@ -312,15 +312,13 @@ Bu bölümde, Britta ADP Federasyon SSO erişim vererek, Azure çoklu oturum aç
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli ADP Federasyon SSO parçasında tıklattığınızda, otomatik olarak ADP Federasyon SSO uygulamanıza açan.
+Erişim paneli ADP parçasında tıklattığınızda, otomatik olarak ADP uygulamanıza açan.
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

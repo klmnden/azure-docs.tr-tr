@@ -3,7 +3,7 @@ title: "Azure Data Factory - JSON betik oluşturma başvurusu | Microsoft Docs"
 description: "Data Factory varlıkları için JSON şemaları sağlar."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9457e90f378cf7b30810ca9cadfcad139e91e2d4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON betik oluşturma başvurusu
 > [!NOTE]
@@ -288,7 +288,7 @@ Aşağıdaki tabloda yukarıdaki JSON özelliklerinde açıklanmaktadır:
 | type | Veri kümesi türü. Azure Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). Bkz: [veri DEPOLARINA](#data-stores) tüm veri depoları ve veri fabrikası tarafından desteklenen veri türleri için bölüm. | 
 | yapısı | Veri kümesi şemasını. Bu sütun, türleri, vb. içerir. | Hayır |NA |
 | typeProperties | Seçili türüne karşılık gelen özellikler. Bkz: [veri DEPOLARINA](#data-stores) desteklenen türlerini ve bunların özelliklerini bölümü. |Evet |NA |
-| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. |Hayır |yanlış |
+| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. |Hayır |false |
 | availability | İşleme penceresi veya veri kümesi üretim dilimleme modelini tanımlar. Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
 | ilke |Ölçüt ya da veri kümesi dilimler karşılamanız gerekmektedir koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [Dataset İlkesi](#Policy) bölümü. |Hayır |NA |
 
@@ -298,7 +298,7 @@ Her sütunda **yapısı** bölüm, aşağıdaki özellikleri içerir:
 | --- | --- | --- |
 | ad |Sütunun adı. |Evet |
 | type |Sütunun veri türü.  |Hayır |
-| Kültür |.NET tabanlı türü belirtilir ve .NET türü olduğunda kullanılacak kültürü `Datetime` veya `Datetimeoffset`. Varsayılan değer `en-us`. |Hayır |
+| Kültür |.NET tabanlı türü belirtilir ve .NET türü olduğunda kullanılacak kültürü `Datetime` veya `Datetimeoffset`. `en-us` varsayılan değerdir. |Hayır |
 | Biçimi |Biçim türü belirtilir ve .NET türü olduğunda kullanılacak dize `Datetime` veya `Datetimeoffset`. |Hayır |
 
 Aşağıdaki örnekte, üç sütun kümesi sahip `slicetimestamp`, `projectname`, ve `pageviews` ve bunlar türü: dize, dize ve ondalık sırasıyla.
@@ -357,7 +357,7 @@ Azure Data Factory tarafından üretilen bir veri kümesi sürece bunu olarak i�
 | Ad | Açıklama | Gerekli | Varsayılan Değer |
 | --- | --- | --- | --- |
 | dataDelay |Verilen dilim için dış veri kullanılabilirliğini onay gecikme süresi. Verilerin saatlik varsa, örneğin, dış veri kullanılabilir ve karşılık gelen dilimi hazır denetleyin dataDelay kullanılarak ertelenebilir.<br/><br/>Yalnızca mevcut süre için geçerlidir.  Örneğin, 1:00 PM şimdi ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar, geçmişte dilimler etkilemez (dilimler dilim bitiş saati + dataDelay < şimdi) herhangi bir gecikme işlenir.<br/><br/>Saat 23:59 saatleri gereken kullanarak belirtilen büyük `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın; Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat için 1:04:00:00 belirtin. |Hayır |0 |
-| Retryınterval |Bir hata ile sonraki arasındaki bekleme süresini girişimi yeniden deneyin. Bir deneme başarısız olursa, sonraki deneyin sonra Retryınterval olur. <br/><br/>1:00 PM şimdi ise, ilk denemede başlamadan. İlk doğrulama denetimi tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Geçmişte dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
+| retryInterval |Bir hata ile sonraki arasındaki bekleme süresini girişimi yeniden deneyin. Bir deneme başarısız olursa, sonraki deneyin sonra Retryınterval olur. <br/><br/>1:00 PM şimdi ise, ilk denemede başlamadan. İlk doğrulama denetimi tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Geçmişte dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 minute) |
 | retryTimeout |Yeniden deneme girişimleri için zaman aşımı.<br/><br/>Bu özellik 10 dakika olarak ayarlanırsa, doğrulama 10 dakika içinde tamamlanması gerekir. Yeniden deneme doğrulamayı gerçekleştirmek için 10 dakikadan uzun sürüyorsa, zaman aşımına uğradı.<br/><br/>Tüm denemeleri doğrulama için zaman aşımına uğrarsa, dilim süresi sona erdi işaretlenir. |Hayır |00:10:00 (10 dakika) |
 | maximumRetry |Dış veri kullanılabilirliğini denetleyin sayısı. İzin verilen en büyük değer 10'dur. |Hayır |3 |
 
@@ -837,7 +837,7 @@ Bir Azure Cosmos Veritabanından veri kopyalıyorsanız ayarlamak **kaynak tür�
 
 | **Özellik** | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için sorgu belirtin. |Sorgu dizesindeki Azure Cosmos DB tarafından desteklenir. <br/><br/>Örnek:`SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimi:`select <columns defined in structure> from mycollection` |
+| sorgu |Verileri okumak için sorgu belirtin. |Sorgu dizesindeki Azure Cosmos DB tarafından desteklenir. <br/><br/>Örnek: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimi: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Belge iç içe geçmiş belirtmek için özel karakter |Herhangi bir karakter. <br/><br/>Azure Cosmos DB iç içe geçmiş yapılar burada izin verilen bir NoSQL JSON belgeleri için deposudur. Azure Data Factory sağlar hiyerarşisi olan nestingSeparator aracılığıyla belirtmek kullanıcı "." Yukarıdaki örneklerde. Ayırıcı olmadan kopyalama etkinliği üç alt öğeleri "Ad" nesnesiyle ilk olarak, oluşturacak Orta ve son "Name.First", "Name.Middle" ve "Name.Last" Tablo tanımında göre. |Hayır |
 
 #### <a name="example"></a>Örnek
@@ -883,7 +883,7 @@ Azure Cosmos Veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz tü
 
 | **Özellik** | **Açıklama** | **İzin verilen değerler** | **Gerekli** |
 | --- | --- | --- | --- |
-| nestingSeparator |Bir özel karakter iç içe geçmiş belge belirtmek için kaynak sütun adı gereklidir. <br/><br/>Örneğin yukarıdaki: `Name.First` çıktıda tablo Cosmos DB belgede aşağıdaki JSON yapısını oluşturur:<br/><br/>"Name": {<br/>    "İlk": "John"<br/>}, |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir.<br/><br/>Varsayılan değer `.` (nokta). |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir. <br/><br/>Varsayılan değer `.` (nokta). |
+| nestingSeparator |Bir özel karakter iç içe geçmiş belge belirtmek için kaynak sütun adı gereklidir. <br/><br/>Örneğin yukarıdaki: `Name.First` çıktıda tablo Cosmos DB belgede aşağıdaki JSON yapısını oluşturur:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir.<br/><br/>Varsayılan değer `.` (nokta). |İç içe geçme düzeylerini ayırmak için kullanılan karakterdir. <br/><br/>Varsayılan değer `.` (nokta). |
 | writeBatchSize |Azure Cosmos DB hizmeti belgeleri oluşturmak için paralel isteklerin sayısı.<br/><br/>Bu özelliği kullanarak Azure Cosmos DB öğesine/öğesinden veri kopyalama işlemi sırasında performans ince ayar yapabilirsiniz. Daha fazla paralel istekler için Azure Cosmos DB'ye gönderildiğinden writeBatchSize artırdığınızda daha iyi bir performans düşüklüğü görebilir. Ancak, azaltma önlemek gerekir, hata iletisi atabilirsiniz: "oranıdır büyük istek".<br/><br/>Azaltmayı bir dizi etkene, belgeler, belgeleri koşullarını sayısı boyutunu dahil olmak üzere, hedef koleksiyon, vb. İlkesi dizin tarafından belirlenir. Kopyalama işlemleri için en çok kullanılabilir verimlilik sağlamak için daha iyi bir koleksiyonunu (örneğin, S3) kullanabilirsiniz (2.500 istek birimleri/saniye). |Tamsayı |Hayır (varsayılan: 5) |
 | writeBatchTimeout |İşlemin zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 
@@ -1050,7 +1050,7 @@ Azure SQL veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
 | sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| Sliceıdentifiercolumnname |Ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak kopyalama etkinliği için bir sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| sliceIdentifierColumnName |Ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak kopyalama etkinliği için bir sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
 | sqlWriterStoredProcedureName |Saklı yordam adı hedef tabloda bu upserts (güncelleştirmeler/ekler) verileri. |Saklı yordam adı. |Hayır |
 | storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
 | sqlWriterTableType |Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
@@ -1224,11 +1224,11 @@ Azure SQL Data Warehouse'a veri kopyalıyorsanız ayarlamak **Havuz türü** kop
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| Bulunan'allowpolybase |BULKINSERT mekanizması yerine PolyBase (varsa) kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** |True <br/>False (varsayılan) |Hayır |
+| allowPolyBase |BULKINSERT mekanizması yerine PolyBase (varsa) kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** |True <br/>False (varsayılan) |Hayır |
 | polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği ayarlanmış **doğru**. |&nbsp; |Hayır |
 | rejectValue |Sayı veya yüzde değeri sorgu başarısız önce reddedilemiyor satır belirtir. <br/><br/>PolyBase'nın reddetme seçenekleri hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE dış TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. |0 (varsayılan), 1, 2... |Hayır |
 | rejectType |RejectValue seçeneği bir hazır değer veya bir yüzde belirtilen belirtir. |Değer (varsayılan), yüzde |Hayır |
-| Havuzu'na ilişkin |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler. |1, 2... |Evet, varsa **rejectType** olan **yüzdesi** |
+| rejectSampleValue |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler. |1, 2, … |Evet, varsa **rejectType** olan **yüzdesi** |
 | useTypeDefault |PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünde bu özelliği hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (varsayılan) |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
@@ -1341,7 +1341,7 @@ Bir Azure Search dizinine veri kopyalıyorsanız ayarlamak **Havuz türü** kopy
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Birleştir veya bir belge dizinde zaten mevcut olduğunda Değiştir belirtir. | Merge (varsayılan)<br/>Karşıya Yükle| Hayır |
-| writeBatchSize | Arabellek boyutu writeBatchSize ulaştığında Azure Search dizinine veri yükler. | 1 için 1.000. Varsayılan değer 1000'dir. | Hayır |
+| WriteBatchSize | Arabellek boyutu writeBatchSize ulaştığında Azure Search dizinine veri yükler. | 1 için 1.000. Varsayılan değer 1000'dir. | Hayır |
 
 #### <a name="example"></a>Örnek
 
@@ -2005,7 +2005,7 @@ Bir Oracle veritabanından veri kopyalıyorsanız ayarlamak **kaynak türünü**
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin, `select * from MyTable` <br/><br/>Belirtilmezse, yürütülen SQL deyimi:`select * from MyTable` |Hayır (varsa **tableName** , **dataset** belirtilir) |
+| oracleReaderQuery |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin, `select * from MyTable` <br/><br/>Belirtilmezse, yürütülen SQL deyimi: `select * from MyTable` |Hayır (varsa **tableName** , **dataset** belirtilir) |
 
 #### <a name="example"></a>Örnek
 
@@ -2060,7 +2060,7 @@ Am Oracle veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz türü
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: 00:30:00 (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 100) |
 | sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. |Sorgu bildirimi. |Hayır |
-| Sliceıdentifiercolumnname |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| sliceIdentifierColumnName |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
 
 #### <a name="example"></a>Örnek
 ```json
@@ -2230,13 +2230,13 @@ Bağlantılı hizmetinin SAP Business Warehouse (BW) tanımlamak için Ayarla **
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | dize | Evet
+sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | string | Evet
 systemNumber | SAP BW sisteminin sistem numarası. | Bir dize olarak gösterilen iki basamaklı ondalık sayı. | Evet
-istemci kimliği | SAP W sistem istemcisinde istemci kimliği. | Bir dize olarak gösterilen üç basamaklı ondalık sayı. | Evet
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
-password | Kullanıcının parolası. | dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
+clientId | SAP W sistem istemcisinde istemci kimliği. | Bir dize olarak gösterilen üç basamaklı ondalık sayı. | Evet
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | string | Evet
+password | Kullanıcının parolası. | string | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | string | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | string | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2340,12 +2340,12 @@ Bağlantılı hizmetinin SAP HANA tanımlamak için Ayarla **türü** bağlantı
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | dize | Evet
+sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | string | Evet
 authenticationType | Kimlik doğrulama türü. | Dize. "Temel" veya "Windows" | Evet 
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
-password | Kullanıcının parolası. | dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | string | Evet
+password | Kullanıcının parolası. | string | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | string | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | string | Hayır
 
 #### <a name="example"></a>Örnek
 
@@ -2611,7 +2611,7 @@ Bir SQL Server veritabanına veri kopyalamak istiyorsanız, ayarlayın **Havuz t
 | writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. |TimeSpan<br/><br/> Örnek: "00: 30:00" (30 dakika). |Hayır |
 | writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. |Tamsayı (satır sayısı) |Hayır (varsayılan: 10000) |
 | sqlWriterCleanupScript |Belirli bir dilimle verilerinin temizlenmesini şekilde yürütmek kopyalama etkinliği sorgusunu belirtin. Daha fazla bilgi için bkz: [Yinelenebilirlik](#repeatability-during-copy) bölümü. |Sorgu bildirimi. |Hayır |
-| Sliceıdentifiercolumnname |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. Daha fazla bilgi için bkz: [Yinelenebilirlik](#repeatability-during-copy) bölümü. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
+| sliceIdentifierColumnName |Kopyalama etkinliği'nin ne zaman yeniden çalıştırılacağını belirli bir dilim verileri temizlemek için kullanılan otomatik dilim tanımlayıcı doldurmak için sütun adı belirtin. Daha fazla bilgi için bkz: [Yinelenebilirlik](#repeatability-during-copy) bölümü. |Binary(32) veri türüne sahip bir sütunun sütun adı. |Hayır |
 | sqlWriterStoredProcedureName |Saklı yordam adı hedef tabloda bu upserts (güncelleştirmeler/ekler) verileri. |Saklı yordam adı. |Hayır |
 | storedProcedureParameters |Saklı yordam parametreleri. |Ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
 | sqlWriterTableType |Saklı yordam, kullanılacak tablo türü adı belirtin. Kopyalama etkinliği taşınan veri geçici bir tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu ardından var olan verilerle kopyalanan verileri birleştirebilirsiniz. |Bir tablo türü adı. |Hayır |
@@ -2976,7 +2976,7 @@ Cassandra veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinl
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sorgu |Verileri okumak için özel sorgu kullanın. |SQL-92 sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgusu kullanırken belirtin **keyspace name.table adı** sorgulamak istediğiniz tabloyu temsil etmek için. |Hayır (tableName ve veri kümesi üzerinde keyspace tanımlanmışsa). |
-| consistencyLevel |Tutarlılık düzeyi kaç çoğaltmaları Okuma isteği için veri istemci uygulamasına geri dönmeden önce yanıt vermesi gereken belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. |BİR, İKİ, ÜÇ, ÇEKİRDEK, TÜMÜ, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Bkz: [veri tutarlılığını yapılandırma](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için. |Hayır. Varsayılan değer biridir. |
+| consistencyLevel |Tutarlılık düzeyi kaç çoğaltmaları Okuma isteği için veri istemci uygulamasına geri dönmeden önce yanıt vermesi gereken belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Bkz: [veri tutarlılığını yapılandırma](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için. |Hayır. Varsayılan değer biridir. |
 
 #### <a name="example"></a>Örnek
   
@@ -3151,7 +3151,7 @@ Bağlantılı hizmetinin bir Amazon S3 tanımlamak için Ayarla **türü** bağl
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| accessKeyID |Gizli erişim anahtarı kimliği. |dize |Evet |
+| accessKeyID |Gizli erişim anahtarı kimliği. |string |Evet |
 | secretAccessKey |Gizli erişim anahtar kendisi. |Şifrelenmiş gizli dize |Evet |
 
 #### <a name="example"></a>Örnek
@@ -3370,7 +3370,7 @@ Bir dosya sistemi veri kümesini tanımlamak için **türü** için veri kümesi
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | folderPath |Alt klasöre belirtir. Kaçış karakteri kullanmak ' \' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı şu biçimdedir: <br/><br/>`Data.<Guid>.txt`(Örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
+| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı şu biçimdedir: <br/><br/>`Data.<Guid>.txt` (Örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
 | fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin. <br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: "fileFilter": "* .log"<br/>Örnek 2: "fileFilter": 2016 - 1-? txt"<br/><br/>Bu fileFilter bir giriş FileShare veri kümesi için geçerli olduğunu unutmayın. |Hayır |
 | partitionedBy |PartitionedBy dinamik folderPath/için bir dosya adı time series verilerini belirtmek için kullanabilirsiniz. İçin verileri saatte parametreli folderPath örneğidir. |Hayır |
 | Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
@@ -3555,8 +3555,8 @@ Bağlantılı hizmetinin FTP tanımlamak için Ayarla **türü** bağlantılı h
 | encryptedCredential |FTP sunucusuna erişmek için şifrelenmiş kimlik bilgileri |Hayır |&nbsp; |
 | gatewayName |Şirket içi FTP sunucusuna bağlanmak için veri yönetimi ağ geçidi ağ geçidinin adı |Hayır |&nbsp; |
 | port |FTP sunucusunun dinlediği bağlantı noktası |Hayır |21 |
-| enableSsl |FTP SSL/TLS kanalı üzerinden kullanıp kullanmayacağınızı belirtin |Hayır |doğru |
-| enableServerCertificateValidation |Sunucu SSL sertifika doğrulamasını FTP SSL/TLS kanalı üzerinden kullanırken etkinleştirilip etkinleştirilmeyeceğini belirtin |Hayır |doğru |
+| enableSsl |FTP SSL/TLS kanalı üzerinden kullanıp kullanmayacağınızı belirtin |Hayır |true |
+| enableServerCertificateValidation |Sunucu SSL sertifika doğrulamasını FTP SSL/TLS kanalı üzerinden kullanırken etkinleştirilip etkinleştirilmeyeceğini belirtin |Hayır |true |
 
 #### <a name="example-using-anonymous-authentication"></a>Örnek: Anonim kimlik doğrulamasını kullanma
 
@@ -3636,7 +3636,7 @@ Bir FTP veri kümesini tanımlamak için **türü** için veri kümesinin **File
 | --- | --- | --- |
 | folderPath |Klasörün alt yolu. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet 
 | fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1:`"fileFilter": "*.log"`<br/>Örnek 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
+| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
 | partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örneğin, her veri saat için parametreli folderPath. |Hayır |
 | Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**; ve desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
@@ -3776,7 +3776,7 @@ HDFS veri kümesini tanımlamak için **türü** için veri kümesinin **FileSha
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| folderPath |Klasör yolu. Örnek:`myfolder`<br/><br/>Kaçış karakteri kullanmak ' \ ' dize özel karakter. Örneğin: folder\subfolder için klasör belirtin\\\\alt ve d:\samplefolder için d: belirtin\\\\ÖrnekKlasör.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
+| folderPath |Klasör yolu. Örnek: `myfolder`<br/><br/>Kaçış karakteri kullanmak ' \ ' dize özel karakter. Örneğin: folder\subfolder için klasör belirtin\\\\alt ve d:\samplefolder için d: belirtin\\\\ÖrnekKlasör.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
 | fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
 | partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örnek: veri her saat için parametreli folderPath. |Hayır |
 | Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
@@ -3978,7 +3978,7 @@ SFTP veri kümesini tanımlamak için **türü** için veri kümesinin **FileSha
 | --- | --- | --- |
 | folderPath |Klasörün alt yolu. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
 | fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1:`"fileFilter": "*.log"`<br/>Örnek 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
+| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
 | partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örneğin, her veri saat için parametreli folderPath. |Hayır |
 | Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
@@ -4158,7 +4158,7 @@ Bir HTTP veri kümesini tanımlamak için **türü** için veri kümesinin **Htt
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | relativeUrl | Verileri içeren kaynak için göreli bir URL. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. <br><br> Dinamik URL oluşturmak için kullanabileceğiniz [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md), örneğin: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Hayır |
-| requestMethod | HTTP yöntemi. İzin verilen değerler **almak** veya **POST**. | Hayır. Varsayılan değer `GET`. |
+| requestMethod | HTTP yöntemi. İzin verilen değerler **almak** veya **POST**. | Hayır. `GET` varsayılan değerdir. |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
 | requestBody | HTTP istek gövdesi. | Hayır |
 | Biçimi | Yalnızca istiyorsanız, **HTTP uç noktası olarak veri almak-olduğu** ayrıştırma olmadan, bu biçim ayarlarını atla. <br><br> HTTP yanıt içeriği kopyalama sırasında ayrıştırma istiyorsanız, aşağıdaki biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. |Hayır |
@@ -4820,7 +4820,7 @@ Aşağıdaki tablo, veri fabrikası ve bunlar üzerinde çalışan dönüştürm
 
 | İşlem ortamı | Etkinlikler |
 | --- | --- |
-| [İsteğe bağlı Hdınsight kümesi](#on-demand-azure-hdinsight-cluster) veya [kendi Hdınsight kümenizi](#existing-azure-hdinsight-cluster) |[.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce etkinliği](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [Spark etkinliği](#hdinsight-spark-activity) |
+| [İsteğe bağlı Hdınsight kümesi](#on-demand-azure-hdinsight-cluster) veya [kendi Hdınsight kümenizi](#existing-azure-hdinsight-cluster) |[.NET özel etkinlik](#net-custom-activity), [Hive etkinliğini](#hdinsight-hive-activity), [Pig etkinlik] (#hdinsight-pig-etkinliği [MapReduce etkinliği](#hdinsight-mapreduce-activity), [Hadoop etkinlik akış](#hdinsight-streaming-activityd), [ Spark etkinliği](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET özel etkinliği](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Toplu iş yürütme etkinliği makine](#machine-learning-batch-execution-activity), [kaynak güncelleştirme etkinliği makine](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |

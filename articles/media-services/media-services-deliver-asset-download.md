@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7748c3058cd2aca907e3bc564b2ad18090db28
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Nasıl yapılır: bir varlık indirme tarafından teslim
-Bu konu, media varlıklar Media Services'e teslim etmek için seçenekleri açıklar. Medya Hizmetleri içerik çok sayıda uygulama senaryolarında sunabilir. Ortam varlıkları indirin ya da bir Bulucu kullanarak erişim. Medya içeriği başka bir uygulamaya veya başka bir içerik sağlayıcısına gönderebilirsiniz. Bir içerik teslim ağı (CDN) kullanarak, Gelişmiş performans ve ölçeklenebilirlik için içerik sunabilir.
+Bu makalede medya varlıklar Media Services'e teslim etmek için seçenekleri açıklar. Medya Hizmetleri içerik çok sayıda uygulama senaryolarında sunabilir. Kodlama sonra oluşturulan ortam varlıkları indirin veya akış Bulucusu kullanarak erişim. Bir içerik teslim ağı (CDN) kullanarak, Gelişmiş performans ve ölçeklenebilirlik için içerik sunabilir.
 
 Bu örnek, medya varlıklar Media Services'den yerel bilgisayarınıza indirin gösterilmektedir. İş kimliği ve erişim tarafından Media Services hesabınızla ilişkili işleri kodu sorgular kendi **OutputMediaAssets** (bir işi çalışmasını sonuçlanır bir veya daha fazla çıkış ortam varlıkları kümesi olan) koleksiyon. Bu örnek bir işinden çıkış ortam varlıkları indirmek nasıl gösterir, ancak diğer varlıklar indirmek için aynı yaklaşımı uygulayabilirsiniz.
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Aynı gün / erişim izinleri, örneğin, ilkeleri kalmasına yerinde uzun bir süre (karşıya yükleme olmayan ilkeleri) yöneliktir bulucular için her zaman aynı ilke kimliği kullanın. Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
+```csharp
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     {
@@ -76,7 +77,7 @@ Bu örnek, medya varlıklar Media Services'den yerel bilgisayarınıza indirin g
     {
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları

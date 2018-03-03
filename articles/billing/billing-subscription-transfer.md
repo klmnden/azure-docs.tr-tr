@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Başka bir hesap için bir Azure aboneliği sahipliğini aktarma
 
@@ -29,7 +29,7 @@ Aboneliğiniz Hesap Yöneticisi değiştirmek ve abonelik fatura sahipliğini el
 
 > [!IMPORTANT]
 > 
-> Abonelik aktarımları ücretsiz deneme sürümü için şu anda desteklemiyoruz veya [içinde Aç (AIO) Azure](https://azure.microsoft.com/offers/ms-azr-0111p/) abonelikleri. Geçici bir çözüm için bkz: [yeni kaynak grubu veya abonelik kaynaklarını taşıma](../azure-resource-manager/resource-group-move-resources.md).
+> Yeni bir Azure AD aboneliği transfer ederseniz Kiracı, tüm rol atamalarını [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-what-is.md) kaynak kiracıdan kalıcı olarak silinir ve hedef Kiracı geçirilmez.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Bir Azure aboneliği sahipliğini aktarma
 
@@ -49,7 +49,12 @@ Aboneliğiniz Hesap Yöneticisi değiştirmek ve abonelik fatura sahipliğini el
    ![Azure hesabı abonelikleri sekmesi](./media/billing-subscription-transfer/image1.png)
 1. Alıcıyı belirtin.
 
+   > [!IMPORTANT]
+   > 
+   > Yeni bir Azure AD aboneliği transfer ederseniz Kiracı, tüm rol atamalarını [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-what-is.md) kaynak kiracıdan kalıcı olarak silinir ve hedef Kiracı geçirilmez.
+
    ![Aktarım abonelik iletişim kutusu](./media/billing-subscription-transfer/image2.PNG)
+
 1. Alıcı otomatik olarak, kabul bağlantısı içeren bir e-posta alır.
 
    ![Abonelik aktarımı alıcı'e-posta](./media/billing-subscription-transfer/image3.png)
@@ -80,27 +85,27 @@ Kuruluş Yöneticisi bir kayıt içinde abonelikleri sahipliğini aktarabilirsin
 
 ## <a name="whats-supported"></a>Ne desteklenir:
 
-Self Servis abonelik aktarımı teklifleri veya aşağıdaki tabloda listelenen abonelik türleri için kullanılabilir. Diğer abonelikler gibi aktarma [sponsorluk](https://azure.microsoft.com/offers/ms-azr-0036p/) veya destek planları, [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Self Servis abonelik aktarımı teklifleri veya aşağıdaki tabloda listelenen abonelik türleri için kullanılabilir. Ücretsiz deneme sürümü şu anda aktaramaz veya [içinde Aç (AIO) Azure](https://azure.microsoft.com/offers/ms-azr-0111p/) abonelikleri. Geçici bir çözüm için bkz: [yeni kaynak grubu veya abonelik kaynaklarını taşıma](../azure-resource-manager/resource-group-move-resources.md). Gibi diğer abonelikler aktarmak için [sponsorluk](https://azure.microsoft.com/offers/ms-azr-0036p/) veya destek planları, [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Teklif Adı                                                                             | Teklif Numarası |
 |----------------------------------------------------------------------------------------|--------------|
-| [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR - 0017P        |
-| [Microsoft iş ortağı ağı](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR - 0025P        |
-| [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR - 0062P        |
-| [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR - 0003P        |
-| [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR - 0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR - 0063P        |
-| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR - 0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR - 0059P        |
-| [Visual Studio Test uzmanı](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR - 0060P        |
+| [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
+| [Microsoft iş ortağı ağı](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
+| [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
+| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
 
-\*[Aracılığıyla EA portalı](#EA)
+\* [EA portalı yoluyla](#EA)
 
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 
-### <a name="whoisaa"></a>Aboneliğin hesap yöneticisi kim?
+### <a name="whoisaa"></a> Aboneliğin hesap yöneticisi kim?
 
 Hesap Yöneticisi kaydolup veya Azure aboneliği satın kullanıcıdır. Bunlar erişim yetkiniz [hesap Merkezi'nde](https://account.azure.com/Subscriptions) ve abonelikleri oluşturma, aboneliklerinizi iptal edin, bir abonelik için faturalama değiştirmek veya Hizmet Yöneticisi değiştirme gibi çeşitli yönetim görevlerini gerçekleştirebilirsiniz. Bir abonelik için hesap yöneticinize olan emin değilseniz, öğrenmek için aşağıdaki adımları kullanın.
 
@@ -112,7 +117,7 @@ Hesap Yöneticisi kaydolup veya Azure aboneliği satın kullanıcıdır. Bunlar 
 
 Tüm kaynaklarınıza VM'ler, diskler ve Web siteleri aktarımı için yeni sahibin ister. Ancak, tüm [yönetici rolleri](billing-add-change-azure-subscription-administrator.md) ve [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md) ayarladığınız ilkeleri farklı dizinlerde aktarım değil. Ayrıca, [uygulama kayıtlar](../active-directory//develop/active-directory-integrating-applications.md) ve diğer Kiracı özgü hizmetler boyunca aktarım yok.
 
-### <a id="no-button"></a>Neden "abonelik aktarma" düğmesini görmüyorum?
+### <a id="no-button"></a> Neden "abonelik aktarma" düğmesini görmüyorum?
 
 Ne yazık ki, Self Servis abonelik aktarımı teklif veya ülke için kullanılamaz. Aboneliğinizi aktarmayı [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 33fb0a18ea3e5bfec044a216c8e6a78942e3af40
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: de6cbf954f175777407432845ece24ac49198e46
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Statik paketleme görevleri gerçekleştirmek için Azure Media Paketleyicisi'ni kullanma
 > [!NOTE]
@@ -58,6 +58,7 @@ Bu bölümde, doğrulama görev işlem gösterilmektedir. Ayrıca, durum ve hata
 
 Medya Hizmetleri Paketleyici ile MP4 dosyalarınızın doğrulamak için kendi bildirimi (.ism) dosyası oluşturun ve Media Services hesabınıza kaynak dosyalarıyla birlikte yüklemek. Aşağıda bir .ism dosyası örneği Medya Kodlayıcısı standart tarafından oluşturulur. Dosya adları büyük/küçük harfe duyarlıdır. Ayrıca, .ism dosyası metni UTF-8 ile kodlanmış emin olun.
 
+```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
     <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
       <head>
@@ -76,11 +77,13 @@ Medya Hizmetleri Paketleyici ile MP4 dosyalarınızın doğrulamak için kendi b
         </switch>
       </body>
     </smil>
+```
 
 Bulduktan sonra Uyarlamalı bit hızı MP4 kümesine dinamik paketleme yararlanabilir. Dinamik paketleme, daha fazla paketleme olmadan belirtilen Protokolü akışlar sunmanıza olanak sağlar. Daha fazla bilgi için bkz: [dinamik paketleme](media-services-dynamic-packaging-overview.md).
 
 Aşağıdaki kod örneği, Azure Media Services .NET SDK uzantıları kullanır.  Kod giriş MP4 dosyaları ve .ism dosyası bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_ValidateTask.xml dosyasının bulunduğu. Bu XML dosyası tanımlanan [görev Önayar Azure medya Paketleyici için](http://msdn.microsoft.com/library/azure/hh973635.aspx) makalesi.
 
+```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System;
     using System.Collections.Generic;
@@ -244,6 +247,7 @@ Aşağıdaki kod örneği, Azure Media Services .NET SDK uzantıları kullanır.
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Kesintisiz ve MPEG DASH PlayReady ile koruma için statik şifreleme kullanma
 İçeriğinizi PlayReady ile korumak istiyorsanız, kullanarak seçenekleriniz vardır [dinamik şifreleme](media-services-protect-with-playready-widevine.md) (önerilen seçenek) veya statik şifreleme (Bu bölümde açıklandığı şekilde).
@@ -263,6 +267,7 @@ Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaEncryptor_PlayReadyProtection.x
 
 Örnek dinamik olarak MediaEncryptor_PlayReadyProtection.xml dosyasını güncelleştirmek için kullanabileceğiniz UpdatePlayReadyConfigurationXMLFile yöntemi tanımlar. Kullanılabilir anahtar çekirdek varsa, keySeedValue ve Keyıd değerlerine dayalı içerik anahtarı oluşturmak için CommonEncryption.GeneratePlayReadyContentKey yöntemi kullanabilirsiniz.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -694,6 +699,7 @@ Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaEncryptor_PlayReadyProtection.x
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>AES-128 ile HLSv3 korumak için statik şifreleme kullanma
 AES-128 ile HLS şifrelemek isterseniz, dinamik şifreleme (önerilen seçenek) veya statik şifreleme (Bu bölümde gösterildiği gibi) kullanarak seçenekleriniz vardır. Dinamik şifreleme kullanmaya karar verirseniz bkz [AES-128 dinamik şifreleme kullanarak ve anahtar teslim hizmeti](media-services-protect-with-aes128.md).
@@ -707,6 +713,7 @@ AES-128 ile HLS şifrelemek isterseniz, dinamik şifreleme (önerilen seçenek) 
 
 Bu bölümdeki örnek MP4 dosyaları ve ardından MP4s kesintisiz akış paketler multibitrate (Bu durumda MP4) Ara dosyayı kodlar. Bunun ardından kesintisiz akış halinde HTTP canlı akışı (Gelişmiş Şifreleme Standardı (AES) 128-bit akış şifreleme ile şifrelenmiş HLS) paketler. Aşağıdaki kod giriş MP4 dosyanızda bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_MP4ToSmooth.xml ve MediaPackager_SmoothToHLS.xml yapılandırma dosyalarınızın bulunduğu. Bu dosyalarda tanımı bulabilirsiniz [görev Önayar Azure medya Paketleyici için](http://msdn.microsoft.com/library/azure/hh973635.aspx) makalesi.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -975,6 +982,7 @@ Bu bölümdeki örnek MP4 dosyaları ve ardından MP4s kesintisiz akış paketle
             }
         }
     }
+```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>PlayReady ile HLSv3 korumak için statik şifreleme kullanma
 İçeriğinizi PlayReady ile korumak istiyorsanız, kullanarak seçenekleriniz vardır [dinamik şifreleme](media-services-protect-with-playready-widevine.md) (önerilen seçenek) veya statik şifreleme (Bu bölümde açıklandığı şekilde).
@@ -990,6 +998,7 @@ Media Services, artık Microsoft PlayReady lisansları teslim etmek için bir hi
 
 Aşağıdaki kod giriş MP4 dosyanızda bulunduğu klasöre işaret edecek şekilde güncelleştirdiğinizden emin olun. Ve ayrıca MediaPackager_MP4ToSmooth.xml, MediaPackager_SmoothToHLS.xml ve MediaEncryptor_PlayReadyProtection.xml dosyalarının bulunduğu. MediaPackager_MP4ToSmooth.xml ve MediaPackager_SmoothToHLS.xml tanımlanmış [görev Önayar Azure medya Paketleyici için](http://msdn.microsoft.com/library/azure/hh973635.aspx) ve MediaEncryptor_PlayReadyProtection.xml tanımlanmış [Azure medya için görev Önayar Şifreleyici](http://msdn.microsoft.com/library/azure/hh973610.aspx) makalesi.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -1452,6 +1461,7 @@ Aşağıdaki kod giriş MP4 dosyanızda bulunduğu klasöre işaret edecek şeki
 
         }
     }
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

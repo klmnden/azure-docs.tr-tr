@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: daveba
-ms.openlocfilehash: be80065f83e8c80e7c1d6ab383cea04e0d2679a0
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 90a7ec3059b6905e4aa660f538c299f3e8dedaae
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Azure CLI kullanarak bir kaynak için bir yönetilen hizmet kimliği (MSI) erişimi atayın
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Bir Azure kaynağı ile bir MSI yapılandırdıktan sonra herhangi bir güvenlik asıl gibi başka bir kaynak MSI erişim izni verebilirsiniz. Bu örnek bir Azure depolama hesabı için Azure CLI kullanarak bir Azure sanal makinenin MSI erişmesini sağlamak nasıl gösterir.
+Bir Azure kaynağı ile bir MSI yapılandırdıktan sonra herhangi bir güvenlik asıl gibi başka bir kaynak MSI erişim izni verebilirsiniz. Bu örnek bir Azure depolama hesabı için Azure CLI kullanarak bir Azure sanal makine veya sanal makine ölçek kümesinin MSI erişim vermek nasıl gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -39,21 +39,26 @@ CLI komut dosyası örnekleri çalıştırmak için üç seçeneğiniz vardır:
 
 ## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Başka bir kaynağa MSI erişim atamak için RBAC kullanın
 
-Bir Azure kaynağı üzerinde MSI etkinleştirdikten sonra [bir Azure VM gibi](msi-qs-configure-cli-windows-vm.md): 
+Bir Azure kaynağı üzerinde gibi MSI etkinleştirdikten sonra bir [Azure sanal makinesi](msi-qs-configure-cli-windows-vm.md) veya [Azure sanal makine ölçek kümesi](msi-qs-configure-cli-windows-vmss.md): 
 
-1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#az_login). Altında VM dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#az_login). Altında VM veya sanal makine ölçek kümesini dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Bu örnekte, biz bir depolama hesabı için bir Azure VM erişimi vermiş olursunuz. İlk kullanırız [az kaynak listesi](/cli/azure/resource/#az_resource_list) "biz VM'de MSI etkinleştirildiğinde oluşturulduğu myVM", adlı VM için hizmet sorumlusu almak için:
+2. Bu örnekte, biz bir depolama hesabı için bir Azure sanal makine erişimini vermiş olursunuz. İlk kullanırız [az kaynak listesi](/cli/azure/resource/#az_resource_list) hizmet sorumlusu "myVM" adlı sanal makinede almak için:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
+   Bir Azure sanal makine ölçek kümesi için komut burada dışında aynı olduğundan, "DevTestVMSS" adlı sanal makine ölçek kümesi için hizmet sorumlusu alın:
+   
+   ```azurecli-interactive
+   spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
+   ```
 
-3. Biz hizmet asıl Kimliğine sahip olduğunuzda, kullandığımız [az rol ataması oluşturma](/cli/azure/role/assignment#az_role_assignment_create) "Okuyucu" erişimi bir depolama hesabı VM vermek için "myStorageAcct" olarak adlandırılan:
+3. Hizmet asıl Kimliğine sahip olduğunuzda kullanın [az rol ataması oluşturma](/cli/azure/role/assignment#az_role_assignment_create) sanal makine veya sanal makine ölçek vermek için "myStorageAcct" adlı bir depolama hesabı "Okuyucu" erişim ayarlayın:
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
@@ -61,17 +66,18 @@ Bir Azure kaynağı üzerinde MSI etkinleştirdikten sonra [bir Azure VM gibi](m
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Kaynak için MSI kullanılabilir kimlikleri listesinde görünmüyor, MSI doğru etkin olduğunu doğrulayın. Örneğimizde, biz Azure VM'yi dönebilirsiniz [Azure portal](https://portal.azure.com) ve:
+Kaynak için MSI kullanılabilir kimlikleri listesinde görünmüyor, MSI doğru etkin olduğunu doğrulayın. Örneğimizde, biz Azure sanal makine veya sanal makine ölçek kümesinde dönebilirsiniz [Azure portal](https://portal.azure.com) ve:
 
 - "Yapılandırma" sayfasına bakın ve etkin MSI olun = "Yes."
-- "Uzantılarla" sayfasına bakın ve başarılı bir şekilde dağıtılan MSI uzantısı emin olun.
+- "Uzantılarla" sayfasına bakın ve başarılı bir şekilde dağıtılan MSI uzantısı emin olun (**uzantıları** sayfa bir Azure sanal makine ölçek kümesi için kullanılabilir değil).
 
 Ya da yanlışsa, kaynakta MSI yeniden dağıtmanız veya dağıtım hatası sorun giderme gerekebilir.
 
 ## <a name="related-content"></a>İlgili içerik
 
 - MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](msi-overview.md).
-- Azure VM'de MSI etkinleştirmek için bkz: [bir Azure VM yönetilen hizmet kimliği (Azure CLI kullanarak MSI) yapılandırma](msi-qs-configure-cli-windows-vm.md).
+- Bir Azure sanal makinede MSI etkinleştirmek için bkz: [bir Azure VM yönetilen hizmet kimliği (Azure CLI kullanarak MSI) yapılandırma](msi-qs-configure-cli-windows-vm.md).
+- Bir Azure sanal makine ölçek kümesinde MSI etkinleştirmek için bkz: [bir Azure sanal makine ölçek kümesi yönetilen hizmet kimlik (Azure Portalı'nı kullanarak MSI) yapılandırma](msi-qs-configure-portal-windows-vmss.md)
 
 Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
 

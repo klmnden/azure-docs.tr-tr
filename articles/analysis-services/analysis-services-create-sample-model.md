@@ -1,6 +1,6 @@
 ---
-title: "Azure Analysis Services sunucunuzun örnek tablo modeli oluşturma | Microsoft Docs"
-description: "Azure Analysis Services içinde bir örnek modeli oluşturmayı öğrenin."
+title: "Azure Analysis Services sunucunuzun örnek tablo modeli ekleme | Microsoft Docs"
+description: "Azure Analysis Services içinde bir örnek modeli eklemeyi öğrenin."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: owend
-ms.openlocfilehash: 1cc36ebf4c410d4764eb28ab89d7f2a5e7749ae5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-create-a-sample-model"></a>Öğretici: bir örnek modeli oluşturma
+# <a name="tutorial-add-a-sample-model"></a>Öğretici: bir örnek modeli ekleme
 
-Bu öğreticide, bir örnek Adventure Works modeli oluşturun. Örnek modeli öğretici modelleme Adventure Works Internet satış (1200) verileri tamamlanmış bir sürümüdür. Bir örnek modeli, model yönetim sınama, araçları ve istemci uygulamaları ile bağlanma ve model verileri sorgulamak için yararlıdır.
+Bu öğreticide, bir örnek Adventure Works modeli sunucunuza ekleyin. Örnek modeli öğretici modelleme Adventure Works Internet satış (1200) verileri tamamlanmış bir sürümüdür. Bir örnek modeli, model yönetim sınama, araçları ve istemci uygulamaları ile bağlanma ve model verileri sorgulamak için yararlıdır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

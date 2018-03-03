@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: maquaran
-ms.openlocfilehash: 7aa58b9a0fe4ca9e162722d277a951f8ac25013a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 962ad3aca82e34fa22da925a274a1e82e2086e03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akış işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -26,6 +26,7 @@ ms.lasthandoff: 12/18/2017
 > * [.NET değişiklik besleme](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -57,7 +58,7 @@ ms.lasthandoff: 12/18/2017
 * Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.13.2 ve üstü.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA SDK'SI
+* GA SDK
 * Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.14.1 ve aşağıdaki.
 
 ## <a name="release--retirement-dates"></a>Yayın & sona erme tarihleri

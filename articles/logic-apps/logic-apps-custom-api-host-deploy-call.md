@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 3df59ec172b037daaeed9e3eb69ffb990d70d8a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Dağıtma ve uygulama iş akışları mantığından özel API'leri çağırmak
 
@@ -35,17 +35,17 @@ Bir mantıksal uygulama, en iyi deneyim için herhangi bir API'yi çağırabilir
 
 2. Açılır ve altında uygulama menüsünden **API**, seçin **API tanımı**. Ayarlama **API tanımı konumu** OpenAPI swagger.json dosyanızı URL'si.
 
-   Genellikle, URL şöyle görünür:`https://{name}.azurewebsites.net/swagger/docs/v1)`
+   Genellikle, URL şöyle görünür: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
    ![Özel API için OpenAPI dosyasına bağlantı](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. Altında **API**, seçin **CORS**. CORS İlkesi'ni ayarlamak **çıkış izin** için  **'*'** (tüm izin ver).
+3. Altında **API**, seçin **CORS**. CORS İlkesi'ni ayarlamak **çıkış izin** için **' *'** (tüm izin ver).
 
    Bu ayar mantığı Uygulama Tasarımcısı'ndan istekleri verir.
 
    ![İstekleri mantığı Uygulama Tasarımcısı'ndan özel API'nizi izin verir.](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-Daha fazla bilgi için bkz: [Node.js RESTful API'si derleme](../app-service/app-service-web-tutorial-rest-api.md).
+Daha fazla bilgi için bkz: [bir RESTful API'sini Azure App Service CORS ile ana bilgisayar](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>Özel API'nizi mantığından uygulama iş akışları çağırın.
 

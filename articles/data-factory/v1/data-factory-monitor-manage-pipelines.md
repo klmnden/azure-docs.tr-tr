@@ -3,7 +3,7 @@ title: "İzleme ve ardışık düzen Azure portal ve PowerShell kullanarak yöne
 description: "Azure data factory'leri ve oluşturduğunuz ardışık düzen yönetmek ve izlemek için Azure portalı ve Azure PowerShell kullanmayı öğrenin."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: sharonlo101
 manager: jhubbard
 editor: monicar
 ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b361ca67ebece9ba1ced1010835eb90586dd7359
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>İzleme ve Azure portalı ve PowerShell kullanarak Azure Data Factory işlem hatlarını yönetme
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Bu bölümde, nasıl bir veri kümesi dilim başka bir duruma bir durumdan diğe
 
    Data factory giriş sayfasını görmeniz gerekir.
 
-   ![Data factory dikey penceresi](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+   ![Veri fabrikası dikey penceresi](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>Veri fabrikanızın diyagram görünümü
 **Diyagramı** data factory görünümünü bölmeden data factory ve varlıklarını yönetmek ve izlemek için cam sağlar. Görmek için **diyagramı** 'ı tıklatın, görüntüleyin, veri fabrikası **diyagramı** data factory giriş sayfasında.
@@ -134,10 +134,10 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan biri olabilir:
 <td>Hazır</td><td>-</td><td>Dilim kullanıma hazır.</td>
 </tr>
 <tr>
-<td>Atlandı</td><td>None</td><td>Dilimin işlenmekte olan değil.</td>
+<td>Atlandı</td><td>Hiçbiri</td><td>Dilimin işlenmekte olan değil.</td>
 </tr>
 <tr>
-<td>Hiçbiri</td><td>-</td><td>Bir dilim farklı bir durum ile var olmuş ancak sıfırlandı.</td>
+<td>None</td><td>-</td><td>Bir dilim farklı bir durum ile var olmuş ancak sıfırlandı.</td>
 </tr>
 </table>
 
@@ -368,7 +368,7 @@ Aşağıdaki tabloda kullanılabilir işlemleri ve durumları (ve alt durumlar) 
 
 | İşlem adı | Durum | Alt durum |
 | --- | --- | --- |
-| RunStarted |Başlatıldı |Başlangıç |
+| RunStarted |Başlatıldı |Başlatılıyor |
 | RunFinished |Başarısız / başarılı oldu |FailedResourceAllocation<br/><br/>Başarılı oldu<br/><br/>FailedExecution<br/><br/>Süresi sona erdi<br/><br/>< iptal edildi<br/><br/>FailedValidation<br/><br/>Abandoned |
 | OnDemandClusterCreateStarted |Başlatıldı | |
 | OnDemandClusterCreateSuccessful |Başarılı oldu | |
@@ -624,7 +624,7 @@ Değiştir *Subscriptionıd*, *resourceGroupName*, ve *dataFactoryName* uygun de
 * FailedRuns
 * SuccessfulRuns
 
-**Uyarı dağıtma**
+Uyarı dağıtma
 
 Uyarı dağıtmak için Azure PowerShell cmdlet'ini kullanın **New-AzureRmResourceGroupDeployment**, aşağıdaki örnekte gösterildiği gibi:
 

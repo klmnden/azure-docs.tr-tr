@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure medya Analizi ile hareketlerin Algıla
 ## <a name="overview"></a>Genel Bakış
 **Azure medya hareket algılayıcısı** medya işlemcisi (MP), aksi takdirde uzun ve olaysız video içinde ilgi bölümleri verimli bir şekilde tanımlamak sağlar. Hareket algılama statik kamera görüntülerinin video hareket oluştuğu bölümlerini belirlemek için kullanılabilir. Zaman damgaları ve olayın gerçekleştiği sınırlayıcı bölge ile meta verileri içeren bir JSON dosyası oluşturur.
 
-Doğru güvenlik video akışları hedeflenen, bu teknolojiyi ilgili olayları ve hatalı pozitif sonuç gölgeleri ve aydınlatma değişiklikleri gibi hareket kategorilere yapabiliyor. Bu, güvenlik uyarıları sonsuz ilgisiz olaylarıyla aşırı uzun gözetleme videoların ilgi dakika ayıklayın kullanabilmeye devam ederken adresinize olmadan kamera Akışları'oluşturmanıza olanak sağlar.
+Doğru güvenlik video akışları hedeflenen, bu teknolojiyi ilgili olayları ve hatalı pozitif sonuç gölgeleri ve aydınlatma değişiklikleri gibi hareket kategorilere yapabiliyor. Bu, güvenlik uyarıları sonsuz ilgisiz olaylarla ilgi dakika uzun gözetleme videoların ayıklayın kullanabilmeye devam ederken adresinize olmadan kamera Akışları'oluşturmanıza olanak sağlar.
 
 **Azure medya hareket algılayıcısı** MP şu anda önizlemede.
 
@@ -40,13 +40,15 @@ Bir görev oluştururken **Azure medya hareket algılayıcısı**, bir yapıland
 
 | Ad | Seçenekler | Açıklama | Varsayılan |
 | --- | --- | --- | --- |
-| sensitivityLevel |Dize: 'düşük', 'Orta', 'yüksek' |Hangi hareketlerin duyarlılık düzeyinde bildirilen ayarlar. Hatalı pozitif uyarıların sayısını ayarlamak için bunu ayarlayın. |'Orta' |
-| frameSamplingValue |Pozitif tamsayı |Algoritmayı sıklığında çalışan ayarlar. Her çerçeve eşittir 1, 2 her 2 çerçeve ve benzeri anlamına gelir. |1 |
-| detectLightChange |Boolean: 'true', 'false' |Hafif değişiklikleri sonuçlarında bildirilen olup olmadığını belirler |'False' |
-| mergeTimeThreshold |Xs zamanı: Ss: dd:<br/>Örnek: 00:00:03 |Burada 2 olayları birleştirilmiş ve olması 1 bildirilen hareket olaylar arasındaki zaman penceresi belirtir. |00:00:00 |
+| sensitivityLevel |Dize: 'düşük', 'Orta', 'yüksek' |Hangi hareketlerin bildirilen adresindeki hassasiyet düzeyini ayarlar. Hatalı pozitif uyarıların sayısını ayarlamak için bunu ayarlayın. |'Orta' |
+| frameSamplingValue |Pozitif tamsayı |Algoritmayı sıklığında çalışan ayarlar. Her çerçeve eşittir 1, 2 her ikinci çerçevesi ve benzeri anlamına gelir. |1 |
+| detectLightChange |Boolean:'true', 'false' |Hafif değişiklikleri sonuçlarında bildirilen olup olmadığını belirler |'False' |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Örnek: 00:00:03 |2 olayları nerede hareket olaylar arasındaki zaman penceresi birleştirilmiş ve 1 bildirilen belirtir. |00:00:00 |
 | detectionZones |Algılama bölgeleri dizisi:<br/>-3 veya daha fazla noktalar dizisi algılama bölgedir<br/>-Noktasıdır x ve y koordinat 0'dan 1. |Kullanılacak Çokgen algılama bölgelerinin listesi açıklar.<br/>Sonuçları bölgeleri ilk olan 'ID' ile bir kimliği olarak raporlanır: 0 |Tek bölge tüm çerçeve kapsar. |
 
 ### <a name="json-example"></a>JSON örneği
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,10 +76,10 @@ Bir görev oluştururken **Azure medya hareket algılayıcısı**, bir yapıland
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>Hareket algılayıcısı çıktı dosyaları
-Hareket algılama işi hareket uyarılar ve video içinde kendi kategorilerine açıklar çıkış varlığına bir JSON dosyası döndürür. Dosyanın saatini ve süresini videoda algılanan hareket hakkında bilgi içerir.
+Hareket algılama işi hareket uyarılar ve video içinde kendi kategorilerine açıklar çıkış varlığına bir JSON dosyası döndürür. Dosya saatini ve süresini videoda algılanan hareket hakkında bilgi içerir.
 
 Bir sabit arka planda video hareket nesneleri (örneğin, bir izleme video) eklendiğinde hareket algılayıcısı API göstergeleri sağlar. Hareket algılayıcısı aydınlatma ve gölge değişiklikleri gibi yanlış alarmlar azaltmak için eğitildi. Geçerli sınırlamalar algoritmalarının gece görme videoları, yarı saydam nesneleri ve küçük nesneleri içerir.
 
@@ -93,7 +95,7 @@ Aşağıdaki tabloda çıkış JSON dosyasının öğelerini açıklar.
 | --- | --- |
 | Sürüm |Video API sürümüne başvuruyor. Geçerli sürüm 2'dir. |
 | Zaman Çizelgesi |Videonun saniyede "çizgilerine". |
-| Uzaklık |Veritabanındaki tarih damgası "çizgilerine" zaman uzaklığı. Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. Gelecekte destekliyoruz senaryoları, bu değeri değiştirebilirsiniz. |
+| Uzaklık |Veritabanındaki tarih damgası "çizgilerine." zaman farkı Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. Gelecekte destekliyoruz senaryoları, bu değeri değiştirebilirsiniz. |
 | Kare hızı |Videonun Saniyedeki çerçeve sayısı. |
 | Genişlik, Yükseklik |Genişlik ve yükseklik piksel cinsinden videonun ifade eder. |
 | Başlatma |Başlangıç zaman damgasına "çizgilerine". |
@@ -107,8 +109,9 @@ Aşağıdaki tabloda çıkış JSON dosyasının öğelerini açıklar.
 | Köşeli ayraçlar] |Her köşeli ayraç olay bir aralığa temsil eder. Boş köşeli ayraçlar hiçbir hareket anlamına bu aralık için algılandı. |
 | Konumları |Bu yeni girişi olayları altında hareket gerçekleştiği konum listeler. Bu algılama bölgeleri daha fazla özeldir. |
 
-JSON çıkış örnek verilmiştir
+Aşağıdaki JSON örnek çıkış şunları gösterir:
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ JSON çıkış örnek verilmiştir
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>Sınırlamalar
 * Desteklenen giriş video biçimleri MP4, MOV ve WMV içerir.
 * Hareket algılama sabit arka plan videolar için optimize edilmiştir. Algoritma aydınlatma değişiklikleri ve gölgeleri gibi yanlış alarmlar azaltma odaklanır.
@@ -164,33 +167,36 @@ Aşağıdaki program gösterir nasıl yapılır:
 1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
 2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir video hareket algılama görev ile bir iş oluşturun: 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. Çıkış JSON dosyalarını indirin. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
@@ -199,7 +205,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 #### <a name="example"></a>Örnek
 
-```
+```csharp
 
 using System;
 using System.Configuration;

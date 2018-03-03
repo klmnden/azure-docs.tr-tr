@@ -1,183 +1,215 @@
 ---
-title: "Azure PowerShell - sanal ağ oluşturma | Microsoft Docs"
-description: "PowerShell kullanarak bir sanal ağ oluşturmayı öğrenin."
+title: "Birden çok alt - PowerShell ile bir Azure sanal ağ oluşturma | Microsoft Docs"
+description: "PowerShell kullanarak birden çok alt ağı ile bir sanal ağ oluşturmayı öğrenin."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
-ms.assetid: a31f4f12-54ee-4339-b968-1a8097ca77d3
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 03/01/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: 
+ms.openlocfilehash: f550af298b37afa388b6fd860578863738510a5e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-a-virtual-network-using-powershell"></a>PowerShell kullanarak bir sanal ağ oluşturma
+# <a name="create-a-virtual-network-with-multiple-subnets-using-powershell"></a>PowerShell kullanarak birden çok alt ağı ile bir sanal ağ oluşturma
 
-[!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
+Bir sanal ağ Internet ile ve özel olarak birbirleriyle iletişim kurmak için Azure kaynaklarını çeşitli türleri sağlar. Bir sanal ağ içinde birden fazla alt ağ oluşturmak, böylece filtre uygulayabilirsiniz ağınız segmentlere ayırmak veya denetim alt ağlar arasındaki trafik akışını sağlar. Bu makalede, bilgi nasıl yapılır:
 
-Azure'un iki dağıtım modeli vardır: Azure Resource Manager ve klasik. Microsoft, kaynakların Resource Manager dağıtım modeliyle oluşturulmasını önerir. İki model arasındaki farkları öğrenmek için [Azure dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md) makalesini okuyun.
- 
-Bu makalede PowerShell kullanarak Resource Manager dağıtım modeli üzerinden bir VNet oluşturma açıklanmaktadır. Resource Manager’da farklı araçlar kullanarak da sanal ağ kurabilir veya aşağıdaki listeden farklı bir seçenek belirleyerek klasik dağıtım modeliyle sanal ağ oluşturabilirsiniz:
+> [!div class="checklist"]
+> * Sanal ağ oluşturma
+> * Alt ağ oluşturma
+> * Sanal makineler arasındaki ağ iletişimi test
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
-> * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-> * [CLI](virtual-networks-create-vnet-arm-cli.md)
-> * [Şablon](virtual-networks-create-vnet-arm-template-click.md)
-> * [Portal (Klasik)](virtual-networks-create-vnet-classic-pportal.md)
-> * [PowerShell (Klasik)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-> * [CLI (Klasik)](virtual-networks-create-vnet-classic-cli.md)
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-[!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu öğreticide Azure PowerShell modülü sürüm 3,6 veya üstü gerektirir. Çalıştırma ` Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-PowerShell kullanarak bir sanal ağ oluşturmak için aşağıdaki adımları tamamlayın:
+Bir kaynak grubu ile oluşturmak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *EastUS* konumu.
 
-1. Yükleme ve Azure PowerShell içindeki adımları izleyerek yapılandırma [yükleme ve yapılandırma Azure PowerShell](/powershell/azure/overview) makalesi.
+```azurepowershell-interactive
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
+```
 
-2. Gerekirse, yeni bir kaynak grubunu aşağıda gösterildiği gibi oluşturun. Bu senaryoda, bir kaynak grubu oluşturma *TestRG*. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../azure-resource-manager/resource-group-overview.md)’ı ziyaret edin.
+[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) ile sanal ağ oluşturun. Aşağıdaki örnek adlı bir sanal ağ oluşturur *myVirtualNetwork* adres ön ekine sahip *10.0.0.0/16*.
 
-    ```powershell   
-    New-AzureRmResourceGroup -Name TestRG -Location centralus
-    ```
+```azurepowershell-interactive
+$virtualNetwork = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroup `
+  -Location EastUS `
+  -Name myVirtualNetwork `
+  -AddressPrefix 10.0.0.0/16
+```
 
-    Beklenen çıktı:
+**AddressPrefix** CIDR gösteriminde belirtilir. Belirtilen adres ön eki IP adreslerini 10.0.0.0-10.0.255.254 içerir.
 
-        ResourceGroupName : TestRG
-        Location          : centralus
-        ProvisioningState : Succeeded
-        Tags              :
-        ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG    
-3. Adlı yeni bir VNet oluşturun *TestVNet*:
+## <a name="create-a-subnet"></a>Alt ağ oluşturma
 
-    ```powershell
-    New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
-    -AddressPrefix 192.168.0.0/16 -Location centralus
-    ```
+Bir alt ağ, ilk alt ağ yapılandırması oluşturma ve ardından sanal ağ alt ağ yapılandırması ile güncelleştirme tarafından oluşturulur. Bir alt ağ yapılandırması ile oluşturma [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Aşağıdaki örnek için iki alt ağ yapılandırmalarını oluşturur *ortak* ve *özel* alt ağlar:
 
-    Beklenen çıktı:
+```azurepowershell-interactive
+$subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name Public `
+  -AddressPrefix 10.0.0.0/24 `
+  -VirtualNetwork $virtualNetwork
 
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                   : W/"[Id]"
-        ProvisioningState          : Succeeded
-        Tags                       : 
-        AddressSpace               : {
-                                   "AddressPrefixes": [
-                                     "192.168.0.0/16"
-                                   ]
-                                  }
-        DhcpOptions                : {}
-        Subnets                    : []
-        VirtualNetworkPeerings     : []
-4. Sanal ağ nesnesini bir değişkende saklayın:
+$subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
+  -Name Private `
+  -AddressPrefix 10.0.1.0/24 `
+  -VirtualNetwork $virtualNetwork
+```
 
-    ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-    ```
+**AddressPrefix** belirtilen bir alt sanal ağ için tanımlanan adres ön eki içinde olmalıdır. Azure DHCP, IP adresleri bir alt ağda dağıtılan kaynak ait bir alt ağ adres öneklerini atar. Azure yalnızca atar adresleri 10.0.0.4-10.0.0.254 içinde dağıtılan kaynaklara **ortak** alt ağ, Azure ilk dört adresleri ayırdığından (Bu örnekte alt ağ için 10.0.0.0-10.0.0.3) ve son adres () Bu örnekte alt ağ için 10.0.0.255) her alt ağda.
 
-   > [!TIP]
-   > Adım 3 ve 4 çalıştırarak birleştirebilirsiniz `$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus`.
-   > 
+Sanal ağ ile alt ağ yapılandırmalarını yazmak [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), sanal ağ alt ağlar oluşturur:
 
-5. Bir alt ağ yeni VNet değişkenine ekleyin:
+```azurepowershell-interactive
+$virtualNetwork | Set-AzureRmVirtualNetwork
+```
 
-    ```powershell
-    Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
-    ```
+Azure sanal ağlar ve alt ağları üretim kullanımı için dağıtmadan önce kapsamlı bir adres alanıyla öğrenmeniz olduğunu öneririz [konuları](virtual-network-manage-network.md#create-a-virtual-network) ve [sanal ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Kaynakların alt dağıtıldığında, bazı sanal ağ ve adres aralıkları değiştirme gibi alt ağ değişiklikleri içindeki alt ağlara dağıtılan var olan Azure kaynak çözümünüzün yeniden dağıtımını gerektirebilir.
 
-    Beklenen çıktı:
-   
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                  : W/"[Id]"
-        ProvisioningState     : Succeeded
-        Tags                  :
-        AddressSpace          : {
-                                  "AddressPrefixes": [
-                                    "192.168.0.0/16"
-                                  ]
-                                }
-        DhcpOptions           : {}
-        Subnets             : [
-                                  {
-                                    "Name": "FrontEnd",
-                                    "AddressPrefix": "192.168.1.0/24"
-                                  }
-                                ]
-        VirtualNetworkPeerings     : []
+## <a name="test-network-communication"></a>Test ağ iletişimi
 
-6. Yukarıdaki 5. adımı oluşturmak istediğiniz her alt ağ için yineleyin. Aşağıdaki komut oluşturur *arka uç* alt senaryo için:
+Bir sanal ağ Internet ile ve özel olarak birbirleriyle iletişim kurmak için Azure kaynaklarını çeşitli türleri sağlar. Tek bir sanal ağa dağıttığınız kaynak türü, bir sanal makinedir. İki sanal makine sanal ağ oluşturun, bir sonraki adımda bunları ve Internet arasındaki ağ iletişimi test edebilirsiniz. 
 
-    ```powershell
-    Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
-    -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
-    ```
+### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-7. Alt ağları oluşturmuş olsanız da, bunlar şu anda yalnızca yukarıdaki 4. adımda oluşturduğunuz VNet’i almak için kullanılan yerel değişkende olacaktır. Azure için değişiklikleri kaydetmek için aşağıdaki komutu çalıştırın:
+Bir sanal makine oluşturma [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnek, bir sanal makine adlı oluşturur *myVmWeb* içinde *ortak* alt *myVirtualNetwork* sanal ağ. `-AsJob` Seçeneği bir sonraki adıma devam etmek için bu sanal makine arka planda oluşturur. İstendiğinde, kullanıcı adı ve sanal makine ile oturum açmak için istediğiniz parolayı girin.
 
-    ```powershell
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-    ```
-   
-    Beklenen çıktı:
-   
-        Name                  : TestVNet
-        ResourceGroupName     : TestRG
-        Location              : centralus
-        Id                    : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag                  : W/"[Id]"
-        ProvisioningState     : Succeeded
-        Tags                  :
-        AddressSpace          : {
-                                  "AddressPrefixes": [
-                                    "192.168.0.0/16"
-                                  ]
-                                }
-        DhcpOptions           : {
-                                  "DnsServers": []
-                                }
-        Subnets               : [
-                                  {
-                                    "Name": "FrontEnd",
-                                    "Etag": "W/\"[Id]\"",
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                                    "AddressPrefix": "192.168.1.0/24",
-                                    "IpConfigurations": [],
-                                    "ProvisioningState": "Succeeded"
-                                  },
-                                  {
-                                    "Name": "BackEnd",
-                                    "Etag": "W/\"[Id]\"",
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-                                    "AddressPrefix": "192.168.2.0/24",
-                                    "IpConfigurations": [],
-                                    "ProvisioningState": "Succeeded"
-                                  }
-                                ]
-        VirtualNetworkPeerings : []
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "East US" `
+    -VirtualNetworkName "myVirtualNetwork" `
+    -SubnetName "Public" `
+    -ImageName "Win2016Datacenter" `
+    -Name "myVmWeb" `
+    -AsJob
+```
+
+Azure otomatik olarak atanan 10.0.0.4 sanal makinenin özel IP adresi 10.0.0.4 ilk kullanılabilir IP adresi olduğundan *ortak* alt ağ. 
+
+Bir sanal makine oluşturmak *özel* alt ağ.
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "East US" `
+    -VirtualNetworkName "myVirtualNetwork" `
+    -SubnetName "Private" `
+    -ImageName "Win2016Datacenter" `
+    -Name "myVmMgmt"
+```
+
+Sanal makine oluşturmak için birkaç dakika sürer. 10.0.1.4 ilk kullanılabilir IP adresi olduğundan döndürülen çıkış Azure 10.0.1.4 sanal makinenin özel IP adresi atanmamış olsa *özel* alt *myVirtualNetwork*. 
+
+Kalan adımlar ile sanal makine oluşturulur ve PowerShell çıkışı döndürür kadar devam etmeyin.
+
+### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Sanal makineler arasında ve internet ile iletişim
+
+Bir sanal makineye ait genel IP adresi için Internet'ten bağlanabilir. Azure oluşturduğunuzda *myVmMgmt* sanal makine, adlandırılmış bir ortak IP adresi *myVmMgmt* de oluşturulur ve sanal makineye atanmış. Bir sanal makine kendisine atanmış bir ortak IP adresi olması gerekli değildir ancak Azure varsayılan oluşturmak her bir sanal makine bir ortak IP adresi atar. Bir sanal makineye Internet üzerinden iletişim kurmak için bir ortak IP adresi sanal makineyi atanması gerekir. Bir ortak IP adresi sanal makineye atanmış olup olmadığına bakılmaksızın tüm sanal makinelerin giden Internet ile iletişim kurabilir. Azure'a giden Internet bağlantıları hakkında daha fazla bilgi için bkz: [azure'da giden bağlantılar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+
+Kullanım [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ortak IP adresi, bir sanal makinenin dönün. Aşağıdaki örnek genel IP adresi döndürür *myVmMgmt* sanal makine:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+  -Name myVmMgmt `
+  -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+İle Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın *myVmMgmt* yerel bilgisayarınızdan sanal makine. Değiştir `<publicIpAddress>` IP adresi ile döndürülen önceki komutu.
+
+```
+mstsc /v:<publicIpAddress>
+```
+
+Bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur, bilgisayarınıza indirilmeden ve açılır. Kullanıcı adı ve sanal makine oluştururken belirttiğiniz parolayı girin (seçmek için gerek duyabileceğiniz **daha fazla seçenek**, ardından **farklı bir hesap kullan**, ne zaman girdiğiniz kimlik bilgileri belirtmek için sanal makine oluşturulan) ve ardından **Tamam**. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet** veya **Devam**’a tıklayın. 
+
+Bir sonraki adımda ping ile iletişim kurmak için kullanılan *myVmMgmt* sanal makineden *myVmWeb* sanal makine. Varsayılan olarak Windows Güvenlik Duvarı üzerinden engellenir ICMP ping komutunu kullanır. ICMP, bir komut isteminden aşağıdaki komutu girerek Windows Güvenlik Duvarı aracılığıyla etkinleştirin:
+
+```
+netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+```
+
+Bu makalede ping kullanılsa da ICMP üretim dağıtımları için Windows Güvenlik Duvarı aracılığıyla izin vererek önerilmez.
+
+Güvenlik nedenleriyle, sanal makinelere uzaktan sanal bir ağa bağlanabilir sayısını sınırlamak için yaygın bir sorundur. Bu öğreticide *myVmMgmt* yönetmek için kullanılan sanal makine *myVmWeb* sanal ağdaki sanal makine. Uzak Masaüstü için aşağıdaki komutu kullanın *myVmWeb* sanal makineden *myVmMgmt* sanal makine:
+
+``` 
+mstsc /v:myVmWeb
+```
+
+İçin iletişim kurmak için *myVmMgmt* sanal makineden *myVmWeb* sanal makine, bir komut isteminden aşağıdaki komutu girin:
+
+```
+ping myvmmgmt
+```
+
+Aşağıdaki örnek çıkış benzer bir çıktı alırsınız:
+    
+```
+Pinging myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net [10.0.1.4] with 32 bytes of data:
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.1.4: bytes=32 time<1ms TTL=128
+    
+Ping statistics for 10.0.1.4:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+```
+      
+Görebilirsiniz adresini *myVmMgmt* sanal makinedir 10.0.1.4. 10.0.1.4 adres aralığı içinde ilk kullanılabilir IP adresi olan *özel* dağıttığınız alt *myVmMgmt* sanal makineye bir önceki adımda.  Sanal makinenin tam etki alanı adı olup olmadığını *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Ancak *dar5p44cif3ulfq00wxznl3i3f* etki alanı adı bölümü, sanal makine için farklı olduğundan, etki alanı adını Kalan bölümleri aynıdır. Varsayılan olarak, tüm Azure sanal makineleri varsayılan Azure DNS hizmeti kullanın. Bir sanal ağ içindeki tüm sanal makineleri Azure'nın varsayılan DNS hizmeti ile aynı sanal ağdaki diğer tüm sanal makinelerin adlarını çözümleyebilir. Azure'nın varsayılan DNS hizmeti kullanmak yerine, kendi DNS sunucusu veya Azure DNS hizmeti, özel etki alanı özelliği kullanabilirsiniz. Ayrıntılar için bkz [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) veya [kullanarak Azure DNS özel etki alanları için](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Windows Server için Internet Information Services (IIS) yüklemek için *myVmWeb* sanal makine, bir PowerShell oturumunda aşağıdaki komutu girin:
+
+```powershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
+
+IIS yüklemesi tamamlandıktan sonra bağlantı kesme *myVmWeb* size bırakır Uzak Masaüstü oturumu *myVmMgmt* Uzak Masaüstü oturumu. Bir web tarayıcısı açın ve http://myvmweb için göz atın. Karşılama sayfası IIS bakın.
+
+Bağlantı kesme *myVmMgmt* Uzak Masaüstü oturumu.
+
+Azure için atanan ortak adres Al *myVmWeb* sanal makine:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress `
+  -Name myVmWeb `
+  -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Genel IP adresi için kendi bilgisayarınızda Gözat *myVmWeb* sanal makine. Kendi bilgisayardan IIS Hoş Geldiniz sayfasını görüntülemek için denemesi başarısız olur. Sanal makineler dağıtıldığında, bu Azure varsayılan olarak her bir sanal makine için bir ağ güvenlik grubu oluşturduğundan denemesi başarısız olur. 
+
+Ağ güvenlik grubu izin veren veya reddeden IP adresi ve bağlantı noktasına gelen ve giden ağ trafiğinin güvenlik kuralları içerir. Oluşturulan Azure varsayılan ağ güvenlik grubu, aynı sanal ağdaki kaynakları arasındaki tüm bağlantı noktaları üzerinden iletişim sağlar. Windows sanal makineler için varsayılan ağ güvenlik grubu tüm gelen trafiği tüm bağlantı noktaları üzerinden Internet'ten engellediği, TCP bağlantı noktası 3389 (RDP) kabul edin. Sonuç olarak, varsayılan olarak, aynı zamanda RDP doğrudan yapabilecekleriniz *myVmWeb* sanal makine Internet'ten gelen değil isteyebilirsiniz olsa bile 3389 açık bir web sunucusuna bağlantı noktası. Bağlantı noktası 80 üzerinden trafiğe izin varsayılan ağ güvenlik grubu kural olduğundan iletişim bağlantı noktası 80 üzerinden iletişim kurar Web'e gözatma olduğundan, Internet'ten başarısız olur.
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerektiğinde kullanmak [Remove-AzureRmResourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) kaynak grubu ve içerdiği kaynakların tümünü kaldırmak için.
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl bağlayacağınızı öğrenin:
+Bu öğreticide, bir sanal ağ birden fazla alt ağı dağıtmayı öğrendiniz. Ayrıca, Windows sanal makine oluşturduğunuzda, Azure'nın, sanal makineye ekler ve yalnızca trafiğe 3389, bağlantı noktası üzerinden Internet'ten izin veren bir ağ güvenlik grubu oluşturur bir ağ arabirimi oluşturur öğrendiniz. Ağ trafiği alt ağlara yerine tek tek sanal makineleri için filtre öğrenmek için sonraki öğretici ilerleyin.
 
-- Sanal makine (VM) okuyarak sanal bir ağa [bir Windows VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md) makalesi. Makalelerde yer alan adımlarda sanal ağ ve alt ağ oluşturmak yerine var olan sanal ağı ve alt ağı seçerek VM bağlantısı yapabilirsiniz.
-- Bir sanal ağı diğer sanal ağlara bağlamak için [Sanal ağları bağlama](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) makalesini okuyun.
-- Bir sanal ağı şirket içi ağa bağlamak için siteden siteye sanal özel ağ (VPN) veya ExpressRoute devresi kullanın. Nasıl yapacağınızı öğrenmek için [Siteden siteye VPN kullanarak sanal ağ ile şirket içi ağ arasında bağlantı kurma](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) ve [Bir sanal ağı ExpressRoute devresine bağlama](../expressroute/expressroute-howto-linkvnet-arm.md) makalelerini okuyun.
+> [!div class="nextstepaction"]
+> [Alt ağ trafiği filtreleme](./virtual-networks-create-nsg-arm-ps.md)

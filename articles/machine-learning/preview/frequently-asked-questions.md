@@ -5,16 +5,16 @@ services: machine-learning
 author: serinakaye
 ms.author: serinak
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ef1486bb65da7ca49e2d03273a47a3a3ee05150e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning sık sorulan sorular
 
@@ -23,14 +23,6 @@ ms.lasthandoff: 12/18/2017
 **Azure Machine Learning nedir?**
 
 Azure Machine Learning oluşturmak, sınamak, yönetmek ve makine öğrenme ve AI modelleri dağıtmak izin veren bir tam olarak yönetilen Azure hizmetidir. Bizim yeni hizmetler ve indirilebilir uygulama bulut, şirket içi ve eğitimi sağlamak için dağıtmak, yönetmek kenar yararlanır ilk kod yaklaşımı sunar ve güç, hız ve esneklik modelleriyle izleyebilirsiniz. Alternatif olarak, Azure Machine Learning Studio hiçbir kodlama gerekli olduğu bir tarayıcı tabanlı, visual sürükle ve bırak yazma ortamı sağlar. 
-
-**Önizleme ile çalışmaya nasıl?**
-
-Başlamak için kolay Azure deneme hizmete kaydolmak için yoludur. Portalı'ndan ücretsiz çalışma ekranı uygulamamız karşıdan yükleyin veya bir Model yönetim hesabı için kaydolun. Ayrıca, nasıl yapılır makaleleri, videoları, tanıtım kodu ve daha fazlası için bizim belge sitesini ziyaret edebilirsiniz. 
-
-**Bir Azure aboneliğiniz yok. Yeni hizmetler deneyebilir miyim?**
-
-Microsoft Azure Portföy bir parçası olarak, yeni hizmetlerimizle Azure aboneliği gerektirir. Ayrıca, kaynak grupları, sanal makineler, vb. gibi varlıklar oluşturmak için yeterli izinleri olmalıdır. 
 
 **Bölgeler yeni hizmetlerin kullanılabilir olduğu?**
 
@@ -52,7 +44,7 @@ Python şu anda yalnızca destekler. Biz R tümleştirme üzerinde çalışıyor
 
 **Azure Machine Learning nasıl için Spark Microsoft Machine Learning ile ilişkilidir?**
 
-A: derin öğrenme MMLSpark sağlar ve veri bilimi araçlarıyla Apache Spark için üretkenliği indirimlere deneme ve durum resim algoritmaları kolaylaştırır. MMLSpark Spark Machine Learning ardışık düzen OpenCV ve Microsoft Bilişsel araç seti ile tümleştirilmesi sunar. Güçlü, ölçeklendirilebilir Tahmine dayalı ve analitik modeller resim ve metin verileri için oluşturabilirsiniz. MMLSpark bir açık kaynak lisansı altında kullanılabilir ve AML çalışma ekranı bir dizi tüketilebilir modelleri ve algoritmaları eklenir. MMLSpark hakkında daha fazla bilgi için ürün Belgelerimizi ziyaret edin. 
+Derin öğrenme MMLSpark sağlar ve veri bilimi araçlarıyla Apache Spark için üretkenliği indirimlere deneme ve durum resim algoritmaları kolaylaştırır. MMLSpark Spark Machine Learning ardışık düzen OpenCV ve Microsoft Bilişsel araç seti ile tümleştirilmesi sunar. Güçlü, ölçeklendirilebilir Tahmine dayalı ve analitik modeller resim ve metin verileri için oluşturabilirsiniz. MMLSpark bir açık kaynak lisansı altında kullanılabilir ve AML çalışma ekranı bir dizi tüketilebilir modelleri ve algoritmaları eklenir. MMLSpark hakkında daha fazla bilgi için ürün Belgelerimizi ziyaret edin. 
 
 **Spark'ın hangi sürümleri, yeni araçlar ve hizmetler tarafından destekleniyor mu? Üst kısmında**
 
@@ -135,7 +127,7 @@ Hayır. Azure Machine Learning çalışma ekranı ücretsiz bir uygulamasıdır.
 
 **Komut satırı özelliklerini destekler mi?**
 
-A: Evet Azure Machine Learning tam CLI sunar. Machine Learning CLI, Azure Machine Learning çalışma ekranı varsayılan olarak yüklenir. Ayrıca Azure Linux veri bilimi sanal makinede bir parçası olarak sağlanır ve içine tümleştirilmiştir [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+Evet, Azure Machine Learning tam CLI sunar. Machine Learning CLI, Azure Machine Learning çalışma ekranı varsayılan olarak yüklenir. Ayrıca Azure Linux veri bilimi sanal makinede bir parçası olarak sağlanır ve içine tümleştirilmiştir [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 
 
 **Jupyter not defterleri ile çalışma ekranı kullanabilir miyim?**
@@ -144,8 +136,8 @@ Evet! Yalnızca bir tarayıcı istemci olarak kullanacağınız gibi istemci bar
 
 **Hangi Jupyter not defterlerinde çekirdekler destekleniyor mu?**
 
-Y: ile çalışma ekranı dahil Jupyter geçerli sürümü Python 3 Çekirdek ve aml_config klasördeki her "runconfig" dosyası için ek bir çekirdek başlatır. Desteklenen yapılandırmalar şunlardır:
-- Yerel Python
+Geçerli sürümü ile çalışma ekranı dahil Jupyter, Python 3 Çekirdek ve aml_config klasördeki her "runconfig" dosyası için ek bir çekirdeği başlatır. Desteklenen yapılandırmalar şunlardır:
+- Local Python
 - Yerel veya uzak Docker Python'da
 
 ## <a name="data-formats-and-capabilities"></a>Veri biçimleri ve özellikleri
@@ -176,7 +168,7 @@ Genel Önizleme için çalışma ekranı "Sütun örneği tarafından türetilen
 
 **Azure Machine Learning çalışma ekranı, deneme veya Model Yönetimi tarafından zorlanan veri boyut sınırlarını var mı?**
 
-A: Hayır yeni hizmetler veri sınırlamalar zorunlu tuttukları değil. Ancak, veri hazırlığı, model eğitim, deneme veya dağıtım gerçekleştiriyorsanız ortamı tarafından sunulan sınırlamaları vardır. Örneğin, eğitim için yerel bir ortam hedefliyorsanız, kullanılabilir alanı tarafından sabit diskinize sınırlıdır. Alternatif olarak, Hdınsight hedefliyorsanız, ilişkili tüm boyutuyla sınırlı veya ayarlarıdır işlem. 
+Hayır, yeni hizmetler veri sınırlamalar zorunlu tuttukları değil. Ancak, veri hazırlığı, model eğitim, deneme veya dağıtım gerçekleştiriyorsanız ortamı tarafından sunulan sınırlamaları vardır. Örneğin, eğitim için yerel bir ortam hedefliyorsanız, kullanılabilir alanı tarafından sabit diskinize sınırlıdır. Alternatif olarak, Hdınsight hedefliyorsanız, ilişkili tüm boyutuyla sınırlı veya ayarlarıdır işlem. 
 
 ## <a name="algorithms-and-libraries"></a>Algoritmaları ve kitaplıklar
 
@@ -187,45 +179,3 @@ A: Hayır yeni hizmetler veri sınırlamalar zorunlu tuttukları değil. Ancak, 
 **Azure Machine Learning Microsoft Bilişsel araç seti nasıl ilişkilidir?**
 
 [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/cognitive-toolkit/) bizim yeni araçlar ve hizmetler tarafından desteklenen birçok çerçeveleri biridir. Bilişsel Araç Seti kullanabilir ve popüler machine learning modellerini akış İleri derin sinir ağları, Convolutional ağ dahil olmak üzere birleştirme olanak sağlayan bir birleşik derin öğrenme araç takımıdır sırası dizisi ve yinelenen ağlar. Microsoft Bilişsel araç seti ile ilgili daha fazla bilgi için ziyaret bizim [ürün belgelerine](https://docs.microsoft.com/cognitive-toolkit/). 
-
-## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
-
-**Önizleme sırasında Azure Machine Learning için şarj?** 
-
-Y: Azure Machine Learning çalışma ekranı uygulama kullanılabilir ücretsiz Azure aboneleri için. Ücretli katmanlar, genel Önizleme sırasında indirimle avialable yanı sıra boş katmanları, deneme hizmeti ve Model yönetim sunar.
-
-**I çalıştırabilirim kaç denemeler göre ücretlendirilir?**
-
-Hayır, Deneme Hizmeti dilediğiniz sayıda denemeye izin verir ve ücretler yalnızca kullanıcı sayısına bağlıdır. Deneme işlem kaynakları ayrı olarak ücretlendirilir.  Çözümünüz için en iyi modeli gelmesi birden çok denemeler gerçekleştirmenizi öneririz. 
-
-**I tabanlı web Hizmetlerim kaç kez ücret çağrıldığında?**
-
-Hayır. Web Hizmetleri, gerektiği tüm Model yönetim fatura etkileri olmadan sık olarak çağrılabilir. Dağıtımlarınızı uygulamalarınızın gereksinimlerini karşılayacak şekilde ölçeklendirme konusunda tam denetime sahip olursunuz.
-
-**Azure Machine Learning modeli Yönetimi'nde satın aldığınız birim sayısını nasıl ölçeklendirme yapabilir?**
-
-Azure portalı veya CLI kullanarak, birim sayısını yukarı veya aşağı değiştirebilirsiniz. 
-
-**Ne my fatura görünüm ister?**
-
-Fatura günlük oluşturulur. Faturalandırma işlemlerinde, gün başlangıcı gece yarısı (UTC) olarak kabul edilir. Faturalar aylık olarak oluşturulur. Ayrı ücretleri, Azure Machine Learning ile birlikte kullanılan herhangi bir Azure hizmeti için ücrete. Ücretler içerebilir, ancak bunlarla sınırlı değildir: 
-- İşlem ücretlerini
-- HDInsight
-- Azure Container Service
-- Azure Container Kayıt Defteri 
-- Azure Blob Depolama
-- Application Insights
-- Azure Key Vault
-- Visual Studio Team Services
-- Azure Event hub'ı
-- Azure Stream Analytics için Ayrıntılar daha ayrıntılı olarak veya bir örnek fatura görüntülemek için fiyatlandırma sayfamızı ziyaret edin. 
-
-## <a name="support-and-training"></a>Destek ve eğitim
-
-**Azure Machine Learning için nereden eğitim alabilirim?**
-
-[Azure Machine Learning Belge Merkezi](./overview-what-is-azure-ml.md), video öğreticilerinin yanı sıra nasıl yapılır kılavuzlarını da barındırır. Bu adım adım kılavuzlar Hizmetleri getirir ve veri bilimi yaşam döngüsü açıklanmaktadır. Machine Learning Merkezi'ne düzenli olarak yeni materyaller ekleriz. Kullanıcı geri bildirim Forumunda adresindeki ek öğrenme materyalleri için istek gönderebilirsiniz.
-
-**Azure Machine Learning için nasıl destek alabilirim?**
-
-Teknik destek için Azure desteği için gidin ve Machine Learning seçin. Azure Machine Learning de sahip etkin bir topluluk [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) "Azure-makine ekibi tarafından izlenen öğrenme", ile etiketlenir.  Öneriler ve özellik istekleri gönderilebilir adresindeki [Azure Machine Learning geribildirim](https://feedback.azure.com/forums/257792-machine-learning) site. 

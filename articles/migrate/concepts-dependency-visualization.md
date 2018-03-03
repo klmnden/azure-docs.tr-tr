@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 
@@ -34,6 +34,19 @@ Azure geçirme kullanır [hizmet Haritası](../operations-management-suite/opera
 Bağımlılık görselleştirme kullanmak için aracıları analiz etmek istediğiniz her şirket içi makinede yükleyip gerekir.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>Bunun için ödeme gerekiyor mu?
+
+Azure Geçişi ek ücret ödenmeden kullanılabilir. Bağımlılık görselleştirme özellikleri Azure geçirmek kullanımı hizmet eşlemesi gerektirir. Bir Azure geçirmek proje oluşturma sırasında Azure geçirmek otomatik olarak yeni bir günlük analizi çalışma alanı sizin adınıza oluşturur.
+
+> [!NOTE]
+> Bağımlılık görselleştirme özelliği hizmet Haritası günlük analizi çalışma alanı kullanır. 28 Şubat 2018 itibaren Azure geçirmek genel kullanılabilirlik duyuru ile özelliği ekstra ücret ödemeden kullanıma sunulmuştur. Yapmak üzere yeni bir proje oluşturmak gerekir ücretsiz kullanım çalışma alanını kullanın. Genel availaibility önce varolan çalışma hala chargable, bu nedenle yeni projeye taşımanızı öneririz.
+
+1. Bu günlük analizi çalışma alanı içindeki hizmet Haritası dışındaki tüm çözümleri kullanımını standart günlük analizi ücret uygulanabilir. 
+2. Hiçbir ek ücret ödemeden geçiş senaryoları desteklemek için hizmet Haritası çözüm herhangi bir ücret ilk 180 gün sonra standart ücretleri geçerli olacaktır Azure geçirmek projenin oluşturma uygulanmaz.
+3. Proje oluşturmanın bir parçası oluşturulan yalnızca bir çalışma alanı olacaktır kullanımı ücretsizdir.
+
+Çalışma alanına aracıları kaydederken kimliği ve Yükleme Aracısı adımları sayfasında Proje tarafından verilen anahtarı kullanın. Varolan bir çalışma alanını kullanın ve Azure geçirmek proje ile ilişkilendirin.
+
+Çalışma alanı, Azure geçirmek proje silindiğinde, onunla birlikte silinmez. Proje silme göndermek, hizmet Haritası kullanım boş değil ve her düğüm günlük analizi çalışma alanı Ücretli katmanı göre ücretlendirilir.
 
 Azure Geçişi fiyatlandırması hakkında daha fazla bilgiyi [burada](https://azure.microsoft.com/pricing/details/azure-migrate/) bulabilirsiniz. 
 

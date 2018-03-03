@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 47a4f6a56c1e5a47f70bb6d6ba2dd980346653ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 543d0ec5d0c94b793b1e825d44356039b366908a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Azure Data Factory kullanarak HBase verilerini 
 
@@ -45,7 +45,7 @@ Aşağıdaki özellikler HBase bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **HBase** | Evet |
-| konak | HBase sunucusunun IP adresi veya ana bilgisayar adı. (i.e. 192.168.222.160)  | Evet |
+| konak | HBase sunucusunun IP adresi veya ana bilgisayar adı. (yani 192.168.222.160, [clustername] .azurehdinsight .net)  | Evet |
 | port | İstemci bağlantılarını dinlemek için HBase örneğinin kullandığı TCP bağlantı noktası. Varsayılan değer 9090 ' dir.  | Hayır |
 | httpPath | HBase sunucuya karşılık gelen kısmi URL'si. (yani /gateway/sandbox/hbase/version)  | Hayır |
 | authenticationType | HBase sunucuya bağlanmak için kullanılacak kimlik doğrulama mekanizması. <br/>İzin verilen değerler: **anonim**, **temel** | Evet |
@@ -57,7 +57,7 @@ Aşağıdaki özellikler HBase bağlantılı hizmeti için desteklenir:
 | allowSelfSignedServerCert | Otomatik olarak imzalanan sertifikalar sunucudan izin verilip verilmeyeceğini belirtir. Varsayılan değer false.  | Hayır |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
-**Örnek:**
+**Örneğin Hdınsights HBase için:**
 
 ```json
 {
@@ -65,9 +65,36 @@ Aşağıdaki özellikler HBase bağlantılı hizmeti için desteklenir:
     "properties": {
         "type": "HBase",
         "typeProperties": {
-            "host" : "<host>",
+            "host" : "<cluster name>.azurehdinsight.net",
+            "port" : "443",
+            "httpPath" : "<e.g. hbaserest>",
+            "authenticationType" : "Basic",
+            "username" : "<username>",
+            "password": {
+                 "type": "SecureString",
+                 "value": "<password>"
+            },
+            "enableSsl" : true
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Genel HBase örneğin:**
+
+```json
+{
+    "name": "HBaseLinkedService",
+    "properties": {
+        "type": "HBase",
+        "typeProperties": {
+            "host" : "<host e.g. 192.168.222.160>",
             "port" : "<port>",
-            "httpPath" : "/gateway/sandbox/hbase/version",
+            "httpPath" : "<e.g. /gateway/sandbox/hbase/version>",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {

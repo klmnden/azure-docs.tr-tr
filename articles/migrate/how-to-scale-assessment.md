@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ab66bc9c90950070e69c2486bf09b7664b1c9ad2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Bul ve büyük bir VMware ortamı değerlendirin
 
@@ -30,15 +30,17 @@ Bulmaları ve aşağıdaki sınırlara göre değerlendirmeleri planlayın:
 | **Varlık** | **Makine sınırı** |
 | ---------- | ----------------- |
 | Project    | 1,500              | 
-| Bulma  | 1000              |
-| Değerlendirme | 400               |
+| Bulma  | 1,500              |
+| Değerlendirme | 1,500               |
 
-- Bulmak ve değerlendirmek için 400'den az makineler varsa, tek bir proje ve tek bir bulma gerekir. Gereksinimlerinize bağlı olarak, tek bir değerlendirme tüm makinelerde değerlendirmek veya makineler birden çok değerlendirmeleri bölün. 
-- Keşfedilecek 400 için 1.000 makineler varsa, tek bulma ile tek bir proje gerekir. Ancak tek bir değerlendirme en fazla 400 makineleri tutabilen için bu makineleri değerlendirmek için birden çok değerlendirmeleri yapılandırmanız gerekir.
-- 1.001 için 1.500 makineler varsa, tek bir proje ile iki bulmaları gerekir.
-- 1500'den fazla makineleriniz varsa, birden çok proje oluşturmak ve birden fazla bulma işlemleri gerçekleştirmek, gereksinimlerinize göre gerekir. Örneğin:
-    - 3000 makineler varsa, iki bulmaları iki projelerle ya da tek bir bulma üç projenin ayarlayabilirsiniz.
-    - 5.000 makineler varsa, dört projeler ayarlayabilir: 1500 makinelerin bulma ve 500 makinelerin bulma ile bir ile üç. Alternatif olarak, her biri tek bir bulmayı beş projelerle ayarlayabilirsiniz. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Birden çok bulmaları planlama
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Video dosyalarında metin içeriği dijital metne dönüştürmek için Azure medya analizi kullanın
 ## <a name="overview"></a>Genel Bakış
@@ -51,6 +51,7 @@ Görev yapılandırması (hazır). Bir görev oluştururken **Azure medya OCR**,
 
 #### <a name="json-preset-example"></a>Örnek JSON hazır
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ Görev yapılandırması (hazır). Bir görev oluştururken **Azure medya OCR**,
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>XML hazır örneği
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ Görev yapılandırması (hazır). Bir görev oluştururken **Azure medya OCR**,
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>OCR çıktı dosyaları
 Çıktısı OCR medya işlemcisi bir JSON dosyasıdır.
@@ -118,6 +123,7 @@ Video OCR çıkış videonuzu içinde bulunan karakterleri zaman kesimli veri sa
 ### <a name="json-output-example"></a>JSON çıkış örneği
 Aşağıdaki çıktı örneği genel video bilgi ve birkaç video parçalarını içerir. Video her parçasında, dil ve onun metin hizalamasını OCR MP tarafından algılanan her bölge içerir. Bölge ayrıca her word satır hattın metin, satırın konumunu ve bu satırdaki her bir word bilgileri (word içerik, konum ve güvenilirlik) ile bu bölgede yer alır. Bir örnek verilmiştir ve bazı açıklamalar satır içi yerleştirin.
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,6 +176,7 @@ Aşağıdaki çıktı örneği genel video bilgi ve birkaç video parçalarını
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>.NET örnek kod
 
@@ -185,7 +192,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 #### <a name="example"></a>Örnek
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;
