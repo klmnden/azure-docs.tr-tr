@@ -1,9 +1,4 @@
---Başlık: Web API'si arka uç Azure Active Directory ve API Management ile koruma | Microsoft Docs Açıklama: Azure Active Directory ve API Management ile Web API arka uç korumayı öğrenin.
-services: api-management documentationcenter: '' author: juliako manager: cfowler editor: ''
-
-MS.Service: API management ms.workload: Mobil ms.tgt_pltfrm: na ms.devlang: na ms.topic: ms.date makale: 30/10/2017 ms.author: apimpm
 ---
-<<<<<<< HEAD
 title: Bir Web API arka ucu Azure Active Directory ve API Management ile koruma | Microsoft Docs
 description: "Bir Web API arka ucu Azure Active Directory ve API Management ile korumak öğrenin."
 services: api-management
@@ -18,27 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: b11d80d1837d6474c7ee88f173de43e00fbb6cd5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Bir Web API arka ucu Azure Active Directory ve API Management ile korumak nasıl
-Aşağıdaki videoda, bir Web API arka ucu oluşturmak ve Azure Active Directory ve API Management ile OAuth 2.0 protokolünü kullanarak korumak gösterilmektedir.  Bu makale, genel bir bakış ve video yer alan adımlar için ek bilgiler sağlar. Bu 24 dakikalık videoyu şunların nasıl yapıldığını gösterir için:
-=======
->>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
-
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Bir Web API arka ucu Azure Active Directory ve API Management ile korumak nasıl
 
 Bu konuda, bir Web API arka ucu oluşturmak ve Azure Active Directory ve API Management ile OAuth 2.0 protokolünü kullanarak korumak gösterilmektedir.  
 
 ## <a name="create-an-azure-ad-directory"></a>Azure AD dizini oluşturma
-<<<<<<< HEAD
-Azure Active Directory'yi kullanarak Web API'si arka güvenli hale getirmek için öncelikle bir AAD kiracısı olması gerekir. Bu videoda, bir kiracı adlı **APIMDemo** kullanılır. Bir AAD kiracısı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**Active Directory**->**Directory**->**özel Oluştur**. 
-=======
 Azure Active Directory'yi kullanarak Web API'si arka güvenli hale getirmek için öncelikle bir AAD kiracısı olması gerekir. Bir AAD kiracısı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**Active Directory**->**Directory**->**özel Oluştur**. 
->>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
 
 ![Azure Active Directory][api-management-create-aad-menu]
 

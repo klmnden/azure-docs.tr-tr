@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Azure medya Hyperlapse ile medya dosyalarını
 Azure medya Hyperlapse bir medya işlemci (ilk kişi veya eylem kamera içerikten kesintisiz zaman onlara videolar oluşturan MP) olur.  Bulut tabanlı eşdüzeyi [Microsoft Research'ın masaüstü Hyperlapse Pro ve telefon tabanlı Hyperlapse Mobile](http://aka.ms/hyperlapse), Microsoft Hyperlapse yatay ölçeklendirmenizi ve paralel hale Azure Media Services medya işleme platform yoğun ölçeğini Azure Media Services yararlanan için Hyperlapse toplu işleme.
@@ -47,7 +47,7 @@ En son Azure medya Hyperlapse güncelleştirmeler için bkz: [Media Services blo
 XML ve JSON uyumluluğunu yapılandırma dosyası örneği verilmiştir:
 
 **XML hazır:**
-
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
@@ -57,9 +57,10 @@ XML ve JSON uyumluluğunu yapılandırma dosyası örneği verilmiştir:
             <Speed>12</Speed>
         </Options>
     </Preset>
+```
 
 **JSON hazır:**
-
+```json
     {
         "Version":1.0,
         "Sources": [
@@ -73,8 +74,9 @@ XML ve JSON uyumluluğunu yapılandırma dosyası örneği verilmiştir:
             "Stabilize":false
         }
     }
+```
 
-### <a id="sample_code"></a>Microsoft Hyperlapse AMS .NET SDK'sı
+### <a id="sample_code"></a> Microsoft Hyperlapse AMS .NET SDK'sı
 Aşağıdaki yöntem Azure medya Hyperlapse medya işlemcisi bir işi oluşturur ve bir medya dosyası bir varlık olarak yükler.
 
 > [!NOTE]
@@ -85,6 +87,7 @@ Aşağıdaki yöntem Azure medya Hyperlapse medya işlemcisi bir işi oluşturur
 > 
 > 
 
+```csharp
         static bool RunHyperlapseJob(string input, string output, string hyperConfig)
         {
             // create asset with input file
@@ -197,6 +200,7 @@ Aşağıdaki yöntem Azure medya Hyperlapse medya işlemcisi bir işi oluşturur
 
         return processor;
     }
+```
 
 ### <a id="file_types"></a>Desteklenen dosya türleri
 * MP4

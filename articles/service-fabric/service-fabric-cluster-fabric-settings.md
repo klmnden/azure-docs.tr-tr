@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Service Fabric kümesi ayarlarını ve yapı yükseltme İlkesi özelleştirme
 Bu belge çeşitli doku ayarlarını özelleştirmek anlatır ve yapı Service Fabric kümesi için ilke yükseltin. Aralarında özelleştirebilirsiniz [Azure portal](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
@@ -31,7 +31,7 @@ Bu belge çeşitli doku ayarlarını özelleştirmek anlatır ve yapı Service F
 Aşağıdaki adımlar yeni bir ayar eklemek nasıl çalışılacağını *MaxDiskQuotaInMB* için *tanılama* bölümü.
 
 1. Https://resources.Azure.com için Git
-2. Aboneliğinize genişleterek gidin **abonelikleri** -> **kaynak grupları** -> **Microsoft.ServiceFabric**  ->   **\<, Küme adı >**
+2. Aboneliğinize genişleterek gidin **abonelikleri** -> **\<bilgisayarınızı abonelik >** -> **resourceGroups**  ->   **\<Bilgisayarınızı kaynak grubu >** -> **sağlayıcıları** -> **Microsoft.ServiceFabric**  ->  **kümeleri** -> **\<küme adınız >**
 3. Sağ alt köşesinde üst seçin **okuma/yazma.**
 4. Seçin **Düzenle** ve güncelleştirme `fabricSettings` JSON öğesi ve yeni bir öğe ekleyin:
 
@@ -236,7 +236,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | MaxOutstandingNotificationsPerClient |Int, varsayılan 1000'dir |Dinamik|Bir istemci kaydı yapmadan önce bekleyen bildirimleri sayısı ağ geçidi tarafından zorla kapatıldı. |
 | MaxIndexedEmptyPartitions |Int, varsayılan 1000'dir |Dinamik|Yeniden bağlanan istemciler eşitlemek için bildirim önbelleğinde, dizine alınan kalacak boş bölümler maksimum sayısı. Bu sayı yukarıda boş bölümler, arama sürüm artan dizinden kaldırılır. İstemcileri yeniden bağlanmayı hala eşitlemek ve kaçırılan boş bölüm güncelleştirmeleri almak; ancak eşitleme protokolü daha pahalı hale gelir. |
 | GatewayServiceDescriptionCacheLimit |Int, varsayılan 0'dır |Statik|Giriş sayısı üst sınırı ağ geçidinde adlandırma (sınırsız için 0 olarak ayarlayın) LRU hizmet açıklaması önbellekte saklanır. |
-| bölüm sayısı |Int, varsayılan 3. |İzin Verilmiyor|Oluşturulacak bölüm adlandırma hizmetinin depolar. Her bölüm için dizinini karşılık gelen bir tek bölüm anahtarı sahibi; Bu bölüm anahtarlarını [0; Bölüm sayısı) yok. Adlandırma Hizmeti, herhangi bir yedekleme çoğaltma tarafından tutulan verileri ortalama miktarını azaltarak gerçekleştirebilirsiniz ölçek adlandırma hizmeti bölümleri artar sayısını artırmayı ayarlayın; kaynakların artan kullanımı maliyetle (PartitionCount itibaren * ReplicaSetSize hizmet çoğaltmaları saklanabilir).|
+| PartitionCount |Int, varsayılan 3. |İzin Verilmiyor|Oluşturulacak bölüm adlandırma hizmetinin depolar. Her bölüm için dizinini karşılık gelen bir tek bölüm anahtarı sahibi; Bu bölüm anahtarlarını [0; Bölüm sayısı) yok. Adlandırma Hizmeti, herhangi bir yedekleme çoğaltma tarafından tutulan verileri ortalama miktarını azaltarak gerçekleştirebilirsiniz ölçek adlandırma hizmeti bölümleri artar sayısını artırmayı ayarlayın; kaynakların artan kullanımı maliyetle (PartitionCount itibaren * ReplicaSetSize hizmet çoğaltmaları saklanabilir).|
 
 ### <a name="section-name-runas"></a>Bölüm adı: RunAs
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
@@ -299,7 +299,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |GatewayX509CertificateFindValue | dize, varsayılan değer "" |Dinamik| Arama filtresi değeri http uygulama ağ geçidi sertifikası bulmak için kullanılır. Bu sertifika, https uç noktada yapılandırılır ve hizmetler tarafından gerekirse uygulama kimliğini doğrulamak için de kullanılabilir. FindValue ilk Aranan; ve yoksa; FindValueSecondary aranır. |
 |GatewayX509CertificateFindValueSecondary | dize, varsayılan değer "" |Dinamik|Arama filtresi değeri http uygulama ağ geçidi sertifikası bulmak için kullanılır. Bu sertifika, https uç noktada yapılandırılır ve hizmetler tarafından gerekirse uygulama kimliğini doğrulamak için de kullanılabilir. FindValue ilk Aranan; ve yoksa; FindValueSecondary aranır.|
 |HttpRequestConnectTimeout|TimeSpan, Common::TimeSpan::FromSeconds(5) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin.  Http uygulama ağ geçidi'nden gönderilen http isteklerini bağlantı zaman aşımı sağlar.  |
-|RemoveServiceResponseHeaders|Varsayılan L "tarih; dizesidir Sunucu"|Statik|Noktalı virgül / virgülle ayrılmış hizmet yanıttan; kaldırılacak yanıt üstbilgilerinin listesi istemciye iletmeden önce. Bu boş dize olarak ayarlanırsa; Hizmet olarak tarafından döndürülen tüm üstbilgileri geçirmek-değil. yani Tarih ve sunucu üzerine yazma |
+|RemoveServiceResponseHeaders|Varsayılan L "tarih; dizesidir Sunucu"|Statik|Noktalı virgül / virgülle ayrılmış hizmet yanıttan; kaldırılacak yanıt üstbilgilerinin listesi istemciye iletmeden önce. Bu boş dize olarak ayarlanırsa; Hizmet olarak tarafından döndürülen tüm üstbilgileri geçirmek-değil. i.e Tarih ve sunucu üzerine yazma |
 |ApplicationCertificateValidationPolicy|Varsayılan dizesidir L "Hiçbiri"|Statik| ApplicationCertificateValidationPolicy: None: sunucu sertifikası; doğrulamaz İstek başarılı. ServiceCertificateThumbprints: ters proxy güvenebileceği uzak sertifikaları parmak izlerini virgülle ayrılmış listesi için yapılandırma ServiceCertificateThumbprints bakın. ServiceCommonNameAndIssuer: ters proxy güvenebileceği uzak sertifikaları konu adı ve verenin parmak izi için yapılandırma ServiceCommonNameAndIssuer bakın. |
 |ServiceCertificateThumbprints|Varsayılan L dizesidir""|Dinamik| |
 |CrlCheckingFlag|uint, varsayılan 0x40000000 olduğu |Dinamik| Uygulama/hizmet sertifika zinciri doğrulaması bayrakları; Örneğin CRL 0x10000000 denetleme CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY ayarını 0 devre dışı bırakır CRL denetimi tam desteklenen değerler listesi CertGetCertificateChain dwFlags tarafından belgelenmiştir: http://msdn.microsoft.com/library/windows/desktop/aa376078 (v=vs.85).aspx  |
@@ -385,6 +385,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |CommonName2Ntlmx509StoreLocation|Varsayılan L "LocalMachine" dizesidir| Statik|X509 depo konumunu CommonName2NtlmPasswordSecret üzerinde HMAC NTLM kimlik doğrulaması kullanılırken oluşturmak için kullanılan sertifika |
 |CommonName2Ntlmx509StoreName|Varsayılan L "MY" dizesidir|Statik| X509 deposu adını CommonName2NtlmPasswordSecret üzerinde HMAC NTLM kimlik doğrulaması kullanılırken oluşturmak için kullanılan sertifika |
 |CommonName2Ntlmx509CommonName|Varsayılan L dizesidir""|Statik|X509'ın ortak adı CommonName2NtlmPasswordSecret üzerinde HMAC NTLM kimlik doğrulaması kullanılırken oluşturmak için kullanılan sertifika |
+|GenerateV1CommonNameAccount| bool, varsayılan true'dur.|Statik|Kullanıcı adı V1 üretme algoritması olan bir hesap oluşturulup oluşturulmayacağını belirtir. Service Fabric sürüm 6.1 başlatılıyor; v2 oluşturma ile bir hesabı her zaman oluşturulur. V1 hesap başlangıç/bitiş V2 oluşturma (önce 6.1) desteklemeyen sürümleri yükseltmeleri için gereklidir.|
 
 ### <a name="section-name-imagestoreservice"></a>Bölüm adı: ImageStoreService
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
@@ -607,7 +608,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | --- | --- | --- | --- |
 | ApplicationUpgradeMaxReplicaCloseDuration | Zamanı saniye cinsinden 900 varsayılandır |Dinamik|TimeSpan saniye cinsinden belirtin. Uygulama yükseltme sırasında içinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre kapatın.|
 | ServiceApiHealthDuration | Zamanı saniye cinsinden, varsayılan değer 30 dakikadır |Dinamik| TimeSpan saniye cinsinden belirtin. Biz biz sağlıksız raporu önce çalıştırmak hizmeti API'si için ne kadar süreyle bekleme ServiceApiHealthDuration tanımlar. |
-| ServiceReconfigurationApiHealthDuration | Zamanı saniye cinsinden varsayılan 30'dur |Dinamik| TimeSpan saniye cinsinden belirtin. Biz biz sağlıksız rapor önce çalıştırmak hizmeti API'si için ne kadar süreyle bekleme ServiceReconfigurationApiHealthDuration tanımlar. Bu kullanılabilirlik etkisi API çağrıları için geçerlidir.|
+| ServiceReconfigurationApiHealthDuration | Zamanı saniye cinsinden varsayılan 30'dur |Dinamik| TimeSpan saniye cinsinden belirtin. ServiceReconfigurationApiHealthDuration defines how long do we wait for a service API to run before we report unhealthy. Bu kullanılabilirlik etkisi API çağrıları için geçerlidir.|
 | PeriodicApiSlowTraceInterval | Zamanı saniye cinsinden, varsayılan değer 5 dakikadır |Dinamik| TimeSpan saniye cinsinden belirtin. PeriodicApiSlowTraceInterval üzerinden yavaş API çağrıları API İzleyici tarafından yeniden taranma aralığı tanımlar. |
 | NodeDeactivationMaxReplicaCloseDuration | Zamanı saniye cinsinden 900 varsayılandır |Dinamik|TimeSpan saniye cinsinden belirtin. İçinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre düğümü devre dışı bırakma sırasında kapatın. |
 | FabricUpgradeMaxReplicaCloseDuration | Zamanı saniye cinsinden 900 varsayılandır |Dinamik| TimeSpan saniye cinsinden belirtin. İçinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre fabric yükseltmesi sırasında kapatın. |
@@ -799,5 +800,5 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ## <a name="next-steps"></a>Sonraki adımlar
 Küme yönetimi hakkında daha fazla bilgi için bu makaleler okuyun:
 
-[Eklemek için değil, UTC'ye, Azure kümenizden sertifikaları kaldırın](service-fabric-cluster-security-update-certs-azure.md) 
+[Eklemek için değil, UTC'ye, Azure kümenizden sertifikaları kaldırın ](service-fabric-cluster-security-update-certs-azure.md) 
 

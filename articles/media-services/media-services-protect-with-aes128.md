@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 013c14c00096c9958a732d1f0eaacc9248f57da9
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 2d1a635c1e2bde140df19f8c26f6ae5a6978eff5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>AES-128 dinamik şifreleme ve anahtar teslim hizmetini kullanma
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ ms.lasthandoff: 01/05/2018
 > 
 
 > [!NOTE]
-> Java SDK'sı en son sürümünü alın ve Java ile geliştirmeye başlamak için bkz: [Azure Media Services için Java istemcisi SDK ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Media Services için en yeni PHP SDK'yi karşıdan yüklemek için sürümünde 0.5.7 Microsoft/WindowsAzure paket Ara [Packagist depo](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Java SDK'ın en son sürümünü almak ve Java ile geliştirmeye başlamak için bkz. [Azure Media Services için Java istemcisi SDK’sı ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Media Services için en yeni PHP SDK'sını indirmek üzere, [Packagist deposunda](https://packagist.org/packages/microsoft/windowsazure#v0.5.7) Microsoft/WindowsAzure paketinin 0.5.7 sürümünü arayın.  
 
 ## <a name="overview"></a>Genel Bakış
 > [!NOTE]
@@ -40,9 +40,9 @@ ms.lasthandoff: 01/05/2018
 
  Media Services, HTTP canlı akışı (HLS) ve 128 bit şifreleme anahtarları kullanılarak AES ile şifrelenmiş kesintisiz akış sunmak için kullanabilirsiniz. Media Services, yetkili kullanıcıların şifreleme anahtarları sunan anahtar teslim hizmeti de sağlar. Media Services'ın bir varlık şifrelemek isterseniz, bir şifreleme anahtarı varlıkla ilişkilendirin ve ayrıca anahtarı için yetkilendirme ilkelerini yapılandırın. Bir akış player tarafından istendiğinde Media Services belirtilen anahtarı dinamik olarak içeriğinizi AES şifreleme kullanarak şifrelemek için kullanır. Akış şifresini çözmek için player anahtar anahtar teslim hizmetinden ister. Kullanıcı anahtarı alınamadı yetkilendirilip yetkilendirilmediğini belirlemek için hizmet anahtar için belirtilen yetkilendirme ilkelerini değerlendirir.
 
-Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesinin, bir veya daha fazla yetkilendirme kısıtlamaları, açık veya belirteç sınırlamaları olabilir. Belirteç kısıtlanmış İlkesi, bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç tarafından eklenmelidir. Media Services belirteçleri destekler [basit web belirteci](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) ve [JSON Web belirteci](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) biçimleri. Daha fazla bilgi için bkz: [içerik anahtarının yetkilendirme ilkesini yapılandırma](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesinin açık veya belirteç kısıtlaması şeklinde bir veya daha fazla yetkilendirme kısıtlaması olabilir. Belirteç kısıtlamalı ilkenin beraberinde bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services, [basit web belirteci](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) ve [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) biçimlerindeki belirteçleri destekler. Daha fazla bilgi edinmek için bkz. [İçerik anahtarının yetkilendirme ilkesini yapılandırma](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
-Dinamik şifrelemeden yararlanmak için, bir grup çoklu bit hızlı MP4 dosyası ya da çoklu bit hızlı Kesintisiz Akış kaynak dosyası içeren bir varlığınız olması gerekir. Ayrıca, (Bu makalenin sonraki bölümlerinde açıklanan) varlık teslim ilkesini yapılandırmanız gerekir. Sonra akış URL'SİNDE belirtilen biçime bağlı olarak, isteğe bağlı Akış sunucusu akışı seçtiğiniz protokolde teslim edilmesini sağlar. Sonuç olarak, depolama yalnızca tek bir depolama biçiminde dosyaları için ödeme yapmanız gerekir. Media Services oluşturur ve istemciden gelen isteklere göre uygun yanıtı işlevi görür.
+Dinamik şifrelemeden yararlanmak için, bir grup çoklu bit hızlı MP4 dosyası ya da çoklu bit hızlı Kesintisiz Akış kaynak dosyası içeren bir varlığınız olması gerekir. Ayrıca, (Bu makalenin sonraki bölümlerinde açıklanan) varlık teslim ilkesini yapılandırmanız gerekir. Ardından, akış URL'sinde belirtilen biçime bağlı olarak, isteğe bağlı akış sunucusu akışın seçtiğiniz protokolde teslim edilmesini sağlar. Sonuç olarak, depolama yalnızca tek bir depolama biçiminde dosyaları için ödeme yapmanız gerekir. Media Services, bir istemciden alınan isteklere göre uygun yanıtı oluşturur ve sunar.
 
 Bu makalede korunan medya teslim eden uygulamalar üzerinde çalışan geliştiricilere yararlı olur. Makalede yalnızca yetkili istemcilerin şifreleme anahtarları alabilmesi anahtar teslimat hizmetinin Yetkilendirme İlkeleri ile nasıl yapılandırılacağı gösterilmektedir. Ayrıca, dinamik şifreleme kullanabilmek nasıl gösterir.
 
@@ -55,13 +55,13 @@ Media Services anahtar teslim hizmeti kullanarak ve dinamik şifreleme kullanara
 
 2. [Varlığı, bit hızı Uyarlamalı MP4 kümesine dosyasını içeren kodlayın](media-services-protect-with-aes128.md#encode_asset).
 
-3. [Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirin](media-services-protect-with-aes128.md#create_contentkey). Media Services'de içerik anahtarı varlığın şifreleme anahtarını içerir.
+3. [Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirin](media-services-protect-with-aes128.md#create_contentkey). Media Services’de, içerik anahtarı varlığın şifreleme anahtarını içerir.
 
-4. [İçerik anahtarının yetkilendirme ilkesini yapılandırma](media-services-protect-with-aes128.md#configure_key_auth_policy). İçerik anahtarı yetkilendirme ilkesini yapılandırmanız gerekir. İçerik anahtarının istemciye teslim edilmeden önce istemci İlkesi karşılaması gerekir.
+4. [İçerik anahtarının yetkilendirme ilkesini yapılandırma](media-services-protect-with-aes128.md#configure_key_auth_policy). İçerik anahtarı yetkilendirme ilkesini yapılandırmanız gerekir. İçerik anahtarının istemciye teslim edilebilmesi için önce istemcinin ilkeyi karşılaması gerekir.
 
 5. [Bir varlık teslim ilkesini yapılandırın](media-services-protect-with-aes128.md#configure_asset_delivery_policy). Teslim ilkesi yapılandırması anahtarı edinme URL'si ve bir başlatma vektörü (IV) içerir. (AES-128 aynı IV şifreleme ve şifre çözme için gerektirir.) Yapılandırma teslim Protokolü (örneğin, MPEG-DASH, HLS, kesintisiz akış veya tümü) ve (örneğin, zarf veya dinamik şifreleme) dinamik şifreleme türü de içerir.
 
-    Aynı varlık üzerinde her protokol için başka bir ilke uygulayabilirsiniz. Örneğin, PlayReady şifreleme kesintisiz/DASH ve HLS için AES zarfı uygulayabilirsiniz. Bir teslim ilkesinde tanımlanan olmayan herhangi bir iletişim kuralı akışla aktarılması engellenir. (Tek bir ilke eklerseniz, protokol olarak yalnızca HLS belirtir örneğidir.) Hiç tanımlanmış hiçbir varlık teslim ilkesini varsa istisnadır. Ardından, tüm protokoller, açık bir şekilde izin verilir.
+    Bir varlıktaki her bir protokole farklı birer ilke uygulayabilirsiniz. Örneğin, Kesintisiz/DASH için PlayReady şifreleme uygularken HLS için bir AES zarfı uygulayabilirsiniz. Bir teslim ilkesinde tanımlanan olmayan herhangi bir iletişim kuralı akışla aktarılması engellenir. (Tek bir ilke eklerseniz, protokol olarak yalnızca HLS belirtir örneğidir.) Bunun tek istisnası, hiçbir varlık teslim ilkesinin tanımlanmadığı durumdur. Bu halde tüm protokollere açık bir şekilde izin verilir.
 
 6. [Bir OnDemand Bulucu oluşturmanız](media-services-protect-with-aes128.md#create_locator) akış URL'si almak için.
 
@@ -69,55 +69,55 @@ Makale ayrıca gösterir [bir istemci uygulaması anahtar teslim hizmetinden bir
 
 Bir tam bulabilirsiniz [.NET örnek](media-services-protect-with-aes128.md#example) makalenin sonunda.
 
-Aşağıdaki resimde, daha önce açıklanan iş akışı gösterilmektedir. Burada, belirteç kimlik doğrulaması için kullanılır.
+Aşağıdaki görüntüde, daha önce açıklanan iş akışı gösterilmektedir. Burada kimlik doğrulaması için belirteç kullanılmaktadır.
 
 ![AES-128 ile koruma](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
 Bu makalenin sonraki bölümlerinde, açıklamalar, kod örnekleri ve daha önce açıklanan görevlerin nasıl yerine getirileceğini gösteren konulara bağlantılar sağlar.
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
-Ekleme ya varlığınızın teslim ilkesini güncelleştirmek, tüm mevcut Bulucuyu silin ve yeni bir Bulucu oluşturmanız gerekir.
+Varlığınızın teslim ilkesini ekler veya güncelleştirirseniz, varsa mevcut bulucuyu silip yeni bir bulucu oluşturmanız gerekir.
 
 ## <a id="create_asset"></a>Bir varlık oluşturun ve dosyaları varlığa yükleme
-Yönetmek, kodlamak ve videolarınızı akış için içeriğinizi Media Services'e yüklemeniz gerekir. Karşıya yüklendikten sonra içeriğiniz sonraki işleme ve akışla için bulutta güvenli bir şekilde depolanır. 
+Videolarınızı yönetmek, kodlamak ve akışla aktarmak için önce içeriğinizi Media Services’a yüklemeniz gerekir. Dosyanın karşıya yüklenmesinin ardından içeriğiniz, sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanır. 
 
-Daha fazla bilgi için bkz: [bir Media Services hesabına dosyaları karşıya](media-services-dotnet-upload-files.md).
+Daha fazla bilgi için bkz. [Media Services hesabına dosya yükleme](media-services-dotnet-upload-files.md).
 
 ## <a id="encode_asset"></a>Varlığı, dosyada Uyarlamalı bit hızı MP4 kümesine kodlayın
-Dinamik şifreleme ile Çoklu bit hızlı MP4 dosyası ya da Çoklu bit hızlı kesintisiz akış kaynak dosyası içeren bir varlık oluşturun. Ardından, bildirim veya parça isteğindeki belirtilen biçime bağlı olarak, isteğe bağlı Akış sunucusu akışı seçtiğiniz protokolde almak sağlar. Ardından, depolamak ve tek bir depolama biçiminde dosyaları için ödeme yeterlidir. Media Services oluşturur ve istemciden gelen isteklere göre uygun yanıtı işlevi görür. Daha fazla bilgi için bkz: [dinamik paketlemeye genel bakış](media-services-dynamic-packaging-overview.md).
+Dinamik şifreleme ile bir grup çoklu bit hızlı MP4 dosyası ya da çoklu bit hızlı Kesintisiz Akış kaynak dosyası içeren bir varlık oluşturursunuz. Ardından, bildirim veya parça isteğindeki belirtilen biçime bağlı olarak, isteğe bağlı Akış sunucusu akışı seçtiğiniz protokolde almak sağlar. Ardından, depolamak ve tek bir depolama biçiminde dosyaları için ödeme yeterlidir. Media Services, bir istemciden alınan isteklere göre uygun yanıtı oluşturur ve sunar. Daha fazla bilgi için bkz. [Dinamik paketlemeye genel bakış](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
->Media Services hesabınızı oluştururken bir varsayılan akış uç noktası "Durduruldu" durumunda hesabınıza eklenir. İçeriğinizi akış başlatmak ve dinamik paketleme ve dinamik şifreleme yararlanmak için içerik akışını gerçekleştirmek istediğiniz akış uç "Çalışır" durumda olması gerekir. 
+>Media Services hesabınız oluşturulduğunda hesabınıza “Durdurulmuş” durumda bir varsayılan akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının “Çalışıyor” durumda olması gerekir. 
 >
 >Ayrıca, dinamik paketleme ve dinamik şifreleme kullanmak için varlık Uyarlamalı bit hızlı MP4s ya da Uyarlamalı bit hızlı kesintisiz akış dosyaları içermelidir.
 
-Kodlama yönergeleri için bkz: [medya Kodlayıcı standart kullanarak bir varlık kodla](media-services-dotnet-encode-with-media-encoder-standard.md).
+Kodlama yönergeleri için bkz. [Media Encoder Standard kullanarak varlık kodlama](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ## <a id="create_contentkey"></a>Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirme
 Media Services’de, içerik anahtarı bir varlığı şifrelerken kullanmak istediğiniz anahtarı içerir.
 
-Daha fazla bilgi için bkz: [bir içerik anahtarı oluşturun](media-services-dotnet-create-contentkey.md).
+Daha fazla bilgi için bkz. [İçerik anahtarı oluşturma](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>İçerik anahtarının yetkilendirme ilkesini yapılandırın
+## <a id="configure_key_auth_policy"></a>İçerik anahtarının yetkilendirme ilkesini yapılandırma
 Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesini yapılandırmanız gerekir. Anahtarın istemciye teslim edilebilir önce istemci (oynatıcı) ilkesi karşılaması gerekir. İçerik anahtarı yetkilendirme ilkesini açın, kısıtlama veya IP kısıtlama simge bir veya daha fazla yetkilendirme kısıtlamaları olabilir.
 
-Daha fazla bilgi için bkz: [bir içerik anahtarı yetkilendirme ilkesini yapılandırma](media-services-dotnet-configure-content-key-auth-policy.md).
+Daha fazla bilgi edinmek için bkz. [İçerik anahtarı yetkilendirme ilkesi yapılandırma](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a id="configure_asset_delivery_policy"></a>Bir varlık teslim ilkesini yapılandırma
-Varlığınıza ilişkin teslim ilkesini yapılandırın. Varlık teslim ilkesi yapılandırması içeren bazı gerekenler şunlardır:
+## <a id="configure_asset_delivery_policy"></a>Varlık teslim ilkesi yapılandırma
+Varlığınıza ilişkin teslim ilkesini yapılandırın. Varlık teslim ilkesi yapılandırmasının içerdiklerinden bazıları şunlardır:
 
 * Anahtar edinme URL'si. 
 * Başlatma vektörü (Zarf şifreleme için kullanılacak IV). AES-128, şifreleme ve şifre çözme için aynı IV gerektirir. 
-* Varlık teslim Protokolü (örneğin, MPEG-DASH, HLS, kesintisiz akış veya tümü).
+* Varlık teslim protokolü (örneğin MPEG DASH, HLS, Kesintisiz Akış veya tümü).
 * Dinamik şifreleme (örneğin, AES zarfı) türü veya dinamik şifreleme yok. 
 
-Daha fazla bilgi için bkz: [bir varlık teslim ilkesini yapılandırma](media-services-dotnet-configure-asset-delivery-policy.md).
+Daha fazla bilgi için bkz. [Varlık teslim ilkesi yapılandırma](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Bir OnDemand Bulucu akış URL'si almak için akış oluşturma
-Kesintisiz akış, DASH veya HLS için kullanıcı Akış URL'sini sağlamanız gerekir.
+## <a id="create_locator"></a>Akış URL’si almak için bir OnDemand akış bulucusu oluşturma
+Kullanıcınıza Kesintisiz Akış, DASH veya HLS için akış URL’sini sağlamanız gerekir.
 
 > [!NOTE]
-> Ekleme ya varlığınızın teslim ilkesini güncelleştirmek, tüm mevcut Bulucuyu silin ve yeni bir Bulucu oluşturmanız gerekir.
+> Varlığınızın teslim ilkesini ekler veya güncelleştirirseniz, varsa mevcut bulucuyu silip yeni bir bulucu oluşturmanız gerekir.
 > 
 > 
 
@@ -126,6 +126,7 @@ Varlık yayımlama ve akış URL'si oluşturma yönergeleri için bkz. [Akış U
 ## <a name="get-a-test-token"></a>Test belirteci alma
 Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayalı olarak bir test belirteci alın.
 
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate = 
@@ -136,8 +137,9 @@ Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayal�
     //so you have to add it in front of the token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+```
 
-Kullanabileceğiniz [Azure Media Services Oynatıcısı](http://amsplayer.azurewebsites.net/azuremediaplayer.html) akışınızı test etmek için.
+Akışınızı test etmek için [Azure Media Services Oynatıcısı](http://amsplayer.azurewebsites.net/azuremediaplayer.html)’nı kullanabilirsiniz.
 
 ## <a id="client_request"></a>Nasıl istemciniz bir anahtar anahtar teslim hizmetinden isteyebilir miyim?
 Önceki adımda, bir bildirim dosyası işaret eden URL oluşturulur. İstemci anahtar teslim hizmetine bir istek yapmak için akış bildirim dosyaları için gerekli bilgileri ayıklamak gerekir.
@@ -145,6 +147,7 @@ Kullanabileceğiniz [Azure Media Services Oynatıcısı](http://amsplayer.azurew
 ### <a name="manifest-files"></a>Bildirim dosyası
 URL ayıklamak istemcinin gerekir (Ayrıca içeriği içeren anahtar kimliği [çocuk]) bildirim dosyası değeri. İstemci ardından anahtar teslim hizmetinden şifreleme anahtarı alma dener. İstemci ayrıca IV değerini ayıklayın ve akış şifresini çözmek için kullanmanız gerekir. Aşağıdaki kod parçacığında gösterildiği <Protection> kesintisiz akış bildirimi öğesidir:
 
+```xml
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
         <ContentProtection xmlns:sea="urn:mpeg:dash:schema:sea:2012" schemeIdUri="urn:mpeg:dash:sea:2012">
@@ -156,6 +159,7 @@ URL ayıklamak istemcinin gerekir (Ayrıca içeriği içeren anahtar kimliği [�
         </ContentProtection>
       </ProtectionHeader>
     </Protection>
+```
 
 HLS söz konusu olduğunda, kök bildirim segment dosyalarıyla ayrılır. 
 
@@ -191,6 +195,7 @@ Bir metin düzenleyicisinde (örneğin, http://test001.origin.mediaservices.wind
 
 Aşağıdaki kod anahtar teslim (bildirimden ayıklandı) URI kullanılarak Media Services anahtar teslim hizmetine bir istek göndermek nasıl gösterir ve bir belirteç. (Bu makalede bir STS SWTs alma açıklamak değildir.)
 
+```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(keyDeliveryUri);
@@ -230,28 +235,33 @@ Aşağıdaki kod anahtar teslim (bildirimden ayıklandı) URI kullanılarak Medi
         Array.Copy(buffer, key, length);
         return key;
     }
+```
 
 ## <a name="protect-your-content-with-aes-128-by-using-net"></a>.NET kullanarak içeriğinizi AES-128 ile koruma
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-1. Geliştirme ortamınızı ayarlama ve açıklandığı şekilde bağlantı bilgileriyle app.config dosyasını doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md).
+1. Geliştirme ortamınızı ayarlayın ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun.
 
 2. Aşağıdaki öğeler, app.config dosyasında tanımlanan appSettings için ekleyin:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ### <a id="example"></a>Örnek
 
 Bu bölümde gösterilen kodu Program.cs dosyanızdaki kodun üzerine yazın.
  
 >[!NOTE]
->1.000.000 ilkelerinin farklı Media Services ilkeleri (örneğin, Bulucu ilke veya ContentKeyAuthorizationPolicy) için bir sınır yoktur. Her zaman aynı gün/erişim izinleri kullanırsanız, aynı ilke kimliği kullanın. İlkeleri kalmasına yerinde uzun bir süre (karşıya yükleme olmayan ilkeleri) yöneliktir bulucular için buna bir örnektir. Daha fazla bilgi için "Sınırı erişim ilkeleri" bölümüne bakın [varlıklar ve Media Services .NET SDK'sı ile ilgili varlıklar yönetme](media-services-dotnet-manage-entities.md#limit-access-policies).
+>1.000.000 ilkelerinin farklı Media Services ilkeleri (örneğin, Bulucu ilke veya ContentKeyAuthorizationPolicy) için bir sınır yoktur. Her zaman aynı gün/erişim izinleri kullanırsanız, aynı ilke kimliği kullanın. Örnek olarak uzun süre olduğu gibi kalması amaçlanan bulucu ilkeleri (karşıya yükleme olmayan ilkeler) verilebilir. Daha fazla bilgi için "Sınırı erişim ilkeleri" bölümüne bakın [varlıklar ve Media Services .NET SDK'sı ile ilgili varlıklar yönetme](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek şekilde güncelleştirdiğinizden emin olun.
 
+```csharp
     [!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

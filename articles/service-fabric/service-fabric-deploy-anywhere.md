@@ -3,7 +3,7 @@ title: "Windows Server ve Linux üzerinde Azure Service Fabric kümeleri oluştu
 description: "Windows Server ve Linux, anlamına gelir, dağıtabilmesi ve ana bilgisayar Service Fabric uygulamaları herhangi bir yerden çalışan Service Fabric kümeleri, Windows Server veya Linux çalıştırabilirsiniz."
 services: service-fabric
 documentationcenter: .net
-author: Chackdan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/19/2017
-ms.author: chackdan
-ms.openlocfilehash: e3cfad19e42af24edd68befd7b1eac8cef41a1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: dekapur
+ms.openlocfilehash: 63b7bfa5ca357470f5ed36a4cdf943cee779f0fc
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Windows Server veya Linux Service Fabric kümeleri oluşturma
 Azure Service Fabric kümesi bir ağa bağlı içine, mikro dağıtılır ve yönetilen sanal veya fiziksel makineler kümesidir. Bir küme düğümü bir makine ya da bir kümenin parçasıysa VM adı verilir. Küme düğümleri binlerce ölçeklendirebilirsiniz. Kümeye yeni düğümler eklerseniz, Service Fabric hizmeti çoğaltmalarını ve örnekleri sayısının artması düğümleri arasında yeniden dengeler. Genel uygulama performansını artıran ve bellek erişimi için Çekişme azaltır. Kümedeki düğümler verimli bir şekilde kullanılmayan, kümedeki düğüm sayısını azaltabilirsiniz. Service Fabric yeniden örnekleri ve çoğaltmalarını azalmasına her bir düğümüne donanım daha iyi kullanılmasını sağlamak için düğüm sayısı arasında yeniden dengeler.
@@ -33,7 +33,12 @@ Bu işletim sistemlerini çalıştıran sanal makinelere kümeleri oluşturabili
 
 * Windows Server 2012 R2
 * Windows Server 2016 
-* Linux Ubuntu 16.04  
+* Windows Server 1709
+* Linux Ubuntu 16.04
+
+> [!NOTE]
+> Windows Server 1709 üzerinde Service Fabric dağıtmaya karar verirseniz (1), bir uzun süreli bakım dalı, böylece sürümleri gelecekte taşımanız gerekebilir ve (2) kapsayıcıları dağıtırsanız, Windows Server'da Windows Server 2016 yerleşik kapsayıcıları işe yaramazsa olmadığını unutmayın  1709, bunun tam tersi (bunları dağıtmak için bunları yeniden gerekecek).
+>
 
 ## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Service Fabric tek başına içi kümeleri oluşturmak veya herhangi bir bulut sağlayıcısı ile
 Service Fabric, tek başına Service Fabric kümeleri şirket içi oluşturmak için veya herhangi bir bulut sağlayıcısına üzerinde bir yükleme paketi sağlar.

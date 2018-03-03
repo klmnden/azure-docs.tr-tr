@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure portalında bir işlev uygulaması yönetme 
 
@@ -66,13 +66,13 @@ Uygulama hizmeti ayarları ile çalışma hakkında daha fazla bilgi için bkz: 
 
 ![Uygulama hizmeti Düzenleyicisi](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings"></a>Uygulama ayarları
+### <a name="settings">Uygulama ayarları</a>
 
 | | |
 |-|-|
 | ![İşlev app uygulama ayarları.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Uygulama hizmeti **uygulama ayarları** dikey penceresinde, burada yapılandırın ve framework sürümleri, uzaktan hata ayıklama, uygulama ayarları ve bağlantı dizelerini Yönet. Diğer Azure ve üçüncü taraf hizmetleri ile işlevi uygulamanızı'i tümleştirdiğinizde burada bu ayarları değiştirebilirsiniz. Bir ayarı silmek için seçin ve sağ kaydırma **X** (aşağıdaki görüntüde gösterilen değil) satırın sağ ucunda simgesi.
 
-![Uygulama ayarlarını yapılandırın](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
+![Uygulama ayarlarını yapılandırma](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Konsol
 
@@ -82,11 +82,11 @@ Uygulama hizmeti ayarları ile çalışma hakkında daha fazla bilgi için bkz: 
 
 ![Uygulama Konsolu işlevi](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu"></a>Gelişmiş araçlar (Kudu)
+### <a name="kudu">Gelişmiş araçlar (Kudu)</a>
 
 | | |
 |-|-|
-| ![Azure portalında işlev uygulaması Kudu](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Uygulama Hizmeti (Kudu olarak da bilinir) için Gelişmiş araçlar işlevi uygulamanızın Gelişmiş yönetim özelliklerine erişim sağlar. Kudu sistem bilgileri, uygulama ayarları, ortam değişkenleri, site uzantıları, HTTP üstbilgileri ve sunucu değişkenlerine yönetin. Ayrıca başlatma **Kudu** gibi işlev uygulamanız için SCM uç noktasına giderek`https://<myfunctionapp>.scm.azurewebsites.net/` |
+| ![Azure portalında işlev uygulaması Kudu](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | Uygulama Hizmeti (Kudu olarak da bilinir) için Gelişmiş araçlar işlevi uygulamanızın Gelişmiş yönetim özelliklerine erişim sağlar. Kudu sistem bilgileri, uygulama ayarları, ortam değişkenleri, site uzantıları, HTTP üstbilgileri ve sunucu değişkenlerine yönetin. Ayrıca başlatma **Kudu** gibi işlev uygulamanız için SCM uç noktasına giderek `https://<myfunctionapp>.scm.azurewebsites.net/` |
 
 ![Kudu yapılandırın](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -115,11 +115,11 @@ Uygulama hizmeti ayarları ile çalışma hakkında daha fazla bilgi için bkz: 
 ![Bir işlev uygulaması için kimlik doğrulamasını yapılandırma](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger"></a>API tanımı
+### <a name="swagger">API tanımı</a>
 
 | | |
 |-|-|
-| ![İşlev uygulama API'si swagger tanımı Azure portalında](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | İstemcilerin HTTP tetiklemeli işlevleri daha kolay kullanmasına izin vermek için Swagger işlevlerini destekler. Swagger ile API tanımları oluşturma hakkında daha fazla bilgi için [API uygulamaları ve azure'da Swagger ile çalışmaya başlama](../app-service/app-service-web-tutorial-rest-api.md). İşlevler proxy'leri, birden çok işlevler için tek bir API yüzeyi tanımlamak için de kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure işlevleri proxy'leri çalışma](functions-proxies.md). |
+| ![İşlev uygulama API'si swagger tanımı Azure portalında](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | İstemcilerin HTTP tetiklemeli işlevleri daha kolay kullanmasına izin vermek için Swagger işlevlerini destekler. Swagger ile API tanımları oluşturma hakkında daha fazla bilgi için [bir RESTful API'sini Azure App Service CORS ile ana bilgisayar](../app-service/app-service-web-tutorial-rest-api.md). İşlevler proxy'leri, birden çok işlevler için tek bir API yüzeyi tanımlamak için de kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure işlevleri proxy'leri çalışma](functions-proxies.md). |
 
 ![İşlev uygulamanın API yapılandırın](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 

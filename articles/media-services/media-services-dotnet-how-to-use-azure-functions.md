@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 999f2cef7d70c4f1b45076300312664defdeb3f5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Azure işlevleri Media Services ile geliştirme
 
@@ -26,7 +26,7 @@ Bu makalede Azure işlevleri, Media Services'i kullanma oluşturmaya başlamak g
 
 Keşfetmek ve Azure Media Services'i kullanma mevcut Azure işlevleri dağıtmak istiyorsanız, kullanıma [medya Hizmetleri Azure işlevleri](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Bu depo alma için ilgili iş akışları doğrudan blob depolama alanından blob depolama alanına kodlama ve içeriği yazma geri içeriğini göstermek için Media Services'i kullanma örnekleri içerir. Ayrıca Web kancaları ve Azure kuyrukları aracılığıyla iş bildirimleri izleme örnekleri içerir. İşlevlerinizi örneklerde göre de geliştirebilirsiniz [medya Hizmetleri Azure işlevleri](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) deposu. İşlevler dağıtmak için basın **Azure'a Dağıt** düğmesi.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - İlk işlevinizin oluşturmadan önce etkin bir Azure hesabınız olması gerekir. Bir Azure hesabınız yoksa [ücretsiz hesaplar kullanılabilir](https://azure.microsoft.com/free/).
 - Azure Media Services (AMS) hesabınızdaki eylemleri gerçekleştirmek veya Media Services tarafından gönderilen olayları dinleme Azure işlevleri oluşturmak için kullanacaksanız, açıklandığı gibi bir AMS hesabının oluşturmalısınız [burada](media-services-portal-create-account.md).
@@ -63,21 +63,21 @@ Bu makalede, tanımlanmış işlevi, aşağıdaki ortam değişkenleri, uygulama
 2. Seçin **C#** dil ve **veri işleme** senaryo.
 3. Seçin **BlobTrigger** şablonu. Bu işlev bir blob hizmetine yüklendikten tetiklenir **giriş** kapsayıcı. **Giriş** adı belirtilen **yolu**, sonraki adımda.
 
-    ![Dosyaları](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![dosya görüntüle](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Seçtiğinizde, bundan sonra **BlobTrigger**, daha fazla bazı denetimler sayfasında görüntülenir.
 
-    ![Dosyaları](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![dosya görüntüle](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. **Oluştur**'a tıklayın. 
+4. **Oluştur**’a tıklayın. 
 
 ## <a name="files"></a>Dosyalar
 
 Azure işlevinizi ve bu bölümde açıklanan diğer dosyaları kod dosyaları ile ilişkilidir. Bir işlev oluşturmak için Azure Portalı'nı kullandığınızda **function.json** ve **run.csx** sizin için oluşturulur. Ekleyin veya karşıya yüklemek gereken bir **project.json** dosya. Bu bölümde rest tanımlarını gösterir ve her dosyanın kısa bir açıklama sağlar.
 
-![Dosyaları](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![dosya görüntüle](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-### <a name="functionjson"></a>Function.JSON
+### <a name="functionjson"></a>function.json
 
 Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Çalışma zamanı izlenecek olaylar belirlemek için bu dosyaya ve verilerini geçirin ve işlev yürütülmesini veri dönmek nasıl kullanır. Daha fazla bilgi için bkz: [Azure işlevleri HTTP ve Web kancası bağlamaları](../azure-functions/functions-reference.md#function-code).
 
@@ -86,7 +86,7 @@ Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarların
 
 Varolan function.json dosyasının içeriğini aşağıdaki kodla değiştirin:
 
-```
+```json
 {
   "bindings": [
     {
@@ -101,13 +101,13 @@ Varolan function.json dosyasının içeriğini aşağıdaki kodla değiştirin:
 }
 ```
 
-### <a name="projectjson"></a>Project.JSON
+### <a name="projectjson"></a>project.json
 
 Project.json dosyası bağımlılıkları içerir. Bir örneği burada verilmiştir **project.json** Nuget gerekli .NET Azure Media Services'i paketlerinden içeren dosya. En son sürümleri onaylamanız, böylece paketler için en son güncelleştirmeleri ile sürüm numaralarını değiştirmek unutmayın. 
 
 Aşağıdaki tanımını project.json dosyasına ekleyin. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -123,7 +123,7 @@ Aşağıdaki tanımını project.json dosyasına ekleyin.
 
 ```
     
-### <a name="runcsx"></a>Run.csx
+### <a name="runcsx"></a>run.csx
 
 C# kodunu işlevinizi budur.  İşlevi izleyiciler adlı bir depolama hesabı kapsayıcısının tanımlanan **giriş** (ne yolu belirtildi olan) yeni MP4 dosyaları için. Bir dosya depolama kapsayıcıya bırakılan sonra blob tetikleyici işlevi yürütür.
     
@@ -136,7 +136,7 @@ Gerçek Hayatta senaryosunda, büyük olasılıkla iş ilerleme durumunu izlemek
 
 Varolan run.csx dosyasının içeriğini aşağıdaki kodla değiştirin: işlevinizi tanımlama tamamladıktan sonra tıklatın **kaydedip çalıştırın**.
 
-```
+```csharp
 #r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #r "System.Web"

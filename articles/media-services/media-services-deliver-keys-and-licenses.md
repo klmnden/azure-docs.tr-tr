@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 4032b0f2f72d6c45b9f2233ac0c315bc0db60ed8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>DRM lisansları veya AES anahtarları göndermek için Azure Media Services'i kullanma
 Azure Media Services, alma, kodlama, içerik koruma ekleyin ve içeriğinizin akışını sağlar. Daha fazla bilgi için bkz: [kullanım PlayReady ve/veya Widevine dinamik ortak şifreleme](media-services-protect-with-playready-widevine.md). Bazı müşteriler, Media Services yalnızca lisansları ve/veya anahtarları teslim etmek ve kodlama, şifreleme ve kendi şirket içi sunucuları kullanarak akış için kullanmak istediğiniz. Bu makalede, PlayReady ve/veya Widevine lisansları teslim ancak geri kalan şirket içi sunucularınızla yapmak için Media Services nasıl kullanabileceğiniz açıklanır. 
@@ -26,7 +26,7 @@ Azure Media Services, alma, kodlama, içerik koruma ekleyin ve içeriğinizin ak
 ## <a name="overview"></a>Genel Bakış
 Media Services, PlayReady ve Widevine dijital hak yönetimi (DRM) lisansları ve AES-128 anahtarları teslim etmek için bir hizmet sunar. Media Services hakları ve DRM çalışma zamanı için bir kullanıcı DRM korumalı içeriği kayıttan yürüttüğünde uygulamak istediğinize kısıtlamaları yapılandırmanıza olanak tanıyan API'ler de sağlar. Bir kullanıcının korumalı içeriği istediğinde, oynatıcı uygulaması Media Services lisans hizmetinden bir lisans ister. Lisans yetkili olup olmadığını Media Services oynatıcı Lisansı hizmeti sorunları lisans. PlayReady ve Widevine lisansları istemci oynatıcısının içeriğin akış ve şifresini çözmek için kullanılan şifre çözme anahtarını içerir.
 
-Media Services lisans ya da anahtar istekleri yapabilen Kullanıcıları yetkilendirmek, birden çok yöntemini destekler. İçerik anahtarının yetkilendirme ilkesini yapılandırın. İlkeyi bir veya daha fazla sınırlamaları olabilir. Açık veya belirteç kısıtlama seçeneklerdir. Belirteç kısıtlanmış İlkesi, bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç tarafından eklenmelidir. Media Services, basit web token (SWT) biçimi ve JSON Web Token (JWT) biçimlerindeki belirteçleri destekler.
+Media Services lisans ya da anahtar istekleri yapabilen Kullanıcıları yetkilendirmek, birden çok yöntemini destekler. İçerik anahtarının yetkilendirme ilkesini yapılandırın. İlkeyi bir veya daha fazla sınırlamaları olabilir. Açık veya belirteç kısıtlama seçeneklerdir. Belirteç kısıtlamalı ilkenin beraberinde bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services, basit web token (SWT) biçimi ve JSON Web Token (JWT) biçimlerindeki belirteçleri destekler.
 
 Aşağıdaki diyagramda, Media Services, PlayReady ve/veya Widevine lisansları teslim ancak geri kalan şirket içi sunucularınız ile yapmak için kullanmak için atmanız gereken ana adımlar gösterilmektedir:
 
@@ -37,18 +37,18 @@ Bu makalede açıklanan örneği indirmek için bkz: [.NET ile PlayReady ve/veya
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-1. Geliştirme ortamınızı ayarlama ve açıklandığı şekilde bağlantı bilgileriyle app.config dosyasını doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md).
+1. Geliştirme ortamınızı ayarlayın ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun.
 
 2. App.config dosyanızda tanımlanan **appSettings**’e aşağıdaki öğeleri ekleyin:
 
-    add key = "Veren" değeri "http://testacs.com" = /
+    add key="Issuer" value="http://testacs.com"/
     
-    add key = "İzleyici" value = "urn: test" /
+    add key="Audience" value="urn:test"/
 
 ## <a name="net-code-example"></a>.NET kodu örneği
 Aşağıdaki kod örneği, ortak bir içerik anahtarı oluşturun ve PlayReady veya Widevine lisans edinme URL'si almak gösterilmektedir. Şirket içi sunucunuzu yapılandırmak için bir içerik anahtarı anahtarı gerekir. kimliği ve lisans edinme URL'si. Şirket içi sunucunuzu yapılandırdıktan sonra kendi akış sunucusundan akışını sağlayabilirsiniz. Media Services şifrelenmiş akış noktalarına lisans sunucusunu olduğundan, player Media Services'den bir lisans ister. Belirteç kimlik doğrulamasını seçerseniz, Media Services lisans sunucusu HTTPS gönderilen belirteci doğrular. Belirteç geçerliyse, lisans sunucusu lisans aygıta geri gönderir. Aşağıdaki kod örneği yalnızca ortak bir içerik anahtarı oluşturun ve PlayReady veya Widevine lisans edinme URL'si almak nasıl gösterir. AES-128 anahtarları teslim etmek istiyorsanız, bir zarf içerik anahtarı oluşturun ve bir anahtar alım URL'sini alma gerekir. Daha fazla bilgi için bkz: [kullanım AES-128 dinamik şifreleme ve anahtar teslim hizmeti](media-services-protect-with-aes128.md).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

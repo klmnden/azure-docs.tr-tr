@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure medya içeriği denetleyici olası yetişkin ve saldırganlardan içeriği algılamak için kullanın
 
@@ -52,7 +52,7 @@ JSON biçiminde aracılı çıktı görüntüleri otomatik olarak algılanır ve
 | Genişlik |Çıkış video çerçeve, piksel cinsinden genişliği.|
 | Yükseklik |Çıkış video çerçeve, piksel cinsinden yüksekliği.|
 | TotalDuration |"Çizgilerine" içinde video giriş süresi |
-| [parçaları](#fragments-json-elements) |Meta verileri ayarlama parçaları olarak adlandırılan farklı kesimler halinde öbekli. Her parça bir otomatik olarak algılanır görüntüsü başlangıç, süre, aralığı sayısı ve olay ' dir. |
+| [Parçaları](#fragments-json-elements) |Meta verileri ayarlama parçaları olarak adlandırılan farklı kesimler halinde öbekli. Her parça bir otomatik olarak algılanır görüntüsü başlangıç, süre, aralığı sayısı ve olay ' dir. |
 
 ### <a name="fragments-json-elements"></a>Parçaları JSON öğeleri
 
@@ -61,13 +61,13 @@ JSON biçiminde aracılı çıktı görüntüleri otomatik olarak algılanır ve
 | start |"Çizgilerine." ilk olay başlangıç saati |
 | Süre |"Çizgilerine.", parçadaki uzunluğu |
 | interval |Her olay girişi parçadaki "çizgilerine." içinde aralığı |
-| [olayları](#events-json-elements) |Her olay bir küçük temsil eder ve her klip algılandı ve bu süre içinde izlenen ana kareleri içerir. Olayların bir dizidir. Dış dizi bir zaman aralığı temsil eder. İç dizi 0 veya zamandaki o noktada daha fazla olayları oluşur.|
+| [Olayları](#events-json-elements) |Her olay bir küçük temsil eder ve her klip algılandı ve bu süre içinde izlenen ana kareleri içerir. Olayların bir dizidir. Dış dizi bir zaman aralığı temsil eder. İç dizi 0 veya zamandaki o noktada daha fazla olayları oluşur.|
 
 ### <a name="events-json-elements"></a>Olayları JSON öğeleri
 
 |Öğe|Açıklama|
 |---|---|
-| reviewRecommended | `true`veya `false` mı bağlı olarak **adultScore** veya **racyScore** iç eşiklerini aşan. |
+| reviewRecommended | `true` veya `false` mı bağlı olarak **adultScore** veya **racyScore** iç eşiklerini aşan. |
 | adultScore | 0,00 için 0.99 bir ölçekte olası yetişkinlere yönelik içeriğe güvenirlik puan. |
 | racyScore | 0,00 için 0.99 bir ölçekte olası saldırganlardan içerik güvenirlik puan. |
 | dizin | İlk kare bir ölçekte çerçeve dizini dizin son çerçeve dizini. |
@@ -90,6 +90,7 @@ Aşağıdaki .NET kod örneği, bir içerik denetleyici işini çalıştırmak i
 Bkz: [içerik denetleyici video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md) için tam kaynak kodu ve Visual Studio projesi.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ Bkz: [içerik denetleyici video quickstart](../cognitive-services/Content-Modera
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-Tam kaynak kodunu ve Visual Studio projesi için kullanıma [içerik denetleyici video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>JSON çıktısını
+### JSON output
 
-Aşağıdaki örnekte bir içerik denetleyici JSON çıktısını kesildi.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> Saniye cinsinden bir ana kare konumunu zaman damgası/ölçeği =
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,7 +214,7 @@ Aşağıdaki örnekte bir içerik denetleyici JSON çıktısını kesildi.
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

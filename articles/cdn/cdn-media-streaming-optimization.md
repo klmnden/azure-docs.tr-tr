@@ -1,5 +1,5 @@
 ---
-title: "En iyi duruma getirme Azure içerik teslim ağı üzerinden akış medyası"
+title: "En iyi duruma getirme Azure CDN üzerinden akış medyası"
 description: "Akış medya dosyaları kesintisiz teslim için en iyi duruma getirme"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c42f54a99a85377ebe4df6959237f906d37591b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>En iyi duruma getirme Azure içerik teslim ağı üzerinden akış medyası 
+# <a name="media-streaming-optimization-via-azure-cdn"></a>En iyi duruma getirme Azure CDN üzerinden akış medyası 
  
 Yüksek tanımlı video kullanımını sorunlarla büyük dosyaların verimli bir şekilde teslim için oluşturur Internet üzerinde artmaktadır. Müşteriler, isteğe bağlı video kesintisiz çalınmasını beklediğiniz veya ağları ve istemcilerin çeşitli video varlıklar tüm dünya çapında canlı. Medya dosyaları için hızlı ve verimli teslim mekanizması kesintisiz ve eğlenceli tüketici deneyimi sağlamak için önemlidir.  
 
@@ -38,7 +38,7 @@ Teslim Azure Portalı aracılığıyla büyük dosyalar için en iyi duruma geti
 
 1. Yeni bir uç noktası eklemek için **CDN profili** sayfasında, **Endpoint**.
   
-    ![Yeni uç noktası](./media/cdn-media-streaming-optimization/01_Adding.png)
+    ![Yeni uç nokta](./media/cdn-media-streaming-optimization/01_Adding.png)
 
 2. İçinde **için en iyi duruma getirilmiş** aşağı açılan listesinden, **isteğe bağlı medya akış Video** isteğe bağlı video varlıklar. Bir birleşimi canlı ve isteğe bağlı video akış bunu yaparsanız, seçin **genel akış**.
 
@@ -60,10 +60,10 @@ Akamai'den Azure içerik teslim ağı varlık akış bildirimini veya parça old
 Çok sayıda kullanıcı henüz mevcut olmayan bir parça istediğinde kısa negatif önbelleğe alma saat kaynak boşaltması için yararlıdır. Burada paketler bu ikinci kaynaktan kullanılamaz bir canlı akış örneğidir. Artık önbelleğe alma aralığı video içeriği genellikle değiştirdiğinden değil kaynak gelen istekleri boşaltma yardımcı olur.
  
 
-|   | Genel web teslim | Genel medya | İsteğe bağlı video medya  
+|   | Genel web teslimatı | Genel medya akışı | İsteğe bağlı video medya  
 --- | --- | --- | ---
 Önbelleğe alma: pozitif <br> HTTP 200, 203, 300, <br> 301, 302 ve 410 | 7 gün |365 gün | 365 gün   
-Önbelleğe alma: negatif <br> HTTP 204, 305, 404, <br> ve 405 | None | 1 saniye | 1 saniye
+Önbelleğe alma: negatif <br> HTTP 204, 305, 404, <br> ve 405 | Hiçbiri | 1 saniye | 1 saniye
  
 ### <a name="deal-with-origin-failure"></a>Kaynak hata ile Dağıt  
 
@@ -81,7 +81,7 @@ Desteklenen akış türleri | Dosya uzantıları
 --- | ---  
 Apple HLS | m3u8, m3u, m3ub, anahtarı, ts, aac
 Adobe HDS | f4m, f4x, drmmeta, önyükleme, f4f,<br>Seg parça URL yapısı <br> (regex eşleşen: ^(/.*)Seq(\d+)-Frag(\d+)
-TİRE | mpd, tire, dıvx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, ISMA
+TİRE | mpd, tire, dıvx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
 Kesintisiz akış | / bildirimi /, / QualityLevels/parçaları /
   
 

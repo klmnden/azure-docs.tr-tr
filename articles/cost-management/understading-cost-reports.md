@@ -1,24 +1,24 @@
 ---
-title: "Azure maliyeti yönetim maliyeti raporlarda anlama | Microsoft Docs"
-description: "Bu makalede, Cloudyn raporları temel yapısını ve işlevlerini anlamanıza yardımcı olur."
+title: "Azure maliyeti yönetim maliyeti yönetim raporları anlama | Microsoft Docs"
+description: "Bu makalede, Cloudyn maliyet yönetim raporları temel yapısını ve işlevlerini anlamanıza yardımcı olur."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Maliyet raporlarını anlama
+# <a name="understanding-cost-management-reports"></a>Anlama maliyet yönetim raporları
 
-Bu makalede, Cloudyn raporları temel yapısını ve işlevlerini anlamanıza yardımcı olur. Çoğu Cloudyn raporlar sezgisel ve Tekdüzen bir görünümüne sahip. Bu makaleyi okuduktan sonra tüm raporları kullanabilmek hazır olursunuz. Birçok standart raporları kolayca gidin olanak tanıyan çeşitli raporlar genelinde kullanılabilir özelliklerdir. Raporları özelleştirilebilir ve hesaplamak ve sonuçları görüntülemek için çeşitli seçenekler arasından seçim yapabilirsiniz.
+Bu makalede, Cloudyn maliyet yönetim raporları temel yapısını ve işlevlerini anlamanıza yardımcı olur. Çoğu Cloudyn raporlar sezgisel ve Tekdüzen bir görünümüne sahip. Bu makaleyi okuduktan sonra tüm maliyet yönetim raporları kullanabilmek hazır olursunuz. Birçok standart raporları kolayca gidin olanak tanıyan çeşitli raporlar genelinde kullanılabilir özelliklerdir. Raporları özelleştirilebilir ve hesaplamak ve sonuçları görüntülemek için çeşitli seçenekler arasından seçim yapabilirsiniz.
 
 ## <a name="report-fields-and-options"></a>Rapor alanları ve seçenekleri
 
@@ -77,7 +77,7 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
      - Ortam
      - Maliyet kodu
 
-5. **Filtreleri**
+5. **filtreleri**
 
     Aralıkları seçili değerlere ayarlamak için tek veya çoklu seçim filtreleri kullanın. Bir filtre ayarlamak için tıklatın **Ekle** ve ardından filtre kategorisi ve değerleri seçin.
 
@@ -118,7 +118,7 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
 
     Göster/Gizle seçeneği herhangi bir etkisi raporlarda sahip değil.
 
-12.   **Görüntü biçimleri**
+12.   **görüntü biçimleri**
 
     Görüntü biçimleri çeşitli grafik veya tablo görünümleri seçmek için kullanın.
 
@@ -131,6 +131,27 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
 14. **Eylemler**
 
     Kaydet, dışarı veya raporu zamanlama için eylemlerini kullanın.
+
+## <a name="save-and-schedule-reports"></a>Kaydet ve raporları zamanlama
+
+Bir raporu oluşturduktan sonra gelecekte kullanılmak üzere kaydedebilirsiniz. Kaydedilen raporlar kullanılabilir **My Araçları** > **raporlarım**. Var olan bir raporu değişiklikleri yapın ve dosyayı kaydedin, raporun yeni bir sürüm olarak kaydedilir. Veya yeni bir rapor olarak kaydedin.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Rapor Cloudyn Portalı'na kaydetme
+
+Herhangi bir raporu görüntülerken tıklatın **Eylemler** ve ardından **raporlarım için Kaydet**. Rapor adı ve ya da eklemek bir kendi URL veya otomatik olarak oluşturulan URL'yi kullan. İsteğe bağlı olarak yapabileceğiniz **paylaşmak** herkese açık şekilde başkalarıyla kuruluşunuzun veya rapor için varlığınız paylaşabilirsiniz. Raporun paylaşmıyorsa kişisel bir rapor kalır ve yalnızca görüntüleyebilirsiniz. Raporu kaydedin.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Sağlayıcı depolama bulut için bir rapor Kaydet
+
+Bulut hizmeti sağlayıcısı için bir raporu kaydetmek için zaten bir depolama hesabı yapılandırmış olmanız gerekir. Herhangi bir raporu görüntülerken tıklatın **Eylemler** ve ardından **zamanlama rapor**. Rapor adı ve ya da eklemek bir kendi URL veya otomatik olarak oluşturulan URL'yi kullan. Seçin **depolamasına kaydetmek** ve ardından depolama hesabını seçin veya yeni bir tane ekleyin. Raporu dosya adına eklenmiş bir önek girin. Bir CSV veya JSON dosyası biçiminde seçin ve ardından raporu kaydedin.
+
+### <a name="schedule-a-report"></a>Bir raporu zamanlama
+
+Zamanlanan aralıklarla raporları çalıştırabilirsiniz ve gönderdiğiniz bunları alıcı listesi veya Bulut için bir hizmet sağlayıcısı depolama hesabı. Herhangi bir raporu görüntülerken tıklatın **Eylemler** ve ardından **zamanlama rapor**. Raporu e-posta ile göndermek ve bir depolama hesabına kaydedin. Altında **zamanlama**, aralığı (günlük, haftalık veya aylık) seçin. Haftalık ve aylık için gün veya teslim etmek ve zamanı seçmek için tarihleri seçin. Zamanlanmış raporu kaydedin. Excel raporu biçimini seçerseniz rapor ek olarak gönderilir. E-posta içeriği biçimini seçtiğinizde, grafik biçiminde gösterilen rapor sonuçlarını bir grafik gönderilir.
+
+### <a name="export-a-report-as-a-csv-file"></a>Bir raporu CSV dosyası olarak dışarı aktarın
+
+Herhangi bir raporu görüntülerken tıklatın **Eylemler** ve ardından **tüm rapor verilerini dışa**. Açılır pencere görünür ve bir CSV dosyası indirilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

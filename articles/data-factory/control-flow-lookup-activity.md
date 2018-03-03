@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: 
 author: sharonlo101
 manager: jhubbard
-editor: shlo
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
-ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: shlo
+ms.openlocfilehash: 2f551e97b833460c7c4ccd276b0df1dae562c03b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure veri fabrikası'nda arama etkinliği
 Okuma veya bir kayıt, tablo adı veya değer herhangi bir dış kaynaktan aramak için arama etkinliği kullanın. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
@@ -62,9 +62,9 @@ Arama etkinlik tarafından döndürülen satır sayısının üst sınırını o
 ## <a name="type-properties"></a>Tür özellikleri
 Ad | Açıklama | Tür | Gerekli mi?
 ---- | ----------- | ---- | --------
-Veri kümesi | Veri kümesi başvurusu için arama sağlar. Şu anda desteklenen veri türleri şunlardır:<ul><li>`AzureBlobDataset`için [Azure Blob Depolama](connector-azure-blob-storage.md#dataset-properties) kaynağı olarak</li><li>`FileShareDataset`için [dosya sistemi](connector-file-system.md#dataset-properties) kaynağı olarak</li><li>`AzureSqlTableDataset`için [Azure SQL veritabanı](connector-azure-sql-database.md#dataset-properties) veya [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) kaynağı olarak</li><li>`SqlServerTable`için [SQL Server](connector-sql-server.md#dataset-properties) kaynağı olarak</li><li>`AzureTableDataset`için [Azure Table depolama](connector-azure-table-storage.md#dataset-properties) kaynağı olarak</li> | Anahtar/değer çifti | Evet
+Veri kümesi | Veri kümesi başvurusu için arama sağlar. Şu anda desteklenen veri türleri şunlardır:<ul><li>`AzureBlobDataset` için [Azure Blob Depolama](connector-azure-blob-storage.md#dataset-properties) kaynağı olarak</li><li>`FileShareDataset` için [dosya sistemi](connector-file-system.md#dataset-properties) kaynağı olarak</li><li>`AzureSqlTableDataset` için [Azure SQL veritabanı](connector-azure-sql-database.md#dataset-properties) veya [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) kaynağı olarak</li><li>`SqlServerTable` için [SQL Server](connector-sql-server.md#dataset-properties) kaynağı olarak</li><li>`AzureTableDataset` için [Azure Table depolama](connector-azure-table-storage.md#dataset-properties) kaynağı olarak</li> | Anahtar/değer çifti | Evet
 kaynak | Kopya etkinliği kaynak ile aynı veri kümesi-özel kaynak özelliklerini içerir. Karşılık gelen her bağlayıcı makale içindeki "etkinlik özellikleri Kopyala" bölümünden ayrıntıları alın. | Anahtar/değer çifti | Evet
-firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülmeyeceğini gösterir. | Boole | Hayır. Varsayılan değer `true`.
+firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülmeyeceğini gösterir. | Boole | Hayır. `true` varsayılan değerdir.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Arama etkinlik sonuç izleyen bir etkinlikte kullanma
 

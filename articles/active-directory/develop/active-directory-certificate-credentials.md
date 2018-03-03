@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Uygulama kimlik doğrulaması için sertifika kimlik bilgileri
 
-Azure Active Directory OAuth 2.0 istemci kimlik bilgilerini verme akışına ve On-temsili akış kimlik doğrulaması için örneğin, kendi kimlik bilgilerini kullanmak bir uygulama sağlar.
+Azure Active Directory OAuth 2.0 istemci kimlik bilgilerini verme akış içinde kimlik doğrulaması için örneğin, kendi kimlik bilgilerini kullanmak bir uygulama sağlar ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) ve On-temsili akış ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Bir kullanılabilir kimlik bilgisi uygulama sahip bir sertifika ile imzalanmış bir JSON Web Token(JWT) onaylama biçimidir.
 
 ## <a name="format-of-the-assertion"></a>Onaylama işlemi biçimi
@@ -41,7 +41,7 @@ Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak ist
 
 | Parametre |  Açıklama |
 | --- | --- | --- |
-| `aud` | İzleyici: olmalıdır  **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token ** |
+| `aud` | İzleyici: olmalıdır **https://login.microsoftonline.com/*tenant_Id*  /oauth2/belirteci** |
 | `exp` | Sona erme tarihi: belirteç süresinin dolduğu tarih. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteci geçerlilik süresinin dolduğu zaman kadar.|
 | `iss` | Sertifikayı veren: client_id (istemci hizmeti uygulama kimliği) olması gerekir |
 | `jti` | GUID: JWT kimliği |

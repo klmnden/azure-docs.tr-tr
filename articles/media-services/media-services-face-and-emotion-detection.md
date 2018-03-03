@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Yüz ve duygu Azure medya Analizi ile Algıla
 ## <a name="overview"></a>Genel Bakış
@@ -64,12 +64,14 @@ Yüz algılayıcısı (çok büyük alma durumunda olduğu olayları ayrılır) 
 ### <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
 Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandırma hazır belirtmeniz gerekir. Yalnızca yüz algılama için aşağıdaki yapılandırma hazır olur.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Öznitelik tanımlarını
 | Öznitelik adı | Açıklama |
@@ -79,6 +81,7 @@ Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandır
 ### <a name="json-output"></a>JSON çıktısını
 Aşağıdaki örnek JSON çıktısını kesildi.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ Aşağıdaki örnek JSON çıktısını kesildi.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Giriş ve çıkış duygu algılama örneği
 ### <a name="input-video"></a>Giriş video
@@ -133,6 +136,7 @@ Aşağıdaki örnek JSON çıktısını kesildi.
 ### <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
 Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandırma hazır belirtmeniz gerekir. JSON tabanlı duygu algılama oluşturmak için aşağıdaki yapılandırma hazır belirtir.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,6 +145,7 @@ Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandır
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Öznitelik tanımlarını
@@ -161,6 +166,7 @@ Aşağıdaki değerler toplama penceresi ve aralığı ayarlar için önerilir. 
 ### <a name="json-output"></a>JSON çıktısını
 JSON (kesilmiş) toplama duygu tanıma için çıktı:
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ JSON (kesilmiş) toplama duygu tanıma için çıktı:
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>Sınırlamalar
 * Desteklenen giriş video biçimleri MP4, MOV ve WMV içerir.
@@ -324,10 +331,12 @@ Aşağıdaki program gösterir nasıl yapılır:
 
 1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
 2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı yüz algılama görevle ilgili bir iş oluşturun: 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. Çıkış JSON dosyalarını indirin. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
@@ -336,7 +345,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 #### <a name="example"></a>Örnek
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

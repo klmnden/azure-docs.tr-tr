@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 271d02bf5793ccb4ca8cbc4eeb8a6c5cfdd74f03
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d226b8f8b3252fe82cd5077d235f301cfaa83654
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric sistem durumu izlemeye giriş
 Azure Service Fabric zengin, esnek ve Genişletilebilir sistem durumu değerlendirmesi ve raporlama sağlar bir sistem durumu modeli sunar. Model durumu kümeyi ve içinde çalışan hizmetleri yakın gerçek zamanlı izlenmesini sağlar. Kolayca sistem durumu bilgilerini almak ve düzeltmek olası sorunlar basamaklı ve yoğun kesintileri neden önce. Tipik modelinde Hizmetleri kendi yerel görünümleri temel alan raporları göndermek ve genel bir sağlamak için bu bilgileri de toplanır küme görünüm düzeyi.
 
 Service Fabric bileşenleri, bunların geçerli durumu raporlamak için bu zengin sistem durumu modeli kullanır. Rapor sağlık aynı mekanizmayı uygulamalarınızdan kullanabilirsiniz. Yüksek kaliteli sistem durumu, özel koşullarınızı yakalayan raporlamada yatırım algılamak ve çalışan uygulamanız için daha kolay düzeltin.
 
-Aşağıdaki Microsoft Virtual Academy video de Service Fabric sistem durumu modeli ve nasıl kullanıldığı açıklanmaktadır:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+Aşağıdaki Microsoft Virtual Academy video de Service Fabric sistem durumu modeli ve nasıl kullanıldığı açıklanmaktadır: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -199,7 +199,7 @@ Sistem Durumu verileri sistem durumu depoya göndermek için etkilenen varlık t
 * **SourceId**. Sistem durumu olayı Raporlayıcı benzersiz olarak tanımlayan bir dize.
 * **Varlık tanımlayıcısı**. Raporu nerede uygulanan varlık tanımlar. Temel alınarak farklı [varlık türü](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Küme. yok.
+  * Küme. Yok.
   * Düğüm. Düğüm adı (dize).
   * Uygulama. Uygulama adı (URI). Kümede dağıtılmış uygulama örneğinin adını temsil eder.
   * Hizmet. Hizmet adı (URI). Kümede dağıtılan hizmet örneğinin adını temsil eder.
@@ -211,7 +211,7 @@ Sistem Durumu verileri sistem durumu depoya göndermek için etkilenen varlık t
 * **Açıklama**. Sistem durumu olayı hakkında ayrıntılı bilgi sağlamak bir Raporlayıcı sağlayan bir dize. **SourceId**, **özelliği**, ve **HealthState** rapor tam olarak açıklamalıdır. Açıklama raporu hakkında okunabilir bilgi ekler. Metin, Yöneticiler ve kullanıcılar sistem durumu raporu anlamak kolaylaştırır.
 * **HealthState**. Bir [numaralandırma](service-fabric-health-introduction.md#health-states) rapor sistem durumunu açıklar. Kabul edilen Tamam, uyarı ve hata değerlerdir.
 * **TimeToLive**. Ne kadar süreyle sistem durumu raporu geçerli olacağını belirten bir timespan. İle birlikte **RemoveWhenExpired**, süresi dolan olayları değerlendirmek biliyorsunuz sistem durumu deposu olanak sağlar. Varsayılan değer sonsuzdur ve rapor sonsuza kadar geçerlidir.
-* **RemoveWhenExpired**. Bir Boole değeri. TRUE olarak süresi dolmuş durum raporunu otomatik olarak durum deposu ve rapor kaldırılırsa varlık sistem durumu değerlendirmesi etkilemez. Raporun süresi yalnızca belirli bir süre boyunca geçerli olduğunda ve Raporlayıcı açıkça temizleyin gerekmez kullanılır. Raporları sistem durumu deposundan silmek için de kullanılır (örneğin, bir izleme değiştirilir ve raporları önceki kaynak ve özelliği ile gönderme durdurur). Sistem durumu Mağaza'dan önceki herhangi bir durum temizlemek için RemoveWhenExpired yanı sıra kısa TimeToLive sahip bir rapor gönderebilirsiniz. Değeri false olarak ayarlarsanız, süresi dolan rapor sistem durumu değerlendirmesi üzerinde hata olarak kabul edilir. False değeri, kaynak düzenli aralıklarla bu özellikte raporu olan sistem durumu Mağazası'na işaret eder. Seçili değilse, ardından olmalıdır izleme ile bir sorun. İzleme'nin sistem durumu olayı bir hata olarak dikkate alarak yakalanır.
+* **RemoveWhenExpired**. A Boolean. TRUE olarak süresi dolmuş durum raporunu otomatik olarak durum deposu ve rapor kaldırılırsa varlık sistem durumu değerlendirmesi etkilemez. Raporun süresi yalnızca belirli bir süre boyunca geçerli olduğunda ve Raporlayıcı açıkça temizleyin gerekmez kullanılır. Raporları sistem durumu deposundan silmek için de kullanılır (örneğin, bir izleme değiştirilir ve raporları önceki kaynak ve özelliği ile gönderme durdurur). Sistem durumu Mağaza'dan önceki herhangi bir durum temizlemek için RemoveWhenExpired yanı sıra kısa TimeToLive sahip bir rapor gönderebilirsiniz. Değeri false olarak ayarlarsanız, süresi dolan rapor sistem durumu değerlendirmesi üzerinde hata olarak kabul edilir. False değeri, kaynak düzenli aralıklarla bu özellikte raporu olan sistem durumu Mağazası'na işaret eder. Seçili değilse, ardından olmalıdır izleme ile bir sorun. İzleme'nin sistem durumu olayı bir hata olarak dikkate alarak yakalanır.
 * **SequenceNumber**. Gitgide artan olması gereken bir pozitif tamsayı raporları sırasını temsil eder. Ağ gecikmesi veya diğer sorunlar nedeniyle geç alınan eski raporları algılamak için sistem durumu mağaza tarafından kullanılır. Sıra numarası numarası aynı varlık, kaynak ve özellik için en küçük veya eşit en son uygulanan ise bir rapor reddedilir. Belirtilmezse, sıra numarası otomatik olarak oluşturulur. Durumu geçişleri bildirilirken sıra numarasına koymak gereklidir. Bu durumda, bunu gönderen hangi raporların unutmayın ve kurtarma için yük devretme hakkında bilgi korumak kaynak gerekir.
 
 Bu dört parça bilgi--SourceId, varlık tanımlayıcısı, özellik ve HealthState--her sistem durumu raporu için gereklidir. SourceId dize öneki ile başlatmak için izin verilmiyor "**sistem**", sistem raporlar için ayrılmış. Aynı varlık için aynı kaynak ve özelliği için yalnızca bir rapor yoktur. Aynı kaynak ve özellik için birden çok rapor birbirlerini geçersiz, sistem durumu veya (bunlar toplu olarak gönderilir) sistem durumu istemci tarafında üzerindeki yan depolamak. Değiştirme sıra numaraları temel alır; Yeni raporlarla (yüksek sıra numaraları) eski raporları değiştirin.

@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış
 ## <a name="overview"></a>Genel Bakış
@@ -135,7 +135,7 @@ Bu kanala video yayımlamasına izin verilen IP adreslerini tanımlayabilirsiniz
 
 Herhangi bir IP adresi belirtilir ve hiçbir kural tanımı yoksa hiçbir IP adresine izin verilir. Tüm IP adreslerine izin vermek için, bir kural oluşturun ve 0.0.0.0/0 olarak ayarlayın.
 
-### <a name="channel-preview"></a>Kanal Önizleme
+### <a name="channel-preview"></a>Kanal önizlemesi
 #### <a name="preview-urls"></a>Önizleme URL'leri
 Kanal Önizleme ve başka bir işleme ve teslim önce akışınızı doğrulamak için kullanacağınız bir önizleme uç noktası (Önizleme URL) sağlar.
 
@@ -171,15 +171,15 @@ Bile durdurma ve program silme sonra varlık silene kadar kullanıcılar, arşiv
 ## <a id="states"></a>Kanal durumları ve faturalama
 Bir kanal geçerli durumu için olası değerler şunlardır:
 
-* **Durdurulmuş**: Bu ilk kanal oluşturulduktan sonra bir durumda. Bu durumda, kanal özellikleri güncelleştirildi ancak Akış verilmez.
+* **Durdurulmuş**: Bu ilk kanal oluşturulduktan sonra bir durumda. Bu durumda, kanal özellikleri güncelleştirilebilir ama akışa izin verilmez.
 * **Başlangıç**: kanal başlatıldı. Bu durum süresince güncelleştirmelere veya akışa izin verilmez. Bir hata oluşursa, kanal döndürür **durduruldu** durumu.
 * **Çalışan**: kanal Canlı akışlar işleyebilir.
 * **Durdurma**: kanal durduruldu. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
 * **Silme**: kanal silindi. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
 
-Aşağıdaki tabloda nasıl kanal Haritası fatura moduna durumlarını gösterir.
+Aşağıdaki tabloda, kanal durumlarının faturalandırma modu ile nasıl eşleştiği gösterilir.
 
-| Kanal durumu | Portal UI göstergeleri | Faturalandırılmış mı? |
+| Kanal durumu | Portal kullanıcı arabirimi göstergeleri | Faturalandırılmış mı? |
 | --- | --- | --- | --- |
 | **Başlatma** |**Başlatma** |Hayır (geçici durum) |
 | **Çalışan** |**Hazır** (çalışan program yok)<p><p>or<p>**Akış** (en az bir çalışan program) |Evet |
@@ -209,6 +209,10 @@ Desteklenen standartlar kapalı açıklamalı alt yazı ve ad eklemek için aşa
 Çalışma kanalları ve ilgili bileşenlerin ile ilgili diğer konular şunlardır:
 
 * Gerçek zamanlı Kodlayıcı yeniden her zaman, çağrı **sıfırlama** kanalda yöntemi. Kanal sıfırlamadan program durdurmanız gerekir. Kanal sıfırladıktan sonra program yeniden başlatın.
+
+  > [!NOTE]
+  > Program yeniden başlattığınızda, yeni bir varlıkla ilişkilendirin ve yeni bir Bulucu oluşturmanız gerekir. 
+  
 * Bir kanal yalnızca olduğunda durdurulabilir **çalıştıran** durumu ve kanalındaki tüm programlar durduruldu.
 * Varsayılan olarak, Media Services hesabınıza yalnızca beş kanalları ekleyebilirsiniz. Daha fazla bilgi için bkz: [kotaları ve kısıtlamaları](media-services-quotas-and-limitations.md).
 * Yalnızca, kanal olduğunda faturalandırılır **çalıştıran** durumu. Daha fazla bilgi için bkz: [kanal durumları ve faturalama](media-services-live-streaming-with-onprem-encoders.md#states) bölümü.

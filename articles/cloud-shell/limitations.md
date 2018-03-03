@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure bulut Kabuk sınırlamaları
 
@@ -54,11 +54,11 @@ Bulut Kabuk etkileşimli kullanım durumları için tasarlanmıştır. Sonuç ol
 
 ### <a name="user-permissions"></a>Kullanıcı izinleri
 
-İzinler, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yüklemesi, `$Home` veya `clouddrive` dizin kalıcı değildir.
+İzinler, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yüklemesi, `$Home` dizin kalıcı değildir.
 
 ### <a name="editing-bashrc"></a>.Bashrc düzenleme
 
-.Bashrc, böylece düzenleme bulut Kabuk Bash'te beklenmeyen hatalar oluşabilir uyarı alın.
+Bunun yapılması .bashrc düzenleme beklenmeyen hatalara bulut Kabuğu'nda neden olabilir. uyarı alın.
 
 ## <a name="powershell-limitations"></a>PowerShell sınırlamaları
 
@@ -68,7 +68,7 @@ Azure bulut Kabuğu (Önizleme) PowerShell Önizleme sırasında başlatmak içi
 
 ### <a name="no-home-directory-persistence"></a>No $Home dizin kalıcılığı
 
-Yazılan veri `$Home` herhangi bir uygulama tarafından (gibi: git, VIM ve diğerleri) PowerShell oturumlarında devam etmez. Geçici bir çözüm için [Burada gördüğünüz](troubleshooting.md#powershell-resolutions).
+Yazılan veri `$Home` herhangi bir uygulama tarafından (gibi: git, VIM ve diğerleri) PowerShell oturumlarında devam etmez. Geçici bir çözüm için [Burada gördüğünüz](troubleshooting.md#powershell-troubleshooting).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure sürücüsünden oluşturduğunuzda varsayılan dosya konumu:
 

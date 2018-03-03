@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure medya Analizi ile yüzeyleri Redaksiyon
 ## <a name="overview"></a>Genel Bakış
@@ -52,11 +52,12 @@ Bu Redaksiyonu yapılmış bir mp4 otomatik olarak giriş herhangi bir el ile ol
 | --- | --- | --- |
 | Giriş varlık |foo.bar |Video WMV, MPV veya MP4 biçimindeki |
 | Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'modu': 'çözümleyin'}} |
-| Çıkış varlık |foo_annotations.JSON |Ek açıklama verileri JSON biçiminde yüz konumu. Bu sınırlayıcı kutular Bulanıklaştırma değiştirmek için kullanıcı tarafından düzenlenebilir. Aşağıdaki örneğe bakın. |
+| Çıkış varlık |foo_annotations.json |Ek açıklama verileri JSON biçiminde yüz konumu. Bu sınırlayıcı kutular Bulanıklaştırma değiştirmek için kullanıcı tarafından düzenlenebilir. Aşağıdaki örneğe bakın. |
 | Çıkış varlık |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Yüz burada yüz labelId sayıyı belirtir, her kırpılmış jpg algılandı |
 
 #### <a name="output-example"></a>Çıkış örneği:
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ Bu Redaksiyonu yapılmış bir mp4 otomatik olarak giriş herhangi bir el ile ol
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>Mod Redaksiyon
 İkinci geçişi iş akışının çok sayıda tek bir varlığa birleştirilmelidir girişleri alır.
@@ -114,7 +116,7 @@ Bu ölçeklendirilmelidir kimlikleri, özgün video ve ek açıklamalar JSON lis
 | Aşama | Dosya Adı | Notlar |
 | --- | --- | --- |
 | Giriş varlık |foo.bar |Video WMV, MPV veya MP4 biçimindeki. Aynı 1. adım olduğu gibi video. |
-| Giriş varlık |foo_annotations.JSON |meta veri dosyasından birinci aşaması, isteğe bağlı değişiklik yapılması açısından ek açıklamaları. |
+| Giriş varlık |foo_annotations.json |meta veri dosyasından birinci aşaması, isteğe bağlı değişiklik yapılması açısından ek açıklamaları. |
 | Giriş varlık |foo_IDList.txt (isteğe bağlı) |İsteğe bağlı yeni bir satırla ayrılmış yüz Redaksiyon kimliklerinin listesi. Boş bırakılırsa, bu tüm yüzeyleri bulanıklaştırır. |
 | Giriş yapılandırma |İş yapılandırması hazır |{'version':'1.0 ', 'Seçenekler': {'modu': 'Redaksiyon'}} |
 | Çıkış varlık |foo_redacted.mp4 |Ek açıklamalar uygulanan Bulanıklaştırma ile video dayalı |
@@ -138,7 +140,9 @@ Bulanıklaştırma türlerinin örnekleri bulabilirsiniz.
 
 ### <a name="example-json"></a>Örnek JSON:
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### <a name="low"></a>Düşük
 
@@ -172,8 +176,16 @@ Aşağıdaki program gösterir nasıl yapılır:
 
 1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
 2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı yüz Redaksiyon görevle ilgili bir iş oluşturun: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. Çıkış JSON dosyalarını indirin. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
@@ -182,7 +194,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 #### <a name="example"></a>Örnek
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

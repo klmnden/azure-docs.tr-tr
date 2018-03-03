@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76c818cb48b4691b03ad5cc601d4eab5504945eb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 979fcebd60d62c714a1c521013cf391ebf18a73c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Java SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 12/18/2017
 > * [.NET değişiklik besleme](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -36,6 +37,8 @@ ms.lasthandoff: 12/18/2017
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+SQL API Java SDK'sını zaman uyumlu işlemler destekler. Zaman uyumsuz desteği kullanmak [SQL API zaman uyumsuz Java SDK'sını](sql-api-sdk-async-java.md). 
 
 <table>
 
@@ -52,7 +55,7 @@ ms.lasthandoff: 12/18/2017
 <tr><td>**Minimum desteklenen çalışma zamanı**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
-## <a name="release-notes"></a>Sürüm Notları
+## <a name="release-notes"></a>Sürüm notları
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Json seri hale getirme performansı.
@@ -165,9 +168,9 @@ ms.lasthandoff: 12/18/2017
 * V2 dizin oluşturma ilkesini uygular
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA SDK'SI
+* GA SDK
 
-## <a name="release--retirement-dates"></a>Yayın & sona erme tarihlerini
+## <a name="release-and-retirement-dates"></a>Yayın ve sona erme tarihleri
 Microsoft sağlayacaktır bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
 
 Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yalnızca eklenir, olduğundan bu nedenle önerilir, her zaman en son SDK sürüme erken mümkün olduğunca yükseltmeniz.
@@ -219,6 +222,6 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 ## <a name="faq"></a>SSS
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ayrıca Bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 Cosmos DB hakkında daha fazla bilgi için bkz: [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmet sayfası.
 

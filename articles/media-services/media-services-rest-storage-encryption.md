@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2fd4c91a8151067c0e9cc9000c158e48cb2cd8a5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>İçeriğinizi depolama şifrelemesi ile şifreleme
 
-İçeriğinizi yerel olarak AES 256 bit şifreleme kullanarak şifrelemek ve Azure nerede depolanacağını şifrelenen depolama alanına yüklemek için önerilir.
+İçeriğinizi yerel olarak AES 256 bit şifreleme kullanarak şifrelemek ve Azure nerede depolandığı şifrelenen depolama alanına yüklemek için önerilir.
 
 Bu makalede AMS depolama şifrelemesi genel bir bakış sunar ve şifrelenmiş depolama içerik karşıya gösterilmektedir:
 
 * Bir içerik anahtarı oluşturun.
 * Bir varlık oluşturun. AssetCreationOption StorageEncryption için varlık oluştururken ayarlayın.
   
-     Şifrelenmiş varlıklar içerik anahtarı ile ilişkilendirilmiş olması gerekir.
+     Şifrelenmiş varlıklar içerik anahtarı ile ilişkilendirilmiş.
 * İçerik anahtarı varlık için bağlayın.  
-* Şifreleme kümesi ilgili parametreleri AssetFile varlıklar üzerinde.
+* Şifrelemeyle ilgili parametreleri AssetFile varlıklarını ayarlayın.
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler 
 
@@ -43,65 +43,64 @@ Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanların�
 
 AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir.
-
 ## <a name="storage-encryption-overview"></a>Depolama Şifrelemesi'ne genel bakış
-AMS depolama şifrelemesi uygulayan **AES CTRL** mod şifreleme dosyanın tamamı için.  AES-CTRL, rastgele uzunlukta verileri doldurma gerek kalmadan şifreleyebilirsiniz bir blok şifreleme modudur. AES algoritması ve ardından XOR-şifreleme veya şifrelerini çözme lık AES çıktı verileri olan bir sayaç bloğu şifreleyerek çalışır.  Sayaç değerinin 0-7 bayt InitializationVector değerini kopyalayarak kullanılan sayaç blok oluşturulur ve 8-15 baytını sayaç değeri sıfır olarak ayarlanır. Bir sonraki her veri bloğu için artırılır basit 64 bit işaretsiz tamsayıyı işlenir ve ağ bayt sırasında tutulur gibi 16 bayt sayacı bloğunu bayt 8-15 (yani en az önemli bayt) kullanılır. Bu tamsayı sıfırlar artırma en büyük değer (0xFFFFFFFFFFFFFFFF) blok sayaç sıfır bayta (8-15) bir 64 bit etkilemeden (yani 0 ila 7 bayt) sayacı ulaşırsa unutmayın.   AES-CTRL modu şifreleme güvenliğini korumak için her içerik anahtarı için belirli bir anahtar tanımlayıcı InitializationVector değeri her dosya için benzersiz olacaktır ve dosyaları 2'den olacaktır ^ uzunluğu 64 engeller.  Bu sayaç değeri hiçbir zaman verilen anahtarla yeniden sağlamaktır. CTRL modu hakkında daha fazla bilgi için bkz: [Bu wiki sayfa](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (wiki makalesi "InitializationVector" yerine "Nonce" terimini kullanır).
+AMS depolama şifrelemesi uygulayan **AES CTRL** mod şifreleme dosyanın tamamı için.  AES-CTRL, rastgele uzunlukta verileri doldurma gerek kalmadan şifreleyebilirsiniz bir blok şifreleme modudur. AES algoritması ve ardından XOR-şifreleme veya şifrelerini çözme lık AES çıktı verileri olan bir sayaç bloğu şifreleyerek çalışır.  Sayaç değerinin 0-7 bayt InitializationVector değerini kopyalayarak kullanılan sayaç blok oluşturulur ve 8-15 baytını sayaç değeri sıfır olarak ayarlanır. Bir sonraki her veri bloğu için artırılır bir basit 64-bit işaretsiz tamsayıyı işlenir ve ağ bayt sırasında tutulur gibi 16 bayt sayacı bloğunu bayt 8-15 (diğer bir deyişle, en az önemli bayt) kullanılır. Bu tamsayı en büyük değeri (0xFFFFFFFFFFFFFFFF) ulaşırsa, ardından artırma diğer 64 bit (diğer bir deyişle, 0 ila 7 bayt) sayacın etkilemeden (bayt 8-15) sıfıra blok sayaç sıfırlar.   AES-CTRL modu şifreleme güvenliğini korumak için her içerik anahtarı için belirli bir anahtar tanımlayıcı InitializationVector değeri her dosya için benzersiz olacaktır ve dosyaları 2'den olacaktır ^ uzunluğu 64 engeller.  Bu benzersiz bir değer, bir sayaç değeri hiçbir zaman verilen anahtarla yeniden sağlamaktır. CTRL modu hakkında daha fazla bilgi için bkz: [Bu wiki sayfa](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (wiki makalesi "InitializationVector" yerine "Nonce" terimini kullanır).
 
-Kullanım **depolama şifreleme** Temizle içeriğinizi şifrelemek için kullanarak yerel olarak AES 256 bit şifrelemesi ve Azure depolanır şifrelenen depolama birimine yükleyin. Depolama şifrelemesi ile korunan varlıklar otomatik olarak şifrelenmemiş ve kodlamadan önce şifrelenmiş bir dosya sistemine yerleştirilir ve isteğe bağlı olarak yeni çıkış varlığı şeklinde geri bir yüklemeden önce yeniden şifrelenir. Depolama şifrelemesinin birincil kullanım durumu, güçlü şifreleme REST diskte, yüksek kaliteli giriş medya dosyalarınızın güvenliğini sağlamak istediğiniz durumdur.
+Kullanım **depolama şifreleme** Temizle içeriğinizi şifrelemek için kullanarak yerel olarak AES 256 bit şifrelemesi ve Azure depolanır şifrelenen depolama birimine yükleyin. Depolama şifrelemesi ile korunan varlıklar otomatik olarak şifrelenmemiş ve kodlamadan önce şifrelenmiş bir dosya sistemine yerleştirilir ve isteğe bağlı olarak yeni çıkış varlığı şeklinde geri bir yüklemeden önce yeniden şifrelenir. Depolama şifrelemesinin birincil kullanım durumu, bekleyen güçlü şifreleme diskte, yüksek kaliteli giriş medya dosyalarınızın güvenliğini sağlamak istediğiniz durumdur.
 
 Media Services, içeriğinizi teslim etmek istediğiniz nasıl bilmesi için depolama şifrelenmiş varlık teslim etmek için varlığın teslim ilkesini yapılandırmanız gerekir. Varlığınızı akışı önce akış sunucusu depolama şifreleme kaldırır ve belirtilen teslim ilkesini (örneğin, AES, ortak şifreleme veya şifreleme) kullanarak içeriğinizi akışlarını.
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Şifreleme için kullanılan ContentKeys oluşturma
-Şifrelenmiş varlıklar depolama şifreleme anahtarı ile ilişkilendirilmiş olması gerekir. Varlık dosyaları oluşturmadan önce şifreleme için kullanılacak içerik anahtarı oluşturmanız gerekir. Bu bölümde, bir içerik anahtarı oluşturmayı açıklar.
+Şifrelenmiş varlıklar depolama şifreleme anahtarları ile ilişkilendirilir. Varlık dosyaları oluşturmadan önce şifreleme için kullanılacak içerik anahtarı oluşturun. Bu bölümde, bir içerik anahtarı oluşturmayı açıklar.
 
-Şifrelenmesini istediğiniz varlık ile ilişkilendireceğiniz içerik anahtarları oluşturmak için genel adımlar verilmiştir. 
+Şifrelenmesini istediğiniz varlık ile ilişkilendirmek içerik anahtarları oluşturmak için genel adımlar verilmiştir. 
 
 1. Depolama şifrelemesi için rastgele bir 32 baytlık AES anahtarı oluşturur. 
    
-    Bu, bu varlık ile ilişkili tüm dosyalar aynı içerik anahtarı şifre çözme sırasında kullanmanız gerekecektir anlamına gelir, varlık için içerik anahtarı olacaktır. 
+    32-bayt AES şifre çözme sırasında aynı içerik anahtarı kullanmak üzere varlık gereken ile ilişkili tüm dosyalar anlamına gelir, varlık için içerik anahtarı anahtardır. 
 2. Çağrı [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) ve [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) içerik anahtarınızı şifrelemek için kullanılması gereken doğru X.509 sertifikası almak için yöntemleri.
 3. İçerik anahtarınızı X.509 sertifikasının ortak anahtarla şifreler. 
    
    Media Services .NET SDK'sı RSA şifreleme yaparken OAEP ile kullanır.  Bir .NET örnekte görebilirsiniz [EncryptSymmetricKeyData işlevi](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. İçerik anahtarı ve anahtarı tanımlayıcısı kullanılarak hesaplanan bir sağlama toplamı değeri oluşturun. Aşağıdaki .NET örnek anahtar tanımlayıcısı ve temizleyin içerik anahtarı GUID parçası kullanarak sağlama toplamı hesaplar.
 
-        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-        {
-            const int ChecksumLength = 8;
-            const int KeyIdLength = 16;
-
-            byte[] encryptedKeyId = null;
-
-            // Checksum is computed by AES-ECB encrypting the KID
-            // with the content key.
-            using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+    ```csharp
+            public static string CalculateChecksum(byte[] contentKey, Guid keyId)
             {
-                rijndael.Mode = CipherMode.ECB;
-                rijndael.Key = contentKey;
-                rijndael.Padding = PaddingMode.None;
+                const int ChecksumLength = 8;
+                const int KeyIdLength = 16;
 
-                ICryptoTransform encryptor = rijndael.CreateEncryptor();
-                encryptedKeyId = new byte[KeyIdLength];
-                encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                byte[] encryptedKeyId = null;
+
+                // Checksum is computed by AES-ECB encrypting the KID
+                // with the content key.
+                using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+                {
+                    rijndael.Mode = CipherMode.ECB;
+                    rijndael.Key = contentKey;
+                    rijndael.Padding = PaddingMode.None;
+
+                    ICryptoTransform encryptor = rijndael.CreateEncryptor();
+                    encryptedKeyId = new byte[KeyIdLength];
+                    encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+                }
+
+                byte[] retVal = new byte[ChecksumLength];
+                Array.Copy(encryptedKeyId, retVal, ChecksumLength);
+
+                return Convert.ToBase64String(retVal);
             }
+    ```
 
-            byte[] retVal = new byte[ChecksumLength];
-            Array.Copy(encryptedKeyId, retVal, ChecksumLength);
-
-            return Convert.ToBase64String(retVal);
-        }
-
-1. İle içerik anahtarı oluşturun **EncryptedContentKey** (base64 ile kodlanmış dizeye dönüştürülen), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, ve **sağlama toplamı** önceki adımlarda almış değerleri.
+5. İle içerik anahtarı oluşturun **EncryptedContentKey** (base64 ile kodlanmış dizeye dönüştürülen), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, ve **sağlama toplamı** önceki adımlarda almış değerleri.
 
     Depolama şifrelemesi için aşağıdaki özellikleri istek gövdesinde yer alması gerekir.
 
     İstek gövdesi özelliği    | Açıklama
     ---|---
-    Kimlik | Biz kendisini oluşturan ContentKey kimliği aşağıdaki biçimi kullanarak "nb:kid:UUID:<NEW GUID>".
-    ContentKeyType | Bu içerik anahtarı için bir tamsayı olarak içerik anahtar türü budur. Biz depolama şifrelemesi için 1 değerini geçirin.
-    EncryptedContentKey | 256 bitlik (32 bayt) bir değer olan yeni bir içerik anahtarı değeri oluşturuyoruz. Anahtar GetProtectionKeyId ve GetProtectionKey yöntemleri için bir HTTP GET isteği yürüterek Microsoft Azure Media Services'den alıyoruz depolama şifreleme X.509 sertifikası kullanılarak şifrelenir. Örnek olarak, aşağıdaki .NET koduna bakın: **EncryptSymmetricKeyData** tanımlanan yöntemi [burada](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    Kimlik | Aşağıdaki biçimi kullanarak ContentKey kimliği oluşturulan "nb:kid:UUID:<NEW GUID>".
+    ContentKeyType | İçerik anahtar türü anahtarı tanımlayan bir tamsayıdır. Depolama şifreleme biçimi için değeri 1'dir.
+    EncryptedContentKey | 256 bitlik (32 bayt) bir değer olan yeni bir içerik anahtar değer oluşturuyoruz. Anahtar GetProtectionKeyId ve GetProtectionKey yöntemleri için bir HTTP GET isteği yürüterek Microsoft Azure Media Services'den alıyoruz depolama şifreleme X.509 sertifikası kullanılarak şifrelenir. Örnek olarak, aşağıdaki .NET koduna bakın: **EncryptSymmetricKeyData** tanımlanan yöntemi [burada](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Bu, bizim içerik anahtarı şifrelemek için kullanılan depolama şifreleme X.509 Sertifika koruma anahtar kimliğidir.
     ProtectionKeyType | İçerik anahtarı şifrelemek için kullanılan koruma anahtarı şifreleme türü budur. Bu değer StorageEncryption(1) Bizim örneğimizde olur.
     Sağlama toplamı |MD5 hesaplanan sağlama toplamı için içerik anahtarı. İçerik anahtarı kimliği içerikle şifreleyerek hesaplanır. Kod örneği, sağlama toplamı hesaplamak gösterilmiştir.
@@ -118,7 +117,7 @@ Aşağıdaki örnek, içerik anahtarı şifrelerken kullandığınız sertifika 
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Yanıtı:
@@ -149,7 +148,7 @@ Aşağıdaki örnek, önceki adımda aldığınız ProtectionKeyId kullanarak X.
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -175,7 +174,7 @@ Yanıtı:
 ### <a name="create-the-content-key"></a>İçerik anahtarı oluşturun
 X.509 sertifikası alınır ve ortak anahtar, içerik anahtarı şifrelemek için kullanılan sonra oluşturmanız bir **ContentKey** varlık ve onun özellik değerlerinin buna uygun olarak ayarla.
 
-Ne zaman ayarlamalısınız değerlerden biri oluşturma içerik türü bir anahtardır. Depolama şifrelemesi durumunda, '1' değeridir. 
+Ne zaman ayarlamalısınız değerlerden biri oluşturma içerik türü bir anahtardır. Depolama şifrelemesi kullanırken, değeri '1'olarak ayarlanmalıdır. 
 
 Aşağıdaki örnekte nasıl oluşturulacağını gösterir bir **ContentKey** ile bir **ContentKeyType** depolama şifrelemenin ("1") ve **ProtectionKeyType** belirtmek için "0" olarak ayarlayın koruma kimliği X.509 sertifika parmak izi anahtardır.  
 
@@ -189,7 +188,7 @@ Aşağıdaki örnekte nasıl oluşturulacağını gösterir bir **ContentKey** i
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -238,14 +237,14 @@ Aşağıdaki örnek, bir varlık oluşturulacağını gösterir.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
 
 **HTTP yanıtı**
 
-Başarılı olursa, aşağıdaki verilir:
+Başarılı olursa, şu yanıtı döndürdü:
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -285,7 +284,7 @@ ContentKey oluşturduktan sonra aşağıdaki örnekte gösterildiği gibi $links
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
@@ -297,9 +296,9 @@ Yanıtı:
 ## <a name="create-an-assetfile"></a>Bir AssetFile oluşturma
 [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) varlığı temsil eden bir blob kapsayıcısında depolanır ses veya video dosyası. Bir varlık dosyası her zaman bir varlıkla ilişkilidir ve bir varlığı bir veya daha çok varlık dosyaları içerebilir. Bir varlık dosyası nesne bir blob kapsayıcısında dijital bir dosyayla ilişkili değilse Media Services Kodlayıcısı görev başarısız olur.
 
-Unutmayın **AssetFile** örneği ve gerçek medya dosyası olan iki farklı nesneler. Medya dosyasının gerçek medya içeriği içerirken AssetFile örneği medya dosyası hakkındaki meta verileri içerir.
+**AssetFile** örneği ve gerçek medya dosyası olan iki farklı nesneler. Medya dosyasının gerçek medya içeriği içerirken AssetFile örneği medya dosyası hakkındaki meta verileri içerir.
 
-Bir blob kapsayıcıya bir dijital medyayı dosyanızı karşıya sonra kullanacağınız **birleştirme** AssetFile (Bu konuda gösterilmez), ortam dosyası hakkındaki bilgilerle güncelleştirmek için HTTP isteği. 
+Bir blob kapsayıcıya bir dijital medyayı dosyanızı karşıya sonra kullanacağınız **birleştirme** AssetFile (Bu makalede gösterilmez), ortam dosyası hakkındaki bilgilerle güncelleştirmek için HTTP isteği. 
 
 **HTTP isteği**
 
@@ -310,7 +309,7 @@ Bir blob kapsayıcıya bir dijital medyayı dosyanızı karşıya sonra kullanac
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 

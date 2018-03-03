@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: a9c7c5dbbc50ccf8c5383be28e96dfb82af48559
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 3ed607d80e6d40a9a466c5277eca636203c13ec2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Xamarin.Forms uygulamanıza anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -152,6 +152,7 @@ Arka uç FCM ile yapılandırılmış FCM ile kaydetmek için istemciye bileşen
         using Android.App;
         using Android.Content;
         using Android.Media;
+        using Android.Support.V7.App;
         using Android.Util;
         using Firebase.Messaging;
 
@@ -182,7 +183,7 @@ Arka uç FCM ile yapılandırılmış FCM ile kaydetmek için istemciye bileşen
                 intent.AddFlags(ActivityFlags.ClearTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-                var notificationBuilder = new Notification.Builder(this)
+                var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                     .SetContentTitle("New Todo Item")
                     .SetContentText(messageBody)
@@ -202,7 +203,7 @@ Artık, bir Android cihaz veya öykünücü üzerinde çalışan uygulama hazır
 ### <a name="test-push-notifications-in-your-android-app"></a>Android uygulamanızda test anında iletme bildirimleri
 Bir öykünücü üzerinde yalnızca test ettiğiniz zaman ilk iki adım gerekli değildir.
 
-1. Dağıtma ve Google API'leri hedef olarak ayarlanmış Android Sanal Aygıt Yöneticisi'nde aşağıda gösterildiği gibi sanal cihaza hata ayıklama emin olun.
+1. Dağıtma veya bir aygıt veya Google Play Hizmetleri ile yapılandırılmış öykünücüsü hata ayıklama olduğundan emin olun. Bu, denetleyerek doğrulanabilir **Yürüt** uygulamaları, cihaz veya öykünücü yüklenir.
 2. Tıklayarak Android aygıtına bir Google hesabı eklemek **uygulamaları** > **ayarları** > **hesabı eklemek**. Daha sonra cihaza Google hesabınız eklemek veya yeni bir tane oluşturmak için istemleri izleyin.
 3. Visual Studio veya Xamarin Studio'da sağ **Droid** proje ve tıklatın **başlangıç projesi olarak ayarla**.
 4. Tıklatın **çalıştırmak** projeyi oluşturun ve uygulamayı Android cihaz veya öykünücü üzerinde başlatın.

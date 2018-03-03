@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure depolama için istemci tarafı şifreleme Python ile
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -106,6 +106,10 @@ Bir toplu bir bağlam Yöneticisi olarak tableservice batch() yöntemle oluştur
 Toplu iş şifreleme ilkesi (varlıklar tableservice's Şifreleme İlkesi'ni kullanarak toplu iş yürütme sırasında şifrelenmez) kullanarak toplu içine eklenen gibi varlıkları şifrelenmesini unutmayın.
 
 ### <a name="queries"></a>Sorgular
+> [!NOTE]
+> Varlıkları şifrelendiği, filtre sorgularını bir şifrelenmiş özellikte çalıştırılamıyor.  Denerseniz, şifrelenmiş veriler şifrelenmemiş verilerle karşılaştırmak hizmet çalışırken çünkü sonuçlar hatalı olacaktır.
+> 
+>
 Sorgu işlemleri gerçekleştirmek için sonuç kümesindeki tüm anahtarları çözümleyebildiğini anahtar bir çözümleyici belirtmeniz gerekir. Sorgu sonucunda bulunan bir varlık için bir sağlayıcı çözümlenemezse, istemci kitaplığının bir hata durum oluşturur. Sunucu tarafı tahminleri gerçekleştirir herhangi bir sorgu için istemci kitaplığının özel şifreleme meta veri özelliklerini ekler (\_ClientEncryptionMetadata1 ve \_ClientEncryptionMetadata2) varsayılan olarak seçili sütun.
 
 > [!IMPORTANT]
@@ -127,10 +131,10 @@ KEK başarıyla verileri şifrelemek için aşağıdaki yöntemleri uygulamanız
 
 * wrap_key(cek): kullanıcının tercih ettiğiniz bir algoritma kullanarak belirtilen CEK (bayt) sarmalar. Sarmalanan anahtar döndürür.
 * get_key_wrap_algorithm(): Anahtarları sarmalamak için kullanılan algoritma döndürür.
-* get_kid(): dize anahtar kimliği için bu KEK döndürür.
+* get_kid(): Returns the string key id for this KEK.
   KEK başarıyla verilerin şifresini çözmek için aşağıdaki yöntemleri uygulamanız gerekir:
 * unwrap_key (cek, algoritma): dize belirtilen algoritmasını kullanarak belirtilen CEK sarmalanmamış biçiminde döndürür.
-* get_kid(): dize anahtar kimliği için bu KEK döndürür.
+* get_kid(): Returns a string key id for this KEK.
 
 Anahtar çözümleyici en az, anahtar kimliği verilen yukarıdaki arabirimini uygulayan karşılık gelen KEK döndüren bir yöntem uygulamalıdır. Yalnızca bu hizmeti nesnesi key_resolver_function özelliğine atanacak bir yöntemdir.
 

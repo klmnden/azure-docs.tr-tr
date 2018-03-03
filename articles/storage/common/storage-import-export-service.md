@@ -3,22 +3,16 @@ title: "Azure Storage gelen ve giden veri aktarımı için Azure içeri/dışar�
 description: "Alma oluşturma ve işleri Azure portalında Azure Storage veri aktarma için dışarı aktarma hakkında bilgi edinin."
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -31,25 +25,34 @@ Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob D
 İzleyin aşağıdaki disk üzerindeki verileri Azure depolama alanına aktarılması ise adımları.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>1. adım: WAImportExport aracını kullanarak sürücü/s hazırlamak ve günlük dosyası/s oluşturun.
 
-1.  Azure depolama alanına aktarılması verileri tanımlamak. Bu, dizinler ve tek başına dosyalar yerel bir sunucu veya ağ paylaşımında olabilir.
+1.  Azure depolama alanına aktarılması verileri tanımlamak. Yerel bir sunucu veya ağ paylaşımına tek başına dosyaları ve dizinleri içeri aktarabilirsiniz.
 2.  Toplam veri boyutuna bağlı olarak, gerekli 2,5 inç SSD veya 2,5" veya sayısını 3,5" SATA II veya III sabit disk sürücüsü temin edin.
 3.  Kullanarak doğrudan SATA sabit sürücüleri eklemek veya bir windows makinesine dış USB bağdaştırıcısı ile.
-4.  Her sabit sürücü üzerinde tek bir NTFS birimi oluşturun ve birime bir sürücü harfi atama. Hiçbir bağlama.
-5.  Windows makine şifrelemesini etkinleştirmek için NTFS birimi bit kasası şifrelemeyi etkinleştirin. Üzerinde https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx. yönergeleri kullanın
-6.  Diskleri kopyalama & Yapıştır veya sürükle & bırak veya Robocopy veya böyle bir araç kullanarak bu şifrelenmiş tek NTFS birimlerine tamamen verileri kopyalayın.
+1.  Her sabit sürücü üzerinde tek bir NTFS birimi oluşturun ve birime bir sürücü harfi atama. Hiçbir bağlama.
+2.  Windows makine şifrelemesini etkinleştirmek için NTFS birimi bit kasası şifrelemeyi etkinleştirin. Üzerinde https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx. yönergeleri kullanın
+3.  Diskleri kopyalama & Yapıştır veya sürükle & bırak veya Robocopy veya böyle bir araç kullanarak bu şifrelenmiş tek NTFS birimlerine tamamen verileri kopyalayın.
 7.  Https://www.microsoft.com/en-us/download/details.aspx?id=42659 WAImportExport V1 indirin
 8.  İçin varsayılan klasörü waimportexportv1 sıkıştırmasını açın. Örneğin, C:\WaImportExportV1  
 9.  Yönetici olarak çalıştır ve PowerShell veya komut satırı açın ve dizin sıkıştırması açılmış klasöre geçin. Örneğin, cd C:\WaImportExportV1
-10. Aşağıdaki komut satırını Not Defteri'ne kopyalayın ve bir komut satırı oluşturmak üzere düzenleyebilirsiniz.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+10. Aşağıdaki komut satırını bir metin düzenleyicisine kopyalayın ve bir komut satırı oluşturmak üzere düzenleyebilirsiniz:
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    bir dosyanın adını /j: .jrn uzantısı ile günlük dosyası çağrılır. Sürücü bir günlük dosyası oluşturulur ve bu nedenle disk seri numarası günlük dosyası adı olarak kullanmak için önerilir.
-    /SK: azure depolama hesabı anahtarı. / t: edilmeye diskinin sürücü harfi. Örneğin, D /bk: sürücü /srcdir bit kasası anahtarıdır: edilmeye diskinin sürücü harfi ve ardından: \. Örneğin, D:\
-    /dstdir: Azure Storage veri olduğu içeri aktarılacak kapsayıcısının adı.
-    /skipwrite 
-    
-11. Adım 10 her sevk edilmesi gereken disk için yineleyin.
-12. Her komut satırını Çalıştır için /j: parametresiyle belirtilen adla bir günlük dosyası oluşturulur.
+    Bu komut satırı seçenekleri aşağıdaki tabloda açıklanmıştır:
+
+    |Seçenek  |Açıklama  |
+    |---------|---------|
+    |/j:     |.Jrn uzantısı ile günlük dosyasının adıdır. Sürücü bir günlük dosyası oluşturulur. Disk seri numarası günlük dosyası adı olarak kullanılması önerilir.         |
+    |/sk:     |Azure depolama hesabı anahtarı.         |
+    |/t:     |Sürücü harfi edilmeye disk. Örneğin, sürücü `D`.         |
+    |/bk:     |Sürücü için BitLocker anahtar.         |
+    |/srcdir:     |Edilmeye diskinin sürücü harfi ve ardından `:\`. Örneğin, `D:\`.         |
+    |/dstdir:     |Azure depolama alanındaki hedef kapsayıcı adı         |
+
+1. Adım 10 her sevk edilmesi gereken disk için yineleyin.
+2. Her komut satırını Çalıştır için /j: parametresiyle belirtilen adla bir günlük dosyası oluşturulur.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>2. adım: Azure Portal'da bir alma işi oluşturun.
 
@@ -88,6 +91,11 @@ Bu bölümde, bu hizmeti kullanmak için gereken önkoşulları listeler. Dikkat
 
 ### <a name="storage-account"></a>Depolama hesabı
 Var olan bir Azure aboneliği ve içeri/dışarı aktarma hizmetini kullanmak için bir veya daha fazla depolama hesabı olması gerekir. Azure içeri/dışarı aktarma yalnızca klasik, Blob Depolama hesapları ve genel amaçlı v1 depolama hesaplarını destekler. Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesaplarında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz: [bir depolama hesabı oluşturmak nasıl](storage-create-storage-account.md#create-a-storage-account).
+
+> [!IMPORTANT] 
+> Azure içeri aktarma dışarı aktarma hizmeti depolama hesaplarını desteklemiyor nerede [sanal ağ hizmet uç noktaları](../../virtual-network/virtual-network-service-endpoints-overview.md) özelliği etkinleştirildi. 
+> 
+> 
 
 ### <a name="data-types"></a>Veri türleri
 Azure içeri/dışarı aktarma hizmeti verileri kopyalamak için kullanabileceğiniz **blok** BLOB'lar, **sayfa** BLOB'lar, veya **dosyaları**. Buna karşılık, yalnızca verebilirsiniz **blok** BLOB'lar, **sayfa** BLOB'lar veya **Append** bu hizmeti kullanarak Azure storage bloblarından. Yalnızca Azure dosyaları içe Azure depolama hizmeti destekler. Azure dosyaları dışarı aktarma şu anda desteklenmiyor.

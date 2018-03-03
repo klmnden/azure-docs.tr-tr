@@ -13,11 +13,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c94f59eaa079677223083339f111cf73b13632e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Bir Media Services varlığa mevcut BLOB kopyalama
 Bu makalede, BLOB Depolama hesabından kullanarak yeni bir Azure Media Services (AMS) varlık içine kopyalamak gösterilmiştir [Azure Media Services .NET SDK uzantıları](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
@@ -39,7 +39,7 @@ Makalede iki kod örnekleri gösterilmektedir:
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>İki AMS hesapları arasında BLOB kopyalama  
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 İki Media Services hesabı. Makalesine bakın [Media Services hesabı oluşturma](media-services-portal-create-account.md).
 
@@ -51,7 +51,7 @@ Bu makaledeki adımları izleyin veya bu makalede açıklanan kodu içeren bir �
 1. Bölümünde açıklandığı gibi geliştirme ortamını ayarlama [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
 2. .Config dosyasına appSettings bölümünü ekleyin ve Media Services hesaplarınızı, hedef depolama hesabı ve kaynak varlık kimliğini göre değerleri güncelleştirin  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -77,7 +77,7 @@ Bu makaledeki adımları izleyin veya bu makalede açıklanan kodu içeren bir �
 
 Aşağıdaki kod uzantısı kullanır **IAsset.Copy** tüm dosyaları kaynak varlığı tek uzantısını kullanarak hedef varlık kopyalamak için yöntem.
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -157,7 +157,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>BLOB Depolama hesabından bir AMS hesaba kopyalayın. 
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 - BLOB'ları kopyalamak istediğiniz bir depolama hesabı.
 - BLOB'ları kopyalamak istediğiniz bir AMS hesabının.
@@ -167,7 +167,7 @@ namespace CopyExistingBlobsIntoAsset
 1. Bölümünde açıklandığı gibi geliştirme ortamını ayarlama [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
 2. .Config dosyasına appSettings bölümünü ekleyin ve kaynak depolama ve hedef AMS hesaplarınızı temel alan değerlerini güncelleştirin.
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -187,9 +187,9 @@ namespace CopyExistingBlobsIntoAsset
 Aşağıdaki kod BLOB Depolama hesabından bir Media Services varlığa kopyalar. 
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için bkz: [bu](media-services-dotnet-manage-entities.md#limit-access-policies) makalesi.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -371,6 +371,7 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Karşıya yüklenen varlıklarınızı artık kodlayabilirsiniz. Daha fazla bilgi için bkz. [Varlıkları kodlama](media-services-portal-encode.md).

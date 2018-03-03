@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay kılavuz tetikleyici
 
@@ -148,9 +148,9 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği |Açıklama|
 |---------|---------|----------------------|
-| **türü** | Gerekli - kümesine olmalıdır `eventGridTrigger`. |
-| **yönü** | Gerekli - kümesine olmalıdır `in`. |
-| **adı** | Gerekli - işlevi kodda olay verileri alan parametresi için kullanılan değişken adı. |
+| **Türü** | Gerekli - kümesine olmalıdır `eventGridTrigger`. |
+| **Yönü** | Gerekli - kümesine olmalıdır `in`. |
+| **Adı** | Gerekli - işlevi kodda olay verileri alan parametresi için kullanılan değişken adı. |
 
 ## <a name="usage"></a>Kullanım
 
@@ -318,7 +318,7 @@ Gibi bir araç kullanın [Postman](https://www.getpostman.com/) veya [curl](http
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-`functionName` Parametresi yöntem adı olmalıdır, adı belirtilen `FunctionName` özniteliği. Bir projede birden çok işlevleri varsa, bu nedenle, benzersiz yöntemi adlara sahip ihtiyaç duydukları (tüm adlandırılmış `Run`) için yerel test olay kılavuz tetikler.
+`functionName` Parametresi, belirtilen adı olmalıdır `FunctionName` özniteliği.
 
 Aşağıdaki ekran görüntüleri, üst bilgilerini göstermek ve Postman gövdesinde isteyin:
 
@@ -379,7 +379,7 @@ Test etmek istediğiniz türü, bir olay kılavuz aboneliği oluşturun ve aşa�
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-`functionName` Parametresi yöntem adı olmalıdır, adı belirtilen `FunctionName` özniteliği. Bir projede birden çok işlevleri varsa, bu nedenle, benzersiz yöntemi adlara sahip ihtiyaç duydukları (tüm adlandırılmış `Run`) için yerel test olay kılavuz tetikler.
+`functionName` Parametresi, belirtilen adı olmalıdır `FunctionName` özniteliği.
 
 Azure CLI kullanarak örnek aşağıda verilmiştir:
 

@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure depolama için Java ile istemci tarafı şifreleme ve Azure anahtar kasası
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -59,7 +59,7 @@ Depolama istemcisi kitaplığı kullanır [AES](http://en.wikipedia.org/wiki/Adv
 > 
 > 
 
-Şifrelenmiş bir blobu indirme içerir kullanarak tüm blob içerik alma  **karşıdan*/openInputStream** kullanışlı yöntemler. Sarmalanan CEK sarılmamış ve kullanıcılara şifresi çözülmüş veriler döndürmek için (Bu durumda blob meta verileri depolanır) IV ile birlikte kullanılır.
+Şifrelenmiş bir blobu indirme içerir kullanarak tüm blob içerik alma **indirme * / openInputStream** kullanışlı yöntemler. Sarmalanan CEK sarılmamış ve kullanıcılara şifresi çözülmüş veriler döndürmek için (Bu durumda blob meta verileri depolanır) IV ile birlikte kullanılır.
 
 Rastgele bir aralığı indirme (**downloadRange*** yöntemleri) çok küçük miktarda başarıyla İstenen aralık şifresini çözmek için kullanılan ek veri alabilmek için kullanıcılar tarafından sağlanan aralığı ayarlama şifrelenmiş bir blobu içerir.  
 
@@ -99,6 +99,10 @@ Tablo verileri şifreleme gibi çalışır:
 İstemci Kitaplığı yalnızca bir seçenekleri nesnesi (ve bu nedenle bir ilke/KEK) izin verdiği için toplu işlemde aynı KEK bu toplu işlem içindeki tüm satırların üzerinden toplu işlem kullanılır. Ancak, istemci kitaplığının dahili olarak yeni rastgele IV ve satır başına rastgele CEK toplu işlemde oluşturur. Kullanıcılar, şifreleme Çözümleyicisi Bu davranış tanımlayarak toplu işlemdeki her işlem için farklı özellikleri şifrelemek de seçebilirsiniz.
 
 ### <a name="queries"></a>Sorgular
+> [!NOTE]
+> Varlıkları şifrelendiği, filtre sorgularını bir şifrelenmiş özellikte çalıştırılamıyor.  Denerseniz, şifrelenmiş veriler şifrelenmemiş verilerle karşılaştırmak hizmet çalışırken çünkü sonuçlar hatalı olacaktır.
+> 
+>
 Sorgu işlemleri gerçekleştirmek için sonuç kümesindeki tüm anahtarları çözümleyebildiğini anahtar bir çözümleyici belirtmeniz gerekir. Sorgu sonucunda bulunan bir varlık için bir sağlayıcı çözümlenemezse, istemci kitaplığının bir hata durum oluşturur. Sunucu tarafı tahminleri gerçekleştirir herhangi bir sorgu için istemci kitaplığının özel şifreleme meta veri özellikleri (_ClientEncryptionMetadata1 ve _ClientEncryptionMetadata2) varsayılan olarak seçilen sütunlara ekleyeceksiniz.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault

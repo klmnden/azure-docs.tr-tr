@@ -1,5 +1,5 @@
 ---
-title: "Azure içerik teslim ağı aracılığıyla büyük dosya indirme iyileştirme"
+title: "Azure CDN aracılığıyla büyük dosya indirme iyileştirme"
 description: "En iyi duruma getirme derinliği açıklandığı büyük dosya indirme"
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e6266fdaaac6a1a1a5d3a5595c10f79fd9f01a7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Azure içerik teslim ağı aracılığıyla büyük dosya indirme iyileştirme
+# <a name="large-file-download-optimization-via-azure-cdn"></a>Azure CDN aracılığıyla büyük dosya indirme iyileştirme
 
 Internet üzerinden teslim içeriğinin dosya boyutları, gelişmiş işlevler, geliştirilmiş grafik ve zengin medya içeriği nedeniyle büyümeye devam. Bu büyüme birçok faktöre tarafından yönetilir: geniş bant sızma, büyük uygun maliyetli depolama aygıtları, yüksek tanımlı video ve Internet'e bağlı cihazlar (IOT) yaygın arttıkça. Büyük dosyalar için hızlı ve verimli teslim mekanizması kesintisiz ve eğlenceli tüketici deneyimi sağlamak için önemlidir.
 
@@ -38,7 +38,7 @@ CDN uç noktanız teslim Azure Portalı aracılığıyla büyük dosyalar için 
 
 1. Yeni bir uç noktası eklemek için **CDN profili** sayfasında, **Endpoint**.
 
-    ![Yeni uç noktası](./media/cdn-large-file-optimization/01_Adding.png)  
+    ![Yeni uç nokta](./media/cdn-large-file-optimization/01_Adding.png)  
  
 2. İçinde **için en iyi duruma getirilmiş** aşağı açılan listesinden, **büyük dosya indirme**.
 
@@ -67,10 +67,10 @@ CDN alındığında gibi tüm öbekleri önbelleğe alır. Dosyanın tamamı CDN
 Büyük dosya en iyi duruma getirme, genel web teslim farklı varsayılan önbelleğe alma sona erme sürelerinden kullanır. Pozitif hem HTTP yanıt kodlarına dayalı negatif önbelleğini arasında ayırır. Kaynak sunucusu önbellek denetim aracılığıyla bir sona erme saati belirtir veya sona erme yanıt üstbilgisi, CDN değerini korur. Kaynak belirtmiyor ve dosyayı bu en iyi duruma getirme türü için türü ve boyutunu koşullara uyan CDN büyük dosya iyileştirme için varsayılan değerleri kullanır. Aksi takdirde, CDN varsayılanları Genel web kullanır.
 
 
-|    | Genel web | Büyük dosya en iyi duruma getirme 
+|    | Genel web | Büyük dosya iyileştirmesi 
 --- | --- | --- 
 Önbelleğe alma: pozitif <br> HTTP 200, 203, 300, <br> 301, 302 ve 410 | 7 gün |1 gün  
-Önbelleğe alma: negatif <br> HTTP 204, 305, 404, <br> ve 405 | None | 1 saniye 
+Önbelleğe alma: negatif <br> HTTP 204, 305, 404, <br> ve 405 | Hiçbiri | 1 saniye 
 
 ### <a name="deal-with-origin-failure"></a>Kaynak hata ile Dağıt
 
@@ -84,7 +84,7 @@ Aşağıdaki tabloda büyük dosya iyileştirme için yeterli olması için öl�
 
 Koşul | Değerler 
 --- | --- 
-Desteklenen dosya türleri | 3g 2, 3gp, asf, AVI, bz2, dmg, exe, f4v, flv, <br> GZ hdp, ISO, jxr, m4v, mkv, mov, mp4, <br> MPEG, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, ZIP  
+Desteklenen dosya türleri | 3g 2, 3gp, asf, AVI, bz2, dmg, exe, f4v, flv, <br> GZ hdp, ISO, jxr, m4v, mkv, mov, mp4, <br> MPEG, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Küçük dosya boyutu | 10 MB 
 En büyük dosya boyutu | 150 GB 
 Kaynak sunucu özellikleri | Bayt aralığı isteklerini desteklemesi gerekir 

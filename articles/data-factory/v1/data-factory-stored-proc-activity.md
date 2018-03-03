@@ -3,7 +3,7 @@ title: "SQL Server saklı yordam etkinliği"
 description: "SQL Server saklı yordam etkinliği bir saklı yordam bir Azure SQL Database veya Azure SQL veri ambarı Data Factory işlem hattı çağırmak için nasıl kullanabileceğinizi öğrenin."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: monicar
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f6da8c18c1ac8fbcea217f41c34d50a86b001b11
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server saklı yordam etkinliği
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -93,12 +93,12 @@ Aşağıdaki örneklerde saklı yordam etkinliği bir Azure SQL veritabanındaki
 1. [Azure portalı](https://portal.azure.com/)’nda oturum açın.
 2. Tıklatın **yeni** sol menüsünde **Intelligence + analiz**, tıklatıp **Data Factory**.
 
-    ![Yeni data factory](media/data-factory-stored-proc-activity/new-data-factory.png)    
+    ![Yeni veri fabrikası](media/data-factory-stored-proc-activity/new-data-factory.png)    
 3. İçinde **yeni data factory** dikey penceresinde girin **SProcDF** adı. Azure Data Factory adları **genel benzersiz**. Veri Fabrikası adı Fabrika başarılı oluşturulmasını sağlamak üzere sizin adınızla öneki gerekir.
 
-   ![Yeni data factory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
+   ![Yeni veri fabrikası](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
 4. Seçin, **Azure aboneliği**.
-5. İçin **kaynak grubu**, aşağıdaki adımlardan birini yapın:
+5. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
    1. Tıklatın **Yeni Oluştur** ve kaynak grubu için bir ad girin.
    2. Tıklatın **var olanı kullan** ve varolan bir kaynak grubu seçin.  
 6. Data factory için **konum** seçin.

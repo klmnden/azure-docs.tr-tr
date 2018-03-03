@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 88d80271e744d6f00afd1ff1c3df29180565b59e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1cd429ed8252573f8e8c3ed11d6c841cba855b52
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Özel Service Fabric durum raporları ekleme
 Azure Service Fabric tanıtır bir [sistem durumu modeli](service-fabric-health-introduction.md) sağlıksız küme ve belirli varlıkları uygulama koşullara bayrak için tasarlanmıştır. Sistem durumu modeli kullanan **sistem durumu reporters** (sistem bileşenleri ve watchdogs). , Kolay ve hızlı tanı ve onarım hedeftir. Hizmeti yazıcıları sistem durumu hakkında ön düşünmeniz gerekir. Özellikle, kök yakın bayrağı sorunları yardımcı olur, sistem durumu etkileyebilir herhangi bir koşul, bildirilmelidir. Sistem durumu bilgileri, hata ayıklama ve araştırma zaman ve çaba kaydedebilirsiniz. Hizmet bulutta ölçekte da çalışır durumda bir kez yararlılığı özellikle Temizle (özel veya Azure).
@@ -214,7 +214,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Sistem durumu raporları ile Gönder  **gönderme ServiceFabric*EntityType*HealthReport **.
+Sistem durumu raporları ile Gönder **gönderme ServiceFabric*EntityType*HealthReport**.
 
 Aşağıdaki örnek, bir düğüm üzerindeki CPU değerleri raporlama düzenli gösterir. Raporların her 30 saniyede gönderilmesi gerektiğini ve iki dakikalık bir süresi vardır. Bunlar zaman aşımına uğrarsa Raporlayıcı sorunları sahiptir, böylece düğüm hatası değerlendirilir. CPU bir eşiğin olduğunda uyarı sistem durumu raporu vardır. CPU yapılandırılmış saatten daha fazla bilgi için bir eşiğin üstünde kaldığında, hata olarak bildirilir. Aksi takdirde Raporlayıcı Tamam sistem durumunu gönderir.
 

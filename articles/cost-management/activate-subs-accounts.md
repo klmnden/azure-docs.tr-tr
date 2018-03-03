@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: c2728545aeb202bdd216e00fd4a7e464e483b1da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure abonelikleri ve Azure Yönetimi maliyeti hesaplarıyla etkinleştir
 
@@ -56,7 +56,7 @@ Bir hesap güncelleştirme aboneliği eklediğinizde, Azure verilerinizi Azure m
 
 ### <a name="update-a-subscription"></a>Bir aboneliği güncelleştir
 
-1. Güncelleştirmek istiyorsanız bir _etkinleştirilmemiş_ Azure maliyeti yönetim hesapları Yönetimi ' nde zaten var. abonelik sağındaki düzenleme kalem simgesine tıklayın _GUID Kiracı_.
+1. Güncelleştirmek istiyorsanız bir _etkinleştirilmemiş_ Azure maliyeti yönetim hesapları Yönetimi ' nde zaten var. abonelik sağ üst tarafındaki düzenleme kalem simgesine tıklayın _GUID Kiracı_. Abonelikler, üst Kiracı altında gruplandırılır, böylece abonelikleri ayrı ayrı etkinleştirme kaçının.
     ![Abonelikleri yeniden Bul](./media/activate-subs-accounts/existing-sub.png)
 2. Gerekirse Kiracı kimliği girin Kiracı Kimliğinizi bilmiyorsanız, bulmak için aşağıdaki adımları kullanın:
     1. İçine oturum [Azure portal](https://portal.azure.com).

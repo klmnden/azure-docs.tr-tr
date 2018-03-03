@@ -14,17 +14,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0e5523e297979a89ffd4b4ed51c8476fb1354419
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage Gezgini (Önizleme) sürüm notları
 
-Bu makalede Azure Storage Gezgini 0.9.5 için (Önizleme), önceki sürümler için sürüm notları yanı sıra sürüm notları sürüm içerir.
+Bu makalede Azure Storage Gezgini 0.9.6 için (Önizleme), önceki sürümler için sürüm notları yanı sıra sürüm notları sürüm içerir.
 
 [Microsoft Azure Storage Gezgini (Önizleme)](./vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux Azure Storage ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
+
+## <a name="version-096"></a>Sürüm 0.9.6
+02/28/2018
+
+### <a name="download-azure-storage-explorer-096-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.6 indirin
+- [Windows için Azure Storage Gezgini 0.9.6 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac için Azure Storage Gezgini 0.9.6 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux için Azure Storage Gezgini 0.9.6 (Önizleme)](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="fixes"></a>Düzeltmeler
+* Bir sorun Düzenleyicisi'nde listelenen beklenen BLOB'lar/dosyaları engelledi. Bu düzeltilmiştir.
+* Bir sorun yanlış öğeleri görüntülemek için anlık görüntü görünüm arasında geçiş neden oldu. Bu düzeltilmiştir.
+
+### <a name="known-issues"></a>Bilinen Sorunlar
+* Depolama Gezgini ADFS hesaplarını desteklemez.
+* Azure yığın hedeflerken ekleme blobları gibi belirli dosyaları karşıya yükleme başarısız olabilir.
+* "İptal" görevde tıkladıktan sonra onu iptal etmek bu görev için biraz zaman alabilir. Açıklanan iptal filtre geçici çözüm kullanıyoruz olmasıdır [burada](https://github.com/Azure/azure-storage-node/issues/317).
+* Yanlış PIN/akıllı kart sertifika seçerseniz, Depolama Gezgini kararı unuttunuz olması için yeniden başlatmanız gerekir.
+* Hesap Ayarları panelini abonelikleri filtrelemek için kimlik bilgilerinizi yeniden girmeniz gerektiğini gösterebilir.
+* BLOB'lar (ayrı ayrı veya yeniden adlandırılmış blob kapsayıcısı içinde) yeniden adlandırma anlık görüntüleri korumaz. Diğer tüm özellikleri ve meta veri BLOB'lar, dosyalar ve varlıklar için bir yeniden adlandırma sırasında korunur.
+* Azure yığın şu anda dosya paylaşımlarını desteklemez ancak dosya paylaşımlarına düğümü ekli bir Azure yığın depolama hesabı altında görünmeye devam eder.
+* Depolama Gezgini tarafından kullanılan Elektron Kabuk bazı GPU (grafik işlem birimi) donanım hızlandırmasını sorun vardır. Depolama Gezgini boş bir (boş) ana penceresi görüntüleme, deneyebilirsiniz ekleyerek GPU hızlandırmasını devre dışı bırakma ve komut satırından Depolama Gezgini başlatılıyor `--disable-gpu` geçin:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Ubuntu 14.04 üzerinde kullanıcıların için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 kullanıcıları, GConf yüklemeniz gerekecek - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Önceki sürümler
+
+* [Sürüm 0.9.5](#version-095)
+* [Sürüm 0.9.4 ve 0.9.3](#version-094-and-093)
+* [Sürüm 0.9.2](#version-092)
+* [Sürüm 0.9.1 ve 0.9.0'dan](#version-091-and-090)
+* [Sürüm 0.8.16](#version-0816)
+* [Sürüm 0.8.14](#version-0814)
+* [Sürüm 0.8.13](#version-0813)
+* [Sürüm 0.8.12 ve 0.8.11 ve 0.8.10](#version-0812-and-0811-and-0810)
+* [Sürüm 0.8.9 ve 0.8.8](#version-089-and-088)
+* [Sürüm 0.8.7](#version-087)
+* [Sürüm 0.8.6](#version-086)
+* [Sürüm 0.8.5](#version-085)
+* [Sürüm 0.8.4](#version-084)
+* [Sürüm 0.8.3](#version-083)
+* [Sürüm 0.8.2](#version-082)
+* [Sürüm 0.8.0](#version-080)
+* [Sürüm 0.7.20160509.0](#version-07201605090)
+* [Sürüm 0.7.20160325.0](#version-07201603250)
+* [Sürüm 0.7.20160129.1](#version-07201601291)
+* [Sürüm 0.7.20160105.0](#version-07201601050)
+* [Sürüm 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Sürüm 0.9.5
 02/06/2018
@@ -80,7 +145,7 @@ Bu makalede Azure Storage Gezgini 0.9.5 için (Önizleme), önceki sürümler i�
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-094--093"></a>Sürüm 0.9.4 / 0.9.3
+## <a name="version-094-and-093"></a>Sürüm 0.9.4 ve 0.9.3
 01/21/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Azure Depolama Gezgini (Önizleme) 0.9.4 indirin
@@ -129,28 +194,6 @@ Bu makalede Azure Storage Gezgini 0.9.5 için (Önizleme), önceki sürümler i�
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Önceki sürümler
-
-* [Sürüm 0.9.2](#version-092)
-* [Sürüm 0.9.1 / 0.9.0'dan](#version-091)
-* [Sürüm 0.8.16](#version-0816)
-* [Sürüm 0.8.14](#version-0814)
-* [Sürüm 0.8.13](#version-0813)
-* [Sürüm 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Sürüm 0.8.9 / 0.8.8](#version-089--088)
-* [Sürüm 0.8.7](#version-087)
-* [Sürüm 0.8.6](#version-086)
-* [Sürüm 0.8.5](#version-085)
-* [Sürüm 0.8.4](#version-084)
-* [Sürüm 0.8.3](#version-083)
-* [Sürüm 0.8.2](#version-082)
-* [Sürüm 0.8.0](#version-080)
-* [Sürüm 0.7.20160509.0](#version-07201605090)
-* [Sürüm 0.7.20160325.0](#version-07201603250)
-* [Sürüm 0.7.20160129.1](#version-07201601291)
-* [Sürüm 0.7.20160105.0](#version-07201601050)
-* [Sürüm 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-092"></a>Sürüm 0.9.2
 11/01/2017
@@ -214,7 +257,7 @@ Bu makalede Azure Storage Gezgini 0.9.5 için (Önizleme), önceki sürümler i�
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-091--090-preview"></a>Sürüm 0.9.1 / 0.9.0'dan (Önizleme)
+## <a name="version-091-and-090"></a>Sürüm 0.9.1 ve 0.9.0'dan
 10/20/2017
 ### <a name="new"></a>Yeni
 * Azure Cosmos DB desteği önizleme:
@@ -370,7 +413,7 @@ Bu makalede Azure Storage Gezgini 0.9.5 için (Önizleme), önceki sürümler i�
     ```
 
 
-### <a name="version-0812--0811--0810"></a>Sürüm 0.8.12 / 0.8.11 / 0.8.10
+### <a name="version-0812-and-0811-and-0810"></a>Sürüm 0.8.12 ve 0.8.11 ve 0.8.10
 04/07/2017
 
 #### <a name="new"></a>Yeni
@@ -413,7 +456,7 @@ Bu makalede Azure Storage Gezgini 0.9.5 için (Önizleme), önceki sürümler i�
     ```
 
 
-### <a name="version-089--088"></a>Sürüm 0.8.9 / 0.8.8
+### <a name="version-089-and-088"></a>Sürüm 0.8.9 ve 0.8.8
 02/23/2017
 
 >[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]

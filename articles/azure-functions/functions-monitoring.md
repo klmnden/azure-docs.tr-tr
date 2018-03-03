@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 20b12da7dedb9c5ac76a09785b68fb384789c2d7
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -371,7 +371,7 @@ namespace functionapp0915
             System.Environment.GetEnvironmentVariable(
                 "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
 
-        private static TelemetryClient telemetry = 
+        private static TelemetryClient telemetryClient = 
             new TelemetryClient() { InstrumentationKey = key };
 
         [FunctionName("HttpTrigger2")]
@@ -395,13 +395,13 @@ namespace functionapp0915
          
             // Track an Event
             var evt = new EventTelemetry("Function called");
-            UpdateTelemetryContext(evt.Context, context, userName);
-            telemetry.TrackEvent(evt);
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
             
             // Track a Metric
             var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
-            UpdateTelemetryContext(metric.Context, context, userName);
-            telemetry.TrackMetric(metric);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
             
             // Track a Dependency
             var dependency = new DependencyTelemetry
@@ -413,8 +413,8 @@ namespace functionapp0915
                     Duration = DateTime.UtcNow - start,
                     Success = true
                 };
-            UpdateTelemetryContext(dependency.Context, context, userName);
-            telemetry.TrackDependency(dependency);
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
             
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, 
@@ -436,11 +436,7 @@ namespace functionapp0915
 
 Çağrı yok `TrackRequest` veya `StartOperation<RequestTelemetry>`, yinelenen istekleri için bir işlev çağrısını görürsünüz.  İşlevler çalışma zamanı istekleri otomatik olarak izler.
 
-Ayarlama `telemetry.Context.Operation.Id` çağırma kimliği, işlevi her başlatıldığında. Verilen işlev çağrısı için tüm telemetri öğeleri ilişkilendirmenize olanak sağlar.
-
-```cs
-telemetry.Context.Operation.Id = context.InvocationId.ToString();
-```
+Ayarlamazsanız `telemetryClient.Context.Operation.Id`. Bu genel bir ayardır ve birçok işlevini aynı anda çalıştırırken yanlış correllation neden olur. Bunun yerine, yeni bir telemetri örneği oluşturun (`DependencyTelemetry`, `EventTelemetry`) ve değiştirme kendi `Context` özelliği. Daha sonra karşılık gelen telemetri örneğinde geçirin `Track` yöntemi `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Bu, telemetri geçerli işlev çağrısını doğru correllation ayrıntılarını sahip olmasını sağlar.
 
 ## <a name="custom-telemetry-in-javascript-functions"></a>Özel telemetri JavaScript işlevleri
 

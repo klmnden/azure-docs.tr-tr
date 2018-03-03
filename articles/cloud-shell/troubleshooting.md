@@ -12,26 +12,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="troubleshooting-azure-cloud-shell"></a>Azure bulut Kabuk sorunlarını giderme
+# <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Sorun giderme & Azure sınırlamaları bulut Kabuğu
 
-Bilinen çözümler için Azure bulut Kabuğu sorunları şunları içerir:
+Azure bulut kabuğunda sorunlarını gidermek için bilinen çözümleri şunlardır:
 
-## <a name="general-resolutions"></a>Genel çözümleri
+## <a name="general-troubleshooting"></a>Genel sorun giderme
 
 ### <a name="early-timeouts-in-firefox"></a>FireFox erken zaman aşımlarına
 - **Ayrıntılar**: Bulut Kabuk tarayıcınıza giriş/çıkış geçirmek için bir açık websocket kullanır. FireFox erken erken zaman aşımları bulut Kabuğu'nda neden websocket kapatabilirsiniz hazır ilkeleri vardır.
 - **Çözümleme**: açık FireFox gidin "hakkında: yapılandırma" URL kutusuna. Search for "network.websocket.timeout.ping.request" and change the value from 0 to 10.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Depolama iletişim kutusu - hata: 403 RequestDisallowedByPolicy
-- **Ayrıntılar**: Bulut Kabuk üzerinden depolama hesabı oluştururken, yöneticiniz tarafından yerleştirilen bir Azure ilkesi nedeniyle başarısız olur Hata iletisi içerir:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Ayrıntılar**: Bulut Kabuk üzerinden depolama hesabı oluştururken, yöneticiniz tarafından yerleştirilen bir Azure ilkesi nedeniyle başarısız olur Hata iletisi içerir: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Çözümleme**: kaldırın veya depolama oluşturma reddetme Azure ilke güncelleştirmek için Azure yöneticinize başvurun.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Depolama iletişim kutusu - hata: 400 DisallowedOperation
@@ -42,7 +42,7 @@ Bilinen çözümler için Azure bulut Kabuğu sorunları şunları içerir:
  - **Ayrıntılar**: Bulut Kabuk bulut Kabuk altyapı websocket bağlantı olanağı gerektirir.
  - **Çözümleme**: gönderme https isteklerini ve yanıtlarını websocket etki alanlarına sağlamak için ağ ayarlarınızı yapılandırdığınız denetleyin *. console.azure.com.
 
-## <a name="bash-resolutions"></a>Bash çözümleri
+## <a name="bash-troubleshooting"></a>Sorun giderme bash
 
 ### <a name="cannot-run-az-login"></a>Az oturum açma çalıştırılamıyor
 
@@ -54,7 +54,7 @@ Bilinen çözümler için Azure bulut Kabuğu sorunları şunları içerir:
 - **Ayrıntılar**: Bulut Kabuk Kabuk ortamınızı barındırmak için bir kapsayıcı kullanır, sonuç olarak arka plan programı çalışıyor izin verilmiyor.
 - **Çözümleme**: kullanan [docker makine](https://docs.docker.com/machine/overview/), docker kapsayıcıları bir uzak Docker ana bilgisayardan yönetmek için varsayılan olarak yüklü.
 
-## <a name="powershell-resolutions"></a>PowerShell çözümleri
+## <a name="powershell-troubleshooting"></a>PowerShell sorunlarını giderme
 
 ### <a name="no-home-directory-persistence"></a>No $Home dizin kalıcılığı
 
@@ -71,15 +71,14 @@ Bilinen çözümler için Azure bulut Kabuğu sorunları şunları içerir:
 - **Ayrıntılar**: bir kullanıcı bir GUI uygulaması başlarsa, istemi döndürmez. Bir kullanıcı iki faktörlü kimlik doğrulaması etkin olan özel bir GitHub deposuna klonlar, örneğin, bir iletişim kutusu iki faktörlü kimlik doğrulamasını tamamlamak için görüntülenir.  
 - **Çözümleme**: kapatıp Kabuk.
 
-
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - çevrimiçi yardım sayfasına açmaz
 
-- **Ayrıntılar**: kullanıcı yazarsa `Get-Help Find-Module -online`, bir görür bir hata iletisi gibi:`Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
+- **Ayrıntılar**: kullanıcı yazarsa `Get-Help Find-Module -online`, bir görür bir hata iletisi gibi: `Starting a browser to display online Help failed. No program or browser is associated to open the URI http://go.microsoft.com/fwlink/?LinkID=398574.`
 - **Çözümleme**: URL'yi kopyalayıp tarayıcınıza el ile açın.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Azure VM'lerin uzaktan yönetimi sorunlarını giderme
 
-- **Ayrıntılar**: WinRM için varsayılan Windows Güvenlik Duvarı ayarları nedeniyle kullanıcı aşağıdaki hatayı görebilirsiniz:`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Ayrıntılar**: WinRM için varsayılan Windows Güvenlik Duvarı ayarları nedeniyle kullanıcı aşağıdaki hatayı görebilirsiniz: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
 - **Çözümleme**: VM'nizi çalıştığından emin olun. Çalıştırabilirsiniz `Get-AzureRmVM -Status` VM durumu bulunamadı.  Ardından, yeni bir güvenlik duvarı kuralı her alt ağdan WinRM bağlantılara izin vermek için Uzak VM'de ekleyin, örneğin
 
  ``` Powershell
@@ -93,7 +92,59 @@ Bilinen çözümler için Azure bulut Kabuğu sorunları şunları içerir:
  Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
  ```
 
-### <a name="dir-caches-the-result-in-azure-drive"></a>`dir`Azure sürücüsü sonucunda önbelleğe alır
+### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` Azure sürücüsü sonucunda önbelleğe alır
 
 - **Ayrıntılar**: sonucunu `dir` Azure sürücüde önbelleğe alınır.
 - **Çözümleme**: oluşturmak veya bir kaynak Azure sürücüsü görünümünde kaldırdıktan sonra çalıştırmak `dir -force` güncelleştirmek için.
+
+## <a name="general-limitations"></a>Genel sınırlamalar
+Azure bulut Kabuk aşağıdaki bilinen sınırlamalara sahiptir:
+
+### <a name="system-state-and-persistence"></a>Sistem durumu ve sürdürme
+
+Bulut Kabuk oturumunuz sağlar makine geçicidir ve oturumunuz için 20 dakika etkin değil sonra geri dönüştürüldüğünde. Bulut Kabuk Azure dosya paylaşımının bağlanmasını gerektirir. Sonuç olarak, aboneliğiniz bulut Kabuk erişmek için depolama kaynakları ayarlamak kurabilmesi gerekir. Diğer konular şunlardır:
+
+* Takılı depolamayla yalnızca değişiklikleri içinde `clouddrive` dizin kaldı. Bash içinde `$Home` dizin de kalıcı.
+* Azure dosya paylaşımları takılı yalnızca içinden, [bölgeye atanan](persisting-shell-storage.md#mount-a-new-clouddrive).
+  * Bash'te, çalıştırmak `env` olarak ayarlayın, bölgenizdeki bulmak için `ACC_LOCATION`.
+* Azure dosyaları yalnızca yerel olarak yedekli depolama ve coğrafi olarak yedekli depolama hesaplarını destekler.
+
+### <a name="browser-support"></a>Tarayıcı desteği
+
+Bulut Kabuğu'nu Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox ve Apple Safari en son sürümlerini destekler. Safari özel modunda desteklenmiyor.
+
+### <a name="copy-and-paste"></a>Kopyala ve Yapıştır
+
+[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+
+### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Belirli bir kullanıcı için yalnızca bir kabuk etkin olabilir
+
+Kullanıcılar yalnızca başlatma Kabuk bir tür aynı anda ya da **Bash** veya **PowerShell**. Bununla birlikte, Bash veya PowerShell aynı anda çalışan birden çok örneği olabilir. Hangi oturumlarına sonlandırır Bash veya PowerShell nedenleri arasında bulut Kabuğu'nu yeniden başlatmak için değiştirme.
+
+### <a name="usage-limits"></a>Kullanım sınırları
+
+Bulut Kabuk etkileşimli kullanım durumları için tasarlanmıştır. Sonuç olarak, tüm uzun süre çalışan etkileşimli olmayan oturumlar uyarmadan sonlandırılır.
+
+## <a name="bash-limitations"></a>Bash sınırlamaları
+
+### <a name="user-permissions"></a>Kullanıcı izinleri
+
+İzinler, sudo erişimi olmadan normal kullanıcı olarak ayarlanır. Dışında herhangi bir yüklemesi, `$Home` dizin kalıcı değildir.
+
+### <a name="editing-bashrc"></a>.Bashrc düzenleme
+
+Bunun yapılması .bashrc düzenleme beklenmeyen hatalara bulut Kabuğu'nda neden olabilir. uyarı alın.
+
+## <a name="powershell-limitations"></a>PowerShell sınırlamaları
+
+### <a name="slow-startup-time"></a>Yavaş başlangıç zamanı
+
+Azure bulut Kabuğu (Önizleme) PowerShell Önizleme sırasında başlatmak için 60 saniye sürebilir.
+
+### <a name="default-file-location-when-created-from-azure-drive"></a>Azure sürücüsünden oluşturduğunuzda varsayılan dosya konumu:
+
+PowerShell cmdlet'lerini kullanarak, kullanıcılar dosyaları Azure sürücüsü altında oluşturulamıyor. Kullanıcıların yeni dosyaları VIM veya nano, gibi diğer araçları kullanarak oluşturduğunuzda dosyalar varsayılan olarak C:\Users klasörüne kaydedilir. 
+
+### <a name="gui-applications-are-not-supported"></a>GUI uygulamaları desteklenmez.
+
+Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırırsa `Connect-AzureAD` veya `Login-AzureRMAccount`, bir görür bir hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.

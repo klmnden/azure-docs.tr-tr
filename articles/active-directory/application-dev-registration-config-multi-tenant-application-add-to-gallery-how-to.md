@@ -1,6 +1,6 @@
 ---
-title: "Azure AD uygulama galerisinde için çok kiracılı uygulama ekleme | Microsoft Docs"
-description: "Özel geliştirilen çok kiracılı uygulamanızı Azure AD uygulama galerisinde nasıl listeleyebilirsiniz açıklar"
+title: "Azure AD uygulama galerisinde çok müşterili bir uygulama eklemek | Microsoft Docs"
+description: "Özel geliştirilmiş çok müşterili uygulamanızı Azure AD uygulama galerisinde nasıl listeleyebilirsiniz açıklanmaktadır."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f29f7cbf118d4d70c1ea2cca174ff0cf0ba9bd14
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 82f7abbe5814f9b154b6888d5b599e7706eb879b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery"></a>Azure AD uygulama galerisinde çok kiracılı uygulamaya ekleme
+# <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Azure AD uygulama galerisinde çok müşterili bir uygulamaya ekleyin
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD uygulama galerisinde nedir?
 
-Azure AD bir bulut tabanlı kimlik hizmetidir. [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/) burada tüm uygulama bağlayıcıları yayımlanır çoklu oturum açma ve kullanıcı hazırlama için bir ortak deposudur. Azure AD kimlik sağlayıcısı olarak kullanan müşterilerimizin karşılıklı, burada yayımlanan farklı SaaS uygulama bağlayıcıları, arayın. BT yöneticisi uygulama Galeriden Bağlayıcısı ekler ve yapılandırır ve çoklu oturum açma ve sağlama için kullanın. Azure AD çoklu oturum açma için SAML 2.0, Openıd Connect, OAuth ve WS-Fed gibi tüm önemli Federasyon protokollerini destekler. 
+Azure Active Directory (Azure AD), bir bulut tabanlı kimlik hizmetidir. [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/) burada tüm uygulama bağlayıcıları yayımlanır çoklu oturum açma ve kullanıcı hazırlama için Azure Marketi uygulama mağazası bulunmaktadır. Azure AD kimlik sağlayıcısı olarak kullanan müşteriler, burada yayımlanan farklı SaaS uygulama bağlayıcıları bulun. BT yöneticileri uygulama Galeriden bağlayıcılar ekleyin ve sonra yapılandırmak ve çoklu oturum açma ve sağlama için bağlayıcıları kullanın. Azure AD çoklu oturum açma için SAML 2.0, Openıd Connect, OAuth ve WS-Fed dahil olmak üzere tüm büyük Federasyon protokollerini destekler. 
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>SAML veya Openıdconnect uygulamanız destekliyorsa
-Azure AD uygulama galerisinde listelemek istediğiniz bir çok kiracılı uygulamanız varsa, ilk uygulamanızı aşağıdaki tek oturum açma teknolojileri birini destekleyen emin olmalısınız:
+Azure AD uygulama galerisinde listelenen istediğiniz çok müşterili bir uygulamanız varsa, ilk uygulamanızı aşağıdaki tek oturum açma teknolojileri birini destekleyen emin olmalısınız:
 
-1. **Openıd Connect** - Azure AD çok kiracılı uygulama oluşturma ve uygulama [Azure AD onay framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) uygulamanız için. Böylece tüm müşteri uygulama onay sağlayabilir ortak uç noktasına oturum açma isteği gönderin. Kiracı kimliği ve belirteçte alınan kullanıcı UPN bağlı müşteri kullanıcı erişimi denetleyebilirsiniz. Lütfen bu belirtildiği gibi uygulama gönderme [makale](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **Openıd Connect**: uygulamanızı listelenen sağlamak için Azure AD çok müşterili uygulama oluşturma ve uygulama [Azure AD onay framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) uygulamanız için. Herhangi bir müşteriye uygulama onay ve böylece ortak bir uç oturum açma isteği gönderin. Kiracı kimliği ve belirteçte alınan kullanıcı UPN göre bir kullanıcının erişimi denetleyebilirsiniz. Uygulama içinde açıklanan işlemi kullanarak gönderme [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-2. **SAML** – SAML 2.0 uygulamanız destekliyorsa sonra biz uygulamanızı galerisinde listelemek ve yönergeleri listelenen [burada](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing)
-
-Bu tek oturum açma modlarından birini uygulamanız destekliyorsa ve çok kiracılı uygulamanızı Azure AD uygulama galerisinde listelemek istediğiniz, belirtilen adımları takip edebilirsiniz [bu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) makalesi. 
+- **SAML**: SAML 2.0 uygulamanız destekliyorsa, uygulama galerisinde listelenebilir. ' Ndaki yönergeleri izleyin [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Uygulamanızı SAML veya Openıdconnect desteklemiyorsa
-Uygulamanız bu modlarından birini bile desteklemiyorsa, biz yine bizim parola çoklu oturum açma teknolojisini kullanarak bizim Galerisine tümleştirebilirsiniz.
+SAML veya Openıdconnect desteklemeyen uygulamalar, oturum açma parolası tek teknolojisi aracılığıyla uygulama Galerisi içine hala tümleştirilebilir.
 
-**Parola SSO** – yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). SSO, parola tabanlı ya da gibi kullanıcı erişimi ve Kimlik Federasyonu Desteği web uygulamalarına parolaları yönetmek vaulting, parola sağlar. Birkaç kullanıcı, kuruluşunuzun sosyal medya uygulaması hesaplarına gibi tek bir hesap paylaşmak için gereken yere senaryoları için de yararlıdır. 
+Parola tekli parola kasası oluşturma olarak da bilinir oturum, kullanıcı erişimi ve parolaları Kimlik Federasyonu Desteği web uygulamalarına yönetmenizi sağlar. Birkaç kullanıcı, kuruluşunuzun sosyal medya uygulaması hesaplarına gibi tek bir hesap paylaşmak gereken senaryoları için de yararlıdır. 
 
-Bu teknoloji, uygulamanızdan sonra listesinde istiyorsanız, lütfen açıklandığı gibi isteme [bu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing) makalesi.
+Bu teknoloji uygulamanızla listesinde istiyorsanız:
+1. Yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola çoklu oturum açma](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-appssoaccess-whatis). 
+2. Bölümünde açıklandığı gibi isteme [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="escalations"></a>Çözümler
 
-Tüm çözümler için e-posta bırakma [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) ve biz, EE dönebilirsiniz.
+Tüm çözümler için e-posta Gönder [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) ve size geri için mümkün olan en kısa sürede elde edersiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Uygulamanız Azure Active Directory Uygulama galerisinde listelemek nasıl](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+Bilgi edinmek için nasıl [uygulamanızı Azure Active Directory Uygulama galerisinde listelemek](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).

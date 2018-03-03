@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91f117c3b1b166a069b93c238380140f19e49280
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Apple FairPlay veya Microsoft PlayReady ile içerik, HLS koruma
 Azure Media Services, dinamik olarak HTTP canlı akışı (HLS) içeriğinizi aşağıdaki biçimlerini kullanarak şifrelemenizi sağlar:  
@@ -64,10 +64,10 @@ Media Services anahtar teslim tarafında aşağıdakiler ayarlanmalıdır:
         FairPlay sertifika ve Apple tarafından sunulan diğer dosyaların nerede klasörüne gidin.
     2. Komut satırından aşağıdaki komutu çalıştırın. Bu .cer dosyasını bir .pem dosyasına dönüştürür.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-der bildirmek-FairPlay.cer içinde-FairPlay out.pem çıkışı
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. Komut satırından aşağıdaki komutu çalıştırın. Bu .pem dosyasını özel anahtarla bir .pfx dosyasına dönüştürür. .Pfx dosyası için parolayı sonra OpenSSL tarafından istendi.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-- out FairPlay out.pfx export-inkey privatekey.pem-FairPlay out.pem - passin file:privatekey-pem-pass.txt içinde
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **Uygulama sertifika parola**: .pfx dosyasını oluşturmak için parola.
   * **Uygulama sertifika parolası kimliği**: parola, bunlar diğer Media Services anahtarları nasıl yüklemek için benzer yüklemeniz gerekir. Kullanım **ContentKeyType.FairPlayPfxPassword** enum değeri Media Services Kimliği almak için Anahtar teslim İlkesi seçeneği kullanmak istedikleri budur.
   * **IV**: 16 bayt rastgele bir değeri budur. Varlık teslim İlkesi'nde IV eşleşmelidir. IV oluşturmak ve her iki yerde de yerleştirin: Varlık teslim ilkesini ve anahtar teslim İlkesi seçeneği.
@@ -90,7 +90,7 @@ Aşağıdaki istemciler ile HLS Destek **AES-128 CBC** şifreleme: OS X, Apple T
 FairPlay ile varlıklarınızı kullanarak Media Services lisans teslimat hizmeti ve dinamik şifreleme kullanarak koruma için genel adımlar verilmiştir.
 
 1. Bir varlık oluşturun ve dosyaları varlığa yükleyin.
-2. Varlığı, dosyada Uyarlamalı bit hızı MP4 kümesine kodlayın.
+2. Dosyayı içeren varlığı, bit hızı uyarlamalı MP4 kümesine kodlayın.
 3. Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirin.  
 4. İçerik anahtarının yetkilendirme ilkesini yapılandırın. Aşağıdakileri belirtin:
 
@@ -116,7 +116,7 @@ FairPlay ile varlıklarınızı kullanarak Media Services lisans teslimat hizmet
      > * FairPlay HLS için yapılandırmak için başka bir IAssetDeliveryPolicy
      >
      >
-6. Akış URL'si almak için bir OnDemand Bulucu oluşturun.
+6. Akış URL’si almak için bir OnDemand bulucu oluşturun.
 
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>FairPlay anahtar teslim tarafından oynatıcı uygulamaları kullanma
 İOS SDK kullanarak oynatıcı uygulamaları geliştirme yapabilirsiniz. FairPlay içeriği yürütmek lisans exchange protokolünü uygulayan gerekir. Bu protokol, Apple tarafından belirtilmemiş. Anahtar teslim istekleri göndermek nasıl kadar her bir uygulama olmasından. Medya Hizmetleri FairPlay anahtar teslim hizmeti olarak aşağıdaki biçimde bir www-form-url kodlanmış posta iletisi gelmesini SPC bekler:
@@ -146,8 +146,10 @@ Aşağıdaki maddeler geçerlidir:
 1. Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 2. App.config dosyanızda tanımlanan **appSettings**’e aşağıdaki öğeleri ekleyin:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>Örnek
 
@@ -156,11 +158,11 @@ Aşağıdaki örnek Media Services ile FairPlay şifrelenmiş içeriğinizi tesl
 Bu bölümde gösterilen kodu Program.cs dosyanızdaki kodun üzerine yazın.
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için bkz: [bu](media-services-dotnet-manage-entities.md#limit-access-policies) makalesi.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
 Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek şekilde güncelleştirdiğinizden emin olun.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

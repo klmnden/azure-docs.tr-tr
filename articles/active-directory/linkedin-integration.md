@@ -9,21 +9,21 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 5ebc44d0ef6200baeacf4f1f8c4371e2d1eed9db
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cdfb5458b020e9d3a3f33cecbeb0ee7b9a48909d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="linkedin-integration-for-office-applications"></a>Office uygulamaları için LinkedIn tümleştirme
 Bu makalede Azure Active Directory (Azure AD) LinkedIn tümleştirme sağlanan kullanıcıların kısıtlamak nasıl bildirir. Bazı Microsoft uygulamalarını içinde genel LinkedIn verilere erişmesine olanak tanır, Kiracı eklendiğinde LinkedIn tümleştirme varsayılan olarak etkindir. Her bir kullanıcı, iş veya Okul hesabı LinkedIn hesaplarında bağlanmak bağımsız olarak seçebilirsiniz.
 
 > [!IMPORTANT]
-> LinkedIn tümleştirme tüm Azure AD kiracılarıyla aynı anda dağıtıldığı değil. Azure kiracınız alındı, sonra LinkedIn tümleştirme varsayılan olarak etkindir. LinkedIn tümleştirme yerel Git, sovereign ve kamu kiracılar için kullanılabilir değil. 
+> LinkedIn tümleştirme tüm Azure AD kiracılarıyla aynı anda dağıtıldığı değil. Azure kiracınız alındı, sonra LinkedIn tümleştirme varsayılan olarak etkindir. LinkedIn tümleştirme yerel Git, sovereign ve kamu kiracılar için kullanılabilir değil. Ürün bilgileri güncel bir görünümü için bkz: [Office 365 yol haritası](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) sayfası.
 
 ## <a name="linkedin-integration-from-the-user-perspective"></a>Kullanıcı açısından LinkedIn tümleştirme
 Kuruluşunuzdaki kullanıcılar kendi işlerine LinkedIn hesabı veya Okul hesabı bağladığınızda [veri sağlamak LinkedIn izin](https://www.linkedin.com/help/linkedin/answer/84077) Microsoft uygulamaları ve kuruluşunuzun sağladığı hizmetler'kullanılacak. [Kullanıcıların hesaplarını bağlantısını kesmek](https://www.linkedin.com/help/linkedin/answer/85097), Microsoft ile veri paylaşımı LinkedIn izinlerini kaldırır. LinkedIn tümleştirme genel kullanıma açık LinkedIn profil bilgilerini kullanır. [Kullanıcılar kendi LinkedIn profilini nasıl görüntülenen denetleyebilir](https://www.linkedin.com/help/linkedin/answer/83) profillerini Microsoft uygulamalarındaki görüntülenebilir olup olmadığını da dahil olmak üzere LinkedIn gizlilik ayarları kullanarak.
@@ -37,8 +37,8 @@ LinkedIn tümleştirme kuruluşlar için Azure AD içinde varsayılan olarak etk
 ### <a name="enable-or-disable-linkedin-integration-for-your-organization-in-the-azure-portal"></a>Etkinleştirmek veya devre dışı kuruluşunuzun Azure portalında LinkedIn tümleştirme
 
 1. Oturum [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/) Azure AD Kiracı için genel yönetici olan bir hesapla.
-2. Seçin **kullanıcılar ve gruplar**.
-3. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select **kullanıcı ayarlarını**.
+2. Seçin **kullanıcılar**.
+3. Üzerinde **kullanıcılar** dikey penceresinde, select **kullanıcı ayarlarını**.
 4. Altında **LinkedIn tümleştirme**seçin **Evet** veya **Hayır** etkinleştirme veya devre dışı LinkedIn tümleştirme.
    ![LinkedIn Integration etkinleştirme](./media/linkedin-integration/LinkedIn-integration.PNG)
 

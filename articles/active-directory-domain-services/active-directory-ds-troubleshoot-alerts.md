@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD etki alanı Hizmetleri - sorun giderme uyarıları
 Bu makalede, yönetilen etki alanınızda karşılaşabileceğiniz herhangi bir uyarı için sorun giderme kılavuzları sağlar.
@@ -34,6 +34,13 @@ Karşılık gelen sorun giderme adımlarını veya uyarı kimliği veya karşıl
 | AADDS102 | *Azure AD dizininizi Azure AD etki alanı Hizmetleri düzgün çalışması gerekli bir hizmet sorumlusu silinmiş olabilir. Bu yapılandırma, izleme, yönetme, düzeltme eki, Microsoft'un yeteneğini etkiler ve yönetilen etki alanınızı eşitleyin.* | [Hizmet sorumlusu eksik](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz sanal ağı için IP adres aralığı bir ortak IP aralığında değil. Azure AD etki alanı Hizmetleri, bir sanal ağdaki bir özel IP adres aralığı ile etkinleştirilmelidir. Bu yapılandırma, izleme, yönetme, düzeltme eki Microsoft'un yeteneğini etkiler ve yönetilen etki alanınızı eşitleyin.* | [Bir ortak IP aralığında adresidir](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft, bu yönetilen etki alanı için etki alanı denetleyicilerinin ulaşmasını alamıyor. Bu sanal ağ blokları erişiminizi yönetilen etki alanı için yapılandırılmış bir ağ güvenlik grubu (NSG) durum. Başka bir olası neden, bu blokları gelen trafiğin internet'ten bir kullanıcı tanımlı yol olup olmadığını olmasıdır.* | [Ağ hatası](active-directory-ds-troubleshoot-nsg.md) |
+| AADDS500 | *Yönetilen etki alanı son {0} üzerindeki Azure AD ile eşitlendi. Kullanıcılar yönetilen etki alanında oturum açmak olabilir veya grup üyeliklerini Azure AD ile eşitlenmiş olmayabilir.* | [Eşitleme bir süre içinde gerçekleşen tamamlanmadı](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *Yönetilen etki alanı son XX yedeklendi.* | [Bir yedek bir süre gerçekleştirilecek tamamlanmadı](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS502 | *Yönetilen etki alanı için güvenli LDAP sertifika XX sona erecek.* | [Güvenli LDAP sertifikanın sona ermesinden](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS503 | *Yönetilen etki alanı, etki alanı ile ilişkili Azure abonelik etkin olmadığı için askıya alınır.* | [Devre dışı bırakılmış abonelik nedeniyle askıya alma](#aadds503-suspension-due-to-disabled-subscription) |
+| AADDS504 | *Yönetilen etki alanı geçersiz bir yapılandırma nedeniyle askıya alınır. Hizmet, düzeltme eki, yönetme veya etki alanı denetleyicileri, yönetilen etki alanınız için uzun bir süredir güncelleştirmek kuramamış.* | [Geçersiz yapılandırma nedeniyle askıya alma](#aadds504-suspension-due-to-an-invalid-configuration) |
+
+
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Dizin eksik
 **Uyarı iletisi:**
@@ -75,7 +82,7 @@ Hizmetinizi geri yüklemek için aşağıdaki adımları izleyin:
 
 Başlamadan önce okuyun **özel IP v4 adresi alanı** bölümüne [bu makalede](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-Sanal ağ içinde makineler istekleri aynı IP adresi aralığında bu alt ağ için yapılandırılmış olarak Azure kaynaklarına kalmasına neden olabilir. Ancak, sanal ağ bu aralık için yapılandırıldıktan sonra bu istekleri sanal ağ içindeki yönlendirilir ve hedeflenen web kaynakları ulaşmaz. Bu, Azure AD etki alanı Hizmetleri ile beklenmeyen hatalara yol açabilir.
+Sanal ağ içinde makineler istekleri aynı IP adresi aralığında bu alt ağ için yapılandırılmış olarak Azure kaynaklarına kalmasına neden olabilir. Ancak, sanal ağ bu aralık için yapılandırıldıktan sonra bu istekleri sanal ağ içindeki yönlendirilir ve hedeflenen web kaynakları ulaşmaz. Bu yapılandırma, Azure AD etki alanı Hizmetleri ile beklenmeyen hatalara yol açabilir.
 
 **Sanal ağınızda yapılandırılmış internet IP adresi aralığında sahipseniz, bu uyarıyı göz ardı edilebilir. Ancak, Azure AD etki alanı Hizmetleri için gönderilemiyor [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] beklenmeyen hatalara yol açabilir beri bu yapılandırmaya sahip.**
 
@@ -93,6 +100,47 @@ Sanal ağ içinde makineler istekleri aynı IP adresi aralığında bu alt ağ i
 4. Etki alanına katılma için yeni etki alanı, sanal makinelerinizin izleyin [bu kılavuzda](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Uyarı çözümlendiğinde emin olmak için iki saat içinde etki alanınızın sistem durumunu denetleyin.
 
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Eşitleme bir süre içinde tamamlanmadı.
+
+**Uyarı iletisi:**
+
+*Yönetilen etki alanı son {0} üzerindeki Azure AD ile eşitlendi. Kullanıcılar yönetilen etki alanında oturum açmak olabilir veya grup üyeliklerini Azure AD ile eşitlenmiş olmayabilir.*
+
+**Düzeltme:**
+
+[Etki alanınızın sistem durumu denetimi](active-directory-ds-check-health.md) yönetilen etki alanınızın yapılandırma sorunlarını belirtebilecek herhangi bir uyarı için. Bazı durumlarda, sorunları yapılandırmanızla Microsoft'un, yönetilen etki alanı eşitleme yeteneği engelleyebilirsiniz. Tüm uyarıları çözümleyin, bekleyin tamamlayabilirseniz eşitleme tamamlanıp tamamlanmadığını görmek için iki saat ve onay yedekleyin.
+
+
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Bir yedek bir süre kullanımda değil
+
+**Uyarı iletisi:**
+
+*Yönetilen etki alanı son XX yedeklendi.*
+
+**Düzeltme:**
+
+[Etki alanınızın sistem durumu denetimi](active-directory-ds-check-health.md) yönetilen etki alanınızın yapılandırma sorunlarını belirtebilecek herhangi bir uyarı için. Bazı durumlarda, sorunları yapılandırmanızla Microsoft'un, yönetilen etki alanı eşitleme yeteneği engelleyebilirsiniz. Tüm uyarıları çözümleyin, bekleyin tamamlayabilirseniz eşitleme tamamlanıp tamamlanmadığını görmek için iki saat ve onay yedekleyin.
+
+
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Devre dışı bırakılmış abonelik nedeniyle askıya alma
+
+**Uyarı iletisi:**
+
+*Yönetilen etki alanı, etki alanı ile ilişkili Azure abonelik etkin olmadığı için askıya alınır.*
+
+**Düzeltme:**
+
+Hizmetinize geri yüklemek için [Azure aboneliğinizi yenilemek](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) yönetilen etki alanı ile ilişkilendirilmiş.
+
+## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Geçersiz yapılandırma nedeniyle askıya alma
+
+**Uyarı iletisi:**
+
+*Yönetilen etki alanı geçersiz bir yapılandırma nedeniyle askıya alınır. Hizmet, düzeltme eki, yönetme veya etki alanı denetleyicileri, yönetilen etki alanınız için uzun bir süredir güncelleştirmek kuramamış.*
+
+**Düzeltme:**
+
+[Etki alanınızın sistem durumu denetimi](active-directory-ds-check-health.md) yönetilen etki alanınızın yapılandırma sorunlarını belirtebilecek herhangi bir uyarı için. Bu uyarıların hiçbirini çözebilmek için bunu yapar. Sonra aboneliğinizi yeniden etkinleştirmek için desteğe başvurun.
 
 ## <a name="contact-us"></a>Bizimle iletişim kurun
 Azure Active Directory etki alanı Hizmetleri ürün ekibine başvurun [paylaşmak geri bildirim veya destek](active-directory-ds-contact-us.md).

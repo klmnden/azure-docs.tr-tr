@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: e2f7e356b260c0e5af67d28811bd88a63a601312
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9f2a4acdd0a2b29bc1485f62c0049f0065cbf711
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services içinde desteklenen veri kaynakları
 
@@ -48,7 +48,7 @@ Bellek içi ve Azure veri kaynaklarına bağlanma DirectQuery modellerinde SQL S
 
 ## <a name="on-premises-data-sources"></a>Şirket içi veri kaynakları
 
-Bağlanan veri kaynakları bir şirket içi ağ geçidi gerektiren şirket içi. Bir ağ geçidi kullanırken, 64-bit sağlayıcıları yüklü olduğundan emin olun.
+Bağlanan veri kaynaklarından ve Azure AS server bir şirket içi ağ geçidi gerektiren şirket içi. Bir ağ geçidi kullanırken, 64-bit sağlayıcıları gereklidir.
 
 ### <a name="in-memory-and-directquery"></a>Bellek içi ve DirectQuery
 
@@ -60,31 +60,26 @@ Bağlanan veri kaynakları bir şirket içi ağ geçidi gerektiren şirket içi.
 | Teradata |Teradata için .NET Teradata veri sağlayıcısı için OLE DB sağlayıcısı |.NET için Teradata veri sağlayıcısı | |
 | | | |
 
-\* Yalnızca tablolu 1400 modeller için.
-
 ### <a name="in-memory-only"></a>Bellek içi yalnızca
-
-> [!IMPORTANT]
-> Aşağıdaki veri kaynakları için sağlayıcıları test etme devam etmektedir. 
 
 |Veri kaynağı  |  
 |---------|---------|
 |Access veritabanı     |  
 |Active Directory*     |  
-|Analysis Services     | 
+|Analysis Services     |  
 |Analiz platformu sistemi     |  
 |Dynamics CRM*     |  
-|Excel çalışma kitabı     | 
+|Excel çalışma kitabı     |  
 |Exchange*     |  
 |Klasör *     | 
 |JSON belgesini *     |  
 |Satırlarından ikili *     | 
 |MySQL Veritabanı     | 
-|OData akışı *     | 
+|OData akışı *     |  
 |ODBC sorgu     | 
-|OLE DB     |  
+|OLE DB     |   
 |Postgre SQL veritabanı *    | 
-|SAP HANA*    |   
+|SAP HANA*    |  
 |SAP Business Warehouse *    |  
 |SharePoint*     |   
 |Sybase Veritabanı     |  

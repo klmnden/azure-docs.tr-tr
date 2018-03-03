@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 362773bbefa754fc90aa4dbd471889245b4b6cf5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET ile Azure Media Services telemetri yapılandırma
 
@@ -42,19 +42,23 @@ Telemetri etkinleştirmek için aşağıdaki adımlar gerekir:
 - Media Services hesabına bağlı depolama hesabının kimlik bilgilerini alın. 
 - Bildirim uç noktası ile oluşturma **EndPointType** kümesine **AzureTable** ve depolama tabloya işaret eden endPointAddress.
 
+```csharp
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
+```
 
 - İzlemek istediğiniz hizmetleri için ayarlar İzleme yapılandırmasını oluşturun. İzleme birden fazla yapılandırma ayarı izin verilir. 
-  
+
+```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
                 new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
+```
 
 ## <a name="consuming-telemetry-information"></a>Telemetri bilgileri kullanma
 
@@ -66,13 +70,15 @@ Süren telemetri bilgileri hakkında daha fazla bilgi için bkz: [bu](media-serv
 
 2. Aşağıdaki öğeyi ekleyin **appSettings** app.config dosyasında tanımlanan:
 
-    <add key="StorageAccountName" value="storage_name" />
+    ```xml
+        <add key="StorageAccountName" value="storage_name" />
+    ```
  
 ## <a name="example"></a>Örnek  
     
 Aşağıdaki örnek, belirtilen AMS hesabının telemetri etkinleştirme ve Azure Media Services .NET SDK kullanarak ölçümleri sorgulama gösterir.  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

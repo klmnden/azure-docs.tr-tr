@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: dce848d75e2ce89e8e6003108f1cd5371cbb0f31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Office 365 grupları Azure Active Directory'de (Önizleme) için adlandırma ilkesini zorunlu kılma
 
@@ -100,7 +100,9 @@ Güvenilmeyen bir depo erişme hakkında istenirse, yazın **Y**. Yeni modülün
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-İçinde **hesabınızda oturum** yönetici hesabınız ve parolanız hizmetinize bağlamak ve seçmek için açılır ve ekran girin **oturum**.
+  İçinde **hesabınızda oturum** yönetici hesabınız ve parolanız hizmetinize bağlamak ve seçmek için açılır ve ekran girin **oturum**.
+
+3. Adımları [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-cmdlets.md) bu Kiracı için Grup ayarları oluşturmak için.
 
 ### <a name="view-the-current-settings"></a>Geçerli ayarları görüntülemek
 
@@ -140,9 +142,9 @@ Bu kadar. Adlandırma ilkenizi ayarlayın ve engellenen sözcüklerinizi eklenen
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Özel engellenen sözcüklerin listesini içeri veya dışarı
 
-Daha fazla bilgi için bkz: [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-cmdlets.md)
+Daha fazla bilgi için bkz: [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-cmdlets.md).
 
-Birden çok engellenen sözcük dışarı aktarmak için PowerShell Betiği örnek aşağıda verilmiştir:
+Burada, birden çok engellenen sözcük dışarı aktarmak için bir PowerShell komut dosyası örneği verilmiştir:
 
 ````
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 

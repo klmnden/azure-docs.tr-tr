@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Jenkins ve Azure kapsayıcı örneği kullanarak azure'da bir projeyi derleme
 
@@ -51,7 +51,7 @@ Azure üzerinde Jenkins yükledikten sonra Jenkins için bağlanmanız gerekir. 
 
 [!INCLUDE [jenkins-connect-to-jenkins-server-running-on-azure](../../includes/jenkins-connect-to-jenkins-server-running-on-azure.md)]
 
-## <a name="update-jenkins-dns"></a>Jenkins DNS güncelleştirme
+## <a name="update-jenkins-dns"></a>Update Jenkins DNS
 
 Jenkins geri kendisine işaret bağlantılar oluştururken kendi URL bilmesi gerekir. Örneğin, URL Jenkins sonuçları oluşturmak için doğrudan bağlantılar içeren e-posta gönderirken kullanılmalıdır. 
 
@@ -233,7 +233,7 @@ Azure kapsayıcı aracıları eklentisi yüklendikten sonra bu bölümde Jenkins
 
     - **Ad** -girin `ACI-container`.
     - **Etiketleri** -girin `ACI-container`.
-    - **Docker görüntü** -girin`cloudbees/jnlp-slave-with-java-build-tools`
+    - **Docker görüntü** -girin `cloudbees/jnlp-slave-with-java-build-tools`
 
     ![Azure kapsayıcı örneği görüntü özelliklerini tanımlama](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
 
@@ -318,8 +318,8 @@ Projenizi derleme için zamanı geldi! Bu bölümde, Jenkins panodan bir projeyi
 ## <a name="clean-up-azure-resources"></a>Azure kaynakları temizlemek
 
 Bu öğreticide, iki Azure kaynak grubu içinde bulunan kaynaklar oluşturuldu: 
-    - `JenkinsResourceGroup`-Jenkins server için Azure kaynaklarını içerir.
-    - `JenkinsAciResourceGroup`-Jenkins aracı için Azure kaynaklarını içerir.
+    - `JenkinsResourceGroup` -Jenkins server için Azure kaynaklarını içerir.
+    - `JenkinsAciResourceGroup` -Jenkins aracı için Azure kaynaklarını içerir.
     
 Artık herhangi bir kaynağa bir Azure kaynak grubu kullanmanız gerekiyorsa, kaynak grubunu kullanarak silebilirsiniz `az group delete` gibi komut (değiştirme &lt;resourceGroup > yer tutucu istediğiniz kaynak grubunun adı Sil):
 

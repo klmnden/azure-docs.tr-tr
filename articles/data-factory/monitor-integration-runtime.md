@@ -3,21 +3,21 @@ title: "Azure Data Factory tümleştirme çalışma zamanında izleme | Microsof
 description: "Farklı Azure Data Factory içinde Integration zamanının izlemek öğrenin."
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: 
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
-ms.author: spelluru
-ms.openlocfilehash: b243115eef7e59279fbb1df2a3e3c288477a5b8c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: douglasl
+ms.openlocfilehash: 74a4ad6438f9e66331f76e87d20d1eb8b29e8451
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory bir tümleştirme çalışma zamanı izleme  
 **Tümleştirme çalışma zamanı** olan farklı ağ ortamlar genelinde çeşitli veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan bilgi işlem altyapısı. Veri fabrikası tarafından sunulan tümleştirme çalışma zamanları üç tür vardır:
@@ -180,7 +180,7 @@ Azure SSIS tümleştirmesi çalışma zamanı SSIS paketleri çalıştırmak iç
 
 | Durum | Açıklama |
 | ------ | ----------- | 
-| Başlangıç | Bu düğüm hazırlanıyor. |
+| Başlatılıyor | Bu düğüm hazırlanıyor. |
 | Kullanılabilir | Bu düğüm SSIS paketleri dağıtmak/yürütmek için hazırdır. |
 | Geri dönüştürme | Bu düğüm, onarıldı/yeniden başlatma olan ' dir. |
 | Kullanılamaz | Bu düğüm SSIS paketleri dağıtmak/yürütmek hazır değil ve tıklatılabilir hataları/çözümlenmesi sorunları vardır. |
@@ -190,7 +190,7 @@ Azure SSIS tümleştirmesi çalışma zamanı SSIS paketleri çalıştırmak iç
 | Genel durum | Açıklama | 
 | -------------- | ----------- | 
 | İlk | Düğümler, Azure SSIS Integration zamanının ayrılmış ve hazırlanan verilmemiş. | 
-| Başlangıç | Ayrılmış ve hazırlanan Azure SSIS Integration zamanının düğümleri ve faturalama başlatıldı. |
+| Başlatılıyor | Ayrılmış ve hazırlanan Azure SSIS Integration zamanının düğümleri ve faturalama başlatıldı. |
 | Başlatıldı | Azure SSIS Integration zamanının düğümleri ayrılmış ve hazır ve SSIS paketleri dağıtmak/yürütmek hazır. |
 | Durduruluyor  | Düğümler, Azure SSIS Integration zamanının yayınlanmaktadır. |
 | Durduruldu | Azure SSIS Integration zamanının düğümleri kullanıma ve faturalama durduruldu. |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 41b36a25eab9c1564dc59a40acd7daefde888b7f
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk şeması - HIPAA/HITRUST sistem durumu verileri ve AI
 
@@ -40,21 +40,15 @@ Bu şeması, müşterilerin yeni Azure denemeler hem Klinik ve işletimsel kulla
 
 -   Müşteriler, bu temel mimari kullanılarak oluşturulan herhangi bir çözümü uygun güvenlik ve uyumluluk değerlendirmelerini yürütmek için sorumludur.
 
-Bu çözümün nasıl çalıştığı ilişkin hızlı genel bakış için bu izleme [video](https://aka.ms/healthblueprintvideo) açıklayan ve onun dağıtım gösterilmesi.
-
 ## <a name="deploying-the-automation"></a>Otomasyon dağıtma
 
 - Çözümü dağıtmak için dağıtım kılavuzunda sağlanan yönergeleri izleyin. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
+Bu çözümün nasıl çalıştığı ilişkin hızlı genel bakış için bu izleme [video](https://aka.ms/healthblueprintvideo) açıklayan ve onun dağıtım gösterilmesi.
+
 - Sık sorulan sorular bulunabilir [SSS](https://aka.ms/healthblueprintfaq) Kılavuzu.
-
-
-## <a name="solution-components"></a>Çözüm bileşenleri
-
-
-Temel mimari aşağıdaki bileşenlerden oluşur:
 
 -   **Mimari diyagramı.** Şeması kullanılan referans mimarisi diyagramı gösterir ve örnek senaryosu kullanın.
 
@@ -66,12 +60,16 @@ Temel mimari aşağıdaki bileşenlerden oluşur:
 -   Bir modül yükleme ve [genel yönetici](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) Kurulum komut dosyası yükleyin ve gerekli PowerShell modülleri ve genel yönetici rolleri doğru şekilde yapılandırıldığını doğrulamak için kullanılır. 
 -   PowerShell komut dosyası yüklemesi, önceden oluşturulmuş demo işlevleri içeren bir .zip dosyası sağlanan bu çözümü dağıtmak için kullanılır.
 
+## <a name="solution-components"></a>Çözüm bileşenleri
+
+
+Temel mimari aşağıdaki bileşenlerden oluşur:
 
 -   **[Tehdit modeli](https://aka.ms/healththreatmodel)**  kapsamlı tehdit modeli ile kullanılmak üzere tm7 biçimde sağlanmış [Microsoft tehdit modelleme aracı](https://www.microsoft.com/en-us/download/details.aspx?id=49168), çözümün bileşenlerinin gösteren, veriler bunları ve güven arasında akar sınırlar. Model müşteriler makine öğrenme bileşenleri veya başka değişiklikler geliştirirken sistem altyapısında potansiyel risk puanları anlamanıza yardımcı olabilir.
 
--   **[Müşteri sorumluluk matrisi](https://aka.ms/healthcrmblueprint)**  bir Microsoft Excel çalışma kitabı ilgili HITRUST gereksinimleri listelenir ve Microsoft ve müşterinin nasıl her biri toplantı sorumlu açıklar.
+-   **[Müşteri uygulaması matris](https://aka.ms/healthcrmblueprint)**  bir Microsoft Excel çalışma kitabı ilgili HITRUST gereksinimleri listelenir ve Microsoft ve müşterinin nasıl her biri toplantı sorumlu açıklar.
 
--   ** [Sistem sağlığı gözden geçirin. Çözüm Coalfire systems, Inc. tarafından gözden Sistem durumu uyumluluk (HIPAA ve HITRUST) inceleyin ve uygulama için rehberlik sağlar bir denetçi\'çözüm ve ayrıntılı bir üretime hazır dağıtımına dönüştürme dikkat edilmesi gereken noktalar s gözden geçirin.
+-   **[Sistem durumu gözden geçirin.](https://aka.ms/healthreviewpaper)** Çözüm Coalfire systems, Inc. tarafından gözden Sistem durumu uyumluluk (HIPAA ve HITRUST) inceleyin ve uygulama için rehberlik sağlar bir denetçi\'çözüm ve ayrıntılı bir üretime hazır dağıtımına dönüştürme dikkat edilmesi gereken noktalar s gözden geçirin.
 
 # <a name="architectural-diagram"></a>Mimari diyagramı
 

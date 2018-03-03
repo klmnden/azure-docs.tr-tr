@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 63ae975426f1057b178171ef89ce98402ff18725
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
-' Bu makalede yayımlanan sürümleri izlemenize yardımcı olacak ve en yeni sürüme veya güncelleştirme gerekip gerekmediğini anlamak için tasarlanmıştır.
+
+Bu makalede, yayımlanan sürümleri izlemenize yardımcı olmak için ve en yeni sürüme veya güncelleştirme gerekip gerekmediğini anlamak için tasarlanmıştır.
 
 İlgili Konular listesidir:
 
@@ -42,7 +43,6 @@ Durum: Bu sürüm otomatik yükseltme etkinleştirdiyseniz AADConnect kiracılar
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Giderilen sorunlar
-* Arka planda zamanlama penceresi düzeltme sayfasında bölüm filtreleme için görevler
 * Sonraki sayfaya geçiş yaparken bölüm filtreleme sayfası için arka plan görevleri zamanlama penceresi düzeltin.
 
 * ConfigDB özel eylemi sırasında erişim ihlali neden hatanın düzeltildiğini

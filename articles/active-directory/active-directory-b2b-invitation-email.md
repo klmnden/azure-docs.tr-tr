@@ -3,7 +3,7 @@ title: "Öğeleri B2B işbirliği davet e - Azure Active Directory | Microsoft D
 description: "Azure Active Directory B2B işbirliği davet e-posta şablonu"
 services: active-directory
 documentationcenter: 
-author: sasubram
+author: twooley
 manager: mtillman
 editor: 
 tags: 
@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
-ms.author: sasubram
-ms.openlocfilehash: d3529397762cdb814e939b53d8c789add4955149
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: twooley
+ms.reviewer: sasubram
+ms.openlocfilehash: 0d26fc4758b2defc3f1b8b5643daafdac4d2baac
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B işbirliği davet e - Azure Active Directory öğeleri
 
@@ -32,7 +33,7 @@ En iyi şekilde nasıl yeteneklerini kullanmak için bilmesi e-postanın birkaç
 E-postanın konu şu deseni izler: davet ettiğiniz &lt;tenantname&gt; kuruluş
 
 ### <a name="from-address"></a>Gönderici adresi
-Başlangıç adresi için bir LinkedIn desen kullanırız.  Davet eden olan temizleyin ve hangi şirket ve ayrıca bir Microsoft e-posta geliyor açıklamak e-posta adresi gerekir. Biçim: &lt;davet eden görünen adını&gt; gelen &lt;tenantname&gt; (aracılığıyla Microsoft)<invites@microsoft.com>
+Başlangıç adresi için bir LinkedIn desen kullanırız.  Davet eden olan temizleyin ve hangi şirket ve ayrıca bir Microsoft e-posta geliyor açıklamak e-posta adresi gerekir. Biçim: &lt;davet eden görünen adını&gt; gelen &lt;tenantname&gt; (aracılığıyla Microsoft) <invites@microsoft.com>
 
 ### <a name="reply-to"></a>Yanıtla
 E-posta yanıtlama geri davet eden bir e-posta gönderir Yanıtla e-posta davet eden'ın e-posta için kullanılabilir olduğunda ayarlanır.
