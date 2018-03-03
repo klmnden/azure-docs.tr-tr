@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure yığın kimliği mimarisi
 Azure yığın ile kullanmak için bir kimlik sağlayıcısı seçmeden önce Active Directory Federasyon Hizmetleri (AD FS) ile Azure Active Directory (Azure AD) seçenekleri arasındaki önemli farklılıkları anlayın. 
@@ -86,7 +86,7 @@ Bu topoloji ile:
 
   AD ile etkileşim kurmak için salt okunur izni olan kullanıcı kimlik bilgilerini AD grafik API'si gerektirir AD. 
   - Yerleşik AD FS sunucu 2016 tarihinde temel alır. 
-  - AD FS ile AD Server 2012 veya önceki sürümlerde temel gerekir. 
+  - AD FS ile AD Server 2012 veya sonraki sürümlerde temel gerekir.  
   
   AD ve yerleşik AD FS arasında etkileşimler Openıd Connect için sınırlı değildir ve herhangi bir birbirini desteklenen protokol kullanabilirsiniz.  
   - Kullanıcı hesapları oluşturulur ve şirket içinde yönetilir AD.

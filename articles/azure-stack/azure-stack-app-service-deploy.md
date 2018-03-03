@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure yığın uygulama hizmeti kaynak Sağlayıcısı Ekle
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
@@ -70,7 +70,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     ![Uygulama Hizmeti Yükleyici](media/azure-stack-app-service-deploy/image03.png)
 
-7. Dosya Paylaşımı için bilgileri girin ve ardından **sonraki**. Dosya Paylaşımı adresi tam etki alanı adını, dosya sunucunuz örneğin kullanmalıdır \\\appservicefileserver.local.cloudapp.azurestack.external\websites ya da IP adresi, örneğin \\\10.0.0.1\websites.
+7. Dosya Paylaşımı için bilgileri girin ve ardından **sonraki**. Dosya Paylaşımı adresi tam olarak nitelenmiş etki alanı adını, dosya sunucusu veya IP adresini kullanması gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites.
 
     ![Uygulama Hizmeti Yükleyici](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     ![Uygulama Hizmeti Yükleyici](media/azure-stack-app-service-deploy/image05.png)
 
-9. Her üç sertifika dosya kutularında, **Gözat** ve uygun sertifika dosyasına gidin. Her sertifika için parola belirtmeniz gerekir. Bu sertifikalar, oluşturduğunuz olanlardır [oluşturma gerekli sertifikaları adım](azure-stack-app-service-deploy.md#create-the-required-certificates). Tıklatın **sonraki** tüm bilgileri girdikten sonra.
+9. Her üç sertifika dosya kutularında, **Gözat** ve uygun sertifika dosyasına gidin. Her sertifika için parola sağlayın. Bu sertifikalar, oluşturduğunuz olanlardır [oluşturma gerekli sertifikaları adım](azure-stack-app-service-deploy.md#create-the-required-certificates). Tıklatın **sonraki** tüm bilgileri girdikten sonra.
 
     | Box | Sertifika dosyası adı örneği |
     | --- | --- |
@@ -99,7 +99,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     ![Uygulama Hizmeti Yükleyici](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Rol örneği ve SKU seçenekleri gözden geçirin. Varsayılan örneği ve minimum SKU ASDK dağıtımında her rol için minimum sayısı ile doldurulur. VCPU ve bellek gereksinimlerini özetini dağıtımınızı planlamaya yardımcı olması için sağlanmıştır. Seçimlerinizi yaptıktan sonra tıklatın **sonraki**.
+11. Rol örneği ve SKU seçenekleri gözden geçirin. Varsayılan örneği ve minimum SKU ASDK dağıtımında her rol için minimum sayısı ile doldurun. VCPU ve bellek gereksinimlerini özetini dağıtımınızı planlamaya yardımcı olması için sağlanmıştır. Seçimlerinizi yaptıktan sonra tıklatın **sonraki**.
 
     > [!NOTE]
     > Üretim dağıtımlarında yer alan yönergeleri izleyerek, [kapasite Azure yığınında Azure App Service sunucu rolleri için planlama](azure-stack-app-service-capacity-planning.md).

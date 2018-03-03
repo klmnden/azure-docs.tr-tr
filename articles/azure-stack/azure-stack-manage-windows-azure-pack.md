@@ -3,8 +3,8 @@ title: "Windows Azure paketi sanal makineleri Azure yığınından yönetme | Mi
 description: "Windows Azure Pack (WAP) VM'ler Azure yığınında Kullanıcı Portalı'ndan yönetmeyi öğrenin."
 services: azure-stack
 documentationcenter: 
-author: walterov
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: walterov
-ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: a7e4896c84938b392a86f4d9609c4932324c785d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Windows Azure paketi sanal makineleri Azure yığınından yönetme
 
@@ -65,7 +65,7 @@ Portal, bir kullanıcı Windows Azure Pack kaynakları hedefleyen Azure yığın
 
 Geliştirme Seti ortamında Microsoft Azure Pack ve Azure yığın bağımsız kimlik sağlayıcıları vardır. Azure yığın Portalı'ndan her iki ortama erişen kullanıcılar, iki kimlik sağlayıcıları aynı kullanıcı asıl adı (UPN) adı olmalıdır. Örneğin, hesabı  *azurestackadmin@azurestack.local*  STS için Windows Azure Pack içinde de bulunmalıdır. AD FS giden güven ilişkileri desteklemek için ayarlanmamış olduğunda, AD FS Azure yığın örneğini Microsoft Azure Pack bileşenlerini (Kiracı API'si) güven oluşturacaktır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="download-the-windows-azure-pack-connector"></a>Windows Azure Pack Bağlayıcısı'nı indirin
 Üzerinde [Microsoft Download Center](https://aka.ms/wapconnectorazurestackdlc).exe dosyasını indirin ve yerel bilgisayarınıza ayıklayın. Daha sonra içeriği Microsoft Azure Pack ortamınıza erişmek için bir bilgisayara kopyalayın.
@@ -163,7 +163,7 @@ Yalnızca test ortamları ve üretim dağıtımlarında, bu Önizleme sürümü 
     ```
      d. Değiştirme dizinleri **c:\inetpub** ve üç yeni siteler yüklü olduğunu doğrulayın:
 
-       * MgmtSvc-bağlayıcı
+       * MgmtSvc-Connector
 
        * MgmtSvc-ConnectorExtension
 
@@ -183,7 +183,7 @@ Yalnızca test ortamları ve üretim dağıtımlarında, bu Önizleme sürümü 
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | Windows Azure paketi Kiracı portalı FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | Windows Azure paketi Kiracı API'si FQDN'SİDİR. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | Azure yığın Kullanıcı Portalı FQDN. | Portal.Local.azurestack.external |
+    | AzureStackPortalFQDN | Azure yığın Kullanıcı Portalı FQDN. | portal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -217,7 +217,7 @@ Yalnızca test ortamları ve üretim dağıtımlarında, bu Önizleme sürümü 
     | Parametre | Açıklama | Örnek |
     | --------- | ------------| ------- |
    | SqlServer | Microsoft.MgmtSvc.Store veritabanını içeren SQL Server'ın adı. Bu parametre gereklidir. | SQLServer | 
-   | Veri dosyası | Azure yığını çok bulut modu yapılandırmasını sırasında daha önce oluşturulan çıktı dosyası. Bu parametre gereklidir. | AzurePack-06-27-15-50.txt | 
+   | DataFile | Azure yığını çok bulut modu yapılandırmasını sırasında daha önce oluşturulan çıktı dosyası. Bu parametre gereklidir. | AzurePack-06-27-15-50.txt | 
    | PromptForSqlCredential | Komut dosyası, SQL Server örneğine bağlanırken kullanılacak etkileşimli olarak SQL kimlik doğrulaması kimlik bilgileri ister gösterir. Verilen kimlik bilgisi veritabanları, şemalar, kaldırmak için yeterli izinlere sahip ve kullanıcı oturumu silmeniz gerekir. Sağlanırsa, komut dosyası, geçerli kullanıcı içeriğini erişimi varsayar. | Herhangi bir değer gereklidir. |
    |  |  |
 

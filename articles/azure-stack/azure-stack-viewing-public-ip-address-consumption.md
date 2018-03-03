@@ -3,8 +3,8 @@ title: "Ortak IP adresi tüketim Azure yığınında görüntülemek | Microsoft
 description: "Yöneticiler, bir bölgede genel IP adresleri tüketiminin görüntüleyebilir"
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 0f77be49-eafe-4886-8c58-a17061e8120f
 ms.service: azure-stack
@@ -12,48 +12,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: scottnap
-ms.openlocfilehash: 7651565eebf6272f307a4ce4790ca19b41bfa826
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 50bf01d6de6105d3041c6bb88e803f3d110f751d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Ortak IP adresi tüketim Azure yığınında görüntüleyin
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Bulut Yöneticisi olarak, kiracılar, ayırma için hala kullanılabilir genel IP adresleri sayısını ve söz konusu konumda ayrılmış genel IP adresleri yüzdesini ayrılmış genel IP adresleri sayısını görebilirsiniz.
+Bulut yönetici olarak, görüntüleyebilirsiniz:
+ - Kiracılar için ayrılan ortak IP adresi sayısı.
+ - Ayırma için hala kullanılabilir ortak IP adresi sayısı.
+ - Bu konumda ayrılmış genel IP adresleri yüzdesi.
 
-**Genel IP havuzları kullanım** döşeme Iaas VM örnekleri, Kiracı doku altyapınız için kullanılmış olup olmadığını doku tüm ortak IP adresi havuzundaki genelinde kullanılan genel IP adresleri toplam sayısını gösterir Hizmetleri veya açıkça kiracılar tarafından oluşturulan ortak IP adresi kaynakları.
+**Genel IP havuzları kullanım** döşeme ortak IP adresi havuzu genelinde kullanılan genel IP adresleri sayısını gösterir. Her IP adresi için döşeme Kiracı Iaas VM için kullanım örnekleri ve yapı altyapı hizmetleri açıkça kiracılar tarafından oluşturulan ortak IP adresi kaynakları gösterir.
 
-Bu kutucuğu amacı, bu konumda tüketilen genel IP adresleri genel sayısını duygusu Azure yığın Yöneticiler vermektir. Bu, bunlar Bu kaynakta düşük çalışıp çalışmadığını belirleme Yöneticiler yardımcı olur.
+Döşeme amacı, bu konumda kullanılan ortak IP adresi sayısı duygusu Azure yığın işleçleri vermektir. Sayı, bu kaynaktaki düşük çalışıp çalışmadığını belirleme yöneticilerin yardımcı olur.
 
-Üzerinde **kaynak sağlayıcıları**, **ağ** dikey penceresinde **ortak IP adresleri** menü öğesi altında **Kiracı kaynaklarına** yalnızca bu genel listeler Silinmiş IP adreslerini *kiracılar tarafından oluşturulan açıkça*. Şekilde sayısını **kullanılan** genel IP adresleri **genel IP havuzları kullanım** kutucuğu (büyük) öğesinden farklı her zaman üzerinde sayı **genel IP adresleri** döşeme altında **Kiracı kaynaklarını**.
+**Ortak IP adresleri** menü öğesi altında **Kiracı kaynaklarına** henüz yalnızca bu ortak IP adreslerini listeler *kiracılar tarafından oluşturulan açıkça*. Menü öğesi bulabilirsiniz **kaynak sağlayıcıları**, **ağ** bölmesi. Sayısı **kullanılan** genel IP adresleri **genel IP havuzları kullanım** kutucuğu (büyük) öğesinden farklı her zaman üzerinde sayı **genel IP adresleri** döşeme altında **Kiracı kaynaklarını**.
 
 ## <a name="view-the-public-ip-address-usage-information"></a>Ortak IP adresi kullanım bilgilerini görüntüleme
 Bölgede tüketilen genel IP adresleri toplam sayısını görüntülemek için:
 
-1. Azure yığın Yönetici portalı'nda tıklatın **daha fazla hizmet**altında **yönetim kaynaklarının**, tıklatın **kaynak sağlayıcıları**.
+1. Azure yığın Yönetici portalı'nda seçin **daha fazla hizmet**altında **yönetim kaynaklarının**seçin **kaynak sağlayıcıları**.
 2. Listesinden **kaynak sağlayıcıları**seçin **ağ**.
-3. **Ağ** dikey penceresinde görüntüler **genel IP havuzları kullanım** parçasında **genel bakış** bölümü.
+3. **Ağ** bölmesi görüntüler **genel IP havuzları kullanım** parçasında **genel bakış** bölümü.
 
-![Ağ kaynak sağlayıcısı dikey penceresi](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![Ağ kaynak sağlayıcısı bölmesi](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
-Aklınızda **kullanılan** numarasını atanan tüm ortak IP adresi havuzlarını o konumda ortak IP adresi sayısı temsil eder. **Serbest** tüm ortak bir IP adresi genel IP sayısı sayı temsil adresi henüz atanmamış ve hala kullanılabilir havuzları. **% Kullanılan** numarasını kullanılan veya bu konumda bulunan tüm genel IP adresi havuzları genel IP adresleri toplam sayısı yüzdesi olarak atanmış adresleri sayısını temsil eder.
+**Kullanılan** numarası, ortak IP adresi havuzlarını atanmış ortak IP adresleri sayısını temsil eder. **Serbest** ortak bir IP adresi genel IP sayısı sayı temsil adresi henüz atanmamış ve hala kullanılabilir havuzları. **% Kullanılan** numarasını kullanılan veya ortak IP adresi havuzları o konumda genel IP adresleri toplam sayısı yüzdesi olarak atanmış adresleri sayısını temsil eder.
 
 ## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Kiracı abonelik tarafından oluşturulan ortak IP adreslerini görüntüleme
-Belirli bir bölgede Kiracı abonelikleri tarafından açıkça oluşturulan genel IP adresleri listesini görmek için tıklatın **ortak IP adresleri** altında **Kiracı kaynaklarına**.
+Seçin **ortak IP adresleri** altında **Kiracı kaynaklarına**. Belirli bir bölgede Kiracı abonelikleri tarafından açıkça oluşturulan genel IP adresleri listesini gözden geçirin.
 
 ![Kiracı genel IP adresleri](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
-Dinamik olarak ayrılan bazı ortak IP adresleri listede görünür ancak henüz ilişkili bir adresi yoksa fark edebilirsiniz. Adres kaynak ağ kaynak sağlayıcısı, ancak Ağ denetleyicisi henüz oluşturulmamış olmasıdır.
+Dinamik olarak ayrılan bazı ortak IP adresleri listesinde göründüğünü fark edebilirsiniz. Ancak, bir adresi henüz kendileriyle ilişkili olmamıştır. Ağ kaynak sağlayıcısı, ancak henüz Ağ denetleyicisi adresi kaynağı oluşturuldu.
 
-Ağ denetleyicisi, bir arabirim, bir ağ arabirimi kartı (NIC), bir yük dengeleyici veya bir sanal ağ geçidi için gerçekten bağlı olduğu kadar bir adresi bu kaynağa atamaz. Genel IP adresi için bir arabirim bağlanır, ona bir IP adresi ağ denetleyicisi ayırdığında ve görünür **adresi** alan.
+Arabirim, bir ağ arabirimi kartı (NIC), bir yük dengeleyici veya bir sanal ağ geçidi bağlar kadar Ağ denetleyicisi için kaynak adres atamaz. Genel IP adresi için bir arabirim bağladığında, Ağ denetleyicisi bir IP adresi ayırır. Adres görünür **adresi** alan.
 
 ## <a name="view-the-public-ip-address-information-summary-table"></a>Ortak IP adresi bilgileri Özet tablosunu görüntüleme
-Adres listesi veya başka bir görünür olup olmadığını belirlemek genel IP adresleri atanan farklı durumlarda mevcuttur.
+Farklı durumlarda ortak IP adresleri adres listesi veya başka bir görünür olup olmadığını belirleyen atanır.
 
 | **Ortak IP adresi ataması durumu** | **Kullanım Özeti görüntülenir** | **Kiracı ortak IP adresleri listesinde görüntülenir** |
 | --- | --- | --- |

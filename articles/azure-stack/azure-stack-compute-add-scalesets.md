@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Sanal makine ölçek kümeleri Azure yığın kullanılabilmesini
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 Sanal makine ölçek kümeleri Azure yığın işlem kaynaktır. Bunları dağıtmak ve aynı sanal makineler kümesini yönetmek için kullanabilirsiniz. Tüm sanal makinelerle aynı ölçek kümeleri sanal makinelerin önceden sağlama gerektirmeyen yapılandırılmış. Big compute, büyük veri ve kapsayıcılı iş yükleri hedef büyük ölçekli hizmetler oluşturmak kolaydır.
 
-Bu konu Azure yığın Marketi'nde ölçek kümeleri kullanılabilir hale getirmek sürecinde size kılavuzluk eder. Bu yordamı tamamladıktan sonra kullanıcılarınızın kendi abonelikler için sanal makine ölçek ayarlar ekleyebilirsiniz.
+Bu makalede Azure yığın Marketi'nde ölçek kümeleri kullanılabilir hale getirmek sürecinde size kılavuzluk eder. Bu yordamı tamamladıktan sonra kullanıcılarınızın kendi abonelikler için sanal makine ölçek ayarlar ekleyebilirsiniz.
 
 Sanal makine ölçek kümeleri Azure yığında azure'da sanal makine ölçek kümeleri gibidir. Daha fazla bilgi için aşağıdaki videoları bakın:
 * [Mark Russinovich, Azure ölçek kümeleri hakkında konuşuyor](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
@@ -81,7 +81,7 @@ Bir sanal makineyi kaldırmak için kümesi galeri öğesi ölçeklendirme, aşa
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> Galeri öğesi hemen kaldırılamaz. Marketten kaldırılmadan önce portal birkaç kez yenilemeniz gerekebilir.
+> Galeri öğesi hemen kaldırılamaz. Gece, Market görüntüsünden kaldırılmış olarak olan öğeyi gösterir önce portal birkaç kez yenilemeniz gerekir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
