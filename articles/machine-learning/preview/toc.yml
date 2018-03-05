@@ -194,25 +194,15 @@
   items:
     - name: Sık sorulan sorular
       href: frequently-asked-questions.md
-    - name: Bilinen sorunlar ve sorun giderme
+    - name: Sorunlar ve sorun giderme
       href: known-issues-and-troubleshooting-guide.md
-    - name: Team Data Science Process belgeleri
-      href: ../team-data-science-process/overview.md
-    - name: Veri Bilimi VM belgeleri
-      href: ../data-science-virtual-machine/overview.md
-    - name: Azure Yol Haritası
+    - name: Destek ve eğitim
+      href: support-for-aml-services.md
+    - name: Azure yol haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
-    - name: MSDN forumu
-      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: Videolar
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: Geri Bildirim forumu
-      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+      href: aml-services-pricing.md
     - name: Bölge kullanılabilirliği
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Destek seçenekleri
-      href: 'https://azure.microsoft.com/support/options/'
+    - name: Team Data Science Process
+      href: ../team-data-science-process/overview.md

@@ -52,7 +52,15 @@
           href: msi-qs-configure-template-windows-vm.md
         - name: Azure SDK’sını kullanma
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Resource Manager’a VM MSI erişimi verme
+    - name: Azure VMSS için MSI’yı yapılandırma
+      items:
+        - name: Azure Portal’ı kullanma
+          href: msi-qs-configure-portal-windows-vmss.md
+        - name: Azure CLI’yı kullanma
+          href: msi-qs-configure-cli-windows-vmss.md
+        - name: Azure Resource Manager şablonu kullanma
+          href: msi-qs-configure-template-windows-vmss.md
+    - name: Kaynak Yöneticisi’ne VM veya VMSS MSI erişimi verme
       items:
         - name: Azure portalını kullanma
           href: msi-howto-assign-access-portal.md

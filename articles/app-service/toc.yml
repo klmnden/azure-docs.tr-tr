@@ -43,7 +43,7 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: PostgreSQL ile Python
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - RESTful API’si oluşturma
+    - name: 1 - RESTful API’si barındırma
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - Özel Etki Alanı Eşleme
       href: app-service-web-tutorial-custom-domain.md
@@ -230,7 +230,7 @@
     - name: Yemek kitapları
       items:
         - name: Başvuru Mimarileri
-          href: ../guidance/guidance-ra-app-service.md
+          href: /azure/architecture/reference-architectures/app-service-web-app/
         - name: Dağıtım Betikleri
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Sorun giderme

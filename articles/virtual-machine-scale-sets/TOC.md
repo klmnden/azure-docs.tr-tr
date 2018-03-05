@@ -14,6 +14,7 @@
 # Nasıl yapılır
 ## Planlama ve tasarım
 ### [Tasarım konusunda dikkat edilmesi gerekenler](virtual-machine-scale-sets-design-overview.md)
+### [Örnek kimlikleri anlama](virtual-machine-scale-sets-instance-ids.md)
 
 ## Şablon oluşturma
 ### [Ölçek kümesi şablonları hakkında bilgi edinin](virtual-machine-scale-sets-mvss-start.md)

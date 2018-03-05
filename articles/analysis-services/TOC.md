@@ -33,7 +33,7 @@
 ### [Power BI ile bağlanma](analysis-services-connect-pbi.md)
 ### [.odc dosyası oluşturma](analysis-services-odc.md)
 ## Öğreticiler
-### [1 - Örnek model oluşturma](analysis-services-create-sample-model.md)
+### [1 - Örnek model ekleme](analysis-services-create-sample-model.md)
 ### [Veri modelleme - Adventure Works öğreticisi](tutorials/aas-adventure-works-tutorial.md)
 #### [1 - Tablosal model projesi oluşturma](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - Veri alma](tutorials/aas-lesson-2-get-data.md)
