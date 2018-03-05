@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/10/2018
+ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4b64331a4f25ce0cc01b2ee9f32633ab035e3131
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3c34a3851dbb5c5258b3dc0cf35a510f62cbe14e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>ImageStoreConnectionString ayarı anlama
 
@@ -30,7 +30,7 @@ Service Fabric dahili Microsoft tüketim için bir platform olarak birçok farkl
 
 Şu anda görüntü deposu sağlayıcıları üç olası tür vardır ve bunların karşılık gelen bağlantı dizeleri aşağıdaki gibidir:
 
-1. Image Store hizmeti: "fabric: görüntü"
+1. Image Store Service: "fabric:ImageStore"
 
 2. Dosya sistemi: "file:[file sistem path]"
 
@@ -42,7 +42,9 @@ Service Fabric dahili Microsoft tüketim için bir platform olarak birçok farkl
 
 Bir sistem hizmeti küme içindeki görüntü deposunda barındırma paket deposu için dış bağımlılıklar ortadan kaldırır ve bize depolama yerleşim üzerinde daha fazla denetim sağlar. Image Store geçici gelecekteki geliştirmeleri ilk değilse yalnızca Image Store sağlayıcısını hedeflemek olasıdır. İstemci zaten hedef kümeye bağlı olduğundan, görüntü deposu hizmet sağlayıcı için bağlantı dizesini herhangi bir benzersiz bilgi sahip değil. İstemci, yalnızca sistem hizmeti hedefleme protokolleri kullanılması gereken bilmesi gerekir.
 
-Dosya sistemi sağlayıcısı görüntü Deposu hizmetini yerine yerel bir kutusunu kümeleri için geliştirme sırasında küme biraz daha hızlı bootstrap için kullanılır. Fark genellikle küçük, ancak çoğu terimleri için yararlı bir iyileştirme geliştirme sırasında gelir. Diğer türleriyle depolama sağlayıcısı da yerel bir çalıştırma küme dağıtmak mümkündür, ancak genellikle geliştirme ve test iş akışı sağlayıcısı bakılmaksızın aynı kalır olduğundan Bunu yapmak için bir neden yoktur. Bu kullanım dışında dosya sistemi ve Azure depolama sağlayıcıları için eski destek yalnızca mevcut.
+Dosya sistemi sağlayıcısı görüntü Deposu hizmetini yerine yerel bir kutusunu kümeleri için geliştirme sırasında küme biraz daha hızlı bootstrap için kullanılır. Fark genellikle küçük, ancak çoğu terimleri için yararlı bir iyileştirme geliştirme sırasında gelir. Diğer türleriyle depolama sağlayıcısı da yerel bir çalıştırma küme dağıtmak mümkündür, ancak genellikle geliştirme ve test iş akışı sağlayıcısı bakılmaksızın aynı kalır olduğundan Bunu yapmak için bir neden yoktur. Azure depolama sağlayıcısı yalnızca görüntü deposu hizmet sağlayıcısı sunulmadan önce kümeleri dağıtılan için eski destek eski yok.
+
+Ayrıca, ne dosya sistemi sağlayıcısı veya Azure depolama sağlayıcısının birden çok küme arasındaki bir görüntü deposu paylaşımı bir yöntem olarak kullanılması gereken - her küme için çakışan veri yazabilirsiniz gibi bu küme yapılandırması veri bozulmasına neden olur Görüntü deposu. Sağlanan uygulama paketleri birden çok küme arasında paylaşmak için kullanın [sfpkg] [ 12] bunun yerine, hangi dosyaların indirme URI'si ile dış herhangi deposuna karşıya yüklenebilir.
 
 ImageStoreConnectionString yapılandırılabilir olsa da, bu nedenle, genellikle yalnızca varsayılan ayarı kullanın. Visual Studio üzerinden Azure yayımlarken parametresi otomatik olarak sizin için uygun şekilde ayarlanır. Azure üzerinde barındırılan kümeleri için programlı dağıtımı için bağlantı dizesi her zaman "fabric: görüntü" dir. Şüpheli zaman değeri her zaman küme bildirimi tarafından alarak doğrulanabilir olsa [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), veya [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Her iki şirket içi test ve üretim kümelerine her zaman görüntü deposu hizmet sağlayıcısı de kullanmak için yapılandırılmış olması gerekir.
 
@@ -55,4 +57,4 @@ ImageStoreConnectionString yapılandırılabilir olsa da, bu nedenle, genellikle
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-
+[12]: service-fabric-package-apps.md#create-an-sfpkg

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 273efe0bdef421d753ea51e01060d48351cbe6fc
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 532dd399d2d5fcbab616744dd02f4a95078cbb1b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>CSP aracılığıyla Azure VMware sanal makineleri çoğaltmak için Azure Site Recovery çok müşterili desteği
 
@@ -96,7 +96,7 @@ VCenter hesap erişim yordam aşağıdaki gibidir:
 >| Nesne | Rol | Açıklamalar |
 >| --- | --- | --- |
 >| vCenter | Salt Okunur | Yalnızca farklı nesneleri yönetmek için vCenter erişime izin vermek gerekli. Vcenter yönetim işlemleri için kullanılan veya hesap için bir kiracı sağlanacak hiçbir zaman edecekse bu izni kaldırabilirsiniz. |
->| Datacenter | Azure_Site_Recovery |  |
+>| Veri merkezi | Azure_Site_Recovery |  |
 >| Konak ve konak kümesi | Azure_Site_Recovery | Böylece yalnızca erişilebilir ana Kiracı sanal makineleri yük devretme öncesinde ve sonrasında yeniden çalışma erişim nesne düzeyinde yeniden sağlar. |
 >| Veri deposu ve veri deposu küme | Azure_Site_Recovery | Önceki aynıdır. |
 >| Ağ | Azure_Site_Recovery |  |
@@ -115,14 +115,14 @@ Yük devretme durumu kadar olağanüstü durum kurtarma işlemlerini kısıtlama
 
 Aşağıdaki çizimde gösterildiği gibi mimari adanmış bir barındırma çözümüne yalnızca Kiracı için her bir kiracının altyapı ayarlandığını farktır. Kiracılar ayrı Vcenter yalıtılmış olduğundan, barındırma sağlayıcısı hala paylaşılan barındırma için sağlanan CSP adımları izlemeniz gerekir, ancak Kiracı yalıtımı hakkında endişelenmeniz gerekmez. CSP Kurulum değişmeden kalır.
 
-![Mimari paylaşılan hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
 **Birden çok Vcenter ile ayrılmış barındırma senaryosu**
 
 ### <a name="managed-service-solution"></a>Yönetilen hizmet çözümü
 
 Aşağıdaki çizimde gösterildiği gibi bir yönetilen hizmet çözümüne mimari fark her bir kiracının altyapı ayrıca diğer kiracılar altyapısından ayrı fiziksel olmasıdır. Kiracı altyapı sahibi ve olağanüstü durum kurtarma yönetmek için bir çözüm sağlayıcısı istediğinde bu senaryo genellikle bulunmaktadır. Yeniden, kiracılar farklı altyapılar aracılığıyla fiziksel olarak yalıtılmış olduğundan, CSP adımları izlemek için iş ortağı gereksinimlerini paylaşılan barındırma için sağlanan ancak Kiracı yalıtımı hakkında endişelenmeniz gerekmez. CSP sağlama değişmeden kalır.
 
-![Mimari paylaşılan hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
 **Birden çok Vcenter hizmet senaryoyla yönetilen**
 
 ## <a name="next-steps"></a>Sonraki adımlar
