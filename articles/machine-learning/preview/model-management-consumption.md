@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: b8641cd2d4a34821b7cf0e644345f0904bad294a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>Web Hizmetleri kullanma
 Model bir gerçek zamanlı web hizmeti olarak dağıtma sonra veri göndermek ve çeşitli platformlar ve uygulamaları Öngörüler alın. Gerçek zamanlı web hizmetini Öngörüler almak için bir REST API gösterir. Web hizmeti aynı anda bir veya daha fazla Öngörüler almak için tek veya birden çok satır biçiminde veri gönderebilir.
@@ -35,7 +35,7 @@ API ve Azure Machine Learning CLI sağlar oluşturmak ve yönetmek için kullan�
 Web hizmeti başarıyla dağıtıldıktan sonra hizmet uç noktası çağırmak için hizmet URL'sini ve diğer ayrıntıları almak için aşağıdaki komutu kullanın. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 Bu komut, hizmet URL'si, gerekli istek üstbilgileri, swagger URL'si ve dağıtım sırasında hizmeti API şeması sağlandıysa hizmetini çağırmak için örnek veri çıkışı yazdırır.
@@ -43,7 +43,7 @@ Bu komut, hizmet URL'si, gerekli istek üstbilgileri, swagger URL'si ve dağıt�
 Giriş verisi örnek CLI komutu girerek bir HTTP isteği oluşturma olmadan CLI hizmetinden doğrudan test edebilirsiniz:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>Hizmet API anahtarını alın

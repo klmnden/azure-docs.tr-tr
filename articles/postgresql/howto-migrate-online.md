@@ -1,19 +1,19 @@
 ---
-title: "Azure veritabanı en düşük kapalı kalma geçiş PostgreSQL için | Microsoft Docs"
+title: "Azure veritabanı en düşük kapalı kalma geçiş PostgreSQL için"
 description: "Bu makalede, bir PostgreSQL veritabanı dökümü dosyasına ayıklanması, PostgreSQL için Azure veritabanındaki pg_dump oluşturan bir arşiv dosyasına PostgreSQL veritabanına geri ve ilk yük ayarlama en düşük kapalı kalma geçiş işlemini gerçekleştirmek açıklar ve Attunity çoğaltmak için Microsoft Migrations kullanarak hedef veritabanı için sürekli veri eşitleme kaynak veritabanından."
 services: postgresql
 author: HJToland3
 ms.author: jtoland
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 01/04/2018
-ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: 48cf460405ae3985553f9bff29f4fd7abb008196
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Azure veritabanı en düşük kapalı kalma geçiş PostgreSQL için
 Varolan PostgreSQL veritabanınızı Attunity çoğaltmak için Microsoft Migrations kullanarak PostgreSQL için Azure veritabanına geçirebilirsiniz. Attunity Replicate Attunity ve Microsoft tarafından birleşik bir tekliftir. Azure veritabanı geçiş hizmeti ile birlikte Microsoft müşterileri için hiçbir ek ücret ödemeden dahil edilir. 

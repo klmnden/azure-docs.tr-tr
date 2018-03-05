@@ -1,19 +1,19 @@
 ---
-title: "Döküm kullanarak MySQL veritabanınızı geçirin ve geri yükleme, Azure veritabanı'nda MySQL için | Microsoft Docs"
+title: "Döküm kullanarak MySQL veritabanınızı geçirin ve Azure veritabanı'nda MySQL için geri yükleme"
 description: "Bu makalede yedeklemek ve mysqldump, MySQL çalışma ekranı ve PHPMyAdmin gibi araçları kullanarak MySQL için Azure veritabanınızdaki veritabanlarını geri yüklemek için iki genel yolu açıklanmaktadır."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: e962fd65244ceebfc7544dc5a1d1956dad811fea
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>MySQL veritabanınız için MySQL döküm ve geri yükleme kullanarak Azure veritabanına geçirme
 Bu makalede, yedeklemek ve MySQL için Azure veritabanınızdaki veritabanlarını geri yüklemek için iki genel yolu açıklanmaktadır.
@@ -101,7 +101,7 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 Bu örnekte, hedefte Azure veritabanı MySQL sunucusu için yeni oluşturulan veritabanına verileri geri yükleyin.
 ```bash
-$ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p testdb < testdb_backup.sql
+$ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
 
 ## <a name="export-using-phpmyadmin"></a>PHPMyAdmin kullanarak dışa aktarın

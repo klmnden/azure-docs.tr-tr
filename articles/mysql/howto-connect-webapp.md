@@ -1,19 +1,19 @@
 ---
-title: "Var olan Azure App Service için MySQL Azure veritabanına bağlanmak | Microsoft Docs"
+title: "Var olan Azure App Service için MySQL Azure veritabanına bağlan"
 description: "Nasıl düzgün şekilde var olan bir Azure uygulama hizmeti için MySQL Azure veritabanına bağlanmak için yönergeler"
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.openlocfilehash: d8b130876e5fa0f2b2322dff82013a409ff7d30e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Var olan bir Azure uygulama hizmeti MySQL sunucusu için Azure veritabanına bağlan
 Bu konuda, var olan bir Azure uygulama hizmeti MySQL sunucusu için Azure veritabanınıza bağlanmak açıklanmaktadır.
@@ -37,8 +37,8 @@ Azure uygulama hizmetiniz kullanılabilirliğini sağlamak için tüm IP'ler izi
 
 2. Girin **kural adı**, **başlangıç IP**, ve **bitiş IP**ve ardından **kaydetmek**.
    - Kural adı: izin ver-tüm-IP'leri
-   - Başlangıç IP: 0.0.0.0
-   - Bitiş IP: 255.255.255.255
+   - Start IP: 0.0.0.0
+   - End IP: 255.255.255.255
 
    ![Azure portal - tüm IP'leri Ekle](./media/howto-connect-webapp/1_2-add-all-ips.png)
 

@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/27/2018
 ms.author: rayne
-ms.openlocfilehash: 02f5a7270b5d8b7657a585fce99946cff8ed8d67
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Kapasite ve Azure Site Recovery ile VMware çoğaltma için ölçeklendirme planı
 
@@ -20,7 +20,7 @@ Bu makale için kapasite planlaması ve ölçeklendirme, şirket içi VMware Vm'
 
 ## <a name="how-do-i-start-capacity-planning"></a>Kapasite planlama nasıl başlamanız gerekir?
 
-Çalıştırarak çoğaltma ortamınız hakkında bilgi toplayın [Azure Site Recovery dağıtımı Planlayıcısı](https://aka.ms/asr-deployment-planner-doc) VMware çoğaltma için. [Daha fazla bilgi edinin](site-recovery-deployment-planner.md) bu araç hakkında. Uyumlu ve uyumsuz VM'ler, VM başına disk hakkında bilgi toplamanız ve disk başına veri karmaşıklığı. Aracı, ağ bant genişliği gereksinimlerini ve başarılı çoğaltma ve test yük devretme için gereken Azure altyapı da kapsar.
+Çalıştırarak çoğaltma ortamınız hakkında bilgi toplayın [Azure Site Recovery dağıtımı Planlayıcısı](https://aka.ms/asr-deployment-planner-doc) VMware çoğaltma için. [Daha fazla bilgi edinin](site-recovery-deployment-planner.md) bu araç hakkında. Uyumlu ve uyumsuz VM'ler, VM başına disk hakkında bilgi toplamanız ve disk başına veri karmaşıklığı. Araç ayrıca ağ bant genişliği gereksinimlerini ve başarılı çoğaltma ve test yük devretmesi için gereken Azure altyapısını da kapsar.
 
 ## <a name="capacity-considerations"></a>Kapasite dikkat edilecek noktalar
 
@@ -85,7 +85,7 @@ Kullandığınız sonra [dağıtım planlayıcısı aracı](site-recovery-deploy
 2. Ek bileşende **Özellikleri Değiştir**'e tıklayın.
 
     ![Özelliklerini değiştirmek için ekran Azure Backup MMC ek bileşenini seçeneği](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. Üzerinde **azaltma** sekmesine **yedekleme işlemleri için Internet bant genişliği kullanımı daraltmayı etkinleştir**. İş için sınırları ayarlayın ve saat İş dışı. Geçerli aralıklar saniye başına 512 Kbps ila 102 Mbps arasındadır.
+3. Üzerinde **azaltma** sekmesine **yedekleme işlemleri için Internet bant genişliği kullanımı daraltmayı etkinleştir**. İş için sınırları ayarlayın ve saat İş dışı. Geçerli aralıklar 1023 MB/sn saniye başına 512 Kbps ila üzeresiniz.
 
     ![Ekran Azure yedekleme Özellikleri iletişim kutusu](./media/site-recovery-vmware-to-azure/throttle2.png)
 

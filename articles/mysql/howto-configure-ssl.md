@@ -1,22 +1,22 @@
 ---
-title: "MySQL için güvenli bir şekilde Azure veritabanına bağlanmak için SSL bağlantısı yapılandırma | Microsoft Docs"
+title: "MySQL için güvenli bir şekilde Azure veritabanına bağlanmak için SSL bağlantısını yapılandır"
 description: "Azure veritabanı MySQL ve doğru SSL bağlantılarını kullanmak için ilişkili uygulamalar için düzgün şekilde hakkında yönergeler"
 services: mysql
-author: seanli1988
-ms.author: seanli
+author: ajlam
+ms.author: andrela
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/27/2017
-ms.openlocfilehash: 289d1c4c0ffd2667c49c5625e72780d54a71ceb5
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 02/28/2018
+ms.openlocfilehash: d51d11e0e41ad34f80dced7526883a4bd7c46ade
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Uygulamanızda güvenli bir şekilde MySQL için Azure veritabanına bağlanmak için SSL bağlantısını yapılandır
-Azure veritabanı için MySQL Azure veritabanınızı MySQL sunucusu için istemci uygulamaları için Güvenli Yuva Katmanı (SSL) kullanarak bağlanmayı desteklemektedir. Veritabanı sunucunuz ve istemci uygulamalarınız arasında SSL bağlantılarını zorlamayı "ortadaki adam" saldırılarına karşı uygulamanız ile sunucu arasındaki veri akışını şifreleyerek korunmasına yardımcı.
+Azure veritabanı için MySQL Azure veritabanınızı MySQL sunucusu için istemci uygulamaları için Güvenli Yuva Katmanı (SSL) kullanarak bağlanmayı desteklemektedir. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>1. adım: SSL sertifikası alın
 Azure veritabanınızla MySQL sunucusu için SSL üzerinden iletişim kurmak için gerekli sertifikayı indirin [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) ve yerel diskinize (Bu sertifika dosyasını kaydedin öğretici c:\ssl örneğin kullanır).
@@ -30,18 +30,18 @@ MySQL çalışma ekranı güvenli SSL üzerinden bağlanmak için yapılandırı
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>SSL üzerinden MySQL CLI kullanarak sunucuya bağlanma
 SSL sertifikası bağlamak için başka bir yolu, aşağıdaki komutu çalıştırarak MySQL komut satırı arabirimini kullanmaktır:
 ```dos
-mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
+mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>3. adım: Azure SSL bağlantılarını zorlama 
 ### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 Azure Portalı'nı kullanarak, Azure veritabanınızı MySQL sunucusu için ziyaret edin ve ardından **bağlantı güvenliği**. Etkinleştirmek veya devre dışı bırakmak için iki durumlu düğme kullanmak **Zorla SSL bağlantısı** ayarlama ve ardından **kaydetmek**. Microsoft, her zaman etkinleştirmek için önerir **Zorla SSL bağlantısı** için Gelişmiş güvenlik ayarı.
-![Enable ssl](./media/howto-configure-ssl/enable-ssl.png)
+![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Azure CLI’yı kullanma
 Etkinleştirmek veya devre dışı bırakabileceğiniz **ssl zorlama** etkin veya devre dışı değerleri sırasıyla Azure CLI kullanarak parametre.
 ```azurecli-interactive
-az mysql server update --resource-group myresource --name mysqlserver4demo --ssl-enforcement Enabled
+az mysql server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="step-4-verify-the-ssl-connection"></a>Adım 4: SSL bağlantısını doğrulama
@@ -58,7 +58,7 @@ Güvenli bir bağlantı Azure veritabanı için MySQL için SSL üzerinden uygul
 ```php
 $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ; 
-mysqli_real_connect($conn, 'myserver4demo.mysql.database.azure.com', 'myadmin@myserver4demo', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
+mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
@@ -66,27 +66,27 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python
 try:
-    conn=mysql.connector.connect(user='myadmin@myserver4demo', 
+    conn=mysql.connector.connect(user='myadmin@mydemoserver', 
         password='yourpassword', 
         database='quickstartdb', 
-        host='myserver4demo.mysql.database.azure.com', 
+        host='mydemoserver.mysql.database.azure.com', 
         ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
 ### <a name="python-pymysql"></a>Python (PyMySQL)
 ```python
-conn = pymysql.connect(user = 'myadmin@myserver4demo', 
+conn = pymysql.connect(user = 'myadmin@mydemoserver', 
         password = 'yourpassword', 
         database = 'quickstartdb', 
-        host = 'myserver4demo.mysql.database.azure.com', 
+        host = 'mydemoserver.mysql.database.azure.com', 
         ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 ### <a name="ruby"></a>Ruby
 ```ruby
 client = Mysql2::Client.new(
-        :host     => 'myserver4demo.mysql.database.azure.com', 
-        :username => 'myadmin@myserver4demo',      
+        :host     => 'mydemoserver.mysql.database.azure.com', 
+        :username => 'myadmin@mydemoserver',      
         :password => 'yourpassword',    
         :database => 'quickstartdb',
         :ssl_ca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
@@ -101,7 +101,7 @@ if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
 }
 mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool, InsecureSkipVerify: true})
 var connectionString string
-connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@myserver4demo' , 'yourpassword', 'myserver4demo.mysql.database.azure.com', 'quickstartdb') 
+connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')   
 db, _ := sql.Open("mysql", connectionString)
 ```
 ### <a name="javajdbc"></a>JAVA(JDBC)
@@ -126,8 +126,8 @@ System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
 System.setProperty("javax.net.ssl.trustStorePassword","password");
 
-url = String.format("jdbc:mysql://%s/%s?serverTimezone=UTC&useSSL=true", 'myserver4demo.mysql.database.azure.com', 'quickstartdb');
-properties.setProperty("user", 'myadmin@myserver4demo');
+url = String.format("jdbc:mysql://%s/%s?serverTimezone=UTC&useSSL=true", 'mydemoserver.mysql.database.azure.com', 'quickstartdb');
+properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
@@ -153,8 +153,8 @@ System.setProperty("javax.net.ssl.keyStorePassword","password");
 System.setProperty("javax.net.ssl.trustStore","path_to_truststore_file");
 System.setProperty("javax.net.ssl.trustStorePassword","password");
 
-url = String.format("jdbc:mariadb://%s/%s?useSSL=true&trustServerCertificate=true", 'myserver4demo.mysql.database.azure.com', 'quickstartdb');
-properties.setProperty("user", 'myadmin@myserver4demo');
+url = String.format("jdbc:mariadb://%s/%s?useSSL=true&trustServerCertificate=true", 'mydemoserver.mysql.database.azure.com', 'quickstartdb');
+properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
