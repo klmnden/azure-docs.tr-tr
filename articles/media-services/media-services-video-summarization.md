@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f40c9364d02929fe5bb193b4e8eb0a0157d34d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Video özetleme oluşturmak için Azure medya Video küçük resimleri kullanın
 ## <a name="overview"></a>Genel Bakış
@@ -44,7 +44,11 @@ Azure medya Video küçük resimleri medya işlemcisi yapabileceklerine ilişkin
 ## <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
 Video küçük resim görev oluştururken **Azure medya Video küçük resimleri**, bir yapılandırma hazır belirtmeniz gerekir. Yukarıdaki küçük örnek aşağıdaki temel JSON yapılandırma ile oluşturuldu:
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 Şu anda, aşağıdaki parametreleri değiştirebilirsiniz:
 
@@ -63,6 +67,7 @@ Varsayılan süre aşağıdaki tabloda açıklanmaktadır, ne zaman **maxMotionT
 
 Aşağıdaki JSON kullanılabilir parametreleri ayarlar.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -71,6 +76,7 @@ Aşağıdaki JSON kullanılabilir parametreleri ayarlar.
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## <a name="net-sample-code"></a>.NET örnek kod
 
@@ -78,15 +84,18 @@ Aşağıdaki program gösterir nasıl yapılır:
 
 1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
 2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir video küçük resim görevini içeren bir iş oluşturur: 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. Çıkış dosyaları indirir. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
@@ -95,6 +104,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 #### <a name="example"></a>Örnek
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -262,6 +272,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>Video küçük resim çıkışı
 [Video küçük resim çıkışı](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
