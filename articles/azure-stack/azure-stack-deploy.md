@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack dağıtım önkoşulları
 
 *Uygulandığı öğe: Azure yığın Geliştirme Seti*
 
-Dağıtmadan önce [Azure yığın Geliştirme Seti](azure-stack-poc.md), bilgisayarınızın aşağıdaki gereksinimleri karşıladığından emin olun:
+Dağıtmadan önce [Azure yığın Geliştirme Seti (ASDK)](azure-stack-poc.md), Geliştirme Seti ana bilgisayarınız bu makalede açıklanan gereksinimleri karşıladığından emin olun.
 
+> [!NOTE]
+> ASDK bir fiziksel ana bilgisayarda yüklü olmalıdır. Azure VM temelinde ASDK yüklenmesi desteklenmez.
 
 ## <a name="hardware"></a>Donanım
 | Bileşen | Minimum | Önerilen |
@@ -122,7 +124,6 @@ Ağ üzerinde NIC'nin bağlanabileceği kullanılabilir bir DHCP sunucusunun old
 ### <a name="internet-access"></a>İnternet erişimi
 Azure yığını, doğrudan ya da saydam bir proxy üzerinden Internet erişimi gerektirir. Azure yığın Internet erişimi etkinleştirmek için bir web proxy yapılandırmasını desteklemez. Hem ana bilgisayar IP hem de (DHCP veya statik IP) için MAS BGPNAT01 atanan yeni IP Internet erişimine sahip olmalıdır. 80 ve 443 numaralı bağlantı noktalarını altındaki graph.windows.net ve login.microsoftonline.com etki alanları kullanılır.
 
-S: Azure VM temelinde ASDK çalıştırmak mümkün mü? A: No. Bugünden itibaren resmi olarak desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure yığın Geliştirme Seti dağıtım paketini karşıdan yükle](https://azure.microsoft.com/overview/azure-stack/try/?v=try)

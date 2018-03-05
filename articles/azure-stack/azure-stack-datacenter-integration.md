@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 03/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure tümleşik yığını sistemler için veri merkezi tümleştirme konuları
 Bir Azure tümleşik yığını sistemde düşünüyorsanız, bazı önemli planlama konuları dağıtım ve sistem merkeziniz nasıl uyduğunu etrafında anlamanız gerekir. Bu makalede, Azure yığını çok düğümlü sisteminiz için önemli altyapı kararları almanıza yardımcı olmak için bu noktalar üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması veri merkeziniz için Azure yığın dağıtırken OEM donanım satıcınızla çalışırken yardımcı olur.  
@@ -30,6 +30,15 @@ Bir Azure tümleşik yığını sistemde düşünüyorsanız, bazı önemli plan
 Azure yığın dağıtmak için hızlı ve sorunsuz Git işlem yardımcı olmak dağıtım başlamadan önce çözüm sağlayıcınızda planlama bilgilerini sağlamanız gerekir. Bilgi aralıkları ağı, güvenlik ve birçok farklı alanlara ve karar alıcılar bilgi gerektirebilir birçok önemli kararları ile kimlik bilgileri gereklidir. Bu nedenle, dağıtım başlamadan önce gerekli tüm bilgileri hazır olmasını sağlamak için birden çok ekibin kuruluşunuzdaki kişilerin çekme gerekebilir. Bu bilgi toplarken, donanım satıcınıza öneriler kararları için yararlı olabilir gibi konuşun yardımcı olabilir.
 
 Araştırma ve gerekli bilgileri toplama sırasında ağ ortamınıza bazı dağıtım öncesi yapılandırma değişiklikleri yapmanız gerekebilir. Bu IP adresi alanlarını, yönlendiriciler, anahtarlar ve yeni Azure yığın çözüm anahtarları bağlantıyı hazırlamak için güvenlik duvarlarını yapılandırma Azure yığın çözüm ayırma içerebilir. Planlama ile Yardım kadar çizgili konu alanında Uzman bulunduğundan emin olun.
+
+## <a name="capacity-planning-considerations"></a>Kapasite planlama konuları
+Azure yığın çözümünü edinme için değerlendirirken, donanım yapılandırma seçeneklerinin kendi Azure yığın çözümünü genel kapasitesini üzerinde doğrudan etkisi olan yapılması gerekir. Bunlar, CPU, bellek yoğunluğu, depolama yapılandırması ve genel çözüm Ölçek (örneğin sunucuları sayısı) Klasik seçimleri içerir. Geleneksel sanallaştırma çözümü farklı olarak, kullanılabilir kapasitesini belirlemek için bu bileşenlerin basit aritmetik geçerli değildir. İlk Azure yığını çözüm içinde altyapı veya yönetim bileşenleri barındırmak için geliştirilmiştir nedenidir. Çözümün kapasite bazıları ayrılmış, dayanıklılık desteklenmesi amacıyla ikinci sebebi; Kiracı İş yükleri çalışmasının en aza indirir şekilde çözümün yazılımların güncelleştiriliyor. 
+
+[Azure yığın kapasite Planlayıcısı elektronik](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) yaptığınız yardımcı haberdar iki yolla kapasite planlamasına göre kararları: ya da bir donanım teklifinin seçerek ve kaynakların veya bir birleşimini uyacak şekilde çalışırken tanımlayarak Azure yığın iş yükü kullanılabilir donanım destekleyebileceği SKU'ları görüntülemek için çalıştırmak için tasarlanmıştır. Son olarak, elektronik tablo kararların verilmesi konusunda yardımcı olacak bir kılavuz Azure yığın planlama ve yapılandırma ile ilgili olarak tasarlanmıştır. 
+
+Elektronik tablo, kendi araştırma ve analiz için bir yedek olarak hizmet için tasarlanmamıştır.  Microsoft hiçbir taahhütte veya garantide, açık veya zımni elektronik tablo içinde sağlanan bilgilere göre yapar.
+
+
 
 ## <a name="management-considerations"></a>Yönetim değerlendirmeleri
 Azure yığın burada altyapısı hem de bir izin kilitlenmiştir korumalı bir sistem olduğundan ve ağ açısından. Ağ erişim denetimi listeleri (ACL'ler) yetkisiz tüm gelen trafiği ve altyapı bileşenler arasındaki tüm gereksiz iletişim engellemek için uygulanır. Bu sisteme erişmek yetkisiz kullanıcıların zorlaştırır.
