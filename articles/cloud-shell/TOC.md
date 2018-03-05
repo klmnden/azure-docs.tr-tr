@@ -4,10 +4,9 @@
 ## [Bash - Hızlı Başlangıç](quickstart.md)
 ## [PowerShell - Hızlı Başlangıç](quickstart-powershell.md)
 
-# Kavramlar
+# Özellikler ve araçlar
 ## [Bash - Özellikler ve Araçlar](features.md)
 ## [PowerShell - Özellikler ve Araçlar](features-powershell.md)
-## [Sınırlamalar](limitations.md)
 
 # Nasıl yapılır
 ## [Bash - Kalıcı depolama](persisting-shell-storage.md)
@@ -20,7 +19,7 @@
 
 # [Cloud Shell’i Ekleme](embed-cloud-shell.md)
 
-# [Sorun giderme](troubleshooting.md)
+# [Sorun giderme ve sınırlamalar](troubleshooting.md)
 
 # Başvuru
 ## [Azure CLI](/cli/azure)

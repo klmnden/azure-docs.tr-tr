@@ -108,6 +108,8 @@
           href: disk-scalability-targets.md
         - name: Diskler için yedekleme ve olağanüstü durum kurtarma
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Ekli VHD’lerde sorun giderme
+          href: troubleshoot-vhds.md
     - name: Ağ
       href: network-overview.md
     - name: Uygulamaları otomatik ölçeklendirme
