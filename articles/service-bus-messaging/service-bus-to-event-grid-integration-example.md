@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 8aff62dd32395c1ef292942e977467779f945931
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Azure Service Bus - Azure Event Grid örnekleri
 
@@ -190,10 +190,10 @@ Mantıksal uygulamayı kaydedin ve önkoşullarda belirtildiği gibi Service Bus
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
-* [Azure İşlevleri](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
-* [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/) hakkında daha fazla bilgi edinin.
-* [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
+* [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) hakkında daha fazla bilgi edinin.
+* [Azure İşlevleri](https://docs.microsoft.com/azure/azure-functions/) hakkında daha fazla bilgi edinin.
+* [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) hakkında daha fazla bilgi edinin.
+* [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/) hakkında daha fazla bilgi edinin.
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
 [3]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid3.png

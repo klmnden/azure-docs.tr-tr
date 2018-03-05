@@ -22,6 +22,7 @@
 ## [Yönetilen bir etki alanının sistem durumunu denetleme](active-directory-ds-check-health.md)
 ## [Azure CSP aboneliklerinde Azure AD Domain Services kullanma](active-directory-ds-csp.md)
 ## [PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme](active-directory-ds-enable-using-powershell.md)
+## [Etki alanınızın sistem durumunu denetleme](active-directory-ds-check-health.md)
 ## Yönetilen bir etki alanına katılma
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Şablondan Windows Server VM](active-directory-ds-join-windows-vm-template.md)
@@ -32,7 +33,6 @@
 ## Yönetilen etki alanını yönetme
 ### [Yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
 ### [Yönetilen etki alanında DNS’yi yönetme](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Yönetilen bir etki alanı için güvenli LDAP yapılandırma
 #### [1. Görev: Güvenli LDAP için sertifika alma](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [2. Görev: Güvenli LDAP sertifikasını dışarı aktarma](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

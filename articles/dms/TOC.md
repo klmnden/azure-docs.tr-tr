@@ -18,4 +18,5 @@
 ## [Fiyatlandırma](https://aka.ms/dms-pricing)
 ## [Önkoşullara genel bakış](pre-reqs.md)
 ## [SSS](faq.md)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=database-migration)
 
