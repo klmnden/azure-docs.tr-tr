@@ -174,7 +174,7 @@ Yeni dosyayı açarak verilerin düzgün bir şekilde dışarı aktarıldığın
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yükleme işleminizi tasarlamak için bkz. [Genel bakışı yükleme](sql-data-warehouse-design-elt-data-loading].  
+Yükleme işleminizi tasarlamak için bkz. [Genel bakışı yükleme](sql-data-warehouse-design-elt-data-loading.md).  
 
 
 
