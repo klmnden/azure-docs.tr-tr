@@ -6,13 +6,13 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: ab66bc9c90950070e69c2486bf09b7664b1c9ad2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="discover-and-assess-a-large-vmware-environment"></a>Bul ve büyük bir VMware ortamı değerlendirin
+# <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
 Bu makalede kullanarak şirket içi sanal makineleri (VM'ler) çok sayıda değerlendirmek nasıl [Azure geçirmek](migrate-overview.md). Azure geçirme Azure geçiş için uygun olup olmadığını denetlemek için makineler değerlendirir. Hizmet Azure'da çalışan makineler için boyutlandırma ve maliyet tahminler sunar.
 
@@ -47,7 +47,7 @@ Bulmaları ve aşağıdaki sınırlara göre değerlendirmeleri planlayın:
 Bir veya daha fazla projeleri birden çok bulmalarına yapmak için aynı Azure geçirmek Toplayıcı kullanabilirsiniz. Bu planlama konuları göz önünde bulundurun:
  
 - Azure geçirmek Toplayıcı kullanarak bir bulma yaptığınızda, vCenter Server klasörü, veri merkezi, küme veya ana bilgisayar için bulma kapsamını ayarlayabilirsiniz.
-- Birden fazla bulma yapmak için vCenter klasörleri, veri merkezleri, kümeleri veya 1.000 makineler sınırlandırılmasıdır desteklemeyen konaklar, bulmak istediğiniz sanal makineleri olan sunucu doğrulayın.
+- Birden fazla bulma yapmak için vCenter klasörleri, veri merkezleri, kümeleri veya 1500 makineler sınırlandırılmasıdır desteklemeyen konaklar, bulmak istediğiniz sanal makineleri olan sunucu doğrulayın.
 - Değerlendirme amacıyla, değerlendirme ve aynı proje içinde bağımlılıklarını makinelerle tutmanızı öneririz. VCenter Server bağımlı makineler aynı klasörü, veri merkezi veya değerlendirmesi için küme olduğundan emin olun.
 
 
@@ -85,6 +85,14 @@ Dağıtmadan önce OVA dosya güvenli olduğundan emin olun:
 
    Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Üretilen karma aşağıdaki ayarları eşleştiğinden emin olun.
+
+    OVA sürüm 1.0.9.5
+
+    **Algoritma** | **Karma değeri**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
     OVA sürüm 1.0.9.2
 

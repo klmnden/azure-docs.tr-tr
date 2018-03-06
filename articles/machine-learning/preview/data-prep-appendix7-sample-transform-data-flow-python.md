@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 8146c2a41a2b8fc241131a42ec74227795867609
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Özel veri akışı Dönüşümler (Python) örneği 
 Menüde dönüştürme adıdır **dönüştürme veri akışı (komut)**. Bu ekte okumadan önce okuma [Python genişletilebilirlik genel bakış](data-prep-python-extensibility-overview.md).
@@ -42,8 +42,8 @@ Bir sütundaki aykırı değerlerini azaltmak için bir formül karşılamak iç
 
 ## <a name="transform-data-flow"></a>Veri akışı dönüştürme
 ### <a name="fill-down"></a>Aşağı Doldur 
-Aşağı Doldur iki dönüşümler gerektirir. Aşağıdakine benzer veri varsayılır:
 
+Aşağı Doldur iki dönüşümler gerektirir. Aşağıdaki tabloda gibi görünüyor veri varsayılır:
 
 |Durum         |Şehir       |
 |--------------|-----------|
@@ -58,16 +58,17 @@ Aşağı Doldur iki dönüşümler gerektirir. Aşağıdakine benzer veri varsay
 |              |San Antonio|
 |              |Houston    |
 
-İlk olarak, aşağıdaki kodu içeren bir sütun Ekle (komut) dönüştürme oluşturun:
+1. Aşağıdaki kodu kullanarak bir "Sütun (komut) Ekle" dönüştürme oluşturun:
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-Şimdi aşağıdaki kodu içeren bir dönüştürme veri akışı (komut) dönüştürme oluşturun:
+
+2. Aşağıdaki kodu içeren bir "Dönüştürme veri akışı (komut)" dönüşüm oluşturun:
 ```python
     df = df.fillna( method='pad')
 ```
 
-Verileri aşağıdaki gibi görünür:
+Veri şimdi aşağıdaki tabloda gibi görünür:
 
 |Durum         |newState         |Şehir       |
 |--------------|--------------|-----------|

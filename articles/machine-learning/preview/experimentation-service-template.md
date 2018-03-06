@@ -5,21 +5,21 @@ services: machine-learning
 author: ahgyger
 ms.author: ahgyger
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 585666a521ba8e1fae274687cbd709baba871590
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Azure Machine Learning deneme hizmetini yapılandırma
 
 ## <a name="overview"></a>Genel Bakış
-Azure Machine Learning Deneme hizmet hesabı, çalışma ve proje Azure kaynaklardır. Bu nedenle, bunlar kaynakları Yöneticisi şablonları kullanılarak dağıtılabilir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Azure Machine Learning Deneme hizmet hesabı, çalışma ve proje Azure kaynaklardır. Bu nedenle, bunlar kaynakları Yöneticisi şablonları kullanılarak dağıtılabilir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Şablon dağıtma
 Bir şablon dağıtımı yalnızca birkaç adım, Azure komut satırı arabirimini veya Azure portalında gerektirir.
@@ -137,7 +137,7 @@ Alternatif olarak, şablon dosyalarını el ile düzenleyebilirsiniz. Aşağıda
 Değiştirebileceğiniz üç değerden vardır. 
 * AccountName: Deneme hesabının adı.
 * Konumu: Biri desteklenen Azure bölgeleri.
-* Depolama hesabı SKU: Azure ML standart depolama, premium değil yalnızca destekler. Depolama hakkında daha fazla bilgi için bkz: [depolama giriş](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* Depolama hesabı SKU: Azure ML standart depolama, premium değil yalnızca destekler. Depolama hakkında daha fazla bilgi için bkz: [depolama giriş](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

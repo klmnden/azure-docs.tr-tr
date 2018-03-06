@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f550af298b37afa388b6fd860578863738510a5e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 1453dca453aa045752ea2300b9d7039c1bdd6542
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-powershell"></a>PowerShell kullanarak birden çok alt ağı ile bir sanal ağ oluşturma
 
@@ -119,6 +119,8 @@ New-AzureRmVm `
 Sanal makine oluşturmak için birkaç dakika sürer. 10.0.1.4 ilk kullanılabilir IP adresi olduğundan döndürülen çıkış Azure 10.0.1.4 sanal makinenin özel IP adresi atanmamış olsa *özel* alt *myVirtualNetwork*. 
 
 Kalan adımlar ile sanal makine oluşturulur ve PowerShell çıkışı döndürür kadar devam etmeyin.
+
+Bu makalede oluşturulan sanal makineler bir tane [ağ arabirimi](virtual-network-network-interface.md) dinamik olarak ağ arabirimine atanmış bir IP adresine sahip. VM dağıtıldıktan sonra şunları yapabilirsiniz [birden çok ortak ve özel IP adreslerini ekleyin ya da statik IP adresi ataması yöntemi Değiştir](virtual-network-network-interface-addresses.md#add-ip-addresses). Yapabilecekleriniz [ağ arabirimlerini ekleyin](virtual-network-network-interface-vm.md#vm-add-nic), desteklediği sınırına kadar [VM boyutu](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir sanal makine oluşturduğunuzda seçin. Ayrıca [tek köklü g/ç Sanallaştırması (SR-IOV) etkinleştir](create-vm-accelerated-networking-powershell.md) bir VM, ancak yalnızca özelliğini destekleyen bir VM boyutu ile bir VM oluşturun.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Sanal makineler arasında ve internet ile iletişim
 

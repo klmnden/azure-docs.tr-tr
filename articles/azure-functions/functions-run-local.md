@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Yerel kod ve test Azure işlevleri
 
@@ -35,14 +35,6 @@ Visual Studio C# Geliştirici, Azure işlevleri de olup olmadığını [Visual S
 
 >[!NOTE]  
 > Her iki sürümünü yüklemeden önce şunları yapmalısınız [NodeJS yükleme](https://docs.npmjs.com/getting-started/installing-node), npm içerir. Sürümü için Araçlar, yalnızca Node.js 8.5 ve sonraki sürümleri 2.x desteklenir. 
-
-### <a name="version-1x-runtime"></a>Sürüm 1.x çalışma zamanı
-
-Araçlar özgün sürümü işlevleri 1.x çalışma zamanı kullanır. Bu sürüm, .NET Framework kullanır ve yalnızca Windows bilgisayarlarda desteklenir. Sürüm 1.x araçlarını yüklemek için aşağıdaki komutu kullanın:
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>Sürüm 2.x çalışma zamanı
 
@@ -69,6 +61,14 @@ MacOS ve Linux yüklerken eklemeniz gerekebilir `unsafe-perm` bayrak, aşağıda
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>Sürüm 1.x çalışma zamanı
+
+Araçlar özgün sürümü işlevleri 1.x çalışma zamanı kullanır. Bu sürüm, .NET Framework kullanır ve yalnızca Windows bilgisayarlarda desteklenir. Sürüm 1.x araçlarını yüklemek için aşağıdaki komutu kullanın:
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>Azure işlevleri çekirdek araçlarını çalıştırma

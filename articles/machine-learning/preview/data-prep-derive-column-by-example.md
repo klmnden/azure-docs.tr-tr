@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3eaf42f8d0bdad274ec92f5790fe79878500a1b2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Örnek dönüştürme tarafından sütun türetilen
 
@@ -115,9 +115,9 @@ Bu durumda gerekli örnek sayısı: 3
 |DEFNE AVE & OAKDALE AVE;  HORSHAM; İstasyon 352; 2015-12-10 16:46:48 @;|Horsham|
 |COLLEGEVILLE RD & LYWISKI RD;  SKIPPACK; İstasyon 336; 2015-12-10 16:17:05 @;|Skippack|
 |Ana ST & OLD SUMNEYTOWN PIKE;  DAHA DÜŞÜK SALFORD; İstasyon 344; 2015-12-10 16:51:42 @;|Alt Salford|
-|BLUEROUTE & RAMPA I476 NB KİMYASAL RD İÇİN; PLYMOUTH; 2015-12-10 17:35:41 @;|Plymouth|
-|RT202 PKWY & KNAPP RD; MONTGOMERY; 2015-12-10 17:33:50 @;|Montgomery|
-|NEHİR RD & COLWELL LN; PLYMOUTH; 2015-12-10 16:32:10 @;|Plymouth|
+|BLUEROUTE &AMP; RAMPA I476 NB KİMYASAL RD İÇİN; PLYMOUTH; 2015-12-10 17:35:41 @;|Plymouth|
+|RT202 PKWY &AMP; KNAPP RD; MONTGOMERY; 2015-12-10 17:33:50 @;|Montgomery|
+|NEHİR RD &AMP; COLWELL LN; PLYMOUTH; 2015-12-10 16:32:10 @;|Plymouth|
 
 ### <a name="s3-date-format-manipulation-during-string-extraction"></a>S3. Tarih biçimi düzenleme dize ayıklama sırasında
 
@@ -127,9 +127,9 @@ Bu durumda gerekli örnek sayısı: 1
 |:-----|:-----|
 |MONTGOMERY AVE & WOODSIDE RD;  DAHA DÜŞÜK MERION; İstasyon 313; 2015-12-11 04:11:35 @;|**12 Kas 2015 4 AM**|
 |DREYCOTT LN & W LANCASTER AVE;  DAHA DÜŞÜK MERION; İstasyon 313; 2015-12-11 01:29:52 @;|12 Kas 2015 1 AM|
-|E LEVERING DEĞİRMEN RD & CONSHOHOCKEN DURUMU RD; DAHA DÜŞÜK MERION; 2015-12-11 07:29:58 @;|12 Kas 2015 7 AM|
+|E LEVERING DEĞİRMEN RD &AMP; CONSHOHOCKEN DURUMU RD; DAHA DÜŞÜK MERION; 2015-12-11 07:29:58 @;|12 Kas 2015 7 AM|
 |PENN VADİSİ RD & MANOR RD;  DAHA DÜŞÜK MERION; İstasyon 313; 2015-12-10 20:53:30 @;|12 Eki 2015 8 PM|
-|BELMONT AVE & OVERHILL RD; DAHA DÜŞÜK MERION; 2015-12-10 23:02:27 @;|12 Eki 2015 23: 00|
+|BELMONT AVE &AMP; OVERHILL RD; DAHA DÜŞÜK MERION; 2015-12-10 23:02:27 @;|12 Eki 2015 23: 00|
 |W MONTGOMERY AVE & PENNSWOOD RD; LOWER MERION; 2015-12-10 @ 19:25:22;|12 Eki 2015 19: 00|
 |ROSEMONT AVE & ÇIKMAZ;  DAHA DÜŞÜK MERION; İstasyon 313; 2015-12-10 18:43:07 @;|12 Eki 2015 6 PM|
 |AVIGNON DR & ÇIKMAZ; DAHA DÜŞÜK MERION; 20:01:29 @ 2015-12-10-istasyon: STA24;|12 Eki 2015 8 PM|
@@ -290,7 +290,7 @@ Bu durumda gerekli örnek sayısı: 1
 
 Bu tarih kısımlarını aynı veri kümesi üzerinde farklı örnek tarafından dönüştürmeleri kullanma ayıklanan. Kalın dizeleri kendi ilgili dönüşümünde verildi örnekler temsil eder.
 
-|Tarih Saat|Haftanın günü|Tarih|Ay|Yıl|Saat|Dakika|İkinci|
+|DateTime|Haftanın günü|Tarih|Ay|Yıl|Saat|Dakika|Saniye|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**Cuma**|**31**|**Oca**|**2031**|**5**|**54**|**18**|
 |17 Oca 1990 13:32:01|Çar|17|Oca|1990|13|32|01|
@@ -317,7 +317,7 @@ Bu tarih kısımlarını aynı veri kümesi üzerinde farklı örnek tarafından
 
 Bu tarih formattings yapıldığını aynı veri kümesi üzerinde farklı örnek tarafından dönüştürmeleri kullanma. Kalın dizeleri kendi ilgili dönüşümünde verildi örnekler temsil eder.
 
-|Tarih Saat|Format1|Format2|Format3|Format4|Format5|
+|DateTime|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**1/31/2031**|**31 Ocak 2031, Cuma**|**01312031 5:54**|**31/1/2031 5:54 AM**|**S1 2031**|
 |17 Oca 1990 13:32:01|1/17/1990|17 Ocak 1990, Çarşamba|01171990 13:32|17/1/1990 1:32 PM|S1 1990|
@@ -345,7 +345,7 @@ Bu tarih formattings yapıldığını aynı veri kümesi üzerinde farklı örne
 
 Bu tarih saat dönem eşlemeleri yapıldığını aynı veri kümesi üzerinde farklı örnek tarafından dönüştürmeleri kullanma. Kalın dizeleri kendi ilgili dönüşümünde verildi örnekler temsil eder.
 
-|Tarih Saat|Period(seconds)|Period(minutes)|Süre (iki saat)|Süre (30 dakika)|
+|DateTime|Period(seconds)|Period(minutes)|Süre (iki saat)|Süre (30 dakika)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
 |17 Oca 1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|

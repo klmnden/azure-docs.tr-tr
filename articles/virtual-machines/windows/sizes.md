@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 51fb2c2799b79151927fc3fbbb94cd37e48d0dd8
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4e08a108d27d94a5df1cf6ee7308f1b5fa6e305f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler için Boyutlar
 
@@ -32,7 +32,7 @@ Bu makalede, kullanılabilir boyutları ve Windows uygulamaları ve iş yükleri
 | [İşlem için iyileştirilmiş](sizes-compute.md)        | Fsv2, Fs, F             | Yüksek CPU/bellek oranı. Orta yoğunlukta trafiğe sahip web sunucuları, ağ gereçleri, toplu işlemler ve uygulama sunucuları için uygundur.        |
 | [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Yüksek bellek CPU oranı. İlişkisel veritabanı sunucuları, orta veya büyük boyutlu önbellekler ve bellek içi analiz için idealdir.                 |
 | [Depolama için iyileştirilmiş](../virtual-machines-windows-sizes-storage.md)        | Ls                | Yüksek disk aktarım hızı ve GÇ. Büyük Veri, SQL ve NoSQL veritabanları için ideal.                                                         |
-| [GPU](sizes-gpu.md)            | NV, NC, NCv2, ND            | Özelleştirilmiş sanal makineleri yoğun grafik işleme ve video düzenleme için hedeflenen, aynı zamanda model eğitim ve derin learning ile inferencing (ND). Tek veya birden çok GPU ile kullanılabilir.       |
+| [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | Özelleştirilmiş sanal makineleri yoğun grafik işleme ve video düzenleme için hedeflenen, aynı zamanda model eğitim ve derin learning ile inferencing (ND). Tek veya birden çok GPU ile kullanılabilir.       |
 | [Yüksek performanslı işlem](sizes-hpc.md) | H, A8-11          | İşleme düzeyi yüksek olan isteğe bağlı ağ arabirimleri (RDMA) içeren sanal makineler, şimdiye kadarki en hızlı ve en güçlü CPU ile sunuluyor. 
 
 <br> 

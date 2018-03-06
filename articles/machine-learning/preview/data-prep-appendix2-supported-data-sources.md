@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 625e3f599303bfb93db9d52beb2aed48ad50d3b7
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 7b42080ea4bf9a9e49f2695ab8746d9ead7348bd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Azure Machine Learning veri hazırlığı için desteklenen veri kaynakları 
 Bu makalede, Azure Machine Learning veri hazırlığı için şu anda desteklenen veri kaynakları özetlenmektedir.
@@ -59,7 +59,7 @@ Bir virgülle ayrılmış değer dosyası depolama alanından okuyun.
 
 #### <a name="options"></a>Seçenekler
 - Ayırıcı
-- Yorum
+- Açıklama
 - Üst bilgiler
 - Ondalık simgesi
 - Dosya kodlama
@@ -69,7 +69,7 @@ Bir virgülle ayrılmış değer dosyası depolama alanından okuyun.
 Sekme ayrılmış değer dosyası depolama alanından okuyun.
 
 #### <a name="options"></a>Seçenekler
-- Yorum
+- Açıklama
 - Üst bilgiler
 - Dosya kodlama
 - Atlanacak satır
@@ -86,7 +86,7 @@ Bir Excel dosyası bir sayfa, sayfa adı veya numarası belirterek aynı anda ok
 Bir JSON dosyası depolama alanından okuyun. Dosyanın "üzerinde okuma düzleştirilmiş".
 
 #### <a name="options"></a>Seçenekler
-- Hiçbiri
+- None
 
 ### <a name="parquet"></a>Parquet
 Bir Parquet veri kümesi ya da tek bir dosya veya klasör okuyun.

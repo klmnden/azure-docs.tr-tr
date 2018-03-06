@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 7c5aeca5afe8921ab39040e9afc2921b1711c447
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ae91ad29b867ad4ab00831ee40102bcec2fc890c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluştaki ve Yönetim için Yönetim grupları oluşturma
 Yönetim erişimi, ilke ve uyumluluk arasında birden çok abonelik yönetmenize yardımcı kapsayıcılardır gruplarıdır. İle birlikte kullanılabilen bir etkili ve verimli hiyerarşisi oluşturmak için bu kapsayıcıları oluşturma [Azure ilke](../azure-policy/azure-policy-introduction.md) ve [Azure rol tabanlı erişim denetimlerini](../active-directory/role-based-access-control-what-is.md). Yönetim grupları hakkında daha fazla bilgi için bkz: [kaynaklarınızı Azure Yönetim grupları ile düzenleme ](management-groups-overview.md). 
@@ -47,14 +47,14 @@ Portal, PowerShell veya Azure CLI kullanarak yönetim grubu oluşturabilirsiniz.
 PowerShell içinde Ekle AzureRmManagementGroups cmdlet'lerini kullanın.   
 
 ```azurepowershell-interactive
-C:\> Add-AzureRmManagementGroup -GroupName Contoso 
+C:\> New-AzureRmManagementGroup -GroupName Contoso 
 ```
 **GroupName** oluşturulan benzersiz tanımlayıcısı. Bu kimliği, başka komutlarla bu grubuna başvurmak için kullanılır ve daha sonra değiştirilemez.
 
 Azure portalı içinde farklı bir ad göstermek için yönetim grubu istediğinizi varsa, eklediğiniz **DisplayName** dizesi parametresi. Örneğin, bir yönetim grubu, GroupName Contoso ve "Contoso grubu" görünen adını oluşturmak istemeniz durumunda, aşağıdaki cmdlet'i kullanın: 
 
 ```azurepowershell-interactive
-C:\> Add-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
+C:\> New-AzureRmManagementGroup -GroupName Contoso -DisplayName "Contoso Group" -ParentId ContosoTenant
 ``` 
 Kullanım **parentId** parametresi bu yönetim grubu için farklı bir yönetim altında oluşturulabilir.  
 

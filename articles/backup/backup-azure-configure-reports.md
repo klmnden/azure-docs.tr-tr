@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c6cc4ba95f440f09f11a93927fd67873f8813e8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup raporlarını yapılandırma
 Bu makalede Azure kurtarma Hizmetleri kasası kullanarak yedekleme için raporlar yapılandırmak ve Power BI'ı kullanarak bu raporlara erişmek için ilgili adımlar açıklanmaktadır. Bu adımları gerçekleştirdikten sonra Power BI için ın tüm raporları görüntülemek için özelleştirme ve raporları oluşturma doğrudan gidebilirsiniz. 
@@ -123,7 +123,7 @@ Depolama hesabı için yapılandırma kurtarma Hizmetleri kasası kullanarak rap
 
 2. **Veri gönderimi depolama hesabı ve Power BI içerik paketi Azure Backup sıklığını nedir?**
 
-   0. gün kullanıcılar için bu depolama hesabı veri göndermek için yaklaşık 24 saat sürer. Bu ilk anında compelete olduğunda, veriler aşağıdaki şekilde gösterilen aşağıdaki sıklık yenilenir. 
+   0. gün kullanıcılar için bu depolama hesabı veri göndermek için yaklaşık 24 saat sürer. Bu ilk anında tamamlandıktan sonra verileri aşağıdaki şekilde gösterilen aşağıdaki sıklık yenilenir. 
       * İlgili verileri **işleri, uyarılar, yedekleme öğeleri, kasa, korumalı sunucular ve ilkeleri** müşteri depolama hesabı olarak ve ne zaman oturum için gönderilir.
       * İlgili verileri **depolama** müşteri depolama hesabı için 24 saatte gönderilir.
    

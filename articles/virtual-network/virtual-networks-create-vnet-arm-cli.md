@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: a4cb309a9fd07e842193b0ce4b023fab8c08e035
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: feb8fb218b8bde88ba7fbdc3419e32c9313c7885
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-cli"></a>Azure CLI kullanarak birden çok alt ağı ile bir sanal ağ oluşturma
 
@@ -126,6 +126,8 @@ Sanal makine oluşturmak için birkaç dakika sürer. Sanal makine oluşturulduk
 Örnek çıktıda, gördüğünüz **privateIpAddress** olan *10.0.1.4*. Oluşturulan azure bir [ağ arabirimi](virtual-network-network-interface.md), sanal makineye bağlı, ağ arabiriminin özel bir IP adresi atanır ve **macAddress**. Azure DHCP otomatik olarak atanmış 10.0.1.4 ağ arabirimine, ilk kullanılabilir IP adresi olduğundan *özel* alt ağ. Ağ arabirimi silinene kadar özel IP ve MAC adreslerinin ağ arabirimine atanmış olarak kalır. 
 
 Not edin **Publicıpaddress**. Bu adres sanal makine bir sonraki adımda Internet'ten erişmek için kullanılır. Bir sanal makine kendisine atanmış bir ortak IP adresi olması gerekli değildir ancak Azure varsayılan oluşturmak her bir sanal makine bir ortak IP adresi atar. Bir sanal makineye Internet üzerinden iletişim kurmak için bir ortak IP adresi sanal makineyi atanması gerekir. Bir ortak IP adresi sanal makineye atanmış olup olmadığına bakılmaksızın tüm sanal makinelerin giden Internet ile iletişim kurabilir. Azure'a giden Internet bağlantıları hakkında daha fazla bilgi için bkz: [azure'da giden bağlantılar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Bu makalede oluşturulan sanal makineler bir tane [ağ arabirimi](virtual-network-network-interface.md) dinamik olarak ağ arabirimine atanmış bir IP adresine sahip. VM dağıtıldıktan sonra şunları yapabilirsiniz [birden çok ortak ve özel IP adreslerini ekleyin ya da statik IP adresi ataması yöntemi Değiştir](virtual-network-network-interface-addresses.md#add-ip-addresses). Yapabilecekleriniz [ağ arabirimlerini ekleyin](virtual-network-network-interface-vm.md#vm-add-nic), desteklediği sınırına kadar [VM boyutu](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir sanal makine oluşturduğunuzda seçin. Ayrıca [tek köklü g/ç Sanallaştırması (SR-IOV) etkinleştir](create-vm-accelerated-networking-cli.md) bir VM, ancak yalnızca özelliğini destekleyen bir VM boyutu ile bir VM oluşturun.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Sanal makineler arasında ve internet ile iletişim
 

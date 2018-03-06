@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 37fbe7fa3160d39e85614c3481061d5ce458b29a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9b48b17b214f6ff22c7c68421ba8c89104c8b4b1
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights ve günlük analizi tarafından kullanılan IP adresleri
 [Azure Application Insights](app-insights-overview.md) hizmeti, IP adreslerinin sayısı kullanır. İzlemekte olduğunuz uygulama güvenlik duvarının arkasında barındırılıyorsa bu adresleri bilmeniz gerekebilir.
@@ -48,7 +48,7 @@ Durum İzleyicisi'ni yapılandırma - yalnızca değişiklik yaparken gerekir.
 | Yapılandırma |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Yapılandırma |`auth.gfx.ms` | |`443` |
 | Yapılandırma |`login.live.com` | |`443` |
-| Yükleme |`packages.nuget.org` , `nuget.org` | |`443` |
+| Yükleme |`packages.nuget.org` , `nuget.org`, `api.nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
 | Amaç | URL'si | IP | Bağlantı Noktaları |

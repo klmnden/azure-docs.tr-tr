@@ -4,7 +4,7 @@ description: "Ağ arabirimlerine ekleyip ağ arabirimleri sanal makinelerden ö�
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 30e6950a976307023bd5232fa1c1f1342c1d012b
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb21690865cd9384fe3d3c82e60f11e0fc64114c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ağ arabirimlerine ekleme veya sanal makinelerden ağ arabirimleri Kaldır
 
@@ -29,12 +29,12 @@ Eklemek, değiştirmek veya bir ağ arabirimi için IP adreslerini kaldırın, b
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalenin herhangi bölümündeki adımları gerçekleştirmeden önce aşağıdaki görevleri tamamlayın:
+Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşağıdaki görevleri tamamlayın:
 
-- Azure'da oturum aç [portal](https://portal.azure.com), Azure CLI veya Azure PowerShell ile bir Azure hesabı. Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/free).
-- Bu makalede, görevleri tamamlamak için PowerShell komutlarını kullanırsanız [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure PowerShell cmdlet'lerinin yüklü en son sürümüne sahip olduğunuzdan emin olun. PowerShell komutlarıyla örnekler, yardım almanın yazın `get-help <command> -full`. 
-- Alternatif olarak, Azure bulut Kabuğu'nu kullanabilirsiniz. Azure bulut Kabuğu doğrudan Azure Portalı'ndan çalıştırabileceğiniz boş bir powershell'dir. Hesabınızla birlikte kullanmak için önceden yüklenmiş ve yapılandırılmış PowerShell sahiptir. Bu seçeneği kullanmak için bulut Kabuğu'nu seçin **> _** en üstündeki düğmesi [portal](https://portal.azure.com) ve sol üst köşedeki PowerShell seçin.
-- Bu makalede, görevleri tamamlamak için Azure CLI komutları kullanırsanız [Azure CLI'yi yükleme ve yapılandırma](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure CLI'ın yüklü en son sürümüne sahip olduğunuzdan emin olun. CLI komutları için Yardım almak için yazın `az <command> --help`. 
+- Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
+- Portalı kullanarak, https://portal.azure.com açın ve Azure hesabınızla oturum açın.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` yüklü olan sürümü bulunamıyor. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Yeni bir sanal makineye mevcut ağ arabirimlerinin ekleme
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5484f0422e67c75320cc76ffcf08a2b8d6cc6108
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e143ed1e6bcece7efac9126c8e46408e7a88a5c0
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure’da Linux VM’nizi iyileştirme
 Linux sanal makine (VM) oluşturma komut satırından veya portalından yapmak kolaydır. Bu öğreticide, Microsoft Azure platformu üzerinde performansı iyileştirmek için ayarladığınız emin olmak nasıl gösterir. Bu konuda bir Ubuntu Server VM kullanır, ancak, Linux kullanarak sanal makine oluşturabilirsiniz [kendi görüntü şablonları olarak](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -58,7 +58,7 @@ Ubuntu bulut görüntülerinde takas bölümü yapılandırmak için bulut init 
 
 Bulut init desteği olmadan görüntüler için Azure Marketi'nden dağıtılan VM görüntüleri bir VM Linux işletim sistemiyle tümleştirilmiş aracısına sahip. Bu aracı VM'nin çeşitli Azure Hizmetleri ile etkileşimde bulunmasına izin veren. Azure Marketi'nden standart bir görüntü dağıttığınız varsayıldığında, doğru Linux takas dosyası ayarlarınızı yapılandırmak için aşağıdakileri yapmanız gerekir:
 
-Bulun ve iki giriş değiştirme **/etc/waagent.conf** dosya. Bunlar, ayrılmış takas dosyası varlığını ve takas dosyası boyutunu denetler. Değiştirilecek arayan parametreleri `ResourceDisk.EnableSwap=N` ve`ResourceDisk.SwapSizeMB=0` 
+Bulun ve iki giriş değiştirme **/etc/waagent.conf** dosya. Bunlar, ayrılmış takas dosyası varlığını ve takas dosyası boyutunu denetler. Değiştirilecek arayan parametreleri `ResourceDisk.EnableSwap=N` ve `ResourceDisk.SwapSizeMB=0` 
 
 Parametreleri aşağıdaki ayarları değiştirin:
 
@@ -131,8 +131,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 Ek kaynaklar için bazı yararlı bağlantılar: 
 
-* [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../windows/premium-storage.md)
-* [Azure Linux Aracısı Kullanıcı Kılavuzu](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure Linux VM'ler MySQL performansı en iyi duruma getirme](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Yazılım RAID Linux üzerinde yapılandırma](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+* [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](premium-storage.md)
+* [Azure Linux Aracısı Kullanıcı Kılavuzu](agent-user-guide.md)
+* [Azure Linux VM'ler MySQL performansı en iyi duruma getirme](classic/optimize-mysql.md)
+* [Yazılım RAID Linux üzerinde yapılandırma](configure-raid.md)

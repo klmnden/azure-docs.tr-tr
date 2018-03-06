@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache SSS
 Azure Redis önbelleği için sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını öğrenin.
@@ -135,7 +135,7 @@ Bu tablodan biz aşağıdaki sonuçları çizebilirsiniz:
 | Fiyatlandırma katmanı | Boyut | CPU çekirdekleri | Kullanılabilir bant genişliği | 1 KB değer boyutu | 1 KB değer boyutu |
 | --- | --- | --- | --- | --- | --- |
 | **Standart önbellek boyutu** | | |**Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RPS) SSL olmayan başına istek sayısı** |**İkinci (RPS) SSL başına istek sayısı** |
-| C0 |250 MB |Paylaşılan |100 / 12.5 |15,000 |7,500 |
+| C0 |250 MB |Paylaşılan |100 / 12.5 |15,000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
@@ -246,9 +246,7 @@ Adresinde listelenmiş komutlardan herhangi birini kullanabilirsiniz [Redis komu
 * Redis komut satırı araçları da kullanabilirsiniz. Bunları kullanmak için aşağıdaki adımları gerçekleştirin:
 * Karşıdan [Redis komut satırı araçları](https://github.com/MSOpenTech/redis/releases/).
 * Önbellek bağlamak için `redis-cli.exe`. -H geçiş kullanarak önbellek son nokta aşağıdaki örnekte gösterildiği gibi kullanarak ve anahtarı geçirin:
-* `redis-cli -h <your cache="" name="">
-  .redis.cache.windows.net -a <key>
-  `
+* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
 > Redis komut satırı araçlarını SSL bağlantı noktası ile çalışmaz, ancak bir yardımcı programı gibi kullanabilir `stunnel` güvenli Araçları'ndaki yönergeleri izleyerek SSL bağlantı noktasına bağlanmak için [Redis Önizleme için ASP.NET oturum durumu sağlayıcısı Duyurusu Yayın](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog postası.
@@ -270,7 +268,7 @@ Evet, Azure Redis önbelleği PHP oturum önbelleği olarak kullanmak için Azur
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Anahtar URL kodlanmış değilse, bir özel durumla aşağıdakine benzer bir ileti alabilirsiniz:`Failed to parse session.save_path`
+> Anahtar URL kodlanmış değilse, bir özel durumla aşağıdakine benzer bir ileti alabilirsiniz: `Failed to parse session.save_path`
 >
 >
 

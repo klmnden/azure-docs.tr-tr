@@ -4,7 +4,7 @@ description: "Bilgi bir ağ arabirimi ve nasıl oluşturulacağını, ayarların
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: da29ecaaa0f694be3e96baebfd80c09069d7c4a8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimi silme
 
@@ -30,12 +30,12 @@ Eklemeniz gerekiyorsa, değiştirmek veya okuma bir ağ arabirimi için IP adres
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalenin herhangi bölümündeki tüm adımları tamamlanmadan önce aşağıdaki görevleri tamamlayın:
+Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşağıdaki görevleri tamamlayın:
 
-- Gözden geçirme [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makale ağ arabirimleri için sınırları hakkında bilgi edinin.
-- Azure oturum açma [portal](https://portal.azure.com), Azure komut satırı arabirimi (CLI) ya da Azure PowerShell ile bir Azure hesabı. Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
-- Bu makalede, görevleri tamamlamak için PowerShell komutlarını kullanarak, [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Yüklü Azure PowerShell cmdlet'leri'nın en son sürümüne sahip olun. PowerShell komutlarıyla örnekler, yardım almanın yazın `get-help <command> -full`.
-- Bu makalede, görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, [Azure CLI'yi yükleme ve yapılandırma](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Yüklü Azure CLI'ın en son sürümüne sahip olun. CLI komutları için Yardım almak için yazın `az <command> --help`. CLI ve ön koşullar yüklemek yerine, Azure bulut Kabuğu'nu kullanabilirsiniz. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bulut Kabuğu'nu kullanmak için bulut Kabuğu'nu tıklatın. **> _** en üstündeki düğmesi [portal](https://portal.azure.com).
+- Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
+- Portalı kullanarak, https://portal.azure.com açın ve Azure hesabınızla oturum açın.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` yüklü olan sürümü bulunamıyor. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
 ## <a name="create-a-network-interface"></a>Bir ağ arabirimi oluştur
 
@@ -163,7 +163,7 @@ Alt ağ, ancak bir ağ arabirimi atanan sanal ağda değil, değiştirebilirsini
 
 ## <a name="delete-a-network-interface"></a>Bir ağ arabirimi Sil
 
-Bir sanal makineye bağlı olmayan sürece, bir ağ arabirimi silebilirsiniz. Bir sanal makineye bağlıysa, gerekir ilk sanal makine durduruldu (serbest bırakıldığında) durumda yerleştirin ve ardından ağ arabirimi silmeden önce sanal makineden ağ arabirimini ayır. Bir sanal makineden ağ arabirimini ayırmak için adımları tamamlamanız [bir sanal makineden ağ arabirimini Ayır](virtual-network-network-interface-vm.md#vm-remove-nic) bölümünü [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md) makalesi. Bir sanal makine silme bağlı tüm ağ arabirimleri ayırır, ancak ağ arabirimleri silmez.
+Bir sanal makineye bağlı olmayan sürece, bir ağ arabirimi silebilirsiniz. Bir sanal makineye bağlıysa, gerekir ilk sanal makine durduruldu (serbest bırakıldığında) durumda yerleştirin ve ardından ağ arabirimi silmeden önce sanal makineden ağ arabirimini ayır. Bir sanal makineden ağ arabirimini ayırmak için adımları tamamlamanız [bir sanal makineden ağ arabirimini Ayır](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm) bölümünü [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md) makalesi. Bir sanal makine silme bağlı tüm ağ arabirimleri ayırır, ancak ağ arabirimleri silmez.
 
 1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
 2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.

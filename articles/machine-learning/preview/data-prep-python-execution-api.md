@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 6c4f96ee34d59102ae289e99733216fe0b145e93
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 36814d238aabd12e7cc6947809c135130002eb46
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>Veri kaynakları ve veriler hazırlıkları paketleri Python yürütme
 
@@ -33,9 +33,9 @@ Bu eylem, paketin yürütür ve bir dataframe döndüren kısa bir Python betiğ
 ## <a name="data-sources"></a>Veri Kaynakları
 
 `azureml.dataprep.datasource` Modülü bir veri kaynağı yürütmek ve bir dataframe dönmek için tek bir işlevi içeriyor: `load_datasource(path, secrets=None, spark=None)`.
-- `path`veri kaynağı (.dsource dosyası) yoludur.
-- `secrets`için gizli anahtarlarını eşleyen isteğe bağlı bir sözlük olur.
-- `spark`Spark dataframe veya Pandas dataframe döndürülmeyeceğini belirten isteğe bağlı bir bool olur. Varsayılan olarak, Azure Machine Learning çalışma ekranı bağlamına dayalı çalışma zamanında döndürmek için ne tür bir dataframe belirler.
+- `path` veri kaynağı (.dsource dosyası) yoludur.
+- `secrets` için gizli anahtarlarını eşleyen isteğe bağlı bir sözlük olur.
+- `spark` Spark dataframe veya Pandas dataframe döndürülmeyeceğini belirten isteğe bağlı bir bool olur. Varsayılan olarak, Azure Machine Learning çalışma ekranı bağlamına dayalı çalışma zamanında döndürmek için ne tür bir dataframe belirler.
 
 ## <a name="data-preparations-packages"></a>Veriler hazırlıkları paketleri
 
@@ -43,13 +43,13 @@ Bu eylem, paketin yürütür ve bir dataframe döndüren kısa bir Python betiğ
 
 ### <a name="execution-functions"></a>Yürütme işlevleri
 
-- `submit(package_path, dataflow_idx=0, secrets=None, spark=None)`yürütme için belirtilen veri akışı gönderir, ancak bir dataframe döndürmüyor.
-- `run(package_path, dataflow_idx=0, secrets=None, spark=None)`Belirtilen veri akışı çalıştırır ve sonuçları bir dataframe döndürür.
-- `run_on_data(user_config, package_path, dataflow_idx=0, secrets=None, spark=None)`bir bellek içi veri kaynağına göre belirtilen veri akışı çalıştırır ve sonuçları bir dataframe döndürür. `user_config` Bağımsız değişken listeleri oluşan bir liste olarak temsil edilen bir bellek içi veri kaynağı bir veri kaynağı (.dsource dosyası) mutlak yolu eşleyen bir sözlük etmektir.
+- `submit(package_path, dataflow_idx=0, secrets=None, spark=None)` yürütme için belirtilen veri akışı gönderir, ancak bir dataframe döndürmüyor.
+- `run(package_path, dataflow_idx=0, secrets=None, spark=None)` Belirtilen veri akışı çalıştırır ve sonuçları bir dataframe döndürür.
+- `run_on_data(user_config, package_path, dataflow_idx=0, secrets=None, spark=None)` bir bellek içi veri kaynağına göre belirtilen veri akışı çalıştırır ve sonuçları bir dataframe döndürür. `user_config` Bağımsız değişken listeleri oluşan bir liste olarak temsil edilen bir bellek içi veri kaynağı bir veri kaynağı (.dsource dosyası) mutlak yolu eşleyen bir sözlük etmektir.
 
 ### <a name="common-arguments"></a>Ortak bağımsız değişkenler
 
-- `package_path`Veriler hazırlıkları paketi (.dprep dosyası) yoludur.
-- `dataflow_idx`hangi veri akışını yürütmek için paketindeki sıfır tabanlı dizini var. Belirtilen veri akışı veri kaynakları veya diğer veri akışları başvurursa, bunlar da yürütülür.
-- `secrets`için gizli anahtarlarını eşleyen isteğe bağlı bir sözlük olur.
-- `spark`Spark dataframe veya Pandas dataframe döndürülmeyeceğini belirten isteğe bağlı bir bool olur. Varsayılan olarak, çalışma ekranı bağlamına dayalı çalışma zamanında döndürmek için ne tür bir dataframe belirler.
+- `package_path` Veriler hazırlıkları paketi (.dprep dosyası) yoludur.
+- `dataflow_idx` hangi veri akışını yürütmek için paketindeki sıfır tabanlı dizini var. Belirtilen veri akışı veri kaynakları veya diğer veri akışları başvurursa, bunlar da yürütülür.
+- `secrets` için gizli anahtarlarını eşleyen isteğe bağlı bir sözlük olur.
+- `spark` Spark dataframe veya Pandas dataframe döndürülmeyeceğini belirten isteğe bağlı bir bool olur. Varsayılan olarak, çalışma ekranı bağlamına dayalı çalışma zamanında döndürmek için ne tür bir dataframe belirler.

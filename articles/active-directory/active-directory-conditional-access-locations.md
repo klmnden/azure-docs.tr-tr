@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/11/2018
+ms.date: 03/01/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.reviewer: calebb
+ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim konumu koşullar 
 
@@ -120,9 +120,12 @@ Bu seçenek ile bir veya daha fazla adlandırılmış konumlar seçebilirsiniz. 
 
 Koşullu erişim ilkeleri değerlendirilir zaman: 
 
-- Bir kullanıcı ilk kez oturum açtığında 
+- Bir kullanıcı bir web uygulaması, mobil veya masaüstü uygulaması başlangıçta açar. 
 
-- Azure AD koşullu erişim ilkesi ayarlama bulut uygulaması için bir belirteç verir. 
+- Modern kimlik doğrulaması kullanan bir mobil veya masaüstü uygulaması, yeni bir erişim belirteci almak için bir yenileme belirteci kullanır. Varsayılan olarak bu kez bir saattir. 
+
+Bu için mobile anlamına gelir ve Masaüstü uygulamaları, modern kimlik doğrulaması kullanan bir değişiklik konumda ağ konumunu değiştirme bir saat içinde algılandı. Modern kimlik doğrulaması kullanmayan mobil ve Masaüstü uygulamaları için belirteç her istekte ilkesi uygulanır. İstek sıklığını uygulama göre değişebilir. Benzer şekilde, web uygulamaları için ilke ilk oturum açma sırasında uygulanır ve bu web uygulaması, oturum ömrü için uygundur. Uygulamalar arasında oturum süreleri farklılıkları nedeniyle, ilke değerlendirmesi arasındaki zaman da değişir. Uygulamanın yeni bir oturum açma belirteci, istekleri her zaman ilkesi uygulanır.
+
 
 Varsayılan olarak, Azure AD saatlik olarak başka bir belirteç verir. Bir saat içinde şirket ağı devre dışı taşıdıktan sonra modern kimlik doğrulaması kullanan uygulamalar için ilke zorlanır.
 

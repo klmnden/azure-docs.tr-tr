@@ -16,15 +16,9 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-<<<<<<< HEAD
-ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
-=======
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-ms.date: 09/13/2017
+ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Ortak senaryolar, örnekler, öğreticiler ve Azure Logic Apps için izlenecek yollar
 
@@ -63,14 +63,15 @@ Sistemler ve bağlayıcılar yayımlanmamış hizmetler için mantıksal uygulam
 * [Dış olayları ve eylemleri ile Web kancalarını yanıt](../logic-apps/logic-apps-create-api-app.md)
 * [Çağrı, tetikleyici veya HTTP isteklerini zaman uyumlu yanıtlarını iş akışlarıyla iç içe](../logic-apps/logic-apps-http-endpoint.md)
 * [Öğretici: dakika Logic Apps ve Power BI ile derleme olarak AI destekli bir Sosyal Panosu](http://aka.ms/logicappsdemo)
-* [Öğretici: Twilio SMS kancalarını yanıt ve metin yanıt gönderme](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Video: Twilio SMS kancalarını yanıt ve metin yanıt gönderme](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Denetim akışı, hata işleme ve günlüğe kaydetme özellikleri
 
 Logic apps koşullar, anahtarları, döngüler ve kapsamları gibi gelişmiş denetim akışı için zengin özellikleri içerir. Esnek çözümleri sağlamak için de hata ve özel durum, iş akışlarında işleme uygulayabilirsiniz. Bildirim ve iş akışı çalışma durumu için tanılama günlükleri için Azure mantıksal uygulamaları izleme ve uyarılar de sağlar.
 
-* [Diziler ve koleksiyonlarla döngüler ve mantıksal uygulamalar'toplu işlem öğeleri](../logic-apps/logic-apps-loops-and-scopes.md)
-* [Switch deyimleri ile farklı eylemler gerçekleştirme](../logic-apps/logic-apps-switch-case.md)
+* Temel alan farklı eylemler gerçekleştirmek [koşullu deyimler](../logic-apps/logic-apps-control-flow-conditional-statement.md) ve [switch ifadeleri](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Adımları veya işlem öğeler dizileri ve döngüler koleksiyonlarla yineleyin](../logic-apps/logic-apps-control-flow-loops.md)
+* [Kapsamları birlikte grup eylemleri](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Yazar hata ve özel durum bir iş akışında işleme](../logic-apps/logic-apps-exception-handling.md)
 * [Kullanım örneği: sağlık şirket mantığı uygulama özel durum HL7 FHIR iş akışları için işleme nasıl kullanır](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [İzleme, günlüğe kaydetme ve mevcut mantıksal uygulamaları için uyarıları Aç](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -89,7 +90,7 @@ Tam olarak geliştirmek ve logic apps Visual Studio, Visual Studio Team Services
 Erişim, dönüştürme ve Azure Logic Apps içinde birçok işlevini kullanarak birden çok içerik türleri dönüştürme [iş akışı tanımlama dili](http://aka.ms/logicappsdocs). Örneğin, bir dize, JSON ve XML ile arasındaki dönüştürebilirsiniz `@json()` ve `@xml()` iş akışı ifadeler. Logic Apps altyapısı kayıpsız bir şekilde hizmetleri arasında içerik aktarımını desteklemek için içerik türleri korur.
 
 * [İş akışı ifadeleri logic apps içinde nasıl çalışır](../logic-apps/logic-apps-author-definitions.md)
-* [JSON olmayan içerik türleri işlemek](../logic-apps/logic-apps-content-type.md)gibi `application/xml`, `application/octet-stream`, ve`multipart/formdata`
+* [JSON olmayan içerik türleri işlemek](../logic-apps/logic-apps-content-type.md)gibi `application/xml`, `application/octet-stream`, ve `multipart/formdata`
 * [Başvuru: Azure mantıksal uygulamaları iş akışı tanımlama dili](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Diğer tümleştirmeler ve özellikleri
@@ -98,15 +99,22 @@ Logic apps, Azure işlevleri, Azure API Management, Azure App Services ve özel 
 
 * [Gerçek zamanlı sosyal Pano Azure sunucusuz ile oluşturma](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Mantığı uygulamalardan Azure işlevlerini çağırma](../logic-apps/logic-apps-azure-functions.md)
-* [Senaryo: Tetikleyici logic apps ile Azure işlevleri](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Öğretici: Tetikleyici logic apps ile Azure işlevleri](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Öğretici: Azure olay kılavuz ve Logic Apps ile sanal makine değişikliklerini izleme](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Öğretici: Azure Logic Apps ile tümleşen bir işlev oluşturun ve Twitter analiz etmek için Microsoft Bilişsel hizmetler düşünceleri gönderin](../azure-functions/functions-twitter-email.md)
+* [Öğretici: IOT Uzaktan izleme ve IOT hub ve posta kutusu bağlanma Azure Logic Apps ile bildirimleri](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: Çağrı mantığı uygulamalardan SOAP uç noktası](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Uçtan uca senaryolar
 
-* [Teknik İnceleme: Kurumsal tümleştirme uçtan uca servis talebi yönetimi Logic Apps gibi Azure hizmetleriyle](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [Teknik İnceleme: Uçtan uca durum yönetimi Logic Apps gibi Azure hizmetleriyle tümleştirme](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+
+## <a name="customer-stories"></a>Müşteri hikayeleri
+
+Azure mantıksal uygulamaları, diğer Azure Hizmetleri ve Microsoft ürünleri ile birlikte nasıl yardımcı olduğunu öğrenin [bu şirketlerin](https://aka.ms/logic-apps-customer-stories) kendi çeviklik geliştirmek ve odak Çekirdek işlerini basitleştirme, düzenleme, otomatikleştirme ve yönetme hakkında karmaşık işlemlere.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İş akışı tanımlama dili ile yazar iş akışı tanımları](../logic-apps/logic-apps-author-definitions.md)
+* [Mantıksal uygulama tanımları JSON ile derleme](../logic-apps/logic-apps-author-definitions.md)
 * [Hataları ve logic apps içinde özel durumları işleme](../logic-apps/logic-apps-exception-handling.md)
-* [Biz Azure mantıksal uygulamaları nasıl geliştirmek için açıklamalar, sorular, geri bildirim veya önerileri gönderme](https://feedback.azure.com/forums/287593-logic-apps)
+* [Açıklamalar, sorular, geri bildirim veya Azure mantıksal uygulamaları geliştirmek için öneriler gönderme](https://feedback.azure.com/forums/287593-logic-apps)

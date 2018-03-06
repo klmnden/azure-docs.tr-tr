@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health hakkında sık sorulan sorular
 Bu makale, Azure Active Directory (Azure AD) Connect Health hakkında sık sorulan sorular (SSS) yanıtlarını içerir. Bu SSS, özellikleri, sınırlamalar ve Destek faturalama modeli içerir hizmetini kullanma hakkında sorular kapsar.
@@ -128,12 +128,7 @@ Sistem Durumu Aracısı, olası nedeni şunlar kaydetmek başarısız olabilir:
 
 **S: "sistem sağlığı hizmeti verileri güncel değil," uyarı Sorun giderme nasıl?**
 
-Azure AD Connect Health, tüm veri noktaları sunucudan son iki saat içinde almazsa bir uyarı oluşturur. Bu uyarı için birden çok nedeni olabilir.
-
-* Bir güvenlik duvarı trafiği engelleyen olduğundan aracı gerekli uç noktalar ile iletişim kuramıyor. Bu, özellikle web uygulama proxy sunucularında yaygındır. Gerekli uç noktalar ve bağlantı noktalarına giden iletişime izin emin olun. Bkz: [gereksinimleri bölümüne](active-directory-aadconnect-health-agent-install.md#requirements) Ayrıntılar için.
-* Giden iletişim için SSL denetlemesi ağ katmanı tarafından bağımlıdır. Bu aracının denetleme sunucu/varlık tarafından değiştirilmesi için kullandığı sertifikayı neden olur ve Azure AD Connect Health hizmetine veri yüklemeye işlemi başarısız olur.
-* Aracı yerleşik bağlantı komutunu kullanabilirsiniz. [Daha fazla bilgi edinin](active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service).
-* Aracılar Ayrıca kimliği doğrulanmamış bir HTTP Proxy üzerinden giden bağlantıyı destekler. [Daha fazla bilgi edinin](active-directory-aadconnect-health-agent-install.md##configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Azure AD Connect Health, tüm veri noktaları sunucudan son iki saat içinde almazsa bir uyarı oluşturur. [Daha fazla bilgi edinin](active-directory-aadconnect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Operations sorular
 **S: web uygulaması Ara sunucularında denetimi etkinleştirmeniz gerekiyor mu?**

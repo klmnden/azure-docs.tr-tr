@@ -13,26 +13,24 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/21/2017
+ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
-Bu makalede, bir Azure Resource Manager tarafından dağıtılan sanal makinesini (VM) yedeklemek için ortamınızı hazırlama için adımları sağlar. Yordamda gösterildiği adımları Azure Portalı'nı kullanın.  
-
-Azure Backup hizmeti kasalarını Vm'lerinizi koruma için iki tür vardır: yedekleme kasalarını ve kurtarma Hizmetleri kasalarının. Bir yedekleme kasası Klasik dağıtım modeli aracılığıyla dağıtılan VM'ler korunmasına yardımcı olur. Kurtarma Hizmetleri kasası korur *hem Klasik dağıtılan hem de Resource Manager tarafından dağıtılan VM'ler*. Resource Manager tarafından dağıtılan VM korumak istiyorsanız, bir kurtarma Hizmetleri kasası kullanmanız gerekir.
+Bu makalede, bir Azure Resource Manager tarafından dağıtılan sanal makinesini (VM) yedeklemek için ortamınızı hazırlama için adımları sağlar. Yordamda gösterildiği adımları Azure Portalı'nı kullanın. Sanal makine yedekleme verilerini bir kurtarma Hizmetleri kasasına depolar. Kasa Klasik ve Resource Manager tarafından dağıtılan sanal makineler için yedekleme verileri tutar.
 
 > [!NOTE]
 > Azure oluşturmak ve kaynaklarla çalışmak için iki dağıtım modeline sahiptir: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Korumak veya Resource Manager tarafından dağıtılan bir sanal makineyi yedeklemek için önce şu önkoşulların mevcut olması emin olun:
+Koruma (veya yedekleme önce) bir Resource Manager tarafından dağıtılan sanal makine bu Önkoşullar var olduğundan emin olun:
 
-* Kurtarma Hizmetleri kasası oluşturma (veya var olan bir kurtarma Hizmetleri kasası tanımlama) *VM ile aynı konumda*.
+* Kurtarma Hizmetleri kasası oluşturma (veya var olan bir kurtarma Hizmetleri kasası tanımlama) *VM ile aynı bölgede*.
 * Bir senaryo seçmek, yedekleme ilkesi tanımlama ve korunacak öğeleri tanımlama.
 * Sanal makine üzerinde VM Aracısı yüklemesini inceleyin.
 * Ağ bağlantısını denetleyin.
@@ -44,7 +42,7 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [, Vm'leri yedekleme](backup-az
  * **Linux**: Azure Backup destekleyen [Azure Symantec'in dağıtımları listesini](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), hariç CoreOS Linux. 
  
     > [!NOTE] 
-    > Diğer Getir-bilgisayarınızı-kendi-Linux dağıtımları VM aracısının sanal makinede kullanılabilir olduğu sürece, iş ve Python var. desteği. Ancak, biz yedekleme için bu dağıtımları desteklemiyorsanız.
+    > Diğer Getir-bilgisayarınızı-kendi-Linux dağıtımları VM aracısının sanal makinede kullanılabilir olduğu sürece, iş ve Python var. desteği. Ancak, bu dağıtımları desteklenmez.
  * **Windows Server**:  Windows Server 2008 R2’den eski sürümler desteklenmez.
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Yedekleme ve geri yükleme VM sınırlamaları
@@ -54,16 +52,17 @@ Ortamınızı hazırlama önce sınırlamalara anladığınızdan emin olun:
 * Sanal makineler verilerle disk boyutları 1,023 GB'den büyük yedekleme desteklenmiyor.
 
   > [!NOTE]
-  > Yedeklemeleri VM'ler için > 1 TB disklerle desteklemek için özel Önizleme sunuyoruz. Ayrıntılar için başvurmak [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Bir TB diskler daha büyük sanal makineleri için yedeklemeleri destekleyecek özel önizlemesini sunuyoruz. Ayrıntılar için başvurmak [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Ayrılmış bir IP adresi ve tanımlanmış hiçbir uç nokta ile sanal makineleri yedekleme desteklenmiyor.
-* Yalnızca bir BitLocker şifreleme anahtarı (BEK) şifrelenmiş Vm'leri yedekleme desteklenmiyor. Linux VM'ler üzerinden Linux birleşik anahtar Kurulum (LUKS) şifreleme şifreli yedekleme desteklenmiyor.
+* Linux VM'ler üzerinden Linux birleşik anahtar Kurulum (LUKS) şifreleme şifreli yedekleme desteklenmiyor.
 * Küme Paylaşılan birimleri (CSV) veya genişleme dosya sunucusu yapılandırması içeren Vm'leri yedekleme öneririz yok. Bunlar, bir anlık görüntü görev sırasında küme yapılandırmasında bulunan tüm VM'ler içeren gerektirir. Azure yedekleme çoklu VM tutarlılığını desteklemiyor. 
 * Yedekleme verilerini bir VM'ye bağlı takılı ağ sürücülerini içermez.
 * Geri yükleme sırasında mevcut bir sanal makinenin değiştirilmesi desteklenmez. VM VM mevcut olduğunda geri yüklemeye geri yükleme işlemi başarısız olur.
-* Çapraz bölge yedekleme ve geri yükleme desteklenmez.
-* Yedekleme ve geri yükleme, yönetilmeyen diskleri depolama hesaplarında uygulanan ağ kurallarıyla kullanarak sanal makineleri şu anda desteklenmiyor. Yedekleme yapılandırırken, depolama hesabı için "Güvenlik duvarları ve sanal ağlar" ayarlar "Tüm ağları." erişimden izin verdiğinden emin olun
+* Çapraz bölge yedeklemek ve geri yükleme desteklenmez.
+* Yedekleme ve geri yükleme yönetilmeyen diskleri depolama hesaplarında uygulanan ağ kurallarıyla kullanarak sanal makineleri, desteklenmiyor. 
+* Yukarı geri yapılandırırken, emin **güvenlik duvarları ve sanal ağlar** depolama hesabı ayarlarını tüm ağlardan erişim izni.
 * Tüm ortak bölgelerde Azure sanal makineleri yedekleyebilirsiniz. (Bkz [denetim listesi](https://azure.microsoft.com/regions/#services) desteklenen bölgeler.) Aradığınız bölge bugün desteklenmiyorsa, kasa oluşturma sırasında aşağı açılan listede görünmez.
 * Bir etki alanı denetleyicisini geri multi-DC yapılandırmasının bir parçası olan (DC) VM yalnızca PowerShell aracılığıyla desteklenir. Daha fazla bilgi için bkz: [multi-DC etki alanı denetleyicisini geri](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Aşağıdaki özel ağ yapılandırmalarının sanal makineleri geri yüklenmesi yalnızca PowerShell aracılığıyla desteklenir. Geri yükleme işlemi tamamlandıktan sonra geri yükleme iş akışı içinde UI aracılığıyla oluşturulan sanal makineleri bu ağ yapılandırmaları sahip olmaz. Daha fazla bilgi için bkz: [geri VM'ler özel ağ yapılandırmaları ile](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -106,7 +105,7 @@ Kurtarma Hizmetleri kasası oluşturmak için:
 Kasanızı oluşturduğunuza göre, artık depolama çoğaltmayı nasıl ayarlayacağınızı öğrenebilirsiniz.
 
 ## <a name="set-storage-replication"></a>Depolama çoğaltma
-Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanızı sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Bu, birincil yedeklemenizse seçeneği coğrafi olarak yedekli depolamaya ayarlanmış şekilde bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin.
+Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanızı sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Birincil yedeklemenizin coğrafi olarak yedekli depolama seçeneği ayarını bırakın. Olarak ucuz bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin.
 
 Depolama çoğaltma ayarını düzenlemek için:
 
@@ -126,9 +125,7 @@ Depolama çoğaltma ayarını düzenlemek için:
 Kasanız için depolama seçeneğini belirledikten sonra VM'yi kasa ile ilişkilendirmek hazırsınız. İlişkilendirmeyi başlatmak için Azure sanal makinelerini bulmanız ve kaydetmeniz gerekir.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Yedekleme hedefi seçme, ilke ayarlamak ve korunacak öğeleri tanımlama
-Bir VM'yi bir kasaya kaydetmeden önce aboneliğe eklenmiş olan yeni sanal makineler tanımlanır emin olmak için bulma işlemini çalıştırın. Bilgilerle birlikte Abonelikteki sanal makinelerin listesini işlem sorgularında Azure bulut hizmeti adı ve bölge gibi. 
-
-Azure portalında *senaryo* kurtarma Hizmetleri kasasına ne sokar başvuruyor. *İlke* ne sıklıkta ve ne zaman kurtarma noktaları alınır için bir zamanlama. İlke aynı zamanda kurtarma noktaları için bekletme aralığını içerir.
+Bir sanal makine bir kurtarma Hizmetleri kasasına kaydetmeniz önce aboneliğe eklenmiş herhangi bir yeni sanal makine tanımlamak için bulma işlemini çalıştırın. Bulma işlemi Azure Abonelikteki sanal makinelerin listesini sorgular. Yeni sanal makineler bulunursa, portal ilişkili bölge ve bulut hizmeti adını görüntüler. Azure portalında *senaryo* kurtarma Hizmetleri kasasına girin. *İlke* ne sıklıkta ve ne zaman kurtarma noktaları alınır için bir zamanlama. İlke aynı zamanda kurtarma noktaları için bekletme aralığını içerir.
 
 1. Açık bir Kurtarma Hizmetleri kasanız zaten varsa 2. adıma geçin. Açık kurtarma Hizmetleri kasası yoksa açmak [Azure portal](https://portal.azure.com/). Üzerinde **Hub** menüsünde, select **daha fazla hizmet**.
 
@@ -151,7 +148,7 @@ Azure portalında *senaryo* kurtarma Hizmetleri kasasına ne sokar başvuruyor. 
 
    **Yedekleme** ve **yedekleme hedefi** bölmeleri açın.
 
-3. Üzerinde **yedekleme hedefi** kümesi bölmesi, **, iş yükünü çalıştırdığı?** için **Azure** ve **neleri yedeklemek istiyorsunuz?** için  **Sanal makine**. Ardından **Tamam**.
+3. Üzerinde **yedekleme hedefi** kümesi bölmesi, **, iş yükünü çalıştırdığı?** olarak **Azure** ve **neleri yedeklemek istiyorsunuz?** olarak  **Sanal makine**. Sonra **Tamam**’ı seçin.
 
    ![Yedekleme ve yedekleme hedefi bölmeleri](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -170,7 +167,7 @@ Azure portalında *senaryo* kurtarma Hizmetleri kasasına ne sokar başvuruyor. 
 
    !["Sanal makineleri seçin" bölmesi](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-   Seçilen sanal makine doğrulanır. Görmeyi beklediğiniz sanal makineleri görmüyorsanız, Kurtarma Hizmetleri kasasıyla aynı Azure konumunda bulunan ve zaten başka bir kasaya korunmayan denetleyin. Kasa Panosu kurtarma Hizmetleri kasası konumunu gösterir.
+   Seçilen sanal makine doğrulanır. Beklenen sanal makinelerin görmüyorsanız, sanal makineleri kurtarma Hizmetleri kasasıyla aynı Azure bölgesinde olup olmadığını denetleyin. Sanal makineler hala göremiyorsanız, bunlar zaten başka bir kasaya korunmayan olduğunu denetleyin. Kasa Panosu, Kurtarma Hizmetleri kasası bulunduğu bölgeyi gösterir.
 
 6. Kasa için tüm ayarların tanımladığınız göre **yedekleme** bölmesinde, **yedeklemeyi etkinleştir**. Bu adım ilkeyi kasaya ve Vm'lere dağıtır. Bu adım, sanal makine için ilk kurtarma noktası oluşturmaz.
 

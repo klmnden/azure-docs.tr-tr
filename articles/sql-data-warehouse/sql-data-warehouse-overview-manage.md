@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse veritabanlarında yönetme
 SQL veri ambarı veritabanlarınızı yönetme birçok nokta otomatikleştirir. Örneğin, performans ölçeklendirmek için ayarlamak ve işlem kaynaklarını doğru düzeyde için ödeme ve SQL Data Warehouse ölçeğini genişletme ve geri ölçeklendirme tüm yapması izin vermek yeterlidir.
@@ -40,14 +40,14 @@ Bu genel bakışta bu yönlerini SQL veri ambarı yönetimi ele alınmaktadır.
 SQL Data Warehouse veritabanlarında yönetmek için çeşitli araçları kullanabilirsiniz. Veritabanları yönetirken, yapmanız gereken görevinin her türü için aracı Tercihler geliştireceksiniz.
 
 ### <a name="azure-portal"></a>Azure portalına
-[Azure portal] [ Azure portal] burada oluşturabilir, güncelleştirme ve veritabanlarını silin ve veritabanı kaynaklarını izleme web tabanlı portal değil. Bu harika bir araçtır yalnızca veri ambarı veritabanlarını, az sayıda yönetme Azure ile çalışmaya Başlarken veya hızlı bir şekilde bir şey yapmanız gerekir.
+[Azure portal] [ Azure portal] burada oluşturabilir, güncelleştirme ve veritabanlarını silin ve veritabanı kaynaklarını izleme web tabanlı portal değil. Bu araç, yalnızca Azure ile başlıyorsanız, az sayıda veri yönetme ambarı veritabanlarını veya hızlı bir şekilde bir şey yapmanıza gerek mükemmeldir.
 
 Azure portalı ile çalışmaya başlamak için bkz: [SQL veri ambarı (Azure portalı) oluşturma][Create a SQL Data Warehouse (Azure portal)].
 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server veri araçları Visual Studio
 [SQL Server veri Araçları] [ SQL Server Data Tools] (SSDT) Visual Studio için bağlanmanıza olanak sağlayan yönetmek ve veritabanlarınızı geliştirin. Bir uygulama geliştiricisi Visual Studio'ya veya diğer tümleşik geliştirme ortamlarını (IDE) hakkında bilgi sahibi değilseniz, Visual Studio'da SSDT kullanmayı deneyin.
 
-SSDT görselleştirme, bağlanmak ve SQL Data Warehouse veritabanlarında komut dosyaları yürütme olanak tanıyan SQL Server Nesne Gezgini içerir. Hızlı bir şekilde SQL veri ambarı'na bağlanmak için basitçe tıklayabilirsiniz **Visual Studio'da Aç** ne zaman veritabanı görüntüleme Azure portalında ayrıntıları çubuğu komut düğmesi.  
+SSDT görselleştirme, bağlanmak ve SQL Data Warehouse veritabanlarında komut dosyalarını çalıştır sağlar SQL Server Nesne Gezgini içerir. Hızlı bir şekilde SQL veri ambarı'na bağlanmak için basitçe tıklayabilirsiniz **Visual Studio'da Aç** ne zaman veritabanı görüntüleme Azure portalında ayrıntıları çubuğu komut düğmesi.  
 
 Visual Studio'da SSDT ile çalışmaya başlamak için bkz: [sorgu Azure SQL Data Warehouse Visual Studio ile][Query Azure SQL Data Warehouse with Visual Studio].
 
@@ -59,7 +59,7 @@ Dmv'leri SQL veri ambarını yönetme ekmek ve ezmesi ' dir. Portalda ortaya ç�
 
 Başlamak için bkz: [bağlanma ve sorgu sqlcmd ile][Connect and query with sqlcmd], ve [veritabanı (PowerShell) oluşturma][Create a database (PowerShell)].
 
-## <a name="scale-compute"></a>Bilgi işlem
+## <a name="scale-compute"></a>Hesaplamayı ölçeklendirme
 SQL veri ambarı'nda performans out veya geri artırarak veya azaltarak işlem kaynakları CPU, bellek ve g/ç bant genişliği tarafından hızlı bir şekilde ölçeklendirebilirsiniz. Performans ölçeklendirmek için yapmanız gereken tek şey SQL Data Warehouse veritabanınıza ayırır veri ambarı birimlerini (Dwu'lar) sayısını ayarlayın. SQL veri ambarı hızlı bir şekilde değişiklik yapar ve donanım veya yazılım için temel alınan tüm değişiklikleri işler.
 
 Dwu ölçeklendirme hakkında daha fazla bilgi için bkz: [ölçeklendirme performans].
@@ -84,8 +84,8 @@ Güvenli bir sistemde korumak için uyarıdaki olabilir ve her tür yetkisiz eri
 
 Güvenlik yönetme hakkında bilgi edinmek için üzerinden için head [güvenliğine genel bakış][Security overview].
 
-## <a name="backup-and-restore"></a>Yedekleme ve geri yükleme
-Verilerinizin güvenilir backps sahip, herhangi bir üretim veritabanını önemli bir parçasıdır. SQL veri ambarı otomatik olarak düzenli aralıklarla, etkin veritabanlarını yedekleyerek, verilerinizi güvenli tutar. Bu yedeklemeler, buradan verilerinizi bozulmuş veya yanlışlıkla veri veya veritabanı bırakılan senaryolarından kurtarmanıza olanak tanır.  Veri yedekleme zamanlaması için bkz: bekletme ilkesi ve bir veritabanını geri yüklemek nasıl [anlık görüntüden geri][Restore from snapshot].
+## <a name="back-up-and-restore"></a>Yedekleme ve geri yükleme
+Verilerinizi güvenilir yedeklerini sahip, herhangi bir üretim veritabanını önemli bir parçasıdır. SQL veri ambarı otomatik olarak düzenli aralıklarla, etkin veritabanlarını yedekleyerek, verilerinizi güvenli tutar. Bu yedeklemeler, buradan verilerinizi bozulmuş veya yanlışlıkla veri veya veritabanı bırakılan senaryolarından kurtarmanıza olanak tanır.  Veri yedekleme zamanlaması için bkz: bekletme ilkesi ve bir veritabanını geri yüklemek nasıl [anlık görüntüden geri][Restore from snapshot].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 İyi veritabanı tasarım ilkeleri SQL Data Warehouse veritabanınızda yönetmenizi kolaylaştırır kullanma. Daha fazla bilgi için üzerinden için head [geliştirmeye genel bakış][Development overview].
@@ -100,10 +100,10 @@ Verilerinizin güvenilir backps sahip, herhangi bir üretim veritabanını önem
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[ölçeklendirme performans]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[ölçeklendirme performans]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

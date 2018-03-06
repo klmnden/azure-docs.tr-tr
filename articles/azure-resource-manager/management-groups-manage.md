@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 975f572d9bd0f32825e6a618cd31bbc263885030
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim grupları ile kaynaklarınızı yönetmek 
 Yönetim erişimi, ilke ve uyumluluk arasında birden çok abonelik yönetmenize yardımcı kapsayıcılardır gruplarıdır. Değiştirme, silme ve bu kapsayıcıları kullanılabilir hiyerarşileri yönetme [Azure ilke](../azure-policy/azure-policy-introduction.md) ve [Azure rol tabanlı erişim denetimlerini (RBAC)](../active-directory/role-based-access-control-what-is.md). Yönetim grupları hakkında daha fazla bilgi için bkz: [kaynaklarınızı Azure Yönetim grupları ile düzenleme ](management-groups-overview.md).
@@ -171,7 +171,7 @@ Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**.
 PowerShell'de bir aboneliği taşımak için Add-AzureRmManagementGroupSubscription komutunu kullanın.  
 
 ```azurepowershell-interactive
-Add-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 12345678-1234-1234-1234-123456789012
+New-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 12345678-1234-1234-1234-123456789012
 ```
 
 Arasındaki bağlantıyı kaldırmak için ve abonelik ve yönetim grubu kaldırma AzureRmManagementGroupSubscription komutunu kullanın.

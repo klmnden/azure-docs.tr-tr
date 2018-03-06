@@ -5,21 +5,21 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f93c74d0c2f66e6a5001289efca07f074e3d3c5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning deneme hizmetini yapılandırma
 
 ## <a name="overview"></a>Genel Bakış
-Azure Machine Learning deneme hizmeti kullanılarak Azure Machine Learning yürütme kendi denemeler yürütün ve yönetim özellikleri çalıştırmak veri bilimcilerine sağlar. Hızlı yineleme ile Çevik deneme için bir çerçeve sağlar. Azure Machine Learning çalışma ekranı makinenizde başlamak yerel çalıştırmalar sağlar ve uzak veri bilimi VM'ler GPU veya Hdınsight Spark çalıştıran kümeler gibi diğer ortamlara yukarı ve aşağı doğru ölçeklendirme için kolay bir yol sağlar.
+Azure Machine Learning deneme hizmeti kullanılarak Azure Machine Learning yürütme kendi denemeler yürütün ve yönetim özellikleri çalıştırmak veri bilimcilerine sağlar. Hızlı yineleme ile Çevik deneme için bir çerçeve sağlar. Azure Machine Learning çalışma ekranı GPU veya Hdınsight Spark çalıştıran kümeler olan uzak veri bilimi VM'ler gibi diğer ortamlara yukarı ve aşağı doğru ölçeklendirme için başlaması yerel çalışır, makinenizde ve ayrıca kolay bir yol sağlar.
 
 Deneme hizmeti denemelerinizi yalıtılmış, yeniden üretilebilir ve tutarlı çalıştırılan sağlamak için oluşturulmuştur. Yürütme Ortamı, işlem hedeflerini yönetme ve çalıştırma yapılandırmalarında yardımcı olur. Azure Machine Learning çalışma ekranı yürütme ve çalıştırma yönetimi yeteneklerini kullanarak, farklı ortamlar arasında kolayca geçiş yapabilirsiniz. 
 
@@ -27,9 +27,10 @@ Yerel olarak veya bulutta ölçekte çalışma ekranı projede Python veya PySpa
 
 Komut dosyalarınızı komutunu çalıştırabilirsiniz: 
 
-* Python (3.5.2'de) ortamı, yerel bilgisayarınızda çalışma ekranı tarafından yüklenmiş.
+* Çalışma ekranı tarafından yüklü, yerel bilgisayarınızda (3.5.2'de) Python ortamı
 * Yerel bilgisayardaki bir Docker kapsayıcısı içinde Conda Python ortamı
-* Bir uzak Linux makinesinde Docker kapsayıcısı içinde Conda Python ortamı. Örneğin, bir [Ubuntu tabanlı DSVM Azure ile ilgili](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
+* Kendi ve uzak Linux makinede yöneten bir Python ortamı
+* Bir uzak Linux makinesinde Docker kapsayıcısı içinde Conda Python ortamı. Örneğin, bir [Ubuntu tabanlı DSVM Azure üzerinde] (https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [Hdınsight için Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) Azure ile ilgili
 
 >[!IMPORTANT]
@@ -47,6 +48,7 @@ _az ml computetarget attach_ CLI komutta çalışmalarınız kullanabileceğiniz
 Desteklenen işlem hedefleri şunlardır:
 * Çalışma ekranı tarafından yüklü bilgisayarınızdaki yerel Python (3.5.2'de) ortamı.
 * Bilgisayarınızda yerel Docker
+* Kullanıcı tarafından yönetilmediğinden, Python ortamı Uzak Ubuntu Linux sanal makineleri üzerinde. Örneğin, bir [Ubuntu tabanlı DSVM Azure ile ilgili](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * Uzak Docker Ubuntu Linux sanal makineleri üzerinde. Örneğin, bir [Ubuntu tabanlı DSVM Azure ile ilgili](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)
 * [Hdınsight Spark kümesi için](https://azure.microsoft.com/services/hdinsight/apache-spark/) Azure ile ilgili
 
@@ -69,14 +71,14 @@ Conda Hdınsight tabanlı yürütmeleri yanı sıra yerel Docker ve uzak Docker 
 ### <a name="run-configuration"></a>Çalışma yapılandırması
 İşlem hedef ve yürütme ortamı yanı sıra, Azure Machine Learning tanımlayın ve değiştirmek için bir çerçeve sağlar *yapılandırmaları çalıştırma*. Denemenizi yürütmeleri yinelemeli deneme bir parçası olarak farklı yapılandırma gerekebilir. Farklı parametre aralıkları, farklı veri kaynakları kullanarak ve spark parametreleri ayarlama yerleştirmez. Deneme hizmeti çalıştırma yapılandırmaları yönetmek için bir çerçeve sağlar.
 
-Çalışan _az ml computetarget attach_ komutu, iki dosyada üretir, **aml_config** projenizdeki klasöre: bir .compute ve bu kural aşağıdaki .runconfig: _< your_ computetarget_name > .compute_ ve _< your_computetarget_name > .runconfig_. Bir işlem hedef oluşturduğunuzda .runconfig dosyası size kolaylık olması için otomatik olarak oluşturulur. Oluşturma ve çalıştırma diğer yapılandırmaları kullanarak yönetme _az ml runconfigurations_ CLI komutu. Ayrıca, oluşturabilir ve bunları, dosya sisteminde düzenleyebilirsiniz.
+Çalışan _az ml computetarget attach_ komutu, iki dosyada üretir, **aml_config** projenizdeki klasöre: ".compute" ve "Bu kuralı aşağıdaki .runconfig": _< your_ computetarget_name > .compute_ ve _< your_computetarget_name > .runconfig_. Bir işlem hedef oluşturduğunuzda .runconfig dosyası size kolaylık olması için otomatik olarak oluşturulur. Oluşturma ve çalıştırma diğer yapılandırmaları kullanarak yönetme _az ml runconfigurations_ CLI komutu. Ayrıca, oluşturabilir ve bunları, dosya sisteminde düzenleyebilirsiniz.
 
 Çalışma ekranı çalıştırma yapılandırmasında ortam değişkenlerini belirtmenize olanak sağlar. Ortam değişkenleri belirtin ve bunları .runconfig dosyanızda aşağıdaki bölümde ekleyerek kodunuzda kullanabilirsiniz. 
 
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+    "EXAMPLE_ENV_VAR1": "Example Value1"
+    "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Bu ortam değişkenleri kodunuzda erişilebilir. Örneğin, "EXAMPLE_ENV_VAR1" adlı ortam değişkeni bu phyton kod parçacığını yazdırır
@@ -91,7 +93,7 @@ _**Aşağıdaki şekilde ilk deneme çalıştırmak için üst düzey akışı g
 Bu bölümde, yürütme senaryolarına daha yakından inceleyin ve Azure Machine Learning denemeleri, özellikle bir denemeyi yerel olarak Hdınsight kümesi ve uzaktan bir VM üzerinde çalışan çalışma şeklini hakkında bilgi edinin. Bu bölüm denemelerinizi yürütülmesi için bir işlem hedefi oluşturma başlangıç bir kılavuz değildir.
 
 >[!NOTE]
->Bu makalede geri kalanı için kavramlarını ve özelliklerini göstermek için CLI (komut satırı arabirimi) komutları kullanıyoruz. Burada açıklanan özellikleri çalışma ekranından de kullanılabilir.
+>Bu makalede geri kalanı için kavramlar ve özellikleri göstermek için CLI (komut satırı arabirimi) komutları kullanıyoruz. Burada açıklanan özellikleri çalışma ekranından de kullanılabilir.
 
 ## <a name="launching-the-cli"></a>CLI başlatma
 Çalışma ekranı ve giderek bir proje CLI başlatmak için kolay bir yol açıyor **Dosya--> komut istemini açın**.
@@ -101,7 +103,7 @@ Bu bölümde, yürütme senaryolarına daha yakından inceleyin ve Azure Machine
 Bu komut, komut dosyaları geçerli proje klasöründe yürütülecek komut girebilirsiniz bir terminal penceresi başlatır. Bu bir terminal penceresi, çalışma ekranı tarafından yüklenen Python 3.5.2'de ortamı ile yapılandırılır.
 
 >[!NOTE]
-> Çalıştırdığınızda herhangi _az ml_ komutu komut penceresinde karşı Azure kimliğinizin doğrulanması gerekiyor. Bir bağımsız kimlik doğrulama önbelleğini sonra masaüstü uygulaması CLI kullanır ve bu nedenle çalışma ekranına oturum açmayı CLI ortamınızda doğrulanır anlamına gelmez. Kimlik doğrulaması yapmak için aşağıdaki adımları izleyin. Yalnızca belirtecin süresi dolduğunda bu adımları yinelemeniz gerekir böylece kimlik doğrulama belirteci yerel olarak bir süre önbelleğe alınır. Belirtecin süresi dolduğunda veya kimlik doğrulama hataları görüyorsanız, aşağıdaki komutları çalıştırın:
+> Çalıştırdığınızda herhangi _az ml_ komutu komut penceresinde karşı Azure kimliğinizin doğrulanması gerekiyor. Bir bağımsız kimlik doğrulama önbelleğini sonra masaüstü uygulaması CLI kullanır ve bu nedenle çalışma ekranına oturum açmayı CLI ortamınızda doğrulanır anlamına gelmez. Kimlik doğrulaması yapmak için aşağıdakileri kullanın adımları. Yalnızca belirtecin süresi dolduğunda bu adımları yinelemeniz gerekir böylece kimlik doğrulama belirteci yerel olarak bir süre önbelleğe alınır. Belirtecin süresi dolduğunda veya kimlik doğrulama hataları görüyorsanız, aşağıdaki komutları çalıştırın:
 
 ```
 # to authenticate 
@@ -124,7 +126,7 @@ $ az account show
 ## <a name="running-scripts-and-experiments"></a>Komut dosyaları ve denemeler çalıştıran
 Çalışma ekranı ile Python yürütebilir ve çeşitli PySpark betikleri kullanarak hedeflerini işlem _az ml deneme gönderme_ komutu. Bu komut, bir çalışma yapılandırma tanımı gerekiyor. 
 
-Çalışma ekranı oluşturur karşılık gelen bir .runconfig dosyası bir işlem hedef oluşturmak, ancak kullanarak ek çalışma yapılandırmaları oluşturabilirsiniz _az ml runconfiguration oluşturma_ komutu. Çalışma yapılandırma dosyalarını el ile de düzenleyebilirsiniz.
+Çalışma ekranı oluşturur karşılık gelen bir runconfig dosyası bir işlem hedef oluşturmak, ancak kullanarak ek çalışma yapılandırmaları oluşturabilirsiniz _az ml runconfiguration oluşturma_ komutu. Çalışma yapılandırma dosyalarını el ile de düzenleyebilirsiniz.
 
 İçinde çalışma ekranı deneyimi deneme parçası çalışacak şekilde çalıştırma yapılandırmaları gösterin. 
 
@@ -213,16 +215,57 @@ $ az ml experiment submit -c remotevm myscript.py
 >[!TIP]
 >İlk çalıştırma için Docker görüntü oluşturma tarafından sunulan gecikme önlemek tercih ederseniz, komut yürütülmeden önce işlem hedef hazırlamak için aşağıdaki komutu kullanabilirsiniz. az ml deneme - c remotedocker hazırlama
 
-
 _**Uzak vm yürütme bir Python komut dosyası için genel bakış:**_
 ![](media/experimentation-service-configuration/remote-vm-run.png)
+
+## <a name="running-a-script-on-a-remote-vm-targeting-user-managed-environments"></a>Kullanıcı Yönetilen ortamlarda hedefleme uzak bir VM üzerinde betik çalıştırma
+Deneme hizmeti, kullanıcının kendi Python ortamda bir uzak Ubuntu sanal makine içinde bir betik çalıştırarak da destekler. Bu, yürütme için kendi ortamı yönetmeniz ve Azure Machine Learning özelliklerini kullanmaya devam sağlar. 
+
+Kendi ortamda kodunuzu çalıştırmak için aşağıdaki adımları izleyin.
+* Uzak bir Ubuntu VM veya, Bağımlılıkların yüklenmesi DSVM Python ortamınızı hazırlayın.
+* Azure Machine Learning gereksinimleri aşağıdaki komutu kullanarak yükleyin.
+
+```
+pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+
+>[!TIP]
+>Bazı durumlarda, sudo modunda ayrıcalıklarınız bağlı olarak bu komutu çalıştırmanız gerekebilir. 
+```
+sudo pip install -I --index-url https://azuremldownloads.azureedge.net/python-repository/preview --extra-index-url https://pypi.python.org/simple azureml-requirements
+```
+ 
+* İşlem hedef tanımı ve uzak VM yürütmeleri çalışır kullanıcı yönetilen çalıştırma yapılandırmasını oluşturmak için aşağıdaki komutu kullanın.
+```
+az ml computetarget attach remote --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
+```
+>[!NOTE]
+>"UserManagedEnvironment" parametresi bu true .compute yapılandırma dosyasında ayarlar.
+
+* .Compute dosyanızda yürütülebilir Python çalışma zamanı konumunu ayarlayın. Yürütülebilir, python tam yoluna başvurmalıdır. 
+```
+pythonLocation: python3
+```
+
+İşlem hedef yapılandırdıktan sonra kodunuzu çalıştırmak için aşağıdaki komutu kullanabilirsiniz.
+```
+$ az ml experiment submit -c remotevm myscript.py
+```
+
+>[!NOTE]
+> DSVM üzerinde çalışırken, aşağıdaki komutları kullanmanız gerekir
+
+Doğrudan DSVM'ın genel python ortamda çalıştırmak istiyorsanız, bu komutu çalıştırın.
+```
+sudo /anaconda/envs/py35/bin/pip install <package>
+```
 
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Bir Hdınsight kümesine betik çalıştırma
 Hdınsight Apache Spark destekleyen büyük veri analizi için popüler bir platformdur. Çalışma ekranı Hdınsight Spark kümeleri kullanarak büyük veri üzerinde deneme sağlar. 
 
 >[!NOTE]
->Hdınsight kümesi birincil depolama alanı olarak Azure Blob kullanmanız gerekir. Azure Data Lake depolamanın kullanılması henüz desteklenmemektedir.
+>HDInsight kümesi birincil depolama olarak Azure Blob kullanmalıdır. Azure Data Lake depolamanın kullanılması henüz desteklenmemektedir.
 
 Bir işlem hedef oluşturun ve aşağıdaki komutu kullanarak Hdınsight Spark kümesinde yapılandırmanın çalıştırın:
 

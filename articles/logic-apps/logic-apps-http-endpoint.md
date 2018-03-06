@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>HTTP uç noktaları logic apps içinde iş akışlarıyla iç içe veya, tetikleyici çağırın
 
@@ -30,12 +30,12 @@ HTTP uç noktaları oluşturmak için mantıksal uygulamalarınızı gelen istek
 
 * [İstek](../connectors/connectors-native-reqres.md)
 
-* [API bağlantı Web kancası](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [API bağlantı Web kancası](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [HTTP Web kancası](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Örneklerde kullansa da **isteği** tetikleyici, listelenen HTTP Tetikleyicileri birini kullanabilirsiniz ve tüm ilkeler özdeş diğer tetikleyici türlerine uygulanır.
+   > Bu örnekler kullansa da **isteği** tetikleyici, listelenen HTTP Tetikleyicileri birini kullanabilirsiniz ve tüm ilkeler özdeş diğer tetikleyici türlerine uygulanır.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Mantıksal uygulamanız için bir HTTP uç nokta ayarlama
 
@@ -157,7 +157,7 @@ Parametreler kabul etmek için HTTP uç nokta URL'nizi istediğinizde, tetikleyi
 
     HTTP uç nokta URL'nizi şimdi Örneğin, göreli yol içerir: 
 
-    HTTPS & # 58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
 7. HTTP uç noktanızı sınamak için kopyalamak ve güncelleştirilmiş URL başka bir tarayıcı penceresine yapıştırın, ancak yerine `{customerID}` ile `123456`, ve Enter tuşuna basın.
 
@@ -166,6 +166,7 @@ Parametreler kabul etmek için HTTP uç nokta URL'nizi istediğinizde, tetikleyi
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Mantıksal uygulamanız için JSON şemaları üretilen belirteçleri
 
 Bir JSON şeması sağladığınız zaman, **isteği** tetikleyici, mantığı Uygulama Tasarımcısı'nı bu şemada özellikleri için belirteçleri oluşturur. Mantıksal uygulama akışı aracılığıyla veri geçirme daha sonra bu belirteçleri kullanabilirsiniz.
@@ -206,6 +207,9 @@ Tam JSON şeması şöyledir:
 
 HTTP uç noktanızı oluşturduktan sonra mantıksal uygulamanızı aracılığıyla tetikleyebilir bir `POST` yöntemi tam URL. Logic apps doğrudan erişimli uç noktaları için yerleşik destek vardır.
 
+> [!NOTE] 
+> El ile bir mantıksal uygulama mantığını Uygulama Tasarımcısı veya mantığı uygulama kod görünümü araç çubuğunda, herhangi bir anda çalıştırmayı seçin **çalıştırmak**.
+
 ## <a name="reference-content-from-an-incoming-request"></a>Gelen istek başvuru içeriği
 
 İçeriğin türü ise `application/json`, gelen istekte özelliklerine başvurabilirsiniz. Aksi takdirde, içeriği diğer API'leri geçirebilirsiniz tek bir ikili birim olarak kabul edilir. Bu içerik iş akışı içinde başvurmak için bu içeriği dönüştürmeniz gerekir. Örneğin, geçirdiğiniz `application/xml` içerik, kullanabileceğiniz `@xpath()` bir XPath ayıklama için veya `@json()` XML JSON değerine dönüştürmek için. Hakkında bilgi edinin [içerik türleriyle çalışma](../logic-apps/logic-apps-content-type.md).
@@ -234,7 +238,7 @@ Bir mantıksal uygulama çağırana içerik döndürerek Başlat belirli istekle
 
 ### <a name="construct-the-response"></a>Yapı yanıt
 
-Yanıt gövdesi içinde birden fazla üst bilgi ve içerik herhangi bir türde içerebilir. Yanıtın içerik türü var. bizim örnek yanıt üstbilgisini belirtir `application/json`. ve gövde içeren `title` ve `name`bağlı için daha önce güncelleştirilmiş JSON şeması olarak **isteği** tetikleyici.
+Yanıt gövdesi içinde birden fazla üst bilgi ve içerik herhangi bir türde içerebilir. Yanıtın içerik türü var. örnek yanıt üstbilgisini belirtir `application/json`. ve gövde içeren `title` ve `name`bağlı için daha önce güncelleştirilmiş JSON şeması olarak **isteği** tetikleyici.
 
 ![HTTP yanıtının eylem][3]
 
@@ -243,8 +247,8 @@ Yanıtları bu özelliklere sahiptir:
 | Özellik | Açıklama |
 | --- | --- |
 | statusCode |Gelen istek için yanıt için HTTP durum kodu belirtir. Bu kod 2xx, 4xx veya 5xx ile başlayan tüm geçerli durum kodu olabilir. Ancak, 3xx durum kodları izin verilmez. |
-| Üstbilgileri |Yanıta eklenecek üstbilgi herhangi bir sayıda tanımlar. |
-| Gövde |Bir dize olabilir bir gövde nesnesi, JSON nesnesi veya bir önceki adımda başvurulan bile ikili içerik belirtir. |
+| headers |Yanıta eklenecek üstbilgi herhangi bir sayıda tanımlar. |
+| body |Bir dize olabilir bir gövde nesnesi, JSON nesnesi veya bir önceki adımda başvurulan bile ikili içerik belirtir. |
 
 İşte JSON şeması nasıl şimdi göründüğünü **yanıt** eylem:
 
@@ -300,7 +304,7 @@ A: Bu değişiklikler hakkında bir özeti aşağıda verilmiştir:
 | Temel veya OAuth kimlik doğrulamasını yapılandırma |API Yönetimi |
 | HTTP yöntemini yapılandırma |Altında **Gelişmiş Seçenekleri Göster**, bir HTTP yöntemini seçin |
 | Göreli yolunu Yapılandır |Altında **Gelişmiş Seçenekleri Göster**, göreli bir yol ekleme |
-| Üzerinden gelen gövde başvurusu`@triggerOutputs().body.Content` |Aracılığıyla başvurusu`@triggerOutputs().body` |
+| Üzerinden gelen gövde başvurusu `@triggerOutputs().body.Content` |Aracılığıyla başvurusu `@triggerOutputs().body` |
 | **HTTP yanıt gönderme** HTTP dinleyicisi eylemi |Tıklatın **HTTP isteğine yanıt** (hiçbir API uygulaması gereklidir) |
 
 ## <a name="get-help"></a>Yardım alın

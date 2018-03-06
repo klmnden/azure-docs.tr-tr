@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -43,9 +43,9 @@ Azure AD kullanıcı sağlama hizmeti tarafından desteklenen Workday kullanıc�
 
 * **Çalışan özniteliği ve profil güncelleştirmeleri** - zaman (kendi adı, başlık veya Yöneticisi gibi) bir çalışan kaydı iş günü içinde güncelleştirilir, kendi kullanıcı hesabına otomatik olarak Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak güncelleştirilir ve [Azure AD tarafından desteklenen diğer SaaS uygulamaları](active-directory-saas-app-provisioning.md).
 
-* **Çalışan sonlandırmalar** - çalışan iş günü içinde sonlandırıldığında kendi kullanıcı hesabına otomatik olarak Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak devre dışıdır ve [Azure AD tarafından desteklenen diğer SaaS uygulamaları](active-directory-saas-app-provisioning.md).
+* **Çalışan sonlandırmalar** - çalışan iş günü içinde sonlandırıldığında kendi kullanıcı hesabına otomatik olarak Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak devre dışıdır ve [Azure tarafından desteklenen diğer SaaS uygulamaları AD](active-directory-saas-app-provisioning.md).
 
-* **Çalışan yeniden anlaşır** - çalışan iş günü içinde rehired eski hesaplarında bulunabilir otomatik olarak yeniden veya Active Directory, Azure Active Directory ve Office 365 için isteğe bağlı olarak (tercihinize bağlı olarak) yeniden sağlandı ve [Azure AD tarafından desteklenen diğer SaaS uygulamaları](active-directory-saas-app-provisioning.md).
+* **Çalışan yeniden anlaşır** - çalışan iş günü içinde rehired eski hesaplarında bulunabilir otomatik olarak yeniden veya Active Directory, Azure Active Directory ve isteğe bağlı olarak Office 365 ve (tercihinizebağlıolarak)yenidensağlanan[Azure AD tarafından desteklenen diğer SaaS uygulamaları](active-directory-saas-app-provisioning.md).
 
 
 ## <a name="planning-your-solution"></a>Çözümünüzü planlarken
@@ -105,7 +105,7 @@ Bu birden çok iş akışı birden çok kaynak ve hedef sistemlere kolaylaştır
 
 * **Active Directory sağlama iş günü** -bu uygulama için tek bir Active Directory ormanı Workday'den hesabı kullanıcı hazırlama kolaylaştırır. Birden çok ormanınız varsa, bu uygulamanın bir örneği için sağlamak için gereken her Active Directory ormanı için Azure AD uygulama galerisinde ekleyebilirsiniz.
 
-* **Azure AD sağlama için iş günü** - AAD Connect Azure Active Directory, bu uygulama bir kullanıcıya, Workday yalnızca bulut kullanıcıları için tek bir Azure Active Directory Kiracı sağlanmasını kolaylaştırmak için kullanılabilir Active Directory eşitleme için kullanılması gereken aracı olsa da.
+* **Azure AD sağlama için iş günü** - Azure Active Directory, bu uygulama bir kullanıcıya, Workday yalnızca bulut kullanıcıları için tek bir Azure sağlanmasını kolaylaştırmak için kullanılabilir Active Directory eşitleme için kullanılması gereken aracı olsa da AAD Connect Active Directory kiracısı.
 
 * **İş günü geri yazma** -bu uygulamayı Azure Active Directory'den iş günü, kullanıcının e-posta adresi geri yazma kolaylaştırır.
 
@@ -229,7 +229,7 @@ Kullanıcı hesabı için sağlama gerektiren her bir Active Directory ormanına
 
 **Active Directory sağlama için Workday yapılandırmak için:**
 
-1.  Git <https://portal.azure.com>
+1.  Şuraya gidin: <https://portal.azure.com>
 
 2.  Sol gezinti çubuğunda seçin **Azure Active Directory**
 
@@ -245,7 +245,7 @@ Kullanıcı hesabı için sağlama gerektiren her bir Active Directory ormanına
 
 8.  Tamamlamak **yönetici kimlik bilgileri** gibi bölümünde:
 
-   * **Yönetici kullanıcı adı** – eklenmiş Kiracı etki alanı adıyla Workday entegrasyonu sistem hesabı kullanıcı adı girin. **Gibi görünmelidir:username@contoso4**
+   * **Yönetici kullanıcı adı** – eklenmiş Kiracı etki alanı adıyla Workday entegrasyonu sistem hesabı kullanıcı adı girin. **Gibi görünmelidir: username@contoso4**
 
    * **Yönetici parolası –** Workday entegrasyonu sistem hesabı için parola girin
 
@@ -346,14 +346,14 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Oluştur + güncelleştir |
 | **PostalCode**  |   posta kodu  |     | Oluştur + güncelleştir |
 | **LocalReference** |  preferredLanguage  |     |  Oluştur + güncelleştir |
-| **Değiştirin (Mid (Değiştir (\[EmployeeID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
+| **Değiştirin (Mid (Değiştir (\[EmployeeID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
 | **Soyadı**   |   sn   |     |  Oluştur + güncelleştir |
 | **CountryRegionReference** |  st     |     | Oluştur + güncelleştir |
 | **AddressLineData**    |  streetAddress  |     |   Oluştur + güncelleştir |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Oluştur + güncelleştir |
 | **BusinessTitle**   |  başlık     |     |  Oluştur + güncelleştir |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])" ,, "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "q",), "([řŘR])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([]) w" harfinin, "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Yazılan üzerinde yalnızca oluştur                                                   
-| **Anahtar (\[belediye\], "OU standart kullanıcılar, OU = Kullanıcılar, OU = varsayılan, OU = konumları, DC = contoso, DC = com =", "Dallas" "OU standart kullanıcılar, OU = Kullanıcılar, OU = Dallas, OU = konumları, DC = contoso, DC = com =", "Ankara'da" "OU standart kullanıcılar, OU = Kullanıcılar, OU = Ankara'da, OU = konumları, DC = contoso, DC = com =", "Seattle", "OU standart kullanıcılar, OU = Kullanıcılar, OU = Seattle, OU = konumları, DC = contoso, DC = com =", "Londra", "OU standart kullanıcılar = OU Kullanıcılar, OU = Londra, OU = konumları, DC = contoso, DC = com = ")**  | parentDistinguishedName     |     |  Oluştur + güncelleştir |
+| **Katılma ("@", değiştirin (Değiştir (değiştirin (Değiştir (değiştirin (değiştirin (değiştirin (değiştirin (((Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (değiştirin Değiştirin (katılma (".", [FirstName] [Soyadı]), "([Øø])", "oe",), "[Ææ]", "ae",), "([äãàâãåáąÄÃÀÂÃÅÁĄA])", "a",), "([B])", "b",), "([CçčćÇČĆ])", "c",), "([ďĎD])", "d",), "([ëèéêęěËÈÉÊĘĚE])", "e",), "([F])", "f",), "([G])" ,, "g",), "([H])", "h",), "([ïîìíÏÎÌÍI])", "i",), "([J])", "j",), "([K])", "k",), "([ľłŁĽL])", "m",), "([M])", "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "q",),  "([řŘr])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([]) w" harfinin, "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Yazılan üzerinde yalnızca oluştur                                                   
+| **Anahtar (\[belediye\], "OU standart kullanıcılar, OU = Kullanıcılar, OU = varsayılan, OU = konumları, DC = contoso, DC = com =", "Dallas", "OU standart kullanıcılar, OU = Kullanıcılar, OU = Dallas, OU = konumları, DC = contoso, DC = com =", "Ankara'da", "OU standart kullanıcılar, OU = Kullanıcılar, OU = Ankara'da, OU = konumları, DC = contoso, DC = com = ","Seattle"," OU standart kullanıcılar, OU = Kullanıcılar, OU = Seattle, OU = konumları, DC = contoso, DC = com = ","Londra"," OU standart kullanıcılar, OU = Kullanıcılar, OU = Londra, OU = konumları, DC = contoso, DC = com = ")**  | parentDistinguishedName     |     |  Oluştur + güncelleştir |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>3. Kısım: şirket içi eşitleme Aracısı'nı yapılandırma
 
@@ -484,7 +484,7 @@ Aşağıdaki bölümlerde yalnızca bulut kullanıcıları sağlamak için Workd
 
 **Yalnızca bulut kullanıcıları için Azure Active Directory sağlama için Workday yapılandırmak için:**
 
-1.  Git <https://portal.azure.com>.
+1.  <https://portal.azure.com> kısmına gidin.
 
 2.  Sol gezinti çubuğunda seçin **Azure Active Directory**
 
@@ -500,7 +500,7 @@ Aşağıdaki bölümlerde yalnızca bulut kullanıcıları sağlamak için Workd
 
 8.  Tamamlamak **yönetici kimlik bilgileri** gibi bölümünde:
 
-   * **Yönetici kullanıcı adı** – eklenmiş Kiracı etki alanı adıyla Workday entegrasyonu sistem hesabı kullanıcı adı girin. Gibi görünmelidir:username@contoso4
+   * **Yönetici kullanıcı adı** – eklenmiş Kiracı etki alanı adıyla Workday entegrasyonu sistem hesabı kullanıcı adı girin. Gibi görünmelidir: username@contoso4
 
    * **Yönetici parolası –** Workday entegrasyonu sistem hesabı için parola girin
 
@@ -589,7 +589,7 @@ Azure Active Directory'den kullanıcı e-posta adreslerini Workday geri yazma ya
 
 **Active Directory sağlama için Workday yapılandırmak için:**
 
-1.  Git <https://portal.azure.com>
+1.  Şuraya gidin: <https://portal.azure.com>
 
 2.  Sol gezinti çubuğunda seçin **Azure Active Directory**
 
@@ -605,7 +605,7 @@ Azure Active Directory'den kullanıcı e-posta adreslerini Workday geri yazma ya
 
 8.  Tamamlamak **yönetici kimlik bilgileri** gibi bölümünde:
 
-   * **Yönetici kullanıcı adı** – eklenmiş Kiracı etki alanı adıyla Workday entegrasyonu sistem hesabı kullanıcı adı girin. Gibi görünmelidir:username@contoso4
+   * **Yönetici kullanıcı adı** – eklenmiş Kiracı etki alanı adıyla Workday entegrasyonu sistem hesabı kullanıcı adı girin. Gibi görünmelidir: username@contoso4
 
    * **Yönetici parolası –** Workday entegrasyonu sistem hesabı için parola girin
 
@@ -743,7 +743,7 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
 
 8. İçin **türü**, uygun şekilde, özniteliğe karşılık gelen türünü seçin (**dize** yaygın olarak kullanılır).
 
-9. İçin **API ifade**, Workday Studio'dan kopyaladığınız XPath ifadesi girin. Örnek:`wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+9. İçin **API ifade**, Workday Studio'dan kopyaladığınız XPath ifadesi girin. Örnek: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
 
 10. Seçin **öznitelik Ekle**.
 

@@ -13,32 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 201734661873c7ac7f7a5dd710009eb324cedc86
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N-serisi Vm'lerinde NVIDIA GPU sürücüleri yükleyin
 
 Linux çalıştıran Azure N-serisi VM'ler GPU yeteneklerinden yararlanabilmek için desteklenen NVIDIA grafik sürücüleri yükleyin. N-serisi VM dağıttıktan sonra bu makalede sürücü kurulum adımlarını sağlar. Sürücü Kurulum bilgileri de için kullanılabilir [Windows VM'ler](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-
 N-serisi VM özellikleri, depolama kapasitesi ve disk Ayrıntılar için bkz: [GPU Linux VM boyutları](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-
-
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>NC, NCv2 ve ND VM'ler CUDA sürücüleri yükleyin
+## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>NC, NCv2, NCv3 ve ND-serisi VM'ler CUDA sürücüleri yükleyin
 
-Linux NC VM'ler NVIDIA CUDA araç setinden NVIDIA sürücülerini yüklemek için adımlar şunlardır. 
+N-serisi vm'lerde NVIDIA CUDA araç setinden NVIDIA sürücülerini yüklemek için adımlar şunlardır. 
 
 C ve C++ geliştiriciler GPU hızlandırılmış uygulamaları oluşturmak için tam Araç Seti isteğe bağlı olarak yükleyebilirsiniz. Daha fazla bilgi için bkz: [CUDA Yükleme Kılavuzu'na](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
 
 > [!NOTE]
 > CUDA sürücü yükleme bağlantıları burada geçerli yayın zamanında sağlanır. En son CUDA sürücüleri için ziyaret [NVIDIA](https://developer.nvidia.com/cuda-zone) Web sitesi.
@@ -113,9 +109,9 @@ sudo reboot
 2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
  
   cd LISISO
  
@@ -152,16 +148,13 @@ sudo reboot
 
 5. VM yeniden başlatma ve yüklendiğini doğrulamak için devam edin.
 
-
 ### <a name="verify-driver-installation"></a>Sürücü yükleme doğrulayın
-
 
 GPU cihaz durumu, SSH VM ve Çalıştır sorgulamak için [NVIDIA SMI](https://developer.nvidia.com/nvidia-system-management-interface) komut satırı yardımcı programının sürücüsüyle yüklü. 
 
 Sürücü yüklüyse, aşağıdakine benzer bir çıktı görürsünüz. Unutmayın **GPU kul** GPU iş yükü VM çalıştırmakta olduğunuz sürece %0 gösterir. Sürücü sürümü ve GPU ayrıntıları gösterilen olanlardan farklı olabilir.
 
 ![NVIDIA cihaz durumu](./media/n-series-driver-setup/smi.png)
-
 
 ## <a name="rdma-network-connectivity"></a>RDMA ağ bağlantısı
 
@@ -180,9 +173,9 @@ RDMA özellikli N-serisi VM'ler görüntüden RDMA bağlantısı N-serisi Vm'ler
 > 
 
 
-## <a name="install-grid-drivers-for-nv-vms"></a>NV VM'ler için kılavuz sürücüleri yükleyin
+## <a name="install-grid-drivers-for-nv-series-vms"></a>NV-serisi VM'ler için kılavuz sürücüleri yükleyin
 
-NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir SSH bağlantısı ve Linux dağıtımınız için adımları izleyin. 
+NV-serisi Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir SSH bağlantısı ve Linux dağıtımınız için adımları izleyin. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -265,9 +258,9 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 3. VM yeniden başlatma, yeniden bağlanma ve Hyper-V: için son Linux Tümleştirme hizmetlerini yükleyin
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
 
   cd LISISO
 
@@ -348,7 +341,6 @@ Bu dosya önyüklemede kök olarak içinde için bir giriş oluşturarak çağr�
 ## <a name="troubleshooting"></a>Sorun giderme
 
 * Kalıcılık modunu kullanarak ayarlayabilirsiniz `nvidia-smi` sorgu kartlar gerektiğinde komutunun çıkışını daha hızlı olacak şekilde. Kalıcılık modu ayarlamak için yürütme `nvidia-smi -pm 1`. VM yeniden başlatılırsa, modu ayarı kaybolduktan olduğunu unutmayın. Her zaman modu ayarı başlatma sırasında yürütülecek komut dosyası oluşturabilirsiniz.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

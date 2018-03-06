@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 201da4e6ec86a6c2a79a9e948245c0d83708c3f9
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c89b455212ad428dbe67d7f1d95517072c220d8e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Azure portalını kullanarak birden çok alt ağı ile bir sanal ağ oluşturma
 
@@ -53,8 +53,8 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 2. Seçin **alt ağlar** ve ardından **+ alt**, aşağıdaki resimde gösterildiği gibi:
 
      ![Bir alt ağ Ekle](./media/virtual-networks-create-vnet-arm-pportal/add-subnet.png)
-
-3. İçinde **alt ağ Ekle** görünen kutusuna girin *özel* için **adı**, girin *10.0.1.0/24* için **adres aralığı**ve ardından **Tamam**. 
+     
+3. İçinde **alt ağ Ekle** görünen kutusuna girin *özel* için **adı**, girin *10.0.1.0/24* için **adres aralığı**ve ardından **Tamam**.  Bir alt ağ adres aralığı, bir sanal ağ içindeki diğer alt ağlara adres aralıklarıyla çakışamaz. 
 
 Azure sanal ağlar ve alt ağları üretim kullanımı için dağıtmadan önce kapsamlı bir adres alanıyla öğrenmeniz olduğunu öneririz [konuları](virtual-network-manage-network.md#create-a-virtual-network) ve [sanal ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Kaynakların alt dağıtıldığında, bazı sanal ağ ve adres aralıkları değiştirme gibi alt ağ değişiklikleri içindeki alt ağlara dağıtılan var olan Azure kaynak çözümünüzün yeniden dağıtımını gerektirebilir.
 
@@ -83,6 +83,8 @@ Bir sanal ağ Internet ile ve özel olarak birbirleriyle iletişim kurmak için 
 7. 1-6 yeniden adımları ancak girmeniz *myVmMgmt* için **adı** seçin ve sanal makine **özel** için **alt**.
 
 Sanal makineler oluşturmak için birkaç dakika sürebilir. Her iki sanal makine oluşturulana kadar kalan adımlara devam etmeyin.
+
+Bu makalede oluşturulan sanal makineler bir tane [ağ arabirimi](virtual-network-network-interface.md) dinamik olarak ağ arabirimine atanmış bir IP adresine sahip. VM dağıtıldıktan sonra şunları yapabilirsiniz [birden çok ortak ve özel IP adreslerini ekleyin ya da statik IP adresi ataması yöntemi Değiştir](virtual-network-network-interface-addresses.md#add-ip-addresses). Yapabilecekleriniz [ağ arabirimlerini ekleyin](virtual-network-network-interface-vm.md#vm-add-nic), desteklediği sınırına kadar [VM boyutu](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir sanal makine oluşturduğunuzda seçin. Ayrıca [tek köklü g/ç Sanallaştırması (SR-IOV) etkinleştir](create-vm-accelerated-networking-powershell.md) bir VM, ancak yalnızca özelliğini destekleyen bir VM boyutu ile bir VM oluşturun.
 
 ### <a name="communicate-between-virtual-machines-and-with-the-internet"></a>Sanal makineler arasında ve internet ile iletişim
 
@@ -127,7 +129,9 @@ Sanal makineler oluşturmak için birkaç dakika sürebilir. Her iki sanal makin
         Minimum = 0ms, Maximum = 0ms, Average = 0ms
     ```
       
-    Görebilirsiniz adresini *myVmMgmt* sanal makinedir 10.0.1.4. 10.0.1.4 adres aralığı içinde ilk kullanılabilir IP adresi olan *özel* dağıttığınız alt *myVmMgmt* sanal makineye bir önceki adımda.  Sanal makinenin tam etki alanı adı olup olmadığını *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Ancak *dar5p44cif3ulfq00wxznl3i3f* etki alanı adı bölümü, sanal makine için farklı olduğundan, etki alanı adını Kalan bölümleri aynıdır. Varsayılan olarak, tüm Azure sanal makineleri varsayılan Azure DNS hizmeti kullanın. Bir sanal ağ içindeki tüm sanal makineleri Azure'nın varsayılan DNS hizmeti ile aynı sanal ağdaki diğer tüm sanal makinelerin adlarını çözümleyebilir. Azure'nın varsayılan DNS hizmeti kullanmak yerine, kendi DNS sunucusu veya Azure DNS hizmeti, özel etki alanı özelliği kullanabilirsiniz. Ayrıntılar için bkz [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) veya [kullanarak Azure DNS özel etki alanları için](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    Görebilirsiniz adresini *myVmMgmt* sanal makinedir 10.0.1.4. 10.0.1.4 adres aralığı içinde ilk kullanılabilir IP adresi olan *özel* dağıttığınız alt *myVmMgmt* sanal makineye bir önceki adımda.  Sanal makinenin tam etki alanı adı olup olmadığını *myvmmgmt.dar5p44cif3ulfq00wxznl3i3f.bx.internal.cloudapp.net*. Ancak *dar5p44cif3ulfq00wxznl3i3f* etki alanı adı bölümü, sanal makine için farklı olduğundan, etki alanı adını Kalan bölümleri aynıdır. 
+
+    Varsayılan olarak, tüm Azure sanal makineleri varsayılan Azure DNS hizmeti kullanın. Bir sanal ağ içindeki tüm sanal makineleri Azure'nın varsayılan DNS hizmeti ile aynı sanal ağdaki diğer tüm sanal makinelerin adlarını çözümleyebilir. Azure'nın varsayılan DNS hizmeti kullanmak yerine, kendi DNS sunucusu veya Azure DNS hizmeti, özel etki alanı özelliği kullanabilirsiniz. Ayrıntılar için bkz [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) veya [kullanarak Azure DNS özel etki alanları için](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 9. Windows Server için Internet Information Services (IIS) yüklemek için *myVmWeb* sanal makine, bir PowerShell oturumunda aşağıdaki komutu girin:
 
@@ -137,13 +141,12 @@ Sanal makineler oluşturmak için birkaç dakika sürebilir. Her iki sanal makin
 
 10. IIS yüklemesi tamamlandıktan sonra bağlantı kesme *myVmWeb* size bırakır Uzak Masaüstü oturumu *myVmMgmt* Uzak Masaüstü oturumu. Bir web tarayıcısı açın ve http://myvmweb için göz atın. Karşılama sayfası IIS bakın.
 11. Bağlantı kesme *myVmMgmt* Uzak Masaüstü oturumu.
-12. Kendi bilgisayardan IIS Hoş Geldiniz sayfasını görüntülemek çalışır. Azure oluşturduğunuzda *myVmWeb* sanal makine, bir ortak IP adresi kaynağı *myVmWeb* de oluşturulur ve sanal makineye atanmış. 52.170.5.92 atandığı görebilirsiniz *myVmMgmt* sanal makine içinde 2. adımda resim. Atanan genel IP adresini bulmak için *myVmWeb* sanal makine, arama *myVmWeb* arama sonuçlarında görüntülendiğinde, arama kutusuna seçin. 
+12. Genel IP adresi Bul *myVmWeb* sanal makine. Azure oluşturduğunuzda *myVmWeb* sanal makine, bir ortak IP adresi kaynağı *myVmWeb* de oluşturulur ve sanal makineye atanmış. 52.170.5.92 için atandı görebilirsiniz **genel IP adresi** için *myVmMgmt* sanal makine içinde 2. adımda resim. Atanan genel IP adresini bulmak için *myVmWeb* sanal makine, arama *myVmWeb* arama sonuçlarında görüntülendiğinde, portal'ın arama kutusuna seçin.
 
     Bir sanal makine kendisine atanmış bir ortak IP adresi olması gerekli değildir ancak Azure varsayılan oluşturmak her bir sanal makine bir ortak IP adresi atar. Bir sanal makineye Internet üzerinden iletişim kurmak için bir ortak IP adresi sanal makineyi atanması gerekir. Bir ortak IP adresi sanal makineye atanmış olup olmadığına bakılmaksızın tüm sanal makinelerin giden Internet ile iletişim kurabilir. Azure'a giden Internet bağlantıları hakkında daha fazla bilgi için bkz: [azure'da giden bağlantılar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+13. Genel IP adresi için kendi bilgisayarınızda Gözat *myVmWeb* sanal makine. Kendi bilgisayardan IIS Hoş Geldiniz sayfasını görüntülemek için denemesi başarısız olur. Sanal makineler dağıtıldığında, bu Azure varsayılan olarak her bir sanal makine için bir ağ güvenlik grubu oluşturduğundan denemesi başarısız olur. 
 
-    Genel IP adresi için kendi bilgisayarınızda Gözat *myVmWeb* sanal makine. Kendi bilgisayardan IIS Hoş Geldiniz sayfasını görüntülemek için denemesi başarısız olur. Sanal makineler dağıtıldığında, bu Azure varsayılan olarak her bir sanal makine için bir ağ güvenlik grubu oluşturduğundan denemesi başarısız olur. 
-
-    Ağ güvenlik grubu izin veren veya reddeden IP adresi ve bağlantı noktasına gelen ve giden ağ trafiğinin güvenlik kuralları içerir. Oluşturulan Azure varsayılan ağ güvenlik grubu, aynı sanal ağdaki kaynakları arasındaki tüm bağlantı noktaları üzerinden iletişim sağlar. Windows sanal makineler için varsayılan ağ güvenlik grubu tüm gelen trafiği tüm bağlantı noktaları üzerinden Internet'ten engellediği, TCP bağlantı noktası 3389 (RDP) kabul edin. Sonuç olarak, varsayılan olarak, aynı zamanda RDP doğrudan yapabilecekleriniz *myVmWeb* sanal makine Internet'ten gelen değil isteyebilirsiniz olsa bile 3389 açık bir web sunucusuna bağlantı noktası. Bağlantı noktası 80 üzerinden trafiğe izin varsayılan ağ güvenlik grubu kural olduğundan iletişim bağlantı noktası 80 üzerinden iletişim kurar Web'e gözatma olduğundan, Internet'ten başarısız olur.
+     Ağ güvenlik grubu izin veren veya reddeden IP adresi ve bağlantı noktasına gelen ve giden ağ trafiğinin güvenlik kuralları içerir. Oluşturulan Azure varsayılan ağ güvenlik grubu, aynı sanal ağdaki kaynakları arasındaki tüm bağlantı noktaları üzerinden iletişim sağlar. Windows sanal makineler için varsayılan ağ güvenlik grubu tüm gelen trafiği tüm bağlantı noktaları üzerinden Internet'ten engellediği, TCP bağlantı noktası 3389 (RDP) kabul edin. Sonuç olarak, varsayılan olarak, aynı zamanda RDP doğrudan yapabilecekleriniz *myVmWeb* sanal makine Internet'ten gelen değil isteyebilirsiniz olsa bile 3389 açık bir web sunucusuna bağlantı noktası. Bağlantı noktası 80 üzerinden trafiğe izin varsayılan ağ güvenlik grubu kural olduğundan iletişim bağlantı noktası 80 üzerinden iletişim kurar Web'e gözatma olduğundan, Internet'ten başarısız olur.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Hızlı Başlangıç: ilk IOT kenar modülünüzün bir Linux veya Mac aygıta dağıtmak - Önizleme
 
@@ -70,22 +70,22 @@ IOT hub ile iletişim kurabilmesi için sanal cihazınız için bir cihaz kimli�
 IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. İki modülden oluşur. İlk olarak, IOT kenar Aracısı dağıtımı ve IOT sınır cihazı modülleri izlenmesini kolaylaştırır. İkinci olarak, IOT kenar hub IOT sınır cihazı modülleri arasında ve cihaz IOT hub'ı arasındaki iletişim yönetir. 
 
 IOT sınır cihazı çalıştırdığı makinede IOT kenar denetim komut dosyasını karşıdan yükleyin:
-```cmd
+```bash
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Çalışma zamanı IOT kenar cihaz bağlantı dizenizi önceki bölümdeki yapılandırın:
-```cmd
+```bash
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Çalışma zamanı'nı başlatın:
-```cmd
+```bash
 sudo iotedgectl start
 ```
 
 Docker IOT kenar Aracısı'nı bir modül olarak çalışıp çalışmadığını kontrol edin:
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -101,7 +101,7 @@ Bu hızlı başlangıç yeni bir IOT sınır cihazı oluşturan ve IOT kenar ça
 
 Sanal cihazınız yeniden çalıştıran bilgisayarda komut istemi açın. Buluttan dağıtılan modülü IOT kenar aygıtınızda çalışır durumda olduğunu doğrulayın:
 
-```cmd
+```bash
 sudo docker ps
 ```
 
@@ -109,7 +109,7 @@ sudo docker ps
 
 TempSensor modülünden buluta gönderilen iletiler görüntüleyin:
 
-```cmd
+```bash
 sudo docker logs -f tempSensor
 ```
 
@@ -118,6 +118,12 @@ sudo docker logs -f tempSensor
 Cihaz kullanarak göndermeyi telemetriyi de görüntüleyebilirsiniz [IOT hub'ı explorer aracı][lnk-iothub-explorer]. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Her modül için başlatılan Docker kapsayıcıları yanı sıra, oluşturulan sanal cihaz kaldırmak isterseniz, aşağıdaki komutu kullanın: 
+
+```bash
+sudo iotedgectl uninstall
+```
 
 Oluşturduğunuz IOT Hub artık ihtiyacınız olduğunda kullanabileceğiniz [az IOT hub delete] [ lnk-delete] kaynak ve onunla ilişkili tüm aygıtları kaldırmak için komutu:
 

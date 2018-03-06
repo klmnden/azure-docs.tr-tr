@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Örnek dönüştürme tarafından sütunu birleştirme
 Bu dönüşümü yeni bir sütun birden çok sütun değerlerinden birleştirerek eklemesine izin verir. Kullanıcı bir ayırıcı belirtin veya bu dönüştürme gerçekleştirmek için birleştirilmiş değer örnekleri sağlayın. Kullanıcı örnekleri birleşimi sağladığında, dönüşüm aynı tarafından işlenir **örnek tarafından** kullanılan altyapısı **türetilen sütun örneğe göre** Dönüştür.
@@ -50,7 +50,7 @@ Var olan bir kullanıcı düzenleyebilir **sütun örnekle birleştirmek** dön�
 
 Birleştirmek için bu örnek ayırıcı olarak virgül bir boşluk bırakarak kullanılan *Sokak*, *Şehir*, *durumu*, ve *ZIP* sütun.
 
-|Cadde|Şehir|Durum|ZIP|Sütun|
+|Sokak|Şehir|Durum|ZIP|Sütun|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th yolu|REDMOND|WA|98052|16011 N.E. 36th yolu, REDMOND, Washington, 98052|
 |16021 N.E. 36th yolu|REDMOND|WA|98052|16021 N.E. 36th yolu, REDMOND, Washington, 98052|
@@ -66,7 +66,7 @@ Birleştirmek için bu örnek ayırıcı olarak virgül bir boşluk bırakarak k
 
 Değer **kalın** örnek olarak sağlandı.
 
-|Tarih|Ay|Yıl|Saat|Dakika|İkinci|Birleşik sütun|
+|Tarih|Ay|Yıl|Saat|Dakika|Saniye|Birleşik sütun|
 |:----|:----|:----|:----|:----|:----|:----|
 |13|Eki|2016|15|01|23|**13 Eki 2016 15:01:23 saati**|
 |16|Eki|2016|16|22|33|16 Eki 2016 15:01:33 saati|

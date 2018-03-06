@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 03/01/2018
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Azure Anahtar Kasası’nı uçtan uca döndürme ve denetleme ile ayarlama
 ## <a name="introduction"></a>Giriş
 Anahtar kasası oluşturduktan sonra anahtarları ve gizli anahtarları depolamak için bu kasası kullanmaya başlamak mümkün olur. Uygulamalarınızı artık anahtarları ve gizli anahtarları, ancak bunun yerine kalıcı hale getirmek için bunları anahtar Kasası'nı gerektiğinde ister. Bu, anahtarlar ve gizli anahtarı ve gizli yönetim olanakları derecesini açar uygulamanızın davranışını etkilemeden güncelleştirmenize olanak sağlar.
+
+>[!IMPORTANT]
+> Bu makaledeki örnekler yalnızca gösterim amacıyla sağlanır. Üretim kullanımı için amaçlanmamıştır. 
 
 Bu makalede bir gizlilik bu durumda, bir uygulama tarafından erişilebilen bir Azure depolama hesabı anahtarı depolamak için Azure anahtar kasası kullanmaya ilişkin bir örnek anlatılmaktadır. Ayrıca, bu depolama hesabı anahtarı zamanlanmış dönüşünü uyarlamasını gösterir. Son olarak, anahtar kasası denetim günlüklerini izlemek ve beklenmeyen istekler yapıldığında uyarıları yükseltmek nasıl Tanıtımı anlatılmaktadır.
 
