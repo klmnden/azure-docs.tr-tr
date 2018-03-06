@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: d8f457569ef1e9dfe400266982596ab53ec4f10d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows sanal makineler hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Windows sanal makineler hakkında bazı sık sorulan soruları giderir. Bu konuda Linux sürümü için bkz: [Linux sanal makineleri hakkında sık sorulan bir soru](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -78,7 +78,7 @@ Evet, bu artık mümkündür. VM ilk durdurulması deallocated gerekir. Ardında
 Evet. Bilgisayar adı en fazla 15 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve sınırlamaları](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kaynaklarınızı adlandırma geçici daha fazla bilgi için.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Herhangi bir kaynak grubu adı gereksinimleri var mı?
-Evet. Kaynak grubu adı en fazla 90 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve sınırlamaları](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kaynak grupları hakkında daha fazla bilgi için.
+Evet. Kaynak grubu adı en fazla 90 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve sınırlamaları](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) kaynak grupları hakkında daha fazla bilgi için.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Bir VM oluşturulurken kullanıcıadı gereksinimleri nelerdir?
 
@@ -88,27 +88,27 @@ Kullanıcı adları en fazla 20 karakter uzunluğunda olabilir ve bir noktayla b
 Aşağıdaki kullanıcı adları izin verilmiyor:
 <table>
     <tr>
-        <td style="text-align:center">Yönetici </td><td style="text-align:center"> Yönetici </td><td style="text-align:center"> Kullanıcı </td><td style="text-align:center"> Kullanıcı1</td>
+        <td style="text-align:center">Yönetici </td><td style="text-align:center"> yönetici </td><td style="text-align:center"> kullanıcı </td><td style="text-align:center"> user1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test etme </td><td style="text-align:center"> Kullanıcı2 </td><td style="text-align:center"> Test1 </td><td style="text-align:center"> KULLANICI3</td>
+        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> KULLANICI3</td>
     </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> bir</td>
+        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
         <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
     </tr>
     <tr>
-        <td style="text-align:center">yedekleme </td><td style="text-align:center"> Konsol </td><td style="text-align:center"> David </td><td style="text-align:center"> Konuk</td>
+        <td style="text-align:center">yedekleme </td><td style="text-align:center"> Konsol </td><td style="text-align:center"> david </td><td style="text-align:center"> Konuk</td>
     </tr>
     <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> Sahibi </td><td style="text-align:center"> kök </td><td style="text-align:center"> sunucu</td>
+        <td style="text-align:center">John </td><td style="text-align:center"> sahip </td><td style="text-align:center"> kök </td><td style="text-align:center"> sunucu</td>
     </tr>
     <tr>
-        <td style="text-align:center">SQL </td><td style="text-align:center"> Destek </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">SQL </td><td style="text-align:center"> destek </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> Kullanıcı4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 
@@ -128,7 +128,7 @@ Aşağıdaki parolalara izin verilmez:
         <td>P@$$w0rd </td>
         <td>P@ssw0rd </td>
         <td>P@ssword123 </td>
-        <td>Pa$ $word </td>
+        <td>Pa$$word </td>
     </tr>
     <tr>
         <td>pass@word1 </td>

@@ -4,18 +4,18 @@ description: "Azure Machine Learning modeli veri toplama API'si başvurusu."
 services: machine-learning
 author: aashishb
 ms.author: aashishb
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de5e8bc8880fea5e7f57c88590e32a9fbb60ac6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning modeli veri toplama API'si başvurusu
 
@@ -52,7 +52,7 @@ DC ModelDataCollector = (model_adı, tanımlayıcısı 'default', feature_names 
 
 Sınıf ve parametre ayrıntıları bakın:
 
-### <a name="class"></a>sınıfı
+### <a name="class"></a>Sınıf
 | Ad | Açıklama |
 |--------------------|--------------------|
 | ModelDataCollector | Bir sınıf azureml.datacollector ad. Bu sınıf örneği, model verileri toplamak için kullanılır. Tek bir Puanlama dosyası birden çok ModelDataCollectors içerebilir. Her bir örnek toplanan verileri şeması tutarlı kalmayacak şekilde Puanlama dosyasındaki bir ayrık konumdaki verilerinin toplanması için kullanılması gereken (diğer bir deyişle, girişleri ve tahmin)|
@@ -62,13 +62,13 @@ Sınıf ve parametre ayrıntıları bakın:
 
 | Ad | Tür | Açıklama |
 |-------------|------------|-------------------------|
-| model_adı | Dize | hangi verilerin toplanan modelinin adı |
-| Tanımlayıcı | Dize | Bu veriler, yani tanımlayan kod konumu 'RawInput' veya 'Tahmin' |
+| model_name | string | hangi verilerin toplanan modelinin adı |
+| tanımlayıcı | string | Bu veriler, yani tanımlayan kod konumu 'RawInput' veya 'Tahmin' |
 | feature_names | dize listesi | sağlandığında csv başlığı hale özellik adlarının listesi |
-| model_management_account_id | Dize | Bu model depolandığı model yönetim hesabı tanımlayıcısı. Modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
-| webservice_name | Dize | Bu model şu anda dağıtıldığı webservice adı. Modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
-| model_id | Dize | Bir model yönetim hesabı bağlamında bu model için benzersiz tanımlayıcı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
-| model_version | Dize | Bu modelin model yönetim hesabı bağlamında sürüm numarası. Modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
+| model_management_account_id | string | Bu model depolandığı model yönetim hesabı tanımlayıcısı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
+| webservice_name | string | Bu model şu anda dağıtıldığı webservice adı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
+| model_id | string | Bir model yönetim hesabı bağlamında bu model için benzersiz tanımlayıcı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
+| model_version | string | Bu modelin model yönetim hesabı bağlamında sürüm numarası. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
 
 
 
@@ -93,5 +93,5 @@ Yöntem ve parametre ayrıntıları bakın:
 | Ad | Tür | Açıklama |
 |-------------|------------|-------------------------|
 | input_data | birden çok tür | Toplanacak veri (şu anda kabul türleri listesi, numpy.array pandas. DataFrame, pyspark.sql.DataFrame). Üstbilgi özellik adları ile varsa dataframe türleri için bu bilgiler veri hedef (açıkça özellik adları ModelDataCollector oluşturucuda geçmesi gerek kalmadan) dahil edilir |
-| user_correlation_id | Dize | Bu tahmin ilişkilendirmek için kullanıcı tarafından sağlanan bir isteğe bağlı bağıntı kimliği |
+| user_correlation_id | string | Bu tahmin ilişkilendirmek için kullanıcı tarafından sağlanan bir isteğe bağlı bağıntı kimliği |
 

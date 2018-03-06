@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -56,8 +56,8 @@ Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesini gösterir
 
 |İşletim Sistemi  |Notlar  |
 |---------|---------|
-|Windows Server 2008 ve üzeri     | Yalnızca destekler değerlendirmeleri güncelleştir         |
-|Windows Server 2008 R2 SP1 ve üzeri     |.NET framework 4.5 ve WMF 5.0 veya daha yeni Windows Server 2008 R2 SP1 için gereklidir<br>Nano Server desteklenmiyor         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Yalnızca destekler değerlendirmeleri güncelleştir         |
+|Windows Server 2008 R2 SP1 ve üzeri     |.NET framework 4.5 ve WMF 5.0 veya daha yeni Windows Server 2008 R2 SP1 için gereklidir        |
 |CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
@@ -70,7 +70,7 @@ Aşağıdaki tabloda, desteklenmeyen işletim sistemleri listelenmektedir:
 |İşletim Sistemi  |Notlar  |
 |---------|---------|
 |Windows istemcisi     | İstemci işletim sistemleri (Windows 7, Windows 10, vb.) desteklenmez.        |
-|Nano Sunucu     | Nano server Windows 2016'ın bir parçasıdır.        |
+|Windows Server 2016 Nano Server     | Desteklenmiyor       |
 
 ### <a name="client-requirements"></a>İstemci gereksinimleri
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve sınama için Azure storage öykünücüsünü kullanma
 
@@ -43,6 +43,14 @@ Depolama öykünücüsü, SQL Server veya Windows kimlik doğrulaması kullanara
 Bazı işlev depolama öykünücüsü ve Azure storage Hizmetleri farklar. Bu farklılıklar hakkında daha fazla bilgi için bkz: [depolama öykünücüsü Azure Storage arasındaki farklar](#differences-between-the-storage-emulator-and-azure-storage) bu makalenin sonraki bölümünde.
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Başlangıç ve depolama öykünücüsü başlatma
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Azure storage öykünücüsü Docker çalıştırın](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>SDK'sını kullanarak
+
 Azure storage öykünücüsü başlatmak için:
 1. Seçin **Başlat** düğmesini veya tuşuna **Windows** anahtarı.
 1. Yazmaya başlayın `Azure Storage Emulator`.
@@ -140,9 +148,9 @@ Ancak, depolama öykünücüsü, yerel bilgisayarın etki alanı adı çözümle
 
 Hizmet uç noktaları için depolama öykünücüsünü şunlardır:
 
-* BLOB hizmeti:`http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Kuyruk hizmeti:`http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Tablo hizmeti:`http://127.0.0.1:10002/<account-name>/<resource-path>`
+* BLOB hizmeti: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Kuyruk hizmeti: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Tablo hizmeti: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>RA-GRS ile ikincil hesap adresleme
 Sürüm 3.1 ile başlayarak, depolama öykünücüsünü okuma erişimli coğrafi olarak yedekli çoğaltma (RA-GRS) destekler. Depolama kaynaklarını bulut hem de yerel öykünücüsü için ikincil konuma erişmek göre ekleme - hesap adının ikincil. Örneğin, bir blob depolama öykünücüsünde salt okunur ikincil kullanarak erişmek için şu adresi kullanılabilir:
@@ -172,7 +180,7 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `/help` komut istem
 | --- | --- | --- | --- |
 | **Start** |Depolama öykünücüsü başlatır. |`AzureStorageEmulator.exe start [-inprocess]` |*-InProcess*: yeni bir işlem oluşturmak yerine geçerli işlem öykünücüsü başlatın. |
 | **Durdur** |Depolama öykünücüsü durdurur. |`AzureStorageEmulator.exe stop` | |
-| **Durumu** |Depolama öykünücüsü durumunu yazdırır. |`AzureStorageEmulator.exe status` | |
+| **Durum** |Depolama öykünücüsü durumunu yazdırır. |`AzureStorageEmulator.exe status` | |
 | **Temizle** |Komut satırında belirtilen tüm hizmetleri verileri temizler. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: blob verileri temizler. <br/>*sıra*: sırası verileri temizler. <br/>*Tablo*: Tablo verileri temizler. <br/>*tüm*: tüm hizmetlerin tüm verileri temizler. |
 | **Init** |Öykünücü ayarlamak için tek seferlik başlatma gerçekleştirir. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-Sunucu Sunucuadı\örnekadı*: SQL örneğini barındıran sunucunun belirtir. <br/>*-sqlınstance InstanceName*: varsayılan sunucu örneğinde kullanılacak SQL örneğinin adını belirtir. <br/>*-forcecreate*: zaten mevcut olsa bile SQL veritabanı oluşturma zorlar. <br/>*-skipcreate*: SQL veritabanı oluşturma atlar. Bu - forcecreate önceliklidir.<br/>*-reserveports*: servisleri ile ilişkili HTTP bağlantı noktalarını ayırma dener.<br/>*-unreserveports*: HTTP bağlantı noktaları için ayırmaları kaldırmak için deneme Hizmetleri ile ilişkilendirilmiş. Bu - reserveports önceliklidir.<br/>*-InProcess*: yeni bir işlem örnekten oluşturmak yerine geçerli işlemde başlatmayı gerçekleştirir. Mevcut işlemin yükseltilmiş izinleri olan bağlantı noktası ayırmaları değiştiriliyorsa başlatılması gerekir. |
 

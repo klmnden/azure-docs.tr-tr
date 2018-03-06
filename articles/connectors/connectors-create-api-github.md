@@ -1,8 +1,8 @@
 ---
-title: "GitHub bağlayıcı Azure Logic Apps içinde | Microsoft Docs"
-description: "Logic apps ile Azure uygulama hizmeti oluşturun. GitHub hizmetini barındıran bir web tabanlı Git deposu ' dir. Dağıtılmış değişiklik denetimi ve kaynak kodu Yönetimi (SCM) işlevselliğini Git yanı sıra kendi özellik ekleme tümünün sunar."
+title: "GitHub Azure Logic Apps ile bağlanma | Microsoft Docs"
+description: "Azure Logic Apps ile GitHub için iş akışlarını otomatikleştirmek"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: MandiOhlinger
 manager: anneta
 editor: 
@@ -13,34 +13,37 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 08/18/2016
+ms.date: 03/02/2018
 ms.author: mandia; ladocs
-ms.openlocfilehash: c9120babaa5f6da4f33bd60ba27434e24cb2f45e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: cd7cd3babbfb7efc5917d3a7ec5b9d10112ba791
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="get-started-with-the-github-connector"></a>GitHub Bağlayıcısı ile çalışmaya başlama
-GitHub hizmetini barındıran bir web tabanlı Git deposu ' dir. Dağıtılmış değişiklik denetimi ve kaynak kodu Yönetimi (SCM) işlevselliğini Git yanı sıra kendi özellik ekleme tümünün sunar.
+# <a name="connect-to-github"></a>GitHub için Bağlan
 
-Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+GitHub tüm dağıtılmış düzeltme denetim ve kaynak kodu Yönetimi (SCM) Git işlevindeki ve diğer özellikleri sunan bir web tabanlı Git deposu barındırma hizmetidir.
+
+GitHub Bağlayıcısı ile çalışmaya başlamak için [mantıksal uygulama ilk oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>GitHub bağlantı oluşturun.
-Logic apps ile GitHub oluşturmak için önce oluşturmanız gerekir bir **bağlantı** ardından ayrıntılar için aşağıdaki özellikleri sağlar: 
 
-| Özellik | Gerekli | Açıklama |
-| --- | --- | --- |
-| Belirteç |Evet |GitHub Kimlik Bilgilerini girin |
+Bir mantıksal uygulama GitHub Bağlayıcısı'nı kullanmak için önce oluşturmanız gerekir bir *bağlantı* ve ardından ayrıntılar için bu özellikleri sağlar: 
 
-Bağlantı oluşturduktan sonra Eylemler yürütür ve bu makalede açıklanan Tetikleyicileri dinlemek için kullanabilirsiniz. 
+| Özellik | Gerekli | Açıklama | 
+| -------- | -------- | ----------- | 
+| Belirteç | Evet | GitHub kimlik bilgilerinizi sağlayın. |
+
+Bağlantı oluşturduktan sonra Eylemler yürütür ve bu makalede açıklanan Tetikleyicileri dinler.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/github/).
+Tetikleyiciler ve Eylemler Swagger ve herhangi bir sınır içinde tanımlanan için gözden [Bağlayıcısı ayrıntıları](/connectors/github/).
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+## <a name="find-more-connectors"></a>Daha fazla bağlayıcıları Bul
+
+* Gözden geçirme [bağlayıcılar listesi](apis-list.md).

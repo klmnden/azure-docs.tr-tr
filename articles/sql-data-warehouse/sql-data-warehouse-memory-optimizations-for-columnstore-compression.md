@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: barbkess
-ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kimliğinde kalitesi columnstore için en üst düzeye çıkarma
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 
 DWU boyutu ve kullanıcı kaynak sınıfı birlikte ne kadar bellek kullanıcı sorgu için uygun olduğunu belirler. Bir yük sorgu için bellek ataması artırmak için Dwu sayısını artırmak veya kaynak sınıfı artırın.
 
-- Dwu artırmak için bkz: [nasıl ı ölçeklendirme performans?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
+- Dwu artırmak için bkz: [nasıl ı ölçeklendirme performans?](quickstart-scale-compute-portal.md)
 - Bir sorgu için kaynak sınıfı değiştirmek için bkz: [kullanıcı kaynak sınıfı örneğini değiştirmek](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Örneğin, DWU 100 üzerinde smallrc kaynak sınıfında bir kullanıcı her dağıtım için 100 MB bellek kullanabilir. Ayrıntılar için bkz [eşzamanlılık SQL Data warehouse'da](sql-data-warehouse-develop-concurrency.md).

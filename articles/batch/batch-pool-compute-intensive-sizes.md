@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch havuzları, RDMA özellikli GPU etkinleştirilmiş veya örnekleri kullanın
 
@@ -33,11 +33,11 @@ Bu makale, yönergeler ve Azure'nın özelleştirilmiş boyutları bazıları Ba
 
 ## <a name="subscription-and-account-limits"></a>Aboneliği ve hesabı sınırları
 
-* **Kotalar ve sınırlar** - [toplu işlem hesabı başına ayrılmış çekirdek kotası](batch-quota-limit.md#resource-quotas) sayısını veya bir Batch havuzu ekleyebileceğiniz düğümleri türünü sınırlayabilir. RDMA özelliğine sahip, GPU etkin veya diğer çok çekirdekli VM boyutları seçtiğinizde kota ulaşmak büyük olasılıkla. Ayrı bir kota uygulandığı [düşük öncelikli sanal makineleri](batch-low-pri-vms.md), bunları kullanıyorsanız. 
+* **Kotalar ve sınırlar** - [toplu işlem hesabı başına çekirdek kotası](batch-quota-limit.md#resource-quotas) bir Batch havuzu ekleyebileceğiniz verilen boyuta düğümlerinin sayısını sınırlayabilirsiniz. RDMA özelliğine sahip, GPU etkin veya diğer çok çekirdekli VM boyutları seçtiğinizde kota ulaşmak büyük olasılıkla. 
 
-  NCv2 ve ND, gibi sınırlı nedeniyle sınırlı kapasite ek olarak, Batch hesabınızdaki belirli VM ailelerinin kullanın. Bu aileleri kullanımını yalnızca varsayılan değer 0 çekirdek kota artışı isteyerek kullanılabilir.  
+  Ayrıca, belirli VM aileleri NCv2, NCv3 ve ND, gibi Batch hesabınızdaki kullanımı nedeniyle sınırlı kapasite sınırlıdır. Bu aileleri kullanımını yalnızca varsayılan değer 0 çekirdek kota artışı isteyerek kullanılabilir.  
 
-  Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek isteği](../azure-supportability/how-to-create-azure-support-request.md) herhangi bir ücret alınmaz.
+  İçin gerekirse [kota artışı isteği](batch-quota-limit.md#increase-a-quota) herhangi bir ücret alınmaz.
 
 * **Bölge kullanılabilirliği** - işlem yoğunluklu VM'ler olabilir kullanılabilir, Batch hesabınızı oluşturduğunuz bölgelerde. Bir boyut kullanılabilir olup olmadığını denetlemek için bkz: [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/).
 
@@ -52,10 +52,10 @@ Bu makale, yönergeler ve Azure'nın özelleştirilmiş boyutları bazıları Ba
 | Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, veya<br/>CentOS tabanlı HPC<br/>(Azure Market) | Intel MPI 5 | Düğümler arası iletişimi etkinleştirmek, eşzamanlı görev yürütme devre dışı bırakma |
-| [NC, NCv2, ND serisi *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ya da 7.4, veya<br/>7.3 ya da 7.4 centOS<br/>(Azure Market) | NVIDIA CUDA Araç Seti sürücüleri | Yok | 
-| [NV serisi](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS 7.3<br/>(Azure Market) | NVIDIA kılavuz sürücüleri | Yok |
+| [NC, NCv2, NCv3, ND serisi *](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ya da 7.4, veya<br/>7.3 ya da 7.4 centOS<br/>(Azure Market) | NVIDIA CUDA Araç Seti sürücüleri | Yok | 
+| [NV serisi](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS 7.3<br/>(Azure Market) | NVIDIA kılavuz sürücüleri | Yok |
 
-* RDMA bağlantısı NC24r, NC24rs_v2 ve ND24r VM'ler Intel MPI ile Ubuntu 16.04 LTS (Azure Marketi'nden) desteklenir.
+* RDMA özellikli N-serisi vm'lerde RDMA bağlantısı gerektirebilir [ek yapılandırma](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) dağıtım göre değişir.
 
 
 
@@ -64,15 +64,15 @@ Bu makale, yönergeler ve Azure'nın özelleştirilmiş boyutları bazıları Ba
 | Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2'de, veya<br/>2012 (azure Market) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek, eşzamanlı görev yürütme devre dışı bırakma |
-| [NC, NCv2, ND serisi *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Windows Server 2016 veya <br/>2012 R2 (Azure Market) | NVIDIA Tesla sürücüleri veya CUDA Araç Seti sürücülerini| Yok | 
+| [NC, NCv2, NCv3, ND serisi *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (serilerine göre farklılık gösterir) | Windows Server 2016 veya <br/>2012 R2 (Azure Market) | NVIDIA Tesla sürücüleri veya CUDA Araç Seti sürücülerini| Yok | 
 | [NV serisi](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 veya<br/>2012 R2 (Azure Market) | NVIDIA kılavuz sürücüleri | Yok |
 
-* RDMA bağlantısı NC24r, NC24rs_v2 ve ND24rs VM'ler üzerinde Windows Server 2016 veya Windows Server 2012 R2 (Azure Marketi'nden) HpcVMDrivers uzantısı ve Microsoft MPI veya Intel MPI ile desteklenir.
+* RDMA özellikli N-serisi vm'lerde RDMA bağlantısı HpcVMDrivers uzantısı ve Microsoft MPI veya Intel MPI ile Windows Server 2016 veya Windows Server 2012 R2 (Azure Marketi'nden) desteklenir.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows havuzları - Cloud services yapılandırması
 
 > [!NOTE]
-> N-serisi boyutları, cloud services yapılandırması ile Batch havuzlarında desteklenmez.
+> N-serisi boyutları, bulut hizmeti yapılandırmasıyla Batch havuzlarında desteklenmez.
 >
 
 | Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
@@ -123,8 +123,8 @@ Bir Azure A8 düğümleri havuzunda Windows MPI uygulamaları çalıştırmak i�
 
 Bir Linux NC düğümleri havuzunda CUDA uygulamalarını çalıştırmak için CUDA Araç Seti 9.0 düğümlerinde yüklemeniz gerekir. Araç Seti gerekli NVIDIA Tesla GPU sürücüleri yükler. GPU sürücüleri ile özel bir Ubuntu 16.04 LTS görüntü dağıtmak için örnek adımlar şunlardır:
 
-1. Bir Azure NC6 Ubuntu 16.04 LTS çalıştıran VM dağıtın. Örneğin, BİZE Güney merkez bölgede VM oluşturun. Yönetilen bir diskle VM oluşturduğunuzdan emin olun.
-2. VM'e bağlanmak için gereken adımları izleyin ve [CUDA sürücülerini yüklemek](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
+1. Ubuntu 16.04 LTS çalıştıran bir Azure NC-serisi VM dağıtın. Örneğin, BİZE Güney merkez bölgede VM oluşturun. Yönetilen bir diskle VM oluşturduğunuzdan emin olun.
+2. VM'e bağlanmak için gereken adımları izleyin ve [CUDA sürücülerini yüklemek](../virtual-machines/linux/n-series-driver-setup.md).
 3. Linux Aracısı'nı yetkisini kaldırma ve ardından [Linux VM görüntüsü yakalama](../virtual-machines/linux/capture-image.md).
 4. NC sanal makineleri destekleyen bir bölgede bir Batch hesabı oluşturun.
 5. Batch API'leri veya Azure portalını kullanarak oluşturduğunuz bir havuzu [özel görüntü kullanarak](batch-custom-images.md) ve istenen sayıda düğümleri ve ölçek sahip. Aşağıdaki tabloda görüntüsü için örnek havuzu ayarları gösterilmektedir:
@@ -132,7 +132,7 @@ Bir Linux NC düğümleri havuzunda CUDA uygulamalarını çalıştırmak için 
 | Ayar | Değer |
 | ---- | ---- |
 | **Görüntü Türü** | Özel görüntü |
-| Özel görüntü | Görüntü adı |
+| **Özel görüntü** | Görüntü adı |
 | **Düğüm Aracısı SKU** | batch.node.ubuntu 16.04 |
 | **Düğüm boyutu** | NC6 standart |
 

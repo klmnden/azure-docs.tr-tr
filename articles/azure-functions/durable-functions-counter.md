@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Durum bilgisi olan teklileri dayanıklı işlevlerinde - sayaç örneği
+
+> [!NOTE]
+> Biz bu örnek yeniden yazma işlemi. Kod parçacıkları kaldırıldı ve yeni bir örneği için yeni bir makale yerini alır.
 
 Durum bilgisi olan teklileri durumunu depolamak ve çağrılır ve diğer işlevleri tarafından sorgulanan uzun süre çalışan (büyük olasılıkla eternal) orchestrator işlevlerdir. Durum bilgisi olan teklileri benzer [aktör modeli](https://en.wikipedia.org/wiki/Actor_model) dağıtılmış bilgi işlem.
 
@@ -28,7 +31,7 @@ Değil bir uygun "Aktör" uygulamasına, orchestrator işlevleri birçok aynı �
 
 Bu makalede nasıl çalıştırılacağı gösterilmektedir *sayaç* örnek. Örnek destekleyen bir singleton nesne gösterir *artırma* ve *azaltma* işlemleri ve iç durumuna uygun şekilde güncelleştirir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * ' Ndaki yönergeleri izleyin [yükleme dayanıklı işlevleri](durable-functions-install.md) örneğini kurmak için.
 * Bu makalede, zaten gitti varsayar [Hello dizisi](durable-functions-sequence.md) örnek gözden geçirme.
@@ -51,15 +54,15 @@ Bu makalede kılavuzluk **E3_Counter** işlevi için örnek uygulama.
 
 Aşağıdaki bölümlerde, Visual Studio Code ve Azure Portal geliştirme için kullanılan kod açıklanmaktadır.
 
-### <a name="c-script"></a>C# betiği
+### <a name="c-script"></a>C# Script
 
 Function.json dosyası:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 Run.csx dosyası:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>Önceden derlenmiş C# 
 
@@ -67,7 +70,7 @@ Aşağıdaki bölümlerde, Visual Studio geliştirme için kullanılan kod açı
 
 Orchestrator işlevi uygulayan kod aşağıdaki gibidir:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>Kod açıklaması
 
@@ -85,7 +88,7 @@ Bir benzersiz bu orchestrator işlevi özelliğidir etkili bir şekilde geçmiş
 > [!NOTE]
 > `ContinueAsNew` Yöntemi eternal düzenlemelerin yanı sıra diğer kullanım örnekleri sahiptir. Daha fazla bilgi için bkz: [Eternal düzenlemelerin](durable-functions-eternal-orchestrations.md).
 
-## <a name="run-the-sample"></a>Örnek çalıştırın
+## <a name="run-the-sample"></a>Örneği çalıştırma
 
 Aşağıdaki HTTP POST isteği göndererek orchestration başlatabilirsiniz. İzin vermek için `counterState` sıfırda başlatmak için (varsayılan değeri `int`), bu istekte içerik yok.
 

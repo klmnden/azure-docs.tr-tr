@@ -1,24 +1,8 @@
----
-title: "Bir Azure Service Fabric kümesindeki sertifikaları yönetme | Microsoft Docs"
-description: "Yeni sertifikalar, geçiş sertifikası eklemek ve sertifika için veya bir Service Fabric kümesinden kaldırmak açıklar."
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+--Başlık: Azure Service Fabric kümesi sertifikaları yönetme | Microsoft Docs Açıklama: yeni sertifikalar, geçiş sertifikası eklemek ve sertifika için veya bir Service Fabric kümesinden kaldırmak açıklar.
+services: service-fabric documentationcenter: .net author: ChackDan manager: timlt editor: ''
+
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ekleme veya Azure Service Fabric kümesi için sertifikaları kaldırın
 Service Fabric'ın X.509 sertifikaları nasıl kullandığı tanımak ve hakkında bilgi sahibi olmanız önerilir [küme güvenlik senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir hangi küme sertifika ve devam etmeden önce ne için kullanılır.
@@ -49,6 +33,8 @@ Güvenli bir küme için (dağıtılan en az bir geçerli değil iptal edilmiş 
 Maksadınızı birincil olarak işaretlenmiş sertifikayı kaldırmak için ise, ikincil kopya ilk değiştirme ve yükseltme tamamlandıktan sonra ikincil silmek gerekir.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell kullanarak bir ikincil sertifika Ekle
+> [! Şimdi sahibiz kullanarak bir ikincil sertifika eklemek için daha iyi ve daha kolay bir yol güncelleştirme] [Ekle AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0). Add-AzureRmServiceFabricClusterCertificate kullanırsanız, bu bölümdeki adımları izlemeden gerek yoktur.
+
 
 Bu adımları, Kaynak Yöneticisi'ni nasıl çalıştığını iyi ve en az bir Resource Manager şablonu kullanarak bir Service Fabric kümesi dağıttıysanız ve kullanışlı kümesi için kullanılan şablonu varsayalım. JSON kullanarak rahat olduğu da varsayılır.
 
@@ -119,7 +105,7 @@ Kaynak tanımı aşağıdaki gibi görünmelidir artık bunu (kaynağınız şab
 ``` 
 
 
-**4. adım:** değişiklik yapma **tüm** **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - Microsoft.Compute/virtualMachineScaleSets kaynak bulun tanımı. "Publisher" gidin: "Microsoft.Azure.ServiceFabric" altında "virtualMachineProfile".
+**4. adım:** değişiklik yapma **tüm** **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - Microsoft.Compute/virtualMachineScaleSets kaynak tanımı'nı bulun. "Publisher" gidin: "Microsoft.Azure.ServiceFabric" altında "virtualMachineProfile".
 
 Service fabric yayımcı ayarlarında şöyle bir şey görmeniz gerekir.
 
@@ -160,7 +146,7 @@ Yeni sertifika girişler ekleyin
 ![Json_Pub_Setting3][Json_Pub_Setting3]
 
 
-**5. adım:** değişiklik yapma **tüm** **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - Microsoft.Compute/virtualMachineScaleSets kaynak bulun tanımı. "VaultCertificates" gidin:, "OSProfile" altında. Bu gibi görünmelidir.
+**5. adım:** değişiklik yapma **tüm** **Microsoft.Compute/virtualMachineScaleSets** kaynak tanımları - Microsoft.Compute/virtualMachineScaleSets kaynak tanımı'nı bulun. "VaultCertificates" gidin:, "OSProfile" altında. Bu gibi görünmelidir.
 
 
 ![Json_Pub_Setting4][Json_Pub_Setting4]

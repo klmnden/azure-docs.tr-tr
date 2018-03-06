@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning deneme hizmeti yapılandırma dosyaları
 
@@ -29,12 +29,12 @@ Bu klasör altındaki ilgili dosyalar şunlardır:
     - \<Yapılandırma adı Çalıştır > .runconfig
 
 >[!NOTE]
->Genellikle bir işlem hedef dosya varsa ve oluşturduğunuz her işlem hedef için yapılandırma dosyasını çalıştırın. Ancak, bu dosyaları bağımsız olarak oluşturmak ve aynı işlem hedef noktası birden çok çalışma yapılandırma dosyalarının sahip.
+>Genellikle bir işlem hedef dosya varsa ve oluşturduğunuz her işlem hedef için yapılandırma dosyasını çalıştırın. Ancak, bu dosyaları bağımsız olarak oluşturmak ve aynı işlem hedefe işaret eden birden çok çalışma yapılandırma dosyalarının sahip.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
 Bu dosya bir [conda ortam dosya](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) kodunuzu bağımlı paketler ve Python çalışma zamanı sürümü belirtir. Azure ML çalışma ekranı bir Docker kapsayıcısı veya Hdınsight kümesinde bir komut dosyası yürütüldüğünde, oluşturduğu bir [conda ortam](https://conda.io/docs/using/envs.html) çalıştırmak komut dosyanızı için. 
 
-Bu dosyada, komut dosyası yürütme için gereken Python paketlerini belirtin. Azure ML deneme Hizmet bağımlılıkları listesi göre Docker görüntüsündeki conda ortamı oluşturur. Paketlerin listesini burada yürütme altyapısı tarafından erişilebilir olması gerekir. Bu nedenle, paketleri kanallarında gibi listelenmiş olması gerekir:
+Bu dosyada, komut dosyası yürütme için gereken Python paketlerini belirtin. Azure ML deneme hizmeti bağımlılıkları listenize göre conda ortamının oluşturur. Burada listelenen paketler gibi kanalları üzerinden yürütme altyapısı tarafından erişilebilir olması gerekir:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -43,7 +43,7 @@ Bu dosyada, komut dosyası yürütme için gereken Python paketlerini belirtin. 
 * Başkalarının yürütme altyapısı tarafından erişilebilir
 
 >[!NOTE]
->Hdınsight küme üzerinde çalışan Azure ML çalışma ekranı çalıştırma için yalnızca bir conda ortamı oluşturur. Bu, farklı kullanıcıların farklı python ortamları aynı küme üzerinde çalışan olanak tanır.  
+>Hdınsight küme üzerinde çalışan Azure ML çalışma ekranı belirli çalıştırma için bir conda ortamı oluşturur. Bu, farklı kullanıcıların farklı python ortamları aynı küme üzerinde çalışan olanak tanır.  
 
 Tipik bir örneği burada verilmiştir **conda_dependencies.yml** dosya.
 ```yaml
@@ -68,13 +68,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML çalışma ekranı derlenmeden aynı conda ortamı kullandığı sürece **conda_dependencies.yml** olduğu gibi kalır. Ancak, herhangi bir şey bu dosyada değişirse, Docker görüntüsünün yeniden neden olur.
+Azure ML çalışma ekranı kullandığı aynı conda ortamı sürece derlenmeden **conda_dependencies.yml** aynı kalır. Bağımlılıklarınız değiştirirseniz, ortamınızı yeniden oluşturur.
 
 >[!NOTE]
 >Yürütme karşı hedefliyorsanız _yerel_ bağlamı, işlem **conda_dependencies.yml** dosyası **değil** kullanılır. Paket bağımlılıklarını yerel Azure ML çalışma ekranı Python ortamınız için elle yüklenmesi gerekir.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-Bir PySpark komut dosyası ve yüklenmesi gereken Spark paketleri gönderdiğinizde bu dosyayı Spark uygulama adını belirtir. Ayrıca, bu Maven depoları bulunabilir Spark paket yanı sıra tüm genel Maven depo da belirtebilirsiniz.
+Bir PySpark komut dosyası ve yüklenmesi gereken Spark paketleri gönderdiğinizde bu dosyayı Spark uygulama adını belirtir. Ayrıca, bu Maven depoları bulunabilir Spark paketlerinin yanı sıra genel bir Maven depo da belirtebilirsiniz.
 
 Örnek aşağıda verilmiştir:
 
@@ -103,13 +103,13 @@ packages:
 ```
 
 >[!NOTE]
->Çalışan boyutu gibi ayarlama parametrelerini küme, çekirdeği spark_dependecies.yml dosyasındaki "yapılandırma" bölümüne gidin 
+>Çalışan boyutu ve çekirdek gibi parametreleri ayarlama küme spark_dependecies.yml dosyasındaki "yapılandırma" bölümünde gitmesi 
 
 >[!NOTE]
->Python ortamında, komut dosyası yürütme, *spark_dependencies.yml* dosya göz ardı edilir. Spark (ya da Docker veya Hdınsight kümesinde) karşı çalıştırıyorsanız, yalnızca etkisi yoktur.
+>Python ortamında, komut dosyası yürütme, *spark_dependencies.yml* dosya göz ardı edilir. Yalnızca Spark (ya da Docker veya Hdınsight kümesinde) karşı çalıştırıyorsanız kullanılır.
 
 ## <a name="run-configuration"></a>Çalışma yapılandırması
-Belirli bir çalıştırma yapılandırmasını belirtmek için dosyaların çifti gereklidir. Bunlar genellikle CLI komutu kullanılarak oluşturulur. Ancak, da olanları çıkma kopyalama, onları yeniden adlandırın ve bunları düzenleyin.
+Belirli bir çalıştırma yapılandırmasını belirtmek için bir .compute dosyası ve bir .runconfig dosyası gerekir. Bunlar genellikle CLI komutu kullanılarak oluşturulur. Ayrıca olanları çıkma kopyalama, onları yeniden adlandırın ve bunları düzenleyin.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -125,10 +125,11 @@ Bu komut, belirtilen işlem hedefi göre dosyalar çifti oluşturur. İşlem hed
 > _yerel_ veya _docker_ çalıştırma yapılandırma dosyalarını rasgele için adları. Azure ML çalışma ekranı size kolaylık olması için boş bir proje oluşturduğunuzda, bu iki yapılandırmaları çalıştırma ekler. Yeniden adlandırabilirsiniz "<run configuration name>.runconfig" proje şablonu ile gelir veya yenilerini istediğiniz herhangi bir ad ile oluşturduğunuz dosyaları.
 
 ### <a name="compute-target-namecompute"></a>\<Hedef adı işlem > .compute
-_\<Hedef adı işlem > .compute_ dosyasını işlem hedef bağlantı ve yapılandırma bilgilerini belirtir. Ad-değer çifti listesidir. Aşağıdaki desteklenen ayarları şunlardır.
+_\<Hedef adı işlem > .compute_ dosyasını işlem hedef bağlantı ve yapılandırma bilgilerini belirtir. Ad-değer çifti listesidir. Desteklenen ayarlar aşağıda verilmiştir:
 
 **tür**: işlem ortam türü. Desteklenen değerler şunlardır:
   - yerel
+  - Uzak
   - Docker
   - remotedocker
   - küme
@@ -147,8 +148,10 @@ _\<Hedef adı işlem > .compute_ dosyasını işlem hedef bağlantı ve yapılan
 
 **nativeSharedDirectory**: Bu özellik, temel dizin belirtir (örneğin: _~/.azureml/share/_) dosyaları arasında paylaşılması için kaydedilebileceği aynı işlem hedef çalıştırır. Bu ayar bir Docker kapsayıcısı üzerinde çalışırken kullandıysanız _sharedVolumes_ ayarlanmalıdır true. Aksi takdirde yürütme başarısız olur.
 
+**userManagedEnvironment**: Bu özellik bu işlem hedef kullanıcı tarafından doğrudan yönetilen veya deneme hizmeti aracılığıyla yönetilen olup olmadığını belirtir.  
+
 ### <a name="run-configuration-namerunconfig"></a>\<Yapılandırma adı Çalıştır > .runconfig
-_\<Yapılandırma adı Çalıştır > .runconfig_ Azure ML denemeler yürütme davranışını belirtir. Ne yanı sıra diğer birçok kullanmak için hedef işlem veya izleme çalıştırma geçmişi gibi yürütme davranışları yapılandırabilirsiniz. Çalışma yapılandırması dosyaların adlarını Azure ML çalışma ekranı masaüstü uygulaması yürütme bağlamı açılır doldurmak için kullanılır.
+_\<Yapılandırma adı Çalıştır > .runconfig_ Azure ML denemeler yürütme davranışını belirtir. Ne yanı sıra diğer birçok kullanmak için hedef işlem veya izleme çalıştırma geçmişi gibi yürütme davranışını yapılandırabilirsiniz. Çalışma yapılandırması dosyaların adlarını Azure ML çalışma ekranı masaüstü uygulaması yürütme bağlamı açılır doldurmak için kullanılır.
 
 **ArgumentVector**: Bu bölümde bu yürütme ve komut dosyası için parametreleri parçası olarak çalıştırmak için komut dosyasını belirtir. Örneğin, aşağıdaki kod parçacığında varsa, "<run configuration name>.runconfig" dosyası 
 
@@ -170,7 +173,7 @@ EnvironmentVariables:
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-Bu ortam değişkenleri kullanıcının kodda erişilebilir. Örneğin, "EXAMPLE_ENV_VAR" adlı ortam değişkeni bu phyton kodu yazdırır
+Bu ortam değişkenleri kullanıcının kodda erişilebilir. Örneğin, "EXAMPLE_ENV_VAR" adlı ortam değişkeni bu Python kodu yazdırır
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```

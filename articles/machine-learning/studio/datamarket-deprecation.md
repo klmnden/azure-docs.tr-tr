@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 03/01/2018
 ms.author: LuisCa
-ms.openlocfilehash: e40b69f97878a6072a64912f017f8e5621ba6e71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cec301869b08f9f3811c0536c85366619738945a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="datamarket-is-now-deprecated"></a>DataMarket artık kullanım dışı
 
@@ -32,9 +32,3 @@ Artık bu özellikleri (ve daha fazlasını) bulabilirsiniz [Bilişsel hizmetler
 Bilişsel hizmetler metin Analytics API dil algılama ve konu algılama gibi ek senaryolarda yanı sıra önceki DataMarket sürüm yaptığınız tüm senaryolarını destekler.
 
 
-## <a name="recommendations-api"></a>Öneriler API’si 
-
-Önceki DataMarket önerileri API müşterilerin kullanarak başlamalıdır [Bilişsel Hizmetleri önerileri API](https://www.microsoft.com/cognitive-services/recommendations-api).
-Bilişsel hizmetler önerileri API tüm önceki DataMarket sürüm vermedi senaryoları yanı sıra batch desteği ve modelleri kalitesini değerlendirmek için daha iyi çevrimdışı ölçümleri gibi ek senaryoları destekler. 
-
-Bilişsel hizmetler önerileri API kullanmaya başlama hakkında daha fazla bilgi için bkz: [Azure Bilişsel Hizmetleri önerileri API geçiş](http://aka.ms/recomigrate).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: e6eacdb437d28eb733da522280cb2c7d8c24d9ba
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Oluşturma, değiştirme veya genel bir IP adresi silme
 
@@ -29,21 +29,20 @@ Bir ortak IP adresi ve oluşturmak, değiştirmek ve silmek nasıl hakkında bil
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalenin herhangi bölümündeki tüm adımları tamamlanmadan önce aşağıdaki görevleri tamamlayın:
+Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşağıdaki görevleri tamamlayın:
 
-- Gözden geçirme [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makale ortak IP adresleri için sınırları hakkında bilgi edinin.
-- Azure oturum açma [portal](https://portal.azure.com), Azure komut satırı arabirimi (CLI) ya da Azure PowerShell ile bir Azure hesabı. Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
-- Bu makalede, görevleri tamamlamak için PowerShell komutlarını kullanarak, [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Yüklü Azure PowerShell cmdlet'leri'nın en son sürümüne sahip olun. PowerShell komutlarıyla örnekler, yardım almanın yazın `get-help <command> -full`.
-- Bu makalede, görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, [Azure CLI'yi yükleme ve yapılandırma](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Yüklü Azure CLI'ın en son sürümüne sahip olun. CLI komutları için Yardım almak için yazın `az <command> --help`. CLI ve ön koşullar yüklemek yerine, Azure bulut Kabuğu'nu kullanabilirsiniz. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bulut Kabuğu'nu kullanmak için bulut Kabuğu'nu tıklatın. **> _** en üstündeki düğmesi [portal](https://portal.azure.com).
+- Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
+- Portalı kullanarak, https://portal.azure.com açın ve Azure hesabınızla oturum açın.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` yüklü olan sürümü bulunamıyor. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
 Nominal bir ücret ortak IP adresine sahip. Fiyatlandırma görüntülemek için okuma [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası. 
 
 ## <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *genel IP adresi*. Zaman **ortak IP adresleri** görünür arama sonuçlarında tıklatın.
-3. Tıklatın **+ Ekle** içinde **genel IP adresi** görünür dikey.
-4. Girin veya seçin aşağıdaki ayarları için değerleri **ortak IP adresi oluştur** görünür, ardından dikey **oluşturma**:
+1. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *genel IP adresi*. Zaman **ortak IP adresleri** görünür arama sonuçlarında tıklatın.
+2. Tıklatın **+ Ekle** içinde **genel IP adresi** görünür dikey.
+3. Girin veya seçin aşağıdaki ayarları için değerleri **ortak IP adresi oluştur** görünür, ardından dikey **oluşturma**:
 
     |Ayar|Gerekli mi?|Ayrıntılar|
     |---|---|---|
@@ -73,10 +72,9 @@ Portal, iki ortak IP adresi kaynakları (bir IPv4 ve bir IPv6) oluşturma seçen
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Görüntüleme, ayarlarını değiştirmek veya bir ortak IP adresini Sil
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *genel IP adresi*. Zaman **ortak IP adresleri** görünür arama sonuçlarında tıklatın.
-3. İçinde **ortak IP adresleri** görünür, dikey penceresini görüntülemek için ayarları değiştirmek veya silmek istediğiniz genel IP adresi adını tıklatın.
-4. Görüntülenen dikey penceresinde ortak IP adresi için görüntülemek, silmek veya genel IP adresini değiştirmek istediğinize bağlı olarak aşağıdaki seçeneklerden birini tamamlayın.
+1. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *genel IP adresi*. Zaman **ortak IP adresleri** görünür arama sonuçlarında tıklatın.
+2. İçinde **ortak IP adresleri** görünür, dikey penceresini görüntülemek için ayarları değiştirmek veya silmek istediğiniz genel IP adresi adını tıklatın.
+3. Görüntülenen dikey penceresinde ortak IP adresi için görüntülemek, silmek veya genel IP adresini değiştirmek istediğinize bağlı olarak aşağıdaki seçeneklerden birini tamamlayın.
     - **Görünüm**: **genel bakış** dikey bölümde ilişkili için (adresi bir ağ arabirimiyle ilişkilendirilmiş ise) ağ arabirimi gibi ortak IP adresi için anahtar ayarlarını gösterir. Portal sürümü (IPv4 veya IPv6) adresinin görüntülemez. Sürüm bilgilerini görüntülemek için genel IP adresini görüntülemek için PowerShell veya CLI komutunu kullanın. IP adresi sürümü IPv6 ise, atanan adresi portal, PowerShell veya CLI tarafından görüntülenmez. 
     - **Silme**: genel IP adresini silmek için tıklatın **silmek** içinde **genel bakış** dikey bölüm. Adres geçerli bir IP yapılandırmasıyla ilişkilendirilmiş ise silinemiyor. Adresi şu anda bir yapılandırmasıyla ilişkili olduğundan,'ı tıklatın **ilişkiyi** IP yapılandırması adresinden ilişkilendirmesini kaldırmak.
     - **Değişiklik**: tıklatın **yapılandırma**. 4. adımda bilgileri kullanarak ayarları değiştirme [genel bir IP adresi oluşturma](#create-a-public-ip-address) bu makalenin. Bir IPv4 adresi atamanın statik olan dinamik olarak değiştirmek için önce ilişkili olduğu IP yapılandırması gelen ortak IPv4 adresi ilişkilendirmesini kaldırmanız gerekir. Atama yöntemi dinamik olarak değiştirin ve tıklatın **ilişkilendirmek** IP ilişkilendirmek için aynı IP yapılandırması, farklı bir yapılandırma veya adresine ilkenin ilişkisi bırakılabilir. İçinde bir ortak IP adresi ilişkilendirmesini kaldırmak **genel bakış** 'yi tıklatın **ilişkiyi**.
@@ -98,16 +96,12 @@ Portal, iki ortak IP adresi kaynakları (bir IPv4 ve bir IPv6) oluşturma seçen
 
 Standart SKU genel bir IP adresi oluşturabilmeniz için önce önizleme için kaydetmeniz gerekir. Önizleme için kaydetmek için aşağıdaki adımları tamamlayın:
 
-1. Yükleme ve Azure yapılandırma [PowerShell](/powershell/azure/install-azurerm-ps).
-2. Çalıştırma `Get-Module -ListAvailable AzureRM` AzureRM modülünün hangi sürümünün yüklü olduğunu görmek için komutu. Daha yüksek yüklü veya sürüm 4.4.0 olmalıdır. Bunu yapmazsanız, en son sürümü yükleyebilirsiniz [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM).
-3. Oturum açtığınızda Azure ile `login-azurermaccount` komutu.
-4. Önizleme için kaydetmek için aşağıdaki komutu girin:
+1. Powershell'den, Önizleme için kaydetmek için aşağıdaki komutu girin:
    
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
     ```
-
-5. Aşağıdaki komutu girerek Önizleme için kayıtlı olduklarını doğrulayın:
+2. Aşağıdaki komutu girerek Önizleme için kayıtlı olduklarını doğrulayın:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network

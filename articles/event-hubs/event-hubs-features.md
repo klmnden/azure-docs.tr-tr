@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2017
+ms.date: 03/02/2018
 ms.author: sethm
-ms.openlocfilehash: aa9fc3b03e24d0b4d1a7ecd9a945b67d8d182492
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="event-hubs-features-overview"></a>Olay hub'ları özelliklere genel bakış
 
@@ -52,7 +52,7 @@ Yayımcı adlarını önceden oluşturmanız gerekli değildir, ancak bunlar ba�
 
 ## <a name="capture"></a>Capture
 
-[Olay hub'ları yakalama](event-hubs-capture-overview.md) otomatik olarak olay hub'ları akış verilerini yakalamak ve için tercih ettiğiniz bir Blob storage hesabı veya bir Azure Data Lake hizmeti hesabının kaydetmenize olanak sağlar. Azure portalından yakalamayı etkinleştirme ve en küçük boyut ve yakalama gerçekleştirmek için zaman penceresini belirtin. Olay hub'ları yakalama kullanarak kendi Azure Blob Storage hesabı ve kapsayıcı ya da yakalanan verileri depolamak için kullanılan Azure Data Lake Service hesabı belirtin. Yakalanan veriler Apache Avro biçiminde yazılır.
+[Olay hub'ları yakalama](event-hubs-capture-overview.md) otomatik olarak olay hub'ları akış verilerini yakalamak ve için tercih ettiğiniz bir Blob storage hesabı veya bir Azure Data Lake hizmeti hesabının kaydetmenize olanak sağlar. Azure portalından yakalamayı etkinleştirme ve en küçük boyut ve yakalama gerçekleştirmek için zaman penceresini belirtin. Olay hub'ları yakalama kullanarak kendi Azure Blob Storage hesabı ve kapsayıcı ya da bunlardan biri yakalanan verileri depolamak için kullanılan Azure Data Lake Service hesabı belirtin. Yakalanan veriler Apache Avro biçiminde yazılır.
 
 ## <a name="partitions"></a>Bölümler
 

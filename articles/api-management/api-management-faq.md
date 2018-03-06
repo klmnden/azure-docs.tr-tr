@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 091cfaaf8fa1cccf2f8b819732946bbbd08fd426
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını için Azure API Management alın.
@@ -122,7 +122,7 @@ Azure portalında Kiracı sayfasında, IP adresi (veya adresleri, bölgeli dağ�
 Bir OAuth 2.0 yetkilendirme sunucusu ile Active Directory Federasyon Hizmetleri (AD FS) güvenliği yapılandırma konusunda bilgi edinmek için [kullanarak ADFS API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>Hangi yönlendirme yöntemini API Management birden çok coğrafi konumlara dağıtımlarında kullanıyor mu?
-API Management kullanır [performans trafik yönlendirme yöntemini](../traffic-manager/traffic-manager-routing-methods.md#priority) birden çok coğrafi konumlara dağıtımlarında. Gelen trafik için en yakın API ağ geçidi yönlendirilir. Bir bölge çevrimdışı olursa, gelen trafik için sonraki en yakın ağ geçidi otomatik olarak yönlendirilir. Yönlendirme yöntemleri hakkında daha fazla bilgi [Traffic Manager yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md).
+API Management kullanır [performans trafik yönlendirme yöntemini](../traffic-manager/traffic-manager-routing-methods.md#performance) birden çok coğrafi konumlara dağıtımlarında. Gelen trafik için en yakın API ağ geçidi yönlendirilir. Bir bölge çevrimdışı olursa, gelen trafik için sonraki en yakın ağ geçidi otomatik olarak yönlendirilir. Yönlendirme yöntemleri hakkında daha fazla bilgi [Traffic Manager yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>API Management hizmet örneği oluşturmak için bir Azure Resource Manager şablonu kullanabilir miyim?
 Evet. Bkz: [Azure API Management hizmeti](http://aka.ms/apimtemplate) hızlı başlangıç şablonları.

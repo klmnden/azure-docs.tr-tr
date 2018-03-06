@@ -2,7 +2,7 @@
 title: "Sınırları ve yapılandırması - Azure Logic Apps | Microsoft Docs"
 description: "Hizmet sınırları ve Azure mantıksal uygulamaları için yapılandırma değerleri"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps sınırları ve yapılandırma
 
@@ -28,13 +28,13 @@ Bu makalede, Azure mantıksal uygulamaları için geçerli sınırlarını ve ya
 
 ### <a name="http-request-limits"></a>HTTP istek sınırları
 
-Bu sınırlar, tek bir HTTP istek veya bir bağlayıcı çağrı için geçerlidir.
+Tek bir HTTP isteğinin ya da bir bağlayıcı çağrı sınırlarını şunlardır:
 
 #### <a name="timeout"></a>Zaman Aşımı
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
-| İstek zaman aşımına uğradı | 120 saniye | Bir [zaman uyumsuz desen](../logic-apps/logic-apps-create-api-app.md) veya [döngü kadar](logic-apps-loops-and-scopes.md) gerektiğinde dengeleyebilirsiniz |
+| İstek zaman aşımına uğradı | 120 saniye | Bir [zaman uyumsuz desen](../logic-apps/logic-apps-create-api-app.md) veya [döngü kadar](logic-apps-control-flow-loops.md) gerektiğinde dengeleyebilirsiniz | 
 |||| 
 
 #### <a name="message-size"></a>İleti boyutu
@@ -56,28 +56,21 @@ Bu sınırlar, tek bir HTTP istek veya bir bağlayıcı çağrı için geçerlid
 
 ### <a name="run-duration-and-retention"></a>Çalışma süresi ve bekletme
 
-Bu sınırlar çalıştıran tek bir mantıksal uygulama için geçerlidir.
+Çalıştıran tek bir mantıksal uygulama sınırlarını şunlardır:
 
-| Ad | Varsayılan | Sınır |
-| ---- | ------- | ----- |
-| Çalışma süresi   | 90 gün | 7-90 gün |
-| Depolama bekletme | Başlangıç zamanı çalışmanın 90 gün |  çalışmanın başlangıç zamanından itibaren 7-90 gün |
-||||
+| Ad | Sınır | 
+| ---- | ----- | 
+| Çalışma süresi | 90 gün | 
+| Depolama bekletme | Başlangıç zamanı çalışmanın 90 gün | 
+| En az yinelenme aralığı | 1 saniye </br>Logic apps ile bir uygulama hizmeti planı için: 15 saniye | 
+| En fazla yineleme aralığı | 500 gün | 
+||| 
 
-Çalışma süresi veya depolama bekletme, normal işlem akışında sınırları aşan [ürün ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi Yardım almak için.
-
-
-### <a name="recurrence-interval"></a>Yinelenme aralığı
-
-| Ad | Sınır |
-| ---- | ------- |
-| En az yinelenme aralığı | 1 saniye </br>Logic apps ile bir uygulama hizmeti planı için: 15 saniye |
-| En fazla yineleme aralığı | 500 gün |
-|||
+Çalışma süresi veya depolama bekletme, normal işlem akışında sınırları aşan [Logic Apps ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım.
 
 ### <a name="looping-and-debatching-limits"></a>Döngü ve sınırları debatching
 
-Bu sınırlar çalıştıran tek bir mantıksal uygulama için geçerlidir.
+Çalıştıran tek bir mantıksal uygulama sınırlarını şunlardır:
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
@@ -89,22 +82,22 @@ Bu sınırlar çalıştıran tek bir mantıksal uygulama için geçerlidir.
 
 ### <a name="throughput-limits"></a>İşleme sınırları
 
-Bu sınırları tek mantığı uygulama kaynak uygulayın.
+Bir tek mantığı uygulama örneği için sınırları şunlardır:
 
 | Ad | Sınır | Notlar | 
 | ----- | ----- | ----- | 
-| Eylemler yürütmeleri 5 dakika başına | 100,000 |<p>Bir mantıksal uygulama çalıştırarak 300000 için sınır artırılabilir `High Througput` modu. Yüksek verimlilik modu ayarlanarak yapılandırılabilir `operationOptions` altında özellik`runtimeConfiguration` için iş akışı kaynağının `OptimizedForHighThroughput`. <p>Bu yüksek verimlilik modu önizlemede olduğuna dikkat edin. Ayrıca bir iş yükü gerektiği gibi birden çok uygulama arasında dağıtılabilir. | 
+| Eylemler yürütmeleri 5 dakika başına | 100,000 | 300000 için sınırı artırmak için bir mantıksal uygulama çalıştırabilirsiniz `High Througput` modu. Yüksek verimlilik modu altında yapılandırmak için `runtimeConfiguration` iş akışı kaynak ayarlanmış `operationOptions` özelliğine `OptimizedForHighThroughput`. <p>**Not**: yüksek verimlilik modudur önizlemede. Ayrıca, birden çok uygulamalarında gerektiği gibi bir iş yükü dağıtabilirsiniz. | 
 | Eylemler eşzamanlı giden çağrıları | ~2,500 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: eşzamanlı gelen çağrıları |~1,000 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: 5 dakika başına çağrı okuma  | 60,000 | İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
 | Çalışma zamanı uç noktası: 5 dakika başına çağrı çağırma| 45,000 |İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
 |||| 
 
-Bu sınırlar aşabilir bu sınırları normal işleme veya çalıştırılan bir yük testi aşmayı [ürün ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi Yardım almak için.
+Bu sınırlar aşabilir bu sınırları normal işleme veya çalıştırılan bir yük testi aşmayı [Logic Apps ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım.
 
 ### <a name="logic-app-definition-limits"></a>Mantıksal uygulama tanımını sınırları
 
-Bu sınırlar bir tek mantığı uygulama tanımı için geçerlidir.
+Bir tek mantıksal uygulama tanımını sınırlarını şunlardır:
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
@@ -136,7 +129,7 @@ Bu sınırları web API'leri oluşturabileceğiniz özel bağlayıcılar için g
 
 ### <a name="integration-account-limits"></a>Tümleştirme hesabı sınırları
 
-Bir tümleştirme hesabını ekleyin yapıt bu sınırlar uygulanır.
+Bir tümleştirme hesabına ekleyebilirsiniz yapıları için sınırlar şunlardır.
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
@@ -155,7 +148,7 @@ Bu sınırlar bir tümleştirme hesabına ekleyebilirsiniz yapıların sayısın
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
 | Sözleşmeler | 10 | | 
-| Diğer yapı türleri | 25 |İş ortakları, şemalar, sertifikalar ve haritalar yapı türleri içerir. Her tür yapıları maksimum sayıya olabilir. | 
+| Diğer yapı türleri | 25 | İş ortakları, şemalar, sertifikalar ve haritalar yapı türleri içerir. Her tür yapıları maksimum sayıya olabilir. | 
 |||| 
 
 #### <a name="standard-pricing-tier"></a>Standart fiyatlandırma katmanı
@@ -167,7 +160,7 @@ Bu sınırlar bir tümleştirme hesabına ekleyebilirsiniz yapıların sayısın
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>B2B protokolleri (AS2, X12, EDIFACT) boyutu iletisi
 
-Bu sınırlar B2B protokolleri için geçerlidir.
+B2B protokollerini Uygula sınırları şunlardır:
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 

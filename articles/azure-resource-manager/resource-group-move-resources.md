@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -178,7 +178,7 @@ Yönetilen diskleri taşıma desteklemez. Bu kısıtlama, bazı ilgili kaynaklar
 * Yönetilen disklerden oluşturulan anlık görüntüler
 * Yönetilen bir diske sahip sanal makinelerle kullanılabilirlik kümeleri
 
-Market kaynaklardan oluşturulan sanal makineleri abonelikler arasında taşınamaz. Sanal makine geçerli abonelikte yetkisini kaldırma ve yeni abonelikte yeniden dağıtın.
+Market kaynaklardan bağlı planları ile oluşturulan sanal makineler, kaynak grupları veya abonelikler arasında taşınamaz. Sanal makine geçerli abonelikte yetkisini kaldırma ve yeni abonelikte yeniden dağıtın.
 
 Sanal makineler anahtar kasasında depolanan sertifika ile aynı abonelikte ancak abonelikleri boyunca değil yeni bir kaynak grubu için taşınabilir.
 

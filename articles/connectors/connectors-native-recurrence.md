@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Görevleri zamanlayın ve logic apps ile düzenli olarak çalıştırılan iş akışları
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps ile düzenli olarak çalışan görev zamanlama
 
 Görevler, Eylemler, iş yükleri veya düzenli olarak çalıştırılan işlemlerin zamanlamak için ile başlayan bir mantıksal uygulama iş akışı oluşturabilirsiniz **çizelgesi - yinelenme** [tetikleyici](../logic-apps/logic-apps-overview.md#logic-app-concepts). Bu tetikleyici ile bir tarih ve saat yinelenme ve bu örnekler ve daha fazlası gibi görevleri gerçekleştirmek için bir yineleme zamanlaması başlatmak için ayarlayabilirsiniz:
 
@@ -34,8 +34,8 @@ Görevler, Eylemler, iş yükleri veya düzenli olarak çalıştırılan işleml
 
 Bu tetikleyici birçok desenleri, örneğin destekler:
 
-* Hemen çalıştırmak ve yineleyin her  *n*  saniye, dakika, saat, gün, hafta veya ay sayısı.
-* Belirli bir zamanda başlatmak sonra çalıştırın ve yineleyin her  *n*  saniye, dakika, saat, gün, hafta veya ay sayısı.
+* Hemen çalıştırmak ve yineleyin her *n* saniye, dakika, saat, gün, hafta veya ay sayısı.
+* Belirli bir zamanda başlatmak sonra çalıştırın ve yineleyin her *n* saniye, dakika, saat, gün, hafta veya ay sayısı.
 * Çalıştırın ve bir veya daha fazla zaman her gün 8:00 ve 17: 00'dan Örneğin, yineleyin.
 * Çalıştırın ve her hafta, ancak yalnızca Cumartesi ve Pazar gibi belirli günler için yineleyin.
 * Çalıştırın ve her hafta, ancak yalnızca belirli günleri ve saatleri Pazartesi-Cuma 8:00:00 ve 17: 00'dan gibi için yineleyin.
@@ -99,17 +99,17 @@ Bu özellikler yineleme tetikleyici için yapılandırabilirsiniz.
 | Ad | Gerekli | Özellik adı | Tür | Açıklama | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Sıklık** | Evet | frequency | Dize | Yineleme için zaman birimi: **ikinci**, **Minute**, **saat**, **gün**, **hafta**, veya  **Ay** | 
-| **Aralığı** | Evet | interval | Tamsayı | İş akışı sıklığı temel alarak çalışan ne sıklıkta açıklar pozitif bir tamsayı. <p>Varsayılan aralığı 1'dir. Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "Ay" ise, yineleme 6 ayda olur. | 
+| **Aralık** | Evet | interval | Tamsayı | İş akışı sıklığı temel alarak çalışan ne sıklıkta açıklar pozitif bir tamsayı. <p>Varsayılan aralığı 1'dir. Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "Ay" ise, yineleme 6 ayda olur. | 
 | **Saat dilimi** | Hayır | timeZone | Dize | Bu tetikleyici kabul etmez olduğundan yalnızca bir başlangıç saati belirttiğinizde uygulanır [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Uygulamak istediğiniz saat dilimini seçin. | 
-| **Başlangıç zamanı** | Hayır | startTime | Dize | Başlangıç zamanı şu biçimde girin: <p>YYYY-MM-ddTHH bir saat dilimi seçerseniz <p>-veya- <p>YYYY-MM-saat dilimi seçmezseniz: ssZ <p>2: 00'dan 18 Eylül 2017 istiyorsanız, bu nedenle örneğin sonra belirtin "2017-09-18T14:00:00" Pasifik saati gibi bir saat dilimi seçin. Ya da belirtin "2017-09-18T14:00:00Z" bir saat dilimi olmadan. <p>**Not:** bu başlangıç saati izlemelisiniz [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçimini](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi seçmezseniz, boşluk olmadan sonunda harf "Z" eklemeniz gerekir. Bu "Z" eşdeğer başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). <p>Basit zamanlama için başlangıç saatini ilk oluşum olduğu sırada karmaşık zamanlamalar, tetikleyici herhangi erken başlangıç saatinden harekete değil. [*I başlangıç tarihini ve saatini kullanabileceğiniz yollar nelerdir?*](#start-time) | 
+| **Başlangıç saati** | Hayır | startTime | Dize | Başlangıç zamanı şu biçimde girin: <p>YYYY-MM-ddTHH bir saat dilimi seçerseniz <p>-veya- <p>YYYY-MM-saat dilimi seçmezseniz: ssZ <p>2: 00'dan 18 Eylül 2017 istiyorsanız, bu nedenle örneğin sonra belirtin "2017-09-18T14:00:00" Pasifik saati gibi bir saat dilimi seçin. Ya da belirtin "2017-09-18T14:00:00Z" bir saat dilimi olmadan. <p>**Not:** bu başlangıç saati izlemelisiniz [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçimini](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi seçmezseniz, boşluk olmadan sonunda harf "Z" eklemeniz gerekir. Bu "Z" eşdeğer başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). <p>Basit zamanlama için başlangıç saatini ilk oluşum olduğu sırada karmaşık zamanlamalar, tetikleyici herhangi erken başlangıç saatinden harekete değil. [*I başlangıç tarihini ve saatini kullanabileceğiniz yollar nelerdir?*](#start-time) | 
 | **Şu günlerde** | Hayır | weekDays | Dize veya dize dizisi | "Hafta" seçeneğini seçerseniz, iş akışını çalıştırmak istediğinizde bir veya daha fazla gün seçebilirsiniz: **Pazartesi**, **Salı**, **Çarşamba**, **Perşembe** , **Cuma**, **Cumartesi**, ve **Pazar** | 
-| **Bu saat** | Hayır | hours | Tamsayı veya tamsayı dizisi | "Gün" veya "Hafta" seçeneğini belirlerseniz, bir veya daha fazla tamsayılar 0 ile 23 iş akışını çalıştırmak istediğinizde gün saat seçebilirsiniz. <p>Örneğin, "10", "12" ve "14" belirtin, 10'da, 12 PM ve 2 PM saat işaretleri olarak alırsınız. | 
-| **Bu dakika** | Hayır | minutes | Tamsayı veya tamsayı dizisi | "Gün" veya "Hafta" seçeneğini belirlerseniz, bir veya daha fazla tamsayılar 0 ile 59 arasında iş akışını çalıştırmak istediğinizde saat dakika seçebilirsiniz. <p>Örneğin, "30" olarak dakika işaretle belirtebilirsiniz ve 10:30:00, almak için günün saati önceki örneği kullanarak 12:30 Şöyle ve 2:30 PM. | 
+| **Şu saatlerde** | Hayır | hours | Tamsayı veya tamsayı dizisi | "Gün" veya "Hafta" seçeneğini belirlerseniz, bir veya daha fazla tamsayılar 0 ile 23 iş akışını çalıştırmak istediğinizde gün saat seçebilirsiniz. <p>Örneğin, "10", "12" ve "14" belirtin, 10'da, 12 PM ve 2 PM saat işaretleri olarak alırsınız. | 
+| **Şu dakikalarda** | Hayır | minutes | Tamsayı veya tamsayı dizisi | "Gün" veya "Hafta" seçeneğini belirlerseniz, bir veya daha fazla tamsayılar 0 ile 59 arasında iş akışını çalıştırmak istediğinizde saat dakika seçebilirsiniz. <p>Örneğin, "30" olarak dakika işaretle belirtebilirsiniz ve 10:30:00, almak için günün saati önceki örneği kullanarak 12:30 Şöyle ve 2:30 PM. | 
 ||||| 
 
 ## <a name="json-example"></a>JSON örneği
 
-Bir örnek yinelenme tetikleyici tanımı aşağıda verilmiştir:
+İşte bir örnek [yineleme tetikleyicinizin tanımını](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
 {

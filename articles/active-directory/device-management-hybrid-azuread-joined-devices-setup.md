@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -33,6 +33,8 @@ Azure Active Directory'de (Azure AD) ile cihaz yönetimi, güvenlik ve uyumlulu�
 Karma Azure AD alanına katılmış aygıtlar ortamınızda yapılandırmaya başlamadan önce kendiniz desteklenen senaryolar ve kısıtlamalar ile kazanmalısınız.  
 
 Üzerinde FQDN'yi kullanıyorsanız [Sistem Hazırlama Aracı (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), Lütfen bir yükleme henüz Azure AD ile kayıtlı değil Windows görüntüleri oluşturduğunuz emin olun.
+
+Aygıt yeniden başlatma veya kullanıcı Azure AD ile çalışan Windows 10 Anniversary güncelleştirmesi ve Windows Server 2016'ın otomatik olarak kaydedilecek etki alanına katılmış tüm cihazlar oturum aşağıda belirtilen yapılandırma adımları tamamlandıktan sonra açın. Bu otomatik yazmaç davranış tercih edilen değilse ya da denetimli bir sunum isterseniz lütfen aşağıdaki denetimi dağıtımı ve sunum bölümünde ilk seçerek etkinleştirmek veya otomatik dağıtım diğer izlemeden önce devre dışı bırakmak için yönergeleri izleyin yapılandırma adımları.  
 
 Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim kullanır: 
 
@@ -204,7 +206,7 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
 
 ### <a name="issue-account-type-claim"></a>Sorunu hesap türü talep
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`**-Bu talep değerini içermelidir **DJ**, cihaz etki alanına katılmış bir bilgisayar olarak tanımlar. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`** -Bu talep değerini içermelidir **DJ**, cihaz etki alanına katılmış bir bilgisayar olarak tanımlar. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -219,7 +221,7 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
 
 ### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Bilgisayar hesabı içi objectGUID sorun
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`**-Bu talebi içermelidir **objectGUID** şirket içi bilgisayar hesabı değeri. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** -Bu talebi içermelidir **objectGUID** şirket içi bilgisayar hesabı değeri. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -241,7 +243,7 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Bilgisayar hesabı içi objectSID sorun
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**-Bu talebi içermelidir **objectSID** şirket içi bilgisayar hesabı değeri. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** -Bu talebi içermelidir **objectSID** şirket içi bilgisayar hesabı değeri. AD FS'de şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -258,7 +260,7 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
 
 ### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>Birden çok etki alanı adlarını Azure AD'de belirlediğinizde issuerID bilgisayar için sorun
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`**-Herhangi bir şirket içi Federasyon Hizmeti ile (AD FS veya 3. taraf) bağlanma doğrulanmış etki alanı adlarını Tekdüzen Kaynak Tanımlayıcısı (URI) Bu talebi içermelidir belirteç veren. ' De AD FS, yukarıdaki olanlardan sonra olanları belirli sırayla görüneceği verme dönüştürme kuralları ekleyebilirsiniz. Lütfen açıkça kullanıcılar için kuralı vermek için bir kural gerekli olduğuna dikkat edin. Aşağıdaki kuralları, kullanıcı ve bilgisayar kimlik doğrulaması tanımlama ilk bir kuralı eklenir.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** -Herhangi bir şirket içi Federasyon Hizmeti ile (AD FS veya 3. taraf) bağlanma doğrulanmış etki alanı adlarını Tekdüzen Kaynak Tanımlayıcısı (URI) Bu talebi içermelidir belirteç veren. ' De AD FS, yukarıdaki olanlardan sonra olanları belirli sırayla görüneceği verme dönüştürme kuralları ekleyebilirsiniz. Lütfen açıkça kullanıcılar için kuralı vermek için bir kural gerekli olduğuna dikkat edin. Aşağıdaki kuralları, kullanıcı ve bilgisayar kimlik doğrulaması tanımlama ilk bir kuralı eklenir.
 
     @RuleName = "Issue account type with the value User when its not a computer"
     NOT EXISTS(
@@ -304,7 +306,7 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
 
 Yukarıdaki talep
 
-- `<verified-domain-name>`Azure AD'de doğrulanmış etki alanı adlarınızı biri ile değiştirmek için gereken bir yer tutucudur. Örneğin, değer "http://contoso.com/adfs/services/trust/" =
+- `<verified-domain-name>` Azure AD'de doğrulanmış etki alanı adlarınızı biri ile değiştirmek için gereken bir yer tutucudur. Örneğin, değer "http://contoso.com/adfs/services/trust/" =
 
 
 
@@ -315,7 +317,7 @@ Doğrulanmış şirket etki alanlarının bir listesini almak için kullanabilec
 
 ### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>Kullanıcılar için bir tane bulunduğunda (kimliği ayarlanmadan örneğin alternatif oturum açma) İmmutableıd bilgisayar için sorun
 
-**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`**-Bu talep bilgisayarlar için geçerli bir değer içermesi gerekir. AD FS içinde verme dönüştürme kural aşağıdaki gibi oluşturabilirsiniz:
+**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** -Bu talep bilgisayarlar için geçerli bir değer içermesi gerekir. AD FS içinde verme dönüştürme kural aşağıdaki gibi oluşturabilirsiniz:
 
     @RuleName = "Issue ImmutableID for computers"
     c1:[
@@ -512,7 +514,7 @@ AD FS'de kimlik doğrulama yöntemini geçişleri üzerinden bir verme dönüşt
 2. Microsoft Office 365 kimlik Platformu'na bağlı taraf güven nesnesi sağ tıklayın ve ardından **talep kurallarını Düzenle**.
 3. Üzerinde **verme dönüştürme kuralları** sekmesine **Kuralı Ekle**.
 4. İçinde **talep kuralı** şablonu listesinden **talepleri özel kural kullanarak Gönder**.
-5. Seçin **sonraki**.
+5. **İleri**’yi seçin.
 6. İçinde **talep kuralı adı** kutusuna **kimlik doğrulama yöntemi talep kuralı**.
 7. İçinde **talep kuralı** kutusunda, aşağıdaki kural yazın:
 
@@ -566,7 +568,8 @@ Windows geçerli bilgisayarların piyasaya sürümü denetlemek için dağıtman
    > [!NOTE]
    > Bu Grup İlkesi şablonu, Grup İlkesi Yönetimi konsolunun önceki sürümlerden adlandırıldı. Konsol önceki bir sürümünü kullanıyorsanız, Git `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Seçin **etkin**ve ardından **Uygula**.
+7. Seçin **etkin**ve ardından **Uygula**. Seçmelisiniz **devre dışı** otomatik olarak Azure AD ile kaydetme bu Grup İlkesi tarafından denetlenen cihazları engellemek için ilke istiyorsanız.
+
 8. **Tamam**’a tıklayın.
 9. Grup İlkesi nesnesini, bir konumla bağlayın. Örneğin, belirli bir kuruluş birimine olarak bağlayabilirsiniz. Otomatik olarak Azure AD ile katılmak bilgisayarları belirli güvenlik grubuna da bağlayabilirsiniz. Bu ilke tüm etki alanına katılmış Windows 10 ve Windows Server 2016 kuruluşunuzdaki bilgisayarlara atamak için Grup İlkesi nesnesini etki alanına bağlayın.
 
