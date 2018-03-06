@@ -1,38 +1,38 @@
 ---
-title: "İlk Azure veritabanınız için Azure CLI kullanarak PostgreSQL tasarım | Microsoft Docs"
-description: "Bu öğretici, Azure CLI kullanarak ilk Azure veritabanınız için PostgreSQL tasarlamak nasıl gösterir."
+title: "Öğretici - Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama"
+description: "Bu öğreticide Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanı sunucunuzu oluşturma, yapılandırma ve sorgulama işlemleri gösterilmiştir."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.openlocfilehash: 97299ae904115d08c5d03be38be263203552b84b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 7e5e33ee2a7b53f3ffbd27992f6b604358db49bb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>İlk Azure veritabanınız için Azure CLI kullanarak PostgreSQL tasarlama 
-Bu öğreticide, Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları öğrenmek için kullandığınız nasıl yapılır:
+# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanı’nızı tasarlayın 
+Bu öğreticide, şunları nasıl yapacağınızı öğrenmek için Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları kullanırsınız:
 > [!div class="checklist"]
 > * PostgreSQL için Azure Veritabanı sunucusu oluşturma
-> * Sunucu Güvenlik Duvarı'nı yapılandırma
-> * Kullanım [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) bir veritabanı oluşturmak için yardımcı programı
+> * Sunucu güvenlik duvarını yapılandırma
+> * Veritabanı oluşturmak için [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) yardımcı programını kullanma
 > * Örnek verileri yükleme
 > * Verileri sorgulama
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
-Tarayıcıda, Azure bulut kabuğunu kullanabilirsiniz veya [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli) Bu öğreticide komutları çalıştırmak için kendi bilgisayarınızda.
+Bu öğreticideki komutları çalıştırmak için tarayıcıda Azure Cloud Shell kullanabilir veya kendi bilgisayarınıza [Azure CLI 2.0’ı]( /cli/azure/install-azure-cli) yükleyebilirsiniz.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 Birden fazla aboneliğiniz varsa kaynağın mevcut olduğu ve faturalandırıldığı uygun aboneliği seçin. [az account set](/cli/azure/account#az_account_set) komutunu kullanarak hesabınız altındaki belirli bir abonelik kimliğini seçin.
 ```azurecli-interactive
@@ -45,12 +45,18 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 az group create --name myresourcegroup --location westus
 ```
 
+## <a name="add-the-extension"></a>Uzantıyı ekleme
+Aşağıdaki komutu kullanarak güncelleştirilmiş PostgreSQL için Azure Veritabanı yönetim uzantısını ekleyin:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
+
 ## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
 [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) komutunu kullanarak [PostgreSQL sunucusu için Azure SQL Veritabanı ](overview.md) oluşturun. Sunucu, grup olarak yönetilen bir veritabanı grubu içerir. 
 
-Aşağıdaki örnek adı verilen bir sunucu oluşturur `mypgserver-20170401` kaynak grubunuzdaki `myresourcegroup` Sunucu Yöneticisi oturum açma ile `mylogin`. Bir sunucunun adı DNS adıyla eşleşir ve bu nedenle sunucunun Azure’da genel olarak benzersiz olması gerekir. `<server_admin_password>` değerini kendi değerinizle değiştirin.
+Aşağıdaki örnekte, `myresourcegroup` adlı kaynak grubunuzda `myadmin` sunucu yöneticisi oturum adına sahip `mydemoserver` adlı bir sunucu oluşturulur. Bir sunucunun adı DNS adıyla eşleşir ve bu nedenle sunucunun Azure’da genel olarak benzersiz olması gerekir. `<server_admin_password>` değerini kendi değerinizle değiştirin. 2 sanal çekirdek içeren, 4. Nesil, Genel Amaçlı bir sunucudur.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401 --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
 > [!IMPORTANT]
@@ -63,12 +69,12 @@ Varsayılan olarak, **postgres** veritabanı sunucunuz altında oluşturulur. [P
 
 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) komutunu kullanarak Azure PostgreSQL sunucusu düzeyinde bir güvenlik duvarı kuralı oluşturun. Sunucu düzeyindeki bir güvenlik duvarı kuralı, [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) veya [PgAdmin](https://www.pgadmin.org/) gibi bir dış uygulamanın Azure PostgreSQL hizmetinin güvenlik duvarı üzerinden sunucunuza bağlanmasına imkan tanır. 
 
-Ağınızdan bağlanabilmek için bir IP aralığını kapsayan güvenlik duvarı kuralı ayarlayabilirsiniz. Aşağıdaki örnek kullanır [az postgres sunucu güvenlik duvarı kuralı oluşturmak](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) bir güvenlik duvarı kuralı oluşturmak için `AllowAllIps` herhangi bir IP adresi arasında bağlantı sağlar. Tüm IP adreslerini açmak için başlangıç IP adresi olarak 0.0.0.0’ı, bitiş adresi olaraksa 255.255.255.255’i kullanın.
+Ağınızdan bağlanabilmek için bir IP aralığını kapsayan güvenlik duvarı kuralı ayarlayabilirsiniz. Aşağıdaki örnekte, [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) komutu kullanılarak herhangi bir IP adresinden bağlantı kurulmasına imkan tanıyan `AllowAllIps` güvenlik duvarı kuralı oluşturulur. Tüm IP adreslerini açmak için başlangıç IP adresi olarak 0.0.0.0’ı, bitiş adresi olaraksa 255.255.255.255’i kullanın.
 
-Ağınıza yalnızca Azure PostgreSQL sunucunuza erişimi kısıtlamak için güvenlik duvarı kuralı yalnızca, şirket ağındaki IP adresi aralığı kapsayacak şekilde ayarlayabilirsiniz.
+Azure PostgreSQL sunucunuza erişimi yalnızca ağınızla sınırlı tutmak için güvenlik duvarı kuralını yalnızca kurumsal ağ IP adresi aralığınızı kapsayacak şekilde ayarlayabilirsiniz.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
@@ -79,49 +85,55 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 
 Sunucunuza bağlanmak için ana bilgisayar bilgilerini ve erişim kimlik bilgilerini sağlamanız gerekir.
 ```azurecli-interactive
-az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
+az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 Sonuç JSON biçimindedir. **administratorLogin** ve **fullyQualifiedDomainName** bilgilerini not alın.
 ```json
 {
-  "administratorLogin": "mylogin",
-  "fullyQualifiedDomainName": "mypgserver-20170401.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401",
+  "administratorLogin": "myadmin",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
   "location": "westus",
-  "name": "mypgserver-20170401",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "PGSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 51200,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
   "version": "9.6"
+
 }
 ```
 
-## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>Psql kullanarak PostgreSQL veritabanı için Azure veritabanına bağlan
-İstemci bilgisayarınızda yüklü PostgreSQL varsa, yerel bir örneğini kullanabilirsiniz [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html), veya bir Azure PostgreSQL sunucusuna bağlanmak için Azure bulut Konsolu. Şimdi PostgreSQL için Azure Veritabanı sunucusuna bağlanmak üzere psql komut satır yardımcı programını kullanalım.
+## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>psql kullanarak PostgreSQL için Azure Veritabanı veritabanına bağlanma
+İstemci bilgisayarınızda PostgreSQL yüklüyse, [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)’nin yerel bir örneğini veya Azure Bulut Konsolu’nu kullanarak Azure PostgreSQL sunucusuna bağlanabilirsiniz. Şimdi PostgreSQL için Azure Veritabanı sunucusuna bağlanmak üzere psql komut satır yardımcı programını kullanalım.
 
-1. Bir PostgreSQL veritabanı için Azure veritabanına bağlanmak için aşağıdaki psql komutu çalıştırın:
+1. PostgreSQL için Azure Veritabanı veritabanına bağlanmak üzere aşağıdaki psql komutunu çalıştırın:
 ```azurecli-interactive
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mypgserver-20170401.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. Parola istendiğinde seçtiğiniz `<server_admin_password>` değerini girin.
+  Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mydemoserver.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. Parola istendiğinde seçtiğiniz `<server_admin_password>` değerini girin.
   
   ```azurecli-interactive
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
 ```
 
-2.  Sunucusuna bağlandıktan sonra boş bir veritabanı isteminde oluşturun:
+2.  Sunucuya bağlandıktan sonra, istemde boş bir veritabanı oluşturun:
 ```sql
 CREATE DATABASE mypgsqldb;
 ```
@@ -131,10 +143,10 @@ CREATE DATABASE mypgsqldb;
 \c mypgsqldb
 ```
 
-## <a name="create-tables-in-the-database"></a>Veritabanında tabloları oluşturma
-PostgreSQL için Azure veritabanına bağlanmak nasıl bildiğinize göre biz temel bazı görevlerin nasıl üzerinden gidebilirsiniz.
+## <a name="create-tables-in-the-database"></a>Veritabanında tablo oluşturma
+Artık PostgreSQL için Azure Veritabanı’na nasıl bağlanacağınızı öğrendiğinize göre bazı temel görevlerin nasıl gerçekleştirileceği konusuna geçebiliriz.
 
-İlk olarak, size bir tablo oluşturun ve bazı verilerle yükleyin. Envanter bilgilerini izleyen bir tablo oluşturalım:
+İlk olarak, bir tablo oluşturabilir ve bu tabloya bazı veriler yükleyebiliriz. Envanter bilgilerini izleyen bir tablo oluşturalım:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -143,66 +155,66 @@ CREATE TABLE inventory (
 );
 ```
 
-Yazarak Tablo listesinde yeni oluşturulan tabloda şimdi görebilirsiniz:
+Şimdi şunu yazarak tablo listesinde yeni oluşturulan tabloyu görebilirsiniz:
 ```sql
 \dt
 ```
 
 ## <a name="load-data-into-the-table"></a>Tabloya veri yükleme
-Bir tablo sahibiz, biz bazı veri içine ekleyebilirsiniz. Açık komut istemi penceresinde, bazı veri satırı eklemek için aşağıdaki sorguyu çalıştırın:
+Artık bir tablonuz olduğuna göre içine bazı veriler ekleyebiliriz. Açık olan komut istemi penceresinde şu sorguyu çalıştırarak birkaç veri satırı ekleyin:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Şimdi, daha önce oluşturduğunuz tabloya iki örnek veri satırı eklediniz.
+Daha önce oluşturduğunuz tabloya iki satırlık örnek veri eklediniz.
 
-## <a name="query-and-update-the-data-in-the-tables"></a>Sorgulamak ve tablolarındaki verileri güncelleyin
-Stok tablosundan bilgi almak için aşağıdaki sorguyu çalıştırın: 
+## <a name="query-and-update-the-data-in-the-tables"></a>Tablolardaki verileri sorgulama ve güncelleştirme
+Envanter tablosundan bilgileri almak için şu sorguyu yürütün: 
 ```sql
 SELECT * FROM inventory;
 ```
 
-Ayrıca Envanter tablodaki verileri güncelleştirebilirsiniz:
+Envanter tablosundaki verileri güncelleştirme olanağınız da vardır:
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-Veri aldığınızda güncelleştirilmiş değerleri görebilirsiniz:
+Verileri alırken güncelleştirilmiş değerleri görebilirsiniz:
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Bir veritabanını daha önceki bir noktaya geri yükleme
-Yanlışlıkla bir tabloyu sildiniz düşünün. Bu, kolayca kurtaramazsınız şeydir. Azure veritabanı PostgreSQL için tüm noktası zamanında (Basic en çok 7 gün) ve standart 35 gün için geri dönün ve bu noktası zaman içinde yeni bir sunucuya geri yüklemek sağlar. Bu yeni sunucu silinen verilerinizi kurtarmak için kullanabilirsiniz. 
+Bir tabloyu yanlışlıkla sildiğinizi düşünün. Bu işlemi kolayca geri alamazsınız. PostgreSQL için Azure Veritabanı sunucunuzun yedeğinin olduğu herhangi bir noktaya dönerek (yapılandırdığınız yedekleme bekletme dönemine göre belirlenir) bu noktayı yeni bir sunucuya geri yükleyebilirsiniz. Bu yeni sunucuyu silinen verilerinizi kurtarmak için kullanabilirsiniz. 
 
-Tablo eklenmeden önce aşağıdaki komutu örnek sunucunun bir noktaya geri yükler:
+Aşağıdaki komut, örnek sunucuyu tablo eklenmeden önceki bir noktaya geri yükler:
 ```azurecli-interactive
-az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
+az postgres server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
-`az postgres server restore` Komutu aşağıdaki parametreleri gerekir:
+`az postgres server restore` komutu için aşağıdaki parametreler gerekir:
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
-| --kaynak-grubu |  myResourceGroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
-| --adı | mypgserver geri | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adıdır. |
-| zaman içinde geri yükleme noktası | 2017-04-13T13:59:00Z | Bir noktayı geri yüklemek için zaman içinde seçin. Bu tarih ve saat kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, kendi yerel saat dilimi gibi kullanabilir `2017-04-13T05:59:00-08:00`, veya UTC Zulu dili biçimi kullanın `2017-04-13T13:59:00Z`. |
-| --Kaynak sunucusu | mypgserver 20170401 | Adı veya geri yüklemek için kaynak sunucunun kimliği. |
+| resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
+| ad | mydemoserver-restored | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adı. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Zaman içinde geri yüklenecek bir nokta seçin. Bu tarih ve saat, kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, `2017-04-13T05:59:00-08:00` şeklinde kendi yerel saat diliminizi ya da `2017-04-13T13:59:00Z` şeklindeki UTC Zulu biçimini kullanabilirsiniz. |
+| source-server | mydemoserver | Geri yükleme kaynağı olarak kullanılacak sunucunun adı veya kimliği. |
 
-Sunucuyu bir nokta zaman için geri yükleme noktası itibariyle özgün sunucusu olarak belirttiğiniz zamanda kopyalanan yeni bir sunucu oluşturur. Geri yüklenen sunucusunun fiyatlandırma katmanı değerleri ve konumunu kaynak sunucu ile aynı olur.
+Bir sunucu zaman içinde bir noktaya geri yüklendiğinde, özgün sunucunun belirttiğiniz noktadaki durumunun kopyalanmasıyla yeni bir sunucu oluşturulur. Geri yüklenen sunucunun konum ve fiyatlandırma katmanı değerleri kaynak sunucu ile aynı olur.
 
-Komut zaman uyumlu ve sunucunun geri yüklendikten sonra döndürür. Geri yükleme tamamlandıktan sonra oluşturulan yeni sunucu bulun. Verileri beklenen şekilde geri doğrulayın.
+Komut zaman uyumludur ve sunucu geri yüklendikten sonra döndürülür. Geri yükleme tamamlandığında, oluşturulan yeni sunucuyu bulun. Verilerin beklenen şekilde geri yüklendiğini doğrulayın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Azure CLI (komut satırı arabirimi) ve diğer yardımcı programlarını nasıl kullanılacağı hakkında bilgi edindiniz:
+Bu öğreticide, Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları kullanarak aşağıdakileri nasıl yapabileceğinizi öğrendiniz:
 > [!div class="checklist"]
 > * PostgreSQL için Azure Veritabanı sunucusu oluşturma
-> * Sunucu Güvenlik Duvarı'nı yapılandırma
-> * Kullanım [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) bir veritabanı oluşturmak için yardımcı programı
+> * Sunucu güvenlik duvarını yapılandırma
+> * Veritabanı oluşturmak için [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) yardımcı programını kullanma
 > * Örnek verileri yükleme
 > * Verileri sorgulama
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
-Ardından, Azure portalında benzer görevleri yapmak için Bu öğretici gözden geçirmek için nasıl kullanacağınızı öğrenin: [PostgreSQL için Azure Portalı'nı kullanarak ilk Azure veritabanınızı tasarlama](tutorial-design-database-using-azure-portal.md)
+Daha sonra, Azure portalını kullanarak benzer görevleri nasıl yapabileceğinizi öğrenmek için şu öğreticiyi gözden geçirin: [Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama](tutorial-design-database-using-azure-portal.md)

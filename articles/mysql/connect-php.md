@@ -1,20 +1,20 @@
 ---
-title: "PHP'den MySQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
+title: "PHP’den MySQL için Azure Veritabanı'na bağlanma"
 description: "Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç PHP kod örneği sağlanmıştır."
 services: mysql
 author: mswutao
 ms.author: wuta
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 5c4f718809a95831ec6927d4f7b206d76c87b224
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: d20aaf8a4cabd4e013e7ff43010c0f463eaccb79
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: PHP'yi kullanarak bağlanma ve veri sorgulama
 Bu hızlı başlangıçta [PHP](http://php.net/manual/intro-whatis.php) uygulaması kullanarak MySQL için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu konuda, PHP kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
@@ -43,11 +43,10 @@ PHP'yi kendi sunucunuza yükleyin veya PHP içeren bir Azure [web uygulaması](.
 MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Sol bölmede **Tüm kaynaklar**’a tıklayın ve ardından oluşturduğunuz sunucuyu arayın (örneğin, **myserver4demo**).
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mydemoserver**) arayın.
 3. Sunucunun adına tıklayın.
-4. Sunucunun **Özellikler** sayfasını seçin ve **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın.
- ![MySQL için Azure Veritabanı sunucu adı](./media/connect-php/1_server-properties-name-login.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+4. Sunucunun **Genel Bakış** panelinden **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın. Parolanızı unutursanız, bu panelden parolayı da sıfırlayabilirsiniz.
+ ![MySQL için Azure Veritabanı sunucu adı](./media/connect-php/1_server-overview-name-login.png)
 
 ## <a name="connect-and-create-a-table"></a>Bağlanma ve tablo oluşturma
 Bağlanmak ve **CREATE TABLE** SQL deyimini kullanarak tablo oluşturmak için aşağıdaki kodu kullanın. 
@@ -58,8 +57,8 @@ host, username, password ve db_name parametre değerlerini kendi değerlerinizle
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -97,8 +96,8 @@ host, username, password ve db_name parametre değerlerini kendi değerlerinizle
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -132,8 +131,8 @@ host, username, password ve db_name parametre değerlerini kendi değerlerinizle
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -165,8 +164,8 @@ host, username, password ve db_name parametre değerlerini kendi değerlerinizle
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -203,8 +202,8 @@ host, username, password ve db_name parametre değerlerini kendi değerlerinizle
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 

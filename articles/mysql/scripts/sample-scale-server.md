@@ -1,46 +1,47 @@
 ---
-title: "MySQL sunucusu için bir Azure veritabanı ölçeklendirmek için azure CLI örnekleri | Microsoft Docs"
-description: "Bu örnek CLI betik ölçümleri sorgulama sonra farklı performans düzeyine MySQL sunucusu için Azure veritabanı ölçeklendirir."
+title: "Azure CLI betiği - MySQL için Azure Veritabanı sunucusunu ölçeklendirme"
+description: "Bu örnek CLI betiği, ölçümleri sorguladıktan sonra MySQL için Azure Veritabanı sunucusunu farklı bir performans düzeyinde olacak şekilde ölçeklendirir."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/02/2017
-ms.openlocfilehash: 517208b76757655990f82f50677267320eb1393c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 1b2bba200ea98d7499c1dbf99d2db6552c314d19
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>İzleme ve Azure CLI kullanarak MySQL sunucusu için bir Azure veritabanı ölçekleme
-Bu örnek CLI betik ölçümleri sorgulama sonra farklı performans düzeyine MySQL sunucusu için tek bir Azure veritabanına ölçeklendirir.
+# <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI kullanarak MySQL için Azure Veritabanı sunucusunu izleme ve ölçeklendirme
+Bu örnek CLI betiği, ölçümleri sorguladıktan sonra tek bir MySQL için Azure Veritabanı sunucusunu farklı bir performans düzeyinde olacak şekilde ölçeklendirir.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI aracını yerel olarak çalıştırmayı tercih ederseniz bu makale için Azure CLI aracının 2.0 veya sonraki bir sürümü gerekir. `az --version` komutunu çalıştırarak sürümü denetleyin. Azure CLI aracını yüklemek veya sürümünüzü yükseltmek için bkz. [Azure CLI 2.0’ı yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Örnek komut dosyası
-Bu örnek betik yönetici kullanıcı adı ve parola özelleştirmek için vurgulanan satırları değiştirin. Kendi abonelik kimliği ile az İzleyici komutlarda kullanılan abonelik Kimliğini değiştirin.[!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh?highlight=15-16 "Create and scale Azure Database for MySQL.")]
+## <a name="sample-script"></a>Örnek betik
+Bu örnek betikte, vurgulanan satırları düzenleyerek yönetici kullanıcı adını ve parolasını kendi değerlerinizle güncelleştirin. `az monitor` komutlarında kullanılan abonelik kimliğini kendi abonelik kimliğinizle değiştirin. [!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh?highlight=18-19 "Create and scale Azure Database for MySQL.")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
-Komut dosyası örneği çalıştırdıktan sonra kaynak grubu ve aşağıdaki komutu çalıştırarak ilişkili tüm kaynakları kaldırabilirsiniz:[!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/delete-mysql.sh  "Delete the resource group.")]
+Betik çalıştırıldıktan sonra aşağıdaki komutu kullanarak kaynak grubunu ve bununla ilişkili tüm kaynakları kaldırın. 
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/delete-mysql.sh  "Delete the resource group.")]
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+## <a name="script-explanation"></a>Betik açıklaması
+Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 
-| **Komutu** | **Notlar** |
+| **Komut** | **Notlar** |
 |---|---|
-| [az grubu oluşturma](/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az mysql sunucusu oluşturun](/cli/azure/mysql/server#az_mysql_server_create) | Veritabanlarını barındıran MySQL server oluşturur. |
-| [az İzleyici ölçümleri listesi](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Kaynaklar için ölçüm değeri listeleyin. |
-| [az grubu Sil](/cli/azure/group#az_group_delete) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
+| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Veritabanlarını barındıran bir MySQL sunucusu oluşturur. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Kaynaklar için ölçüm değerini listeleyin. |
+| [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Azure CLI hakkında daha fazla bilgi okuyun: [Azure CLI belgelerine](/cli/azure/overview).
-- Ek komut dosyaları deneyin: [Azure veritabanı için MySQL için Azure CLI örnekleri](../sample-scripts-azure-cli.md)
-- Ölçeklendirme ile ilgili daha fazla bilgi için bkz: [hizmet katmanları](../concepts-service-tiers.md) ve [işlem birimleri ve depolama birimleri](../concepts-compute-unit-and-storage.md).
+- Azure CLI hakkında daha fazla bilgi okuyun: [Azure CLI belgeleri](/cli/azure/overview).
+- Ek betikleri deneyin: [MySQL için Azure Veritabanı Azure CLI örnekleri](../sample-scripts-azure-cli.md)
+- Ölçeklendirme hakkında daha fazla bilgi için bkz. [Hizmet Katmanları](../concepts-service-tiers.md) ve [İşlem Birimleri ve Depolama Birimleri](../concepts-compute-unit-and-storage.md).

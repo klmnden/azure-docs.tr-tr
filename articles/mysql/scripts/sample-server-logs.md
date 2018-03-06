@@ -1,50 +1,50 @@
 ---
-title: "Azure CLI: Azure veritabanı'nda yükleme sunucu, MySQL için kaydeder."
-description: "Bu örnek Azure CLI betik etkinleştirmek ve MySQL sunucusu için bir Azure veritabanı'nın sunucu günlükleri indirmek nasıl gösterir."
+title: "Azure CLI betiği - MySQL için Azure Veritabanı’nda sunucu günlüklerini indirme"
+description: "Bu örnek Azure CLI betiği, bir MySQL için Azure Veritabanı sunucusunun sunucu günlüklerini etkinleştirmeyi ve indirmeyi gösterir."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/11/2018
-ms.openlocfilehash: b0d34009d189ab136dcb6f28fdccc49b6da9e108
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: 31dd89f3bf5f43f45979b9a3cc5dda5eea1e352d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Etkinleştirme ve Azure CLI kullanarak MySQL sunucusu için bir Azure veritabanı'nın sunucu yavaş sorgu günlüklerini indirin
-Bu örnek CLI betik sağlar ve MySQL sunucusu için tek bir Azure veritabanının yavaş sorgu günlüklerini indirir.
+# <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI kullanarak bir MySQL için Azure Veritabanı sunucusunun yavaş sorgu günlüklerini etkinleştirme ve indirme
+Bu örnek CLI betiği, tek bir MySQL için Azure Veritabanı sunucusunun yavaş sorgu günlüklerini etkinleştirir ve indirir.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu örnek, Azure CLI Sürüm 2.0 veya sonraki sürümünü çalıştırdığınızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI aracını yerel olarak çalıştırmayı tercih ederseniz bu makale için Azure CLI aracının 2.0 veya sonraki bir sürümü gerekir. `az --version` komutunu çalıştırarak sürümü denetleyin. Azure CLI aracını yüklemek veya sürümünüzü yükseltmek için bkz. [Azure CLI 2.0’ı yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Örnek komut dosyası
-Bu örnek betik yönetici kullanıcı adı ve parola özelleştirmek için vurgulanan satırları değiştirin. < GÜNLÜK_DOSYASI_ADI > az İzleyici komutlar kendi server günlük dosyası adı ile değiştirin.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/server-logs/server-logs.sh?highlight=15-16 "Manipulate with server logs.")]
+## <a name="sample-script"></a>Örnek betik
+Bu örnek betikte vurgulanan satırları düzenleyerek yönetici kullanıcı adını ve parolasını kendi değerlerinizle güncelleştirin. `az monitor` komutlarındaki <log_file_name> öğesini, kendi sunucu günlük dosyası adınızla değiştirin.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/server-logs/server-logs.sh?highlight=18-19 "Manipulate with server logs.")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
-Komut dosyası örneği çalıştırdıktan sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu kullanılabilir.
+Betik çalıştırıldıktan sonra aşağıdaki komutu kullanarak kaynak grubunu ve bununla ilişkili tüm kaynakları kaldırın. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/server-logs/delete-mysql.sh  "Delete the resource group.")]
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+## <a name="script-explanation"></a>Betik açıklaması
+Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 
-| **Komutu** | **Notlar** |
+| **Komut** | **Notlar** |
 |---|---|
-| [az grubu oluşturma](/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az mysql sunucusu oluşturun](/cli/azure/mysql/server#az_msql_server_create) | Veritabanlarını barındıran MySQL server oluşturur. |
-| [az mysql server yapılandırma listesi](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) | Bir sunucu için yapılandırma değerlerini listeler. |
-| [az mysql server yapılandırma kümesi](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) | Bir sunucu yapılandırmasını güncelleştirin. |
-| [az mysql server günlükleri listesi](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) | Bir sunucu için günlük dosyaları listelenmektedir. |
-| [az mysql server günlüklerini indirme](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) | Günlük dosyalarını indirin. |
-| [az grubu Sil](/cli/azure/group#az_group_delete) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
+| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Veritabanlarını barındıran bir MySQL sunucusu oluşturur. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) | Bir sunucu için yapılandırma değerlerini listeleyin. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) | Bir sunucunun yapılandırmasını güncelleştirin. |
+| [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) | Bir sunucunun günlük dosyalarını listeleyin. |
+| [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) | Günlük dosyalarını indirin. |
+| [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Azure CLI hakkında daha fazla bilgi okuyun: [Azure CLI belgelerine](/cli/azure/overview).
-- Ek komut dosyaları deneyin: [Azure veritabanı için MySQL için Azure CLI örnekleri](../sample-scripts-azure-cli.md)
+- Azure CLI hakkında daha fazla bilgi okuyun: [Azure CLI belgeleri](/cli/azure/overview).
+- Ek betikleri deneyin: [MySQL için Azure Veritabanı Azure CLI örnekleri](../sample-scripts-azure-cli.md)

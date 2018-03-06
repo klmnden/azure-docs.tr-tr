@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
 
@@ -32,11 +32,11 @@ Microsoft Office 365 gibi bir Microsoft bulut Hizmeti Tümleştirme olarak bu ot
 
 >- Outlook Web Access ve SharePoint Online gibi Web tabanlı istemciler
 - E-posta zengin istemciler, temel kimlik doğrulaması ve IMAP, POP, Active Sync, MAPI, (Gelişmiş istemci protokol uç noktası dağıtılması için gerekli değildir) vb. gibi desteklenen bir Exchange erişim yöntemi de dahil olmak üzere kullanır:
-    - Outlook 2013/Microsoft Outlook 2010/Outlook 2016, Apple iPhone (çeşitli iOS sürümleri)
+    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (various iOS versions)
     - Çeşitli Google Android cihazları
     - Windows Phone 7, Windows Phone 7,8 ve Windows Phone 8.0
     - Windows 8 posta istemcisi ve Windows 8.1 posta istemcisi
-    - Windows 10 posta istemcisi
+    - Windows 10 Mail Client
 
 Diğer tüm istemcileri, bu senaryoda oturum açma, SAML 2.0 kimlik sağlayıcısı ile kullanılamaz. Örneğin, Lync 2010 masaüstü istemcisi için çoklu oturum açmayı yapılandırılmış, SAML 2.0 kimlik sağlayıcısı ile hizmette oturum açabilmeniz değil.
 
@@ -60,9 +60,9 @@ SAML yanıt iletisi içinde imza düğüm iletinin dijital imza hakkında bilgi 
 2.  RSA sha1 algoritması DigestMethod kullanılmalıdır. Diğer dijital imza algoritması kabul edilmedi.
    `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
 3.  XML belgesi de kaydolabilirsiniz. 
-4.  Dönüştürme algoritmasını aşağıdaki örneği değerleri aynı olması gerekir.`<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+4.  Dönüştürme algoritmasını aşağıdaki örneği değerleri aynı olması gerekir.    `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  SignatureMethod'a algoritması aşağıdaki örnekle eşleşmesi gerekir:`<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+9.  SignatureMethod'a algoritması aşağıdaki örnekle eşleşmesi gerekir:   `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Desteklenen bağlamaları
 Bağlamaları değil taşıma ilgili gerekli iletişimleri parametreleri. Aşağıdaki gereksinimleri bağlamaları için geçerlidir
@@ -78,7 +78,7 @@ Bu tablo belirli öznitelikler için gereksinimleri SAML 2.0 iletisinde gösteri
 | ----- | ----- |
 |NameID|Bu onay değeri Azure AD kullanıcının İmmutableıd ile aynı olması gerekir. En fazla 64 alfasayısal karakter olabilir. Güvenli olmayan HTML karakterler kodlanmış olmalıdır, örneğin "+" karakter ".2B" gösterilir.|
 |IDPEmail|Kullanıcı asıl adı (UPN) listelenen Azure AD/Office 365'te kullanıcının UserPrincipalName (UPN) budur IDPEmail ada sahip bir öğe olarak SAML yanıt. UPN, e-posta adresi biçime sahip. Windows Office 365 (Azure Active Directory) UPN değeri.|
-|Veren|Bu, kimlik sağlayıcısı, bir URI olması gereklidir. Örnek iletileri verenden yeniden kullanmamalısınız. Veren, Azure AD kiracılar birden çok üst düzey etki alanı varsa, etki alanı başına yapılandırılmış belirtilen URI ayarı eşleşmesi gerekir.|
+|Veren:|Bu, kimlik sağlayıcısı, bir URI olması gereklidir. Örnek iletileri verenden yeniden kullanmamalısınız. Veren, Azure AD kiracılar birden çok üst düzey etki alanı varsa, etki alanı başına yapılandırılmış belirtilen URI ayarı eşleşmesi gerekir.|
 
 >[!IMPORTANT]
 >Şu anda Azure AD için SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid aşağıdaki NameID biçimi URI destekler-biçimi: kalıcı.
@@ -176,7 +176,7 @@ Aşağıdaki yordamda var olan bir standart etki SAML 2.0 SP-Lite kullanarak bir
 
 
 1. Azure AD dizininizi bir kiracı yönetici olarak bağlanın: bağlanmak MsolService.
-2.  SAML 2.0 ile Federasyon kullanmak için istenen Office 365 etki alanınızı yapılandırın:`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
+2.  SAML 2.0 ile Federasyon kullanmak için istenen Office 365 etki alanınızı yapılandırın: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  İmzalama sertifikası base64 kodlu dize IDP meta veri dosyasından elde edebilirsiniz. Bu konum örneği sağlanmış olan ancak biraz uygulamanız göre farklılık gösterebilir.
 
@@ -200,7 +200,7 @@ Bu yordamda, Azure AD ile tek bir kullanıcı eklemek gösterilmiştir.
 
 
 1. Azure AD dizininizi bir kiracı yönetici olarak bağlanın: bağlanmak MsolService.
-2.  Yeni bir kullanıcı asıl oluşturun:` New-MsolUser
+2.  Yeni bir kullanıcı asıl oluşturun: ` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
         -DisplayName "Elwood Folk"

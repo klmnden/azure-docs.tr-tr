@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights kullanma 
 
@@ -118,7 +118,7 @@ Windows VM, disk veya depolama havuzlarını yapılandırma, performans sayaçla
 | Sistem bilgileri               | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
 | Birim eşleme                       | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
 | Disk eşleme                         | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Çalışan görevleri                    | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
+| Çalışan görevler                    | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
 | Depolama güvenilirlik sayaçları     | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
 | Depolama birimi bilgileri              | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
 | Fsutil çıktı                    | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
@@ -158,9 +158,9 @@ Aşağıdaki performans sayaçlarını toplar:
 - Seçili sayaçları \Network arabirimi, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments, \Network bağdaştırıcısı, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, altında \ QoS Policy\Packets, \Per işlemci ağ arabirimi kartı etkinliği ve \Microsoft Winsock BSP ağ
 
 #### <a name="for-sql-server-instances"></a>SQL Server örnekleri için
-- \SQL sunucu: arabellek Yöneticisi, \SQLServer:Resource havuzu istatistikleri ve \SQLServer:SQL Statistics\
-- \SQLServer:Locks, \SQLServer:General, istatistikleri
-- \SQLServer:Access yöntemleri
+- \SQL Server:Buffer Manager, \SQLServer:Resource Pool Stats, and \SQLServer:SQL Statistics\
+- \SQLServer:Locks, \SQLServer:General, Statistics
+- \SQLServer:Access Methods
 
 #### <a name="for-azure-files"></a>Azure dosyaları
 \SMB istemci paylaşımları
@@ -222,7 +222,7 @@ PerfInsights komut dosyasını çalıştırmak için aşağıdaki adımları izl
 
     ![Ekran görüntüsü, bildirim ve onay iletişim kutusu](media/how-to-use-perfInsights/disclaimer.png)
 
-5.  Komut dosyasını çalıştırdığınızda, varsa olay numarasını gönderin. Ardından **Tamam**.
+5.  Komut dosyasını çalıştırdığınızda, varsa olay numarasını gönderin. Sonra **Tamam**’ı seçin.
     
     ![Destek kimliği iletişim kutusunun ekran görüntüsü](media/how-to-use-perfInsights/enter-support-number.png)
 
@@ -332,7 +332,7 @@ SQL Server'ın belirli örnekleri için sekmeler seçilen örnek hakkındaki tem
 
 Diskspd bir depolama yük oluşturucuyu ve performans testi Microsoft'tan aracıdır. Daha fazla bilgi için bkz: [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>XPerf'in
+### <a name="xperf"></a>Xperf
 
 XPerf'in, Windows Performans araç setinden izlemelerini yakalama için bir komut satırı aracıdır. Daha fazla bilgi için bkz: [Windows Performans Araç Seti – XPerf'in](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

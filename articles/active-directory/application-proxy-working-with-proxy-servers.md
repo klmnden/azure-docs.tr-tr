@@ -16,10 +16,10 @@ ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: 85b45a828dbb06325b6a1c9453117849f48a27c8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Mevcut şirket içi proxy sunucuları ile çalışma
 
@@ -108,13 +108,13 @@ Giden proxy dikkate alınması gereken dört nokta vardır:
 #### <a name="proxy-outbound-rules"></a>Proxy giden kuralları
 Bağlayıcı hizmeti erişim şu uç noktalar için erişim izni ver:
 
-* *. msappproxy.net
-* *. servicebus.windows.net
+* *.msappproxy.net
+* *.servicebus.windows.net
 
 İlk kayıt için aşağıdaki uç noktalarına erişime izin ver:
 
 * login.windows.net
-* Login.microsoftonline.com
+* login.microsoftonline.com
 
 FQDN DEĞERİNE göre bağlantı sağlar ve bunun yerine IP aralıklarını belirtmeniz gerekir, bu seçenekleri kullanın:
 
