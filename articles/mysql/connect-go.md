@@ -1,24 +1,24 @@
 ---
-title: "Go'yu kullanarak MySQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
+title: "Go kullanarak MySQL için Azure Veritabanı'na bağlanma"
 description: "Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç Go kod örneği sağlanmıştır."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/24/2018
-ms.openlocfilehash: 44011c4b1ac5da686954a87bbf17a54b963ff6d8
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: af4027835ca503c0875d098d0daf7a98bdef44fb
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Go dilini kullanma
-Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Apple macOS platformlarından [Go](https://golang.org/) dilinde yazılmış kod kullanarak MySQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makalede, Go kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Apple macOS platformlarından [Go](https://golang.org/) dilinde yazılmış kod kullanarak MySQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu konuda, Go kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
@@ -26,7 +26,7 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 - [Azure CLI kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Go ve MySQL bağlayıcısını yükleme
-Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)'i (en düşük 1.3 sürümü olmak şartıyla) yükleyin. Platformunuza bağlı olarak, uygun bölümdeki adımları izleyin:
+Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Platformunuza bağlı olarak, uygun bölümdeki adımları izleyin:
 
 ### <a name="windows"></a>Windows
 1. [Yükleme yönergelerine](https://golang.org/doc/install) uygun olarak Microsoft Windows için Go’yu [indirin](https://golang.org/dl/) ve yükleyin.
@@ -34,7 +34,7 @@ Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MyS
 3. Projeniz için şöyle bir klasör oluşturun. `mkdir  %USERPROFILE%\go\src\mysqlgo`.
 4. Dizini değiştirerek proje klasörünüze geçin; örneğin, `cd %USERPROFILE%\go\src\mysqlgo`.
 5. GOPATH için ortam değişkenini kaynak kod dizinine işaret edecek şekilde ayarlayın. `set GOPATH=%USERPROFILE%\go`.
-6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Gerekli en düşük sürüm, 1.3 sürümüdür.
+6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
 
    Özetle, Go’yu yükleyin ve ardından komut isteminde şu komutları çalıştırın:
    ```cmd
@@ -50,7 +50,7 @@ Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MyS
 3. Giriş dizininizde projeniz için `mkdir -p ~/go/src/mysqlgo/` gibi bir klasör oluşturun.
 4. Dizini değiştirerek klasöre geçin; örneğin, `cd ~/go/src/mysqlgo/`.
 5. GOPATH ortam değişkenini geçerli bir kaynak dizine, örneğin geçerli giriş dizininizin go klasörüne işaret edecek şekilde ayarlayın. Bash kabuğunda `export GOPATH=~/go` komutunu çalıştırarak geçerli kabuk oturumu için GOPATH olarak go dizinini ayarlayın.
-6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Gerekli en düşük sürüm, 1.3 sürümüdür.
+6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
 
    Özetle, şu bash komutlarını çalıştırın:
    ```bash
@@ -67,7 +67,7 @@ Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MyS
 3. Giriş dizininizde projeniz için `mkdir -p ~/go/src/mysqlgo/` gibi bir klasör oluşturun.
 4. Dizini değiştirerek klasöre geçin; örneğin, `cd ~/go/src/mysqlgo/`.
 5. GOPATH ortam değişkenini geçerli bir kaynak dizine, örneğin geçerli giriş dizininizin go klasörüne işaret edecek şekilde ayarlayın. Bash kabuğunda `export GOPATH=~/go` komutunu çalıştırarak geçerli kabuk oturumu için GOPATH olarak go dizinini ayarlayın.
-6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin. Gerekli en düşük sürüm, 1.3 sürümüdür.
+6. `go get github.com/go-sql-driver/mysql` komutunu çalıştırarak [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation)'i yükleyin.
 
    Özetle, Go’yu yükleyin ve ardından şu bash komutlarını çalıştırın:
    ```bash
@@ -81,11 +81,10 @@ Bilgisayarınıza [Go](https://golang.org/doc/install) ve [go-sql-driver for MyS
 MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve daha sonra oluşturduğunuz sunucuyu (örneğin, **myserver4demo**) arayın.
-3. **myserver4demo** sunucu adına tıklayın.
-4. Sunucunun **Özellikler** sayfasını seçin ve **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın.
- ![MySQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/connect-go/1_server-properties-name-login.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mydemoserver**) arayın.
+3. Sunucunun adına tıklayın.
+4. Sunucunun **Genel Bakış** panelinden **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın. Parolanızı unutursanız, bu panelden parolayı da sıfırlayabilirsiniz.
+ ![MySQL için Azure Veritabanı sunucu adı](./media/connect-go/1_server-overview-name-login.png)
    
 
 ## <a name="build-and-run-go-code"></a>Go kodunu derleme ve çalıştırma 
@@ -116,9 +115,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -193,9 +192,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -262,9 +261,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 
@@ -316,9 +315,9 @@ import (
 )
 
 const (
-    host     = "myserver4demo.mysql.database.azure.com"
+    host     = "mydemoserver.mysql.database.azure.com"
     database = "quickstartdb"
-    user     = "myadmin@myserver4demo"
+    user     = "myadmin@mydemoserver"
     password = "yourpassword"
 )
 

@@ -1,24 +1,24 @@
 ---
-title: "Java kullanarak PostgreSQL için Azure Veritabanı’na bağlanma | Microsoft Docs"
+title: "Java kullanarak PostgreSQL için Azure Veritabanı’na bağlanma"
 description: "Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı’na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz Java kod örneği sağlanmıştır."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 0d763d30633e9d808501620c7247ed73567d3f62
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 5c55adec1471b28880f7a24a736cf25df2c8bd3f
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Java’yı kullanma
-Bu hızlı başlangıçta, Java uygulaması kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makaledeki adımlarda, Java kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+Bu hızlı başlangıçta, Java uygulaması kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makaledeki adımlarda, Java kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
@@ -33,16 +33,15 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mypgserver-20170401**) arayın.
-3. **mypgserver-20170401** sunucu adına tıklayın.
-4. Sunucunun **Genel Bakış** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
- ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-java/1-connection-string.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mydemoserver**) arayın.
+3. Sunucunun adına tıklayın.
+4. Sunucunun **Genel Bakış** panelinden **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın. Parolanızı unutursanız, bu panelden parolayı da sıfırlayabilirsiniz.
+ ![PostgreSQL için Azure Veritabanı sunucu adı](./media/connect-java/1-connection-string.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
 Bağlanmak ve **INSERT** SQL deyimiyle birlikte işlevi kullanarak verileri veritabanına yüklemek için aşağıdaki kodu kullanın. Veritabanına bağlanmak, tabloyu bırakmak ve oluşturmak için [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) ve [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) yöntemleri kullanılır. Parametre değerlerini bağlamak için kullanılan setString() ve setInt() ile birlikte ekleme komutlarını oluşturmak için [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) nesnesi kullanılır. [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) yöntemi, her parametre kümesi için komutu çalıştırır. 
 
-Ana bilgisayar, veritabanı, kullanıcı ve parola parametrelerini, sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
+host, database, user ve password parametrelerini kendi sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
 
 ```java
 import java.sql.*;
@@ -54,9 +53,9 @@ public class CreateTableInsertRows {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -154,9 +153,9 @@ public class ReadTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -240,9 +239,9 @@ public class UpdateTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -320,9 +319,9 @@ public class DeleteTable {
     {
 
         // Initialize connection variables.
-        String host = "mypgserver-20170401.postgres.database.azure.com";
+        String host = "mydemoserver.postgres.database.azure.com";
         String database = "mypgsqldb";
-        String user = "mylogin@mypgserver-20170401";
+        String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed

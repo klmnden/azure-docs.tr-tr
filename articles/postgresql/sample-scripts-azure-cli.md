@@ -1,36 +1,36 @@
 ---
-title: "Azure veritabanı PostgreSQL için Azure CLI örnekleri"
-description: "Bu makalede birkaç Azure CLI kod örnekleri PostgreSQL sunucuları için Azure veritabanıyla etkileşim kurma için kullanılabilir listelenmektedir."
+title: "PostgreSQL için Azure Veritabanı Azure CLI örnekleri"
+description: "Bu makalede, PostgreSQL için Azure Veritabanı sunucularıyla etkileşim kurmaya yönelik olarak sunulan çeşitli Azure CLI kod örnekleri listelenir."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: sample, mvc
-ms.date: 01/12/2018
-ms.openlocfilehash: d9b7b0cba46d16d0fae08c8f445044776cf75c10
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
-ms.translationtype: MT
+ms.date: 02/28/2018
+ms.openlocfilehash: b44f23adfb69c250757248a3462317eabaf5f111
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>Azure veritabanı PostgreSQL için Azure CLI örnekleri 
-Aşağıdaki tabloda, PostgreSQL için Azure veritabanı için örnek Azure CLI komutlar bağlantılarını içerir.
+# <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı Azure CLI örnekleri 
+Aşağıdaki tablo, PostgreSQL için Azure Veritabanı’na yönelik örnek Azure CLI betikleri bağlantılarını içerir.
 
 | |  |
 |---|---|
 |**Sunucu oluşturma**||
-| [Sunucu ve güvenlik duvarı kuralı oluşturma](scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | PostgreSQL sunucu için bir Azure veritabanı oluşturur ve bir sunucu düzeyinde güvenlik duvarı kuralı yapılandırır azure CLI betik. |
-|**Ölçek bir sunucu**||
-| [Ölçek bir sunucu](scripts/sample-scale-server-up-or-down.md?toc=%2fcli%2fazure%2ftoc.json) | Azure veritabanı PostgreSQL sunucu için performans gereksinimlerine değiştirmek için izin vermek için yukarı veya aşağı ölçekler, azure CLI komut dosyası. |
+| [Sunucu ve güvenlik duvarı kuralı oluşturma](scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | PostgreSQL için Azure Veritabanı sunucusu oluşturan ve sunucu düzeyinde bir güvenlik duvarı kuralı yapılandıran Azure CLI betiği. |
+|**Sunucu ölçeklendirme**||
+| [Sunucu ölçeklendirme](scripts/sample-scale-server-up-or-down.md?toc=%2fcli%2fazure%2ftoc.json) | Değişen performans gereksinimlerine olanak sağlamak için bir PostgreSQL için Azure Veritabanı sunucusunun ölçeğini artıran veya azaltan Azure CLI betiği. |
 |**Sunucu yapılandırmalarını değiştirme**||
-| [Sunucu yapılandırmalarını değiştirme](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Azure veritabanı PostgreSQL sunucu için yapılandırmaları seçeneklerini değiştirmek, azure CLI komut dosyası. |
-|**Bir sunucuya geri yükleme**||
-| [Bir sunucuya geri yükleme](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Azure veritabanı PostgreSQL sunucu için zaman içinde önceki bir noktaya geri yükler, azure CLI komut dosyası. |
-|**Sunucu günlüklerini indirin**||
-| [Etkinleştirme ve sunucu günlüklerini indirin](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Sağlar ve bir Azure veritabanı PostgreSQL sunucusu için sunucu günlüklerini indirir azure CLI betik. |
+| [Sunucu yapılandırmalarını değiştirme](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Bir PostgreSQL için Azure Veritabanı sunucusunun yapılandırma seçeneklerini değiştiren Azure CLI betiği. |
+|**Sunucuyu geri yükleme**||
+| [Sunucuyu geri yükleme](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Bir PostgreSQL için Azure Veritabanı sunucusunu zaman içinde önceki bir noktaya geri yükleyen Azure CLI betiği. |
+|**Sunucu günlüklerini indirme**||
+| [Sunucu günlüklerini etkinleştirme ve indirme](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Bir PostgreSQL için Azure Veritabanı sunucusunun sunucu günlüklerini etkinleştiren ve indiren Azure CLI betiği. |
 |||
 

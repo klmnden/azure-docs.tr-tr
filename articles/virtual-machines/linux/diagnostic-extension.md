@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Ölçümleri ve günlükleri izlemek için Linux tanılama uzantısını kullanın
 
@@ -189,8 +189,8 @@ Linux tanılama uzantısını 3.0 sürümünü iki havuz türlerini destekler: E
 
 "SasURL" giriş olay verileri yayımlanması gerekir Hub için SAS belirteci dahil tam URL'yi içerir. LAD Gönder sağlayan bir ilke adlandırma SAS talep gerektirir. Örnek:
 
-* Adlı bir olay hub'ları ad alanı oluşturma`contosohub`
-* Bir Event Hub'adlı ad alanı oluşturma`syslogmsgs`
+* Adlı bir olay hub'ları ad alanı oluşturma `contosohub`
+* Bir Event Hub'adlı ad alanı oluşturma `syslogmsgs`
 * Olay adlı hub'ına bir paylaşılan erişim ilkesi oluşturun `writer` gönderme talep sağlar
 
 Bir SAS iyi 1 Ocak 2018 gece yarısı UTC kadar oluşturduysanız sasURL değeri olabilir:
@@ -276,7 +276,7 @@ scheduledTransferPeriod | Hesaplanan ve Azure 8601 olduğu zaman aralığı ifad
 
 Performans sayaçları bölümünde belirtilen ölçümleri örnekleri 15 dakikada toplanan veya örnek oranı açıkça sayaç için tanımlanmış. Birden çok scheduledTransferPeriod sıklıklarını (örnekte olduğu gibi) görünüyorsa, her bir toplama bağımsız olarak hesaplanır.
 
-#### <a name="performancecounters"></a>performans sayaçları
+#### <a name="performancecounters"></a>performanceCounters
 
 ```json
 "performanceCounters": {
@@ -319,13 +319,13 @@ counterSpecifier | Azure ölçümleri ad alanı içindeki belirli ölçüm tanı
 koşul | (isteğe bağlı) Ölçüm uygular veya toplama söz konusu nesne tüm örneklerinde seçer nesne belirli bir örneği seçer. Daha fazla bilgi için bkz: [ `builtin` ölçüm tanımlarını](#metrics-supported-by-builtin).
 sampleRate | Toplanan ve bu ölçüm için ham örnek hızı ayarlar 8601 aralığı BELİRTİR. Ayarlanmadı, toplama aralığı değeri olarak ayarlanmış olup olmadığını [sampleRateInSeconds](#ladcfg). En kısa desteklenen örnek hızı 15 (PT15S) saniyedir.
 Birim | Bu dizeler biri olmalıdır: "Count", "Bayt sayısı", "Saniye", "Yüzde", "CountPerSecond", "BytesPerSecond", "Milisaniyelik". Ölçü birimi tanımlar. Toplanan veri tüketicileri bu birimi eşleştirmek için toplanan veri değerleri bekler. Bu alan LAD yoksayar.
-Görünen adı | Etiket (ilişkili yerel ayarı tarafından belirtilen dilde) bu verileri Azure ölçümleri eklenmiş. Bu alan LAD yoksayar.
+displayName | Etiket (ilişkili yerel ayarı tarafından belirtilen dilde) bu verileri Azure ölçümleri eklenmiş. Bu alan LAD yoksayar.
 
 CounterSpecifier rasgele bir tanımlayıcıdır. Tüketiciler ölçümleri, Azure portal grafik ister ve özelliği, uyarı counterSpecifier "bir ölçüm veya bir ölçüm örneğini tanımlayan anahtar olarak" kullanın. İçin `builtin` ölçümleri, öneririz ile başlayan counterSpecifier değerleri kullandığınız `/builtin/`. Ölçüm belirli bir örneği topluyorsanız counterSpecifier değerine örneğinin tanıtıcısı ekleme öneririz. Bazı örnekler:
 
-* `/builtin/Processor/PercentIdleTime`-Boşta kalma süresi tüm Vcpu'lar ortalaması
-* `/builtin/Disk/FreeSpace(/mnt)`-/Mnt dosya sistemi boş alan
-* `/builtin/Disk/FreeSpace`-Boş alan tüm takılı bağlanan dosya sistemlerinin ortalaması
+* `/builtin/Processor/PercentIdleTime` -Boşta kalma süresi tüm Vcpu'lar ortalaması
+* `/builtin/Disk/FreeSpace(/mnt)` -/Mnt dosya sistemi boş alan
+* `/builtin/Disk/FreeSpace` -Boş alan tüm takılı bağlanan dosya sistemlerinin ortalaması
 
 Ne LAD ne de Azure portalında herhangi bir desenle eşleşen counterSpecifier değeri bekler. CounterSpecifier değerleri nasıl oluşturmak tutarlı olması.
 
@@ -433,7 +433,7 @@ Yerleşik ölçüm ölçümleri geniş bir kullanıcı kümesi için en ilgi çe
 Sayaç | Anlamı
 ------- | -------
 PercentIdleTime | İşlemci çekirdeği boşta döngü yürütülmekte toplama penceresi sırasında zamanı yüzdesi
-percentProcessorTime | Boş olmayan bir iş parçacığı yürütme zamanı yüzdesi
+PercentProcessorTime | Boş olmayan bir iş parçacığı yürütme zamanı yüzdesi
 PercentIOWaitTime | G/ç işlemlerinin tamamlanması beklenirken zaman yüzdesi
 PercentInterruptTime | Donanım/yazılım kesmeler ve DPC'ler (ertelenmiş yordam çağrılarını) yürütme zamanı yüzdesi
 PercentUserTime | Boş olmayan süresini toplama penceresi sırasında zamanın normal öncelik en fazla kullanıcı yüzdesi
@@ -694,7 +694,7 @@ JsonBlob havuzlarını gönderilen veriler adlı depolama hesabındaki BLOB depo
 
 Ayrıca, Azure depolama alanındaki verilere erişmek için bu UI araçları kullanabilirsiniz:
 
-* Visual Studio Sunucu Gezgini.
+* Visual Studio Server Explorer.
 * [Microsoft Azure Storage Gezgini](https://azurestorageexplorer.codeplex.com/ "Azure Storage Gezgini").
 
 Bu oturumunun anlık görüntüsü, bir Microsoft Azure Storage Gezgini test VM üzerinde oluşturulan Azure Storage tablolarının ve doğru yapılandırılmış bir LAD 3.0 uzantısı kapsayıcılardan gösterir. Görüntü ile tam olarak eşleşmiyor [örnek LAD 3.0 yapılandırma](#an-example-lad-30-configuration).

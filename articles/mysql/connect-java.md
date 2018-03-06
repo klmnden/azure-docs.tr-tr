@@ -1,21 +1,21 @@
 ---
-title: "Java'yı kullanarak MySQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
+title: "Java kullanarak MySQL için Azure Veritabanı'na bağlanma"
 description: "Bu hızlı başlangıçta, MySQL veritabanı için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz bir Java kod örneği sağlanmıştır."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 12/14/2017
-ms.openlocfilehash: 1f5fc33116bccea1c37596e2317d5e36124facd6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: efc1fd07f09bd0bae3c21b9d63c04020abc7832e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Java'yı kullanarak bağlanma ve veri sorgulama
 Bu hızlı başlangıçta, Java uygulaması ve JDBC sürücüsü [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) kullanarak MySQL için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makalede, Java kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
@@ -37,11 +37,10 @@ Bu hızlı başlangıçta, Java uygulaması ve JDBC sürücüsü [MySQL Connecto
 MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Sol bölmede **Tüm kaynaklar**’a tıklayın ve ardından oluşturduğunuz sunucuyu arayın (örneğin, **myserver4demo**).
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mydemoserver**) arayın.
 3. Sunucunun adına tıklayın.
-4. Sunucunun **Özellikler** sayfasını seçin ve **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın.
- ![MySQL için Azure Veritabanı sunucu adı](./media/connect-java/1_server-properties-name-login.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+4. Sunucunun **Genel Bakış** panelinden **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın. Parolanızı unutursanız, bu panelden parolayı da sıfırlayabilirsiniz.
+ ![MySQL için Azure Veritabanı sunucu adı](./media/connect-java/1_server-overview-name-login.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
 Bağlanmak ve **INSERT** SQL deyimiyle birlikte işlevi kullanarak verileri yüklemek için aşağıdaki kodu kullanın. [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) yöntemi MySQL'e bağlanmak için kullanılır. [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) ve execute() yöntemleri tabloyu bırakmak ve oluşturmak için kullanılır. Parametre değerlerini bağlamak için kullanılan setString() ve setInt() ile birlikte ekleme komutlarını oluşturmak için prepareStatement nesnesi kullanılır. executeUpdate() yöntemi, değerleri eklemek üzere her parametre kümesi için komutu çalıştırır. 
@@ -57,9 +56,9 @@ public class CreateTableInsertRows {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables. 
-        String host = "myserver4demo.mysql.database.azure.com";
+        String host = "mydemoserver.mysql.database.azure.com";
         String database = "quickstartdb";
-        String user = "myadmin@myserver4demo";
+        String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -159,9 +158,9 @@ public class ReadTable {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables.
-        String host = "myserver4demo.mysql.database.azure.com";
+        String host = "mydemoserver.mysql.database.azure.com";
         String database = "quickstartdb";
-        String user = "myadmin@myserver4demo";
+        String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -245,9 +244,9 @@ public class UpdateTable {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables. 
-        String host = "myserver4demo.mysql.database.azure.com";
+        String host = "mydemoserver.mysql.database.azure.com";
         String database = "quickstartdb";
-        String user = "myadmin@myserver4demo";
+        String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
 
         // check that the driver is installed
@@ -326,9 +325,9 @@ public class DeleteTable {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables.
-        String host = "myserver4demo.mysql.database.azure.com";
+        String host = "mydemoserver.mysql.database.azure.com";
         String database = "quickstartdb";
-        String user = "myadmin@myserver4demo";
+        String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
         
         // check that the driver is installed

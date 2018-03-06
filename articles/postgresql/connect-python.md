@@ -1,24 +1,24 @@
 ---
-title: "Python'dan PostgreSQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
+title: "Python’dan PostgreSQL için Azure Veritabanı’na bağlanma"
 description: "Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı’na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz Python kod örneği sağlanmıştır."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Python'ı kullanma
-Bu hızlı başlangıçta [Python](https://python.org) kullanarak PostgreSQL için bir Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. macOS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanıldığını da gösterir. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır. Daha fazla sdk ayrıntıları için, [Python SDK başvurusuna yönelik Azure PostgreSQL kitaplıkları](/python/api/overview/azure/postgresql) belgelerine ve [psycopg örneğine](http://initd.org/psycopg/docs/usage.html) başvurun.
+Bu hızlı başlangıçta [Python](https://python.org) kullanarak PostgreSQL için bir Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. macOS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanıldığını da gösterir. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
@@ -50,11 +50,10 @@ Veritabanına bağlanmanızı ve bu veritabanını sorgulamanızı sağlayan [ps
 PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve **mypgserver-20170401** sunucusunu (oluşturduğunuz sunucu) aratın.
-3. **mypgserver-20170401** sunucu adına tıklayın.
-4. Sunucunun **Genel Bakış** sayfasını seçin ve **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın.
- ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma Bilgileri](./media/connect-python/1-connection-string.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mydemoserver**) arayın.
+3. Sunucunun adına tıklayın.
+4. Sunucunun **Genel Bakış** panelinden **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın. Parolanızı unutursanız, bu panelden parolayı da sıfırlayabilirsiniz.
+ ![PostgreSQL için Azure Veritabanı sunucu adı](./media/connect-python/1-connection-string.png)
 
 ## <a name="how-to-run-python-code"></a>Python kodu çalıştırma
 Bu makale, her biri belirli bir işlevi gerçekleştiren toplam dört kod örneği içerir. Aşağıdaki yönergelerde metin dosyası oluşturma, kod bloğu ekleme ve daha sonra çalıştırmak üzere dosyayı kaydetme gösterilir. Her kod bloğu için birer tane olmak üzere dört ayrı dosya oluşturduğunuzdan emin olun.
@@ -75,8 +74,8 @@ Bağlanmak ve **INSERT** SQL deyimiyle [psycopg2.connect](http://initd.org/psyco
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -119,8 +118,8 @@ Kod başarıyla çalıştıktan sonra çıktı aşağıdaki gibi görünür:
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -153,8 +152,8 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -183,8 +182,8 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"

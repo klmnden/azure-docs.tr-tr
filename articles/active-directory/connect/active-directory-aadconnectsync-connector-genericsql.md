@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
 ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Genel SQL bağlayıcı Teknik Başvurusu
 Bu makalede Genel SQL Bağlayıcısı'nı açıklar. Makale aşağıdaki ürünler için geçerlidir:
@@ -250,9 +250,9 @@ Genel SQL Yönetim Aracısı, yalnızca bir birden çok değerli tablo ile çal�
 
 * Fazla veriniz varsa, saklı yordamlar ile sayfalandırma uygulamak için önerilir.
 * Sayfalandırma desteklemek için saklı yordam için dizin başlangıç ve bitiş dizini sağlamanız gerekir. Bkz: [verimli bir şekilde büyük miktarlarda verinin disk belleği](https://msdn.microsoft.com/library/bb445504.aspx).
-* @StartIndexve @EndIndex yürütme sırasında yapılandırılan ilgili sayfa boyutu değeri ile değiştirilir **yapılandırma adımı** sayfası. Örneğin, ilk sayfa ve sayfa boyutu bağlayıcı zaman alır 500, böyle bir durumda ayarlanır @StartIndex 1 olur ve @EndIndex 500. Bağlayıcı sonraki sayfalar ve değişiklik aldığında bu değerleri artırmak @StartIndex & @EndIndex değeri.
+* @StartIndex ve @EndIndex yürütme sırasında yapılandırılan ilgili sayfa boyutu değeri ile değiştirilir **yapılandırma adımı** sayfası. Örneğin, ilk sayfa ve sayfa boyutu bağlayıcı zaman alır 500, böyle bir durumda ayarlanır @StartIndex 1 olur ve @EndIndex 500. Bağlayıcı sonraki sayfalar ve değişiklik aldığında bu değerleri artırmak @StartIndex & @EndIndex değeri.
 * Parametreli saklı yordamı yürütmek için parametreleri sağlayın `[Name]:[Direction]:[Value]` biçimi. Her bir parametreyi ayrı bir satırda (yeni bir satır almak için kullanım Ctrl + Enter) girin.
-* Genel SQL bağlayıcı, Microsoft SQL Server'da bağlı sunuculardan içeri aktarma işlemi de destekler. Bilgi bağlantılı sunucu tabloda nereden alınacağını, tablo biçiminde sağlanması:`[ServerName].[Database].[Schema].[TableName]`
+* Genel SQL bağlayıcı, Microsoft SQL Server'da bağlı sunuculardan içeri aktarma işlemi de destekler. Bilgi bağlantılı sunucu tabloda nereden alınacağını, tablo biçiminde sağlanması: `[ServerName].[Database].[Schema].[TableName]`
 * Genel SQL bağlayıcı bilgileri ve şeması algılama adımlarını çalıştırmak benzer yapıya (hem diğer adı ve veri türü) arasında sahip nesneleri destekler. Şema ve çalışma adımı sırasında sağlanan bilgiler seçilen nesneden farklıysa, ardından SQL Connector bu tür senaryoları desteklemek üzere alamıyor.
 
 **SQL sorgusu**  
@@ -269,7 +269,7 @@ Genel SQL Yönetim Aracısı, yalnızca bir birden çok değerli tablo ile çal�
 Delta içeri aktarma yapılandırma tam içeri aktarma ile karşılaştırıldığında daha fazla miktar yapılandırma gerektirir.
 
 * Delta değişiklikleri izlemek için tetikleyici veya anlık görüntü yaklaşımı seçerseniz, geçmiş tablosu veya anlık görüntü veritabanında sağlamak **geçmiş tablosu veya anlık görüntü veritabanı adı** kutusu.
-* Geçmiş tablosu üst tablo arasındaki birleşim koşulu örneğin belirtmeniz gerekir`Employee.ID=History.EmployeeID`
+* Geçmiş tablosu üst tablo arasındaki birleşim koşulu örneğin belirtmeniz gerekir `Employee.ID=History.EmployeeID`
 * Geçmiş tablosundan üst tablo üzerinde işlem izlemek için işlem bilgileri (ekleme/güncelleştirme/silme) içeren sütun adı sağlamanız gerekir.
 * Delta değişiklikleri izlemek için Filigran seçerseniz, işlem bilgileri içeren sütun adını sağlayın **su işareti sütun adı**.
 * **Türü özniteliği değiştirmek** sütun değişiklik türü için gereklidir. Bu sütun birincil tablosu veya birden çok değerli tablosu delta görünümünde değişiklik türü için oluşan bir değişiklik eşler. Bu sütun Modify_Attribute değişiklik türü için öznitelik düzeyi değiştirme veya ekleme, değiştirme, içerebilir veya Delete türü bir nesne düzeyinde değişiklik türü için değiştirin. Varsayılan değer Ekle dışında bir şey olması durumunda, değiştirme veya silme olduktan sonra bu seçeneği kullanarak bu değerleri tanımlayabilirsiniz.
@@ -306,7 +306,7 @@ SQL sorgu seçeneği seçerseniz, dışa aktarma ekleme/güncelleştirme/silme i
 * **Sorguyu eklemek**: herhangi bir nesne ekleme ilgili tablodaki için bağlayıcı geliyorsa, bu sorguyu çalıştırır.
 * **Güncelleştirme sorgusu**: bağlayıcı ilgili tablodaki güncelleştirmesi için herhangi bir nesne geliyorsa, bu sorguyu çalıştırır.
 * **Sorguyu silmek**: bağlayıcı ilgili tablodaki silinmek için herhangi bir nesne geliyorsa, bu sorguyu çalıştırır.
-* Örneğin bir sorgu parametresi değeri olarak kullanılan şemadan seçili özniteliği`Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
+* Örneğin bir sorgu parametresi değeri olarak kullanılan şemadan seçili özniteliği `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
 ## <a name="troubleshooting"></a>Sorun giderme
 * Bağlayıcı gidermek günlüğü etkinleştirme hakkında daha fazla bilgi için bkz: [bağlayıcıların ETW İzleme etkinleştirmek için nasıl](http://go.microsoft.com/fwlink/?LinkId=335731).
