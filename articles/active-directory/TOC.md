@@ -113,6 +113,7 @@
 #### [Adlandırılmış konumları yapılandırma](active-directory-named-locations.md)
 #### [Etkinlik raporlarını bulma](active-directory-reporting-migration.md)
 #### [Azure Active Directory Power BI İçerik Paketi’ni kullanma](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Riskli olduğu belirlenen kullanıcıları düzeltme](active-directory-report-security-user-at-risk-remediation.md)
 ### Başvuru
 #### [Bekletme](active-directory-reporting-retention.md)
 #### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)

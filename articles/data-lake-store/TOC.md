@@ -5,6 +5,7 @@
 ## [Azure Data Lake Store ile Azure Depolama karşılaştırması](data-lake-store-comparison-with-blob-storage.md)
 ## [Büyük veri işleme için Azure Data Lake Store](data-lake-store-data-scenarios.md)
 ## [Azure Data Lake Store ile çalışan açık kaynak uygulamalar](data-lake-store-compatible-oss-other-applications.md)
+## [Data Lake Store’u kullanmak için en iyi uygulamalar](data-lake-store-best-practices.md)
 
 # başlarken
 ## [Portalı kullanma](data-lake-store-get-started-portal.md)

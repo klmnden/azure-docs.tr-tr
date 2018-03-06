@@ -42,12 +42,13 @@
 
 ## Havuz oluşturma ve yönetme
 ### [İşlem düğümlerini otomatik ölçeklendirme](batch-automatic-scaling.md)
-### [Yoğun işlem gücü kullanımlı VM’ler](batch-pool-compute-intensive-sizes.md)
+### [İşlem düğümleri için VM boyutu seçme](batch-pool-vm-sizes.md)
 ### [İşlem düğümlerine erişimi yapılandırma](pool-endpoint-configuration.md)
 ### [Özel bir görüntü ile havuz oluşturma](batch-custom-images.md)
 ### [Sanal ağ içinde havuz oluşturma](batch-virtual-network.md)
-### [Linux işlem düğümleri](batch-linux-nodes.md)
-### [Düşük öncelikli sanal makineler](batch-low-pri-vms.md)
+### [Yoğun işlem gücü kullanımlı VM’ler kullanma](batch-pool-compute-intensive-sizes.md)
+### [Linux işlem düğümleri kullanma](batch-linux-nodes.md)
+### [Düşük öncelikli VM’ler kullanma](batch-low-pri-vms.md)
 
 ## İşleri ve görevleri yönetme
 ### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)

@@ -7,6 +7,8 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
+    - name: Otomatik sağlamayı ayarlama - Azure CLI
+      href: quick-setup-auto-provision-cli.md
     - name: Otomatik sağlamayı ayarlama - Portal
       href: quick-setup-auto-provision.md
     - name: Otomatik sağlamayı ayarlama - Şablon
@@ -21,6 +23,8 @@
               href: quick-create-simulated-device-tpm-java.md
             - name: 'C#'
               href: quick-create-simulated-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-create-simulated-device-tpm-node.md
             - name: Python
               href: quick-create-simulated-device-tpm-python.md
         - name: X.509
