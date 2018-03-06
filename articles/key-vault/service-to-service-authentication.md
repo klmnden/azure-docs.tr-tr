@@ -12,11 +12,11 @@ ms.prod:
 ms.service: microsoft-keyvault
 ms.technology: 
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: f67f81aeee0775ea8d90e4459f2c46266a774786
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET kullanarak Azure anahtar kasası için hizmetten hizmete kimlik doğrulaması
 
@@ -28,7 +28,7 @@ Azure AD kimlik oluşturmak veya kimlik bilgilerini geliştiriciler arasında pa
 
 `Microsoft.Azure.Services.AppAuthentication` Kitaplığı yönetir kimlik doğrulaması otomatik olarak, hangi sırayla kimlik bilgilerinizi yerine, çözümünüz odaklanmanıza olanak tanır.
 
-`Microsoft.Azure.Services.AppAuthentication` Kitaplığı Microsoft Visual Studio, Azure CLI veya Azure AD ile tümleşik kimlik doğrulaması ile yerel geliştirme destekler. Azure App Services veya bir Azure sanal makine (VM) dağıtıldığında, kitaplık otomatik olarak kullanan [yönetilen hizmet kimliği](/azure/active-directory/msi-overview) (MSI). Kod veya yapılandırma değişiklik gerekmez. Kitaplık ayrıca Azure AD doğrudan kullanımını destekleyen [istemci kimlik bilgileri](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) MSI kullanılabilir olmadığında veya ne zaman yerel geliştirme sırasında Geliştirici güvenlik bağlamı belirlenemiyor.
+`Microsoft.Azure.Services.AppAuthentication` Kitaplığı Microsoft Visual Studio, Azure CLI veya Azure AD ile tümleşik kimlik doğrulaması ile yerel geliştirme destekler. Azure App Services veya bir Azure sanal makine (VM) dağıtıldığında, kitaplık otomatik olarak kullanan [yönetilen hizmet kimliği](/azure/active-directory/msi-overview) (MSI). Kod veya yapılandırma değişiklik gerekmez. Kitaplık ayrıca Azure AD doğrudan kullanımını destekleyen [istemci kimlik bilgileri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) MSI kullanılabilir olmadığında veya ne zaman yerel geliştirme sırasında Geliştirici güvenlik bağlamı belirlenemiyor.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Kitaplığı kullanma
@@ -57,7 +57,7 @@ Azure AD kimlik oluşturmak veya kimlik bilgilerini geliştiriciler arasında pa
 
 `AzureServiceTokenProvider` Sınıfı belirtecin bellekte önbelleğe alır ve hemen önce sona erme Azure AD'den alır. Sonuç olarak, artık çağırmadan önce sona erme denetlemek yok `GetAccessTokenAsync` yöntemi. Yalnızca belirteç kullanmak istediğinizde bu yöntemi çağırın. 
 
-`GetAccessTokenAsync` Yöntemi, bir kaynak tanımlayıcısı gerektirir. Daha fazla bilgi için bkz: [, Azure hizmetleri destekleyen yönetilen hizmet kimliği](https://docs.microsoft.com/en-us/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+`GetAccessTokenAsync` Yöntemi, bir kaynak tanımlayıcısı gerektirir. Daha fazla bilgi için bkz: [, Azure hizmetleri destekleyen yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
 
 
 <a name="samples"></a>

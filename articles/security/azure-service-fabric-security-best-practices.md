@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric en iyi güvenlik uygulamaları
 Hızlı, kolay ve düşük maliyetli, Azure'da bir uygulamayı dağıtma. Bulut uygulamanızı üretime dağıtmadan önce uygulamanızda güvenli küme uygulamak için önemli ve önerilen en iyi yöntemler bizim listesini gözden geçirin.
@@ -64,7 +64,7 @@ Yetkisiz kullanıcılar bağlanmak, özellikle bir küme üretimde çalışırke
 Üç [senaryoları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) çeşitli teknolojiler kullanılarak küme güvenlik uygulamak için:
 
 -   Düğümü düğümü güvenlik: Bu senaryo VM'ler ve kümedeki bilgisayarların arasındaki iletişimin güvenliğini sağlar. Bu form güvenlik uygulamaları ve Hizmetleri kümedeki Kümeye katılma yetkisi olan bilgisayarları barındırabilir sağlar.
-Bu senaryo, Azure üzerinde çalıştığı kümesi ya da Windows üzerinde çalışan tek başına kümeleri kullanabilirsiniz [sertifika güvenlik](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) veya [Windows Güvenliği](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) Windows Server makinelerini için.
+Bu senaryo, Azure üzerinde çalıştığı kümesi ya da Windows üzerinde çalışan tek başına kümeleri kullanabilirsiniz [sertifika güvenlik](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) veya [Windows Güvenliği](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) Windows Server makinelerini için.
 -   İstemcisi düğümü güvenlik: Bu senaryo bir Service Fabric istemcisi ve bireysel düğümleri arasındaki iletişimin güvenliğini sağlar.
 -   Rol tabanlı erişim denetimi (RBAC): Bu senaryo, ayrı kimlikleri kullanır (Sertifikalar, Azure AD, vb.) küme erişen her yönetici ve kullanıcı istemci rolü için. Kümeyi oluşturduğunuzda rol kimlikleri belirtin.
 
@@ -125,7 +125,7 @@ Her aktör .NET türünün bir örneği bir .NET nesnesidir şekilde özdeş bir
 Çoğaltıcı yapılandırmaları aktör durumu sağlayıcısı durumu yüksek oranda güvenilir yapmaktan sorumlu çoğaltıcı yapılandırın.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Azure Service Fabric için SSL yapılandırma
-Sunucu kimlik doğrulama işlemi [kimliğini doğrulayan](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) bir yönetim istemcisi küme yönetim Uç noktalara. Yönetim istemcisi ardından gerçek kümeye Bahsediyor tanır. Bu sertifika ayrıca sağlar bir [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) HTTPS yönetim API'si ve Service Fabric Explorer HTTPS üzerinden.
+Sunucu kimlik doğrulama işlemi [kimliğini doğrulayan](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) bir yönetim istemcisi küme yönetim Uç noktalara. Yönetim istemcisi ardından gerçek kümeye Bahsediyor tanır. Bu sertifika ayrıca sağlar bir [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) HTTPS yönetim API'si ve Service Fabric Explorer HTTPS üzerinden.
 Özel etki alanı adı, kümeniz için edinmeniz gerekir. Bir sertifika yetkilisinden bir sertifika istediğinde, sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adı eşleşmelidir.
 
 Bir uygulama için SSL yapılandırmak için önce bir CA tarafından imzalanmış bir SSL sertifikası edinmeniz gerekir. SSL güvenlik amacıyla sertifikaları veren güvenilen bir üçüncü taraf CA olduğunda. Bir SSL sertifikası yoksa, bir SSL sertifikalarını sattığı bir şirketten edinmeniz gerekir.

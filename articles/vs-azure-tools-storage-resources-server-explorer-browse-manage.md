@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Gözat ve Sunucu Gezgini kullanarak depolama kaynaklarını yönetmek
 
@@ -162,7 +162,7 @@ Aşağıdaki görüntü iki ileti içeren bir kuyruk göstermektedir:
 Kuyruklar Hizmetleri depolama hakkında daha fazla bilgi için bkz: [.NET kullanarak Azure kuyruk depolamaya başlayın](http://go.microsoft.com/fwlink/?LinkID=264702). Kuyruklar depolama hizmetleri için web hizmeti hakkında bilgi için bkz [kuyruk hizmeti kavramları](http://go.microsoft.com/fwlink/?LinkId=264788). Visual Studio kullanarak bir depolama hizmetleri sıraya ileti gönderme hakkında daha fazla bilgi için bkz: [depolama hizmetleri kuyruğuna iletiler gönderme](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 > [!NOTE]
-> Depolama Hizmetleri sıraları Azure Service Bus sıralarından farklıdır. Service Bus kuyruklarını hakkında daha fazla bilgi için bkz: [Service Bus kuyrukları, konu başlıkları ve abonelikler](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+> Depolama Hizmetleri sıraları Azure Service Bus sıralarından farklıdır. Service Bus kuyruklarını hakkında daha fazla bilgi için bkz: [Service Bus kuyrukları, konu başlıkları ve abonelikler](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## <a name="work-with-table-resources"></a>Tablo kaynakları ile çalışma
 

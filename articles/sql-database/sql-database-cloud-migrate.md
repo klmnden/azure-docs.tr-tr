@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 8a31ed948fe9387720db61018e0edded530cd900
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>SQL Server veritabanını buluttaki SQL Veritabanına taşıma
 Bu makalede SQL Server 2005 veya sonraki bir veritabanını Azure SQL Veritabanına geçirmeye yönelik iki birincil yöntem hakkında bilgi verilmektedir. İlk yöntem basittir, ancak geçiş sırasında önemli olabilecek bazı kapalı kalma sürelerine neden olabilir. İkinci yöntem daha karmaşık olmasına karşın, geçiş sırasında kapalı kalma süresini önemli ölçüde ortadan kaldırır.
@@ -39,11 +39,11 @@ Aşağıdaki liste, bu yöntem kullanılarak gerçekleştirilen bir SQL Server v
 
   ![VSSSDT geçiş şeması](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Değerlendirme](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) veritabanı için en son sürümünü kullanarak Uyumluluk [veri geçiş Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Değerlendirme](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) veritabanı için en son sürümünü kullanarak Uyumluluk [veri geçiş Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Transact-SQL betikleri halinde tüm gerekli düzeltmeleri hazırlayın.
 3. Kaynak veritabanı işlemsel olarak tutarlı bir kopyasını geçirilmekte - ve olun kaynak veritabanına daha fazla değişiklik yapılan (veya geçiş tamamlandıktan sonra bu değişiklikleri el ile uygulayabilirsiniz). Bir veritabanını yavaşça çevrimdışına geçirmek için kullanabileceğiniz istemci bağlantısını devre dışı bırakmaktan [veritabanı anlık görüntüsü](https://msdn.microsoft.com/library/ms175876.aspx) oluşturmaya kadar birçok yöntem vardır.
 4. Düzeltmeleri veritabanı kopyasına uygulamak için Transact-SQL betiklerini dağıtın.
-5. [Geçiş](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) veri geçiş Yardımcısı'nı kullanarak yeni bir Azure SQL veritabanı için veritabanı kopyası.
+5. [Geçiş](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) veri geçiş Yardımcısı'nı kullanarak yeni bir Azure SQL veritabanı için veritabanı kopyası.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Geçiş sırasında veri aktarımı performansını en iyi duruma getirme 
 

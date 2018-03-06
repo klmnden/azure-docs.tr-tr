@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: 12250adbfaf8621b80acd5de5de06b21e05ef07c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: fc6f88ee3b808e46e693de7c31b836be86728cd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>Adlandırılmış kimlik doğrulama kimlik bilgilerini ayarlayın
 
@@ -42,6 +42,6 @@ Bir sertifika kendiniz oluşturmak istiyorsanız,'ndaki yönergeleri başvurabil
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Web uygulamaları genel bakış](https://docs.microsoft.com/azure/app-service/)
-- [Uygulamanızı Azure App Service'e dağıtma](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
-- [Visual Studio kullanarak Web İşleri’ni dağıtma](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
+- [Uygulamanızı Azure App Service'e dağıtma](https://docs.microsoft.com/azure/app-service/app-service-deploy-local-git) 
+- [Visual Studio kullanarak Web İşleri’ni dağıtma](https://docs.microsoft.com/azure/app-service/websites-dotnet-deploy-webjobs)
 - [Oluşturma ve bir bulut hizmeti dağıtma](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Hizmet sağlayıcıları için günlük analizi özellikleri
 Günlük analizi, yönetilen hizmet sağlayıcıları (MSP'ler), büyük kuruluşlar, bağımsız yazılım satıcılarının (ISV'ler) ve barındırma hizmeti sağlayıcıları yönetmek ve müşterinin şirket içi veya Bulut altyapı sunucularını izlemek yardımcı olabilir. 
@@ -26,7 +26,7 @@ Günlük analizi, yönetilen hizmet sağlayıcıları (MSP'ler), büyük kurulu�
 Büyük kuruluşlar özellikle yönetmekten sorumlu merkezi bir BT Ekibi olduğunda bu benzer şekilde hizmet sağlayıcıları ile paylaşmak için birçok farklı iş birimleri BT. Kolaylık olması için bu belgede terimini kullanır *hizmet sağlayıcısı* ancak aynı işlevselliği da kuruluşlar ve diğer müşteriler için kullanılabilir.
 
 ## <a name="cloud-solution-provider"></a>Bulut Çözümü Sağlayıcısı
-İş ortakları ve parçası olan hizmet sağlayıcıları için [bulut çözümü sağlayıcısı (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) günlük analizi programdır bulunan Azure hizmetlerinden birini [Azure CSP abonelik](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview). 
+İş ortakları ve parçası olan hizmet sağlayıcıları için [bulut çözümü sağlayıcısı (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) günlük analizi programdır bulunan Azure hizmetlerinden birini [Azure CSP abonelik](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 Aşağıdaki özellikleri günlük analizi için etkinleştirilmiş olan *bulut çözümü sağlayıcısı* abonelikleri.
 

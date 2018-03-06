@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Storm Azure Hdınsight kullanarak sorun giderme
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/04/2017
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Bir küme üzerindeki Storm kullanıcı arabirimini nasıl erişirim?
 Storm kullanıcı Arabirimi bir tarayıcıdan erişirken için iki seçeneğiniz vardır:
 
-### <a name="ambari-ui"></a>Ambari kullanıcı Arabirimi
+### <a name="ambari-ui"></a>Ambari arabiriminden
 1. Ambari panoya gidin.
 2. Hizmetler listesinde seçin **Storm**.
 3. İçinde **hızlı bağlantılar** menüsünde, select **Storm kullanıcı Arabirimi**.
@@ -91,7 +91,7 @@ Geçerli HDP yığını için Storm ikili dosyalarını /usr/hdp/current/storm-c
  
 Birden çok ikili dosyaları /usr/hdp (örneğin, /usr/hdp/2.5.0.1233/storm) belirli HDP sürümlerde için olabilir. Küme üzerinde çalışan en son sürüme symlinked /usr/hdp/current/storm-client klasörüdür.
 
-Daha fazla bilgi için bkz: [SSH kullanarak Hdınsight kümesine bağlanma](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) ve [Storm](http://storm.apache.org/).
+Daha fazla bilgi için bkz: [SSH kullanarak Hdınsight kümesine bağlanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) ve [Storm](http://storm.apache.org/).
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Bir Storm kümesine dağıtım topolojisi nasıl belirlerim?
 İlk olarak, Hdınsight Storm ile yüklenen tüm bileşenler tanımlayın. Storm kümesi dört düğüm kategorilerini oluşur:
@@ -127,10 +127,10 @@ Storm çalışan düğümleri aşağıdaki hizmetleri çalıştırın:
 Storm olay hub'ı spout .jar dosyaları topolojinizi ile kullanma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın.
  
 ### <a name="java-based-topology"></a>Java tabanlı topolojisi
-[Azure Event hubs'tan (Java) hdınsight'ta Storm işlem olayları](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[HDInsight üzerinde Storm ile Azure Event Hubs’tan olay işleme (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C#-topoloji (Mono Hdınsight 3.4 + Linux Storm kümeleri üzerinde) temel
-[HDInsight üzerinde Storm ile Azure Event Hubs’tan olay işleme (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[HDInsight üzerinde Storm ile Azure Event Hubs’tan olay işleme (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
 ### <a name="latest-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Storm event hub'ın en son spout Hdınsight 3.5 + Linux Storm kümeleri için ikili dosyalar
 Hdınsight 3.5 + Linux Storm kümeleri ile çalışır son Storm olay hub'ı spout kullanmayı öğrenmek için mvn depodaki bkz [Benioku dosyasını](https://github.com/hdinsight/mvn-repo/blob/master/README.md).

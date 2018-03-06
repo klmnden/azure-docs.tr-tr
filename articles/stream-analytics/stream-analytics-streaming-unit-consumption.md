@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Anlama ve akış birimi Ayarla
 
@@ -27,7 +27,7 @@ Azure Stream Analytics akış birimleri (SUs) bir işi çalıştırma "weight" p
 
 İşleme akış düşük gecikme süresine ulaşmanız için Azure akış analizi işi tüm işleme bellekte uygulayın. Bellek yetersiz çalıştırırken, iş akışında başarısız olur. Sonuç olarak, bir üretim işi için bir akış projenin kaynak kullanımını izlemek ve 7/24 çalışan işleri tutmak için ayrılmış yeterli kaynak bulunduğundan emin olun önemlidir.
 
-% %0 100 arasında bir yüzde sayı ölçümüdür. Bir iş akışında için en az ayak izini ile SU % kullanımı genellikle %10 20 arasında ölçümüdür. % 80'için zaman zaman ani hesap için aşağıdaki ölçüm tutmak en iyisidir.  Ölçüm üzerinde bir uyarı ayarlayabilirsiniz (bkz [ölçüm uyarıları ayarlamak için burayı](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+% %0 100 arasında bir yüzde sayı ölçümüdür. Bir iş akışında için en az ayak izini ile SU % kullanımı genellikle %10 20 arasında ölçümüdür. % 80'için zaman zaman ani hesap için aşağıdaki ölçüm tutmak en iyisidir.  Ölçüm üzerinde bir uyarı ayarlayabilirsiniz (bkz [ölçüm uyarıları ayarlamak için burayı](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -82,7 +82,7 @@ Bir pencereli toplama durumu boyutunu grubu (kardinalite) işleci grubundaki ora
 
 Sorgu bölümlere ayrıldıktan sonra birden çok düğüme dağıtılır. Sonuç olarak, her bir düğümüne gelen clusterid sayısı saklayarak grubunun kardinalite azaltması işleciyle azalır. 
 
-Olay hub'ı bölümleri azalan adımla gereksinimini ortadan kaldırmak için gruplandırma anahtarı tarafından bölümlenmiş. Ek ayrıntıları ele alınmıştır [burada](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+Olay hub'ı bölümleri azalan adımla gereksinimini ortadan kaldırmak için gruplandırma anahtarı tarafından bölümlenmiş. Ek ayrıntıları ele alınmıştır [burada](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### <a name="temporal-join"></a>Zamana bağlı birleştirme
 Zamana bağlı bir birleşim durumu boyutunu Çarp hareket alanına yer boyutuna göre olay giriş oranıdır katılma zamana bağlı hareket alanına odada olayların sayısının orantılıdır. 
 

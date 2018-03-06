@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure Hibrit Teklifi
 Yazılım Güvencesi ile müşteriler için Windows Server için Azure karma avantajı, şirket içi Windows Server lisanslarınızı kullanın ve Windows sanal makineleri Azure üzerinde sınırlı bir ücret çalıştırmak olanak sağlar. Windows Server için Azure karma avantajı herhangi yeni sanal makineleri dağıtmak için kullanabileceğiniz Azure desteklenen platform Windows Server görüntüsü veya Windows özel görüntüler. Bu makalede Windows Server için Azure karma avantajı olan yeni VM'ler dağıtma ve nasıl varolan güncelleştirebilirsiniz adımları üzerinden VM'ler çalıştıran gider. Windows Server için Azure karma Avantajı hakkında daha fazla bilgi için bkz: Lisans ve maliyet tasarrufu [Windows Server için Azure karma avantajı lisans sayfası](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -58,10 +58,10 @@ Bu görüntüleri doğrudan Azure portalından dağıtabilirsiniz. Resource Mana
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-Adımlarını izleyin [PowerShell ile Windows sanal makine oluşturma](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) ve LicenseType değeri geçirin = "Windows_Server". Bu seçenek, Azure üzerinde var olan Windows Server lisansınızı kullanmanıza olanak sağlar.
+Adımlarını izleyin [PowerShell ile Windows sanal makine oluşturma](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) ve LicenseType değeri geçirin = "Windows_Server". Bu seçenek, Azure üzerinde var olan Windows Server lisansınızı kullanmanıza olanak sağlar.
 
 ### <a name="portal"></a>Portal
-Adımlarını izleyin [Azure portalı ile Windows sanal makine oluşturma](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) ve var olan Windows Server lisansınızı kullanma seçeneğini seçin.
+Adımlarını izleyin [Azure portalı ile Windows sanal makine oluşturma](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ve var olan Windows Server lisansınızı kullanma seçeneğini seçin.
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure karma avantajı kullanarak mevcut bir VM'yi Dönüştür
 Windows Server için Azure karma avantajı yararlanmak için dönüştürmek istediğiniz mevcut bir VM'yi varsa, VM lisans türü aşağıdaki gibi güncelleştirebilirsiniz:
@@ -181,17 +181,17 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-Ayrıca [oluşturma ve bir sanal makine ölçek kümesi dağıtma](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) ve LicenseType değeri özelliğini ayarlayın
+Ayrıca [oluşturma ve bir sanal makine ölçek kümesi dağıtma](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) ve LicenseType değeri özelliğini ayarlayın
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinin [Azure karma avantajı paradan tasarruf etme](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Daha fazla bilgi edinmek [ayrıntılı kılavuz lisans Windows Server için Azure karma avantajı](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
+Daha fazla bilgi edinmek [ayrıntılı kılavuz lisans Windows Server için Azure karma avantajı](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 
 Daha fazla bilgi edinmek [kullanarak Resource Manager şablonları](../../azure-resource-manager/resource-group-overview.md)
 
 Daha fazla bilgi edinmek [Windows Server için Azure karma avantajı Azure Site Recovery yapıp Azure uygulamaları geçirme daha uygun maliyetli](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 
-Daha fazla bilgi edinmek [çok kullanıcılı barındırma hakkına sahip Azure üzerinde Windows 10](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+Daha fazla bilgi edinmek [çok kullanıcılı barındırma hakkına sahip Azure üzerinde Windows 10](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Daha fazla bilgi edinin [sık sorulan sorular](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 
@@ -32,7 +32,7 @@ Geliştirme sürecinin güvenli olduğundan emin olmak için uygulama gizli ayar
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET ve .NET core uygulamaları
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Kaynak denetimi klasörüne dışında kullanıcı deposunda gizli ayarlarını Kaydet
-Hızlı bir prototip yapmakta olduğunuz veya internet erişimi yoksa, gizli ayarlarınızı kaynak denetimi klasörü dışında kullanıcı gizliliği depoya taşımak ile başlatın. Kullanıcı gizli deposu gizli kaynak denetimine iade edilmez şekilde kullanıcı profil oluşturucu klasörü altında kaydedilen bir dosyadır. Aşağıdaki diyagramda gösterilmiştir nasıl [kullanıcı gizliliği](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) çalışır.
+Hızlı bir prototip yapmakta olduğunuz veya internet erişimi yoksa, gizli ayarlarınızı kaynak denetimi klasörü dışında kullanıcı gizliliği depoya taşımak ile başlatın. Kullanıcı gizli deposu gizli kaynak denetimine iade edilmez şekilde kullanıcı profil oluşturucu klasörü altında kaydedilen bir dosyadır. Aşağıdaki diyagramda gösterilmiştir nasıl [kullanıcı gizliliği](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) çalışır.
 
 ![Kullanıcı parolası gizli ayarları kaynak denetimi dışında tutar](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ Bir takım projesi geliştirme ve kaynak kodu güvenli bir şekilde paylaşmaya 
 
     ![Azure anahtar kasası oluşturma](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Sizin ve ekip üyelerinizin anahtar Kasası'na erişim verin. Büyük bir ekibiniz varsa, oluşturabileceğiniz bir [Azure Active Directory grubu](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) ve bu güvenlik grubu erişim anahtar Kasası'na ekleyin. İçinde *gizli izinleri* açılan listesinde, onay *almak* ve *listesi* altında *gizli yönetim işlemlerini*.
+2. Sizin ve ekip üyelerinizin anahtar Kasası'na erişim verin. Büyük bir ekibiniz varsa, oluşturabileceğiniz bir [Azure Active Directory grubu](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) ve bu güvenlik grubu erişim anahtar Kasası'na ekleyin. İçinde *gizli izinleri* açılan listesinde, onay *almak* ve *listesi* altında *gizli yönetim işlemlerini*.
 
     ![Anahtar kasası Erişim İlkesi Ekle](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

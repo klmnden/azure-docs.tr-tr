@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric güvenliğine genel bakış
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) paketini, dağıtmak ve ölçeklenebilir ve güvenilir mikro daha kolay hale getirir dağıtılmış sistemler platformudur. Service Fabric geliştirme ve bulut uygulamalarını yönetme önemli sorunları giderir. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar.
@@ -50,7 +50,7 @@ Windows üzerinde çalışan Azure veya tek başına kümelerinde çalışan kü
 
 Service Fabric bir küme oluştururken belirttiğiniz X.509 sertifikaları kullanır. Bu sertifikalar nedir ve nasıl elde veya bunları oluşturmanız Hızlı bakış için bkz: [sertifikalarla çalışma](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-Azure portalı, Azure Resource Manager şablonları veya tek başına JSON şablon ile Küme oluşturduğunuzda, sertifika güvenliği yapılandırın. Birincil bir sertifika ve sertifika rollover için kullanılan isteğe bağlı ikincil bir sertifika belirtebilirsiniz. Belirttiğiniz birincil ve ikincil sertifikalar için belirlediğiniz salt okunur istemci sertifikalarını ve yönetici istemci farklı [istemcisi düğümü güvenlik](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+Azure portalı, Azure Resource Manager şablonları veya tek başına JSON şablon ile Küme oluşturduğunuzda, sertifika güvenliği yapılandırın. Birincil bir sertifika ve sertifika rollover için kullanılan isteğe bağlı ikincil bir sertifika belirtebilirsiniz. Belirttiğiniz birincil ve ikincil sertifikalar için belirlediğiniz salt okunur istemci sertifikalarını ve yönetici istemci farklı [istemcisi düğümü güvenlik](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### <a name="client-to-node-security"></a>İstemcisi düğümü güvenlik
 İstemcisi düğümü güvenlik istemci kimlikleri kullanarak yapılandırın. Bir istemci ve küme arasında güven oluşturmak için hangi istemci, güvenilir kimlikleri bilmeniz küme yapılandırmanız gerekir. Bu iki farklı şekillerde yapılabilir:

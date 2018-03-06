@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure şifreleme teknolojilerini: rest şifrelemeli kişisel verileri korumak
 
@@ -57,7 +57,7 @@ Birden çok Araçlar ve teknolojiler kalan kişisel verileri şifreleyerek korum
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-[Azure anahtar kasası](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) Azure Hizmetleri, kalan verileri şifrelemek için kullanılan anahtarları için güvenli depolama sağlar ve önerilen anahtar depolama ve yönetimi çözümüdür. Şifreleme anahtar yönetimi, depolanan verilerin güvenliğini sağlamak için gereklidir.
+[Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) Azure Hizmetleri, kalan verileri şifrelemek için kullanılan anahtarları için güvenli depolama sağlar ve önerilen anahtar depolama ve yönetimi çözümüdür. Şifreleme anahtar yönetimi, depolanan verilerin güvenliğini sağlamak için gereklidir.
 
 #### <a name="how-do-i-use-azure-key-vault-to-protect-keys-that-encrypt-personal-data"></a>Kişisel veri şifreleme anahtarlarınızı korumak için Azure anahtar kasası nasıl kullanırım?
 
@@ -79,13 +79,13 @@ Azure anahtar kasası yazılımla korunan anahtardan sizin için sağlayabilir v
 
 Ayrıca, yerel HSM'NİZDE bir anahtar oluşturmak ve bunu Hsm'lerine anahtar kasası hizmetindeki HSM sınırını terk anahtar olmadan aktarabilirsiniz.
 
-Azure anahtar kasası kullanma hakkında ayrıntılı yönergeleri için adımlarda [Azure anahtar kasası ile çalışmaya başlama.](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started)
+Azure anahtar kasası kullanma hakkında ayrıntılı yönergeleri için adımlarda [Azure anahtar kasası ile çalışmaya başlama.](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
 
-Azure anahtar kasası ile kullanılan PowerShell cmdlet'leri listesi için bkz: [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+Azure anahtar kasası ile kullanılan PowerShell cmdlet'leri listesi için bkz: [AzureRM.KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ### <a name="azure-disk-encryption-for-windows"></a>Windows için Azure Disk şifrelemesi
 
-[Azure Disk şifrelemesi for Windows ve Linux Iaas VM'ler](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) Azure sanal makinelerde rest kişisel verilerinizi korur ve Azure anahtar kasası ile tümleşir. Azure Disk şifrelemesi kullanan [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) Windows ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) Linux işletim sistemi ve veri diskleri şifrelemek için de. Azure Disk şifrelemesi, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 ve Windows 8 ve Windows 10 istemcileri desteklenir.
+[Azure Disk şifrelemesi for Windows ve Linux Iaas VM'ler](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) Azure sanal makinelerde rest kişisel verilerinizi korur ve Azure anahtar kasası ile tümleşir. Azure Disk şifrelemesi kullanan [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) Windows ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) Linux işletim sistemi ve veri diskleri şifrelemek için de. Azure Disk şifrelemesi, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 ve Windows 8 ve Windows 10 istemcileri desteklenir.
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>Azure Disk şifrelemesi kişisel verilerinizi korumak için nasıl kullanırım?
 
@@ -103,11 +103,11 @@ Azure Disk şifrelemesi desteklemek için anahtar kasanızı ayarladığınızda
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-Ayrıntılı yönergeler belirli dağıtım senaryoları ve kullanıcı deneyimleri için dahil edilmiştir [için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler.](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+Ayrıntılı yönergeler belirli dağıtım senaryoları ve kullanıcı deneyimleri için dahil edilmiştir [için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler.](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="azure-storage-service-encryption"></a>Azure Depolama Hizmeti Şifrelemesi
 
-[Azure Storage hizmeti şifreleme (SSE) bekleyen veri için](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) korumak ve Kuruluş güvenliği ve uyumluluğu taahhüt karşılamak için verilerinizi korumaya yardımcı olur. Azure depolama otomatik olarak depolama birimine devam ettirmeden önce 256 bit AES şifreleme kullanarak, verilerinizi şifreler ve alma önce şifresini çözer. Bu hizmet, Azure BLOB'ları ve dosyaları için kullanılabilir.
+[Azure Storage hizmeti şifreleme (SSE) bekleyen veri için](https://docs.microsoft.com/azure/storage/storage-service-encryption) korumak ve Kuruluş güvenliği ve uyumluluğu taahhüt karşılamak için verilerinizi korumaya yardımcı olur. Azure depolama otomatik olarak depolama birimine devam ettirmeden önce 256 bit AES şifreleme kullanarak, verilerinizi şifreler ve alma önce şifresini çözer. Bu hizmet, Azure BLOB'ları ve dosyaları için kullanılabilir.
 
 #### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>Depolama hizmeti şifrelemesi kişisel verilerinizi korumak için nasıl kullanırım?
 
@@ -129,13 +129,13 @@ Yeni veri şifrelenir. Bu depolama hesabı var olan dosyalardaki veriler şifrel
 
 Veri şifreleme etkinleştirdikten sonra aşağıdaki yöntemlerden birini kullanarak depolama hesabına kopyalayın:
 
-1. BLOB'ları veya dosyaları kopyalama [AzCopy komut satırı yardımcı programı](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+1. BLOB'ları veya dosyaları kopyalama [AzCopy komut satırı yardımcı programı](https://docs.microsoft.com/azure/storage/storage-use-azcopy).
 
-2. [SMB kullanan bir dosya paylaşımını bağlama](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows) dosyaları kopyalamak için Robocopy gibi bir yardımcı programını kullanabilirsiniz.
+2. [SMB kullanan bir dosya paylaşımını bağlama](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows) dosyaları kopyalamak için Robocopy gibi bir yardımcı programını kullanabilirsiniz.
 
-3. Depolama hesaplarını kullanarak blob veya dosya verileri için ve blob depolamadan veya arasında kopyalamak [depolama istemcisi kitaplıklarını .NET gibi](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
+3. Depolama hesaplarını kullanarak blob veya dosya verileri için ve blob depolamadan veya arasında kopyalamak [depolama istemcisi kitaplıklarını .NET gibi](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Kullanım bir [Depolama Gezgini](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) BLOB Depolama hesabınıza şifreleme ile karşıya yüklemek için.
+4.  Kullanım bir [Depolama Gezgini](https://docs.microsoft.com/azure/storage/storage-explorers) BLOB Depolama hesabınıza şifreleme ile karşıya yüklemek için.
 
 ### <a name="transparent-data-encryption"></a>Saydam Veri Şifrelemesi
 
@@ -159,7 +159,7 @@ REST API kullanarak veya PowerShell kullanarak Azure portalı üzerinden TDE yap
 
 ![Veri şifrelemeyi etkinleştirme](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-TDE etkinleştirmek yönergeler ve TDE korumalı veritabanları ve daha fazlasını çözme hakkında bilgi makalesinde bulunan [saydam veri şifrelemesi ile Azure SQL veritabanı.](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
+TDE etkinleştirmek yönergeler ve TDE korumalı veritabanları ve daha fazlasını çözme hakkında bilgi makalesinde bulunan [saydam veri şifrelemesi ile Azure SQL veritabanı.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
 
 ## <a name="summary"></a>Özet
 
@@ -169,10 +169,10 @@ Azure verileri şifrelemek için kullanılan anahtarları korumak için şirket 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Disk şifrelemesi sorun giderme kılavuzu](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Azure Disk şifrelemesi sorun giderme kılavuzu](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Azure sanal Makine'yi şifreleme](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Azure sanal Makine'yi şifreleme](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Azure Data Lake Store'da verilerin şifrelenmesi](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Azure Data Lake Store'da verilerin şifrelenmesi](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Bekleyen Azure Cosmos DB veritabanı şifreleme](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Bekleyen Azure Cosmos DB veritabanı şifreleme](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)

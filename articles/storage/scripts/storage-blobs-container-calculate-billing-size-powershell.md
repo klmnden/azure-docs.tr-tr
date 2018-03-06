@@ -15,11 +15,11 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: a9d7cc69fbbd037a553e877ca9c26d84c376ccc0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c37b416578a76e9b12e29d68e413d851796ccc6f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Bir blob kapsayıcısını toplam fatura boyutu hesaplanamıyor
 
@@ -86,7 +86,7 @@ Aşağıdaki hesaplamaları blob harcanan depolama alanı miktarı tahmin etmek 
     - Son değiştirme tarihi
     - Boyut
     - Cache-Control
-    - İçerik türü
+    - Content-Type
     - İçerik dili
     - İçerik kodlama
     - Content-MD5
@@ -125,6 +125,6 @@ Aşağıdaki hesaplamaları blob harcanan depolama alanı miktarı tahmin etmek 
 
 - Azure Storage faturalama hakkında daha fazla bilgi için bkz: [anlama Windows Azure depolama faturalama](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.1).
+- Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1).
 
 - Ek depolama PowerShell komut dosyası örnekleri bulabilirsiniz [Azure Storage PowerShell örnekleri](../blobs/storage-samples-blobs-powershell.md).

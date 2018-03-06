@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Akıllı Öngörüler Azure SQL veritabanı performans tanılama günlüğü kullanın
 
@@ -89,7 +89,7 @@ Algılandı, performans sorunu tanılamada yüzdelik ayrıntıları günlük dos
 | Artan MAXDOP | <li>Sorgu karmaları</li><li>CXP bekleme süreleri</li><li>Kez bekleyin</li> |
 | Pagelatch çakışması | <li>Çekişme neden sorguların karmaları sorgulama</li> |
 | Dizin eksik | <li>Sorgu karmaları</li> |
-| Yeni sorgu | <li>Yeni sorgular sorgu karması</li> |
+| Yeni Sorgu | <li>Yeni sorgular sorgu karması</li> |
 | Olağan dışı bekleme İstatistiği | <li>Olağan dışı bekleme türleri</li><li>Sorgu karmaları</li><li>Sorgu bekleme süreleri</li> |
 | TempDB çakışması | <li>Çekişme neden sorguların karmaları sorgulama</li><li>Genel veritabanı pagelatch Çekişme bekleme süresi [%] için sorgu attribution</li> |
 | Esnek havuz DTU azalması | <li>Esnek havuz</li><li>Üst DTU tüketen veritabanı</li><li>Havuz üst tüketici tarafından kullanılan DTU yüzdesi</li> |
@@ -98,7 +98,7 @@ Algılandı, performans sorunu tanılamada yüzdelik ayrıntıları günlük dos
 | İstemci yavaş | <li>Sorgu karmaları</li><li>Kez bekleyin</li> |
 | Fiyatlandırma katmanı indirgeme | <li>Metin bildirimi</li> |
 
-### <a name="impact"></a>Etkisi
+### <a name="impact"></a>Etki
 
 Etkisi (etki algılanan davranış ne kadar katkıda bulunan bir veritabanı sahip sorun özelliği tanımlar). 3 yüksek katkı olarak 3, 2 olarak orta ve düşük katkı olarak 1 ile 1 arasında etkiler. Etkisi değeri, gereksinimlerinize bağlı olarak özel uyarı Otomasyon için bir giriş olarak kullanılıyor olabilir. Özellik sorguları, belirli bir algılama tarafından etkilenen karmaları sorgu listesini etkilenen (QueryHashes) sağlar.
 
@@ -139,13 +139,13 @@ Akıllı Öngörüler performans günlüğü son parçası tanımlanan performan
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Akıllı Öngörüler performans günlüğü ile kullanabileceğiniz [Azure günlük analizi]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) veya bir üçüncü taraf çözümü uyarı ve raporlama özellikleri özel DevOps için.
+Akıllı Öngörüler performans günlüğü ile kullanabileceğiniz [Azure günlük analizi]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) veya bir üçüncü taraf çözümü uyarı ve raporlama özellikleri özel DevOps için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hakkında bilgi edinin [akıllı Öngörüler](sql-database-intelligent-insights.md) kavramları.
 - Bilgi edinmek için nasıl [akıllı Insights ile Azure SQL veritabanı performans sorunlarını giderme](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Bilgi edinmek için nasıl [Azure SQL analizi kullanarak Azure SQL veritabanı izleme](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- Bilgi edinmek için nasıl [toplamak ve Azure kaynaklarınızdan günlük verilerini tüketen](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Bilgi edinmek için nasıl [Azure SQL analizi kullanarak Azure SQL veritabanı izleme](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Bilgi edinmek için nasıl [toplamak ve Azure kaynaklarınızdan günlük verilerini tüketen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

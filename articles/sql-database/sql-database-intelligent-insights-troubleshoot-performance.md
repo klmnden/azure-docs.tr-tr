@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Insights ile Azure SQL veritabanı performans sorunlarını giderme
 
@@ -52,7 +52,7 @@ Akıllı Öngörüler otomatik olarak algılar performans sorunlarını SQL sorg
 | [Fiyatlandırma katmanı indirgeme](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Bir fiyatlandırma katmanı indirgeme eylemi, SQL veritabanı performansını etkiler kullanılabilir kaynaklar azaltılabilir. |
 
 > [!TIP]
-> SQL veritabanı sürekli performansı iyileştirmek için etkinleştirme [Azure SQL veritabanı otomatik ayarlama](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). SQL veritabanı yerleşik zekaya'Bu benzersiz özellik sürekli SQL veritabanınız izler, otomatik olarak dizinler ayarladığını ve sorgu yürütme planı düzeltmeleri uygular.
+> SQL veritabanı sürekli performansı iyileştirmek için etkinleştirme [Azure SQL veritabanı otomatik ayarlama](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). SQL veritabanı yerleşik zekaya'Bu benzersiz özellik sürekli SQL veritabanınız izler, otomatik olarak dizinler ayarladığını ve sorgu yürütme planı düzeltmeleri uygular.
 >
 
 Aşağıdaki bölümde daha ayrıntılı daha önce listelenen algılanabilir performans desenleri açıklar.
@@ -63,7 +63,7 @@ Aşağıdaki bölümde daha ayrıntılı daha önce listelenen algılanabilir pe
 
 Bu algılanabilir performans düzeni, kullanılabilir kaynak sınırları, çalışan sınırları ve oturum sınırları ulaşmak için ilgili performans sorunlarını birleştirir. Bu performans sorununu saptadıktan sonra tanılama günlüğünün açıklama alanı performans sorunu kaynak, çalışan veya oturum sınırları ilgili olup olmadığını gösterir.
 
-SQL veritabanı kaynaklardaki genellikle denir [DTU kaynaklarını](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). Bunlar, CPU ve g/ç (veri ve işlem günlüğü g/ç) kaynakları oluşan karışık bir ölçüyü oluşur. Kaynak sınırları ulaşmasını desenini algılandığında tanınır sorgu performansında ölçülen kaynak sınırları hiçbirini ulaşmasını nedeni.
+SQL veritabanı kaynaklardaki genellikle denir [DTU kaynaklarını](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Bunlar, CPU ve g/ç (veri ve işlem günlüğü g/ç) kaynakları oluşan karışık bir ölçüyü oluşur. Kaynak sınırları ulaşmasını desenini algılandığında tanınır sorgu performansında ölçülen kaynak sınırları hiçbirini ulaşmasını nedeni.
 
 Oturum sınırları kaynak SQL veritabanı için kullanılabilir eşzamanlı oturum açma sayısını ifade eder. SQL veritabanları için bağlı olan uygulamalar veritabanına kullanılabilir eşzamanlı oturum açma sayısı üst sınırına ulaştınız olduğunda bu performans deseni tanınır. Uygulamalar bir veritabanında mevcut olandan daha fazla oturumları kullanmayı denerseniz, sorgu performansı etkilenir.
 
@@ -75,7 +75,7 @@ Tanılama Günlüğü, performans ve kaynak tüketimi yüzdeleri etkilenen sorgu
 
 Kullanılabilir oturum sınırları ulaştıysanız, veritabanında yapılan oturum açma sayısı azaltılarak, uygulamalarınızı en iyi duruma getirebilirsiniz. Veritabanı, uygulamalardan oturumu sayısını azaltın yapamıyorsanız, fiyatlandırma katmanı, veritabanınızın artırmayı düşünün. Veya bölme ve veritabanınızı daha dengelenmiş bir iş yükü dağıtım için birden çok veritabanı içine taşıyın.
 
-Oturum sınırları çözme ile ilgili daha fazla öneriler için bkz: [SQL veritabanı en fazla oturum açma sınırları ile nasıl](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Abonelik katmanı için kullanılabilir kaynak sınırları öğrenmek için bkz: [SQL veritabanı kaynak sınırları](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+Oturum sınırları çözme ile ilgili daha fazla öneriler için bkz: [SQL veritabanı en fazla oturum açma sınırları ile nasıl](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Abonelik katmanı için kullanılabilir kaynak sınırları öğrenmek için bkz: [SQL veritabanı kaynak sınırları](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## <a name="workload-increase"></a>İş yükü artış
 
@@ -145,7 +145,7 @@ SQL veritabanı MAXDOP sunucu yapılandırma seçeneğini kaç CPU çekirdekleri
 
 Tanılama günlük bunlar olması gereken birden fazla paralel birkaç ölçeklendirin için kendisi için yürütme süresi artar sorguları ilişkili sorgu karmaları çıkarır. Günlük CXP bekleme süresini de çıkarır. Bu süre sonuçları birleştirme ve şimdi taşıma önce tamamlamak tüm diğer iş parçacıkları için bekleyen bir tek bir düzenleyici/Düzenleyici iş parçacığı (iş parçacığı 0) süresini temsil eder. Ayrıca, düşük performanslı sorguları yürütme genel bekliyorduk bekleme süresini tanılama günlük çıkarır. Sorun giderme için temel olarak bu bilgileri kullanabilirsiniz.
 
-İlk olarak, en iyi duruma getirme veya karmaşık sorgular basitleştirin. Uzun toplu işler içine küçük olanları bölmeniz iyi uygulamadır. Ayrıca, sorgularınızı desteklemek için dizinler oluşturduğunuzdan emin olun. Zayıf gerçekleştirme olarak işaretlenmiş bir sorgu için maksimum paralellik derecesi (MAXDOP) el ile de uygulayabilir. Bu işlem, T-SQL kullanarak yapılandırmak için bkz: [MAXDOP sunucu yapılandırma seçeneğini yapılandırma](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+İlk olarak, en iyi duruma getirme veya karmaşık sorgular basitleştirin. Uzun toplu işler içine küçük olanları bölmeniz iyi uygulamadır. Ayrıca, sorgularınızı desteklemek için dizinler oluşturduğunuzdan emin olun. Zayıf gerçekleştirme olarak işaretlenmiş bir sorgu için maksimum paralellik derecesi (MAXDOP) el ile de uygulayabilir. Bu işlem, T-SQL kullanarak yapılandırmak için bkz: [MAXDOP sunucu yapılandırma seçeneğini yapılandırma](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 MAXDOP sunucu yapılandırma seçeneği SQL veritabanı tek bir sorgu yürütme iş parçacığı paralel hale tüm kullanılabilir mantıksal CPU çekirdekleri kullanabileceğiniz varsayılan bir değer gösterir olarak sıfır (0) ayarlama. Ayarı birine (1) MAXDOP gösterir, yalnızca bir çekirdek tek bir sorgu yürütme için kullanılabilir. Pratikteki, bu paralellik devre dışı anlamına gelir. Servis talebi başına servis talebi temel bağlı olarak veritabanı ve tanılama için kullanılabilir çekirdekler bilgileri günlüğe kaydeder, durumunuz sorunu çözebilecek paralel sorgu yürütme için kullanılan çekirdek sayısı MAXDOP seçeneğine ayarlayabilirsiniz.
 
@@ -191,7 +191,7 @@ Tanılama günlük iş yükü performansını etkileyen için tanımlanmış sor
 > SQL veritabanı sürekli performansı iyileştirmek için etkinleştirmenizi öneririz [SQL veritabanı otomatik ayarlama](sql-database-automatic-tuning.md). SQL veritabanı yerleşik zekaya'Bu benzersiz özellik sürekli SQL veritabanınız izler ve otomatik olarak ayarladığını ve veritabanınız için dizin oluşturur.
 >
 
-## <a name="new-query"></a>Yeni sorgu
+## <a name="new-query"></a>Yeni Sorgu
 
 ### <a name="what-is-happening"></a>Ne oluyor
 
@@ -231,7 +231,7 @@ Bu algılanabilir performans deseni tempDB kaynaklara erişmeye çalışan iş p
 
 Tanılama günlük tempDB Çekişme ayrıntıları çıkarır. Sorun giderme için başlangıç noktası olarak bilgileri kullanabilirsiniz. Bu tür bir çakışma hafifletmek ve genel iş yükünün verimliliği artırmak için pursue iki şey vardır: geçici tabloları kullanarak durdurabilirsiniz. Bellek için iyileştirilmiş tablolar de kullanabilirsiniz. 
 
-Daha fazla bilgi için bkz: [bellek için iyileştirilmiş tablolara giriş](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Daha fazla bilgi için bkz: [bellek için iyileştirilmiş tablolara giriş](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## <a name="elastic-pool-dtu-shortage"></a>Esnek havuz DTU azalması
 
@@ -328,10 +328,10 @@ Azure SQL analizi giderek Azure portalı üzerinden akıllı Öngörüler erişi
 > [!TIP]
 > Bir PDF sürümünü indirmek için akış çizelgesi seçin.
 
-Akıllı Öngörüler genellikle bir saat performans sorunu kök neden çözümlemesi yapmak için zaman gerekir. Akıllı öngörü sorununuzu bulunamıyor ve sizin için önemli ise, Query Store el ile performans sorunu kök nedenini belirlemek için kullanın. (Genellikle, bu sorunları değerinden bir saat öncesine aittir.) Daha fazla bilgi için bkz: [Query Store kullanarak performansı izleyerek](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Akıllı Öngörüler genellikle bir saat performans sorunu kök neden çözümlemesi yapmak için zaman gerekir. Akıllı öngörü sorununuzu bulunamıyor ve sizin için önemli ise, Query Store el ile performans sorunu kök nedenini belirlemek için kullanın. (Genellikle, bu sorunları değerinden bir saat öncesine aittir.) Daha fazla bilgi için bkz: [Query Store kullanarak performansı izleyerek](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bilgi [akıllı Öngörüler](sql-database-intelligent-insights.md) kavramları.
 - Kullanım [akıllı Öngörüler Azure SQL veritabanı performans tanılama günlük](sql-database-intelligent-insights-use-diagnostics-log.md).
-- İzleyici [Azure SQL analizi kullanarak Azure SQL veritabanı](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- İzleyici [Azure SQL analizi kullanarak Azure SQL veritabanı](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Öğrenme [toplamak ve Azure kaynaklarınızdan günlük verilerini tüketen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

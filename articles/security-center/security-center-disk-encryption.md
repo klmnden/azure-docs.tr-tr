@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure Sanal Makine'yi şifreleme
 Şifrelenmemiş sanal makineleriniz varsa Azure Güvenlik Merkezi sizi uyarır. Bu uyarılar Yüksek Önem Derecesine Sahip olarak gösterilir ve bu sanal makineleri şifrelemeniz önerilir.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ![Disk şifreleme önerisi](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> Bu belgedeki bilgiler bir Anahtar Şifreleme Anahtarı (Azure Backup kullanarak sanal makineleri yedeklemek için gereklidir) kullanmadan sanal makineleri şifreleme işlemiyle ilgilidir. Şifrelenmiş Azure Sanal Makineler için Azure Backup’ı desteklemek üzere Anahtar Şifreleme Anahtarı’nı kullanma hakkında bilgi için lütfen [Windows ve Linux Azure Sanal Makineleri için Azure Disk Şifrelemesi](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) makalesine bakın.
+> Bu belgedeki bilgiler bir Anahtar Şifreleme Anahtarı (Azure Backup kullanarak sanal makineleri yedeklemek için gereklidir) kullanmadan sanal makineleri şifreleme işlemiyle ilgilidir. Şifrelenmiş Azure Sanal Makineler için Azure Backup’ı desteklemek üzere Anahtar Şifreleme Anahtarı’nı kullanma hakkında bilgi için lütfen [Windows ve Linux Azure Sanal Makineleri için Azure Disk Şifrelemesi](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) makalesine bakın.
 >
 >
 

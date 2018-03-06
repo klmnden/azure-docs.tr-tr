@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 680b996e370f66a5e22644ae1d1bf41d314bb4de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6dc89bda31af35e4c7eb0f2255db301b39ac05eb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric ölçeklendirme
 Azure Service Fabric, hizmetler, bölümler ve çoğaltmalar bir küme düğümlerinde yöneterek ölçeklenebilir uygulamalar oluşturmanızı kolaylaştırır. Aynı donanımda birçok iş yükü çalıştıran en fazla kaynak kullanımı sağlar, ancak aynı zamanda, iş yüklerinin ölçeğini seçiminizi açısından esneklik sağlar. 
@@ -69,7 +69,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Hizmetleri adlı ölçek oluşturma veya yeni kaldırma
 Bir adlandırılmış hizmet örneği bir hizmet türünün belirli bir örneği olan (bkz [Service Fabric uygulama yaşam döngüsü](service-fabric-application-lifecycle.md)) kümedeki bazı Adlandırılmış uygulama örneği içinde. 
 
-Yeni adlı hizmet örneği oluşturulan (daha az veya meşgul hale Hizmetleri olarak veya kaldırılabilir). Bu, genellikle yükü azaltmak için mevcut hizmetleri sağlayan daha fazla hizmet örnekleri arasında yaymak isteklere izin verir. Hizmetleri oluştururken Service Fabric kümesi kaynak yöneticisi hizmetleri küme dağıtılmış bir şekilde yerleştirir. Tam kararları tarafından yönetilir [ölçümleri](service-fabric-cluster-resource-manager-metrics.md) kümenin ve diğer yerleştirme kuralları. Hizmetleri birkaç farklı şekilde oluşturulabilir, ancak en yaygın birisi çağırma gibi yönetim eylemleri yoluyla olan [ `New-ServiceFabricService` ](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), veya kod arama [ `CreateServiceAsync` ](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`bile gelen kümede çalışan diğer hizmetler içinde çağrılabilir.
+Yeni adlı hizmet örneği oluşturulan (daha az veya meşgul hale Hizmetleri olarak veya kaldırılabilir). Bu, genellikle yükü azaltmak için mevcut hizmetleri sağlayan daha fazla hizmet örnekleri arasında yaymak isteklere izin verir. Hizmetleri oluştururken Service Fabric kümesi kaynak yöneticisi hizmetleri küme dağıtılmış bir şekilde yerleştirir. Tam kararları tarafından yönetilir [ölçümleri](service-fabric-cluster-resource-manager-metrics.md) kümenin ve diğer yerleştirme kuralları. Hizmetleri birkaç farklı şekilde oluşturulabilir, ancak en yaygın birisi çağırma gibi yönetim eylemleri yoluyla olan [ `New-ServiceFabricService` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), veya kod arama [ `CreateServiceAsync` ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync`bile gelen kümede çalışan diğer hizmetler içinde çağrılabilir.
 
 Oluşturma Hizmetleri dinamik olarak her türlü içinde kullanılabilir ve ortak bir deseni. Örneğin, belirli bir iş akışı temsil eden bir durum bilgisi olan hizmet göz önünde bulundurun. İş temsil eden çağrıları bu hizmete görünmesini olacak ve bu iş akışı ve kayıt ilerleme adımlarına yürütmek için bu hizmet geçiyor. 
 

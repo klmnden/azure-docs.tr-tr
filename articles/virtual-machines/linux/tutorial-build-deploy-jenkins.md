@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Jenkins ve Team Services kullanarak Linux VM'ler için uygulamanızı dağıtma
 
@@ -40,7 +40,7 @@ Yapacaklarınız:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-* Jenkins sunucuya erişmeniz gerekir. Jenkins server henüz oluşturmadıysanız, bkz: [Jenkins asıl bir Azure sanal makinede oluşturmak](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* Jenkins sunucuya erişmeniz gerekir. Jenkins server henüz oluşturmadıysanız, bkz: [Jenkins asıl bir Azure sanal makinede oluşturmak](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Team Services hesabınızda oturum açın (**https://{youraccount}.visualstudio.com**). 
   Alabileceğiniz bir [serbest Team Services hesabı](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -48,9 +48,9 @@ Yapacaklarınız:
   > [!NOTE]
   > Daha fazla bilgi için bkz: [Team Services Bağlan](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  Linux sanal makine için bir dağıtım hedef gerekir.  Daha fazla bilgi için bkz: [oluşturma ve Azure CLI ile Linux sanal makineleri yönetme](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  Linux sanal makine için bir dağıtım hedef gerekir.  Daha fazla bilgi için bkz: [oluşturma ve Azure CLI ile Linux sanal makineleri yönetme](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Gelen bağlantı noktası 80, sanal makine için açın. Daha fazla bilgi için bkz: [Azure Portalı'nı kullanarak ağ güvenlik grupları oluşturma](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Gelen bağlantı noktası 80, sanal makine için açın. Daha fazla bilgi için bkz: [Azure Portalı'nı kullanarak ağ güvenlik grupları oluşturma](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## <a name="get-the-sample-app"></a>Örnek uygulamayı Al
 
@@ -132,7 +132,7 @@ Gereksinim duyduğunuz bir [dağıtım grubu](https://www.visualstudio.com/docs/
    > Aşağıdaki yordamda, önkoşulları yüklediğinizden emin olun ve *komut dosyası sudo ayrıcalıklarıyla çalıştırmayın.*
 
 1. Açmak **sürümleri** sekmesinde **yapı &amp; sürüm** hub'ı Aç **dağıtım grupları**seçip **+ yeni**.
-2. Dağıtım grubu ve isteğe bağlı bir açıklama için bir ad girin. Ardından **oluşturma**.
+2. Dağıtım grubu ve isteğe bağlı bir açıklama için bir ad girin. Ardından **Oluştur**’u seçin.
 3. Dağıtım hedef sanal makine için işletim sistemi seçin. Örneğin, seçin **Ubuntu 16.04 +**.
 4. Seçin **kişisel erişim belirteci kimlik doğrulaması için betik kullanmak**.
 5. Seçin **sistem önkoşulları** bağlantı. Bir işletim sistemi için önkoşullarını yükleyin.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sujie
-ms.openlocfilehash: 8e3f1ae6739896dfd1329561dbcede38a6069546
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio için Azure Stream Analytics araçlarını kullanın
 Visual Studio için Azure Stream Analytics araçları artık genel olarak kullanılabilir. Bu araçları yanı sıra gidermek karmaşık sorgular yazmak Stream Analytics kullanıcılar için daha zengin bir deneyim sağlamak ve hatta sorguları yerel olarak yazma. Ayrıca, bir Visual Studio projeye Stream Analytics işi dışa aktarabilirsiniz.
@@ -40,7 +40,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:
 
 * Öğreticide adımları "Stream Analytics işi oluştur" en son [akış analizi kullanarak bir IOT çözümü derleme](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Visual Studio 2017, Visual Studio 2015 ve Visual Studio 2013 güncelleştirme 4 yükleyin. Enterprise (Ultimate/Premium), Professional ve topluluk sürümleri desteklenir. Express sürümü desteklenmiyor. 
-* İzleyin [yükleme yönergeleri](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) Visual Studio için Stream Analytics araçlarını yüklemek için.
+* İzleyin [yükleme yönergeleri](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) Visual Studio için Stream Analytics araçlarını yüklemek için.
 
 ## <a name="create-a-stream-analytics-project"></a>Stream Analytics projesi oluşturma
 Visual Studio'da seçin **dosya** > **yeni proje**. Sol taraftaki şablonları listesinden seçin **Stream Analytics**ve ardından **Azure Stream Analytics uygulaması**.
@@ -155,11 +155,11 @@ Herhangi bir sözdizimi hatası olup olmadığını görmek için sorguyu ilk de
 
 1. Bu örnek verileri sorgusu doğrulamak için yerel örnek verileri giriş sağ tıklayıp seçerek kullanın **yerel girdisi eklemek**.
    
-   ![Yerel giriş Ekle](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
+   ![Yerel giriş ekle](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 2. Açılan pencerede, yerel yolundan örnek verileri seçin. **Kaydet**’i seçin.
    
-   ![Yerel giriş Ekle](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
+   ![Yerel giriş ekle](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
    
    Adlı bir dosya **local_EntryStream.json** girişleri klasörünüze otomatik olarak eklenir.
    
@@ -167,7 +167,7 @@ Herhangi bir sözdizimi hatası olup olmadığını görmek için sorguyu ilk de
    
 3. Seçin **yerel olarak çalıştır** sorgu Düzenleyicisi'nde. Veya F5 tuşuna basın.
    
-   ![Yerel olarak çalıştırma](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
+   ![Yerel Olarak Çalıştır](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
    
    Konsol çıktısı çıkış yolunda bulabilirsiniz. Sonuç klasörünü açmak için herhangi bir tuşa basın.
    
@@ -198,7 +198,7 @@ Devam eden görebilirsiniz **çıkış** penceresi.
  
 2. Seçin **yeni bir Azure Stream Analytics işi oluşturmak**. İçin **iş adı**, girin **TollApp**. Doğru seçin **abonelik** aşağı açılan listesinde. Seçin **gönderme**.
 
-   ![İşi gönderin](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
+   ![İşi Gönder](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
  
 ### <a name="start-the-job"></a>İşi Başlat
@@ -226,7 +226,7 @@ Devam eden görebilirsiniz **çıkış** penceresi.
 ### <a name="view-job-metrics"></a>İş metrikleri görüntüleyin
 Bazı temel iş istatistiklerinde gösterilen **iş ölçümleri**. 
 
-![İş ölçümleri](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
+![İş Ölçümleri](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-metrics-01.png)
 
  
 ## <a name="list-the-job-in-server-explorer"></a>Sunucu Gezgininde iş listesi
@@ -238,14 +238,14 @@ Bazı temel iş istatistiklerinde gösterilen **iş ölçümleri**.
 ## <a name="open-the-job-view"></a>Proje görünümü Aç
 İş düğümünü genişletin ve çift **iş görünümünde** iş görünümünde açmak için düğüm.
 
-![İşi görüntüle](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-view-01.png)
+![İş Görünümü](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-job-view-01.png)
 
 
 ## <a name="export-an-existing-job-to-a-project"></a>Var olan bir projeyi
 Var olan bir projeye verebilirsiniz iki yolu vardır.
 * İçinde **Sunucu Gezgini**altında **akış analizi işleri** düğümü, proje düğümüne sağ tıklayın. Seçin **verme yeni Stream Analytics projeye**.
    
-   ![Yeni Stream Analytics projesine aktarma](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
+   ![Yeni Stream Analytics Projesine Aktar](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
    
    Oluşturulan proje görünür **Çözüm Gezgini**.
    
@@ -253,7 +253,7 @@ Var olan bir projeye verebilirsiniz iki yolu vardır.
    
 * Proje Görünümü'nde seçin **proje oluştur**.
    
-   ![Proje oluştur](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
+   ![Proje Oluştur](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
    
 ## <a name="known-issues-and-limitations"></a>Bilinen sorunlar ve sınırlamalar
  
