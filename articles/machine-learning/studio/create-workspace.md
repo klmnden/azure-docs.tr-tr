@@ -1,24 +1,22 @@
 ---
-title: "Machine Learning çalışma alanı oluşturma | Microsoft Docs"
+title: "Machine Learning Studio çalışma alanı oluşturma | Microsoft Docs"
 description: "Azure Machine Learning Studio'da bir çalışma alanı oluşturma"
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı oluşturma ve paylaşma
 Cortana analitik işlem (CAP) tarafından kullanılan çeşitli veri bilimi ortamları ayarlama nasıl açıklayan konulara bu menü bağlantılar.
@@ -39,16 +37,16 @@ Azure Machine Learning Studio kullanmak için bir Machine Learning çalışma al
 
 2. Tıklatın **+ yeni**
 
-3. Seçin **Intelligence + analiz**, tıklatın **Machine Learning çalışma alanı**, ardından **oluştur**
+3. Arama kutusuna **Machine Learning Studio çalışma** ve eşleşen öğe seçin. Sonra Seç'i tıklatın **oluşturma** sayfanın sonundaki.
 
-4. Çalışma alanı bilgilerinizi girin
+4. Çalışma alanı bilgilerinizi girin:
 
     - *Çalışma alanı adı* boşluk bitiş değil, en fazla 260 karakter olabilir. Adı şu karakterleri içeremez:`< > * % & : \ ? + /`
     - *Web hizmeti planı* , seçin (veya oluşturun), ilişkili birlikte *fiyatlandırma katmanı* seçin, web hizmetleri bu çalışma alanından dağıtırsanız kullanılır.
 
     ![Yeni bir çalışma alanı oluşturma](./media/create-workspace/create-new-workspace.png)
 
-5. **Oluştur**'a tıklayın
+5. **Oluştur**'a tıklayın.
 
 Çalışma alanı dağıtıldığında, Machine Learning Studio'da açabilirsiniz.
 

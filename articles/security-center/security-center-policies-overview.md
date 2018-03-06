@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Güvenlik ilkelerine genel bakış
 Bu makalede, Güvenlik Merkezi'nde güvenlik ilkelerini genel bir bakış sağlar.
@@ -29,7 +29,7 @@ Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şi
 Güvenlik Merkezi ilkeleri aşağıdaki bileşenleri içerir:
 
 - **Veri toplama**: sağlama Aracısı belirler ve [veri toplama](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) ayarlar.
-- **Güvenlik İlkesi**: Güvenlik Merkezi izleyiciler denetler ve önerir belirler. Düzenleyebileceğiniz [Güvenlik İlkesi](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) Güvenlik Merkezi'nde. Aynı zamanda [Azure ilke](security-center-azure-policy.md) (önizlemede sınırlı) yeni tanımları oluşturmak için ek ilkeler tanımlayın ve yönetim grubu içinde ilkeleri atayın.
+- **Güvenlik İlkesi**: Güvenlik Merkezi izleyiciler denetler ve önerir belirler. Düzenleyebileceğiniz [Güvenlik İlkesi](https://docs.microsoft.com/azure/security-center/security-center-policies) Güvenlik Merkezi'nde. Aynı zamanda [Azure ilke](security-center-azure-policy.md) (önizlemede sınırlı) yeni tanımları oluşturmak için ek ilkeler tanımlayın ve yönetim grubu içinde ilkeleri atayın.
 - **E-posta bildirimleri**: güvenlik kişiler belirler ve [bildirim e-posta](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) ayarlar.
 - **Fiyatlandırma katmanı**: boş ya da standart tanımlar [seçimi fiyatlandırma](https://docs.microsoft.com/azure/security-center/security-center-pricing). Seçtiğiniz katmanı kapsamında kaynaklar için hangi Güvenlik Merkezi özellikleri kullanılabileceğini belirler. Abonelik, kaynak grupları ve çalışma alanları için bir katmanı belirtebilirsiniz. 
 
@@ -46,11 +46,11 @@ Bu makalede, Azure Güvenlik Merkezi'nde güvenlik ilkelerini hakkında öğrend
 
 * [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri yapılandırmayı öğrenin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md): Güvenlik Merkezi önerilerini Azure kaynaklarınızı korumanıza nasıl yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md): Azure kaynaklarınızı sağlığını izlemek öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md): Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md): Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 - [Azure Güvenlik Merkezi veri güvenliği](security-center-data-security.md): Güvenlik Merkezi nasıl yönetir ve verileri koruyan öğrenin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Get Hizmeti'ni kullanma hakkında sık sorulan soruları yanıtlar.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruların yanıtlarını alın.
 * [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/): en son Azure güvenlik haberlerini ve bilgilerini edinin.
 
 

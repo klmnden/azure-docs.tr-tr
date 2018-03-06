@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 11/06/2017
 ms.author: elbutter
-ms.openlocfilehash: e2138f26a78338406b466bdd2aa6e756e602726d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 8947da9d34261be46ad9aea961b6020141484172
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-functions-to-automate-sql-dw-compute-levels"></a>Azure İşlevleri'ni kullanarak SQL DW işlem düzeylerini otomatikleştirme
 
 Bu öğreticide, Azure İşlevleri'ni kullanarak Azure SQL Veri Ambarınızın işlem düzeylerini nasıl yönetebileceğiniz gösterilir. Bu mimarilerin SQL Veri Ambarı [Esneklik için İyileştirilmiş][Performance Tiers] katmanında kullanılması önerilir.
 
-Azure İşlevi Uygulamasını SQL Veri Ambarı'yla kullanmak için, veri ambarı örneğinizle aynı abonelik kapsamında katılımcı erişimine sahip bir [Hizmet Sorumlusu Hesabı](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) oluşturmalısınız. 
+Azure İşlevi Uygulamasını SQL Veri Ambarı'yla kullanmak için, veri ambarı örneğinizle aynı abonelik kapsamında katılımcı erişimine sahip bir [Hizmet Sorumlusu Hesabı](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) oluşturmalısınız. 
 
 ## <a name="deploy-timer-based-scaler-with-an-azure-resource-manager-template"></a>Azure Resource Manager Şablonuyla Zamanlayıcı tabanlı skaler dağıtma
 

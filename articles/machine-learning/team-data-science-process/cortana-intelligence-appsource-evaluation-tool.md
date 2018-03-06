@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Cortana Intelligence çözüm değerlendirme aracı
 ## <a name="overview"></a>Genel Bakış
@@ -95,17 +95,17 @@ Azure Active Directory (AAD) kimlik doğrulaması ile Azure SQL veya Azure SQL D
 
 | Hakkında daha fazla bilgi için | Bu makaleye bakın |
 | --- | --- |
-| AAD ile SQL Database ve SQL veri ambarı | [SQL Database veya SQL Data Warehouse ile kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanma](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
-| Yapılandırma ve AAD yönetme | [Yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulaması yönetme](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
-| Azure WebApps kimlik doğrulaması | [Kimlik doğrulama ve yetkilendirme Azure uygulama hizmeti](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| AAD ile WebApps yapılandırın | [Uygulama hizmeti uygulamanızı Azure Active Directory oturum açma kullanacak şekilde yapılandırma](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
+| AAD ile SQL Database ve SQL veri ambarı | [SQL Database veya SQL Data Warehouse ile kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanma](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) |
+| Yapılandırma ve AAD yönetme | [Yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulaması yönetme](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) |
+| Azure WebApps kimlik doğrulaması | [Kimlik doğrulama ve yetkilendirme Azure uygulama hizmeti](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) |
+| AAD ile WebApps yapılandırın | [Uygulama hizmeti uygulamanızı Azure Active Directory oturum açma kullanacak şekilde yapılandırma](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>Veri kümeleri son kullanıcıların erişebileceği rol tabanlı erişim denetimi desteklemesi gerekir
 Değerlendirme Aracı yürütülürken herhangi raporlama veya kaynakları yayımlama belirtmeniz istenir. Bu kaynaklara erişim için son kullanıcılar tarafından değil geliştiriciler tasarlanmıştır varsayılır. Bu kaynaklar olması sağlayacağını rol tabanlı erişim denetimi (RBAC) son kullanıcılar yalnızca yetkili verilerine erişebilir olmasını sağlamak için.
 
 Özellikle, aşağıdaki Azure kaynakları hiçbirini RBAC ile yapılandırılabilir ve kabul edilebilir olarak kabul edilir:
-- Hdınsight güvenliğini sağlamak için bkz: [Hadoop güvenlik etki alanına katılmış Hdınsight kümeleri ile giriş](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction)
-- Azure SQL bkz [ile Azure SQL AAD kimlik doğrulaması]( https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
+- Hdınsight güvenliğini sağlamak için bkz: [Hadoop güvenlik etki alanına katılmış Hdınsight kümeleri ile giriş](https://docs.microsoft.com/azure/hdinsight/hdinsight-domain-joined-introduction)
+- Azure SQL bkz [ile Azure SQL AAD kimlik doğrulaması]( https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
 - Azure Analysis Services, bkz: [için Azure Analysis Services veritabanı rolleri ve kullanıcıları yönetme](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users)
 - Azure SQL veri ambarı (SQL DW RBAC desteklemediğinden, bu doğrudan son kullanıcı erişimi için önerilmez unutmayın.)
 
@@ -114,17 +114,17 @@ Lütfen RBAC destekleyen farklı bir kaynak türü kullanıyorsanız, test çal�
 ### <a name="azure-data-lake-store-should-use-at-rest-encryption"></a>Azure Data Lake Store rest sırasında şifreleme kullanmanız gerekir
 Azure Data Lake deposu (ADLS) çalışmıyorken şifreleme ADLS yönetilen şifreleme anahtarları kullanılarak varsayılan olarak destekler. Azure anahtar kasası kullanarak şifreleme de yapılandırabilirsiniz.
 
-ADLS şifreleme ayarlarını belirtme hakkında bilgi için [bir Azure Data Lake Store hesabı oluşturma](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account).
+ADLS şifreleme ayarlarını belirtme hakkında bilgi için [bir Azure Data Lake Store hesabı oluşturma](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal#create-an-azure-data-lake-store-account).
 
 ### <a name="azure-sql-and-azure-sql-data-warehouse-should-use-encryption"></a>Azure SQL ve Azure SQL Data Warehouse şifreleme kullanmalıdır
 Saydam veri şifreleme (gerçek zamanlı şifreleme ve şifre çözme veri ve günlük dosyalarının sağlayan TDE), Azure SQL hem de Azure SQL DW destekler.
 
 | Hakkında daha fazla bilgi için | Bu makaleye bakın |
 | --- | --- |
-| Saydam veri şifreleme (TDE) | [Saydam veri şifreleme](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
-| TDE ile Azure SQL veri ambarı | [Encrption TDE TSQL SQL veri ambarı](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql) |
-| Azure SQL TDE'nin ile yapılandırma | [Saydam veri şifrelemesi ile Azure SQL veritabanı](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) |
-| Her zaman şifreli ile Azure SQL yapılandırın | [SQL veritabanı Azure anahtar kasası her zaman şifrelenir.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault)|
+| Saydam veri şifreleme (TDE) | [Saydam veri şifreleme](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) |
+| TDE ile Azure SQL veri ambarı | [Encrption TDE TSQL SQL veri ambarı](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql) |
+| Azure SQL TDE'nin ile yapılandırma | [Saydam veri şifrelemesi ile Azure SQL veritabanı](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) |
+| Her zaman şifreli ile Azure SQL yapılandırın | [SQL veritabanı Azure anahtar kasası her zaman şifrelenir.](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)|
 
 TDE, ek olarak her zaman şifreli Azure SQL de destekler, veri şifrelenir sağlayan yeni bir veri şifreleme teknolojisi yalnızca çalışmıyorken ve istemci ile sunucu arasında aynı zamanda veriler taşıma sırasında sunucuda komutları yürütülürken kullanılıyor.
 
@@ -133,7 +133,7 @@ AppSource tutarlı bir güvenlik düzeyini sağlamak için biz Cortana Intellige
 
 Azure Market görüntülerini geçerli listesini aramak için bkz: [Microsoft Azure Market](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute).
 
-Bir sanal makine görüntüsü için Azure Marketi'nde yayımlama hakkında daha fazla bilgi için bkz: [için Azure Marketi bir sanal makine görüntüsü oluşturmak için kılavuz](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
+Bir sanal makine görüntüsü için Azure Marketi'nde yayımlama hakkında daha fazla bilgi için bkz: [için Azure Marketi bir sanal makine görüntüsü oluşturmak için kılavuz](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).
 
 ## <a name="scalability-evaluation-considerations"></a>Ölçeklenebilirlik değerlendirme konuları
 ### <a name="cortana-intelligence-solutions-should-include-a-scalable-big-data-platform"></a>Cortana Intelligence çözümleri ölçeklenebilir büyük veri platformu içermelidir
@@ -145,14 +145,14 @@ Lütfen çözümünüzü bu veri boyutları için destek gerektirmiyorsa veya bi
 ### <a name="cortana-intelligence-solutions-should-include-dedicated-ingestion-data-environments"></a>Cortana Intelligence çözümleri ayrılmış alım veri ortamları içermelidir
 Cortana Intelligence çözümler genellikle doğrudan veri ilişkisel veri kaynakları ekleme kaçınmalısınız. Bunun yerine, Azure Data Factory kullanarak herhangi bir ilişkisel depolarını ıdempotent ekler/güncelleştirmelerini ile yapılandırılmamış bir ortamda ham verileri depolanması gerekir.
 
-Azure Data Factory ile veri kopyalama hakkında daha fazla bilgi için [öğretici: Visual Studio kullanarak kopyalama etkinliği ile işlem hattı oluşturma](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio).
+Azure Data Factory ile veri kopyalama hakkında daha fazla bilgi için [öğretici: Visual Studio kullanarak kopyalama etkinliği ile işlem hattı oluşturma](https://docs.microsoft.com/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio).
 
 ### <a name="azure-sql-data-warehouse-should-use-polybase-for-data-ingestion"></a>Azure SQL veri ambarı veri alımı için PolyBase kullanmanız gerekir
 Azure SQL DW düzeyde ölçeklenebilir, paralel veri alımı için PolyBase destekler. PolyBase, Azure Blob Storage veya Azure Data Lake Store içinde depolanan dış veri kümeleri sorunu sorgular için Azure SQL DW kullanmanıza olanak sağlar. Bu, toplu güncelleştirme alternatif yöntemler için üstün performans sağlar.
 
-PolyBase ve Azure SQL DW Başlarken ile ilgili yönergeler için bkz: [SQL Data warehouse'da PolyBase ile veri yükleme](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
+PolyBase ve Azure SQL DW Başlarken ile ilgili yönergeler için bkz: [SQL Data warehouse'da PolyBase ile veri yükleme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-load-with-polybase).
 
-PolyBase ve Azure SQL DW ile en iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL Data Warehouse'da PolyBase kullanarak Kılavuzu](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide).
+PolyBase ve Azure SQL DW ile en iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL Data Warehouse'da PolyBase kullanarak Kılavuzu](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-polybase-guide).
 
 ## <a name="availability-evaluation-considerations"></a>Kullanılabilirlik değerlendirme konuları
 
@@ -161,38 +161,38 @@ Değerlendirme Aracı yürütülürken herhangi raporlama veya kaynakları yayı
 
 Özellikle, Azure SQL Data Warehouse tek veri kaynağını son kullanıcılara açık olmamalıdır. Azure SQL DW Power Users için bir kaynak olarak sağlanırsa, Azure Analysis Services için tipik kullanıcıların kullanılabilir olarak yapılmalıdır.
 
-Azure SQL DW eşzamanlılık sınırları hakkında daha fazla bilgi için bkz: [SQL Data Warehouse eşzamanlılık ve iş yükü yönetimi](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency).
+Azure SQL DW eşzamanlılık sınırları hakkında daha fazla bilgi için bkz: [SQL Data Warehouse eşzamanlılık ve iş yükü yönetimi](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-concurrency).
 
 Azure Analysis Services hakkında daha fazla bilgi için bkz: [Analysis Services'e genel bakış](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview).
 
 ### <a name="azure-sql-resources-should-have-a-read-only-replica-for-failover"></a>Azure SQL kaynaklarını yük devretme için salt okunur bir çoğaltmaya sahip olmalıdır
 Azure SQL veritabanları coğrafi çoğaltma, ikincil bir örneğine destekler. Bu örnek daha sonra bir yük devretme örneği olarak yüksek kullanılabilirlik uygulamaları sağlamak için kullanılabilir.
 
-Azure SQL veritabanları için coğrafi çoğaltma hakkında daha fazla bilgi için bkz: [SQL veritabanı coğrafi Çoğaltmaya genel bakış](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview).
+Azure SQL veritabanları için coğrafi çoğaltma hakkında daha fazla bilgi için bkz: [SQL veritabanı coğrafi Çoğaltmaya genel bakış](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
 
-Azure SQL için coğrafi çoğaltma yapılandırma hakkında yönergeler için bkz: [aktif coğrafi çoğaltma Transact-SQL ile Azure SQL veritabanı için yapılandırma](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-transact-sql).
+Azure SQL için coğrafi çoğaltma yapılandırma hakkında yönergeler için bkz: [aktif coğrafi çoğaltma Transact-SQL ile Azure SQL veritabanı için yapılandırma](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-transact-sql).
 
 ### <a name="azure-sql-data-warehouse-should-have-geo-redundant-backups-enabled"></a>Azure SQL Data Warehouse coğrafi olarak yedekli yedeklemeleri etkin olması gerekir
 Azure SQL DW coğrafi olarak yedekli depolama günlük yedeklemeler destekler. Bu coğrafi çoğaltma, birincil bölgenizde depolanan anlık görüntü nerede erişemiyor durumlarda bile veri ambarını geri sağlar. Bu özellik varsayılan olarak açıktır ve Cortana Intelligence çözümleri için devre dışı olmaması gerekir.
 
-Azure SQL DW yedekleme ve geri yükleme hakkında daha fazla bilgi için burada gördüğünüz [SQL veri ambarı yedekleri](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-backups).
+Azure SQL DW yedekleme ve geri yükleme hakkında daha fazla bilgi için burada gördüğünüz [SQL veri ambarı yedekleri](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-backups).
 
 ### <a name="virtual-machines-should-be-configured-with-availability-sets"></a>Sanal makineler kullanılabilirlik kümeleri ile yapılandırılmalıdır
 Azure sanal makineleri kullanılabilirlik kümesi planlanmış ve planlanmamış bakım olayların etkisini en aza indirmek için yapılandırılması gerekir.
 
-Azure sanal makinesi kullanılabilirliği hakkında daha fazla bilgi için bkz: [azure'da Windows sanal makinelerin kullanılabilirliğini yönetme](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability).
+Azure sanal makinesi kullanılabilirliği hakkında daha fazla bilgi için bkz: [azure'da Windows sanal makinelerin kullanılabilirliğini yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 ## <a name="other-evaluation-considerations"></a>Diğer değerlendirme konuları
 ### <a name="cortana-intelligence-apps-should-use-a-centralized-tool-for-data-orchestration"></a>Cortana Intelligence uygulamalar veri düzenlemesi için merkezi bir araç kullanmanız gerekir
-Yönetme ve veri taşıma ve dönüştürme zamanlama için tek bir aracı kullanarak, görev açısından kritik verilerin etrafına tutarlı olmasını sağlar. Yeniden deneme mantığı, bağımlılık yönetimi, uyarı/günlük vb. geçici Temizle mantığı sağlar. Kullanılmasını öneririz [Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-introduction) Azure veri düzenleme için.
+Yönetme ve veri taşıma ve dönüştürme zamanlama için tek bir aracı kullanarak, görev açısından kritik verilerin etrafına tutarlı olmasını sağlar. Yeniden deneme mantığı, bağımlılık yönetimi, uyarı/günlük vb. geçici Temizle mantığı sağlar. Kullanılmasını öneririz [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-introduction) Azure veri düzenleme için.
 
 Veri düzenlemesi için Azure Data Factory dışında bir aracı kullanıyorsanız, hangi aracı veya kullandığınız araçları açıklanmaktadır.
 ### <a name="azure-machine-learning-models-should-be-retrained-using-azure-data-factory"></a>Azure Machine Learning modellerini retrained Azure Data Factory
 Azure Machine Learning (AzureML) oluşturulmasını ve dağıtımını Tahmine dayalı modelleme ve makine öğrenimi işlem hatları için kullanımı kolay araçlar sağlar. Bununla birlikte, bu AzureML modellerinin üretim dağıtımları tek bir sabit veri kümesine bağlı değildir, ancak bunun yerine gerçek phenomena shifting dynamics uyum önemlidir.
 
-Yeniden eğitme web Hizmetleri içinde AzureML oluşturma hakkında daha fazla bilgi için bkz: [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-retrain-models-programmatically).
+Yeniden eğitme web Hizmetleri içinde AzureML oluşturma hakkında daha fazla bilgi için bkz: [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](https://docs.microsoft.com/azure/machine-learning/machine-learning-retrain-models-programmatically).
 
-Azure Data Factory kullanarak model Eğitim işlemini otomatikleştirme hakkında daha fazla bilgi için bkz: [kaynak güncelleştirme etkinliği kullanarak güncelleştirme Azure Machine Learning modellerini](https://docs.microsoft.com/en-us/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
+Azure Data Factory kullanarak model Eğitim işlemini otomatikleştirme hakkında daha fazla bilgi için bkz: [kaynak güncelleştirme etkinliği kullanarak güncelleştirme Azure Machine Learning modellerini](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Var olan belgeler
 [Microsoft Azure bulut işletmenizi büyütmek için sertifikalıdır.](https://azure.microsoft.com/en-us/marketplace/programs/certified/)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure işletimsel güvenlik en iyi uygulamalar
 Azure işletimsel güvenlik hizmetleri, denetimleri ve kullanıcılar için kullanılabilir özellikler verilerini, uygulamaları ve diğer Microsoft Azure varlıkları korumak için ifade eder. Azure işlem güvenliği Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center programı da dahil olmak üzere Microsoft'a özgü çeşitli özellikleri aracılığıyla elde edilen bilgilerden içerir çerçevesi üzerine inşa edilmiştir, ve siber güvenlik tehdit derin farkındalığınızı.
@@ -76,7 +76,7 @@ Aşağıdaki özellikleri bulut tabanlı uygulamaların güvenliğini sağlamak,
 -   Tüm bulut uygulamalarına kullanıcı erişimini basitleştirin
 -   Hassas verileri ve uygulamaları koruyun
 -   Çalışanlarınıza self-servis olanağı sağlayın
--   Azure Active Directory ile tümleştirin
+-   Azure Active Directory ile tümleştirme
 
 ### <a name="identity-and-access-management-for-the-cloud"></a>Bulut için kimlik ve erişim yönetimi
 Azure Active Directory (Azure AD) şu kapsamlı bir [kimlik ve erişim yönetimi bulut çözümü](https://www.microsoft.com/cloud-platform/identity-management), sağlayan, güçlü bir kullanıcı ve grupları yönetmek için özellikler kümesi. Güvenli erişim için şirket içi ve bulut uygulamalarında hizmet (SaaS) uygulamaları olarak Office 365 ve kadar Microsoft dışı yazılımlar gibi Microsoft web hizmetlerini de dahil olmak üzere, yardımcı olur.
@@ -91,7 +91,7 @@ Etkinleştirme [Azure çok faktörlü kimlik doğrulaması](https://docs.microso
 ### <a name="enable-self-service-for-your-employees"></a>Çalışanlarınıza self-servis olanağı sağlayın
 Çalışanlarınıza parolaları sıfırlama, grupları oluşturma ve yönetme gibi önemli görevler verin. [Self Servis parola değişikliğini etkinleştir](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)sıfırlayın ve Self Servis Grup Yönetimi Azure AD ile.
 
-### <a name="integrate-with-azure-active-directory"></a>Azure Active Directory ile tümleştirin
+### <a name="integrate-with-azure-active-directory"></a>Azure Active Directory ile tümleştirme
 Genişletme [Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate) ve diğer tüm bulut tabanlı uygulamalar için çoklu oturum açmayı etkinleştirmek için Azure ad dizinleri şirket. Kullanıcı öznitelikleri, tüm şirket içi dizin türlerindeki bulut dizininizle otomatik olarak eşitlenebilir.
 
 Azure Active Directory ve bunun nasıl etkinleştirileceğini tümleştirme hakkında daha fazla bilgi için lütfen makaleyi okuyun [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -156,7 +156,7 @@ Müşterilerin bir uçtan uca ağ Azure VNet, ExpressRoute, uygulama ağ geçidi
 Ağ İzleyicisi aracılığıyla sanal makinelerinizde (VM’ler) oturum açmak zorunda kalmadan ağ sorunlarını izleyin ve tanılayın. Tetikleyici [paket yakalama](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) göre uyarıları ayarlama ve gerçek zamanlı performans bilgilerini paket düzeyinde erişim sahibi olursunuz. Bir sorunla karşılaştığınızda, daha iyi tanılama için ayrıntılı olarak inceleme yapabilirsiniz.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Akış günlüklerini kullanarak ağ trafiğiniz hakkında ayrıntılı bilgi edinin
-Ağ trafiği düzeni kullanarak, daha derin bir anlayış oluşturmak [ağ güvenlik grubu akış günlükleri](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Akış günlükleri tarafından sağlanan bilgiler, Denetim ve ağ güvenlik profili izleme uyumluluk için veri toplayacak yardımcı olur.
+Ağ trafiği düzeni kullanarak, daha derin bir anlayış oluşturmak [ağ güvenlik grubu akış günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Akış günlükleri tarafından sağlanan bilgiler, Denetim ve ağ güvenlik profili izleme uyumluluk için veri toplayacak yardımcı olur.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>VPN bağlantısıyla ilgili sorunları tanılayın
 Ağ İzleyicisi yeteneği sağlar [VPN ağ geçidi ve ağ bağlantıları, en sık karşılaşılan sorunları tanılamak](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Yalnızca sorunu belirlemek için aynı zamanda daha fazla araştırmak yardımcı olmak için oluşturulan ayrıntılı günlükler kullanmak için izin verme.

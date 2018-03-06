@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4bb6becd0b664b9287a1973d5221cff46dca57da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>StorSimple cihazları yönetmek için Azure Resource Manager SDK tabanlı komut dosyaları kullanma
 
@@ -61,10 +61,10 @@ Bu bölümde, örnek komut dosyası alır ve komut dosyasını çalıştırmak i
 Başlamadan önce şunları yapın:
 
 *   Azure PowerShell yüklü. Azure PowerShell modüllerini yüklemek için:
-    * Bir Windows ortamı adımları [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). Azure PowerShell, Windows Server konağında StorSimple için birini kullanıyorsanız yükleyebilirsiniz.
-    * Bir Linux veya MacOS ortamında adımları [yükleyin ve MacOS veya Linux Azure PowerShell yapılandırın](https://docs.microsoft.com/en-us/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
+    * Bir Windows ortamı adımları [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). Azure PowerShell, Windows Server konağında StorSimple için birini kullanıyorsanız yükleyebilirsiniz.
+    * Bir Linux veya MacOS ortamında adımları [yükleyin ve MacOS veya Linux Azure PowerShell yapılandırın](https://docs.microsoft.com/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
 
-Azure PowerShell'i kullanma hakkında daha fazla bilgi için Git [kullanarak Azure PowerShell ile çalışmaya başlama](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
+Azure PowerShell'i kullanma hakkında daha fazla bilgi için Git [kullanarak Azure PowerShell ile çalışmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 
 ### <a name="run-azure-powershell-script"></a>Azure PowerShell komut dosyasını çalıştır
 

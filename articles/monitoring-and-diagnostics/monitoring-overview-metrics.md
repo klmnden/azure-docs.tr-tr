@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure ölçümlerini genel bakış
 Microsoft Azure'da ölçümleri nelerdir bu makalede faydaları ve bunları kullanmaya başlamak nasıl.  
@@ -89,11 +89,11 @@ Azure İzleyici deneyimi önizlemede kullanılabilen grafik yeni bir ölçümler
 ## <a name="access-metrics-via-the-rest-api"></a>REST API üzerinden erişim ölçümleri
 Azure ölçümleri Azure İzleyici API'leri erişilebilir. Yardımcı iki API'ları bulmak ve erişim ölçümleri vardır:
 
-* Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) ölçümleri ve bir hizmet için kullanılabilir tüm boyutlar, listesi erişmek için.
-* Kullanım [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) segmentlere ayırmak, filtrelemek ve gerçek ölçümleri verilere erişmek için.
+* Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) ölçümleri ve bir hizmet için kullanılabilir tüm boyutlar, listesi erişmek için.
+* Kullanım [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics) segmentlere ayırmak, filtrelemek ve gerçek ölçümleri verilere erişmek için.
 
 > [!NOTE]
-> Bu makale aracılığıyla ölçümleri kapsamaktadır [ölçümleri için yeni API](https://docs.microsoft.com/en-us/rest/api/monitor/) Azure kaynakları için. API ölçümleri API'leri ve yeni ölçüm tanımları için 2017-05-01-Önizleme sürümüdür. Eski ölçüm tanımlarını ve ölçümler API sürümü 2014-04-01 ile erişilebilir.
+> Bu makale aracılığıyla ölçümleri kapsamaktadır [ölçümleri için yeni API](https://docs.microsoft.com/rest/api/monitor/) Azure kaynakları için. API ölçümleri API'leri ve yeni ölçüm tanımları için 2017-05-01-Önizleme sürümüdür. Eski ölçüm tanımlarını ve ölçümler API sürümü 2014-04-01 ile erişilebilir.
 >
 >
 

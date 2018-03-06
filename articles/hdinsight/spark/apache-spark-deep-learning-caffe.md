@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 7a051e0f35b2dd943f3569391d7ca0f206a9ef02
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Caffe Azure Hdınsight Spark üzerinde dağıtılmış derin learning için kullanın.
 
@@ -42,7 +42,7 @@ Dört vardır almak için önemli adımlar Hdınsight üzerinde çalışır.
 3. Tüm çalışan düğümleri için gerekli kitaplıklar Dağıt
 4. Caffe model oluşturmak ve dağıtılmış bir şekilde çalıştırın.
 
-Hdınsight bir PaaS çözümü olduğundan, bazı görevleri gerçekleştirmek kolay olması için kullanışlı bir platform özellikleri - sunar. Bu blog gönderisinde yoğun olarak kullandığımız özelliklerden birini çağrılır [betik eylemi](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), hangi, yürütebilir küme düğümleri (baş düğüm, alt düğüm veya kenar düğümüne) özelleştirmek için Kabuk komutları.
+Hdınsight bir PaaS çözümü olduğundan, bazı görevleri gerçekleştirmek kolay olması için kullanışlı bir platform özellikleri - sunar. Bu blog gönderisinde yoğun olarak kullandığımız özelliklerden birini çağrılır [betik eylemi](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), hangi, yürütebilir küme düğümleri (baş düğüm, alt düğüm veya kenar düğümüne) özelleştirmek için Kabuk komutları.
 
 ## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>1. adım: gerekli bağımlılıkları tüm düğümlere yükleyin.
 
@@ -71,14 +71,14 @@ Betik eylemi iki adımı vardır. İlk adım, tüm gerekli kitaplıkları yükle
 
 İkinci adım, derleme, yükleyip protobuf 2.5.0 Caffe için çalışma zamanı sırasında almaktır. Protobuf 2.5.0 [gereklidir](https://github.com/yahoo/CaffeOnSpark/issues/87), ancak kaynak kodu derlemek ihtiyacımız şekilde bu sürümü Ubuntu 16 üzerinde bir paketi olarak kullanılabilir değildir. Ayrıca birkaç kaynak yok Internet'te derlemeniz nasıl. Daha fazla bilgi için bkz: [burada](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-Başlamak için yalnızca bu betik eylemi kümenizi karşı tüm çalışan düğümleri ve baş düğümler için (Hdınsight 3.5 için) çalıştırabilirsiniz. Betik eylemleri olan bir kümede çalıştırabilir veya küme oluşturma sırasında betik eylemleri kullanın. Betik eylemleri hakkında daha fazla bilgi için belgelere bakın [burada](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+Başlamak için yalnızca bu betik eylemi kümenizi karşı tüm çalışan düğümleri ve baş düğümler için (Hdınsight 3.5 için) çalıştırabilirsiniz. Betik eylemleri olan bir kümede çalıştırabilir veya küme oluşturma sırasında betik eylemleri kullanın. Betik eylemleri hakkında daha fazla bilgi için belgelere bakın [burada](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
 
 ![Bağımlılıklar yüklemek için betik eylemleri](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
 ## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>2. adım: Caffe Hdınsight için Spark baş düğümünde oluşturmak
 
-İkinci Caffe üzerinde headnode oluşturmak ve tüm çalışan düğümlerinin derlenmiş kitaplıklara dağıtmak için bir adımdır. Bu adımda, şunları yapmalısınız [ssh, headnode içine](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Bundan sonra izlemeniz gereken [CaffeOnSpark yapı işlemi](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Aşağıda birkaç ek adımlarla CaffeOnSpark oluşturmak için kullanabileceğiniz komut dosyası yer almaktadır. 
+İkinci Caffe üzerinde headnode oluşturmak ve tüm çalışan düğümlerinin derlenmiş kitaplıklara dağıtmak için bir adımdır. Bu adımda, şunları yapmalısınız [ssh, headnode içine](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Bundan sonra izlemeniz gereken [CaffeOnSpark yapı işlemi](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Aşağıda birkaç ek adımlarla CaffeOnSpark oluşturmak için kullanabileceğiniz komut dosyası yer almaktadır. 
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Depolama hizmeti müşteri kullanarak şifreleme anahtarları Azure anahtar Kasası'yönetilen
 
@@ -50,7 +50,7 @@ Depolama hesabı kullanarak için SSE etkinleştirebilirsiniz [Azure portal](htt
 ![Portal gösteren ekran görüntüsü şifreleme seçeneği](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*Blob hizmeti için SSE etkinleştir*
 
-Program aracılığıyla istiyorsanız, etkinleştirme veya bir depolama hesabında depolama hizmeti şifrelemesi devre dışı bırakmak, kullanabilirsiniz [Azure depolama kaynak sağlayıcısı REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), [.NET için depolama kaynak sağlayıcısı istemci Kitaplığı](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0), veya [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
+Program aracılığıyla istiyorsanız, etkinleştirme veya bir depolama hesabında depolama hizmeti şifrelemesi devre dışı bırakmak, kullanabilirsiniz [Azure depolama kaynak sağlayıcısı REST API](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), [.NET için depolama kaynak sağlayıcısı istemci Kitaplığı](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0), veya [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 "Kendi anahtarınızı kullan" onay kutusunu göremiyorsanız, bu ekranda, Önizleme için onaylanan değil. Bir e-posta Gönder [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) ve onay isteyin.
 
@@ -71,10 +71,10 @@ Depolama hesabı anahtar kasası erişimi yoksa, gerekli anahtar kasası depolam
 Ayrıca, Azure portalında Azure anahtar kasası gidip depolama hesabına erişim izni verme Azure portalı üzerinden erişim izni verebilir.
 
 ## <a name="step-4-copy-data-to-storage-account"></a>4. adım: veri depolama alanına kopyalanmaya
-Böylece şifreli verileri yeni depolama hesabınızda aktarmak istiyorsanız, başvurmak [adım 3, Başlarken bölümünde kalan verileri için depolama hizmeti şifrelemesi](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+Böylece şifreli verileri yeni depolama hesabınızda aktarmak istiyorsanız, başvurmak [adım 3, Başlarken bölümünde kalan verileri için depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
 ## <a name="step-5-query-the-status-of-the-encrypted-data"></a>5. adım: şifrelenmiş verileri durumunu sorgulama
-Şifrelenmiş veriler durumunu sorgulamak için başvurmak [adım 4, Başlarken bölümünde kalan verileri için depolama hizmeti şifrelemesi](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+Şifrelenmiş veriler durumunu sorgulamak için başvurmak [adım 4, Başlarken bölümünde kalan verileri için depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
 ## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Sık sorulan bekleyen veri için depolama hizmeti şifrelemesi hakkında sorular
 **S: Premium depolama kullanıyorum; Müşteri yönetilen anahtarlarla SSE kullanabilir miyim?**
@@ -91,7 +91,7 @@ Y: var. Azure anahtar kasası kullanmak için ilişkili bir maliyet Daha fazla a
 
 **S: şifreleme anahtarlarının erişimi iptal?**
 
-A: Evet erişimi dilediğiniz zaman iptal edebilirsiniz. Anahtarlarınızı erişimi iptal etmek için birkaç yolu vardır. Başvurmak [Azure anahtar kasası PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) ve [Azure anahtar kasası CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) daha fazla ayrıntı için. Hesap şifreleme anahtarı Azure Storage tarafından erişilemez olduğundan erişimi iptal ediliyor verimli depolama hesabındaki tüm BLOB'lar erişmesini engeller.
+A: Evet erişimi dilediğiniz zaman iptal edebilirsiniz. Anahtarlarınızı erişimi iptal etmek için birkaç yolu vardır. Başvurmak [Azure anahtar kasası PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) ve [Azure anahtar kasası CLI](https://docs.microsoft.com/cli/azure/keyvault) daha fazla ayrıntı için. Hesap şifreleme anahtarı Azure Storage tarafından erişilemez olduğundan erişimi iptal ediliyor verimli depolama hesabındaki tüm BLOB'lar erişmesini engeller.
 
 **S: bir depolama hesabı ve anahtarı farklı bölgede oluşturabilirim?**
 
@@ -123,6 +123,6 @@ Y: kişi [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) d
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-*   Güvenlik kapsamlı kümesi hakkında daha fazla bilgi için geliştiricilerin yetenekleri güvenli uygulamaları oluşturmak, bkz: [depolama Güvenlik Kılavuzu](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
-*   Azure anahtar kasası hakkında genel bilgi için bkz: [Azure anahtar kasası nedir](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
+*   Güvenlik kapsamlı kümesi hakkında daha fazla bilgi için geliştiricilerin yetenekleri güvenli uygulamaları oluşturmak, bkz: [depolama Güvenlik Kılavuzu](https://docs.microsoft.com/azure/storage/storage-security-guide).
+*   Azure anahtar kasası hakkında genel bilgi için bkz: [Azure anahtar kasası nedir](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
 *   Azure anahtar kasası kullanmaya başlama için bkz: [Azure anahtar kasası ile çalışmaya başlama](../../key-vault/key-vault-get-started.md).

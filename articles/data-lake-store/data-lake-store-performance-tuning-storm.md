@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 1dfa93643f45a96ded3fd022aa8b1c71d487acb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c872bfe36673af1292b5af9cf40374de39a5c159
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Performans Kılavuzu Hdınsight ve Azure Data Lake Store üzerinde Storm için ayarlama
 
@@ -29,8 +29,8 @@ Bir Azure Storm topolojisinin performansı ayarlamak zaman düşünülmesi gerek
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md).
 * **Azure Hdınsight kümesi** bir Data Lake Store hesabına erişim. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
-* **Data Lake Store üzerinde Storm kümesi çalıştıran**. Daha fazla bilgi için bkz: [Hdınsight üzerinde Storm](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-overview).
-* **Performans ayarlama yönergeleri Data Lake Store üzerinde**.  Genel performans için bkz [Data Lake deposu performans ayarlama Kılavuzu](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Data Lake Store üzerinde Storm kümesi çalıştıran**. Daha fazla bilgi için bkz: [Hdınsight üzerinde Storm](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Performans ayarlama yönergeleri Data Lake Store üzerinde**.  Genel performans için bkz [Data Lake deposu performans ayarlama Kılavuzu](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Topoloji paralellik ayarlama
 

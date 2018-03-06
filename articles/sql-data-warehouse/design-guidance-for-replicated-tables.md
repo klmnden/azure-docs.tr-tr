@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da çoğaltılmış tablolar kullanmaya yönelik kılavuz tasarım
 Bu makalede SQL Data Warehouse şemanızı çoğaltılmış tablolarda tasarlamak için öneriler sağlar. Veri taşıma ve sorgu karmaşıklık azaltarak sorgu performansını artırmak için bu önerileri kullanın.
@@ -47,7 +47,7 @@ Aşağıdaki diyagram, her işlem düğümü üzerinde erişilebilir olan bir ç
 
 Çoğaltılan kullanmayı tablosundan:
 
-- 2 GB'den az, satır sayısından bağımsız olarak disk üzerindeki tablo boyutudur. Bir tablonun boyutunu bulmak için kullanabileceğiniz [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) komutu: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
+- 2 GB'den az, satır sayısından bağımsız olarak disk üzerindeki tablo boyutudur. Bir tablonun boyutunu bulmak için kullanabileceğiniz [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) komutu: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - Tablo, aksi halde veri taşıma gerektirecek birleştirme kullanılır. Örneğin, birleşme sütunları aynı dağıtım sütun olmadığında bir birleştirme karma dağıtılmış tablolarda veri taşıma gerektirir. Karma dağıtılmış tablolardan birini küçükse, çoğaltılmış bir tablo göz önünde bulundurun. Bir birleştirme hepsini tabloda veri taşıma gerektirir. Çoğu durumda hepsini tablolar yerine çoğaltılmış tablolar kullanmanızı öneririz. 
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b9f4004eb69314ad9d4cdad0f7140b6f85af300b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 75d0bbc536c907e6530570b4d7568f39371cfced
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Bulut çözüm sağlayıcıları Program için StorSimple nedir?
 
@@ -29,7 +29,7 @@ Microsoft Azure StorSimple doğru karma bulut depolama özellikleri ile Kurumsal
 
 StorSimple sanal dizinin bulut çözümleri sağlayıcısı (CSP) bu fırsat üzerinde sağladığınızdan iş ortaklarının sağlar. İş ortakları doğrudan sağlama, faturalama ve Destek Microsoft'un bulut Hizmetleri ile uçtan uca müşteri döngüsü sahip. Kısacası, iş ortakları artık StorSimple müşterileri için hizmetlerini birlikte transact.
 
-CSP StorSimple hakkında daha fazla bilgi için ziyaret [Azure CSP genel bakış](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview) sayfası.
+CSP StorSimple hakkında daha fazla bilgi için ziyaret [Azure CSP genel bakış](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) sayfası.
 
 Faturalama hakkında daha fazla bilgi için fiyatlandırma özendirme, CSP, destek almak için gidin ve [CSP StorSimple: sık sorulan sorular](storsimple-partner-csp-faq.md). 
 

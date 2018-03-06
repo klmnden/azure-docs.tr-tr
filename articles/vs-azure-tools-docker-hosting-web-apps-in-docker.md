@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Bir ASP.NET kapsayıcısı uzak bir Docker konağına dağıtın
 ## <a name="overview"></a>Genel Bakış
 Docker ana uygulamalar ve hizmetler için kullanabileceğiniz bir sanal makineye, bazı şekillerde benzer bir basit kapsayıcı alt yapısıdır.
-Bu öğretici, kullanarak kılavuzluk [Docker için Visual Studio Araçları](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) Docker konağına PowerShell kullanarak Azure üzerinde ASP.NET Core uygulama dağıtmak için uzantı.
+Bu öğretici, kullanarak kılavuzluk [Docker için Visual Studio Araçları](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) Docker konağına PowerShell kullanarak Azure üzerinde ASP.NET Core uygulama dağıtmak için uzantı.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Aşağıdakiler bu öğreticiyi tamamlamak için gereklidir:

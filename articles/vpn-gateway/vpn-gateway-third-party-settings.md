@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: delhan
-ms.openlocfilehash: fae8ba81f925f53458133c8802b0766dd0f42684
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: cc45d84ea9a5eb4c2eaefb5a3ac321feb2d896d2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Topluluk önerilen üçüncü taraf VPN veya güvenlik duvarı için cihaz ayarları Azure VPN ağ geçidi
 
@@ -38,7 +38,7 @@ Aşağıdaki tabloda birçok yaygın aygıtları ve ilgili Yardım listeler:
 |Cisco ISR  |[Topluluk çözümleri Azure VPN üzerinde Cisco ISR için önerilen.](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[Topluluk çözümleri Azure VPN üzerinde Cisco ASR için önerilen.](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
 |SonicWALL |Arama **Azure VPN** üzerinde [Sonicwall site](https://support.sonicwall.com/search) |
-| Denetim noktası    |Arama **Azure VPN** üzerinde [denetim noktası sitesi](https://supportcenter.checkpoint.com/supportcenter/portal) |
+| Kontrol noktası    |Arama **Azure VPN** üzerinde [denetim noktası sitesi](https://supportcenter.checkpoint.com/supportcenter/portal) |
 |Juniper |Arama **Azure VPN** üzerinde [Juniper site]( http://www.juniper.net/search/public/)|
 |Barracuda  |[Topluluk çözümleri Azure VPN üzerinde Barracuda için önerilen.](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
 |F5         |[Topluluk çözümleri Azure VPN üzerinde F5 için önerilen.](https://support.f5.com/csp/#/federated-search?q=%22Azure%20VPN%22&source=support)          |
@@ -47,7 +47,7 @@ Aşağıdaki tabloda birçok yaygın aygıtları ve ilgili Yardım listeler:
 
 ## <a name="next-step"></a>Sonraki adım
 
-[Azure ağ geçitleri ayarları](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
+[Azure ağ geçitleri ayarları](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
 
-[Bilinen uyumlu cihazlar](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
+[Bilinen uyumlu cihazlar](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
 

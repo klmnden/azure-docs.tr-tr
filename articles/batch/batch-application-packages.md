@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d1f9951c9cc1b9380e166834afaeb18a4687e2d8
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
-ms.translationtype: HT
+ms.openlocfilehash: 86b5f10cbd79227ccc6acb2004e449f426a6cbd8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>İşlem düğümleri Batch uygulama paketleri ile uygulamaları dağıtma
 
@@ -121,7 +121,7 @@ Bu menü seçeneğini seçerek açılır **uygulamaları** dikey penceresinde:
 
 * **Paketleri**: Bu uygulama ile ilişkili sürüm sayısı.
 * **Varsayılan sürüm**: uygulama havuzu için belirttiğinizde bir sürüm belirtmezseniz yüklü uygulama sürümü. Bu ayar isteğe bağlıdır.
-* **Güncelleştirmelere izin**: olup paketini güncelleştirir, silme ve eklemeleri belirten değeri izin verilir. Bu ayarlanırsa **Hayır**, paket güncelleştirme ve silme işlemleri uygulama için devre dışıdır. Yalnızca yeni uygulama paketi sürümleri eklenebilir. Varsayılan değer **Evet**.
+* **Güncelleştirmelere izin**: olup paketini güncelleştirir, silme ve eklemeleri belirten değeri izin verilir. Bu ayarlanırsa **Hayır**, paket güncelleştirme ve silme işlemleri uygulama için devre dışıdır. Yalnızca yeni uygulama paketi sürümleri eklenebilir. Varsayılan değer **Evet**’tir.
 
 ### <a name="view-application-details"></a>Uygulama Ayrıntıları görüntüle
 Bir uygulama ayrıntılarını içeren dikey penceresini açmak için uygulamada seçin **uygulamaları** dikey.
@@ -194,7 +194,7 @@ Tıkladığınızda **güncelleştirme**, *güncelleştirme paketini* dikey penc
 
 Tıkladığınızda **silmek**, Paket sürümü silinmesini onaylaması istenir ve toplu Azure depolama biriminden paket siler. Bir uygulamanın varsayılan sürümü silerseniz **varsayılan sürüm** ayarını, uygulama için kaldırılır.
 
-![Uygulama silme][12]
+![Uygulama silme ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>İşlem düğümlerinde uygulamaları yükleme
 Azure portal ile uygulama paketlerini yönetmek nasıl öğrendiğinize göre bunları işlem düğümleri ve toplu görevleri çalıştırmak için dağıtma aşağıdakiler ele.
@@ -269,7 +269,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID`ve `version` dağıtımı için belirtilen uygulama ve Paket sürümü karşılık gelen değerler. Örneğin, uygulama sürümünün 2.7 belirtilmişse *blender* yüklenmesi gereken Windows düğümlerinde, kendi dosyalarına erişmek için bu ortam değişkenini görev komut satırları kullanırsınız:
+`APPLICATIONID` ve `version` dağıtımı için belirtilen uygulama ve Paket sürümü karşılık gelen değerler. Örneğin, uygulama sürümünün 2.7 belirtilmişse *blender* yüklenmesi gereken Windows düğümlerinde, kendi dosyalarına erişmek için bu ortam değişkenini görev komut satırları kullanırsınız:
 
 ```
 Windows:
@@ -352,7 +352,7 @@ Uygulama paketleri ile işlerini istediğiniz uygulamaları seçin ve Batch öze
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet
-[api_rest]: https://docs.microsoft.com/en-us/rest/api/batchservice/
+[api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/

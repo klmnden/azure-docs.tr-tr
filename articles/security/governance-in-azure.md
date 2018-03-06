@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="governance-in-azure"></a>Azure Yönetimi
 
@@ -488,6 +488,6 @@ Asıl araçlar şunlardır:
 
 - [En iyi uygulamalar Azure Resource Manager şablonları oluşturmak için](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
-- [Azure aboneliği idare uygulamanın örnekleri](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-examples).
+- [Azure aboneliği idare uygulamanın örnekleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-examples).
 
 - [Microsoft Azure kamu](https://docs.microsoft.com/azure/azure-government/).

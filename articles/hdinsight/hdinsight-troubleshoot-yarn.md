@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: a30d7a8e3f2e11a0c5ed05c5b68d75d32b138fb9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: fbcb4807aa7f6a3d6227cd630c77714c4d2834b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>YARN Azure Hdınsight kullanarak sorun giderme
 
@@ -35,7 +35,7 @@ Yeni bir YARN kuyruk oluşturmak için Ambari aşağıdaki adımları kullanın 
 Bu örnekte, iki mevcut sıraları (**varsayılan** ve **thriftsvr**) hem de yeni sıra (spark) % 50 kapasite verir % 25 kapasite için % 50 kapasiteden değiştirilir.
 | Kuyruk | Kapasite | Maksimum kapasite |
 | --- | --- | --- | --- |
-| Varsayılan | %25 | 50% |
+| varsayılan | %25 | 50% |
 | thrftsvr | %25 | 50% |
 | Spark | 50% | 50% |
 
@@ -139,7 +139,7 @@ Bu değişiklikler hemen YARN Zamanlayıcı UI görünür.
 
 ### <a name="additional-reading-2"></a>Ek kaynaklar
 
-- [SSH kullanarak Hdınsight (Hadoop) bağlanma](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [SSH kullanarak Hdınsight (Hadoop) bağlanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN kavramları ve uygulamalar](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 

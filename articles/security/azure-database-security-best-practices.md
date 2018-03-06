@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>En iyi güvenlik uygulamaları, Azure veritabanı
 
@@ -137,7 +137,7 @@ Azure Portalı aracılığıyla Azure Storage ile etkileşim, tüm işlemleri HT
 
 Aktarımdaki verileri korumak için başarısız olan kuruluşlar için daha açıktır [man-in--middle saldırıları](https://technet.microsoft.com/library/gg195821.aspx), [gizli dinleme](https://technet.microsoft.com/library/gg195641.aspx) ve oturumu ele geçirme. Bu tür saldırıları gizli verilere erişmesini ilk adımı olabilir.
 
-Makaleyi okuyarak Azure VPN seçenek hakkında daha fazla bilgi edinmek için [planlama ve tasarım VPN ağ geçidi için](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+Makaleyi okuyarak Azure VPN seçenek hakkında daha fazla bilgi edinmek için [planlama ve tasarım VPN ağ geçidi için](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Veritabanı denetimi etkinleştir
 SQL Server veritabanı altyapısı veya tek bir veritabanının bir örneğini denetim, izleme ve veritabanı Motoru'nu meydana gelen olayları günlüğe kaydetme içerir. SQL Server audit, sunucu düzeyi olayları için sunucunun denetim özellikleri ve veritabanı düzeyi olayları için veritabanı denetim belirtimleri içerebilir sunucu denetimleri oluşturmanızı sağlar. Denetlenen olayları, olay günlükleri veya dosyaları denetlemek için yazılabilir.
