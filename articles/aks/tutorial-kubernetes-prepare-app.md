@@ -1,78 +1,78 @@
 ---
-title: "Kubernetes Azure Öğreticisi - App hazırlama hakkında"
-description: "AKS Öğreticisi - App hazırlama"
+title: "Azure’da Kubernetes öğreticisi - Uygulama Hazırlama"
+description: "AKS öğreticisi - Uygulama Hazırlama"
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 0c4a1459a49fb60578f9f38ea65cd1400b538382
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="prepare-application-for-azure-container-service-aks"></a>Uygulama Azure kapsayıcı hizmeti (AKS) için hazırlama
+# <a name="prepare-application-for-azure-container-service-aks"></a>Azure Container Service (AKS) için uygulama hazırlama
 
-Bu öğreticide, sekiz, biri bölümü çok kapsayıcı uygulama Kubernetes kullanım için hazırlanır. Tamamlanan adımları içerir:  
+Bu sekiz parçalık öğreticinin ilk bölümünde, bir çoklu kapsayıcı uygulaması Kubernetes’te kullanılmak üzere hazırlanmaktadır. Tamamlanan adımlar:  
 
 > [!div class="checklist"]
 > * GitHub’dan uygulama kaynağını kopyalama  
-> * Uygulama kaynağından bir kapsayıcı görüntü oluşturma
-> * Uygulamayı bir yerel Docker ortamında test etme
+> * Uygulama kaynağından kapsayıcı görüntüsü oluşturma
+> * Uygulamayı yerel bir Docker ortamında test etme
 
-Tamamlandığında, aşağıdaki uygulama yerel geliştirme ortamınızda erişilebilir.
+Tamamlandıktan sonra, aşağıdaki uygulamaya yerel geliştirme ortamınızdan erişilebilir.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-Sonraki öğreticilerde, kapsayıcı görüntünün bir Azure kapsayıcı kayıt defterine karşıya ve bir AKS küme çalıştırın.
+Sonraki öğreticilerde, kapsayıcı görüntüsü Azure Container Registry’ye yüklenip bir AKS kümesinde çalıştırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu öğreticide kapsayıcılar, kapsayıcı görüntüleri ve temel docker komutları gibi temel Docker kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır. Gerekirse, bkz: [Docker ile çalışmaya başlama] [ docker-get-started] kapsayıcı temelleri öncü için. 
+Bu öğreticide kapsayıcılar, kapsayıcı görüntüleri ve temel docker komutları gibi temel Docker kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır. Gerekirse kapsayıcı temelleri hakkında bilgi için bkz. [Docker ile çalışmaya başlama][docker-get-started]. 
 
-Bu öğreticiyi tamamlamak için Docker geliştirme ortamı gerekir. Docker sağlar kolayca Docker herhangi yapılandırdığınız paketler [Mac][docker-for-mac], [Windows][docker-for-windows], veya [Linux] [ docker-for-linux] sistem.
+Bu öğreticiyi tamamlamak için Docker geliştirme ortamı gerekir. Docker [Mac][docker-for-mac], [Windows][docker-for-windows] veya [Linux][docker-for-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
-Azure bulut Kabuk her adımı tamamlamak için gereken Docker bileşenleri Bu öğretici içermez. Bu nedenle, bir tam Docker geliştirme ortamında kullanmanızı öneririz.
+Azure Cloud Shell, bu öğreticideki her adımı tamamlamak için gerekli olan Docker bileşenlerini içermez. Bu yüzden, eksiksiz bir Docker geliştirme ortamı kullanmanızı öneririz.
 
 ## <a name="get-application-code"></a>Uygulama kodunu alma
 
-Bu öğreticide kullanılan örnek temel bir oylama uygulama uygulamasıdır. Uygulama bir ön uç web bileşeni ve bir arka uç Redis örneği oluşur. Web bileşeni özel kapsayıcı görüntüsüne paketlenmiştir. Redis örneği Docker hub'a değiştirilmemiş bir görüntüden kullanır.  
+Bu öğreticide kullanılan örnek uygulama, temel oylama uygulamasıdır. Bu uygulama, ön uç bileşen ile arka uç Redis örneğinden oluşur. Web bileşeni, özel kapsayıcı görüntüsüne paketlenmiştir. Redis örneği, Docker Hub’dan alınan değiştirilmemiş bir görüntü kullanır.  
 
-Geliştirme ortamınızı uygulamaya bir kopyasını indirmek için Git kullanın.
+Geliştirme ortamına uygulamanın bir kopyasını indirmek için Git kullanın.
 
 ```console
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Dizinleri kopyalanan dizinden çalıştığınız şekilde değiştirin.
+Kopyalanan dizinden çalışabilmeniz için dizinleri değiştirin.
 
 ```console
 cd azure-voting-app-redis
 ```
 
-Dizini içinde uygulama kaynak koduna, önceden oluşturulmuş bir Docker compose dosyası ve bir Kubernetes bildirim dosyası. Bu dosyalar öğretici kümesi kullanılır. 
+Dizinin içinde uygulama kaynak kodu, önceden oluşturulmuş Docker Compose dosyası ve Kubernetes bildirim dosyası bulunur. Bu dosyalar öğretici kümesi boyunca kullanılır. 
 
 ## <a name="create-container-images"></a>Kapsayıcı görüntüleri oluşturma
 
-[Docker Compose] [ docker-compose] yapı kapsayıcı görüntüler ve birden çok kapsayıcı uygulamalarının dağıtımını otomatik hale getirmek için kullanılabilir.
+[Docker Compose][docker-compose] kapsayıcı görüntülerinden alınan derlemeyi ve çoklu kapsayıcı uygulamalarının dağıtımını otomatikleştirmek için kullanılabilir.
 
-Çalıştırma `docker-compose.yaml` kapsayıcı görüntü oluşturma, Redis görüntüsünü karşıdan yüklemek ve uygulamayı başlatmak için dosya.
+Kapsayıcı görüntüsünü oluşturmak için `docker-compose.yaml` dosyasını çalıştırın, Redis görüntüsünü indirin ve uygulamayı başlatın.
 
 ```console
 docker-compose up -d
 ```
 
-Tamamlandığında kullanmak [docker görüntüleri] [ docker-images] oluşturulan görüntüleri görmek için komutu.
+Tamamlandığında, oluşturulan görüntüleri görmek için [docker images][docker-images] komutunu kullanın.
 
 ```console
 docker images
 ```
 
-Üç görüntüleri indirilebilir veya oluşturulan dikkat edin. `azure-vote-front` Görüntü uygulama içerir ve kullandığı `nginx-flask` görüntüyü temel olarak. `redis` Görüntü bir Redis örneği başlatmak için kullanılır.
+İndirilen veya oluşturulan üç görüntü olduğunu göz önünde bulundurun. `azure-vote-front` görüntüsü uygulamayı içerir ve temel olarak `nginx-flask` görüntüsünü kullanır. `redis` görüntüsü bir Redis örneği başlatmak için kullanılır.
 
 ```
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Çalıştırma [docker ps] [ docker-ps] çalışan kapsayıcıları görmek için komutu.
+Çalışan kapsayıcıları görmek için [docker ps][docker-ps] komutunu kullanın.
 
 ```console
 docker ps
@@ -97,41 +97,41 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Uygulamayı yerel olarak test etme
 
-Çalışan uygulama görmek için http://localhost: 8080 için göz atın.
+Çalışan uygulamayı görüntülemek için http://localhost:8080 konumuna göz atın.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Uygulama işlevselliği doğrulandı, çalışan kapsayıcılar durdurulur ve kaldırılmış. Kapsayıcı görüntüleri silmeyin. `azure-vote-front` Görüntü sonraki öğreticide Azure kapsayıcı kayıt defteri örneğine yüklenir.
+Artık uygulama işlevselliği doğrulandığından, çalışan kapsayıcılar durdurulup kaldırılabilir. Kapsayıcı görüntülerini silmeyin. Sonraki öğreticide `azure-vote-front` görüntüsü bir Azure Container Registry örneğine yüklenir.
 
-Çalışan kapsayıcılar durdurmak için aşağıdaki komutu çalıştırın.
+Çalışan kapsayıcıları durdurmak için aşağıdaki komutu çalıştırın.
 
 ```console
 docker-compose stop
 ```
 
-Durdurulan kapsayıcıları ve aşağıdaki komut ile kaynakları silin.
+Aşağıdaki komutu kullanarak, durdurulan kapsayıcıları ve kaynakları silin.
 
 ```console
 docker-compose down
 ```
 
-Tamamlandığında, Azure oy uygulamayı içeren bir kapsayıcı görüntüsüne sahip.
+Tamamlandığında, Azure Vote uygulamasını içeren bir kapsayıcı görüntüsüne sahip olursunuz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir uygulamayı test edilmiştir ve kapsayıcı görüntüleri uygulama için oluşturulan. Aşağıdaki adımlar tamamlandı:
+Bu öğreticide bir uygulama test edildi ve bu uygulamaya yönelik kapsayıcı görüntüleri oluşturuldu. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
 > * GitHub’dan uygulama kaynağını kopyalama  
-> * Uygulama kaynağından bir kapsayıcı görüntüsü oluşturuldu
-> * Uygulamayı yerel bir Docker ortamında test
+> * Uygulama kaynağından kapsayıcı görüntüsü oluşturuldu
+> * Uygulama yerel bir Docker ortamında test edildi
 
 Kapsayıcı görüntülerini bir Azure Container Registry’de depolama hakkında bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Azure kapsayıcı kayıt defteri itme görüntüleri][aks-tutorial-prepare-acr]
+> [Azure Container Registry’ye görüntüleri gönderme][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

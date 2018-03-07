@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning Önizleme özellikleri - komut satırı arabirimi için öğretici makale | Microsoft Docs"
-description: "Bu öğretici ilerlemesi tüm adımlar bir Iris sınıflandırma uçtan uca komut satırı arabiriminden tamamlamak için gerekli."
+title: "Azure Machine Learning önizleme özellikleri öğretici makalesi - Komut Satırı Arabirimi | Microsoft Docs"
+description: "Bu öğreticide komut satırı arabiriminden uçtan uca bir Süsen sınıflandırmasını tamamlamak için gereken tüm adımlarda yol gösterilir."
 services: machine-learning
 author: ahgyger
 ms.author: ahgyger, ritbhat
@@ -11,47 +11,49 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Öğretici: komut satırı arabirimi kullanarak Iris sınıflandırma
-Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
+# <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Öğretici: Komut satırı arabirimini kullanarak Süsen Sınıflandırması
+Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
 
-Bu öğreticide, Azure Machine Learning Önizleme özellikleri için komut satırı arabirimi (CLI) araçlarını kullanmayı öğrenin: 
+Bu öğreticide, Azure Machine Learning önizleme özelliklerinde komut satırı arabirimini (CLI) kullanarak şunları yapmayı öğrenirsiniz: 
 > [!div class="checklist"]
-> * Bir deneme hesabı ayarlamanız ve bir çalışma alanı oluşturma
-> * Proje oluştur
-> * Birden çok işlem hedefi için bir deneme gönderme
-> * Yükseltme ve eğitilen model kaydetme
-> * Yeni veri Puanlama amacıyla bir web hizmetini dağıtma
+> * Deneme hesabını ayarlama ve çalışma alanı oluşturma
+> * Proje oluşturma
+> * Birden çok bilgisayar hedefine deneme gönderme
+> * Eğitilen bir modeli yükseltme ve kaydetme
+> * Yeni verileri puanlamak için bir web hizmeti dağıtma
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+## <a name="prerequisites"></a>Ön koşullar
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+- Bir Azure aboneliğinde kaynakları oluşturmak için bu aboneliğe ve izinlerine erişin. 
+  
+  Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Önkoşullar
-- Bir Azure aboneliği ve kaynaklar bu abonelikte oluşturma izni erişmeniz gerekir. 
-- İzleyerek Azure makine Learing çalışma ekranı uygulamayı yüklemek gereken [yükleme ve hızlı başlangıç oluşturma](quickstart-installation.md). 
+- Azure Machine Learning Workbench uygulaması, [Hızlı Başlangıç: Azure Machine Learning hizmetlerini yükleme ve başlatma](quickstart-installation.md) altında açıklandığı gibi yüklenir. 
 
-  >[!NOTE]
-  >Yalnızca Azure Machine Learning çalışma ekranı yerel olarak yüklemeniz gerekir. Hesap oluşturulduktan sonra Azure Machine Learning çalışma ekranı yüklemek, başlıklı bölümlerdeki adımları izleyin ve adımları bu makalede komut satırı tarafından yapılan yeni bir proje oluşturun yeterlidir.
+  >[!IMPORTANT]
+  >Azure Machine Learning hizmet hesaplarını oluşturmayın çünkü bu işlemi bu makalede CLI kullanarak yapacaksınız.
  
 ## <a name="getting-started"></a>Başlarken
-Azure Machine Learning komut satırı arabirimi (CLI) bir uçtan uca veri bilimi akışı için gerekli tüm görevleri gerçekleştirmenizi sağlar. CLI araçlarını aşağıdaki yöntemlerle erişebilirsiniz:
+Azure Machine Learning komut satırı arabirimi (CLI) uçtan uca bir veri bilimi iş akışı için gereken tüm görevleri gerçekleştirmenize olanak tanır. CLI araçlarına şu yollarla erişebilirsiniz:
 
-### <a name="option-1-launch-azure-ml-cli-from-azure-ml-workbench-log-in-dialog-box"></a>Seçenek 1. Azure ML CLI Azure ML çalışma ekranı oturum açma iletişim kutusundan başlatma
-Azure ML çalışma ekranı ve oturum açma ilk kez başlattığınızda ve bir deneme hesabı için erişim zaten yoksa, şu ekranla sunulur:
+### <a name="option-1-launch-azure-ml-cli-from-azure-ml-workbench-log-in-dialog-box"></a>1. Seçenek Azure ML CLI'yi Azure ML Workbench oturum açma iletişim kutusundan başlatma
+İlk kez Azure ML Workbench'i başlatıp oturum açtığınızda, henüz bir Deneme Hesabına erişiminiz yoksa aşağıdaki ekran gösterilir:
 
-![hiçbir hesap bulunamadı](media/tutorial-iris-azure-cli/no_account_found.png)
+![hesap bulunamadı](media/tutorial-iris-azure-cli/no_account_found.png)
 
-Tıklayın **komut satırı penceresinde** komut satırı penceresinde başlatmak için iletişim kutusuna bağlantı.
+Komut satırı penceresini başlatmak için iletişim kutusunda **Komut Satırı Penceresi** bağlantısına tıklayın.
 
-### <a name="option-2-launch-azure-ml-cli-from-azure-ml-workbench-app"></a>Seçenek 2. Azure ML CLI Azure ML çalışma ekranı uygulamasını başlatma
-Bir deneme hesabı için erişim zaten varsa, başarılı bir şekilde oturum. Ve ardından tıklayarak komut satırı penceresi açabilir **dosya** --> **komut istemi açın** menüsü.
+### <a name="option-2-launch-azure-ml-cli-from-azure-ml-workbench-app"></a>2. Seçenek Azure ML CLI'yi Azure ML Workbench uygulamasından başlatma
+Zaten bir Deneme Hesabına erişiminiz varsa, başarılı bir şekilde oturum açabilirsiniz. Sonra da **Dosya** --> **Komut İstemini Aç** menüsüne tıklayarak komut satırı penceresini açabilirsiniz.
 
-### <a name="option-3-enable-azure-ml-cli-in-an-arbitrary-command-line-window"></a>Seçenek 3. Azure ML CLI rasgele bir komut satırı penceresinde etkinleştir
-Azure ML CLI komut satırı penceresinde de etkinleştirebilirsiniz. Sadece bir komut penceresini başlatın ve aşağıdaki komutları girin:
+### <a name="option-3-enable-azure-ml-cli-in-an-arbitrary-command-line-window"></a>3. Seçenek Azure ML CLI'yi rastgele bir komut satırı penceresinde etkinleştirme
+Azure ML CLI'yi herhangi bir komut satırı penceresinde de etkinleştirebilirsiniz. Bunu yapmak için bir komut penceresi başlatın ve aşağıdaki komutları girin:
 
 ```sh
 # Windows Command Prompt
@@ -63,15 +65,15 @@ $env:Path = $env:LOCALAPPDATA+"\amlworkbench\Python;"+$env:LOCALAPPDATA+"\amlwor
 # macOS Bash Shell
 PATH=$HOME/Library/Caches/AmlWorkbench/Python/bin:$PATH
 ```
-Değişikliği kalıcı yapmak için kullanabileceğiniz `SETX` Windows. MacOS için kullandığınız `setenv`.
+Değişikliği kalıcı hale getirmek için Windows'da `SETX` kullanabilirsiniz. macOS'ta ise `setenv` kullanabilirsiniz.
 
 >[!TIP]
->Yukarıdaki ortam değişkenleri ayarlayarak, sık kullanılan terminal penceresinde Azure CLI etkinleştirebilirsiniz.
+>Önündeki ortam değişkenlerini ayarlayarak Azure CLI'yi sık kullandığınız terminal penceresinde etkinleştirebilirsiniz.
 
 ## <a name="step-1-log-in-to-azure"></a>1. Adım Azure'da oturum açma
-CLI AMLWorkbench uygulamadan açmak için ilk adımdır (Dosya > komut istemi açın). Bunun yapılması, doğru python ortamı kullanırız ve kullanılabilir ML CLI komutları sahibiz sağlar. 
+İlk adım AMLWorkbench Uygulamasından (Dosya > Komut İstemini Aç) CLI'yi açmaktır. Bunu yaparak doğru Python ortamını kullandığınızdan ve ML CLI komutlarının kullanılabildiğinden emin olursunuz. 
 
-Biz sonra sağ bağlam erişmek ve Azure kaynaklarınızı yönetmek için CLI ayarlamanız gerekir.
+Şimdi, Azure kaynaklarına erişmek ve bunları yönetmek için CLI'nizde doğru bağlamı ayarlayabilirsiniz.
  
 ```azure-cli
 # log in
@@ -84,11 +86,12 @@ $ az account list -o table
 $ az account set -s <subscription id or name>
 ```
 
-## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>2. Adım Yeni bir Azure Machine Learning deneme hesabı ve çalışma alanı oluşturma
-Yeni bir deneme hesabı ve yeni bir çalışma alanı oluşturmaya başlayın. Bkz: [Azure Machine Learning kavramları](overview-general-concepts.md) deneme hesapları ve çalışma alanları hakkında daha fazla ayrıntı için.
+## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>2. Adım Yeni bir Azure Machine Learning Denemesi Hesabı ve Çalışma Alanı oluşturma
+
+Bu adımda, yeni bir Deneme hesabı ve yeni bir çalışma alanı oluşturursunuz. Deneme hesapları ve çalışma alanları hakkındaki diğer ayrıntılar için bkz. [Azure Machine Learning kavramları](overview-general-concepts.md).
 
 > [!NOTE]
-> Deneme hesapları deneme çalışmalarınız çıkışları depolamak için kullanılan bir depolama hesabı gerektirir. Depolama hesabı adı ile ilişkili bir url olduğundan Azure içinde genel olarak benzersiz olması gerekir. Mevcut bir depolama hesabını belirtmezseniz, deneme hesabınızın adını yeni bir depolama hesabı oluşturmak için kullanılır. Benzersiz bir ad kullandığınızdan emin olun veya gibi bir hata iletisiyle karşılaşırsınız _"adlı depolama hesabı \<storage_account_name > zaten alındı."_ Alternatif olarak, kullanabileceğiniz `--storage` mevcut bir depolama hesabını sağlamak için bağımsız değişken.
+> Deneme hesaplarına, deneme çalıştırmalarınızın çıkışlarını depolamak için kullanılan bir depolama hesabı gerekir. Depolama hesabı adı Azure'da genel olarak benzersiz olmalıdır çünkü bu adla ilişkilendirilmiş bir url vardır. Mevcut bir depolama hesabı belirtmezseniz, deneme hesabı adınız kullanılarak yeni depolama hesabı oluşturulur. Benzersiz bir ad kullandığınızdan emin olun, yoksa _"\<depolama_hesabı_adı> adlı depolama hesabı zaten alınmış"_ gibi bir hata alırsınız. Alternatif olarak, mevcut bir depolama hesabı sağlamak için `--storage` bağımsız değişkenini kullanabilirsiniz.
 
 ```azure-cli
 # create a resource group 
@@ -104,8 +107,8 @@ $ az ml account experimentation create --name <experimentation account name>  --
 az ml workspace create --name <workspace name> --account <experimentation account name> --resource-group <resource group name>
 ```
 
-## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>Adım 2.a (isteğe bağlı) ile birlikte çalışan bir çalışma alanı paylaşma
-Buraya bir iş arkadaşı ile çalışma alanına erişim paylaşma keşfedin. Bir deneme hesabı veya bir proje erişimini paylaşmak için adımlar aynı olacaktır. Yalnızca Azure kaynak kimliği alma şekilde güncelleştirilmesi gerekir.
+## <a name="step-2a-optional-share-a-workspace-with-co-worker"></a>2.a Adımı (isteğe bağlı) Çalışma alanını iş arkadaşıyla paylaşma
+Burada, çalışma alanı erişiminin bir iş arkadaşıyla nasıl paylaşılacağını keşfedebilirsiniz. Deneme hesabına veya projeye erişimi paylaşma adımları aynı olabilir. Yalnızca Azure Kaynak Kimliğini alma yönteminin güncelleştirilmesi gerekebilir.
 
 ```azure-cli
 # find the workspace Azure Resource ID
@@ -116,39 +119,39 @@ $az role assignment create --assignee bob@contoso.com --role owner --scope <work
 ```
 
 > [!TIP]
-> `bob@contoso.com`Yukarıdaki komutta geçerli bir olmalıdır Azure AD kimliğinde geçerli aboneliğe ait olduğu için dizin.
+> Yukarıdaki komutta kullanılan `bob@contoso.com`, geçerli aboneliğin ait olduğu dizinde geçerli bir Azure AD kimliği olmalıdır.
 
 ## <a name="step-3-create-a-new-project"></a>3. Adım Yeni bir proje oluşturma
-Bizim sonraki adım, yeni bir proje oluşturmaktır. Yeni bir proje ile çalışmaya başlamak için birkaç yolu vardır.
+Sonraki adımımız yeni proje oluşturmaktır. Yeni projeye başlamanın birkaç yolu vardır.
 
-### <a name="create-a-new-blank-project"></a>Yeni boş bir proje oluşturun
+### <a name="create-a-new-blank-project"></a>Yeni boş bir proje oluşturma
 
 ```azure-cli
 # create a new project
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path>
 ```
 
-### <a name="create-a-new-project-with-a-default-project-template"></a>Varsayılan proje şablonu ile yeni bir proje oluşturun
-Yeni bir proje ile varsayılan bir şablon oluşturabilirsiniz.
+### <a name="create-a-new-project-with-a-default-project-template"></a>Varsayılan proje şablonuyla yeni proje oluşturma
+Varsayılan şablonla yeni bir proje oluşturabilirsiniz.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template
 ```
 
-### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Git deposu Bulutu ile ilişkili yeni bir proje oluşturma
-VSTS (Visual Studio Team hizmeti) Git deposu ile ilişkili yeni bir proje oluşturabilir. Bir deneme gönderilen her zaman, bir anlık görüntü tüm proje klasörünün uzak Git deposuna taahhüt eder. Bkz: [kullanarak Git deposu Azure Machine Learning çalışma ekranı projesi ile](using-git-ml-project.md) daha fazla ayrıntı için.
+### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Bulut Git deposuyla ilişkilendirilmiş yeni proje oluşturma
+VSTS (Visual Studio Team Service) Git deposuyla ilişkilendirilmiş yeni bir proje oluşturabilirsiniz. Deneme her gönderildiğinde, tüm proje klasörünün anlık görüntüsü uzak Git deposuna işlenir. Diğer ayrıntılar için bkz. [Azure Machine Learning Workbench projesiyle Git deposunu kullanma](using-git-ml-project.md).
 
 > [!NOTE]
-> Azure Machine Learning yalnızca VSTS oluşturulan boş Git depoları destekler.
+> Azure Machine Learning yalnızca VSTS'de oluşturulmuş boş Git depolarını destekler.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> "Depo URL'si geçersiz olabilir veya kullanıcı erişimi sahip olmayabilir" bir hata alıyorsanız, bir güvenlik belirteci VSTS oluşturabilirsiniz (altında _güvenlik_, _kişisel erişim belirteçleri eklemek_ menüsü) ve `--vststoken`projenizi oluştururken bağımsız değişkeni. 
+> "Depo url'si geçersiz olabilir veya kullanıcının erişimi olmayabilir" hatasını alıyorsanız, VSTS'de bir güvenlik belirteci oluşturabilir (_Güvenlik_ altında, _Kişisel erişim belirteçleri ekle_ menüsü) ve projenizi oluştururken `--vststoken` bağımsız değişkenini kullanabilirsiniz. 
 
-### <a name="sample_create"></a>Bir örnek alarak yeni bir proje oluşturun
-Bu örnekte, bir örnek proje şablon olarak kullanarak yeni bir proje oluşturun.
+### <a name="sample_create"></a>Örnekten yeni proje oluşturma
+Bu örnekte, şablon olarak bir örnek proje kullanıp yeni proje oluşturursunuz.
 
 ```azure-cli
 # List the project samples, find the Classifying Iris sample
@@ -157,13 +160,13 @@ $ az ml project sample list
 # Create a new project from the sample
 az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --template-url https://github.com/MicrosoftDocs/MachineLearningSamples-Iris
 ```
-Projeniz oluşturulduktan sonra kullanmak `cd` komutu proje dizini girin.
+Projeniz oluşturulduktan sonra, `cd` komutunu kullanarak proje dizinine girin.
 
-## <a name="step-4-run-the-training-experiment"></a>Adım 4 eğitim denemeyi çalıştırın 
-Aşağıdaki adımlar Iris örnek projeyle sahip olduğunuzu varsaymaktadır (bkz [çevrimiçi bir örnek alarak yeni bir proje oluşturun](#sample_create)).
+## <a name="step-4-run-the-training-experiment"></a>4. Adım Eğitim denemesini çalıştırma 
+Aşağıdaki adımlarda Iris örneğiyle bir projeniz olduğu varsayılır (bkz. [Çevrimiçi örnekten yeni proje oluşturma](#sample_create)).
 
 ### <a name="prepare-your-environment"></a>Ortamınızı hazırlama 
-Iris örnek için biz matplotlib yüklemeniz gerekir.
+Iris örneği için, matplotlib'i yüklemelisiniz.
 
 ```azure-cli
 $ pip install matplotlib
@@ -176,53 +179,53 @@ $ pip install matplotlib
 $ az ml experiment submit --run-configuration local iris_sklearn.py
 ```
 
-### <a name="iterate-on-your-experiment-with-descending-regularization-rates"></a>Denemenizi regularization oranları azalan ile yineleme
-Bazı yaratıcılık ile farklı regularization hızı denemeler gönderen bir Python komut dosyası bir araya basittir. (Sağ proje yolunu işaret edecek şekilde dosyayı düzenleyin gerekebilir.)
+### <a name="iterate-on-your-experiment-with-descending-regularization-rates"></a>Azalan düzenleme hızlarıyla denemenizi yineleme
+Biraz yaratıcılıkla, denemeleri farklı düzenleme hızlarıyla gönderen Python betiğini bir araya getirmek basit bir işlemdir. (Dosyayı doğru proje yoluna işaret edecek şekilde düzenlemeniz gerekebilir.)
 
 ```azure-cli
 $ python run.py
 ```
 
 ## <a name="step-5-view-run-history"></a>5. Adım. Çalıştırma geçmişini görüntüleme
-Komutu aşağıdaki yürütülen tüm önceki çalışmalarını listeler. 
+Aşağıdaki komut yürütülen tüm önceki çalıştırmaları listeler. 
 
 ```azure-cli
 $ az ml history list -o table
 ```
-Yukarıdaki komut çalıştıran bu projeye ait tüm metinler listesini görüntüler. Kesinlik ve regularization oranı ölçümleri çok listelendiğini görebilirsiniz. Bu yapma, en iyi tanımlamak kolay çalıştırın listeden.
+Önceki komut çalıştırıldığında, bu projeye ait tüm çalıştırmalar listelenir. Doğruluk ve düzenleme hızı ölçümlerinin de listelendiğini görebilirsiniz. Bu, listeden en iyi çalıştırmanın belirlenmesini kolaylaştırır.
 
-## <a name="step-5a-view-attachment-created-by-a-given-run"></a>Verilen çalışması tarafından oluşturulan 5.a görünüm ek adım 
-Belirli bir çalışma ile ilişkili Eki görüntülemek için çalıştırma geçmişi bilgileri komutu kullanabilirsiniz. Yukarıdaki listeden belirli bir çalışma çalışma kimliğini bulun.
+## <a name="step-5a-view-attachment-created-by-a-given-run"></a>5.a Adımı Belirli bir çalıştırma tarafından oluşturulan eki görüntüleme 
+Belirli bir çalıştırmayla ilişkilendirilmiş eki görüntülemek için, çalıştırma geçmişinin info komutunu kullanabilirsiniz. Önceki listede belirli bir çalıştırmanın çalıştırma kimliğini bulun.
 
 ```azure-cli
 $ az ml history info --run <run id> --artifact driver_log
 ```
 
-Bir çalışma yapıları indirmek için komutu kullanabilirsiniz:
+Çalıştırmadan yapıtları indirmek için aşağıdaki komutu kullanabilirsiniz:
 
 ```azure-cli
 # Stream a given attachment 
 $ az ml history info --run <run id> --artifact <artifact location>
 ```
 
-## <a name="step-6-promote-artifacts-of-a-run"></a>6. Adım. Bir çalışma yapıları Yükselt 
-Biz üretime dağıtılacak Puanlama bir web hizmeti oluşturmak için kullanmak istediğiniz şekilde biri biz yapılan çalıştırır, daha iyi bir AUC sahiptir. Bunu yapmak için önce bir varlığa yapıları yükseltmek ihtiyacımız.
+## <a name="step-6-promote-artifacts-of-a-run"></a>6. Adım. Çalıştırmanın yapıtlarını yükseltme 
+Çalıştırmalardan birinin AUC'si daha iyidir, dolayısıyla üretime dağıtmak üzere bir puanlama web hizmeti oluştururken bu çalıştırma kullanılır. Bunu yapmak için, önce yapıtları bir varlığa yükseltmelisiniz.
 
 ```azure-cli
 $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name model.pkl
 ```
 
-Bu oluşturur bir `assets` proje dizininiz klasöründe bir `model.pkl.link` dosyası. Bu bağlantı dosyası yükseltilen bir varlık başvurmak için kullanılır.
+Bu işlem, proje dizininizde `model.pkl.link` dosyasını içeren bir `assets` klasörü oluşturur. Bu bağlantı dosyası yükseltilen varlığa başvurmak için kullanılır.
 
-## <a name="step-7-download-the-files-to-be-operationalized"></a>7. Adım. Kullanıma hazır hale getirilmiş için dosyaları indirme
-Şimdi biz bizim tahmin web hizmeti oluşturmak için kullanabilmeniz için yükseltilen modeli indirmek ihtiyacımız. 
+## <a name="step-7-download-the-files-to-be-operationalized"></a>7. Adım. Kullanıma hazır hale getirilecek dosyaları indirme
+Yükseltilen modeli indirin. Böylelikle bir tahmin web hizmeti oluştururken bu modeli kullanabilirsiniz. 
 
 ```azure-cli
 $ az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
-## <a name="step-8-setup-your-model-management-environment"></a>8. adım. Model yönetim ortamı Kurulumu 
-Web hizmetleri dağıtmak için bir ortamı oluşturuyoruz. Biz, web hizmeti Docker kullanarak yerel makinede çalıştırabilirsiniz. Veya yüksek ölçekli işlemleri için bir ACS kümeye dağıtın. 
+## <a name="step-8-set-up-your-model-management-environment"></a>8. Adım Model yönetim ortamınızı ayarlama 
+Web hizmetlerini dağıtmak için bir ortam oluşturun. Docker kullanarak web hizmetini yerel makinede çalıştırabilirsiniz. İsterseniz, büyük ölçekli işlemler için bunu bir ACS kümesine de dağıtabilirsiniz. 
 
 ```azure-cli
 # Create new local operationalization environment
@@ -231,22 +234,22 @@ $ az ml env setup -l <supported Azure region> -n <env name>
 $ az ml env set -g <resource group name> -n <env name>
 ```
 
-## <a name="step-9-create-a-model-management-account"></a>9. adım. Bir model yönetim hesabı oluşturun 
-Bir model yönetim hesabı dağıtma ve üretim Modellerinizi izlemek için gereklidir. 
+## <a name="step-9-create-a-model-management-account"></a>9. Adım Model yönetimi hesabı oluşturma 
+Model yönetimi hesabı, üretimde modellerinizi dağıtmak ve izlemek için gereklidir. 
 
 ```azure-cli
 $ az ml account modelmanagement create -n <model management account name> -g <resource group name> -l <supported Azure region>
 ```
 
-## <a name="step-10-create-a-web-service"></a>10. adım. Web hizmeti oluşturma
-Ardından dağıttığımız modeli kullanarak bir tahmini döndüren bir web hizmeti oluşturuyoruz. 
+## <a name="step-10-create-a-web-service"></a>10. Adım Web hizmeti oluşturma
+Dağıttığınız modeli kullanarak tahmin döndüren bir web hizmeti oluşturun. 
 
 ```azure-cli
 $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
-## <a name="step-10-run-the-web-service"></a>10. adım. Web hizmeti çalıştırın
-Önceki adımda çıktısından web hizmeti kimliği kullanarak, web hizmetini çağırmak ve test. 
+## <a name="step-11-run-the-web-service"></a>11. Adım Web hizmetini çalıştırma
+Önceki adımın çıkışındaki web hizmeti kimliğini kullanarak web hizmetini çağırın ve test edin. 
 
 ```azure-cli
 # Get web service usage infomration
@@ -256,22 +259,22 @@ $ az ml service usage realtime -i <web service id>
 $ az ml service run realtime -i <web service id> -d <input data>
 ```
 
-## <a name="deleting-all-the-resources"></a>Tüm kaynakları silme 
-Şimdi bu öğreticide oluşturduk, tüm kaynakları çalışmaya devam etmek istemiyorsanız silerek tamamlandı! 
+## <a name="step-12-deleting-all-the-resources"></a>12. Adım Tüm kaynakları silme 
+Şimdi, oluşturulmuş olan ve üzerinde çalışmak istemediğiniz tüm kaynakları silerek bu öğreticiyi tamamlayalım. 
 
-Bunu yapmak için biz yalnızca tüm KAYNAKLARIMIZI bulunduran kaynak grubunu silin. 
+Bunu yapmak için, kaynakları barındıran kaynak grubunu silin. 
 
 ```azure-cli
 az group delete --name <resource group name>
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu öğreticide, Azure Machine Learning Önizleme özellikleri kullanmak öğrendiniz 
+Bu öğreticide, Azure Machine Learning'i kullanarak şunları yapmayı öğrendiniz: 
 > [!div class="checklist"]
-> * Bir deneme hesabı kurmak, çalışma alanı oluşturma
+> * Deneme hesabını ayarlama, çalışma alanını oluşturma
 > * Projeleri oluşturma
-> * Birden çok işlem hedef denemeleri gönder
-> * Yükseltme ve eğitilen model kaydetme
-> * Model yönetimi için bir model yönetim hesabı oluşturun
-> * Bir web hizmeti dağıtmak için bir ortamı oluşturun
-> * Web hizmeti ve yeni verilerle puanı dağıtma
+> * Birden çok bilgisayar hedefine denemeleri gönderme
+> * Eğitilen bir modeli yükseltme ve kaydetme
+> * Model yönetimi için bir model yönetimi hesabı oluşturma
+> * Web hizmetlerini dağıtmak için bir ortam oluşturma
+> * Web hizmetini dağıtma ve yeni verilerle puanlama yapma
