@@ -3,57 +3,80 @@ title: "Azure Machine Learning hizmetlerinde Iris öğreticisini sınıflandırm
 description: "Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu, birinci bölümdür ve veri hazırlığını açıklar."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 09/28/2017
-ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.date: 02/28/2018
+ms.openlocfilehash: 0bef557ee1394e3c786fd2c54e821b5dea28fabf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="classify-iris-part-1-prepare-the-data"></a>Iris Sınıflandırma bölüm 1: Verileri hazırlama
+# <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Öğretici: Iris Sınıflandırması bölüm 1 - Verileri hazırlama
+
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
 
 Bu öğretici, üç bölümden oluşan bir serinin birinci bölümüdür. Bu öğreticide, Azure Machine Learning hizmetleri (önizleme) hakkındaki temel bilgileri adım adım inceleyeceğiz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
-> [!div class="checklist"]
-> * Azure Machine Learning Workbench’te proje oluşturma.
-> * Bir veri hazırlama paketi oluşturma.
-> * Veri hazırlama paketini çağırmak için Python/PySpark kodu oluşturma.
 
-Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak Mac OS deneyimi de çok benzerdir.
+> [!div class="checklist"]
+> * Azure Machine Learning Workbench’te proje oluşturma
+> * Veri hazırlama paketi oluşturma
+> * Veri hazırlama paketini çağırmak için Python/PySpark kodu oluşturma
+
+Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak macOS deneyimi de çok benzerdir.
 
 ## <a name="prerequisites"></a>Ön koşullar
-- Bir Azure Machine Learning Denemesi hesabı oluşturun.
-- Azure Machine Learning Workbench'i yükleyin.
 
-Azure Machine Learning Workbench uygulamasını yüklemek için [Yükleme ve Oluşturma Hızlı Başlangıç](quickstart-installation.md) makalesindeki yönergeleri izleyebilirsiniz. Bu yükleme ayrıca Azure platformlar arası komut satırı aracı veya Azure CLI’yi içerir.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="create-a-new-project-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench’te yeni proje oluşturma
-1. Azure Machine Learning Workbench uygulamasını açın ve gerekirse oturum açın. **PROJELER** bölmesinde artı işaretini (**+**) seçerek **Yeni Proje** oluşturun.
+Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
+- Bir Azure Machine Learning Denemesi hesabı
+- Azure Machine Learning Workbench'in yüklü olması
+
+Bu gereksinimleri zaten karşılamıyorsanız [Hızlı başlangıç: Yükleme ve başlatma](quickstart-installation.md) makalesindeki adımları izleyerek bu hesap ayarlayın ve Azure Machine Learning Workbench uygulamasını yükleyin. 
+
+## <a name="create-a-new-project-in-workbench"></a>Workbench'te yeni proje oluşturma
+
+[Hızlı başlangıç: Yükleme ve başlatma](quickstart-installation.md) makalesindeki adımları izlediyseniz bu projeye zaten sahipsiniz demektir ve bir sonraki bölüme atlayabilirsiniz.
+
+1. Azure Machine Learning Workbench uygulamasını açın ve gerekirse oturum açın. 
+   
+   + Windows’da **Machine Learning Workbench** masaüstü kısayolunu kullanarak uygulamayı başlatın. 
+   + macOS’ta Launchpad’den **Azure ML Workbench**’i seçin.
+
+1. **PROJELER** bölmesinden artı işaretini (+) seçip **Yeni Proje**’yi seçin.  
 
    ![Yeni çalışma alanı](media/tutorial-classifying-iris/new_ws.png)
 
-2. **Yeni Proje Oluştur** ayrıntılarını doldurun: 
+1. Form alanlarını doldurun ve **Oluştur** düğmesini seçerek Workbench’te yeni bir proje oluşturun.
+
+   Alan|Öğretici için önerilen değer|Açıklama
+   ---|---|---
+   Proje adı | myIris |Hesabınızı tanımlayan benzersiz bir ad girin. Kendi adınızı veya denemeyi en iyi şekilde tanımlayan departman ya da proje adını kullanabilirsiniz. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. 
+   Proje dizini | c:\Temp\ | Projenin oluşturulduğu dizini belirtin.
+   Proje açıklaması | _boş bırakın_ | Projelerin açıklanması için kullanışlı olan isteğe bağlı alan.
+   Visualstudio.com |_boş bırakın_ | İsteğe bağlı alan. Bir proje, kaynak denetimi ve işbirliği için isteğe bağlı olarak Visual Studio Team Services’da bir Git deposuyla ilişkilendirilebilir. [Bunun nasıl ayarlanacağını öğrenin. ](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Çalışma alanı | IrisGarden (varsa) | Azure portalında Deneme hesabınız için oluşturduğunuz bir çalışma alanını seçin. <br/>Hızlı Başlangıç’ı izlediyseniz, IrisGarden adlı bir çalışma alanınız olmalıdır. Bu yoksa Deneme hesabınızı açtığınızda oluşturduğunuz bir çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
+   Proje şablonu | Iris Sınıflandırması | Şablonlar ürünü keşfetmek için kullanabileceğiniz komut dosyaları ve veriler içerir. Bu şablon, bu hızlı başlangıcın yanı sıra bu belge sitesindeki diğer öğreticiler için gereksinim duyduğunuz betikleri ve verileri içerir. 
 
    ![Yeni proje](media/tutorial-classifying-iris/new_project.png)
-
-   - **Proje adı** kutusuna proje için bir ad girin. Örneğin, **myIris** değerini kullanın.
-   - Projenin oluşturulduğu **Proje dizinini** seçin. Örneğin, `C:\Temp\` değerini kullanın. 
-   - İsteğe bağlı olarak **Proje açıklaması** girin. 
-   - **Git Deposu** alanı da isteğe bağlıdır ve boş bırakılabilir. Visual Studio Team Services üzerinde var olan boş bir Git deposu (ana dalı olmayan bir depo) belirtebilirsiniz. Zaten var olan bir Git deposu kullanıyorsanız, gezinti ve paylaşım senaryolarını daha sonra etkinleştirebilirsiniz. Daha fazla bilgi için bkz. [Git deposu kullanma](using-git-ml-project.md). 
-   - Bir **Çalışma alanı** seçin; örneğin, bu öğreticide **IrisGarden** kullanılır. 
-   - Proje şablonu listesinden **Iris Sınıflandırma** şablonunu seçin. 
-
-3. **Oluştur** düğmesini seçin. Proje oluşturulup açılır.
+ 
+ Yeni bir proje oluşturulur ve bu projeyi içeren proje panosu açılır. Bu noktada proje giriş sayfası, veri kaynakları, dizüstü bilgisayarlar ve kaynak kodu dosyalarını keşfedebilirsiniz. 
 
 ## <a name="create-a-data-preparation-package"></a>Veri hazırlama paketi oluşturma
-1. **Dosya Görünümü**'nden **iris.csv** dosyasını açın. Bu dosya 5 sütun ve 150 satırdan oluşan bir tablodur. Dört sayısal özellik sütunu ve bir dize hedef sütunu vardır. Sütun üst bilgileri yoktur.
+
+Öğreticinin bu bölümünde, verileri keşfeder ve veri hazırlama işlemine başlarsınız. Azure Machine Learning Workbench’te verilerinizi hazırladığınızda, Workbench’te gerçekleştirdiğiniz dönüştürme işlemlerinin JSON temsili yerel bir veri hazırlama paketinde (*.dprep dosyası) depolanır. Bu veri hazırlama paketi, Workbench’teki veri hazırlama çalışmalarınız için birincil kapsayıcıdır.
+
+Bu veri hazırlama paketi, yürütülmek üzere bir çalışma zamanına (local-C#/CoreCLR, Scala/Spark veya Scala/HDI gibi) devredilebilir. Burada, yürütme için uygun çalışma zamanına yönelik kod oluşturulur. 
+
+1. Klasör simgesini seçerek dosya görünümü açın ve **iris.csv**’yi seçerek dosyayı açın.  
+
+   Bu dosya 5 sütun ve 150 satırdan oluşan bir tablodur. Dört sayısal özellik sütunu ve bir dize hedef sütunu vardır. Sütun üst bilgileri yoktur.
 
    ![iris.csv](media/tutorial-classifying-iris/show_iris_csv.png)
 
@@ -97,7 +120,7 @@ Azure Machine Learning Workbench uygulamasını yüklemek için [Yükleme ve Olu
 
    Veri hazırlama düzenleyicisinde **iris-1.dprep** adlı yeni bir veri hazırlama paketi oluşturulup açılır.
 
-9. Şimdi bazı temel veri hazırlıkları yapalım. Sütunları yeniden adlandırın. Üst bilgi metnini düzenlenebilir hale getirmek için her bir sütun başlığını seçin. 
+9. Şimdi bazı temel veri hazırlıkları yapalım. Üst bilgi metnini düzenlenebilir hale getirmek için her bir sütun başlığını seçin ve her bir sütunu aşağıdaki gibi yeniden adlandırın: 
 
    Beş sütun için sırasıyla **Sepal Uzunluğu**, **Sepal Genişliği**, **Petal Uzunluğu**, **Petal Genişliği** ve **Türler** değerlerini girin.
 
@@ -105,11 +128,11 @@ Azure Machine Learning Workbench uygulamasını yüklemek için [Yükleme ve Olu
 
 10. Farklı değerleri saymak için **Türler** sütununu seçip sağ tıklayın. Açılır menüden **Değer Sayıları**’nı seçin. 
 
+   Bu eylem sonucunda, verilerin altında **Denetçiler** bölmesi açılır. Dört çubuklu bir histogram görüntülenir. Hedef sütunda üç farklı değer bulunur: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** ve bir **(null)** değeri.
+
    ![Değer Sayıları seçme](media/tutorial-classifying-iris/value_count.png)
 
-   Bu işlem **Denetçiler** bölmesini açar ve dört çubuklu bir histogram gösterir. Hedef sütunda üç farklı değer bulunur: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** ve bir **(null)** değeri.
-
-11. Null değerleri filtrelemek için grafikten null değerini temsil eden çubuğu seçin. Değeri **(null)** olan bir satır vardır. Bu satırı kaldırmak için eksi işaretini seçin (**-**).
+11. Null değerleri filtrelemek için "Null" etiketini seçip eksi işaretini (**-**) seçin. Bunun üzerine, Null satırının rengi gri olur ve filtrenin uygulandığını gösterir. 
 
    ![Değer sayısı histogramı](media/tutorial-classifying-iris/filter_out.png)
 
@@ -121,11 +144,15 @@ Azure Machine Learning Workbench uygulamasını yüklemek için [Yükleme ve Olu
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Veri hazırlama paketini çağırmak için Python/PySpark kodu oluşturma
 
-1. **iris-1.dprep** dosyasına sağ tıklayarak açılır menüyü getirin ve sonra **Veri Erişim Kodu Dosyası Oluştur**’u seçin. 
+<!-- The output/results of a Package can be explored in Python or via a Jupyter Notebook. A Package can be executed across multiple runtimes including local Python, Spark (including in Docker), and HDInsight. A Package contains one or more Dataflows that are the steps and transforms applied to the data. A Package may use another Package as a Data Source (referred to as a Reference Data Flow). -->
+
+1. Veri Hazırlıkları sekmesinden **iris-1.dprep** dosyasını bulun.
+
+1. **iris-1.dprep** dosyasına sağ tıklayın ve bağlam menüsünden **Veri Erişim Kodu Dosyası Oluştur**’u seçin. 
 
    ![Kod oluşturma](media/tutorial-classifying-iris/generate_code.png)
 
-2. Aşağıdaki kod satırlarını içeren **iris-1.py** adlı yeni bir dosya açılır:
+   Aşağıdaki kod satırlarını içeren **iris-1.py** adlı yeni bir dosya açılır ve veri hazırlık paketi olarak oluşturduğunuz mantığı çağırır:
 
    ```python
    # Use the Azure Machine Learning data preparation package
@@ -144,17 +171,22 @@ Azure Machine Learning Workbench uygulamasını yüklemek için [Yükleme ve Olu
    df.head(10)
    ```
 
-   Bu kod parçacığı bir veri hazırlama paketi olarak yeni oluşturduğunuz mantığı çağırır. Bu kodun çalıştırıldığı bağlama göre `df` değeri çeşitli türlerdeki veri çerçevelerini temsil eder. Python çalışma zamanında yürütüldüğünde bir [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) kullanılır veya Spark bağlamında yürütüldüğünde bir [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) kullanılır. 
+   Bu kodun çalıştırıldığı bağlama göre `df` değeri çeşitli türlerdeki veri çerçevelerini temsil eder. Python çalışma zamanında yürütüldüğünde bir [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) kullanılır veya Spark bağlamında yürütüldüğünde bir [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) kullanılır. 
+   
+   Azure Machine Learning Workbench uygulamasında verileri hazırlamayı öğrenmek için [Veri hazırlamaya başlama](data-prep-getting-started.md) kılavuzuna bakın.
 
-   Azure Machine Learning Workbench uygulamasında veri hazırlama hakkında daha fazla bilgi için [Veri hazırlamaya başlama](data-prep-getting-started.md) kılavuzuna bakın.
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Üç bölümden oluşan öğretici serisinin bu ilk bölümünde Azure Machine Learning Workbench uygulamasını kullanarak şunları yaptınız:
-> [!div class="checklist"]
-> * Yeni bir proje oluşturma. 
-> * Bir veri hazırlama paketi oluşturma.
-> * Veri hazırlama paketini çağırmak için Python/PySpark kodu oluşturma.
 
-Serinin bir Azure Machine Learning modeli derlemeyi öğreneceğiniz sonraki kısmına geçmeye hazırsınız:
+Bu öğreticide Azure Machine Learning Workbench’i kullanarak aşağıdakileri yaptınız:
+> [!div class="checklist"]
+> * Yeni bir proje oluşturma
+> * Veri hazırlama paketi oluşturma
+> * Veri hazırlama paketini çağırmak için Python/PySpark kodu oluşturma
+
+Öğretici serisinin Azure Machine Learning modeli derlemeyi öğreneceğiniz bir sonraki bölümüne geçmeye hazırsınız:
 > [!div class="nextstepaction"]
-> [Model oluşturma](tutorial-classifying-iris-part-2.md)
+> [Öğretici 2 - Derleme modelleri](tutorial-classifying-iris-part-2.md)

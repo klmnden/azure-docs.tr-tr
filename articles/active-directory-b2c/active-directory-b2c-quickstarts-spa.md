@@ -1,52 +1,49 @@
 ---
-title: "Test Azure AD B2C tek sayfalı uygulama sürücü | Microsoft Docs"
-description: "Test sürücü oturum açın, kaydolma, profili düzenlemek ve bir Azure AD B2C test ortamı'nı kullanarak kullanıcı Yolculuklar parola sıfırlama"
+title: "Azure AD B2C etkin tek sayfa uygulamasında test sürüşü yapma"
+description: "Kullanıcıların kimliğini doğrulamak ve onları kaydetmek için Azure Active Directory B2C kullanan örnek tek sayfalı uygulamayı denemek için hızlı başlangıç."
 services: active-directory-b2c
 documentationcenter: 
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 5a8a46af-28bb-4b70-a7f0-01a5240d0255
+ms.reviewer: saraford
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: saraford
-ms.openlocfilehash: ba8ee4657309ab2a541f4c7b3fd4879542eee63c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 2/13/2018
+ms.author: patricka
+ms.openlocfilehash: e659fd228c2294313a62b331c8e530b7d34073ac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="test-drive-a-single-page-application-configured-with-azure-ad-b2c"></a>Test sürücü Azure AD B2C ile yapılandırılmış bir tek sayfalı uygulama
+# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>Hızlı başlangıç: Azure AD B2C etkin tek sayfa uygulamasında test sürüşü yapma
 
-## <a name="about-this-sample"></a>Bu örnek hakkında
+Azure Active Directory (Azure AD) B2C, uygulama, işletme ve müşterilerinizi güvende tutmak için bulut kimlik yönetimi sağlar. Azure AD B2C, uygulamalarınızın sosyal ağ hesaplarında ve kurumsal hesaplarda açık standart protokoller kullanarak kimlik doğrulaması yapmasına izin verir.
 
-Azure Active Directory B2C uygulaması, iş ve korumalı müşteriler tutmak için bulut kimlik yönetimi sağlar.  Bu hızlı başlangıç örnek bir tek sayfalı uygulama göstermek için kullanır:
-
-* Kullanarak **kaydolun veya oturum** ilkesi oluşturun veya bir sosyal kimlik sağlayıcısı veya bir e-posta adresi kullanarak yerel bir hesapla oturum açın. 
-* **Bir API çağırma** görünen adınızı bir Azure AD B2C almak için kaynak güvenli.
-
-## <a name="prerequisites"></a>Ön koşullar
-
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
-    - **ASP.NET ve web geliştirme**
-
-* [Node.js](https://nodejs.org/en/download/)’yi yükleme
-
-* Facebook, Google, Microsoft veya Twitter sosyal hesabından. Sosyal bir hesabınız yoksa, geçerli bir eposta adresi gereklidir.
+Bu hızlı başlangıçta, sosyal kimlik sağlayıcısı kullanıp Azure AD B2C korumalı web API’si çağırarak oturum açmak için Azure AD B2C etkin bir örnek tek sayfalı uygulama kullanırsınız.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>Ön koşullar
+
+* **ASP.NET ve web geliştirme** iş yüküyle [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* [Node.js](https://nodejs.org/en/download/)’yi yükleme
+* Bir Facebook, Google, Microsoft veya Twitter sosyal hesabından.
+
 ## <a name="download-the-sample"></a>Örneği indirme
 
-[İndirme veya örnek uygulama kopyalama](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) github'dan.
+GitHub’dan [zip dosyasını indirin](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) veya örnek web uygulamasını kopyalayın.
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+```
 
 ## <a name="run-the-sample-application"></a>Örnek uygulamayı çalıştırın
 
-Bu örnekte Node.js komut isteminden çalıştırmak için: 
+Bu örneği Node.js komut isteminden çalıştırmak için: 
 
 ```
 cd active-directory-b2c-javascript-msal-singlepageapp
@@ -54,66 +51,59 @@ npm install && npm update
 node server.js
 ```
 
-Konsol penceresi, bilgisayarınızda çalışan web uygulaması için bağlantı noktası numarasını gösterir.
+Node.js uygulaması, localhost’ta dinlediği bağlantı noktası numarasını çıkarır.
 
 ```
 Listening on port 6420...
 ```
 
-Açık `http://localhost:6420` web uygulamasına erişmek için bir web tarayıcısında.
+Bir web tarayıcısından uygulamanızın URL’sine `http://localhost:6420` gözatın.
 
+![Tarayıcıdaki örnek uygulama](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-![Örnek uygulamayı tarayıcıda](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+## <a name="create-an-account"></a>Hesap oluşturma
 
-## <a name="create-an-account"></a>Bir hesap oluşturun
+Bir Azure AD B2C ilkesini temel alarak Azure AD B2C **Kaydolma veya Oturum Açma** iş akışı başlatmak için **Oturum aç** düğmesine tıklayın. 
 
-Tıklatın **oturum açma** Azure AD B2C başlatmak için düğmesini **kaydolun veya oturum** iş akışı. Bir hesap oluşturulurken, var olan sosyal kimlik sağlayıcısı hesabını veya bir e-posta hesabı kullanabilirsiniz.
+Örnek, sosyal kimlik sağlayıcısı kullanma veya e-posta kullanarak yerel hesap oluşturma gibi çeşitli oturum açma seçeneklerini destekler. Bu hızlı başlangıç için bir Facebook, Google, Microsoft veya Twitter’dan sosyal kimlik sağlayıcısı hesabı kullanın. 
 
-### <a name="sign-up-using-a-social-identity-provider"></a>Sosyal kimlik sağlayıcısı kullanarak kaydolun
+### <a name="sign-up-using-a-social-identity-provider"></a>Sosyal kimlik sağlayıcısı kullanarak kaydolma
 
-Sosyal kimlik sağlayıcısı kullanarak oturum açmak için kullanmak istediğiniz kimlik sağlayıcısı düğmesine tıklayın. Bir e-posta adresi kullanmayı tercih ederseniz, atlamak [bir e-posta adresi kullanarak kaydolma](#sign-up-using-an-email-address) bölümü.
+Azure AD B2C, örnek web uygulaması için Wingtip Toys adlı kurgusal bir markaya yönelik özel oturum açma sayfası gösterir. 
 
-![Oturum açın veya kaydolun sağlayıcısı](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+1. Sosyal kimlik sağlayıcısı kullanarak oturum açmak için kullanmak istediğiniz kimlik sağlayıcısının düğmesine tıklayın.
 
-Sosyal hesabınızın kimlik bilgileri ve sosyal hesabınızdan bilgileri okumak için uygulamayı yetkilendirmeniz (oturum açma) kullanarak kimliğini doğrulaması gerekir. Erişim vererek, uygulama adı ve şehir gibi sosyal hesabından profil bilgilerini alabilir. 
+    ![Oturum Açma veya Kaydolma sağlayıcısı](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-![Kimlik doğrulama ve sosyal bir hesabı kullanarak Yetkilendirme](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+    Sosyal hesap kimlik bilgilerinizi kullanarak kimliğinizi doğrular (oturum açmış) ve uygulamayı sosyal hesabınızdaki bilgileri okuması için yetkilendirirsiniz. Erişim verdiğiniz uygulama, adınız ve yaşadığınız şehir gibi profil bilgilerini sosyal hesabınızdan alabilir. 
 
-Yeni hesap profili bilgilerinizi sosyal hesabınızdan bilgilerle önceden doldurulmuş haldedir. 
+2. Kimlik sağlayıcısı için oturum açma işlemini bitirin. Örneğin Twitter’ı seçerseniz, Twitter kimlik bilgilerinizi girin ve **Oturum Aç**’a tıklayın.
 
-![Yeni hesap kayıt profili ayrıntıları](media/active-directory-b2c-quickstarts-spa/new-account-sign-up-profile-details-spa.png)
+    ![Sosyal hesap kullanarak kimlik doğrulama ve yetkilendirme](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
 
-Görünen ad, iş unvanı ve şehir alanları güncelleştirin ve tıklayın **devam**.  Girdiğiniz değerler Azure AD B2C kullanıcı hesabı profiliniz için kullanılır.
+    Yeni hesap profilinizdeki bilgiler, sosyal hesabınızdaki bilgilerle önceden doldurulmuştur. 
 
-Bir kimlik sağlayıcısı kullanan yeni bir Azure AD B2C kullanıcı hesabını başarıyla oluşturdunuz. 
+3. Görünen Ad, İş Unvanı ve Şehir alanlarını güncelleştirip **Devam**’a tıklayın.  Girdiğiniz değerler, Azure AD B2C kullanıcı hesabı profiliniz için kullanılır.
 
-Sonraki adım: [bir kaynak çağrısına](#call-a-resource) bölümü.
+    Kimlik sağlayıcısı kullanan yeni bir Azure AD B2C kullanıcı hesabını başarıyla oluşturdunuz. 
 
-### <a name="sign-up-using-an-email-address"></a>Bir e-posta adresi kullanarak kaydolun
+## <a name="access-a-protected-web-api-resource"></a>Korumalı bir web API’si kaynağına erişme
 
-Sosyal hesabı kimlik doğrulaması kullanmayı seçerseniz, geçerli bir eposta adresi kullanarak bir Azure AD B2C kullanıcı hesabı oluşturabilirsiniz. Bir Azure AD B2C yerel kullanıcı hesabı kimlik sağlayıcısı olarak Azure Active Directory kullanır. E-posta adresinizi kullanmak için tıklatın **bir hesabınız yok mu? Şimdi kaydolun** bağlantı.
+Görünen adınızın Web API’si çağrısından JSON nesnesi olarak döndürülmesi için **Web API’si Çağrısı** düğmesine tıklayın. 
 
-![Oturum açın veya e-posta kullanarak kaydolun](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-email-spa.png)
+![Web API’si yanıtı](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
-Geçerli bir e-posta adresi girin ve tıklayın **Gönder doğrulama kodu**. Geçerli bir e-posta adresi, Azure AD B2C ' doğrulama kodu almak için gereklidir. 
+Örnek tek sayfalı uygulama, web API’si kaynağına yapılan JSON nesnesini döndürme işlemini gerçekleştirme isteğinde Azure AD erişim belirteci içerir.
 
-E-posta almak ve tıklatın doğrulama kodunu girin **kodunu doğrulayın**.
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Profil bilgilerinizi ekleyin ve tıklatın **oluşturma**.
-
-![E-posta kullanarak yeni hesabıyla kaydolun](media/active-directory-b2c-quickstarts-spa/sign-up-new-account-profile-email-web.png)
-
-Yeni bir Azure AD B2C yerel kullanıcı hesabı başarıyla oluşturdunuz.
-
-## <a name="call-a-resource"></a>Bir kaynak çağırın
-
-Oturum açtıktan sonra tıklayabilirsiniz **Web API çağrısı** bir JSON nesnesi olarak Web API çağrısından döndürülen görünen adınızı olmasını düğmesi. 
-
-![Web API yanıtı](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+Diğer Azure AD B2C hızlı başlangıçlarını veya öğreticilerini denemeyi planlıyorsanız Azure AD B2C kiracınızı kullanabilirsiniz. Artık ihtiyaç duymuyorsanız [Azure AD B2C kiracınızı silebilirsiniz](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sonraki adım, Kiracı kullanarak çalıştırmak için örnek kendi Azure AD B2C kiracısı oluşturma ve yapılandırmaktır. 
+Bu hızlı başlangıçta, özel oturum açma sayfasıyla oturum açmak, sosyal kimlik sağlayıcısı ile oturum açmak, Azure AD B2C hesabı oluşturmak ve Azure AD B2C tarafından korunan bir web API’sini çağırmak için Azure AD B2C etkin bir örnek ASP.NET uygulaması kullandınız. 
+
+Sonraki adımda kendi Azure AD B2C kiracınızı oluşturup kiracınızı kullanarak çalıştırmak için örneği yapılandıracaksınız. 
 
 > [!div class="nextstepaction"]
-> [Azure portalında bir Azure Active Directory B2C kiracısı oluşturma](active-directory-b2c-get-started.md)
+> [Azure portalında Azure Active Directory B2C kiracısı oluşturma](active-directory-b2c-get-started.md)

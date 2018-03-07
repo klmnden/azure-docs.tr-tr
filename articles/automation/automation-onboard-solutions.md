@@ -1,6 +1,6 @@
 ---
-title: "Yerleşik güncelleştirme ve değişiklik çözümleri için Azure Otomasyonu izleme | Microsoft Docs"
-description: "Bilgi yerleşik güncelleştirme ve değişiklik çözümleri için Azure Otomasyonu izleme."
+title: "Güncelleştirme ve değişiklik izleme çözümlerini Azure Otomasyonu’na ekleme | Microsoft Docs"
+description: "Güncelleştirme ve değişiklik izleme çözümlerini Azure Otomasyonu’na nasıl ekleyeceğinizi öğrenin."
 services: automation
 documentationcenter: 
 author: eamonoreilly
@@ -12,141 +12,141 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
-ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Yerleşik güncelleştirme ve değişiklik çözümleri için Azure Otomasyonu izleme
+# <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Güncelleştirme ve değişiklik izleme çözümlerini Azure Otomasyonu’na ekleme
 
-Bu öğreticide, bilgi Azure Otomasyonu VM'ler için otomatik olarak yerleşik güncelleştirme, değişiklik izleme ve stok çözümleri nasıl:
+Bu öğreticide VM’lere yönelik Güncelleştirme, Değişiklik İzleme ve Sayım çözümlerini Azure Otomasyonu’na nasıl otomatik olarak ekleyeceğinizi öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Yerleşik bir Azure VM
-> * Çözümlerle
-> * Yükleme ve modülleri güncelleştirme
-> * Onboarding runbook'u İçeri Aktar
-> * Runbook'u Başlat
+> * Bir Azure VM ekleme
+> * Çözümleri etkinleştirme
+> * Modülleri yükleme ve güncelleştirme
+> * Ekleme runbook’unu içeri aktarma
+> * Runbook’u başlatma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Azure aboneliği. Henüz bir aboneliğiniz yoksa [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ya da [ücretsiz hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) için kaydolabilirsiniz.
-* [Otomasyon hesabı](automation-offering-get-started.md) makineleri yönetmek için.
+* Makineleri yönetmek için [Otomasyon hesabı](automation-offering-get-started.md).
 * Sisteme eklenecek bir [sanal makine](../virtual-machines/windows/quick-create-portal.md).
 
-## <a name="onboard-an-azure-vm"></a>Yerleşik bir Azure VM
+## <a name="onboard-an-azure-vm"></a>Bir Azure VM ekleme
 
-Yerleşik Azure sanal makineleri için değişiklik izleme veya güncelleştirme yönetimi çözümü ile edildi otomatik olarak mevcut bir VM'yi olmalıdır. Bu adımda, yerleşik bir sanal makineyle güncelleştirme yönetimi ve değişiklik izleme.
+Makine eklemenin birden fazla yolu vardır. Çözümü [bir sanal makineden](automation-onboard-solutions-from-vm.md), [Otomasyon hesabınızdan](automation-onboard-solutions-from-automation-account.md) veya runbook ile ekleyebilirsiniz. Bu öğretici bir runbook üzerinden Güncelleştirme Yönetimini etkinleştirme konusunda size yol gösterir. Uygun ölçekte Azure Sanal Makinelerin eklenmesi için mevcut bir VM’ye Değişiklik izleme veya Güncelleştirme yönetimi çözümünün eklenmesi gerekir. Bu adımda, bir sanal makineye Güncelleştirme yönetimi ve Değişiklik izleme özelliğini eklersiniz.
 
-### <a name="enable-change-tracking-and-inventory"></a>Değişiklik izleme ve stok etkinleştir
+### <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzlemeyi ve Sayımı Etkinleştirme
 
-Değişiklik izleme ve stok çözüm olanağı sağlar [Değişiklikleri İzle](automation-vm-change-tracking.md) ve [stok](automation-vm-inventory.md) sanal makinelerinizin üzerinde. Bu adımda, bir sanal makinede çözüm etkinleştirin.
+Değişiklik İzleme ve Sayım çözümü, sanal makinelerinizde [değişiklikleri izleme](automation-vm-change-tracking.md) ve [sayım](automation-vm-inventory.md) olanağı sağlar. Bu adımda çözümü bir sanal makine üzerinde etkinleştirirsiniz.
 
-1. Sol menüden seçin **Automation hesapları**ve ardından listede Otomasyon hesabınızı seçin.
-1. Seçin **stok** altında **yapılandırma yönetimi**.
-1. Varolan bir günlük analizi çalışma alanını seçin veya yeni oluşturun. Tıklatın **etkinleştirmek** düğmesi.
+1. Sol taraftaki menüden **Otomasyon Hesapları**’nı seçin ve sonra listeden otomasyon hesabınızı seçin.
+1. **YAPILANDIRMA YÖNETİMİ** bölümünde **Sayım**’ı seçin.
+1. Mevcut bir Log Analytics çalışma alanını seçin veya yenisini oluşturun. **Etkinleştir** düğmesine tıklayın.
 
-![Yerleşik güncelleştirme çözümü](media/automation-onboard-solutions/inventory-onboard.png)
+![Güncelleştirme çözümü ekleme](media/automation-onboard-solutions/inventory-onboard.png)
 
-Değişiklik izleme ve envanter çözüm ekleme bildirimi tamamlandığında tıklayın **güncelleştirme yönetimi** altında **yapılandırma yönetimi**.
+Değişiklik izleme ve sayım çözümü ekleme bildirimi tamamlandığında **YAPILANDIRMA YÖNETİMİ** bölümünde **Güncelleştirme Yönetimi**’ne tıklayın.
 
-### <a name="enable-update-management"></a>Güncelleştirme yönetimi etkinleştir
+### <a name="enable-update-management"></a>Güncelleştirme Yönetimi’ni etkinleştirme
 
-Güncelleştirme yönetimi çözümü, güncelleştirme ve düzeltme eklerini Azure Windows Vm'leriniz için yönetmenizi sağlar. Kullanılabilir güncelleştirmeleri, gerekli güncelleştirmelerin zamanlama yükleme durumunu değerlendirmek ve güncelleştirmeleri doğrulamak için dağıtım sonuçları gözden geçirin VM başarıyla uygulandı. Bu adımda, VM için çözüm sağlar.
+Güncelleştirme Yönetimi çözümü, Azure Windows VM’leriniz için güncelleştirmeleri ve yamaları yönetmenizi sağlar. Kullanılabilir güncelleştirmelerin durumunu değerlendirebilir, gerekli güncelleştirmelerin yüklemesini zamanlayabilir ve güncelleştirmelerin VM’ye başarıyla uygulandığını doğrulamak için dağıtım sonuçlarını gözden geçirebilirsiniz. Bu adımda çözümü VM’niz için etkinleştirirsiniz.
 
-1. Otomasyon hesabınızdan seçin **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**.
-1. Seçilen günlük analizi çalışma alanı önceki adımda kullanılan aynı çalışma alanıdır. Tıklatın **etkinleştirmek** onboarding için güncelleştirme yönetimi çözümü.
+1. Otomasyon Hesabınızdan **GÜNCELLEŞTİRME YÖNETİMİ** bölümünde **Güncelleştirme yönetimi**’ni seçin.
+1. Seçilen Log Analytics çalışma alanı, önceki adımda kullanılan çalışma alanıdır. Güncelleştirme yönetimi çözümünü eklemek için **Etkinleştir**’e tıklayın.
 
-![Yerleşik güncelleştirme çözümü](media/automation-onboard-solutions/update-onboard.png)
+![Güncelleştirme çözümü ekleme](media/automation-onboard-solutions/update-onboard.png)
 
-Güncelleştirme yönetimi çözümü yüklenirken, mavi bir başlık gösterilir. Çözüm etkinleştirildiğinde seçin **değişiklik izleme** altında **yapılandırma yönetimi** sonraki adıma gidin.
+Güncelleştirme yönetimi çözümü yüklenirken mavi renkli bir başlık gösterilir. Çözüm etkinleştirildiğinde bir sonraki adıma geçmek için **YAPILANDIRMA YÖNETİMİ** bölümünde **Değişiklik izleme** seçeneğini belirleyin.
 
-### <a name="select-azure-vm-to-be-managed"></a>Yönetilecek Azure VM seçin
+### <a name="select-azure-vm-to-be-managed"></a>Yönetilecek Azure VM’yi seçme
 
-Çözümlerin etkinleştirilir, bu çözümler giriş için bir Azure VM ekleyebilirsiniz.
+Çözümler etkinleştirildiğine göre artık bu çözümleri eklemek için bir Azure VM ekleyebilirsiniz.
 
-1. Otomasyon hesabınızdan üzerinde **değişiklik izleme** sayfasında, **+ Azure VM eklemek** , sanal makinenize eklemek için.
+1. Otomasyon Hesabınızdan **Değişiklik izleme** sayfasında sanal makinenizi eklemek için **+ Azure VM Ekle** seçeneğini belirleyin.
 
-1. Liste ve seçin, VM seçin **etkinleştirmek**. Bu eylem değişiklik tacking ve sanal makine için stok çözümü sağlar.
+1. Listeden VM’nizi seçin ve **Etkinleştir** seçeneğini belirleyin. Bu eylem, sanal makine için Değişiklik izleme ve Sayım çözümünü etkinleştirir.
 
-   ![Vm için Güncelleştirme çözümü etkinleştir](media/automation-onboard-solutions/enable-change-tracking.png)
+   ![VM için güncelleştirme çözümünü etkinleştirme](media/automation-onboard-solutions/enable-change-tracking.png)
 
-1. VM ekleme bildirim tamamlandığında, Otomasyon hesabı seçin **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**.
+1. VM ekleme bildirimi tamamlandığında Otomasyon Hesabınızdan **GÜNCELLEŞTİRME YÖNETİMİ** bölümündeki **Güncelleştirme yönetimi** seçeneğini belirleyin.
 
-1. Seçin **+ Azure VM eklemek** , sanal makinenize eklemek için.
+1. Sanal makinenizi eklemek için **+ Azure VM ekle** seçeneğini belirleyin.
 
-1. Liste ve seçin, VM seçin **etkinleştirmek**. Bu eylem, sanal makine için güncelleştirme yönetimi çözümü sağlar.
+1. Listeden VM’nizi seçin ve **Etkinleştir** seçeneğini belirleyin. Bu eylem, Güncelleştirme yönetimi çözümünü sanal makine için etkinleştirir.
 
-   ![Vm için Güncelleştirme çözümü etkinleştir](media/automation-onboard-solutions/enable-update.png)
+   ![VM için güncelleştirme çözümünü etkinleştirme](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Diğer çözüm, sonraki çözüm etkinleştirilirken tamamlanmasını bekleme belirten bir ileti alırsınız: *başka bir çözüm yüklemesi devam ediyor bu veya başka bir sanal makine. Yükleme tamamlandığında etkinleştir düğmesi etkin ve çözüm bu sanal makine üzerinde yüklemesini isteyebilir.*
+> Bir sonraki çözümü etkinleştirmek için diğer çözümün tamamlanmasını beklemezseniz şu iletiyi alırsınız: *Diğer çözümün yüklenmesi bu ya da farklı bir sanal makinede devam ediyor. Yükleme tamamlandığında, Etkinleştir düğmesi etkinleştirilecektir, çözümün bu sanal makineye yüklenmesini isteyebilirsiniz.*
 
-## <a name="install-and-update-modules"></a>Yükleme ve modülleri güncelleştirme
+## <a name="install-and-update-modules"></a>Modülleri yükleme ve güncelleştirme
 
-En son Azure modüllerle güncelleştirmek ve içeri aktarmak için gerekli olan `AzureRM.OperationalInsights` başarıyla çözüm ekleme otomatik hale getirmek için.
+Çözüm eklemeyi başarıyla otomatik hale getirmek için en son Azure modüllerine güncelleştirme yapılması ve `AzureRM.OperationalInsights` modülünün içeri aktarılması gerekir.
 
-## <a name="update-azure-modules"></a>Azure modülleri güncelleştir
+## <a name="update-azure-modules"></a>Azure Modüllerini etkinleştirme
 
-Otomasyon hesabınızdan seçin **modülleri** altında **paylaşılan kaynakları**. Seçin **güncelleştirme Azure modülleri** Azure modülleri en son sürüme güncelleştirmek için. Seçin **Evet** tüm mevcut Azure modülleri en son sürüme güncelleştirmek için komut çubuğunda.
+Otomasyon Hesabınızdan **PAYLAŞILAN KAYNAKLAR** bölümündeki **Modüller** seçeneğini belirleyin. Azure modüllerini en son sürüme güncelleştirmek için **Azure Modüllerini Güncelleştir** seçeneğini belirleyin. Tüm mevcut Azure modüllerini son sürüme güncelleştirmek için istemde **Evet**’i seçin.
 
-![Güncelleştirme modülleri](media/automation-onboard-solutions/update-modules.png)
+![Modülleri güncelleştirme](media/automation-onboard-solutions/update-modules.png)
 
 ### <a name="install-azurermoperationalinsights-module"></a>AzureRM.OperationalInsights modülünü yükleme
 
-Gelen **modülleri** sayfasında, **Gözat galeri** modülü Galerisi'ni açın. AzureRM.OperationalInsights için arama yapın ve bu modül Otomasyon dikkate alın.
+**Modüller** sayfasından, modül galerisini açmak için **Galeriye gözat** seçeneğini belirleyin. AzureRM.OperationalInsights araması yapın ve bu modülü Otomasyon hesabına aktarın.
 
-![OperationalInsights modülünü içeri aktarın](media/automation-onboard-solutions/import-operational-insights-module.png)
+![OperationalInsights modülünü içeri aktarma](media/automation-onboard-solutions/import-operational-insights-module.png)
 
-## <a name="import-the-onboarding-runbook"></a>Onboarding runbook'u İçeri Aktar
+## <a name="import-the-onboarding-runbook"></a>Ekleme runbook’unu içeri aktarma
 
-1. Otomasyon hesabınızdan seçin **Runbook'lar** altında **işlem OTOMASYONU**.
-1. Seçin **Gözat galeri**.
-1. Arama **güncelleştirin ve değişiklik izleme**, runbook tıklatın ve seçin **alma** üzerinde **kaynağı görüntüle** sayfası. Seçin **Tamam** runbook Otomasyon dikkate alınacak.
+1. Otomasyon Hesabınızdan **İŞLEM OTOMASYONU** bölümündeki **Runbook’lar** seçeneğini belirleyin.
+1. **Galeriye gözat** seçeneğini belirleyin.
+1. **Güncelleştirme ve değişiklik izleme** araması yapın, runbook’a tıklayın ve **Kaynağı Görüntüle** sayfasındaki **İçeri Aktar** seçeneğini belirleyin. Runbook’u Otomasyon hesabına aktarmak için **Tamam** seçeneğini belirleyin.
 
-  ![Onboarding runbook'u İçeri Aktar](media/automation-onboard-solutions/import-from-gallery.png)
+  ![Ekleme runbook’unu içeri aktarma](media/automation-onboard-solutions/import-from-gallery.png)
 
-1. Üzerinde **Runbook** sayfasında, **Düzenle**seçeneğini belirleyip **Yayımla**. Üzerinde **yayımlama Runbook** iletişim kutusunda **Evet** runbook'u yayımlamak için.
+1. **Runbook** sayfasında **Düzenle** seçeneğini, sonra da **Yayımla** seçeneğini belirleyin. Runbook’u yayımlamak için **Runbook’u Yayımla** iletişim kutusunda **Evet**’i seçin.
 
-## <a name="start-the-runbook"></a>Runbook'u Başlat
+## <a name="start-the-runbook"></a>Runbook’u başlatma
 
-Değişiklik izleme veya çözümleri bu runbook'u başlatmak için bir Azure VM güncelleştirmesi edildi olması gerekir. Var olan sanal makine ve çözüm edildi ile kaynak grubu için parametreler gerektirir.
+Bu runbook’u başlatmak için değişiklik izleme çözümünü veya güncelleştirme çözümünü bir Azure VM’ye eklemiş olmanız gerekir. Parametreler için çözümün eklenmiş olduğu mevcut bir sanal makine ve kaynak grubu gereklidir.
 
-1. Enable-MultipleSolution runbook'u açın.
+1. Enable-MultipleSolution runbook’unu açın.
 
-   ![Birden çok çözüm runbook'ları](media/automation-onboard-solutions/runbook-overview.png)
+   ![Çoklu çözüm runbook’ları](media/automation-onboard-solutions/runbook-overview.png)
 
 1. Başlat düğmesine tıklayın ve parametreler için aşağıdaki değerleri girin.
 
-   * **VMNAME** -boş bırakın. Güncelleştirme veya değişiklik izleme çözümü eklemek için var olan bir VM adı. Bu değer boş bırakarak, kaynak grubundaki tüm sanal makineleri edildi var.
-   * **VMRESOURCEGROUP** -edildi olmasını VM'ler için kaynak grubunun adı.
-   * **SUBSCRİPTİONID** -boş bırakın. Yeni VM edildi olması için abonelik kimliği. Boş bırakılırsa, çalışma alanının abonelik kullanılır. Farklı bir abonelik kimliği verildiğinde bu Otomasyon hesabı için RunAs hesabı olarak katkıda bulunan bu abonelik için de eklenmelidir.
-   * **ALREADYONBOARDEDVM** -el ile güncelleştirmeleri ya da ChangeTracking edildi olan VM adını çözümü.
-   * **ALREADYONBOARDEDVMRESOURCEGROUP** -VM bir üyesi olan kaynak grubunun adı.
-   * **SOLUTIONTYPE** -girin **güncelleştirmeleri** veya **ChangeTracking**
+   * **VMNAME** - Boş bırakın. Güncelleştirme veya değişiklik izleme çözümünün ekleneceği mevcut bir VM’nin adıdır. Bu değeri bış bıraktığınızda kaynak grubundaki tüm VM’lere ekleme yapılır.
+   * **VMRESOURCEGROUP** - Ekleme yapılacak VM’lere ilişkin kaynak grubunun adıdır.
+   * **SUBSCRIPTIONID** - Boş bırakın. Ekleme yapılacak yeni VM’nin abonelik kimliğidir. Boş bırakılırsa çalışma alanının aboneliği kullanılır. Farklı bir abonelik kimliği belirtildiğinde, bu otomasyon hesabına yönelik RunAs hesabının da söz konusu abonelik için katkıda bulunan olarak eklenmesi gerekir.
+   * **ALREADYONBOARDEDVM** - Güncelleştirme veya Değişiklik İzleme çözümünün el ile eklendiği VM’nin adıdır.
+   * **ALREADYONBOARDEDVMRESOURCEGROUP** - VM’nin üyesi olduğu kaynak grubunun adıdır.
+   * **SOLUTIONTYPE** - **Güncelleştirmeler** veya **Değişiklik İzleme** girin
 
    ![Enable-MultipleSolution runbook parametreleri](media/automation-onboard-solutions/runbook-parameters.png)
 
-1. Seçin **Tamam** runbook işi başlatmak için.
-1. İlerlemeyi izleme ve runbook işi sayfadaki hataları.
+1. Runbook işini başlatmak için **Tamam**’ı seçin.
+1. Runbook işi sayfasında ilerlemeyi ve hataları izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Yerleşik bir Azure sanal makinesi el ile.
-> * Yükleyin ve gerekli Azure modüllerini güncelleştirin.
-> * Bir runbook bu onboards Azure sanal makineleri içeri aktarın.
-> * Runbook bu onboards Azure sanal makineleri otomatik olarak başlar.
+> * Bir Azure sanal makinesine el ile ekleme yapma.
+> * Gerekli Azure modüllerini yükleme ve güncelleştirme.
+> * Azure VM’lerine ekleme yapan bir runbook’u içeri aktarma.
+> * Azure VM’lerine otomatik olarak ekleme yapan runbook’u başlatma.
 
-Runbook'ları zamanlama hakkında daha fazla bilgi için bu bağlantıyı izleyin.
+Runbook’ların zamanlanması hakkında daha fazla bilgi edinmek için şu bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
-> [Runbook'ları zamanlama](automation-schedules.md).
+> [Runbook’ları zamanlama](automation-schedules.md).

@@ -1,6 +1,6 @@
 ---
-title: "İzleme ve tanılama için Windows Azure kapsayıcı hizmeti doku | Microsoft Docs"
-description: "Windows Azure Service Fabric bağımsızlıklar kapsayıcısı için izleme ve tanılama ayarlayın."
+title: "Azure Service Fabric’te Windows Kapsayıcıları için İzleme ve Tanılama | Microsoft Docs"
+description: "Bu öğreticide, Azure Service Fabric’te düzenlenen Windows Kapsayıcıları için izleme ve tanılama özelliğini ayarlayacaksınız."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,39 +15,39 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Service Fabric OMS kullanarak Windows kapsayıcılarında izleme
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Öğretici: OMS kullanarak Service Fabric’te Windows kapsayıcılarını izleme
 
-Bu üç öğreticinin bir parçasıdır ve Service Fabric bağımsızlıklar Windows kapsayıcılarınızı izlemek için OMS ayarı aracılığıyla anlatılmaktadır.
+Bu, öğreticinin üçüncü bölümüdür ve OMS’yi Service Fabric’te düzenlenen Windows kapsayıcılarınızı izleyecek şekilde ayarlamanız konusunda size yol gösterir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * OMS Service Fabric kümesi için yapılandırın
-> * Görüntülemek ve günlükleri kapsayıcıları ve düğüm sorgulamak için bir OMS çalışma alanını kullanın
-> * Kapsayıcı ve düğüm ölçümleri seçmek için OMS Aracısı'nı yapılandırma
+> * Service Fabric kümeniz için OMS’yi yapılandırma
+> * Kapsayıcılarınızdaki ve düğümlerinizdeki günlükleri görüntülemek ve sorgulamak için bir OMS çalışma alanı kullanma
+> * OMS aracısını kapsayıcı ve düğüm ölçümlerini alacak şekilde yapılandırma
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiye başlamadan önce aşağıdakileri yapmanız gerekir:
-- Azure üzerinde bir kümeniz olduğuna veya [Bu öğretici ile oluşturun](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-- [Kapsayıcılı bir uygulamayı kümeye dağıtır](service-fabric-host-app-in-a-container.md)
+Bu öğreticiye başlamadan önce karşılamanız gereken ön koşullar şunlardır:
+- Azure’da bir kümeye sahip olmak veya [bu öğreticide küme oluşturmak](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+- [Buna kapsayıcılı bir uygulama dağıtmak](service-fabric-host-app-in-a-container.md)
 
-## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Resource Manager şablonu kümenizdeki ile OMS ayarlama
+## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Kaynak Yöneticisi şablonunda kümenizle OMS’yi ayarlama
 
-Kullandığınız durumda [sağlanan şablonu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) Bu öğreticinin ilk bölümü genel bir Service Fabric Azure Resource Manager şablon aşağıdaki eklemeler içermelidir. Büyük/küçük harf kendi, oluşan bir küme sahip OMS ile kapsayıcıları izleme için ayarlamak için aradığınız:
-* Kaynak Yöneticisi şablonunuzu aşağıdaki değişiklikleri yapın.
-* Kümenizi yükseltmek için PowerShell'i kullanarak dağıtmak [şablon dağıtma](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager yükseltme olarak döküm, böylece, mevcut olduğundan gerçekleştirir.
+Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) kullandıysanız, genel bir Service Fabric Azure Resource Manager şablonuna aşağıdaki eklemeler zaten yapılmıştır. Kendinize ait bir kümeniz varsa ve bunu OMS ile kapsayıcıları izlemek üzere ayarlamak istiyorsanız:
+* Resource Manager şablonunuzda aşağıdaki değişiklikleri yapın.
+* [Şablonu dağıtarak](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) kümenizi yükseltmek için PowerShell ile dağıtın. Azure Resource Manager, kaynağın mevcut olduğunu algılar ve yükseltme olarak kullanıma sunar.
 
-### <a name="adding-oms-to-your-cluster-template"></a>Küme şablonunuzu OMS ekleme
+### <a name="adding-oms-to-your-cluster-template"></a>OMS’yi küme şablonunuza ekleme
 
-Aşağıdaki değişiklikleri yapın, *template.json*:
+*template.json* dosyanızda aşağıdaki değişiklikleri yapın:
 
-1. OMS çalışma konum ekleyin ve için ad, *parametreleri* bölümü:
+1. *Parametreler* bölümünüze OMS çalışma alanı konumunu ve adını ekleyin:
     
     ```json
     "omsWorkspacename": {
@@ -71,16 +71,16 @@ Aşağıdaki değişiklikleri yapın, *template.json*:
     }
     ```
 
-    İçin kullanılan değer değiştirmek için aynı parametreleri ekleyin, *template.parameters.json* ve orada kullanılan değerlerle değiştirin.
+    Bunlardan birinde kullanılan değeri değiştirmek için *template.parameters.json* dosyanıza aynı parametreleri ekleyin ve orada kullanılan değerleri değiştirin.
 
-2. Çözüm adı ve çözüme eklemek, *değişkenleri*: 
+2. Çözüm adını ve çözümü *değişkenlerinize* ekleyin: 
     
     ```json
     "omsSolutionName": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
     "omsSolution": "ServiceFabric"
     ```
 
-3. OMS Microsoft İzleme Aracısı, bir sanal makine uzantısı olarak ekleyin. Sanal makine ölçek ayarlar kaynak bulun: *kaynakları* > *"apiVersion": "[variables('vmssApiVersion')]"*. Altında *özellikleri* > *virtualMachineProfile* > *extensionProfile* > *uzantıları*, altında aşağıdaki uzantı açıklaması ekleme *ServiceFabricNode* uzantısı: 
+3. OMS Microsoft Monitoring Agent’ı sanal makine uzantısı olarak ekleyin. Sanal makine ölçek kümeleri kaynağını bulun: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* yolunda, *ServiceFabricNode* uzantısının altına şu uzantı açıklamasını ekleyin: 
     
     ```json
     {
@@ -100,7 +100,7 @@ Aşağıdaki değişiklikleri yapın, *template.json*:
     },
     ```
 
-4. OMS çalışma tek tek bir kaynak olarak ekleyin. İçinde *kaynakları*, kaynak sanal makine ölçek kurmasından sonra aşağıdakileri ekleyin:
+4. OMS çalışma alanını ayrı bir kaynak olarak ekleyin. *resources* kısmında, sanal makine ölçek kümeleri kaynağından sonra şunu ekleyin:
     
     ```json
     {
@@ -180,54 +180,54 @@ Aşağıdaki değişiklikleri yapın, *template.json*:
     },
     ```
 
-[Burada](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) gerektiğinde başvurabileceğiniz bu değişiklikleri tümüne sahip bir örnek (kullanılan kısımda bu öğreticinin) şablonudur. Bu değişiklikleri bir OMS günlük analizi çalışma alanı, kaynak grubuna ekler. Çalışma alanı Service Fabric platform olayları ile yapılandırılmış depolama tablolardan seçmek için yapılandırılmış [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) aracı. OMS Aracısı (Microsoft İzleme Aracısı) de bir sanal makine uzantısı - olarak, kümedeki her düğümde eklendi bu kümenizi ölçeklendirmenize göre aracı otomatik olarak her makinede yapılandırılan ve aynı çalışma alanına sayfaya anlamına gelir.
+[Burada](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json), bu değişikliklerin tümünü içeren, gerektiği şekilde başvurabileceğiniz bir örnek şablon (bu öğreticinin ilk bölümünde kullanılan) verilmiştir. Bu değişiklikler, kaynak grubunuza bir OMS Log Analytics çalışma alanı ekler. Çalışma alanı, [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) aracısıyla yapılandırılan depolama tablolarından Service Fabric platform olaylarını alacak şekilde yapılandırılır. OMS aracısı da (Microsoft Monitoring Agent) kümenizdeki her düğüme sanal makine uzantısı olarak eklenmiştir. Böylece siz kümenizi ölçekledikçe aracı her bir makinede otomatik olarak yapılandırılır ve aynı çalışma alanına bağlanır.
 
-Geçerli kümenizi yükseltmek için yeni değişikliklerinizi şablonla dağıtın. Bu tamamlandıktan sonra kaynak grubunda OMS Kaynakları görmeniz gerekir. Küme hazır olduğunda, ona Kapsayıcılı uygulamanızı dağıtın. Sonraki adımda, biz kapsayıcıları izleme işlevini ayarlama.
+Geçerli kümenizi yükseltmek için şablonu yeni değişikliklerinizle dağıtın. Bu işlem tamamlandığında kaynak grubunuzda OMS kaynaklarını görürsünüz. Küme hazır olduğunda kümeye kapsayıcılı uygulamanızı dağıtın. Sonraki adımda, kapsayıcıları izleme özelliğini ayarlayacağız.
 
-## <a name="add-the-container-monitoring-solution-to-your-oms-workspace"></a>Kapsayıcı izleme çözümü, OMS çalışma alanınızla ekleyin
+## <a name="add-the-container-monitoring-solution-to-your-oms-workspace"></a>OMS çalışma alanınıza Kapsayıcı İzleme Çözümünü ekleme
 
-Çalışma alanınızda kapsayıcı çözümünü kurmak için arama *kapsayıcı izlemesi çözümü* ve kapsayıcıları kaynağı oluşturun (izleme + Yönetimi altında kategori).
+Çalışma alanınızda Kapsayıcı çözümünü ayarlamak için *Kapsayıcı İzleme Çözümü* araması yapın ve Kapsayıcılar kaynağı oluşturun (İzleme ve Yönetim kategorisi altında).
 
-![Kapsayıcıları çözüm ekleme](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
+![Kapsayıcılar çözümü ekleme](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-İstendiğinde *OMS çalışma*, kaynak grubunda oluşturuldu çalışma alanını seçin ve tıklatın **oluşturma**. Bu ekler bir *kapsayıcı izlemesi çözümü* sunucunuzdan çalışma alanınıza otomatik olarak docker günlükleri ve istatistikleri toplamaya başlamak şablon tarafından dağıtılan OMS Aracısı neden olur. 
+*OMS Çalışma Alanı* için istem görüntülendiğinde kaynak grubunuzda oluşturulan çalışma alanını seçin ve **Oluştur** seçeneğine tıklayın. Bu, çalışma alanınıza bir *Kapsayıcı İzleme Çözümü* ekler, docker günlüklerinin ve istatistiklerinin toplanmaya başlanması için otomatik olarak OMS’nin şablon tarafından dağıtılmasını sağlar. 
 
-Geri gidin, *kaynak grubu*, burada yeni eklenen izleme çözümü görmelisiniz. Giriş sayfası içine tıklarsanız, sahip olduğunuz kapsayıcı görüntü sayısını göstermelidir çalışıyor. 
+*Kaynak grubunuza* geri dönün. Yeni eklenen izleme çözümünü burada görürsünüz. Bu çözüme tıklarsanız giriş sayfası, çalıştırdığınız kapsayıcı görüntülerinin sayısını size gösterir. 
 
-*My fabrikam kapsayıcıdan 5 örneklerini çalıştığını unutmayın [bölüm iki](service-fabric-host-app-in-a-container.md) Öğreticisi*
+*Öğreticinin [ikinci bölümünde](service-fabric-host-app-in-a-container.md) fabrikam kapsayıcımın 5 örneğini çalıştırdığıma dikkat edin*
 
-![Kapsayıcı çözüm giriş sayfası](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
+![Kapsayıcı çözümü giriş sayfası](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-İçine tıklatarak **kapsayıcı monitör çözümü** yanı sıra ile birden fazla panel kaydırma günlük analizi sorguları çalıştırmak izin veren daha ayrıntılı bir Pano için yönlendirir. 
+**Kapsayıcı İzleme Çözümü**’ne tıkladığınızda, birden fazla panelde gezinmenin yanı sıra Log Analytics’te sorgu çalıştırmanızı sağlayan daha ayrıntılı bir panoya yönlendirilirsiniz. 
 
-*Eylül 2017 itibariyle, çözüm aracılığıyla bazı güncelleştirmeleri işaretleneceğini Not - birden çok orchestrators aynı çözüme tümleştirme üzerinde çalışırken Kubernetes olaylar hakkında alabilirsiniz Hataları yoksay.*
+*Eylül 2017 itibarıyla çözümde bazı güncelleştirmeler yapılacağını unutmayın. Birden fazla düzenleyiciyi aynı çözümle tümleştirme üzerinde çalıştığımız için Kubernetes olaylarıyla ilgili aldığınız hataları yoksayabilirsiniz.*
 
-Aracı docker günlüklerini çekme beri gösteren için varsayılan olarak *stdout* ve *stderr*. Sağa kaydırın, kapsayıcı görüntü envanter, durum, ölçümleri ve daha yararlı veri almak için çalıştırabilir örnek sorgular görürsünüz. 
+Aracı, docker günlüklerini aldığından varsayılan olarak *stdout* ve *stderr*’i gösterecek şekilde ayarlanır. Sağa kaydırdığınızda kapsayıcı görüntüsü envanterinin, durumun, ölçümlerin yanı sıra diğer faydalı verileri almak için çalıştırabileceğiniz örnek sorguları da görürsünüz. 
 
-![Kapsayıcı çözüm Panosu](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
+![Kapsayıcı çözümü panosu](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-Bu panoları hiçbirine tıklayarak görüntülenen değer oluşturmak günlük analizi sorgunun sürer. Sorgu ile değiştirmek  *\**  tüm çekilen yukarı günlükleri türlerini görmek için. Buradan, Sorgulayabileceğiniz günlükleri, kapsayıcı performans için filtre veya Service Fabric platform etkinliklerine bakın. Aracılarınızı de sürekli küme yapılandırmanızı değişirse veri hala, tüm makinelerden toplandığını emin olmak için bakabilirsiniz her düğüm, gelen sinyali yayma.   
+Bu panellerden herhangi birine tıklamanız sizi görüntülenen değeri oluşturan Log Analytics sorgusuna yönlendirir. Alınmakta olan tüm farklı günlük türlerini görmek için sorguyu *\** olarak değiştirin. Buradan kapsayıcı performansını ve günlükleri sorgulayabilir, bunlar için filtreleme yapabilir veya Service Fabric platform olaylarına bakabilirsiniz. Aynı zamanda aracılarınız her düğümden sürekli olarak bir sinyal yayar. Böylece, küme yapılandırmanızın değişmesi durumunda verilerin tüm makinelerinizden toplanmaya devam ettiğinden emin olmak için bu sinyallere bakabilirsiniz.   
 
-![Kapsayıcı sorgu](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
+![Kapsayıcı sorgusu](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Performans sayaçları seçmek için OMS Aracısı'nı yapılandırma
+## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>OMS aracısını performans sayaçlarını alacak şekilde yapılandırma
 
-OMS Aracısı'nı kullanmanın başka bir faydası, OMS UI deneyimi almak istediğiniz performans sayaçlarını değiştirme yeteneğini yerine Azure tanılama aracısını yapılandırmak ve kaynak yöneticisi yapmak zorunda şablon yükseltme her zaman bağlı. Bunu yapmak için tıklatın **OMS portalı** kapsayıcı izleme (veya Service Fabric) çözümünüzün giriş sayfasında.
+OMS aracısını kullanmanın diğer bir avantajı da her seferinde Azure tanılama aracısını yapılandırmak ve Resource Manager şablonuna dayalı bir yükseltme gerçekleştirmek zorunda kalmadan OMS UI deneyimi aracılığıyla almak istediğiniz performans sayaçlarını değiştirebilmenizdir. Bunu yapmak için Kapsayıcı İzleme (veya Service Fabric) çözümünüzün giriş sayfasında **OMS Portalı**’na tıklayın.
 
 ![OMS portalı](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
 
-Bu çözümlerinizi görüntüleyebileceğiniz alanınıza OMS portalında alın, özel panolar oluşturun yanı OMS Aracısı'nı yapılandırın. 
-* Tıklayın **dişlisine Tekerlek** açık ekranın sağ üst köşesinde bulunan *ayarları* menüsü.
-* Tıklayın **bağlı kaynakları** > **Windows sunucuları** yüklü olduğunu doğrulamak için *5 Windows bilgisayarları bağlı*.
-* Tıklayın **veri** > **Windows performans sayaçlarını** için arama yapın ve yeni performans sayaçları ekleyin. Burada için diğer sayaçları arama seçeneği yanı sıra toplamak önerileri OMS performans sayaçları için bir listesini görürsünüz. Tıklatın **Seçili performans sayaçlarını Ekle** önerilen ölçümleri toplamaya başlamak için.
+Bu sizi OMS portalındaki çalışma alanınıza yönlendirir. Burada çözümlerinizi görüntüleyebilir, özel panolar oluşturabilir ve OMS aracısını yapılandırabilirsiniz. 
+* Ekranınızın sağ üst köşesindeki **dişli çarka** tıklayarak *Ayarlar* menüsünü açın.
+* **Bağlı Kaynaklar** > **Windows Sunucuları**’na tıklayarak *5 Windows Bilgisayarı Bağlı* ifadesini gördüğünüzden emin olun.
+* Yeni performans sayaçlarını aramak ve eklemek için **Veriler** > **Windows Performans Sayaçları**’na tıklayın. Burada, toplayabileceğiniz performans sayaçlarına ilişkin OMS önerilerinin listesinin yanı sıra başka sayaçları arama seçeneğini de görürsünüz. Önerilen ölçümleri toplamaya başlamak için **Seçili performans sayaçlarını ekle** seçeneğine tıklayın.
 
     ![Performans sayaçları](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
 
-Azure Portalı'nda **yenileme** kapsayıcı izleme çözümünüzde birkaç dakika sonra görmeye başlamanız gerekir *bilgisayar performansı* gelen verileri. Bu, kaynaklarınızı nasıl kullanıldığını anlamanıza yardımcı olur. Bu ölçümleri, kümenizi ölçekleme konusunda uygun kararlar veya beklendiği gibi bir küme Yük Dengeleme olmadığını onaylamak için de kullanabilirsiniz.
+Azure portalına geri döndüğünüzde Kapsayıcı İzleme Çözümünüzü birkaç dakika içinde **yenileyin**. Bunu yaptığınızda *Bilgisayar Performansı* verilerini görmeye başlarsınız. Bu, kaynaklarınızın nasıl kullanıldığını anlamanıza yardımcı olur. Kümenizi ölçeklendirme konusunda doğru kararlar vermek veya bir kümenin yükünüzü beklenen şekilde dengeleyip dengelemediğini doğrulamak için de bu ölçümleri kullanabilirsiniz.
 
-*Not: saat filtrelerinizi bu ölçümleri kullanmak için uygun şekilde ayarlandığından emin olun.* 
+*Not: Zaman filtrelerinin bu ölçümleri kullanabilmeniz için uygun şekilde ayarlandığından emin olun.* 
 
-![Performans sayacı 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
+![Performans sayaçları 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -235,13 +235,13 @@ Azure Portalı'nda **yenileme** kapsayıcı izleme çözümünüzde birkaç daki
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * OMS Service Fabric kümesi için yapılandırın
-> * Görüntülemek ve günlükleri kapsayıcıları ve düğüm sorgulamak için bir OMS çalışma alanını kullanın
-> * Kapsayıcı ve düğüm ölçümleri seçmek için OMS Aracısı'nı yapılandırma
+> * Service Fabric kümeniz için OMS’yi yapılandırma
+> * Kapsayıcılarınızdaki ve düğümlerinizdeki günlükleri görüntülemek ve sorgulamak için bir OMS çalışma alanı kullanma
+> * OMS aracısını kapsayıcı ve düğüm ölçümlerini alacak şekilde yapılandırma
 
-Kapsayıcılı uygulamanız için izleme işlevini ayarlama, aşağıdakileri deneyin:
+Kapsayıcılı uygulamanız için izlemeyi ayarladığınıza göre artık aşağıdaki deneyebilirsiniz:
 
-* Yukarıdaki gibi benzer adımları izleyerek OMS Linux kümesi ayarlayın. Başvuru [bu şablonu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) Resource Manager şablonunuzda değişiklik yapmak için.
-* Ayarlamak için OMS yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) algılama ve tanılama yardımcı olmak için.
-* Service Fabric'ın listesi keşfedin [performans sayaçları önerilen](service-fabric-diagnostics-event-generation-perf.md) kümeleriniz için yapılandırılır.
-* İle familiarized [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri günlük analizi bir parçası olarak sunulan.
+* Yukarıdaki adımların aynısını uygulayarak OMS’yi bir Linux kümesi için ayarlayın. Kaynak Yöneticisi şablonunuzda değişiklik yapmak için [bu şablona](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) başvurun.
+* Algılama ve tanılama konusunda yardımcı olması için OMS’yi [otomatik uyarı verme](../log-analytics/log-analytics-alerts.md) özelliğini ayarlayacak şekilde yapılandırın.
+* Service Fabric'in kümeleriniz için yapılandırılacak [önerilen performans sayaçları](service-fabric-diagnostics-event-generation-perf.md) listesini keşfedin.
+* Log Analytics’in bir parçası olarak sunulan [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri hakkında bilgi sahibi olun.

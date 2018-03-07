@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Service Fabric uygulaması sürekli tümleştirme (Team Services) ile dağıtma | Microsoft Docs"
-description: "Sürekli tümleştirme ve Visual Studio Team Services kullanarak bir Service Fabric uygulaması için dağıtım ayarlama öğrenin.  Azure Service Fabric kümede bir uygulamayı dağıtın."
+title: "Sürekli tümleştirme ile Azure Service Fabric uygulaması dağıtma (Team Services) | Microsoft Docs"
+description: "Bu öğreticide Visual Studio Team Services kullanarak bir Service Fabric uygulaması için nasıl sürekli tümleştirme ve dağıtım ayarlayacağınız gösterilir.  Azure’da bir Service Fabric kümesine uygulama dağıtın."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,146 +15,146 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 3f5ccd40e2b46cc68b4f7aeb67577fb66dbd5355
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Bir uygulamayı CI/CD ile bir Service Fabric kümesi dağıtma
-Bu öğretici üç bir serinin bir parçasıdır ve sürekli tümleştirme ve Visual Studio Team Services kullanarak bir Azure Service Fabric uygulaması için dağıtım nasıl ayarlanacağını açıklar.  Var olan bir Service Fabric uygulaması gereklidir, uygulamayı oluşturduğunuz [bir .NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bir örnek olarak kullanılır.
+# <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesine CI/CD ile uygulama dağıtma
+Bu öğretici bir serinin üçüncü bölümüdür ve Visual Studio Team Services kullanarak bir Azure Service Fabric uygulamasına nasıl sürekli tümleştirme ve dağıtım ayarlayacağınızı açıklar.  Mevcut bir Service Fabric uygulaması gereklidir; örnek olarak [.NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde oluşturulan uygulama kullanılır.
 
-Bölümünde dizisinin üç bilgi nasıl yapılır:
+Serinin üçüncü bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Kaynak denetimi projenize ekleyin
-> * Yapı tanımı Team Services içinde oluşturma
-> * Team Services içinde bir yayın tanımı oluşturun
-> * Otomatik olarak dağıtma ve uygulama yükseltme
+> * Projenize kaynak denetimi ekleme
+> * Team Services’de derleme tanımı oluşturma
+> * Team Services’de yayın tanımı oluşturma
+> * Uygulamayı otomatik olarak dağıtma ve yükseltme
 
-Bu öğretici serisinde öğrenin nasıl yapılır:
+Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * [Bir .NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md)
-> * [Uzak bir küme için uygulama dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
-> * CI/CD Visual Studio Team Services kullanarak yapılandırma
-> * [İzleme ve tanılama uygulama için ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
+> * [.NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md)
+> * [Uygulamayı uzak kümeye dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * Visual Studio Team Services'i kullanarak CI/CD'yi yapılandırma
+> * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce:
-- Bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Visual Studio 2017 yükleme](https://www.visualstudio.com/) yükleyip **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
-- [Service Fabric SDK yükleme](service-fabric-get-started.md)
-- Azure üzerinde bir Windows Service Fabric kümesi tarafından örneğin oluşturma [Bu öğreticiyi izleyerek](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-- Oluşturma bir [Team Services hesabı](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+- Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
+- **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017’yi yükleyin](https://www.visualstudio.com/).
+- [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md)
+- Azure’da Windows Service Fabric kümesi oluşturun; örneğin, [bu öğreticiyi izleyin](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+- [Team Services hesabı](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) oluşturun.
 
-## <a name="download-the-voting-sample-application"></a>Oylama örnek uygulamayı indirin
-Oylama örnek uygulama yapı içinde değil, [Bu öğretici seri birini Kısım](service-fabric-tutorial-create-dotnet-app.md), yükleyebilirsiniz. Komut penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
+## <a name="download-the-voting-sample-application"></a>Voting örnek uygulamasını indirme
+[Bu öğretici serisinin birinci kısmında](service-fabric-tutorial-create-dotnet-app.md) Voting örnek uygulamasını oluşturmadıysanız, indirebilirsiniz. Komut penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="prepare-a-publish-profile"></a>Bir yayımlama profili hazırlama
-Artık [bir uygulama oluşturulan](service-fabric-tutorial-create-dotnet-app.md) ve [uygulamayı Azure'a dağıtılan](service-fabric-tutorial-deploy-app-to-party-cluster.md), sürekli tümleştirme kurup hazırsınız demektir.  İlk olarak, bir yayımlama profili kullanmak için uygulama içinde Team Services içinde yürütür dağıtım işlemi tarafından hazırlayın.  Yayımlama profili, daha önce oluşturduğunuz küme hedeflemek için yapılandırılmalıdır.  Visual Studio'yu başlatın ve var olan bir Service Fabric uygulaması projesini açın.  İçinde **Çözüm Gezgini**, uygulamayı sağ tıklatın ve seçin **Yayımla...** .
+## <a name="prepare-a-publish-profile"></a>Yayımlama profili hazırlama
+[Uygulamayı oluşturduğunuza](service-fabric-tutorial-create-dotnet-app.md) ve [uygulamayı Azure’a dağıttığınıza](service-fabric-tutorial-deploy-app-to-party-cluster.md) göre, artık sürekli tümleştirme ayarlamaya hazırsınız.  İlk olarak, uygulamanızda Team Services içinde yürütülen dağıtım işleminin kullanacağı yayımlama profilini hazırlayın.  Yayımlama profili, daha önce oluşturduğunuz kümeyi hedefleyecek şekilde yapılandırılmalıdır.  Visual Studio’yu başlatın ve mevcut Service Fabric uygulaması projesini açın.  **Çözüm Gezgini**'nde uygulamaya sağ tıklayın ve **Yayımla...** öğesini seçin.
 
-Sürekli Tümleştirme iş akışınız için kullanmak için örneğin bulut uygulaması projenize içinden bir hedef profil seçin.  Küme bağlantısı uç noktası belirtin.  Denetleme **uygulama yükseltme** onay kutusunu böylece her dağıtımda Team Services için uygulamanızı yükseltir.  Tıklatın **kaydetmek** yayımlama profili için ayarları kaydedin ve ardından köprü **iptal** iletişim kutusunu kapatmak için.  
+Sürekli tümleştirme iş akışınızda kullanmak üzere uygulama projenizin içinde bir hedef profil seçin (örneğin Bulut).  Küme bağlantısı uç noktasını belirtin.  Team Services’deki her dağıtımda uygulamanızın yükseltilmesi için **Uygulamayı Yükselt** onay kutusunu işaretleyin.  Ayarları yayımlama profiline kaydetmek için **Kaydet** bağlantısına tıklayın ve ardından **İptal**’e tıklayarak iletişim kutusunu kapatın.  
 
-![Anında iletme profili][publish-app-profile]
+![Gönderim profili][publish-app-profile]
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Visual Studio çözümünüz için yeni bir Team Services Git deposuna paylaşma
-Derlemeleri oluşturmak için uygulama Kaynak dosyalarınız Team Services takım projesine paylaşır.  
+## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Visual Studio çözümünüzü yeni bir Team Services Git deposunda paylaşma
+Derlemeler oluşturabilmek için uygulamanızın kaynak dosyalarını Team Services’deki bir takım projesinde paylaşın.  
 
-Projeniz için yeni bir yerel Git deposu seçerek oluşturun **eklemek için kaynak denetimi** -> **Git** Visual Studio sağ alt köşesindeki durum çubuğunda. 
+Visual Studio’nun sağ alt köşesindeki durum çubuğunda **Kaynak Denetimi’ne Ekle** -> **Git**’i seçerek projeniz için yeni bir yerel Git deposu oluşturun. 
 
-İçinde **anında** görünümünde **Takım Gezgini**seçin **yayımlama Git deposuna** altında düğmesini **anında Visual Studio Team Services**.
+**Takım Gezgini**’ndeki **Gönderim** görünümünde **Visual Studio Team Services’e Gönder**’in altında yer alan **Git Deposunda Yayımla** düğmesini seçin.
 
-![Git deposuna Gönder][push-git-repo]
+![Git deposunu gönderme][push-git-repo]
 
-E-postanızı doğrulayın ve hesabınızı seçin **Team Services etki alanı** açılır. Depo adınızı girin ve **Yayımla depo**.
+E-postanızı doğrulayın ve **Team Services Etki Alanı** açılır listesinde hesabınızı seçin. Deponuzun adını girin ve **Depoyu yayımla**’yı seçin.
 
-![Git deposuna Gönder][publish-code]
+![Git deposunu gönderme][publish-code]
 
-Depodaki yayımlama hesabınızda yerel depoyu aynı ada sahip yeni bir takım projesi oluşturur. Var olan bir takım projesinde deposu oluşturmak için tıklatın **Gelişmiş** yanına **depo** ad ve bir takım projesini seçin. Web üzerinde kodunuzu seçerek görüntüleyebilirsiniz **Web'de bakın**.
+Depoyu yayımlamak, hesabınızda yerel depoyla aynı adda yeni bir takım projesi oluşturur. Depoyu mevcut takım projesinde oluşturmak için, **Depo** adının yanındaki **Gelişmiş**’e tıklayın ve bir takım projesi seçin. **Web üzerinde görüntüleyin**’i seçerek kodunuzu web’de görüntüleyebilirsiniz.
 
-## <a name="configure-continuous-delivery-with-vsts"></a>Kesintisiz teslim VSTS ile yapılandırma
-Bir Team Services yapı tanımı sırayla yürütülen derleme adımları kümesinden oluşan bir iş akışını açıklar. Yapı tanımı bir Service Fabric uygulama paketini ve bir Service Fabric kümesi dağıtmak için diğer yapıları üreten oluşturabilirsiniz. Daha fazla bilgi edinmek [Team Services yapı tanımları](https://www.visualstudio.com/docs/build/define/create). 
+## <a name="configure-continuous-delivery-with-vsts"></a>VSTS ile Sürekli Teslimi Yapılandırma
+Team Services derleme tanımı, sırayla yürütülen bir dizi derleme adımından oluşturulmuş bir iş akışını açıklar. Service Fabric kümenize dağıtmak üzere Service Fabric uygulama paketini ve diğer yapıtları üreten bir derleme tanımı oluşturun. [Team Services derleme tanımları](https://www.visualstudio.com/docs/build/define/create) hakkında daha fazla bilgi edinin. 
 
-Bir Team Services sürüm tanımı bir küme için bir uygulama paketi dağıtan bir iş akışını açıklar. Birlikte kullanıldığında, kümenizde çalışan bir uygulama ile biten kaynak dosyaları ile başlayan tüm iş akışı derleme tanımı ve yayın tanımının yürütün. Team Services hakkında daha fazla bilgi [yayın tanımları](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+Team Services yayın tanımı, kümeye uygulama paketi dağıtan bir iş akışını açıklar. Derleme tanımı ve yayın tanımı birlikte kullanıldığında kaynak dosyalardan başlayıp kümenizde çalışan bir uygulamada biten iş akışının tamamını yürütür. Team Services [yayın tanımları](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) hakkında daha fazla bilgi edinin.
 
-### <a name="create-a-build-definition"></a>Yapı tanımı oluşturma
-Bir web tarayıcısı açın ve yeni takım projenizin gidin: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
+### <a name="create-a-build-definition"></a>Derleme tanımı oluşturma
+Web tarayıcısını açın ve şu adresteki yeni takım projenize gidin: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
-Seçin **yapı & yayın** sekmesinde, ardından **derlemeler**, ardından **+ yeni tanımı**.  İçinde **bir şablon seçin**seçin **Azure Service Fabric uygulaması** şablonu ve tıklatın **Uygula**. 
+**Derleme ve Yayın** sekmesini, ardından **Derlemeler**’i ve **+ Yeni tanım**’ı seçin.  **Şablon seç** alanında **Azure Service Fabric Uygulaması** şablonunu seçin ve **Uygula**'ya tıklayın. 
 
-![Yapı şablonunu seçin][select-build-template] 
+![Derleme şablonu seçme][select-build-template] 
 
-İçinde **görevleri**, "Barındırılan VS2017" olarak girin **Aracısı sırası**. 
+**Görevler**’de **Aracı kuyruğu** olarak "Hosted VS2017" girin. 
 
-![Görevleri seçin][save-and-queue]
+![Görevleri seçme][save-and-queue]
 
-Altında **Tetikleyicileri**, sürekli tümleştirme ayarlayarak etkinleştir **tetiklemek durum**.  Seçin **kaydedin ve kuyruk** bir yapı el ile başlatmak için.  
+**Tetikleyiciler**’in altında **Tetikleyici durumu**’nu ayarlayarak sürekli tümleştirmeyi etkinleştirin.  Derlemeyi el ile başlatmak için **Kaydet ve kuyruğa al**’ı seçin.  
 
-![Tetikleyiciler seçin][save-and-queue2]
+![Tetikleyicileri seçme][save-and-queue2]
 
-Ayrıca İtme veya iade tetikleyici oluşturur. Yapı ilerleme durumunu denetlemek için geçin **derlemeler** sekmesi.  Yapı başarılı bir şekilde çalıştığından emin olun sonra uygulamanızı bir kümeye dağıtan bir yayın tanımı tanımlayın. 
+Derlemeler gönderme veya iade işlemleriyle de tetiklenir. Derlemenizin ilerleme durumunu denetlemek için **Derlemeler** sekmesine geçin.  Derlemenin başarıyla yürütüldüğünü doğruladıktan sonra, uygulamanızı kümeye dağıtan bir yayın tanımı belirleyin. 
 
-### <a name="create-a-release-definition"></a>Bir yayın tanımı oluşturun  
+### <a name="create-a-release-definition"></a>Yayın tanımı oluşturma  
 
-Seçin **yapı & yayın** sekmesinde, ardından **sürümleri**, ardından **+ yeni tanımı**.  İçinde **bir şablon seçin**seçin **Azure Service Fabric dağıtımı** listeden şablonu ve ardından **Uygula**.  
+**Derleme ve Yayın** sekmesini, ardından **Yayınlar**’ı ve **+ Yeni tanım**’ı seçin.  **Şablon seç** alanında, listeden **Azure Service Fabric Dağıtımı** şablonunu ve sonra da **Uygula**'yı seçin.  
 
-![Yayın şablonu seçme][select-release-template]
+![Yayın şablonunu seçme][select-release-template]
 
-Seçin **görevleri**->**ortam 1** ve ardından **+ yeni** yeni bir küme bağlantısı eklemek için.
+Yeni küme bağlantısı eklemek için **Görevler**->**Ortam 1** ve sonra da **+Yeni**'yi seçin.
 
-![Küme Bağlantısı Ekle][add-cluster-connection]
+![Küme bağlantısı ekleme][add-cluster-connection]
 
-İçinde **yeni Service Fabric bağlantısı ekleme** görüntülemek seçin **sertifika tabanlı** veya **Azure Active Directory** kimlik doğrulaması.  Bir bağlantı adı "mysftestcluster" ve "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" bir küme uç noktası (veya dağıttığınız küme uç noktası) belirtin. 
+**Yeni Service Fabric Bağlantısı ekle** görünümünde **Sertifika Tabanlı** veya **Azure Active Directory** kimlik doğrulamasını seçin.  Bağlantı adı olarak "mysftestcluster" ve küme uç noktası olarak "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (veya dağıtım yaptığınız kümenin uç noktası) belirtin. 
 
-Sertifika tabanlı kimlik doğrulaması için ekleme **sunucu sertifika parmak izi** küme oluşturmak için kullanılan sunucu sertifikası.  İçinde **istemci sertifikası**, 64 tabanlı kodlama istemci sertifika dosyası ekleyin. Bu alan sertifikayı bu base-64 kodlanmış gösterimini alma hakkında bilgi için Yardım açılır bakın. Ayrıca ekleyin **parola** sertifika için.  Ayrı bir istemci sertifikası yoksa, küme veya sunucu sertifikası kullanabilirsiniz. 
+Sertifika tabanlı kimlik doğrulaması için, kümeyi oluştururken kullanılan sunucu sertifikasının **Sunucu sertifikası parmak izi**'ni ekleyin.  **İstemci sertifikası** alanında, istemci sertifika dosyasının base-64 kodlamasını ekleyin. Sertifikanın bu base-64 kodlamalı gösterimini nasıl alacağınızı öğrenmek için bu alanın yardım açılan kutusuna bakın. Ayrıca sertifika için **Parola** ekleyin.  Ayrı bir istemci sertifikanız yoksa, küme veya sunucu sertifikasını kullanabilirsiniz. 
 
-Azure Active Directory kimlik bilgileri Ekle **sunucu sertifika parmak izi** kümeye bağlanmak için kullanmak istediğiniz küme ve kimlik bilgileri oluşturmak için kullanılan sunucu sertifikasının **kullanıcıadı** ve **parola** alanları. 
+Azure Active Directory kimlik bilgileri için, kümeyi oluştururken kullanılan sunucu sertifikasının **Sunucu sertifikası parmak izi**'ni ve ayrıca **Kullanıcı adı** ve **Parola** alanlarına kümeye bağlanırken kullanmak istediğiniz kimlik bilgilerini girin. 
 
-Tıklatın **Ekle** küme bağlantıyı kaydetmek için.
+**Ekle**'ye tıklayarak küme bağlantısını kaydedin.
 
-Ardından, yayın tanımı derleme çıktısı bulabilmek için yapı yapı ardışık düzene ekleyin. Seçin **ardışık düzen** ve **yapıları**->**+ Ekle**.  İçinde **kaynak (derleme tanımı)**, daha önce oluşturduğunuz derleme tanımı'nı seçin.  Tıklatın **Ekle** yapı yapı kaydetmek için.
+Ardından, yayın tanımının derlemeden çıkışı bulabilmesi için işlem hattına bir derleme yapıtı ekleyin. **İşlem Hattı**'nı ve **Yapıtlar**->**+Ekle**'yi seçin.  **Kaynak (Derleme tanımı)** alanında, daha önce oluşturmuş olduğunuz derleme tanımını seçin.  **Ekle**’ye tıklayarak derleme yapıtını kaydedin.
 
-![Yapı ekleme][add-artifact]
+![Yapıt ekleme][add-artifact]
 
-Yapı tamamlandığında bir yayın otomatik olarak oluşturulan bir sürekli dağıtım tetikleyici etkinleştirin. Yapı Şimşek simgeyi tıklatın, tetikleyici etkinleştirmek ve tıklatın **kaydetmek** yayın tanımını kaydetmek için.
+Derleme tamamlandığında otomatik olarak bir yayın oluşturulması için sürekli dağıtım tetikleyicisini etkinleştirin. Yapıttaki şimşek simgesine tıklayın, tetikleyiciyi etkinleştirin ve **Kaydet**'e tıklayarak yayın tanımını kaydedin.
 
-![Tetikleyici etkinleştir][enable-trigger]
+![Tetikleyici etkinleştirme][enable-trigger]
 
-Seçin **+ yayın** -> **oluşturma yayın** -> **oluşturma** el ile bir sürüm oluşturmak için.  Dağıtımı başarılı oldu ve uygulama kümede çalışır durumda olduğunu doğrulayın.  Bir web tarayıcısı açın ve gidin [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Bu örnekte "1.0.0.20170616.3" olan uygulama sürümü unutmayın. 
+Yayını el ile oluşturmak için **+Yayın** -> **Yayın Oluştur** -> **Oluştur**'u seçin.  Dağıtımın başarılı olduğunu ve uygulamanın kümede çalıştığını doğrulayın.  Web tarayıcısını açın ve [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/) adresine gidin.  Uygulama sürümünü not alın (bu örnekte "1.0.0.20170616.3"). 
 
-## <a name="commit-and-push-changes-trigger-a-release"></a>Yürütme ve değişiklikleri gönderin, sürüm tetikleme
-Sürekli Tümleştirme ardışık düzen Team Services için bazı kod değişiklikleri denetleyerek çalıştığını doğrulamak için.    
+## <a name="commit-and-push-changes-trigger-a-release"></a>Değişiklikleri işleme ve gönderme, yayını tetikleme
+Team Services'te yapılan bazı kod değişikliklerini denetleyerek sürekli tümleştirme işlem hattının çalıştığını doğrulayın.    
 
-Kodunuzu yazarken değişikliklerinizi Visual Studio tarafından otomatik olarak izlenir. Bekleyen değişiklikleri simgesi ('i seçerek yerel Git deponuzu değişiklikleri![Beklemede][pending]) sağ alttaki durum çubuğunda.
+Siz kodunuzu yazarken, değişiklikleriniz Visual Studio tarafından otomatik olarak izlenir. Sağ alt kısımdaki durum çubuğunda bekleyen değişiklikler simgesini (![Beklemede][pending]) seçerek değişiklikleri yerel Git deponuza işleyin.
 
-Üzerinde **değişiklikleri** Takım Gezgini'nde görüntüleme, güncelleştirmeyi açıklayan bir ileti ekleyin ve değişikliklerinizi uygulamak.
+Takım Gezgini'ndeki **Değişiklikler** görünümünde, güncelleştirmenizi açıklayan bir ileti ekleyin ve değişikliklerinizi işleyin.
 
-![Tümünü Yürüt][changes]
+![Tümünü işleme][changes]
 
-Yayımdan değişiklikleri durum çubuğu simgesini seçin (![yayımlanmamış değişiklikleri][unpublished-changes]) veya Takım Gezgini'nde eşitleme görünümü. Seçin **anında** kodunuzu Team Services/TFS güncelleştirmek için.
+Yayımlanmamış değişiklikler durum çubuğu simgesini (![Yayımlanmamış değişiklikler][unpublished-changes]) veya Takım Gezgini'nde Eşitleme görünümünü seçin. Team Services/TFS'de kodunu güncelleştirmek için **Gönder**'i seçin.
 
 ![Değişiklikleri gönderme][push]
 
-Değişiklikleri Team Services için otomatik olarak gönderilmesi bir yapı tetikler.  Yapı tanımı başarıyla tamamlandığında, bir yayın otomatik olarak oluşturulur ve uygulama küme üzerinde yükseltmeyi başlatır.
+Değişikliklerin Team Services'e gönderilmesi otomatik olarak derlemeyi tetikler.  Derleme tanımı başarıyla tamamlandığında, otomatik olarak bir yayın oluşturulur ve kümede uygulamayı yükseltme işlemini başlatır.
 
-Yapı ilerleme durumunu denetlemek için geçin **derlemeler** sekmesinde **Takım Gezgini** Visual Studio.  Yapı başarılı bir şekilde çalıştığından emin olun sonra uygulamanızı bir kümeye dağıtan bir yayın tanımı tanımlayın.
+Derlemenizin ilerleme durumunu denetlemek için, Visual Studio'nun **Takım Gezgini**'nde **Derlemeler** sekmesine geçin.  Derlemenin başarıyla yürütüldüğünü doğruladıktan sonra, uygulamanızı kümeye dağıtan bir yayın tanımı belirleyin.
 
-Dağıtımı başarılı oldu ve uygulama kümede çalışır durumda olduğunu doğrulayın.  Bir web tarayıcısı açın ve gidin [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Bu örnekte "1.0.0.20170815.3" olan uygulama sürümü unutmayın.
+Dağıtımın başarılı olduğunu ve uygulamanın kümede çalıştığını doğrulayın.  Web tarayıcısını açın ve [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/) adresine gidin.  Uygulama sürümünü not alın (bu örnekte "1.0.0.20170815.3").
 
 ![Service Fabric Explorer][sfx1]
 
 ## <a name="update-the-application"></a>Uygulamayı güncelleştirme
-Kod değişiklikleri uygulama yapın.  Kaydet ve önceki adımları izleyerek bu değişiklikleri uygulayın.
+Uygulamada kod değişikliklerini yapın.  Önceki adımları izleyerek değişiklikleri kaydedin ve işleyin.
 
-Uygulama yükseltmesini başladıktan sonra Service Fabric Explorer'da yükseltme ilerleme durumunu izleyebilirsiniz:
+Uygulamanın yükseltmesi başladığında, Service Fabric Explorer'da yükseltmenin ilerleme durumunu izleyebilirsiniz:
 
 ![Service Fabric Explorer][sfx2]
 
-Uygulama yükseltme birkaç dakika sürebilir. Yükseltme tamamlandıktan sonra uygulama sonraki sürümünü çalıştıran.  Bu örnekte "1.0.0.20170815.4".
+Uygulama yükseltmesi birkaç dakika sürebilir. Yükseltme tamamlandığında, uygulama bir sonraki sürümde çalışıyor olacaktır.  Bu örnekte "1.0.0.20170815.4".
 
 ![Service Fabric Explorer][sfx3]
 
@@ -162,14 +162,14 @@ Uygulama yükseltme birkaç dakika sürebilir. Yükseltme tamamlandıktan sonra 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Kaynak denetimi projenize ekleyin
-> * Yapı tanımı oluşturma
-> * Bir yayın tanımı oluşturun
-> * Otomatik olarak dağıtma ve uygulama yükseltme
+> * Projenize kaynak denetimi ekleme
+> * Derleme tanımı oluşturma
+> * Yayın tanımı oluşturma
+> * Uygulamayı otomatik olarak dağıtma ve yükseltme
 
-Sonraki öğretici ilerleyin:
+Sonraki öğreticiye ilerleyin:
 > [!div class="nextstepaction"]
-> [İzleme ve tanılama uygulama için ayarlama](service-fabric-tutorial-monitoring-aspnet.md) 
+> [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md) 
 
 
 <!-- Image References -->

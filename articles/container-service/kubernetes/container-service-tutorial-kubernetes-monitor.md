@@ -1,50 +1,50 @@
 ---
-title: "Azure kapsayıcı hizmeti Öğreticisi - İzleyici Kubernetes"
-description: "Azure kapsayıcı hizmeti Öğreticisi - İzleyici Kubernetes Microsoft Operations Management Suite (OMS)"
+title: "Azure Container Service öğreticisi - Kubernetes’i İzleme"
+description: "Azure Container Service öğreticisi - Microsoft Operations Management Suite (OMS) ile Kubernetes’i izleme"
 services: container-service
 author: dlepow
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 07/25/2017
+ms.date: 02/26/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 948e3aeea34a0355c3d958f29008c26499e19ba4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: 965ce4b7e154684fc1d171c90f17498afc828a66
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Operations Management Suite Kubernetes kümeyle izleme
+# <a name="monitor-a-kubernetes-cluster-with-operations-management-suite"></a>Operations Management Suite (OMS) ile bir Kubernetes kümesini izleme
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Özellikle birden çok uygulama ile ölçekli üretim kümesi yönetirken izleme Kubernetes küme ve kapsayıcıları, önemlidir. 
+Kubernetes kümenizin ve kapsayıcılarınızın izlenmesi, özellikle de büyük ölçekli olarak birden fazla uygulamayı ve bir üretim kümesini yönetiyorsanız kritik önem taşır. 
 
-Birkaç Kubernetes izleme çözümlerinin, Microsoft veya diğer sağlayıcıları avantajından yararlanabilirsiniz. Bu öğreticide, Kubernetes kümenizi kapsayıcıları çözümde kullanarak izlemenizi [Operations Management Suite](../../operations-management-suite/operations-management-suite-overview.md), Microsoft'un bulut tabanlı BT yönetim çözümü. (OMS kapsayıcıları çözüm önizlemede değil.)
+Microsoft ya da diğer sağlayıcılar tarafından sunulan çeşitli Kubernetes izleme çözümlerinden yararlanabilirsiniz. Bu öğreticide, Kubernetes kümenizi Microsoft'un bulut tabanlı BT yönetim çözümü olan [Operations Management Suite](../../operations-management-suite/operations-management-suite-overview.md)’teki Kapsayıcılar çözümünü kullanarak izlersiniz. (OMS Kapsayıcılar çözümü önizlemededir.)
 
-Bu öğretici, parçası yedi yedi, aşağıdaki görevleri içerir:
+Yedi bölümün sonuncusu olan bu öğreticide aşağıdaki görevler ele alınır:
 
 > [!div class="checklist"]
-> * OMS çalışma ayarlarını al
-> * Kubernetes düğümlerdeki OMS aracılarını ayarlama
-> * İzleme bilgilerini OMS portalında veya Azure portalına erişim
+> * OMS Çalışma Alanı ayarlarını alma
+> * Kubernetes düğümlerinde OMS aracıları ayarlama
+> * OMS portalında veya Azure portalında izleme bilgilerine erişme
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki eğitimlerine uygulama kapsayıcı görüntüleri, Azure kapsayıcı kayıt defterine karşıya bu görüntüler ve oluşturulan Kubernetes küme paketlenmiştir. 
+Önceki öğreticilerde, bir uygulama kapsayıcı görüntülerine paketlendi, bu görüntüler Azure Container Registry’ye yüklendi ve bir Kubernetes kümesi oluşturuldu. 
 
-Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md). 
+Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma](./container-service-tutorial-kubernetes-prepare-app.md) konusuna dönün. 
 
-## <a name="get-workspace-settings"></a>Çalışma alanı ayarlarını al
+## <a name="get-workspace-settings"></a>Çalışma Alanı ayarlarını alma
 
-Ne zaman erişebilirsiniz [OMS portalı](https://mms.microsoft.com)gidin **ayarları** > **bağlı kaynakları** > **Linux sunucuları**. Burada, bulabileceğiniz *çalışma alanı kimliği* ve birincil veya ikincil *çalışma alanı anahtarı*. OMS aracıları kümedeki ayarlamak için gereken bu değerleri not edin.
+[OMS portalına](https://mms.microsoft.com) erişebildiğinizde **Settings** > **Connected Sources** > **Linux Servers** (Ayarlar>Bağlı Kaynaklar>Linux Sunucuları) seçeneğine gidin. Burada, *Workspace ID* (Çalışma Alanı Kimliği) ile birincil veya ikincil *Workspace Key* (Çalışma Alanı Anahtarı) değerini bulabilirsiniz. Kümede OMS aracılarını ayarlamak için gerekli olacak bu değerleri not alın.
 
 ## <a name="set-up-oms-agents"></a>OMS aracılarını ayarlama
 
-Linux küme düğümlerinde OMS Aracısı ayarlamak için bir YAML dosyası aşağıda verilmiştir. Bir Kubernetes oluşturur [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), her küme düğümünde tek aynı pod çalıştırır. DaemonSet kaynak izleme aracısını dağıtmak için idealdir. 
+İşte Linux küme düğümlerinde OMS aracılarının ayarlanmasına yönelik bir YAML dosyası. Bu dosya, her küme düğümünde aynı pod’u çalıştıran bir Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) oluşturur. DaemonSet kaynağı, izleme aracısı dağıtmak için idealdir. 
 
-Aşağıdaki metni adlı bir dosyaya kaydedin `oms-daemonset.yaml`ve yer tutucu değerlerini değiştirme *myWorkspaceID* ve *myWorkspaceKey* OMS çalışma alanı kimliği ve anahtarı. (Üretimde, bu değerleri gizlilikleri olarak şifreleyebilirsiniz.)
+Aşağıdaki metni `oms-daemonset.yaml` adlı bir dosyaya kaydedip *myWorkspaceID* ve *myWorkspaceKey* için yer tutucu değerlerini OMS Çalışma Alanı Kimliğiniz ve Anahtarınızla değiştirin. (Üretimde bu değerleri gizli dizi olarak şifreleyebilirsiniz.)
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -99,13 +99,13 @@ spec:
        path: /var/log
 ```
 
-DaemonSet aşağıdaki komutla oluşturun:
+Aşağıdaki komut ile DaemonSet oluşturun:
 
 ```azurecli-interactive
 kubectl create -f oms-daemonset.yaml
 ```
 
-DaemonSet oluşturduğunuz görmek için çalıştırın:
+DaemonSet’in oluşturulduğunu görmek için şunu çalıştırın:
 
 ```azurecli-interactive
 kubectl get daemonset
@@ -118,33 +118,33 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         0            3           <none>          5m
 ```
 
-Aracılar çalışan sonra alma ve verileri işlemek OMS birkaç dakika sürer.
+Aracılar çalıştırıldıktan sonra OMS’nin verileri alıp işlemesi birkaç dakika sürer.
 
-## <a name="access-monitoring-data"></a>İzleme verilerine erişim
+## <a name="access-monitoring-data"></a>İzleme verilerine erişme
 
-Görüntüleme ve OMS kapsayıcı verilerle izleme çözümleme [kapsayıcı çözüm](../../log-analytics/log-analytics-containers.md) OMS portalında veya Azure portalı. 
+[Kapsayıcı çözümü](../../log-analytics/log-analytics-containers.md) ile OMS portalında veya Azure portalında OMS kapsayıcısı izleme verilerini görüntüleyin ve analiz edin. 
 
-Kapsayıcı çözümünü kullanarak yüklemek için [OMS portalı](https://mms.microsoft.com)gidin **Çözümleri Galerisi**. Ardından ekleyin **kapsayıcı çözüm**. Alternatif olarak, kapsayıcı çözümden eklemek [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
+[OMS portalını](https://mms.microsoft.com) kullanarak Kapsayıcı çözümünü yüklemek için **Çözüm Galerisi**’ne gidin. Sonra **Kapsayıcı Çözümü**’nü ekleyin. Alternatif olarak, Kapsayıcı çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview)’ten ekleyebilirsiniz.
 
-OMS Portalı'nda arayın bir **kapsayıcıları** OMS Pano Özet kutucuğu. Gibi ayrıntıları içeren kutucuğa tıklayın: kapsayıcı olayları, hatalar, durumu, görüntü stok ve CPU ve bellek kullanımı. Daha ayrıntılı bilgi için herhangi bir kutucuğu satırındaki'ı tıklatın veya gerçekleştirmek bir [günlük arama](../../log-analytics/log-analytics-log-searches.md).
+OMS portalındaki OMS panosunda **Containers** (Kapsayıcılar) özet kutucuğunu bulun. Kapsayıcı olayları, hatalar, durum, görüntü envanterinin yanı sıra CPU ve bellek kullanımı gibi ayrıntılar için kutucuğa tıklayın. Daha ayrıntılı bilgi için herhangi bir kutucuğun istediğiniz satırına tıklayın veya bir [günlük araması](../../log-analytics/log-analytics-log-searches.md) gerçekleştirin.
 
-![OMS portalında kapsayıcıları Panosu](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![OMS portalında Kapsayıcılar panosu](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Azure portalında Git benzer şekilde, **günlük analizi** ve çalışma alanı adı seçin. Görmek için **kapsayıcıları** Özet kutucuğuna tıklayın **çözümleri** > **kapsayıcıları**. Ayrıntıları görmek için kutucuğa tıklayın.
+Benzer şekilde, Azure portalında **Log Analytics**’e gidip çalışma alanınızın adını seçin. **Kapsayıcılar** özet kutucuğunu görmek için **Çözümler** > **Kapsayıcılar**’a tıklayın. Ayrıntıları görmek için kutucuğa tıklayın.
 
-Bkz: [Azure günlük analizi belgeleri](../../log-analytics/index.yml) sorgulama ve izleme verilerini analiz etme konusunda ayrıntılı yönergeler için.
+Verileri sorgulamaya ve analiz etmeye ilişkin ayrıntılı yönergeler için [Azure Log Analytics belgelerine](../../log-analytics/index.yml) bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, OMS Kubernetes kümenizle izlenen. Görevleri dahil ele:
+Bu öğreticide, OMS ile Kubernetes kümenizi izlediniz. Dahil edilen görevler:
 
 > [!div class="checklist"]
-> * OMS çalışma ayarlarını al
-> * Kubernetes düğümlerdeki OMS aracılarını ayarlama
-> * İzleme bilgilerini OMS portalında veya Azure portalına erişim
+> * OMS Çalışma Alanı ayarlarını alma
+> * Kubernetes düğümlerinde OMS aracıları ayarlama
+> * OMS portalında veya Azure portalında izleme bilgilerine erişme
 
 
-Kapsayıcı hizmeti için önceden derlenmiş kod örnekleri görmek için bu bağlantıyı izleyin.
+Container Service için önceden oluşturulmuş betik örneklerini görmek için bu bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
-> [Azure kapsayıcı hizmeti kod örnekleri](cli-samples.md)
+> [Azure Container Service betik örnekleri](cli-samples.md)
