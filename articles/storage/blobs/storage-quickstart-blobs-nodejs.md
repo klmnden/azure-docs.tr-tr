@@ -1,21 +1,21 @@
 ---
-title: "Azure Hızlı Başlangıç - Node.js kullanarak nesneleri Azure Blob depolama içine/dışına aktarma | Microsoft Docs"
-description: "Hızlı bir şekilde Node.js kullanarak nesneleri Azure Blob depolama içine/dışına aktarmayı öğrenin"
+title: "Azure Hızlı Başlangıç - Node.js’yi kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs"
+description: "Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Node.js için depolama istemcisi kitaplığını kullanırsınız."
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/22/2018
+ms.author: cshoe
+ms.openlocfilehash: ad0d4a2242aef99e0307f732175e0c50010580ce
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Node.js kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
+# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Hızlı Başlangıç: Node.js’yi kullanarak blobları yükleme, indirme ve listeleme
 
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için Node.js’yi nasıl kullanabileceğinizi öğreneceksiniz.
 

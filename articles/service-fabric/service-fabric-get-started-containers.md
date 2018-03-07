@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5398605f98c9e115255057cfad0c4c2c2e14737c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 20f9be1a0274b40a684fe12207cf9fe1f33969c8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -387,6 +387,7 @@ Windows Server kapsayıcıları (işlem yalıtım modu) işletim sisteminin daha
 ```xml
 <ContainerHostPolicies> 
          <ImageOverrides> 
+           <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
@@ -406,6 +407,7 @@ WIndows Server 2016 için derleme sürümü 14393, Windows Server 1709 sürümü
 
 VM’deki temel işletim sistemi derleme 16299 (sürüm 1709) ise Service Fabric bu Windows Server sürümüne karşılık gelen kapsayıcı görüntüsünü seçer.  Uygulama bildiriminde etiketli kapsayıcı görüntülerinin yanı sıra etiketsiz bir kapsayıcı görüntüsü de sağlanırsa, Service Fabric etiketsiz görüntüyü farklı sürümlerde çalışan bir görüntü olarak işler. Kapsayıcı görüntülerinin açıkça etiketlenmesi önerilir.
 
+Etiketlenmemiş kapsayıcı görüntüsü, ServiceManifest’te sağlanan görüntü için geçersiz kılma işlevi görür. Yani “myregistry.azurecr.io/samples/helloworldappDefault” görüntüsü ServiceManifest’teki “myregistry.azurecr.io/samples/helloworldapp” ImageName’i geçersiz kılar.
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Tam Service Fabric uygulaması ve hizmet bildirimleri örneği
 Bu makalede kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiştir.
@@ -430,6 +432,9 @@ Bu makalede kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiş
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
+        <!-- Pass comma delimited commands to your container: dotnet, myproc.dll, 5" -->
+        <!--Commands> dotnet, myproc.dll, 5 </Commands-->
+        <Commands></Commands>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->    

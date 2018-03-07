@@ -1,21 +1,21 @@
 ---
-title: "Azure Hızlı Başlangıç - Java kullanarak nesneleri Azure Blob depolama içine/dışına aktarma | Microsoft Docs"
-description: "Java kullanarak nesneleri Azure Blob depolama içine/dışına aktarmayı kısa sürede öğrenin"
+title: "Azure Hızlı Başlangıç - Java kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs"
+description: "Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Java için depolama istemcisi kitaplığını kullanırsınız."
+services: storage
 author: roygara
 manager: jeconnoc
-services: storage
+ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/01/2017
+ms.date: 02/22/2018
 ms.author: rogarana
-ms.custom: mvc
-ms.openlocfilehash: 12e234b483ca7e3b030256bf1cedaed2bcc120d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Java kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
+# <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Hızlı Başlangıç: Java kullanarak blobları yükleme, indirme ve listeleme
 
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için Java’yı nasıl kullanabileceğinizi öğreneceksiniz.
 

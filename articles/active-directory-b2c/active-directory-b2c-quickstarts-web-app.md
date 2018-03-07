@@ -1,128 +1,129 @@
 ---
-title: "Test sürücü bir Azure AD B2C'ın etkin web uygulaması | Microsoft Docs"
-description: "Test sürücü oturum açın, kaydolma, profili düzenlemek ve bir Azure AD B2C test ortamı'nı kullanarak kullanıcı Yolculuklar parola sıfırlama"
+title: "Azure AD B2C etkin bir web uygulaması için test sürüşü"
+description: "Kullanıcı oturum açma adı sağlamak için Azure Active Directory B2C’yi kullanan örnek bir ASP.NET web uygulamasını denemeye yönelik hızlı başlangıç."
 services: active-directory-b2c
-documentationcenter: .net
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 2ffb780d-2c51-4c2e-b8d6-39c40a81a77e
+ms.reviewer: saraford
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 10/31/2017
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 2/13/2018
 ms.author: patricka
-ms.openlocfilehash: bc56da695145f396a2899fb9dc7add3af9a549e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 87c180445038b1205e2f6aab1ce721765ecb35c9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="test-drive-an-azure-ad-b2c-enabled-web-app"></a>Web uygulaması test sürücü bir Azure AD B2C etkin
+# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-web-app"></a>Hızlı Başlangıç: Azure AD B2C etkin bir web uygulaması için test sürüşü
 
-Azure Active Directory B2C uygulaması, iş ve korumalı müşteriler tutmak için bulut kimlik yönetimi sağlar. Bu hızlı başlangıç örnek bir Yapılacaklar listesi uygulaması göstermek için kullanır:
+Azure Active Directory (Azure AD) B2C, uygulamanız, işletmeniz ve müşterileriniz için koruma sağlamak üzere bulut kimliği yönetimi sunar. Azure AD B2C; uygulamalarınızın, açık standart protokolleri kullanarak sosyal hesaplarda ve kurumsal hesaplarda kimlik doğrulaması gerçekleştirmesine olanak tanır.
 
-> [!div class="checklist"]
-> * Oturum ile özel oturum açma sayfası açın.
-> * Sosyal kimlik sağlayıcısı kullanarak oturum açın.
-> * Oluşturma ve Azure AD B2C hesabı ve kullanıcı profili yönetme.
-> * Bir web API'sini Azure AD B2C tarafından güvence altına çağrılıyor.
-
-## <a name="prerequisites"></a>Ön koşullar
-
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü. 
-* Facebook, Google, Microsoft veya Twitter sosyal hesabından.
+Bu hızlı başlangıçta, sosyal bir kimlik sağlayıcısı kullanarak oturum açmak ve Azure AD B2C korumalı bir web API’si çağırmak için Azure AD B2C etkin örnek bir ASP.NET uygulaması kullanabilirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>Ön koşullar
+
+* **ASP.NET ve web geliştirme** iş yüküyle [Visual Studio 2017](https://www.visualstudio.com/downloads/). 
+* Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal hesap.
+
 ## <a name="download-the-sample"></a>Örneği indirme
 
-[İndirme veya örnek uygulama kopyalama](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) github'dan.
+GitHub’dan [zip dosyasını indirin](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) veya örnek web uygulamasını kopyalayın.
 
-## <a name="run-the-app-in-visual-studio"></a>Visual Studio'da Uygulama Çalıştırma
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
+```
 
-Örnek uygulama proje klasöründe açın `B2C-WebAPI-DotNet.sln` Visual Studio'da çözüm. 
+## <a name="run-the-app-in-visual-studio"></a>Uygulamayı Visual Studio’da çalıştırma
 
-Çözüm, iki projeden oluşan bir örnek Yapılacaklar listesi uygulamasıdır:
+Örnek uygulama proje klasöründen, Visual Studio’da `B2C-WebAPI-DotNet.sln` çözümünü açın.
 
-* **TaskWebApp** – burada kullanıcının yönetebileceği kendi Yapılacaklar listesi öğeleri bir ASP.NET MVC web uygulaması.  
-* **TaskService** – işlemlerini yöneten bir ASP.NET Web API arka uç kullanıcının yapılacaklar listesi öğelerini üzerinde gerçekleştirilir. Web uygulaması bu web API'si çağıran ve sonuçları görüntüler.
+Örnek çözümde iki proje vardır:
 
-Bu Hızlı Başlangıç için her ikisini de çalıştırmanız gerekir. `TaskWebApp` ve `TaskService` aynı anda projeleri. 
+**Örnek web uygulaması (TaskWebApp):** Görev listesi oluşturmak ve düzenlemek için kullanılan web uygulaması. Web uygulaması, kullanıcıların kaydolması veya oturum açması için **kaydolma ya da oturum açma** ilkesini kullanır.
 
-1. Visual Studio menüsünde seçin **projeleri > başlangıç projelerini Ayarla...** . 
-2. Seçin **birden fazla başlangıç projesi** radyo düğmesi.
-3. Değişiklik **eylem** için her iki projeye de **Başlat**. **Tamam** düğmesine tıklayın.
+**Web API’si örnek uygulaması (TaskService):** Oluşturma, okuma, güncelleştirme ve silme görev listesi işlevini destekleyen web API’si. Web API’si, Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
 
-![Visual Studio Başlangıç Sayfası Ayarla](media/active-directory-b2c-quickstarts-web-app/setup-startup-projects.png)
+Bu hızlı başlangıç için aynı anda hem `TaskWebApp` hem de `TaskService` projesini çalıştırıyorsunuz. 
 
-Seçin **hata ayıklama > hata ayıklamayı Başlat** oluşturun ve her iki uygulamayı çalıştırın. Her uygulamanın kendi bir tarayıcı sekmesi açar:
+1. Çözüm Gezgini’nde `B2C-WebAPI-DotNet` çözümünü seçin.
+2. Visual Studio menüsünde **Proje > Başlangıç Projeleri Ayarla...** seçeneğini belirleyin. 
+3. **Birden fazla başlangıç projesi** radyo düğmesini seçin.
+4. İki proje için de **Eylem**’i **Başlat** olarak değiştirin. **Tamam**’a tıklayın.
 
-`https://localhost:44316/`-Bu sayfaya ASP.NET web uygulamasıdır. Bu hızlı başlangıç uygulamada ile doğrudan etkileşim.
-`https://localhost:44332/`-Bu ASP.NET web uygulaması tarafından çağrılan API web sayfasıdır.
+Her iki uygulamada da hata ayıklama gerçekleştirmek için **F5**’e basın. Her uygulama kendi tarayıcı sekmesinde açılır:
 
-## <a name="create-an-account"></a>Bir hesap oluşturun
+`https://localhost:44316/` - Bu sayfa, ASP.NET web uygulamasıdır. Hızlı başlangıçta doğrudan bu uygulamayla etkileşim kurarsınız.
+`https://localhost:44332/` - Bu sayfa, ASP.NET web uygulaması tarafından çağrılan web API’sidir.
 
-Tıklatın **kaydolun / oturum** başlatmak için ASP.NET web uygulamasının bağlantı **kaydolun veya oturum** iş akışı. Bir hesap oluşturulurken, var olan sosyal kimlik sağlayıcısı hesabını veya bir e-posta hesabı kullanabilirsiniz. Bu Hızlı Başlangıç için bir Facebook, Google, Microsoft veya Twitter sosyal kimlik sağlayıcısı hesabını kullanın.
+## <a name="create-an-account"></a>Hesap oluşturma
+
+Azure AD B2C ilkesi temelinde **Kaydolma veya Oturum Açma** iş akışını başlatmak için ASP.NET web uygulamasındaki **Kaydol/Oturum Aç** bağlantısına tıklayın.
 
 ![Örnek ASP.NET web uygulaması](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
-### <a name="sign-up-using-a-social-identity-provider"></a>Sosyal kimlik sağlayıcısı kullanarak kaydolun
+Örnek, sosyal kimlik sağlayıcısı kullanma veya bir e-posta adresiyle yerel bir hesap oluşturma da dahil olmak üzere çeşitli kaydolma seçeneklerini destekler. Bu hızlı başlangıç için Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal kimlik sağlayıcısı hesabı kullanın. 
 
-Sosyal kimlik sağlayıcısı kullanarak oturum açmak için kullanmak istediğiniz kimlik sağlayıcısı düğmesine tıklayın. 
+### <a name="sign-up-using-a-social-identity-provider"></a>Sosyal kimlik sağlayıcısı kullanarak kaydolma
 
-![Oturum açın veya kaydolun sağlayıcısı](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
+Azure AD B2C, örnek web uygulaması için Wingtip Toys adlı bir kurgusal markaya yönelik özel bir oturum açma sayfası sunar. 
 
-Sosyal hesabınızın kimlik bilgileri ve sosyal hesabınızdan bilgileri okumak için uygulamayı yetkilendirmeniz (oturum açma) kullanarak kimliğini doğrulaması gerekir. Erişim vererek, uygulama adı ve şehir gibi sosyal hesabından profil bilgilerini alabilir. 
+1. Sosyal kimlik sağlayıcısı kullanarak kaydolmak için, kullanmak istediğiniz kimlik sağlayıcısının düğmesine tıklayın.
 
-Oturum açma işleminin kimlik sağlayıcısı için Son'u tıklatın. Örneğin, Twitter seçerseniz, Twitter kimlik bilgilerinizi girin ve tıklatın **oturum**.
+    ![Oturum Açma veya Kaydolma sağlayıcısı](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-![Kimlik doğrulama ve sosyal bir hesabı kullanarak Yetkilendirme](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
+    Sosyal hesap kimlik bilgilerinizi kullanarak kimlik doğrulaması (oturum açma) gerçekleştirir ve uygulamaya sosyal hesabınızdaki bilgileri okuma yetkisi verirsiniz. Erişim izni verdiğinizde uygulama sosyal hesabınızdan adınız ve şehriniz gibi profil bilgilerini alabilir. 
 
-Yeni Azure AD B2C hesap profili bilgilerinizi sosyal hesabınızdan bilgilerle önceden doldurulmuş haldedir.
+2. Kimlik sağlayıcısına ilişkin oturum açma işlemini tamamlayın. Örneğin, Twitter’i seçtiyseniz Twitter kimlik bilgilerinizi girin **Oturum aç**’a tıklayın.
 
-Görünen ad, iş unvanı ve şehir alanları güncelleştirin ve tıklayın **devam**.  Girdiğiniz değerler Azure AD B2C kullanıcı hesabı profiliniz için kullanılır.
+    ![Sosyal hesap kullanarak kimlik doğrulaması ve yetkilendirme gerçekleştirme](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
 
-![Yeni hesap kayıt profili ayrıntıları](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
+    Yeni Azure AD B2C hesabı profil ayrıntılarınız sosyal hesabınızdan alınan bilgilerle önceden doldurulur.
 
-Başarıyla vardır:
+3. Görünen Ad, İş Unvanı ve Şehir alanlarını güncelleştirip **Devam**’a tıklayın.  Girdiğiniz değerler Azure AD B2C kullanıcı hesabı profiliniz için kullanılır.
 
-> [!div class="checklist"]
-> * Bir kimlik sağlayıcısı kullanılarak kimlik doğrulaması.
-> * Bir Azure AD B2C kullanıcı hesabı oluşturuldu. 
+    ![Yeni hesaba kaydolma profil ayrıntıları](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
+
+    Bir kimlik sağlayıcısı kullanarak kimlik doğrulaması gerçekleştirmek ve Azure AD B2C kullanıcı hesabı oluşturmak için, Azure AD B2C ilkesi kullanan örnek web uygulamasını başarıyla kullandınız. 
 
 ## <a name="edit-your-profile"></a>Profilinizi düzenleme
 
-Azure Active Directory B2C profillerini güncelleştirme yapmalarına izin vermek için işlevsellik sağlar. Web uygulaması menü çubuğunda, profil adına tıklayın ve seçin **Düzenle profili** oluşturduğunuz profili düzenlemek için.
+Azure Active Directory B2C, kullanıcılara profillerini güncelleme olanağı tanıyan bir işlev sunar. Örnek web uygulaması, iş akışı için bir Azure AD B2C düzenleme profil ilkesi kullanır. 
 
-![Profili düzenleme](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
+1. Web uygulamasın menü çubuğunda profil adınıza tıklayın ve oluşturduğunuz profili düzenlemek için **Profili düzenle**’yi seçin.
 
-Değişiklik, **görünen adı** ve **Şehir**.  Tıklatın **devam** profilinizi güncelleştirmek için.
+    ![Profili düzenleme](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-![Profili güncelleştir](media/active-directory-b2c-quickstarts-web-app/update-profile-web.png)
+2. **Görünen adınızı** ve **Şehrinizi** değiştirin.  
+3. Profilinizi güncelleştirmek için **Devam**’a tıklayın. Yeni görünen ad, web uygulamasının giriş sayfasının sağ üst kısmında görüntülenir.
 
-Görünen adınızı sayfanın sağ üst kısmında gösterilen güncelleştirilmiş adı dikkat edin. 
+## <a name="access-a-protected-web-api-resource"></a>Korumalı bir API kaynağına erişme
 
-## <a name="access-a-secured-web-api-resource"></a>Güvenli web API kaynak erişimi
+1. Yapılacaklar listesi öğelerinizi girmek ve değiştirmek için **Yapılacaklar Listesi**’ne tıklayın. 
 
-Tıklatın **Yapılacaklar listesi** girin ve yapılacaklar listesi öğelerinizi değiştirmek için. ASP.NET web uygulaması, web API kaynak isteme izni kullanıcının yapılacaklar listesi öğeleri üzerinde işlem gerçekleştirmek için isteğinde bir erişim belirteci içerir. 
+2. Metni **Yeni Öğe** metin kutusuna girin. Yapılacaklar listesi öğesi ekleyen Azure AD B2C korumalı web API’sini çağırmak için **Ekle**’ye tıklayın.
 
-Metin girin **yeni öğe** metin kutusu. Tıklatın **Ekle** Azure AD B2C çağırmak için bir Yapılacaklar listesi öğesini ekler web API güvenliği.
+    ![Bir yapılacaklar listesi öğesi ekleme](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
 
-![Bir Yapılacaklar listesi öğesi ekleme](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
+    ASP.NET web uygulaması, kullanıcının yapılacaklar listesi öğelerinde işlem gerçekleştirmek için korumalı web API’si kaynağına gönderilen isteğe bir Azure AD erişim belirteci ekler.
 
-Bir Azure AD B2C güvenli web API yetkili bir arama yapmak için Azure AD B2C kullanıcı hesabınız başarıyla kullanmıştır.
+Azure AD B2C korumalı bir web API’si için yetkili bir çağrıda bulunmak üzere Azure AD B2C kullanıcı hesabınızı başarıyla kullandınız.
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Başka Azure AD B2C hızlı başlangıçlarını ve öğreticilerini denemeyi planlıyorsanız Azure AD B2C kiracınızı kullanabilirsiniz. Artık ihtiyaç duymuyorsanız [Azure AD B2C kiracınızı silebilirsiniz](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç içinde kullanılan örnek dahil olmak üzere diğer Azure AD B2C senaryoları denemek için kullanılabilir:
+Bu hızlı başlangıçta özel bir oturum açma sayfasıyla oturum açmak, sosyal kimlik sağlayıcısı ile oturum açmak, bir Azure AD B2C hesabı oluşturmak ve Azure AD B2C tarafından korunan bir web API’sini çağırmak için Azure AD B2C etkin bir örnek ASP.NET uygulaması kullandınız. 
 
-* Bir e-posta adresi kullanarak yeni bir yerel hesap oluşturma.
-* Yerel hesap parolanızı sıfırlama.
-
-Kendi Azure AD B2C kiracısı oluşturma içine inceleyin ve kendi Kiracı kullanarak çalıştırmak için örnek yapılandırma için hazır olduğunuzda aşağıdaki öğretici deneyin.
+Örnek ASP.NET uygulamasını kendi Azure AD B2C kiracınızı kullanacak şekilde nasıl yapılandıracağınızı öğrenmek için öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure Active Directory B2C kaydolma, oturum açma profili düzenleme ve parola sıfırlama ile bir ASP.NET web uygulaması oluşturma](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+> [Öğretici: Bir ASP.NET web uygulamasında Azure Active Directory B2C ile kullanıcılar için kimlik doğrulaması gerçekleştirme](active-directory-b2c-tutorials-web-app.md)

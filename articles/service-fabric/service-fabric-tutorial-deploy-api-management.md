@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric'i API Management ile tümleştirme | Microsoft Docs"
-description: "Azure API Management ve Service Fabric ile çalışmaya hızla nasıl başlayabileceğinizi öğrenin."
+description: "Bu öğreticide, Azure API Management ve Service Fabric ile çalışmaya hızla nasıl başlayabileceğinizi öğrenirsiniz."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9277f2c8a4ff595e639f6332d61b936ce44aeb13
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-api-management-with-service-fabric"></a>API Management'ı Service Fabric ile dağıtma
+# <a name="tutorial-deploy-api-management-with-service-fabric"></a>Öğretici: API Management’ı Service Fabric ile dağıtma
 Bu öğretici, bir serinin dördüncü bölümüdür.  Azure API Management'ı Service Fabric'le dağıtmak ileri düzey bir senaryodur.  Arka uç Service Fabric hizmetleriniz için zengin bir yönlendirme kuralları kümesiyle API'ler yayımlamanız gerektiğinde, API Management yararlı olur. Bulut uygulamalarının normalde kullanıcılar, cihazlar ve diğer uygulamalara tek giriş noktası sağlamak için bir ön uç ağ geçidine ihtiyacı vardır. Service Fabric'te, trafik girişi için tasarlanmış durum bilgisi olmayan ASP.NET Core uygulaması, Event Hubs, IoT Hub veya Azure API Management gibi herhangi bir hizmet ağ geçidi olabilir. 
 
 Bu öğreticide, Service Fabric'te trafiği bir arka uç hizmetine yönlendirmek için [Azure API Management](../api-management/api-management-key-concepts.md)'ın Service Fabric'le nasıl ayarlandığı gösterilir.  Tamamladığınızda, API Management'ı VNET'e dağıtmış, trafiği durum bilgisi olmayan arka uç hizmetlerine göndermek için API işlemini yapılandırmış olursunuz. Service Fabric ile Azure API Management senaryoları hakkında daha fazla bilgi edinmek için, [genel bakış](service-fabric-api-management-overview.md) makalesine bakın.

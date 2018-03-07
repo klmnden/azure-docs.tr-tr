@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi Hızlı Başlangıç - yerleşik Güvenlik Merkezi, Windows bilgisayarlara | Microsoft Docs"
-description: "Bu Hızlı Başlangıç, bir Windows bilgisayarda Microsoft İzleme Aracısı sağlama gösterir."
+title: "Azure Güvenlik Merkezi Hızlı Başlangıç - Windows bilgisayarlarınızı Güvenlik Merkezi’ne ekleme | Microsoft Docs"
+description: "Bu hızlı başlangıçta Microsoft Monitoring Agent’ı bir Windows bilgisayarda nasıl sağlayacağınız gösterilmektedir."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,84 +9,85 @@ editor:
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 50cbbca9181d67bc41632a4650c76b9636a72356
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: MT
+ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Hızlı Başlangıç: Azure Güvenlik Merkezi yerleşik Windows bilgisayarlara
-Sonra yerleşik, Azure aboneliklerinize Güvenlik Merkezi örnek şirket içi veya diğer bulut Azure dışında çalışan kaynakları için etkinleştirebileceğiniz Microsoft Monitoring Agent sağlama tarafından.
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Hızlı Başlangıç: Windows bilgisayarları Azure Güvenlik Merkezi’ne ekleme
+Azure aboneliklerinizi ekledikten sonra Microsoft Monitoring Agent’ı sağlayarak Azure’ın dışında (örneğin, şirket içi ortamda veya diğer bulutlarda) çalışan kaynaklar için Güvenlik Merkezi’ni etkinleştirebilirsiniz.
 
-Bu hızlı başlangıç nasıl bir Windows bilgisayarda Microsoft Monitoring Agent yükleneceğini gösterir.
+Bu hızlı başlangıçta Microsoft Monitoring Agent’ın bir Windows bilgisayara nasıl yükleneceği gösterilmektedir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Güvenlik Merkezi ile çalışmaya başlamak için Microsoft Azure aboneliğinizin olması gerekir. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 
-Bu hızlı başlangıç başlatmadan önce Güvenlik Merkezi'nin standart fiyatlandırma katmanı olmalıdır. Bkz: [Onboard Azure aboneliğinize Güvenlik Merkezi standart](security-center-get-started.md) yükseltme yönergeleri için. Güvenlik Merkezi'nin standart ödemeden ilk 60 gün süreyle deneyebilirsiniz.
+Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyatlandırma katmanında olmanız gerekir. Yükseltme yönergeleri için bkz. [Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](security-center-get-started.md). Güvenlik Merkezi’nin Standart katmanını ilk 60 gün boyunca ücretsiz olarak deneyebilirsiniz.
 
 ## <a name="add-new-windows-computer"></a>Yeni Windows bilgisayar ekleme
 
 1. [Azure portal](https://azure.microsoft.com/features/azure-portal/) oturum açın.
-2. **Microsoft Azure** menüsünde **Güvenlik Merkezi**’ni seçin. **Güvenlik Merkezi - genel bakış** açar.
+2. **Microsoft Azure** menüsünde **Güvenlik Merkezi**’ni seçin. **Güvenlik Merkezi - Genel Bakış** açılır.
 
- ![Güvenlik Merkezi'ne genel bakış][2]
+ ![Güvenlik Merkezine genel bakış][2]
 
-3. Güvenlik Merkezi ana menüsündeki seçin **Onboarding Gelişmiş Güvenlik**.
-4. Seçin **Azure olmayan bilgisayarlar eklemek istiyor musunuz**.
+3. Güvenlik Merkezi ana menüsünde **Gelişmiş güvenliğe ekleme** seçeneğini belirleyin.
+4. **Azure olmayan bilgisayarlar eklemek istiyor musunuz?** seçeneğini belirleyin.
 
-   ![Gelişmiş için yerleşik güvenlik][3]
+   ![Gelişmiş güvenliğe ekleme][3]
 
-5. Üzerinde **yeni Azure olmayan bilgisayarlar eklemek**, günlük analizi çalışma alanları listesi gösterilir. Liste içerir, varsa, otomatik sağlamayı etkin olduğunda, Güvenlik Merkezi tarafından oluşturulan varsayılan çalışma alanı. Bu çalışma alanı veya kullanmak istediğiniz başka bir çalışma alanını seçin.
+5. **Yeni Azure olmayan bilgisayarlar ekleme** bölümünde Log Analytics çalışma alanlarınızın bir listesi gösterilir. Listede, varsa, otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi tarafından sizin için oluşturulan varsayılan çalışma alanı bulunur. Bu çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
 
     ![Azure olmayan bilgisayar ekleme][4]
 
-  **Doğrudan Aracısı** dikey anahtarları aracı yapılandırmada kullanmak, çalışma alanı kimliği için ve bir Windows aracısını indirme bağlantı açar.
+  Çalışma alanı kimliğiniz için, aracının yapılandırılmasında kullanılacak Windows aracısını ve anahtarlarını indirmeye yönelik bağlantının bulunduğu bir **Doğrudan Aracı** dikey penceresi açılır.
 
-6.  Seçin **Windows Aracısı indirme** bağlantı kurulum dosyasını karşıdan yüklemek için bilgisayarınızın işlemci türü için uygulanabilir.
+6.  Kurulum dosyasını indirmek için bilgisayar işlemci türünüz için geçerli olan **Windows Aracısını İndir** bağlantısını seçin.
 
-7.  Sağ tarafındaki **çalışma alanı kimliği**Kopyala simgesini seçin ve Kimliğini Not Defteri'ne yapıştırın.
+7.  **Çalışma Alanı Kimliği**’nin sağ tarafında, kopyala simgesini seçin ve kimliği Not Defteri’ne yapıştırın.
 
-8.  Sağ tarafındaki **birincil anahtar**Kopyala simgesini seçin ve anahtar Not Defteri'ne yapıştırın.
+8.  **Birincil Anahtar**’ın sağ tarafında, kopyala simgesini seçin ve anahtarı Not Defteri’ne yapıştırın.
 
-## <a name="install-the-agent"></a>Aracıyı yükleyin
-İndirilen dosyanın hedef bilgisayarda artık yüklemeniz gerekir.
+## <a name="install-the-agent"></a>Aracıyı yükleme
+Şimdi indirilen dosyayı hedef bilgisayara yüklemeniz gerekir.
 
-1. Dosyayı Kurulumu çalıştırın ve hedef bilgisayara kopyalayın.
-2. Üzerinde **Hoş Geldiniz** sayfasında, **sonraki**.
-3. Üzerinde **Lisans Koşulları'nı** sayfasında, lisans okuyun ve ardından **ediyorum**.
-4. Üzerinde **hedef klasörü** sayfasında, değiştirmek veya varsayılan yükleme klasörünü ve ardından **sonraki**.
-5. Üzerinde **aracı Kur Seçenekleri** sayfasında, aracıyı Azure günlük analizi (OMS) bağlayın ve ardından **sonraki**.
-6. Üzerinde **Azure günlük analizi** sayfasında, yapıştırma **çalışma alanı kimliği** ve **çalışma alanı anahtarı (birincil anahtar)** , önceki yordamda Not Defteri'ne kopyalanır.
-7. Günlük analizi çalışma alanı Azure kamu bulutta bilgisayarın raporlama, seçin **Azure ABD devlet kurumları** form **Azure bulut** açılır liste.  Bilgisayar günlük analizi hizmeti için bir proxy sunucu üzerinden iletişim kurması gerekirse seçin **Gelişmiş** URL'sini sağlayın ve bağlantı noktası proxy sunucusu sayısı.
-8. Seçin **sonraki** gerekli yapılandırma ayarlarını sağlama tamamladıktan sonra.
+1. Dosyayı hedef bilgisayara kopyalayın ve Kurulum’u çalıştırın.
+2. **Hoş Geldiniz** sayfasında, **İleri**’yi seçin.
+3. **Lisans Koşulları** sayfasında, lisansı okuyun ve sonra **Kabul Ediyorum**’u seçin.
+4. **Hedef Klasör** sayfasında, varsayılan yükleme klasörünü değiştirin veya aynı şekilde bırakın ve daha sonra **İleri**’yi seçin.
+5. **Aracı Kurulum Seçenekleri** sayfasında, aracıyı Azure Log Analytics’e (OMS) bağlamayı seçin ve sonra **İleri**’yi seçin.
+6. **Azure Log Analytics** sayfasında, önceki prosedürde Not Defteri’ne kopyaladığınız **Çalışma Alanı Kimliğini** ve **Çalışma Alanı Anahtarını (Birincil Anahtar)** yapıştırın.
+7. Bilgisayarın Azure Kamu’daki bir Log Analytics çalışma alanına raporlama yapması gerekiyorsa **Azure Cloud** açılan listesinden **Azure US Government**’ı seçin.  Bilgisayarın, Log Analytics hizmetiyle bir ara sunucu üzerinden iletişim kurması gerekiyorsa **Gelişmiş** seçeneğini belirleyip ara sunucunun URL’sini ve bağlantı noktası numarasını sağlayın.
+8. Gerekli yapılandırma ayarlarını sağlamayı tamamladıktan sonra **İleri**’yi seçin.
 
-  ![Aracıyı yükleyin][5]
+  ![Aracıyı yükleme][5]
 
-9. Üzerinde **yüklemeye hazır** sayfasında, seçimlerinizi gözden geçirin ve ardından **yükleme**.
-10. Üzerinde **yapılandırması başarıyla tamamlandı** sayfasında, **son**
+9. **Yüklemeye Hazır** sayfasında, tercihlerinizi gözden geçirip **Yükle**’yi seçin.
+10. **Yapılandırma başarıyla tamamlandı** sayfasında, **Son**’u seçin
 
-Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Vardır, yapılandırmanızı gözden geçirin ve aracı bağlı olduğunu doğrulayın.
+Tamamlandığında, **Denetim Masası**'nda **Microsoft Monitoring Agent** gösterilir. Burada yapılandırmanızı gözden geçirebilir ve aracının bağlı olup olmadığını doğrulayabilirsiniz.
 
-Aracısı yükleme ve yapılandırma hakkında daha fazla bilgi için bkz: [bağlanmak Windows bilgisayarları](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup).
+Aracının yüklenmesi ve yapılandırılması hakkında daha fazla bilgi için bkz. [Windows bilgisayarları bağlama](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard).
 
-Şimdi, Azure Vm'leri ve Azure olmayan bilgisayarlar, tek bir yerde izleyebilirsiniz. Altında **işlem**, tüm VM'ler ve öneriler ile birlikte genel bakış vardır. Her sütunun bir dizi öneriyi temsil eder. Renk Bu öneri için VM'nin ya da bilgisayarın geçerli güvenlik durumunu temsil eder. Güvenlik Merkezi, ayrıca güvenlik uyarıları bu bilgisayarlar için tüm algılamaların ortaya çıkarır.
+Artık Azure VM’lerinizi ve Azure olmayan bilgisayarlarınızı tek bir yerde izleyebilirsiniz. **Bilgi İşlem** dikey penceresinde, önerilerle birlikte tüm VM’lere ve bilgisayarlara ilişkin bir genel bakış görürsünüz. Her sütunda bir dizi öneri sunulur. Renk VM'nin veya bilgisayarın söz konusu öneri için geçerli güvenlik durumunu belirtir. Ayrıca Güvenlik Merkezi de Güvenlik uyarılarında bu bilgisayarlara ilişkin tüm bulguları gösterir.
 
-  ![Dikey işlem][6]
+  ![Bilgi İşlem dikey penceresi][6]
 
-Simgeler üzerinde gösterilen iki tür vardır **işlem** dikey penceresinde:
+**Bilgi İşlem** dikey penceresinde gösterilen iki türlü simge vardır:
 
 ![simge1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Azure olmayan bilgisayar
 
 ![simge2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Azure VM
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Artık gerekli olduğunda, bir Windows bilgisayardan aracısını kaldırabilirsiniz.
+Artık gerekmediğinde aracıyı Windows bilgisayardan kaldırabilirsiniz.
 
 Aracıyı kaldırmak için:
 
@@ -95,10 +96,10 @@ Aracıyı kaldırmak için:
 3. **Programlar ve Özellikler**'de **Microsoft Monitoring Agent**'ı seçin ve **Kaldır**'a tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu hızlı başlangıç bir Windows bilgisayarda Microsoft İzleme Aracısı sağlandı. Güvenlik Merkezi'ni kullanma hakkında daha fazla bilgi için bir güvenlik ilkesi yapılandırma ve kaynaklarınızın güvenliğini değerlendirmek için öğretici devam edin.
+Bu hızlı başlangıçta, Microsoft Monitoring Agent’ı bir Windows bilgisayarda sağladınız. Güvenlik Merkezi'ni kullanma hakkında daha fazla bilgi için bir güvenlik ilkesi yapılandırma ve kaynaklarınızın güvenliğini değerlendirme ile ilgili öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Tanımlayın ve güvenlik ilkeleri değerlendirin](tutorial-security-policy.md)
+> [Öğretici: Güvenlik ilkelerini tanımlama ve değerlendirme](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

@@ -2,17 +2,17 @@
 title: "Azure Service Fabric CLI'sı ile çalışmaya başlama"
 description: "Azure Service Fabric CLI’sını kullanmayı öğrenin. Kümeye bağlanmayı ve uygulamaları yönetmeyi öğrenin."
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
-ms.author: edwardsa
-ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: bikang
+ms.openlocfilehash: 9ad1286ffdf0c45a73b0f4a472bc0de683d20ee5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI'sı
 
@@ -32,7 +32,8 @@ Service Fabric CLI, Service Fabric SDK'sının en son çalışma zamanı sürüm
 
 | CLI sürümü   | desteklenen çalışma zamanı sürümü |
 |---------------|---------------------------|
-| En son (~=3)  | En son (~=6.0)            |
+| En son (~=4)  | En son (~=6.1)            |
+| 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 İsteğe bağlı olarak `pip install` komutuna `==<version>` ekleyerek yüklenecek hedef CLI sürümünü belirtebilirsiniz. Örneğin 1.1.0 sürümü için söz dizimi şu şekilde olacaktır:

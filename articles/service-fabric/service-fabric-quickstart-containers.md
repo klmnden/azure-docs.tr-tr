@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric Windows kapsayıcı uygulaması oluşturma | Microsoft Belgeleri"
-description: "Azure Service Fabric üzerinde ilk Windows kapsayıcı uygulamanızı oluşturun."
+description: "Bu hızlı başlangıçta, Azure Service Fabric üzerinde ilk Windows kapsayıcı uygulamanızı oluşturursunuz."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/18
+ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Azure’da bir Service Fabric Windows kapsayıcı uygulaması dağıtma
+# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Hızlı başlangıç: Azure’da bir Service Fabric Windows kapsayıcı uygulaması dağıtma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
 
 Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygulamayı çalıştırmak için uygulamanızda herhangi bir değişiklik yapılması gerekmez. Bu hızlı başlangıç, Service Fabric uygulamasında önceden oluşturulmuş bir Docker kapsayıcısı görüntüsünü dağıtmayı gösterir. İşlemi tamamladığınızda, çalışan bir Windows Server 2016 Nano Server ve IIS kapsayıcısına sahip olacaksınız. Bu hızlı başlangıç, Windows kapsayıcısı dağıtmayı açıklar. Linux kapsayıcısı dağıtmak için [bu Hızlı Başlangıca](service-fabric-quickstart-containers-linux.md) bakın.
@@ -48,21 +48,25 @@ Visual Studio'yu “Yönetici” olarak başlatın.  **Dosya** > **Yeni** > **Pr
 
 **Service Fabric uygulaması**’nı seçin, "MyFirstContainer" olarak adlandırın ve **Tamam**’a tıklayın.
 
-**Hizmet şablonları** listesinden **Kapsayıcı**’yı seçin.
+**Barındırılan Kapsayıcılar ve Uygulamalar** şablonlarından **Kapsayıcı**’yı seçin.
 
 **Görüntü Adı** olarak "microsoft/iis:nanoserver" değerini [Windows Server Nano Server ve IIS temel görüntüsü](https://hub.docker.com/r/microsoft/iis/)'nü seçin. 
 
 Hizmeti "MyContainerService" olarak adlandırın ve **Tamam**’a tıklayın.
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>İletişim ve kapsayıcı bağlantı noktalarıyla konak bağlantı noktalarını eşlemeyi yapılandırın
-Hizmetin iletişim sağlayabilmesi için bir uç nokta gerekir.  Şimdi ServiceManifest.xml dosyasındaki `Endpoint` öğesine protokol, bağlantı noktası ve tür ekleyebilirsiniz. Bu hızlı başlangıçta kapsayıcı hizmeti 80 numaralı bağlantı noktasını dinler: 
+Hizmetin iletişim sağlayabilmesi için bir uç nokta gerekir.  Bu hızlı başlangıçta kapsayıcı hizmeti 80 numaralı bağlantı noktasını dinler.  Çözüm Gezgini’nde *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml* dosyasını açın.  ServiceManifest.xml dosyasındaki mevcut `Endpoint` uç noktasını güncelleştirip protokol, bağlantı noktası ve URI düzeni ekleyin: 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 `UriScheme` değerinin sağlanması, kapsayıcı uç noktasını bulunabilirlik için Service Fabric Adlandırma hizmetine otomatik olarak kaydeder. Bu makalenin sonunda tam bir ServiceManifest.xml örnek dosyası verilmiştir. 
 
-ApplicationManifest.xml dosyasının `ContainerHostPolicies` kısmında bir `PortBinding` ilkesi belirterek kapsayıcı bağlantı noktasından ana bilgisayar bağlantı noktasına eşleme yapılandırın.  Bu Hızlı Başlangıç için `ContainerPort` 80'dir ve `EndpointRef`, "MyContainerServiceTypeEndpoint" değeridir (hizmet bildiriminde tanımlanan uç noktası).  80 numaralı bağlantı noktasında hizmete gelen istekler, kapsayıcı üzerindeki 80 numaralı bağlantı noktasıyla eşlenir.  
+80 numaralı bağlantı noktasında hizmete gelen isteklerin, kapsayıcı üzerindeki 80 numaralı bağlantı noktasıyla eşlenmesi için kapsayıcının bağlantı noktasından konağa bağlantı noktası eşlenmesini yapılandırın.  Çözüm Gezgini’nde *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* dosyasını açıp `ContainerHostPolicies` içinde bir `PortBinding` belirtin.  Bu Hızlı Başlangıç için `ContainerPort` 80'dir ve `EndpointRef`, "MyContainerServiceTypeEndpoint" değeridir (hizmet bildiriminde tanımlanan uç noktası).    
 
 ```xml
 <ServiceManifestImport>
@@ -79,9 +83,7 @@ ApplicationManifest.xml dosyasının `ContainerHostPolicies` kısmında bir `Por
 Bu makalenin sonunda tam bir ApplicationManifest.xml örnek dosyası verilmiştir.
 
 ## <a name="create-a-cluster"></a>Küme oluşturma
-Uygulamayı Azure’daki bir kümeye dağıtmak için bir grup kümesine katılabilir veya [Azure’da kendi kümenizi oluşturabilirsiniz](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
-Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır. 
+Uygulamayı Azure’daki bir kümeye dağıtmak için bir grup kümesine katılabilirsiniz. Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır. 
 
 Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. Sonraki adımlarda sertifika ve **Bağlantı uç noktası** değeri kullanılır.
 
@@ -108,7 +110,7 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıt
 
 Çözüm Gezgini'nde **MyFirstContainer**’a sağ tıklayın ve **Yayımla**’yı seçin. Yayımla iletişim kutusu görüntülenir.
 
-Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametreleri**’ne tıklayıp ve aşağıdaki bilgileri doldurun.  *FindValue* ve *ServerCertThumbprint* değerleri önceki adımda yüklenen sertifikanın parmak iziyle eşleşmelidir. 
+Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametrelerine** tıklayıp bağlantı parametresi bilgilerini doğrulayın.  *FindValue* ve *ServerCertThumbprint* değerleri önceki adımda yüklenen sertifikanın parmak iziyle eşleşmelidir. 
 
 ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -187,7 +189,6 @@ Bu hızlı başlangıçta kullanılan tam hizmet ve uygulama bildirimleri aşağ
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

@@ -1,22 +1,22 @@
 ---
-title: "Azure Hızlı Başlangıç - Go kullanarak nesneleri Azure Blob depolama içine/dışına aktarma | Microsoft Docs"
-description: "Go lang kullanarak nesneleri Azure Blob depolama içine/dışına aktarmayı kısa sürede öğrenin"
+title: "Azure Hızlı Başlangıç - Go kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs"
+description: "Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Go için depolama istemcisi kitaplığını kullanırsınız."
 services: storage
 author: seguler
-manager: jahogg
+manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/29/2018
+ms.date: 02/22/2018
 ms.author: seguler
-ms.openlocfilehash: 4ba9721dc12bc50b20ad85019b1df51a56b52ebc
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a30d012ea663b04028a4b0ebb2880532a596500b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-go"></a>Go kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Hızlı Başlangıç: Go kullanarak blobları yükleme, indirme ve listeleme
+
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için Go programlama dilini nasıl kullanabileceğinizi öğreneceksiniz. 
 
 ## <a name="prerequisites"></a>Ön koşullar

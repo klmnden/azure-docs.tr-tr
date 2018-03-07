@@ -4,14 +4,14 @@ description: "Azure Geçişi hizmetine genel bir bakış sağlar."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -48,7 +48,7 @@ Değerlendirme, şirket içi VM’lerin Azure uygunluğunu tanımlamanıza yard�
 
 **Özellik** | **Ayrıntılar**
 --- | ---
-**Hedef konum** | Geçişi yapmak istediğiniz Azure konumu. Varsayılan hedef konum, Batı ABD 2 olarak ayarlanır. 
+**Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/>Şu anda Azure Geçişi tarafından desteklenen 30 bölge şunlardır: ABD Batı, ABD Batı 2, ABD Doğu, ABD Doğu 2, ABD Orta, ABD Orta Batı, ABD Orta Güney, ABD Orta Kuzey, Almanya Kuzeydoğu, Almanya Orta, Avustralya Doğu, Avustralya Güneydoğu, Batı Avrupa, Batı Hindistan, Brezilya Güney, Çin Doğu, Çin Kuzey, Doğu Asya, Güney Hindistan, Güneydoğu Asya, Hindistan Orta, Japonya Batı, Japonya Doğu, Kanada Doğu, Kanada Orta, Kore Güney, Kore Orta, Kuzey Avrupa, UK Batı ve UK Güney. Varsayılan hedef konum, Batı ABD 2 olarak ayarlanır. 
 **Depolama yedekliliği** | Azure sanal makinelerinin geçişten sonra kullanacağı [depolama yedekliliği](https://docs.microsoft.com/azure/storage/common/storage-redundancy) türü. Yerel Olarak Yedekli Depolama (LRS) varsayılandır. Azure Geçişi’nin yalnızca yönetilen diskleri temel alan değerlendirmeleri desteklediğini ve yönetilen disklerin yalnızca LRS’yi desteklediğini; bu nedenle de özelliğin şu anda yalnızca LRS seçeneğini içerdiğini unutmayın. 
 **Boyutlandırma Ölçütü** | Azure için sanal makineleri doğru şekilde boyutlandırmak üzere Azure Geçişi tarafından kullanılacak ölçüt. Şirket içi sanal makinelerin *performans geçmişini* temel alarak boyutlandırma yapabilir veya performans geçmişini dikkate almadan Azure için *şirket içi olarak* sanal makineleri boyutlandırabilirsiniz. Varsayılan değer, performans tabanlı boyutlandırmadır.
 **Fiyatlandırma planları** | Maliyet hesaplamaları için bir değerlendirme, yazılım güvencesine sahip olup olmadığınızı ve [Azure Hibrit Avantajı](https://azure.microsoft.com/pricing/hybrid-use-benefit/) için uygun olup olmadığınızı göz önünde bulundurur. Ayrıca, kaydolabileceğiniz [Azure Tekliflerini](https://azure.microsoft.com/support/legal/offer-details/) göz önünde bulundurur ve teklifle birlikte alabileceğiniz aboneliğe özel indirimleri (%) belirtmenize olanak sağlar. 

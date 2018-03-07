@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 198cd5164ce3840503aca359767638e135f164bc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4fea71509b2dec897a3dafef627e243ae25447ad
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
 
@@ -35,6 +35,9 @@ Application Insights’ı ASP.NET web sitenize eklemek için şunu yapmanız ger
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="ide"></a> 1. Adım: Application Insights SDK’yı ekleme
+
+> [!IMPORTANT]
+> Application Insights ekleme işlemi, ASP.NET şablon türüne göre değişiklik gösterir. **Boş** bir şablon veya **Azure Mobil Uygulaması** şablonu kullanıyorsanız **Proje** > **Application Insights Telemetri Ekleme** seçeneğini belirleyin. Diğer tüm ASP.NET şablonları için aşağıdaki yönergelere başvurun. 
 
 Çözüm Gezgini’nde web uygulamanızın adına sağ tıklayın ve **Application Insights’ı Yapılandır** seçeneğini belirleyin
 

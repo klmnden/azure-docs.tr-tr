@@ -1,22 +1,25 @@
 ---
-title: "Azure Maliyet Yönetimi’nde kullanım ve maliyetleri gözden geçirme | Microsoft Docs"
-description: "Eğilimleri takip etmek, verimsizlikleri algılamak ve uyarılar oluşturmak için kullanımı ve maliyetleri gözden geçirin."
+title: "Öğretici: Azure Maliyet Yönetimi’nde kullanım ve maliyetleri gözden geçirme | Microsoft Docs"
+description: "Bu öğreticide, eğilimleri takip etmek, verimsizlikleri algılamak ve uyarılar oluşturmak için kullanımı ve maliyetleri gözden geçirirsiniz."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="review-usage-and-costs"></a>Kullanımı ve maliyetleri gözden geçirme
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
+
+# <a name="tutorial-review-usage-and-costs"></a>Öğretici: Kullanımı ve maliyetleri gözden geçirme
 
 Cloudyn tarafından sunulan Azure Maliyet Yönetimi, eğilimleri takip edebilmeniz, verimsizlikleri algılamanız ve uyarılar oluşturmanız için kullanım ve maliyet bilgilerini gösterir. Tüm kullanım ve maliyet verileri, Cloudyn panoları ve raporlarında gösterilir. Bu öğreticideki örneklerde, pano ve raporları kullanarak kullanım ve maliyetleri gözden geçirme işlemi açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -25,7 +28,12 @@ Cloudyn tarafından sunulan Azure Maliyet Yönetimi, eğilimleri takip edebilmen
 > * Kullanım verimsizliklerini algılama
 > * Olağan dışı harcama veya aşırı harcama uyarıları oluşturma
 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
+## <a name="prerequisites"></a>Ön koşullar
+
+- Azure hesabınız olmalıdır.
+- Azure Maliyet Yönetimi için bir deneme kaydı veya ücretli aboneliğe sahip olmalısınız.
 
 ## <a name="open-the-cloudyn-portal"></a>Cloudyn portalını açın
 
@@ -98,7 +106,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Olağan dışı harcama veya aşırı harcama uyarıları oluşturma
 
 
-Verilere erişimi denetleme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+Geçmiş verileri kullanarak harcamaları tahmin etme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Verilere erişimi denetleme](tutorial-user-access.md)
+> [Gelecek harcamaları tahmin etme](tutorial-forecast-spending.md)

@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Azure sanal makinelerini Kurtarma Hizmetleri kasalarına yedekleme
 
@@ -239,7 +239,7 @@ VM'yi bir kasaya kaydetmeden önce, aboneliğe eklenmiş olan yeni sanal makinel
 
     ![İş yükünü seçme](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    Seçilen sanal makine doğrulanır. Görmeyi beklediğiniz sanal makineleri görmüyorsanız Kurtarma Hizmetleri kasasıyla aynı Azure konumda olduklarından emin olun. Kurtarma Hizmetleri kasasının konumu kasa panosunda gösterilir.
+    Seçilen sanal makine doğrulanır. Görmeyi beklediğiniz sanal makineleri görmüyorsanız Kurtarma Hizmetleri kasasıyla aynı Azure konumda olduklarından ve zaten koruma altında olup olmadıklarından emin olun. Kurtarma Hizmetleri kasasının konumu kasa panosunda gösterilir.
 
 6. Kasa için tüm ayarları tanımladığınıza göre, ilkeyi kasaya ve VM’lere dağıtmak için Yedekleme dikey penceresinde **Yedeklemeyi Etkinleştir** öğesine tıklayın. Yedekleme ilkesinin dağıtılmasıyla, sanal makine için ilk kurtarma noktasını oluşturulmaz.
 

@@ -1,6 +1,6 @@
 ---
 title: "Linux üzerinde Azure Service Fabric kapsayıcı uygulaması oluşturma | Microsoft Docs"
-description: "Azure Service Fabric üzerinde ilk Linux kapsayıcı uygulamanızı oluşturun.  Uygulamanızla bir Docker görüntüsü oluşturun, görüntüyü bir kapsayıcı kayıt defterine iletin, bir Service Fabric kapsayıcı uygulaması oluşturup dağıtın."
+description: "Bu hızlı başlangıçta, Azure Service Fabric üzerinde ilk Linux kapsayıcı uygulamanızı oluşturursunuz.  Uygulamanızla bir Docker görüntüsü oluşturun, görüntüyü bir kapsayıcı kayıt defterine iletin, bir Service Fabric kapsayıcı uygulaması oluşturup dağıtın."
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f568bdf6ce40ff2d437f3566b66f6dd1478a74fa
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Azure'da bir Azure Service Fabric Linux kapsayıcı uygulaması dağıtma
+# <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Hızlı Başlangıç: Azure’da bir Azure Service Fabric Linux kapsayıcı uygulaması dağıtma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
 
 Bu hızlı başlangıçta Linux kapsayıcıları bir Service Fabric kümesine nasıl dağıtacağınız gösterilmektedir. Tamamladığınızda Service Fabric kümesinde çalışan Python web ön ucu ve Redis arka ucundan oluşan bir oy verme uygulamasına sahip olursunuz. 
@@ -55,9 +55,9 @@ Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi oluşturun.
 
 Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Service Fabric ekibi tarafından çalıştırılan bu kümelere herkes uygulama dağıtarak platform hakkında bilgi alabilir. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
 
-Güvenli grup kümelerinde yönetim işlemleri gerçekleştirmek için, Service Fabric Explorer, CLI veya PowerShell’i kullanabilirsiniz. Service Fabric Explorer’ı kullanmak için, Grup Kümeleri web sitesinden PFX dosyasını indirmeniz ve sertifikayı, sertifika depolama alanınıza (Windows veya Mac) veya tarayıcının kendisine (Ubuntu) aktarmanız gerekir. Grup kümesindeki otomatik olarak imzalanan sertifikaların parolaları yoktur. 
+Güvenli toplu kümede yönetimi işlemleri gerçekleştirmek için Service Fabric Explorer, CLI veya Powershell’i kullanabilirsiniz. Service Fabric Explorer’ı kullanmak için, PFX dosyasını Toplu Küme Web sitesinden indirmeniz ve sertifikayı sertifika deponuza (Windows veya Mac) veya tarayıcının kendisine (Ubuntu) aktarmanız gerekir. Toplu kümeden gelen otomatik olarak imzalanan sertifikaların parolası yoktur. 
 
-PowerShell veya CLI ile yönetim işlemleri gerçekleştirmek için, PFX (PowerShell) veya PEM (CLI) gerekir. PFX’i, PEM dosyasına dönüştürmek için lütfen şu komutu çalıştırın:  
+Powershell veya CLI ile yönetim işlemleri gerçekleştirmek için PFX (Powershell) veya PEM (CLI) gerekir. PFX dosyasını PEM dosyasına dönüştürmek için lütfen aşağıdaki komutu çalıştırın:  
 
 ```bash
 openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:

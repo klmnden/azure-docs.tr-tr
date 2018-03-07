@@ -5,16 +5,16 @@ services: automation
 keywords: "stok, otomasyon, değişiklik, izleme"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: 97cd2c91ca2c70b044518c43d49356918202d5ff
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure ve Azure harici makinelerinizde yüklü olan yazılımları keşfetme
 
@@ -27,7 +27,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Yüklü olan yazılımları görüntüleme
 > * Yüklü olan yazılımların stok günlüklerinde arama yapma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -41,35 +41,17 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzleme ve Stok özelliklerini etkinleştirme
 
-Bu öğreticide ilk yapmanız gereken VM'inizde Değişiklik İzleme ve Stok özelliklerini etkinleştirmektir. Daha önce bu VM için başka bir otomasyon çözümünü etkinleştirdiyseniz bu adımı atlayabilirsiniz.
+Bu öğreticide ilk yapmanız gereken VM'inizde Değişiklik İzleme ve Stok özelliklerini etkinleştirmektir. Daha önce bu sanal makineniz için başka bir **Değişiklik İzleme** çözümünü etkinleştirdiyseniz bu adımı atlayabilirsiniz.
 
 1. Soldaki menüden **Sanal makineler**'i ve listedeki VM'lerden birini seçin
 2. Soldaki menünün **İşlemler** bölümünde **Stok**'a tıklayın. **Değişiklik İzlemeyi ve Stoku Etkinleştir** sayfası açılır.
 
-Bu VM için Stok özelliğinin etkin olup olmadığını belirlemek için doğrulama gerçekleştirilir.
-Bu doğrulama kapsamında Log Analytics çalışma alanı ve bağlantılı Otomasyon hesabının yanı sıra çözümün çalışma alanında olup olmadığı kontrol edilir.
+![Stok devreye alma yapılandırma başlığı](./media/automation-tutorial-installed-software/enableinventory.png)
+
+Çözümü etkinleştirmek için, kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**’e tıklayın. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir.
 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) çalışma alanı, Stok gibi özellikler ve hizmetler tarafından oluşturulan verileri toplamak için kullanılır.
 Çalışma alanı, birden fazla kaynaktan alınan verilerin incelenip analiz edilebileceği ortak bir konum sağlar.
-
-Doğrulama işlemi ayrıca VM'nin Microsoft Monitoring Agent (MMA) ve karma çalışan ile sağlanıp sağlanmadığını da kontrol eder.
-Bu aracı, VM ile iletişim kurmak ve yüklü yazılım hakkında bilgi almak için kullanılır.
-Doğrulama işlemi ayrıca VM'nin Microsoft Monitoring Agent (MMA) ve Otomasyon karma runbook çalışanı ile sağlanıp sağlanmadığını da kontrol eder.
-
-Bu önkoşullar sağlanmadıysa çözümü etkinleştirme seçeneği sunan bir başlık açılır.
-
-![Stok devreye alma yapılandırma başlığı](./media/automation-tutorial-installed-software/enableinventory.png)
-
-Çözümü etkinleştirmek için başlığa tıklayın.
-Doğrulama sonrasında aşağıdaki önkoşullardan birinin karşılanmadığı tespit edilirse ilgili önkoşul otomatik olarak eklenir:
-
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) çalışma alanı
-* [Otomasyon](./automation-offering-get-started.md)
-* VM üzerinde etkin bir [Karma runbook çalışanı](./automation-hybrid-runbook-worker.md)
-
-**Değişiklik İzleme ve Stok** ekranı açılır. Kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**'e tıklayın. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir.
-
-![Değişiklik izleme çözümünü etkinleştirme penceresi](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 Çözümün etkinleştirilmesi 15 dakika sürebilir. Bu süre boyunca tarayıcı penceresini kapatmamanız gerekir.
 Çözüm etkinleştirildikten sonra VM üzerine yüklenen yazılımlar ve yapılan değişiklikler hakkında bilgiler Log Analytics'e aktarılır.
@@ -137,4 +119,4 @@ Bu öğreticide aşağıdakiler de dahil olmak üzere yazılım stok bilgisini g
 Daha fazla bilgi edinmek için Değişiklik izleme ve Stok çözümü özetine göz atın.
 
 > [!div class="nextstepaction"]
-> [Değişiklik yönetimi ve Stok çözümü](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Değişiklik yönetimi ve Stok çözümü](automation-change-tracking.md)

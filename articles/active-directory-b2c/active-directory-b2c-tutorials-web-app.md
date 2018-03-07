@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C’yi bir ASP.NET Web Uygulamasında Kullanıcı Kimlik Doğrulaması için kullanma öğreticisi"
-description: "Bir ASP.NET web uygulamasında kullanıcı oturumu açmak ve kullanıcı kaydetmek için Azure Active Directory B2C’nin nasıl kullanılacağını gösteren öğretici."
+description: "Bir ASP.NET web uygulamasında kullanıcının oturum açmasını sağlamak için Azure Active Directory B2C’nin nasıl kullanılacağını gösteren öğretici."
 services: active-directory-b2c
 author: PatAltimore
 ms.author: patricka
@@ -9,11 +9,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: ee006476f9e40e9d1a6e7213cb1881ca46ea75c2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Öğretici: Bir ASP.NET web uygulamasında Azure Active Directory B2C ile kullanıcıların kimliğini doğrulama
 
@@ -45,7 +45,7 @@ Uygulamaların Azure Active Directory’den [erişim belirteçlerini](../active-
 
 2. B2C ayarlarında **Uygulamalar**’a ve ardından  **Ekle**’ye tıklayın.
 
-    Örnek web uygulamasını kiracınıza kaydetmek için aşağıdaki ayaları kullanın.
+    Örnek web uygulamasını kiracınıza kaydetmek için aşağıdaki ayaları kullanın:
 
     ![Yeni uygulama ekle](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
@@ -147,9 +147,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 Örnek çözümde iki proje vardır:
 
-**Örnek web uygulaması (TaskWebApp):** Görev listesi oluşturmak ve düzenlemek için kullanılan web uygulaması. Web uygulaması, kullanıcıların bir e-posta adresiyle kaydolması veya oturum açması için **kaydolma veya oturum açma** ilkesi kullanır.
+**Örnek web uygulaması (TaskWebApp):** Görev listesi oluşturmak ve düzenlemek için kullanılan web uygulaması. Web uygulaması, kullanıcıların oturum açması için **kaydolma veya oturum açma** ilkesi kullanır.
 
-**Web API’si örnek uygulama (TaskService):** Görev listesi oluşturma, okuma, güncelleştirme ve silme işlevlerini destekleyen web API’si. Web API’si Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
+**Örnek web API’si uygulaması (TaskService):** Görev listesi oluşturma, okuma, güncelleştirme ve silme işlevlerini destekleyen web API’si. Web API’si Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
 
 Kiracınızda uygulama kaydını kullanmak için uygulamayı değiştirmeniz gerekir. Ayrıca oluşturduğunuz ilkeleri yapılandırmanız gerekir. Örnek web uygulaması, yapılandırma değerlerini Web.config dosyasındaki uygulama ayarları olarak tanımlar. Uygulama ayarlarını değiştirmek için:
 
@@ -178,7 +178,7 @@ Kiracınızda uygulama kaydını kullanmak için uygulamayı değiştirmeniz ger
 
 Web uygulamasını başlatmak için **F5**’e basın. Varsayılan tarayıcı, `https://localhost:44316/` olan yerel web sitesi adresini açar. 
 
-Örnek uygulama kaydolma, oturum açma, profil düzenleme ve parola sıfırlama işlemlerini destekler. Aşağıda bir kullanıcının uygulamayı e-posta adresiyle kullanmak için nasıl kaydolacağı gösterilmektedir. Diğer senaryoları kendi kendinize deneyebilirsiniz.
+Örnek uygulama kaydolma, oturum açma, profil düzenleme ve parola sıfırlama işlemlerini destekler. Bu öğretici, kullanıcının uygulamayı kullanmak için e-posta adresiyle nasıl kaydolacağını vurgular. Diğer senaryoları kendi kendinize keşfedebilirsiniz.
 
 ### <a name="sign-up-using-an-email-address"></a>E-posta adresi kullanarak kaydolma
 
@@ -205,4 +205,4 @@ Diğer Azure AD B2C öğreticilerini denemeyi planlıyorsanız Azure AD B2C kira
 Bu öğreticide bir Azure AD B2C kiracısı oluşturmayı, ilkeleri oluşturmayı ve Azure AD B2C kiracınızı kullanmak için örnek web uygulamasını güncelleştirmeyi öğrendiniz. Azure AD B2C kiracınız tarafından korunan bir ASP.NET web API’sini kaydetmeyi, yapılandırmayı ve çağırmayı öğrenmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Bir ASP.NET web API’sini korumak için Azure Active Directory B2C’yi kullanma](active-directory-b2c-tutorials-web-api.md)
+> [Öğretici: Bir ASP.NET web API’sini korumak için Azure Active Directory B2C’yi kullanma](active-directory-b2c-tutorials-web-api.md)

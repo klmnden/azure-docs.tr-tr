@@ -1,21 +1,21 @@
 ---
-title: "Azure Hızlı Başlangıcı - Azure Depolama Gezgini'ni kullanarak nesneleri Azure Blob depolama içine/dışına aktarma | Microsoft Docs"
-description: "Hızlı bir şekilde Azure Depolama Gezgini'ni kullanarak nesneleri Azure Blob depolama içine/dışına aktarmayı öğrenin"
+title: "Azure Hızlı Başlangıç - Azure Depolama Gezgini’ni kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs"
+description: "Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturmak için Azure Depolama Gezgini’ni kullanırsınız. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek için Depolama Gezgini’ni kullanırsınız."
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Azure Depolama Gezgini'ni kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Hızlı Başlangıç: Azure Depolama Gezgini’ni kullanarak blobları yükleme, indirme ve listeleme
 
 [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/), depolama hesaplarınızın içeriğini yönetmek için kullanılan çok platformlu kullanıcı arabirimidir. Bu kılavuzda yerel disk ile Azure Blob depolama arasında dosyaları aktarmak için Azure Depolama Gezgini'ni kullanma hakkında ayrıntılı bilgiler sağlanmaktadır.
 

@@ -10,11 +10,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: ce4e53b3fa839bfc2da6bedecca0b4f730a6adbe
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Azure Dosyaları’nı yedekleme sırasında karşılaşılan sorunları giderme
 
@@ -26,8 +26,14 @@ Azure Dosyaları’nı yedekleme Önizleme sürümündedir. Azure Dosya paylaş�
 - Sanal Ağların etkin olduğu Depolama Hesaplarında Dosya paylaşımlarını koruma.
 - PowerShell veya CLI kullanarak dosyaları yedekleme.
 
+### <a name="limitations"></a>Sınırlamalar
+- Günlük en fazla #Zamanlanan-yedekleme 1’dir.
+- Günlük en fazla #İsteğe-Bağlı-yedekleme 4’tür.
+- Kurtarma Hizmetleri kasanızdaki Yedeklemelerin yanlışlıkla silinmesini önlemek için Depolama Hesabı’ndaki kaynak kilitlerini kullanın.
+- Azure Backup tarafından oluşturulan anlık görüntülerin silmeyin. Anlık görüntülerin silinmesi, Kurtarma Noktalarının kaybolması veya Geri Yükleme işlemlerinin başarısız olmasıyla sonuçlanabilir
+
 ## <a name="configuring-backup"></a>Yedeklemeyi yapılandırma
-Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir.
+Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir:
 
 | Yedeklemeyi yapılandırma | Geçici çözüm veya çözümleme ipuçları |
 | ------------------ | ----------------------------- |
@@ -58,6 +64,6 @@ Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir.
 | Bir veya daha fazla dosyayı kurtarma başarısız oldu. Daha fazla bilgi için, yukarıda verilen yoldaki başarısız dosya listesini kontrol edin. | <ul> <li> Kurtarma hatasının nedenleri dosyada listelenmektedir (yol, İş ayrıntılarında belirtilir), nedenleri giderin ve yalnızca başarısız dosyalar için geri yükleme işlemini yeniden deneyin. <li> Dosya geri yükleme hatalarının sık karşılaşılan nedenleri şunlardır: <br/> - Başarısız dosyaların o sırada kullanımda olması. <br/> - Üst dizinde başarısız dosyalarla aynı ada sahip bir dizinin mevcut olması. |
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-Azure Dosya paylaşımlarının desteklenmesi hakkında daha fazla bilgi için bkz.
+Azure Dosya paylaşımlarının desteklenmesi hakkında daha fazla bilgi için bkz.:
 - [Azure Dosya paylaşımlarını destekleme](backup-azure-files.md)
 - [Azure Dosya paylaşımlarını yedekleme ile ilgili SSS](backup-azure-files-faq.md)

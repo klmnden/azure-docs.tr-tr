@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b946964c162f47a283c37c6eae7e7152e27b6033
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V sanal makineleri için Azure’da olağanüstü durum kurtarma ayarlama
 
@@ -36,7 +36,7 @@ Başlamadan önce bu olağanüstü durum kurtarma senaryosu için [mimariyi göz
 ## <a name="select-a-replication-goal"></a>Çoğaltma hedefi seçme
 
 
-1. **Tüm Hizmetler** > **Kurtarma Hizmetleri kasaları** bölümünde, önceki öğreticide hazırladığımız kasanın adına (**ContosoVMVault**) tıklayın.
+1. **Tüm Hizmetler** > **Kurtarma Hizmetleri kasaları** bölümünde, önceki öğreticide hazırladığımız kasayı (**ContosoVMVault**) seçin.
 2. **Başlarken** bölümünde **Site Recovery**’ye tıklayın. Daha sonra **Altyapıyı Hazırlama**’ya tıklayın
 3. **Koruma hedefi** > **Makineleriniz nerede** bölümünde **Şirket içi** seçeneğini belirleyin.
 4. **Makinelerinizi nereye çoğaltmak istiyorsunuz** bölümünde **Azure’a** seçeneğini belirleyin.
@@ -46,13 +46,13 @@ Başlamadan önce bu olağanüstü durum kurtarma senaryosu için [mimariyi göz
 
 ## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
-Kaynak ortamı ayarlamak için Hyper-V konaklarını bir Hyper-V sitesine ekleyin, Azure Site Kurtarma Sağlayıcısı'nı ve Azure Kurtarma Hizmetleri aracısını yükleyin ve Hyper-V sitesini kasaya kaydedin. 
+Kaynak ortamı ayarlamak için Hyper-V konaklarını bir Hyper-V sitesine ekleyin, Azure Site Kurtarma Sağlayıcısı’nı ve Azure Kurtarma Hizmetleri aracısını yükleyin ve Hyper-V sitesini kasaya kaydedin. 
 
 1. **Altyapıyı Hazırlama** bölümünde **Kaynak** seçeneğine tıklayın.
-2. **+Hyper-V Sitesi**’ne tıklayın ve önceki öğreticide oluşturduğumuz sitenin adını (**ContosoHyperVSite**) belirtin.
+2. **+Hyper-V Sitesi**’ne tıklayın ve önceki öğreticide oluşturulan sitenin adını (**ContosoHyperVSite**) belirtin.
 3. **+Hyper-V Sunucusu**’na tıklayın.
 4. Sağlayıcı kurulum dosyasını indirin.
-5. Kasa kayıt anahtarını indirin. Sağlayıcı kurulumunu çalıştırırken buna ihtiyacınız olur. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
+5. Kasa kayıt anahtarını indirin. Sağlayıcı kurulumunu çalıştırırken bu anahtara ihtiyaç duyarsınız. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
     ![Sağlayıcıyı indirin](./media/hyper-v-azure-tutorial/download.png)
     
@@ -68,7 +68,7 @@ Kaynak ortamı ayarlamak için Hyper-V konaklarını bir Hyper-V sitesine ekleyi
 5. **Proxy Ayarları** bölümünde **Proxy sunucusu olmadan doğrudan Azure Site Recovery hizmetine bağlan** seçeneğini belirleyin.
 6. **Kayıt** bölümünde, Sunucu kasaya kaydedildikten sonra **Son**’a tıklayın.
 
-Hyper-V sunucusundaki meta veriler, Azure Site Recovery tarafından alınır ve **Site Recovery Altyapısı** > **Hyper-V Konakları** bölümünde sunucu görüntülenir. Bu işlem 30 dakika sürebilir.
+Hyper-V sunucusundaki meta veriler, Azure Site Recovery tarafından alınır ve **Site Recovery Altyapısı** > **Hyper-V Konakları** bölümünde sunucu görüntülenir. Bu işlemin tamamlanması 30 dakika sürebilir.
 
 
 ## <a name="set-up-the-target-environment"></a>Hedef ortamı ayarlama
@@ -83,6 +83,9 @@ Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağ�
 
 
 ## <a name="set-up-a-replication-policy"></a>Çoğaltma ilkesi ayarlama
+
+> [!NOTE]
+> Hyper-V’den Azure’a çoğaltma ilkeleri için, 15 dakikalık kopyalama sıklığı seçeneği, 5 dakikalık ve 30 saniyelik kopyalama sıklığı ayarları dolayısıyla devre dışı bırakılıyor. 15 dakikalık kopyalama sıklığı kullanan çoğaltma ilkeleri, 5 dakikalık kopyalama sıklığı ayarını kullanmak üzere otomatik olarak güncelleştirilecektir. 15 dakikalık kopyalama sıklığıyla karşılaştırıldığında, 5 dakikalık ve 30 saniyelik kopyalama sıklığı seçenekleri bant genişliği kullanımını ve veri aktarım hacmini en düşük düzeyde etkilemenin yanı sıra, iyileştirilmiş çoğaltma performansı ve daha iyi geri yükleme noktası hedefleri sağlar.
 
 1. **Altyapıyı hazırlama** > **Çoğaltma Ayarları** > **+Oluştur ve ilişkilendir** seçeneklerine tıklayın.
 2. **İlke oluştur ve ilişkilendir** bölümünde bir ilke adı (**ContosoReplicationPolicy**) belirtin.
@@ -102,7 +105,7 @@ Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağ�
 1. **Uygulama çoğaltma** bölümünde **Kaynak** seçeneğine tıklayın. 
 2. **Kaynak** bölümünde **ContosoHyperVSite** sitesini seçin. Daha sonra, **Tamam**'a tıklayın.
 3. **Hedef** bölümünde, **Kaynak Yöneticisi** dağıtım modelini, kasa aboneliğini ve hedef olarak Azure’ı doğrulayın.
-4. Çoğaltılan veriler için önceki öğreticide oluşturduğumuz **contosovmsacct1910171607** depolama hesabını ve yük devretmenin ardından Azure sanal makinelerinin konumlandırılacağı **ContosoASRnet** ağını seçin.
+4. Çoğaltılan veriler için önceki öğreticide oluşturulan **contosovmsacct1910171607** depolama hesabını ve yük devretmenin ardından Azure sanal makinelerinin konumlandırılacağı **ContosoASRnet** ağını seçin.
 5. **Sanal makineler** > **Seç** bölümünde, çoğaltmak istediğiniz sanal makineyi seçin. Daha sonra, **Tamam**'a tıklayın.
 
  **İşler** > **Site Recovery işleri** bölümünde **Korumayı Etkinleştir** eyleminin ilerleme durumunu izleyebilirsiniz. **Korumayı Sonlandır** işi tamamlandıktan sonra ilk çoğaltma tamamlanır ve sanal makine yük devretme için hazır olur.
