@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric'te ASP.NET Core hizmetleri için izleme ve tanılama | Microsoft Docs"
-description: "Azure Service Fabric ASP.NET Core uygulaması için izleme ve tanılamanın nasıl ayarlanacağını öğrenin."
+description: "Bu öğreticide, Azure Service Fabric ASP.NET Core uygulaması için izleme ve tanılamanın nasıl ayarlanacağını öğrenirsiniz."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bb6aca8d99e32948b8a01a2f893bcf40d160a76c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 26cca3604faa46e7398b24a2e8c25a6ad9650c18
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Service Fabric'te ASP.NET Core uygulamasını izleme ve tanılama
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Öğretici: Service Fabric'te ASP.NET Core uygulamasını izleme ve tanılama
 Bu öğretici, bir serinin dördüncü bölümüdür. Service Fabric kümesinde çalışan bir ASP.NET Core uygulaması için Application Insights kullanarak izleme ve tanılamayı ayarlama adımlarında yol gösterilir. Öğreticinin ilk bölümü olan [.NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde geliştirilen uygulamadan telemetri toplarız. 
 
 Bu öğretici serisinin dördüncü kısmında şunların nasıl yapıldığını öğrenirsiniz:

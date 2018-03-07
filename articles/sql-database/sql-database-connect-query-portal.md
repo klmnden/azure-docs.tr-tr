@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure portalı: SQL Sorgu Düzenleyicisi'ni kullanarak bağlanma ve veri sorgulama
+# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure portalı: SQL Sorgu düzenleyicisini kullanarak bağlanma ve veri sorgulama
 
-SQL Sorgu Düzenleyicisi, Azure portalından ayrılmadan Azure SQL Veritabanı veya Azure SQL Veri Ambarı’nda SQL sorguları yürütmenin verimli ve kolay bir yolunu sunan bir tarayıcı sorgulama aracıdır. Bu hızlı başlangıçta Sorgu Düzenleyicisi’ni kullanarak bir SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır.
+SQL Sorgu düzenleyicisi, Azure portalından ayrılmadan Azure SQL Veritabanı veya Azure SQL Veri Ambarı’nda SQL sorguları yürütmenin verimli ve kolay bir yolunu sunan bir tarayıcı sorgulama aracıdır. Bu hızlı başlangıçta Sorgu düzenleyicisini kullanarak bir SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -33,18 +33,19 @@ Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçla
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
+> [!NOTE]
+> SQL Server güvenlik duvarı ayarlarınızda "Azure Hizmetlerine erişime izin ver" seçeneğinin "Açık" olarak ayarlandığından emin olun. Bu seçenek, SQL Sorgu düzenleyicisinin veritabanlarınıza ve veri ambarlarınıza erişmesini sağlar.
+
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
 [Azure Portal](https://portal.azure.com/)’da oturum açın.
 
 
 ## <a name="connect-using-sql-authentication"></a>SQL Kimlik Doğrulaması kullanarak bağlanma
-> [!NOTE]
-> SQL Server güvenlik duvarı ayarlarınızda "Azure Hizmetlerine erişime izin ver" seçeneğinin "Açık" olarak ayarlandığından emin olun. Bu seçenek, SQL Sorgu Düzenleyicisi'nin veritabanlarınıza ve veri ambarlarınıza erişmesini sağlar.
 
 1. Soldaki menüden **SQL veritabanları**’na ve sorgulamak istediğiniz veritabanına tıklayın.
 
-2. Veritabanınızın SQL veritabanı sayfasında, soldaki menüden **Veri gezgini (önizleme)** öğesini bulup tıklayın.
+2. Veritabanınızın SQL veritabanı sayfasında, soldaki menüden **Sorgu düzenleyicisi (önizleme)** öğesini bulup tıklayın.
 
     ![sorgu düzenleyicisini bulma](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 

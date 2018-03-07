@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub web kancası tarafından tetiklenen bir işlev oluşturma
 
@@ -67,7 +67,7 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
 ## <a name="configure-the-webhook"></a>Web kancası yapılandırma
 
-1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Bir depoyu çatallaştırmanız gerekirse, <https://github.com/Azure-Samples/functions-quickstart> sayfasını kullanın.
+1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Bir depoda çatal oluşturmanız gerekiyorsa, <https://github.com/Azure-Samples/functions-quickstart> kullanın.
 
 1. **Ayarlar**’a tıklayın, sonra da **Web Kancaları**’na ve **Web kancası ekle**’ye tıklayın.
 
@@ -80,8 +80,8 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 | Ayar | Önerilen değer | Açıklama |
 |---|---|---|
 | **Yük URL'si** | Kopyalanan değer | **</> İşlev URL’sini Al** tarafından döndürülen değeri kullanın. |
-| **Gizli dizi**   | Kopyalanan değer | **</> GitHub gizli dizisini al** tarafından döndürülen değeri kullanın. |
 | **İçerik türü** | uygulama/json | İşlev bir JSON yükü bekler. |
+| **Gizli dizi**   | Kopyalanan değer | **</> GitHub gizli dizisini al** tarafından döndürülen değeri kullanın. |
 | Olay tetikleyicileri | Olayları ayrı ayrı seçmeme izin ver | Yalnızca sorun yorum olaylarını tetiklemek istiyoruz.  |
 | | Sorun açıklaması |  |
 
@@ -107,7 +107,7 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-GitHub web kancasından istek alındığında çalıştırılan bir işlev oluşturdunuz.
+GitHub web kancasından istek alındığında tetiklenen bir işlev oluşturdunuz.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

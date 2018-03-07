@@ -1,124 +1,111 @@
 ---
-title: "Test sürücü bir Azure AD B2C masaüstü uygulaması | Microsoft Docs"
-description: "Test sürücü oturum açın, kaydolma, profili düzenlemek ve bir Azure AD B2C test ortamı'nı kullanarak kullanıcı Yolculuklar parola sıfırlama"
+title: "Bir Azure AD B2C etkin masaüstü uygulaması için test sürüşü"
+description: "Kullanıcı oturum açma adı sağlamak için Azure Active Directory B2C’yi kullanan örnek bir ASP.NET masaüstü uygulamasını denemeye yönelik hızlı başlangıç."
 services: active-directory-b2c
-documentationcenter: .net
-author: saraford
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 86293627-26fb-4e96-a76b-f263f9a945bd
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: saraford
-ms.openlocfilehash: 51f5643f0bd975beb939c2d5a8853810fb609ec9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 2/13/2018
+ms.author: patricka
+ms.openlocfilehash: 18c378f82255df3a999703bc319d551af4b2705c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="test-drive-a-desktop-application-configured-with-azure-ad-b2c"></a>Test sürücü Azure AD B2C ile yapılandırılmış bir masaüstü uygulaması
+# <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Hızlı Başlangıç: Bir Azure AD B2C etkin masaüstü uygulaması için test sürüşü
 
-Azure Active Directory B2C uygulaması, iş ve korumalı müşteriler tutmak için bulut kimlik yönetimi sağlar.  Bu hızlı başlangıç örnek Windows Presentation Foundation (WPF) masaüstü uygulaması göstermek için kullanır:
+Azure Active Directory (Azure AD) B2C, uygulamanız, işletmeniz ve müşterileriniz için koruma sağlamak üzere bulut kimliği yönetimi sunar. Azure AD B2C; uygulamalarınızın, açık standart protokolleri kullanarak sosyal hesaplarda ve kurumsal hesaplarda kimlik doğrulaması gerçekleştirmesine olanak tanır.
 
-* Kullanarak **kaydolun veya oturum** ilkesi oluşturun veya bir sosyal kimlik sağlayıcısı veya bir e-posta adresi kullanarak yerel bir hesapla oturum açın. 
-* **Bir API çağırma** görünen adınızı bir Azure AD B2C almak için kaynak güvenli.
-
-## <a name="prerequisites"></a>Ön koşullar
-
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
-    - **.NET masaüstü geliştirme**
-
-* Facebook, Google, Microsoft veya Twitter sosyal hesabından. Sosyal bir hesabınız yoksa, geçerli bir eposta adresi gereklidir.
+Bu hızlı başlangıçta bir sosyal kimlik sağlayıcısı kullanarak oturum açmak ve Azure AD B2C korumalı bir web API’sini çağırmak için Azure AD B2C etkin örnek bir Windows Presentation Foundation (WPF) masaüstü uygulaması kullanıyorsunuz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## <a name="prerequisites"></a>Ön koşullar
+
+* **ASP.NET ve web geliştirme** iş yüküyle [Visual Studio 2017](https://www.visualstudio.com/downloads/). 
+* Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal hesap.
+
 ## <a name="download-the-sample"></a>Örneği indirme
 
-[İndirme veya örnek uygulama kopyalama](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) github'dan.
+GitHub’dan [zip dosyasını indirin](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) veya örnek web uygulamasını kopyalayın.
 
-## <a name="run-the-app-in-visual-studio"></a>Visual Studio'da Uygulama Çalıştırma
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
+```
 
-Örnek uygulama proje klasöründe açın `active-directory-b2c-wpf.sln` Visual Studio'da çözüm. 
+## <a name="run-the-app-in-visual-studio"></a>Uygulamayı Visual Studio’da çalıştırma
 
-Seçin **hata ayıklama > hata ayıklamayı Başlat** oluşturun ve uygulamayı çalıştırın. 
+Örnek uygulama proje klasöründen, Visual Studio’da `active-directory-b2c-wpf.sln` çözümünü açın.
 
-## <a name="create-an-account"></a>Bir hesap oluşturun
+Uygulamada hata ayıklamak için **F5**’e basın.
 
-Tıklatın **oturum** başlatmak için **kaydolun veya oturum** iş akışı. Bir hesap oluşturulurken, var olan sosyal kimlik sağlayıcısı hesabını veya bir e-posta hesabı kullanabilirsiniz.
+## <a name="create-an-account"></a>Hesap oluşturma
+
+Bir Azure AD B2C ilkesi temelinde **Kaydolma veya Oturum Açma** iş akışını başlatmak için **Oturum aç**’a tıklayın.
 
 ![Örnek uygulama](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-### <a name="sign-up-using-a-social-identity-provider"></a>Sosyal kimlik sağlayıcısı kullanarak kaydolun
+Örnek, sosyal kimlik sağlayıcısı kullanma veya bir e-posta adresiyle yerel bir hesap oluşturma da dahil olmak üzere çeşitli kaydolma seçeneklerini destekler. Bu hızlı başlangıç için Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal kimlik sağlayıcısı hesabı kullanın. 
 
-Sosyal kimlik sağlayıcısı kullanarak oturum açmak için kullanmak istediğiniz kimlik sağlayıcısı düğmesine tıklayın. Bir e-posta adresi kullanmayı tercih ederseniz, atlamak [bir e-posta adresi kullanarak kaydolma](#sign-up-using-an-email-address) bölümü.
+### <a name="sign-up-using-a-social-identity-provider"></a>Sosyal kimlik sağlayıcısı kullanarak kaydolma
 
-![Oturum açın veya kaydolun sağlayıcısı](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
+Azure AD B2C, örnek web uygulaması için Wingtip Toys adlı bir kurgusal markaya yönelik özel bir oturum açma sayfası sunar. 
 
-Sosyal hesabınızın kimlik bilgileri ve sosyal hesabınızdan bilgileri okumak için uygulamayı yetkilendirmeniz (oturum açma) kullanarak kimliğini doğrulaması gerekir. Erişim vererek, uygulama adı ve şehir gibi sosyal hesabından profil bilgilerini alabilir. 
+1. Sosyal kimlik sağlayıcısı kullanarak kaydolmak için, kullanmak istediğiniz kimlik sağlayıcısının düğmesine tıklayın. 
 
-![Kimlik doğrulama ve sosyal bir hesabı kullanarak Yetkilendirme](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
+    ![Oturum Açma veya Kaydolma sağlayıcısı](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-Yeni hesap profili bilgilerinizi sosyal hesabınızdan bilgilerle önceden doldurulmuş haldedir. İster ve'ı tıklatırsanız Ayrıntılar Değiştir **devam**.
+    Sosyal hesap kimlik bilgilerinizi kullanarak kimlik doğrulaması (oturum açma) gerçekleştirir ve uygulamaya sosyal hesabınızdaki bilgileri okuma yetkisi verirsiniz. Erişim izni verdiğinizde uygulama sosyal hesabınızdan adınız ve şehriniz gibi profil bilgilerini alabilir. 
 
-![Yeni hesap kayıt profili ayrıntıları](media/active-directory-b2c-quickstarts-desktop-app/new-account-sign-up-profile-details-wpf.png)
+2. Kimlik sağlayıcısına ilişkin oturum açma işlemini tamamlayın. Örneğin, Twitter’i seçtiyseniz Twitter kimlik bilgilerinizi girin **Oturum aç**’a tıklayın.
 
-Bir kimlik sağlayıcısı kullanan yeni bir Azure AD B2C kullanıcı hesabını başarıyla oluşturdunuz. Oturum açma işleminden sonra erişim belirteci gösterilen *belirteci bilgisi* metin kutusu. Erişim belirteci API kaynağa erişilirken kullanılır.
+    ![Sosyal hesap kullanarak kimlik doğrulaması ve yetkilendirme gerçekleştirme](media/active-directory-b2c-quickstarts-desktop-app/twitter-authenticate-authorize-wpf.png)
 
-![Yetkilendirme belirteci](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
+    Yeni hesap profili ayrıntılarınız, sosyal hesabınızdaki bilgilerle önceden doldurulur. 
 
-Sonraki adım: [profilinizi düzenleme atlama](#edit-your-profile) bölümü.
+3. Dilerseniz ayrıntıları değiştirip **Devam**’a tıklayabilir. Girdiğiniz değerler Azure AD B2C kullanıcı hesabı profiliniz için kullanılır.
 
-### <a name="sign-up-using-an-email-address"></a>Bir e-posta adresi kullanarak kaydolun
+    ![Yeni hesaba kaydolma profil ayrıntıları](media/active-directory-b2c-quickstarts-desktop-app/new-account-sign-up-profile-details-wpf.png)
 
-Sosyal hesabı kimlik doğrulaması kullanmayı seçerseniz, geçerli bir eposta adresi kullanarak bir Azure AD B2C kullanıcı hesabı oluşturabilirsiniz. Bir Azure AD B2C yerel kullanıcı hesabı kimlik sağlayıcısı olarak Azure Active Directory kullanır. E-posta adresinizi kullanmak için tıklatın **bir hesabınız yok mu? Şimdi kaydolun** bağlantı.
-
-![Oturum açın veya e-posta kullanarak kaydolun](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-email-wpf.png)
-
-Geçerli bir e-posta adresi girin ve tıklayın **Gönder doğrulama kodu**. Geçerli bir e-posta adresi, Azure AD B2C ' doğrulama kodu almak için gereklidir.
-
-E-posta almak ve tıklatın doğrulama kodunu girin **kodunu doğrulayın**.
-
-Profil bilgilerinizi ekleyin ve tıklatın **oluşturma**.
-
-![E-posta kullanarak yeni hesabıyla kaydolun](media/active-directory-b2c-quickstarts-desktop-app/sign-up-new-account-profile-email-wpf.png)
-
-Yeni bir Azure AD B2C yerel kullanıcı hesabı başarıyla oluşturdunuz. Oturum açma işleminden sonra erişim belirteci gösterilen *belirteci bilgisi* metin kutusu. Erişim belirteci API kaynağa erişilirken kullanılır.
-
-![Yetkilendirme belirteci](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
+    Kimlik sağlayıcısı kullanan yeni bir Azure AD B2C kullanıcı hesabını başarıyla oluşturdunuz. Oturum açma işleminden sonra erişim belirteci *Belirteç bilgileri* metin kutusunda gösterilir. Erişim belirteci, API kaynağına erişilirken kullanılır.
 
 ## <a name="edit-your-profile"></a>Profilinizi düzenleme
 
-Azure Active Directory B2C profillerini güncelleştirme yapmalarına izin vermek için işlevsellik sağlar. Tıklatın **Düzenle profili** oluşturduğunuz profili düzenlemek için.
+Azure Active Directory B2C, kullanıcılara profillerini güncelleme olanağı tanıyan bir işlev sunar.  Örnek web uygulaması, iş akışı için bir Azure AD B2C düzenleme profil ilkesi kullanır. 
 
-![Profili düzenleme](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
+1. Oluşturduğunuz profili düzenlemek için **Profili düzenle**’ye tıklayın.
 
-Oluşturduğunuz hesapla ilişkili kimlik sağlayıcısı seçin. Örneğin, hesabınızı oluştururken kimlik sağlayıcısı olarak Twitter kullandıysanız, ilişkili profil ayrıntıları değiştirmek için Twitter seçin.
+    ![Profili düzenleme](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
-![Düzenlemek için bir sağlayıcı profili ile ilişkilendirilmiş seçin](media/active-directory-b2c-quickstarts-desktop-app/edit-account-choose-provider-wpf.png)
+2. Oluşturduğunuz hesapla ilişkili kimlik sağlayıcısını seçin. Örneğin, hesabınızı oluşturduğunuzda kimlik sağlayıcısı olarak Twitter’ı kullandıysanız ilişkili profil ayrıntılarını değiştirmek için Twitter’ı seçin.
 
-Değişiklik, **görünen adı** veya **Şehir**. 
+3. **Görünen adınızı** veya **Şehrinizi** değiştirip **Devam**’a tıklayın.
 
-![Profili güncelleştir](media/active-directory-b2c-quickstarts-desktop-app/update-profile-wpf.png)
+    *Belirteç bilgileri* metin kutusunda yeni bir erişim belirteci görüntülenir. Profilinizdeki değişiklikleri doğrulamak istiyorsanız erişim belirtecini kopyalayıp https://jwt.ms belirteç kod çözücüsüne yapıştırın.
 
-Yeni bir erişim belirteci görüntülenen *belirteci bilgisi* metin kutusu. Profilinizi değişiklikleri doğrulamak istiyorsanız, kopyalayın ve erişim belirteci belirteci decoder https://jwt.ms yapıştırın.
+## <a name="access-a-protected-web-api-resource"></a>Korumalı bir API kaynağına erişme
 
-![Yetkilendirme belirteci](media/active-directory-b2c-quickstarts-desktop-app/twitter-auth-token.png)
+Azure AD B2C korumalı kaynağından (https://fabrikamb2chello.azurewebsites.net/hello) istekte bulunmak için **API’yi çağır**’a tıklayın. 
 
-## <a name="access-a-resource"></a>Bir kaynağa erişim
+![API’yi çağırma](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
-Tıklatın **API çağrısı** Azure AD B2C'ye bir isteği yapmak için kaynak https://fabrikamb2chello.azurewebsites.net/hello güvenli. 
+Uygulama, korumalı web API’si kaynağına yönelik isteğe Azure AD erişim belirtecini ekler. Web API’si, erişim belirtecinde bulunan görünen adı tekrar gönderir.
 
-![API çağrısı](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
+Azure AD B2C korumalı bir web API’si için yetkili bir çağrıda bulunmak üzere Azure AD B2C kullanıcı hesabınızı başarıyla kullandınız.
 
-Uygulama görüntülenen erişim belirteci içerir *belirteci bilgisi* metin kutusuna istek. API erişim belirtecinde yer alan görünen adı geri gönderir.
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Başka Azure AD B2C hızlı başlangıçlarını ve öğreticilerini denemeyi planlıyorsanız Azure AD B2C kiracınızı kullanabilirsiniz. Artık ihtiyaç duymuyorsanız [Azure AD B2C kiracınızı silebilirsiniz](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sonraki adım, Kiracı kullanarak çalıştırmak için örnek kendi Azure AD B2C kiracısı oluşturma ve yapılandırmaktır. 
+Bir sonraki adım kendi Azure AD B2C kiracınızı oluşturup, örneği kiracınızı kullanarak çalışacak şekilde yapılandırmanızdır. 
 
 > [!div class="nextstepaction"]
 > [Azure portalında bir Azure Active Directory B2C kiracısı oluşturma](active-directory-b2c-get-started.md)

@@ -1,22 +1,22 @@
 ---
-title: "Azure Maliyet Yönetimi’nde erişim atama | Microsoft Docs"
-description: "Varlıklara erişim düzeylerini tanımlayan kullanıcı hesapları ile maliyet yönetimi verilerine erişim atayın."
+title: "Öğretici: Azure Maliyet Yönetimi’nde erişim atama | Microsoft Docs"
+description: "Bu öğreticide, varlıklara erişim düzeylerini tanımlayan kullanıcı hesapları ile maliyet yönetimi verilerine erişim atamayı öğrenirsiniz."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Maliyet yönetimi verilerine erişim atama
+# <a name="tutorial-assign-access-to-cost-management-data"></a>Öğretici: Maliyet yönetimi verilerine erişim atama
 
 Maliyet yönetimi verilerine erişim, kullanıcı ya da varlık yönetimi tarafından sağlanır. Cloudyn kullanıcı hesapları, *varlıklara* ve yönetim işlevlerine erişimi belirler. İki tür erişim vardır: yönetici ve kullanıcı. Kullanıcı özelinde değiştirilmediği sürece yönetici, bir kullanıcıya Cloudyn portalındaki kullanıcı yönetimi, alıcı listesi yönetimi ve tüm varlık verilerine kök varlık erişimi dahil olmak üzere tüm işlevlerin sınırsız kullanımı için erişim izni verir. Kullanıcı erişimi, son kullanıcıların varlık verileri üzerinde sahip oldukları erişimi kullanarak raporları görüntülemesine ve rapor oluşturmasına yöneliktir.
 
@@ -29,7 +29,12 @@ Azure sözleşmenizi veya hesabınızı kaydettiğinizde, bu öğreticideki tüm
 > * Kullanıcı erişimi olan bir kullanıcı oluşturma
 > * Varlık oluşturma
 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
+## <a name="prerequisites"></a>Ön koşullar
+
+- Azure hesabınız olmalıdır.
+- Azure Maliyet Yönetimi için bir deneme kaydı veya ücretli aboneliğe sahip olmalısınız.
 
 ## <a name="create-a-user-with-admin-access"></a>Yönetici erişimi olan bir kullanıcı oluşturma
 
@@ -83,7 +88,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Kullanıcı erişimi olan bir kullanıcı oluşturma
 > * Varlık oluşturma
 
-Geçmiş verileri kullanarak harcamaları tahmin etme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+Hesaplarınız için Azure Resource Manager API’si erişimini etkinleştirmediyseniz, aşağıdaki makaleden devam edin.
 
 > [!div class="nextstepaction"]
-> [Gelecek harcamaları tahmin etme](tutorial-forecast-spending.md)
+> [Azure aboneliklerini ve hesaplarını etkinleştirme](activate-subs-accounts.md)

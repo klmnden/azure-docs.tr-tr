@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e688068efb41cdccbeb23de3c8ad7a09021e5b3f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: aa7f2e6f44036738756391ecaa265c57c093c42c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-r-server-on-hdinsight"></a>HDInsight üzerinde R Server kullanma
 
@@ -61,7 +61,7 @@ HDInsight R Server örnekleri oluşturma işlemini Azure Resource Manager şablo
 4. **Küme yapılandırması** bölmesini açmak için **Küme türü**’nü seçin. **Küme Yapılandırması** bölmesinde aşağıdaki seçenekleri belirtin:
 
     * **Küme türü**: **R Server**'ı seçin.
-    * **Sürüm**: Kümeye yüklenecek R Server sürümünü seçin. Şu anda kullanılabilir sürüm: **R Server 9.1 (HDI 3.6)**. Kullanılabilir R Server sürümlerinin sürüm notları [MSDN](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) sitesinde bulunabilir.
+    * **Sürüm**: Kümeye yüklenecek R Server sürümünü seçin. Şu anda kullanılabilir sürüm: **R Server 9.1 (HDI 3.6)**. Kullanılabilir R Server sürümlerinin sürüm notları [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91) sitesinde bulunabilir.
     * **R Server için R Studio topluluk sürümü**: Tarayıcı tabanlı bu IDE, kenar düğümüne varsayılan olarak yüklenir. Yüklememeyi tercih ederseniz, onay kutusunu temizleyin. Yüklemeyi seçerseniz, RStudio Server oturum açma sayfasına erişim URL'si, kümeniz oluşturulduktan sonra kümenizin portal uygulaması bölmesinde yer alır.
     * Diğer seçenekleri varsayılan değerlerinde bırakın ve küme türünü kaydetmek için **Seç** düğmesini kullanın.
 
@@ -102,7 +102,7 @@ HDInsight R Server örnekleri oluşturma işlemini Azure Resource Manager şablo
 
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-      İsterseniz, istemcide R Server için Hadoop Spark işlem bağlamınızın tanımının bir parçası olarak özel anahtar dosyası kullanabilirsiniz. Daha fazla bilgi için bkz. [Spark için İşlem Bağlamı Oluşturma](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+      İsterseniz, istemcide R Server için Hadoop Spark işlem bağlamınızın tanımının bir parçası olarak özel anahtar dosyası kullanabilirsiniz. Daha fazla bilgi için bkz. [Spark için İşlem Bağlamı Oluşturma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark).
 
 8. Hızlı oluşturma işlemi sizi **Depolama** bölmesine geçirir. Orada, kümenin kullandığı HDFS dosya sisteminin birincil konumu olarak kullanılacak depolama hesabı ayarlarını seçersiniz. Yeni veya mevcut bir Azure depolama hesabı seçin veya mevcut Azure Data Lake Store hesabını seçin.
 
@@ -379,7 +379,7 @@ Ayrıca, yeni eklenen kullanıcıların Linux sisteminde kök ayrıcalıklara sa
 
 ## <a name="use-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server veya Microsoft R Client uzak örneğinden HDI üzerinde R Server kullanma
 
-Masaüstü veya dizüstü bilgisayarda çalışan uzak Microsoft R Server veya Microsoft R Client örneğinden HDI Hadoop Spark işlem bağlamına erişim sağlamak mümkündür. Daha fazla bilgi için, [Spark için İşlem Bağlamı Oluşturma](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md) başlığı altındaki "Microsoft R Server'ı Hadoop İstemcisi Olarak Kullanma" bölümüne bakın. Bunu yapmak için dizüstü bilgisayarınızda RxSpark işlem bağlamını tanımlarken şu seçenekleri belirtin: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript. Bir örneği aşağıda verilmiştir:
+Masaüstü veya dizüstü bilgisayarda çalışan uzak Microsoft R Server veya Microsoft R Client örneğinden HDI Hadoop Spark işlem bağlamına erişim sağlamak mümkündür. Daha fazla bilgi için, [Spark için İşlem Bağlamı Oluşturma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) başlığı altındaki "Microsoft R Server'ı Hadoop İstemcisi Olarak Kullanma" bölümüne bakın. Bunu yapmak için dizüstü bilgisayarınızda RxSpark işlem bağlamını tanımlarken şu seçenekleri belirtin: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript. Bir örneği aşağıda verilmiştir:
 
 
     myNameNode <- "default"
@@ -705,7 +705,7 @@ Veri modellemesi tamamlandığında, tahminlerde bulunmak üzere modelinizi kull
     rxSparkConnect(reset = TRUE)
 
 
-Bu aşamada kullanıma hazır hale getirme yapılandırması tamamlanmıştır. Şimdi, uç düğümdeki kullanıma hazır hale getirme özelliğine bağlanmak için R Client üzerinde mrsdeploy paketini kullanabilirsiniz. Ardından, onun [uzaktan yürütme](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) ve [web hizmetleri](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette) gibi özelliklerini kullanmaya başlayabilirsiniz. Kümenizin bir sanal ağda ayarlanıp ayarlanmamasına bağlı olarak, SSH oturumu aracılığıyla bağlantı noktası iletme tüneli ayarlamanız gerekebilir.
+Bu aşamada kullanıma hazır hale getirme yapılandırması tamamlanmıştır. Şimdi, uç düğümdeki kullanıma hazır hale getirme özelliğine bağlanmak için R Client üzerinde mrsdeploy paketini kullanabilirsiniz. Ardından, onun [uzaktan yürütme](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) ve [web hizmetleri](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) gibi özelliklerini kullanmaya başlayabilirsiniz. Kümenizin bir sanal ağda ayarlanıp ayarlanmamasına bağlı olarak, SSH oturumu aracılığıyla bağlantı noktası iletme tüneli ayarlamanız gerekebilir.
 
 ### <a name="r-server-cluster-on-a-virtual-network"></a>Sanal ağda R Server kümesi
 

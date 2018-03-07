@@ -1,23 +1,23 @@
 ---
-title: "Azure Machine Learning hizmetleri için model derleme (önizleme) | Microsoft Docs"
+title: "Azure Machine Learning hizmetleri için model öğreticisi oluşturma (önizleme) | Microsoft Docs"
 description: "Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu ikinci bölümde deneme konusu ele alınmaktadır."
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>Iris sınıflandırma bölüm 2: Model derleme
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Öğretici: Iris sınıflandırma bölüm 2: Model derleme
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
 
 Bu öğretici üç bölümden oluşan bir serinin ikinci bölümüdür. Öğreticinin bu bölümünde Azure Machine Learning hizmetlerini (önizleme) kullanarak aşağıdakileri yapmayı öğreneceksiniz:
@@ -33,6 +33,8 @@ Bu öğretici üç bölümden oluşan bir serinin ikinci bölümüdür. Öğreti
 > * Betikleri bulut üzerindeki Azure HDInsight ortamında yürütme.
 
 Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak Mac OS deneyimi de çok benzerdir.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğretici serisinin ilk bölümünü tamamlayın. Bu öğreticideki adımları uygulamaya başlamadan önce [Veri öğreticisini hazırlama](tutorial-classifying-iris-part-1.md) bölümündeki talimatları izleyerek Azure Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
@@ -374,6 +376,10 @@ Bu betiği bir HDInsight Spark kümesinde de çalıştırabilirsiniz. [Azure ML 
    >Betiği uzak HDInsight kümesinde yürüttüğünüzde `admin` kullanıcı hesabını kullanarak `https://<cluster_name>.azurehdinsight.net/yarnui` konumundaki Yet Another Resource Negotiator (YARN) iş yürütme ayrıntılarını da görüntüleyebilirsiniz.
 
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Üç bölümden oluşan öğretici serisinin bu ikinci bölümünde Azure Machine Learning hizmetlerini kullanarak aşağıdakileri gerçekleştirmeyi öğrendiniz:
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ Bu betiği bir HDInsight Spark kümesinde de çalıştırabilirsiniz. [Azure ML 
 Artık serinin üçüncü bölümüne geçmeye hazırsınız. Burada lojistik regresyon modelini oluşturdunuz, şimdi de bunu gerçek zamanlı bir web hizmeti olarak dağıtalım.
 
 > [!div class="nextstepaction"]
-> [Model dağıtma](tutorial-classifying-iris-part-3.md)
+> [Öğretici 3: Iris Sınıflandırma: Modelleri dağıtma](tutorial-classifying-iris-part-3.md)

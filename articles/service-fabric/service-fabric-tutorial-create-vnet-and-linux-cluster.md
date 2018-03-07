@@ -1,6 +1,6 @@
 ---
 title: "Azure'da Linux Service Fabric Kümesi oluşturma | Microsoft Docs"
-description: "Azure CLI kullanarak mevcut bir Azure sanal ağına Linux Service Fabric kümesi dağıtmayı öğrenin."
+description: "Bu öğreticide, Azure CLI kullanarak mevcut bir Azure sanal ağına Linux Service Fabric kümesi dağıtmayı öğrenirsiniz."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 3b09e676a26336d1ef1e744f9e45066c4815fe21
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e6cbc8c3c7e1a9ebe9684efb0fa6ffa0717240ea
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Azure sanal ağına Service Fabric Linux kümesi dağıtma
+# <a name="tutorial-deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Service Fabric Linux kümesi dağıtma
 Bu öğretici, bir dizinin birinci bölümüdür. Öğreticide, Azure CLI ile bir şablon kullanarak bir [Azure sanal ağına (VNET)](../virtual-network/virtual-networks-overview.md) ve [ağ güvenlik grubuna (NSG) ](../virtual-network/virtual-networks-nsg.md) Linux Service Fabric kümesi dağıtma hakkında bilgi verilir. Öğretici tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur. PowerShell kullanarak Windows kümesi oluşturmak için bkz. [Azure’da güvenli bir Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
@@ -66,7 +66,7 @@ Azure’da Service Fabric kümelerine ait sertifikaları yönetmek için Azure K
 Bu öğreticide tek bir küme türündeki beş düğüme sahip bir küme dağıtılır. Bununla birlikte, tüm küme dağıtımları için [kapasite planlaması](service-fabric-cluster-capacity.md) önemli bir adımdır. Bu süreç kapsamında dikkat etmeniz gerekenler şunlardır:
 
 - Kümeniz için gerekli düğüm sayısı ve türleri 
-- Her düğüm türünün özellikleri (örneğin boyut, birincil, internete yönelik ve VM sayısı)
+- Her düğüm türünün özellikleri (örneğin boyut, birincil, İnternet’e yönelik ve VM sayısı)
 - Kümenin güvenilirlik ve dayanıklılık özellikleri
 
 ## <a name="download-and-explore-the-template"></a>Şablonu indirin ve keşfedin
@@ -84,7 +84,7 @@ Aşağıdaki özelliklere sahip bir Linux kümesi dağıtılır:
 - sertifikanın güvenliğinin sağlanması (şablon parametrelerinde yapılandırılabilir)
 - [DNS hizmeti](service-fabric-dnsservice.md) etkin
 - Bronz [dayanıklılık düzeyi](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (şablon parametrelerinde yapılandırılabilir)
-- Gümüş [güvenilirlik düzeyi](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (şablon parametrelerinde yapılandırılabilir)
+- Gümüş [güvenilirlik düzeyi](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) (şablon parametrelerinden yapılandırılabilir)
 - istemci bağlantısı uç noktası: 19000 (şablon parametrelerinde yapılandırılabilir)
 - HTTP ağ geçidi uç noktası: 19080 (şablon parametrelerinde yapılandırılabilir)
 
