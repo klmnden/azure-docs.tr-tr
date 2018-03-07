@@ -12,7 +12,7 @@ Carthage Paket Yöneticisi MSAL Önizleme dönemi boyunca kullanılan – kitapl
 
 ## <a name="creating-your-application"></a>Uygulamanızı oluşturma
 
-1.  Xcode açın ve seçin`Create a new Xcode project`
+1.  Xcode açın ve seçin `Create a new Xcode project`
 2.  Seçin `iOS`  >  `Single view Application` tıklatıp *sonraki*
 3.  Bir ürün adı verin ve tıklatın *sonraki*
 4.  Uygulamanızı oluşturun ve tıklayın için bir klasör seçin *oluştur*
@@ -42,10 +42,10 @@ carthage update
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Uygulamanıza MSAL framework ekleyin
 1.  Xcode'da, açık `General` sekmesi
-2.  Git `Linked Frameworks and Libraries` ' ye tıklayın`+`
+2.  Git `Linked Frameworks and Libraries` ' ye tıklayın `+`
 3.  `Add other…` seçeneğini belirleyin
 4.  Seçim: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` tıklatıp *açık*. Görmeniz gerekir `MSAL.framework` listesine eklenir.
-5.  Git `Build Phases` sekmesine ve tıklayın `+` simgesini seçin`New Run Script Phase`
+5.  Git `Build Phases` sekmesine ve tıklayın `+` simgesini seçin `New Run Script Phase`
 6.  Aşağıdaki içerikleri ekleyin *komut dosyası alanı*:
 
 ```text
@@ -66,7 +66,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ## <a name="creating-your-applications-ui"></a>Uygulamanızın kullanıcı Arabirimi oluşturma
 Main.storyboard dosya proje şablonu bir parçası olarak otomatik olarak oluşturulması gerekir. Uygulama kullanıcı Arabirimi oluşturmak için aşağıdaki yönergeleri izleyin:
 
-1.  Control + tıklatın `Main.storyboard` bağlam menüsünü açmak ve ardından:`Open As` > `Source Code`
+1.  Control + tıklatın `Main.storyboard` bağlam menüsünü açmak ve ardından: `Open As` > `Source Code`
 2.  Değiştir `<scenes>` aşağıdaki kod ile düğümü:
 
 ```xml
