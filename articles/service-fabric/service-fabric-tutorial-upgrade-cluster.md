@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric çalışma zamanı yükseltme | Microsoft Docs"
-description: "Bir Azure barındırılan Service Fabric kümesi çalışma zamanı yükseltmek için PowerShell kullanmayı öğrenin."
+title: "Azure Service Fabric çalışma zamanını yükseltme | Microsoft Docs"
+description: "Bu öğreticide, PowerShell kullanarak Azure’da barındırılan bir Service Fabric kümesinin çalışma zamanını yükseltmeyi öğrenirsiniz."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,44 +15,44 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Yükseltme Service Fabric kümesi çalışma zamanı
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Öğretici: Bir Service Fabric kümesinin çalışma zamanını yükseltme
 
-Bu öğretici üç bir serinin bir parçasıdır ve bir Azure Service Fabric kümesi üzerinde Service Fabric çalışma zamanını yükseltme gösterir. Bu öğretici bölümü Azure üzerinde çalışan Service Fabric kümeleri için yazılmış ve tek başına Service Fabric kümeleri geçerli değildir.
+Bu öğretici, bir serinin üçüncü bölümüdür ve bir Azure Service Fabric kümesinde Service Fabric çalışma zamanının nasıl yükseltileceğini gösterir. Bu öğretici bölümü, Azure’da çalışan Service Fabric kümeleri için yazılmıştır ve tek başına Service Fabric kümeleri için geçerli değildir.
 
 > [!WARNING]
-> Öğreticinin bu bölümü, PowerShell gerektiriyor. Küme çalışma zamanı yükseltme desteği Azure CLI araçları tarafından henüz desteklenmiyor. Alternatif olarak, bir küme portalda yükseltilebilir. Daha fazla bilgi için bkz: [Azure Service Fabric kümesi yükseltme](service-fabric-cluster-upgrade.md).
+> Öğreticinin bu bölümü PowerShell gerektirir. Henüz Azure CLI araçları tarafından küme çalışma zamanını yükseltme desteği sağlanmamaktadır. Alternatif olarak, kümeler portalda da yükseltilebilir. Daha fazla bilgi için bkz. [Bir Azure Service Fabric kümesini yükseltme](service-fabric-cluster-upgrade.md).
 
-Kümenizi en son Service Fabric çalışma zamanı zaten çalışıyorsa, bu adımı gerekmez. Ancak, bu makalede, Azure Service Fabric kümesi üzerinde desteklenen tüm çalışma zamanı yükleme için kullanılabilir.
+Kümeniz zaten en son Service Fabric çalışma zamanında çalışıyorsa bu adımı gerçekleştirmeniz gerekmez. Bununla birlikte, bir Azure Service Fabric kümesinde desteklenen herhangi bir çalışma zamanının yüklenmesi için bu makale kullanılabilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Küme sürümü okuyun
-> * Küme sürümü Ayarla
+> * Küme sürümünü okuma
+> * Küme sürümünü ayarlama
 
-Bu öğretici serisinde öğrenin nasıl yapılır:
+Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) bir şablonu kullanarak azure'da
-> * [Bir küme veya ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
-> * Yükseltme küme çalışma zamanı
-> * [API Management Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
+> * Şablon kullanarak Azure'da güvenli bir [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) oluşturma
+> * [Bir kümenin ölçeğini daraltma veya genişletme](service-fabric-tutorial-scale-cluster.md)
+> * Bir kümenin çalışma zamanını yükseltme
+> * [Service Fabric ile API Management dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce:
-- Bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Yükleme [Azure Powershell modülü sürümü 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) veya [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) Azure ile ilgili
-- Windows Küme dağıtırsanız, bir Windows geliştirme ortamını ayarlama. Yükleme [Visual Studio 2017](http://www.visualstudio.com) ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ve **.NET Core platformlar arası geliştirme**iş yükleri.  Daha sonra ayarlanmış bir [.NET geliştirme ortamı](service-fabric-get-started.md).
-- Linux kümesi dağıtırsanız, üzerinde bir Java geliştirme ortamını ayarlama [Linux](service-fabric-get-started-linux.md) veya [MacOS](service-fabric-get-started-mac.md).  Yükleme [doku CLI hizmet](service-fabric-cli.md). 
+- Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
+- [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ya da [Azure CLI 2.0](/cli/azure/install-azure-cli)'ı yükleme
+- Azure'da güvenli bir [Windows kümesi](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) oluşturma
+- Windows kümesi dağıtıyorsanız, bir Windows dağıtım ortamı ayarlayın. [Visual Studio 2017](http://www.visualstudio.com)'yi ve **Azure geliştirme**, **ASP.NET ve web geliştirme**, ayrıca **.NET Core çoklu platform geliştirme** iş yüklerini yükleyin.  Ardından bir [.NET dağıtım ortamı](service-fabric-get-started.md) ayarlayın.
+- Linux kümesi dağıtıyorsanız, [Linux](service-fabric-get-started-linux.md) veya [MacOS](service-fabric-get-started-mac.md) üzerinde bir Java dağıtım ortamı ayarlayın.  [Service Fabric CLI](service-fabric-cli.md)'yı yükleyin. 
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma
-Azure komutları çalıştırmadan önce Azure hesabınızda oturum açın, aboneliğinizi seçin.
+Azure komutlarını yürütmeden önce Azure hesabınızda oturum açıp aboneliğinizi seçin.
 
 ```powershell
 Login-AzureRmAccount
@@ -60,32 +60,32 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="get-the-runtime-version"></a>Çalışma zamanı sürümü Al
+## <a name="get-the-runtime-version"></a>Çalıştırma sürümünü alma
 
-Azure'a bağlandıktan sonra seçili abonelik Service Fabric kümesi içeren, Küme çalışma zamanı sürümü elde edebilirsiniz.
+Azure'a bağlanıp Service Fabric kümesini içeren aboneliği seçtiğinizde kümenin çalışma zamanı sürümünü öğrenebilirsiniz.
 
 ```powershell
 Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Veya yalnızca aşağıdakilerle aboneliğinizdeki tüm kümelerin listesini alın:
+Dilerseniz de aşağıdaki kodla aboneliğinizdeki tüm kümelerin listesini alabilirsiniz:
 
 ```powershell
 Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 ```
 
-Not **ClusterCodeVersion** değeri. Bu değer bir sonraki bölümde kullanılır.
+**ClusterCodeVersion** değerini not alın. Bu değer bir sonraki bölümde kullanılacaktır.
 
-## <a name="upgrade-the-runtime"></a>Yükseltme çalışma zamanı
+## <a name="upgrade-the-runtime"></a>Çalışma zamanını yükseltme
 
-Değerini kullanmak **ClusterCodeVersion** ile önceki bölümdeki `Get-ServiceFabricRuntimeUpgradeVersion` hangi sürümlerinin yükseltmek kullanılabilir olduğunu öğrenmek için cmdlet. Bu cmdlet yalnızca internet'e bağlı bir bilgisayardan çalıştırabilirsiniz. Örneğin, yükseltme sürümünden hangi çalışma zamanı sürümlerini görmek istiyorsanız `5.7.198.9494`, aşağıdaki komutu kullanın:
+Hangi sürümlere yükseltebileceğinizi öğrenmek için `Get-ServiceFabricRuntimeUpgradeVersion` cmdlet’i ile bir önceki bölümdeki **ClusterCodeVersion** değerini kullanın. Bu cmdlet yalnızca İnternet'e bağlı bir bilgisayardan çalıştırılabilir. Örneğin, `5.7.198.9494` sürümünden hangi çalışma zamanı sürümlerine yükseltebileceğinizi görmek istiyorsanız aşağıdaki komutu kullanın:
 
 ```powershell
 Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 ```
 
-Sürümlerinin listesi ile daha yeni bir çalışma zamanı yükseltmek için Azure Service Fabric kümesi anlayabilirsiniz. Örneğin, varsa sürüm `6.0.219.9494` kümenizi yükseltmek için aşağıdaki komutu kullanın yükseltmek kullanılabilir.
+Sürüm listesiyle Azure Service Fabric kümesine daha yeni bir çalışma zamanına yükseltmesini söyleyebilirsiniz. Örneğin, `6.0.219.9494` sürümüne yükseltilebiliyorsa kümenizi yükseltmek için aşağıdaki komutu kullanın.
 
 ```powershell
 Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
@@ -95,11 +95,11 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 ```
 
 > [!IMPORTANT]
-> Küme çalışma zamanı yükseltme tamamlanması uzun sürebilir. Yükseltme çalışırken PowerShell engellendi. Yükseltme durumunu denetlemek için başka bir PowerShell oturumu kullanın.
+> Küme çalışma zamanını yükseltme işleminin tamamlanması uzun sürebilir. Yükseltme çalıştığı sırada PowerShell engellenir. Yükseltme durumunu denetlemek için başka bir PowerShell oturumu kullanabilirsiniz.
 
-Yükseltme durumu ya da PowerShell ile izlenebilir veya `sfctl` CLI.
+Yükseltme durumu PowerShell veya `sfctl` CLI ile izlenebilir.
 
-İlk öğreticinin ilk bölümünde oluşturulan SSL sertifikası ile kümeye bağlanın. Kullanım `Connect-ServiceFabricCluster` cmdlet'ini veya `sfctl cluster upgrade-status`.
+İlk olarak öğreticinin birinci bölümünde oluşturulan SSL sertifikası ile kümeye bağlanın. `Connect-ServiceFabricCluster` cmdlet’ini veya `sfctl cluster upgrade-status` komutunu kullanın.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
@@ -117,7 +117,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Ardından, kullanın `Get-ServiceFabricClusterUpgrade` veya `sfctl cluster upgrade-status` durumunu görüntülemek için. Aşağıdaki sonucu benzer bir şey gösterilir.
+Sonra durumu görüntülemek için `Get-ServiceFabricClusterUpgrade` veya `sfctl cluster upgrade-status` komutunu kullanın. Aşağıdakine benzer bir sonuç gösterilir.
 
 ```powershell
 Get-ServiceFabricClusterUpgrade
@@ -195,10 +195,10 @@ sfctl cluster upgrade-status
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Küme çalışma zamanı sürümünü edinin
-> * Yükseltme küme çalışma zamanı
-> * İzleyici yükseltme
+> * Küme çalışma zamanının sürümünü öğrenme
+> * Küme çalışma zamanını yükseltme
+> * Yükseltme işlemini izleme
 
-Ardından, API Management ile bir Service Fabric kümesi dağıtma hakkında bilgi edinmek için aşağıdaki öğreticiyi ilerleyin.
+Ardından, bir Service Fabric kümesi ile API Management dağıtmayı öğrenmek için aşağıdaki öğreticiye ilerleyin.
 > [!div class="nextstepaction"]
-> [API Management Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
+> [Service Fabric ile API Management dağıtma](service-fabric-tutorial-deploy-api-management.md)

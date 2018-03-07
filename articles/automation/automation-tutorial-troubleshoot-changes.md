@@ -5,15 +5,15 @@ services: automation
 keywords: "değişiklik, izleme, otomasyon"
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: MT
+ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Bir olay tetikleme
 > * Değişiklikleri görüntüleme
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -47,37 +47,19 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 Bu öğreticide ilk yapmanız gereken VM'inizde Değişiklik İzleme ve Stok özelliklerini etkinleştirmektir. Daha önce bu VM için başka bir otomasyon çözümünü etkinleştirdiyseniz bu adımı atlayabilirsiniz.
 
 1. Soldaki menüden **Sanal makineler**'i ve listedeki VM'lerden birini seçin
-1. Soldaki menünün **İşlemler** bölümünde **Stok**'a tıklayın. **Değişiklik İzlemeyi ve Stoku Etkinleştir** sayfası açılır.
+1. Soldaki menünün **İŞLEMLER** bölümünde **Stok**'a tıklayın. **Değişiklik izleme** sayfası açılır.
 
-Bu VM için Değişiklik İzlemeyi ve Stok özelliklerinin etkin olup olmadığını belirlemek için doğrulama gerçekleştirilir.
-Bu doğrulama kapsamında Log Analytics çalışma alanı ve bağlantılı Otomasyon hesabının yanı sıra çözümün çalışma alanında olup olmadığı kontrol edilir.
+![Değişikliği etkinleştir](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) ve **Değişiklik İzleme** ekranı açılır. Kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**'e tıklayın. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir.
 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) çalışma alanı, Stok gibi özellikler ve hizmetler tarafından oluşturulan verileri toplamak için kullanılır.
 Çalışma alanı, birden fazla kaynaktan alınan verilerin incelenip analiz edilebileceği ortak bir konum sağlar.
 
-Doğrulama işlemi ayrıca VM'nin Microsoft Monitoring Agent (MMA) ve karma çalışan ile sağlanıp sağlanmadığını da kontrol eder.
+Ekleme sırasında VM, Microsoft Monitoring Agent (MMA) ve karma çalışan ile sağlanır.
 Bu aracı, VM ile iletişim kurmak ve yüklü yazılım hakkında bilgi almak için kullanılır.
-Doğrulama işlemi ayrıca VM'nin Microsoft Monitoring Agent (MMA) ve Otomasyon karma runbook çalışanı ile sağlanıp sağlanmadığını da kontrol eder.
-
-Bu önkoşullar sağlanmadıysa, çözümü etkinleştirme seçeneği sunan bir başlık görüntülenir.
-
-![Değişiklik izleme ve Stok devreye alma yapılandırma başlığı](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-
-Çözümü etkinleştirmek için başlığa tıklayın.
-Doğrulama sonrasında aşağıdaki önkoşullardan birinin karşılanmadığı tespit edilirse ilgili önkoşul otomatik olarak eklenir:
-
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) çalışma alanı
-* [Otomasyon](./automation-offering-get-started.md)
-* VM üzerinde etkin bir [Karma runbook çalışanı](./automation-hybrid-runbook-worker.md)
-
-**Değişiklik İzleme ve Stok** ekranı açılır. Kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**'e tıklayın. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir.
-
-![Değişiklik izleme çözümünü etkinleştirme penceresi](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
 
 Çözümün etkinleştirilmesi 15 dakika sürebilir. Bu süre boyunca tarayıcı penceresini kapatmamanız gerekir.
 Çözüm etkinleştirildikten sonra VM üzerine yüklenen yazılımlar ve yapılan değişiklikler hakkında bilgiler Log Analytics'e aktarılır.
 Verilerin çözümlemeye hazır hale gelmesi 30 dakika ile 6 saat arasında sürebilir.
-
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Log Analytics'teki Değişiklik izleme özelliğini kullanma
 
@@ -107,40 +89,47 @@ Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek içi
 1. **Windows Kayıt Defteri** sekmesinde **Ekle**'yi seçin.
     **Değişiklik İzleme için Windows Kayıt Defteri Ekle** penceresi açılır.
 
-   ![Değişiklik İzleme için kayıt ekleme](./media/automation-vm-change-tracking/change-add-registry.png)
+3. **Değişiklik İzleme için Windows Kayıt Defteri ekleme** bölümünde izlenecek anahtar bilgisini girip **Kaydet**’e tıklayın
 
-2. **Etkin**'in altında **True**'yu seçin.
-3. **Öğe Adı** kutusuna kolay ad girin.
-4. (İsteğe bağlı) **Grup** kutusuna bir grup adı girin.
-5. **Windows Kayıt Defteri Anahtarı** kutusuna izlemek istediğiniz kayıt defteri anahtarının adını girin.
-6. **Kaydet**’i seçin.
+|Özellik  |Açıklama  |
+|---------|---------|
+|Etkin     | Ayarın uygulanmış olup olmadığını belirler        |
+|Öğe Adı     | İzlenecek dosyanın kolay adı        |
+|Grup     | Dosyaları mantıksal bir biçimde gruplandırmaya yönelik grup adı        |
+|Windows Kayıt Defteri Anahtarı   | Dosyanın denetleneceği yol. Örneğin: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Windows dosyası ekleme
 
 1. **Windows Dosyaları** sekmesinde **Ekle**'yi seçin. **Değişiklik İzleme için Windows Dosyası Ekle** penceresi açılır.
 
-   ![Değişiklik İzleme için Windows dosyası ekleme](./media/automation-vm-change-tracking/change-add-win-file.png)
+1. **Değişiklik İzleme için Windows Dosyası ekleme** bölümünde izlenecek dosya veya dizin bilgisini girip **Kaydet**’e tıklayın
 
-2. **Etkin**'in altında **True**'yu seçin.
-3. **Öğe Adı** kutusuna kolay ad girin.
-4. (İsteğe bağlı) **Grup** kutusuna bir grup adı girin.
-5. **Yolu Girin** kutusuna izlemek istediğiniz dosyanın tam yolunu ve adını girin.
-6. **Kaydet**’i seçin.
+|Özellik  |Açıklama  |
+|---------|---------|
+|Etkin     | Ayarın uygulanmış olup olmadığını belirler        |
+|Öğe Adı     | İzlenecek dosyanın kolay adı        |
+|Grup     | Dosyaları mantıksal bir biçimde gruplandırmaya yönelik grup adı        |
+|Yolu girin     | Dosyanın denetleneceği yol. Örneğin: “c:\temp\myfile.txt”       |
 
 ### <a name="add-a-linux-file"></a>Linux dosyası ekleme
 
 1. **Linux Dosyaları** sekmesinde **Ekle**'yi seçin. **Değişiklik İzleme için Linux Dosyası Ekle** penceresi açılır.
 
-   ![Değişiklik İzleme için Linux dosyası ekleme](./media/automation-vm-change-tracking/change-add-linux-file.png)
+1. **Değişiklik İzleme için Linux Dosyası ekleme** bölümünde izlenecek dosya veya dizin bilgisini girip **Kaydet**’e tıklayın
 
-2. **Etkin**'in altında **True**'yu seçin.
-3. **Öğe Adı** kutusuna kolay ad girin.
-4. (İsteğe bağlı) **Grup** kutusuna bir grup adı girin.
-5. **Yolu Girin** kutusuna izlemek istediğiniz dosyanın tam yolunu ve adını girin.
-6. **Yol Türü** kutusunda **Dosya** veya **Dizin**'i seçin.
-7. **Özyineleme** bölümünde belirtilen yol ve altındaki tüm yollarda yapılan değişiklikleri izlemek için **Açık** seçeneğini belirleyin. Yalnızca seçilen yolu veya dosyayı izlemek için **Kapalı**'yı seçin.
-8. **Sudo Kullan** bölümünde erişim için `sudo` komutunun kullanılmasını gerektiren dosyaları izlemek istiyorsanız **Açık** seçeneğini belirleyin. İstemiyorsanız **Kapalı**'yı seçin.
-9. **Kaydet**’i seçin.
+|Özellik  |Açıklama  |
+|---------|---------|
+|Etkin     | Ayarın uygulanmış olup olmadığını belirler        |
+|Öğe Adı     | İzlenecek dosyanın kolay adı        |
+|Grup     | Dosyaları mantıksal bir biçimde gruplandırmaya yönelik grup adı        |
+|Yolu Gir     | Dosyanın denetleneceği yol. Örneğin: “/etc/*.conf”       |
+|Yol Türü     | İzlenecek öğenin türü için olası değerler: Dosya ve Dizin        |
+|Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
+|Sudo Kullan     | Bu ayar, öğe denetlenirken sudonun kullanılıp kullanılmadığını belirler.         |
+|Bağlantılar     | Bu ayar, dizinleri dolaşırken sembolik bağlantıların nasıl ele alındığını belirler.<br> **Yoksay** - Sembolik bağlantıları yoksayar ve başvurulan dosyaları veya dizinleri içermez<br>**İzle** - Özyineleme sırasında sembolik bağlantıları izler ve başvurulan dosyaları veya dizinleri de içerir<br>**Yönet** - Sembolik bağlantıları izler ve döndürülen içeriğin işlenmesinde değişiklik yapılmasına olanak sağlar      |
+
+   > [!NOTE]   
+   > “Yönet” bağlantıları seçeneği önerilmez. Dosya içeriğini alma desteklenmiyor.
 
 ## <a name="enable-activity-log-connection"></a>Etkinlik günlüğü bağlantısını etkinleştirme
 
@@ -158,7 +147,7 @@ Değişiklik izleme ve Stok çözümünü etkinleştirdikten sonra sonuçları *
 
 VM'nizin içinde **İŞLEMLER** bölümünden **Değişiklik izleme**'yi seçin.
 
-![Değişikliklerin listesini VM'ye gösteren ekran görüntüsü](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Sanal makinede yapılan değişikliklerin listesini gösteren ekran görüntüsü](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 Grafik, zaman içinde gerçekleştirilen değişiklikleri gösterir.
 Etkinlik Günlüğü bağlantısı eklediğinizde en üstteki çizgi grafik Azure Etkinlik Günlüğü olaylarını görüntüler.
@@ -188,4 +177,4 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Daha fazla bilgi edinmek için Değişiklik izleme ve Stok çözümü özetine göz atın.
 
 > [!div class="nextstepaction"]
-> [Değişiklik yönetimi ve Stok çözümü](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Değişiklik yönetimi ve Stok çözümü](automation-change-tracking.md)

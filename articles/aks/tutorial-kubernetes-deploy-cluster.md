@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb8ad6d9defcbaef255065b20a9a9b542e74d73d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini dağıtma
 
@@ -30,10 +30,11 @@ Sonraki öğreticilerde, Azure Vote uygulaması kümeye dağıtılır, ölçekle
 
 Önceki öğreticilerde, bir kapsayıcı görüntüsü oluşturuldu ve Azure Container Registry örneğine yüklendi. Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app] konusuna dönün.
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Azure aboneliğiniz için AKS önizlemesini etkinleştirme
+## <a name="enable-aks-preview"></a>AKS önizlemesini etkinleştirme
+
 AKS önizlemedeyken, yeni kümeler oluşturmak aboneliğinizde özellik bayrağı olmasını gerektirir. Bu özelliği kullanmak istediğiniz herhangi bir sayıda abonelik için isteyebilirsiniz. AKS sağlayıcıyı kaydetmek için `az provider register` komutunu kullanın:
 
-```azurecli-interactive
+```azurecli
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -48,6 +49,59 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 Birkaç dakika sonra dağıtım tamamlanır ve AKS dağıtımı hakkında JSON tarafından biçimlendirilmiş bilgiler döndürür.
+
+```azurecli
+{
+  "additionalProperties": {},
+  "agentPoolProfiles": [
+    {
+      "additionalProperties": {},
+      "count": 1,
+      "dnsPrefix": null,
+      "fqdn": null,
+      "name": "nodepool1",
+      "osDiskSizeGb": null,
+      "osType": "Linux",
+      "ports": null,
+      "storageProfile": "ManagedDisks",
+      "vmSize": "Standard_DS1_v2",
+      "vnetSubnetId": null
+    }
+    ...
+```
+
+## <a name="getting-information-about-your-cluster"></a>Kümeniz hakkında bilgi alma
+
+Dağıtıldıktan sonra kümenizi sorgulamak ve önemli bilgileri almak için `az aks show` kullanabilirsiniz. Bu veriler, kümenizde daha karmaşık işlemler gerçekleştirirken bir parametre olarak kullanılabilir. Örneğin, kümenizde çalışan Linux profili hakkında bilgi edinmek istiyorsanız, aşağıdaki komutu çalıştırabilirsiniz.
+
+```azurecli
+az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
+
+{
+  "additionalProperties": {},
+  "adminUsername": "azureuser",
+  "ssh": {
+    "additionalProperties": {},
+    "publicKeys": [
+      {
+        "additionalProperties": {},
+        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
+      }
+    ]
+  }
+}
+```
+
+Bu, yönetici kullanıcı ve SSH ortak anahtarlarınız hakkında bilgiler gösterir. Aşağıdaki gibi, sorgu dizenize JSON özellikleri ekleyerek daha ayrıntılı sorgular çalıştırabilirsiniz.
+
+```azurecli
+az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
+{
+  "name": "nodepool1",
+  "nodeCount": 1
+}
+```
+Bu, dağıtılan kümeniz hakkındaki verilere hızlıca erişmek için yararlı olabilir. JMESPath sorguları hakkında daha fazla bilgiyi [burada](http://jmespath.org/tutorial.html) bulabilirsiniz.
 
 ## <a name="install-the-kubectl-cli"></a>kubectl CLI yükleme
 
@@ -77,10 +131,32 @@ kubectl get nodes
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 ```
 
 Öğretici tamamlandığında, iş yüklerine hazır bir AKS kümesine sahip olursunuz. Sonraki öğreticilerde bu kümeye birden çok kapsayıcılı uygulama dağıtılır, ölçeklendirilir, güncelleştirilir ve izlenir.
+
+## <a name="configure-acr-authentication"></a>ACR kimlik doğrulamasını yapılandırma
+
+Kimlik doğrulama işleminin AKS kümesi ve ACR kayıt defteri arasında yapılandırılması gerekir. Bu, ACR kayıt defterinden görüntüleri çekmek için ACS kimliğindeki uygun hakları sağlamayı içerir.
+
+İlk olarak, AKS için yapılandırılmış hizmet sorumlusu kimliğini alın. Kaynak grubunun ve AKS kümesinin adını, ortamınızla eşleşecek şekilde güncelleştirin.
+
+```azurecli
+$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+```
+
+ACR kayıt defteri kaynak kimliğini alın. Kayıt defteri adını, ACR kayıt defterinizin adıyla, kaynak grubu adını da ACR kayıt defterinin bulunduğu konumla güncelleştirin.
+
+```azurecli
+$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+```
+
+Uygun erişimi sağlayan rol atamasını oluşturun.
+
+```azurecli
+az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
