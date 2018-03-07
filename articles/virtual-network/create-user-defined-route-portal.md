@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Azure portalında bir kullanıcı tarafından tanımlanan rota - oluşturun
 
@@ -32,7 +32,7 @@ Bu öğreticide, bir sanal ağ genel, özel ve DMZ alt ağlar, aşağıdaki resi
 
 ![Kullanıcı tanımlı yollar](./media/create-user-defined-route/user-defined-routes.png)
 
-Bu makale, bir kullanıcı tarafından tanımlanan rota kullanıcı tanımlı yollar oluştururken kullanmanızı öneririz dağıtım modeli Resource Manager dağıtım modeli üzerinden oluşturmak için adımları sağlar. Bir kullanıcı tarafından tanımlanan rota (Klasik) oluşturmak ihtiyacınız varsa bkz [bir kullanıcı tarafından tanımlanan rota (Klasik) oluşturmak](virtual-network-create-udr-classic-ps.md). Azure'nın dağıtım modeliyle bilmiyorsanız bkz [anlamak Azure dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz: [kullanıcı tanımlı yollar genel bakış](virtual-networks-udr-overview.md#user-defined).
+Bu makale, bir kullanıcı tarafından tanımlanan rota kullanıcı tanımlı yollar oluştururken kullanmanızı öneririz dağıtım modeli Resource Manager dağıtım modeli üzerinden oluşturmak için adımları sağlar. Bir kullanıcı tarafından tanımlanan rota (Klasik) oluşturmak ihtiyacınız varsa bkz [bir kullanıcı tarafından tanımlanan rota (Klasik) oluşturmak](virtual-network-create-udr-classic-ps.md). Azure'nın dağıtım modeliyle bilmiyorsanız bkz [anlamak Azure dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz. [Kullanıcı tanımlı yollara genel bakış](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Yollar ve ağ sanal uygulaması oluşturma
 
@@ -63,7 +63,7 @@ Bu makale, bir kullanıcı tarafından tanımlanan rota kullanıcı tanımlı yo
 
         |Ayar|Değer|
         |---|---|
-        |Ad|myVm Nva|
+        |Ad|myVm-Nva|
         |Kullanıcı adı|azureuser|
         |Parola ve parolayı onayla|Seçtiğiniz bir parola|
         |Abonelik|Aboneliğinizi seçin|
@@ -82,7 +82,7 @@ Bu makale, bir kullanıcı tarafından tanımlanan rota kullanıcı tanımlı yo
     - Üzerinde **arama kaynakları** kutusuna sayfanın en üstünde *myVm Nva*.
     - Tıklatın **myVm Nva** arama sonuçlarında görüntülendiğinde.
     - Tıklatın **ağ** altında **ayarları** sol tarafındaki.
-    - Ağ arabirimi altında adına tıklayın **myVm-Nva - ağ arabirimleri**. Ad **myvm nva***X*, burada *X* portal tarafından atanan bir sayıdır.
+    - Ağ arabirimi altında adına tıklayın **myVm-Nva - ağ arabirimleri**. Adı **myvm nva *** X*, burada *X* portal tarafından atanan bir sayıdır.
     - Tıklatın **IP yapılandırmaları** altında **ayarları** aşağıdaki resimde gösterildiği gibi ağ arabirimi için:
 
         ![Ağ arabirimi ayarları](./media/create-user-defined-route/network-interface-settings.png)
@@ -102,7 +102,7 @@ Bu makale, bir kullanıcı tarafından tanımlanan rota kullanıcı tanımlı yo
 
         |Ayar|Değer|
         |---|---|
-        |Ad|myRouteTable-genel|
+        |Ad|myRouteTable-Public|
         |Abonelik|Aboneliğinizi seçin|
         |Kaynak grubu|Seçin **var olanı kullan**seçeneğini belirleyip **myResourceGroup**|
         |Konum|Doğu ABD|

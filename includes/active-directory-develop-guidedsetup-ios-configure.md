@@ -11,7 +11,7 @@ Uygulamanızı kaydetmeniz gerekir artık *Microsoft uygulama kayıt portalı*:
 1.  Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app)
 2.  Uygulamanız ve e-posta için bir ad girin
 3.  Destekli kurulumu için seçeneğinin işaretli olduğundan emin olun
-4.  Tıklatın `Add Platform`seçeneğini belirleyip `Native Application` ve'ı tıklatın`Save`
+4.  Tıklatın `Add Platform`seçeneğini belirleyip `Native Application` ve'ı tıklatın `Save`
 5.  Xcode için geri dönün. İçinde `ViewController.swift`, ile başlayan satırı Değiştir '`let kClientID`' yalnızca kayıtlı uygulama kimliği:
 
 ```swift
@@ -21,7 +21,7 @@ let kClientID = "Your_Application_Id_Here"
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-Control + tıklatın <code>Info.plist</code> bağlam menüsünü açmak ve ardından: <code>Open As</code>> <code>Source Code</code>
+Control + tıklatın <code>Info.plist</code> bağlam menüsünü açmak ve ardından: <code>Open As</code> > <code>Source Code</code>
 </li>
 <li>
 Altında <code>dict</code> kök düğümü, aşağıdakileri ekleyin:

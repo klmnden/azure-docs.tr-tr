@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
 ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Azure IOT kenar OPC yayımcısı
 
@@ -131,9 +131,9 @@ Uygulamanın tam kullanımını görmek için `--help` komut satırı seçeneği
 OpcPublisher.exe <applicationname> [<IoT Hubconnectionstring>] [<options>]
 ```
 
-`applicationname`kullanılacak OPC UA uygulama adıdır. Bu parametre gereklidir. Uygulama adı, yayımcı IOT Hub cihaz kayıt defterinde kaydetmek için de kullanılır.
+`applicationname` kullanılacak OPC UA uygulama adıdır. Bu parametre gereklidir. Uygulama adı, yayımcı IOT Hub cihaz kayıt defterinde kaydetmek için de kullanılır.
 
-`IoT Hubconnectionstring`IOT hub'ı sahibi bağlantı dizesidir. Bu parametre isteğe bağlıdır.
+`IoT Hubconnectionstring` IOT hub'ı sahibi bağlantı dizesidir. Bu parametre isteğe bağlıdır.
 
 Aşağıdaki seçenekleri desteklenir:
 

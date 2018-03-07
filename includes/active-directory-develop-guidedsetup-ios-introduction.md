@@ -5,7 +5,7 @@ Bu kılavuz, bir yerel iOS uygulaması (Swift) Microsoft Azure Active Directory 
 
 Bu kılavuz sonraki alıştırmalarda tamamladıktan sonra uygulamanız herhangi bir şirket veya Azure AD sahip kuruluş korumalı bir API çağırabilir. Uygulamanızı korumalı API çağrıları, outlook.com, live.com ve diğerleri gibi kişisel hesapları gibi iş veya Okul hesaplarını kullanarak yapabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - XCode sürüm bu kılavuzda oluşturulan örnek 8.x gereklidir. XCode gelen indirebilirsiniz [iTunes Web sitesi](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode yükleme URL'si").
 - [Carthage](https://github.com/Carthage/Carthage) bağımlılık Yöneticisi paket yönetimi için gereklidir.
 
