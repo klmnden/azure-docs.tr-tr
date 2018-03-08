@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: ad022eb8d3a0a22e679962d75c05eed799976ece
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: cba1e58478f4bbdffb61566e53aa0b86138b7fc6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Azure Media Services için Java istemci SDK’sı kullanmaya başlama
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -66,6 +66,7 @@ Bir Azure AD uygulaması oluşturabilir ve Azure portalından önceki yapıland�
 
 Kod ayrıca yerel olarak saklanan bir video dosyası kullanır. Karşıya yüklemek için kendi yerel dosyanızı sağlamak üzere kodu düzenlemeniz gerekir.
 
+```java
     import java.io.*;
     import java.net.URI;
     import java.security.NoSuchAlgorithmException;
@@ -298,7 +299,7 @@ Kod ayrıca yerel olarak saklanan bir video dosyası kullanır. Karşıya yükle
             }
         }
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
