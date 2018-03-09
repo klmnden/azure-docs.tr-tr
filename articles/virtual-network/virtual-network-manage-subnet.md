@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8b60a27e760ae74c7f068844fad1ae0d4324366
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 27918e1d0b335613ea578a815fb3ae00df73ebaa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ekleme, değiştirme veya bir sanal ağ alt ağı silme
 
@@ -44,7 +44,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
     - **Ad**: ad sanal ağ içinde benzersiz olmalıdır.
     - **Adres aralığı**: aralık sanal ağın adres alanı içinde benzersiz olmalıdır. Aralık, diğer sanal ağ içinde alt ağ adres aralığı ile örtüşemez. Adres alanı, sınıfsız etki alanları arası yönlendirme (CIDR) gösterimini kullanarak belirtilmelidir. Örneğin, bir sanal ağda adres alanı 10.0.0.0/16, 10.0.0.0/24 alt ağ adres alanının tanımlayabilirsiniz. Belirleyebileceğiniz en küçük /29, alt ağ için sekiz IP adreslerini sağlayan aralıktır. Azure her alt ağ protokolü uyumluluğu için ilk ve son adresi ayırır. Üç ek adresleri Azure hizmetinin kullanım için ayrılmıştır. Sonuç olarak, bir alt ağ/29 ile tanımlama adres alt ağda üç kullanılabilir IP adresleri aralığı sonuçlanır. Bir sanal ağ VPN ağ geçidi bağlanmak istiyorsanız, bir ağ geçidi alt ağı oluşturmanız gerekir. Daha fazla bilgi edinmek [ağ geçidi alt ağları için belirli bir adresi aralığı konuları](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Alt ağ, belirli koşullar altında ekledikten sonra adres aralığını değiştirebilirsiniz. Bir alt ağ adresi aralığını değiştirmek konusunda bilgi almak için bkz: [alt ağ ayarlarını değiştirme](#change-subnet-settings).
     - **Ağ güvenlik grubu**: sıfır veya bir alt ağ için gelen ve giden ağ trafiğini filtrelemek için bir mevcut ağ güvenlik grubunun bir alt ağa ilişkilendirebilirsiniz. Ağ güvenlik grubu aynı abonelikte ve konumda sanal ağ mevcut olmalıdır. Daha fazla bilgi edinmek [ağ güvenlik grubu](security-overview.md) ve [bir ağ güvenlik grubu oluşturmak nasıl](virtual-networks-create-nsg-arm-pportal.md).
-    - **Yol tablosu**: ağ trafiği diğer ağlara yönlendirme denetlemek için bir alt ağa sıfır veya bir varolan yol tablosu ilişkilendirebilirsiniz. Yol tablosu, aynı abonelikte ve konumda sanal ağ içinde bulunmalıdır. Daha fazla bilgi edinmek [Azure yönlendirme](virtual-networks-udr-overview.md) ve [bir yol tablosu oluşturma](create-user-defined-route-portal.md)
+    - **Yol tablosu**: ağ trafiği diğer ağlara yönlendirme denetlemek için bir alt ağa sıfır veya bir varolan yol tablosu ilişkilendirebilirsiniz. Yol tablosu, aynı abonelikte ve konumda sanal ağ içinde bulunmalıdır. Daha fazla bilgi edinmek [Azure yönlendirme](virtual-networks-udr-overview.md) ve [bir yol tablosu oluşturma](tutorial-create-route-table-portal.md)
     - **Hizmet uç noktaları:** bir alt ağ için etkin sıfır veya birden çok hizmet uç noktalarına sahip olabilir. Bir hizmet için bir hizmet uç noktası etkinleştirmek için hizmet veya hizmet uç noktalarından etkinleştirmek istediğiniz hizmetleri seçin **Hizmetleri** listesi. Hizmet uç noktası kaldırmak için hizmet uç noktası için kaldırmak istediğiniz hizmet seçimini kaldırın. Hizmet uç noktaları hakkında daha fazla bilgi için bkz: [sanal ağ hizmet uç noktaları genel bakış](virtual-network-service-endpoints-overview.md). Hizmet uç noktası bir hizmet için etkinleştirdikten sonra hizmet ile oluşturulan bir kaynak için alt ağ için ağ erişimini etkinleştirmeniz gerekir. Örneğin, hizmet uç noktası için etkinleştirirseniz *Microsoft.Storage*, ağ erişimi vermek istediğiniz tüm Azure depolama hesapları ağ erişimini etkinleştirmeniz gerekir. Hizmet uç noktası için etkin bir alt ağ erişiminin nasıl etkinleştirileceği hakkında daha fazla ayrıntı için hizmet uç noktası için etkin bireysel hizmet belgelerine bakın.
 6. Seçtiğiniz sanal ağ alt ağı eklemek için seçin **Tamam**.
 

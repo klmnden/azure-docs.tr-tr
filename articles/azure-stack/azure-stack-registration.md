@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d5b77bb43c48bd286708ca96699b20be0f761baa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb9575cb7bb3d8d3f3a18a1f5577ff0330bda24c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure ile Azure yığın kaydedin
 Market öğesi Azure'dan karşıdan yüklemek ve ticari veri geri Microsoft'a raporlama ayarlamak için Azure ile Azure yığın kaydedebilirsiniz. Azure yığın kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz.
@@ -54,6 +54,7 @@ Azure yığın araçları GitHub deposunu Azure yığın işlevselliğini destek
 cd \
 
 # Download the tools archive.
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -167,7 +168,7 @@ Register-AzsEnvironment -RegistrationToken $registrationToken
 
 ## <a name="verify-azure-stack-registration"></a>Azure yığın kayıt doğrulayın
 Azure yığın Azure ile başarılı bir şekilde kaydettirildi doğrulamak için aşağıdaki adımları kullanın.
-1. Azure yığına oturum [Yönetici portalı](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https &#58; / / adminportal. *&lt;bölge >. &lt;fqdn >*.
+1. Azure yığına oturum [Yönetici portalı](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;bölge >. &lt;fqdn >*.
 2. Tıklatın **daha fazla hizmet** > **Market Yönetim** > **Azure'dan eklemek**.
 
 Bir öğe (örneğin, WordPress) azure'dan kullanılabilir listesi görürseniz, etkinleştirme başarılı oldu.

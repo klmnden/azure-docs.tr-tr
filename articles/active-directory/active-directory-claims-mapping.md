@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) eşleme talepleri
 
@@ -30,7 +30,7 @@ Bu özellik, kendi Kiracı içinde belirli bir uygulamayı belirteçlerinde gös
 - Seçin veya belirli Taleplerde yayılan veri kaynağı olarak değiştirin.
 
 >[!NOTE]
->Bu özellik şu anda genel önizlemede değil. Geri veya herhangi bir değişiklik kaldırmak hazırlıklı olun. Genel Önizleme sırasında herhangi bir Azure Active Directory (Azure AD) Abonelik özelliği kullanılabilir. Ancak, özelliği genel kullanıma sunulduğunda özelliği bazı yönlerini bir Azure Active Directory premium aboneliği gerektirebilir.
+>Bu özellik şu anda genel önizlemede değil. Geri veya herhangi bir değişiklik kaldırmak hazırlıklı olun. Genel Önizleme sırasında herhangi bir Azure Active Directory (Azure AD) Abonelik özelliği kullanılabilir. Ancak, özelliği genel kullanıma sunulduğunda özelliği bazı yönlerini bir Azure Active Directory premium aboneliği gerektirebilir. Bu özellik, WS-Fed, SAML, OAuth ve Openıd Connect protokolleri yapılandırma talep eşleme ilkeleri destekler.
 
 ## <a name="claims-mapping-policy-type"></a>İlke türü eşleme talepleri
 Azure AD'de bir **İlkesi** nesnesi, tek tek uygulamalar veya bir kuruluştaki tüm uygulamaları zorlanan kurallar kümesini temsil eder. Her ilke türü bir benzersiz yapısıyla sonra atanmış olan nesnelere uygulanan özellikler kümesi vardır.
@@ -79,18 +79,18 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |azpacr|
 |c_hash|
 |ca_enf|
-|Cc|
+|cc|
 |cert_token_use|
 |client_id|
 |cloud_graph_host_name|
 |cloud_instance_name|
 |cnf|
-|Kod|
+|kod|
 |denetimler|
 |credential_keys|
-|CSR|
+|csr|
 |csr_type|
-|cihaz kimliği|
+|deviceid|
 |dns_names|
 |domain_dns_name|
 |domain_netbios_name|
@@ -107,19 +107,19 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |hasgroups|
 |hash_alg|
 |home_oid|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/AuthenticationMethod|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/Expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/Expired|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/emailaddress|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/Name|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/nameidentifier|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
 |IAT|
-|ıdentityprovider|
-|IDP|
+|identityprovider|
+|idp|
 |in_corp|
 |örnek|
-|IpAddr|
+|ipaddr|
 |isbrowserhostedapp|
 |ISS|
 |jwk|
@@ -132,7 +132,7 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |nameid|
-|NBF|
+|nbf|
 |netbios_name|
 |nonce|
 |OID|
@@ -158,7 +158,7 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |rol|
 |roles|
 |Kapsam|
-|SCP|
+|scp|
 |SID|
 |İmza|
 |signin_state|
@@ -186,52 +186,52 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 #### <a name="table-2-security-assertion-markup-language-saml-restricted-claim-set"></a>Tablo 2: Güvenlik onaylama işlemi biçimlendirme dili (SAML) talep kümesi kısıtlanmış.
 |Talep türü (URI)|
 | ----- |
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/Expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/Expired|
-|http://schemas.microsoft.com/identity/Claims/accesstoken|
-|http://schemas.microsoft.com/identity/Claims/openid2_id|
-|http://schemas.microsoft.com/identity/Claims/identityprovider|
-|http://schemas.microsoft.com/identity/Claims/objectidentifier|
-|http://schemas.microsoft.com/identity/Claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/nameidentifier [MR1] |
-|http://schemas.microsoft.com/identity/Claims/tenantid|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/AuthenticationMethod|
-|http://schemas.microsoft.com/accesscontrolservice/2010/07/Claims/identityprovider|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/groups|
-|http://schemas.microsoft.com/Claims/Groups.Link|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/role|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/wids|
-|http://schemas.microsoft.com/2014/09/devicecontext/Claims/iscompliant|
-|http://schemas.microsoft.com/2014/02/devicecontext/Claims/isknown|
-|http://schemas.microsoft.com/2012/01/devicecontext/Claims/ismanaged|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
+|http://schemas.microsoft.com/identity/claims/accesstoken|
+|http://schemas.microsoft.com/identity/claims/openid2_id|
+|http://schemas.microsoft.com/identity/claims/identityprovider|
+|http://schemas.microsoft.com/identity/claims/objectidentifier|
+|http://schemas.microsoft.com/identity/claims/puid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier[MR1] |
+|http://schemas.microsoft.com/identity/claims/tenantid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
+|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
+|http://schemas.microsoft.com/claims/groups.link|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
+|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
+|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
+|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
 |http://schemas.microsoft.com/2014/03/psso|
-|http://schemas.microsoft.com/Claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/identity/Claims/Actor|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/samlissuername|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/confirmationkey|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/windowsaccountname|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/primarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/Authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/Sid|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/denyonlyprimarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/denyonlysid|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/denyonlywindowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/windowsdeviceclaim|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/windowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/windowsfqbnversion|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/windowssubauthority|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/UPN|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/groupsid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/SPN|
-|http://schemas.microsoft.com/ws/2008/06/identity/Claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/Claims/privatepersonalidentifier|
-|http://schemas.microsoft.com/identity/Claims/Scope|
+|http://schemas.microsoft.com/claims/authnmethodsreferences|
+|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
+|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
+|http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Talep eşleme ilkesi özellikleri
 Gelen verileri nerede kaynaklıdır ve hangi taleplerin yayılan Denetim İlkesi eşleme talep özelliklerini kullanın. Hiçbir ilke ayarlanırsa, sistem çekirdek talep kümesi, temel talep kümesi ve uygulama almak için seçtiği isteğe bağlı talepleri içeren belirteçleri.
@@ -283,7 +283,7 @@ ID öğesi, kaynak bilgisayarda hangi özelliğinin değeri için talep sağlar 
 |Kaynak|Kimlik|Açıklama|
 |-----|-----|-----|
 |Kullanıcı|Soyadı|Aile adı|
-|Kullanıcı|givenName|Ad|
+|Kullanıcı|givenName|Verilen Ad|
 |Kullanıcı|görünen adı|Görünen Ad|
 |Kullanıcı|objectID|ObjectID|
 |Kullanıcı|Posta|E-posta adresi|
@@ -291,12 +291,12 @@ ID öğesi, kaynak bilgisayarda hangi özelliğinin değeri için talep sağlar 
 |Kullanıcı|Bölüm|Bölüm|
 |Kullanıcı|onpremisessamaccountname|Şirket içi Sam hesap adı|
 |Kullanıcı|netbiosname|NetBIOS adı|
-|Kullanıcı|DNSEtkiAlanıAdı|DNS etki alanı adı|
+|Kullanıcı|dnsdomainname|DNS etki alanı adı|
 |Kullanıcı|onpremisesecurityidentifier|Şirket içi güvenlik tanımlayıcısı|
 |Kullanıcı|Şirket adı|Kuruluş Adı|
 |Kullanıcı|streetAddress|Posta Adresi|
 |Kullanıcı|posta kodu|Posta Kodu|
-|Kullanıcı|preferredlanguange|Tercih Edilen Dil|
+|Kullanıcı|preferredlanguange|Tercih edilen dili|
 |Kullanıcı|onpremisesuserprincipalname|Şirket içi UPN|
 |Kullanıcı|mailnickname|Posta takma adı|
 |Kullanıcı|extensionattribute1|1 uzantısı özniteliği|
@@ -318,7 +318,7 @@ ID öğesi, kaynak bilgisayarda hangi özelliğinin değeri için talep sağlar 
 |Kullanıcı|Ülke|Ülke|
 |Kullanıcı|city|Şehir|
 |Kullanıcı|durum|Durum|
-|Kullanıcı|İş Unvanı|İş Unvanı|
+|Kullanıcı|jobtitle|İş Unvanı|
 |Kullanıcı|EmployeeID|Çalışan Kimliği|
 |Kullanıcı|facsimiletelephonenumber|Faks telefon numarası|
 |Uygulama, kaynak, hedef kitle|görünen adı|Görünen Ad|

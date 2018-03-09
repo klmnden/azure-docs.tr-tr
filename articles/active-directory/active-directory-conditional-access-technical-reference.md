@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66e3207898d6ad8ca9af2b969942e38321c191a5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -137,8 +137,11 @@ Bu ayarı tüm tarayıcılarla çalışır. Ancak, bir uyumlu aygıt gereksinim 
 
 
 > [!NOTE]
-> Chrome desteği, Windows 10 oluşturucuları güncelleştirme (sürüm 1703) kullanmanız gerekir ya da daha sonra.<br>
-> Yükleyebileceğiniz [bu uzantı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+> Chrome desteği Windows 10 oluşturucuları güncelleştirme (sürüm 1703) veya daha sonra yükleme [bu uzantı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).<br>
+> Windows 8.1 ve 7 Chrome desteği için aşağıdaki kayıt defteri anahtarında oluşturma **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls** <br>
+> Ad: 1<br>
+> Tür: REG_SZ (dize)<br>
+> Data: {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
 
 Bu tarayıcılar tanımlanması ve bir ilke karşı doğrulanmış olanak tanır cihaz kimlik doğrulamasını destekler. Tarayıcı özel modda çalışıyorsa, aygıt denetimi başarısız olur. 
 

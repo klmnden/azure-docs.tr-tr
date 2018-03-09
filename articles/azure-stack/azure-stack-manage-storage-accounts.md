@@ -3,7 +3,7 @@ title: "Azure yığın depolama hesaplarını yönetme | Microsoft Docs"
 description: "Bulma, yönetme, kurtarmak ve Azure yığın depolama hesapları geri hakkında bilgi edinin"
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/6/2017
-ms.author: brenduns
+ms.date: 02/22/2018
+ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 3ef9a66095d0ed5fc865dc3c22961f9f7bdcedd9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Depolama hesaplarını Azure yığınında yönetme
 Azure bulmak, kurtarmak ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak için yığın depolama hesaplarında yönetmeyi öğrenin.
@@ -29,13 +29,13 @@ Bölgede depolama hesaplarının listesini Azure yığını tarafından görünt
 
 1. Bir Internet tarayıcısında için https://adminportal.local.azurestack.external gidin.
 2. Bir bulut işleci (dağıtım sırasında sağladığınız kimlik bilgilerini kullanarak) olarak Azure yığın yönetim portalında oturum açın
-3. Varsayılan Panoda – Bul **bölge Yönetimi** listelemek ve keşfetmek istediğiniz bölgesini'ı tıklatın. Örneğin **(yerel**).
+3. Varsayılan Panoda – Bul **bölge Yönetimi** listesinde ve örneğin keşfetmek istediğiniz bölgeyi tıklatın **(yerel**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Şimdi, depolama kaynak sağlayıcısı yönetici dikey penceresini – aşağı kaydırarak **depolama hesapları** sekmesinde ve tıklatın.
+5. Aşağı kaydırın depolama kaynak sağlayıcısı yönetici bölmesinde – şimdi **depolama hesapları** sekmesinde ve tıklatın.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
@@ -52,34 +52,34 @@ Bir depolama hesabında – ilgileniyorsanız yapabilecekleriniz **filtre ve ilg
 
 **Hesapları için filtre uygulamak için:**
 
-1. Tıklatın **filtre** dikey pencerenin üstündeki.
-2. Filtre dikey penceresinde, belirtmenize olanak tanır **hesap adı**, **abonelik kimliği** veya **durum** görüntülenecek depolama hesaplarının listesini ince ayar yapmak için. Bunları uygun şekilde kullanın.
+1. Tıklatın **filtre** bölmesinin üstünde.
+2. Filtre bölmesinde belirtmenizi sağlar **hesap adı**, ** abonelik kimliği veya **durum** görüntülenecek depolama hesaplarının listesini ince ayar yapmak için. Bunları uygun şekilde kullanın.
 3. Tıklatın **güncelleştirme**. Listeden uygun şekilde yenilemeniz gerekir.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
 4. Filtreyi sıfırlamak için: tıklatın **filtre**, seçimlerini temizlemek ve güncelleştirme.
 
-Arama metin kutusuna (üst kısmında depolama hesapları listesi dikey) hesaplar listesinde seçili metni vurgulama olanak sağlar. Tam adı veya kimliği kolayca kullanılabilir olmadığında bu durumda gerçekten kullanışlıdır.
+Arama metin kutusuna (üst kısmında depolama hesapları liste bölmesinde) hesaplar listesinde seçili metni vurgulama olanak sağlar. Tam adı veya kimliği kolayca kullanılabilir olmadığında bunu kullanabilirsiniz.
 
 Burada serbest metin ilgilendiğiniz hesabını bulmak amacıyla kullanabilirsiniz.
 
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Hesap ayrıntılarını inceleyin
-Görüntüleme ilgilendiğiniz hesapları bulduktan sonra bazı ayrıntıları görüntülemek için belirli hesap tıklatabilirsiniz. Hesabı ayrıntıları gibi yeni bir dikey pencere açılır: hesap, oluşturulma zamanı, konum vb. türü.
+Görüntüleme ilgilendiğiniz hesapları bulduktan sonra bazı ayrıntıları görüntülemek için belirli hesap tıklatabilirsiniz. Yeni bir bölme hesabı ayrıntıları gibi açılır: hesap, oluşturulma zamanı, konum vb. türü.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
 ## <a name="recover-a-deleted-account"></a>Silinmiş bir hesabı Kurtar
 Burada, silinmiş bir hesabı kurtarmanız gereken bir durumda olabilir.
 
-Azure yığınında Bunu yapmak için çok basit bir yolu yoktur:
+Azure yığınında Bunu yapmak için basit bir yol vardır:
 
 1. Depolama hesapları listesine göz atın. Bkz: [bir depolama hesabını bulmak](#find) daha fazla bilgi için bu konudaki.
 2. Belirli bir hesabındaki listesinde bulun. Filtre gerekebilir.
 3. Denetleme *durumu* hesabı. Yazması gerekir **silinmiş**.
-4. Hesap Ayrıntılar dikey penceresini açan hesabı'nı tıklatın.
-5. Bu dikey pencerenin en üstünde bulun **kurtarmak** düğmesine tıklayın ve tıklatın.
+4. Hesap ayrıntıları bölmesi açılır hesabı'nı tıklatın.
+5. Bu bölme üstünde bulun **kurtarmak** düğmesine tıklayın ve tıklatın.
 6. Onaylamak için **Evet**’e tıklayın.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
@@ -93,10 +93,10 @@ Azure yığınında Bunu yapmak için çok basit bir yolu yoktur:
 ### <a name="some-gotchas"></a>Bazı FRİKİKLERİNDEN
 * Silinen hesabınız olarak durumunu gösterir **bekletme dışında**.
   
-  Bunun anlamı silinen hesabın bekletme süresini aştı ve kurtarılabilir durumda olmayabilir.
+  Dışında tutma anlamına gelir, silinen hesabın bekletme süresini aştı ve olmayabilir kurtarılabilir.
 * Silinen hesabınızı hesaplar listesinde göstermez.
   
-  Bu, silinen hesap toplanacak zaten yapıldı anlamına gelebilir. Bu durumda kurtarılamıyor. Bkz: [geri kapasite](#reclaim) bu konuda.
+  Çöp toplama silinen hesabın zaten olduğunda, hesap hesap listesinden göstermeyebilir. Bu durumda, kurtarılamaz. Bkz: [geri kapasite](#reclaim) bu konuda.
 
 ## <a name="set-the-retention-period"></a>Bekletme süresini ayarlama
 Saklama dönemi ayarı sırasında olası tüm silinen hesabın kurtarılabilir gün içinde (0 ve 9999 gün arasında) bir süre belirtmek bir bulut operatörü sağlar. Varsayılan saklama dönemi 15 gün olarak ayarlanır. Değer, silinen tüm hesap hemen dışında tutma olduğu ve düzenli atık toplama için işaretlenmiş "0" anlamına gelir için ayarlama.
@@ -107,7 +107,7 @@ Saklama dönemi ayarı sırasında olası tüm silinen hesabın kurtarılabilir 
 2. Bir bulut işleci (dağıtım sırasında sağladığınız kimlik bilgilerini kullanarak) olarak Azure yığın yönetim portalında oturum açın
 3. Varsayılan Panoda – Bul **bölge Yönetimi** listesinde ve – örneğin keşfetmek istediğiniz bölgeyi tıklatın **(yerel**).
 4. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.
-5. Tıklatın **ayarları** üst ayar dikey penceresini açın.
+5. Tıklatın **ayarları** ayarı bölmesini açmak için üstünde.
 6. Tıklatın **yapılandırma** saklama dönemi değerini düzenleyin.
 
    Gün sayısını ayarlayın ve sonra kaydedin.
@@ -122,8 +122,8 @@ Bir bekletme dönemi yan etkileri silinmiş bir hesabı dışında tutma süresi
 Kapasite portal veya PowerShell kullanarak geri kazanabilirsiniz.
 
 **Portalı kullanarak kapasiteyi geri kazanmak için:**
-1. Depolama hesapları dikey penceresine gidin. Bkz: [bir depolama hesabını bulmak](#find).
-2. Tıklatın **geri alanı** dikey pencerenin üstündeki.
+1. Depolama hesapları bölmesine gidin. Bkz: [bir depolama hesabını bulmak](#find).
+2. Tıklatın **geri alanı** bölmesinin üstünde.
 3. İletisini okuyun ve ardından **Tamam**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
@@ -148,11 +148,11 @@ Hemen kapasiteyi geri kazanmak ve aynı zamanda açıkça bekletme süresini ge�
         Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
 
 
-Daha fazla ayrıntı için başvurmak [Azure yığın powershell belgeleri.](https://msdn.microsoft.com/library/mt637964.aspx)
+Daha fazla bilgi için bkz: [Azure yığın powershell belgeleri.](https://msdn.microsoft.com/library/mt637964.aspx)
  
 
 ## <a name="migrate-a-container"></a>Bir kapsayıcı geçirme
-Düzensiz depolama kullanımı kiracılar tarafından nedeniyle bulut operatörün aşağıdakilerden bulabilirsiniz veya diğerlerinden daha fazla alan kullanarak daha temel Kiracı paylaşır. Bu gerçekleşirse, bulut operatörü bazı blob kapsayıcıları için başka bir paylaşım el ile geçiş yaparak vurgulu paylaşımında biraz alan boşaltın deneyebilirsiniz. 
+Düzensiz depolama kullanımı kiracılar tarafından nedeniyle bir bulut işleci bir fark edebilirsiniz veya diğerlerinden daha fazla alan kullanarak daha temel Kiracı paylaşır. Bu gerçekleşirse, bulut operatörü bazı blob kapsayıcıları için başka bir paylaşım el ile geçiş yaparak vurgulu paylaşımında biraz alan boşaltın deneyebilirsiniz. 
 
 Kapsayıcıları geçirmek için PowerShell kullanmanız gerekir.
 > [!NOTE]
@@ -187,7 +187,7 @@ Kapsayıcıları geçirmek için PowerShell kullanmanız gerekir.
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Geçiş için bir kapsayıcı kapalı kazandırın, biri bir paylaşımda tüm kapsayıcıları döngü ve döndürülen iş kimliğini kullanarak durumunu izlemek için bu zaman uyumsuz uygulama olduğuna dikkat edin.
+6. Geçiş için bir kapsayıcı kapalı kazandırın, biri bir paylaşımda tüm kapsayıcıları döngü ve döndürülen iş kimliğini kullanarak durumunu izlemek için bu zaman uyumsuz uygulama olduğuna dikkat edin
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
@@ -197,7 +197,7 @@ Kapsayıcıları geçirmek için PowerShell kullanmanız gerekir.
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. Geçiş işinin durumunu iş kimliğiyle denetleyin. Kapsayıcı geçiş tamamlandığında MigrationStatus "Tamamlandı" olarak ayarlanır.
+7. İş kimliğini tarafından geçiş işi durumunu denetleme Kapsayıcı geçiş tamamlandığında MigrationStatus "Tamamlandı" olarak ayarlanır
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
@@ -209,7 +209,7 @@ Kapsayıcıları geçirmek için PowerShell kullanmanız gerekir.
 
     ![](media/azure-stack-manage-storage-accounts/image16.png)
 
-    Geçiş iptal durumunu yeniden denetleyebilirsiniz:
+    Geçiş durumları yeniden iptal denetleyebilirsiniz:
 
     `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 

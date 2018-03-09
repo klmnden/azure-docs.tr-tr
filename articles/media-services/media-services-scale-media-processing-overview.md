@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c80bddfe1896b0b99319ef007c25718b5a754005
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="scaling-media-processing-overview"></a>Ölçeklendirme medyayı işleme genel bakış
 Bu sayfa hakkında genel bakış ve medya işleme ölçeklendirmek neden sağlar. 
@@ -44,8 +44,6 @@ Aşağıdaki tabloda farklı kodlama hızları arasında seçerken karar vermeni
 
 * Azure Media Indexer kullanarak işleri dizin oluşturma dahil olmak üzere tüm medyayı işleme parallelizing için ayrılan birimler çalışır.  Bununla birlikte kodlamadan farklı olarak, dizin oluşturma işleri daha hızlı ayrılmış birimlerde daha hızlı işlenmez.
 * Paylaşılan havuzu kullanıyorsanız, diğer bir deyişle, tüm ayrılan birimler sonra kodla görevlerinizi aynı performans S1 RUs olarak sahip. Ancak, görevlerinizi sıraya alınmış durumda harcayabilir saat için üst sınır yoktur ve belirli bir zamanda, tek en fazla görev çalıştırırsınız.
-* Şu veri merkezlerinde değil teklif **S2** ayrılmış birim türü: Brezilya Güney ve Hindistan Batı.
-* Aşağıdaki veri merkezi olmayan satışa **S3** ayrılmış birim türü: Hindistan Batı.
 
 ## <a name="billing"></a>Faturalandırma
 

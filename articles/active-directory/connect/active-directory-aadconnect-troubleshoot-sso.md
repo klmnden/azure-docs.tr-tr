@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
 Bu makale size yardımcı olacak sorun giderme bilgileri ilgili sık karşılaşılan sorunları ile ilgili Azure Active Directory (Azure AD) sorunsuz çoklu oturum açma (sorunsuz SSO) bulun.
 
-## <a name="known-problems"></a>Bilinen sorunlar
+## <a name="known-issues"></a>Bilinen sorunlar
 
 - Bazı durumlarda, sorunsuz SSO etkinleştirme 30 dakika kadar sürebilir.
 - Devre dışı bırakın ve sorunsuz SSO kiracınız üzerinde yeniden etkinleştirirseniz, kendi önbelleğe alınmış Kerberos biletleri, 10 saat için genellikle geçerli süresi dolmuş kadar kullanıcılar tekli oturum açma deneyimi alacak değil.
 - Edge tarayıcı desteği kullanılamıyor.
-- Office istemcileri, özellikle paylaşılan bir bilgisayar senaryolarda başlangıç kullanıcılar için fazladan oturum açma ister neden olur. Kullanıcıların kendi kullanıcı adları sık, ancak kullanıcıların parolalarını girmeleri gerekir.
 - Sorunsuz SSO başarılı olursa, kullanıcının seçmek için Fırsat yok **Oturumumu açık bırak**. Bu davranış nedeniyle, SharePoint ve OneDrive eşleme senaryolar çalışmaz.
+- Office istemcileri sürüm 16.0.8730.xxxx aşağıda etkileşimli olmayan oturum açma sorunsuz SSO desteklemez. Bu istemciler üzerinde kendi kullanıcı adları, ancak oturum açma için değil parolaları, kullanıcıların girmeleri gerekir.
 - Sorunsuz SSO Firefox özel gözatma modunda çalışmıyor.
 - Geliştirilmiş korumalı mod açıldığında sorunsuz SSO Internet Explorer'da işe yaramaz.
 - Sorunsuz SSO iOS ve Android mobil tarayıcılar işe yaramaz.
 - 30 veya daha fazla Active Directory ormanları eşitliyorsanız, Azure AD Connect ile sorunsuz SSO etkinleştiremezsiniz. Geçici bir çözüm olarak, şunları yapabilirsiniz [el ile etkinleştirmeniz](#manual-reset-of-azure-ad-seamless-sso) kiracınız özelliği.
-- Azure AD hizmeti URL'leri (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) yerel intranet bölgesine yerine Güvenilen siteler bölgesine ekleme *kullanıcıların açmasını engelleyen*.
+- Azure AD hizmet URL'si (https://autologon.microsoftazuread-sso.com) yerel intranet bölgesine yerine Güvenilen siteler bölgesine ekleme *kullanıcıların açmasını engelleyen*.
+- Kullanımını devre dışı bırakma **RC4_HMAC_MD5** Active Directory ayarlarınızda şifreleme türü Kerberos için sorunsuz SSO bozar. İlke değeri sağlamak, Grup İlkesi Yönetimi Düzenleyicisi aracında **RC4_HMAC_MD5** altında **bilgisayar yapılandırması -> Windows Ayarları -> Güvenlik Ayarları -> yerel ilkeler -> güvenlik seçenekleri - > "Ağ güvenliği: Kerberos için izin verilen şifreleme türleri yapılandırma"** "Etkin".
 
-## <a name="check-the-status-of-the-feature"></a>Özellik durumunu denetleme
+## <a name="check-status-of-feature"></a>Özellik durumunu denetleme
 
 Sorunsuz SSO özelliği hala olduğundan emin olun **etkin** kiracınız üzerinde. Giderek durumunu denetleyebilirsiniz **Azure AD Connect** bölmesinde [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/).
 
 ![Azure Active Directory Yönetim Merkezi: Azure AD Connect bölmesi](./media/active-directory-aadconnect-sso/sso10.png)
+
+Aracılığıyla sorunsuz SSO için etkinleştirilmiş tüm AD ormanına görmek için tıklatın.
+
+![Azure Active Directory Yönetim Merkezi: sorunsuz SSO bölmesi](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Oturum açma hatası nedeniyle Azure Active Directory Yönetim Merkezi'nden (Premium lisansı gerekir)
 
@@ -70,7 +75,7 @@ Sorunsuz SSO sorunlarını gidermek için aşağıdaki denetim listesini kullan�
 
 - Azure AD Connect sorunsuz SSO özelliği etkin olduğundan emin olun. Özelliği (örneğin, nedeniyle engellenen bir bağlantı noktası) etkinleştiremezsiniz tümüne sahip olun [Önkoşullar](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) yerinde.
 - Her ikisi de etkinleştirdiyseniz, [Azure AD katılım](../active-directory-azureadjoin-overview.md) ve Kiracı üzerinde sorunsuz SSO emin sorunu Azure AD katılımı ile. Cihaz Azure AD ile kayıtlı ve etki alanına katılmış değilse Azure AD katılım gelen SSO sorunsuz SSO önceliklidir. Azure AD katılım gelen SSO "Windows bağlı" diyen bir oturum açma döşeme kullanıcı görür.
-- Bu Azure AD URL'ler (https://autologon.microsoftazuread-sso.com ve https://aadg.windows.net.nsatc.net) kullanıcının Intranet bölgesi ayarlarının bir parçası olduğundan emin olun.
+- Azure AD URL'si (https://autologon.microsoftazuread-sso.com) kullanıcının Intranet bölgesi ayarlarının bir parçası olduğundan emin olun.
 - Kurumsal cihaz Active Directory etki alanına katılmış emin olun.
 - Kullanıcı aygıt bir Active Directory etki alanı hesabıyla oturum açmış emin olun.
 - Kullanıcı hesabının sorunsuz SSO burada bırakıldı bir Active Directory ormanından kurulduğundan emin olun.

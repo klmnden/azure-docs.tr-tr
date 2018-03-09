@@ -20,6 +20,10 @@
 ## [Yedekleme ve geri yükleme](analysis-services-backup.md)
 ## [REST API ile yenileme](analysis-services-async-refresh.md)
 ## [Ölçek genişletmeyi yapılandırma](analysis-services-scale-out.md)
+## Yönetim görevlerini otomatikleştirme
+### [Hizmet ilkesi oluşturma - Azure portalı](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Hizmet ilkesi oluşturma - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Sunucu yöneticisi rolüne hizmet ilkesi ekleme](analysis-services-addservprinc-admins.md)
 ## Sunucu yönetimi
 ### [Sunucu diğer adı yapılandırma](analysis-services-server-alias.md)
 ### [Sunucu yönetme](analysis-services-manage.md)

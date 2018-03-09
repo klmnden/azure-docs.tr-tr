@@ -1,6 +1,6 @@
 ---
 title: "Azure Güvenlik Merkezi ile kişisel verileri koruma | Microsoft Docs"
-description: "Azure Güvenlik Merkezi'ni kullanarak kişisel verilerini koruma"
+description: "kişisel verilerinizi korumak için Güvenlik Merkezi'ni kullanın. Genel veri koruma düzenleme (GDPR) ile uyumlu olacak şekilde çalışmaları bu kullanılabilir"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Kişisel veriler ihlallerini ve saldırılarından korumak: Azure Güvenlik Merkezi
 
-Bu makalede Azure Güvenlik Merkezi ihlallerini ve saldırılarından kişisel verilerinizi korumak için nasıl kullanılacağını anlamanıza yardımcı olur.
+Bu makalede Azure Güvenlik Merkezi ihlallerini ve saldırılarından kişisel verilerinizi korumak için nasıl kullanılacağını anlamanıza yardımcı olur. Burada verilen bilgiler çabalarına genel veri koruma düzenleme (GDPR) ile uyumlu olarak yardımcı olur.
 
 ## <a name="scenario"></a>Senaryo 
 
@@ -201,7 +201,7 @@ Bir güvenlik açığı değerlendirmesi çözümü hakkında daha fazla yönerg
 
 - [Azure Güvenlik Merkezi Hızlı Başlangıç Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-- [Azure Güvenlik Merkezi'ne giriş](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure Güvenlik Merkezi'ne Giriş](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 - [Azure Güvenlik Merkezi uyarılarını Azure günlük tümleştirme ile tümleştirme](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration)
 

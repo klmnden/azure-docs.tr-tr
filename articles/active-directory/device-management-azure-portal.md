@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Azure portalını kullanarak cihazları yönetme
 
@@ -112,6 +112,7 @@ Her iki seçenek ile bir görünüm elde edebilirsiniz:
 
 ![Tüm cihazlar](./media/device-management-azure-portal/51.png)
 
+Bazı iOS cihazları için kesme içeren aygıt adları büyük olasılıkla kesme gibi ara farklı karakter kullanabilirsiniz. Bunun nedenle böyle cihaz arama değil görüyorsanız biraz zor - arama sonuçları doğru Lütfen arama dizesini eşleşen kesme işareti karakteri içerdiğinden emin olun.
 
 ## <a name="device-management-tasks"></a>Aygıt yönetim görevleri
 
@@ -186,7 +187,7 @@ Cihaz kimliği ayrıntıları aygıttaki veya sorun giderme sırasında PowerShe
 
 Bir yöneticiyseniz, görüntüleyebilir ve kullanıcıların kendi şifreli sürücüyü kurtarmasına yardımcı olmak için BitLocker anahtarları kopyalayın. Bu anahtarlar yalnızca şifrelenmiş Windows cihazları için kullanılabilir ve kendi anahtarları Azure AD'de depolanan sahip. Cihaz ayrıntılarını erişirken bu anahtarları kopyalayabilirsiniz.
  
-![BitLocker anahtarları görüntüleyin](./media/device-management-azure-portal/36.png)
+![View BitLocker keys](./media/device-management-azure-portal/36.png)
 
 
 
@@ -230,7 +231,7 @@ Raporlanan verileri istediğiniz düzeye gelecek şekilde daraltmak için, aşa�
 - Etkinlik
 - Tarih aralığı
 - Hedef
-- (Aktör) tarafından başlatılan
+- Başlatan (Aktör)
 
 Filtreler yanı sıra belirli girişleri için arama yapabilirsiniz.
 

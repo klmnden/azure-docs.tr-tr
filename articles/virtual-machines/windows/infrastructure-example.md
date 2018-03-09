@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: c532657951d6d0241a5d8d25a56bb237ad481567
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Windows VM'ler için örnek Azure altyapı gözden geçirme
 Bu makalede örnek uygulama altyapısı oluşturmaya anlatılmaktadır. Biz yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük dengeleyici kararları bir araya getirir basit bir çevrimiçi mağaza için bir altyapıya tasarlama ve gerçekte sanal makineleri (VM'ler) dağıtma ayrıntılı olarak açıklanmaktadır.
@@ -61,7 +61,7 @@ Tüm yukarıdaki adlandırma kurallarına izleyin:
 Adventure Works Cycles, bu BT iş yükü için fatura sağlamak için Adventure Works Kurumsal aboneliği adlı kurumsal aboneliğini kullanıyor.
 
 ## <a name="storage"></a>Depolama
-Adventure Works Cycles Azure yönetilen diskleri kullanması gerektiğini belirledi. Sanal makineleri oluştururken, her iki depolama kullanılabilir depolama katmanları kullanılır:
+Adventure Works Cycles Azure yönetilen diskleri kullanması gerektiğini belirledi. Sanal makineleri oluştururken, her iki kullanılabilir depolama katmanları kullanılır:
 
 * **Standart depolama** web sunucuları, uygulama sunucuları ve etki alanı denetleyicileri ve kendi veri diskleri için.
 * **Premium depolama** SQL Server VM'ler ve kendi veri diskleri için.
@@ -72,7 +72,7 @@ Sanal ağ Adventure iş döngüsü şirket ağına sürekli bağlantı gerekmedi
 Azure Portalı'nı kullanarak aşağıdaki ayarlara sahip bir yalnızca bulut sanal ağ oluşturma:
 
 * Name: Kullanım AZOS VN01
-* Konumu: Doğu ABD 2
+* Location: East US 2
 * Sanal ağ adres alanı: 10.0.0.0/8
 * İlk alt ağ:
   * Ad: ön uç

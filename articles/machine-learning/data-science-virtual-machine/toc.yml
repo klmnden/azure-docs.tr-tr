@@ -8,6 +8,8 @@
       href: overview.md
     - name: Derin Öğrenme VM nedir?
       href: deep-learning-dsvm-overview.md
+    - name: Coğrafi AI Veri Bilimi VM nedir?
+      href: geo-ai-dsvm-overview.md
 - name: başlarken
   items:
     - name: Windows Veri Bilimi VM’si oluşturma
@@ -18,6 +20,8 @@
       href: linux-dsvm-intro.md
     - name: Derin Öğrenme VM’si oluşturma
       href: provision-deep-learning-dsvm.md
+    - name: Coğrafi AI Veri Bilimi VM'si oluşturma
+      href: provision-geo-ai-dsvm.md
 - name: Nasıl yapılır
   items:
     - name: Windows Veri Bilimi VM’si kullanma
@@ -26,6 +30,8 @@
       href: linux-dsvm-walkthrough.md
     - name: Derin Öğrenme VM’si kullanma
       href: use-deep-learning-dsvm.md
+    - name: Coğrafi AI Veri Bilimi VM'si kullanma
+      href: use-geo-ai-dsvm.md
 - name: Başvuru
   expanded: true
   items:

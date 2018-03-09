@@ -15,10 +15,10 @@ ms.workload:
 ms.date: 02/22/2018
 ms.author: nisoneji
 ms.openlocfilehash: 27b38eafd9ab5da11d66ede4d446a4952e30c534
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Bir Linux ana hedef sunucusu yükleyin
 Azure sanal makineleriniz başarısız olduktan sonra sanal makineler şirket içi siteye geri başarısız olabilir. Yeniden çalışmak için Azure sanal makineden şirket içi siteye koruyun gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 

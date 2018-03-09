@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Dosyaları Azure sanal makinesi yedeklemeden Kurtar
 
 Azure yedekleme geri yükleme yeteneği sağlar [Azure sanal makineleri (VM'ler) ve diskleri](./backup-azure-arm-restore-vms.md) olarak da bilinen geri yükleme noktaları Azure VM yedeklemelerden. Bu makalede, dosyaları ve klasörleri Azure VM yedekten kurtarma açıklanmaktadır. Dosya ve klasörleri geri yükleme, yalnızca Azure Resource Manager modelini kullanarak dağıtılmış ve bir kurtarma Hizmetleri kasası korumalı VM'ler için kullanılabilir.
 
 > [!Note]
+> Bu özellik, Azure Resource Manager modelini kullanarak dağıtılmış ve bir kurtarma Hizmetleri kasası korumalı VM'ler için kullanılabilir.
 > Şifrelenmiş bir VM yedeğinin dosya kurtarma desteklenmez.
 >
 
@@ -154,7 +155,7 @@ Aşağıdaki komut, tüm RAID disklerini hakkındaki ayrıntıları görüntüle
 ```
 $ mdadm –detail –scan
 ```
- İlgili RAID disk olarak görüntülenir`/dev/mdm/<RAID array name in the protected VM>`
+ İlgili RAID disk olarak görüntülenir `/dev/mdm/<RAID array name in the protected VM>`
 
 RAID disk fiziksel birim varsa bağlama komutunu kullanın.
 ```

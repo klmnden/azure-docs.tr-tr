@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/05/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc82b41554eff4e9cdefa1a3848a4a11c954d33c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 24873c685ee16520e6a8b8af9abeab84639613d7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API için Azure Cosmos DB .NET SDK: indirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -54,6 +54,12 @@ ms.lasthandoff: 03/02/2018
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+### <a name="a-name12101210"></a><a name="1.21.0"/>1.21.0
+
+* .NET Framework ve .NET standart için tek NuGet paketi. [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) paket kullanım dışı bırakıldı. 
+* Bölüm düzeni köşe durumlarda sorgular tarafından çapraz sabit KeyNotFoundException için.
+* Sabit hata burada JsonPropery özniteliği LINQ sorguları için select yan tümcesinde değil dikkate alınır.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Aralıklı olarak sonuçları için belirli yarış koşullarda isabet sabit hata "Microsoft.Azure.Documents.NotFoundException: Okuma oturum giriş Oturum belirteci için kullanılabilir değil" oturum tutarlılığı düzeyini kullanırken hataları.
@@ -290,7 +296,7 @@ Kullanımdan Kaldırılan SDK kullanarak Azure Cosmos DB yapılan tüm isteklere
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [1.20.2](#1.20.2) |21 Şubat 2018 |--- |
+| [1.21.0](#1.21.0) |05 Mart 2018 |--- |
 | [1.20.1](#1.20.1) |05 Şubat 2018 |--- |
 | [1.19.1](#1.19.1) |16 Kasım 2017 |--- |
 | [1.19.0](#1.19.0) |10 Kasım 2017 |--- |

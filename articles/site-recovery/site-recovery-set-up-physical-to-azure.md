@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: anoopkv
 ms.openlocfilehash: 6c29ac32cb868cfdd72479add551cece266a5f9d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Kaynak ortamı (Azure fiziksel sunucuya) ayarlama
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu
   ![Kaynağı ayarlama](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
 2. İçinde **Sunucu Ekle** dikey penceresinde denetleyin **yapılandırma sunucusu** görünür **sunucu türü**.
 4. Site Recovery birleşik Kurulumu yükleme dosyasını indirin.
-5. Kasa kayıt anahtarını indir Birleşik Kurulum'u çalıştırdığınızda, kayıt anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
+5. Kasa kayıt anahtarını indirin. Birleşik Kurulum'u çalıştırdığınızda, kayıt anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
     ![Kaynağı ayarlama](./media/site-recovery-set-up-physical-to-azure/set-source2.png)
 6. Yapılandırma sunucusu olarak kullandığınız makine üzerinde çalışan **Azure Site Recovery birleşik Kurulumu** yapılandırma sunucusuna işlem sunucusu ve ana hedef sunucusu yüklemek için.

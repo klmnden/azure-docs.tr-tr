@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f0a706a5a7724788d62479d1570fffac07ce6d54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti
 
@@ -32,14 +32,14 @@ Azure'nın örnek meta veri hizmeti REST uç noktası aracılığıyla oluşturu
 > Bu hizmet **genel olarak kullanılabilir** tüm Azure bölgelerindeki.  Düzenli olarak, sanal makine örnekleri ilgili yeni bilgiler kullanıma sunmak için güncelleştirmeleri alır. Bu sayfayı güncel yansıtır [veri kategorilerini](#instance-metadata-data-categories) kullanılabilir.
 
 ## <a name="service-availability"></a>Hizmet kullanılabilirliği
-Tüm genel olarak kullanılabilir tüm hizmet kullanılamıyor Azure bölgeleri. Tüm API sürümü tüm Azure bölgelerde kullanılabilir.
+Hizmeti genel olarak kullanılabilir Azure bölgelerde kullanılabilir. Tüm API sürümü tüm Azure bölgelerde kullanılabilir.
 
 Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Tüm genel olarak kullanılabilir genel Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel olarak kullanılabilir   | 2017-04-02, 2017-08-01
-[Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel olarak kullanılabilir | 2017-04-02
-[Azure Çin](https://www.azure.cn/)                                                           | Genel olarak kullanılabilir | 2017-04-02
-[Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel olarak kullanılabilir | 2017-04-02
+[Tüm genel olarak kullanılabilir genel Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel olarak kullanılabilir   | 2017-04-02, 2017-08-01, 2017 12 01(This version is not available in UK regions)
+[Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel olarak kullanılabilir | 2017-04-02,2017-08-01
+[Azure Çin](https://www.azure.cn/)                                                           | Genel olarak kullanılabilir | 2017-04-02,2017-08-01
+[Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel olarak kullanılabilir | 2017-04-02,2017-08-01
 
 Bu tablo hizmet güncelleştirmeleri vardır ve yeni desteklenen sürümler kullanılabilir onayladığında veya
 
@@ -48,7 +48,7 @@ Bu tablo hizmet güncelleştirmeleri vardır ve yeni desteklenen sürümler kull
 ## <a name="usage"></a>Kullanım
 
 ### <a name="versioning"></a>Sürüm oluşturma
-Örnek meta veri sürümü tutulan hizmetidir. Sürümleri zorunludur ve genel Azure üzerinde geçerli sürümü `2017-08-01`. (2017-04-02, 2017-08-01) geçerli desteklenen sürümler:
+Örnek meta veri sürümü tutulan hizmetidir. Sürümleri zorunludur ve genel Azure üzerinde geçerli sürümü `2017-12-01`. (2017-04-02, 2017-08-01,2017-12-01) geçerli desteklenen sürümler:
 
 > [!NOTE] 
 > Önceki Önizleme sürümleri {son} API sürümü desteklenen zamanlanmış olaylar. Bu biçim artık desteklenmemektedir ve gelecekte kullanım dışı kalacaktır.
@@ -157,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **İstek**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **Yanıt**
@@ -182,7 +182,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmSize": "Standard_D1"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_D1",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -296,13 +298,15 @@ subscriptionId | Sanal makine için Azure aboneliği | 2017-08-01
 etiketler | [Etiketler](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
 resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) sanal makineniz için | 2017-08-01
 placementGroupId | [Yerleştirme grup](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) , sanal makine ölçek kümesi | 2017-08-01
+vmScaleSetName | [Sanal makine ScaleSet adı] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md), sanal makine ölçek kümesi | 2017-12-01
+bölge | [Kullanılabilirlik bölge](../../availability-zones/az-overview.md) sanal makinenizin | 2017-12-01 
 ipv4/privateIpAddress | VM yerel IPv4 adresi | 2017-04-02
 ipv4/publicIpAddress | VM genel IPv4 adresi | 2017-04-02
 alt ağ/adresi | VM alt ağ adresi | 2017-04-02 
 alt ağ/öneki | Alt ağ öneki, örnek 24 | 2017-04-02 
 ipv6/ipAddress | VM yerel IPv6 adresi | 2017-04-02 
 macAddress | VM mac adresi | 2017-04-02 
-scheduledevents | Bkz: [zamanlanmış olayları](scheduled-events.md) | 2017-03-01
+scheduledevents | Bkz: [zamanlanmış olayları](scheduled-events.md) | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>Kullanım için örnek senaryolar  
 
@@ -325,6 +329,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Yerleştirme kapsayıcıların veri bölümlerini arıza/güncelleştirme etki alanı tabanlı 
 
 Belirli senaryolar, farklı veri çoğaltmaları yerleşimini prime çok önemlidir. Örneğin, [HDFS çoğaltma yerleştirme](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) veya kapsayıcı yerleştirme aracılığıyla bir [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) bilmek gerektirebilir `platformFaultDomain` ve `platformUpdateDomain` VM'nin çalışır.
+Ayrıca yararlanabilirsiniz [kullanılabilirlik bölgeleri](../../availability-zones/az-overview.md) bu kararlar almak örnekleri için.
 Bu veri örneği meta veri hizmeti üzerinden doğrudan sorgulayabilir.
 
 **İstek**

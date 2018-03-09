@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
-ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Günlük analizi Azure Resource Manager şablonları kullanarak yönetme
 Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve günlük analizi çalışma alanları yapılandırmak için. Şablonları ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
@@ -31,7 +31,6 @@ Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-mana
 * Linux ve Windows bilgisayarlarından performans sayaçlarını Topla
 * Linux bilgisayarlarda syslog olaylarını Topla 
 * Windows olay günlüklerini olaylarını Topla
-* Özel olay günlüklerini toplayın
 * Bir Azure sanal makinesi için günlük analizi Aracısı Ekle
 * Azure Tanılama'yı kullanarak toplanan dizin verileri için günlük analizi yapılandırın
 
@@ -60,7 +59,6 @@ Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
 7. Linux bilgisayarlardan Syslog olaylarını Topla
 8. Uygulama olay günlüğü'ndeki Windows bilgisayarlardan hata ve uyarı olaylarını Topla
 9. Windows bilgisayarlardan bellek kullanılabilir MBayt performans sayacı Topla
-10. Özel günlük Topla 
 11. IIS ve Windows olay günlükleri Azure altyapınıza bir depolama hesabına yazılan Topla
 
 ```json
@@ -295,61 +293,6 @@ Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -464,7 +407,7 @@ Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
 ### <a name="deploying-the-sample-template"></a>Örnek şablon dağıtma
 Örnek şablonu dağıtmak için:
 
-1. Ekli örnek bir dosyaya, örneğin kaydedin`azuredeploy.json` 
+1. Ekli örnek bir dosyaya, örneğin kaydedin `azuredeploy.json` 
 2. İstediğiniz yapılandırmasına sahip olmak şablonunu düzenleyin.
 3. Şablonu dağıtmak için PowerShell veya komut satırını kullanın
 

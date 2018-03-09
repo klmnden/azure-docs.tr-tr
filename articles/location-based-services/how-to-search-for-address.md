@@ -2,17 +2,17 @@
 title: "Azure konum tabanlı Hizmetleri (Önizleme) arama hizmetini kullanarak bir adres için arama yapma | Microsoft Docs"
 description: "Azure konum tabanlı Hizmetleri (Önizleme) arama hizmeti kullanmak için bir adres arama öğrenin"
 services: location-based-services
-keywords: "Verme ekleyin veya SEO uzmanınıza danışmanlık olmadan anahtar sözcükleri düzenleyin."
-author: philmea
-ms.author: philmea
+keywords: "SEO uzmanınıza danışmadan anahtar sözcük eklemeyin veya anahtar sözcükleri düzenlemeyin."
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Azure konum tabanlı Hizmetleri (Önizleme) arama hizmeti kullanarak adresi bulma
 Arama hizmeti adresleri, yerler, ilgi, iş listelerini ve diğer coğrafi bilgi noktaları için aranacak geliştiricileri için tasarlanmış API'leri RESTful kümesidir. Arama hizmeti, belirli bir adresi, çapraz Sokak, coğrafi özelliği veya ilgi çekici (s) için enlem/boylam atar. Enlem ve boylam değerleri arama hizmeti API tarafından döndürülen Azure konum tabanlı Hizmetleri rota ve trafik akışını API'leri gibi diğer parametre olarak kullanılabilir.
@@ -40,7 +40,7 @@ Varsayılan olarak çoğu arama sorguları ' maxFuzzyLevel performans elde etmek
 
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
-    | HTTP yöntemi | GET |
+    | HTTP yöntemi | AL |
     | İstek URL'si | https://atlas.microsoft.com/search/fuzzy/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
 
@@ -92,7 +92,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
-    | HTTP yöntemi | GET |
+    | HTTP yöntemi | AL |
     | İstek URL'si | https://atlas.microsoft.com/search/address/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
 
@@ -119,7 +119,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 
     | Anahtar | Değer |
     |-----|------------|
-    | typeahead | doğru |
+    | typeahead | true |
 
     **Typeahead** bayrağı sorgu kısmi bir girdi olarak kabul eder ve Tahmine dayalı değerler dizisi dönmek için adres arama API söyler.
 
@@ -132,7 +132,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
-    | HTTP yöntemi | GET |
+    | HTTP yöntemi | AL |
     | İstek URL'si | https://atlas.microsoft.com/search/address/reverse/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
     
@@ -154,7 +154,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 
     | Anahtar | Değer |
     |-----|------------|
-    | numarası | doğru |
+    | numarası | true |
 
     Varsa [numarası](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi istekle birlikte gönderilen, yanıt Sokak (sol/sağ) ve ayrıca bu sayıyı için uzaklık konumu tarafında içerebilir.
     
@@ -162,7 +162,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 
     | Anahtar | Değer |
     |-----|------------|
-    | spatialKeys | doğru |
+    | spatialKeys | true |
 
     Zaman [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt belirtilen konum için özel coğrafi uzamsal anahtar bilgileri içerir.
 
@@ -170,7 +170,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 
     | Anahtar | Değer |
     |-----|------------|
-    | returnSpeedLimit | doğru |
+    | returnSpeedLimit | true |
     
     Zaman [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmış, yanıt dönüş gönderilen hız sınırı.
 
@@ -178,7 +178,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 
     | Anahtar | Değer |
     |-----|------------|
-    | returnRoadUse | doğru |
+    | returnRoadUse | true |
 
     Zaman [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt Sokak düzeyinde reversegeocodes için yol kullanım dizisi döndürür.
 
@@ -186,7 +186,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 
     | Anahtar | Değer |
     |-----|------------|
-    | roadUse | doğru |
+    | roadUse | true |
 
     Yol kullanarak bir özel tür için ters geocode sorgu kısıtlayabilirsiniz [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi.
     
@@ -200,7 +200,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     
     | Parametre | Önerilen değer |
     |---------------|------------------------------------------------|
-    | HTTP yöntemi | GET |
+    | HTTP yöntemi | AL |
     | İstek URL'si | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
     

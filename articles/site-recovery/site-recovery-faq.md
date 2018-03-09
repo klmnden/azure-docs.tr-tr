@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8c6f577560442f28204b633d5f45f6d4c46ea4b8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Sık sorulan sorular (SSS)
+# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içermektedir. Bu makaleyi okuduktan sonra sorularınız varsa, yayınlayın [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="general"></a>Genel
@@ -106,8 +106,9 @@ Normal çoğaltma sırasında veriler coğrafi olarak yedekli Azure depolama ala
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Site kurtarma senaryolarına bir SDK'sı otomatik hale getirebilirsiniz?
 Evet. Rest API'si, PowerShell veya Azure SDK kullanarak Site Recovery iş akışlarını otomatikleştirebilirsiniz. Site Recovery PowerShell kullanarak dağıtmak için şu anda desteklenen senaryolar:
 
-* [Azure PowerShell'i Resource Manager VMMs bulutlarındaki Hyper-V Vm'lerini çoğaltma](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-* [Azure PowerShell Resource Manager'da VMM olmadan Hyper-V Vm'lerini çoğaltma](site-recovery-deploy-with-powershell-resource-manager.md)
+* [Azure PowerShell'i Resource Manager VMMs bulutlarındaki Hyper-V Vm'lerini çoğaltma](hyper-v-vmm-powershell-resource-manager.md)
+* [Azure PowerShell Resource Manager'da VMM olmadan Hyper-V Vm'lerini çoğaltma](hyper-v-azure-powershell-resource-manager.md)
+* [VMware PowerShell Kaynak Yöneticisi ile Azure'a çoğaltma](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Azure'a çoğaltma yaparsam ne tür bir depolama hesabına sahip olmam gerekir?
 Bir LRS veya GRS depolama hesabınızın olması gerekir. Bölgesel bir kesintinin meydana gelmesi veya birincil bölgenin kurtarılamaması durumunda verilerin korunması için GRS'yi tavsiye ederiz. Hesabın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Azure portalında Site Recovery dağıttığınızda premium depolama VMware VM, Hyper-V VM ve fiziksel sunucu çoğaltma için desteklenir.
@@ -123,7 +124,7 @@ Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özellik isteği [geri b
 Bu özellik desteklenmez. Bu özellik isteği [geri bildirim Forumunda](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Belirli diskleri çoğaltmanın dışında tutabilir miyim?
-Bunu olduğunuzda destekleniyorsa [VMware Vm'lerini ve Hyper-V sanal makineleri çoğaltma](site-recovery-exclude-disk.md) Azure için Azure portalını kullanarak.
+Azure portalını kullanarak Azure'da VMware Vm'lerini ve Hyper-V sanal makineleri çoğaltma yapıyorsanız bu desteklenir.
 
 ### <a name="can-i-replicate-virtual-machines-with-dynamic-disks"></a>Sanal makineleri dinamik disklerle çoğaltabilir miyim?
 Dinamik diskler, Hyper-V sanal makineleri çoğaltılırken desteklenir. VMware Vm'lerini ve fiziksel makineleri Azure'a çoğaltırken de desteklenir. İşletim sistemi diski temel disk olması gerekir.

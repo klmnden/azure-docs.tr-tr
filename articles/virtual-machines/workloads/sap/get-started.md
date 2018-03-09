@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 03/05/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a0dcb941db5038b7c904c9eaa8599c5a1dc6e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: ffa77e95387f3595d8ff69e89d29b7af5cf9c69d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştıran için Azure'ı kullanma
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -227,7 +227,7 @@ ms.lasthandoff: 01/03/2018
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
-[sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
+[sap-pam]:https://support.sap.com/pam (SAP ürün kullanılabilirliği Matrisi)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -298,7 +298,7 @@ Microsoft Azure, SAP hazır bulut iş ortağı olarak seçerek, güvenilir bir �
 
 Azure üzerinde farklı DBMS SAP NetWeaver senaryolarıyla barındırma yanı sıra, farklı barındırabilir Azure SAP BI gibi diğer SAP iş yükü senaryoları. SAP NetWeaver dağıtımları Azure yerel sanal makinelerde ilgili belgeleri "SAP NetWeaver Azure sanal makinelerde." bölümünde bulunabilir
 
-Azure SAP HANA yararlanır SAP iş yükü karşılamak için CPU ve bellek kaynakları boyutunda sürekli büyüyen yerel Azure sanal makine teklifleri sahiptir. Bu konu hakkında daha fazla bilgi için SAP HANA Azure sanal makineler üzerinde bölümünde belgeleri arayın."
+Azure SAP HANA yararlanır SAP iş yükü karşılamak için CPU ve bellek kaynakları boyutunda sürekli büyüyen yerel Azure sanal makine teklifleri sahiptir. Bu alan hakkında daha fazla bilgi için SAP HANA Azure sanal makineler üzerinde bölümünde belgeleri arayın."
 
 SAP HANA Azure benzersizliğini Azure dışında rekabet ayarlar benzersiz bir teklifidir. Daha fazla bellek ve CPU kaynak SAP HANA, Azure teklifleri içeren SAP senaryoları yoğun barındırma müşteri kullanımını etkinleştirmek için 20 TB'ye kadar (60 TB genişleme) bellek gerektiren SAP HANA dağıtımlarını yürüten amacıyla tam donanım ayrılmış S/4HANA veya diğer SAP HANA iş yükü. SAP HANA Azure (büyük örnekler) ile ilgili bu benzersiz Azure çözüm SAP uygulama katmanı veya yerel Azure sanal makinelerinde barındırılan iş yükü donanımlar Orta katmanı ile ayrılmış tam donanım SAP HANA çalıştırmanıza olanak sağlar. Bu çözüm, çeşitli belgelerde "SAP HANA azure'da (büyük örnekler)." bölümünde belgelenen   
 
@@ -310,7 +310,7 @@ SAP iş yükü Azure senaryolarda barındırma kimlik tümleştirme ve çoklu ot
 ### <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Genel bakış ve SAP HANA azure'da (büyük örnekler) mimarisi
 Başlık: Genel bakış ve SAP HANA azure'da (büyük örnekler) mimarisi
 
-Özet: Bu mimari ve Teknik Dağıtım Kılavuzu, Azure (büyük örnekler) Azure ile ilgili yeni SAP HANA üzerinde SAP dağıtmanıza yardımcı olacak bilgiler sağlar. Özel Kurulum SAP çözümleri, ancak ilk ve devam eden işlemler yerine yararlı bilgiler kapsayan kapsamlı bir kılavuz olması amaçlanmamıştır. SAP HANA (ya da konu kapsayan çok sayıda SAP destek Not) yüklenmesiyle ilgili SAP belgelerine yerine. Genel bir bakış sağlar ve SAP HANA (büyük örnekler) Azure üzerinde Yükleme ek ayrıntılar sağlar.
+Özet: Bu mimari ve Teknik Dağıtım Kılavuzu, Azure (büyük örnekler) Azure ile ilgili yeni SAP HANA üzerinde SAP dağıtmanıza yardımcı olacak bilgiler sağlar. Özel Kurulum SAP çözümleri, ancak ilk ve devam eden işlemler yerine yararlı bilgiler kapsayan kapsamlı bir kılavuz olması amaçlanmamıştır. SAP HANA (veya alanını kaplamak birçok SAP destek Not) yüklenmesiyle ilgili SAP belgelerine yerine. Genel bir bakış sağlar ve SAP HANA (büyük örnekler) Azure üzerinde Yükleme ek ayrıntılar sağlar.
 
 Güncelleştirilmiş: Ekim 2017
 
@@ -337,7 +337,7 @@ Güncelleştirilmiş: Temmuz 2017
 ### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>SAP HANA (büyük örnekler) azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 Başlık: Yüksek kullanılabilirlik ve olağanüstü durum kurtarma SAP HANA azure'da (büyük örnekleri)
 
-Özet: Yüksek kullanılabilirlik (HA) ve olağanüstü durum kurtarma (DR) kritik SAP HANA Azure (büyük örnekler) sunucuları üzerinde çalışan çok önemli yönlerinden markalarıdır. SAP, sistem Tümleştirici ve/veya Microsoft düzgün mimari ve sizin için HA/DR stratejisi sağ uygulamak için çalışmak üzere alma kullanıcının. Kurtarma noktası hedefi (RPO) ve kurtarma süresi hedefi (RTO), ortamınız için belirli gibi önemli noktalar dikkate alınmalıdır.  Bu belge, tercih edilen düzeyde HA ve DR etkinleştirme seçeneklerinizi açıklar.
+Özet: Yüksek kullanılabilirlik (HA) ve olağanüstü durum kurtarma (DR) kritik SAP HANA Azure (büyük örnekler) sunucuları üzerinde çalışan önemli yönlerinden markalarıdır. SAP, sistem Tümleştirici ve/veya Microsoft düzgün mimari ve sizin için HA/DR stratejisi sağ uygulamak için çalışmak üzere alma kullanıcının. Kurtarma noktası hedefi (RPO) ve kurtarma süresi hedefi (RTO), ortamınız için belirli gibi önemli noktalar dikkate alınmalıdır.  Bu belge, tercih edilen düzeyde HA ve DR etkinleştirme seçeneklerinizi açıklar.
 
 Güncelleştirilmiş: Ekim 2017
 
@@ -434,7 +434,7 @@ Güncelleştirilmiş: Eylül 2016
 ### <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planlama ve uygulama
 Başlık: Azure sanal makineleri planlama ve uygulama SAP NetWeaver için
 
-Özet: SAP NetWeaver Azure sanal makinelerde çalışan hakkında düşünürsek bu belgeyi Kılavuzu başlamak ise. Bu planlama ve Uygulama Kılavuzu, bir var olan veya planlanan SAP NetWeaver tabanlı sistem bir Azure sanal makineleri ortama dağıtılabilir olup olmadığını değerlendirmek yardımcı olur. İncelemede birden fazla SAP NetWeaver dağıtım senaryosuna ek olarak Azure’a özgü SAP yapılandırmalarına yer verilmiştir. Kağıt listeler ve ihtiyacınız vardır gereken yapılandırma bilgilerinin tümünü karma SAP yatay çalıştırmak için SAP/Azure tarafında açıklar. IaaS üzerindeki SAP NetWeaver tabanlı sistemlerde yüksek kullanılabilirliği sağlamanız için gerekli önlemler de incelenmiştir.
+Özet: SAP NetWeaver Azure sanal makinelerde çalışan hakkında düşünürsek bu belgeyi Kılavuzu başlamak ise. Bu planlama ve Uygulama Kılavuzu, bir var olan veya planlanan SAP NetWeaver tabanlı sistem bir Azure sanal makineleri ortama dağıtılabilir olup olmadığını değerlendirmek yardımcı olur. İncelemede birden fazla SAP NetWeaver dağıtım senaryosuna ek olarak Azure’a özgü SAP yapılandırmalarına yer verilmiştir. Kağıt listeler ve gerek duyduğunuz tüm gerekli yapılandırma bilgilerini karma SAP yatay çalıştırmak için SAP/Azure tarafında açıklar. IaaS üzerindeki SAP NetWeaver tabanlı sistemlerde yüksek kullanılabilirliği sağlamanız için gerekli önlemler de incelenmiştir.
 
 Güncelleştirilmiş: Haziran 2017
 
@@ -477,7 +477,7 @@ Güncelleştirilmiş: Haziran 2017
 [Bu kılavuz burada bulunabilir.][dbms-guide]
 
 ### <a name="using-azure-site-recovery-for-sap-workload"></a>Azure Site RECOVERY'yi kullanarak SAP iş yükü için
-Başlık: SAP NetWeaver: Azure Site Recovery ile olağanüstü durum kurtarma çözümü oluşturma
+Title: SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery
 
 Özet: Bu belgede olağanüstü durum kurtarma senaryolarına işleme amacıyla Azure Site kurtarma hizmetleri nasıl kullanılabileceğini biçimini tanımlar. Azure Site kurtarma Hizmetleri kullanarak bir şirket içi SAP yatay için Azure olağanüstü durum kurtarma konumu olarak kullanıldığı durumlarda. Belgede açıklanan başka bir işlemleri Azure (A2A) olağanüstü durum kurtarma durumu ve Azure Site Recovery ile nasıl yönetilir senaryodur.  
 

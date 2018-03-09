@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/07/2018
 ms.author: maquaran
-ms.openlocfilehash: 962ad3aca82e34fa22da925a274a1e82e2086e03
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akış işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -43,6 +43,11 @@ ms.lasthandoff: 03/02/2018
 |**Geçerli desteklenen çerçevelerden**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+* İstikrara yönelik iyileştirmeler.
+* El ile denetim noktası oluşturma desteği.
+* Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.21 ve üstü.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * .NET standart 2.0 desteği ekler. Paket artık destekliyor `netstandard2.0` ve `net451` framework adlar.
@@ -72,6 +77,7 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |07 Mart 2018 |--- |
 | [1.2.0](#1.2.0) |31 Ekim 2017 |--- |
 | [1.1.1](#1.1.1) |29 Ağustos 2017 |--- |
 | [1.1.0](#1.1.0) |13 Ağustos 2017 |--- |

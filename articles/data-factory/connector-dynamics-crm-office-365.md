@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: bcf80fe8f10ae8c81b5eea94137bd62558a6447a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b00c594f87a3126bd3f1548cd904adffcb214031
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Dynamics 365 veya Dynamics CRM veri kopyalama
 
@@ -319,7 +319,6 @@ Aşağıdaki eşleme tablosunu kullanarak, kaynağına Dynamics veri türüne g�
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Uzun | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boole | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | Tarih saat | ✓ | ✓ |
 | AttributeType.Decimal | Ondalık | ✓ | ✓ |
 | AttributeType.Double | Çift | ✓ | ✓ |

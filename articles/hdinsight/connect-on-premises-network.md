@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Hdınsight, şirket içi ağınıza bağlanmak
 
@@ -273,13 +273,13 @@ Ağ trafiğini denetlemek için ağ güvenlik grubu (NSG) veya kullanıcı tanı
 
 > [!WARNING]
 > Hdınsight Azure bulutta belirli IP adreslerinden gelen erişim ve sınırsız giden erişim gerektirir. Trafiği denetlemek için Nsg'ler veya Udr'ler kullanırken, aşağıdaki adımları gerçekleştirmeniz gerekir:
->
-> 1. IP adreslerini sanal ağınızı içeren konumunu bulur. Konuma göre gerekli IP'leri listesi için bkz: [gerekli IP adreslerini](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. IP adreslerinden gelen trafiğe izin verin.
->
->    * __NSG__: izin __gelen__ bağlantı noktasında trafik __443__ gelen __Internet__.
->    * __UDR__: ayarlamak __sonraki atlama__ yol türünü __Internet__.
+
+1. IP adreslerini sanal ağınızı içeren konumunu bulur. Konuma göre gerekli IP'leri listesi için bkz: [gerekli IP adreslerini](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. 1. adımda tanımlanan IP adresleri için bu IP gelen trafiğe izin adresleri.
+
+   * Kullanıyorsanız __NSG__: izin __gelen__ bağlantı noktasında trafik __443__ için IP adresleri.
+   * Kullanıyorsanız __UDR__: ayarlamak __sonraki atlama__ yol türünü __Internet__ için IP adresleri.
 
 Nsg'ler oluşturmak için Azure PowerShell veya Azure CLI kullanma örneği için bkz: [genişletmek Hdınsight Azure sanal ağlar ile](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) belge.
 

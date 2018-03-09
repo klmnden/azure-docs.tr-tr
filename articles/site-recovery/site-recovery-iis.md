@@ -2,25 +2,19 @@
 title: "Çok katmanlı bir Azure Site RECOVERY'yi kullanarak IIS tabanlı web uygulamasının çoğaltmak | Microsoft Docs"
 description: "Azure Site Recovery kullanarak IIS web grubu sanal makineleri çoğaltmak öğrenin."
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Site RECOVERY'yi kullanarak çok katmanlı, IIS tabanlı web uygulaması Çoğalt
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Çok katmanlı bir IIS tabanlı web uygulamasının Çoğalt
 
 Uygulama, bir kuruluştaki iş üretkenliğini altyapısı yazılımdır. Çeşitli web uygulamaları bir kuruluşta farklı amaçla kullanılabilir. Bordro işleme, finansal uygulamalar ve müşteri kullanıma yönelik Web siteleri için kullanılan uygulamalar gibi bazı uygulamalar, kuruluş için kritik olabilir. Üretkenlik kaybını önlemek için bu uygulamalar sürekli açık ve çalışıyor olmasını kuruluş için önemlidir. Daha da önemlisi, bu uygulamalara sürekli olarak kullanılabilir sahip marka veya görüntü kuruluşun zarar önlenmesine yardımcı olabilir.
 
@@ -36,7 +30,7 @@ Bu makale, Internet Information Services (IIS) kullanarak temel bir web uygulama
 
 Başlamadan önce aşağıdaki görevlerin nasıl yapılacağını bildiğinizden emin olun:
 
-* [Bir sanal makine azure'a](site-recovery-vmware-to-azure.md)
+* [Bir sanal makine azure'a](vmware-azure-tutorial.md)
 * [Kurtarma ağını tasarlama](site-recovery-network-design.md)
 * [Azure'a yük devretme testi yapın](site-recovery-test-failover-to-azure.md)
 * [Bir yük devretme gerçekleştirmek](site-recovery-failover.md)
@@ -75,7 +69,7 @@ Azure|NA|Evet
 
 Tüm IIS web grubu sanal makinelerin Azure'a çoğaltılması başlatmak için yönergeleri [Azure Site kurtarma için yük devretme testi](site-recovery-test-failover-to-azure.md).
 
-Statik bir IP adresi kullanıyorsanız, sanal makinenin almak için istediğiniz IP adresini belirtebilirsiniz. IP adresi ayarlamak için Git **işlem ve ağ ayarlarını** > [**hedef IP**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
+Statik bir IP adresi kullanıyorsanız, sanal makinenin almak için istediğiniz IP adresini belirtebilirsiniz. IP adresi ayarlamak için Git **işlem ve ağ ayarlarını** > **hedef IP**.
 
 ![Hedef IP Site kurtarma işlem ve ağ bölmesinde ayarlanacağı gösteren ekran görüntüsü](./media/site-recovery-active-directory/dns-target-ip.png)
 

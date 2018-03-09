@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Değişiklikleri devam ettirmeden ve büyük dosyaları ile çalışma
 Azure Machine Learning deneme hizmetiyle yürütme hedefleri çeşitli yapılandırabilirsiniz. Yerel bir yerel bilgisayarda veya yerel bir bilgisayardaki bir Docker kapsayıcısı gibi bazı hedefler. Diğer uzak, Docker kapsayıcısı uzak makinede veya bir Hdınsight kümesi gibi. Daha fazla bilgi için bkz: [Azure Machine Learning genel bakış denemeler yürütme hizmeti](experimentation-service-configuration.md). 
@@ -24,7 +24,7 @@ Bir hedef yürütebilir önce işlem hedef proje klasörüne kopyalamanız gerek
 ## <a name="execution-isolation-portability-and-reproducibility"></a>Yürütme yalıtımı, taşınabilirlik ve yeniden Üretilebilirlik
 Bu tasarım amacı yalıtım, yeniden Üretilebilirlik ve taşınabilirlik yürütme emin olmaktır. Aynı betik iki kez çalıştırırsanız, hedef, aynı veya başka bir işlem aynı sonuçları alırsınız. İlk yürütme sırasında yapılan değişiklikleri ikinci yürütme de etkiler döndürmemelidir. Bu tasarımla, durum bilgisiz hesaplama kaynağı, her tamamladıktan sonra yürütülen işler hiçbir benzeşimi sahip olarak işlem hedefleri davranabilirsiniz.
 
-## <a name="challenges"></a>Zorlukları
+## <a name="challenges"></a>Zorluklar
 Bu tasarım taşınabilirlik ve Yinelenebilirlik avantajları sağlasa da aynı zamanda benzersiz bazı zorluklar getirir.
 
 ### <a name="persisting-state-changes"></a>Kalıcı durum değişiklikleri

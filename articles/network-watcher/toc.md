@@ -73,6 +73,7 @@
 ### [Açık kaynak araçlar kullanarak ağ trafiği desenlerini görselleştirme](network-watcher-using-open-source-tools.md)
 ## NSG akış günlüklerini analiz etme
 ### [NSG akış günlüklerini okuma](network-watcher-read-nsg-flow-logs.md)
+### [Trafik Analizi kullanma](traffic-analytics.md)
 ### [Power BI kullanma](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Elastik Yığın kullanma](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Grafana kullanma](network-watcher-nsg-grafana.md)

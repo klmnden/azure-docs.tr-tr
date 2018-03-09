@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>Olay hub'ları örnekleri 
 
@@ -61,10 +61,6 @@ Bu örnekler çeşitli hedefleme Azure Event Hubs özelliklerini göstermek [.NE
 
 [Olay işleme genişletme](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) örnek nasıl kullanılacağını gösteren [olay işleyicisi konağı](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) olay hub'ları akış tüketiminin iş yükünü dağıtmak için. Nasıl uygulandığını gösterir **EventProcessor** ve **EventProcessorFactory** olay akışının yönetilecek nesneleri. 
 
-### <a name="pull-web-data-into-an-event-hub"></a>Bir olay hub'ına Web veri çekme 
-
-[Web'den veri içeri aktarma](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) örnek verileri (örneğin, departman taşıma'nın trafiği bilgi akış) ortak akışları çekmek ve bir event hub'ına anında nasıl gösterir.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 .NET Framework sürümleri hakkında daha fazla bilgi için aşağıdaki bağlantıları ziyaret ederek öğrenin:
@@ -75,5 +71,5 @@ Bu örnekler çeşitli hedefleme Azure Event Hubs özelliklerini göstermek [.NE
 Aşağıdaki makalelerde Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 - [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
-- [Olay Hub’ı oluşturma](event-hubs-create.md)
+- [Event Hubs özellikleri](event-hubs-features.md)
 - [Event Hubs ile ilgili SSS](event-hubs-faq.md)

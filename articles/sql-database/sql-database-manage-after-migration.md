@@ -18,11 +18,11 @@ ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: b65236fb2d11473d626ee2602237ed4a49380702
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ee1d847e04e1f1fa0472d8702c7022d622b9fe0f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı, veritabanınızı yönetme
 
@@ -210,7 +210,7 @@ SQL veritabanı performansını izlemek ve buna uygun olarak ayarlamak için pla
 
 Bu grafik, kaynak tarafından uyarıları da yapılandırabilirsiniz. Bu uyarılar, bir e-posta ile kaynak durumları yanıt, bir HTTPS/HTTP uç noktasına yazmak veya bir eylemi gerçekleştirmek izin verir. Bkz: [SQL veritabanında veritabanı performansını izleme](sql-database-single-database-monitor.md) ayrıntılı yönergeler için.
 
-- **Dinamik Yönetim görünümlerini**: Sorgulayabileceğiniz [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) kaynak tüketimi istatistikleri geçmişini son bir saat geri dönmek için dinamik yönetim görünümünü ve [sys.resource_stats ](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) sistem katalog görünümünü son 14 gün boyunca geçmişi dönün.
+- **Dinamik Yönetim görünümlerini**: Sorgulayabileceğiniz [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) kaynak tüketimi istatistikleri geçmişini son bir saat geri dönmek için dinamik yönetim görünümünü ve [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) sistem katalog görünümünü son 14 gün boyunca geçmişi dönün.
 - **Sorgu performansı öngörüleri**: [sorgu performansı öngörüleri](sql-database-query-performance.md) üst kaynak tüketen sorguları ve uzun süre çalışan sorgular için belirli bir veritabanı geçmişin görmenizi sağlar. Kaynak kullanımı, süre ve yürütme sıklığını tarafından en sık kullanılan sorguların hızla tanımlayabilirsiniz. Sorguları izlemek ve regresyon algılayabilir. Bu özellik gerektirir [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) etkin ve veritabanı için etkin olmalıdır.
 
    ![Sorgu Performansı Öngörüleri](./media/sql-database-manage-after-migration/query-performance-insight.png)
@@ -260,7 +260,7 @@ SQL veritabanı otomatik olarak ve herhangi bir veri kaybı olmadan veri bozulma
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>SQL Database ve SQL Server arasında veri eşitlemek nasıl?
 Bunu başarmak için birkaç yolu vardır: 
 - **[Veri eşitleme](sql-database-sync-data.md)**  – bu özellik, çift yönlü birden çok şirket içi SQL Server veritabanları ve SQL veritabanı arasında veri eşitlemek yardımcı olur. Şirket içi SQL Server veritabanları ile eşitlemek için yükleme ve eşitleme aracısı yerel bir bilgisayarda yapılandırmak ve giden TCP bağlantı noktası 1433'ü açmak gerekir.
-- **[İşlem çoğaltma](https://azure.microsoft.com/en-us/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – işlem çoğaltma ile şirket içi verilerinizi Azure SQL DB'ye yayımcı ve Azure SQL DB abone olan şirket içi ile eşitleyebilirsiniz. Şu an için yalnızca bu kurulum desteklenir. Verilerinizi şirket içi Azure SQL en az kapalı kalma süresi ile geçirme hakkında daha fazla bilgi için bkz: [kullanım işlem çoğaltma](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[İşlem çoğaltma](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – işlem çoğaltma ile şirket içi verilerinizi Azure SQL DB'ye yayımcı ve Azure SQL DB abone olan şirket içi ile eşitleyebilirsiniz. Şu an için yalnızca bu kurulum desteklenir. Verilerinizi şirket içi Azure SQL en az kapalı kalma süresi ile geçirme hakkında daha fazla bilgi için bkz: [kullanım işlem çoğaltma](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Hakkında bilgi edinin [SQL veritabanı](sql-database-technical-overview.md).

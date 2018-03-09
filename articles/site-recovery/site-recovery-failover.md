@@ -2,23 +2,17 @@
 title: "Yük devretme Site kurtarma | Microsoft Docs"
 description: "Azure Site Recovery, çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma düzenler. Azure veya ikincil veri merkezine yük devretme hakkında bilgi edinin."
 services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/25/2017
+ms.date: 03/05/2018
 ms.author: pratshar
-ms.openlocfilehash: afdab6e5ee5ae3bb8bc553afd93ff8f1ee18147f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9b662099a75bf2eaebda388a6e675e70cf0b9cdc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery'de yük devretme
 Bu makalede, yük devretme sanal makinelere ve fiziksel sunucuları Site Recovery tarafından korunan nasıl açıklanmaktadır.
@@ -42,7 +36,7 @@ Bu yordamda, bir yük devretme için çalıştırmak açıklanmaktadır bir [kur
 ![Yük devretme](./media/site-recovery-failover/Failover.png)
 
 1. Seçin **kurtarma planları** > *recoveryplan_name*. Tıklatın **yük devretme**
-2. Üzerinde **yük devretme** ekran, select bir **kurtarma noktası** yük. Aşağıdaki seçeneklerden birini kullanabilirsiniz:
+2. Üzerinde **yük devretme** ekran, select bir **kurtarma noktası** yük. Şu seçeneklerden birini kullanabilirsiniz:
     1.  **En son** (varsayılan): Bu seçenek Site Recovery hizmetine gönderilen tüm veriler işleyerek işini başlatır. Veri işleme, her bir sanal makine için bir kurtarma noktası oluşturur. Bu kurtarma noktası, yük devretme sırasında sanal makine tarafından kullanılır. Bu seçenek sanal yük devretme tüm verilere sahip sonra oluşturulan yük devretme tetiklendiğinde Site Recovery hizmetine çoğaltılan makinenin düşük RPO (kurtarma noktası hedefi) sağlar.
     1.  **En son işlenen**: Site Recovery hizmeti tarafından işlenmiş olan en son kurtarma noktasına kurtarma planının tüm sanal makineleri bu seçenek yöneltilir. Bir sanal makine yük devretme yapılırken, en son işlenen kurtarma noktası zaman damgası da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktası** bu bilgileri almak için bölme. İşlenmemiş verileri işlemek için harcanan hiçbir zaman gibi bu seçenek bir düşük RTO (Kurtarma süresi hedefi) yük devretme seçeneği sağlar.
     1.  **Son uygulama tutarlı**: Site Recovery hizmeti tarafından işlenmiş olan son uygulama tutarlı kurtarma noktasına kurtarma planının tüm sanal makineleri bu seçenek yöneltilir. Bir sanal makine yük devretme yapılırken en son uygulamayla tutarlı kurtarma noktasının zaman damgası da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktası** bu bilgileri almak için bölme.
@@ -65,9 +59,9 @@ Bu yordamda, bir yük devretme için çalıştırmak açıklanmaktadır bir [kur
     >
     >
 
-1. Yük devretme işleminin ilerleyişini izleyin **işleri** sayfası. Planlanmamış bir yük devretme sırasında bir hata oluşmamasına olsa bile tamamlanıncaya kadar kurtarma planı çalıştırır.
+1. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz. Planlanmamış bir yük devretme sırasında bir hata oluşmamasına olsa bile tamamlanıncaya kadar kurtarma planı çalıştırır.
 1. Yük devretme işleminden sonra sanal makine tarafından günlük ona doğrulayın. Sanal makineyi başka bir kurtarma noktası geçiş yapmak istediğiniz sonra kullanabileceğiniz **değiştirmek kurtarma noktası** seçeneği.
-1. Başarısız oldu memnun sonra sanal makine üzerinde yapabilecekleriniz **yürütme** yük devretme. **Yürütme hizmeti ile kullanılabilen tüm kurtarma noktalarını siler** ve **değiştirmek kurtarma noktası** seçenek, artık kullanılabilir.
+1. Yük devredilmiş sanal makineden memnun kaldığınızda, yük devretmeyi **Yürütebilirsiniz**. **Yürütme hizmeti ile kullanılabilen tüm kurtarma noktalarını siler** ve **değiştirmek kurtarma noktası** seçenek, artık kullanılabilir.
 
 ## <a name="planned-failover"></a>Planlanan yük devretme
 Site Recovery da destek kullanarak korunan sanal makinelerini/fiziksel sunucuları **planlanan yük devretme**. Planlanan yük devretme bir sıfır veri kaybı yük devretme seçeneğidir. Planlanmış bir yük devretme tetiklendiğinde, ilk kaynak sanal makine kapatma, en son verileri eşitlenir ve ardından bir yük devretme tetiklenir.
@@ -126,8 +120,8 @@ Sürücü harfi sanal makinelerde yük devretme sonrasında korumak için ayarla
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!WARNING]
-> Sanal makineler üzerinde başarısız oldu ve şirket içi veri merkezi kullanılabilir sonra yapmanız gerekenler [ **koruyun** ](site-recovery-how-to-reprotect.md) VMware sanal makineleri şirket içi veri merkezine yedekleyin.
+> Sanal makineler üzerinde başarısız oldu ve şirket içi veri merkezi kullanılabilir sonra yapmanız gerekenler [ **koruyun** ](vmware-azure-reprotect.md) VMware sanal makineleri şirket içi veri merkezine yedekleyin.
 
-Kullanım [ **planlanan yük devretme** ](site-recovery-failback-from-azure-to-hyper-v.md) için seçenek **geri dönme** azure'dan şirket içi dön Hyper-v sanal makineleri.
+Kullanım [ **planlanan yük devretme** ](hyper-v-azure-failback.md) için seçenek **geri dönme** azure'dan şirket içi dön Hyper-v sanal makineleri.
 
 Üzerinden bir Hyper-v sanal makine başka bir veri merkezi bir VMM sunucusu tarafından yönetilen şirket içi ve birincil veri merkezi kullanılabilir, başarısız olursa, ardından **ters çoğaltmak** geri birincil veri için çoğaltma başlatma seçeneği Merkezi.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Oluşturun, görüntüleyin ve Uyarıları yönetme Azure İzleyicisi - uyarıları (Önizleme) kullanma
 
@@ -71,7 +71,7 @@ Ayrıntılı İleri Azure Uyarıları'ni (Önizleme) kullanarak adım adım Kıl
 
     > [!NOTE]
 
-    > Yalnızca hızlı bir uyarı kullanıma sunulan yeni ölçüm yetenekler sinyal türlerinde platform hizmetinden ölçümleri olarak dahil edilen
+    >  Tüm [yakın gerçek zamanlı uyarılar](monitoring-near-real-time-metric-alerts.md) özellikli kaynakları izleme hizmetiyle listelenen **Platform** ve sinyal türü olarak **ölçümü**
 
 6. *Ölçüm uyarıları*: sinyal seçtikten sonra uyarı verme mantığı belirtilebilir. Başvuru için geçmiş veriler sinyali zaman penceresini kullanarak ince ayar seçeneğiyle gösterilir **geçmişini göster**, geçen hafta için son altı saat değişen. Görselleştirme, yerinde ile **uyarı mantığı** koşul, toplama ve son olarak eşik gösterilen seçeneklerinden seçilebilir. Önizleme sağlanan mantığı uyarıyı tetikleyen belirten koşul görselleştirme sinyal geçmişi birlikte gösterilir. Son olarak hangi süre için uyarı için belirtilen koşul seçerek görünmelidir belirtin **süresi** seçerek uyarı ne sıklıkla çalışmalı birlikte seçeneği **sıklığı**.
 

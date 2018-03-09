@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Azure İzleyicisi'nde - günlük uyarıları uyarılar (Önizleme)
-Bu makalede Azure Uyarıları'ni (Önizleme) analiz sorguları işlerinde nasıl uyarı kurallarında ayrıntılarını sağlar ve günlük uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır.
+Bu makalede Azure Uyarıları'ni (Önizleme) analiz sorguları işlerinde nasıl uyarı kurallarında ayrıntılarını sağlar ve günlük uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır. Ölçüm günlüklerini kullanarak uyarı ayrıntılarını başvurmak [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md)
 
 Azure uyarıları (Önizleme), destekler sorgularından uyarılar şu anda oturum [Azure günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md) ve [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -40,12 +40,12 @@ Sonra ne zaman [uyarıları (Önizleme) bir günlük uyarı oluşturma](monitor-
 
 ## <a name="log-alert-rules"></a>Günlük uyarı kuralları
 
-Uyarılar, Azure günlük sorguları düzenli aralıklarla otomatik olarak çalışacak uyarıları (Önizleme) tarafından oluşturulur.  Günlük sorgunun sonuçlarını belirli ölçütlere uyan varsa bir uyarı kaydı oluşturulur. Kural sonra otomatik olarak proaktif olarak uyarı bildiren veya harici Web uygulaması kullanarak verileri gönderme gibi başka bir işlem çağırmak için bir veya daha fazla Eylemler çalıştırabilirsiniz [json tabanlı Web kancası](monitor-alerts-unified-log-webhook.md)kullanarak [Eylem grupları](monitoring-action-groups.md). Uyarı kuralları farklı türlerde farklı mantık bu analizi yapmak için kullanın.
+Azure uyarıları otomatik olarak düzenli aralıklarla günlük sorguları çalıştırmak için (Önizleme) tarafından uyarılar oluşturulur.  Günlük sorgunun sonuçlarını belirli ölçütlere uyan varsa bir uyarı kaydı oluşturulur. Kural sonra otomatik olarak proaktif olarak uyarı bildiren veya harici Web uygulaması kullanarak verileri gönderme gibi başka bir işlem çağırmak için bir veya daha fazla Eylemler çalıştırabilirsiniz [json tabanlı Web kancası](monitor-alerts-unified-log-webhook.md)kullanarak [Eylem grupları](monitoring-action-groups.md). Uyarı kuralları farklı türlerde farklı mantık bu analizi yapmak için kullanın.
 
 Uyarı kuralları tarafından aşağıdaki ayrıntıları tanımlanmıştır:
 
 - **Oturum sorgu**.  Uyarı kural her çalıştığında sorgusu gönderir.  Bu sorgu tarafından döndürülen kayıtları, bir uyarı oluşturulup oluşturulmayacağını belirlemek için kullanılır.
-- **Zaman penceresi**.  Sorgu için zaman aralığını belirtir.  Sorgu, geçerli zaman aralığında oluşturulan kayıtları döndürür.  Zaman penceresi, 5 dakika ile 1440 dakika veya 24 saat arasında herhangi bir değer olabilir. Örneğin, zaman penceresi 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırırsanız, yalnızca saat 12: 15'e ve 13: 15'te arasında oluşturulan kayıtları döndürülür.
+- **Zaman penceresi**.  Sorgu için zaman aralığını belirtir.  Sorgu yalnızca bu geçerli zaman aralığı içinde oluşturulmuş olan kayıtları döndürür.  Zaman penceresi, 5 dakika ile 1440 dakika veya 24 saat arasında herhangi bir değer olabilir. Örneğin, zaman penceresi 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırırsanız, yalnızca saat 12: 15'e ve 13: 15'te arasında oluşturulan kayıtları döndürülür.
 - **Sıklık**.  Sorgunun ne sıklıkta çalıştırılması gerektiğini belirtir. 5 dakika ile 24 saat arasında herhangi bir değer olabilir. Eşit veya bu zaman penceresi'den daha az olmalıdır.  Değeri zaman penceresi'den büyükse, eksik kayıtları riski oluşur.<br>Örneğin, 30 dakikalık bir zaman penceresi ve 60 dakika sıklığını göz önünde bulundurun.  Sorgu 1: 00'dan çalıştırırsanız, 12:30 ve 1:00 arasında kayıt döndürür.  Sorguyu çalıştırabilir sonraki 2:00 kayıtlar 1:30 ve 2:00 arasında ne zaman döndürecektir süresidir.  1:00-1:30 arasında oluşturulan kayıtları hiçbir zaman değerlendirilmesi.
 - **Eşik**.  Günlük arama sonuçlarını, bir uyarının oluşturulması gerekip gerekmediğini belirlemek için değerlendirilir.  Eşik uyarı kuralları farklı türleri için farklıdır.
 
@@ -75,7 +75,7 @@ Bazı durumlarda, bir olay olmaması durumunda bir uyarı oluşturmak isteyebili
 **Uyarı sıklığı:** beş dakika<br>
 **Eşik değeri:** 0'dan büyük<br>
 
-Uyarı her 5 dakikada bir, sonuç kodu 500 olduğu kayıtlar için Ara verilerin - 30 dakika sonra sorguyu çalıştırabilir. Bu tür bile bir kaydı bulunamazsa, uyarı ve tetikleyici yapılandırılan eylemi tetikler.
+Uyarı her 5 dakikada bir, sonuç kodu 500 olduğu kayıtlar için Ara verilerin - 30 dakika sonra sorguyu çalıştırabilir. Böyle bile bir kayıt bulunursa, uyarı başlatılır ve yapılandırılmış eylemi tetikler.
 
 ## <a name="metric-measurement-alert-rules"></a>Ölçüm ölçüm uyarı kuralları
 
@@ -96,7 +96,7 @@ Uyarı her 5 dakikada bir, sonuç kodu 500 olduğu kayıtlar için Ara verilerin
 
 **Aralığı**: üzerinden verileri toplanır zaman aralığını tanımlar.  Örneğin, belirttiğiniz **beş dakika**, bir kayıt her örneği için uyarı belirtilen zaman penceresi üzerinden 5 dakikalık aralıklarla toplanan grup alanının oluşturulması.
 > [!NOTE]
-> Depo işlevi sorguda kullanılan gerekir. Eşit olmayan zaman aralıkları depo işlevi - kullandığı zaman penceresi için üretilirse de uyarı yerine bin_at işlevi yerine sabit bir nokta olduğundan emin olmak için kullanır
+> Depo işlevi sorguda kullanılan gerekir. Bin() eşit olmayan zaman aralıklarında - neden olabileceğinden uyarı yerine bin_at işlevi birlikte çalışma zamanında uygun zaman sabit bir nokta sonuçlar sağlamak için kullanır.
 
 **Eşik**: ölçüm ölçüm uyarı kuralları için eşik bir toplam değerini ve bir dizi tarafından tanımlanır.  Herhangi bir veri noktasını günlük arama bu değeri aştığında bir ihlal dikkate almıştır.  Dizi içinde sonuçlarındaki herhangi bir nesne için belirtilen değeri aşarsa bir uyarı bu nesne için oluşturulur.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: c132baad4d26fe481fa022329da32815b6994ad7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -89,7 +89,7 @@ public class TableStorage
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -348,15 +348,15 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | yok | ayarlanmalıdır `in`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | yok | Tablo veya işlev kodu varlığı temsil eden değişken adı. | 
+|**Türü** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**Yönü** | yok | ayarlanmalıdır `in`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**Adı** | yok | Tablo veya işlev kodu varlığı temsil eden değişken adı. | 
 |**tableName** | **TableName** | Tablonun adı.| 
 |**partitionKey** | **PartitionKey** |İsteğe bağlı. Okunacak tablo varlığın bölüm anahtarı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
 |**rowKey** |**RowKey** | İsteğe bağlı. Okunacak tablo varlığın satır anahtarı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
 |**Al** |**Al** | İsteğe bağlı. JavaScript'te okumak için varlıklar maksimum sayısı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
 |**Filtre** |**Filtre** | İsteğe bağlı. Bir OData filtre ifadesi JavaScript'te giriş tablosu. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
-|**bağlantı** |**Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
+|**Bağlantı** |**Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -366,16 +366,14 @@ Tablo depolama giriş bağlama aşağıdaki senaryoları destekler:
 
 * **C# veya C# komut satırındaki okuma**
 
-  Ayarlama `partitionKey` ve `rowKey`. Tablo verisi yöntemi parametresini kullanarak erişim `T <paramName>`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T`genellikle uygulayan bir tür olduğundan `ITableEntity` veya türetilen `TableEntity`. `filter` Ve `take` özellikleri bu senaryoda kullanılmaz. 
+  Ayarlama `partitionKey` ve `rowKey`. Tablo verisi yöntemi parametresini kullanarak erişim `T <paramName>`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T` genellikle uygulayan bir tür olduğundan `ITableEntity` veya türetilen `TableEntity`. `filter` Ve `take` özellikleri bu senaryoda kullanılmaz. 
 
 * **C# ya da C# komut dosyasında bir veya daha fazla satır okuma**
 
-  Tablo verisi yöntemi parametresini kullanarak erişim `IQueryable<T> <paramName>`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T`uygulayan bir tür olmalıdır `ITableEntity` veya türetilen `TableEntity`. Kullanabileceğiniz `IQueryable` tüm gerekli filtreleme yapmak için yöntemleri. `partitionKey`, `rowKey`, `filter`, Ve `take` özellikleri bu senaryoda kullanılmaz.  
+  Tablo verisi yöntemi parametresini kullanarak erişim `IQueryable<T> <paramName>`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T` uygulayan bir tür olmalıdır `ITableEntity` veya türetilen `TableEntity`. Kullanabileceğiniz `IQueryable` tüm gerekli filtreleme yapmak için yöntemleri. `partitionKey`, `rowKey`, `filter`, Ve `take` özellikleri bu senaryoda kullanılmaz.  
 
 > [!NOTE]
-> `IQueryable`işe yaramazsa şekilde .NET Core içinde çalışmıyor [işlevleri v2 çalışma zamanı](functions-versions.md).
-
-  Alternatif kullanmaktır bir `CloudTable paramName` Azure depolama SDK'sını kullanarak tabloyu okumak için yöntem parametresi.
+> `IQueryable` içinde desteklenmeyen [işlevleri v2 çalışma zamanı](functions-versions.md). Bir alternatif [CloudTable paramName yöntemi parametre kullanmak](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) Azure depolama SDK'sını kullanarak tablo okunamıyor.
 
 * **JavaScript bir veya daha fazla satır okuma**
 
@@ -607,13 +605,13 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | yok | ayarlanmalıdır `out`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | yok | Tablo veya varlığı temsil eden işlevi kod içinde kullanılan değişken adı. Kümesine `$return` işlevi dönüş değeri başvurmak için.| 
+|**Türü** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**Yönü** | yok | ayarlanmalıdır `out`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**Adı** | yok | Tablo veya varlığı temsil eden işlevi kod içinde kullanılan değişken adı. Kümesine `$return` işlevi dönüş değeri başvurmak için.| 
 |**tableName** |**TableName** | Tablonun adı.| 
 |**partitionKey** |**PartitionKey** | Yazılacak tablo varlığın bölüm anahtarı. Bkz: [kullanımı bölümü](#output---usage) nasıl bu özelliği kullanmak hakkında yönergeler için.| 
 |**rowKey** |**RowKey** | Yazılacak tablo varlığın satır anahtarı. Bkz: [kullanımı bölümü](#output---usage) nasıl bu özelliği kullanmak hakkında yönergeler için.| 
-|**bağlantı** |**Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
+|**Bağlantı** |**Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -623,11 +621,11 @@ Table storage bağlama destekler aşağıdaki senaryolarda çıktı:
 
 * **Herhangi bir dilde bir satır yazın**
 
-  Yöntem parametresi gibi kullanarak çıktı tablosu varlık, C# ve C# betik erişim `out T paramName` veya işlev dönüş değeri. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T`Bölüm anahtarı ve satır anahtarı tarafından sağlanan herhangi bir seri hale getirilebilir türü olabilir *function.json* dosya veya `Table` özniteliği. Aksi takdirde, `T` içeren bir tür olmalıdır `PartitionKey` ve `RowKey` özellikleri. Bu senaryoda, `T` genellikle uygulayan `ITableEntity` veya türetilen `TableEntity`, ancak gerekli değildir.
+  Yöntem parametresi gibi kullanarak çıktı tablosu varlık, C# ve C# betik erişim `out T paramName` veya işlev dönüş değeri. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T` Bölüm anahtarı ve satır anahtarı tarafından sağlanan herhangi bir seri hale getirilebilir türü olabilir *function.json* dosya veya `Table` özniteliği. Aksi takdirde, `T` içeren bir tür olmalıdır `PartitionKey` ve `RowKey` özellikleri. Bu senaryoda, `T` genellikle uygulayan `ITableEntity` veya türetilen `TableEntity`, ancak gerekli değildir.
 
 * **C# veya C# içinde bir veya daha fazla satır yazma**
 
-  C# ve C# betik çıktı tablosu varlık yöntemi parametresini kullanarak erişim `ICollector<T> paramName` veya `ICollectorAsync<T> paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T`eklemek istediğiniz varlıklar şeması belirtir. Genellikle, `T` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. Bölüm anahtarı ve satır anahtarı değerlerini *function.json* veya `Table` öznitelik oluşturucunun Bu senaryoda kullanılmaz.
+  C# ve C# betik çıktı tablosu varlık yöntemi parametresini kullanarak erişim `ICollector<T> paramName` veya `ICollectorAsync<T> paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T` eklemek istediğiniz varlıklar şeması belirtir. Genellikle, `T` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. Bölüm anahtarı ve satır anahtarı değerlerini *function.json* veya `Table` öznitelik oluşturucunun Bu senaryoda kullanılmaz.
 
   Alternatif kullanmaktır bir `CloudTable paramName` yöntem parametresi Azure depolama SDK'sını kullanarak tabloya yazabilirsiniz.
 

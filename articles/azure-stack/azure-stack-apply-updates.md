@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure yığınında güncelleştirmeleri uygulama
 
@@ -67,7 +67,7 @@ Aşağıdaki yordam, içeri aktarma ve güncelleştirme paketlerini yüklemek i�
  
     ![Her bir paket dosyası karşıya yüklemek nereye gösterir](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. 6 ve 7. adımları tekrarlayarak *PackageName*.bin ve Metadata.xml dosyaları. 
+8. 6 ve 7. adımları tekrarlayarak *PackageName*.bin ve Metadata.xml dosyaları. Ek Notice.txt dosyası eklediyseniz almayın.
 9. İşiniz bittiğinde, (portalın sağ üst köşedeki zil simgesine) bildirimleri gözden geçirebilirsiniz. Bildirimler, karşıya yükleme tamamlandı belirtmeniz gerekir. 
 10. Geri panosundaki güncelleştirme bölümünden gidin. Döşeme bir güncelleştirme kullanıma hazır olduğunu gösterebilir. Yeni eklenen güncelleştirme paketi gözden geçirmek için kutucuğa tıklayın.
 11. Güncelleştirmeyi yüklemek için işaretlenmiş paketi seçin **hazır** ya da paketini sağ tıklatın ve seçin ve **şimdi güncelleştirmek**, veya **şimdi güncelleştirmek** ilk eylemi .

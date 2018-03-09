@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Bulutta Azure IOT Hub'ına Adafruit yumuşatma HUZZAH ESP8266 Bağlan
 
@@ -60,7 +60,10 @@ Ayrıca, geliştirme ortamınız için aşağıdakiler gerekir:
 * Mac veya Windows veya Ubuntu çalıştıran bir bilgisayar.
 * Yumuşatma HUZZAH ESP8266 bağlanmak için kablosuz ağ.
 * Yapılandırma Aracı indirmek için Internet bağlantısı.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) sürüm 1.6.8 veya sonraki bir sürümü. Önceki sürümlerde AzureIoT kitaplığı ile çalışmaz.
+* [Visual Studio Code uzantısı Arduino için](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
+
+> [!Note]
+> Arduino sürüm 1.6.8 olması için Visual Studio Code uzantısı tarafından kullanılan Arduino IDE sürümü veya sonraki bir sürümü. Önceki sürümlerde AzureIoT kitaplığı ile çalışmaz.
 
 Algılayıcı olmayan olasılığına aşağıdaki öğeler isteğe bağlıdır. Ayrıca sanal algılayıcı verilerini kullanma seçeneğiniz vardır.
 
@@ -77,7 +80,7 @@ Bu bölümde, algılayıcılar panonuz için bağlayın. Daha sonra Cihazınız�
 
 Şu şekilde bağlantı kurmayı breadboard ve anahtar kablolarını kullanır. Algılayıcı yoksa, benzetimli algılayıcı verilerini yerine kullandığından bu bölümü atlayabilirsiniz.
 
-![Bağlantı Başvurusu](media/iot-hub-arduino-huzzah-esp8266-get-started/15_connections_on_breadboard.png)
+![Bağlantı Başvurusu](media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 
 Algılayıcı PIN'ler için aşağıdaki kablolama kullanın:
@@ -85,9 +88,9 @@ Algılayıcı PIN'ler için aşağıdaki kablolama kullanın:
 
 | Başlangıç (algılayıcı)           | Bitiş (kartı)           | Kablo rengi   |
 | -----------------------  | ---------------------- | ------------: |
-| VDD (PIN 31F)            | 3v (PIN 58H)           | Kırmızı kablosu     |
-| Veri (PIN 32F)           | GPIO'yu 2 (PIN 46A)       | Mavi kablosu    |
-| GND (PIN 34F)            | GND (PIN 56I)          | Siyah kablosu   |
+| VDD (Pin 31F)            | 3V (Pin 58H)           | Kırmızı kablosu     |
+| Veri (PIN 32F)           | GPIO 2 (Pin 46A)       | Mavi kablosu    |
+| GND (Pin 34F)            | GND (PIN 56I)          | Siyah kablosu   |
 
 Daha fazla bilgi için bkz: [Adafruit DHT22 algılayıcı Kurulum](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) ve [Adafruit yumuşatma HUZZAH Esp8266 no'lu](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts).
 
@@ -129,7 +132,7 @@ Ubuntu kullanırsanız, USB bağlantı noktası, yumuşatma HUZZAH ESP8266 üzer
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>`Önceki adımda elde ettiğiniz Grup sahibi adıdır. `<username>`Ubuntu kullanıcı adınızdır.
+   `<group-owner-name>` Önceki adımda elde ettiğiniz Grup sahibi adıdır. `<username>` Ubuntu kullanıcı adınızdır.
 
 1. Ubuntu dışında oturum ve yeniden değişiklik görünmesi oturum açın.
 
@@ -149,33 +152,41 @@ Bu bölümde, dağıtın ve yumuşatma HUZZAH ESP8266 üzerinde bir örnek uygul
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-Yumuşatma HUZZAH ESP8266 Arduino IDE'de paketi yükle:
+Visual Studio Code yumuşatma HUZZAH ESP8266 için paketi yükleyin:
 
 1. Örnek uygulama depolandığı klasörü açın.
-1. Arduino IDE uygulama klasöründe app.ino dosyasını açın.
+1. Visual Studio Code uygulama klasöründe app.ino dosyasını açın.
 
-   ![Örnek uygulamayı Arduino IDE içinde Aç](media/iot-hub-arduino-huzzah-esp8266-get-started/10_arduino-ide-open-sample-app.png)
+   ![Örnek uygulama Visual Studio Code açın](media/iot-hub-arduino-huzzah-esp8266-get-started/10_vscode-open-sample-app.png)
 
-1. Arduino IDE'de tıklatın **dosya** > **Tercihler**.
-1. İçinde **Tercihler** iletişim kutusunda, simgesine tıklayın **ek panoları yöneticisi URL'leri** kutusu.
-1. Açılan pencerede aşağıdaki URL'yi girin ve ardından **Tamam**.
+1. Visual Studio kodunu girin `F1`.
+1. Tür **Arduino** seçip **Arduino: Panosu Yöneticisi**.
+1. İçinde **Arduino Panosu Yöneticisi** sekmesini tıklatın, **ek URL'leri**.
 
-   `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
+   ![VS Code Arduino Panosu Yöneticisi](media/iot-hub-arduino-huzzah-esp8266-get-started/11_vscode-arduino-board-manager.png)
 
-   ![Paket URL'sini Arduino IDE'de işaret](media/iot-hub-arduino-huzzah-esp8266-get-started/11_arduino-ide-package-url.png)
+1. İçinde **kullanıcı ayarları** penceresinde, aşağıdaki dosya sonunda kopyalayıp
 
-1. İçinde **tercih** iletişim kutusu, tıklatın **Tamam**.
-1. Tıklatın **Araçları** > **Panosu** > **panoları Yöneticisi**ve esp8266 için arama yapın.
+   `"arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"`
+
+   ![VS Code'da Arduino paket URL'sini yapılandırın](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
+
+1. Dosyayı kaydedin ve kapatın **kullanıcı ayarları** sekmesi.
+1. Tıklatın **yenileme paket dizinleri**. Yenileme tamamlandıktan sonra arama **esp8266**.
+1. Tıklatın **yükleme** esp8266 düğmesi.
 
    Panoları Yöneticisi ESP8266 2.2.0 veya sonraki bir sürümü ile yüklü olduğunu gösterir.
 
-   ![esp8266 paketi yüklü](media/iot-hub-arduino-huzzah-esp8266-get-started/12_arduino-ide-esp8266-installed.png)
+   ![esp8266 paketi yüklü](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-1. Tıklatın **Araçları** > **Panosu** > **Adafruit HUZZAH ESP8266**.
+1. Girin `F1`, ardından **Arduino** seçip **Arduino: Panosu Config**.
+1. İçin kutusu **seçili Panosu:** ve türü **esp8266**seçeneğini belirleyip **Adafruit HUZZAH ESP8266 (esp8266)**.
+
+   ![Esp8266 tablosu seçin](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>Gerekli kitaplıkları yükleme
 
-1. Arduino IDE'de tıklatın **taslak** > **dahil Kitaplığı** > **yönetmek kitaplıkları**.
+1. Visual Studio kodunu girin `F1`, ardından **Arduino** seçip **Arduino: Kitaplığı Yöneticisi**.
 1. Aşağıdaki Kitaplığı Ara tek tek adları. Bulduğunuz her kitaplığını tıklatın **yükleme**.
    * `AzureIoTHub`
    * `AzureIoTUtility`
@@ -193,20 +204,20 @@ Yumuşatma HUZZAH ESP8266 Arduino IDE'de paketi yükle:
    ```c
    define SIMULATED_DATA true
    ```
-   ![Örnek uygulamayı benzetimli veri kullanacak şekilde yapılandırma](media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
+   ![Örnek uygulamayı benzetimli veri kullanacak şekilde yapılandırma](media/iot-hub-arduino-huzzah-esp8266-get-started/15_vscode-configure-app-use-simulated-data.png)
 
-1. Dosyayı kaydetmek `Control-s`.
+1. Dosyayı kaydedin.
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Yumuşatma HUZZAH ESP8266 örnek uygulamayı dağıtmak
 
-1. Arduino IDE'de tıklatın **aracı** > **bağlantı noktası**, yumuşatma HUZZAH ESP8266 için seri bağlantı noktası'a tıklayın.
-1. ' I tıklatın **taslak** > **karşıya** oluşturup yumuşatma HUZZAH ESP8266 örnek uygulamayı dağıtın.
+1. Visual Studio kodda tıklatın  **<Select Serial Port>**  durumunu çubuk ve yumuşatma HUZZAH ESP8266 için seri bağlantı noktası'ı tıklatın.
+1. Girin `F1`, yazın **Arduino** seçip **Arduino: karşıya** oluşturmak ve yumuşatma HUZZAH ESP8266 örnek uygulamayı dağıtmak için.
 
 ### <a name="enter-your-credentials"></a>Kimlik bilgilerinizi girin
 
 Karşıya yükleme başarıyla tamamlandıktan sonra kimlik bilgilerinizi girmeniz için şu adımları izleyin:
 
-1. Arduino IDE'de tıklatın **Araçları** > **seri İzleyici**.
+1. Arduino IDE açın, **Araçları** > **seri İzleyici**.
 1. Seri İzleyicisi penceresinde sağ alt köşedeki iki açılan listelerde dikkat edin.
 1. Seçin **hiçbir satır bitiş** sol aşağı açılan listesi.
 1. Seçin **115200 baud** sağda açılan listesi.
@@ -222,7 +233,7 @@ Karşıya yükleme başarıyla tamamlandıktan sonra kimlik bilgilerinizi girmen
 
 Yumuşatma HUZZAH ESP8266 üzerinde seri İzleyici penceresinin ve yanıp sönen LED aşağıdaki çıkışı görürseniz, örnek uygulamayı başarılı bir şekilde çalışıyor.
 
-![Arduino IDE içinde son çıktı](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
+![Arduino IDE içinde son çıktı](media/iot-hub-arduino-huzzah-esp8266-get-started/16_arduino-ide-final-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

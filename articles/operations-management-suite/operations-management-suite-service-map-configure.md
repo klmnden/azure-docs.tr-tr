@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 66023a501360a8d73f88e2fe9682c1bf8f207a07
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a5e6367cef02b53cb0e24d644b7e3e8025e19ab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Hizmet eşlemesi Azure'da yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -147,7 +147,7 @@ PowerShell aracılığıyla Azure VM uzantısı dağıtmak için aşağıdaki ö
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.3"
+$version = "9.4"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ Emin olmak için daha kolay bir yol bağımlılık Aracısı'nı açıktır, VM'
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.3",
+    "typeHandlerVersion": "9.4",
     "autoUpgradeMinorVersion": true
 }
 
@@ -315,7 +315,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-| OS sürümü | Çekirdek sürümü |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -324,7 +324,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-| OS sürümü | Çekirdek sürümü |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 |:--|:--|
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -338,7 +338,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 6.9 | 2.6.32-696 |
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
-| OS sürümü | Çekirdek sürümü |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 |:--|:--|
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -348,14 +348,14 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 ### <a name="ubuntu-server"></a>Ubuntu Server
 - Standart çekirdekleri yeniden derlemelerinin dahil olmak üzere özel çekirdekleri desteklenmez.
 
-| OS sürümü | Çekirdek sürümü |
+| İşletim sistemi sürümü | Çekirdek sürümü |
 |:--|:--|
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux kesilemeyen kurumsal çekirdek ile
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
-| OS sürümü | Çekirdek sürümü
+| İşletim sistemi sürümü | Çekirdek sürümü
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -365,7 +365,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| OS sürümü | Çekirdek sürümü
+| İşletim sistemi sürümü | Çekirdek sürümü
 |:--|:--|
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
@@ -373,7 +373,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 #### <a name="suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
-| OS sürümü | Çekirdek sürümü
+| İşletim sistemi sürümü | Çekirdek sürümü
 |:--|:--|
 | 11 SP2 | 3.0.101-0.7 |
 | 11 SP3 | 3.0.101-0.47 |

@@ -1,17 +1,23 @@
 
 
 
-**Son Güncelleştirme'ı belge**: 22 Ocak, 15:00 PST.
+**Son Güncelleştirme'ı belge**: 10:00 AM PST Mart 6.
 
 Son açıklanması bir [CPU güvenlik açıklarının yeni sınıf](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) kurgusal yürütme yan kanal saldırıları olarak bilinen daha fazla netlik aramayı müşterilerden soruları sonuçlandı.  
 
 Azure çalışan ve müşteri iş yüklerinin birbirinden ayırır altyapı korunur.  Başka bir deyişle, Azure üzerinde çalışan diğer müşteriler güvenlik açıklarından kullanarak uygulamanızı saldırı olamaz.
 
 > [!NOTE] 
-> 3 Ocak 2018 üzerinde önceden duyurulmuş azure Azaltıcı etkilenmez güncel [yönergeleri güncelleştirildi](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) Intel gelen. Bu yeni bilgiler sonucunda müşteri sanal makineleri üzerinde ek bakım etkinliği yok olacaktır.
+> Geç Şubat 2018 içinde Intel Corporation güncelleştirilmiş yayımlanan [mikro kodları gözden geçirme Kılavuzu](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) kararlılığını geliştirmek ve tarafındanbildirilensongüvenlikaçıklarınakarşıazaltmakkendimikrokodlarısürümlerindurumuileilgili[Google proje sıfır](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Azure tarafından yerinde Azaltıcı yerleştirin [3 Ocak 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) Intel mikro kod güncelleştirmesini tarafından etkilenmez. Microsoft Azure müşterilerin Azure diğer kiracılardan koruyan güçlü Azaltıcı Etkenler zaten yerleştirin.  
 >
-> Donanım satıcıları tarafından mikro kodları güncelleştirmeleri aldığımız gibi bu en iyi uygulamaları güncelleştirmeye devam eder. Güncelleştirilmiş yönergeler için gözden geçirin.
+> Intel mikro kodları değişken 2 giderir Spectre ([CVE 2017 5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) yalnızca paylaşılan veya güvenilmeyen iş yükleri içinde sanal makineleri Azure üzerinde çalıştırdığınız geçerli olacak saldırılarına karşı korumak için. Bizim mühendisleri Azure müşterilerine yapmadan önce mikro kodları, performans etkileri en aza indirmek için kararlılık test ediyorsunuz.  Çok az müşteriler Vm'leri güvenilmeyen iş yükleri çalıştırırken, müşterilerin çoğu kez yayımlanan bu özelliği etkinleştirmek gerekmez. 
 >
+> Daha fazla bilgi kullanılabilir olduğu gibi bu sayfa güncelleştirilir.  
+
+
+
+
+
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>İşletim sistemlerinin güncel tutma
 
@@ -43,7 +49,7 @@ Güvenilmeyen kod çalıştırmadığınız sürece ek müşteri Eylem gerekmiyo
 
 
 ### <a name="windows"></a>Windows 
-Windows kullanıyorsanız ve güvenilmeyen kod barındırma kurgusal yürütme yan kanal güvenlik açıklarına karşı ek koruma sağlayan çekirdek sanal adres (KVA) gölgeleme adlı Windows özelliği etkinleştirmeniz gerekir. Bu özellik varsayılan olarak kapalıdır ve etkinleştirilirse performansı etkileyebilir. İzleyin [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) sunucu üzerindeki etkinleştirme korumaları için yönergeler. Azure Cloud Services çalıştırıyorsanız, WA çalıştırdığınızı doğrulayın-KONUK-OS-5.15_201801-01 veya WA-GUEST-OS-4.50_201801-01 (kullanılabilir 10 Ocak başlayarak) ve etkin kayıt defteri anahtarı bir başlangıç görevi.
+Windows kullanıyorsanız ve güvenilmeyen kod barındırma kurgusal yürütme yan kanal güvenlik açıklarına karşı ek koruma sağlayan çekirdek sanal adres (KVA) gölgeleme adlı Windows özelliği etkinleştirmeniz gerekir. Bu özellik varsayılan olarak kapalıdır ve etkinleştirilirse performansı etkileyebilir. İzleyin [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) sunucu üzerindeki etkinleştirme korumaları için yönergeler. Azure Cloud Services çalıştırıyorsanız, WA çalıştırdığınızı doğrulayın-KONUK-OS-5.15_201801-01 veya WA-GUEST-OS-4.50_201801-01 (kullanılabilir 10 Ocak 2018 başlayarak) ve etkin kayıt defteri anahtarı bir başlangıç görevi.
 
 
 ### <a name="linux"></a>Linux

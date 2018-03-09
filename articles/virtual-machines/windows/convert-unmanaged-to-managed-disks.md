@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: dd9ebaf9a1c8b3112623af4228efa0d9063c1e52
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 92168ba5605e119d42ba40ee694cebb3ad116041
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Windows sanal makine yönetilmeyen disklerden yönetilen Diske Dönüştür
 
@@ -50,17 +50,12 @@ Bu bölümde tek örnekli Azure VM'ler yönetilmeyen disklerden yönetilen diskl
   Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
   ```
 
-2. VM kullanarak yönetilen Diske Dönüştür [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) cmdlet'i. Aşağıdaki işlem, işletim sistemi diski ve veri diskleri dahil önceki VM dönüştürür:
+2. VM kullanarak yönetilen Diske Dönüştür [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) cmdlet'i. Aşağıdaki işlem, işletim sistemi diski ve tüm veri diskleri dahil önceki VM dönüştürür ve sanal makineyi başlatır:
 
   ```azurepowershell-interactive
   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
-3. Kullanarak yönetilen disklere dönüştürmeden sonra VM'yi başlatın [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm). Aşağıdaki örnek, önceki VM'yi yeniden başlatır:
-
-  ```azurepowershell-interactive
-  Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-  ```
 
 
 ## <a name="convert-vms-in-an-availability-set"></a>Sanal makineleri bir kullanılabilirlik kümesine Dönüştür
@@ -84,7 +79,7 @@ Dönüştürmek istediğiniz sanal makineleri yönetiliyorsa diskleri bir kullan
   Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
-2. Deallocate ve kullanılabilirlik kümesindeki sanal makineleri dönüştürün. Aşağıdaki komut dosyası kullanarak her bir VM kaldırır [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) cmdlet'ini dönüştürür onu kullanarak [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk)ve kullanarak yeniden [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm):
+2. Deallocate ve kullanılabilirlik kümesindeki sanal makineleri dönüştürün. Aşağıdaki komut dosyası kullanarak her bir VM kaldırır [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) cmdlet'ini dönüştürür onu kullanarak [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk)ve otomatik olarak birbirinden dönüştürme işleminin yeniden başlatır :
 
   ```azurepowershell-interactive
   $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
@@ -94,7 +89,6 @@ Dönüştürmek istediğiniz sanal makineleri yönetiliyorsa diskleri bir kullan
      $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-     Start-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name
   }
   ```
 

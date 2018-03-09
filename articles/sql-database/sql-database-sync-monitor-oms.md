@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be1423026af633ab024980dc6b12b0977639ba3a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>OMS günlük analizi ile İzleyici SQL veri eşitleme (Önizleme) 
 
@@ -92,7 +92,7 @@ Bir runbook oluşturma hakkında daha fazla bilgi için bkz: [ilk PowerShell run
 
     2.  Eşitleme grubu bilgileri.
 
-    3.  OMS bilgileri. Bu bilgi OMS portalında | Ayarları | Bağlı kaynakları. Günlük analizi veri gönderme hakkında daha fazla bilgi için bkz: [HTTP veri toplayıcı API (genel Önizleme) ile günlük analizi veri Gönder](../log-analytics/log-analytics-data-collector-api.md).
+    3.  OMS bilgileri. Bu bilgi OMS portalında | Ayarları | Bağlı kaynakları. Günlük analizi veri gönderme hakkında daha fazla bilgi için bkz: [HTTP veri toplayıcı API (Önizleme) ile günlük analizi veri Gönder](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Runbook Test Bölmesi'nde çalıştırın. Başarılı olup olmadığını denetleyin.
 

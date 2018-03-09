@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 89203a9499b3624faf41b63f4ea6e7bd29f3f0c9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK ile kodlama ölçeklendirme
 > [!div class="op_single_selector"]
@@ -53,7 +53,8 @@ Ayrılmış birim türü ve .NET SDK kullanarak ayrılan birimler kodlama sayıs
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>Bir destek bileti açmadan
-Varsayılan olarak her Media Services hesabı kodlama ve 5 isteğe bağlı akışa ayrılan birimler en fazla 25 ölçeklendirebilirsiniz. Bir destek bileti açılarak daha yüksek bir sınır isteyebilir.
+
+Varsayılan olarak 10 S2 veya S3 medya ayrılmış birimleri (MRU) veya 25 S1 MRU ve 5 isteğe bağlı akışa ayrılan birimler için her Media Services hesabı ölçeklendirebilirsiniz. Bir destek bileti açılarak daha yüksek bir sınır isteyebilir.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

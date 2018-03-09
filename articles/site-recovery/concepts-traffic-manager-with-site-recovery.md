@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Site Recovery ile Azure Traffic Manager
 
@@ -49,11 +44,11 @@ Bir olağanüstü, Şirket A tetikleyebilir bir [yük devretme](site-recovery-fa
 
 İş gereksinimlerinize bağlı olarak **Şirket A** daha yüksek seçebilirsiniz veya daha düşük [yoklama sıklığı](../traffic-manager/traffic-manager-monitoring.md) şirket içi Azure bir olağanüstü arasında geçiş yapma ve kullanıcılar için en düşük kapalı kalma emin olun.
 
-Olağanüstü durum içerdiğinde **Şirket A** azure'dan kendi şirket içi ortamına olabilir ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) veya [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) Azure Site RECOVERY'yi kullanarak. Şimdi, trafik Yöneticisi algıladığında, **birincil** uç noktası sağlıklı yeniden, otomatik olarak kullanan **birincil** DNS yanıtları içindeki uç nokta.
+Olağanüstü durum içerdiğinde **Şirket A** azure'dan kendi şirket içi ortamına olabilir ([VMware](vmware-azure-failback.md) veya [Hyper-V](hyper-v-azure-failback.md)) Azure Site RECOVERY'yi kullanarak. Şimdi, trafik Yöneticisi algıladığında, **birincil** uç noktası sağlıklı yeniden, otomatik olarak kullanan **birincil** DNS yanıtları içindeki uç nokta.
 
 ## <a name="on-premises-to-azure-migration"></a>Şirket içi Azure geçiş
 
-Olağanüstü durum kurtarma yanı sıra Azure Site Recovery ayrıca sağlar [Azure geçişler](site-recovery-migrate-to-azure.md). Azure Site Recovery'nin güçlü test yük devretme yetenekleri kullanarak, müşterilerin kendi şirket içi ortamına etkilemeden Azure uygulama performansına değerlendirebilirsiniz. Ve müşteriler geçirmeye hazır olduğunuzda, bunlar tüm iş yüklerinin birlikte geçirmek veya geçiş ve kademeli olarak ölçekleme seçmek seçebilirsiniz.
+Olağanüstü durum kurtarma yanı sıra Azure Site Recovery ayrıca sağlar [Azure geçişler](migrate-overview.md). Azure Site Recovery'nin güçlü test yük devretme yetenekleri kullanarak, müşterilerin kendi şirket içi ortamına etkilemeden Azure uygulama performansına değerlendirebilirsiniz. Ve müşteriler geçirmeye hazır olduğunuzda, bunlar tüm iş yüklerinin birlikte geçirmek veya geçiş ve kademeli olarak ölçekleme seçmek seçebilirsiniz.
 
 Azure Traffic Manager'ın [Weighted](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) yönlendirme yöntemi, şirket içi ortamına çoğunluğu yönlendirerek sırasında Azure gelen trafiğin bir kısmını yönlendirmek için kullanılabilir. Bu yaklaşım, daha fazla bilgi ve iş yüklerinizin daha fazla bilgi için Azure geçirirken Azure'a atanan ağırlığı artırma devam ederken ölçek performansını değerlendirmek yardımcı olabilir.
 

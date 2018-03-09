@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 87bbbd1fdcb9afb59de0bda29e99e23e0b9ad104
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2d0a2d5966c8c99e7d71d97d4819d58a1474c2fe
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database ölçümleri ve tanılama günlükleri 
 Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
@@ -385,7 +385,7 @@ Daha fazla bilgi edinmek [Query Store bekleyin istatistik verileri](https://docs
 |query_hash_s|Başarısız sorgu varsa karmasını sorgu.|
 |query_plan_hash_s|Başarısız sorgu varsa sorgu planı karması.|
 
-Daha fazla bilgi edinmek [SQL Server hata iletileri](https://msdn.microsoft.com/en-us/library/cc645603.aspx).
+Daha fazla bilgi edinmek [SQL Server hata iletileri](https://msdn.microsoft.com/library/cc645603.aspx).
 
 ### <a name="database-wait-statistics-dataset"></a>Veritabanı bekleme istatistikleri veri kümesi
 

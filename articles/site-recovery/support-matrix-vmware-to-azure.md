@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/07/2018
 ms.author: raynew
-ms.openlocfilehash: 31754cd765c90b9e36d16dc766b0a3546e6fd93e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 10d7db60ef584632a45fd7cdc5877461fa45af03
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
@@ -29,7 +29,7 @@ Bu makalede desteklenen bileşenleri ve VMware Vm'lerini olağanüstü durum kur
 
 ## <a name="on-premises-virtualization-servers"></a>Şirket içi sanallaştırma sunucuları
 
-**Sunucu** | Gereksinimleri | **Ayrıntılar**
+**Sunucu** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
 **VMware** | vCenter Server 6.5, 6.0 veya 5.5 ya da vSphere 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.
 **Fiziksel sunucuları** | Yok
@@ -70,13 +70,13 @@ Makine işletim sistemi (Linux) | Red Hat Enterprise Linux: 5.2 için 5.11 ya, 6
 
 **Bileşen** | **Destekleniyor**
 --- | ---
-Dosya sistemleri | ext3, ext4, ReiserFS (yalnızca Suse Linux Enterprise Server), XFS
+Dosya sistemleri | ext3, ext4, XFS
 Birim Yöneticisi | LVM2
-Çok yollu yazılım | Cihaz Eşleyici
-Paravirtualized depolama aygıtları | Paravirtualized sürücüleri tarafından dışarı aktarılan cihazlar desteklenmez.
+Paravirtualized depolama aygıtları | Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
 G/ç cihazların çok sıra engelle | Desteklenmiyor.
 HP CCISS depolama denetleyicisi ile fiziksel sunucuları | Desteklenmiyor.
 Dizinler | Bu dizinleri (varsa ayrı bölümleri/dosya-sistemleri ayarlanmış) tümü aynı işletim sistemi diski kaynak sunucuda olmalıdır: / (kök), / Boot/usr, /usr/local, /var, / etc. </br></br> Varsa / (kök) birimdir LVM birim, sonra/Boot aynı disk ayrı bir bölüme üzerinde bulunan ve bir LVM birim olmaması gerekir.<br/><br/>
+|Boş alan gereksinimleri| 2 GB/root bölüme <br/>Yükleme klasörü üzerinde 250 MB
 XFSv5 | Meta veri sağlama gibi XFS dosya sistemleri XFSv5 özellikleri sürümünden 9.10 Mobility hizmeti ve sonraki sürümlerinde desteklenir. Süper blok XFS kullanarak bölümün denetlemek için xfs_info yardımcı programını kullanın. Ftype 1 olarak ayarlanırsa, XFSv5 özellikleri kullanılıyor olabilir.
 
 
@@ -169,9 +169,9 @@ Yönetilen diskler | Evet
 
 Şirket içi sanal makinelerini Azure'a çoğaltma bu tabloda özetlenen Azure VM gereksinimlerini karşılaması gerekir.
 
-**Bileşen** | Gereksinimleri | **Ayrıntılar**
+**Bileşen** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated machines). | Önkoşullar desteklenmeyen başarısız kontrol edin.
+**Konuk işletim sistemi** | Doğrulama [desteklenen işletim sistemleri](#replicated machines). | Önkoşullar desteklenmeyen başarısız kontrol edin.
 **Konuk işletim sistemi mimarisi** | 64 bit | Önkoşullar desteklenmeyen başarısız kontrol edin.
 **İşletim sistemi disk boyutu** | 2.048 GB'a kadar | Önkoşullar desteklenmeyen başarısız kontrol edin.
 **İşletim sistemi disk sayısı** | 1 | Önkoşullar desteklenmeyen başarısız kontrol edin.
@@ -198,7 +198,7 @@ Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçi
 **Ad** | **Açıklama** | **En son sürümü** | **Ayrıntılar**
 --- | --- | --- | --- | ---
 **Azure Site Recovery Kurulum birleşik** | Şirket içi VMware sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Şirket içi VMware sunucularda yüklü | 9.12.4653.1 (portalından kullanılabilir) | [En son özellikleri ve düzeltmeleri](https://aka.ms/latest_asr_updates)
-Mobility hizmeti | Şirket içi VMware sunucularını/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü | 9.12.4653.1 (portalından kullanılabilir) | [En son özellikleri ve düzeltmeleri](https://aka.ms/latest_asr_updates)
+**Mobility hizmeti** | Şirket içi VMware sunucularını/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü | 9.12.4653.1 (portalından kullanılabilir) | [En son özellikleri ve düzeltmeleri](https://aka.ms/latest_asr_updates)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

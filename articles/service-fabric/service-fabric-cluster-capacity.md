@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlama konuları
 Her üretim dağıtımı için kapasite planlamasının önemli bir adımdır. Bu işlemin bir parçası olarak göz önünde bulundurmanız gereken öğelerin bazıları aşağıda verilmiştir.
 
 * Düğüm sayısı ile başlatmak için küme gereksinimlerinizi türleri
 * Her bir düğüm türü (boyutu, birincil, internet'e yönelik, sanal makineleri, vb. sayısı) özellikleri
-* Küme güvenilirlik ve dayanıklılık özellikleri
+* Kümenin güvenilirlik ve dayanıklılık özellikleri
 
 Bize kısaca bu öğelerin her birini gözden geçirin.
 
 ## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>Düğüm sayısı ile başlatmak için küme gereksinimlerinizi türleri
 İlk olarak, oluşturmakta olduğunuz küme için kullanılacak neler olduğunu ve bu kümesine dağıtmayı planlayan ne tür uygulamaları kullanıma şekil gerekir. Küme amacı açık değilse, büyük olasılıkla olmayan henüz kapasite planlama işlemi girmek için hazır.
 
-Kümenizi ile başlatmak için gereken düğüm türleri sayısı kurun.  Her düğüm türü, bir sanal makine ölçek kümesi için eşlenir. Her düğüm türü sonra ölçeklendirilebilir veya Aşağı bağımsız olarak, farklı bağlantı noktalarının açık olması ve farklı kapasite ölçümlerini olabilir. Bu nedenle düğüm türleri sayısı karar temelde aşağıdaki konuları için gelir:
+Kümenizi ile başlatmak için gereken düğüm türleri sayısı kurun.  Her düğüm türü, bir sanal makine ölçek kümesi için eşlenir. Daha sonra, her düğüm türünün ölçeği birbirinden bağımsız olarak artırılabilir veya azaltılabilir, her düğüm türünde farklı bağlantı noktası kümeleri açık olabilir ve farklı kapasite ölçümleri yapılabilir. Bu nedenle düğüm türleri sayısı karar temelde aşağıdaki konuları için gelir:
 
 * Uygulamanız birden çok hizmetlere sahip olmadığı ve herhangi biri ortak veya İnternete olması gerekiyor mu? Tipik uygulamalar, bir istemciden giriş aldığı bir ön uç ağ geçidi hizmeti ve iletişim kuran bir veya daha fazla arka uç hizmetleriyle ön uç hizmetleri içerir. Bu nedenle bu durumda, en az iki düğüm türleri sahip sonlandırın.
 * (Uygulamanızı kurma), hizmetler, daha fazla RAM veya daha yüksek CPU döngüsü gibi farklı altyapı gereksinimleri var mı? Örneğin, dağıtmak istediğiniz uygulamayı bir ön uç hizmeti ve arka uç hizmeti içeren bize varsayın. Ön uç hizmeti bağlantı noktalarının Internet'e açık olması daha küçük vm'lerde (örneğin, D2 VM boyutları) çalıştırabilirsiniz.  Arka uç hizmetine hesaplama yoğun ve Internet olmayan daha büyük sanal makineler (VM boyutları D4, D6, D15 gibi ile) çalışması gerekiyor ancak karşılıklı.
@@ -88,10 +88,11 @@ Her düğüm türleri için dayanıklılık düzeyini seçin alın. Gümüş ve 
  
 1. Sanal makine ölçek kümesi ve diğer ilgili Azure kaynaklarını dağıtımlar) Gecikmeli, zaman aşımına ya da tamamen sorunları kümenizdeki veya altyapı düzeyinde tarafından engellendi. 
 2. Sayısı artar [çoğaltma yaşam döngüsü olayları](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (örneğin, birincil takasları) nedeniyle Azure altyapı işlemleri sırasında düğüm deactivations otomatik.
+3. Azure platformu yazılım güncelleştirmeleri veya donanım bakım etkinlikleri yaşanan süreler için hizmet dışına düğümleri alır. Bu etkinlikler sırasında düğüm durumu devre dışı bırakılması/devre dışı olan görebilirsiniz. Bu, kümenizi kapasitesini geçici olarak azaltır, ancak küme veya uygulamaların kullanılabilirliğini etkileyen değil.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Zaman Gümüş veya altın dayanıklılık düzeyleri kullanılacağı hakkında öneriler
 
-Durum bilgisi olan hizmetleri beklediğiniz ölçek bileşenini barındıran tüm düğüm türleri için Gümüş veya altın dayanıklılık kullanın (VM örneği sayısını azaltmak) sık sık ve dağıtım işlemlerini bu ölçek işlemleri basitleştirme lehinde Gecikmeli tercih. (VM örnekleri ekleme) genişleme senaryoları dayanıklılık katmanı tercih ettiğiniz yürütülmez, yalnızca ölçek içinde değil.
+Durum bilgisi olan hizmetleri beklediğiniz ölçek bileşenini barındıran tüm düğüm türleri için Gümüş veya altın dayanıklılık kullanın (VM örneği sayısını azaltmak) sık sık ve dağıtım işlemlerini Gecikmeli tercih ediyorsanız ve bu ölçek bileşenini basitleştirme lehinde azaltılması için kapasite işlemler. (VM örnekleri ekleme) genişleme senaryoları dayanıklılık katmanı tercih ettiğiniz yürütülmez, yalnızca ölçek içinde değil.
 
 ### <a name="changing-durability-levels"></a>Dayanıklılık düzeylerini değiştirme
 - Gümüş veya altın dayanıklılık düzeylerine sahip düğüm türleri için Bronz indirgenemez.

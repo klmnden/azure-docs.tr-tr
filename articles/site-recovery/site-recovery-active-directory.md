@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: e07b868883b0154ad38ba2f7f51dd2db663525a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Active Directory ve DNS korumak için Azure Site Recovery kullanma
 
@@ -73,7 +73,7 @@ Ardından, [sanal ağın DNS sunucusu yeniden](../active-directory/active-direct
 
 Birçok uygulama, bir etki alanı denetleyicisi veya bir DNS sunucusu bulunması gerekir. Bu nedenle, uygulama yöneltilir önce yük devretme sınaması için kullanılacak yalıtılmış ağ içindeki bir etki alanı denetleyicisi oluşturmanız gerekir. Bunu yapmanın en kolay yolu, bir etki alanı denetleyicisi ya da DNS barındıran bir sanal makine çoğaltmak için Site Recovery kullanmaktır. Ardından, etki alanı denetleyicisi sanal makinesi kurtarma planı uygulama için bir sınama yük devretmesi çalıştırmadan önce bir sınama yük devretmesi çalıştırın. Bunu nasıl aşağıda verilmiştir:
 
-1. Site RECOVERY'yi kullanın [çoğaltmak](site-recovery-replicate-vmware-to-azure.md) etki alanı denetleyicisi veya DNS barındıran sanal makine.
+1. Site RECOVERY'yi kullanın [çoğaltmak](vmware-azure-tutorial.md) etki alanı denetleyicisi veya DNS barındıran sanal makine.
 2. Yalıtılmış bir ağ oluşturun. Azure içinde oluşturduğunuz herhangi bir sanal ağ diğer ağlardan varsayılan olarak ayrı tutulur. Üretim ağınızda kullandığınız bu ağ için aynı IP adresi aralığı kullanmanızı öneririz. Bu ağ üzerinde siteden siteye bağlantı etkinleştirmeyin.
 3. Yalıtılmış ağdaki bir DNS IP adresi sağlayın. Almak için DNS sanal makine beklediğiniz IP adresi kullanın. Azure'da çoğaltıyorsanız Yük Devretmesini kullanılan sanal makine için IP adresi verin. Çoğaltılmış sanal makinede IP adresi girmek için **işlem ve ağ** ayarları, select **hedef IP** ayarlar.
 

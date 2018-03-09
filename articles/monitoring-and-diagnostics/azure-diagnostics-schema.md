@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Azure tanılama uzantı yapılandırmasını şema sürümleri ve geçmişi
+# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure tanılama uzantısını yapılandırma şeması sürümleri ve geçmişi
 Bu sayfa dizinlerinin Azure tanılama uzantı şema sürümlerinde Microsoft Azure SDK'sı bir parçası olarak gönderilir.  
 
 > [!NOTE]
@@ -37,7 +37,7 @@ Azure tanılama uzantısını Azure monitör, Application Insights ve günlük a
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Grafik sevkiyat azure SDK ve tanılama sürümleri  
 
-|Azure SDK sürümü | Tanılama genişletme sürümü | modeli|  
+|Azure SDK sürümü | Tanılama genişletme sürümü | Model|  
 |------------------|-------------------------------|------|  
 |1.x               |1.0                            |eklentisi|  
 |2.0 - 2.4         |1.0                            |eklentisi|  
@@ -135,18 +135,18 @@ EventHub için rota özelliği eklenmiştir.
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 ve tanılama uzantısı 1.3 
 Visual Studio bulut hizmeti projeleri için aşağıdaki değişiklikler yapıldı. (Bu değişikliklerin Azure SDK'ın sonraki sürümleri için de geçerlidir.)
 
-* Yerel öykünücüsü artık tanılama destekler. Bu tanılama verilerini toplamak ve geliştirme ve Visual Studio'da test ederken, uygulamanızın doğru izlemeleri oluşturuyor olun anlamına gelir. Bağlantı dizesi `UseDevelopmentStorage=true` Azure storage öykünücüsü kullanarak bulut hizmeti projenizi Visual Studio'da çalıştırıyorsanız tanılama veri toplamayı etkinleştirir. Tüm tanılama verilerini (geliştirme depolama) depolama hesabında toplanır.
+* Yerel öykünücüsü artık tanılama destekler. Bu değişiklik, tanılama verilerini toplamak ve geliştirme ve Visual Studio'da test ederken, uygulamanızın doğru izlemeleri oluşturuyor olun anlamına gelir. Bağlantı dizesi `UseDevelopmentStorage=true` Azure storage öykünücüsü kullanarak bulut hizmeti projenizi Visual Studio'da çalıştırıyorsanız tanılama veri toplamayı etkinleştirir. Tüm tanılama verilerini (geliştirme depolama) depolama hesabında toplanır.
 * Tanılama depolama hesabı bağlantı dizesi (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) bir kez daha hizmet yapılandırma (.cscfg) dosyasında depolanır. Azure SDK 2.5 diagnostics.wadcfgx dosyasında tanılama depolama hesabı belirtilmedi.
 
 Azure SDK 2.4 ve önceki bağlantı dizesini nasıl çalıştığı ve nasıl Azure SDK 2.6 ve daha sonra çalıştığı arasında önemli bazı farklar vardır.
 
-* Azure SDK 2.4 ve önceki sürümlerinde, bağlantı dizesi tanılama günlükleri aktarmak için depolama hesabı bilgilerini almak için bir çalışma zamanı tanılama eklenti tarafından kullanıldı.
-* Azure SDK 2.6 ve daha sonra tanılama bağlantı dizesi yayımlama sırasında uygun depolama hesap bilgileriyle tanılama uzantısını yapılandırmak için Visual Studio tarafından kullanılır. Bağlantı dizesi, Visual Studio yayımlama için kullanacağı farklı hizmet yapılandırması için farklı depolama hesapları tanımlamanıza olanak sağlar. Ancak, tanılama eklentisi artık (sonra Azure SDK 2.5) kullanılabilir olmadığından, .cscfg dosyası tek başına tanılama uzantısını etkinleştiremezsiniz. Uzantısı ayrı olarak Visual Studio veya PowerShell gibi araçlar aracılığıyla etkinleştirmeniz gerekir.
+* Azure SDK 2.4 ve önceki sürümlerinde, bağlantı dizesi tanılama günlükleri aktarmak için depolama hesabı bilgilerini almak için çalışma zamanında tanılama eklenti tarafından kullanıldı.
+* Azure SDK 2.6 ve daha sonra Visual Studio tanılama bağlantı dizesi yayımlama sırasında uygun depolama hesap bilgileriyle tanılama uzantısını yapılandırmak için kullanır. Bağlantı dizesi, Visual Studio yayımlama için kullanacağı farklı hizmet yapılandırması için farklı depolama hesapları tanımlamanıza olanak sağlar. Ancak, tanılama eklentisi artık (sonra Azure SDK 2.5) kullanılabilir olmadığından, .cscfg dosyası tek başına tanılama uzantısını etkinleştiremezsiniz. Uzantısı ayrı olarak Visual Studio veya PowerShell gibi araçlar aracılığıyla etkinleştirmeniz gerekir.
 * Tanılama uzantısını PowerShell ile yapılandırma işlemini basitleştirmek için Visual Studio Paketi çıktısını de tanılama uzantısını her rol için ortak yapılandırma XML içeriyor. Visual Studio tanılama bağlantı dizesi ortak yapılandırmada depolama hesabı bilgilerini doldurmak için kullanır. Genel yapılandırma dosyaları Uzantıları klasöründe oluşturulur ve desen PaaSDiagnostics izleyin. <RoleName>. PubConfig.xml. Tüm PowerShell tabanlı dağıtımlar, her yapılandırma bir Role eşleştirmek için bu deseni kullanabilirsiniz.
 * .Cscfg dosyasında bağlantı dizesini de Azure portal tarafından içinde görüntülenebilir tanılama verilerini erişmek için kullanılan **izleme** sekmesi. Bağlantı dizesi, ayrıntılı izleme verileri portalda göstermek için bu hizmeti yapılandırmak için gereklidir.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Azure SDK 2.6 ve daha sonra geçirme projeleri
-Ardından .wadcfgx dosyasında belirtilen tanılama depolama hesabı varsa Azure SDK 2.5-Azure SDK 2.6 veya sonraki sürümleri geçirilirken var. kalır. Farklı depolama hesapları farklı depolama yapılandırmaları için kullanma esnekliğini yararlanmak için bağlantı dizesi projenize el ile eklemeniz gerekir. Azure SDK 2.4 veya daha önceki Azure SDK 2.6 proje geçiş, tanılama bağlantı dizeleri korunur. Ancak, nasıl bağlantı dizeleri Azure SDK 2.6 belirtildiği şekilde önceki bölümde davranılır değişiklikler lütfen unutmayın.
+Ardından .wadcfgx dosyasında belirtilen tanılama depolama hesabı varsa Azure SDK 2.5-Azure SDK 2.6 veya sonraki sürümleri geçirilirken var. kalır. Farklı depolama hesapları farklı depolama yapılandırmaları için kullanma esnekliğini yararlanmak için bağlantı dizesi projenize el ile eklemeniz gerekir. Azure SDK 2.4 veya daha önceki Azure SDK 2.6 proje geçiş, tanılama bağlantı dizeleri korunur. Ancak, nasıl bağlantı dizeleri Azure SDK 2.6 belirtildiği şekilde önceki bölümde davranılır değişiklikler unutmayın.
 
 #### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Visual Studio tanılama depolama hesabı nasıl belirler
 * Bir tanılama bağlantı dizesi .cscfg dosyasında belirtilmediği takdirde, Visual Studio yayımlarken ve genel yapılandırma xml dosyalarını paketlemesi sırasında oluştururken tanılama uzantısını yapılandırmak için kullanır.

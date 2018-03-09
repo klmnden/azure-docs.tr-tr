@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Bir dış aracı tarafından izleme verileri tüketim için bir olay hub'ına akış Azure
 
@@ -36,7 +36,18 @@ Azure ortamınızda 'izleme verilerinin birkaç katmanları' vardır ve her katm
 
 Herhangi bir katmanı verilerden bir event hub'ına, burada da bir iş ortağı aracına çekebilir gönderilebilir. Sonraki bölümlerde, her katman bir olay hub'ına akışı verileri nasıl yapılandırabileceğiniz açıklanmaktadır. Adımlarda varlıklar izlenmesi için bu katmana sahip olduğunuz varsayılır.
 
-Başlamadan önce şunları gerçekleştirmeniz [bir olay hub'ları ad alanı ve olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Bu ad alanı ve olay hub'ı İzleme verilerinizin tümünü hedefi değil.
+## <a name="set-up-an-event-hubs-namespace"></a>Bir olay hub'ları ad alanı ayarlama
+
+Başlamadan önce şunları gerçekleştirmeniz [bir olay hub'ları ad alanı ve olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Bu ad alanı ve olay hub'ı İzleme verilerinizin tümünü hedefi değil. Bir olay hub'ları ad alanı aynı erişim ilkesi paylaşan olay hub'ları mantıksal bir gruplandırması, çok gibi bir depolama hesabı bu depolama hesabı içinde tek tek bloblar sahiptir. Lütfen olay hub'ları ad alanı ve oluşturduğunuz olay hub'ları hakkında birkaç ayrıntılarını not edin:
+* Bir olay hub'ı standart ad kullanmanızı öneririz.
+* Genellikle, yalnızca bir işleme birimi gereklidir. Günlük kullanım arttıkça ölçeği ihtiyacınız varsa, her zaman elle daha sonra ad alanı için işleme birimleri sayısını artırmak veya Otomatik enflasyon etkinleştirin.
+* İşleme birimlerinin sayısı, olay hub'larınız işleme ölçeğini artırmanıza olanak sağlar. Bölüm sayısı tüketim arasında çok sayıda tüketiciye paralel hale sağlar. Tek bir bölüm 20MBps kadar veya yaklaşık yapabilirsiniz saniyede 20.000 ileti. Verileri tüketme aracın bağlı olarak bu olabilir veya birden fazla bölümdeki varlığa tüketen desteklemeyebilir. Ayarlamak için bölüm sayısı hakkında emin değilseniz, dört bölüm ile başlamanızı öneririz.
+* İleti bekletme 7 gün için olay hub'ınızı ayarlamanızı öneririz. Kullanıcı aracınız birden fazla bir gün için devre dışı kalırsa, bu aracın kaldığı yerden yukarı seçebilirsiniz sağlar (olaylar için en fazla 7 gün).
+* Olay hub'ınız için varsayılan bir tüketici grubu kullanmanızı öneririz. Aynı olay hub'ı aynı verilerden tüketen iki farklı araçlar sahip olmayı planladığınız sürece diğer tüketici grupları oluşturun veya ayrı bir tüketici grubundaki kullanmayı gerek yoktur.
+* Azure etkinlik günlüğü için bir olay hub'ları ad alanını seçin ve bir event hub 'Öngörüler-günlükleri-operationallogs.' olarak adlandırılan bu ad alanı içindeki Azure İzleyici oluşturur Diğer günlük türleri için mevcut olay hub'ı (aynı Öngörüler günlükleri operationallogs olay hub'ı yeniden olanak) ya da seçebilirsiniz veya Azure günlük Kategori başına olay hub'ı oluşturma İzleyicisi.
+* Genellikle, bağlantı noktası 5671 ve 5672 verileri olay hub'ı kullanma makinede açılması gerekir.
+
+Ayrıca bkz [Azure olay hub'ları ile ilgili SSS](../event-hubs/event-hubs-faq.md).
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Nasıl izleme verilerini Azure platformu olay hub'ına akışını ayarlarım?
 

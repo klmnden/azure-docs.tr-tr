@@ -8,14 +8,14 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 8753d039582abdf22f105bf7f139a35c224e7c59
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Azure, dinamik envanterleri yönetmek için Ansible kullanın
-Ansible (bulut kaynakları Azure gibi dahil) çeşitli kaynaklardan Envanter bilgilerine pull için kullanılabilir içine bir *dinamik stok*. Bu makalede, kullandığınız [Azure bulut Kabuk](./ansible-run-playbook-in-cloudshell.md) Ansible Azure dinamik iki sanal makine oluşturma envanterini yapılandırmak için bu sanal makineleri bir etiket ve Nginx etiketli sanal makineye yükleyin.
+Ansible (bulut kaynakları Azure gibi dahil) çeşitli kaynaklardan Envanter bilgilerine pull için kullanılabilir içine bir *dinamik stok*. Bu makalede, kullandığınız [Azure bulut Kabuk](./ansible-run-playbook-in-cloudshell.md) Ansible Azure dinamik iki sanal makine oluşturma envanterini yapılandırmak için bu sanal makineleri birini etiketi ve Nginx etiketli sanal makineye yükleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -59,11 +59,11 @@ Yapabilecekleriniz [Azure kaynaklarınızı düzenleme için etiketler kullanın
 Aşağıdaki girin [az kaynak etiketi](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) sanal makine etiketlemek için komut `ansible-inventory-test-vm1` anahtarla `nginx`:
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>Dinamik stok oluştur
-Sanal makinelerinizi olduktan sonra tanımlı (ve etiketli), dinamik stok oluşturmak için zamanı. Ansible adlı bir Python komut dosyası sağlar [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) oluşturan dinamik stok Azure kaynaklarınızın API istekleri için Azure Resource Manager yaparak. Aşağıdaki adımlar kullanılarak yol `azure_rm.py` test Azure sanal makinesi için iki bağlanmak için komut dosyası:
+Sanal makinelerinizi olduktan sonra tanımlı (ve etiketli), dinamik stok oluşturmak için zamanı. Ansible adlı bir Python komut dosyası sağlar [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) oluşturan dinamik stok Azure kaynaklarınızın API istekleri için Azure Resource Manager yaparak. Aşağıdaki adımlar kullanılarak yol `azure_rm.py` için iki bağlanmak için komut dosyası Azure sanal makineleri test edin:
 
 1. GNU kullanmak `wget` almak için komutu `azure_rm.py` komut dosyası:
 

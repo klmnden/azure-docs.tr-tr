@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS ağ geçidi'ni kullanarak Internet erişimi bilgisayarları bağlama
 Bu belge, Azure Automation ile iletişimi yapılandırmak açıklar ve günlük doğrudan olduğunda OMS ağ geçidini kullanma analizi bağlı veya izlenen Operations Manager bilgisayarları Internet erişimine sahip değildir.  OMS HTTP BAĞLAMAK komutunu kullanarak HTTP tüneli destekleyen bir HTTP iletme proxy ağ geçidi, veri toplamak ve onların adına Azure Automation ve günlük analizi gönderebilirsiniz.  
@@ -82,7 +82,7 @@ OMS ağ geçidi aşağıdaki dillerde kullanılabilir:
 OMS ağ geçidi yalnızca Aktarım Katmanı Güvenliği (TLS) 1.0, 1.1 ve 1.2 destekler.  Güvenli Yuva Katmanı (SSL) desteklemez.
 
 ### <a name="supported-number-of-agent-connections"></a>Desteklenen Aracısı bağlantısı sayısı
-Aşağıdaki tabloda vurgular desteklenen bir ağ geçidi sunucusu ile iletişim kurulurken aracıları sayısıdır.  Bu destek ~ 200 KB veri 6 saniyede karşıya aracısında temel alır. Test aracısı başına veri hacmi hakkında 2.7 günde GB'dir.
+Aşağıdaki tabloda desteklenen bir ağ geçidi sunucusu ile iletişim kurulurken aracıları sayısıdır vurgular.  Bu destek ~ 200 KB veri 6 saniyede karşıya aracısında temel alır. Test aracısı başına veri hacmi hakkında 2.7 günde GB'dir.
 
 |Ağ geçidi |Desteklenen aracı yaklaşık sayısı|  
 |--------|----------------------------------|  
@@ -289,7 +289,7 @@ Aşağıdaki tabloda, olay kimlikleri ve açıklamaları OMS ağ geçidi günlü
 | 103 |Bir HTTP BAĞLAMAK komutu istemciden alınan |
 | 104 |Olmayan bir HTTP BAĞLAMAK komutu |
 | 105 |Hedef sunucuda izin verilen listesindeki değil veya hedef bağlantı noktası güvenli bağlantı noktası (443) değil <br> <br> Ağ geçidi sunucunuzda MMA aracı ve ağ geçidi ile iletişim kurmasını aracıları bağlandığını aynı günlük analizi çalışma alanına emin olun. |
-| 105 |HATA TcpConnection – geçersiz bir istemci sertifikası: CN = ağ geçidi <br><br> Emin olun: <br>    <br> &#149; 1.0.395.0 sürüm numarasına sahip bir ağ geçidi kullanarak veya daha büyük. <br> &#149; Ağ geçidi sunucunuzda MMA aracı ve ağ geçidi ile iletişim kurmasını aracıları aynı günlük analizi çalışma alanına bağlı. |
+| 105 |HATA TcpConnection – geçersiz bir istemci sertifikası: CN = ağ geçidi <br><br> Emin olun: <br>    <br> &#149;1.0.395.0 sürüm numarasına sahip bir ağ geçidi kullanarak veya daha büyük. <br> &#149;Ağ geçidi sunucunuzda MMA aracı ve ağ geçidi ile iletişim kurmasını aracıları aynı günlük analizi çalışma alanına bağlı. |
 | 106 |OMS ağ geçidi yalnızca TLS 1.0, TLS 1.1 ve 1.2 destekler.  SSL desteklemez. Tüm TLS/SSL protokolü için desteklenmeyen sürüm, olay kimliği 106 OMS ağ geçidi oluşturur.|
 | 107 |TLS oturum doğrulandı |
 

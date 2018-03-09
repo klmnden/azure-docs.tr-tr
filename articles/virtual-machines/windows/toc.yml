@@ -201,8 +201,6 @@
           href: maintenance-notifications.md
         - name: Kurgusal yürütmeyi azaltma
           href: mitigate-se.md
-        - name: Hızlandırılmış bakım hakkında SSS
-          href: accelerated-maintenance.md
         - name: Zamanlanmış olaylar
           href: scheduled-events.md
         - name: Meta verileri izleme

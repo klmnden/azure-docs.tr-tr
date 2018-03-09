@@ -2,25 +2,20 @@
 title: "Azure Site kurtarma yeniden çalışma | Microsoft Docs"
 description: "Bu makalede, yeniden çalışma sırasında Azure Site Recovery hizmeti ile şirket içi dön başarısız olarak değerlendirilmesi için uyarılar ve çeşitli türlerine genel bakış sağlar."
 services: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: guaravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 03/05/2018
 ms.author: rajanki
-ms.openlocfilehash: 07dc05c0bd89e69b6bfcff7577919494647efed0
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 372a7867b47960338d7a1bf7e646fb9fffbe72e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-failback"></a>Yeniden çalışma genel bakış
+
 Azure üzerinde başarısız oldu sonra şirket içi sitenize başarısız olabilir. Azure Site Recovery ile mümkün olan iki farklı tür geri dönme vardır: 
 
 - Özgün konuma geri alabilirsiniz 
@@ -55,5 +50,5 @@ Senaryo, şirket içi sanal makine sanal makineyi yeniden korumayı önce mevcut
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Adımları gerçekleştirmek için [yeniden çalışma işlemi](site-recovery-how-to-failback-azure-to-vmware.md).
+Adımları gerçekleştirmek için [yeniden çalışma işlemi](vmware-azure-failback.md).
 

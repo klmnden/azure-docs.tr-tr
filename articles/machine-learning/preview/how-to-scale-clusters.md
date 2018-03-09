@@ -5,17 +5,17 @@ services: machine-learning
 author: raymondl
 ms.author: raymondl
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 49e22c5136da67f62a43374817fb1e462fcbcaf0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 690068edf749a2c79d328337618d94936520d501
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Web hizmeti üretilen işini yönetmenizi küme ölçeklendirme
 
@@ -86,10 +86,10 @@ az ml service update realtime -i <service id> --autoscale-enabled true --autosca
 | Parametre adı | Tür | Açıklama |
 |--------------------|--------------------|--------------------|
 | `autoscale-enabled` | boole | Otomatik ölçeklendirme etkinleştirilip etkinleştirilmeyeceğini belirtir. Varsayılan: true |
-| `autoscale-min-replicas` | integer | Pod'ları minimum sayısını belirtir. 0 veya daha büyük olmalıdır. Varsayılan: 1 |
-| `autoscale-max-replicas` | integer | Pod'ları üst sınırını belirtir. 1 veya daha büyük olmalıdır. Otomatik ölçeklendirme max çoğaltmaları otomatik ölçeklendirme-min-çoğaltmaları küçük ise, otomatik ölçeklendirme max çoğaltmaları yoksayılacak. Varsayılan: 10 |
-| `autoscale-refresh-period-seconds` | integer | Otomatik ölçeklendirme yenilemeleri arasında saniye cinsinden süreyi belirtir. Varsayılan: 1 |
-| `autoscale-target-utilization` | integer | 1 ile 100 arasında otomatik ölçeklendirme hedefleyen yüzdesi kullanımı belirtir. Varsayılan: 70 |
+| `autoscale-min-replicas` | tamsayı | Pod'ları minimum sayısını belirtir. 0 veya daha büyük olmalıdır. Varsayılan: 1 |
+| `autoscale-max-replicas` | tamsayı | Pod'ları üst sınırını belirtir. 1 veya daha büyük olmalıdır. Otomatik ölçeklendirme max çoğaltmaları otomatik ölçeklendirme-min-çoğaltmaları küçük ise, otomatik ölçeklendirme max çoğaltmaları yoksayılacak. Varsayılan: 10 |
+| `autoscale-refresh-period-seconds` | tamsayı | Otomatik ölçeklendirme yenilemeleri arasında saniye cinsinden süreyi belirtir. Varsayılan: 1 |
+| `autoscale-target-utilization` | tamsayı | 1 ile 100 arasında otomatik ölçeklendirme hedefleyen yüzdesi kullanımı belirtir. Varsayılan: 70 |
 
 Aşağıdaki iki koşul sağlamak için otomatik ölçeklendirme çalışır:
 

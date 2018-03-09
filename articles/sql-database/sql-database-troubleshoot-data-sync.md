@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile ilgili sorunları giderme
 
@@ -124,8 +124,8 @@ Birçok senaryo bu hataya neden olabilir. Bu hatanın belirli nedenini belirleme
 
 Belirli başarısızlığın nedenini bulmak için oluşturmak ve Windows Installer günlüklerine bakın. Bir komut isteminde günlük kaydını etkinleştirebilirsiniz. Örneğin, indirilen AgentServiceSetup.msi dosya LocalAgentHost.msi ise, oluşturun ve aşağıdaki komut satırlarından kullanarak günlük dosyalarını inceleyin:
 
--   Yüklemeler için:`msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
--   İçin kaldırır:`msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   Yüklemeler için: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+-   İçin kaldırır: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
 
 Windows Installer tarafından gerçekleştirilen tüm yüklemeleri için günlüğe kaydetmeyi kapatabilirsiniz. Microsoft Bilgi Bankası makalesi [Windows Installer günlüğünün nasıl etkinleştirileceği](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) Windows Installer için günlük kaydını etkinleştirmek için tek tıklamayla çözümü sağlar. Ayrıca, günlükleri konumunu sağlar.
 
@@ -135,7 +135,7 @@ Windows Installer tarafından gerçekleştirilen tüm yüklemeleri için günlü
 
 İstemci Aracısı'nı kullanmaya çalıştığınızda aşağıdaki iletiler Al:
 
-"Parametresi www.microsoft.com/.../05:GetBatchInfoResult serisi kaldırılmaya çalışılırken bir hata oluştu durumla eşitleme başarısız oldu. InnerException daha fazla ayrıntı için bkz."
+"Parametresi www.microsoft.com/.../05:GetBatchInfoResult serisi kaldırılmaya çalışılırken bir hata oluştu durumla eşitleme başarısız oldu. InnerException daha fazla bilgi için bkz."
 
 "İç özel durum iletisi: 'Microsoft.Synchronization.ChangeBatch' türünde geçersiz koleksiyon türü varsayılan bir oluşturucu olmadığından."
 
@@ -240,8 +240,8 @@ Devam etmeden önce aşağıdaki koşulları denetleyin:
 -   SQL veri eşitleme (Önizleme) Windows hizmeti çalışıyor.  
 -   SQL veri eşitleme (Önizleme) önizleme Windows hizmeti için hizmet hesabı ağ erişimi vardır.    
 -   İstemci Aracısı Konumlandırıcı Hizmeti başvurabilirsiniz. Aşağıdaki kayıt defteri anahtarının değeri https://locator.sync.azure.com/LocatorServiceApi.svc sahip olup olmadığını denetleyin:  
-    -   Bir x86 üzerinde bilgisayar:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   X x64 üzerinde bilgisayar:`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+    -   Bir x86 üzerinde bilgisayar: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
+    -   X x64 üzerinde bilgisayar: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 
 #### <a name="cause"></a>Nedeni
 

@@ -13,19 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
 ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Azure SQL veritabanı kullanarak yüksek oranda kullanılabilir hizmetler tasarlama
 
 Derleme ve Azure SQL veritabanı yüksek oranda kullanılabilir hizmetleri dağıtma, kullandığınız [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) bölgesel kesintiler ve geri dönülemez hataları için esneklik sağlamak için. Ayrıca, ikincil veritabanlarıyla Hızlı Kurtarma sağlar. Bu makale üzerinde ortak uygulama düzenleri odaklanır ve avantajları ve dengelemeler her seçenekle ele almaktadır. Esnek havuzlar etkin coğrafi çoğaltma hakkında daha fazla bilgi için bkz: [esnek havuz olağanüstü durum kurtarma stratejilerini](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+> [!NOTE]
+> Premium veritabanları ve havuzları kullanıyorsanız, bunları dayanıklı bölgesel kesintileri (şu anda önizlemede) bölge olarak yedekli dağıtım yapılandırması için dönüştürerek yapabileceğiniz. Bkz: [bölge olarak yedekli veritabanları](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Senaryo 1: en az kapalı kalma süresi ile iş sürekliliği için iki Azure bölgeleri kullanma
 Bu senaryoda, uygulamaları aşağıdaki özelliklere sahiptir: 
@@ -47,8 +50,7 @@ Aşağıdaki diyagramda bu yapılandırma bir kesinti önce gösterilmektedir:
 Birincil bölgede kesinti sonrasında, SQL veritabanı hizmetinin algılar birincil veritabanı erişilebilir değil ve (1) otomatik yük devretme İlkesi parametrelere bağlı olarak ikincil bölgeye yük devretmeyi tetikler. Uygulama SLA bağlı olarak, zamanı kesinti algılanmasını ve yük devretme kendisi arasında denetimleri bir yetkisiz kullanım süresi yapılandırabilirsiniz. Yük devretme grubu veritabanının yük devretmeyi tetikler önce bu trafik Yöneticisi uç nokta yük devretme başlatır mümkündür. Bu durumda web uygulaması veritabanına hemen yeniden bağlanamaz. Ancak veritabanı yük devretme tamamlandıktan hemen sonra tutarsızlıklara otomatik olarak başarılı olur. Başarısız bölge geri yüklenen ve tekrar çevrimiçi olduğunda, eski birincil otomatik olarak yeni ikincil olarak yeniden bağlanır. Aşağıdaki diyagramda, yük devretme sonrasında yapılandırması gösterilmiştir.
  
 > [!NOTE]
-> Yük devretme sonrasında kaydedilen tüm işlem yeniden bağlanma sırasında kaybolur. Yük devretme işlemi tamamlandıktan sonra B bölgede kullanıcı istekleri işlemeyi yeniden başlatın ve yeniden uygulamasıdır. Web uygulaması ve birincil veritabanı B bölgede sunulmuştur ve aynı konumda kalır. 
-n>
+> Yük devretme sonrasında kaydedilen tüm işlem yeniden bağlanma sırasında kaybolur. Yük devretme işlemi tamamlandıktan sonra B bölgede kullanıcı istekleri işlemeyi yeniden başlatın ve yeniden uygulamasıdır. Web uygulaması ve birincil veritabanı B bölgede sunulmuştur ve aynı konumda kalır. n>
 
 ![Senaryo 1. Yük devretme sonrasında yapılandırma](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 

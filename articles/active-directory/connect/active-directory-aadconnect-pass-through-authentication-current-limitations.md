@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory doğrudan kimlik doğrulaması: Geçerli sınırlamalar
 
@@ -31,18 +31,18 @@ Aşağıdaki senaryolarda tam olarak desteklenir:
 
 - Kullanıcı oturum açma işlemleri için tüm web tarayıcı tabanlı uygulamalar
 - Kullanıcı oturum açma işlemleri destekleyen Office uygulamaları için [modern kimlik doğrulaması](https://aka.ms/modernauthga): Office 2016 ve Office 2013 _ile_ modern kimlik doğrulaması
+- Kullanıcı oturum açma işlemlerine Exchange ActiveSync, SMTP, POP ve IMAP gibi eski protokolleri kullanarak Outlook istemcileri.
 - Kullanıcı oturum açma işlemlerine Skype Kurumsal çevrimiçi & karma topolojiler de dahil olmak üzere bu destek modern kimlik doğrulaması. Desteklenen topolojiler hakkında daha fazla bilgi [burada](https://technet.microsoft.com/library/mt803262.aspx).
 - Windows 10 cihazlar için Azure AD etki alanına katılır
-- Exchange ActiveSync desteği
+- Çok faktörlü kimlik doğrulaması için uygulama parolaları.
 
 ## <a name="unsupported-scenarios"></a>Desteklenmeyen senaryolar
 
 Aşağıdaki senaryolar _değil_ desteklenir:
 
-- Kullanıcı oturum açma işlemlerine eski Office istemci uygulamaları: Office 2010 ve Office 2013 _olmadan_ modern kimlik doğrulaması. Kuruluşlar, modern kimlik doğrulaması için mümkünse geçmeniz önerilir. Modern kimlik doğrulama için doğrudan kimlik doğrulama desteği sağlar. Ayrıca, kullanıcı hesaplarını kullanarak güvenliğini sağlamanıza yardımcı olur [koşullu erişim](../active-directory-conditional-access-azure-portal.md) Azure çok faktörlü kimlik doğrulaması gibi özellikleri.
+- Eski Office istemci uygulamaları Outlook dışında kullanıcı oturum açma işlemlerine: Office 2010 ve Office 2013 _olmadan_ modern kimlik doğrulaması. Kuruluşlar, modern kimlik doğrulaması için mümkünse geçmeniz önerilir. Modern kimlik doğrulama için doğrudan kimlik doğrulama desteği sağlar. Ayrıca, kullanıcı hesaplarını kullanarak güvenliğini sağlamanıza yardımcı olur [koşullu erişim](../active-directory-conditional-access-azure-portal.md) Azure çok faktörlü kimlik doğrulaması gibi özellikleri.
 - Kullanıcı oturum açma işlemlerine Skype iş istemci uygulamaları için _olmadan_ modern kimlik doğrulaması.
 - Kullanıcı oturum açma işlemlerine PowerShell 1.0 sürümü. PowerShell sürüm 2.0 kullanmanızı öneririz.
-- Çok faktörlü kimlik doğrulaması için uygulama parolaları.
 - Kullanıcılarla algılanması [kimlik bilgileri sızmasını](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD etki alanı Hizmetleri parola karması eşitlemesi Kiracı'etkinleştirilmesi gerekir. Bu nedenle, geçişli kimlik doğrulaması kullanan kiracılar _yalnızca_ Azure AD etki alanı Hizmetleri gerektiren senaryolar için çalışmıyor.
 - Doğrudan kimlik doğrulaması ile tümleşik değildir [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
@@ -63,4 +63,3 @@ Aşağıdaki senaryolar _değil_ desteklenir:
 - [Güvenlik derinlemesine](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): doğrudan kimlik doğrulama özelliği hakkında ayrıntılı teknik bilgi alın.
 - [Azure AD sorunsuz SSO](active-directory-aadconnect-sso.md): tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): yeni özellik istekleri dosya için Azure Active Directory Forumu kullanın.
-

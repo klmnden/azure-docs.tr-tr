@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>SQL Server veritabanlarına sahip sınırda veri depolama
 
@@ -48,7 +48,7 @@ Bu öğretici için işlemci mimarileri iş x64 hem Windows hem de Linux kapsay�
 
 ## <a name="deploy-a-sql-server-container"></a>Bir SQL Server kapsayıcı dağıtma
 
-Bu bölümde, sanal IOT kenar cihazınız bir MS SQL veritabanını ekleyin. SQL Server 2017 docker kapsayıcısı görüntüsü üzerinde kullanılabilir kullanmak [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) ve [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
+Bu bölümde, sanal IOT kenar cihazınız bir MS SQL veritabanını ekleyin. SQL Server 2017 docker kapsayıcısı görüntüsü, kullanılabilir olarak kullanarak bir [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) kapsayıcısı ve bir [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/) kapsayıcı. 
 
 ### <a name="deploy-sql-server-2017"></a>SQL Server 2017 dağıtma
 
@@ -100,14 +100,14 @@ Adım 3'te, ortam değişkenleri ve persistant depolama kurmak için önemli ola
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
       ```
 
    * Linux:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
 4. Dosyayı kaydedin. 
@@ -125,31 +125,31 @@ Bu bölümde IOT kenar cihaza bağlı algılayıcılar alınan sıcaklık verile
 
 Bir komut satırı aracı, veritabanına bağlan: 
 
-* Windows
+* Windows kapsayıcısı
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux kapsayıcısı
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 SQL komut aracını açın: 
 
-* Windows
+* Windows kapsayıcısı
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux kapsayıcısı
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 Veritabanınızı oluşturun: 
 
-* Windows
+* Windows kapsayıcısı
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -157,7 +157,7 @@ Veritabanınızı oluşturun:
    GO
    ```
 
-* Linux
+* Linux kapsayıcısı
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -302,24 +302,24 @@ Kapsayıcılarınızı yeniden başlattığınızda sıcaklık algılayıcılar�
 
 Bir komut satırı aracı, veritabanına bağlan: 
 
-* Windows
+* Windows kapsayıcısı
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Linux kapsayıcısı
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 SQL komut aracını açın: 
 
-* Windows
+* Windows kapsayıcısı
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Linux kapsayıcısı
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
@@ -327,7 +327,7 @@ SQL komut aracını açın:
 Verilerinizi görüntüleyin: 
 
    ```sql
-   Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
    GO
    ```
 

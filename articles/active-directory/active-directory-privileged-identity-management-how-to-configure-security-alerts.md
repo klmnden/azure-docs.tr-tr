@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 52a03624b8e3841f559caef564712ff74a614365
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8037942cb3700f8e46d3be24b5fed04004333335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management güvenlik uyarılarını yapılandırma
 ## <a name="security-alerts"></a>Güvenlik uyarıları
@@ -27,13 +27,18 @@ Azure Privileged Identity Management (PIM) ortamınızda kuşkulu veya güvenli 
 
 ![PIM Pano güvenlik uyarıları - ekran görüntüsü][1]
 
-| Uyarı | Tetikleyici | Öneri |
-| --- | --- | --- |
-| **Roller PIM dışında atanmış durumda** |Yönetici kalıcı olarak PIM arabirimi dışında bir rolü atandı. |Yeni rol ataması gözden geçirin. Diğer hizmetler yalnızca kalıcı Yöneticiler atayabilirsiniz olduğundan, gerekirse uygun atama değiştirin. |
-| **Roller çok sık etkinleştirilmekte** |Ayarlarında izin verilen süre içinde çok fazla yeniden etkinleştirmeleri aynı rolünün vardı. |Bunlar çok fazla kez rolü neden etkinleştirdikten görmek için kullanıcıyla iletişime geçin. Belki de zaman sınırı için çok fazla bunları görevlerini tamamlamak için veya belki de bunlar komut dosyaları otomatik olarak bir rolü etkinleştirmek için kullanmakta olduğunuz yoktur. |
-| **Rol etkinleştirmesi için çok faktörlü kimlik doğrulaması gerektirmeyen** |MFA ayarları etkinse olmadan rolü vardır. |Biz en üst düzey ayrıcalıklı rolleri için MFA gerekir, ancak tüm rolleri etkinleştirme için MFA etkinleştirin kesinlikle öneririz. |
-| **Yöneticiler ayrıcalıklı rollerini kullanmadığınız** |Rollerine son etkinleştirmediyseniz uygun Yöneticiler vardır. |Erişim artık gerekmeyen kullanıcılar belirlemek için bir erişim gözden geçirme başlatın. |
-| **Çok sayıda genel Yöneticiler vardır** |Önerilen daha fazla genel Yöneticiler vardır. |Çok sayıda genel Yöneticiler varsa, kullanıcıların ihtiyaç duyduklarından fazla izinler aldıklarından olasıdır. Daha az ayrıcalıklı rollere kullanıcıları taşıyın ya da bunlardan bazıları kalıcı olarak atanan yerine rolü için uygun hale getirmek. |
+| Uyarı | Önem Derecesi | Tetikleyici | Öneri |
+| --- | --- | --- | --- |
+| **Roller PIM dışında atanmış durumda** |Yüksek |Bir kullanıcının PIM arabirimi dışında ayrıcalıklı bir rol kalıcı olarak atanmıştır. |Liste ve atamayı onlardan PIM dışında atanan rollerin ayrıcalıklı kullanıcılar gözden geçirin. |
+| **Roller çok sık etkinleştirilmekte** |Orta |Ayarlarında izin verilen süre içinde çok fazla yeniden etkinleştirmeleri aynı rolünün vardı. |Bunlar çok fazla kez rolü neden etkinleştirdikten görmek için kullanıcıyla iletişime geçin. Belki de zaman sınırı için çok fazla bunları görevlerini tamamlamak için veya belki de bunlar komut dosyaları otomatik olarak bir rolü etkinleştirmek için kullanmakta olduğunuz yoktur. Etkinleştirme süresi rolleri için bunları görevlerini gerçekleştirmeye yetecek uzunlukta ayarlandığından emin olun. |
+| **Rol etkinleştirmesi için çok faktörlü kimlik doğrulaması gerektirmeyen** |Orta |MFA ayarları etkinse olmadan rolü vardır. |Biz en üst düzey ayrıcalıklı rolleri için MFA gerekir, ancak tüm rolleri etkinleştirme için MFA etkinleştirin kesinlikle öneririz. |
+| **Ayrıcalıklı rollerini kullanıcıların kullanmadığınız** |Düşük |Rollerine son etkinleştirmediyseniz uygun Yöneticiler vardır. |Erişim artık gerekmeyen kullanıcılar belirlemek için bir erişim gözden geçirme başlatın. |
+| **Çok sayıda genel Yöneticiler vardır** |Düşük |Önerilen daha fazla genel Yöneticiler vardır. |Çok sayıda genel Yöneticiler varsa, kullanıcıların ihtiyaç duyduklarından fazla izinler aldıklarından olasıdır. Daha az ayrıcalıklı rollere kullanıcıları taşıyın ya da bunlardan bazıları kalıcı olarak atanan yerine rolü için uygun hale getirmek. |
+
+### <a name="severity"></a>Önem Derecesi
+* **Yüksek**: bir ilke ihlali nedeniyle Acil eylem gerektirir. 
+* **Orta**: Acil eylem gerekli değildir ancak olası ilke ihlalinin işaret eder.
+* **Düşük**: Acil eylem gerekli değildir ancak preferrable ilke değişikliğini önerir.
 
 ## <a name="configure-security-alert-settings"></a>Güvenlik uyarı ayarlarını yapılandırma
 Güvenlik Uyarıları ortamınız ve Güvenlik amaçları ile çalışmak için PIM bazıları özelleştirebilirsiniz. Ayarlar dikey ulaşmak için şu adımları izleyin:

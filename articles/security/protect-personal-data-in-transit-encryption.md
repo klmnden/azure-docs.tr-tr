@@ -1,6 +1,6 @@
 ---
 title: "Kişisel Aktarımdaki verileri şifreleme Azure ile koruma | Microsoft Docs"
-description: "Kişisel verilerinizi korumak için Azure'da şifreleme kullanma"
+description: "kişisel verilerinizi korumak için Azure şifreleme hakkında bilgi genel veri koruma düzenleme (GDPR) ile uyumlu olacak şekilde çalışmalarını yararlı olabilir."
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Azure şifreleme teknolojilerini: şifrelemesi ile Aktarım kişisel verileri koruma
 
-Bu makalede anlamak ve Azure şifreleme teknolojilerini verilerin güvenliğini sağlamak için aktarım sırasında kullanmanıza yardımcı olur. 
-
-Ağ üzerinden geçen gibi kişisel verilerin gizliliği koruma, çok katmanlı savunma güvenlik stratejisinin önemli bir parçasıdır. Şifreleme Aktarımdaki görüntüleyebilir veya verileri kullanma engeller iletimleri karşılar bir saldırganın önlemek için tasarlanmıştır.
+Bu makalede anlamak ve Azure şifreleme teknolojilerini verilerin güvenliğini sağlamak için aktarım sırasında kullanmanıza yardımcı olur. Ağ üzerinden geçen gibi kişisel verilerin gizliliği koruma, çok katmanlı savunma güvenlik stratejisinin önemli bir parçasıdır. Şifreleme Aktarımdaki görüntüleyebilir veya verileri kullanma engeller iletimleri karşılar bir saldırganın önlemek için tasarlanmıştır. Bu makalede yer alan bilgileri genel veri koruma düzenleme (GDPR) ile uyum sağlamak için bir kuruluşun çaba yararlı olabilir.
 
 ## <a name="scenario"></a>Senaryo
 

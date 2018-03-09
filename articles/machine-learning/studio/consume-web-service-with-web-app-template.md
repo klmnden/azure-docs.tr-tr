@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye;raymondl
-ms.openlocfilehash: 93e75a2864d9aef266b16f8dd7dcc3411b24864b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: raymondl
+ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Bir web uygulaması şablonu kullanarak bir Azure Machine Learning web hizmetini kullanma
 
@@ -119,7 +119,7 @@ Bir toplu iş yürütme web hizmeti için giriş değerleri, Azure Storage veya 
 
 Web uygulaması iş durumunu içeren bir sayfa görüntülenir. İş tamamlandığında, Azure Blob Depolama sonuçlarında konumunu alır. Ayrıca yerel bir dosyaya sonuçları yükleme seçeneğiniz vardır.
 
-## <a name="for-more-information"></a>Daha fazla bilgi için
+## <a name="for-more-information"></a>Daha fazla bilgi edinmek için
 Daha fazla bilgi edinmek için:
 
 * Machine learning denemeyi Machine Learning Studio ile bkz [Azure Machine Learning Studio'da ilk denemenizi oluşturma](create-experiment.md).

@@ -3,8 +3,8 @@ title: "Azure yığınında bölge Yönetimi | Microsoft Docs"
 description: "Azure yığınında bölge yönetimine genel bakış."
 services: azure-stack
 documentationcenter: 
-author: efemmano
-manager: dsavage
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: efemmano
-ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: efemmano
+ms.openlocfilehash: 0a19490ce276eec9a46bc0ea4343e3449a9dc93c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="region-management-in-azure-stack"></a>Azure yığınında bölge Yönetimi
 
@@ -39,21 +40,15 @@ Azure yığın sahip bir dizi bölge yönetim özelliği bulunan **bölge Yönet
 
 1. **Kaynak menü**. Burada, belirli altyapı Yönetimi alanlara erişebilir ve görüntülemek ve depolama hesapları ve sanal ağlar gibi kullanıcı kaynaklarını yönetme.
 
-2. **Uyarıları**. Bu kutucuğu sistem genelinde uyarıları listeler ve her uyarıların ayrıntıları sağlar.
+2. **Uyarılar**. Bu kutucuğu sistem genelinde uyarıları listeler ve her uyarıların ayrıntıları sağlar.
 
-3. **Güncelleştirmeleri**. Bu kutucukta Azure yığın altyapınızı geçerli sürümünü görüntüleyebilirsiniz.
+3. **Güncelleştirmeleri**. Bu kutucukta geçerli sürümünü Azure yığın altyapınızı, kullanılabilir güncelleştirmeleri ve güncelleştirme geçmişini görüntüleyebilirsiniz. Tümleşik sisteminizi da güncelleştirebilirsiniz.
 
-4. **Kaynak sağlayıcıları**. Kaynak sağlayıcıları yerdir Azure yığın çalıştırmak için gerekli bileşenleri tarafından sunulan Kiracı işlevselliği yönetmek için. Her kaynak sağlayıcısı, bir yönetim deneyimi ile birlikte gelir. Bu deneyim, belirli bir sağlayıcıyı, ölçümleri ve diğer yönetim özelliklerini kaynak sağlayıcıya özel uyarılar içerebilir.
- 
-5. **Altyapı rollerini**. Altyapı, Azure yığın çalıştırmak gerekli bileşenleri rolleridir. Yalnızca uyarı raporu altyapı rolleri listelenir. Bir rolü tıklayarak, belirli bir rolü ve bu rolün çalıştığı rol örneği ile ilişkili uyarıları görüntüleyebilirsiniz. Başlangıç yeteneği olsa da, yeniden Başlat veya altyapı rol örneğini kapatmak, yapın **değil** Geliştirme Seti ortamında bunu. Bu seçenekler yalnızca bir çok düğümlü ortamı için tasarlanmıştır altyapı rol başına birden fazla rol örneği burada. Development Kit'te (özellikle AzS-Xrp01) rol örneği yeniden sistem kararsızlığına neden olur.
+4. **Kaynak sağlayıcıları**. Kaynak sağlayıcıları yerdir Azure yığın çalıştırmak için gerekli bileşenleri tarafından sunulan kullanıcı işlevselliği yönetmek için. Her kaynak sağlayıcısı, bir yönetim deneyimi ile birlikte gelir. Bu deneyim, belirli bir sağlayıcıyı, ölçümleri ve diğer yönetim özelliklerini kaynak sağlayıcıya özel uyarılar içerebilir.
+
+5. **Altyapı rollerini**. Altyapı, Azure yığın çalıştırmak gerekli bileşenleri rolleridir. Yalnızca uyarı raporu altyapı rolleri listelenir. Bir rolü tıklayarak, belirli bir rolü ve bu rolün çalıştığı rol örneği ile ilişkili uyarıları görüntüleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Sistem durumu ve Uyarıları Azure yığınında izleme](azure-stack-monitor-health.md)
 
 [Azure yığınında güncelleştirmelerini yönetme](azure-stack-updates.md)
-
-
-
-
-
-

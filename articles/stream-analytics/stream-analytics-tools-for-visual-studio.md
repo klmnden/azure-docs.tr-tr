@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio için Azure Stream Analytics araçlarını kullanın | Microsoft Docs"
 description: "Başlangıç öğreticisi için Visual Studio için Azure Stream Analytics araçları"
-keywords: Visual studio
+keywords: visual studio
 documentationcenter: 
 services: stream-analytics
 author: su-jie
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio için Azure Stream Analytics araçlarını kullanın
 Visual Studio için Azure Stream Analytics araçları artık genel olarak kullanılabilir. Bu araçları yanı sıra gidermek karmaşık sorgular yazmak Stream Analytics kullanıcılar için daha zengin bir deneyim sağlamak ve hatta sorguları yerel olarak yazma. Ayrıca, bir Visual Studio projeye Stream Analytics işi dışa aktarabilirsiniz.
 
 ## <a name="introduction"></a>Giriş
-Bu öğreticide, Visual Studio için Stream Analytics araçları oluşturmak, yazar, yerel olarak test, yönetmek ve akış analizi işleri hata ayıklamak için nasıl kullanılacağını öğrenin. 
+Bu öğreticide, Visual Studio için Stream Analytics araçları oluşturmak, yazar, yerel olarak test, yönetmek ve akış analizi işleri hata ayıklamak için nasıl kullanılacağını öğrenin. İş oluşturduktan sonra bir sürekli tümleştirme ve dağıtım işlemiyle Azure CI/CD Nuget paketi kullanarak ayarlayabilirsiniz, bilgi edinmek için daha fazla bilgi için bkz [CI/CD ardışık düzen ayarlamak için Stream Analytics VS araçları](stream-analytics-tools-for-visual-studio-cicd.md) makalesi.
 
 Bu öğreticiyi tamamladıktan sonra aşağıdakileri gerçekleştirebilirsiniz:
 
@@ -35,7 +35,7 @@ Bu öğreticiyi tamamladıktan sonra aşağıdakileri gerçekleştirebilirsiniz:
 * Sorunları gidermek için izleme'yi kullanın.
 * Var olan işleri projelerine verin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:
 
 * Öğreticide adımları "Stream Analytics işi oluştur" en son [akış analizi kullanarak bir IOT çözümü derleme](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
@@ -141,9 +141,9 @@ Hakkında daha fazla ayrıntı için okuma [süresi management](https://msdn.mic
 
 Bu klasör, aşağıdaki dosyaları içerir:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Soru: Ücretli Stand girme taşıtlardan sayısı
 Projede çift **Script.asaql** Kod düzenleyicisinde açın. Komut dosyası önceki bölümde düzenleyiciye yapıştırın. Sorgu Düzenleyicisi'ni IntelliSense, söz dizimi renklendirme ve bir hata işaretleyici destekler.

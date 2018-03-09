@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f6e05d410a8018f0a88a378e767f7a7e6fde6f0c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB veritabanı güvenliği
 
@@ -69,7 +69,7 @@ Her birini ayrıntılı içine şimdi edinebilirsiniz.
 |Yetkilendirme|Azure Cosmos DB yetkilendirme için karma tabanlı ileti kimlik doğrulama kodu (HMAC) kullanır. <br><br>Her istek gizli hesap anahtarı kullanarak karma uygulanır ve sonraki base-64 kodlanmış karma her çağrı Azure Cosmos DB ile gönderilir. İstek doğrulamak için Azure Cosmos DB hizmeti doğru gizli anahtar ve özellikleri karma oluşturmak için kullanır ve ardından istek bir değerle karşılaştırır. İki değer eşleşen, işlemi başarıyla yetkili ve istek işlenir, aksi takdirde bir Yetkilendirme hatası yoktur ve isteği reddedildi.<br><br>Kullanabilirsiniz bir [ana anahtar](secure-access-to-data.md#master-keys), veya bir [kaynak belirteci](secure-access-to-data.md#resource-tokens) hassas bir belge gibi bir kaynağa erişim sağlar.<br><br>Daha fazla bilgi edinin [Azure Cosmos DB kaynaklarına erişimi güvenli hale getirme](secure-access-to-data.md).|
 |Kullanıcılar ve izinler|Kullanarak [ana anahtar](#master-key) hesap için kullanıcı ve veritabanı başına izin kaynaklarının oluşturabilirsiniz. A [kaynak belirteci](#resource-token) bir veritabanında bir izinle ilişkili olan ve kullanıcı olup olmadığını belirler veritabanındaki Uygulama kaynağı için erişim (okuma-yazma, salt okunur veya erişimi yok). Uygulama kaynaklarını koleksiyonlar, belgeler, ekleri, saklı yordamlar, tetikleyiciler ve UDF'ler içerir. Sonra kaynak belirteci kimlik doğrulaması sırasında sağlamak veya kaynak erişimini engellemek için kullanılır.<br><br>Daha fazla bilgi edinin [Azure Cosmos DB kaynaklarına erişimi güvenli hale getirme](secure-access-to-data.md).|
 |Active directory ile tümleştirme (RBAC)| Ayrıca bu tabloda aşağıdaki ekran görüntüsünde gösterildiği gibi Azure portalında erişim denetimi (IAM) kullanarak veritabanı hesabı için erişim sağlayabilir. IAM rol tabanlı erişim denetimi sağlar ve Active Directory ile tümleştirir. Kişiler ve aşağıdaki görüntüde gösterildiği gibi grupları için yerleşik roller veya özel roller kullanabilirsiniz.|
-|Genel çoğaltma|Azure Cosmos DB ve bu sayede verilerinizi Azure'nın dünya çapında veri merkezleri herhangi biri bir düğmeyi tıklatarak ile çoğaltmak anahtar teslimi genel dağıtım sunar. Genel çoğaltma küresel olarak ölçeklendirmeyi ve verilerinize dünyanın düşük gecikmeli erişim sağlamanıza olanak tanır.<br><br>Güvenlik bağlamında bölgesel arızalara karşı veri koruma genel çoğaltma oluşturmasını sağlar.<br><br>Daha fazla bilgi edinin [verilerini genel dağıtmak](distribute-data-globally.md).|
+|Genel çoğaltma|Azure Cosmos DB ve bu sayede verilerinizi Azure'nın dünya çapında veri merkezleri herhangi biri bir düğmeyi tıklatarak ile çoğaltmak anahtar teslimi genel dağıtım sunar. Genel çoğaltma küresel olarak ölçeklendirmeyi ve verilerinize dünyanın düşük gecikmeli erişim sağlamanıza olanak tanır.<br><br>Güvenlik bağlamında genel çoğaltma bölgesel arızalara karşı veri koruma sağlar.<br><br>Daha fazla bilgi edinin [verilerini genel dağıtmak](distribute-data-globally.md).|
 |Bölgesel yük devretme|Verilerinizi birden fazla veri merkezinde çoğaltıldığından, Azure Cosmos DB bölgesel veri merkezi çevrimdışı duruma işlemlerinizin otomatik olarak yapar. Verilerinizi çoğaltılan bölgeleri kullanarak yük devretme bölge öncelikli listesi oluşturabilirsiniz. <br><br>Daha fazla bilgi edinin [bölgesel yük devretme işlemlerini Azure Cosmos veritabanı](regional-failover.md).|
 |Yerel çoğaltma|Bile içinde tek bir veri merkezi, Azure Cosmos DB verilerini seçimi vererek yüksek kullanılabilirlik için otomatik olarak çoğaltır [tutarlılık düzeylerini](consistency-levels.md). Bu % 99,99 garanti [kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) tüm tek bölge ve tüm bölgeli hesapları ile rahat tutarlılık ve %99.999 okuma tüm bölgeli veritabanı hesaplarda kullanılabilirlik.|
 |Çevrimiçi yedeklemeleri otomatik|Azure Cosmos DB veritabanları düzenli olarak yedeklenen ve georedundant deposunda depolanır. <br><br>Daha fazla bilgi edinin [otomatik çevrimiçi yedekleme ve geri yükleme Azure Cosmos DB ile](online-backup-and-restore.md).|

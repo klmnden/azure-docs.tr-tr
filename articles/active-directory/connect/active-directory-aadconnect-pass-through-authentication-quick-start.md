@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory doğrudan kimlik doğrulaması: Hızlı Başlangıç
 
@@ -116,20 +116,38 @@ Bu aşamada, tüm yönetilen etki alanları kiracınızdaki kullanıcıların ge
 
 ## <a name="step-5-ensure-high-availability"></a>5. adım: yüksek oranda kullanılabilirlik emin olun
 
-Bir üretim ortamında doğrudan kimlik doğrulama dağıtmayı planlıyorsanız, tek başına bir kimlik doğrulama aracısını yüklemeniz gerekir. Bu ikinci kimlik doğrulama Aracısı bir sunucuya yüklemek _diğer_ bir çalışan Azure AD Connect ve ilk kimlik doğrulama Aracısı daha. Bu kurulum, oturum açmak istekleri için yüksek kullanılabilirlik sağlar. Tek başına bir kimlik doğrulama Aracısı dağıtmak için bu yönergeleri izleyin:
+Bir üretim ortamında doğrudan kimlik doğrulama dağıtmayı planlıyorsanız, en az bir daha fazla tek başına kimlik doğrulama aracısını yüklemeniz gerekir. Bu kimlik doğrulama aracıların sunuculara yükleyene _diğer_ bir çalışan Azure AD Connect daha. Bu kurulum, kullanıcı oturum açma istekleri için yüksek kullanılabilirlik sağlar.
 
-1. Kimlik Doğrulama Aracısı'nın en son sürümü karşıdan yükle (sürüm 1.5.193.0 veya üstü). Oturum [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) , kiracının genel yönetici kimlik bilgilerine sahip.
+Kimlik Doğrulama Aracısı yazılımını indirmek için bu yönergeleri izleyin:
+
+1. Kimlik Doğrulama Aracısı'nın en son sürümü karşıdan yüklemek için (sürüm 1.5.193.0 veya sonrası), oturum [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) , kiracının genel yönetici kimlik bilgilerine sahip.
 2. Seçin **Azure Active Directory** sol bölmede.
 3. Seçin **Azure AD Connect**seçin **doğrudan kimlik doğrulama**ve ardından **aracıyı indir**.
 4. Seçin **koşullarını kabul & Yükle** düğmesi.
-5. Önceki adımda indirilen yürütülebilir çalıştırarak kimlik doğrulama Aracısı en son sürümünü yükleyin. İstendiğinde, kiracının genel Yöneticisi kimlik bilgilerini sağlayın.
 
 ![Azure Active Directory Yönetim Merkezi: kimlik doğrulama Aracısı Yükle düğmesi](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory Yönetim Merkezi: aracıyı indir bölmesi](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->Ayrıca indirebilirsiniz [Azure Active Directory kimlik doğrulama Aracısı](https://aka.ms/getauthagent). Gözden geçirin ve kimlik doğrulama aracısının kabul olun [hizmet koşulları](https://aka.ms/authagenteula) _önce_ yükleme.
+>Kimlik Doğrulama Aracısı yazılım doğrudan da indirebilirsiniz [burada](https://aka.ms/getauthagent). Gözden geçirin ve kimlik doğrulama aracısının kabul [hizmet koşulları](https://aka.ms/authagenteula) _önce_ yükleme.
+
+Tek başına bir kimlik doğrulama Aracısı dağıtmak için iki yol vardır:
+
+İlk olarak, etkileşimli olarak yalnızca yürütülebilir indirilen kimlik doğrulama Aracısı çalıştıran ve istendiğinde, kiracının genel Yöneticisi kimlik bilgilerini sağlayan bunu yapabilirsiniz.
+
+İkinci olarak, oluşturma ve katılımsız dağıtım betiğini çalıştırın. Aynı anda birden çok kimlik doğrulama aracı dağıtmak veya etkin kullanıcı arabirimi yoksa veya Uzak Masaüstü'nü erişemeyen Windows sunucularında kimlik doğrulaması aracıları yüklemek istediğinizde kullanışlıdır. Bu yaklaşımı kullanmak yönergeler şunlardır:
+
+1. Bir kimlik doğrulama aracısı yüklemek için aşağıdaki komutu çalıştırın: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. Kimlik Doğrulama Aracısı hizmetimizi ile Windows PowerShell kullanarak kaydedebilirsiniz. Bir PowerShell kimlik bilgilerini nesnesi oluşturmak `$cred` kiracınız için genel yönetici kullanıcı adı ve parola içeren. Aşağıdaki komutu çalıştırın değiştirme  *\<kullanıcıadı\>*  ve  *\<parola\>*:
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Git **C:\Program Files\Microsoft Azure AD Connect kimlik doğrulama Aracısı** ve aşağıdaki komut dosyasını kullanarak çalıştırma `$cred` oluşturduğunuz nesnesi:
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Akıllı kilitleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme özelliği yapılandırmayı öğrenin.

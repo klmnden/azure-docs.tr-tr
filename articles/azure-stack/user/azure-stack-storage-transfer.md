@@ -3,28 +3,28 @@ title: "Azure yığın depolama için Araçlar"
 description: "Aktarım araçları Azure yığın depolama birimi verileri hakkında bilgi edinin"
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: mabrigg
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Azure yığın depolama için Araçlar
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Microsoft Azure yığın diskleri, BLOB'lar, tablolar, kuyruklar ve hesap yönetim işlevselliği için depolama hizmetleri kümesi sağlar. Yönetmek veya için veya Azure yığın depolama biriminden verileri taşımak istiyorsanız, bir dizi Azure Storage araçları kullanabilirsiniz. Bu makalede kullanılabilen araçlar hızlı bir bakış sağlar.
+Microsoft Azure yığın diskler, BLOB'lar, tablolar, kuyruklar ve hesap yönetim işlevleri için depolama hizmetleri kümesi sağlar. Yönetmek veya için veya Azure yığın depolama biriminden verileri taşımak istiyorsanız, bir dizi Azure Storage araçları kullanabilirsiniz. Bu makalede kullanılabilen araçlar hızlı bir bakış sağlar.
 
 Gereksinimlerinize en uygun aracı bağlıdır:
 * [AzCopy](#azcopy)
@@ -41,7 +41,7 @@ Gereksinimlerinize en uygun aracı bağlıdır:
 
 * [Microsoft Depolama Gezgini (Önizleme)](#microsoft-azure-storage-explorer)
 
-    Kullanımı kolay tek başına uygulama kullanıcı arabirimi ile.
+    Kullanımı kolay bir tek başına uygulama kullanıcı arabirimi ile.
 
 Depolama Hizmetleri nedeniyle arasındaki farklar Azure ve Azure yığını, aşağıdaki bölümlerde açıklanan her aracı için bazı belirli gereksinimleri olabilir. Azure yığın depolama ve Azure depolama birimi arasında bir karşılaştırma için bkz: [Azure yığın depolama: farklar ve konuları](azure-stack-acs-differences.md).
 
@@ -50,7 +50,11 @@ Depolama Hizmetleri nedeniyle arasındaki farklar Azure ve Azure yığını, aş
 AzCopy ve Microsoft Azure Blob ve en uygun performans ile basit komutları kullanarak Table storage veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Verileri bir nesneden diğerine depolama hesabınızda veya depolama hesapları arasında kopyalayabilirsiniz. AzCopy iki sürümü vardır: Windows ve Linux üzerinde AzCopy AzCopy. Azure yığını yalnızca Windows sürümünü destekler. 
  
 ### <a name="download-and-install-azcopy"></a>AzCopy yükleyip 
-[Karşıdan](https://aka.ms/azcopyforazurestack) AzCopy Azure yığını için desteklenen bir Windows sürümü. Yükleyin ve AzCopy Azure yığında Azure aynı şekilde kullanın. Daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](../../storage/common/storage-use-azcopy.md). 
+
+[Karşıdan](https://aka.ms/azcopyforazurestack) Azure yığın AzCopy desteklenen bir Windows sürümü. Yükleyin ve AzCopy Azure yığında Azure aynı şekilde kullanın. Daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](../../storage/common/storage-use-azcopy.md). 
+
+ - 1802 için güncelleştirme veya daha yeni sürümlerini [AzCopy 7.1.0 karşıdan](https://aka.ms/azcopyforazurestack20170417).
+ - Önceki sürümü için [AzCopy 5.0.0 karşıdan](https://aka.ms/azcopyforazurestack20150405).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Veri aktarımı için AzCopy komut örnekleri
 Aşağıdaki örnekler ve Azure yığın blob'lara ait veriler kopyalama için birkaç tipik senaryolar gösterilmektedir. Daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](../../storage/storage-use-azcopy.md). 
@@ -63,14 +67,14 @@ AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer 
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 #### <a name="move-data-between-azure-and-azure-stack-storage"></a>Verileri Azure yığın depolama ve Azure arasında taşıma 
-Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. aktarıma belirtmek zorunda `/SyncCopy` seçeneği. 
+Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. aktarıma belirtmek zorunda **/SyncCopy** seçeneği. 
 ```azcopy 
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
 ### <a name="azcopy-known-issues"></a>Azcopy bilinen sorunlar
 * Dosya depolama henüz Azure yığın içinde kullanılabilir olmadığından dosya depolama üzerinde herhangi bir AzCopy işlemi kullanılabilir değil.
-* Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtebilirsiniz `/SyncCopy` verileri kopyalamak için seçeneği.
+* Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtebilirsiniz **/SyncCopy** verileri kopyalamak için seçeneği.
 * Azcopy Linux sürümü için Azure yığın depolama desteklenmiyor. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -80,7 +84,7 @@ Azure PowerShell cmdlet'leri hem Azure hem de Azure yığın hizmetleri yönetme
 Azure yığın uyumlu Azure PowerShell modülleri Azure yığın ile çalışmak için gereklidir. Daha fazla bilgi için bkz: [Azure yığını için PowerShell yükleme](azure-stack-powershell-install.md) ve [Azure yığın kullanıcının PowerShell ortamını yapılandırmak](azure-stack-powershell-configure-user.md) daha fazla bilgi için.
 
 ### <a name="powershell-sample-script-for-azure-stack"></a>Azure yığınının PowerShell örnek betiği 
-Bu örnek, başarılı bir şekilde sahip olduğunuzu varsayar [Azure yığını için PowerShell yükleme](azure-stack-powershell-install.md). Bu komut dosyasını yapılandırma conplete yardımcı olmak ve Azure yığın kiracınız yerel PowerShell environemnt hesabınızı eklemek için kimlik bilgileri isteyin. Sonra komut dosyası varsayılan Azure aboneliği ayarlamak, yeni bir depolama hesabı oluşturma, yeni bir kapsayıcı bu yeni depolama hesabı oluşturur ve varolan bir görüntü dosyası (blob) kapsayıcıya karşıya yükleme. Bu kapsayıcıdaki tüm blob'lara komut dosyasını listeler sonra yerel bilgisayarınızda yeni bir hedef dizin oluşturun ve görüntü dosyasını indirin.
+Bu örnek, başarılı bir şekilde sahip olduğunuzu varsayar [Azure yığını için PowerShell yükleme](azure-stack-powershell-install.md). Bu komut, yapılandırmayı tamamlamak ve yerel PowerShell ortamına hesabınızı eklemek için kimlik bilgileri, Azure yığın Kiracı isteyin yardımcı olur. Sonra komut dosyası varsayılan Azure aboneliği ayarlamak, yeni bir depolama hesabı oluşturma, yeni bir kapsayıcı bu yeni depolama hesabı oluşturur ve varolan bir görüntü dosyası (blob) kapsayıcıya karşıya yükleme. Bu kapsayıcıdaki tüm blob'lara komut dosyasını listeler sonra yerel bilgisayarınızda yeni bir hedef dizin oluşturun ve görüntü dosyasını indirin.
 
 1. Yükleme [Azure yığın uyumlu Azure PowerShell modülleri](azure-stack-powershell-install.md).  
 2. Karşıdan [Azure yığın ile çalışmak için gereken araçları](azure-stack-powershell-download.md).  
@@ -184,8 +188,8 @@ CLI yükleme ve yapılandırmasını tamamladıktan sonra Azure yığın depolam
 1. Sık kullandığınız metin düzenleyicisinde açın, sonra kopyalayın ve önceki komut düzenleyiciye yapıştırın.
 2. Komut dosyanızın değişken yapılandırma ayarlarınızı yansıtacak şekilde güncelleştirin. 
 3. Gerekli değişkenleri güncelleştirdikten sonra komut dosyasını kaydedin ve düzenleyicinizi çıkın. Sonraki adımlar komut dosyası my_storage_sample.sh adlı varsayılmıştır.
-4. Komut dosyası yürütülebilir, olarak gerekiyorsa işaretleyin:`chmod +x my_storage_sample.sh`
-5. Betiğini yürütün. Örneğin, Bash içinde:`./my_storage_sample.sh`
+4. Komut dosyası yürütülebilir, olarak gerekiyorsa işaretleyin: `chmod +x my_storage_sample.sh`
+5. Betiğini yürütün. Örneğin, Bash içinde: `./my_storage_sample.sh`
 
 ```bash
 #!/bin/bash
@@ -224,9 +228,8 @@ echo "Done"
 
 Microsoft Azure Storage Gezgini, Microsoft'tan bir tek başına uygulamadır. Windows, macOS ve Linux Azure Storage ve Azure yığın depolama verileri ile kolayca çalışmanızı sağlar. Azure yığın depolama verilerinizi yönetmek için kolay bir yol istiyorsanız, ardından Microsoft Azure Storage Gezgini kullanmayı düşünün.
 
-Azure Storage Gezgini Azure yığın ile çalışmak için yapılandırma hakkında daha fazla bilgi için bkz: [Depolama Gezgini Azure yığın abonelik](azure-stack-storage-connect-se.md).
-
-Microsoft Azure Storage Gezgini hakkında daha fazla bilgi için bkz: [Depolama Gezgini (Önizleme) ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+ - Azure Storage Gezgini Azure yığın ile çalışmak için yapılandırma hakkında daha fazla bilgi edinmek için [Depolama Gezgini Azure yığın abonelik](azure-stack-storage-connect-se.md).
+ - Microsoft Azure Storage Gezgini hakkında daha fazla bilgi için bkz: [Depolama Gezgini (Önizleme) ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Depolama Gezgini bir Azure yığın aboneliğine bağlanma](azure-stack-storage-connect-se.md)

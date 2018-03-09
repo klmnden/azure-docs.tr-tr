@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: asgang
 ms.openlocfilehash: 1b63515970f81b1cab679287d84707d531fd102a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>Azure için VMware sanal makinelerde çalışan uygulamaların Çoğalt
 
@@ -67,7 +67,7 @@ VMware sanal makineleri çoğaltırken:
 8. Yük devretme sonrasında çalışmaya başlayan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Ağın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Bir ağ yoksa, gerek [oluşturmak](#set-up-an-azure-network). Kaynak Yöneticisi'ni kullanarak bir ağ oluşturmak için tıklatın **Yeni Oluştur**. Klasik modeli kullanarak bir ağ oluşturmak istiyorsanız, bunu [Azure portalında](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Varsa bir alt ağ seçin ve ardından **Tamam**.
 
     ![Çoğaltma hedefi ayarlarını etkinleştir](./media/site-recovery-vmware-to-azure/enable-rep3.png)
-9. İçinde **sanal makineleri** > **sanal makine Seç**, çoğaltmak istediğiniz makineleri seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
+9. **Sanal Makineler** > **Sanal makineleri seçin** bölümünde, çoğaltmak istediğiniz her makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltma select sanal makineleri etkinleştirme](./media/site-recovery-vmware-to-azure/enable-replication5.png)
 10. İçinde **özellikleri** > **özelliklerini yapılandırma**, otomatik olarak makinede mobilite hizmetinin yüklenmesi için işlem sunucusu tarafından kullanılan hesabı seçin.  
@@ -75,7 +75,7 @@ VMware sanal makineleri çoğaltırken:
 
     ![Etkinleştirme çoğaltma özelliklerini yapılandırma](./media/site-recovery-vmware-to-azure/enable-replication6.png)
 
-12. İçinde **çoğaltma ayarları** > **çoğaltma ayarlarını yapılandırın**, doğru Çoğaltma İlkesi'nin seçili olduğunu doğrulayın. Çoğaltma İlkesi ayarlarında değişiklik yapabilirsiniz **ayarları** > **çoğaltma ilkeleri** > (ilke adı) > **ayarlarını Düzenle**. Bir ilke uyguladığınız değişiklikleri de uygulamak için çoğaltma ve yeni makineler.
+12. **Çoğaltma ayarları** > **Çoğaltma ayarlarını yapılandırma** bölümünde doğru çoğaltma ilkesinin seçilip seçilmediğini doğrulayın. Çoğaltma İlkesi ayarlarında değişiklik yapabilirsiniz **ayarları** > **çoğaltma ilkeleri** > (ilke adı) > **ayarlarını Düzenle**. Bir ilke uyguladığınız değişiklikleri de uygulamak için çoğaltma ve yeni makineler.
 13. Etkinleştirme **çoklu VM tutarlılığını** makineler çoğaltma grubuna toplamak istiyorsanız. Grup için bir ad belirtin ve ardından **Tamam**. 
 
     > [!NOTE]

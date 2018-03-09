@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ae266b0fc78083250c5d14ff2978cd59d394b202
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 631557e0ad712827bb3375c4f152c0e2185fda18
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Desteklenmeyen Dağıtımlarla ilgili bilgiler
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -150,8 +150,6 @@ Bir çok düşük, en aşağıdaki düzeltme ekleri yokluğu bilinen Azure üzer
 * Çekirdek önyükleme satırı kaz veya GRUB2 aşağıdaki parametreleri içerecek şekilde değiştirin. Bu tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen sağlayacak sorunları ayıklama desteği:
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
-  
-    Bu tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen sağlayacak sorunları ayıklama desteği.
   
     Yukarıdakilerin yanı sıra için önerilir *kaldırmak* varsa aşağıdaki parametreleri:
   

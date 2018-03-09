@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB özellikleri ve sözdizimi için MongoDB API desteği
 
@@ -235,7 +235,7 @@ $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 $Regex sorgularda dizin arama sola bağlantılı ifadeleri izin verin. Ancak, 'i' kullanan değiştiricisi (olmama durumunu) ve 'M ' değiştiricisi (multiline) tüm ifadelerinde toplama tarama neden olur.
 Eklenecek '$' bir gereksinim olduğunda veya ' |', iki (veya daha fazla) regex sorguları oluşturmak en iyisidir. Örneğin, aşağıdaki özgün sorgu verilen: ```find({x:{$regex: /^abc$/})```, şu şekilde değiştirilecek vardır: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-İlk bölümü dizin arama itibaren bu belgeleri sınırlamak için kullanacağı ^ tam girişleri abc ve ikinci bölümü ile eşleşir. Çubuğu işleci ' |' bir "veya" işlevi - sorgu davranır ```find({x:{$regex: /^abc|^def/})``` 'x' alanı "abc" veya "def" ile başlayan değere sahip belgeleri whin eşleşir. Dizin faydalanmak için sorgu $ya da operatör tarafından birleştirilmiş iki farklı sorgular bölüneceği önerilir: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+İlk bölümü dizin arama itibaren bu belgeleri sınırlamak için kullanacağı ^ tam girişleri abc ve ikinci bölümü ile eşleşir. Çubuğu işleci ' |' bir "veya" işlevi - sorgu davranır ```find({x:{$regex: /^abc|^def/})``` hangi alanında 'x', "abc" veya "def" ile başlayan değerler bulunan belgeleri eşleşir. Dizin faydalanmak için sorgu $ya da operatör tarafından birleştirilmiş iki farklı sorgular bölüneceği önerilir: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Güncelleştirme işleçleri
 

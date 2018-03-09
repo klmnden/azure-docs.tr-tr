@@ -13,17 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/17/2017
+ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM'ler için fiyatlandırma Kılavuzu
 
-Bu makalede, azure'da SQL Server sanal makineler için fiyatlandırma yönergeleri verilmiştir. Maliyet etkileyen birkaç seçeneğiniz vardır ve iş gereksinimleri maliyetleriyle dengeleyen doğru görüntüyü seçmek önemlidir.
+Bu makalede yönelik fiyatlandırma yönergeler sağlanmaktadır [SQL Server sanal makineleri](virtual-machines-windows-sql-server-iaas-overview.md) azure'da. Maliyet etkileyen birkaç seçeneğiniz vardır ve iş gereksinimleri maliyetleriyle dengeleyen doğru görüntüyü seçmek önemlidir.
+
+> [!TIP]
+> Yalnızca SQL Server sürümü ve sanal makine boyutu belirli bir bileşimini yönelik bir maliyet tahmini öğrenmek gerekirse bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/windows). İşletim sistemi ve SQL Server sürümünden seçin **işletim sistemi/yazılım** listesi.
+>
+> ![VM Fiyatlandırma sayfasında kullanıcı Arabirimi](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> Veya [fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/#explore-cost) eklemek ve bir sanal makine yapılandırmak için. 
 
 ## <a name="free-licensed-sql-server-editions"></a>Serbest lisanslı SQL Server sürümleri
 
@@ -56,7 +63,7 @@ Bu sürümleri için SQL Server Lisans için ödeme yapmak için iki seçeneğin
 
 ### <a name="pay-per-usage"></a>Kullanım Öde
 
-**SQL Server Lisansı kullanım başına ödeme** dakika başına maliyeti Azure VM çalışan SQL Server Lisans maliyetini içerdiği anlamına gelir. İçinde farklı SQL Server sürümleri için (Web, Standard, Enterprise) fiyatlandırma görebilirsiniz [Azure VM fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard). Maliyet (2012 SP3 için 2017) SQL Server'ın tüm sürümleri için aynıdır. SQL Server, gibi genel lisans, dakika başına lisanslama ücreti VM çekirdek sayısına bağlıdır.
+**SQL Server Lisansı kullanım başına ödeme** dakika başına maliyeti Azure VM çalışan SQL Server Lisans maliyetini içerdiği anlamına gelir. İçinde farklı SQL Server sürümleri için (Web, Standard, Enterprise) fiyatlandırma görebilirsiniz [Azure VM fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Maliyet (2012 SP3 için 2017) SQL Server'ın tüm sürümleri için aynıdır. SQL Server, gibi genel lisans, dakika başına lisanslama ücreti VM çekirdek sayısına bağlıdır.
 
 SQL Server ödeme kullanım lisansı için önerilir:
 
@@ -147,6 +154,6 @@ Diğer iş akışları için otomatik olarak kapatma ve gibi bir komut dosyası 
 
 Kılavuzlar, fiyatlandırma için genel Azure bkz [Azure faturalama ve maliyet yönetimi ile beklenmeyen maliyetleri önlemek](../../../billing/billing-getting-started.md).
 
-Fiyatlandırma, SQL Server dahil olmak üzere en son sanal makineler için bkz: [Azure VM fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard).
+Fiyatlandırma, SQL Server dahil olmak üzere en son sanal makineler için bkz: [Azure VM fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 Her ikisi için SQL Server sanal makineler hakkında daha fazla bilgi [SQL Server Windows Vm'lerini](virtual-machines-windows-sql-server-iaas-overview.md) ve [SQL Server Linux VM'ler](../../linux/sql/sql-server-linux-virtual-machines-overview.md).

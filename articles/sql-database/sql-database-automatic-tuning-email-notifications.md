@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: a1b10c1a12d9a9215022cc77615901a0e4d144f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-posta bildirimleri otomatik ayarlama
 
 SQL veritabanı ayarlama önerileri Azure SQL veritabanı tarafından üretilen [otomatik ayarlama](sql-database-automatic-tuning.md). Bu çözüm, sürekli olarak izler ve dizin oluşturma, dizin silinmesi ve sorgu yürütme planları en iyi duruma getirilmesi için ilgili tek tek her veritabanı için öneriler ayarlama özelleştirilmiş SQL veritabanlarını sağlama iş yükleri analiz eder.
 
-SQL veritabanı önerileri ayarlama otomatik görüntülenebilir içinde [Azure portal](sql-database-advisor-portal.md), ile alınan [REST API](https://docs.microsoft.com/en-us/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) kullanarak veya çağırır [T-SQL](https://azure.microsoft.com/en-us/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) ve [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) komutları. Bu makalede, otomatik ayarlama önerileri almak için bir PowerShell Betiği kullanılarak temel alır.
+SQL veritabanı önerileri ayarlama otomatik görüntülenebilir içinde [Azure portal](sql-database-advisor-portal.md), ile alınan [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) kullanarak veya çağırır [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) ve [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) komutları. Bu makalede, otomatik ayarlama önerileri almak için bir PowerShell Betiği kullanılarak temel alır.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>E-posta bildirimleri otomatik ayarlama önerileri için otomatik hale getirme
 
@@ -34,7 +34,7 @@ Aşağıdaki çözüm otomatik ayarlama önerileri içeren e-posta bildirimleri 
 
 ## <a name="create-azure-automation-account"></a>Azure Automation hesabı oluşturma
 
-Azure Otomasyonu, ilk adım bir automation hesabı oluşturma ve PowerShell komut dosyası yürütme için kullanılacak Azure kaynakları ile yapılandırmak için kullanmaktır. Azure Automation ve kendi özellikleri hakkında daha fazla bilgi için bkz: [Azure automation ile çalışmaya başlama](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started).
+Azure Otomasyonu, ilk adım bir automation hesabı oluşturma ve PowerShell komut dosyası yürütme için kullanılacak Azure kaynakları ile yapılandırmak için kullanmaktır. Azure Automation ve kendi özellikleri hakkında daha fazla bilgi için bkz: [Azure automation ile çalışmaya başlama](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
 
 Seçme ve Otomasyon uygulama marketten yapılandırma yöntemiyle Azure Automation hesabını oluşturmak için aşağıdaki adımları izleyin:
 
@@ -47,7 +47,7 @@ Seçme ve Otomasyon uygulama marketten yapılandırma yöntemiyle Azure Automati
 
 - "Bir Otomasyon hesabı oluştur" bölmesi içinde bir kez tıklayın "**oluşturma**"
 - Gerekli bilgileri doldurun: Bu Otomasyon hesabı için bir ad girin, PowerShell Betiği yürütme için kullanılacak Azure abonelik kimliği ve Azure kaynaklarınızı seçin
-- İçin "**oluşturma Azure farklı çalıştır hesabı**" seçeneği için **Evet** altında hangi PowerShell komut dosyasını çalıştırır Azure Otomasyonu yardımıyla hesap türünü yapılandırmak için. Hesap türleri hakkında daha fazla bilgi için bkz: [farklı çalıştır hesabı](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account)
+- İçin "**oluşturma Azure farklı çalıştır hesabı**" seçeneği için **Evet** altında hangi PowerShell komut dosyasını çalıştırır Azure Otomasyonu yardımıyla hesap türünü yapılandırmak için. Hesap türleri hakkında daha fazla bilgi için bkz: [farklı çalıştır hesabı](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
 - Otomasyon hesabı oluşturma tıklayarak sonuçlandırmak **oluştur**
 
 > [!TIP]
@@ -58,7 +58,7 @@ Aynı Otomasyon oluşturmak istediğiniz birden fazla Azure aboneliğiniz varsa,
 
 ## <a name="update-azure-automation-modules"></a>Azure Automation modülleri güncelleştir
 
-Otomatik öneri ayarlama almak için PowerShell betiğini kullanır [Get-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Get-AzureRmResource) ve [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) için Azure modüllerin hangi güncelleştirme komutları sürüm 4 ve üzeri gereklidir.
+Otomatik öneri ayarlama almak için PowerShell betiğini kullanır [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) ve [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) için Azure modüllerin hangi güncelleştirme komutları sürüm 4 ve üzeri gereklidir.
 
 Azure PowerShell modülleri güncelleştirmek için aşağıdaki adımları izleyin:
 
@@ -195,7 +195,7 @@ Yukarıdaki adımları ile Azure Otomasyonu'nda otomatik ayarlama önerileri alm
 2. "**Azure Otomasyonu - Get iş çıktısı**" – yürütülen PowerShell komut dosyasından çıkış almak için kullanılır
 3. "**Office 365 Outlook – bir e-posta Gönder**" – e-posta göndermek için kullanılır. E-posta akışını oluşturma tek Office 365 hesabı kullanılarak kullanıma gönderilir.
 
-Microsoft Flow özellikleri hakkında daha fazla bilgi edinmek için [Microsoft Flow Başlarken](https://docs.microsoft.com/en-us/flow/getting-started).
+Microsoft Flow özellikleri hakkında daha fazla bilgi edinmek için [Microsoft Flow Başlarken](https://docs.microsoft.com/flow/getting-started).
 
 Bu adım için önkoşuldur kaydolmak için [Microsoft Flow](https://flow.microsoft.com) hesabı ile oturum açın. Bir kez çözüm içinde ayarlamak için bu adımları bir **yeni akış**:
 

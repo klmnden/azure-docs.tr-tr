@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3f605645e7a53f285cb7e508034ebab0daa0d335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure bulut Kabuk Bash'te için hızlı başlangıç
 
@@ -37,7 +37,7 @@ Bu belgede Azure bulut Kabuğu'nda Bash kullanmak nasıl ayrıntıları [Azure p
 > Azure CLI 2.0 için her oturumu otomatik olarak doğrulanır.
 
 ### <a name="select-the-bash-environment"></a>Bash ortamını seçin
-1. Gelen ortam açılan seçin Kabuk penceresinin sol tarafındaki <br>
+1. Ortam açılan Kabuk penceresinin sol taraftan seçin <br>
 ![](media/quickstart/env-selector.png)
 2. Bash seçin
 
@@ -65,7 +65,7 @@ Bulut Kabuğu'nda kullanılan kullanıcı adı, kullanıcı adı bu VM'de olacak
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH, Linux VM'NİZDE içine
 1. Azure portal arama çubuğunda, VM adı arayın
-2. "Bağlan"'ı tıklatın ve çalıştırın:`ssh username@ipaddress`
+2. "Bağlan"'ı tıklatın ve çalıştırın: `ssh username@ipaddress`
 
 ![](media/quickstart/sshcmd-copy.png)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4b9714bc456ad28d9dd46742ca16f52e68c61399
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -298,40 +298,40 @@ Aşağı Akış etkinlikleri stdout.txt içeriği kullanmak istiyorsanız, ifade
   > - Activity.json, linkedServices.json ve datasets.json toplu görev çalışma zamanı klasöründe depolanır. Bu örnekte, activity.json, linkedServices.json ve datasets.json depolanmış "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" yolu. Gerekirse, ayrı ayrı temizlenmesi gerekir. 
   > - Self-Hosted tümleştirme çalışma zamanı, anahtarlar veya parolalar gibi hassas bilgileri Self-Hosted tümleştirme kimlik bilgileri sağlamak için çalışma zamanı tarafından şifrelenmiş bağlı hizmetler kullanımlar için özel ağ ortamı kalır müşteri tanımlı. Bu şekilde, özel uygulama kodu tarafından başvurulduğunda bazı önemli alanlar eksik olabilir. Bağlantılı hizmet başvurusu gerekirse kullanmak yerine extendedProperties SecureString kullanın. 
 
-## <a name="difference-between-custom-activity-in-azure-data-factory-version-2-and-custom-dotnet-activity-in-azure-data-factory-version-1"></a>Azure Data Factory sürüm 2 özel etkinlik ve Azure Data Factory sürüm 1 (özel) DotNet etkinlik arasındaki fark
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>V2 özel etkinlik ve sürüm 1 (özel) karşılaştırmak DotNet etkinliği
 
-  Azure Data Factory sürüm 1, (özel) DotNet Etkinlik kodu bir .net oluşturarak uygulamanız yürütme yönteminin IDotNetActivity arabirimi uygulayan bir sınıf olan sınıf kitaplığı proje. Bağlı hizmetler, veri kümeleri ve genişletilmiş özellikler (özel) DotNet etkinlik JSON yükündeki yürütme yöntemi güçlü yazılan nesnelerin geçirilir. Ayrıntılar için başvurmak [sürüm 1 (özel) DotNet](v1/data-factory-use-custom-activities.md). Bu uygulama nedeniyle özel kodunuzu .net yazılması gereken Framework 4.5.2 ve Azure Batch havuzu Windows tabanlı düğümlerinde yürütülür. 
+  Azure Data Factory sürüm 1, (özel) DotNet etkinliği bir .net oluşturarak uygulamanız uygulayan bir sınıf olan sınıf kitaplığı proje `Execute` yöntemi `IDotNetActivity` arabirimi. Bağlı hizmetler, veri kümeleri ve genişletilmiş özellikler (özel) DotNet etkinlik JSON yükündeki yürütme yöntemi türü kesin belirlenmiş nesnelerin geçirilir. Sürüm 1 davranışı hakkında daha fazla ayrıntı için bkz: [sürüm 1 (özel) DotNet](v1/data-factory-use-custom-activities.md). Bu uygulama nedeniyle .net hedeflemek sürüm 1 DotNet etkinlik kodunuzu sahip Framework 4.5.2. Sürüm 1 DotNet etkinlik Azure Batch havuzu Windows tabanlı düğümlerinde çalıştırılacak da sahiptir. 
 
-  Azure veri fabrikası V2 özel etkinlik, bir .net arabirimini uygulayan gerekmez. Şimdi doğrudan komutlar, komut dosyaları, çalıştırabilir ve kendi özel çalıştırmak kod derlendiğini olarak çalıştırılabilir. Bunu folderPath özelliği ile birlikte komut özelliğini belirterek elde edin. Özel Etkinlik çalıştırılabilir ve folderpath bağımlılıkları yükler ve sizin için komutu çalıştırır. 
+  Azure veri fabrikası V2 özel etkinliğinde .net arabirimini uygulayan gerekmez. Şimdi doğrudan komutlar, komut dosyaları ve yürütülebilir bir dosya derlenmiş kendi özel kod çalıştırabilirsiniz. Bu uygulama yapılandırmak için belirttiğiniz `Command` özelliği ile birlikte `folderPath` özelliği. Özel Etkinlik yürütülebilir ve onun bağımlılıklarını yükler `folderpath` ve sizin için komutu yürütür. 
 
-  Bağlı hizmetler, veri kümeleri (referenceObjects içinde tanımlanan) ve genişletilmiş özel etkinlik JSON yükü tanımlanan özellikler, yürütülebilir dosya tarafından JSON dosyaları olarak erişilebilir. Yukarıdaki SampleApp.exe kod örneğinde gösterildiği gibi JSON seri hale getirici kullanarak gerekli özellikleri erişebilir. 
+  Bağlı hizmetler, veri kümeleri (referenceObjects içinde tanımlanan) ve genişletilmiş özel etkinlik olarak JSON dosyaları, yürütülebilir dosya tarafından erişilebilir bir veri fabrikası v2 JSON yükü tanımlanan özellikler. Yukarıdaki SampleApp.exe kod örneğinde gösterildiği gibi JSON seri hale getirici kullanarak gerekli özellikleri erişebilir. 
 
-  Azure veri fabrikası V2 özel etkinlik sunulan değişiklikler ile özel kod mantığınızı tercih ettiğiniz dili yazmak ve bunları Windows ve Linux işletim sistemi Azure Batch tarafından desteklenen yürütmek boş. 
+  Veri Fabrikası V2 özel etkinlik sunulan değişiklikler ile özel kod mantığınızı tercih ettiğiniz dili yazma ve Windows ve Linux işlemi Azure Batch tarafından desteklenen sistemleri üzerinde çalıştırın. 
 
-  Aşağıdaki tabloda veri fabrikası V2 özel etkinliği ve Data Factory sürüm 1 (özel) arasındaki farklar açıklanmaktadır DotNet etkinlik: 
+  Veri Fabrikası V2 özel etkinliği ve Data Factory sürüm 1 arasındaki farklar (özel) aşağıdaki tabloda açıklanmaktadır DotNet etkinlik: 
 
 
 |Farkları      |sürüm 2 özel etkinlik      | Sürüm 1 (özel) DotNet etkinliği      |
 | ---- | ---- | ---- |
-|Nasıl özel mantık tanımlanır      |(Mevcut veya kendi yürütülebilir uygulama) herhangi bir yürütülebilir dosya çalıştırarak      |Bir .net DLL uygulayarak      |
+|Nasıl özel mantık tanımlanır      |Yürütülebilir bir dosya sağlayarak      |Bir .net DLL uygulayarak      |
 |Özel mantık yürütme ortamı      |Windows veya Linux      |Windows (.Net Framework 4.5.2)      |
-|Betikleri yürütülüyor      |Betikleri Yürütülüyor doğrudan (örneğin "cmd /c echo hello world" Windows VM üzerinde) desteği      |DLL .net uygulamasında gerektirir      |
+|Betikleri yürütülüyor      |Doğrudan komut dosyaları (örneğin "cmd /c echo hello world" Windows VM üzerinde) yürütme destekler      |DLL .net uygulamasında gerektirir      |
 |Veri kümesi gerekiyor      |İsteğe bağlı      |Etkinlikler zincir ve bilgi aktarmak için gerekli      |
 |Özel mantık etkinliğinden geçiş bilgileri      |ReferenceObjects (LinkedServices ve veri kümeleri) ve ExtendedProperties (Özel Özellikler) aracılığıyla      |ExtendedProperties (özel özellikleri), giriş ve çıkış veri kümeleri      |
-|Özel mantık bilgilerini alma      |Parse activity.json, linkedServices.json, and datasets.json stored in the same folder of the executable      |.NET SDK'sı (.Net çerçevesi 4.5.2)      |
+|Özel mantık bilgilerini alma      |Parses activity.json, linkedServices.json, and datasets.json stored in the same folder of the executable      |.NET SDK'sı (.Net çerçevesi 4.5.2)      |
 |Günlüğe kaydetme      |STDOUT doğrudan Yazar      |Günlükçü .net DLL uygulama      |
 
 
-  Sürüm 1 (özel) DotNet etkinlik yazılan varolan .net kodu varsa, kodunuz için bunları sürümüyle aşağıdaki üst düzey yönergeleri ile 2 özel etkinlik çalışması değiştirmeniz gerekir:  
+  Var olan .net kodu için bir sürüm 1 (özel) DotNet etkinlik yazılmış varsa, kodunuz için 2 özel etkinlik bir sürümüyle çalışacak şekilde değiştirmeniz gerekir. Bu üst düzey yönergeleri izleyerek kodunuzu güncelleştirin:  
 
    - Bir .net projesini değiştirebilir Sınıf Kitaplığı'na bir konsol uygulaması. 
-   - Main yöntemi ile uygulamanızı başlatın, yürütme yönteminin IDotNetActivity arabiriminin artık gerekli değildir. 
-   - Okuma ve JSON seri hale getirici yerine ile bağlı hizmetler, veri kümeleri ve etkinlik güçlü yazılan nesnelerin ayrıştırma ve ana özel kod mantığınızı gerekli özelliklerinin değerlerini geçirin. Örnek olarak SampleApp.exe kod önceki bakın. 
-   - Günlükçü nesne artık desteklenmeyen, yürütülebilir çıktıları konsola yazdırma olabilir ve stdout.txt için kaydedilir. 
+   - Uygulamanızla Başlat `Main` yöntemi. `Execute` Yöntemi `IDotNetActivity` arabirimidir artık gerekli. 
+   - Okuma ve JSON seri hale getirici ile türü kesin belirlenmiş nesnelerin olarak değil bağlı hizmetler, veri kümeleri ve etkinlik ayrıştırılamadı. Gerekli özellik değerlerini ana özel kod mantığınızı geçirin. Önceki SampleApp.exe kod örnek olarak bakın. 
+   - Günlükçü nesne artık desteklenmiyor. Yürütülebilir dosyanın çıktısını konsola yazdırılabilir ve stdout.txt için kaydedilir. 
    - Microsoft.Azure.Management.DataFactories NuGet paketi artık gerekli değildir. 
-   - Kodunuzu derleyin, Azure depolama alanına çalıştırılabilir ve bağımlılıkları yükleme ve yolun folderPath özelliğinde tanımlayın. 
+   - Kodunuzu derleyin, Azure depolama alanına yürütülebilir ve bağımlılıklarını yükleme ve yolunda tanımlamak `folderPath` özelliği. 
 
-Uçtan uca DLL ve ardışık örnek veri fabrikası sürümünde 1 belge nasıl açıklanan tam bir örnek için [bir Azure Data Factory ardışık düzeninde özel etkinlikleri kullanmak](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) Data Factory sürüm 2 özel etkinlik stili yazılabilir. Başvurduğu bir [Data Factory sürüm 2 özel etkinlik örnek](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Nasıl uçtan uca DLL ve ardışık örnek veri fabrikası sürümünde 1 makalede açıklanan tam bir örnek için [bir Azure Data Factory ardışık düzeninde özel etkinlikleri kullanmak](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) Data Factory v2 özel bir etkinlik yazılabilir, bakın[ Veri Fabrikası sürüm 2 özel etkinlik örneği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure batch otomatik olarak ölçeklendirme
 Bir Azure Batch havuzuyla oluşturabilirsiniz **otomatik ölçeklendirme** özelliği. Örneğin, 0 özel VM'ler ve beklemedeki görevlerin sayısına dayalı bir otomatik ölçeklendirme formülü ile bir azure batch havuzu oluşturabilirsiniz. 

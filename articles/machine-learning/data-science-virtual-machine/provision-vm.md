@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makine sağlama
 Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makine öğrenme için yaygın olarak kullanılan birkaç popüler araçları ile yapılandırılmış bir Windows Azure sanal makine (VM) görüntüsüdür. Bulunan araçlar şunlardır:
@@ -39,8 +39,7 @@ Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makin
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : görsel veri araştırma ve makine öğrenimi Java yazılım.
   * [Apache ayrıntıya](https://drill.apache.org/): bir şemasız SQL sorgu alt Hadoop, NoSQL ve bulut depolama.  Sorgulama NoSQL ve Power BI, Excel, Tableau gibi standart BI araçları dosyalarından etkinleştirmek için ODBC ve JDBC arabirimleri destekler.
 * Azure Machine Learning ve diğer Azure hizmetleriyle R ve Python için kitaplıkları kullanma
-* Git Bash'i GitHub, Visual Studio Team Services de dahil olmak üzere kaynak kodu depoları ile çalışmak için de dahil olmak üzere Git
-* Windows bağlantı noktalarını (awk, azaltılabilir, perl, grep, Bul, wget, curl, vb. dahil) çeşitli popüler Linux komut satırı yardımcı programlarını komut istemi üzerinden erişilebilir. 
+* Git Bash'i GitHub, Visual Studio Team Services de dahil olmak üzere kaynak kodu depoları ile çalışmak için de dahil olmak üzere Git ve (awk, azaltılabilir, perl, grep, Bul, wget, curl, vb. dahil) çeşitli popüler Linux komut satırı yardımcı programlarını sağlar hem git bash ve komutunu erişilebilir ister. 
 
 Veri Bilimi bulunurken bir dizi görev yineleme içerir:
 
@@ -73,7 +72,7 @@ Bir Microsoft Veri bilimi sanal makine oluşturmadan önce aşağıdakilere sahi
    1. **Temel Bilgiler**
       
       1. **Ad**: oluşturduğunuz veri bilimi sunucunuzun adını yazın.
-      2. **VM Disk türü**: SSD veya HDD arasında seçim yapın. GPU (NC-serisi) seçin **HDD** disk türü. 
+      2. **VM Disk türü**: SSD veya HDD arasında seçim yapın. NC_v1 GPU (NVIDIA Tesla dayalı K80), bir örnek seçin **HDD** disk türü. 
       3. **Kullanıcı adı**: Yönetici hesap oturum açma kimliği.
       4. **Parola**: yönetici hesabı parolası.
       5. **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu oluşturulur ve fatura için seçin.
@@ -99,35 +98,28 @@ VM oluşturup sağlanan sonra yüklenmiş ve yapılandırılmış Araçları'nı
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makinede yüklü araçları
 
-### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
 
-Azure Machine Learning çalışma ekranı, bir masaüstü uygulaması ve komut satırı arabirimi olur. Çalışma ekranı bunları gerçekleştirirken, veri hazırlık adımlarını öğrenir yerleşik veri hazırlık vardır. Ayrıca, geçmiş ve üretkenliğinizi destekleyecek not defteri tümleştirme çalıştıran proje yönetimi sağlar. TensorFlow, Bilişsel araç seti, Spark ML ve scikit dahil olmak üzere en iyi açık kaynak çerçeveleri yararlanabilir-Modellerinizi geliştirmeyi öğrenin. DSVM üzerinde bir masaüstü simgesi (yerel olarak Azure Machine Learning çalışma ekranı her kullanıcının % LOCALAPPDATA % dizine ayıklayın InstallAMLFromLocal) sağlayın. Çalışma ekranı kullanması gereken her bir kullanıcı bir yapması gereken zaman ekranının kendi örneği yüklemek için InstallAMLFromLocal Masaüstü simgesine çift tıklatma eylemi. Azure Machine Learning da oluşturur ve % LOCALAPPDATA%\amlworkbench\python ayıklanan bir kullanıcı başına Python ortamı kullanır.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Geliştirici sürümü
 Microsoft enterprise kitaplıkları analizi için ölçeklenebilir R veya Python için kullanmak istiyorsanız, VM'nin (daha önce Microsoft R sunucusu olarak da bilinir) Microsoft ML Server Geliştirici sürümü yüklü olduğundan. Microsoft ML Server kapsamlı dağıtılabilir kurumsal sınıf analytics Platform R ve Python için kullanılabilir ve ölçeklenebilir, ticari olarak ve güvenli desteklenir. Büyük veri istatistikleri, Tahmine dayalı modelleme ve makine öğrenimi yetenekleri çeşitli destekleyici, ML sunucusu analytics – keşfi, analizi, Görselleştirme ve modelleme tam aralığını destekler. R ile kullanarak ve açık kaynak R ve Python genişletme Microsoft ML Server tamamen uyumludur / Python komut dosyaları, İşlevler ve CRAN / PIP / Conda paketleri, Kurumsal verileri çözümlemek için ölçeklendirin. Ayrıca, açık kaynak R bellek içi sınırlamaları'nin veri paralel ve öbekli işlenmesini ekleyerek giderir. Bu verileri analytics çok daha büyük ne ana bellekte uygun çalıştırmanıza olanak sağlar.  Visual Studio Community Edition VM dahil R veya Python ile çalışmak için tam bir IDE sağlar Visual Studio uzantısı için Visual Studio ve Python araçları için R araçları içerir. Ayrıca diğer IDE de gibi sağladığımız [Rstudio'dan](http://www.rstudio.com) ve [PyCharm Community edition](https://www.jetbrains.com/pycharm/) VM üzerinde. 
 
 ### <a name="python"></a>Python
-Python kullanarak geliştirme için Anaconda Python 2.7 ve 3.5 dağıtım yüklendi. Bu dağıtım yaklaşık 300 en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra temel Python içerir. Python araçları için Visual Studio (Visual Studio 2015 Community edition veya paketlenmiş IDE boşta veya Spyder gibi Anaconda ile biri içinde yüklü PTVS) kullanabilirsiniz. Bu arama çubuğunda arayarak birini başlatabilirsiniz (**Win** + **S** anahtar).
+Python kullanarak geliştirme için Anaconda Python dağıtımı 2.7 ve 3.6 yüklendi. Bu dağıtım yaklaşık 300 en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra temel Python içerir. Python araçları için Visual Studio (Visual Studio 2017 Community edition veya paketlenmiş IDE boşta veya Spyder gibi Anaconda ile biri içinde yüklü PTVS) kullanabilirsiniz. Bu arama çubuğunda arayarak birini başlatabilirsiniz (**Win** + **S** anahtar).
 
 > [!NOTE]
-> Anaconda Python 2.7 ve 3.5 Visual Studio için Python araçları işaret etmek için her sürüm için özel ortamları oluşturmanız gerekir. Bu ortam yolları Visual Studio 2015 Community Edition ayarlamak için gidin **Araçları** -> **Python Araçları** -> **Python ortamları**ve ardından **+ özel**. 
+> Anaconda Python 2.7, Visual Studio için Python araçları işaret etmek için her sürüm için özel ortamları oluşturmanız gerekir. Bu ortam yolları Visual Studio 2017 Community Edition ayarlamak için gidin **Araçları** -> **Python Araçları** -> **Python ortamları**ve ardından **+ özel**. 
 > 
 > 
 
-Anaconda Python 2.7 C:\Anaconda altında yüklenir ve c:\Anaconda\envs\py35 altında Anaconda Python 3.5 yüklenir. Bkz: [PTVS belgelerine](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) ayrıntılı adımlar için. 
+Anaconda Python 3.6 C:\Anaconda altında yüklenir ve Anaconda Python 2.7 c:\Anaconda\envs\python2 altında yüklenir. Bkz: [PTVS belgelerine](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) ayrıntılı adımlar için. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
-Anaconda dağıtım ayrıca bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortamı bulunur. Jupyter not defteri sunucu Python 2.7, Python 3.5, PySpark, Jale ve R tekrar ile önceden yapılandırılmış. "Jupyter Jupyter sunucunun başlatmak ve not defteri sunucusuna erişmek için tarayıcıyı başlatın için Not Defteri" adlı bir masaüstü simgesi yoktur. 
-
-> [!NOTE]
-> Hiçbir sertifika uyarısı alırsanız devam edin. 
-> 
-> 
+Anaconda dağıtım ayrıca bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortamı bulunur. Jupyter not defteri sunucu Python Python 2.7 ile önceden yapılandırılmış 3.x, PySpark, Jale ve R tekrar. "Jupyter Jupyter sunucunun başlatmak ve not defteri sunucusuna erişmek için tarayıcıyı başlatın için Not Defteri" adlı bir masaüstü simgesi yoktur. 
 
 Biz birkaç örnek not defterlerini r ve Python de paketlenmiş Jupyter not defterlerini Jupyter erişim sonra Microsoft ML Server, SQL Server ML Hizmetleri (veritabanı Analytics'i), Python, Microsoft Bilişsel araç seti, Tensorflow ve diğer Azure teknolojileri ile çalışmaya nasıl gösterir. Bir önceki adımda oluşturduğunuz parola kullanarak Jupyter not defteri için kimlik doğrulaması sonra not defteri giriş sayfasında örnekler bağlantısını görebilirsiniz. 
 
 ### <a name="visual-studio-2017-community-edition"></a>Visual Studio 2017 Community edition
-Visual Studio Community edition VM'de yüklü. Küçük ekipleri ve değerlendirme amaçları için kullanabileceğiniz bir Microsoft popüler IDE boş bir sürümüdür. Lisans sözleşmesinin koşullarını denetleyebilirsiniz [burada](https://www.visualstudio.com/support/legal/mt171547).  Masaüstü simgesini çift tıklayarak Visual Studio'yu açın veya **Başlat** menüsü. Ayrıca programlarla arayabilirsiniz **Win** + **S** ve "Visual Studio" girme. C#, Python, R, node.js gibi dillerde projeleri burada oluşturabilirsiniz sonra. Eklentileri de Azure veri Kataloğu, Azure Hdınsight (Hadoop, Spark) ve Azure Data Lake gibi Azure hizmetleriyle çalışmak uygun hale yüklenir. 
+Visual Studio Community edition VM'de yüklü. Küçük ekipleri ve değerlendirme amaçları için kullanabileceğiniz bir Microsoft popüler IDE boş bir sürümüdür. Lisans sözleşmesinin koşullarını denetleyebilirsiniz [burada](https://www.visualstudio.com/support/legal/mt171547).  Masaüstü simgesini çift tıklayarak Visual Studio'yu açın veya **Başlat** menüsü. Ayrıca programlarla arayabilirsiniz **Win** + **S** ve "Visual Studio" girme. C#, Python, R, node.js gibi dillerde projeleri burada oluşturabilirsiniz sonra. Eklentileri de Azure veri Kataloğu, Azure Hdınsight (Hadoop, Spark) ve Azure Data Lake gibi Azure hizmetleriyle çalışmak uygun hale yüklenir. Şimdi de bulunmaktadır adlı bir eklenti ```Visual Studio Tools for AI``` sorunsuz bir şekilde Azure Machine Learning ile tümleşir ve hızlı bir şekilde yapı AI uygulamaları yardımcı olur. 
 
 > [!NOTE]
 > Değerlendirme süreniz doldu bildiren bir ileti alabilirsiniz. Microsoft hesabı kimlik bilgilerinizi girin veya Visual Studio Community Edition erişmek için yeni bir boş hesabı oluşturun. 
@@ -170,6 +162,10 @@ Panolar ve harika görselleştirmeleri oluşturmanıza yardımcı olmak için **
 > 
 > 
 
+### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+
+Azure Machine Learning çalışma ekranı, bir masaüstü uygulaması ve komut satırı arabirimi olur. Çalışma ekranı bunları gerçekleştirirken, veri hazırlık adımlarını öğrenir yerleşik veri hazırlık vardır. Ayrıca, geçmiş ve üretkenliğinizi destekleyecek not defteri tümleştirme çalıştıran proje yönetimi sağlar. TensorFlow, Bilişsel araç seti, Spark ML ve scikit dahil olmak üzere en iyi açık kaynak çerçeveleri yararlanabilir-Modellerinizi geliştirmeyi öğrenin. DSVM üzerinde Azure Machine Learning çalışma ekranı tek tek kullanıcının % LOCALAPPDATA % dizine yüklemek için bir masaüstü simgesi sunuyoruz. Çalışma ekranı kullanması gereken her bir kullanıcı bir yapması gereken zaman çift tıklatma eylemi ```AzureML Workbench Setup``` ekranının kendi örneği yüklemek için Masaüstü simgesi. Azure Machine Learning da oluşturur ve % LOCALAPPDATA%\amlworkbench\python ayıklanan bir kullanıcı başına Python ortamı kullanır.
+
 ## <a name="additional-microsoft-development-tools"></a>Ek Microsoft geliştirme araçları
 [ **Microsoft Web Platformu yükleyicisi** ](https://www.microsoft.com/web/downloads/platform.aspx) bulmak ve diğer Microsoft geliştirme araçları'nı indirmek için kullanılabilir. Microsoft Veri bilimi sanal makine masaüstünde sağlanan aracı için bir kısayol yoktur.  
 
@@ -177,10 +173,10 @@ Panolar ve harika görselleştirmeleri oluşturmanıza yardımcı olmak için **
 | Öğe | Dizin |
 | --- | --- |
 | Jupyter not defteri sunucu yapılandırmaları |C:\ProgramData\jupyter |
-| Jupyter not defteri örnekleri giriş dizini |c:\dsvm\notebooks |
+| Jupyter not defteri örnekleri giriş dizini |c:\dsvm\notebooks and c:\users\<username>\notebooks|
 | Diğer örnekleri |c:\dsvm\samples |
-| Anaconda (varsayılan: Python 2.7) |c:\Anaconda |
-| Anaconda Python 3.5 ortamı |c:\Anaconda\envs\py35 |
+| Anaconda (varsayılan: Python 3.6) |c:\Anaconda |
+| Anaconda Python 2.7 ortamı |c:\Anaconda\envs\python2 |
 | Microsoft ML Server tek başına Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Varsayılan R örneği (ML Server tek başına) |C:\Program Files\Microsoft\ML Server\R_SERVER |
 | SQL ML Hizmetleri veritabanı örnek dizini |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
@@ -188,7 +184,7 @@ Panolar ve harika görselleştirmeleri oluşturmanıza yardımcı olmak için **
 | Çeşitli araçlar |c:\dsvm\tools |
 
 > [!NOTE]
-> Örnekleri, Microsoft Veri bilimi (önce 3 Eylül 2016) 1.5.0 önce oluşturulan sanal makinenin bir biraz farklı dizin yapısı yukarıdaki tabloda belirtilenden kullanılır. 
+> Mart 2018 önce DSVM ve Windows Server 2016 sürümünü Windows Server 2012 sürümünde varsayılan Anaconda Python 2.7 ortamıdır. Python c:\Anaconda\envs\py35 bulunan 3.5 ikincil ortamıdır. 
 > 
 > 
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
 
@@ -51,6 +51,8 @@ Sorunsuz SSO ile birleştirilebilir [parola karması eşitlemesi](active-directo
 - Oturum açma kullanıcı adı ya da şirket içi varsayılan kullanıcı adı olabilir (`userPrincipalName`) veya Azure AD Connect içinde yapılandırılmış başka bir öznitelik (`Alternate ID`). Sorunsuz SSO kullandığı için her ikisini de durumlarda iş kullanmak `securityIdentifier` Azure AD içinde karşılık gelen kullanıcı nesnesi aramak için Kerberos bileti talep.
 - Sorunsuz SSO fırsatçılıktan bir özelliktir. Herhangi bir nedenle başarısız olursa, kullanıcı oturum açma deneyimi normal davranışını - yani, kullanıcı oturum açma sayfasında parolalarını girmeleri gerekir geri gider.
 - Bir uygulama iletirse bir `domain_hint` (Openıd Connect) veya `whr` (SAML) parametre - kiracınız, tanımlama veya `login_hint` kullanıcı tanımlama parametre - kendi Azure AD oturum açma isteğine, kullanıcıların otomatik olarak onları girme kullanıcı adlarını veya parolaları oturum açtınız.
+- Oturum kapatma desteklenir. Bu, otomatik olarak otomatik olarak kullanarak sorunsuz SSO imzalanmakta yerine oturum açmak için başka bir Azure AD hesabının seçmelerini sağlar.
+- Office 365 istemcileri (16.0.8730.xxxx ve üstü) etkileşimli olmayan bir akış kullanarak desteklenir.
 - Azure AD Connect üzerinden etkinleştirilebilir.
 - Boş bir özelliktir ve kullanmak için Azure AD Ücretli tüm sürümleri olması gerekmez.
 - Web tarayıcısı tabanlı istemciler ve Destek Office istemcilerinde desteklenen [modern kimlik doğrulaması](https://aka.ms/modernauthga) platformlarında ve Kerberos kimlik doğrulaması özellikli tarayıcılar:

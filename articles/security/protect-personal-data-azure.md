@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure kişisel verileri korumak | Microsoft Docs"
-description: "İlk makale serisinin kişisel verilerinizi korumak için Azure kullanmanıza yardımcı olması için makaleleri"
+description: "Bu makalede Azure kişisel verileri korumak ve genel veri koruma düzenleme (GDPR) ile uyumlu kullanmanıza yardımcı olması"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Microsoft Azure kişisel verileri korumak
 
-Bu makalede, Yardım makaleleri bir dizi tanıtılır kişisel verilerinizi korumak için Azure güvenlik teknolojileri ve Hizmetleri kullanın. Çoğu Kurumsal Anahtar gereksinimini ve endüstri uyumluluk ve idare girişimleri budur. Senaryo, sorun bildirimi ve şirket hedeflerini buraya dahil edilir.
+Bu makalede, Yardım makaleleri bir dizi tanıtılır kişisel verilerinizi korumak için Azure güvenlik teknolojileri ve Hizmetleri kullanın. Çoğu Kurumsal Anahtar gereksinimini ve endüstri uyumluluk ve idare girişimleri budur. Örneğin, genel veri koruma düzenleme (GDPR) ile uyum sağlamak için bu makaleler dizide sağlanan bilgileri kullanabilirsiniz. Senaryo, sorun bildirimi ve şirket hedeflerini buraya dahil edilir.
 
 ## <a name="scenario-and-problem-statement"></a>Senaryo ve sorun bildirimi
 
@@ -70,7 +70,7 @@ Aşağıdaki makaleler, yukarıda listelenen kişisel veri koruma hedeflerini el
 
 - [Azure güvenlik bilgileri Site](https://aka.ms/AzureSecInfo)
 
-- [Microsoft Güven Merkezi](https://www.microsoft.com/TrustCenter/default.aspx)
+- [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx)
 
 - [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/)
 

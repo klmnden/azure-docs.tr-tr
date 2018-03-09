@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2017
+ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 6a5912117a475c7af028f01ea47a7042677992ca
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Azure yığın Geliştirme Seti dağıtma
 
@@ -70,6 +70,7 @@ Ana bilgisayara ASDK yükleyebilmek için önce ASDK ortamı hazırlanmalıdır.
 3. Geliştirme seti yükleyicisini (asdk-installer.ps1) indirin için aşağıdaki betiği çalıştırın [Azure yığın GitHub araçları deposu](https://github.com/Azure/AzureStack-Tools) için **C:\AzureStack_Installer** klasöründe, Geliştirme Seti ana bilgisayarı:
 
   ```powershell
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   # Variables
   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
   $LocalPath = 'C:\AzureStack_Installer'
@@ -146,8 +147,8 @@ Bu komutlar, indirildi ve ayıklanan Azure yığın sanal sabit disk (CloudBuild
 2. `bcdedit /copy {current} /d "Azure Stack"` öğesini çalıştırın
 3. Gerekli {} dahil olmak üzere döndürülen kopyala (CTRL + C) CLSID değeri ' s. Bu değer, {CLSID} olarak adlandırılır ve kalan adımları (CTRL + V veya sağ tıklama) yapıştırılmasına gerekir.
 4. `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` öğesini çalıştırın 
-5. `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` öğesini çalıştırın 
-6. `bcdedit /set {CLSID} detecthal on` öğesini çalıştırın 
+5. `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx`'i çalıştırın. 
+6. `bcdedit /set {CLSID} detecthal on`'i çalıştırın. 
 7. `bcdedit /default {CLSID}` öğesini çalıştırın
 8. Önyükleme ayarlarını doğrulamak için çalıştırın `bcdedit`. 
 9. Dosya C:\ sürücüsü (C:\CloudBuilder.vhdx) kök dizinine taşınır ve Geliştirme Seti ana bilgisayarı yeniden CloudBuilder.vhdx emin olun. ASDK ana bilgisayar yeniden başlatıldığında, artık CloudBuilder.vhdx VM'den önyüklemek için varsayılan olarak. 
@@ -227,7 +228,7 @@ Varsa ortamınızı **yok** aşağıdaki ek parametreleri (örnek kullanım sağ
 |NatIPv4Address|DHCP NAT desteği için gerekli|Statik bir IP adresi için MAS BGPNAT01 ayarlar. Bu parametreyi yalnızca DHCP'nin, İnternet erişimi için geçerli bir IP adresi atayamadığı durumlarda kullanın.|
 |NatIPv4Subnet|DHCP NAT desteği için gerekli|NAT destek DHCP için kullanılan IP alt ağ önek. Bu parametreyi yalnızca DHCP'nin, İnternet erişimi için geçerli bir IP adresi atayamadığı durumlarda kullanın.|
 |PublicVlanId|İsteğe bağlı|VLAN kimliğini ayarlar Yalnızca MAS BGPNAT01 ve konak fiziksel ağ (ve Internet) erişmek için VLAN kimliği yapılandırmanız gerekir, bu parametreyi kullanın. Örneğin,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Yeniden çalıştırın|İsteğe bağlı|Dağıtım yeniden çalıştırmak için bu bayrağı kullanın. Tüm önceki giriş kullanılır. Çeşitli benzersiz değerler oluşturulur ve dağıtım için kullanılır çünkü daha önce sağlanan verileri yeniden girmeden desteklenmiyor.|
+|Yeniden çalıştır|İsteğe bağlı|Dağıtım yeniden çalıştırmak için bu bayrağı kullanın. Tüm önceki giriş kullanılır. Çeşitli benzersiz değerler oluşturulur ve dağıtım için kullanılır çünkü daha önce sağlanan verileri yeniden girmeden desteklenmiyor.|
 
 ## <a name="activate-the-administrator-and-tenant-portals"></a>Yönetici ve Kiracı portalı etkinleştir
 Azure AD kullanan dağıtımlar sonra Azure yığın yönetici ve Kiracı portalı etkinleştirmeniz gerekir. Bu etkinleştirme, Azure yığın portalı ve Azure Resource Manager (onay sayfasında listelenen) doğru izinler tüm kullanıcılar için dizin vermenizi izin.

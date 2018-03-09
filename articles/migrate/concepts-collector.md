@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -23,9 +23,23 @@ ms.lasthandoff: 03/02/2018
 
 Bir Azure geçirmek toplayıcısı şirket içi vCenter ortamınızı keşfetmek için kullanılan bir lighweight appliance ' dir. Bu Gereci şirket içi VMware makineleri bulur ve bunlarla ilgili meta verileri Azure geçiş hizmetine gönderir.
 
-Toplayıcı Gereci Azure geçirmek projeden indirebilirsiniz bir OVF ' dir. Bir VMware sanal makineyle 4 çekirdek, 8 GB RAM ve tek bir disk 80 GB başlatır. Windows Server 2012 R2 (64 bit) işletim sistemidir gerecin
+Toplayıcı Gereci Azure geçirmek projeden indirebilirsiniz bir OVF ' dir. Bir VMware sanal makineyle 4 çekirdek, 8 GB RAM ve tek bir disk 80 GB başlatır. Windows Server 2012 R2 (64 bit) uygulamasının işletim sistemidir.
 
 Toplayıcı adımları izleyerek oluşturabileceğiniz burada - [toplayıcısı VM oluşturma](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="collector-communication-diagram"></a>Toplayıcı iletişim diyagramı
+
+![Toplayıcı iletişim diyagramı](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| Bileşen      | Şununla iletişim kurmak için   | Gereken bağlantı noktası                            | Neden                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Toplayıcı      | Azure Geçişi hizmeti | TCP 443                                  | Toplayıcı hizmeti ile SSL bağlantı noktası 443 iletişim kurabilmesi |
+| Toplayıcı      | vCenter Server        | Varsayılan 443                             | Toplayıcı vCenter sunucusu ile iletişim kurabilmesi gerekir. VCenter 443 üzerinde varsayılan olarak bağlanır. VCenter farklı bir bağlantı noktasında dinler varsa, bu bağlantı noktasını toplayıcısında giden bağlantı noktası olarak kullanılabilir olması gerekir |
+| Toplayıcı      | RDP|   | TCP 3389 | Toplayıcı makinede RDP için kullanabilmek için |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>Toplayıcı ön koşullar
@@ -158,6 +172,32 @@ Aşağıdaki tabloda, toplanan ve ayrıca belirli bir sayaç alınamadı, etkile
 Toplayıcı yalnızca makine verileri bulur ve projeye gönderir. Proje bulunan verileri portalda görüntülenir ve bir değerlendirme oluşturmaya başlamadan önce ek zaman alabilir.
 
 Seçilen kapsam içindeki sanal makinelerin sayısına dayalı olarak, fazla 15 dakika projeye statik meta verileri gönder sürer. Statik meta verileri portalda kullanılabilir olduğunda, portal makinelerinizde listesini görmek ve grupları oluşturmaya başlayın. Bir değerlendirme toplama işi tamamlandıktan ve proje verileri işleyene kadar oluşturulamıyor. Bir kez koleksiyonu iş Toplayıcısında tamamlandı, onu değerine kadar sürebilir portalında kullanılabilir olması performans verileri için bir saat seçili kapsamdaki sanal makinelerin sayısına dayalı olarak.
+
+## <a name="how-to-upgrade-collector"></a>Toplayıcı yükseltme
+
+Toplayıcı OVA yeniden yüklemeden en son sürüme yükseltebilirsiniz.
+
+1. En son karşıdan [yükseltme paketi](https://aka.ms/migrate/col/latestupgrade).
+2. İndirilen düzeltme güvenli olduğundan emin olmak için yönetici komut penceresi açın ve ZIP dosyası için karma oluşturmak için aşağıdaki komutu çalıştırın. Üretilen karma karşı belirli sürümü belirtilen karma ile eşleşmesi gerekir:
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (örnek kullanım C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. ZIP dosyasının Azure geçirmek Toplayıcı sanal makineye (Toplayıcı Gereci) kopyalayın.
+4. Zip dosyasını sağ tıklatın ve tümünü Ayıkla seçin.
+5. Setup.ps1 üzerinde sağ tıklayın ve PowerShell ile Çalıştır'ı seçin ve güncelleştirmeyi yüklemek için ekrandaki yönergeleri izleyin.
+
+### <a name="list-of-updates"></a>Güncelleştirmeleri listesi
+
+#### <a name="upgrade-to-version-1095"></a>1.0.9.5 sürüme yükseltin
+
+Yükseltme sürümü 1.0.9.5 indirme için [paketi](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algoritma** | **Karma değeri**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

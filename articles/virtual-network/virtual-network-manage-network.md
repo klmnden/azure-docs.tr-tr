@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6daf69574d45eeb1c91508d082bd7294b6e40f70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6829ca9ad5ef76b6a96eed1f2cc461d32c0e51cf
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Oluşturma, değiştirme veya bir sanal ağı silme
 
@@ -41,7 +41,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-1. Seçin **+ yeni** > **ağ** > **sanal ağ**.
+1. Seçin **+ kaynak oluşturma** > **ağ** > **sanal ağ**.
 2. Girin veya aşağıdaki ayarları için değerleri seçin ve ardından seçin **oluşturma**:
     - **Ad**: ad içinde benzersiz olmalıdır [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) sanal ağ oluşturmak için seçin. Sanal ağ oluşturulduktan sonra adı değiştirilemez. Zaman içinde birden çok sanal ağlar oluşturabilir. Öneriler adlandırma için bkz: [adlandırma kuralları](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Bir adlandırma kuralı birden çok sanal ağ yönetmeyi kolaylaştırmak yardımcı olabilir.
     - **Adres alanı**: bir sanal ağın adres alanı CIDR gösteriminde belirtilen bir veya daha fazla çakışmayan adres aralıklarını oluşur. Tanımladığınız adres aralığı ortak veya özel (RFC 1918) olabilir. Adres aralığı ortak veya özel olarak tanımlamak, adres aralığı birbirine bağlı sanal ağlar ve sanal ağa bağlı herhangi bir şirket içi ağlar sanal ağ içinde yalnızca erişilebilir olup. Aşağıdaki adres aralıklarını ekleyemezsiniz:
@@ -179,5 +179,5 @@ Sanal ağlar üzerinde görevleri gerçekleştirmek için hesabınızı atanmal�
 
 - Bir VM oluşturun ve bir sanal ağa bağlanmak için bkz: [bir sanal ağ oluşturmak ve sanal makineleri bağlanmak](quick-create-portal.md#create-virtual-machines).
 - Bir sanal ağ içindeki alt ağlara arasındaki ağ trafiğini filtrelemek için bkz: [ağ güvenlik grupları oluşturma](virtual-networks-create-nsg-arm-pportal.md).
-- Başka bir sanal ağ sanal bir ağa eş için bkz: [bir sanal ağ eşlemesi oluşturma](virtual-network-create-peering.md#portal).
+- Başka bir sanal ağ sanal bir ağa eş için bkz: [bir sanal ağ eşlemesi oluşturma](tutorial-connect-virtual-networks-portal.md).
 - Bir sanal ağ bir şirket içi ağa bağlamak için seçenekleri hakkında bilgi edinmek için [VPN Gateway hakkında](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

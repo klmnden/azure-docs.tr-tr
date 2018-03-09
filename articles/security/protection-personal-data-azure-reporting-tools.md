@@ -1,6 +1,6 @@
 ---
 title: "Belge koruması kişisel veri raporlama araçları Azure ile | Microsoft Docs"
-description: "Azure Raporlama Hizmetleri ve teknolojileriyle kişisel verilerin gizliliği korumak için nasıl kullanılacağını."
+description: "Genel veri koruma düzenleme (GDPR) ile uyumlu olacak şekilde girişimleri kişisel verileri gizliliğini korumak için Azure Raporlama Hizmetleri kullanın."
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Kişisel veri raporlama araçları Azure ile belge koruması
 
-Bu makalede Azure Raporlama Hizmetleri ve teknolojileriyle kişisel verilerin gizliliği korumak için nasıl kullanılacağını ele alınacaktır.
-
+Bu makalede Azure Raporlama Hizmetleri ve teknolojileriyle kişisel verilerin gizliliği korumak için nasıl kullanılacağını ele alınacaktır. Bu bilgiler, genel veri koruma düzenleme (GDPR) gibi endüstri veya kamu düzenlemelere uymak üzere kullanılabilir.
 ## <a name="scenario"></a>Senaryo
 
 Amerika Birleşik Devletleri'nde yönetim büyük seyahat şirket, masraflarını Akdeniz, Adriatic ve Baltık seas yanı sıra İngiliz Adaları arasında içinde sunmaya işlemlerini genişletmektedir. Bu çabalarına yardımcı olmak için onu İtalya, Almanya, Danimarka ve İngiltere dayanarak birkaç küçük seyahat satırları aldı

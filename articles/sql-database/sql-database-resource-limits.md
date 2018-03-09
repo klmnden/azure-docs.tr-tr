@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eea4362e33ff2587758601758db463ffa82382b3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL veritabanı kaynak sınırları
+
+> [!IMPORTANT]
+> Yönetilen Azure SQL veritabanı örneğiyle kaynak sınırları için bkz: [SQL veritabanı yönetilen örneği](sql-database-managed-instance.md#managed-instance-service-tier).
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Tek veritabanı: depolama boyutlarına ve performans düzeyleri
 
@@ -79,7 +82,6 @@ SQL Database esnek havuzlar için aşağıdaki tablolarda her hizmeti katmanın�
 
 > [!NOTE]
 > Esnek havuzlar bulunan tek veritabanlarını kaynak sınırları genellikle Dtu'lar ve Hizmet katmanını temel alan havuzları dışında tek veritabanları ile aynıdır. Örneğin, S2 veritabanı için en fazla eşzamanlı çalışan 120 çalışanları olur. Bu nedenle, standart havuzdaki bir veritabanı için en fazla eşzamanlı çalışan olduğunu da 120 çalışanları havuzunda veritabanı başına maksimum DTU (hangi S2 eşdeğerdir) 50 Dtu'lar ise.
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 

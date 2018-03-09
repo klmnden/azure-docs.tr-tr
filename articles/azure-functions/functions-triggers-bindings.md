@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 559cfee1a8116703371a5641cf4534b7ad6f7578
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -53,7 +53,7 @@ Uzantıları NuGet paketleri, paket adı genellikle başladığı ile olarak tes
 + [Yerel olarak Azure işlevleri çekirdek araçlarını kullanma](#local-development-azure-functions-core-tools)
 + [Azure portalında](#azure-portal-development) 
 
-Sürümünde bağlamaları çekirdek kümesi vardır uzantıları olarak sağlanmayan 2.x. Aşağıdaki Tetikleyicileri ve bağlamaları için Uzantılar kaydetmeniz gerekmez: HTTP, Zamanlayıcı ve Azure depolama. 
+Sürümünde bağlamaları çekirdek kümesini yoktur uzantıları olarak sağlanmayan 2.x. Aşağıdaki Tetikleyicileri ve bağlamaları için Uzantılar kaydetmeniz gerekmez: HTTP, Zamanlayıcı ve Azure depolama. 
 
 Bir işlev uygulaması sürümü kullanmak için ayarlama hakkında bilgi için işlevleri çalışma zamanı 2.x bkz [Azure işlevleri çalışma zamanı sürümlerini hedefleyen nasıl](set-runtime-version.md). Sürüm 2.x işlevleri çalışma zamanı şu anda önizlemede. 
 

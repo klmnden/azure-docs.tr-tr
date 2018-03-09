@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>Erişim paneli nedir?
 
@@ -67,6 +67,9 @@ Doğrulandığında, yöneticiniz directory ile tümleşik olan uygulamalar ile 
 ## <a name="web-browser-requirements"></a>Web tarayıcısı gereksinimleri
 
 En azından, CSS etkin olduğundan ve erişim paneli JavaScript destekleyen bir tarayıcı gerektirir. Parola tabanlı çoklu oturum açma (SSO) aracılığıyla uygulamaları için oturum açmanız erişim paneli uzantı tarayıcınızda yüklü olmalıdır. Uzantı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinizde otomatik olarak yüklenir.
+
+Yükleyici mimarisi özeldir. Bağlantıya tıklayın, yalnızca yükleyici, şu anda çalışan işletim sistemi mimarisi için alırsınız. Bir uygulama dağıtım yöneticisi, her iki yükleyicileri almak için bir 64 bit ve 32 bit aygıttan indirme bağlantısı ziyaret emin olun.
+
 
 Erişim paneli uzantısı için şu anda kullanılabilir:
 - **Kenar**: Windows 10 Anniversary Edition veya sonraki sürümlerde. 
