@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/07/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Azure'dan şirket içi siteye yeniden koruyun.
 
@@ -204,7 +204,7 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 4. İçin **veri deposu**, diskleri şirket içi kurtarmak istediğiniz veri deposu seçin. Bu seçenek şirket içi sanal makine silinir ve yeni disk oluşturmanız gerektiğinde kullanılır. Bu seçenek diskleri zaten var, ancak yine de bir değer belirtmeniz gerekiyorsa, göz ardı edilir.
 5. Saklama sürücüsünün seçin.
 6. Yeniden çalışma ilkesi otomatik olarak seçilir.
-7. Tıklatın **Tamam** yükü başlamak için. Sanal makine Azure'dan şirket içi siteye çoğaltmak bir iş başlatır. Üzerinde ilerleme durumunu izleyebilirsiniz **işleri** sekmesi.
+7. Yeniden korumaya başlamak için **Tamam**’a tıklayın. Sanal makineyi Azure’dan şirket içi siteye çoğaltan bir iş başlar. **İşler** sekmesinde ilerleme durumunu izleyebilirsiniz.
 
 (Şirket içi sanal makine silindiğinde) alternatif konuma kurtarma yapmak istiyorsanız, bekletme sürücüsü ve ana hedef sunucu için yapılandırılmış veri deposu seçin. Şirket içi sitede yeniden çalıştırmak, yeniden çalışma koruma planı VMware sanal makineleri aynı veri deposu ana hedef sunucusu olarak kullanın. Yeni bir sanal makine ardından Vcenter'da oluşturulur.
 
@@ -214,10 +214,10 @@ Var olan bir şirket içi sanal makine için Azure üzerindeki sanal makineyi ku
 Ayrıca bir kurtarma planı düzeyinde koruyun. Bir çoğaltma grubu yalnızca bir kurtarma planı reprotected. Bir kurtarma planı kullanarak koruyun, korunan her makine için değerler sağlamanız gerekir.
 
 > [!NOTE]
-> Aynı ana hedef sunucusunda bir çoğaltma grubunu yeniden korumak için kullanın. Bir çoğaltma grubunu yeniden korumak için farklı bir ana hedef sunucusu kullanıyorsanız, sunucunun ortak bir noktaya zamanında sağlayamaz.
+> Çoğaltma grubunu yeniden korumak için aynı hedef sunucuyu kullanın. Çoğaltma grubunu yeniden korumak için farklı bir ana hedef sunucu kullanırsanız, sunucu ortak bir zaman noktası sağlayamaz.
 
 > [!NOTE]
-> Şirket içi sanal makine yükü sırasında kapalıdır. Bu, çoğaltma sırasında veri tutarlılığını sağlamaya yardımcı olur. Yükü tamamlandıktan sonra sanal makinede etkinleştirmeyin.
+> Şirket içi sanal makine yükü sırasında kapalıdır. Bu işlem, çoğaltma sırasında veri tutarlığını sağlar. Yükü tamamlandıktan sonra sanal makinede etkinleştirmeyin.
 
 Sanal makinenin yükü başarılı olduktan sonra korumalı bir duruma girer.
 

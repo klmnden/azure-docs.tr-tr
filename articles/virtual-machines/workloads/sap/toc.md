@@ -1,5 +1,5 @@
 # Genel Bakış
-## [Kullanmaya başlama](get-started.md)
+## [Başlarken](get-started.md)
 ## [Sertifikalar](sap-certifications.md)
 # Azure’da SAP HANA (Büyük Örnekler)
 ## [Genel bakış ve mimari](hana-overview-architecture.md)
@@ -7,14 +7,18 @@
 ## [SAP HANA yükleyin](hana-installation.md)
 ## [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md)
 ## [Sorun giderme ve izleme](troubleshooting-monitoring.md)
-## Nasıl yapılır?
+## Nasıl yapılır
 ### [STONITH ile HA Kurulumu](ha-setup-with-stonith.md)
 ### [Type II SKU’lara yönelik İşletim Sistemi Yedeklemesi](os-backup-type-ii-skus.md)
 # Azure Sanal Makinelerde SAP HANA
 ## [Tek örnek SAP HANA yüklemesi](hana-get-started.md)
 ## [S/4 HANA veya BW/4 HANA SAP CAL dağıtım kılavuzu](cal-s4h.md)
 ## [Azure işlemlerinde SAP HANA kılavuzu](hana-vm-operations.md)
-## [Azure VM’lerde SAP HANA Yüksek Kullanılabilirliği](sap-hana-high-availability.md)
+## Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
+### [Azure üzerinde SAP HANA kullanılabilirliğine genel bakış](sap-hana-availability-overview.md)
+### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)
+### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
+## [Azure VM'lerinde SAP HANA Sistem Çoğaltması Kurulumu](sap-hana-high-availability.md)
 ## [SAP HANA yedeklemesine genel bakış](sap-hana-backup-guide.md)
 ## [SAP HANA dosya düzeyi yedekleme](sap-hana-backup-file-level.md)
 ## [SAP HANA depolama anlık görüntüsü yedekleri](sap-hana-backup-storage-snapshots.md)

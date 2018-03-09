@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0efb8b80bc98931f33991dc67f8f4aa1953bb491
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Insights ile Azure SQL veritabanı performans sorunlarını giderme
 
@@ -129,7 +129,7 @@ Tanılama günlük sorun giderme için temel olarak kullanabileceğiniz kilitlem
 
 Sorunu azaltmak için kolay ve güvenli işlemler kısa tutun ve en pahalı sorguların kilit ayak izini azaltmak için yoludur. Daha küçük işlemlere işlemlerinin büyük bir toplu bozulabilir. Sorgu olabildiğince verimli hale getirerek sorgu kilit ayak izini azaltmak için iyi bir uygulama olur. Kilitlenmeler olasılığını artırmak ve genel veritabanı performansını olumsuz olduğundan büyük taramaları azaltın. Kilitleme neden tanımlanan sorgular için yeni dizinler oluşturun veya sütunlar tablo tarama önlemek için mevcut dizin ekleyin. 
 
-Daha fazla bilgi için bkz: [SQL Server'da kilit etkinleşmesini nedeni engelleme sorunlarını gidermek nasıl](https://support.microsoft.com/en-us/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Daha fazla bilgi için bkz: [SQL Server'da kilit etkinleşmesini nedeni engelleme sorunlarını gidermek nasıl](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
 
 ## <a name="increased-maxdop"></a>Artan MAXDOP
 
@@ -289,7 +289,7 @@ Veritabanı kapsamlı yapılandırma değişiklikleri tek tek her veritabanı i�
 
 Tanılama önceki yedi günlük iş yükü davranışını kıyasla performans düşüşüne neden yakın zamanda yapılan çıkışları veritabanı kapsamlı yapılandırma değişiklikleri oturum açın. Önceki değerleri yapılandırma değişikliklerini geri dönebilirsiniz. İstenen Performans düzeyinin ulaşılana kadar değerini değere de ayarlayabilirsiniz. Tatmin edici performansa ile benzer bir veritabanından veritabanı kapsamlı yapılandırma değerlerini kopyalayın. Performans sorunlarını giderme yapamıyorsanız, varsayılan SQL veritabanı varsayılan değerlere geri dönmek ve bu temelinden başlayarak ince ayar girişimi.
 
-Veritabanı kapsamlı yapılandırma ve yapılandırmasını değiştirme T-SQL söz dizimi en iyi duruma getirme hakkında daha fazla bilgi için bkz: [Alter veritabanı kapsamlı yapılandırma (Transact-SQL)](https://msdn.microsoft.com/en-us/library/mt629158.aspx).
+Veritabanı kapsamlı yapılandırma ve yapılandırmasını değiştirme T-SQL söz dizimi en iyi duruma getirme hakkında daha fazla bilgi için bkz: [Alter veritabanı kapsamlı yapılandırma (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 
 ## <a name="slow-client"></a>İstemci yavaş
 

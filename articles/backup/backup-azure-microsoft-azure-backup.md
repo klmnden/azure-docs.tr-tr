@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure Backup Sunucusu kullanarak iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ Azure'da VM gibi bir hizmet (Iaas) iş yükleri olarak altyapısı da koruyabili
 
 Azure Backup sunucusu iş yükü yedekleme işlevlerinin çoğunu Data Protection Manager (DPM) devralır. Bu makale bağlantılar DPM belgelerine paylaşılan işlevselliği bazıları açıklanmaktadır. Ancak Azure yedekleme sunucusu ile aynı işlevselliği DPM çoğunu paylaşır. Azure yedekleme sunucusu başlamıyor banda yedeklemek veya System Center ile tümleşik çalışıyor.
 
-## <a name="1-choose-an-installation-platform"></a>1. Bir yükleme platformu seçin
+## <a name="choose-an-installation-platform"></a>Bir yükleme platformu seçin
 Azure yedekleme sunucusu Başlarken hazırlarken ve çalışırken doğrultusunda ilk adım, bir Windows Server ayarlamaktır. Sunucunuz, Azure veya şirket içi olabilir.
 
 ### <a name="using-a-server-in-azure"></a>Azure üzerinde bir sunucu kullanarak
-Azure yedekleme sunucusu çalıştıran bir sunucu seçerken, bir Windows Server 2012 R2 Datacenter galeri görüntüsüyle Başlat önerilir. Makale [ilk Windows sanal makinenizi Azure Portalı'nda oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), hiçbir zaman Azure önce kullanmış olduğunuz olsa bile, azure'da önerilen sanal makine ile çalışmaya başlama için bir öğretici sağlar. Sunucu sanal makine (VM) için önerilen en düşük gereksinimler olmalıdır: A2 standart iki çekirdek ve 3.5 GB RAM ile.
+Azure yedekleme sunucusu çalıştıran bir sunucu seçerken, bir Windows Server 2012 R2 Datacenter veya Windows Server 2016 Datacenter galeri görüntüsüyle Başlat önerilir. Makale [ilk Windows sanal makinenizi Azure Portalı'nda oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), hiçbir zaman Azure önce kullanmış olduğunuz olsa bile, azure'da önerilen sanal makine ile çalışmaya başlama için bir öğretici sağlar. Sunucu sanal makine (VM) için önerilen en düşük gereksinimler olmalıdır: A2 standart iki çekirdek ve 3.5 GB RAM ile.
 
 Azure yedekleme sunucusu ile iş yüklerini koruma pek çok küçük farklar vardır. Makale [bir Azure sanal makinesi olarak DPM yükleme](https://technet.microsoft.com/library/jj852163.aspx), yardımcı olur, bu küçük farklar açıklanmaktadır. Makine dağıtmadan önce bu makalenin tümüyle okuyun.
 
@@ -75,7 +75,7 @@ Windows Server yinelenenleri kaldırma kullanılarak DPM depolama alanında yine
 
 Her zaman Azure yedekleme sunucusu bir etki alanına katılın. Sunucunun farklı bir etki alanına taşımayı planlıyorsanız, sunucunun Azure yedekleme sunucusu yüklemeden önce yeni etki alanına önerilir. Dağıtım tamamlandıktan sonra var olan bir Azure yedekleme sunucusu makine yeni bir etki alanına taşıma *desteklenmiyor*.
 
-## <a name="2-recovery-services-vault"></a>2. Kurtarma Hizmetleri kasası
+## <a name="recovery-services-vault"></a>Kurtarma Hizmetleri kasası
 Azure'a yedekleme verileri göndermek ya da yerel olarak tutmak isteyip yazılım Azure'a bağlı olması gerekir. Daha fazla olması belirli, Azure yedekleme sunucusu makine kurtarma Hizmetleri kasası ile kayıtlı olması gerekir.
 
 Kurtarma hizmetleri kasası oluşturmak için:
@@ -112,7 +112,7 @@ Depolama çoğaltma ayarını düzenlemek için:
 
     Kasanız için depolama seçeneğini belirledikten sonra, VM'yi kasa ile ilişkilendirmek için hazır duruma gelirsiniz. İlişkilendirmeyi başlatmak için Azure sanal makinelerini bulmanız ve kaydetmeniz gerekir.
 
-## <a name="3-software-package"></a>3. Yazılım paketi
+## <a name="software-package"></a>Yazılım paketi
 ### <a name="downloading-the-software-package"></a>Yazılım paketini indirme
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Açık kurtarma Hizmetleri kasanız zaten varsa, 3. adıma geçin. Açık Kurtarma Hizmetleri kasanız yoksa ancak Azure portaldaysanız Hub menüsünde **Gözat**'a tıklayın.
@@ -216,7 +216,7 @@ Ayıklama işlemi tamamlandı, istemcinin ayıklanan başlatmak için kutusunu i
 
     Sonraki adım, Microsoft Azure kurtarma Hizmetleri Aracısı yapılandırmaktır. Yapılandırmasının parçası olarak, Kurtarma Hizmetleri kasası makineye kaydetmek için kasa kimlik bilgilerini sağlamanız gerekir. Ayrıca, şirket içi ve Azure arasında gönderilen verilerin şifreleme/şifre çözme için bir parola sağlar. Otomatik olarak bir parola oluşturmak veya kendi en az 16 karakter parola girin. Aracı yapılandırılana kadar sihirbaza devam edin.
 
-    ![Azure yedekleme Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Microsoft Azure yedekleme sunucusu kaydı başarıyla tamamlandığında, Genel Kurulum Sihirbazı'nı yükleme ve yapılandırma SQL Server ve Azure yedekleme sunucusu bileşenleri devam eder. SQL Server bileşen yüklemesi tamamlandıktan sonra Azure yedekleme sunucusu bileşenleri yüklenir.
 
     ![Azure Backup Sunucusu](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
@@ -231,7 +231,7 @@ Yükleme adım tamamlandığında, ürünün masaüstü simgelerini de oluşturu
 >
 >
 
-## <a name="4-network-connectivity"></a>4. Ağ bağlantısı
+## <a name="network-connectivity"></a>Ağ bağlantısı
 Azure yedekleme sunucusu Azure yedekleme hizmetine başarılı olarak çalışması ürün için bağlantısı gerektirir. Makine Azure bağlantısı olup olmadığını doğrulamak için kullanın ```Get-DPMCloudConnection``` Azure yedekleme sunucusu PowerShell konsolundaki cmdlet'i. Bağlantı olduğundan, cmdlet'in çıktısı, TRUE ise başka bağlantısı yok.
 
 Aynı anda Azure aboneliği sağlıklı bir durumda olması gerekir. Aboneliğinizin durumunu bulmak ve yönetmek için oturum [abonelik portal](https://account.windowsazure.com/Subscriptions).
@@ -240,11 +240,11 @@ Azure bağlantı ve Azure abonelik durumu öğrendikten sonra sunulan yedekleme/
 
 | Bağlantı durumu | Azure Aboneliği | Azure'a yedekleme | Diske yedekleme | Azure'dan geri yükleme | Disk, geri yükleme |
 | --- | --- | --- | --- | --- | --- |
-| Bağlı |Etkin |İzin verildi |İzin verildi |İzin verildi |İzin verildi |
-| Bağlı |Süresi Doldu |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
+| Bağlı |Etkin |İzin Verilen |İzin Verilen |İzin Verilen |İzin Verilen |
+| Bağlı |Süresi Doldu |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
 | Bağlı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
-| Kayıp bağlantısı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
-| Kayıp bağlantısı > 15 gün |Süresi Doldu |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
+| Kayıp bağlantısı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
+| Kayıp bağlantısı > 15 gün |Süresi Doldu |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
 | Kayıp bağlantısı > 15 gün |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Bağlantı kaybına karşı kurtarma
@@ -273,6 +273,6 @@ Ayrıntılı bilgi almak [DPM için ortamınızı hazırlama](https://technet.mi
 
 Bu makaleler, Microsoft Azure yedekleme sunucusu kullanarak iş yükü koruması daha derin bir anlayış kazanmak için kullanabilirsiniz.
 
-* [SQL Server Yedekleme](backup-azure-backup-sql.md)
+* [SQL Server backup](backup-azure-backup-sql.md)
 * [SharePoint server yedekleme](backup-azure-backup-sharepoint.md)
 * [Diğer sunucu yedekleme](backup-azure-alternate-dpm-server.md)

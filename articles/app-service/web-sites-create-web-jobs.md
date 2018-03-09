@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 661bfadfe1094271ad2ab672ad3f755c0fd24f02
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service'te Web işleri ile arka plan görevleri Çalıştır
 
@@ -49,15 +49,15 @@ Aşağıdaki tabloda arasındaki farklar açıklanmaktadır *sürekli* ve *tetik
 
 Aşağıdaki dosya türleri desteklenir:
 
-* .cmd, .bat, .exe (Windows cmd kullanarak)
-* .ps1 (PowerShell kullanarak)
+* .cmd, .bat, .exe (using Windows cmd)
+* .ps1 (using PowerShell)
 * .sh (Bash kullanarak)
 * .php (PHP kullanarak)
 * .py (Python kullanarak)
 * .js (Node.js kullanarak)
-* .jar (Java kullanarak)
+* .jar (using Java)
 
-## <a name="CreateContinuous"></a>Sürekli bir WebJob oluşturma
+## <a name="CreateContinuous"></a> Sürekli bir WebJob oluşturma
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -85,7 +85,7 @@ when making changes in one don't forget the other two.
    | **Tür** | Sürekli | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
    | **Ölçeklendirme** | Çok örnekli | Yalnızca sürekli Webjob'lar için kullanılabilir. Program veya komut dosyası tüm çalışıp çalışmayacağını belirler örneği veya sadece bir örnek. Birden çok örneği üzerinde çalıştırmaya yönelik seçeneği ücretsiz veya paylaşılan uygulanmaz [fiyatlandırma katmanlarına](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’a tıklayın.
 
    Yeni Web işi kasasındaki **WebJobs** sayfası.
 
@@ -95,7 +95,7 @@ when making changes in one don't forget the other two.
 
     ![Bir sürekli Webjob'un Durdur](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a>El ile Tetiklenmiş WebJob oluşturma
+## <a name="CreateOnDemand"></a> El ile Tetiklenmiş WebJob oluşturma
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -123,7 +123,7 @@ when making changes in one don't forget the other two.
    | **Tür** | Tetiklenmiş | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
    | **Tetikleyiciler** | El ile | |
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’a tıklayın.
 
    Yeni Web işi kasasındaki **WebJobs** sayfası.
 
@@ -133,7 +133,7 @@ when making changes in one don't forget the other two.
    
     ![WebJob'ı çalıştır](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a>Zamanlanmış WebJob oluşturma
+## <a name="CreateScheduledCRON"></a> Zamanlanmış WebJob oluşturma
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -159,10 +159,10 @@ when making changes in one don't forget the other two.
    | **Ad** | myScheduledWebJob | İçinde bir uygulama hizmeti uygulamayı benzersiz bir ad. Bir harf veya sayı ile başlamalı ve özel karakterler içeremez "-" ve "_". |
    | **Karşıya dosya yükleme** | ConsoleApp.zip | A *.zip* program veya komut dosyasını çalıştırmak için gerekli tüm destekleyici dosyaları yanı sıra, yürütülebilir dosya veya komut dosyanızı içeren dosya. Desteklenen yürütülebilir dosya veya komut dosyası türlerini de listelenen [desteklenen dosya türleri](#acceptablefiles) bölümü. |
    | **Tür** | Tetiklenmiş | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
-   | **Tetikleyiciler** | Zamanlandı | Güvenilir bir şekilde çalışması için zamanlama için her zaman açık özelliğini etkinleştirin. Her zaman yalnızca temel, standart ve Premium fiyatlandırma katmanlarına edinilebilir.|
+   | **Tetikleyiciler** | Zamanlanmış | Güvenilir bir şekilde çalışması için zamanlama için her zaman açık özelliğini etkinleştirin. Her zaman yalnızca temel, standart ve Premium fiyatlandırma katmanlarına edinilebilir.|
    | **CRON ifade** | 0 0/20 * * * * | [CRON ifadeleri](#cron-expressions) aşağıdaki bölümde açıklanmıştır. |
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’a tıklayın.
 
    Yeni Web işi kasasındaki **WebJobs** sayfası.
 
@@ -172,11 +172,11 @@ when making changes in one don't forget the other two.
 
 A [CRON ifade](https://en.wikipedia.org/wiki/Cron) altı alanlarının oluşur: `{second} {minute} {hour} {day} {month} {day of the week}`.  İşte bazı örnekler:
 
-* Her 15 dakikada:`0 */15 * * * *`
-* Her saat (diğer bir deyişle, dakika sayısı 0 olduğunda):`0 0 * * * *` 
-* 09: 00'dan her saat 18: 00 için:`0 0 9-17 * * *` 
-* 09:30:00 her gün:`0 30 9 * * *`
-* 09:30:00 her hafta içi günü:`0 30 9 * * 1-5`
+* Her 15 dakikada: `0 */15 * * * *`
+* Her saat (diğer bir deyişle, dakika sayısı 0 olduğunda): `0 0 * * * *` 
+* 09: 00'dan her saat 18: 00 için: `0 0 9-17 * * *` 
+* 09:30:00 her gün: `0 30 9 * * *`
+* 09:30:00 her hafta içi günü: `0 30 9 * * 1-5`
 
 Portalda CRON ifade girin ya da dahil bir `settings.job` , WebJob kökündeki dosya *.zip* aşağıdaki örnekteki gibi dosya:
 
@@ -189,7 +189,7 @@ Portalda CRON ifade girin ya da dahil bir `settings.job` , WebJob kökündeki do
 > [!NOTE]
 > Visual Studio'dan bir Web işi dağıttığınızda, işaretlemek, `settings.job` dosya olarak özellikleri **yeniyse Kopyala**.
 
-## <a name="ViewJobHistory"></a>İş geçmişini görüntüleme
+## <a name="ViewJobHistory"></a> İş geçmişini görüntüleme
 
 1. İçin Geçmişi'ne bakın ve ardından istediğiniz Web işi seçin **günlükleri** düğmesi.
    
@@ -213,4 +213,4 @@ Portalda CRON ifade girin ya da dahil bir `settings.job` , WebJob kökündeki do
    
 ## <a name="NextSteps"></a> Sonraki adımlar
 
-Azure WebJobs SDK ile Web işleri pek çok programlama görevlerini basitleştirmek için kullanılabilir. Daha fazla bilgi için bkz: [WebJobs SDK nedir](https://github.com/Azure/azure-webjobs-sdk/wiki).
+Azure WebJobs SDK ile Web işleri pek çok programlama görevlerini basitleştirmek için kullanılabilir. Daha fazla bilgi için bkz: [WebJobs SDK nedir](https://github.com/Azure/azure-webjobs-sdk/wiki) ve [WebJobs SDK hızlı başvuru](./media/web-sites-create-web-jobs/webjobs-sdk-quick-reference.png).

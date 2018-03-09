@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -134,7 +134,50 @@ Oluşturulan *function.json* dosya içeren bir `configurationSource` .NET öznit
 }
 ```
 
-*Function.json* dosyası oluşturma NuGet paketi tarafından gerçekleştirilen [Microsoft\.NET\.Sdk\.işlevler](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Kaynak kodu GitHub deposuna kullanılabilir [azure\-işlevleri\-vs\-yapı\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+### <a name="microsoftnetsdkfunctions-nuget-package"></a>Microsoft.NET.Sdk.Functions NuGet paketi
+
+*Function.json* dosyası oluşturma NuGet paketi tarafından gerçekleştirilen [Microsoft\.NET\.Sdk\.işlevler](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+
+Aynı paketin her iki sürümü için kullanılan 1.x ve 2.x işlevleri çalışma zamanı. Hedef Framework'ü ne 1.x proje 2.x projeden ayıran ' dir. İlgili bölümleri şunlardır *.csproj* hedef çerçeveler ve aynı dosyaları, farklı gösteren `Sdk` paketi:
+
+**1.x işlevleri**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+**2.x işlevleri**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+Arasında `Sdk` paket bağımlılıkları olan Tetikleyicileri ve bağlamaları. .NET Core hedef 2.x Tetikleyicileri ve bağlamaları sırada bu .NET Framework hedeflemediği 1.x proje 1.x Tetikleyicileri ve bağlamaları başvuruyor.
+
+`Sdk` Paketi de bağımlı [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json)ve dolaylı olarak [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Bu bağımlılıklar, projenizin işlevleri çalışma zamanı sürümü ile çalışma bu paketleri sürümlerini kullandığından emin olun, Proje hedefleri. Örneğin, `Newtonsoft.Json` sürüm 11 .NET Framework 4.6.1 olsa da, .NET Framework 4.6.1 hedefleyen işlevleri çalışma zamanı yalnızca uyumlu `Newtonsoft.Json` 9.0.1. Proje işlevi kodunuzda da kullanması gereken şekilde `Newtonsoft.Json` 9.0.1.
+
+Kaynak kodu `Microsoft.NET.Sdk.Functions` GitHub depo kullanılabilir [azure\-işlevleri\-vs\-yapı\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+### <a name="runtime-version"></a>Çalışma zamanı sürümü
+
+Visual Studio kullanan [Azure işlevleri çekirdek Araçları](functions-run-local.md#install-the-azure-functions-core-tools) işlevleri projelerini çalıştırmak için. Çekirdek araçları işlevleri çalışma zamanı için bir komut satırı arabirimidir.
+
+Çekirdek araçları npm kullanarak yüklerseniz, Visual Studio tarafından kullanılan çekirdek Araçları sürüm etkilemez. İşlevler çalışma zamanı sürümü için 1.x, Visual Studio depolayan çekirdek araçları sürümlerinde *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* ve depolanan en son sürümü var. kullanır. İçin 2.x İşlevler, çekirdek araçları içinde yer alan **Azure işlevleri ve Web işleri Araçları** uzantısı. 1.x ve 2.x için işlevleri Projeyi çalıştırdığınızda konsol çıktısı hangi sürümünün kullanıldığını görmek:
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## <a name="supported-types-for-bindings"></a>Bağlamaları için desteklenen türler
 

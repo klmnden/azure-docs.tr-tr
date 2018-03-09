@@ -14,17 +14,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 23a1f008e2c51325b7e9c7676847d55d7ccb7d44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında Windows SQL Server sanal makine sağlama
 
 Azure portalında bir Windows SQL Server sanal makine oluşturduğunuzda, bu kılavuzda kullanılabilir farklı seçenekler hakkında ayrıntılar sağlar. Bu makalede daha fazla yapılandırma seçeneği ele alınmaktadır [SQL Server VM quickstart](quickstart-sql-vm-create-portal.md), daha fazla ile bir olası görev sağlama gider. 
 
 Kendi SQL Server VM oluşturmak için bu kılavuzu kullanın. Veya, Azure portalında kullanılabilir seçenekler için bir başvuru olarak kullanabilirsiniz.
+
+> [!TIP]
+> SQL Server sanal makineler hakkında sorularınız varsa bkz [ilgili sık sorulan sorular](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -34,7 +37,7 @@ Bir SQL Server sanal makine oluşturduğunuzda, sanal makine Galeriden birkaç �
 
 1. Hesabınızı kullanarak [Azure portal](https://portal.azure.com)da oturum açın.
 
-1. Azure Portal'da tıklatın **kaynak oluşturma**. Portalda **Yeni** penceresi açılır.
+1. Azure portalında **Kaynak oluştur**’a tıklayın. Portalda **Yeni** penceresi açılır.
 
 1. **Yeni** penceresinde **İşlem**’e ve ardından **Tümünü gör**’e tıklayın.
 

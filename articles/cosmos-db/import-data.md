@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 036683698c49b8acb8a83117ac823c90fef0b2b3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
 
@@ -477,7 +477,7 @@ Seçenek Gelişmiş dizin oluşturma İlkesi'ni kullanarak, yapabilir bir dizin 
 Aracı sağlar ilke şablonları şunlardır:
 
 * Varsayılan. Dizeleri eşitlik sorguları gerçekleştirme ve sıralama, aralık ve eşitlik sorguları için numaraları kullanarak bu en iyi bir ilkedir. Bu ilkeyi daha az dizin depolama yükü aralığından daha vardır.
-* Aralık. Bu ilke hem sayılara hem de dizeleri sıralama, aralık ve eşitlik sorguları kullanıyorsanız en iyisidir. Bu ilke varsayılan veya karma daha yüksek bir dizin depolama yükü var.
+* Aralık. Hem sayılara hem de dizeleri sıralama, aralık ve eşitlik sorguları kullanıyorsanız bu iyi bir ilkedir. Bu ilke varsayılan veya karma daha yüksek bir dizin depolama yükü var.
 
 ![Ekran Azure Cosmos DB dizin Gelişmiş Seçenekler ilke](./media/import-data/indexingpolicy2.png)
 

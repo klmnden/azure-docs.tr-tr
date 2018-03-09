@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ba94f4f90f49fb7850f4cad2bb49ab4faa3fa92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Öğretici: Azure Active Directory Tümleştirme Tableau sunucusuyla
 
@@ -31,7 +31,7 @@ Tableau Server Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Tableau sunucusuyla yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,11 +110,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://azure.<domain name>.link`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://azure.<domain name>.link`
     
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://azure.<domain name>.link`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://azure.<domain name>.link`
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
      
     > [!NOTE] 
     > Yukarıdaki değerleri gerçek değerler değildir. Daha sonra gerçek URL ve Tableau sunucu yapılandırma sayfasından tanımlayıcı değerlerini güncelleştirin. 
@@ -127,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ---------------| --------------- |    
-    | kullanıcı adı | *User.DisplayName* |
+    | kullanıcı adı | *user.mailnickname* |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
@@ -207,7 +207,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-tableau-server-test-user"></a>Tableau Server test kullanıcısı oluşturma
 

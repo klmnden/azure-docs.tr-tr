@@ -1,6 +1,6 @@
 ---
 title: "Bulmak, tanımlamak ve Microsoft Azure kişisel verileri sınıflandırmak | Microsoft Docs"
-description: "Arama, Sınıflandırma, bulma ve verileri tanımlama hakkında bilgi edinin"
+description: "Arama, Sınıflandırma, bulma ve Azure verileri tanımlayan genel veri koruma düzenleme (GDPR) ile uyumlu yardımcı olabilir"
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Bulmak, tanımlamak ve Microsoft Azure kişisel verileri sınıflandırmak
 
-Bu makalede bulmak, tanımlamak ve birkaç Azure Araçları ve Hizmetleri Azure Hdınsight, Azure Information Protection, Azure Search ve SQL sorguları Hadoop kümeleri için Azure veri Kataloğu, Azure Active Directory, SQL veritabanı, Power Query Azure Cosmos DB kullanımı dahil olmak üzere, kişisel verileri sınıflandırmak hakkında yönergeler sağlar.
+Bu makalede bulmak, tanımlamak ve birkaç Azure Araçları ve Hizmetleri Azure Hdınsight, Azure Information Protection, Azure Search ve SQL sorguları Hadoop kümeleri için Azure veri Kataloğu, Azure Active Directory, SQL veritabanı, Power Query Azure Cosmos DB kullanımı dahil olmak üzere, kişisel verileri sınıflandırmak hakkında yönergeler sağlar. Bu araçlar ve işlemler genel veri koruma düzenleme (GDPR) ile uyum sağlamak için kullanılabilir
 
 ## <a name="scenario-problem-statement-and-goal"></a>Senaryo, sorun bildirimi ve amacı
 
@@ -114,7 +114,7 @@ Bu şekilde, veritabanınızı oluşturmayı öğrenmek için ziyaret edin [Powe
 >[!Note]
 PowerShell kullanmak için Windows yöneticileri eğilimi gösterir, ancak bazı Azure CLI tercih.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Ne arama Azure portalında SQL veritabanında kişisel veriler için? **
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Azure portalında SQL veritabanında kişisel verileriniz için nasıl arama yapabilirim?
 
 Kişisel verileri için arama için Azure portal içinde yerleşik sorgu Düzenleyicisi aracını kullanabilirsiniz. SQL server yönetici oturum açma ve parola kullanarak aracı için oturum açın ve bir sorgu girin.
 

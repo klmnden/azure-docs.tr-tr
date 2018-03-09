@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: a6363fa380d0bab05d7500141cc6019d1d3f68b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0517caed3a7d6632c1a5650147f4db240dbe0a17
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute için sanal ağ geçitleri hakkında
 Bir sanal ağ geçidi Azure sanal ağlar arasında ağ trafiğini göndermek için kullanılır ve şirket içi konumlara. ExpressRoute bağlantısı yapılandırdığınızda oluşturmak ve sanal ağ geçidi ve sanal ağ geçidi bağlantısı yapılandırmanız gerekir.
@@ -41,7 +41,7 @@ Aşağıdaki tabloda ağ geçidi türleri ve tahmini toplam verimlilik gösteril
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Uygulama işlemenizi uçtan uca gecikme süresi ve uygulama açılır trafik akışlarının sayısı gibi birden çok etkene bağlıdır. Tabloda yer alan numaralarını uygulama can theorectically elde ideal bir ortamda üst sınırı temsil eder. 
+> Uygulama işlemenizi uçtan uca gecikme süresi ve uygulama açılır trafik akışlarının sayısı gibi birden çok etkene bağlıdır. Tabloda yer alan numaralarını uygulama ideal bir ortamda teorik olarak elde edebilirsiniz üst sınırı temsil eder. 
 > 
 >
 
@@ -54,5 +54,6 @@ Ek teknik kaynaklar ve REST API'leri ve PowerShell cmdlet'leri için sanal ağ g
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [ExpressRoute genel bakış](expressroute-introduction.md) kullanılabilir bağlantı yapılandırmaları hakkında daha fazla bilgi için. 
+Bkz: [ExpressRoute genel bakış](expressroute-introduction.md) kullanılabilir bağlantı yapılandırmaları hakkında daha fazla bilgi için.
 
+Bkz: [ExpressRoute için bir sanal ağ geçidi oluşturmak](expressroute-howto-add-gateway-resource-manager.md) ExpressRoute ağ geçidi oluşturma hakkında daha fazla bilgi için.

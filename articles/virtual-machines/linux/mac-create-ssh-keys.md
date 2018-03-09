@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ecd3a01ee5591cb09140edb1b1290ff2d4510200
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma
 Güvenli kabuk (SSH) anahtar çiftiyle Azure’da sanal makineler (VM) oluşturabilirsiniz. Bu sayede kimlik doğrulaması için SSH anahtarlarını kullanarak oturum açmak için parolalara duyulan gereksinimi ortadan kaldırırsınız. Bu makalede Linux VM’ler için bir SSH protokolü sürüm 2 RSA ortak ve özel anahtar dosyası çiftini hızlı bir şekilde oluşturma ve kullanma adımları anlatılmaktadır. Bu adımları Azure Cloud Shell, macOS veya Linux ana bilgisayarı ya da Linux için Windows Alt Sistemi ile yapabilirsiniz. Daha ayrıntılı adımlar ve başka örnekler için bkz. [SSH anahtar çiftleri ve sertifikaları oluşturmaya yönelik ek adımlar](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>SSH anahtar çifti oluşturma
-SSH ortak ve özel anahtar dosyaları oluşturmak için `ssh-keygen` komutunu kullanın. Bunlar varsayılan olarak `~/.ssh` dizininde oluşturulur ancak istendiğinde farklı bir konum ve bir ek parola (özel anahtar dosyasına erişmek için parola) belirtebilirsiniz. Aşağıdaki komutu bir Bash kabuğundan çalıştırın ve komut istemlerini kendi bilgilerinizle yanıtlayın.
+Kullanım `ssh-keygen` oluşturulan varsayılan olarak SSH ortak ve özel anahtar dosyaları oluşturmak için komutu `~/.ssh` dizin. Farklı bir konuma ve ek parolayı (özel anahtar dosyası erişim için parola) ne zaman belirtebilirsiniz istenir. Bir SSH anahtar çifti geçerli konumdan birinde varsa, bunlar üzerine yazılır.
 
 ```bash
 ssh-keygen -t rsa -b 2048

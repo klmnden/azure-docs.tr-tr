@@ -62,6 +62,7 @@
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Azure Güvenlik Merkezi tümleştirmesi](application-gateway-integration-security-center.md)
 ## [Yük dengeleme hizmetlerini birleştirme](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Uçtan uca SSL’yi yapılandırma](application-gateway-end-to-end-ssl-powershell.md)
 ## Sorun giderme
 ### [Application Gateway’de sorunları giderme](application-gateway-troubleshooting-502.md)
 ### [Tanılama günlüğüne kaydetme ve ölçümler](application-gateway-diagnostics.md)

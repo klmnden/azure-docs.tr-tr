@@ -13,43 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 469db4f3faf12cbd778f18b7bc74ec6b86b412c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 973f713028217efa667ec111fdfcac750c243f11
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL veritabanı sunucuları ve veritabanları oluşturma ve yönetme
 
-Bir Azure SQL veritabanı içinde oluşturulan Microsoft Azure yönetilen bir veritabanında olan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) tanımlanan bir dizi [farklı iş yükleri için işlem ve depolama kaynaklarını](sql-database-service-tiers.md). Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir. 
+SQL veritabanı veritabanları üç tür sunar:
 
-## <a name="an-azure-sql-database-can-be-a-single-pooled-or-partitioned-database"></a>Bir Azure SQL veritabanı bir tek, havuza alınmış veya Bölümlenmiş veritabanı olabilir
+- İçinde oluşturulan tek bir veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) tanımlanan bir dizi [farklı iş yükleri için işlem ve depolama kaynaklarını](sql-database-service-tiers.md). Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
+- Bir parçası olarak oluşturulmuş bir veritabanını bir [veritabanları havuzu](sql-database-elastic-pool.md) içinde bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) tanımlanan bir dizi [farklı iş yükleri için işlem ve depolama kaynaklarını](sql-database-service-tiers.md) olan Tüm havuzdaki veritabanları arasında paylaşılan. Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
+- Bir [bir SQL server örneğini](sql-database-managed-instance.md) içinde oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) işlem ve depolama kaynaklarını bu sunucu örneğindeki tüm veritabanları için tanımlanmış bir dizi. Yönetilen bir örneği, sistem ve kullanıcı veritabanlarını içerir. Yönetilen örnek uygulamayı yeniden olmadan veritabanı yükseltme-ve-kaydırma tam yönetilen bir PaaS sağlamak üzere tasarlanmıştır. Yönetilen örneği şirket içi SQL Server programlama modeli ile yüksek uyumluluk sağlar ve SQL Server özellikleri ve eşlik eden araçları ve Hizmetleri büyük çoğunu destekler.  
 
-Bir Azure SQL veritabanı olabilir:
+Microsoft Azure SQL veritabanı tablo veri akışı (TDS) Protokolü istemci sürümü 7.3 veya üst sürümünü destekler ve yalnızca şifrelenmiş TCP/IP bağlantılarını sağlar.
 
-- A [tek veritabanı](sql-database-single-database-resources.md) kaynakları kendi kümesiyle
-- Parçası bir [esnek havuz](sql-database-elastic-pool.md) bir kaynak kümesini paylaşır
-- Tek başına veya havuza eklenmiş veritabanlarından oluşan [parçalı veritabanlarından oluşan ölçeği genişletilmiş kümenin](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) bir parçası
-- [Çok kiracılı SaaS tasarım desenine](sql-database-design-patterns-multi-tenancy-saas-applications.md) katılan ve veritabanları tek başına ya da havuza eklenmiş (veya her ikisi de) olabilecek bir veritabanı kümesinin bir parçası 
-
-> [!TIP]
-> Geçerli veritabanı adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). 
->
- 
-- Microsoft Azure SQL Veritabanı tarafından kullanılan varsayılan veritabanı harmanlaması **SQL_LATIN1_GENERAL_CP1_CI_AS** şeklindedir; buradaki **LATIN1_GENERAL** İngilizce (Amerika Birleşik Devletleri), **CP1** kod sayfası 1252, **CI** büyük-küçük harfe duyarlı ve **AS** is aksan duyarlıdır. Harmanlamanın nasıl ayarlanacağı hakkında daha fazla bilgi edinmek için bkz. [HARMANLAMA (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
-- Microsoft Azure SQL veritabanı tablo veri akışı (TDS) Protokolü istemci sürümü 7.3 veya üst sürümünü destekler.
-- Yalnızca TCP/IP bağlantılarını izin verilir.
+> [!IMPORTANT]
+> SQL veritabanı örneği, yönetilen şu anda genel önizlemede, tek bir genel amaçlı hizmet katmanı sunar. Daha fazla bilgi için bkz: [SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Bu makalenin sonraki bölümlerinde yönetilen örneği için geçerli değildir.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Bir Azure SQL mantıksal sunucusuna nedir?
 
-Merkezi bir yönetim noktası dahil olmak üzere birden çok veritabanı için bir mantıksal sunucu görür [esnek havuzlar](sql-database-elastic-pool.md) [oturumları](sql-database-manage-logins.md), [güvenlik duvarı kuralları](sql-database-firewall-configure.md), [denetleme kuralları](sql-database-auditing.md), [tehdit algılama ilkeleri](sql-database-threat-detection.md), ve [yük devretme grupları](sql-database-geo-replication-overview.md). Bir mantıksal sunucu, kaynak grubu farklı bir bölgede olabilir. Azure SQL veritabanı oluşturmadan önce mantıksal sunucunun mevcut olması gerekir. Bir sunucudaki tüm veritabanları, mantıksal sunucusu olarak aynı bölge içinde oluşturulur. 
+Merkezi bir yönetim noktası birden çok tek bir mantıksal sunucu görür veya [havuza alınmış](sql-database-elastic-pool.md) veritabanları, [oturumları](sql-database-manage-logins.md), [güvenlik duvarı kuralları](sql-database-firewall-configure.md), [kurallarıdenetleme](sql-database-auditing.md), [tehdit algılama ilkeleri](sql-database-threat-detection.md), ve [yük devretme grupları](sql-database-geo-replication-overview.md). Bir mantıksal sunucu, kaynak grubu farklı bir bölgede olabilir. Azure SQL veritabanı oluşturmadan önce mantıksal sunucunun mevcut olması gerekir. Bir sunucudaki tüm veritabanları, mantıksal sunucusu olarak aynı bölge içinde oluşturulur.
 
-
-> [!IMPORTANT]
-> SQL Veritabanı'nda bir sunucu, şirket içi ortamda alışkın olabileceğiniz bir SQL Server örneğinden farklı olan mantıksal bir yapıdır. SQL Veritabanı hizmeti, veritabanlarının mantıksal sunuculara göre konumuyla ilgili özel bir garanti vermez ve örnek düzeyinde erişim ya da özellik sunmaz.
-> 
+Bir mantıksal sunucu şirket içi dünyada alışkın olabileceğiniz bir SQL Server örneği farklıdır mantıksal bir yapıdır. SQL Veritabanı hizmeti, veritabanlarının mantıksal sunuculara göre konumuyla ilgili özel bir garanti vermez ve örnek düzeyinde erişim ya da özellik sunmaz. Buna karşılık, şirket içi dünyada alışkın olabileceğiniz bir SQL Server örneği için bir sunucu yönetilen bir SQL veritabanı örneğinde benzer.
 
 Bir mantıksal sunucu oluşturduğunuzda, oturum açma hesabı ve bu sunucu üzerinde asıl veritabanını ve bu sunucuda oluşturulan tüm veritabanları için yönetici haklarına sahip parola bir sunucu sağlayın. Bir SQL oturum açma hesabı bu ilk hesaptır. Azure SQL veritabanı SQL kimlik doğrulaması ve Azure Active Directory kimlik doğrulaması için kimlik doğrulamasını destekler. Oturum açma ve kimlik doğrulama hakkında daha fazla bilgi için bkz: [yönetme veritabanları ve oturum açma bilgileri Azure SQL veritabanında](sql-database-manage-logins.md). Windows Kimlik Doğrulaması desteklenmez. 
 
@@ -74,6 +63,7 @@ Azure SQL Veritabanı mantıksal sunucusu:
 - Kapsanan kaynaklardaki etkinleştirilen özellikleri için sürüm oluşturma kapsamı 
 - Sunucu düzeyinde asıl kullanıcı bilgileri bir sunucudaki tüm veritabanlarını yönetebilir
 - Şirketinizde sunucu üzerindeki bir veya daha fazla veritabanına erişim verilmiş SQL Server örneklerinde bulunanlara benzer kullanıcı bilgileri içerebilir ve sınırlı yönetici hakları alabilir. Daha fazla bilgi için bkz. [Kullanıcı Bilgileri](sql-database-manage-logins.md).
+- Mantıksal bir sunucuda oluşturulan tüm kullanıcı veritabanları için varsayılan harmanlama `SQL_LATIN1_GENERAL_CP1_CI_AS`, burada `LATIN1_GENERAL` İngilizce (Birleşik Devletler) `CP1` kod sayfası 1252, `CI` , küçük harf duyarlıdır ve `AS` aksan duyarlı değil.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>SQL veritabanı güvenlik duvarı tarafından korunan azure SQL veritabanları
 
@@ -96,6 +86,8 @@ Kullanarak bir Azure SQL veritabanı oluşturmak için [Azure portal](https://po
 > [!IMPORTANT]
 > Veritabanınız için fiyatlandırma katmanı seçme konusunda daha fazla bilgi için bkz: [hizmet katmanları](sql-database-service-tiers.md).
 >
+
+Yönetilen bir örneğini oluşturmak için bkz: [yönetilen örneği oluşturma](sql-database-managed-instance-tutorial-portal.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Mevcut bir SQL server'ı yönetme
 
@@ -123,8 +115,8 @@ Azure SQL server, veritabanları ve güvenlik duvarları Azure PowerShell ile ol
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Bir veya daha fazla veritabanı alır|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Bir veritabanı özelliklerini ayarlar ya da varolan bir veritabanını bir esnek havuza taşır|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Bir veritabanı kaldırır|
-|[Yeni-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Bir kaynak grubu oluşturur]
-|[AzureRmSqlServer yeni](/powershell/module/azurerm.sql/new-azurermsqlserver)|Sunucu oluşturur|
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Bir kaynak grubu oluşturur]
+|[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Sunucu oluşturur|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Sunucuları hakkında bilgi döndürür|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Bir sunucu özelliklerini değiştirir|
 |[Remove-AzureRmSqlServer](/powershell/module/azurerm.sql/remove-azurermsqlserver)|Bir sunucuyu kaldırır|
@@ -132,10 +124,10 @@ Azure SQL server, veritabanları ve güvenlik duvarları Azure PowerShell ile ol
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|Bir sunucu için güvenlik duvarı kurallarını alır|
 |[Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|Bir sunucu güvenlik duvarı kuralında değiştirir|
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Bir güvenlik duvarı kuralı bir sunucudan siler.|
-| AzureRmSqlServerVirtualNetworkRule yeni | Oluşturur bir [ *sanal ağ kuralı*](sql-database-vnet-service-endpoint-rule-overview.md)bağlı bir sanal ağ hizmeti uç noktası olan bir alt ağ olarak. |
+| New-AzureRmSqlServerVirtualNetworkRule | Oluşturur bir [ *sanal ağ kuralı*](sql-database-vnet-service-endpoint-rule-overview.md)bağlı bir sanal ağ hizmeti uç noktası olan bir alt ağ olarak. |
 
 > [!TIP]
-> PowerShell hızlı başlangıç öğreticisi için bkz: [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md). PowerShell örnek komut dosyaları için bkz: [kullanım tek bir Azure SQL veritabanı oluşturmak ve bir güvenlik duvarı kuralı yapılandırmak için PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek tek bir SQL veritabanı PowerShell kullanarak](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Bir PowerShell hızlı başlangıç öğreticisi için bkz: [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md). PowerShell örnek komut dosyaları için bkz: [kullanım tek bir Azure SQL veritabanı oluşturmak ve bir güvenlik duvarı kuralı yapılandırmak için PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) ve [İzleyici ve ölçek tek bir SQL veritabanı PowerShell kullanarak](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları Azure CLI kullanarak yönetme
@@ -144,15 +136,15 @@ Azure SQL server, veritabanları ve güvenlik duvarları ile oluşturmak ve yön
 
 | Cmdlet | Açıklama |
 | --- | --- |
-|[az sql db oluştur](/cli/azure/sql/db#az_sql_db_create) |Bir veritabanı oluşturur|
+|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Bir veritabanı oluşturur|
 |[az sql db listesi](/cli/azure/sql/db#az_sql_db_list)|Veritabanları ve tüm veri ambarlarında bir sunucu veya esnek havuzdaki tüm veritabanları listeler.|
 |[az sql db listesi-sürümleri](/cli/azure/sql/db#az_sql_db_list_editions)|Listeleri kullanılabilir hizmet hedefleri ve depolama sınırları|
 |[az sql db listesi-kullanımları](/cli/azure/sql/db#az_sql_db_list_usages)|Kullanımları döndürür veritabanı|
 |[az sql db Göster](/cli/azure/sql/db#az_sql_db_show)|Bir veritabanı veya veri ambarı alır|
 |[az sql db güncelleştirme](/cli/azure/sql/db#az_sql_db_update)|Bir veritabanını güncelleştirir|
-|[az sql db Sil](/cli/azure/sql/db#az_sql_db_delete)|Bir veritabanı kaldırır|
-|[az grubu oluşturma](/cli/azure/group#az_group_create)|Bir kaynak grubu oluşturur|
-|[az sql server oluşturun](/cli/azure/sql/server#az_sql_server_create)|Sunucu oluşturur|
+|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Bir veritabanı kaldırır|
+|[az group create](/cli/azure/group#az_group_create)|Bir kaynak grubu oluşturur|
+|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Sunucu oluşturur|
 |[az sql sunucu listesi](/cli/azure/sql/server#az_sql_server_list)|Sunucuları listeler|
 |[az sql server listesi-kullanımları](/cli/azure/sql/server#az_sql_server_list-usages)|Sunucu kullanımları döndürür|
 |[az sql server Göster](/cli/azure/sql/server#az_sql_server_show)|Bir sunucu alır|
@@ -181,9 +173,9 @@ Azure SQL server, veritabanları ve güvenlik duvarları Transact-SQL ile oluşt
 |[Veritabanı (Azure SQL veritabanı) oluşturma](/sql/t-sql/statements/create-database-azure-sql-database)|Yeni bir veritabanı oluşturur. Yeni bir veritabanı oluşturmak için ana veritabanına bağlanması gerekir.|
 | [ALTER DATABASE (Azure SQL veritabanı)](/sql/t-sql/statements/alter-database-azure-sql-database) |Bir Azure SQL veritabanı değiştirir. |
 |[ALTER DATABASE (Azure SQL veri ambarı)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Bir Azure SQL veri ambarı değiştirir.|
-|[VERİTABANINI (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
 |[sys.database_service_objectives (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Edition (hizmet katmanı), hizmet hedefi (fiyatlandırma katmanı) ve esnek havuz adı, varsa Azure SQL veritabanına veya Azure SQL Data Warehouse için döndürür. Azure SQL Database sunucusu ana veritabanında oturum açtıysanız, bilgiler tüm veritabanlarını döndürür. Azure SQL Data Warehouse için ana veritabanına bağlı olmalıdır.|
-|[sys.dm_db_resource_stats (Azure SQL veritabanı)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Bir Azure SQL Database veritabanı için CPU, g/ç ve bellek tüketimini döndürür. Veritabanında hiçbir etkinlik olsa 15 dakikada için bir satır yok.|
+|[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Bir Azure SQL Database veritabanı için CPU, g/ç ve bellek tüketimini döndürür. Veritabanında hiçbir etkinlik olsa 15 dakikada için bir satır yok.|
 |[sys.resource_stats (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|CPU kullanımı ve depolama verileri için bir Azure SQL veritabanına döndürür. Veriler toplanır ve beş dakikalık aralıklarla içinde toplanır.|
 |[sys.database_connection_stats (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|SQL veritabanı veritabanı bağlantı olayları, bir veritabanı bağlantısı başarı ve başarısızlık durumlarının özetini istatistiklerini içerir. |
 |[sys.event_log (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database)|Başarılı Azure SQL Database veritabanı bağlantıları, bağlantı hataları ve kilitlenmeleri döndürür. Veritabanı etkinliklerinizi SQL veritabanı ile ilgili sorunları giderme veya izlemek için bu bilgileri kullanın.|
@@ -192,7 +184,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları Transact-SQL ile oluşt
 |[sp_delete_firewall_rule (Azure SQL veritabanı)](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database)|Sunucu düzeyinde güvenlik duvarı ayarları, SQL veritabanı sunucusundan kaldırır. Bu saklı yordam yalnızca ana veritabanında sunucu düzeyinde asıl oturum açmak için kullanılabilir.|
 |[sp_set_database_firewall_rule (Azure SQL veritabanı)](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)|Oluşturur veya Azure SQL Database veya SQL Data Warehouse için veritabanı düzeyinde güvenlik duvarı kuralları güncelleştirir. Veritabanı güvenlik duvarı kuralları SQL veritabanı kullanıcı veritabanlarında ve ana veritabanı için yapılandırılabilir. Veritabanı güvenlik duvarı kurallarını kullanarak, veritabanı kullanıcıları bağımsız faydalıdır. |
 |[sys.database_firewall_rules (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Microsoft Azure SQL veritabanı ile ilişkili veritabanı düzeyinde güvenlik duvarı ayarları hakkında bilgi verir. |
-|[sp_delete_database_firewall_rule (Azure SQL veritabanı)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Veritabanı düzeyi güvenlik duvarı ayarı, Azure SQL Database veya SQL Data Warehouse kaldırır. |
+|[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Veritabanı düzeyi güvenlik duvarı ayarı, Azure SQL Database veya SQL Data Warehouse kaldırır. |
 
 
 > [!TIP]
@@ -200,7 +192,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları Transact-SQL ile oluşt
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları REST API kullanarak yönetme
 
-Oluşturma ve Azure SQL yönetmek için sunucu, veritabanları ve güvenlik duvarları bu REST API istekleri kullanın.
+Azure SQL server, veritabanları ve güvenlik duvarları oluşturmak ve yönetmek için bu REST API istekleri kullanın.
 
 | Komut | Açıklama |
 | --- | --- |
@@ -226,7 +218,5 @@ Oluşturma ve Azure SQL yönetmek için sunucu, veritabanları ve güvenlik duva
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Esnek havuzları kullanan veritabanları havuzu oluşturma hakkında bilgi edinmek için [esnek havuzlar](sql-database-elastic-pool.md).
-- Azure SQL Database hizmeti hakkında daha fazla bilgi için bkz: [SQL Database nedir?](sql-database-technical-overview.md).
 - Azure için SQL Server veritabanını geçirme hakkında bilgi edinmek için [Azure SQL veritabanına geçirme](sql-database-cloud-migrate.md).
 - Desteklenen özellikler hakkında bilgi edinmek için bkz. [Özellikler](sql-database-features.md).

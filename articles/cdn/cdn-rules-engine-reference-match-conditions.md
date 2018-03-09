@@ -1,5 +1,5 @@
 ---
-title: "Eşleşen Azure CDN kurallar altyapısı için koşullar | Microsoft Docs"
+title: "Azure CDN kurallar altyapısı eşleşme koşullar | Microsoft Docs"
 description: "Azure içerik teslim ağı başvuru belgelerine altyapısı eşleşme koşullar kuralları."
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 08845355be0bfb7e7dde52d19949fee4a68ed54b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı için koşullara uyan
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN kurallar altyapısı eşleşen koşulları 
 Bu makalede kullanılabilir eşleşme koşullar için Azure içerik teslim ağı (CDN) ayrıntılı açıklamaları listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
 
 İkinci bir kural eşleşen koşulu parçasıdır. Bir eşleşme koşulu, belirli türde bir özellik kümesi gerçekleştirilecek istekler tanımlar.
@@ -102,7 +102,7 @@ Ad | Amaç
 ## <a name="reference-for-rules-engine-match-conditions"></a>Kurallar altyapısı eşleşme koşulları için başvurusu
 
 ---
-### <a name="always"></a>Her zaman
+### <a name="always"></a>Her Zaman
 
 Her zaman eşleştirme koşulu varsayılan bir özellik için tüm istekleri geçerlidir.
 
@@ -324,21 +324,21 @@ Aşağıdaki tabloda WURFL yetenekleri ve onların değişkenleri kurallar altya
 Marka adı | %{wurfl_cap_brand_name} | Aygıtın marka adını belirten bir dize. | Samsung
 Aygıt işletim sistemi | %{wurfl_cap_device_os} | Cihazda yüklü olan işletim sisteminin gösteren bir dize. | IOS
 Cihaz İşletim Sistemi Sürümü | %{wurfl_cap_device_os_version} | Cihazda yüklü olan işletim sisteminin sürüm numarasını gösteren bir dize. | 1.0.1
-Çift yönü | %{wurfl_cap_dual_orientation} | Cihaz çift orientation destekleyip desteklemediğini belirten bir Boole değeri. | doğru
+Çift yönü | %{wurfl_cap_dual_orientation} | Cihaz çift orientation destekleyip desteklemediğini belirten bir Boole değeri. | true
 HTML DTD tercih edilen | %{wurfl_cap_html_preferred_dtd} | HTML içeriği için mobil cihazın tercih edilen belge türü tanımı (DTD) gösteren bir dize. | yok<br/>xhtml_basic<br/>html5
-Satır içi kullanım görüntüsü | %{wurfl_cap_image_inlining} | Cihaz Base64 destekleyip desteklemediğini belirten bir Boole değeri görüntüleri kodlanmış. | yanlış
-Android olduğu | %{wurfl_vcap_is_android} | Cihaz Android işletim sistemi kullanıp kullanmadığını belirten bir Boole değeri. | doğru
-İOS | %{wurfl_vcap_is_ios} | Cihaz iOS kullanıp kullanmadığını belirten bir Boole değeri. | yanlış
-Akıllı TV | %{wurfl_cap_is_smarttv} | Cihaz akıllı TV olup olmadığını belirten bir Boole değeri. | yanlış
-Smartphone olduğu | %{wurfl_vcap_is_smartphone} | Cihaz akıllı olup olmadığını belirten bir Boole değeri. | doğru
-Tablet olduğu | %{wurfl_cap_is_tablet} | Cihaz tablet olup olmadığını belirten bir Boole değeri. Bu açıklama OS bağımsızdır. | doğru
-Kablosuz aygıt | %{wurfl_cap_is_wireless_device} | Cihazın kablosuz aygıt olarak kabul edilip edilmediğini belirten bir Boole değeri. | doğru
+Satır içi kullanım görüntüsü | %{wurfl_cap_image_inlining} | Cihaz Base64 destekleyip desteklemediğini belirten bir Boole değeri görüntüleri kodlanmış. | false
+Android olduğu | %{wurfl_vcap_is_android} | Cihaz Android işletim sistemi kullanıp kullanmadığını belirten bir Boole değeri. | true
+İOS | %{wurfl_vcap_is_ios} | Cihaz iOS kullanıp kullanmadığını belirten bir Boole değeri. | false
+Akıllı TV | %{wurfl_cap_is_smarttv} | Cihaz akıllı TV olup olmadığını belirten bir Boole değeri. | false
+Smartphone olduğu | %{wurfl_vcap_is_smartphone} | Cihaz akıllı olup olmadığını belirten bir Boole değeri. | true
+Tablet olduğu | %{wurfl_cap_is_tablet} | Cihaz tablet olup olmadığını belirten bir Boole değeri. Bu açıklama OS bağımsızdır. | true
+Kablosuz aygıt | %{wurfl_cap_is_wireless_device} | Cihazın kablosuz aygıt olarak kabul edilip edilmediğini belirten bir Boole değeri. | true
 Pazarlama adı | %{wurfl_cap_marketing_name} | Cihazın pazarlama adı belirten bir dize. | BlackBerry 8100 Pearl
 Mobil tarayıcı | %{wurfl_cap_mobile_browser} | İçerik aygıttan istemek için kullanılan tarayıcı gösteren bir dize. | Chrome
 Mobil tarayıcı sürümü | %{wurfl_cap_mobile_browser_version} | İçerik aygıttan istemek için kullanılan tarayıcı sürümünü gösteren bir dize. | 31
 Model adı | %{wurfl_cap_model_name} | Cihazın model adını belirten dize. | s3
-Aşamalı indirme | %{wurfl_cap_progressive_download} | Hala yüklenirken cihazın ses ve video oynatma destekleyip desteklemediğini belirten bir Boole değeri. | doğru
-Yayınlanma Tarihi | %{wurfl_cap_release_date} | Yıl ve ay aygıtı WURFL veritabanına eklendi gösteren bir dize.<br/><br/>Biçimi:`yyyy_mm` | 2013_december
+Aşamalı indirme | %{wurfl_cap_progressive_download} | Hala yüklenirken cihazın ses ve video oynatma destekleyip desteklemediğini belirten bir Boole değeri. | true
+Yayınlanma Tarihi | %{wurfl_cap_release_date} | Yıl ve ay aygıtı WURFL veritabanına eklendi gösteren bir dize.<br/><br/>Biçimi: `yyyy_mm` | 2013_december
 Çözümleme yüksekliği | %{wurfl_cap_resolution_height} | Cihazın yüksekliğini piksel cinsinden belirten bir tamsayı. | 768
 Çözümleme genişliği | %{wurfl_cap_resolution_width} | Cihazın genişliğini piksel cinsinden belirten bir tamsayı. | 1024
 
@@ -466,9 +466,9 @@ Anahtar bilgileri:
 ---
 ### <a name="request-method"></a>İstek yöntemi
 Yalnızca seçili istek yöntemle varlıklar istendiğinde istek yöntemi eşleşme koşul karşılanır. Kullanılabilir istek yöntemler şunlardır:
-- GET
+- AL
 - HEAD 
-- POST 
+- YAYINLA 
 - SEÇENEKLER 
 - PUT 
 - DELETE 

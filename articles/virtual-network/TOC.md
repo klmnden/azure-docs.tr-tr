@@ -27,7 +27,8 @@
 ### [Ağ güvenlik grupları](virtual-networks-nsg.md)
 
 ## Dağıtma
-### [Sanal ağlar](virtual-networks-create-vnet-arm-pportal.md)
+### Sanal ağlar
+#### [Azure portalı](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
@@ -42,17 +43,20 @@
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
-### Kullanıcı tanımlı yollar
-#### [Azure portalı](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
+### Yol tabloları
+#### [Azure portalı](tutorial-create-route-table-portal.md)
+#### [Azure PowerShell](tutorial-create-route-table-powershell.md)
+#### [Azure CLI](tutorial-create-route-table-cli.md)
 #### [Şablon](virtual-network-create-udr-arm-template.md)
 #### Klasik
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Sanal ağ eşleme
-#### [Aynı dağıtım modeli - aynı abonelik](virtual-network-create-peering.md)
+#### Aynı dağıtım modeli - aynı abonelik
+##### [Azure portalı](tutorial-connect-virtual-networks-portal.md)
+##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
+##### [Azure CLI](tutorial-connect-virtual-networks-cli.md)
 #### [Aynı dağıtım modeli - farklı abonelikler](create-peering-different-subscriptions.md)
 #### [Farklı dağıtım modelleri - aynı abonelik](create-peering-different-deployment-models.md)
 #### [Farklı dağıtım modelleri - farklı abonelikler](create-peering-different-deployment-models-subscriptions.md)

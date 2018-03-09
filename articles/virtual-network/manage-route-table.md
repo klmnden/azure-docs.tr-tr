@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7edc73f337a72c24fd24d94468ee590b75dfa7df
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f976832a857a35e9e0cea7a0eb731cb00492023f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir yol tablosu silme
 
-Azure otomatik olarak Azure alt ağlar, sanal ağlar arasında trafiği yönlendirir ve şirket içi ağlar. Azure'nın varsayılan yönlendirme değiştirmek istiyorsanız, bir yol tablosu oluşturarak bunu. Azure yönlendirme ile bilmiyorsanız okuma öneririz [yönlendirmeye genel bakış](virtual-networks-udr-overview.md) tamamlayarak [bir yol tablosu ile ağ trafiği yönlendirmek](create-user-defined-route-portal.md) eğitmen, bu makaledeki görevleri tamamlamadan önce.
+Azure otomatik olarak Azure alt ağlar, sanal ağlar arasında trafiği yönlendirir ve şirket içi ağlar. Azure'nın varsayılan yönlendirme değiştirmek istiyorsanız, bir yol tablosu oluşturarak bunu. Azure yönlendirme ile bilmiyorsanız okuma öneririz [yönlendirmeye genel bakış](virtual-networks-udr-overview.md) tamamlayarak [bir yol tablosu ile ağ trafiği yönlendirmek](tutorial-create-route-table-portal.md) eğitmen, bu makaledeki görevleri tamamlamadan önce.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

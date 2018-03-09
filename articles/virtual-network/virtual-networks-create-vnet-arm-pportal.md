@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c89b455212ad428dbe67d7f1d95517072c220d8e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d317d35e2b4e1a0cebb354e3b2b2e75fd9ca6976
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets-using-the-azure-portal"></a>Azure portalını kullanarak birden çok alt ağı ile bir sanal ağ oluşturma
 
@@ -41,7 +41,7 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 1. Seçin **+ kaynak oluşturma** üst üzerinde köşe Azure portalının sol.
 2. Seçin **ağ**ve ardından **sanal ağ**.
-3. Aşağıdaki resimde gösterildiği gibi girin *myVirtualNetwork* için **adı**, **myResourceGroup** için **kaynak grubu**, *Ortak* alt ağ için **adı**, alt ağ için 10.0.0.0/24 **adres aralığı**seçin bir **konumu** ve  **Abonelik**kalan Varsayılanları kabul edin ve ardından **oluşturma**:
+3. Aşağıdaki resimde gösterildiği gibi girin *myVirtualNetwork* için **adı**, *10.0.0.0/16* için **adres alanı**,  **myResourceGroup** için **kaynak grubu**, *ortak* alt ağ için **adı**, alt ağ için 10.0.0.0/24 **adres aralığı**seçin bir **konumu** ve **abonelik**kalan Varsayılanları kabul edin ve ardından **oluşturma**:
 
     ![Sanal ağ oluşturma](./media/virtual-networks-create-vnet-arm-pportal/create-virtual-network.png)
 
@@ -146,7 +146,7 @@ Bu makalede oluşturulan sanal makineler bir tane [ağ arabirimi](virtual-networ
     Bir sanal makine kendisine atanmış bir ortak IP adresi olması gerekli değildir ancak Azure varsayılan oluşturmak her bir sanal makine bir ortak IP adresi atar. Bir sanal makineye Internet üzerinden iletişim kurmak için bir ortak IP adresi sanal makineyi atanması gerekir. Bir ortak IP adresi sanal makineye atanmış olup olmadığına bakılmaksızın tüm sanal makinelerin giden Internet ile iletişim kurabilir. Azure'a giden Internet bağlantıları hakkında daha fazla bilgi için bkz: [azure'da giden bağlantılar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 13. Genel IP adresi için kendi bilgisayarınızda Gözat *myVmWeb* sanal makine. Kendi bilgisayardan IIS Hoş Geldiniz sayfasını görüntülemek için denemesi başarısız olur. Sanal makineler dağıtıldığında, bu Azure varsayılan olarak her bir sanal makine için bir ağ güvenlik grubu oluşturduğundan denemesi başarısız olur. 
 
-     Ağ güvenlik grubu izin veren veya reddeden IP adresi ve bağlantı noktasına gelen ve giden ağ trafiğinin güvenlik kuralları içerir. Oluşturulan Azure varsayılan ağ güvenlik grubu, aynı sanal ağdaki kaynakları arasındaki tüm bağlantı noktaları üzerinden iletişim sağlar. Windows sanal makineler için varsayılan ağ güvenlik grubu tüm gelen trafiği tüm bağlantı noktaları üzerinden Internet'ten engellediği, TCP bağlantı noktası 3389 (RDP) kabul edin. Sonuç olarak, varsayılan olarak, aynı zamanda RDP doğrudan yapabilecekleriniz *myVmWeb* sanal makine Internet'ten gelen değil isteyebilirsiniz olsa bile 3389 açık bir web sunucusuna bağlantı noktası. Bağlantı noktası 80 üzerinden trafiğe izin varsayılan ağ güvenlik grubu kural olduğundan iletişim bağlantı noktası 80 üzerinden iletişim kurar Web'e gözatma olduğundan, Internet'ten başarısız olur.
+     Ağ güvenlik grubu izin veren veya reddeden IP adresi ve bağlantı noktasına gelen ve giden ağ trafiğinin güvenlik kuralları içerir. Oluşturulan Azure varsayılan ağ güvenlik grubu, aynı sanal ağdaki kaynakları arasındaki tüm bağlantı noktaları üzerinden iletişim sağlar. Windows sanal makineler için varsayılan ağ güvenlik grubu TCP bağlantı noktası 3389 (RDP) dışındaki tüm bağlantı noktaları üzerinden Internet'ten gelen tüm trafiği engeller. Sonuç olarak, varsayılan olarak, aynı zamanda RDP doğrudan yapabilecekleriniz *myVmWeb* sanal makine Internet'ten gelen değil isteyebilirsiniz olsa bile 3389 açık bir web sunucusuna bağlantı noktası. Bağlantı noktası 80 üzerinden trafiğe izin varsayılan ağ güvenlik grubu kural olduğundan iletişim bağlantı noktası 80 üzerinden iletişim kurar Web'e gözatma olduğundan, Internet'ten başarısız olur.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

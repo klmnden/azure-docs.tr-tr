@@ -4,7 +4,7 @@
 Bu adımda, projenizin SSL kullanacak şekilde yapılandırın ve uygulamanızın kayıt bilgilerini yapılandırmak için SSL URL'sini kullanın. Bundan sonra uygulama Ekle ' kayıt bilgileri çözümünüze *web.config*.
 
 1.  Çözüm Gezgini'nde, proje seçip bakmak `Properties` (bir özellik penceresinde F4 tuşuna basın görmüyorsanız) penceresi
-2.  Değişiklik `SSL Enabled` için`True`
+2.  Değişiklik `SSL Enabled` için `True`
 3.  Değerinden kopyalama `SSL URL` yukarıda ve yapıştırın `Redirect URL` alan bu sayfanın üst kısmında ve ardından *güncelleştirme*:<br/><br/>![Proje Özellikleri](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 4.  Aşağıdakileri ekleyin `web.config` bölümünde kökün klasörde bulunan dosya `configuration\appSettings`:
 

@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 7fe68f072ef438e21f3e6d3d52aee9e86e537687
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -36,7 +36,7 @@ Tablo, şirket içi yapılandırma sunucusu makine dağıtmak için prerequistes
 | IIS | -Önceden var olan varsayılan Web sitesi <br> -Etkinleştirin [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştirin [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br> -Önceden varolan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama<br>|
 | NIC türü | (VMware VM olarak dağıtıldığında) VMXNET3 |
 | IP adresi türü | Statik |
-| İnternet erişimi | Sunucunun aşağıdaki URL'lere erişim gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (Genişleme İşlem Sunucuları için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
+| İnternet erişimi | Sunucunun aşağıdaki URL'lere erişim gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (Genişleme İşlem Sunucuları için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
 | Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı)|
 
 ## <a name="download-the-latest-installation-file"></a>En son yükleme dosyasını indirin
@@ -164,7 +164,7 @@ Yapılandırma sunucusu makine için proxy ayarlarını aşağıdaki gibi deği�
   ```
 
   >[!WARNING]
-  Yapılandırma sunucusuna bağlı ek işlem sunucularınız varsa, gerek [proxy ayarları tüm genişleme işlem sunucularındaki düzeltme](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) dağıtımınızdaki.
+  Yapılandırma sunucusuna bağlı ek işlem sunucularınız varsa, gerek [proxy ayarları tüm genişleme işlem sunucularındaki düzeltme](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) dağıtımınızdaki.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Yapılandırma sunucusunu aynı Kasayla birlikte yeniden kaydetme
   1. Yapılandırma sunucunuza oturum açın.
@@ -184,7 +184,7 @@ Yapılandırma sunucusu makine için proxy ayarlarını aşağıdaki gibi deği�
       ```
 
   >[!WARNING]
-  Birden çok işlem sunucusu varsa, gerek [bunları yeniden kaydettirin](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server).
+  Birden çok işlem sunucusu varsa, gerek [bunları yeniden kaydettirin](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Yapılandırma sunucusu farklı bir kasayla kaydedin
 
@@ -233,8 +233,8 @@ Sunucu gibi yükseltin:
 > [!WARNING]
 > Yapılandırma sunucusu yetkisini başlamadan önce aşağıdakilerden emin olun.
 > 1. [Korumayı devre dışı](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) bu yapılandırma sunucu altındaki tüm sanal makineler için.
-> 2. [İlişkisini](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) ve [silmek](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) yapılandırma sunucusundan tüm çoğaltma ilkeleri.
-> 3. [Silme](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) yapılandırma sunucusuna ilişkili tüm Vcenter sunucularını/vSphere ana.
+> 2. [İlişkisini](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) ve [silmek](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) yapılandırma sunucusundan tüm çoğaltma ilkeleri.
+> 3. [Silme](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) yapılandırma sunucusuna ilişkili tüm Vcenter sunucularını/vSphere ana.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Yapılandırma sunucusu Azure portalından Sil

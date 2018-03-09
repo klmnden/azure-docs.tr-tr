@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Bul ve performans önerileri uygulayın
 
@@ -52,7 +52,7 @@ Performans önerileri üzerinde aşağıdaki şekilde gösterilene benzer tablo 
 > Azure SQL veritabanı etkinlikleri en az bir gün için bazı öneriler belirlemek amacıyla izleneceği gerekir. Bu etkinlik için rastgele yetersiz WINS'e daha Azure SQL veritabanı daha kolay tutarlı sorgu desenlerine için en iyi duruma getirebilirsiniz. Önerileri şu anda kullanılabilir değilse **performans öneri** sayfası, nedenini açıklayan bir ileti sağlar.
 > 
 
-Ayrıca, geçmiş işlemleri durumunu görüntüleyebilirsiniz. Daha fazla ayrıntı görmek için bir öneri veya durumu seçin.
+Ayrıca, geçmiş işlemleri durumunu görüntüleyebilirsiniz. Daha fazla bilgi görmek için bir öneri veya durumu seçin.
 
 "Dizin oluşturma" öneri Azure portalında bir örneği burada verilmiştir.
 
@@ -130,7 +130,7 @@ Bir öneri uygulama eşzamanlı olarak gerçekleşebilir değil. Portal, öneri 
 | Geri döndürülüyor |Öneri uygulandı, ancak kullanıcı dışı olarak kabul edildi ve otomatik olarak geri döndürülüyor. |
 | Geri döndürüldü |Öneri geri döndürüldü. |
 
-Daha fazla ayrıntı görmek için bir işlem içi öneri listeden tıklatın:
+Daha fazla bilgi için listeden bir işlemdeki öneri tıklatın:
 
 ![Dizinleri önerilir](./media/sql-database-advisor-portal/operations.png)
 

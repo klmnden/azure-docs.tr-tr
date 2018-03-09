@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Tümleşik sistemleri sürüm notları
           items:
+            - name: 1802 güncelleştirme
+              href: azure-stack-update-1802.md
             - name: 1712 güncelleştirme
               href: azure-stack-update-1712.md
             - name: 1711 güncelleştirme
@@ -133,14 +135,18 @@
           href: azure-stack-monitor-health.md
         - name: Ağ kaynaklarını yönetme
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Depolama kaynaklarını yönetme
-          href: azure-stack-manage-storage-accounts.md
-        - name: Depolama kapasitesi yönetme
-          href: azure-stack-manage-storage-shares.md
         - name: Windows Azure Paketi VM’lerini yönetme
           href: azure-stack-manage-windows-azure-pack.md
         - name: Azure yığın durdurup başlatın
           href: azure-stack-start-and-stop.md
+        - name: Kapasiteyi yönetme
+          items:
+            - name: Depolama kaynaklarını yönetme
+              href: azure-stack-manage-storage-accounts.md
+            - name: Depolama kapasitesi yönetme
+              href: azure-stack-manage-storage-shares.md
+            - name: Azure yığını için fiziksel depolama kapasitesi yönetme
+              href: azure-stack-manage-storage-physical-capacity.md
         - name: Donanım değiştirme
           items:
             - name: Düğüm Eylemler
@@ -230,6 +236,10 @@
               href: azure-stack-app-service-deploy.md
             - name: Çevrimdışı App Service dağıtma
               href: azure-stack-app-service-deploy-offline.md
+            - name: Uygulama hizmeti kaynak sağlayıcısını güncelle
+              href: azure-stack-app-service-update.md
+            - name: Uygulama hizmeti kaynak sağlayıcısı çevrimdışı güncelleştirme
+              href: azure-stack-app-service-update-offline.md
             - name: Daha fazla web çalışanı rolü ekleme
               href: azure-stack-app-service-add-worker-roles.md
             - name: Dağıtım kaynaklarını yapılandırma

@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8a3328e8aa42876f48960f7ccd32a5c819435019
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Yük devri ve geri fiziksel sunucuları Azure'a kopyalanan başarısız
 
@@ -41,7 +41,7 @@ Sunucu özelliklerini doğrulayın ve ile uyumlu olduğundan emin olun [Azure ge
 
 ## <a name="run-a-failover-to-azure"></a>Azure'a yük devretme işlemini çalıştırma
 
-1. İçinde **ayarları** > **öğeleri çoğaltılan** makineye tıklayın > **yük devretme**.
+1. **Ayarlar** > **Çoğaltılan öğeler** bölümünde makine > **Yük devretme**’ye tıklayın.
 2. **Yük devretme**’de yük devretmenin yapılacağı bir **Kurtarma Noktası** seçin. Aşağıdaki seçeneklerden birini kullanabilirsiniz:
    - **En son** (varsayılan): Bu seçenekte öncelikle Site Recovery’ye gönderilen tüm veriler işlenir. Yük devretmeden sonra oluşturulan Azure VM, yük devretme tetiklendiğinde Site Recovery’ye çoğaltılan tüm verilere sahip olduğundan en düşük RPO (Kurtarma Noktası Hedefi) sağlanır.
    - **En son işlenen**: Site Recovery tarafından işlenen en son kurtarma noktası makineye bu seçenek yöneltilir. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
@@ -62,7 +62,7 @@ Sunucu özelliklerini doğrulayın ve ile uyumlu olduğundan emin olun [Azure ge
 
 - Bir Azure ExpressRoute bağlantınız varsa test etmek için yapılandırma sunucusuna otomatik olarak kurulan şirket içi işlem sunucusunu kullanabilirsiniz.
 - Bir VPN bağlantınız varsa veya üretim ortamında yeniden çalışma gerçekleştiriyorsanız, yeniden çalışma için Azure tabanlı işlem sunucusu olarak bir Azure VM’si ayarlamanız gerekir.
-- ' Ndaki yönergeleri izleyin [bu makalede](site-recovery-vmware-setup-azure-ps-resource-manager.md) bir işlem sunucusu azure'da ayarlamak için.
+- ' Ndaki yönergeleri izleyin [bu makalede](vmware-azure-set-up-process-server-azure.md) bir işlem sunucusu azure'da ayarlamak için.
 
 ## <a name="configure-the-master-target-server"></a>Ana hedef sunucuyu yapılandırma
 

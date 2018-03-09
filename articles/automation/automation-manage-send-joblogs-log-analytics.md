@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0319a7b9248dec9d7cdabba9c18a25463d94284b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 47cca0c3b6b7010323dd816cdb863c652516bfe5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>İş durumu ve iş akışları Otomasyon günlük analizi (OMS) iletme
 Otomasyon runbook iş durumu ve iş akışları için Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanınız gönderebilirsiniz. İş günlüğe kaydeder ve tek tek işler ve bu verir için basit araştırmalar gerçekleştirmek iş akışlarını Azure portalında veya PowerShell ile görünür. Şimdi günlük analizi ile şunları yapabilirsiniz:
@@ -69,7 +69,7 @@ Bulmanız gerekiyorsa *adı* Otomasyon hesabınızı Azure portalında penceresi
 
 Bu komut dosyasını çalıştırdıktan sonra 10 dakika içinde yeni JobLogs veya JobStreams yazılan günlük analizi kayıtlarında görürsünüz.
 
-Günlükleri görmek için günlük analizi günlük aramada aşağıdaki sorguyu çalıştırın:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+Günlükleri görmek için günlük analizi günlük aramada aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Yapılandırmayı doğrulama
 Automation hesabınız için günlük analizi çalışma alanınız günlükleri göndermek onaylamak için tanılama doğru Otomasyon hesabında aşağıdaki PowerShell kullanılarak yapılandırılıp yapılandırılmadığını denetleyin:
@@ -104,7 +104,7 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
 | SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
 | ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT. OTOMASYON |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 
@@ -127,13 +127,13 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
 | SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
 | ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT. OTOMASYON |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Günlük analizi günlüklerini Otomasyon görüntüleme
 Günlük analizi için Otomasyon iş günlüklerinizi gönderilmeye başlandı, günlük analizi içinde bu günlükleri ile neler yapabileceğinizi görelim.
 
-Günlükleri görmek için aşağıdaki sorguyu çalıştırın:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Günlükleri görmek için aşağıdaki sorguyu çalıştırın: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Bir runbook işi başarısız olduğunda veya askıya alındığında bir e-posta Gönder
 Üst müşteri birini soran bir e-posta veya bir metin bir şeyler ile bir runbook işi yanlış gittiğinde gönderme olanağı içindir.   
@@ -141,7 +141,7 @@ Günlükleri görmek için aşağıdaki sorguyu çalıştırın:`AzureDiagnostic
 Bir uyarı kuralı oluşturmak için uyarı çağıracağı runbook iş kaydı için bir günlük arama oluşturarak başlayın. Tıklatın **uyarı** oluşturmak ve uyarı kuralı yapılandırmak için düğmesi.
 
 1. Günlük analizi genel bakış sayfasında **günlük arama**.
-2. Sorgu alanına aşağıdaki arama yazarak, uyarı için bir günlük arama sorgusu oluşturun: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` kullanarak RunbookName göre de gruplandırabilirsiniz:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Sorgu alanına aşağıdaki arama yazarak, uyarı için bir günlük arama sorgusu oluşturun: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` kullanarak RunbookName göre de gruplandırabilirsiniz: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Günlüklerini birden fazla Otomasyon hesabı veya abonelik alanınıza ayarlarsanız, uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz. Otomasyon hesabı adı JobLogs arama kaynak alanında bulunabilir.
 1. Açmak için **uyarı kuralı Ekle** ekranında **uyarı** sayfanın üst kısmındaki. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz: [günlük analizi uyarılarını](../log-analytics/log-analytics-alerts.md#alert-rules).

@@ -13,11 +13,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 25a2bef2f3cc6f210c574f920164b8d69b0d90db
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Node.js web uygulamasına oturum açma ekleme
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD), bu modülü yükleyin ve ardından Azure AD e
 3. Azure AD'ye yönelik oturum açma ve oturum kapatma isteklerini yürütmek için Passport kullanın.
 4. Kullanıcı verilerini yazdırın.
 
-Bu öğretici için kod [GitHub'da korunur](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). İzlemek için [uygulamanın çatısını bir .zip dosyası olarak indirebilirsiniz](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip). Ayrıca çatıyı kopyalayabilirsiniz:
+Bu öğretici için kod [GitHub'da korunur](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). İzlemek için [uygulamanın çatısını bir .zip dosyası olarak indirebilirsiniz](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/master.zip). Ayrıca çatıyı kopyalayabilirsiniz:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 

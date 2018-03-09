@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 26f29355f53a586ea21551831f48ddf8898d3c9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure veri fabrikası'nda sıkıştırma codec bileşenleri
 
@@ -307,7 +307,7 @@ ve bunu bir Azure SQL tablosuna aşağıdaki biçimde, dizi içindeki verileri d
 **JsonFormat** türüne sahip giriş veri kümesi şu şekilde tanımlanır: (yalnızca ilgili bölümlerin gösterildiği kısmi tanım). Daha ayrıntılı belirtmek gerekirse:
 
 - `structure` bölümü, tablo verilerine dönüştürme sırasında kullanılan özelleştirilmiş sütun adlarını ve karşılık gelen veri türünü tanımlar. Bu bölüm **isteğe bağlıdır** ve yalnızca sütun eşleme için kullanmanız gerekir. Daha fazla bilgi için bkz: [kaynak veri kümesi sütunları hedef veri kümesi sütun eşleme](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference`yineleme ve aynı desende altında nesnelerinden veri ayıklamak için gösterir **dizi** `orderlines`.
+- `jsonNodeReference` yineleme ve aynı desende altında nesnelerinden veri ayıklamak için gösterir **dizi** `orderlines`.
 - `jsonPathDefinition`, her sütun için verilerin ayıklanacağı JSON yolunu belirtir. Bu örnekte, `ordernumber`, `orderdate`, ve `city` yolu başlayarak JSON ile kök nesnesi altındaki `$.`, sırada `order_pd` ve `order_price` array öğesinden türetilen yolu ile tanımlanan `$.` .
 
 ```json
@@ -436,7 +436,7 @@ ORC dosyalarını ayrıştırmak veya verileri ORC biçiminde yazmak istiyorsan�
 ```
 
 > [!IMPORTANT]
-> Şirket içi ve bulut veri depoları arasında ORC dosyalarını **olduğu gibi** kopyalamıyorsanız, ağ geçidi cihazınıza JRE 8 (Java Çalışma Zamanı Ortamı) yüklemeniz gerekir. 64 bit ağ geçidi için 64 bit JRE, 32 bit ağ geçidi için de 32 bit JRE gerekir. İki sürüme de [buradan](http://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz. Cihazınıza uygun olanı seçin.
+> Kopya Self-hosted tümleştirmesi çalışma zamanı tarafından örneğin şirket içi ve bulut arasında yetkilendirilmiş için veri depolar, ORC dosyaları kopyalıyorsanız değil, **olarak-olan**, IR makinenizde JRE 8 (Java Çalışma zamanı ortamı) yüklemeniz gerekir. Bir 64-bit IR 64-bit JRE gerektirir. İki sürüme de [buradan](http://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz.
 >
 
 Aşağıdaki noktalara dikkat edin:
@@ -456,7 +456,7 @@ Parquet dosyalarını ayrıştırmak veya verileri Parquet biçiminde yazmak ist
 ```
 
 > [!IMPORTANT]
-> Şirket içi ve bulut veri depoları arasında Parquet dosyalarını **olduğu gibi** kopyalamıyorsanız, ağ geçidi cihazınıza JRE 8 (Java Çalışma Zamanı Ortamı) yüklemeniz gerekir. 64 bit ağ geçidi için 64 bit JRE, 32 bit ağ geçidi için de 32 bit JRE gerekir. İki sürüme de [buradan](http://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz. Cihazınıza uygun olanı seçin.
+> Kopya Self-hosted tümleştirmesi çalışma zamanı tarafından örneğin şirket içi ve bulut arasında yetkilendirilmiş için veri depolar, Parquet dosyaları kopyalıyorsanız değil, **olarak-olan**, IR makinenizde JRE 8 (Java Çalışma zamanı ortamı) yüklemeniz gerekir. Bir 64-bit IR 64-bit JRE gerektirir. İki sürüme de [buradan](http://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz.
 >
 
 Aşağıdaki noktalara dikkat edin:

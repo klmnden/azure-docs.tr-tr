@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/13/2017
+ms.date: 03/06/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning IOT kenar modül olarak dağıtma - Önizleme
 
@@ -27,14 +27,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Bir Azure Machine Learning modülü IOT kenar Cihazınızı dağıtma
 > * Oluşturulan görünüm verileri
 
-Bu öğreticide oluşturduğunuz Azure Machine Learning modülü cihazınız tarafından oluşturulan sıcaklık verileri okur ve (bir anomali olarak adlandırılır) bir hata tahmin yalnızca upstream iletileri Azure IOT Hub'ına gönderir. 
-
+Bu öğreticide oluşturduğunuz Azure Machine Learning modülü cihazınız tarafından oluşturulan ortam verilerini okur ve iletileri anormal olarak veya etiketler. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Hızlı Başlangıç ya da ilk öğreticide oluşturduğunuz Azure IOT sınır cihazı.
 * IOT kenar cihazın bağlandığı IOT hub'ın IOT Hub bağlantı dizesi.
-* Bir Azure Machine Learning hesabı. Hesap oluşturmak için'ndaki yönergeleri izleyin [oluşturma Azure Machine Learning hesapları ve Azure Machine Learning çalışma ekranı yükleme](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). Bu öğretici için çalışma ekranı uygulama yüklemeniz gerekmez. 
+* Bir Azure Machine Learning hesabı. Hesap oluşturmak için'ndaki yönergeleri izleyin [oluşturma Azure Machine Learning hesapları ve Azure Machine Learning çalışma ekranı yükleme](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). Bu öğretici için çalışma ekranı uygulama yüklemeniz gerekmez. 
 * Azure ML makinenizde modülü yönetimi. Ortamınızı ayarlama ve bir hesap oluşturmak için'ndaki yönergeleri izleyin [Model Yönetimi Kurulumu](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>Azure ML kapsayıcı oluşturma
@@ -78,8 +77,8 @@ Windows:
 ## <a name="run-the-solution"></a>Çözümü çalıştırın
 
 1. Üzerinde [Azure portal](https://portal.azure.com), IOT hub'ına gidin.
-1. Git **IOT kenar (Önizleme)** ve IOT sınır cihazı seçin.
-1. Seçin **ayarlamak modülleri**.
+1. **IoT Edge (önizleme)** sayfasına gidip IoT Edge cihazınızı seçin.
+1. **Modül ayarla**’yı seçin.
 1. Daha önce IOT kenar Cihazınızı tempSensor modülü dağıttıktan sonra otomatik olarak doldurma olabilir. Modülleri listenizde değilse ekleyin.
     1. Seçin **IOT kenar Modül Ekle**.
     2. İçinde **adı** alanına, `tempSensor`.
@@ -87,10 +86,10 @@ Windows:
     4. **Kaydet**’i seçin.
 1. Makine öğrenimi oluşturduğunuz modül ekleyin.
     1. Seçin **IOT kenar Modül Ekle**.
-    1. İçinde **adı** alanında, girin`machinelearningmodule`
+    1. İçinde **adı** alanında, girin `machinelearningmodule`
     1. İçinde **görüntü** alan, görüntü adresinizi girin; örneğin `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. **Kaydet**’i seçin.
-1. Geri **modülleri Ekle** adım, select **sonraki**.
+1. **Modül Ekle** adımına dönüp **İleri**’yi seçin.
 1. İçinde **belirtin yollar** adım, JSON altındaki metin kutusuna Kopyala. İlk yol, tüm Azure Machine Learning modüllerinin kullanan uç nokta olduğu sıcaklık algılayıcısı iletilerden "amlInput" uç noktası aracılığıyla makine öğrenme modülü taşımaları. İkinci yol makine öğrenme modülü iletilerden IOT Hub'ına taşımaları. Bu rotadaki '' amlOutput'' veri çıkışı için tüm Azure Machine Learning modülleri kullanan uç nokta ve '' upstream$ '' IOT hub'ı gösterir. 
 
     ```json
@@ -102,13 +101,13 @@ Windows:
     }
     ``` 
 
-1. Seçin **sonraki**. 
-1. İçinde **gözden geçirme şablonu** adım, select **gönderme**. 
-1. Cihaz ayrıntıları sayfasına dönün ve seçin **yenileme**.  Yeni görmelisiniz **machinelearningmodule** ile birlikte çalışan **tempSensor** modülü ve IOT kenar çalışma zamanı modülleri.
+1. **İleri**’yi seçin. 
+1. **Şablonu Gözden Geçirin** adımında **Gönder**’i seçin. 
+1. Cihaz ayrıntıları sayfasına dönüp **Yenile**’yi seçin.  Yeni görmelisiniz **machinelearningmodule** ile birlikte çalışan **tempSensor** modülü ve IOT kenar çalışma zamanı modülleri.
 
 ## <a name="view-generated-data"></a>Oluşturulan görünüm verileri
 
-Visual Studio Code için Azure IOT Araç Seti uzantısını kullanarak IOT kenar Cihazınızı gönderir cihaz bulut iletilerini görüntüleyebilirsiniz. 
+IOT kenar Cihazınızı kullanarak gönderen cihaz bulut iletilerini görüntüleyebilirsiniz [IOT hub'ı explorer](https://github.com/azure/iothub-explorer) veya Visual Studio Code için Azure IOT Araç Seti uzantısı. 
 
 1. Visual Studio kod seçin **IOT Hub cihazları**. 
 2. Seçin **...**  seçip **IOT Hub bağlantı dizesine ayarlamak** menüsünde. 
@@ -117,7 +116,7 @@ Visual Studio Code için Azure IOT Araç Seti uzantısını kullanarak IOT kenar
 
 3. Sayfanın en üstünde açılır metin kutusunda için IOT Hub'ınızı iothubowner bağlantı dizesini girin. IOT kenar Cihazınızı IOT Hub cihazları listesinde görünmesi gerekir.
 4. Seçin **...**  yeniden seçip **D2C ileti İzlemeyi Başlat**.
-5. Beş kendi cihaz sistem durumu değerlendirmesi ile hangi machinelearningmodule ekler saniyede tempSensor gelen iletileri gözlemleyin. 
+5. Beş saniyede tempSensor gelen iletileri gözlemleyin. Adlı bir özellik ileti gövdesinde bulunsun **anomali** machinelearningmodule true veya false değeri ile sağlar. **AzureMLResponse** model başarıyla çalıştırılmışsa "Tamam" değer özelliği içerir. 
 
    ![Azure ML yanıt ileti gövdesi olarak](./media/tutorial-deploy-machine-learning/ml-output.png)
 

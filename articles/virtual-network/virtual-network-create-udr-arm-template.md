@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Kullanıcı tanımlı yolları (UDR) bir şablon kullanarak oluşturma
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure CLI](tutorial-create-route-table-cli.md)
 > * [Şablon](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (Klasik)](virtual-network-create-udr-classic-ps.md)
 > * [CLI (Klasik)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ Aşağıdaki bölümde ön uç UDR tanımını gösterir **azuredeploy-vnet-nsg-
 
 Aynı arka uç NSG ve şablondaki arka uç alt ağ için gerçekleştirilen dikkat edin.
 
-Ayrıca emin olmak gereken **FW1** VM almak ve paketlerini iletmek için kullanılan NIC üzerinde etkin özelliği iletme IP sahiptir. Aşağıdaki bölümü, yukarıdaki senaryoyu temel azuredeploy nsg udr.json dosyasında FW1 NIC tanımını gösterir.
+Ayrıca emin olmak gereken **FW1** VM almak ve paketlerini iletmek için kullanılan NIC üzerinde etkin özelliği iletme IP sahiptir. Aşağıdaki bölümde, senaryoyu temel azuredeploy nsg udr.json dosyasında FW1 NIC tanımını gösterir.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,7 +112,7 @@ Ayrıca emin olmak gereken **FW1** VM almak ve paketlerini iletmek için kullan�
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Tıklayarak dağıtma kullanarak şablonu dağıtma
-Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için kullanılan varsayılan değerleri içeren parametre dosyası kullanılmaktadır. Tıklayarak dağıtma kullanarak bu şablonu dağıtmak için [bu bağlantıya](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR) gidin, **Azure’a dağıt**’a tıklayın, gerekirse varsayılan parametreleri değiştirin ve portaldaki talimatları uygulayın.
+Ortak depodaki örnek şablonu değerleri daha önce açıklanan senaryo oluşturmak için kullanılan varsayılan içeren bir parametre dosyası kullanır. Tıklayarak dağıtma kullanarak bu şablonu dağıtmak için [bu bağlantıya](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR) gidin, **Azure’a dağıt**’a tıklayın, gerekirse varsayılan parametreleri değiştirin ve portaldaki talimatları uygulayın.
 
 1. Azure PowerShell’i hiç kullanmadıysanız bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) ve Azure'a giriş yapıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulayın.
 2. Kaynak grubu oluşturmak için şu komutu çalıştırın:
@@ -173,7 +173,7 @@ Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için 
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Azure CLI kullanarak şablonu dağıtma
 
-Azure CLI kullanarak ARM şablonu dağıtmak için aşağıdaki adımları tamamlayın:
+Azure CLI kullanarak Azure Resource Manager şablonunu dağıtmak için aşağıdaki adımları tamamlayın:
 
 1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../cli-install-nodejs.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
 2. Resource Manager moduna geçmek için aşağıdaki komutu çalıştırın:
@@ -182,11 +182,11 @@ Azure CLI kullanarak ARM şablonu dağıtmak için aşağıdaki adımları tamam
     azure config mode arm
     ```
 
-    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
+    Önceki komut için beklenen çıktı şöyledir:
 
         info:    New mode is arm
 
-3. Tarayıcınızdan gidin **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, json dosyasının içeriğini kopyalayın ve bilgisayarınızı yeni bir dosyaya yapıştırın. Bu senaryo için altındaki değerler adlı bir dosyaya kopyalama **c:\udr\azuredeploy.parameters.json**.
+3. Tarayıcınızdan gidin **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, json dosyasının içeriğini kopyalayın ve bilgisayarınızı yeni bir dosyaya yapıştırın. Bu senaryo için aşağıdaki değerleri adlı bir dosyaya kopyalama **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ Azure CLI kullanarak ARM şablonu dağıtmak için aşağıdaki adımları tamam
         }
     ```
 
-4. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni Vnet'i dağıtmak için aşağıdaki komutu çalıştırın:
+4. İndirdiğiniz ve daha önce değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni Vnet'i dağıtmak için aşağıdaki komutu çalıştırın:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -404,5 +404,5 @@ Azure CLI kullanarak ARM şablonu dağıtmak için aşağıdaki adımları tamam
             info:    group show command OK
 
 > [!TIP]
-> Tüm kaynakları görmüyorsanız çalıştırmak `azure group deployment show` dağıtım sağlama durumu emin olmak için komut *Succeded*.
+> Tüm kaynakları görmüyorsanız çalıştırmak `azure group deployment show` dağıtım sağlama durumu emin olmak için komut *başarılı*.
 > 

@@ -4,7 +4,7 @@ description: "Bir kullanıcı tanımlı işlev ve Machine Learning Stream Analyt
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/06/2017
-ms.author: samacha
-ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/01/2018
+ms.author: sngun
+ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure akış analizi ve Azure Machine Learning kullanarak düşünceleri analiz gerçekleştirme
 Bu makalede, Azure Machine Learning tümleştiren basit bir Azure akış analizi işi hızlı bir şekilde ayarlamak açıklar. Machine Learning düşünceleri analiz modeli Cortana Intelligence Galeriden akış metin verileri çözümlemek ve gerçek zamanlı düşünceleri puan belirlemek için kullanın. Cortana Intelligence Suite kullanarak düşünceleri analiz modeli oluşturmanın ayrıntılı olarak incelenmektedir hakkında endişelenmeden bu görevi gerçekleştirirken olanak sağlar.
@@ -57,9 +57,7 @@ Yüksek düzeyde, bu makalede gösterilen görevleri tamamlamak için aşağıda
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Depolama kapsayıcısı oluşturun ve CSV giriş dosyasını karşıya yükle
 Bu adım için Github'da kullanılabilir bir gibi herhangi bir CSV dosyası kullanabilirsiniz.
 
-1. Azure portalında tıklatın **kaynak oluşturma** &gt; **depolama** &gt; **depolama hesabı**.
-
-   ![Yeni depolama hesabı oluştur](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
+1. Azure portalında tıklatın **kaynak oluşturma** > **depolama** > **depolama hesabı**.
 
 2. Bir ad sağlayın (`samldemo` örnekte). Ad yalnızca küçük harfler ve sayılar kullanabilirsiniz ve Azure arasında benzersiz olması gerekir. 
 
@@ -81,9 +79,7 @@ Bu adım için Github'da kullanılabilir bir gibi herhangi bir CSV dosyası kull
 
     ![Bir kapsayıcı 'Karşıya' düğmesi](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. İçinde **karşıya yükleme blob** dikey penceresinde, Bu öğretici için kullanmak istediğiniz CSV dosyasını belirtin. İçin **Blob türü**seçin **blok blobu** ve blok boyutu Bu öğretici için yeterliyse 4 MB olarak ayarlayın.
-
-    ![BLOB dosya karşıya yükleme](./media/stream-analytics-machine-learning-integration-tutorial/create-sa4.png)
+8. İçinde **karşıya yükleme blob** dikey penceresinde, karşıya yükleme **sampleinput.csv** daha önce indirilen dosya. İçin **Blob türü**seçin **blok blobu** ve blok boyutu Bu öğretici için yeterliyse 4 MB olarak ayarlayın.
 
 9. Tıklatın **karşıya** dikey pencerenin altındaki düğmesini.
 
@@ -130,8 +126,6 @@ Artık blob depolamada CSV dosyasından örnek tweet'leri okuyan akış analizi 
 
 2. Tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **Stream Analytics işi**. 
 
-   ![Yeni bir akış analizi işi almak için azure portal yolu](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
-   
 3. İş adı `azure-sa-ml-demo`bir abonelik belirtin, varolan bir kaynak grubu belirtin veya yeni bir tane oluşturun ve iş konumunu seçin.
 
    ![Yeni akış analizi işi için ayarları belirtin](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
@@ -140,46 +134,43 @@ Artık blob depolamada CSV dosyasından örnek tweet'leri okuyan akış analizi 
 ### <a name="configure-the-job-input"></a>İş Girişi yapılandırın
 İş kendi giriş blob depolama alanına daha önce yüklediğiniz CSV dosyasından alır.
 
-1. İş, altında oluşturulduktan sonra **iş topoloji** iş dikey penceresinde tıklayın **girişleri** kutusu.  
+1. İş, altında oluşturulduktan sonra **iş topoloji** iş dikey penceresinde tıklayın **girişleri** seçeneği.    
+
+2. İçinde **girişleri** dikey penceresinde tıklatın **akış girişi ekleme** >**Blob Depolama**
+
+3. Doldurmak **Blob Storage** dikey penceresinde bu değerleri içeren:
+
    
-   ![Akış analizi işi dikey penceresinde 'Girişleri' kutusu](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input.png)  
+   |Alan  |Değer  |
+   |---------|---------|
+   |**Giriş diğer adı** | Adı kullanmak `datainput` seçip **seçin, aboneliğiniz depolama blob**       |
+   |**Depolama hesabı**  |  Daha önce oluşturduğunuz depolama hesabını seçin.  |
+   |**kapsayıcı**  | Daha önce oluşturduğunuz kapsayıcısı seçin (`azuresamldemoblob`)        |
+   |**Olayı seri hale getirme biçimi**  |  Seçin **CSV**       |
 
-2. İçinde **girişleri** dikey penceresinde tıklatın **+ Ekle**.
+   ![Yeni iş girişi için ayarlar](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-   ![Bir akış analizi işine giriş eklemek için 'Add' düğmesi](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input-button.png)  
-
-3. Doldurmak **yeni giriş** dikey penceresinde bu değerleri içeren:
-
-    * **Giriş diğer adı**: adını kullanmak `datainput`.
-    * **Kaynak türünü**: seçin **veri akışı**.
-    * **Kaynak**: seçin **Blob storage**.
-    * **Alma seçeneği**: seçin **blob storage'ı geçerli aboneliğe ilişkin kullanma**. 
-    * **Depolama hesabı**. Daha önce oluşturduğunuz depolama hesabını seçin.
-    * **Kapsayıcı**. Daha önce oluşturduğunuz kapsayıcısı seçin (`azuresamldemoblob`).
-    * **Olayı seri hale getirme biçimi**. Seçin **CSV**.
-
-    ![Yeni iş girişi için ayarlar](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
-
-4. **Oluştur**’a tıklayın.
+4. **Kaydet**’e tıklayın.
 
 ### <a name="configure-the-job-output"></a>İş çıktısı yapılandırın
 İş yeri giriş sonuçları aynı blob depolama alanına gönderir. 
 
-1. Altında **iş topoloji** iş dikey penceresinde tıklayın **çıkışları** kutusu.  
-  
-   ![Akış analizi işi için yeni çıkış oluşturma](./media/stream-analytics-machine-learning-integration-tutorial/create-output.png)  
+1. Altında **iş topoloji** iş dikey penceresinde tıklayın **çıkışları** seçeneği.  
 
-2. İçinde **çıkışları** dikey penceresinde tıklatın **+ Ekle**ve ardından diğer ada sahip bir çıkış ekleyin `datamloutput`. 
+2. İçinde **çıkışları** dikey penceresinde tıklatın **Ekle** >**Blob storage**ve ardından diğer ada sahip bir çıkış ekleyin `datamloutput`. 
 
-3. İçin **havuzu**seçin **Blob storage**. Ardından giriş için blob depolama için kullanılan aynı değerleri kullanarak çıktı ayarların geri kalanı doldurun:
+3. Doldurmak **Blob Storage** dikey penceresinde bu değerleri içeren:
 
-    * **Depolama hesabı**. Daha önce oluşturduğunuz depolama hesabını seçin.
-    * **Kapsayıcı**. Daha önce oluşturduğunuz kapsayıcısı seçin (`azuresamldemoblob`).
-    * **Olayı seri hale getirme biçimi**. Seçin **CSV**.
+   |Alan  |Değer  |
+   |---------|---------|
+   |**Çıkış diğer adları** | Adı kullanmak `datainput` seçip **seçin, aboneliğiniz depolama blob**       |
+   |**Depolama hesabı**  |  Daha önce oluşturduğunuz depolama hesabını seçin.  |
+   |**kapsayıcı**  | Daha önce oluşturduğunuz kapsayıcısı seçin (`azuresamldemoblob`)        |
+   |**Olayı seri hale getirme biçimi**  |  Seçin **CSV**       |
 
    ![Yeni iş çıktısı için ayarları](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. **Oluştur**’a tıklayın.   
+4. **Kaydet**’e tıklayın.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Machine Learning işlevi ekleme 
@@ -189,22 +180,19 @@ Daha önce bir web hizmetine bir Machine Learning modeli yayımladı. Akış ana
 
 1. Excel çalışma kitabında daha önce yüklediğiniz web hizmeti URL'sini ve API anahtarını olduğundan emin olun.
 
-2. İş genel bakış dikey penceresine geri dönün.
+2. İş dikey penceresine gidin > **işlevleri** > **+ Ekle** > **AzureML**
 
-3. Altında **ayarları**seçin **işlevleri** ve ardından **+ Ekle**.
+3. Doldurmak **Azure Machine Learning işlevi** dikey penceresinde bu değerleri içeren:
 
-   ![Stream Analytics işi için bir işlev Ekle](./media/stream-analytics-machine-learning-integration-tutorial/create-function1.png) 
-
-4. Girin `sentiment` işlevi diğer adını ve bu değerleri kullanarak dikey kalan doldururken olarak:
-
-    * **İşlev türü**: seçin **Azure ML**.
-    * **Alma seçeneği**: seçin **farklı bir abonelik alma**. Bu anahtarı ve URL girin olanağı verir.
-    * **URL**: web hizmeti URL'si yapıştırın.
-    * **Anahtar**: API anahtarını yapıştırın.
+   |Alan  |Değer  |
+   |---------|---------|
+   | **İşlev diğer adı** | Adı kullanın `sentiment` seçip **sağlayan Azure Machine Learning işlevi ayarlarını el ile** , size bir seçenek anahtarı ve URL girin.      |
+   | **URL**| Web hizmeti URL'sini yapıştırın.|
+   |**Anahtar** | API anahtarını yapıştırın. |
   
-    ![Machine Learning işlevi Stream Analytics işi eklemek için ayarlar](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Machine Learning işlevi Stream Analytics işi eklemek için ayarlar](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. **Oluştur**’a tıklayın.
+4. **Kaydet**’e tıklayın.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Verileri dönüştürmek için bir sorgu oluşturun
 
@@ -213,8 +201,6 @@ Akış analizi giriş inceleyin ve işleme için bir bildirim temelli, SQL taban
 1. İş genel bakış dikey penceresine geri dönün.
 
 2.  Altında **iş topoloji**, tıklatın **sorgu** kutusu.
-
-    ![Akış analizi işi için bir sorgu oluşturun](./media/stream-analytics-machine-learning-integration-tutorial/create-query.png)  
 
 3. Aşağıdaki sorguyu girin:
 
@@ -241,8 +227,6 @@ Stream Analytics işi şimdi başlayabilirsiniz.
 1. İş genel bakış dikey penceresine geri dönün.
 
 2. Tıklatın **Başlat** dikey pencerenin üstündeki.
-
-    ![Akış analizi işi için bir sorgu oluşturun](./media/stream-analytics-machine-learning-integration-tutorial/start-job.png)  
 
 3. İçinde **başlangıç işi**seçin **özel**ve ardından bir blob depolama alanına CSV dosyasını karşıya önce gün seçin. İşiniz bittiğinde tıklatın **Başlat**.  
 

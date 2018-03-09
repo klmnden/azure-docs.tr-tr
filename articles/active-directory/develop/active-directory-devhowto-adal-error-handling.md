@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 02/27/2017
 ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 082953eb860197d2188851f6c8be260797d6ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory Authentication Library (ADAL) istemciler için en iyi yöntemler işleme hatası
 
@@ -49,7 +49,7 @@ Uygulamaya özgü işleme hatası gerektirebilir işletim sistemi tarafından ol
 
 Temelde, AcquireTokenSilent hataları iki durum vardır:
 
-| Durum | Açıklama |
+| Durumu | Açıklama |
 |------|-------------|
 | **Durum 1**: hata bir etkileşimli oturum açma ile çözülebilir. | Geçerli belirteçlerini eksikliği nedeniyle sebep olunan hataları için etkileşimli bir isteği gereklidir. Özellikle, önbellek araması ve geçersiz/süresi dolmuş yenileme belirtecini çözümlemek için bir AcquireToken çağrı gerektirir.<br><br>Bu durumda, son kullanıcı, oturum açmak için sizden gerekiyor. Uygulama, etkileşimli bir isteği hemen sonra son kullanıcı etkileşiminin (örneğin, bir oturum açma düğmesine basarsa) veya daha sonra yapmak seçebilirsiniz. Seçim uygulama istenen davranışı üzerinde bağlıdır.<br><br>Bu belirli durumda ve bu tanılamak hataları için aşağıdaki bölümdeki koduna bakın.|
 | **Durum 2**: hata bir etkileşimli oturum açma ile çözülebilir değildir | Ağ ve geçici/geçici hataları veya diğer hataları için etkileşimli bir AcquireToken isteği gerçekleştirme sorunu çözmezse. Gereksiz etkileşimli oturum açma komut istemlerini Ayrıca son kullanıcıları rahatsız edebilir. ADAL AcquireTokenSilent hatalarda hataların çoğu için tek bir yeniden deneme otomatik olarak çalışır.<br><br>İstemci uygulamasının daha sonraki bir noktada bir yeniden deneme de deneyebilirsiniz, ancak ne zaman ve nasıl yapılacağını istenen son kullanıcı deneyimi ve uygulama davranışı üzerinde bağımlı. Örneğin, uygulama bir AcquireTokenSilent yeniden deneme birkaç dakika sonra veya bazı son kullanıcı eylemine yanıt olarak yapabilirsiniz. Hemen bir yeniden deneme karşılaşıldığı uygulamada neden olur ve değil denenmesi gerekir.<br><br>Aynı hatası ile başarısız olan bir sonraki yeniden deneme hata çözümlenmiyor gibi istemci AcquireToken, kullanarak etkileşimli bir isteği yapmalısınız anlamına gelmez.<br><br>Bu belirli durumda ve bu tanılamak hataları için aşağıdaki bölümdeki koduna bakın. |
@@ -479,6 +479,9 @@ Biz oluşturuncaya bir [tam örnek](https://github.com/Azure-Samples/active-dire
 
 ## <a name="error-and-logging-reference"></a>Hata ve günlük başvurusu
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Günlüğe kaydetme kişisel olarak tanımlanabilir bilgileri (PII) & kuruluş olarak tanımlanabilir bilgileri (OII)
+Varsayılan olarak, ADAL günlüğü yakalama ya da tüm PII veya OII oturum. Kitaplık bu Günlükçü sınıfında ayarlayıcı aracılığıyla açmak uygulama geliştiricilerin sağlar. PII veya OII açarak, uygulama güvenle çok hassas veri işleme ve tüm yasal düzenleme gereksinimlerine uymak için sorumluluk alır.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>ADAL kitaplığını hataları
@@ -487,7 +490,7 @@ Belirli ADAL hataları, kaynak kodunda keşfetmek için [azure-Active Directory-
 
 #### <a name="guidance-for-error-logging-code"></a>Hata günlüğü kodu için yönergeler
 
-Üzerinde çalıştığınız platforma bağlı olarak ADAL .NET günlük değişiklikleri. Başvurmak [günlüğü belgelerine](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics) için günlük kaydını etkinleştirme kodu.
+Üzerinde çalıştığınız platforma bağlı olarak ADAL .NET günlük değişiklikleri. Başvurmak [günlüğü wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) için günlük kaydını etkinleştirme kodu.
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ Belirli ADAL hataları, kaynak kodunda keşfetmek için [azure-Active Directory-
 
 #### <a name="operating-system-errors"></a>İşletim sistemi hataları
 
-Android işletim sistemi hataları ADAL AuthenticationException aracılığıyla sunulan, "SERVER_INVALID_REQUEST" tanımlanabilir ve daha fazla hata açıklamalarını ayrıntılı olabilir. UI göstermek için bir uygulama seçebilirsiniz iki belirgin iletileri şunlardır:
+Android işletim sistemi hataları ADAL AuthenticationException aracılığıyla sunulan, "SERVER_INVALID_REQUEST" tanımlanabilir ve daha fazla hata açıklamalarını ayrıntılı olabilir. 
 
-- SSL hataları 
-  - [Son kullanıcı Chrome 53 kullanma](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [Sertifika zinciri (BT yöneticisine başvurulmasını bildiren kullanıcı gereksinimlerini) indirmek gibi ek olarak işaretlenmiş bir sertifika var.](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - Kök CA aygıt tarafından güvenilmiyor. BT yöneticisine başvurun. 
-- İlgili hatalar ağ 
-  - [Ağ potansiyel olarak SSL sertifika doğrulaması için ilgili bir sorun](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue), tek bir yeniden deneme deneyebilirsiniz
+Yaygın hatalar ve hangi uygulama ya da son kullanıcılar bunları karşılaştığınızda yapılacak adımların tam bir listesi için bkz [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Hata günlüğü kodu için yönergeler
 
@@ -522,6 +520,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// PII or OII will NOT be logged
+Logger.getInstance().setEnablePII(false);
+
+
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";
 ```
@@ -536,7 +543,7 @@ Belirli ADAL hataları, kaynak kodunda keşfetmek için [azure-Active Directory-
 
 Kullanıcılar web görünümleri ve kimlik doğrulama yapısını kullandığınızda oturum açma sırasında iOS hataları oluşabilir. Bu, SSL hataları, zaman aşımı veya ağ hataları gibi koşullar nedeni olabilir:
 
-- Yetkilendirme paylaşım, oturumları kalıcı değildir ve önbellek boş görünür. Aşağıdaki kod satırını Anahtarlığa ekleyerek çözülebilir:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- Yetkilendirme paylaşım, oturumları kalıcı değildir ve önbellek boş görünür. Aşağıdaki kod satırını Anahtarlığa ekleyerek çözülebilir: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - NsUrlDomain kümesi için eylem uygulama mantığını bağlı olarak değişir. Bkz: [NSURLErrorDomain başvuru belgeleri](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) işlenebilir belirli örnekleri için.
 - Bkz: [ADAL Obj-C sık karşılaşılan sorunları](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) ADAL Objective-C ekibi tarafından korunan sık karşılaşılan hataların listesi.
 

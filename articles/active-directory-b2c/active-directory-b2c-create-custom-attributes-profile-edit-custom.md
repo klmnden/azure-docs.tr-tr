@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 0d4ee064c15c914eea7353900c6bb5a77b3e3b3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33c9e4322444895a3affc16e11af5443f2db6b6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: İlke oluşturma ve özel bir profilde özel öznitelikleri kullanma Düzenle
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Bu makalede, Azure AD B2C dizininizde özel bir öznitelik oluşturma ve bu yeni öznitelik özel talep profil düzenleme kullanıcı gezisine de kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Makalesindeki adımları [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md).
 
@@ -57,7 +57,7 @@ Yalnızca Kiracı kayıtlı bir uygulama bağlamında uzantısı özellikleri yo
 1. Aşağıdaki önerilen girdileri sağlar:
   * Web uygulaması için bir ad belirtin: **WebApp GraphAPI DirectoryExtensions**
   * Uygulama türü: Web app/API
-  * Oturum açma URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
+  * Sign-on URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
 1. Seçin ** oluşturun. Başarılı bir şekilde tamamlandığında görünür **bildirimleri**
 1. Yeni oluşturulan web uygulamasını seçin: **WebApp GraphAPI DirectoryExtensions**
 1. Select ayarları: **gerekli izinler**
@@ -65,8 +65,8 @@ Yalnızca Kiracı kayıtlı bir uygulama bağlamında uzantısı özellikleri yo
 1. Uygulama izinleri bir onay işareti koyun: **dizin verilerini okuma ve yazma**, ve **Kaydet**
 1. Seçin **izinleri verin** ve onaylayın **Evet**.
 1. Panonuza kopyalayın ve aşağıdaki tanımlayıcılar GraphAPI WebApp DirectoryExtensions Kaydet > Ayarlar > Özellikler >
-*  **Uygulama Kimliği** . Örnek:`103ee0e6-f92d-4183-b576-8c3739027780`
-* **Nesne Kimliği**. Örnek:`80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **Uygulama Kimliği** . Örnek: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **Nesne Kimliği**. Örnek: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
@@ -96,7 +96,7 @@ Yalnızca Kiracı kayıtlı bir uygulama bağlamında uzantısı özellikleri yo
 ```
 
 >[!NOTE]
-><TechnicalProfile Id="AAD-Common"> Öğeleri dahil olduğundan ve tüm Azure Active Directory TechnicalProfiles içinde öğesini kullanarak yeniden için "ortak" olarak adlandırılır:`<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
+><TechnicalProfile Id="AAD-Common"> Öğeleri dahil olduğundan ve tüm Azure Active Directory TechnicalProfiles içinde öğesini kullanarak yeniden için "ortak" olarak adlandırılır: `<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
 
 >[!NOTE]
 >TechnicalProfile yeni oluşturulan uzantı özelliği ilk kez yazdığında tek seferlik bir hatayla karşılaşabilirsiniz.  Uzantı özelliği ilk defa oluşturulur.  
@@ -152,7 +152,7 @@ Yalnızca Kiracı kayıtlı bir uygulama bağlamında uzantısı özellikleri yo
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -162,7 +162,7 @@ Yalnızca Kiracı kayıtlı bir uygulama bağlamında uzantısı özellikleri yo
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
             <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+                 ValidationTechnicalProfile referenced below so it can be written to directory after being updated by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>

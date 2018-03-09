@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: c3c7ffe00263b8f76d89aa8d15fe2d502538527d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2cd3e2e471135242b52459abc231a0f3545e05e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Akış Event hubs'a Azure etkinlik günlüğü
 [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) portalında veya Azure PowerShell aracılığıyla bir günlük profilinde Service Bus kural kimliği etkinleştirerek yerleşik "Verme" seçeneğini kullanarak herhangi bir uygulama için yakın gerçek zamanlı akış Cmdlet'lerini veya Azure CLI.
@@ -30,20 +30,26 @@ Etkinlik günlüğü için akış özelliği kullanabilir birkaç yollar şunlar
 * **Özel telemetri ve günlüğe kaydetme platform derleme** – yayımlama-abone yapısı bir özel olarak geliştirilmiş telemetri platform veya olan biri, yüksek düzeyde ölçeklenebilir oluşturma hakkında düşünüyorum yalnızca zaten varsa Event Hubs, esnek etkinlik günlüğü alma olanak sağlar. [Olay hub'ları bir küresel ölçekteki telemetri platform burada kullanmanın Dan Rosanova'nın Kılavuzu'na bakın.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Etkinlik günlüğü akışı etkinleştir
-Etkinlik günlüğü program aracılığıyla veya portal aracılığıyla akış etkinleştirebilirsiniz. Her iki durumda da, bir hizmet veri yolu Namespace ve bu ad alanı için bir paylaşılan erişim ilkesi seçin ve ilk yeni etkinlik günlüğü olay gerçekleştiğinde bir olay hub'ı bu ad alanında oluşturulur. Hizmet veri yolu Namespace yoksa, öncelikle bir oluşturmanız gerekir. Bu hizmet veri yolu Namespace etkinlik günlüğü olaylarını önceden akışı değilse, daha önce oluşturulmuş olay hub'ı yeniden kullanılabilir. Paylaşılan Erişim İlkesi akış mekanizmaya sahip izinleri tanımlar. Günümüzde, bir olay hub'ları için akış gerektirir **Yönet**, **Gönder**, ve **dinleme** izinleri. Oluşturun veya hizmet veri yolu Namespace paylaşılan erişim ilkeleri Azure portalında "Yapılandırma" sekmesinin altında hizmet veri yolu Namespace için değiştirin. Akış dahil etmek için etkinlik günlüğü günlük profilini güncelleştirmek için değişiklik yapmadan kullanıcı bu hizmet veri yolu yetkilendirme kuralı ListKey izni olmalıdır.
+Etkinlik günlüğü program aracılığıyla veya portal aracılığıyla akış etkinleştirebilirsiniz. Her iki durumda da, bir olay hub'ları ad alanı ve bu ad alanı için bir paylaşılan erişim ilkesi seçin ve ilk yeni etkinlik günlüğü olay gerçekleştiğinde bir olay hub ' name 'Öngörüler-günlükleri-operationallogs' ile bu ad alanında oluşturulur. Bir olay hub'ları ad alanı yoksa, öncelikle bir oluşturmanız gerekir. Daha önce bu olay hub'ları ad etkinlik günlüğü olaylarını akışı değilse, daha önce oluşturduğunuz olay hub'ı yeniden kullanılabilir. Paylaşılan Erişim İlkesi akış mekanizmaya sahip izinleri tanımlar. Günümüzde, olay hub'ına akış gerektirir **Yönet**, **Gönder**, ve **dinleme** izinleri. Oluşturun veya olay hub'ları ad alanı paylaşılan erişim ilkeleri Azure portalında "Yapılandırma" sekmesinin altında ad alanı için değiştirin. Değişiklik yapmadan kullanıcı Akış dahil etmek için etkinlik günlüğü günlük profilini güncelleştirmek için bu olay hub'ı yetkilendirme kuralı ListKey izni olmalıdır.
 
-Hizmet veri yolu veya olay hub'ı ad ayarı yapılandıran kullanıcı her iki aboneliğin uygun RBAC erişime sahip olduğu sürece günlükleri yayma abonelik ile aynı abonelikte olması gerekmez.
+Her iki aboneliğin uygun RBAC erişimi ayarı yapılandıran kullanıcının sahip olduğu sürece günlükleri yayma abonelik ile aynı abonelikte olması olay hub'ları ad alanı yok.
 
 ### <a name="via-azure-portal"></a>Azure portalı üzerinden
-1. Gidin **etkinlik günlüğü** tüm hizmetleri kullanarak dikey penceresinde arama portalın sol tarafındadır.
+1. Gidin **etkinlik günlüğü** tüm kullanma bölümüne portalın sol tarafındaki arama hizmetleri.
    
     ![Etkinlik günlüğü portalında gidin](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Tıklatın **verme** etkinlik günlüğü dikey pencerenin üstündeki düğmesi.
+2. Tıklatın **verme** etkinlik günlüğü üstündeki düğmesi. Önceki görünümünde etkinlik günlüğü görüntülerken uygulanan filtre ayarlarını dışa aktarma ayarlarınızı etkilemez gerektiğini unutmayın--yalnızca, etkinlik günlüğü portalında göz atarken bkz filtreleme için olanlardır.
    
     ![Portalında Dışarı Aktar](./media/monitoring-stream-activity-logs-event-hubs/export.png)
-3. Görüntülenen dikey penceresinde, akış olayları ve hizmet veri yolu Namespace bu olayları akış için oluşturulacak bir Event Hub istediğiniz için istediğiniz bölgeleri seçebilirsiniz. Seçin **tüm bölgelere**.
+3. Görüntülenen bölümünde **tüm bölgelere**. Belirli bölgeler seçmeyin.
    
-    ![Etkinlik günlüğü dikey dışarı aktarma](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+    ![Etkinlik Günlüğünü Dışarı Aktar](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+    
+    > [!WARNING]
+    > Yalnızca 'Tüm bölgelere.' seçin Aksi takdirde, aksi takdirde almak için beklenen sahip anahtar olayları eksik. Etkinlik günlüğü çoğu olayları ilişkili bir bölgesi yoktur genel (Bölgesel olmayan) günlük kitabıdır due için bu olabilir.
+    >
+    >
+    
 4. Tıklatın **kaydetmek** bu ayarları kaydetmek için. Ayarları, aboneliğinizi hemen uygulanır.
 5. Birden fazla aboneliğiniz varsa, bu eylemi yineleyin ve aynı olay hub'ına tüm verileri gönder.
 

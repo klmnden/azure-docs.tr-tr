@@ -13,19 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 03/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: d265c72cfc02710afb630f3b8258602c936d1ebc
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN ağ geçidi yapılandırma ayarları hakkında
 
 Bir VPN ağ geçidi, sanal ağınızı ve şirket içi konumunuz arasındaki şifrelenmiş trafik ortak bir bağlantı üzerinden gönderir sanal ağ geçidi türüdür. Azure omurga üzerinden sanal ağlar arasında trafiği göndermek için bir VPN ağ geçidi'ni de kullanabilirsiniz.
 
 Bir VPN gateway bağlantısı her biri yapılandırılabilir ayarları içeren yapılandırmasına göre birden fazla kaynağı kullanır. Bu makalede bölümlerde kaynakları ve Resource Manager dağıtım modelinde oluşturulmuş bir sanal ağ için bir VPN ağ geçidi ile ilgili ayarları açıklanmaktadır. Her bağlantı çözümünüz için açıklamaları ve topoloji diyagramları bulabilirsiniz [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md) makalesi.
+
+>[!NOTE]
+> Bu makalede değerleri - GatewayType 'Vpn' kullanan sanal ağ geçitleri için geçerlidir. VPN ağ geçidi olarak adlandırılır nedeni budur. -GatewayType için 'ExpressRoute' uygulamak değerleri için bkz: [ExpressRoute için sanal ağ geçitleri](../expressroute/expressroute-about-virtual-network-gateways.md). ExpressRoute ağ geçidi değerlerini VPN ağ geçitleri için kullandığınız aynı değerleri değildir.
+>
+>
 
 ## <a name="gwtype"></a>Ağ geçidi türleri
 
@@ -120,7 +125,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Bir VPN ağ geçidi oluşturmadan önce bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı sanal ağ geçidi sanal makineleri ve hizmetleri kullanan IP adreslerini içerir. Sanal ağ geçidinizi oluşturduğunuzda, ağ geçidi VM ağ geçidi alt ağına dağıtılan ve gerekli VPN ağ geçidi ayarlarıyla yapılandırılır. Hiçbir zaman başka bir şey (örneğin, ek VM'ler) ağ geçidi alt ağına dağıtmalısınız. Ağ geçidi alt ağı 'GatewaySubnet' adlı gerekir düzgün çalışması için. Ağ geçidi alt ağı 'GatewaySubnet' adlandırma, bu sanal ağ geçidi sanal makineleri ve Hizmetleri dağıtmak için alt olduğunu biliyor Azure olanak sağlar.
 
-Ağ geçidi alt ağı oluştururken, alt ağın içerdiği IP adresi sayısını belirtirsiniz. Ağ geçidi alt ağdaki IP adresleri ağ geçidi sanal makineleri ve ağ geçidi Hizmetleri ayrılır. Bazı yapılandırmalar diğerlerinden daha fazla IP adresi gerektirir. Oluşturma ve oluşturmak istediğiniz ağ geçidi alt ağı bu gereksinimleri karşıladığını doğrulamak istediğiniz yapılandırma yönergelerini bakın. Ayrıca, ağ geçidi alt ağınızı gelecekteki olası ek yapılandırmalar karşılamak için yeterli IP adreslerini içerdiğinden emin olmak isteyebilirsiniz. Bir ağ geçidi alt ağı/29 kadar küçük oluşturabilirsiniz, ancak 28 ya da daha büyük bir ağ geçidi alt ağı oluşturmanızı öneririz (/ 28, / 27, /26 vs.). İşlevselliği gelecekte eklerseniz, bu şekilde, ağ geçidiniz, kesmeden sonra silip için daha fazla IP adresine izin vermek için ağ geçidi alt ağı gerekmez.
+Ağ geçidi alt ağı oluştururken, alt ağın içerdiği IP adresi sayısını belirtirsiniz. Ağ geçidi alt ağdaki IP adresleri ağ geçidi sanal makineleri ve ağ geçidi Hizmetleri ayrılır. Bazı yapılandırmalar için diğerlerinden daha fazla IP adresi gerekir. Oluşturma ve oluşturmak istediğiniz ağ geçidi alt ağı bu gereksinimleri karşıladığını doğrulamak istediğiniz yapılandırma yönergelerini bakın. Ayrıca, ağ geçidi alt ağınızı gelecekteki olası ek yapılandırmalar karşılamak için yeterli IP adreslerini içerdiğinden emin olmak isteyebilirsiniz. Bir ağ geçidi alt ağı/29 kadar küçük oluşturabilirsiniz, ancak 28 ya da daha büyük bir ağ geçidi alt ağı oluşturmanızı öneririz (/ 28, / 27, /26 vs.). İşlevselliği gelecekte eklerseniz, bu şekilde, ağ geçidiniz, kesmeden sonra silip için daha fazla IP adresine izin vermek için ağ geçidi alt ağı gerekmez.
 
 Aşağıdaki Resource Manager PowerShell örnek GatewaySubnet adlı bir ağ geçidi alt ağı gösterir. Şu anda mevcut çoğu yapılandırma için yeterli IP adresine izin veren bir/27 CIDR gösteriminde belirtir görebilirsiniz.
 

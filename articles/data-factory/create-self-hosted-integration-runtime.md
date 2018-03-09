@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e9c6b85a439ba880c15ae16ab1cac093020430ba
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve Self-hosted tümleştirmesi çalışma zamanı yapılandırma
 Tümleştirme çalışma zamanı (IR), farklı ağ ortamlar genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -65,6 +65,7 @@ Etkinlik bir kendi kendini barındıran tümleştirmesi çalışma zamanı veril
 - Kendini barındıran tümleştirmesi çalışma zamanı, Azure sanal ağ içindeki veri tümleştirmesini desteklemek için kullanılmalıdır.
 - Veri kaynağı (bir güvenlik duvarının arkasında olan) bir şirket içi veri kaynağı olarak davran kullandığınızda bile **ExpressRoute**. Kendini barındıran tümleştirmesi çalışma zamanı hizmeti ve veri kaynağı arasında bağlantı kurmak için kullanın.
 - Veri deposu bulutta üzerinde olsa bile, kendini barındıran tümleştirmesi çalışma zamanı kullanmalısınız bir **Azure Iaas sanal makine**.
+- Görevler Windows hangi FIPS uyumlu üzerinde şifreleme etkin bir sunucuda yüklü bir Self-hosted tümleştirme çalışma zamanında başarısız olabilir. Bu sorunu çözmek için sunucu üzerindeki FIPS uyumlu şifreleme devre dışı bırakın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -182,7 +183,7 @@ Güncelleştirilen proxy ayarlarını kaydettikten sonra tümleştirmesi çalı�
 Görüntülemek veya proxy ayarlarını güncelleştirmek istiyorsanız, kendi kendini barındıran tümleştirmesi çalışma zamanı başarıyla, kaydedildikten sonra tümleştirme çalışma zamanı Yapılandırma Yöneticisi'ni kullanın.
 
 1.  Başlatma **Microsoft tümleştirme çalışma zamanı Configuration Manager**.
-2.  Geçiş **ayarları** sekmesi.
+2.  **Ayarlar** sekmesine geçin.
 3.  Tıklatın **değişiklik** bağlamak **HTTP Proxy** başlatmak için bölüm **Set HTTP Proxy** iletişim.
 4.  Tıklattıktan sonra **sonraki** düğmesi, proxy ayarı kaydetmek ve çalışma zamanı ana bilgisayar hizmeti yeniden başlatmak için izninizi isteyen bir uyarı iletişim kutusu görürsünüz.
 

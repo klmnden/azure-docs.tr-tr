@@ -2,23 +2,18 @@
 title: "Site Recovery kasası Sil"
 description: "Site Recovery senaryoyu temel bir Azure Site Recovery kasası silme hakkında bilgi edinin."
 service: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 4cb5c387319b9659b16f0c98dc38cb79d72987e2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Site Recovery kasası Sil
 Bağımlılıklar, bir Azure Site Recovery kasası silmesini engelleyebilirsiniz. Size gereken eylemleri Site kurtarma senaryosunda göre farklılık gösterir: VMware azure'a, Hyper-V (ile arama ve Sistem Merkezi Sanal Makine Yöneticisi olmadan) Azure ve Azure yedekleme için. Azure Backup ile kullanılan bir kasa silmek için bkz: [Azure yedekleme kasasına silme](../backup/backup-azure-delete-vault.md).
@@ -32,11 +27,11 @@ Kasayı silmek için senaryonuz için önerilen adımları izleyin.
 
 1. İçindeki adımları izleyerek VM'ler korumalı Sil tüm [VMware için korumayı devre dışı bırakma](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 
-2. İçindeki adımları izleyerek tüm çoğaltma ilkelerinin silme [çoğaltma ilkesini silmek](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+2. İçindeki adımları izleyerek tüm çoğaltma ilkelerinin silme [çoğaltma ilkesini silmek](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy).
 
-3. İçindeki adımları izleyerek vCenter başvurular silme [bir vCenter silmek](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
+3. İçindeki adımları izleyerek vCenter başvurular silme [vCenter server silme](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
 
-4. İçindeki adımları izleyerek yapılandırma sunucusunu silmek [yapılandırma sunucusu yetkisini](site-recovery-vmware-to-azure-manage-configuration-server.md##delete-or-unregister-a-configuration-server).
+4. İçindeki adımları izleyerek yapılandırma sunucusunu silmek [yapılandırma sunucusu yetkisini](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
 
 5. Kasayı silin.
 

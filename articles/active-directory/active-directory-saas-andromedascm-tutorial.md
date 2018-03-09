@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Andromeda SCM ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Andromeda SCM arasında yapılandırmayı öğrenin."
+title: "Öğretici: Azure Active Directory Tümleştirme Andromeda ile | Microsoft Docs"
+description: "Çoklu oturum açma Azure Active Directory ile Andromeda arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 72b66eec34995c334c6d65a1d03637fe21b9dc80
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7e2a140ba6dc4825283801ed4f3435136b307153
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-andromeda-scm"></a>Öğretici: Azure Active Directory Tümleştirme Andromeda SCM ile
+# <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Öğretici: Azure Active Directory Tümleştirme Andromeda ile
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Andromeda SCM tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Andromeda tümleştirmek öğrenin.
 
-Andromeda SCM Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Andromeda Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Andromeda SCM erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak Andromeda SCM (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Andromeda erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak için Andromeda (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Andromeda SCM ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirme Andromeda ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir Andromeda SCM çoklu oturum açma abonelik etkin
+- Bir Andromeda çoklu oturum açma abonelik etkin
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
@@ -50,13 +50,13 @@ Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden Andromeda SCM ekleme
+1. Galeriden Andromeda ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-andromeda-scm-from-the-gallery"></a>Galeriden Andromeda SCM ekleme
-Azure AD Andromeda SCM tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Andromeda SCM eklemeniz gerekir.
+## <a name="adding-andromeda-from-the-gallery"></a>Galeriden Andromeda ekleme
+Azure AD Andromeda tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Andromeda eklemeniz gerekir.
 
-**Galeriden Andromeda SCM eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Andromeda eklemek için aşağıdaki adımları gerçekleştirin:**
 
 1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
@@ -70,31 +70,31 @@ Azure AD Andromeda SCM tümleştirilmesi yapılandırmak için yönetilen SaaS u
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Andromeda SCM**seçin **Andromeda SCM** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **Andromeda**seçin **Andromeda** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Sonuçlar listesinde Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
+    ![Sonuçlar listesinde Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Andromeda "Britta Simon" adlı bir test kullanıcı tabanlı SCM ile test etme.
+Bu bölümde, yapılandırmak ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Andromeda sınayın.
 
-Tekli çalışmaya oturum için Azure AD Andromeda SCM karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Andromeda SCM ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tekli çalışmaya oturum için Azure AD Andromeda karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Andromeda ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Andromeda SCM ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Andromeda ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
 1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir Andromeda SCM test kullanıcısı oluşturma](#create-an-andromeda-scm-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Andromeda SCM sağlamak için.
+3. **[Bir Andromeda test kullanıcısı oluşturma](#create-an-andromeda-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Andromeda sağlamak için.
 4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
 5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Andromeda SCM uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Andromeda uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma Andromeda SCM ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Andromeda yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Andromeda SCM** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Andromeda** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
@@ -102,24 +102,24 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_samlbase.png)
 
-3. Üzerinde **Andromeda SCM etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modu tarafından başlatılan:
+3. Üzerinde **Andromeda etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modu tarafından başlatılan:
 
-    ![Andromeda SCM etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
+    ![Andromeda etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenantURL>`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenantURL>.ngcxpress.com/`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenantURL>`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
-    ![Andromeda SCM etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
+    ![Andromeda etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenantURL>/SAMLLogon.aspx`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
      
     > [!NOTE] 
     > Önceki değerin gerçek değeri değil. Değer, gerçek tanımlayıcısı, yanıt URL'si ve oturum açma, öğreticide daha sonra açıklanan URL'si ile güncelleştirir.
 
-5. Andromeda SCM uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
+5. Andromeda uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
     
     ![Çoklu oturum açma attb yapılandırın](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attribute.png)
 
@@ -129,13 +129,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı | Öznitelik Değeri |
-    | ------------------- | -------------------- |    
-    | rol        | DEMO |
-    | type        | VARSAYILAN |
-    | Şirket       | COMP02    |
+    | -------------- | -------------------- |    
+    | rol        | Uygulama özel rolü |
+    | type        | Uygulama Türü |
+    | Şirket       | Şirket adı    |
 
     > [!NOTE]
-    > Gerçek değer değildir. Bu değerleri yalnızca Tanıtım amaçlı için lütfen prosedürlerini rollerinizi kullanın.
+    > Gerçek değer değildir. Bu değerleri yalnızca Tanıtım amaçlı için lütfen kuruluş rollerinizi kullanın.
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
@@ -159,31 +159,31 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-andromedascm-tutorial/tutorial_general_400.png)
     
-9. Üzerinde **Andromeda SCM yapılandırma** 'yi tıklatın **yapılandırma Andromeda SCM** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+9. Üzerinde **Andromeda yapılandırma** 'yi tıklatın **yapılandırma Andromeda** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Andromeda SCM yapılandırma](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
+    ![Andromeda yapılandırma](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
 
-10. Andromeda SCM şirket sitenize yönetici olarak oturum.
+10. Andromeda şirket sitenize yönetici olarak oturum.
 
 11. Menubar üst kısmında tıklatın **yönetici** gidin **Yönetim**.
 
-    ![Andromeda SCM yönetici](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
+    ![Andromeda yönetici](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 12. Araç çubuğunun altında sol tarafındaki **arabirimleri** 'yi tıklatın **SAML Yapılandırması**.
 
-    ![Andromeda SCM saml](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
+    ![Andromeda saml](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 13. Üzerinde **SAML Yapılandırması** bölümünde sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![Andromeda SCM yapılandırma](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
+    ![Andromeda config](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
 
     a. Denetleme **etkinleştirmek SAML SSO'su**.
 
-    b. Altında **Andromeda bilgi** bölümünde, kopyalama **SP kimlik** değer ve yapıştırın **tanımlayıcısı** , metin kutusuna **Andromeda SCM etki alanı ve URL'leri** bölümü.
+    b. Altında **Andromeda bilgi** bölümünde, kopyalama **SP kimlik** değer ve yapıştırın **tanımlayıcısı** , metin kutusuna **Andromeda etki alanı ve URL'leri** bölümü.
 
-    c. Kopya **tüketici URL** değer ve yapıştırın **yanıt URL'si** , metin kutusuna **Andromeda SCM etki alanı ve URL'leri** bölümü.
+    c. Kopya **tüketici URL** değer ve yapıştırın **yanıt URL'si** , metin kutusuna **Andromeda etki alanı ve URL'leri** bölümü.
 
-    d. Kopya **oturum açma URL'si** değer ve yapıştırın **oturum açma URL'si** , metin kutusuna **Andromeda SCM etki alanı ve URL'leri** bölümü.
+    d. Kopya **oturum açma URL'si** değer ve yapıştırın **oturum açma URL'si** , metin kutusuna **Andromeda etki alanı ve URL'leri** bölümü.
 
     e. Altında **SAML kimlik sağlayıcısı** bölümünde, IDP adınızı yazın.
 
@@ -191,9 +191,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     g. İndirilen açmak **Base64 ile kodlanmış sertifika** Not Defteri'nde Azure portalından yapıştırın **X 509 Sertifika** metin kutusu.
     
-    h. Aşağıdaki öznitelikler Azure AD'den SSO oturum açma kolaylaştırmak için karşılık gelen değerle eşleyin. **Kullanıcı kimliği** oturum açma için özniteliği gereklidir. Sağlama, **e-posta**, **şirket**, **UserType** ve **rol** gereklidir. Bu bölümde biz ilişkilendirmek eşleme öznitelikleri (ad ve değerler) için Azure portalı içinde tanımlanan tanımlayın
+    h. Aşağıdaki öznitelikler Azure AD'den SSO oturum açma kolaylaştırmak için karşılık gelen değerle eşleyin. **Kullanıcı kimliği** oturum açma için özniteliği gereklidir. Sağlama, **e-posta**, **şirket**, **UserType**, ve **rol** gereklidir. Bu bölümde, biz ilişkilendirmek eşleme öznitelikleri (ad ve değerler) için Azure portalı içinde tanımlanan tanımlayın
 
-    ![Andromeda SCM attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    ![Andromeda attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
     i. **Kaydet**’e tıklayın.
 
@@ -232,28 +232,28 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="create-an-andromeda-scm-test-user"></a>Bir Andromeda SCM test kullanıcısı oluşturma
+### <a name="create-an-andromeda-test-user"></a>Bir Andromeda test kullanıcısı oluşturma
 
-Bu bölümün amacı Britta Simon Andromeda SCM adlı bir kullanıcı oluşturmaktır. Andromeda SCM yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa Andromeda SCM erişme denemesi sırasında oluşturulur.
+Bu bölümün amacı Andromeda içinde Britta Simon adlı bir kullanıcı oluşturmaktır. Andromeda yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa Andromeda erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Andromeda SCM istemci destek ekibi](https://www.ngcsoftware.com/support/).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Andromeda istemci destek ekibi](https://www.ngcsoftware.com/support/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Andromeda SCM erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, Britta Andromeda için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı rolü atayın][200] 
 
-**Britta Simon Andromeda SCM atamak için aşağıdaki adımları gerçekleştirin:**
+**İçin Andromeda Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **Andromeda SCM**.
+2. Uygulamalar listesinde **Andromeda**.
 
-    ![Uygulamalar listesinde Andromeda SCM bağlantı](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
+    ![Uygulamalar listesinde Andromeda bağlantı](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
@@ -273,7 +273,7 @@ Bu bölümde, Britta Andromeda SCM erişim vererek, Azure çoklu oturum açma ku
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Andromeda SCM parçasında tıklattığınızda, otomatik olarak Andromeda SCM uygulamanıza açan.
+Erişim paneli Andromeda parçasında tıklattığınızda, otomatik olarak Andromeda uygulamanıza açan.
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
@@ -296,4 +296,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_203.png
-

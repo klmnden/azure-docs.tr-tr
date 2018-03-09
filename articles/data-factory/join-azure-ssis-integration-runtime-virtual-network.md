@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure SSIS tümleştirmesi çalışma zamanı sanal bir ağa katılmasını sağlayın
 Azure sanal ağını aşağıdaki senaryolarda, Azure SSIS tümleştirmesi çalışma zamanı (IR) Katıl: 
@@ -176,7 +176,9 @@ Bir sanal ağ için bir Azure SSIS IR katılabilmesi için önce yapılandırman
 # Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -211,6 +213,11 @@ $AzureSSISName = "<Specify Azure-SSIS IR name>"
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
 ```
+
+#### <a name="guidelines-for-selecting-a-subnet"></a>Bir alt seçme yönergeleri
+-   Sanal ağ geçitleri için ayrılmış olduğundan, bir Azure SSIS tümleştirmesi çalışma zamanı dağıtmak için GatewaySubnet seçmeyin.
+-   Seçtiğiniz alt kullanmak Azure SSIS IR için yeterli kullanılabilir adresi alanı olduğundan emin olun. En az 2 bırakın * kullanılabilir IP adresleri IR düğüm sayısı. Her alt ağ içindeki bazı IP adreslerini Azure ayırır ve bu adresleri kullanılamaz. Alt ağlar ilk ve son IP adreslerini Azure Hizmetleri için kullanılan üç daha fazla adres birlikte Protokolü uyum için ayrılmıştır. Daha fazla bilgi için bkz: [bu alt ağ içindeki IP adresleri kullanma kısıtlamaları vardır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+
 
 ### <a name="stop-the-azure-ssis-ir"></a>Azure SSIS IR Durdur
 Bir sanal ağa katılabilmesi için önce Azure SSIS tümleştirmesi çalışma zamanı durdurun. Bu komut tüm düğümlerinin serbest bırakır ve faturalama durdurur:
@@ -264,6 +271,22 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ```
 Bu komutun tamamlanması için 20-30 dakika sürer.
+
+## <a name="use-azure-expressroute-with-the-azure-ssis-ir"></a>Azure ExpressRoute ile Azure SSIS IR kullanın
+
+Bağlanabileceğiniz bir [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) şirket içi ağınızı Azure'a genişletmek için sanal ağ altyapınızı devresine. 
+
+Zorlamalı tünel kullanmak için genel bir yapılandırma olduğundan (0.0.0.0/0 sanal ağa bir BGP rota tanıtma) hangi zorlar giden Internet trafiği VNet akışından denetleme ve günlüğe kaydetme için şirket içi ağ Gereci için. Bu trafik akışı bağımlı Azure Data Factory Hizmetleri ile VNet içindeki Azure SSIS IR arasındaki bağlantıyı keser. Çözümü bir (veya daha fazla) tanımlamaktır [kullanıcı tanımlı yollar (Udr'ler)](../virtual-network/virtual-networks-udr-overview.md) Azure SSIS IR içeren alt ağda Bir UDR BGP yolu yerine dikkate alınır alt özel yollar tanımlar.
+
+Mümkünse, aşağıdaki yapılandırmayı kullanın:
+-   ExpressRoute yapılandırma 0.0.0.0/0 tanıtır ve varsayılan zorla-tüneller tarafından giden tüm trafiği şirket içi.
+-   Azure SSIS IR içeren alt ağa uygulanan UDR 0.0.0.0/0 rotası 'İnternet' sonraki atlama türü tanımlar.
+- 
+Alt ağ düzeyinde UDR tünel, zorunlu ExpressRoute böylece Azure SSIS IR giden Internet erişimi sağlama öncelikli olacağını adımları etkilerini olduğu
+
+Alt giden Internet trafiği incelemek için özelliğini kaybetme endişelisiniz, ayrıca bir NSG kuralı Giden hedeflere kısıtlamak için alt ağdaki ekleyebileceğiniz [Azure veri merkezi IP adreslerini](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Bkz: [bu PowerShell Betiği](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) bir örnek. Azure veri merkezi IP adres listesinde güncel tutmak üzere haftalık komut dosyasını çalıştırmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure SSIS çalışma zamanı hakkında daha fazla bilgi için aşağıdaki konulara bakın: 

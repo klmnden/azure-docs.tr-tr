@@ -1,6 +1,6 @@
 ---
 title: "Azure kişisel verileri koruma şifrelemeli REST | Microsoft Docs"
-description: "Bu makalede, kişisel verileri korumak için Azure kullanmanıza yardımcı olacak bir dizi bir parçasıdır"
+description: "Bu makalede, endüstri veya kamu gereksinimleri genel veri koruma düzenleme (GDPR) gibi uymak üzere effforts içinde kullanılabilir."
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Azure şifreleme teknolojilerini: rest şifrelemeli kişisel verileri korumak
 
 Bu makalede anlamak ve durağan verilerin güvenliğini sağlamak için Azure şifreleme teknolojilerini kullanmanıza yardımcı olur.
 
-Kalan verileri şifrelemesini bir en iyi uygulama olarak hassas veya kişisel verileri korumak ve uyumluluk ve veri gizlilik gereksinimlerini karşılamak için gereklidir.
-Bekleyen şifreleme saldırgan şifrelenmemiş erişimini engellemek için tasarlanmıştır, diskteki verileri sağlayarak veriler şifrelenir.
+Kalan verileri şifrelemesini bir en iyi uygulama olarak hassas veya kişisel verileri korumak ve uyumluluk ve veri gizlilik gereksinimlerini karşılamak için gereklidir. Bekleyen şifreleme saldırgan şifrelenmemiş erişimini engellemek için tasarlanmıştır, diskteki verileri sağlayarak veriler şifrelenir. Bu makalede yer alan bilgileri, genel veri koruma düzenleme (GDPR) ile uyum sağlamak için kullanılabilir.
 
 ## <a name="scenario"></a>Senaryo 
 
@@ -115,7 +114,7 @@ Depolama hizmeti şifrelemesi etkinleştirmek için aşağıdakileri yapın:
 
 1. Azure portalında oturum açın.
 
-2. Bir depolama hesabı seçin.
+2. Depolama hesabı seçin.
 
 3. Ayarları'nda, Blob hizmeti bölümü altında şifreleme seçin.
 

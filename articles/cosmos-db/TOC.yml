@@ -260,6 +260,8 @@
               href: mongodb-mongoose.md
             - name: Okuma Tercihini Kullanma
               href: mongodb-readpreference.md
+            - name: Dizinleme
+              href: mongodb-indexing.md
             - name: MongoDB özellik desteği
               href: mongodb-feature-support.md
             - name: Angular öğretici serisi

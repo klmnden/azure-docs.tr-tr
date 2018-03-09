@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: unknown
-ms.openlocfilehash: 6c02ec42874e4e3221c53e6d6e85378bbe2e414a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.reviewer: 
+ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Anahtar özellikleri ve Azure yığınında kavramları
 
@@ -91,6 +91,7 @@ Abonelikler, düzenlemek ve bulut kaynaklarına ve hizmetlerine erişmek sağlay
 
 Yöneticisi, dağıtım sırasında bir varsayılan sağlayıcı abonelik oluşturulur. Bu abonelik Azure yığın yönetmek, daha fazla kaynak sağlayıcıları dağıtmak ve kiracılar için planlar ve teklifleri oluşturmak için kullanılabilir. Müşteri iş yüklerini ve uygulamaları çalıştırmak için kullanılmamalıdır. 
 
+
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 Azure Kaynak Yöneticisi'ni kullanarak altyapı kaynaklarınızı şablona dayalı, bildirim temelli bir model ile çalışabilirsiniz.   Dağıtma ve çözüm bileşenlerini yönetmek için kullanabileceğiniz tek bir arabirim sağlar. Tam bilgi ve yönergeler için bkz: [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
 
@@ -127,6 +128,25 @@ Azure Queue depolama birimi, uygulama bileşenleri arasında bulut mesajlaşma �
 
 ### <a name="keyvault"></a>KeyVault
 KeyVault RP yönetimi ve parolaları ve sertifikaları gibi gizli denetlenmesini sağlar. Örnek olarak, bir kiracı yönetici parolalarını veya anahtarları VM dağıtımı sırasında sağlamak için KeyVault RP kullanın.
+
+## <a name="high-availability-for-azure-stack"></a>Azure yığını için yüksek kullanılabilirlik
+*Uygulandığı öğe: Azure yığın 1802 veya daha sonraki sürümler*
+
+Çoklu VM üretim sistemlerinin azure'da yüksek kullanılabilirlik elde etmek için birden çok hata etki alanları ve güncelleme etki alanına yayılan bir kullanılabilirlik kümesindeki sanal makineleri yerleştirilir. Bu şekilde [kullanılabilirlik kümelerinde dağıtılan VM'ler](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) birbirinden fiziksel olarak yalıtılmış hatası dayanıklılık için aşağıdaki çizimde gösterildiği gibi izin vermek için ayrı sunucu rafları üzerinde şunlardır:
+
+  ![Azure yığın yüksek kullanılabilirlik](media/azure-stack-key-features/high-availability.png)
+
+### <a name="availablity-sets-in-azure-stack"></a>Azure yığınında kullanılabilirliği ayarlar
+Azure yığınının altyapısı zaten hatalarına dayanıklı olsa da, (Yük Devretme Kümelemesi) temel alınan teknoloji hala miktar kapalı kalma süresi VM'ler için etkilenen bir fiziksel sunucuda bir donanım arızası olması durumunda doğurur. En fazla üç hata etki alanları ile Azure ile tutarlı olması için bir kullanılabilirlik kümesinde sahip Azure yığını destekler.
+
+- **Hata etki alanları**. Bir kullanılabilirlik kümesine yerleştirilen sanal makineleri onları mümkün olduğunca eşit birden çok hata etki alanları (Azure yığın düğümler) yayarak birbirinden fiziksel olarak yalıtılmış olacaktır. Donanım arızası olması durumunda başarısız hata etki alanı Vm'lerden diğer hata etki alanı yeniden, ancak, mümkünse, aynı kullanılabilirlik kümesindeki diğer vm'lerden ayrı hata etki alanı tutulur. Donanımı yeniden çevrimiçi olduğunda, sanal makineleri yüksek kullanılabilirliği sürdürmek için yeniden dengelenir. 
+ 
+- **Güncelleme etki alanları**. Güncelleme etki alanına kullanılabilirlik kümeleri yüksek kullanılabilirlik sağlayan başka bir Azure kavramıdır. Bir güncelleştirme etki alanı, bakım aynı anda uygulayabilir temel alınan donanım mantıksal grubudur. Aynı güncelleştirme etki alanında yer alan VM'ler planlı bakım sırasında birlikte yeniden başlatılır. Kiracılar sanal makineleri bir kullanılabilirlik kümesi içinde oluşturmak gibi Azure platformu otomatik olarak VM'ler bunlar arasında dağıtır güncelleştirme etki alanları. Azure yığınında temel alınan ana bilgisayarları güncelleştirilmeden önce kümedeki diğer çevrimiçi konaklar arasında geçişi, sanal makineleri dinamik. Konak güncelleştirme sırasında Kiracı kapalı olduğundan, Azure yığında güncelleştirme etki alanı özelliği yalnızca Azure ile şablonu uyumluluk için bulunmaktadır. 
+
+### <a name="upgrade-scenarios"></a>Yükseltme senaryoları 
+Azure yığın sürüm 1802 verilmiştir önce hataya ve güncelleştirme etki alanlarının sayısı varsayılan oluşturulan kullanılabilirlik kümesindeki sanal makineleri (1 ve 1 sırasıyla). Bu önceden var olan kullanılabilirlik kümeleri VM'ler için yüksek kullanılabilirlik sağlamak için önce varolan sanal makineleri silin ve yeni bir kullanılabilirlik açıklandığı gibi doğru arıza ve güncelleştirme etki alanı sayılarıyla kümesi uygulamasına dağıtmanız [Değiştir Kullanılabilirlik kümesi için bir Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+
+VM ölçek kümesi için bir kullanılabilirlik kümesi dahili bir varsayılan hata etki alanı ve güncelleştirme etki alanı sayısı ile oluşturulur (3. ve 5 sırasıyla). Herhangi bir VM'i ölçeklendirin 1802 güncelleştirme, kullanılabilirlik ile varsayılan arıza ve güncelleştirme etki alanı sayıları kümesi yerleştirilecek önce oluşturulan kümeleri (1 ve 1 sırasıyla). Yeni forma elde etmek için bu VM ölçek kümesi örneklerinin güncelleştirmek için VM ölçek kümesi 1802 güncelleştirmeden önce mevcut ve eski örneklerini VM ölçek kümesi silme örnekleri sayısına göre ölçeklendirin. 
 
 ## <a name="role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC)
 Abonelik, kaynak grubu veya tek başına bir kaynak düzeyinde rolleri atayarak yetkili kullanıcılar, gruplar ve hizmetlere sistem erişim vermek için RBAC kullanabilirsiniz. Her rol, bir kullanıcı, Grup veya hizmet Microsoft Azure yığın kaynaklara sahip erişim düzeyini tanımlar.

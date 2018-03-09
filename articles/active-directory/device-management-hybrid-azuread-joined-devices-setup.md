@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -34,7 +34,7 @@ Karma Azure AD alanına katılmış aygıtlar ortamınızda yapılandırmaya ba�
 
 Üzerinde FQDN'yi kullanıyorsanız [Sistem Hazırlama Aracı (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), Lütfen bir yükleme henüz Azure AD ile kayıtlı değil Windows görüntüleri oluşturduğunuz emin olun.
 
-Aygıt yeniden başlatma veya kullanıcı Azure AD ile çalışan Windows 10 Anniversary güncelleştirmesi ve Windows Server 2016'ın otomatik olarak kaydedilecek etki alanına katılmış tüm cihazlar oturum aşağıda belirtilen yapılandırma adımları tamamlandıktan sonra açın. Bu otomatik yazmaç davranış tercih edilen değilse ya da denetimli bir sunum isterseniz lütfen aşağıdaki denetimi dağıtımı ve sunum bölümünde ilk seçerek etkinleştirmek veya otomatik dağıtım diğer izlemeden önce devre dışı bırakmak için yönergeleri izleyin yapılandırma adımları.  
+Aygıt yeniden başlatma veya kullanıcı Azure AD ile çalışan Windows 10 Anniversary güncelleştirmesi ve Windows Server 2016'ın otomatik olarak kaydedilecek etki alanına katılmış tüm cihazlar oturum aşağıda belirtilen yapılandırma adımları tamamlandıktan sonra açın. **Bu otomatik yazmaç davranış tercih edilen değilse veya denetimli bir sunum isterseniz**, Lütfen ilk seçerek etkinleştirmek veya otomatik dağıtım önce devre dışı bırakmak için aşağıdaki "Adım 4: denetim dağıtımı ve sunumu" bölümündeki yönergeleri izleyin başka yapılandırma adımları izleyerek.  
 
 Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim kullanır: 
 
@@ -542,7 +542,7 @@ Gerekli adımları tamamladıktan sonra etki alanına katılmış cihazları oto
 
 ### <a name="remarks"></a>Açıklamalar
 
-- Windows 10 ve Windows Server 2016 etki alanına katılmış bilgisayarlar otomatik kaydını piyasaya sürümü denetlemek için Grup İlkesi nesnesini kullanabilirsiniz.
+- Windows 10 ve Windows Server 2016 etki alanına katılmış bilgisayarlar otomatik kaydını piyasaya sürümü denetlemek için Grup İlkesi nesnesini kullanabilirsiniz. **Bu cihazlar otomatik olarak Azure AD ile kaydetmek istiyor musunuz veya kayıt denetlemek istiyorsanız**, sonra da Grup İlkesi tüm aygıtlara otomatik kaydını yapılandırma ile başlatmadan önce ilk olarak, devre dışı kullanıma alma adımlar. Tamamlandıktan sonra yapılandırma ve test etmek hazır olduğunuzda, Grup İlkesi otomatik kaydı yalnızca test cihazlar için etkinleştirme kullanıma alma ve diğer tüm aygıtlara yazarken seçin gerekir.
 
 - Windows 10 Kasım 2015 güncelleştirmesi otomatik olarak birleştiren Azure AD ile **yalnızca** sunum Grup İlkesi nesnesi ayarlarsanız.
 

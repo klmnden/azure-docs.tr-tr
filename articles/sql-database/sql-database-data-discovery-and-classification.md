@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı verileri bulma ve sınıflandırma
 Veri bulma & sınıflandırma (şu anda önizlemede) Azure SQL veritabanı için yerleşik Gelişmiş özellikleri sağlar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.
@@ -95,12 +95,12 @@ Sınıflandırma iki meta veri özniteliklerini içerir:
 
 Bir önemli bilgi koruma kip hassas bilgilere erişimi izleme yeteneği yönüdür.
 
-[Azure SQL veritabanı denetimi](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) Denetim günlüğüne adlı yeni bir alan eklemek için Gelişmiş *data_sensitivity_information*, tarafından döndürülen gerçek veri duyarlılık sınıflandırmaları (etiketleri) günlüğe kaydeder Sorgu.
+[Azure SQL veritabanı denetimi](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) Denetim günlüğüne adlı yeni bir alan eklemek için Gelişmiş *data_sensitivity_information*, tarafından döndürülen gerçek veri duyarlılık sınıflandırmaları (etiketleri) günlüğe kaydeder Sorgu.
 
 ![Gezinti Bölmesi][11]
 
 ## <a id="subheading-4"></a>Sonraki adımlar
-Yapılandırmayı göz önünde bulundurun [Azure SQL veritabanı denetimi](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) izleme ve, sınıflandırılmış hassas bilgilere erişimi denetleme.
+Yapılandırmayı göz önünde bulundurun [Azure SQL veritabanı denetimi](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) izleme ve, sınıflandırılmış hassas bilgilere erişimi denetleme.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

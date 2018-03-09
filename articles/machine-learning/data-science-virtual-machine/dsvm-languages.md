@@ -15,29 +15,99 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 2f2125e739b738847e03ce429d65801969611685
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb36f79d6af66dfaceb63730d59713ab9da7c89e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinede desteklenen diller 
 
 Veri bilimi sanal makine (DSVM) birkaç önceden derlenmiş diller ve AI uygulamalarınızı oluşturmak için geliştirme araçları ile birlikte gelir. Belirgin olanları bazıları aşağıda verilmiştir. 
 
-## <a name="python"></a>Python
+## <a name="python-windows-server-2016-edition"></a>Python (Windows Server 2016 Edition)
+
+|    |           |
+| ------------- | ------------- |
+| Dil sürümleri destekleniyor | 2.7 ve 3.6 |
+| Desteklenen DSVM sürümleri      | Windows Server 2016     |
+| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | İki genel `conda` ortamları oluşturulur. <br /> * `root` ortamında bulunan `/anaconda/` Python 3.6 değil. <br/> * `python2` ortamında bulunan `/anaconda/envs/python2`Python 2.7 olduğu       |
+| Örnekleri bağlantılar      | Python için örnek Jupyter not defterleri dahil edilir     |
+| DSVM ilgili araçları      | PySpark, R, Julia      |
+
+> [!NOTE]
+> Windows Server 2016 Mart 2018 önce oluşturulan Python 3.5 ve Python 2.7 içerir. Aynı zamanda Python 2.7 conda olan **kök** ortamı ve **py35** Python 3.5 ortamıdır. 
+
+### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?    
+
+* Komut isteminde çalışmasını
+
+Komut istemi açın ve Python çalıştırmak istediğiniz sürümüne bağlı olarak aşağıdakileri yapın. 
+
+```
+# To run Python 2.7
+activate python2
+python --version
+
+# To run Python 3.6
+activate 
+python --version
+
+```
+* IDE içinde kullanma
+
+Python araçları için Visual Studio (Visual Studio Community edition yüklü PTVS) kullanın. Python 3.6 PTVS varsayılan olarak otomatik olarak yalnızca ortam kurulur. 
+
+> [!NOTE]
+> Python 2.7 PTVS işaret etmek için özel bir ortam içinde PTVS oluşturmanız gerekir. Visual Studio Community Edition bu ortam yolları ayarlamak için gidin **Araçları** -> **Python Araçları** -> **Python ortamları** ve ardından **+ özel**. Konum ayarlamak `c:\anaconda\envs\python2` ve ardından _otomatik algıla_. 
+
+* Jupyter'de kullanma
+
+Jupyter açın ve tıklayın `New` düğmesi yeni bir not defteri oluşturun. Bu noktada, çekirdek türü olarak seçebileceğiniz _Python [Conda kök]_ Python 3.6 için ve _Python [Conda env:python2]_ Python 2.7 ortamı için. 
+
+* Python paketlerini yükleme
+
+Varsayılan Python ortamları DSVM üzerinde genel ortam okunabilir ve tüm kullanıcılar ' dir. Ancak yalnızca Yöneticiler yazma / genel paketlerini yükleyin. Genel ortama paket yüklemek için kök veya python2 Ortamı'nı kullanarak etkinleştirin `activate` yönetici olarak komutu. Paket Yöneticisi gibi kullanabilirsiniz `conda` veya `pip` yükleme veya güncelleştirme paketleri. 
+
+## <a name="python-linux-and-windows-server-2012-edition"></a>Python (Linux ve Windows Server 2012 Edition)
 
 |    |           |
 | ------------- | ------------- |
 | Dil sürümleri destekleniyor | 2.7 ve 3.5 |
-| Desteklenen DSVM sürümleri      | Linux, Windows     |
-| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | İki genel `conda` ortamları oluşturulur. <br /> * `root`ortamında bulunan `/anaconda/` Python 2.7 değil. <br/> * `py35`ortamında bulunan `/anaconda/envs/py35`Python 3.5       |
+| Desteklenen DSVM sürümleri      | Linux, Windows Server 2012    |
+| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | İki genel `conda` ortamları oluşturulur. <br /> * `root` ortamında bulunan `/anaconda/` Python 2.7 değil. <br/> * `py35` ortamında bulunan `/anaconda/envs/py35`Python 3.5       |
 | Örnekleri bağlantılar      | Python için örnek Jupyter not defterleri dahil edilir     |
-| DSVM ilgili araçları      | PySpark, R, Jale      |
+| DSVM ilgili araçları      | PySpark, R, Julia      |
 ### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?    
 
-**Windows**:
+**Linux**
+* Terminal çalışır
 
+Terminali açın ve Python çalıştırmak istediğiniz sürümüne bağlı olarak aşağıdakileri yapın. 
+
+```
+# To run Python 2.7
+source activate 
+python --version
+
+# To run Python 3.5
+source activate py35
+python --version
+
+```
+* IDE içinde kullanma
+
+Visual Studio Community edition yüklü PyCharm kullanın. 
+
+* Jupyter'de kullanma
+
+Jupyter açın ve tıklayın `New` düğmesi yeni bir not defteri oluşturun. Bu noktada, çekirdek türü olarak seçebileceğiniz _Python [Conda kök]_ Python 2.7 için ve _Python [Conda env:py35]_ Python 3.5 ortamı için. 
+
+* Python paketlerini yükleme
+
+Varsayılan Python ortamları DSVM üzerinde genel ortamları okunabilir ve tüm kullanıcılar ' dir. Ancak yalnızca Yöneticiler yazma / genel paketlerini yükleyin. Genel ortama paket yüklemek için kök veya py35 Ortamı'nı kullanarak etkinleştirin `source activate` bir yönetici veya sudo izni olan bir kullanıcı olarak komutu. Paket Yöneticisi gibi kullanabilirsiniz `conda` veya `pip` yükleme veya güncelleştirme paketleri. 
+
+**Windows 2012**
 * Komut isteminde çalışmasını
 
 Komut istemi açın ve Python çalıştırmak istediğiniz sürümüne bağlı olarak aşağıdakileri yapın. 
@@ -66,44 +136,15 @@ Jupyter açın ve tıklayın `New` düğmesi yeni bir not defteri oluşturun. Bu
 
 Varsayılan Python ortamları DSVM üzerinde genel ortam okunabilir ve tüm kullanıcılar ' dir. Ancak yalnızca Yöneticiler yazma / genel paketlerini yükleyin. Genel ortama paket yüklemek için kök veya py35 Ortamı'nı kullanarak etkinleştirin `activate` yönetici olarak komutu. Paket Yöneticisi gibi kullanabilirsiniz `conda` veya `pip` yükleme veya güncelleştirme paketleri. 
 
-
-**Linux**:
-
-* Terminal çalışır
-
-Terminali açın ve Python çalıştırmak istediğiniz sürümüne bağlı olarak aşağıdakileri yapın. 
-
-```
-# To run Python 2.7
-source activate 
-python --version
-
-# To run Python 3.5
-source activate py35
-python --version
-
-```
-* IDE içinde kullanma
-
-Visual Studio Community edition yüklü PyCharm kullanın. 
-
-* Jupyter'de kullanma
-
-Jupyter açın ve tıklayın `New` düğmesi yeni bir not defteri oluşturun. Bu noktada, çekirdek türü olarak seçebileceğiniz _Python [Conda kök]_ Python 2.7 için ve _Python [Conda env:py35]_ Python 3.5 ortamı için. 
-
-* Python paketlerini yükleme
-
-Varsayılan Python ortamları DSVM üzerinde genel ortamları okunabilir ve tüm kullanıcılar ' dir. Ancak yalnızca Yöneticiler yazma / genel paketlerini yükleyin. Genel ortama paket yüklemek için kök veya py35 Ortamı'nı kullanarak etkinleştirin `source activate` bir yönetici veya sudo izni olan bir kullanıcı olarak komutu. Paket Yöneticisi gibi kullanabilirsiniz `conda` veya `pip` yükleme veya güncelleştirme paketleri. 
-
 ## <a name="r"></a>R
 
 |    |           |
 | ------------- | ------------- |
 | Dil sürümleri destekleniyor | Microsoft R açık 3.x (% 100 CRAN R ile uyumlu<br /> Microsoft R Server 9.x Geliştirici sürümü (A ölçeklenebilir kuruluş hazır R platformu)|
 | Desteklenen DSVM sürümleri      | Linux, Windows     |
-| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Windows:`C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux:` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Örnekleri bağlantılar      | R örnek Jupyter not defterleri dahil edilir     |
-| DSVM ilgili araçları      | SparkR, Python, Jale      |
+| DSVM ilgili araçları      | SparkR, Python, Julia      |
 ### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?    
 
 **Windows**:
@@ -147,9 +188,9 @@ R tüm kullanıcılar tarafından okunabilir genel ortamında DSVM yüklenir. An
 
 |    |           |
 | ------------- | ------------- |
-| Dil sürümleri destekleniyor | 0.5 |
+| Dil sürümleri destekleniyor | 0.6 |
 | Desteklenen DSVM sürümleri      | Linux, Windows     |
-| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Windows: yüklü`C:\JuliaPro-VERSION`<br /> Linux: yüklü`/opt/JuliaPro-VERSION`    |
+| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Windows: yüklü `C:\JuliaPro-VERSION`<br /> Linux: yüklü `/opt/JuliaPro-VERSION`    |
 | Örnekleri bağlantılar      | Jale için örnek Jupyter not defterleri dahil edilir     |
 | DSVM ilgili araçları      | Python, R      |
 ### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?    
@@ -165,7 +206,7 @@ Kullanım `Juno` Jale IDE DSVM yüklü ve masaüstü kısayolu olarak kullanıla
 
 * Jupyter'de kullanma
 
-Jupyter açın ve tıklayın `New` düğmesi yeni bir not defteri oluşturun. Bu noktada, çekirdek türü olarak seçebilirsiniz.`Julia VERSION` 
+Jupyter açın ve tıklayın `New` düğmesi yeni bir not defteri oluşturun. Bu noktada, çekirdek türü olarak seçebilirsiniz. `Julia VERSION` 
 
 * Jale paketleri yükleniyor
 
@@ -182,7 +223,7 @@ Kullanım `Juno` Jale IDE DSVM yüklü ve uygulama menü kısayolu olarak kullan
 
 * Jupyter'de kullanma
 
-Jupyter açın ve tıklayın `New` düğmesi yeni bir not defteri oluşturun. Bu noktada, çekirdek türü olarak seçebilirsiniz.`Julia VERSION` 
+Jupyter açın ve tıklayın `New` düğmesi yeni bir not defteri oluşturun. Bu noktada, çekirdek türü olarak seçebilirsiniz. `Julia VERSION` 
 
 * Jale paketleri yükleniyor
 

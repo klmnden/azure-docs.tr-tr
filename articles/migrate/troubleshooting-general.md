@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -126,5 +126,23 @@ Windows için olay izleme toplamak için aşağıdakileri yapın:
 7. Geliştirici Araçları'nı kapatın.
  
 
+## <a name="vcenter-errors"></a>vCenter hataları
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Hata UnhandledException iç hata oluştu: System.IO.FileNotFoundException
+
+Bu, Toplayıcı sürümleri 1.0.9.5'den görülen bir sorundur. Toplayıcı sürüm 1.0.9.2 veya 1.0.8.59 gibi pre-GA sürümleri kullanıyorsanız, bu sorunu karşı karşıya kalırsınız. İzleyin [bağlamak için ayrıntılı bir yanıt forumlarında burada verilen](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+
+[Sorunu düzeltmek için toplayıcınız yükseltme](https://aka.ms/migrate/col/checkforupdates).
+
+### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
+
+VCenter Server "Servername.com:9443" hatası nedeniyle bağlantı kurulamadı: https://Servername.com:9443/iletiyi kabul edebilecek sdk dinleme bitiş noktası vardı.
+
+Makine belirtilen vCenter sunucusu adı veya bağlantı noktası speficified çözümleyemiyor Toplayıcı yanlış olduğunda meydana gelir. Bağlantı noktası belirtilmezse, varsayılan olarak 443 numaralı bağlantı noktası numarası bağlanmak Toplayıcı dener.
+
+1. Toplayıcı makineden sunucuadı.com ping işlemi yapmayı deneyin.
+2. 1. adım başarısız olursa, IP adresi vCenter sunucusuna bağlanmak deneyin.
+3. VCenter bağlanmak için doğru bağlantı noktası numarasını belirleyin.
+4. Son olarak vCenter sunucunun hazır ve çalışır durumda olup olmadığını denetleyin.
+ 
 

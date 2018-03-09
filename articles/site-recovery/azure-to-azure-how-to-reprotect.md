@@ -6,30 +6,30 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Yeniden koruma birincil bölge Azure Vm'leri üzerinde başarısız oldu
 
 
 >[!NOTE]
 >
-> Azure VM'ler için Site Recovery çoğaltma şu anda önizlemede değil.
+> Azure VM’ler için Site Recovery çoğaltma şu anda önizlemede.
 
 
 
 Olduğunda, [yük devri](site-recovery-failover.md) bir bölge başka bir kullanarak Azure VM'lerin [Azure Site Recovery](site-recovery-overview.md), korumasız bir durumda ikincil bölge içindeki VM'ler önyüklemesi. Başarısız birincil bölge VM'ler yedeklerseniz, aşağıdakileri yapmanız gerekir:
 
-- Böylece bunlar birincil bölge çoğaltma işlemi başlatma ikincil bölge içindeki Vm'leri koruyun. 
+- Böylece birincil bölge çoğaltmak başlatmaları ikincil bölge içindeki Vm'leri koruyun. 
 - Yükü tamamlandıktan ve sanal makineleri çoğaltmak sonra bunları üzerinden ikincil birincil bölge başarısız olabilir.
 
 > [!WARNING]
-> Seçtiğiniz varsa [geçirilen](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) birincil makinelerden ikincil bölge VM başka bir kaynak grubuna taşınmış veya Azure VM silinmiş, VM koruyun veya geri dönecek değiştiremezsiniz.
+> Seçtiğiniz varsa [geçirilen](migrate-overview.md#what-do-we-mean-by-migration) birincil makinelerden ikincil bölge VM başka bir kaynak grubuna taşınmış veya Azure VM silinmiş, VM koruyun veya geri dönecek değiştiremezsiniz.
 
 
 ## <a name="prerequisites"></a>Önkoşullar

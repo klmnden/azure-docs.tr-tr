@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure yığını için bir doğrulama testi çalıştırma
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/12/2018
  
 Azure yığın durumunu doğrulayabilirsiniz. Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin. Destek, Test AzureStack yönetim düğümden çalıştırmak ister. Doğrulama testi başarısız yalıtır. Destek sonra ayrıntılı günlüklerini analiz edin, odak hatanın oluştuğu alanı ve çalışma size sorunu çözme.
 
-## <a name="run-test-azurestack"></a>Test AzureStack çalıştırma
+## <a name="run-test-azurestack"></a>Run Test-AzureStack
 
 Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin ve ardından çalıştırın **çalıştırmak Test AzureStack**.
 
@@ -35,8 +35,8 @@ Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin v
     1. Ayrıcalıklı uç noktasına erişmek. Yönergeler için bkz: [Azure yığınında kullanan ayrıcalıklı uç noktasını](azure-stack-privileged-endpoint.md). 
     2. Olarak oturum **AzureStack\CloudAdmin** yönetim konaktaki.
     3. PowerShell'i yönetici olarak açın.
-    4. Çalıştırın:`Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
-    5. Çalıştırın:`Test-AzureStack`
+    4. Çalıştırın: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
+    5. Çalıştırın: `Test-AzureStack`
 4. Herhangi bir test başarısız rapor çalıştırırsanız: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet günlükleri Test-AzureStack toplar. Tanılama günlükleri hakkında daha fazla bilgi için bkz: [Azure yığın tanılama araçları](azure-stack-diagnostics.md).
 5. Gönderme **SeedRing** günlükleri Microsoft Müşteri Hizmetleri desteği. Microsoft Müşteri Hizmetleri desteği sorunu çözmek için sizinle birlikte çalışır.
 
@@ -64,7 +64,7 @@ Azure yığın durumunu doğrular. Cmdlet Azure yığın donanım ve yazılım d
 | ServiceAdminCredentials | PSCredential    | Hayır       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | Hayır       | FALSE   |
 | AdminCredential         | PSCredential    | Hayır       | NA      |
-| StorageConnectionString | Dize          | Hayır       | NA      |
+<!-- | StorageConnectionString | Dize          | Hayır       | NA      | 1802 içinde desteklenmeyen-->
 | Liste                    | SwitchParameter | Hayır       | FALSE   |
 | Yoksayma                  | Dize          | Hayır       | NA      |
 | Ekle                 | Dize          | Hayır       | NA      |

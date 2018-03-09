@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory doğrudan kimlik doğrulaması: Akıllı kilitleme
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure Active Directory (Azure AD) yanılma parola saldırılarına karşı korur ve Office 365 ve SaaS uygulamalarını dışında kilitli orijinal kullanıcıların engeller. Adlı bu özelliği, *akıllı kilitleme*, oturum açma yönteminiz olarak doğrudan kimlik doğrulaması kullandığınızda desteklenir. Akıllı kilitleme tüm kiracılar için varsayılan olarak etkindir ve kullanıcı hesaplarınızı sürekli olarak korur.
+Azure Active Directory (Azure AD) yanılma parola saldırılarına karşı korur ve Office 365 ve SaaS uygulamalarını dışında kilitli orijinal kullanıcıların engeller. Adlı bu özelliği, *akıllı kilitleme*, oturum açma yönteminiz olarak doğrudan kimlik doğrulaması kullandığınızda desteklenir. Akıllı kilitleme tüm kiracılar, geçişli kimlik doğrulaması kullanarak yalnızca kiracılar için varsayılan olarak etkindir ve kullanıcı hesaplarınızı sürekli olarak korur.
 
 Akıllı kilitleme, başarısız oturum açma denemeleri izler. Belirli bir sonra *kilitleme eşiği*, başladığı bir *kilitleme süresi*. Akıllı kilitleme kilitleme süresi sırasında kullanıcılardan oturum girişimleri reddeder. Saldırı devam ederse, sonraki başarısız oturum açma kilitleme süresi sonucu uzun kilitleme süreleri sona erdikten sonra çalışır.
 

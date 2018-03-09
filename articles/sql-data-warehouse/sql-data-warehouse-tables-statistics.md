@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
-ms.openlocfilehash: b007e1894f163d50dbf31e3c09b4b5ff329adb59
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 5e7fd3c8790bb9a1a7ae8662f9a7047ae54892d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda istatistiklerle yönetme
 > [!div class="op_single_selector"]
@@ -223,6 +223,11 @@ CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 )
 AS
 
+IF @create_type IS NULL
+BEGIN
+    SET @create_type = 1;
+END;
+
 IF @create_type NOT IN (1,2,3)
 BEGIN
     THROW 151000,'Invalid value for @stats_type parameter. Valid range 1 (default), 2 (fullscan) or 3 (sample).',1;
@@ -275,7 +280,7 @@ SELECT  [table_schema_name]
         WHEN 2
         THEN    CAST('CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+') WITH FULLSCAN' AS VARCHAR(8000))
         WHEN 3
-        THEN    CAST('CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+') WITH SAMPLE '+@sample_pct+'PERCENT' AS VARCHAR(8000))
+        THEN    CAST('CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+') WITH SAMPLE '+CONVERT(varchar(4),@sample_pct)+' PERCENT' AS VARCHAR(8000))
         END AS create_stat_ddl
 FROM T
 ;
@@ -297,11 +302,24 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-Bu yordamı kullanarak tablodaki tüm sütunların istatistikleri oluşturmak için basitçe yordam çağrısı.
+İstatistikleri varsayılan değerleri kullanarak tablodaki tüm sütunların oluşturmak için basitçe yordam çağrısı.
 
 ```sql
-prc_sqldw_create_stats;
+EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
 ```
+Bir fullscan kullanarak tablodaki tüm sütunları istatistikleri oluşturmak için bu yordamı arayın:
+
+```sql
+EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
+```
+Tablodaki tüm sütunların örneklenen istatistikleri oluşturmak için 3 ve örnek yüzde girin.  Bu yordamlar, yüzde 20 örnek hızı kullanır.
+
+```sql
+EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
+```
+
+
+Örneklenen tüm sütunları istatistik oluşturmak için 
 
 ## <a name="examples-update-statistics"></a>Örnekler: İstatistikleri güncelleştir
 İstatistikleri güncelleştirmek için şunları yapabilirsiniz:

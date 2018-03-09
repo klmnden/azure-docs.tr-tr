@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Uygulama Öngörüler Bağlayıcısı yönetim çözümü (Önizleme)
 
@@ -64,7 +64,7 @@ Yaklaşık 30 dakika içinde veri kullanılabilir hale gelir ve Application Insi
 Göz önünde bulundurmanız alınacak diğer noktalar:
 
 - Bu gibi durumlarda, Application Insights uygulamalar yalnızca bir günlük analizi çalışma alanına bağlayabilirsiniz.
-- Yalnızca bağlayabilirsiniz [standart veya Premium Application Insights kaynağı](https://azure.microsoft.com/pricing/details/application-insights) günlük analizi için. Ancak, günlük analizi ücretsiz katmanı kullanabilirsiniz.
+- Yalnızca bağlayabilirsiniz [Basic veya Enterprise Application Insights kaynağı](https://azure.microsoft.com/pricing/details/application-insights) günlük analizi için. Ancak, günlük analizi ücretsiz katmanı kullanabilirsiniz.
 
 ## <a name="management-packs"></a>Yönetim paketleri
 
@@ -86,7 +86,7 @@ Pano tabloda gösterilen Kanatlar içerir. Her dikey penceresinde belirtilen kap
 
 [!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-| Sütun | **Açıklama** |
+| **Sütun** | **Açıklama** |
 | --- | --- |
 | Uygulamalar - uygulama sayısı | Uygulama kaynaklarında uygulama sayısını gösterir. Ayrıca uygulama adlarını listeler ve her uygulama kayıt sayısı. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Konak, telemetri türe göre kayıt ve tüm verileri (son gününde dayanarak) türüne göre uygulama kayıtları gösteren uygulama için bir günlük arama çalıştırmak için bir uygulama adına tıklayın. |
 | Veri birimi – ana verileri gönderme | Verileri gönderme barındıran bilgisayar sayısını gösterir. Ayrıca barındıran bilgisayar ve her konak için kayıt sayısı listelenir. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Konak, telemetri türe göre kayıt ve tüm verileri (son gününde dayanarak) türüne göre uygulama kayıtları gösterir ana bilgisayar için bir günlük arama çalıştırmak için bir bilgisayar adına tıklayın. |
@@ -117,7 +117,7 @@ Tıkladığınızda herhangi bir yere **özel durumları** dikey penceresinde, �
 
 ![Uygulama Öngörüler özel durumlar dikey penceresi](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Olup, bir şey birini tıklatın bağımsız olarak **uygulama Öngörüler Bağlayıcısı** Pano, içinde **arama** kendisi, Application Insights verileri gösteren uygulama döndüren herhangi bir sorgu sayfası Öngörüler perspektif. Örneğin, Application Insights veri görüntülüyorsanız bir **&#42;** sorgu ayrıca aşağıdaki görüntü gibi perspektif sekmesini gösterir:
+Olup, bir şey birini tıklatın bağımsız olarak **uygulama Öngörüler Bağlayıcısı** Pano, içinde **arama** kendisi, Application Insights verileri gösteren uygulama döndüren herhangi bir sorgu sayfası Öngörüler perspektif. Örneğin, Application Insights veri görüntülüyorsanız bir  **&#42;**  sorgu ayrıca aşağıdaki görüntü gibi perspektif sekmesini gösterir:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 

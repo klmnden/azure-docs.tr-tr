@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -51,7 +51,7 @@ Yükleme hatanın nedenini belirlemek için installer.log gözden geçirin.
 Çözmek için başka bir etki alanı denetleyicisi çalışan Windows Server 2012 R2 veya daha yeni PDC rolünü aktarma ve eşitleme yükleyin.
 
 <a id="agent-installation-websitename-failure"></a>**Aracı yüklemesi bu hata ile başarısız olur: "Depolama alanı eşitleme Aracısı Sihirbazı erken sona erdi."**  
-IIS Web sitesi varsayılan adı değişirse, bu sorun ortaya çıkabilir. Bu sorunu çözmek için IIS varsayılan Web sitesi olarak "Default Web Site" yeniden adlandırın ve yükleme işlemini yeniden deneyin. Aracısı'nın gelecek bir güncelleştirmede sorun düzeltilecektir. 
+Bu sorun sürüm 1.x aracıyla oluşabilir ve IIS Web sitesi adı varsayılan olarak, değiştirilir. Bu sorunu çözmek için bizim 2.0.11+ aracı kullanın.
 
 <a id="server-registration-missing"></a>**Azure portalında kayıtlı sunucuları altındaki Server listelenmeyen**  
 Bir sunucu altında listelenmemişse **kayıtlı sunucuları** depolama eşitleme hizmeti için:

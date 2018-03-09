@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ec9258a123774607ffee8705a1bc5391525567f5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Visual Studio için Azure işlevleri araçları  
 
@@ -46,20 +46,21 @@ Oluşturma ve dağıtma işlevleri için ayrıca gerekir:
 
 * Etkin bir Azure aboneliği. Bir Azure aboneliğiniz yoksa [serbest hesapları](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) kullanılabilir.
 
-* Bir Azure depolama hesabı. Bir depolama hesabı oluşturmak için bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Azure Depolama hesabı. Bir depolama hesabı oluşturmak için bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="create-an-azure-functions-project"></a>Azure işlevleri projesi oluşturma 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-
-## <a name="configure-the-project-for-local-development"></a>Projeyi yerel geliştirme için yapılandırın
-
-Azure işlevleri şablonunu kullanarak yeni bir proje oluşturduğunuzda, aşağıdaki dosyaları içeren boş C# projesinde alın:
+Proje şablonu C# projesi oluşturur, yükler `Microsoft.NET.Sdk.Functions` NuGet paketi ve hedef Framework'ü ayarlar. 1.x hedefleri .NET Framework işlevleri ve 2.x hedefleri .NET standart çalışır. Yeni Proje aşağıdaki dosyaları içerir:
 
 * **Host.JSON**: işlevleri konak yapılandırmanıza olanak sağlar. Bu ayarlar hem de yerel olarak ve Azure içinde çalışırken geçerlidir. Daha fazla bilgi için bkz: [host.json başvuru](functions-host-json.md).
     
 * **Local.Settings.JSON**: işlevleri yerel olarak çalıştırırken kullanılan ayarları bulundurur. Bu ayarlar, Azure tarafından kullanılmaz, tarafından kullanılan [Azure işlevleri çekirdek Araçları](functions-run-local.md). Bu dosya, diğer Azure Hizmetleri için bağlantı dizelerini gibi ayarlarını belirtmek için kullanın. Yeni bir anahtar ekleyin **değerleri** dizi projenizdeki işlevleri gerektirdiği her bağlantı için. Daha fazla bilgi için bkz: [yerel ayarları dosyasına](functions-run-local.md#local-settings-file) Azure işlevleri çekirdek araçları konu başlığı.
+
+Daha fazla bilgi için bkz: [işlevleri sınıf kitaplığı proje](functions-dotnet-class-library.md#functions-class-library-project).
+
+## <a name="configure-the-project-for-local-development"></a>Projeyi yerel geliştirme için yapılandırın
 
 İşlevler çalışma zamanı bir Azure Storage hesabı dahili olarak kullanır. Tüm HTTP ve Web kancalarını dışında türleri tetiklemek için ayarlamanız gerekir **Values.AzureWebJobsStorage** geçerli bir Azure depolama hesabı bağlantı dizesi anahtar. 
 
@@ -147,5 +148,6 @@ Uygulama ayarları şu diğer yöntemlerden birini kullanarak da yönetebilirsin
 
 Azure işlevleri araçları hakkında daha fazla bilgi için sık sorulan sorular bölümüne bakın [Azure işlevleri için Visual Studio 2017 Araçları](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog postası.
 
-Azure işlevleri çekirdek araçları hakkında daha fazla bilgi için bkz: [kod ve yerel olarak Azure işlevlerini test](functions-run-local.md).  
+Azure işlevleri çekirdek araçları hakkında daha fazla bilgi için bkz: [kod ve yerel olarak Azure işlevlerini test](functions-run-local.md).
+
 .NET sınıf kitaplıkları işlevleri geliştirme hakkında daha fazla bilgi için bkz: [Azure işlevleri C# Geliştirici Başvurusu](functions-dotnet-class-library.md). Bu konu ayrıca bağlamaları Azure işlevleri tarafından desteklenen çeşitli türlerde bildirmek için öznitelikleri kullanma örnekleri bağlar.    

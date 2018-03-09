@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: billmath
-ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3c1c080c1198fd75916a119d4bb08c8db50a05d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect eşitleme: öznitelikleri eşitlenmiş Azure Active Directory'ye
 Bu konuda, Azure AD Connect eşitleme tarafından eşitlenen öznitelikler listelenir.  
@@ -36,7 +36,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
-| Öznitelik Adı | Kullanıcı | Yorum |
+| Öznitelik Adı | Kullanıcı | Açıklama |
 | --- |:---:| --- |
 | accountEnabled |X |Bir hesap etkinleştirilirse tanımlar. |
 | cn |X | |
@@ -48,7 +48,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | userPrincipalName |X |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | Yardımcısı |X |X | | |
@@ -83,11 +83,11 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | bilgileri |X |X |X |Bu özellik şu anda grupları için kullanılmaz. |
-| Baş harfleri |X |X | | |
+| baş harfleri |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| Şirketiniz tarafından | | |X | |
+| managedBy | | |X | |
 | Yöneticisi |X |X | | |
 | Üye | | |X | |
 | Mobil |X |X | | |
@@ -172,7 +172,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | authOrig |X |X |X | |
@@ -211,7 +211,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | l |X |X | | |
 | Posta |X |X |X | |
 | mailnickname |X |X |X | |
-| Şirketiniz tarafından | | |X | |
+| managedBy | | |X | |
 | Yöneticisi |X |X | | |
 | Üye | | |X | |
 | middleName |X |X | | |
@@ -254,7 +254,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (daha sonra Skype Kurumsal olarak bilinir)
-| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | c |X |X | | |
@@ -271,7 +271,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | l |X |X | | |
 | Posta |X |X |X | |
 | mailNickname |X |X |X | |
-| Şirketiniz tarafından | | |X | |
+| managedBy | | |X | |
 | Yöneticisi |X |X | | |
 | Üye | | |X | |
 | Mobil |X |X | | |
@@ -303,7 +303,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | cn |X | |X |Ortak adı veya diğer ad. En sık [posta] değeri önek. |
@@ -319,7 +319,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | userPrincipalName |X | | |Bu UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
 
 ## <a name="intune"></a>Intune
-| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | c |X |X | | |
@@ -338,7 +338,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | userPrincipalName |X | | |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | c |X |X | | |
@@ -351,7 +351,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | l |X |X | | |
-| Şirketiniz tarafından | | |X | |
+| managedBy | | |X | |
 | Yöneticisi |X |X | | |
 | Üye | | |X | |
 | Mobil |X |X | | |
@@ -378,14 +378,14 @@ Bu grup, genel iş yükü veya uygulama için gerekli en az öznitelikleri olara
 
 Bu grup, Office 365, Dynamics veya Intune desteklemek için Azure AD dizini kullanılmazsa, kullanılabilen öznitelikleri kümesidir. Küçük bir çekirdek öznitelikler kümesi vardır.
 
-| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | cn |X | |X | |
 | displayName |X |X |X | |
 | givenName |X |X | | |
 | Posta |X | |X | |
-| Şirketiniz tarafından | | |X | |
+| managedBy | | |X | |
 | mailNickName |X |X |X | |
 | Üye | | |X | |
 | objectSID |X | | |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
@@ -399,7 +399,7 @@ Bu grup, Office 365, Dynamics veya Intune desteklemek için Azure AD dizini kull
 ## <a name="windows-10"></a>Windows 10
 Etki alanına katılmış Windows 10 computer(device) bazı öznitelikler Azure ad ile eşitler. Senaryoları hakkında daha fazla bilgi için bkz: [Windows 10 deneyimleri için etki alanına katılmış cihazlar için Azure AD Connect](../active-directory-azureadjoin-devices-group-policy.md). Bu öznitelikler her zaman eşitleyin ve Windows 10 işaretini kaldırabilirsiniz bir uygulama görünmez. Windows 10 etki alanına katılmış bir bilgisayar doldurulmuş özniteliği userCertificate sahip olarak tanımlanır.
 
-| Öznitelik Adı | Cihaz | Yorum |
+| Öznitelik Adı | Cihaz | Açıklama |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |Etki alanına katılmış bilgisayarlar için sabit kodlu değeri. |
@@ -413,7 +413,7 @@ Etki alanına katılmış Windows 10 computer(device) bazı öznitelikler Azure 
 
 Bu öznitelikler için **kullanıcı** seçtiğiniz diğer uygulamalar yanı sıra şunlardır.  
 
-| Öznitelik Adı | Kullanıcı | Yorum |
+| Öznitelik Adı | Kullanıcı | Açıklama |
 | --- |:---:| --- |
 | domainFQDN |X |DNSEtkiAlanıAdı olarak da bilinir. Örneğin, contoso.com. |
 | domainNetBios |X |NetBiosName olarak da bilinir. Örneğin, CONTOSO. |
@@ -421,22 +421,22 @@ Bu öznitelikler için **kullanıcı** seçtiğiniz diğer uygulamalar yanı sı
 ## <a name="exchange-hybrid-writeback"></a>Exchange karma geri yazma
 Etkinleştirmeyi seçtiğinizde bu öznitelikler geri Azure AD'den şirket içi Active Directory'ye yazılır **Exchange karma**. Exchange sürümünüzün bağlı olarak, daha az sayıda öznitelik eşitlenmiş olabilir.
 
-| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Azure AD'de cloudAnchor türetilmiş. Bu öznitelik, Exchange 2016 ve Windows Server 2016 AD yenidir. |
-| msExchArchiveStatus |X | | |Çevrimiçi Arşiv: posta arşivlemek müşterilerin sağlar. |
-| msExchBlockedSendersHash |X | | |Filtreleme: geri filtreleme şirket içi ve çevrimiçi güvenli ve Engellenen gönderen veri istemcilerden yazar. |
-| msExchSafeRecipientsHash |X | | |Filtreleme: geri filtreleme şirket içi ve çevrimiçi güvenli ve Engellenen gönderen veri istemcilerden yazar. |
-| msExchSafeSendersHash |X | | |Filtreleme: geri filtreleme şirket içi ve çevrimiçi güvenli ve Engellenen gönderen veri istemcilerden yazar. |
-| msExchUCVoiceMailSettings |X | | |Birleşik Mesajlaşma (UM) - çevrimiçi sesli posta etkinleştirin: Microsoft Lync Server tarafından kullanılan tümleştirme Lync Server belirtmek için kullanıcının çevrimiçi hizmetlerinde sesli posta olduğunu şirket. |
-| msExchUserHoldPolicies |X | | |Mahkeme tutun: hangi kullanıcıların belirlemek için etkinleştirir bulut Hizmetleri, mahkeme tutun altında oluşturulur. |
-| proxyAddresses |X |X |X |Yalnızca Exchange Online adresinden eklenir x500. |
-| publicDelegates |X | | |Şirket içi Exchange posta kutusu kullanıcılarla SendOnBehalfTo hakkı verilecek bir Exchange Online posta kutusu sağlar. Azure AD Connect yapı 1.1.552.0 gerektirir veya sonra. |
+| Öznitelik adı (kullanıcı Arabirimi bağlantı) |Öznitelik adı (şirket içi AD) | Kullanıcı | İletişim | Grup | Açıklama |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Azure AD'de cloudAnchor türetilmiş. Bu öznitelik, Exchange 2016 ve Windows Server 2016 AD yenidir. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Çevrimiçi Arşiv: posta arşivlemek müşterilerin sağlar. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtreleme: geri filtreleme şirket içi ve çevrimiçi güvenli ve Engellenen gönderen veri istemcilerden yazar. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtreleme: geri filtreleme şirket içi ve çevrimiçi güvenli ve Engellenen gönderen veri istemcilerden yazar. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtreleme: geri filtreleme şirket içi ve çevrimiçi güvenli ve Engellenen gönderen veri istemcilerden yazar. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Birleşik Mesajlaşma (UM) - çevrimiçi sesli posta etkinleştirin: Microsoft Lync Server tarafından kullanılan tümleştirme Lync Server belirtmek için kullanıcının çevrimiçi hizmetlerinde sesli posta olduğunu şirket. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Mahkeme tutun: hangi kullanıcıların belirlemek için etkinleştirir bulut Hizmetleri, mahkeme tutun altında oluşturulur. |
+| proxyAddresses| proxyAddresses |X |X |X |Yalnızca Exchange Online adresinden eklenir x500. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Şirket içi Exchange posta kutusu kullanıcılarla SendOnBehalfTo hakkı verilecek bir Exchange Online posta kutusu sağlar. Azure AD Connect yapı 1.1.552.0 gerektirir veya sonra. |
 
 ## <a name="exchange-mail-public-folder"></a>Exchange posta ortak klasörü
 Bu öznitelikler seçtiğinizde etkinleştirmek için Azure AD ile şirket içi Active Directory'den eşitlenen **Exchange posta ortak klasör**.
 
-| Öznitelik Adı | PublicFolder | Yorum |
+| Öznitelik Adı | PublicFolder | Açıklama |
 | --- | :---:| --- |
 | displayName | X |  |
 | Posta | X |  |
@@ -448,7 +448,7 @@ Bu öznitelikler seçtiğinizde etkinleştirmek için Azure AD ile şirket içi 
 ## <a name="device-writeback"></a>Cihaz geri yazma
 Cihaz nesneleri, Active Directory içinde oluşturulur. Bu nesneler için Azure AD alanına katılmış aygıtlar olabilir veya etki alanına katılmış Windows 10 bilgisayarlar.
 
-| Öznitelik Adı | Cihaz | Yorum |
+| Öznitelik Adı | Cihaz | Açıklama |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |

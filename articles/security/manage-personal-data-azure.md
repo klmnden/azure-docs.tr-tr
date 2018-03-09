@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure kişisel verileri yönetmek | Microsoft Docs"
-description: "Kılavuzu nasıl düzeltileceğine güncelleştirme, silme ve Azure Active Directory ve Azure SQL veritabanı kişisel verileri dışarı aktarma"
+description: "nasıl düzeltin, güncelleştirme, silme ve Azure Active Directory ve Azure SQL veritabanı genel veri koruma düzenleme (GDPR) ile uyumlu yardımcı olması için kişisel verileri dışarı aktarma"
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 51dca8955745b40a9126b142ea15e707fe58bc72
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 41c0cc4eb3697aa79abeabddc98a84598ce4ea50
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Microsoft Azure kişisel verileri yönetmek
 
-Bu makale, düzeltin, güncelleştirme, silme ve Azure Active Directory ve Azure SQL veritabanı kişisel verileri dışarı aktarma konusunda rehberlik sağlar.
+Bu makale, düzeltin, güncelleştirme, silme ve Azure Active Directory ve Azure SQL veritabanı genel veri koruma düzenleme (GDPR) ile uyum sağlamak için kişisel verileri dışarı aktarma konusunda rehberlik sağlar.
 
 ## <a name="scenario"></a>Senaryo
 

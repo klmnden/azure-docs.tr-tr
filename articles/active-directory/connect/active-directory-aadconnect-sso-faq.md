@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
 
@@ -38,7 +38,16 @@ Hayır. Sorunsuz SSO yalnızca Azure AD dünya çapındaki örneğini içinde ku
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Hangi uygulamaların yararlanmak `domain_hint` veya `login_hint` sorunsuz SSO parametre yeteneğini?
 
-Bu parametreler ve verme olanları Gönder uygulamaların listesini derleme sürecinde duyuyoruz. İlgilendiğiniz uygulamalarınız varsa, açıklamalar bölümünde bize bildirin.
+Aşağıda, bu parametreler için Azure AD göndermek ve bu nedenle kullanıcılar sorunsuz SSO kullanarak bir sessiz oturum açma deneyimi sağlar uygulamalar kapsamlı olmayan bir listesidir:
+
+| Uygulama adı | Kullanılacak uygulama URL'si |
+| -- | -- |
+| Erişim paneli | myapps.microsoft.com/contoso.com |
+| Outlook Web üzerinde | outlook.office365.com/contoso.com |
+
+Yukarıdaki tabloda "contoso.com" kiracınız için doğru uygulama URL'lere almak için etki alanı adıyla değiştirin.
+
+İlgilendiğiniz diğer uygulamalarınız varsa, açıklamalar bölümünde bize bildirin.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Sorunsuz SSO desteklemiyor `Alternate ID` kullanıcı adı olarak yerine `userPrincipalName`?
 

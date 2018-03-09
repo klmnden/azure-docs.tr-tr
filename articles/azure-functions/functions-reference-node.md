@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -89,7 +89,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-### <a name="contextdone-method"></a>Context.Done yöntemi
+### <a name="contextdone-method"></a>context.done method
 ```
 context.done([err],[propertyBag])
 ```
@@ -120,7 +120,7 @@ Varsayılan izleme düzeyinde akış konsol günlükleri yazmanızı sağlar. Ü
 | ---------------------- | ------------------------------------------ |
 | **hata (_ileti_)**   | Hata düzeyi oturum açma ya da daha düşük yazar.   |
 | **warn (_ileti_)**    | Uyarı düzeyi oturum açma ya da daha düşük yazar. |
-| **bilgi (_ileti_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
+| **info(_message_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
 | **verbose (_ileti_)** | Ayrıntılı düzeyinde günlüğe kaydetme yazar.           |
 
 Aşağıdaki örnek, uyarı izleme düzeyinde konsola yazar:
@@ -209,10 +209,10 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları istek ve yanıt nesneleri 
 | Özellik      | Açıklama                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _Gövde_        | İstek gövdesini içeren bir nesne.               |
-| _üstbilgileri_     | İstek üstbilgilerini içeren bir nesne.                   |
-| _yöntemi_      | İsteğin HTTP yöntemi.                                |
+| _Üstbilgileri_     | İstek üstbilgilerini içeren bir nesne.                   |
+| _method_      | İsteğin HTTP yöntemi.                                |
 | _originalUrl_ | İstek URL'si.                                        |
-| _parametreleri_      | İsteğin Yönlendirme parametreleri içeren bir nesne. |
+| _Parametreleri_      | İsteğin Yönlendirme parametreleri içeren bir nesne. |
 | _Sorgu_       | Sorgu parametreleri içeren bir nesne.                  |
 | _rawBody_     | Dize olarak ileti gövdesi.                           |
 
@@ -224,9 +224,9 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları istek ve yanıt nesneleri 
 | Özellik  | Açıklama                                               |
 | --------- | --------------------------------------------------------- |
 | _Gövde_    | Yanıtın gövdesini içeren bir nesne.         |
-| _üstbilgileri_ | Yanıt üst bilgileri içeren bir nesne.             |
+| _Üstbilgileri_ | Yanıt üst bilgileri içeren bir nesne.             |
 | _isRaw_   | Biçimlendirme için yanıt atlanır gösterir.    |
-| _durumu_  | Yanıtının HTTP durum kodu.                     |
+| _Durumu_  | Yanıtının HTTP durum kodu.                     |
 
 ### <a name="accessing-the-request-and-response"></a>İstek ve yanıt erişme 
 
@@ -265,7 +265,15 @@ HTTP tetikleyicileri ile çalışırken, HTTP istek ve yanıt nesneleri herhangi
     ```  
 
 ## <a name="node-version-and-package-management"></a>Düğüm sürümü ve paket Yönetimi
-Düğüm sürüm adresindeki kilitli `6.5.0`. Geçerli daha fazla sürümleri için destek eklenmesi araştırma, yapılandırılabilir hale getirme.
+
+Aşağıdaki tabloda her ana işlevleri çalışma zamanı sürümü tarafından kullanılan Node.js sürümünü gösterir:
+
+| İşlevler sürümü | Node.js sürümü | 
+|---|---|
+| 1.x | 6.11.2 (çalışma zamanı tarafından kilitlenmiş) |
+| 2.x  |> = 8.4.0 geçerli LTS önerilen 8.9.4 ile. Sürüm WEBSITE_DEFAULT_NODE_VERSION kullanarak ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
+
+Yazdırma tarafından kullanma çalışma zamanı geçerli sürümü görebilirsiniz `process.version` herhangi işlevi.
 
 Aşağıdaki adımları işlevi uygulamanızda paketleri dahil sağlar: 
 

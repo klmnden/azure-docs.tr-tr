@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: genemi
-ms.openlocfilehash: ebf1c4948816746fa02b867d1ea66afc64b882b0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 13ac12377887684143d32d08e4bd5de107183105
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip biletleri ile çalışmak için genel rehberlik örnek SaaS uygulamaları
 
@@ -28,14 +28,14 @@ Bu makale, Azure SQL veritabanı kullanan Wingtip biletleri örnek SaaS uygulama
 ZIP dosyaları bir dış kaynaktan yüklediğiniz ve açtığınız zaman yürütülebilir içeriği (komut dosyaları, DLL'ler) Windows tarafından engellenmiş olabilir. Komut dosyaları zip dosyasından çıkarılırken **ayıklanıyor önce .zip dosyası engellemesini kaldırmak için aşağıdaki adımları izleyin**. Bu komut dosyalarını çalıştırma izni sağlar.
 
 1. Wingtip biletleri SaaS GitHub deposuna keşfetmek istediğiniz veritabanı kiralama deseni için şuraya gidin: 
-    - [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-    - [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
-    - [WingtipTicketsSaaS MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
+    - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+    - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
+    - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Tıklatın **Kopyala veya indir**.
 3. Tıklatın **indirme zip** ve dosyayı kaydedin.
-4. Zip dosyasını sağ tıklatın ve seçin **özellikleri**. Zip dosyası adı depodaki adına karşılık gelir. (örneğin. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+4. Zip dosyasını sağ tıklatın ve seçin **özellikleri**. Zip dosyası adı depodaki adına karşılık gelir. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. Üzerinde **genel** sekmesine **Engellemeyi Kaldır**.
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**’a tıklayın.
 7. Dosyaları ayıklayın.
 
 Komut dosyaları içinde bulunur *... \\Öğrenme modülleri* klasör.
@@ -86,8 +86,8 @@ Dağıtımı, kiracılar ve Katalog SQL veritabanı sunucularına bağlanmak iç
 Başarılı demo bağlantı sağlamak için tüm sunucuların sahip bir [güvenlik duvarı kuralı](sql-database-firewall-configure.md) aracılığıyla tüm IP'ler izin verme.
 
 
-1. Açık *SSMS* ve bağlanmaya kiracılar. Sunucu adı (özellikleri için aşağıya bakın) seçtiğiniz veritabanı kiralama düzeni bağlıdır:
-    - **Tek başına uygulama:** sunucuları tek tek kiracılar (örneğin, *contosoconcerthall -&lt;kullanıcı&gt;. database.windows.net*) 
+1. Açık *SSMS* ve kiracıların bağlanın. Sunucu adı (özellikleri için aşağıya bakın) seçtiğiniz veritabanı kiralama düzeni bağlıdır:
+    - **Tek başına uygulama:** sunucuları tek tek kiracılar (örneğin, *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Veritabanı Kiracı başına:** *tenants1-dpt -&lt;kullanıcı&gt;. database.windows.net*
     - **Çok Kiracı veritabanı:** *tenants1-mt -&lt;kullanıcı&gt;. database.windows.net* 
 2. **Bağlan** > **Veritabanı Altyapısı...**:
@@ -97,7 +97,7 @@ Başarılı demo bağlantı sağlamak için tüm sunucuların sahip bir [güvenl
 3. Tanıtım kimlik bilgileri: Kullanıcı adı = *developer*, Parola = *P@ssword1*
 
     Oturum açma için aşağıdaki görüntü gösteren *veritabanı Kiracı başına* düzeni. 
-    ![bağlantı](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
+    ![Bağlantı](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
     
    
 

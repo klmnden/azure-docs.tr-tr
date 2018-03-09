@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Sağlama ve Kiracı SaaS deseni başına uygulamayı kullanarak yeni kiracılar katalog
 
@@ -31,7 +31,7 @@ Bu makalede iki ana bölümden oluşur:
     * Öğretici Kiracı deseni başına tek başına App uyarlanan Wingtip biletleri örnek SaaS uygulaması kullanır.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Kiracı deseni başına tek başına uygulama
-Kiracı deseni başına tek başına app çok kiracılı SaaS uygulamaları için birkaç modelinden biridir.  Bu modelinde, her bir kiracı için bir tek başına uygulama sağlanır. Uygulama, uygulama düzeyinde bileşenleri ve bir SQL veritabanı oluşur.  Her Kiracı uygulama satıcısının abonelikte dağıtılabilir.  Alternatif olarak, Azure'un sunduğu bir [yönetilen uygulamaların program](https://docs.microsoft.com/en-us/azure/managed-applications/overview) , bir uygulama bir kiracının abonelikte dağıtılabilir ve kiracının adınıza satıcı tarafından yönetilen içinde. 
+Kiracı deseni başına tek başına app çok kiracılı SaaS uygulamaları için birkaç modelinden biridir.  Bu modelinde, her bir kiracı için bir tek başına uygulama sağlanır. Uygulama, uygulama düzeyinde bileşenleri ve bir SQL veritabanı oluşur.  Her Kiracı uygulama satıcısının abonelikte dağıtılabilir.  Alternatif olarak, Azure'un sunduğu bir [yönetilen uygulamaların program](https://docs.microsoft.com/azure/managed-applications/overview) , bir uygulama bir kiracının abonelikte dağıtılabilir ve kiracının adınıza satıcı tarafından yönetilen içinde. 
 
    ![Kiracı başına uygulama düzeni](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ Her bir kiracının uygulama ve veritabanı tamamen yalıtılmış olsa da, çe�
 Kiracı katalog Kiracı tanıtıcısı ve bir sunucu ve veritabanı adı çözümlenmesi bir tanımlayıcı sağlayan bir kiracı veritabanı arasında bir eşleme tutar.  Diğer düzenleri kullanılabilir olsa da Wingtip SaaS uygulamada, Kiracı tanımlayıcı bir kiracı adı karması hesaplanır.  Bağımsız uygulamalar bağlantıları yönetmek için kataloğu gerekmez, ancak katalog, Kiracı veritabanları kümesi için başka eylemler kapsamını belirlemek için kullanılabilir. Örneğin, esnek sorgu katalog arası Kiracı raporlama için hangi sorguları dağıtılan veritabanları belirlemek için kullanabilirsiniz.
 
 ## <a name="elastic-database-client-library"></a>Elastik Veritabanı İstemci Kitaplığı
-Wingtip örnek uygulama Kataloğu parça yönetim özelliklerine göre uygulanır [esnek veritabanı istemci Kitaplığı](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  Kitaplık oluşturmak, yönetmek ve bir veritabanında depolanan bir parça eşlemesi kullanmak için bir uygulama sağlar. Katalog depolanır Wingtip biletleri örnek *Kiracı katalog* veritabanı.  Parça parça (veritabanı) için bir kiracı anahtarı bu kiracının veri depolanır eşler.  EDCL işlevlerini yönetmek bir *genel parça eşleme* tablolarında depolanır *Kiracı katalog* veritabanı ve *yerel parça eşleme* her parça depolanır.
+Wingtip örnek uygulama Kataloğu parça yönetim özelliklerine göre uygulanır [esnek veritabanı istemci Kitaplığı](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL).  Kitaplık oluşturmak, yönetmek ve bir veritabanında depolanan bir parça eşlemesi kullanmak için bir uygulama sağlar. Katalog depolanır Wingtip biletleri örnek *Kiracı katalog* veritabanı.  Parça parça (veritabanı) için bir kiracı anahtarı bu kiracının veri depolanır eşler.  EDCL işlevlerini yönetmek bir *genel parça eşleme* tablolarında depolanır *Kiracı katalog* veritabanı ve *yerel parça eşleme* her parça depolanır.
 
 Uygulamalarından ya da oluşturmak ve parça eşleme girdileri yönetmek için PowerShell betiklerini EDCL işlevler çağrılabilir. Diğer EDCL işlevleri parça kümesi almak veya verili doğru veritabanına bağlanmak için kullanılan Kiracı anahtarı. 
     
@@ -69,7 +69,7 @@ Bu öğreticinin sonunda ve kataloğa kayıtlı her veritabanı ile tek başına
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun: 
 * Azure PowerShell’in yüklendiğinden. Ayrıntılar için bkz. [Azure PowerShell’i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Üç örnek Kiracı uygulamaları dağıtılır. Beş dakikadan daha kısa bir süre içinde bu uygulamaları dağıtmak için bkz: [dağıtma ve Wingtip biletleri SaaS tek başına uygulama düzeni keşfetme](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* Üç örnek Kiracı uygulamaları dağıtılır. Beş dakikadan daha kısa bir süre içinde bu uygulamaları dağıtmak için bkz: [dağıtma ve Wingtip biletleri SaaS tek başına uygulama düzeni keşfetme](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
 
 ## <a name="provision-the-catalog"></a>Kataloğu hazırlama
 Bu görevde, tüm Kiracı veritabanları kaydetmek için kullanılan katalog hazırlamayı öğrenin. Yapacaklarınız: 
@@ -149,4 +149,4 @@ Bu öğreticide şunları öğrendiniz:
 > * Sunucular ve veritabanları hakkında uygulaması olun.
 > * Nasıl ilgili faturalama durdurmak için örnek kaynaklar silinir.
 
-Katalog Kiracı başına veritabanı sürümünü kullanarak çeşitli arası Kiracı senaryoları desteklemek için nasıl kullanıldığını keşfetmek [Wingtip biletleri SaaS uygulamasına](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+Katalog Kiracı başına veritabanı sürümünü kullanarak çeşitli arası Kiracı senaryoları desteklemek için nasıl kullanıldığını keşfetmek [Wingtip biletleri SaaS uygulamasına](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

@@ -63,6 +63,10 @@
 ### [Dosya sıkıştırma](cdn-troubleshoot-compression.md)
 
 # Başvuru
+##  [Kural altyapısı başvurusu](cdn-rules-engine-reference.md)
+### [Kural altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
+### [Kural altyapısı eşleştirme koşulları](cdn-rules-engine-reference-match-conditions.md)
+### [Kural altyapısı özellikleri](cdn-rules-engine-reference-features.md)
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
@@ -70,10 +74,6 @@
 ## [REST](/rest/api/cdn/)
 
 # Kaynaklar
-##  [Kural Altyapısı başvurusu](cdn-rules-engine-reference.md)
-### [Kural Altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
-### [Kural Altyapısı özellikleri](cdn-rules-engine-reference-features.md)
-### [Kural Altyapısı eşleşme koşulları](cdn-rules-engine-reference-match-conditions.md)
 ## [Azure CDN POP konumları](cdn-pop-locations.md)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)

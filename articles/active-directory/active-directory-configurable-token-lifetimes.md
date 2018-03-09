@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) yapılandırılabilir belirteci yaşam süresi
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrü belirtebilirsiniz. Kuruluşunuzdaki tüm uygulamalar, kuruluşunuzda, çok kiracılı (çok kuruluş) uygulama veya belirli hizmet sorumlusu belirteci yaşam süresi ayarlayabilirsiniz.
@@ -34,6 +34,11 @@ Azure AD'de bireysel uygulamaları ya da bir kuruluşta tüm uygulamaları zorla
 
 Bir ilke, kuruluşunuz için varsayılan ilke olarak belirleyebilirsiniz. Yüksek önceliğe sahip bir ilke tarafından kılınmayan sürece kuruluştaki herhangi bir uygulama ilkesi uygulanır. Ayrıca, belirli uygulamalar için bir ilke atayabilirsiniz. Öncelik sırasını ilke türüne göre değişir.
 
+> [!NOTE]
+> Yapılandırılabilir belirteç ömrü ilkesi SharePoint Online için desteklenmiyor.  Bu ilke PowerShell aracılığıyla oluşturma olanağına sahip olsa da, SharePoint Online bu ilkeyi bildirecektir değil. Başvurmak [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) oturum boşta kalma zaman aşımı yapılandırma hakkında daha fazla bilgi edinmek için.
+>* SharePoint Online erişim belirteci için varsayılan yaşam süresi 1 saattir. 
+>* Varsayılan en fazla etkin olmayan zaman SharePoint Online yenileme belirteci 90 gündür.
+>
 
 ## <a name="token-types"></a>Belirteç türleri
 

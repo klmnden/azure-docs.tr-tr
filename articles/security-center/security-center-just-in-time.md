@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Tam zamanında (Önizleme) kullanarak sanal makine erişimini yönetme
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
 Yalnızca zaman sanal makine (VM) erişim gerektiğinde VM'ler bağlamak için kolay erişim sağlarken saldırılara maruz kalma azaltma, Azure vm'lerine gelen trafik kilitlemek için kullanılabilir.
 
 > [!NOTE]
-> Özellik önizlemededir zaman yalnızca ve Güvenlik Merkezi'nin standart katmanında kullanılabilir.  Bkz: [fiyatlandırma](security-center-pricing.md) Güvenlik Merkezi hakkında daha fazla katmanları fiyatlandırma öğrenin.
+> Yalnızca zamanında özellik Güvenlik Merkezi'nin standart katmanında mevcuttur.  Bkz: [fiyatlandırma](security-center-pricing.md) Güvenlik Merkezi hakkında daha fazla katmanları fiyatlandırma öğrenin.
 >
 >
 
@@ -33,7 +33,7 @@ Yalnızca zaman sanal makine (VM) erişim gerektiğinde VM'ler bağlamak için k
 
 Deneme yanılma saldırısı hedef yönetim noktaları VM erişmek için bir yol olarak sık saldırıları. Başarılı olursa, bir saldırganın VM üzerinden denetimini ele geçirmek ve bir açısından ortamınıza oluşturun.
 
-Saldırılarına maruz azaltmak için tek bir bağlantı noktasının açık olduğundan süre miktarını sınırlamak için bir yoludur. Yönetim bağlantı noktalarını her zaman açık olması gerekmez. Bunlar yalnızca VM Yönetimi veya bakım görevleri gerçekleştirmek örnek için bağlıyken açık olması gerekir. Tam zamanında etkinleştirilmişse, Güvenlik Merkezi kullanır [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) saldırganlar tarafından hedeflenemez, yönetim bağlantı noktalarına erişimi sınırlayan (NSG) kuralları.
+Saldırılarına maruz azaltmak için tek bir bağlantı noktasının açık olduğundan süre miktarını sınırlamak için bir yoludur. Yönetim bağlantı noktalarının her zaman açık olması gerekmez. Bunların yalnızca VM’ye bağlı olduğunuzda (örneğin, yönetim veya bakım görevleri gerçekleştirmek için) açık olması gerekir. Tam zamanında etkinleştirilmişse, Güvenlik Merkezi kullanır [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) saldırganlar tarafından hedeflenemez, yönetim bağlantı noktalarına erişimi sınırlayan (NSG) kuralları.
 
 ![Yalnızca zaman senaryoda][1]
 
@@ -60,14 +60,14 @@ Bir kullanıcı bir VM erişim istediğinde, Güvenlik Merkezi kullanıcının s
 
 ![Tam zamanında VM erişim döşeme][10]
 
-**Zaman VM Access'te yalnızca** Vm'leriniz durumu hakkında bilgi sağlar:
+**Tam zamanında VM erişimi**, VM’lerinizin durumu hakkında bilgiler sağlar:
 
-- **Yapılandırılmış** -yalnızca zaman VM erişimini desteklemek üzere yapılandırılmış VM'ler. Sunulan veriler son hafta ve her VM için onaylanan istekleri, son erişim tarihi ve saati ve son kullanıcı sayısını içerir.
-- **Önerilen** -Vm'lerini yalnızca süresi VM erişimi destekler ancak için yapılandırılmamış. Yalnızca zaman VM erişim denetimi bu VM'ler için etkinleştirmenizi öneririz. Bkz: [yalnızca bir yapılandırma saat erişim ilkesinde](#configuring-a-just-in-time-access-policy).
-- **Öneri yok** -önerilmez için bir VM neden nedenleri şunlardır:
-  - NSG - yalnızca eksik zamanında çözüm bir NSG yerinde olmasını gerektirir.
-  - Klasik VM - Güvenlik Merkezi'nde yalnızca zaman VM erişim şu anda yalnızca Azure Resource Manager aracılığıyla dağıtılan VM'ler destekler. Klasik dağıtım yalnızca tarafından desteklenmeyen zaman çözümde.
-  - Bu kategorideki diğer - bir VM olan ise yalnızca çözüm kapalı abonelik veya kaynak grubu ya da, güvenlik ilkesi zaman VM, bir ortak IP eksik ve bir NSG yerinde sahip değil.
+- **Yapılandırılan** - Tam zamanında VM erişimini destekleyecek şekilde yapılandırılmış VM’lerdir. Sunulan veriler son hafta ve her VM için onaylanan istekleri, son erişim tarihi ve saati ve son kullanıcı sayısını içerir.
+- **Önerilen** - Tam zamanında VM erişimini destekleyebilen ancak bunun için yapılandırılmamış VM’lerdir. Yalnızca zaman VM erişim denetimi bu VM'ler için etkinleştirmenizi öneririz. Bkz: [yalnızca bir yapılandırma saat erişim ilkesinde](#configuring-a-just-in-time-access-policy).
+- **Öneri olmayan** - Bir VM’nin önerilmemesinin olası nedenleri şunlardır:
+  - NSG yok - Tam zamanında erişim çözümü için NSG’nin mevcut olması gerekir.
+  - Klasik VM - Güvenlik Merkezi tam zamanında VM erişimi şu anda yalnızca Azure Resource Manager üzerinden dağıtılan VM’leri desteklemektedir. Klasik dağıtım yalnızca tarafından desteklenmeyen zaman çözümde.
+  - Diğer - Aboneliğin veya kaynak grubunun güvenlik ilkesinde tam zamanında erişim çözümü kapatılmışsa VM bu kategoridedir ya da bu kategorideki bir VM’de genel IP adresi eksik olabilir ve bir NSG mevcut olmayabilir.
 
 ## <a name="configuring-a-just-in-time-access-policy"></a>Yalnızca bir yapılandırma saat erişim ilkesinde
 

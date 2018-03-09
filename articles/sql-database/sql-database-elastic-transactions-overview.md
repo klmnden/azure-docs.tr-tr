@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 012fc38075285b898599517f3e6ed5a3c9eb854d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4441cdef3bc97aab35451720753e437e24702fd9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Bulut veritabanlarında dağıtılmış işlemler
 Esnek veritabanı işlemleri için Azure SQL veritabanı (SQL DB), SQL DB birkaç veritabanlarında span işlemleri çalıştırmanızı sağlar. Esnek veritabanı işlemleri için SQL DB ADO .NET kullanarak .NET uygulamaları için kullanılabilir ve tanıdık programlama deneyimi kullanarak ile tümleştirmek [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) sınıfları. Kitaplık almak için bkz: [.NET Framework 4.6.1 (Web Yükleyicisi)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -124,18 +124,18 @@ Esnek veritabanı işlemleri, Azure SQL veritabanında mantıksal farklı sunucu
 
 Esnek veritabanı işlemleri için sunucular arası iletişim ilişkilerini yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın:
 
-* **AzureRmSqlServerCommunicationLink yeni**: Azure SQL DB mantıksal iki sunucu arasında yeni bir iletişim ilişki oluşturmak için bu cmdlet'i kullanın. Her iki sunucuyu diğer sunucusuyla işlemler başlatabilir yani simetrik ilişkidir.
-* **Get-AzureRmSqlServerCommunicationLink**: Varolan iletişimi ilişkileri ve özellikleri almak için bu cmdlet'i kullanın.
-* **Remove-AzureRmSqlServerCommunicationLink**: varolan bir iletişim ilişkiyi kaldırmak için bu cmdlet'i kullanın. 
+* **New-AzureRmSqlServerCommunicationLink**: Use this cmdlet to create a new communication relationship between two logical servers in Azure SQL DB. Her iki sunucuyu diğer sunucusuyla işlemler başlatabilir yani simetrik ilişkidir.
+* **Get-AzureRmSqlServerCommunicationLink**: Use this cmdlet to retrieve existing communication relationships and their properties.
+* **Remove-AzureRmSqlServerCommunicationLink**: Use this cmdlet to remove an existing communication relationship. 
 
 ## <a name="monitoring-transaction-status"></a>İşlem durumunu izleme
 Dinamik Yönetim görünümlerini (Dmv'leri) SQL DB durumunu izleyin ve ilerleme durumunu, devam eden esnek veritabanı işlemleri için kullanın. İşlemler için ilgili tüm Dmv'leri SQL DB dağıtılmış işlemlere ilgilidir. Karşılık gelen listesini Dmv'leri burada bulabilirsiniz: [işlem ilgili dinamik yönetim görünümlerini ve işlevleri (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Bu Dmv'leri özellikle yararlı olur:
 
-* **sys.DM\_tran\_etkin\_işlemleri**: geçerli durumda etkin işlemlerin ve durumlarını listeler. UOW (iş birimi) sütun aynı dağıtılmış işlem ait farklı alt işlemleri tanımlayabilirsiniz. Tüm işlemler aynı dağıtılmış işlem dahilinde aynı UOW değeri taşır. Bkz: [DMV belgelerine](https://msdn.microsoft.com/library/ms174302.aspx) daha fazla ayrıntı için.
-* **sys.DM\_tran\_veritabanı\_işlemleri**: işlem günlüğünde yerleştirme gibi işlemleri hakkında ek bilgi sağlar. Bkz: [DMV belgelerine](https://msdn.microsoft.com/library/ms186957.aspx) daha fazla ayrıntı için.
-* **sys.DM\_tran\_kilitleri**: şu anda devam eden işlemler tarafından tutulan kilitleri hakkında bilgi sağlar. Bkz: [DMV belgelerine](https://msdn.microsoft.com/library/ms190345.aspx) daha fazla ayrıntı için.
+* **sys.dm\_tran\_active\_transactions**: Lists currently active transactions and their status. UOW (iş birimi) sütun aynı dağıtılmış işlem ait farklı alt işlemleri tanımlayabilirsiniz. Tüm işlemler aynı dağıtılmış işlem dahilinde aynı UOW değeri taşır. Bkz: [DMV belgelerine](https://msdn.microsoft.com/library/ms174302.aspx) daha fazla bilgi için.
+* **sys.dm\_tran\_database\_transactions**: Provides additional information about transactions, such as placement of the transaction in the log. Bkz: [DMV belgelerine](https://msdn.microsoft.com/library/ms186957.aspx) daha fazla bilgi için.
+* **sys.DM\_tran\_kilitleri**: şu anda devam eden işlemler tarafından tutulan kilitleri hakkında bilgi sağlar. Bkz: [DMV belgelerine](https://msdn.microsoft.com/library/ms190345.aspx) daha fazla bilgi için.
 
 ## <a name="limitations"></a>Sınırlamalar
 Aşağıdaki sınırlamalar şu anda SQL veritabanına esnek veritabanı işlemleri için geçerlidir:

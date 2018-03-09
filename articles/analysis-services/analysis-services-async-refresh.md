@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz Yenile
 REST çağrıları destekleyen herhangi bir programlama dili kullanarak, Azure Analysis Services tablolu modeller zaman uyumsuz veri yenileme işlemleri gerçekleştirebilir. Bu sorgu genişleme için salt okunur çoğaltmalarını eşitlenmesi içerir. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Tüm çağrılar yetkilendirme üst geçerli bir Azure Active Directory (OAuth 2) belirteçle kimliğinin doğrulanması gerekir ve aşağıdaki gereksinimleri karşılaması gerekir:
 
 - Belirteç, bir kullanıcı belirteci ya da bir uygulama hizmet sorumlusu olmalıdır.
-- Kullanıcı veya uygulama istenen arama yapmak için yeterli izinleri sunucuda veya model olmalıdır. İzin düzeyi, model veya sunucu üzerindeki yönetim grubu içinde rolleri tarafından belirlenir.
 - Belirteç kümesine doğru hedef kitle olmalıdır `https://*.asazure.windows.net`.
+- Kullanıcı veya uygulama istenen arama yapmak için yeterli izinleri sunucuda veya model olmalıdır. İzin düzeyi, model veya sunucu üzerindeki yönetim grubu içinde rolleri tarafından belirlenir.
+
+    > [!IMPORTANT]
+    > Şu anda **sunucu yöneticisinin** rolü izinleri gereklidir.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

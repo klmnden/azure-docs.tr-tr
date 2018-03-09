@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 033d696f0d219fef66b4acd523f28a35afcf9929
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8558593633de47ce67adbfe28dc8973fd21f1a4b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Sanal Ağ eşlemesi bir - farklı oluşturmak dağıtım modelleri, aynı abonelik 
 
@@ -29,7 +29,7 @@ Sanal ağlar aynı ya da farklı olup, abonelikleri ve hangi bağlı olarak fark
 
 |Azure dağıtım modeli  | Azure aboneliği  |
 |--------- |---------|
-|[Her iki kaynak yöneticisi](virtual-network-create-peering.md) |Aynı|
+|[Her iki kaynak yöneticisi](tutorial-connect-virtual-networks-portal.md) |Aynı|
 |[Her iki kaynak yöneticisi](create-peering-different-subscriptions.md) |Fark|
 |[Bir kaynak yöneticisi, bir Klasik](create-peering-different-deployment-models-subscriptions.md) |Fark|
 

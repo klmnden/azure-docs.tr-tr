@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -92,7 +92,7 @@ Windows Server'ın gelecek sürümleri yayımlanır yayımlanmaz eklenecektir. W
 | Yeniden ayrıştırma noktaları | Atlandı | |
 | NTFS sıkıştırması | Tam olarak desteklenir | |
 | Seyrek dosyalar | Tam olarak desteklenir | Seyrek dosyalar eşitleme (engellenmez), ancak bir tam dosya olarak buluta eşitlemenin. Dosya içeriğini bulutta (veya başka bir sunucuda) değiştirirseniz, değişikliğin yüklendiğinde artık seyrek dosyasıdır. |
-| Alternatif veri akışlarını (ADS) | Korunur, ancak eşitlendi | |
+| Alternatif veri akışlarını (ADS) | Korunur, ancak eşitlendi | Örneğin, dosya sınıflandırma altyapısı tarafından oluşturulan sınıflandırma etiketlerini eşitlenmedi. Dosyaları her sunucu uç noktaları var olan sınıflandırma etiketlerini dokunulmadan kalır. |
 
 > [!Note]  
 > Yalnızca NTFS birimleri desteklenir. ReFS, FAT, FAT32 ve diğer dosya sistemleri desteklenmez.
@@ -142,7 +142,7 @@ Virüsten koruma çözümleri gibi yedekleme çözümleri katmanlı dosyaların 
 Şifreleme çözümleri için destek nasıl uygulanana üzerinde bağlıdır. Azure dosya eşitleme çalışmak bilinmektedir:
 
 - BitLocker şifrelemesi
-- Azure Rights Management Services (Azure RMS) (ve eski Active Directory RMS)
+- Azure Information Protection, Azure Rights Management Services (Azure RMS) ve Active Directory RMS
 
 Azure dosya eşitleme ile çalışmıyor bilinmektedir:
 

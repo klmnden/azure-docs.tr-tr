@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2018
+ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22c20a26ee4750c79c23fbba69de72a0084dfe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT protokolünü kullanarak, IOT hub ile iletişim
 
@@ -100,6 +100,8 @@ Bir aygıt cihaz SDK'ları kullanamıyorsanız, bağlantı noktası 8883 MQTT pr
 
 İçin MQTT bağlanmak ve paketleri bağlantısını kesmek, IOT hub'ı üzerinde bir olay sorunları **işlemlerini izleme** kanal. Bu olay, bağlantı sorunları gidermenize yardımcı olabilecek ek bilgi yok.
 
+Cihaz uygulaması belirtebilirsiniz bir **olacak** içinde ileti **BAĞLAN** paket. Cihaz uygulaması kullanması gereken `devices/{device_id}/messages/events/{property_bag}` veya `devices/{device_id}/messages/events/{property_bag}` olarak **olacak** tanımlamak için konu adı **olacak** bir telemetri iletisi olarak iletilecek iletileri. Bu durumda, ağ bağlantısı kapalı ise, ancak bir **Bağlantıyı Kes** paket daha önce aygıttan alınmadı ardından IOT hub'ı gönderen **olacak** ileti sağlanan **BAĞLAN** telemetri kanal paket. Telemetri kanal ya da varsayılan olabilir **olayları** uç noktası veya yönlendirme IOT Hub tarafından tanımlanan özel bir uç nokta. İleti **ıothub MessageType** özellik değerini **olacak** atanmış.
+
 ### <a name="tlsssl-configuration"></a>TLS/SSL yapılandırma
 
 Kullanılacak MQTT protokol doğrudan istemci *gerekir* TLS/SSL üzerinden. Bu adımı atlayın girişimleri bağlantı hataları ile başarısız olur.
@@ -165,7 +167,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > [!NOTE]
 > Bu `{property_bag}` öğesini kullanan sorgu dizeleri HTTPS protokolü için olduğu gibi aynı kodlama.
 
-Cihaz uygulaması de kullanabilirsiniz `devices/{device_id}/messages/events/{property_bag}` olarak **Will konu adı** tanımlamak için *iletilerini* bir telemetri iletisi olarak iletilir.
+IOT hub'ı uygulamaya özel davranışları listesi aşağıdadır:
 
 * IOT hub'ı QoS 2 iletileri desteklemez. Cihaz uygulaması içeren bir ileti yayımlarsa **QoS 2**, IOT hub'ı ağ bağlantıyı kapatır.
 * IOT hub'ı tut iletileri kalmaz. Bir cihaz içeren bir ileti gönderirse **TUT** bayrağı, IOT hub'ı ekler 1 olarak ayarlayın **x-opt-korumak** iletisi uygulama özelliği. Bu durumda, tut ileti kalıcı yerine IOT hub'ı, arka uç uygulamaya geçirir.

@@ -3,8 +3,8 @@ title: "Azure yığın uygulama hizmeti dağıtmadan önce | Microsoft Docs"
 description: "Azure yığın uygulama hizmeti dağıtmadan önce tamamlamak için adımlar"
 services: azure-stack
 documentationcenter: 
-author: brenduns
-manager: femila
+author: apwestgarth
+manager: stefsch
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: brenduns
-ms.reviewer: anwestg
-ms.openlocfilehash: 27f0255c023382a14368915b0d19a49d133154d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/02/2018
+ms.author: anwestg
+ms.openlocfilehash: f400180bc71efc6766b73b098c1f82542eec86f7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure yığın uygulama hizmeti ile çalışmaya başlamadan önce
+
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 Azure uygulama hizmeti Azure yığında dağıtmadan önce bu makaledeki önkoşulları tamamlamanız gerekir.
@@ -44,10 +44,18 @@ Azure uygulama hizmeti Azure yığında dağıtmadan önce bu makaledeki önkoş
 
 Yalnızca bir hata etki alanı iş yüklerinin Azure yığın dağıtır olduğundan Azure yığında azure uygulama hizmeti şu anda yüksek oranda kullanılabilirlik sunamazlar.
 
-Azure uygulama hizmeti Azure yığında yüksek kullanılabilirlik için hazırlamak üzere gerekli dosya sunucusu ve SQL Server örneği yüksek oranda kullanılabilir bir yapılandırmada dağıtın. Azure yığın birden çok hata etki alanlarını desteklediğinde, biz Azure uygulama hizmeti Azure yığında yüksek oranda kullanılabilir bir yapılandırmada etkinleştirme hakkında kılavuzluk sağlar.
-
+Azure uygulama hizmeti Azure yığında yüksek kullanılabilirlik için hazırlamak üzere gerekli dosya sunucusu ve SQL Server örneği yüksek oranda kullanılabilir bir yapılandırmada dağıtın. Azure yığın birden çok hata etki alanlarını desteklediğinde, yüksek oranda kullanılabilir bir yapılandırmada Azure uygulama hizmeti Azure yığında etkinleştirme yönergeleri sağlanacaktır.
 
 ## <a name="get-certificates"></a>Sertifikaları alma
+
+### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure yığını için Azure Resource Manager kök sertifikası
+
+Azure yığın tümleşik sistem veya Azure yığın Geliştirme Seti ana bilgisayarda ayrıcalıklı endpoint ulaşabileceği bir makinede azurestack\CloudAdmin çalışan bir PowerShell oturumunda, Get-AzureStackRootCert.ps1 betiği ayıkladığınız klasöründen çalıştırın. yardımcı betikler. Betik uygulama hizmeti sertifikaları oluşturmak için gereken komut dosyası ile aynı klasörde bir kök sertifikası oluşturun.
+
+| Get-AzureStackRootCert.ps1 parameter | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
+| --- | --- | --- | --- |
+| PrivilegedEndpoint | Gerekli | AzS-ERCS01 | Ayrıcalıklı uç noktası |
+| CloudAdminCredential | Gerekli | AzureStack\CloudAdmin | Etki alanı hesabı kimlik bilgileri Azure yığın bulut yöneticileri |
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Azure yığın Geliştirme Seti için gerekli sertifikalar
 
@@ -56,9 +64,9 @@ Azure uygulama hizmeti Azure yığında yüksek kullanılabilirlik için hazırl
 | Dosya adı | Kullanım |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | Uygulama hizmeti varsayılan SSL sertifikası |
-| Api.appservice.local.azurestack.external.pfx | App Service API SSL sertifikası |
+| api.appservice.local.azurestack.external.pfx | App Service API SSL sertifikası |
 | ftp.appservice.local.azurestack.external.pfx | Uygulama hizmeti yayımcı SSL sertifikası |
-| Sso.appservice.local.azurestack.external.pfx | Uygulama hizmeti kimliği uygulama sertifika |
+| sso.appservice.local.azurestack.external.pfx | Uygulama hizmeti kimliği uygulama sertifika |
 
 Azure yığın Geliştirme Seti konakta komut dosyasını çalıştırın ve PowerShell azurestack\CloudAdmin çalıştırdığınızdan emin olun:
 
@@ -74,18 +82,19 @@ Azure yığın Geliştirme Seti konakta komut dosyasını çalıştırın ve Pow
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Azure uygulama hizmeti Azure yığında Üretim dağıtımı için gerekli sertifikalar
 
-Üretim kaynak sağlayıcısındaki çalıştırmak için aşağıdaki dört sertifikaları sağlamanız gerekir.
+Üretim kaynak sağlayıcısındaki çalıştırmak için aşağıdaki dört sertifikaları belirtmeniz gerekir:
 
 #### <a name="default-domain-certificate"></a>Varsayılan etki alanı sertifikası
 
 Varsayılan etki alanı sertifikası ön uç rolüne yerleştirilir. Azure App Service'e kullanıcı uygulamaları joker veya varsayılan etki alanı istekleri için bu sertifikayı kullanın. Sertifika Ayrıca kaynak denetimi işlemleri (Kudu) için kullanılır.
 
-Sertifika .pfx biçiminde olmalıdır ve iki konulu bir joker sertifika olmalıdır. Bu, hem varsayılan etki alanı hem de kaynak denetimi işlemleri için SCM uç noktasının karşılamak üzere bir sertifika sağlar.
+Sertifika .pfx biçiminde olmalıdır ve üç konulu bir joker sertifika olmalıdır. Bu, hem varsayılan etki alanı hem de kaynak denetimi işlemleri için SCM uç noktasının karşılamak üzere bir sertifika sağlar.
 
 | Biçim | Örnek |
 | --- | --- |
 | \*.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
+| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API sertifika
 
@@ -101,11 +110,12 @@ API sertifika yönetim rolünü yerleştirilir. Kaynak sağlayıcısı güvenli 
 
 | Biçim | Örnek |
 | --- | --- |
-| FTP.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | api.appservice.redmond.azurestack.external |
+| FTP.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>Kimlik sertifikası
 
 Kimlik uygulama için sertifika sağlar:
+
 - Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) dizin, Azure yığını ve uygulama hizmeti işlem kaynak sağlayıcısı ile tümleştirmeyi desteklemek arasında tümleştirme.
 - Çoklu oturum açma senaryoları için Azure yığında Azure App Service içinde Gelişmiş geliştirici araçları.
 
@@ -115,15 +125,15 @@ Sertifika kimliği şu biçimde eşleşen bir konu içermelidir:
 | --- | --- |
 | SSO.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | sso.appservice.redmond.azurestack.external |
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure yığını için Azure Resource Manager kök sertifikası
+## <a name="virtual-network"></a>Sanal Ağ
 
-Azurestack\CloudAdmin çalışan bir PowerShell oturumunda, Get-AzureStackRootCert.ps1 komut dosyası Yardımcısı betikleri ayıkladığınız klasöründen çalıştırın. Komut dosyası, uygulama hizmeti sertifikaları oluşturmak için gereken komut dosyası ile aynı klasörde dört sertifikaları oluşturur.
+Azure uygulama hizmeti Azure yığında kaynak sağlayıcısı var olan bir sanal ağ dağıtmanızı sağlar.  Bu dosya sunucusu ve Azure App Service Azure yığında gerektirdiği SQL Server'a bağlanmak için iç IP'leri kullanımını etkinleştirir.  Sanal ağ aşağıdaki adres aralığı ve alt ağları ile Azure uygulama hizmeti Azure yığında yüklemeden önce yapılandırılması gerekir:
 
-| Get-AzureStackRootCert.ps1 parameter | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
-| --- | --- | --- | --- |
-| PrivelegedEndpoint | Gerekli | AzS-ERCS01 | Ayrıcalıklı uç noktası |
-| CloudAdminCredential | Gerekli | AzureStack\CloudAdmin | Etki alanı hesabı kimlik bilgileri Azure yığın bulut yöneticileri |
+Sanal ağ - /16
 
+Alt ağlar
+
+ControllersSubnet /24 ManagementServersSubnet /24 FrontEndsSubnet /24 PublishersSubnet /24 WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Dosya sunucusu hazırlayın
 
@@ -131,8 +141,11 @@ Azure uygulama hizmeti bir dosya sunucusu kullanılmasını gerektirir. Üretim 
 
 Yalnızca Azure yığın Geliştirme Seti dağıtımları için kullandığınız [örnek Azure Resource Manager dağıtım şablonu](https://aka.ms/appsvconmasdkfstemplate) yapılandırılmış tek düğümlü dosya sunucusu dağıtmak için. Tek düğümlü dosya sunucusu bir çalışma grubunda olacaktır.
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>Gruplar ve hesaplar Active Directory'de sağlama
+>[!IMPORTANT]
+> App Service içinde varolan bir sanal ağı dağıtmak seçerseniz, dosya sunucusu ayrı bir alt uygulama hizmetinden içine dağıtılmalıdır.
+>
 
+### <a name="provision-groups-and-accounts-in-active-directory"></a>Gruplar ve hesaplar Active Directory'de sağlama
 
 1. Aşağıdaki Active Directory genel güvenlik gruplarını oluşturun:
    - FileShareOwners
@@ -216,6 +229,7 @@ net localgroup Administrators FileShareOwners /add
 Aşağıdaki komutlar, dosya sunucusunda veya geçerli küme kaynak sahibi yük devretme kümesi düğümünde yükseltilmiş bir komut isteminde çalıştırın. İtalik değerleri ortamınıza özgü değerlerle değiştirin.
 
 #### <a name="active-directory"></a>Active Directory
+
 ```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=C:\WebSites
@@ -228,6 +242,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Çalışma grubu
+
 ```DOS
 set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
@@ -250,15 +265,21 @@ SQL Server örneği Azure yığında Azure App Service için tüm uygulama hizme
 
 SQL Server rollerini birini için varsayılan bir örnek veya adlandırılmış bir örnek kullanabilirsiniz. Adlandırılmış bir örnek kullanırsanız, el ile SQL Server Browser hizmetini başlatmak ve bağlantı noktası 1434 açmak emin olun.
 
+>[!IMPORTANT]
+> App Service içinde varolan bir sanal ağı dağıtmak isterseniz SQL Server uygulama hizmeti ve dosya sunucusu ayrı bir alt ağ içinde dağıtılmalıdır.
+>
+
 ## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory Uygulama oluşturma
 
 Aşağıdakileri desteklemek için bir Azure AD hizmet sorumlusu yapılandırın:
-- Üzerinde çalışan katmanları tümleştirme sanal makine ölçek kümesi
-- SSO için Azure işlevleri portal ve Gelişmiş geliştirici araçları
+
+- Sanal makine ölçek tümleştirme üzerinde çalışan katmanları ayarlayın.
+- SSO için Azure işlevleri Geliştirici Portalı ve Gelişmiş araçlar.
 
 Bu adımlar, yalnızca Azure AD güvenlikli Azure yığın ortamlar için geçerlidir.
 
 Yöneticiler için SSO yapılandırmanız gerekir:
+
 - Uygulama Hizmeti (Kudu) içinde Gelişmiş geliştirici araçları sağlar.
 - Azure işlevleri portal deneyimi kullanımını etkinleştirin.
 
@@ -276,7 +297,8 @@ Yöneticiler için SSO yapılandırmanız gerekir:
 10. Seçin **uygulama kayıtlar**.
 11. Adım 7 bir parçası olarak döndürülen uygulama kimliği arayın. Bir uygulama hizmeti uygulaması listelenir.
 12. Seçin **uygulama** listesinde.
-13. Seçin **gerekli izinleri** > **izinleri verin** > **Evet**.
+13. Tıklatın **ayarları**.
+14. Seçin **gerekli izinleri** > **izinleri verin** > **Evet**.
 
 | Create-AADIdentityApp.ps1  parameter | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
@@ -290,10 +312,12 @@ Yöneticiler için SSO yapılandırmanız gerekir:
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federasyon Hizmetleri uygulama oluşturma
 
 AD FS tarafından güvenliği sağlanan Azure yığın ortamlar için aşağıdakileri desteklemek için bir AD FS hizmet sorumlusu yapılandırmanız gerekir:
-- Üzerinde çalışan katmanları tümleştirme sanal makine ölçek kümesi
-- SSO için Azure işlevleri portal ve Gelişmiş geliştirici araçları
+
+- Sanal makine ölçek tümleştirme üzerinde çalışan katmanları ayarlayın.
+- SSO için Azure işlevleri Geliştirici Portalı ve Gelişmiş araçlar.
 
 Yöneticiler için SSO yapılandırmanız gerekir:
+
 - Sanal makine ölçek kümesi tümleştirmesi için bir hizmet sorumlusu üzerinde çalışan katmanları yapılandırın.
 - Uygulama Hizmeti (Kudu) içinde Gelişmiş geliştirici araçları sağlar.
 - Azure işlevleri portal deneyimi kullanımını etkinleştirin.
@@ -303,9 +327,9 @@ Yöneticiler için SSO yapılandırmanız gerekir:
 1. Bir PowerShell örneği azurestack\AzureStackAdmin açın.
 2. Yüklediğiniz ve içinde ayıklanan komut dosyalarının konumuna gidin [önkoşul adım](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [PowerShell için Azure Yığın Yükle](azure-stack-powershell-install.md).
-4.  Çalıştırma **oluşturma ADFSIdentityApp.ps1** komut dosyası.
-5.  İçinde **kimlik bilgisi** penceresinde, AD FS bulut yönetici hesabı ve parolasını girin. **Tamam**’ı seçin.
-6.  Sertifika dosyası yolu ve sertifika parolasını sağlamak [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Varsayılan olarak bu adım için oluşturulan sertifika **sso.appservice.local.azurestack.external.pfx**.
+4. Çalıştırma **oluşturma ADFSIdentityApp.ps1** komut dosyası.
+5. İçinde **kimlik bilgisi** penceresinde, AD FS bulut yönetici hesabı ve parolasını girin. **Tamam**’ı seçin.
+6. Sertifika dosyası yolu ve sertifika parolasını sağlamak [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Varsayılan olarak bu adım için oluşturulan sertifika **sso.appservice.local.azurestack.external.pfx**.
 
 | Oluşturma ADFSIdentityApp.ps1 parametresi | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
@@ -314,7 +338,6 @@ Yöneticiler için SSO yapılandırmanız gerekir:
 | CloudAdminCredential | Gerekli | Null | Etki alanı hesabı Azure yığın bulut admins kimlik bilgileri. Azurestack\CloudAdmin örneğidir. |
 | CertificateFilePath | Gerekli | Null | Kimlik uygulamanın Sertifika PFX dosyasının yolu. |
 | CertificatePassword | Gerekli | Null | Parola sertifika özel anahtarı korumaya yardımcı olur. |
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

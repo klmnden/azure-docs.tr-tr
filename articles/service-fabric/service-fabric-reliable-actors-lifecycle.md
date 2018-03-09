@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: d49afd9e5cfe80ddc2d919c76eaa0cb168280c15
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktör yaşam döngüsü, otomatik çöp toplama ve el ile silme
 Bir oyuncu yöntemlerinden herhangi biri için bir çağrı yapılır ilk kez etkinleştirilir. Bir oyuncu devre dışı bırakılmış (Çöp aktörler çalışma zamanı tarafından toplanan) ise yapılandırılabilir bir süre için kullanılmaz. Bir aktör ve durumu da el ile herhangi bir zamanda silinebilir.
@@ -48,7 +48,7 @@ Bir oyuncu devre dışı bırakıldığında aktör nesne başvuruları yayımla
 Ne "devre dışı bırakma ve atık toplama amacıyla kullanılan olarak" sayar?
 
 * Çağrı Alma
-* `IRemindable.ReceiveReminderAsync`(yalnızca aktör anımsatıcıları kullanıyorsa geçerlidir) çağrılan yöntemi
+* `IRemindable.ReceiveReminderAsync` (yalnızca aktör anımsatıcıları kullanıyorsa geçerlidir) çağrılan yöntemi
 
 > [!NOTE]
 > Aktör zamanlayıcılar kullanıyorsa ve Zamanlayıcı geri çağırma çağrılır, mevcut **değil** "kullanılan" olarak sayısı.
@@ -136,7 +136,7 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 
 Bir oyuncu silme aktör şu anda etkin olan olup olmadığına bağlı olarak aşağıdaki etkileri gösterir:
 
-* **Etkin aktör**
+* **Active Actor**
   * Aktör etkin aktörler listesinden kaldırılır ve devre dışı bırakılır.
   * Durumu kalıcı olarak silinir.
 * **Etkin olmayan aktör**
@@ -150,7 +150,7 @@ Bir oyuncu çağrılamıyor Not Sil aktör yöntemlerinden birini kendisinden ak
 * [Aktör yeniden giriş](service-fabric-reliable-actors-reentrancy.md)
 * [Aktör tanılama ve performans izleme](service-fabric-reliable-actors-diagnostics.md)
 * [Aktör API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# örnek kod](https://github.com/Azure/servicefabric-samples)
+* [C# örnek kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java örnek kod](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

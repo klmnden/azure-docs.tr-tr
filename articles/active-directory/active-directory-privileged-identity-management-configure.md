@@ -3,7 +3,7 @@ title: "Azure AD Privileged Identity Management yapılandırma | Microsoft Docs"
 description: "Azure AD Privileged Identity Management nedir ve PIM bulut güvenliğinizi artırmak için nasıl kullanılacağını açıklayan bir konu."
 services: active-directory
 documentationcenter: 
-author: barclayn
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
@@ -12,21 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
-ms.author: barclayn
+ms.date: 03/07/2018
+ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 94855cf102764532fa0a6718541beffe93230fd1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
 Azure Active Directory (AD) Privileged Identity Management sayesinde kuruluşunuz içindeki erişimi yönetebilir, denetleyebilir ve izleyebilirsiniz. Bu kaynaklara erişimi Azure AD, Azure kaynakları (Önizleme) içerir ve diğer Microsoft Online Services ister Office 365 veya Microsoft Intune.
 
 > [!NOTE]
-> Azure Active Directory Premium P2 sürümü Yöneticilerinizle lisans privileged Identity Management kuruluşunuz için kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
+> Privileged Identity Management'ı kiracınız için etkinleştirdiğinizde, geçerli Azure AD Premium P2 veya Enterprise Mobility + güvenlik E5 ücretli veya deneme lisansı ile etkileşime giren veya hizmetinden bir avantajı alan her kullanıcı için gereklidir. Örnekler kullanıcıları/kullanıcılar > olan bir grup:
+>
+>- Ayrıcalıklı rol yöneticisi rolüne atanan 
+>- PIM yönetilebilir diğer dizin rollere uygun atanmış 
+>- PIM istekleri Onayla/Reddet yapılamıyor 
+>- Bir kez veya doğrudan (zaman tabanlı) atamaları yalnızca Azure kaynak rolüne atanan  
+>- Atanmış bir erişim gözden geçirme
+>
+>Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
 
 Kuruluşlar, çünkü bu erişim alma kötü niyetli bir kullanıcı ya da yanlışlıkla hassas kaynak etkileyen yetkili bir kullanıcı olasılığını azaltır bilgi veya kaynaklarını güvenli hale getirmek için erişime sahip kişilerin sayısını en aza indirmek istediğiniz.  Ancak, kullanıcılar hala Azure AD'de ayrıcalıklı işlemleri gerçekleştirmek gereken Azure, Office 365 ya da SaaS uygulamaları. Kuruluşlar, abonelikleri ve Azure AD gibi Azure kaynakları için kullanıcılar ayrıcalıklı erişim verebilirsiniz. Yönetici ayrıcalıklarını bu kullanıcıların ne yaptıklarını gözetim gerek yoktur. Azure AD Privileged Identity Management erişim hakları kötüye kullanımını veya aşırı, gereksiz riskini azaltmaya yardımcı olur.
 
@@ -54,7 +62,7 @@ Azure AD Privileged Identity Management kullanmaya başlayabilmeniz için [Azure
 
 1. [Azure portalında](https://portal.azure.com/) dizininizin genel yöneticisi olarak oturum açın.
 2. Kuruluşunuz birden fazla dizine sahipse Azure portalının sağ üst köşesinde kullanıcı adınızı seçin. Azure AD Privileged Identity Management burada kullanacağı dizini seçin.
-3. Seçin **tüm hizmetleri** ve aramak için filtre textbox kullanın **Azure AD Privileged Identity Management**.
+3. **Tüm hizmetler** seçeneğini belirleyin ve **Azure AD Privileged Identity Management** araması yapmak için Filtre metin kutusunu kullanın.
 4. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur**’a tıklayın. Privileged Identity Management uygulaması açılır.
 
 Dizininizde Azure AD Privileged Identity Management kullanmak için ilk kişi olduğunuz ve Azure AD directory rollere gidin ve Azure AD directory rollere gidin bir [Güvenlik Sihirbazı](active-directory-privileged-identity-management-security-wizard.md) ilk yol gösterir atama deneyimi. Bundan sonra otomatik olarak hale ilk **Güvenlik Yöneticisi** ve **ayrıcalıklı Rol Yöneticisi** dizin.

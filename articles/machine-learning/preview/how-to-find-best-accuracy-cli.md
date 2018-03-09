@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
+ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>En iyi doğruluk ve en düşük süre Bul çalıştırır
 Birden çok çalıştırır göz önüne alındığında, bir kullanım örneği çalıştırır ile en iyi doğruluğu bulmaktır. İle komut satırı arabirimi (CLI) kullanmak üzere bir yaklaşım ise bir [JMESPath](http://jmespath.org/) sorgu. Azure CLI JMESPath kullanma hakkında daha fazla bilgi için bkz: [Azure CLI 2.0 kullanmak JMESPath sorgularıyla](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). Aşağıdaki örnekte, dört çalıştırır 0, 0,98, 1 ve 1 doğruluğu değerlerle oluşturulur. Çalıştırır aralığında olmaları durumunda filtrelenir `[MaxAccuracy-Threshold, MaxAccuracy]` burada `Threshold = .03`.
@@ -58,7 +58,7 @@ Bu max doğruluk değeri kullanılarak `1` ve bir eşik değerini `0.03`, ikinci
 az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
 ```
 > [!NOTE]
-> Kesin bir üst sınır onay istiyorsanız, sorgu biçimidir``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
+> Kesin bir üst sınır onay istiyorsanız, sorgu biçimidir ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
 
 PowerShell'i kullanırsanız, aşağıdaki kod yerel değişkenler eşik ve max doğruluğu depolamak için kullanır:
 ```powershell

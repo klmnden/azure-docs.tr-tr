@@ -1,6 +1,6 @@
 ---
 title: "Azure ağı güvenlik özellikleri ile kişisel verileri koruma | Microsoft Docs"
-description: "Azure ağı güvenlik özellikleri kullanarak kişisel verilerini koruma"
+description: "Azure ağı güvenlik özellikleri kullanarak kişisel verileri koruyun. Bu genel veri koruma düzenleme (GDPR) ile uyum sağlamak için kullanılabilir"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Ağ güvenlik özellikleri ile kişisel verileri koruma: Azure uygulama ağ geçidi ve ağ güvenlik grupları
 
-Bu makalede bilgiler sağlar ve yardımcı olacak yordamlar kişisel verilerinizi korumak için Azure uygulama ağ geçidi ve ağ güvenlik grupları kullanın.
+Bu makalede bilgiler sağlar ve yardımcı olacak yordamlar kişisel verilerinizi korumak için Azure uygulama ağ geçidi ve ağ güvenlik grupları kullanın. Bu bilgiler genel veri koruma düzenleme (GDPR) ile uyumlu çabalarına yardımcı olabilir.
 
 Kişisel verilerin gizliliği korumak için çok katmanlı güvenlik stratejisinin önemli bir öğedeki SQL ekleme veya siteler arası komut dosyası gibi ortak güvenlik açıklarına karşı savunma ' dir. İstenmeyen ağ trafiğini tutulması dışında Azure sanal ağ hassas verileri olası riski belirtebilen karşı korur ve Microsoft Azure, verilerinizi saldırganlara karşı korumaya yardımcı olan araçlar sağlar.
 

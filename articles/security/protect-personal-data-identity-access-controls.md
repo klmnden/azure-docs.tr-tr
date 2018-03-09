@@ -1,6 +1,6 @@
 ---
 title: "Kişisel veriler Azure kimlik ve erişim denetimleri ile koruma | Microsoft Docs"
-description: "Azure kimlik ve erişim kullanarak kişisel verilerinizin korunmasına yardımcı olmak için kontrol eder"
+description: "Azure kimlik ve erişim denetimleri kişisel verileri korumak ve genel veri koruma düzenleme (GDPR) ile uymak yardımcı olabilecek Yardım"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory ve çok faktörlü kimlik doğrulaması: kimlik ve erişim denetimleri ile kişisel verileri koruma
 
-Bu makale, bilgi ve Azure Active Directory ve çok faktörlü kimlik doğrulama güvenlik özellikleri ve Hizmetleri kullanarak kişisel verilerinizi korumak için kullanabileceğiniz yordamları sağlar.
+Bu makale, bilgi ve Azure Active Directory ve çok faktörlü kimlik doğrulama güvenlik özellikleri ve Hizmetleri kullanarak kişisel verilerinizi korumak için kullanabileceğiniz yordamları sağlar. Bu makalede yer alan bilgileri, genel veri koruma düzenleme (GDPR) ile uyumlu olacak şekilde çalışmalarını yararlı olabilir.
 
 ## <a name="scenario"></a>Senaryo
 

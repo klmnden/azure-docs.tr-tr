@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.openlocfilehash: b22307ee0cade40370b096ee49bb15dcfd2f0071
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3da41adfa0865c0741c61b5d15c3ef1741eb6118
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL veritabanı müşteri uygulaması teknik incelemeleri
 
@@ -33,8 +33,8 @@ ms.lasthandoff: 10/31/2017
 
 - [Çekirdek](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database): çekirdek % 70'sql Database tarafından DTU düşürürken anahtar veritabanının iş yükü Katlar.
 
-- [İsteği](https://customers.microsoft.com/en-US/story/quest): rtifika kendi Spotlight bir hedefi aklınıza tutarak ile SQL Server Enterprise hizmeti sunar: veritabanı uzmanları için en iyi aracı veri güvenliğini sağlamak için geçici verileri taşıma ve veritabanı işlemleri izleme vermek için. Microsoft Azure ve Azure SQL veritabanını kullanarak Spotlight ile SQL Server Veritabanı yöneticileri izleyebilir, algılamak, tanılama ve kendi masalarını durduğunu olduğunuz veya evden çalışan SQL Server performans sorunları çözmek için bir yol sağlar.
+- [İsteği](https://customers.microsoft.com/story/quest): rtifika kendi Spotlight bir hedefi aklınıza tutarak ile SQL Server Enterprise hizmeti sunar: veritabanı uzmanları için en iyi aracı veri güvenliğini sağlamak için geçici verileri taşıma ve veritabanı işlemleri izleme vermek için. Microsoft Azure ve Azure SQL veritabanını kullanarak Spotlight ile SQL Server Veritabanı yöneticileri izleyebilir, algılamak, tanılama ve kendi masalarını durduğunu olduğunuz veya evden çalışan SQL Server performans sorunları çözmek için bir yol sağlar.
 
-- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): en iyi yöntemler ve müşterilere tam olarak yönetilen bir yazılım olarak sunmak için Azure SQL veritabanına geçirme işlemleri ürün ekibinin deneyimi Dynamics 365'ten öğrenilen dersler kısa Bu örnek olay incelemesi vurgular sunumu bir hizmet (SaaS). Azure SQL veritabanı kullanarak, işletim ekibi Dynamics 365 yönetebilir ve önemli ölçüde daha az personel hizmetiyle çalışır ve otomatik veritabanı yedeklemeyi, veritabanı yedekleme bekletme gibi giden kutusu yönetilebilirlik özellikleri ile kolayca ölçeklendirme , yüksek kullanılabilirlik ve olağanüstü durum kurtarma özellikleri. Bu Önemsiz Otomasyon veritabanlarıyla sağlama yeteneği yanı sıra, Azure SQL veritabanı konumu büyük ölçekli hizmetler kurmak için harika bir platform olmaya ödünç.
+- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): en iyi yöntemler ve müşterilere tam olarak yönetilen bir yazılım olarak sunmak için Azure SQL veritabanına geçirme işlemleri ürün ekibinin deneyimi Dynamics 365 gelen öğrenilen dersler kısa Bu örnek olay incelemesi vurgular sunumu bir hizmet (SaaS). Azure SQL veritabanı kullanarak, işletim ekibi Dynamics 365 yönetebilir ve önemli ölçüde daha az personel hizmetiyle çalışır ve otomatik veritabanı yedeklemeyi, veritabanı yedekleme bekletme gibi giden kutusu yönetilebilirlik özellikleri ile kolayca ölçeklendirme , yüksek kullanılabilirlik ve olağanüstü durum kurtarma özellikleri. Bu Önemsiz Otomasyon veritabanlarıyla sağlama yeteneği yanı sıra, Azure SQL veritabanı konumu büyük ölçekli hizmetler kurmak için harika bir platform olmaya ödünç.
 
 - [Microsoft OneDrive ve SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states): kısa Bu örnek olay incelemesi taşıyın Microsoft OneDrive ve SharePoint Online'nın arkasında Öykü Azure SQL veritabanına bildirir ve bu geçiş neredeyse sınırsız Esnek Kapasite yönetiminin nasıl etkin açıklar Ayrıca önemli ölçüde işlem maliyetleri ve altyapı ek yükünü azaltırken.

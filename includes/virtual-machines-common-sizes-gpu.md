@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/01/2018
+ms.date: 03/05/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 34b38ff02d401e87be10f1f72cb2025b66317c9e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8614fa7a52c91419c66782f7434692228e6b18d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 GPU en iyi duruma getirilmiş VM ile tek veya birden çok NVIDIA GPU kullanılabilir özelleştirilmiş sanal makineler boyutlarıdır. Bu boyutlar işlem yoğunluklu, grafik yoğun ve görselleştirme iş yükleri için tasarlanmıştır. Bu makale numarası ve gpu, Vcpu, veri diskleri ve NIC yanı sıra depolama üretilen iş ve ağ bant genişliğini her boyutu Bu gruplandırma türü hakkında bilgi sağlar. 
 
@@ -95,14 +95,16 @@ ND-serisi sanal makine AI ve derin öğrenme iş yükleri için tasarlanmış GP
 
 ## <a name="nv-series"></a>NV serisi
 
-NV serisi tarafından sağlanmıştır [NVIDIA Tesla M60 ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU ve NVIDIA kılavuz Masaüstü teknolojinin hızlandırılmış uygulamalar ve sanal masaüstlerini müşteriler, veri veya benzetimleri görselleştirmek mümkün olduğu. Kullanıcılar kendi grafik yoğun iş akışları üstün grafik yeteneği almak ve ayrıca kodlama ve işleme gibi tek duyarlıklı iş yüklerini çalıştırmak için NV örneklerinde görselleştirmek kullanabilirsiniz. 
+NV-serisi sanal makineler tarafından sağlanmıştır [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU ve NVIDIA kılavuz Masaüstü teknolojinin hızlandırılmış uygulamalar ve sanal masaüstlerini müşteriler, veri veya benzetimleri görselleştirmek mümkün olduğu. Kullanıcılar kendi grafik yoğun iş akışları üstün grafik yeteneği almak ve ayrıca kodlama ve işleme gibi tek duyarlıklı iş yüklerini çalıştırmak için NV örneklerinde görselleştirmek kullanabilirsiniz. 
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 |
-| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 |
+Her GPU NV durumlarda bir kılavuz lisansı ile birlikte gelir. Bu lisans NV örneği tek bir kullanıcı için sanal bir iş istasyonu olarak kullanmak için esneklik sunar veya 25 eşzamanlı kullanıcı VM için bir sanal uygulama senaryo bağlanabilir.
+
+| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC | Sanal iş istasyonları | Sanal uygulamalar | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
+| Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 
 1 GPU = M60 kartın yarısı.
 
-
+ 

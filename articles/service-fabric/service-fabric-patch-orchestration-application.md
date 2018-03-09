@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümesi Windows işletim sistemi düzeltme eki
 
@@ -136,24 +136,26 @@ Aynı anda birden çok küme düğümüne yeniden başlatabilirsiniz olduğundan
 
 ## <a name="download-the-app-package"></a>Uygulama paketi yükle
 
-Uygulamayı karşıdan [bağlantı karşıdan](https://go.microsoft.com/fwlink/P/?linkid=849590).
+Uygulamayı yükleme komut dosyaları ile birlikte gelen indirilebilir [arşiv bağlantı](https://go.microsoft.com/fwlink/?linkid=869566).
+
+Uygulaması sfpkg biçiminde adresinden yüklenebilir [sfpkg bağlantı](https://go.microsoft.com/fwlink/?linkid=869567). Bu kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Uygulamayı yapılandırma
 
 Düzeltme eki orchestration uygulamanın davranışı gereksinimlerinizi karşılayacak şekilde yapılandırılabilir. Uygulama oluşturma veya güncelleştirme işlemi sırasında uygulama parametresini geçirerek varsayılan değerleri geçersiz. Uygulama parametreleri belirterek sağlanabilir `ApplicationParameter` için `Start-ServiceFabricApplicationUpgrade` veya `New-ServiceFabricApplication` cmdlet'leri.
 
-|Parametre        |**Tür**                          | **Ayrıntılar**|
+|**Parametre**        |**Tür**                          | **Ayrıntılar**|
 |:-|-|-|
 |MaxResultsToCache    |Uzun                              | Önbelleğe alınması gereken Windows Update sonuçlarının maksimum sayısı. <br>Varsayılan değer 3000 varsayılır: <br> -Düğüm sayısı 20'dir. <br> -Ayda bir düğümde gerçekleştiği güncelleştirme sayısı beştir. <br> -İşlemi başına sonuç sayısı 10 olabilir. <br> -Son üç ay için sonuçları depolanması gerekir. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmelerini yüklemek için Koordinatör hizmeti tarafından kullanılacak ilkeyi TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler: <br>                                                           <b>NodeWise</b>. Windows Update yüklü bir aynı anda düğümdür. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update aynı anda yüklü bir yükseltme etki alanıdır. (Üst sınırda bir yükseltme etki alanına ait tüm düğümlerde Windows güncelleştirmesi gidebilirsiniz.)
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB cinsinden en büyük boyutunu düzeltme eki orchestration uygulama kaydeder.
 | WUQuery               | string<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmelerini almak için sorgu. Daha fazla bilgi için bkz: [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: True)                 | Bu bayrak Windows işletim sistemi güncelleştirmelerinin yüklenmesine izin verir.            |
+| InstallWindowsOSOnlyUpdates | Boolean <br> (varsayılan: True)                 | Bu bayrak Windows işletim sistemi güncelleştirmelerinin yüklenmesine izin verir.            |
 | WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90).                   | (Arama veya indirme veya yükleme) herhangi bir Windows Update işlemi için zaman aşımını belirtir. İşlemi belirtilen zaman aşımı süresi içinde tamamlanmazsa durdurulur.       |
 | WURescheduleCount     | Int <br> (Varsayılan: 5).                  | Bir işlem kalıcı olarak başarısız olursa en fazla kaç kez Windows hizmet reschedules güncelleştirin.          |
 | WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30). | Hata devam ederse durumunda, hizmet Windows update reschedules aralığı. |
 | WUFrequency           | Virgülle ayrılmış dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows Update yükleme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32. <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows Update yapılması döndürmemelidir gösterir.  <br><br> Saatler UTC biçiminde olduğunu unutmayın.|
-| AcceptWindowsUpdateEula | Boole <br>(Varsayılan: true) | Bu bayrak ayarlayarak, uygulamanın Windows Update için son kullanıcı lisans sözleşmesi makine sahibi adına kabul eder.              |
+| AcceptWindowsUpdateEula | Boolean <br>(Varsayılan: true) | Bu bayrak ayarlayarak, uygulamanın Windows Update için son kullanıcı lisans sözleşmesi makine sahibi adına kabul eder.              |
 
 > [!TIP]
 > Windows Update hemen olmasını istiyorsanız, ayarlayın `WUFrequency` uygulama dağıtım süresini göre. Örneğin, beş düğümlü test kümesi olduğunu ve yaklaşık 5: 00'da uygulama dağıtmayı planladığınız varsayalım UTC. Uygulama yükseltme veya dağıtım en 30 dakika sürer olduğunu varsayarsak, WUFrequency "Günlük, 17:30:00." ayarlayın.
@@ -361,8 +363,12 @@ Bir yönetici, müdahale ve uygulama ya da küme neden nedeniyle Windows Update 
 ### <a name="version-111"></a>Sürüm 1.1.1
 - Bir hata SetupEntryPoint, NodeAgentNTService yüklemesini engelleyen NodeAgentService içinde sabit.
 
-### <a name="version-120-latest"></a>Sürüm 1.2.0 (en yeni)
+### <a name="version-120"></a>Sürüm 1.2.0
 
 - Hata düzeltmeleri sistem geçici iş akışını yeniden başlatın.
 - Hangi sistem durumu nedeniyle, beklendiği gibi onarım görevlerin hazırlanması sırasında onay gerçekleştiği değildi RM görevler oluşturma hata düzeltmesi.
 - Windows POANodeSvc otomatik otomatik Gecikmeli hizmetinin başlangıç modu değiştirildi.
+
+### <a name="version-121-latest"></a>Sürüm 1.2.1 (en yeni)
+
+- Küme ölçek azaltma iş akışında hata düzeltmesi. Çöp toplama mantığı mevcut olmayan düğümlere ait POA onarım görevler için kullanıma sunuldu.

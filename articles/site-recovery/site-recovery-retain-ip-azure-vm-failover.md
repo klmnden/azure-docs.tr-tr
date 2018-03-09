@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 28d772df384e620c7e82812adfa2bfa148401132
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Azure sanal makine yük devretme için IP adresi bekletme
 
@@ -88,7 +88,7 @@ VPN ağ geçitleri, genel IP adresleri ve ağ geçidi atlama bağlantıları kur
 
 Bu özellik şu anda genel önizlemede ve daha bölgesini desteklemek için genişletilen — tüm ortak Internet katılımı veya herhangi bir ek atlama olmadan doğrudan VM VM bağlantıyı etkinleştirme.
 
-Daha fazla bilgi için bkz [eşleme belgelerine](../virtual-network/virtual-network-create-peering.md#register) ve [fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/virtual-network/).
+Daha fazla bilgi için bkz [eşleme belgelerine](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Şirket içi-Azure'a bağlantısı
 

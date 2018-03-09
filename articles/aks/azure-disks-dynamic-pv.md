@@ -6,25 +6,27 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 1/25/2018
+ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: aa89cf9fe4e2cd5b63017558e89401de86effdc9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 36e25d7e5f1e5c6e1cf72442b73ac081810d216a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Azure diskleri kalıcı birimler
 
-Kalıcı bir birim Kubernetes kümesinde kullanmak için sağlanan depolama parçasını temsil eder. Kalıcı bir birim bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak sağlanabilir. Bu belgede bir AKS kümesindeki Kubernetes kalıcı birim olarak dinamik bir Azure diski sağlama ayrıntıları verilmektedir. 
+Kalıcı bir birim Kubernetes pod'ları ile kullanılmak üzere sağlanan depolama parçasını temsil eder. Kalıcı bir birim bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak sağlanabilir. Kubernetes kalıcı birimler hakkında daha fazla bilgi için bkz: [Kubernetes kalıcı birimler][kubernetes-volumes].
 
-Kubernetes kalıcı birimler hakkında daha fazla bilgi için bkz: [Kubernetes kalıcı birimler][kubernetes-volumes].
+Bir Azure kapsayıcı hizmeti (AKS) kümesindeki Azure diskleri kalıcı birimler kullanarak bu belge ayrıntıları.
 
 ## <a name="built-in-storage-classes"></a>Depolama sınıfları yerleşik
 
-Depolama sınıfı dinamik olarak oluşturulan bir kalıcı birimi nasıl yapılandırıldığını tanımlamak için kullanılır. Kubernetes depolama sınıfları hakkında daha fazla bilgi için bkz: [Kubernetes depolama sınıfları][kubernetes-storage-classes].
+Depolama sınıfı, depolama birimi olan kalıcı bir birim dinamik olarak nasıl oluşturulacağını tanımlamak için kullanılır. Kubernetes depolama sınıfları hakkında daha fazla bilgi için bkz: [Kubernetes depolama sınıfları][kubernetes-storage-classes].
 
-Hem Azure diskler ile çalışmak için yapılandırılmış her AKS küme iki önceden oluşturulmuş depolama sınıfları içerir. Kullanım `kubectl get storageclass` bu görmek için komutu.
+Hem Azure diskler ile çalışmak için yapılandırılmış her AKS küme iki önceden oluşturulmuş depolama sınıfları içerir. `default` Standart bir Azure disk depolama sınıfı sağlar. `managed-premium` Premium Azure disk depolama sınıfı sağlar. Premium depolama kümenizdeki AKS düğümlerin kullanırsanız, seçin `managed-premium` sınıfı.
+
+Kullanım [kubectl alma sc] [ kubectl-get] önceden oluşturulmuş depolama sınıfları görmek için komutu.
 
 ```console
 NAME                PROVISIONER                AGE
@@ -32,33 +34,13 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
-Bu depolama sınıfları ihtiyaçlarınız için çalışıyorsanız, yeni bir tane oluşturmak gerekmez.
-
-## <a name="create-storage-class"></a>Depolama sınıfı oluşturma
-
-Azure diskleri için yapılandırılan yeni bir depolama sınıfı oluşturmak istiyorsanız, bunu aşağıdaki örnek bildirimi kullanarak yapabilirsiniz. 
-
-`storageaccounttype` Değerini `Standard_LRS` standart bir disk oluşturulduğunu gösterir. Bu değer değiştirilebilir `Premium_LRS` oluşturmak için bir [premium disk][premium-storage]. Premium diskleri kullanmak için AKS düğümü sanal makine boyutu premium diskler ile uyumlu olmalıdır. Bkz: [bu belgeyi] [ premium-storage] uyumlu boyutları listesi.
-
-```yaml
-apiVersion: storage.k8s.io/v1beta1
-kind: StorageClass
-metadata:
-  name: azure-managed-disk
-provisioner: kubernetes.io/azure-disk
-parameters:
-  kind: Managed
-  storageaccounttype: Standard_LRS
-```
-
 ## <a name="create-persistent-volume-claim"></a>Kalıcı birim oluşturma
 
-Kalıcı birim talep depolama sınıfı nesnesi dinamik olarak bir depolama sağlamak için kullanır. Azure disk kullanırken, disk AKS kaynaklar ile aynı kaynak grubunda oluşturulur.
+Kalıcı birim talep (PVC) otomatik olarak bir depolama sınıfına dayalı depolama sağlamak için kullanılır. Bu durumda, PVC önceden oluşturulmuş depolama sınıflarından standart veya premium Azure oluşturmak için kullanabilirsiniz yönetilen disk.
 
-Bu örnek bildirimi kalıcı birimi kullanılarak talep oluşturur `azure-managed-disk` bir disk oluşturmak için depolama sınıfı `5GB` boyutta `ReadWriteOnce` erişim. PVC erişim modları hakkında daha fazla bilgi için bkz: [erişim modları][access-modes].
+Adlı bir dosya oluşturun `azure-premimum.yaml`ve aşağıdaki bildiriminde kopyalayın.
 
-> [!NOTE]
-> Azure disk yalnızca tek bir AKS düğüm için kullanılabilir hale getirir ReadWriteOnce erişim modu türüyle bağlanabilir. Kalıcı bir birim birden çok düğüm arasında paylaşmak gerek kullanmayı [Azure dosyaları][azure-files-pvc]. 
+Not alın `managed-premium` depolama sınıfı açıklama içinde belirtilen ve talep bir disk isteyen `5GB` boyutta `ReadWriteOnce` erişim. 
 
 ```yaml
 apiVersion: v1
@@ -66,7 +48,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: azure-managed-disk
   annotations:
-    volume.beta.kubernetes.io/storage-class: azure-managed-disk
+    volume.beta.kubernetes.io/storage-class: managed-premium
 spec:
   accessModes:
   - ReadWriteOnce
@@ -75,9 +57,20 @@ spec:
       storage: 5Gi
 ```
 
+Kalıcı birim taleple oluşturma [kubectl oluşturma] [ kubectl-create] komutu.
+
+```azurecli-interactive
+kubectl create -f azure-premimum.yaml
+```
+
+> [!NOTE]
+> Azure disk yalnızca tek bir AKS düğüm için kullanılabilir hale getirir ReadWriteOnce erişim modu türüyle bağlanabilir. Kalıcı bir birim birden çok düğüm arasında paylaşmak gerek kullanmayı [Azure dosyaları][azure-files-pvc].
+
 ## <a name="using-the-persistent-volume"></a>Kalıcı birim kullanma
 
-Sonra kalıcı birim talep oluşturulan ve başarıyla sağlanan bir disk disk erişimi olan bir pod oluşturulabilir. Aşağıdaki bildirimi kalıcı birim talep kullanan bir pod oluşturur `azure-managed-disk` adresindeki Azure diski `/var/www/html` yolu. 
+Sonra kalıcı birim talep oluşturulan ve başarıyla sağlanan bir disk disk erişimi olan bir pod oluşturulabilir. Aşağıdaki bildirimi kalıcı birim talep kullanan bir pod oluşturur `azure-managed-disk` adresindeki Azure diski `/mnt/azure` yolu. 
+
+Adlı bir dosya oluşturun `azure-pvc-disk.yaml`ve aşağıdaki bildiriminde kopyalayın.
 
 ```yaml
 kind: Pod
@@ -89,13 +82,21 @@ spec:
     - name: myfrontend
       image: nginx
       volumeMounts:
-      - mountPath: "/var/www/html"
+      - mountPath: "/mnt/azure"
         name: volume
   volumes:
     - name: volume
       persistentVolumeClaim:
         claimName: azure-managed-disk
 ```
+
+İle pod oluşturma [kubectl oluşturma] [ kubectl-create] komutu.
+
+```azurecli-interactive
+kubectl create -f azure-pvc-disk.yaml
+```
+
+Şimdi takılabilir diskinizin Azure ile çalışan bir pod sahip `/mnt/azure` dizin. Birimi, pod aracılığıyla incelerken bağlama görebilirsiniz `kubectl describe pod mypod`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -106,6 +107,8 @@ Azure diskleri kullanarak Kubernetes kalıcı birimleri hakkında daha fazla bil
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/

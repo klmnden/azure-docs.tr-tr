@@ -12,15 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.workload: Inactive
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b2a8f897130c2bf21321366a727ce2e2ae9d1d99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL Database esnek havuzları kullanan uygulamalar için olağanüstü durum kurtarma stratejileri
 Yıllar içinde biz bulut Hizmetleri kusursuz değildir ve geri dönülemez olaylar gerçekleşir öğrendiniz. SQL veritabanı bu olaylar meydana geldiğinde, uygulamanızı iş sürekliliği sağlamak için çeşitli özellikleri sağlar. [Esnek havuzlar](sql-database-elastic-pool.md) ve olağanüstü durum kurtarma özellikleri aynı türde tek veritabanlarını destekler. Esnek havuz için bu makalede birkaç DR stratejilerini açıklar. Bu SQL veritabanını iş sürekliliği özelliklerden yararlanın.
@@ -30,6 +30,9 @@ Bu makalede aşağıdaki kurallı SaaS ISV uygulama deseni kullanır:
 <i>Modern bulut tabanlı web uygulamasının her son kullanıcı için bir SQL veritabanı sağlar. ISV birçok müşteri vardır ve bu nedenle Kiracı veritabanları olarak bilinen birçok veritabanı kullanır. Kiracı veritabanları genellikle öngörülemeyen etkinlik desenlerini sahip olduğundan, ISV bir esnek havuz maliyet veritabanını uzun süreler boyunca çok tahmin edilebilir yapmak için kullanır. Kullanıcı etkinliği ani olduğunda esnek havuz da performans yönetimini basitleştirir. Kiracı veritabanları yanı sıra uygulama da birden fazla veritabanı kullanıcı profillerini, güvenliği yönetmek, kullanım desenlerini vb. toplamak için kullanır. Tek tek kiracılar kullanılabilirliğini bütün olarak uygulamanın kullanılabilirliğini etkilemez. Ancak, kullanılabilirliğini ve performansını yönetim veritabanları için uygulamanın işlevi kritik ve yönetim veritabanlarını çevrimdışı olduğunda tüm uygulama çevrimdışı olur.</i>  
 
 Bu makalede olanları sıkı kullanılabilirlik gereksinimleri olan maliyet hassas başlangıç uygulamaları senaryolarından aralığını kapsayan DR stratejiler açıklanmaktadır.
+
+> [!NOTE]
+> Premium veritabanları ve havuzları kullanıyorsanız, bunları dayanıklı bölgesel kesintileri (şu anda önizlemede) bölge olarak yedekli dağıtım yapılandırması için dönüştürerek yapabileceğiniz. Bkz: [bölge olarak yedekli veritabanları](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Senaryo 1. Hassas başlangıç maliyeti
 <i>Bir başlangıç iş 'M ve son derece hassas maliyet bildirimi.  Dağıtım ve uygulama yönetimini basitleştirmek istiyorum ve tek tek müşteriler için sınırlı bir SLA olabilir. Ancak bir bütün hiçbir zaman çevrimdışı olduğu gibi uygulama emin olmak istersiniz.</i>
@@ -109,7 +112,7 @@ Ne zaman birincil bölge kurtarılan Azure tarafından *sonra* uygulama bu bölg
 Anahtar **yararlı** bu strateji, en yüksek SLA ödeyen müşterilerin sağlamasıdır. Ayrıca, deneme DR havuzu oluşturulduktan hemen sonra yeni denemeler engeli garanti eder. **Dengelemeyi** müşteriler Ücretli bu kurulumu toplam sahip olma maliyeti Kiracı veritabanı tarafından ikincil DR havuzu için maliyetini artırır. Ayrıca, ikincil havuzu farklı bir boyut varsa, DR bölgede havuzu yükseltme tamamlanana kadar düşük performans yük devretme sonrasında ödeyen müşteri deneyimi. 
 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Senaryo 3. Katmanlı hizmetiyle coğrafi olarak dağıtılmış uygulama
-<i>Katmanlı hizmet teklifleri ile olgun bir SaaS uygulaması var. My Ücretli müşterilere çok agresif bir SLA sunmak ve hatta kısa kesinti müşteri memnuniyetsizliği neden olabileceğinden kesintiler durumunda etkisi riskini en aza istiyorum. Ödeyen müşteri verilerini her zaman erişebilmesini önemlidir. Denemeler ücretsiz ve deneme süresi boyunca bir SLA önerilmez.</i> 
+<i>Katmanlı hizmet teklifleri ile olgun bir SaaS uygulaması var. My Ücretli müşterilere çok agresif bir SLA sunmak ve hatta kısa kesinti müşteri memnuniyetsizliği neden olabileceğinden kesintiler durumunda etkisi riskini en aza istiyorum. Ödeyen müşteri verilerini her zaman erişebilmesini önemlidir. Denemeler ücretsiz ve deneme süresi boyunca bir SLA önerilmez. </i> 
 
 Bu senaryoyu desteklemek için üç ayrı esnek havuzu kullanın. Yüksek Edtu Ücretli müşterilerin Kiracı veritabanları içerecek şekilde iki farklı bölgelerde veritabanı başına iki eşit boyutu havuzlarıyla sağlayın. Deneme kiracıları içeren üçüncü havuzu iki bölgede birinde sağlanması ve veritabanı başına alt Edtu'lar olabilir.
 

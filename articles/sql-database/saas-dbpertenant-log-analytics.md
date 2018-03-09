@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 90510520e5f6bbfa8aea4026d7437a4a4881984f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7747092d5613a40fa0aff09cfbdfb9b786b37954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Ayarlama ve bir çok kiracılı Azure SQL veritabanı SaaS uygulaması ile günlük analizi (OMS) kullanma
 
@@ -132,7 +132,7 @@ OMS Portalı'nda günlük ve ölçüm verilerini daha fazla çalışma alanında
 
 İzleme ve günlük analizi ve OMS uyarı temel sorgulamaları Azure Portalı'ndaki her bir kaynağın tanımlanan uyarı aksine çalışma alanında, veriler üzerinde. Sorgulamaları uyarıları alma tarafından tanımlama tek başına veritabanı yerine, tüm veritabanları üzerinden arar tek bir uyarı tanımlayabilirsiniz. Sorgular, yalnızca çalışma alanında bulunan verilerle sınırlıdır.
 
-Sorgulamak ve uyarıları ayarlamak için OMS kullanma hakkında daha fazla bilgi için bkz: [uyarı kurallarında günlük analizi çalışma](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-alerts-creating).
+Sorgulamak ve uyarıları ayarlamak için OMS kullanma hakkında daha fazla bilgi için bkz: [uyarı kurallarında günlük analizi çalışma](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 SQL Veritabanı için Log Analytics, çalışma alanındaki veri hacmine göre ücretlendirilir. Bu öğreticide, 500 MB günde sınırlı olduğu bir ücretsiz çalışma alanı oluşturuldu. Bu sınıra ulaşıldığında, veriler artık çalışma alanı'na eklenir.
 

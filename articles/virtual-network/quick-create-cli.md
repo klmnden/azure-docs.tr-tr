@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ff27d557f221be61a7384f6aaf6e57cef5cebb81
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Azure CLI kullanarak bir sanal ağ oluşturma
 
@@ -153,4 +153,4 @@ az group delete --name myResourceGroup --yes
 Bu makalede, bir varsayılan sanal ağ bir alt ağ ile dağıtılabilir. Birden çok alt ağ ile özel bir sanal ağ oluşturmayı öğrenmek için özel bir sanal ağ oluşturmak için öğretici devam edin.
 
 > [!div class="nextstepaction"]
-> [Özel bir sanal ağ oluşturma](virtual-networks-create-vnet-arm-pportal.md#azure-cli)
+> [Özel bir sanal ağ oluşturma](virtual-networks-create-vnet-arm-cli.md)

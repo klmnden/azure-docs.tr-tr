@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: cynthn
-ms.openlocfilehash: d802ba16ecb4e32e2adb7be3a8e99c72a1625841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e78ecf6bd281bd5d30f59413789eb1e6fc7b5bc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Genelleştirilmiş bir VHD yüklemek ve yeni sanal makineleri oluşturmak için kullanın
 
@@ -54,7 +54,7 @@ Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin
 2. Bir yönetici olarak komut istemi penceresi açın. Dizinine değiştirin **%windir%\system32\sysprep**ve ardından çalıştırın `sysprep.exe`.
 3. İçinde **Sistem Hazırlama aracı** iletişim kutusunda **girin sistem Out-of-Box deneyimi (OOBE)**, emin olun **Generalize** onay kutusu seçilidir.
 4. İçinde **kapatma seçenekleri**seçin **kapatma**.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**’a tıklayın.
    
     ![Sysprep Başlat](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep tamamlandığında, sanal makineyi kapatır. VM yeniden başlatmayın.
@@ -163,6 +163,12 @@ Bir VHD depolama hesabınıza aşağıdakilerden birini kullanarak da yükleyebi
 - [Depolama içeri/dışarı aktarma hizmeti REST API Başvurusu](https://msdn.microsoft.com/library/dn529096.aspx)
 -   İçeri/dışarı aktarma hizmeti 7 günden daha uzun süre karşıya tahmini varsa kullanmanızı öneririz. Kullanabileceğiniz [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) veri boyutu ve aktarım birimi saati tahmin etmek için. 
     İçeri/dışarı aktarma, bir standart depolama hesabına kopyalamak için kullanılabilir. Premium depolama hesabı AzCopy gibi bir araç kullanarak standart depolama biriminden kopyalamanız gerekir.
+
+> [!IMPORTANT]
+> VHD Azure'a yüklenmesini AzCopy kullanıyorsanız, belirlediğinizden emin olun [/BlobType:page](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) çalıştırmadan önce komut dosyasını karşıya yükleyin. Hedef blob ise ve bu seçenek, varsayılan olarak, belirtilmemiş bir blok blobu AzCopy oluşturur.
+> 
+> 
+
 
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Karşıya yüklenen VHD'den yönetilen bir görüntü oluştur 

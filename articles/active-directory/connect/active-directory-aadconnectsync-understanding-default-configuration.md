@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect Eşitleme: Varsayılan yapılandırmayı anlama
 Bu makalede out-of-box yapılandırma kuralları açıklanır. Kurallar ve bu kuralları yapılandırmasını nasıl etkiler belgeler. Bu ayrıca, Azure AD Connect eşitleme varsayılan yapılandırma açıklanmaktadır. Okuyucu bildirim temelli hazırlama, adlı yapılandırma modeli gerçek örnekte nasıl çalıştığını algıladığını hedeftir. Bu makale, zaten yüklediyseniz ve Yükleme Sihirbazı'nı kullanarak Azure AD Connect eşitleme yapılandırma varsayar.
@@ -50,7 +50,7 @@ Aşağıdaki kullanıcı nesneler **değil** Azure AD'ye eşitlenen:
 * Exchange Online çalışmayan nesneleri eşitlemez.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Bu bit maskesi (& H21C07000) aşağıdaki nesnelerini filtrelemek:
-  * Posta etkinleştirilmiş ortak klasör
+  * Posta etkinleştirilmiş ortak klasör (içinde sürüm 1.1.524.0 itibariyle Önizleme)
   * Sistem Katılımcısı posta kutusu
   * Posta kutusu veritabanı posta kutusu (sistem posta)
   * Evrensel güvenlik grubu (bir kullanıcı için geçerli olmayacaktır, ancak eski nedenlerle varsa)
@@ -217,7 +217,7 @@ Eşitleme kuralları için öncelik gruplarında Yükleme Sihirbazı tarafından
 ### <a name="putting-it-all-together"></a>Tüm bir araya getirme
 Şimdi yeterli eşitleme yapılandırma farklı eşitleme kuralları nasıl çalıştığını anlamak için kuralları hakkında biliyoruz. Bir kullanıcı ve meta veri deposu için katkıda bulunan öznitelikler bakarsanız, kuralları aşağıdaki sırayla uygulanır:
 
-| Ad | Yorum |
+| Ad | Açıklama |
 |:--- |:--- |
 | İçinde AD'den – kullanıcı birleştirme |Bağlayıcı alanı nesneler meta veri deposu ile birleştirme kuralı. |
 | İçinde kullanıcı hesabı AD – etkin |Oturum açma Azure ad için gerekli öznitelikler ve Office 365. Bu öznitelikler etkin hesabından istiyoruz. |

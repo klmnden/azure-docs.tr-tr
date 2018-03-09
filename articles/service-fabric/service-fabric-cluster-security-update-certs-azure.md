@@ -1,8 +1,24 @@
---Başlık: Azure Service Fabric kümesi sertifikaları yönetme | Microsoft Docs Açıklama: yeni sertifikalar, geçiş sertifikası eklemek ve sertifika için veya bir Service Fabric kümesinden kaldırmak açıklar.
-services: service-fabric documentationcenter: .net author: ChackDan manager: timlt editor: ''
-
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
-
+---
+title: "Bir Azure Service Fabric kümesindeki sertifikaları yönetme | Microsoft Docs"
+description: "Yeni sertifikalar, geçiş sertifikası eklemek ve sertifika için veya bir Service Fabric kümesinden kaldırmak açıklar."
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: 
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/23/2018
+ms.author: chackdan
+ms.openlocfilehash: 68654bd9b14857661b627bf6d6b1dfe2483019a4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ekleme veya Azure Service Fabric kümesi için sertifikaları kaldırın
 Service Fabric'ın X.509 sertifikaları nasıl kullandığı tanımak ve hakkında bilgi sahibi olmanız önerilir [küme güvenlik senaryoları](service-fabric-cluster-security.md). Anlamanız gerekir hangi küme sertifika ve devam etmeden önce ne için kullanılır.

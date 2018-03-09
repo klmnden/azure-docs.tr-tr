@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2018
+ms.date: 03/07/2018
 ms.author: rajanaki
-ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9c52ef47992474465111f106fc15779cadd825be
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Şirket içinden Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -82,7 +82,7 @@ Aşağıdaki tabloda, Azure Site Recovery kullanırken çeşitli dağıtım sena
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/fiziksel sunucular için desteklenen Ubuntu çekirdek sürümleri
 
-**Sürüm** | **Mobility hizmeti sürümü** | Çekirdek sürümü |
+**Sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
 14.04 LTS | 9.10 | 3.13.0-24-Generic 3.13.0-121-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-81-generic 4.4.0-21-Generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic 3.13.0-128-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-91-generic 4.4.0-21-Generic |
@@ -96,9 +96,8 @@ Aşağıdaki tabloda, Azure Site Recovery kullanırken çeşitli dağıtım sena
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Desteklenen dosya sistemleri ve Linux (VMware/fiziksel sunucuları) üzerinde Konuk depolama yapılandırmaları
 
 Aşağıdaki dosya sistemleri ve depolama yapılandırması yazılımı VMware veya fiziksel sunucuları üzerinde çalışan Linux sunucularda desteklenir:
-* Dosya sistemleri: ext3, ext4, ReiserFS (Suse Linux Enterprise Server yalnızca), XFS
+* Dosya sistemleri: ext3, ext40, XFS
 * Volume manager: LVM2
-* Çok yollu yazılım: cihaz Eşleyici
 
 Paravirtualized depolama aygıtları (paravirtualized sürücüleri tarafından dışarı aktarılan) desteklenmez.<br/>
 Birden çok sıra blok g/ç cihazları desteklenmez.<br/>
@@ -134,7 +133,7 @@ Multi-NIC | Evet | Evet
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Başarısız üzerinden Azure VM ağ yapılandırması
 
-Azure ağı | **VMware/fiziksel sunucu** | **Hyper-V (ile arama/olmadan Sanal Makine Yöneticisi)**
+**Azure ağı** | **VMware/fiziksel sunucu** | **Hyper-V (ile arama/olmadan Sanal Makine Yöneticisi)**
 --- | --- | ---
 Express Route | Evet | Evet
 ILB | Evet | Evet
@@ -215,9 +214,9 @@ Yönetilen diskler | Evet | Evet<br/><br/>Şirket içi yeniden çalışma yönet
 
 Azure tarafından desteklenen herhangi bir işletim sistemi çalıştıran sanal makineleri ve fiziksel sunucuları çoğaltmak için Site Recovery’yi dağıtabilirsiniz. Buna çoğu Windows ve Linux sürümü dahildir. Çoğaltmak istediğiniz sanal makineleri Azure'a çoğaltılırken aşağıdaki Azure gereksinimlere uymalıdır şirket içi.
 
-**Varlık** | Gereksinimleri | **Ayrıntılar**
+**Varlık** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-Konuk işletim sistemi | Hyper-V Azure çoğaltma: Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware ve fiziksel sunucu çoğaltma için: Windows ve Linux denetleyin [önkoşulları](site-recovery-vmware-to-azure-classic.md) | Önkoşul denetimi desteklenmeyen başarısız olur.
+**Konuk işletim sistemi** | Hyper-V Azure çoğaltma: Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> VMware ve fiziksel sunucu çoğaltma için: Windows ve Linux denetleyin [önkoşulları](site-recovery-vmware-to-azure-classic.md) | Önkoşul denetimi desteklenmeyen başarısız olur.
 **Konuk işletim sistemi mimarisi** | 64 bit | Önkoşul denetimi desteklenmeyen başarısız olur
 **İşletim sistemi disk boyutu** | 2048 çoğaltma yapıyorsanız GB'a kadar **VMware Vm'lerini veya fiziksel sunucuları azure'a**.<br/><br/>İçin fazla 2048 GB **Hyper-V nesil 1** VM'ler.<br/><br/>Fazla için 300 GB **Hyper-V 2. nesil sanal makineleri**.  | Önkoşul denetimi desteklenmeyen başarısız olur
 **İşletim sistemi disk sayısı** | 1 | Önkoşul denetimi desteklenmeyen başarısız olur.
