@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure depolama ile uygulama verilerinizi yüksek oranda kullanılabilir hale getirme
 
@@ -69,7 +69,7 @@ Okuma erişimli coğrafi olarak yedekli depolama hesabı oluşturmak için aşa�
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Ad** | mystorageaccount | Depolama hesabınız için benzersiz bir değer |
    | **Dağıtım modeli** | Resource Manager  | Resource Manager en son özellikleri içerir.|
-   | **Hesap türü** | Genel amaçlı | Hesap türleri hakkında ayrıntılı bilgi almak için bkz. [depolama hesabı türleri](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Hesap türü** | StorageV2 | Hesap türleri hakkında ayrıntılı bilgi almak için bkz. [depolama hesabı türleri](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performans** | Standart | Standart, örnek senaryo için yeterli olacaktır. |
    | **Çoğaltma**| Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) | Örneğin çalışması için bunun seçilmesi gereklidir. |
    |**Güvenli aktarım gerekir** | Devre dışı| Bu senaryo için güvenli aktarım gerekli değildir. |
@@ -77,7 +77,7 @@ Okuma erişimli coğrafi olarak yedekli depolama hesabı oluşturmak için aşa�
    |**ResourceGroup** | myResourceGroup |Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Konum** | Doğu ABD | Konum seçin. |
 
-![depolama hesabı oluşturma](media/storage-create-geo-redundant-storage/figure1.png)
+![depolama hesabı oluşturma](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Örneği indirme
 

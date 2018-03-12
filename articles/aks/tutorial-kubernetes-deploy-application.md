@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4ee59782a0e40f9d09023a75862ab0f8415e6d12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0639a2b7e71878103542d3e037040f8a7444976f
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Azure Container Service’te (AKS) uygulamaları çalıştırma
 
@@ -52,12 +52,26 @@ Bildirim dosyası, `microsoft` oturum açma sunucusu adıyla önceden oluşturul
 vi azure-vote-all-in-one-redis.yaml
 ```
 
+Alternatif olarak, Windows'da çalışıyorsanız Visual Studio Code kullanabilirsiniz.
+
+```console
+code azure-vote-all-in-one-redis.yaml
+```
+
 ACR oturum açma sunucu adını `microsoft` ile değiştirin. Bu değer, bildirim dosyasının **47**. satırında bulunur.
 
 ```yaml
 containers:
 - name: azure-vote-front
   image: microsoft/azure-vote-front:v1
+```
+
+Yukarıdaki kod şuna dönüşür.
+
+```yaml
+containers:
+- name: azure-vote-front
+  image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Dosyayı kaydedin ve kapatın.

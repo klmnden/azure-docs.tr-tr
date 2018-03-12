@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: d7e07104153aed36a3e426e053847551d2b2093c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 761e7193cc64699e8aa25a1fd625ba45f65eed88
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Öğretici: Iris sınıflandırma bölüm 3: Model dağıtma
 Azure Machine Learning (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
 
-Bu öğretici üç bölümden oluşan bir serinin üçüncü bölümüdür. Öğreticinin bu bölümünde aşağıdakileri yapmak için Machine Learning (önizleme) kullanırsınız:
+Bu öğretici **üç bölümden oluşan bir serinin üçüncü bölümüdür**. Öğreticinin bu bölümünde aşağıdakileri yapmak için Machine Learning (önizleme) kullanırsınız:
 
 > [!div class="checklist"]
 > * Model dosyasını bulma.

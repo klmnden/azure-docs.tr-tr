@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: d966a1ce5f30531668c05e68bfe709057c6dee35
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -76,6 +76,9 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
 
         1. _Do you want to input Verification Code_ (Doğrulama Kodu girmek istiyor musunuz?) isteminde **Y** girin ve Hızlı Başlangıcın ilerleyen bölümlerinde kullanmak üzere programı açık tutun. _Client Cert_ (İstemci Sertifikası), _Client Cert Private Key_ (İstemci Sertifikası Özel Anahtarı), _Signer Cert_ (İmzalayan Sertifikası) ve _Root Cert_ (Kök Sertifika) değerlerini not edin.
 
+        > [!NOTE]
+        > Yukarıdaki `Root Cert`, yalnızca konsol çıkışında oluşturulan sertifikalar için geçerlidir; ek istemci sertifikalarını imzalamak için kullanılamaz. Daha güçlü bir test sertifikaları kümesine gerek duyuyorsanız, bkz. [CA Sertifikalarını Yönetme Örneği](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+        >
 
 ## <a name="create-a-device-enrollment-entry"></a>Cihaz kaydı girişi oluşturma
 
@@ -189,7 +192,7 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
             String rootPem = "<Your Root Certificate here>";
                 
             signerCertificates.add(intermediatePem);
-            signerCertificates.add(root);
+            signerCertificates.add(rootPem);
             ```
     
             - Sertifikalarınızı dahil etmek için aşağıdaki biçimi kullanın:

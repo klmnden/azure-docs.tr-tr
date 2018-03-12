@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 2/22/2018
-ms.openlocfilehash: 186a7b5632c1680e80e087e8f855eaacf3448207
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 33ced510dc9579248b75fb21520d55bd747a6a5c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Hızlı Başlangıç: Azure Machine Learning hizmetlerini yükleme ve kullanmaya başlama
 Azure Machine Learning hizmetleri (önizleme) tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm uzman veri bilimcilerin bulut ölçeğinde veri hazırlamasına, deneme geliştirmesine ve model dağıtmasına yardımcı olur.
@@ -29,7 +29,9 @@ Bu hızlı başlangıçta şu işlemleri nasıl yapacağınız gösterilir:
 * Komut satırı arabirimine (CLI) erişme
 
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+Microsoft Azure portföyünün bir parçası olarak, Azure Machine Learning hizmetleri için bir Azure aboneliği gerekir. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+Buna ek olarak, Kaynak Grupları ve Sanal Makineler gibi varlıkları oluşturmak için uygun izinlere sahip olmalısınız. 
 
 <a name="prerequisites"></a>Azure Machine Learning Workbench uygulamasını şu işletim sistemlerine yükleyebilirsiniz:
 - Windows 10 veya Windows Server 2016
@@ -63,7 +65,7 @@ Azure Machine Learning hesaplarınızı sağlamak için Azure portalını kullan
    Konum | _Kullanıcılarınıza en yakın bölge_ | Kullanıcılarınıza ve veri kaynaklarınıza en yakın konumu seçin.
    Bilgisayar lisansı sayısı | 2 | Bilgisayar lisansı sayısını girin. [Bilgisayar lisansının fiyatı nasıl etkilediğini](https://azure.microsoft.com/pricing/details/machine-learning/) öğrenin.<br/><br/>Bu Hızlı Başlangıç için yalnızca iki bilgisayar lisansına ihtiyacınız vardır. Bilgisayar lisansları gerektiğinde Azure portalından eklenebilir veya kaldırılabilir.
    Depolama hesabı | _Benzersiz ad_ | [Azure depolama hesabı](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal) oluşturmak için **Yeni oluştur**'u seçin ve bir ad girin. Alternatif olarak **Var olanı kullan**'ı seçin ve açılır listeden var olan depolama hesabını belirleyin. Depolama hesabı gereklidir ve proje yapıtlarını tutmak ve geçmiş verileri çalıştırmak için kullanılır. 
-   Deneme hesabı için çalışma alanı | IrisGarden | Bu hesap için çalışma alanına bir ad sağlayın. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. Bu çalışma alanı, denemeleri oluşturmak, yönetmek ve yayımlamak için ihtiyacınız olan araçları içerir.
+   Deneme hesabı için çalışma alanı | IrisGarden<br/>(öğreticilerde kullanılan ad) | Bu hesap için çalışma alanına bir ad sağlayın. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. Bu çalışma alanı, denemeleri oluşturmak, yönetmek ve yayımlamak için ihtiyacınız olan araçları içerir.
    Çalışma alanının sahibini atama | _Hesabınız_ | Çalışma alanı sahibi olarak kendi hesabınızı seçin.
    Model Yönetimi Hesabı oluşturma | **işaretle** |Modellerinizi gerçek zamanlı web hizmetleri olarak dağıtmak ve yönetmek istediğinizde bu kaynağın kullanılabilir olması için şimdi bir Model Yönetim hesabı oluşturun. <br/><br/>İsteğe bağlı olsa da, Model Yönetimi hesabını Deneme hesabı ile aynı zamanda oluşturmanız önerilir.
    Hesap adı | _Benzersiz ad_ | Model Yönetimi hesabınızı tanımlayan benzersiz bir ad seçin. Kendi adınızı veya denemeyi en iyi şekilde tanımlayan departman ya da proje adını kullanabilirsiniz. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. 
