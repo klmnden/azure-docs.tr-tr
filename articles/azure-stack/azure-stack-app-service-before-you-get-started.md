@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: f400180bc71efc6766b73b098c1f82542eec86f7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure yığın uygulama hizmeti ile çalışmaya başlamadan önce
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+
+> [!IMPORTANT]
+> Azure tümleşik yığını sisteminizi 1802 güncelleştirmesini veya Azure uygulama hizmeti dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
+>
+>
 
 Azure uygulama hizmeti Azure yığında dağıtmadan önce bu makaledeki önkoşulları tamamlamanız gerekir.
 
@@ -40,11 +45,11 @@ Azure uygulama hizmeti Azure yığında dağıtmadan önce bu makaledeki önkoş
    - Modüller
      - GraphAPI.psm1
 
-## <a name="prepare-for-high-availability"></a>Yüksek kullanılabilirlik için hazırlama
+## <a name="high-availability"></a>Yüksek kullanılabilirlik
 
-Yalnızca bir hata etki alanı iş yüklerinin Azure yığın dağıtır olduğundan Azure yığında azure uygulama hizmeti şu anda yüksek oranda kullanılabilirlik sunamazlar.
+Hata etki alanları için destek eklendi, Azure yığın 1802 sürümü nedeniyle Azure uygulama hizmeti Azure yığında yeni dağıtımı hata etki alanlarında dağıtılmış ve hataya dayanıklılık sağlamak.  Güncelleştirmesi 1802 sürümünden önce dağıtılan Azure yığında Azure App Service'in mevcut dağıtımları için lütfen (dağıtımı yeniden dengelemeniz nasıl azure-stack-app-service-fault-domain-update.md) belgelerine bakın.
 
-Azure uygulama hizmeti Azure yığında yüksek kullanılabilirlik için hazırlamak üzere gerekli dosya sunucusu ve SQL Server örneği yüksek oranda kullanılabilir bir yapılandırmada dağıtın. Azure yığın birden çok hata etki alanlarını desteklediğinde, yüksek oranda kullanılabilir bir yapılandırmada Azure uygulama hizmeti Azure yığında etkinleştirme yönergeleri sağlanacaktır.
+Ayrıca Azure App Service, yüksek kullanılabilirlik için Azure yığında gerekli dosya sunucusu ve SQL Server örneği yüksek oranda kullanılabilir bir yapılandırmada dağıtın. 
 
 ## <a name="get-certificates"></a>Sertifikaları alma
 
@@ -127,13 +132,17 @@ Sertifika kimliği şu biçimde eşleşen bir konu içermelidir:
 
 ## <a name="virtual-network"></a>Sanal Ağ
 
-Azure uygulama hizmeti Azure yığında kaynak sağlayıcısı var olan bir sanal ağ dağıtmanızı sağlar.  Bu dosya sunucusu ve Azure App Service Azure yığında gerektirdiği SQL Server'a bağlanmak için iç IP'leri kullanımını etkinleştirir.  Sanal ağ aşağıdaki adres aralığı ve alt ağları ile Azure uygulama hizmeti Azure yığında yüklemeden önce yapılandırılması gerekir:
+Azure uygulama hizmeti Azure yığında sağlar kaynak sağlayıcısı ya dağıtmak için var olan bir sanal ağ veya uygulama hizmeti bir dağıtımının parçası olarak oluşturur.  Varolan bir sanal ağı kullanarak dosya sunucusu ve Azure App Service Azure yığında gerektirdiği SQL Server'a bağlanmak için iç IP'leri kullanımını etkinleştirir.  Sanal ağ aşağıdaki adres aralığı ve alt ağları ile Azure uygulama hizmeti Azure yığında yüklemeden önce yapılandırılması gerekir:
 
 Sanal ağ - /16
 
 Alt ağlar
 
-ControllersSubnet /24 ManagementServersSubnet /24 FrontEndsSubnet /24 PublishersSubnet /24 WorkersSubnet /21
+* ControllersSubnet /24
+* ManagementServersSubnet /24
+* FrontEndsSubnet /24
+* PublishersSubnet /24
+* WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>Dosya sunucusu hazırlayın
 

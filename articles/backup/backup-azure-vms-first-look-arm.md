@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6cd6e9ba575a0efe6e612a2185076d5a6c189525
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Azure sanal makinelerini Kurtarma Hizmetleri kasalarına yedekleme
 
@@ -77,7 +77,7 @@ Aşağıdaki adımları, Azure portalında sanal makine yönetimi dikey penceres
 
   ![Yedekleme Sihirbazını Etkinleştirme](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-  Kurtarma Hizmetleri kasası yoksa veya yeni bir kasa kullanmak istiyorsanız, **Yeni oluştur**’a tıklayın ve yeni kasanın adını girin. Sanal makine ile aynı Kaynak Grubunda ve aynı konumda yeni bir kasa oluşturulur. Farklı değerlere sahip bir Kurtarma Hizmetleri kasası oluşturmak istiyorsanız [kurtarma hizmetleri kasası oluşturma](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) konusuna bakın.
+  Kurtarma Hizmetleri kasası yoksa veya yeni bir kasa kullanmak istiyorsanız, **Yeni oluştur**’a tıklayın ve yeni kasanın adını girin. Sanal makine ile aynı Kaynak Grubunda ve aynı bölgede yeni bir kasa oluşturulur. Farklı değerlere sahip bir Kurtarma Hizmetleri kasası oluşturmak istiyorsanız [kurtarma hizmetleri kasası oluşturma](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) konusuna bakın.
 
 6. Yedekleme ilkesinin ayrıntılarını görüntülemek için **Yedekleme ilkesi**’ne tıklayın.
 
@@ -124,7 +124,7 @@ Yedekleme işini yapılandırmak için, aşağıdaki adımları tamamlayın.
 Kurtarma Hizmetleri kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma noktalarını depolayan bir varlıktır. Kurtarma Hizmetleri kasası ayrıca, korumalı VM'lere uygulanan yedekleme ilkesini de içerir.
 
 > [!NOTE]
-> VM'leri yedekleme işlemi, yerel bir işlemdir. Bir konumdaki VM'leri, başka bir konumda bulunan bir Kurtarma Hizmetleri kasasına yedekleyemezsiniz. Bu nedenle, yedeklenecek VM'ler içeren her Azure konumu için en az bir kurtarma Hizmetleri kasası ilgili konumda mevcut olmalıdır.
+> VM'leri yedekleme işlemi, yerel bir işlemdir. Bir bölgedeki VM'leri, başka bir bölgede bulunan bir Kurtarma Hizmetleri kasasına yedekleyemezsiniz. Bu nedenle, yedeklenecek VM'ler içeren her Azure bölgesi için en az bir kurtarma Hizmetleri kasası ilgili bölgede mevcut olmalıdır.
 >
 >
 
@@ -161,7 +161,7 @@ Kurtarma Hizmetleri kasası oluşturmak için:
 7. Kasa için coğrafi bölgeyi seçmek üzere **Konum**'a tıklayın. Bu seçim, yedekleme verilerinizin gönderildiği coğrafi bölgeyi belirler.
 
   > [!IMPORTANT]
-  > VM'nizin hangi konumda bulunduğundan emin değilseniz kasa oluşturma iletişim kutusunu kapatın ve portaldaki Virtual Machines listesine gidin. Birden çok bölgede sanal makineniz varsa her bölgede bir Kurtarma Hizmetleri kasası oluşturun. Sonraki konuma geçmeden önce, kasayı ilk konumda oluşturun. Yedekleme verilerini depolamak için depolama hesaplarının belirtilmesi gerekmez; Kurtarma Hizmetleri kasası ve Azure Backup hizmeti depolamayı otomatik olarak gerçekleştirir.
+  > VM'nizin hangi bölgede bulunduğundan emin değilseniz kasa oluşturma iletişim kutusunu kapatın ve portaldaki Sanal Makineler listesine gidin. Birden çok bölgede sanal makineniz varsa her bölgede bir Kurtarma Hizmetleri kasası oluşturun. Sonraki bölgeye geçmeden önce, kasayı ilk bölgede oluşturun. Yedekleme verilerini depolamak için depolama hesaplarının belirtilmesi gerekmez; Kurtarma Hizmetleri kasası ve Azure Backup hizmeti depolamayı otomatik olarak gerçekleştirir.
   >
 
 8. Kurtarma Hizmetleri kasası dikey penceresinin alt kısmındaki **Oluştur**’a tıklayın.

@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: b053d515949e71fcb5f1e520f6d3d5375cc27dcb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure yığın uygulama hizmeti kaynak Sağlayıcısı Ekle
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+
+> [!IMPORTANT]
+> Azure tümleşik yığını sisteminizi 1802 güncelleştirmesini veya Azure uygulama hizmeti dağıtmadan önce en son Azure yığın Geliştirme Seti dağıtın.
+>
+>
 
 Bir Azure yığın bulut operatörü, web ve API uygulamaları oluşturma olanağı, kullanıcılarınızın verebilirsiniz. Bunu yapmak için öncelikle eklemelisiniz [uygulama hizmeti kaynak sağlayıcısı](azure-stack-app-service-overview.md) bu makalede anlatıldığı gibi Azure yığın dağıtımına. Uygulama hizmeti kaynak sağlayıcısı yükledikten sonra teklifleri ve planları içerebilir. Kullanıcılar daha sonra get hizmet ve uygulamalar oluşturmaya başlamak için abone olabilirsiniz.
 

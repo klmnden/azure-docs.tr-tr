@@ -11,18 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 03/01/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: f7ec8872849ad7881fb46bca5831c2985d003c13
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
 
 Bu hızlı başlangıçta bir Azure Databricks çalışma alanı ve bu çalışma alanı içinde bir Apache Spark kümesi oluşturma işlemi gösterilir. Son olarak, Databricks kümesinde bir Spark işi çalıştırma hakkında bilgi edinirsiniz. Azure Databricks hakkında daha fazla bilgi için bkz. [Azure Databricks nedir?](what-is-azure-databricks.md)
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
@@ -62,6 +64,7 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
     ![Azure’da Databricks Spark kümesi oluşturma](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     * Küme için bir ad girin.
+    * Bu makale için **4.0 (beta)** çalışma zamanıyla bir küme oluşturun. 
     * **___ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
     * Diğer tüm varsayılan değerleri kabul edin. 
     * **Küme oluştur**’a tıklayın. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
@@ -70,7 +73,7 @@ Küme oluşturma hakkında daha fazla bilgi için bkz. [Azure Databricks üzerin
 
 ## <a name="run-a-spark-sql-job"></a>Spark SQL işi çalıştırma
 
-Bu bölüme başlamadan önce aşağıdakileri tamamlamanız gerekir:
+Bu bölüme başlamadan önce aşağıdaki önkoşulları tamamlamanız gerekir:
 
 * [Bir Azure depolama hesabı oluşturun](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 * Örnek JSON dosyasını [Github'dan](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) indirin. 
@@ -88,11 +91,27 @@ Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob dep
 
     **Oluştur**’a tıklayın.
 
-3. Aşağıdaki kod parçacığında `{YOUR STORAGE ACCOUNT NAME}` değerini oluşturduğunuz Azure depolama hesabı adı ile, `{YOUR STORAGE ACCOUNT ACCESS KEY}` değerini ise depolama hesabı erişim anahtarınız ile değiştirin. Kod parçacığını not defterindeki boş bir hücreye yapıştırın ve sonra kod hücresini çalıştırmak için SHIFT + ENTER tuşlarına basın. Bu kod parçacığı, not defterini bir Azure blob depolama alanından verileri okuyacak şekilde yapılandırır.
+3. Bu adımda Azure Depolama hesabını Databricks Spark kümesiyle ilişkilendirin. Bunu başarmanın iki yolu vardır: Azure Depolama hesabını Databricks Dosya Sistemine (DBFS) bağlama veya Azure Depolama hesabına doğrudan oluşturduğunuz uygulamadan erişme.  
 
-       spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-    
-    Depolama hesabı anahtarınızı almaya ilişkin yönergeler için bkz. [Depolama erişim anahtarlarınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
+    > [!IMPORTANT]
+    >Bu makalede **depolamayı DBFS'ye bağlama yaklaşımı** kullanılır. Bu yaklaşım, bağlı deponun küme dosya sistemiyle ilişkilendirilmesini sağlar. Bu sayede kümeye erişen tüm uygulamalar ilişkilendirilmiş depolamayı da kullanabilir. Doğrudan erişim yaklaşımı, erişimi yapılandırdığınız uygulamayla kısıtlıdır.
+    >
+    > Bağlama yaklaşımını kullanmak için bu makalede seçtiğiniz Databricks çalışma zamanı sürüm **4.0 (beta)** ile bir Spark kümesi oluşturmanız gerekir.
+
+    Aşağıdaki kod parçacığında `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` ve`{YOUR STORAGE ACCOUNT ACCESS KEY}` değerlerini Azure Depolama hesabınız için uygun değerlerle değiştirin. Kod parçacığını not defterindeki boş bir hücreye yapıştırın ve sonra kod hücresini çalıştırmak için SHIFT + ENTER tuşlarına basın.
+
+    * **Depolama hesabını DBFS'ye bağlayın (önerilen)**. Kod parçacığında Azure Depolama hesabı yolu `/mnt/mypath` yoluna bağlanır. Böylece ilerde Azure Depolama hesabına eriştiğiniz her durumda tam yolu vermenize gerek kalmaz. Yalnızca `/mnt/mypath` yolunu kullanabilirsiniz.
+
+          dbutils.fs.mount(
+            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+            mountPoint = "/mnt/mypath",
+            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+
+    * **Depolama hesabına doğrudan erişme**
+
+          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+
+    Depolama hesabı anahtarınızı alma yönergeleri için bkz. [Depolama erişim anahtarlarınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
     > [!NOTE]
     > Azure Data Lake Store’u Azure Databricks üzerine bir Spark kümesi ile de kullanabilirsiniz. Yönergeler için bkz. [Data Lake Store’u Azure Databricks ile Kullanma](https://go.microsoft.com/fwlink/?linkid=864084).
@@ -101,10 +120,11 @@ Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob dep
 
     ```sql
     %sql 
-    CREATE TEMPORARY TABLE radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data
+    CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/small_radio_json.json"
+     path "/mnt/mypath/small_radio_json.json"
     )
     ```
 

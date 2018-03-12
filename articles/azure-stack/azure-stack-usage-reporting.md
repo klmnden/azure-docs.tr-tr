@@ -6,25 +6,25 @@ documentationcenter:
 author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure yığın kullanım verileri Azure'a raporu 
 
 Kullanım verileri Tüketim verileri olarak da bilinir kullanılan kaynakları miktarını temsil eder. 
 
-Tüketim tabanlı faturalama modelini kullanan azure yığını çok düğümlü sistemleri kullanım verilerini amacı faturalama için Azure'a bildirmeniz gerekir.  Azure yığın işleçleri kendi Azure yığın örneği Azure kullanım verilerini raporlamaya yapılandırmanız gerekir.
+Tüketim tabanlı faturalama modelini kullanan azure yığını çok düğümlü sistemler için Azure fatura amaç için kullanım verilerini bildirmeniz gerekir.  Azure yığın işleçleri kendi Azure yığın örneği Azure kullanım verilerini raporlamaya yapılandırmanız gerekir.
 
 > [!NOTE]
 > Kullanım verileri raporlama, ödeme olarak-size-kullanım modeli altında lisans Azure yığını çok düğümlü kullanıcılar için gereklidir. Kapasite modeli altında lisans müşterileri için isteğe bağlı (bkz [sayfa satın alma](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Azure yığın Geliştirme Seti kullanıcılar için Azure yığın işleçleri kullanım verileri rapor ve özelliği test etmek. Ancak, kullanıcıların bunlar kullanan tüm kullanımı için ücret alınmaz. 
@@ -108,3 +108,4 @@ Kullanım verileri Azure yığın kullanımı API'leri ve Azure hesap Merkezi ta
 * [Sağlayıcı kullanım API’si](azure-stack-provider-resource-api.md)  
 * [Kiracı kullanım API’si](azure-stack-tenant-resource-usage-api.md)
 * [Kullanım Hakkında SSS](azure-stack-usage-related-faq.md)
+* [Kullanım yönetmek ve bir bulut hizmeti sağlayıcısı olarak faturalama](azure-stack-add-manage-billing-as-a-csp.md)

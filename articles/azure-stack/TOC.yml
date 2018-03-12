@@ -89,25 +89,25 @@
           href: azure-stack-deploy.md
         - name: Telemetri
           href: azure-stack-telemetry.md
-        - name: Dağıtın
+        - name: Dağıt
           href: azure-stack-run-powershell-script.md
         - name: PowerShell yükleme
           href: azure-stack-powershell-install.md
-        - name: Kaydol
+        - name: Kaydet
           href: azure-stack-register.md
-        - name: Azure Stack’e bağlanma
+        - name: Azure Stack'e Bağlanma
           href: azure-stack-connect-azure-stack.md
         - name: Varsayılan görüntü ekleme
           href: azure-stack-add-default-image.md
         - name: Test VM’si oluşturma
           href: azure-stack-provision-vm.md
-    - name: Yönetin
+    - name: Yönetme
       items:
         - name: Bölge yönetimi
           href: azure-stack-region-management.md
         - name: Yönetici portalını kullanma
           href: azure-stack-manage-portals.md
-        - name: Azure Stack’e bağlanma
+        - name: Azure Stack'e Bağlanma
           href: azure-stack-connect-azure-stack.md
         - name: Kullanıcılar için CLI’yi etkinleştirme
           href: azure-stack-cli-admin.md
@@ -174,7 +174,7 @@
               href: azure-stack-backup-reference.md
     - name: 'Güvenlik, uyumluluk ve kimlik'
       items:
-        - name: Güvenlik genel bilgileri
+        - name: Güvenliğe genel bakış
           href: azure-stack-security-foundations.md
         - name: Kimlik
           items:
@@ -182,7 +182,7 @@
               href: azure-stack-identity-overview.md
             - name: Kimlik mimarisi
               href: azure-stack-identity-architecture.md
-            - name: RBAC'yi yönet
+            - name: RBAC’yi yönetme
               href: azure-stack-manage-permissions.md
             - name: Kullanıcıları Azure AD’ye ekleme
               href: azure-stack-add-new-user-aad.md
@@ -206,7 +206,7 @@
               href: azure-stack-create-plan.md
             - name: Teklif oluşturma
               href: azure-stack-create-offer.md
-            - name: Teklife abone olma
+            - name: Bir teklife abone olma
               href: azure-stack-subscribe-plan-provision-vm.md
             - name: Azure Stack’te teklifleri yetkilendirme
               href: azure-stack-delegated-provider.md
@@ -264,14 +264,24 @@
           items:
             - name: Genel Bakış
               href: azure-stack-billing-and-chargeback.md
-            - name: Kullanım verilerini raporlama
-              href: azure-stack-usage-reporting.md
-            - name: Sağlayıcı kullanım API’si
-              href: azure-stack-provider-resource-api.md
-            - name: Kiracı kullanım API’si
-              href: azure-stack-tenant-resource-usage-api.md
-            - name: Kullanım SSS
-              href: azure-stack-usage-related-faq.md
+            - name: Kullanım yönetmek ve bir CSP faturalama
+              href: azure-stack-add-manage-billing-as-a-csp.md
+            - name: Kiracılar için kullanım ve fatura ekleme
+              href: azure-stack-csp-howto-register-tenants.md
+            - name: Kiracı kayıt yönetme
+              href: azure-stack-csp-ref-operations.md
+            - name: Kullanım ve fatura başvurusu
+              items:
+                - name: Kullanım verilerini raporlama
+                  href: azure-stack-usage-reporting.md
+                - name: Bulut hizmeti sağlayıcılar için altyapı raporlama kullanım
+                  href: azure-stack-csp-ref-infrastructure.md
+                - name: Sağlayıcı kullanım API’si
+                  href: azure-stack-provider-resource-api.md
+                - name: Kiracı kullanım API’si
+                  href: azure-stack-tenant-resource-usage-api.md
+                - name: Kullanım Hakkında SSS
+                  href: azure-stack-usage-related-faq.md
         - name: Azure'a Bağlanma
           items:
             - name: VPN kullanarak bağlanma
@@ -282,7 +292,7 @@
               href: azure-stack-vpn-gateway-settings.md
             - name: ExpressRoute kullanarak bağlanma
               href: azure-stack-connect-expressroute.md
-    - name: Sorun giderme
+    - name: Sorun Giderme
       items:
         - name: Bilinen sorunlar
           href: azure-stack-troubleshooting.md
@@ -308,9 +318,9 @@
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Azure yığın belgelerine geri bildirim
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
-    - name: Fiyatlandırma bilgileri
+    - name: Fiyatlandırma Bilgileri
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Yığın Taşması
+    - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Eğitim ve sertifika
       href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

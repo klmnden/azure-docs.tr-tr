@@ -6,25 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-<<<<<<< HEAD
-ms.date: 02/20/2018
-ms.author: seanmck
-ms.custom: mvc
-ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
-=======
 ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 99bd03bf4c3ca2d7b1ced51ebfe8be669f271c1c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0532d255b271b2155ae3115f8f96c4cbb53916e4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
->>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Azure Container Instances‘a kapsayıcı dağıtma
 
@@ -39,11 +28,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-<<<<<<< HEAD
-Bu öğretici için Azure CLI 2.0.23 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme][azure-cli-install].
-=======
 Bu öğretici için Azure CLI 2.0.27 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme][azure-cli-install].
->>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
 
 Bu öğreticiyi tamamlamak için yerel olarak yüklü bir Docker geliştirme ortamı gerekir. Docker [Mac][docker-mac], [Windows][docker-windows] veya [Linux][docker-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
@@ -65,7 +50,7 @@ Kapsayıcı kayıt defteri parolası:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-1 CPU çekirdeği ve 1 GB bellek için kaynak isteğiyle kapsayıcı kayıt defterinden kapsayıcı görüntünüzü dağıtmak için aşağıdaki komutu çalıştırın. `<acrLoginServer>` ve `<acrPassword>` değerlerini, önceki iki komuttan aldığınız değerlerle değiştirin. `<acrName>` komutunu, kapsayıcı kayıt defterinizin adıyla değiştirin.
+Uygulamanızın [önceden hazırlanması][prepare-app] gerekir; 1 CPU çekirdeği ve 1 GB bellek için kaynak isteğiyle kapsayıcı kayıt defterinden kapsayıcı görüntünüzü dağıtmak üzere aşağıdaki [az container create][az-container-create] komutunu çalıştırın. `<acrLoginServer>` ve `<acrPassword>` değerlerini, önceki iki komuttan aldığınız değerlerle değiştirin. `<acrName>` değerini kapsayıcı kayıt defterinizin adıyla değiştirin; ayrıca `aci-tutorial-app` değerini de yeni uygulamaya vermek istediğiniz adla değiştirebilirsiniz.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
@@ -138,6 +123,7 @@ Bu öğreticide, Azure Container Instances’a kapsayıcıları dağıtma işlem
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
+[az-container-create]: /cli/azure/container#az_container_create
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

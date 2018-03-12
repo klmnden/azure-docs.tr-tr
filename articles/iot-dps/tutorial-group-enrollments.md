@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT hub'ına Java ve kayıt gruplarını kullanarak sanal bir X.509 cihaz sağlama | Microsoft Docs"
-description: "Azure Öğreticisi - oluşturun ve IOT Hub cihaz sağlama hizmeti için Java cihazını ve hizmetini SDK ve kayıt grupları kullanarak sanal bir X.509 cihaz sağlama"
+title: "Java ve kayıt gruplarını kullanarak Azure IoT Hub'a sanal bir X.509 cihazı sağlama | Microsoft Docs"
+description: "Azure Öğreticisi - IoT Hub Cihazı Sağlama Hizmeti için Java cihaz ve hizmet SDK’sı ile kayıt grupları kullanarak sanal bir X.509 cihazı oluşturma ve sağlama"
 services: iot-dps
 keywords: 
 author: msebolt
@@ -12,15 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 14e5e7613fd5df650625cf8997d569b754ceb689
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Oluşturun ve IOT Hub cihaz sağlama hizmeti için Java cihaz ve hizmeti SDK'sını ve grup kayıtları kullanarak sanal bir X.509 cihaz sağlama
+# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Java cihaz ve hizmet SDK’sı ile grup kayıtları kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 
-Bu adımları geliştirme makinenizde Windows işletim sistemi çalıştıran bir X.509 cihazında benzetimini yapma gösterir ve bu sanal cihaz aygıt hizmeti sağlama ve kayıt gruplarını kullanarak IOT hub'ınıza bağlanmak için bir kod örneği kullanın. 
+Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde X.509 cihazının simülasyonunu yapmayı ve kayıt gruplarıyla bir kod örneği kullanarak bu sanal cihazı Cihaz Sağlama Hizmeti ve IoT hub’ınızla bağlamayı gösterir. 
 
 Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun.
 
@@ -33,15 +33,13 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
 
 1. `git` uygulamasının makinenizde yüklü olduğundan ve komut penceresinden erişilebilir ortam değişkenlerine eklendiğinden emin olun. Yüklenecek `git` araçlarının son sürümleri için [Software Freedom Conservancy’nin Git istemci araçlarına](https://git-scm.com/download/) bakın. Bunlara yerel Git deponuzla etkileşim kurmak için kullanabileceğiniz bir komut satırı uygulaması olan **Git Bash** dahildir. 
 
-1. Aşağıdaki [sertifikası genel bakış](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) test sertifikalarınızı oluşturmak için. Sertifikaları oluşturma bir daha derinlemesine bakış için lütfen bkz. [CA tarafından imzalanmış X.509 sertifikalarını yönetmek için PowerShell komut dosyalarını](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
+1. Test sertifikalarınızı oluşturmak için aşağıdaki [Sertifikaya Genel Bakış](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)’ı kullanın. Sertifika oluşturma işlemine daha derinlemesine bir bakış için lütfen [CA imzalı X.509 sertifikalarını yönetmek için PowerShell betikleri](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) konusuna bakın.
 
     > [!NOTE]
-    > Bu adım gerektirir [OpenSSL](https://www.openssl.org/), hangi ya da yerleşik ve kaynağından yüklü veya indirilebilen ve yüklenen bir [3. taraf](https://wiki.openssl.org/index.php/Binaries) gibi [bu](https://sourceforge.net/projects/openssl/). Zaten oluşturduysanız, _kök_, _Ara_ ve _aygıt_ sertifikaları bu adımı atlayabilir.
+    > Bu adım [OpenSSL](https://www.openssl.org/) gerektirir. OpenSSL, kaynaktan derlenip yüklenebilir veya [bunun](https://sourceforge.net/projects/openssl/) gibi bir [üçüncü taraftan](https://wiki.openssl.org/index.php/Binaries) indirilip yüklenebilir. _Kök_, _ara_ ve _cihaz_ sertifikalarınızı önceden oluşturduysanız bu adımı atlayabilirsiniz.
     >
 
-1. Kayıt grup bilgileri oluşturun:
-
-    1. Çalıştırma **1. adım** ve **2. adım** oluşturmak için _kök_ ve _Ara_ sertifikalar.
+    1. _Kök_ ve _ara_ sertifikalarınızı oluşturmak için ilk iki adımı izleyin.
 
     1. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve sağlama hizmetinizi açın.
 
@@ -49,28 +47,28 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
 
         1. **Sertifika Ekle** bölümüne aşağıdaki bilgileri girin:
             - Benzersiz bir sertifika adı girin.
-            - Seçin  **_RootCA.pem_**  oluşturduğunuz dosya.
+            - Yeni oluşturduğunuz **_RootCA.pem_** dosyasını seçin.
             - Tamamlandığında **Kaydet** düğmesine tıklayın.
 
         ![Sertifika ekleme](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Yeni oluşturulan sertifikayı seçin:
             - **Doğrulama Kodu Oluştur**'a tıklayın. Oluşturulan kodu kopyalayın.
-            - Çalıştırma **3. adım**. Girin _doğrulama kodu_ veya, çalışan bir PowerShell penceresinde yapıştırmak için sağ tıklatın.  **Enter**'a basın.
-            - Yeni oluşturulan seçin  **_verifyCert4.pem_**  Azure portalında dosya. Tıklatın **doğrulayın**.
+            - Doğrulama adımını çalıştırın. Çalışan PowerShell pencerenize _doğrulama kodunu_ girin veya sağ tıklayarak yapıştırın.  **Enter**'a basın.
+            - Azure portalında yeni oluşturulmuş **_verifyCert4.pem_** dosyasını seçin. **Doğrula**’ya tıklayın.
 
             ![Sertifika doğrulama](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Son çalıştırarak **4. adım** ve **adım 5** cihaz sertifikaları ve temizleme kaynakları oluşturmak için.
+    1. Cihaz sertifikalarınızı oluşturma ve kaynakları temizleme adımlarını çalıştırarak işlemi tamamlayın.
 
-> [!NOTE]
-> Cihaz sertifikaları oluştururken yalnızca küçük harf alfasayısal ve kısa çizgi, aygıt adı kullandığınızdan emin olun.
->
+    > [!NOTE]
+    > Cihaz sertifikaları oluştururken, cihazınızın adında yalnızca küçük harf alfasayısal karakterler ve kısa çizgi kullanmaya özen gösterin.
+    >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Cihaz kaydı girişi oluşturma
 
-1. Bir komut istemi açın. Java SDK kod örneklerini GitHub depoyu kopyalama:
+1. Bir komut istemi açın. Java SDK kod örnekleri için GitHub deposunu kopyalayın:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -94,7 +92,7 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Açık  **_RootCA.pem_**  dosyasını bir metin düzenleyicisinde. **Root Cert** değerini aşağıda gösterilen şekilde **PUBLIC_KEY_CERTIFICATE_STRING** parametresine atayın:
+    1. **_RootCA.pem_** dosyasını bir metin düzenleyicisinde açın. **Root Cert** değerini aşağıda gösterilen şekilde **PUBLIC_KEY_CERTIFICATE_STRING** parametresine atayın:
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -145,7 +143,7 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
 
 1. Kaydın başarılı olup olmadığını görmek için çıktı penceresini izleyin.
 
-    ![başarılı kaydı](./media/tutorial-group-enrollments/enrollment.png) 
+    ![Başarılı kayıt](./media/tutorial-group-enrollments/enrollment.png) 
 
 1. Azure portalında sağlama hizmetinize gidin. **Kayıtları yönetme**'ye tıklayın. X.509 cihaz grubunun **Kayıt Grupları** bölümünde, otomatik olarak oluşturulmuş bir *GRUP ADI* altında göründüğüne dikkat edin. 
 
@@ -162,9 +160,9 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Kayıt grubu bilgilerini aşağıdaki biçimde girin:
+1. Kayıt grubu bilgilerini aşağıdaki gibi girin:
 
-    - `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` girişini düzenleyerek önceden not ettiğiniz _Kimlik Kapsamı_ ve _Sağlama Hizmeti Genel Uç Noktası_ değerlerini girin. Açık,  **_{deviceName}-public.pem_**  dosya ve bu değeri olarak dahil, _istemci sertifikası_. Açık,  **_{deviceName}-all.pem_**  dosya ve metinden kopyalayın _---başlangıç özel anahtarı---_ için _---bitiş özel anahtarı---_.  Bu olarak kullanmak, _istemci sertifika özel anahtar_.
+    - `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` girişini düzenleyerek önceden not ettiğiniz _Kimlik Kapsamı_ ve _Sağlama Hizmeti Genel Uç Noktası_ değerlerini girin. **_{deviceName}-public.pem_** dosyanızı açın ve _Client Cert_ değeriniz olarak bu değeri ekleyin. **_{deviceName}-all.pem_** dosyanızı açın ve _-----BEGIN PRIVATE KEY-----_ ile _-----END PRIVATE KEY-----_ arasındaki metni kopyalayın.  Bu metni _Client Cert Private Key_ olarak kullanın.
 
         ```java
         private static final String idScope = "[Your ID scope here]";
@@ -217,7 +215,7 @@ Cihaz istemci örneği üzerinde çalışmaya ve inceleme yapmaya devam etmeyi p
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, sanal bir X.509 cihaz Windows makinenizde oluşturulur ve Azure IOT Hub cihaz hizmet sağlama ve kayıt gruplarını kullanarak IOT hub'ınıza sağlanan. X.509 Cihazınızı hakkında daha fazla bilgi için aygıt kavramlara devam edin. 
+Bu öğreticide, Windows makinenizde bir X.509 sanal cihazı oluşturdunuz ve Azure IoT Hub Cihazı Sağlama Hizmeti ve kayıt grupları ile IoT hub'ınıza sağladınız. X.509 cihazınız hakkında daha fazla bilgi edinmek için cihaz kavramlarıyla devam edin. 
 
 > [!div class="nextstepaction"]
-> [IOT Hub cihaz sağlama hizmeti aygıt kavramları](concepts-device.md)
+> [IoT Hub Cihazı Sağlama Hizmeti cihaz kavramları](concepts-device.md)

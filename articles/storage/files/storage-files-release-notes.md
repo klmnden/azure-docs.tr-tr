@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9b6dfec6465482efcbf55d0441e44a0278f44a22
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5f57edb33770acd7a97287d5cfd650b7fe8366f4
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-file-sync-agent-release-notes"></a>Azure Dosya Eşitleme aracısı sürüm notları
 Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -30,11 +30,25 @@ Azure Dosya Eşitleme aşağıdaki sürümleri destekler:
 
 | Aracı sürüm numarası | Sürüm tarihi | Destek sonu |
 |----------------------|--------------|------------------|
+| 2.1.0.0 | 2018-02-28 | Geçerli sürüm |
 | 2.0.11.0 | 2018-02-08 | Geçerli sürüm |
 | 1.1.0.0 | 26.09.2017 | 2018-07-30 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2100"></a>Aracı sürümü 2.1.0.0
+Aşağıdaki sürüm notları 28 Şubat 2018 tarihinde yayımlanmış olan aracı sürümü 2.1.0 için geçerlidir. Bunlar aşağıda sürüm 2.0.11.0 için verilen sürüm notlarına eklenebilir
+
+Bu aylık güncelleştirmedeki benzersiz değişiklikler şunlardır:
+- Küme yük devretme işlemesinde geliştirme.
+- Katmanlı dosyaların işlenmesini daha güvenilir yapmaya yönelik geliştirme.
+- 2008R2 etki alanı ortamına eklenen etki alanı denetleyicisi makinelerinde aracı yüklemesine izin verme.
+- Çok fazla dosya içeren sunucularda aşırı tanılama oluşturulmasını düzeltme.
+- Oturum hatalarında hata işlemeyi geliştirme.
+- Dosya aktarımı sorunlarında hata işlemeyi geliştirme.
+- Sunucu uç noktasında etkinleştirildiğinde bulut katmanlamasının varsayılan çalıştırma aralığını bir saat olarak değiştirme. 
+- Azure Dosya Eşitleme (Depolama Eşitleme Hizmeti) kaynaklarını yeni bir Azure aboneliğine taşımayı geçici olarak engelleme
 
 ## <a name="agent-version-20110"></a>Aracı sürümü 2.0.11.0
 Aşağıdaki sürüm notları 9 Şubat 2018 tarihinde yayımlanmış olan aracı sürümü 2.0.11.0 için geçerlidir. 
