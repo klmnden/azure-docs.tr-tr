@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service'te işletim sistemi işlevi
 Bu makalede çalışan tüm uygulamaları için kullanılabilir ortak temel işletim sistemi işlevselliğini [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Bu işlevsellik, dosya, ağ ve kayıt defteri erişimi ve tanılama günlüklerini ve olayları içerir. 
@@ -79,7 +79,7 @@ Uygulama kodu yazabildiğinizi ve bir uygulamanın içeriği giriş dizini içer
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Ağ erişimi
-Ağ bağlantıları dış hizmetler kullanıma Internet erişilebilir uç noktalarına giden yapmak için temel UDP protokollerini ve TCP/IP'yi uygulama kodu kullanabilirsiniz. Uygulamaları, Hizmetleri içinde Azure &#151; Örneğin, SQL veritabanı için HTTPS bağlantıları oluşturarak bağlanmak için bu aynı protokollerini kullanabilirsiniz.
+Ağ bağlantıları dış hizmetler kullanıma Internet erişilebilir uç noktalarına giden yapmak için temel UDP protokollerini ve TCP/IP'yi uygulama kodu kullanabilirsiniz. Uygulamaları Azure içinde hizmetlerine bağlanmak için bu aynı protokoller kullanabilir&#151;SQL veritabanı için HTTPS bağlantıları oluşturarak örneğin.
 
 Bir yerel bir geri döngü bağlantısını kurmak ve bu yerel bir geri döngü yuvadaki dinleme bir uygulamaya sahip uygulamalar için sınırlı bir özellik yok. Öncelikle işlevleri bir parçası olarak yerel bir geri döngü yuvalarda dinleme uygulamalarını etkinleştirmek için bu özelliği mevcut. Her uygulama bir "özel" geri döngü bağlantı görür unutmayın; uygulama "A", "B" uygulama tarafından oluşturulan yerel bir geri döngü yuva için dinleyemiyor.
 

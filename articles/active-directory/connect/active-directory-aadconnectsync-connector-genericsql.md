@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
 ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Genel SQL bağlayıcı Teknik Başvurusu
 Bu makalede Genel SQL Bağlayıcısı'nı açıklar. Makale aşağıdaki ürünler için geçerlidir:
