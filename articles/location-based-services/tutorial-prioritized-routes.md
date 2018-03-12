@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9501f3c8fa1abb6bcbfee086c542139596ab5504
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Azure Konum Tabanlı Hizmetler’i kullanarak farklı ulaşım yöntemleri için yol tarifi alma
 
@@ -209,9 +209,10 @@ Bu bölümde, bir hedef için belirtilen başlangıç noktasından ulaşım arac
     ```
     Bu kod parçacığı bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) oluşturur ve gelen yanıtları ayrıştırmak için bir olay işleyicisi ekler. Bu, başarılı bir yanıt için, döndürülen yola yönelik koordinat dizisi oluşturur ve bu diziyi haritanın `truckRouteLayerName` katmanına ekler. 
     
-    Kod parçacığı, hesap anahtarınız için belirli bir başlangıç ve bitiş noktasına yönelik yol tarifi almak üzere, sorguyu aynı zamanda Yönlendirme Hizmeti’ne de gönderir. Aşağıdaki isteğe bağlı parametreler, ağır bir kamyon için yol tarifini belirlemek için kullanılır: `travelMode=truck` parametresi, ulaşım aracını *kamyon* olarak belirler. Desteklenen diğer ulaşım araçları *taksi*, *otobüs*, *kamyonet*, *motosiklet* ve varsayılan olan *otomobildir*.
-        `vehicleWidth`, `vehicleHeight` ve `vehicleLength` parametreleri, aracın boyutunu metre cinsinden belirtir ve yalnızca ulaşım aracının *kamyon* olması durumunda hesaba katılır.
-        - `vehicleLoadType`, yükün tehlikeli olduğunu belirtir ve aracın bazı yollara çıkmasını kısıtlar. - Bu seçenek de yalnızca ulaşım aracının *kamyon* olması durumunda hesaba katılır.
+    Kod parçacığı, hesap anahtarınız için belirli bir başlangıç ve bitiş noktasına yönelik yol tarifi almak üzere, sorguyu aynı zamanda Yönlendirme Hizmeti’ne de gönderir. Aşağıdaki isteğe bağlı parametreler, ağır bir kamyonun yol tarifini belirlemek için kullanılır:
+   - `travelMode=truck` parametresi seyahat modunu *kamyon* olarak belirtir. Desteklenen diğer ulaşım araçları *taksi*, *otobüs*, *kamyonet*, *motosiklet* ve varsayılan olan *otomobildir*.
+   - `vehicleWidth`, `vehicleHeight` ve `vehicleLength` parametreleri, aracın boyutunu metre cinsinden belirtir ve yalnızca ulaşım aracının *kamyon* olması durumunda hesaba katılır.
+   - `vehicleLoadType`, yükün tehlikeli olduğunu belirtir ve aracın bazı yollara çıkmasını kısıtlar. - Bu seçenek de yalnızca ulaşım aracının *kamyon* olması durumunda hesaba katılır.
 
 2. Yönlendirme Hizmeti’ni kullanarak otomobile yönelik yol tarifi almak için aşağıdaki JavaScript kodunu ekleyin:
 

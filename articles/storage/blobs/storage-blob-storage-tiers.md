@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2adb301f1d047c7762a35880da6e6094a5afbd75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Depolama: Sık erişimli, seyrek erişimli ve arşiv depolama katmanları
 
@@ -83,7 +83,7 @@ Bir blob daha seyrek erişilen bir katmana taşındığında (sık erişilen->se
 
 Hesap katmanını sık erişilenden seyrek erişilene değiştirirseniz yalnızca GPv2 hesaplarında ayarlanmış katmanı olmayan tüm bloblar için yazma işlemleri (10.000 işlem başına) ücretlendirilir. Blob Depolama hesaplarında bunun için bir ücret yoktur. Blob Depolama veya GPv2 hesabınızı seyrek erişilenden sık erişilene değiştirirseniz hem okuma işlemleri (10.000 işlem başına) hem de veri alma (GB başına) için ücretlendirilirsiniz. Seyrek erişim veya arşiv katmanı dışına taşınmış tüm bloblar için erken silme ücretleri de uygulanabilir.
 
-### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Seyrek erişimli ve arşiv erken silme (1 Mart 2018’den itibaren geçerli)
+### <a name="cool-and-archive-early-deletion"></a>Seyrek erişimli ve arşiv erken silme
 
 GB başına aylık ücrete ek olarak seyrek erişimli katmana taşınan tüm bloblar (yalnızca GPv2 hesapları) 30 günlük seyrek erişim erken silme süresine tabidir ve arşiv katmanına taşınan tüm bloblar da 180 günlük arşiv erken silme süresine tabidir. Bu ücret eşit olarak bölünür. Örneğin, bir blob arşive taşınır ve ardından silinir veya 45 gün sonra sık erişimli katmana taşınırsa sizden o blobu arşivde 135 (180 eksi 45) gün depolamaya eşdeğer bir erken silme ücreti istenir.
 
@@ -177,7 +177,7 @@ Her blob, daima **Erişim Katmanı** blob özelliği ile belirtilen katmana gör
 
 **Seyrek erişimli veya arşiv katmanındaki bir blobu silerken veya dışarı taşırken erken silme ücreti ödeyip ödemeyeceğimi nasıl anlarım?**
 
-Sırasıyla 30 ve 180 günden önce seyrek erişimli (yalnızca GPv2 hesapları) ya da arşiv katmanından silinen veya dışarı taşınan tüm bloblar eşit dağıtılmış bir erken silme ücreti ödenmesini gerektirir (1 Mart 2018’den itibaren geçerli). Son katman değişikliğinin bir damgasını sağlayan **Erişim Katmanı Değişim Zamanı** blob özelliğini kontrol ederek bir blobun ne zamandır seyrek erişimli katmanda veya arşiv katmanında olduğunu belirleyebilirsiniz. Daha fazla ayrıntı için bkz. [Seyrek erişim ve arşiv erken silme](#cool-and-archive-early-deletion) bölümü.
+Sırasıyla 30 ve 180 günden önce seyrek erişimli (yalnızca GPv2 hesapları) ya da arşiv katmanından silinen veya dışarı taşınan tüm bloblar eşit dağıtılmış bir erken silme ücreti ödenmesini gerektirir. Son katman değişikliğinin bir damgasını sağlayan **Erişim Katmanı Değişim Zamanı** blob özelliğini kontrol ederek bir blobun ne zamandır seyrek erişimli katmanda veya arşiv katmanında olduğunu belirleyebilirsiniz. Daha fazla ayrıntı için bkz. [Seyrek erişim ve arşiv erken silme](#cool-and-archive-early-deletion) bölümü.
 
 **Hangi Azure araçları ve SDK’lar blob düzeyinde katman ayarlamayı ve arşiv depolamayı destekliyor?**
 

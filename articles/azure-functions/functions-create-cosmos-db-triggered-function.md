@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB tarafından tetiklenen bir işlev oluşturma
 
@@ -75,7 +75,7 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Veritabanının adı | Azure Cosmos DB veritabanı için benzersiz kimlik  |
     | **API** | SQL (DocumentDB) | Bu konuda belge veritabanı API’si kullanılır.  |
-    | **Abonelik** | Azure Aboneliği | Azure Aboneliği  |
+    | **Abonelik** | Azure Aboneliği | Bu yeni Cosmos DB hesabının oluşturulduğu abonelik.  |
     | **Kaynak Grubu** | myResourceGroup |  İşlevi uygulamanızı içeren mevcut kaynak grubunu kullanın. |
     | **Konum**  | WestEurope | İşlev uygulamanıza veya depolanmış belgeleri kullanan diğer uygulamalara yakın olan bir konum seçin.  |
 

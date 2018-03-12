@@ -1,22 +1,22 @@
 ---
-title: "Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama | Microsoft Docs"
+title: "Öğretici - Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama"
 description: "Bu öğretici, Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı nasıl tasarlayacağınızı gösterir."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 11/03/2017
-ms.openlocfilehash: 215de7113421670dae5745ddd5fc2cc22d2143e1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 02/28/2018
+ms.openlocfilehash: df8f308b17879d7fd22d033fb535b59bd8a85086
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama
+# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama
 
 PostgreSQL için Azure Veritabanı, bulutta son derece kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure portalını kullanarak, sunucunuzu kolayca yönetebilir ve bir veritabanı tasarlayabilirsiniz.
 
@@ -43,65 +43,70 @@ PostgreSQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depol
 PostgreSQL için Azure veritabanı sunucusu oluşturmak üzere şu adımları uygulayın:
 1.  Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 2.  **Yeni** sayfasından **Veritabanları**’nı seçin ve **Veritabanları** sayfasından **PostgreSQL için Azure Veritabanı**’nı seçin.
- ![PostgreSQL için Azure Veritabanı - Veritabanı oluşturma](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
+  ![PostgreSQL için Azure Veritabanı - Veritabanı oluşturma](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3.  Yeni sunucu ayrıntıları formunu, bir önceki resimde gösterildiği gibi aşağıdaki bilgilerle doldurun:
-    - Sunucu adı: **mypgserver-20170401** (bir sunucu DNS adıyla eşleşir ve bu nedenle sunucunun genel olarak benzersiz olması gerekir) 
+3.  Yeni sunucu ayrıntıları formunu aşağıdaki bilgilerle doldurun:
+
+    ![Sunucu oluşturma](./media/tutorial-design-database-using-azure-portal/2-create.png)
+
+    - Sunucu adı: **demosunucum** (bir sunucu DNS adıyla eşleşir ve bu nedenle sunucunun genel olarak benzersiz olması gerekir) 
     - Abonelik: Birden fazla aboneliğiniz varsa kaynağın mevcut olduğu ve faturalandırıldığı uygun aboneliği seçin.
     - Kaynak grubu: **myresourcegroup**
     - Tercih ettiğiniz sunucu yöneticisi oturum açma adı ve parolası
     - Konum
     - PostgreSQL Sürümü
 
-  > [!IMPORTANT]
-  > Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu hızlı başlangıcın sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
+   > [!IMPORTANT]
+   > Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu öğreticinin sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
 
-4.  Yeni veritabanınıza ait hizmet katmanını ve performans düzeyini belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Bu hızlı başlangıç için **Temel** Katmanını, **50 İşlem Birimi**’ni ve dahili depolamanın **50 GB**’ını seçin.
- ![PostgreSQL için Azure Veritabanı - hizmet katmanını seçme](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
+4.  Yeni sunucunuza ait fiyatlandırma katmanını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Bu öğretici için, **Genel Amaçlı**, **Gen 4** işlem nesli, 2 **sanal çekirdek**, 5 GB **depolama** ve 7 gün **yedekleme bekletme dönemi** ayarlarını seçin. Sunucunuzun otomatik yedeklemelerini coğrafi olarak yedekli depolamada depolamak için **Coğrafi Olarak Yedekli** yedekleme seçeneğini belirleyin.
+ ![PostgreSQL için Azure Veritabanı - fiyatlandırma katmanını seçme](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+
 5.  **Tamam**’a tıklayın.
-6.  Sunucuyu sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer.
 
-  > [!TIP]
-  > Dağıtımlarınızın kolayca izlenmesini sağlamak için **Panoya sabitle** seçeneğini işaretleyin.
+6.  Sunucuyu sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer.
 
 7.  Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
  ![PostgreSQL için Azure Veritabanı - Bildirimleri inceleme](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
-   
-  Varsayılan olarak, **postgres** veritabanı sunucunuz altında oluşturulur. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) veritabanı; kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamalar tarafından kullanılmak üzere geliştirilmiş varsayılan bir veritabanıdır. 
+
+   > [!TIP]
+   > Dağıtımlarınızın kolayca izlenmesini sağlamak için **Panoya sabitle** seçeneğini işaretleyin.
+
+   Varsayılan olarak, **postgres** veritabanı sunucunuz altında oluşturulur. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) veritabanı; kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamalar tarafından kullanılmak üzere geliştirilmiş varsayılan bir veritabanıdır. 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı oluşturma
 
 PostgreSQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı kullanır. Varsayılan olarak bu güvenlik duvarı, belirli bir IP adresi aralığı için güvenlik duvarını açmak üzere bir güvenlik duvarı kuralı oluşturulmadıkça, tüm dış uygulama ve araçların sunucuya ve sunucu üzerindeki herhangi bir veritabanına bağlanmasını engeller. 
 
-1.  Dağıtım tamamlandıktan sonra, sol taraftaki menünden **Tüm Kaynaklar**’a tıklayın ve yeni oluşturduğunuz sunucuyu aramak için **mypgserver-20170401** adını yazın. Arama sonucunda listelenen sunucu adına tıklayın. Sunucunuzun **Genel bakış** sayfası açılır ve daha fazla yapılandırma seçenekleri sunulur.
- 
- ![PostgreSQL için Azure Veritabanı - Sunucu arama ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+1.  Dağıtım tamamlandıktan sonra, sol taraftaki menüden **Tüm Kaynaklar**’a tıklayın ve yeni oluşturduğunuz sunucuyu aramak için **demosunucum** adını yazın. Arama sonucunda listelenen sunucu adına tıklayın. Sunucunuzun **Genel bakış** sayfası açılır ve daha fazla yapılandırma seçenekleri sunulur.
+
+   ![PostgreSQL için Azure Veritabanı - Sunucu arama ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  Sunucu sayfasında **Bağlantı güvenliği**’ni seçin. 
+
 3.  **Kural Adı** altında metin kutusuna tıklayın ve IP aralığını bağlantı için beyaz listeye alacak yeni bir güvenlik duvarı kuralı ekleyin. Bu öğretici için **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** ve **End IP = 255.255.255.255** yazarak tüm IP’lere izin verin ve sonra **Kaydet**’e tıklayın. Ağınızdan bağlanabilmek için daha küçük bir IP aralığını kapsayan belirli bir güvenlik duvarı kuralı ayarlayabilirsiniz.
- 
- ![PostgreSQL için Azure Veritabanı - Güvenlik Duvarı Kuralı Oluşturma](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
+
+   ![PostgreSQL için Azure Veritabanı - Güvenlik Duvarı Kuralı Oluşturma](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
 4.  **Kaydet**’e ve ardından **X** düğmesine tıklayarak **Bağlantı güvenliği** sayfasını kapatın.
 
-  > [!NOTE]
-  > Azure PostgreSQL sunucusu, 5432 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 5432 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 5432 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
-  >
-
+   > [!NOTE]
+   > Azure PostgreSQL sunucusu, 5432 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 5432 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 5432 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
+   >
 
 ## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
 
 PostgreSQL sunucusu için Azure Veritabanını oluşturduğunuzda, varsayılan **postgres** veritabanı da oluşturulmuştur. Veritabanı sunucunuza bağlanmak için ana bilgisayar bilgilerini ve erişim kimlik bilgilerini sağlamanız gerekir.
 
-1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve kısa süre önce oluşturduğunuz **mypgserver-20170401** sunucusunu aratın.
+1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve kısa süre önce oluşturduğunuz sunucuyu aratın.
 
-  ![PostgreSQL için Azure Veritabanı - Sunucu arama ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![PostgreSQL için Azure Veritabanı - Sunucu arama ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-3. **mypgserver-20170401** sunucu adına tıklayın.
+2. **demosunucum** sunucu adına tıklayın.
 
-4. Sunucunun **Genel Bakış** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
+3. Sunucunun **Genel Bakış** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
 
- ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
+   ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
 
 ## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Cloud Shell’de psql’i kullanarak PostgreSQL veritabanına bağlanma
@@ -120,10 +125,10 @@ PostgreSQL sunucusu için Azure Veritabanını oluşturduğunuzda, varsayılan *
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mypgserver-20170401.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. İstendiğinde sunucu yönetici parolanızı girin.
+   Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mydemoserver.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. İstendiğinde sunucu yönetici parolanızı girin.
 
    ```bash
-   psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
 ## <a name="create-a-new-database"></a>Yeni veritabanı oluşturma
@@ -179,18 +184,21 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-data-to-a-previous-point-in-time"></a>Verileri önceki bir noktaya geri yükleme
-Bu tabloyu yanlışlıkla sildiğinizi düşünün. Bu, kolayca kurtaramayacağınız bir durumdur. PostgreSQL için Azure Veritabanı, herhangi bir belirli noktaya (son 7 günde (Temel) ve 35 günde (Standart)) geri dönmenize ve bu belirli noktayı yeni bir sunucuya geri yüklemenize olanak sağlar. Bu yeni sunucuyu silinen verilerinizi kurtarmak için kullanabilirsiniz. Aşağıdaki adımlar, **mypgserver-20170401** sunucusunu stok tablosu eklenmeden önceki bir noktaya geri yükler.
+Bu tabloyu yanlışlıkla sildiğinizi düşünün. Bu, kolayca kurtaramayacağınız bir durumdur. PostgreSQL için Azure Veritabanı sunucunuzun yedeğinin olduğu herhangi bir noktaya dönerek (yapılandırdığınız yedekleme bekletme dönemine göre belirlenir) bu noktayı yeni bir sunucuya geri yükleyebilirsiniz. Bu yeni sunucuyu silinen verilerinizi kurtarmak için kullanabilirsiniz. Aşağıdaki adımlar, **demosunucum** sunucusunu envanter tablosu eklenmeden önceki bir noktaya geri yükler.
 
 1.  Sunucunuza yönelik PostgreSQL için Azure Veritabanı **Genel Bakış** sayfasında araç çubuğundaki **Geri Yükle** seçeneğine tıklayın. **Geri Yükle** sayfası açılır.
-  ![Azure portalı - Geri yükleme formu seçenekleri](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
+
+   ![Azure portalı - Geri yükleme formu seçenekleri](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
+
 2.  **Geri Yükleme** formunu gerekli bilgiler ile doldurun:
 
-  ![Azure portalı - Geri yükleme formu seçenekleri](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
-  - **Geri yükleme noktası**: Sunucu değiştirilmeden önce gerçekleşen belirli bir nokta seçin
-  - **Hedef sunucu**: İçine geri yüklemek istediğiniz yeni bir sunucu adı belirtin
-  - **Konum**: Bölgeyi seçemezsiniz, varsayılan olarak kaynak sunucuyla aynıdır
-  - **Fiyatlandırma katmanı**: Bir sunucuyu geri yüklerken bu değeri değiştiremezsiniz. Kaynak sunucuyla aynıdır. 
-3.  Sunucuyu, [tablo silinmeden önceki belirli bir noktaya geri yüklemek için](./howto-restore-server-portal.md) **Tamam**’a tıklayın. Sunucunun farklı bir zaman noktasına geri yüklenmesi, [hizmet katmanınızın](./concepts-service-tiers.md) elde tutma dönemi içinde olmak şartıyla, belirttiğiniz zaman noktasından itibaren özgün sunucu ile aynı yeni bir kopya sunucu oluşturur.
+   ![Azure portalı - Geri yükleme formu seçenekleri](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
+
+   - **Geri yükleme noktası**: Sunucu değiştirilmeden önce gerçekleşen belirli bir nokta seçin
+   - **Hedef sunucu**: İçine geri yüklemek istediğiniz yeni bir sunucu adı belirtin
+   - **Konum**: Bölgeyi seçemezsiniz, varsayılan olarak kaynak sunucuyla aynıdır
+   - **Fiyatlandırma katmanı**: Bir sunucuyu geri yüklerken bu değeri değiştiremezsiniz. Kaynak sunucuyla aynıdır. 
+3.  Sunucuyu, [tablo silinmeden önceki belirli bir noktaya geri yüklemek için](./howto-restore-server-portal.md) **Tamam**’a tıklayın. Sunucunun farklı bir zaman noktasına geri yüklenmesi, [fiyatlandırma katmanınızın](./concepts-pricing-tiers.md) bekletme dönemi içinde olmak şartıyla, belirttiğiniz zaman noktasından itibaren özgün sunucu ile aynı yeni bir kopya sunucu oluşturur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, aşağıdakileri yapmak için Azure portalını ve diğer yardımcı programları nasıl kullanacağınızı öğrendiniz:

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: 1dbad36b7420791e70066263a566f1820823ad27
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: baad137a6f982df987faf95d7c7c595698e8e399
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Azure HDInsight’ta Apache Spark kümesi oluşturma
 
@@ -47,8 +47,8 @@ Azure HDInsight'ta Apache Spark kümesinin nasıl oluşturulacağını ve Spark 
     * **Kaynak grubu**: Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin. Kaynak grubu, projelerinize ait Azure kaynaklarını yönetmek için kullanılır.
     * **Konum**: Kaynak grubu için bir konum seçin. Şablon hem kümeyi oluşturmak için hem de varsayılan küme depolaması için bu konumu kullanır.
     * **ClusterName**: Oluşturmak istediğiniz HDInsight kümesi için bir ad girin.
-    * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı admin şeklindedir.
-    * **SSH kullanıcı adı ve parola**.
+    * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı admin şeklindedir. Kümede oturum açmak için bir parola seçin.
+    * **SSH kullanıcı adı ve parola**. SSH kullanıcısı için bir parola seçin.
 
 3. **Yukarıdaki hüküm ve koşulları kabul ediyorum**'u ve ardından **Panoya sabitle**'yi seçip **Satın al**'a tıklayın. Artık **Şablon Dağıtımını dağıtma** başlıklı yeni bir kutucuk görebilirsiniz. Kümenin oluşturulması yaklaşık 20 dakika sürer.
 
@@ -103,16 +103,17 @@ Bir Hive tablosu yerine csv dosyasından verileri okuma hakkında bir örnek iç
 
     ![HDInsight Spark'ta Hive sorgusu](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "HDInsight Spark'ta Hive sorgusu")
 
-2. Çekirdek hazır olduğunda, aşağıdaki kodu boş bir hücreye yapıştırın ve ardından kodu çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Çıkış, varsayılan olarak kümede kullanılabilen bir `hivesampletable` listeler.
+2. Çekirdek hazır olduğunda, aşağıdaki kodu boş bir hücreye yapıştırın ve ardından kodu çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Komut, kümedeki Hive tablolarını listeler:
 
     ```PySpark
     %%sql
     SHOW TABLES
     ```
+    HDInsight Spark kümeniz için yapılandırılmış bir Jupyter not defteri kullanırken, Spark SQL ile Hive sorguları çalıştırmak için kullanabileceğiniz önceden ayarlanmış bir `sqlContext` alırsınız. `%%sql`, Hive sorgusunu çalıştırmak için Jupyter Not Defteri’ne `sqlContext` ön ayarını kullanmasını söyler. Sorgu, varsayılan olarak tüm HDInsight kümelerinde sağlanan Hive tablosundaki (**hivesampletable**) ilk 10 satırı getirir. Sonuçları almak 30 saniye kadar sürer. Çıkış aşağıdakine benzer olacaktır: 
 
     ![HDInsight Spark'ta Hive sorgusu](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "HDInsight Spark'ta Hive sorgusu")
 
-    HDInsight Spark kümeniz için yapılandırılmış bir Jupyter not defteri kullanırken, Spark SQL ile Hive sorguları çalıştırmak için kullanabileceğiniz önceden ayarlanmış bir `sqlContext` alırsınız. `%%sql`, Hive sorgusunu çalıştırmak için Jupyter Not Defteri’ne `sqlContext` ön ayarını kullanmasını söyler. Sorgu, varsayılan olarak tüm HDInsight kümelerinde sağlanan Hive tablosundaki (**hivesampletable**) ilk 10 satırı getirir. `%%sql` sihri ve önceden ayarlanmış bağlamlar hakkında daha fazla bilgi için bkz. [HDInsight kümesi için kullanılabilen Jupyter çekirdekleri](apache-spark-jupyter-notebook-kernels.md).
+    `%%sql` sihri ve önceden ayarlanmış bağlamlar hakkında daha fazla bilgi için bkz. [HDInsight kümesi için kullanılabilen Jupyter çekirdekleri](apache-spark-jupyter-notebook-kernels.md).
 
     Jupyter’de bir sorguyu her çalıştırdığınızda web tarayıcınızın pencere başlığında not defteri başlığı ile birlikte **(Meşgul)** durumu gösterilir. Ayrıca sağ üst köşedeki **PySpark** metninin yanında içi dolu bir daire görürsünüz.
     
