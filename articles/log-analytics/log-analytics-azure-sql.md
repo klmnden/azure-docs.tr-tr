@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 624c861db9bb318c368cef04965da0a73dd028d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL veritabanı günlük analizi Azure SQL analizi (Önizleme) kullanarak izleme
 
@@ -103,7 +103,7 @@ Tıklayın **Azure SQL analizi** döşeme Azure SQL analizi panosunu açın. Pan
 
 Döşeme birini seçerek, belirli bir perspektife ayrıntıya rapor açılır. Perspektif seçildikten sonra ayrıntıya rapor açılır.
 
-![Azure SQL analizi zaman aşımları](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+![Azure SQL analizi zaman aşımları](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
 Her bir perspektif abonelik, sunucu, esnek havuz ve veritabanı düzeyi özetleri sağlar. Ayrıca, her bir perspektif bir perspektif sağ tarafta raporu belirli gösterir. Abonelik, sunucu, havuzu veya veritabanı listeden seçerek ayrıntıya devam eder.
 
@@ -148,13 +148,19 @@ Uyarılar, Azure SQL veritabanı kaynaklardan gelen veriler ile kolayca oluştur
 *Azure SQL veritabanı yüksek DTU*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 *Azure SQL Database esnek havuzunu üzerinde yüksek DTU*
 
 ```
-AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
+AzureMetrics 
+| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
+| render timechart
 ```
 
 Bu uyarı tabanlı sorgular, Azure SQL veritabanı ve esnek havuzlar için belirli eşiklere uyarmak için kullanabilirsiniz. Günlük analizi çalışma alanınız için bir uyarı yapılandırmak için:
@@ -167,7 +173,7 @@ Bu uyarı tabanlı sorgular, Azure SQL veritabanı ve esnek havuzlar için belir
 4. Örnek sorgular birini çalıştırın.
 5. Günlük aramada tıklatın **uyarı**.  
 ![Aramada uyarısı oluştur](./media/log-analytics-azure-sql/create-alert01.png)
-6. Üzerinde **uyarı kuralı Ekle** sayfasında, uygun özellikleri ve istediğiniz ve ardından özel eşikler yapılandırmak **kaydetmek**.  
+6. Üzerinde **uyarı kuralı Ekle** sayfasında, uygun özellikleri ve istediğiniz ve ardından özel eşikler yapılandırmak **kaydetmek**. 
 ![Uyarı kuralı Ekle](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar

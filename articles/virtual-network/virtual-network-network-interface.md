@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimi silme
 
@@ -39,7 +39,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 ## <a name="create-a-network-interface"></a>Bir ağ arabirimi oluştur
 
-Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için varsayılan ayarlarla bir ağ arabirimi oluşturur. Tüm ağ arabirimi ayarları yerine belirtirsiniz, bir ağ arabirimi ile özel ayarları oluşturmak ve ağ arabirimi (PowerShell veya Azure CLI kullanarak) sanal makine oluştururken, bir sanal makineye Ekle. Ayrıca, bir ağ arabirimi oluşturabilir ve varolan bir sanal makineye (PowerShell veya Azure CLI kullanarak) ekleyin. Varolan bir ağ arabirimi ile bir sanal makine oluşturmak için veya eklemek veya var olan sanal makinelerden ağ arabirimleri kaldırma öğrenmek için [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md) makalesi. Bir ağ arabirimi oluşturmadan önce varolan olmalıdır [sanal ağ](virtual-networks-create-vnet-arm-pportal.md) aynı konumu ve abonelik bir ağ arabiriminde oluşturun.
+Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için varsayılan ayarlarla bir ağ arabirimi oluşturur. Tüm ağ arabirimi ayarları yerine belirtirsiniz, bir ağ arabirimi ile özel ayarları oluşturmak ve ağ arabirimi (PowerShell veya Azure CLI kullanarak) sanal makine oluştururken, bir sanal makineye Ekle. Ayrıca, bir ağ arabirimi oluşturabilir ve varolan bir sanal makineye (PowerShell veya Azure CLI kullanarak) ekleyin. Varolan bir ağ arabirimi ile bir sanal makine oluşturmak için veya eklemek veya var olan sanal makinelerden ağ arabirimleri kaldırma öğrenmek için [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md) makalesi. Bir ağ arabirimi oluşturmadan önce varolan olmalıdır [sanal ağ](manage-virtual-network.md#create-a-virtual-network) aynı konumu ve abonelik bir ağ arabiriminde oluşturun.
 
 1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
 2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.

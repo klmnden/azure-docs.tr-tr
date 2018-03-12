@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ed5af627fa8ec8007f095face2cbf115ead4b27
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba3a7ccc059dd5036753f471b762e27f22a179af
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Premium Azure Redis önbelleği için sanal ağ desteğini yapılandırma
 Azure Redis önbelleği, önbellek boyutunu ve özelliklerini, kümeleme, sürdürme ve sanal ağ desteği gibi Premium katmanı özellikleri dahil olmak üzere seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bir sanal ağ bulutta özel bir ağdır. Bir Azure Redis önbelleği örneğine sahip bir VNet yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içinden uygulamalardan erişilebilir. Bu makalede, premium Azure Redis önbelleği örneği için sanal ağ desteğini yapılandırma açıklar.
@@ -38,7 +38,7 @@ Sanal ağ (VNet) desteği üzerinde yapılandırılmış **yeni Redis önbelleğ
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Premium fiyatlandırma katmanına seçtikten sonra aynı abonelik ve konum önbelleğiniz olarak bir sanal ağı seçerek Redis VNet tümleştirme yapılandırabilirsiniz. Yeni bir VNet kullanmak için önce içindeki adımları izleyerek oluşturun [Azure portalını kullanarak bir sanal ağ oluşturma](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) veya [Azure portalını kullanarak bir sanal ağ (Klasik) oluşturmak](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) ve daha sonra geri dönüp **yeni Redis önbelleği** oluşturmak ve premium önbelleğiniz yapılandırmak için dikey.
+Premium fiyatlandırma katmanına seçtikten sonra aynı abonelik ve konum önbelleğiniz olarak bir sanal ağı seçerek Redis VNet tümleştirme yapılandırabilirsiniz. Yeni bir VNet kullanmak için önce içindeki adımları izleyerek oluşturun [Azure portalını kullanarak bir sanal ağ oluşturma](../virtual-network/manage-virtual-network.md#create-a-virtual-network) veya [Azure portalını kullanarak bir sanal ağ (Klasik) oluşturmak](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) ve daha sonra geri dönüp **yeni Redis önbelleği** oluşturmak ve premium önbelleğiniz yapılandırmak için dikey.
 
 VNet yeni önbelleğiniz için yapılandırmak için tıklatın **sanal ağ** üzerinde **yeni Redis önbelleği** dikey ve istenen VNet aşağı açılan listeden seçin.
 

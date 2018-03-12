@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f41bfec3c9f950893b69c90a86c2e4a254b72a8b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI ile tam Linux sanal makine oluşturma
 Hızla bir sanal makine (VM) oluşturmak için gerekli tüm destekleyici kaynakları oluşturmak için varsayılan değerleri kullanan tek bir Azure CLI komutu kullanabilirsiniz. Bir sanal ağ, genel IP adresi ve ağ güvenlik grubu kuralları gibi kaynakları otomatik olarak oluşturulur. Üretim ortamınızda, daha fazla denetim için kullanmak, önceden bu kaynakları oluşturmak ve bunları Vm'leriniz Ekle. Bu makalede, VM ve destekleyici kaynakları tek tek her nasıl oluşturulacağını aracılığıyla size yol gösterir.
 
-En son yüklediğinizden emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı ile oturum [az oturum açma](/cli/azure/#az_login).
+En son yüklediğinizden emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı ile oturum [az oturum açma](/cli/azure/reference-index#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myVnet*, ve *myVM*.
 
@@ -35,7 +35,7 @@ Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir
 az group create --name myResourceGroup --location eastus
 ```
 
-Varsayılan olarak, Azure CLI komutların çıktısı JSON (JavaScript nesne gösterimi) ' dir. Örneğin, bir liste veya tablo çıktısı varsayılan değeri değiştirmek için kullanmak [az yapılandırmak--çıkış](/cli/azure/#az_configure). Ayrıca ekleyebileceğiniz `--output` herhangi bir komutunu bir kez için çıktı biçiminde değiştirin. Aşağıdaki örnek, JSON çıktısını gösterir `az group create` komutu:
+Varsayılan olarak, Azure CLI komutların çıktısı JSON (JavaScript nesne gösterimi) ' dir. Örneğin, bir liste veya tablo çıktısı varsayılan değeri değiştirmek için kullanmak [az yapılandırmak--çıkış](/cli/azure/reference-index#az_configure). Ayrıca ekleyebileceğiniz `--output` herhangi bir komutunu bir kez için çıktı biçiminde değiştirin. Aşağıdaki örnek, JSON çıktısını gösterir `az group create` komutu:
 
 ```json                       
 {
@@ -49,7 +49,7 @@ Varsayılan olarak, Azure CLI komutların çıktısı JSON (JavaScript nesne gö
 }
 ```
 
-## <a name="create-a-virtual-network-and-subnet"></a>Bir sanal ağ ve alt ağ oluşturun
+## <a name="create-a-virtual-network-and-subnet"></a>Sanal ağ ve alt ağ oluşturma
 Azure ve bir alt ağda bir sanal ağ oluşturma sonraki Vm'leriniz oluşturabilirsiniz. Kullanım [az ağ vnet oluşturma](/cli/azure/network/vnet#az_network_vnet_create) adlı bir sanal ağ oluşturmak için *myVnet* ile *192.168.0.0/16* adres öneki. Ayrıca adlı bir alt ağ Ekle *mySubnet* adres öneki ile *192.168.1.0/24*:
 
 ```azurecli
@@ -444,7 +444,7 @@ Güncelleme etki alanına sanal makineler ve aynı anda yeniden temel alınan fi
 
 Azure otomatik olarak VM'ler arıza ve güncelleştirme etki alanları arasında bunları bir kullanılabilirlik kümesine yerleştirdiğinizde dağıtır. Daha fazla bilgi için bkz: [VM'ler kullanılabilirliğini yönetme](manage-availability.md).
 
-Kullanılabilirlik için VM ile kümesi oluştur [az vm kullanılabilirlik kümesi oluşturma](/cli/azure/vm/availability-set#az_vm_availability_set_create). Aşağıdaki örnek, kullanılabilirlik adlandırılmış kümesi oluşturur *myAvailabilitySet*:
+Kullanılabilirlik için VM ile kümesi oluştur [az vm kullanılabilirlik kümesi oluşturma](/cli/azure/vm/availability-set#az_vm_availability_set_create). Aşağıdaki örnek *myAvailabilitySet* adında bir kullanılabilirlik kümesi oluşturur:
 
 ```azurecli
 az vm availability-set create \
@@ -481,7 +481,7 @@ Internet'ten erişilebilen sanal makineleri desteklemek için ağ kaynaklarına 
 
 Kimlik doğrulaması için kullanılacak bir SSH anahtarı belirtin. SSH ortak anahtar çifti yoksa, şunları yapabilirsiniz [bunları oluşturmanız](mac-create-ssh-keys.md) veya `--generate-ssh-keys` bunları sizin için oluşturmak için parametre. Bir anahtar çifti zaten varsa, bu parametre varolan anahtarların kullanan `~/.ssh`.
 
-Tüm kaynaklara ve bilgi ile birlikte getirerek VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM*:
+Tüm kaynaklara ve bilgi ile birlikte getirerek VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. Aşağıdaki örnek *myVM* adlı bir VM oluşturur:
 
 ```azurecli
 az vm create \

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 46d026802668fd77ae184b374439ca78cf51393d
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning sık sorulan sorular
 
@@ -127,7 +127,7 @@ Hayır. Azure Machine Learning çalışma ekranı ücretsiz bir uygulamasıdır.
 
 **Komut satırı özelliklerini destekler mi?**
 
-Evet, Azure Machine Learning tam CLI sunar. Machine Learning CLI, Azure Machine Learning çalışma ekranı varsayılan olarak yüklenir. Ayrıca Azure Linux veri bilimi sanal makinede bir parçası olarak sağlanır ve içine tümleştirilmiştir [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+Evet, Azure Machine Learning tam CLI sunar. Machine Learning CLI, Azure Machine Learning çalışma ekranı varsayılan olarak yüklenir. Ayrıca Azure Linux veri bilimi sanal makinede bir parçası olarak sağlanır ve içine tümleştirilmiştir [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 
 
 **Jupyter not defterleri ile çalışma ekranı kullanabilir miyim?**

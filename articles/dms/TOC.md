@@ -13,11 +13,11 @@
 
 # Kaynaklar
 ## [UserVoice Geri Bildirimi](https://feedback.azure.com/forums/906100-azure-database-migration-service)
-## [Azure Yol Haritası](https://azure.microsoft.com/en-us/roadmap/)
+## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Veritabanı Geçiş Kılavuzu](https://aka.ms/datamigration)
 ## [Veri Geçiş Yardımcısı](https://aka.ms/dma)
 ## [Fiyatlandırma](https://aka.ms/dms-pricing)
 ## [Önkoşullara genel bakış](pre-reqs.md)
 ## [SSS](faq.md)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=database-migration)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=database-migration)
 ## [Azure SQL DB Yönetilen Örneği geçişlerinin ağ topolojileri](resource-network-topologies.md)

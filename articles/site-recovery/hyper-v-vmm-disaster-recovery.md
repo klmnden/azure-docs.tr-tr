@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: bf6d7c8b831e670db9fff28218c8f36391a73c9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13dcc0794c1d89bd27c79cbe6636397da4f008f9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Olağanüstü durum kurtarma için Hyper-V sanal makineleri bir ikincil şirket içi siteye ayarlayın.
 
@@ -33,9 +33,8 @@ System Center Virtual Machine Manager (VMM) bulutlarında yönetilen şirket iç
 Bu senaryoyu tamamlamak için:
 
 - Gözden geçirme [senaryo mimarisi ve bileşenleri](hyper-v-vmm-architecture.md).
-- Tüm bileşenler için [destek gereksinimlerini](site-recovery-support-matrix-to-sec-site.md) gözden geçirin.
-- VMM sunucuları ve Hyper-V konakları ile uyumlu olduğundan emin olun [destek gereksinimleri](site-recovery-support-matrix-to-sec-site.md).
-- Çoğaltmak istediğiniz sanal makineleri uyması onay [makine desteği çoğaltılan](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- VMM sunucuları ve Hyper-V konakları ile uyumlu olduğundan emin olun [destek gereksinimleri](hyper-v-vmm-secondary-support-matrix.md).
+- Çoğaltmak istediğiniz sanal makineleri uyması onay [makine desteği çoğaltılan](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support).
 - VMM sunucuları ağ eşlemesi için hazırlayın.
 
 ### <a name="prepare-for-network-mapping"></a>Ağ eşlemesi için hazırlanma
@@ -118,7 +117,7 @@ Hedef VMM sunucusunu ve Bulutu seçin:
    ![Hedef](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
-## <a name="set-up-a-replication-policy"></a>Bir çoğaltma ilkesini ayarlayın
+## <a name="set-up-a-replication-policy"></a>Çoğaltma ilkesi ayarlama
 
 Başlamadan önce ilkeyi kullanarak tüm konakları aynı işletim sistemi olduğundan emin olun. Ana bilgisayar Windows Server'ın farklı sürümleri çalıştırıyorsanız, birden fazla çoğaltma ilkesi gerekir.
 
@@ -151,7 +150,7 @@ Başlamadan önce ilkeyi kullanarak tüm konakları aynı işletim sistemi oldu�
 4. İçinde **sanal makineleri**, listeden korumak istediğiniz sanal makineleri seçin.
 
 
-İlerleme durumunu izleyebilirsiniz **korumayı etkinleştir** eylemde **işleri** > **Site Recovery işleri**. Sonra **korumayı Sonlandır** işi tamamlandığında, ilk çoğaltma tamamlandıktan ve VM yük devretme için hazırdır.
+**İşler** > **Site Recovery işleri** bölümünde **Korumayı Etkinleştir** eyleminin ilerleme durumunu izleyebilirsiniz. Sonra **korumayı Sonlandır** işi tamamlandığında, ilk çoğaltma tamamlandıktan ve VM yük devretme için hazırdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -2,23 +2,17 @@
 title: "Bir Azure dosyaları dağıtımını planlama | Microsoft Docs"
 description: "Azure dosyaları dağıtımı için planlama yaparken göz önünde bulundurmanız gerekenler hakkında bilgi edinin."
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 03/06/2018
 ms.author: wgries
-ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları, endüstri standardı SMB protokolü erişilebilir bulutta sunar. Azure dosyaları tam olarak yönetildiğinden üretim senaryolarında dağıtma dağıtma ve bir dosya sunucusu veya NAS cihazı yönetme daha kolaydır. Bu makale bir Azure dosya paylaşımı, kuruluşunuzdaki üretim kullanımı için dağıtırken dikkate alınacak konular giderir.
@@ -45,7 +39,7 @@ ms.lasthandoff: 01/29/2018
 ## <a name="data-access-method"></a>Veri erişim yöntemi
 Azure dosyaları teklifleri iki, ayrı ayrı veya birbirleriyle, verilerinize erişmek için kullanabileceğiniz yöntemleri yerleşik ve kolay veri erişim:
 
-1. **Doğrudan bulut erişim**: Any Azure dosya paylaşımı takılı tarafından [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), ve/veya [Linux](storage-how-to-use-files-linux.md) endüstri standart sunucu ileti bloğu (ile SMB) protokolü veya dosya REST API'si aracılığıyla. SMB ile doğrudan Azure dosya paylaşımı üzerinde okuma ve yazma işlemleri paylaşımında dosyalar için yapılır. Azure VM tarafından bağlamak için SMB istemci işletim sisteminde en az desteklemelidir SMB 2.1. Kullanıcının iş istasyonunda, iş istasyonu tarafından desteklenen SMB istemci en az desteklemelidir gibi şirket içi, bağlamak için SMB 3.0 (ile şifreleme). SMB ek olarak, yeni uygulamalar veya hizmetler dosya paylaşımını yazılım geliştirme için bir kolay ve ölçeklenebilir bir uygulama programlama arabirimi sağlar dosya REST aracılığıyla doğrudan erişebilirsiniz.
+1. **Doğrudan bulut erişim**: Any Azure dosya paylaşımı takılı tarafından [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), ve/veya [Linux](storage-how-to-use-files-linux.md) endüstri ile standart sunucu ileti bloğu (SMB) protokol veya dosya REST API'si aracılığıyla. SMB ile doğrudan Azure dosya paylaşımı üzerinde okuma ve yazma işlemleri paylaşımında dosyalar için yapılır. Azure VM tarafından bağlamak için SMB istemci işletim sisteminde en az desteklemelidir SMB 2.1. Kullanıcının iş istasyonunda, iş istasyonu tarafından desteklenen SMB istemci en az desteklemelidir gibi şirket içi, bağlamak için SMB 3.0 (ile şifreleme). SMB ek olarak, yeni uygulamalar veya hizmetler dosya paylaşımını yazılım geliştirme için bir kolay ve ölçeklenebilir bir uygulama programlama arabirimi sağlar dosya REST aracılığıyla doğrudan erişebilirsiniz.
 2. **Azure dosya eşitleme** (Önizleme): Azure dosya eşitleme paylaşımları Windows sunucuları şirket içi veya Azure çoğaltılabilir. Kullanıcılarınızın Windows Server ile dosya paylaşımı gibi bir SMB veya NFS paylaşım yoluyla erişir. Bu, hangi veriler erişilen ve uzakta bir Azure veri merkezinden gibi bir şube ofis senaryosunda değiştiren senaryolar için kullanışlıdır. Veri arasında birden fazla Windows Server uç noktası, gibi birden çok şube ofisleri arasında çoğaltılması. Son olarak, verileri Azure dosyaları için tüm verilerin Server hala erişilebilir olduğundan, ancak sunucu verilerin tam bir kopyasını yok, katmanlı. Bunun yerine, verileri, sorunsuz kullanıcı tarafından açıldığında çağrılır.
 
 Aşağıdaki tabloda, kullanıcılar ve uygulamalar, Azure dosya paylaşımı nasıl erişebileceğinizi gösterilmektedir:
@@ -63,7 +57,7 @@ Azure dosyaları veri güvenliğini sağlamaya yönelik birkaç yerleşik seçen
     * SMB 3.0 şifrelemesi destekleyen istemcilerin veri gönderip şifrelenmiş bir kanal üzerinden.
     * SMB 3.0 desteklemeyen istemciler iletişim kurabilir içi veri merkezi SMB 2.1 veya SMB 3.0 üzerinden şifreleme olmadan. İstemcileri ağlar arası veri merkezi SMB 2.1 veya SMB 3.0 üzerinden şifreleme olmadan iletişim kurmasına izin verilmiyor unutmayın.
     * İstemcileri dosya REST HTTP veya HTTPS üzerinden iletişim kurabilir.
-* Çalışmıyorken şifreleme ([Azure depolama hizmeti şifrelemesi](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): depolama hizmeti şifreleme (SSE) temel alınan Azure Storage platformunda etkinleştirme sürecinde duyuyoruz. Bu, şifreleme tüm depolama hesapları için varsayılan olarak etkin anlamına gelir. Şifreleme çalışmıyorken varsayılan ile bir bölgede yeni bir depolama hesabı oluşturuyorsanız, etkinleştirmek için bir şey yapmanız gerekmez. Tam olarak yönetilen anahtarlarla çalışmıyorken veri şifrelenir. Çalışmıyorken şifreleme bırakmaz depolama maliyetlerini artırabilir veya performansı düşürebilir. 
+* Çalışmıyorken şifreleme ([Azure depolama hizmeti şifrelemesi](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): depolama hizmeti şifreleme (SSE) tüm depolama hesapları için varsayılan olarak etkindir. Tam olarak yönetilen anahtarlarla çalışmıyorken veri şifrelenir. Çalışmıyorken şifreleme bırakmaz depolama maliyetlerini artırabilir veya performansı düşürebilir. 
 * Şifrelenmiş veriler aktarım sırasında isteğe bağlı gereksinimi: Seçili olduğunda, Azure dosyaları şifrelenmemiş kanalları access veri reddeder. Özellikle, yalnızca HTTPS ve SMB 3.0 şifreleme bağlantılarıyla izin verilir. 
 
     > [!Important]  

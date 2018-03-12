@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Windows Azure CLI kullanma
 
 Azure komut satırı arabirimi (CLI), bir komut satırı ve oluşturmak ve Azure kaynaklarınızı yönetmek için komut dosyası ortamı sağlar. Azure CLI macOS, Linux ve Windows işletim sistemleri için kullanılabilir. İşletim sistemi belirli sözdiziminin farklı olabilir ancak bu işletim sistemleri arasında CLI komutları, aynıdır.
 
-Bu belgede Azure CLI yüklenebilir ve Windows ve ayrıntıları söz dizimi konuları her çalıştırın, yolları ayrıntılarını verir. Ayrıntılı Azure CLI belgelere bakın, [Azure CLI belgelerine]( https://docs.microsoft.com/cli/azure/overview).
+Bu belgede Azure CLI yüklenebilir ve Windows ve ayrıntıları söz dizimi konuları her çalıştırın, yolları ayrıntılarını verir. Ayrıntılı Azure CLI belgelere bakın, [Azure CLI belgelerine]( https://docs.microsoft.com/cli/azure).
 
 ## <a name="windows-subsystem-for-linux"></a>Linux için Windows alt sistem
 
@@ -35,7 +35,7 @@ Azure CLI WSL içinde kullanmak için aşağıdaki adımları tamamlayın.
 
 |Görev | Yönergeler |
 |---|---|
-| WSL etkinleştir | [WSL belge yükleme](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
+| WSL etkinleştir | [WSL belge yükleme ](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
 | Azure CLI'yı yükleme |[WSL/Ubuntu 14.04 üzerinde CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## <a name="powershell"></a>PowerShell

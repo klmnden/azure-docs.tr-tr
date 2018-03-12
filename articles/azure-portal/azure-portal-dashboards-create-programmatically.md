@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: d2131a9fbb8fcb77a00045924169420773893f91
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 0e84ff61346f2788cf475cee2783ba2056a091ad
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Program aracılığıyla Azure panolar oluşturun
 
@@ -27,7 +27,7 @@ Bu belge, program aracılığıyla oluşturma ve Azure panolar yayımlama işlem
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure olan panolarında paylaşılan [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineleri ve depolama hesapları.  Bu nedenle, bunlar program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell komutlarını](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)ve birçok [ Azure portal](https://portal.azure.com) özellikleri oluşturmak kaynak yönetimini kolaylaştırmak için bu API'leri üstünde.  
+Azure olan panolarında paylaşılan [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) olduğu gibi sanal makineleri ve depolama hesapları.  Bu nedenle, bunlar program aracılığıyla aracılığıyla yönetilebilir [Azure Resource Manager REST API'leri](/rest/api/), [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell komutlarını](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)ve birçok [ Azure portal](https://portal.azure.com) özellikleri oluşturmak kaynak yönetimini kolaylaştırmak için bu API'leri üstünde.  
 
 Her API ve araçları, listesi oluşturmak için yol almak, değiştirmek ve kaynakları silmek sunar.  Panolar kaynaklar olduğundan, sık kullanılan API'nizi çekme / aracı.
 

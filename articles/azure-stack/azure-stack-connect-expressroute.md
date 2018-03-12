@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 8ec733c01b19f01951d0b53265daaef32c3afe73
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 544fc1bcc9212fd38938d58447f5050df2a08796
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>ExpressRoute kullanarak Azure Azure yığın Bağlan
 
@@ -163,7 +163,7 @@ Yerel ağ geçidi kaynağı amacı VPN bağlantısının diğer ucundaki uzak a�
 
     ![](media/azure-stack-connect-expressroute/GWPublicIP.png)
 
-#### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+#### <a name="create-a-virtual-machine"></a>Sanal makine oluşturun
 VPN bağlantısı üzerinden yolculuk verileri doğrulamak için Azure yığın Vnet içinde veri alıp göndermek için sanal makineler gerekir. Şimdi bir sanal makine oluşturun ve sizin VM alt ağdaki sanal ağınızda yerleştirin.
 
 1. Azure yığın Kullanıcı Portalı'nda tıklatın **yeni**.
@@ -273,7 +273,7 @@ Azure'da dağıtmak kaynakları Azure yığınında dağıtılan kaynak benzerdi
 3. Spoke oluşturmak VNet ve 10.100.0.0/16 kullanarak alt ağ adres aralığı.
 
 
-Azure'da sanal ağlar oluşturma hakkında daha fazla bilgi için bkz: [birden çok alt ağı ile bir sanal ağ oluşturma](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Azure'da sanal ağlar oluşturma hakkında daha fazla bilgi için bkz: [bir sanal ağ oluşturma](../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ### <a name="configure-an-expressroute-circuit"></a>Bir expressroute bağlantı hattını yapılandırın
 
@@ -296,7 +296,7 @@ Azure'da sanal ağlar oluşturma hakkında daha fazla bilgi için bkz: [birden �
    * Spoke hub'dan: **ağ geçidi transit izin ver**
    * Hub'ına bağlı bileşen gelen: **uzak ağ geçidini kullan**
 
-### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+### <a name="create-a-virtual-machine"></a>Sanal makine oluşturun
 
 * İş yükü sanal makinelerinize VNet spoke dağıtın.
 
@@ -531,7 +531,7 @@ route-map VNET-ONLY permit 10
 !
 ```
 
-## <a name="test-the-connection"></a>Bağlantıyı sınama
+## <a name="test-the-connection"></a>Bağlantıyı test et
 
 Siteden siteye bağlantı ve expressroute bağlantı hattı kurulduktan sonra bağlantınızı sınayın. Bu basit bir görevdir.  Azure sanal ağınızda oluşturulan sanal makineler birine oturum açın ve Azure yığın ortamında veya tersi oluşturduğunuz sanal makineye ping. 
 

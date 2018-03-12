@@ -11,11 +11,11 @@ ms.workload: web
 ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins, devcenter
-ms.openlocfilehash: 40d7e822b586e6f6b4addcd7d4e107eda9f4ab11
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Sürekli tümleştirme ve dağıtım Azure App Service'e Jenkins ile ayarlama
 
@@ -36,8 +36,8 @@ Bu öğreticide aşağıdaki görevleri gerçekleştirmeniz gerekecektir:
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * [Jenkins](https://jenkins.io/) yapılandırılmış JDK ve Maven araçları ile. Jenkins sistem yoksa oluşturmak artık Azure içinde [Jenkins çözüm şablonu](/azure/jenkins/install-jenkins-solution-template).
-* A [GitHub](https://github.com) hesabı.
-* [Azure CLI 2.0](/cli/azure/overview), yerel komut satırından veya buna [Azure bulut Kabuğu](/azure/cloud-shell/overview)
+* Bir [GitHub](https://github.com) hesabı.
+* [Azure CLI 2.0](/cli/azure), yerel komut satırından veya buna [Azure bulut Kabuğu](/azure/cloud-shell/overview)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -72,10 +72,10 @@ Jenkins alacak şekilde ayarlanmış [GitHub Web kancası](https://developer.git
 1. Açık [yay önyükleme örnek uygulama deposu](https://github.com/spring-guides/gs-spring-boot-docker) ve seçerek kendi GitHub hesabı çatallaştırma **çatalı** sağ üst köşesindeki.   
     ![Github'dan çatalı](media/jenkins-java-quickstart/fork_github_repo.png)
 1. Jenkins web konsolunda seçin **yeni öğe**, bir ad verin **MyJavaApp**seçin **Serbest stilde proje**seçeneğini belirleyip **Tamam**.   
-    ![Yeni Jenkins Freestyle projesi](media/jenkins-java-quickstart/jenkins_freestyle.png)
+    ![New Jenkins Freestyle Project](media/jenkins-java-quickstart/jenkins_freestyle.png)
 2. Altında **genel** bölümünde, select **GitHub** proje ve https://github.com/raisa/gs-spring-boot-docker gibi çatallanmış depodaki URL'nizi girin
 3. Altında **kaynak kodu Yönetimi** bölümünde, select **Git**, forked depodaki girin `.git` https://github.com/raisa/gs-spring-boot-docker.git gibi URL
-4. Altında **yapı tetikleyicileri** bölümünde, select **GITscm yoklama için GitHub kanca tetikleyici**.
+4. **Derleme Tetikleyicileri** bölümünden **GITScm yoklaması için GitHub kanca tetikleyicisi**’ni seçin.
 5. Altında **yapı** bölümünde, select **Ekle derleme adımı** ve **en üst düzey Maven hedefleri çağırma**. Girin `package` içinde **hedefleri** alan.
 6. **Kaydet**’i seçin. İşinizi seçerek sınayabilirsiniz **şimdi yapı** proje sayfasından.
 

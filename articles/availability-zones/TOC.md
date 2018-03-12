@@ -28,10 +28,7 @@
 #### [PowerShell ile bölgesel olarak yedekli Load Balancer Standard oluşturma](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [CLI ile bölgesel olarak yedekli Genel Load Balancer Standard oluşturma](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Genel IP adresi
-#### [Azure portal ile bir kullanılabilirlik alanında genel IP adresi oluşturma](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [PowerShell ile bir kullanılabilirlik alanında genel IP adresi oluşturma](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [CLI ile bir kullanılabilirlik alanında genel IP adresi oluşturma](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Genel IP adresi](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
 #### [SQL Veritabanı ile kullanılabilirlik alanları](../sql-database/sql-database-high-availability.md#availability-zones)

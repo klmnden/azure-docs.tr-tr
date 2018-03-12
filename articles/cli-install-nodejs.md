@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a1ca71a81f4fa6dd36b9ed3a2b16fcca0e29601c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>1.0 Azure CLI'yı yükleme
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/21/2017
 
 > [!IMPORTANT]
 > Bu konuda, Azure CLI 1.0 yüklemeyi açıklar. Bu CLI kullanım dışıdır ve yalnızca "Klasik" kaynaklarla Azure Hizmet Yönetimi (ASM) modeli ile ilgili destek için kullanılmalıdır.
-> Azure Resource Manager (ARM) dağıtımlar için kullandığınız [Azure CLI 2.0](/cli/azure/overview).
+> Azure Resource Manager dağıtımları için kullanmak [Azure CLI 2.0](/cli/azure).
 
-Hızlı bir şekilde arabirimi oluşturmak ve Microsoft Azure kaynakları yönetmek için açık kaynak kabuk tabanlı komut kümesini kullanmak için Azure komut satırı (Azure CLI 1.0) yükleyin. Bu platformlar arası araçları bilgisayarınıza yüklemek için birkaç seçeneğiniz vardır:
+Microsoft Azure’da kaynak oluşturma ve kaynakları yönetmeye yönelik açık kaynak, kabuk tabanlı bir komut kümesini kullanmak için Azure Komut Satırı Arabirimi’ni (Azure CLI 1.0) hızlıca yükleyin. Bu platformlar arası araçları bilgisayarınıza yüklemek için birkaç seçeneğiniz vardır:
 
 * **npm paket** -Linux dağıtım ya da OS en son Azure CLI 1.0 paketini yüklemek için npm (JavaScript için Paket Yöneticisi) çalıştırın. Node.js ve bilgisayarınızda npm gerektirir.
 * **Yükleyici** -Mac veya Windows kolay yükleme için bir yükleyici indirin.

@@ -4,7 +4,7 @@ description: "Planlama ve tasarım yalıtımı, bağlantı ve konumunu gereksini
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planlama ve Azure sanal ağlar tasarlama
-Denemeniz için bir VNet oluşturma yeterince kolay, ancak büyük olasılıkla, birden çok sanal ağlar, kuruluşunuzun üretim gereksinimlerini desteklemek için zaman içinde dağıtır. Bazı planlama ve tasarım ile sanal ağlar dağıtabilmeli ve daha etkili bir şekilde ihtiyacınız olan kaynakları bağlanmak olacaktır. Sanal ağlar ile bilmiyorsanız, önermiştir, [sanal ağlar hakkında bilgi edinin](virtual-networks-overview.md) ve [nasıl dağıtılacağı](virtual-networks-create-vnet-arm-pportal.md) devam etmeden önce bir.
+Denemeniz için bir VNet oluşturma yeterince kolay, ancak büyük olasılıkla, birden çok sanal ağlar, kuruluşunuzun üretim gereksinimlerini desteklemek için zaman içinde dağıtır. Bazı planlama ve tasarım ile sanal ağlar dağıtabilmeli ve daha etkili bir şekilde ihtiyacınız olan kaynakları bağlanmak olacaktır. Sanal ağlar ile bilmiyorsanız, önermiştir, [sanal ağlar hakkında bilgi edinin](virtual-networks-overview.md) ve [nasıl dağıtılacağı](quick-create-portal.md) devam etmeden önce bir.
 
 ## <a name="plan"></a>Planlama
 Azure Abonelikleri, bölgeler ve ağ kaynaklarının kapsamlı olarak anlamayı başarısı için önemlidir. Konuların listesini bir başlangıç noktası olarak kullanabilirsiniz. Bu konuları anladığınızda, ağ tasarımınız için gereksinimler tanımlayabilirsiniz.
@@ -60,10 +60,10 @@ Sanal ağlar aşağıdaki özellikleri içerir.
 
 | Özellik | Açıklama | Kısıtlamalar |
 | --- | --- | --- |
-| **adı** |VNet adı |En fazla 80 karakter dizesi. Harf, rakam, alt çizgi, nokta veya kısa çizgi içerebilir. Bir harf veya sayı ile başlamalıdır. Bir harf, sayı veya alt çizgi ile bitmelidir. Üst veya küçük harf içerir. |
+| **Adı** |VNet adı |En fazla 80 karakter dizesi. Harf, rakam, alt çizgi, nokta veya kısa çizgi içerebilir. Bir harf veya sayı ile başlamalıdır. Bir harf, sayı veya alt çizgi ile bitmelidir. Üst veya küçük harf içerir. |
 | **konum** |Azure konum (bölge da bilinir). |Geçerli Azure konumlardan birinde olmalıdır. |
 | **addressSpace** |CIDR gösteriminde VNet oluşturan adres öneklerini koleksiyonu. |Genel IP adresi aralıklarının da dahil olmak üzere, geçerli CIDR adres bloklarını bir dizi olmalıdır. |
-| **alt ağlar** |VNet yapmak alt koleksiyonu |Aşağıdaki alt ağ özelliklerini tabloya bakın. |
+| **Alt ağlar** |VNet yapmak alt koleksiyonu |Aşağıdaki alt ağ özelliklerini tabloya bakın. |
 | **dhcpOptions** |Adlı tek gerekli bir özellik içeren nesne **dnsServers**. | |
 | **dnsServers** |Sanal ağ tarafından kullanılan DNS sunucuları dizisi. Hiçbir sunucu belirtilirse, Azure dahili ad çözümlemesi kullanılır. |Bir dizi IP adresine göre en fazla 10 DNS sunucuları olması gerekir. |
 
@@ -73,12 +73,12 @@ Alt ağları aşağıdaki özellikleri içerir.
 
 | Özellik | Açıklama | Kısıtlamalar |
 | --- | --- | --- |
-| **adı** |Alt ağ adı |En fazla 80 karakter dizesi. Harf, rakam, alt çizgi, nokta veya kısa çizgi içerebilir. Bir harf veya sayı ile başlamalıdır. Bir harf, sayı veya alt çizgi ile bitmelidir. Üst veya küçük harf içerir. |
+| **Adı** |Alt ağ adı |En fazla 80 karakter dizesi. Harf, rakam, alt çizgi, nokta veya kısa çizgi içerebilir. Bir harf veya sayı ile başlamalıdır. Bir harf, sayı veya alt çizgi ile bitmelidir. Üst veya küçük harf içerir. |
 | **konum** |Azure konum (bölge da bilinir). |Geçerli Azure konumlardan birinde olmalıdır. |
 | **addressPrefix** |Alt ağ CIDR gösteriminde oluşturan tek adresi öneki |Sanal ağınızın adres alanlarından birini parçası olan tek bir CIDR bloğu olmalıdır. |
 | **networkSecurityGroup** |NSG alt ağına uygulanır | |
 | **routeTable** |Alt ağa uygulanan yol tablosu | |
-| **Ipconfigurations** |Alt ağına bağlı NIC tarafından kullanılan IP yapılandırma nesneleri koleksiyonu | |
+| **ipConfigurations** |Alt ağına bağlı NIC tarafından kullanılan IP yapılandırma nesneleri koleksiyonu | |
 
 ### <a name="name-resolution"></a>Ad çözümlemesi
 Varsayılan olarak, sanal ağınızı kullanır [Azure tarafından sağlanan ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md) VNet içindeki ve ortak Internet'te adları çözümlemek için. Şirket içi veri merkezleri, sanal ağlar bağlanıyorsanız, ancak sağlamanız gerekir [kendi DNS sunucusu](virtual-networks-name-resolution-for-vms-and-role-instances.md) ağlarınız arasında adları çözümlemek için.  
@@ -112,10 +112,10 @@ Aşağıdaki tabloda, abonelikleri ve sanal ağlar kullanmak için bazı ortak t
 
 | Senaryo | Diyagram | Uzmanları | Simgeler |
 | --- | --- | --- | --- |
-| Tek bir abonelik, uygulama başına iki sanal ağlar |![Tek bir abonelik](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Yönetmek için yalnızca bir abonelik. |Sanal ağlar maksimum sayısı her Azure bölgesi. Daha fazla abonelik bundan sonra gerekir. Gözden geçirme [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) Ayrıntılar için makale. |
-| Uygulama, uygulama başına iki Vnet başına tek abonelikle |![Tek bir abonelik](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Abonelik başına yalnızca iki Vnet kullanır. |Çok fazla uygulama olduğunda yönetmek daha zor. |
-| Departman, uygulama başına iki Vnet başına tek abonelikle. |![Tek bir abonelik](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Abonelik sayısı ve sanal ağlar arasında dengeleyin. |Sanal ağlar maksimum sayısı her iş birimi (abonelik). Gözden geçirme [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) Ayrıntılar için makale. |
-| Departman, uygulama grubu başına iki Vnet başına tek abonelikle. |![Tek bir abonelik](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Abonelik sayısı ve sanal ağlar arasında dengeleyin. |Alt ağları ve Nsg'ler kullanarak uygulamaları yalıtılmış gerekir. |
+| Tek bir abonelik, uygulama başına iki sanal ağlar |![Tek abonelik](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Yönetmek için yalnızca bir abonelik. |Sanal ağlar maksimum sayısı her Azure bölgesi. Daha fazla abonelik bundan sonra gerekir. Gözden geçirme [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) Ayrıntılar için makale. |
+| Uygulama, uygulama başına iki Vnet başına tek abonelikle |![Tek abonelik](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Abonelik başına yalnızca iki Vnet kullanır. |Çok fazla uygulama olduğunda yönetmek daha zor. |
+| Departman, uygulama başına iki Vnet başına tek abonelikle. |![Tek abonelik](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Abonelik sayısı ve sanal ağlar arasında dengeleyin. |Sanal ağlar maksimum sayısı her iş birimi (abonelik). Gözden geçirme [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) Ayrıntılar için makale. |
+| Departman, uygulama grubu başına iki Vnet başına tek abonelikle. |![Tek abonelik](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Abonelik sayısı ve sanal ağlar arasında dengeleyin. |Alt ağları ve Nsg'ler kullanarak uygulamaları yalıtılmış gerekir. |
 
 ### <a name="number-of-subnets"></a>Alt ağların sayısı
 Aşağıdaki senaryolarda bir VNet içindeki birden çok alt ağı dikkate almanız gerekir:
@@ -202,11 +202,11 @@ Aşağıdaki gereksinimleri abonelikleri ve sanal ağlar ilgili:
 
 Bu gereksinimlerine bağlı olarak, her iş birimi için bir abonelik gerekiyor. Bu şekilde, bir iş biriminin kaynakları tüketiminin sınırları diğer iş birimleri için sayar değil. Ve sanal ağlar sayısını en aza indirmek istediğiniz beri kullanmayı düşünmelisiniz **departman, uygulama grubu başına iki Vnet başına tek abonelikle** desen aşağıda görüldüğü gibi.
 
-![Tek bir abonelik](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+![Tek abonelik](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
 Ayrıca her sanal ağ için adres alanı belirtmeniz gerekir. Gereksinim duyduğunuz beri şirket içi veri arasında bağlantı merkezleri ve Azure bölgeleri Azure sanal ağlar için kullanılan adres alanı ile şirket içi ağ artar olamaz ve her sanal ağ tarafından kullanılan adres alanı ile var olan diğer sanal ağlardan artar değil. Bu gereksinimleri karşılamak için aşağıdaki tabloda adres alanlarını kullanabilirsiniz.  
 
-| **Abonelik** | **Sanal ağ** | **Azure bölgesi** | **Adres alanı** |
+| **Abonelik** | **VNet** | **Azure bölgesi** | **Adres alanı** |
 | --- | --- | --- | --- |
 | BU1 |ProdBU1US1 |Batı ABD |172.16.0.0/16 |
 | BU1 |ProdBU1US2 |Doğu ABD |172.17.0.0/16 |

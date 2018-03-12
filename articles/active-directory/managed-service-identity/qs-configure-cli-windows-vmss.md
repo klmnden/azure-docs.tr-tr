@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: a64733b1969e2deae665f7a5f24a6653b216d94d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Sanal makine yapılandırma ölçek kümesi yönetilen hizmet kimliği (MSI) Azure CLI kullanma
 
@@ -43,7 +43,7 @@ CLI komut dosyası örnekleri çalıştırmak için üç seçeneğiniz vardır:
 
 Bir MSI özellikli sanal makine ölçek oluşturmak için ayarlayın:
 
-1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#az_login). Altında sanal makine ölçek kümesini dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/reference-index#az_login). Altında sanal makine ölçek kümesini dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
 
    ```azurecli-interactive
    az login
@@ -65,7 +65,7 @@ Bir MSI özellikli sanal makine ölçek oluşturmak için ayarlayın:
 
 Var olan bir Azure sanal makine ölçek kümesinde MSI etkinleştirmeniz gerekirse:
 
-1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#az_login). Sanal makine ölçek kümesini içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
+1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/reference-index#az_login). Sanal makine ölçek kümesini içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
 
    ```azurecli-interactive
    az login
@@ -81,7 +81,7 @@ Var olan bir Azure sanal makine ölçek kümesinde MSI etkinleştirmeniz gerekir
 
 Artık bir MSI gereken bir sanal makine ölçek kümesi varsa:
 
-1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#az_login). Sanal makine ölçek kümesini içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
+1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/reference-index#az_login). Sanal makine ölçek kümesini içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
 
    ```azurecli-interactive
    az login

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b28870938667076280d6e4b08ee84870296d133
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a8c49f06719b68c2b3ca6aee4dfb0b90bdbf0afc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver çoklu SID yapılandırması oluştur
 
@@ -425,7 +425,7 @@ ms.lasthandoff: 11/02/2017
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
@@ -453,7 +453,7 @@ Bu makalede, varolan bir Windows Server Yük Devretme Kümelemesi (WSFC) kümesi
 > [!NOTE]
 > Bu özellik yalnızca Azure Resource Manager dağıtım modelinde kullanılabilir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Zaten bir SAP ASCS/SCS örnek için kullanılan bir WSFC kümesinin anlatıldığı gibi yapılandırdığınız [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde] [ sap-ha-guide] ve bu diyagramda gösterildiği gibi.
 
 ![Yüksek kullanılabilirlik SAP ASCS/SCS örneği][sap-ha-guide-figure-6001]
@@ -490,7 +490,7 @@ Altyapınızı hazırlamak için aşağıdaki parametrelerle ek SAP ASCS/SCS ör
 | --- | --- |
 | SAP ASCS/SCS SID |pr1 lb ascs |
 | SAP DBMS iç yük dengeleyici | PR5 |
-| SAP sanal ana bilgisayar adı | pr5 sap cl |
+| SAP sanal ana bilgisayar adı | pr5-sap-cl |
 | SAP ASCS/SCS sanal ana bilgisayar IP adresi (ek Azure yük dengeleyici IP adresi) | 10.0.0.50 |
 | SAP ASCS/SCS örnek sayısı | 50 |
 | Ek SAP ASCS/SCS örnek için ILB araştırmasını bağlantı noktası | 62350 |
@@ -513,7 +513,7 @@ Aşağıdaki parametreleri kullanarak ASCS/SCS örneğinin sanal ana bilgisayar 
 
 | Yeni SAP ASCS/SCS sanal ana bilgisayar adı | İlişkili IP adresi |
 | --- | --- | --- |
-|pr5 sap cl |10.0.0.50 |
+|pr5-sap-cl |10.0.0.50 |
 
 Yeni ana bilgisayar adı ve IP adresi DNS Yöneticisi'nde, aşağıdaki ekran görüntüsünde gösterildiği gibi görüntülenir:
 

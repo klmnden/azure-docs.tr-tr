@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı veya uzantısı ile ilgili sorunları
 
@@ -30,9 +30,6 @@ Bu makale, yardımcı olabilecek sorun giderme adımlarını uzantısı ve VM Ar
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM Aracısı Azure yedekleme ile iletişim kuramıyor
 
 Hata iletisi: "VM Aracısı Azure yedekleme ile iletişim kuramıyor"
-
-> [!NOTE]
-> Azure Linux VM'de Yedeklemelerinizin 4 Ocak 2018 başlayarak bu hata ile başarısız olursa VM ile aşağıdaki komutu çalıştırın ve yedeklemeleri yeniden deneyin:`sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
 
 Kaydolun ve yedekleme hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık almak için VM Aracısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Bir anlık görüntü değil tetiklendiğinde yedekleme başarısız olabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:
 
@@ -58,9 +55,8 @@ Hata iletisi: "VMSnapshot uzantısı işlemi başarısız oldu"
 Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:  
 **1. neden: [anlık görüntü durumu alınamıyor olabilir ya da bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Neden 2: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
-**3. neden: [VM Internet erişimi yok](#the-vm-has-no-internet-access)**  
-**4. neden: [aracı VM, ancak, yanıt vermeyen (Windows VM'ler için) yüklendi](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**5. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**3. neden: [aracı VM, ancak, yanıt vermeyen (Windows VM'ler için) yüklendi](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**4. neden: [VM'yi yüklü Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>VM aracısı yanıt vermiyor yedekleme başarısız olur
 
@@ -151,12 +147,12 @@ Aracı veya uzantı ilgili hataları Linux VM'ler için en güncel olmayan bir V
  > [!NOTE]
  > Biz *tavsiye* yalnızca bir dağıtım deposu aracılığıyla aracıyı güncelleştirin. Doğrudan Github'dan aracısı kodu indiriliyor ve güncelleştirmeden önermiyoruz. Dağıtımınız için en son Aracı nasıl yükleneceği hakkında yönergeler için kullanılabilir, ilgili kişi dağıtım desteği değilse. En son aracı için denetlemek için Git [Windows Azure Linux Aracısı](https://github.com/Azure/WALinuxAgent/releases) GitHub deposuna sayfasında.
 
-2. Aşağıdaki komutu çalıştırarak Azure Aracısı VM üzerinde çalıştığından emin olun:`ps -e`
+2. Aşağıdaki komutu çalıştırarak Azure Aracısı VM üzerinde çalıştığından emin olun: `ps -e`
 
  İşlem çalışmıyorsa, aşağıdaki komutları kullanarak yeniden başlatın:
 
- * Ubuntu için:`service walinuxagent start`
- * Diğer dağıtımlar için:`service waagent start`
+ * Ubuntu için: `service walinuxagent start`
+ * Diğer dağıtımlar için: `service waagent start`
 
 3. [Otomatik yeniden başlatma Aracısı'nı yapılandırma](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Yeni bir test yedekleme çalıştırın. Hata devam ederse aşağıdaki günlüklerini sanal makineden toplayın:
@@ -168,7 +164,7 @@ Aracı veya uzantı ilgili hataları Linux VM'ler için en güncel olmayan bir V
 Ayrıntılı günlük kaydı için waagent gerekiyorsa, şu adımları izleyin:
 
 1. /Etc/waagent.conf dosyasında aşağıdaki satırı bulun: **ayrıntılı günlük kaydını etkinleştir (y | n)**
-2. Değişiklik **Logs.Verbose** değeri  *n*  için *y*.
+2. Değişiklik **Logs.Verbose** değeri *n* için *y*.
 3. Değişikliği kaydetmek ve bu bölümde daha önce açıklanan adımları izleyerek waagent yeniden başlatın.
 
 ###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Anlık görüntü durumu alınamıyor olabilir ya da bir anlık görüntü alınamaz
@@ -179,7 +175,6 @@ Aşağıdaki koşullar ve anlık görüntü görevi başarısız olmasına neden
 
 | Nedeni | Çözüm |
 | --- | --- |
-| VM yapılandırılmış SQL Server Yedekleme sahiptir. | Varsayılan olarak, bir VM yedeğinin bir birim gölge kopyası hizmeti (VSS) tam yedekleme Windows sanal makinelerin çalışır. Hangi SQL Server ve SQL Server tabanlı sunucular çalıştırmakta olan VM'ler üzerinde anlık görüntü yürütme gecikmeler oluşabilir yedekleme yapılandırılır.<br><br>Yedekleme hatası nedeniyle bir anlık görüntü sorunla karşılaşırsanız, aşağıdaki kayıt defteri anahtarını ayarlayın:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | Uzak Masaüstü Protokolü (RDP) VM'yi kapatın olduğundan VM durumu yanlış bildirilir. | RDP VM'yi kapatın, VM durumu doğru olup olmadığını belirlemek için portal denetleyin. Doğru değilse, Portalı'nda VM kullanarak kapatmak **kapatma** VM Panoda seçeneği. |
 | VM konak veya doku adresi DHCP'den alınamıyor. | DHCP çalışmaya Iaas VM yedekleme için konuk içinde etkinleştirilmesi gerekir. VM konak veya doku adresi 245 DHCP yanıttan alınamıyor, dosya indirme veya tüm uzantılar çalıştırın. Statik bir özel IP gerekiyorsa platformu ile yapılandırın. VM içindeki DHCP seçeneği sol etkinleştirilmiş olmalıdır. Daha fazla bilgi için bkz: [statik iç özel IP ayarlamak](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
@@ -188,12 +183,7 @@ Uzantılar yüklenemiyor çünkü bir anlık görüntü alınamaz yedekleme baş
 
 #### <a name="solution"></a>Çözüm
 
-**Windows konuklar için:** iaasvmprovider hizmetinin etkin ve bir başlangıç türü doğrulayın *otomatik*. Hizmet bu şekilde yapılandırılmamışsa, sonraki yedekleme başarılı olup olmadığını belirlemek üzere hizmetini etkinleştirin.
-
-**Linux konuklar için:** VMSnapshot Linux (Yedekleme tarafından kullanılan uzantı) için en son sürümünü 1.0.91.0 olduğunu doğrulayın.<br>
-
-
-Backup uzantısı güncelleştirmek veya yüklemek yine başarısız olursa yeniden yüklemek için VMSnapshot uzantısı zorlamak için uzantıyı kaldırın. Sonraki yedekleme girişiminde uzantısı yeniden yükler.
+Yeniden yüklemek için VMSnapshot uzantısı zorlamak için uzantıyı kaldırın. Sonraki yedekleme girişiminde uzantısı yeniden yükler.
 
 Uzantıyı kaldırmak için:
 
@@ -220,7 +210,7 @@ Sorunu gidermek için geri yükleme noktası koleksiyonu kaldırmak için aşağ
 4. VM karşılık gelen geri yükleme noktası koleksiyonunun alın: <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
-    Örnek:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+    Örnek: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
 5. Geri yükleme noktası koleksiyonunu silin: <br>
     `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. Sonraki zamanlanmış yedekleme, geri yükleme noktası koleksiyonu ve yeni geri yükleme noktaları otomatik olarak oluşturur.

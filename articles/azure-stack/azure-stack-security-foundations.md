@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure yığın altyapı güvenlik yaklaşımı
 
@@ -31,8 +31,12 @@ Azure yığınında bir arada iki güvenlik tutumunu katman vardır. İlk katman
 ## <a name="security-approach"></a>Güvenlik yaklaşımı
 Azure yığını ile güvenlik tutumunu modern tehditlere karşı korumak için tasarlanmıştır ve ana uyumluluk standartlarını gereksinimlerden karşılamak için oluşturuldu. Sonuç olarak, güvenlik tutumunu Azure yığın altyapısının üzerinde iki ayaklar yerleşik olarak bulunur:
 
- - **İhlali varsayalım.** Odağı sistem zaten ihlal edildiği varsayılır başlayarak, *algılama ve ihlallerinden etkilerini sınırlayarak* karşı saldırıları önlemek yalnızca çalışıyor. 
- - **Varsayılan olarak sıkı.**  İyi tanımlanmış donanım ve yazılım, altyapı çalışır olduğundan *etkinleştirmek, yapılandırmak ve güvenlik özellikleri doğrulamak* uygulamak müşterilere bırakılır.
+ - **İhlali varsayalım.**  
+Odağı sistem zaten ihlal edildiği varsayılır başlayarak, *algılama ve ihlallerinden etkilerini sınırlayarak* karşı saldırıları önlemek yalnızca çalışıyor. 
+ - **Varsayılan olarak sıkı.**  
+İyi tanımlanmış donanım ve yazılım, altyapı çalışır olduğundan biz *etkinleştirmek, yapılandırmak ve tüm güvenlik özellikleri doğrulama* varsayılan olarak.
+
+
 
 Azure yığın tümleşik bir sistem olarak teslim edildiğinden Azure yığın altyapısının güvenlik tutumunu Microsoft tarafından tanımlanır. Gibi Azure'da, kiracılar, Kiracı iş yüklerini güvenlik duruşunu tanımlamak için sorumludur. Bu belge, Azure yığın altyapı güvenlik yaklaşımı hakkında temel bilgi sağlar.
 

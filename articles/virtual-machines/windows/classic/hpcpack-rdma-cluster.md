@@ -4,7 +4,7 @@ description: "Boyutuyla H16r, H16mr, A8 veya A9 Vm'lerde MPI uygulamaları çal�
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
@@ -13,28 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/01/2017
+ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 437c475735ec3823de51c5f9e996a5303fe9cfa7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>MPI uygulamaları çalıştırmak için Windows RDMA küme HPC paketi ile ayarlama
-Azure ile Windows RDMA kümedeki ayarlamak [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) ve [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) paralel ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için. RDMA özelliğine sahip, Windows Server tabanlı bir HPC Pack kümedeki düğümlerin ayarladığınızda, MPI uygulamaları düşük gecikme, doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı azure'da yüksek verimlilik ağ üzerinden verimli bir şekilde iletişim kurar.
+Azure ile Windows RDMA kümedeki ayarlamak [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) ve [RDMA özellikli HPC VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) paralel ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için. RDMA özelliğine sahip, Windows Server tabanlı bir HPC Pack kümedeki düğümlerin ayarladığınızda, MPI uygulamaları düşük gecikme, doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı azure'da yüksek verimlilik ağ üzerinden verimli bir şekilde iletişim kurar.
 
 Linux VM'ler üzerinde Azure RDMA ağ erişim Bkz MPI iş yüklerini çalıştırmak istiyorsanız [MPI uygulamaları çalıştırmak için Linux RDMA küme ayarlama](../../linux/classic/rdma-cluster.md).
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>HPC Pack küme dağıtım seçenekleri
 Microsoft HPC Pack bir oluşturmak için hiçbir ek ücret ödemeden şirket içi HPC kümelerinde sağlanan veya Windows veya Linux HPC uygulamaları çalıştırmak için Azure aracıdır. HPC Pack ileti geçirme arabirimi for Windows (MS-MPI) Microsoft uygulaması için bir çalışma zamanı ortamı içerir. Desteklenen bir Windows Server işletim sistemi çalıştıran RDMA özellikli örnekleriyle birlikte kullanıldığında, HPC Pack Azure RDMA ağ erişim Windows MPI uygulamaları çalıştırmak için etkili bir seçenek sağlar. 
 
-Bu makalede, Microsoft HPC paketi ile Windows RDMA küme ayarlamak için ayrıntılı yönergeler için iki senaryo ve bağlantıları tanıtılır. 
+Bu makalede, Microsoft HPC Pack 2012 R2 ile Windows RDMA küme ayarlamak için ayrıntılı yönergeler için iki senaryo ve bağlantıları tanıtılır. 
 
 * Senaryo 1. İşlem yoğunluklu çalışan rolü örnekleri (PaaS) dağıtma
 * Senaryo 2. İşlem yoğunluklu VM'ler (Iaas) hesaplama düğümlerini dağıtmak
-
-Genel önkoşullarını işlem yoğunluklu örnekler Windows ile birlikte kullanmak, bkz: [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Senaryo 1: işlem yoğunluklu çalışan rolü örnekleri (PaaS) dağıtma
 Mevcut bir HPC Pack kümeden ek işlem kaynaklarında bir bulut hizmeti (PaaS) çalışan Azure çalışan rolü örnekleri (Azure düğümleri) ekleyin. "HPC paketinden Azure'a veri bloğu" olarak da adlandırılan bu özellik, bir dizi boyutları çalışan rolü örnekleri için destekler. Azure düğümleri eklerken, RDMA özellikli boyutlarından birini belirtin.
@@ -51,13 +49,14 @@ Mevcut bir HPC Pack kümeden ek işlem kaynaklarında bir bulut hizmeti (PaaS) �
 ### <a name="steps"></a>Adımlar
 1. **HPC Pack 2012 R2 baş düğüm yapılandırmak ve dağıtmak**
    
-    En son HPC Pack yükleme paketini indirin [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Gereksinimler ve bir Azure veri bloğu dağıtımına hazırlanmak için yönergeler için bkz: [Microsoft HPC paketi ile Azure çalışan örneklerine veri bloğu](https://technet.microsoft.com/library/gg481749.aspx).
+    HPC Pack yükleme paketinden karşıdan [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Gereksinimler ve bir Azure veri bloğu dağıtımına hazırlanmak için yönergeler için bkz: [Microsoft HPC paketi ile Azure çalışan örneklerine veri bloğu](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Azure aboneliğinde bir yönetim sertifikası yapılandırma**
    
     Baş düğüm ile Azure arasındaki bağlantının güvenli hale getirmek için bir sertifika yapılandırın. Seçenekler ve yordamlar için bkz: [HPC Pack için Azure yönetim sertifikasını yapılandırma senaryoları](http://technet.microsoft.com/library/gg481759.aspx). Test dağıtımları için HPC Pack bir varsayılan Microsoft HPC Azure yönetim Azure aboneliğinize hızlı bir şekilde yükleyebilirsiniz sertifikası yükler.
 3. **Yeni bir bulut hizmeti ve bir depolama hesabı oluştur**
    
-    RDMA özellikli örnekleri kullanılabildiği bir bölgede bir bulut hizmeti ve dağıtım için bir depolama hesabı oluşturmak için Azure Portalı'nı kullanın.
+    Bir bulut hizmeti (Klasik) ve bir depolama hesabı dağıtım için (Klasik) oluşturmak için Azure Portalı'nı kullanın. Bu kaynaklar, kullanmak istediğiniz H-serisi, A8 veya A9 boyutu kullanılabilir olduğu bir bölgede oluşturun. Bkz: [bölgeye göre Azure ürünleri](https://azure.microsoft.com/regions/services/).
+
 4. **Bir Azure düğüm şablonu oluşturma**
    
     Kullanım düğümü Şablon Sihirbazı'nı HPC Küme Yöneticisi'nde oluşturun. Adımlar için bkz: [Azure düğüm şablonu oluşturma](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) "Adımları için dağıtmak Azure düğümleri ile Microsoft HPC Pack".
@@ -91,19 +90,20 @@ Bu senaryoda, küme işlem düğümlerinde sanal makineleri bir Azure sanal ağ�
 ### <a name="steps"></a>Adımlar
 1. **Bir küme baş düğümüne oluşturmak ve bir istemci bilgisayarda HPC Pack Iaas dağıtım betiği çalıştırarak düğümü VM'ler işlem**
    
-    HPC Pack Iaas dağıtım betiği paketinden karşıdan [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
+    HPC Pack Iaas dağıtım betiği paketinden karşıdan [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949).
    
     İstemci bilgisayarı hazırlamak için yapılandırma betiği ve komut dosyası çalıştırma görür oluşturma [HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](hpcpack-cluster-powershell-script.md). 
    
-    RDMA özellikli hesaplama düğümlerini dağıtmak için aşağıdaki ek konuları göz önünde bulundurun:
+    RDMA özellikli dağıtma hakkında dikkat edilecek noktalar için işlem düğümleri, bkz: [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) ve aşağıdakilere dikkat edin:
    
-   * **Sanal ağ**: kullanmak istediğiniz RDMA özellikli örnek boyutu olduğu kullanılabilir bir bölgede yeni bir sanal ağ belirtin.
-   * **Windows Server işletim sisteminin**: RDMA bağlantıyı desteklemek için işlem düğümü VM'ler için bir Windows Server 2012 R2 veya Windows Server 2012 işletim sistemi belirtin.
-   * **Bulut Hizmetleri**: baş düğümünüz bir bulut hizmeti ve işlem düğümleriniz farklı bir bulut hizmeti dağıtma öneririz.
+   * **Sanal ağ**: kullanmak istediğiniz H-serisi, A8 veya A9 boyutu olduğu kullanılabilir bir bölgede yeni bir sanal ağ belirtin. Bkz: [bölgeye göre Azure ürünleri](https://azure.microsoft.com/regions/services/).
+
+   * **Windows Server işletim sisteminin**: RDMA bağlantısı desteklemek için uyumlu bir Windows Server işletim sistemi Windows Server 2012 R2 gibi işlem düğümü VM'ler için belirtin.
+   * **Bulut Hizmetleri**: betik Klasik dağıtım modeli kullandığından, küme sanal makineleri Azure bulut Hizmetleri kullanılarak dağıtılan (`ServiceName` yapılandırma dosyasındaki ayarları). Bir bulut hizmeti, baş düğümü ve işlem düğümleriniz farklı bir bulut hizmeti dağıtma öneririz. 
    * **Baş düğüm boyutu**: Bu senaryo için boyutu en az göz önünde bulundurun A4 (çok büyük) baş düğüm için.
    * **HpcVmDrivers uzantısı**: bir Windows Server işletim sistemi ile boyutu A8 veya A9 işlem düğümleri dağıttığınızda dağıtım komut dosyası Azure VM Aracısı'nı ve HpcVmDrivers uzantısı otomatik olarak yükler. RDMA ağa bağlanabilmeleri HpcVmDrivers işlem düğümünde VM'ler sürücüleri yükler. RDMA özellikli H-serisi Vm'lerinde HpcVmDrivers uzantısı el ile yüklemeniz gerekir. Bkz: [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **Küme ağ yapılandırması**: dağıtım betiğini HPC paketi küme topolojisi 5 (Kurumsal ağ üzerindeki tüm düğümler) otomatik olarak ayarlar. Bu topoloji VM'ler tüm HPC paketi küme dağıtımları için gereklidir. Küme ağ topolojisi daha sonra değişmez.
-2. **İşlerini çalıştırmak için işlem düğümleri çevrimiçi duruma getirin**
+1. **İşlerini çalıştırmak için işlem düğümleri çevrimiçi duruma getirin**
    
     Düğümleri seçin ve **çevrimiçine** eylem HPC Küme Yöneticisi'nde. İşlerini çalıştırmak düğümleri hazırsınız.
 3. **Kümeye iş göndermek**

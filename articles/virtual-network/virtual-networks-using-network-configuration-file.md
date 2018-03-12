@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Bir ağ yapılandırma dosyası kullanarak bir sanal ağ (Klasik) yapılandırma
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ Ağ yapılandırma dosyasını dışarı aktarmak için PowerShell veya Azure CL
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Oluşturma veya bir ağ yapılandırma dosyasını değiştirme
 
-Bir ağ yapılandırma XML dosyasını (PowerShell kullanırken) veya bir json dosyası (Azure CLI kullanırken) dosyasıdır. Tüm metin veya XML/json Düzenleyicisi dosyasında düzenleyebilirsiniz. [Ağ yapılandırma dosyası şeması ayarları](https://msdn.microsoft.com/library/azure/jj157100.aspx) makale tüm ayarları için ayrıntılarını içerir. Ayarları ek açıklaması için bkz: [sanal ağlar ve ayarları görüntüle](virtual-network-manage-network.md#view-vnet). Dosyada yaptığınız değişiklikler:
+Bir ağ yapılandırma XML dosyasını (PowerShell kullanırken) veya bir json dosyası (Azure CLI kullanırken) dosyasıdır. Tüm metin veya XML/json Düzenleyicisi dosyasında düzenleyebilirsiniz. [Ağ yapılandırma dosyası şeması ayarları](https://msdn.microsoft.com/library/azure/jj157100.aspx) makale tüm ayarları için ayrıntılarını içerir. Ayarları ek açıklaması için bkz: [sanal ağlar ve ayarları görüntüle](manage-virtual-network.md#view-virtual-networks-and-settings). Dosyada yaptığınız değişiklikler:
 
 - Şema veya ağ yapılandırma dosyası başarısız olur alma ile uyumlu olmalıdır.
 - Aboneliğiniz için var olan tüm ağ ayarlarını üzerine yazma, bu nedenle değişiklikler yaparken dikkatli. Örneğin, izleyin örnek ağ yapılandırması dosyaları başvuru. Özgün dosya bulunan iki söyleyin **VirtualNetworkSite** örnekleri ve değişti, örnekte gösterildiği gibi. Dosyasını içe aktardığınızda, Azure sanal ağ için siler **VirtualNetworkSite** dosyasında kaldırdığınız örneği. Hiçbir kaynak olan sanal ağ, Basitleştirilmiş bu senaryo varsayar gibi olsaydı, sanal ağ silinemedi ve içeri aktarma başarısız olur.

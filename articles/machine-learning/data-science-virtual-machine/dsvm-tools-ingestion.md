@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8526e949aee2935824a03a0972d9e45c71d6601b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Veri bilimi sanal makine veri alım araçları
 
@@ -35,7 +35,7 @@ Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır.
 | Desteklenen DSVM sürümleri      | Windows      |
 | Tipik kullanır      | Birden çok BLOB'ları Azure depolama biriminden Azure Data Lake Store aktarma.      |
 |  Kullanın / çalıştırmak için nasıl?    |   Bir komut istemi açın yazın `adlcopy` Yardım almak için.    |
-| Örnekleri bağlantılar      | [AdlCopy kullanarak] https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Örnekleri bağlantılar      | [AdlCopy’yi kullanma](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | DSVM ilgili araçları      | AzCopy, Azure komut satırı     |
 
 ## <a name="azure-command-line"></a>Azure komut satırı
@@ -46,7 +46,7 @@ Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır.
 | Desteklenen DSVM sürümleri      | Windows, Linux     |
 | Tipik kullanır      | İçeri aktarma, verileri Azure storage, Azure Data Lake Store gelen ve dışarı aktarma      |
 |  Kullanın / çalıştırmak için nasıl?    |   Bir komut istemi açın yazın `az` Yardım almak için.    |
-| Örnekleri bağlantılar      | [Azure CLI’yi kullanma](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| Örnekleri bağlantılar      | [Azure CLI’yi kullanma](https://docs.microsoft.com/cli/azure)     |
 | DSVM ilgili araçları      | AzCopy, AdlCopy      |
 
 
@@ -93,7 +93,7 @@ Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır.
 | Desteklenen DSVM sürümleri      | Linux      |
 | Tipik kullanır      | Okuma ve BLOB'ları bir kapsayıcıda yazma      |
 |  Kullanın / çalıştırmak için nasıl?    |   Çalıştırma _blobfuse_ bir terminal adresindeki.    |
-| Örnekleri bağlantılar      | [blobfuse on GitHub)[https://github.com/Azure/azure-storage-fuse]      |
+| Örnekleri bağlantılar      | [github'da blobfuse](https://github.com/Azure/azure-storage-fuse)      |
 | DSVM ilgili araçları      | Azure komut satırı      |
 
 

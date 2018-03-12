@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ee43bfd85bdda16cb496ec938c266c72f0d5688b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Azure CLI kullanarak ağ güvenlik gruplarını yönet
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/09/2018
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>Önkoşul
-Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#az_login). 
+Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/reference-index#az_login). 
 
 ## <a name="view-existing-nsgs"></a>Varolan Nsg'ler görüntüleyin
 Belirli bir kaynak grubunda Nsg'ler listesini görüntülemek için Çalıştır [az ağ nsg listesi](/cli/azure/network/nsg#az_network_nsg_list) komutunu bir `-o table` çıktı biçimi:

@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 3c040f677aa25656148081d533e87cc55f1e22e7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8b6a4abdb7677417462392feade0c7cfdf99246f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-portal"></a>Azure portalını kullanarak bir sanal ağ oluşturma
 
-Bu makalede, bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ oluşturduktan sonra iki sanal makine özel ağ iletişimi aralarında sınamak için sanal ağda dağıtın.
+Bu makalede, bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ oluşturduktan sonra iki sanal makine sanal ağa dağıtın ve özel olarak aralarında ve internet ile iletişim kurar.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -36,77 +36,83 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 1. Seçin **+ kaynak oluşturma** üst üzerinde köşe Azure portalının sol.
 2. Seçin **ağ**ve ardından **sanal ağ**.
-3. Aşağıdaki resimde gösterildiği gibi girin *myVirtualNetwork* için **adı**, *myResourceGroup* için **kaynak grubu**, bir seçin **Konum** ve **abonelik**kalan Varsayılanları kabul edin ve ardından **oluşturma**. 
+3. Girin veya seçin, aşağıdaki bilgileri ve ardından **oluşturma**:
+    - **Ad**: *myVirtualNetwork*
+    - **Adres alanı**: varsayılanı kabul edin. Adres alanı CIDR gösteriminde belirtilir.
+    - **Abonelik**: aboneliğinizi seçin.
+    - **Kaynak grubu**: seçin **Yeni Oluştur** ve girin *myResourceGroup*.
+    - **Konum**: seçin * Doğu ABD **.
+    - **Alt ağ, adını**: varsayılan kabul edin.
+    - **Alt ağ, adres aralığı**: varsayılan kabul edin.
+    - **Hizmet uç noktaları**: varsayılan kabul edin.
 
     ![Sanal ağınız hakkında temel bilgileri girin](./media/quick-create-portal/virtual-network.png)
 
-    **Adres alanı** CIDR gösteriminde belirtilir. Adres alanı 10.0.0.0/16 10.0.0.0-10.0.255.254 kapsar. Bir sanal ağ sıfır veya daha fazla alt ağlar içeriyor. Belirtilen alt ağ **adres aralığı** IP adreslerini 10.0.0.0-10.0.0.255 içerir. Yalnızca 10.0.0.4-10.0.0.254 kullanılabilir ancak Azure ilk dört adresler (0-3), her alt ağda son adresi ayırdığından. Kullanılabilir IP adreslerini dağıtılan bir sanal ağ içindeki kaynaklara atanır.
+## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-## <a name="test-network-communication"></a>Test ağ iletişimi
-
-Bir sanal ağ çeşitli özel olarak birbirleri ile iletişim kurmak için Azure kaynaklarını sağlar. Tek bir sanal ağa dağıttığınız kaynak türü, bir sanal makinedir. Sonraki adımda aralarında özel iletişim doğrulamak için iki sanal makineye sanal ağ oluşturun.
-
-### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
+Bir sanal ağ çeşitli özel olarak birbirleriyle ve internet ile iletişim kurmak için Azure kaynaklarını sağlar. Tek bir sanal ağa dağıttığınız kaynak türü, bir sanal makinedir.
 
 1. Seçin **+ kaynak oluşturma** üst, sol üst köşesinde Azure portalı üzerinde bulunamadı.
 2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin.
-3. Aşağıdaki resimde gösterilen sanal makine bilgilerini girin. **Kullanıcı adı** ve **parola** girdiğiniz bir sonraki adımda sanal makinede oturum açmak için kullanılır. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır. Seçin, **abonelik**, varolan kullanmayı tercih *myResourceGroup* kaynak grubu ve emin **konumu** seçili oluşturduğunuz konumdur sanal ağ içinde. Tamamlandığında, seçin **Tamam**.
+3. Girin ya da, aşağıdaki bilgileri seçin ve ardından **Tamam**:
+    - **Ad**: *myVm1*
+    - **Kullanıcı adı**: seçtiğiniz bir kullanıcı adı girin.
+    - **Parola**: seçtiğiniz bir parola girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.
+    - **Abonelik**: aboneliğinizi seçin.
+    - **Kaynak grubu**: seçin **var olanı kullan** seçip **myResourceGroup**.
+    - **Konum**: seçin *Doğu ABD*.
 
     ![Bir sanal makine hakkında temel bilgileri girin](./media/quick-create-portal/virtual-machine-basics.png)
-4. Sanal makine için bir boyut seçin ve ardından **seçin**. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Sizin için görüntülenen boyutlar, aşağıdaki örnekte farklı olabilir: 
-
-    ![Bir sanal makine için bir boyut seçin](./media/quick-create-portal/virtual-machine-size.png)
+4. Sanal makine için bir boyut seçin ve ardından **seçin**.
 5. Altında **ayarları**, *myVirtualNetwork* için zaten seçilmelidir **sanal ağ**, ancak değilse, seçin **sanal ağ** , ardından *myVirtualNetwork*. Bırakın *varsayılan* için seçilen **alt**ve ardından **Tamam**.
 
     ![Sanal ağ seçin](./media/quick-create-portal/virtual-machine-network-settings.png)
-6. Üzerinde **Özet** sayfasında, **oluşturma** sanal makine dağıtımı başlatmak için. 
-7. Sanal makine oluşturmak için birkaç dakika sürer. Oluşturma sonra sanal makineyi Azure portal panosuna sabitlenmiş ve sanal makine özeti otomatik olarak açılır. Seçin **ağ**.
+6. Üzerinde **Özet** sayfasında, **oluşturma** sanal makine dağıtımı başlatmak için. Sanal makine dağıtmak için birkaç dakika sürer. 
+7. Tüm adımları 1-6 yeniden, ancak adım 3, sanal makine adı *myVm2*.
 
-    ![Sanal makine ağ bilgileri](./media/quick-create-portal/virtual-machine-networking.png)
+## <a name="connect-to-a-virtual-machine"></a>Bir sanal makineye bağlanma
 
-    Gördüğünüz **özel IP** adresi *10.0.0.4*. Altında adım 5 **ayarları**, seçtiğiniz *myVirtualNetwork* sanal ağ ve adlı alt ağın kabul *varsayılan* için **alt**. Olduğunda, [sanal ağı oluşturan](#create-a-virtual-network), 10.0.0.0/24 alt ağ için varsayılan değerini kabul **adres aralığı**. Azure'nın DHCP sunucusu sanal makine için seçtiğiniz alt ağ için kullanılabilir ilk adrese atar. Her alt ağ ilk dört adresleri (0-3) Azure ayırır olduğundan, 10.0.0.4 ilk kullanılabilir IP adresi alt ağı için kullanılabilir kalır.
-
-    **Genel IP** atanan adresi, sanal makineye atanan adresi farklı. Azure genel, bir Internet yönlendirilebilir IP adresi her bir sanal makine için varsayılan olarak atar. Genel IP adresi, sanal makineden atanmış bir [her bir Azure bölgesine atanan adresler havuzuna](https://www.microsoft.com/download/details.aspx?id=41653). Hangi ortak IP adresi bir sanal makineye atanan Azure bilir olsa da, bir sanal makinede çalışan işletim sistemi atanmış tüm ortak IP adresinin hiçbir şeyin sahiptir.
-8. Tüm adımları 1-7 yeniden, ancak adım 3, sanal makine adı *myVm2*. 
-9. Sanal makine oluşturulduktan sonra seçin **ağ**, 7. adımda gibi. Gördüğünüz **özel IP** adresi *10.0.0.5*. Azure ilk kullanılabilir adresini daha önce atanan beri *10.0.0.4* alt ağda *myVm1* sanal makine, kendisine atanmış *10.0.0.5* için  *myVm2* sanal makine, bir sonraki kullanılabilir adres alt ağda olduğundan.
-
-### <a name="connect-to-a-virtual-machine"></a>Bir sanal makineye bağlanma
-
-1. Uzaktan bağlanmak *myVm1* sanal makine. Azure portalının en üstünde girin *myVm1*. Zaman **myVm1** arama sonuçlarında görünür. Seçin **Bağlan** düğmesi.
+1. Sonra *myVm1* uzaktan oluşturulur, bu kaynağa bağlanın. Azure portalının en üstünde girin *myVm1*. Zaman **myVm1** arama sonuçlarında görünür. Seçin **Bağlan** düğmesi.
 
     ![Sanal makineye genel bakış](./media/quick-create-portal/virtual-machine-overview.png)
+
 2. Seçtikten sonra **Bağlan** düğmesi, bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur ve bilgisayarınıza indirilmeden.  
-3. İndirilen rdp dosyasını açın. İstenirse, seçin **Bağlan**. Kullanıcı adı ve sanal makine oluştururken belirttiğiniz parolayı girin ve ardından **Tamam**. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Seçin **Evet** veya **devam** bağlantı ile devam etmek için.
+3. İndirilen rdp dosyasını açın. İstenirse, seçin **Bağlan**. Kullanıcı adı ve sanal makine oluştururken belirttiğiniz parolayı girin (seçmek için gerek duyabileceğiniz **daha fazla seçenek**, ardından **farklı bir hesap kullan**, ne zaman girdiğiniz kimlik bilgileri belirtmek için sanal makine oluşturulan), ardından Tamam'ı seçin. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Seçin **Evet** veya **devam** bağlantı ile devam etmek için.
 
-### <a name="validate-communication"></a>İletişim doğrula
+## <a name="communicate-between-vms"></a>VM'ler arasında iletişim
 
-Ping varsayılan olarak Windows Güvenlik Duvarı aracılığıyla izin verilmediğinden bir Windows sanal makine başarısız ping çalışılıyor. Ping işlemine izin vermek için *myVm1*, bir komut isteminden aşağıdaki komutu girin:
+1. Bir komut isteminden girin `ping myvm2`. Varsayılan olarak ICMP ve ICMP Windows aracılığıyla izin verilmeyen ping kullanır, güvenlik duvarı için Ping başarısız olur. İzin vermek için *myVm2* ping işlemi yapmak için *myVm1* bir sonraki adımda, bir komut isteminden aşağıdaki komutu girin:
 
-```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
+    ```
+    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+    ```
 
-İle iletişim doğrulamak için *myVm2*, bir komut isteminden aşağıdaki komutu girin *myVm1* sanal makine. Sanal makine oluştururken kullandığınız kimlik bilgilerini sağlayın ve ardından bağlantıyı tamamlayın:
+2. Uzak Masaüstü Bağlantısı kapatmak *myVm1*. 
 
-```
-mstsc /v:myVm2
-```
+3. Bölümündeki adımları tamamlamanız [bir sanal makineye Bağlan](#connect-to-a-virtual-machine), ancak bağlanmak *myVm2*. Bir komut isteminden girin `ping myvm1`.
 
-Her iki sanal makine gelen atanan özel IP adresleri olduğundan Uzak Masaüstü bağlantısı başarılı *varsayılan* alt ağı ve Uzak Masaüstü varsayılan olarak Windows Güvenlik Duvarı üzerinden açık olduğundan. Bağlanabilmeleri için *myVm2* ana bilgisayar adı tarafından çünkü Azure otomatik olarak bir sanal ağ içindeki tüm ana bilgisayarlar için DNS ad çözümlemesi sağlar. Bir komut isteminden ping *myVm1*, gelen *myVm2*.
+    Başarılı bir şekilde ping mümkün *myVm1* sanal makineden *myVm2* sanal makine için:
 
-```
-ping myvm1
-```
+    - üzerinde Windows Güvenlik Duvarı üzerinden ICMP izin *myVm1* sanal makine önceki adımda.
+    - Varsayılan olarak, aynı sanal ağdaki kaynakları arasındaki tüm ağ trafiğini Azure sağlar.
 
-Ping işlemi başarılı, onu Windows Güvenlik Duvarı aracılığıyla izin *myVm1* bir önceki adımda sanal makine. İnternet giden iletişim onaylamak için aşağıdaki komutu girin:
+## <a name="communicate-to-the-internet"></a>Internet ile iletişim kurmak
 
-```
-ping bing.com
-```
+1. Halen bağlı sırasında *myVm2* bir komut isteminden sanal makine girin `ping bing.com`.
 
-Aratıp dört yanıt alırsınız. Varsayılan olarak, herhangi bir sanal makine bir sanal ağdaki internet giden iletişim kurabilir. 
+    Aratıp dört yanıt alırsınız. 
 
-Uzak Masaüstü oturumu çıkın.
+    Başarılı bir şekilde bir Internet kaynağından ping mümkün *myVm2* sanal makine herhangi bir sanal makine giden internet, varsayılan olarak iletişim kurabildiklerinden.
+
+2. Uzak Masaüstü oturumu çıkın.
+
+## <a name="communicate-from-the-internet"></a>İnternet'ten iletişim
+
+1. Genel IP adresi al *myVm1* sanal makine. Altında gösterilen resim 1. adımda [bir sanal makineye Bağlan](#connect-to-a-virtual-machine), bir ortak IP adresini bakın. Aşağıdaki resimde adresidir *13.90.241.247*. Farklı sanal makineniz için adresidir. 
+
+2. Genel IP adresi, bilgisayarınızdan ping, *myVm1* sanal makine. ICMP Windows Güvenlik Duvarı üzerinden açık olsa bile Ping başarısız olur.
+
+    Windows sanal makineler, bağlantı noktası 3389, Uzak Masaüstü bağlantılarında dışındaki tüm trafik varsayılan olarak Azure tarafından engellendiği için Ping başarısız olur. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 858adf2b0a0431078561a6f0edf80860927f8233
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
 
@@ -49,7 +49,7 @@ Sonraki yapılandırma görevi, bir Azure sanal ağı ve ayrılmış bir alt ağ
   > [!WARNING]
   > Özel IP adres alanı içinde bir adres alanı seçtiğinizden emin olun. Ortak adres alanı olan ait olmayan IP adreslerini Azure AD etki alanı Hizmetleri içindeki hatalara neden olabilir.
 
-5. **Varolan bir sanal ağı:** mevcut bir sanal ağ, çekme planlıyorsanız [sanal ağlar uzantısını kullanarak ayrılmış bir alt ağ oluşturmak](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)ve bu alt ağ seçin. Tıklatın **sanal ağ** varolan bir sanal ağı seçin. Tıklatın **alt** yeni yönetilen etki alanınızı etkinleştirileceği içinde varolan sanal ağınızdaki ayrılmış bir alt ağ seçmek için. Tıklatın **Tamam** tamamladığınızda.
+5. **Varolan bir sanal ağı:** mevcut bir sanal ağ, çekme planlıyorsanız [sanal ağlar uzantısını kullanarak ayrılmış bir alt ağ oluşturmak](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)ve bu alt ağ seçin. Tıklatın **sanal ağ** varolan bir sanal ağı seçin. Tıklatın **alt** yeni yönetilen etki alanınızı etkinleştirileceği içinde varolan sanal ağınızdaki ayrılmış bir alt ağ seçmek için. Tıklatın **Tamam** tamamladığınızda.
 
     ![Sanal ağ içindeki alt ağ seçin](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

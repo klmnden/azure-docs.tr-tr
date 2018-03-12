@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 805e39dfdee3a23d4ddc196085be59788cee912a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığın üzerinde SQL veritabanları kullanın
 
@@ -175,14 +175,17 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hi�
 
 
 ## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>SQL kaynak sağlayıcısı bağdaştırıcısını (çok düğümlü yalnızca derlemeleri 1710 ve üzeri) güncelleştir
-Azure yığın derlemeleri güncelleştirildiğinde yeni bir SQL kaynak sağlayıcısı bağdaştırıcısı yayımlanabilir. Varolan bağdaştırıcısı çalışmaya devam ederken, en son sürüme mümkün olan en kısa sürede güncelleştirilmesi önerilir. Güncelleştirmeleri sırayla yüklü olmalıdır: sürümleri atlayamazsınız (aşağıdaki tabloya bakın).
+Azure yığın derlemeleri güncelleştirildiğinde yeni bir SQL kaynak sağlayıcısı bağdaştırıcısı yayımlanan. Varolan bağdaştırıcısı çalışmaya devam ederken, en son sürüme mümkün olan en kısa sürede güncelleştirilmesi önerilir. Güncelleştirmeleri sırayla yüklü olmalıdır: sürümleri atlayamazsınız (adım 3 / bölümündeki tabloya bakın [kaynak sağlayıcısı dağıtmak](#deploy-the-resource-provider)).
 
-Güncelleştirme işlemi, daha önce açıklanan yükleme işlemine benzer. Son kaynak sağlayıcısı kodu ile yeni bir VM oluşturun. Ayrıca, ayarları yeni bu örneğe barındırma sunucusu bilgilerini ve veritabanı dahil olmak üzere geçiş. Ayrıca, gerekli DNS kaydı de geçirin.
+Kullandığınız kaynak sağlayıcısı güncelleştirmek için *UpdateSQLProvider.ps1* komut dosyası. İşlem bölümünde açıklandığı gibi bir kaynak Sağlayıcısı'nı yüklemek için kullanılan işlem benzer [kaynak sağlayıcısı dağıtmak](#deploy-the-resource-provider) bu makalenin. Betik kaynak sağlayıcısı yükleme ile dahil edilir.
 
-Daha önce açıklanan aynı bağımsız değişkenlere UpdateSQLProvider.ps1 komut dosyası kullanın. Sertifika burada de sağlamanız gerekir.
+*UpdateSQLProvider.ps1* komut dosyası en son kaynak sağlayıcısı kodu ile yeni bir VM oluşturur ve yeni VM'ye eski sanal makineden ayarları geçirir. Geçiş ayarları veritabanı ve barındırma sunucusu bilgilerini içerir ve gerekli DNS kaydı.
+
+Komut dosyası için DeploySqlProvider.ps1 komut açıklanan aynı bağımsız değişkenlere kullanılmasını gerektirir. Sertifika burada da sağlar. 
 
 Market Yönetimi'nden en son Windows Server 2016 Core görüntüyü indirmeyi öneririz. Bir güncelleştirme yüklemeniz gerekiyorsa, tek bir yerleştirebilirsiniz. Yerel bağımlılık yolundaki MSU paketi. Birden fazla ise. MSU dosyası bulundu, komut dosyası başarısız olur.
 
+Aşağıdaki örneği verilmiştir *UpdateSQLProvider.ps1* PowerShell isteminden çalıştırıp komut dosyası. Hesap bilgileri ve gerektiğinde parolaları değiştirdiğinizden emin olun: 
 
 > [!NOTE]
 > Güncelleştirme işlemi yalnızca tümleşik sistemleri için geçerlidir.

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 66e3207898d6ad8ca9af2b969942e38321c191a5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -136,12 +136,19 @@ Bu ayarı tüm tarayıcılarla çalışır. Ancak, bir uyumlu aygıt gereksinim 
 | macOS                  | Chrome, Safari                      | ![İşaretli][1] |
 
 
-> [!NOTE]
-> Chrome desteği Windows 10 oluşturucuları güncelleştirme (sürüm 1703) veya daha sonra yükleme [bu uzantı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).<br>
-> Windows 8.1 ve 7 Chrome desteği için aşağıdaki kayıt defteri anahtarında oluşturma **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls** <br>
-> Ad: 1<br>
-> Tür: REG_SZ (dize)<br>
-> Data: {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
+
+#### <a name="chrome-support"></a>Chrome desteği
+
+Chrome için destek **Windows 10 oluşturucuları güncelleştirme (sürüm 1703)** veya daha sonra yükleme [bu uzantı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarı oluşturun:
+
+|    |    |
+|--- | ---|
+|Yol | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|Ad | 1 |
+|Tür | REG_SZ (String) |
+|Veriler | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Bu tarayıcılar tanımlanması ve bir ilke karşı doğrulanmış olanak tanır cihaz kimlik doğrulamasını destekler. Tarayıcı özel modda çalışıyorsa, aygıt denetimi başarısız olur. 
 
@@ -186,6 +193,10 @@ Koşullu erişim ilkenizi bir erişim onaylanmış istemci uygulamadan yapılmas
 Bu ayar, aşağıdaki istemci uygulamalar için geçerlidir:
 
 
+- Microsoft Intune yönetilen tarayıcı
+- Microsoft PowerBI
+- Microsoft faturalama
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

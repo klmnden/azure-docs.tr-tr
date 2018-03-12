@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Veri ya da Azure Cosmos Azure Data Factory kullanarak DB'den kopyalayın
 
@@ -125,7 +125,7 @@ Azure Cosmos Veritabanından veri kopyalamak için kopyalama etkinliği için ka
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **DocumentDbCollectionSource** |Evet |
-| sorgu |Verileri okumak için Cosmos DB sorgusunu belirtin.<br/><br/>Örnek:`SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimi:`select <columns defined in structure> from mycollection` |
+| sorgu |Verileri okumak için Cosmos DB sorgusunu belirtin.<br/><br/>Örnek: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Hayır <br/><br/>Belirtilmezse, yürütülen SQL deyimi: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Belge iç içe geçmiş belirtmek için özel karakter ve nasıl flattern için sonuç kümesi.<br/><br/>Örneğin, bir Cosmos DB sorgu iç içe geçmiş bir sonuç döndürürse `"Name": {"First": "John"}`, kopyalama etkinliği tanımlar ve sütun adını "Name.First" "John" değeriyle nestedSeparator nokta olduğunda. |Hayır (varsayılan değer nokta `.`) |
 
 **Örnek:**
@@ -162,7 +162,7 @@ Azure Cosmos Veritabanından veri kopyalamak için kopyalama etkinliği için ka
 
 ### <a name="azure-cosmos-db-as-sink"></a>Havuz olarak Azure Cosmos DB
 
-Azure Cosmos Veritabanından veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın. **DocumentDbCollectionSink**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Azure Cosmos Veritabanına veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın. **DocumentDbCollectionSink**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |

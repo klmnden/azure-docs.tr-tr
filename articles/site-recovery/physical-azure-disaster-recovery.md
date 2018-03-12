@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Şirket içi fiziksel sunucuların azure'a olağanüstü durum kurtarma ayarlama
 
@@ -32,8 +32,8 @@ Bu öğretici, şirket içi fiziksel Windows ve Linux sunucularının Azure ola�
 Bu öğreticiyi tamamlamak için:
 
 - [Senaryo mimarisini ve bileşenlerini ](physical-azure-architecture.md) anladığınızdan emin olun.
-- Tüm bileşenler için [destek gereksinimlerini](site-recovery-support-matrix-to-azure.md) gözden geçirin.
-- Çoğaltmak istediğiniz sunucuları ile uyumlu olduğundan emin olun [Azure VM gereksinimleri](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Tüm bileşenler için [destek gereksinimlerini](vmware-physical-secondary-support-matrix.md) gözden geçirin.
+- Çoğaltmak istediğiniz sunucuları ile uyumlu olduğundan emin olun [Azure VM gereksinimleri](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Azure hazırlayın. Bir Azure aboneliği, Azure sanal ağı ve bir depolama hesabı gerekir.
 - Mobility hizmetinin çoğaltmak istediğiniz her bir sunucuda otomatik yüklemesi için bir hesap hazırlayın.
 
@@ -171,7 +171,7 @@ Her sunucu için çoğaltma etkinleştirin.
 8. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. 
 9. İçinde **fiziksel makineleri**, tıklatıp **+ fiziksel makine**. Ad ve IP adresi belirtin. Çoğaltmak istediğiniz makinenin işletim sistemini seçin. Bulunan ve listelenen sunucuları için birkaç dakika sürer. 
 10. İçinde **özellikleri** > **özelliklerini yapılandırma**, işlem sunucusu tarafından otomatik olarak makinede Mobility hizmeti yüklemek için kullanılacak hesabı seçin.
-11. İçinde **çoğaltma ayarları** > **çoğaltma ayarlarını yapılandırın**, doğru Çoğaltma İlkesi'nin seçili olduğunu doğrulayın. 
+11. **Çoğaltma ayarları** > **Çoğaltma ayarlarını yapılandırma** bölümünde doğru çoğaltma ilkesinin seçilip seçilmediğini doğrulayın. 
 12. **Çoğaltmayı Etkinleştir**’e tıklayın. **Ayarlar** > **İşler** > **Site Recovery İşleri** bölümünden **Korumayı Etkinleştir** işinin ilerleme durumunu izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
 

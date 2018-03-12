@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f15875610e2035c6f4c10c36e19c02f3e045b3ea
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights kullanma 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) yararlı tanı bilgilerini toplayan bir otomatik komut dosyasıdır. Ayrıca g/ç yoğun yüklerini çalışır ve Azure Windows sanal makine performans sorunlarını gidermenize yardımcı olması için bir analiz raporu sağlar. Bu sanal makinelerde tek başına komut dosyası olarak ya da doğrudan portalından yükleyerek çalıştırılabilir [Azure performans tanılama VM uzantısı](performance-diagnostics-vm-extension.md).
+[PerfInsights](http://aka.ms/perfinsightsdownload) toplar & tanılama verilerini analiz eder ve Azure Windows sanal makine performans sorunlarını gidermenize yardımcı olması için bir rapor sağlayan bir kendi kendine yardım tanılama aracıdır. PerfInsights çalıştırılabilir sanal makinelerde ayrı bir araç olarak ya da doğrudan portalından yükleyerek [Azure performans tanılama VM uzantısı](performance-diagnostics-vm-extension.md).
 
-Destek ile irtibat kurmadan önce sanal makineleri performans sorunları yaşıyorsanız, bu komut dosyasını çalıştırın.
+Destek ile irtibat kurmadan önce sanal makineleri performans sorunları yaşıyorsanız, bu aracı çalıştırın.
 
 ## <a name="supported-troubleshooting-scenarios"></a>Sorun giderme senaryoları desteklenir
 
@@ -42,8 +42,6 @@ Bu senaryo disk yapılandırması ve diğer önemli bilgileri toplar dahil olmak
 
 -   Sistem üzerinde çalışmakta olan tüm uygulamalar için görev listesi
 
--   Sanal makine için msinfo32 tarafından oluşturulan bilgi dosyası
-
 -   (VM SQL Server çalıştıran bir sunucu belirlenirse) Microsoft SQL Server veritabanı yapılandırma ayarları
 
 -   Depolama güvenilirlik sayaçları
@@ -55,7 +53,7 @@ Bu senaryo disk yapılandırması ve diğer önemli bilgileri toplar dahil olmak
 Bu edilgen sistem etkileyen döndürmemelidir bilgi koleksiyonudur. 
 
 >[!Note]
->Bu senaryo aşağıdaki senaryolardan her otomatik olarak dahil edilir.
+>Bu senaryo aşağıdaki senaryolardan her otomatik olarak eklenir:
 
 ### <a name="benchmarking"></a>Değerlendirmesi
 
@@ -67,15 +65,7 @@ Bu senaryo çalıştıran [Diskspd](https://github.com/Microsoft/diskspd) VM'ye 
 
 ### <a name="slow-vm-analysis"></a>Yavaş VM çözümleme 
 
-Bu senaryo çalıştıran bir [performans sayacı](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) Generalcounters.txt dosyasında belirtilen sayaçları kullanarak izleme. SQL Server çalıştıran bir sunucu VM tanımlanırsa, bir performans sayacı izlemesi çalışır. Bunu Sqlcounters.txt dosyasında bulunan sayaçlarını kullanarak yapar ve performans tanılama verilerini de içerir.
-
-### <a name="slow-vm-analysis-and-benchmarking"></a>Yavaş VM çözümleme ve değerlendirmesi
-
-Bu senaryo çalıştıran bir [performans sayacı](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) tarafından izlenen izleme bir [Diskspd](https://github.com/Microsoft/diskspd) Kıyaslama test. 
-
-> [!Note]
-> Bu senaryo, sistem etkileyebilir ve canlı üretim sisteminde çalıştırılması gerekir. Gerekirse, bu senaryo sorunları önlemek için bir adanmış bakım penceresinde çalıştırın. Bir izleme veya Kıyaslama test tarafından neden iş yükünün artmasına VM performansını olumsuz etkileyebilir.
->
+Bu senaryo çalıştıran bir [performans sayacı](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) RuleEngineConfig.json dosyasında belirtilen sayaçları kullanarak izleme. SQL Server çalıştıran bir sunucu VM tanımlanırsa, bir performans sayacı izlemesi çalıştırılır. Bunu RuleEngineConfig.json dosyasında bulunan sayaçlarını kullanarak yapar. Bu senaryo ayrıca performans tanılama verilerini içerir.
 
 ### <a name="azure-files-analysis"></a>Azure dosyaları çözümleme 
 
@@ -101,40 +91,40 @@ Bu senaryo, bir özel performans sayacı yakalama ağ izleme ile birlikte çalı
 
 ### <a name="custom-slow-vm-analysis"></a>Özel yavaş VM çözümleme 
 
-Özel bir yavaş VM analizi çalıştırdığınızda, paralel olarak çalıştırmak için izlemeleri seçin. İstiyorsanız, bunları tüm (performans sayacı, XPerf'in, ağ ve StorPort) çalıştırabilirsiniz. İzleme tamamlandıktan sonra aracı seçiliyse Diskspd Kıyaslama çalışır. 
+Özel bir yavaş VM analizi çalıştırdığınızda, paralel olarak çalıştırmak için izlemeleri seçin. İsterseniz, bunları tüm (performans sayacı, XPerf'in, ağ ve StorPort) çalıştırabilirsiniz.  
 
 > [!Note]
 > Bu senaryo, sistem etkileyebilir ve canlı üretim sisteminde çalıştırılması gerekir. Gerekirse, bu senaryo sorunları önlemek için bir adanmış bakım penceresinde çalıştırın. Bir izleme veya Kıyaslama test tarafından neden iş yükünün artmasına VM performansını olumsuz etkileyebilir.
 >
 
-## <a name="what-kind-of-information-is-collected-by-the-script"></a>Ne tür bilgiler komut dosyası tarafından toplanır?
+## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>Ne tür bilgiler PerfInsights tarafından toplanır?
 
 Windows VM, disk veya depolama havuzlarını yapılandırma, performans sayaçları, ilgili bilgileri günlüğe kaydeder ve çeşitli izlemeleri toplanır. Kullanmakta olduğunuz performans senaryoya bağlıdır. Aşağıdaki tabloda Ayrıntılar verilmiştir:
 
 |Toplanan veriler                              |  |  | Performans senaryoları |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Temel yapılandırma Topla | Değerlendirmesi | Yavaş VM çözümleme | Yavaş VM çözümleme ve değerlendirmesi | Azure dosyaları çözümleme | Özel yavaş VM çözümleme |
-| Olay günlükleri bilgileri      | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Sistem bilgileri               | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Birim eşleme                       | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Disk eşleme                         | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Çalışan görevler                    | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Depolama güvenilirlik sayaçları     | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Depolama birimi bilgileri              | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Fsutil çıktı                    | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Filtre sürücüsü bilgileri               | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Netstat çıktı                   | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Ağ yapılandırması            | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Güvenlik duvarı yapılandırması           | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| SQL Server yapılandırma         | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Performans Tanılama izlemelerini * | Evet                        | Evet                                | Evet                      |                                | Evet                  | Evet                  |
-| Performans sayacı izleme **     |                            |                                    |                          |                                |                      | Evet                  |
-| SMB sayaç izleme **             |                            |                                    |                          |                                | Evet                  |                      |
-| SQL Server sayaç izleme **      |                            |                                    |                          |                                |                      | Evet                  |
-| XPerf'in izleme                      |                            |                                    |                          |                                |                      | Evet                  |
-| StorPort izleme                   |                            |                                    |                          |                                |                      | Evet                  |
-| Ağ izleme                    |                            |                                    |                          |                                | Evet                  | Evet                  |
-| Diskspd Kıyaslama izleme ***      |                            | Evet                                |                          | Evet                            |                      |                      |
+|                               | Temel yapılandırma Topla | Değerlendirmesi | Yavaş VM çözümleme | Azure dosyaları çözümleme | Özel yavaş VM çözümleme |
+| Olay günlükleri bilgileri       | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Sistem bilgileri                | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Birim eşleme                        | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Disk eşleme                          | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Çalışan görevler                     | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Depolama güvenilirlik sayaçları      | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Depolama birimi bilgileri               | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Fsutil çıktı                     | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Filtre sürücüsü bilgileri                | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Netstat çıktı                    | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Ağ yapılandırması             | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Güvenlik duvarı yapılandırması            | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| SQL Server yapılandırma          | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Performans Tanılama izlemelerini *  | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
+| Performans sayacı izleme **      |                            |                                    | Evet                      |                      | Evet                  |
+| SMB sayaç izleme **              |                            |                                    |                          | Evet                  |                      |
+| SQL Server sayaç izleme **       |                            |                                    | Evet                      |                      | Evet                  |
+| XPerf'in izleme                       |                            |                                    |                          |                      | Evet                  |
+| StorPort izleme                    |                            |                                    |                          |                      | Evet                  |
+| Ağ izleme                     |                            |                                    |                          | Evet                  | Evet                  |
+| Diskspd Kıyaslama izleme ***       |                            | Evet                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Performans Tanılama izleme (*)
@@ -168,116 +158,87 @@ Aşağıdaki performans sayaçlarını toplar:
 ### <a name="diskspd-benchmark-trace-"></a>Diskspd Kıyaslama izleme (*)
 Diskspd g/ç iş yükü testleri (işletim sistemi diski [yazma] ve [okuma/yazma] havuzu sürücüleri)
 
-## <a name="run-the-perfinsights-script-on-your-vm"></a>VM üzerinde PerfInsights betiği çalıştırın
+## <a name="run-the-perfinsights-tool-on-your-vm"></a>VM üzerinde PerfInsights aracını çalıştırın
 
-### <a name="what-do-i-have-to-know-before-i-run-the-script"></a>Önce komut dosyasını çalıştırmak bilebilirim ne var? 
+### <a name="what-do-i-have-to-know-before-i-run-the-tool"></a>Önce aracı çalıştırın bilebilirim ne var? 
 
-#### <a name="script-requirements"></a>Komut dosyası gereksinimleri
+#### <a name="tool-requirements"></a>Aracı gereksinimleri
 
--  Bu komut, performans sorunu olan VM çalıştırmanız gerekir. 
+-  Bu araç, performans sorunu olan VM çalıştırmanız gerekir. 
 
 -  Aşağıdaki işletim sistemleri desteklenmektedir: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016; Windows 8.1 ve Windows 10.
 
-#### <a name="possible-problems-when-you-run-the-script-on-production-vms"></a>Sanal makineleri üretimde komut dosyasını çalıştırdığınızda olası sorunlar
+#### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Sanal makineleri üretimde aracı çalıştırdığınızda olası sorunlar
 
--  Herhangi bir Kıyaslama senaryosunda veya XPerf'in veya Diskspd kullanmak üzere yapılandırılmış "Özel yavaş VM analiz" senaryosu için komut dosyası VM'in performansını olumsuz etkileyebilir. Bir üretim ortamında bu senaryoları çalışmamalıdır.
+-  Kıyaslama senaryosu veya XPerf'in veya Diskspd kullanmak üzere yapılandırılmış "Özel yavaş VM analiz" senaryosu için aracı VM'in performansını olumsuz etkileyebilir. Bu senaryolar, bir canlı bir üretim ortamında çalıştırılmamalıdır.
 
--  Herhangi bir Kıyaslama senaryosunda veya Diskspd kullanmak üzere yapılandırılmış "Özel yavaş VM analiz" senaryosu için başka bir arka plan etkinliği g/ç iş yükü ile uğratan emin olun.
+-  Kıyaslama senaryosu veya Diskspd kullanmak üzere yapılandırılmış "Özel yavaş VM analiz" senaryosu için başka bir arka plan etkinliği g/ç iş yükü ile uğratan emin olun.
 
--  Varsayılan olarak, komut dosyası verilerini toplamak için geçici depolama birimi sürücüsünü kullanır. Uzun bir süre boyunca etkin kalır izleme, toplanan veri miktarını ilgili olabilir. Bu geçici disk alanı kullanılabilirliğini azaltabilir ve bu nedenle bu sürücüde güvenen herhangi bir uygulama etkileyebilir.
+-  Varsayılan olarak, verileri toplamak için geçici depolama birimi sürücüsünü Aracı'nı kullanır. Uzun bir süre boyunca etkin kalır izleme, toplanan veri miktarını ilgili olabilir. Bu geçici disk alanı kullanılabilirliğini azaltabilir ve bu nedenle bu sürücüde güvenen herhangi bir uygulama etkileyebilir.
 
 ### <a name="how-do-i-run-perfinsights"></a>PerfInsights nasıl çalışır? 
 
-Yükleyerek bir sanal makinede PerfInsights çalıştırabilirsiniz [Azure performans tanılama VM uzantısı](performance-diagnostics-vm-extension.md). Ayrıca tek başına komut dosyası olarak çalıştırabilirsiniz. 
+Yükleyerek bir sanal makinede PerfInsights çalıştırabilirsiniz [Azure performans tanılama VM uzantısı](performance-diagnostics-vm-extension.md). Ayrıca ayrı bir araç olarak çalıştırabilirsiniz. 
 
 **Yükleyin ve Azure portalından PerfInsights çalıştırın**
 
 Bu seçenek hakkında daha fazla bilgi için bkz: [Azure performans tanılama VM uzantısı yüklemek](performance-diagnostics-vm-extension.md#install-the-extension).  
 
-**Tek başına modunda PerfInsights betiği çalıştırın**
+**PerfInsights tek başına modunda çalıştır**
 
-PerfInsights komut dosyasını çalıştırmak için aşağıdaki adımları izleyin:
+PerfInsights aracını çalıştırmak için aşağıdaki adımları izleyin:
 
 
 1. Karşıdan [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
-2. PerfInsights.zip dosya engellemesini. Bunu yapmak için PerfInsights.zip dosyasını sağ tıklatın ve seçin **özellikleri**. İçinde **genel** sekmesine **Engellemeyi Kaldır**ve ardından **Tamam**. Bu, ek güvenlik ister olmadan komut dosyası çalıştırmasını sağlar.  
+2. PerfInsights.zip dosya engellemesini. Bunu yapmak için PerfInsights.zip dosyasını sağ tıklatın ve seçin **özellikleri**. İçinde **genel** sekmesine **Engellemeyi Kaldır**ve ardından **Tamam**. Bu, ek güvenlik ister olmadan aracı çalıştırmasını sağlar.  
 
     ![Ekran görüntüsü, PerfInsights özellikleriyle, vurgulanmış Engellemeyi Kaldır](media/how-to-use-perfInsights/unlock-file.png)
 
-3.  Geçici sürücünüze sıkıştırılmış PerfInsights.zip dosyasını genişletin (varsayılan olarak, bu genellikle D sürücüdür). Sıkıştırılmış dosyayı aşağıdaki dosyaları ve klasörleri içermelidir:
+3.  Geçici sürücünüze sıkıştırılmış PerfInsights.zip dosyasını genişletin (varsayılan olarak, bu genellikle D sürücüdür). 
 
-    ![Zip klasöründeki dosyaların ekran görüntüsü](media/how-to-use-perfInsights/file-folder.png)
-
-4.  Windows PowerShell'i yönetici olarak açın ve ardından PerfInsights.ps1 komut dosyasını çalıştırın.
+4.  Bir yönetici olarak Windows komut istemi açın ve ardından kullanılabilir komut satırı parametreleri görüntülemek için PerfInsights.exe çalıştırın.
 
     ```
-    cd <the path of PerfInsights folder >
-    Powershell.exe -ExecutionPolicy UnRestricted -NoProfile -File .\\PerfInsights.ps1
+    cd <the path of PerfInsights folder>
+    PerfInsights
     ```
-
-    Yürütme ilkesini değiştirmek istediğinizi onaylamak için "y" girmeniz gerekebilir.
-
-    İçinde **dikkat edin ve kullanıcının onaylaması** iletişim kutusu, Microsoft Support tanılama bilgilerini paylaşacak seçeneğiniz vardır. Devam etmek için lisans sözleşmesini aynı zamanda onaylaması gerekir. Seçimlerinizi yapın ve ardından **komut dosyasını Çalıştır**.
-
-    ![Ekran görüntüsü, bildirim ve onay iletişim kutusu](media/how-to-use-perfInsights/disclaimer.png)
-
-5.  Komut dosyasını çalıştırdığınızda, varsa olay numarasını gönderin. Sonra **Tamam**’ı seçin.
+    ![Ekran görüntüsü, PerfInsights commandline çıkış](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
     
-    ![Destek kimliği iletişim kutusunun ekran görüntüsü](media/how-to-use-perfInsights/enter-support-number.png)
+    PerfInsights senaryoları çalıştırmak için temel sözdizimi aşağıdaki gibidir:
+    
+    ```
+    PerfInsights /run <ScenarioName> [AdditionalOptions]
+    ```
 
-6.  Geçici depolama sürücüsünü seçin. Betik otomatik-sürücüsünün sürücü harfini algılayabilir. Bu aşamada herhangi bir sorun meydana gelirse, (D varsayılan sürücüdür) sürücüyü seçmeniz istenebilir. Oluşturulan günlüklerin burada günlüğünde depolanan\_koleksiyon klasörü. Girin veya sürücü harfini kabul edin sonra seçin **Tamam**.
+    Kullanabileceğiniz yavaş VM Senaryo 5 dakika için çalıştırmak için örnek aşağıda:
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
 
-    ![Geçici sürücü iletişim kutusunun ekran görüntüsü](media/how-to-use-perfInsights/enter-drive.png)
+    Özel Senaryo 5 dakika için XPerf'in ve performans sayacı izlemeleri çalıştırmak için aşağıdaki örneği kullanın:
+    
+    ```
+    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
 
-7.  Bir sorun giderme senaryosu sağlanan listeden seçin.
+    Tüm kullanılabilir senaryoları ve seçenekleri kullanarak bakabilirsiniz **/list** komutu:
+    
+    ```
+    PerfInsights /list
+    ```
 
-       ![Sorun giderme senaryoları listesi işleminin ekran görüntüsü](media/how-to-use-perfInsights/select-scenarios.png)
+    >[!Note]
+    >Bir senaryo çalıştırmadan önce PerfInsights tanılama bilgilerini paylaşacak ve EULA'yı kabul kabul kullanıcıya sorar. Kullanım **/AcceptDisclaimerAndShareDiagnostics** seçeneği bu komut istemlerini atlayın. 
+    >
+    >Etkin destek bileti Microsoft ve çalıştığınız destek mühendisine istek başına çalışan PerfInsights varsa bilet numarası kullanılarak desteği sağlamak üzere emin olun **/sr** seçeneği.
+    >
+    >Varsayılan olarak, PerfInsights kendisini varsa en son sürüme güncelleştirmeyi deneyin. Kullanım **/SkipAutoUpdate** veya **/sau** otomatik güncelleştirme atlamak için parametre.  
+    >
+    >Süre geçiş yaparsanız **/d** belirtilmezse, PerfInsights sorar için yeniden oluşturma sorunu vmslow, geçirme ve özel senaryoları çalıştırılırken. 
 
-PerfInsights kullanıcı Arabirimi olmadan da çalıştırabilirsiniz. Aşağıdaki komut, "kullanıcı Arabirimi olmadan senaryo sorun giderme yavaş VM analiz" çalıştırır. Aynı sorumluluk reddi ve 4. adımda anlatılan EULA onay ister.
-
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
-
-Sessiz modda çalıştırmak için PerfInsights istiyorsanız kullanın **- AcceptDisclaimerAndShareDiagnostics** parametresi. Örneğin, aşağıdaki komutu kullanın:
-
-        powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics"
-
-### <a name="how-do-i-troubleshoot-issues-while-running-the-script"></a>Sorunları betik çalıştırılırken nasıl gidermek?
-
-Komut dosyası sonlandırılırsa temizleme anahtarı ile birlikte komut aşağıdaki gibi çalıştırarak tutarlı bir duruma döndürebilirsiniz:
-
-    powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -Cleanup"
-
-Geçici sürücü otomatik algılama sırasında herhangi bir sorun meydana gelirse, (D varsayılan sürücüdür) sürücüyü seçmeniz istenebilir.
-
-![Geçici sürücü iletişim kutusunun ekran görüntüsü](media/how-to-use-perfInsights/enter-drive.png)
-
-Betik yardımcı program araçları kaldırır ve geçici klasör kaldırır.
-
-### <a name="troubleshoot-other-script-issues"></a>Diğer komut dosyası sorunlarını giderme 
-
-Komut dosyasını çalıştırdığınızda herhangi bir sorun oluşursa, komut dosyasını kesmek için Ctrl + C tuşlarına basın. Birkaç denemeden sonra bile komut dosyası hatası yaşamaya devam ederseniz, komut dosyası hata ayıklama modunda kullanarak çalıştırmak "-Debug" Başlangıçta parametre seçeneği.
-
-Hata oluştuktan sonra PowerShell Konsolu tam çıktısını kopyalayın ve sorunu gidermesine yardımcı olmak için size yardım Microsoft Support aracı gönderebilirsiniz.
-
-### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>"Özel yavaş VM analiz" modunda nasıl komut dosyasını çalıştırmak?
-
-Seçerek **özel yavaş VM analiz**, birkaç izlemeleri (birden çok izlemeleri seçmek için SHIFT tuşunu kullanın) paralel etkinleştirebilirsiniz:
-
-![Ekran görüntüsü senaryoların listesi](media/how-to-use-perfInsights/select-scenario.png)
-
-Performans sayacı izleme, XPerf'in izleme, ağ izleme veya Storport izleme senaryoları seçtiğinizde, sonraki iletişim kutularını'ndaki yönergeleri izleyin. İzlemeler başlattıktan sonra yavaş performans sorunu yeniden oluşturmayı deneyin.
-
-Aşağıdaki iletişim kutusunu izlemek başlatın:
-
-![Ekran görüntüsü, başlangıç performans sayacı izleme iletişim kutusu](media/how-to-use-perfInsights/start-trace-message.png)
-
-İzlemeler durdurmak için ikinci bir iletişim kutusu komutta onaylamak sahip.
-
-![Ekran görüntüsü, durdurma performans sayacı izleme iletişim kutusu](media/how-to-use-perfInsights/stop-trace-message.png)
-![iletişim kutusunun ekran görüntüsü, durdurma tüm izler](media/how-to-use-perfInsights/ok-trace-message.png)
-
-İzlemeler veya işlem tamamlandığında, yeni bir dosya D: görünür\\günlük\_koleksiyonu (veya geçici sürücüsü). Dosya adı **CollectedData\_yyyy-aa-gg\_hh\_mm\_ss.zip.** Analiz için destek aracı bu dosyayı gönderebilir.
+İzlemeler veya işlem tamamlandığında, yeni bir dosya D: görünür\\günlük\_koleksiyonu (veya geçici sürücüsü). Dosya adı **CollectedData\_yyyy-aa-gg\_hh\_mm\_ss.zip.** Analiz için destek aracı bu dosyayı göndermek veya raporu bulgularını ve önerileri gözden geçirmek için zip dosyası içinde açın.
 
 ## <a name="review-the-diagnostics-report"></a>Tanılama raporu gözden geçirin
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bb096f64a6bc41ad2e75c058c7a9f00bbe480207
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir sanal ağ oluşturma
 
@@ -31,9 +31,9 @@ Azure'un iki dağıtım modeli vardır: Azure Resource Manager ve klasik. Micros
 Bu makalede Azure Resource Manager şablonu kullanarak Resource Manager dağıtım modeli üzerinden bir VNet oluşturma açıklanmaktadır. Resource Manager’da farklı araçlar kullanarak da sanal ağ kurabilir veya aşağıdaki listeden farklı bir seçenek belirleyerek klasik dağıtım modeliyle sanal ağ oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
-- [Portal](virtual-networks-create-vnet-arm-pportal.md)
-- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-- [CLI](virtual-networks-create-vnet-arm-cli.md)
+- [Portal](quick-create-portal.md)
+- [PowerShell](quick-create-powershell.md)
+- [CLI](quick-create-cli.md)
 - [Şablon](virtual-networks-create-vnet-arm-template-click.md)
 - [Portal (Klasik)](virtual-networks-create-vnet-classic-pportal.md)
 - [PowerShell (Klasik)](virtual-networks-create-vnet-classic-netcfg-ps.md)
@@ -56,7 +56,6 @@ Github'dan VNet ve iki alt ağ oluşturmak için varolan şablonunu indirebilir,
    
    | Parametre | Açıklama |
    | --- | --- |
-   | **konum** |VNet oluşturulduğu azure bölgesi |
    | **vnetName** |Yeni VNet'in adı |
    | **addressPrefix** |CIDR biçiminde VNet adres alanı |
    | **subnet1Name** |İlk VNet adı |
@@ -80,9 +79,6 @@ Github'dan VNet ve iki alt ağ oluşturmak için varolan şablonunu indirebilir,
 
     ```json
         {
-          "location": {
-            "value": "Central US"
-          },
           "vnetName": {
               "value": "TestVNet"
           },

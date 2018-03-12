@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>Maliyet Yönetimi raporlarını kullanma
 
@@ -103,7 +103,7 @@ En azından, aşağıdaki adımları gerçekleştirin. Diğer seçenekler ve ala
 
 Maliyet ayırma analiz raporları, maliyet ayırma 360 kullanarak bir maliyet modeli oluşturduktan sonra kullanılabilir. Cloudyn maliyet/faturalama verilerini işler ve bulut hesaplarınız kullanım ve etiket verilerini verileri eşleştirir. Verileri eşleştirmek için kullanım verilerinizi erişim Cloudyn gerektirir. Kimlik bilgileri eksik, Kategorilere ayrılmamış kaynaklar olarak etiketlenir hesaplar.
 
-### <a name="cost-analysis-report"></a>Maliyet analizi raporu
+### <a name="cost-analysis-report"></a>Maliyet Analizi raporu
 
 Maliyet analiz raporu, bulut tüketim ve seçilen bir zaman çerçevesinde harcama bir anlayış sağlar. Maliyet ayırma Yöneticisi'nde ayarlanan ilkelerle maliyet analiz raporunda kullanılır.
 
@@ -152,7 +152,7 @@ Zaman içinde maliyet raporun kullanın:
 3. Grupları ekleyin.
 4. Daha önce oluşturduğunuz bir maliyet modeli seçin.
 5. Gerçek maliyet veya amortized maliyetleri seçin.
-6. Maliyet için Cloudyn görünüm tarafından yeniden hesaplanması veya veri görünümü faturalama ham görünümüne ayırma kuralları uygulanıp uygulanmayacağını seçin.
+6. İçin maliyet görünümü yeniden hesaplanması veya veri görünümü faturalama ham görünümüne ayırma kuralları uygulanıp uygulanmayacağını seçin.
 
 Rapor bir örneği burada verilmiştir.
 

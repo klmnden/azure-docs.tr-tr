@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Ağ Performansı İzleyicisi ExpressRoute için yapılandırma
 
@@ -102,10 +102,7 @@ ExpressRoute circuit(s) sanal ağlara bağlantı sahip Abonelikteki bir çalış
 
 1. Git **ortak ayarları** sekmesinde **ağ Performans İzleyicisi'ni yapılandırma** kaynağınız için sayfa. Sunucunuzun işlemcisine karşılık gelen Aracısı'nı **OMS aracıları Yükle** bölümünde ve kurulum dosyasını karşıdan yükleyin.
 
-  >[!NOTE]
-  >Aracı bir Windows sunucusuna yüklenmesi gerekir (2008 SP1 veya üstü). Windows masaüstü işletim sistemi ve Linux işletim sistemi kullanarak ExpressRoute bağlantı hatları izleme desteklenmiyor. 
-  >
-  >
+ 
 2. Ardından, kopyalama **çalışma alanı kimliği** ve **birincil anahtar** Defteri'ne.
 3. Gelen **TCP protokolü kullanılarak izleme için OMS aracıları yapılandırma** bölümünde, Powershell komut dosyasını karşıdan yükleyin. PowerShell Betiği TCP işlemler için ilgili güvenlik duvarı bağlantı noktasını açın yardımcı olur.
 
@@ -114,6 +111,16 @@ ExpressRoute circuit(s) sanal ağlara bağlantı sahip Abonelikteki bir çalış
 ### <a name="installagent"></a>2.2: İzleme Aracısı her izleme sunucusuna (izlemek istediğiniz her bir VNET'teki) yükleyin
 
 Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağlar) her tarafında en az iki aracı yüklemenizi öneririz. Aracıları yüklemek için aşağıdaki adımları kullanın:
+  
+  >[!NOTE]
+  >Aracı bir Windows sunucusuna yüklenmesi gerekir (2008 SP1 veya üstü). Windows masaüstü işletim sistemi ve Linux işletim sistemi kullanarak ExpressRoute bağlantı hatları izleme desteklenmiyor. 
+  >
+  >
+  
+  >[!NOTE]
+  >SCOM aracıları tutarlı bir şekilde Azure üzerinde barındırılan olmadığını algılamak mümkün olmayabilir.  SCOM aracıları Azure Vnet'lerde ExpressRoute izlemek için kullanmamanızı öneririz.
+  >
+  >
 
 1. Çalıştırma **Kurulum** ExpressRoute izleme için kullanmak istediğiniz her sunucuda aracıyı yüklemek için. İzleme için kullanacağınız sunucu bir VM ya da şirket içi ya da olabilir ve Internet erişimi olması gerekir. Azure'da izlemek istediğiniz her ağ kesimindeki en az bir aracı şirket içi ve bir aracı yüklemeniz gerekir.
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.

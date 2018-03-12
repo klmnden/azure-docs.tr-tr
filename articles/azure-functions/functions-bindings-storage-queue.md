@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Tetikleyici - C# kod örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [C# betik (.csx)](functions-reference-csharp.md) bağlama kullanan kod. İşlev yoklamalar `myqueue-items` sıraya ve Kuyruk öğesi işlenir her zaman bir günlüğe yazar.
+Aşağıdaki örnek, bağlama sırası tetikleyici gösterir bir *function.json* dosya ve [C# betik (.csx)](functions-reference-csharp.md) bağlama kullanan kod. İşlev yoklamalar `myqueue-items` sıraya ve Kuyruk öğesi işlenir her zaman bir günlüğe yazar.
 
 Burada *function.json* dosyası:
 
@@ -112,7 +112,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 ### <a name="trigger---javascript-example"></a>Tetikleyici - JavaScript örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev yoklamalar `myqueue-items` sıraya ve Kuyruk öğesi işlenir her zaman bir günlüğe yazar.
+Aşağıdaki örnek, bağlama sırası tetikleyici gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev yoklamalar `myqueue-items` sıraya ve Kuyruk öğesi işlenir her zaman bir günlüğe yazar.
 
 Burada *function.json* dosyası:
 
@@ -223,9 +223,9 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
  
-Yöntem parametresi gibi kullanarak, C# ve C# betik blob veri erişim `Stream paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
+Yöntem parametresi gibi kullanarak, C# ve C# betik ileti veri erişim `string paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
 
-* POCO nesnesi - işlevler çalışma zamanı POCO nesnesine bir JSON yükü seri durumdan çıkarır. 
+* Nesnesi - işlevler çalışma zamanı bir JSON yükü kodunuzda tanımlanan rasgele sınıfının bir örneği içine seri durumdan çıkarır. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -302,7 +302,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Çıktı - C# kod örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [C# betik (.csx)](functions-reference-csharp.md) bağlama kullanan kod. İşlev alınan her HTTP isteği için bir POCO yükü Kuyruk öğesi oluşturur.
+Aşağıdaki örnek, bağlama bir HTTP tetikleyicisi gösterir bir *function.json* dosya ve [C# betik (.csx)](functions-reference-csharp.md) bağlama kullanan kod. Bir kuyruk öğesiyle işlev oluşturur bir **CustomQueueMessage** alınan her HTTP isteği için nesne yükü.
 
 Burada *function.json* dosyası:
 
@@ -353,17 +353,17 @@ Kullanarak aynı anda birden fazla ileti gönderebilir bir `ICollector` veya `IA
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### <a name="output---javascript-example"></a>Çıktı - JavaScript örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev alınan her HTTP isteği için bir kuyruk öğesi oluşturur.
+Aşağıdaki örnek, bağlama bir HTTP tetikleyicisi gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev alınan her HTTP isteği için bir kuyruk öğesi oluşturur.
 
 Burada *function.json* dosyası:
 
@@ -459,7 +459,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
  
 Yöntem parametresi gibi kullanarak tek bir kuyruk iletisinin, C# ve C# betik yazma `out T paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Yöntemin dönüş türü yerine kullanabileceğiniz bir `out` parametresi ve `T` aşağıdaki türlerden biri olabilir:
 
-* JSON olarak serileştirilebilir bir POCO
+* JSON olarak serileştirilebilir bir nesne
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 

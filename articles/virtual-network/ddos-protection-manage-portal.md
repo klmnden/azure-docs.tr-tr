@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS koruması Azure portalını kullanarak standart yönetme
 
@@ -31,9 +31,9 @@ Etkinleştirme ve dağıtılmış engelleme (DDoS) hizmeti koruma devre dışı 
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>DDoS koruması standart - yeni bir sanal ağ etkinleştir
 
 1. http://portal.azure.com sayfasından Azure portalda oturum açın. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-2. Tıklatın **kaynak oluşturma** Azure portalının sol üst köşesindeki.
+2. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 3. Seçin **ağ**ve ardından **sanal ağ**.
-4. Seçilen ayarlarla bir sanal ağ oluşturun. Sanal ağlar oluşturma hakkında daha fazla bilgi için bkz: [bir sanal ağ oluşturma](virtual-networks-create-vnet-arm-pportal.md). Altında **DDoS koruması**, tıklatın **etkin**ve ardından **oluşturma**. Görmüyorsanız, **DDoS koruması**, aboneliğinizi özelliği için kayıtlı değil bir nedeni olması. Tamamlamanız gereken [kayıt](http://aka.ms/ddosprotection), aboneliğinizi özelliği için önce etkinleştirildi bildirim alıp **DDoS koruması** görüntülenir.
+4. Seçilen ayarlarla bir sanal ağ oluşturun. Sanal ağlar oluşturma hakkında daha fazla bilgi için bkz: [bir sanal ağ oluşturma](manage-virtual-network.md#create-a-virtual-network). Altında **DDoS koruması**, tıklatın **etkin**ve ardından **oluşturma**. Görmüyorsanız, **DDoS koruması**, aboneliğinizi özelliği için kayıtlı değil bir nedeni olması. Tamamlamanız gereken [kayıt](http://aka.ms/ddosprotection), aboneliğinizi özelliği için önce etkinleştirildi bildirim alıp **DDoS koruması** görüntülenir.
 
     ![Sanal ağ oluşturma](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
@@ -66,7 +66,7 @@ Herhangi bir etkin azaltma Azure İzleyicisi uyarı yapılandırması'nı kullan
 3. Ölçüm için bir e-posta uyarı yapılandırmak için tıklatın **ölçüm uyarı Ekle**. Bir e-posta uyarısı üzerinde herhangi bir ölçümü oluşturulabilir, ancak en bariz ölçümüdür **altında DDoS saldırı veya**. Bir Boole değeri 1 veya 0 budur. A **1** Saldırıya uğramış olduğu anlamına gelir. A **0** Saldırıya uğramış kullanmıyorsanız anlamına gelir.
 4. Saldırı zaman gönderilecek şekilde ölçüsünü ayarlamak **altında DDoS saldırı veya** ve **son 5 dakikadan sıfır (0) değerinden durumuna**. Benzer uyarıların diğer ölçümleri için ayarlanabilir.
 
-    ![Ölçümlerini yapılandırın](./media/ddos-protection-manage-portal/ddos-metrics.png)
+    ![Ölçümleri yapılandırma](./media/ddos-protection-manage-portal/ddos-metrics.png)
 
     Saldırı algılama birkaç dakika içinde Azure İzleyici ölçümleri kullanarak bildirilir.
 

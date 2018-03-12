@@ -3,15 +3,16 @@ title: "Hyper-V çoğaltma Azure için destek matrisi | Microsoft Docs"
 description: "Hyper-V çoğaltma Azure Site Recovery ile azure'a için gereksinimleri ve desteklenen bileşenlerin özetler"
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: 58d54c1e0e6aa88878b45400b9211396f5d1b9d5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 81983b9287a6b8073724f0cd973929f4b4677d4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V çoğaltma Azure için destek matrisi
 
@@ -21,7 +22,7 @@ Bu makalede Azure, şirket içi Hyper-V sanal makineleri, olağanüstü durum ku
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 
-Senaryo | **Ayrıntılar**
+**Senaryo** | **Ayrıntılar**
 --- | --- 
 **VMM ile Hyper-V** | System Center Virtual Machine Manager (VMM) yapıda yönetilen Hyper-V konakları üzerinde çalışan sanal makineler için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz<br/><br/> Bu senaryoda Azure portal veya PowerShell kullanarak dağıtabilirsiniz.<br/><br/> Hyper-V konakları VMM tarafından yönetildiğinde zamanda bir ikincil şirket içi siteye olağanüstü durum kurtarma işlemlerini gerçekleştirebilirsiniz. Okuma [bu makalede](tutorial-vmm-to-vmm.md) bu senaryo hakkında daha fazla bilgi için.
 **VMM olmadan Hyper-V** | VMM tarafından yönetilmeyen Hyper-V konakları üzerinde çalışan sanal makineler için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryoda Azure portal veya Powershell kullanarak dağıtabilirsiniz. 
@@ -29,7 +30,7 @@ Senaryo | **Ayrıntılar**
 
 ## <a name="on-premises-servers"></a>Şirket içi sunucular
 
-**Sunucu** | Gereksinimleri | **Ayrıntılar**
+**Sunucu** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
 **Hyper-V (VMM çalıştıran)** | Windows Server 2016, en son güncelleştirmeleri içeren Windows Server 2012 R2. | Site kurtarma için bir Hyper-V sitesi yapılandırdığınızda, Windows Server 2016 ve 2012 R2 çalıştıran konaklar karıştırılması desteklenmiyor.<br/><br/> Windows Server 2016 çalıştıran bir konakta bulunan sanal makineleri için farklı bir konuma kurtarma desteklenmez.
 **Hyper-V (VMM ile çalıştıran)** | VMM 2016, VMM 2012 R2 | VMM kullandıysanız, Windows Server 2016 konaklar VMM 2016'yönetilmelidir.<br/><br/> Windows Server 2016 ve 2012 R2 çalıştıran Hyper-V konakları karıştırır VMM Bulutları özellik şu anda desteklenmiyor.<br/><br/> Mevcut bir VMM 2012 R2 sunucusuna 2016 yükseltmesini dahil ortamları desteklenmez.
@@ -139,9 +140,9 @@ Yönetilen diskler | Evet, yük devretme için<br/><br/> Yeniden çalışma yön
 
 Şirket içi sanal makinelerini Azure'a çoğaltma bu tabloda özetlenen Azure VM gereksinimlerini karşılaması gerekir.
 
-**Bileşen** | Gereksinimleri | **Ayrıntılar**
+**Bileşen** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-Konuk işletim sistemi | Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Önkoşul denetimi desteklenmeyen başarısız olur.
+**Konuk işletim sistemi** | Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Önkoşul denetimi desteklenmeyen başarısız olur.
 **Konuk işletim sistemi mimarisi** | 64 bit | Önkoşul denetimi desteklenmeyen başarısız olur.
 **İşletim sistemi disk boyutu** | 1. nesil sanal makineleri için 2048 GB'a kadar.<br/><br/> 2. nesil sanal makineleri için 300 GB.  | Önkoşul denetimi desteklenmeyen başarısız olur.
 **İşletim sistemi disk sayısı** | 1 | Önkoşul denetimi desteklenmeyen başarısız olur.

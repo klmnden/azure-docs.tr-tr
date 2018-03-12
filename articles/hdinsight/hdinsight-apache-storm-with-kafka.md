@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/26/2018
+ms.date: 03/08/2018
 ms.author: larryfr
-ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 0c74e46f37319a9d1eb0ea1587087e24312de451
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Hdınsight üzerinde Storm ile Apache Kafka kullanın
 
@@ -66,9 +66,9 @@ Azure sanal ağı, Kafka, oluşturabilir ve Storm el ile kümeleri olsa da, bir 
 
 1. Azure'da oturum açın ve Azure portalında şablon açmak için aşağıdaki düğmesini kullanın.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager şablonu bulunur **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**. Aşağıdaki kaynaklar oluşturur:
+    Azure Resource Manager şablonu bulunur **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Aşağıdaki kaynaklar oluşturur:
     
     * Azure kaynak grubu
     * Azure Sanal Ağ
@@ -155,7 +155,7 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
 
 ## <a name="configure-the-topology"></a>Topolojisini yapılandırma
 
-1. Kafka Aracısı ana bilgisayarları bulmak için aşağıdaki yöntemlerden birini kullanın:
+1. Kafka Aracısı konaklarda bulmak için aşağıdaki yöntemlerden birini kullanın **Kafka** Hdınsight kümesinde:
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -167,12 +167,12 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
+    > [!IMPORTANT]
+    > Aşağıdaki Bash örneği varsayar `$CLUSTERNAME` adını içeren __Kafka__ küme adı. Ayrıca varsayılmaktadır [jq](https://stedolan.github.io/jq/) 1.5 veya daha büyük bir sürümü yüklü. İstendiğinde, küme oturum açma hesabı için parolayı girin.
+
     ```bash
     curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
     ```
-
-    > [!IMPORTANT]
-    > Bash örnek varsayar `$CLUSTERNAME` Hdınsight kümesi adını içerir. Ayrıca varsayılmaktadır [jq](https://stedolan.github.io/jq/) 1.5 veya daha büyük bir sürümü yüklü. İstendiğinde, küme oturum açma hesabı için parolayı girin.
 
     Döndürülen değer aşağıdakine benzer:
 
@@ -181,7 +181,7 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
     > [!IMPORTANT]
     > Kümeniz için ikiden fazla Aracısı konakları olsa istemcilere tüm ana bilgisayarlar, tam bir listesi sağlanmaktadır gerekmez. Bir veya iki yeterlidir.
 
-2. Kafka Zookeeper ana bilgisayarları bulmak için aşağıdaki yöntemlerden birini kullanın:
+2. Zookeeper bulmak için aşağıdaki yöntemlerden birini barındıran için kullanım __Kafka__ Hdınsight kümesinde:
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -193,12 +193,12 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
+    > [!IMPORTANT]
+    > Aşağıdaki Bash örneği varsayar `$CLUSTERNAME` adını içeren __Kafka__ küme. Ayrıca varsayılmaktadır [jq](https://stedolan.github.io/jq/) yüklenir. İstendiğinde, küme oturum açma hesabı için parolayı girin.
+
     ```bash
     curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2
     ```
-
-    > [!IMPORTANT]
-    > Bash örnek varsayar `$CLUSTERNAME` Hdınsight kümesi adını içerir. Ayrıca varsayılmaktadır [jq](https://stedolan.github.io/jq/) yüklenir. İstendiğinde, küme oturum açma hesabı için parolayı girin.
 
     Döndürülen değer aşağıdakine benzer:
 
@@ -209,13 +209,13 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
 
     Bu değer daha sonra kullanılmak üzere kaydedin.
 
-3. Düzen `dev.properties` proje kökündeki dosyasında. Bu dosyadaki eşleşen satır aracısı ve Zookeeper ana bilgisayar bilgilerini ekleyin. Aşağıdaki örnek, önceki adımları örnek değerleri kullanarak yapılandırılır:
+3. Düzen `dev.properties` proje kökündeki dosyasında. Aracısı ve Zookeeper ana bilgisayar bilgilerini eklemek __Kafka__ bu dosyadaki eşleşen satır kümesi. Aşağıdaki örnek, önceki adımları örnek değerleri kullanarak yapılandırılır:
 
         kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
         kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
         kafka.topic: stormtopic
 
-4. Kaydet `dev.properties` dosya ve Storm kümesi karşıya yüklemek için aşağıdaki komutu kullanın:
+4. Kaydet `dev.properties` dosya ve ona karşıya yüklemek için aşağıdaki komutu kullanın **Storm** küme:
 
      ```bash
     scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
@@ -225,7 +225,12 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
 
 ## <a name="start-the-writer"></a>Yazıcı Başlat
 
-1. SSH kullanarak Storm kümeye bağlanmak için aşağıdakileri kullanın. Değiştir **kullanıcıadı** küme oluşturulurken kullanılan SSH kullanıcı adı. Değiştir **BASENAME** küme oluşturulurken kullanılan taban adına sahip.
+> [!IMPORTANT]
+> Bu bölümdeki adımları Kafka ve Storm kümeleri oluşturmak için bu belgede Azure Resource Manager şablonu bağlantı kullanılan varsayalım. Bu şablonu konuları Kafka küme için otomatik olarak oluşturulmasını sağlar.
+>
+> Varsayılan olarak, konular, otomatik olarak oluşturulmasını hdınsight'ta Kafka izin vermeyecek şekilde Kafka küme oluşturmak için başka bir yöntem kullandıysanız, konu el ile oluşturmanız gerekir. El ile bir konu oluşturma hakkında daha fazla bilgi için bkz: [hdınsight'ta Kafka başlayarak](./kafka/apache-kafka-get-started.md) belge.
+
+1. Bağlanmak için aşağıdakileri kullanın **Storm** SSH kullanarak küme. Değiştir **kullanıcıadı** küme oluşturulurken kullanılan SSH kullanıcı adı. Değiştir **BASENAME** küme oluşturulurken kullanılan taban adına sahip.
 
   ```bash
   ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.net
@@ -234,14 +239,6 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
     İstendiğinde, kümeler oluşturulurken kullanılan parolayı girin.
    
     Bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-2. SSH bağlantısı topolojisi tarafından kullanılan Kafka konu oluşturmak için aşağıdaki komutu kullanın:
-
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic stormtopic --zookeeper $KAFKAZKHOSTS
-    ```
-
-    Değiştir `$KAFKAZKHOSTS` Zookeeper ile ana bilgisayar önceki bölümde alınan bilgileri.
 
 2. Storm kümesi için SSH bağlantısı yazan topoloji başlatmak için aşağıdaki komutu kullanın:
 
@@ -261,11 +258,12 @@ Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.or
 
 5. Topoloji başladıktan sonra bu veriler Kafka konuya yazıyor doğrulamak için aşağıdaki komutu kullanın:
 
+    > [!IMPORTANT]
+    > Değiştir `$KAFKAZKHOSTS` ile Zookeeper barındırmak için bilgi __Kafka__ küme.
+
   ```bash
   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtopic
   ```
-
-    Değiştir `$KAFKAZKHOSTS` Zookeeper ile ana bilgisayar önceki bölümde alınan bilgileri.
 
     Bu komut Kafka ile birlikte gelen bir komut dosyası konu izlemek için kullanır. Bir süre sonra konu ile yazılmış rastgele cümleleri döndürme başlamalısınız. Çıktı aşağıdaki örneğe benzer:
 

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
+ms.date: 03/07/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bc2c696dceb3ed4741c10a5c611bd2d438b71bd5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="understanding-cost-management-reports"></a>Anlama maliyet yönetim raporları
 
@@ -76,6 +76,49 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
      - Uygulama
      - Ortam
      - Maliyet kodu
+
+    Raporlarda kullanılabilir yerleşik gruplar listesi aşağıdadır:
+
+    - **Maliyet türü**
+      - Maliyet türü veya birden çok maliyet türü seçin veya tümünü seçin. Maliyet türleri şunlardır:
+        - Tek seferlik bir ücret
+        - Destek
+        - Kullanım Maliyeti
+    - **Müşteri**
+        - Belirli bir müşteri, birden çok müşteriyi veya tüm müşteriler seçin.
+    - **Hesap adı**
+        - Hesabın veya aboneliğin adı. Azure'da, Azure aboneliğinin adıdır.
+    - **Hesap yok**
+        - Bir hesap, birden fazla hesap ya da tüm hesapları seçin. Azure'da, Azure aboneliğinin GUID değeridir.
+    - **Üst hesabı**
+        - Üst hesabı, birden fazla hesap veya Seç seçin.
+    - **Hizmet**
+        - Birden fazla hizmet, bir hizmet seçin veya tüm hizmetleri seçin.
+    - **Sağlayıcı**
+        - Varlıklar ve giderler ilişkili olduğu bulut sağlayıcısı.
+    - **Bölge**
+        - Kaynak barındırıldığı bölgesi.
+    - **Kullanılabilirlik bölge**
+        - Bir bölge içinde yalıtılmış AWS konumlar.
+    - **Kaynak Türü**
+        - Kullanımdaki kaynak türü.
+    - **Alt türü**
+        - Alt türü seçin.
+    - **İşlem**
+        - İşlemi seçin veya **Tümünü Göster**.
+    - **Fiyat modeli**
+        - Tüm önceden
+        - Önceden yok
+        - Kısmi önceden
+        - İsteğe Bağlı
+        - Rezervasyon
+        - Spot
+    - **Ücret türü**
+        - Negatif veya pozitif Ücret türü veya her ikisini de seçin.
+    - **Kiralama**
+        - Bir makine adanmış bir makine olarak kullanılıp kullanılmadığını.
+    -   **Kullanım türü**
+          - Kullanım türü tek seferlik ücretlerinin ya da yinelenen ücretleri olabilir.
 
 5. **filtreleri**
 

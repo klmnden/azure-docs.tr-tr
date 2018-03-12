@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jdial
-ms.openlocfilehash: 8800dc59306c349daba8f4d9703e0c713eed06ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağı sık sorulan sorular (SSS)
 
@@ -57,7 +57,7 @@ Oluşturma veya bir sanal ağı yapılandırmak için aşağıdaki araçları ku
 Herhangi bir IP adresi aralığını tanımlanan [RFC 1918](http://tools.ietf.org/html/rfc1918). Örneğin, 10.0.0.0/16.
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>My Vnet'ler genel IP adresleri olabilir mi?
-Evet. Ortak IP adresi aralıkları hakkında daha fazla bilgi için bkz: [bir sanal ağ oluşturma](virtual-network-manage-network.md#create-a-virtual-network). Genel IP adresleri, internet üzerinden doğrudan erişilemez değildir.
+Evet. Ortak IP adresi aralıkları hakkında daha fazla bilgi için bkz: [bir sanal ağ oluşturma](manage-virtual-network.md#create-a-virtual-network). Genel IP adresleri, internet üzerinden doğrudan erişilemez değildir.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>My Vnet'te alt ağlar sayısına bir sınır var mıdır?
 Evet. Bkz: [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) Ayrıntılar için. Alt ağ adres alanları birbirine gelemez.
@@ -151,7 +151,7 @@ Evet. Resource Manager dağıtım modeli aracılığıyla dağıtılan bir VM'ye
 Hayır. Özel bir IP adresi rezerve edemezsiniz. Özel IP adresi varsa, bir VM veya rol örneğine DHCP sunucusu tarafından atanır. VM olabilir veya özel bir IP adresi atanmış istediğiniz bir olmayabilir. Ancak, özel IP adresi zaten oluşturulmuş bir VM'nin kullanılabilir tüm özel IP adresi değiştirebilirsiniz.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Bir sanal ağ içindeki VM'ler için özel IP adresleri değişiklik yapmak?
-Duruma göre değişir. VM Resource manager aracılığıyla dağıttıysanız Hayır, bağımsız olarak IP adresini statik veya dinamik ayırma yöntemiyle olup atandı. VM Klasik dağıtım modeli aracılığıyla dağıtılmışsa, bir VM durduruldu (serbest bırakıldığında) durumda bırakıldı sonra başlatıldığında dinamik IP adreslerini değiştirebilirsiniz. Adres VM silindiğinde, her iki dağıtım modeli aracılığıyla dağıtılan bir sanal makineden yayımlanır.
+Duruma göre değişir. VM Resource Manager aracılığıyla dağıttıysanız Hayır, bağımsız olarak IP adresini statik veya dinamik ayırma yöntemiyle olup atandı. VM Klasik dağıtım modeli aracılığıyla dağıtılmışsa, bir VM durduruldu (serbest bırakıldığında) durumda bırakıldı sonra başlatıldığında dinamik IP adreslerini değiştirebilirsiniz. Adres VM silindiğinde, her iki dağıtım modeli aracılığıyla dağıtılan bir sanal makineden yayımlanır.
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>I el ile IP adresleri için NIC VM işletim sistemi içinde atayabilirsiniz?
 Evet, ancak sürece önerilmez zaman birden çok IP bir sanal makineye adresleri atama gibi gerekli. Ayrıntılar için bkz [ekleme birden çok IP adresleri bir sanal makineye](virtual-network-multiple-ip-addresses-portal.md#os-config). Bir Azure NIC'ye atanan IP adresi bağlıysa bir VM değişiklikleri ve IP adresi VM işletim sistemi içinde farklı olduğundan, VM bağlantısını kaybedebilir.
@@ -218,6 +218,6 @@ Evet. İçinde sanal ağlar için REST API'ler kullanabilirsiniz [Azure Resource
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Sanal ağlar için araç desteği vardır?
 Evet. Kullanma hakkında daha fazla bilgi edinin:
-- Sanal ağlar üzerinden dağıtmak için Azure portal [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) ve [Klasik](virtual-networks-create-vnet-classic-pportal.md) dağıtım modeli.
+- Sanal ağlar üzerinden dağıtmak için Azure portal [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) ve [Klasik](virtual-networks-create-vnet-classic-pportal.md) dağıtım modeli.
 - Sanal ağlar üzerinden yönetmek için PowerShell [Resource Manager](/powershell/module/azurerm.network) ve [Klasik](/powershell/module/azure/?view=azuresmps-3.7.0) dağıtım modeli.
 - Azure komut satırı arabirimi (CLI) dağıtmak ve sanal ağlar üzerinden yönetmek için [Resource Manager](/cli/azure/network/vnet) ve [Klasik](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) dağıtım modeli.  

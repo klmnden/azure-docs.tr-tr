@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/07/2018
 ms.author: maheshu
-ms.openlocfilehash: cd730d2224babe0c44d4c1d90106d44994536d29
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6ed797ca25161919ccf5e69be0073a67bfcef6d6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Yönetilen bir etki alanında Kerberos Kısıtlı temsilci (KCD) yapılandırma
 Birçok uygulama, kullanıcının bağlamında kaynaklara erişim izni gerekir. Active Directory bu kullanım örneği sağlayan Kerberos temsilcisi olarak adlandırılan bir mekanizma destekler. Ayrıca, böylece yalnızca belirli kaynaklara kullanıcı bağlamında erişilebilir temsilci kısıtlayabilirsiniz. Bunlar daha güvenli bir şekilde kilitlendiğini beri azure AD etki alanı Hizmetleri yönetilen etki alanları geleneksel Active Directory etki alanından farklı.
@@ -28,7 +28,7 @@ Bu makale bir Azure AD etki alanı Hizmetleri yönetilen etki alanında kısıtl
 ## <a name="kerberos-constrained-delegation-kcd"></a>Kerberos Kısıtlı temsilci (KCD)
 Kerberos temsilcisi başka bir güvenlik sorumlusu (örneğin, bir kullanıcı) kaynaklara erişmek için kimliğine bürünmek için bir hesap sağlar. Bir kullanıcı bağlamında bir arka uç web API'si erişen bir web uygulaması göz önünde bulundurun. Bu örnekte, (bir hizmet hesabı veya bilgisayar/makine hesabının bağlamında çalışır) web uygulaması (arka uç web API'si) kaynağa erişilirken kullanıcı temsil eder. Kerberos temsilcisi güvenli olduğu özellikleri alınırken hesabı kullanıcı bağlamında erişebildiği kaynakları kısıtlamaz.
 
-sKerberos Kısıtlı temsilci (KCD), belirtilen sunucunun kullanıcı adına işlem yapabileceği Hizmetleri/kaynakları kısıtlar. Geleneksel KCD bir hizmet için bir etki alanı hesabı yapılandırmak için etki alanı yöneticisi ayrıcalıkları gerektirir ve hesabı tek bir etki alanına kısıtlar.
+Kerberos Kısıtlı temsilci (KCD), belirtilen sunucunun kullanıcı adına işlem yapabileceği Hizmetleri/kaynakları kısıtlar. Geleneksel KCD bir hizmet için bir etki alanı hesabı yapılandırmak için etki alanı yöneticisi ayrıcalıkları gerektirir ve hesabı tek bir etki alanına kısıtlar.
 
 Geleneksel KCD de ilişkili bazı sorunlar vardır. Etki alanı yöneticisi hesabı tabanlı KCD hizmet için yapılandırılmışsa önceki işletim sistemlerinde hizmet yöneticisinin, sahibi kaynak Hizmetleri temsilci hangi ön uç hizmetlerin bilmesinin yolu yoktu. Ve bir kaynak hizmeti temsilci seçebilecek tüm ön uç Hizmetleri olası bir saldırı noktası gösterilir. Bir ön uç hizmeti barındırılan bir sunucunun güvenliği aşılırsa ve kaynak Hizmetleri temsilci seçmek üzere yapılandırılmışsa, kaynak hizmetlerin de güvenliği aşılabilirdi.
 
