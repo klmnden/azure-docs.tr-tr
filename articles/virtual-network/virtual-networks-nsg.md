@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Ağ güvenlik grupları ile ağ trafiğini filtreleme
 
@@ -32,7 +32,7 @@ NSG'ler aşağıdaki özellikleri içerir:
 
 | Özellik | Açıklama | Kısıtlamalar | Dikkat edilmesi gerekenler |
 | --- | --- | --- | --- |
-| Ad |NSG'nin adı |Bölge içinde benzersiz olmalıdır.<br/>Harf, sayı, alt çizgi, nokta ve kısa çizgi içerebilir.<br/>Bir harf veya sayı ile başlamalıdır.<br/>Bir harf, sayı veya alt çizgi ile bitmelidir.<br/>80 karakterden uzun olamaz. |Birden fazla NSG oluşturmanız gerekebileceği için NSG'lerinizin işlevini tanımlamanızı kolaylaştıran bir adlandırma kuralınızın bulunduğundan emin olun. |
+| Adı |NSG'nin adı |Bölge içinde benzersiz olmalıdır.<br/>Harf, sayı, alt çizgi, nokta ve kısa çizgi içerebilir.<br/>Bir harf veya sayı ile başlamalıdır.<br/>Bir harf, sayı veya alt çizgi ile bitmelidir.<br/>80 karakterden uzun olamaz. |Birden fazla NSG oluşturmanız gerekebileceği için NSG'lerinizin işlevini tanımlamanızı kolaylaştıran bir adlandırma kuralınızın bulunduğundan emin olun. |
 | Bölge |NSG'nin oluşturulduğu Azure [bölgesi](https://azure.microsoft.com/regions). |NSG’ler yalnızca NSG ile aynı bölgede bulunan kaynaklarla ilişkilendirilebilir. |Bir bölgede kaç tane NSG’ye sahip olabileceğiniz hakkında bilgi almak için [Azure limitleri](../azure-subscription-service-limits.md#virtual-networking-limits-classic) makalesini okuyun.|
 | Kaynak grubu |NSG'nin mevcut olduğu [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups). |Bir NSG bir kaynak grubunda mevcut olsa da, kaynağın NSG'nin ait olduğu Azure bölgesinin bir parçası olması koşuluyla, NSG herhangi bir kaynak grubuyla ilişkilendirilebilir. |Kaynak grupları, birden fazla kaynak grubunun birlikte bir dağıtım birimi olarak yönetilmesi için kullanılır.<br/>NSG'yi ilişkili olduğu kaynaklarla gruplandırmayı değerlendirebilirsiniz. |
 | Kurallar |Hangi trafiklere izin verildiğini veya reddedildiğini tanımlayan gelen veya giden kuralları. | |Bu makalenin [NSG kuralları](#Nsg-rules) bölümüne bakın. |
@@ -66,7 +66,7 @@ NSG'ler iki kural kümesi içerir: Gelen ve giden. Bir kurala ait öncelik her k
 Varsayılan etiketler, bir IP adresi kategorisini belirtmek için sistem tarafından sağlanan tanımlayıcılardır. Herhangi bir kuralın **kaynak adres ön eki** ve **hedef adres ön eki** özelliklerinde varsayılan etiketleri kullanabilirsiniz. Kullanabileceğiniz üç varsayılan etiket vardır:
 
 * **VirtualNetwork** (Resource Manager) (klasik için **VIRTUAL_NETWORK**): Bu etiket, sanal ağ adresi alanını (Azure'da tanımlanan CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve bağlı Azure sanal ağlarını (yerel ağlar) içerir.
-* **AzureLoadBalancer** (Resource Manager) (Klasik için **AZURE_LOADBALANCER**): Bu etiket Azure altyapı infrastructure yük dengeleyicisini belirtir. Bu etiket, Azure'ın sistem durumu araştırmalarının kaynağı olan bir Azure veri merkezi IP'sine çevrilir.
+* **AzureLoadBalancer** (Resource Manager) (Klasik için **AZURE_LOADBALANCER**): Bu etiket Azure altyapı infrastructure yük dengeleyicisini belirtir. Bu etiket, Azure Load Balancer'ın sistem durumu araştırmalarının kaynağı olan bir Azure veri merkezi IP'sine çevrilir.
 * **Internet** (Resource Manager) (klasik için **INTERNET**): Bu etiket, sanal ağın dışında olan ve genel İnternet ile ulaşılabilen IP adresi alanını belirtir. Bu aralık [Azure'a ait genel IP alanını](https://www.microsoft.com/download/details.aspx?id=41653) içerir.
 
 ### <a name="default-rules"></a>Varsayılan kurallar
@@ -75,11 +75,11 @@ Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar si
 Varsayılan kurallar, trafiğe aşağıdaki gibi izin verir ve reddeder:
 - **Sanal ağ:** Kaynağı bir sanal ağ olan ve bir sanal ağda biten trafiğe hem gelen hem de giden yönlerde izin verilir.
 - **Internet:** Giden trafiğe izin verilir, ancak gelen trafik engellenir.
-- **Yük dengeleyici:** VM’lerinizin ve rol örneklerinizin durumunu sorgulayan Azure yük dengeleyicisi. Yük dengeli bir küme kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
+- **Yük dengeleyici:** Azure Load Balancer'ın VM’lerinizde ve rol örneklerinizde sistem durumunu araştırmasına izin verir. Bu kuralı geçersiz kılarsanız Azure Load Balancer sistem durumu araştırmaları başarısız olur ve bu hizmetinizi etkileyebilir.
 
 **Gelen trafik için varsayılan kurallar**
 
-| Ad | Öncelik | Kaynak IP | Kaynak Bağlantı Noktası | Hedef IP | Hedef Bağlantı Noktası | Protokol | Access |
+| Adı | Öncelik | Kaynak IP | Kaynak Bağlantı Noktası | Hedef IP | Hedef Bağlantı Noktası | Protokol | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | İzin Ver |
 | AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | İzin Ver |
@@ -87,7 +87,7 @@ Varsayılan kurallar, trafiğe aşağıdaki gibi izin verir ve reddeder:
 
 **Giden trafik için varsayılan kurallar**
 
-| Ad | Öncelik | Kaynak IP | Kaynak Bağlantı Noktası | Hedef IP | Hedef Bağlantı Noktası | Protokol | Access |
+| Adı | Öncelik | Kaynak IP | Kaynak Bağlantı Noktası | Hedef IP | Hedef Bağlantı Noktası | Protokol | Access |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | İzin Ver |
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | İzin Ver |
@@ -163,7 +163,8 @@ Geçerli NSG kuralları yalnızca *TCP* veya *UDP* protokollerine izin verir. *I
 ### <a name="load-balancers"></a>Yük dengeleyiciler
 * İş yükleriniz tarafından kullanılan her bir yük dengeleyicisi için yük dengeleme ve ağ adresi çevirisi (NAT) kurallarını göz önünde bulundurun. NAT kuralları, ağ arabirimini (Resource Manager) veya VM/Cloud Services rol örneklerini (klasik) içeren bir arka uç havuzuna bağlanır. Yalnızca yük dengeleyicilerde uygulanan kurallar yoluyla eşlenen trafiğe izin vermek üzere, her arka uç havuzu için bir NSG oluşturmayı düşünün. Her bir arka uç havuzu için bir NSG oluşturulması, arka uç havuzuna doğrudan (yük dengeleyici üzerinden değil) gelen trafiğin de filtrelenmesini garanti eder.
 * Klasik dağıtımlarda, bir yük dengeleyicideki bağlantı noktalarını VM'lerinizdeki veya rol örneklerinizdeki bağlantı noktalarına eşleyen uç noktalar oluşturursunuz. Resource Manager ile genel kullanıma yönelik bireysel yük dengeleyicinizi de oluşturabilirsiniz. Gelen trafik için hedef bağlantı noktası, yük dengeleyici tarafından kullanıma sunulan bağlantı noktası değil, VM veya rol örneğindeki gerçek bağlantı noktasıdır. VM'ye gelen bağlantıya ait kaynak bağlantı noktası ve adresi yük dengeleyici tarafından kullanıma sunulan bağlantı noktası ve adresi değil, İnternet'teki uzak bilgisayar üzerindeki bir bağlantı noktası ve adresidir.
-* Bir iç yük dengeleyici (ILB) üzerinden gelen trafiği filtrelemek üzere NSG’ler oluşturduğunuzda, uygulanan kaynak bağlantı noktası ve adres aralığı yük dengeleyiciden değil, kaynak bilgisayardan gelir. Hedef bağlantı noktası ve adres aralığı, yük dengeleyiciye değil, hedef bilgisayara aittir.
+* Azure Load Balancer üzerinden gelen trafiği filtrelemek üzere NSG’ler oluşturduğunuzda, uygulanan kaynak bağlantı noktası ve adres aralığı yük dengeleyici ön ucundan değil, kaynak bilgisayardan gelir. Hedef bağlantı noktası ve adres aralığı, yük dengeleyici ön ucuna değil, hedef bilgisayara aittir.
+* AzureLoadBalancer etiketini engellerseniz Azure Load Balancer’dan gelen sistem durumu araştırmaları başarısız olur ve hizmetiniz etkilenebilir.
 
 ### <a name="other"></a>Diğer
 * Uç nokta tabanlı access control listeleri (ACL) ve NSG'ler, aynı VM örneğinde desteklenmez. Bir NSG'yi kullanmak istiyorsanız ve bir uç nokta ACL'si zaten kullanılıyorsa öncelikle uç nokta ACL'sini kaldırın. Bir uç nokta ACL’yi kaldırma hakkında bilgi için [Uç nokta ACL’leri yönetme](virtual-networks-acl-powershell.md) makalesine bakın.
@@ -229,7 +230,7 @@ Aşağıdaki NSG'ler oluşturulur ve aşağıdaki VM'ler içinde ağ arabirimler
 | Allow-Inbound-HTTP-Internet | İzin Ver | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> Önceki kuralların kaynak adres aralığı, yük dengeleyicinin sanal IP adresi değil, **Internet**’tir. Kaynak bağlantı noktası 500001 değil, * şeklindedir. Yük dengeleyiciler için NAT kuralları, NSG güvenlik kurallarıyla aynı değildir. NSG güvenlik kuralları her zaman için trafiğin orijinal kaynağı ve son hedefi ile ilgilidir, ikisi arasındaki yük dengeleyicisiyle **değil**. 
+> Önceki kuralların kaynak adres aralığı, yük dengeleyicinin sanal IP adresi değil, **Internet**’tir. Kaynak bağlantı noktası 500001 değil, * şeklindedir. Yük dengeleyiciler için NAT kuralları, NSG güvenlik kurallarıyla aynı değildir. NSG güvenlik kuralları her zaman için trafiğin orijinal kaynağı ve son hedefi ile ilgilidir, ikisi arasındaki yük dengeleyicisiyle **değil**. Azure Load Balancer, kaynak IP adresini ve bağlantı noktasını her zaman korur.
 > 
 > 
 

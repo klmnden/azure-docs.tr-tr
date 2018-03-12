@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: d6471796863a80e69fdaf740b68fb27d59503453
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 680cb70777574d0ed88c5f83fb0a6fa20263b951
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure yığın uygulama hizmeti: daha fazla altyapı veya çalışan rolleri Ekle
 
@@ -44,6 +44,7 @@ Azure uygulama hizmeti Azure yığında sanal makine ölçekleme kümeleri kulla
 ## <a name="add-additional-workers-with-powershell"></a>PowerShell ile ek çalışanları ekleme
 
 1. [PowerShell'de Azure yığın yönetim ortamı Kurulumu](azure-stack-powershell-configure-admin.md)
+
 2. Ölçek kümesi ölçeklendirmek için bu örneği kullanın:
    ```powershell
    
@@ -59,7 +60,7 @@ Azure uygulama hizmeti Azure yığında sanal makine ölçekleme kümeleri kulla
     $ScaleSetName = "SharedWorkerTierScaleSet"
 
     ## TotalCapacity is sum of the instances needed at the end of operation. 
-    ## e.g. if you VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
     $TotalCapacity = 2  
 
     # Get current scale set
@@ -68,51 +69,50 @@ Azure uygulama hizmeti Azure yığında sanal makine ölçekleme kümeleri kulla
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-  
-    '''
+   ```    
 
-> [!NOTE]
-> This step can take a number of hours to complete depending on the type of role and the number of instances.
->
->
+   > [!NOTE]
+   > Bu adım, rolün türü ve örnek sayısına bağlı olarak tamamlamak için saat sayısını alabilir.
+   >
+   >
 
-3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
+3. Yeni Uygulama Hizmeti Yönetimi rol örneklerinin durumunu izlemek, tek rol örneğini durumunu denetlemek için listede rol türü'ı tıklatın.
 
-## Add additional workers directly within the App Service Resource Provider Admin.
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Uygulama hizmeti kaynak sağlayıcısı yönetici doğrudan içinde ek çalışanları ekleme
 
-1. Log in to the Azure Stack administration portal as the service administrator.
+1. Azure yığın yönetim portalına Hizmet Yöneticisi olarak oturum açın.
 
-2. Browse to **App Services**.
+2. Gözat **uygulama hizmetleri**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
+3. Tıklatın **rolleri**. Burada, dağıtılan tüm uygulama hizmeti rolleri dökümünü görürsünüz.
 
-4. Right click on the row of the type you want to scale and then click **ScaleSet**.
+4. Ölçek ve ardından istediğiniz türü satırındaki sağ tıklayın **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
+5. Tıklatın **ölçeklendirme**, üzere ölçek ve ardından istediğiniz örneklerinin sayısını seçin **kaydetmek**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
+6. Azure yığın uygulama hizmeti şimdi ilave VM'ler eklemek, bunları yapılandırmanız, tüm gerekli yazılımları yüklemek ve bu işlem tamamlandıktan sonra bunları hazır olarak işaretlemek. Bu işlem yaklaşık 80 dakika sürebilir.
 
-7. You can monitor the progress of the readiness of the new roles by viewing the workers in the **Roles** blade.
+7. Çalışanlar görüntüleyerek yeni rolleri hazırlık ilerlemesini izleyebilirsiniz **rolleri** dikey.
 
-## Result
+## <a name="result"></a>Sonuç
 
-After they are fully deployed and ready, the workers become available for users to deploy their workload onto them. The following shows an example of the multiple pricing tiers available by default. If there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.
+Tam olarak dağıtılan ve hazır olduktan sonra çalışan kullanıcılar bunlara kendi iş yükü dağıtmak için kullanılabilir hale gelir. Aşağıdaki varsayılan olarak kullanılabilir birden çok fiyatlandırma katmanlarına örneği gösterir. Kullanılabilir hiçbir çalışanları belirli çalışan katmanı için varsa, karşılık gelen fiyatlandırma katmanını seçmesine izin seçeneği kullanılamaz.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> To scale out Management, Front End or Publisher roles add you must scale out the corresponding role type. 
+> Management'ı ölçeklendirmek için karşılık gelen rol türü ölçeklendirme ön uç veya yayımcı rolü ekleyin. 
 >
 >
 
-To scale out Management, Front End, or Publisher roles, follow the same steps selecting the appropriate role type. Controllers are not deployed as Scale Sets and therefore two should be deployed at Installation time for all production deployments.
+Yönetim, ön uç veya yayımcı rollerini ölçeklendirmek için uygun rol türü seçme aynı adımları izleyin. Denetleyicileri ölçek kümeleri olarak dağıtılmaz ve bu nedenle iki tüm üretim dağıtımları için yükleme zamanında dağıtılmalıdır.
 
-### Next steps
+### <a name="next-steps"></a>Sonraki adımlar
 
-[Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
+[Dağıtım kaynaklarını yapılandırma](azure-stack-app-service-configure-deployment-sources.md)
