@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Tanılama Günlüğü
 
@@ -31,6 +31,13 @@ Azure Cosmos DB hesabınızı izleme içine alın önce günlüğe kaydetme ve i
 Aşağıdaki resim Azure günlükleri kullanılabilen farklı türde gösterir.
 
 ![Farklı türde Azure günlükleri](./media/logging/azurelogging.png)
+
+Yukarıdaki görüntüsündeki **işlem kaynaklarını** kendisi için erişebilirsiniz konuk işletim sistemi Azure kaynaklarını temsil eder. Örneğin, Azure sanal makineler, sanal makine ölçek ayarlar, Azure kapsayıcı hizmeti vb. işlem kaynaklarını olarak kabul edilir. İşlem kaynakları etkinlik günlükleri, tanılama ve uygulama günlükleri oluşturur. Daha fazla bilgi edinmek için bkz [Azure Monitoring – işlem kaynakları](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) makalesi.
+
+**Olmayan işlem kaynakları** burada edemez temel işletim sistemi erişmek ve iş doğrudan kaynakla kaynaklardır. Örneğin, ağ güvenlik grupları, Logic Apps vs. **Cosmos DB** bir işlem dışı kaynaktır. Etkinlik günlüğünde veya portalında tanılama günlüklerini seçeneği etkinleştirilerek işlem dışı kaynaklar için günlükleri görüntüleyebilirsiniz. Daha fazla bilgi edinmek için bkz [Azure Monitoring – olmayan işlem kaynakları](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) makalesi.
+
+ListKeys vb. yazma DatabaseAccounts oturum gibi etkinlik günlüğü Cosmos DB, işlemleri için bir abonelik düzeyinde işlemleri kaydeder. Tanılama günlükleri daha ayrıntılı günlük kaydını sağlar ve DataPlaneRequests (oluşturma, okuma, sorgu. oturum olanak tanır ) ve MongoRequests.
+
 
 Bizim tartışma için Azure etkinliği, Azure Diagnotic ve ölçümleri odaklanmanıza olanak tanır. Bu nedenle bu üç günlükler arasındaki fark nedir? 
 

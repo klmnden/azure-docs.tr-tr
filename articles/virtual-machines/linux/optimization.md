@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: e143ed1e6bcece7efac9126c8e46408e7a88a5c0
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d3ee98253a69580e5ecafb4e117ef93f7c981416
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure’da Linux VM’nizi iyileştirme
 Linux sanal makine (VM) oluşturma komut satırından veya portalından yapmak kolaydır. Bu öğreticide, Microsoft Azure platformu üzerinde performansı iyileştirmek için ayarladığınız emin olmak nasıl gösterir. Bu konuda bir Ubuntu Server VM kullanır, ancak, Linux kullanarak sanal makine oluşturabilirsiniz [kendi görüntü şablonları olarak](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu konu çalışan bir Azure aboneliği zaten sahip varsayar ([ücretsiz deneme sürenizde](https://azure.microsoft.com/pricing/free-trial/)) ve bir VM Azure aboneliğinizde zaten sağlanmış. En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve Azure aboneliğinizle oturum açmış [az oturum açma](/cli/azure/#az_login) , önce [bir VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Bu konu çalışan bir Azure aboneliği zaten sahip varsayar ([ücretsiz deneme sürenizde](https://azure.microsoft.com/pricing/free-trial/)) ve bir VM Azure aboneliğinizde zaten sağlanmış. En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve Azure aboneliğinizle oturum açmış [az oturum açma](/cli/azure/reference-index#az_login) , önce [bir VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS Disk
 Azure'da bir Linux VM oluşturduktan sonra kendisiyle ilişkilendirilmiş iki disk var. **/ dev/sda** , işletim sistemi disk **/dev/sdb** geçici disktir.  Ana işletim sistemi diski kullanmayın (**/dev/sda**) olarak işletim sistemi dışındaki her şey için optimize edilen için hızlı VM önyükleme süresi ve iş yükleriniz için iyi bir performans sağlamaz. Kalıcı almak için VM için bir veya daha fazla disk eklemek için kullanmak istediğiniz ve depolama verileriniz için en iyi duruma getirilmiş. 

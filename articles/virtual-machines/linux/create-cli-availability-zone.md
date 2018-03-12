@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e31eb02fda7ade027225c428c5b15804ebc6f182
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI ile bir kullanılabilirlik bölgesindeki bir Linux sanal makine oluşturun
 
@@ -28,7 +28,7 @@ Bir Azure kullanılabilirlik bölgesinde bir Linux VM oluşturmak için Azure CL
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-En son yüklediğinizden emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı için oturum açmış [az oturum açma](/cli/azure/#az_login).
+En son yüklediğinizden emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı için oturum açmış [az oturum açma](/cli/azure/reference-index#az_login).
 
 
 ## <a name="check-vm-sku-availability"></a>VM SKU kullanılabilirliğini denetleme
@@ -63,7 +63,7 @@ virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
 
 [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun.  
 
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu bir sanal makine önce oluşturulması gerekir. Bu örnekte, bir kaynak grubu adında *myResourceGroupVM* oluşturulan *eastus2* bölge. Doğu ABD 2, kullanılabilirlik alanlarını önizlemede destekleyen Azure bölgelerinden biridir.
+Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir sanal makineden önce bir kaynak grubu oluşturulmalıdır. Bu örnekte, bir kaynak grubu adında *myResourceGroupVM* oluşturulan *eastus2* bölge. Doğu ABD 2, kullanılabilirlik alanlarını önizlemede destekleyen Azure bölgelerinden biridir.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus2
@@ -73,15 +73,15 @@ Kaynak grubu oluştururken veya değiştirirken Bu makale görülebilir bir VM b
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-Bir sanal makine oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
+[az vm create](/cli/azure/vm#az_vm_create) komutuyla bir sanal makine oluşturun. 
 
-Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandırma ve yönetici kimlik bilgileri gibi birkaç seçenek bulunur. Bu örnekte, bir sanal makine adı ile oluşturulan *myVM* Ubuntu Server çalıştıran. VM kullanılabilirlik bölgede oluşturulan *1*. Varsayılan olarak, VM oluşturulan *Standard_DS1_v2* boyutu. Bu boyut kullanılabilirlik bölgeleri Önizleme'de desteklenir.
+Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandırma ve yönetici kimlik bilgileri gibi çeşitli seçenekler bulunur. Bu örnekte, Ubuntu Server çalıştıran *myVM* adlı bir sanal makine oluşturulmuştur. VM kullanılabilirlik bölgede oluşturulan *1*. Varsayılan olarak, VM oluşturulan *Standard_DS1_v2* boyutu. Bu boyut kullanılabilirlik bölgeleri Önizleme'de desteklenir.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
-VM oluşturmak için birkaç dakika sürebilir. VM oluşturulduktan sonra Azure CLI VM hakkında bilgi verir. Not edin `zones` VM çalıştığı kullanılabilirlik bölge belirten değer. 
+VM’nin oluşturulması birkaç dakika sürebilir. VM oluşturulduktan sonra, Azure CLI VM hakkında bilgi çıkışı sağlar. Not edin `zones` VM çalıştığı kullanılabilirlik bölge belirten değer. 
 
 ```azurecli-interactive 
 {
@@ -148,7 +148,7 @@ az network public-ip show --resource-group myResourceGroupVM --name $ipaddressna
 }
 ```
 
-Benzer şekilde, VM'ın yönetilen disk kullanılabilirlik bölgesinde olduğunu doğrulayın. Kullanım [az vm Göster](/cli/azure/vm#az_vm_show) disk kimliği döndürülecek komutu. Bu örnekte, disk kimliği, bir sonraki adımda kullanılan bir değişkende depolanır. 
+Benzer şekilde, VM'ın yönetilen disk kullanılabilirlik bölgesinde olduğunu doğrulayın. Disk kimliğini döndürmek için [az vm show](/cli/azure/vm#az_vm_show) komutunu kullanın. Bu örnekte, disk kimliği, bir sonraki adımda kullanılan bir değişkende depolanır. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

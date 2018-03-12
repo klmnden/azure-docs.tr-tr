@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 387f3095e8eebce3fa6c2f47ffc87995e65bfe2b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Docker ve oluşturma tanımlamak ve Azure'da çok kapsayıcı uygulamayı çalıştırmak için kullanmaya başlama
 İle [oluşturma](http://github.com/docker/compose), birden çok Docker kapsayıcıları için oluşan bir uygulamayı tanımlamak için basit bir metin dosyası kullanın. Ardından, uygulamanızda tanımlanan ortamınıza dağıtmak için her şeyi yapar tek bir komut Yukarı Döndür. Örnek olarak, bu makalede, bir WordPress blog arka ucu MariaDB SQL veritabanındaki bir Ubuntu VM ile hızlı bir şekilde ayarlama gösterilmektedir. Oluştur, daha karmaşık uygulamalar ayarlamak için de kullanabilirsiniz.
@@ -32,7 +32,7 @@ Docker VM uzantısı kullandığınızda, VM otomatik olarak Docker ana bilgisay
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Azure CLI 2.0 ile Docker konak oluştur
-En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#az_login).
+En son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/reference-index#az_login).
 
 İlk olarak, Docker ortamınız için bir kaynak grubu oluşturmak [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 

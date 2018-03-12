@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: nitinme
-ms.openlocfilehash: 212789e8189abf362bb8eaf12e4c551b113b7adb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8e4213813ff23586ac683556d4a3c0c587edea58
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="use-databricks-cli-from-azure-cloud-shell"></a>Azure bulut Kabuğu'ndan Databricks CLI kullanın
+# <a name="use-databricks-cli-from-azure-cloud-shell"></a>Azure Cloud Shell’den Databricks CLI kullanma
 
 Azure bulut Kabuğu'ndan Databricks CLI Databricks üzerinde işlem gerçekleştirmek için nasıl kullanılacağını öğrenin.
 
@@ -84,7 +84,7 @@ Komutlar hakkında tam başvuru için bkz: [Databricks CLI](https://docs.azureda
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI genel bakış](../cloud-shell/overview.md)
-* Azure CLI komutlarının bir listesini görmek için bkz: [Azure CLI başvurusu](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+* Azure CLI komutlarının bir listesini görmek için bkz: [Azure CLI başvurusu](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
 * Databricks CLI komutlarının bir listesini görmek için bkz: [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
 
 

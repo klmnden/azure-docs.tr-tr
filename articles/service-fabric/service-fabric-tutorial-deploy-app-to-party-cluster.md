@@ -1,10 +1,10 @@
 ---
-title: "Azure Service Fabric uygulamasını bir kümeye dağıtma | Microsoft Docs"
-description: "Bu öğreticide, uygulamayı bir Service Fabric kümesine dağıtmayı öğrenirsiniz."
+title: "Azure Service Fabric uygulamasını Visual Studio'dan bir kümeye dağıtma | Microsoft Docs"
+description: "Uygulamayı Visual Studio'dan bir kümeye dağıtmayı öğrenin"
 services: service-fabric
 documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
+-author: mikkelhegn
+-manager: msfussell
 editor: 
 ms.assetid: 
 ms.service: service-fabric
@@ -12,29 +12,31 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
-ms.author: mikhegn
+ms.date: 02/21/2018
+ms.author: mikkelhegn
 ms.custom: mvc
-ms.openlocfilehash: 35ddf77b1e9a9b355ed2cee4731e3c5d87c4a701
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 21c991a4e3f9ae19a4ad4a96427fdc1c91c55a1c
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure’da bir Service Fabric kümesine uygulama dağıtma
-Bir serinin ikinci kısmı olan bu öğreticide bir Azure Service Fabric uygulamasının Azure’da çalışan bir kümeye nasıl dağıtılacağı gösterilir.
+Bir serinin ikinci kısmı olan bu öğreticide bir Azure Service Fabric uygulamasının doğrudan Visual Studio'dan Azure’da yeni bir kümeye nasıl dağıtılacağı gösterilir.
 
-Bu öğretici serisinin ikinci kısmında şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+> [!div class="checklist"]
+> * Visual Studio'dan küme oluşturma
+> * Visual Studio kullanarak bir uygulamayı uzak bir kümeye dağıtma
+
+
+Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
 > * [.NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md)
 > * Uygulamayı uzak kümeye dağıtma
 > * [Visual Studio Team Services'i kullanarak CI/CD'yi yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
-Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
-> [!div class="checklist"]
-> * Visual Studio kullanarak bir uygulamayı uzak bir kümeye dağıtma
-> * Service Fabric Explorer kullanarak bir uygulamayı kümeden kaldırma
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce:
@@ -49,84 +51,56 @@ Bu öğreticiye başlamadan önce:
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="set-up-a-party-cluster"></a>Grup Kümesi ayarlama
-Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Ücretsiz!
+## <a name="deploy-the-sample-application"></a>Örnek uygulamayı dağıtma
 
-Bir Grup Kümesine erişmek için bu siteye göz atın: http://aka.ms/tryservicefabric ve bir kümeye erişmek için yönergeleri izleyin. Bir Grup Kümesine erişmek için bir Facebook veya GitHub hesabı gerekir.
+### <a name="select-a-service-fabric-cluster-to-which-to-publish"></a>Yayımlanacağı Service Fabric kümesini seçme
+Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıtabilirsiniz.
 
-İsterseniz Grup Kümesi yerine kendi kümenizi kullanabilirsiniz.  ASP.NET Core web ön ucu, durum bilgisi olan hizmet arka ucu ile iletişim kurmak için ters ara sunucusu kullanır.  Grup Kümeleri ve yerel geliştirme kümesi varsayılan olarak etkin ters ara sunucuya sahiptir.  Voting örnek uygulamasını kendi kümenize dağıtırsanız, [kümedeki ters ara sunucuyu etkinleştirmeniz](service-fabric-reverseproxy.md#setup-and-configuration) gerekir.
+Dağıtım için iki seçeneğiniz vardır:
+- Visual Studio'dan küme oluşturma. Bu seçenek doğrudan Visual Studio'dan tercih ettiğiniz yapılandırmalarla güvenli bir küme oluşturmanızı sağlar. Bu tür kümeler test senaryoları için idealdir, çünkü kümeyi oluşturabilir ve ardından Visual Studio'dan doğrudan bu kümenin içine yayımlayabilirsiniz.
+- Aboneliğinizde mevcut bir kümeye yayımlama.
 
+Bu öğreticide, Visual Studio'dan küme oluşturma adımları izlenir. Diğer seçenekler için, bağlantı uç noktanızı kopyalayıp yapıştırabilir veya bunu aboneliğinizden seçebilirsiniz.
 > [!NOTE]
-> Grup kümeleri güvenli değildir, bu nedenle uygulamalarınız ve bu kümelere koyduğunuz herhangi bir veri başkalarına görünür olabilir. Başkalarının görmesini istemediğiniz hiçbir şeyi dağıtmayın. Tüm ayrıntılar için Kullanım Koşullarımızı okuduğunuzdan emin olun.
+> Birçok hizmet birbiriyle iletişim kurmak için ters proxy kullanır. Visual Studio'dan oluşturulan kümelerde ve grup kümelerinde ters proxy varsayılan olarak etkindir.  Mevcut kümelerden birini kullanıyorsanız, [kümede ters proxy'yi etkinleştirmelisiniz](service-fabric-reverseproxy.md#setup-and-configuration).
 
-Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. Sonraki adımlarda sertifika ve **Bağlantı uç noktası** değeri kullanılır.
+### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Uygulamayı Service Fabric kümesine dağıtma
 
-![PFX ve bağlantı uç noktası](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+1. Çözüm Gezgini'nde uygulama projesine sağ tıklayın ve **Yayımla**’yı seçin.
 
-Bir Windows bilgisayarda PFX’i *CurrentUser\My* sertifika deposuna yükleyin.
+2. Aboneliklerinize erişebilmek için Azure hesabınızı kullanarak oturum açın. Grup kümesi kullanıyorsanız bu adım isteğe bağlıdır.
 
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+3. **Bağlantı Uç Noktası**'nın açılan listesini seçin ve "<Create New Cluster...>" seçeneğini belirtin.
+    
+    ![Yayımla İletişim Kutusu](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    
+4. "Küme oluştur" iletişim kutusunda aşağıdaki ayarları değiştirin:
 
+    1. "Küme Adı" alanında kümenizin adını, ayrıca kullanmak istediğiniz aboneliği ve konumu belirtin.
+    2. İsteğe bağlı: Düğüm sayısını değiştirebilirsiniz. Varsayılan olarak üç düğümünüz vardır; bu, Service Fabric senaryolarını test etmek için gereken en düşük sayıdır.
+    3. "Sertifika" sekmesini seçin. Bu sekmede, kümenizin sertifikasını güvenlik altına almak için kullanılacak bir parola yazın. Bu sertifika, kümenizin güvenliğine yardımcı olur. Ayrıca sertifikayı kaydetmek istediğiniz yolu da değiştirebilirsiniz. Visual Studio sertifikayı sizin için içeri aktarabilir, çünkü uygulamayı kümeye yayımlarken bu gerekli bir adımdır.
+    4. "VM Ayrıntısı" sekmesini seçin. Kümeyi oluşturman Sanal Makineler (VM) için kullanmak istediğiniz parolayı belirtin. Kullanıcı adı ve parola, VM'lere uzaktan bağlanmak için kullanılabilir. Ayrıca VM makine boyutu da seçmelisiniz ve gerekirse VM görüntüsü değiştirebilirsiniz.
+    5. İsteğe bağlı: "Gelişmiş" sekmesinde kümeyle birlikte oluşturulacak olan yük dengeleyicide açılmasını istediğiniz bağlantı noktaları listesinde değişiklik yapabilirsiniz. Ayrıca uygulama günlük dosyalarını yönlendirmek için kullanılacak mevcut bir Application Insights anahtarı ekleyebilirsiniz.
+    6. Ayarları değiştirmeyi bitirdiğinizde "Oluştur" düğmesini seçin. Oluşturma işleminin tamamlanması birkaç dakika sürer; çıkış penceresinde kümenin ne zaman tam olarak oluşturulduğu gösterilir.
+    
+    ![Küme Oluştur İletişim Kutusu](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+4. Kullanmak istediğiniz küme hazır olduğunda, uygulama projesine sağ tıklayın ve **Yayımla**'yı seçin.
 
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
+    Yayımlama tamamlandığında, bir tarayıcı aracılığıyla uygulamaya istek gönderebilirsiniz.
 
-
-## <a name="deploy-the-app-to-the-azure"></a>Uygulamayı Azure’a dağıtma
-Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan Grup Kümesine dağıtabilirsiniz.
-
-1. Çözüm Gezgini'nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin. 
-
-    ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-containers/publish-app.png)
-
-2. Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametreleri**’ne tıklayıp ve aşağıdaki bilgileri doldurun.  *FindValue* ve *ServerCertThumbprint* değerleri önceki adımda yüklenen sertifikanın parmak iziyle eşleşmelidir. **Yayımla**’ta tıklayın. 
-
-    Yayımlama tamamlandıktan sonra, bir tarayıcı aracılığıyla uygulamaya bir istek gönderebilirsiniz.
-
-3. Tercih ettiğiniz tarayıcıyı açın ve küme adresini girin (bağlantı noktası bilgileri olmadan bağlantı uç noktası - örneğin, win1kw5649s.westus.cloudapp.azure.com).
+5. Tercih ettiğiniz tarayıcıyı açın ve küme adresini girin (bağlantı noktası bilgileri olmadan bağlantı uç noktası - örneğin, win1kw5649s.westus.cloudapp.azure.com).
 
     Uygulamayı yerel olarak çalıştırırken gördüğünüz sonucun aynısını görmeniz gerekir.
 
     ![Kümeden API Yanıtı](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
-## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer kullanarak kümeden uygulamayı kaldırma
-Service Fabric Explorer, bir Service Fabric kümesinde bulunan uygulamaları keşfedip yöneten bir grafik kullanıcı arabirimidir.
-
-Uygulamayı Grup Kümesinden kaldırmak için:
-
-1. Grup Kümesi kaydolma sayfasında sunulan bağlantıyı kullanarak Service Fabric Explorer’a gidin. Örneğin, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
-
-2. Service Fabric Explorer’ın sol tarafındaki ağaç görünümünde bulunan **fabric:/Voting** düğümüne gidin.
-
-3. Sağdaki **Essentials** bölmesinde bulunan **Eylem** düğmesine tıklayıp **Uygulamayı Sil** seçeneğini belirleyin. Uygulama örneğinin silinmesini onaylayın. Bu işlem, kümede çalışan uygulama örneğimizi kaldırır.
-
-![Service Fabric Explorer'da Uygulama Silme](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
-
-## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer kullanarak kümeden uygulama türünü kaldırma
-Uygulamalar, Service Fabric kümesinde uygulama türleri olarak dağıtılır. Bu sayede kümede çalışan uygulamaların birden fazla örneğine ve sürümüne sahip olursunuz. Uygulamamızın çalışan örneğini kaldırdıktan sonra, dağıtım temizleme işlemini tamamlamak için türü de kaldırabiliriz.
-
-Service Fabric’teki uygulama modeli hakkında daha fazla bilgi için bkz. [Service Fabric’te uygulama modelleme](service-fabric-application-model.md).
-
-1. Ağaç görünümündeki **VotingType** düğümüne gidin.
-
-2. Sağdaki **Essentials** bölmesinde bulunan **Eylem** düğmesine tıklayıp **Türün Sağlamasını Kaldır** seçeneğini belirleyin. Uygulama türünün sağlamasını kaldırma işlemini onaylayın.
-
-![Service Fabric Explorer’da Uygulama Türünün Sağlamasını Kaldırma](./media/service-fabric-tutorial-deploy-app-to-party-cluster/unprovision-type.png)
-
-Bu, öğreticiyi sonlandırır.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
+> * Visual Studio'dan küme oluşturma
 > * Visual Studio kullanarak bir uygulamayı uzak bir kümeye dağıtma
-> * Service Fabric Explorer kullanarak bir uygulamayı kümeden kaldırma
 
 Sonraki öğreticiye ilerleyin:
 > [!div class="nextstepaction"]

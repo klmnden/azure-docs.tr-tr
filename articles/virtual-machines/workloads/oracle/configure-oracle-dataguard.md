@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: d3eff4a396c2fd0b52a50a201ceb1a91bae710dc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 822e18db4d01210d741addad4c820f51adc8f26a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinede Oracle veri koruma uygulama 
 
@@ -39,7 +39,7 @@ Oracle: Oracle VM oluşturmak için kullandığınız Market görüntüdür-veri
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma 
 
-Azure aboneliğinizi kullanarak oturum [az oturum açma](/cli/azure/#az_login) komut ve izleyin ekrandaki yönergeleri.
+Azure aboneliğinizi kullanarak oturum [az oturum açma](/cli/azure/reference-index#az_login) komut ve izleyin ekrandaki yönergeleri.
 
 ```azurecli
 az login

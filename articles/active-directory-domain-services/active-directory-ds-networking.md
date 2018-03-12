@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri için ağ konuları
 ## <a name="how-to-select-an-azure-virtual-network"></a>Nasıl bir Azure sanal ağı seçin
@@ -53,6 +53,7 @@ Aşağıdaki yönergeler Azure AD etki alanı Hizmetleri ile kullanmak için bir
 * Nsg'ler yönetilen etki alanınız için ayrılmış bir alt ağ için geçerli değildir. Ayrılmış bir alt ağ için Nsg'ler uygulamalısınız olmanız **değil hizmeti için gereken bağlantı noktalarını engellemek ve etki alanınızı yönetmek**.
 * Aşırı yönetilen etki alanınız için ayrılmış bir alt ağ içinde kullanılabilir IP adresi sayısını kısıtlamaz. Bu kısıtlama, iki etki alanı denetleyicileri, yönetilen etki alanınız için kullanılabilir bulunmasını hizmet önler.
 * **Ağ geçidi alt ağı Azure AD Etki Alanı Hizmetleri'nde etkinleştirmeyin** sanal ağınızın.
+* Yönetilen etki alanınızı etkin olduğu alt ağdan giden erişim engellemez.
 
 > [!WARNING]
 > İlişkilendirdiğinizde, bir NSG bir alt ağ içinde Azure AD etki alanı Hizmetleri ile etkinleştirildiğinde, Microsoft'un hizmet ve etki alanını yönetme özelliğini bozabilir. Ayrıca, Azure AD kiracınız, yönetilen etki alanınız arasında eşitleme bozulur. **SLA, burada bir NSG engelleyen Azure AD etki alanı Hizmetleri güncelleştirme ve etki alanınızı yönetme uygulanmış olan dağıtımlar için geçerli değildir.**
@@ -89,6 +90,8 @@ Aşağıdaki bağlantı noktalarını hizmetine Azure AD etki alanı Hizmetleri 
 * İnternet üzerinden yönetilen etki alanınız için güvenli LDAP erişimi etkinleştirmek için kullanılır.
 * Bu bağlantı noktası, NSG üzerinden açma isteğe bağlıdır. Yalnızca etkin Internet üzerinden güvenli LDAP erişimi varsa, bağlantı noktasını açın.
 * Bu bağlantı noktası üzerinden güvenli LDAP bağlanmak beklediğiniz kaynak IP adresleri için gelen erişimi kısıtlayabilirsiniz.
+
+**Giden erişim** AAD etki alanı hizmetleri yönetmek, yedekleme ve yönetilen etki alanınızı izlemek için çeşitli diğer Azure hizmetleriyle giden erişimi olması gerekir. Yönetilen etki alanınızı etkin olduğu özel alt ağdan giden erişim engellemez.
 
 
 ## <a name="network-security-groups"></a>Ağ Güvenlik Grupları

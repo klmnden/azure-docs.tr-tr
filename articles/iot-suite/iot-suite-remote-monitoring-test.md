@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Yeni bir sanal cihaz oluşturma
 
@@ -24,7 +24,7 @@ Bu öğretici, önceden yapılandırılmış Uzaktan izleme çözümü, aygıt b
 
 İlk senaryoda, Contoso yeni bir akıllı ampul aygıt test istiyor. Testleri gerçekleştirmek için aşağıdaki özelliklere sahip yeni bir sanal cihaz oluşturun:
 
-*Özellikleri*
+*özellikleri*
 
 | Ad                     | Değerler                      |
 | ------------------------ | --------------------------- |
@@ -104,7 +104,7 @@ Uzaktan izleme çözümünüz için yeni bir sanal cihaz eklemek için geliştir
 
 Uzaktan izleme çözüm oluşturduğunuzda [www.azureiotsuite.com](https://www.azureiotsuite.com), çözüm adı seçtiniz. Çözüm adı çözüm kullanır çeşitli dağıtılan kaynakları içeren Azure kaynak grubu adı haline gelir. Adlı bir kaynak grubu aşağıdaki komutları kullanın **Contoso-01**, değiştirmeniz gerekir **Contoso-01** , kaynak grubu adı.
 
-Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Geliştirme makinenizde Azure CLI 2.0 yükleyebilmek veya kullanabilmek [bulut Kabuk](https://docs.microsoft.com/azure/cloud-shell/overview) içinde [Azure portal](http://portal.azure.com). Azure CLI 2.0 bulut Kabuğu'nda önceden yüklenir.
+Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Geliştirme makinenizde Azure CLI 2.0 yükleyebilmek veya kullanabilmek [bulut Kabuk](https://docs.microsoft.com/azure/cloud-shell/overview) içinde [Azure portal](http://portal.azure.com). Azure CLI 2.0 bulut Kabuğu'nda önceden yüklenir.
 
 1. Uzaktan izleme kaynaklarınızı içeren kaynak grubunun adını doğrulamak için aşağıdaki komutu çalıştırın:
 

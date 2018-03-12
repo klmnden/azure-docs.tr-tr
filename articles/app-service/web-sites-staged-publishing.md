@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 18f6ef3997ba60f588040f641ebe9e9aca8d091a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Hazırlık Azure App Service ortamları ayarlama
 <a name="Overview"></a>
 
-Web uygulaması, Linux, mobil arka uç ve API uygulaması için web uygulaması dağıtırken [uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714), varsayılan üretim yuvasına yerine ayrı bir dağıtım yuvası çalıştırırken dağıtabileceğiniz **standart** veya **Premium** uygulama hizmeti planı modu. Dağıtım yuvaları, kendi ana bilgisayar adları ile gerçekten Canlı uygulamalardır. Uygulama içeriği ve yapılandırmaları öğeleri üretim yuvası da dahil olmak üzere iki dağıtım yuvası arasında değişiklik yapılabilir. Bir dağıtım yuvası uygulamanıza dağıtımı aşağıdaki faydaları vardır:
+Web uygulaması, Linux, mobil arka uç ve API uygulaması için web uygulaması dağıtırken [uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714), varsayılan üretim yuvasına yerine ayrı bir dağıtım yuvası çalıştırırken dağıtabileceğiniz **standart** veya **Premium** uygulama hizmeti planı katmanı. Dağıtım yuvaları, kendi ana bilgisayar adları ile gerçekten Canlı uygulamalardır. Uygulama içeriği ve yapılandırmaları öğeleri üretim yuvası da dahil olmak üzere iki dağıtım yuvası arasında değişiklik yapılabilir. Bir dağıtım yuvası uygulamanıza dağıtımı aşağıdaki faydaları vardır:
 
 * Üretim yuvasıyla değiştirmeden önce hazırlık dağıtım yuvasındaki uygulama değişikliklerini doğrulayabilirsiniz.
 * Bir uygulama için bir yuva ilk dağıtma ve üretim ile değiştirmeden yuva tüm örneklerini üretime takas önce warmed olduğunu sağlar. Uygulamanızı dağıttığınızda bu kapalı kalma süresini ortadan kaldırır. Trafik yeniden yönlendirmesi sorunsuzdur ve değiştirme işlemleri sonucunda hiçbir istek bırakılır. Yapılandırarak bu iş akışının tamamı otomatikleştirilebilir [otomatik takas](#Auto-Swap) zaman öncesi takas doğrulama gerekli değildir.
 * Değiştirme işleminden sonra önceden hazırlanmış uygulama yuvasıyla artık önceki üretim uygulamasına sahiptir. Beklendiği gibi üretim yuvasına değişiklikleri varsa, "son bilinen iyi sitenizi" hemen almak için aynı değiştirme işlemini gerçekleştirebilirsiniz geri.
 
-Her bir uygulama hizmeti planı modu dağıtım yuvaları farklı sayıda destekler. Out sayısını bulmak için uygulamanızın modunu destekler yuvası için bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
+Her uygulama hizmeti planı katmanı dağıtım yuvaları farklı sayıda destekler. Out sayısını bulmak için uygulamanızın katmanı destekler yuvası için bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Uygulamanız birden çok yuvası olduğunda, modunu değiştiremezsiniz.
+* Uygulamanız birden çok yuvası olduğunda, katmanı değiştirilemiyor.
 * Ölçeklendirme için üretim dışı yuvası kullanılabilir değil.
-* Bağlantılı kaynak yönetimi için üretim dışı yuvası desteklenmiyor. İçinde [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) üretim dışı yuvası geçici olarak başka bir uygulama hizmeti planı moda taşıyarak bu olası etkisini üretim yuvasına yalnızca önleyebilirsiniz. İki yuvaları takas önce üretim dışı yuvası yine aynı mod üretim yuvasıyla paylaşmalıdır olduğunu unutmayın.
+* Bağlantılı kaynak yönetimi için üretim dışı yuvası desteklenmiyor. İçinde [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) üretim dışı yuvası geçici olarak farklı bir uygulama hizmeti planı katmana taşıyarak bu olası etkisini üretim yuvasına yalnızca önleyebilirsiniz. İki yuvaları takas önce üretim dışı yuvası yine aynı katmanı üretim yuvasıyla paylaşmalıdır olduğunu unutmayın.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Bir dağıtım yuvası Ekle
-Uygulamayı çalışır durumda **standart** veya **Premium** modu, birden çok dağıtım yuvasını etkinleştirmeniz sırayla.
+Uygulamayı çalışır durumda **standart** veya **Premium** , birden çok dağıtım yuvasını etkinleştirmeniz sırayla katmanı.
 
 1. İçinde [Azure Portal](https://portal.azure.com/), uygulamanızın açmak [kaynak dikey](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Seçin **dağıtım yuvası** seçeneğini ve ardından **yuva Ekle**.
@@ -47,7 +47,7 @@ Uygulamayı çalışır durumda **standart** veya **Premium** modu, birden çok 
     ![Yeni bir dağıtım yuvası ekle][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Uygulama zaten değilse **standart** veya **Premium** modu, aşamalı yayımlamayı etkinleştirmeye ilişkin desteklenen modları belirten bir ileti alırsınız. Bu noktada, seçmek için seçeneğiniz **yükseltme** gidin **ölçek** devam etmeden önce uygulamanızın sekmesi.
+   > Uygulama zaten değilse **standart** veya **Premium** katmanı, aşamalı yayımlamayı etkinleştirmeye desteklenen katmanları belirten bir ileti alırsınız. Bu noktada, seçmek için seçeneğiniz **yükseltme** gidin **ölçek** devam etmeden önce uygulamanızın sekmesi.
    > 
    > 
 3. İçinde **bir yuva eklemek** dikey penceresinde, yuva bir ad verin ve başka bir var olan dağıtım yuvası uygulama yapılandırmasından kopyalamak seçin. Devam etmek için onay işaretine tıklayın.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e9c6b85a439ba880c15ae16ab1cac093020430ba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3f1b55f2752821de447e6c03bcbf79f01d9f8264
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve Self-hosted tümleştirmesi çalışma zamanı yapılandırma
 Tümleştirme çalışma zamanı (IR), farklı ağ ortamlar genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -65,7 +65,7 @@ Etkinlik bir kendi kendini barındıran tümleştirmesi çalışma zamanı veril
 - Kendini barındıran tümleştirmesi çalışma zamanı, Azure sanal ağ içindeki veri tümleştirmesini desteklemek için kullanılmalıdır.
 - Veri kaynağı (bir güvenlik duvarının arkasında olan) bir şirket içi veri kaynağı olarak davran kullandığınızda bile **ExpressRoute**. Kendini barındıran tümleştirmesi çalışma zamanı hizmeti ve veri kaynağı arasında bağlantı kurmak için kullanın.
 - Veri deposu bulutta üzerinde olsa bile, kendini barındıran tümleştirmesi çalışma zamanı kullanmalısınız bir **Azure Iaas sanal makine**.
-- Görevler Windows hangi FIPS uyumlu üzerinde şifreleme etkin bir sunucuda yüklü bir Self-hosted tümleştirme çalışma zamanında başarısız olabilir. Bu sorunu çözmek için sunucu üzerindeki FIPS uyumlu şifreleme devre dışı bırakın.
+- Görevler Windows hangi FIPS uyumlu üzerinde şifreleme etkin bir sunucuda yüklü bir Self-hosted tümleştirme çalışma zamanında başarısız olabilir. Bu sorunu çözmek için sunucu üzerindeki FIPS uyumlu şifreleme devre dışı bırakın. FIPS uyumlu şifreleme devre dışı bırakmak için (0 (devre dışı) olarak etkin) 1'den aşağıdaki kayıt defteri değerini değiştirin: `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

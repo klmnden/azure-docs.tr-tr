@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: db7af48b4aaefefbea704cb87c2b7f3808fc5330
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a7771eebc8359a5de1c79328014f5ecc06c9673b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 Azure SQL veritabanı PaaS teklifi en başından itibaren Microsoft, yüksek kullanılabilirlik (HA) hizmetine inşa edilmiş ve müşterilerin çalışır, özel mantığı ekleyin veya HA geçici kararları için gerekli değildir, müşterilerinin promise yapmıştır. Microsoft, müşterilerin bir SLA sunumu HA sistem yapılandırması ve işlem üzerinde tam denetim tutar. HA SLA durumlarda Microsoft'un makul şekilde denetimi dışında etkenler nedeniyle olan toplam bölge hata koruma sağlamaz ve bir bölgede bir SQL veritabanı için geçerlidir (örneğin, doğal afet, war, terörist saldırılarını, riots, devlet eylemi olaylardan veya ağ veya cihaz arızası müşteri sitelerden veya müşteri siteleri ve Microsoft'un veri merkezi arasında dahil, Microsoft'un veri merkezlerinin dışındaki).
@@ -50,7 +50,7 @@ Başlıca yararları:
 
 ## <a name="data-redundancy"></a>Veri yedekliği
 
-SQL veritabanı yüksek kullanılabilirlik çözümde dayanır [AlwaysON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) SQL Server teknolojisini ve en az farklılıklar LS ve RS veritabanlarıyla çalışır hale getirir. LS içinde ON RS sırada kalıcılığı için kullanılır, her zaman kullanılabilirlik (düşük RTO) için kullanılan bir yapılandırmadır. 
+SQL veritabanı yüksek kullanılabilirlik çözümde dayanır [her zaman açık](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) SQL Server teknolojisini ve en az farklılıklar LS ve RS veritabanlarıyla çalışır hale getirir. LS içinde ON RS sırada kalıcılığı için kullanılır, her zaman kullanılabilirlik (düşük RTO) için kullanılan bir yapılandırmadır. 
 
 ## <a name="local-storage-configuration"></a>Yerel depolama yapılandırması
 

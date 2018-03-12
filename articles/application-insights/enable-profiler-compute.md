@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure VM'ler, Service Fabric ve Azure bulut hizmetlerine uygulama Öngörüler profil oluşturucu etkinleştir
 
@@ -46,8 +46,7 @@ Profil Oluşturucu tam olarak etkinleştirmek için üç konumda yapılandırmas
 
    ![İzleme anahtarını konumu](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Profil Oluşturucu için Application Insights örneğinin kurulumunu tamamlamak için açıklanan yordamı tamamlayın [etkinleştirmek profil oluşturucu](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    Adımları app services kaynağa özgü olduğundan web uygulamaları bağlantı gerekmez. Profil oluşturucu içinde etkinleştirildiğinden emin olun **yapılandırma profil oluşturucu** bölmesi.
+3. Profil Oluşturucu için Application Insights örneğinin kurulumunu tamamlamak için [etkinleştirme Profil Oluşturucusu'nda. açıklanan yordamı tamamlayın Adımları app services kaynağa özgü olduğundan web uygulamaları bağlantı gerekmez. Profil oluşturucu içinde etkinleştirildiğinden emin olun **yapılandırma profil oluşturucu** bölmesi.
 
 
 ## <a name="set-up-the-application-source-code"></a>Uygulama kaynak kodu ayarlamanız
@@ -157,6 +156,8 @@ Ortamınızı ayarlama için aşağıdakileri yapın:
 
       Tanılama uzantısını dağıtım şablonu ekleme hakkında daha fazla bilgi için bkz: [kullanım izleme ve tanılama Windows VM ve Azure Resource Manager şablonları ile](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> Sanal makineler için yukarıdaki json tabanlı adımları için Azure Portalı'na gitmek için alternatiftir **sanal makineleri** > **tanılama ayarlarını**  >   **İç havuzlar** > Set Application Insights'a Tanılama verileri Gönder **etkin** ve Application Insights hesabı veya belirli bir ikey seçin.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 
@@ -196,7 +197,7 @@ Ortamınızı ayarlama için aşağıdakileri yapın:
 
 1. Değiştirilen ortamı dağıtım tanımı dağıtın.  
 
-   Değişiklikleri uygulamak için genellikle tam şablon dağıtımı içeren veya PowerShell cmdlet'lerini veya Visual Studio bulut Hizmetleri yayımlayın.  
+   Değişiklikleri uygulamak için genellikle tam şablon dağıtımı veya bulut tabanlı Hizmetleri PowerShell cmdlet'lerini veya Visual Studio yayımlamak içerir.  
 
    Yalnızca Azure tanılama uzantısını değen alternatif bir yaklaşım mevcut sanal makineler verilmiştir:  
 

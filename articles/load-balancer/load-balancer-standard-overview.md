@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure yük dengeleyici standart genel bakış (Önizleme)
 
@@ -327,7 +327,7 @@ SKU'ları değişebilir değildir. SKU bir kaynak grubundan diğerine taşımak 
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-Yük Dengeleyici standart tüm genel bulut bölgelerde şu anda kullanılabilir değil.
+Yük Dengeleyici standart batı ABD dışındaki tüm ortak bulut bölgeleri şu anda kullanılabilir durumdadır.
 
 >[!IMPORTANT]
 > Kısa bir süre boyunca, erişim bölgeler (Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Orta ABD, Batı Avrupa, Güneydoğu Asya) bölgelere ilk başlatma dışında ek abonelik özellikleri kaydını gerektirir (AllowLBPreviewWave2 ve AllowLBPreviewWave3).  [Lütfen aşağıdaki adımları izleyin](#additionalpreviewregions). Lütfen, daha önce AllowLBPreview için zaten bile kaydolduysanız bunların tümünün yürütün.
@@ -467,6 +467,7 @@ Aşağıdaki sınırlamalar Önizleme aynı anda uygulamak ve değiştirilebilir
 - [Azure uyarıları izleme](../monitoring-and-diagnostics/monitoring-overview-alerts.md) şu anda desteklenmiyor.
 - Portal genişletilmiş Önizleme bölgelerde henüz desteklemiyor.  Şablonlar, Azure CLI 2.0 veya geçici bir çözüm olarak PowerShell gibi istemci araçlarını kullanın.
 - Taşıma abonelik işlemleri desteklenmez.
+- Batı ABD kullanılamaz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

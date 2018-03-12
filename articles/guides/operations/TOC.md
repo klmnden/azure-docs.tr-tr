@@ -88,9 +88,9 @@
 
 
 ## [Sanal ağlar](azure-operations-guide.md#azure-virtual-network)
-### [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure PowerShell’i kullanarak sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure CLI’ı kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure PowerShell’i kullanarak sanal ağ oluşturma](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure CLI’ı kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Ağ güvenlik grupları ile ağ trafiğini filtreleme](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Sanal ağ öğreticileri
 #### [VM'ler için yük dengeleme](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 9987fe1273dc05a2ad10c65325ad1d487d38247e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: abe970eb72be5ea6944acc253c2c3d9008b20c56
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>Bir genel yük dengeleyiciye standart PowerShell kullanarak bölge olarak yedekli genel IP adresi ön uç ile oluşturma
 
@@ -88,7 +88,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
   -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
 
-## <a name="create-a-load-balancer-rule"></a>Yük Dengeleyici kuralı oluşturma
+## <a name="create-a-load-balancer-rule"></a>Yük dengeleyici kuralı oluşturma
  Aşağıdaki komutu kullanarak bir yük dengeleyici kuralı oluşturun:
 
 ```powershell
@@ -105,7 +105,7 @@ $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBa
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Bilgi nasıl [bir kullanılabilirlik bölgesinde bir genel IP oluşturun](../virtual-network/create-public-ip-availability-zone-portal.md)
+- Bilgi nasıl [bir kullanılabilirlik bölgesinde bir genel IP oluşturun](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b5e52e30b99e1d59c2f8bde17b31b0f1cb3d6d70
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure yığın 1802 güncelleştirme
 
@@ -37,10 +37,6 @@ Azure yığın 1802 güncelleştirme yapı numarası **20180302.1**.
 ## <a name="before-you-begin"></a>Başlamadan önce    
 > [!IMPORTANT]    
 > Bu güncelleştirmenin yüklenmesi sırasında sanal makineler oluşturmak çalışmayın. Güncelleştirmeleri yönetme hakkında daha fazla bilgi için bkz: [yönetmek Azure yığın genel bakış güncelleştirmelerinde](/azure-stack-updates#plan-for-updates).
-
-> [!IMPORTANT]    
-> Kullandığınızda [SQL](/azure-stack-sql-resource-provider-deploy) veya [MySQL](/azure-stack-mysql-resource-provider-deploy) kaynak sağlayıcıları, bunlar sürüm Azure yığın sürüm 1802 yükleme başlamadan önce 1712 çalıştırmalısınız. Sağlayıcılar 1711 veya önceki bir sürümü ve Azure yığın sürümünün 1802 yüklü olduğunu, daha yeni bir sürüm için bu kaynak sağlayıcıları artık güncelleştirebilirsiniz.
-
 
 
 ### <a name="prerequisites"></a>Önkoşullar
@@ -134,7 +130,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 #### <a name="marketplace"></a>Market
 - Kullanıcılar bir abonelik olmadan tam Market göz atabilir ve planları ve teklifleri gibi yönetim öğelerini görebilirsiniz. Bu öğeler kullanıcılara işlevsiz.
 
-#### <a name="compute"></a>İşlem
+#### <a name="compute"></a>Bilgi İşlem
 - Sanal makine ölçek kümeleri için ölçeklendirme ayarları portalda kullanılabilir değildir. Geçici bir çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürümü farklılıkları nedeniyle kullanmalısınız `-Name` yerine parametre `-VMScaleSetName`.
 
 - Azure yığını yalnızca sabit türü VHD'lerin destekler. Dinamik VHD Azure yığında Market üzerinden sunulan bazı görüntüleri kullanır ancak bu kaldırıldı. Ekli dinamik bir diski bir sanal makine (VM) yeniden boyutlandırma VM başarısız durumda bırakır.
@@ -158,7 +154,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 
 
 
-#### <a name="networking"></a>Ağ
+#### <a name="networking"></a>Networking (Ağ İletişimi)
 - Bir VM oluşturulur ve bir ortak IP adresi ile ilişkili sonra bu VM IP adresinden ilişkisini olamaz. Çalışmak için disassociation görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır.
 
   Şu anda, oluşturduğunuz yeni VM'ler için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Azure içerik teslim ağı'nda Azure Blob storage'nın bitiş tarihini Yönet
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ Güncelleştirilecek *CacheControl* Azure Depolama Gezgini ile bir blob özelli�
 ![Azure Storage Gezgini özellikleri](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure Komut Satırı Arabirimi
-İle [Azure komut satırı arabirimi](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), komut satırından Azure blob kaynakları yönetebilir. Azure CLI ile bir blob karşıya yüklediğinizde cache-control üstbilgisinin ayarlamak için ayarlayın *cacheControl* kullanarak özellik `-p` geçin. Aşağıdaki örnekte, TTL bir saat (3600 saniye) ayarlamak gösterilmektedir:
+İle [Azure komut satırı arabirimi](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), komut satırından Azure blob kaynakları yönetebilir. Azure CLI ile bir blob karşıya yüklediğinizde cache-control üstbilgisinin ayarlamak için ayarlayın *cacheControl* kullanarak özellik `-p` geçin. Aşağıdaki örnekte, TTL bir saat (3600 saniye) ayarlamak gösterilmektedir:
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>

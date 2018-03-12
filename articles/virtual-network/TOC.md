@@ -28,13 +28,13 @@
 
 ## Dağıtma
 ### Sanal ağlar
-#### [Azure portalı](virtual-networks-create-vnet-arm-pportal.md)
+#### [Azure Portal](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Ağ güvenlik grupları
-#### [Azure portalı](virtual-networks-create-nsg-arm-pportal.md)
+#### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Şablon](virtual-networks-create-nsg-arm-template.md)
@@ -44,7 +44,7 @@
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### Yol tabloları
-#### [Azure portalı](tutorial-create-route-table-portal.md)
+#### [Azure Portal](tutorial-create-route-table-portal.md)
 #### [Azure PowerShell](tutorial-create-route-table-powershell.md)
 #### [Azure CLI](tutorial-create-route-table-cli.md)
 #### [Şablon](virtual-network-create-udr-arm-template.md)
@@ -54,7 +54,7 @@
 
 ### Sanal ağ eşleme
 #### Aynı dağıtım modeli - aynı abonelik
-##### [Azure portalı](tutorial-connect-virtual-networks-portal.md)
+##### [Azure Portal](tutorial-connect-virtual-networks-portal.md)
 ##### [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)
 ##### [Azure CLI](tutorial-connect-virtual-networks-cli.md)
 #### [Aynı dağıtım modeli - farklı abonelikler](create-peering-different-subscriptions.md)
@@ -63,15 +63,10 @@
 
 ### [Sanal ağ hizmeti uç noktaları](virtual-network-service-endpoints-configure.md)
 
-### Genel IP adresi - Kullanılabilirlik alanı
-#### [Azure portalı](create-public-ip-availability-zone-portal.md)
-#### [Azure CLI](create-public-ip-availability-zone-cli.md)
-#### [PowerShell](create-public-ip-availability-zone-powershell.md)
-
 ### Sanal makineler
 #### [Sanal makine ağ aktarım hızı](virtual-machine-network-throughput.md)
 #### Statik genel IP adresiyle VM oluşturma
-##### [Azure portalı](virtual-network-deploy-static-pip-arm-portal.md)
+##### [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Şablon](virtual-network-deploy-static-pip-arm-template.md)
@@ -79,11 +74,11 @@
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### VM Oluşturma - Statik özel IP adresi
-##### [Azure portalı](virtual-networks-static-private-ip-arm-pportal.md)
+##### [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 ##### Klasik
-###### [Azure portalı](virtual-networks-static-private-ip-classic-pportal.md)
+###### [Azure Portal](virtual-networks-static-private-ip-classic-pportal.md)
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
 ###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
@@ -97,7 +92,7 @@
 ###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### VM Oluşturma - Birden çok IP adresi
-##### [Azure portalı](virtual-network-multiple-ip-addresses-portal.md)
+##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Şablon](virtual-network-multiple-ip-addresses-template.md)
@@ -126,7 +121,7 @@
 
 ### Klasik
 #### [Sanal ağ](create-virtual-network-classic.md)
-##### [Azure portalı](virtual-networks-create-vnet-classic-pportal.md)
+##### [Azure Portal](virtual-networks-create-vnet-classic-pportal.md)
 ##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
 ##### [Azure CLI](virtual-networks-create-vnet-classic-cli.md)
 #### [Bir sanal ağ yapılandırma dosyasında DNS ayarlarını belirtme](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
@@ -147,18 +142,18 @@
 
 ### Klasik
 #### Erişim denetimi listeleri
-##### [Azure portalı](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure Portal](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## Yönetme
-### [Sanal ağlar](virtual-network-manage-network.md)
+### [Sanal ağlar](manage-virtual-network.md)
 #### [Alt ağlar](virtual-network-manage-subnet.md)
 #### [Eşlemeler](virtual-network-manage-peering.md)
 #### Klasik
 ##### [Ağ yapılandırması dosyası](virtual-networks-using-network-configuration-file.md)
 ##### [Bir benzeşim grubundan bölgeye geçiş](virtual-networks-migrate-to-regional-vnet.md)
 ### Ağ güvenlik grupları
-#### [Azure portalı](virtual-network-manage-nsg-arm-portal.md)
+#### [Azure Portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
@@ -171,15 +166,15 @@
 #### [VM’yi farklı bir alt ağa taşıma](virtual-networks-move-vm-role-to-subnet.md)
 ### [Genel IP adresleri](virtual-network-public-ip-address.md)
 ### DDOS Koruması
-#### [Azure portalı](ddos-protection-manage-portal.md)
+#### [Azure Portal](ddos-protection-manage-portal.md)
 #### [Azure PowerShell](ddos-protection-manage-ps.md)
 
 ## Sorun giderme
 ### Ağ güvenlik grupları
-#### [Azure portalı](virtual-network-nsg-troubleshoot-portal.md)
+#### [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
 #### [Azure PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 ### Yollar
-#### [Azure portalı](virtual-network-routes-troubleshoot-portal.md)
+#### [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 #### [Azure PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Aktarım hızı testi](virtual-network-bandwidth-testing.md)
 ### [Sanal ağlar silinemiyor](virtual-network-troubleshoot-cannot-delete-vnet.md)

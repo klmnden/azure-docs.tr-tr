@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Windows Server Active Directory Azure sanal makinelerde dağıtmak için yönergeler
 Bu makalede dağıtma Windows Server Active Directory etki alanı Hizmetleri (AD DS) ve Active Directory Federasyon Hizmetleri (AD FS) Microsoft Azure sanal makinelerde dağıtmak ve şirket arasındaki önemli farklılıklar açıklanır.
@@ -51,7 +51,7 @@ Bu farklılıklar hakkında daha fazla bilgi için bkz: [Azure kimlik](fundament
 
 Ayrıca ilk öğreticileri, kılavuzları ve aşağıdaki konular ele videolar gözden geçirmenizi öneririz:
 
-* [Azure portalında yalnızca bulut sanal ağ yapılandırma](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Azure portalında yalnızca bulut sanal ağ yapılandırma](../virtual-network/quick-create-portal.md)
 * [Azure portalında bir siteden siteye VPN yapılandırma](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Bir Azure sanal ağ üzerinde yeni bir Active Directory ormanı yüklemek](active-directory-new-forest-virtual-machine.md)
 * [Azure üzerinde Active Directory etki alanı Denetleyicisi'nin çoğaltmasını yükleme](active-directory-install-replica-active-directory-domain-controller.md)

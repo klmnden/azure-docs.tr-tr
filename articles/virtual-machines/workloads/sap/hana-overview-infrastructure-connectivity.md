@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>SAP HANA (büyük örnekler) altyapısı ve Azure ile ilgili bağlantı 
 
@@ -75,7 +75,7 @@ Bu nedenle, HANA büyük örnekleri için Azure VNet oluşturma içine biraz dah
 >[!Note]
 >Azure VNet HANA büyük örneği için Azure Resource Manager dağıtım modeli kullanılarak oluşturulmuş olması gerekir. Yaygın olarak Klasik dağıtım modeli olarak bilinen eski Azure dağıtım modeli HANA büyük örneği çözümüyle desteklenmiyor.
 
-Azure portalı, PowerShell, Azure şablonu veya Azure CLI kullanarak VNet oluşturulabilir (bkz [Azure portalını kullanarak bir sanal ağ oluşturma](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Aşağıdaki örnekte, biz Azure portalından oluşturulan bir VNet içine bakın.
+Azure portalı, PowerShell, Azure şablonu veya Azure CLI kullanarak VNet oluşturulabilir (bkz [Azure portalını kullanarak bir sanal ağ oluşturma](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). Aşağıdaki örnekte, biz Azure portalından oluşturulan bir VNet içine bakın.
 
 Biz Azure Portalı aracılığıyla Azure VNet tanımlarını içine bakarsanız, bazı tanımları ve ne olanlar biz listelemek için ilişkili uygulamasına göz atalım farklı IP adresi aralıkları. Biz hakkında konuşurken gibi **adres alanı**, Azure VNet kullanmasına izin verilen adres alanı demek isteriz. Bu adres alanı de BGP rota yayılması için sanal ağ kullanan adres aralığıdır. Bu **adres alanı** burada görebilirsiniz:
 
@@ -250,7 +250,7 @@ Azure portalı, PowerShell veya ekleme daha fazla IP adresleri kullanılırken C
 
 Bu durumda, yeni IP adresi aralığı yeni aralık olarak yeni bir birleşik aralık oluşturmak yerine VNet adres alanı eklemek için önerilir. Her iki durumda da, bu değişiklik, istemci bağlantısı HANA büyük örneği birimleri için yeni IP adres aralığı dışında izin Microsoft'a göndermek gerekir. Eklenen yeni VNet adres alanı almak için bir Azure destek isteği açabilirsiniz. Onay aldıktan sonra sonraki adımları gerçekleştirin.
 
-Azure portalından ek bir alt ağ oluşturmak için makalesine bakın [Azure portalını kullanarak bir sanal ağ oluşturma](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)ve Powershell'den oluşturmak için bkz: [PowerShell kullanarak bir sanal ağ oluşturma](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure portalından ek bir alt ağ oluşturmak için makalesine bakın [Azure portalını kullanarak bir sanal ağ oluşturma](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)ve Powershell'den oluşturmak için bkz: [PowerShell kullanarak bir sanal ağ oluşturma](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Sanal ağlar ekleme
 
@@ -277,15 +277,13 @@ Yeni bağlantı hattı oluşturup SAP HANA Azure Hizmet Yönetimi Yapılandırma
 
 Bir sanal alt kaldırmak için Azure portal, PowerShell veya CLI kullanılabilir. Azure sanal ağ IP adresi aralığı/Azure VNet adres alanı bir toplanmış aralığı olduğu durumda, Microsoft ile sizin için hiçbir izleme yoktur. Sanal ağ silinen alt içerir BGP rota adres alanı hala yayılıyor dışında. Azure sanal ağ IP adresi aralığı/Azure VNet adres alanı hangisinin bir silinen alt ağına atanmış birden çok IP adres aralığı olarak tanımlanmışsa, VNet adres alanınızı dışında silmeli ve daha sonra Azure hizmet yönetimi için SAP HANA bildirin. SAP HANA azure'da (büyük örnekler) ile iletişim kurmak için izin verilen aralıklar kaldırın.
 
-Olmamasına karşın henüz belirli, alt ağlar, kaldırma ayrılmış Azure.com Kılavuzu alt ağlar kaldırmak için bunları ekleme işlemi ters işlemidir. Makalesine bakın [Azure portalını kullanarak bir sanal ağ oluşturma](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) alt ağları oluşturma hakkında daha fazla bilgi için.
+Bir alt ağını silmek için bkz: [bir alt ağını silmek](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) alt ağları oluşturma hakkında daha fazla bilgi için.
 
 ## <a name="deleting-a-vnet"></a>Bir sanal ağı silme
 
-Azure portal, PowerShell veya CLI VNet silerken kullanın. SAP HANA Azure hizmet yönetimi üzerinde Azure (büyük örnekler) expressroute bağlantı hattı üzerinde SAP HANA üzerinde varolan yetkilerini kaldırır ve Azure sanal ağ IP adresi aralığı/Azure HANA büyük örneğiyle iletişim için VNet adres alanı kaldırın.
+Bir sanal ağı silmek için bkz: [bir sanal ağı silme](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). SAP HANA Azure hizmet yönetimi üzerinde Azure (büyük örnekler) expressroute bağlantı hattı üzerinde SAP HANA üzerinde varolan yetkilerini kaldırır ve Azure sanal ağ IP adresi aralığı/Azure HANA büyük örneğiyle iletişim için VNet adres alanı kaldırın.
 
 VNet kaldırıldıktan sonra kaldırılacak IP adresi alanı aralıklarının sağlamak için bir Azure destek isteği açın.
-
-Olmamasına karşın henüz belirli, sanal ağlar, kaldırma ayrılmış Azure.com Kılavuzu sanal ağlar kaldırmak için yukarıda açıklanan ekleme işlemi ters işlemidir. Makalelerine bakın [Azure portalını kullanarak bir sanal ağ oluşturma](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ve [PowerShell kullanarak bir sanal ağ oluşturma](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) sanal ağlar oluşturma hakkında daha fazla bilgi için.
 
 Her şeyi kaldırılır emin olmak için aşağıdaki öğeleri silin:
 

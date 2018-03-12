@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
 
 Azure performans tanılama VM uzantısı, Windows Vm'lerden performans tanılama verisi toplama yardımcı olur. Uzantısı çözümleme yapar ve rapor bulgularını ve sanal makinede performans sorunları tanımlamaya ve çözümlemeye için öneriler sağlar. Bu uzantı adı verilen bir sorun giderme aracı yükler [PerfInsights](http://aka.ms/perfinsights).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu uzantı, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016 yüklenebilir. Ayrıca Windows 8.1 ve Windows 10 yüklenebilir.
 
 ## <a name="extension-schema"></a>Uzantı Şeması
-Aşağıdaki JSON şeması Azure performans tanılama VM uzantısı için gösterir. Bu uzantı adı ve tanılama çıkış ve raporu depolamak için bir depolama hesabı anahtarı gerektirir. Bu değerler duyarlıdır ve korumalı ayarını yapılandırma içinde depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve hedef sanal makinede yalnızca şifresi çözülür. Unutmayın **storageAccountName** ve **storageAccountKey** büyük küçük harfe duyarlıdır. Diğer gerekli parametreleri aşağıdaki bölümünde listelenir.
+Aşağıdaki JSON şeması Azure performans tanılama VM uzantısı için gösterir. Bu uzantı adı ve tanılama çıkış ve raporu depolamak için bir depolama hesabı anahtarı gerektirir. Bu değerleri büyük/küçük harfe duyarlıdır. Depolama hesabı anahtarı korumalı ayarını yapılandırma içinde depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve hedef sanal makinede yalnızca şifresi çözülür. Unutmayın **storageAccountName** ve **storageAccountKey** büyük küçük harfe duyarlıdır. Diğer gerekli parametreleri aşağıdaki bölümünde listelenir.
 
 ```JSON
     {
@@ -43,19 +43,19 @@ Aşağıdaki JSON şeması Azure performans tanılama VM uzantısı için göste
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
 ```
@@ -65,24 +65,25 @@ Aşağıdaki JSON şeması Azure performans tanılama VM uzantısı için göste
 |   **Ad**   |**Değer / örnek**|       **Açıklama**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|API sürümü.
-|Yayımcı|Microsoft.Azure.Performance.Diagnostics|Yayımcı için ad alanı uzantı.
+|publisher|Microsoft.Azure.Performance.Diagnostics|Yayımcı için ad alanı uzantı.
 |type|AzurePerformanceDiagnostics|VM uzantısı türü.
 |typeHandlerVersion|1.0|Uzantı işleyicisi sürümü.
 |performanceScenario|temel|Veri yakalamak üzere performans senaryosu. Geçerli değerler: **temel**, **vmslow**, **geçirme**, ve **özel**.
 |traceDurationInSeconds|300|İzleme, izleme seçeneklerinden herhangi birini seçtiyseniz süresi.
-|perfCounterTrace|P|Performans sayacı izlemeyi Etkinleştir seçeneği. Geçerli değerler **p** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
-|networkTrace|n|Ağ izlemeyi etkinleştirmek için seçeneği. Geçerli değerler  **n**  veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
+|perfCounterTrace|p|Performans sayacı izlemeyi Etkinleştir seçeneği. Geçerli değerler **p** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
+|networkTrace|n|Ağ izlemeyi etkinleştirmek için seçeneği. Geçerli değerler **n** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |xperfTrace|x|XPerf'in izlemeyi Etkinleştir seçeneği. Geçerli değerler **x** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |storPortTrace|s|StorPort izlemeyi Etkinleştir seçeneği. Geçerli değerler **s** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |srNumber|123452016365929|Destek bileti numarası, varsa. Değer olarak, yoksa boş bırakın.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Geçerli tarih zamanı, Utc. Bu uzantıyı yüklemek için portalı kullanıyorsanız, bu değer sağlamanız gerekmez.
 |storageAccountName|mystorageaccount|Tanılama günlüklerini ve sonuçları depolamak için depolama hesabı adı.
-|storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|Depolama hesabı anahtarı.
+|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Depolama hesabı anahtarı.
 
 ## <a name="install-the-extension"></a>Uzantıyı yükleme
 
-Windows sanal makinelerde uzantıyı yüklemek için aşağıdaki adımları izleyin:
+Windows sanal makinelerde uzantıyı yüklemek için bu yönergeleri izleyin:
 
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](http://portal.azure.com)’da oturum açın.
 2. Bu uzantıyı yüklemek istediğiniz sanal makineyi seçin.
 
     ![Vurgulanan sanal makinelerle ekran görüntüsü, Azure portalı](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -182,19 +183,19 @@ Azure sanal makine uzantıları Azure Resource Manager şablonları ile dağıt�
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
   ]
@@ -202,13 +203,13 @@ Azure sanal makine uzantıları Azure Resource Manager şablonları ile dağıt�
 ````
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
-`Set-AzureRmVMExtension` Komutu, Azure performans tanılama VM uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir. Komutu çalıştırmadan önce genel ve özel yapılandırmaları bir PowerShell karma tablosunda depolar.
+`Set-AzureRmVMExtension` Komutu, Azure performans tanılama VM uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir.
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -218,7 +219,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## <a name="information-on-the-data-captured"></a>Yakalanan veriler hakkında bilgi
@@ -234,7 +235,7 @@ Zip dosyası yükleme sırasında sağlanan depolama hesabı bulabilirsiniz. 30 
 
 Raporu görüntülemek için zip dosyasını ayıklayın ve açın **PerfInsights raporu.HTML** dosya.
 
-Zip dosyası doğrudan portalından uzantısı seçerek yükleyebilirsiniz olabilir.
+Zip dosyası doğrudan portalından uzantısı seçerek yükleyebilirsiniz olmalıdır.
 
 ![Performans Tanılama ekran ayrıntılı durumu](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 

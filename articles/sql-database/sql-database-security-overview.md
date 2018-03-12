@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: cf105dbc366b96dbb49484bffce9b81960cf41f4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="securing-your-sql-database"></a>SQL Veritabanınızı güvenli hale getirme
 
@@ -31,7 +31,7 @@ Tüm SQL türlerindeki güvenlik özelliklerine eksiksiz bir genel bakış için
 ## <a name="protect-data"></a>Veri koruma
 
 ### <a name="encryption"></a>Şifreleme
-SQL veritabanı güvenliğini sağlar, veri şifreleme ile Hareket halindeki verileriniz için sağlayarak [Aktarım Katmanı Güvenliği](https://support.microsoft.com/kb/3135244), rest ile verileri için [saydam veri şifreleme](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)ve kullanılmakta olan verilerin [ Her zaman şifreli](https://msdn.microsoft.com/library/mt163865.aspx). 
+SQL veritabanı ile Hareket halindeki verileriniz için şifreleme sağlayarak, verilerinizi korur [Aktarım Katmanı Güvenliği](https://support.microsoft.com/kb/3135244), rest ile verileri için [saydam veri şifreleme](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)ve kullanılmakta olan verilerin [ Her zaman şifreli](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Veritabanına gelen ve veritabanından giden veriler "taşıma durumunda" olduğu Azure SQL Veritabanına yapılan tüm bağlantılar için şifreleme (SSL/TLS) gerekir. Uygulamanızın bağlantı dizesinde bağlantıyı şifrelemek için parametreler belirtmeniz gerekir ve *değil* (Bu işlem sizin için bağlantı dizenizi Azure portal dışında kopyalarsanız) sunucu sertifikası, aksi takdirde güvenmek için bağlantı sunucusunun kimliğini doğrulamaz ve "man-in--middle" saldırılarına açıktır. Örneğin ADO.NET sürücüsü için bu bağlantı dizesi parametreleri **Encrypt=True** ve **TrustServerCertificate=False** olacaktır. 

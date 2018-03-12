@@ -6,13 +6,13 @@ author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 5269fa528b6c32576b9cf1fb945ebf85b41ce819
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Hyper-V PowerShell ve Azure Resource Manager kullanarak VM'ler için olağanüstü durum kurtarma Azure ayarlama
 
@@ -41,7 +41,7 @@ Bu Önkoşullar sağladığınızdan emin olun:
 Ayrıca, bu makalede açıklanan belirli örnek aşağıdaki önkoşullar vardır:
 
 * Windows Server 2012 R2 veya bir veya daha fazla sanal makineleri içeren Microsoft Hyper-V Server 2012 R2 çalıştıran bir Hyper-V ana bilgisayarı. Hyper-V sunucuları Internet'e doğrudan veya bir proxy üzerinden bağlı.
-* Çoğaltmak istediğiniz sanal makineleri karşılaması gerektiğini [bu Önkoşullar](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+* Çoğaltmak istediğiniz sanal makineleri karşılaması gerektiğini [bu Önkoşullar](hyper-v-azure-support-matrix.md#replicated-vms).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>1. adım: Azure hesabınızda oturum açın
 

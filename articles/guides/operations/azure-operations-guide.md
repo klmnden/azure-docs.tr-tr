@@ -1,6 +1,6 @@
 ---
 title: "Azure BT işleçler kılavuzuna Başlarken | Microsoft Docs"
-description: "Başlarken Kılavuzu için Azure BT işleçleri alma"
+description: "Azure BT operatörleri için başlangıç kılavuzu"
 services: 
 documentationcenter: 
 author: neilpeterson
@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Bulut için giriş ve Microsoft Azure
 
@@ -116,7 +116,7 @@ Oluşturma ve uygulamaları işletim için Hizmetler:
 
 -   Büyük veri işleme için azure Hdınsight
 
--   Azure Zamanlayıcı
+-   Azure Scheduler
 
 -   Azure Media Services
 
@@ -132,7 +132,7 @@ Hizmetleri hem Azure içinde hem de Azure ve şirket içi veri merkezleri arası
 
 -   Azure Traffic Manager
 
--   Azure içerik teslim ağı
+-   Azure Content Delivery Network
 
 Azure hizmetleri hakkında ayrıntılı belgeler için bkz: [Azure hizmet belgeleri](https://docs.microsoft.com/azure).
 
@@ -491,19 +491,19 @@ Bir sanal ağı dağıtmak için birkaç seçeneğiniz vardır.
 
 **Portal**
 
-Azure portalını kullanarak bir Azure sanal ağı dağıtma, yalnızca bir etkin Azure aboneliği ve bir web tarayıcısı erişimi gerektirir. Yeni veya var olan kaynak grubuna yeni bir sanal ağ dağıtabilirsiniz. Portaldan yeni bir sanal makine oluştururken, varolan bir sanal ağı seçin veya yeni bir tane oluşturun. Daha fazla bilgi için bkz: [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Azure portalını kullanarak bir Azure sanal ağı dağıtma, yalnızca bir etkin Azure aboneliği ve bir web tarayıcısı erişimi gerektirir. Yeni veya var olan kaynak grubuna yeni bir sanal ağ dağıtabilirsiniz. Portaldan yeni bir sanal makine oluştururken, varolan bir sanal ağı seçin veya yeni bir tane oluşturun. Daha fazla bilgi için bkz: [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-portal.md).
 
 Bir Azure sanal ağı Azure portalından dağıtımına ek olarak, bir Azure Resource Manager şablonu portalından dağıtabilirsiniz. Bu, dağıtın ve tüm kaynakları tüm sanal ağ kaynakları dahil etme şablonunda tanımlandığı şekilde yapılandırın. Daha fazla bilgi için bkz: [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-PowerShell kullanarak bir Azure sanal ağı dağıtmak için depolama hesabının tamamını dağıtım Otomasyon sağlar. Daha fazla bilgi için bkz: [PowerShell kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+PowerShell kullanarak bir Azure sanal ağı dağıtmak için depolama hesabının tamamını dağıtım Otomasyon sağlar. Daha fazla bilgi için bkz: [PowerShell kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-powershell.md).
 
 Azure kaynaklarını tek tek dağıtımına ek olarak, bir Azure Resource Manager şablonu dağıtmak için Azure PowerShell modülü kullanabilirsiniz. Daha fazla bilgi için bkz: [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Komut satırı arabirimi (CLI)**
 
-PowerShell modülü gibi Azure komut satırı arabirimi dağıtım Otomasyon sağlar ve Windows, OS X veya Linux sistemlerinde kullanılabilir. Azure CLI kullanabilirsiniz **ağ vnet oluşturma** bir sanal ağ oluşturmak için komutu. Daha fazla bilgi için bkz: [Azure CLI kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-cli.md).
+PowerShell modülü gibi Azure komut satırı arabirimi dağıtım Otomasyon sağlar ve Windows, OS X veya Linux sistemlerinde kullanılabilir. Azure CLI kullanabilirsiniz **ağ vnet oluşturma** bir sanal ağ oluşturmak için komutu. Daha fazla bilgi için bkz: [Azure CLI kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-cli.md).
 
 Benzer şekilde, bir Azure Resource Manager şablonu dağıtmak için Azure CLI kullanabilirsiniz. Daha fazla bilgi için bkz: [Resource Manager şablonları ve Azure CLI kaynaklarla dağıtmak](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 

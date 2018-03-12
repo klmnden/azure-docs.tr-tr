@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 661bfadfe1094271ad2ab672ad3f755c0fd24f02
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service'te Web işleri ile arka plan görevleri Çalıştır
 
@@ -213,4 +213,4 @@ Portalda CRON ifade girin ya da dahil bir `settings.job` , WebJob kökündeki do
    
 ## <a name="NextSteps"></a> Sonraki adımlar
 
-Azure WebJobs SDK ile Web işleri pek çok programlama görevlerini basitleştirmek için kullanılabilir. Daha fazla bilgi için bkz: [WebJobs SDK nedir](https://github.com/Azure/azure-webjobs-sdk/wiki) ve [WebJobs SDK hızlı başvuru](./media/web-sites-create-web-jobs/webjobs-sdk-quick-reference.png).
+Azure WebJobs SDK ile Web işleri pek çok programlama görevlerini basitleştirmek için kullanılabilir. Daha fazla bilgi için bkz: [WebJobs SDK nedir](https://github.com/Azure/azure-webjobs-sdk/wiki).

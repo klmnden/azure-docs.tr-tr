@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f976832a857a35e9e0cea7a0eb731cb00492023f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir yol tablosu silme
 
@@ -38,7 +38,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 Kaç tane yönlendirme tabloları Azure konumu ve abonelik oluşturmak için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini inceleyin.
 
-1. Portalın sol üst köşede seçin **+ yeni**.
+1. Portalın sol üst köşede seçin **+ kaynak oluşturma**.
 2. Seçin **ağ**seçeneğini belirleyip **yol tablosu**.
 3. Girin bir **adı** için yol tablosu seçin, **abonelik**, yeni bir **kaynak grubu**, veya var olan bir kaynak grubunu seçin, bir **konumu** seçeneğini belirleyip **oluşturma**. **Devre dışı BGP rota yayma** seçenek, şirket içi yollar BGP aracılığıyla Azure sanal ağını yayılmasını engeller. Sanal ağ (VPN ya da ExpressRoute) bir Azure ağ geçidine bağlı değilse seçeneği bırakın *devre dışı*. 
 

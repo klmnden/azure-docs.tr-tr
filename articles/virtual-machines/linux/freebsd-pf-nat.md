@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 5e6927b0bfa4591089657e36caddb442156457e5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0bed776526e3e2f3ee4cdce596c591d0b8419030
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Güvenli güvenlik duvarı oluşturma FreeBSD'ın paket filtresini kullanma
 Bu makalede Azure Resource Manager şablonu aracılığıyla FreeBSD'ın Packer filtresi için ortak web sunucu senaryosu kullanan bir NAT güvenlik duvarı dağıtma tanıtılır.
@@ -34,7 +34,7 @@ Azure Resource Manager şablonu PF ve iki FreeBSD sanal makineye yüklenmiş ve 
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Azure CLI aracılığıyla dağıtma
-En son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#az_login). [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu adı oluşturur `myResourceGroup` içinde `West US` konumu.
+En son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/reference-index#az_login). [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu adı oluşturur `myResourceGroup` içinde `West US` konumu.
 
 ```azurecli
 az group create --name myResourceGroup --location westus

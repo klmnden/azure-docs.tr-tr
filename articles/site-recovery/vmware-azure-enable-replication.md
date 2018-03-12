@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 472e44342fb1d5a0c432453bfcc2699c4d8b4cad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware Vm'leri için Azure çoğaltmayı etkinleştirme
 
@@ -86,7 +86,7 @@ VMware sanal makineleri çoğaltırken:
 
 ## <a name="view-and-manage-vm-properties"></a>VM özelliklerini görüntüleme ve yönetme
 
-Ardından, kaynak makine özelliklerini doğrulayın. Azure VM adının uygun olması gerektiğini unutmayın [Azure sanal makine gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Ardından, kaynak makine özelliklerini doğrulayın. Azure VM adının uygun olması gerektiğini unutmayın [Azure sanal makine gereksinimlerini](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. Tıklatın **ayarları** > **öğeleri çoğaltılan** > ve ardından makine seçin. **Essentials** sayfa makine ayarlarını ve durumu hakkında bilgileri gösterir.
 2. **Özellikler** kısmında VM'nin çoğaltma ve yük devretme bilgilerini inceleyebilirsiniz.

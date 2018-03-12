@@ -1,305 +1,210 @@
 ---
-title: "Azure Uygulama Hizmeti’ndeki Node.js API uygulaması | Microsoft Belgeleri"
-description: "Node.js RESTful API’si oluşturma ve Azure App Service’deki bir API uygulamasına dağıtma hakkında bilgi edinin."
+title: Azure App Service'de CORS ile RESTful API | Microsoft Docs
+description: "Azure App Service’in RESTful API’lerinizi CORS desteğiyle barındırmanıza nasıl yardımcı olduğunu öğrenin."
 services: app-service\api
-documentationcenter: node
-author: bradygaster
-manager: erikre
+documentationcenter: dotnet
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service-api
+ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/13/2017
-ms.author: rachelap
+ms.date: 02/28/2018
+ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: MT
+ms.openlocfilehash: 7420e92bc929808f074e9be00dfbcb7d8476654a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Node.js RESTful API’si derleme ve Azure’daki bir API uygulamasına dağıtma
+# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>Azure App Service'de CORS ile RESTful API barındırma
 
-Bu hızlı başlangıç kılavuzunda, [Swagger](http://swagger.io/) tanımı kullanarak Node.js [Express](http://expressjs.com/) ile yazılmış bir REST API’nin nasıl oluşturulacağı ve bunun Azure’da nasıl dağıtılacağı gösterilmiştir. Komut satırı araçlarını kullanarak uygulamayı oluşturur, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ile kaynakları yapılandırır ve Git kullanarak uygulamayı dağıtırsınız.  İşiniz bittiğinde, Azure’da çalışan bir REST API örneğiniz olur.
+[Azure App Service](app-service-web-overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Buna ek olarak, App Service'de RESTful API'ler için yerleşik [Çıkış Noktaları Arası Kaynak Paylaşımı (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) desteği vardır. Bu öğreticide CORS desteğiyle ASP.NET Core API uygulamasının App Service'e nasıl dağıtılacağı gösterilir. Komut satırı araçlarını kullanarak uygulamayı yapılandırır ve Git kullanarak dağıtırsınız. 
 
-## <a name="prerequisites"></a>Önkoşullar
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
-* [Git](https://git-scm.com/)
-* [Node.js ve NPM](https://nodejs.org/)
+> [!div class="checklist"]
+> * Azure CLI kullanarak App Service kaynaklarını oluşturma
+> * Git kullanarak Azure'a RESTful API dağıtımı yapma
+> * App Service CORS desteğini etkinleştirme
+
+Bu öğreticideki adımları MacOS, Linux ve Windows üzerinde izleyebilirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Ön koşullar
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bu öğreticiyi tamamlamak için:
 
-## <a name="prepare-your-environment"></a>Ortamınızı hazırlama
+* [Git’i yükleyin](https://git-scm.com/).
+* [.NET Core'u yükleme](https://www.microsoft.com/net/core/).
 
-1. Bir terminal penceresinde, aşağıdaki komutu çalıştırarak örneği yerel makinenize kopyalayın.
+## <a name="create-local-aspnet-core-app"></a>Yerel ASP.NET Core uygulaması oluşturma
 
-    ```bash
-    git clone https://github.com/Azure-Samples/app-service-api-node-contact-list
-    ```
+Bu adımda, yerel ASP.NET Core projesini ayarlarsınız. App Service API'ler için diğer dillerde yazılmış aynı iş akışını destekler.
 
-2. Örnek kodu içeren dizine geçin.
+### <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-    ```bash
-    cd app-service-api-node-contact-list
-    ```
+Terminal penceresinde, `cd` ile bir çalışma dizinine gidin.  
 
-3. Yerel makinenize [Swaggerize](https://www.npmjs.com/package/swaggerize-express)’ı yükleyin. Swaggerize, Swagger tanımından REST API’niz için Node.js kodu oluşturan bir araçtır.
-
-    ```bash
-    npm install -g yo
-    npm install -g generator-swaggerize
-    ```
-
-## <a name="generate-nodejs-code"></a>Node.js kodu oluşturma 
-
-Öğreticinin bu bölümü, içinde ilk olarak Swagger meta verilerini oluşturduğunuz ve bunları API sunucu kodunun iskelesini kurmak (otomatik oluşturmak) için kullandığınız bir API geliştirme iş akışını modeller. 
-
-Dizini *başlat* klasörü olarak değiştirin, ardından `yo swaggerize` öğesini çalıştırın. Swaggerize, *api.json*’da Swagger tanımından API’niz için bir Node.js projesi oluşturur.
+Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. 
 
 ```bash
-cd start
-yo swaggerize --apiPath api.json --framework express
+git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Swaggerize bir proje adı sorduğunda *ContactList* adını kullanın.
-   
-   ```bash
-   Swaggerize Generator
-   Tell us a bit about your application
-   ? What would you like to call this project: ContactList
-   ? Your name: Francis Totten
-   ? Your github user name: fabfrank
-   ? Your email: frank@fabrikam.net
-   ```
-   
-## <a name="customize-the-project-code"></a>Proje kodunu özelleştirme
+Bu depo, şu öğreticiye dayanarak oluşturulan bir uygulama içerir: [Swagger kullanılan ASP.NET Core Web API'si yardım sayfaları](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). [Swagger kullanıcı arabirimine](https://swagger.io/swagger-ui/) ve Swagger JSON uç notasına hizmet vermek için bir Swagger oluşturucusu kullanır.
 
-1. *lib* klasörünü, `yo swaggerize` tarafından oluşturulan *ContactList* klasörüne kopyalayın, ardından dizini *ContactList* ile değiştirin.
+### <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-    ```bash
-    cp -r lib ContactList/
-    cd ContactList
-    ```
+Gerekli paketleri yüklemek, veritabanı geçişlerini çalıştırmak ve uygulamayı başlatmak için aşağıdaki komutları çalıştırın.
 
-2. `jsonpath` ve `swaggerize-ui` NPM modüllerini yükleyin. 
+```bash
+cd dotnet-core-api
+dotnet restore
+dotnet run
+```
 
-    ```bash
-    npm install --save jsonpath swaggerize-ui
-    ```
+Swagger kullanıcı arabirimiyle çalışmak için tarayıcıda `http://localhost:5000/swagger` adresine gidin.
 
-3. *handlers/contacts.js*’deki kodu aşağıdaki kodla değiştirin: 
-    ```javascript
-    'use strict';
+![Yerel olarak çalışan ASP.NET Core API'si](./media/app-service-web-tutorial-rest-api/local-run.png)
 
-    var repository = require('../lib/contactRepository');
+`http://localhost:5000/api/todo` adresine gidin ve ToDo JSON öğelerinin listesine bakın.
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.all())
-        }
-    };
-    ```
-    Bu kod, *lib/contactRepository.js* tarafından sunulan *lib/contacts.json*’da depolanmış JSON verilerini kullanır. Yeni *contacts.js* kodu, depodaki tüm kişileri JSON yükü olarak döndürür. 
+`http://localhost:5000` adresine gidin ve tarayıcı uygulamasıyla çalışın. Daha sonra CORS işlevselliğini test etmek için tarayıcı uygulamasının App Service'te bir uzak API'ye işaret etmesini sağlayacaksınız. Tarayıcı uygulamasının kodu deponun _wwwroot_ dizininde bulunabilir.
 
-4. **handlers/contacts/{id}.js** dosyasındaki kodu, aşağıdaki kodla değiştirin:
+ASP.NET Core’u dilediğiniz zaman durdurmak için, terminalde `Ctrl+C` tuşlarına basın.
 
-    ```javascript
-    'use strict';
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-    var repository = require('../../lib/contactRepository');
+## <a name="deploy-app-to-azure"></a>Uygulamayı Azure’da dağıtma
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.get(req.params['id']));
-        }    
-    };
-    ```
+Bu adımda, SQL Veritabanı’na bağlı .NET Core uygulamanızı App Service’e dağıtırsınız.
 
-    Bu kod, yalnızca belirtilen kimliğe sahip kişiyi döndürmek için bir yol değişkeni kullanmanıza imkan tanır.
+### <a name="configure-local-git-deployment"></a>Yerel git dağıtımını yapılandırma
 
-5. **server.js**’deki kodu, aşağıdaki kodla değiştirin:
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-    ```javascript
-    'use strict';
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-    var port = process.env.PORT || 8000; 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
-    var http = require('http');
-    var express = require('express');
-    var bodyParser = require('body-parser');
-    var swaggerize = require('swaggerize-express');
-    var swaggerUi = require('swaggerize-ui'); 
-    var path = require('path');
-    var fs = require("fs");
-    
-    fs.existsSync = fs.existsSync || require('path').existsSync;
+### <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 
-    var app = express();
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-    var server = http.createServer(app);
+### <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-    app.use(bodyParser.json());
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-    app.use(swaggerize({
-        api: path.resolve('./config/swagger.json'),
-        handlers: path.resolve('./handlers'),
-        docspath: '/swagger' 
-    }));
+### <a name="push-to-azure-from-git"></a>Git üzerinden Azure'a gönderme
 
-    // change four
-    app.use('/docs', swaggerUi({
-        docs: '/swagger'  
-    }));
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-    server.listen(port, function () { 
-    });
-    ```   
+```bash
+Counting objects: 98, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (92/92), done.
+Writing objects: 100% (98/98), 524.98 KiB | 5.58 MiB/s, done.
+Total 98 (delta 8), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: .
+remote: Updating submodules.
+remote: Preparing deployment for commit id '0c497633b8'.
+remote: Generating deployment script.
+remote: Project file path: ./DotNetCoreSqlDb.csproj
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote: .
+remote: .
+remote: .
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
 
-    Bu kod, Azure App Service ile çalışmasını sağlamak için birkaç küçük değişiklik yapar ve API’niz için etkileşimli bir web arabirimini kullanıma sunar.
+### <a name="browse-to-the-azure-web-app"></a>Azure web uygulamasına göz atma
 
-### <a name="test-the-api-locally"></a>API’yi yerel olarak test etme
+Tarayıcıda `http://<app_name>.azurewebsites.net/swagger` adresine gidin ve Swagger kullanıcı arabirimiyle çalışın.
 
-1. Node.js uygulamasını başlatma
-    ```bash
-    npm start
-    ```
-    
-2. Kişi listesinin tamamı için JSON’u görüntülemek üzere http://localhost:8000/contacts’a göz atın.
-   
-   ```json
-    {
-        "id": 1,
-        "name": "Barney Poland",
-        "email": "barney@contoso.com"
-    },
-    {
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    },
-    {
-        "id": 3,
-        "name": "Lora Riggs",
-        "email": "lora@contoso.com"
-    }
-   ```
+![Azure App Service'te çalışan ASP.NET Core API'si](./media/app-service-web-tutorial-rest-api/azure-run.png)
 
-3. Kişiyi iki `id` arasından biriyle görüntülemek için http://localhost:8000/contacts/2’ye göz atın.
-   
-    ```json
-    { 
-        "id": 2,
-        "name": "Lacy Barrera",
-        "email": "lacy@contoso.com"
-    }
-    ```
+Dağıtılan API'nizin _swagger.json_ dosyasını görmek için `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` adresine gidin.
 
-4. http://localhost:8000/docs’ta Swagger web arabirimini kullanarak API’yi test edin.
-   
-    ![Swagger web arabirimi](media/app-service-web-tutorial-rest-api/swagger-ui.png)
+Dağıtılan API'nizin çalıştığını görmek için `http://<app_name>.azurewebsites.net/api/todo` adresine gidin.
 
-## <a id="createapiapp"></a> API Uygulaması oluşturma
+## <a name="add-cors-functionality"></a>CORS işlevselliği ekleme
 
-Bu bölümde, API’yi Azure App Service'te barındırmak için gereken kaynakları oluşturmak amacıyla Azure CLI 2.0’ı kullanırsınız. 
+Ardından, API'niz için App Service'te yerleşik CORS desteğini etkinleştirirsiniz.
 
-1.  [az login](/cli/azure/?view=azure-cli-latest#az_login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+### <a name="test-cors-in-sample-app"></a>Örnek uygulamada CORS'yi test etme
 
-    ```azurecli-interactive
-    az login
-    ```
+Yerel deponuzda _wwwroot/index.html_ dosyasını açın.
 
-2. Birden çok Azure aboneliğiniz varsa varsayılan aboneliği istediğiniz abonelikle değiştirin.
+51. satırda, `apiEndpoint` değişkenini dağıtılan API'nizin URL'sine (`http://<app_name>.azurewebsites.net`) ayarlayın. _\<appname>_ değerini App Service'teki uygulamanızın adıyla değiştirin.
 
-    ````azurecli-interactive
-    az account set --subscription <name or id>
-    ````
+Yerel terminal pencerenizde örnek uygulamayı yeniden çalıştırın.
 
-3. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+```bash
+dotnet run
+```
 
-4. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+`http://localhost:5000` adresindeki tarayıcı uygulamasına gidin. Tarayıcınızda geliştirici araçları penceresini açın (Windows için Chrome'da `Ctrl`+`Shift`+`i`) ve **Konsol** sekmesini inceleyin. Artık şu hata iletisini görüyor olmalısınız: `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
+![Tarayıcı istemcisinde CORS hatası](./media/app-service-web-tutorial-rest-api/cors-error.png)
 
+Tarayıcı uygulaması (`http://localhost:5000`) ile uzak kaynak (`http://<app_name>.azurewebsites.net`) arasındaki etki alanı uyuşmazlığından ve App Service'deki API'nizin `Access-Control-Allow-Origin` üst bilgisi göndermemesinden dolayı, tarayıcınız etki alanları arası içeriğin tarayıcı uygulamanıza yüklenmesini engelledi.
 
-## <a name="deploy-the-api-with-git"></a>API’yi Git ile dağıtma
+Üretim ortamında, tarayıcı uygulamanızın localhost URL değeri yerine genel URL'si olabilir, ama localhost URL'ye CORS etkinleştirmesi genel URL ile aynıdır.
 
-İşlemeleri yerel Git deponuzdan Azure App Service’e ileterek kodunuzu API uygulamasına dağıtırsınız.
+### <a name="enable-cors"></a>CORS'yi etkinleştirme 
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
-
-2. *ContactList* dizininde yeni bir depo başlatın. 
-
-    ```bash
-    git init .
-    ```
-
-3. Git’teki öğreticinin önceki bir adımında npm tarafından oluşturulan *node_modules* dizinini hariç tutun. Geçerli dizinde yeni bir `.gitignore` dosyası oluşturun ve dosyanın herhangi bir yerindeki yeni bir satıra aşağıdaki metni ekleyin.
-
-    ```
-    node_modules/
-    ```
-    `node_modules` klasörünün `git status` ile yoksayıldığını onaylayın.
-    
-4. İçine aşağıdaki satırları ekleyin `package.json`. Swaggerize tarafından oluşturulan kodu Node.js altyapısı için bir sürüm belirtmiyor. Sürüm belirtimi Azure varsayılan sürümü kullanan `0.10.18`, hangi oluşturulan kodu ile uyumlu değil.
-
-    ```javascript
-    "engines": {
-        "node": "~0.10.22"
-    },
-    ```
-
-5. Değişiklikleri depoya uygulayın.
-    ```bash
-    git add .
-    git commit -m "initial version"
-    ```
-
-6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
- 
-## <a name="test-the-api--in-azure"></a>Azure'da API’yi test etme
-
-1. Tarayıcıda http://app_name.azurewebsites.net/contacts adresini açın. Öğreticide daha önce yerel olarak istek yaptığınızda gördüğünüz JSON’un döndürüldüğünü göreceksiniz.
-
-   ```json
-   {
-       "id": 1,
-       "name": "Barney Poland",
-       "email": "barney@contoso.com"
-   },
-   {
-       "id": 2,
-       "name": "Lacy Barrera",
-       "email": "lacy@contoso.com"
-   },
-   {
-       "id": 3,
-       "name": "Lora Riggs",
-       "email": "lora@contoso.com"
-   }
-   ```
-
-2. Bir tarayıcıda, `http://app_name.azurewebsites.net/docs` uç noktasına giderek Azure'da çalışan Swagger kullanıcı arabirimini deneyin.
-
-    ![Swagger Ii](media/app-service-web-tutorial-rest-api/swagger-azure-ui.png)
-
-    Artık işlemleri Azure Git deposuna ileterek örnek API güncelleştirmelerini Azure’a dağıtabilirsiniz.
-
-## <a name="clean-up"></a>Temizleme
-
-Bu hızlı başlangıçta oluşturulan kaynakları kaldırmak için şu Azure CLI komutunu çalıştırın:
+Cloud Shell'de, [`az resource update`](/cli/azure/resource#az_resource_update) komutunu kullanarak istemcinizin URL'sinde CORS'yi etkinleştirin. _&lt;appname>_ yer tutucusunu değiştirin.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01
 ```
 
-## <a name="next-step"></a>Sonraki adım 
+`properties.cors.allowedOrigins` içinde birden çok istemci URL'si belirtebilirsiniz (`"['URL1','URL2',...]"`). Ayrıca `"['*']"` ile tüm istemci URL'lerini etkinleştirebilirsiniz.
+
+### <a name="test-cors-again"></a>CORS'yi yeniden test etme
+
+`http://localhost:5000` adresindeki tarayıcı uygulamasını yenileyin. **Konsol** penceresindeki hata iletisi artık kaldırılır; dağıtılan API'den verileri görebilir ve etkileşimli çalışabilirsiniz. Uzak API'niz artık yerel olarak çalıştırılan tarayıcı uygulamanıza CORS'yi destekler. 
+
+![Tarayıcı istemcisinde CORS başarılı](./media/app-service-web-tutorial-rest-api/cors-success.png)
+
+Tebrikler, Azure App Service'te CORS destekli bir API çalıştırıyorsunuz.
+
+## <a name="app-service-cors-vs-your-cors"></a>App Service CORS'si ile sizin CORS'niz
+
+Daha fazla esneklik elde etmek için App Service CORS'si yerine kendi CORS yardımcı programlarınızı kullanabilirsiniz. Örneğin, farklı yollar veya yöntemler için izin verilen farklı çıkış noktaları belirtmek isteyebilirsiniz. App Service CORS'si tüm API yolları ve yöntemleri için tek bir izin verilen çıkış noktaları kümesi belirtmenize olanak tanıdığından, kendi CORS kodunuzu kullanmak isteyebilirsiniz. [Çıkış Noktaları Arası İstekleri Etkinleştirme (CORS)](/aspnet/core/security/cors) konusunda, ASP.NET Core'un bunu nasıl yaptığını görebilirsiniz.
+
+> [!NOTE]
+> App Service CORS'si ile kendi CORS kodunuzu birlikte kullanmaya çalışmayın. Birlikte kullanıldıklarında, App Service CORS'si öncelikli olur ve kendi CORS kodunuzun hiçbir etkisi olmaz.
+>
+>
+
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
+<a name="next"></a>
+## <a name="next-steps"></a>Sonraki adımlar
+
+Öğrendikleriniz:
+
+> [!div class="checklist"]
+> * Azure CLI kullanarak App Service kaynaklarını oluşturma
+> * Git kullanarak Azure'a RESTful API dağıtımı yapma
+> * App Service CORS desteğini etkinleştirme
+
+Web uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
+
 > [!div class="nextstepaction"]
 > [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md)
-

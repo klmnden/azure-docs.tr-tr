@@ -1,23 +1,10 @@
 ---
-title: Microsoft Azure sanal veri merkezi | Microsoft Docs
-description: "Sanal veri merkezinizde Azure oluşturmayı öğrenin"
-services: networking
-author: tracsman
-manager: rossort
-tags: azure-resource-manager
-ms.service: virtual-network
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/26/2017
-ms.author: jonor
-ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+title: "Microsoft Azure Virtual Datacenter: A Network Perspective" | Microsoft Docs description: Learn how to build your virtual data center in Azure services: networking author: tracsman manager: rossort tags: azure-resource-manager
+
+ms.service: virtual-network ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 05/26/2017 ms.author: jonor
 ---
-# <a name="microsoft-azure-virtual-data-center"></a>Microsoft Azure sanal veri merkezi
+
+# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure sanal Datacenter: Ağ perspektifi
 **Microsoft Azure**: hızlı hareket, tasarruf, şirket içi uygulamaları ve verileri tümleştirme
 
 ## <a name="overview"></a>Genel Bakış
@@ -215,9 +202,9 @@ Genellikle, Orta BT ve güvenlik ekiplerinden gereksinim tanımı ve Çevre ağl
 
 Önceki diyagramda iki çevreyi erişimi olan zorlama hub'ı yerleşik hem de Internet ve bir şirket içi ağ gösterir. Tek bir hub Internet çevre ağına LOB'lar, Web uygulaması Güvenlik Duvarı (WAFs) ve/veya güvenlik duvarları birden çok grupları kullanarak çok sayıda desteklemek üzere ölçeği artırabilirsiniz.
 
-[**Sanal ağlar** ] [ VNet] hub genellikle farklı türde filtreleme ve trafik için veya NVAs, WAFs ve Azure uygulama ağ geçidi üzerinden internet'ten inceleniyor hizmetlerini barındırmak için birden çok alt ağa sahip bir VNet üzerine inşa edilmiştir.
+[**Sanal ağlar** ] [ VNet] hub genellikle farklı türde filtreleme ve trafik için veya NVAs, WAFs ve Azure üzerinden internet'ten inceleniyor hizmetlerini barındırmak için birden çok alt ağa sahip bir VNet üzerine inşa edilmiştir Uygulama ağ geçidi.
 
-[**UDR** ] [ UDR] UDR kullanarak, müşterilerin dağıtabilir güvenlik duvarları, Kimlikleri/IP'leri ve diğer sanal gereçler ve ağ trafiğini yönlendirmek bu güvenlik Gereçleri güvenlik sınırı İlkesi zorlaması, Denetim ve denetleme yoluyla. Udr'ler hub ve bağlı bileşen trafiği belirli özel VM'ler, ağ sanal Gereçleri ve vDC tarafından kullanılan yük dengeleyici transits güvence altına almak için oluşturulabilir. Doğru sanal gereçler VM'ler spoke yoldaki yerleşik kaynaklandığı bu trafiği garanti etmek için bir UDR spoke alt ağlarında sonraki atlama olarak iç yük dengeleyici ön uç IP adresini ayarlayarak ayarlanması gerekir. İç yük dengeleyicisi sanal gereçler (yük dengeleyici arka uç havuzu) için iç trafiği dağıtır.
+[**UDR** ] [ UDR] UDR kullanarak, müşterilerin dağıtabilir güvenlik duvarları, Kimlikleri/IP'leri ve diğer sanal gereçler ve ağ trafiğini yönlendirmek güvenlik sınırı ilke zorlaması için bu güvenlik Gereçleri aracılığıyla Denetim ve denetleme. Udr'ler hub ve bağlı bileşen trafiği belirli özel VM'ler, ağ sanal Gereçleri ve vDC tarafından kullanılan yük dengeleyici transits güvence altına almak için oluşturulabilir. Doğru sanal gereçler VM'ler spoke yoldaki yerleşik kaynaklandığı bu trafiği garanti etmek için bir UDR spoke alt ağlarında sonraki atlama olarak iç yük dengeleyici ön uç IP adresini ayarlayarak ayarlanması gerekir. İç yük dengeleyicisi sanal gereçler (yük dengeleyici arka uç havuzu) için iç trafiği dağıtır.
 
 [![8]][8]
 
@@ -235,7 +222,7 @@ En büyük kuruluşlar birden çok etki alanı yönetin. Azure DNS, belirli bir 
 
 Azure yük dengeleyici sistem durumunu da çeşitli sunucu örnekleri araştırma ve sağlıksız örneğine trafiği göndermeye yük dengeleyici yanıt bir araştırma başarısız olduğunda durdurulur. VDC içinde bir dış yük dengeleyici varlığını (örneğin, NVAs trafiği Bakiye) hub ve bağlı bileşen (çok katmanlı uygulaması farklı VM'ler arasındaki trafiği Dengeleme gibi görevleri gerçekleştirmek için) sunuyoruz.
 
-[**Uygulama ağ geçidi** ] [ AppGW] Microsoft Azure uygulama ağ geçidi çeşitli katman 7 Yük Dengeleme, uygulamanız için sunumu bir hizmet olarak uygulama teslim Denetleyicisi'ni (ADC) sağlayan özel bir sanal gereç olduğu. Uygulama ağ geçidi için CPU yoğunluklu SSL sonlandırma boşaltarak web grubu verimliliği en iyi duruma getirme imkan tanır. Ayrıca, gelen trafiğin “hepsini bir kez deneme” yaklaşımıyla dağıtımı, tanımlama bilgisi tabanlı oturum benzeşimi, URL’yi yol tabanlı yönlendirme ve tek bir uygulama ağ geçidi arkasında birden fazla web sitesi barındırma gibi diğer 7. katman yönlendirme özelliklerini sağlar. Application gateway WAF SKU’su kapsamında bir web uygulaması güvenlik duvarı da (WAF) sağlanır. Bu SKU ortak web Güvenlik Açıkları ve açıkları web uygulamaları için koruma sağlar. Application Gateway; İnternet'e yönelik ağ geçidi, yalnızca dahili ağ geçidi veya bu ikisinin bir birleşimi olarak yapılandırılabilir. 
+[**Uygulama ağ geçidi** ] [ AppGW] Microsoft Azure uygulama ağ geçidi olan uygulama teslim Denetleyicisi'ni (ADC) sağlayan ayrılmış bir sanal uygulama bir hizmet olarak çeşitli katman 7 Yük Dengeleme sunumu Uygulamanız için özellikleri. Uygulama ağ geçidi için CPU yoğunluklu SSL sonlandırma boşaltarak web grubu verimliliği en iyi duruma getirme imkan tanır. Ayrıca, gelen trafiğin “hepsini bir kez deneme” yaklaşımıyla dağıtımı, tanımlama bilgisi tabanlı oturum benzeşimi, URL’yi yol tabanlı yönlendirme ve tek bir uygulama ağ geçidi arkasında birden fazla web sitesi barındırma gibi diğer 7. katman yönlendirme özelliklerini sağlar. Application gateway WAF SKU’su kapsamında bir web uygulaması güvenlik duvarı da (WAF) sağlanır. Bu SKU ortak web Güvenlik Açıkları ve açıkları web uygulamaları için koruma sağlar. Application Gateway; İnternet'e yönelik ağ geçidi, yalnızca dahili ağ geçidi veya bu ikisinin bir birleşimi olarak yapılandırılabilir. 
 
 [**Genel IP'ler** ] [ PIP] bazı Azure özellikleri etkinleştirmek, hizmet uç noktalar kaynağınıza internet'ten erişilmesine izin veren genel bir IP adresi ile ilişkilendirilecek. Bu uç nokta iç adresi ve bağlantı noktası Azure sanal ağı üzerinde trafiği yönlendirmek için ağ adresi çevirisi (NAT) kullanır. Bu yol, sanal ağa geçirmek dış trafiği için birincil yoludur. Genel IP adresleri, hangi trafik geçirilen ve nasıl ve nerede açın sanal ağ çevrilir belirlemek için yapılandırılabilir.
 
@@ -330,11 +317,11 @@ Aşağıdaki özellikler, bu belgede ele alınan. Daha fazla bilgi için bağlan
 | | | |
 |-|-|-|
 |Ağ Özellikleri|Yük Dengeleme|Bağlantı|
-|[Azure sanal ağlar][VNet]</br>[Ağ güvenlik grupları][NSG]</br>[NSG günlüklerini][NSGLog]</br>[Kullanıcı tanımlı yönlendirme][UDR]</br>[Ağ sanal Gereçleri][NVA]</br>[Genel IP adresleri][PIP]|[Azure yük dengeleyici (L3)][ALB]</br>[Uygulama ağ geçidi (L7)][AppGW]</br>[Web uygulaması güvenlik duvarı][WAF]</br>[Azure trafik Yöneticisi][TM] |[VNet eşlemesi][VNetPeering]</br>[Sanal özel ağ][VPN]</br>[ExpressRoute][ExR]
+|[Azure sanal ağlar][VNet]</br>[Ağ güvenlik grupları][NSG]</br>[NSG günlüklerini][NSGLog]</br>[Kullanıcı tanımlı yönlendirme][UDR]</br>[Ağ sanal Gereçleri][NVA]</br>[Genel IP adresleri][PIP]|[Azure yük dengeleyici (L3) ][ALB]</br>[Uygulama ağ geçidi (L7) ][AppGW]</br>[Web uygulaması güvenlik duvarı][WAF]</br>[Azure Traffic Manager][TM] |[VNet eşlemesi][VNetPeering]</br>[Sanal özel ağ][VPN]</br>[ExpressRoute][ExR]
 |Kimlik</br>|İzleme</br>|En İyi Uygulamalar</br>|
-|[Azure Active Directory][AAD]</br>[Çok faktörlü kimlik doğrulaması][MFA]</br>[Rol tabanlı erişim denetimleri][RBAC]</br>[Varsayılan AAD rolleri][Roles] |[Etkinlik günlükleri][ActLog]</br>[Tanılama günlükleri][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[En iyi yöntemler Çevre ağları][DMZ]</br>[Abonelik Yönetimi][SubMgmt]</br>[Kaynak grubu Yönetim][RGMgmt]</br>[Azure abonelik limitleri][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Rol tabanlı erişim denetimleri][RBAC]</br>[Varsayılan AAD rolleri][Roles] |[Etkinlik günlükleri][ActLog]</br>[Tanılama günlükleri][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[En iyi yöntemler Çevre ağları][DMZ]</br>[Abonelik Yönetimi][SubMgmt]</br>[Kaynak grubu Yönetim][RGMgmt]</br>[Azure abonelik limitleri][Limits] |
 |Diğer Azure Hizmetleri|
-|[Azure Web uygulamaları][WebApps]</br>[Hdınsights (Hadoop)][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Azure Web Apps][WebApps]</br>[Hdınsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 

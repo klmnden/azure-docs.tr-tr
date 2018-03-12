@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fbdce5c244d733a2978d473f01c8d875cbeaa65e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure sanal makine yedekleme uyarılarını izleme
 Uyarıları olay eşiği karşıladığında veya aşılan hizmetinden yanıtları değildir. Bilerek zaman sorunları başlangıç iş maliyetleri tutarak için kritik olabilir. Uyarıları genellikle bir zamanlamaya göre gerçekleşmez ve bu nedenle uyarılar ortaya sonra mümkün olan en kısa sürede bilmeniz yararlı olur. Örneğin, bir yedekleme veya geri yükleme işi başarısız olduğunda bir uyarı hata beş dakika içinde gerçekleşir. Kasa panosunda, yedekleme uyarıları kutucuğu kritik ve uyarı düzeyi olayları görüntüler. Yedekleme uyarıları ayarlarında tüm olayları görüntüleyebilirsiniz. Ancak ayrı bir sorunu çalışırken bir uyarı ortaya çıkarsa ne yapacaksınız? Uyarı gerçekleştiğinde bunu bilmiyorsanız, küçük bir sorundan dolayı olabilir veya veri tehlikeye atabilecek. Doğru kişilerin oluştuğunda uyarının - farkında olduğundan emin olmak için e-posta üzerinden uyarı bildirimleri göndermek üzere hizmetini yapılandırın. E-posta bildirimlerini ayarlama hakkında daha fazla bilgi için bkz: [bildirimleri yapılandırmak](backup-azure-monitor-vms.md#configure-notifications).
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>Uyarılar hakkında bilgileri nasıl bulabilirim?
-Bir uyarı oluşturan olay hakkında bilgi görüntülemek için yedekleme uyarıları dikey penceresi açmanız gerekir. Yedekleme uyarıları dikey penceresini açmak için iki yolu vardır: yedekleme uyarılardan ya da kasa panosunda veya uyarı ve olayları dikey penceresinden bölmesi.
+Bir uyarı oluşturan olay hakkında bilgi görüntülemek için yedekleme uyarıları bölümünde açmanız gerekir. Yedekleme uyarıları bölümünde açmak için iki yolu vardır: yedekleme uyarılardan ya da kasa panosunda veya uyarı ve olayları bölümünden bölmesi.
 
 Yedekleme uyarıları kutucuğunda yedekleme uyarıları dikey penceresini açmak için:
 
@@ -32,16 +32,16 @@ Yedekleme uyarıları kutucuğunda yedekleme uyarıları dikey penceresini açma
 
     ![Yedekleme uyarıları kutucuğu](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
 
-Uyarı ve olayları dikey penceresinden yedekleme uyarıları dikey penceresini açmak için:
+Uyarı ve olayları bölümünden yedekleme uyarıları dikey penceresini açmak için:
 
 1. Kasa panodan tıklatın **tüm ayarları**. ![Tüm ayarlar düğmesi](./media/backup-azure-monitor-vms/all-settings-button.png)
 2. Üzerinde **ayarları** dikey penceresinde tıklatın **uyarı ve olayları**. ![Uyarı ve olayları düğmesi](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
 3. Üzerinde **uyarı ve olayları** dikey penceresinde tıklatın **yedekleme uyarıları**. ![Yedekleme uyarıları düğmesi](./media/backup-azure-monitor-vms/backup-alerts.png)
 
-    **Yedekleme uyarıları** dikey penceresi açılır ve filtrelenmiş uyarıları görüntüler.
+    **Yedekleme uyarıları** bölümü açılır ve filtrelenmiş uyarıları görüntüler.
 
     ![Yedekleme uyarıları kutucuğu](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
-4. Olaylar, listesinden belirli bir uyarı hakkında ayrıntılı bilgi görüntülemek için açmak için uyarıyı tıklatın, **ayrıntıları** dikey.
+4. Olaylar, listesinden belirli bir uyarı hakkında ayrıntılı bilgi görüntülemek için açmak için uyarıyı tıklatın, **ayrıntıları** bölümü.
 
     ![Olay Ayrıntıları](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
@@ -56,10 +56,10 @@ Uyarılar için e-posta bildirimleri ayarlamak için
 
     ![Yedekleme uyarıları menüsü](./media/backup-azure-monitor-vms/backup-alerts-menu.png)
 
-    Yapılandırma bildirimleri dikey pencere açılır.
+    Yapılandırma bildirimler bölümü açılır.
 
     ![Bildirimleri dikey yapılandırın](./media/backup-azure-monitor-vms/configure-notifications.png)
-2. Yapılandırma bildirimleri dikey penceresinde, e-posta bildirimlerinin tıklatın **üzerinde**.
+2. E-posta bildirimleri için yapılandırma bildirimleri bölümünde tıklatın **üzerinde**.
 
     Alıcıları ve önem derecesi iletişim kutuları, bu bilgi gereklidir çünkü bunları yanında bir yıldız sahip. En az bir e-posta adresi sağlayın ve en az bir önem derecesini seçin.
 3. İçinde **alıcılar (e-posta)** iletişim kutusunda, kimin bildirimleri almak için e-posta adreslerini yazın. Biçimi kullanın: username@domainname.com. Birden çok e-posta adresini noktalı virgül (;) ayırın.
@@ -71,7 +71,7 @@ Uyarılar için e-posta bildirimleri ayarlamak için
    | Uyarı düzeyi | Gönderilen uyarıları |
    | --- | --- |
    | Kritik | Kurtarma hatası yedekleme hatası için |
-   | Uyarı | uyarılarla başarılı bir şekilde yedekleme işleri için (örn: bazı yazıcıları başarısız bir anlık görüntü oluşturulurken) |
+   | Uyarı | uyarılarla başarılı bir şekilde yedekleme işleri için (örneğin: bazı yazıcıları başarısız bir anlık görüntü oluşturulurken) |
    | Bilgilendirici | şu anda Azure VM yedekleme için hiçbir bilgilendirici uyarılar bulunmaktadır |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Bildirimler yapılandırılmış olsa bile e-postanın gönderilmediği durumlar var mı?
@@ -82,135 +82,53 @@ Bildirimlerin düzgün bir şekilde yapılandırmış olmanıza rağmen bir uyar
 * Bir yedekleme işi tetiklenir ve sonra başarısız olur ve başka bir yedekleme işi sürüyor.
 * Resource Manager etkin bir VM için zamanlanmış bir yedekleme işini başlatır, ancak VM artık yok.
 
-## <a name="customize-your-view-of-events"></a>Olayları görünümünü özelleştirme
-**Denetim günlüklerini** ayarı filtreleri ve işletimsel olay bilgilerini gösteren sütunları önceden tanımlanmış bir dizi birlikte gelir. Bu nedenle görünümünü özelleştirebilirsiniz olduğunda **olayları** dikey penceresi açıldığında, istediğiniz bilgileri gösterir.
+## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>Başarılı yedeklemeler için bildirimleri almak için etkinlik günlüklerini kullanma
 
-1. İçinde [kasa Panosu](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard)bulun ve tıklatın **denetim günlüklerini** açmak için **olayları** dikey.
+Yedeklemeler başarılı olduktan sonra bildirim almak istiyorsanız, üzerinde oluşturulan uyarılar kullanabilirsiniz [etkinlik günlükleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) kasasının.
 
-    ![Denetim Günlükleri](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+### <a name="login-into-azure-portal"></a>Azure portalında oturum aç
+Azure portalında oturum aç ve ilgili Azure kurtarma Hizmetleri Kasası'na devam etmek ve Özellikler "Etkinlik günlüğü" bölümünde'i tıklatın.
 
-    **Olayları** yalnızca geçerli kasa için filtre işletimsel olayları dikey pencere açılır.
+### <a name="identify-appropriate-log"></a>Uygun günlük tanımlayın
 
-    ![Denetim günlükleri filtresi](./media/backup-azure-monitor-vms/audit-logs-filter.png)
+Başarılı yedeklemeler için etkinlik günlüklerini alma doğrulamak için aşağıdaki resimde gösterilen filtre uygulayın. Timespan kayıtları görüntülemek için uygun şekilde değiştirin.
 
-    Dikey kritik, hata, uyarı ve geçen hafta içinde oluştu bilgilendirme olaylarını listesini gösterir. Zaman aralığı kümesinde varsayılan değerdir **filtre**. **Olayları** dikey penceresinde de olaylar meydana geldiğinde izleme bir çubuk grafik gösterir. Çubuk grafik görmek istemiyorsanız **olayları** menüsünde tıklatın **Gizle grafik** grafik geçiş yapmak için. Varsayılan görünüm olayların işlemi, düzey, durum, kaynak ve saat bilgilerini gösterir. Ek olay öznitelikleri gösterme hakkında daha fazla bilgi için bkz [olay bilgilerini genişletme](backup-azure-monitor-vms.md#view-additional-event-attributes).
-2. Bir operasyonel olay hakkında daha fazla bilgi için **işlemi** sütun, kendi dikey penceresini açmak için bir operasyonel olay'ı tıklatın. Dikey olaylarıyla ilgili ayrıntılı bilgiler içerir. Olaylar, kendi bağıntı kimliği ve bir süre içinde gerçekleşen olaylar listesi göre gruplandırılır.
+![Etkinlik Günlükleri](./media/backup-azure-monitor-vms/activity-logs-identify.png)
 
-    ![İşlem ayrıntıları](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
-3. Olaylar, listesinden belirli bir olay hakkında ayrıntılı bilgileri görüntülemek için açmak için olay'ı tıklatın, **ayrıntıları** dikey.
+Daha fazla bilgi almak ve kopyalama, bir metin düzenleyicisi yapıştıran göre görüntülemek için "JSON" segment tıklatabilirsiniz. Kasa ayrıntıları ve etkinlik günlüğü başka bir deyişle, yedekleme öğesi tetiklemiş öğesi görüntülemelidir.
 
-    ![Olay Ayrıntıları](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
+"Etkinlik günlüğü uyarı Ekle" ı tüm günlükler için uyarıları oluşturmak için.
 
-    Bilgi alır kadar ayrıntılı olay düzeyi bilgilerdir. Bu kadar her olay bilgilerini görme tercih ve bu kadar ayrıntı eklemek istediğiniz **olayları** dikey penceresinde bölümüne bakın [olay bilgilerini genişletme](backup-azure-monitor-vms.md#view-additional-event-attributes).
+### <a name="add-activity-log-alert"></a>Etkinlik günlüğü uyarısı ekleme
 
-## <a name="customize-the-event-filter"></a>Olay filtresi özelleştirme
-Kullanım **filtre** ayarlayın veya belirli bir dikey pencerede görüntülenen bilgileri seçin. Olay bilgileri filtrelemek için:
+"Etkinlik günlüğü uyarı Ekle" a tıklayarak, bir ekran aşağıda gösterildiği gibi gösterir
 
-1. İçinde [kasa Panosu](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard)bulun ve tıklatın **denetim günlüklerini** açmak için **olayları** dikey.
+![Etkinlik günlüğü uyarısı](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
+    
+Abonelik ve kaynak grubu, uyarıyı depolamak için kullanılır. Ölçüt önceden doldurulur. Tüm değerleri gereksinim için uygun olduğundan emin olun.
 
-    ![Denetim Günlükleri](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
+Başarılı yedeklemeler için 'Düzeyi' "Bilgi" ve durumu "Başarılı" olarak işaretlenir.
 
-    **Olayları** yalnızca geçerli kasa için filtre işletimsel olayları dikey pencere açılır.
+"Kaynak" Yukarıdaki seçerseniz, bu kaynak veya kasa için etkinlik günlükleri kaydedildiğinde uyarı oluşturulur. Kuralın tüm kasa için geçerli olmasını istiyorsanız, "boş olmasını kaynak" bırakın.
 
-    ![Denetim günlükleri filtresi](./media/backup-azure-monitor-vms/audit-logs-filter.png)
-2. Üzerinde **olayları** menüsünde tıklatın **filtre** bu dikey penceresini açın.
+### <a name="define-action-on-alert-firing"></a>Üzerinde uyarı tetikleme eylemi tanımlayın
 
-    ![Filtre dikey penceresini açın](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
-3. Üzerinde **filtre** dikey penceresinde ayarlamak **düzeyi**, **süresi**, ve **arayan** filtreler. Diğer filtreleri kurtarma Hizmetleri kasası geçerli bilgilerini sağlamak için ayarlanan kullanılabilir değildir.
+"Eylem grubu" kullanan bir uyarı oluşturmadan bağlı eylemi tanımlamak için. "Eylem"tür tıklayabilirsiniz kullanılabilir eylemler hakkında daha fazla ile ITSM vb. gibi e-posta/SMS/tümleştirme bilmek.
 
-    ![Denetim günlükleri Sorgu Ayrıntıları](./media/backup-azure-monitor-vms/filter-blade.png)
+![Etkinlik günlüğü eylem grubu](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-    Belirleyebileceğiniz **düzeyi** olayın: kritik, hata, uyarı veya bilgilendirici. Olay düzeyleri herhangi bir birleşimini seçebilirsiniz, ancak en az bir düzey seçili olması gerekir. Düzeyi açmak veya kapatmak Değiştir. **Süresi** filtre olayları yakalamak için süreyi belirtmenize olanak verir. Özel bir zaman aralığı kullanırsanız, başlangıç ve bitiş zamanlarını ayarlayabilirsiniz.
-4. Filtre kullanarak işlem günlüklerini sorgulamak hazır olduğunuzda **güncelleştirme**. Sonuçları görüntülemek **olayları** dikey.
 
-    ![İşlem ayrıntıları](./media/backup-azure-monitor-vms/edited-list-of-events.png)
-
-### <a name="view-additional-event-attributes"></a>Ek olay öznitelikleri görüntüleyin
-Kullanarak **sütunları** düğmesi üzerinde listesinde görünmesi ek olay öznitelikleri etkinleştirebilir **olayları** dikey. Varsayılan olaylarının bilgi işlem, düzey, durumu, kaynak ve saat için görüntüler. Ek öznitelikler etkinleştirmek için:
-
-1. Üzerinde **olayları** dikey penceresinde tıklatın **sütunları**.
-
-    ![Açık sütunları](./media/backup-azure-monitor-vms/audi-logs-column-button.png)
-
-    **Sütunları seçin** dikey pencere açılır.
-
-    ![Sütun dikey penceresi](./media/backup-azure-monitor-vms/columns-blade.png)
-2. Öznitelik seçmek için onay kutusuna tıklayın. Öznitelik onay kutusunu açar ve kapatır.
-3. Tıklatın **sıfırlama** içinde öznitelik listesi sıfırlamak için **olayları** dikey. Ekleme veya listeden öznitelikleri kaldırma sonrasında kullanın **sıfırlama** olay öznitelikleri yeni listesini görüntülemek için.
-4. Tıklatın **güncelleştirme** olay verileri güncelleştirmek için öznitelikler. Aşağıdaki tabloda her özniteliği hakkında bilgi sağlar.
-
-| Sütun adı | Açıklama |
-| --- | --- |
-| İşlem |İşlem adı |
-| Düzey |İşlem düzeyi, değerler olabilir: bilgi, uyarı, hata veya kritik |
-| Durum |Açıklayıcı işlemi durumu |
-| Kaynak |Kaynağı tanımlayan URL; Kaynak Kimliği olarak da bilinir |
-| Zaman |Zaman, olayın gerçekleştiği geçerli zamandan ölçülür |
-| Çağıran |Kim veya ne adlı veya olayı tetikleyen; Sistem ya da bir kullanıcı olabilir |
-| Zaman damgası |Olay zaman tetiklendi zamanı |
-| Kaynak Grubu |İlişkili kaynak grubu |
-| Kaynak Türü |Resource Manager tarafından kullanılan iç kaynak türü |
-| Abonelik Kimliği |İlişkili abonelik kimliği |
-| Kategori |Olay kategorisi |
-| Bağıntı Kimliği |İlgili olayları ortak kimliği |
-
-## <a name="use-powershell-to-customize-alerts"></a>Uyarıları özelleştirmek için PowerShell kullanın
-Portalda işleri için özel uyarı bildirimleri alabilirsiniz. Bu işleri almak için işlem günlüklerini olaylarına PowerShell tabanlı uyarı kuralları tanımlayın. Kullanım *PowerShell sürüm 1.3.0 veya daha sonra*.
-
-Yedekleme hataları için uyarı için özel bir bildirim tanımlamak için aşağıdaki komut dosyası gibi bir komutu kullanın:
-
-```
-PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
-PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.RecoveryServices/recoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/Microsoft.RecoveryServices/vaults/trinadhVault -Actions $actionEmail
-```
-
-**ResourceId** : denetim günlüklerinden ResourceId elde edebilirsiniz. ResourceId işlem günlükleri Kaynak sütununda sağlanan bir URL'dir.
-
-**OperationName** : OperationName biçiminde olan "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*" nerede *EventName* olabilir:<br/>
-
-* Kaydolma <br/>
-* Kaydı Kaldır <br/>
-* ConfigureProtection <br/>
-* Backup <br/>
-* Geri Yükleme <br/>
-* StopProtection <br/>
-* DeleteBackupData <br/>
-* CreateProtectionPolicy <br/>
-* DeleteProtectionPolicy <br/>
-* UpdateProtectionPolicy <br/>
-
-**Durum** : desteklenen değerler başlatıldı, başarılı veya başarısız oldu.
-
-**Kaynak grubu** : kaynak ait olduğu kaynak grubu budur. Kaynak grubu sütununun oluşturulan günlüklerin ekleyebilirsiniz. Kaynak grubu kullanılabilir türler olay bilgilerinin biridir.
-
-**Ad** : uyarı kuralının adı.
-
-**CustomEmail** : bir uyarı bildirimi göndermek istediğiniz özel e-posta adresi belirtin
-
-**SendToServiceOwners** : Bu seçenek tüm yöneticileri ve ortak yöneticileri aboneliğin uyarı bildirimleri gönderir. İçinde kullanılabilir **yeni AzureRmAlertRuleEmail** cmdlet'i
+Tamam'a tıkladıktan sonra bir etkinlik günlüğü uyarı oluşturulur ve sonraki etkinlik günlükleri başarılı yedeklemeler için kaydedilen eylem eylem grubunda tanımlanan ateşlenir.
 
 ### <a name="limitations-on-alerts"></a>Uyarıları sınırlamalar
 Olay tabanlı uyarılara tabi aşağıdaki sınırlamalar vardır:
 
 1. Kurtarma Hizmetleri Kasası'nda tüm sanal makinelerde uyarıları tetiklenir. Sanal makineler bir kurtarma Hizmetleri kasasına bir kısmı için uyarı özelleştiremezsiniz.
-2. Bu özelliğin önizlemede değil. [Daha fazla bilgi](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
-3. Uyarılar gönderilen "alerts-noreply@mail.windowsazure.com". Şu anda e-posta gönderen değiştiremezsiniz.
+2. Uyarılar gönderilen "alerts-noreply@mail.windowsazure.com". Şu anda e-posta gönderen değiştiremezsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Olay günlükleri proje harika Sonrası-Değerlendirme etkinleştirme ve yedekleme işlemleri için destek denetleyebilirsiniz. Aşağıdaki işlemleri günlüğe kaydedilir:
+Bir sanal makine bir kurtarma noktasından yeniden oluşturma hakkında daha fazla bilgi için kullanıma [geri Azure Vm'leri](backup-azure-arm-restore-vms.md).
 
-* Kaydolma
-* Kaydı Kaldır
-* Koruma yapılandırma
-* Yedekleme (her ikisi de aynı zamanda talep üzerine yedekleme zamanlanmış)
-* Geri Yükleme
-* Korumayı Durdur
-* Yedekleme verilerini sil
-* İlke ekleme
-* İlkeyi sil
-* İlkeyi güncelleştir
-* İşi iptal et
+Sanal makinelerinizi koruma bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). 
 
-Olayları geniş kapsamlı bir açıklama için operations ve Azure Hizmetleri genelinde denetim günlüklerini makalesine bakın [olayları görüntülemek ve Denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md).
-
-Bir sanal makine bir kurtarma noktasından yeniden oluşturma hakkında daha fazla bilgi için kullanıma [geri Azure Vm'leri](backup-azure-arm-restore-vms.md). Sanal makinelerinizi koruma bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). Makalede VM yedeklemeler için yönetim görevleri hakkında bilgi edinin [yönetmek Azure sanal makine yedeklerini](backup-azure-manage-vms.md).
+Makalede VM yedeklemeler için yönetim görevleri hakkında daha fazla bilgi [yönetmek Azure sanal makine yedeklerini](backup-azure-manage-vms.md).

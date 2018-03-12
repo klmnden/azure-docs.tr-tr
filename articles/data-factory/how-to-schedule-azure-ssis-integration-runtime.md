@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 69eae46dc554911e0caadcf0aafbaec9e39f727d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Başlatma ve durdurma bir Azure SSIS tümleştirmesi çalışma zamanı zamanlama 
 Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir ücret sahiptir. Bu nedenle, yalnızca Azure'da SSIS paketleri çalıştırmak ve onu gerekmediğinde durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)). Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Bu makalede açıklanan üst düzey adımlar şunlardır:
@@ -279,11 +279,6 @@ Oluşturun ve ardışık düzen test sonra zamanlama tetikleyici oluşturmak ve 
     3. İçin **gövde**, girin `{"message":"hello world"}`. 
    
         ![İlk Web etkinlik - Ayarlar sekmesi](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-4. İçinde **etkinlikleri** araç kutusu, genişletin **yineleme & koşulları**ve sürükle ve bırak **bekleyin** ardışık düzen Tasarımcı yüzeyine etkinlik. İçinde **genel** sekmesinde, etkinliğin adını değiştirmek **WaitFor30Minutes**. 
-5. Geçiş **ayarları** sekmesinde **özellikleri** penceresi. İçin **bekleme süresini saniye cinsinden**, girin **1800**. 
-6. Bağlantı **Web** etkinlik ve **bekleyin** etkinlik. Bunları bağlamak için bekle etkinliğinin Web etkinliğe bağlı yeşil kare kutusuna sürükleyerek başlatın. 
-
-    ![Web bağlanmak ve bekleyin](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
 5. Saklı yordam etkinliğinden sürükle ve bırak **genel** bölümünü **etkinlikleri** araç. Etkinliğin adını ayarlayın **RunSSISPackage**. 
 6. Geçiş **SQL hesabı** sekmesinde **özellikleri** penceresi. 
 7. İçin **bağlantılı hizmeti**, tıklatın **+ yeni**.
@@ -296,7 +291,7 @@ Oluşturun ve ardışık düzen test sonra zamanlama tetikleyici oluşturmak ve 
     5. İçin **parola**, kullanıcı parolasını girin. 
     6. Veritabanı bağlantısı tıklayarak test **Bağlantıyı Sına** düğmesi.
     7. Bağlantılı hizmet tıklayarak Kaydet **kaydetmek** düğmesi.
-1. İçinde **özellikleri** penceresinde, anahtara **saklı yordam** gelen sekmesinde **SQL hesabı** sekmesini tıklatın ve aşağıdaki adımları uygulayın: 
+9. İçinde **özellikleri** penceresinde, anahtara **saklı yordam** gelen sekmesinde **SQL hesabı** sekmesini tıklatın ve aşağıdaki adımları uygulayın: 
 
     1. İçin **saklı yordam adı**seçin **Düzenle** seçeneği ve girin **sp_executesql**. 
     2. Seçin **+ yeni** içinde **saklı yordam parametreleri** bölümü. 
@@ -307,12 +302,37 @@ Oluşturun ve ardışık düzen test sonra zamanlama tetikleyici oluşturmak ve 
         SQL sorgusu için doğru değerleri belirtin **klasör_adı**, **project_name**, ve **paket_adı** parametreleri. 
 
         ```sql
-        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END   
-        ```
-10. Bağlantı **bekleyin** etkinliğe **saklı yordam** etkinlik. 
+        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-    ![Bekleme ve saklı yordam etkinlikleri Bağlan](./media/how-to-schedule-azure-ssis-integration-runtime/connect-wait-sproc.png)
-11. Sürükle ve bırak **Web** etkinliğinin sağındaki **saklı yordam** etkinlik. Etkinliğin adını ayarlayın **StopIR**. 
+        -- Wait until Azure-SSIS IR is started
+        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+        BEGIN
+            WAITFOR DELAY '00:00:01';
+        END
+
+        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+            @project_name=N'YourProject', @package_name=N'YourPackage',
+            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+            @execution_id=@exe_id OUTPUT 
+
+        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+
+        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+
+        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
+        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+        BEGIN
+            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+            RAISERROR(@err_msg, 15, 1)
+        END
+
+        ```
+10. Bağlantı **Web** etkinliğe **saklı yordam** etkinlik. 
+
+    ![Web ve saklı yordam etkinlikleri Bağlan](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
+
+11. Başka bir sürükle-bırak **Web** etkinliğinin sağındaki **saklı yordam** etkinlik. Etkinliğin adını ayarlayın **StopIR**. 
 12. Geçiş **ayarları** sekmesinde **özellikleri** penceresinde ve aşağıdaki eylemleri gerçekleştirebilirsiniz: 
 
     1. İçin **URL**, Azure SSIS IR durdurur Web kancası URL'sini yapıştırın 

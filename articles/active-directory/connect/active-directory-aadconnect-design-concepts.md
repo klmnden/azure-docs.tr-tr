@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Tasarım kavramları
 Azure AD Connect uygulama tasarımı sırasında zorlayıcı alanları tanımlamak için bu konunun amacı budur. Bu konuda derinlemesine belirli alanlara ise ve bu kavramları diğer konularında kısaca açıklanmıştır.
@@ -42,10 +42,10 @@ Kullanıcılara ilgili olarak bu konu hakkında sourceAnchor yalnızca alınmakt
 
 * Daha az 60 karakter uzunluğunda olabilir
   * Karakter olmaması, a-z, A-Z veya 0-9 kodlanmış ve 3 karakter olarak sayılır
-* Bir özel karakter içeremez: &#92;! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* Özel karakterleri içermemelidir: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Genel olarak benzersiz olmalıdır
 * Bir dize, tamsayı veya ikili olmalıdır
-* Kullanıcı adı, bu değişiklikleri dayanmalıdır değil
+* Kullanıcı adı, bu değişiklik dayanmalıdır değil
 * Değil büyük küçük harfe duyarlı ve örneğe göre farklılık gösterebilir değerleri kaçının
 * Nesne oluşturulduğunda atanmalıdır
 
@@ -178,7 +178,7 @@ ConsistencyGuid özelliği etkinleştirilmiş Azure AD Connect dağıttıysanız
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>UserPrincipalName özniteliği seçme
 Sağlamak için öznitelik seçerken Azure birinde kullanılacak UPN değerini sağlamalısınız
 
-* Biçimi olmalıdır UPN sözdizimi (RFC 822) öznitelik değerlerini uygunusername@domain
+* Biçimi olmalıdır UPN sözdizimi (RFC 822) öznitelik değerlerini uygun username@domain
 * Değerleri soneki Azure AD'de doğrulanmış özel etki alanlarını birine eşleşen
 
 Hızlı Ayarları'nda, varsayılan özniteliğinin userPrincipalName seçimdir. UserPrincipalName özniteliğinin değeri içermiyorsa, kullanıcılarınızın Azure oturumu açın istediğiniz sonra seçmeniz gerekir **özel yükleme**.

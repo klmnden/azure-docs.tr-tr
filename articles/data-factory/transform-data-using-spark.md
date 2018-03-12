@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 4aed91696b5853b56ab17d69753d20081c79cdf7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e4cc412f9c6e37d6e6c3b030a934d572a7319011
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Spark etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 | açıklama           | Etkinlik yaptığı açıklayan metin.  | Hayır       |
 | type                  | Spark etkinliği için etkinlik HDInsightSpark türüdür. | Evet      |
 | linkedServiceName     | Hdınsight Spark bağlı Spark programın çalıştığı hizmetin adı. Bu bağlantılı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
-| SparkJobLinkedService | Azure Storage bağlı Spark iş dosyası, bağımlılıklar ve günlükleri tutan hizmeti.  Bu özellik için bir değer belirtmezseniz, Hdınsight kümesi ile ilişkili depolama kullanılır. | Hayır       |
+| SparkJobLinkedService | Azure Storage bağlı Spark iş dosyası, bağımlılıklar ve günlükleri tutan hizmeti.  Bu özellik için bir değer belirtmezseniz, Hdınsight kümesi ile ilişkili depolama kullanılır. Bu özelliğin değeri, yalnızca Azure depolama bağlı hizmeti olabilir. | Hayır       |
 | rootPath              | Azure Blob kapsayıcısı ve Spark dosyasını içeren klasör. Dosya adı büyük/küçük harf duyarlıdır. Klasör yapısı bakın (sonraki bölümde) Bu klasör yapısı hakkında ayrıntılar için bölüm. | Evet      |
 | entryFilePath         | Spark kod/paketi kök klasörüne göreli yolu. | Evet      |
 | className             | Uygulamanın Java/Spark ana sınıfı      | Hayır       |
@@ -87,8 +87,8 @@ Hdınsight bağlı hizmeti tarafından başvurulan Azure Blob Depolama alanında
 
 | Yol                  | Açıklama                              | Gerekli | Tür   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
-| `.`(kök)            | Depolama bağlantılı hizmeti Spark işinde kök yolu | Evet      | Klasör |
-| &lt;Kullanıcı tanımlı&gt; | Spark iş girişi dosyasına işaret eden yolu | Evet      | Dosya   |
+| `.` (kök)            | Depolama bağlantılı hizmeti Spark işinde kök yolu | Evet      | Klasör |
+| &lt;Kullanıcı tanımlı &gt; | Spark iş girişi dosyasına işaret eden yolu | Evet      | Dosya   |
 | . / jar'lar                | Bu klasörü altındaki tüm dosyaları karşıya ve küme java sınıf yolu yerleştirilmiş | Hayır       | Klasör |
 | . / pyFiles             | Bu klasörü altındaki tüm dosyaları karşıya ve küme PYTHONPATH yerleştirilmiş | Hayır       | Klasör |
 | . / dosyaları               | Bu klasörü altındaki tüm dosyaları karşıya ve yürütücü çalışma dizini yerleştirilmiş | Hayır       | Klasör |

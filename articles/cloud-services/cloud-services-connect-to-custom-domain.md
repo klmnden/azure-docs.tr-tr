@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure bulut Hizmetleri rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
 Sanal ağ (VNet) İlk Azure içinde ayarlarsınız. Ardından bir Active Directory etki alanı (bir Azure sanal makinede barındırılan) denetleyicisi Vnet'e ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rollerinizi önceden oluşturulmuş Vnet'e ekleyin, sonra etki alanı denetleyicisine bağlanma.
@@ -32,8 +32,8 @@ Bu adım adım kılavuz izleyin ve herhangi bir sorunla çalıştırırsanız, b
 
 Bulut hizmeti tarafından başvurulan ağ olmalıdır bir **Klasik sanal ağ**.
 
-## <a name="create-a-virtual-network"></a>Bir sanal ağ oluşturma
-Azure portal veya PowerShell kullanarak Azure'da bir sanal ağ oluşturabilirsiniz. Bu öğretici için PowerShell kullanacağız. Azure Portalı'nı kullanarak bir sanal ağ oluşturmak için bkz: [sanal ağ oluştur](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+## <a name="create-a-virtual-network"></a>Sanal Ağ Oluştur
+Azure portal veya PowerShell kullanarak Azure'da bir sanal ağ oluşturabilirsiniz. Bu öğretici için PowerShell kullanılır. Azure Portalı'nı kullanarak bir sanal ağ oluşturmak için bkz: [bir sanal ağ oluşturma](../virtual-network/quick-create-portal.md). Sanal ağ (Resource Manager) oluşturma makalede yer almaktadır, ancak bulut Hizmetleri için bir sanal ağ (Klasik) oluşturmanız gerekir. Bunun portalda seçin **kaynak oluşturma**, türü *sanal ağ* içinde **arama** kutusuna ve ardından tuşuna basın **Enter**. Arama sonuçlarında altında **her şeyi**seçin **sanal ağ**. Altında **dağıtım modeli seçin**seçin **Klasik**seçeneğini belirleyip **oluşturma**. Ardından makalesindeki adımları izleyebilirsiniz.
 
 ```powershell
 #Create Virtual Network

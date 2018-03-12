@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: 8c6f577560442f28204b633d5f45f6d4c46ea4b8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5d1010a65a112b97124a8d7d46caceb3d61e2cac
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içermektedir. Bu makaleyi okuduktan sonra sorularınız varsa, yayınlayın [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -55,14 +55,14 @@ Hyper-V sanal makineleri olmalıdır sonra ikincil bir veri merkezine çoğaltma
 Evet. Sanal ya da azure'a VMM bulutundaki Hyper-V sunucularında çoğaltabilirsiniz veya aynı sunucudaki VMM bulutlarının arasında çoğaltabilirsiniz. Şirket içi için şirket içi çoğaltma, hem birincil ve ikincil siteler VMM sunucusuna sahip olmanızı öneririz.  
 
 ### <a name="what-physical-servers-can-i-protect"></a>Hangi fiziksel sunucuları koruyabilirim?
-Azure'a veya ikincil bir siteye Windows ve Linux çalıştıran fiziksel sunucuları çoğaltabilirsiniz. [Hakkında bilgi edinin](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) işletim sistemi gereksinimleri.  Fiziksel sunucuların azure'a veya ikincil bir siteye çoğaltma yapıyorsanız olup olmadığını aynı gereksinimleri geçerlidir.
+Azure'a veya ikincil bir siteye Windows ve Linux çalıştıran fiziksel sunucuları çoğaltabilirsiniz. Gereksinimleri hakkında bilgi edinin [Azure'a çoğaltma için](vmware-physical-azure-support-matrix.md#replicated-machines), ve [ikincil bir siteye çoğaltma](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 Şirket içi sunucu kullanılamaz hale gelirse fiziksel sunucuları azure'da VM olarak çalışacağını unutmayın. Yeniden çalışma için bir şirket içi fiziksel sunucu şu anda desteklenmiyor. Fiziksel olarak korumalı bir makine için yalnızca VMware sanal makinesi yeniden çalışma olabilir.
 
 ### <a name="what-vmware-vms-can-i-protect"></a>Hangi VMware VM'lerini koruyabilirim?
 
-VMware VM'leri korumak için bir vSphere hiper yöneticisine ve VMware araçlarında çalışan sanal makinelere sahip olmanız gerekir. Ayrıca, hiper yöneticileri yönetmek için bir VMware vCenter sunucusuna sahip olmanızı öneririz. [Daha fazla bilgi edinin](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) VMware sunucularını ve Vm'leri azure'a veya ikincil bir siteye çoğaltmak için tam gereksinimleri hakkında.
+VMware VM'leri korumak için bir vSphere hiper yöneticisine ve VMware araçlarında çalışan sanal makinelere sahip olmanız gerekir. Ayrıca, hiper yöneticileri yönetmek için bir VMware vCenter sunucusuna sahip olmanızı öneririz. Gereksinimleri hakkında daha fazla bilgi edinin [Azure'a çoğaltma için](vmware-physical-azure-support-matrix.md#replicated-machines), veya [ikincil bir siteye çoğaltma](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
 ### <a name="can-i-manage-disaster-recovery-for-my-branch-offices-with-site-recovery"></a>Site Recovery ile şubelerim için olağanüstü durum kurtarma işlemini yönetebilir miyim?
@@ -93,7 +93,7 @@ Azure Site Recovery, bir Azure depolama hesabı için genel bir uç nokta verile
 Evet, ExpressRoute sanal makinelerini Azure'a çoğaltma için kullanılabilir. Azure Site Recovery, bir Azure depolama hesabı için genel bir uç nokta verilerini çoğaltır. Ayarlamanız gereken [ortak eşleme](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) ExpressRoute Site Recovery çoğaltma için kullanılacak. Sanal makineler üzerinde bir Azure sanal ağı için başarısız sonra bunları erişebilirsiniz kullanarak [özel eşleme](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) Kurulum Azure sanal ağı ile.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Sanal makinelerin Azure'a çoğaltılması için herhangi bir önkoşul var mı?
-Azure'a çoğaltmak istediğiniz sanal makineleri ile uyumlu olması gerekir [Azure gereksinimleri](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+[VMware Vm'leri](vmware-physical-azure-support-matrix.md#replicated-machines) ve [Hyper-V sanal makineleri](hyper-v-azure-support-matrix.md#replicated-vms) çoğaltmak istediğiniz Azure uyumlu Azure gereksinimlerine sahip olması gerekir.
 
 Azure kullanıcı hesabınızın belirli sahip olması [izinleri](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) yeni bir sanal makineye Azure çoğaltmayı etkinleştirmek için.
 

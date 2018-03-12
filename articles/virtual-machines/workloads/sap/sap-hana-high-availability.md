@@ -1,5 +1,5 @@
 ---
-title: "SAP HANA Azure sanal makinelerde (VM'ler) yüksek kullanılabilirliğini | Microsoft Docs"
+title: "SAP HANA sistem çoğaltma Azure sanal makinelerde (VM'ler) Kurulumu | Microsoft Docs"
 description: "SAP HANA Azure sanal makinelerde (VM'ler) yüksek kullanılabilirliğini kurun."
 services: virtual-machines-linux
 documentationcenter: 
@@ -11,19 +11,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 12/12/2017
 ms.author: sedusch
-<<<<<<< HEAD
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 2bf9ed176f37c315aa4496894315f2318370ce7f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>SAP HANA Azure sanal makinelerde (VM), yüksek kullanılabilirlik
 
@@ -50,9 +44,9 @@ ms.lasthandoff: 12/08/2017
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
 Şirket içi ya da HANA sistemi çoğaltması kullanmak veya yüksek kullanılabilirlik için SAP HANA kurmak için paylaşılan depolama alanı kullanın.
-Şu anda yalnızca HANA sistem çoğaltma ayarlama Azure üzerinde destekliyoruz. SAP HANA çoğaltma, bir yönetici düğümü ve en az bir ikincil düğüm oluşur. Ana düğüm üzerinde verilerde yapılan değişiklikleri bağımlı düğümlerine eşzamanlı veya zaman uyumsuz olarak çoğaltılır.
+Yalnızca yüksek oranda kullanılabilirlik işlevi şu ana kadar desteklenen Azure VM'ler HANA sistem çoğaltma azure'da açıktır. SAP HANA çoğaltma, bir birincil düğüm ve en az bir ikincil düğümü oluşur. Birincil düğümdeki verilerde yapılan değişiklikleri ikincil düğüme eşzamanlı veya zaman uyumsuz olarak çoğaltılır.
 
-Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek, yükleme ve SAP HANA sistem çoğaltma yapılandırma açıklar.
+Bu sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek makalede yükleyin ve SAP HANA sistemi çoğaltması yapılandırın.
 Örnek yapılandırmaları, vb. örnek numarasını 03 yükleme komutları ve HANA sistem kimliği HDB kullanılır.
 
 Aşağıdaki SAP notlar ve raporları ilk okuma
@@ -89,16 +83,16 @@ Azure Market görüntü SUSE Linux Enterprise Server için yeni sanal makineleri
 1. Kullanılabilirlik kümesi oluştur  
    Set max güncelleştirme etki alanı
 1. Bir yük dengeleyiciye (dahili) oluşturma  
-   Yukarıdaki adımı VNET seçin
-1. Sanal makine 1 oluşturun  
-   En azından SLES4SAP 12 SP1 BYOS görüntü https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 kullanacağız Bu örnekte SLES4SAP 12 SP1  
-   SAP uygulamaları 12 SP1 için SLES (BYOS)  
-   1 depolama hesabı seçin  
+   İkinci adımda oluşturduğunuz sanal ağ seçin
+1. Sanal makine 1 oluşturun   
+   En azından bu örnekte SLES4SAP 12 SP1 BYOS görüntü https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 SLES4SAP 12 SP1  
+   SLES için SAP uygulamaları 12 SP1 (BYOS) kullanılır  
+   1 depolama hesabı seçin   
    Kullanılabilirlik kümesi seçin  
-1. Sanal makine 2 oluşturun  
-   En azından SLES4SAP 12 SP1 BYOS görüntü https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 kullanacağız Bu örnekte SLES4SAP 12 SP1  
-   SAP uygulamaları 12 SP1 için SLES (BYOS)  
-   Depolama hesabı 2 seçin   
+1. Sanal makine 2 oluşturun   
+   En azından bu örnekte SLES4SAP 12 SP1 BYOS görüntü https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 SLES4SAP 12 SP1  
+   SLES için SAP uygulamaları 12 SP1 (BYOS) kullanılır  
+   Depolama hesabı 2 seçin    
    Kullanılabilirlik kümesi seçin  
 1. Veri diski Ekle
 1. Yük Dengeleyici yapılandırma
@@ -114,7 +108,7 @@ Azure Market görüntü SUSE Linux Enterprise Server için yeni sanal makineleri
         1. Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin
         1. SAP HANA kümedeki sanal makineleri seçin
         1. Tamam'ı tıklatın
-    1. Bir sistem durumu araştırması oluştur
+    1. Durum araştırması oluşturma
         1. Yük Dengeleyici açın, sistem durumu araştırmalarının seçin ve Ekle'yi tıklatın
         1. Yeni durum araştırması (örneğin hana-hp) adını girin
         1. TCP bağlantı noktası 625 protokolü olarak seçin**03**, aralığı 5 ile sağlıksız durum eşiği 2 tutun
@@ -122,7 +116,7 @@ Azure Market görüntü SUSE Linux Enterprise Server için yeni sanal makineleri
     1. Yük dengeleme kuralları oluşturma
         1. Yük Dengeleyici açın, Yük Dengeleme kuralları seçin ve Ekle'yi tıklatın
         1. Yeni Yük Dengeleyici kuralı adını girin (örneğin hana-lb-3**03**15)
-        1. Ön uç IP adresini seçin, daha önce oluşturduğunuz (örneğin hana-ön uç) araştırma arka uç havuzu ve sistem durumu
+        1. Ön uç IP adresi, arka uç havuzu ve oluşturduğunuz durumu araştırması için daha önce (örnek hana-ön uç) seçin
         1. Protokol TCP tutmak için bağlantı noktası 3 girin**03**15
         1. -30 dakika boşta kalma zaman aşımı süresini artırın
         1. **Kayan IP etkinleştirdiğinizden emin olun**
@@ -132,18 +126,19 @@ Azure Market görüntü SUSE Linux Enterprise Server için yeni sanal makineleri
 ### <a name="deploy-with-template"></a>Şablon ile dağıtım
 Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonun sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
-1. Açık [veritabanı şablonu] [ template-multisid-db] veya [şablonu Yakınsanan] [ template-converged] veritabanı şablonu yalnızca oluşturur Azure Portal'da yakınsanmış şablon ayrıca ASCS/SCS ve ERS (yalnızca Linux) örneği için Yük Dengeleme kuralları oluşturur ancak Yük Dengeleme için bir veritabanı kuralları. SAP NetWeaver temel sistem yüklemeyi planladığınız ve ayrıca istiyorsanız ASCS/SCS örneği aynı makinelere yüklemeniz, kullanın [şablonu Yakınsanan][template-converged].
+1. Açık [veritabanı şablonu] [ template-multisid-db] veya [şablonu Yakınsanan] [ template-converged] Azure portalındaki. 
+   Yakınsanmış şablon ayrıca ASCS/SCS ve ERS (yalnızca Linux) örneği için Yük Dengeleme kuralları oluşturur ancak veritabanı şablonu yalnızca bir veritabanı için Yük Dengeleme kuralları oluşturur. SAP NetWeaver temel sistem yüklemeyi planladığınız ve ayrıca istiyorsanız ASCS/SCS örneği aynı makinelere yüklemeniz, kullanın [şablonu Yakınsanan][template-converged].
 1. Aşağıdaki parametreleri girin
     1. SAP sistem kimliği  
-       Yüklemek istediğiniz SAP sistem SAP sistem Kimliğini girin. Kimliği önek olarak dağıtılan kaynaklar için kullanılır.
-    1. Yığın türü (yalnızca yakınsanmış şablonunu kullanıyorsanız geçerlidir)  
+       Yüklemek istediğiniz SAP sistem SAP sistem Kimliğini girin. Dağıtılan kaynaklar için önek olarak kullanılacak kimliği geçiyor.
+    1. Yığın türü (yalnızca yakınsanmış şablonunu kullanıyorsanız geçerlidir)   
        SAP NetWeaver yığın türünü seçin
     1. İşletim sistemi türü  
        Linux dağıtımları birini seçin. Bu örnekte, SLES 12 BYOS seçin
     1. Db Türü  
        HANA seçin
     1. SAP sistemi boyutu  
-       Yeni Sistem sağlayacak SAP miktarı. Lütfen sistem gerektirir kaç SAP değil eminseniz, SAP teknolojisi iş ortağı veya sistem Tümleştirici isteyin
+       SAP miktarını sağlamak için yeni sistem adımıdır. Sistem gerektirir kaç SAP değil eminseniz, SAP teknolojisi iş ortağı veya sistem Tümleştirici isteyin
     1. Sistem kullanılabilirliği  
        HA seçin
     1. Yönetici kullanıcı adı ve yönetici parolası  
@@ -151,7 +146,7 @@ Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablon
     1. Yeni veya var olan bir alt ağ  
        Yeni sanal ağ ve alt oluşturulmalıdır ya da mevcut bir alt kullanılması gerektiğini belirler. Şirket içi ağınıza bağlı bir sanal ağ zaten varsa, varolan seçin.
     1. Alt ağ kimliği  
-    Sanal makineler için bağlanması alt ağ kimliği. Sanal makine şirket içi ağınıza bağlanmak için VPN veya hızlı rota sanal ağınızın alt ağ seçin. Kimliği genellikle /subscriptions/ gibi görünüyor`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+    Sanal makineler için bağlanması alt ağ kimliği. Sanal makine, şirket içi ağınıza bağlanmak için VPN veya hızlı rota sanal ağınızın alt ağ seçin. Kimliği genellikle /subscriptions/ gibi görünüyor`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Ayarlama Linux HA
 
@@ -207,7 +202,7 @@ Aşağıdaki öğeler ya da [A ile] - önek uygulanabilir tüm düğümleri [1] 
 
 1. [A] Kurulum disk düzeni
     1. LVM  
-    Genellikle, veri ve günlük dosyalarını birimleri için LVM kullanmanızı öneririz. Aşağıdaki örnekte, sanal makineleri iki birim oluşturmak için kullanılması gereken bağlı dört veri diskleri sahip olduğunuzu varsayar.
+    Genellikle, veri ve günlük dosyalarını birimleri için LVM kullanmanızı öneririz. Aşağıdaki örneğe sanal makineleri iki birim oluşturmak için kullanılması gereken bağlı dört veri diskleri sahip olduğunuzu varsayar.
         * Kullanmak istediğiniz tüm disklerin fiziksel birimler oluşturursunuz.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -316,7 +311,7 @@ Aşağıdaki öğeler ya da [A ile] - önek uygulanabilir tüm düğümleri [1] 
     
     ```
 
-1. [A] corosync diğer aktarım kullanın ve listesi eklemek için yapılandırın. Aksi takdirde, küme çalışmaz.
+1. [A] corosync diğer aktarım kullanın ve listesi eklemek için yapılandırın. Aksi takdirde kümenin çalışmaya adımıdır değil. 
     ```bash
     sudo vi /etc/corosync/corosync.conf    
     
@@ -358,23 +353,23 @@ Aşağıdaki öğeler ya da [A ile] - önek uygulanabilir tüm düğümleri [1] 
 
 ## <a name="installing-sap-hana"></a>SAP HANA yükleme
 
-Bölüm 4 izleyin [SAP HANA SR performansı en iyi duruma getirilmiş senaryo Kılavuzu] [ suse-hana-ha-guide] SAP HANA sistem çoğaltma yüklemek için.
+SAP HANA sistem çoğaltma yüklemek için Bölüm 4 izleyin [SAP HANA SR performansı en iyi duruma getirilmiş senaryo Kılavuzu][suse-hana-ha-guide].
 
 1. [A] hdblcm HANA DVD'SİNDEN çalıştırın
     * Yüklemeyi seçin 1 ->
     * Yükleme -> için 1 ek bileşenleri seçin
     * Yükleme yolu [paylaşılan / hana /] girin: ENTER ->
     * Yerel ana bilgisayar adı [.] girin: ENTER ->
-    * Ek ana bilgisayar sistemine eklemek istiyor musunuz? (e/h) [n]: ENTER ->
-    * SAP HANA sistem Kimliğini girin:<SID of HANA e.g. HDB>
+    * Ek ana bilgisayar sistemine eklemek istiyor musunuz? (y/n) [n]: -> ENTER
+    * SAP HANA sistem Kimliğini girin: <SID of HANA e.g. HDB>
     * Örnek [00] girin:   
-  HANA örneği sayısı. Azure şablonu kullanılan ya da yukarıdaki örnekte ardından 03 kullanın
+  HANA örneği sayısı. Azure şablonu kullanılan ya da el ile dağıtım ve ardından 03 kullanın
     * Veritabanı modunu seçin / dizin [1] girin: ENTER ->
     * Sistem kullanımı seçin / dizin [4] girin:  
   Sistem kullanımı seçin
     * Veri birimlerinin [/ data/hana/HDB] konumu girin: ENTER ->
     * Günlük birim [/ günlük/hana/HDB] konumu girin: ENTER ->
-    * En fazla bellek ayırma kısıtlama? [n]: ENTER ->
+    * En fazla bellek ayırma kısıtlama? [n]: -> ENTER
     * '...' Ana bilgisayar için sertifika ana bilgisayar adını girin [...]: ENTER ->
     * SAP konak aracısı kullanıcısı (sapadm) parola girin:
     * SAP konak aracısı kullanıcısı (sapadm) parolayı onaylayın:
@@ -386,8 +381,8 @@ Bölüm 4 izleyin [SAP HANA SR performansı en iyi duruma getirilmiş senaryo K�
     * Girin kimliği, kullanıcı grubu (sapsys) [79]: ENTER ->
     * Veritabanı kullanıcı (Sistem) parolasını girin:
     * Veritabanı kullanıcı (Sistem) parolayı onaylayın:
-    * Sistem makine yeniden başlatıldıktan sonra yeniden başlatılsın mı? [n]: ENTER ->
-    * Devam etmek istiyor musunuz? (e/h):  
+    * Sistem makine yeniden başlatıldıktan sonra yeniden başlatılsın mı? [n]: -> ENTER
+    * Devam etmek istiyor musunuz? (e/h):   
   Özet doğrulamak ve devam etmek için Y'ye girin
 1. [A] yükseltme SAP konak Aracısı  
   En son SAP konak Aracısı arşivinden karşıdan [SAP Softwarecenter] [ sap-swcenter] ve aracıyı yükseltmek için aşağıdaki komutu çalıştırın. İndirdiğiniz dosyasına işaret edecek şekilde arşivi yolu değiştirin.
@@ -452,11 +447,11 @@ sudo crm yük güncelleştirme crm-defaults.txt yapılandırın
 
 ### <a name="create-stonith-device"></a>STONITH cihaz oluşturma
 
-STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için kullanır. Lütfen bir hizmet sorumlusu oluşturmak için aşağıdaki adımları izleyin.
+STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için kullanır. Bir hizmet sorumlusu oluşturmak için aşağıdaki adımları izleyin.
 
-1. Git <https://portal.azure.com>
+1. Şuraya gidin: <https://portal.azure.com>
 1. Azure Active Directory dikey penceresini açın  
-   Özellikleri'ne gidin ve dizin kimliği yazma Bu **kimliği Kiracı**.
+   Özellikleri'ne gidin ve dizin kimliği yazma Bu kimlik **kimliği Kiracı**.
 1. Uygulama kayıtlar'ı tıklatın
 1. Ekle'ye tıklayın.
 1. Bir ad girin, uygulama türü "Web uygulaması/API" seçin, bir oturum açma URL'si (örneğin http://localhost) girin ve Oluştur'u tıklatın
@@ -464,9 +459,9 @@ STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için
 1. Yeni uygulama seçin ve anahtarları Ayarlar sekmesini
 1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun" seçin ve Kaydet
 1. Değeri yazın. Olarak kullanılan **parola** için hizmet sorumlusu
-1. Uygulama Kimliği yazma Kullanıcı adı olarak kullanılır (**oturum açma kimliği** aşağıdaki adımlarda), hizmet sorumlusu
+1. Uygulama Kimliği yazma Kullanıcı adı olarak kullanılır (**oturum açma kimliği** adımları aşağıdaki), hizmet sorumlusu
 
-Hizmet sorumlusu Azure kaynaklarınızı varsayılan olarak erişim izni yok. Başlatmak ve durdurmak için hizmet asıl izinleri vermeniz gerekir (serbest bırakma) kümenin tüm sanal makineler.
+Hizmet sorumlusu Azure kaynaklarınızı varsayılan olarak erişim izni yok. Hizmet sorumlusu başlatma ve durdurma izni verin (serbest bırakma) kümenin tüm sanal makineler.
 
 1. Https://Portal.Azure.com için Git
 1. Tüm kaynaklar dikey penceresini açın
@@ -474,7 +469,7 @@ Hizmet sorumlusu Azure kaynaklarınızı varsayılan olarak erişim izni yok. Ba
 1. Erişim denetimi (IAM) tıklatın
 1. Ekle'ye tıklayın.
 1. Sahip rolü seçin
-1. Yukarıda oluşturduğunuz uygulamanın adını girin
+1. Önceki adımlarda oluşturduğunuz uygulamanın adını girin
 1. Tamam'ı tıklatın
 
 Sanal makineler için izinleri düzenlenebilir sonra kümede STONITH cihazları yapılandırabilirsiniz.
@@ -559,7 +554,7 @@ sudo crm yük güncelleştirme crm-saphana.txt yapılandırın
 </pre>
 
 ### <a name="test-cluster-setup"></a>Test kümesi Kurulumu
-Aşağıdaki bölümde açıklanmıştır kurulumunuzu nasıl test edebilirsiniz. Her test kök olduğundan ve SAP HANA asıl üzerinde sanal makine saphanavm1 çalışır durumda olduğunu varsayar.
+Bu bölümde, kurulumunuz test nasıl açıklanmaktadır. Her test kök olduğundan ve SAP HANA asıl üzerinde sanal makine saphanavm1 çalışır durumda olduğunu varsayar.
 
 #### <a name="fencing-test"></a>Yalıtma Test
 
@@ -570,9 +565,9 @@ sudo ifdown eth0
 </code></pre>
 
 Sanal makine şimdi yeniden veya küme yapılandırmanıza bağlı olarak durduruldu.
-Kapalı stonith eylem ayarlarsanız, sanal makine durdurulur ve kaynakları çalışan sanal makineyi geçirilir.
+Kapalı stonith eylem ayarlarsanız, sanal makinenin durdurulması gittiği ve kaynakları çalışan sanal makineyi geçirilir.
 
-Sanal makine yeniden başlattıktan sonra SAP HANA kaynak olarak ikincil başlayamaz = AUTOMATED_REGISTER ayarlarsanız, "false". Bu durumda, aşağıdaki komutu çalıştırarak HANA örneği ikincil yapılandırmanız gerekir:
+Sanal makine yeniden başlattıktan sonra SAP HANA kaynak olarak ikincil başlatılamadığında = AUTOMATED_REGISTER ayarlarsanız, "false". Bu durumda, HANA örneği ikincil bu komutunu yürüterek yapılandırın:
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -593,7 +588,7 @@ Düğüm saphanavm1 üzerinde pacemaker hizmetini durdurarak el ile bir yük dev
 service pacemaker stop
 </code></pre>
 
-Yük devretme sonrasında hizmetini yeniden başlatabilirsiniz. SAP HANA kaynağına saphanavm1 bağlı olarak ikincil başlayamaz = AUTOMATED_REGISTER ayarlarsanız, "false". Bu durumda, aşağıdaki komutu çalıştırarak HANA örneği ikincil yapılandırmanız gerekir:
+Yük devretme sonrasında hizmetini yeniden başlatabilirsiniz. AUTOMATED_REGISTER ayarlarsanız = "false", ikincil olarak başlatmak için saphanavm1 başarısız SAP HANA kaynak. Bu durumda, HANA örneği ikincil bu komutunu yürüterek yapılandırın:
 
 <pre><code>
 service pacemaker start
@@ -604,7 +599,7 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>
@@ -617,8 +612,8 @@ crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 </code></pre>
 
-SAP HANA ana düğüm ve saphanavm2 sanal IP adresi içeren grubun geçirmeniz gerekir.
-SAP HANA kaynağına saphanavm1 bağlı olarak ikincil başlayamaz = AUTOMATED_REGISTER ayarlarsanız, "false". Bu durumda, aşağıdaki komutu çalıştırarak HANA örneği ikincil yapılandırmanız gerekir:
+= AUTOMATED_REGISTER ayarlarsanız, "false", bu komutları dizisini SAP HANA ana düğüm ve saphanavm2 sanal IP adresi içeren grubun geçirmeniz gerekir.
+SAP HANA kaynak saphanavm1 üzerinde ikincil olarak başlatılamaz. Bu durumda, HANA örneği ikincil bu komutunu yürüterek yapılandırın:
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -633,14 +628,14 @@ Geçiş yeniden silinmesi gereken konum kısıtlamaları oluşturur.
 <pre><code>
 crm configure edited
 
-# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
+# Delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
 İkincil düğüm kaynağı durumunun dökümünü temiz gerekir
 
 <pre><code>
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="password-writeback-overview"></a>Parola geri yazma genel bakış
 
@@ -31,6 +31,7 @@ Parola geri yazma aşağıdaki özellikleri sağlar:
 * **Sıfır Gecikmeli geri bildirim sağlar**: parola geri yazma eşzamanlı bir işlem değil. Parolalarını İlkesi karşılamayan veya bırakılamadı sıfırlama veya herhangi bir nedenle değişti, kullanıcılarınızın hemen bildirilir.
 * **Destekler parola sıfırlamaları Active Directory Federasyon Hizmetleri (AD FS) veya diğer Federasyon teknolojileri kullanan kullanıcılar için**: Azure AD kiracınıza eşitlenen Federasyon kullanıcısı hesapları sürece sahip parola geri yazma, bunlar olan Şirket içi Active Directory parolalarını buluttan yönetin.
 * **Destekler parola sıfırlamaları kullanan kullanıcılar için** [parola karması eşitlemesi](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): parola sıfırlama hizmeti bir eşitlenmiş kullanıcı hesabı için parola karma eşitlemesi etkin olduğunu algıladığında, biz içi hem de bu hesabın sıfırlama ve parola aynı anda bulut.
+* **Destekler parolasını sıfırlar, geçişli kimlik doğrulaması kullanan kullanıcıları için**: Azure AD kiracınıza eşitlenen doğrudan kimlik doğrulama hesapları sürece sahip parola geri yazma, bunlar kendi şirket içi Active yönetebilmek için Bulut parolalardan dizin.
 * **Erişim paneli ve Office 365 destekler parola değişikliklerini**: federe olduğunda veya Biz bu parolaları yerel Active Directory ortamınızı geri yazma süresi dolmuş ya da süresi dolmuş olmayan kullanıcıların parolalarını değiştirmek için gelen parola eşitlenen kullanıcılar.
 * **Bir yönetici bunları Azure portalından sıfırlandıktan sonra parola geri yazma destekleyen**: her bir yönetici bir kullanıcının parolasını sıfırlar [Azure portal](https://portal.azure.com), kullanıcının Federasyon ya da eşitlenmiş parola, parola ayarlar yöneticinin yerel Active Directory'de de seçer. Bu işlev Office Yönetim Portalı'nda şu anda desteklenmiyor.
 * **Şirket içi Active Directory parola ilkeleri zorunlu tutar**: bir kullanıcının parolasını sıfırlar, biz Biz bu dizine yürütme önce şirket içi Active Directory ilkeniz karşıladığından emin olun. Bu gözden geçirme geçmişi, karmaşıklık, yaş, parola filtreleri ve yerel Active Directory içinde tanımlanan herhangi bir parola kısıtlamaları denetimi içerir.
@@ -98,8 +99,8 @@ Belirtilen hesaba SSPR kapsamında olmasını istiyorsanız Azure AD Connect yar
 
 * **Parola sıfırlama** 
 * **Parola değiştirme** 
-* **Yazma izinleri** üzerinde`lockoutTime`  
-* **Yazma izinleri** üzerinde`pwdLastSet`
+* **Yazma izinleri** üzerinde `lockoutTime`  
+* **Yazma izinleri** üzerinde `pwdLastSet`
 * **Hakları genişletilmiş** her iki:
    * Kök nesne *her etki alanı* o ormandaki
    * SSPR kapsamında olmasını istediğiniz kullanıcı kuruluş birimlerini (OU)
@@ -137,7 +138,7 @@ Lisanslama hakkında daha fazla bilgi için bkz: [lisansları parola geri yazma 
 
 * [Site fiyatlandırma Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Microsoft 365 Kurumsal](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
+* [Microsoft 365 Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
 
 ### <a name="on-premises-authentication-modes-that-are-supported-for-password-writeback"></a>Şirket içi parola geri yazma için desteklenen kimlik doğrulama modları
 

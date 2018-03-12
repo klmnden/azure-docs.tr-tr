@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 44e1a7fe17515e23fcfd32c37c1ef4837ea8140c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Yeni uyarılar (Önizleme) kullanarak uyarıları deneyimi etkinlik günlüğü oluşturma
 
@@ -79,7 +79,7 @@ Aşağıdaki yordamı kullanın:
 
 3. **Tanımlamak Uyarı koşulu altında** aşağıdaki bilgileri sağlayın ve tıklayın **Bitti**.
 
-    - **Uyarı hedefi:** görüntülemek ve yeni uyarı için hedef seçmek için **filtresi abonelik tarafından** / **kaynak türüne göre filtre** ve kaynak veya kaynak grubu seçin Görüntülenen listesi.
+    - **Uyarı hedefi:** görüntülemek ve yeni uyarı için hedef seçmek için **filtresi abonelik tarafından** / **kaynak türüne göre filtre** ve kaynak veya kaynak grubu seçin liste görüntülenir.
 
     > [!NOTE]
 
@@ -89,7 +89,7 @@ Aşağıdaki yordamı kullanın:
 
      ![Hedef seçin](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Altında ** hedef ölçütünü tıklatın **ölçüt eklemek** sinyal türü olarak seçin **etkinlik günlüğü**.
+    - Altında **hedef ölçütleri**, tıklatın **ölçüt eklemek** sinyal türü olarak seçin **etkinlik günlüğü**.
 
     - Sinyal görüntülenen listeden seçin.
 

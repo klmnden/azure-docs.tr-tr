@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: jovanpop
 manager: cguyer
-ms.openlocfilehash: 6ecb6600e5e1462cce9d49ecd9a4ed2e43e2c455
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 699ac303c553e1f3b78f13fc12163f47a1e77941
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL Database yönetilen örnek T-SQL farkları 
 
@@ -57,7 +57,7 @@ Daha fazla bilgi için bkz.
 ### <a name="backup"></a>Backup 
 
 Yönetilen örneği otomatik yedeklemeler sahiptir ve kullanıcıların tam veritabanı oluşturmalarını sağlar `COPY_ONLY` yedekler. Fark, günlük ve dosya anlık görüntüsü yedekleri desteklenmez.  
-- Yönetilen örneği bir veritabanını yalnızca Azure Blob Storage hesabında yedekleyebilirsiniz: 
+- Yönetilen örneği yalnızca Azure Blob Storage hesabı için bir veritabanını yedekleyebilirsiniz: 
  - Yalnızca `BACKUP TO URL` desteklenir 
  - `FILE`, `TAPE`, ve yedekleme cihazları desteklenmez  
 - Genel çoğu `WITH` seçenekleri desteklenir 
@@ -67,11 +67,11 @@ Yönetilen örneği otomatik yedeklemeler sahiptir ve kullanıcıların tam veri
  - Özel günlük seçenekleri: `NORECOVERY`, `STANDBY`, ve `NO_TRUNCATE` desteklenmez 
  
 Sınırlamaları:  
-- Yönetilen örneği başa bir veritabanını veritabanları için yeterli olan bir yedekleme en fazla 32 şeritler ile en fazla 4 TB.
-- En fazla yedekleme stripe boyut 195 GB (sayfa blob boyutu)'dır. Şerit boyutları dağıtmak için yedekleme komutta şeritler sayısını artırın. 
+- Yönetilen örneği başa bir veritabanını veritabanları için yeterli olan bir yedekleme en fazla 32 şeritler ile yedekleme sıkıştırma kullanılırsa, en fazla 4 TB.
+- En fazla yedekleme stripe boyut 195 GB (en fazla blob boyutu)'dır. Tek tek stripe boyutunu küçültmek ve bu sınırı içinde kalmak için yedekleme komutta şeritler sayısını artırın. 
 
 > [!TIP]
-> Bu sınırlama şirket içi, yedekleme için geçici olarak çözmek için `DISK` yedekleme yerine `URL`, blob sonra geri yüklemek için yedekleme dosyasını karşıya yükleyin. Farklı blob türüne kullanıldığından destek büyük dosyaları geri yükleyin.  
+> Bu sınırlama şirket içi, yedekleme için geçici olarak çözmek için `DISK` yedekleme yerine `URL`, blob sonra geri yüklemek için yedekleme dosyasını karşıya yükleyin. Farklı blob türüne kullanıldığından geri yükleme büyük dosyaları destekler.  
 
 ### <a name="buffer-pool-extension"></a>Arabellek havuzu genişletme 
  
@@ -136,14 +136,14 @@ Sunucu harmanlama `SQL_Latin1_General_CP1_CI_AS` ve değiştirilemez. Bkz: [harm
  
 - Birden çok günlük dosyalarını desteklenmez. 
 - Bellek içi nesneler genel amaçlı hizmet katmanında desteklenmiyor.  
-- Veritabanı başına en fazla 280 dosyaları olduğunu belirtmek örneği başına 280 dosyaların bir sınırı yoktur. Veri ve günlük dosyaları, bu sınırınızı hesaplanır.  
-- Veritabanı dosya akışı verileri içeren dosya grupları içeremez.  Geri yükleme başarısız olur .bak içeriyorsa `FILESTREAM` veri.  
-- Her dosya ayrı Azure Premium disk üzerinde yerleştirilir. G/ç ve üretilen iş her bir dosyanın boyutuna göre değişir. Bkz: [Azure Premium disk performansı](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Veritabanı başına en fazla 280 dosyaları olduğunu belirtmek örneği başına 280 dosyaların bir sınırı yoktur. Veri ve günlük dosyaları, bu sınırında sayılır.  
+- Veritabanı filestream verileri içeren dosya grupları içeremez.  Geri yükleme başarısız olur .bak içeriyorsa `FILESTREAM` veri.  
+- Her dosyayı Azure Premium depolama alanına yerleştirilir. Azure Premium Storage diskler için yaptığınız gibi g/ç ve dosya başına aynı şekilde her bir dosyayı boyutuna bağlıdır. Bkz: [Azure Premium disk performansı](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
  
 #### <a name="create-database-statement"></a>CREATE DATABASE deyimi
 
 Aşağıdakiler `CREATE DATABASE` sınırlamaları: 
-- Dosyalar ve dosya gruplarını tanımlanamaz.  
+- Dosyaları ve dosya gruplarını tanımlanamaz.  
 - `CONTAINMENT` Seçeneği desteklenmez.  
 - `WITH`seçenekleri desteklenmez.  
    > [!TIP]
@@ -217,7 +217,7 @@ R ve Python dış kitaplıkları henüz desteklenmiyor veritabanı. Bkz: [Learni
 
 ### <a name="filestream-and-filetable"></a>FILESTREAM ve Filetable
 
-- Dosya akışı verileri desteklenmiyor. 
+- FILESTREAM verileri desteklenmiyor. 
 - Veritabanı ile dosya grupları içeremez `FILESTREAM` veri
 - `FILETABLE` desteklenmiyor
 - Tabloları olamaz `FILESTREAM` türleri
@@ -237,7 +237,7 @@ Daha fazla bilgi için bkz: [FILESTREAM](https://docs.microsoft.com/sql/relation
 ### <a name="linked-servers"></a>Bağlı sunucular
  
 Bağlantılı sunucular yönetilen örneğinde hedefleri sınırlı sayıda destek: 
-- Hedefleri desteklenen: SQL Server, SQL veritabanı yönetilen örneği ve bir sanal makinede SQL Server.
+- Hedefleri desteklenen: SQL Server, SQL veritabanı, yönetilen örneği ve bir sanal makinede SQL Server.
 - Hedefleri desteklenmez: dosya, Analysis Services ve diğer RDBMS.
 
 İşlemler
@@ -277,23 +277,23 @@ Dış tablolara başvuran HDFS veya Azure blob storage'da dosyaları desteklenme
  - `FROM URL` (Azure blob depolama) yalnızca desteklenen bir seçenektir.
  - `FROM DISK`/`TAPE`/ yedekleme aygıtı desteklenmiyor.
  - Yedekleme kümesi desteklenmiyor. 
-- `WITH` seçenekleri desteklenmez (hiçbir fark `STATS`, vb..)     
-- `ASYNC RESTORE` -İstemci bağlantısını keser olsa bile geri yükleme devam eder. Bir bağlantı kesildiğinde denetleyebilirsiniz `sys.dm_operation_status` görünüm için bir geri yükleme işlemi durumunu (yanı sıra oluştur ve açılan veritabanı için). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
+- `WITH` seçenekleri desteklenmez (No `DIFFERENTIAL`, `STATS`vb..)     
+- `ASYNC RESTORE` -İstemci bağlantısını keser olsa bile geri yükleme devam eder. Bağlantınızı kesilirse kontrol edebilirsiniz `sys.dm_operation_status` görünüm için bir geri yükleme işlemi durumunu (yanı sıra oluştur ve açılan veritabanı için). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
-Set/geçersiz kılındı ve daha sonra değiştirilemez aşağıdaki veritabanı seçenekleri:  
+Aşağıdaki veritabanı seçenekleri kümesi ve geçersiz ve daha sonra değiştirilemez:  
 - `NEW_BROKER` (Aracısı .bak dosyasında etkin değilse)  
 - `ENABLE_BROKER` (Aracısı .bak dosyasında etkin değilse)  
 - `AUTO_CLOSE=OFF` (.bak dosyası veritabanında varsa `AUTO_CLOSE=ON`)  
 - `RECOVERY FULL` (.bak dosyası veritabanında varsa `SIMPLE` veya `BULK_LOGGED` kurtarma moduna)
-- Bellek için iyileştirilmiş dosya grubuna eklenir ve kaynak .bak dosyasına olmadıysa XTP çağrılır  
+- Bellek için iyileştirilmiş dosya eklenebilir ve kaynak .bak dosyasına olmadıysa XTP çağrılır  
 - Tüm mevcut bellek için iyileştirilmiş dosya grubu için XTP yeniden adlandırıldı  
 - `SINGLE_USER` ve `RESTRICTED_USER` seçenekleri dönüştürülür `MULTI_USER`   
 Sınırlamaları:  
 - `.BAK` birden çok yedekleme kümesi içeren dosyalar geri yüklenemiyor. 
 - `.BAK` birden çok günlük dosyalarını içeren dosyalar geri yüklenemiyor. 
 - Geri yükleme başarısız olur .bak içeriyorsa `FILESTREAM` veri.
-- Etkin bellek içi OLTP nesneler sahip veritabanları içeren yedeklemeler şu anda geri yüklenemiyor.  
-- Belirli bir noktada bellek içi nesneleri var olduğu veritabanlarını içeren yedeklemeler şu anda geri yüklenemiyor.   
+- Bellekteki etkin nesneler sahip veritabanları içeren yedeklemeler şu anda geri yüklenemiyor.  
+- Burada bellek içi nesneleri belirli bir noktada varolan veritabanlarını içeren yedeklemeler şu anda geri yüklenemiyor.   
 - Salt okunur modda veritabanlarında içeren yedeklemeler şu anda geri yüklenemiyor. Bu sınırlama yakında kaldırılır.   
  
 Geri yükleme deyimler hakkında daha fazla bilgi için bkz: [geri deyimleri](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
@@ -381,21 +381,21 @@ Aşağıdaki değişkenler, İşlevler ve görünümler farklı sonuçlar dönd�
 - `@@SERVICENAME` hiçbir örnek yönetilen ortamında mantıklıdır NULL döndürür. Bkz: [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` desteklenir. AAD oturum açma sys.syslogins içinde değilse NULL döndürür. Bkz: [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` desteklenmiyor. (Geçici bilinen sorun) veri yanlış değerini döndürür. Bkz: [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
-- `GETDATE()` her zaman tarihi UTC saat diliminde döndürür. Bkz: [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
+- `GETDATE()` ve diğer yerleşik tarih/saat işlevleri her zaman saati UTC saat diliminde döndürür. Bkz: [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Bilinen sorunlar ve sınırlamalar
 
 ### <a name="tempdb-size"></a>TEMPDB boyutu
 
-`tempdb` 12 bölme dosyalarıyla her en büyük boyut 14 GB başına dosya. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyalar eklenemez `tempdb`. Bu sınırlama yakında kaldırılır. Bazı sorgular varsa bir hata döndürebilir `tempdb` 168 GB'den fazla gerekiyor.
+`tempdb` 12 bölme dosyalarıyla her en büyük boyut 14 GB başına dosya. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyalar eklenemez `tempdb`. Bu sınırlama yakında kaldırılır. Bazı sorgular 168 GB'den fazla gerekiyorsa bir hata döndürebilir `tempdb`.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Depolama alanı olan küçük veritabanı dosyalarını aşan
 
-Her yönetilen örneği oluşturan 35 TB depolama alanı ayırdığı ve her veritabanı dosyasını 128 GB depolama alanı ayırma biriminde yerleştirilir. Çok sayıda küçük dosyalar veritabanlarıyla toplam 35 TB sınırı aşan 128 GB birimlerde yerleştirilmiş olabilir. Bu durumda, yeni veritabanları oluşturulamıyor veya geri tüm veritabanlarının toplam boyutu değil ulaşmak olsa bile örneği boyut sınırı. Döndürülen hata açık olmayabilir.
+Her yönetilen örneği oluşturan 35 TB depolama alanı ayırdığı ve her veritabanı dosyasını 128 GB depolama alanı ayırma biriminde, başlangıçta yerleştirilir. Çok sayıda küçük dosyalar veritabanlarıyla toplam 35 TB sınırı aşan 128 GB birimlerde yerleştirilmiş olabilir. Bu durumda, yeni veritabanları oluşturulamıyor veya geri dahi tüm veritabanlarının toplam boyutu örnek boyutu sınırına ulaştığında değil. Döndürülen hata bu durumda açık olmayabilir.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>SAS anahtarı yanlış yapılandırma veritabanı sırasında geri yükleme
 
-`RESTORE DATABASE` .bak dosyası sürekli olabilir okuma .bak dosyası ve döndürülen hata, uzun süre sonunda okumak için yeniden deneme paylaşılan erişim imzasını `CREDENTIAL` yanlış. SAS anahtarı doğru olduğundan emin olmak için bir veritabanını geri yüklemeden önce geri yükleme HEADERONLY yürütün.
+`RESTORE DATABASE` okuyan .bak dosyasının sürekli olarak yeniden deneniyor .bak dosyası ve döndürülen hata, uzun süre sonunda okumak için paylaşılan erişim imzasını `CREDENTIAL` yanlış. SAS anahtarı doğru olduğundan emin olmak için bir veritabanını geri yüklemeden önce geri yükleme HEADERONLY yürütün.
 Önde gelen kaldırdığınızdan emin olun `?` Azure portal kullanılarak oluşturulan SAS anahtarı.
 
 ### <a name="tooling"></a>Araçları

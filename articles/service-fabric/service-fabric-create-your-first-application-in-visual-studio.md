@@ -1,6 +1,6 @@
 ---
 title: "C# ile Azure Service Fabric güvenilir hizmeti oluşturma"
-description: "Visual Studio ile, Azure Service Fabric üzerinde derlenmiş bir Güvenilir Hizmet uygulaması oluşturun, dağıtım ve hatalarını ayıklayın."
+description: "Visual Studio ile, Azure Service Fabric üzerinde derlenmiş bir Reliable Services uygulaması oluşturun, dağıtın ve hatalarını ayıklayın."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,119 +14,115 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 2ecb8f8068043936d00f2c9752666490137414e3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 43f77a1a2e1bbe28bb646aa23c28c253c20e8dda
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>İlk C# Service Fabric durum bilgisi olan reliable services uygulamanızı oluşturma
+# <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>İlk C# Service Fabric durum bilgisi olan Reliable Services uygulamanızı oluşturma
 
-Yalnızca birkaç dakika içinde Windows üzerinde .NET için ilk Service Fabric uygulamanızı nasıl dağıtacağınızı öğrenin. Öğreticiyi tamamladığınızda, güvenilir hizmet uygulamasıyla çalışan bir yerel küme oluşturmuş olursunuz.
+Yalnızca birkaç dakika içinde Windows üzerinde .NET için ilk Azure Service Fabric uygulamanızı nasıl dağıtacağınızı öğrenin. Tamamladığınızda, Reliable Services uygulamasıyla çalışan bir yerel kümeniz olacaktır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Başlamadan önce [geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started.md) emin olun. Bu, Service Fabric SDK'sını ve Visual Studio 2017 veya 2015'i yüklemeyi de içerir.
+Başlamadan önce [geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started.md) emin olun. Bu işlem, Service Fabric SDK'sını ve Visual Studio 2017 veya 2015'i yüklemeyi de içerir.
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
 
-Visual Studio'yu **yönetici** olarak başlatın.
+1. Visual Studio'yu yönetici olarak başlatın.
 
-`CTRL`+`SHIFT`+`N` ile bir proje oluşturun
+2. Ctrl+Shift+N tuşlarını seçerek proje oluşturun.
 
-**Yeni Proje** iletişim kutusunda **Bulut > Service Fabric Uygulaması**'nı seçin.
+3. **Yeni Proje** iletişim kutusunda **Bulut** > **Service Fabric Uygulaması**'nı seçin.
 
-Uygulamaya **MyApplication** adını verin ve **Tamam**'a basın.
+4. Uygulamaya **MyApplication** adını verin. Sonra **Tamam**’ı seçin.
 
-   
-![Visual Studio'da yeni proje iletişim kutusu][1]
+   ![Visual Studio'da yeni proje iletişim kutusu][1]
 
-Sonraki iletişim kutusunda her türde Service Fabric uygulaması oluşturabilirsiniz. Bu Hızlı Başlangıç için **Durum Bilgisi Olan Hizmet**'i seçin.
+5. Sonraki iletişim kutusunda her türde Service Fabric uygulaması oluşturabilirsiniz. Bu hızlı başlangıç için **Durum Bilgisi Olan Hizmet**'i seçin.
 
-Hizmeti **MyStatefulService** olarak adlandırın ve **Tamam**'a basın.
+6. Hizmeti **MyStatefulService** olarak adlandırın. Sonra **Tamam**’ı seçin.
 
-![Visual Studio'da yeni hizmet iletişim kutusu][2]
+    ![Visual Studio'da yeni hizmet iletişim kutusu][2]
 
+    Visual Studio uygulama projesini ve durum bilgisi olan hizmet projesini oluşturur. Ardından bu projeleri Çözüm Gezgini'nde görüntüler.
 
-Visual Studio uygulama projesini ve durum bilgisi olan hizmet projesini oluşturup bu projeleri Çözüm Gezgini'nde görüntüler.
+    ![Durum bilgisi olan hizmeti içeren uygulama oluşturulduktan sonra Çözüm Gezgini][3]
 
-![Durum bilgisi olan hizmeti içeren uygulama oluşturulduktan sonra Çözüm Gezgini][3]
+    Uygulama projesi (**MyApplication**) hiçbir kod içermez. Bunun yerine, bir dizi hizmet projesine başvuru sağlar. Ayrıca üç farklı içerik türü daha vardır:
 
-Uygulama projesi (**MyApplication**) doğrudan kod içermez. Bunun yerine, bir dizi hizmet projesine başvuru sağlar. Ayrıca, bunlardan farklı olarak üç tür içerik daha barındırır:
+    * **Yayımlama profilleri**  
+    Farklı ortamlarda dağıtıma yönelik profiller.
 
-* **Yayımlama profilleri**  
-Farklı ortamlarda dağıtıma yönelik profiller.
+    * **Betikler**  
+    Uygulamanızı dağıtmaya veya yükseltmeye yönelik PowerShell betikleri.
 
-* **Betikler**  
-Uygulamanızı dağıtmak/yükseltmek için PowerShell betiği.
-
-* **Uygulama tanımı**  
-*ApplicationPackageRoot* altında uygulamanızın birleşimini açıklayan ApplicationManifest.xml dosyasını içerir. İlişkili uygulama parametresi dosyaları *ApplicationParameters* altındadır ve ortama özgü parametreleri belirtmek için kullanılabilir. Visual Studio, belirli bir ortama dağıtım yapılırken ilişkili yayımlama profilinde belirtilen uygulama parametresi dosyasını seçer.
+    * **Uygulama tanımı**  
+*ApplicationPackageRoot* altında uygulamanızın birleşimini açıklayan ApplicationManifest.xml dosyasını içerir. İlişkili uygulama parametresi dosyaları *ApplicationParameters* altındadır ve ortama özgü parametreleri belirtmek için kullanılabilir. Visual Studio, ilişkili yayımlama profilinde belirtilen uygulama parametresi dosyasını seçer.
     
 Hizmet projesinin içeriklerine genel bakış için bkz. [Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md).
 
 ## <a name="deploy-and-debug-the-application"></a>Uygulamayı dağıtma ve uygulamada hata ayıklama
 
-Artık bir uygulamanız olduğuna göre uygulamayı çalıştırın.
+Artık bir uygulamanız olduğuna göre, aşağıdaki adımları izleyerek bu uygulamayı çalıştırın, dağıtın ve hatalarını ayıklayın.
 
-Hata ayıklama için uygulamayı dağıtmak üzere Visual Studio'da `F5` tuşuna basın.
+1. Hata ayıklama amacıyla uygulamayı dağıtmak için Visual Studio'da F5'i seçin.
 
->[!NOTE]
->Uygulamayı yerel olarak ilk kez çalıştırdığınızda ve dağıttığınızda, Visual Studio hata ayıklama için yerel bir küme oluşturur. Bu işlem biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.
+    >[!NOTE]
+    >Uygulamayı yerel olarak ilk kez çalıştırdığınızda ve dağıttığınızda, Visual Studio hata ayıklama için yerel bir küme oluşturur. Bu işlem biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.
 
-Küme hazır olduğunda SDK'da bulunan yerel küme sistem tepsisi yöneticisi uygulamasından bir bildirim alırsınız.
+    Küme hazır olduğunda, SDK'da bulunan yerel küme sistem tepsisi yöneticisi uygulamasından bir bildirim alırsınız.
+    
+    ![Yerel küme sistemi tepsisi bildirimi][4]
+
+    Uygulama başlatıldıktan sonra, Visual Studio otomatik olarak Tanılama Olay Görüntüleyicisi'ni getirir. Bu görüntüleyicide hizmetlerinizin izleme çıktısını görürsünüz.
+    
+    ![Tanılama olayları görüntüleyicisi][5]
+
+    >[!NOTE]
+    >Olayların Tanılama Olay Görüntüleyicisi'nde hemen izlenmeye başlaması gerekir. Tanılama Olay Görüntüleyicisi'ni el ile yapılandırmanız gerekiyorsa, önce **MyStatefulService** projesinde yer alan `ServiceEventSource.cs` dosyasını açın. `ServiceEventSource` sınıfının üstündeki `EventSource` özniteliğinin değerini kopyalayın. Aşağıdaki örnekte olay kaynağı `"MyCompany-MyApplication-MyStatefulService"` olarak adlandırılır. Bu, sizin durumunuzda farklılık gösterebilir.
+>
+    >![Hizmet Olay Kaynağı Adını Bulma][service-event-source-name]
+
+
+2. Ardından, **ETW Sağlayıcıları** iletişim kutusunu açın. Sonra **Tanılama Olayları** sekmesindeki dişli simgesini seçin. Kopyaladığınız olay kaynağının adını **ETW Sağlayıcıları** giriş kutusuna yapıştırın. Sonra **Uygula** düğmesini seçin. Bu, izleme olaylarını otomatik olarak başlatır.
+
+    ![Tanılama Olayı kaynak adını ayarlama][setting-event-source-name]
+
+    Artık Tanılama Olayları penceresinde olayları görüyor olmalısınız.
+
+    Durum bilgisi olan hizmet şablonu, **MyStatefulService.cs**'nin `RunAsync` yönteminde artan sayaç değerini gösterir.
+
+3. Kodun çalıştığı düğüm dahil olmak üzere daha fazla ayrıntı görmek için olaylardan birini genişletin. Bu durumda, **\_Node\_0** genişletilir ancak sizin makinenize farklı olabilir.
    
-![Yerel küme sistemi tepsisi bildirimi][4]
+    ![Tanılama olayları görüntüleyicisi ayrıntıları][6]
 
-Uygulama başlatıldığında, Visual Studio otomatik olarak **Tanılama Olay Görüntüleyicisi**'ni getirir. Bu görüntüleyicide hizmetlerinizin izleme çıktısını görürsünüz.
-   
-![Tanılama olayları görüntüleyicisi][5]
+4. Yerel küme, tek bir makinede barındırılan beş düğüm içerir. Üretim ortamında, her düğüm ayrı fiziksel veya sanal makinelerde barındırılır. Visual Studio hata ayıklayıcısını denerken makine kaybı benzetimi gerçekleştirmek için yerel kümedeki düğümlerden birini devre dışı bırakalım.
 
->[!NOTE]
->Olaylar, Tanılama Olay Görüntüleyicisi’nde otomatik olarak izlemeye başlamalıdır, ancak el ile yapılandırmanız gerektiği durumlarda önce **MyStatefulService** projesinde bulunan `ServiceEventSource.cs` dosyasını açın. `ServiceEventSource` sınıfının üstündeki `EventSource` özniteliğinin değerini kopyalayın. Aşağıdaki örnekte olay kaynağı `"MyCompany-MyApplication-MyStatefulService"` olarak adlandırılır. Bu, sizin durumunuzda farklılık gösterebilir.
->
->![Hizmet Olay Kaynağı Adını Bulma][service-event-source-name]
->
->Daha sonra, Tanılama Olay Görüntüleyicisi sekmesinde yer alan dişli simgesine tıklayarak **ETW Providers** iletişimini açın. Az önce kopyaladığınız olay kaynağının adını **ETW Sağlayıcıları** girdi kutusuna yapıştırın. Ardından **Uygula** düğmesine tıklayın. Bu, izleme olaylarını otomatik olarak başlatır.
->
->![Tanılama Olay Kaynağı Adını Ayarlama][setting-event-source-name]
->
->Artık olaylar Tanılama Olayları penceresinde görüntülenebilmelidir.
+5. **Çözüm Gezgini** penceresinde, **MyStatefulService.cs**'yi açın. 
 
-Kullandığımız durum bilgisi olan hizmet şablonu, **MyStatefulService.cs**'nin `RunAsync` metodunda artan sayaç değerini gösterir.
+6. `RunAsync` yöntemini bulun ve yöntemin ilk satırında bir kesme noktası ayarlayın.
 
-Kodun çalıştığı düğüm dahil olmak üzere daha fazla ayrıntı görmek için olaylardan birini genişletin. Bu durumda, \_Node\_0 genişletilir ancak makinenize göre değişiklik gösterebilir.
-   
-![Tanılama olayları görüntüleyicisi ayrıntıları][6]
+    ![Durum bilgisi olan hizmetin RunAsync yönteminde kesme noktası ayarlama][7]
 
-Yerel küme, tek bir makinede barındırılan beş düğüm içerir. Üretim ortamında, her düğüm ayrı fiziksel veya sanal makinelerde barındırılır. Makine kaybı benzetimi gerçekleştirirken aynı zamanda Visual Studio hata ayıklayıcısını denemek için yerel kümedeki düğümlerden birini ele alalım.
+7. **Yerel Küme Yöneticisi** sistem tepsisi uygulamasına sağ tıklayıp **Yerel Kümeyi Yönet**'i seçerek Service Fabric Explorer aracını başlatın.
 
-**Çözüm Gezgini** penceresinde, **MyStatefulService.cs**'yi açın. 
+    ![Yerel küme yöneticisinden Service Fabric Explorer'ı başlatma][systray-launch-sfx]
 
-`RunAsync` yöntemini bulun ve yöntemin ilk satırında bir kesme noktası ayarlayın.
+    [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) kümenin görsel bir gösterimini sağlar. Kümeye dağıtılan uygulama grubunu ve kümeyi oluşturan fiziksel düğüm grubunu içerir.
 
-![Durum bilgisi olan hizmetin RunAsync yönteminde kesme noktası ayarlama][7]
+8. Sol bölmede **Küme** > **Düğümler** kısmını genişletin ve kodunuzun çalıştığı düğümü bulun. Ardından, makine yeniden başlatma işleminin benzetimini yapmak için **Eylemler** > **Devre Dışı Bırak (Yeniden Çalıştır)** öğesini seçin.
 
-**Yerel Küme Yöneticisi** sistem tepsisine sağ tıklayıp **Yerel Kümeyi Yönet**'i seçerek **Service Fabric Explorer** aracını başlatın.
+    ![Service Fabric Explorer'da bir düğümü durdurma][sfx-stop-node]
 
-![Yerel Küme Yöneticisi'nden Service Fabric Explorer'ı başlatma][systray-launch-sfx]
+    Bir düğümde yaptığınız işlem sorunsuz şekilde başka bir düğüme devredildiğinden kısa süre içinde Visual Studio'da kesme noktası isabetini göreceksiniz.
 
-[**Service Fabric Explorer**](service-fabric-visualizing-your-cluster.md) kümenin görsel bir gösterimini sağlar. Kümeye dağıtılan uygulama grubunu ve kümeyi oluşturan fiziksel düğüm grubunu içerir.
+9. Ardından, Tanılama Olayları Görüntüleyicisi'ne geri dönün ve iletileri gözlemleyin. Olaylar farklı bir düğümden geliyor olsa bile sayaç artmaya devam etti.
 
-Sol bölmede **Küme > Düğümler** kısmını genişletin ve kodunuzun çalıştığı düğümü bulun.
+    ![Yük devretme sonrası tanılama olayları görüntüleyicisi][diagnostic-events-viewer-detail-post-failover]
 
-Makinenin yeniden çalıştırılmasının benzetimini gerçekleştirmek için **Eylemler > Devre Dışı Bırak (Yeniden Çalıştır)** seçeneklerine tıklayın.
-
-![Service Fabric Explorer'da bir düğümü durdurma][sfx-stop-node]
-
-Bir düğümde yaptığınız işlem sorunsuz şekilde başka bir düğüme devredildiğinden kısa süre içinde Visual Studio'da kesme noktası isabetini göreceksiniz.
-
-
-Ardından, Tanılama Olayları Görüntüleyicisi'ne geri dönün ve iletileri gözlemleyin. Olaylar farklı bir düğümden geliyor olsa bile sayaç artmaya devam etti.
-
-![Yük devretme sonrası tanılama olayları görüntüleyicisi][diagnostic-events-viewer-detail-post-failover]
-
-## <a name="cleaning-up-the-local-cluster-optional"></a>Yerel kümeyi temizleme (isteğe bağlı)
+## <a name="clean-up-the-local-cluster-optional"></a>Yerel kümeyi temizleme (isteğe bağlı)
 
 Bu yerel kümenin gerçek olduğunu unutmayın. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır. Ama küme arka planda çalışmaya devam eder. Yerel kümeyi durdurmaya hazır olduğunuzda, birkaç seçeneğiniz vardır.
 
@@ -136,12 +132,12 @@ Bu yerel kümenin gerçek olduğunu unutmayın. Hata ayıklayıcının durdurulm
 
 ### <a name="delete-the-cluster-and-all-data"></a>Kümeyi ve tüm verileri silme
 
-**Yerel Küme Yöneticisi** sistem tepsisi uygulamasına sağ tıklayıp **Yerel Kümeyi Kaldır**'ı seçerek kümeyi kaldırın. 
+Kümeyi kaldırmak için **Yerel Küme Yöneticisi** sistem tepsisi uygulamasına sağ tıklayın. Ardından **Yerel Kümeyi Kaldır**'ı seçin. 
 
 Bu seçeneği kullanırsanız, uygulamayı bir sonraki çalıştırışınızda Visual Studio kümeyi yeniden dağıtır. Bu seçeneği yalnızca yerel kümeyi bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Reliable services](service-fabric-reliable-services-introduction.md) hakkındaki diğer yazıları okuyun.
+[Reliable Services](service-fabric-reliable-services-introduction.md) hakkındaki diğer yazıları okuyun.
 <!-- Image References -->
 
 [1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog.png
@@ -155,6 +151,10 @@ Bu seçeneği kullanırsanız, uygulamayı bir sonraki çalıştırışınızda 
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png

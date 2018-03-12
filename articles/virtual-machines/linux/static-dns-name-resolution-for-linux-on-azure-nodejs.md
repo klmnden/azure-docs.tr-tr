@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.openlocfilehash: bfba2cf38a0624e8480a32bf153f391d820da5a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73e780123f4582c9fa78975324e7904c85f87be
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Azure VM ad çözümlemesi için iç DNS kullanma
 
@@ -94,7 +94,7 @@ azure group create myResourceGroup \
 
 ## <a name="create-the-vnet"></a>Sanal ağ oluşturma
 
-İlk adım, içine sanal makineleri başlatmak için bir VNet oluşturmaktır.  Sanal ağ Bu izlenecek yol için bir alt ağ içerir.  Azure sanal ağlar hakkında daha fazla bilgi için bkz: [Azure CLI kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+İlk adım, içine sanal makineleri başlatmak için bir VNet oluşturmaktır.  Sanal ağ Bu izlenecek yol için bir alt ağ içerir.  Azure sanal ağlar hakkında daha fazla bilgi için bkz: [bir sanal ağ oluşturma](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)
 
 ```azurecli
 azure network vnet create myVNet \

@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Bir sanal ağ ile birden fazla alt ağ (Klasik) oluşturun
 
 > [!IMPORTANT]
-> Azure sahip iki [farklı dağıtım modellerini](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmak ve kaynaklarla çalışmak için: Resource Manager ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft önerir üzerinden çoğu yeni sanal ağlar oluşturma [Resource Manager](virtual-networks-create-vnet-arm-pportal.md) dağıtım modeli.
+> Azure sahip iki [farklı dağıtım modellerini](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmak ve kaynaklarla çalışmak için: Resource Manager ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft önerir üzerinden çoğu yeni sanal ağlar oluşturma [Resource Manager](quick-create-portal.md) dağıtım modeli.
 
 Bu öğreticide, ayrı ortak ve özel alt ağları olan bir temel Azure sanal ağ (Klasik) oluşturmayı öğrenin. Sanal makineler ve bir alt ağdaki bulut Hizmetleri gibi Azure kaynaklarını oluşturabilirsiniz. Sanal ağları (Klasik) oluşturulan kaynakları birbirleriyle ve diğer ağlarda, sanal bir ağa bağlı kaynaklar ile iletişim kurabilir.
 
-Tüm hakkında daha fazla bilgi [sanal ağ](virtual-network-manage-network.md) ve [alt](virtual-network-manage-subnet.md) ayarlar.
+Tüm hakkında daha fazla bilgi [sanal ağ](manage-virtual-network.md) ve [alt](virtual-network-manage-subnet.md) ayarlar.
 
 > [!WARNING]
 > Sanal ağları (Klasik), Azure tarafından hemen silinir, bir [abonelik devre dışı](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Sanal ağları (Klasik) kaynakları sanal ağında mevcut bağımsız olarak silinir. Daha sonra aboneliği yeniden etkinleştirirseniz, sanal ağ içinde var olan kaynakların yeniden oluşturulmalıdır.
@@ -161,7 +161,7 @@ Bir sanal ağ (Klasik) kullanarak oluşturabileceğiniz [Azure portal](#portal),
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Tüm sanal ağ ve alt ağ ayarları hakkında bilgi edinmek için bkz: [sanal ağlarını yönetmeleri](virtual-network-manage-network.md) ve [sanal ağ alt ağlarını yönetin](virtual-network-manage-subnet.md). Sanal ağlar ve alt ağları farklı gereksinimlerini karşılamak için bir üretim ortamında kullanmadan yönelik çeşitli seçenekleriniz vardır.
+- Tüm sanal ağ ve alt ağ ayarları hakkında bilgi edinmek için bkz: [sanal ağlarını yönetmeleri](manage-virtual-network.md) ve [sanal ağ alt ağlarını yönetin](virtual-network-manage-subnet.md). Sanal ağlar ve alt ağları farklı gereksinimlerini karşılamak için bir üretim ortamında kullanmadan yönelik çeşitli seçenekleriniz vardır.
 - Alt ağa gelen ve giden trafiği filtrelemek, oluşturmak ve uygulamak için [ağ güvenlik grubu](virtual-networks-nsg.md) alt ağlara.
 - Oluşturma bir [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makine ve mevcut bir sanal ağa bağlayın.
 - İki sanal ağ ile aynı konumda Azure bağlanmak için oluşturmanız bir [sanal ağ eşlemesi](create-peering-different-deployment-models.md) sanal ağlar arasında. Sanal ağ (Klasik) için bir sanal ağ (Resource Manager) eşi, ancak eşlemesi iki sanal ağ arasında (Klasik) oluşturulamıyor.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 341ace1d9792aba3d6d525a2cde0d9b74367d214
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -49,7 +49,7 @@ Azure dosya eşitleme Aracısı'nı Windows Server'ın bir Azure dosya paylaşı
 Sunucusu uç noktası kayıtlı bir sunucuda, bir sunucu birimdeki bir klasörü gibi belirli bir konuma temsil eder. Kendi ad alanları çakışmıyorsa birden çok sunucu bitiş noktaları aynı birimde bulunabilir (örneğin, `F:\sync1` ve `F:\sync2`). Bulut katmanlama ilkeleri her sunucusu uç noktası için ayrı ayrı yapılandırabilirsiniz. Şu anda bir birim kök sunucusu uç noktası oluşturmak mümkün değildir (örneğin `F:\` veya `C:\myvolume`, bir birimin bir bağlama noktası olarak bağlı değilse).
 
 > [!Note]  
-> Sunucusu uç noktası Windows Sistem biriminde bulunabilir. Bulut katmanlandırma sistem biriminde desteklenmiyor.
+> Yalnızca çıkarılamaz birimleri desteklenir.  Uzak bir paylaşımdan eşlenen sürücüler için bir sunucu bitiş noktası yolu desteklenmez.  Ayrıca, bir sunucu uç noktası bulunabilir sistem birimi rağmen bulut Windows'ta katmanlama sistem biriminde desteklenmiyor.
 
 Var olan bir dosya sunucusu uç noktası bir eşitleme grubuna sahip bir sunucu konumu eklerseniz, bu dosyaları eşitleme grubundaki diğer uç nokta zaten bulunan diğer dosyaları ile birleştirilir.
 

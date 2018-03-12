@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 467428462260596f21ba59f49e3c48b5fc2526b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 178f4d6dab5c87c9c53ab87c4a3b1edcfa61c221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>OpenShift azure'da dağıtmak için ortak önkoşulları
 
@@ -52,7 +52,7 @@ Bu kılavuz Önkoşullar ile ilişkilendirilmiş yapıların oluşturmayı açı
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
-Oturum açtığınızda, Azure aboneliğinizle [az oturum açma](/cli/azure/#az_login) komut ve izleyin ekrandaki yönergeleri veya tıklatın **deneyin** bulut Kabuğu'nu kullanmak için.
+Oturum açtığınızda, Azure aboneliğinizle [az oturum açma](/cli/azure/reference-index#az_login) komut ve izleyin ekrandaki yönergeleri veya tıklatın **deneyin** bulut Kabuğu'nu kullanmak için.
 
 ```azurecli 
 az login

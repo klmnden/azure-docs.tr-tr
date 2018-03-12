@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2679c7cb75c438402f3ab64c3e14c964cb8a85d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d551758277373995a6f92e1a25a59d170464fe5e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir sanal makine için özel IP adreslerini yapılandırın
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 > * [Azure portal (Klasik)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -41,7 +41,7 @@ Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. Ayrıca [Klasi
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Aşağıdaki örnek adımları zaten oluşturulmuş basit bir ortam bekler. Bu belgede gösterildiği adımları çalıştırmak istiyorsanız, önce açıklanan test ortamı oluşturmak [vnet oluşturma](virtual-networks-create-vnet-arm-pportal.md).
+Aşağıdaki örnek adımları zaten oluşturulmuş basit bir ortam bekler. Bu belgede gösterildiği adımları çalıştırmak istiyorsanız, önce açıklanan test ortamı oluşturmak [bir sanal ağ oluşturma](quick-create-portal.md).
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Özel statik IP adresleri test etmek için bir VM oluşturma
 Azure portalı kullanarak bir VM Resource Manager dağıtım modunda oluşturulması sırasında özel bir statik IP adresi ayarlanamıyor. İlk VM oluşturma sonra kendi özel IP statik olarak ayarlayın.

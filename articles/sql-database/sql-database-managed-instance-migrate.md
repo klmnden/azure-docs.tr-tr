@@ -11,11 +11,11 @@ ms.custom: managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 44a02ac20a9e9e5fb7171d28e4852ab1a6e63881
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 87efa41ce74a0d571c8fd5f7a0ebfbd7bc6b626e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server örneği geçiş yönetilen Azure SQL veritabanı örneğine
 
@@ -75,7 +75,7 @@ SQL örnekleri taşımak için dikkatli bir şekilde planlamanız gerekir:
 
 Yönetilen örneği bunlar yerleşik olarak gibi bazı platform normal DBA etkinlikleri temsilci olanak sağlayan tam olarak yönetilen bir hizmettir. Bu nedenle, bazı örnek düzeyinde veri, düzenli yedeklemeler veya her zaman açık yapılandırması, bakım işleri gibi olarak geçirilmesi gerekmez [yüksek kullanılabilirlik](sql-database-high-availability.md) yerleşiktir.
 
-Yönetilen örnek destekliyorsa aşağıdaki geçiş seçenekleri birkaç veritabanı:
+Yönetilen örneği (şu anda bunlar yalnızca desteklenen geçiş yöntemleridir) aşağıdaki veritabanı geçiş seçeneklerini destekler:
 
 ### <a name="azure-database-migration-service"></a>Azure Veritabanı Geçiş Hizmeti
 

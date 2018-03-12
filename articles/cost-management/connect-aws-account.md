@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a82d803b51859f809ca5a39ce177697a1f66a008
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4a0280420132aad9f1e0b17d5998ec225bb0eaa1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services hesabınız Bağlan
 
@@ -100,4 +100,4 @@ Maliyet yönetimi, veri toplama ve raporlar doldurma başlatır. Ancak, bazı iy
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure maliyeti Yönetimi Cloudyn tarafından hakkında daha fazla bilgi için devam [kullanım ve maliyetleri gözden geçirin](tutorial-review-usage.md) maliyet Yönetimi Öğreticisi.
+- Azure maliyeti yönetimi hakkında daha fazla bilgi edinmek için devam [gözden kullanım ve maliyetleri](tutorial-review-usage.md) maliyet Yönetimi Öğreticisi.

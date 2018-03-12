@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği (genel Önizleme) uygulama hizmeti ve Azure işlevleri kullanma
 
@@ -56,7 +56,7 @@ Azure CLI kullanarak bir yönetilen hizmet kimliği ayarlamak için kullanmanız
 
 Aşağıdaki adımlar bir web uygulaması oluşturma ve CLI kullanarak bir kimlik atama size yol gösterir:
 
-1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#az_login). Altında uygulamayı dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/reference-index#az_login). Altında uygulamayı dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
 
     ```azurecli-interactive
     az login
@@ -126,13 +126,13 @@ Burada `<TENANTID>` ve `<PRINCIPALID>` GUID'lerini aşağıdaki ile değiştiril
 Bir uygulama kimliğini Azure anahtar kasası gibi AAD tarafından korunan diğer kaynaklara belirteçleri almak için kullanabilirsiniz. Bu belirteçler, kaynak ve hiçbir belirli bir kullanıcı uygulamanın erişim uygulama temsil eder. 
 
 > [!IMPORTANT]
-> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç istemek, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğiniz emin olmanız gerekir. Belirteç içeriyorsa bile Aksi halde, anahtar kasası aramalarınız, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](../active-directory/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç istemek, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğiniz emin olmanız gerekir. Belirteç içeriyorsa bile Aksi halde, anahtar kasası aramalarınız, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
 
 Uygulama hizmeti ve Azure işlevleri bir belirteç almak için basit bir REST protokol yoktur. .NET uygulamaları için Microsoft.Azure.Services.AppAuthentication kitaplığı bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimi destekler.
 
 ### <a name="asal"></a>.NET için Microsoft.Azure.Services.AppAuthentication kitaplığı kullanma
 
-.NET uygulamaları ve işlevleri için bir yönetilen hizmet kimliği ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık ayrıca kodunuzu makinenizde Visual Studio'dan kullanıcı hesabınızı kullanarak yerel olarak geliştirme, test sağlayacak [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Services.AppAuthentication başvuru]. Bu bölümde, kodunuzu kitaplıkta kullanmaya başlama gösterilmiştir.
+.NET uygulamaları ve işlevleri için bir yönetilen hizmet kimliği ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık ayrıca kodunuzu makinenizde Visual Studio'dan kullanıcı hesabınızı kullanarak yerel olarak geliştirme, test sağlayacak [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Services.AppAuthentication başvuru]. Bu bölümde, kodunuzu kitaplıkta kullanmaya başlama gösterilmiştir.
 
 1. Başvurular ekleyin [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) uygulamanıza NuGet paketleri.
 

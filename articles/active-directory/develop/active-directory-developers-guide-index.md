@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d3b22927017e445ee3b6cea3e92edc0fb786cd8c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD Geliştirici Kılavuzu'ndaki makaleler
 Azure Active Directory Geliştirici Kılavuzu'nda kapsamdaki tüm konuların listesi verilmiştir.
@@ -43,7 +43,7 @@ Bu makaleler, belirli kavramlar ve Azure Active Directory özelliklerini açıkl
 | [Office 365 Satıcı Panosu](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | O365 satıcı Panosu'na bir uygulama yayımlama |
 | [Visual Studio Connected Services](vs-active-directory-dotnet-getting-started.md)                                               | Azure AD tümleştirme Visual Studio projelerinde MVC ile kullanma |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Şirket içi ADFS kullanarak Active Directory ile tümleştirme |
-| [ADAL hatalarıyla ilgili en iyi uygulamalar](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Şirket içi ADFS kullanarak Active Directory ile tümleştirme |
+| [ADAL hatalarıyla ilgili en iyi uygulamalar](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Dayanıklı hata işleme yapı ve günlüğü etkinleştirme |
 
 ## <a name="reference"></a>Başvuru
 Bu makaleler REST ve kimlik doğrulama kitaplığı API'leri, protokolleri, hataları, kod örnekleri ve uç noktaları için bir temel sunar.
