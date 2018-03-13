@@ -87,6 +87,8 @@
       items:
         - name: SSH düğümü erişimi
           href: aks-ssh.md
+        - name: Kubelet günlüklerini alma
+          href: kubelet-logs.md
 - name: Başvuru
   items:
     - name: Azure CLI

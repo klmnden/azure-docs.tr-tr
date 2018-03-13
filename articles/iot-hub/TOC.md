@@ -5,7 +5,7 @@
 ## [Azure IoT Hub nedir?](iot-hub-what-is-iot-hub.md)
 ## [Cihaz yönetimine genel bakış](iot-hub-device-management-overview.md)
 
-# [Başlarken](iot-hub-get-started.md)
+# [Kullanmaya başlama](iot-hub-get-started.md)
 
 ## Cihazınızı kurma
 ### [Bilgisayarınızda bir cihazı benzetme](iot-hub-get-started-simulated.md)
@@ -42,6 +42,7 @@
 
 ## MXChip IoT DevKit kullanma
 ### [Azure Bilişsel Hizmetler'le sesli mesajı çevirme](iot-hub-arduino-iot-devkit-az3166-translator.md)
+### [Azure İşlevleri içeren bir Twitter iletisini alma](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 # Nasıl yapılır kılavuzları
 ## Planlama

@@ -97,7 +97,7 @@
       items:
         - name: Uygulamayı dağıtma
           items:
-            - name: ZIP dosyası dağıtma
+            - name: ZIP veya WAR dağıtma
               href: app-service-deploy-zip.md
             - name: FTP aracılığıyla dağıtma
               href: app-service-deploy-ftp.md

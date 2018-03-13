@@ -3,7 +3,7 @@ documentType: LandingData
 title: "Azure Maliyet Yönetimi Belgeleri"
 metadata:
   title: "Maliyet Yönetimi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-  description: "Cloudyn’in sunduğu Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını kullanmanıza yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin."
+  description: "Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını kullanmanıza yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin."
   services: cost-management
   author: czeumault
   manager: carolz
@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
-  ms.openlocfilehash: d277487ff94578643fd455e460e49299938590d7
-  ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
+  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 11/07/2017
+  ms.lasthandoff: 03/09/2018
 abstract:
-  description: "Cloudyn’in sunduğu Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını en iyi şekilde kullanıp yönetmenize yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin."
+  description: "Microsoft’un yan kuruluşu olan Cloudyn tarafından lisanslanan Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını en iyi şekilde kullanıp yönetmenize yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin."
 sections:
 - title: "5 Dakikalık Hızlı Başlangıçlar"
   items:

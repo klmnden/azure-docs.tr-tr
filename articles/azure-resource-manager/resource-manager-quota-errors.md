@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/27/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d2cc760bf516e8ee96629886120a1bb092932a82
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Kaynak kotaları hatalarını çözümleme
 
@@ -47,9 +47,9 @@ please delete some resources of this type before creating a new one.
 Kotalar, kaynak grubu, abonelikler, hesapları ve diğer kapsamları uygulanır. Örneğin, aboneliğinizi bir bölge için çekirdek sayısını sınırlamak için yapılandırılabilir. İzin verilen miktardan daha fazla çekirdeğe sahip bir sanal makineyi dağıtma girişiminde, kota aşıldı bildiren bir hata alırsınız.
 Tam kota bilgi için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
 
-## <a name="solution"></a>Çözüm
+## <a name="troubleshooting"></a>Sorun giderme
 
-### <a name="solution-1"></a>Çözüm 1
+### <a name="azure-cli"></a>Azure CLI
 
 Azure CLI için şunu kullanın `az vm list-usage` sanal makine kotaları bulmak için komutu.
 
@@ -73,7 +73,7 @@ Hangi döndürür:
 ]
 ```
 
-### <a name="solution-2"></a>Çözüm 2
+### <a name="powershell"></a>PowerShell
 
 İçin PowerShell kullanın **Get-AzureRmVMUsage** sanal makine kotaları bulmak için komutu.
 
@@ -91,7 +91,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>Çözüm 3
+## <a name="solution"></a>Çözüm
 
 Kota artışı isteği göndermek üzere, Portalı'na gidin ve bir destek sorununu dosya. Destek sorunu dağıtmak istediğiniz bölgeyi için kota artış isteyin.
 
