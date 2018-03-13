@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory'deki tümleştirme çalışma zamanı
 Integration Runtime (IR), Azure Data Factory tarafından farklı ağ ortamlarında aşağıdaki veri tümleştirme özelliklerini sunmak için kullanılan işlem altyapısıdır:
@@ -123,7 +123,7 @@ Aşağıdaki şemada iki kopyalama etkinliği örneği verilmiştir:
 ![Kullanılacak IR](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Tümleştirme çalışma zamanının konumu
-Data Factory konumu, veri fabrikası meta verilerinin depolandığı ve işlem hattı tetiklemesinin başlatıldığı konumdur. Şu an için desteklenen Data Factory konumları: Doğu ABD, Doğu ABD 2 ve Batı Avrupa. Ancak, verileri veri depoları arasında taşımak ve işlem hizmetlerini kullanarak verileri işlemek amacıyla data factory başka Azure bölgelerindeki veri depolarına ve işlem hizmetlerine erişebilir. Bu davranış veri uyumluluğu, verimlilik ve düşük ağ kullanım maliyetleri için global ölçekte birden fazla bölgede bulunan IR aracılığıyla gerçekleştirilir.
+Data Factory konumu, veri fabrikası meta verilerinin depolandığı ve işlem hattı tetiklemesinin başlatıldığı konumdur. Şu anda desteklenen Data Factory konumları: Doğu ABD, Doğu ABD 2, Güneydoğu Asya ve Batı Avrupa. Ancak, verileri veri depoları arasında taşımak ve işlem hizmetlerini kullanarak verileri işlemek amacıyla data factory başka Azure bölgelerindeki veri depolarına ve işlem hizmetlerine erişebilir. Bu davranış veri uyumluluğu, verimlilik ve düşük ağ kullanım maliyetleri için global ölçekte birden fazla bölgede bulunan IR aracılığıyla gerçekleştirilir.
 
 IR Konumu arka uç işleminin konumunu tanımlar ve bu veri taşıma, etkinlik dağıtımı ve SSIS paket yürütme işlemlerinin gerçekleştirileceği konumdur. IR konumu veri fabrikasının ait olduğu konumdan farklı olabilir. Aşağıdaki şemada Data Factory konum ayarları ve tümleştirme çalışma zamanları gösterilmektedir:
 
@@ -176,7 +176,7 @@ Kendinden konak IR, mantıksal olarak Data Factory'ye kayıtlıdır ve işlevini
 Kendinden konak IR veri taşıma işlemini gerçekleştirmek için kullanıldığında kaynaktan veri ayıklar ve hedefe yazar.
 
 ### <a name="azure-ssis-ir"></a>Azure-SSIS IR
-Ayıklama, dönüştürme, yükleme (ETL) iş akışlarınızda yüksek performansa ulaşmak için doğru Azure-SSIS IR konumunu seçmek önemlidir.  Önizleme sürümünde iki konum (Doğu ABD ve Kuzey Avrupa) kullanılabilir.
+Ayıklama, dönüştürme, yükleme (ETL) iş akışlarınızda yüksek performansa ulaşmak için doğru Azure-SSIS IR konumunu seçmek önemlidir.  Önizleme sürümünde altı konum (Doğu ABD, Doğu ABD 2, Orta ABD, Avustralya Doğu, Kuzey Avrupa ve Batı Avrupa) kullanılabilir.
 
 - Azure-SSIS IR konumunun veri fabrikası konumu ile aynı olması gerekmez ancak SSISDB'nin barındırılacağı Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucusunun konumuyla aynı olmalıdır. Bu şekilde Azure-SSIS Integration Runtime biriminiz farklı konumlar arasında aşırı trafik oluşturmadan kolayca SSISDB öğesine erişebilir.
 - SSISDB'yi barındırmak için var olan bir Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucunuz yoksa ancak şirket içi veri kaynaklarınız/hedeflerini varsa şirket içi ağınıza bağlı sanal ağ ile aynı konumda yeni bir Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucusu oluşturmanız gerekir.  Bu şekilde Azure-SSIS IR öğenizi yeni Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucunu kullanarak oluşturabilir ve tümünü aynı konumdaki sanal ağa ekleyerek farklı konumlar arasında veri taşıma sayısını en aza indirebilirsiniz.

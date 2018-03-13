@@ -114,6 +114,12 @@
       items:
         - name: Bağlantılı çözümler
           href: security-center-partner-solutions.md
+        - name: Bulunan çözümler
+          href: 'security-center-partner-integration.md#discovered-solutions'
+        - name: Dış çözümleri bağlama
+          href: quick-security-solutions.md
+        - name: Application Gateway’i bağlama
+          href: security-center-connect-application-gateway.md
         - name: Microsoft ATA bağlantısı kurma
           href: security-center-ata-integration.md
         - name: Azure AD Kimlik Koruması bağlantısı kurma

@@ -15,19 +15,19 @@
 # Başlarken
 ## [Ağ İzleyicisi’ni yapılandırma](network-watcher-create.md)
 ## Paket yakalamayı yönetme
-### [Azure portalı](network-watcher-packet-capture-manage-portal.md)
+### [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 ### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
 ### [Azure CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ### [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## VM’e giden ve VM’den gelen IP akışlarını doğrulama
-### [Azure portalı](network-watcher-check-ip-flow-verify-portal.md)
+### [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
 ### [Azure PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [Azure CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 ### [Azure CLI](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Sonraki atlamayı çözümleme
-### [Azure portalı](network-watcher-check-next-hop-portal.md)
+### [Azure Portal](network-watcher-check-next-hop-portal.md)
 ### [Azure PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [Azure CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 ### [Azure CLI](network-watcher-check-next-hop-cli.md)
@@ -38,7 +38,7 @@
 ### [Azure CLI](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## VPN Gateway ve bağlantı sorunlarını giderme
-### [Azure portalı](network-watcher-troubleshoot-manage-portal.md)
+### [Azure Portal](network-watcher-troubleshoot-manage-portal.md)
 ### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [Azure CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
@@ -49,12 +49,12 @@
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Bağlantı sorunlarını giderme
-### [Azure portalı](network-watcher-connectivity-portal.md)
+### [Azure Portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
 ## NSG akış günlüklerini yapılandırma
-### [Azure portalı](network-watcher-nsg-flow-logging-portal.md)
+### [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 ### [Azure CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
@@ -73,7 +73,9 @@
 ### [Açık kaynak araçlar kullanarak ağ trafiği desenlerini görselleştirme](network-watcher-using-open-source-tools.md)
 ## NSG akış günlüklerini analiz etme
 ### [NSG akış günlüklerini okuma](network-watcher-read-nsg-flow-logs.md)
-### [Trafik Analizi kullanma](traffic-analytics.md)
+### Trafik Analizi
+#### [Trafik Analizi kullanma](traffic-analytics.md)
+#### [Sık sorulan sorular](traffic-analytics-faq.md)
 ### [Power BI kullanma](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Elastik Yığın kullanma](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Grafana kullanma](network-watcher-nsg-grafana.md)

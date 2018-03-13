@@ -27,6 +27,7 @@
 ### [Kimlik doğrulama ve güvenlik modeline genel bakış](event-hubs-authentication-and-security-model-overview.md)
 ### [Kullanılabilirlik ve tutarlılık](event-hubs-availability-and-consistency.md)
 ### [İşleme birimlerini otomatik ölçeklendirme](event-hubs-auto-inflate.md)
+### [Apache Spark ile Event Hubs’ı tümleştirme](event-hubs-spark-connector.md)
 ## Geliştirme
 ### [.NET Framework kullanarak olayları gönderme](event-hubs-dotnet-framework-getstarted-send.md)
 ### [.NET Framework kullanarak olayları alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)
