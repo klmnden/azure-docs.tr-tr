@@ -35,6 +35,7 @@
 ### Uzak Masaüstü’nü Yapılandırma
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Dağıtma
 ### [Portalda bulut hizmeti oluşturma ve dağıtma](cloud-services-how-to-create-deploy-portal.md)
