@@ -11,11 +11,11 @@ ms.custom: managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: bonova
-ms.openlocfilehash: 87efa41ce74a0d571c8fd5f7a0ebfbd7bc6b626e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2ff8c6cad7f9c63fe6403fbf292fa3eab3373aed
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server örneği geçiş yönetilen Azure SQL veritabanı örneğine
 
@@ -83,7 +83,7 @@ Yönetilen örneği (şu anda bunlar yalnızca desteklenen geçiş yöntemleridi
 
 ![DMS](./media/sql-database-managed-instance-migration/dms.png)
 
-DMS için bu senaryo ve yapılandırma adımları hakkında daha fazla bilgi için bkz: [şirket içi veritabanı DMS kullanarak örneğini yönetilen geçirme](../dms/tutorial-sql-server-to-azure-sql.md).  
+DMS için bu senaryo ve yapılandırma adımları hakkında daha fazla bilgi için bkz: [şirket içi veritabanı DMS kullanarak örneğini yönetilen geçirme](../dms/tutorial-sql-server-to-managed-instance.md).  
 
 ### <a name="native-restore-from-url"></a>URL yerel YEDEKTEN geri yükleyin
 
@@ -129,4 +129,4 @@ Güvenliği güçlendirmek için kullanabileceğiniz özelliklerden bazıların�
 
 - Yönetilen örneği hakkında daha fazla bilgi için bkz: [yönetilen örneği nedir?](sql-database-managed-instance.md)
 - Bir yedekten geri içeren bir öğretici için bkz [bir yönetilen örneği oluşturmayı](sql-database-managed-instance-tutorial-portal.md).
-- DMS kullanarak Eğitmen gösteren geçiş için bkz: [şirket içi veritabanı DMS kullanarak örneğini yönetilen geçirme](../dms/tutorial-sql-server-to-azure-sql.md).  
+- DMS kullanarak Eğitmen gösteren geçiş için bkz: [şirket içi veritabanı DMS kullanarak örneğini yönetilen geçirme](../dms/tutorial-sql-server-to-managed-instance.md).  

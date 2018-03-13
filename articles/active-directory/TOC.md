@@ -95,7 +95,7 @@
 ### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](active-directory-groups-restore-azure-portal.md)
 ### Grup ayarlarını yönetme
-#### [Azure portal](active-directory-groups-settings-azure-portal.md)
+#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlet’ler](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Gelişmiş kurallar oluşturma
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
@@ -290,9 +290,10 @@
 ### [Yönetici rolleri](active-directory-assign-admin-roles-azure-portal.md)
 #### [Kullanıcıya yönetici rolü atama](active-directory-users-assign-role-azure-portal.md)
 #### [Üye ve konuk kullanıcı izinlerini karşılaştırma](users-default-permissions.md)
+### [Ayrıcalıklı erişimin güvenliğini sağlama](admin-roles-best-practices.md) 
+### [Acil durum erişimi yönetici hesapları oluşturma](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
-### [Acil durum erişimi yönetici hesaplarını yönetin](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Erişim gözden geçirmeleri
 ### [Erişim gözden geçirmelerine genel bakış](active-directory-azure-ad-controls-access-reviews-overview.md)

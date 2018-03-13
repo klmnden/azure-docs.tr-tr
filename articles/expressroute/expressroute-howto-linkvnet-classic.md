@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 03/08/2018
 ms.author: ganesr
-ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2f0fed77a676bc46e8daa9c41efd533dffe72d8b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Bir sanal ağ (Klasik) PowerShell kullanarak bir expressroute bağlantı
 > [!div class="op_single_selector"]
@@ -48,6 +48,8 @@ Bu makale Klasik dağıtım modeli ve PowerShell kullanarak Azure ExpressRoute b
    * Bir sanal ağ ve oluşturulan ve tam olarak sağlanan bir sanal ağ geçidi olmalıdır. Yönergeleri izleyerek [sanal ağ ExpressRoute için yapılandırma](expressroute-howto-vnet-portal-classic.md).
 
 Bir expressroute bağlantı hattı için en fazla 10 sanal ağlara bağlantı oluşturabilirsiniz. Tüm sanal ağları aynı coğrafi bölgede olması gerekir. Çok sayıda expressroute bağlantı hattına sanal ağları veya ExpressRoute premium eklentisi etkinse diğer coğrafi bölgelerde bağlantı sanal ağlar bağlayabilirsiniz. Denetleme [SSS](expressroute-faqs.md) premium eklentisi hakkında daha fazla ayrıntı için.
+
+En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Bağlanmakta olduğunuz her expressroute bağlantı hattı için yeni bir bağlantı oluşturmak için aşağıdaki işlemi kullanın. Expressroute bağlantı hatları aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Bir sanal ağ ile aynı abonelikte bir devreye bağlanmak
 Aşağıdaki cmdlet'i kullanarak bir expressroute bağlantı hattı için bir sanal ağa bağlayabilirsiniz. Sanal ağ geçidi oluşturulur ve cmdlet'ini çalıştırmadan önce bağlama için hazır olduğundan emin olun.

@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Kaynak Sağlayıcısı kaydı için hataları çözümleyin
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+Hata iletisi desteklenen konumlar ve API sürümleri için öneriler vermesi gerekir. Şablonunuzu önerilen değerlerden birine değiştirebilirsiniz. Azure portal ya da kullandığınız komut satırı arabirimi tarafından otomatik olarak kayıtlı ancak tüm çoğu sağlayıcıları. Belirli kaynak sağlayıcısı önce kullanmadıysanız, bu sağlayıcıyı kaydetmeniz gerekebilir.
+
 ## <a name="cause"></a>Nedeni
 
 Üç nedenden biri için bu hataları alırsınız:
@@ -48,11 +50,7 @@ Message: The subscription is not registered to use namespace {resource-provider-
 1. API sürümü kaynak türü için desteklenmiyor
 1. Kaynak türü için desteklenmeyen konumu
 
-## <a name="solution"></a>Çözüm
-
-Hata iletisi desteklenen konumlar ve API sürümleri için öneriler vermesi gerekir. Şablonunuzu önerilen değerlerden birine değiştirebilirsiniz. Azure portal ya da kullandığınız komut satırı arabirimi tarafından otomatik olarak kayıtlı ancak tüm çoğu sağlayıcıları. Belirli kaynak sağlayıcısı önce kullanmadıysanız, bu sağlayıcıyı kaydetmeniz gerekebilir. PowerShell veya Azure CLI aracılığıyla kaynak sağlayıcıları hakkında daha fazla bulabilir.
-
-### <a name="solution-1"></a>Çözüm 1
+## <a name="solution-1---powershell"></a>Solution 1 - PowerShell
 
 İçin PowerShell kullanın **Get-AzureRmResourceProvider** , kayıt durumunu görmek için.
 
@@ -78,9 +76,7 @@ Belirli bir kaynak türü için desteklenen API sürümleri almak için kullanı
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>Çözüm 2
-
-**Azure CLI**
+## <a name="solution-2---azure-cli"></a>Çözüm 2 - Azure CLI
 
 Sağlayıcı kayıtlı olup olmadığını görmek için `az provider list` komutu.
 
@@ -100,7 +96,7 @@ Desteklenen konumlar ve bir kaynak türü için API sürümlerini görmek için 
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>Çözüm 3
+## <a name="solution-3---azure-portal"></a>Çözüm 3 - Azure portalı
 
 Kayıt durumunu görmek ve bir kaynak sağlayıcısı ad alanı Portalı aracılığıyla kaydedin.
 

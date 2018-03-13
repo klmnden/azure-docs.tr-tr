@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 4802215f903eb196afbf05637ad5e38dbbbc09a3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Otomasyon çalışma kitabı kurtarma planlara Ekle
 Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Automation ile nasıl tümleşik çalıştığını açıklar. Kurtarma planları korunan sanal makineleri kurtarma Site Recovery ile düzenleyebilirsiniz. Kurtarma planları hem ikincil bulutu için çoğaltma ve çoğaltma Azure için çalışır. Kurtarma planları de yardımcı kurtarma yapmak **tutarlı bir şekilde doğru**, **yinelenebilir**, ve **otomatik**. Vm'lerinizi Azure üzerinden başarısız olursa, Azure Automation tümleştirme kurtarma planlarınızı genişletir. Runbook'ları, ama güçlü bir otomatikleştirme görevleri teklif çalıştırmak için kullanabilirsiniz.
@@ -193,7 +193,7 @@ Her kurtarma planı için bağımsız değişkenleri oluşturun, böylece komut 
 
 ### <a name="use-a-complex-variable-to-store-more-information"></a>Daha fazla bilgi depolamak için bir karmaşık değişkenini kullanın
 
-Genel IP belirli vm'lerde etkinleştirmek için tek bir komut dosyası istediğiniz bir senaryo düşünün. Başka bir senaryoda, farklı sanal makineleri (değil, tüm VM'ler) üzerinde farklı Nsg'leri uygulamak isteyebilirsiniz. Herhangi bir kurtarma planı için yeniden kullanılabilir bir komut dosyası yapabilirsiniz. Her kurtarma planı VM'ler değişken sayıda olabilir. Örneğin, bir SharePoint kurtarma iki ön ucu vardır. Bir temel çizgi iş kolu (LOB) uygulaması yalnızca bir ön uç vardır. Her kurtarma planı için ayrı değişkenler oluşturamaz. 
+Genel IP belirli vm'lerde etkinleştirmek için tek bir komut dosyası istediğiniz bir senaryo düşünün. Başka bir senaryoda, farklı sanal makineleri (değil, tüm VM'ler) üzerinde farklı Nsg'leri uygulamak isteyebilirsiniz. Herhangi bir kurtarma planı için yeniden kullanılabilir bir komut dosyası yapabilirsiniz. Her kurtarma planı VM'ler değişken sayıda olabilir. Örneğin, bir SharePoint kurtarma iki ön ucu vardır. Bir temel çizgi iş kolu (LOB) uygulaması yalnızca bir ön uç vardır. Her kurtarma planı için ayrı değişkenler oluşturamaz.
 
 Aşağıdaki örnekte, yeni bir teknik kullanır ve oluşturma bir [karmaşık değişkeni](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) Azure Otomasyon hesabı varlıkları içinde. Bunun için birden çok değer belirterek. Aşağıdaki adımları tamamlamak için Azure PowerShell kullanmanız gerekir:
 

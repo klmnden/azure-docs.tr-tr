@@ -290,6 +290,8 @@
           href: transform-data-using-stored-procedure.md
         - name: Data Lake U-SQL Etkinliği
           href: transform-data-using-data-lake-analytics.md
+        - name: Databricks Not Defteri Etkinliği
+          href: transform-data-using-databricks-notebook.md
         - name: Özel etkinlik
           href: transform-data-using-dotnet-custom-activity.md
         - name: İşlem bağlantılı hizmetler

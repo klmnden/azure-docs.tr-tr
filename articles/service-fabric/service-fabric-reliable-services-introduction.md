@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reliable-services-overview"></a>Reliable Services özelliğine genel bakış
 Azure Service Fabric, yazma ve durum bilgisiz ve durum bilgisi olan güvenilir hizmetler yönetme basitleştirir. Bu konu şunları içerir:
@@ -87,10 +87,6 @@ Yaygın bir örneği durum bilgisi olmayan hizmetler kullanılan nasıl Service 
 Durum bilgisi olan hizmet durumu işlevi için tutarlı ve hizmet için sırada mevcut tutulan kısmı olmalıdır biridir. Sürekli olarak çalışırken ortalama aldığı güncelleştirmelerine göre belirli bir değerin hesaplar bir hizmeti kullanmayı düşünün. Bunu yapmak için işlem ve geçerli ortalama için gereken gelen istekleri geçerli kümesi olmalıdır. Alır, işler ve (örneğin, bir Azure blob veya tablo deposu Bugün) bir dış deposunda bilgileri depolayan herhangi durum bilgisi olan hizmetidir. Yalnızca durumuna dış durum deposunda saklar.
 
 Dış deponun için bu duruma güvenilirlik, kullanılabilirlik, ölçeklenebilirlik ve tutarlılık sağladıkları olduğundan çoğu Hizmetleri bugün durumlarına harici olarak depolar. Service Fabric içinde Hizmetleri durumlarına harici olarak depolamak için gerekmez. Service Fabric hizmeti kodunu ve hizmet durumu için bu gereksinimleri ilgilenir.
-
-> [!NOTE]
-> Durum bilgisi olan güvenilir hizmetler için destek henüz (C# veya Java) için Linux üzerinde kullanılabilir değil.
->
 
 Resimlerini işleyen bir hizmet yazma istiyoruz varsayalım. Hizmeti bunu yapmak için bu görüntüyü gerçekleştirmek için bir görüntü ve bir dizi dönüşümleri alır. (Şimdi onu bir Webapı olduğunu varsayın) bu hizmeti iletişimi dinleyici düzenlemenizi sağlayan bir API ister döndürür `ConvertImage(Image i, IList<Conversion> conversions)`. Bir istek aldığında, hizmet depolar bir `IReliableQueue`ve böylece istek izleyebilirsiniz istemciye bazı kimliğini döndürür.
 

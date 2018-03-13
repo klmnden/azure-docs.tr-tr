@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
 
@@ -76,8 +76,8 @@ PHP, Python, Java ve düğüm uygulamalar için bu ayarlar bağlantı türü ile
 
 * SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
-* SQL veritabanı:`SQLAZURECONNSTR_`
-* Özel:`CUSTOMCONNSTR_`
+* SQL veritabanı: `SQLAZURECONNSTR_`
+* Özel: `CUSTOMCONNSTR_`
 
 Örneğin, bir MySql bağlantı dizesi olarak adlandırılmışsa `connectionstring1`, ortam değişkeni erişilebilecek `MYSQLCONNSTR_connectionString1`.
 
@@ -129,12 +129,12 @@ Tam FTP kullanıcı adı "app\username" olduğu *uygulama* web uygulamanızın a
 
 ## <a name="other-configuration-tasks"></a>Diğer yapılandırma görevleri
 ### <a name="ssl"></a>SSL
-Temel veya standart modunda özel bir etki alanı için SSL sertifikalarını karşıya yükleyebilirsiniz. [Web uygulaması için HTTPS'yi etkinleştir] daha fazla bilgi için bkz. 
+Temel veya standart modunda özel bir etki alanı için SSL sertifikalarını karşıya yükleyebilirsiniz. Daha fazla bilgi için bkz: [bir web uygulaması için HTTPS'yi etkinleştir](app-service-web-tutorial-custom-ssl.md). 
 
 Karşıya yüklenen sertifikalarınızı görüntülemek için **tüm ayarları** > **özel etki alanları ve SSL**.
 
 ### <a name="domain-names"></a>Etki alanı adları
-Web uygulamanız için özel etki alanı adlarını ekleyin. Daha fazla bilgi için bkz: [yapılandırma Azure App Service'te bir web uygulaması için bir özel etki alanı adı].
+Web uygulamanız için özel etki alanı adlarını ekleyin. Daha fazla bilgi için bkz: [Azure App Service'te bir web uygulaması için bir özel etki alanı adı yapılandırma](app-service-web-tutorial-custom-domain.md).
 
 Etki alanı adlarını görüntülemek için **tüm ayarları** > **özel etki alanları ve SSL**.
 

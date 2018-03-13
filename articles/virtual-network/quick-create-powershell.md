@@ -1,6 +1,6 @@
 ---
-title: "Azure - PowerShell sanal ağ oluşturma | Microsoft Docs"
-description: "Hızlı bir şekilde PowerShell kullanarak bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ türlerde özel olarak birbirleri ile iletişim kurmak için Azure kaynaklarını sağlar."
+title: "Bir Azure sanal ağı - PowerShell oluşturma | Microsoft Docs"
+description: "Hızlı bir şekilde PowerShell kullanarak bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ özel olarak birbirleriyle ve internet ile iletişim kurmak için sanal makineler gibi Azure kaynakları sağlar."
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -13,34 +13,32 @@ ms.devlang:
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 01/25/2018
+ms.date: 03/09/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 22fcdbda85f3ea336c3926e04d408935ed069c25
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 13d36e6861a30473e6cb5d54d94a3c23a1e4cc59
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>PowerShell kullanarak bir sanal ağ oluşturma
 
-Bu makalede, bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ oluşturduktan sonra iki sanal makine özel ağ iletişimi aralarında sınamak için sanal ağda dağıtın.
+Bir sanal ağ sanal makineler (VM) gibi Azure kaynakları özel olarak birbirleriyle ve internet ile iletişim kurmasını sağlar. Bu makalede, bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ oluşturduktan sonra iki VM sanal ağa dağıtın. Ardından internet'ten bir VM'ye bağlanın ve özel olarak iki VM iletişim.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Yükleme ve yerel olarak PowerShell kullanma seçerseniz, bu makalede AzureRM PowerShell modülü sürümü 5.1.1 gerektirir veya sonraki bir sürümü. Yüklü olan sürümü bulmak için Çalıştır ` Get-Module -ListAvailable AzureRM`. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+Yükleme ve yerel olarak PowerShell kullanma seçerseniz, bu makalede AzureRM PowerShell modülü sürümü 5.4.1 gerektirir veya sonraki bir sürümü. Yüklü olan sürümü bulmak için Çalıştır ` Get-Module -ListAvailable AzureRM`. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-[New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur. Tüm Azure kaynakları bir Azure konumu (veya bölge) içinde oluşturulur.
+Bir sanal ağ oluşturmadan önce sanal ağ içerecek şekilde bir kaynak grubu oluşturmanız gerekir. Bir kaynak grubu ile oluşturmak [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
-
-## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) ile sanal ağ oluşturun. Aşağıdaki örnek adlı bir varsayılan sanal ağ oluşturur *myVirtualNetwork* içinde *EastUS* konumu:
 
@@ -49,12 +47,10 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork `
-  -AddressPrefix 10.0.0.0/24
+  -AddressPrefix 10.0.0.0/16
 ```
 
-Tüm sanal ağları atanmış bir veya daha fazla adres öneklerini vardır. Adres alanı CIDR gösteriminde belirtilir. 10.0.0.0/24 adres alanı 10.0.0.0-10.0.0.254 kapsar. Sanal ağlar bunları içindeki sıfır veya daha fazla alt ağlara sahip. Kaynakları bir sanal ağdaki bir alt ağ içinde dağıtılır. 
-
-Bir alt ağ yapılandırması ile oluşturma [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Tüm alt ağlar sanal ağın adres ön ekiyle mevcut bir adres öneki sahip. Bu örnekte, bir alt ağ yapılandırması sanal ağın adres ön eki aynı adres ön eki ile oluşturulur:
+Bir alt ağ oluşturmak gereken şekilde azure kaynaklarını bir sanal ağ içindeki bir alt ağ olarak dağıtılır. Bir alt ağ yapılandırması ile oluşturma [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). 
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -63,21 +59,19 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Alt ağ adresi öneki 10.0.0.0-10.0.0.254 kapsayan olsa, yalnızca adresleri 10.0.0.4-10.0.0.254 kullanılabilir, Azure ilk dört adresler (0-3), her alt ağda son adresi ayırdığından. Yalnızca bir alt ağ, alt ağ adresi öneki sanal ağ adres ön eki aynı olduğundan, bu sanal ağda var olabilir.
-
-Sanal ağ ile alt ağ yapılandırması yazma [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), alt ağı oluşturur:
+Sanal ağ ile alt ağ yapılandırması yazma [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork), sanal ağ içindeki alt ağı oluşturur:
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="test-network-communication"></a>Test ağ iletişimi
+## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-Bir sanal ağ çeşitli özel olarak birbirleri ile iletişim kurmak için Azure kaynaklarını sağlar. Tek bir sanal ağa dağıttığınız kaynak türü, bir sanal makinedir. Sonraki adımda aralarında özel iletişim doğrulamak için iki sanal makineye sanal ağ oluşturun.
+İki VM sanal ağ oluşturun:
 
-### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
+### <a name="create-the-first-vm"></a>İlk VM oluşturma
 
-Bir sanal makine oluşturma [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Bu adımı çalıştırırken kimlik bilgileri istenir. Girdiğiniz değerler, sanal makinenin kullanıcı adı ve parolası olarak yapılandırılır. Bir sanal makine oluşturulur konumu sanal ağ içinde aynı konumda olmalıdır. Bu makalede olmasına rağmen sanal makinenin sanal makine ile aynı kaynak grubunda olması gerekli değildir. `-AsJob` Parametresi komutu ile sonraki görev devam edebilmek için arka planda çalışmaya izin verir.
+Bir VM ile oluşturma [AzureRmVM yeni](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki komutu çalıştırırken, kimlik bilgileri istenir. Girdiğiniz değerleri VM için kullanıcı adı ve parola yapılandırılır. `-AsJob` Seçeneği bir sonraki adıma devam edebilmesi için bu VM arka planda oluşturur.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -89,7 +83,7 @@ New-AzureRmVm `
     -AsJob
 ```
 
-Aşağıdaki örnek çıkış benzer bir çıktı döndürülür ve Azure arka planda sanal makine oluşturmaya başlar.
+Aşağıdaki örnek çıkış benzer bir çıktı döndürülür ve Azure arka planda VM oluşturma başlatır.
 
 ```powershell
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command                  
@@ -97,9 +91,9 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmVM     
 ```
 
-Azure DHCP otomatik olarak atar 10.0.0.4 sanal makine oluşturma sırasında listedeki ilk kullanılabilir adres olduğundan *varsayılan* alt ağ.
+### <a name="create-the-second-vm"></a>İkinci VM oluşturma 
 
-İkinci bir sanal makine oluşturun. 
+Aşağıdaki komutu girin:
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -108,57 +102,51 @@ New-AzureRmVm `
   -SubnetName "default" `
   -Name "myVm2"
 ```
-Sanal makine oluşturmak için birkaç dakika sürer. Oluşturulan sanal makine çıktısı oluşturduktan sonra Azure döndürür. Azure olmayan döndürülen çıktıda atanan ancak *10.0.0.5* için *myVm2* sanal makine, bir sonraki kullanılabilir adres alt ağda olduğundan.
 
-### <a name="connect-to-a-virtual-machine"></a>Bir sanal makineye bağlanma
+VM oluşturmak için birkaç dakika sürer. Sonraki adıma, önceki komutu yürütür ve çıktı için PowerShell döndürülür kadar devam etmeyin.
 
-Kullanım [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ortak IP adresi, bir sanal makinenin döndürülecek komutu. Azure genel, bir Internet yönlendirilebilir IP adresi her bir sanal makine için varsayılan olarak atar. Genel IP adresi, sanal makineden atanmış bir [her bir Azure bölgesine atanan adresler havuzuna](https://www.microsoft.com/download/details.aspx?id=41653). Hangi ortak IP adresi bir sanal makineye atanan Azure bilir olsa da, bir sanal makinede çalışan işletim sistemi atanmış tüm ortak IP adresinin hiçbir şeyin sahiptir. Aşağıdaki örnek genel IP adresi döndürür *myVm1* sanal makine:
+## <a name="connect-to-a-vm-from-the-internet"></a>İnternet'ten bir VM'ye bağlanın
+
+Kullanım [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) VM genel IP adresi dönün. Aşağıdaki örnek genel IP adresi döndürür *myVm1* VM:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -Name myVm1 -ResourceGroupName myResourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress `
+  -Name myVm1 `
+  -ResourceGroupName myResourceGroup `
+  | Select IpAddress
 ```
 
-İle Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın *myVm1* yerel bilgisayarınızdan sanal makine. Değiştir `<publicIpAddress>` IP adresi ile döndürülen önceki komutu.
+Değiştir `<publicIpAddress>` aşağıdaki komutta ortak IP adresi önceki komuttan döndürülen ve aşağıdaki komutu girin: 
 
 ```
 mstsc /v:<publicIpAddress>
 ```
 
-Bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur, bilgisayarınıza indirilmeden ve açılır. Kullanıcı adı ve sanal makine oluştururken belirttiğiniz parolayı girin ve ardından **Tamam**. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet** veya **Devam**’a tıklayın.
+Bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur ve bilgisayarınıza indirilmeden. İndirilen rdp dosyasını açın. İstenirse, seçin **Bağlan**. Kullanıcı adı ve VM oluştururken belirttiğiniz parolayı girin. Seçmek için gerek duyabileceğiniz **daha fazla seçenek**, ardından **farklı bir hesap kullan**, VM oluşturduğunuz sırada girdiğiniz kimlik bilgileri belirtmek için. **Tamam**’ı seçin. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, seçin **Evet** veya **devam**, bağlantı ile devam etmek için.
 
-### <a name="validate-communication"></a>İletişim doğrula
+## <a name="communicate-privately-between-vms"></a>Özel olarak VM'ler arasında iletişim
 
-Ping varsayılan olarak Windows Güvenlik Duvarı aracılığıyla izin verilmediğinden bir Windows sanal makine başarısız ping çalışılıyor. Ping işlemine izin vermek için *myVm1*, bir komut isteminden aşağıdaki komutu girin:
+Üzerinde powershell'den *myVm1* VM girin `ping myvm2`. Ping başarısız olursa, Internet Denetim İletisi Protokolü (ICMP) ve ICMP ping kullandığı için Windows Güvenlik Duvarı üzerinden varsayılan olarak izin verilmiyor.
 
-```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
+İzin vermek için *myVm2* ping işlemi yapmak için *myVm1* bir sonraki adımda ICMP verir Powershell'den aşağıdaki komutu girin Windows Güvenlik Duvarı üzerinden gelen:
 
-İle iletişim doğrulamak için *myVm2*, bir komut isteminden aşağıdaki komutu girin *myVm1* sanal makine. Sanal makine oluştururken kullandığınız kimlik bilgilerini sağlayın ve ardından bağlantıyı tamamlayın:
-
-```
-mstsc /v:myVm2
+```powershell
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-Her iki sanal makine gelen atanan özel IP adresleri olduğundan Uzak Masaüstü bağlantısı başarılı *varsayılan* alt ağı ve Uzak Masaüstü varsayılan olarak Windows Güvenlik Duvarı üzerinden açık olduğundan. Bağlanabilmeleri için *myVm2* ana bilgisayar adı tarafından çünkü Azure otomatik olarak bir sanal ağ içindeki tüm ana bilgisayarlar için DNS ad çözümlemesi sağlar. Bir komut isteminden ping my *myVm1*, gelen *myVm2*.
+Uzak Masaüstü Bağlantısı kapatmak *myVm1*. 
 
-```
-ping myvm1
-```
+Bölümündeki adımları tamamlamanız [VM Bağlan internet'ten](#connect-to-a-vm-from-the-internet) yeniden, ancak bağlanmak *myVm2*. 
 
-Ping işlemi başarılı, onu Windows Güvenlik Duvarı aracılığıyla izin *myVm1* bir önceki adımda sanal makine. İnternet giden iletişim onaylamak için aşağıdaki komutu girin:
+Bir komut isteminden *myVm2* VM girin `ping myvm1`.
 
-```
-ping bing.com
-```
+Yanıt aldığınız *myVm1*, üzerinde Windows Güvenlik Duvarı üzerinden ICMP izin *myVm1* bir önceki adımda VM.
 
-Aratıp dört yanıt alırsınız. Varsayılan olarak, herhangi bir sanal makine bir sanal ağdaki internet giden iletişim kurabilir.
-
-Uzak Masaüstü oturumu çıkın. 
+Uzak Masaüstü Bağlantısı kapatmak *myVm2*.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olduğunda, kullanabileceğiniz [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) kaynak grubu ve içerdiği kaynakların tümünü kaldırmak için komutu:
+Artık gerekli olduğunda, kullanabileceğiniz [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) kaynak grubu ve içerdiği kaynakların tümünü kaldırmak için:
 
 ```azurepowershell-interactive 
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -166,7 +154,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir varsayılan sanal ağ bir alt ağ ile dağıtılabilir. Birden çok alt ağ ile özel bir sanal ağ oluşturmayı öğrenmek için özel bir sanal ağ oluşturmak için öğretici devam edin.
+Bu makalede, bir varsayılan sanal ağ ve iki VM oluşturdunuz. Internet'ten bir VM'ye bağlı ve özel olarak VM ve başka bir VM iletişim. Sanal ağ ayarları hakkında daha fazla bilgi için bkz: [sanal ağ yönetme](manage-virtual-network.md). 
+
+Varsayılan olarak, Azure sanal makineler arasında Kısıtlanmamış özel iletişime olanak sağlar, ancak yalnızca gelen Uzak Masaüstü bağlantıları Windows VM'ler için Internet'ten izin verir. İzin vermek veya farklı türlerde ağ iletişimi için ve VM'ler kısıtlamak nasıl öğrenmek için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Özel bir sanal ağ oluşturma](virtual-networks-create-vnet-arm-ps.md)
+> [Ağ trafiği filtreleme](virtual-networks-create-nsg-arm-ps.md)

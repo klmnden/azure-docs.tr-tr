@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc045827fbd38054a334ff22eb30e0db6a31bac8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Depolama hesabı adları için hataları çözümleyin
 
@@ -44,11 +44,9 @@ Aboneliğinizde var olan bir depolama hesabıyla aynı ada sahip bir depolama he
 
 ## <a name="cause"></a>Nedeni
 
-Depolama hesabı adları 3 ile 24 karakter uzunluğunda olmalıdır ve rakamlar ve yalnızca küçük harfler kullanmanız gerekir. Adın benzersiz olması gerekir.
+Depolama hesabı adları 3 ile 24 karakter uzunluğunda olmalıdır ve rakamlar ve yalnızca küçük harfler kullanmanız gerekir. Ad benzersiz olmalıdır.
 
 ## <a name="solution"></a>Çözüm
-
-### <a name="solution-1"></a>Çözüm 1
 
 Depolama hesabı adının benzersiz olduğundan emin olun. Adlandırma kuralınızın sonucu ile birleştirerek benzersiz bir ad oluşturabilirsiniz [uniqueString](resource-group-template-functions-string.md#uniquestring) işlevi.
 
@@ -56,8 +54,6 @@ Depolama hesabı adının benzersiz olduğundan emin olun. Adlandırma kuralın�
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### <a name="solution-2"></a>Çözüm 2
 
 Depolama hesabı adı 24 karakterden uzun olmadığından emin olun. [UniqueString](resource-group-template-functions-string.md#uniquestring) işlevi 13 karakter döndürür. Bir önek birleştirme ya da için sonek **uniqueString** neden, 11 karakter olan bir değer sağlayın veya daha az.
 
@@ -73,7 +69,5 @@ Depolama hesabı adı 24 karakterden uzun olmadığından emin olun. [UniqueStri
     }
 }
 ```
-
-### <a name="solution-3"></a>Çözüm 3
 
 Depolama hesabınızın adının herhangi bir büyük harf veya özel karakterler içermediğinden emin olun.

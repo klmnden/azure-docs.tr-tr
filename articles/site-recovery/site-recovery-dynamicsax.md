@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak çok katmanlı bir Dynamics AX uygulamayı çoğaltma
 
@@ -33,7 +33,7 @@ Bu makalede, Dynamics AX uygulamanız için kullanarak bir olağanüstü durum k
 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Site RECOVERY'yi kullanarak Dynamics AX uygulamasının olağanüstü durum kurtarma uygulama aşağıdaki önkoşulları gerektirir:
 
@@ -49,7 +49,7 @@ Bu makale oluşturmak amacıyla VMware sanal makineler üzerinde Windows Server 
 
 ### <a name="source-and-target"></a>Kaynak ve hedef
 
-**Senaryo** | **İkincil bir siteye** | **Azure'a**
+**Senaryo** | **İkincil bir siteye** | **Azure’a**
 --- | --- | ---
 **Hyper-V** | Evet | Evet
 **VMware** | Evet | Evet
@@ -57,13 +57,13 @@ Bu makale oluşturmak amacıyla VMware sanal makineler üzerinde Windows Server 
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Site RECOVERY'yi kullanarak Dynamics AX uygulamasının olağanüstü durum kurtarmayı etkinleştir
 ### <a name="protect-your-dynamics-ax-application"></a>Dynamics AX uygulamanızı koruma
-Tam uygulama çoğaltma ve kurtarma etkinleştirmek için her bileşen Dynamics AX korunması gerekir. 
+Tam uygulama çoğaltma ve kurtarma etkinleştirmek için her bileşen Dynamics AX korunması gerekir.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Active Directory ve DNS çoğaltmayı ayarlama
 
 Active Directory işlevi Dynamics AX uygulamasının olağanüstü durum kurtarma sitesinde gereklidir. Bir müşterinin şirket içi ortamına karmaşıklığı aşağıdaki iki seçenek öneririz.
 
-**Seçenek 1**
+**seçenek 1**
 
 Az sayıda uygulamayı müşteri sahiptir ve tüm tek etki alanı denetleyicisi şirket içi site ve birlikte tüm site vermesine planları. Etki alanı denetleyicisi makinesi (siteden siteye ve site Azure senaryoları için geçerlidir) ikincil bir siteye çoğaltmak için Site Recovery çoğaltma kullanmanızı öneririz.
 
@@ -87,7 +87,7 @@ Aşağıdaki anlık bir VMware sitesi Azure koruması senaryosunda Dynamics bile
 
 ![Korumalı öğeler](./media/site-recovery-dynamics-ax/protecteditems.png)
 
-### <a name="4-configure-networking"></a>4. Ağı yapılandırma
+### <a name="4-configure-networking"></a>4. Ağ yapılandırması
 **VM işlem yapılandırmak ve ağ ayarlarını**
 
 Böylece VM ağları yük devretme sonrasında doğru olağanüstü durum kurtarma ağa bağlı Dynamics AX İstemcisi ve uygulama nesnesi Server VM'ler için Site Recovery ağ ayarlarını yapılandırın. Bu katmanlar için olağanüstü durum kurtarma ağ SQL katmanına yönlendirilebilir olduğundan emin olun.
@@ -137,7 +137,7 @@ Bir yük dengeleyici eklemek için (aracılığıyla Azure Otomasyonu) bir betik
 
 ### <a name="perform-a-test-failover"></a>Bir sınama yük devretmesi gerçekleştirme
 
-Daha fazla bilgi için Active Directory'ye belirli yük devretme testi sırasında "Active Directory Olağanüstü durum kurtarma çözümü" Yardımcısı Kılavuzu'na bakın. 
+Daha fazla bilgi için Active Directory'ye belirli yük devretme testi sırasında "Active Directory Olağanüstü durum kurtarma çözümü" Yardımcısı Kılavuzu'na bakın.
 
 Daha fazla bilgi için SQL Server'a özgü yük devretme testi sırasında [çoğaltma SQL Server ve Azure Site Recovery uygulamalarla](site-recovery-sql.md).
 

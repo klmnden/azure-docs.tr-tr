@@ -15,15 +15,23 @@ SQL Server veya Oracle yeni vCPU sayısı kısıtlı ve diğer ürünler yazıla
 | Standard_M64 16ms   | 16   | M64ms aynı   |
 | Standard_M128 64ms  | 64   | M128ms aynı  |
 | Standard_M128 32ms  | 32   | M128ms aynı  |
-| Standard_E32 16_v3  | 16   | E32s_v3 aynı |
-| Standard_E32 8s_v3  | 8    | E32s_v3 aynı |
-| Standard_E64 32s_v3 | 32   | E64s_v3 aynı |
-| Standard_E64 16s_v3 | 16   | E64s_v3 aynı |
+| Standard_E4-2s_v3   | 2    | E4s_v3 aynı  |
+| Standard_E8-4s_v3   | 4    | E8s_v3 aynı  |
+| Standard_E8-2s_v3   | 2    | E8s_v3 aynı  |
+| Standard_E16-8s_v3  | 8    | E16s_v3 aynı |
+| Standard_E16-4s_v3  | 4    | E16s_v3 aynı |
+| Standard_E32-16_v3  | 16   | E32s_v3 aynı |
+| Standard_E32-8s_v3  | 8    | E32s_v3 aynı |
+| Standard_E64-32s_v3 | 32   | E64s_v3 aynı |
+| Standard_E64-16s_v3 | 16   | E64s_v3 aynı |
 | Standard_GS4-8      | 8    | GS4 aynı     |
 | Standard_GS4-4      | 4    | GS4 aynı     |
 | Standard_GS5-16     | 16   | GS5 aynı     |
 | Standard_GS5-8      | 8    | GS5 aynı     |
-| Standard_DS13 4_v2  | 4    | DS13_v2 aynı |
-| Standard_DS13 2_v2  | 2    | DS13_v2 aynı |
-| Standard_DS14 8_v2  | 8    | DS14_v2 aynı |
-| Standard_DS14 4_v2  | 4    | DS14_v2 aynı |
+| Standard_DS11-1_v2  | 1    | DS11_v2 aynı |
+| Standard_DS12-2_v2  | 2    | DS12_v2 aynı |
+| Standard_DS12-1_v2  | 1    | DS12_v2 aynı |
+| Standard_DS13-4_v2  | 4    | DS13_v2 aynı |
+| Standard_DS13-2_v2  | 2    | DS13_v2 aynı |
+| Standard_DS14-8_v2  | 8    | DS14_v2 aynı |
+| Standard_DS14-4_v2  | 4    | DS14_v2 aynı |

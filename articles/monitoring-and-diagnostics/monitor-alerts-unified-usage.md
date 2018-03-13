@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 60f6c45b7dacd26e0dea7b8b69c52534dcb5fec9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Oluşturun, görüntüleyin ve Uyarıları yönetme Azure İzleyicisi - uyarıları (Önizleme) kullanma
 
@@ -65,7 +65,7 @@ Ayrıntılı İleri Azure Uyarıları'ni (Önizleme) kullanarak adım adım Kıl
 
     > Birleştirilmiş uyarılar (Önizleme), etkinlik günlüğü uyarıları da destekler. [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Ölçüm uyarıları*: sağlamak **kaynak türü** seçili platform ya da İzleyici hizmeti (dışında *günlük analizi*), sonra bir kez uygun **kaynak** olduğu Seçilen tıklatın *Bitti* oluşturma uyarısı dönmek için düğmesini. Sonraki kullanmak **ölçüt eklemek** daha önce seçilen kaynak için kullanılabilir olan belirli sinyal sinyal seçenekleri, izleme hizmeti ve listelenen - türü listesinden seçmek için düğmesi.
+5. *Ölçüm uyarıları*: olun **kaynak türü** sinyal türü ile seçilen **ölçüm**, sonra bir kez uygun **kaynak** tıklatın seçilen  *Bitti* oluşturma uyarısı dönmek için düğmesini. Sonraki kullanmak **ölçüt eklemek** daha önce seçilen kaynak için kullanılabilir olan belirli sinyal sinyal seçenekleri, izleme hizmeti ve listelenen - türü listesinden seçmek için düğmesi.
 
     ![Kaynak seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -81,7 +81,7 @@ Ayrıntılı İleri Azure Uyarıları'ni (Önizleme) kullanarak adım adım Kıl
 
     ![Çok boyutlu ölçüm için sinyal mantığını yapılandırın](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Oturum uyarıları*: olun **kaynak türü** gibi analytics kaynağıdır *günlük analizi* veya *Application Insights*, sonra bir kez uygun  **Kaynak** olan seçilen, tıklatın *Bitti*. Sonraki kullanmak **ölçüt eklemek** sinyal seçenekleri kaynağın ve sinyal listesinden kullanılabilir bir listesini görüntüle düğmesini **özel günlük arama** monitor hizmeti gibi seçilen günlüğü için seçenek *günlük Analytics* veya *Application Insights*.
+8. *Oturum uyarıları*: olun **kaynak türü** gibi analytics kaynağıdır *günlük analizi* veya *Application Insights* ve sinyal türü olarak **günlük** , sonra bir kez uygun **kaynak** olan seçilen, tıklatın *Bitti*. Sonraki kullanmak **ölçüt eklemek** sinyal seçenekleri kaynağın ve sinyal listesinden kullanılabilir bir listesini görüntüle düğmesini **özel günlük arama** monitor hizmeti gibi seçilen günlüğü için seçenek *günlük Analytics* veya *Application Insights*.
 
    ![Bir kaynak - özel günlük arama seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Ayrıntılı İleri Azure Uyarıları'ni (Önizleme) kullanarak adım adım Kıl
 
     İçin **günlük uyarıları** varsayılan eylemleri geçersiz kılmak bazı ek işlevler kullanılabilir:
 
-    - **E-posta bildirimi**: eylem grubu gönderilen e-posta, bu geçersiz kılmaları konu. Posta gövdesini değiştiremezsiniz.
-    - **Özel Json yükünü dahil et**: Eylem grupları tarafından kullanılan Json Web kancası geçersiz kılar ve bunun yerine varsayılan yükü ile özel bir yükü değiştirin. Web kancası biçimleri hakkında daha fazla bilgi için bkz: [günlük uyarılar için Web kancası eylemi](monitor-alerts-unified-log-webhook.md)
+    - **E-posta bildirimi**: geçersiz kılmaları *e-posta konusu* konusu eylemi grubunda bir veya daha fazla e-posta eylem varsa eylemi grubu; gönderilen e-posta. Posta gövdesini değiştirilemez ve bu alan **değil** e-posta adresi.
+    - **Özel Json yükünü dahil et**: bir veya daha fazla Web kancası eylem konusu eylemi grubunda mevcut; eylem grubu tarafından kullanılan JSON Web kancası geçersiz kılar. Kullanıcı ilişkili eylem grubunda yapılandırılmış tüm Web kancası için kullanılacak JSON specificy biçimlerinin olabilir; Web kancası biçimleri hakkında daha fazla bilgi için bkz: [günlük uyarılar için Web kancası eylem](monitor-alerts-unified-log-webhook.md). Test Web kancası seçeneği biçimi ve örnek JSON kullanarak hedef işlemesi denetlemek için sağlanır ve etiketli bu seçenek yalnızca amacı **sınama** amaçlar.
 
         ![Günlük uyarılar için eylem geçersiz kılmaları](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD için Önkoşullar Bağlan
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -31,6 +31,7 @@ Azure AD Connect yüklemeden önce gereken birkaç nokta vardır.
   * Aynı zamanda [Azure portal](https://portal.azure.com). Bu portalı bir Azure AD lisansı gerektirmez.
 * [Ekleme ve etki alanı doğrulama](../active-directory-domains-add-azure-portal.md) Azure AD'de kullanmayı planladığınız. Örneğin, contoso.com kullanıcılarınız için kullanın sonra emin olun planlıyorsanız, bu etki alanı doğrulandı ve yalnızca contoso.onmicrosoft.com varsayılan etki alanı kullanmakta olduğunuz değil.
 * Azure AD kiracısı varsayılan 50 k nesneleriyle sağlar. Etki alanınızı doğruladığınızda sınırı 300 k nesnelere artar. Azure AD'de daha da fazla nesneleri ihtiyacınız varsa daha artan sınırı olacak şekilde bir destek servis talebi açmanız gerekir. Sonra 500'den fazla k nesneleri gerekiyorsa, Office 365, Azure AD temel, Azure AD Premium veya Enterprise Mobility ve güvenlik gibi bir lisansınız olmalıdır.
+* ADSyncPrep için Azure AD Connect, Active Directory ortamınızı hazırlamak için kullanılan işlevler sağlayan bir PowerShell komut dosyası modülüdür.  ADSyncPrep gerektirir [Azure AD Microsoft çevrimiçi v1.1 PowerShell Modülü](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Sürüm 2 çalışmaz.  Modülünü kullanarak yükleyebilirsiniz `Install-Module` cmdlet'i.  Sağlanan bağlantı daha fazla bilgi için bkz.
 
 ### <a name="prepare-your-on-premises-data"></a>Şirket içi verilerinizi hazırlama
 * Kullanım [Idfix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) Azure AD ile eşitlemeden önce çoğaltmaları ve dizininizde biçimlendirme sorunları gibi hataları belirlemek için ve Office 365.

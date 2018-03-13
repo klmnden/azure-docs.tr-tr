@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/09/2018
 ms.author: babanisa
-ms.openlocfilehash: a915473c67a7577582837b56d1a9ccec4d21c461
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 888196225ec5998405113842344469d02a2cf5c7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="event-grid-subscription-schema"></a>Kılavuz abonelik şeması
 
@@ -34,24 +34,24 @@ Bu makalede özellikleri ve istek gövdesi için şema anlatılmaktadır.
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Hedef | nesne | Uç nokta tanımlayan nesnesi. |
-| filtre | nesne | Olay türlerini filtrelemek için isteğe bağlı bir alan. |
+| Hedef | object | Uç nokta tanımlayan nesnesi. |
+| filtre | object | Olay türlerini filtrelemek için isteğe bağlı bir alan. |
 
 ### <a name="destination-object"></a>hedef nesne
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| endpointType | dize | (Web kancası/HTTP, olay hub'ı veya sıra) aboneliği için uç nokta türü. | 
-| endpointUrl | dize | Bu olay aboneliği olayları için hedef URL. | 
+| endpointType | string | (Web kancası/HTTP, olay hub'ı veya sıra) aboneliği için uç nokta türü. | 
+| endpointUrl | string | Bu olay aboneliği olayları için hedef URL. | 
 
 ### <a name="filter-object"></a>filtre nesnesi
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Olay türü olay iletisini bu olay türü adları birine tam bir eşleşme eşleşmedir. Olay adı için olay kaynağı kayıtlı olay türü adları eşleşmediğinde bir hata oluşturur. Varsayılan, tüm olay türleri ile eşleşir. |
-| subjectBeginsWith | dize | Bir önek eşleştirme Konu alanına olay iletisi filtreleyin. Varsayılan ya da boş dize tüm eşleşir. | 
-| subjectEndsWith | dize | Sonek eşleşme Konu alanına olay iletisi filtreleyin. Varsayılan ya da boş dize tüm eşleşir. |
-| subjectIsCaseSensitive | dize | Denetimler için filtreleri ile eşleşen büyük küçük harfe duyarlı. |
+| subjectBeginsWith | string | Bir önek eşleştirme Konu alanına olay iletisi filtreleyin. Varsayılan ya da boş dize tüm eşleşir. | 
+| subjectEndsWith | string | Sonek eşleşme Konu alanına olay iletisi filtreleyin. Varsayılan ya da boş dize tüm eşleşir. |
+| subjectIsCaseSensitive | string | Denetimler için filtreleri ile eşleşen büyük küçük harfe duyarlı. |
 
 
 ## <a name="example-subscription-schema"></a>Abonelik şema örneği
@@ -66,7 +66,7 @@ Bu makalede özellikleri ve istek gövdesi için şema anlatılmaktadır.
       }
     },
     "filter": {
-      "includedEventTypes": [ "blobCreated", "blobDeleted" ],
+      "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
       "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "subjectIsCaseSensitive": "true"

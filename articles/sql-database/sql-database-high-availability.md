@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: a7771eebc8359a5de1c79328014f5ecc06c9673b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86a839102e98a1b8e7cd9927c697cacf1f41a1a6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 Azure SQL veritabanı PaaS teklifi en başından itibaren Microsoft, yüksek kullanılabilirlik (HA) hizmetine inşa edilmiş ve müşterilerin çalışır, özel mantığı ekleyin veya HA geçici kararları için gerekli değildir, müşterilerinin promise yapmıştır. Microsoft, müşterilerin bir SLA sunumu HA sistem yapılandırması ve işlem üzerinde tam denetim tutar. HA SLA durumlarda Microsoft'un makul şekilde denetimi dışında etkenler nedeniyle olan toplam bölge hata koruma sağlamaz ve bir bölgede bir SQL veritabanı için geçerlidir (örneğin, doğal afet, war, terörist saldırılarını, riots, devlet eylemi olaylardan veya ağ veya cihaz arızası müşteri sitelerden veya müşteri siteleri ve Microsoft'un veri merkezi arasında dahil, Microsoft'un veri merkezlerinin dışındaki).
@@ -56,7 +56,7 @@ SQL veritabanı yüksek kullanılabilirlik çözümde dayanır [her zaman açık
 
 Bu yapılandırmada, her veritabanı çevrimiçi denetim halkası içinde Yönetim Hizmeti (MS) tarafından duruma getirilir. Bir birincil çoğaltma ve en az iki ikincil çoğaltmaları (çekirdek kümesi) üç bağımsız fiziksel alt sistemleri aynı veri merkezinde bulunan yayılan Kiracı halka içinde yer alır. Birincil çoğaltma ağ geçidi (GW) tarafından gönderilen tüm okuma ve yazma işlemleri ve yazma ikincil çoğaltmalar için zaman uyumsuz olarak çoğaltılır. SQL veritabanı, birincil ve işlem yürütme önce en az bir ikincil çoğaltma için veri yazıldığı çekirdek tabanlı yürütme düzenini kullanır.
 
-[Service Fabric](/azure/service-fabric/service-fabric-overview.md) yük devretme sistem otomatik olarak düğüm başarısız olarak çoğaltmaları yeniden oluşturur ve çekirdek kümesi üyelik düğümleri alınır ve sistem katılma olarak korur. Planlı bakım çekirdek kümesi minimum yineleme sayısı (genellikle 2) giderek önlemek için dikkatle koordine edilen. Bu model Premium veritabanları için iyi çalışır, ancak işlem ve depolama bileşenleri artıklığı gerektirir ve daha yüksek bir maliyet sonuçlanır.
+[Service Fabric](/service-fabric/service-fabric-overview.md) yük devretme sistem otomatik olarak düğüm başarısız olarak çoğaltmaları yeniden oluşturur ve çekirdek kümesi üyelik düğümleri alınır ve sistem katılma olarak korur. Planlı bakım çekirdek kümesi minimum yineleme sayısı (genellikle 2) giderek önlemek için dikkatle koordine edilen. Bu model Premium veritabanları için iyi çalışır, ancak işlem ve depolama bileşenleri artıklığı gerektirir ve daha yüksek bir maliyet sonuçlanır.
 
 ## <a name="remote-storage-configuration"></a>Uzak Depolama yapılandırması
 
@@ -77,7 +77,7 @@ Uzak Depolama yapılandırmaları için SQL veritabanı yükseltme sırasında h
 
 ## <a name="zone-redundant-configuration-preview"></a>Bölge olarak yedekli yapılandırması (Önizleme)
 
-Varsayılan olarak, yerel depolama yapılandırmaları için çekirdek kümesi çoğaltmalar aynı veri merkezinde oluşturulur. Girişiyle [Azure kullanılabilirlik bölgeleri](/azure/availability-zones/az-overview.md), farklı bir kullanılabilirlik bölgeleri aynı bölgede çekirdek kümeleri farklı çoğaltmaları koyun seçeneğine sahipsiniz. Tek bir hata noktası ortadan kaldırmak için Denetim halkası ayrıca birden çok dilimlerinde üç ağ geçidi çalma (GW) çoğaltılır. Belirli ağ geçidi halka için yönlendirme tarafından denetlenen [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) (ATM). Bölge olarak yedekli yapılandırması ek veritabanı artıklığı oluşturmadığından Premium Hizmet katmanını kullanılabilirlik bölgeleri kullanımda hiçbir ek kullanılabilir maliyeti. Bölge olarak yedekli veritabanını seçerek, Premium veritabanlarınızı dayanıklı uygulama mantığının herhangi bir değişiklik yapılmadan geri dönülemez veri merkezi kesintilerini dahil hataları, çok daha büyük bir dizi yapabilirsiniz. Bölge olarak yedekli yapılandırması herhangi bir varolan Premium veritabanı veya havuzu da dönüştürebilirsiniz.
+Varsayılan olarak, yerel depolama yapılandırmaları için çekirdek kümesi çoğaltmalar aynı veri merkezinde oluşturulur. Girişiyle [Azure kullanılabilirlik bölgeleri](../availability-zones/az-overview.md), farklı bir kullanılabilirlik bölgeleri aynı bölgede çekirdek kümeleri farklı çoğaltmaları koyun seçeneğine sahipsiniz. Tek bir hata noktası ortadan kaldırmak için Denetim halkası ayrıca birden çok dilimlerinde üç ağ geçidi çalma (GW) çoğaltılır. Belirli ağ geçidi halka için yönlendirme tarafından denetlenen [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Bölge olarak yedekli yapılandırması ek veritabanı artıklığı oluşturmadığından Premium Hizmet katmanını kullanılabilirlik bölgeleri kullanımda hiçbir ek kullanılabilir maliyeti. Bölge olarak yedekli veritabanını seçerek, Premium veritabanlarınızı dayanıklı uygulama mantığının herhangi bir değişiklik yapılmadan geri dönülemez veri merkezi kesintilerini dahil hataları, çok daha büyük bir dizi yapabilirsiniz. Bölge olarak yedekli yapılandırması herhangi bir varolan Premium veritabanı veya havuzu da dönüştürebilirsiniz.
 
 Bölge olarak yedekli çekirdek kümesi aralarında bazı uzaklıklı farklı veri merkezlerinde çoğaltmaları olduğundan, artan ağ gecikmesi yürütme süresini artırabilir ve bu nedenle bazı OLTP iş yüklerinin performansını etkileyebilir. Her zaman dilimi artıklık ayarını devre dışı bırakarak tek bölge yapılandırmaya geri dönebilirsiniz. Bu işlem veri işlemi bir boyuta sahiptir ve normal hizmet düzeyi hedefi (SLO) güncelleştirme benzer. İşlemin sonunda, veritabanı veya havuzu bir bölge olarak yedekli halka dışında tek bir bölge halka (veya tersi) geçirilir.
 
@@ -93,6 +93,6 @@ Azure SQL veritabanı ile Azure platformu son derece tümleşiktir ve Service Fa
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [Azure kullanılabilirlik bölgeleri](/azure/availability-zones/az-overview.md)
-- Hakkında bilgi edinin [Service Fabric](/azure/service-fabric/service-fabric-overview.md)
-- Hakkında bilgi edinin [Azure trafik Yöneticisi](/traffic-manager/traffic-manager-overview.md) 
+- Hakkında bilgi edinin [Azure kullanılabilirlik bölgeleri](../availability-zones/az-overview.md)
+- Hakkında bilgi edinin [Service Fabric](../service-fabric/service-fabric-overview.md)
+- Hakkında bilgi edinin [Azure trafik Yöneticisi](../traffic-manager/traffic-manager-overview.md) 

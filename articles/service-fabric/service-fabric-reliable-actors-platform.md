@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee248cb656eeb54e259ff1adf45080a207b5a866
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors hizmeti tarafından Service Fabric platformunun kullanımı
 Bu makalede, Azure Service Fabric platformda Reliable Actors nasıl çalıştığı açıklanmaktadır. Durum bilgisi olan güvenilir bir hizmet uygulaması içinde barındırılan bir çerçeve çalıştırmanız reliable Actors adlı *aktör hizmeti*. Aktör hizmeti yaşam döngüsü ve ileti gönderme, aktörleri yönetmek gerekli tüm bileşenleri içerir:
@@ -41,9 +41,6 @@ Güvenilir Hizmetleri'nde hizmetinizi devralır `StatefulService` sınıfı. Bu 
 * Hizmet yedekleme ve geri yükleme.
 * İşlevselliği tüm aktörler, örneğin, bir devre kesici paylaşılan.
 * Aktör hizmeti ve tek tek her aktör uzak yordam çağrıları.
-
-> [!NOTE]
-> Durum bilgisi olan hizmetler Java/Linux şu anda desteklenmemektedir.
 
 ### <a name="using-the-actor-service"></a>Aktör hizmeti kullanma
 Aktör örnekleri bunlar çalıştırdığınız aktör hizmetine erişimi vardır. Aktör hizmeti aracılığıyla aktör örnekleri program aracılığıyla hizmet bağlamı elde edebilirsiniz. Hizmet bağlamı, bölüm kimliği, hizmet adı, uygulama adı ve diğer Service Fabric platforma özgü bilgileri vardır:
@@ -347,7 +344,7 @@ Aktör Hizmetleri bölümlenmiş durum bilgisi olan hizmetleridir. Aktör hizmet
 Güvenilir hizmetler farklı bir bölüm düzeni ve bölüm anahtarı aralıkları ile oluşturulabilir. Aktör hizmeti aktörler bölümlere eşlemek için tam Int64 anahtar aralığıyla Int64 bölümleme düzenini kullanır.
 
 ### <a name="actor-id"></a>Aktör kimliği
-Hizmetinde oluşturulan her aktör tarafından temsil edilen ilişkili benzersiz bir Kimliğe sahip `ActorId` sınıfı. `ActorId`rastgele kimlikleri oluşturarak service bölümler aktörler Tekdüzen dağıtım için kullanılabilecek bir donuk kimliği değeridir:
+Hizmetinde oluşturulan her aktör tarafından temsil edilen ilişkili benzersiz bir Kimliğe sahip `ActorId` sınıfı. `ActorId` rastgele kimlikleri oluşturarak service bölümler aktörler Tekdüzen dağıtım için kullanılabilecek bir donuk kimliği değeridir:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());

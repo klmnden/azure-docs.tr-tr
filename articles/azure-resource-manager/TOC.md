@@ -44,7 +44,7 @@
 ## Yönetme
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Azure portalı](resource-group-portal.md)
+### [Azure Portal](resource-group-portal.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
 ### [Yönetim grupları oluşturma](management-groups-create.md)
@@ -55,7 +55,7 @@
 ### Hizmet sorumlusu oluşturma
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure portalı](resource-group-create-service-principal-portal.md)
+#### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Aboneliklere erişmek için kimlik doğrulama API’si](resource-manager-api-authentication.md)
 ### [Kaynakları kilitleme](resource-group-lock-resources.md)
 
@@ -64,21 +64,20 @@
 ### [Dağıtım işlemlerini görüntüleme](resource-manager-deployment-operations.md)
 
 ## Sorun giderme
-### [Sık karşılaşılan dağıtım hataları](resource-manager-common-deployment-errors.md)
-#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
-#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
-#### [Linux dağıtım sorunları](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
-#### [NotFound](resource-manager-not-found-errors.md)
-#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
-#### [Linux için Sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-#### [Windows için Sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
-#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
-#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
-#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-#### [Windows dağıtım sorunları](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-### [Dağıtım hataları anlama](resource-manager-troubleshoot-tips.md)
+### [Dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md)
+### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+### [Linux dağıtım sorunları](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+### [NotFound](resource-manager-not-found-errors.md)
+### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+### [Linux için Sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+### [Windows için Sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### [ReservedResourceName](resource-manager-reserved-resource-name.md)
+### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
+### [Windows dağıtım sorunları](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Başvuru
 ## [Şablon biçimi](/azure/templates/)

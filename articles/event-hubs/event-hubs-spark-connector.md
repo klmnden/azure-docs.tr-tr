@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: shvija
-ms.openlocfilehash: e07f4ee4233c645266838ab7c427ef7e39f65764
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2dcf390b80c119ab21948b982c0812395e45bc01
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Apache Spark Azure Event Hubs ile tümleştirme
 
@@ -54,10 +54,9 @@ val reader = spark.readStream
   .load()
 
 // Select the body column and cast it to a string.
-val eventhubs = reader.load()
-  .select("body")
+val eventhubs = reader
+  .select("CAST (body AS STRING)")
   .as[String]
-
 ```
 Aşağıdaki kod parçacığını Spark toplu işlem API ile olay hub'ınıza olayları göndermek için kullanılır. Ayrıca, olay Hub'ına olayları göndermek için bir akış sorgu yazabilirsiniz.
 

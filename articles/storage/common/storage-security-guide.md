@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: e365c1c8abb3799805e715945e8b74292995c5ec
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -214,7 +214,7 @@ URL yerine bir blobu bir dosyaya işaret eden paylaşılan erişim imzası blob 
 * Bir hizmet düzeyi SAS depolama hesabının belirli kaynaklara erişim için kullanılabilir. Bu, bazı örnekler BLOB'ları bir kapsayıcıda blob yükleme, bir tablodaki bir varlık güncelleştirme, bir kuyruk iletileri ekleme veya bir dosya paylaşımı için bir dosyayı karşıya yüklemeyi listesini alıyor.
 * Bir hesap düzeyinde SAS bir hizmet düzeyi SAS kullanılabilir herhangi bir şey erişmek için kullanılabilir. Ayrıca, bu seçenekleri kapsayıcılar, tablolar, kuyruklar ve dosya paylaşımları oluşturma yeteneği gibi bir hizmet düzeyi SAS ile izin verilmiyor kaynaklara verebilirsiniz. Aynı anda birden çok hizmetlerine erişim de belirtebilirsiniz. Örneğin, birisi verebilir erişim hem BLOB, hem de depolama hesabındaki dosyaları.
 
-#### <a name="creating-an-sas-uri"></a>Bir SAS URI'sini oluşturma
+#### <a name="creating-a-sas-uri"></a>SAS URI'si oluşturma
 1. Tüm sorgu parametrelerinin her tanımlama, isteğe bağlı bir URI oluşturabilirsiniz.
 
    Bu yaklaşım esnek, ancak bir mantıksal parametrelerinin her zaman benzer varsa, depolanan bir Erişim İlkesi'ni kullanarak daha iyi bir fikir.
@@ -376,7 +376,7 @@ Bir veri diski ekleyin ve VM bağlamak, bu veri diskte Azure Disk şifrelemesi k
 
 #### <a name="storage-service-encryption-sse"></a>Depolama hizmeti şifrelemesi (SSE)
 
-SSE Azure Storage tarafından yönetilir. SSE Aktarımdaki verileri güvenlik sağlamaz, ancak Azure depolama alanına yazılır gibi verileri şifreliyor. SSE performansı üzerinde etkisi yoktur.
+SSE Azure Storage tarafından yönetilir. SSE Aktarımdaki verileri güvenlik sağlamaz, ancak Azure depolama alanına yazılır gibi verileri şifreliyor. SSE Azure depolama performansını etkilemez.
 
 Her türlü veri SSE kullanarak depolama hesabının şifreleyebilir (blok blobları, ekleme blobları, sayfa BLOB'ları, tablo verileri, kuyruk verileri ve dosyaları).
 

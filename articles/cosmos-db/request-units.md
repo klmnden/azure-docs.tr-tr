@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB birimlerinde isteği
 Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Daha fazla bilgi edinin [, üretilen iş gerektiğini tahmin etme](request-units.md#estimating-throughput-needs).
@@ -35,9 +35,9 @@ Tahmin edilebilir performans sağlamak için işleme birimi 100 RU/saniye yedek 
 Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:  
 
 * Hangi birimleri istemek ve ücretleri isteği?
-* Bir koleksiyon için istek birim kapasitesi nasıl belirteceğinizi?
+* Bir kapsayıcı için istek birim kapasitesi nasıl belirteceğinizi?
 * My uygulamanın istek birimi gereken nasıl tahmin?
-* Bir koleksiyon için istek birim kapasitesi aşmanız durumunda ne olur?
+* Bir kapsayıcı için istek birim kapasitesi aşmanız durumunda ne olur?
 
 Azure Cosmos DB çok model veritabanı olduğundan, bu makale için bir belge API, grafik API'si için bir grafik/düğümü ve tablo API için bir tablo/varlık koleksiyonu/belgeye başvuruyor dikkate almak önemlidir. Bu makale koleksiyonu, grafik veya tablo bir kapsayıcı olarak kavramı başvuruyor ve bir belge, düğüm veya varlık öğe olarak.
 
@@ -53,14 +53,14 @@ Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsi
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>İstek birimi kapasite Azure Cosmos DB'de belirtme
-Yeni koleksiyon, tablo veya grafik başlatırken numarası belirtin (RU saniye başına) saniyede istek birimlerinin ayrılmış istiyor. Üzerinde sağlanan işleme bağlı olarak, Azure Cosmos DB koleksiyonunuzu barındırmak için fiziksel bölümleri ayırır ve bölmelerini/veri bölümler, büyüdükçe rebalances.
+Yeni bir kapsayıcı başlatırken numarası belirtin (RU saniye başına) saniyede istek birimlerinin ayrılmış istiyor. Üzerinde sağlanan işleme bağlı olarak, Azure Cosmos DB, kapsayıcı barındırmak için fiziksel bölümleri ayırır ve bölmelerini/veri bölümler, büyüdükçe rebalances.
 
-Azure Cosmos DB kapsayıcıları sabit olarak oluşturulabilir veya sınırsız. Sabit boyutlu kapsayıcıların üst sınırı 10 GB ve 10.000 RU/sn aktarım hızıdır. Sınırsız bir kapsayıcı oluşturmak için en düşük işleme 1.000 RU/s belirtin ve bir [bölüm anahtarı](partition-data.md). Verilerinizin birden çok bölüm arasında bölünmesi gerekebilir olduğundan, yüksek kardinalite (100 farklı değerleri milyonlarca) sahip bir bölüm anahtarı almak gereklidir. Birçok farklı değerlere sahip bir bölüm anahtarı seçerek tablo/koleksiyonu/grafik ve istekleri hep Azure Cosmos DB tarafından Genişletilebilir emin olun. 
+Azure Cosmos DB kapsayıcıları sabit olarak oluşturulabilir veya sınırsız. Sabit boyutlu kapsayıcıların üst sınırı 10 GB ve 10.000 RU/sn aktarım hızıdır. Sınırsız bir kapsayıcı oluşturmak için en düşük işleme 1.000 RU/s belirtin ve bir [bölüm anahtarı](partition-data.md). Verilerinizin birden çok bölüm arasında bölünmesi gerekebilir olduğundan, yüksek kardinalite (100 farklı değerleri milyonlarca) sahip bir bölüm anahtarı almak gereklidir. Birçok farklı değerlere sahip bir bölüm anahtarı seçerek tablo/kapsayıcı/grafik ve istekleri hep Azure Cosmos DB tarafından Genişletilebilir emin olun. 
 
 > [!NOTE]
 > Bölüm anahtarı mantıksal bir sınır ve fiziksel bir tane ' dir. Bu nedenle, farklı bölüm anahtar değerlerin sayısını sınırlamak gerekmez. Aslında, daha fazla yük dengeleme seçeneklerini Azure Cosmos DB sahip daha farklı bölüm anahtarı değerden daha az olması iyidir.
 
-.NET SDK kullanarak saniye başına istek birimleri 3000 ile bir koleksiyon oluşturmak için bir kod parçacığı aşağıda verilmiştir:
+.NET SDK kullanarak saniye başına istek birimleri 3000 ile bir kapsayıcı oluşturmak için bir kod parçacığı aşağıda verilmiştir:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -75,7 +75,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos DB akışındaki bir ayırma modeli çalıştırır. Diğer bir deyişle, işleme miktarı faturalandırılır *ayrılmış*ne olursa olsun, üretilen işi ne kadarının etkin olduğundan, *kullanılan*. Uygulamanızı olarak kullanıcının, kolayca ölçeklendirilebilir miktarını yukarı ve aşağı yük, veri ve kullanım desenlerini değişiklik ayrılmış RUs üzerinden SDK'ları veya kullanarak [Azure Portal](https://portal.azure.com).
 
-Her koleksiyon/tablo/grafik eşleştirilmiş bir `Offer` kaynak, sağlanan işleme hakkındaki meta verileri olan Azure Cosmos veritabanı. Kapsayıcı için ilgili teklif kaynak bakarak, ardından yeni işleme değeri ile güncelleştirme ayrılmış işleme değiştirebilirsiniz. .NET SDK kullanarak saniye başına 5.000 istek birimi için bir koleksiyon verimini değiştirmek için bir kod parçacığı aşağıda verilmiştir:
+Her kapsayıcı eşlenmiş bir `Offer` kaynak, sağlanan işleme hakkındaki meta verileri olan Azure Cosmos veritabanı. Kapsayıcı için ilgili teklif kaynak bakarak, ardından yeni işleme değeri ile güncelleştirme ayrılmış işleme değiştirebilirsiniz. .NET SDK kullanarak saniye başına 5.000 istek birimi için bir kapsayıcı verimini değiştirmek için bir kod parçacığı aşağıda verilmiştir:
 
 ```csharp
 // Fetch the resource to be updated
@@ -334,10 +334,10 @@ Bu bilgi ile operations ve saniye başına beklediğiniz sorguları sayısını 
 | Yemek gruplandırma ölçütü seçin |10 |700 |
 | İlk 10 seçin |15 |150 toplam |
 
-Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekler.  Yuvarlama kadar yakın 100, bu uygulamanın koleksiyon için 1300 RU/s sağlamak.
+Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekler.  Yuvarlama kadar yakın 100, bu uygulamanın kapsayıcısı için 1300 RU/s sağlamak.
 
 ## <a id="RequestRateTooLarge"></a> Azure Cosmos DB aşan ayrılmış işleme sınırları
-İstek birimi tüketim bütçe boşsa, saniye başına oranı olarak değerlendirilir, geri çağırma. Hızı ayrılmış düzeyin altına düşene kadar kapsayıcı için sağlanan istek birimi hızı aşan uygulamalar için o koleksiyona istekleri kısıtlanan. Bir kısıtlama oluştuğunda sunucunun erken önlem RequestRateTooLargeException (HTTP durum kodu 429) istekle sona erer ve kullanıcı reattempting önce beklemesi gereken milisaniye cinsinden süreyi belirten x-ms-yeniden deneme-sonra-ms üstbilgi döndürür İstek.
+İstek birimi tüketim bütçe boşsa, saniye başına oranı olarak değerlendirilir, geri çağırma. Hızı ayrılmış düzeyin altına düşene kadar kapsayıcı için sağlanan istek birimi hızı aşan uygulamalar için bu kapsayıcı isteklerine kısıtlanan. Bir kısıtlama oluştuğunda sunucunun erken önlem RequestRateTooLargeException (HTTP durum kodu 429) istekle sona erer ve kullanıcı reattempting önce beklemesi gereken milisaniye cinsinden süreyi belirten x-ms-yeniden deneme-sonra-ms üstbilgi döndürür İstek.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
@@ -348,7 +348,7 @@ Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekler.  Yuvarlama kadar 
 İstek hızı işletim üst üste birden fazla istemciniz varsa varsayılan yeniden deneme davranışı değil yeterli olacaktır ve istemci uygulamaya 429 durum koduyla bir DocumentClientException atar. Bu gibi durumlarda, yeniden deneme davranışı ve yordamları işleme veya kapsayıcı için ayrılmış verimliliği artırma uygulamanızın hata mantığının işleme düşünebilirsiniz.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API aşan ayrılmış işleme sınırları
-Bir koleksiyon için sağlanan istek birimleri aşan uygulamaları oranı ayrılmış düzeyin altına düşene kadar kısıtlanacak. Bir azaltma ortaya çıktığında, arka uç istekle erken önlem sona erer bir *16500* hata kodu - *çok fazla istek*. Varsayılan olarak, MongoDB API otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneme bir *çok fazla istek* hata kodu. Birçok alıyorsanız *çok fazla istek* hata kodları, uygulamanızın hata yordamları işlemedeki ekleme ya da yeniden deneme davranışı dikkate veya [koleksiyoniçinayrılmışverimliliğiartırma](set-throughput.md).
+Hızı ayrılmış düzeyin altına düşene kadar kapsayıcı için sağlanan istek birimleri aşan uygulamaları kısıtlanacak. Bir azaltma ortaya çıktığında, arka uç istekle erken önlem sona erer bir *16500* hata kodu - *çok fazla istek*. Varsayılan olarak, MongoDB API otomatik olarak en fazla 10 kez döndürmeden önce yeniden deneme bir *çok fazla istek* hata kodu. Birçok alıyorsanız *çok fazla istek* hata kodları, uygulamanızın hata yordamları işlemedeki ekleme ya da yeniden deneme davranışı dikkate veya [kapsayıcıiçinayrılmışverimliliğiartırma](set-throughput.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Ayrılmış işleme ile Azure Cosmos DB veritabanları hakkında daha fazla bilgi edinmek için şu kaynakları araştırın:

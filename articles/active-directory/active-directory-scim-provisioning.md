@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için etki alanları arası kimlik yönetimi sistemi kullanarak
 
@@ -35,7 +35,7 @@ Bu özellik birlikte "kendi uygulamanızı getir" özelliğine sahip Azure AD ç
 Azure Active Directory'de SCIM'yi kullanma iki kullanım örnekleri şunlardır:
 
 * **Kullanıcılar ve gruplar SCIM'yi destekleyen uygulamalar için sağlama** SCIM'yi 2.0 desteği ve yapılandırma olmadan Azure AD ile kimlik doğrulaması çalışır OAuth taşıyıcı belirteçlerini kullanmak uygulamalar.
-* **Diğer API tabanlı sağlama destekleyen uygulamalar için kendi sağlama çözümü derleme** SCIM'yi olmayan uygulamalar için Azure AD SCIM'yi uç noktası ve uygulama destekleyen kullanıcı sağlama için herhangi bir API'yi arasında çevirmek için SCIM'yi uç noktası oluşturabilirsiniz. Bir SCIM'yi uç noktası geliştirmenize yardımcı olması için SCIM'yi uç noktası sağlamak ve SCIM'yi iletileri çevirmek nasıl Göster kod örnekleri birlikte ortak dil altyapısı (CLI) kitaplıkları sunuyoruz.  
+* **Diğer API tabanlı sağlama destekleyen uygulamalar için kendi sağlama çözümü derleme** SCIM'yi olmayan uygulamalar için Azure AD SCIM'yi uç noktası ve uygulama için kullanıcı destekleyen herhangi bir API'yi arasında çevirmek için SCIM'yi uç noktası oluşturabilirsiniz. sağlama. Bir SCIM'yi uç noktası geliştirmenize yardımcı olması için SCIM'yi uç noktası sağlamak ve SCIM'yi iletileri çevirmek nasıl Göster kod örnekleri birlikte ortak dil altyapısı (CLI) kitaplıkları sunuyoruz.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Kullanıcılar ve gruplar SCIM'yi destekleyen uygulamalar için hazırlama
 Azure AD, otomatik olarak sağlama atanan kullanıcılar ve gruplar kullanan uygulamalar için yapılandırılabilir bir [sistemi için etki alanları arası Kimlik Yönetimi 2 (SCIM'yi)](https://tools.ietf.org/html/draft-ietf-scim-api-19) web hizmeti ve kimlik doğrulaması için OAuth taşıyıcı belirteçlerini kabul edin. SCIM'yi 2.0 belirtimi içinde uygulamalar bu gereksinimleri karşılamalıdır:
@@ -685,7 +685,7 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
 ## <a name="group-provisioning-and-de-provisioning"></a>Grup sağlama ve sağlamayı kaldırma özelliklerini
 Aşağıdaki çizimde gösterildiği Azure AcD bir grubu başka bir kimlik deposu içinde yaşam döngüsü yönetmek için SCIM'yi Hizmeti'ne gönderilen iletileri.  Bu iletiler, kullanıcılara üç yolla ilgili iletiler farklıdır: 
 
-* Bir grup kaynağına şema http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group tanımlanır.  
+* Bir grup kaynak şeması olarak tanımlanan `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * Grupları almak için yapılan isteklerinin üyeleri öznitelik isteğine yanıt olarak sağlanan herhangi bir kaynağa dışında tutulması olduğunu iznine.  
 * Bir başvuru özniteliği belirli bir değere sahip olup olmadığını belirlemek üzere istekleri üyeleri özniteliği hakkında isteklerdir.  
 
