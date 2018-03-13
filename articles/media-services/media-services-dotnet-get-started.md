@@ -154,7 +154,7 @@ Media Services’de, dijital dosyalar bir varlığa yüklenir (veya alınır). *
 
 Aşağıda tanımlanan **UploadFile** yöntemi, **CreateFromFile** yöntemini (.NET SDK Uzantılarında tanımlanmıştır) çağırır. **CreateFromFile**, belirtilen kaynak dosyasının yüklendiği yeni bir varlık oluşturur.
 
-**CreateFromFile** yöntemi, aşağıdaki varlık oluşturma seçeneklerden birini belirtmenize olanak sağlayan \**AssetCreationOptions’ı alır:
+**CreateFromFile** yöntemi, aşağıdaki varlık oluşturma seçeneklerden birini belirtmenize olanak sağlayan \*\*AssetCreationOptions’ı alır:
 
 * **Hiçbiri**: Şifreleme kullanılmaz. Varsayılan değer budur. Bu seçeneği kullandığınızda, içeriğinizin aktarım sırasında ve depolama alanında beklerken korunmadığını unutmayın.
   Aşamalı indirme kullanarak bir MP4 iletmeyi planlıyorsanız bu seçeneği kullanın.
