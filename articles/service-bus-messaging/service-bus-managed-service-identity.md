@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 6965e80cf10b732d4d0a8fb78447f188c133979d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="managed-service-identity-preview"></a>Yönetilen hizmet kimliği (Önizleme)
 
@@ -62,17 +62,17 @@ Web uygulamasının yönetilen hizmet kimliği artık Service Bus ad alanı eri�
 
 ### <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-Şimdi varsayılan sayfa oluşturduğunuz ASP.NET uygulamasının değiştirin. Ayrıca web uygulama kodundan kullanabilirsiniz [bu GitHub deposunu](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity). 
+Şimdi varsayılan sayfa oluşturduğunuz ASP.NET uygulamasının değiştirin. Ayrıca web uygulama kodundan kullanabilirsiniz [bu GitHub deposunu](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
 
 Default.aspx sayfasında, giriş sayfasıdır. Kod Default.aspx.cs dosyasında bulunabilir. En az web uygulaması birkaç giriş alanları ile birlikte sonucudur **Gönder** ve **alma** göndermek veya iletileri almak için Service Bus hizmetine bağlanmak düğmeler.
 
-Not nasıl [Eventhubclient](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) nesne başlatılır. Paylaşılan erişim belirteci (SAS) belirteci sağlayıcısı kullanmak yerine, bir belirteç sağlayıcısı ile yönetilen hizmet kimliği için kod oluşturur `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` çağırın. Bu nedenle, korumak ve kullanmak için hiçbir gizli vardır. Hizmet veri yolu ve yetkilendirme el sıkışma için Yönetilen hizmet kimlik bağlamını akışını otomatik olarak tarafından işlenmesini SAS kullanmaktan daha basit bir modeldir belirteç sağlayıcısı.
+Not nasıl [Eventhubclient](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) nesne başlatılır. Paylaşılan erişim belirteci (SAS) belirteci sağlayıcısı kullanmak yerine, bir belirteç sağlayıcısı ile yönetilen hizmet kimliği için kod oluşturur `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` çağırın. Bu nedenle, korumak ve kullanmak için hiçbir gizli vardır. Hizmet veri yolu ve yetkilendirme el sıkışma için Yönetilen hizmet kimlik bağlamını akışını otomatik olarak tarafından işlenmesini SAS kullanmaktan daha basit bir modeldir belirteç sağlayıcısı.
 
 Bu değişiklikleri yaptıktan sonra yayımlama ve uygulamayı çalıştırın. Karşıdan yüklemek ve bir yayımlama profili Visual Studio'da almak için doğru yayımlama verileri elde etmek için kolay bir yoludur.:
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-İleti göndermek veya almak için ad alanı ve oluşturduğunuz varlığın adı girin ve ardından ya da **Gönder** veya **almak**. 
+İleti göndermek veya almak için ad alanı ve oluşturduğunuz varlığın adı girin ve ardından ya da **Gönder** veya **almak**.
  
 Yönetilen hizmet kimliği yalnızca Azure ortamı içindeki ve yalnızca içinde yapılandırdığınız uygulama hizmeti dağıtımı çalıştığını unutmayın. Ayrıca, yönetilen hizmet kimlikleri uygulama hizmeti dağıtım yuvası ile şu anda çalışmıyor unutmayın.
 

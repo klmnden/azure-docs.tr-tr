@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -294,7 +294,7 @@ Aşağıdaki tabloda, sürücü hata durumları ve her durum için gerçekleşti
 | Yok | Başka bir iş parçası olarak veri merkezindeki herhangi bir işi parçası olmayan bir sürücü ulaşır. | Sürücü fazladan bir sürücü olarak işaretlenir ve özgün paket ile ilişkili iş tamamlandığında müşteriye döndürülür. |
 
 ### <a name="time-to-process-job"></a>İşlem işi zaman
-Gereken bir içeri/dışarı aktarma işini değişir Sevkiyat Zamanı gibi farklı etkenlere bağlı olarak işlenecek süreyi iş türü, türü ve kopyalanan verilerin boyutunu ve sağlanan disk boyutu. İçeri/dışarı aktarma hizmeti bir SLA yok ancak diskleri alındıktan sonra kopyalama 7-10 gün içinde tamamlamak için hizmet çalışır. REST API daha yakından iş ilerleme durumunu izlemek için kullanabilirsiniz. Kopyalama devam eden bir gösterge sağlayan listesi işleri işlemde yüzde tam parametresi yok. Zaman kritik içeri/dışarı aktarma işlemini tamamlamak için tahmin gerekiyorsa bize ulaşın.
+İçeri/dışarı aktarma işi işlemek için gereken süreyi bir dizi etkene sevkiyat zaman, yük DataCenter, iş türü ve kopyalanan verilerin boyutu gibi ve bir İşte disk sayısı göre değişir. İçeri/dışarı aktarma hizmeti bir SLA yok ancak kopyalama 7-10 diskleri alındıktan sonra gün içinde tamamlamak için hizmet çalışır. Azure Portal'da gönderilen durum ek olarak, REST API'leri iş ilerleme durumunu izlemek için kullanılabilir. Liste işleri işlemi API çağrısı yüzde tam parametresinde yüzdesi kopyalama ilerleme sağlar.
 
 ### <a name="pricing"></a>Fiyatlandırma
 **İşleme ücret sürücü**

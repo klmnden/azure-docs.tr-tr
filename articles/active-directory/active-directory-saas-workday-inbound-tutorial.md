@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -768,12 +768,27 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
 
 * Avrupa Birliği bulunan Azure AD kiracılarıyla görünmeyen denetim günlüklerini önceki bir sorun çözüldü. Ancak, ek Aracısı yapılandırması AB Azure AD kiracıları için gereklidir. Ayrıntılar için bkz [bölümü 3: şirket içi eşitleme Aracısı'nı yapılandırma](#Part 3: Configure the on-premises synchronization agent)
 
+## <a name="gdpr-compliance"></a>GDPR uyumluluk
 
-## <a name="additional-resources"></a>Ek kaynaklar
-* [Öğretici: çoklu oturum açma Workday ve Azure Active Directory arasında yapılandırma](active-directory-saas-workday-tutorial.md)
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
+[Genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) Avrupa Birliği (AB) veri koruma ve gizlilik yasaları değil. GDPR şirketler kuralları uygular, devlet dairesi, kar kaybı olmayan ve AB veya kişilere mal ve hizmet sunmak diğer kuruluşların toplamak ve AB Satışlar bağlı verileri analiz etmek. 
+
+Azure AD sağlama GDPR Microsoft'un hizmetlerin ve özelliklerin yanı sıra rest uyumlu hizmetidir. Microsoft'un GDPR Öykü hakkında daha fazla bilgi için bkz: [hizmet koşulları](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+Ancak, Active Directory için iş günü sağlama çözümünü etki alanına katılmış bir sunucuya yüklenmesi bir eşitleme Aracısı gerektirdiğinden, GDPR uyumlu de Kal izlemek için gereken bazı olaylar vardır.
+ 
+Aracı günlüklerinde oluşturur **Windows olay günlüğü**, kişisel olarak tanımlanabilir bilgiler içerebilir.
+
+GDPR uyumlu olmak iki yol vardır:
+
+1. İstek, bir kişi için verileri ayıklamak ve Windows olay günlükleri bu kişiden veri kaldırın. 
+2. Windows olay günlüklerini altında 48 saat AADSyncAgent işleminden kaynaklanan bekletme tutun
+
+Veri saklama için Windows olay günlüklerini yapılandırma hakkında daha fazla bilgi için bkz: [olay günlüğü ayarları](https://technet.microsoft.com/en-us/library/cc952132.aspx). Windows olay günlüğü hakkında genel bilgi için bkz: [bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Çoklu oturum açma Workday ve Azure Active Directory arasında yapılandırmayı öğrenin](active-directory-saas-workday-tutorial.md)
+* [Diğer SaaS uygulamaları Azure Active Directory ile tümleştirme öğrenin](active-directory-saas-tutorial-list.md)
+

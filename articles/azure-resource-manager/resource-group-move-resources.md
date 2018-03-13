@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -99,7 +99,7 @@ Kişi [Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSu
 * Kaynaklarınızın bir yeni bir Azure hesabı (ve Azure Active Directory kiracısı) taşıyın ve önceki bölümünde yer alan yönergeleri ile ilgili Yardım gerekiyor.
 * Klasik kaynakları taşımak ancak kısıtlamalarla sorunu yaşıyor.
 
-## <a name="services-that-enable-move"></a>Taşıma Etkinleştirme Hizmetleri
+## <a name="services-that-can-be-moved"></a>Taşınabilir Hizmetleri
 
 Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunlardır:
 
@@ -149,7 +149,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Sanal ağlar - bkz [sanal ağlar sınırlamaları](#virtual-networks-limitations)
 * VPN Gateway
 
-## <a name="services-that-do-not-enable-move"></a>Taşıma etkinleştirmeyin Hizmetleri
+## <a name="services-that-cannot-be-moved"></a>Taşınamaz Hizmetleri
 
 Şu anda bir kaynak taşıma etkinleştirmeyin hizmetler şunlardır:
 

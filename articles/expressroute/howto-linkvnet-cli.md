@@ -13,19 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 03/08/2018
 ms.author: anzaman,cherylmc
-<<<<<<< HEAD
-ms.openlocfilehash: 0ea696e796ec3a943bc028f56da417978b728b82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5e8d1739aa3d7f5be6c6450edcad43bc83db71fb
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI kullanarak bir expressroute bağlantı hattı için bir sanal ağa bağlanma
 
@@ -42,7 +36,9 @@ Bu makale, CLI kullanarak Azure ExpressRoute bağlantı hatları için sanal ağ
 ## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
 
 * Komut satırı arabirimi (CLI) en son sürümünü gerekir. Daha fazla bilgi için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
 * Gözden geçirmeniz gereken [Önkoşullar](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
+
 * Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. 
   * Yönergeleri izleyerek [bir expressroute bağlantı hattı oluşturma](howto-circuit-cli.md) ve bağlantı sağlayıcınız tarafından etkinleştirilmiş hattı sahip. 
   * Bağlantı hattınız için yapılandırılmış Azure özel eşleme olduğundan emin olun. Bkz: [yönlendirmeyi yapılandırma](howto-routing-cli.md) yönlendirme yönergeleri için makalenin. 
@@ -50,6 +46,8 @@ Bu makale, CLI kullanarak Azure ExpressRoute bağlantı hatları için sanal ağ
   * Bir sanal ağ ve oluşturulan ve tam olarak sağlanan bir sanal ağ geçidi olduğundan emin olun. Yönergeleri izleyerek [ExpressRoute için bir sanal ağ geçidi yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Kullandığınızdan emin olun `--gateway-type ExpressRoute`.
 
 * Standart bir expressroute bağlantı hattı için en fazla 10 sanal ağlara bağlantı oluşturabilirsiniz. Tüm sanal ağları, standart bir expressroute bağlantı hattını kullanırken aynı coğrafi bölgede olması gerekir. 
+
+* En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Bağlanmakta olduğunuz her expressroute bağlantı hattı için yeni bir bağlantı nesnesi oluşturmak için aşağıdaki işlemi kullanın. Expressroute bağlantı hatları aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir.
 
 * ExpressRoute premium eklentisi etkinleştirirseniz, bir sanal ağ expressroute bağlantı hattı coğrafi bölge dışında bağlantı ya da çok sayıda sanal ağlar, ExpressRoute devreme bağlayabilir. Premium eklentisi hakkında daha fazla bilgi için bkz: [SSS](expressroute-faqs.md).
 

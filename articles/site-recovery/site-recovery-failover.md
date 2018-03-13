@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: pratshar
-ms.openlocfilehash: 9b662099a75bf2eaebda388a6e675e70cf0b9cdc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 03/09/2018
+ms.author: ponatara
+ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery'de yük devretme
 Bu makalede, yük devretme sanal makinelere ve fiziksel sunucuları Site Recovery tarafından korunan nasıl açıklanmaktadır.
@@ -90,18 +90,18 @@ Bir yük devretme tetiklendiğinde, aşağıdaki adımları içerir:
 Bazı durumlarda, sanal makinelerin yük devretme genellikle tamamlamak için yaklaşık 8-10 dakika sürer bir ek ara adım gerektirir. Aşağıdaki durumlarda, yük devretme için harcanan süre normalden daha yüksek olacaktır:
 
 * Mobility hizmeti 9.8 eski sürümünün kullanarak VMware sanal makineleri
-* Fiziksel sunucuları 
+* Fiziksel sunucuları
 * VMware Linux sanal makineleri
 * Fiziksel sunucuları olarak korunan Hyper-V sanal makineler
-* Burada aşağıdaki sürücüleri önyükleme sürücüler olarak mevcut olmayan VMware sanal makineler 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * intelide 
+* Burada aşağıdaki sürücüleri önyükleme sürücüler olarak mevcut olmayan VMware sanal makineler
+    * storvsc
+    * vmbus
+    * storflt
+    * intelide
     * ATAPI
 * VMware sanal makineleri'de, DHCP hizmeti, DHCP veya statik kullanarak yedeklemiş etkin olmayan IP adresleri
 
-Tüm diğer durumlarda, bu ara adım gerekli değildir ve yük devretme için harcanan süre düşüktür. 
+Tüm diğer durumlarda, bu ara adım gerekli değildir ve yük devretme için harcanan süre düşüktür.
 
 
 
@@ -112,7 +112,7 @@ Bir yük devretme yaparken belirli eylemleri otomatik hale getirmek isteyebilirs
 
 ## <a name="post-failover-considerations"></a>POST yük devretme konuları
 Aşağıdaki önerileri göz önünde bulundurabilirsiniz yük devretme sonrası:
-### <a name="retaining-drive-letter-after-failover"></a>Yük devretme sonrasında sürücü harfi korur 
+### <a name="retaining-drive-letter-after-failover"></a>Yük devretme sonrasında sürücü harfi korur
 Sürücü harfi sanal makinelerde yük devretme sonrasında korumak için ayarlayabileceğiniz **SAN ilkesini** sanal makine için **OnlineAll**. [Daha fazla bilgi edinin](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 

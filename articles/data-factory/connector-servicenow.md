@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (Beta) kullanarak ServiceNow veri kopyalama | Microsoft Docs
+title: Azure Data Factory kullanarak ServiceNow veri kopyalama | Microsoft Docs
 description: "Desteklenen havuz veri depolarına ServiceNow bir Azure Data Factory ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin."
 services: data-factory
 documentationcenter: 
@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 4d05d816b43e04c2c2e88cab33b8e4c623ab9185
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak ServiceNow verilerini
+# <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Servicenow'ı kullanarak Azure Data Factory kopyalama verileri
 
 Bu makalede kopya etkinliği Azure Data Factory'de ServiceNow verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Bu şu anda Beta Bağlayıcıdır. Deneyin ve bize geri bildirimde bulunun. Üretim ortamında kullanmayın.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

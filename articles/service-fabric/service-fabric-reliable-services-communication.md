@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Güvenilir hizmetler iletişimi API'lerini kullanma
 Bir platform olarak Azure Service Fabric Hizmetleri arasındaki iletişim hakkında tamamen bağımsızdır. Tüm protokoller ve yığınları HTTP UDP Gelen kabul edilir. Bu hizmetleri nasıl iletişim kuracağını seçmek için hizmet geliştiriciler için hazır. Güvenilir hizmetler uygulama çerçevesi yerleşik iletişim yığınları yanı sıra, özel iletişim bileşenleri oluşturmak için kullanabileceğiniz bir API sağlar.
@@ -76,10 +76,13 @@ public class MyStatelessService extends StatelessService {
 
 Durum bilgisi olan hizmetler için:
 
-> [!NOTE]
-> Durum bilgisi olan güvenilir hizmetler Java'da henüz desteklenmiyor.
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
 class MyStatefulService : StatefulService
@@ -236,7 +239,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient`kümede çeşitli yönetim işlemlerini Service Fabric kümesi ile iletişim kurmak için kullanılan nesne değil. Hizmet bölüm çözümleyici kümenizle nasıl etkileşim kurduğu üzerinde daha fazla denetim istediğinizde kullanışlıdır. `FabricClient`dahili olarak önbelleğe alma gerçekleştirir ve yeniden önemlidir oluşturmak, genellikle pahalı `FabricClient` mümkün olduğunca örnekleri.
+`FabricClient` kümede çeşitli yönetim işlemlerini Service Fabric kümesi ile iletişim kurmak için kullanılan nesne değil. Hizmet bölüm çözümleyici kümenizle nasıl etkileşim kurduğu üzerinde daha fazla denetim istediğinizde kullanışlıdır. `FabricClient` dahili olarak önbelleğe alma gerçekleştirir ve yeniden önemlidir oluşturmak, genellikle pahalı `FabricClient` mümkün olduğunca örnekleri.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -267,7 +270,7 @@ Genellikle, istemci kodu ServicePartitionResolver ile doğrudan işe. Oluşturul
 ### <a name="communication-clients-and-factories"></a>İletişim istemcileri ve oluşturucuları
 İletişim Fabrika kitaplığı çözümlenmiş hizmet uç noktaları için yeniden deneniyor bağlantıları kolaylaştırır tipik bir hata işleme yeniden deneme deseni uygular. Hata işleyicileri sunarken Fabrika kitaplığı yeniden deneme mekanizması sağlar.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`bir Service Fabric hizmeti iletişim kurabilirsiniz istemcileri üreten bir iletişim istemci sınıf üreticisi tarafından uygulanan temel arabirimi tanımlar. CommunicationClientFactory uyarlamasını nerede iletişim kurmak istemcinin istediği Service Fabric hizmeti tarafından kullanılan iletişim yığında bağlıdır. Güvenilir hizmetler API sağlayan bir `CommunicationClientFactoryBase<TCommunicationClient>`. Bu CommunicationClientFactory arabiriminin temel bir uygulama sağlar ve tüm iletişimi yığınları için ortak olan görevleri gerçekleştirir. (Hizmet uç noktası belirlemek için bir ServicePartitionResolver kullanarak bu görevleri dahil). İstemcileri, iletişim yığını belirli mantığı işlemek için Özet CommunicationClientFactoryBase sınıf genellikle uygulayın.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` bir Service Fabric hizmeti iletişim kurabilirsiniz istemcileri üreten bir iletişim istemci sınıf üreticisi tarafından uygulanan temel arabirimi tanımlar. CommunicationClientFactory uyarlamasını nerede iletişim kurmak istemcinin istediği Service Fabric hizmeti tarafından kullanılan iletişim yığında bağlıdır. Güvenilir hizmetler API sağlayan bir `CommunicationClientFactoryBase<TCommunicationClient>`. Bu CommunicationClientFactory arabiriminin temel bir uygulama sağlar ve tüm iletişimi yığınları için ortak olan görevleri gerçekleştirir. (Hizmet uç noktası belirlemek için bir ServicePartitionResolver kullanarak bu görevleri dahil). İstemcileri, iletişim yığını belirli mantığı işlemek için Özet CommunicationClientFactoryBase sınıf genellikle uygulayın.
 
 Communication istemcisi yalnızca bir adresi alır ve bir hizmete bağlanmak için kullanır. İstemcinin istediği ne olursa olsun protokolünü kullanabilirsiniz.
 

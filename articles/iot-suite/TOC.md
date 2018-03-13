@@ -66,6 +66,7 @@
 ### [Yeni bir simülasyon cihazı oluşturma](iot-suite-remote-monitoring-test.md)
 ### [Çözümü özelleştirme](iot-suite-remote-monitoring-customize.md)
 ### [CLI kullanarak dağıtma](iot-suite-remote-monitoring-deploy-cli.md)
+### [Yerel olarak dağıtma](iot-suite-remote-monitoring-deploy-local.md)
 ### Fiziksel cihaza bağlanma
 #### [Windows üzerinde C](iot-suite-connecting-devices.md)
 #### [Linux üzerinde C](iot-suite-connecting-devices-linux.md)

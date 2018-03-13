@@ -14,14 +14,14 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis önbelleğini yapılandırma
-Bu konuda gözden geçirin ve Azure Redis önbelleği örnekleri için yapılandırma güncelleştirmesi açıklar ve Azure Redis önbelleği örnekleri için varsayılan Redis sunucu yapılandırması kapsar.
+Bu konuda, Azure Redis önbelleği örnekleri için kullanılabilir yapılandırmaları açıklanmaktadır. Bu konuda, Azure Redis önbelleği örnekleri için varsayılan Redis sunucu yapılandırması da kapsar.
 
 > [!NOTE]
 > Yapılandırma ve premium önbellek özellikleri kullanma hakkında daha fazla bilgi için bkz: [kalıcılığı yapılandırma](cache-how-to-premium-persistence.md), [kümeleri yapılandırma](cache-how-to-premium-clustering.md), ve [sanal ağ desteğini yapılandırma](cache-how-to-premium-vnet.md).
@@ -53,7 +53,7 @@ Görüntüleyebilir ve kullanarak aşağıdaki ayarları yapılandırın **kayna
     * [Coğrafi çoğaltma](#geo-replication)
     * [Sanal Ağ](#virtual-network)
     * [Güvenlik duvarı](#firewall)
-    * [Özellikleri](#properties)
+    * [özellikleri](#properties)
     * [Kilitler](#locks)
     * [Otomasyon komut dosyası](#automation-script)
 * [Yönetim](#administration)
@@ -79,7 +79,7 @@ Tıklatın **etkinlik günlüğü** önbelleğiniz üzerinde gerçekleştirilen 
 
 ### <a name="access-control-iam"></a>Erişim denetimi (IAM)
 
-**Erişim denetimi (IAM)** bölüm kuruluşlar erişim yönetimi gereksinimlerine sadece ve tam olarak karşılamak amacıyla Azure portalında rol tabanlı erişim denetimi (RBAC) desteği sağlar. Daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+**Erişim denetimi (IAM)** bölüm Azure portalında rol tabanlı erişim denetimi (RBAC) için destek sağlar. Bu yapılandırma, kuruluşların kendi erişim yönetimi sadece ve tam olarak gereksinimlerini yardımcı olur. Daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
 
 ### <a name="tags"></a>Etiketler
 
@@ -105,7 +105,7 @@ Tıklatın **Tanıla ve sorunları** çözümlemek için ortak sorunlar ve strat
 * [Coğrafi çoğaltma](#geo-replication)
 * [Sanal Ağ](#virtual-network)
 * [Güvenlik duvarı](#firewall)
-* [Özellikleri](#properties)
+* [özellikleri](#properties)
 * [Kilitler](#locks)
 * [Otomasyon komut dosyası](#automation-script)
 
@@ -136,7 +136,7 @@ SSL olmayan erişim yeni önbellekler için varsayılan olarak devre dışı bı
 
 **Maxmemory İlkesi** önbelleği için çıkarma İlkesi yapılandırır ve aşağıdaki çıkarma ilkelerden seçmenize olanak sağlar:
 
-* `volatile-lru`-Varsayılan değer budur.
+* `volatile-lru` -Varsayılan çıkarma İlkesi budur.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -145,11 +145,11 @@ SSL olmayan erişim yeni önbellekler için varsayılan olarak devre dışı bı
 
 Hakkında daha fazla bilgi için `maxmemory` ilkeleri Bkz [çıkarma ilkeleri](http://redis.io/topics/lru-cache#eviction-policies).
 
-**Maxmemory ayrılmış** ayarı, MB olarak çoğaltma yük devretme sırasında gibi önbellek olmayan işlemleri için ayrılan bellek miktarını yapılandırır. Bu değer ayarlandığında yük değişiklik gösterdiğinde daha tutarlı bir Redis sunucu deneyim sahip olmanızı sağlar. Bu değer ağır yazma iş yükleri için yüksek ayarlamanız gerekir. Bu tür işlemler için ayrılmış bellek, önbelleğe alınan veri depolama için kullanılabilir değil.
+**Maxmemory ayrılmış** ayarı, yük devretme sırasında çoğaltma gibi önbellek olmayan işlemleri için ayrılmış MB bellek miktarını yapılandırır. Bu değer ayarlandığında yük değişiklik gösterdiğinde daha tutarlı bir Redis sunucu deneyim sahip olmanızı sağlar. Bu değer ağır yazma iş yükleri için yüksek ayarlamanız gerekir. Bu tür işlemler için ayrılmış bellek, önbelleğe alınan veri depolama için kullanılabilir değil.
 
-**Maxfragmentationmemory ayrılmış** ayarı için bellek parçalanması uyum sağlamak için ayrılmış MB bellek miktarını yapılandırır. Bu değer ayarlandığında önbellek dolu veya tam ve parçalanma yakın oranı de yüksek zaman deneyimi daha tutarlı bir Redis sunucusu olmasını sağlar. Bu tür işlemler için ayrılmış bellek, önbelleğe alınan veri depolama için kullanılabilir değil.
+**Maxfragmentationmemory ayrılmış** ayarı için bellek parçalanması uyum sağlamak için ayrılmış MB bellek miktarını yapılandırır. Bu değer ayarlandığında önbellek dolu ya da tam ve parçalanma yakın oranı yüksek olduğunda daha tutarlı bir Redis sunucu deneyim sahip olmanızı sağlar. Bu tür işlemler için ayrılmış bellek, önbelleğe alınan veri depolama için kullanılabilir değil.
 
-Yeni bir bellek ayırma değeri seçerken dikkat etmeniz gereken tek şey (**maxmemory ayrılmış** veya **maxfragmentationmemory ayrılmış**) Bu değişiklik büyük miktarlarda veri ile çalışan bir önbellek nasıl etkileyebileceğini değil. 49 GB veri 53 GB'a önbellekle sahip ardından ayırma değeri için 8 GB değiştirin, örneğin, bu sistem 45 GB azaltmak için en çok kullanılabilir bellek bırakılmasına neden olacak. Her iki geçerli `used_memory` veya `used_memory_rss` değerlerdir 45 GB yeni sınırdan daha yüksek sonra sistem erene kadar veri Tahliye gerekecek `used_memory` ve `used_memory_rss` 45 GB olan. Çıkarma sunucu yükü ve bellek parçalanması artırabilir. Önbellek ölçümleri gibi hakkında daha fazla bilgi için `used_memory` ve `used_memory_rss`, bkz: [kullanılabilir Ölçümler ve aralıklarını raporlama](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+Yeni bir bellek ayırma değeri seçerken dikkat etmeniz gereken tek şey (**maxmemory ayrılmış** veya **maxfragmentationmemory ayrılmış**) Bu değişiklik büyük miktarlarda veri ile çalışan bir önbellek nasıl etkileyebileceğini değil. Örneğin, 49 GB veri 53 GB'a önbellekle sahip ardından ayırma değeri için 8 GB değiştirin, bu değişikliği sistem 45 GB azaltmak için en çok kullanılabilir bellek bırakın. Her iki geçerli `used_memory` veya `used_memory_rss` değerlerdir 45 GB yeni sınırdan daha yüksek sonra sistem erene kadar veri Tahliye gerekecek `used_memory` ve `used_memory_rss` 45 GB olan. Çıkarma sunucu yükü ve bellek parçalanması artırabilir. Önbellek ölçümleri gibi hakkında daha fazla bilgi için `used_memory` ve `used_memory_rss`, bkz: [kullanılabilir Ölçümler ve aralıklarını raporlama](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 > [!IMPORTANT]
 > **Maxmemory ayrılmış** ve **maxfragmentationmemory ayrılmış** ayarlarını bulunan ve yalnızca için standart ve Premium önbelleğe alır.
@@ -269,11 +269,13 @@ Bir bakım penceresi belirtmek için istenen gün kontrol edin ve her gün için
 
 ### <a name="firewall"></a>Güvenlik duvarı
 
-Tıklatın **Güvenlik Duvarı** görüntüleyip, Premium Azure Redis önbelleği için güvenlik duvarı kurallarını yapılandırın.
+Güvenlik duvarı kuralları yapılandırma tüm Azure Redis önbelleği katmanları için kullanılabilir.
+
+Tıklatın **Güvenlik Duvarı** görüntülemek ve önbellek için güvenlik duvarı kurallarını yapılandırmak için.
 
 ![Güvenlik duvarı](./media/cache-configure/redis-firewall-rules.png)
 
-Güvenlik duvarı kuralları ile bir başlangıç ve bitiş IP adresi aralığı belirtebilirsiniz. Güvenlik duvarı kuralları yapılandırıldığında, yalnızca belirtilen IP adresi aralıklarında'ten istemci bağlantılarını önbelleğe bağlanabilir. Bir güvenlik duvarı kuralı kaydedildiğinde vardır kısa bir gecikme kural etkilidir önce. Bu gecikme, normal bir dakikadan az olur.
+Güvenlik duvarı kuralları ile bir başlangıç ve bitiş IP adresi aralığı belirtebilirsiniz. Güvenlik duvarı kuralları yapılandırıldığında, yalnızca belirtilen IP adresi aralıklarında'ten istemci bağlantılarını önbelleğe bağlanabilir. Bir güvenlik duvarı kuralı kaydedildi olduğunda kısa bir gecikme kural etkilidir önce. Bu gecikme, normal bir dakikadan az olur.
 
 > [!IMPORTANT]
 > Güvenlik duvarı kuralları yapılandırılmış olsa bile Azure Redis önbelleği sistemleri izleme bağlantılarından her zaman, izin verilir.
@@ -383,10 +385,10 @@ Tıklatın **yeni destek isteği** önbellek hesabınız için bir destek isteğ
 
 
 ## <a name="default-redis-server-configuration"></a>Varsayılan Redis sunucu yapılandırması
-Yeni Azure Redis önbelleği örnekleri aşağıdaki varsayılan Redis yapılandırma değerlerle yapılandırılır.
+Yeni Azure Redis önbelleği örnekleri aşağıdaki varsayılan Redis yapılandırma değerlerle yapılandırılır:
 
 > [!NOTE]
-> Bu bölümdeki ayarları kullanılarak değiştirilemez `StackExchange.Redis.IServer.ConfigSet` yöntemi. Bu yöntem, bu bölümdeki komutlar biriyle çağrılırsa, aşağıdakine benzer bir özel durum oluşur:  
+> Bu bölümdeki ayarları kullanılarak değiştirilemez `StackExchange.Redis.IServer.ConfigSet` yöntemi. Bu yöntem, bu bölümdeki komutlar biriyle çağrılırsa, aşağıdaki örneğe benzer bir özel durum oluşur:  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
@@ -397,10 +399,10 @@ Yeni Azure Redis önbelleği örnekleri aşağıdaki varsayılan Redis yapıland
 | Ayar | Varsayılan değer | Açıklama |
 | --- | --- | --- |
 | `databases` |16 |16 veritabanı varsayılan sayısı olmakla birlikte fiyatlandırma katmanını temel alan farklı bir numara yapılandırabilirsiniz. <sup>1</sup> varsayılan veritabanı DB 0, farklı bir bağlantı başına kullanma temel seçebileceğiniz `connection.GetDatabase(dbid)` nerede `dbid` arasında bir sayı `0` ve `databases - 1`. |
-| `maxclients` |Fiyatlandırma katmanını bağlıdır<sup>2</sup> |Bu bağlı istemciler aynı anda izin verilen en fazla sayısıdır. Sınıra ulaşıldıktan sonra Redis tüm yeni bağlantıları 'en fazla istemci sayısı üst sınırına' hata dönülür. |
+| `maxclients` |Fiyatlandırma katmanını bağlıdır<sup>2</sup> |Bu değer bağlanan istemciler aynı anda izin verilen en fazla sayısıdır. Sınıra ulaşıldıktan sonra Redis tüm yeni bağlantıları 'en fazla istemci sayısı üst sınırına' hata dönülür. |
 | `maxmemory-policy` |`volatile-lru` |Redis ne zaman kaldırılacağını nasıl seçtiği için Maxmemory İlkesi ayarı olan `maxmemory` (önbellek oluşturduğunuzda seçtiğiniz sunumu önbellek boyutunu) ulaştı. Azure Redis önbelleği ile varsayılan ayardır `volatile-lru`, LRU algoritması kullanılarak ayarlanan bir sona erme ile anahtarlarını kaldırır. Bu ayar Azure Portalı'nda yapılandırılabilir. Daha fazla bilgi için bkz: [bellek ilkeleri](#memory-policies). |
 | `maxmemory-samples` |3 |Bellekten tasarruf etmek LRU ve TTL algoritmaları en az hassas algoritmaları yerine yaklaşık algoritmaları şunlardır. Varsayılan olarak, denetimleri üç anahtarları ve çekmeleri daha az son kullanılan bir Redis. |
-| `lua-time-limit` |5,000 |Milisaniye cinsinden Lua komut dosyası yürütme zaman sınırı. En fazla çalışma zamanı ulaştıysanız, Redis bir komut dosyası yürütme en fazla izin verilen süre sonra hala kullanılıyor ve bir hata ile sorguları yanıtlamak başlatır günlüğe kaydeder. |
+| `lua-time-limit` |5.000 |Milisaniye cinsinden Lua komut dosyası yürütme zaman sınırı. En fazla çalışma zamanı ulaştıysanız, Redis bir komut dosyası yürütme en fazla izin verilen süre sonra hala kullanılıyor ve bir hata ile sorguları yanıtlamak başlatır günlüğe kaydeder. |
 | `lua-event-limit` |500 |Komut dosyası olay sırasının en büyük boyutu. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |İstemci çıkış arabelleği sınırları veri yeterince hızlı sunucudan (bir ortak Pub/alt istemci iletileri yayımcı oluşturmak üzere kadar hızlı kullanamayacaklarını nedeni) herhangi bir nedenden dolayı okuyorsanız olmayan istemciler bağlantısının kesilmesi zorlamak için kullanılabilir. Daha fazla bilgi için bkz: [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
@@ -495,7 +497,7 @@ Redis konsoluna erişmek için tıklatın **konsol** gelen **Redis önbelleği**
 
 ![Konsol redis](./media/cache-configure/redis-console-premium-cluster.png)
 
-Bağlı parça daha farklı bir parça depolanan bir anahtara erişim denerseniz, aşağıdaki iletiye benzer bir hata iletisi alırsınız.
+Bağlı parça daha farklı bir parça depolanan bir anahtara erişim denerseniz, aşağıdaki iletiye benzer bir hata iletisini alıyorsunuz:
 
 ```
 shard1>get myKey

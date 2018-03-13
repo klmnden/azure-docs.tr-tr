@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 03/08/2018
 ms.author: ganesr
-ms.openlocfilehash: 8c2f3036f754a98090ab860f95900416690ebf83
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 354f7c455e1a2846bbdd63fa12b1cc01e2a1b9c5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Bir expressroute bağlantı hattı için bir sanal ağa bağlanma
 > [!div class="op_single_selector"]
@@ -34,7 +34,9 @@ Bu makalede sanal ağlar (Vnet'ler) bağlamak için Azure ExpressRoute bağlant�
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 * Azure PowerShell modüllerinin en son sürümünü yükleyin. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
+
 * Gözden geçirme [Önkoşullar](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
+
 * Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. 
   * Yönergeleri izleyerek [bir expressroute bağlantı hattı oluşturma](expressroute-howto-circuit-arm.md) ve bağlantı sağlayıcınız tarafından etkinleştirilmiş hattı sahip. 
   * Bağlantı hattınız için yapılandırılmış Azure özel eşleme olduğundan emin olun. Bkz: [yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md) yönlendirme yönergeleri için makalenin. 
@@ -42,6 +44,8 @@ Bu makalede sanal ağlar (Vnet'ler) bağlamak için Azure ExpressRoute bağlant�
   * Bir sanal ağ ve oluşturulan ve tam olarak sağlanan bir sanal ağ geçidi olduğundan emin olun. Yönergeleri izleyerek [ExpressRoute için bir sanal ağ geçidi oluşturmak](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute için bir sanal ağ geçidi GatewayType 'ExpressRoute' değil VPN kullanır.
 
 * Standart bir expressroute bağlantı hattı için en fazla 10 sanal ağlara bağlantı oluşturabilirsiniz. Tüm sanal ağları, standart bir expressroute bağlantı hattını kullanırken aynı coğrafi bölgede olması gerekir. 
+
+* En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Bağlanmakta olduğunuz her expressroute bağlantı hattı için yeni bir bağlantı nesnesi oluşturmak için aşağıdaki işlemi kullanın. Expressroute bağlantı hatları aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir.
 
 * Expressroute bağlantı hattı coğrafi bölge dışında sanal ağlara bağlantı veya ExpressRoute premium eklentisi etkinse, expressroute bağlantı hattı için çok sayıda sanal ağlar bağlanabilirsiniz. Denetleme [SSS](expressroute-faqs.md) premium eklentisi hakkında daha fazla ayrıntı için.
 

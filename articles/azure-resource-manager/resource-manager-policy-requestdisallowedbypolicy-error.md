@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/03/2017
+ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 2e821c0369c6f01a7f09361c1093259429a79fa6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5a9efa6b807e933726104e7af315589ede5d9b74
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure kaynak ilkesiyle RequestDisallowedByPolicy hata
 
@@ -25,7 +25,7 @@ RequestDisallowedByPolicy hatanın nedeni, bu makalede, ayrıca bu hata için ç
 
 ## <a name="symptom"></a>Belirti
 
-Dağıtım sırasında bir eylem yapmak çalıştığınızda alabileceğiniz bir **RequestDisallowedByPolicy** tamamlanmasını engellediğini hata. Aşağıdaki örnek, hatayı gösterir:
+Dağıtım sırasında alabileceğiniz bir **RequestDisallowedByPolicy** kaynaklar oluşturmanızı engeller hata. Aşağıdaki örnek, hatayı gösterir:
 
 ```json
 {
@@ -40,7 +40,7 @@ Dağıtım sırasında bir eylem yapmak çalıştığınızda alabileceğiniz bi
 
 Dağıtımınızı engellenen İlkesi hakkındaki ayrıntıları almak için aşağıdaki yöntemlerden birini kullanın:
 
-### <a name="method-1"></a>Yöntem 1
+### <a name="powershell"></a>PowerShell
 
 Bu ilke tanımlayıcısı olarak PowerShell'de sağlamak `Id` dağıtımınızı engellenen İlkesi hakkındaki ayrıntıları almak için parametre.
 
@@ -48,9 +48,9 @@ Bu ilke tanımlayıcısı olarak PowerShell'de sağlamak `Id` dağıtımınızı
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-### <a name="method-2"></a>Yöntem 2 
+### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI 2. 0'ilke tanımı adını sağlayın: 
+Azure CLI 2. 0'ilke tanımı adını sağlayın:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,10 +58,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Çözüm
 
-Güvenlik veya uyumluluk, BT departmanınızın genel IP adresleri, ağ güvenlik grupları, kullanıcı tanımlı yollar veya yönlendirme tabloları oluşturma yasaklar kaynak İlkesi zorlayabilir. Hata iletisinde **Belirtiler** bölümünde gösterilir adlı bir ilke **regionPolicyDefinition**. İlkeniz, farklı bir ad olabilir.
-Bu sorunu gidermek için kaynak ilkelerini gözden geçirmek için BT departmanınıza çalışır ve bu ilkeleri ile uyumlu istenen eylemi gerçekleştirmek nasıl belirleyin.
+Güvenlik veya uyumluluk için abonelik yöneticilerinizi kaynakları nasıl dağıtıldığını sınırlama ilkeleri atayabilirsiniz. Örneğin, aboneliğiniz genel IP adresleri, ağ güvenlik grupları, kullanıcı tanımlı yollar oluşturma önleyen bir ilke, veya olabilir tabloları rota. Hata iletisinde **Belirtiler** bölüm ilkesinin adını gösterir.
+Bu sorunu gidermek için kaynak ilkelerini gözden geçirin ve bu ilkelerle kaynakları dağıtma belirleyin.
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- [Kaynak ilkesine genel bakış](resource-manager-policy.md)
-- [Portal üzerinden ilke atamalarını görüntülemek](resource-manager-policy-portal.md)
+- [Azure ilke nedir?](../azure-policy/azure-policy-introduction.md)
+- [Uyumluluğu zorlamak üzere ilkeleri oluşturun ve yönetin](../azure-policy/create-manage-policy.md)

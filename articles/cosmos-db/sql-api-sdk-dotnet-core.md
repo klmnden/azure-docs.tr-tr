@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 888740b434292c2ccc36fc90e0a9baaec96e2033
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 55946915573f53bb7e1917d4705e6d8e74abf448
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -37,8 +37,6 @@ ms.lasthandoff: 03/08/2018
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
-Bu paket kullanım ve Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/ tarafından değiştirildi
 
 <table>
 
@@ -61,12 +59,6 @@ Bu paket kullanım ve Microsoft.Azure.DocumentDB https://www.nuget.org/packages/
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK henüz Evrensel Windows Platformu (UWP) uygulamaları ile uyumlu değil. .NET Core UWP uygulamaları destekleyen SDK'ın ilgileniyorsanız, e-posta Gönder [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
-
-### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-
-* Bu paket kullanım ve Microsoft.Azure.DocumentDB https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/ tarafından değiştirildi
-* Bölüm düzeni köşe durumlarda sorgular tarafından çapraz sabit KeyNotFoundException için.
-* Sabit hata burada JsonPropery özniteliği LINQ sorguları için select yan tümcesinde değil dikkate alınır.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
@@ -178,7 +170,6 @@ Bu SDK ile ilgili sorularınız varsa, deftere [StackOverflow](http://stackoverf
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [1.9.0](#1.9.0) |05 Mart 2018 |--- |
 | [1.8.2](#1.8.2) |21 Şubat 2018 |--- |
 | [1.8.1](#1.8.1) |05 Şubat 2018 |--- |
 | [1.7.1](#1.7.1) |16 Kasım 2017 |--- |

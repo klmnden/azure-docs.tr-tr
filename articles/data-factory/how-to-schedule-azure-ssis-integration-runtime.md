@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 69eae46dc554911e0caadcf0aafbaec9e39f727d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Başlatma ve durdurma bir Azure SSIS tümleştirmesi çalışma zamanı zamanlama 
 Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir ücret sahiptir. Bu nedenle, yalnızca Azure'da SSIS paketleri çalıştırmak ve onu gerekmediğinde durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)). Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Bu makalede açıklanan üst düzey adımlar şunlardır:
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/09/2018
 1. **Oluşturma ve bir Azure Otomasyonu runbook'u sınayın.** Bu adımda, başlatıldığında veya bir Azure SSIS IR durdurulduğunda betiği ile bir PowerShell runbook oluşturma Ardından, başlatma ve durdurma senaryolarda runbook'u test ve IR başlatıldığında veya durdurulduğunda onaylayın. 
 2. **Runbook için iki zamanlamalar oluşturun.** İlk zamanlama için runbook işlem olarak Başlat ile yapılandırın. İkinci zamanlamasını, runbook ile durdurma işlemi yapılandırın. Her iki zamanlamalarını, runbook çalıştığı tempoyla belirtin. Örneğin, her gün ve 23: 00 günlük çalıştırmak için ikinci bir 8'de çalıştırmak için ilk tek zamanlamak isteyebilirsiniz. İlk runbook çalıştığında Azure SSIS IR başlatır İkinci runbook çalıştığında Azure SSIS IR durdurur 
 3. **Runbook için iki Web kancası oluşturma**, bir başlangıç işlemi diğeri durdurma işlemi. Bu Web kancalarını URL'lerini web etkinlikleri bir Data Factory işlem hattı yapılandırırken kullanın. 
-4. **Data Factory işlem hattı oluşturma**. Oluşturduğunuz işlem hattını dört etkinliklerini oluşur. İlk **Web** etkinlik Azure SSIS IR başlatmak için ilk Web kancası çağırır **Bekleyin** etkinlik başlatmak Azure SSIS IR 30 dakikadır (1800 saniye) bekler. **Saklı yordam** etkinlik SSIS paketi çalıştırır SQL komut dosyasını çalıştırır. İkinci **Web** etkinlik Azure SSIS IR durdurur Saklı yordam etkinliği kullanarak Data Factory işlem hattı SSIS paketinden çağırma hakkında daha fazla bilgi için bkz: [SSIS paketi çağırma](how-to-invoke-ssis-package-stored-procedure-activity.md). Ardından, belirttiğiniz tempoyla çalıştırmak için ardışık düzen zamanlamak için bir zamanlama tetikleyici oluşturun.
+4. **Data Factory işlem hattı oluşturma**. Oluşturduğunuz işlem hattını üç etkinliklerini oluşur. İlk **Web** etkinlik Azure SSIS IR başlatmak için ilk Web kancası çağırır **Saklı yordam** etkinlik SSIS paketi çalıştırır SQL komut dosyasını çalıştırır. İkinci **Web** etkinlik Azure SSIS IR durdurur Saklı yordam etkinliği kullanarak Data Factory işlem hattı SSIS paketinden çağırma hakkında daha fazla bilgi için bkz: [SSIS paketi çağırma](how-to-invoke-ssis-package-stored-procedure-activity.md). Ardından, belirttiğiniz tempoyla çalıştırmak için ardışık düzen zamanlamak için bir zamanlama tetikleyici oluşturun.
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [saklı yordam etkinliği sürüm 1 kullanılarak çağırma SSIS paketleri](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -223,12 +223,11 @@ Aşağıdaki yordam, bir PowerShell runbook oluşturmak için adımları sağlar
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Oluşturma ve IR başlatır/durdurur, bir Data Factory işlem hattı zamanlama
 Bu bölümde bir Web etkinliğini önceki bölümde oluşturduğunuz Web kancalarını çağırmak için nasıl kullanılacağını gösterir.
 
-Oluşturduğunuz işlem hattını dört etkinliklerini oluşur. 
+Oluşturduğunuz işlem hattını üç etkinliklerini oluşur. 
 
 1. İlk **Web** etkinlik Azure SSIS IR başlatmak için ilk Web kancası çağırır 
-2. **Bekleyin** etkinlik başlatmak Azure SSIS IR 30 dakikadır (1800 saniye) bekler. 
-3. **Saklı yordam** etkinlik SSIS paketi çalıştırır SQL komut dosyasını çalıştırır. İkinci **Web** etkinlik Azure SSIS IR durdurur Saklı yordam etkinliği kullanarak Data Factory işlem hattı SSIS paketinden çağırma hakkında daha fazla bilgi için bkz: [SSIS paketi çağırma](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. İkinci **Web** etkinlik Azure SSIS IR durdurmak için Web kancası çağırır 
+2. **Saklı yordam** etkinlik SSIS paketi çalıştırır SQL komut dosyasını çalıştırır. İkinci **Web** etkinlik Azure SSIS IR durdurur Saklı yordam etkinliği kullanarak Data Factory işlem hattı SSIS paketinden çağırma hakkında daha fazla bilgi için bkz: [SSIS paketi çağırma](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. İkinci **Web** etkinlik Azure SSIS IR durdurmak için Web kancası çağırır 
 
 Oluşturun ve ardışık düzen test sonra zamanlama tetikleyici oluşturmak ve ardışık düzen ile ilişkilendirebilirsiniz. Zamanlama tetikleyici ardışık düzeni için bir zamanlama tanımlar. Günlük 23: 00 çalıştırmak üzere zamanlanmış bir tetikleyici oluşturmak varsayalım. Tetikleyici ardışık düzen 23: 00 her gün çalışır. Ardışık Düzen Azure SSIS IR başlatır, SSIS paketi yürütür ve ardından Azure SSIS IR durdurur 
 
@@ -392,7 +391,7 @@ Ardışık Düzen beklediğiniz gibi çalışır, bu ardışık düzen sırasın
 6. Tetikleyici çalıştırır izlemek ve çalıştırmalarını kanalı için kullanın **İzleyici** sol sekmesinde. Ayrıntılı adımlar için bkz: [işlem hattını izleme](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![İşlem hattı çalıştırmaları](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Çalıştırma sahip işlem hattı ilişkili etkinlik çalışması görüntülemek için ilk bağlantı seçin (**etkinlik görünümü çalışır**) içinde **Eylemler** sütun. Her işlem hattında etkinlik ilişkili dört etkinlik çalışması bakın (ilk Web etkinlik, bekleme etkinliği, saklı yordam etkinliği ve ikinci Web etkinliğini). Ardışık Düzen çalıştırır geri görüntülemek için geçiş yapmak için seçin **ardışık düzen** üst bağlantı.
+7. Çalıştırma sahip işlem hattı ilişkili etkinlik çalışması görüntülemek için ilk bağlantı seçin (**etkinlik görünümü çalışır**) içinde **Eylemler** sütun. Her işlem hattında etkinlik ilişkili üç Etkinlik çalışması bakın (ilk Web etkinlik, saklı yordam etkinliği ve ikinci Web etkinliği). Ardışık Düzen çalıştırır geri görüntülemek için geçiş yapmak için seçin **ardışık düzen** üst bağlantı.
 
     ![Etkinlik çalıştırmaları](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. Seçerek tetikleyici çalıştırır görüntüleyebilirsiniz **tetiklemek çalışır** yanındaki aşağı açılan listeden **ardışık düzen çalışır** üstünde. 

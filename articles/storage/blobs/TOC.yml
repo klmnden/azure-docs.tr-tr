@@ -12,6 +12,8 @@
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Bloblarla çalışma - Azure portal
       href: storage-quickstart-blobs-portal.md
+    - name: Bloblarla çalışma - Depolama Gezgini
+      href: storage-quickstart-blobs-storage-explorer.md
     - name: Blob’larla çalışma - PowerShell
       href: storage-quickstart-blobs-powershell.md
     - name: Blob’larla çalışma - CLI
@@ -28,8 +30,8 @@
       href: storage-quickstart-blobs-ruby.md
     - name: Bloblarla çalışma - Node.js
       href: storage-quickstart-blobs-nodejs.md
-    - name: Bloblarla çalışma - Depolama Gezgini
-      href: storage-quickstart-blobs-storage-explorer.md
+    - name: Blob’larla çalışma - PHP
+      href: storage-quickstart-blobs-php.md
 - name: Öğreticiler
   items:
     - name: Görüntüyü karşıya yükleme ve işleme

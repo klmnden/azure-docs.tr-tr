@@ -8,20 +8,20 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 329a79511b810159244b5530a49a5916440d2046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>PowerShell ile bir özel web uç noktası için rota Blob Depolama olayları
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Blob Depolama olayları, tetikleyici bir olay abone olmak için Azure PowerShell kullanın ve sonucu görüntüleyin. 
 
-Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Bu makalede gösterilen örneği basitleştirmek için olayları yalnızca iletileri toplayan bir URL'ye gönderilir. Bu URL ya da üçüncü taraf araçları kullanarak oluşturduğunuz [RequestBin](https://requestb.in/) veya [Hookbin](https://hookbin.com/).
+Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Bu makalede gösterilen örneği basitleştirmek için olayları yalnızca iletileri toplayan bir URL'ye gönderilir. Bu URL’yi [RequestBin](https://requestb.in/) veya [Hookbin](https://hookbin.com/)’deki üçüncü taraf araçlarını kullanarak oluşturursunuz.
 
 > [!NOTE]
-> **RequestBin** ve **Hookbin** yüksek verimlilik kullanım için tasarlanmamıştır. Bu araçların tamamen demonstrative kullanılır. Aynı anda birden fazla olay gönderirseniz araçta tüm olaylarınızı göremeyebilirsiniz.
+> **RequestBin** ve **Hookbin** yüksek aktarım hızında kullanıma yönelik tasarlanmamıştır. Bu araçların kullanımını tamamen gösterim amaçlıdır. Aynı anda birden fazla olay gönderirseniz araçta tüm olaylarınızı göremeyebilirsiniz.
 
 Bu makalede açıklanan adımları tamamladıktan sonra olay verilerinin bir uç noktaya gönderildiğini görürsünüz.
 
@@ -65,7 +65,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 BLOB Depolama olayları kullanmak için ya da gereken bir [Blob storage hesabı](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) veya [genel amaçlı v2 depolama hesabı](../common/storage-account-options.md#general-purpose-v2). **Genel amaçlı v2 (GPv2)** BLOB'lar, dosyalar, kuyruklar ve tablolar dahil olmak üzere tüm depolama hizmetleri için tüm özellikleri destekleyen depolama hesaplarıdır. A **Blob storage hesabı** , yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage depolamak için bir özel depolama hesabı. BLOB storage hesapları, genel amaçlı depolama hesapları gibi ve % 100 API tutarlığı dahil günümüzde blok bloblar için kullanılır ve ilave blobları tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz.  
 
-LRS çoğaltma kullanarak Blob Depolama hesabı oluşturma [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), sonra kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alır. Bir depolama hesabı üzerinde hareket ederken, tekrar tekrar kimlik bilgileri sağlama yerine bağlamı başvuru. Bu örnek adlı bir depolama hesabı oluşturur **gridstorage** (varsayılan olarak etkindir) yerel olarak yedekli storage(LRS) ve blob şifrelemesi ile. 
+LRS çoğaltma kullanarak Blob Depolama hesabı oluşturma [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), sonra kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alır. Bir depolama hesabı üzerinde hareket ederken, tekrar tekrar kimlik bilgileri sağlama yerine bağlamı başvuru. Bu örnek adlı bir depolama hesabı oluşturur **gridstorage** yerel olarak yedekli depolama (LRS). 
 
 > [!NOTE]
 > Depolama hesabı adları bir genel ad alanı olduğundan, bu komut dosyasında belirtilen adı rastgele bazı karakterleri eklemek gerekir.
@@ -84,7 +84,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>İleti uç noktası oluşturma
 
-Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Konuya yanıt vermek için kod yazmak yerine, görüntüleyebilmeniz için iletileri toplayan bir uç nokta oluşturalım. RequestBin ve Hookbin bir uç nokta oluşturmanıza olanak sağlayan ve kendisine gönderilen istekleri görüntüleme üçüncü taraf araçlardır. Gidin [RequestBin](https://requestb.in/), tıklatıp **bir RequestBin oluşturma**, veya gitmek [Hookbin](https://hookbin.com/) tıklatıp **yeni uç nokta oluşturma**. Depo URL'yi kopyalayın ve değiştirme `<bin URL>` aşağıdaki komut dosyasında.
+Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Konuya yanıt vermek için kod yazmak yerine, görüntüleyebilmeniz için iletileri toplayan bir uç nokta oluşturalım. RequestBin ve Hookbin, bir uç nokta oluşturmanıza ve buna gönderilen istekleri görüntülemenize imkan tanıyan üçüncü taraf araçlardır. [RequestBin](https://requestb.in/)’e gidip **RequestBin Oluştur**’a tıklayın veya [Hookbin](https://hookbin.com/)’e gidip **Yeni Uç Nokta Oluştur**’a tıklayın. Depo URL'yi kopyalayın ve değiştirme `<bin URL>` aşağıdaki komut dosyasında.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -115,7 +115,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-Olayı tetiklediniz ve Event Grid iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Daha önce oluşturduğunuz uç nokta URL'sine gidin. Veya açık tarayıcınızda Yenile'yi tıklatın. Az önce gönderdiğiniz olayı görürsünüz. 
+Olayı tetiklediniz ve Event Grid iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Daha önce oluşturduğunuz uç nokta URL’sine gidin. Veya açık olan tarayıcınızda Yenile’ye tıklayın. Az önce gönderdiğiniz olayı görürsünüz. 
 
 ```json
 [{

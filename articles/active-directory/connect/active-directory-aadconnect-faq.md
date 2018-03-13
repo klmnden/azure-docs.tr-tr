@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
-ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect için sık sorulan sorular
 
@@ -78,7 +78,7 @@ Bu makalelere bakın:
 UserPrincipalName açıklandığı şekilde güncelleştirmek eşitleme altyapısı izin vermek için Azure AD de yapılandırabilirsiniz [Azure AD Connect eşitleme hizmeti özelliklerini](active-directory-aadconnectsyncservice-features.md).
 
 **S: olan yazılım eşleşen desteklenen şirket içi AD grup/kişisi nesneleri ile var olan Azure AD Grup/kişi nesneleri?**  
-Hayır, bu şu anda desteklenmiyor.
+Evet, bu proxyAddress üzerinde temel alır.  Yazılım eşleşen posta-etkin olmayan grupları için desteklenmiyor.
 
 **S: olan desteklenen el ile ayarlamak için sabit kendisine eşleştirmek için var olan Azure AD Grup/kişi nesneleri İmmutableıd özniteliği şirket içi AD Grup/kişi nesneleri?**  
 Hayır, bu şu anda desteklenmiyor.
@@ -106,7 +106,7 @@ Hayır.
 
 * Ortak onarım sorunları Azure AD Connect desteği hakkında teknik çözümleri için Microsoft Bilgi Bankası (KB) arayın.
 
-[Microsoft Azure Active Directory forumları](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Microsoft Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
 * Arama ve teknik sorular ve yanıtlar topluluktan veya kendi tıklayarak soru sorun göz atmak [burada](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 

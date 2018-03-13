@@ -4,13 +4,13 @@ description: "Bu makalede, bileşenleri ve Azure Site Recovery hizmeti ile şirk
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: e8a5f4fad75ea6211e96ba216c8b506306dcfa34
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a8af2ee4a32925603d24aee2403ab504a0ca05a8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Fiziksel sunucuya Azure çoğaltma mimarisi
 
@@ -27,7 +27,7 @@ Aşağıdaki tablo ve grafik fiziksel sunucu çoğaltma Azure için kullanılan 
 **Yapılandırma sunucusu** | Tek bir fiziksel makine şirket içi veya VMware VM tüm şirket içi Site Recovery bileşenlerini çalıştırmak için dağıtılır. VM yapılandırması sunucu, işlem sunucusu ve ana hedef sunucusunda çalışır. | Yapılandırma sunucusu yerinde bileşenler ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir.
  **İşlem sunucusu**:  | Yapılandırma sunucusu ile birlikte varsayılan olarak yüklüdür. | Çoğaltma ağ geçidi olarak davranır. Çoğaltma verilerini alıp bu verileri önbelleğe alma, sıkıştırma ve şifreleme işlemleriyle iyileştirir ve Azure depolama alanına gönderir.<br/><br/> İşlem sunucusu Mobility hizmeti çoğaltmak istediğiniz sunucularda de yükler.<br/><br/> Dağıtımınız büyüdükçe, daha büyük birimleri çoğaltması trafiğini işlemek için ek, ayrı bir işlem sunucuları ekleyebilirsiniz.
  **Ana hedef sunucu** | Yapılandırma sunucusu ile birlikte varsayılan olarak yüklüdür. | Azure’dan yeniden çalışma sırasında çoğaltma verilerini işler.<br/><br/> Büyük dağıtımlar için yeniden çalışma için bir ek, ayrı ana hedef sunucusu ekleyebilirsiniz.
-**Çoğaltılmış sunucuları** | Mobility hizmetinin Çoğalttığınız her sunucuya yüklenir. | İşlem sunucusundan otomatik yüklemesine izin ver öneririz. Alternatif olarak hizmeti el ile yüklemek veya bir System Center Configuration Manager gibi otomatik dağıtım yöntemini kullanın. 
+**Çoğaltılmış sunucuları** | Mobility hizmetinin Çoğalttığınız her sunucuya yüklenir. | İşlem sunucusundan otomatik yüklemesine izin ver öneririz. Alternatif olarak hizmeti el ile yüklemek veya bir System Center Configuration Manager gibi otomatik dağıtım yöntemini kullanın.
 
 **Fiziksel Azure Mimarisi**
 

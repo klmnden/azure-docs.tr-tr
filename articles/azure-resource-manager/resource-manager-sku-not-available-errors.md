@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>SKU kullanılamaz hatalarını çözümleme
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 (VM boyutu gibi) seçtiniz SKU kaynak seçtiğiniz konum için kullanılabilir olmadığında bu hatayı alırsınız.
 
-## <a name="solution"></a>Çözüm
+## <a name="solution-1---powershell"></a>Solution 1 - PowerShell
 
-Bu sorunu çözmek için SKU'ları bir bölgede kullanılabilir olan belirlemeniz gerekir. Kullanılabilir SKU'lar bulmak için PowerShell, portalı veya REST işlemini kullanın.
-
-### <a name="solution-1"></a>Çözüm 1
-
-Kullanım [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) PowerShell'de komutu. Konuma göre sonuçları filtrelenir. Bu komut için PowerShell en son sürümünü olması gerekir.
+SKU'ları bir bölgede kullanılabilir olan belirlemek için [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) komutu. Konuma göre sonuçları filtrelenir. Bu komut için PowerShell en son sürümünü olması gerekir.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>Çözüm 2
+## <a name="solution-2---azure-cli"></a>Çözüm 2 - Azure CLI
 
-Azure CLI kullanma `az vm list-skus` komutu. Daha sonra kullanabilirsiniz `grep` veya çıkış filtrelemek için benzer bir yardımcı programı.
+SKU'ları bir bölgede kullanılabilir olan belirlemek için `az vm list-skus` komutu. Daha sonra kullanabilirsiniz `grep` veya çıkış filtrelemek için benzer bir yardımcı programı.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>Çözüm 3
+## <a name="solution-3---azure-portal"></a>Çözüm 3 - Azure portalı
 
-Kullanım [portal](https://portal.azure.com). Portalında oturum açın ve arabirimi aracılığıyla bir kaynak ekleyin. Değerleri ayarlama gibi bu kaynak için kullanılabilir SKU'lar bakın. Dağıtımın tamamlanması gerekmez.
+SKU'ları bir bölgede kullanılabilir olan belirlemek için [portal](https://portal.azure.com). Portalında oturum açın ve arabirimi aracılığıyla bir kaynak ekleyin. Değerleri ayarlama gibi bu kaynak için kullanılabilir SKU'lar bakın. Dağıtımın tamamlanması gerekmez.
 
 ![kullanılabilir SKU'lar](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>Çözüm 4
+## <a name="solution-4---rest"></a>Çözüm 4 - REST
 
-Sanal makineler için REST API kullanın. Aşağıdaki isteği gönder:
+SKU'ları bir bölgede kullanılabilir olan belirlemek için sanal makineler için REST API kullanın. Aşağıdaki isteği gönder:
 
 ```HTTP 
 GET
