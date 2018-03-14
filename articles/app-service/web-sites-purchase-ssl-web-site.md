@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
 
-Bu öğreticide, web uygulamanız için bir SSL sertifikası satın alarak güvenli hale getirmek nasıl gösterilir,  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, güvenli bir şekilde de depolamak [Azure anahtar kasası](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis), ve özel bir etki alanı ile ilişkilendirme.
+Bu öğreticide, web uygulamanız için bir SSL sertifikası satın alarak güvenli hale getirmek nasıl gösterilir,  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, güvenli bir şekilde de depolamak [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), ve özel bir etki alanı ile ilişkilendirme.
 
 ## <a name="step-1---log-in-to-azure"></a>1. adım - Azure oturum açma
 
@@ -49,7 +49,7 @@ Seçin, **abonelik**, **kaynak grubu**, ve **sertifika SKU**
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>3. adım - Azure anahtar kasası sertifika deposu
 
 > [!NOTE]
-> [Anahtar kasası](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) şifreleme anahtarları ve gizli anahtarları bulut uygulamalar ve hizmetler tarafından kullanılan korumaya yardımcı olan bir Azure hizmetidir.
+> [Anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) şifreleme anahtarları ve gizli anahtarları bulut uygulamalar ve hizmetler tarafından kullanılan korumaya yardımcı olan bir Azure hizmetidir.
 >
 
 SSL sertifikası satın alma işlemi tamamlandıktan sonra açmak gereken [uygulama hizmeti sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfası.
