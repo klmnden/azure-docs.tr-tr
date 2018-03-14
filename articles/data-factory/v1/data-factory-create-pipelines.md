@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: c8ddd2b49ca48f3bf232a8650d870a8b7159f66a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>İşlem hatlarının ve etkinliklerin Azure veri fabrikası
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,7 +102,7 @@ Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından b
 | end | Ardışık düzeni için bitiş tarihi / saati. Belirtilen ISO biçiminde olmalıdır. Örneğin, `2016-10-14T17:32:41Z` <br/><br/>Yerel saat örneğin tahmini süre belirlemek mümkündür. Örnek aşağıda verilmiştir: `2016-02-27T06:00:00-05:00`, 6'da tahmini olduğu<br/><br/>İşlem hattını süresiz olarak çalışacak şekilde 9999-09-09 end özelliği için değer olarak belirtin. <br/><br/> Yalnızca kendi başlangıç ve bitiş zamanı arasında bir ardışık düzen etkindir. Bu başlangıç saatinden önce veya sonra bitiş saati yürütülmedi. Ardışık Düzen duraklatıldığında, kendi başlangıç ve bitiş zamanı yedeklemiş yürütülmedi. Çalıştırmak ardışık düzeni için bu altyapının duraklatılması değil. Bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) zamanlama ve yürütme şeklini Azure Data Factory'de anlamak için. |Hayır <br/><br/>Başlangıç özellik için bir değer belirtirseniz, son özelliği için değer belirtmeniz gerekir.<br/><br/>İçin notlarına bakın **Başlat** özelliği. |
 | isPaused | TRUE olarak ardışık düzen çalışmazsa. Duraklatılmış durumda. Varsayılan değer = false. Bu özelliği etkinleştirmek veya devre dışı bir ardışık düzen için kullanabilirsiniz. |Hayır |
 | pipelineMode | Zamanlama için yöntem ardışık düzeni için çalışır. İzin verilen değerler: (varsayılan), zamanlanmış kez.<br/><br/>'Zamanlanmış' ardışık düzen belirtilen süre aralığında etkin süresinin (başlangıç ve bitiş saati) göre çalıştırıldığını gösterir. 'Kez' ardışık düzen yalnızca bir kez çalıştırıldığını gösterir. Oluşturulduktan sonra kez ardışık düzen şu anda değiştiren/güncelleştirilemiyor. Bkz: [Onetime ardışık düzen](#onetime-pipeline) kez ayar hakkındaki ayrıntılar için. |Hayır |
-| expirationTime | Kendisi için oluşturulduktan sonra süreyi [tek seferlik ardışık düzen](#onetime-pipeline) geçerli olduğunu ve sağlanan kalmalıdır. Her etkin başarısız oldu, yok veya çalıştığında, ardışık düzen otomatik olarak bir kez silinmiş, sona erme zamanı ulaşır. Varsayılan değer:`"expirationTime": "3.00:00:00"`|Hayır |
+| expirationTime | Kendisi için oluşturulduktan sonra süreyi [tek seferlik ardışık düzen](#onetime-pipeline) geçerli olduğunu ve sağlanan kalmalıdır. Her etkin başarısız oldu, yok veya çalıştığında, ardışık düzen otomatik olarak bir kez silinmiş, sona erme zamanı ulaşır. Varsayılan değer: `"expirationTime": "3.00:00:00"`|Hayır |
 | Veri kümeleri |Ardışık düzeninde tanımlanan etkinlikleri tarafından kullanılacak veri kümeleri listesi. Bu özellik, bu ardışık düzen özeldir ve data factory içinde tanımlı değil veri kümeleri tanımlamak için kullanılabilir. Bu ardışık düzen içinde tanımlanan veri kümeleri yalnızca bu ardışık düzen tarafından kullanılabilir ve paylaşılamaz. Bkz: [veri kümeleri kapsamlı](data-factory-create-datasets.md#scoped-datasets) Ayrıntılar için. |Hayır |
 
 ## <a name="activity-json"></a>Etkinlik JSON

@@ -4,7 +4,7 @@
 Aşağıdaki araçlar ya da SDK'ları birini kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Kopyalama etkinliği ile işlem hattı oluşturmak için adım adım yönergeler içeren bir öğretici gitmek için bir bağlantı seçin. 
 
 - [Kopya veri aracı](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
-- [Azure portalı](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [Azure Portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
 - [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Python SDK'sı](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: bwren
 ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Günlük analizi özel günlükleri
 Günlük analizi özel günlükleri veri kaynağında Windows ve Linux bilgisayarlarda metin dosyalarından olayları toplamanızı sağlar. Birçok uygulama bilgileri Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerini yerine metin dosyaları oturum açın.  Toplandığında, her tek tek alanların kullanarak oturum açma kaydında ayrıştıramıyor [özel alanlar](log-analytics-custom-fields.md) günlük analizi özelliğidir.
@@ -75,7 +75,7 @@ Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzen
 | Tüm dosyaları *C:\Logs* .txt uzantısı Windows aracı |C:\Logs\\\*.txt |
 | Tüm dosyaları *C:\Logs* günlüğünü ve Windows aracısında .txt uzantısı ile başlayan bir ada sahip |C:\Logs\log\*.txt |
 | Tüm dosyaları */var/log/audit* Linux Aracısı .txt uzantısı ile |/var/log/audit/*.txt |
-| Tüm dosyaları */var/log/audit* günlük ve Linux aracısı üzerinde .txt uzantısı ile başlayan bir ada sahip |/var/log/Audit/log\*.txt |
+| Tüm dosyaları */var/log/audit* günlük ve Linux aracısı üzerinde .txt uzantısı ile başlayan bir ada sahip |/var/log/audit/log\*.txt |
 
 1. Select Windows veya Linux hangi yol biçimi belirtmek için ekliyorsunuz.
 2. ' I tıklatın ve yolunu yazın  **+**  düğmesi.
@@ -133,7 +133,7 @@ Aşağıdaki tabloda özel günlüklerinden kayıtları almak günlük arama far
 | Sorgu | Açıklama |
 |:--- |:--- |
 | MyApp_CL |Özel bir tüm olayları adlandırılmış MyApp_CL oturum açın. |
-| MyApp_CL &#124; Burada Severity_CF "error" == |Özel bir tüm olayları adlandırılmış MyApp_CL değeriyle oturum *hata* adlı özel bir alandaki *Severity_CF*. |
+| MyApp_CL &#124; where Severity_CF=="error" |Özel bir tüm olayları adlandırılmış MyApp_CL değeriyle oturum *hata* adlı özel bir alandaki *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Özel günlük ekleme örnek gözden geçirme

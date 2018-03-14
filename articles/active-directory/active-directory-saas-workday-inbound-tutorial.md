@@ -17,7 +17,7 @@ ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
 ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -249,7 +249,7 @@ Kullanıcı hesabı için sağlama gerektiren her bir Active Directory ormanına
 
    * **Yönetici parolası –** Workday entegrasyonu sistem hesabı için parola girin
 
-   * **Kiracı URL –** kiracınız için Workday web hizmetleri uç noktası için URL'yi girin. Aşağıdaki gibi görünmelidir: https://wd3-impl-services1.workday.com/ccx/service/contoso4, burada contoso4 doğru Kiracı adınız ile değiştirilir ve wd3 impl doğru ortamı dize ile değiştirilir.
+   * **Kiracı URL –** kiracınız için Workday web hizmetleri uç noktası için URL'yi girin. Aşağıdaki gibi görünmelidir: https://wd3-impl-services1.workday.com/ccx/service/contoso4burada contoso4 doğru Kiracı adınız ile değiştirilir ve wd3 impl doğru ortamı dize ile değiştirilir.
 
    * **Active Directory ormanı -** "Name", Active Directory orman, Get-ADForest powershell komutunu tarafından döndürülen. Bu genellikle bir dize gibi olur: *contoso.com*
 
@@ -426,8 +426,8 @@ Azure Active Directory kiracınızın AB veri merkezleri birinde yer alıyorsa, 
 1. Açık **Services.msc** , durdurup **Microsoft Azure AD Connect sağlama Aracısı** hizmet.
 2. Aracı yükleme klasörüne gidin (örnek: C:\Program Files\Microsoft Azure AD Connect Aracısı sağlama).
 3. Açık **SyncAgnt.exe.config** bir metin düzenleyicisinde.
-4. Replace https://manage.hub.syncfabric.windowsazure.com/Management with **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
-5. Replace https://provision.hub.syncfabric.windowsazure.com/Provisioning with **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
+4. Değiştir https://manage.hub.syncfabric.windowsazure.com/Management ile **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
+5. Değiştir https://provision.hub.syncfabric.windowsazure.com/Provisioning ile **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
 6. Kaydet **SyncAgnt.exe.config** dosya.
 7. Açık **Services.msc**ve başlangıç **Microsoft Azure AD Connect sağlama Aracısı** hizmet.
 
@@ -504,7 +504,7 @@ Aşağıdaki bölümlerde yalnızca bulut kullanıcıları sağlamak için Workd
 
    * **Yönetici parolası –** Workday entegrasyonu sistem hesabı için parola girin
 
-   * **Kiracı URL –** kiracınız için Workday web hizmetleri uç noktası için URL'yi girin. Aşağıdaki gibi görünmelidir: https://wd3-impl-services1.workday.com/ccx/service/contoso4, burada contoso4 doğru Kiracı adınız ile değiştirilir ve wd3 impl doğru ortamı dize ile değiştirilir. Bu URL bilinmiyor, Lütfen doğru URL'sini belirlemek için Workday entegrasyonu iş ortağı veya destek temsilcinizle çalışır.
+   * **Kiracı URL –** kiracınız için Workday web hizmetleri uç noktası için URL'yi girin. Aşağıdaki gibi görünmelidir: https://wd3-impl-services1.workday.com/ccx/service/contoso4burada contoso4 doğru Kiracı adınız ile değiştirilir ve wd3 impl doğru ortamı dize ile değiştirilir. Bu URL bilinmiyor, Lütfen doğru URL'sini belirlemek için Workday entegrasyonu iş ortağı veya destek temsilcinizle çalışır.
 
    * **Bildirim e-posta –** e-posta adresinizi girin ve "hatası oluşursa, e-posta Gönder" onay kutusunu işaretleyin.
 
@@ -609,7 +609,7 @@ Azure Active Directory'den kullanıcı e-posta adreslerini Workday geri yazma ya
 
    * **Yönetici parolası –** Workday entegrasyonu sistem hesabı için parola girin
 
-   * **Kiracı URL –** kiracınız için Workday web hizmetleri uç noktası için URL'yi girin. Aşağıdaki gibi görünmelidir: https://wd3-impl-services1.workday.com/ccx/service/contoso4, burada contoso4 doğru Kiracı adınız ile değiştirilir ve (gerekirse) wd3 impl doğru ortamı dizesi ile değiştirilir.
+   * **Kiracı URL –** kiracınız için Workday web hizmetleri uç noktası için URL'yi girin. Aşağıdaki gibi görünmelidir: https://wd3-impl-services1.workday.com/ccx/service/contoso4burada contoso4 doğru Kiracı adınız ile değiştirilir ve (gerekirse) wd3 impl doğru ortamı dizesi ile değiştirilir.
 
    * **Bildirim e-posta –** e-posta adresinizi girin ve "hatası oluşursa, e-posta Gönder" onay kutusunu işaretleyin.
 

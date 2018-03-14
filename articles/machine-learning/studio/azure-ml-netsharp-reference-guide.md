@@ -15,10 +15,10 @@ ms.topic: reference
 ms.date: 03/01/2018
 ms.author: jeannt
 ms.openlocfilehash: a166b45e7e482092006ddad276986b6f8b0f378c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Azure Machine Learning için NET # sinir ağı belirtimi dili için kılavuz
 
@@ -255,7 +255,7 @@ hidden P1 [5, 12, 12]
 
 Havuzu katmanları hakkında daha fazla bilgi için bu makalelere bakın:  
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Section 3.4)
++ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Bölüm 3.4)
 + [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
 + [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
