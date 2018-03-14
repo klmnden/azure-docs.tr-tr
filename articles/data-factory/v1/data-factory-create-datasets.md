@@ -16,10 +16,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory'deki veri kümelerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ Aşağıdaki tabloda yukarıdaki JSON özelliklerinde açıklanmaktadır:
 | type |Veri kümesi türü. Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türü](#Type). |Evet |NA |
 | yapısı |Veri kümesi şemasını.<br/><br/>Ayrıntılar için bkz [veri kümesi yapısı](#Structure). |Hayır |NA |
 | typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#Type). |Evet |NA |
-| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. Bir etkinliğin girdi veri kümesi geçerli ardışık düzen tarafından üretilen değil, bu bayrağı true olarak ayarlanır. Bu bayrak düzenindeki ilk etkinliğin girdi veri kümesi için true olarak ayarlayın.  |Hayır |yanlış |
+| external | Bir veri kümesi açıkça data factory işlem hattı tarafından veya üretilen olup olmadığını belirlemek için mantıksal bayrak. Bir etkinliğin girdi veri kümesi geçerli ardışık düzen tarafından üretilen değil, bu bayrağı true olarak ayarlanır. Bu bayrak düzenindeki ilk etkinliğin girdi veri kümesi için true olarak ayarlayın.  |Hayır |false |
 | availability | İşleme penceresi (örneğin, saatlik veya günlük) veya veri kümesi üretim dilimleme modelini tanımlar. Her veri birimi, tüketilen ve etkinlik çalışması tarafından üretilen veri dilimi adı verilir. Bir çıkış veri kümesi kullanılabilirliğini (sıklığı - Day, aralığı - 1) günlük olarak ayarlanırsa, bir dilim günlük oluşturulur. <br/><br/>Ayrıntılar için bkz [Dataset kullanılabilirliği](#Availability). <br/><br/>Model dilimleme veri kümesi hakkında daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makalesi. |Evet |NA |
 | ilke |Ölçüt ya da veri kümesi dilimler karşılamanız gerekmektedir koşulu tanımlar. <br/><br/>Ayrıntılar için bkz [Dataset İlkesi](#Policy) bölümü. |Hayır |NA |
 
@@ -145,7 +145,7 @@ Gördüğünüz gibi bağlantılı hizmet bir SQL veritabanına bağlanma tanım
 > Bir veri kümesi ardışık düzen tarafından üretilen sürece bunu olarak işaretlenmelidir **dış**. Bu ayar genellikle bir ardışık düzendeki ilk etkinlik girişleri için de geçerlidir.   
 
 
-## <a name="Type"></a>Veri kümesi türü
+## <a name="Type"></a> Veri kümesi türü
 Veri kümesi türü kullandığınız veri deposunda bağlıdır. Data Factory ile desteklenen veri depoları listesi için aşağıdaki tabloya bakın. Bağlı hizmet ve bir veri kümesi, veri deposu için nasıl oluşturulacağını öğrenmek için bir veri deposu'ı tıklatın.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]

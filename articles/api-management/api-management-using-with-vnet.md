@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -39,7 +39,7 @@ Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmal�
 + APIM örneği. Daha fazla bilgi için bkz: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 + VNET bağlantısı Premium ve geliştirici katmanda yalnızca kullanılabilir durumda. Geçiş bir bu katmanı'ndaki yönergeleri izleyerek [yükseltin ve ölçeklendirme](upgrade-and-scale.md#upgrade-and-scale) konu.
 
-## <a name="enable-vpn"></a>Etkinleştir VNET bağlantısı
+## <a name="enable-vpn"> </a>VNET bağlantıyı etkinleştir
 
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Azure portalını kullanarak VNET bağlantısını etkinleştir
 
@@ -81,19 +81,19 @@ Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmal�
 > [!IMPORTANT]
 > API Management bir sanal ağdan kaldırın veya içinde dağıtılan bir değişiklik, daha önce kullanılan VNET iki saate kadar kilitli kalabilir. Bu süre zarfında VNET silin veya yeni bir kaynak dağıtma mümkün olmaz.
 
-## <a name="enable-vnet-powershell"></a>PowerShell cmdlet'lerini kullanarak etkinleştir VNET bağlantısı
+## <a name="enable-vnet-powershell"> </a>PowerShell cmdlet'lerini kullanarak VNET bağlantıyı etkinleştir
 PowerShell cmdlet'lerini kullanarak VNET bağlantısı da etkinleştirebilirsiniz
 
 * **Bir sanal ağ içinde bir API Management hizmeti oluşturma**: cmdlet'ini kullanın [yeni AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) VNET içinde bir Azure API Management hizmet oluşturmak için.
 
 * **VNET içinde varolan bir API Management hizmetini dağıtma**: cmdlet'ini kullanın [güncelleştirme AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) var olan bir Azure API Management hizmetini sanal ağ içinde taşımak için.
 
-## <a name="connect-vnet"></a>Bir sanal ağ içinde barındırılan bir web hizmetine bağlanma
+## <a name="connect-vnet"> </a>Bir sanal ağ içinde barındırılan bir web hizmetine bağlanma
 API Management hizmetiniz için VNET bağlandıktan sonra içindeki arka uç hizmetlerine erişme ortak Hizmetleri erişimden çok farklı değildir. Yalnızca yerel IP adresi veya ana bilgisayar adı web hizmetinizin (bir DNS sunucusu VNET için yapılandırılmışsa) yazın **Web hizmeti URL'si** alan yeni bir API oluştururken veya var olan bir düzenleme.
 
 ![VPN bağlantısını API ekleme][api-management-setup-vpn-add-api]
 
-## <a name="network-configuration-issues"></a>Ortak ağ yapılandırma sorunları
+## <a name="network-configuration-issues"> </a>Ortak ağ yapılandırma sorunları
 Sanal ağınıza API Management hizmeti dağıtırken oluşabilecek yaygın yetersizliğini sorunların bir listesi verilmiştir.
 
 * **Özel DNS Sunucusu Kurulumu**: API Management hizmeti üzerinde çeşitli Azure hizmetlerine bağlıdır. API Management, özel bir DNS sunucusu ile bir VNET içinde barındırıldığında Azure hizmetlerin ana bilgisayar adları çözümlemek gerekir. Lütfen izleyin [bu](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) özel DNS kurulumu hakkında yönergeler. Aşağıdaki bağlantı noktaları tablo ve diğer ağ gereksinimleri başvuru için bkz.
@@ -139,7 +139,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 >Azure API Management ile ExpressRoute yapılandırmaları desteklenmez, **yanlış arası-özel eşleme yoluna ortak eşleme yolu yolları tanıtma**. Yapılandırılmış, ortak eşleme sahip ExpressRoute yapılandırmaları alacağı Yol tanıtımlarını Microsoft'tan çok sayıda Microsoft Azure IP adres aralıkları için. Bu adres aralıklarını yanlış cross-özel eşleme yoluna üzerinde tanıtılan, sonuç tüm giden ağ paketlerinin Azure API Management örneğinin alt ağdan hatalı zorla bir müşterinin şirket içi ağ tünelli ise Altyapı. Bu ağ akışı Azure API Management keser. Bu sorun için çözüm ortak eşleme yolu arası reklam yolları özel eşleme yoluna önlemektir.
 
 
-## <a name="troubleshooting"></a>Sorunlarını giderme
+## <a name="troubleshooting"> </a>Sorun giderme
 * **İlk kurulum**: API Management hizmeti ilk dağıtımı bir alt ağ ile başarılı olduğunda, ilk aynı alt ağ bir sanal makineyi dağıtmak için önerilir. Sanal makinede sonraki Uzak Masaüstü ve bir azure aboneliğinizde her bir kaynağın bağlantısı olduğunu doğrulayın 
     * Azure depolama blobu
     * Azure SQL Database
@@ -151,26 +151,26 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 
 * **Kaynak Gezinti Bağlantıları**: Resource Manager stili sanal alt dağıtırken, API Management alt kaynak Gezinti bağlantısı oluşturarak ayırır. Alt ağ zaten farklı bir sağlayıcı kaynağı içeriyorsa, dağıtım olacak **başarısız**. Benzer şekilde, bir API Management hizmeti farklı bir alt ağa taşıyın veya silin, biz bu kaynak Gezinti bağlantıyı kaldırır. 
 
-## <a name="subnet-size"></a> Alt ağ boyutu gereksinimi
+## <a name="subnet-size"> </a> Alt ağ boyutu gereksinimi
 Her alt ağ içindeki bazı IP adreslerini Azure ayırır ve bu adresleri kullanılamaz. Alt ağlar ilk ve son IP adreslerini Azure Hizmetleri için kullanılan üç daha fazla adres birlikte Protokolü uyum için ayrılmıştır. Daha fazla bilgi için bkz: [bu alt ağ içindeki IP adresleri kullanma kısıtlamaları vardır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
 Azure sanal ağ altyapısı tarafından kullanılan IP adreslerinin yanı sıra, alt ağdaki her API Management örneği Geliştirici SKU için Premium SKU birim başına iki IP adresi veya bir IP adresi kullanır. Her bir örnek dış yük dengeleyici için ek bir IP adresi ayırır. İç vnet dağıtırken, iç yük dengeleyici için ek bir IP adresi gerektirir.
 
 API Management dağıtılabilir alt hesaplanması minimum boyut yukarıda verilen 3 IP adreslerini sağlayan /29 olur.
 
-## <a name="routing"></a> Yönlendirme
+## <a name="routing"> </a> Yönlendirme
 + Bir yük dengeli ortak IP adresi (VIP), tüm hizmet uç noktalarına erişim sağlamak için ayrılacak.
 + Bir alt ağ IP aralığı (DIP) bir IP adresinden vnet içindeki kaynaklara erişmek için kullanılan ve bir genel IP adresi (VIP) sanal ağ dışında kaynaklara erişmek için kullanılır.
 + Yük dengeli genel IP adresi, Azure portalında genel bakış/Essentials dikey bulunabilir.
 
-## <a name="limitations"></a>Sınırlamaları
+## <a name="limitations"> </a>Sınırlamaları
 * API Management örnekleri içeren bir alt ağ başka bir Azure kaynak türleri içeremez.
 * Alt ağ ve API Management hizmeti aynı abonelikte olması gerekir.
 * API Management örnekleri içeren bir alt ağ, abonelikler arasında taşınamaz.
 * İç sanal ağ modunda yapılandırılmış bölgeli API Management dağıtımları için yönlendirme oldukları gibi birden çok bölgeler arasında dengelemesini yönetmekten sorumlu kullanıcılardır.
 
 
-## <a name="related-content"></a>İlgili içerik
+## <a name="related-content"> </a>İlgili içerik
 * [Bir sanal ağ Vpn ağ geçidi kullanarak arka ucuna bağlama](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Farklı dağıtım modelinden bir sanal ağa bağlanma](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Azure API Management'te izleme API denetleyici kullanma çağırır](api-management-howto-api-inspector.md)

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
 ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights fiyatlandırma ve veri biriminde yönetme
 
@@ -171,7 +171,7 @@ Her kaydı tutulur `itemCount` temsil eder, özgün kayıt sayısını gösteren
 
 ## <a name="automation"></a>Otomasyon
 
-Azure kaynak Yönetimi'ni kullanarak fiyat planı ayarlamak için bir komut dosyası yazabilirsiniz. [Bilgi nasıl](app-insights-powershell.md#price).
+Azure kaynak Yönetimi'ni kullanarak fiyat planı ayarlamak için bir komut dosyası yazabilirsiniz. [Nasıl olduğunu öğrenin](app-insights-powershell.md#price).
 
 ## <a name="limits-summary"></a>Sınırları özeti
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

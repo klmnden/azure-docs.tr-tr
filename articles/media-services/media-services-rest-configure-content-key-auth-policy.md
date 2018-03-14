@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 3f3972232a4342bfb7d8579d747d0cc4250963bc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dinamik şifreleme: içerik anahtarı yetkilendirme ilkesini yapılandırma
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -30,7 +30,7 @@ Media Services'ın bir varlık şifrelemek isterseniz, bir şifreleme anahtarı 
 
 Bir akış player tarafından istendiğinde Media Services belirtilen anahtarı dinamik olarak içeriğinizi AES veya PlayReady şifreleme kullanarak şifrelemek için kullanır. Akış şifresini çözmek için player anahtar anahtar teslim hizmetinden ister. Kullanıcı anahtarı alınamadı yetkilendirilip yetkilendirilmediğini belirlemek için hizmet anahtar için belirtilen yetkilendirme ilkelerini değerlendirir.
 
-Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesini açık veya belirteç kısıtlama bir veya daha fazla yetkilendirme kısıtlamaları kullanarak olabilir. Belirteç kısıtlanmış İlkesi, bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç tarafından eklenmelidir. Media Services basit bir web belirteç belirteçleri destekler ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) ve JSON Web Token (JWT) biçimlendirir.
+Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesini açık veya belirteç kısıtlama bir veya daha fazla yetkilendirme kısıtlamaları kullanarak olabilir. Belirteç kısıtlamalı ilkenin beraberinde bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services basit bir web belirteç belirteçleri destekler ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) ve JSON Web Token (JWT) biçimlendirir.
 
 Media Services STS sağlamaz. Özel bir STS oluşturun veya sorun belirteçleri için Azure Active Directory (Azure AD) kullanın. STS, belirteç kısıtlamasına yapılandırma dosyasında (Bu makalede anlatıldığı gibi) belirtilen belirtilen anahtarı ve sorunu talepleri imzalı bir belirteç oluşturmak için yapılandırılmalıdır. Belirtecin geçerli olduğu ve içerik anahtarı için yapılandırılmış talep belirteci eşleştiğinden, Media Services anahtar teslim hizmeti istemcisi için şifreleme anahtarını döndürür.
 
@@ -44,7 +44,7 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 * Karşıya yükleme ve varlıklarınızı AssetCreationOptions.StorageEncrypted seçeneğini kullanarak kodlayın.
 * Aynı ilke yapılandırma gerektiren birden çok içerik anahtarı oluşturmayı planlıyorsanız, bir tek yetkilendirme ilkesi oluşturun ve birden çok içerik anahtarı ile yeniden öneririz.
 * Anahtar teslim hizmeti ContentKeyAuthorizationPolicy ve ilişkili nesnelerini (ilkesi seçenekleri ve kısıtlamaları) 15 dakika için önbelleğe alır. ContentKeyAuthorizationPolicy oluşturun ve bir belirteç kısıtlamasına kullanmak için test ve ardından ilkeyi açık kısıtlama güncelleştirmek için belirtin. Bu işlem İlkesi açık sürümüne ilke anahtarları önce yaklaşık 15 dakika sürer.
-* Ekleme ya varlığınızın teslim ilkesini güncelleştirmek, tüm mevcut Bulucuyu silin ve yeni bir Bulucu oluşturmanız gerekir.
+* Varlığınızın teslim ilkesini ekler veya güncelleştirirseniz, varsa mevcut bulucuyu silip yeni bir bulucu oluşturmanız gerekir.
 * Şu anda, aşamalı indirme şifrelenemiyor.
 * Media Services akış uç noktası joker karakter olarak denetim öncesi yanıt CORS Access-Control-Allow-Origin üstbilgisinin değerini ayarlar "\*." Bu değer Azure Media Player, Roku ve JWPlayer ve diğerleri de dahil olmak üzere de çoğu oyuncularla, çalışır. "İçerecek şekilde" kimlik bilgileri moduyla kendi dash.js XMLHttpRequest joker izin vermediği için dash.js kullanan bazı oynatıcıları ancak çalışmıyor "\*" Access-Control-Allow-Origin değeri olarak. Tek bir etki alanı istemcinizden barındırıyorsanız dash.js içinde bu sınırlamaya geçici Media Services ön yanıt üstbilgisinde bu etki alanı belirtebilirsiniz. Yardım için destek bileti Azure portalı üzerinden açın.
 
@@ -98,7 +98,7 @@ Yanıtı:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-#### <a id="ContentKeyAuthorizationPolicyOptions"></a>ContentKeyAuthorizationPolicyOptions oluşturma
+#### <a id="ContentKeyAuthorizationPolicyOptions"></a>Create ContentKeyAuthorizationPolicyOptions
 İsteği:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -237,7 +237,7 @@ Aşağıdaki örnek, bir belirteç kısıtlamasına bir yetkilendirme ilkesi olu
 ### <a name="create-contentkeyauthorizationpolicies"></a>ContentKeyAuthorizationPolicies oluşturma
 Bölümünde gösterildiği gibi bir belirteç kısıtlama ilkesi oluşturma "[oluşturma ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)."
 
-### <a name="create-contentkeyauthorizationpolicyoptions"></a>ContentKeyAuthorizationPolicyOptions oluşturma
+### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 İsteği:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -326,7 +326,7 @@ Yanıtı:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:cc3c64a8-e2fc-4e09-bf60-ac954251a387","Name":"Deliver Common Content Key"}
 
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>ContentKeyAuthorizationPolicyOptions oluşturma
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 İsteği:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -374,7 +374,7 @@ Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilend
 #### <a name="create-contentkeyauthorizationpolicies"></a>ContentKeyAuthorizationPolicies oluşturma
 ContentKeyAuthorizationPolicies, bölümünde gösterildiği gibi oluşturun "[oluşturma ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies2)."
 
-#### <a name="create-contentkeyauthorizationpolicyoptions"></a>ContentKeyAuthorizationPolicyOptions oluşturma
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a>Create ContentKeyAuthorizationPolicyOptions
 İsteği:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
