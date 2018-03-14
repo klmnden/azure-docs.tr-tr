@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 695824ef2537a97ea0530f2c33ad24d5cd9e20f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Anahtar dikkat edilecek noktalar: hizmetlerini kullanarak ya da uygulamaları için Azure yığın oluşturma
 
@@ -49,7 +49,7 @@ Aşağıdaki tabloda Azure yığını ve Azure arasında üst düzey farklılık
 | Kimin için destek iletişim? | Microsoft | Tümleşik bir sistem için Azure yığın operatörünüze (Sağlayıcınızdaki kuruluş veya hizmet) desteği ile iletişime geçin.<br><br>Azure yığın Geliştirme Seti desteği ziyaret [Microsoft forumları](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Geliştirme Seti bir değerlendirme ortamı olduğundan, Microsoft Müşteri Destek Hizmetleri'ne (CSS) aracılığıyla sunulan resmi desteği yoktur.
 | Kullanılabilir hizmetler | Listesine bakın [Azure ürünleri](https://azure.microsoft.com/services/?b=17.04b). Kullanılabilir hizmetler Azure bölgeye göre değişir. | Azure yığını, Azure hizmetleri kümesini destekler. Gerçek Hizmetleri, kuruluş veya hizmet sağlayıcınızın sunmak seçtiği göre değişir.
 | Azure Resource Manager uç nokta * | https://management.azure.com | Bir Azure tümleşik yığını sistemi için Azure yığın operatörünüze sağlanan uç noktası kullan.<br><br>Geliştirme Seti için kullanın: https://management.local.azurestack.external
-| Portal URL * | [https://Portal.Azure.com](https://portal.azure.com) | Bir Azure tümleşik yığını sistemi için Azure yığın operatörünüze sağlanan URL'sine gidin.<br><br>Geliştirme Seti için kullanın: https://portal.local.azurestack.external
+| Portal URL * | [https://portal.azure.com](https://portal.azure.com) | Bir Azure tümleşik yığını sistemi için Azure yığın operatörünüze sağlanan URL'sine gidin.<br><br>Geliştirme Seti için kullanın: https://portal.local.azurestack.external
 | Bölge | Dağıtmak istediğiniz hangi bölgeyi seçebilirsiniz. | Bir Azure tümleşik yığını sistemi için sisteminizde kullanılabilir bir bölge kullanın.<br><br>Geliştirme Seti için bölge her zaman olacaktır **yerel**.
 | Kaynak grupları | Bir kaynak grubu bölgeler yayılabilir. | Tümleşik sistemleri ve Geliştirme Seti için yalnızca bir bölgesi yoktur.
 |Desteklenen ad alanları, kaynak türleri ve API sürümleri | En son (veya değil henüz kullanım dışı bırakılmıştır önceki sürümler). | Azure yığın belirli sürümlerini destekler. Bu makalenin "Sürüm gereksinimleri" bölümüne bakın.
