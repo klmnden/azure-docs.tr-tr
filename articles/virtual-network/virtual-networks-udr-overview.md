@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -38,14 +38,14 @@ Her yol, bir adres ön eki ve sonraki atlama türünü içerir. Alt ağdan ayrı
 |-------|---------                                               |---------      |
 |Varsayılan|Sanal ağa özel                           |Sanal ağ|
 |Varsayılan|0.0.0.0/0                                               |Internet       |
-|Varsayılan|10.0.0.0/8                                              |None           |
+|Varsayılan|10.0.0.0/8                                              |Yok           |
 |Varsayılan|172.16.0.0/12                                           |None           |
 |Varsayılan|192.168.0.0/16                                          |Yok           |
 |Varsayılan|100.64.0.0/10                                           |Yok           |
 
 Önceki tabloda listelenen sonraki atlama türleri, Azure’ın listelenen adres ön ekine yönelik giden trafiği nasıl yönlendirdiğini göstermektedir. Sonraki atlama türlerinin açıklamaları:
 
-- **Sanal ağ**: Bir sanal ağın [adres alanı](virtual-network-manage-network.md#add-address-spaces) içindeki adres aralıkları arasında gerçekleşen trafiği yönlendirir. Azure, bir sanal ağın adres alanı içinde tanımlanmış her bir adres aralığına karşılık gelen bir adres ön eki ile yol oluşturur. Sanal ağ adres alanında tanımlanmış birden fazla adres aralığı varsa, Azure her bir adres aralığı için ayrı bir yol oluşturur. Azure her bir adres aralığı için oluşturulan yolları kullanarak alt ağlar arasındaki trafiği otomatik olarak yönlendirir. Azure’ın alt ağlar arasında trafiği yönlendirmesi için ağ geçitleri tanımlamanız gerekmez. Bir sanal ağ, alt ağlar içerebilir ve her bir alt ağ için tanımlı adres aralıkları olabilir. Ancak alt ağ adres aralıklarının tümü, bir sanal ağın adres alanı içindeki adres aralığında bulunduğundan Azure, alt ağ adres aralıkları için varsayılan yollar *oluşturmaz*.
+- **Sanal ağ**: Bir sanal ağın [adres alanı](manage-virtual-network.md#add-or-remove-an-address-range) içindeki adres aralıkları arasında gerçekleşen trafiği yönlendirir. Azure, bir sanal ağın adres alanı içinde tanımlanmış her bir adres aralığına karşılık gelen bir adres ön eki ile yol oluşturur. Sanal ağ adres alanında tanımlanmış birden fazla adres aralığı varsa, Azure her bir adres aralığı için ayrı bir yol oluşturur. Azure her bir adres aralığı için oluşturulan yolları kullanarak alt ağlar arasındaki trafiği otomatik olarak yönlendirir. Azure’ın alt ağlar arasında trafiği yönlendirmesi için ağ geçitleri tanımlamanız gerekmez. Bir sanal ağ, alt ağlar içerebilir ve her bir alt ağ için tanımlı adres aralıkları olabilir. Ancak alt ağ adres aralıklarının tümü, bir sanal ağın adres alanı içindeki adres aralığında bulunduğundan Azure, alt ağ adres aralıkları için varsayılan yollar *oluşturmaz*.
 
 - **İnternet**: Adres ön eki ile belirtilen trafiği İnternet’e yönlendirir. Sistemin varsayılan yolu 0.0.0.0/0 adres ön ekini belirtir. Azure’ın varsayılan yollarını geçersiz kılmazsanız Azure, bir sanal ağ içinde bulunan ve bir adres aralığı ile belirtilmemiş olan tüm adresler için trafiği İnternet’e yönlendirir (bir özel durum dışında). Hedef adres Azure hizmetlerinden biriyse Azure, trafiği İnternet’e yönlendirmek yerine, Azure'ın temel ağı üzerinden doğrudan hizmete yönlendirir. Sanal ağın içinde bulunduğu Azure bölgesi veya Azure hizmeti örneğinin dağıtıldığı Azure bölgesi ne olursa olsun, Azure hizmetleri arasındaki trafik İnternet'i dolaşmaz. 0.0.0.0/0 adres ön eki için Azure'ın varsayılan sistem yolunu bir [özel yol](#custom-routes) ile geçersiz kılabilirsiniz.
 
@@ -241,16 +241,16 @@ Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 |Varsayılan |Etkin |10.2.0.0/16         |VNet eşlemesi              |                   |
 |Varsayılan |Etkin |10.10.0.0/16        |Sanal ağ geçidi   |[X.X.X.X]          |
 |Varsayılan |Etkin |0.0.0.0/0           |Internet                  |                   |
-|Varsayılan |Etkin |10.0.0.0/8          |Yok                      |                   |
+|Varsayılan |Etkin |10.0.0.0/8          |None                      |                   |
 |Varsayılan |Etkin |100.64.0.0/10       |Yok                      |                   |
-|Varsayılan |Etkin |172.16.0.0/12       |Yok                      |                   |
+|Varsayılan |Etkin |172.16.0.0/12       |None                      |                   |
 |Varsayılan |Etkin |192.168.0.0/16      |Yok                      |                   |
 
 *Subnet2* yol tablosu Azure tarafından oluşturulan tüm varsayılan yolları ve isteğe bağlı VNet eşlemesi ile Sanal ağ geçidi isteğe bağlı yollarını içerir. Sanal ağa ağ geçidi ve eşleme eklendiğinde Azure, sanal ağ içindeki tüm alt ağlara isteğe bağlı yollar eklemiştir. 0.0.0.0/0 adres ön eki için kullanıcı tanımlı yol *Subnet1*’e eklendiğinde Azure, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 ve 100.64.0.0/10 adres ön eklerine ait yolları *Subnet1* yol tablosundan kaldırmıştır.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Yollar ve ağ sanal gereci içeren bir kullanıcı tanımlı yol tablosu oluşturma](create-user-defined-route-portal.md)
+- [Yollar ve ağ sanal gereci içeren bir kullanıcı tanımlı yol tablosu oluşturma](tutorial-create-route-table-portal.md)
 - [Azure VPN Gateway için BGP yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute ile BGP kullanma](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Bir alt ağ için tüm yolları görüntüleme](virtual-network-routes-troubleshoot-portal.md). Kullanıcı tanımlı yol tablosu, bir alt ağın varsayılan ve BGP yollarını değil, yalnızca kullanıcı tanımlı yolları gösterir. Tüm yollar görüntülendiğinde ağ arabiriminin içinde bulunduğu alt ağa ait varsayılan, BGP ve kullanıcı tanımlı yollar gösterilir.

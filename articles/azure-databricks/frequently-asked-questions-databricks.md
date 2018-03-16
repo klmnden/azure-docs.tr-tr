@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks hakkında sık sorulan sorular
 
@@ -46,7 +46,7 @@ Daha fazla bilgi için bkz: [kullanım Data Lake Store ile Azure Databricks](htt
 
 #### <a name="error-message"></a>Hata iletisi
 
-"Bu aboneliği 'Microsoft.Databricks' ad alanını kullanmak için kayıtlı değil. Abonelikleri nasıl https://aka.MS/RPS-not-found bakın. (Code: MissingSubscriptionRegistration)"
+"Bu aboneliği 'Microsoft.Databricks' ad alanını kullanmak için kayıtlı değil. Bkz: https://aka.ms/rps-not-found abonelikleri kaydetme için. (Code: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>Çözüm
 
@@ -101,7 +101,7 @@ Databricks küme düğümü başına bir genel IP adresi kullanın. Aboneliğini
 #### <a name="error-message"></a>Hata iletisi
 
 "Bulut sağlayıcısı başlatma hatası: kümeyi ayarlanırken bir bulut sağlayıcısı hatasıyla karşılaşıldı. Daha fazla bilgi için Databricks kılavuzuna bakın.
-Azure hata kodu: MissingSubscriptionRegistration Azure hata iletisi: Abonelik 'Microsoft.Compute' ad alanını kullanmak için kayıtlı değil. Https://aka.MS/RPS-not-found nasıl abonelikleri kaydetmek bkz."
+Azure hata kodu: MissingSubscriptionRegistration Azure hata iletisi: Abonelik 'Microsoft.Compute' ad alanını kullanmak için kayıtlı değil. Bkz: https://aka.ms/rps-not-found abonelikleri kaydetmek nasıl. "
 
 #### <a name="solution"></a>Çözüm
 

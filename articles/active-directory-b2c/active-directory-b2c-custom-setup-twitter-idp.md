@@ -15,17 +15,17 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler kullanarak Twitter OAuth1 kimlik sağlayıcısı olarak ekleyin
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Bu makalede kullanarak oturum açma bir Twitter hesabı kullanıcıları için etkinleştirmek gösterilmiştir [özel ilkeler](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bölümündeki adımları tamamlamanız [özel ilkelerini kullanmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
 ## <a name="step-1-create-a-twitter-account-application"></a>1. adım: bir Twitter hesabı uygulaması oluşturma
@@ -39,9 +39,9 @@ Azure Active Directory B2C, kimlik sağlayıcısı twitter kullanmak için (Azur
  
     a. Tür **adı** ve **açıklama** yeni uygulamanız için. 
 
-    b. İçinde **Web sitesi** kutusunda, yapıştırma **https://login.microsoftonline.com**. 
+    b. İçinde **Web sitesi** kutusunda, yapıştırma  **https://login.microsoftonline.com** . 
 
-    c. İçinde **geri çağırma URL'si** kutusunda, yapıştırma **https://login.microsoftonline.com/te/ {tenant}.onmicrosoft.com/oauth2/authresp**. Yerine {*Kiracı*} Kiracı adınız (örneğin, contosob2c.onmicrosoft.com) sahip. HTTPS şeması kullandığınızdan emin olun. 
+    c. İçinde **geri çağırma URL'si** kutusunda, yapıştırma  **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp** . Yerine {*Kiracı*} Kiracı adınız (örneğin, contosob2c.onmicrosoft.com) sahip. HTTPS şeması kullandığınızdan emin olun. 
 
     d. Sayfanın altındaki okuyun ve koşulları kabul edin ve ardından **Twitter uygulamanızı oluşturma**.
 

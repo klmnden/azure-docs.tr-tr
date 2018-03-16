@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Eclipse kullanarak Azure erişim denetimi hizmeti ile Web kullanıcıların kimliklerini nasıl
 Bu kılavuz Eclipse için Azure erişim denetimi Hizmeti'nden (ACS) Azure Araç Seti içinde kullanmak nasıl yapacağınızı gösterir. ACS hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next_steps) bölümü.
@@ -74,7 +74,7 @@ Aşağıdaki şekilde ACS kimlik doğrulaması bir web uygulaması ile nasıl ç
 6. ACS kimlik ACS kuralları motoruna bu belirteç talep, çıktı kimlik talepleri hesaplar ve bu çıkış talepleri içeren yeni bir güvenlik belirteci verir girişleri IP tarafından verilen güvenlik belirteci doğrular.
 7. ACS istemciyi RP yönlendirir. İstemci RP ACS tarafından verilen yeni güvenlik belirteci gönderir. RP ACS tarafından verilen güvenlik belirteci imzayı doğrular, bu belirtecinizdeki talepleri doğrular ve başlangıçta istenen sayfasını döndürür.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu Kılavuzu'ndaki görevleri tamamlamak için aşağıdakiler gerekir:
 
 * Bir Java Geliştirme Seti (JDK), v 1.6 veya sonraki sürümleri.
@@ -94,7 +94,7 @@ Azure'da erişim denetimi Hizmeti'nden (ACS) kullanmaya başlamak için bir ACS 
 4. Ad alanı için bir ad girin. Azure adının benzersiz olduğunu doğrular.
 5. Ad alanı kullanıldığı bölgeyi seçin. En iyi performans için uygulamanızın dağıttığınız bölge kullanın.
 6. Birden fazla aboneliğiniz varsa, ACS ad alanı için kullanmak istediğiniz aboneliği seçin.
-7. **Oluştur**'a tıklayın.
+7. **Oluştur**’a tıklayın.
 
 Azure oluşturur ve ad alanını etkinleştirir. Yeni ad alanı durumu olana kadar bekleyin **etkin** devam etmeden önce. 
 
@@ -121,7 +121,7 @@ Bu görevde, Java web uygulamanıza geçerli RP uygulama olarak tanımak için A
    4. İçinde **dönüş URL'si** ACS için güvenlik belirteci verir URL'sini yazın. Bu görev için yazın **http://localhost:8080/MyACSHelloWorld/index.jsp**
       ![bağlı olan taraf işlem öykünücüsü kullanmak için URL döndürür][relying_party_return_url_emulator]
    5. Geri kalan alanları varsayılan değerleri kabul edin.
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 Azure işlem öykünücüsü çalıştırdığınızda artık başarıyla Java web uygulamanıza yapılandırdınız (http://localhost: 8080 adresindeki /) bir RP ACS ad alanı içinde olmalıdır. Ardından, RP talebini işlemek için ACS kullanan kurallar oluşturun.
 
@@ -205,10 +205,10 @@ Tüm bilgi ve kod Java web uygulamanıza (uygulama ACS yönetim Portalı'nın uy
 4. **Son**'a tıklayın.
 5. Tıklatın **Azure öykünücüsünde çalıştırın** düğmesi.
 6. İşlem öykünücüsü, Java web uygulaması başladıktan sonra (geçerli bir tarayıcı oturumu ACS oturum açma testinizle karışmaması böylece) tarayıcınızın tüm örneklerini kapatın.
-7. Açarak uygulamanızı çalıştırın <http://localhost: 8080/MyACSHelloWorld/> tarayıcınızda (veya <https://localhost:8080/MyACSHelloWorld/> , işaretlediyseniz **gerektiren HTTPS bağlantıları**). Bir Windows Live ID oturum açma için istemde ve ardından bağlı olan taraf uygulamanız için belirtilen dönüş URL'si için gerçekleştirilmelidir.
+7. Açarak uygulamanızı çalıştırın <http://localhost:8080/MyACSHelloWorld/> tarayıcınızda (veya <https://localhost:8080/MyACSHelloWorld/> , işaretlediyseniz **gerektiren HTTPS bağlantıları**). Bir Windows Live ID oturum açma için istemde ve ardından bağlı olan taraf uygulamanız için belirtilen dönüş URL'si için gerçekleştirilmelidir.
 8. Uygulamanızı görüntülemeyi bitirdikten tıklatın **Azure öykünücüsünü sıfırlayın** düğmesi.
 
-## <a name="deploy-to-azure"></a>Azure’a Dağıt
+## <a name="deploy-to-azure"></a>Azure’a dağıtma
 Azure'a dağıtmak için bağlı olan taraf bölge değiştirmek ve dönüş URL'si için ACS ad alanınızı gerekecektir.
 
 1. Azure Yönetim Portalı içinde içinde **bağlı olan taraf uygulamayı Düzenle** sayfasında, Değiştir **bölge** dağıtılan sitenizin URL'si olmalıdır. Değiştir **örnek** dağıtımınız için belirtilen DNS adı.
@@ -257,7 +257,7 @@ Ayrıca, bu örnekte kullanılan **WAR dosyası sertifikanın katıştırmak** s
    4. **Bileşen Ekle** iletişim aşağıdakine benzer görünmelidir.
       
        ![Sertifika Bileşen Ekle][add_cert_component]
-   5. **Tamam** düğmesine tıklayın.
+   5. **Tamam**’a tıklayın.
 
 Bu noktada, sertifikanızı dağıtımınızda eklenmesi. WAR dosyası sertifikanın katıştırmak mı dağıtımınıza bir bileşeni olarak eklemek bağımsız olarak, sertifika açıklandığı gibi ad alanınızın karşıya gerektiğini unutmayın [ACS ad alanınızın bir sertifika karşıya] [ Upload a certificate to your ACS namespace] bölümü.
 

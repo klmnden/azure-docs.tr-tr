@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı gezisine UI özel ilkeleriyle özelleştirme
 
@@ -72,10 +72,10 @@ Her şeyin beklendiği gibi çalıştığından emin olmak için yapmanız gerek
 - Mutlak URL'ler https://yourdomain/content gibi tüm bağlantılar ve CSS içerik için kullanın.
 
 > [!TIP]
-> Sitesi üzerinde içeriğinizi ev sahipliği CORS'yi sahip olduğunu doğrulayın ve CORS isteklerini test etmek için siteyi http://test-cors.org/ kullanabilirsiniz. Bu site sayesinde, (CORS destekleniyorsa sınamak için) bir uzak sunucuya CORS isteği gönder veya (CORS belirli özelliklerini keşfetmek için) bir test sunucusuna CORS isteği gönder.
+> Barındırma içeriğinizi üzerinde site CORS'yi sahip olduğunu doğrulayın ve CORS isteklerini test etmek için siteyi kullanabilirsiniz http://test-cors.org/. Bu site sayesinde, (CORS destekleniyorsa sınamak için) bir uzak sunucuya CORS isteği gönder veya (CORS belirli özelliklerini keşfetmek için) bir test sunucusuna CORS isteği gönder.
 
 > [!TIP]
-> Site http://enable-cors.org/ de CORS yararlı kaynaklara fazla meydana gelir.
+> Site http://enable-cors.org/ de CORS yararlı kaynaklara fazla oluşturduğunu.
 
 CORS tabanlı bu yaklaşım sayesinde, son kullanıcılar, uygulamanızı ve Azure AD B2C tarafından sunulan sayfaları arasında tutarlı deneyimleri sahiptir.
 
@@ -123,7 +123,7 @@ CORS (çıkış noktaları arası kaynak paylaşımı) uç noktanızı içeriği
 Üzerinde içeriği barındıran depolama CORS'yi sahip olduğunu doğrulamak için aşağıdaki adımlarla devam edin:
 
 1. Bir tarayıcı oturumu açın ve sayfaya gitmek *unified.html* depolama hesabınızdaki konumunun tam URL'yi kullanarak `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Örneğin, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. İçin http://Test-cors.org gidin. Bu site, kullanmakta olduğunuz sayfa CORS'yi sahip olduğunu doğrulamak sağlar.  
+2. http://test-cors.org sayfasına gidin. Bu site, kullanmakta olduğunuz sayfa CORS'yi sahip olduğunu doğrulamak sağlar.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

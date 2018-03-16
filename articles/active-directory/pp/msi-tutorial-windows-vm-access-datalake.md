@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Azure Data Lake Store'a erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -39,7 +39,7 @@ Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Windows sanal makine 
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+Oturum açmak için Azure portalında [ https://portal.azure.com ](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Windows sanal makine oluşturma
 
@@ -100,7 +100,7 @@ Bu öğreticide, Data Lake Store dosya sistemi REST yapmak için PowerShell kull
 1. Portalı'nda gidin **sanal makineleri**gidin ve Windows VM **genel bakış** tıklatın **Bağlan**.
 2. Girin, **kullanıcıadı** ve **parola** Windows VM oluşturduğunuzda, eklediğiniz için. 
 3. Oluşturduğunuza göre bir **Uzak Masaüstü Bağlantısı** sanal makineyle açmak **PowerShell** uzak oturumda. 
-4. PowerShell'in kullanarak `Invoke-WebRequest`, Azure Data Lake Store için bir erişim belirteci almak üzere yerel MSI uç nokta için bir istek olun.  "Https://datalake.azure.net/" Data Lake Store için kaynak tanımlayıcısıdır.  Data Lake kaynak tanımlayıcısını tam bir eşleşme yapar ve eğik önemlidir.
+4. PowerShell'in kullanarak `Invoke-WebRequest`, Azure Data Lake Store için bir erişim belirteci almak üzere yerel MSI uç nokta için bir istek olun.  Data Lake Store kaynak tanımlayıcısıdır "https://datalake.azure.net/".  Data Lake kaynak tanımlayıcısını tam bir eşleşme yapar ve eğik önemlidir.
 
    ```powershell
    $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}

@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Yükleme ve Hue Hdınsight Hadoop kümeleri kullanma
 
@@ -42,13 +42,13 @@ Hue Hadoop kümeyle etkileşim kurmak için kullanılan Web uygulamaları kümes
 > [!WARNING]
 > Hdınsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenleri ilgili sorunları gidermek için yardımcı olur.
 >
-> Özel bileşenler, daha fazla sorun gidermenize yardımcı olması için ticari koşulların elverdiği oranda makul destek alırsınız. Bu sorunu çözmek veya bu teknoloji derin uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları devreye isteyen neden olabilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache projeleri proje siteleri de [http://apache.org](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Özel bileşenler, daha fazla sorun gidermenize yardımcı olması için ticari koşulların elverdiği oranda makul destek alırsınız. Bu sorunu çözmek veya bu teknoloji derin uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları devreye isteyen neden olabilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
 >
 >
 
 ## <a name="install-hue-using-script-actions"></a>Betik eylemleri kullanılarak Hue yüklemek
 
-Bir Linux tabanlı Hdınsight kümesine Hue yüklemek için komut dosyası https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh kullanılabilir. Azure Storage Blobları (WASB) veya varsayılan depolama alanı olarak Azure Data Lake Store ile kümelerde Hue yüklemek için bu komut dosyasını kullanabilirsiniz.
+Bir Linux tabanlı Hdınsight kümesine Hue yüklemek için komut dosyası şu adresten edinilebilir https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Azure Storage Blobları (WASB) veya varsayılan depolama alanı olarak Azure Data Lake Store ile kümelerde Hue yüklemek için bu komut dosyasını kullanabilirsiniz.
 
 Bu bölümde Azure Portalı'nı kullanarak küme sağlamada komut dosyası kullanma hakkında yönergeler sağlar.
 
@@ -68,7 +68,7 @@ Bu bölümde Azure Portalı'nı kullanarak küme sağlamada komut dosyası kulla
     ![Betik eylemi parametreler sağlayın ton için](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "sağlamak betik eylem parametrelerini ton için")
 
    * **AD**: betik eylemi için kolay bir ad girin.
-   * **BETİK URI'si**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+   * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**: Bu seçeneği işaretleyin.
    * **ÇALIŞAN**: Bu alanı boş bırakın.
    * **ZOOKEEPER**: Bu alanı boş bırakın.

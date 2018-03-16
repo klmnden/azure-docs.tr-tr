@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure’da StorSimple Cloud Appliance dağıtma ve yönetme (StorSimple Güncelleştirme 3 ve üstü)
 
@@ -78,7 +78,7 @@ Aşağıdaki bölümlerde, StorSimple Cloud Appliance’ınız için yapılandı
 Bulut gereci sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları yapmanız gerekir:
 
 * Veri merkezinizde bir StorSimple 8000 serisi fiziksel cihazının (model 8100 veya 8600) dağıtıldığından ve çalıştırıldığından emin olun. Bu cihazı StorSimple Cloud Appliance oluşturmayı planladığınız aynı StorSimple Cihaz Yöneticisi hizmetiyle kaydedin.
-* Bulut gereci için, [Azure üzerinde bir sanal ağ yapılandırın](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Premium Storage kullanıyorsanız, Premium Storage’ı destekleyen bir Azure bölgesinde sanal ağ oluşturmanız gerekir. Premium Depolama bölgeleri, [Bölgeye Göre Azure Hizmetleri listesinde](https://azure.microsoft.com/regions/services/) Disk depolama satırına karşılık gelen bölgelerdir.
+* Bulut gereci için, [Azure üzerinde bir sanal ağ yapılandırın](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Premium Storage kullanıyorsanız, Premium Storage’ı destekleyen bir Azure bölgesinde sanal ağ oluşturmanız gerekir. Premium Depolama bölgeleri, [Bölgeye Göre Azure Hizmetleri listesinde](https://azure.microsoft.com/regions/services/) Disk depolama satırına karşılık gelen bölgelerdir.
 * Kendi DNS sunucu adınızı belirtmek yerine Azure tarafından sağlanan varsayılan DNS sunucusunu kullanmanızı öneririz. DNS sunucusu adınız geçerli değilse veya DNS sunucusu IP adreslerini doğru çözümleyemiyorsa, bulut gerecini oluşturma işlemi başarısız olur.
 * Noktadan siteye ve siteden siteye isteğe bağlıdır, ancak gerekli değildir. İsterseniz, daha gelişmiş senaryolar için bu seçenekleri yapılandırabilirsiniz.
 * Bulut gereci tarafından sunulan birimleri kullanabileceğiniz sanal ağda [Azure Sanal Makineleri](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (barındırma sunucuları) oluşturabilirsiniz. Bu sunucular aşağıdaki gereksinimleri karşılamalıdır:

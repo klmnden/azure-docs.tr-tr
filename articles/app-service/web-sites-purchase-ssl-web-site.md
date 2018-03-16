@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
 ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
 
@@ -26,7 +26,7 @@ Bu öğreticide, web uygulamanız için bir SSL sertifikası satın alarak güve
 
 ## <a name="step-1---log-in-to-azure"></a>1. adım - Azure oturum açma
 
-Http://portal.azure.com Azure portalında oturum açın
+Azure portalında oturum açın http://portal.azure.com
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>2. adım - bir SSL sertifikası sipariş verin
 
@@ -159,7 +159,7 @@ Bu seçeneği yalnızca [Azure'dan satın alınan bir uygulama hizmeti etki alan
 
 1. Bu dosya adı tam etki alanı doğrulama belirteci olarak içerik olması gerekir. (Etki alanı doğrulama durumunu sayfasından belirteç kopyalayabilirsiniz)
 
-1. Etki alanınızı barındıran web sunucusunun kökünde bu dosyayı karşıya yükleme`/.well-known/pki-validation/starfield.html`
+1. Etki alanınızı barındıran web sunucusunun kökünde bu dosyayı karşıya yükleme `/.well-known/pki-validation/starfield.html`
 
 1. Tıklatın **yenileme** doğrulama tamamlandıktan sonra sertifika durumunu güncelleştirmek için. Doğrulama tamamlanması için birkaç dakika sürebilir.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: 0f934cc572409462ca1a35ff3cce49be2f82a9bd
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>DRM lisansları veya AES anahtarları göndermek için Azure Media Services'i kullanma
 Azure Media Services, alma, kodlama, içerik koruma ekleyin ve içeriğinizin akışını sağlar. Daha fazla bilgi için bkz: [kullanım PlayReady ve/veya Widevine dinamik ortak şifreleme](media-services-protect-with-playready-widevine.md). Bazı müşteriler, Media Services yalnızca lisansları ve/veya anahtarları teslim etmek ve kodlama, şifreleme ve kendi şirket içi sunucuları kullanarak akış için kullanmak istediğiniz. Bu makalede, PlayReady ve/veya Widevine lisansları teslim ancak geri kalan şirket içi sunucularınızla yapmak için Media Services nasıl kullanabileceğiniz açıklanır. 
@@ -41,7 +41,7 @@ Bu makalede açıklanan örneği indirmek için bkz: [.NET ile PlayReady ve/veya
 
 2. App.config dosyanızda tanımlanan **appSettings**’e aşağıdaki öğeleri ekleyin:
 
-    add key="Issuer" value="http://testacs.com"/
+    add key = "Veren" value = "http://testacs.com" /
     
     add key="Audience" value="urn:test"/
 

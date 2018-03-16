@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: jawh
-ms.openlocfilehash: 7d44d0a0f8683ad6ad55136ad17879e98e26498b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38d60001293a3bae6eb9f90179abb8af7815fbe7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>Windows Phone uygulamaları için Azure Notification Hubs'ı kullanmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -67,7 +67,7 @@ Hub'ınız şimdi oluşturuldu ve Windows Phone için kimliği doğrulanmamış 
 ## <a name="connecting-your-app-to-the-notification-hub"></a>Uygulamanızı bildirim hub'ına bağlama
 1. Visual Studio'da yeni bir Windows Phone 8 uygulaması oluşturun.
    
-       ![Visual Studio - New Project - Windows Phone App][13]
+    ![Visual Studio - Yeni Proje - Windows Phone Uygulaması][13]
    
     Visual Studio 2013 Güncelleştirme 2 veya sonrasında, bunun yerine Windows Phone Silverlight uygulaması oluşturursunuz.
    
@@ -119,9 +119,9 @@ Hub'ınız şimdi oluşturuldu ve Windows Phone için kimliği doğrulanmamış 
    > 
 6. Çözüm Gezgini'nde **Özellikler**'i genişletin, `WMAppManifest.xml` dosyasını açın, **Özellikler** sekmesine tıklayın ve **ID_CAP_PUSH_NOTIFICATION** özelliğinin işaretlendiğinden emin olun.
    
-       ![Visual Studio - Windows Phone App Capabilities][14]
+    ![Visual Studio - Windows Phone Uygulaması Özellikleri][14]
    
-       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
+    Bu, uygulamanızın anında iletme bildirimleri alabilmesini sağlar. Bu olmadan, uygulamaya anında iletme bildirimi göndermek için her türlü girişim başarısız olur.
 7. Uygulamayı çalıştırmak için `F5` tuşuna basın.
    
     Uygulamada bir kayıt iletisi görüntülenir.

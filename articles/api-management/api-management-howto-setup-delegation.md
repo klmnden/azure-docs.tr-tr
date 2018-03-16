@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Kullanıcı kaydı ve ürün aboneliği nasıl
 Temsilci seçme, geliştirici oturum-açma/kaydolma ve abonelik Geliştirici Portalı'nda yerleşik işlevini kullanarak aksine ürünlere işlemek için varolan Web sitenizi kullanmanıza olanak sağlar. Bu kullanıcı verileri kendi ve özel bir biçimde adımları doğrulama gerçekleştirmek Web sitenizi sağlar.
@@ -44,7 +44,7 @@ Oluşturmanıza gerek artık **temsilci endpoint**. Çeşitli eylemleri gerçekl
 
 1. Bir isteği şu biçimde alırsınız:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL Kaynak sayfasının} & salt = {dize} & SIG = {dize}*
    > 
    > 
    
@@ -101,7 +101,7 @@ Ardından temsilci uç noktası aşağıdaki eylemleri gerçekleştirir emin olu
 
 1. Bir isteği şu biçimde alırsınız:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product Abone olunacak} & UserID = {isteği yapan kullanıcı} & salt = {dize} & SIG = {dize}*
    > 
    > 
    

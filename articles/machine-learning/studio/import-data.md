@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: garye;bradsev
 ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Eğitim verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio’ya alma
 Geliştirmek ve Tahmine dayalı analiz çözümü eğitmek için Machine Learning Studio'da kendi verilerinizi kullanmak için aşağıdakileri yapabilirsiniz: 
@@ -81,7 +81,7 @@ Aşağıdaki **veri türleri** Machine Learning Studio tarafından tanınan:
 * Tamsayı
 * Çift
 * Boole
-* Tarih Saat
+* DateTime
 * TimeSpan
 
 Machine Learning Studio adlı bir iç veri türü kullanan ***veri tablosu*** modülleri arasında veri iletmek için. Veri tablosu biçimi kullanarak, verilerinizi açıkça dönüştürebilirsiniz [veri kümesine Dönüştür] [ convert-to-dataset] modülü.

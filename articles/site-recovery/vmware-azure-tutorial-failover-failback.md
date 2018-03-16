@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dec4beef44e4086e1b41e3c20bea6585db385c9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>VMware VM’lerde ve çoğaltılmış fiziksel sunucularda Azure Site Recovery’ye yük devretme ve yeniden çalışma
 
@@ -48,7 +48,7 @@ Yük devretme ve yeniden çalışma dört aşamalıdır:
 
 ## <a name="verify-vm-properties"></a>VM özelliklerini doğrulama
 
-VM özelliklerini doğrulayın ve VM’nin [Azure gereksinimleriyle](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) uyumlu olduğundan emin olun.
+VM özelliklerini doğrulayın ve VM’nin [Azure gereksinimleriyle](vmware-physical-azure-support-matrix.md#replicated-machines) uyumlu olduğundan emin olun.
 
 1. **Korunan Öğeler**’de **Çoğaltılan Öğeler** > VM seçeneğine tıklayın.
 
@@ -88,7 +88,7 @@ Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işle
 
 - Bir Azure ExpressRoute bağlantınız varsa test etmek için yapılandırma sunucusuna otomatik olarak kurulan şirket içi işlem sunucusunu kullanabilirsiniz.
 - Bir VPN bağlantınız varsa veya üretim ortamında yeniden çalışma gerçekleştiriyorsanız, yeniden çalışma için Azure tabanlı işlem sunucusu olarak bir Azure VM’si ayarlamanız gerekir.
-- Azure’da bir işlem sunucusu ayarlamak için [bu makaledeki](site-recovery-vmware-setup-azure-ps-resource-manager.md) yönergeleri uygulayın.
+- Azure’da bir işlem sunucusu ayarlamak için [bu makaledeki](vmware-azure-set-up-process-server-azure.md) yönergeleri uygulayın.
 
 ## <a name="configure-the-master-target-server"></a>Ana hedef sunucuyu yapılandırma
 

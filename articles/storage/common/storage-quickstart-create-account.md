@@ -9,17 +9,17 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 600689dfe2d572a83382522f6bea1ec5bf0f3883
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
 Azure depolama hesabı, Azure Depolamada veri nesnelerinizi depolamak ve bunlara erişmek için benzersiz ad alanı sağlar. Bir depolama hesabı, söz konusu hesap altında oluşturduğunuz herhangi bir blob, dosya, kuyruk, tablo ve diski içerir. 
 
-Azure Depolama'yı kullanmaya başlamak için öncelikle yeni bir depolama hesabı oluşturmanız gerekir. [Azure portalı](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) kullanarak bir Azure depolama hesabı oluşturabilirsiniz. Bu hızlı başlangıçta, yeni depolama hesabınızı oluşturmak için bu seçeneklerin her birinin nasıl kullanılacağı gösterilmektedir. 
+Azure Depolama'yı kullanmaya başlamak için öncelikle yeni bir depolama hesabı oluşturmanız gerekir. [Azure portalı](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) kullanarak bir Azure depolama hesabı oluşturabilirsiniz. Bu hızlı başlangıçta, yeni depolama hesabınızı oluşturmak için bu seçeneklerin her birinin nasıl kullanılacağı gösterilmektedir. 
 
 
 ## <a name="prerequisites"></a>Ön koşullar

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -87,7 +87,7 @@ Ayrıca, bir Intranet bölgesi İlkesi adlı ayarını etkinleştirmeniz gerekir
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Neden kullanıcıların Intranet bölgesi ayarlarını değiştirmeniz gerekiyor mu?
 
-Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli bir URL'den otomatik olarak hesaplar. Örneğin, (URL nokta içerdiğinden) Internet bölgesi için "http://intranet.contoso.com/" eşleştirir ancak "http://contoso/" Intranet bölgesine eşler. URL tarayıcının Intranet bölgesine açıkça eklemedikçe tarayıcılar Kerberos biletleri için Azure AD URL gibi bir bulut uç noktası göndermez.
+Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli bir URL'den otomatik olarak hesaplar. Örneğin, "http://contoso/" ise Intranet bölgesine eşlemeleri "http://intranet.contoso.com/" (URL nokta içerdiğinden) Internet bölgesine eşler. URL tarayıcının Intranet bölgesine açıkça eklemedikçe tarayıcılar Kerberos biletleri için Azure AD URL gibi bir bulut uç noktası göndermez.
 
 ### <a name="detailed-steps"></a>Ayrıntılı adımlar
 
@@ -101,7 +101,7 @@ Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli 
 
     Sonuç şöyle görünür:
 
-    Değer: https://autologon.microsoftazuread-sso.com
+    Değer:https://autologon.microsoftazuread-sso.com
   
     Veriler: 1
 
@@ -129,7 +129,7 @@ Mozilla Firefox otomatik olarak Kerberos kimlik doğrulaması kullanmaz. Her kul
 1. Firefox çalıştırın ve girin `about:config` adres çubuğundaki. Gördüğünüz herhangi bir bildirim yok sayın.
 2. Arama **network.negotiate auth.trusted URI'ler** tercih. Bu tercih Kerberos kimlik doğrulaması için Firefox'in Güvenilen siteler listelenir.
 3. Sağ tıklatıp **Değiştir**.
-4. Enter https://autologon.microsoftazuread-sso.com in the field.
+4. Girin https://autologon.microsoftazuread-sso.com alanında.
 5. Seçin **Tamam** ve tarayıcıyı kapatıp yeniden açın.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -138,7 +138,7 @@ Mac OS çalıştıran makine için Azure AD alanına katılmış olmasını sağ
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (tüm platformlar)
 
-Kılınmadı varsa [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) veya [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ilke ayarları, ortamınızdaki emin olun, Azure AD URL (https://autologon.microsoftazuread-sso.com) için de eklemenizi.
+Kılınmadı varsa [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) veya [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ilke ayarları, ortamınızdaki olun Azure AD URL'sini ekleyin (https://autologon.microsoftazuread-sso.com) bunlara de.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (yalnızca Mac OS)
 
@@ -159,11 +159,11 @@ Belirli bir kullanıcı için özelliğini sınamak için aşağıdaki tüm koş
   - Sahip olduğunuz [özelliği alındı](##step-3-roll-out-the-feature) bu kullanıcıya Grup İlkesi aracılığıyla.
 
 Burada yalnızca kullanıcı adı ve parola kullanıcının girdiği senaryoyu test etmek için:
-   - Yeni özel tarayıcı oturumunda https://myapps.microsoft.com/ için oturum açın.
+   - Oturum https://myapps.microsoft.com/ yeni bir özel tarayıcı oturumunda.
 
 Burada kullanıcının kullanıcı adı veya parola girmesi gerekmez senaryoyu test etmek için aşağıdaki adımlardan birini kullanın: 
-   - Yeni özel tarayıcı oturumunda https://myapps.microsoft.com/contoso.onmicrosoft.com için oturum açın. Değiştir *contoso* , kiracının ada sahip.
-   - Yeni özel tarayıcı oturumunda https://myapps.microsoft.com/contoso.com için oturum açın. Değiştir *contoso.com* kiracınız üzerinde doğrulanmış bir etki alanıyla (bir Federasyon etki alanı değil).
+   - Oturum https://myapps.microsoft.com/contoso.onmicrosoft.com yeni bir özel tarayıcı oturumunda. Değiştir *contoso* , kiracının ada sahip.
+   - Oturum https://myapps.microsoft.com/contoso.com yeni bir özel tarayıcı oturumunda. Değiştir *contoso.com* kiracınız üzerinde doğrulanmış bir etki alanıyla (bir Federasyon etki alanı değil).
 
 ## <a name="step-5-roll-over-keys"></a>5. adım: anahtarlar üzerinden alma
 

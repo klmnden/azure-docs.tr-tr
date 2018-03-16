@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Azure yığın Portalı'nı kullanarak
 
@@ -31,7 +31,7 @@ Azure yığın Hizmetleri tüketici olarak ortak teklifleri abone olmak için Az
 (Bir hizmet sağlayıcısı ya da bir yönetici, kuruluşunuzda), Azure yığın operatörünüze olanak tanır portalına erişmek için doğru URL'yi bildirin. 
 
 - Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve biçim https://portal olacaktır. &lt; *bölge*&gt;.&lt; *FQDN*&gt;.
-- Azure yığın Geliştirme Seti kullanıyorsanız, portalı https://portal.local.azurestack.external adresidir.
+- Azure yığın Geliştirme Seti kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
 ![Azure yığın Kullanıcı Portalı ekran görüntüsü](media/azure-stack-use-portal/UserPortal.png)
 
