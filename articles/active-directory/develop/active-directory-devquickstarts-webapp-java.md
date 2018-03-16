@@ -48,7 +48,7 @@ Kullanıcıların kimliğini doğrulamak için önce aşağıdakileri yaparak ki
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Oluşturmak için istemleri izleyerek bir **Web uygulaması ve/veya Webapı**.
   * **Ad** kullanıcılara uygulamasının açıklar.
-  * **Oturum açma URL'si** uygulamasının temel URL'si. Çatıyı ait varsayılan http://localhost: 8080/adal4jsample/URL'dir.
+  * **Oturum açma URL'si** uygulamasının temel URL'si. Çatıyı ait varsayılan http://localhost:8080/adal4jsample/ URL'dir.
 6. Kayıt tamamladıktan sonra Azure AD uygulama benzersiz uygulama kimliği atar. Sonraki bölümlerde kullanmak için uygulama sayfasında değerini kopyalayın.
 7. Gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si güncelleştirin. **Uygulama kimliği URI'si** uygulama için benzersiz bir tanımlayıcıdır. Adlandırma kuralı `https://<tenant-domain>/<app-name>` (örneğin, `http://localhost:8080/adal4jsample/`).
 
@@ -1707,7 +1707,7 @@ Bu servlet ADAL4J uygulamasını çalıştırmak için beklediğiniz tüm yönte
 
  Bu komut için bağımlılıkları yazdı pom.xml dosyasını kullanır.
 
-Şimdi /targets dizininizde bir adal4jsample.war dosyası olmalıdır. Tomcat kapsayıcı dosyasında dağıtın ve http://localhost: 8080/adal4jsample/URL'yi ziyaret edin.
+Şimdi /targets dizininizde bir adal4jsample.war dosyası olmalıdır. Tomcat kapsayıcı dosyasında dağıtın ve http://localhost:8080/adal4jsample/ URL'yi ziyaret edin.
 
 > [!NOTE]
 > En son Tomcat sunucuları .war dosyasıyla kolayca dağıtabilirsiniz. Http://localhost: 8080/Yöneticisi/gidin ve adal4jsample.war dosya karşıya yükleme yönergelerini izleyin. İçinde autodeploy sizin için doğru bitiş noktası ile.

@@ -89,11 +89,11 @@
           href: azure-stack-deploy.md
         - name: Telemetri
           href: azure-stack-telemetry.md
-        - name: Dağıt
+        - name: Dağıtma
           href: azure-stack-run-powershell-script.md
         - name: PowerShell yükleme
           href: azure-stack-powershell-install.md
-        - name: Kaydet
+        - name: Kaydolma
           href: azure-stack-register.md
         - name: Azure Stack'e Bağlanma
           href: azure-stack-connect-azure-stack.md
@@ -194,7 +194,7 @@
               href: azure-stack-enable-multitenancy.md
         - name: Gizli anahtarları döndürme
           href: azure-stack-rotate-secrets.md
-    - name: Teklif hizmetleri
+    - name: Hizmet sunma
       items:
         - name: Hizmet sunmaya genel bakış
           href: azure-stack-offer-services-overview.md
@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Başlamadan önce
               href: azure-stack-app-service-before-you-get-started.md
+            - name: Azure uygulama hizmeti Azure yığında hata etki alanlarında yeniden dağıtmak nasıl
+              href: azure-stack-app-service-fault-domain-update.md
             - name: App Service kaynak sağlayıcısı dağıtma
               href: azure-stack-app-service-deploy.md
             - name: Çevrimdışı App Service dağıtma
               href: azure-stack-app-service-deploy-offline.md
+            - name: Uygulama hizmeti güncelleştir
+              href: azure-stack-app-service-update.md
+            - name: Uygulama hizmeti çevrimdışı güncelleştir
+              href: azure-stack-app-service-update-offline.md
             - name: Daha fazla web çalışanı rolü ekleme
               href: azure-stack-app-service-add-worker-roles.md
             - name: Dağıtım kaynaklarını yapılandırma
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Uygulama hizmeti güncelleştirmesi bir sürüm notları
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: Market’i doldurma
           items:
             - name: Market’e genel bakış
@@ -292,7 +300,7 @@
               href: azure-stack-vpn-gateway-settings.md
             - name: ExpressRoute kullanarak bağlanma
               href: azure-stack-connect-expressroute.md
-    - name: Sorun Giderme
+    - name: Sorun giderme
       items:
         - name: Bilinen sorunlar
           href: azure-stack-troubleshooting.md
@@ -318,7 +326,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Azure yığın belgelerine geri bildirim
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
-    - name: Fiyatlandırma Bilgileri
+    - name: Fiyatlandırma bilgileri
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'

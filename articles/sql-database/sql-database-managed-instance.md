@@ -2,29 +2,26 @@
 title: "Azure SQL veritabanı yönetilen örneği'ne genel bakış | Microsoft Docs"
 description: "Bu konu, yönetilen bir Azure SQL veritabanı örneği açıklar ve nasıl çalıştığı ve nasıl Azure SQL Database tek bir veritabanında farklı olduğu açıklanmaktadır."
 services: sql-database
-documentationcenter: na
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77d421e9c97f3baa3541040494fb91e0297edb5a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Bir yönetilen örneği (Önizleme) nedir?
 
 Azure SQL veritabanı örneği (Önizleme) yönetilen Azure SQL veritabanı'nın % 100 uyumluluk SQL Server şirket içi, yakın sağlayarak yerel sağlama, yeni bir özellik olan [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md) adresleri uygulama Ortak Güvenlik sorunlarının ve [iş modeli](https://azure.microsoft.com/pricing/details/sql-database/) şirket içi SQL Server müşterileri için olumlu. Yönetilen örneği var olan SQL Server müşterilerin kaldırın ve şirket uygulamalarını küçük uygulama ve veritabanı değişiklikler ile bulut shift olanak tanır. Aynı anda yönetilen örnek yönetim yükünüzü ve toplam sahip olma Maliyetini önemli ölçüde azaltan PaaS olanaklarına (otomatik düzeltme eki uygulama ve sürüm güncelleştirmeleri, yedekleme, yüksek kullanılabilirlik) korur.
+
+> [!IMPORTANT]
+> Yönetilen örneği olduğu şu anda kullanılabilir bölgelerin bir listesi için bkz: [yönetilen Azure SQL veritabanı örneği ile tam olarak yönetilen bir hizmet veritabanlarınızı geçirilecek](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
 Aşağıdaki diyagramda yönetilen örneğinin temel özellikleri özetlenmektedir:
 
