@@ -4,23 +4,21 @@ description: "Bir SQL veritabanı oluşturmak için bu Azure CLI örnek betiğin
 services: sql-database
 documentationcenter: sql-database
 author: janeng
-manager: jstrauss
+manager: janeng
 editor: carlrab
-tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 10/11/2017
+ms.date: 03/01/2018
 ms.author: janeng
-ms.openlocfilehash: 5824821a2e1f06425cae46cf8b3cf28582e63056
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bb80421b360f43df82ea4a9b2dff5ccc1efdb4a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Tek bir Azure SQL veritabanı oluşturmak ve bir güvenlik duvarı kuralını yapılandırmak için CLI kullanma
 
@@ -54,11 +52,11 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 | [az sql server create](/cli/azure/sql/server#az_sql_server_create) | SQL Veritabanını barındıran bir mantıksal sunucu oluşturur. |
 | [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Sunucudaki tüm SQL Veritabanlarına, girilen IP adresi aralığından erişmeyi sağlayacak bir güvenlik duvarı kuralı oluşturur. |
 | [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Mantıksal sunucuda SQL Veritabanı oluşturur. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Tüm iç içe kaynakların dahil olduğu bir kaynak grubunu siler. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
 Ek SQL Veritabanı CLI betiği örnekleri, [Azure SQL Veritabanı belgeleri](../sql-database-cli-samples.md) içinde bulunabilir.
 

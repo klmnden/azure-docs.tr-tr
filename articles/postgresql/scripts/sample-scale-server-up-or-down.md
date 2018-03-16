@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: 21021485a7fe5f9bf32da76b507360290b8cfe66
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 10ce026b4cef4ef06d379a35a4109544ce8573e5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Azure CLI kullanarak tek bir PostgreSQL sunucusunu izleme ve ölçeklendirme
 Bu örnek CLI betiği, ölçümleri sorguladıktan sonra tek bir PostgreSQL için Azure Veritabanı sunucusunu farklı bir performans düzeyinde olacak şekilde ölçeklendirir. 
@@ -43,6 +43,6 @@ Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 | [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Azure CLI hakkındaki diğer bilgileri okuyun: [Azure CLI belgeleri](/cli/azure/overview)
+- Azure CLI hakkındaki diğer bilgileri okuyun: [Azure CLI belgeleri](/cli/azure)
 - Ek betikleri deneyin: [PostgreSQL için Azure Veritabanı Azure CLI örnekleri](../sample-scripts-azure-cli.md)
 - Ölçeklendirme hakkında daha fazla bilgi edinin: [Hizmet Katmanları](../concepts-service-tiers.md) ve [İşlem Birimleri ve Depolama Birimleri](../concepts-compute-unit-and-storage.md)

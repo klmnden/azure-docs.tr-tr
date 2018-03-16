@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Sayfadaki bağlantıları için uygulama proxy'si uygulama çalışmıyor
 
@@ -42,7 +42,7 @@ Bu sorunu çözmek için üç yolu vardır. Aşağıdaki seçenekler karmaşıkl
 
 3.  Bu seçeneklerin ikisi uygun varsa, URL çevirisi/yeniden yazma işlemi yapan yeni bir özellik için Önizleme katılın. Bu seçenek ile iç URL'leri uygulamalarınızı HTML gövdesinde mevcut bağlantıları çevrilmiş veya "Eşlenen, yayımlanan dış uygulama Proxy URL'lerini". Bu yalnızca HTML veya CSS bağlantıları için çalışır ve bu yardımcı bağlantı JS oluşturulursa. 
 
-Sonuç olarak, kullanarak tavsiye [özel etki alanlarını](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) mümkünse çözümü. Önizleme katılmak istiyorsanız, e-posta < aadapfeedback@microsoft.com > applicationId(s) ile.
+Sonuç olarak, kullanarak tavsiye [özel etki alanlarını](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) mümkünse çözümü. Önizleme katılmak istiyorsanız, e-posta <aadapfeedback@microsoft.com> applicationId(s) ile.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Mevcut şirket içi proxy sunucuları ile çalışma](application-proxy-working-with-proxy-servers.md)

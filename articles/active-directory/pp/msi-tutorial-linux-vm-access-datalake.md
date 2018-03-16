@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Azure Data Lake Store'a erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -39,7 +39,7 @@ Bu öğretici, bir yönetilen hizmet Kimliği'ni (MSI) bir Linux sanal makine (V
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+Oturum açmak için Azure portalında [ https://portal.azure.com ](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Linux sanal makine oluşturun
 
@@ -103,7 +103,7 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
 
 1. Linux VM hem de Portalı'nda gidin **genel bakış**, tıklatın **Bağlan**.  
 2. **Connect** tercih ettiğiniz SSH istemcisi ile VM. 
-3. Terminal penceresinde CURL, kullanarak Data Lake Store dosya sistemi için bir erişim belirteci almak üzere yerel MSI uç nokta için bir isteği oluşturun.  "Https://datalake.azure.net/." Data Lake Store için kaynak tanımlayıcısıdır  Kaynak tanımlayıcısı eğik eklemek önemlidir.
+3. Terminal penceresinde CURL, kullanarak Data Lake Store dosya sistemi için bir erişim belirteci almak üzere yerel MSI uç nokta için bir isteği oluşturun.  Data Lake Store kaynak tanımlayıcısıdır "https://datalake.azure.net/."  Kaynak tanımlayıcısı eğik eklemek önemlidir.
     
    ```bash
    curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
 ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Çoklu kiracı Azure yığınında etkinleştir
 
@@ -89,9 +89,9 @@ Register-AzSWithMyDirectoryTenant `
  -Verbose 
 ````
 ## <a name="direct-users-to-sign-in"></a>Kullanıcıların oturum açmak için
-Sizin ve Mary yerleşik Mary'nin dizinine adımları tamamladığınıza göre Mary Fabrikam oturum açmalarını yönlendirebilirsiniz.  Https://portal.local.azurestack.external adresini ziyaret ederek Fabrikam kullanıcıları (diğer bir deyişle, kullanıcılar fabrikam.onmicrosoft.com sonekiyle) oturum açın.  
+Sizin ve Mary yerleşik Mary'nin dizinine adımları tamamladığınıza göre Mary Fabrikam oturum açmalarını yönlendirebilirsiniz.  Fabrikam kullanıcıları (diğer bir deyişle, kullanıcılar fabrikam.onmicrosoft.com sonekiyle) oturum ziyaret ederek https://portal.local.azurestack.external.  
 
-Mary herhangi doğrudan [yabancı sorumluları](../active-directory/active-directory-understanding-resource-access.md) Fabrikam dizininde (Fabrikam dizin fabrikam.onmicrosoft.com soneki olmadan kullanıcılar) https://portal.local.azurestack.external/fabrikam.onmicrosoft.com kullanarak oturum.  Bu URL kullanmayın, varsayılan dizini (Fabrikam) için gönderilen ve bunların yönetici olmayan seçtiği bildiren bir hata alıyorsunuz.
+Mary herhangi doğrudan [yabancı sorumluları](../active-directory/active-directory-understanding-resource-access.md) Fabrikam dizininde (Fabrikam dizin fabrikam.onmicrosoft.com soneki olmadan kullanıcılar) kullanarak oturum https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Bu URL kullanmayın, varsayılan dizini (Fabrikam) için gönderilen ve bunların yönetici olmayan seçtiği bildiren bir hata alıyorsunuz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

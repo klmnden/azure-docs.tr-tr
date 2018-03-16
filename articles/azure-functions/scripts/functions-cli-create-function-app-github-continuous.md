@@ -10,11 +10,11 @@ ms.author: cfowler
 ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 9ad38a7ff00e5cea2cf958b4cb69679a27f84d4a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 720ead07aa35540f61f1dc8e15b79ac9d58669be
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Azure’da GitHub’dan dağıtılmış bir işlev uygulaması oluşturma
 
@@ -43,7 +43,7 @@ Bu örnek, bir Azure İşlev uygulaması oluşturur ve işlev kodunu GitHub'dan 
 
 ## <a name="script-explanation"></a>Betik açıklaması
 
-Tablodaki her komut, komuta özgü belgelere yönlendirir. Bu betik aşağıdaki komutları kullanır:
+Tablodaki her komut, komuta özgü belgelere yönlendirir. Bu betik şu komutları kullanır:
 
 | Komut | Notlar |
 |---|---|
@@ -54,6 +54,6 @@ Tablodaki her komut, komuta özgü belgelere yönlendirir. Bu betik aşağıdaki
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
 Ek Azure İşlevleri CLI betiği örnekleri, [Azure İşlevleri belgelerinde](../functions-cli-samples.md) bulunabilir.

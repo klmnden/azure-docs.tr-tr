@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure Media Services API REST ile erişmek için Azure AD kimlik doğrulaması kullanın
 
@@ -59,10 +59,10 @@ Media Services API erişmek için aşağıdaki veri noktaları toplamak gerekir.
 
 |Ayar|Örnek|Açıklama|
 |---|-------|-----|
-|Azure Active Directory kiracı etki alanı|Microsoft.onmicrosoft.com|Aşağıdaki biçimi kullanarak bir güvenli belirteç hizmeti (STS) uç noktası olarak Azure AD oluşturulur: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD (bir erişim belirteci) kaynaklara erişmek için JWT verir.|
-|REST API uç noktası|https://amshelloworld.restv2.westus.Media.Azure.NET/api/|Bu karşı tüm hangi Media Services REST API çağrıları, uygulamanızda yapılan uç noktadır.|
+|Azure Active Directory kiracı etki alanı|microsoft.onmicrosoft.com|Aşağıdaki biçimi kullanarak bir güvenli belirteç hizmeti (STS) uç noktası olarak Azure AD oluşturulur: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD (bir erişim belirteci) kaynaklara erişmek için JWT verir.|
+|REST API uç noktası|https://amshelloworld.restv2.westus.media.azure.net/api/|Bu karşı tüm hangi Media Services REST API çağrıları, uygulamanızda yapılan uç noktadır.|
 |İstemci kimliği (uygulama kimliği)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD uygulama (istemci) kimliği İstemci Kimliğini ve erişim belirteci almak için gereklidir. |
-|İstemci Parolası|mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD uygulama anahtarları (gizli). İstemci gizli anahtarı erişim belirteci almak için gereklidir.|
+|İstemci Parolası|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD uygulama anahtarları (gizli). İstemci gizli anahtarı erişim belirteci almak için gereklidir.|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>Azure portalından AAD kimlik doğrulama bilgilerini al
 
@@ -123,7 +123,7 @@ Bu bölümde nasıl kullanılacağını gösterir **Postman** bir JWT taşıyıc
 2. **POST**'u seçin.
 3. Aşağıdaki biçimi kullanarak Kiracı adınızı içeren bir URL girin: Kiracı adı ile bitmelidir **. onmicrosoft.com** ve URL ile bitmelidir **oauth2/token**: 
 
-    https://Login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
 4. Seçin **üstbilgileri** sekmesi.
 5. Girin **üstbilgileri** "Anahtar/değer" veri kılavuzu kullanarak bilgi. 
@@ -159,7 +159,7 @@ Bu bölümde nasıl erişeceğinizi gösterir **varlıklar** API kullanarak **Po
 
 1. Açık **Postman**.
 2. **GET**'i seçin.
-3. REST API uç noktası (örneğin, https://amshelloworld.restv2.westus.media.azure.net/api/Assets) yapıştırın
+3. REST API uç noktası (örneğin, yapıştırın https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Seçin **yetkilendirme** sekmesi. 
 5. Seçin **taşıyıcı belirteci**.
 6. Önceki bölümde oluşturulan belirteç yapıştırın.

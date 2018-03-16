@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 35632cc93c9a0650b45220ba84b4983679de3d9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Azure portalını kullanarak İnternet'e yönelik Yük Dengeleyici oluşturma
 
@@ -54,7 +54,7 @@ Azure Resource Manager içindeki yük dengeleyici bileşenleri hakkında daha fa
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Azure portalında yük dengeleyici kurma
 
 > [!IMPORTANT]
-> Bu örnekte **myVNet** adında bir sanal ağınız olduğu varsayılmaktadır. Bu ağı oluşturmak için [sanal ağ oluşturma](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) bölümüne bakın. Örnekte ayrıca **myVNet** içinde **LB-Subnet-BE** ile **web1** ve **web2** adında ve sırasıyla **myAvailSet** ve **myVNet** adlı kullanılabilirlik kümesinde iki VM olduğu varsayılmaktadır. VM oluşturmak için [bu bağlantıya](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) başvurun.
+> Bu örnekte **myVNet** adında bir sanal ağınız olduğu varsayılmaktadır. Bu ağı oluşturmak için [sanal ağ oluşturma](../virtual-network/manage-virtual-network.md#create-a-virtual-network) bölümüne bakın. Örnekte ayrıca **myVNet** içinde **LB-Subnet-BE** ile **web1** ve **web2** adında ve sırasıyla **myAvailSet** ve **myVNet** adlı kullanılabilirlik kümesinde iki VM olduğu varsayılmaktadır. VM oluşturmak için [bu bağlantıya](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) başvurun.
 
 1. Tarayıcıdan Azure portalına ([http://portal.azure.com](http://portal.azure.com)) gidin ve Azure hesabınızla oturum açın.
 2. Ekranın sol üst kenarından **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici**’yi seçin.
