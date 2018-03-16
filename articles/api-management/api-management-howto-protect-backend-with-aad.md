@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Bir Web API arka ucu Azure Active Directory ve API Management ile korumak nasıl
 
@@ -179,7 +179,7 @@ API'leri, Azure Portalı aracılığıyla erişilen API yayımcı portalında ya
 
 ![Yayımcı portalı][api-management-management-console]
 
-İşlemleri olabilir [API'leri için el ile eklenen](api-management-howto-add-operations.md), veya içeri aktarılabilir. Bu videoda, Swagger biçiminde 6:40 başlangıç işlemleri alınır.
+İşlemleri olabilir [API'leri için el ile eklenen](api-management-howto-add-operations.md), veya içeri aktarılabilir.
 
 Adlı bir dosya oluşturun `calcapi.json` aşağıdaki içeriğe sahip ve bilgisayarınıza kaydedin. Emin `host` , Web API uç noktaları özniteliği. Bu örnekte, `"host": "apimaaddemo.azurewebsites.net"` kullanılır.
 

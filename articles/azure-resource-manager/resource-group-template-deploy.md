@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 464308da13be6a33ce80871f8753f999e34d8c83
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3378c13934a5a0743aa40ebb19940f1afa71fc71
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma
 
@@ -84,6 +84,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Temp
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Birden fazla kaynak grubuna veya aboneliğe dağıtma
 
 Genellikle, tüm kaynakları tek bir kaynak grubu için şablonunuzdaki dağıtın. Ancak, bir kaynak kümesi birlikte dağıtmasını ancak bunları farklı kaynak grupları ya da abonelik yerleştirmek istediğiniz senaryolar vardır. Tek bir dağıtımda yalnızca beş kaynak gruplarına dağıtabilirsiniz. Daha fazla bilgi için bkz: [birden fazla abonelik veya kaynak grubu dağıtma Azure kaynaklarına](resource-manager-cross-resource-group-deployment.md).
+
+<a id="parameter-file" />
 
 ## <a name="parameter-files"></a>Parametre dosyaları
 
@@ -165,7 +167,7 @@ New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json 
 ```
 
-## <a name="sample-template"></a>Örnek şablonu
+## <a name="sample-template"></a>Örnek şablon
 
 Aşağıdaki şablonu, bu makaledeki örnekler için kullanılır. Kopyalayın ve storage.json adlı bir dosya kaydedin. Bu şablonun nasıl oluşturulacağını anlamak için bkz: [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).  
 

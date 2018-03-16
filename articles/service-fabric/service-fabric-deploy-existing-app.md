@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Fabric varolan yürütülebilir bir dağıtma | Microsoft Docs"
-description: "Bir Service Fabric kümesi dağıtılabilmesi amacıyla yürütülebilir, konuk olarak var olan bir uygulama paketi konusunda gözden geçirme"
+description: "Bir Service Fabric kümesi dağıtılabilmesi amacıyla yürütülebilir, konuk olarak var olan bir uygulama paketi hakkında bilgi edinin."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,68 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: c851e1f756957d58d5f7372098620e4b7129b089
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="deploy-a-guest-executable-to-service-fabric"></a>Service Fabric yürütülebilir Konuk dağıtma
-Azure Service Fabric kod, Node.js, Java ya da C++ gibi herhangi bir türde bir hizmet olarak çalıştırabilirsiniz. Service Fabric bu tür hizmet Konuk yürütülebilir başvurur.
-
-Konuk yürütülebilir dosyalar gibi durum bilgisi olmayan hizmetler Service Fabric tarafından kabul edilir. Sonuç olarak, bunlar kullanılabilirlik ve diğer ölçümleri temelinde, bir kümedeki düğümlere yerleştirilir. Bu makalede, paket ve Visual Studio veya komut satırı yardımcı programını kullanarak bir Service Fabric kümesi için yürütülebilir bir konuk dağıtma açıklar.
-
-Bu makalede, bir konuk yürütülebilir paketini ve Service Fabric dağıtma adımları kapsar.  
-
-## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Service Fabric yürütülebilir Konuk çalıştıran avantajları
-Bir Service Fabric kümesi yürütülebilir Konuk çalıştırmak için çeşitli avantajları vardır:
-
-* Yüksek kullanılabilirlik. Service Fabric çalışan uygulamaları yüksek oranda kullanılabilir hale getirilir. Service Fabric uygulaması örneğini çalıştırmasını sağlar.
-* Sistem durumu izleme. Service Fabric sistem durumu izleme uygulama çalışıp çalışmadığını ve bir hata olduğunda tanılama bilgileri sağlayan olmadığını algılar.   
-* Uygulama yaşam döngüsü yönetimi. Yükseltme sırasında bildirilen hatalı sistem durumu olayı ise yükseltmeler kapalı kalma süresi ile sağlamanın yanı sıra, Service Fabric önceki sürümüne otomatik geri alma işlemi sağlar.    
-* Yoğunluğu. Kendi donanım üzerinde çalıştırmak her bir uygulama için ihtiyacını ortadan kaldıran bir kümede birden çok uygulama çalıştırabilirsiniz.
-* Bulunabilirliği: REST kullanarak kümedeki diğer hizmetler bulmak için Service Fabric adlandırma hizmeti çağırabilirsiniz. 
-
-## <a name="samples"></a>Örnekler
-* [Paketleme ve dağıtma bir konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-
-## <a name="overview-of-application-and-service-manifest-files"></a>Uygulama ve hizmet bildirim dosyaları'na genel bakış
-Bir konuk yürütülebilir dağıtma bir parçası olarak, Service Fabric paketleme ve dağıtım modeli açıklandığı gibi anlamak kullanışlıdır [uygulama modeli](service-fabric-application-model.md). Service Fabric paketleme model üzerinde iki XML dosyasını kullanır: uygulama ve hizmet bildirimleri. ApplicationManifest.xml ve ServiceManifest.xml dosyaları için şema tanımı Service Fabric SDK ile yüklenen *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
-
-* **Uygulama bildirimini** uygulama bildirimi uygulamanın açıklamak için kullanılır. Onu oluşturan hizmetleri listeler ve örnek sayısı gibi nasıl bir veya daha fazla hizmet tanımlamak için kullanılan diğer parametreleri dağıtılmalıdır.
-
-  Service Fabric bir uygulama dağıtımı ve yükseltmesi birimidir. Bir uygulama olası hataları ve olası düzeyine yönetildiği tek bir birim olarak yükseltilebilir. Service Fabric garanti yükseltme işlemi şunlardan biri olduğundan başarılı ya da yükseltme başarısız olursa, uygulama bilinmeyen veya kararsız bir durumda bırakmaz.
-* **Hizmet bildirimi** hizmet bildirimi bir hizmet bileşenlerini açıklar. Ad ve tür hizmetini ve kod ve yapılandırma gibi verileri içerir. Hizmet bildirimi dağıtıldıktan sonra hizmeti yapılandırmak için kullanılan bazı ek parametreler de içerir.
-
-## <a name="application-package-file-structure"></a>Uygulama paketi dosya yapısı
-Service Fabric bir uygulamayı dağıtmak için uygulama önceden tanımlanmış dizin yapısına uygun olmalıdır. Aşağıda, yapıyı bir örnektir.
-
-```
-|-- ApplicationPackageRoot
-    |-- GuestService1Pkg
-        |-- Code
-            |-- existingapp.exe
-        |-- Config
-            |-- Settings.xml
-        |-- Data
-        |-- ServiceManifest.xml
-    |-- ApplicationManifest.xml
-```
-
-ApplicationPackageRoot uygulama tanımlar ApplicationManifest.xml dosyası içerir. Uygulamasına dahil edilen her hizmet için bir alt dizin hizmeti gerektiren tüm yapıları kapsamak için kullanılır. Bu alt dizinlere ServiceManifest.xml ve genellikle aşağıdaki şunlardır:
-
-* *Kod*. Bu dizin hizmeti kodunu içerir.
-* *Config*. Bu dizin hizmeti belirli bir yapılandırma ayarlarını almak için çalışma zamanında erişebilmesini Settings.xml dosya (ve gerekirse diğer dosyaları) içerir.
-* *Veri*. Bu, hizmet gerekebilir ek yerel verileri depolamak için ek bir dizindir. Verileri yalnızca kısa ömürlü verileri depolamak için kullanılmalıdır. Service Fabric kopyalamayın veya hizmet (örneğin, yük devretme sırasında) yeniden konumlandırılmasını gerekiyorsa, değişiklikleri veri dizinine çoğaltır.
-
-> [!NOTE]
-> Oluşturmanız gerekmez `config` ve `data` ihtiyaç duymuyorsanız dizinleri.
->
->
-
-## <a name="package-an-existing-executable"></a>Paketin var olan bir yürütülebilir dosya
-Bir konuk yürütülebilir paketleme, Visual Studio Proje şablonu kullanılacağını seçebilirsiniz veya [uygulama paketini el ile oluşturmak](#manually). Visual Studio kullanarak, uygulama paketi yapısı ve bildirim dosyası yeni proje şablonu tarafından sizin için oluşturulur.
+# <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paket ve varolan yürütülebilir bir Service Fabric dağıtma
+Varolan bir yürütülebilir dosya olarak paketleme olduğunda bir [Konuk yürütülebilir](service-fabric-guest-executables-introduction.md), Visual Studio Proje şablonu kullanılacağını seçebilirsiniz veya [uygulama paketini el ile oluşturmak](#manually). Visual Studio kullanarak, uygulama paketi yapısı ve bildirim dosyası yeni proje şablonu tarafından sizin için oluşturulur.
 
 > [!TIP]
 > Bir hizmete yürütülebilir bir mevcut Windows paketini yapmanın en kolay yolu, Visual Studio kullanmaktır ve Linux Yeoman kullanmak için
@@ -91,13 +37,15 @@ Visual Studio yürütülebilir konuk bir Service Fabric kümesi dağıtmak için
    * *Program* hizmetini başlatmak için çalıştırılmalıdır yürütülebilir dosya belirtir.
    * *Bağımsız değişkenler* yürütülebilir dosyaya geçirilen bağımsız değişkenlerini belirtir. Bağımsız değişkenlerle parametrelerin listesi olabilir.
    * *WorkingFolder* başlatılması giden işlem için çalışma dizini belirtir. Üç değerleri belirtebilirsiniz:
-     * `CodeBase`Çalışma dizini uygulama paketi kodu dizininde olarak işaretleneceğini belirtir (`Code` önceki dosya yapısı içinde gösterilen dizin).
-     * `CodePackage`Çalışma dizini uygulama paketi köküne ayarlanması işaretleneceğini belirtir (`GuestService1Pkg` önceki dosya yapısı içinde gösterilen).
-     * `Work`dosyalar çalışma adlı bir alt dizinde yerleştirilir belirtir.
+     * `CodeBase` Çalışma dizini uygulama paketi kodu dizininde olarak işaretleneceğini belirtir (`Code` önceki dosya yapısı içinde gösterilen dizin).
+     * `CodePackage` Çalışma dizini uygulama paketi köküne ayarlanması işaretleneceğini belirtir (`GuestService1Pkg` önceki dosya yapısı içinde gösterilen).
+     * `Work` dosyalar çalışma adlı bir alt dizinde yerleştirilir belirtir.
 4. Hizmetinize bir ad verin ve **Tamam**’a tıklayın.
 5. Hizmet iletişimi için bir uç nokta gerekirse, ServiceManifest.xml dosyasına protokolü, bağlantı noktası ve türü artık ekleyebilirsiniz. Örneğin: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Şimdi, paket kullanın ve Visual Studio çözümünde hata ayıklama yerel kümenizdeki karşı eylem yayımlayın. Hazır olduğunuzda, uzak bir küme uygulamayı yayımlama ya da çözüm kaynak denetimine iade edin.
-7. Service Fabric Explorer'da çalıştıran Konuk yürütülebilir hizmetinizi görüntülemek nasıl görmek için bu makalenin sonuna gidin.
+7. Okuma [çalışan uygulamanızı denetleyin](#check-your-running-application) Service Fabric Explorer'da çalıştıran Konuk yürütülebilir hizmetinizi görüntülemek bkz.
+
+Bir örnek için bkz [Visual Studio kullanarak ilk Konuk yürütülebilir uygulamanızı oluşturma](quickstart-guest-app.md).
 
 ## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Yeoman için paket kullanın ve Linux üzerinde var olan bir yürütülebilir dosya dağıtma
 
@@ -192,7 +140,7 @@ CodePackage öğesi hizmet kodunun konumu (ve sürüm) belirtir.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-`Name` Öğe hizmetin kod içeren uygulama paketinde dizinin adını belirtmek için kullanılır. `CodePackage`Ayrıca `version` özniteliği. Bu kod sürümü belirtmek için kullanılır ve hizmet kodunun Service Fabric uygulama yaşam döngüsü yönetimi altyapısını kullanarak yükseltmek için de kullanılabilir.
+`Name` Öğe hizmetin kod içeren uygulama paketinde dizinin adını belirtmek için kullanılır. `CodePackage` Ayrıca `version` özniteliği. Bu kod sürümü belirtmek için kullanılır ve hizmet kodunun Service Fabric uygulama yaşam döngüsü yönetimi altyapısını kullanarak yükseltmek için de kullanılabilir.
 
 #### <a name="optional-update-setupentrypoint"></a>İsteğe bağlı: Güncelleştirme SetupEntrypoint
 ```xml
@@ -221,12 +169,12 @@ Uygulamanın kurulum birden çok komut dosyası gerektiriyorsa tek toplu iş dos
 
 `EntryPoint` Hizmet bildirim dosyası öğesinde hizmeti başlatmak nasıl belirtmek için kullanılır. `ExeHost` Öğesi belirttiğinden yürütülebilir dosya (ve bağımsız değişkenler) hizmetini başlatmak için kullanılmalıdır.
 
-* `Program`hizmetin başlaması gereken yürütülebilir dosyanın adını belirtir.
-* `Arguments`yürütülebilir dosyaya geçirilen bağımsız değişkenlerini belirtir. Bağımsız değişkenlerle parametrelerin listesi olabilir.
-* `WorkingFolder`başlatılacak giden işlem için çalışma dizini belirtir. Üç değerleri belirtebilirsiniz:
-  * `CodeBase`Çalışma dizini uygulama paketi kodu dizininde olarak işaretleneceğini belirtir (`Code` önceki dosya yapısı içinde dizin).
-  * `CodePackage`Çalışma dizini uygulama paketi köküne ayarlanması işaretleneceğini belirtir (`GuestService1Pkg` önceki dosya yapısı içinde).
-    * `Work`dosyalar çalışma adlı bir alt dizinde yerleştirilir belirtir.
+* `Program` hizmetin başlaması gereken yürütülebilir dosyanın adını belirtir.
+* `Arguments` yürütülebilir dosyaya geçirilen bağımsız değişkenlerini belirtir. Bağımsız değişkenlerle parametrelerin listesi olabilir.
+* `WorkingFolder` başlatılacak giden işlem için çalışma dizini belirtir. Üç değerleri belirtebilirsiniz:
+  * `CodeBase` Çalışma dizini uygulama paketi kodu dizininde olarak işaretleneceğini belirtir (`Code` önceki dosya yapısı içinde dizin).
+  * `CodePackage` Çalışma dizini uygulama paketi köküne ayarlanması işaretleneceğini belirtir (`GuestService1Pkg` önceki dosya yapısı içinde).
+    * `Work` dosyalar çalışma adlı bir alt dizinde yerleştirilir belirtir.
 
 WorkingFolder doğru çalışma dizini göreli yollar uygulama veya başlatma komut dosyaları tarafından kullanılabilecek şekilde ayarlamak yararlıdır.
 
@@ -240,7 +188,7 @@ WorkingFolder doğru çalışma dizini göreli yollar uygulama veya başlatma ko
 Önceki örnekte `Endpoint` öğesi uygulama üzerinde dinleme uç noktalarını belirtir. Bu örnekte Node.js uygulaması HTTP 3000 bağlantı noktasında dinler.
 
 Ayrıca diğer hizmetler bu hizmete uç noktası adresi bulabilir şekilde Bu uç nokta için adlandırma hizmeti yayımlamak için Service Fabric sorabilirsiniz. Bu, Konuk yürütülebilir hizmetleri arasında iletişim kurabilmesi sağlar.
-Yayımlanan uç nokta adresi biçimidir `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme`ve `PathSuffix` isteğe bağlı öznitelikleri. `IPAddressOrFQDN`Bu yürütülebilir dosya üzerine yerleştirilen düğümün IP adresi veya tam etki alanı adıdır ve sizin için hesaplanır.
+Yayımlanan uç nokta adresi biçimidir `UriScheme://IPAddressOrFQDN:Port/PathSuffix`. `UriScheme` ve `PathSuffix` isteğe bağlı öznitelikleri. `IPAddressOrFQDN` Bu yürütülebilir dosya üzerine yerleştirilen düğümün IP adresi veya tam etki alanı adıdır ve sizin için hesaplanır.
 
 Hizmet dağıtıldıktan sonra aşağıdaki örnekte, Service Fabric Explorer'da benzer bir uç nokta gördüğünüz `http://10.1.4.92:3000/myapp/` hizmet örneği için yayımlanan. Veya yerel makine varsa gördüğünüz `http://localhost:3000/myapp/`.
 
@@ -292,11 +240,11 @@ Konsol yeniden yönlendirmesi yapılandırılabilir `ServiceManifest.xml` kullan
 </EntryPoint>
 ```
 
-`ConsoleRedirection`Konsol çıkış (stdout ve stderr) yeniden yönlendirmek için bir çalışma dizini için kullanılabilir. Bu hata Kurulum veya uygulama Service Fabric kümesi içinde yürütülmesi sırasında doğrulayın olanağı sağlar.
+`ConsoleRedirection` Konsol çıkış (stdout ve stderr) yeniden yönlendirmek için bir çalışma dizini için kullanılabilir. Bu hata Kurulum veya uygulama Service Fabric kümesi içinde yürütülmesi sırasında doğrulayın olanağı sağlar.
 
-`FileRetentionCount`kaç tane dosyaları çalışma dizinini kaydedilir belirler. Örneğin, 5, değeri önceki beş yürütmeleri için günlük dosyalarını çalışma dizininde depolanır anlamına gelir.
+`FileRetentionCount` kaç tane dosyaları çalışma dizinini kaydedilir belirler. Örneğin, 5, değeri önceki beş yürütmeleri için günlük dosyalarını çalışma dizininde depolanır anlamına gelir.
 
-`FileMaxSizeInKb`Günlük dosyalarının en büyük boyutunu belirtir.
+`FileMaxSizeInKb` Günlük dosyalarının en büyük boyutunu belirtir.
 
 Günlük dosyaları hizmetin çalışma dizinleri birinde kaydedilir. Dosyaların bulunduğu belirlemek için hizmetin hangi düğümün belirlemek için Service Fabric Explorer kullanın çalıştıran ve hangi çalışma dizini kullanılır. Bu işlem, bu makalenin sonraki bölümlerinde ele alınmaktadır.
 

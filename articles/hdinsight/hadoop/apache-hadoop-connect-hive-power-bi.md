@@ -14,21 +14,28 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 8b4347fde274d0d7520ef3acbd081fdb83d7dc7d
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: e543fba4c382501024bd33bed3853e7806d081ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Microsoft Power BI'ın Azure Hdınsight'ta ODBC kullanarak Hive verileri görselleştirin
 
-Microsoft Power BI ODBC kullanarak Azure Hdınsight bağlamayı öğrenin ve Hive verileri görselleştirin. Bu öğreticide, verileri Power BI hivesampletable Hive tablodan yükleme. Hive tablosu bazı cep telefonu kullanım verilerini içerir. Ardından bir world harita kullanım verilerini çizimi:
+Microsoft Power BI ODBC kullanarak Azure Hdınsight bağlamayı öğrenin ve Hive verileri görselleştirin. 
+
+>[!IMPORTANT]
+> Power BI Desktop'ta genel ODBC bağlayıcısı aracılığıyla içe aktarmak için Hive ODBC sürücüsü yararlanabilirsiniz. Ancak Hive sorgu altyapısı etkileşimli olmayan yapısını verilen BI iş yükleri için önerilmez. [Hdınsight etkileşimli sorgu bağlayıcı](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) ve [Hdınsight Spark bağlayıcı](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) performanslarını için daha iyi seçimlerdir.
+
+Bu öğreticide, verileri Power BI hivesampletable Hive tablodan yükleme. Hive tablosu bazı cep telefonu kullanım verilerini içerir. Ardından bir world harita kullanım verilerini çizimi:
 
 ![Hdınsight Power BI haritası raporu](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
 Bilgiler de yeni geçerlidir [etkileşimli sorgu](../interactive-query/apache-interactive-query-get-started.md) küme türü. Hdınsight etkileşimli doğrudan sorgu kullanarak sorgu bağlanmak için bkz: nasıl [Microsoft Power BI'ın Azure Hdınsight'ta doğrudan sorgu kullanarak verileri etkileşimli sorgu Hive görselleştirmek](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
+
+
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede geçmeden önce aşağıdaki öğeleri sahip olmanız gerekir:

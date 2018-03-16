@@ -2,24 +2,18 @@
 title: "Performans önerileri - Azure SQL veritabanı uygulamak | Microsoft Docs"
 description: "Azure SQL veritabanınızın performansını en iyi duruma getirebilirsiniz performans önerileri bulmak için Azure Portalı'nı kullanın."
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: monicar
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a5772e67d5b91ff989ac6d049b14b1ccad5c952e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Bul ve performans önerileri uygulayın
 

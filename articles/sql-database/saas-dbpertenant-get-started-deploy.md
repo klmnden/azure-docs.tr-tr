@@ -3,24 +3,18 @@ title: "Kiracı başına veritabanı SaaS öğretici - Azure SQL veritabanı | M
 description: "Dağıtma ve Kiracı ve Azure SQL veritabanı kullanarak diğer SaaS desenleri başına veritabanının gösteren Wingtip biletleri SaaS çok kiracılı uygulama keşfedin."
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: genemi
-ms.openlocfilehash: cbe8a04abbf2dada7cc43e57e823c3a41bf83fe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8aa4c8691093779bd8febee80fca88efad93dc00
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı ile Kiracı deseni başına veritabanı kullanan bir çok kiracılı SaaS uygulaması keşfedin
 
@@ -53,7 +47,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 #### <a name="plan-the-names"></a>Adları planlama
 
 Bu bölüm, aşağıdaki adımlarda, sağladığınız bir *kullanıcı* kaynak adları genel benzersiz olduğundan emin olmak için kullanılan değeri ve için bir ad *kaynak grubu* bir dağıtım tarafından oluşturulan tüm kaynaklar içeriyor uygulama. Adlı bir kişi için *Ann Finley*, öneririz:
-- *Kullanıcı:* **af1***(kendi baş harflerini artı bir sayı.   İkinci kez uygulama dağıttığınızda farklı bir değer (örneğin af2) kullanın.)*
+- *Kullanıcı:* **af1***(kendi baş harflerini artı bir sayı. İkinci kez uygulama dağıttığınızda farklı bir değer (örneğin af2) kullanın.)*
 - *Kaynak grubu:* **wingtip dpt af1** *(wingtip dpt gösterir Kiracı başına veritabanı uygulama budur. Kullanıcı adı af1 ekleme içerdiği kaynakların adları ile kaynak grubu adı hatalarla ilintilidir.)*
 
 Adlarınızı şimdi seçin ve not edin. 

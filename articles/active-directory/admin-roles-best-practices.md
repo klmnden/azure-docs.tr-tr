@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 0231dc8336bb2442099984947897e5005767a8f5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Ayrıcalıklı erişim karma ve bulut dağıtımları için Azure AD'de güvenliğini sağlama
 
@@ -118,7 +118,7 @@ Atanan veya genel yönetici rolü için uygun hesapları değerlendirin. Yalnız
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Çok faktörlü kimlik doğrulamasını etkinleştirmek ve diğer tüm yüksek ayrıcalıklı tek kullanıcı Federasyon olmayan yönetici hesapları kaydetme 
 
-Oturum açma bir veya daha fazla Azure AD yönetim rolleri kalıcı olarak atanan tüm bireysel kullanıcılar için Azure multi-Factor Authentication (MFA) gerektirir: Genel yönetici, ayrıcalıklı Rol Yöneticisi, Exchange Online yönetici ve SharePoint Çevrimiçi yönetici. Etkinleştirmek için kılavuz kullanın [yönetici hesapları için çok faktörlü kimlik doğrulama (MFA)](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) ve tüm kullanıcılarla kayıtlı olduğundan emin olun [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Adım 2 ve 3. Adım Kılavuzu'nun altında daha fazla bilgi bulunabilir [veri ve Office 365'te hizmetlere erişimi korumaya](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Oturum açma bir veya daha fazla Azure AD yönetim rolleri kalıcı olarak atanan tüm bireysel kullanıcılar için Azure multi-Factor Authentication (MFA) gerektirir: Genel yönetici, ayrıcalıklı Rol Yöneticisi, Exchange Online yönetici ve SharePoint Çevrimiçi yönetici. Etkinleştirmek için kılavuz kullanın [yönetici hesapları için çok faktörlü kimlik doğrulama (MFA)](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) ve tüm kullanıcılarla kayıtlı olduğundan emin olun [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Adım 2 ve 3. Adım Kılavuzu'nun altında daha fazla bilgi bulunabilir [veri ve Office 365'te hizmetlere erişimi korumaya](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>2. Aşama: en sık kullanılan saldırı teknikleri azaltmak
 
@@ -176,16 +176,16 @@ Azure AD kimlik koruması bir algoritma tabanlı izleme ve raporlama kuruluşunu
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>(Office 365 kullanıyorsanız), Office 365 güvenli puan alın
 
-Puan rakamları (OneDrive, SharePoint ve Exchange gibi) kullanıyorsanız sonra etkinlikleri ve ayarlarınızı arar ve Microsoft tarafından oluşturulan bir taban çizgisi karşılaştırır hangi Office 365 Hizmetleri güvenli hale getirin. Nasıl hizalanmış, en iyi güvenlik uygulamaları ile bulunduğunuz dayalı bir puan elde edersiniz. Office 365 iş ekstra veya kurumsal bir aboneliği en güvenli puan erişebilirsiniz için yönetici izinleri (genel yönetici veya bir özel Yönetici rolü) olan herkes [https://securescore.office.com](https://securescore.office.com/).
+Puan rakamları (OneDrive, SharePoint ve Exchange gibi) kullanıyorsanız sonra etkinlikleri ve ayarlarınızı arar ve Microsoft tarafından oluşturulan bir taban çizgisi karşılaştırır hangi Office 365 Hizmetleri güvenli hale getirin. Nasıl hizalanmış, en iyi güvenlik uygulamaları ile bulunduğunuz dayalı bir puan elde edersiniz. Office 365 iş ekstra veya kurumsal bir aboneliği en güvenli puan erişebilirsiniz için yönetici izinleri (genel yönetici veya bir özel Yönetici rolü) olan herkes [ https://securescore.office.com ](https://securescore.office.com/).
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office365"></a>(Office365 kullanıyorsanız) Office 365 güvenlik ve uyumluluk Kılavuzu gözden geçirin
+#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>(Office 365 kullanıyorsanız) Office 365 güvenlik ve uyumluluk Kılavuzu gözden geçirin
 
 [Güvenlik ve uyumluluk için plan](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) bir Office 365 müşteri nasıl ve Office 365 yapılandırma diğer EMS özelliklerden yararlanacak bir yaklaşım özetlenmektedir. Ardından, 3-6'da nasıl gözden geçirme adımları [veri ve Office 365'te hizmetlere erişimi korumaya](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) ve nasıl Kılavuzu [güvenlik ve uyumluluk Office 365'te izleme](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
 
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Office 365 etkinliğini izleme (Office 365 kullanıyorsanız) yapılandırma
 
-Kimin bir yönetici hesabı varsa ve kimlerin Office 365 bu portallarda oturum imzalama değil nedeniyle erişemeyebilir kullanıcıları tanımlamak sağlayarak kuruluşunuzdaki kişilerin Office 365 hizmetleri nasıl kullandığını izleyebilirsiniz. Daha fazla informatuon için bkz: [etkinlik raporları Office 365 Yönetim Merkezi'nde](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+Kimin bir yönetici hesabı varsa ve kimlerin Office 365 bu portallarda oturum imzalama değil nedeniyle erişemeyebilir kullanıcıları tanımlamak sağlayarak kuruluşunuzdaki kişilerin Office 365 hizmetleri nasıl kullandığını izleyebilirsiniz. Daha fazla bilgi için bkz: [etkinlik raporları Office 365 Yönetim Merkezi'nde](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>Olay/Acil Durum yanıt planı sahipleri oluşturun
 
@@ -201,7 +201,7 @@ Olay yanıtlama etkili bir şekilde gerçekleştirme karmaşık bir iş değil. 
 
 Üretim uygulamaları barındıran abonelik kuruluşunuzdaki tanımlamak için Enterprise portal ve Azure portalını kullanın. 
 
-#### <a name="remove-microsoft-ccounts-from-admin-roles"></a>Microsoft ccounts yönetici rollerini kaldırın
+#### <a name="remove-microsoft-accounts-from-admin-roles"></a>Microsoft hesapları yönetici rollerini kaldırın
 
 Xbox Live ve Outlook gibi diğer programları Microsoft hesaplarından Kurumsal abonelikler için yönetici hesapları olarak kullanılmamalıdır. Tüm Microsoft hesaplarından yönetici durumu kaldırın ve Active Directory ile değiştirin (örneğin, chris@contoso.com) iş veya Okul hesapları.
 
@@ -227,7 +227,7 @@ Koşullu erişim ilkeleri, şirket içi ve bulut tarafından barındırılan uyg
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>Yönetici rolleri erişim incelenmesi tamamlayın
 
-Daha fazla şirket kullanıcıları artan bir yönetilmeyen platformu açabilir bulut Hizmetleri üzerinden ayrıcalıklı erişim sağlamasını. Bu, Office365, Azure aboneliği yöneticileri ve VM'ler veya SaaS uygulamaları aracılığıyla yönetici erişimi olan kullanıcılar için genel yönetici olma kullanıcıları içerir. Bunun yerine, kuruluşların günlük iş hareketleri ayrıcalıksız kullanıcılar olarak işlemek ve yalnızca yönetici hakları gerektiği gibi yapın tüm çalışanlar, özellikle yöneticileri, olması gerekir. Yönetici rolleri sayısı bu yana ilk benimseme büyümüştür beri tanımlamak ve yönetici ayrıcalıkları etkinleştirmek uygun olan her kullanıcı onaylamak için tam erişim inceler. 
+Daha fazla şirket kullanıcıları artan bir yönetilmeyen platformu açabilir bulut Hizmetleri üzerinden ayrıcalıklı erişim sağlamasını. Bu, Office 365, Azure aboneliği yöneticileri ve VM'ler veya SaaS uygulamaları aracılığıyla yönetici erişimi olan kullanıcılar için genel yönetici olma kullanıcıları içerir. Bunun yerine, kuruluşların günlük iş hareketleri ayrıcalıksız kullanıcılar olarak işlemek ve yalnızca yönetici hakları gerektiği gibi yapın tüm çalışanlar, özellikle yöneticileri, olması gerekir. Yönetici rolleri sayısı bu yana ilk benimseme büyümüştür beri tanımlamak ve yönetici ayrıcalıkları etkinleştirmek uygun olan her kullanıcı onaylamak için tam erişim inceler. 
 
 Şunları yapın:
 
@@ -244,7 +244,7 @@ Saldırganlar, bütünlük ve kimlik doğrulama programı mantığı değiştiri
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Olayların işlenmesi için Ulusal Standartlar ve Enstitüsü Technology önerileri gözden geçirin 
 
-Teknoloji'nın (NIST) ve National Institute of Standards özellikle olay ilgili verileri çözümlemek ve her olay için uygun yanıtı belirlemek için olay işleme için yönergeler sağlar. Daha fazla informatiin için bkz: [(NIST) bilgisayar Security Incident Handling Guide (SP 800 61, düzeltme 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+Teknoloji'nın (NIST) ve National Institute of Standards özellikle olay ilgili verileri çözümlemek ve her olay için uygun yanıtı belirlemek için olay işleme için yönergeler sağlar. Daha fazla bilgi için bkz: [(NIST) bilgisayar Security Incident Handling Guide (SP 800 61, düzeltme 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>JIT ek yönetim rolleri için uygulama ayrıcalıklı Kimlik Yönetimi (PIM)
 
@@ -305,7 +305,7 @@ MCAS dosyaları araştırın ve Azure Information Protection sınıflandırma et
 
 #### <a name="configure-conditional-access"></a>Koşullu erişimi yapılandırma
 
-Grubu, konum ve uygulama duyarlılık bağlı olarak koşullu erişim yapılandırma [SaaS uygulamaları](https://azure.microsoft.com/overview/what-is-saas/) ve Azure AD bağlı uygulamalar. 
+Bir grup, konum ve uygulama duyarlılık bağlı olarak koşullu erişim yapılandırma [SaaS uygulamaları](https://azure.microsoft.com/overview/what-is-saas/) ve Azure AD bağlı uygulamalar. 
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>Bağlantılı bulut uygulamalarında etkinliğini izleme
 
@@ -318,7 +318,6 @@ Kullanıcıların erişimini de bağlı uygulamalarda korumalı emin olmak için
 * Risk ve otomatik tehdit önleme ve ilke zorlama simge durumuna küçült
 
 Bulut uygulama güvenlik SIEM aracısını Cloud App Security Office 365 uyarılar ve etkinlikler merkezi izlemeyi etkinleştirmek için SIEM sunucunuz ile tümleşir. Uyarılar ve etkinlikler Cloud App Security çeker sunucunuz üzerinde çalışan ve SIEM sunucusuna akışları. Daha fazla bilgi için bkz: [SIEM tümleştirme](https://docs.microsoft.com/cloud-app-security/siem).
-
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>4. Aşama: daha etkin bir güvenlik tutumunu savunmayı oluşturmaya devam etmek
 
@@ -357,7 +356,7 @@ Office 365 kullanıyorsanız.
 Planınıza artırmak için Microsoft, düzenli olarak planınız beklendiği gibi çalıştığını doğrulamak önerir:
 
 * Varolan yol ne kaçırılan görmek için haritanızı gidin
-* Post mortem analize dayalı olarak, var olan düzeltmek veya yeni en iyi uygulamaları tanımlayın
+* Postmortem analize dayalı olarak, var olan düzeltmek veya yeni en iyi uygulamaları tanımlayın
 * En iyi yöntemler ve güncelleştirilmiş olay yanıtı planınızı kuruluşunuz genelinde dağıtıldığından emin olmak
 
 
@@ -438,16 +437,16 @@ Microsoft Office 365 güvenlik olayları nasıl işlediği hakkında daha fazla 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Microsoft Trust Center ürün güvenlik](https://www.microsoft.com/trustcenter/security) – güvenlik özellikleri, Microsoft bulut ürünleri ve Hizmetleri
+* [Microsoft Trust Center ürün güvenlik](https://www.microsoft.com/en-us/trustcenter/security) – güvenlik özellikleri, Microsoft bulut ürünleri ve Hizmetleri
 
-* [Microsoft Trust Center - Uyumluluk](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – Microsoft'un kapsamlı bulut Hizmetleri için Uyumluluk teklifleri kümesi
+* [Microsoft Trust Center - Uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – Microsoft'un kapsamlı bulut Hizmetleri için Uyumluluk teklifleri kümesi
 
-* [Risk değerlendirmesi gerçekleştirme hakkında yönergeler](https://www.microsoft.com/trustcenter/guidance/risk-assessment) -Microsoft bulut Hizmetleri için güvenlik ve uyumluluk gereksinimlerini yönetme
+* [Risk değerlendirmesi gerçekleştirme hakkında yönergeler](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) -Microsoft bulut Hizmetleri için güvenlik ve uyumluluk gereksinimlerini yönetme
 
 ### <a name="other-ms-online-services"></a>Diğer MS Çevrimiçi Hizmetler 
 
-* [Microsoft Intune güvenlik](https://www.microsoft.com/trustcenter/security/intune-security) – Intune mobil cihaz yönetimi, mobil uygulama yönetimi ve bulutta bilgisayarı yönetim özellikleri sağlar.
+* [Microsoft Intune güvenlik](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune mobil cihaz yönetimi, mobil uygulama yönetimi ve bulutta bilgisayarı yönetim özellikleri sağlar.
 
-* [Microsoft Dynamics 365 güvenlik](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365 Müşteri İlişkileri Yönetimi (CRM) ve kurumsal kaynak (ERP) özellikleri planlama birleştiren Microsoft bulut tabanlı çözümü değil.
+* [Microsoft Dynamics 365 güvenlik](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365 Müşteri İlişkileri Yönetimi (CRM) ve kurumsal kaynak (ERP) özellikleri planlama birleştiren Microsoft bulut tabanlı çözümü değil.
 
  

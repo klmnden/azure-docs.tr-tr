@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Uygulama kimlik doğrulaması için sertifika kimlik bilgileri
 
@@ -32,7 +32,7 @@ Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak ist
 #### <a name="header"></a>Üst bilgi
 
 | Parametre |  Açıklama |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Olmalıdır **RS256** |
 | `typ` | Olmalıdır **JWT** |
 | `x5t` | X.509 Sertifika SHA-1 parmak izi olmalıdır |
@@ -40,8 +40,8 @@ Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak ist
 #### <a name="claims-payload"></a>Talep (yükü)
 
 | Parametre |  Açıklama |
-| --- | --- | --- |
-| `aud` | İzleyici: olmalıdır **https://login.microsoftonline.com/*tenant_Id*  /oauth2/belirteci** |
+| --- | --- |
+| `aud` | İzleyici: olmalıdır  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/belirteci** |
 | `exp` | Sona erme tarihi: belirteç süresinin dolduğu tarih. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteci geçerlilik süresinin dolduğu zaman kadar.|
 | `iss` | Sertifikayı veren: client_id (istemci hizmeti uygulama kimliği) olması gerekir |
 | `jti` | GUID: JWT kimliği |
@@ -49,9 +49,11 @@ Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak ist
 | `sub` | Konu: olarak için `iss`, client_id (istemci hizmeti uygulama kimliği) olması gerekir |
 
 #### <a name="signature"></a>İmza
+
 İmza sertifikası açıklandığı gibi uygulama hesaplanır [JSON Web belirteci RFC7519 belirtimi](https://tools.ietf.org/html/rfc7519)
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Kodu çözülmüş JWT onaylama örneği
+
 ```
 {
   "alg": "RS256",
@@ -73,6 +75,7 @@ Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak ist
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Kodlanmış bir JWT onaylama örneği
+
 Aşağıdaki dizeyi kodlanmış onaylama örneğidir. Dikkatle bakarsanız, nokta (.) ile ayrılmış üç bölüm görürsünüz.
 İlk bölüm başlığı yükü ve son ilk iki bölümü içeriğinden sertifikalarla hesaplanan imza ikinci kodlar.
 ```
@@ -81,14 +84,17 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Azure AD ile sertifikanızı kaydedin
+
 Sertifika kimlik bilgileri Azure AD istemci uygulamasında ilişkilendirmek için uygulama bildirimi düzenlemeniz gerekir.
 Bir sertifikanın tutma sahip, işlem gerekir:
+
 - `$base64Thumbprint`, base64 olduğu sertifikasını karma kodlama
 - `$base64Value`, base64 olduğu sertifika ham verileri kodlama
 
-Ayrıca uygulama bildiriminde anahtarını tanımlamak için bir GUID sağlamanız gerekir (`$keyId`)
+Ayrıca uygulama bildiriminde anahtarını tanımlamak için bir GUID sağlamanız gerekir (`$keyId`).
 
 Azure uygulaması kaydı istemci uygulaması için uygulama bildirimini açın ve değiştirmek *keyCredentials* aşağıdaki Şeması'nı kullanarak yeni sertifika bilgisi özelliğiyle:
+
 ```
 "keyCredentials": [
     {

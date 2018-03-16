@@ -2,25 +2,18 @@
 title: "Genel veri kümeleri için Azure analizi | Microsoft Docs"
 description: "Genel veri kümeleri hakkında prototip için kullanın ve Azure Analiz Hizmetleri ve çözümleri test öğrenin."
 services: sql-database
-documentationcenter: 
 author: douglaslMS
 manager: craigg
-editor: 
-tags: 
 ms.custom: reference
-ms.assetid: 
 ms.service: sql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 03/20/2017
 ms.author: douglasl
-ms.openlocfilehash: ffb8c7cb4a5337e075c69f5e74552f7ead7c7565
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 34ff31c0542fba5fbd132c89c6bb028ba9ca6b88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Test ve prototipi oluşturulurken ortak veri kümeleri
 

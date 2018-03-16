@@ -1,4 +1,19 @@
-
+---
+title: "include dosyası"
+description: "include dosyası"
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/16/2018
+---
 B-serisi VM ailesi, hangi VM boyutu en fazla % 100'ünü Intel® Broadwell E5-2673 v4 CPU performans veri bloğu olanağı, iş yükü için gerekli temel düzey performans sağlar seçmenize olanak verir 2.3 GHz veya bir Intel® Haswell 2.4 GHz E5-2673 v3 işlemcisi vCPU.
 
 B-serisi VM'ler CPU tam performansını sürekli olarak, web sunucuları gibi küçük veritabanları ve geliştirme gerekir ve ortamlarında test iş yükleri için idealdir. Bu iş yükleri genellikle burstable performans gereksinimleri vardır. B-serisi, bir VM boyutu taban çizgisi performansı ile satın almanıza olanak sağlar ve taban sayısından az kullanırken VM örneği kredilerinizin tamamını oluşturur. VM kredi birikmiş, VM uygulamanız daha yüksek CPU performans gerektirdiğinde % 100 vCPU, kullanarak temel veri bloğu.
@@ -20,11 +35,11 @@ B-serisi aşağıdaki altı VM boyutları sunar:
 ## <a name="q--a"></a>Soru-Cevap 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>S: nasıl bir sanal makineden %135 temel performans elde?
-**A**: %135 VM boyutu hale 8 vCPU's arasında paylaşılır. Örneğin, uygulamanız üzerindeki toplu işleme çalışma 8 çekirdek 4 yararlanır ve % 30 kullanımı sırasında çalışan her bu 4 vCPU ait bir VM CPU performans toplam miktarı %120 eşit.  VM kredi zamanını temel performans % 15 delta dayalı derleme anlamına gelir.  Ancak, ayrıca, aynı VM tüm 8 vCPU % 100'ünü kullanabileceğiniz krediler varken bu VM %800 en fazla CPU performansını vermiş olduğunu gösterir.
+**A**: %135 VM boyutu hale 8 vCPU's arasında paylaşılır. Örneğin, uygulamanız üzerindeki toplu işleme çalışma 8 çekirdek 4 kullanıyorsa ve % 30 kullanımı sırasında çalışan her bu 4 vCPU ait bir VM CPU performans toplam miktarı %120 eşit.  VM kredi zamanını temel performans % 15 delta dayalı derleme anlamına gelir.  Ancak, ayrıca, aynı VM tüm 8 vCPU % 100'ünü kullanabileceğiniz krediler varken bu VM %800 en fazla CPU performansını vermiş olduğunu gösterir.
 
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>S: nasıl ı my kredi bakiyesi ve tüketim izleyebilir mi
-**A**: biz 2 yeni ölçümleri önümüzdeki haftalarda Tanıtımı **kredi** ölçüm etmenizi sağlar, VM Bankaya nakledilen kaç krediler görüntülemek ve **ConsumedCredit** ölçüm kaç gösterir CPU krediler VM banka tüketti.    Bu ölçümler ölçümleri bölmesinden portalında veya Azure İzleyici API'ler aracılığıyla programlı olarak görüntülemek kuramaz.
+**A**: biz 2 yeni ölçümleri önümüzdeki haftalarda Tanıtımı **kredi** ölçüm etmenizi sağlar, VM Bankaya nakledilen kaç krediler görüntülemek ve **ConsumedCredit** ölçüm kaç CPU gösterir VM banka tüketmiş krediler.    Bu ölçümler ölçümleri bölmesinden portalında veya Azure İzleyici API'ler aracılığıyla programlı olarak görüntülemek kuramaz.
 
 Ölçüm verilerini Azure için erişim hakkında daha fazla bilgi için bkz: [Microsoft Azure ölçümlerini genel bakış](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 

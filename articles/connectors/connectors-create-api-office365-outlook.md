@@ -3,7 +3,7 @@ title: "Office 365 Outlook Bağlayıcısı Logic Apps içinde ekleme | Microsoft
 description: "Office 365 ile etkileşimi etkinleştirmek için Office 365 Bağlayıcısı ile mantıksal uygulamalar oluşturun. Örneğin: oluşturma, düzenleme ve kişiler ve takvim öğeleri güncelleştirme."
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Office 365 Outlook Bağlayıcısı ile çalışmaya başlama
 Office 365 Outlook Bağlayıcısı, Office 365'te Outlook ile etkileşim sağlar. Bu Bağlayıcıyı oluşturmak, düzenlemek ve kişiler ve takvim öğeleri, güncelleştirme ve ayrıca almak, Gönder ve e-posta için için kullanın.
@@ -30,7 +30,7 @@ Office 365 Outlook ile:
 * Tetikleyiciler, bir Takvim öğesi güncelleştirildiğinde bir yeni e-posta ve daha fazla olduğunda, iş akışını başlatmak için kullanın.
 * Eylemler bir e-posta Gönder, yeni bir takvim olayı ve daha fazlasını oluşturmak için kullanın. Örneğin, Salesforce (tetikleyici) yeni bir nesne olduğunda, Office 365 Outlook (bir eylem) bir e-posta gönderin. 
 
-Bu konuda, bir mantıksal uygulama Office 365 Outlook Bağlayıcısı'nı kullanmayı gösterir ve ayrıca tetikleyiciler ve eylemler listelenmektedir.
+Bu makalede, bir mantıksal uygulama Office 365 Outlook Bağlayıcısı'nı kullanmayı gösterir ve ayrıca tetikleyiciler ve eylemler listelenmektedir.
 
 > [!NOTE]
 > Makalenin bu sürümü Logic Apps genel kullanılabilirlik (GA) için geçerlidir.

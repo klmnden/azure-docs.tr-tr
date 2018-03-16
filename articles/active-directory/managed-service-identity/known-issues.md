@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: bd931b220c417f91b47278c82707d38de5c7f65e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Sık sorulan sorular ve bilinen sorunlar ile yönetilen hizmet kimliği (MSI) Azure Active Directory için
 
@@ -37,6 +37,10 @@ Hayır, Azure Cloud Services MSI desteklemek için plan yok.
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>MSI Active Directory Authentication Library (ADAL) veya Microsoft kimlik doğrulama kitaplığı (MSAL) ile çalışır mı?
 
 Hayır, MSI henüz ADAL veya MSAL ile tümleşiktir değil. MSI REST uç noktasını kullanarak bir MSI belirtecini alma hakkında daha fazla bilgi için bkz: [belirteci alımı için bir Azure VM yönetilen hizmet kimliği (MSI) kullanmayı](how-to-use-vm-token.md).
+
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>Yönetilen hizmet kimliği, güvenlik sınırı nedir?
+
+Kimliğin güvenlik sınırı kendisine bağlı olduğu kaynaktır. Örneğin, bir sanal makine MSI için güvenlik sınırı, sanal makine olur. Bu VM üzerinden çalışan herhangi bir kod MSI uç noktasını çağırmak ve belirteçler istemek kullanabilirsiniz. MSI destekleyen diğer kaynaklarla benzer deneyimidir.
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Desteklenen Linux dağıtımları nelerdir?
 

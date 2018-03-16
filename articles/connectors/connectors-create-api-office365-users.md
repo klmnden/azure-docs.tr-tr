@@ -3,7 +3,7 @@ title: "Office 365 kullanıcıları bağlayıcı Logic Apps içinde ekleme | Mic
 description: "Office 365 kullanıcıları bağlayıcı REST API parametrelerle genel bakış"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Office 365 kullanıcıları Bağlayıcısı ile çalışmaya başlama
 Profilleri, arama kullanıcıları ve daha fazla bilgi almak için Office 365 kullanıcıları için bağlayın. Office 365 kullanıcıları ile şunları yapabilirsiniz:
@@ -36,7 +36,7 @@ Bu bağlayıcı mantıksal uygulamalarınızı eklediğinizde, Office 365 kullan
 > 
 > 
 
-Bağlantı oluşturduktan sonra kullanıcı kimliği gibi Office 365 kullanıcıları özelliklerini girin **REST API Başvurusu** bu konuda bu özellikleri açıklar.
+Bağlantı oluşturduktan sonra kullanıcı kimliği gibi Office 365 kullanıcıları özelliklerini girin **REST API Başvurusu** bu makalede bu özellikleri açıklar.
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: c8f3c0e87a052b327e9949acd3e7db1d28c1eb46
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute bağlantı hatları ve Yönlendirme etki alanları
  Sipariş gerekir bir *expressroute bağlantı hattı* şirket içi altyapınızı bağlantı sağlayıcı Microsoft'a bağlanmak için. Aşağıdaki şekilde bir mantıksal temsilini WAN ve Microsoft arasında bağlantı gösterilmektedir.
@@ -60,12 +60,12 @@ Bağlantı, her zaman Microsoft Azure hizmetlerini WAN'ınız başlatılır. Mic
 
 Yalnızca gereksinim duyduğunuz yolların tüketmeye ağınızın içinde özel yol filtreleri tanımlayabilirsiniz. Başvurmak [yönlendirme](expressroute-routing.md) yönlendirme yapılandırması hakkında ayrıntılı bilgi için sayfa. 
 
-Bkz: [SSS sayfasını](expressroute-faqs.md) desteklenen ortak eşleme Yönlendirme etki alanı hizmetleri hakkında daha fazla bilgi için. 
+Desteklenen ortak eşleme Yönlendirme etki alanı hizmetleri hakkında daha fazla bilgi için bkz: [SSS](expressroute-faqs.md).
 
 ### <a name="microsoft-peering"></a>Microsoft eşlemesi
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Tüm diğer Microsoft Çevrimiçi Hizmetleri için bağlantı (Office 365, Dynamics 365 ve Azure PaaS Hizmetleri), Microsoft eşleme aracılığıyla ' dir. Biz, WAN ve Microsoft bulut hizmetleriyle Microsoft eşliği Yönlendirme etki alanı arasında çift yönlü bağlantı etkinleştirin. Yalnızca siz veya bağlantı sağlayıcınız tarafından sahip olunan genel IP adresleri üzerinden Microsoft bulut hizmetlerine bağlanmak ve tüm tanımlı kurallara uymalıdır. Bkz: [ExpressRoute önkoşulları](expressroute-prerequisites.md) daha fazla bilgi için.
+Microsoft eşleme aracılığıyla Microsoft Çevrimiçi Hizmetleri (Office 365, Dynamics 365 ve Azure PaaS hizmetler) için bağlantı olur. Biz, WAN ve Microsoft bulut hizmetleriyle Microsoft eşliği Yönlendirme etki alanı arasında çift yönlü bağlantı etkinleştirin. Yalnızca siz veya bağlantı sağlayıcınız tarafından sahip olunan genel IP adresleri üzerinden Microsoft bulut hizmetlerine bağlanmak ve tüm tanımlı kurallara uymalıdır. Daha fazla bilgi için bkz: [ExpressRoute önkoşulları](expressroute-prerequisites.md) sayfası.
 
 Bkz: [SSS sayfasını](expressroute-faqs.md) daha fazla bilgi desteklenen Hizmetleri, maliyetleri ve yapılandırma ayrıntıları. Bkz: [ExpressRoute konumları](expressroute-locations.md) Microsoft eşleme desteği sunan bağlantı sağlayıcıları listesi hakkında bilgi için sayfa.
 

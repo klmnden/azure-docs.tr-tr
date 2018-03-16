@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 5d90b2cd977522eab267c8c86a35e47bc61248a8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: eb6008b73bfd15ec193e728fc9007af5c2d25c67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure işlevleri için Azure Cosmos DB bağlamaları
 
@@ -29,6 +29,12 @@ Bu makale ile nasıl çalışılacağını açıklar [Azure Cosmos DB](..\cosmos
 > Bu bağlama DocumentDB ilk olarak adlandırılıyordu. İşlevler sürümünde 1.x, yalnızca tetikleyici edildi Cosmos DB; yeniden adlandırıldı giriş bağlaması, çıktı bağlama ve NuGet paketi DocumentDB adını korur. İçinde [işlevleri sürüm 2.x](functions-versions.md), bağlamaları ve paketi yeniden adlandırılmış Cosmos DB de olmuştur. Bu makalede 1.x adlarını kullanır.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paketler
+
+Cosmos DB bağlamaları için işlevleri sürüm 1.x içinde verilmiştir [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet paketi. İçin 2.x İşlevler, paket [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB). Kaynak kodu bağlamaları için konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub depo.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="trigger"></a>Tetikleyici
 
@@ -130,7 +136,7 @@ JavaScript kod aşağıdaki gibidir:
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) özniteliği.
 
 Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [tetikleyici - yapılandırma](#trigger---configuration). Burada bir `CosmosDBTrigger` yöntemi imza özniteliği örnekte:
 
@@ -458,7 +464,7 @@ JavaScript kod aşağıdaki gibidir:
 
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) özniteliği.
 
 Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [yapılandırma bölümü aşağıdaki](#input---configuration). 
 
@@ -718,9 +724,9 @@ JavaScript kod aşağıdaki gibidir:
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) özniteliği.
 
-Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [çıktı - yapılandırma](#output---configuration). Burada bir `CosmosDB` yöntemi imza özniteliği örnekte:
+Özniteliğin Oluşturucusu koleksiyon adı ve veritabanı adını alır. Bu ayarlar ve yapılandırabileceğiniz diğer özellikler hakkında daha fazla bilgi için bkz: [çıktı - yapılandırma](#output---configuration). Burada bir `DocumentDB` yöntemi imza özniteliği örnekte:
 
 ```csharp
     [FunctionName("QueueToDocDB")]        
@@ -736,7 +742,7 @@ Tam bir örnek için bkz: [çıktısı - C# örnek](#output---c-example).
 
 ## <a name="output---configuration"></a>Çıktı - yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `CosmosDB` özniteliği.
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `DocumentDB` özniteliği.
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI kullanarak IOT hub oluşturma
 
@@ -88,7 +88,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **kaynak grubu**. Kaynak grubu adı. Büyük küçük harfe duyarlı alfasayısal, alt çizgi ve tire, 1-64 uzunluğu biçimindedir.
-* **name**. Oluşturulacak IOT hub adı. Büyük küçük harfe duyarlı alfasayısal, alt çizgi ve tire, 3-50 uzunluğu biçimindedir.
+* **name**. Oluşturulacak IOT hub adı. Büyük küçük harfe duyarlı bir biçimidir alfasayısal ve kısa çizgi, 3-50 uzunluğu.
 * **Konum**. IOT hub'ı sağlamak için konum (azure bölge/veri merkezi).
 * **SKU adı**. Sku birini adı: [F1, S1, S2, S3]. En son tam listesi için IOT Hub için fiyatlandırma sayfasına bakın.
 * **birimleri**. Sağlanan birim sayısı. Aralık: F1 [1-1]: S1, S2 [1-200]: [1-10] S3. IOT Hub birimleri toplam ileti sayınıza ve bağlamak istediğiniz cihaz sayısını temel alır.

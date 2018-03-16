@@ -2,25 +2,19 @@
 title: "SQL veritabanı olağanüstü durum kurtarma ayrıntılarını | Microsoft Docs"
 description: "Kılavuzu ve olağanüstü durum kurtarma ayrıntılarını gerçekleştirmek için kullanarak Azure SQL veritabanı için en iyi yöntemleri öğrenin."
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: b44a269c-fe2a-404f-b013-290030860bd1
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.date: 10/20/2016
-ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 10a3891c51d20a26b946847d47bb712d97fa3c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performing-disaster-recovery-drill"></a>Olağanüstü durum kurtarma ayrıntıya gerçekleştirme
 Kurtarma iş akışı için uygulama hazırlık doğrulanması düzenli aralıklarla gerçekleştirilen önerilir. Uygulama davranışına ve etkileri doğrulama veri kaybına ve/veya kesintisi Bu yük devretme içerir iyi bir mühendislik uygulamadır. Ayrıca, çoğu endüstri standartlarına göre gerekli iş sürekliliği sertifika kapsamında değildir.

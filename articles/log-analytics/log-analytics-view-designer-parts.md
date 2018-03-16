@@ -4,7 +4,7 @@ description: "Günlük analizi Görünüm Tasarımcısı kullanarak veri görsel
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 6fd19cce955e1f06c9b6f5a9ef5d85d9fd63c1c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Günlük analizi Görünüm Tasarımcısı görselleştirme bölümlerinde Başvuru Kılavuzu
 Azure günlük analizi Görünüm Tasarımcısı kullanarak veri görselleştirmeleri günlük analizi çalışma alanı, çeşitli sunmak Azure Portalı'nda özel görünümler oluşturabilirsiniz. Bu makalede, ayarları özel görünümlerde kullanılabilir görselleştirme bölümleri için bir başvuru kılavuzdur.
@@ -28,21 +28,19 @@ Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 * [Görüntüleme Tasarımcısı](log-analytics-view-designer.md): oluşturma ve özel görünümler düzenleme Görünüm Tasarımcısı ve yordamları genel bakış sağlar.
 * [Başvuru döşeme](log-analytics-view-designer-tiles.md): ayarları kendi özel görünümlerinizi de kullanılabilir her bölme için bir başvuru sağlar.
 
->[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), tüm görünümleri sorgularda yazılmalıdır [yeni sorgu dili](https://go.microsoft.com/fwlink/?linkid=856078). Çalışma alanı yükseltmeden önce oluşturulmuş görünümler otomatik olarak dönüştürülür.
 
 Kullanılabilir Görünüm Tasarımcısı döşeme türleri aşağıdaki tabloda açıklanmıştır:
 
 | Görünüm türü | Açıklama |
 |:--- |:--- |
 | [Sorgu listesi](#list-of-queries-part) |Günlük arama sorguları listesini görüntüler. Her sorgu sonuçlarını görüntülemeyi seçebilirsiniz. |
-| [Sayı ve listesi](#number-amp-list-part) |Üstbilgi, günlük arama sorgusu kayıtları sayısını gösteren tek bir sayı görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
-| [İki sayı ve listesi](#two-numbers-amp-list-part) |Üstbilgi sayıları farklı günlük arama sorguları kayıtlarını Göster iki sayı görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
-| [Halka ve listesi](#donut-amp-list-part) |Üstbilgi, günlük sorgu değer sütununda özetlenir tek bir sayı görüntüler. Halka grafik üst üç kayıt sonuçlarını görüntüler. |
-| [İki zaman çizelgeleri ve listesi](#two-timelines-amp-list-part) |Üstbilgi, sütun grafikler, bir günlük sorgu değer sütununda özetlenir tek bir sayı görüntüleyen belirtme çizgisi olarak zaman içinde iki günlük sorguların sonuçlarını görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
+| [Sayı ve listesi](#number-and-list-part) |Üstbilgi, günlük arama sorgusu kayıtları sayısını gösteren tek bir sayı görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
+| [İki sayı ve listesi](#two-numbers-and-list-part) |Üstbilgi sayıları farklı günlük arama sorguları kayıtlarını Göster iki sayı görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
+| [Halka ve listesi](#donut-and-list-part) |Üstbilgi, günlük sorgu değer sütununda özetlenir tek bir sayı görüntüler. Halka grafik üst üç kayıt sonuçlarını görüntüler. |
+| [İki zaman çizelgeleri ve listesi](#two-timelines-and-list-part) |Üstbilgi, sütun grafikler, bir günlük sorgu değer sütununda özetlenir tek bir sayı görüntüleyen belirtme çizgisi olarak zaman içinde iki günlük sorguların sonuçlarını görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
 | [Bilgi](#information-part) |Üstbilgi statik metin ve isteğe bağlı bir bağlantı görüntüler. Bir veya daha fazla öğe statik başlık ve metin ile birlikte görüntüler. |
-| [Çizgi grafiği, belirtme çizgisi ve listesi](#line-chart-callout-amp-list-part) |Üstbilgi saati ve bir belirtme çizgisi özetlenen bir değerle üzerinden günlük sorgudan birden fazla seri ile bir çizgi grafiği görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
-| [Çizgi grafiği ve listesi](#line-chart-amp-list-part) |Üstbilgi zaman içinde bir günlük sorgudan birden fazla seri ile bir çizgi grafiği görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
+| [Çizgi grafiği, belirtme çizgisi ve listesi](#line-chart-callout-and-list-part) |Üstbilgi saati ve bir belirtme çizgisi özetlenen bir değerle üzerinden günlük sorgudan birden fazla seri ile bir çizgi grafiği görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
+| [Çizgi grafiği ve listesi](#line-chart-and-list-part) |Üstbilgi zaman içinde bir günlük sorgudan birden fazla seri ile bir çizgi grafiği görüntüler. Sayısal bir sütun veya zaman içinde değişiklik göreli değerini gösteren bir grafik olan bir sorgu üst on sonuçlarını görüntüler. |
 | [Çizgi grafikler bölümü yığını](#stack-of-line-charts-part) |Zaman içinde bir günlük sorgudan birden fazla seri üç ayrı çizgi grafiklerde görüntüler. |
 
 Sonraki bölümlerde kutucuğu türleri ve özelliklerinin ayrıntılı açıklanmaktadır.
@@ -78,13 +76,14 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | **Başlık** | |
 | Gösterge |Üstbilgi üstünde görüntülenen metin. |
 | Sorgu |Başlığı için çalıştırılacak sorgu. Sorgu tarafından döndürülen kayıt sayısı görüntülenir. |
+| Tıklatın arasında gezinme | Üst bilgisinde tıklattığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **List** | |
 | Sorgu |Liste için çalıştırılacak sorgu. Sonuçları ilk on kayıtlar için ilk iki özellikleri görüntülenir. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Çubukları sayısal sütun göreli değeri temel alan otomatik olarak oluşturulur.<br><br>Kullanım `Sort` listedeki kayıtları sıralamak için sorgu komutu. Sorgu çalıştırmak ve tüm kayıtları döndürmek için seçebileceğiniz **tümünü görmek**. |
 | Grafik Gizle |Grafiğin sağ tarafında sayısal sütun devre dışı bırakmak için bu bağlantıyı seçin. |
 | Mini Grafikler etkinleştir |Yatay çubuk yerine bir mini görüntülemek için bu bağlantıyı seçin. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
 | Renk |Mini Grafikler ve çubukları rengi. |
 | Ad ve değer ayırıcı |Metin özelliği birden çok değer ayrıştırmak için kullanılacak tek karakterli sınırlayıcısı. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
-| Gezinti sorgu |Listeden bir öğe seçtiğinizde çalıştırılacak sorgu. Daha fazla bilgi için bkz: [ortak ayarları](#navigation-query). |
+| Tıklatın arasında gezinme | Listedeki bir öğe tıkladığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **List** |**> Sütun başlıkları** |
 | Ad |İlk sütunun üstünde görüntülenen metin. |
 | Değer |İkinci sütunun üstünde görüntülenen metin. |
@@ -103,6 +102,8 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Yeni Grup |Geçerli Görünüm başlangıç görünümünde, yeni bir grup oluşturmak için bu bağlantıyı seçin. |
 | Simge |Result üstbilgisinde yanındaki görüntülenen görüntü dosyası. |
 | Simgesini kullanın |Simge görüntülemek için bu bağlantıyı seçin. |
+| **Başlık gezinme** | |
+| Tıklatın arasında gezinme | Üst bilgisinde tıklattığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **Başlık** | |
 | Gösterge |Üstbilgi üstünde görüntülenen metin. |
 | Sorgu |Başlığı için çalıştırılacak sorgu. Sorgu tarafından döndürülen kayıt sayısı görüntülenir. |
@@ -113,7 +114,7 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Renk |Mini Grafikler ve çubukları rengi. |
 | İşlem |Mini Grafik için gerçekleştirilecek işlem. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
 | Ad ve değer ayırıcı |Metin özelliği birden çok değer ayrıştırmak için kullanılacak tek karakterli sınırlayıcısı. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
-| Gezinti sorgu |Listeden bir öğe seçtiğinizde çalıştırılacak sorgu. Daha fazla bilgi için bkz: [ortak ayarları](#navigation-query). |
+| Tıklatın arasında gezinme | Listedeki bir öğe tıkladığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **List** |**> Sütun başlıkları** |
 | Ad |İlk sütunun üstünde görüntülenen metin. |
 | Değer |İkinci sütunun üstünde görüntülenen metin. |
@@ -137,6 +138,7 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Alt Başlık |Üstbilginin üst başlığı altında görüntülenen metin. |
 | **Halka** | |
 | Sorgu |Halka için çalıştırılacak sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. |
+| Tıklatın arasında gezinme | Üst bilgisinde tıklattığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **Halka** |**> Center** |
 | Metin |Halka içindeki değeri altında görüntülenen metin. |
 | İşlem |Tek bir değer olarak özetlemek için değer özelliği üzerinde gerçekleştirilecek işlem.<ul><li>Toplam: tüm kayıtların değerlerini ekler.</li><li>Yüzdesi: Değerleri tarafından döndürülen kayıtları oranını **neden merkezi işleminde kullanılan değerleri** sorguda toplam kayıtları için.</li></ul> |
@@ -153,7 +155,7 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Renk |Mini Grafikler ve çubukları rengi. |
 | İşlem |Mini Grafik için gerçekleştirilecek işlem. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
 | Ad ve değer ayırıcı |Metin özelliği birden çok değer ayrıştırmak için kullanılacak tek karakterli sınırlayıcısı. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
-| Gezinti sorgu |Listeden bir öğe seçtiğinizde çalıştırılacak sorgu. Daha fazla bilgi için bkz: [ortak ayarları](#navigation-query). |
+| Tıklatın arasında gezinme | Listedeki bir öğe tıkladığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **List** |**> Sütun başlıkları** |
 | Ad |İlk sütunun üstünde görüntülenen metin. |
 | Değer |İkinci sütunun üstünde görüntülenen metin. |
@@ -172,6 +174,8 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Yeni Grup |Geçerli Görünüm başlangıç görünümünde, yeni bir grup oluşturmak için bu bağlantıyı seçin. |
 | Simge |Result üstbilgisinde yanındaki görüntülenen görüntü dosyası. |
 | Simgesini kullanın |Simge görüntülemek için bu bağlantıyı seçin. |
+| **Başlık gezinme** | |
+| Tıklatın arasında gezinme | Üst bilgisinde tıklattığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **İlk grafik<br>ikinci grafik** | |
 | Gösterge |Belirtme çizgisi ilk serisinin altında görüntülenen metin. |
 | Renk |Serideki sütunlar için kullanılacak rengi. |
@@ -183,7 +187,7 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Mini Grafikler etkinleştir |Yatay çubuk yerine bir mini görüntülemek için bu bağlantıyı seçin. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
 | Renk |Mini Grafikler ve çubukları rengi. |
 | İşlem |Mini Grafik için gerçekleştirilecek işlem. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
-| Gezinti sorgu |Listeden bir öğe seçtiğinizde çalıştırılacak sorgu. Daha fazla bilgi için bkz: [ortak ayarları](#navigation-query). |
+| Tıklatın arasında gezinme | Listedeki bir öğe tıkladığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **List** |**> Sütun başlıkları** |
 | Ad |İlk sütunun üstünde görüntülenen metin. |
 | Değer |İkinci sütunun üstünde görüntülenen metin. |
@@ -228,6 +232,7 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Alt Başlık |Üstbilginin üst başlığı altında görüntülenen metin. |
 | **Çizgi grafiği** | |
 | Sorgu |Çizgi grafiği için çalıştırılacak sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. Sorgu kullanıyorsa *aralığı* anahtar sözcüğü, grafiğin x ekseni bu zaman aralığı kullanır. Sorgu içermiyorsa *aralığı* anahtar sözcüğü, x ekseni kullanır saatlik aralıklarla. |
+| Tıklatın arasında gezinme | Üst bilgisinde tıklattığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **Çizgi grafiği** |**> Belirtme** |
 | Belirtme çizgisi başlık |Belirtme çizgisi değerin görüntülenen metin. |
 | Seri adı |Belirtme çizgisi değeri kullanmak seri için özellik değeri. Seri sağlanırsa, sorgudaki tüm kayıtları kullanılır. |
@@ -243,7 +248,7 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Renk |Mini Grafikler ve çubukları rengi. |
 | İşlem |Mini Grafik için gerçekleştirilecek işlem. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
 | Ad ve değer ayırıcı |Metin özelliği birden çok değer ayrıştırmak için kullanılacak tek karakterli sınırlayıcısı. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
-| Gezinti sorgu |Listeden bir öğe seçtiğinizde çalıştırılacak sorgu. Daha fazla bilgi için bkz: [ortak ayarları](#navigation-query). |
+| Tıklatın arasında gezinme | Listedeki bir öğe tıkladığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **List** |**> Sütun başlıkları** |
 | Ad |İlk sütunun üstünde görüntülenen metin. |
 | Değer |İkinci sütunun üstünde görüntülenen metin. |
@@ -267,6 +272,7 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Alt Başlık |Üstbilginin üst başlığı altında görüntülenen metin. |
 | **Çizgi grafiği** | |
 | Sorgu |Çizgi grafiği için çalıştırılacak sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. Sorgu kullanıyorsa *aralığı* anahtar sözcüğü, grafiğin x ekseni bu zaman aralığı kullanır. Sorgu içermiyorsa *aralığı* anahtar sözcüğü, x ekseni kullanır saatlik aralıklarla. |
+| Tıklatın arasında gezinme | Üst bilgisinde tıklattığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **Çizgi grafiği** |**> Y ekseni** |
 | Logaritmik ölçek kullan |Logaritmik ölçek y ekseni için kullanmak için bu bağlantıyı seçin. |
 | Birimler |Sorgu tarafından döndürülen birimler için değerleri belirtin. Bu bilgiler değer türleri gösteren görüntü grafik etiketleri ve, isteğe bağlı olarak, için kullanılan değerleri dönüştürün. *Birim* türü birim kategorisini belirtir ve kullanılabilir tanımlar *geçerli birim* değerler girin. Bir değer seçerseniz *dönüştürmek*, gelen sayısal değerleri dönüştürülür *geçerli birim* için yazın *dönüştürmek* türü. |
@@ -278,7 +284,7 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Renk |Mini Grafikler ve çubukları rengi. |
 | İşlem |Mini Grafik için gerçekleştirilecek işlem. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
 | Ad ve değer ayırıcı |Metin özelliği birden çok değer ayrıştırmak için kullanılacak tek karakterli sınırlayıcısı. Daha fazla bilgi için bkz: [ortak ayarları](#sparklines). |
-| Gezinti sorgu |Listeden bir öğe seçtiğinizde çalıştırılacak sorgu. Daha fazla bilgi için bkz: [ortak ayarları](#navigation-query). |
+| Tıklatın arasında gezinme | Listedeki bir öğe tıkladığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **List** |**> Sütun başlıkları** |
 | Ad |İlk sütunun üstünde görüntülenen metin. |
 | Değer |İkinci sütunun üstünde görüntülenen metin. |
@@ -301,6 +307,7 @@ Sorguları bölümü listesini günlük arama sorguları listesini görüntüler
 | Alt Başlık |Grafik üstündeki başlığı altında görüntülenen metin. |
 | **Grafik 1<br>grafik 2<br>grafik 3** |**Çizgi grafiği** |
 | Sorgu |Çizgi grafiği için çalıştırılacak sorgu. Bir metin değeri ilk özelliğidir ve ikinci özelliği sayısal bir değerdir. Bu sorgu normalde kullandığı *ölçü* sonuçları özetlemek için anahtar sözcüğü. Sorgu kullanıyorsa *aralığı* anahtar sözcüğü, grafiğin x ekseni bu zaman aralığı kullanır. Sorgu içermiyorsa *aralığı* anahtar sözcüğü, x ekseni kullanır saatlik aralıklarla. |
+| Tıklatın arasında gezinme | Üst bilgisinde tıklattığınızda gerçekleştirilecek eylem.  Daha fazla bilgi için bkz: [ortak ayarları](#click-through-navigation). |
 | **Grafik** |**> Y ekseni** |
 | Logaritmik ölçek kullan |Logaritmik ölçek y ekseni için kullanmak için bu bağlantıyı seçin. |
 | Birimler |Sorgu tarafından döndürülen birimler için değerleri belirtin. Bu bilgiler değer türleri gösteren görüntü grafik etiketleri ve, isteğe bağlı olarak, için kullanılan değerleri dönüştürün. *Birim* türü birim kategorisini belirtir ve kullanılabilir tanımlar *geçerli birim* değerler girin. Bir değer seçerseniz *dönüştürmek*, gelen sayısal değerleri dönüştürülür *geçerli birim* için yazın *dönüştürmek* türü. |
@@ -314,10 +321,18 @@ Ad ve değer ayırıcı birden çok değer listesi sorgusu metin özelliğinden 
 
 Örneğin, adlı bir özellik göz önünde bulundurun *konumu* gibi değerler dahil *Redmond yapı 41* ve *Bellevue yapı 12*. Bir tire (-) için ad ve değer ayırıcı belirtebilirsiniz ve *Şehir yapı* adı. Bu yaklaşım her değeri adlı iki özellik ayrıştırır *Şehir* ve *yapı*.
 
-### <a name="navigation-query"></a>Gezinti sorgu
-Listeden bir öğe seçtiğinizde çalıştırmak için sorgu Gezinti sorgudur. Kullanım *{seçili öğe}* kullanıcı seçili öğe için söz dizimi dahil etmek için.
+### <a name="click-through-navigation"></a>Tıklatın arasında gezinme
+Başlığı veya liste öğesi görünümünde tıkladığınızda hangi eylemini gerçekleştirilecek tıklatın aracılığıyla gezinti tanımlar.  Bu sorguda açar [günlük arama portal](log-analytics-log-search-portals.md#log-search) veya başka bir görünüm başlatın.
 
-Sorgu adlı bir sütun varsa, örneğin, *bilgisayar* ve gezinti sorgu *{seçili öğe}*, gibi bir sorgu *bilgisayar "Bilgisayarım" =* seçtiğinizde çalıştırılan bir bilgisayar. Gezinti sorgu ise *türü olay {seçili öğe} =*, sorgu *türü olay bilgisayar = "Bilgisayarım" =* çalıştırılır.
+Aşağıdaki tabloda tıklatın aracılığıyla gezinti için ayarları açıklanır.
+
+| Ayar           | Açıklama |
+|:--|:--|
+| Günlük arama (otomatik) | Üstbilgi öğesi seçtiğinizde çalıştırmak için günlük arama.  Bu öğe temel alan aynı günlük arama olur.
+| Günlük araması        | Bir listedeki bir öğe seçtiğinizde çalıştırmak için günlük arama.  Sorguyu yazın **Gezinti sorgu** kutusu.   Kullanım *{seçili öğe}* kullanıcı seçili öğe için söz dizimi dahil etmek için.  Sorgu adlı bir sütun varsa, örneğin, *bilgisayar* ve gezinti sorgu *{seçili öğe}*, gibi bir sorgu *bilgisayar "Bilgisayarım" =* seçtiğinizde çalıştırılan bir bilgisayar. Gezinti sorgu ise *türü olay {seçili öğe} =*, sorgu *türü olay bilgisayar = "Bilgisayarım" =* çalıştırılır. |
+| Görünüm              | Bir listedeki bir üstbilgi öğesi veya bir öğe seçtiğinizde açmak için görüntüleyin.  Çalışma alanında bir görünüm adı seçin **Görünüm adı** kutusu. |
+
+
 
 ### <a name="sparklines"></a>Mini Grafikler
 Bir mini grafik zaman içinde bir liste girdisi değerini gösteren bir küçük çizgi grafiktir. Bir liste görselleştirme bölümleri için sayısal bir sütun veya zamanla değerini gösteren bir mini göreli değerini gösteren bir yatay çubuğu görüntülenip görüntülenmeyeceğini seçebilirsiniz.

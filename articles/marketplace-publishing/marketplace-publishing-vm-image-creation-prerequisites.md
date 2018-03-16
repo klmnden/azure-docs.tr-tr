@@ -3,8 +3,8 @@ title: "Bir sanal makine görüntüsü için Azure Marketi oluşturma teknik ön
 description: "Oluşturma ve bir sanal makine görüntüsü Azure satın almak için Marketinde başkalarının dağıtma gereksinimlerini anlayın."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: cf1f061c28dd0c106823d34ad39aac5e577c8b41
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Bir sanal makine görüntüsü için Azure Marketi oluşturma teknik önkoşulları
 İşlemi başlamadan önce baştan sona okuyun ve nerede ve neden her adım gerçekleştirilir anlayın. Mümkün olduğunca, şirket bilgilerinizi ve diğer verileri hazırlama, gerekli Araçları'nı indirmek ve/veya teknik bileşenleri teklifi oluşturma işlemi başlamadan önce oluşturun. Bu öğeler bu makaleyi gözden açık olmalıdır.  
@@ -29,7 +29,7 @@ Aşağıdaki öğeler işlemine başlamadan önce hazır olmalıdır:
 * Hangi işletim sistemine bağlı olarak, hedeflediğiniz, yükleme [Azure PowerShell cmdlet'lerini](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) veya [Linux komut satırı arabirimi aracı](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) gelen [Azure indirmeleri](https://azure.microsoft.com/downloads/) sayfası.
 * Azure Storage Gezgini Codeplex'ten yükleyin.
 * Karşıdan yükle ve Azure sertifikalı için sertifika Test aracı yükleyin:
-  * [http://go.microsoft.com/fwlink/?LinkId=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Sertifika aracını çalıştırmak için Windows tabanlı bir bilgisayar gerekir. Windows tabanlı bir bilgisayarda kullanılabilir değilse, aracı Windows tabanlı bir VM ile Azure kullanarak çalıştırabilirsiniz.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Sertifika aracını çalıştırmak için Windows tabanlı bir bilgisayar gerekir. Windows tabanlı bir bilgisayarda kullanılabilir değilse, aracı Windows tabanlı bir VM ile Azure kullanarak çalıştırabilirsiniz.
 
 ## <a name="platforms-supported"></a>Desteklenen platformlar
 Windows veya Linux Azure tabanlı VM'ler geliştirebilirsiniz. Bir Azure ile uyumlu sanal sabit disk (VHD)--farklı araçlarını kullanın ve hangi işletim sistemine bağlı olarak, kullandığınız adımları oluşturma gibi yayımlama işlemi--bazı öğeleri:  

@@ -16,17 +16,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 472d61debff016cfd3df79bae1f63e176c14849d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d7eb31a8a6f95383d88b020a6f79eb66f258993c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
 Bu makalede Azure işlevlerinde Azure Service Bus bağlamaları ile nasıl çalışılacağını açıklar. Tetikler ve Service Bus kuyrukları ve konuları için bağlamaları çıktı Azure işlevleri destekler.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paketler
+
+Hizmet veri yolu bağlamaları sağlanan [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/) GitHub depo.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="trigger"></a>Tetikleyici
 
@@ -150,7 +156,7 @@ module.exports = function(context, myQueueItem) {
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), Service Bus tetikleyici yapılandırmak için aşağıdaki öznitelikler kullanın:
 
-* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
+* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs)
 
   Özniteliğin Oluşturucusu kuyruk veya konu ve abonelik adını alır. Azure işlevleri sürümünde 1.x, bağlantının erişim hakları de belirtebilirsiniz. Erişim hakları belirtmezseniz, varsayılan değer `Manage`. Daha fazla bilgi için bkz: [tetikleyici - yapılandırma](#trigger---configuration) bölümü.
 
@@ -179,7 +185,7 @@ module.exports = function(context, myQueueItem) {
 
   Tam bir örnek için bkz: [tetikleyici - C# örnek](#trigger---c-example).
 
-* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
+* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs)
 
   Kullanılacak hizmet veri yolu hesabını belirtmek için başka bir yol sağlar. Oluşturucusu hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adını alır. Öznitelik parametre, yöntemi veya sınıf düzeyinde uygulanabilir. Aşağıdaki örnek, sınıf ve yöntem düzeyindeki gösterir:
 
@@ -215,7 +221,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**Yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodu kuyruk veya konu iletisinde temsil eden değişken adı. İşlev dönüş değeri başvurmak için "$return" ayarlayın. | 
 |**queueName**|**QueueName**|İzlemek için sırasının adı.  Yalnızca bir konu için bir sıra izliyorsanız seçin.
-|**topicName**|**TopicName**|İzlemek için konu adı. Yalnızca bir sıra için bir konu izliyorsanız seçin.|
+|**TopicName**|**TopicName**|İzlemek için konu adı. Yalnızca bir sıra için bir konu izliyorsanız seçin.|
 |**varlığıyla subscriptionName**|**varlığıyla subscriptionName**|İzlemek için Abonelik adı. Yalnızca bir sıra için bir konu izliyorsanız seçin.|
 |**Bağlantı**|**Bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyServiceBus." adlı "MyServiceBus" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan hizmet veri yolu bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarını kullanır.<br><br>Bir bağlantı dizesi edinmek için gösterilen adımları izleyin [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır. |
 |**accessRights**|**Erişim**|Bağlantı dizesi için erişim hakları. Kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, hangi gösterir `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izni, `accessRights` "dinlemek için". Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin. Azure işlevleri sürümünde 2.x, bu özellik kullanılamıyor depolama SDK'ın en son sürümünü desteklemediğinden işlemleri yönetme.|
@@ -416,7 +422,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs).
 
 Özniteliğin Oluşturucusu kuyruk veya konu ve abonelik adını alır. Bağlantının erişim hakları de belirtebilirsiniz. Erişim hakları ayarlama seçme açıklandığı [çıktı - yapılandırma](#output---configuration) bölümü. Aşağıda, işlevin dönüş değeri için uygulanan öznitelik gösteren bir örnek verilmiştir:
 
@@ -454,7 +460,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**Yönü** | yok | Out"için" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | Sıra veya işlev kodu konudaki temsil eden değişken adı. İşlev dönüş değeri başvurmak için "$return" ayarlayın. | 
 |**queueName**|**QueueName**|Kuyruk adı.  Yalnızca bir konu için sıraya ileti göndermek istiyorsanız ayarlayın.
-|**topicName**|**TopicName**|İzlemek için konu adı. Yalnızca bir kuyruk için konu ileti göndermek istiyorsanız ayarlayın.|
+|**TopicName**|**TopicName**|İzlemek için konu adı. Yalnızca bir kuyruk için konu ileti göndermek istiyorsanız ayarlayın.|
 |**varlığıyla subscriptionName**|**varlığıyla subscriptionName**|İzlemek için Abonelik adı. Yalnızca bir kuyruk için konu ileti göndermek istiyorsanız ayarlayın.|
 |**Bağlantı**|**Bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyServiceBus." adlı "MyServiceBus" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan hizmet veri yolu bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarını kullanır.<br><br>Bir bağlantı dizesi edinmek için gösterilen adımları izleyin [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır.|
 |**accessRights**|**Erişim**|Bağlantı dizesi için erişim hakları. Kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, hangi gösterir `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izni, `accessRights` "dinlemek için". Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin. Azure işlevleri sürümünde 2.x, bu özellik kullanılamıyor depolama SDK'ın en son sürümünü desteklemediğinden işlemleri yönetme.|

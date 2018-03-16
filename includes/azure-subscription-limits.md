@@ -8,7 +8,7 @@
 | Abonelik başına SQL veritabanı sunucuları |6 |150 |
 | Abonelik başına DNS sunucuları |9 |100 |
 | Abonelik başına ayrılmış IP |20 |100 |
-| Abonelik başına barındırılan hizmet sertifikaları |400 |400 |
+| Abonelik başına barındırılan hizmet sertifikaları |199 |199 |
 | Abonelik başına [benzeşim grubu](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) sayısı |256 |256 |
 
 

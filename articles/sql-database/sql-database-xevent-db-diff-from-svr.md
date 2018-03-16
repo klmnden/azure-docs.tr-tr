@@ -2,25 +2,19 @@
 title: "SQL veritabanı olaylar genişletilmiş | Microsoft Docs"
 description: "Azure SQL veritabanında genişletilmiş olaylar (Xevent'ler) ve nasıl olay oturumları biraz Microsoft SQL Server'ın olay oturumlarından farklılıklar açıklanmıştır."
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: f4e41d340b38a5f29387d75b8f65b68c5fb31eb9
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: dc4660b33d8df28fd59929838e054f6703c48107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="extended-events-in-sql-database"></a>SQL veritabanında genişletilmiş olaylar
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -38,7 +32,7 @@ Azure SQL Database ve Microsoft SQL Server için genişletilmiş olaylar hakkın
 - [Hızlı Başlangıç: SQL Server Genişletilmiş olaylar](http://msdn.microsoft.com/library/mt733217.aspx)
 - [Genişletilmiş olaylar](http://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu konu, zaten bazı bilgisine sahip varsayar:
 
@@ -109,7 +103,7 @@ Azure SQL veritabanı sahip [dinamik yönetim görünümlerini (Dmv'leri)](http:
 
 Microsoft SQL Server'da benzer Katalog görünümleri olmadan adlı  *\_veritabanı* adı kısmını gibi:
 
-- **sys.dm_xe_sessions**, adı yerine<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions**, instead of name<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>Dmv'leri ortak
 Genişletilmiş olaylar için Azure SQL Database ve Microsoft SQL Server için ortak olan ek Dmv'leri vardır:
@@ -158,7 +152,7 @@ SQL veritabanı üzerinde olay oturumları sonuçlarından yakalayabilirsiniz he
 
 [Olay izleme için Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) API SQL veritabanı üzerinde Genişletilmiş olaylar için kullanılabilir değil.
 
-## <a name="restrictions"></a>Kısıtlamaları
+## <a name="restrictions"></a>Kısıtlamalar
 
 Birkaç SQL veritabanının bulut ortamı befitting güvenlikle ilgili farklar vardır:
 
@@ -199,12 +193,12 @@ En fazla bellek zorlanmış bildiren bir hata iletisi alırsanız, bazı düzelt
 - [Azure Storage ile Azure PowerShell'i kullanarak](../storage/common/storage-powershell-guide-full.md) -PowerShell ve Azure depolama hizmeti hakkında kapsamlı bilgi sağlar.
 - [BLOB depolama alanından .NET kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [Olay OTURUMU (Transact-SQL) oluşturma](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Microsoft SQL Server'da genişletilmiş olaylar hakkında Jonathan Kehayias blog yazılarını](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
 - Azure *hizmet güncelleştirmeleri* Web sayfası, Azure SQL veritabanı parametresi tarafından daraltıldığı:
-    - [https://Azure.microsoft.com/Updates/?Service=SQL-Database](https://azure.microsoft.com/updates/?service=sql-database)
+    - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 
 Aşağıdaki bağlantılarda diğer kod örnek konuları genişletilmiş olaylar için kullanılabilir. Ancak, örnek Microsoft SQL Server Azure SQL veritabanına karşı hedefler olup olmadığını görmek için herhangi bir örnek düzenli olarak denetlemeniz gerekir. Ardından, küçük değişiklikler örneği çalıştırmak için gerekli olup olmadığını karar verebilirsiniz.

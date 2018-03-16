@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b2b5427f037203e86f6b73610084993892ed4a37
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2050741b46699043836cae1e6465e18dbae87d25
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel'i Microsoft Hive ODBC sürücüsü ile Azure Hdınsight hadoop bağlama
 
@@ -31,10 +31,7 @@ Microsoft'un büyük veri çözüm Microsoft Business Intelligence (BI) bileşen
 
 Hdınsight kümesi ve Excel için Microsoft Power Query eklentisini kullanarak Excel'den diğer (Hdınsight olmayan) Hadoop kümeleri dahil olmak üzere diğer veri kaynakları ile ilişkili verileri bağlanmak mümkündür. Yükleme ve Power Query kullanma hakkında daha fazla bilgi için bkz: [Hdınsight Power Query ile bağlanma Excel'e][hdinsight-power-query].
 
-> [!NOTE]
-> Bu makaledeki adımlar Linux veya Windows tabanlı Hdınsight küme kullanılabilse de, Windows istemci iş istasyonu için gereklidir.
-> 
-> 
+
 
 **Önkoşullar**:
 

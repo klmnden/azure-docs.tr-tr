@@ -6,13 +6,13 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 6b56cbb4220ce1c8767724938dd531b8ae5c3920
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Bekleyen Veri için Azure Storage Hizmeti Şifreleme
 
@@ -62,17 +62,13 @@ Y: depolama hizmeti şifrelemesi, herhangi bir depolama hesabı oluşturma sıra
 
 Y: yoktur ek ücret ödemeden.
 
-**S: şifreleme anahtarları yöneten?**
-
-Y: Microsoft anahtarları yönetir.
-
 **S: kendi şifreleme anahtarları kullanmak?**
 
-Şu anda A:.
+A: Evet kendi şifreleme anahtarlarınızı kullanabilirsiniz. Daha fazla bilgi için bkz: [depolama hizmeti şifrelemesi müşteri tarafından yönetilen anahtarları Azure anahtar kasası kullanarak](storage-service-encryption-customer-managed-keys.md).
 
 **S: şifreleme anahtarlarının erişimi iptal?**
 
-Şu anda A:. Microsoft, tam olarak anahtarları yönetir.
+Y: Evet ise, [kendi şifreleme anahtarlarınızı kullanın](storage-service-encryption-customer-managed-keys.md) Azure anahtar Kasası'nda.
 
 **S: bir depolama hesabı oluşturduğunuzda, depolama hizmeti şifrelemesi varsayılan olarak etkin mi?**
 

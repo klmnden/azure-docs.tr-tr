@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 7802ac701dfb865186beac3889ea2a5b4d0c4770
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 9b32b298f141e9ee54b4c42d3ee9c15174daf8b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Azure için Debian VHD hazırlama
 ## <a name="prerequisites"></a>Önkoşullar
@@ -30,7 +30,7 @@ Bu bölümde, zaten Debian Linux işletim sistemi yüklenen bir .iso dosyasında
 * Azure'da yeni VHDX biçimi desteklenmiyor. Disk Hyper-V Yöneticisi'ni kullanarak VHD biçimine Dönüştür veya **convert-vhd** cmdlet'i.
 * Linux sistemini yüklerken LVM (genellikle birçok yüklemeleri için varsayılan) yerine standart bölümlerini kullanmanız önerilir. Özellikle bir işletim sistemi diski şimdiye kadar başka bir VM için sorun giderme için eklenmesi gerekiyorsa, bu kopyalanan VMs LVM ad çakışmalarını önler. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri disklerde tercih edilen varsa kullanılabilir.
 * Bir takas bölüm işletim sistemi disk üzerinde yapılandırmayın. Azure Linux Aracısı geçici kaynak disk üzerinde bir takas dosyası oluşturmak için yapılandırılabilir. Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
-* Tüm VHD'leri boyutları 1 MB'ün katları olmalıdır.
+* Tüm VHD'leri Azure üzerinde bir sanal boyutu 1 MB ile hizalı olması gerekir. Ham diskten VHD'ye dönüştürülürken ham disk boyutu 1 MB dönüştürmeden önce birden fazla olduğundan emin olmanız gerekir. Bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.
 
 ## <a name="use-azure-manage-to-create-debian-vhds"></a>Debian VHD oluşturmak için Azure yönetmek kullanın
 Araçlar Azure, Debian VHD'ler gibi oluşturmak için kullanılabilir [azure-yönetmek](https://github.com/credativ/azure-manage) betikten [credativ](http://www.credativ.com/). Bu, sıfırdan bir görüntü oluşturma karşı önerilen yaklaşımdır. Örneğin, oluşturmak için bir Debian 8 yüklemek için aşağıdaki komutları çalıştırın azure-yönetebilirsiniz (ve bağımlılıklarını) ve azure_build_image komut dosyasını çalıştırın:

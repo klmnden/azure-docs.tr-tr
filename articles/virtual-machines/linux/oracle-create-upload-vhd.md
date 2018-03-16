@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: a592dfbc6f19afe255cee1a8dfb48e3c96d7baf8
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 52771c8cf401bb60339182644cd8755637650140
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure için Oracle Linux sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -35,7 +35,7 @@ Bu makalede, bir sanal sabit disk için bir Oracle Linux işletim sistemi zaten 
 * Linux sistemini yüklerken LVM (genellikle birçok yüklemeleri için varsayılan) yerine standart bölümlerini kullanmanız önerilir. Özellikle bir işletim sistemi diski şimdiye kadar başka bir VM için sorun giderme için eklenmesi gerekiyorsa, bu kopyalanan VMs LVM ad çakışmalarını önler. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri disklerde tercih edilen varsa kullanılabilir.
 * NUMA Linux çekirdek sürümleri 2.6.37 aşağıda bir hata nedeniyle daha büyük VM boyutları için desteklenmiyor. Bu sorun öncelikle Yukarı Akış kullanarak dağıtımları etkiler Red Hat 2.6.32 çekirdek. Azure Linux Aracısı'nı (waagent) el ile yükleme otomatik olarak NUMA Linux çekirdek kaz yapılandırmasında devre dışı bırakır. Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
 * Bir takas bölüm işletim sistemi disk üzerinde yapılandırmayın. Linux Aracısı geçici kaynak disk üzerinde bir takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
-* Tüm VHD'leri boyutları 1 MB'ün katları olmalıdır.
+* Tüm VHD'leri Azure üzerinde bir sanal boyutu 1 MB ile hizalı olması gerekir. Ham diskten VHD'ye dönüştürülürken ham disk boyutu 1 MB dönüştürmeden önce birden fazla olduğundan emin olmanız gerekir. Bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.
 * Olduğundan emin olun `Addons` depo etkindir. Dosyayı düzenlemek `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) veya `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux), satır değiştirip `enabled=0` için `enabled=1` altında **[ol6_addons]** veya **[ol7_addons]** bu dosyadaki.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4+

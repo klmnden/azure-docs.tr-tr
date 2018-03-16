@@ -3,22 +3,18 @@ title: "Ölçeklendirilen bulut veritabanları arasında raporlama | Microsoft D
 description: "Yatay bölümleri esnek sorgulamalarını ayarlama"
 services: sql-database
 documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: f86eccb8-6323-4ba7-8559-8a7c039049f3
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 41accea2e94fc763d0dcbba709829ec07453da78
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ec47a10fcfcb3ef52810ba2b3da9599b65db375a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Raporlama ölçeklendirilmiş bulut veritabanları arasında (Önizleme)
 ![Parça sorgulama][1]
@@ -29,7 +25,7 @@ Hızlı Başlangıç için bkz: [ölçeklendirilmiş bulut veritabanları arası
 
 Parçalı dışı veritabanları için bkz: [sorgu farklı şemalarda bulut veritabanları arasında](sql-database-elastic-query-vertical-partitioning.md). 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Esnek veritabanı istemci kitaplığı kullanılarak bir parça Haritası oluşturun. bkz: [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md). Veya örnek uygulama kullanma [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
 * Alternatif olarak, bkz: [ölçeklendirilmiş veritabanları için var olan veritabanlarını geçirme](sql-database-elastic-convert-to-use-elastic-tools.md).
 * Kullanıcı ALTER ANY dış veri KAYNAĞINA iznine sahip olması gerekir. Bu izin ALTER DATABASE izniyle dahil edilir.

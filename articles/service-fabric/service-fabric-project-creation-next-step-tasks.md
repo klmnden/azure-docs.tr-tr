@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: 17eb1e7c2184fe9cae19685a47ea80716292b754
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1e5b8523422aae00655b003bf15103d5467b4177
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric uygulaması ve sonraki adımlar
 Azure Service Fabric uygulamanızı oluşturuldu. Bu makalede denemek için bazı öğreticileri, oluşma şekli projeniz, ilginizi çekebilir bazı ek bilgiler ve olası sonraki adımlar açıklanmaktadır.
@@ -32,7 +32,7 @@ Veya, aşağıdaki kılavuzlarına birini deneyin ve ilk oluştur...
 - [C# Reliable Services Windows hizmeti](service-fabric-reliable-services-quick-start.md) 
 - [C# Reliable Actors hizmeti Windows](service-fabric-reliable-actors-get-started.md) 
 - [Windows Konuk yürütülebilir hizmeti](quickstart-guest-app.md) 
-- [Windows kapsayıcı uygulama](service-fabric-get-started-containers.md) 
+- [Windows kapsayıcı uygulaması](service-fabric-get-started-containers.md) 
 
 Ayrıca çalışırken ilginizi çekebilir bizim [örnek uygulamaları](http://aka.ms/servicefabricsamples).
 
@@ -55,7 +55,7 @@ Uygulama projesi oluşur:
 
 
 ## <a name="learn-more-about-the-programming-models"></a>Programlama modelleri hakkında daha fazla bilgi edinin
-Service Fabric yazma ve hizmetlerinizi yönetmek için birden çok yol sunar.  İşte genel bakış ve kavramsal bilgileri [durum bilgisiz ve durum bilgisi olan güvenilir hizmetler](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [kapsayıcıları](service-fabric-containers-overview.md), [Konuk yürütülebilir dosyalar ](service-fabric-deploy-existing-app.md), ve [durum bilgisiz ve durum bilgisi olan ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
+Service Fabric yazma ve hizmetlerinizi yönetmek için birden çok yol sunar.  İşte genel bakış ve kavramsal bilgileri [durum bilgisiz ve durum bilgisi olan güvenilir hizmetler](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [kapsayıcıları](service-fabric-containers-overview.md), [Konuk yürütülebilir dosyalar ](service-fabric-guest-executables-introduction.md), ve [durum bilgisiz ve durum bilgisi olan ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="learn-about-service-communication"></a>Hizmet iletişimi hakkında bilgi edinin
 Service Fabric uygulaması burada her hizmet özelleştirilmiş bir görev gerçekleştiren farklı hizmetlerinden oluşur. Bu hizmetlerin birbirleriyle iletişim kurabilir ve bağlanmak ve Hizmetleri ile iletişim kuran istemci uygulamaları küme dışında olabilir. Bilgi nasıl [ile ve hizmetlerinizi arasındaki iletişimi ayarlama](service-fabric-connect-and-communicate-with-services.md) Service Fabric içinde. 

@@ -3,24 +3,18 @@ title: "Azure SQL veritabanı kullanan bir çok kiracılı uygulamalarda yeni ki
 description: "Sağlamak ve bir Azure SQL veritabanı çok kiracılı SaaS uygulamasında yeni kiracılar katalog hakkında bilgi edinin"
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 79b3743054f73914c6755a3c9b102b613b1944f2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 21f0bca3a16164ead4e0990842a968fd9b95c33f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Yeni kiracılar sağlamak ve kataloğa kaydetme hakkında bilgi edinin
 
@@ -99,8 +93,8 @@ Betiğin yürütmeyi kullanarak **hata ayıklama** menü seçeneklerini - **F10*
 
 Değil açıkça izlemeniz gereken adımlar, ancak, aracılığıyla komut dosyası hata ayıklama sırasında adım iş akışı bir açıklaması verilmiştir:
 
-1. Azure’da oturum açma ve birlikte çalıştığınız Azure aboneliğini seçme işlevlerini içeren **SubscriptionManagement.psm1 modülünü içeri aktarın**.
 1. [Shard Management](sql-database-elastic-scale-shard-map-management.md) işlevlerinde katalog ve kiracı düzeyinde özet sağlayan **CatalogAndDatabaseManagement.psm1 modülünü içeri aktarın**. Bu modül katalog düzeni çoğunu yalıtır ve incelenmesi yararlı olur.
+1. Azure’da oturum açma ve birlikte çalıştığınız Azure aboneliğini seçme işlevlerini içeren **SubscriptionManagement.psm1 modülünü içeri aktarın**.
 1. **Yapılandırma ayrıntılarını alın**. Get-yapılandırmasını (F11) adımla ve uygulama yapılandırma nasıl belirtilen bakın. Kaynak adları ve diğer uygulamaya özgü değerleri burada tanımlanan ancak kodlarla bilginiz kadar bu değerleri değiştirmeyin.
 1. **Katalog nesnesini alın**. Oluşturur ve üst düzey komut dosyasında kullanılan bir katalog nesnesi döndüren Get-katalog adımla.  Bu işlev üzerinden içe aktarılan parça yönetim işlevlerini kullanan **AzureShardManagement.psm1**. Katalog nesnesi aşağıdaki öğelerden oluşur:
    * $catalogServerFullyQualifiedName standart stem artı kullanıcı adınızı kullanarak yapılandırılmıştır: _katalog -\<kullanıcı\>. database.windows .net_.

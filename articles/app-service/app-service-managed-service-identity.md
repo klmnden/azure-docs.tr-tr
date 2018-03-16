@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 736a82d282e5769fb403c66ffd5d44107c6d3218
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği (genel Önizleme) uygulama hizmeti ve Azure işlevleri kullanma
 
 > [!NOTE] 
 > Uygulama hizmeti ve Azure işlevleri için Yönetilen hizmet kimliği şu anda önizlemede değil.
 
-Bu konuda, uygulama hizmeti ve Azure işlevleri uygulamaları için bir yönetilen uygulama kimliği oluşturma ve diğer kaynaklarına erişmek için kullandıkları gösterir. Yönetilen hizmet kimliği Azure Active Directory'den kolayca Azure anahtar kasası gibi diğer AAD korumalı kaynaklara erişmek uygulamanızı sağlar. Kimlik ve Azure platformu tarafından yönetilir ve sağlamak veya tüm gizli döndürmek gerektirmez. Yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz: [yönetilen hizmet Kimliği'ne genel bakış](../active-directory/msi-overview.md).
+Bu konuda, uygulama hizmeti ve Azure işlevleri uygulamaları için bir yönetilen uygulama kimliği oluşturma ve diğer kaynaklarına erişmek için kullandıkları gösterir. Yönetilen hizmet kimliği Azure Active Directory'den kolayca Azure anahtar kasası gibi diğer AAD korumalı kaynaklara erişmek uygulamanızı sağlar. Kimlik ve Azure platformu tarafından yönetilir ve sağlamak veya tüm gizli döndürmek gerektirmez. Yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz: [yönetilen hizmet Kimliği'ne genel bakış](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Bir kimliği ile bir uygulama oluşturma
 
@@ -126,7 +126,7 @@ Burada `<TENANTID>` ve `<PRINCIPALID>` GUID'lerini aşağıdaki ile değiştiril
 Bir uygulama kimliğini Azure anahtar kasası gibi AAD tarafından korunan diğer kaynaklara belirteçleri almak için kullanabilirsiniz. Bu belirteçler, kaynak ve hiçbir belirli bir kullanıcı uygulamanın erişim uygulama temsil eder. 
 
 > [!IMPORTANT]
-> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç istemek, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğiniz emin olmanız gerekir. Belirteç içeriyorsa bile Aksi halde, anahtar kasası aramalarınız, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](../active-directory/pp/msi-overview.md#which-azure-services-support-managed-service-identity).
+> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç istemek, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğiniz emin olmanız gerekir. Belirteç içeriyorsa bile Aksi halde, anahtar kasası aramalarınız, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
 
 Uygulama hizmeti ve Azure işlevleri bir belirteç almak için basit bir REST protokol yoktur. .NET uygulamaları için Microsoft.Azure.Services.AppAuthentication kitaplığı bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimi destekler.
 

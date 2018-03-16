@@ -13,29 +13,30 @@ ms.devlang: azurecli
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: df56f2e3e13f80e7ce2c2b6c9cffeac3d03776e5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Azure CLI kullanarak sanal ağ eşlemesi ile sanal ağlara bağlanabilir
 
-Sanal ağlar birbirlerine sanal ağ eşlemesi ile bağlayabilirsiniz. Sanal ağlar eşlendikten sonra iki sanal ağlarda bulunan kaynaklar kaynaklar aynı sanal ağda değilmiş gibi aynı gecikme süresi ve bant genişliği ile birbirleri ile iletişim kuramıyor. Bu makalede, oluşturma ve iki sanal ağlar arasındaki eşleme kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Sanal ağlar birbirlerine sanal ağ eşlemesi ile bağlayabilirsiniz. Sanal ağlar eşlendikten sonra iki sanal ağlarda bulunan kaynaklar kaynaklar aynı sanal ağda değilmiş gibi aynı gecikme süresi ve bant genişliği ile birbirleri ile iletişim kuramıyor. Bu makalede, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
 > * İki sanal ağ oluşturma
-> * Sanal ağlar arasında eşleme oluşturma
-> * Test eşleme
+> * Sanal Ağ eşlemesi iki sanal ağlara bağlanabilir
+> * Her sanal ağ içinde bir sanal makine (VM) dağıtma
+> * VM'ler arasında iletişim
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+Azure CLI Sürüm 2.0.28 çalıştırıyorsanız bu hızlı başlangıç yükleyip CLI yerel olarak kullanmak seçerseniz, gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Sanal ağlar oluşturma
 
@@ -56,7 +57,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Adlı bir sanal ağ oluşturma *myVirtualNetwork2* adres ön ekine sahip *10.1.0.0/16*. Adres ön eki adres ön eki ile çakışmaması *myVirtualNetwork1* sanal ağ. Adres öneklerini örtüşen sanal ağlar eş olamaz.
+Adlı bir sanal ağ oluşturma *myVirtualNetwork2* adres ön ekine sahip *10.1.0.0/16*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -120,17 +121,13 @@ az network vnet peering show \
 
 Kadar diğer sanal ağ kaynaklarında bir sanal ağ olamaz iletişim kaynaklarla **peeringState** hem de sanal ağlarda eşlemeleri için *bağlı*. 
 
-Eşlemeler iki sanal ağ arasında ancak geçişli değil. Böylece, örneğin, ayrıca eş istemeniz durumunda *myVirtualNetwork2* için *myVirtualNetwork3*, ek sanal ağlar arasında eşlemeyi oluşturmanıza gerek *myVirtualNetwork2* ve *myVirtualNetwork3*. Olsa bile *myVirtualNetwork1* ile eşlenen *myVirtualNetwork2*, kaynakları içinde *myVirtualNetwork1* yalnızca kaynaklara erişim  *myVirtualNetwork3* varsa *myVirtualNetwork1* de ile eşlenen *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-Eşleme önce üretim sanal ağlar, baştan sona ile öğrenmeniz olduğunu önerilir [eşleme genel bakış](virtual-network-peering-overview.md), [eşliği yönetme](virtual-network-manage-peering.md), ve [sanal ağ sınırları ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Bu makalede bir iki sanal ağ aynı abonelik ve konum arasında eşleme gösterir ancak sanal ağlarda ayrıca eş [farklı bölgelerde](#register) ve [farklı Azure abonelikleri](create-peering-different-subscriptions.md#cli). Ayrıca oluşturabilirsiniz [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) eşliği ile.
+Sonraki adımda aralarında iletişim kurabilmesi için bir VM her sanal ağ oluşturun.
 
-## <a name="test-peering"></a>Test eşleme
+### <a name="create-the-first-vm"></a>İlk VM oluşturma
 
-Bir eşleme aracılığıyla farklı sanal ağlardaki sanal makineler arasındaki ağ iletişimi sınamak için her alt ağda bir sanal makine dağıtın ve sanal makineler iletişim. 
-
-### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
-
-Bir sanal makine oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnek, bir sanal makine adlı oluşturur *myVm1* içinde *myVirtualNetwork1* sanal ağ. SSH anahtarları varsayılan anahtar konumunda zaten mevcut değilse komutu bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. `--no-wait` Seçeneği bir sonraki adıma devam etmek için bu sanal makine arka planda oluşturur.
+[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVm1* içinde *myVirtualNetwork1* sanal ağ. SSH anahtarları varsayılan anahtar konumunda zaten mevcut değilse komutu bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. `--no-wait` Seçeneği bir sonraki adıma devam etmek için bu VM arka planda oluşturur.
 
 ```azurecli-interactive
 az vm create \
@@ -143,9 +140,9 @@ az vm create \
   --no-wait
 ```
 
-Azure otomatik olarak atar 10.0.0.4 sanal makinenin özel IP adresi 10.0.0.4 ilk kullanılabilir IP adresi olduğundan *Subnet1* , *myVirtualNetwork1*. 
+### <a name="create-the-second-vm"></a>İkinci VM oluşturma
 
-Bir sanal makine oluşturmak *myVirtualNetwork2* sanal ağ.
+Bir VM oluşturma *myVirtualNetwork2* sanal ağ.
 
 ```azurecli-interactive 
 az vm create \
@@ -157,7 +154,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Sanal makine oluşturmak için birkaç dakika sürer. Sanal makine oluşturulduktan sonra Azure CLI bilgileri aşağıdaki örneğe benzer şekilde gösterir: 
+VM oluşturmak için birkaç dakika sürer. VM oluşturulduktan sonra Azure CLI bilgileri aşağıdaki örneğe benzer şekilde gösterir: 
 
 ```azurecli 
 {
@@ -172,25 +169,25 @@ Sanal makine oluşturmak için birkaç dakika sürer. Sanal makine oluşturulduk
 }
 ```
 
-Örnek çıktıda, gördüğünüz **privateIpAddress** olan *10.1.0.4*. Azure DHCP otomatik olarak atanmış 10.1.0.4 sanal makineye, listedeki ilk kullanılabilir adres olduğundan *Subnet1* , *myVirtualNetwork2*. Not edin **Publicıpaddress**. Bu adres sanal makine bir sonraki adımda Internet'ten erişmek için kullanılır.
+Not edin **Publicıpaddress**. Bu adres, sonraki adımda Internet'ten VM erişmek için kullanılır.
 
-### <a name="test-virtual-machine-communication"></a>Test sanal makinesi iletişimi
+## <a name="communicate-between-vms"></a>VM'ler arasında iletişim
 
-İle bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın *myVm2* sanal makine. Değiştir `<publicIpAddress>` sanal makinenizin ortak IP adresine sahip. Önceki örnekte, ortak IP adresidir *13.90.242.231*.
+İle bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın *myVm2* VM. Değiştir `<publicIpAddress>` VM genel IP adresi ile. Önceki örnekte, ortak IP adresidir *13.90.242.231*.
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-Sanal makinede ping *myVirtualNetwork1*.
+VM'yi ping *myVirtualNetwork1*.
 
 ```bash 
 ping 10.0.0.4 -c 4
 ```
 
-Dört yanıt alırsınız. Sanal makinenin adına göre ping (*myVm1*), IP adresini yerine ping, çünkü başarısız *myVm1* bir bilinmeyen ana bilgisayar adıdır. Azure'nın varsayılan ad çözümlemesi, aynı sanal ağdaki sanal makineler arasında ancak farklı sanal ağlardaki sanal makineler arasında değil çalışır. Sanal ağlar arasında adları çözümlemek için şunları yapmanız gerekir [kendi DNS sunucusu dağıtma](virtual-networks-name-resolution-for-vms-and-role-instances.md) veya [Azure DNS özel etki alanları](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Dört yanıt alırsınız. 
 
-SSH oturumu kapatmanız *myVm2* sanal makine. 
+SSH oturumu kapatmanız *myVm2* VM. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -221,9 +218,9 @@ Aynı bölgedeki sanal ağları eşleme özelliği genel kullanıma açıktır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, sanal ağ eşlemesi ile iki ağlara bağlanmak nasıl öğrendiniz. Yapabilecekleriniz [kendi bilgisayarınızda bir sanal ağa bağlanmak](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir VPN üzerinden ve sanal ağ veya eşlenmiş sanal ağlar kaynakları ile etkileşim.
+Bu makalede, sanal ağ eşlemesi ile iki ağlara bağlanmak nasıl öğrendiniz. Bu makalede, sanal ağ eşlemesi ile aynı Azure konumunda iki ağlara bağlanmak nasıl öğrendiniz. Ayrıca sanal ağlarda eş [farklı bölgelerde](#register), [farklı Azure abonelikleri](create-peering-different-subscriptions.md#portal) ve oluşturabileceğiniz [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) eşliği ile. Eşleme önce üretim sanal ağlar, baştan sona ile öğrenmeniz olduğunu önerilir [eşleme genel bakış](virtual-network-peering-overview.md), [eşliği yönetmek](virtual-network-manage-peering.md), ve [sanal ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Birçok sanal ağ makalelerinde ele görevi tamamlamak yeniden kullanılabilir komut dosyaları için kod örnekleri devam edin.
+Yapabilecekleriniz [kendi bilgisayarınızda bir sanal ağa bağlanmak](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir VPN üzerinden ve sanal ağ veya eşlenmiş sanal ağlar kaynakları ile etkileşim. Birçok sanal ağ makalelerinde ele görevi tamamlamak yeniden kullanılabilir komut dosyaları için kod örnekleri devam edin.
 
 > [!div class="nextstepaction"]
 > [Sanal ağ kod örnekleri](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

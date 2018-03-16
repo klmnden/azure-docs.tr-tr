@@ -12,22 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Araç Telemetri analizi çözüm şablonu Power BI Panosu kurulum yönergeleri
 Bu playbook bölümlerde bu menü bağlantılar: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-Araç Telemetri analiz çözümü araba dealerships, otomobil üreticileri ve sigorta şirketler Cortana Intelligence özelliklerini nasıl kullanacağınızı gösterir. Bunlar, araç sistem durumu ve müşteri deneyimi, araştırma ve geliştirme geliştirmek için alışkanlıklarınıza yürüten ve pazarlama kampanyaları gerçek zamanlı ve Tahmine dayalı Öngörüler elde edebilirsiniz. Bu adım adım yönergeler aboneliğinizde çözümü dağıttıktan sonra nasıl Power BI raporları ve panoyu yapılandırabilirsiniz gösterir. 
+Araba dealerships, otomobil üreticileri ve sigorta şirketler nasıl araç Telemetri analiz çözümü showcases Cortana Intelligence özelliklerini kullanın. Bunlar, araç sistem durumu ve müşteri deneyimi, araştırma ve geliştirme geliştirmek için alışkanlıklarınıza yürüten ve pazarlama kampanyaları gerçek zamanlı ve Tahmine dayalı Öngörüler elde edebilirsiniz. Bu adım adım yönergeler nasıl aboneliğinizde çözümü dağıttıktan sonra Power BI raporları ve panoyu yapılandırılacağını gösterir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Dağıtma [araç Telemetri analizi](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) çözümü. 
 * [Power BI Desktop yüklemek](http://www.microsoft.com/download/details.aspx?id=45331).
 * Elde bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/). Bir Azure aboneliğiniz yoksa, Azure ücretsiz aboneliği ile çalışmaya başlayın.
@@ -42,7 +42,7 @@ Araç Telemetri analizi çözüm şablonu bir parçası olarak, aşağıdaki Cor
 * **Azure Hdınsight** ölçeğinde veri dönüştürür.
 * **Azure Data Factory** işler orchestration, planlama, kaynak yönetimi ve toplu işleme ardışık düzeni izleme.
 
-**Power BI** gerçek zamanlı veri ve Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano bu çözümü sunar. 
+**Power BI** veri ve Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano bu çözümü sunar. 
 
 Çözüm iki farklı veri kaynakları kullanır:
 
@@ -101,7 +101,7 @@ Gerçek zamanlı raporları ve panoyu tamamlanması yaklaşık 30-45 dakika sür
 * Bakım gerektiren araçları
 * Araç sağlık istatistikleri
 
-Her aşama sonra durdurabilir veya gerçek zamanlı raporları üçü yapılandırabilirsiniz. Toplu raporlarının nasıl yapılandırılacağını sonraki bölümüne geçebilirsiniz. Gerçek zamanlı yolun çözümün tam Öngörüler görselleştirmek için tüm üç raporları oluşturmanızı öneririz.  
+Her aşama sonra durdurabilir veya üçünü raporları yapılandırabilirsiniz. Toplu raporlarının nasıl yapılandırılacağını sonraki bölümüne geçebilirsiniz. Gerçek zamanlı yolun çözümün tam Öngörüler görselleştirmek için tüm üç raporları oluşturmanızı öneririz.  
 
 ### <a name="vehicles-in-operation-report"></a>İşlemi rapordaki araçları
 1. Çift **sayfa 1**ve yeniden adlandırmak **Taşıtlardan işleminde**.
@@ -160,7 +160,7 @@ Her aşama sonra durdurabilir veya gerçek zamanlı raporları üçü yapıland�
 
     ![Görselleştirmelerle Panosu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-"İşlem Taşıtlardan" gerçek zamanlı rapor başarıyla yapılandırıldı. Gerçek zamanlı bir sonraki rapor oluşturabilir veya buraya durdurun ve Pano yapılandırın. 
+"İşlem Taşıtlardan" rapor başarıyla yapılandırıldı. Gerçek zamanlı bir sonraki rapor oluşturabilir veya buraya durdurun ve Pano yapılandırın. 
 
 ### <a name="vehicles-requiring-maintenance-report"></a>Araçlar bakım gerektiren raporu
 
@@ -198,7 +198,7 @@ Her aşama sonra durdurabilir veya gerçek zamanlı raporları üçü yapıland�
 
 6. Üzerinde **alanları** sekmesinde, sürükleyin **modeli** için **eksen** alanı. Sürükleme **toplamıdır** için **değeri** alanı. Görselleştirme tarafından sıralama **toplamıdır sayısı**. Grafiği değiştirmek **başlık** için **modeli tarafından bakım gerektiren Taşıtlardan**. 
 
-7. Üzerinde **alanları** ![alanları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) bölümünü **görselleştirmeleri** sekmesinde, sürükleyin **toplamıdır** için **doygunluğu**.
+7. Üzerinde **alanları** ![alanları görüntü](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) bölümünü **görselleştirmeleri** sekmesinde, sürükleyin **toplamıdır** için **doygunluğu**.
 
     ![Renk doygunluğunu](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -298,13 +298,13 @@ Her aşama sonra durdurabilir veya gerçek zamanlı raporları üçü yapıland�
 
     ![Toplama türü](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ff.png)
 
-22. Grafiği değiştirmek **başlık** için **ortalama altyapısı petrol, lastiği baskısı, hızlı ve Bakım olasılık modeli tarafından**.
+22. Grafiği değiştirmek **başlık** için **modeli tarafından altyapısı petrol, lastiği baskısı, hızlı ve Bakım olasılık ortalama**.
 
     ![Alan grafik başlığı](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
 
 23. Yeni bir görsel öğe eklemek için boş alanı seçin.
 
-24. Üzerinde **görselleştirmeleri** sekmesine **dağılım grafiği** görselleştirme. Sürükleme **modeli** için **ayrıntıları** ve **gösterge** alanları. Sürükleme **yakıt** için **X ekseni** alanı. Toplama değiştirme **ortalama**. Sürükleme **engineTemperature** için **Y ekseni** alanı. Toplama değiştirme **ortalama**. Sürükleme **toplamıdır** için **boyutu** alanı.
+24. Üzerinde **görselleştirmeleri** sekmesine **dağılım grafiği** görselleştirme. Sürükleme **modeli** için **ayrıntıları** ve **gösterge** alanları. Sürükleme **yakıt** için **x ekseni** alanı. Toplama değiştirme **ortalama**. Sürükleme **engineTemperature** için **y ekseni** alanı. Toplama değiştirme **ortalama**. Sürükleme **toplamıdır** için **boyutu** alanı.
 
     ![Ayrıntılar, gösterge, eksen ve boyutu alanları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
@@ -333,7 +333,7 @@ Gerçek zamanlı Pano oluşturuldu. CarEventGenerator.exe ve RealtimeDashboardAp
 
 ## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>Power BI toplu işleme Pano ayarlayın
 > [!NOTE]
-> Uçtan uca toplu iş yürütme ve üretilen veri bir yılın tutarında işlem ardışık düzen işleme için yaklaşık iki saat (dağıtım başarılı şekilde tamamlandığını) sürer. İşleme aşağıdaki adımlarla devam etmeden önce tamamlanmasını bekleyin. 
+> Uçtan uca toplu iş yürütme ve üretilen veri bir yılın tutarında işlem ardışık düzen işleme için yaklaşık iki saat (dağıtım başarılı şekilde tamamlandığını) sürer. İşleme aşağıdaki adımlarla devam etmeden önce tamamlanmasını bekleyin.
 > 
 > 
 
@@ -359,7 +359,7 @@ Gerçek zamanlı Pano oluşturuldu. CarEventGenerator.exe ve RealtimeDashboardAp
 
 4. Sunucu bağlantı dizesi dağıtımının bir parçası sağlanan Azure SQL server ile güncelleştirin. Azure SQL veritabanı altında el ile işlem yönergelere bakın:
 
-    * Sunucu: somethingsrv.database.windows.net
+    * Server: somethingsrv.database.windows.net
     * Veritabanı: connectedcar
     * Kullanıcı adı: kullanıcı adı
     * Parola: Azure portalından, SQL Server parolanızı yönetebilirsiniz.

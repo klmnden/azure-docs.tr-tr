@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/14/2018
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2c0c3597999e80af86f079385653d94ddfcab245
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dbb5e9e8f9accd618599010ab2bbb4a8760e534f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-cosmos-db"></a>Bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI), Azure Cosmos DB erişmek için bir Linux VM üzerinde kullanın. 
 
@@ -45,7 +45,7 @@ Bu öğreticide CLI komut dosyası örnekleri çalıştırmak için iki seçene�
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+Oturum açmak için Azure portalında [ https://portal.azure.com ](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Linux sanal makine oluşturun
 
@@ -158,10 +158,10 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
 3. Ardından, girin istenir, **parola** oluştururken eklenen **Linux VM**. Ardından başarıyla oturum açmanız.  
 4. Azure Resource Manager için bir erişim belirteci almak üzere CURL kullanın.  
 
-    CURL istek ve yanıt erişim belirteci için aşağıda verilmiştir.  Değiştir <CLIENT ID> ile ClientID, kullanıcı değeri MSI atanan:
+    CURL istek ve yanıt erişim belirteci için aşağıda verilmiştir.  Değiştir <CLIENT ID> ile ClientID, kullanıcı değeri MSI atanan: 
     
     ```bash
-    curl 'http://localhost:50342/oauth2/token?resource=https://management.azure.com/&client_id=<CLIENT ID>' -H "Metadata:true"
+    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
     ```
     
     > [!NOTE]

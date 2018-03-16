@@ -1,42 +1,63 @@
 ---
-title: "JSON - Azure Logic Apps ile mantıksal uygulama tanımları oluşturmak | Microsoft Docs"
-description: "Parametre ekleme, dizeleri işlemek, parametre eşlemeleri oluşturma ve tarih işlevlerle veri al"
+title: "Oluşturmak, düzenlemek veya JSON için mantıksal uygulama tanımları - Azure Logic Apps genişletmek | Microsoft Docs"
+description: "Yazar ve mantıksal uygulama tanımları JSON içinde özelleştirme"
 author: ecfan
-manager: anneta
+manager: SyntaxC4
 editor: 
 services: logic-apps
 documentationcenter: 
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 01/31/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 01/01/2018
+ms.author: estfan; LADocs
+ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="build-on-your-logic-app-definition-with-json"></a>Mantıksal uygulama tanımınızı JSON ile derleme
+# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Oluşturmak, düzenlemek veya JSON mantıksal uygulama tanımları için özelleştirme
 
-Daha fazla gerçekleştirmek için görevlerle Gelişmiş [Azure Logic Apps](../logic-apps/logic-apps-overview.md), basit ve bildirim temelli bir JSON dil kullanıyorsa, mantıksal uygulama tanımını düzenlemek için kod görünümü kullanabilirsiniz. Henüz yapmadıysanız, ilk gözden [ilk mantıksal uygulamanızı oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md). Ayrıca bkz [tam başvuru için iş akışı tanımlama dili](http://aka.ms/logicappsdocs).
+Tümleştirme çözümleri ile Kurumsal oluşturduğunuzda, iş akışlarında otomatik [Azure Logic Apps](../logic-apps/logic-apps-overview.md), temel alınan mantıksal uygulama tanımları basit ve bildirim temelli JavaScript nesne gösterimi (JSON) ile birlikte kullanmak [ İş akışı tanım dili (WDL) şema](../logic-apps/logic-apps-workflow-definition-language.md) açıklama ve doğrulama. Bu biçimler mantıksal uygulama tanımları okuyup çok kodu hakkında bilmeden anlamak kolaylaştırır. Mantıksal uygulamalar oluşturma ve dağıtma otomatik hale getirmek istediğinizde, mantıksal uygulama tanımları dahil edebileceğiniz [Azure kaynaklarını](../azure-resource-manager/resource-group-overview.md) içinde [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-overview.md#template-deployment). Oluşturmak, yönetmek ve mantıksal uygulamaları dağıtmak için daha sonra [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), veya [Azure mantıksal uygulamaları REST API'leri](https://docs.microsoft.com/rest/api/logic/).
+
+Mantıksal uygulama tanımları JSON içinde çalışmak için Azure portalında veya Visual Studio'da çalışırken kod görünümü Düzenleyicisi'ni açın veya tanımı istediğiniz tüm düzenleyicisine kopyalayın. Logic apps yeniyseniz, gözden [ilk mantıksal uygulamanızı oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Yalnızca mantığı uygulamanızın tanımı için kod görünümünde çalışırken parametreleri gibi bazı Azure Logic Apps özellikler kullanılabilir. Parametre değerleri mantıksal uygulamanızı boyunca yeniden olanak tanır. Örneğin, çeşitli eylemler arasında aynı e-posta adresini kullanmak istiyorsanız, bu e-posta adresi parametre olarak tanımlayın.
+> Mantıksal uygulama tanımlarında parametreler ve birden çok tetikleyici tanımlama gibi bazı Azure Logic Apps özelliklerini yalnızca JSON içinde Logic Apps Tasarımcısı kullanılabilir. Bu nedenle bu görevler için kod görünümünde veya başka bir Düzenleyici'de çalışmalıdır.
 
-## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>Görüntüleyip, mantığı uygulama tanımının JSON içinde düzenleyin
+## <a name="edit-json---azure-portal"></a>Edit JSON - Azure portal
 
-1. [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın.
+1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>’da oturum açın.
 
-2. Sol menüden **daha fazla hizmet**. **Kurumsal Tümleştirme** altında **Logic Apps**’ı seçin. Mantıksal uygulamanızı seçin.
+2. Sol menüden **tüm hizmetleri**. Arama kutusuna "logic apps" bulun ve ardından sonuçlarından mantıksal uygulamanızı seçin.
 
-3. Mantıksal uygulama menüsünden altında **geliştirme araçları**, seçin **mantığı uygulama kod görünümü**.
+3. Mantığı uygulamanızın menüsünde altında **geliştirme araçları**seçin **mantığı uygulama kod görünümü**.
 
-   Kod Görünüm penceresi açar ve mantıksal uygulama tanımını gösterir.
+   Kod Görünümü Düzenleyicisi'ni açar ve JSON biçiminde, mantıksal uygulama tanımını gösterir.
+
+## <a name="edit-json---visual-studio"></a>Edit JSON - Visual Studio
+
+Mantıksal uygulama tanımınızı Visual Studio üzerinde çalışmadan önce açtığınızdan emin olun [gerekli araçları yüklü](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Visual Studio ile bir mantıksal uygulama oluşturmak için gözden [hızlı başlangıç: görevleri ve işlemleri Azure Logic Apps - Visual Studio ile otomatikleştirmek](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+Visual Studio'da oluşturulan ve doğrudan Azure portalından ya da Visual Studio Azure Resource Manager projelerden olarak dağıtılan logic apps açabilirsiniz.
+
+1. Visual Studio çözümü açın veya [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) mantıksal uygulamanızı içeren projesi.
+
+2. Bulma ve görünür, varsayılan olarak, mantıksal uygulama tanımını açın bir [Resource Manager şablonu](../azure-resource-manager/resource-group-overview.md#template-deployment), adlandırılmış **LogicApp.json**. Dağıtım farklı ortamlar için bu şablonu özelleştirme ve kullanabilirsiniz.
+
+3. Mantıksal uygulama tanımını ve şablon için kısayol menüsünü açın. Seçin **mantığı Uygulama Tasarımcısı ile Aç**.
+
+   ![Visual Studio çözümünde açık mantıksal uygulama](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+4. Tasarımcı alt kısmındaki seçin **kod görünümü**. 
+
+   Kod Görünümü Düzenleyicisi'ni açar ve JSON biçiminde, mantıksal uygulama tanımını gösterir.
+
+5. Kod Görünümü düzenleyicisinin alt tasarımcı görünüme dönmek için seçin **tasarım**.
 
 ## <a name="parameters"></a>Parametreler
 

@@ -2,23 +2,18 @@
 title: "Tehdit algılama - Azure SQL veritabanı | Microsoft Docs"
 description: "Tehdit Algılama, veritabanına ilişkin olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar."
 services: sql-database
-documentationcenter: 
 author: rmatchoro
-manager: shaik
-editor: v-romcal
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-threat-detection"></a>SQL veritabanı tehdit algılama
 
@@ -33,7 +28,7 @@ SQL tehdit algılama, müşterilerin algılamak ve anormal etkinlikler güvenlik
 SQL tehdit algılama uyarıları ile tümleşir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), ve $15/düğümü/SQL veritabanı her korumalı burada ay, adresindeki Azure Güvenlik Merkezi standart katmanına aynı fiyatla faturalandırılır her korumalı SQL veritabanı sunucusu Sunucu, bir düğüm olarak sayılır.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Tehdit algılama Azure portalında veritabanınız için ayarlama
-1. Azure portalında başlatma [https://portal.azure.com](https://portal.azure.com).
+1. Azure portalında başlatma [ https://portal.azure.com ](https://portal.azure.com).
 2. İzlemek istediğiniz SQL veritabanı yapılandırma sayfasına gidin. Ayarlar sayfasında seçin **denetim ve tehdit algılama**. 
     ![Gezinti Bölmesi][1]
 3. İçinde **denetim ve tehdit algılama** yapılandırma sayfası açmak **ON** görüntü tehdit algılama ayarlarını denetleme.

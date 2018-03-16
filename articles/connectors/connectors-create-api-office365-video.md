@@ -3,7 +3,7 @@ title: "Logic apps içinde Office 365 Video Bağlayıcısı'nı kullanın | Micr
 description: "Office 365 Video Bağlayıcısı'nı Microsoft Azure App service Logic apps içinde kullanmaya başlama"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 5c037f0bdb4e80d92f9ef51601ea331b3aba870c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 30ec8c7aa55013668d2ec0897278d435b9e864c7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Office365 Video Bağlayıcısı ile çalışmaya başlama
 Office 365 bir Office 365 hakkında bilgi video almak için videolar ve daha fazlası listesini almak için Video bağlayın. Office 365 Video ile şunları yapabilirsiniz:

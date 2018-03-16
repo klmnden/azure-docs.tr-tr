@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d05d816b43e04c2c2e88cab33b8e4c623ab9185
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e04de7cb3fad1ba651d0ce21be7f244a89753c1a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Servicenow'ı kullanarak Azure Data Factory kopyalama verileri
 
@@ -112,7 +112,7 @@ ServiceNow verileri kopyalamak için kopyalama etkinliği için kaynak türünü
 Şema ve sütun ServiceNow için sorguda belirtirken aşağıdakileri unutmayın:
 
 - **Şema:** şeması olarak belirtmek `Actual` veya `Display` adresinden parametresi olarak bakabilirsiniz ServiceNow sorgusunda `sysparm_display_value` true veya false çağrılırken olarak [ServiceNow restful API'lerini](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Sütun:** altında gerçek değer sütun adı `Actual` scehma olan `[columne name]_value`sırada altındaki görüntüleme değeri için `Display` şeması `[columne name]_display_value`. Not sütun adı sorguda kullanılan şema eşlenmesi gerekir.
+- **Sütun:** altında gerçek değer sütun adı `Actual` şeması `[columne name]_value`sırada altındaki görüntüleme değeri için `Display` şeması `[columne name]_display_value`. Not sütun adı sorguda kullanılan şema eşlenmesi gerekir.
 
 **Örnek Sorgu:** 
  `SELECT col_value FROM Actual.alm_asset` veya `SELECT col_display_value FROM Display.alm_asset`

@@ -1,5 +1,5 @@
 ---
-title: Azure Table storage C++ ile kullanma | Microsoft Docs
+title: Azure Table Storage ve Azure Cosmos DB C++ ile kullanma | Microsoft Docs
 description: "Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın."
 services: cosmos-db
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/12/2018
 ms.author: mimig
-ms.openlocfilehash: a71098583af8722f2e191e0e665ac87ebd30f355
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 69d56c79320931419ff8d71373ec578af2dec921
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="how-to-use-azure-table-storage-with-c"></a>Azure Table storage C++ ile kullanma
+# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Azure Table depolama ve Azure Cosmos DB tablo API C++ ile kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz Azure Table depolama hizmetini kullanarak yaygın senaryolar gerçekleştirmek nasıl yapacağınızı gösterir. C++ ve kullanım örnekleri yazılır [C++ için Azure Storage istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Kapsamdaki senaryolar dahil **oluşturma ve bir tablo silme** ve **tablo varlıklarla çalışmaya**.
+Bu kılavuz Azure Table depolama hizmeti veya Azure Cosmos DB tablo API kullanarak yaygın senaryolar gerçekleştirmek nasıl yapacağınızı gösterir. C++ ve kullanım örnekleri yazılır [C++ için Azure Storage istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Kapsamdaki senaryolar dahil **oluşturma ve bir tablo silme** ve **tablo varlıklarla çalışmaya**.
 
 > [!NOTE]
 > Bu kılavuz, c++ sürümü 1.0.0 ve yukarıda Azure Storage istemci kitaplığı hedefler. Aracılığıyla kullanılabilir olan depolama istemci kitaplığı 2.2.0, önerilen sürümüdür [NuGet](http://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -46,7 +46,7 @@ C++ için Azure Storage istemci kitaplığı yüklemek için aşağıdaki yönte
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-table-storage"></a>Tablo depolama alanına erişmek için uygulamanızı yapılandırın
+## <a name="configure-access-to-the-table-client-library"></a>Tablo istemci kitaplığı erişimi yapılandırma
 Azure depolama API'leri tabloları erişmek için kullanmasını istediğiniz C++ dosyanın en üstüne deyimlerini şunlar ekleyin:  
 
 ```cpp
@@ -54,13 +54,24 @@ Azure depolama API'leri tabloları erişmek için kullanmasını istediğiniz C+
 #include <was/table.h>
 ```
 
+Bir Azure Storage istemcisi veya Cosmos DB istemci uç noktaları ve Veri Yönetimi Hizmetleri erişmek için kimlik bilgilerini depolamak için bir bağlantı dizesi kullanır. Bir istemci uygulaması çalıştırırken, depolama bağlantı dizesi veya Azure Cosmos DB bağlantı dizesi uygun biçimdeki sağlamanız gerekir.
+
 ## <a name="set-up-an-azure-storage-connection-string"></a>Bir Azure depolama bağlantı dizesi ayarlama
-Bir Azure storage istemci uç noktaları ve Veri Yönetimi Hizmetleri erişmek için kimlik bilgilerini depolamak için bir depolama bağlantı dizesi kullanır. Bir istemci uygulaması çalışırken, aşağıdaki biçimde depolama bağlantı dizesi belirtmeniz gerekir. Depolama hesap adı depolama hesabınız ve depolama erişim tuşu kullanmak [Azure Portal](https://portal.azure.com) için *AccountName* ve *AccountKey* değerleri. Depolama hesapları ve erişim anahtarları hakkında daha fazla bilgi için bkz: [Azure storage hesapları hakkında](../storage/common/storage-create-storage-account.md). Bu örnek, bağlantı dizesi tutmak için statik bir alana nasıl bildirebilir gösterir:  
+ Listelenen depolama hesabı için depolama hesabınız ve erişim anahtarı adını kullanmak [Azure Portal](https://portal.azure.com) için *AccountName* ve *AccountKey* değerleri. Depolama hesapları ve erişim anahtarları hakkında daha fazla bilgi için bkz: [hakkında Azure depolama hesapları](../storage/common/storage-create-storage-account.md). Bu örnek, Azure depolama bağlantı dizesi tutmak için statik bir alana nasıl bildirebilir gösterir:  
 
 ```cpp
-// Define the connection string with your values.
+// Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
+
+## <a name="set-up-an-azure-cosmos-db-connection-string"></a>Bir Azure Cosmos DB bağlantı dizesi ayarlama
+Azure Cosmos DB hesabınızı, birincil anahtar ve uç nokta listelenen adını kullanmak [Azure Portal](https://portal.azure.com) için *hesap adı*, *birincil anahtar*, ve  *Uç nokta* değerleri. Bu örnek, nasıl Azure Cosmos DB bağlantı dizesi tutmak için statik bir alana bildirebilir gösterir:
+
+```cpp
+// Define the Azure Cosmos DB connection string with your values.
+const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_cosmos_db_account;AccountKey=your_cosmos_db_account_key;TableEndpoint=your_cosmos_db_endpoint"));
+```
+
 
 Yerel Windows tabanlı bilgisayarınızın uygulamanızı test etmek için Azure kullanabilirsiniz [depolama öykünücüsü](../storage/common/storage-use-emulator.md) ile yüklü [Azure SDK'sı](https://azure.microsoft.com/downloads/). Depolama öykünücüsü Azure Blob, kuyruk ve Tablo Hizmetleri, yerel geliştirme makinenizde kullanılabilir benzetim yapan bir yardımcı programdır. Aşağıdaki örnek, yerel depolama öykünücüsü için bağlantı dizesi tutmak için statik bir alana nasıl bildirebilir gösterir:  
 
@@ -74,7 +85,7 @@ Azure storage öykünücüsü başlatmak için tıklatın **Başlat** düğmesin
 Aşağıdaki örnekler, bu iki yöntemden birini depolama bağlantı dizesini almak için kullanılan olduğunu varsayalım.  
 
 ## <a name="retrieve-your-connection-string"></a>Bağlantı dizesi alma
-Kullanabileceğiniz **cloud_storage_account** depolama hesabı bilgileri temsil eden sınıf. Depolama bağlantı dizesi, depolama hesabı bilgilerini almak için parse yöntemi kullanabilirsiniz.
+Kullanabileceğiniz **cloud_storage_account** depolama hesabı bilgileri temsil eden sınıf. Depolama bağlantı dizesi, depolama hesabı bilgilerini almak için kullanabileceğiniz **ayrıştırma** yöntemi.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -198,6 +209,9 @@ Toplu işlem dikkat edilecek bazı noktalar:
 ## <a name="retrieve-all-entities-in-a-partition"></a>Tüm varlıkları bir bölüme alma
 Bir bölümdeki tüm varlıklar için bir tabloyu sorgulamak için kullanın bir **table_query** nesnesi. Aşağıdaki kod örneği, ‘Smith’in bölüm anahtarı olduğu varlıklar için bir filtre belirtir. Bu örnek sorgu sonuçlarındaki her varlığın alanlarını konsola yazdırır.  
 
+> [!NOTE]
+> Bu yöntemler, C++ Azure Cosmos veritabanı için şu anda desteklenmemektedir.
+
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -232,6 +246,9 @@ Bu örnekte sorgu, filtre ölçütüyle eşleşen tüm varlıkların getirir. B�
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Bir bölüme bir grup varlık alma
 Bir bölümdeki tüm varlıkları sorgulamak istemiyorsanız bölüm anahtarı filtresi ile bir satır anahtarı filtresini birleştirerek bir aralık belirleyebilirsiniz. Aşağıdaki kod örneği, 'Smith' bölümünde, satır anahtarı (ad) alfabede 'E' harfinden önce gelen bir harfle başlayan tüm varlıkları almak için iki filtre kullanır, ardından sorgu sonuçlarını yazdırır.  
+
+> [!NOTE]
+> Bu yöntemler, C++ Azure Cosmos veritabanı için şu anda desteklenmemektedir.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -436,23 +453,30 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 // Create a cloud table object for the table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
-azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
-
-// Create an operation to delete the entity.
-azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
-
-// Submit the delete operation to the Table service.
-azure::storage::table_result delete_result = table.execute(delete_operation);
+// Delete the table if it exists
+if (table.delete_table_if_exists())
+    {
+        std::cout << "Table deleted!";
+    }
+    else
+    {
+        std::cout << "Table didn't exist";
+    }
 ```
 
-## <a name="next-steps"></a>Sonraki adımlar
-Table Storage öğrendiğinize göre Azure Storage hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin:  
+## <a name="troubleshooting"></a>Sorun giderme
+* Derleme hataları Visual Studio 2017 Community Edition
 
+  Projenizi içerme dosyaları storage_account.h ve table.h nedeniyle derleme hataları alırsa, kaldırma **/ izin veren-** derleyici anahtar. 
+  - İçinde **Çözüm Gezgini**, projenize sağ tıklayın ve seçin **özellikleri**.
+  - İçinde **özellik sayfaları** iletişim kutusunda, genişletin **yapılandırma özellikleri**, genişletin **C/C++**seçip **dil**.
+  - Ayarlama **uyumluluk modu** için **Hayır**.
+   
+## <a name="next-steps"></a>Sonraki adımlar
+Azure Storage ve Azure Cosmos veritabanı tablo API hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin: 
+
+* [Tablo API giriş](table-introduction.md)
 * [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
-* [C++ içinden BLOB storage kullanma](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [C++ içinden kuyruk depolama kullanma](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [C++'ta Azure Storage kaynakları listeler](../storage/common/storage-c-plus-plus-enumeration.md)
 * [C++ başvurusu için depolama istemci kitaplığı](http://azure.github.io/azure-storage-cpp)
 * [Azure Storage belgeleri](https://azure.microsoft.com/documentation/services/storage/)

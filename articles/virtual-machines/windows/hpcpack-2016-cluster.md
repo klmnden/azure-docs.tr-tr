@@ -4,7 +4,7 @@ description: "Azure HPC Pack 2016 kümede dağıtmayı öğrenin"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 12/15/2016
+ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: 88d1f4e29f38ba1a6bef57c2da43bee205575eee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Azure'da bir HPC Pack 2016 kümeyi dağıtma
 
-Dağıtmak için bu makaledeki adımları bir [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) Azure sanal makinelerde küme. HPC Pack, Microsoft'un Microsoft Azure ve Windows Server teknolojileri kurulu ücretsiz HPC çözüm ve geniş HPC iş yüklerini destekler.
+Dağıtmak için bu makaledeki adımları bir [Microsoft HPC Pack 2016 güncelleştirme 1](https://technet.microsoft.com/library/cc514029) Azure sanal makinelerde küme. HPC Pack, Microsoft'un Microsoft Azure ve Windows Server teknolojileri kurulu ücretsiz HPC çözüm ve geniş HPC iş yüklerini destekler.
 
-Aşağıdakilerden birini kullanmak [Azure Resource Manager şablonları](https://github.com/MsHpcPack/HPCPack2016) HPC Pack 2016 küme dağıtmak için. Küme topolojisi farklı sayıda küme baş düğümler ve ya da Linux, birkaç seçeneğiniz vardır veya Windows işlem düğümleri.
+Aşağıdakilerden birini kullanmak [Azure Resource Manager şablonları](https://github.com/MsHpcPack/HPCPack2016) HPC Pack 2016 küme dağıtmak için. Farklı numaralarıyla küme topolojisinin birkaç seçeneğiniz vardır ve türleri, küme düğümleri head ve işlem düğümleri.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="pfx-certificate"></a>PFX sertifikası
 
@@ -37,7 +37,7 @@ Microsoft HPC Pack 2016 kümesi HPC düğümler arasındaki iletişimin güvenli
 * Dijital imza ve anahtar şifreleme anahtar kullanımı içerir
 * İstemci kimlik doğrulaması ve sunucu kimlik doğrulaması Gelişmiş anahtar kullanımı içerir
 
-Bu gereksinimleri karşılayan bir sertifika yoksa, bir sertifika yetkilisinden sertifika isteyebilir. Alternatif olarak, komutu çalıştırdığınız işletim sistemi temelinde otomatik olarak imzalanan sertifika oluşturmak için aşağıdaki komutları kullanın ve PFX biçimi sertifikayı özel anahtarla dışarı aktarma.
+Bu gereksinimleri karşılayan bir sertifika yoksa, bir sertifika yetkilisinden sertifika isteyebilir. Alternatif olarak, komutu çalıştırdığınız işletim sistemi temelinde otomatik olarak imzalanan sertifika oluşturmak için aşağıdaki komutları kullanın. Sonra sertifika özel anahtarıyla parola korumalı bir PFX dosyası olarak dışarı aktarın.
 
 * **Windows 10 veya Windows Server 2016 için**, yerleşik çalıştırmak **yeni SelfSignedCertificate** PowerShell cmdlet'ini şekilde:
 
@@ -52,11 +52,13 @@ Bu gereksinimleri karşılayan bir sertifika yoksa, bir sertifika yetkilisinden 
     New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
     ```
 
+Sertifika oluşturulduktan sonra geçerli kullanıcı deposunda sertifikayı özel anahtarıyla bir parola korumalı PFX dosyası olarak dışa Sertifikalar ek bileşenini kullanın. Sertifikayı kullanarak da verebilirsiniz [verme Pfxcertificate](/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps) PowerShell cmdlet'i.
+
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Bir Azure anahtar kasası sertifikasını karşıya yükle
 
-HPC küme dağıtmadan önce sertifikayı karşıya bir [Azure anahtar kasası](../../key-vault/index.md) gizli anahtarı ve kayıt kullanmak için aşağıdaki bilgileri dağıtım sırasında olarak: **kasa adı**, **kasası kaynak grubu**, **sertifika URL'si**, ve **sertifika parmak izi**.
+HPC küme dağıtmadan önce için PFX sertifikasını karşıya bir [Azure anahtar kasası](../../key-vault/index.md) gizli anahtarı ve kayıt kullanmak için aşağıdaki bilgileri dağıtım sırasında olarak: **kasa adı**, **kasası kaynak grubu**, **sertifika URL'si**, ve **sertifika parmak izi**.
 
-Sertifikayı karşıya yüklemek için bir PowerShell komut dosyası izler. Bir Azure anahtar kasası için bir sertifika karşıya yükleme hakkında daha fazla bilgi için bkz: [Azure anahtar kasası ile çalışmaya başlama](../../key-vault/key-vault-get-started.md).
+Sertifikayı karşıya yükleyin, anahtar kasası oluşturma ve gerekli bilgileri oluşturmak için bir PowerShell komut dosyası izler. Bir Azure anahtar kasası için bir sertifika karşıya yükleme hakkında daha fazla bilgi için bkz: [Azure anahtar kasası ile çalışmaya başlama](../../key-vault/key-vault-get-started.md).
 
 ```powershell
 #Give the following values
@@ -108,12 +110,11 @@ $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Se
 
 ## <a name="supported-topologies"></a>Desteklenen topolojiler
 
-Aşağıdakilerden birini seçin [Azure Resource Manager şablonları](https://github.com/MsHpcPack/HPCPack2016) HPC Pack 2016 küme dağıtmak için. Üç desteklenen küme topolojileri üst düzey mimarilerini aşağıda verilmiştir. Yüksek kullanılabilirlik topolojileri birden çok küme baş düğümüne ekleyin.
+Aşağıdakilerden birini seçin [Azure Resource Manager şablonları](https://github.com/MsHpcPack/HPCPack2016) HPC Pack 2016 küme dağıtmak için. Üç örnek küme topolojileri üst düzey mimarilerini aşağıda verilmiştir. Yüksek kullanılabilirlik topolojileri birden çok küme baş düğümüne ekleyin.
 
 1. Active Directory etki alanı ile yüksek oranda kullanılabilirlik kümesi
 
     ![AD etki alanındaki HA küme](./media/hpcpack-2016-cluster/haad.png)
-
 
 
 2. Active Directory etki alanı olmadan yüksek oranda kullanılabilirlik kümesi
@@ -131,7 +132,7 @@ Kümeyi oluşturmak için bir şablon seçin ve **Azure'a Dağıt**. İçinde [A
 
 ### <a name="step-1-select-the-subscription-location-and-resource-group"></a>1. adım: Abonelik, konum ve kaynak grubu seçin
 
-**Abonelik** ve **konumu** PFX sertifikanızı karşıya belirtilen aynı olmalıdır (önkoşullara bakın). Oluşturduğunuz öneririz bir **kaynak grubu** dağıtımı için.
+**Abonelik** ve **konumu** PFX sertifikanızı karşıya belirtilen aynı olmalıdır (önkoşullara bakın). Farklı bir oluşturmanızı öneririz **kaynak grubu** dağıtımı için.
 
 ### <a name="step-2-specify-the-parameter-settings"></a>2. adım: parametre ayarlarını belirtin
 
@@ -139,19 +140,21 @@ Girin veya şablon parametre değerlerini değiştirin. Her parametre için Yard
 
 Kaydettiğiniz Önkoşullar aşağıdaki parametreleri için değerleri belirtin: **kasa adı**, **kasası kaynak grubu**, **sertifika URL'si**, ve **sertifika parmak izi**.
 
-### <a name="step-3-review-legal-terms-and-create"></a>3. Adım Yasal koşulları gözden geçirin ve oluşturma
-Tıklatın **yasal koşulları gözden geçir** koşullarını gözden geçirmek için. Kabul ediyorsa **satın alma**ve ardından **oluşturma** dağıtımı başlatmak için.
+### <a name="step-3-review-terms-and-create"></a>3. Adım Koşullarını gözden geçirin ve oluşturma
+Hüküm ve koşulları şablonuyla ilişkili gözden geçirin. Kabul ediyorsa **satın alma** dağıtımı başlatmak için.
+
+Küme topolojisine bağlı olarak dağıtım 30 dakika sürebilir veya tamamlamak için daha uzun.
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 1. HPC Pack küme dağıtıldıktan sonra Git [Azure portal](https://portal.azure.com). Tıklatın **kaynak grupları**ve küme dağıtıldığı kaynak grup bulunamıyor. Baş düğüm sanal makineleri bulabilirsiniz.
 
     ![Küme baş düğümler portalında](./media/hpcpack-2016-cluster/clusterhns.png)
 
-2. Bir baş düğümüne tıklayın (bir yüksek kullanılabilirlik kümesinde baş düğümler birini tıklatın). İçinde **Essentials**, genel IP adresi veya küme tam DNS adını bulabilirsiniz.
+2. Bir baş düğümüne tıklayın (bir yüksek kullanılabilirlik kümesinde baş düğümler birini tıklatın). İçinde **genel bakış**, genel IP adresi veya küme tam DNS adını bulabilirsiniz.
 
     ![Küme bağlantısı ayarları](./media/hpcpack-2016-cluster/clusterconnect.png)
 
-3. Tıklatın **Bağlan** herhangi bir Uzak Masaüstü kullanarak, belirtilen yönetici kullanıcı adınızla baş düğüme oturum. Dağıttığınız küme bir Active Directory etki alanında ise, kullanıcı adı biçimindedir <privateDomainName> \<adminUsername > (örneğin, hpc.local\hpcadmin).
+3. Tıklatın **Bağlan** herhangi bir Uzak Masaüstü kullanarak, belirtilen yönetici kullanıcı adınızla baş düğüme oturum. Dağıttığınız küme bir Active Directory etki alanında ise, kullanıcı adı biçimindedir \<privateDomainName >\\\<adminUsername > (örneğin, hpc.local\hpcadmin).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * İşlerini kümenize gönderin. Bkz: [HPC bir HPC paketi için gönderme işleri küme Azure'da](hpcpack-cluster-submit-jobs.md) ve [Azure Active Directory'yi kullanarak azure'da bir HPC Pack 2016 kümeyi yönetmek](hpcpack-cluster-active-directory.md).

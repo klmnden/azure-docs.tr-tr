@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bd4f36bb029f123b0fa41d6dcd57547413e015c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure işlevleri SendGrid bağlamaları
 
@@ -24,12 +24,18 @@ Bu makalede kullanarak e-posta göndermek nasıl açıklanmaktadır [SendGrid](h
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages"></a>Paketler
+
+SendGrid bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub depo.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
+
 ## <a name="example"></a>Örnek
 
 Dile özgü örneğe bakın:
 
 * [C#](#c-example)
-* [C# betik (.csx)](#c-script-example)
+* [C# script (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>C# örnek
@@ -155,7 +161,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>Öznitelikler
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) özniteliği.
 
 Yapılandırabileceğiniz öznitelik özellikleri hakkında daha fazla bilgi için bkz: [yapılandırma](#configuration). Burada bir `SendGrid` yöntemi imza özniteliği örnekte:
 
@@ -177,14 +183,14 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü**|| Gerekli - kümesine olmalıdır `sendGrid`.|
-|**yönü**|| Gerekli - kümesine olmalıdır `out`.|
-|**adı**|| Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. |
-|**apikey ile yapılan**|**Apikey ile yapılan**| API anahtarınızı içeren bir uygulama ayarı adı. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsSendGridApiKey" dir.|
+|**Türü**|| Gerekli - kümesine olmalıdır `sendGrid`.|
+|**Yönü**|| Gerekli - kümesine olmalıdır `out`.|
+|**Adı**|| Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. |
+|**apiKey**|**ApiKey**| API anahtarınızı içeren bir uygulama ayarı adı. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsSendGridApiKey" dir.|
 |**Hedef**|**Alıcı**| Alıcının e-posta adresi. |
 |**Kaynak**|**Kaynak**| Gönderenin e-posta adresi. |
-|**Konu**|**Konu**| e-postanın konusu. |
-|**metin**|**Metin**| e-posta içeriği. |
+|**subject**|**Konu**| e-postanın konusu. |
+|**text**|**Metin**| e-posta içeriği. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

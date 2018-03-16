@@ -1,6 +1,6 @@
 ---
 title: "Klasik sanal ağlar Azure Resource Manager sanal ağlara bağlanma: portalı | Microsoft Docs"
-description: "Klasik sanal ağlar ve Resource Manager VPN ağ geçidi ve Portalı'nı kullanarak sanal ağlar arasında bir VPN bağlantısı oluşturun"
+description: "Klasik sanal ağlar Resource Manager VPN ağ geçidi ve Portalı'nı kullanarak sanal ağlara bağlanmak için adımları"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2018
+ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 90a3c51fa9acbcd9701d4c2b135688ef5148bbf8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ad6b33b5411d3e38f099726df01fcafc8dc90d38
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Farklı dağıtım modelinden Portalı'nı kullanarak sanal ağlara bağlanabilir
 
@@ -157,9 +157,9 @@ Resource Manager Vnet'i yoktur ve bu adımları bir alıştırma olarak çalış
 
 Bir sanal ağ geçidi oluşturmadan önce ilk ağ geçidi alt ağı oluşturmanız gerekir. CIDR sayısıyla 28 ya da daha büyük bir ağ geçidi alt ağı oluşturun (/ 27, / 26, vb..). Bu bölümü bir alıştırma olarak oluşturuyorsanız, örnek değerleri kullanabilirsiniz.
 
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="creategw"></a>3. Sanal ağ geçidi oluşturma
 

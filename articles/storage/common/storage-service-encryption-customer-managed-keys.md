@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: b40858640d10e5661be420976520774bd50837cb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Müşteri tarafından yönetilen anahtarları Azure anahtar kasası kullanarak depolama hizmeti şifrelemesi
 
@@ -81,6 +81,7 @@ Anahtarınızı bir uri'den belirtmek için aşağıdaki adımları izleyin:
 
     ![Şifreleme ile anahtar URI seçenek girin gösteren portal ekran görüntüsü](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+
 #### <a name="specify-a-key-from-a-key-vault"></a>Bir anahtar kasası anahtarından belirtin 
 
 Anahtarınızı bir anahtar Kasası'ndan belirtmek için aşağıdaki adımları izleyin:
@@ -96,6 +97,17 @@ Depolama hesabı anahtar kasasına erişim yoksa, erişim vermek için aşağıd
 ![Erişim için anahtar kasasını reddedildi gösteren portal ekran görüntüsü](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 Ayrıca, Azure portalında Azure anahtar kasası gittikten depolama hesabına erişim izni verme Azure portalı üzerinden erişim izni verebilir.
+
+
+Aşağıdaki PowerShell komutlarını kullanarak var olan bir depolama hesabıyla yukarıdaki anahtar ilişkilendirebilirsiniz:
+```powershell
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+```
+
 
 ### <a name="step-5-copy-data-to-storage-account"></a>5. adım: veri depolama alanına kopyalanmaya
 

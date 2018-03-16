@@ -6,22 +6,83 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 03/14/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a527939d6bc73e3dee5701bc53ef8312e68d2953
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Azure kapsayıcı örnekleri dağıtım sorunlarını giderme
 
 Bu makalede kapsayıcıları Azure kapsayıcı örnekleri dağıtırken ilgili sorunları gidermek nasıl gösterilmektedir. Ayrıca bazı içine çalışabilir yaygın sorunları açıklar.
 
+## <a name="view-logs-and-stream-output"></a>Günlükleri görüntüle ve akış çıkışı
+
+Hatalı davranan bir kapsayıcıya sahip, kendi günlükleri ile görüntüleyerek başlattığınızda [az kapsayıcı günlükleri][az-container-logs]ve kendi standart çıkış ve standart hata akışı [az kapsayıcı ekleme] [az-container-attach].
+
+### <a name="view-logs"></a>Günlükleri görüntüle
+
+Bir kapsayıcı içindeki uygulama kodunuzdan günlükleri görüntülemek için kullanabileceğiniz [az kapsayıcı günlükleri] [ az-container-logs] komutu.
+
+Görev tabanlı örnek kapsayıcısında günlük çıktısı aşağıdadır [ACI içinde kapsayıcılı bir görevi çalıştırmayı](container-instances-restart-policy.md)işlemek için geçersiz bir URL sat sonra:
+
+```console
+$ az container logs --resource-group myResourceGroup --name mycontainer
+Traceback (most recent call last):
+  File "wordcount.py", line 11, in <module>
+    urllib.request.urlretrieve (sys.argv[1], "foo.txt")
+  File "/usr/local/lib/python3.6/urllib/request.py", line 248, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/usr/local/lib/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 532, in open
+    response = meth(req, response)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 642, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 570, in error
+    return self._call_chain(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.6/urllib/request.py", line 650, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 404: Not Found
+```
+
+### <a name="attach-output-streams"></a>Çıkış akışları ekleme
+
+[Az kapsayıcı ekleme] [ az-container-attach] komutu kapsayıcı başlatma sırasında tanılama bilgileri sağlar. Kapsayıcı başladıktan sonra yerel konsolunuza STDOUT ve STDERR akışları.
+
+Örneğin, görev tabanlı kapsayıcısında çıktısını işte [ACI içinde kapsayıcılı bir görevi çalıştırmayı](container-instances-restart-policy.md)işlemek için geçerli bir URL büyük metin dosyasının sağlanan sonra:
+
+```console
+$ az container attach --resource-group myResourceGroup --name mycontainer
+Container 'mycontainer' is in state 'Unknown'...
+Container 'mycontainer' is in state 'Waiting'...
+Container 'mycontainer' is in state 'Running'...
+(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+
+Start streaming logs:
+[('the', 22979),
+ ('I', 20003),
+ ('and', 18373),
+ ('to', 15651),
+ ('of', 15558),
+ ('a', 12500),
+ ('you', 11818),
+ ('my', 10651),
+ ('in', 9707),
+ ('is', 8195)]
+```
+
 ## <a name="get-diagnostic-events"></a>Tanılama Olayları Al
 
-Bir kapsayıcı içindeki uygulama kodunuzdan günlükleri görüntülemek için kullanabileceğiniz [az kapsayıcı günlükleri] [ az-container-logs] komutu. Ancak, kapsayıcı başarıyla dağıtma, Azure kapsayıcı örnekleri kaynak sağlayıcısı tarafından sağlanan tanı bilgilerini gözden geçirmek gerekebilir. Kapsayıcı için olayları görüntülemek için çalıştırın [az kapsayıcı Göster] [ az-container-show] komutu:
+Başarıyla dağıtmak, kapsayıcı başarısız olursa, Azure kapsayıcı örnekleri kaynak sağlayıcısı tarafından sağlanan tanı bilgilerini gözden geçirmeniz gerekir. Kapsayıcı için olayları görüntülemek için çalıştırın [az kapsayıcı Göster] [ az-container-show] komutu:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -90,11 +151,17 @@ az container show --resource-group myResourceGroup --name mycontainer
 
 ## <a name="common-deployment-issues"></a>Genel dağıtım sorunları
 
-Bu hesaba hataların çoğu dağıtımda bazı yaygın sorunlar vardır.
+Aşağıdaki bölümlerde, kapsayıcı dağıtımda hataların çoğu bu hesaba sık karşılaşılan sorunları açıklanmaktadır:
+
+* [Görüntü sürümü desteklenmiyor](#image-version-not-supported)
+* [Çekme görüntü oluşturulamıyor](#unable-to-pull-image)
+* [Kapsayıcı sürekli olarak çıkar ve yeniden başlatır](#container-continually-exits-and-restarts)
+* [Kapsayıcı başlatmak için çok uzun sürüyor](#container-takes-a-long-time-to-start)
+* ["Kaynak mevcut değil" hatası](#resource-not-available-error)
 
 ## <a name="image-version-not-supported"></a>Görüntü sürümü desteklenmiyor
 
-Görüntüyü Azure kapsayıcı örnekler destekleyemiyor belirtilirse, formun bir hata döndürülür `ImageVersionNotSupported`. Hata değeri gösterecektir `The version of image '{0}' is not supported.`. Bu hata Windows 1709 görüntüleri kullanmak azaltmak için şu anda bir LTS Windows görüntüsüne uygular. Windows 1709 görüntüler için destek işleniyor.
+Azure kapsayıcı örnekler destekleyemiyor, bir görüntü belirtirseniz bir `ImageVersionNotSupported` hata döndürülür. Hata değeri `The version of image '{0}' is not supported.`ve şu anda Windows 1709 yansımaları için geçerlidir. Bu sorunu azaltmak için LTS Windows görüntüyü kullanın. Windows 1709 görüntüler için destek işleniyor.
 
 ## <a name="unable-to-pull-image"></a>Çekme görüntü oluşturulamıyor
 
@@ -180,24 +247,39 @@ Kapsayıcı örnekleri API içeren bir `restartCount` özelliği. Kapsayıcı i�
 
 ## <a name="container-takes-a-long-time-to-start"></a>Kapsayıcı başlatmak için çok uzun sürüyor
 
+Kapsayıcı başlangıç saati, Azure kapsayıcı örnekleri katkıda iki birincil faktörleri şunlardır:
+
+* [Görüntü boyutu](#image-size)
+* [Görüntü konumu](#image-location)
+
+Windows görüntülerini sahip [ek hususlar](#use-recent-windows-images).
+
+### <a name="image-size"></a>Görüntü boyutu
+
 Kapsayıcı başlatma, ancak sonuç uzun süren, başarılı, kapsayıcı görüntünüzü boyutta bakarak başlatın. Azure kapsayıcı örnekleri kapsayıcı görüntünüzü isteğe bağlı olarak çeker çünkü karşılaştığınız başlangıç zamanını boyutuna doğrudan ilişkilidir.
 
-Docker CLI kullanarak kapsayıcı görüntünüzün boyutunu görüntüleyebilirsiniz:
+Kapsayıcı görüntünüzün boyutunu kullanarak görüntüleyebileceğiniz `docker images` Docker CLI komutunu:
 
-```bash
-docker images
-```
-
-Çıktı:
-
-```bash
-REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
+```console
+$ docker images
+REPOSITORY                  TAG       IMAGE ID        CREATED        SIZE
+microsoft/aci-helloworld    latest    7f78509b568e    13 days ago    68.1MB
 ```
 
 Görüntü boyutları küçük tutmak için anahtarı son görüntünüzü çalışma zamanında gerekli olmayan bir şey içermediğinden emin olmaktır. Yapmanın bir yolu bu olan [çok aşama derlemeleri][docker-multi-stage-builds]. Çok aşama yapma, yalnızca uygulamanız için gereksinim duyduğunuz yapıları son görüntüsünü içeren ve herhangi bir ek içerik sağlamak kolay derleme zamanında gerekli oluşturur.
 
-Kapsayıcının başlangıç zamanında görüntü çekme etkisini azaltmak için diğer Azure kapsayıcı örneği kullanmak istiyorsanız, aynı bölgede Azure kapsayıcı kayıt defterini kullanarak kapsayıcı görüntüsü barındırmak için bir yoludur. Bu, kapsayıcı görüntü seyahat gereken ağ yolu önemli ölçüde karşıdan yükleme süresini kısaltmak kısaltır.
+### <a name="image-location"></a>Görüntü konumu
+
+Kapsayıcı görüntüde barındırmak için kapsayıcının başlangıç zamanında görüntü çekme etkisini azaltmak için başka bir yol olduğu [Azure kapsayıcı kayıt defteri](/azure/container-registry/) kapsayıcı örnekleri dağıtmayı düşündüğünüz burada aynı bölgede. Bu, kapsayıcı görüntü seyahat gereken ağ yolu önemli ölçüde karşıdan yükleme süresini kısaltmak kısaltır.
+
+### <a name="use-recent-windows-images"></a>En son Windows görüntüleri kullanın
+
+Azure kapsayıcı örnekleri hızı kapsayıcı başlangıç zamanını belirli Windows görüntülerini temel görüntüleri için yardımcı olmak için bir önbelleğe alma mekanizması kullanır.
+
+Windows kapsayıcı başlangıç süreye emin olmak için aşağıdakilerden birini kullanmak **en son üç** aşağıdaki sürümlerini **iki görüntü** temel görüntü olarak:
+
+* [Windows Server 2016] [ docker-hub-windows-core] (yalnızca LTS)
+* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ## <a name="resource-not-available-error"></a>Kaynak kullanılamaz hatası
 
@@ -214,7 +296,10 @@ Bu hata dağıtmak çalıştığınız bölgede ağır yükü nedeniyle, o anda 
 
 <!-- LINKS - External -->
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+[docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
+[docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
 
 <!-- LINKS - Internal -->
+[az-container-attach]: /cli/azure/container#az_container_attach
 [az-container-logs]: /cli/azure/container#az_container_logs
 [az-container-show]: /cli/azure/container#az_container_show

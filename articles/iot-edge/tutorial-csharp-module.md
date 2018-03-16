@@ -5,15 +5,15 @@ services: iot-edge
 keywords: 
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fd46bb662af72ece799bb545d06d76f9e54ee62c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Geliştir ve C# IOT kenar modülünü sanal Cihazınızı dağıtmak - Önizleme
 
@@ -48,7 +48,7 @@ Bu öğretici için Docker uyumlu kayıt kullanabilirsiniz. İki popüler Docker
 3. **Oluştur**’u seçin.
 4. Kapsayıcı kaydınız oluşturulduktan sonra kendisine gidin ve seçin **erişim anahtarları**. 
 5. İki durumlu **yönetici kullanıcı** için **etkinleştirmek**.
-6. Değerleri kopyalamak **oturum açma sunucusu**, **kullanıcıadı**, ve **parola**. Öğreticide daha sonra bu değerleri kullanacaksınız. 
+6. Değerleri kopyalamak **oturum açma sunucusu**, **kullanıcıadı**, ve **parola**. Kayıt defterine Docker görüntü yayımladığınızda ve kayıt defteri kimlik bilgileri kenar çalışma eklediğinizde, bu değerleri daha sonra öğreticide kullanırsınız. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Bir IOT kenar modülü projesi oluşturma
 Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Visual Studio Code ve Azure IOT kenar uzantısı çekirdek aşağıdaki adımları gösterir.
@@ -227,15 +227,14 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
 2. Sağ **Dockerfile** dosya ve tıklayın **yapı IOT kenar modülü Docker görüntü**. 
 3. İçinde **Klasör Seç** penceresinde göz atın veya girin `./bin/Debug/netcoreapp2.0/publish`. Tıklatın **EXE_DIR Klasör Seç**.
 4. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. Örneğin: `<your container registry address>/filtermodule:latest`. Kapsayıcı kayıt defteri adresi kayıt defterinden kopyaladığınız oturum açma sunucusu ile aynıdır. Biçiminde olmalıdır `<your container registry name>.azurecr.io`.
-5. VS Code tümleşik terminale aşağıdaki komutu girerek Docker için oturum açın: 
+5. Kullanıcı adı, parola ve oluşturduğunuz sırada, Azure kapsayıcı kayıt defterinden kopyaladığınız oturum açma sunucusu kullanarak Docker için oturum açın. VS Code tümleşik terminale aşağıdaki komutu girin: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Kullanıcı adı, parola ve oluşturduğunuz sırada, Azure kapsayıcı kayıt defterinden kopyaladığınız oturum açma sunucusu kullanın.
 
-3. Görüntü Docker deponuza iletin. Seçin **Görünüm** > **komutu palet** arayın ve **kenar: anında IOT kenar modülü Docker görüntü** menü komutu. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. 4. adımda kullanılan aynı görüntü adı kullanın.
+6. Görüntü kapsayıcısı kaydınız iletin. Seçin **Görünüm** > **komutu palet** arayın ve **kenar: anında IOT kenar modülü Docker görüntü** menü komutu. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. 4. adımda kullanılan aynı görüntü adı kullanın.
+7. Azure portalında görüntünüzü görüntülemek için Azure kapsayıcı kayıt defterine gidin ve seçin **depoları**. Görmeniz gerekir **filtermodule** listelenir.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Kayıt defteri kimlik bilgilerini kenar çalışma zamanına ekleyin
 Sınır cihazı çalıştırdığınız bilgisayarda kenar çalışma zamanı kayıt için kimlik bilgilerini ekleyin. Bu kimlik bilgileri kapsayıcı çıkarmak için çalışma zamanı erişim verin. 

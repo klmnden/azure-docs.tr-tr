@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6b8aa174f7c25f04393de9dd32718a5078cba4ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -207,13 +207,13 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan güncelleştirme kayıtlar
 
 | Sorgu | Açıklama |
 | --- | --- |
-|Güncelleştirme<br>&#124; Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Eksik güncelleştirmeleri olan tüm bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Güncelleştirme<br>&#124; Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; Burada bilgisayar "ContosoVM1.contoso.com" ==<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
-| Olay<br>&#124; Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)<br>&#124; Burada UpdateState "Gerekli" ve isteğe bağlı == == false <br>&#124; farklı bilgisayar)) |Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
-| Güncelleştirme<br>&#124; Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; distinct Title |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler | 
-| UpdateRunProgress<br>&#124; Burada InstallationStatus "başarısız" == <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType == "Linux" | 
-| Güncelleştirme<br>&#124; where OSType == "Linux"<br>&#124; Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)<br>&#124; summarize AggregatedValue = count() by Computer |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi | 
-| UpdateRunProgress<br>&#124; Burada UpdateRunName "DeploymentName" ==<br>&#124; summarize AggregatedValue = count() by Computer|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) | 
+|Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Eksik güncelleştirmeleri olan tüm bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType == "Linux" |
+| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
+| Olay<br>&#124;Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false <br>&#124;farklı bilgisayar)) |Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
+| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; distinct Title |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler | 
+| UpdateRunProgress<br>&#124;Burada InstallationStatus "başarısız" == <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType == "Linux" | 
+| Güncelleştirme<br>&#124; where OSType == "Linux"<br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)<br>&#124; summarize AggregatedValue = count() by Computer |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi | 
+| UpdateRunProgress<br>&#124;Burada UpdateRunName "DeploymentName" ==<br>&#124; summarize AggregatedValue = count() by Computer|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) | 
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager ile tümleştirme
 

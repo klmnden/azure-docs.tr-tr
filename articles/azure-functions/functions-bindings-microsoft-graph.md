@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d774f0ca644793235a8c423b052b559d26e289c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
@@ -33,7 +33,13 @@ Microsoft Graph uzantısı aşağıdaki bağlamaları sağlar:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Microsoft Graph bağlamaları şu anda önizlemede.
+> Microsoft Graph bağlamaları olan şu anda Azure işlevleri sürüm önizlemesinde 2.x. İşlevler sürümünde desteklenmez 1.x.
+
+## <a name="packages"></a>Paketler
+
+Kimlik doğrulama belirteci giriş bağlaması sağlanan [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) NuGet paketi. Diğer Microsoft Graph bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) paket. Paketler için kaynak kodunu konusu [azure işlevleri microsoftgraph uzantı](https://github.com/Azure/azure-functions-microsoftgraph-extension/) GitHub depo.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="setting-up-the-extensions"></a>Uzantıları ayarlama
 
@@ -54,9 +60,7 @@ Her iki durumda da, yüklenecek uzantısı belirten bir uyarı görüntülenir. 
 > [!Note] 
 > Portal yükleme işlemi tüketim plan üzerinde 10 dakikaya kadar sürebilir.
 
-Visual Studio kullanıyorsanız, bu NuGet paketlerini yükleyerek uzantıları alabilirsiniz:
-- [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
-- [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
+Visual Studio kullanıyorsanız, uzantıları yükleyerek alabileceğiniz [bu makalenin önceki bölümlerinde listelenen NuGet paketleri](#packages).
 
 ### <a name="configuring-authentication--authorization"></a>Kimlik doğrulaması yapılandırma / yetkilendirme
 
@@ -199,7 +203,7 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---attributes"></a>Kimlik doğrulama belirteci - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [belirteci](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [belirteci](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) özniteliği.
 
 ### <a name="auth-token---configuration"></a>Kimlik doğrulama belirteci - yapılandırma
 
@@ -332,7 +336,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---attributes"></a>Girişi - Excel öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) özniteliği.
 
 ### <a name="excel-input---configuration"></a>Excel giriş - yapılandırma
 
@@ -347,7 +351,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**userId**|**UserId**  |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
 |**Yol**|**Path**|Gerekli - onedrive'da Excel çalışma kitabı yolu.|
-|**worksheetName**|**WorksheetName**|Tablo bulunduğu çalışma sayfası.|
+|**WorksheetName**|**WorksheetName**|Tablo bulunduğu çalışma sayfası.|
 |**tableName**|**TableName**|Tablonun adı. Belirtilmezse, çalışma kitabının içeriğini kullanılır.|
 
 <a name="excel-input-code"></a>
@@ -492,7 +496,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---attributes"></a>Çıktı - Excel öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) özniteliği.
 
 ### <a name="excel-output---configuration"></a>Excel çıktısı - yapılandırma
 
@@ -507,7 +511,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**UserId** |**userId** |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
 |**Yol**|**Path**|Gerekli - onedrive'da Excel çalışma kitabı yolu.|
-|**worksheetName**|**WorksheetName**|Tablo bulunduğu çalışma sayfası.|
+|**WorksheetName**|**WorksheetName**|Tablo bulunduğu çalışma sayfası.|
 |**tableName**|**TableName**|Tablonun adı. Belirtilmezse, çalışma kitabının içeriğini kullanılır.|
 |**updateType**|**UpdateType**|Gerekli - tabloya yapmak için değişiklik türü. Aşağıdaki değerlerden biri olabilir:<ul><li><code>update</code> -OneDrive tabloda içeriğini değiştirir.</li><li><code>append</code> -Yükü OneDrive tabloda sonuna yeni satırlar oluşturarak ekler.</li></ul>|
 
@@ -636,7 +640,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---attributes"></a>Giriş - dosya öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) özniteliği.
 
 ### <a name="file-input---configuration"></a>Dosya giriş - yapılandırma
 
@@ -781,7 +785,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---attributes"></a>Çıktı - dosya öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) özniteliği.
 
 ### <a name="file-output---configuration"></a>Dosya çıktısı - yapılandırma
 
@@ -930,7 +934,7 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---attributes"></a>Çıktı - outlook öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) özniteliği.
 
 ### <a name="outlook-output---configuration"></a>Outlook çıktısı - yapılandırma
 
@@ -1071,7 +1075,7 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Web kancası tetikleyici - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) özniteliği.
 
 ### <a name="webhook-trigger---configuration"></a>Web kancası tetikleyici - yapılandırma
 
@@ -1222,7 +1226,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Web kancası girişi - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) özniteliği.
 
 ### <a name="webhook-input---configuration"></a>Web kancası giriş - yapılandırma
 
@@ -1362,7 +1366,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Çıktı - Web kancası öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) özniteliği.
 
 ### <a name="webhook-output---configuration"></a>Web kancası çıktısı - yapılandırma
 

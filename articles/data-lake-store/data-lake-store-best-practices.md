@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Azure Data Lake Store'a genel bakış
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store kullanmak için en iyi uygulamalar
 Bu makalede, en iyi yöntemler ve Azure Data Lake Store ile çalışma konuları hakkında bilgi edinin. Bu makale, güvenlik, performans, dayanıklılık ve Data Lake Store için izleme bilgileri sağlar. Data Lake Store önce Azure Hdınsight gibi hizmetler gerçekten büyük verilerle çalışmak karmaşıktı. Böylece Petabayt depolama ve bu ölçekte en iyi performansı elde edilebilir birden çok Blob Depolama hesapları arasında parça veri içeriyor. Data Lake Store ile boyutu ve performans için sabit sınırları çoğunu kaldırılır. Ancak, yine bu makalede yer almaktadır ve böylece Data Lake Store ile en iyi performansı elde edebilirsiniz bazı noktalar vardır. 
 
 ## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
@@ -139,7 +139,7 @@ Data Lake Store, günlük aktarma açık değilse Azure Hdınsight da açmak iç
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Bu ayarlanır ve düğümlerin yeniden sonra Data Lake Store tanılama düğümlerde YARN günlüklerini yazılır (/tmp/<user>/yarn.log), veya önemli ayrıntılar gibi hatalar'yi ve azaltma (HTTP 429 hata kodu) ile izlenebilir. Bu bilgiyle OMS veya yerde günlükleri içeri aktarılır de izlenebilir [tanılama](data-lake-store-diagnostic-logs.md) Data Lake Store hesabı dikey. En az istemci-tarafı günlük kaydı açıksa veya günlük işletimsel görünürlük ve daha kolay hata ayıklama için Data Lake Store seçeneğiyle dağıtımını kullanmak için önerilir.
+Özellik ayarlanmışsa ve düğümlerin yeniden sonra Data Lake Store tanılama düğümlerde YARN günlüklerini yazılır (/tmp/<user>/yarn.log), veya önemli ayrıntılar gibi hatalar'yi ve azaltma (HTTP 429 hata kodu) ile izlenebilir. Bu bilgiyle OMS veya yerde günlükleri içeri aktarılır de izlenebilir [tanılama](data-lake-store-diagnostic-logs.md) Data Lake Store hesabı dikey. En az istemci-tarafı günlük kaydı açıksa veya günlük işletimsel görünürlük ve daha kolay hata ayıklama için Data Lake Store seçeneğiyle dağıtımını kullanmak için önerilir.
 
 ### <a name="run-synthetic-transactions"></a>Yapay işlem 
 
@@ -155,7 +155,7 @@ IOT iş yükleri, büyük bir bölümünü çok sayıda ürünleri, aygıtlar, k
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Örneğin, uçak motorunun İngiltere içinde telemetri giriş şuna benzeyebilir: 
+Örneğin, uçak motorunun İngiltere içinde telemetri giriş aşağıdaki yapısı gibi görünebilir: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ Klasör yapısı son tarihte koymak için önemli bir neden yoktur. Belirli böl
 
 ### <a name="batch-jobs-structure"></a>Toplu işleri yapısı 
 
-Bir üst düzey, bir sık kullanılan toplu işlem bir "içinde" klasöründe veri güden yaklaşımdır. Ardından, verilerin işlendikten sonra yeni verileri "out" klasörüne kullanmak aşağı akış işlemleri yerleştirin. Bu bazen tek tek dosyalar üzerinde işlem gerektiren ve yüksek düzeyde paralel işleme büyük veri kümeleri gerektirmeyebilecek işleri için görülür. Yukarıda önerilen IOT gibi iyi dizin yapısını bölge ve konu önemlidir (örneğin, kuruluş, ürün/üretici) gibi şeyler için üst düzey klasör yapısının. Bu, kuruluşunuz ve iş yüklerinizi verilerin daha iyi yönetim arasında veri güvenliğini yardımcı olur. Ayrıca, tarih ve saat yapısı içinde daha iyi düzenleme, filtrelenmiş aramalar, güvenlik ve Otomasyon işlenmesinde izin vermek için göz önünde bulundurun. Tarih yapısı için ayrıntı düzeyini üzerinde verileri karşıya veya, saatlik gibi günlük veya hatta aylık işlenen aralığa göre belirlenir. 
+Bir üst düzey, bir sık kullanılan toplu işlem bir "içinde" klasöründe veri güden yaklaşımdır. Ardından, verilerin işlendikten sonra yeni verileri "out" klasörüne kullanmak aşağı akış işlemleri yerleştirin. Bu dizin yapısı, tek tek dosyalar üzerinde işlem gerektiren ve yüksek düzeyde paralel işleme büyük veri kümeleri gerektirmeyebilecek işleri için bazen görülür. Yukarıda önerilen IOT gibi iyi dizin yapısını bölge ve konu önemlidir (örneğin, kuruluş, ürün/üretici) gibi şeyler için üst düzey klasör yapısının. Bu yapı, kuruluşunuz ve iş yüklerinizi verilerin daha iyi yönetim arasında veri güvenliğini yardımcı olur. Ayrıca, tarih ve saat yapısı içinde daha iyi düzenleme, filtrelenmiş aramalar, güvenlik ve Otomasyon işlenmesinde izin vermek için göz önünde bulundurun. Tarih yapısı için ayrıntı düzeyini üzerinde verileri karşıya veya, saatlik gibi günlük veya hatta aylık işlenen aralığa göre belirlenir. 
 
 Bazen dosya işleme veri bozulma veya beklenmeyen biçimleri nedeniyle başarısız. Dizin yapısı bu gibi durumlarda yararlı bir **/hatalı** için denetleme ilerletmek için dosyaları taşımak için klasör. Toplu işlem aynı zamanda raporlama veya bu bildirim işleyebilirsiniz *hatalı* dosyaları el ile müdahale için. Aşağıdaki şablonu yapısını göz önünde bulundurun: 
 
@@ -171,7 +171,7 @@ Bazen dosya işleme veri bozulma veya beklenmeyen biçimleri nedeniyle başarıs
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Örneğin, Kuzey Amerika'da istemcilerinden müşteri güncelleştirmelerin günlük verileri ayıklayan alma pazarlama kesin önce ve sonra işlenen şuna benzeyebilir: 
+Örneğin, Kuzey Amerika'da istemcilerinden müşteri güncelleştirmelerin günlük verileri ayıklar pazarlama kesin alır. Önce ve sonra işlenen, aşağıdaki kod parçacığını gibi görünebilir: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

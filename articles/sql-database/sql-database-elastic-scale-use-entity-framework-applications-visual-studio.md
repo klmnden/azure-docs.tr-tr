@@ -2,24 +2,18 @@
 title: "Entity Framework ile esnek veritabanı istemci kitaplığı kullanılarak | Microsoft Docs"
 description: "Esnek veritabanı istemci kitaplığı ve Entity Framework veritabanları kodlama için kullanın"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
-ms.openlocfilehash: 1fc61657419f1f4581c5c67639d7bc2e4b0d509f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Entity Framework ile esnek veritabanı istemci kitaplığı
 Bu belge, Entity Framework uygulamada bütünleştirmek için gereken değişiklikleri gösterir. [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md). Oluşturma üzerinde odak noktasıdır [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md) ve [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) Entity Framework **Code First** yaklaşım. [İlk - yeni veritabanı kod](http://msdn.microsoft.com/data/jj193542.aspx) öğretici EF için bu belge boyunca çalışan bir örnek olarak hizmet verir. Bu belge ile birlikte gelen örnek kod, esnek veritabanı araçlarını Visual Studio kod örnekleri örnekleri kümesi parçasıdır.
@@ -180,13 +174,13 @@ Yukarıdaki kod örnekleri, Entity Framework ile veri bağımlı yönlendirmeyi 
 
 | Geçerli Oluşturucusu | Verileri yeniden Oluşturucusu | Temel Oluşturucusu | Notlar |
 | --- | --- | --- | --- |
-| MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |Bağlantı bir işlev parça eşleme ve veri bağımlı yönlendirme anahtarı olması gerekir. Parça eşleme Bağlantı Aracısı kullanın ve atlama otomatik bağlantı oluşturma EF işlemi yapmanız gerekir. |
-| MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |Bağlantı parça eşleme ve veri bağımlı yönlendirme anahtarı bir işlevdir. Sabit veritabanı adı veya bağlantı dizesi bunlar çalışmıyor parça eşleme tarafından atlama doğrulama. |
-| MyContext(DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, Boole) |Bağlantı verilen parça eşleme ve parçalama anahtarı için sağlanan modeliyle oluşturulan. Derlenmiş modeli temel c'tor aktarılır. |
-| MyContext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, Boole) |DbContext (DbConnection, bool) |Bağlantı parça eşleme ve anahtar olayla gerekiyor. (Bu girişi zaten parça eşleme ve anahtarı kullanmadığı sürece) bir giriş olarak sağlanamaz. Boolean aktarılır. |
-| MyContext (dize, DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, Boole) |Bağlantı parça eşleme ve anahtar olayla gerekiyor. (Bu giriş parça eşleme ve anahtarı kullanmadığı sürece) bir giriş olarak sağlanamaz. Derlenmiş modeli aktarılır. |
-| MyContext (ObjectContext, bool) |ElasticScaleContext (ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |Herhangi bir giriş olarak geçirilen ObjectContext bağlantısında esnek ölçek tarafından yönetilen bir bağlantıya yeniden yönlendirilmiş olduğundan emin olmak yeni Oluşturucusu gerekir. ObjectContexts hakkında ayrıntılı bilgi, bu belgenin kapsamında değildir. |
-| MyContext (DbConnection, DbCompiledModel, Boole) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |Bağlantı parça eşleme ve anahtar olayla gerekiyor. (Bu girişi zaten parça eşleme ve anahtarı kullanmadığı sürece) bir giriş olarak bağlantı sağlanamaz. Model ve Boolean temel sınıf oluşturucu geçirilir. |
+| MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext(DbConnection, bool) |Bağlantı bir işlev parça eşleme ve veri bağımlı yönlendirme anahtarı olması gerekir. Parça eşleme Bağlantı Aracısı kullanın ve atlama otomatik bağlantı oluşturma EF işlemi yapmanız gerekir. |
+| MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext(DbConnection, bool) |Bağlantı parça eşleme ve veri bağımlı yönlendirme anahtarı bir işlevdir. Sabit veritabanı adı veya bağlantı dizesi bunlar çalışmıyor parça eşleme tarafından atlama doğrulama. |
+| MyContext(DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |Bağlantı verilen parça eşleme ve parçalama anahtarı için sağlanan modeliyle oluşturulan. Derlenmiş modeli temel c'tor aktarılır. |
+| MyContext(DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, Boole) |DbContext(DbConnection, bool) |Bağlantı parça eşleme ve anahtar olayla gerekiyor. (Bu girişi zaten parça eşleme ve anahtarı kullanmadığı sürece) bir giriş olarak sağlanamaz. Boolean aktarılır. |
+| MyContext(string, DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |Bağlantı parça eşleme ve anahtar olayla gerekiyor. (Bu giriş parça eşleme ve anahtarı kullanmadığı sürece) bir giriş olarak sağlanamaz. Derlenmiş modeli aktarılır. |
+| MyContext(ObjectContext, bool) |ElasticScaleContext (ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |Herhangi bir giriş olarak geçirilen ObjectContext bağlantısında esnek ölçek tarafından yönetilen bir bağlantıya yeniden yönlendirilmiş olduğundan emin olmak yeni Oluşturucusu gerekir. ObjectContexts hakkında ayrıntılı bilgi, bu belgenin kapsamında değildir. |
+| MyContext(DbConnection, DbCompiledModel, bool) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext(DbConnection, DbCompiledModel, bool); |Bağlantı parça eşleme ve anahtar olayla gerekiyor. (Bu girişi zaten parça eşleme ve anahtarı kullanmadığı sürece) bir giriş olarak bağlantı sağlanamaz. Model ve Boolean temel sınıf oluşturucu geçirilir. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>EF geçişler aracılığıyla parça şema dağıtımı
 Otomatik şema, Entity Framework tarafından sağlanan bir kolaylık yönetimidir. Yeni oluşturulan parça şemaya veritabanları parçalı uygulamaya eklendiğinde otomatik olarak sağlamak üzere bu özellikten korumak istediğiniz esnek veritabanı araçlarını kullanarak uygulamaları bağlamında. EF kullanan parçalı uygulamalar için veri katmanı kapasitesini artırmak için birincil kullanım durumdur. Şema Yönetimi için EF'in özellikleri güvenmek EF üzerinde oluşturulmuş parçalı bir uygulama ile veritabanı yönetim çaba azaltır. 

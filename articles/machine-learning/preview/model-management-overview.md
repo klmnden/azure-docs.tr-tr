@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning Model Yönetimi
 
@@ -99,27 +99,27 @@ Bu kavramlar açıklayan tam iş akışı aşağıdaki resimde yakalanır.
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS) 
-- Hangi veri türleri destekleniyor mu? NumPy diziler doğrudan web hizmeti için giriş olarak geçirebilirsiniz?
+- **Hangi veri türleri destekleniyor mu? NumPy diziler doğrudan web hizmeti için giriş olarak geçirebilirsiniz?**
 
    Ardından generate_schema SDK kullanılarak oluşturulmuş şema dosyası sağlıyorsanız NumPy ve/veya Pandas DF geçirebilirsiniz. Ayrıca, tüm JSON seri hale getirilebilir girişleri geçirebilirsiniz. İkili Kodlanmış dize da görüntü geçirebilirsiniz.
 
-- Web hizmeti birden çok girişi desteklemek veya farklı girişleri ayrıştırma? 
+- **Web hizmeti birden çok girişi desteklemek veya farklı girişleri ayrıştırma?**
 
    Evet, bir JSON istekteki bir sözlük olarak paketlenmiş birden çok girişi alabilir. Her giriş için tek benzersiz sözlük anahtarı karşılık gelir.
 
-- Olduğu web isteğine etkinleştiren aramaya hizmet engelleme çağrısı veya bir zaman uyumsuz çağrı?
+- **Olduğu web isteğine etkinleştiren aramaya hizmet engelleme çağrısı veya bir zaman uyumsuz çağrı?**
 
    Engelleme/zaman uyumlu bir çağrı yapılır ve ardından hizmet CLI ya da API, bir parçası olarak gerçek zamanlı seçeneği kullanılarak oluşturulduysa. Gerçek zamanlı hızlı olması bekleniyor. İstemci iş parçacığı önlemek için zaman uyumsuz HTTP kitaplığını kullanarak çağırabilirsiniz istemci tarafında engelleme rağmen.
 
-- Kaç tane istekleri web hizmeti aynı anda işleyebilir?
+- **Kaç tane istekleri web hizmeti aynı anda işleyebilir?**
 
    Küme ve web hizmeti ölçeğini bağlıdır. Çoğaltmaların 100 x hizmetinize ölçeğini ve ardından, birçok istek eşzamanlı olarak işleyebilir. Hizmet verimliliğini artırmak için en fazla eşzamanlı istek başına çoğaltma da yapılandırabilirsiniz.
 
-- Kaç tane istekleri web hizmeti sıraya?
+- **Kaç tane istekleri web hizmeti sıraya?**
 
    Yapılandırılabilir. Varsayılan olarak, tek çoğaltma başına 10 ~ ayarlanmış, ancak, artırma/bunu uygulama gereksinimlerinizi azaltma. Genellikle, artan sıraya alınan istek sayısı hizmet performansı artırır ancak yüksek yüzdebirlik değeri gecikmeleri daha da kötüsü yapar. Gecikme tutarlı tutmak için düşük bir değer (1-5) queuing ayarlamak istediğiniz ve üretilen işi işlemek için yineleme sayısı artar. Ayrıca ayarlama çoğaltmaların sayısı yüküne göre otomatik olarak yapmak için otomatik ölçeklendirmeyi etkinleştirebilirsiniz. 
 
-- Aynı makine ya da küme için birden çok web hizmeti uç noktaları kullanılabilir mi?
+- **Aynı makine ya da küme için birden çok web hizmeti uç noktaları kullanılabilir mi?**
 
    Kesinlikle. Aynı kümede Hizmetleri/uç noktaları 100 x çalıştırabilirsiniz. 
 

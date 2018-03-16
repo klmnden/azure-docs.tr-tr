@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure yığın uygulama erişim sağlamak
 
@@ -51,14 +51,14 @@ Bu bölümde, uygulamanızın temsil eden Azure AD'de uygulama (hizmet sorumlusu
 Uygulamanız için bir hizmet sorumlusu oluşturdunuz.
 
 ### <a name="get-credentials"></a>Kimlik bilgilerini alma
-Program aracılığıyla oturum açarken uygulamanız ve bir kimlik doğrulama anahtarı kimliği kullanın. Bu değerleri almak için aşağıdaki adımları kullanın:
+Program aracılığıyla oturum açarken kimliği uygulamanız için ve bir Web uygulaması için kullandığınız / API, bir kimlik doğrulama anahtarı. Bu değerleri almak için aşağıdaki adımları kullanın:
 
 1. Gelen **uygulama kayıtlar** Active Directory'de uygulamanızı seçin.
 
 2. Kopya **uygulama kimliği** ve uygulama kodunuzda saklayın. Uygulamalarda [örnek uygulamaları](#sample-applications) istemci kimliği olarak bu değer için bölümüne bakın
 
      ![istemci kimliği](./media/azure-stack-create-service-principal/image12.png)
-3. Bir kimlik doğrulama anahtarı oluşturmak için seçin **anahtarları**.
+3. Bir Web uygulaması için bir kimlik doğrulama anahtarı oluşturmak için / API, select **ayarları** > **anahtarları**. 
 
 4. Anahtar ve bir süre anahtarı için bir açıklama belirtin. İşiniz bittiğinde, seçin **kaydetmek**.
 

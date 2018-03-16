@@ -2,37 +2,24 @@
 title: "PowerShell kullanarak esnek işleri oluşturmak ve yönetmek | Microsoft Docs"
 description: "Azure SQL veritabanı havuzlarını yönetmek için kullanılan PowerShell"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-<<<<<<< HEAD
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: sstein
+ms.openlocfilehash: 17e4176129da747925596c66ca9df936a3828c2d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
-=======
-ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell (Önizleme) kullanarak SQL Database esnek işleri oluşturmak ve yönetmek
 
 PowerShell API'ler **esnek veritabanı işleri** (Önizleme) içinde göre betikleri yürütülecek grubu tanımlamanıza olanak sağlar. Bu makalede oluşturmak ve yönetmek nasıl gösterilmektedir **esnek veritabanı işleri** PowerShell cmdlet'lerini kullanarak. Bkz: [esnek iş genel bakış](sql-database-elastic-jobs-overview.md). 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Ücretsiz deneme için bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
 * Esnek veritabanı araçları ile oluşturulmuş bir veritabanları kümesi. Bkz: [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/overview).
@@ -58,7 +45,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     <td>Kimlik Bilgisi</td>
     <td>Kullanıcı adı ve parola betiklerinin yürütülmesi veya DACPACs uygulamasının veritabanlarına bağlanırken kullanılacak. <p>Parola gönderme ve esnek veritabanı iş veritabanında saklamak önce şifrelenir.  Esnek veritabanı iş hizmeti aracılığıyla oluşturulan ve yükleme komut dosyasını karşıya kimlik bilgisi tarafından şifresi parola.</td>
     <td><p>Get-AzureSqlJobCredential</p>
-    <p>AzureSqlJobCredential yeni</p><p>Set-AzureSqlJobCredential</p></td></td>
+    <p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
 
   <tr>
@@ -68,7 +55,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     <td>
     <p>Get-AzureSqlJobContent</p>
     <p>Get-AzureSqlJobContentDefinition</p>
-    <p>AzureSqlJobContent yeni</p>
+    <p>New-AzureSqlJobContent</p>
     <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
@@ -79,7 +66,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
-    <p>AzureSqlJobContent yeni</p>
+    <p>New-AzureSqlJobContent</p>
     <p>Set-AzureSqlJobContentDefinition</p>
     </td>
   </tr>
@@ -89,7 +76,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>AzureSqlJobTarget yeni</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
   <tr>
@@ -98,7 +85,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>AzureSqlJobTarget yeni</p>
+    <p>New-AzureSqlJobTarget</p>
     <p>Set-AzureSqlJobTarget</p>
     </td>
   </tr>
@@ -107,14 +94,14 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     <td>Tanımlanan grubu veritabanlarının topluca yürütme için kullanın.</td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
-    <p>AzureSqlJobTarget yeni</p>
+    <p>New-AzureSqlJobTarget</p>
     </td>
   </tr>
 <tr>
     <td>Özel Toplama alt hedef</td>
     <td>Özel bir koleksiyondan başvurulan veritabanı hedefi.</td>
     <td>
-    <p>Ekleme AzureSqlJobChildTarget</p>
+    <p>Add-AzureSqlJobChildTarget</p>
     <p>Remove-AzureSqlJobChildTarget</p>
     </td>
   </tr>
@@ -126,7 +113,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     </td>
     <td>
     <p>Get-AzureSqlJob</p>
-    <p>AzureSqlJob yeni</p>
+    <p>New-AzureSqlJob</p>
     <p>Set-AzureSqlJob</p>
     </td>
   </tr>
@@ -140,7 +127,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     <p>Get-AzureSqlJobExecution</p>
     <p>Start-AzureSqlJobExecution</p>
     <p>Stop-AzureSqlJobExecution</p>
-    <p>Bekleme AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -153,7 +140,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     <p>Get-AzureSqlJobExecution</p>
     <p>Start-AzureSqlJobExecution</p>
     <p>Stop-AzureSqlJobExecution</p>
-    <p>Bekleme AzureSqlJobExecution</p>
+    <p>Wait-AzureSqlJobExecution</p>
   </tr>
 
 <tr>
@@ -164,7 +151,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     </td>
     <td>
     <p>Get-AzureSqlJobExecutionPolicy</p>
-    <p>AzureSqlJobExecutionPolicy yeni</p>
+    <p>New-AzureSqlJobExecutionPolicy</p>
     <p>Set-AzureSqlJobExecutionPolicy</p>
     </td>
   </tr>
@@ -176,7 +163,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     </td>
     <td>
     <p>Get-AzureSqlJobSchedule</p>
-    <p>AzureSqlJobSchedule yeni</p>
+    <p>New-AzureSqlJobSchedule</p>
     <p>Set-AzureSqlJobSchedule</p>
     </td>
   </tr>
@@ -187,7 +174,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
     <p>Bir iş ve zamanlamaya göre tetikleyici iş yürütme için bir zamanlama arasında bir eşleme.</p>
     </td>
     <td>
-    <p>AzureSqlJobTrigger yeni</p>
+    <p>New-AzureSqlJobTrigger</p>
     <p>Remove-AzureSqlJobTrigger</p>
     </td>
   </tr>
@@ -346,7 +333,7 @@ Aynı **Get-AzureSqlJobExecution** cmdlet'iyle **ıncludechildren'ın** öğesin
     Write-Output $jobExecutions 
 
 ## <a name="to-view-the-state-across-multiple-job-executions"></a>Birden çok iş yürütmeleri arasında durumunu görüntülemek için
-[ **Get-AzureSqlJobExecution cmdlet'i** ](/powershell/module/elasticdatabasejobs/new-azuresqljob) aracılığıyla sağlanan parametreleri filtre birden çok iş yürütmeleri görüntülemek için kullanılan birden fazla isteğe bağlı parametre yok. Get-AzureSqlJobExecution kullanmak için olası yollardan bazılarını şunlar gösterilmektedir:
+The [**Get-AzureSqlJobExecution cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljob) has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters. Get-AzureSqlJobExecution kullanmak için olası yollardan bazılarını şunlar gösterilmektedir:
 
 Tüm etkin üst düzey iş yürütmeleri Al:
 

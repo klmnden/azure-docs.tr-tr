@@ -2,7 +2,7 @@
 title: "İş akışı tetikleyiciler ve Eylemler - Azure Logic Apps | Microsoft Docs"
 description: "Tetikleyiciler ve logic apps ile otomatik iş akışları ve işlemleri oluşturmak için Eylemler hakkında bilgi edinin"
 services: logic-apps
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
 editor: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: af30fd30f389cdc2070c45ae3b6e2cb1165239e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Tetikleyiciler ve Eylemler mantığı uygulama iş akışları için
 

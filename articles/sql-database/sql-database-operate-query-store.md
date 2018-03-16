@@ -1,26 +1,19 @@
 ---
 title: "Azure SQL veritabanındaki Query Store işletim"
 description: "Azure SQL veritabanındaki Query Store çalışması öğrenin"
-keywords: 
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: jhubbard
-editor: 
-ms.assetid: 0cccf6bd-1327-44f7-a6f9-8eff0c210463
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: sqldb-performance
-ms.workload: Inactive
 ms.date: 11/08/2016
 ms.author: bonova
-ms.openlocfilehash: e57f1c51ef5c551f3b2e5d0f0a51a1f462b6c1af
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c3780f6efe87437742af7c1b8f6a3e6d0ee243
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL veritabanındaki Query Store işletim
 Query Store Azure sürekli olarak toplayan ve tüm sorguları hakkında ayrıntılı geçmiş bilgileri sunan bir tam olarak yönetilen veritabanı özelliğidir. Query Store hakkında önemli ölçüde hem bulut için sorun giderme sorgu performansı basitleştirir ve şirket içi müşteriler uçak 's uçuş veri Kaydedicisi benzer olarak düşünebilirsiniz. Bu makalede Azure sorgu deposunda işletim belirli yönleri açıklanmaktadır. Bu önceden toplanan verileri kullanarak, hızlı bir şekilde tanılayabilir ve performans sorunlarını gidermek ve böylece işletmelerini odaklanan daha fazla zaman ayırın. 
@@ -39,9 +32,9 @@ Bu bölümde, Query Store ve bağımlı özelliklerinin güvenilir işlemi gibi 
 | --- | --- | --- | --- |
 | MAX_STORAGE_SIZE_MB |Query Store içinde müşteri veritabanı alabilir veri alanı için üst sınırını belirtir |100 |Yeni veritabanları için zorlanan |
 | İNTERVAL_LENGTH_MİNUTES DEĞERİ |İçinde sorgu planları için toplanan çalışma zamanı istatistikleri toplanır ve kalıcı zaman penceresi boyutunu tanımlar. Bu yapılandırma ile tanımlanan süre her etkin sorgu planı en çok bir satır var. |60 |Yeni veritabanları için zorlanan |
-| STALE_QUERY_THRESHOLD_DAYS DEĞERİ |Kalıcı çalışma zamanı istatistikleri ve etkin olmayan sorguları saklama süresi denetimleri zamana dayalı temizleme İlkesi |30 |Yeni veritabanları ve önceki varsayılan (367) ile veritabanları için zorlanan |
-| SİZE_BASED_CLEANUP_MODE DEĞERİ |Query Store veri boyutu sınırı yaklaştığında otomatik veri temizleme gerçekleşir olup olmadığını belirtir |OTOMATİK |Tüm veritabanları için zorlanan |
-| QUERY_CAPTURE_MODE DEĞERİ |Tüm sorgular veya yalnızca bir alt sorgu izlenen olup olmadığını belirtir |OTOMATİK |Tüm veritabanları için zorlanan |
+| STALE_QUERY_THRESHOLD_DAYS |Kalıcı çalışma zamanı istatistikleri ve etkin olmayan sorguları saklama süresi denetimleri zamana dayalı temizleme İlkesi |30 |Yeni veritabanları ve önceki varsayılan (367) ile veritabanları için zorlanan |
+| SIZE_BASED_CLEANUP_MODE |Query Store veri boyutu sınırı yaklaştığında otomatik veri temizleme gerçekleşir olup olmadığını belirtir |AUTO |Tüm veritabanları için zorlanan |
+| QUERY_CAPTURE_MODE |Tüm sorgular veya yalnızca bir alt sorgu izlenen olup olmadığını belirtir |AUTO |Tüm veritabanları için zorlanan |
 | FLUSH_INTERVAL_SECONDS |Çalışma zamanı istatistikleri bellekte diske temizleme önce tutulduğu en fazla süre yakalanan belirtir |900 |Yeni veritabanları için zorlanan |
 |  | | | |
 

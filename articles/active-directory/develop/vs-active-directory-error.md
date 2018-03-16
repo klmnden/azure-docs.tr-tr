@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory Bağlantı Sihirbazı ile hataları tanılama"
-description: "Active directory Bağlantı Sihirbazı'nı uyumsuz kimlik doğrulama türü algılandı"
+title: "Azure Active Directory ile hataları tanılamak nasıl hizmete bağlı"
+description: "Active directory bağlı hizmet uyumsuz kimlik doğrulama türü algılandı"
 services: active-directory
 documentationcenter: 
 author: kraigb
-manager: mtillman
+manager: ghogen
 editor: 
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
@@ -12,88 +12,88 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 186bb1ede11c869b1352906b7ebafe57025f4f09
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab81c3385479a96fbfa7e68c4e81129ff327ed4b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Azure Active Directory Bağlantı Sihirbazı ile hataları tanılama
-Sihirbaz, önceki kimlik doğrulama kodu algılanırken uyumsuz kimlik doğrulama türü algıladı.   
+# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Azure Active Directory bağlı hizmeti ile hataları tanılama
 
-## <a name="what-is-being-checked"></a>Ne denetlenen?
-**Not:** doğru projede önceki kimlik doğrulama kodu algılamak için proje oluşturulmalıdır.  Bu hata ile karşılaştı ve önceki bir kimlik doğrulama kodu projenizde sahip değilseniz, yeniden oluşturun ve yeniden deneyin.
+Önceki kimlik doğrulama kodu algılanırken Azure Active Directory connect sunucusu uyumsuz kimlik doğrulama türü algıladı.
 
-### <a name="project-types"></a>Proje türleri
-Sihirbaz projeye sağ kimlik doğrulaması mantığı ekleyemezsiniz şekilde geliştirirken projesi türünü denetler.  Türetilen denetleyici ise `ApiController` projede Proje Webapı proje olarak kabul edilir.  Öğesinden türetilen denetleyicileri varsa `MVC.Controller` projesinde projeye MVC projesinde olarak kabul edilir.  Başka bir şey, sihirbaz tarafından desteklenmiyor.
+Doğru projede önceki kimlik doğrulama kodu algılamak için proje oluşturulmalıdır.  Bu hata ile karşılaştı ve önceki bir kimlik doğrulama kodu projenizde sahip değilseniz, yeniden oluşturun ve yeniden deneyin.
 
-### <a name="compatible-authentication-code"></a>Uyumlu kimlik doğrulama kodu
-Sihirbaz aynı zamanda daha önce Sihirbazı ile yapılandırılmış veya Sihirbazı ile uyumlu olan kimlik doğrulama ayarlarını denetler.  Tüm ayarları varsa, içe servis talebi kabul edilir ve Sihirbazı açılır ayarları görüntüleyin.  Yalnızca bazı ayarlar mevcut bir hata durumu olarak kabul edilir.
+## <a name="project-types"></a>Proje türleri
 
-MVC projesinde, sihirbazın önceki kullanımdan neden aşağıdaki ayarlardan birini Sihirbazı'nı denetler:
+Bağlı hizmet, projeye sağ kimlik doğrulaması mantığı ekleyemezsiniz şekilde geliştirirken projesi türünü denetler. Türetilen denetleyici ise `ApiController` projede Proje Webapı proje olarak kabul edilir. Öğesinden türetilen denetleyicileri varsa `MVC.Controller` projesinde projeye MVC projesinde olarak kabul edilir. Bağlantılı hizmeti, herhangi bir proje türü desteklemiyor.
+
+## <a name="compatible-authentication-code"></a>Uyumlu kimlik doğrulama kodu
+
+Bağlı hizmet ayrıca, önceden yapılandırılmış veya hizmeti ile uyumlu olan kimlik doğrulama ayarlarını denetler. Tüm ayarları varsa, içe servis talebi kabul edilir ve bağlı hizmet açılır ayarları görüntüleyin.  Yalnızca bazı ayarlar mevcut bir hata durumu olarak kabul edilir.
+
+MVC projesinde, önceki hizmet kullanımdan neden aşağıdaki ayarlardan birini bağlı hizmet denetler:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Ayrıca, herhangi bir Web API projesi Sihirbazı'nın önceki kullanımdan sonucunda aşağıdaki ayarları Sihirbazı'nı denetler:
+Ayrıca, bağlantılı hizmet hizmet önceki kullanımdan neden Web API projesinde, aşağıdaki ayarlardan birini denetler:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:Audience" value="" />
 
-### <a name="incompatible-authentication-code"></a>Uyumsuz kimlik doğrulama kodu
-Son olarak, sihirbaz, Visual Studio'nun önceki sürümleri ile yapılandırılan kimlik doğrulama kodu sürümleri algılamaya çalışır. Bu hatayı aldıysanız, projenizin bir uyumsuz kimlik doğrulama türünü içeren anlamına gelir. Sihirbaz, Visual Studio'nun önceki sürümleri kimlik doğrulamasını aşağıdaki türlerini algılar:
+## <a name="incompatible-authentication-code"></a>Uyumsuz kimlik doğrulama kodu
 
-* Windows Kimlik Doğrulaması 
-* Bireysel kullanıcı hesapları 
-* Kurumsal hesaplar 
+Son olarak, Visual Studio'nun önceki sürümleri ile yapılandırılan kimlik doğrulama kodu sürümlerini algılamak bağlı hizmet çalışır. Bu hatayı aldıysanız, projenizin bir uyumsuz kimlik doğrulama türünü içeren anlamına gelir. Bağlantılı hizmeti, Visual Studio'nun önceki sürümleri kimlik doğrulamasını aşağıdaki türlerini algılar:
 
-Sihirbaz Windows kimlik doğrulaması MVC projesinde algılamak için arar `authentication` öğesinden, **web.config** dosya.
+* Windows Kimlik Doğrulaması
+* Bireysel kullanıcı hesapları
+* Kurumsal hesaplar
 
-<pre>
-    &lt;configuration&gt;
-        &lt;system.web&gt;
-            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-        &lt;/system.web&gt;
-    &lt;/configuration&gt;
-</pre>
+Windows kimlik doğrulaması MVC projesinde algılamak için bağlı arar `authentication` öğesinde, `web.config` dosya.
 
-Sihirbaz Windows kimlik doğrulaması Web API projesinde algılamak için arar `IISExpressWindowsAuthentication` projenizin öğesinden **.csproj** dosyası:
+```xml
+<configuration>
+    <system.web>
+        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+    </system.web>
+</configuration>
+```
 
-<pre>
-    &lt;Project&gt;
-        &lt;PropertyGroup&gt;
-            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/PropertyGroup>
-    &lt;/Project&gt;
-</pre>
+Bağlantılı hizmeti bir Web API projesinde Windows kimlik doğrulaması algılamak için arar `IISExpressWindowsAuthentication` projenizin öğesinde `.csproj` dosyası:
 
-Bireysel kullanıcı hesapları kimlik doğrulaması algılamak için paket öğesinden sihirbaz arar, **Packages.config** dosya.
+```xml
+<Project>
+    <PropertyGroup>
+        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+    </PropertyGroup>
+</Project>
+```
 
-<pre>
-    &lt;packages&gt;
-        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-    &lt;/packages&gt;
-</pre>
+Bireysel kullanıcı hesapları kimlik doğrulaması algılamak için bağlı hizmet paketi öğesinde arar, `packages.config` dosya.
 
-Kurumsal hesap kimlik doğrulaması eski bir formu algılamak için aşağıdaki öğeyi sihirbaz arar **web.config**:
+```xml
+<packages>
+    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+</packages>
+```
 
-<pre>
-    &lt;configuration&gt;
-        &lt;appSettings&gt;
-            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-        &lt;/appSettings&gt;
-    &lt;/configuration&gt;
-</pre>
+Kurumsal hesap kimlik doğrulaması eski bir formu algılamak için aşağıdaki öğesinde bağlantılı hizmet arar`web.config`:
 
-Kimlik doğrulama türünü değiştirmek için uyumsuz kimlik doğrulama türünü kaldırmak ve sihirbazı yeniden çalıştırın.
+```xml
+<configuration>
+    <appSettings>
+        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+    </appSettings>
+</configuration>
+```
+
+Kimlik doğrulama türünü değiştirmek için uyumsuz kimlik doğrulama türünü kaldırmak ve bağlı hizmet yeniden eklemeyi deneyin.
 
 Daha fazla bilgi için bkz: [Azure AD için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md).
-
-#<a name="next-steps"></a>Sonraki adımlar
-- [Azure AD için Kimlik Doğrulama Senaryoları](active-directory-authentication-scenarios.md)

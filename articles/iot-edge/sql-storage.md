@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>SQL Server veritabanlarına sahip sınırda veri depolama
 
@@ -67,7 +67,7 @@ Adım 3'te, ortam değişkenleri ve persistant depolama kurmak için önemli ola
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -94,7 +94,12 @@ Adım 3'te, ortam değişkenleri ve persistant depolama kurmak için önemli ola
         }
    ```
 
-3. Çalıştırdığınız işletim sistemi'ne bağlı olarak SQL Modülü aşağıdaki kod ile güncelleştirin: 
+3. Değiştir `<docker registry address>` tamamlanmış öğreticiye doldurulmuş adresiyle [Azure işlevi dağıtmak bir IOT kenar modül - Önizleme](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
+
+   >[!NOTE]
+   >Kapsayıcı kayıt defteri adresi kayıt defterinden kopyaladığınız oturum açma sunucusu ile aynıdır. Biçiminde olmalıdır `<your container registry name>.azurecr.io`
+
+4. Çalıştırdığınız işletim sistemi'ne bağlı olarak SQL Modülü aşağıdaki kod ile güncelleştirin: 
 
    * Windows:
 
@@ -110,11 +115,11 @@ Adım 3'te, ortam değişkenleri ve persistant depolama kurmak için önemli ola
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. Dosyayı kaydedin. 
-5. VS Code komutu Palette seçin **kenar: sınır cihazı için dağıtımı oluşturma**. 
-6. IOT kenar cihaz kimliği seçin.
-7. Seçin `deployment.json` , güncelleştirilmiş dosya. Çıktı penceresinde dağıtımınız için karşılık gelen çıkışları görebilirsiniz. 
-8. Edge çalışma zamanı başlatmak için **kenar: Başlangıç kenar** komutu paletindeki.
+5. Dosyayı kaydedin. 
+6. VS Code komutu Palette seçin **kenar: sınır cihazı için dağıtımı oluşturma**. 
+7. IOT kenar cihaz kimliği seçin.
+8. Seçin `deployment.json` , güncelleştirilmiş dosya. Çıktı penceresinde dağıtımınız için karşılık gelen çıkışları görebilirsiniz. 
+9. Edge çalışma zamanı başlatmak için **kenar: Başlangıç kenar** komutu paletindeki.
 
 >[!TIP]
 >Bir üretim ortamında, bir SQL Server kapsayıcı oluşturmak istediğiniz zaman, gereken [varsayılan sistem yöneticisi parolasını değiştirme](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).

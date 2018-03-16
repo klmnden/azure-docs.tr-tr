@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Bir Azure Machine Learning işlem (CBE) kümede SSL etkinleştir 
 
@@ -31,7 +31,7 @@ Bu yönergeler, Machine Learning işlem (CBE) kümede çağrıları Puanlama iç
 
 Önkoşulları tamamladıktan sonra iki dosya gerekir:
 
-* Sertifika, örneğin bir dosyanın, `cert.pem`
+* Bu gibi bir durumda sertifikası için bir dosya `cert.pem`. Dosyanın tam sertifika zinciri olduğundan emin olun.
 * Bir dosya için anahtar, örneğin `key.pem`
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>CNAME ve IP adresi eşleme
 
-Önkoşullar seçili CNAME ve gerçek zamanlı ön uç (FE) IP adresi arasında bir eşleme oluşturun. FE IP adresini bulmak için aşağıdaki komutu çalıştırın. Çıktıyı "ön uç gerçek zamanlı küme IP adresini içeren Publicıpaddress" adlı bir alan görüntüler. Bir CNAME kaydı ayarlamak için DNS sağlayıcınız yönergelerine bakın.
+Önkoşullar seçili CNAME ve gerçek zamanlı ön uç (FE) IP adresi arasında bir eşleme oluşturun. FE IP adresini bulmak için aşağıdaki komutu çalıştırın. Çıktıyı "ön uç gerçek zamanlı küme IP adresini içeren Publicıpaddress" adlı bir alan görüntüler. Genel IP adresi CNAME içinde kullanılan FQDN bir kaydı kümeden için DNS sağlayıcınız yönergelerine bakın.
 
 
 

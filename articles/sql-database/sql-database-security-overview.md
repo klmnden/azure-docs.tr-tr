@@ -2,25 +2,19 @@
 title: "Azure SQL Veritabanı Güvenliğine Genel Bakış | Microsoft Belgeleri"
 description: "Şirket içi SQL Server ve bulut arasındaki farklar de dahil, Azure SQL Database ve SQL Server güvenliği hakkında bilgi edinin."
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: 
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-your-sql-database"></a>SQL Veritabanınızı güvenli hale getirme
 
@@ -62,7 +56,6 @@ Güvenlik duvarları, verilerinizin korunmasına yardımcı olmak üzere [güven
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 SQL veritabanı kimlik doğrulaması, veritabanına bağlanırken kimliğinizi nasıl kanıtlayacağınızı belirtir. SQL Veritabanı iki kimlik doğrulaması türünü destekler:
-
 * **SQL Kimlik Doğrulaması**: Kullanıcı adı ve parola kullanır. Veritabanınıza ait mantıksal sunucuyu oluşturduktan sonra kullanıcı adı ve parola belirleyerek "sunucu yöneticisi" oturum açma bilgisi oluşturdunuz. Bu kimlik bilgilerini kullanarak veritabanı sahibi veya "dbo" olarak sunucudaki tüm veritabanları için kimlik doğrulamasından geçebilirsiniz. 
 * **Azure Active Directory Kimlik Doğrulaması**: Azure Active Directory tarafından yönetilen kimlikleri kullanır, yönetilen ve tümleşik etki alanları ile kullanılabilir. [Mümkün olduğunda](https://msdn.microsoft.com/library/ms144284.aspx) Active Directory kimlik doğrulamasını (tümleşik güvenlik) kullanın. Azure Active Directory Kimlik Doğrulamasını kullanmak istiyorsanız, Azure AD kullanıcılarını ve gruplarını yönetme izni olan "Azure AD yöneticisi" adlı başka bir sunucu yöneticisi daha oluşturmanız gerekir. Bu yönetici normal bir sunucu yöneticisinin gerçekleştirebileceği tüm işlemleri yapabilir. Azure Active Directory kimlik doğrulamasını etkinleştirme amacıyla Azure AD yöneticisi oluşturma adımları için bkz. [Azure Active Directory Kimlik Doğrulaması kullanarak SQL Veritabanına Bağlanma](sql-database-aad-authentication.md).
 
@@ -86,6 +79,21 @@ Tehdit algılama, denetleme, erişmek veya veritabanlarını yararlanmak için a
  
 ## <a name="compliance"></a>Uyumluluk
 Yukarıdaki özelliklerine ve çeşitli güvenlik, Azure SQL veritabanı da gereksinimlerini uygulamanızı yardımcı olan işlevselliği ek olarak normal denetimleri katılan ve uyumluluk standartlarına çeşitli karşı sertifikalı. Daha fazla bilgi için günceli [SQL Veritabanı uyumluluk sertifikası](https://azure.microsoft.com/support/trust-center/services/) listesine ulaşabileceğiniz [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/) sayfasına bakın.
+
+
+## <a name="security-management"></a>Güvenlik yönetimi
+
+SQL veritabanı, veri güvenliği veritabanı tarar ve Merkezi güvenlik Panoyu kullanarak sağlayarak yönetmenize yardımcı [SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md).
+
+**Güvenlik Açığı değerlendirmesi**: [SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md) (halen) önizlemesidir kolay bir Azure SQL veritabanına bulmak, izlemek ve olası veritabanı düzeltebilirsiniz yardımcı olabilecek yerleşik aracı yapılandırmak güvenlik açıkları. Değerlendirme veritabanınızın üzerinde bir güvenlik açığı taraması yürütür ve güvenlik sorunlarını çözün ve veritabanı güvenliğini tıklatılabilir dahil olmak üzere, güvenlik durumu bakışını sunan bir rapor oluşturur. Değerlendirme rapor izni yapılandırmaları, özellik yapılandırmaları ve veritabanı ayarları için kabul edilebilir bir taban çizgisi ayarlayarak, ortamınız için özelleştirilebilir. Bu size yardımcı olabilir:
+
+- Veritabanı tarama raporları gerektiren bir uyumluluk gereksinimini karşılar. 
+
+- Veri gizliliği standartları karşılar. 
+
+- Değişiklikleri izlemek zor olduğu bir dinamik veritabanı ortamı izleyin.
+
+Daha fazla bilgi için bkz: [SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

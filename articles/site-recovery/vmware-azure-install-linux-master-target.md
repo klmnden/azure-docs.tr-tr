@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Bir Linux ana hedef sunucu yükle
 Azure sanal makineleriniz başarısız olduktan sonra sanal makineler şirket içi siteye geri başarısız olabilir. Yeniden çalışmak için Azure sanal makineden şirket içi siteye koruyun gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -41,7 +41,7 @@ POST yorumlarınızı ve sorularınızı bu makalenin veya sonunda [Azure kurtar
 
 Ana hedef aşağıdaki boyutlandırma yönergelere uygun olarak oluşturun:
 - **RAM**: 6 GB veya daha fazla
-- **İşletim sistemi disk boyutu**: 100 GB veya daha fazla (CentOS6.6 yüklemek için)
+- **İşletim sistemi disk boyutu**: 100 GB veya daha fazla (işletim sistemi yüklemek için)
 - **Saklama sürücüsünün için ek disk boyutu**: 1 TB
 - **CPU çekirdekleri**: 4 çekirdek ya da daha fazla bilgi
 
@@ -112,24 +112,31 @@ DVD sürücüsüne bir Ubuntu 16.04.2 en az 64-bit ISO tutmak ve sistem başlat�
 
 1.  Seçin **Evet** disk ve ardından değişiklik yazmak için **Enter**.
 
-1.  Yapılandırma proxy Seçimi'nde, varsayılan seçeneği seçin, **devam**ve ardından **Enter**.
+    ![Varsayılan seçenek seçin](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Varsayılan seçenek seçin](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  Yapılandırma proxy Seçimi'nde, varsayılan seçeneği seçin, **devam**ve ardından **Enter**.
+     
+     ![Yükseltmeler yönetme seçin](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Seçin **otomatik güncelleştirme** sisteminize yükseltmeler yönetmek için seçim seçeneğini ve ardından **Enter**.
 
-     ![Yükseltmeler yönetme seçin](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Yükseltmeler yönetme seçin](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Azure Site Recovery ana hedef sunucusu Ubuntu çok belirli bir sürümünü gerektirdiğinden, yükseltmeler sanal makine için devre dışı bırakılır çekirdek emin olmak gerekir. Etkinleştirilirse, normal bir yükseltme ana hedef sunucusunda çalışmasına neden. Seçtiğinizden emin olun **otomatik güncelleştirme** seçeneği.
 
 1.  Varsayılan seçenekleri seçin. SSH bağlantısı için openSSH istiyorsanız seçin **OpenSSH server** seçeneğini ve ardından **devam**.
 
-    ![Yazılımı seçin](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Yazılımı seçin](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. KAZ önyükleme yükleyicisi yükleme selction içinde seçin **Evet**ve ardından **Enter**.
+     
+    ![KAZ önyükleme yükleyicisi](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Önyükleme yükleyicisi yükleme için uygun aygıt seçin (tercihen **/dev/sda**) ve ardından **Enter**.
+     
+    ![Uygun aygıt seçin](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Seçin **devam**ve ardından **Enter** yüklemenin tamamlanması için.
 
@@ -154,7 +161,7 @@ Bir Linux sanal makinedeki her bir SCSI sabit disk için kimliği almak için **
 
 4. Sol bölmede seçin **Gelişmiş** > **genel**ve ardından **yapılandırma parametrelerini** ekranın sağ alt bölümünde bulunan düğmesi.
 
-    ![Seçenekler sekmesi](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Açık yapılandırma parametresi](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     **Yapılandırma parametrelerini** seçeneği kullanılamaz makine çalışırken. Bu sekme etkin hale getirmek için sanal makineyi kapatın.
 
@@ -168,7 +175,7 @@ Bir Linux sanal makinedeki her bir SCSI sabit disk için kimliği almak için **
 
     - Ad sütununda eklemek **disk. EnableUUID**ve ardından değeri **doğru**.
 
-    ![Olup olmadığını denetleme disk. EnableUUID zaten var.](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![Olup olmadığını denetleme disk. EnableUUID zaten var.](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Çekirdek yükseltmeler devre dışı bırak
 
@@ -244,7 +251,7 @@ Saklama diskinin oluşturmak için aşağıdaki adımları kullanın:
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![Bir dosya sistemi sürücüsünde oluşturma](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![Bir dosya sistemi sürücüsünde oluşturma](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Dosya sistemi oluşturduktan sonra saklama diskinin bağlayın.
 
@@ -252,7 +259,6 @@ Saklama diskinin oluşturmak için aşağıdaki adımları kullanın:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![Saklama diskinin bağlama](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Oluşturma **fstab** sistem her başlatıldığında saklama sürücüsünün bağlamak için girişi.
     

@@ -2,24 +2,18 @@
 title: "Performans önerileri - Azure SQL veritabanı | Microsoft Docs"
 description: "Azure SQL veritabanı geçerli sorgu performansını artırmak, SQL veritabanları için öneriler sağlar."
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: monicar
-ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 09/20/2017
-ms.author: 
-ms.openlocfilehash: b3cd5f2138f4d16a1a1590b025d020410ebcce3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sstein
+ms.openlocfilehash: 47e93d270aa3596430ab5892b2bd9323fba1d12e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL veritabanı için performans önerileri
 

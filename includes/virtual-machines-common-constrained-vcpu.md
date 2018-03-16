@@ -1,5 +1,19 @@
-
-
+---
+title: "include dosyası"
+description: "include dosyası"
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 0b6846a68806354a58516fcbc87913815af87343
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/16/2018
+---
 SQL Server veya Oracle gibi bazı veritabanı iş yükleri, yüksek bellek, depolama ve g/ç bant genişliği, ancak yüksek çekirdek sayısı gerektirir. Çok sayıda veritabanı iş yükü CPU-yoğun değildir. Azure VM vCPU sayısı aynı bellek, depolama ve g/ç bant genişliği koruyarak Yazılım Lisanslama maliyetini azaltmak için burada kısıtlayabilirsiniz belirli VM boyutları sunar.
 
 VCPU sayısı kısıtlı özgün VM boyutunun yarısı ya da bir üç aylık dönem için. Bu yeni VM boyutları belirlemenizi kolaylaştırmak için etkin Vcpu'lar sayısını belirten bir son eke sahip.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
-ms.author: terrylan
-ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/13/2018
+ms.author: barclayn
+ms.openlocfilehash: 229f83d4d74837e506c30a0fd8c704da2b7dc12a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Azure Güvenlik Merkezi uyarılarını Azure günlük tümleştirme ile tümleştirme
 Çok sayıda güvenlik işlemleri ve olay yanıtı takımlar önceliklendirmek ve güvenlik uyarıları İnceleme için başlangıç noktası olarak bir güvenlik bilgileri ve Olay yönetimi (SIEM) çözümünü kullanır. Azure günlük Tümleştirmesi ile Azure Güvenlik Merkezi uyarılarını SIEM çözümünüzle birlikte tümleştirebilirsiniz.

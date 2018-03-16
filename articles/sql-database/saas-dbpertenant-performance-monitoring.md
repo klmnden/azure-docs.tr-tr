@@ -3,24 +3,18 @@ title: "Bir çok kiracılı SaaS uygulamasında birçok Azure SQL veritabanı pe
 description: "İzleme ve Azure SQL veritabanı ve bir çok kiracılı SaaS uygulama havuzlarında performansını yönetme"
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>İzleme ve Azure SQL veritabanı ve bir çok kiracılı SaaS uygulama havuzlarında performansını yönetme
 
@@ -28,7 +22,7 @@ Bu öğretici kapsamında, SaaS uygulamalarında kullanılan birkaç önemli per
 
 Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama her salonundan (Kiracı) kendi veritabanına sahip olduğu bir kiracı tek veri modeli kullanır. Birçok SaaS uygulaması gibi, beklenen kiracı iş yükü düzeni öngörülemez ve düzensizdir. Diğer bir deyişle, bilet satışı herhangi bir zamanda gerçekleşebilir. Bu tipik veritabanı kullanım düzeninden yararlanmak için kiracı veritabanları elastik veritabanı havuzlarına dağıtılır. Elastik havuzlar, kaynakları çok sayıda veritabanı arasında paylaştırarak çözüm maliyetini en iyi duruma getirir. Bu düzen türü ile yüklerin havuzlar arasında makul bir şekilde dengelendiğinden emin olmak için veritabanı ve havuz kaynak kullanımının izlenmesi önemlidir. Ayrıca, her bir veritabanının yeterli kaynağa sahip olduğundan ve havuzların [eDTU](sql-database-what-is-a-dtu.md) sınırına ulaşmadığından emin olmanız gerekir. Bu öğreticide, veritabanı ve havuzları izleyip yönetme yollarını ve iş yükündeki değişikliklere yanıt olarak nasıl düzeltici işlem yapılacağını incelenmektedir.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 
@@ -181,7 +175,7 @@ Havuz ölçeğini artırmanın alternatif bir yolu, ikinci bir havuz oluşturup 
     1. Tıklatın **eklemek veritabanları** eklenebilir sunucusundaki veritabanlarının listesini görmek için *Pool2*.
     1. Bu yeni havuzuna taşıyın ve ardından 10 istediğiniz veritabanlarını seçin **seçin**. Yük Oluşturucu çalışır durumda, hizmet performansı profilinizi varsayılan 50 eDTU boyutundan daha büyük bir havuzu gerektirir ve bir 100 eDTU ayarı ile başlayan önerir zaten bilir.
 
-    ![Öneri](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+    ![öneri](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
     1. Bu öğretici için varsayılan 50 Edtu bırakın ve tıklatın **seçin** yeniden.
     1. Seçin **Tamam** yeni havuzu oluşturun ve içine seçilen veritabanlarını taşımak için.
@@ -234,7 +228,7 @@ Toplu kiracı kullanımının öngörülebilir kullanım düzenlerini takip etti
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Sağlanan bir yük oluşturucuyu çalıştırarak kiracı veritabanlarındaki kullanımın benzetimini gerçekleştirme

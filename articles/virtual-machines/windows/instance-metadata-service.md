@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 8b9e79a2be26cf279abe0d29db1738b695622e9f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 50a6004d6b52e48fe762a896f7ab1a523cee4f32
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti
 
@@ -36,7 +36,7 @@ Hizmeti genel olarak kullanılabilir Azure bölgelerde kullanılabilir. Tüm API
 
 Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Tüm genel olarak kullanılabilir genel Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel olarak kullanılabilir   | 2017-04-02, 2017-08-01, 2017 12 01(This version is not available in UK regions)
+[Tüm genel olarak kullanılabilir genel Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel olarak kullanılabilir   | 2017-04-02, 2017-08-01, 2017-12-01
 [Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel olarak kullanılabilir | 2017-04-02,2017-08-01
 [Azure Çin](https://www.azure.cn/)                                                           | Genel olarak kullanılabilir | 2017-04-02,2017-08-01
 [Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel olarak kullanılabilir | 2017-04-02,2017-08-01
@@ -406,7 +406,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. Neden iletisi alıyorum hata `500 Internal Server Error`?
    * Üstel geri alma sistem göre isteğinizi yeniden deneyin. Sorun devam ederse Azure desteğine başvurun.
 6. Burada ek soruları/açıklamalar paylaşmak?
-   * Yorumlarınızı üzerinde http://feedback.azure.com gönderin.
+   * Yorumlarınızı gönderme http://feedback.azure.com.
 7. Bu sanal makine ölçek kümesi örneği için çalışır?
    * Evet meta veri hizmeti için ölçek kümesi örnek kullanılabilir. 
 8. Hizmet için nasıl destek alma?

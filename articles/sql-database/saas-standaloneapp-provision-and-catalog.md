@@ -3,24 +3,18 @@ title: "Çok kiracılı SaaS öğretici - Azure SQL veritabanı | Microsoft Docs
 description: "Tek başına uygulama desenini kullanarak sağlama ve Katalog yeni kiracılar"
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: SaaS
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 148a50d07d4cea7adda493b283766d22d26b81e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Sağlama ve Kiracı SaaS deseni başına uygulamayı kullanarak yeni kiracılar katalog
 

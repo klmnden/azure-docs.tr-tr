@@ -1,20 +1,20 @@
 ---
 title: "Azure’da bir Jenkins sunucusu oluşturma"
 description: "Jenkins çözüm şablonundan Azure Linux sanal makinesine Jenkins’i yükleyin ve örnek bir Java uygulaması oluşturun."
-author: mlearned
-manager: douge
+author: tomarcher
+manager: rloutlaw
 ms.service: multiple
 ms.workload: web
-ms.devlang: java
+ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
-ms.author: mlearned
+ms.date: 03/12/2018
+ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 422d133841a380b1ef02e95245207c464089138d
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure portalından Azure Linux VM'de bir Jenkins sunucusu oluşturma
 
@@ -28,32 +28,13 @@ Bu hızlı başlangıç, Ubuntu Linux VM'de araçları ve eklentileri Azure ile 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>Çözüm şablonundan Jenkins VM’si oluşturma
+Jenkins burada server temsilciler projeleri çok sayıda konak veya farklı ortamlar için gerekli sağlamak için tek bir Jenkins yüklenmesine izin vermek için bir veya daha fazla aracılar için iş Jenkins derlemeler modelini destekler veya sınar. Bu bölümdeki adımları yüklerken ve Azure üzerinde bir Jenkins sunucusunu yapılandırırken size kılavuzluk.
 
-Web tarayıcınızda [Jenkins için mağaza görüntüsü](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) adresine gidin ve sayfanın sol tarafındaki **ŞİMDİ EDİN** bağlantısını seçin. Fiyatlandırma ayrıntılarını gözden geçirin ve **Devam**’ı seçin, ardından Azure portalında Jenkins sunucusunu yapılandırmak için **Oluştur**’u seçin. 
-   
-![Azure portalı iletişim kutusu](./media/install-jenkins-solution-template/ap-create.png)
-
-**Temel ayarları yapılandırma** sekmesinde, aşağıdaki alanları doldurun:
-
-![Temel ayarları yapılandırma](./media/install-jenkins-solution-template/ap-basic.png)
-
-* **Ad** olarak **Jenkins** yazın.
-* Bir **Kullanıcı adı** girin. Kullanıcı adı [belirli gereksinimleri](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) karşılamalıdır.
-* **Kimlik doğrulama türü** olarak **Parola**’yı seçin ve bir parola girin. Parola bir büyük harf karakter, bir sayı ve bir özel karakter içermelidir.
-* **Kaynak grubu** için **myJenkinsResourceGroup** değerini kullanın.
-* **Konum** açılır menüsünden **Doğu ABD** [Azure bölgesini](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) seçin.
-
-**Ek seçenekleri yapılandırma** sekmesine geçmek için **Tamam**’ı seçin. Jenkins sunucusunu belirtecek benzersiz bir etki alanı adı girin ve **Tamam**’ı seçin.
-
-![Ek seçenekleri ayarlama](./media/install-jenkins-solution-template/ap-addtional.png)  
-
- Doğrulama başarılı olduktan sonra **Özet** sekmesinde tekrar **Tamam**’ı seçin. Son olarak da Jenkins VM’sini oluşturmak için **Satın al**’ı seçin. Sunucunuz hazır olduğunda, Azure portalında bir bildirim alırsınız:   
-
-![Jenkins hazır bildirimi](./media/install-jenkins-solution-template/jenkins-deploy-notification-ready.png)
+[!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Jenkins’e bağlanma
 
-Web tarayıcınızdan sanal makinenize (örneğin http://jenkins2517454.eastus.cloudapp.azure.com/) gidin. Jenkins konsoluna güvenli olmayan HTTP üzerinden erişilemeyeceğinden Jenkins konsoluna bilgisayarınızdan SSH tüneli kullanarak güvenli bir şekilde erişmek için yönergeler bu sayfada sağlanmıştır.
+Sanal makinenize gidin (örneğin, http://jenkins2517454.eastus.cloudapp.azure.com/) web tarayıcınızda. Jenkins konsoluna güvenli olmayan HTTP üzerinden erişilemeyeceğinden Jenkins konsoluna bilgisayarınızdan SSH tüneli kullanarak güvenli bir şekilde erişmek için yönergeler bu sayfada sağlanmıştır.
 
 ![Jenkins’in kilidini açma](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

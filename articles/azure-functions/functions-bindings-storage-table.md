@@ -15,17 +15,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7f82083cd18f762d1037da2ccf43e9d0c220fe09
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8c028bd20518a07a5fb35e36d0819c001eb2a7d5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
 Bu makalede Azure Table depolama bağlamaları Azure işlevlerinde ile nasıl çalışılacağını açıklar. Giriş ve Azure tablo depolaması için bağlamaları çıktı Azure işlevleri destekler.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paketler
+
+Tablo depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) GitHub depo.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="input"></a>Girdi
 
@@ -288,7 +294,7 @@ module.exports = function (context, myQueueItem) {
  
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), tablo giriş bağlama yapılandırmak için aşağıdaki öznitelikler kullanın:
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
 
   Özniteliğin Oluşturucusu tablo adı, bölüm anahtarını ve satır anahtarını alır. Aşağıdaki örnekte gösterildiği gibi bir out parametresi ya da işlevin dönüş değeri kullanılabilmesi için:
 
@@ -318,7 +324,7 @@ module.exports = function (context, myQueueItem) {
 
   Tam bir örnek için bkz: [giriş - C# örnek](#input---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Depolama hesabı belirtmek için başka bir yol sağlar. Oluşturucusu depolama bağlantı dizesi içeren bir uygulama ayarı adını alır. Öznitelik parametre, yöntemi veya sınıf düzeyinde uygulanabilir. Aşağıdaki örnek, sınıf ve yöntem düzeyindeki gösterir:
 
@@ -567,7 +573,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
 
 Özniteliğin Oluşturucusu tablo adını alır. Üzerinde kullanılabilir bir `out` parametresi veya aşağıdaki örnekte gösterildiği gibi işlevinin dönüş değeri:
 
@@ -625,7 +631,7 @@ Table storage bağlama destekler aşağıdaki senaryolarda çıktı:
 
 * **C# veya C# içinde bir veya daha fazla satır yazma**
 
-  C# ve C# betik çıktı tablosu varlık yöntemi parametresini kullanarak erişim `ICollector<T> paramName` veya `ICollectorAsync<T> paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T` eklemek istediğiniz varlıklar şeması belirtir. Genellikle, `T` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. Bölüm anahtarı ve satır anahtarı değerlerini *function.json* veya `Table` öznitelik oluşturucunun Bu senaryoda kullanılmaz.
+  C# ve C# betik çıktı tablosu varlık yöntemi parametresini kullanarak erişim `ICollector<T> paramName` veya `IAsyncCollector<T> paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T` eklemek istediğiniz varlıklar şeması belirtir. Genellikle, `T` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. Bölüm anahtarı ve satır anahtarı değerlerini *function.json* veya `Table` öznitelik oluşturucunun Bu senaryoda kullanılmaz.
 
   Alternatif kullanmaktır bir `CloudTable paramName` yöntem parametresi Azure depolama SDK'sını kullanarak tabloya yazabilirsiniz.
 

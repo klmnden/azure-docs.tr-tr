@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -36,8 +36,19 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 
 Karşıdan yükleme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117500"></a>1.1.750.0
+Durum: Bu sürüm otomatik yükseltme etkinleştirdiyseniz AADConnect kiracılar için bir küçük ve rastgele seçimi şu anda dağıtılmış müşterileri seçmek üzere'yi yayınladı. Biz kiracılar bu grubu otomatik yükseltme müşterilerimizin % 100 bu sürümde aldığınız kadar önümüzdeki haftalarda genişletin. Bundan sonra biz derleme genel indirmek için yukarıdaki indirme bağlantıyı gönderecek.
+>[!NOTE]
+>Bu yeni sürüme yükseltme işlemi tamamlandığında, bir tam eşitleme ve Azure AD Bağlayıcısı için tam içeri aktarma ve tam bir eşitleme AD Bağlayıcısı için otomatik olarak tetikler. Bu Azure AD Connect ortamınızın boyutuna bağlı olarak biraz zaman alabilir bu yana Bunu desteklemek veya bunu yapmak için kullanışlı bir dakikanızı bulduğunuz kadar yükseltmeye bekletir için gerekli adımları gerçekleştirdiğinizden emin olun.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Giderilen sorunlar
+
+* Otomatik yükseltme durumu "askıda" olarak ayarlandıysa, set-ADSyncAutoUpgrade cmdlet'i daha önce Autoupgrade engellenebilir. Bu, artık AutoUpgrade gelecekteki derlemelerin engellemez şekilde değiştirilir.
+
 ## <a name="117490"></a>1.1.749.0
-Durum: Bu sürüm otomatik yükseltme etkinleştirdiyseniz AADConnect kiracılar küçük ve rastgele bölümünü şu anda dağıtılmış müşterileri seçmek üzere'yi yayınladı. Biz kiracılar bu grubu otomatik yükseltme müşterilerimizin % 100 bu sürümde aldığınız kadar önümüzdeki haftalarda genişletin. Bundan sonra biz sonrası derleme genel indirmek için yukarıdaki indirme bağlantısında - şu anda planlanan için Orta Mart 2018.
+Durum: müşterileri seçmek üzere serbest bırakılmış
+
 >[!NOTE]
 >Bu yeni sürüme yükseltme işlemi tamamlandığında, bir tam eşitleme ve Azure AD Bağlayıcısı için tam içeri aktarma ve tam bir eşitleme AD Bağlayıcısı için otomatik olarak tetikler. Lütfen bu Azure AD Connect ortamınızın boyutuna bağlı olarak biraz zaman alabilir bu yana Bunu desteklemek veya bunu yapmak için kullanışlı bir dakikanızı bulduğunuz kadar yükseltmeye bekletir için gerekli adımları gerçekleştirdiğinizden emin olun.
 
@@ -45,15 +56,15 @@ Durum: Bu sürüm otomatik yükseltme etkinleştirdiyseniz AADConnect kiracılar
 #### <a name="fixed-issues"></a>Giderilen sorunlar
 * Sonraki sayfaya geçiş yaparken bölüm filtreleme sayfası için arka plan görevleri zamanlama penceresi düzeltin.
 
-* ConfigDB özel eylemi sırasında erişim ihlali neden hatanın düzeltildiğini
+* ConfigDB özel eylemi sırasında erişim ihlali neden olan bir hata sabit.
 
 * SQL bağlantı zaman aşımı kurtarmak için bir hata sabit.
 
-* Sertifikaları SAN joker karakterlerle bir önkoşul denetimi başarısız olduğu hatanın düzeltildiğini
+* Bir hata sertifikaları SAN joker karakterlerle bir önkoşul denetimi başarısız olduğu sabit.
 
 * Miiserver.exe çökmesine neden olan bir Azure AD Bağlayıcısı dışa aktarma sırasında bir hata sabit.
 
-* Yapılandırmasını değiştirmek için Azure AD Connect sihirbazını çalıştırırken hangi hatalı parola denemesi günlüğe bir hata DC üzerinde sabit
+* Hangi hatalı parola denemesi günlüğe bir hata DC üzerinde yapılandırmasını değiştirmek için Azure AD Connect sihirbazını çalıştırırken sabit.
 
 
 #### <a name="new-features-and-improvements"></a>Yeni özellikleri ve geliştirmeleri
@@ -223,7 +234,7 @@ Durum: 19 Ekim 2017
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
 >[!NOTE]
-> Not: Eşitleme hizmeti, kendi özel Zamanlayıcı geliştirmenize olanak sağlayan bir WMI arabirimine sahiptir. Bu arabirim artık kullanım dışıdır ve gelecekteki kaldırılacak Azure AD Connect'in sürümlerinde sevk 30 Haziran 2018 sonra. Eşitleme zamanlaması özelleştirmek istediğiniz müşteriler [yerleşik Zamanlayıcı (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler). kullanmanız gerekir
+> Not: Eşitleme hizmeti, kendi özel Zamanlayıcı geliştirmenize olanak sağlayan bir WMI arabirimine sahiptir. Bu arabirim artık kullanım dışıdır ve gelecekteki kaldırılacak Azure AD Connect'in sürümlerinde sevk 30 Haziran 2018 sonra. Eşitleme zamanlaması özelleştirmek istediğiniz müşteriler kullanması gereken [yerleşik Zamanlayıcı (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Giderilen sorunlar
 * Azure AD Connect Sihirbazı değişiklikleri şirket içi Active Directory'den eşitlemek için gereken AD Bağlayıcısı hesap oluşturduğunda, o doğru hesap PublicFolder nesneleri okumak için gerekli izni atamaz. Bu sorun, hızlı yükleme ve özel yükleme etkiler. Bu değişiklik sorunu giderir.
@@ -787,8 +798,8 @@ Yayımlanma tarihi: Şubat 2016
 
 * [Otomatik yükseltmeyi](active-directory-aadconnect-feature-automatic-upgrade.md) özellik hızlı ayarları müşteriler için.
 * Yükleme Sihirbazı'nda Azure çok faktörlü kimlik doğrulaması ve Privileged Identity Management kullanarak genel yönetici desteği.
-  * Ayrıca çok faktörlü kimlik doğrulaması kullanırsanız https://secure.aadcdn.microsoftonline-p.com trafiğine izin verecek şekilde proxy izin vermeniz gerekir.
-  * Multi-Factor Authentication'ın düzgün çalışması için Güvenilen siteler listesine https://secure.aadcdn.microsoftonline-p.com eklemeniz gerekir.
+  * Ayrıca trafiğine izin verecek şekilde proxy izin vermeniz https://secure.aadcdn.microsoftonline-p.com çok faktörlü kimlik doğrulaması kullanır.
+  * Eklemenize gerek https://secure.aadcdn.microsoftonline-p.com düzgün çalışması çok faktörlü kimlik doğrulaması için Güvenilen siteler listesine.
 * İlk yüklemeden sonra kullanıcının oturum açma yöntemini değiştirme izin verin.
 * İzin [etki alanı ve OU filtreleme](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) Yükleme Sihirbazı'nda. Bu, aynı zamanda tüm etki alanları kullanılabildiği ormanlara bağlanma sağlar.
 * [Zamanlayıcı](active-directory-aadconnectsync-feature-scheduler.md) eşitleme altyapısı yerleşiktir.

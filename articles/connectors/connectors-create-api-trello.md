@@ -3,7 +3,7 @@ title: "Azure mantıksal uygulamaları Trello Bağlayıcısı | Microsoft Docs"
 description: "Logic apps ile Azure uygulama hizmeti oluşturun. Trello tüm projeleriniz, işyerinde ve evde perspektif sağlar.  Bu projelerinizi yönetmek ve herhangi bir şey düzenlemek için bir kolay, ücretsiz, esnek ve görsel yoludur.  Panoları, listeler ve kartları yönetmek için Trello için Bağlan"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: fedf0ffe11763dcfccadf78c0b258c8bce773376
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 6773ddd1da5c013b7a0ca7d2855806d606720469
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-trello-connector"></a>Trello Bağlayıcısı ile çalışmaya başlama
 Trello tüm projeleriniz, işyerinde ve evde perspektif sağlar.  Bu projelerinizi yönetmek ve herhangi bir şey düzenlemek için bir kolay, ücretsiz, esnek ve görsel yoludur.  Panoları, listeler ve kartları yönetmek için Trello için bağlayın.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 1130ce3231b9e96a03d3e8dc5f75721dd0415928
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 65185a2d594a4a251cf87ece6f758ab3db223d7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Node.js uygulamasını Azure Service Fabric'te barındırma
 
@@ -136,7 +136,7 @@ Bu adrese gidin; `HELLO WORLD` yanıtını göreceksiniz.
 Bu hızlı başlangıç için oluşturduğunuz kaynakların tümünü silmeyi unutmayın, çünkü bu kaynaklar için ücretlendirilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Konuk yürütülebilir dosyaları](service-fabric-deploy-existing-app.md) hakkındaki diğer yazıları okuyun.
+[Konuk yürütülebilir dosyaları](service-fabric-guest-executables-introduction.md) hakkındaki diğer yazıları okuyun.
 
 <!-- Image References -->
 

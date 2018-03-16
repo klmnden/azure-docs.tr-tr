@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Günlük analizi Görünüm Tasarımcısı döşemeleri Başvuru Kılavuzu
 Azure günlük analizi Görünüm Tasarımcısı kullanarak veri görselleştirmeleri günlük analizi çalışma alanınızdaki çeşitli sunmak Azure Portalı'nda özel görünümler oluşturabilirsiniz. Bu makalede, ayarları özel görünümlerde kullanılabilir döşeme için bir başvuru kılavuzdur.
@@ -28,8 +28,6 @@ Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 * [Görüntüleme Tasarımcısı](log-analytics-view-designer.md): oluşturma ve özel görünümler düzenleme Görünüm Tasarımcısı ve yordamları genel bakış sağlar.
 * [Görselleştirme bölümü başvuru](log-analytics-view-designer-parts.md): başvuru kılavuzu için özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlar sağlar.
 
-> [!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), tüm görünümleri sorgularda yazılmalıdır [yeni sorgu dili](https://go.microsoft.com/fwlink/?linkid=856078). Çalışma alanı yükseltmeden önce oluşturulmuş görünümler otomatik olarak dönüştürülür.
 
 Kullanılabilir Görünüm Tasarımcısı döşeme aşağıdaki tabloda açıklanmıştır:  
 

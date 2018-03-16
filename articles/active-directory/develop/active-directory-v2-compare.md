@@ -1,5 +1,5 @@
 ---
-title: "Azure AD v2.0 uç farklı nedir? | Microsoft Belgeleri"
+title: "Azure AD v2.0 uç farklı nedir? | Microsoft Docs"
 description: "Özgün Azure AD arasında bir karşılaştırma ve v2.0 uç noktaları."
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>V2.0 uç noktası hakkında farklı nedir?
 Azure Active Directory ile tanıdık veya uygulamaları geçmişte Azure AD ile tümleşik değil beklediğiniz v2.0 uç noktası bazı farklılıklar olabilir.  Bu belge, anlamak için bu farkları çıkışı çağırır.
@@ -56,10 +56,10 @@ Bizim AIM bu bir daha Basitleştirilmiş uygulama yönetimi ve geliştirme deney
 ## <a name="scopes-not-resources"></a>Kapsamları, kaynakları değil
 Azure Active Directory'de bir uygulama olarak davranabilir bir **kaynak**, veya bir alıcının belirteçleri.  Bir kaynak bir dizi tanımlayabilirsiniz **kapsamları** veya **oAuth2Permissions** anladığı, istemci bu kaynağa kapsamları belirli bir dizi için belirteçler istemek uygulamaları sağlar.  Örnek bir kaynak olarak Azure AD Graph API göz önünde bulundurun:
 
-* Kaynak tanımlayıcısı veya `AppID URI`:`https://graph.windows.net/`
+* Kaynak tanımlayıcısı veya `AppID URI`: `https://graph.windows.net/`
 * Kapsamları veya `OAuth2Permissions`: `Directory.Read`, `Directory.Write`vb.  
 
-Tüm bunlar tutan true v2.0 uç noktası.  Bir uygulamayı hala davranabilir kaynak olarak kapsamları tanımlamak ve bir URI tarafından tanımlanan.  İstemci uygulamaları hala bu kapsamlara erişim isteğinde bulunabilirsiniz.  Ancak, bir istemci bu izinleri ister şekilde değiştirdi.  Geçmişte, OAuth 2.0 yetkilendirme isteği Azure ad Aranan gibi:
+Tüm bu tutar v2.0 uç noktası için true.  Bir uygulamayı hala davranabilir kaynak olarak kapsamları tanımlamak ve bir URI tarafından tanımlanan.  İstemci uygulamaları hala bu kapsamlara erişim isteğinde bulunabilirsiniz.  Ancak, bir istemci bu izinleri ister şekilde değiştirdi.  Geçmişte, OAuth 2.0 yetkilendirme isteği Azure ad Aranan gibi:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?

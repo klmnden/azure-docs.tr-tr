@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
@@ -23,7 +23,7 @@ Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışm
 Destek Ekibi ile iletişim kurarken, çalışma ekranı uygulamanın yapı numarası eklemek önemlidir. Windows üzerinde tıklayarak yapı numarası bulabilirsiniz **yardımcı** menü ve **hakkında Azure ML çalışma ekranı**. MacOS üzerinde tıklatabilirsiniz **Azure ML çalışma ekranı** menü ve **hakkında Azure ML çalışma ekranı**.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN Forumu
-Sorular nakledebilirsiniz bir MSDN Forumu sunuyoruz. Ürün ekibi forum etkin olarak izler. URL Forumu [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+Sorular nakledebilirsiniz bir MSDN Forumu sunuyoruz. Ürün ekibi forum etkin olarak izler. URL Forumu [ https://aka.ms/azureml-forum ](https://aka.ms/azureml-forum). 
 
 ## <a name="gather-diagnostics-information"></a>Tanılama bilgileri toplayın
 Bazen yardımını isterken tanı bilgilerini sağlarsanız, yararlı olabilir. Günlük dosyalarının nerede Canlı aşağıda verilmiştir:
@@ -99,10 +99,10 @@ Güncelleştirme zaten yüklenmiş. Ancak sabitlenmiş kısayolu hala eski BITS 
 
 ### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Bir Windows DSVM "Azure ML çalışma ekranı Yükle" bağlantıyı kullanarak çalışma ekranı yüklü
 Ne yazık ki bu bir kolay düzeltme yoktur. Yüklü BITS kaldırın ve çalışma ekranı yeni yükleme için en son yükleyici indirmek için aşağıdaki adımları uygulamanız gerekir: 
-   - klasörü kaldırın`C:\Users\<Username>\AppData\Local\amlworkbench`
-   - komut dosyasını kaldırma`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - klasörü kaldırın `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - komut dosyasını kaldırma `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - Yukarıdaki komut dosyasını başlatır masaüstü kısayolu
-   - Yükleyici https://aka.ms/azureml-wb-msi indirin ve yükleyin.
+   - Yükleyici indirmek https://aka.ms/azureml-wb-msi ve yeniden yükleyin.
 
 ## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Oturum açtıktan sonra "deneme hesabı denetim" ekranında takılmış
 Oturum açtıktan sonra çalışma ekranı uygulama boş bir ekranda dönen Tekerlek "denetleme deneme hesabı" gösteren bir iletiyle takılı. Bu sorunu çözmek için aşağıdaki adımları uygulayın:
@@ -203,11 +203,14 @@ Ayrıca, bir veri diski ekleyin ve görüntüleri saklamak için veri diski kull
 Veya, işletim sistemi diski genişletebilirsiniz ve Docker altyapısı yapılandırması touch gerekmez. Burada [nasıl işletim sistemi diski genişletebilirsiniz](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM
@@ -233,7 +236,7 @@ Genellikle bu yapmanız gerekmez. Ancak, yüklemenin tamamen temizlerler durumda
   - Ardından yükleyin ve aşağıdaki komut dosyalarından birini çalıştırın:
     - [Windows komut satırı komut dosyası](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
     - [Windows PowerShell komut dosyası](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Çalıştırmanız gerekebilir `Set-ExecutionPolicy Unrestricted` komut dosyasını çalıştırmadan önce bir ayrıcalık yükseltilmiş PowerShell penceresinde.)
-- MacOS üzerinde:
+- On macOS:
   - Yalnızca indirme ve çalıştırma [macOS bash Kabuk betiği](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
 
 

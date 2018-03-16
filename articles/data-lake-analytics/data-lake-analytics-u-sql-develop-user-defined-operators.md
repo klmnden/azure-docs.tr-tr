@@ -3,8 +3,8 @@ title: "U-SQL kullanıcı tanımlı işleçler (Udo'lar) geliştirme | Microsoft
 description: "Kullanıcı tanımlı işleçler kullanılan ve Data Lake Analytics işleri yeniden için geliştirmeyi öğrenin. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: kfile
 editor: cgronlun
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.service: data-lake-analytics
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: saveenr
+ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL kullanıcı tanımlı işleçler (Udo'lar) geliştirin
 Kullanıcı tanımlı işleçler bir U-SQL işi verileri işlemek için geliştirmeyi öğrenin.
@@ -29,7 +29,7 @@ U-SQL için genel amaçlı derlemeleri geliştirme ile ilgili yönergeler için 
 **Oluşturmak ve U-SQL işi göndermek için**
 
 1. Visual Studio seçin gelen **Dosya > Yeni > Proje > U-SQL projesi**.
-2. **Tamam** düğmesine tıklayın. Visual Studio Script.usql dosyası ile çözüm oluşturur.
+2. **Tamam**’a tıklayın. Visual Studio Script.usql dosyası ile çözüm oluşturur.
 3. Gelen **Çözüm Gezgini**Script.usql genişletin ve ardından **Script.usql.cs**.
 4. Dosyasına aşağıdaki kodu yapıştırın:
 

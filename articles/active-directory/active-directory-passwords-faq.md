@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi sık sorulan sorular
 
@@ -40,7 +40,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
 
 * **S: Kullanıcılarım kendi parola sıfırlama verileri kaydedebilirsiniz?**
 
-  > **Y:** Evet. Parola sıfırlama etkindir ve lisansına sahip olduğunuz sürece, kullanıcıların kendi kimlik doğrulama bilgilerini kaydetmek için parola sıfırlama kayıt portalı için (https://aka.ms/ssprsetup) gidebilirsiniz. Kullanıcıların erişim paneli (http://myapps.microsoft.com) da kaydedebilirsiniz. Erişim paneli kaydetmek için için ihtiyaç duydukları kendi profil resmi seçin, **profil**ve ardından **parola sıfırlama için kaydetme** seçeneği.
+  > **Y:** Evet. Parola sıfırlama etkinleştirilmişse ve lisansına sahip olduğunuz sürece, kullanıcılar için parola sıfırlama kayıt portalı gidebilirsiniz (https://aka.ms/ssprsetup) kendi kimlik doğrulama bilgilerini kaydetmek için. Kullanıcılar ayrıca erişim paneli kaydeder (http://myapps.microsoft.com). Erişim paneli kaydetmek için için ihtiyaç duydukları kendi profil resmi seçin, **profil**ve ardından **parola sıfırlama için kaydetme** seçeneği.
   >
   >
 * **S: parola etkinleştirirseniz, bir grup için sıfırlamak ve herkesin my kullanıcılar gerekli yeniden kaydettirin etkinleştirmek karar?**
@@ -105,7 +105,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
     >Bu zaman dilimi içinde bildirim almadıysanız:
         > * Gereksiz klasörünüzü kontrol edin.
         > * Numarası veya e-posta iletişim kurulan bir beklediğiniz olup olmadığını denetleyin.
-        > * Kimlik doğrulama verilerinin dizininde doğru olduğunu denetleyin biçimlendirilmiş, örneğin, + 1 4255551234 veya * user@contoso.com *. 
+        > * Kimlik doğrulama verilerinin dizininde doğru olduğunu denetleyin biçimlendirilmiş, örneğin, + 1 4255551234 veya  *user@contoso.com* . 
   >
   >
 * **S: hangi dilde parola sıfırlama tarafından destekleniyor mu?**
@@ -269,7 +269,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
   >
 * **S: hangi tür hesabı için parola geri yazma çalışıyor mu?**
 
-  > **Y:** parola geri yazma, Federasyon için çalışır ve parola karması eşitlenen kullanıcılar.
+  > **Y:** dahil olmak üzere şirket içi Active Directory'den Azure AD'ye eşitlenen kullanıcı hesapları için parola geri yazma çalışır, Federasyon, eşitlenen parola karması ve doğrudan Autentication kullanıcılar.
   >
   >
 * **S: parola geri yazma etki alanımın parola ilkelerini zorlamak mu?**

@@ -3,7 +3,7 @@ title: "Azure Active Directory v2.0 belirteçler başvurusu | Microsoft Docs"
 description: "Azure AD v2.0 uç noktası tarafından gösterilen talep ve belirteç türleri"
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: hpsin
 manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 belirteç başvurusu
 Azure Active Directory (Azure AD) v2.0 uç her güvenlik belirteçleri çeşitli türlerde yayar [kimlik doğrulaması akışı](active-directory-v2-flows.md). Bu başvuru biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklar.
@@ -57,7 +57,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Ad | İste | Örnek değer | Açıklama |
 | --- | --- | --- | --- |
 | Hedef kitle |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Belirtecin hedeflenen alıcı tanımlar. Kimliği belirteçlerinde İzleyici uygulamanızın uygulama Microsoft uygulaması kayıt portalında uygulamanıza atanan kimliğidir. Uygulamanız bu değeri doğrulamak ve değer eşleşmiyorsa belirteci reddetme gerekir. |
-| Veren |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndüren güvenlik belirteci hizmeti (STS) tanımlar. Uygulamanızı belirteç v2.0 uç noktasından gelen emin olmak için verenin talep doğrulamalıdır. Bu aynı zamanda talep GUID bölümünü uygulamaya oturum açarak kiracılar sınırlamak için kullanmanız gerekir. Kullanıcı bir Microsoft hesabı tüketici kullanıcıdan geldiğini belirten GUID'dir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| issuer |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndüren güvenlik belirteci hizmeti (STS) tanımlar. Uygulamanızı belirteç v2.0 uç noktasından gelen emin olmak için verenin talep doğrulamalıdır. Bu aynı zamanda talep GUID bölümünü uygulamaya oturum açarak kiracılar sınırlamak için kullanmanız gerekir. Kullanıcı bir Microsoft hesabı tüketici kullanıcıdan geldiğini belirten GUID'dir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | çıkışı |`iat` |`1452285331` |Belirteç düzenlendiği zaman dönem saatle gösterilir. |
 | süre sonu |`exp` |`1452289231` |Hangi belirteci geçersiz hale geldiği tarih dönem saatle gösterilir. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
 | önce değil |`nbf` |`1452285331` |Hangi belirtecin geçerli olduğu zaman dönem saatle gösterilir. Genellikle verme süresi ile aynı değil. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
@@ -86,7 +86,7 @@ Yenileme belirteçleri çok kaynak. Bir kaynak için bir belirteç isteğini sı
 
 Bir yenileme belirteci yanıt olarak almak için uygulamanızı istemelisiniz ve verilmesi `offline_acesss` kapsam. Daha fazla bilgi edinmek için `offline_access` kapsam için bkz: [onay ve kapsamları](active-directory-v2-scopes.md) makale.
 
-Yenileme belirteçlerini olan ve her zaman, uygulamanıza tamamen opak olacaktır. Bunlar Azure AD v2.0 uç noktası tarafından verilir ve yalnızca Denetlenmekte ve v2.0 uç noktası tarafından yorumlanır. Uzun süreli, ancak bir yenileme belirteci süre boyunca sürer beklenir uygulamanızı yazılmamalıysa. Çeşitli nedenlerle herhangi bir anda yenileme belirteçleri geçersiz olabilir. Tek bir yenileme belirteci geçerli olup olmadığını bilmek, uygulamanız için bir belirteç isteğini v2.0 uç noktasına yaparak kullanma girişiminde yoludur.
+Yenileme belirteçlerini olan ve her zaman, uygulamanıza tamamen opak olacaktır. Bunlar Azure AD v2.0 uç noktası tarafından verilir ve yalnızca Denetlenmekte ve v2.0 uç noktası tarafından yorumlanır. Uzun süreli, ancak bir yenileme belirteci süre boyunca sürer beklenir uygulamanızı yazılmamalıysa. Yenileme belirteçleri geçersiz kılınan olabilir - Ayrıntılar için çeşitli nedenlerle herhangi bir anda bkz [belirteci iptal](active-directory-token-and-claims.md#token-revocation). Tek bir yenileme belirteci geçerli olup olmadığını bilmek, uygulamanız için bir belirteç isteğini v2.0 uç noktasına yaparak kullanma girişiminde yoludur.
 
 Yeni bir erişim belirteci için bir yenileme belirteci almak zaman (ve uygulamanızı verilen `offline_access` kapsam), belirteç yanıt olarak yeni bir yenileme belirteci alma. İstekte kullanılan bir değiştirmek için yeni verilen yenileme belirteci kaydedin. Bu, yenileme belirteçleri mümkün olduğunca uzun bir süre geçerli kalacağını güvence altına alır.
 
@@ -140,7 +140,7 @@ Uygulamanızı gerçekleştirmesi gereken talep doğrulamaları tam bir listesi 
 
 Bu talep beklenen değerler ayrıntılarını dahil edilmiştir [kimlik belirteçlerini](# ID tokens) bölümü.
 
-## <a name="token-lifetimes"></a>Belirteç yaşam süresi
+## <a name="token-lifetimes"></a>Belirteç ömürleri
 Aşağıdaki belirteci yaşam süreleri bilgilerinizi yalnızca sunuyoruz. Geliştirmek ve uygulama hata ayıklama bilgileri size yardımcı olabilir. Uygulamalarınızı sabit kalması için bu yaşam süreleri hiçbirini beklenir yazılmamalıysa. Yaşam süresi can belirteci ve herhangi bir zamanda değiştirir.
 
 | Belirteç | Yaşam süresi | Açıklama |

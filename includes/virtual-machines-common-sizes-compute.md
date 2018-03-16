@@ -1,3 +1,19 @@
+---
+title: "include dosyası"
+description: "include dosyası"
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 9602e8d73e5aca650dd20da34a9aa675b508ada7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/16/2018
+---
 <!-- F-series, Fs-series* -->
 
 En iyi duruma getirilmiş VM boyutları yüksek CPU ve bellek oranı vardır ve orta trafiği web sunucuları, ağ cihazları, toplu işlemler ve uygulama sunucuları için iyi işlem. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar.

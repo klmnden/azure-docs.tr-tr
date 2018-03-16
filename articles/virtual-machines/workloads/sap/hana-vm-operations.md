@@ -13,20 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/17/2017
+ms.date: 03/13/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-<<<<<<< HEAD
-ms.openlocfilehash: 0328bdc40429e1e82a76f290f5bde39089db0a9d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 1d6991d40b9bb8543898bbbdc9d7c905dfe11536
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 0cb715960a516c6b2ca16376c12cb6f796e0b395
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA üzerinde Azure işlemler Kılavuzu
 Bu belgede işletim Azure yerel sanal makinelerde (VM'ler) dağıtılan SAP HANA sistemleri için yönergeler sağlanmaktadır. Bu belge aşağıdaki içeriği içerir standart SAP belgeleri değiştirmek üzere tasarlanmamıştır:
@@ -62,7 +56,7 @@ Siteden siteye bağlantı VPN ya da ExpressRoute aracılığıyla üretim senary
 Üretim senaryoları için kullanılabilecek Azure VM türleri listelenen [IAAS SAP belgelerine](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). Üretim dışı senaryoları için çok çeşitli yerel Azure VM türleri kullanılabilir.
 
 >[!NOTE]
->Üretim dışı senaryoları için listelenen VM türlerini kullanan [SAP Not #1928533](https://launchpad.support.sap.com/#/notes/1928533).
+> Üretim dışı senaryoları için listelenen VM türlerini kullanan [SAP Not #1928533](https://launchpad.support.sap.com/#/notes/1928533). SAP HANA yayımlanan SAP Vm'lerde sertifikalı kullanımını Azure VM'ler için üretim senaryoları için kontrol [sertifikalı Iaas platformlar listesi](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
 Azure'da Vm'leri kullanarak dağıtın:
 
@@ -70,7 +64,7 @@ Azure'da Vm'leri kullanarak dağıtın:
 - Azure PowerShell cmdlet'leri.
 - Azure CLI.
 
-Ayrıca, bir tam yüklü SAP HANA platformda Azure VM Hizmetler aracılığıyla dağıtabilirsiniz [SAP bulut platformu](https://cal.sap.com/). Yükleme işlemi açıklanan [dağıtmak SAP S/4HANA veya BW/4HANA Azure üzerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
+Ayrıca, bir tam yüklü SAP HANA platformda Azure VM Hizmetler aracılığıyla dağıtabilirsiniz [SAP bulut platformu](https://cal.sap.com/). Yükleme işlemi açıklanan [dağıtmak SAP S/4HANA veya BW/4HANA Azure üzerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) veya yayımlanan otomasyon ile [burada](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### <a name="choose-azure-storage-type"></a>Azure depolama türü seçin
 Azure SAP HANA çalışan Azure VM'ler için uygun olan iki tür depolama sağlar:
@@ -80,29 +74,112 @@ Azure SAP HANA çalışan Azure VM'ler için uygun olan iki tür depolama sağla
 
 Azure, Azure standart ve Premium depolama VHD için iki dağıtım yöntemleri sunar. Genel senaryo izin veriliyorsa, yararlanmak [Azure disk yönetilen](https://azure.microsoft.com/services/managed-disks/) dağıtımları.
 
-Depolama türlerini ve SLA'ları listesi için gözden [yönetilen diskler için Azure belgelerine](https://azure.microsoft.com/pricing/details/managed-disks/).
+Depolama türlerini ve SLA'ları IOPS ve depolama iş çıkarma listesi için gözden [yönetilen diskler için Azure belgelerine](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-Azure Premium diskleri /hana/data ve /hana/log birimleri için önerilir. Bir LVM RAID birden çok Premium depolama diski oluşturun ve RAID /hana/data olarak ve /hana/log birimler kullanın.
+### <a name="configuring-the-storage-for-azure-virtual-machines"></a>Azure sanal makineler için depolama yapılandırma
 
-Aşağıdaki tabloda müşteriler sık kullandığınız VM türleri bir ana bilgisayara SAP HANA Azure vm'lerinde gösterir:
+SAP HANA cihazları şirket içi için satın aldığınız şekilde uzaklığa kadar hiçbir zaman Gereci satıcı minimum depolama gereksinimleri için SAP HANA karşılandığından emin olmak gerektiğinden g/ç alt sistemleri ve özelliklerini hakkında önemli gerekiyordu. Azure altyapısı kendiniz oluşturmak gibi aynı zamanda bazı ayrıca aşağıdaki bölümlerde önerdiğimiz yapılandırma gereksinimlerini anlamak için bu gereksinimleri farkında olmalıdır. Sanal makineler yapılandırmakta olduğunuz nerede durumları için SAP HANA çalıştırmak istediğiniz veya. Bazı sorulur özelliklerine gerek sonuçta:
 
-| VM SKU | RAM | En çok, VM G/Ç<br /> Aktarım hızı | / hana/veri ve/hana/günlük<br /> LVM veya MDADM şeritli | / hana/paylaşılan | / root birim | / usr/sap | hana/yedekleme |
+- 250 MB/sn en az 1 MB g/ç boyutlarıyla /hana/log okuma/yazma birimde etkinleştir
+- En az 400 MB/sn 16 MB ile 64 MB g/ç boyutları için /hana/data için okuma etkinlik etkinleştir
+- En az 250 MB/sn /hana/data 16 MB ile 64 MB g/ç boyutu için yazma etkinliği etkinleştir
+
+SAP HANA gibi bu bellekteki verileri tutmak gibi düşük o depolama gecikme DBMS sistemler için kritik öneme sahiptir. Kritik depolama genellikle işlem günlük yazma DBMS sistemlerinin yoludur. Ancak aynı zamanda operations kayıt yazmak veya veri bellek içi kilitlenme kurtarma kritik sonra yükleme. Bu nedenle, /hana/data ve /hana/log birimleri için Azure Premium diskleri kullanabilmeniz için zorunludur. / Hana/log/hana/verileri SAP tarafından istenen olarak ve minimum verime ulaşmak için bir RAID 0 yapı gerekir MDADM veya LVM birden çok Azure Premium Storage diskleri kullanarak ve RAID birimleri/hana/veri ve/hana/günlük birimleri kullanabilirsiniz. Şerit RAID 0 öneri boyutları olarak kullanmaktır:
+
+- 64K veya/hana/veriler için 128K
+- / Hana/günlüğü için 32K
+
+> [!NOTE]
+> Azure Premium ve standart depolama VHD üç görüntüleri tutmak bu yana RAID birimleri kullanılarak herhangi bir artıklık düzeyi yapılandırmak gerekmez. Yalnızca bir RAID birimi kullanımını yeterli g/ç işleme sağlamak birimleri yapılandırmaktır.
+
+Azure VHD'ler bir RAID altında bir dizi biriktirme, bir IOPS ve depolama verimliliği taraftan biriktirici olur. 3 x P30 Azure Premium Storage diskler üzerinde RAID 0 yerleştirirseniz, bu nedenle, bu, üç kez IOPS ve tek bir Azure Premium Storage P30 diskinin depolama verimliliğini üç kez vermesi gerekir.
+
+Premium depolama /hana/data ve /hana/log için kullanılan diskler üzerinde önbelleğe alma yapılandırmayın. Bu birimlerin oluşturma tüm diskleri 'Yok' olarak ayarlanan bu disklerin önbelleğe alma olması gerekir.
+
+Ayrıca genel VM g/ç işleme boyutlandırma veya bir VM için karar aklınızda bulundurun. VM depolama verimliliğini makalesinde genel belgelenen [bellek için iyileştirilmiş sanal makine boyutlarını](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
+
+#### <a name="cost-conscious-azure-storage-configuration"></a>Maliyet bilinçli Azure depolama yapılandırması
+Aşağıdaki tabloda konak SAP HANA Azure vm'lerinde müşteriler sık kullandığınız VM türleri yapılandırmasını gösterir. SAP HANA için en az tüm ölçüt karşılamayabilir bazı VM türleri olabilir. Ancak şu ana kadar bu VM'lerin üretim dışı senaryoları için ince ayar yapmak gibi görünüyor. 
+
+> [!NOTE]
+> Üretim senaryoları için SAP içinde tarafından belirli bir VM türü için SAP HANA desteklenip desteklenmediğini kontrol [IAAS SAP belgelerine](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+
+
+
+| VM SKU | RAM | En çok, VM I/O<br /> Aktarım hızı | / hana/veri ve/hana/günlük<br /> LVM veya MDADM şeritli | / hana/paylaşılan | / root birim | / usr/sap | hana/yedekleme |
 | --- | --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128 GiB | 384 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
-| E32v3 | 256 Gib'den | 768 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 Gib'den | 1200 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| GS5 | 448 Gib'den | 2000 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1000 Gib'den | 1000 GB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
-| M64ms | 1750 Gib'den | 1000 GB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2000 Gib'den | 2000 GB |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
-| M128ms | 3800 Gib'den | 2000 GB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
+| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| GS5 | 448 GiB | 2000 MB/sn | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M64s | 1000 Gib'den | 1000 MB/sn | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64ms | 1750 GiB | 1000 MB/sn | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | 2000 Gib'den | 2000 MB/sn |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
+| M128ms | 3800 GiB | 2000 MB/sn | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
 
+
+Daha küçük VM ile 3 x P20 oversize birimleri ayarına göre alan önerileri ilgili türleri için önerilen disk [SAP TDI depolama teknik](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Ancak tabloda gösterilen seçimi SAP HANA için yeterli disk verimliliği sağlayın çalışıldı. İki kez bellek birim temsil yedeklemeleri tutmak için boyuta sahip, /hana/backup birime değişiklikleri gerekiyorsa ayarlamak çekinmeyin.   
+Farklı önerilen birimler için depolama üretilen işini çalıştırmak istediğiniz iş yükünü sağlayıp sağlamadığını denetleyin. İş yükü /hana/data ve /hana/log için daha yüksek birimleri gerektiriyorsa, Azure Premium Storage VHD'ler sayısını artırmak gerekir. Listelenen olandan daha fazla VHD sahip bir birim boyutlandırma Azure sanal makine türü sınırları içinde IOPS ve g/ç verimliliği artırır. 
 
 > [!NOTE]
-> Daha küçük VM ile 3 x P20 oversize birimleri ayarına göre alan önerileri ilgili türleri için önerilen disk [SAP TDI depolama teknik](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Ancak tabloda gösterilen seçimi SAP HANA için yeterli disk verimliliği sağlayın çalışıldı. Küçük g/ç işleme gerekiyorsa, Premium depolama diskleri /hana/data ve /hana/log seçimine göre ayarlayabilirsiniz. Aynı, iki kez bellek birim temsil yedeklemeleri tutmak için boyutta /hana/backup birimi boyutlandırma için geçerlidir. Ardından daha az alan gerekiyorsa, ayarlayabilirsiniz. Ayrıca genel VM g/ç işleme boyutlandırma veya bir VM için karar aklınızda bulundurun. VM verimlilik makalesinde genel belgelenen [bellek için iyileştirilmiş sanal makine boyutları](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)  
+> Yukarıdaki yapılandırmaları gelen yararlı değildir [Azure sanal makine tek bir VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) bir karışımını Azure Premium Storage ve Azure Standard Storage kullanır. Ancak, seçim maliyetleri en iyi duruma getirmek için seçildi.
+
+
+#### <a name="azure-storage-configuration-to-benefit-for-meeting-single-vm-sla"></a>Tek VM SLA toplantı yararlanmak için azure depolama yapılandırması
+Yararlı istiyorsanız [Azure sanal makine tek bir VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/), Azure Premium Storage VHD'ler özel olarak kullanmanız gerekir.
 
 > [!NOTE]
-> Yararlı istiyorsanız [Azure sanal makine tek bir VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) Premium Storage (Pxx) için standart depolama (Sxx) olarak listelenen tüm VHD'leri değiştirmeniz gerekir. 
+> Üretim senaryoları için SAP içinde tarafından belirli bir VM türü için SAP HANA desteklenip desteklenmediğini kontrol [IAAS SAP belgelerine](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+
+| VM SKU | RAM | En çok, VM I/O<br /> Aktarım hızı | / hana/veri ve/hana/günlük<br /> LVM veya MDADM şeritli | / hana/paylaşılan | / root birim | / usr/sap | hana/yedekleme |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
+| E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
+| E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
+| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
+| GS5 | 448 GiB | 2000 MB/sn | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
+| M64s | 1000 Gib'den | 1000 MB/sn | 2 x P30 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
+| M64ms | 1750 GiB | 1000 MB/sn | 3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
+| M128s | 2000 Gib'den | 2000 MB/sn |3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
+| M128ms | 3800 GiB | 2000 MB/sn | 5 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P50 |
+
+
+Daha küçük VM ile 3 x P20 oversize birimleri ayarına göre alan önerileri ilgili türleri için önerilen disk [SAP TDI depolama teknik](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Ancak tabloda gösterilen seçimi SAP HANA için yeterli disk verimliliği sağlayın çalışıldı. İki kez bellek birim temsil yedeklemeleri tutmak için boyuta sahip, /hana/backup birime değişiklikleri gerekiyorsa ayarlamak çekinmeyin.  
+Farklı önerilen birimler için depolama üretilen işini çalıştırmak istediğiniz iş yükünü sağlayıp sağlamadığını denetleyin. İş yükü /hana/data ve /hana/log için daha yüksek birimleri gerektiriyorsa, Azure Premium Storage VHD'ler sayısını artırmak gerekir. Listelenen olandan daha fazla VHD sahip bir birim boyutlandırma Azure sanal makine türü sınırları içinde IOPS ve g/ç verimliliği artırır. 
+
+
+
+#### <a name="storage-solution-with-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Azure yazma Hızlandırıcı Azure M-serisi sanal makineler için bir depolama çözümü
+Azure yazma Hızlandırıcı M-serisi VM'ler için özel olarak alınır bir işlevdir. Adını belirten, işlevselliği amacı Azure Premium Storage'a karşı yazma g/ç gecikmesi artırmak için aynıdır. SAP HANA için yazma Hızlandırıcı yalnızca /hana/log birim karşı kullanılan beklenir. Bu nedenle kadarki gösterilen yapılandırmalarının değiştirilmesi gerekebilir. Ana /hana/data /hana/log arasındaki paketlerdeki yalnızca /hana/log birim karşı Azure yazma Hızlandırıcı kullanmak için farklıdır. 
+
+> [!IMPORTANT]
+> SAP HANA sertifika Azure M-serisi sanal makineler için Azure yazma Hızlandırıcı /hana/log birim için özel olarak sahip olur. Sonuç olarak, üretim senaryo SAP HANA dağıtımları Azure M-serisi sanal makinelerde Azure yazma Hızlandırıcı /hana/log biriminin aşağıdakilerle yapılandırılması beklenir.  
+
+> [!NOTE]
+> Üretim senaryoları için SAP içinde tarafından belirli bir VM türü için SAP HANA desteklenip desteklenmediğini kontrol [IAAS SAP belgelerine](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+
+Önerilen yapılandırmaları gibi görünür:
+
+| VM SKU | RAM | En çok, VM I/O<br /> Aktarım hızı | / hana/veri | / hana/günlük | / hana/paylaşılan | / root birim | / usr/sap | hana/yedekleme |
+| --- | --- | --- | --- | --- | --- | --- | --- | -- |
+| M64s | 1000 Gib'den | 1000 MB/sn | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
+| M64ms | 1750 GiB | 1000 MB/sn | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
+| M128s | 2000 Gib'den | 2000 MB/sn |3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
+| M128ms | 3800 GiB | 2000 MB/sn | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P50 |
+
+Farklı önerilen birimler için depolama üretilen işini çalıştırmak istediğiniz iş yükünü sağlayıp sağlamadığını denetleyin. İş yükü /hana/data ve /hana/log için daha yüksek birimleri gerektiriyorsa, Azure Premium Storage VHD'ler sayısını artırmak gerekir. Listelenen olandan daha fazla VHD sahip bir birim boyutlandırma Azure sanal makine türü sınırları içinde IOPS ve g/ç verimliliği artırır.
+
+Azure yazma Hızlandırıcı yalnızca çalışır birlikte [Azure yönetilen diskleri](https://azure.microsoft.com/services/managed-disks/). /Hana/log birim oluşturan böylece en az Azure Premium Storage diskin yönetilen diskleri olarak dağıtılması gerekir.
+
+Azure Premium Storage VHD'ler Azure yazma Hızlandırıcı tarafından desteklenen VM başına sınırları vardır. Geçerli sınırlarını şunlardır:
+
+- Bir M128xx için 16 VHD'leri VM
+- Bir M64xx için 8 VHD'leri VM
+
+Azure yazma Hızlandırıcı etkinleştirme hakkında daha ayrıntılı yönergeler makalesinde bulunabilir [Azure yazma Hızlandırıcı SAP dağıtımlar için](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator).
+
+Ayrıntılar ve Azure yazma Hızlandırıcı sınırlamaları aynı belgelerinde bulunabilir.
 
 
 ### <a name="set-up-azure-virtual-networks"></a>Azure sanal ağları ayarlayın
@@ -114,6 +191,8 @@ SAP HANA çalıştırmak için sanal makineleri yüklediğinizde, sanal makinele
 - Her iki sanal NIC için dağıtılan statik özel IP adresleri.
 
 IP adresleri atama için farklı yöntemler genel bakış için bkz: [IP adresi türleri ve Azure ayırma yöntemleri](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+
+SAP HANA çalıştıran VM'ler için atanan statik IP adresleri ile çalışması gerekir. Bazı yapılandırma öznitelikler HANA için IP adreslerini başvuru nedenidir.
 
 [Azure ağ güvenlik grupları (Nsg'ler)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) SAP HANA örneği veya Jumpbox yönlendirilen trafiği yönlendirmek için kullanılır. SAP HANA alt ağı ve yönetim alt ağ için Nsg'ler ilişkilendirilir.
 
@@ -158,4 +237,4 @@ Ayrı bir VM yer alan ve Jumpbox VM'nizi SAProuter yüklediğinizden emin olun. 
 Kurmak ve bakımını yapmak SAProuter üzerinden uzaktan destek bağlantılar hakkında daha fazla bilgi için bkz: [SAP belgelerine](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>SAP HANA Azure yerel vm'lerde ile yüksek kullanılabilirlik
-SUSE Linux 12 SP1 çalıştırıyorsanız veya daha sonra STONITH aygıtlarla Pacemaker küme kurup varsa. Zaman uyumlu çoğaltma HANA sistem çoğaltma ve otomatik yük devretme kullanan bir SAP HANA yapılandırması ayarlamak için cihazları kullanın. Kurulum yordamının hakkında daha fazla bilgi için bkz: [SAP HANA yüksek kullanılabilirlik Azure sanal makinelerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+SUSE Linux 12 SP1 çalıştırıyorsanız veya daha sonra STONITH aygıtlarla Pacemaker küme kurup varsa. Zaman uyumlu çoğaltma HANA sistem çoğaltma ve otomatik yük devretme kullanan bir SAP HANA yapılandırması ayarlamak için cihazları kullanın. Kurulum yordamının hakkında daha fazla bilgi için bkz: [Azure sanal makineler için SAP HANA yüksek kullanılabilirlik Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

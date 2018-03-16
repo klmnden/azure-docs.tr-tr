@@ -3,23 +3,19 @@ title: "Azure SQL veritabanı kullanan bir parçalı çok Kiracı veritabanı Sa
 description: "Dağıtma ve Azure SQL veritabanı kullanarak SaaS desenleri gösteren parçalı Wingtip biletleri SaaS çok Kiracı veritabanı uygulama, keşfedin."
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: billgib;anjangsh
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulama keşfedin
 

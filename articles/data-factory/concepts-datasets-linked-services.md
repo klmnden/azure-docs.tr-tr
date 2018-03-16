@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümelerini ve Azure Data Factory öğesinde bağlantılı hizmet 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,31 +184,37 @@ Kullandığınız veri deposu bağlı olarak veri kümeleri, birçok farklı tü
 }
 ```
 ## <a name="dataset-structure"></a>Veri kümesi yapısı
-**Yapısı** bölümdür isteğe bağlıdır. Dataset şeması tarafından içeren bir koleksiyon adları ve sütunların veri türlerini tanımlar. Türleri dönüştürme ve kaynaktan hedef sütunlara eşlemek için kullanılan türü bilgileri sağlamak için yapısı bölümü kullanın. Aşağıdaki örnekte, üç sütun kümesi vardır: zaman damgası, projectname ve pageviews. Bunlar dize, dize ve ondalık, sırasıyla türüdür.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+**Yapısı** bölümdür isteğe bağlıdır. Dataset şeması tarafından içeren bir koleksiyon adları ve sütunların veri türlerini tanımlar. Türleri dönüştürme ve kaynaktan hedef sütunlara eşlemek için kullanılan türü bilgileri sağlamak için yapısı bölümü kullanın.
 
 Her sütun yapısı içinde aşağıdaki özellikleri içerir:
 
 Özellik | Açıklama | Gerekli
 -------- | ----------- | --------
 ad | Sütunun adı. | Evet
-type | Sütunun veri türü. | Hayır
+type | Sütunun veri türü. Veri Fabrikası izin verilen değerler olarak aşağıdaki geçici veri türlerini destekler: **Int16, Int32, Int64, tek, Double, Decimal, bayt [], Boolean, dize, GUID, Datetime, Datetimeoffset ve Timespan** | Hayır
 Kültür | . Tür .NET türü olduğunda kullanılacak NET tabanlı kültürü: `Datetime` veya `Datetimeoffset`. Varsayılan değer `en-us`. | Hayır
-Biçimi | Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. | Hayır
+Biçimi | Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. Başvurmak [özel tarih ve saat biçim dizeleri](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) datetime biçimine üzerinde. | Hayır
 
-Aşağıdaki yönergeleri yapısı bilgileri içerecek şekilde ne zaman ve ne eklenecek belirlemenize yardımcı **yapısı** bölümü.
+### <a name="example"></a>Örnek
+Aşağıdaki örnekte, Blob veri kaynağı CSV biçiminde olduğunu ve üç sütun içeren varsayalım: UserID, adı ve lastlogindate. Bunlar Int64, dize ve Datetime haftanın günü için kısaltılmış Fransızca adları kullanarak bir özel datetime biçimiyle türüdür.
 
-- **Yapılandırılmış veri kaynakları için**, yalnızca sütun havuz için kaynak sütunları eşlemek istediğiniz ve adlarının aynı olmayan yapısı bölüm belirtin. Bu türdeki yapılandırılmış veri kaynağının veri yanı sıra veri şeması ve tür bilgileri depolar. SQL Server, Oracle ve Azure SQL veritabanı yapılandırılmış veri kaynakları örneklerindendir.<br/><br/>Tür bilgileri zaten yapılandırılmış veri kaynakları için kullanılabilir olduğundan yapısı bölüm eklediğinizde türü bilgileri içermemelidir.
-- **Şema okuma veri kaynaklarında (özellikle Blob Depolama) için**, herhangi bir şema veya türü bilgi verilerle depolamadan veri depolamayı seçebilirsiniz. Sütunları havuz için kaynak sütunları eşleme istediğinizde bu tür veri kaynağı yapısı içerir. Ayrıca yapısı kopyalama etkinliği için bir giriş veri kümesi olduğunda ve kaynak veri kümesinin veri türleri yerel türleri için havuz dönüştürülüp içerir.<br/><br/> Veri Fabrikası yapısındaki türü bilgileri sağlamak için aşağıdaki değerleri destekler: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+Blob veri kümesi yapısı sütunlar için tür tanımları birlikte aşağıdaki gibi tanımlayın:
 
-Veri Fabrikası gelen havuz için kaynak verilerini nasıl eşlendiğini hakkında daha fazla bilgi edinin [şema ve tür eşlemesi]( copy-activity-schema-and-type-mapping.md) ve ne zaman yapısı bilgileri belirtin.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>Rehber
+
+Aşağıdaki yönergeleri yapısı bilgileri içerecek şekilde ne zaman ve ne eklenecek anlamanıza yardımcı **yapısı** bölümü. Veri Fabrikası havuz için kaynak verilerini nasıl eşlendiğini ve zaman yapısı bilgileri belirtmek daha fazla bilgi edinin [şema ve tür eşlemesi](copy-activity-schema-and-type-mapping.md).
+
+- **Güçlü şema veri kaynakları için**, yalnızca sütun havuz için kaynak sütunları eşlemek istediğiniz ve adlarının aynı olmayan yapısı bölüm belirtin. Bu türdeki yapılandırılmış veri kaynağının veri yanı sıra veri şeması ve tür bilgileri depolar. SQL Server, Oracle ve Azure SQL veritabanı yapılandırılmış veri kaynakları örneklerindendir.<br/><br/>Tür bilgileri zaten yapılandırılmış veri kaynakları için kullanılabilir olduğundan yapısı bölüm eklediğinizde türü bilgileri içermemelidir.
+- **İçin yok/zayıf şeması örneğin metin dosyasında blob depolama veri kaynakları**, yapısı kopyalama etkinliği için bir giriş veri kümesi olduğunda ve kaynak veri kümesinin veri türleri dönüştürülmesi gereken havuz için yerel türler içerir. Ve sütunları havuz için kaynak sütunları eşleme istediğinizde yapısı ekleyin...
 
 ## <a name="create-datasets"></a>Veri kümeleri oluşturma
 Bu araçları veya Sdk'lardan birini kullanarak veri kümeleri oluşturabilirsiniz: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager şablonu ve Azure portalı

@@ -2,24 +2,18 @@
 title: "Azure SQL veritabanı performans Kılavuzu ayarlama | Microsoft Docs"
 description: "Azure SQL veritabanı sorgu performansını artırmak için öneriler kullanma hakkında bilgi edinin."
 services: sql-database
-documentationcenter: na
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 0a7bce49a73d60785f09f270894afc4037661e10
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 63a8b9f8c81ad3dc122bf25d8a06cdf242a0f35b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL veritabanında performans ayarlama
 
@@ -262,7 +256,7 @@ Bir veritabanında müşteri adı, sipariş ve sipariş ayrıntıları (örneği
 
 Veritabanı parçalama bir çözüm için birleşik kaynak kapasitesini azaltmaz ancak birden fazla veritabanı yayılır çok büyük çözümlerde destekleyen en son derece etkili olur. Her veritabanı çok büyük desteklemek için farklı performans düzeyinde yüksek kaynak gereksinimleri "etkin" veritabanları çalıştırabilirsiniz.
 
-### <a name="functional-partitioning"></a>İşlev bölümlendirme
+### <a name="functional-partitioning"></a>İşlevsel bölümleme
 SQL Server kullanıcıları genellikle tek bir veritabanında birçok işlevini birleştirin. Örneğin, bir uygulama bir mağaza için stok yönetmek için mantığı varsa, bu veritabanı izleme satınalma siparişi, saklı yordamları ve ayın son bildirdikleri yönetmek dizinlenmiş veya gerçekleştirilmiş görünümler stok ile ilişkili mantığı sahip olabilir. Bu teknik yedekleme gibi işlemleri için veritabanını yönetmek üzere kolaylaştırır, ancak aynı zamanda bir uygulamanın tüm işlevlerinin yoğun yükü işlemek üzere donanım boyutunu gerekir.
 
 Azure SQL veritabanı genişleme mimarisinde kullanırsanız, uygulamanın farklı veritabanlarına farklı işlevler bölmek için iyi bir fikirdir. Bu yöntemi kullanarak, her uygulama bağımsız olarak ölçekler. Bir uygulama yoğun olur (ve veritabanı üzerindeki yükü artırır gibi), yönetici uygulamada her işlevin bağımsız performans düzeyleri seçebilirsiniz. Bu mimari ile sınırı, bir uygulama birden fazla makine arasında yük yayıldığı için tek Emtia makine işleyebileceğinden daha büyük olamaz.

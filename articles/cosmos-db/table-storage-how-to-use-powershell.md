@@ -12,19 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure Table depolama işlemleri 
-
->[!NOTE]
->Azure Cosmos DB tablo API anahtar teslimi genel dağıtım, düşük gecikme süresi okuma ve yazma, otomatik ikincil dizin oluşturma ve ayrılmış işleme gibi tablo depolama premium özellikleri sunar. Çoğu durumda, bu makalede çalışma Azure Cosmos DB tablo API ve Azure Table storage, ancak bu makale için PowerShell komutlarını Azure Table depolama alanına belirli. Azure Cosmos DB tablo API kullanıyorsanız bkz [Azure PowerShell ile Azure Cosmos DB tablo API işlemleri](table-powershell.md).
->
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 Azure Table storage depolamak ve yapılandırılmış ve ilişkisel olmayan verilerin büyük kümelerini sorgulamak için kullanabileceğiniz bir NoSQL veri deposu ' dir. Hizmet ana bileşenlerinin tabloları, varlıkları ve özellikler mevcuttur. Bir tablo, varlıkları koleksiyonudur. Bir varlık özellikler kümesidir. Her varlığın tüm ad-değer çiftleri en çok 252 özellik olabilir. Bu makale, Azure Table depolama hizmeti kavramları bilginiz olduğunu varsayar. Ayrıntılı bilgi için bkz: [tablo hizmeti veri modelini anlama](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) ve [.NET kullanarak Azure Table storage'ı kullanmaya başlama](table-storage-how-to-use-dotnet.md).
 
@@ -38,7 +35,7 @@ Bu nasıl yapılır makalesi ortak Azure Table depolama işlemleri kapsar. Aşa�
 > * Tablo varlıklarını silme
 > * Bir tablo silme
 
-Bu nasıl yapılır makalesi işiniz bittiğinde, kolayca onu kaldırabilmeniz için yeni bir kaynak grubunda yeni bir depolama hesabı oluşturmak nasıl gösterir. Bunun yerine mevcut bir depolama hesabını kullanmayı tercih ediyorsanız, bunun yerine yapabilirsiniz.
+Bu nasıl yapılır makalesi işiniz bittiğinde, kolayca onu kaldırabilmeniz için yeni bir kaynak grubunda yeni bir Azure depolama hesabı oluşturmak nasıl gösterir. Bunun yerine mevcut bir depolama hesabını kullanmayı tercih ediyorsanız, bunun yerine yapabilirsiniz.
 
 Azure PowerShell modülü sürümü 4.4.0 örnekler gerektiren veya sonraki bir sürümü. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable AzureRM` sürümü bulunamıyor. Hiçbir şey görünmez veya yükseltmek için bkz: gereken [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps). 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 Depolama hesabı kullanarak tabloların bir listesini almak [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Belirli bir tablo başvuru alma

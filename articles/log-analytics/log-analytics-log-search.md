@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.author: bwren
 ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Günlük analizi günlük aramalarda anlama
 
@@ -32,7 +32,7 @@ Günlük analizi günlük aramaları kullanacağını farklı yolları aşağıd
 - **Görünümler.**  Kullanıcı panolarla dahil edilecek veri görselleştirmeleri oluşturabilirsiniz [Görünüm Tasarımcısı](log-analytics-view-designer.md).  Günlük aramaları sağlayan tarafından kullanılan veri [kutucukları](log-analytics-view-designer-tiles.md) ve [görselleştirme bölümleri](log-analytics-view-designer-parts.md) her görünümünde.  Görselleştirme parçalarını başka verileri analizler yapmak için günlük arama sayfasına ayrıntıya girebilirsiniz.
 - **Dışarı aktarın.**  Verileri verdiğinizde günlük analizi çalışma alanından Excel'e veya [Power BI](log-analytics-powerbi.md), dışarı aktarmak için verileri tanımlamak için bir günlük arama oluşturun.
 - **PowerShell.** Bir komut satırı veya kullanan bir Azure Otomasyonu runbook'u bir PowerShell betiğini çalıştırabilirsiniz [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) günlük analizi veri alınamadı.  Bu cmdlet, verileri almak için belirlemek üzere bir sorgu gerektiriyor.
-- **Günlük analizi API.**  [Günlük analizi oturum arama API](log-analytics-log-search-api.md) veri çalışma alanından almak herhangi bir REST API istemcisi sağlar.  API isteği almak üzere veri belirlemek için günlük analizi karşı çalıştırmak bir sorgu içerir.
+- **Log Analytics API.**  [Günlük analizi oturum arama API](log-analytics-log-search-api.md) veri çalışma alanından almak herhangi bir REST API istemcisi sağlar.  API isteği almak üzere veri belirlemek için günlük analizi karşı çalıştırmak bir sorgu içerir.
 
 ![Günlük aramalar](media/log-analytics-log-search-new/log-search-overview.png)
 

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning sık sorulan sorular
 
@@ -32,7 +32,7 @@ Biz ürünü geliştirmek daha fazla bölgeler eklenecektir.  İçin üzerinde d
 
 **Diğer Azure hizmetleriyle gereklidir?**
 
-Tam Azure Machine Learning tüm özelliklerini deneyimi için Azure makine Learnign Visual Studio VSTS hesabı, Azure Blob Storage, Azure kapsayıcı kayıt, veri bilimi VM veya Hdınsight işlem ve Azure kapsayıcı hizmeti kullanır.
+Azure Blob Storage ve Azure kapsayıcı kayıt defteri Azure Machine Learning tarafından kullanılır. Ayrıca, bir veri bilimi VM veya Hdınsight kümesi gibi işlem kaynakları sağlamanız gerekir. İşlem ve barındırma da gerekli web hizmetlerinizi gibi dağıtırken [Azure kapsayıcı hizmeti](https://docs.microsoft.com/azure/aks).
 
 **Azure Machine Learning Microsoft Machine Learning SQL Server 2017 Hizmetleri'nde ne şekilde ilişkilidir?**   
 
@@ -46,7 +46,7 @@ Python şu anda yalnızca destekler. Biz R tümleştirme üzerinde çalışıyor
 
 Derin öğrenme MMLSpark sağlar ve veri bilimi araçlarıyla Apache Spark için üretkenliği indirimlere deneme ve durum resim algoritmaları kolaylaştırır. MMLSpark Spark Machine Learning ardışık düzen OpenCV ve Microsoft Bilişsel araç seti ile tümleştirilmesi sunar. Güçlü, ölçeklendirilebilir Tahmine dayalı ve analitik modeller resim ve metin verileri için oluşturabilirsiniz. MMLSpark bir açık kaynak lisansı altında kullanılabilir ve AML çalışma ekranı bir dizi tüketilebilir modelleri ve algoritmaları eklenir. MMLSpark hakkında daha fazla bilgi için ürün Belgelerimizi ziyaret edin. 
 
-**Spark'ın hangi sürümleri, yeni araçlar ve hizmetler tarafından destekleniyor mu? Üst kısmında**
+**Spark'ın hangi sürümleri, yeni araçlar ve hizmetler tarafından destekleniyor mu?**
 
 Çalışma ekranı şu anda içerir ve MMLSpark sürüm 0,8, Apache Spark 2.1 ile uyumlu olduğu destekler. Linux sanal makineleri MMLSpark 0,8 GPU etkin Docker görüntüsünü kullanmak için bir seçeneğiniz de vardır.
 
@@ -119,7 +119,7 @@ Azure Machine Learning çalışma ekranı, profesyonel veri bilimcilerine için 
 
 **Çalışma ekranı bir IDE mi?**
 
-Hayır. Machine Learning çalışma ekranı Jupyter not defterleri, Visual Studio Code ve PyCharm gibi popüler IDE için özel olarak tasarlanmış ancak tam olarak işlevsel bir IDE değil. Machine Learning çalışma ekranı bazı temel metin düzenleme özellikleri, ancak hata ayıklama, IntelliSense ve diğer yaygın olarak kullanılan IDE özellikleri desteklenmez sunar. Sık kullanılan IDE'yi kod geliştirme için düzenleme ve hata ayıklama kullanmanızı öneririz. 
+Hayır. Machine Learning çalışma ekranı Jupyter not defterleri, Visual Studio Code ve PyCharm gibi popüler IDE için özel olarak tasarlanmış ancak tam olarak işlevsel bir IDE değil. Machine Learning çalışma ekranı bazı temel metin düzenleme özellikleri, ancak hata ayıklama, IntelliSense ve diğer yaygın olarak kullanılan IDE özellikleri desteklenmez sunar. Sık kullanılan IDE'yi kod geliştirme için düzenleme ve hata ayıklama kullanmanızı öneririz. Denemek isteyebilirsiniz [AI için Visual Studio kod Araçları](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
 **Azure Machine Learning çalışma ekranı kullanmak için bir ücret var mı?**
 

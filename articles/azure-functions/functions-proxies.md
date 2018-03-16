@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlevleri proxy ile çalışma
 
@@ -106,7 +106,7 @@ Ayrıca başvurabilir [işlev uygulaması için tanımlanan uygulama ayarları](
 
 ## <a name="debugProxies"></a>Proxy sorun giderme
 
-Bayrak ekleyerek `"debug":true` herhangi proxy'sine, `proxy.json` hata ayıklama günlüğünü etkinleştirir. Günlükleri depolanır `D:\home\LogFiles\Application\Proxies\DetailedTrace` ve Gelişmiş araçlar (kudu) üzerinden erişilebilir. HTTP yanıtları de içerecek bir `Proxy-Trace-Location` günlük dosyasına erişmek için bir URL ile üstbilgisi.
+Bayrak ekleyerek `"debug":true` herhangi proxy'sine, `proxies.json` hata ayıklama günlüğünü etkinleştirir. Günlükleri depolanır `D:\home\LogFiles\Application\Proxies\DetailedTrace` ve Gelişmiş araçlar (kudu) üzerinden erişilebilir. HTTP yanıtları de içerecek bir `Proxy-Trace-Location` günlük dosyasına erişmek için bir URL ile üstbilgisi.
 
 İstemci tarafı proxy'sindeki ekleyerek ayıklayabilirsiniz bir `Proxy-Trace-Enabled` üstbilgi kümesine `true`. Bu da dosya sistemine bir izleme günlüğü ve yanıt üst bilgisi olarak dönüş izleme URL'si.
 
@@ -114,7 +114,7 @@ Bayrak ekleyerek `"debug":true` herhangi proxy'sine, `proxy.json` hata ayıklama
 
 Güvenlik nedenleriyle herkesin bir izleme oluşturmak için hizmet çağırma istemeyebilirsiniz. Oturum açma kimlik bilgilerinizi olmadan izleme içeriğine erişmek seçebilecekler değil, ancak izleme oluşturma kaynağı tüketir ve işlevi proxy'leri kullandığınızı gösterir.
 
-Ekleyerek izlemeleri tamamen devre dışı `"debug":false` herhangi belirli proxy'sine, `proxy.json`.
+Ekleyerek izlemeleri tamamen devre dışı `"debug":false` herhangi belirli proxy'sine, `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Gelişmiş yapılandırma
 

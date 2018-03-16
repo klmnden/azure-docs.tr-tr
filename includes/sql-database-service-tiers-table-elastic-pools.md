@@ -87,6 +87,6 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/). Önizlemede bulunan depolama alanı miktarını büyük depolama boyutları ve ek maliyetlerden uygulayın. Ayrıntılar için bkz [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama alanı mevcuttur: Avustralya Doğu, Avustralya Güneydoğu, Orta Kanada, Doğu Kanada, Fransa Orta, Orta Almanya, Doğu Japonya, Orta Kore, Güney Orta ABD, Güneydoğu Asya, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. 
+> \* Premium katmanındaki birden fazla 1 TB depolama alanı aşağıdaki bölgelerde şu anda kullanılabilir değil: Orta Kanada, Doğu Kanada, Fransa Merkezi, Almanya Merkezi, Japonya Doğu, Kore Merkezi, Orta Güney ABD, Güney Doğu Asya, BİZE East2, Batı ABD, BİZE kamu Virginia ve Batı Avrupa. 
 >
 

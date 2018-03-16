@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1fed14fc117c7652e677a245625502c1810068ff
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -61,9 +61,9 @@ Aşağıdaki yönetici rolleri kullanılabilir:
   >
   >
 
-* **Konuk davet eden**: Bu roldeki kullanıcılar, Azure Active Directory B2B Konuk kullanıcı davetleri yönetebilir, "Üyeleri davet edebilirsiniz" Kullanıcı ayarı Hayır olarak ayarlandığında geçerlidir B2B işbirliğinin hakkında daha fazla bilgi [hakkında Azure AD B2B işbirliği Önizleme](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Diğer izinler içermez.
+* **Konuk davet eden**: Bu roldeki kullanıcılar, Azure Active Directory B2B Konuk kullanıcı davetleri yönetebilir, "Üyeleri davet edebilirsiniz" Kullanıcı ayarı Hayır olarak ayarlandığında geçerlidir B2B işbirliğinin hakkında daha fazla bilgi [hakkında Azure AD B2B işbirliği](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Diğer izinler içermez.
 
-* **Bilgi Koruma Yöneticisi (Önizleme)**: Bu rolüne sahip kullanıcılar Azure Information Protection hizmetini yalnızca kullanıcı haklarına sahip. Kullanıcı haklarını kimlik koruma Merkezi, Privileged Identity Management, İzleyici Office 365 hizmet durumu veya Office 365 güvenlik ve Uyumluluk Merkezi izin verilmez. Azure Information Protection ilkesi için etiket yapılandırma, koruma şablonlarını yönetme ve koruma etkinleştirin.
+* **Bilgi Koruma Yöneticisi**: Bu rolüne sahip kullanıcılar Azure Information Protection hizmetini yalnızca kullanıcı haklarına sahip. Kullanıcı haklarını kimlik koruma Merkezi, Privileged Identity Management, İzleyici Office 365 hizmet durumu veya Office 365 güvenlik ve Uyumluluk Merkezi izin verilmez. Azure Information Protection ilkesi için etiket yapılandırma, koruma şablonlarını yönetme ve koruma etkinleştirin.
 
 * **Intune hizmet yöneticisinin**: Bu rolü olan kullanıcılar hizmet mevcut olduğunda Microsoft Intune çevrimiçi içinde genel izinlere sahiptir. Ayrıca, bu rol İlkesi ilişkilendirme yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme becerisini içerir.
 
@@ -127,7 +127,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 | --- | --- |
 | <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcılar ve diğer Yardım Masası yöneticileri için parolaları değiştirme</p>|<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Raporları görüntüleme</p>|
 
-### <a name="information-protection-administrator-preview"></a>Bilgi Koruma Yöneticisi (Önizleme)
+### <a name="information-protection-administrator"></a>Bilgi Koruma Yöneticisi
 İçinde | Yapabilirsiniz
 -------- | ---------
 Azure Information Protection | <li>Genel ve kapsamlı ilkelerinde etiketleri ve ayarlarını yapılandırma<li>Yapılandırma ve koruma şablonlarını yönetme<li>Etkinleştirme veya devre dışı koruması

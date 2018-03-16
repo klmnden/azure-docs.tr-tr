@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 66e6b49dd3e3c7d0f2cbd7547b68733e1d4959ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-monitoring-solutions"></a>Ağ çözümleri izleme 
 
@@ -82,6 +82,36 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Hizmet uç noktaları izleme için ağ Performans İzleyicisi'ni yapılandırma](https://aka.ms/applicationconnectivitymonitorguide)
 * [blog gönderisi](https://aka.ms/svcendptmonitor)
+
+## <a name="traffic-analytics"></a>Trafik Analizi
+Trafiğini analiz bulut ağlarda kullanıcı ve uygulama etkinlik görünürlük sağlayan bulut tabanlı bir çözümdür. NSG akış günlükleri Öngörüler sağlamak için analiz edilir:
+
+* Azure ile Internet, genel bulut bölgeleri, sanal ağlar ve alt ağlar arasında ağlar arasında trafiği akışlar
+* Uygulamalar ve algılayıcılar veya ayrılmış akış Toplayıcı uygulamaları gerek kalmadan, ağınızdaki protokolleri
+* Etkin noktalarına üst talkers, chatty uygulamaları, bulut VM görüşmeleri trafiği
+* Kaynakları ve sanal ağlar, kritik iş Hizmetleri ve uygulamaları arasındaki arası ilişkileri üzerinden trafik hedefleri
+* Güvenlik – kötü amaçlı trafiği, bağlantı noktalarını Internet, uygulama veya Internet erişmeye VM'ler Aç...
+
+Trafik Analytics yardımcı olur, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri, Denetim iş yükü performansını iyileştirmek ve uyumlu kalın tıklatılabilir bilgilerle donatır.
+
+![Coğrafi harita gösteren trafiği bölgeler arasında](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+İlgili bağlantılar:
+* [Blog gönderisi](https://aka.ms/trafficanalytics), [belgelerine](https://aka.ms/trafficanalyticsdocs), [SSS](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## <a name="dns-analytics"></a>DNS Analizi
+DNS yöneticileri için yerleşik, bu çözüm toplar, çözümler ve güvenlik sağlamak için DNS günlüklerini karşılık gelen işlemler ve performans ile ilgili Öngörüler.  Özelliklerden bazıları şunlardır:
+
+* Kötü amaçlı etki alanlarına çözümlemeye istemcileri tanımlaması
+* Eski kaynak kayıtlarının tanımlama
+* Sık sık sorgulanan etki alanı adları ve talkative DNS istemcileri görünürlük
+* DNS sunucularında istek yükünü görünürlük
+* Dinamik DNS kayıt hatalarını izleme
+
+![DNS Analytics Panosu](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+İlgili bağlantılar:
+* [Blog gönderisi](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [belgeleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

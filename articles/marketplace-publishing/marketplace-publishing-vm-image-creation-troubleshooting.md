@@ -3,7 +3,7 @@ title: "VHD oluşturma sırasında sık karşılaşılan sorunları giderme | Mi
 description: "Genel sorun giderme sorulara yanıtlar ve VHD oluşturma sırasında verir."
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
+author: msmbaldwin
 manager: 
 editor: 
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 65361ad5bd7c3311c428b64b8476ec8f2ea2d17b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>VHD oluşturma sırasında karşılaşılan yaygın sorunları giderme
 Bu makalede, Azure Marketi yayımcı ve/veya bir sorunla sahip olabilir veya sık sorulan sorular yayımlama veya kendi sanal makine solution(s) yönetme ortak yönetici yardımcı olmak için sağlanmıştır.
@@ -50,7 +50,7 @@ Bu makalede, Azure Marketi yayımcı ve/veya bir sorunla sahip olabilir veya sı
    Bu özellik henüz desteklemiyoruz.
 9. 32 bit bir uygulama içinde Azure Marketi destekleniyor mu?
    
-   Bağlantı destek ilkesi hakkında ayrıntılar için lütfen: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
+   Lütfen destek ilkesi hakkında ayrıntılar için bağlantıya bakın: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
 10. My VHD'leri bir görüntü oluşturmak çalışıyorum her zaman hata alma ". VHD zaten görüntü deposuyla kaynak olarak PowerShell'de kayıtlı". Ya da Azure üzerinde bu ada sahip herhangi bir görüntü buldunuz önce herhangi bir görüntü oluşturmadı. Bu nasıl giderebilirim?
     
     Bu genellikle durum bu VHD VM'den kullanıcı sağlanan ve bu VHD kilit ise. Lütfen bu VHD'den ayrılan hiçbir VM olup olmadığını denetleyin. Hata devam ederse, bu bağlantıyı kullanarak bir destek bileti Lütfen yükseltmek veya yayımlama portal ile ilgili bu (soru 11 yanıtında Ayrıntılar verilmiştir).

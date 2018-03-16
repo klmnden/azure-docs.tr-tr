@@ -3,97 +3,154 @@ title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı 
 description: "Otomatik olarak sağlamak ve kullanıcı hesaplarına Samanage sağlanmasını için Azure Active Directory yapılandırmayı öğrenin."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
-writer: asmalser-msft
-manager: mtillman
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+author: zhchia
+writer: zhchia
+manager: beatrizd-msft
+ms.assetid: na
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
-ms.author: asmalser-msft
-ms.openlocfilehash: 901f0ec7ceeb80687b7b75d9a3710e8d6bc1811c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 01/31/2018
+ms.author: v-ant
+ms.openlocfilehash: 8f11beff2c78386f4c3e8130c8e5d72465b8fe87
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Öğretici: Samanage otomatik kullanıcı sağlamayı yapılandırın
 
+Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya Samanage gruplarına sağlanmasını Samanage ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için gerçekleştirilmesi için adımları göstermektir.
 
-Bu öğreticinin amacı Samanage ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den Samanage sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır. 
+> [!NOTE]
+> Bu öğretici Azure AD kullanıcı sağlama hizmeti üstünde oluşturulmuş bir bağlayıcı açıklar. Bu hizmet ne yaptığını, nasıl çalıştığı ve sık sorulan sorular önemli ayrıntılar için bkz: [otomatikleştirmek kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına etkinleştirmektir](./active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
+Bu öğreticide verilen senaryoda aşağıdaki sahip olduğunuz varsayılmaktadır:
 
-*   Bir Azure Active directory kiracısı
-*   Samanage Kiracı ile [profesyonel planı](https://www.samanage.com/pricing/) veya daha iyi etkin 
+*   Azure Active Directory kiracısı
+*   Samanage Kiracı ile [Professional](https://www.samanage.com/pricing/) planlayabilir ya da daha iyi etkin 
 *   Samanage yönetici izinlerine sahip bir kullanıcı hesabı 
 
 > [!NOTE]
 > Azure AD tümleştirme sağlama dayanan [Samanage REST API](https://www.samanage.com/api/), Samanage takımlara profesyonel plan üzerinde kullanılabilir veya daha iyi.
 
+## <a name="adding-samanage-from-the-gallery"></a>Galeriden Samanage ekleme
+Otomatik kullanıcı Azure AD ile hazırlama için Samanage yapılandırmadan önce Azure AD uygulama Galeriden yönetilen SaaS uygulamaları listenize Samanage eklemeniz gerekir.
+
+**Azure AD uygulama Galeriden Samanage eklemek için aşağıdaki adımları gerçekleştirin:**
+
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panelde tıklayın **Azure Active Directory** simgesi. 
+
+    ![Azure Active Directory düğmesi][1]
+
+2. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
+
+    ![Kuruluş uygulamaları bölümü][2]
+    
+3. Samanage eklemek için tıklatın **yeni uygulama** iletişim kutusunun üst kısmında düğmesi.
+
+    ![Yeni Uygulama düğmesi][3]
+
+4. Arama kutusuna **Samanage**.
+
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage4.png)
+
+5. Sonuçlar panelinde seçin **Samanage**ve ardından **Ekle** Samanage SaaS uygulamaları listenize eklemek için düğmeyi.
+
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage6.png)
+
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage5.png)
+
 ## <a name="assigning-users-to-samanage"></a>Kullanıcılar için Samanage atama
 
-Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir. 
+Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik kullanıcı sağlamayı bağlamında, yalnızca kullanıcı gruplarına ve/veya "Azure AD'de bir uygulamaya atanmış" eşitlenir. 
 
-Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları Samanage uygulamanıza erişimi olması gereken kullanıcılar temsil eden karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek, bu kullanıcılar Samanage uygulamanıza atayabilirsiniz:
+Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları Samanage erişmeniz karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek Samanage için bu kullanıcılara ve/veya grupları atayabilirsiniz:
 
-[Bir kullanıcı veya grup için bir kuruluş uygulama atama](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Bir kullanıcı veya grup için bir kuruluş uygulama atama](active-directory-coreapps-assign-user-azure-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Kullanıcılar için Samanage atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için Samanage atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcısının yapılandırma sağlama otomatik kullanıcı test etmek için Samanage atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı için Samanage atarken ya da seçmelisiniz **kullanıcı** rol ya da başka bir geçerli uygulamaya özgü rolü (varsa) atama iletişim. **Varsayılan erişim** rol sağlamak için çalışmaz ve bu kullanıcılar atlandı.
+*   Bir kullanıcı için Samanage atarken, (varsa) geçerli bir uygulamaya özgü rol atama iletişim kutusunda seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
 
-> [!NOTE]
-> Eklenen bir özellik olarak sağlama hizmeti Samanage içinde tanımlanan herhangi bir özel rolü okur ve bunları Azure AD rolü Seç iletişim kutusunda bunlar burada seçilebilir aktarır. Bu rolleri sağlama hizmetinin etkin ve bir eşitleme döngüsü tamamlandıktan sonra Azure Portalı'nda görünür.
+## <a name="configuring-automatic-user-provisioning-to-samanage"></a>Otomatik kullanıcı sağlamayı Samanage için yapılandırma
 
-## <a name="configuring-user-provisioning-to-samanage"></a>Kullanıcı için Samanage sağlama yapılandırma 
-
-Bu bölümde Azure AD Samanage'nın kullanıcı hesabına API sağlama konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirin ve Azure AD'de kullanıcı ve grup atama göre Samanage atanan kullanıcı hesaplarında devre dışı bırakın.
+Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bırakmak için hizmet sağlama Azure AD'yi yapılandırma adımlarında size rehberlik eder ve/veya Azure AD'de kullanıcı ve/veya grup atamaları Samanage gruplarında tabanlı.
 
 > [!TIP]
-> Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için Samanage, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> Ayrıca aktarmızı SAML tabanlı çoklu oturum açma için Samanage etkinleştirmek, yönergeleri izleyerek sağlanan [oturum açma Samanage tek Öğreticisi](active-directory-saas-samanage-tutorial.md). Bu iki özellik birbirine tamamlayıcı rağmen otomatik kullanıcı sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir. Daha fazla bilgi için bkz: [oturum açma Samanage tek Öğreticisi](active-directory-saas-samanage-tutorial.md).
 
+### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Azure AD'de Samanage için otomatik kullanıcı sağlamayı yapılandırmak için:
 
-### <a name="configure-automatic-user-account-provisioning-to-samanage-in-azure-ad"></a>Otomatik kullanıcı hesabı için Samanage Azure AD'de sağlamayı yapılandırın:
+1. Oturum [Azure portal](https://portal.azure.com) ve **Azure Active Directory > Kurumsal uygulamalar > tüm uygulamaları**.
 
+2. Samanage SaaS uygulamaları listesinden seçin.
+ 
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage7.png)
 
-1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
-
-2. Çoklu oturum açma için Samanage zaten yapılandırdıysanız arama alanı kullanarak Samanage Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Samanage** uygulama galerisinde. Arama sonuçlarından Samanage seçin ve uygulamaları listenize ekleyin.
-
-3. Samanage örneğiniz seçin ve ardından **sağlama** sekmesi.
+3. Seçin **sağlama** sekmesi.
+    
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage8.png)
 
 4. Ayarlama **sağlama modunda** için **otomatik**.
 
-    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage1.png)
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage9.png)
 
-5. Altında **yönetici kimlik bilgileri** bölümü, giriş **yönetici kullanıcı adı ve yönetici parolası** Samanage'nın hesap. 
+5. Altında **yönetici kimlik bilgileri** bölümü, giriş **yönetici kullanıcı adı**, ve **yönetici parolası** Samanages'ın hesap. Bu değerleri örnekleri şunlardır:
 
-6. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Samanage uygulamanıza bağlanabilir. Bağlantı başarısız olursa Samanage hesabınız yönetici izinlerine sahip olduğundan emin olun ve 5. adım yeniden deneyin.
+    *   İçinde **yönetici kullanıcı adı** alanında, doldurmak Samanage Kiracı yönetici hesabı kullanıcı adı. Örnek: admin@contoso.com.
 
-7. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alanına ve "bir hata oluştuğunda e-posta bildirimi gönder." onay kutusunu işaretleyin
+    *   İçinde **yönetici parolası** alanında, önceden belirtilen yönetici kullanıcı adı için karşılık gelen parola doldurur.
 
-8. **Kaydet**’e tıklayın. 
+6. Adım 5'te gösterilen alanları doldurma sırasında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD için Samanage bağlanabilir. Bağlantı başarısız olursa Samanage hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
-9. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Samanage**.
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage10.png)
 
-10. İçinde **öznitelik eşlemelerini** bölümünde, Samanage için Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri Samanage kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
+7. İçinde **bildirim e-posta** alan, bir kişi veya grubun ve sağlama hata bildirimleri almak onay e-posta adresini girin **birhataoluşursa,bire-postabildirimigönder**.
 
-11. Azure AD hizmeti Samanage için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage11.png)
 
-12. **Kaydet**’e tıklayın. 
+8. **Kaydet**’e tıklayın.
 
-Bu işlem, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde Samanage atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler anlatılmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
+9. Altında **eşlemeleri** bölümünde, select **eşitleme Azure Active Directory Kullanıcıları Samanage**.
 
-Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage12.png)
 
+10. Azure AD içinde Samanage eşitlenir kullanıcı öznitelikleri gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri Samanage kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Seçin **kaydetmek** düğmesi değişiklikleri uygulayın.
+
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage13.png)
+
+12. Altında **eşlemeleri** bölümünde, select **eşitleme Azure Active Directory gruplarına Samanage**.
+
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage14.png)
+
+13. Azure AD içinde Samanage eşitlenir grup öznitelikleri gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri Samanage gruplara güncelleştirme işlemleri için eşleştirmek için kullanılır. Seçin **kaydetmek** düğmesi değişiklikleri uygulayın.
+
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage15.png)
+
+14. Kapsam filtrelerini yapılandırmak için sağlanan aşağıdaki yönergelerine bakın [Scoping filtre Öğreticisi](./active-directory-saas-scoping-filters.md).
+
+15. Azure AD hizmeti Samanage için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü.
+
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage16.png)
+
+16. Kullanıcılara ve/veya istediğiniz grupları Samanage sağlamak için istenen değerleri seçerek tanımlamak **kapsam** içinde **ayarları** bölümü.
+
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage17.png)
+
+17. Sağlamak için hazır olduğunuzda tıklatın **kaydetmek**.
+
+    ![Samanage sağlama](./media/active-directory-saas-samanage-provisioning-tutorial/Samanage18.png)
+
+Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlanan gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada hizmet sağlama Azure AD çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Samanage hizmette sağlama Azure AD tarafından gerçekleştirilen tüm eylemler açıklanmaktadır Etkinlik Raporu sağlamak için bağlantıları izleyin.
+
+Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](./active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -103,3 +160,8 @@ Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otom
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](active-directory-saas-provisioning-reporting.md)
+
+<!--Image references-->
+[1]: ./media/active-directory-saas-samanage-provisioning-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png

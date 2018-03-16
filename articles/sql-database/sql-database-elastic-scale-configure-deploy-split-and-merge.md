@@ -2,24 +2,18 @@
 title: "Bölünmüş birleştirme hizmet dağıtma | Microsoft Docs"
 description: "Bölünmüş birleştirme çok parçalı veritabanları arasında veri taşımak için kullanın."
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: sstein
+ms.openlocfilehash: ed5545df8d09192eeed21dd2ac379e255b049e30
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Ayırma-birleştirme hizmetini dağıtma
 Bölünmüş Birleştirme aracı parçalı veritabanları arasında veri taşımanıza olanak tanır. Bkz: [ölçeklendirilmiş bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -149,7 +143,7 @@ Lütfen üretim için sertifikaları dağıtımları ayrı not şifreleme, sunuc
    ```
 
 * Sunucu adı ile başlamayan olun **https://**.
-* Azure SQL DB sunucunuza bağlanmak Azure Services verdiğinden emin olun. Bunu yapmak için https://manage.windowsazure.com açın, sol taraftaki "SQL veritabanlarını"'yi tıklatın, en üstünde "Sunucuları"'i tıklatın ve sunucunuzu seçin. Tıklatın **yapılandırma** üst ve emin olun **Azure Hizmetleri** ayar "Evet" olarak ayarlayın. (Bu makalenin üst Önkoşullar bölümüne bakın).
+* Azure SQL DB sunucunuza bağlanmak Azure Services verdiğinden emin olun. Bunu yapmak için açık https://manage.windowsazure.com, sol taraftaki "SQL veritabanlarını"'yi tıklatın, en üstünde "Sunucuları"'i tıklatın ve sunucunuzu seçin. Tıklatın **yapılandırma** üst ve emin olun **Azure Hizmetleri** ayar "Evet" olarak ayarlayın. (Bu makalenin üst Önkoşullar bölümüne bakın).
 
 ## <a name="test-the-service-deployment"></a>Hizmet dağıtımı test etme
 ### <a name="connect-with-a-web-browser"></a>Bir web tarayıcısı ile bağlanma

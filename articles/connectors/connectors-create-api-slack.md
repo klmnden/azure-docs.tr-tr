@@ -3,7 +3,7 @@ title: "Azure logic apps içinde kayma Bağlayıcısı'nı kullanın | Microsoft
 description: "Logic apps içinde Slack'e bağlanın"
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Slack Bağlayıcısı ile çalışmaya başlama
-Slack, ekibinizin tüm yazışmalarını anında aranabilecek ve gittiğiniz her yerden ulaşılabilecek bir yerde toplayan bir ekip iletişim aracıdır. 
+Kayma olan bir araya getirir takım iletişim aracı, bir takım iletişimlerin yerleştirmek, anında aranabilir ve gittiğiniz kullanılabilir. 
 
 Bir mantıksal uygulama artık oluşturarak başlama; bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -33,7 +33,7 @@ Slack Bağlayıcısı'nı kullanmak için önce oluşturduğunuz bir **bağlant�
 | --- | --- | --- |
 | Belirteç |Evet |Slack Kimlik Bilgilerini Sağlayın |
 
-Kayma imzalamak için aşağıdaki adımları izleyin ve kayma yapılandırmasını tamamlamak **bağlantı** mantığı uygulamanıza:
+Slack'e aşağıdaki adımları kullanarak oturum açın ve kayma yapılandırmasını tamamlamak **bağlantı** mantığı uygulamanıza:
 
 1. Seçin **yineleme**
 2. Seçin bir **sıklığı** ve girin bir **aralığı**
@@ -45,11 +45,11 @@ Kayma imzalamak için aşağıdaki adımları izleyin ve kayma yapılandırması
    ![Kayma yapılandırın][2]
 7. Uygulama yetkilendirmek oturum açmak için Slack kimlik bilgilerinizi sağlayın    
    ![Kayma yapılandırın][3]  
-8. Kuruluşunuzun oturum açma sayfasında yönlendirildi. **Yetki** mantıksal uygulamanızı ile etkileşim kurmak için kayma:      
+8. Kuruluşunuzun oturum açma sayfasına yeniden yönlendirilmesi. **Yetki** mantıksal uygulamanızı ile etkileşim kurmak için kayma:      
    ![Kayma yapılandırın][5] 
-9. Yetkilendirme tamamlandıktan sonra mantıksal uygulamanızı yapılandırarak tamamlamak için yeniden yönlendirilmesini **Slack - tüm iletileri Al** bölümü. Diğer tetikleyiciler ve gereken eylemleri ekleyin.  
+9. Yetkilendirme tamamlandıktan sonra mantıksal uygulamanızı yapılandırarak tamamlamak için yönlendirilirsiniz **Slack - tüm iletileri Al** bölümü. Diğer tetikleyiciler ve gereken eylemleri ekleyin.  
    ![Kayma yapılandırın][6]
-10. Seçerek çalışmanızı kaydedin **kaydetmek** yukarıdaki menü çubuğunda.
+10. Seçerek çalışmanızı kaydedin **kaydetmek** (üst doğru) menüsünde.
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 

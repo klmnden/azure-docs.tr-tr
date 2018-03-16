@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure işlevleri için Twilio bağlama
 
@@ -28,12 +28,18 @@ Bu makalede kullanarak metin iletileri göndermek nasıl açıklanmaktadır [Twi
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages"></a>Paketler
+
+Twilio bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub depo.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
+
 ## <a name="example"></a>Örnek
 
 Dile özgü örneğe bakın:
 
 * [C#](#c-example)
-* [C# betik (.csx)](#c-script-example)
+* [C# script (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>C# örnek
@@ -195,7 +201,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Öznitelikler
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) özniteliği.
 
 Yapılandırabileceğiniz öznitelik özellikleri hakkında daha fazla bilgi için bkz: [yapılandırma](#configuration). Burada bir `TwilioSms` yöntemi imza özniteliği örnekte:
 
@@ -221,9 +227,9 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü**|| ayarlanmalıdır `twilioSms`.|
-|**yönü**|| ayarlanmalıdır `out`.|
-|**adı**|| İşlev kodu Twilio SMS metin iletisi için kullanılan değişken adı. |
+|**Türü**|| ayarlanmalıdır `twilioSms`.|
+|**Yönü**|| ayarlanmalıdır `out`.|
+|**Adı**|| İşlev kodu Twilio SMS metin iletisi için kullanılan değişken adı. |
 |**accountSid**|**AccountSid**| Bu değer, Twilio hesabının SID tutan bir uygulama ayarı adı için ayarlamanız gerekir.|
 |**authToken**|**AuthToken**| Bu değer, Twilio kimlik doğrulaması belirtecine sahip bir uygulama ayarı adı için ayarlamanız gerekir.|
 |**Hedef**|**Alıcı**| SMS metni gönderilir telefon numarası için bu değeri ayarlayın.|

@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>IOT Hub'ından bulut cihaza ileti gönderme
 
@@ -75,17 +75,17 @@ Bir bulut cihaz ileti gönderirken hizmet ileti son durumu ile ilgili her ileti 
 
 | ACK özelliği | Davranış |
 | ------------ | -------- |
-| **pozitif** | Bulut cihaz iletisi ulaşırsa **tamamlandı** durumunda, IOT hub'ı bir geri bildirim iletisi oluşturur. |
-| **negatif** | Bulut cihaz iletisi ulaşırsa **kullanılmayan lettered** durumunda, IOT hub'ı bir geri bildirim iletisi oluşturur. |
+| **Pozitif** | Bulut cihaz iletisi ulaşırsa **tamamlandı** durumunda, IOT hub'ı bir geri bildirim iletisi oluşturur. |
+| **Negatif** | Bulut cihaz iletisi ulaşırsa **kullanılmayan lettered** durumunda, IOT hub'ı bir geri bildirim iletisi oluşturur. |
 | **tam**     | IOT Hub, her iki durumda da bir geri bildirim iletisi oluşturur. |
 
 Varsa **Ack** olan **tam**ve geri bildirim iletisi almadığınız, geri bildirim iletisi dolduğunu anlamına gelir. Hizmet, özgün iletiye ne bilemezsiniz. Uygulamada, bir hizmet süresi dolmadan önce bu geri bildirim işleyebilir emin olmalısınız. Bir hata oluşursa maksimum süre sonu zamanı hizmet almak için süre bırakır iki gün yeniden çalışıyor.
 
-İçinde anlatıldığı gibi [uç noktaları][lnk-endpoints], IOT hub'ı sunan bir hizmet'e yönelik uç noktası aracılığıyla geribildirim (**/messages/servicebound/feedback**) iletileri olarak. Geri bildirim alma semantiğini bulut-cihaz iletilerini aynıdır ve aynı olan [ileti yaşam döngüsü][lnk-lifecycle]. Mümkün olduğunda, ileti geri bildirim aşağıdaki biçime sahip tek bir iletide toplu hale:
+İçinde anlatıldığı gibi [uç noktaları][lnk-endpoints], IOT hub'ı sunan bir hizmet'e yönelik uç noktası aracılığıyla geribildirim (**/messages/servicebound/feedback**) iletileri olarak. Geri bildirim alma semantiğini bulut-cihaz iletilerini ile aynıdır. Mümkün olduğunda, ileti geri bildirim aşağıdaki biçime sahip tek bir iletide toplu hale:
 
 | Özellik     | Açıklama |
 | ------------ | ----------- |
-| EnqueuedTime | İleti ne zaman oluşturulduğunu belirten bir zaman damgası. |
+| EnqueuedTime | Geri bildirim iletisi hub tarafından ne zaman alındı belirten bir zaman damgası. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -93,7 +93,7 @@ Gövde bir JSON serileştirilmiş dizisi kayıtları, her biri aşağıdaki öze
 
 | Özellik           | Açıklama |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | Ne zaman ileti sonucu olduğunu belirten bir zaman damgası. Örneğin, tamamlandı aygıt ya da ileti süresi. |
+| EnqueuedTimeUtc    | Ne zaman ileti sonucu olduğunu belirten bir zaman damgası. Örneğin, hub geri bildirim iletisi aldı veya özgün iletinin süresi doldu. |
 | OriginalMessageId  | **MessageID** bu geri bildirim bilgilerini ilgili olduğu bulut cihaz iletisi. |
 | StatusCode         | Gerekli dize. IOT Hub tarafından oluşturulan geri bildirim iletileri kullanılır. <br/> 'Başarılı' <br/> 'Süresi' <br/> 'DeliveryCountExceeded' <br/> 'Reddedildi' <br/> 'Temizlendi' |
 | Açıklama        | Dize değerlerini **StatusCode**. |

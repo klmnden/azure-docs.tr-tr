@@ -1,3 +1,19 @@
+---
+title: "include dosyası"
+description: "include dosyası"
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 100e0457627a04414ad2f0780a346933b11f4376
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/16/2018
+---
 1. **Bağlan**’a tıklanması Uzak Masaüstü Protokolü dosyasını (.rdp dosyası) oluşturur ve indirir. Bu dosyayı kullanmak için **Aç**’a tıklayın.
 2. `.rdp` dosyasının bilinmeyen bir yayımcıdan geldiğine ilişkin bir uyarı alırsınız. Bu normaldir. Uzak Masaüstü penceresinde, devam etmek için **Bağlan**’a tıklayın.
    

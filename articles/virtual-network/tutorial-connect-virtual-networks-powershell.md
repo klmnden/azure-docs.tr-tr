@@ -13,29 +13,30 @@ ms.devlang:
 ms.topic: 
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
+ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: c7b3fa2b566ab02e7fb4a03055db83f1545895e8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b067dfd6d50b61614c2f3de2fa0e159cd645f9eb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>PowerShell kullanarak sanal ağ eşlemesi ile sanal ağlara bağlanabilir
 
-Sanal ağlar birbirlerine sanal ağ eşlemesi ile bağlayabilirsiniz. Sanal ağlar eşlendikten sonra iki sanal ağlarda bulunan kaynaklar kaynaklar aynı sanal ağda değilmiş gibi aynı gecikme süresi ve bant genişliği ile birbirleri ile iletişim kuramıyor. Bu makalede, oluşturma ve iki sanal ağlar arasındaki eşleme kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Sanal ağlar birbirlerine sanal ağ eşlemesi ile bağlayabilirsiniz. Sanal ağlar eşlendikten sonra iki sanal ağlarda bulunan kaynaklar kaynaklar aynı sanal ağda değilmiş gibi aynı gecikme süresi ve bant genişliği ile birbirleri ile iletişim kuramıyor. Bu makalede, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
 > * İki sanal ağ oluşturma
-> * Sanal ağlar arasında eşleme oluşturma
-> * Test eşleme
+> * Sanal Ağ eşlemesi iki sanal ağlara bağlanabilir
+> * Her sanal ağ içinde bir sanal makine (VM) dağıtma
+> * VM'ler arasında iletişim
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Yükleme ve yerel olarak PowerShell kullanma seçerseniz, bu makalede Azure PowerShell modülü sürüm 3,6 veya üstü gerektirir. Çalıştırma ` Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
+Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu makale Azure PowerShell modülü sürümü 5.4.1 gerektirir veya sonraki bir sürümü. Çalıştırma ` Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
 
 ## <a name="create-virtual-networks"></a>Sanal ağlar oluşturma
 
@@ -90,8 +91,6 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork2 | Set-AzureRmVirtualNetwork
 ```
 
-Adres ön eki için *myVirtualNetwork2* sanal ağ adres ön ekiyle çakışmaması *myVirtualNetwork1* sanal ağ. Adres öneklerini örtüşen sanal ağlar eş olamaz.
-
 ## <a name="peer-virtual-networks"></a>Eş sanal ağlar
 
 İle eşlemesi oluşturmak [Ekle AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering). Aşağıdaki örnek eş *myVirtualNetwork1* için *myVirtualNetwork2*.
@@ -123,19 +122,13 @@ Get-AzureRmVirtualNetworkPeering `
 
 Kadar diğer sanal ağ kaynaklarında bir sanal ağ olamaz iletişim kaynaklarla **PeeringState** hem de sanal ağlarda eşlemeleri için *bağlı*. 
 
-Eşlemeler iki sanal ağ arasında ancak geçişli değil. Böylece, örneğin, ayrıca eş istemeniz durumunda *myVirtualNetwork2* için *myVirtualNetwork3*, ek sanal ağlar arasında eşlemeyi oluşturmanıza gerek *myVirtualNetwork2* ve *myVirtualNetwork3*. Olsa bile *myVirtualNetwork1* ile eşlenen *myVirtualNetwork2*, kaynakları içinde *myVirtualNetwork1* yalnızca kaynaklara erişim  *myVirtualNetwork3* varsa *myVirtualNetwork1* de ile eşlenen *myVirtualNetwork3*. 
+## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-Eşleme önce üretim sanal ağlar, baştan sona ile öğrenmeniz olduğunu önerilir [eşleme genel bakış](virtual-network-peering-overview.md), [eşliği yönetme](virtual-network-manage-peering.md), ve [sanal ağ sınırları ](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Bu makalede bir iki sanal ağ aynı abonelik ve konum arasında eşleme gösterir ancak sanal ağlarda ayrıca eş [farklı bölgelerde](#register) ve [farklı Azure abonelikleri](create-peering-different-subscriptions.md#powershell). Ayrıca oluşturabilirsiniz [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) eşliği ile.
+Sonraki adımda aralarında iletişim kurabilmesi için bir VM her sanal ağ oluşturun.
 
-## <a name="test-peering"></a>Test eşleme
+### <a name="create-the-first-vm"></a>İlk VM oluşturma
 
-Bir eşleme aracılığıyla farklı sanal ağlardaki sanal makineler arasındaki ağ iletişimi sınamak için her alt ağda bir sanal makine dağıtın ve sanal makineler iletişim. 
-
-### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
-
-Sonraki adımda aralarında iletişim doğrulamak için bir sanal makinenin her sanal ağ oluşturun.
-
-Bir sanal makine oluşturma [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnek, bir sanal makine adlı oluşturur *myVm1* içinde *myVirtualNetwork1* sanal ağ. `-AsJob` Seçeneği bir sonraki adıma devam etmek için bu sanal makine arka planda oluşturur. İstendiğinde, kullanıcı adı ve sanal makine ile oturum açmak için istediğiniz parolayı girin.
+Bir VM ile oluşturma [AzureRmVM yeni](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVm1* içinde *myVirtualNetwork1* sanal ağ. `-AsJob` Seçeneği bir sonraki adıma devam etmek için bu VM arka planda oluşturur. İstendiğinde, kullanıcı adını ve VM ile oturum açmak için istediğiniz parolayı girin.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -148,9 +141,7 @@ New-AzureRmVm `
   -AsJob
 ```
 
-Azure otomatik olarak atar 10.0.0.4 sanal makinenin özel IP adresi 10.0.0.4 ilk kullanılabilir IP adresi olduğundan *Subnet1* , *myVirtualNetwork1*. 
-
-Bir sanal makine oluşturmak *myVirtualNetwork2* sanal ağ.
+### <a name="create-the-second-vm"></a>İkinci VM oluşturma
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -162,13 +153,11 @@ New-AzureRmVm `
   -Name "myVm2"
 ```
 
-Sanal makine oluşturmak için birkaç dakika sürer. 10.1.0.4 ilk kullanılabilir IP adresi olduğundan döndürülen çıkış Azure 10.1.0.4 sanal makinenin özel IP adresi atanmamış olsa *Subnet1* , *myVirtualNetwork2*. 
+VM oluşturmak için birkaç dakika sürer. Azure VM oluşturur ve PowerShell çıkışı döndürür kadar sonraki adımlara devam etmeyin.
 
-Azure sanal makinesi oluşturur ve PowerShell çıkışı döndürür kadar sonraki adımlara devam etmeyin.
+## <a name="communicate-between-vms"></a>VM'ler arasında iletişim
 
-### <a name="test-virtual-machine-communication"></a>Test sanal makinesi iletişimi
-
-Bir sanal makineye ait genel IP adresi için Internet'ten bağlanabilir. Kullanım [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ortak IP adresi, bir sanal makinenin dönün. Aşağıdaki örnek genel IP adresi döndürür *myVm1* sanal makine:
+Internet'ten VM'in genel IP adresi bağlanabilir. Kullanım [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) VM genel IP adresi dönün. Aşağıdaki örnek genel IP adresi döndürür *myVm1* VM:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
@@ -176,37 +165,35 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-İle Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın *myVm1* yerel bilgisayarınızdan sanal makine. Değiştir `<publicIpAddress>` IP adresi ile döndürülen önceki komutu.
+İle Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın *myVm1* yerel bilgisayarınızdan VM. Değiştir `<publicIpAddress>` IP adresi ile döndürülen önceki komutu.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
 
-Bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur, bilgisayarınıza indirilmeden ve açılır. Kullanıcı adı ve parola girin (seçmek için gerek duyabileceğiniz **daha fazla seçenek**, sonra **farklı bir hesap kullan**, sanal makineyi oluşturduğunuzda girdiğiniz kimlik bilgileri belirtmek için) ve 'ıtıklatın **Tamam**. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet** veya **Devam**’a tıklayın.
+Bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur, bilgisayarınıza indirilmeden ve açılır. Kullanıcı adı ve parola girin (seçmek için gerek duyabileceğiniz **daha fazla seçenek**, ardından **farklı bir hesap kullan**, VM oluşturduğunuz sırada girdiğiniz kimlik bilgileri belirtmek için) ve ardından **Tamam** . Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet** veya **Devam**’a tıklayın.
 
-Bu sanal makineden ping işlemi yapmak için bir komut isteminden ping Windows Güvenlik Duvarı üzerinden etkinleştirme *myVm2* sonraki adımda.
+Üzerinde *myVm1* VM, bu sanal makineden ping işlemi yapmak için Internet Denetim İletisi Protokolü (ICMP) üzerinden Windows Güvenlik Duvarı etkinleştir *myVm2* PowerShell kullanarak bir sonraki adımda:
 
+```powershell
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
 
-Ping test etmek için bu makaledeki kullanılsa da ICMP üretim dağıtımları için Windows Güvenlik Duvarı aracılığıyla izin vererek önerilmez.
+Bu makalede yer alan VM'ler arasında iletişim kurmak için ping kullanılsa da ICMP üretim dağıtımları için Windows Güvenlik Duvarı aracılığıyla izin vererek önerilmez.
 
-Bağlanmak için *myVm2* sanal makine, bir komut isteminden aşağıdaki komutu girin *myVm1* sanal makine:
+Bağlanmak için *myVm2* VM, bir komut isteminden aşağıdaki komutu girin *myVm1* VM:
 
 ```
 mstsc /v:10.1.0.4
 ```
 
-Ping etkinleştirilmiş olduğundan *myVm1*, şimdi onu bir komut isteminden IP adresiyle üzerinde ping *myVm2* sanal makine:
+Ping etkinleştirilmiş olduğundan *myVm1*, şimdi onu bir komut isteminden IP adresiyle üzerinde ping *myVm2* VM:
 
 ```
 ping 10.0.0.4
 ```
 
-Dört yanıt alırsınız. Sanal makinenin adına göre ping (*myVm1*), IP adresini yerine ping, çünkü başarısız *myVm1* bir bilinmeyen ana bilgisayar adıdır. Azure'nın varsayılan ad çözümlemesi, aynı sanal ağdaki sanal makineler arasında ancak farklı sanal ağlardaki sanal makineler arasında değil çalışır. Sanal ağlar arasında adları çözümlemek için şunları yapmanız gerekir [kendi DNS sunucusu dağıtma](virtual-networks-name-resolution-for-vms-and-role-instances.md) veya [Azure DNS özel etki alanları](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-Hem sizin RDP oturumların bağlantısını kesmek *myVm1* ve *myVm2*.
+Dört yanıt alırsınız. Hem sizin RDP oturumların bağlantısını kesmek *myVm1* ve *myVm2*.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -242,9 +229,9 @@ Aynı bölgedeki sanal ağları eşleme özelliği genel kullanıma açıktır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, sanal ağ eşlemesi ile iki ağlara bağlanmak nasıl öğrendiniz. Yapabilecekleriniz [kendi bilgisayarınızda bir sanal ağa bağlanmak](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir VPN üzerinden ve sanal ağ veya eşlenmiş sanal ağlar kaynakları ile etkileşim.
+Bu makalede, sanal ağ eşlemesi ile iki ağlara bağlanmak nasıl öğrendiniz. Bu makalede, sanal ağ eşlemesi ile aynı Azure konumunda iki ağlara bağlanmak nasıl öğrendiniz. Ayrıca sanal ağlarda eş [farklı bölgelerde](#register), [farklı Azure abonelikleri](create-peering-different-subscriptions.md#portal) ve oluşturabileceğiniz [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) eşliği ile. Eşleme önce üretim sanal ağlar, baştan sona ile öğrenmeniz olduğunu önerilir [eşleme genel bakış](virtual-network-peering-overview.md), [eşliği yönetmek](virtual-network-manage-peering.md), ve [sanal ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Birçok sanal ağ makalelerinde ele görevi tamamlamak yeniden kullanılabilir komut dosyaları için kod örnekleri devam edin.
+Yapabilecekleriniz [kendi bilgisayarınızda bir sanal ağa bağlanmak](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir VPN üzerinden ve sanal ağ veya eşlenmiş sanal ağlar kaynakları ile etkileşim. Birçok sanal ağ makalelerinde ele görevi tamamlamak yeniden kullanılabilir komut dosyaları için kod örnekleri devam edin.
 
 > [!div class="nextstepaction"]
 > [Sanal ağ kod örnekleri](../networking/powershell-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

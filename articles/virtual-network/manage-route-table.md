@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir yol tablosu silme
 
@@ -30,7 +30,7 @@ Azure otomatik olarak Azure alt ağlar, sanal ağlar arasında trafiği yönlend
 Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşağıdaki görevleri tamamlayın:
 
 - Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
-- Portalı kullanarak, https://portal.azure.com açın ve Azure hesabınızla oturum açın.
+- Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
 - Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 - Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` yüklü olan sürümü bulunamıyor. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
@@ -40,7 +40,7 @@ Kaç tane yönlendirme tabloları Azure konumu ve abonelik oluşturmak için bir
 
 1. Portalın sol üst köşede seçin **+ kaynak oluşturma**.
 2. Seçin **ağ**seçeneğini belirleyip **yol tablosu**.
-3. Girin bir **adı** için yol tablosu seçin, **abonelik**, yeni bir **kaynak grubu**, veya var olan bir kaynak grubunu seçin, bir **konumu** seçeneğini belirleyip **oluşturma**. **Devre dışı BGP rota yayma** seçenek, şirket içi yollar BGP aracılığıyla Azure sanal ağını yayılmasını engeller. Sanal ağ (VPN ya da ExpressRoute) bir Azure ağ geçidine bağlı değilse seçeneği bırakın *devre dışı*. 
+3. Girin bir **adı** için yol tablosu seçin, **abonelik**, yeni bir **kaynak grubu**, veya var olan bir kaynak grubunu seçin, bir **konumu** seçeneğini belirleyip **oluşturma**. **Devre dışı BGP rota yayma** seçenek, şirket içi yollar BGP aracılığıyla ağ arabirimleri için yol tablosu ilişkili herhangi bir alt ağ için yayılmasını engeller. Sanal ağ (VPN ya da ExpressRoute) bir Azure ağ geçidine bağlı değilse seçeneği bırakın *devre dışı*.
 
 **Komutları**
 

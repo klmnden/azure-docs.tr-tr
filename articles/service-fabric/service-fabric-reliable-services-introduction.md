@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>Reliable Services özelliğine genel bakış
 Azure Service Fabric, yazma ve durum bilgisiz ve durum bilgisi olan güvenilir hizmetler yönetme basitleştirir. Bu konu şunları içerir:
@@ -34,7 +34,7 @@ Service Fabric aracılığıyla Hizmetleri'nden, sağlama ve dağıtım yükselt
 ## <a name="what-are-reliable-services"></a>Güvenilir hizmetler nelerdir?
 Güvenilir hizmetler, uygulamanız için önemli olan express yardımcı olması için bir basit, güçlü, üst düzey programlama modeli sağlar. Güvenilir programlama modeli Hizmetleri ile şunları alırsınız:
 
-* API programlama Service Fabric kalan erişim. Service Fabric olarak Modellenen Hizmetleri aksine [Konuk yürütülebilir dosyalar](service-fabric-deploy-existing-app.md), güvenilir hizmetler almak Service Fabric API rest doğrudan kullanmak. Bu hizmetleri sağlar:
+* API programlama Service Fabric kalan erişim. Service Fabric olarak Modellenen Hizmetleri aksine [Konuk yürütülebilir dosyalar](service-fabric-guest-executables-introduction.md), güvenilir hizmetler almak Service Fabric API rest doğrudan kullanmak. Bu hizmetleri sağlar:
   * sistemi sorgulama
   * küme içindeki varlıklar hakkında rapor durumu
   * Yapılandırma ve kodun değişiklikler hakkında bildirim almak

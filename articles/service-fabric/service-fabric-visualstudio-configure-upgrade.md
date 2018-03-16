@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ff85991e87a4996890520a566b3909d331ed27f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio'da bir Service Fabric uygulama yükseltme yapılandırın
 Azure Service Fabric için Visual Studio Araçları, yerel veya uzak kümelerine yayımlama için yükseltme desteği sağlar. Uygulamanızı test ve hata ayıklama sırasında uygulama değiştirme yerine daha yeni bir sürüme yükseltmek istediğiniz üç senaryo vardır:
@@ -86,4 +86,4 @@ Aşağıdaki örnek, uygulama bildiriminde her hizmet için bir benzersiz sistem
 </Policies>
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir uygulama dağıtımı hakkında daha fazla bilgi için bkz: [Azure Service Fabric, var olan bir uygulamayı dağıtmak](service-fabric-deploy-existing-app.md).
+Uygulama yükseltme hakkında daha fazla bilgi için bkz: [Visual Studio kullanarak uygulama yükseltme](service-fabric-application-upgrade-tutorial.md).

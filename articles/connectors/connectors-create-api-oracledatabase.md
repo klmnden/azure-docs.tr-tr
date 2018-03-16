@@ -3,7 +3,7 @@ title: "Oracle Veritabanı Bağlayıcısı Azure Logic Apps içinde ekleme | Mic
 description: "Bir mantıksal uygulama Oracle Veritabanı Bağlayıcısı'nı kullanın"
 services: 
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle Veritabanı Bağlayıcısı ile çalışmaya başlama
 
@@ -28,7 +28,7 @@ Oracle Veritabanı Bağlayıcısı'nı kullanarak, varolan bir veritabanında ve
 * Müşteriler veritabanına yeni bir müşteri ekleyerek veya bir sırada siparişler veritabanını güncelleştirmek, iş akışı oluşturma.
 * Bir satır veri almak, yeni bir satır ekleyin ve hatta silmek için Eylemler kullanın. Örneğin, bir kayıt Dynamics CRM Online içinde (tetikleyici) oluşturulduğunda, bir satır bir Oracle veritabanına (bir eylem) ekleyin. 
 
-Bu konuda bir mantıksal uygulama Oracle Veritabanı Bağlayıcısı'nı kullanmayı gösterir.
+Bu makalede bir mantıksal uygulama Oracle Veritabanı Bağlayıcısı'nı kullanmayı gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -46,7 +46,7 @@ Bu konuda bir mantıksal uygulama Oracle Veritabanı Bağlayıcısı'nı kullanm
   [Windows x64 için 64-bit ODAC 12c sürüm 4 (12.1.0.2.4)](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Oracle istemcisi yüklü değilse, oluşturmak veya bağlantı kullanmak çalıştığınızda hata oluşur. Bu konu yaygın hatalar görebilirsiniz.
+    > Oracle istemcisi yüklü değilse, oluşturmak veya bağlantı kullanmak çalıştığınızda hata oluşur. Bu makalede yaygın hatalar da görebilirsiniz.
 
 
 ## <a name="add-the-connector"></a>Bağlayıcısını ekleyin
@@ -104,7 +104,7 @@ Bu konuda bir mantıksal uygulama Oracle Veritabanı Bağlayıcısı'nı kullanm
 
 **Azaltma**: ağ geçidiniz burada yükler ve internet'e bağlanabilen şirket içi makinede çalıştığından emin olun.  Ağ geçidi, bir bilgisayar kapalı olabilir veya uyku yüklenmiyor öneririz. Ayrıca, şirket içi veri Ağ Geçidi Hizmeti (PBIEgwService) yeniden başlatabilirsiniz.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Hata**: kullanılmakta olan sağlayıcı kullanım dışıdır: ' System.Data.OracleClient gerektirir Oracle istemci yazılımı 8.1.7 veya daha büyük.'. Lütfen şu adresi ziyaret [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) resmi sağlayıcıyı yüklemek için.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Hata**: kullanılmakta olan sağlayıcı kullanım dışıdır: ' System.Data.OracleClient gerektirir Oracle istemci yazılımı 8.1.7 veya daha büyük.'. Bkz: [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) resmi sağlayıcıyı yüklemek için.
 
 **Neden**: Oracle istemci SDK şirket içi veri ağ geçidi çalıştığı makinede yüklü değil.  
 
@@ -130,8 +130,8 @@ Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrı
 
 [Azure Logic Apps Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) sorular sormak, soruları yanıtlayın ve diğer Logic Apps kullanıcıların ne yaptıklarını görmek için harika bir yerdir. 
 
-Logic Apps ve bağlayıcıları oylama ve fikirlerinizi adresindeki gönderme tarafından artırmaya yardımcı olabilir [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+Logic Apps ve bağlayıcıları oylama ve fikirlerinizi adresindeki gönderme tarafından artırmaya yardımcı olabilir [ http://aka.ms/logicapps-wish ](http://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)ve Logic Apps içinde kullanılabilir bağlayıcılar keşfetme bizim [API'leri listesi](apis-list.md).
+[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)ve Logic Apps içinde kullanılabilir bağlayıcılar keşfetme [API'leri listesi](apis-list.md).

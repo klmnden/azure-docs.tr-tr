@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 9769b3968f841334aebdc4a371ecd59e64d5ebc2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2c48f95306ddce5d51100e869cc4ac80a4b55c20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
 Bu makalede, Azure kullanmak için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele alınan RHEL sürümleri 6.7 + ve 7.1 +. Bu makalede ele alınan hiper hazırlık için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hat'ın bulut erişimi programına katılmasını için uygunluk gereksinimleri hakkında daha fazla bilgi için bkz: [Red Hat'ın bulut Access Web sitesinin](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -38,7 +38,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 * Evrensel Disk Biçimi (UDF) dosya sistemleri bağlanması için çekirdek desteği gereklidir. Azure üzerinde ilk önyükleme sırasında Konuk bağlı UDF biçimli medya sağlama yapılandırma Linux sanal makineye iletir. Azure Linux Aracısı'nı yapılandırmasını okumak ve sanal makine sağlamak için UDF dosya sistemi bağlama kurabilmesi gerekir.
 * Linux çekirdek Internet Explorer'ın 2.6.37 önceki sürümlerini Tekdüzen olmayan bellek erişimi (NUMA) üzerinde Hyper-V ile daha büyük sanal makine boyutları desteklemez. Yukarı Akış kullanan eski dağıtımları Bu sorun öncelikle etkileri Red Hat 2.6.32 çekirdek ve RHEL 6.6 (çekirdek 2.6.32 504) giderilmiştir. Özel tekrar çalıştıran sistemleri 2.6.37 eski veya 2.6.32-504 eski olan RHEL tabanlı tekrar ayarlamalıdır `numa=off` grub.conf çekirdek komut satırında parametre önyükleme. Red Hat daha fazla bilgi için bkz: [KB 436883](https://access.redhat.com/solutions/436883).
 * Bir takas bölüm işletim sistemi disk üzerinde yapılandırmayın. Linux Aracısı geçici kaynak disk üzerinde bir takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
-* Tüm VHD'leri boyutları 1 MB'ün katları olmalıdır.
+* Tüm VHD'leri Azure üzerinde bir sanal boyutu 1 MB ile hizalı olması gerekir. Ham diskten VHD'ye dönüştürülürken ham disk boyutu 1 MB dönüştürmeden önce birden fazla olduğundan emin olmanız gerekir. Aşağıdaki adımlarda, daha fazla ayrıntı bulunabilir. Ayrıca bkz. [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Hyper-V Yöneticisi'nden RHEL 6 sanal makineyi hazırlama
 
@@ -344,7 +344,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 19. Qcow2 görüntü VHD biçimine dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -493,7 +493,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden aldığınız ve RHE
 19. Qcow2 görüntü VHD biçimine dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -620,7 +620,7 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 15. Sanal makineyi kapatın ve VMDK dosyasını bir .vhd dosyasına dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 
@@ -734,7 +734,7 @@ Bu bölümde VMware RHEL sanal makine zaten yüklediğinizi varsayar. VMware iç
 14. Sanal makineyi kapatın ve VMDK dosyasını VHD biçimine dönüştürün.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
 >
 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9a7fc0025e6f4f2b793f0616b4bc41c22c2a498
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlantılı ve şablonları Azure kaynaklarını dağıtırken iç içe geçmiş kullanma
 
@@ -27,8 +27,6 @@ ms.lasthandoff: 01/23/2018
 Orta çözümlerine küçük için tek bir şablon anlamak ve sürdürmek daha kolay olur. Tüm kaynaklara ve tek bir dosyada değerleri görüyor. Gelişmiş senaryolar için bağlı şablonları hedeflenen bileşenlere çözüm bölmek etkinleştirmeniz ve şablonlarını yeniden kullanabilirsiniz.
 
 Bağlantılı şablon kullanırken, dağıtım sırasında parametre değerlerini alır bir ana şablon oluşturun. Ana Şablon bağlı tüm şablonları içerir ve gerektiğinde bu şablonları değerleri geçirir.
-
-![bağlı şablonları](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
 ## <a name="link-or-nest-a-template"></a>Bir şablonu içe veya bağlantı
 
@@ -486,9 +484,9 @@ Aşağıdaki örnekler bağlı Şablonları'nın yaygın kullanımları gösteri
 
 |Ana şablon  |Bağlantılı şablonu |Açıklama  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Bağlantılı şablondan dize verir. |
-|[Genel IP adresine sahip yük dengeleyici](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Genel IP adresi bağlantılı şablondan döndürür ve yük dengeleyici bu değeri ayarlar. |
-|[Birden çok IP adresi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Birden çok ortak IP adresleri bağlantılı şablonunda oluşturur.  |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Bağlantılı şablondan dize verir. |
+|[Genel IP adresine sahip yük dengeleyici](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Genel IP adresi bağlantılı şablondan döndürür ve yük dengeleyici bu değeri ayarlar. |
+|[Birden çok IP adresi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [Bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Birden çok ortak IP adresleri bağlantılı şablonunda oluşturur.  |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

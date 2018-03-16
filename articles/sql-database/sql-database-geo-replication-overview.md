@@ -2,24 +2,18 @@
 title: "Yük devretme grupları ve etkin coğrafi çoğaltma - Azure SQL veritabanı | Microsoft Docs"
 description: "Etkin coğrafi çoğaltma otomatik yük devretme grupları kullanmak ve kesinti durumunda autoomatic yük devretme etkinleştirin."
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Genel Bakış: Yük devretme grupları ve etkin coğrafi çoğaltma
 Aktif coğrafi çoğaltma, en fazla dört okunabilir ikincil veritabanları aynı veya farklı bir veri merkezi konumlarını (bölge) yapılandırmanıza olanak sağlar. Veri Merkezi kesintisinden veya birincil veritabanına bağlanamama ise ikincil veritabanlarıyla sorgulamak için ve yük devretme için kullanılabilir. Yük devretme kullanıcı uygulama tarafından el ile başlatılması gerekir. Yük devretme işleminden sonra yeni birincil farklı bağlantı uç noktası vardır. 
@@ -155,11 +149,11 @@ Otomatik Yük devretme grupları (Önizleme-) ve etkin daha önce açıklandığ
 
 | Cmdlet | Açıklama |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Bir veya daha fazla veritabanı alır. |
-| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Var olan bir veritabanı için ikincil bir veritabanı oluşturur ve veri çoğaltma başlatır. |
-| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Yük devretme başlatmak için birincil olarak ikincil bir veritabanı geçer. |
-| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Bir SQL veritabanı ve belirtilen ikincil veritabanı arasında veri kopyalama sonlandırır. |
-| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Bir Azure SQL Database ve bir kaynak grubu veya SQL Server arasındaki coğrafi Çoğaltma bağlantılarını alır. |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Bir veya daha fazla veritabanını alır. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Mevcut bir veritabanı için ikincil bir veritabanı oluşturur ve veri çoğaltmaya başlar. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Yük devretmeyi başlatmak için ikincil bir veritabanını birincil olarak değiştirir. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Bir SQL Veritabanı ile belirtilen ikincil veritabanı arasında veri çoğaltmayı sonlandırır. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Bir Azure SQL Veritabanı ve bir kaynak grubu veya SQL Server arasındaki coğrafi çoğaltma bağlantılarını alır. |
 | [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Bu komut, bir yük devretme grubu oluşturur ve birincil ve ikincil sunucularda kaydeder|
 | [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Yük devretme grubu sunucusundan kaldırır ve tüm siler ikincil veritabanları dahil grubu |
 | [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Yük devretme grubu yapılandırmasını alır. |

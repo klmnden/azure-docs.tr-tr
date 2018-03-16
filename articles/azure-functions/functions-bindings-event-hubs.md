@@ -16,17 +16,23 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 084d3e4244bc6f19797fadab93265291494cf066
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87a7d25e1095fe1511c86dc56375c02f06f51b73
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
 Bu makale ile nasıl çalışılacağını açıklar [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) Azure işlevleri için bağlamaları. Tetikler ve olay hub'ları için bağlamaları çıktı Azure işlevleri destekler.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="packages"></a>Paketler
+
+Olay hub'ları bağlamaları sağlanan [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub depo.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="trigger"></a>Tetikleyici
 
@@ -199,7 +205,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) özniteliği.
 
 Özniteliğin Oluşturucusu olay hub'ın adı, tüketici grubu adını ve bağlantı dizesi içeren bir uygulama ayarı adı alır. Bu ayarlar hakkında daha fazla bilgi için bkz: [tetiklemek yapılandırma bölümü](#trigger---configuration). Burada bir `EventHubTriggerAttribute` özniteliği örneği:
 
@@ -371,7 +377,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
 
-İçin [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+İçin [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) özniteliği.
 
 Özniteliğin Oluşturucusu olay hub'ı adını ve bağlantı dizesi içeren bir uygulama ayarı adı alır. Bu ayarlar hakkında daha fazla bilgi için bkz: [çıktı - yapılandırma](#output---configuration). Burada bir `EventHub` özniteliği örneği:
 

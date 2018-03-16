@@ -1,4 +1,19 @@
-
+---
+title: "include dosyası"
+description: "include dosyası"
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 3652e26bb775ae6ac1897bea529e7ae69d77cdbd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/16/2018
+---
 Bellek, ilişkisel veritabanı sunucuları, Orta ve büyük önbellekler ve bellek içi analizi için harika bir yüksek bellek CPU oranı VM boyutları teklif en iyi duruma getirilmiş. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar. 
 
 * M-yüksek vCPU sayısını (en fazla 128 Vcpu'lar) ve en büyük bellek (en fazla 3.8 Tıb) bulutta herhangi bir VM sunar.  Son derece büyük veritabanları veya yüksek vCPU sayısı ve büyük miktarlarda belleğin yararlı olacağı diğer uygulamalar için idealdir.

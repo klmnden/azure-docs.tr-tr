@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -123,7 +123,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Bkz: Hdınsight kümeleri - [Hdınsight sınırlamaları](#hdinsight-limitations)
 * IoT Hub
 * Anahtar Kasası
-* Yük Dengeleyiciler
+* Yük Dengeleyici - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -132,6 +132,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Operasyonel Öngörüler
 * Operations Management
 * Power BI
+* Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
 * Redis Önbelleği
 * Scheduler
 * Arama
@@ -161,8 +162,10 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Express Route
 * DevTest Labs - taşıma aynı Abonelikteki yeni kaynak grubu için etkinleştirildi, ancak çapraz abonelik taşıma etkin değil.
 * Dynamics LCS
+* Yük Dengeleyici - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
 * Yönetilen Uygulamalar
 * Yönetilen diskleri - bkz [sanal makineleri sınırlamaları](#virtual-machines-limitations)
+* Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
 * Kurtarma Hizmetleri kasası - ayrıca yapın kurtarma Hizmetleri kasası ile ilişkili işlem, ağ ve depolama kaynaklarını taşıyamazsınız bkz [kurtarma Hizmetleri sınırlamaları](#recovery-services-limitations).
 * Güvenlik
 * StorSimple Cihaz Yöneticisi
@@ -320,6 +323,16 @@ Hdınsight kümesi için yeni bir abonelik taşırken, diğer kaynakları (örne
 
 Birden çok arama kaynakları farklı bölgelerde tümünü bir defada yerleştirilen taşınamıyor.
 Böyle bir durumda, ayrı ayrı taşımanız gerekir.
+
+## <a name="lb-limitations"></a> Yük Dengeleyici sınırlamaları
+
+Temel SKU yük dengeleyici taşınabilir.
+Standart SKU yük dengeleyici taşınamaz.
+
+## <a name="pip-limitations"></a> Ortak IP kısıtlamaları
+
+Temel SKU genel IP taşınabilir.
+Standart SKU genel IP taşınamaz.
 
 ## <a name="use-portal"></a>Portal kullanma
 

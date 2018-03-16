@@ -3,23 +3,18 @@ title: "Bölünmüş birleştirme güvenlik yapılandırması | Microsoft Docs"
 description: "X409 ayarlamak esnek ölçek bölme/merge hizmetiyle şifreleme için sertifikalar."
 metakeywords: Elastic Database certificates security
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="split-merge-security-configuration"></a>Bölünmüş birleştirme güvenlik yapılandırması
 Bölünmüş/Merge hizmetini kullanmak için güvenlik doğru şekilde yapılandırmanız gerekir. Hizmet Microsoft Azure SQL veritabanı'nın esnek ölçeklendirme özelliği bir parçasıdır. Daha fazla bilgi için bkz: [esnek ölçek bölme ve birleştirme hizmet öğretici](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -36,8 +31,8 @@ Ortak sertifika yetkilileri (CA) ya da sertifika elde edilebilir [Windows sertif
 Bu seçenek mevcut değilse, oluşturabileceğiniz **otomatik olarak imzalanan sertifikalar**.
 
 ## <a name="tools-to-generate-certificates"></a>Sertifikalarını oluşturmak için Araçlar
-* [MakeCert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [Pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Araçları çalıştırmak için
 * Bir geliştirici komut isteminden Visual stüdyoları için bkz: [Visual Studio komut istemi](http://msdn.microsoft.com/library/ms229859.aspx) 
@@ -152,7 +147,7 @@ Bu davranışı yapılandırmak ayarlar şunlardır:
     <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
     <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
-DynamicIpRestrictionDenyByConcurrentRequests bu korumayı etkinleştirmek için true olarak değiştirin.
+Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
 
 ## <a name="restricting-rate-of-access"></a>Erişim kısıtlama oranı
 Bu davranışı yapılandırmak ayarlar şunlardır:
@@ -327,7 +322,7 @@ Kendisi için bir istemci sertifikası verilmiş olan her anahtar çifti klasör
 ## <a name="copy-client-certificate-thumbprints"></a>İstemci sertifikası parmak kopyalayın
 Kendisi için bir istemci sertifikası yayımlandığı her parmak izini his/hers almak için şu adımları izlemelisiniz service yapılandırma dosyasına eklenecek sertifikası:
 
-* Certmgr.exe çalıştırın
+* Run certmgr.exe
 * Kişisel sekmesini seçin
 * Kimlik doğrulaması için kullanılacak istemci sertifikası çift tıklatın
 * Açılır sertifikası iletişim kutusunda, Ayrıntılar sekmesini seçin
@@ -385,13 +380,13 @@ Bulut hizmetine karşıya sertifikanın parmak izine sahip parmak izi değeri hi
 ## <a name="find-certificate"></a>Sertifika Bul
 Şu adımları uygulayın:
 
-1. MMC.exe çalıştırın.
+1. Run mmc.exe.
 2. Dosya -> Ekle/Kaldır ek bileşenini...
 3. Seçin **Sertifikalar**.
 4. **Ekle**'ye tıklayın.
 5. Sertifika depolama konumu seçin.
 6. **Son**'a tıklayın.
-7. **Tamam** düğmesine tıklayın.
+7. **Tamam**’a tıklayın.
 8. Genişletme **Sertifikalar**.
 9. Sertifika deposu düğümünü genişletin.
 10. Sertifika alt düğümünü genişletin.
@@ -411,7 +406,7 @@ Bulut hizmetine karşıya sertifikanın parmak izine sahip parmak izi değeri hi
 9. Yazın veya bir dosya adı sertifikanın depolanacağı yeri göz atın (kullanan bir. PFX uzantılı).
 10. **İleri**’ye tıklayın.
 11. **Son**'a tıklayın.
-12. **Tamam** düğmesine tıklayın.
+12. **Tamam**’a tıklayın.
 
 ## <a name="import-certificate"></a>Sertifika İçeri Aktar
 Sertifika Alma Sihirbazı'nda:

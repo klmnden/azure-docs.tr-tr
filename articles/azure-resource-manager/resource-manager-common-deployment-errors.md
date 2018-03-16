@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme
 
@@ -38,6 +38,7 @@ Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı 
 | Çakışma | Kaynağın geçerli durumunda izin verilmiyor bir işlem istiyor. Örneğin, disk yeniden boyutlandırmaya yalnızca VM oluşturulurken veya VM serbest bırakıldığında izin verilir. | |
 | DeploymentActive | Eşzamanlı dağıtım tamamlamak için bu kaynak grubu için bekleyin. | |
 | DeploymentFailed | DeploymentFailed hata hatayı çözmek için gereken ayrıntıları sağlamaz genel bir hatadır. Daha fazla bilgi sağlayan bir hata kodu için hata ayrıntıları bakın. | [Hata kodu bulun](#find-error-code) |
+| DeploymentQuotaExceeded | Her kaynak grubu 800 dağıtımlarının sınıra ulaştıysanız, artık gerekli olmayan geçmişinden dağıtımları silin. Geçmişi ile girişleri silebilirsiniz [az grup dağıtımı Sil](/cli/azure/group/deployment#az_group_deployment_delete) Azure CLI için veya [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) PowerShell'de. Bir giriş dağıtım geçmişinden silinmesi dağıtma kaynakları etkilemez. | |
 | DnsRecordInUse | DNS kayıt adı benzersiz olmalıdır. Farklı bir ad sağlayın ya da varolan bir kaydı değiştirin. | |
 | ImageNotFound | VM görüntü ayarlarını kontrol edin. |  |
 | InUseSubnetCannotBeDeleted | Bu hata bir kaynak güncelleştirme girişimi sırasında karşılaşabileceğiniz, ancak istek kaynağını oluşturma ve silme ile işlenir. Tüm değişmez değerler belirttiğinizden emin olun. | [Güncelleştirme kaynağı](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,10 +50,13 @@ Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı 
 | InvalidResourceNamespace | Belirttiğiniz kaynak ad alanı denetleyin **türü** özelliği. | [Şablon başvurusu](/azure/templates/) |
 | InvalidResourceReference | Kaynak henüz yok veya yanlış başvuruluyor. Bir bağımlılık eklemeniz gerekip gerekmediğini denetleyin. Doğrulayın kullanımınız **başvuru** işlevi senaryonuz için gerekli parametreler içerir. | [Bağımlılıklarını Çözümle](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Belirtilen onay kaynak türünü **türü** özelliği. | [Şablon başvurusu](/azure/templates/) |
+| InvalidSubscriptionRegistrationState | Aboneliğinizi kaynak sağlayıcısı ile kaydedin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Şablon söz dizimi hataları denetleyin. | [Geçersiz şablon çözümleyin](resource-manager-invalid-template-errors.md) |
+| InvalidTemplateCircularDependency | Gereksiz bağımlılıkları kaldırın. | [Döngüsel bağımlılıklar çözümlenemiyor](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Hesabınızı dağıttığınız kaynak grubu olarak aynı kiracıya ait olup olmadığını denetleyin. | |
 | LinkedInvalidPropertyId | Kaynak Kimliği bir kaynak için doğru biçimde çözümleyemiyor değil. Abonelik kimliği, kaynak grubu adı, kaynak türü, (gerekirse) üst kaynak adı ve kaynak adı dahil olmak üzere kaynak kimliği için gerekli tüm değerleri sağlayın denetleyin. | |
 | LocationRequired | Kaynağınız için bir konum sağlar. | [Konum ayarlama](resource-manager-templates-resources.md#location) |
+| MismatchingResourceSegments | Kaynak adı ve türü segmentlerinde doğru sayıda sahip olduğundan emin iç içe olun. | [Kaynak kesimleri çözümleyin](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Kaynak sağlayıcı kayıt durumu ve desteklenen konumlardan denetleyin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Aboneliğinizi kaynak sağlayıcısı ile kaydedin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Kaynak sağlayıcı kayıt durumunu denetleyin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
@@ -73,6 +77,8 @@ Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı 
 | StorageAccountAlreadyTaken | Depolama hesabı için benzersiz bir ad sağlayın. | [Depolama hesabı adı çözümlenemedi](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Abonelik, kaynak grubu ve kullanmaya çalıştığınız depolama hesabının adını kontrol edin. | |
 | SubnetsNotInSameVnet | Bir sanal makine yalnızca tek bir sanal ağa sahip olabilir. Birden çok NIC dağıtırken aynı sanal ağa ait oldukları emin olun. | [Birden çok NIC](../virtual-machines/windows/multiple-nics.md) |
+| TemplateResourceCircularDependency | Gereksiz bağımlılıkları kaldırın. | [Döngüsel bağımlılıklar çözümlenemiyor](resource-manager-invalid-template-errors.md#circular-dependency) |
+| TooManyTargetResourceGroups | Kaynak grupları tek bir dağıtım için sayısını azaltın. | [Çapraz kaynak grubu dağıtımı](resource-manager-cross-resource-group-deployment.md) |
 
 ## <a name="find-error-code"></a>Hata kodu bulun
 

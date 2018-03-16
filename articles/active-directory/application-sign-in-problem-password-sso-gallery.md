@@ -1,5 +1,5 @@
 ---
-title: "Federasyon için yapılandırılan bir Azure AD galeri uygulamaya oturumu açmada sorun çoklu oturum açma | Microsoft Docs"
+title: "Parola için yapılandırılmış bir Azure AD galeri uygulaması oturumu açmada sorun çoklu oturum açma | Microsoft Docs"
 description: "Parola çoklu oturum açma için Azure AD galeri uygulama ile ilgili sorunları gidermek nasıl yapılandırılır"
 documentationcenter: 
 author: ajamess
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: de6c876c7583da0b00ae2365646b1d381fda2b1e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b6de9d066f861d300bbe3601701e846410e93773
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış bir Azure AD galeri uygulaması için oturum açma sorunları
+# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Parola çoklu oturum açma için yapılandırılmış bir Azure AD galeri uygulaması için oturum açma sorunları
 
 Erişim paneli, Azure AD Yöneticisi erişim verildi görünümü ve başlatma bulut tabanlı uygulamalar Azure Active Directory (Azure AD) bir iş veya Okul hesabı olan bir kullanıcının sağlayan bir web tabanlı portal olmaktır. Azure AD sürümleri olan bir kullanıcı, Self Servis grup ve erişim paneli üzerinden uygulama yönetim özellikleri de kullanabilirsiniz. Erişim paneli Azure Portalı'ndan ayrıdır ve kullanıcıların bir Azure aboneliğine sahip olmasını gerektirmez.
 

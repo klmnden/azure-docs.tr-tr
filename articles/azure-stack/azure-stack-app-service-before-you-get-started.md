@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure yığın uygulama hizmeti ile çalışmaya başlamadan önce
 
@@ -47,7 +47,7 @@ Azure uygulama hizmeti Azure yığında dağıtmadan önce bu makaledeki önkoş
 
 ## <a name="high-availability"></a>Yüksek kullanılabilirlik
 
-Hata etki alanları için destek eklendi, Azure yığın 1802 sürümü nedeniyle Azure uygulama hizmeti Azure yığında yeni dağıtımı hata etki alanlarında dağıtılmış ve hataya dayanıklılık sağlamak.  Güncelleştirmesi 1802 sürümünden önce dağıtılan Azure yığında Azure App Service'in mevcut dağıtımları için lütfen (dağıtımı yeniden dengelemeniz nasıl azure-stack-app-service-fault-domain-update.md) belgelerine bakın.
+Hata etki alanları için destek eklendi, Azure yığın 1802 sürümü nedeniyle Azure uygulama hizmeti Azure yığında yeni dağıtımı hata etki alanlarında dağıtılmış ve hataya dayanıklılık sağlamak.  1802 sürümünden önce dağıtılan Azure yığında Azure App Service'in mevcut dağıtımlar için güncelleştirme, lütfen bakın [belgelerine](azure-stack-app-service-fault-domain-update.md) dağıtımı yeniden dengelemeniz nasıl.
 
 Ayrıca Azure App Service, yüksek kullanılabilirlik için Azure yığında gerekli dosya sunucusu ve SQL Server örneği yüksek oranda kullanılabilir bir yapılandırmada dağıtın. 
 

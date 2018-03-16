@@ -2,24 +2,19 @@
 title: "Bellek içi OLTP artırır SQL işlemlerinin perf | Microsoft Docs"
 description: "Varolan bir SQL veritabanında işlem performansı artırmak için adopt bellek içi OLTP."
 services: sql-database
-documentationcenter: 
 author: jodebrui
-manager: jhubbard
-editor: MightyPen
-ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
+manager: craigg
+ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.openlocfilehash: 71dd7d36eee210b80ed6a791b52f977a416b6bb7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>SQL veritabanı, uygulama performansını artırmak için kullanım bellek içi OLTP
 [Bellek içi OLTP](sql-database-in-memory.md) içinde hareket işleme, veri alımı ve geçici veri senaryoları performansını artırmak için kullanılan [Premium](sql-database-service-tiers.md) fiyatlandırma katmanı artırma olmadan Azure SQL veritabanları. 

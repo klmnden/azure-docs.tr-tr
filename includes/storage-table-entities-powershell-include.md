@@ -104,7 +104,7 @@ Bu sorgu, bir kayıt alır.
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 Bu sorgu, bir kayıt alır.
@@ -118,7 +118,7 @@ Bu sorgu, bir kayıt alır.
 
 ### <a name="updating-entities"></a>Varlıkları güncelleştirme 
 
-Varlıkları güncelleştirme için üç adım vardır. İlk olarak, değiştirilecek varlığın alın. İkinci olarak, değişikliği yapın. Üçüncü değişikliği kullanarak yürütme **güncelleştirme AzureStorageTableRow**.
+Varlıkları güncelleştirme için üç adım vardır. İlk olarak, değiştirmek için varlığı alır. İkinci olarak, değişikliği yapın. Üçüncü değişikliği kullanarak yürütme **güncelleştirme AzureStorageTableRow**.
 
 Kullanıcı adı ile varlığı Güncelleştirme 'kullanıcı adına sahip Jessie' = 'Jessie2' =. Bu örnek ayrıca .NET türlerini kullanarak bir özel filtre oluşturmak için başka bir yol gösterir. 
 
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Tablodaki tüm varlıklarını silme 
 
-Tablodaki tüm varlıkları silmek için bunları aldığınız sonuçları Kaldır cmdlet'ine kanal. 
+Tablosundaki tüm varlıkları silmek için bunları alın ve sonuçları Kaldır cmdlet'ine kanal. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

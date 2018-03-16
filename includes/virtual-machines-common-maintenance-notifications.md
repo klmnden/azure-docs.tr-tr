@@ -1,4 +1,19 @@
-
+---
+title: "include dosyası"
+description: "include dosyası"
+services: virtual-machines
+author: zivraf
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: zivr
+ms.custom: include file
+ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Portalda bakım için zamanlanmış görünüm VM'ler
 
 Planlı bakım wave zamanlanmış ve bildirimler gönderilir sonra yaklaşan Bakımı wave tarafından etkilenen sanal makinelerin listesini görebilirsiniz. 
@@ -17,10 +32,10 @@ Azure Portalı'nı kullanın ve bakım için zamanlanmış VM'ler arayın.
       
       | Değer | Açıklama |
       |-------|-------------|
-      | Şimdi başlayın | VM bakım başlatmak imkan tanıyan Self Servis bakım penceresinde kendiniz'dir. Nasıl bakım, VM başlatmak aşağıya bakın | 
-      | Zamanlanmış | VM bakım başlatmasını seçeneği ile bakım için zamanlandı. Bu görünümde otomatik zamanlanmış penceresini seçerek veya VM tıklatarak bakım penceresi öğrenin | 
+      | Şimdi başlayın | VM, bakımı sizin başlatmanıza imkan tanıyan self servis bakım penceresindedir. Nasıl bakım, VM başlatmak aşağıya bakın | 
+      | Zamanlanmış | VM, size başlatma seçeneği sunulmayan bir bakım için zamanlanır. Bu görünümde otomatik zamanlanmış penceresini seçerek veya VM tıklatarak bakım penceresi öğrenin | 
       | Tamamlandı | Başarıyla başlatıldı ve VM üzerinde bakım tamamlandı. | 
-      | Atlandı| Bakım hiçbir başarı ile başlatmak için seçtiniz. Self Servis Bakım seçeneğini kullanmanız mümkün olmaz. VM, Azure tarafından zamanlanmış bakım aşamasında başlatılması gerekir. | 
+      | Atlandı| Bakımı başlatmayı seçtiniz ancak işlem başarısız oldu. Self Servis Bakım seçeneğini kullanmanız mümkün olmaz. VM, Azure tarafından zamanlanmış bakım aşamasında başlatılması gerekir. | 
 
    **Bakım profesyonel etkin** -Vm'leriniz kendi kendine Bakımı başlatabilirsiniz zaman penceresini gösterir.
    

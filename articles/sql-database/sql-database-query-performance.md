@@ -2,24 +2,18 @@
 title: "Azure SQL veritabanı için sorgu performansı öngörüleri | Microsoft Docs"
 description: "Sorgu performansı izleme CPU tüketimi sorguların çoğu bir Azure SQL veritabanı için tanımlar."
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 015f3255d0ff9691168899df1e983e70f35215b1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL veritabanı sorgu performansı öngörüleri
 Yönetme ve ilişkisel veritabanlarının performansını ayarlama önemli uzmanlık ve zaman yatırımı gerektiren bir görevdir. Sorgu performansı öngörüleri, aşağıdakileri sağlayarak veritabanı performans sorunlarını giderme daha az süre beklemesini sağlar:
@@ -31,13 +25,13 @@ Yönetme ve ilişkisel veritabanlarının performansını ayarlama önemli uzman
 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Sorgu performansı öngörüleri gerektirir [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) veritabanınızda etkindir. Query Store çalışmıyorsa, portal etkinleştirmek ister.
 
 ## <a name="permissions"></a>İzinler
 Aşağıdaki [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) sorgu performansı öngörüleri kullanmak için gereken izinler: 
 
-* **Okuyucu**, **sahibi**, **katkıda bulunan**, **SQL DB Katılımcısı**, veya **SQL Server Katılımcısı** sorgular ve grafikler tüketen üst kaynağı görüntülemek için izinleri gereklidir. 
+* **Okuyucu**, **sahibi**, **katkıda bulunan**, **SQL DB Katılımcısı**, veya **SQL Server Katılımcısı** izinleri gereklidir üst görüntülemek için kaynak tüketen sorguları ve grafikleri. 
 * **Sahibi**, **katkıda bulunan**, **SQL DB Katılımcısı**, veya **SQL Server Katılımcısı** sorgu metnini görüntülemek için gereken izinler.
 
 ## <a name="using-query-performance-insight"></a>Sorgu performansı öngörüleri kullanma
@@ -93,7 +87,7 @@ Sorgu Ayrıntıları görüntülemek için:
 
 1. Herhangi bir sorgu listesinde en sık kullanılan sorguların'ı tıklatın.
    
-    ![Ayrıntıları](./media/sql-database-query-performance/details.png)
+    ![ayrıntılar](./media/sql-database-query-performance/details.png)
 2. Ayrıntılar görünümünü açar ve zaman içinde sorguları CPU süresi/tüketim/yürütme sayısı ayrılmıştır.
 3. Ayrıntılar için grafik etrafında'ı tıklatın.
    

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3cd509a0073e45bf910e9a74a279d678ff03b63
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Visual Studio'da Logic Apps ve işlevleri ile sunucusuz bir uygulama oluşturun
 
@@ -86,7 +86,7 @@ JavaScript, Python, F #, Bash, toplu veya PowerShell kullanarak, izleyin [işlev
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Sunucusuz bir sosyal Pano oluşturmayı öğrenin](logic-apps-scenario-social-serverless.md)
-* [Visual Studio bulut Gezgini'nden bir mantıksal uygulama yönetme](logic-apps-manage-from-vs.md)
+* [Visual Studio bulut Gezgini'nden bir mantıksal uygulama yönetme](manage-logic-apps-with-visual-studio.md)
 * [Mantıksal uygulama iş akışı tanımlama dili](logic-apps-workflow-definition-language.md)
 
 <!-- Image references -->

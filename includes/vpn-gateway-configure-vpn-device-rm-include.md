@@ -1,10 +1,14 @@
-**Yapılandırma bilgileri için aşağıdaki bağlantılara bakın:**
+**VPN cihazı yapılandırma komut dosyaları indirmek için:**
+
+Sahip olduğunuz VPN cihaza bağlı olarak, bir VPN cihazı yapılandırma betiğini indir mümkün olabilir. Daha fazla bilgi için bkz: [karşıdan VPN cihazı yapılandırma komut](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
+
+**Ek yapılandırma bilgileri için aşağıdaki bağlantılara bakın:**
 
 - Uyumlu VPN cihazları hakkında bilgi için bkz. [VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 - VPN cihazınızı yapılandırmadan önce, kullanmak istediğiniz VPN cihazının [Bilinen cihaz uyumluluğu sorunları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) olup olmadığını denetleyin.
 
-- Cihaz yapılandırma ayarlarının bağlantıları için bkz. [Doğrulanan VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Mümkün olan en iyi cihaz yapılandırma bağlantıları verilmiştir. En son yapılandırma bilgileri için her zaman cihaz üreticinize başvurmanız en iyi yöntemdir. Test ettiğimiz sürümleri gösterir sağladığımız listesi. İşletim sistemi listede yoksa sürümü uyumludur hala mümkündür. VPN cihazınız için işletim sistemi sürümü uyumlu olduğunu doğrulamak için cihaz üreticinize başvurun.
+- Cihaz yapılandırma ayarlarının bağlantıları için bkz. [Doğrulanan VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Mümkün olan en iyi cihaz yapılandırma bağlantıları verilmiştir. En son yapılandırma bilgileri için her zaman cihaz üreticinize başvurmanız en iyi yöntemdir. Liste, Test ettiğimiz sürümleri gösterir. İşletim sistemi listede yoksa sürümü uyumludur hala mümkündür. VPN cihazınız için işletim sistemi sürümü uyumlu olduğunu doğrulamak için cihaz üreticinize başvurun.
 
 - VPN cihazı yapılandırmasına genel bakış için bkz. [3. taraf VPN cihazı yapılandırmaları](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 

@@ -3,8 +3,8 @@ title: "Bir şirket içi sanal makine görüntüsü için Azure Marketi oluştur
 description: "Anlama ve şirket içi VM görüntü oluşturma ve Azure satın almak için Marketinde başkalarının dağıtma adımları yürütün."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 77771f1e690bdfb59d42989a34068634f35f845d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Bir şirket içi sanal makine görüntüsü için Azure Marketi geliştirin
 Uzak Masaüstü Protokolü kullanarak Azure sanal sabit diskleri (VHD) doğrudan bulutta geliştirmek öneririz. Ancak, gerekirse, bir VHD karşıdan yüklemek ve şirket içi altyapıyı kullanarak geliştirmek mümkündür.  
@@ -92,7 +92,7 @@ Bir depolama hesabı oluşturmak için kullanabileceğiniz [Microsoft Azure port
 
 **Microsoft Azure Portalı'ndan bir depolama hesabı oluşturma**
 
-1. Tıklatın **kaynak oluşturma**.
+1. **Kaynak oluştur**’a tıklayın.
 2. Seçin **depolama**.
 3. Depolama hesabı adı girin ve ardından bir konum seçin.
    

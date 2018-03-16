@@ -2,25 +2,18 @@
 title: "SQL veritabanı için XEvent olay dosyası kodu | Microsoft Docs"
 description: "PowerShell ve Transact-SQL Azure SQL veritabanı genişletilmiş bir olay Olay dosyası hedef gösteren iki aşamalı kod örneği sağlar. Azure depolama, bu senaryo, gerekli bir parçasıdır."
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: genemi
-ms.openlocfilehash: abf660e3fafd1a5020cdf9a6beb5b73252b72cfc
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 630e0ca84479757d3bb4397aa63ee8a440e69427
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL veritabanı genişletilmiş olaylar için olay dosya hedef kodu
 
@@ -38,13 +31,13 @@ Bu konuda iki aşamalı kod örneği gösterir:
   * Bir olay dosyası hedef Azure depolama kapsayıcısının atamak için.
   * Oluşturma ve olay oturumu başlatmak ve benzeri için.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bir Azure hesabı ve aboneliği [Ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 * Herhangi bir veritabanı, bir tablodaki oluşturabilirsiniz.
   
   * İsteğe bağlı olarak yapabileceğiniz [oluşturma bir **AdventureWorksLT** demo veritabanı](sql-database-get-started.md) dakika.
-* SQL Server Management Studio (ssms.exe), ideal olarak en son aylık güncelleştirme sürümü. 
+* SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
   En son ssms.exe öğesinden yükleyebilirsiniz:
   
   * Başlıklı konuda [SQL Server Management Studio'yu indirme](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -242,7 +235,7 @@ Komut dosyası önceki olası çalıştırın ve rerunnable sonra temizlemek iç
 
 PowerShell Betiği birkaç adlandırılmış değerler yazdırıldığında bunu sona erdi. Bu değerleri kullanmak için Transact-SQL komut dosyasını düzenlemeniz gerekir. Bul **Yapılacaklar** düzenleme noktaları bulmak için Transact-SQL komut.
 
-1. SQL Server Management Studio'yu (ssms.exe) açın.
+1. Open SQL Server Management Studio (ssms.exe).
 2. Azure SQL veritabanı veritabanınızla bağlantı kurun.
 3. Yeni bir sorgu bölmesini açmak için tıklatın.
 4. Aşağıdaki Transact-SQL betiği sorgu bölmesine yapıştırın.
@@ -531,7 +524,7 @@ Microsoft SQL Server üzerinde önceki Transact-SQL örneği çalıştırmak ist
 Hesapları ve Azure Storage hizmetinde kapsayıcıları hakkında daha fazla bilgi için bkz:
 
 * [BLOB depolama alanından .NET kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Adlandırma ve kapsayıcıları, Blobları ve meta verileri başvurma](http://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Kök kapsayıcı ile çalışma](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [Ders 1: bir Azure kapsayıcısı üzerinde depolanan erişim ilkesi ve bir paylaşılan erişim imzası oluşturma](http://msdn.microsoft.com/library/dn466430.aspx)
   * [Ders 2: paylaşılan erişim imzası kullanarak bir SQL Server kimlik bilgisi oluşturma](http://msdn.microsoft.com/library/dn466435.aspx)

@@ -2,24 +2,18 @@
 title: "Esnek veritabanı istemci Kitaplığı'nda kimlik bilgilerini yönetme | Microsoft Docs"
 description: "Doğru düzeyde kimlik bilgileri, yönetici salt okunur, esnek veritabanı uygulamaları için nasıl kurulur"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: ddove
-ms.openlocfilehash: 0f266f3be8bf8c1699b3b19bea96c83d32f1bd69
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Esnek veritabanı istemci kitaplığına erişmek için kullanılan kimlik bilgileri
 [Esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) erişmek için kullandığı kimlik bilgilerini üç farklı türde [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). Gereken bağlı olarak, kimlik bilgisi erişim olası en düşük düzeyde ile kullanın.

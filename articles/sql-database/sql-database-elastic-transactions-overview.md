@@ -2,24 +2,18 @@
 title: "Bulut veritabanlarında dağıtılmış işlemler"
 description: "Azure SQL Database esnek veritabanı işlemleri genel bakış"
 services: sql-database
-documentationcenter: 
-author: torsteng
-manager: jhubbard
-editor: torsteng
-ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 4441cdef3bc97aab35451720753e437e24702fd9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: sstein
+ms.openlocfilehash: 0a57f06d874f8a746d59bb927b4200656a999c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Bulut veritabanlarında dağıtılmış işlemler
 Esnek veritabanı işlemleri için Azure SQL veritabanı (SQL DB), SQL DB birkaç veritabanlarında span işlemleri çalıştırmanızı sağlar. Esnek veritabanı işlemleri için SQL DB ADO .NET kullanarak .NET uygulamaları için kullanılabilir ve tanıdık programlama deneyimi kullanarak ile tümleştirmek [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) sınıfları. Kitaplık almak için bkz: [.NET Framework 4.6.1 (Web Yükleyicisi)](https://www.microsoft.com/download/details.aspx?id=49981).

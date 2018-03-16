@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 08/12/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5f85b81e894cba7354fb146d6e9a1aa987be7dc5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search'te Azure SQL veritabanına bağlanma
 
@@ -57,6 +57,9 @@ Verilerinizde ilgili çeşitli etkenlere bağlı olarak Azure SQL dizin oluştur
 | Veri türlerinin uyumlu olduğundan | Bir Azure Search dizini çoğu ancak tüm SQL türleri desteklenir. Bir listesi için bkz: [veri türlerini eşleştirme](#TypeMapping). |
 | Gerçek zamanlı veri eşitleme gerekli değil | Bir dizin oluşturucu tablonuz en fazla beş dakikada yeniden dizin oluşturabilirsiniz. Veri değişikliklerini sık sık ve değişiklikleri dizinde saniye ya da tek dakikalar içinde yansıtılması gerekiyorsa kullanmanızı öneririz [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) veya [.NET SDK'sı](search-import-data-dotnet.md) güncelleştirilmiş satırları doğrudan göndermek için. |
 | Artımlı dizin mümkündür | Büyük veri kümesi ve bir zamanlamaya göre dizin oluşturucuyu çalıştırmak için plan varsa, Azure Search verimli bir şekilde yeni, değiştirilen veya silinen satır belirlemek mümkün olması gerekir. İsteğe bağlı (zamanlamada değil) dizin oluşturma veya 100. 000'den az satır dizinini olmayan Artımlı dizin oluşturma işlemi yalnızca izin verilir. Daha fazla bilgi için bkz: [yakalama değiştirilen ve silinen satır](#CaptureChangedRows) aşağıda. |
+
+> [!NOTE] 
+> Azure arama yalnızca SQL Server kimlik doğrulamasını destekler. Azure Active Directory parola kimlik doğrulaması için destek gerekiyorsa, lütfen bu için oy verin [UserVoice öneri](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Bir Azure SQL dizin oluşturucu yapın
 
@@ -221,7 +224,7 @@ Bu değişiklik algılama İlkesi sürümü veya bir satır en son güncelleşti
 * Tüm ekler sütunu için bir değer belirtin.
 * Bir öğe için tüm güncelleştirmeleri de sütunun değeri değiştirin.
 * Bu sütunun değeri her INSERT veya update artırır.
-* Aşağıdaki sorguları yeri ve ORDER BY yan tümceleri yürütülebilir verimli bir şekilde:`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
+* Aşağıdaki sorguları yeri ve ORDER BY yan tümceleri yürütülebilir verimli bir şekilde: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
 > Kullanmanızı öneririz [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) yüksek su işareti sütun için veri türü. Başka bir veri türü kullanılırsa, değişiklik izleme eşzamanlı olarak bir dizin oluşturucu sorgusu yürütme işlemleri varlığında tüm değişiklikleri yakalamak için kesin değildir. Kullanırken **rowversion** salt okunur çoğaltmaları bir yapılandırmada birincil kopyada dizin oluşturucu işaret etmelidir. Yalnızca birincil kopya veri eşitleme senaryoları için kullanılabilir.
@@ -286,11 +289,11 @@ Soft-delete teknik kullanırken, geçici silme ilkesi şu şekilde oluşturulurk
 | SQL veri türü | Hedef dizini izin alan türleri | Notlar |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
-| int, smallint, tinyint |EDM.Int32, EDM.Int64, Edm.String | |
-| bigint |EDM.Int64, Edm.String | |
+| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
 | Gerçek, kayan nokta |Edm.Double, Edm.String | |
 | küçük para, para ondalık sayısal |Edm.String |Azure arama Bu duyarlık kaybeder çünkü Edm.Double ondalık türlerini dönüştürmeyi desteklemez |
-| karakter, n karakter, değişken karakter, n değişken karakter |Edm.String<br/>Collection(Edm.String) |Bir SQL dizesi dize bir JSON dizisini temsil ediyorsa Collection(Edm.String) alanını doldurmak için kullanılabilir:`["red", "white", "blue"]` |
+| karakter, n karakter, değişken karakter, n değişken karakter |Edm.String<br/>Collection(Edm.String) |Bir SQL dizesi dize bir JSON dizisini temsil ediyorsa Collection(Edm.String) alanını doldurmak için kullanılabilir: `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | coğrafi konum |Edm.GeographyPoint |Yalnızca Coğrafya türünün örneklerini noktası (varsayılan değer olan) SRID 4326 ile desteklenir |
@@ -303,7 +306,7 @@ SQL dizin oluşturucu birkaç yapılandırma ayarlarını gösterir:
 | Ayar | Veri türü | Amaç | Varsayılan değer |
 | --- | --- | --- | --- |
 | queryTimeout |string |SQL sorgusu yürütme için zaman aşımı ayarlar |5 dakika ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |bool |ORDER BY yan tümcesi atlamak için yüksek su işareti ilke tarafından kullanılan SQL sorgusu neden olur. Bkz: [yüksek su işareti İlkesi](#HighWaterMarkPolicy) |yanlış |
+| disableOrderByHighWaterMarkColumn |bool |ORDER BY yan tümcesi atlamak için yüksek su işareti ilke tarafından kullanılan SQL sorgusu neden olur. Bkz: [yüksek su işareti İlkesi](#HighWaterMarkPolicy) |false |
 
 Bu ayarları kullanılan `parameters.configuration` dizin oluşturucu tanımında nesne. Örneğin, sorgu zaman aşımı 10 dakika olarak ayarlamak için oluşturmak veya dizin oluşturucu aşağıdaki yapılandırma ile güncelleştir:
 

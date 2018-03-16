@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Bir ortak Microsoft eşlemesi için eşleme taşıma
 
@@ -50,7 +50,7 @@ Microsoft eşlemesi oluşturulmadı, Microsoft eşlemesi oluşturmak için aşa�
 
 Microsoft eşlemesi etkin ve yapılandırılmış durumda tanıtılan genel ön ekleri doğrulayın.
 
-  * [Azure portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)
+  * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
   * [Azure CLI](howto-routing-cli.md#getmsft)
 
@@ -73,7 +73,11 @@ Microsoft eşlemesi yapılandırılmış ve Microsoft eşlemesi üzerinde kullan
   * [Azure portalını kullanarak Azure ortak eşlemesini silmek](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Azure PowerShell kullanarak Azure ortak eşlemesini silmek](expressroute-howto-routing-arm.md#deletepublic)
   * [CLI kullanarak Azure ortak eşlemesini silmek](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. Görünüm eşlemeleri
+  
+Tüm ExpressRoute bağlantı hatları ve Azure portalında eşlemeleri listesini görebilirsiniz. Daha fazla bilgi için bkz: [görünüm Microsoft eşleme ayrıntılarını](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressroute-faqs.md).

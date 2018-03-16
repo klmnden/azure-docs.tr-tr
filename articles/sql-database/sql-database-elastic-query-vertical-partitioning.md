@@ -2,30 +2,25 @@
 title: "Sorgu farklı şemasıyla bulut veritabanları arasında | Microsoft Docs"
 description: "veritabanları arası sorgulamalarını dikey bölümleri ayarlama"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mlandzic
-ms.openlocfilehash: f3bf919aa4aab8d37a5a97b90138b1f5434eb6ea
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 2ded9ee4938e02715b1149ce5375e855519cea9f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Bulut veritabanları farklı şemaları (Önizleme) ile sorgulama
 ![Farklı veritabanı tablolarında sorgulama][1]
 
 Veritabanlarını dikey olarak bölümlenmiş tabloları kümesi farklı farklı veritabanlarını kullanır. Şema farklı veritabanlarında farklı olduğu anlamına gelir. Örneğin, tüm hesap ilişkili tabloları ikinci bir veritabanı üzerinde çalışırken tüm tablolar için stok bir veritabanında ' dir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Kullanıcı ALTER ANY dış veri KAYNAĞINA iznine sahip olması gerekir. Bu izin ALTER DATABASE izniyle dahil edilir.
 * Temel alınan veri kaynağına başvurmak için ALTER ANY dış veri kaynağı izinleri gereklidir.
 

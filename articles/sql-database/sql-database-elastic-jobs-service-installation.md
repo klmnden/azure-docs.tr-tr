@@ -2,34 +2,28 @@
 title: "Esnek veritabanı işleri yükleme | Microsoft Docs"
 description: "Esnek iş özellik yüklenmesinde size yol gösterir."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Yükleme esnek veritabanı işleri genel bakış
 [**Esnek veritabanı iş** ](sql-database-elastic-jobs-overview.md) PowerShell aracılığıyla veya Azure portalı üzerinden yüklenebilir. Yalnızca PowerShell paketi yüklerseniz PowerShell API'yi kullanarak işleri oluşturmak ve yönetmek için erişim sağlayabilir. Ayrıca, PowerShell API'lerinden sağlayın portal önemli ölçüde daha fazla işlevsellik bu anda.
 
 Zaten yüklediyseniz, **esnek veritabanı işleri** varolan bir Portal üzerinden **esnek havuz**, en son Powershell Önizleme, mevcut yüklemenizi yükseltmek için komut dosyalarını içerir. Yüklemenizin en son sürüme yükseltmek için önerilir **esnek veritabanı işleri** PowerShell API'leri kullanıma sunulan yeni işlevsellikten yararlanmak için bileşenleri.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Ücretsiz deneme için bkz: [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. En son sürümünü kullanarak yüklemeniz [Web Platformu yükleyicisi](http://go.microsoft.com/fwlink/p/?linkid=320376). Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
-* [NuGet komut satırı yardımcı programı](https://nuget.org/nuget.exe) esnek veritabanı işleri paketini yüklemek için kullanılır. Daha fazla bilgi için http://docs.nuget.org/docs/start-here/installing-nuget bakın.
+* [NuGet komut satırı yardımcı programı](https://nuget.org/nuget.exe) esnek veritabanı işleri paketini yüklemek için kullanılır. Daha fazla bilgi için bkz: http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Karşıdan yükle ve esnek veritabanı işleri PowerShell paketi Al
 1. Microsoft Azure PowerShell komut penceresini başlatın ve NuGet komut satırı yardımcı programı (nuget.exe) indirdiğiniz dizine gidin.
@@ -68,7 +62,7 @@ Bu örnek çağrısının sağlanan parametreler için istenen ayarlarınız de�
   </tr>
 
 <tr>
-    <td>resourceGroupName</td>
+    <td>ResourceGroupName</td>
     <td>Yeni oluşturulan Azure bileşenleri içeren için oluşturduğunuz Azure kaynak grubu adı sağlar. Bu parametre "__ElasticDatabaseJob" varsayılan olarak ayarlanır. Bu değeri değiştirmek için önerilmez.</td>
     </tr>
 
@@ -129,7 +123,7 @@ Bir yükleme VM boyutu güncelleştirmek için tercih ettiğiniz değerleri içi
 </tr>
 
   <tr>
-    <td>resourceGroupName</td>
+    <td>ResourceGroupName</td>
     <td>Esnek veritabanı iş bileşenler ilk yüklendiğinde kullanılan Azure kaynak grubu adını tanımlar. Bu parametre "__ElasticDatabaseJob" varsayılan olarak ayarlanır. Bu değeri değiştirmek için önerilmez olduğundan, bu parametre belirtmeniz gerekmez.</td>
     </tr>
 </tr>

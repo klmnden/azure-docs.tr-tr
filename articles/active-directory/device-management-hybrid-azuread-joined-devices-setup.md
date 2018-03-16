@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -62,7 +62,13 @@ Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim k
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Karma Azure AD alanına katılmış cihazları, kuruluşunuzda etkinleştirmeye başlamadan önce Azure AD güncel bir sürümünü çalıştırdığından emin olmanız gerekir bağlanın.
+Karma Azure AD alanına katılmış cihazları, kuruluşunuzda etkinleştirmeye başlamadan önce emin olmanız gerekir:
+
+- Azure AD güncel bir sürümünü çalıştırdığından bağlanın.
+
+- Azure AD connect karma Azure AD için Azure AD alanına katılmış olmasını istediğiniz cihazları bilgisayar nesnelerini eşitlendi. Bu OU'lar Azure AD eşitleme için yapılandırılması gereken sonra belirli kuruluş birimine (OU) bilgisayar nesnelerini aitse de bağlayın.
+
+  
 
 Azure AD Connect:
 
@@ -145,7 +151,7 @@ Aşağıdaki komut dosyası cmdlet'ini kullanarak bir örnek gösterilmektedir. 
 `Initialize-ADSyncDomainJoinedComputerSync` Cmdlet:
 
 - Active Directory PowerShell modülü ve bir etki alanı denetleyicisinde çalışan Active Directory Web Hizmetleri Bel AD DS araçları kullanır. Active Directory Web Hizmetleri, Windows Server 2008 R2 çalıştıran etki alanı denetleyicilerinde ve üzerinde desteklenir.
-- Yalnızca tarafından desteklenen **MSOnline PowerShell modülü sürümü 1.1.166.0**. Bu modül indirmek için bunu kullanın [bağlantı](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Yalnızca tarafından desteklenen **MSOnline PowerShell modülü sürümü 1.1.166.0**. Bu modül indirmek için bunu kullanın [bağlantı](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).   
 - AD DS araçları yüklü değilse, `Initialize-ADSyncDomainJoinedComputerSync` başarısız olur.  AD DS araçları özellikleri - uzak sunucu yönetim araçları - Rol Yönetim Araçları altında Sunucu Yöneticisi üzerinden yüklenebilir.
 
 Windows Server 2008 veya önceki sürümlerini çalıştıran etki alanı denetleyicileri için hizmet bağlantı noktası oluşturmak için aşağıdaki komut dosyası kullanın.
@@ -306,7 +312,7 @@ Tanımı, değerleri mevcut olup olmadığını veya bunları oluşturmanız ger
 
 Yukarıdaki talep
 
-- `<verified-domain-name>` Azure AD'de doğrulanmış etki alanı adlarınızı biri ile değiştirmek için gereken bir yer tutucudur. Örneğin, değer "http://contoso.com/adfs/services/trust/" =
+- `<verified-domain-name>` Azure AD'de doğrulanmış etki alanı adlarınızı biri ile değiştirmek için gereken bir yer tutucudur. Örneğin, değer = "http://contoso.com/adfs/services/trust/"
 
 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -33,6 +33,12 @@ Bu makalede Azure Blob Depolama bağlamaları Azure işlevlerinde ile nasıl ça
 
 > [!NOTE]
 > [Yalnızca BLOB Depolama hesapları](../storage/common/storage-create-storage-account.md#blob-storage-accounts) için blob Tetikleyicileri desteklenmez. BLOB Depolama Tetikleyicileri genel amaçlı depolama hesabı gerektirir. Giriş ve çıkış bağlamaları için yalnızca blob depolama hesaplarını kullanabilirsiniz.
+
+## <a name="packages"></a>Paketler
+
+Blob Depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub depo.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Tetikleyici
 
@@ -152,7 +158,7 @@ module.exports = function(context) {
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), bir blob tetikleyici yapılandırmak için aşağıdaki öznitelikler kullanın:
 
-* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)
 
   Özniteliğin Oluşturucusu izlemek için kapsayıcıyı belirten bir yol dizesini alır ve isteğe bağlı olarak bir [blob adı deseni](#trigger---blob-name-patterns). Bir örneği aşağıda verilmiştir:
 
@@ -180,7 +186,7 @@ module.exports = function(context) {
 
   Tam bir örnek için bkz: [tetikleyici - C# örnek](#trigger---c-example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Depolama hesabı belirtmek için başka bir yol sağlar. Oluşturucusu depolama bağlantı dizesi içeren bir uygulama ayarı adını alır. Öznitelik parametre, yöntemi veya sınıf düzeyinde uygulanabilir. Aşağıdaki örnek, sınıf ve yöntem düzeyindeki gösterir:
 
@@ -472,7 +478,7 @@ module.exports = function(context) {
 
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
 
 Özniteliğin Oluşturucusu yolunu blob alır ve bir `FileAccess` okuma veya yazma, aşağıdaki örnekte gösterildiği gibi gösteren parametre:
 
@@ -684,7 +690,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
 
 Özniteliğin Oluşturucusu yolunu blob alır ve bir `FileAccess` okuma veya yazma, aşağıdaki örnekte gösterildiği gibi gösteren parametre:
 

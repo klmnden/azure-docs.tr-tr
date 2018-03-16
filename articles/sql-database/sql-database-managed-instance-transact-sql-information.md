@@ -9,12 +9,12 @@ ms.custom: managed instance
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: jovanpop
-manager: cguyer
-ms.openlocfilehash: 27be2b9a5f2b9aaf2d4464a6c927ec2a1694131a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: d412cbbe44a1b865ff5fa090592faa9b59fb06bf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL Database yönetilen örnek T-SQL farkları 
 

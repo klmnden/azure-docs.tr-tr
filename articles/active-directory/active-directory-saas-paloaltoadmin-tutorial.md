@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Palo Alto Networks - Admin kullanıcı Arabirimi ile | Microsoft Docs"
+title: "Öğretici: Azure Active Directory Palo Alto Networks - Admin kullanıcı Arabirimi ile tümleştirin. | Microsoft Docs"
 description: "Çoklu oturum açma Palo Alto ağları - Admin kullanıcı Arabirimi ve Azure Active Directory arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 60430f08f54232db619efd054ca3a7d9a44f4cdc
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: c5be53f06e009cb2d5180e43318c8670139a68db
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Öğretici: Azure Active Directory Tümleştirme Palo Alto ağlarla - Admin kullanıcı Arabirimi
+# <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Yönetici UI Palo Alto ağlarla - Azure Active Directory Tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile yönetici UI Palo Alto Networks - tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) Palo Alto ağlarını - Admin kullanıcı Arabirimi ile tümleştirmeye öğrenin.
 
-Palo Alto ağları - yönetici UI Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Palo Alto Networks - Admin kullanıcı Arabirimi ile tümleştirme Azure AD tarafından aşağıdaki yararları alın:
 
 - Palo Alto Networks - Admin kullanıcı Arabirimi erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak Palo Alto ağlara - Azure AD hesaplarına sahip yönetim kullanıcı Arabirimi (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
+- Otomatik olarak Palo Alto Networks - yönetici kullanıcı Arabirimi (çoklu oturum açma veya SSO) ile Azure AD hesaplarına açan, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda, Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında bilgi edinmek için [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,225 +40,226 @@ Azure AD tümleştirme Palo Alto ağlarla - yönetici UI yapılandırmak için a
 - Palo Alto ağları yeni nesil güvenlik duvarı veya Panorama (güvenlik duvarları için merkezi yönetim sistemi)
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test ettiğinizde, bunu yapmanızı öneririz *değil* bir üretim ortamında kullanın.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide adımları test etmek için aşağıdaki önerileri uygulayın:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. 
 
-1. Yönetici UI galerisinden Palo Alto ağlar - ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>Yönetici UI galerisinden Palo Alto ağlar - ekleme
-Palo Alto Networks - Azure AD'ye yönetici UI tümleştirmesini yapılandırma Palo Alto Networks - galerisinden yönetici UI yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+* Yönetici UI galerisinden Palo Alto ağlar - ekleme
+* Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-**Yönetici UI Galerisi'nden Palo Alto Networks - eklemek için aşağıdaki adımları gerçekleştirin:**
+## <a name="add-palo-alto-networks---admin-ui-from-the-gallery"></a>Yönetici UI galerisinden Palo Alto ağları - ekleyin
+Azure ad tümleştirme Palo Alto ağlarla - yönetici UI yapılandırmak için aşağıdakileri yaparak yönetilen SaaS uygulamaları listenize galerisinden yönetici UI Palo Alto Networks - ekleyin:
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde [Azure portal](https://portal.azure.com), sol bölmede seçin **Azure Active Directory**. 
 
     ![Azure Active Directory düğmesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Seçin **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    !["Kurumsal uygulamalar" penceresi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni bir uygulama eklemek için seçin **yeni uygulama** pencerenin üstündeki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    !["Yeni uygulama" düğmesi][3]
 
-4. Arama kutusuna **Palo Alto Networks - Admin kullanıcı Arabirimi**seçin **Palo Alto Networks - Admin kullanıcı Arabirimi** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **Palo Alto Networks - yönetici UI**seçin **Palo Alto Networks - yönetici UI** sonuçları listesi ve ardından **Ekle**.
 
     ![Palo Alto Networks - sonuçlar listesinde yönetim kullanıcı Arabirimi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Palo Alto ağlar ile test etme - "Britta Simon" adlı bir test kullanıcı yönetici UI tabanlı.
+Bu bölümde, yapılandırmanız ve Palo Alto Networks - Admin kullanıcı Arabirimi ile Azure AD çoklu oturum açmayı test "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Palo Alto ağlarda - Admin kullanıcı Arabirimi bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı Palo Alto ağlarda - arasında bir bağlantı ilişkisi yönetici UI kurulması gerekir.
+Tekli çalışmaya oturum için - Admin kullanıcı Arabirimi kullanıcı ve kendisine karşılık gelen Azure AD'de Palo Alto ağları tanımlamak Azure AD gerekiyor. Diğer bir deyişle, bir Azure AD kullanıcısının Palo Alto Networks - Admin kullanıcı Arabirimi aynı kullanıcı arasında bir bağlantı ilişkisi kurulmalıdır.
 
-Palo Alto ağları - yönetici UI değerini atama **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Bağlantı ilişkisi kurmak için Palo Alto ağları - yönetici UI atama *kullanıcıadı* değerini *kullanıcı adı* Azure AD'de.
 
-Yapılandırmak ve Azure AD çoklu oturum açma Palo Alto ağlarla - sınamak için yönetim kullanıcı Arabirimi, aşağıdaki yapı taşları tamamlanması gerekir:
-
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Palo Alto Networks - yönetici UI test kullanıcısı oluşturma](#create-a-palo-alto-networks---admin-ui-test-user)**  - Britta Simon, karşılık gelen Palo Alto Networks - kullanıcı Azure AD gösterimini bağlantılı yönetici UI sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+Yapılandırma ve Azure AD çoklu oturum açma Palo Alto Networks - Admin kullanıcı Arabirimi ile test etme için yapı taşları sonraki beş bölümlerde tamamlayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, Palo Alto Networks - Admin kullanıcı Arabirimi uygulama yapılandırın.
+Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Palo Alto ağlarınızı - aşağıdakileri yaparak yönetici UI uygulama yapılandırın:
 
-**Azure AD çoklu oturum açma Palo Alto ağlarla - yönetici UI yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+1. Azure portalında üzerinde **Palo Alto Networks - yönetici UI** uygulama tümleştirmesi sayfasında, **çoklu oturum açma**.
 
-1. Azure portalında üzerinde **Palo Alto Networks - Admin kullanıcı Arabirimi** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+    !["Çoklu oturum açmayı" bağlantı][4]
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
-
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. İçinde **çoklu oturum açma** penceresi, **tek oturum açma modu** kutusunda **SAML tabanlı oturum açma**.
  
-    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_samlbase.png)
+    !["Çoklu oturum açmayı" penceresi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_samlbase.png)
 
-3. Üzerinde **Palo Alto Networks - yönetici UI etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Altında **Palo Alto Networks - yönetici UI etki alanı ve URL'leri**, aşağıdakileri yapın:
 
-    ![-Yönetici UI etki alanı ve oturum açma URL'leri tek bilgi Palo Alto ağları](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
+    !["Palo Alto Networks - yönetici UI etki alanı ve URL'ler" tek oturum açma bilgileri](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_show_advanced_url.png)
     
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<Customer Firewall FQDN>/php/login.php`
+    a. İçinde **oturum açma URL'si** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<müşteri güvenlik duvarı FQDN > /php/login.php*.
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<Customer Firewall FQDN>:443/SAML20/SP`
+    b. İçinde **tanımlayıcısı** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<müşteri güvenlik duvarı FQDN >: 443/SAML20/SP*.
     
-    c. İçinde **yanıt URL'si** metin kutusuna, onaylama işlemi tüketici Hizmeti'ni (ACS) URL şu biçimi kullanarak girin: `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
+    c. İçinde **yanıt URL'si** kutusuna onaylama tüketici Hizmeti'ni (ACS) URL aşağıdaki biçimde yazın: *https://\<müşteri güvenlik duvarı FQDN >: 443/SAML20/SP/ACS*.
     
-
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Palo Alto Networks - yönetici UI istemci destek ekibi](https://support.paloaltonetworks.com/support) bu değerleri almak için. 
+    > Yukarıdaki değerleri gerçek değildir. Bunları tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Değerleri almak için başvurun [Palo Alto Networks - yönetici UI istemci destek ekibi](https://support.paloaltonetworks.com/support). 
  
-4. Palo Alto Networks - yönetici kullanıcı Arabirimi uygulaması SAML onaylar belirli bir biçimde bekliyor. Lütfen bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
+4. Palo Alto Networks - yönetici kullanıcı Arabirimi uygulaması SAML onaylar belirli bir biçimde beklediği talepler aşağıdaki görüntüde gösterildiği gibi yapılandırın. Öznitelik değerlerinin yönetmek **kullanıcı öznitelikleri** bölümünü **uygulama tümleştirmesi** aşağıdakileri yaparak sayfa:
     
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
+    ![SAML belirteci öznitelikler listesi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
     
-5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin: öznitelik değerleri yalnızca, örnek olduğuna dikkat edin Lütfen kullanıcı adı ve adminrole için uygun değerleri eşleyin. Başka bir isteğe bağlı öznitelik "belirli sanal sistemlere Güvenlik Duvarı'nda yönetici erişimi kısıtlamak için kullanılan accessdomain" dir.
+   > [!NOTE]
+   > Öznitelik değerleri yalnızca örnek olduğundan, uygun değerleri için eşleme *kullanıcıadı* ve *adminrole*. Başka bir isteğe bağlı özniteliği yok *accessdomain*, Güvenlik Duvarı'nda belirli sanal sistemlere yönetici erişimi kısıtlamak için kullanılır.
+   >
         
-    | Öznitelik Adı | Öznitelik Değeri |
+    | Öznitelik adı | Öznitelik değeri |
     | --- | --- |    
     | kullanıcı adı | user.userprincipalname |
     | adminrole | customadmin |
 
-    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
+    a. Seçin **Ekle özniteliği**.  
+    
+    !["Ekle özniteliği" düğmesi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_04.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_04.png)
+    **Özniteliği eklemek** penceresi açılır.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_05.png)
+    !["Ekle özniteliği" penceresi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_attribute_05.png)
     
-    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
+    b. İçinde **adı** ilgili satır için gösterilen öznitelik adı yazın.
     
-    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    c. İçinde **değeri** ilgili satır için gösterilen öznitelik değerini yazın.
     
-    d. Tıklatın **Tamam**
+    d. **Tamam**’ı seçin.
 
     > [!NOTE]
-    > Makaleler öznitelikleri hakkında daha fazla ayrıntı için aşağıdaki başvurabilir.
-    > 1. Yönetici kullanıcı Arabirimi (adminrole) için Yönetici rolü profili: https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile
-    > 2. Aygıt erişim etki alanı yöneticisi kullanıcı Arabirimi (accessdomain) için: https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain
+    > Öznitelikler hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+    > * [Yönetici kullanıcı Arabirimi (adminrole) için Yönetici rolü profili](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
+    > * [Aygıt erişim etki alanı yönetici UI (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
+    >
 
-6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+5. Altında **SAML imzalama sertifikası**seçin **meta veri XML**ve ardından **kaydetmek**.
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
+    ![Meta veri XML indirme bağlantısı](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_certificate.png) 
 
-7. Tıklatın **kaydetmek** düğmesi.
+    ![Kaydet düğmesi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
+6. Palo Alto ağları güvenlik duvarı yönetim kullanıcı Arabirimi, yeni bir pencerede yönetici olarak açın.
 
-8. Palo Alto ağları güvenlik duvarı yönetim kullanıcı Arabirimi, başka bir tarayıcı penceresinde bir yönetici olarak açın.
+7. Seçin **aygıt** sekmesi.
 
-9. Tıklayın **aygıt**.
+    ![Aygıt sekmesi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-    ![Palo Alto çoklu oturum açmayı yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
+8. Sol bölmede seçin **SAML kimlik sağlayıcısı**ve ardından **alma** meta veri dosya içeri aktarılamıyor.
 
-10. Seçin **SAML kimlik sağlayıcısı** gelen sol gezinti çubuğu ve "meta veri dosyası al"'i tıklatın.
+    ![İçeri aktarma meta veri dosyası düğmesi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-    ![Palo Alto çoklu oturum açmayı yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
+9. İçinde **SAML tanımlamak sağlayıcısı sunucu Profil alma** penceresinde aşağıdakileri yapın:
 
-11. Aşağıdaki içeri aktarma penceresini eylemleri gerçekleştirme
+    !["SAML tanımlamak sağlayıcısı sunucu Profil Al" penceresi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-    ![Palo Alto çoklu oturum açmayı yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
-
-    a. İçinde **profil adı** metin kutusuna, ad örneğin Azuread'i yönetim kullanıcı Arabirimi sağlar.
+    a. İçinde **profil adı** kutusunda, bir ad sağlayın (örneğin, **Azuread'i yönetici UI**).
     
-    b. İçinde **kimlik sağlayıcısı meta verileri**, tıklatın **Gözat** ve Azure Portalı'ndan indirilen metadata.xml dosyası seçin
+    b. Altında **kimlik sağlayıcısı meta verileri**seçin **Gözat**, daha önce Azure portalından indirdiğiniz metadata.xml dosyası seçin.
     
-    c. Seçimini kaldırmak "**kimlik sağlayıcısı sertifikası doğrulama**"
+    c. Clear **kimlik sağlayıcısı sertifikası doğrulama** onay kutusu.
     
-    d. **Tamam**’a tıklayın.
+    d. **Tamam**’ı seçin.
     
-    e. Güvenlik Duvarı'nda yapılandırmaları seçerek yürütme **yürütme** düğmesi
+    e. Güvenlik Duvarı'nda yapılandırmaları gerçekleştirmeyi seçin **tamamlama**.
 
-12. Seçin **SAML kimlik sağlayıcısı** sol gezinti çubuğu ve önceki adımda oluşturduğunuz tıklatın SAML kimlik sağlayıcısı profilindeki (örneğin Azuread'i yönetici UI). 
-    
-  ![Palo Alto ağları tek oturum açma özelliğini yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+10. Sol bölmede seçin **SAML kimlik sağlayıcısı**ve ardından SAML kimlik sağlayıcısı profilini seçin (örneğin, **Azuread'i yönetici UI**) önceki adımda oluşturduğunuz. 
 
-13. Aşağıdaki eylemleri gerçekleştirin **SAML kimlik sağlayıcısı sunucu profilini** penceresi
+    ![SAML kimlik sağlayıcısı profili](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
 
-  ![Palo Alto ağları tek günlük genişletme yapılandırma](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+11. İçinde **SAML kimlik sağlayıcısı sunucu profilini** penceresinde aşağıdakileri yapın:
+
+    !["SAML kimlik sağlayıcısı sunucu profilini" penceresi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
-  a. İçinde **kimlik Provieder SLO URL'si** metin kutusuna, önceden içe aktarılmış SLO URL kaldırın ve aşağıdaki URL'yi ekleyin: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
+    a. İçinde **kimlik sağlayıcısı SLO URL'si** kutusunda, önceden içe aktarılmış SLO URL aşağıdaki URL ile değiştirin:  **https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0** .
   
-  b. **Tamam**’a tıklayın.
+    b. **Tamam**’ı seçin.
 
+12. Palo Alto ağları güvenlik duvarının yönetim kullanıcı Arabirimi üzerindeki seçin **aygıt**ve ardından **yönetici rollerine**.
 
-14. Palo Alto ağları güvenlik duvarının yönetim kullanıcı Arabirimi üzerindeki tıklatın **aygıt** seçip **yönetici rolleri**
+13. Seçin **Ekle** düğmesi. 
 
-15. Tıklatın **Ekle** düğmesi. Yönetici rolü profili penceresinde Yönetici rolü (örneğin fwadmin) için bir ad sağlayın. Bu yönetici rolü adı kimlik sağlayıcısı tarafından gönderilen SAML Yönetici rolü öznitelik adı eşleşmelidir. Adım 5'te yönetici rolü adını ve değerini oluşturuldu. 
+14. İçinde **Yönetici rolü profili** penceresi, **adı** kutusunda, Yönetici rolü için bir ad (örneğin, **fwadmin**).  
+    Yönetici rolü adı kimlik sağlayıcısı tarafından gönderilen SAML Yönetici rolü öznitelik adı eşleşmelidir. Yönetici rolü adını ve değerini adım 4'te oluşturulmuştur.
 
-  ![Palo Alto ağları yönetici rolünü yapılandırma](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+    ![Palo Alto ağları yönetici rolünü yapılandırma](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
   
-16. Güvenlik duvarının yönetim kullanıcı Arabirimi üzerindeki tıklatın **aygıt** seçip **kimlik doğrulama profili**
+15. Güvenlik duvarının yönetim kullanıcı Arabirimi üzerindeki seçin **aygıt**ve ardından **kimlik doğrulama profili**.
 
-17. Tıklatın **Ekle** düğmesi. Kimlik doğrulama profili penceresinde, aşağıdaki eylemleri gerçekleştirin: 
+16. Seçin **Ekle** düğmesi. 
 
- ![Palo Alto ağları kimlik doğrulama profili yapılandırma](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+17. İçinde **kimlik doğrulama profili** penceresinde aşağıdakileri yapın: 
 
-   a. İçinde **adı** metin kutusuna, ad örneğin AzureSAML_Admin_AuthProfile sağlayın
+    !["Kimlik doğrulama profili" penceresi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+
+    a. İçinde **adı** kutusunda, bir ad sağlayın (örneğin, **AzureSAML_Admin_AuthProfile**).
     
-   b. İçinde **türü** açılan listesinde, select **SAML** 
+    b. İçinde **türü** aşağı açılan listesinden, **SAML**. 
    
-   c. IDP sunucu profilini açılır listede uygun SAML kimlik sağlayıcısı sunucusunu profili (örn: AzureAD yönetici UI) seçin
+    c. İçinde **IDP sunucu profilini** aşağı açılan listesinde, uygun SAML kimlik sağlayıcısı sunucu profilini seçin (örneğin, **Azuread'i yönetici UI**).
    
-   c. Seçin "**etkinleştirmek tek oturum kapatma**" onay kutusu
+    c. Seçin **etkinleştirmek tek oturum kapatma** onay kutusu.
     
-   d. Öznitelik adı (örneğin adminrole) yönetici rolü özniteliği metin kutusuna girin. 
-   
-   e. Gelişmiş sekmesini seçin ve tıklayın **Ekle** izin liste bölmesinde düğmesi. Tüm seçin veya belirli kullanıcıları ve bu profille doğrulanabilir grupları seçin. Kullanıcı Kimliği doğruladığında, güvenlik duvarı ilişkili kullanıcı adı veya grubun bu listedeki girişleri karşı eşleşir. Girişleri eklemezseniz hiçbir kullanıcıların kimliklerini doğrulayabilirsiniz.
-   
-   ![Palo Alto ağları kimlik doğrulama profili yapılandırma](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
-   
-   f. **Tamam**’a tıklayın.
+    d. İçinde **Yönetici rolü özniteliği** kutusunda, öznitelik adını girin (örneğin, **adminrole**). 
+    
+    e. Seçin **Gelişmiş** sekmesini ve ardından, **izin listesi**seçin **Ekle**. 
+    
+    ![' Nin Gelişmiş sekmesinde Ekle düğmesi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+    
+    f. Seçin **tüm** onay kutusunu işaretleyin veya kullanıcıları ve bu profille doğrulanabilir grupları seçin.  
+    Kullanıcı Kimliği doğruladığında, güvenlik duvarı ilişkili kullanıcı adı veya grubun bu listedeki girişleri karşı eşleşir. Girişleri eklemezseniz hiçbir kullanıcıların kimliklerini doğrulayabilirsiniz.
 
-18. SAML SSO Azure kullanarak kullanmak Yöneticiler etkinleştirmek için **aygıt** seçip **Kurulum**. Kurulum bölmesinde seçin **Yönetim** sekmesine ve altında dişli simgesine tıklayın **kimlik doğrulama ayarlarını**. 
+    g. **Tamam**’ı seçin.
 
- ![Palo Alto ağları kimlik doğrulama ayarlarını yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+18. SAML SSO Azure kullanarak yöneticiler etkinleştirmek için seçin **aygıt** > **Kurulum**. İçinde **Kurulum** bölmesinde, **Yönetim** sekmesini ve ardından, **kimlik doğrulama ayarlarını**seçin **ayarları** ("gear") düğmesine . 
 
-19. 17. adımda oluşturduğunuz SAML kimlik doğrulaması profilini seçin. (örneğin AzureSAML_Admin_AuthProfile)
+ ![Ayarlar düğmesi](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 
- ![Palo Alto ağları kimlik doğrulama ayarlarını yapılandırın](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+19. 17. adımda oluşturduğunuz SAML kimlik doğrulaması profilini seçin (örneğin, **AzureSAML_Admin_AuthProfile**).
 
-20. **Tamam**’a tıklayın.
+ ![Kimlik doğrulama profili alanı](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
 
-21. Seçerek yapılandırmasını tamamlama **yürütme** düğmesi.
+20. **Tamam**’ı seçin.
+
+21. Yapılandırma kaydedilemedi seçin **tamamlama**.
 
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Uygulaması kuruluyor gibi önceki yönergeleri kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com). Uygulamada ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünde, select **çoklu oturum açma** sekmesini tıklatın ve ardından erişim belgelerde katıştırılmış **yapılandırma** alt bölüm. Embedded belgeler özelliği hakkında daha fazla bilgi için bkz: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde, aşağıdakileri yaparak Azure portalında test kullanıcısı Britta Simon oluşturun:
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+1. Azure portalında sol bölmede seçin **Azure Active Directory**.
 
-1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
+    ![Azure Active Directory bağlantısı](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_01.png)
 
-    ![Azure Active Directory düğmesi](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_01.png)
-
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Geçerli kullanıcıların bir listesini görüntülemek için seçin **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Üstündeki **tüm kullanıcılar** penceresinde, seçin **Ekle**.
 
     ![Ekle düğmesi](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_03.png)
+    
+    **Kullanıcı** penceresi açılır.
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+4. İçinde **kullanıcı** penceresinde aşağıdakileri yapın:
 
-    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_04.png)
+    ![Kullanıcı penceresi](./media/active-directory-saas-paloaltoadmin-tutorial/create_aaduser_04.png)
 
     a. İçinde **adı** kutusuna **BrittaSimon**.
 
@@ -266,52 +267,51 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**’a tıklayın.
+    d. **Oluştur**’u seçin.
  
 ### <a name="create-a-palo-alto-networks---admin-ui-test-user"></a>Palo Alto Networks - yönetici UI test kullanıcısı oluşturma
 
-Palo Alto Networks - Admin zaten seçili değilse kullanıcı otomatik olarak sistemde başarılı kimlik doğrulamasından sonra oluşturulmayacak kullanıcı sağlamayı destekler sadece zamanında mevcut kullanıcı Arabirimi. Burada herhangi bir eylem gerçekleştirmeniz gerekmez.
+Palo Alto Networks - yönetim kullanıcı Arabirimi yalnızca zaman kullanıcı sağlamayı destekler. Bir kullanıcı zaten yoksa, başarılı bir kimlik doğrulamasından sonra sistemde otomatik olarak oluşturulur. Hiçbir eylem sizden kullanıcı oluşturmak için gereklidir.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Britta Palo Alto Networks - yönetici UI erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, kullanıcı Britta Palo Alto Networks - yönetici UI erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin. Bunu yapmak için aşağıdakileri yapın:
 
 ![Kullanıcı rolü atayın][200] 
 
-**Palo Alto Networks - yönetici UI Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+1. Azure portalında açmak **uygulamaları** görünümü, Git **dizin** görüntülemek ve ardından **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+    !["Kurumsal uygulamalar" ve "Tüm uygulamaları" bağlantılar][201] 
 
-    ![Kullanıcı atama][201] 
+2. İçinde **uygulamaları** listesinde **Palo Alto Networks - yönetici UI**.
 
-2. Uygulamalar listesinde **Palo Alto Networks - yönetici UI**.
+    ![Palo Alto ağlar - Admin kullanıcı Arabirimi bağlantısı](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_app.png)  
 
-    ![Palo Alto ağlar - Admin kullanıcı Arabirimi bağlantısı uygulamalar listesinde](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_app.png)  
-
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Sol bölmede seçin **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantı][202]
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Seçin **Ekle** , daha sonra **eklemek atama** bölmesinde, **kullanıcılar ve gruplar**.
 
     ![Ekleme atama bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** penceresi, **kullanıcılar** listesinde **Britta Simon**.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Seçin **seçin** düğmesi.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. İçinde **eklemek atama** penceresinde, seçin **atamak**.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
-Palo Alto Networks - yönetici UI kutucuğu erişim Paneli'nde tıklattığınızda, otomatik olarak, Palo Alto ağlara - Admin kullanıcı Arabirimi uygulama açan.
+Palo Alto Networks - yönetici UI kutucuğu erişim Paneli'nde seçtiğinizde, otomatik olarak, Palo Alto Networks - yönetici kullanıcı Arabirimi uygulaması için oturum açmanız.
+
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

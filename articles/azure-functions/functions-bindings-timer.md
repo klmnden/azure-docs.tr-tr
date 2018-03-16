@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Zamanlayıcı tetikleyicisi için Azure işlevleri 
 
@@ -29,12 +29,18 @@ Bu makalede Azure işlevleri Tetikleyicileri Zamanlayıcı ile nasıl çalışı
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages"></a>Paketler
+
+Zamanlayıcı tetikleyicisi sağlanan [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub depo.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
 ## <a name="example"></a>Örnek
 
 Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
-* [C# betik (.csx)](#trigger---c-script-example)
+* [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
@@ -136,7 +142,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Öznitelikler
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
 Aşağıdaki örnekte gösterildiği gibi özniteliğin Oluşturucusu CRON ifade alır:
 
@@ -158,10 +164,10 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**türü** | yok | "TimerTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | yok | İşlev kodu Zamanlayıcı nesneyi temsil eden değişken adı. | 
-|**zamanlama**|**ScheduleExpression**|Tüketim plan üzerinde CRON ifade ile zamanlama tanımlayabilirsiniz. Bir uygulama hizmeti planı kullanıyorsanız, ayrıca kullanabileceğiniz bir `TimeSpan` dize. Aşağıdaki bölümlerde CRON ifadeler açıklanmaktadır. Bir uygulama ayarı zamanlama ifadeyi ve bu özellik sarmalanmış bir değere ayarlayın  **%**  Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithCRONExpression %". |
+|**Türü** | yok | "TimerTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**Yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**Adı** | yok | İşlev kodu Zamanlayıcı nesneyi temsil eden değişken adı. | 
+|**schedule**|**ScheduleExpression**|Tüketim plan üzerinde CRON ifade ile zamanlama tanımlayabilirsiniz. Bir uygulama hizmeti planı kullanıyorsanız, ayrıca kullanabileceğiniz bir `TimeSpan` dize. Aşağıdaki bölümlerde CRON ifadeler açıklanmaktadır. Bir uygulama ayarı zamanlama ifadeyi ve bu özellik sarmalanmış bir değere ayarlayın  **%**  Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithCRONExpression %". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

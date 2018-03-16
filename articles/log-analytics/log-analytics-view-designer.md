@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Günlük analizi Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
 Görünüm Tasarımcısı'nda kullanarak [Azure günlük analizi](log-analytics-overview.md), Azure portalında veri günlük analizi çalışma alanınızdaki görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede Görünüm Tasarımcısı ve oluşturma ve özel görünümler düzenleme yordamları genel bakış sunar.
@@ -28,8 +28,6 @@ Görünüm Tasarımcısı hakkında daha fazla bilgi için bkz:
 * [Döşeme başvuru](log-analytics-view-designer-tiles.md): başvuru kılavuzu için her biri kendi özel görünümlerinizi kullanılabilir döşemeleri ayarlar sağlar.
 * [Görselleştirme bölümü başvuru](log-analytics-view-designer-parts.md): başvuru kılavuzu için özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlar sağlar.
 
->[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), tüm görünümleri sorgularda yazılmış, [yeni sorgu dili](https://go.microsoft.com/fwlink/?linkid=856078). Çalışma alanı yükseltilmeden önce oluşturulmuş görünümler otomatik olarak dönüştürülür.
 
 ## <a name="concepts"></a>Kavramlar
 Görünümler görüntülenir **genel bakış** Azure portalında günlük analizi çalışma sayfası. Her özel görünüm döşemeleri alfabetik olarak görüntülenir ve çözümler için kutucukları yüklenen aynı çalışma alanı.

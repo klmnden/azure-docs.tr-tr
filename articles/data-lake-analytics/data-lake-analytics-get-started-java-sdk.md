@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: 5b283e91daf25d4fad3e92c69f8ddde9ddb097b4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Java SDK'yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -27,7 +27,7 @@ Bir Azure Data Lake hesabı oluşturmak ve gibi klasör oluşturma karşıya yü
 
 Bu öğreticide, ortak yönetim görevlerinin yanı sıra test verileri oluşturma ve bir iş gönderme örnekleri içeren bir Java konsol uygulaması geliştireceksiniz.  Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu bölümün üst kısmındaki sekmelere tıklayın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Java Geliştirme Seti (JDK) 8 (Java sürüm 1.8'i kullanır).
 * IntelliJ veya başka bir uygun Java geliştirme ortamı. Bu isteğe bağlı olsa da önerilir. Aşağıdaki yönergelerde IntelliJ kullanılmıştır.
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).

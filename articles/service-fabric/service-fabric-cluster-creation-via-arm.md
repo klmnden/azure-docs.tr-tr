@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 6675603bf741b1a668ba387c8304d2e2b7ab4e12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: e8e5513df5ab412857403382e1940da27c85274a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ni kullanarak bir Service Fabric kümesi oluştur 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portalı](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -117,7 +117,7 @@ En az parametrelerini belirterek hızlı bir şekilde, bir küme oluşturmak iç
 
 Kullanılan şablon kullanılabilir [azure service fabric şablon örnekleri: windows şablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) ve [Ubuntu şablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-Works Windows ve Linux kümeleri oluşturmak için aşağıdaki komutları, yalnızca işletim sistemi uygun şekilde belirtmeniz gerekir. Powershell / CLI komutları da belirtildiği theCertificateOutputFolder sertifika sertifikada çıkarır. Komut diğer parametre VM SKU gibi de alır.
+Works Windows ve Linux kümeleri oluşturmak için aşağıdaki komutları, yalnızca işletim sistemi uygun şekilde belirtmeniz gerekir. PowerShell / CLI komutları ayrıca önceden oluşturulmuş klasör sertifika çıkışları belirtilen CertificateOutputFolder sertifikada ancak emin olun. Komut diğer parametre VM SKU gibi de alır.
 
 ```Powershell
 
@@ -126,13 +126,13 @@ $resourceGroupName="mycluster"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $CertSubjectName="mycluster.westus.cloudapp.azure.com"
-$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
-$vmpassword="Password!4321" | ConvertTo-SecureString -AsPlainText -Force
+$certPassword="Password123!@#" | ConvertTo-SecureString -AsPlainText -Force 
+$vmpassword="Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
 $vmuser="myadmin"
 $os="WindowsServer2016DatacenterwithContainers"
 $certOutputFolder="c:\certificates"
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -OS $os -VmPassword $vmpassword -VmUserName $vmuser –Location $resourceGroupLocation
 
 ```
 
@@ -178,7 +178,7 @@ Zaten bir özel şablon sahip sonra olun emin, tüm üç sertifika şablonu ve p
 ```
 
 
-```Powershell
+```PowerShell
 
 
 $resourceGroupLocation="westus"
@@ -195,7 +195,7 @@ New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Certifica
 
 ```
 
-Burada, aynı işlemi gerçekleştirmek için eşdeğer CLI komut verilmiştir. Declare deyimlerini değerlerde uygun değerlerle değiştirin. CLI yukarıdaki powershell komutunu destekleyen diğer tüm parametreleri destekler.
+Burada, aynı işlemi gerçekleştirmek için eşdeğer CLI komut verilmiştir. Declare deyimlerini değerlerde uygun değerlerle değiştirin. CLI yukarıdaki PowerShell komutunu destekleyen diğer tüm parametreleri destekler.
 
 ```CLI
 
@@ -226,7 +226,8 @@ Bu, diğer amaçlar için kullanarak ulaşır CA imzalı bir sertifika varsa, ö
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Modül birlikte gelen varsayılan 5 düğüm 1 nodetype şablonu kullanın
 Kullanılan şablon kullanılabilir [azure örneklerinden: windows şablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) ve [Ubuntu şablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
-```Powershell
+```PowerShell
+
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
 $vaultName="myvault"
@@ -279,7 +280,7 @@ Zaten bir özel şablon sahip sonra olun emin, tüm üç sertifika şablonu ve p
 ```
 
 
-```Powershell
+```PowerShell
 
 $resourceGroupLocation="westus"
 $resourceGroupName="mylinux"
@@ -292,7 +293,7 @@ $templateFilePath="c:\mytemplates\mytemplate.json"
 $certificateFile="C:\MyCertificates\chackonewcertificate3.pem"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword #certPassword
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -Location $resourceGroupLocation -TemplateFile $templateFilePath -ParameterFile $parameterFilePath -KeyVaultResouceGroupName $vaultResourceGroupName -KeyVaultName $vaultName -CertificateFile $certificateFile -CertificatePassword $certPassword
 
 ```
 
@@ -314,34 +315,34 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-keyvault"></a>Keyvault Karşıya zaten gizli bir işaretçi kullanın
+#### <a name="use-a-pointer-to-the-secret-you-already-have-uploaded-into-the-key-vault"></a>Anahtar kasasını Karşıya zaten gizli bir işaretçi kullanın
 
 Var olan bir anahtar kasası kullanmak için _dağıtımı için etkinleştirmeniz gerekir_ sertifikaları elde ve küme düğümlerine yüklemek işlem kaynak sağlayıcısı izin vermek için:
 
-```powershell
+```PowerShell
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 
 $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
-$secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+$secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretID -TemplateFile $templateFile -ParameterFile $templateParmfile 
+New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroup -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 Burada, aynı işlemi gerçekleştirmek için eşdeğer CLI komut verilmiştir. Declare deyimlerini değerlerde uygun değerlerle değiştirin.
 
-```cli
-
+```CLI
+declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
 declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-    --secret-identifieraz $secretID  \
+    --secret-identifier az $secretID  \
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 
 ```
@@ -522,9 +523,9 @@ Sertifika anahtarlarını içeren anahtar kasası başvurarak Azure AD yapıland
 ```
 
 ### <a name="populate-the-parameter-file-with-the-values"></a>Parametre dosyası değerlerle doldurun.
-Son olarak, Parametreler dosyası doldurmak için çıktı değerler anahtar kasası ve Azure AD powershell komutlarını kullanın:
+Son olarak, Parametreler dosyası doldurmak için çıktı değerler anahtar kasası ve Azure AD PowerShell komutlarını kullanın:
 
-Azure service fabric RM powershell modülleri kullanmayı planlıyorsanız, ardından ihtiyacınız olmayan küme sertifika bilgilerini doldurmak için imzalı self oluşturmak için sistem isterseniz küme güvenlik için sertifika, null olarak kalmasını. 
+Yalnızca, sistemin imzalı self oluşturmak istediğiniz küme güvenlik için sertifika RM PowerShell modülleri olduktan sonra küme sertifika bilgilerini doldurmak için gerekmez Azure service fabric kullanmayı planlıyorsanız, bunları null olarak tutun. 
 
 > [!NOTE]
 > RM modülleri almak ve bu boş parametre değerleri doldurmak parametreler çok adları adlarıyla
@@ -542,9 +543,9 @@ Azure service fabric RM powershell modülleri kullanmayı planlıyorsanız, ard�
         },
 ```
 
-Uygulama sertifikaları kullanarak ya da keyvault karşıya yüklediğiniz var olan bir küme kullanıyorsanız, bu bilgileri almak ve bunu doldurmak gerekir 
+Anahtar Kasası'na yüklediğiniz varolan bir kümeye kullanarak veya uygulama sertifikaları kullanıyorsanız, bu bilgileri almak ve bunu doldurmak gerekir 
 
-RM modülleri geneate yeteneği, Azure AD yapılandırma yok. Bu nedenle Azure AD istemci erişimi için kullanmayı planlıyorsanız, bu doldurmak gerekir.
+RM modülleri sizin için Azure AD yapılandırması oluşturma yeteneği yok. Bu nedenle Azure AD istemci erişimi için kullanmayı planlıyorsanız, bu doldurmak gerekir.
 
 ```json
 {
@@ -587,13 +588,13 @@ RM modülleri geneate yeteneği, Azure AD yapılandırma yok. Bu nedenle Azure A
 ### <a name="test-your-template"></a>Şablonunuzu test  
 Resource Manager şablonu ile bir parametre dosyası sınamak için aşağıdaki PowerShell komutunu kullanın:
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 Sorunla çalıştırın ve şifreli iletileri alma durumunda, daha sonra kullanmak "-Debug" bir seçenek olarak.
 
-```powershell
+```PowerShell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
@@ -605,7 +606,7 @@ Aşağıdaki diyagram, anahtar kasası ve Azure AD yapılandırma Resource Manag
 
 Belgenin önceki bölümlerinde açıklanan adımları kullanarak kümeyi şimdi dağıtabilir veya doldurulan değerleri parametre dosyasında varsa, daha sonra artık kullanarak küme oluşturmaya hazırsınız [Azure kaynak şablon dağıtımı] [ resource-group-template-deploy] doğrudan.
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
@@ -677,7 +678,7 @@ AAD sayfasında "Uygulamanın kayıtlar" seçin, küme uygulamanızı seçin ve 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>PowerShell aracılığıyla Azure AD kimlik doğrulaması kullanarak kümesine bağlanın
 Service Fabric kümesi bağlanmak için aşağıdaki PowerShell komut örneği kullanın:
 
-```powershell
+```PowerShell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 

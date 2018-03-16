@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -35,7 +35,7 @@ Bu öğreticinin amacı kişiler Workday için bazı özniteliklerin isteğe ba�
 
 * **Geri yazma e-posta adresleri için Workday** -hizmet sağlama Azure AD kullanıcı yazma seçilen Azure AD kullanıcı özniteliklerini e-posta adresi gibi Workday dön.
 
-### <a name="scenarios-covered"></a>Kapsanan senaryolar
+### <a name="what-human-resources-scenarios-does-it-cover"></a>Hangi İnsan Kaynakları senaryolarını ele alınmamaktadır?
 
 Azure AD kullanıcı sağlama hizmeti tarafından desteklenen Workday kullanıcı sağlama iş akışları şu İnsan Kaynakları ve kimlik yaşam döngüsü yönetimi senaryoları etkinleştirin:
 
@@ -46,6 +46,20 @@ Azure AD kullanıcı sağlama hizmeti tarafından desteklenen Workday kullanıc�
 * **Çalışan sonlandırmalar** - çalışan iş günü içinde sonlandırıldığında kendi kullanıcı hesabına otomatik olarak Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak devre dışıdır ve [Azure tarafından desteklenen diğer SaaS uygulamaları AD](active-directory-saas-app-provisioning.md).
 
 * **Çalışan yeniden anlaşır** - çalışan iş günü içinde rehired eski hesaplarında bulunabilir otomatik olarak yeniden veya Active Directory, Azure Active Directory ve isteğe bağlı olarak Office 365 ve (tercihinizebağlıolarak)yenidensağlanan[Azure AD tarafından desteklenen diğer SaaS uygulamaları](active-directory-saas-app-provisioning.md).
+
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>İçin en iyi bu kullanıcı sağlama çözümünü kim uygundur?
+
+Çözüm sağlama bu Workday kullanıcı şu anda genel önizlemede olan ve ideal için uygundur:
+
+* Workday'den kullanıcı hazırlama için önceden derlenmiş, bulut tabanlı bir çözüm işlemleriniz kuruluşlar
+
+* Active Directory veya Azure Active Directory Workday'den doğrudan kullanıcı hazırlama gerektiren kuruluşların
+
+* Kullanıcılar verileri kullanarak sağlanacak gerektiren kuruluşların elde Workday HCM modülünden (bkz [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) 
+
+* Kuruluşlar gerektiren birleştirme, taşıma ve bir veya daha fazla Active Directory ormanları eşitlenen kullanıcılar bırakarak, etki alanları ve OU'lar yalnızca temel bilgileri Workday HCM modülünde algılandı değiştirin (bkz [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
+
+* Office 365 için e-posta kullanarak kuruluşlar
 
 
 ## <a name="planning-your-solution"></a>Çözümünüzü planlarken
@@ -62,10 +76,9 @@ Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğun
 * Active Directory'ye kullanıcı sağlamak için 2012 veya daha fazla Windows hizmetini çalıştıran bir etki alanına katılmış sunucuya konağa gereklidir [şirket içi eşitleme Aracısı](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) Active Directory ve Azure AD arasında eşitlemek için
 
-
 ### <a name="solution-architecture"></a>Çözüm mimarisi
 
-Azure AD sağlama gidermenize yardımcı olacak bağlayıcılar ve kimlik Yaşam Döngüsü Yönetimi'nden Workday Active Directory, Azure AD, SaaS uygulamaları için ve ötesinde sağlama zengin bir özellik kümesi sağlar. Hangi özellikleri kullanır ve çözümü ayarlama nasıl kuruluşunuzun ortamlarına ve gereksinimlerine bağlı olarak farklılık gösterir. İlk adım olarak, stok mevcut ve kuruluşunuzdaki dağıtılan kaç aşağıdakilerden birini gerçekleştirin:
+Azure AD sağlama ve kimlik Yaşam Döngüsü Yönetimi'nden Workday Active Directory, Azure AD, SaaS uygulamaları için ve ötesinde gidermenize yardımcı olacak bağlayıcılar sağlama zengin bir özellik kümesi sağlar. Hangi özellikleri kullanır ve çözümü ayarlama nasıl kuruluşunuzun ortamlarına ve gereksinimlerine bağlı olarak farklılık gösterir. İlk adım olarak, stok mevcut ve kuruluşunuzdaki dağıtılan kaç aşağıdakilerden birini gerçekleştirin:
 
 * Kaç tane Active Directory ormanları kullanılıyor?
 * Kaç tane Active Directory etki alanları kullanılıyor?
@@ -74,6 +87,7 @@ Azure AD sağlama gidermenize yardımcı olacak bağlayıcılar ve kimlik Yaşam
 * Active Directory ve Azure Active Directory (örneğin "karma" kullanıcılar) için sağlanması gereken kullanıcılar var mı?
 * Azure Active Directory, ancak Active Directory değil (örneğin "yalnızca bulut" kullanıcılar) için sağlanması gereken kullanıcılar var mı?
 * Kullanıcı e-posta adresleri için Workday geri yazılması gerekiyor mu?
+
 
 Bu soruların yanıtları olduktan sonra aşağıdaki yönergeleri izleyerek dağıtım sağlama İş gününüzün planlayabilirsiniz.
 
@@ -144,7 +158,7 @@ Kısıtlanmamış tümleştirme sistemi güvenlik grubu oluşturun ve kullanıc�
    
     ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
 2. Tamamlamak **güvenlik grubu oluşturma** görev.  
-3. Tümleştirme sistemi güvenlik grubu seç — Kısıtlanmamış öğesinden **kiralanan güvenlik grubu türü** açılır.
+3. Seçin **tümleştirme sistemi güvenlik grubunu (sınırlandırılmamış)** gelen **kiralanan güvenlik grubu türü** açılır.
 4. İçin açıkça üyeleri eklenecek bir güvenlik grubu oluşturun. 
    
     ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
@@ -164,21 +178,11 @@ Kısıtlanmamış tümleştirme sistemi güvenlik grubu oluşturun ve kullanıc�
     ![Sistem güvenlik grubu](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "sistem güvenlik grubu")  
 
 ### <a name="configure-security-group-options"></a>Güvenlik grubu seçeneklerini yapılandırın
-Bu adımda, etki alanı güvenlik ilkesi aşağıdaki etki alanı güvenlik ilkeleri tarafından güvenliği sağlanan çalışan veriler için izinler:
-
-
-| İşlem | Etki alanı güvenlik ilkesi |
-| ---------- | ---------- | 
-| Alma ve yerleştirme |  Harici hesap sağlama |
-| Alma ve yerleştirme | Çalışan verileri: Ortak çalışan raporları |
-| Alma ve yerleştirme | Çalışan verileri: Tüm Pozisyonlar |
-| Alma ve yerleştirme | Çalışan verileri: Geçerli personel bilgileri |
-| Alma ve yerleştirme | Çalışan verileri: Çalışan profilindeki iş başlığı |
-| Görüntüleme ve değiştirme | Çalışan verileri: İş e-posta |
+Bu adımda, etki alanı güvenlik ilkesi güvenlik grubuna çalışan veriler için izinler.
 
 **Güvenlik grubu seçeneklerini yapılandırmak için:**
 
-1. Etki alanı güvenlik ilkeleri arama kutusuna girin ve ardından bağlantıyı tıklatın **işlevsel alanı için etki alanı güvenlik ilkeleri**.  
+1. Girin **etki alanı güvenlik ilkeleri** arama kutusuna ve ardından bağlantıyı **işlevsel alanı için etki alanı güvenlik ilkeleri**.  
    
     ![Etki alanı güvenlik ilkeleri](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "etki alanı güvenlik ilkeleri")  
 2. Sistem ve select arama **sistem** işlevsel alan.  **Tamam**’a tıklayın.  
@@ -190,23 +194,17 @@ Bu adımda, etki alanı güvenlik ilkesi aşağıdaki etki alanı güvenlik ilke
 4. Tıklatın **izinleri Düzenle**ve ardından **izinleri Düzenle** iletişim sayfası, güvenlik grupları listesine yeni bir güvenlik grubu eklemek **almak** ve **yerleştirin**  tümleştirme izinleri. 
    
     ![İzni Düzenle](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "düzenleme izni")  
-5. İşlevsel alanlara seçme ekran geri dönmek için yukarıdaki 1. adım ve bu süre, personel, arama seçin yineleyin **işlevsel alan personel** tıklatıp **Tamam**.
+    
+5. Yukarıdaki 1-4 arası adımları bu ilkelerin her birinde kalan güvenlik için yineleyin:
+
+| İşlem | Etki alanı güvenlik ilkesi |
+| ---------- | ---------- | 
+| Alma ve yerleştirme | Çalışan verileri: Ortak çalışan raporları |
+| Alma ve yerleştirme | Çalışan verileri: İş kişi bilgileri |
+| Al | Çalışan verileri: Tüm Pozisyonlar |
+| Al | Çalışan verileri: Geçerli personel bilgileri |
+| Al | Çalışan verileri: Çalışan profilindeki iş başlığı |
    
-    ![Etki alanı güvenlik ilkeleri](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "etki alanı güvenlik ilkeleri")  
-6. Güvenlik ilkeleri Staffing işlevsel alan için listesinde genişletin **çalışan verileri: Staffing** ve bunların güvenlik ilkeleri kalan her biri için yineleme adım yukarıdaki 4:
-
-   * Çalışan verileri: Ortak çalışan raporları
-   * Çalışan verileri: Tüm Pozisyonlar
-   * Çalışan verileri: Geçerli personel bilgileri
-   * Çalışan verileri: Çalışan profilindeki iş başlığı
-   
-7. Seçme ekran işlevsel alanları ve bu süre, arama için geri dönmek için yukarıdaki 1. adımı yineleyin **irtibat bilgileri**Staffing işlevsel alanı seçin ve tıklatın **Tamam**.
-
-8.  Güvenlik ilkeleri Staffing işlevsel alan için listesinde genişletin **çalışan verileri: çalışma kişi bilgilerini**ve yineleyin yukarıdaki 4 aşağıdaki güvenlik ilkeleri için:
-
-    * Çalışan verileri: İş e-posta
-
-    ![Etki alanı güvenlik ilkeleri](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "etki alanı güvenlik ilkeleri")  
     
 ### <a name="activate-security-policy-changes"></a>Güvenlik İlkesi değişikliklerini etkinleştir
 
@@ -225,6 +223,41 @@ Bu adımda, etki alanı güvenlik ilkesi aşağıdaki etki alanı güvenlik ilke
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Active Directory'ye Workday'den kullanıcı hazırlama yapılandırma
 Kullanıcı hesabı için sağlama gerektiren her bir Active Directory ormanına Workday'deki sağlama yapılandırmak için bu yönergeleri izleyin.
 
+### <a name="planning"></a>Planlama
+
+Kullanıcı bir Active Directory ormanı hazırlama yapılandırmadan önce aşağıdaki soruları göz önünde bulundurun. Bu soruların yanıtlarını nasıl kapsam filtreleri ve öznitelik eşlemelerini ayarlanması gereken belirler. 
+
+* **İş günü içinde hangi kullanıcıların bu Active Directory ormanına sağlanması gerekiyor?**
+
+   * *Örnek: kullanıcıların nerede Workday "Şirket" özniteliği "Contoso" değerini içeren ve "Worker_Type" özniteliği "Normal" içerir*
+
+* **Kullanıcıların farklı kuruluş birimlerine (OU) nasıl yönlendirilen?**
+
+   * *Örnek: Kullanıcıların bir office konumuna karşılık gelen OU'ları Workday "Belediye" ve "Country_Region_Reference" öznitelikleri tanımlanan yönlendirilir*
+
+* **Nasıl aşağıdaki öznitelikler Active Directory'de doldurulması gerekir?**
+
+   * Ortak ad (cn)
+      * *Örnek:, İnsan kaynakları tarafından belirlenen Workday USER_ID değerini kullanın.*
+      
+   * Çalışan kimlik numarası (EmployeeID)
+      * *Örnek: Workday Worker_ID değeri kullanın*
+      
+   * SAM hesap adı (sAMAccountName)
+      * *Örnek: geçersiz karakterler kaldırmak için ifade sağlama Azure AD ile filtrelenmiş Workday USER_ID değeri kullanın*
+      
+   * Kullanıcı asıl adı (userPrincipalName)
+      * *Örnek: Workday USER_ID değeri, bir etki alanı adı eklemek için ifade sağlama bir Azure AD ile kullanma*
+
+* **Nasıl kullanıcılar Workday ve Active Directory arasında eşleşen?**
+
+  * *Örnek: Kullanıcılarla belirli bir iş günü "Worker_ID eşleşen değeri" ile "EmployeeID" aynı değere sahip olduğu Active Directory Kullanıcıları. Active Directory'de Worker_ID değeri bulunamadı, yeni bir kullanıcı oluşturun.*
+  
+* **Active Directory ormanı çalışmaya kimlikleri eşleşen mantığı için gerekli kullanıcı zaten içeriyor mu?**
+
+  * *Örnek: Bu yeni bir iş günü dağıtım ise, Active Directory eşleşen mantığı olabildiğince basit tutmak için doğru Workday Worker_ID değerlerin (veya tercih ettiğiniz benzersiz kimliği değeri) ile önceden doldurulmuş haldedir önerilir.*
+    
+    
 ### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1. Kısım: sağlama bağlayıcı uygulama ekleme ve iş günü bağlantısı oluşturma
 
 **Active Directory sağlama için Workday yapılandırmak için:**
@@ -320,39 +353,38 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 
 **Aşağıda bazı örnek, bazı ortak ifadelerle Workday ve Active Directory arasında öznitelik eşlemelerini verilmiştir**
 
--   AD özniteliği parentDistinguishedName eşlemeleri ifadesi, bir veya daha fazla iş günü kaynak özniteliklerini temel alarak belirli bir kuruluş için bir kullanıcı sağlamak için kullanılabilir. Bu örnek kullanıcılar Şehir verilerine bağlı olarak farklı OU'lar iş günü içinde yerleştirir.
+-   ParentDistinguishedName özniteliğine eşlenir ifade, farklı OU'ları bir veya daha fazla iş günü kaynak özniteliklerini temel alarak kullanıcılara sağlamak için kullanılır. Bu örnek kullanıcılar göre farklı OU'larda yerleştirir hangi Şehir üzerinde bulundukları.
 
--   UserPrincipalName AD özniteliğine eşlenir ifadesi oluşturma UPN firstName.LastName@contoso.com. Geçersiz özel karakterler yerini alır.
+-   UserPrincipalName özniteliği Active Directory'de bir etki alanı soneki Workday kullanıcı Kimliğiyle birleştirilmesiyle oluşturulur
 
--   [Burada ifadeleri yazma belge yok](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+-   [Burada ifadeleri yazma belge yok](active-directory-saas-writing-expressions-for-attribute-mappings.md). Bu özel karakterlerin tümünü kaldırmak nasıl örnekleri içerir.
 
   
 | İŞ GÜNÜ ÖZNİTELİĞİ | ACTIVE DIRECTORY ÖZNİTELİĞİ |  KİMLİĞİ EŞLEŞİYOR MU? | OLUŞTUR / GÜNCELLEŞTİR |
 | ---------- | ---------- | ---------- | ---------- |
-|  **WorkerID**  |  EmployeeID | **Evet** | Yazılan üzerinde yalnızca oluştur | 
-|  **Belediye**   |   l   |     | Oluştur + güncelleştir |
-|  **Şirket**         | Şirket   |     |  Oluştur + güncelleştir |
-|  **CountryReferenceTwoLetter**      |   Ortak |     |   Oluştur + güncelleştir |
-| **CountryReferenceTwoLetter**    |  c  |     |         Oluştur + güncelleştir |
-| **SupervisoryOrganization**  | Bölüm  |     |  Oluştur + güncelleştir |
-|  **PreferredNameData**  |  displayName |     |   Oluştur + güncelleştir |
-| **EmployeeID**    |  cn    |   |   Yazılan üzerinde yalnızca oluştur |
-| **Faks**      | facsimileTelephoneNumber     |     |    Oluştur + güncelleştir |
-| **FirstName**   | givenName       |     |    Oluştur + güncelleştir |
+| **WorkerID**  |  EmployeeID | **Evet** | Yazılan üzerinde yalnızca oluştur | 
+| **UserID**    |  cn    |   |   Yazılan üzerinde yalnızca oluştur |
+| **Birleştirme ("@", [UserID] "contoso.com")**   | userPrincipalName     |     | Yazılan üzerinde yalnızca oluştur 
+| **Değiştirin (Mid (Değiştir (\[UserID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
 | **Anahtar (\[etkin\],, "0", "True", "1")** |  AccountDisabled      |     | Oluştur + güncelleştir |
-| **Mobil**  |    Mobil       |     |       Oluştur + güncelleştir |
-| **EmailAddress**    | Posta    |     |     Oluştur + güncelleştir |
+| **FirstName**   | givenName       |     |    Oluştur + güncelleştir |
+| **Soyadı**   |   sn   |     |  Oluştur + güncelleştir |
+| **PreferredNameData**  |  displayName |     |   Oluştur + güncelleştir |
+| **Şirket**         | Şirket   |     |  Oluştur + güncelleştir |
+| **SupervisoryOrganization**  | Bölüm  |     |  Oluştur + güncelleştir |
 | **ManagerReference**   | Yöneticisi  |     |  Oluştur + güncelleştir |
+| **BusinessTitle**   |  başlık     |     |  Oluştur + güncelleştir | 
+| **AddressLineData**    |  streetAddress  |     |   Oluştur + güncelleştir |
+| **Belediye**   |   l   |     | Oluştur + güncelleştir |
+| **CountryReferenceTwoLetter**      |   Ortak |     |   Oluştur + güncelleştir |
+| **CountryReferenceTwoLetter**    |  c  |     |         Oluştur + güncelleştir |
+| **CountryRegionReference** |  st     |     | Oluştur + güncelleştir |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Oluştur + güncelleştir |
 | **PostalCode**  |   posta kodu  |     | Oluştur + güncelleştir |
-| **LocalReference** |  preferredLanguage  |     |  Oluştur + güncelleştir |
-| **Değiştirin (Mid (Değiştir (\[EmployeeID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
-| **Soyadı**   |   sn   |     |  Oluştur + güncelleştir |
-| **CountryRegionReference** |  st     |     | Oluştur + güncelleştir |
-| **AddressLineData**    |  streetAddress  |     |   Oluştur + güncelleştir |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Oluştur + güncelleştir |
-| **BusinessTitle**   |  başlık     |     |  Oluştur + güncelleştir |
-| **Katılma ("@", değiştirin (Değiştir (değiştirin (Değiştir (değiştirin (değiştirin (değiştirin (değiştirin (((Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (Değiştir (değiştirin Değiştirin (katılma (".", [FirstName] [Soyadı]), "([Øø])", "oe",), "[Ææ]", "ae",), "([äãàâãåáąÄÃÀÂÃÅÁĄA])", "a",), "([B])", "b",), "([CçčćÇČĆ])", "c",), "([ďĎD])", "d",), "([ëèéêęěËÈÉÊĘĚE])", "e",), "([F])", "f",), "([G])" ,, "g",), "([H])", "h",), "([ïîìíÏÎÌÍI])", "i",), "([J])", "j",), "([K])", "k",), "([ľłŁĽL])", "m",), "([M])", "m",), "([ñńňÑŃŇN])", "n",), "([öòőõôóÖÒŐÕÔÓO])", "o",), "([P])", "p",), "([Q])", "q",),  "([řŘr])", "r",), "([ßšśŠŚS])", "s",), "([TŤť])", "t",), "([üùûúůűÜÙÛÚŮŰU])", "u",), "([V])", "v",), "([]) w" harfinin, "w",), "([ýÿýŸÝY])", "y",), "([źžżŹŽŻZ])", "z",), "",,, "",), "contoso.com")**   | userPrincipalName     |     | Yazılan üzerinde yalnızca oluştur                                                   
+| **Faks**      | facsimileTelephoneNumber     |     |    Oluştur + güncelleştir |
+| **Mobil**  |    Mobil       |     |       Oluştur + güncelleştir |
+| **LocalReference** |  preferredLanguage  |     |  Oluştur + güncelleştir |                                               
 | **Anahtar (\[belediye\], "OU standart kullanıcılar, OU = Kullanıcılar, OU = varsayılan, OU = konumları, DC = contoso, DC = com =", "Dallas", "OU standart kullanıcılar, OU = Kullanıcılar, OU = Dallas, OU = konumları, DC = contoso, DC = com =", "Ankara'da", "OU standart kullanıcılar, OU = Kullanıcılar, OU = Ankara'da, OU = konumları, DC = contoso, DC = com = ","Seattle"," OU standart kullanıcılar, OU = Kullanıcılar, OU = Seattle, OU = konumları, DC = contoso, DC = com = ","Londra"," OU standart kullanıcılar, OU = Kullanıcılar, OU = Londra, OU = konumları, DC = contoso, DC = com = ")**  | parentDistinguishedName     |     |  Oluştur + güncelleştir |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>3. Kısım: şirket içi eşitleme Aracısı'nı yapılandırma
@@ -696,6 +728,7 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
             <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
             <wd:Include_Photo>true</wd:Include_Photo>
             <wd:Include_User_Account>true</wd:Include_User_Account>
+            <wd:Include_Roles>true</wd:Include_Roles>
           </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>

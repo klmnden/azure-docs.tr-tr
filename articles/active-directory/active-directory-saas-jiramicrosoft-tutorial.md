@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 710aa59fb3cc69cb1f5a20389eca13b1be93d223
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ceb36b78b72c45e9af59724d1f1c79789ef24b24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira"></a>Öğretici: Azure Active Directory Tümleştirme ile Microsoft Azure Active Directory çoklu oturum açma JIRA için
 
@@ -61,6 +61,7 @@ Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 *   JIRA çekirdek ve yazılım: 6.0 için 7.2.0
 *   JIRA hizmet masasına 3.0 için 3.2
+*   JIRA 5.2 de destekler. Daha fazla ayrıntı için tıklatın [Microsoft Azure Active Directory çoklu oturum açma JIRA 5.2 için](./active-directory-saas-jira52microsoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -121,11 +122,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Microsoft Azure Active Directory çoklu oturum açma JIRA etki alanı ve URL'leri tek oturum açma bilgileri](.\media\active-directory-saas-msaadssojira-tutorial\tutorial_singlesign-onforjira_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<domain:port>/`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<domain:port>/`
 
-    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<domain:port>/plugins/servlet/saml/auth`
+    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Adlandırılmış bir URL olması durumunda bağlantı noktası isteğe bağlıdır. Öğreticide daha sonra açıklanan Jira eklentisi yapılandırma sırasında bu değerleri alma.
@@ -160,7 +161,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     ![Çoklu oturum açmayı yapılandırın](.\media\active-directory-saas-msaadssojira-tutorial\addon1.png)
 
-8. Gelen eklentiyi karşıdan [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Microsoft tarafından sağlanan eklentisini el ile karşıya **karşıya eklenti** menüsü.
+8. Gelen eklentiyi karşıdan [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Microsoft tarafından sağlanan eklentisini el ile karşıya **karşıya eklenti** menüsü. Eklenti yükleme altında ele [Microsoft hizmet sözleşmesi](https://www.microsoft.com/en-us/servicesagreement/).
 
     ![Çoklu oturum açmayı yapılandırın](.\media\active-directory-saas-msaadssojira-tutorial\addon12.png)
 
@@ -195,6 +196,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     h. Denetleme **etkinleştirmek tek oturum kapatma** bir kullanıcı oturum açtığında JIRA Azure AD'den oturumunuzu etmek istiyor. 
 
     i. ' I tıklatın **kaydetmek** düğmesini tıklatarak ayarları kaydedin.
+
+    > [!NOTE]
+    > Yükleme ve sorun giderme hakkında daha fazla bilgi için ziyaret [MS JIRA SSO Bağlayıcısı Yönetici Kılavuzu](ms-confluence-jira-plugin-adminguide.md) ayrıca [SSS](ms-confluence-jira-plugin-faq.md) , Yardım almak için
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)

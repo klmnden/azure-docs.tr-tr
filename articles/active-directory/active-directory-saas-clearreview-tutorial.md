@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory Temizle gözden geçirm
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Öğretici: Azure Active Directory Tümleştirme ile Temizle gözden geçirme
 
@@ -32,7 +32,7 @@ Clear gözden geçirme Azure AD ile tümleştirme ile aşağıdaki avantajları 
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Temizle gözden geçirme ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -108,9 +108,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![NET gözden geçirme etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<customer name>.clearreview.com/sso/metadata`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<customer>.clearreview.com/sso/acs/`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<customer name>.clearreview.com/sso/acs/`
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
@@ -119,31 +119,36 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Temizle gözden geçirme destek ekibi](https://clearreview.com/contact/) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler, gerçek oturum açma URL'si, tanımlayıcı ve yanıt URL'si ile güncelleştirin. Kişi [Temizle gözden geçirme destek ekibi](https://clearreview.com/contact/) bu değerleri almak için.
 
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+5. Clear gözden geçirme uygulama adı tanımlayıcısı talep kümesinde benzersiz kullanıcı kimliği değeri bekler. Kullanıcı tanımlayıcısı değerine eşlemelisiniz **user.mail**.
+
+    ![Öznitelik bölümü](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. Tıklatın **kaydetmek** düğmesi.
+7. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. Üzerinde **gözden geçirme yapılandırmayı Temizle** 'yi tıklatın **yapılandırma Temizle gözden** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+8. Üzerinde **gözden geçirme yapılandırmayı Temizle** 'yi tıklatın **yapılandırma Temizle gözden** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Yapılandırmayı Temizle gözden geçir](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. Çoklu oturum açma yapılandırmak için **Temizle gözden geçirme** yan, açık **Temizle gözden geçirme** yönetici kimlik bilgileriyle portal.
+9. Çoklu oturum açma yapılandırmak için **Temizle gözden geçirme** yan, açık **Temizle gözden geçirme** yönetici kimlik bilgileriyle portal.
 
-9. Seçin **yönetici** sol gezinti gelen.
+10. Seçin **yönetici** sol gezinti gelen.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. Seçin **değişiklik** sayfanın sonundaki.
+11. Seçin **değişiklik** sayfanın sonundaki.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. Şu adımları gerçekleştirin **çoklu oturum açma ayarları** sayfası
+12. Şu adımları gerçekleştirin **çoklu oturum açma ayarları** sayfası
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
@@ -155,7 +160,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     d. İndirilen sertifika Not Defteri'nde açın ve içeriği yapıştırmak **X.509 sertifikası** metin kutusu.   
 
-12. **Kaydet** düğmesine tıklayın.
+13. **Kaydet**’e tıklayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -190,7 +195,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
   
 ### <a name="create-a-clear-review-test-user"></a>Clear gözden geçirme test kullanıcısı oluşturma
 
@@ -253,4 +258,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

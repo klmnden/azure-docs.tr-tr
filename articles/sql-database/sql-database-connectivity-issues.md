@@ -3,24 +3,18 @@ title: "SQL bağlantı hatası, geçici hata düzeltme | Microsoft Docs"
 description: "Sorun giderme, tanılama ve SQL bağlantı hatası veya Azure SQL veritabanındaki geçici hata önlemek öğrenin."
 keywords: "SQL bağlantısı, bağlantı dizesi, bağlantı sorunları, geçici bir hata oluştu, bağlantı hatası"
 services: sql-database
-documentationcenter: 
 author: dalechen
-manager: cshepard
-editor: 
-ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: 7d393cd08ef5c20ef680e4e1ab3aded191abe932
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f6b5f825d7f8111075fe37b5dc29d174928d913e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>SQL Database için SQL bağlantı hatalarını ve geçici hataları giderme, tanılama ve önleme
 Bu makalede, engellemek, sorun giderme, tanılama ve bağlantı hataları ve Azure SQL veritabanı ile etkileşim kurarken, istemci uygulamanız karşılaştığında geçici hataları etkisini açıklar. Yeniden deneme mantığı yapılandırmak, bağlantı dizesi oluşturma ve diğer bağlantı ayarlarını öğrenin.
@@ -327,14 +321,14 @@ Ad alanında **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
   
   * **ExecuteAction** yöntemi
 * **ExponentialBackoff** sınıfı
-* **SqlDatabaseTransientErrorDetectionStrategy** sınıfı
+* **SqlDatabaseTransientErrorDetectionStrategy** class
 * **ReliableSqlConnection** sınıfı
   
   * **ExecuteCommand** yöntemi
 
 Ad alanında **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
 
-* **AlwaysTransientErrorDetectionStrategy** sınıfı
+* **AlwaysTransientErrorDetectionStrategy** class
 * **NeverTransientErrorDetectionStrategy** sınıfı
 
 Bazı bağlantılar EntLib60 hakkında bilgi için aşağıda verilmiştir:

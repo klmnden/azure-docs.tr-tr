@@ -2,31 +2,25 @@
 title: "Bir Azure SQL veritabanı oluşturmak için bir BACPAC dosyasını içeri | Microsoft Docs"
 description: "Bir BACPAC dosyasını içeri aktararak newAzure SQL veritabanı oluşturun."
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
+manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.workload: Active
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: a37fa94df794487969dfbaebf7a001de16857ea7
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Yeni bir Azure SQL veritabanı için bir BACPAC dosyasını içeri aktarın
 
 Ne zaman bir veritabanı arşivden içeri aktarmanız gerekir ya da başka bir platformundan geçirirken, verileri ve veritabanı şeması aktarabilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. ZIP dosyası meta verileri ve SQL Server veritabanından veri içeren BACPAC uzantılı bir BACPAC dosyasıdır. Bir BACPAC dosyası (yalnızca standart depolama) Azure blob depolama alanından içeri aktarılabilir veya bir şirket içi konumda yerel depolama. Alma hızı en üst düzeye çıkarmak için daha yüksek Hizmet katmanını ve performans düzeyi, bir P6 gibi belirtin ve ardından içeri aktarma başarılı olduktan sonra uygun şekilde aşağı Ölçekle öneririz. Ayrıca, veritabanı uyumluluk düzeyi içe aktarmadan sonra kaynak veritabanı uyumluluk düzeyini temel alır. 
 
 > [!IMPORTANT] 
-> Azure SQL veritabanına veritabanınızı geçirdikten sonra veritabanını geçerli uyumluluk düzeyinde (düzey 100 AdventureWorks2008R2 veritabanı için) veya daha yüksek düzeyde çalışmaya seçebilirsiniz. Uygulamaları ve belirli bir uyumluluk düzeyinde bir veritabanı işletim seçenekleri hakkında daha fazla bilgi için bkz: [ALTER veritabanı uyumluluk düzeyi](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Ayrıca bkz. [ALTER veritabanı kapsamlı yapılandırma](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) Uyumluluk Düzeyleri ilgili ek veritabanı düzeyi ayarları hakkında bilgi için.   >
+> Azure SQL veritabanına veritabanınızı geçirdikten sonra veritabanını geçerli uyumluluk düzeyinde (düzey 100 AdventureWorks2008R2 veritabanı için) veya daha yüksek düzeyde çalışmaya seçebilirsiniz. Veritabanını belirli bir uyumluluk düzeyinde çalıştırmanın etkileri ve buna yönelik seçenekler hakkında daha fazla bilgi için, bkz. [Veritabanı Uyumluluk Düzeyini Değiştirme](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Uyumluluk düzeyleriyle ilgili ek veritabanı düzeyi ayarları hakkında bilgi için, ayrıca bkz. [VERİTABANI KAPSAMLI YAPILANDIRMAYI DEĞİŞTİRME](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).   >
 
 ## <a name="import-from-a-bacpac-file-using-azure-portal"></a>Azure portalını kullanarak bir BACPAC Dosyadan İçeri Aktar
 

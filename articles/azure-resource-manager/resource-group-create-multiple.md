@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8dfb664c7041d70f3ece812edb76df38a35e41f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bir kaynak veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma
 Bu makalede, koşullu bir kaynak dağıtma ve birden fazla örneğini bir kaynak oluşturmak için Azure Resource Manager şablonu yineleme gösterir.
@@ -72,7 +72,7 @@ Kaynak birden çok kez oluşturmak için aşağıdaki biçimi alır:
 }
 ```
 
-Her bir kaynağın adını içeren bildirim `copyIndex()` geçerli yineleme döngüde döndürür işlevi. `copyIndex()`sıfır tabanlı olur. Bunu, aşağıdaki örnek:
+Her bir kaynağın adını içeren bildirim `copyIndex()` geçerli yineleme döngüde döndürür işlevi. `copyIndex()` sıfır tabanlı olur. Bunu, aşağıdaki örnek:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -344,6 +344,8 @@ Bir kaynak sonra başka bir kaynak kullanarak dağıtılmış belirttiğiniz `de
     "outputs": {}
 }
 ```
+
+<a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Bir alt kaynak için yineleme
 Bir alt kaynak kopyalama döngüsü kullanamazsınız. Birden çok örneğini genellikle başka bir kaynak içinde iç içe olarak tanımlayan bir kaynak oluşturmak için bunun yerine, kaynak en üst düzey bir kaynak olarak oluşturmanız gerekir. İlişki türü ve adı özellikleri aracılığıyla üst kaynakla tanımlayın.

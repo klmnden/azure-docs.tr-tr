@@ -3,8 +3,8 @@ title: "Hazırlama ve teklifiniz Azure Marketi dağıtımını test | Microsoft 
 description: "Pazar içerik sağlayarak, fiyatlandırma planları yapılandırma ve Azure Marketi dağıtmadan önce teklifiniz test etme hakkında ayrıntılı yönergeler."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Teklif oluşturma pazarlama içerikle tamamlayın
 Yayımlama işleminin bu adımında belirli pazarlama içeriği ve teklif ve/veya Azure Marketi SKU ayrıntılarını sağlamanız gerekir. Örneğin, ürün, şirket logoları, fiyat planları, plan ayrıntılarını ve teklif ve/veya SKU için hazırlama göndermek gerekli diğer bilgileri açıklamasını sağlayacaktır. Bu bilgiler, Azure portalında pazarlama içeriği olarak kullanılır. Bu işlemde başlayacak [yayımlama portalında][link-pubportal].
@@ -26,7 +26,7 @@ Yayımlama işleminin bu adımında belirli pazarlama içeriği ve teklif ve/vey
 ## <a name="step-1-provide-marketplace-marketing-content"></a>1. adım: içerik pazarlama Market sağlayın
 **İngilizce varsayılandır ve yalnızca dili desteklenir.** Lütfen alanları sağlanan tüm bilgileri İngilizce olduğundan emin olun. Hazırlamaya göndermeden önce tüm bilgileri istediğiniz zaman düzenleyebilirsiniz.
 
-1. Yayımlama Portalı gidin [https://publish.windowsazure.com](https://publish.windowsazure.com).
+1. Yayımlama Portalı gidin [ https://publish.windowsazure.com ](https://publish.windowsazure.com).
 2. Sol menüsünde **pazarlama** sekmesi.
 3. Ana panelinde tıklatın **İngilizce (ABD)** düğmesi.
    
@@ -36,8 +36,8 @@ Yayımlama işleminin bu adımında belirli pazarlama içeriği ve teklif ve/vey
    > 
 
 ### <a name="details-and-plans"></a>Ayrıntılar ve planları
-1. Teklif başlığı (en fazla 50 karakter) girin, özeti (en fazla 100 karakter) sunmak, uzun özeti (en fazla 256 karakter) teklifi, teklif açıklaması (en fazla 1300 karakter), logolar altında **ayrıntıları** sekmesi
-2. Planı başlık (en fazla 50 karakter), planı özeti (en fazla 100 karakter) girin, plan açıklaması (en fazla 2000 karakter) altında **planları** sekmesi.
+1. Enter the offer title (maximum 50 characters), offer summary (maximum 100 characters), offer long summary (maximum 256 characters), offer description (maximum 1300 characters), logos under the **Details** tab
+2. Enter plan title (maximum 50 characters), plan summary (maximum 100 characters), plan description (maximum 2000 characters) under the **Plans** tab.
    
    > [!NOTE]
    > Aşağıdaki özeti, uzun Özet biçimlendirmek için HTML etiketleri ve planları ve teklif açıklamasını kullanabilirsiniz. İzin verilen HTML etiketleri, h1, h2, h3, h4, h5, p, ol, ul, li, bir [hedef | href], güçlü, em, b, ediyorum.
@@ -139,7 +139,7 @@ Teklif/SKU Azure Marketi'nde listelenen sonra sanal makine teklifleri için aşa
 
 |  | Yalnızca temel | Yalnızca tüketim | Temel + tüketim |
 | --- | --- | --- | --- |
-| Sanal makine görüntüsü |Hayır |Yes |Hayır |
+| Sanal makine görüntüsü |Hayır |Evet |Hayır |
 | Geliştirici hizmeti |Evet |Evet |Evet |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. VM fiyatları ayarlayın
@@ -226,8 +226,8 @@ Planları temel + burada temel aylık fiyat ve kullanım başına ödeme fiyat a
 | --- | --- | --- | --- |
 | Ücretsiz |0/ ay |Temel işlevleri. |Başka bir plana geçirebilirsiniz |
 | Bronz |10/ ay |Temel işlevleri ve 1. 000'özelliğinin X kotası. |Bronz yanı sıra, Gümüş ve altın planlarına geçirebilirsiniz |
-| Bronz artı |Ücretsiz deneme süresi: 0/ ay + $0/meter01 |Temel işlevleri ve kota 10.000 X özelliğinin değeri.  Kullanılan özellik X kotası sonra müşteri meter01 aracılığıyla kullanım başına ödeme. |Gümüş artı ve altın planlarına geçirebilirsiniz |
-| Bronz artı |Dönemi (paketini Ücretli ücretsiz deneme süresi): $10/ay + $ 0,05/meter01 |Temel işlevleri ve kota 10.000 X özelliğinin değeri.  Kullanılan özellik X kotası sonra müşteri meter01 aracılığıyla kullanım başına ödeme. |Gümüş artı ve altın planlarına geçirebilirsiniz |
+| Bronze Plus |Ücretsiz deneme süresi: 0/ ay + $0/meter01 |Temel işlevleri ve kota 10.000 X özelliğinin değeri.  Kullanılan özellik X kotası sonra müşteri meter01 aracılığıyla kullanım başına ödeme. |Gümüş artı ve altın planlarına geçirebilirsiniz |
+| Bronze Plus |Dönemi (paketini Ücretli ücretsiz deneme süresi): $10/ay + $ 0,05/meter01 |Temel işlevleri ve kota 10.000 X özelliğinin değeri.  Kullanılan özellik X kotası sonra müşteri meter01 aracılığıyla kullanım başına ödeme. |Gümüş artı ve altın planlarına geçirebilirsiniz |
 | Gümüş |$ 0,15/meter01 |Müşteri X özelliğidir meter01 aracılığıyla kullanım başına Öde. |Bronz ve altın planlarına geçirebilirsiniz |
 | Gümüş artı |20/ ay + $ 0,15/meter01 $ 0,01/meter02 |Temel işlevleri ve 10. 000'özelliğinin X ve Y özelliğinin 100 kotası.  Kullanılan özellik X kotası sonra müşteri meter01 aracılığıyla kullanım başına ödeme.  Kullanılan özellik Y kotası sonra müşteri meter02 aracılığıyla kullanım başına ödeme. |Bronz artı ve altın planlarına geçirebilirsiniz |
 | Altın |1,000/ ay |X, Y, özelliğinin 1.000 özelliğinin 10.000 kota ve Z özelliğinin sınırsız. |Serbest dışında tüm planlar geçirebilirsiniz |
