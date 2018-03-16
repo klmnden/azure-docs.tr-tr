@@ -30,7 +30,7 @@ Azure yığın Hizmetleri tüketici olarak ortak teklifleri abone olmak için Az
 
 (Bir hizmet sağlayıcısı ya da bir yönetici, kuruluşunuzda), Azure yığın operatörünüze olanak tanır portalına erişmek için doğru URL'yi bildirin. 
 
-- Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve biçim https://portal olacaktır. &lt; *bölge*&gt;.&lt; *FQDN*&gt;.
+- Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve biçim https://portal.&lt;*bölge*&gt;.&lt;*FQDN*&gt;.
 - Azure yığın Geliştirme Seti kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
 ![Azure yığın Kullanıcı Portalı ekran görüntüsü](media/azure-stack-use-portal/UserPortal.png)

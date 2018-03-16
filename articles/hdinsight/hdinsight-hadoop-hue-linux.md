@@ -100,7 +100,7 @@ SSH tünel çalışmaya başladıktan sonra kümede ton erişmek için tek yolud
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Bu, ana birincil headnode Hue Web sitesi bulunduğu adıdır.
-4. Http://HOSTNAME:8888 adresindeki Hue portalını açmak için tarayıcı kullanın. Ana bilgisayar adı önceki adımda elde ettiğiniz adla değiştirin.
+4. http://HOSTNAME:8888 adresindeki Hue portalını açmak için tarayıcı kullanın. Ana bilgisayar adı önceki adımda elde ettiğiniz adla değiştirin.
 
    > [!NOTE]
    > İlk kez oturum açtığınızda ton portalına oturum açmak için bir hesap oluşturmak için istenir. Burada belirttiğiniz kimlik portalına sınırlı olacaktır ve yönetici veya küme hazırlama sırasında belirtilen SSH kullanıcısı kimlik bilgileriyle ilişkili değil.

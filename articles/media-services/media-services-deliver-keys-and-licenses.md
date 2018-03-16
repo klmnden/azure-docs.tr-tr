@@ -41,7 +41,7 @@ Bu makalede açıklanan örneği indirmek için bkz: [.NET ile PlayReady ve/veya
 
 2. App.config dosyanızda tanımlanan **appSettings**’e aşağıdaki öğeleri ekleyin:
 
-    add key = "Veren" value = "http://testacs.com" /
+    add key="Veren" value="http://testacs.com"/
     
     add key="Audience" value="urn:test"/
 

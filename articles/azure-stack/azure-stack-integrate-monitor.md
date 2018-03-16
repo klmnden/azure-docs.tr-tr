@@ -92,7 +92,7 @@ Eklenti dosyası "Azurestack_plugin.py" aşağıdaki parametrelerle yapılandır
 
 Operations Manager, Nagios veya Nagios tabanlı bir çözümü kullanmıyorsanız, Azure yığın ile tümleştirmek için çözümlerini izleme geniş etkinleştirmek için PowerShell kullanabilirsiniz.
  
-1. PowerShell kullanmak için bilgisayarınızda yüklü olduğundan emin olun [PowerShell yüklenmiş ve yapılandırılmış](azure-stack-powershell-configure-quickstart.md) Azure yığın işleci ortamı için. PowerShell Kaynak Yöneticisi (Yönetici) uç noktası ulaşabilir yerel bir bilgisayara yükleme (https://adminmanagement. [ Bölge]. [External_FQDN]).
+1. PowerShell kullanmak için bilgisayarınızda yüklü olduğundan emin olun [PowerShell yüklenmiş ve yapılandırılmış](azure-stack-powershell-configure-quickstart.md) Azure yığın işleci ortamı için. PowerShell Kaynak Yöneticisi (Yönetici) uç noktası ulaşabilir yerel bir bilgisayara yükleme (https://adminmanagement.[Bölge].[External_FQDN]).
 
 2. Bir Azure yığın işleç olarak Azure yığın ortama bağlanmak için aşağıdaki komutları çalıştırın:
 
@@ -145,7 +145,7 @@ REST API çağrıları, uyarıları alma, uyarıları kapatın ve kaynak sağlay
 
 |Bağımsız değişken  |Açıklama  |
 |---------|---------|
-|armendpoint     |  Azure Resource Manager uç noktasını, Azure yığın ortamınızda biçimi https://adminmanagement. {RegionName}. {Dış FQDN}. Örneğin, dış FQDN ise *azurestack.external* ve bölge adı *yerel*, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.       |
+|armendpoint     |  Azure Resource Manager uç noktasını, Azure yığın ortamınızda biçimi https://adminmanagement.{RegionName}.{Dış FQDN}. Örneğin, dış FQDN ise *azurestack.external* ve bölge adı *yerel*, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.       |
 |subid     |   Çağrıyı yapan kullanıcının abonelik kimliği. Sorgu için bu API, yalnızca varsayılan sağlayıcı abonelik izni olan bir kullanıcı ile kullanabilirsiniz.      |
 |RegionName     |    Azure yığın dağıtımına bölge adı.     |
 |API sürümü     |  Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.      |
@@ -248,7 +248,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Bağımsız değişken  |Açıklama  |
 |---------|---------|
-|*armendpoint*     |   Kaynak Yöneticisi uç noktası biçimi https://adminmanagement içinde Azure yığın ortamınızın. {RegionName}. {Dış FQDN}. Örneğin, dış FQDN ise *azurestack.external* ve bölge adı *yerel*, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.      |
+|*armendpoint*     |   Kaynak Yöneticisi uç noktası biçimi içinde Azure yığın ortamınızın https://adminmanagement.{RegionName}.{Dış FQDN}. Örneğin, dış FQDN ise *azurestack.external* ve bölge adı *yerel*, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    Çağrıyı yapan kullanıcının abonelik kimliği. Sorgu için bu API, yalnızca varsayılan sağlayıcı abonelik izni olan bir kullanıcı ile kullanabilirsiniz.     |
 |*RegionName*     |   Azure yığın dağıtımına bölge adı.      |
 |*api-version*     |    Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.     |
@@ -393,7 +393,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 
 |Bağımsız Değişkenler  |Açıklama  |
 |---------|---------|
-|*armendpoint*     |    Kaynak Yöneticisi uç noktasını, Azure yığın ortamınızda biçimi https://adminmanagement. {RegionName}. {Dış FQDN}. Örneğin, dış FQDN azurestack.external ve bölge adını yerel ise, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Kaynak Yöneticisi uç noktasını, Azure yığın ortamınızda biçimi https://adminmanagement.{RegionName}.{Dış FQDN}. Örneğin, dış FQDN azurestack.external ve bölge adını yerel ise, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     Çağrıyı yapan kullanıcının abonelik kimliği. Sorgu için bu API, yalnızca varsayılan sağlayıcı abonelik izni olan bir kullanıcı ile kullanabilirsiniz.    |
 |*RegionName*     |     Azure yığın dağıtımına bölge adı.    |
 |*api-version*     |   Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.      |
@@ -462,7 +462,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 |Bağımsız Değişkenler  |Açıklama  |
 |---------|---------|
-|*armendpoint*     |    Kaynak Yöneticisi uç noktasını, Azure yığın ortamınızda biçimi https://adminmanagement. {RegionName}. {Dış FQDN}. Örneğin, dış FQDN azurestack.external ve bölge adını yerel ise, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Kaynak Yöneticisi uç noktasını, Azure yığın ortamınızda biçimi https://adminmanagement.{RegionName}.{Dış FQDN}. Örneğin, dış FQDN azurestack.external ve bölge adını yerel ise, kaynak yöneticisi uç noktası ise https://adminmanagement.local.azurestack.external.     |
 |*subid*     |Çağrıyı yapan kullanıcının abonelik kimliği. Sorgu için bu API, yalnızca varsayılan sağlayıcı abonelik izni olan bir kullanıcı ile kullanabilirsiniz.         |
 |*RegionName*     |  Azure yığın dağıtımına bölge adı.       |
 |*api-version*     |  Bu isteği yapmak için kullanılan protokol sürümü. 2016-05-01 kullanmanız gerekir.       |

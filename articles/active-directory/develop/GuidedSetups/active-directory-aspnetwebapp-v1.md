@@ -250,7 +250,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## <a name="test-your-code"></a>Kodunuzu test
 
-Tuşuna `F5` Visual Studio'da projeyi çalıştırın. Tarayıcı açılır ve size yönlendiren *http://localhost: {port}* gördüğünüz *oturum oturum Microsoft* düğmesi. Bir tane oturum açmak için tıklatın.
+Tuşuna `F5` Visual Studio'da projeyi çalıştırın. Tarayıcı açılır ve size yönlendiren *http://localhost:{port}* gördüğünüz *oturum oturum Microsoft* düğmesi. Bir tane oturum açmak için tıklatın.
 
 Ne zaman oturum açmak için bir iş hesabı (Azure Active Directory) kullanmak, test hazırsınız. 
 
@@ -280,7 +280,7 @@ Ayrıca, kimlik doğrulama isteğine dahil tüm kullanıcı talepleri de dahil o
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Test içeren bir yöntem erişen bir *[Authorize]* özniteliği (isteğe bağlı)
 Bu adımda, bir anonim kullanıcı olarak talep denetleyicisi erişimi test:<br/>
 Kullanıcı oturum kapatma bağlantısını seçin ve oturum kapatma işlemini tamamlayın.<br/>
-Şimdi, tarayıcıda http://localhost yazın: {port} / ile korunan denetleyicinizi erişmek talepleri `[Authorize]` özniteliği
+Şimdi, tarayıcıda http://localhost:{port}/yazın ile korunan denetleyicinizi erişmek talepleri `[Authorize]` özniteliği
 
 #### <a name="expected-results"></a>Beklenen sonuçları
 Görmek için kimlik doğrulaması gerektirmek istemi almanız gerekir.
