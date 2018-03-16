@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Yönetilen hizmet kimliği (MSI) kullanıcı tarafından atanan bir VM için bir erişim belirteci alma
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 02/03/2018
 Bu makalede, belirteç edinme yanı sıra işleme belirteci süre sonu ve HTTP hataları gibi önemli konular hakkında yönergeler için çeşitli kod ve komut dosyası örnekler verilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 Bu makalede Azure PowerShell örneklerini kullanmayı planlıyorsanız, en son sürümünü yüklediğinizden emin olun [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
@@ -48,21 +46,28 @@ Bir istemci uygulaması bir MSI isteyebilir [yalnızca uygulama erişim belirtec
 
 ## <a name="get-a-token-using-http"></a>HTTP kullanarak belirteç alın 
 
-Bir erişim belirteci alma için temel arabirim REST, HTTP REST çağrılarını yapabilen VM'de çalışan herhangi bir istemci uygulama için erişilebilir hale getirme temel alır. Sanal makinede localhost endpoint istemcinin kullandığı dışında bu Azure AD programlama modeline benzer (vs Azure AD uç noktası).
+Bir erişim belirteci alma için temel arabirim REST, HTTP REST çağrılarını yapabilen VM'de çalışan herhangi bir istemci uygulama için erişilebilir hale getirme temel alır. Sanal makineye bir uç nokta istemcinin kullandığı dışında bu Azure AD programlama modeline benzer (vs Azure AD uç noktası).
 
-Örnek istek:
+Örnek meta veri hizmeti (IMDS) uç noktası kullanarak örnek isteği:
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+MSI VM uzantısı uç noktası (yaklaşan kullanımdan) kullanarak örnek isteği:
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | Öğe | Açıklama |
 | ------- | ----------- |
 | `GET` | Uç noktasından verileri almak istediğiniz belirten HTTP fiili. Bu durumda, bir OAuth belirteç erişin. | 
-| `http://localhost:50342/oauth2/token` | Burada 50342 varsayılan bağlantı noktası ve yapılandırılabilir MSI endpoint. |
-| `resource` | Hedef kaynak uygulama kimliği URI'sini belirten bir sorgu dizesi parametresi. Ayrıca görünür `aud` verilen belirteç talep (İzleyici). Bu örnek bir uygulama kimliği URI'sini https://management.azure.com/ olan Azure Kaynak Yöneticisi'ne erişmek için bir belirteç ister. |
-| `client_id` | Kullanıcı tarafından atanan MSI temsil eden hizmet sorumlusu istemci kimliği (uygulama kimliği olarak da bilinir) gösteren bir sorgu dizesi parametresi. Bu değer döndürülür `clientId` kullanıcı tarafından atanan bir MSI oluşturulması sırasında özelliği. Bu örnek bir belirteç istemci kimliği "712eac09-e943-418 c-9be6-9fd5c91078bl" ister. |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | MSI hizmeti için uç noktaya örneği meta verileri. |
+| `http://localhost:50342/oauth2/token` | Burada 50342 varsayılan bağlantı noktası ve yapılandırılabilir VM uzantısı için MSI bitiş noktası. |
+| `api-version`  | IMDS uç noktası için API sürümünü belirten bir sorgu dizesi parametresi.  |
+| `resource` | Hedef kaynak uygulama kimliği URI'sini belirten bir sorgu dizesi parametresi. Ayrıca görünür `aud` verilen belirteç talep (İzleyici). Bu örnek Azure Kaynak Yöneticisi'ne erişmek için bir belirteç isteklerini sahip olduğu bir uygulama kimliği URI'sini https://management.azure.com/. |
+| `client_id` |  Bir *isteğe bağlı* sorgu dizesi parametresi, istemci kimliği (uygulama kimliği olarak da bilinir) gösteren bir kullanıcı tarafından atanan MSI temsil eden hizmet sorumlusu. Sistem tarafından atanan MSI kullanıyorsanız, bu parametre gerekli değildir. Bu değer döndürülür `clientId` kullanıcı tarafından atanan bir MSI oluşturulması sırasında özelliği. Bu örnek bir belirteç istemci kimliği "712eac09-e943-418 c-9be6-9fd5c91078bl" ister. |
 | `Metadata` | Sunucu tarafı istek sahtekarlığı (SSRF) saldırılara karşı azaltma olarak MSI tarafından gerekli bir HTTP isteği üstbilgisi alanının. Bu değer "tüm alt durumda true olarak" olarak ayarlanmalıdır.
 
 Örnek yanıt:
@@ -94,6 +99,16 @@ Content-Type: application/json
 ## <a name="get-a-token-using-curl"></a>CURL kullanarak belirteç alın
 
 İstemci Kimliğini (uygulama kimliği olarak da bilinir), kullanıcı tarafından atanan MSI hizmet sorumlusu için değiştirdiğinizden emin olun <MSI CLIENT ID> değerini `client_id` parametresi. Bu değer döndürülür `clientId` kullanıcı tarafından atanan bir MSI oluşturulması sırasında özelliği.
+  
+Örnek meta veri hizmeti (IMDS) uç noktası kullanarak örnek isteği:
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+MSI VM uzantısı uç noktası (yaklaşan kullanımdan) kullanarak örnek isteği:
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -104,7 +119,7 @@ Content-Type: application/json
    Örnek yanıtları:
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -112,7 +127,7 @@ Content-Type: application/json
 
 ## <a name="handling-token-expiration"></a>Belirteç süre sonu işleme
 
-Yerel MSI alt sistemi belirteçleri önbelleğe alır. Bu nedenle, istediğiniz ve yalnızca Azure AD üzerinde hat çağrısına sonuçları kadar çağırabilirsiniz:
+MSI alt sistemi belirteçleri önbelleğe alır. Bu nedenle, istediğiniz ve yalnızca Azure AD üzerinde hat çağrısına sonuçları kadar çağırabilirsiniz:
 - önbellek isabetsizliği önbelleğinde herhangi bir belirteci nedeniyle oluşur
 - belirtecin süresi doldu
 
@@ -142,7 +157,7 @@ Bu bölümde, olası hata yanıtları belgeler. A "200 Tamam" durumu başarılı
 | ----------- | ----- | ----------------- | -------- |
 | 400 Hatalı istek | invalid_resource | AADSTS50001: uygulama adlı  *\<URI\>*  adlı Kiracı bulunamadı  *\<KİRACI kimliği\>*. Uygulama değil Kiracı Yöneticisi tarafından yüklendikten veya Kiracı herhangi bir kullanıcı tarafından izin verdiği gerçekleşebilir. Yanlış Kiracı kimlik doğrulama isteği gönderilen. \ | (Yalnızca Linux) |
 | 400 Hatalı istek | bad_request_102 | Gerekli meta veriler üstbilgisi belirtilmedi | Her iki `Metadata` isteği üstbilgisi alanının isteğinizden eksik veya yanlış biçimlendirilmiş. Değer olarak belirtilmelidir `true`, tüm alt durumda. "Örnek istek" bölümüne bakın [HTTP kullanarak bir belirteç almak](#get-a-token-using-http) bir örnek bölüm.|
-| 401 Yetkisiz | unknown_source | Bilinmeyen kaynak  *\<URI\>* | HTTP GET isteği URI doğru biçimlendirildiğinden emin olun. `scheme:host/resource-path` Bölümü olarak belirtilmelidir `http://localhost:50342/oauth2/token`. "Örnek istek" bölümüne bakın [HTTP kullanarak bir belirteç almak](#get-a-token-using-http) bir örnek bölüm.|
+| 401 Yetkisiz | unknown_source | Bilinmeyen kaynak  *\<URI\>* | HTTP GET isteği URI doğru biçimlendirildiğinden emin olun. `scheme:host/resource-path` Bölümü olarak belirtilmelidir `http://169.254.169.254/metadata/identity/oath2/token` veya `http://localhost:50342/oauth2/token`. "Örnek istek" bölümüne bakın [HTTP kullanarak bir belirteç almak](#get-a-token-using-http) bir örnek bölüm.|
 |           | invalid_request | İstek gerekli bir parametre eksik, geçersiz bir parametre değeri içerir, bir parametresi birden çok kez içerir veya aksi halde bozuk. |  |
 |           | unauthorized_client | İstemci bu yöntemi kullanarak bir erişim belirteci istemek için yetkili değil. | Yerel bir geri döngü uzantısı çağırmak için kullanmadı bir istek tarafından ya da doğru şekilde yapılandırılmış bir MSI sahip olmayan bir VM'de neden oldu. Bkz: [bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](msi-qs-configure-portal-windows-vm.md) VM yapılandırması yardıma ihtiyacınız varsa. |
 |           | access_denied | Kaynak sahibi veya yetkilendirme sunucusu isteğini reddetti. |  |

@@ -15,17 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-<<<<<<< HEAD
-ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 kimlik doğrulama kitaplıkları
 [Azure Active Directory (Azure AD) v2.0 uç](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) endüstri standardı OAuth 2.0 ve Openıd Connect 1.0 protokollerini destekler. Microsoft ve diğer kuruluşlardan çeşitli kitaplıklarından v2.0 uç noktası ile kullanabilirsiniz.
@@ -33,9 +27,9 @@ ms.lasthandoff: 12/11/2017
 V2.0 uç noktası kullanan bir uygulama oluşturduğunuzda, bir güvenlik geliştirme yaşam döngüsü (SDL) Metodoloji gibi izleyin Protokolü etki alanı uzmanlar tarafından yazılan kitaplıkları kullanmanızı öneririz [birMicrosofttarafındanizlenen][Microsoft-SDL]. Elle kod destek protokoller için karar verirseniz, SDL Metodoloji izleyin ve Kapat güvenlik konuları her protokol için standartları özellikleri dikkat öneririz.
 
 > [!NOTE]
-> Azure AD için sık sorulan sorular v1.0 kitaplıkları (ADAL) mi arıyorsunuz? Checkout [ADAL kitaplığı Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
-> 
-> 
+> Azure AD için sık sorulan sorular v1.0 kitaplıkları (ADAL) mi arıyorsunuz? Checkout [ADAL kitaplığı Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+>
+>
 
 ## <a name="types-of-libraries"></a>Tür kitaplıkları
 Azure AD v2.0 uç iki tür kitaplıklarını çalışır:
@@ -59,16 +53,16 @@ Bu makalenin sonraki bölümlerinde v2.0 uç noktası ile çalışma kitaplıkla
 > [!IMPORTANT]
 > MSAL Önizleme kitaplıkları, bir üretim ortamında kullanım için uygundur. Bizim geçerli üretim kitaplığı (ADAL) yaptığımız Bu kitaplıklar için aynı üretim düzeyi destek sunuyoruz. Önizleme sırasında biz MSAL API, dahili önbellek biçimi ve diğer hata düzeltmeleri veya özellik geliştirmeleri ile birlikte alın gerekecektir uyarısı olmadan bu kitaplıklar mekanizmaları değişiklikler yapabilir. Bu, uygulamanızın etkileyebilir. Örneğin, önbellek biçimini değişiklik yeniden oturum açmak için erişmeleri gibi kullanıcılarınızın etkileyebilir. Bir API değişikliği kodunuzu güncelleştirin gerektirebilir. Biz, altı ay içinde genel kullanılabilirlik sürüme güncelleştirmek ihtiyaç duyacağınız genel kullanılabilirlik sürümü sağladığımız açtığınızda Önizleme kullanılarak yazılmış uygulamalar olarak kitaplığı sürümü artık çalışabilir.
 
-| Platform | Kitaplık | İndir | Kaynak kodu | Örnek | Başvuru
+| Platform | Kitaplık | İndirme | Kaynak kodu | Örnek | Başvuru
 | --- | --- | --- | --- | --- | --- |
 | .NET istemci, Windows mağazası, UWP, Xamarin iOS ve Android | MSAL .NET (Önizleme) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Masaüstü uygulaması](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
 | JavaScript | MSAL.js (Önizleme) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Tek sayfa uygulaması](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
 | iOS, macOS | MSAL (Önizleme) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS uygulaması](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
-| Android | MSAL (Önizleme) | [Merkezi bir depoya](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android uygulaması](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
+| Android | MSAL (Önizleme) | [Merkezi bir depoya](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android App](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Microsoft tarafından desteklenen sunucu ara yazılım kitaplıkları
 
-| Platform | Kitaplık | İndir | Kaynak kodu | Örnek | Başvuru
+| Platform | Kitaplık | İndirme | Kaynak kodu | Örnek | Başvuru
 | --- | --- | --- | --- | --- | --- |
 | .NET 4.x | OWIN Openıd Connect Ara |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[MVC uygulama](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
 | .NET 4.x | OWIN OAuth taşıyıcı ara yazılımı Azuread'i için |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
@@ -84,13 +78,8 @@ Bu makalenin sonraki bölümlerinde v2.0 uç noktası ile çalışma kitaplıkla
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Yerel uygulaması örneği](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Yerel uygulaması örneği](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-
-## <a name="compatible-server-middleware-libraries"></a>Uyumlu bir sunucu ara yazılım kitaplıkları
-| Platform | Kitaplık adı | Test edilen sürüm | Kaynak kod | Örnek |
-|:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Sürüm 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
-| PHP | [PHP ligi oauth2 istemci](https://github.com/thephpleague/oauth2-client) | [Sürüm 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2 istemci](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
-| Python Flask |[Flask OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask OAuthlib](https://github.com/lepture/flask-oauthlib) |[Web Uygulaması](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
+| PHP | [PHP ligi oauth2 istemci](https://github.com/thephpleague/oauth2-client) | [Sürüm 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>İlgili içerik

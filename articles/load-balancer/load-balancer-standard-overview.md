@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2018
+ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2d7fcb3ee066fa768615fbf643a0c2e1c1d28498
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure yük dengeleyici standart genel bakış (Önizleme)
 
@@ -466,7 +466,7 @@ Aşağıdaki sınırlamalar Önizleme aynı anda uygulamak ve değiştirilebilir
 - Kullanılabilirlik bölgeleri bağlamında zonal bir genel IP adresi bir bölgesinden diğerine taşınamaz.
 - [Azure uyarıları izleme](../monitoring-and-diagnostics/monitoring-overview-alerts.md) şu anda desteklenmiyor.
 - Portal genişletilmiş Önizleme bölgelerde henüz desteklemiyor.  Şablonlar, Azure CLI 2.0 veya geçici bir çözüm olarak PowerShell gibi istemci araçlarını kullanın.
-- Taşıma abonelik işlemleri desteklenmez.
+- [Taşıma abonelik işlemlerini](../azure-resource-manager/resource-group-move-resources.md) standart SKU LB ve PIP kaynakları için desteklenmiyor.
 - Batı ABD kullanılamaz.
 
 

@@ -14,21 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e66e488d8e547e828c014b105a816a14726e5005
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Service Fabric Reliable Services ve Reliable Actors (Önizleme) containerize nasıl
 
 Service Fabric containerizing Service Fabric mikro (Reliable Services ve güvenilir dayalı aktör Hizmetleri) destekler. Daha fazla bilgi için bkz: [service fabric kapsayıcıları](service-fabric-containers-overview.md).
 
-
- Bu özellik Önizleme sürümünde olduğu ve bu makalede bir kapsayıcı içinde çalışan hizmetiniz için çeşitli adımlar sağlar.  
+Bu özellik Önizleme sürümünde olduğu ve bu makalede bir kapsayıcı içinde çalışan hizmetiniz için çeşitli adımlar sağlar.  
 
 > [!NOTE]
-> Bu özellik Önizleme aşamasındadır ve üretimde desteklenmiyor. Şu anda bu özellik yalnızca Windows için çalışır.
+> Bu özellik Önizleme aşamasındadır ve üretimde desteklenmiyor. Şu anda bu özellik yalnızca Windows için çalışır. Kapsayıcıları çalıştırmak için küme Windows Server 2016 kapsayıcılarla çalıştırması gerekir.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Service Fabric uygulamanızı containerize adımları
 

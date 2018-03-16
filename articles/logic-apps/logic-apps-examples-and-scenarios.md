@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Ortak senaryolar, örnekler, öğreticiler ve Azure Logic Apps için izlenecek yollar
 
@@ -81,7 +81,7 @@ Logic apps koşullar, anahtarları, döngüler ve kapsamları gibi gelişmiş de
 
 Tam olarak geliştirmek ve logic apps Visual Studio, Visual Studio Team Services veya diğer kaynak denetimi ve otomatik derleme araçları ile dağıtın. İş akışları ve kaynak şablonundaki bağımlı bağlantılar için dağıtım desteklemek için logic apps Azure kaynak dağıtım şablonları kullanın. Visual Studio Araçları, sürüm oluşturma için kaynak denetimine iade bu şablonları otomatik olarak oluşturur.
 
-* [Derleme ve logic apps Visual Studio'dan dağıtma](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Visual Studio ile mantığı uygulamalar oluşturma ve dağıtma](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [İzleme, günlüğe kaydetme ve mevcut mantıksal uygulamaları için uyarıları Aç](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Bir otomatik dağıtım şablonu oluşturma](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Erişim, dönüştürme ve Azure Logic Apps içinde birçok işlevini kullanarak
 
 * [İş akışı ifadeleri logic apps içinde nasıl çalışır](../logic-apps/logic-apps-author-definitions.md)
 * [JSON olmayan içerik türleri işlemek](../logic-apps/logic-apps-content-type.md)gibi `application/xml`, `application/octet-stream`, ve `multipart/formdata`
-* [Başvuru: Azure mantıksal uygulamaları iş akışı tanımlama dili](http://aka.ms/logicappsdocs)
+* [Azure mantıksal uygulamaları için iş akışı tanımlama dili şeması](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Diğer tümleştirmeler ve özellikleri
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 03/13/2018
 ms.author: glenga
-ms.openlocfilehash: 26df11bb010414ba979077c45d01e66f17f6b12e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dddb35ea2ba1c02f78234fe33cdb832e9aacbff5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Visual Studio için Azure işlevleri araçları  
 
@@ -38,9 +38,13 @@ Bu konu Azure işlevleri araçları Visual Studio 2017 için C# işlevlerinizi g
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure işlevleri araçları Azure geliştirme iş yükü dahil [Visual Studio 2017 sürüm 15.4](https://www.visualstudio.com/vs/), veya sonraki bir sürümü. Eklediğinizden emin olun **Azure geliştirme** Visual Studio 2017 yüklemenizdeki iş yükü:
+Azure işlevleri araçları Azure geliştirme iş yükü dahil [Visual Studio 2017 sürüm 15,5](https://www.visualstudio.com/vs/), veya sonraki bir sürümü. Eklediğinizden emin olun **Azure geliştirme** Visual Studio 2017 yüklemenizdeki iş yükü:
 
 ![Azure geliştirme iş yüküyle Visual Studio 2017’yi yükleyin](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+Visual Studio güncel olduğunu ve kullandığınızdan emin olun [en son sürüm](#check-your-tools-version) Azure işlevleri araçları.
+
+### <a name="other-requirements"></a>Diğer gereksinimler
 
 Oluşturma ve dağıtma işlevleri için ayrıca gerekir:
 
@@ -48,11 +52,33 @@ Oluşturma ve dağıtma işlevleri için ayrıca gerekir:
 
 * Azure Depolama hesabı. Bir depolama hesabı oluşturmak için bkz: [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
+### <a name="check-your-tools-version"></a>Araçlar sürümünüzü denetleyin
+
+1. Gelen **Araçları** menüsünde seçin **Uzantılar ve güncelleştirmeler**. Genişletme **yüklü** > **Araçları** ve **Azure işlevleri ve Web işleri Araçları**.
+
+    ![İşlevler araçları sürümünü doğrula](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
+
+2. Yüklü Not **sürüm**. Listelenen en son sürümü bu sürümle karşılaştırabilirsiniz [sürüm notlarında](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+
+3. Sürümünüz daha eskiyse, Visual Studio Araçları aşağıdaki bölümde gösterildiği gibi güncelleştirin.
+
+### <a name="update-your-tools"></a>Araçlarınızı güncelleştir
+
+1. İçinde **Uzantılar ve güncelleştirmeler** iletişim kutusunda, genişletin **güncelleştirmeleri** > **Visual Studio Market'te**, seçin **Azure işlevleri ve Web işleri araçları**  seçip **güncelleştirme**.
+
+    ![Güncelleştirme işlevleri Araçları sürüm](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
+
+2. Araçları güncelleştirme yüklendikten sonra Visual Studio Araçları VSIX Yükleyicisi'ni kullanarak güncelleştirme tetikleyiciye kapatın.
+
+3. Yükleyicisi'nde seçin **Tamam** başlatmak için ve ardından **Değiştir** Araçları'nı güncelleştirmek için. 
+
+4. Güncelleştirme tamamlandıktan sonra seçin **Kapat** ve Visual Studio'yu yeniden başlatın.
+
 ## <a name="create-an-azure-functions-project"></a>Azure işlevleri projesi oluşturma 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-Proje şablonu C# projesi oluşturur, yükler `Microsoft.NET.Sdk.Functions` NuGet paketi ve hedef Framework'ü ayarlar. 1.x hedefleri .NET Framework işlevleri ve 2.x hedefleri .NET standart çalışır. Yeni Proje aşağıdaki dosyaları içerir:
+Proje şablonu C# projesi oluşturur, yükler `Microsoft.NET.Sdk.Functions` NuGet paketi ve hedef Framework'ü ayarlar. 1.x hedefleri .NET Framework işlevleri ve 2.x hedefleri .NET standart çalışır. Yeni Proje aşağıdaki dosyaları vardır:
 
 * **Host.JSON**: işlevleri konak yapılandırmanıza olanak sağlar. Bu ayarlar hem de yerel olarak ve Azure içinde çalışırken geçerlidir. Daha fazla bilgi için bkz: [host.json başvuru](functions-host-json.md).
     

@@ -2,24 +2,18 @@
 title: "Parça eşleme yöneticisi için performans sayaçları"
 description: "ShardMapManager sınıf ve veri bağımlı Yönlendirme performans sayaçları"
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: ddove
-ms.openlocfilehash: 4a7a2e0b4f2be852c61fc3ccdd4dea2034b80918
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 11f19348e91f11d73d885f5d9bb70245c709fab9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Parça eşleme yöneticisi için performans sayaçları
 Performansını yakalamak için bir [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md), özellikle kullanırken [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md). Sayaçları Microsoft.Azure.SqlDatabase.ElasticScale.Client sınıfı yöntemleri ile oluşturulur.  
@@ -28,7 +22,7 @@ Sayaçları performansını izlemek için kullanılan [veri bağımlı yönlendi
 
 **En son sürümü için:** Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Ayrıca bkz. [son esnek veritabanı istemci kitaplığı kullanmak için bir uygulama yükseltme](sql-database-elastic-scale-upgrade-client-library.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Performans kategorisi ve sayaçları oluşturmak için kullanıcının yerel bir parçası olması gerekir **Yöneticiler** uygulamayı barındıran makinede grup.  
 * Bir performans sayacı örneği oluşturmak ve sayaçları güncelleştirmek için kullanıcı ya da bir üyesi olmalıdır **Yöneticiler** veya **Performance Monitor Users** grubu. 
 
@@ -62,7 +56,7 @@ Performans sayaçları, parça eşleme ve eşlemeleri gerçekleştirilen tüm ö
 * Performans sayacı örnekleri her işlem için oluşturulur. Herhangi bir uygulama kilitlenme veya önbellekten parça eşleme kaldırılmasını performans sayaçları örnekleri silinmesine neden olacak.  
 
 ### <a name="see-also"></a>Ayrıca bkz.
-[Esnek veritabanı özelliklere genel bakış](sql-database-elastic-scale-introduction.md)  
+[Elastik Veritabanı özelliklerine genel bakış](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

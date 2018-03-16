@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2b53dc5eeb2e5f25a0714af778ef3db1d5a79dc1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -29,15 +29,15 @@ Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob D
 2.  Toplam veri boyutuna bağlı olarak, gerekli 2,5 inç SSD veya 2,5" veya sayısını 3,5" SATA II veya III sabit disk sürücüsü temin edin.
 3.  Kullanarak doğrudan SATA sabit sürücüleri eklemek veya bir windows makinesine dış USB bağdaştırıcısı ile.
 1.  Her sabit sürücü üzerinde tek bir NTFS birimi oluşturun ve birime bir sürücü harfi atama. Hiçbir bağlama.
-2.  Windows makine şifrelemesini etkinleştirmek için NTFS birimi bit kasası şifrelemeyi etkinleştirin. Üzerinde https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx. yönergeleri kullanın
+2.  Windows makine şifrelemesini etkinleştirmek için NTFS birimi bit kasası şifrelemeyi etkinleştirin. Yönergeleri kullanın https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
 3.  Diskleri kopyalama & Yapıştır veya sürükle & bırak veya Robocopy veya böyle bir araç kullanarak bu şifrelenmiş tek NTFS birimlerine tamamen verileri kopyalayın.
-7.  Https://www.microsoft.com/en-us/download/details.aspx?id=42659 WAImportExport V1 indirin
+7.  WAImportExport V1 ile indirme https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  İçin varsayılan klasörü waimportexportv1 sıkıştırmasını açın. Örneğin, C:\WaImportExportV1  
 9.  Yönetici olarak çalıştır ve PowerShell veya komut satırı açın ve dizin sıkıştırması açılmış klasöre geçin. Örneğin, cd C:\WaImportExportV1
 10. Aşağıdaki komut satırını bir metin düzenleyicisine kopyalayın ve bir komut satırı oluşturmak üzere düzenleyebilirsiniz:
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     Bu komut satırı seçenekleri aşağıdaki tabloda açıklanmıştır:
@@ -50,13 +50,13 @@ Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob D
     |/bk:     |Sürücü için BitLocker anahtar.         |
     |/srcdir:     |Edilmeye diskinin sürücü harfi ve ardından `:\`. Örneğin, `D:\`.         |
     |/dstdir:     |Azure depolama alanındaki hedef kapsayıcı adı         |
-
+    |/skipwrite:     |Hiçbir kopyalanması için gereken yeni ve varolan verileri diskteki olduğunu belirten hazırlıklı olmak için bir seçenektir         |
 1. Adım 10 her sevk edilmesi gereken disk için yineleyin.
 2. Her komut satırını Çalıştır için /j: parametresiyle belirtilen adla bir günlük dosyası oluşturulur.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>2. adım: Azure Portal'da bir alma işi oluşturun.
 
-1. Günlük https://portal.azure.com/ açın ve daha fazla hizmet altında -> depolama "içeri/dışarı aktarma işleri" ->'ı tıklatın **oluşturma içeri/dışarı aktarma işi**.
+1. Oturum https://portal.azure.com/ ve depolama altında daha fazla hizmet -> "içeri/dışarı aktarma işleri" ->'ı tıklatın **oluşturma içeri/dışarı aktarma işi**.
 
 2. Temel kavramları bölümünde, "Alma içine Azure" seçin, iş adı bir dize girin, bir abonelik seçin, girin veya bir kaynak grubu seçin. İçe aktarma işi için açıklayıcı bir ad girin. Girdiğiniz ad içerebilir yalnızca küçük harfler, sayılar, tire ve alt çizgi, bir harf ile başlamalı ve boşluk içeremez unutmayın. Devam eden ve bunlar tamamlandığında çalışırken işlerinizi izlemek için seçtiğiniz ad kullanın.
 

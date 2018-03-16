@@ -2,19 +2,18 @@
 title: "Azure SQL veritabanı özellik karşılaştırması | Microsoft Docs"
 description: "Bu makalede, Azure SQL veritabanı ve özelliklerini yönetilen örnekleri birbirleriyle ve SQL Server ile karşılaştırır."
 services: sql-database
-documentationcenter: 
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: jovanpop
-manager: cguyer
-ms.openlocfilehash: 34aafdc377acf0b67674dbac2e67237440ed1420
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: craigg
+ms.openlocfilehash: 11439a8bc10e616773068416b5a7def2f4becb36
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: SQL Server ile Azure SQL veritabanı 
 

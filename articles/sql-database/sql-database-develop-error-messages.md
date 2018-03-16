@@ -1,8 +1,20 @@
- ---
-Başlık: SQL hata kodları - veritabanı bağlantı hatası | Microsoft Docs Açıklama: ', ortak veritabanı bağlantı hataları, veritabanı kopyalama sorunlarını ve genel hataları gibi SQL veritabanı istemci uygulamaları için SQL hata kodları hakkında bilgi edinin. ' anahtar sözcükler: sql hata kodu, erişim sql veritabanı bağlantı hatası, sql hata kodları Hizmetleri: sql veritabanı documentationcenter: '' Yazar: stevestein Yöneticisi: jhubbard Düzenleyicisi: ''
-
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
-
+---
+title: "SQL hata kodları - veritabanı bağlantı hatası | Microsoft Docs"
+description: "Ortak veritabanı bağlantı hataları, veritabanı kopyalama sorunlarını ve genel hataları gibi SQL Database istemci uygulamaları için SQL hata kodları hakkında bilgi edinin. "
+keywords: "SQL hata kodu, erişim sql, veritabanı bağlantı hatası, sql hata kodları"
+services: sql-database
+author: stevestein
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: article
+ms.date: 09/28/2017
+ms.author: sstein
+ms.openlocfilehash: 5031ab1ec8c7b42c65fb35e47c32d10ff2898501
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database istemci uygulamaları için SQL hata kodları: veritabanı bağlantı hataları ve diğer sorunlar
 
@@ -78,8 +90,8 @@ Aşağıdaki hatalar, Azure SQL Database ile çalışırken aşırı kaynakları
 
 | Hata kodu | Önem Derecesi | Açıklama |
 | ---:| ---:|:--- |
-| 10928 |20 |Kaynak Kimliği: %d. Veritabanı için %s sınırı %d ve üst sınırına ulaşıldı. Daha fazla bilgi için bkz: [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md). |
-| 10929 |20 |Kaynak Kimliği: %d. %S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Daha fazla bilgi için bkz: [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Aksi halde, lütfen daha sonra yeniden deneyin.<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md). |
+| 10928 |20 |Kaynak Kimliği: %d. Veritabanı için %s sınırı %d ve üst sınırına ulaşıldı. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md). |
+| 10929 |20 |Kaynak Kimliği: %d. %S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Aksi halde, lütfen daha sonra yeniden deneyin.<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md). |
 | 40544 |20 |Veritabanı boyut kotasına ulaştı. Verileri bölün veya silin, dizinleri bırakın veya olası çözümler için belgelere bakın. |
 | 40549 |16 |Uzun süre çalışan işlem olduğundan oturum sonlandırıldı. İşleminiz kısaltmayı deneyin. |
 | 40550 |16 |Oturum, çok fazla sayıda kilit aldığından sonlandırıldı. Try okuma veya tek bir işlemde daha az sayıda satır değiştirme. |
@@ -93,7 +105,7 @@ Aşağıdaki hatalar oluşturma ve esnek havuzlarını kullanarak ilgili:
 | HataNumarası | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | 1132 |EX_RESOURCE |Esnek havuz, depolama sınırına ulaştı. Esnek havuz depolama alanı kullanımı (%d) MB aşamaz. |MB cinsinden esnek havuz alanı sınırı. |Esnek havuz depolama sınırını erişildiğinde bir veritabanına veri yazmak çalışıyor. |Mümkünse esnek havuz depolama sınırını artırın, esnek havuz içindeki tek tek veritabanları tarafından kullanılan depolama alanını azaltmak için Dtu artırmayı deneyin veya veritabanlarını esnek havuzdan kaldırın. |
-| 10929 |EX_USER |%S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. See [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) for assistance. Aksi halde, lütfen daha sonra yeniden deneyin. |Veritabanı başına minimum DTU; Veritabanı başına maksimum DTU |Esnek havuzdaki tüm veritabanları arasında eşzamanlı çalışan (istek) toplam sayısı, havuz sınırı aşan çalışıldı. |Alt sınırını artırmak için mümkünse esnek havuz Dtu artırmayı deneyin veya veritabanlarını esnek havuzdan kaldırın. |
+| 10929 |EX_USER |%S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Bkz: [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637) Yardım için. Aksi halde, lütfen daha sonra yeniden deneyin. |Veritabanı başına minimum DTU; Veritabanı başına maksimum DTU |Esnek havuzdaki tüm veritabanları arasında eşzamanlı çalışan (istek) toplam sayısı, havuz sınırı aşan çalışıldı. |Alt sınırını artırmak için mümkünse esnek havuz Dtu artırmayı deneyin veya veritabanlarını esnek havuzdan kaldırın. |
 | 40844 |EX_USER |'%Ls' sunucusundaki '%ls' veritabanını bir esnek havuzdaki '%ls' sürümü veritabanıdır ve sürekli kopyalama ilişkisine sahip olamaz. |Veritabanı adı, veritabanı sürümü, sunucu adı |Esnek havuzdaki premium olmayan db için StartDatabaseCopy komutu verildi. |Çok yakında |
 | 40857 |EX_USER |Esnek havuz için sunucusu bulunamadı: '%ls', esnek havuz adı: '%ls'. |Sunucu adı; Esnek havuz adı |Belirtilen esnek Havuz belirtilen sunucu yok. |Geçerli esnek havuz adını belirtin. |
 | 40858 |EX_USER |'%Ls' esnek havuzu zaten şu sunucuda: '%ls' |Esnek havuz adı, sunucu adı |Belirtilen esnek Havuz belirtilen mantıksal sunucusunda zaten var. |Yeni bir esnek havuz adını belirtin. |

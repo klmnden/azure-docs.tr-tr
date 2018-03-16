@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -49,12 +49,6 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [, Vm'leri yedekleme](backup-az
 Ortamınızı hazırlama önce sınırlamalara anladığınızdan emin olun:
 
 * 16'dan fazla veri diskleri içeren sanal makineleri yedekleme desteklenmiyor.
-* Sanal makineler verilerle disk boyutları 1,023 GB'den büyük yedekleme desteklenmiyor.
-
-  > [!NOTE]
-  > Bir TB diskler daha büyük sanal makineleri için yedeklemeleri destekleyecek özel önizlemesini sunuyoruz. Ayrıntılar için başvurmak [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
-  >
-
 * Ayrılmış bir IP adresi ve tanımlanmış hiçbir uç nokta ile sanal makineleri yedekleme desteklenmiyor.
 * Linux VM'ler üzerinden Linux birleşik anahtar Kurulum (LUKS) şifreleme şifreli yedekleme desteklenmiyor.
 * Küme Paylaşılan birimleri (CSV) veya genişleme dosya sunucusu yapılandırması içeren Vm'leri yedekleme öneririz yok. Bunlar, bir anlık görüntü görev sırasında küme yapılandırmasında bulunan tüm VM'ler içeren gerektirir. Azure yedekleme çoklu VM tutarlılığını desteklemiyor. 

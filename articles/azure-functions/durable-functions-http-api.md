@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: bb5361022e4c9693812753ae33df5aeb037b5aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01e85290f00dc70323a16056ca8e73bfba72c975
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) HTTP API'leri
 
@@ -28,7 +28,8 @@ Dayanıklı görev uzantısı bir dizi aşağıdaki görevleri gerçekleştirmek
 * Bir olay bir bekleme orchestration örneğine gönderin.
 * Çalışan bir orchestration örneği sonlanır.
 
-Bu HTTP API'leri her doğrudan dayanıklı görev uzantısı tarafından işlenen Web kancası işlemleri şunlardır. Bunlar herhangi bir işlev uygulaması işlevde özgü değildir.
+
+Her bu HTTP API'lerini doğrudan dayanıklı görev uzantısı tarafından işlenen bir Web kancası işlemdir. Bunlar herhangi bir işlev uygulaması işlevde özgü değildir.
 
 > [!NOTE]
 > Bu işlem ayrıca örnek Yönetimi API'lerini doğrudan kullanarak çağrılabilir [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı. Daha fazla bilgi için bkz: [örnek Yönetimi](durable-functions-instance-management.md).
@@ -78,7 +79,7 @@ Daha önce bahsedilen HTTP yanıtı uzun süre çalışan HTTP zaman uyumsuz day
 Bu protokol dış istemcilere ya da bir HTTP uç noktası yoklama ve aşağıdaki Destek Hizmetleri ile uzun süre çalışan işlemi koordine sağlar `Location` üstbilgi. Temel Parçalar dayanıklı işlevleri HTTP API zaten oluşturulmuştur.
 
 > [!NOTE]
-> Varsayılan olarak, tüm HTTP tabanlı eylemler tarafından sağlanan [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) standart zaman uyumsuz işlem düzenini destekler. Logic Apps iş akışının bir parçası uzun süre çalışan dayanıklı işlevi katıştırmak mümkün kılar. Zaman uyumsuz HTTP desenleri bulunabilir Logic Apps hakkında daha fazla ayrıntı desteği [Azure Logic Apps iş akışı eylemleri ve Tetikleyicileri belgelerine](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> Varsayılan olarak, tüm HTTP tabanlı eylemler tarafından sağlanan [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) standart zaman uyumsuz işlem düzenini destekler. Bu özellik, uzun süre çalışan dayanıklı işlevi Logic Apps iş akışının bir parçası katıştırmak mümkün kılar. Zaman uyumsuz HTTP desenleri bulunabilir Logic Apps hakkında daha fazla ayrıntı desteği [Azure Logic Apps iş akışı eylemleri ve Tetikleyicileri belgelerine](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## <a name="http-api-reference"></a>HTTP API Başvurusu
 
@@ -86,12 +87,14 @@ Tüm HTTP API'leri aşağıdaki parametreleri uzantısı Al tarafından uygulan�
 
 | Parametre  | Parametre türü  | Açıklama |
 |------------|-----------------|-------------|
-| örnek kimliği | URL             | Orchestration örnek kimliği. |
+| instanceId | URL'si             | Orchestration örnek kimliği. |
 | taskHub    | Sorgu dizesi    | Adını [görev hub](durable-functions-task-hubs.md). Belirtilmezse, geçerli işlevi uygulamanın görev hub adı varsayılır. |
 | bağlantı | Sorgu dizesi    | **Adı** depolama hesabı bağlantı dizesi. Belirtilmezse, işlev uygulaması için varsayılan bağlantı dizesini kabul edilir. |
 | systemKey  | Sorgu dizesi    | Yetkilendirme anahtar API'sini çağırmak için gerekiyor. |
+| showHistory| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.| 
+| showHistoryOutput| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, etkinlik çıkarır dahil edilir orchestration yürütme geçmişi.| 
 
-`systemKey`Azure işlevleri ana bilgisayar tarafından otomatik olarak oluşturulan bir yetkilendirme anahtardır. Özellikle dayanıklı görev uzantısı API'leri erişim verir ve aynı şekilde yönetilebilir [diğer yetkilendirme anahtarlar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Bulunacak en basit yolu `systemKey` değerdir kullanarak `CreateCheckStatusResponse` API daha önce bahsedilen.
+`systemKey` Azure işlevleri ana bilgisayar tarafından otomatik olarak oluşturulan bir yetkilendirme anahtardır. Özellikle dayanıklı görev uzantısı API'leri erişim verir ve aynı şekilde yönetilebilir [diğer yetkilendirme anahtarlar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Bulunacak en basit yolu `systemKey` değerdir kullanarak `CreateCheckStatusResponse` API daha önce bahsedilen.
 
 Sonraki birkaç bölümlerde HTTP API'leri uzantısı tarafından desteklenen özel kapak ve bunların nasıl kullanılabileceğini örnekleri sağlayın.
 
@@ -110,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 İşlevler 2.0 biçiminde hepsi aynı parametreleri ancak biraz farklı bir URL öneki içeriyor:
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Yanıt
@@ -122,29 +125,68 @@ Birkaç olası durum kodu değerleri döndürülebilir.
 * **HTTP 400 (Hatalı istek)**: Belirtilen örnek başarısız oldu veya sonlandırıldı.
 * **HTTP 404 (bulunamadı)**: Belirtilen örnek yok ya da çalışan başlatılmadı.
 
-İçin yanıt yükü **HTTP 200** ve **HTTP 202** durumlarda bir JSON nesnesi şu alanlara sahip değildir.
+İçin yanıt yükü **HTTP 200** ve **HTTP 202** durumda aşağıdaki alanları olan bir JSON nesnesi:
 
 | Alan           | Veri türü | Açıklama |
 |-----------------|-----------|-------------|
-| runtimeStatus   | Dize    | Çalışma zamanı durumu örneği. Değerler *çalıştıran*, *bekleyen*, *başarısız*, *iptal edildi*, *kesildi*, *Tamamlandı*. |
+| runtimeStatus   | string    | Çalışma zamanı durumu örneği. Değerler *çalıştıran*, *bekleyen*, *başarısız*, *iptal edildi*, *kesildi*, *Tamamlandı*. |
 | Giriş           | JSON      | Örneği başlatmak için kullanılan JSON verileri. |
-| Çıktı          | JSON      | JSON çıktı örneği. Bu alan `null` örneği tamamlanmış durumda değilse. |
-| createdTime     | Dize    | Örneğin oluşturulduğu saat. ISO 8601 gösterimi genişletilmiş kullanır. |
-| LastUpdatedTime | Dize    | En son örnek kalıcı süre. ISO 8601 gösterimi genişletilmiş kullanır. |
+| çıkış          | JSON      | JSON çıktı örneği. Bu alan `null` örneği tamamlanmış durumda değilse. |
+| createdTime     | string    | Örneğin oluşturulduğu saat. ISO 8601 gösterimi genişletilmiş kullanır. |
+| lastUpdatedTime | string    | En son örnek kalıcı süre. ISO 8601 gösterimi genişletilmiş kullanır. |
+| historyEvents   | JSON      | Orchestration yürütme geçmişini içeren bir JSON dizisi. Bu alan `null` sürece `showHistory` sorgu dizesi parametresi olarak ayarlanmış `true`.  | 
 
-(Okunabilirlik için biçimlendirilmiş) bir örnek yanıt yükü şöyledir:
+Orchestration yürütme geçmişi ve etkinlik çıkışları (okunabilirlik için biçimlendirilmiş) dahil olmak üzere bir örnek yanıt yükü şöyledir:
 
 ```json
 {
-  "runtimeStatus": "Completed",
-  "input": null,
-  "output": [
-    "Hello Tokyo!",
-    "Hello Seattle!",
-    "Hello London!"
+  "createdTime": "2018-02-28T05:18:49Z",
+  "historyEvents": [
+      {
+          "EventType": "ExecutionStarted",
+          "FunctionName": "E1_HelloSequence",
+          "Timestamp": "2018-02-28T05:18:49.3452372Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Tokyo!",
+          "ScheduledTime": "2018-02-28T05:18:51.3939873Z",
+          "Timestamp": "2018-02-28T05:18:52.2895622Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Seattle!",
+          "ScheduledTime": "2018-02-28T05:18:52.8755705Z",
+          "Timestamp": "2018-02-28T05:18:53.1765771Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello London!",
+          "ScheduledTime": "2018-02-28T05:18:53.5170791Z",
+          "Timestamp": "2018-02-28T05:18:53.891081Z"
+      },
+      {
+          "EventType": "ExecutionCompleted",
+          "OrchestrationStatus": "Completed",
+          "Result": [
+              "Hello Tokyo!",
+              "Hello Seattle!",
+              "Hello London!"
+          ],
+          "Timestamp": "2018-02-28T05:18:54.3660895Z"
+      }
   ],
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T18:30:30Z"
+  "input": null,
+  "lastUpdatedTime": "2018-02-28T05:18:54Z",
+  "output": [
+      "Hello Tokyo!",
+      "Hello Seattle!",
+      "Hello London!"
+  ],
+  "runtimeStatus": "Completed"
 }
 ```
 
@@ -168,11 +210,11 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Bu API için parametreleri aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayılan kümesi dahil isteyin.
+Bu API için parametreleri aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayılan kümesi dahil isteyin:
 
 | Alan       | Parametre türü  | Veri tType | Açıklama |
 |-------------|-----------------|-----------|-------------|
-| EventName   | URL             | Dize    | Hedef orchestration örneği bekleniyor olayın adı. |
+| EventName   | URL'si             | string    | Hedef orchestration örneği bekleniyor olayın adı. |
 | {İçerik}   | İstek içeriği | JSON      | JSON biçimli olay yükü. |
 
 #### <a name="response"></a>Yanıt
@@ -216,9 +258,9 @@ DELETE /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/te
 
 Bu API için parametreleri aşağıdaki benzersiz parametresini yanı sıra daha önce bahsedilen varsayılan kümesi dahil isteyin.
 
-| Alan       | Parametre türü  | Veri türü | Açıklama |
+| Alan       | Parametre türü  | Veri Türü | Açıklama |
 |-------------|-----------------|-----------|-------------|
-| Nedeni      | Sorgu dizesi    | Dize    | İsteğe bağlı. Orchestration örneği sonlandırılıyor nedeni. |
+| Nedeni      | Sorgu dizesi    | string    | İsteğe bağlı. Orchestration örneği sonlandırılıyor nedeni. |
 
 #### <a name="response"></a>Yanıt
 

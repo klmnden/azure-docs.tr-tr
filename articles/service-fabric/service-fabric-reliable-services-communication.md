@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eacb4b7d0e33768e0da6ecd43ce1458a4a3bfaa8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Güvenilir hizmetler iletişimi API'lerini kullanma
 Bir platform olarak Azure Service Fabric Hizmetleri arasındaki iletişim hakkında tamamen bağımsızdır. Tüm protokoller ve yığınları HTTP UDP Gelen kabul edilir. Bu hizmetleri nasıl iletişim kuracağını seçmek için hizmet geliştiriciler için hazır. Güvenilir hizmetler uygulama çerçevesi yerleşik iletişim yığınları yanı sıra, özel iletişim bileşenleri oluşturmak için kullanabileceğiniz bir API sağlar.
@@ -54,7 +54,7 @@ Hizmet tabanlı sınıfı yöntemi geçersiz kılma seçeneğinde döndürerek i
 Durum bilgisi olmayan hizmetler için:
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -85,7 +85,7 @@ Durum bilgisi olan hizmetler için:
 ```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -196,7 +196,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric istemciler ve diğer hizmetler bu adres için hizmet adına göre sonra sorulacak izin API'ler sağlar. Hizmeti adresi statik olmadığı için bu önemlidir. Hizmetleri kaynak Dengeleme ve kullanılabilirlik amaçları için kümedeki taşındı. Bir hizmet için dinleme adresini çözümlemek istemcilerin mekanizması budur.
 
 > [!NOTE]
-> İletişim dinleyici yazmak nasıl tam bir kılavuz için bkz: [OWIN kendi kendine barındırma ile Service Fabric Web API Hizmetleri](service-fabric-reliable-services-communication-webapi.md) Java için kendi HTTP sunucusu uygulamasını yazabilirsiniz gelirken, C# ' ta https://github.com/Azure-Samples/service-fabric-java-getting-started EchoServer uygulama örneğe bakın.
+> İletişim dinleyici yazmak nasıl tam bir kılavuz için bkz: [OWIN kendi kendine barındırma ile Service Fabric Web API Hizmetleri](service-fabric-reliable-services-communication-webapi.md) Java için kendi HTTP sunucusu uygulamasını yazabilirsiniz gelirken, C# ' ta EchoServer bakın örneğe https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
@@ -275,7 +275,7 @@ Genellikle, istemci kodu ServicePartitionResolver ile doğrudan işe. Oluşturul
 Communication istemcisi yalnızca bir adresi alır ve bir hizmete bağlanmak için kullanır. İstemcinin istediği ne olursa olsun protokolünü kullanabilirsiniz.
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 

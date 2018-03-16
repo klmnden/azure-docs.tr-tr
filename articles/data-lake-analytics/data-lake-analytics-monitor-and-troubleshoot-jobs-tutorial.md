@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Azure Portal kullanarak Azure Data Lake Analytics işlerini sorun giderme
-Data Lake Analytics işlerini gidermek için Azure Portalı'nı kullanmayı öğrenin.
+# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Azure portalını kullanarak Azure Data Lake Analytics işlerini sorun giderme
+Data Lake Analytics işlerini gidermek için Azure portalını kullanmayı öğrenin.
 
-Bu öğreticide, bir eksik kaynak dosyası sorunu Kurulum ve sorun giderme için Azure Portalı'nı kullanın.
+Bu öğreticide, eksik bir kaynak dosyası sorunu ayarlayın ve sorun giderme için Azure Portalı'nı kullanın.
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Data Lake Analytics işi gönderme
 
@@ -62,7 +62,7 @@ Komut dosyasında tanımlı kaynak dosyası **/Samples/Data/SearchLog.tsv1**, bu
 3. Tıklatın **iş yönetimi** işleri görmek için döşeme. İşlerini kategorilere ayrılır **çalıştıran**, **sıraya alınan**, ve **sona erdi**. Başarısız işinizde göreceksiniz **sona erdi** bölümü. Listedeki ilk bir olacaktır. İşlerini çok sahip olduğunuzda, tıklayabilirsiniz **filtre** işleri bulmanıza yardımcı olacak.
 
     ![Azure Data Lake Analytics işleri filtreleyin](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Yeni bir dikey pencerede iş ayrıntılarını açmak için listeden başarısız işi tıklayın:
+4. İş ayrıntılarını açmak için listeden başarısız işi tıklayın:
 
     ![Azure Data Lake Analytics işi başarısız oldu](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
@@ -73,7 +73,7 @@ Komut dosyasında tanımlı kaynak dosyası **/Samples/Data/SearchLog.tsv1**, bu
 
     Kaynak klasörü bulunamadı söyler.
 6. Tıklatın **yinelenen komut dosyası**.
-7. Güncelleştirme **FROM** aşağıdaki yolu:
+7. Güncelleştirme **FROM** yolu:
 
     "/ Samples/Data/SearchLog.tsv"
 8. **İşi Gönder**'e tıklayın.
@@ -82,4 +82,4 @@ Komut dosyasında tanımlı kaynak dosyası **/Samples/Data/SearchLog.tsv1**, bu
 * [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)
 * [Azure Data Lake Azure PowerShell kullanarak Analytics ile çalışmaya başlama](data-lake-analytics-get-started-powershell.md)
 * [Azure Data Lake Analytics ve U-SQL Visual Studio kullanarak kullanmaya başlama](data-lake-analytics-u-sql-get-started.md)
-* [Azure Data Lake Analytics'i Azure Portal'ı kullanarak yönetme](data-lake-analytics-manage-use-portal.md)
+* [Azure Data Lake Analytics'i Azure portalını kullanarak yönetme](data-lake-analytics-manage-use-portal.md)

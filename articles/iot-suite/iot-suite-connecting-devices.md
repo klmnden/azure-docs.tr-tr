@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: a6453c8d84b7025f1f510db5e675cde8685c23ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Cihazınızı bağlama Uzaktan izleme önceden yapılandırılmış çözümü için (Windows)
 
@@ -95,7 +95,7 @@ Parson JSON kitaplığa eklemek **RMDevice** proje ve gerekli eklemek `#include`
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -103,7 +103,7 @@ Parson JSON kitaplığa eklemek **RMDevice** proje ve gerekli eklemek `#include`
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
-## <a name="build-and-run-the-sample"></a>Derleme ve örnek çalıştırma
+## <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
 
 Çağırmak için kodu ekleyin **uzak\_izleme\_çalıştırmak** işlev, ardından yapı ve cihaz uygulamayı çalıştırın:
 
@@ -117,7 +117,7 @@ Parson JSON kitaplığa eklemek **RMDevice** proje ve gerekli eklemek `#include`
     }
     ```
 
-1. Seçin **yapı** ve ardından **yapı çözümü** aygıt uygulama oluşturmak için. Hakkında uyarı yoksayılabilir **gmtime** işlevi.
+1. Seçin **yapı** ve ardından **yapı çözümü** aygıt uygulama oluşturmak için.
 
 1. İçinde **Çözüm Gezgini**, sağ **RMDevice** projesi, seçin **hata ayıklama**ve ardından **başlangıç yeni örnek** örneği çalıştırmak için . Konsol iletileri olarak görüntüler:
 

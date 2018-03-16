@@ -3,8 +3,8 @@ title: "Bir sanal makine görüntüsü için Azure Marketi oluşturma | Microsof
 description: "Satın almak Azure Marketi başkaları için bir sanal makine görüntüsünün nasıl oluşturulacağı hakkında ayrıntılı yönergeler."
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market bir sanal makine görüntüsü oluşturmak için kılavuz
 Bu makalede **2. adım**, sanal sabit Azure Marketi dağıtacağınız diskleri (VHD) hazırlama size yol gösterir. Vhd'lerinizi, sku'sunun temelidir. İşlem, bir Windows tabanlı veya Linux tabanlı SKU olup sağlanmaktadır bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu ele alınmaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -28,8 +28,8 @@ Bu bölümde, teklifleri ve ilişkili SKU'ları tanımlayın öğrenin.
 
 Teklif, tüm SKU'larının "üst öğesidir". Birden çok teklife sahip olabilirsiniz. Tekliflerinizi nasıl yapılandıracağınıza siz karar verirsiniz. Bir teklif, hazırlamaya gönderilirken tüm SKU'larıyla birlikte gönderilir. URL'de görünür olacağından, SKU tanımlayıcıları dikkatlice düşünün:
 
-* Azure.com: http://azure.microsoft.com/marketplace/partners/ {PartnerNamespace} / {OfferIdentifier}-{SKUidentifier}
-* Azure Önizleme portalı: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {SKUIDdentifier}  
+* Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
+* Azure Önizleme portalı: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 Bir SKU bir VM görüntüsü için ticari adıdır. Bir VM görüntüsü içeren bir işletim sistemi diski ve sıfır veya daha fazla veri diski. Özünde, bir sanal makinenin tam depolama profilidir. Bir VHD her disk için gereklidir. Bile boş veri diskleri oluşturulacak bir VHD gerektirir.
 
@@ -372,7 +372,7 @@ Azure Storage Gezgini kullanarak SAS URL oluşturmak için adımlar aşağıda v
 
 Microsoft Azure Storage Gezgini kullanarak SAS URL oluşturmak için adımlar aşağıda verilmiştir
 
-1.  Microsoft Azure Storage Gezgini form karşıdan [http://storageexplorer.com/](http://storageexplorer.com/) Web sitesi. Git [Microsoft Azure Storage Gezgini](http://storageexplorer.com/releasenotes.html) tıklatıp **"Windows için karşıdan yükleme"**.
+1.  Microsoft Azure Storage Gezgini form karşıdan [ http://storageexplorer.com/ ](http://storageexplorer.com/) Web sitesi. Git [Microsoft Azure Storage Gezgini](http://storageexplorer.com/releasenotes.html) tıklatıp **"Windows için karşıdan yükleme"**.
 
     ![Çizim](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
@@ -474,7 +474,7 @@ Azure CLI kullanarak SAS URL oluşturmak için adımlar aşağıda verilmiştir
 
     Örnek:
 
-    VHD adı TestRGVM201631920152.vhd yapılır ve ardından VHD SAS URL'si olacaktır 
+    VHD adı TestRGVM201631920152.vhd yapılır ve ardından VHD SAS URL'si olacaktır
 
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 

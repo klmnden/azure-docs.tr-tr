@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Takım veri bilimi işlem (TDSP) şablonu kullanarak biomedical varlık tanıma
 
@@ -32,19 +32,19 @@ Varlık ayıklama olan bilgi ayıklama görevinin (olarak da bilinen [adlandır�
 
 4. Azure Machine Learning çalışma ekranının içinden aşağıdaki özellikleri gösterilmektedir:
 
-    * Eşlemesinin [takım veri bilimi işlem (TDSP) yapısı ve şablonları](how-to-use-tdsp-in-azure-ml.md).
+    * Eşlemesinin [takım veri bilimi işlem (TDSP) yapısı ve şablonları](how-to-use-tdsp-in-azure-ml.md)
     * İndirme ve yükleme de dahil olmak üzere, proje bağımlılıklarını otomatik yönetimi
-    * Python komut differetn yürütülmesi ortamları işlem.
-    * Python komut dosyaları için geçmişin çalıştırın.
-    * İşleri uzaktan Spark üzerinde yürütme bağlamı Hdınsight Spark 2.1 kümeleri kullanarak işlem.
-    * Azure üzerinde uzak GPU VM'ler işleri yürütme.
-    * Web hizmetleri Azure kapsayıcı Hizmetleri (ACS) üzerinde derin öğrenme modellerin kolay operationalization.
+    * Farklı işlem ortamlarla Python betiklerinin yürütülmesi
+    * Çalıştırma geçmişi için Python komut dosyaları izleme
+    * Uzak Spark işlerine yürütülmesi işlem Hdınsight Spark 2.1 kümeleri kullanarak bağlamları
+    * Azure üzerinde uzak GPU VM'ler işlerinde yürütülmesi
+    * Web hizmetleri Azure kapsayıcı Hizmetleri (ACS) üzerinde derin öğrenme modellerin kolay operationalization
 
 ## <a name="use-case-overview"></a>Kullanım örneği'ne genel bakış
 Biomedical adlandırılmış varlık tanıma gibi karmaşık biomedical NLP görevleri için kritik bir adımı şöyledir: 
 * Adlandırılmış varlıklar belirtilenlerden böyle diseases, İlaçlar, chemicals ve Belirtiler elektronik sağlık veya sistem durumu kayıtları ayıklanıyor.
 * Uyuşturucu bulma
-* Farklı varlık arasındaki etkileşimler anlama gibi Uyuşturucu Uyuşturucu etkileşim, Uyuşturucu Hastalık ilişki ve gene protein ilişki türleri.
+* Farklı varlık arasındaki etkileşimler anlama Uyuşturucu Uyuşturucu etkileşim, Uyuşturucu Hastalık ilişki ve gene protein ilişkisi gibi türleri.
 
 Bizim kullanım senaryosu nasıl yapılandırılmamış verileri gövde Medline PubMed özetleri gibi büyük miktarda modeli katıştırma bir sözcük eğitmek için çözümlenebilir üzerine odaklanır. Ardından çıktı eklerinin sinir varlık ayıklayıcısı eğitmek için otomatik olarak oluşturulan özellikleri kabul edilir.
 
@@ -79,7 +79,7 @@ Biz öncelikle ham MEDLINE özet verileri indirilen [MEDLINE](https://www.nlm.ni
 
 ### <a name="2-lstm-model-training-data"></a>2. LSTM model eğitim verileri
 
-Sinir varlık ayıklama modeli eğitilmiş ve publiclly kullanılabilir veri kümelerinin değerlendirilir. Bu veri kümeleri hakkında ayrıntılı bir açıklama almak için aşağıdaki kaynaklara bakın:
+Sinir varlık ayıklama modeli eğitilmiş ve genel kullanıma açık veri kümelerinin değerlendirilir. Bu veri kümeleri hakkında ayrıntılı bir açıklama almak için aşağıdaki kaynaklara bakın:
  * [Varlığa biyografisi tanıma görevini BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR görev gövde](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - görev 9.1 (Uyuşturucu tanıma)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -106,7 +106,7 @@ Aşağıdaki kodu içeren gerçek senaryosunun genel GitHub depo bağlantıdır 
 
 ### <a name="python-packages"></a>Python paketlerini
 
-Tüm gerekli bağımlılıkları senaryo proje klasörü altında aml_config/conda_dependencies.yml dosyasında tanımlanır. Bu dosyada tanımlanan bağımlılıklar çalıştırmaları için otomatik olarak sağlanacak docker, VM ve HDI karşı küme hedefler. Conda ortam dosyası biçimi hakkında daha fazla ayrıntı için başvurmak [burada](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
+Tüm gerekli bağımlılıkları senaryo proje klasörü altında aml_config/conda_dependencies.yml dosyasında tanımlanır. Bu dosyada tanımlanan bağımlılıklar çalıştırmaları için otomatik olarak sağlanan docker, VM ve HDI karşı küme hedefler. Conda ortam dosyası biçimi hakkında daha fazla ayrıntı için başvurmak [burada](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
 * [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
@@ -139,14 +139,14 @@ Yaklaşık 10 milyon makaleleri boş bir Özet alan sahip olduğu 27 milyon öze
 * tümce bölme, simgeleştirme ve büyük/küçük harf normalleştirmesi dahil olmak üzere Özet metni önişle.
 * Özet alanı boş veya kısa metin yüklü olduğu makaleleri Dışla 
 * word sözlük eğitim özetleri oluşturma
-* sinir modeli katıştırma word eğitmek. Daha fazla ayrıntı için başvurmak [GitHub kodu bağlantı](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) başlamak için.
+* sinir modeli katıştırma word eğitmek. Daha fazla bilgi için bkz: [GitHub kodu bağlantı](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) başlamak için.
 
 
 XML dosyaları ayrıştırma sonra verileri aşağıdaki biçime sahiptir: 
 
 ![Veri örneği](./media/scenario-tdsp-biomedical-recognition/datasample.png)
 
-Sinir varlık ayıklama modeli eğitilmiş ve publiclly kullanılabilir veri kümelerinin değerlendirilir. Bu veri kümeleri hakkında ayrıntılı bir açıklama almak için aşağıdaki kaynaklara bakın:
+Sinir varlık ayıklama modeli eğitilmiş ve genel kullanıma açık veri kümelerinin değerlendirilir. Bu veri kümeleri hakkında ayrıntılı bir açıklama almak için aşağıdaki kaynaklara bakın:
  * [Varlığa biyografisi tanıma görevini BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR görev gövde](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - görev 9.1 (Uyuşturucu tanıma)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -167,7 +167,7 @@ Word2Vec etiketlenmemiş eğitim gövde sinir ağı modelden eğitir Denetimsiz 
 
 ![Atla Gram modeli](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-Performansı iyileştirmek için hiyerarşik Softmax ve negatif örnekleme modelini kullanır. Hiyerarşik SoftMax (S-SoftMax) tarafından ikili ağaçlara esin bir yaklaşık bir değeridir. H SoftMax ayrıldığında sözcükleri hiyerarşik bir katmanla temelde düz SoftMax katman yerini alır. Bu bir sözcük olasılık bize pahalı normalleştirme tüm sözcükleri hesaplamak gereğini ortadan kaldırır olasılık hesaplamaları dizisi içine hesaplama parçalayın olanak tanır. Dengeli bir ikili ağacı log2 derinliği olduğundan (| V |) (V olduğundan sözlük), yalnızca en fazla log2 değerlendirmek ihtiyacımız (| V |) bir sözcük son olasılığını elde etmek için düğümleri. Bağlam c verilen word w olasılığını sonra yalnızca sağ almaya olasılıklar ürünüdür ve sol sırasıyla yaprak düğümü o müşteri adayına kapatır. Biz daha sık sözcükleri daha kısa Beyanları aldığından emin olmak için veri kümesi sözcükleri sıklığını göre Huffman ağacı oluşturabilirsiniz. Daha fazla bilgi için bkz [bu bağlantıyı](http://sebastianruder.com/word-embeddings-softmax/).
+Performansı iyileştirmek için hiyerarşik Softmax ve negatif örnekleme modelini kullanır. Hiyerarşik SoftMax (S-SoftMax) tarafından ikili ağaçlara esin bir yaklaşık bir değeridir. H SoftMax ayrıldığında sözcükleri hiyerarşik bir katmanla temelde düz SoftMax katman yerini alır. Bu bir sözcük olasılık bize pahalı normalleştirme tüm sözcükleri hesaplamak gereğini ortadan kaldırır olasılık hesaplamaları dizisi içine hesaplama parçalayın olanak tanır. Dengeli bir ikili ağacı log2 derinliği olduğundan (| V |) (V olduğundan sözlük), yalnızca en fazla log2 değerlendirmek ihtiyacımız (| V |) bir sözcük son olasılığını elde etmek için düğümleri. Bağlam c verilen word w olasılığını sonra yalnızca sağ almaya olasılıklar ürünüdür ve sol sırasıyla yaprak düğümü o müşteri adayına kapatır. Biz daha sık sözcükleri daha kısa Beyanları aldığından emin olmak için veri kümesi sözcükleri sıklığını göre Huffman ağacı oluşturabilirsiniz. Daha fazla bilgi için bkz: [bu bağlantıyı](http://sebastianruder.com/word-embeddings-softmax/).
 Alınan görüntü [burada](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Görselleştirme
@@ -198,13 +198,13 @@ Aşağıdaki çizimde gösterildiği gibi t-SNE görselleştirme word vektörler
 
 Bkz: [sinir varlık ayıklayıcısı eğitmek](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation/ReadMe.md).
 
-Akış İleri sinir ağı mimarisi her giriş kabul eder ve diğer girişleri ve çıkışları bağımsız çıkış sorunu yaşar. Bu mimari makine çevirisi ve varlık ayıklama gibi sırası dizisi etiketleme görevleri model olamaz. Bir sonraki düğüme kadar için şimdi hesaplanan bilgi geçirirken yinelenen sinir ağı modelleri bu sorunu çözmek. Bu özellik aşağıdaki şekilde gösterildiği gibi önceden hesaplanan bilgi kullanmanız mümkün olduğundan bellek ağında sahip çağrılır:
+Akış İleri sinir ağı mimarisi her giriş kabul eder ve diğer girişleri ve çıkışları bağımsız çıkış sorunu düşer. Bu mimari makine çevirisi ve varlık ayıklama gibi sırası dizisi etiketleme görevleri model olamaz. Bir sonraki düğüme kadar için şimdi hesaplanan bilgi geçirirken yinelenen sinir ağı modelleri bu sorunu çözmek. Bu özellik aşağıdaki şekilde gösterildiği gibi önceden hesaplanan bilgi kullanmanız mümkün olduğundan bellek ağında sahip çağrılır:
 
 ![RNN](./media/scenario-tdsp-biomedical-recognition/rnn-expanded.png)
 
 Temel alınan RNNs gerçekten yaşar [kaybolmasını gradyan sorun](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) nedeniyle, bunlar bunlar görülen önce tüm bilgileri kullanmak mümkün değildir. Bağlam, büyük bir miktarını tahminde bulunmak için yalnızca gerekli olduğunda sorun korumalı olur. Ancak modelleri LSTM gibi böyle bir sorunu karşılaşmaz, uzun vadeli bağımlılıkları anımsaması aslında tasarlanmıştır. Tek bir sinir ağı sahip RNNs vanilla farklı olarak, her hücre için dört sinir ağları arasındaki etkileşimler LSTMs sahip. LSTM nasıl çalıştığını ayrıntılı açıklaması için başvurmak [bu post](http://colah.github.io/posts/2015-08-Understanding-LSTMs/).
 
-![LSTM hücre](./media/scenario-tdsp-biomedical-recognition/lstm-cell.png)
+![LSTM Cell](./media/scenario-tdsp-biomedical-recognition/lstm-cell.png)
 
 Şimdi kendi LSTM tabanlı yinelenen sinir ağı araya deneyin ve varlık türleri Uyuşturucu, Hastalık ve belirti belirtilenlerden gibi PubMed verileri ayıklamak deneyin. Büyük miktarda etiketli veri almak için ilk adımdır ve tahmin gibi bu kolay değil! Sağlık verilerinin en çok sayıda kişi hakkında hassas bilgi içeriyor ve bu nedenle genel kullanıma açık değildir. Biz, genel kullanıma açık iki farklı veri kümesi bir birleşimini kullanır. İlk veri kümesini Semeval 2013 - görev 9.1 (Uyuşturucu tanıma) ve diğer BioCreative V CDR görevden. Biz birleştirme olan ve böylece biz İlaçlar ve tıbbi metinleri gelen diseases algılamak ve bizim word eklerinin değerlendirmek bu iki veri kümesi etiketleme otomatik. Uygulama ayrıntılarını başvurmak [GitHub kodu bağlantı](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation).
 
@@ -223,28 +223,28 @@ Paylaşılan görev değerlendirme betikten kullanırız [biyografisi NLP/NLPBA 
 
 * Görev #1: İlaçlar ve Diseases algılama
 
-![Model karşılaştırma 1](./media/scenario-tdsp-biomedical-recognition/mc1.png)
+![Model Comparison 1](./media/scenario-tdsp-biomedical-recognition/mc1.png)
 
 Biz benzer şekilde diğer veri kümeleri üzerinde word eklerinin değerlendirmesi gerçekleştirmek ve bu etki alanındaki her zaman daha iyi modeldir bakın.
 
 * Görev #2: Proteins, hücre satır, hücre türü, DNA ve RNA algılama
 
-![Model karşılaştırma 2](./media/scenario-tdsp-biomedical-recognition/mc2.png)
+![Model Comparison 2](./media/scenario-tdsp-biomedical-recognition/mc2.png)
 
 * Görev #3: Chemicals ve Diseases algılama
 
-![Model karşılaştırma 3](./media/scenario-tdsp-biomedical-recognition/mc3.png)
+![Model Comparison 3](./media/scenario-tdsp-biomedical-recognition/mc3.png)
 
 * Görev #4: İlaçlar algılama
 
-![Model karşılaştırma 4](./media/scenario-tdsp-biomedical-recognition/mc4.png)
+![Model Comparison 4](./media/scenario-tdsp-biomedical-recognition/mc4.png)
 
 * Görev #5: Genes algılama
 
-![Model karşılaştırma 5](./media/scenario-tdsp-biomedical-recognition/mc5.png)
+![Model Comparison 5](./media/scenario-tdsp-biomedical-recognition/mc5.png)
 
 #### <a name="tensorflow-versus-cntk"></a>TensorFlow CNTK karşılaştırması
-Bildirilen tüm model eğitilmiş Keras TensorFlow ile arka ucu olarak kullanma. "Bu iş yapıldığı anda ters" Keras CNTK arka ucu ile desteklemez. Bu nedenle, karşılaştırma amacıyla, biz bir tek yönlü LSTM modeli CNTK arka ucu ile eğitilmiş ve tek yönlü bir LSTM modeli TensorFlow arka ucu ile karşılaştırılan. Keras CNTK 2.0 Yükle [burada](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
+Bildirilen tüm modelleri Keras TensorFlow ile arka ucu olarak kullanılarak eğitilmiş olup. "Bu iş yapıldığı anda ters" Keras CNTK arka ucu ile desteklemez. Bu nedenle, karşılaştırma amacıyla, biz bir tek yönlü LSTM modeli CNTK arka ucu ile eğitilmiş ve tek yönlü bir LSTM modeli TensorFlow arka ucu ile karşılaştırılan. Keras CNTK 2.0 Yükle [burada](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
 
 ![Model karşılaştırma 6](./media/scenario-tdsp-biomedical-recognition/mc6.png)
 
@@ -266,7 +266,7 @@ Nasıl Spark Word2Vec algoritmasını kullanarak bir word katıştırma modeli e
 
 * Tomas Mikolov, Kai Chen, Greg Corrado ve Gamze Deniz. 2013a. Word Beyanları vektör alanda verimli tahmini. İçinde bildirileri ICLR biri.
 * Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado ve Jeff Deniz. 2013b. Sözcükler ve tümcecikleri ve bunların compositionality dağıtılmış gösterimlerini. NIPS bildirileri 3111 – 3119 sayfaları.
-* Billy Chiu, Gamal Crichton, Gamze Korhonen ve Sampo Pyysalo. 2016. [Tren iyi Word eklerinin Biomedical NLP için nasıl](http://aclweb.org/anthology/W/W16/W16-2922.pdf), içinde bildirileri 15 Atölye Biomedical doğal dil işleme üzerinde sayfalar 166 – 174.
+* Billy Chiu, Gamal Crichton, Gamze Korhonen ve Sampo Pyysalo. 2016. [Tren iyi Word eklerinin Biomedical NLP için nasıl](http://aclweb.org/anthology/W/W16/W16-2922.pdf), içinde bildirileri on beşinci Atölye Biomedical doğal dil işleme üzerinde sayfalar 166 – 174.
 * [Vektör gösterimlerini sözcükler](https://www.tensorflow.org/tutorials/word2vec)
 * [Yinelenen sinir ağları](https://www.tensorflow.org/tutorials/recurrent)
 * [Spark ml Word2Vec karşılaşılan sorunları](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)

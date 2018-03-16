@@ -2,26 +2,19 @@
 title: "Sanal ağ hizmet uç noktalarına ve SQL kurallarında için PowerShell | Microsoft Docs"
 description: "Oluşturma ve Azure SQL veritabanı için sanal hizmet uç noktaları yönetmek için PowerShell komut dosyaları sağlar."
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: VNet Service endpoints
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 02/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6962216d6caad9060bb5857a3081e2b879351d40
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 489d1044de49c63ac7e1423708cc0638355ab1b5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Azure SQL veritabanı için bir sanal Hizmeti uç noktası ve kuralı oluşturmak için PowerShell kullanma
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz Yenile
 REST çağrıları destekleyen herhangi bir programlama dili kullanarak, Azure Analysis Services tablolu modeller zaman uyumsuz veri yenileme işlemleri gerçekleştirebilir. Bu sorgu genişleme için salt okunur çoğaltmalarını eşitlenmesi içerir. 
@@ -36,7 +36,7 @@ Taban URL'si şu biçimdedir:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Örneğin, AdventureWorks adlı model düşünün, Batı ABD Azure bölgesinde bulunan myserver adlı bir sunucuya sunucu adı:
+Örneğin, Batı ABD Azure bölgesinde bulunan myserver adlı bir sunucuya AdventureWorks adlı model göz önünde bulundurun. Sunucu adı şudur:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ Bu sunucu adı için temel URL şöyledir:
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-Temel URL'yi kullanarak, kaynakları ve işlemleri göre eklenebilen: 
+Temel URL'yi kullanarak, kaynakları ve işlemleri aşağıdaki parametrelere göre eklenebilen: 
 
 ![Zaman uyumsuz Yenile](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ Temel URL'yi kullanarak, kaynakları ve işlemleri göre eklenebilen:
 - İle biten bir şey **()** bir işlevdir.
 - Başka bir şey bir kaynak/nesnesidir.
 
-Örneğin, şöyle bir yenileme işlemi gerçekleştirmek için yenileme koleksiyonda POST fiil kullanabilirsiniz:
+Örneğin, yenilemeler koleksiyonda POST fiil yenileme işlemi gerçekleştirmek için kullanabilirsiniz:
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -71,7 +71,7 @@ Tüm çağrılar yetkilendirme üst geçerli bir Azure Active Directory (OAuth 2
 - Kullanıcı veya uygulama istenen arama yapmak için yeterli izinleri sunucuda veya model olmalıdır. İzin düzeyi, model veya sunucu üzerindeki yönetim grubu içinde rolleri tarafından belirlenir.
 
     > [!IMPORTANT]
-    > Şu anda **sunucu yöneticisinin** rolü izinleri gereklidir.
+    > Şu anda **sunucu yöneticisinin** rolü izinleri gerekli.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 
@@ -104,9 +104,9 @@ Parametreleri belirterek gerekli değildir. Varsayılan uygulanır.
 
 |Ad  |Tür  |Açıklama  |Varsayılan  |
 |---------|---------|---------|---------|
-|Tür     |  Enum       |  İşlem türü. Türleri ile TMSL hizalanır [Yenile komut](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) türleri: tam, clearValues, hesaplama, dataOnly, otomatik ekleyin ve birleştirin.       |   Otomatik      |
+|Tür     |  Enum       |  İşlem türü. Türleri ile TMSL hizalanır [Yenile komut](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) türleri: tam, clearValues, hesaplama, dataOnly, otomatik, eklemek ve birleştirin.       |   Otomatik      |
 |CommitMode     |  Enum       |  Nesneleri yığınlardaki veya yalnızca tamamlandığında tamamlanan olup olmayacağını belirler. Modları içerir: varsayılan, işlem, partialBatch.  |  işlem       |
-|MaxParallelism     |   Int      |  Bu değer paralel işleme komutları çalıştırmak için iş parçacığı sayısını belirler. Bu TMSL ayarlanabilir MaxParallelism özelliğiyle hizalı [Sequence komutu](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) veya başka yöntemler kullanarak.       | 10        |
+|MaxParallelism     |   Int      |  Bu değer paralel işleme komutları çalıştırmak için iş parçacığı sayısını belirler. Bu değer hizalı TMSL ayarlanabilir MaxParallelism özelliğiyle [Sequence komutu](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) veya başka yöntemler kullanarak.       | 10        |
 |retryCount    |    Int     |   İşlemi başarısız olmadan önce yeniden deneme sayısını gösterir.      |     0    |
 |Nesneler     |   Dizi      |   İşlenecek nesne dizisi. Her bir nesne içerir: "Tablo" tüm tablo ya da "Tablo" ve "Bölüm" bir bölüm işleme sırasında işlerken. Herhangi bir nesnenin belirtilmezse, tüm modeli yenilenir. |   İşlem tüm modeli      |
 
@@ -188,7 +188,7 @@ Bir eşitleme işlemi durumunu denetlemek için işlem kimliği bir parametre ol
 }
 ```
 
-Eşitleme için değerler:
+İçin değerler `syncstate`:
 
 - 0: çoğaltılıyor. Veritabanı dosyalarını bir hedef klasöre çoğaltılır.
 - 1: yeniden. Veritabanı salt okunur sunucu örnekleri üzerinde rehydrated.
@@ -228,7 +228,7 @@ Bu form kimlik doğrulaması, bir Azure uygulama API gerekli izinleri atanmış 
 
     ![API erişimi ekler](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  İçinde **bir API seçin**, türü **SQL Server Analysis Services** arama kutusuna yazın ve ardından **Azure Analysis Services (SQL Server Analysis Services Azure)**.
+5.  İçinde **bir API seçin**, türü **Azure Analysis Services** Ara kutusuna ve ardından seçin.
 
     ![API seçin](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ Bu form kimlik doğrulaması, bir Azure uygulama API gerekli izinleri atanmış 
 
 #### <a name="service-principal"></a>Hizmet sorumlusu
 
-Bkz: [Otomasyonu, Azure Analysis Services hizmet asıl adı ve PowerShell ile](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) blog yayını bir hizmet sorumlusu ayarlamak ve Azure Analysis Services gerekli izinleri atayın. Blog postasına ayrıntılı adımları tamamladıktan sonra aşağıdaki ek adımları tamamlayın:
+Bkz: [hizmet ilkesi - Azure portalında oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md) ve [hizmet ilkesi eklemek için sunucu yöneticisi rolünün](analysis-services-addservprinc-admins.md) bir hizmet sorumlusu ayarlamak ve Azure AS gerekli izinler atama hakkında daha fazla bilgi için . Adımları tamamladıktan sonra aşağıdaki ek adımları tamamlayın:
 
 1.  Kod örneğinde, bulma **dize yetkilisi =...** , yerine **ortak** kuruluşunuzun ile Kiracı kimliği.
 2.  Açıklama/ClientCredential sınıfı ki nesne örneğini oluşturmak için kullanılan şekilde açıklamadan çıkarın. Olun \<uygulama kimliği > ve \<uygulama anahtarı > değerleri güvenli bir şekilde erişilen veya sertifika tabanlı kimlik doğrulaması için hizmet asıl adı kullanın.

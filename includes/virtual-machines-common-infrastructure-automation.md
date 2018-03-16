@@ -14,7 +14,7 @@ Oluşturmak ve tutarlı bir şekilde ölçekli Azure sanal makineleri (VM'ler) y
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) yapılandırma yönetimi, VM oluşturma veya uygulama dağıtımı için automation motorudur. Ansible kimlik doğrulaması ve hedef makinelere yönetmek için SSH anahtarları ile genellikle bir aracı daha az modelini kullanır. Yapılandırma görevlerini belirli görevleri gerçekleştirmek kullanılabilir Ansible modül sayısı ile runbook'ları tanımlanır. Daha fazla bilgi için bkz: [nasıl Ansible çalışır](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) yapılandırma yönetimi, VM oluşturma veya uygulama dağıtımı için automation motorudur. Ansible kimlik doğrulaması ve hedef makinelere yönetmek için SSH anahtarları ile genellikle bir aracı daha az modelini kullanır. Yapılandırma görevleri playbooks belirli görevleri gerçekleştirmek kullanılabilir Ansible modül sayısı ile tanımlanır. Daha fazla bilgi için bkz: [nasıl Ansible çalışır](https://www.ansible.com/how-ansible-works).
 
 Şunları nasıl yapacağınızı öğrenin:
 
@@ -41,19 +41,19 @@ Oluşturmak ve tutarlı bir şekilde ölçekli Azure sanal makineleri (VM'ler) y
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çağrıldığı için ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.  Doğru biçim hakkında daha fazla bilgi için `#cloud-config` dosyaları görmek [bulut init belgeleri sitesi](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`dosyaları base64 ile kodlanmış metin dosyalarıdır.
+[Cloud-init](https://cloudinit.readthedocs.io), Linux VM’sini ilk kez önyüklendiğinde özelleştirmeyi sağlayan, sık kullanılan bir yaklaşımdır. cloud-init’i paket yükleme, dosyalara yazma ve kullanıcılar ile güvenliği yapılandırma işlemleri için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çağrıldığı için ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.  Doğru biçim hakkında daha fazla bilgi için `#cloud-config` dosyaları görmek [bulut init belgeleri sitesi](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` dosyaları base64 ile kodlanmış metin dosyalarıdır.
 
-Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
+Cloud-init, dağıtımlar arasında da çalışır. Örneğin, bir paket yüklemek için **apt-get install** veya **yum install** kullanmazsınız. Bunun yerine, yüklenecek paketlerin listesini tanımlayabilirsiniz. Cloud-init, seçtiğiniz dağıtım için yerel paket yönetim aracını otomatik olarak kullanır.
 
  Etkin olarak ile doğrulanan Linux distro ortaklarımızın Azure marketi'ndeki bulut init etkin görüntüleri kullanılabilir olması için çalışıyoruz. Bu görüntüleri bulut init dağıtımlarınızı yapın ve yapılandırmaları VM'ler ve sanal makine ölçek kümeleri ile sorunsuz çalışır. Aşağıdaki tabloda Azure platformu geçerli bulut init etkin görüntüleri kullanılabilirliğine özetlenmektedir:
 
 | Yayımcı | Sunduğu | SKU | Sürüm | Bulut init hazır
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04 LTS |en son |evet | 
+|Canonical |UbuntuServer |16.04-LTS |en son |evet | 
 |Canonical |UbuntuServer |14.04.5-LTS |en son |evet |
 |CoreOS |CoreOS |Dengeli |en son |evet |
-|OpenLogic |CentOS |7 CI |en son |önizleme |
-|RedHat |RHEL |7 HAM-CI |en son |önizleme |
+|OpenLogic |CentOS |7-CI |en son |önizleme |
+|RedHat |RHEL |7-RAW-CI |en son |önizleme |
 
 Azure üzerinde bulut başlatma hakkında daha fazla ayrıntı öğrenin:
 

@@ -3,7 +3,7 @@ title: "Logic Apps içinde SharePoint sunucusunu bağlayıcıyı kullanmak | Mic
 description: "Kullanmaya başlama Logic apps içinde SharePoint Server Bağlayıcısı"
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>SharePoint Bağlayıcısı ile çalışmaya başlama
-SharePoint Bağlayıcısı, SharePoint listesindeki çalışmak için bir yol sağlar.
+SharePoint bağlayıcı listeleri SharePoint üzerinde çalışmak için bir yol sağlar.
 
 Bir mantıksal uygulama oluşturarak başlama; bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -31,11 +31,11 @@ SharePoint Bağlayıcısı'nı kullanmak için önce oluşturduğunuz bir **bağ
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
-| Belirteç |Evet |SharePoint Kimlik Bilgilerini belirtin |
+| Belirteç |Evet |SharePoint kimlik bilgilerini sağlayın |
 
-Bağlanmak için **SharePoint**, SharePoint için (kullanıcı adı ve parola, akıllı kart kimlik bilgileri, vb.) kimlik bilgilerinizi girin. Kimlik doğruladınız sonra mantıksal uygulamanızı SharePoint Bağlayıcısı'nı kullanmaya devam edebilirsiniz. 
+Bağlanmak için **SharePoint**, kimliğinizi (kullanıcı adı ve parola, akıllı kart kimlik bilgileri ve benzeri) girin. Kimlik doğruladınız sonra mantıksal uygulamanızı SharePoint Bağlayıcısı'nı kullanmaya devam edebilirsiniz. 
 
-Tasarımcısı mantıksal uygulamanızı karşın, bağlantı oluşturmak için SharePoint ile imzalamak için bu adımları takip **bağlantı** mantıksal uygulamanızı kullanmak için:
+Tasarımcısı mantıksal uygulamanızı karşın üzerinde oturum açmak ve oluşturmak için aşağıdaki adımları kullanın **bağlantı** mantıksal uygulamanızı kullanmak için:
 
 1. SharePoint arama kutusuna girin ve SharePoint ile tüm girişleri adını döndürmek arama bekleyin:   
    ![SharePoint'i yapılandırma][1]  
@@ -44,10 +44,10 @@ Tasarımcısı mantıksal uygulamanızı karşın, bağlantı oluşturmak için 
    ![SharePoint'i yapılandırma][2]    
 4. SharePoint ile kimlik doğrulaması oturum açmak için SharePoint kimlik bilgilerinizi sağlayın   
    ![SharePoint'i yapılandırma][3]     
-5. Kimlik doğrulama tamamlandıktan sonra mantıksal uygulamanızı SharePoint yapılandırarak tamamlamak için yeniden yönlendirilmesini **bir dosya oluşturulduğunda** iletişim.          
+5. Kimlik doğrulama tamamlandıktan sonra SharePoint yapılandırarak tamamlamak için mantıksal uygulamanızı yönlendirilirsiniz **bir dosya oluşturulduğunda** iletişim.          
    ![SharePoint'i yapılandırma][4]  
 6. Daha sonra diğer tetikleyiciler ve mantıksal uygulamanızı tamamlamanız gereken eylemler ekleyebilirsiniz.   
-7. Seçerek çalışmanızı kaydedin **kaydetmek** yukarıdaki menü çubuğunda.  
+7. Seçerek çalışmanızı kaydedin **kaydetmek** (üst doğru) menüsünde.
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 

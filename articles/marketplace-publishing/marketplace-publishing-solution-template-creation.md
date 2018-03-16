@@ -3,8 +3,8 @@ title: "Market bir çözüm şablonu oluşturmak için kılavuz | Microsoft Docs
 description: "Oluşturma, onaylamak ve dağıtmak için bir çoklu VM görüntü çözüm şablonu konusunda ayrıntılı yönergeler Azure Market satın alın."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.author: mbaldwin
+ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Azure Market'ten bir çözüm şablonu oluşturmak için kılavuz
 Adım 1 ' tamamladıktan sonra [hesap oluşturma ve kayıt][link-acct-creation], bir Azure uyumlu çözüm şablon oluşturma işleminde size kılavuzluk [oluşturmak için teknik Önkoşullar bir Çözüm şablonu](marketplace-publishing-solution-template-creation-prerequisites.md). Biz, üzerinde birden çok VM için bir çözüm şablonu oluşturmak için adımlarda size yol gösterecek artık [yayımlama portalında] [ link-pubportal] Azure Marketi için.
 
 ## <a name="create-your-solution-template-offer-in-the-publishing-portal"></a>Çözüm şablonu teklifiniz yayımlama portalında oluşturma
-Git [https://publish.windowsazure.com](http://publish.windowsazure.com). İlk kez oturum açarken [yayımlama portalında](https://publish.windowsazure.com/), aynı hesabı, şirketinizin satıcı profili kaydedildiği ile kullanın. Daha sonra şirketinizin herhangi bir personel yayımlama portalında ortak yönetici olarak ekleyebilirsiniz.
+Git [ https://publish.windowsazure.com ](http://publish.windowsazure.com). İlk kez oturum açarken [yayımlama portalında](https://publish.windowsazure.com/), aynı hesabı, şirketinizin satıcı profili kaydedildiği ile kullanın. Daha sonra şirketinizin herhangi bir personel yayımlama portalında ortak yönetici olarak ekleyebilirsiniz.
 
 ### <a name="1-select-solution-templates"></a>1. "Çözüm şablonları" seçin
   ![Çizim][img-pubportal-menu-sol-templ]
@@ -37,9 +37,9 @@ Bir çözüm şablonu tüm topolojilerinin "üst öğesidir". Bir teklif/çözü
 
 * Bir topoloji oluşturun: "topoloji" tanımlayıcısıdır genellikle çözüm şablonu için topoloji adı. Topoloji tanımlayıcı URL'de aşağıda gösterildiği gibi kullanılır:
 
-  Azure Market: http://azure.microsoft.com/marketplace/partners/ {PublisherNamespace} / {OfferIdentifier} {TopologyIdentifier}
+  Azure Market: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
-  Azure Portal: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {TopologyIdentifier}
+  Azure Portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{TopologyIdentifier}
 * Yeni bir sürüm ekleyin.
 
 ### <a name="4-get-your-topology-versions-certified"></a>4. Sertifikalı topoloji sürümlerinizi Al

@@ -2,8 +2,8 @@
 title: "Azure Machine Learning dağıtım sorun giderme kılavuzu | Microsoft Docs"
 description: "Dağıtım ve hizmet oluşturmak için sorun giderme kılavuzu"
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: AashishB
+ms.author: AashishB
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 4cf372f17c3ded5c25a6ebde70b17b2c095a7169
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 614767840f8781c3c30c358dcf3ffc366aa3c0d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Hizmet dağıtımı ve ortam Kurulumu sorunlarını giderme
 Aşağıdaki bilgiler model yönetim ortamını ayarlarken hatalarının nedeninin belirlenmesine yardımcı olabilir.
@@ -87,7 +87,7 @@ Python örnek:
 ```
 
 ## <a name="other-common-problems"></a>Diğer yaygın sorunlar
-- Azure CLI ml PIP yüklemesi şu hata ile başarısız olursa `cannot find the path specified` bir Windows makinesinde uzun yol desteği etkinleştirmeniz gerekir. Https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/NET-4-6-2-and-Long-paths-on-Windows-10/ bakın. 
+- Azure CLI ml PIP yüklemesi şu hata ile başarısız olursa `cannot find the path specified` bir Windows makinesinde uzun yol desteği etkinleştirmeniz gerekir. Bkz: https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - Varsa `env setup` komutu başarısız ile `LocationNotAvailableForResourceType`, öğrenme kaynakları makine için büyük olasılıkla yanlış konum (bölge) kullanıyorsanız. İle belirtilen konumunuz emin olun `-l` parametresi `eastus2`, `westcentralus`, veya `australiaeast`.
 - Varsa `env setup` komutu başarısız ile `Resource quota limit exceeded`, aboneliğinizde kullanılabilir yeterli çekirdek varsa ve kaynaklarınızı kullanılmayan yukarı diğer işlemleri emin olun.
 - Varsa `env setup` komutu başarısız ile `Invalid environment name. Name must only contain lowercase alphanumeric characters`, hizmet adı büyük harfler, simgeler veya alt çizgi (_) içermediğinden emin olun (olarak *my_environment*).

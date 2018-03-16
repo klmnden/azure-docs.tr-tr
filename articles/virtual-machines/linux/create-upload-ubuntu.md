@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2f4983f918eccd2ae1adb4ec2c88133465f47e07
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4c49cbefafe71646ba08dd049baf50ff04463fdc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure’da Ubuntu sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Resmi Ubuntu bulut görüntüleri
-Ubuntu şimdi adresten resmi Azure VHD'ler yayımlar [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/). Azure için kendi özel Ubuntu görüntü oluşturmak gerekiyorsa, bunun yerine el ile aşağıdaki yordamı kullanın daha VHD'ler çalışma bilinen bunlarla başlatmak ve gerektiği şekilde özelleştirmek için önerilir. En son görüntü yayımları her zaman aşağıdaki konumlarda bulunabilir:
+Ubuntu şimdi adresten resmi Azure VHD'ler yayımlar [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Azure için kendi özel Ubuntu görüntü oluşturmak gerekiyorsa, bunun yerine el ile aşağıdaki yordamı kullanın daha VHD'ler çalışma bilinen bunlarla başlatmak ve gerektiği şekilde özelleştirmek için önerilir. En son görüntü yayımları her zaman aşağıdaki konumlarda bulunabilir:
 
 * Ubuntu 12.04/kesin: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
@@ -40,11 +40,11 @@ Bu makalede, bir sanal sabit disk için bir Ubuntu Linux işletim sistemi zaten 
 * VHDX biçimi, Azure'da yalnızca desteklenmiyor **VHD sabit**.  Disk Hyper-V Yöneticisi'ni veya convert-vhd cmdlet'ini kullanarak VHD biçimine dönüştürebilirsiniz.
 * Linux sistemini yüklerken LVM (genellikle birçok yüklemeleri için varsayılan) yerine standart bölümlerini kullanmanız önerilir. Özellikle bir işletim sistemi diski şimdiye kadar başka bir VM için sorun giderme için eklenmesi gerekiyorsa, bu kopyalanan VMs LVM ad çakışmalarını önler. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri disklerde tercih edilen varsa kullanılabilir.
 * Bir takas bölüm işletim sistemi disk üzerinde yapılandırmayın. Linux Aracısı geçici kaynak disk üzerinde bir takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
-* Tüm VHD'leri boyutları 1 MB'ün katları olmalıdır.
+* Tüm VHD'leri Azure üzerinde bir sanal boyutu 1 MB ile hizalı olması gerekir. Ham diskten VHD'ye dönüştürülürken ham disk boyutu 1 MB dönüştürmeden önce birden fazla olduğundan emin olmanız gerekir. Bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.
 
 ## <a name="manual-steps"></a>El ile adımlar
 > [!NOTE]
-> Azure için kendi özel Ubuntu görüntü oluşturmayı denemeden önce lütfen önceden oluşturulmuş ve test edilen görüntülerden kullanmayı [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) yerine.
+> Azure için kendi özel Ubuntu görüntü oluşturmayı denemeden önce lütfen önceden oluşturulmuş ve test edilen görüntülerden kullanmayı [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) yerine.
 > 
 > 
 

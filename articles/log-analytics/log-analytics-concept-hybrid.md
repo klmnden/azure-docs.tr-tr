@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Günlük analizi ile ortamınızdaki bilgisayarlardan veri toplama
 
@@ -77,14 +77,14 @@ Aşağıdaki Linux dağıtımları resmi olarak desteklenir.  Ancak, Linux Arac�
 * SUSE Linux Enterprise Server 11 ve 12 (x86/x64)
 
 #### <a name="network-configuration"></a>Ağ yapılandırması
-Aşağıdaki listeden Linux aracısının günlük analizi ile iletişim kurmak için gerekli proxy ve güvenlik duvarı yapılandırma bilgilerini bilgileri. Günlük analizi hizmeti ağınızdan giden trafiğidir. 
+Aşağıdaki listeden Linux aracısının günlük analizi ile iletişim kurmak için gerekli proxy ve güvenlik duvarı yapılandırma bilgilerini bilgileri.  
 
-|Aracı Kaynağı| Bağlantı Noktaları |  
-|------|---------|  
-|*.ods.opinsights.azure.com | Bağlantı noktası 443|   
-|*.oms.opinsights.azure.com | Bağlantı noktası 443|   
-|*.blob.core.windows.net | Bağlantı noktası 443|   
-|*.azure-automation.net | Bağlantı noktası 443|  
+|Aracı Kaynağı| Bağlantı Noktaları | Yön |  
+|------|---------|--------|  
+|*.ods.opinsights.azure.com | Bağlantı noktası 443 | Gelen ve giden|  
+|*.oms.opinsights.azure.com | Bağlantı noktası 443 | Gelen ve giden|  
+|*.blob.core.windows.net | Bağlantı noktası 443 | Gelen ve giden|  
+|*.azure-automation.net | Bağlantı noktası 443 | Gelen ve giden|  
 
 Linux Aracısı, bir proxy sunucusu veya OMS ağ geçidi HTTPS protokolünü kullanarak günlük analizi hizmeti ile iletişim kurmasını destekler.  Anonim ve temel kimlik doğrulaması (kullanıcı adı/parola) desteklenir.  Proxy sunucusu yüklemesi sırasında veya yükleme işleminden sonra proxy.conf yapılandırma dosyasını değiştirerek belirtilebilir.  
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ee04fc3338dec7893f9f33322bd6b9af932199e7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Web uygulamalarınızı Application Insights ile özel durumları tanılama
 Özel durumlar, canlı web uygulamanızda tarafından bildirilen [Application Insights](app-insights-overview.md). Böylece hızla nedenlerini tanılamak özel durumlar ve hem istemci hem de sunucu, diğer olayları ile başarısız olan istekler ilişkilendirebilirsiniz.
@@ -102,7 +102,7 @@ Bu olayları görmek için açık [arama](app-insights-diagnostic-search.md)filt
 
 ![Detaylandırma](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-## <a name="exceptions"></a>Özel durumlar ve ilgili Tanılama verileri yakalama
+## <a name="exceptions"></a> Özel durumlar ve ilgili Tanılama verileri yakalama
 İlk başta, uygulamanızda hatalarına neden tüm özel durumları portalında görmez. Tarayıcı özel durumlar görürsünüz (kullanıyorsanız, [JavaScript SDK'sı](app-insights-javascript.md) web sayfalarınızda). Ancak çoğu sunucu özel durumları IIS tarafından yakalanan ve bit bunları görmek için kod yazmak zorunda.
 
 Şunları yapabilirsiniz:
@@ -113,8 +113,7 @@ Bu olayları görmek için açık [arama](app-insights-diagnostic-search.md)filt
 ## <a name="reporting-exceptions-explicitly"></a>Özel durumlar açıkça raporlama
 En basit yolu, bir özel durum işleyici TrackException() çağrısı eklemektir.
 
-JavaScript
-
+```javascript
     try
     { ...
     }
@@ -124,9 +123,9 @@ JavaScript
         {Game: currentGame.Name,
          State: currentGame.State.ToString()});
     }
+```
 
-C#
-
+```csharp
     var telemetry = new TelemetryClient();
     ...
     try
@@ -144,9 +143,9 @@ C#
        // Send the exception telemetry:
        telemetry.TrackException(ex, properties, measurements);
     }
+```
 
-VB
-
+```VB
     Dim telemetry = New TelemetryClient
     ...
     Try
@@ -162,6 +161,7 @@ VB
       ' Send the exception telemetry:
       telemetry.TrackException(ex, properties, measurements)
     End Try
+```
 
 Özellikleri ve ölçülerini parametreler isteğe bağlıdır, ancak için yararlı olan [filtreleme ve ekleyerek](app-insights-diagnostic-search.md) ek bilgiler. Örneğin, birkaç oyunlar çalıştırabilirsiniz bir uygulamanız varsa, belirli bir oyuna ilgili tüm özel durum raporları bulunamadı. Her sözlük için istediğiniz kadar öğe ekleyebilirsiniz.
 
@@ -175,8 +175,7 @@ Web formları için HTTP modülü CustomErrors ile yapılandırılmış hiçbir 
 
 Ancak etkin yeniden yönlendirmeleri varsa, Global.asax.cs uygulama_hatası işlevinde aşağıdaki satırları ekleyin. (Zaten yoksa, Global.asax dosyası ekleyin.)
 
-*C#*
-
+```csharp
     void Application_Error(object sender, EventArgs e)
     {
       if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
@@ -186,11 +185,28 @@ Ancak etkin yeniden yönlendirmeleri varsa, Global.asax.cs uygulama_hatası işl
          ai.TrackException(Server.GetLastError());
       }
     }
-
+```
 
 ## <a name="mvc"></a>MVC
+Application Insights Web SDK sürüm 2.6 ile başlayan (beta3 ve sonraki sürümler), MVC 5 + denetleyicileri yöntemlerinde otomatik olarak oluşturulan Application Insights toplar işlenmeyen özel durum. (Aşağıdaki örneklerde açıklandığı gibi) gibi özel durumlarını izlemek için özel bir işleyici daha önce eklediyseniz, özel durumların çift izleme önlemek amacıyla kaldırabilirsiniz.
+
+Özel durum filtreleri işleyemiyor durumlar vardır. Örneğin:
+
+* Denetleyici oluşturucular oluşturulan özel durumları.
+* İleti işleyicileri oluşturulan özel durumları.
+* Yönlendirme sırasında oluşturulan özel durumları.
+* Yanıtın içerik serileştirilmesi sırasında oluşturulan özel durumları.
+* Uygulama başlatma sırasında özel durum oluştu.
+* Arka plan görevleri özel durum oluştu.
+
+Tüm özel durumları *ele* uygulama tarafından hala el ile izlenmesi gerekir. İşlenmeyen özel durumlar denetleyicilerinden genellikle kaynaklanan 500 "Dahili Sunucu hatası" yanıt olarak neden. Bu tür yanıt işlenmiş özel durumu (ya da hiç herhangi bir özel durumu) sonucunda el ile oluşturulursa karşılık gelen istek telemetri ile izlenen `ResultCode` 500, ancak Application Insights SDK'sı karşılık gelen özel durum izleme alamıyor.
+
+### <a name="prior-versions-support"></a>Önceki sürümler desteği
+Uygulama Insights Web SDK 2.5 (ve önceki) MVC 4 (ve önceki) kullanıyorsanız, özel durumlarını izlemek için aşağıdaki örneklere bakın.
+
 Varsa [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) Yapılandırması `Off`, özel durumlar için kullanılabilecek sonra [HTTP modülü](https://msdn.microsoft.com/library/ms178468.aspx) toplanacak. Ancak, bu ise `RemoteOnly` (varsayılan) veya `On`, sonra özel temizlenmiş ve Application Insights'ı otomatik olarak toplamak için kullanılamaz. Geçersiz kılarak düzeltme [System.Web.Mvc.HandleErrorAttribute sınıfı](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)ve farklı MVC sürümleri için aşağıda gösterildiği gibi geçersiz kılınan sınıf uygulama ([github kaynağına](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
+```csharp
     using System;
     using System.Web.Mvc;
     using Microsoft.ApplicationInsights;
@@ -215,22 +231,26 @@ Varsa [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) Yapıland
         }
       }
     }
+```
 
 #### <a name="mvc-2"></a>MVC 2
 Yeni özniteliğinizi denetleyicilerinizi HandleError özniteliği değiştirin.
 
+```csharp
     namespace MVC2App.Controllers
     {
        [AiHandleError]
        public class HomeController : Controller
        {
     ...
+```
 
 [Örnek](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### <a name="mvc-3"></a>MVC 3
 Kayıt `AiHandleErrorAttribute` Global.asax.cs genel filtre olarak:
 
+```csharp
     public class MyMvcApplication : System.Web.HttpApplication
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -238,12 +258,14 @@ Kayıt `AiHandleErrorAttribute` Global.asax.cs genel filtre olarak:
          filters.Add(new AiHandleErrorAttribute());
       }
      ...
+```
 
 [Örnek](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
 #### <a name="mvc-4-mvc5"></a>MVC 4, MVC5
 FilterConfig.cs genel filtre olarak AiHandleErrorAttribute kaydedin:
 
+```csharp
     public class FilterConfig
     {
       public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -252,12 +274,31 @@ FilterConfig.cs genel filtre olarak AiHandleErrorAttribute kaydedin:
         filters.Add(new AiHandleErrorAttribute());
       }
     }
+```
 
 [Örnek](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
-## <a name="web-api-1x"></a>Web API 1.x
-System.Web.Http.Filters.ExceptionFilterAttribute geçersiz kıl:
+## <a name="web-api"></a>Web API
+Application Insights Web SDK sürüm 2.6 ile başlayan (beta3 ve sonraki sürümler), denetleyici yöntemlerinde Webapı için 2 + otomatik olarak oluşturulan Application Insights toplar işlenmeyen özel durumlar. (Aşağıdaki örneklerde açıklandığı gibi) gibi özel durumlarını izlemek için özel bir işleyici daha önce eklediyseniz, özel durumların çift izleme önlemek amacıyla kaldırabilirsiniz.
 
+Özel durum filtreleri işleyemiyor durumlar vardır. Örneğin:
+
+* Denetleyici oluşturucular oluşturulan özel durumları.
+* İleti işleyicileri oluşturulan özel durumları.
+* Yönlendirme sırasında oluşturulan özel durumları.
+* Yanıtın içerik serileştirilmesi sırasında oluşturulan özel durumları.
+* Uygulama başlatma sırasında özel durum oluştu.
+* Arka plan görevleri özel durum oluştu.
+
+Tüm özel durumları *ele* uygulama tarafından hala el ile izlenmesi gerekir. İşlenmeyen özel durumlar denetleyicilerinden genellikle kaynaklanan 500 "Dahili Sunucu hatası" yanıt olarak neden. Bu tür yanıt işlenmiş özel durumu (ya da hiç herhangi bir özel durumu) sonucunda el ile oluşturulursa karşılık gelen bir istek telemetri ile izlenen `ResultCode` 500, ancak Application Insights SDK'sı karşılık gelen özel durum izleme alamıyor.
+
+### <a name="prior-versions-support"></a>Önceki sürümler desteği
+Uygulama Insights Web SDK 2.5 (ve önceki) Webapı 1'i (ve önceki) kullanıyorsanız, özel durumlarını izlemek için aşağıdaki örneklere bakın.
+
+#### <a name="web-api-1x"></a>Web API 1.x
+Override System.Web.Http.Filters.ExceptionFilterAttribute:
+
+```csharp
     using System.Web.Http.Filters;
     using Microsoft.ApplicationInsights;
 
@@ -276,9 +317,11 @@ System.Web.Http.Filters.ExceptionFilterAttribute geçersiz kıl:
         }
       }
     }
+```
 
 Geçersiz kılınan bu öznitelik için belirli denetleyicileri ekleme veya WebApiConfig sınıfı genel filtre yapılandırmasında eklemek:
 
+```csharp
     using System.Web.Http;
     using WebApi1.x.App_Start;
 
@@ -298,19 +341,14 @@ Geçersiz kılınan bu öznitelik için belirli denetleyicileri ekleme veya WebA
         }
       }
     }
+```
 
 [Örnek](https://github.com/AppInsightsSamples/WebApi_1.x_UnhandledExceptions)
 
-Özel durum filtreleri işleyemiyor durumlar vardır. Örneğin:
-
-* Denetleyici oluşturucular oluşturulan özel durumları.
-* İleti işleyicileri oluşturulan özel durumları.
-* Yönlendirme sırasında oluşturulan özel durumları.
-* Yanıtın içerik serileştirilmesi sırasında oluşturulan özel durumları.
-
-## <a name="web-api-2x"></a>Web API 2.x
+#### <a name="web-api-2x"></a>Web API 2.x
 IExceptionLogger uygulaması ekleyin:
 
+```csharp
     using System.Web.Http.ExceptionHandling;
     using Microsoft.ApplicationInsights;
 
@@ -329,9 +367,11 @@ IExceptionLogger uygulaması ekleyin:
         }
       }
     }
+```
 
 Bu, WebApiConfig Hizmetleri'nde ekleyin:
 
+```csharp
     using System.Web.Http;
     using System.Web.Http.ExceptionHandling;
     using ProductsAppPureWebAPI.App_Start;
@@ -355,7 +395,8 @@ Bu, WebApiConfig Hizmetleri'nde ekleyin:
             config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger());
         }
       }
-  }
+     }
+```
 
 [Örnek](https://github.com/AppInsightsSamples/WebApi_2.x_UnhandledExceptions)
 
@@ -367,6 +408,7 @@ Alternatif, şunları yapabilir:
 ## <a name="wcf"></a>WCF
 Öznitelik genişleten ve IErrorHandler ve IServiceBehavior uygulayan bir sınıf ekleyin.
 
+```csharp
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -416,7 +458,7 @@ Alternatif, şunları yapabilir:
       }
     }
 
-Öznitelik, hizmet uygulamaları ekleyin:
+Add the attribute to the service implementations:
 
     namespace WcfService4
     {
@@ -424,6 +466,7 @@ Alternatif, şunları yapabilir:
         public class Service1 : IService1
         {
          ...
+```
 
 [Örnek](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 

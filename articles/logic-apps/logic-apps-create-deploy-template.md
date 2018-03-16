@@ -1,10 +1,10 @@
 ---
 title: "Azure mantıksal uygulamaları için dağıtım şablonları oluşturma | Microsoft Docs"
-description: "Dağıtım ve yayın Yönetimi mantıksal uygulamaları için Azure Resource Manager şablonları oluşturma"
+description: "Mantıksal uygulamalar dağıtmak için Azure Resource Manager şablonları oluşturma"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: anneta
+author: ecfan
+manager: SyntaxC4
 editor: 
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 9cfbb294010d48deaf4b4c78c6a6bcd59a387d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: LADocs; estfan
+ms.openlocfilehash: 91d93a02bb9bf48c5bda0304c9d3d52c22e30209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>Dağıtım ve yayın Yönetimi logic apps için şablonlar oluşturma
+# <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Mantıksal uygulamalar dağıtmak için Azure Resource Manager şablonları oluşturma
 
 Bir mantıksal uygulama oluşturulduktan sonra bir Azure Resource Manager şablonu oluşturmak isteyebilirsiniz.
 Bu şekilde, herhangi bir ortam veya kaynak grubu nerede gereksinim duyabileceğiniz mantıksal uygulama kolayca dağıtabilirsiniz.
@@ -46,7 +46,7 @@ Ya da farklı Aboneliklerde veya kaynak grupları dağıtmak isteyebilirsiniz.
 
 ## <a name="create-a-logic-app-deployment-template"></a>Bir mantıksal uygulama dağıtım şablonu oluşturma
 
-Geçerli mantığı uygulama dağıtım şablonu için en kolay yolu kullanmaktır [mantıksal uygulamalar için Visual Studio Araçları](logic-apps-deploy-from-vs.md).
+Geçerli mantığı uygulama dağıtım şablonu için en kolay yolu kullanmaktır [mantıksal uygulamalar için Visual Studio Araçları](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
 Visual Studio Araçları herhangi bir abonelik veya konum arasında kullanılan bir geçerli dağıtım şablonu oluşturun.
 
 Bir mantıksal uygulama dağıtım şablonu oluşturma gibi diğer bazı araçları size yardımcı olabilir.
@@ -74,10 +74,106 @@ PowerShell yüklendikten sonra aşağıdaki komutu kullanarak bir şablon oluşt
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId`Azure abonelik kimliği Bu satırı önce bir erişim ARMClient belirtecini alır sonra üzerinden PowerShell Betiği Kanallar ve ardından şablon bir JSON dosyası oluşturur.
+`$SubscriptionId` Azure abonelik kimliği Bu satırı önce bir erişim ARMClient belirtecini alır sonra üzerinden PowerShell Betiği Kanallar ve ardından şablon bir JSON dosyası oluşturur.
 
 ## <a name="add-parameters-to-a-logic-app-template"></a>Bir mantıksal uygulama şablonu parametreleri ekleme
 Mantıksal uygulama şablonu oluşturduktan sonra eklemek veya gereksinim duyabileceğiniz parametreleri değiştirmek devam edebilirsiniz. Örneğin, bir kaynak kimliği bir Azure işlevi veya tek bir dağıtımda dağıtmayı planladığınız iç içe geçmiş iş akışı tanımınızı içeriyorsa, daha fazla kaynak şablonunuza eklemek ve gerektiğinde kimlikleri Parametreleştirme. Aynı özel API'leri veya Swagger yönelik tüm başvuruları dağıtmak için her kaynak grubu ile beklediğiniz uç noktalar uygular.
+
+### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Visual Studio dağıtım şablonları bağımlı kaynaklar için başvurular ekleyin
+
+Bağımlı kaynaklarla başvurmak için mantıksal uygulamanızı istediğinizde kullanabilirsiniz [Azure Resource Manager şablonu işlevleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) mantığı uygulama dağıtım şablonunuzda. Örneğin, mantıksal uygulamanızı mantıksal uygulamanızı dağıtmak istediğiniz bir Azure işlevi veya tümleştirme hesap başvurmak isteyebilirsiniz. Böylece mantığı Uygulama Tasarımcısı'nı doğru şekilde işler, dağıtım şablonu parametrelerini kullanma hakkında aşağıdaki yönergeleri izleyin. 
+
+Bu türden tetikleyiciler ve Eylemler mantığı uygulama parametreleri kullanabilirsiniz:
+
+*   Alt iş akışı
+*   İşlev uygulaması
+*   APIM çağrısı
+*   API bağlantı çalışma zamanı URL'si
+*   API bağlantı yolu
+
+Ve şablon işlevleri parametreleri, değişkenleri, ResourceId, concat vb. gibi kullanabilirsiniz. Örneğin, işte Azure işlevi kaynak kimliği nasıl değiştirebilirsiniz:
+
+```
+"parameters":{
+    "functionName": {
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
+    }
+},
+```
+
+Ve burada parametreleri kullanabilirsiniz:
+
+```
+"MyFunction": {
+    "type": "Function",
+    "inputs": {
+        "body":{},
+        "function":{
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+        }
+    },
+    "runAfter":{}
+}
+```
+Başka bir örnek olarak Service Bus ileti gönderme işlemini Parametreleştirme:
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> host.runtimeUrl isteğe bağlıdır ve varsa, şablondan kaldırılabilir.
+> 
+
+
+> [!NOTE] 
+> Mantıksal uygulama parametrelerini kullandığınızda çalışmak Tasarımcı, varsayılan değerleri, örneğin sağlamanız gerekir:
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
+
+## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Varolan bir kaynak grubu projesine mantıksal uygulamanızı ekleme
+
+Varolan bir kaynak grubu projesi varsa, bu projede JSON ana hattı penceresinin mantıksal uygulamanızı ekleyebilirsiniz. Daha önce oluşturduğunuz uygulama yanında başka bir mantıksal uygulama da ekleyebilirsiniz.
+
+1. `<template>.json` dosyasını açın.
+
+2. JSON ana hattı penceresini açmak için Git **Görünüm** > **diğer pencereler** > **JSON ana hattı**.
+
+3. Kaynak şablon dosyasına eklemek için tıklatın **kaynak ekleme** JSON ana hattı penceresinin üst. Veya JSON ana hattı penceresinde sağ **kaynakları**seçip **yeni kaynak ekleme**.
+
+    ![JSON ana hattı penceresinin](./media/logic-apps-create-deploy-template/jsonoutline.png)
+    
+4. İçinde **kaynak ekleme** iletişim kutusu bulun ve seçin, **mantıksal uygulama**. Mantıksal uygulamanızı adlandırın ve seçin **Ekle**.
+
+    ![Kaynak ekle](./media/logic-apps-create-deploy-template/addresource.png)
+
 
 ## <a name="deploy-a-logic-app-template"></a>Bir mantıksal uygulama şablonu dağıtma
 

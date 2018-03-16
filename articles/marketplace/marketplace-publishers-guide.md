@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Market ve AppSource yayımcı Kılavuzu
 
@@ -51,7 +51,7 @@ Azure Market ve AppSource Microsoft ile birleşik Git Pazar etkinlikler için ba
 
 ## <a name="what-are-azure-marketplace-and-appsource"></a>Azure Market ve AppSource nelerdir?
 
-Microsoft iş ortaklarının teklifler listesinde, denemeler etkinleştirmek ve doğrudan Microsoft'un müşterileri ve ekosistemi ile transact izin iki ayrı Market veriş sağlar: [Azure Market] (https://azuremarketplace.microsoft.com) ve [AppSource] () https://appsource.microsoft.com). Bu veriş bulmak için müşteriler deneyin ve uygulamaları satın alın ve Microsoft'un müşterileri ve iş ortağı ekosistemi erişimi artırarak işlerini kendi sayısal dönüşüm hızlandırmak ve yayımcılar yardımcı hizmetler büyümesine izin verir.
+Microsoft iş ortaklarının teklifler listesinde, denemeler etkinleştirmek ve doğrudan Microsoft'un müşterileri ve ekosistemi ile transact izin iki ayrı Market veriş sağlar: [Azure Market] (https://azuremarketplace.microsoft.com) ve [AppSource] (https://appsource.microsoft.com). Bu veriş bulmak için müşteriler deneyin ve uygulamaları satın alın ve Microsoft'un müşterileri ve iş ortağı ekosistemi erişimi artırarak işlerini kendi sayısal dönüşüm hızlandırmak ve yayımcılar yardımcı hizmetler büyümesine izin verir.
  
 Market veriş gereksinim duydukları şeyleri bulmalarına müşterilere yardımcı olmak için izleyiciler ve Microsoft bulut ürünleri hizalanır. Her mağaza tarafından aşağıdaki tabloda özetlenen yayımlama yatırımınızı en üst düzeye çıkarmanıza yardımcı olmak için özelleştirilmiş yayımlama seçeneklerini sunar:
 
@@ -172,7 +172,7 @@ Kullanım bir **Azure çözüm şablonu** ne zaman bir çözüm sanal gereç öt
 Kullanım bir **Azure yönetilen uygulama** yayımcı ya da müşteri bir 3. taraf tarafından örneğin bir SI veya MSP yönetilecek çözüm istediğinde sanal makine ya da Iaas tabanlı çözümün tamamında bir müşterinin aboneliğini dağıtırken. Daha fazla bilgi edinmek [yönetilen uygulamalar burada derleme](https://docs.microsoft.com/azure/managed-applications/overview). Sık sorulan soruların bir listesi için bkz: [Azure Market SSS](https://azure.microsoft.com/marketplace/faq/).
 
 >[!NOTE]
-> Yönetilen uygulamalar Market üzerinden dağıtılabilir olmalıdır. Müşteri çoğaltmayla ilgili bir sorun varsa, sağlama paylaşımı varsa ilgilenen müşteriler için ulaşmak için olacağını unutmayın.
+> Yönetilen uygulamalar Market üzerinden dağıtılabilir olmalıdır. Müşteri iletişimi önemliyse ilgilenen müşteriler için sağlama paylaşımı varsa ulaşmak için olacağını unutmayın.
 
 ### <a name="azure-certified"></a>Azure Sertifikası
 
@@ -210,11 +210,11 @@ Buna karşılık, etkinleştirirseniz, isteğe bağlı olarak kendi lisansını 
 |Lisans maliyetinizi     | Üzerinde anlaşılan ve yayımcı tarafından faturalandırılır lisans ücreti        |
 |---------|---------|
 |Azure kullanım maliyeti (1/D1-çekirdek)    | saat başına 0.14         |
-|**Müşteri Microsoft tarafından faturalandırılır**     | saat başına 0.14        |
+|**Müşteri Microsoft tarafından faturalandırılır**     | **saat başına 0.14**        |
 
 Bu senaryoda, Microsoft 0.14 yayımlanan sanal makine görüntüsü kullanımı için saat başına ödemenizi işler. 
 
-|**Microsoft faturalar**    |   saat başına 0.14      |
+|**Microsoft faturalar**    |   **saat başına 0.14**      |
 |---------|---------|
 |Microsoft Azure kullanım maliyeti tutar     |    saat başına 0.14     |
 |Microsoft lisans maliyetinizi %0 tutar     |  saat başına 0,00       |
@@ -238,9 +238,9 @@ Tüm Kurumsal Anlaşma müşterileri, Azure'a önceden parasal taahhütte buluna
 
 |**Gereksinim**  |**Ayrıntılar**  |**Yayımlama seçeneği**  |
 |---------|---------|---------|
-|**Katılım ilkeleri**    | Azure Market katılım ilkelerini [burada] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/) gözden geçirin.       | Liste, deneme, Transact        |
+|**Katılım ilkeleri**    | Azure Market katılım İlkeleri [burada] gözden geçirin (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Liste, deneme, Transact        |
 |**Microsoft ile tümleştirme**    | Azure Market sunar, yararlanan ya da işlem, ağ veya depolama gibi Microsoft Azure Hizmetleri genişletmek ve var olan bir Azure Marketi kategori veritabanları, güvenlik, ağ, vb. gibi Hizala. Tam listeyi Bul [burada](https://azuremarketplace.microsoft.com/marketplace/apps).        | Liste, deneme, Transact        |
-|Hedef kitle    | Azure Market sunar, BT uzmanları, bulut geliştiriciler veya diğer teknik müşteri rolleri olması gerekir.       |  Liste, deneme, Transact 
+|**Hedef kitle**    | Azure Market sunar, BT uzmanları, bulut geliştiriciler veya diğer teknik müşteri rolleri olması gerekir.       |  Liste, deneme, Transact 
 |**Sağlama Yönetimi**    | Marketten müşteri adayları almak için CRM (Marketo, Microsoft Dynamics veya Salesforce) sağlama verileri kabul etmek için etkinleştirmeniz gerekir.        |   Liste, deneme, Transact      |
 |**Gizlilik ilkesini ve kullanım koşulları**     |   Gizlilik İlkesi genel bir URL ile kullanılabilir olmalı ve yayımlama sırasında metin olarak, kullanım koşulları girmeniz gerekir.      |   Liste, deneme, Transact      |
 |**Destek**     |  Teklifiniz, müşterilerin Yardım bulabileceğiniz bir genel kullanıma açık destek URL'si eklemeniz gerekir. Denemeler için destek için deneme süresi hiçbir ek ücret sağlanmalıdır.       |  Denemeyi Transact       |
@@ -260,20 +260,20 @@ Tüm Kurumsal Anlaşma müşterileri, Azure'a önceden parasal taahhütte buluna
 |**Gereksinim**  |**Ayrıntılar** |**Yayımlama seçeneği**  |
 |---------|---------|---------|
 |**Faturalama ve ölçümü**    |  Sanal makine ya da kendi lisansını Getir desteklemesi gerekir veya kullanım tabanlı, aylık faturalama.       |    Transact    |
-|**Azure ile uyumlu sanal sabit disk (VHD)**     |   [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) sanal makineleri yerleşik veya [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
+|**Azure ile uyumlu sanal sabit disk (VHD)**     |   [Windows] sanal makineler yerleşik (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) veya [Linux] ()https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Danışmanlık için Önkoşullar belirli hizmetleri yayımlama
 
 
-|Gereksinimleri |**Ayrıntılar**  |**Yayımlama seçeneği**  |
+|**Gereksinimleri** |**Ayrıntılar**  |**Yayımlama seçeneği**  |
 |---------|---------|---------|
 |**Hizmet özellikleri sunan**     | Danışmanlık hizmetinizi süresi, sabit bir sabit kapsam, fiyat sabit olarak teslim edilen (veya boş) olmalıdır katılım, yönelik, öncelikle satış öncesi tek bir müşteri için sınırlı ve şirkete gerçekleştirilen        |    Liste     |
-|**Danışmanlık Hizmetleri için ortak gereksinimler**    |   **Yalnızca AppSource.**  Dynamics 365 müşteri katılım için [Gümüş veya altın bulut müşteri ilişkileri yönetimi uzmanlığı](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 Finans ve işlemleri Enterprise edition için: Gümüş veya altın [kuruluş kaynak planlama] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) uzmanlığı ve en düşük gelir, $25K bulutta İşlem sonunda 12 ay içinde. Dynamics 365 Finans ve işlemleri, Business edition: olarak hizmet [bulut Hizmetler Sağlayıcısı (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) veya [dijital iş ortağı, kaydı (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) en az bir müşteri için. Power BI: [çözüm ortağı] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf) ölçütlere uygun olmalıdır. PowerApps: [iş ortağı gösterimi] (https://powerapps.microsoft.com/en-us/partner-showcase/) çözümünün var |    Liste     |
+|**Danışmanlık Hizmetleri için ortak gereksinimler**    |   **Yalnızca AppSource.**  Dynamics 365 müşteri katılım için [Gümüş veya altın bulut müşteri ilişkileri yönetimi uzmanlığı](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 Finans ve işlemleri Enterprise edition için: Gümüş veya altın [kuruluş kaynak planlama] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) uzmanlığı ve sondaki 12 ay içinde en az gelir, $25 K bulut işlemleri. Dynamics 365 Finans ve işlemleri, Business edition: olarak hizmet [bulut Hizmetler Sağlayıcısı (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) veya [dijital iş ortağı, kaydı (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) en az bir müşteri için. Power BI: [çözüm ortağı] (file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20 & % 20Incentives.pdf) ölçütlere uygun olmalıdır. PowerApps: [iş ortağı gösterimi] sahip (https://powerapps.microsoft.com/en-us/partner-showcase/) çözümü |    Liste     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Denemeler etkinleştirmek için Azure Active Directory kullanma
 Azure Active Directory (AAD) olan bir Microsoft iş veya Okul kimlik doğrulamasına olanak tanıyan bir bulut kimlik hizmeti endüstri standardı protokoller kullanarak hesap: OAuth ve Openıd Connect. AAD hakkında daha fazla bilgi [burada](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft kullanıcıların kimliğini doğrulayan tüm Market aad'ye, bu nedenle kimliği doğrulanmış bir kullanıcı, deneme listesindeki Market üzerinden tıkladığında ve yeniden yönlendirilir deneme ortamınıza, hazırlayabilirsiniz kullanıcının doğrudan bir deneme sürümü'nü gerek kalmadan bir ek oturum açma adımı. [Uygulamanızı AAD kimlik doğrulaması sırasında alan belirteci] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) oluşturmak için kullanabileceğiniz değerli kullanıcı bilgilerini içeren bir kullanıcı hesabı, uygulamanızda sağlama deneyimi otomatikleştirmek ve dönüştürme olasılığını artırmak etkinleştirme. 
+Microsoft kullanıcıların kimliğini doğrulayan tüm Market aad'ye, bu nedenle kimliği doğrulanmış bir kullanıcı, deneme listesindeki Market üzerinden tıkladığında ve yeniden yönlendirilir deneme ortamınıza, hazırlayabilirsiniz kullanıcının doğrudan bir deneme sürümü'nü gerek kalmadan bir ek oturum açma adımı. [Uygulamanızı AAD kimlik doğrulaması sırasında alan belirteci] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) sağlama deneyimi otomatikleştirmek ve olasılığını artırmak etkinleştirme uygulamanızda, bir kullanıcı hesabı oluşturmak için kullanabileceğiniz değerli kullanıcı bilgilerini içeren dönüştürme. 
 
 AAD kullanarak uygulamanızı veya deneme için 1-tıklatma kimlik doğrulamasını etkinleştirmek için:
 
@@ -295,7 +295,7 @@ AAD bugün destekliyorsa
 AAD Federasyon SSO yeniyseniz
 
 - Azure portalında uygulamanızı kaydetme
-- [Openıd Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) kullanarak AAD SSO'su geliştirmek veya [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
+- SSO [Openıd Connect] kullanarak AAD ile geliştirme (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) veya [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
 - 'Tek tıklatmayla' deneme sürümü deneyimi almak aad'de çoklu kiracı destek özelliğini etkinleştirin
 - [Şuradan daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified)
 
@@ -303,7 +303,7 @@ Tek Kiracı uygulamalar için:
 
 Tek bir kiracı uygulamalar için birden çok seçenek vardır:
 
-- Kullanıcıların [Azure B2B] kullanarak Konuk kullanıcılar olarak dizininize eklemek (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- Kullanıcıların dizininize kullanma [Azure B2B] (konuk kullanıcılar olarak ekleyin.https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 - El ile sağlama denemeler 'Kişi benim' aracılığıyla müşteriler için
 - Geliştirme bir müşteri 'Test sürücü' başına
 - Çok kiracılı örnek Tanıtım uygulamasını SSO ile derleme
@@ -392,7 +392,7 @@ Yayımlama işlemini başlatmadan önce bir teklifi oluşturmak için gerekli bi
 
 |Bu yapı yayımlama gerekir  |Bu teklif türü için  |
 |---------|---------|
-|Sürüm numarası     |    Transact ' Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)     |
+|**Sürüm numarası**     |    Transact ' Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)     |
 |**Tüm şablon dosyalarını ve createUIDefinitionFile içeren paket dosyası**   |Transact ' Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)         |
 |**İşletim sistemi ayrıntıları**    |   Transact ' sanal makineler      |
 |**Bağlantı noktalarını ve protokolleri kullanımda**    |  Transact ' sanal makineler       |
@@ -510,7 +510,7 @@ Hesap açılan Microsoft hesabı oturum açarak hesabınıza erişmek birden ço
 - Uzantı gerektirmez ve anahtar takım üyeleri için erişilebilir olan bir şirket telefon numarası ekleyin.
 - Genel olarak, güvenilen cihazları şirketinizin Geliştirici hesabınızla oturum açmak için kullandığınız geliştiriciler vardır. Tüm anahtar ekip üyelerinin bu güvenilen cihazlara erişimi olmalıdır. Bu hesap erişirken gönderilmek üzere güvenlik kodlarını gereksinimini azaltır.
 - Güvenilir olmayan bir Bilgisayardan hesabına erişime ihtiyacınız varsa, en fazla beş geliştiriciler bu erişimi sınırlayın. İdeal olarak, bu geliştiriciler hesabına erişmek ve bu da aynı coğrafi paylaşan ve ağ konumu makinelerden.
-- Şirketinizin güvenlik bilgisi en sık gözden [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) tüm geçerli olduğundan emin olmak için.
+- Şirketinizin güvenlik bilgisi en sık gözden [ https://account.live.com/proofs/Manage ](https://account.live.com/proofs/Manage) tüm geçerli olduğundan emin olmak için.
 
 Geliştirici hesabınızda öncelikle Güvenilen bilgisayarlarından erişilmesi. Hesap hafta başına oluşturulan kodlarını sayısına bir sınır olduğundan bu önemlidir. Ayrıca, en sorunsuz oturum açma deneyimi sağlar.
 Ek Geliştirici hesabı yönergeleri ve güvenlik hakkında daha fazla bilgi için tıklatın [burada](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
@@ -521,7 +521,7 @@ Ek Geliştirici hesabı yönergeleri ve güvenlik hakkında daha fazla bilgi iç
 
 Yeni bir e-posta adresi oluşturun öneririz  **@outlook.com**  etki alanı. Şu adımları uygulayın:
 
-1. Git [https://signup.live.com/signup](https://signup.live.com/signup) seçip **yeni bir e-posta adresi alın**
+1. Git [ https://signup.live.com/signup ](https://signup.live.com/signup) seçip **yeni bir e-posta adresi alın**
 
 
 2. Yeni bir e-posta adresi oluşturun ve bir parola girin. Bu yeni a Microsoft ID ve bir e-posta kutularına outlook.com hizmetinde oluşturur. Hesap oluşturulduktan kadar kayıt işlemine devam edin.
@@ -538,7 +538,7 @@ Bu son adım tamamlandıktan sonra tüm e-postaları/iletişimlerinden etki alan
 ### <a name="instructions-on-how-to-register-in-the-development-center"></a>Geliştirme Merkezi'nde kaydetmek yönergeler
 
 1. Yeni bir Internet Explorer InPrivate veya Incognito gözatma oturumu Chrome, kişisel hesabına açmadınız emin olmak için açın.
-2. Git [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) kendiniz bir satıcı geliştirme Merkezi'ndeki olarak kaydetmek için. Lütfen devam etmeden önce aşağıdaki önemli not okuyun.
+2. Git [ http://dev.windows.com/registration?accountprogram=azure ](http://dev.windows.com/registration?accountprogram=azure) kendiniz bir satıcı geliştirme Merkezi'ndeki olarak kaydetmek için. Lütfen devam etmeden önce aşağıdaki önemli not okuyun.
 
    ![Geliştirici Merkezi e-posta](./media/marketplace-publishers-guide/registerdevcenteremail.png)
 
@@ -548,7 +548,7 @@ Bu son adım tamamlandıktan sonra tüm e-postaları/iletişimlerinden etki alan
    ![Hesap bilgileri](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
    
    >[!WARNING]
-   >"Satış Yeri" ülkelerde: hizmetlerinizi Azure Market'te satmak için kayıtlı varlığınız onaylanan 'satış yeri' ülkelerin yukarıdaki birinden olması gerekir. Ödeme ve vergi nedeniyle kısıtlamadır. Daha fazla bilgi için [Market katılım ilkeleri] https://azure.microsoft.com/support/legal/marketplace/participation-policies/ bakın.
+   >"Satış Yeri" ülkelerde: hizmetlerinizi Azure Market'te satmak için kayıtlı varlığınız onaylanan 'satış yeri' ülkelerin yukarıdaki birinden olması gerekir. Ödeme ve vergi nedeniyle kısıtlamadır. Daha fazla bilgi için bkz: [Market katılım ilkeleri]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
 
 5. "Hesap türünüz" olarak seçin **şirket** ve ardından **sonraki** düğmesi.
 
@@ -614,7 +614,7 @@ Ticari teklifleri satın alma için yayımlamak isterseniz, ödeme ekleyin ve bi
 
 Lütfen bir destek bileti Geliştirici Merkezi kayıt ile ilgili sorununuz olursa, aşağıdaki gibi oturum:
 
-1. İçin destek bağlantı https://developer.microsoft.com/windows/support gidin
+1. Destek bağlantıya gidin https://developer.microsoft.com/windows/support
 2. Altında **bize** bölümünde, düğmeyi tıklatın **bir olay gönderme** ekran görüntüsü aşağıda gösterildiği gibi.
 3. "Yardım ile Geliştirme Merkezi" olarak seçin **sorun türü** ve "Yayımla uygulamaları ve yönetme" olarak **kategori**. Bundan sonra "Başlangıç e-posta." düğmesini tıklatın
 

@@ -3,8 +3,8 @@ title: "Microsoft Azure sertifikalı program aracılığıyla önceden onaylanm�
 description: "Microsoft Azure sertifikalı partner programı ve sanal makine görüntüsü, çözüm şablonu, geliştirici hizmet veya Azure Market veri hizmeti satın alma hakkında bilgi edinin"
 services: marketplace-publishing
 documentationcenter: na
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 tags: 
 ms.assetid: 7e9ebf17-07a1-4796-921f-d1d62046892d
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 6db5c8dc6aba4246b3672cf7931a266b26ad11db
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Microsoft Azure sertifikalı program önceden onaylanmıştır
-Bu makalede, Microsoft Azure sertifikalı böylece Azure Marketi çözümünüzü yayımlamak ve pazarlama avantajları uygun hale konusunda yönergeler sağlar. Microsoft Azure sertifikalı program ve onun avantajlarını ayrıntılı bakış için ziyaret [http://azure.com/certified](http://azure.com/certified).
+Bu makalede, Microsoft Azure sertifikalı böylece Azure Marketi çözümünüzü yayımlamak ve pazarlama avantajları uygun hale konusunda yönergeler sağlar. Microsoft Azure sertifikalı program ve onun avantajlarını ayrıntılı bakış için ziyaret [ http://azure.com/certified ](http://azure.com/certified).
 
 > [!IMPORTANT]
 > Azure sertifika yalnızca Azure Market sanal makine ya da bir çözüm şablonu oluşturmak için kullanacaksanız geçerlidir.

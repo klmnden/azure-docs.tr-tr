@@ -2,32 +2,28 @@
 title: "Azure Automation Değişiklikleri İzle | Microsoft Docs"
 description: "Değişiklik izleme çözümü, yazılım ve ortamınızda ortaya Windows hizmet değişiklikleri belirlemenize yardımcı olur."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c5f354c3e63856474e46e2b6928af829604e15
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: fcee2956d2d33133c5d1a5bf367643a2095cad71
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümü ile ortamınızdaki yazılım değişiklikleri izle
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümü ile ortamınızdaki Değişiklikleri İzle
 
 Bu makalede, ortamınızdaki değişiklikleri kolayca belirlemek için değişiklik izleme çözümü kullanmanıza yardımcı olur. Çözüm, Windows ve Linux yazılım, Windows ve Linux dosyaları, Windows kayıt defteri anahtarları, Windows Hizmetleri ve Linux Daemon değişiklikleri izler. Yapılandırma değişiklikleri tanımlayan işletim sorunları belirlemenize yardımcı olabilir.
 
 Yüklü yazılım, Windows Hizmetleri, Windows kayıt defteri ve dosya ve izlenen sunuculara Linux Daemon değişiklikleri işleme bulutta günlük analizi hizmetine gönderilir. Mantığı alınan verilere uygulanır ve bulut hizmeti verilerini kaydeder. Değişiklik izleme panosunda bilgileri kullanarak, sunucu altyapınızda yapılan değişiklikler kolayca görebilirsiniz.
 
-## <a name="enable-change-tracking-and-inventory"></a>Değişiklik izleme ve stok etkinleştir
+## <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzlemeyi ve Sayımı Etkinleştirme
 
 
 Değişiklikleri izlemeye başlamak için değişiklik izleme ve stok çözüm Automation hesabınız için etkinleştirmeniz gerekir.
@@ -53,16 +49,16 @@ Dosya izleme Linux bilgisayarlarda yapılandırmak için aşağıdaki adımları
 |Özellik  |Açıklama  |
 |---------|---------|
 |Etkin     | Ayar uygulanmış olup olmadığını belirler.        |
-|Öğe adı     | İzlenmesi gereken dosyasının kolay adı.        |
+|Öğe Adı     | İzlenmesi gereken dosyasının kolay adı.        |
 |Grup     | Dosyaları mantıksal gruplandırma için bir grup adı.        |
-|Yolu girin     | Dosya için denetlenecek yol. Örneğin: "/etc/*.conf"       |
-|Yol türü     | İzlenen, olası değerler öğesi türü: dosya ve dizin.        |
-|Özyineleme     | Özyineleme öğe için bakarken izlenmesi için kullanılıp kullanılmadığını belirler.        |
-|Sudo kullanın     | Bu ayar, sudo öğesi için Denetim yapılırken kullanılıp kullanılmadığını belirler.         |
-|Bağlantılar     | Bu ayar ile dizinleri çapraz geçiş yapan zaman ele nasıl sembolik bağlantılar belirler.<br> **Yoksay** - sembolik bağlantılar yoksayar ve başvurulan dosya veya dizinlerin içermez.<br>**İzleyin** - sembolik bağlantılar sırasında özyineleme izler ve ayrıca başvurulan dosya veya dizinlerin içerir.<br>**Yönetme** - sembolik bağlantılar izler ve döndürülen içeriğinin değiştirilmesine izin verir.     |
+|Yolu Gir     | Dosya için denetlenecek yol. Örneğin: "/etc/*.conf"       |
+|Yol Türü     | İzlenen, olası değerler öğesi türü: dosya ve dizin.        |
+|Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
+|Sudo Kullan     | Bu ayar, öğe denetlenirken sudonun kullanılıp kullanılmadığını belirler.         |
+|Bağlantılar     | Bu ayar, dizinleri dolaşırken sembolik bağlantıların nasıl ele alındığını belirler.<br> **Yoksay** - sembolik bağlantılar yoksayar ve başvurulan dosya veya dizinlerin içermez.<br>**İzleyin** - sembolik bağlantılar sırasında özyineleme izler ve ayrıca başvurulan dosya veya dizinlerin içerir.<br>**Yönetme** - sembolik bağlantılar izler ve döndürülen içeriğinin değiştirilmesine izin verir.     |
 
 > [!NOTE]
-> "Manage" bağlantıları seçeneği önerilmez. Dosya içeriği alma desteklenmiyor.
+> “Yönet” bağlantıları seçeneği önerilmez. Dosya içeriğini alma desteklenmiyor.
 
 ### <a name="configure-windows-files-to-track"></a>Windows dosyaları izlemek için yapılandırma
 
@@ -75,9 +71,9 @@ Windows bilgisayarlarda izleme dosyaları yapılandırmak için aşağıdaki ad�
 |Özellik  |Açıklama  |
 |---------|---------|
 |Etkin     | Ayar uygulanmış olup olmadığını belirler.        |
-|Öğe adı     | İzlenmesi gereken dosyasının kolay adı.        |
+|Öğe Adı     | İzlenmesi gereken dosyasının kolay adı.        |
 |Grup     | Dosyaları mantıksal gruplandırma için bir grup adı.        |
-|Yolu girin     | Dosyayı örneğin kontrol yolu: "c:\temp\myfile.txt"       |
+|Yolu Gir     | Dosyanın denetleneceği yol. Örneğin: “c:\temp\myfile.txt”       |
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Windows kayıt defteri anahtarlarını izlemek için
 
@@ -90,9 +86,9 @@ Windows bilgisayarlarda kayıt defteri anahtarı izleme yapılandırmak için a�
 |Özellik  |Açıklama  |
 |---------|---------|
 |Etkin     | Ayar uygulanmış olup olmadığını belirler.        |
-|Öğe adı     | İzlenmesi gereken dosyasının kolay adı.        |
+|Öğe Adı     | İzlenmesi gereken dosyasının kolay adı.        |
 |Grup     | Dosyaları mantıksal gruplandırma için bir grup adı.        |
-|Windows kayıt defteri anahtarı   | Dosya için denetlenecek yol. Örneğin: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Kabuk Folders\Common Başlangıç"      |
+|Windows Kayıt Defteri Anahtarı   | Dosya için denetlenecek yol. Örneğin: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Kabuk Folders\Common Başlangıç"      |
 
 ## <a name="limitations"></a>Sınırlamalar
 
@@ -195,8 +191,8 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan kayıtları örnek günlü
 
 |Sorgu  |Açıklama  |
 |---------|---------|
-|ConfigurationData<br>&#124; Burada ConfigDataType "WindowsServices" ve SvcStartupType == "Auto" ==<br>&#124; Burada SvcState "Durduruldu" ==<br>&#124; özetlemek arg_max(TimeGenerated, *) SoftwareName, bilgisayar tarafından         | Otomatik olarak ayarlanmış, ancak durduruldu olarak raporlandı Windows Hizmetleri için en son Envanter kayıtlarının gösterir<br>Bu SoftwareName ve bilgisayar için en son kayda sonuçları sınırlıdır      |
-|ConfigurationChange<br>&#124; Burada ConfigChangeType "Yazılım" ve ChangeCategory == "Kaldırıldı" ==<br>&#124; TimeGenerated desc sıralama|Kaldırılan yazılım değişikliği kayıtları gösterir|
+|ConfigurationData<br>&#124;Burada ConfigDataType "WindowsServices" ve SvcStartupType == "Auto" ==<br>&#124;Burada SvcState "Durduruldu" ==<br>&#124;özetlemek arg_max(TimeGenerated, *) SoftwareName, bilgisayar tarafından         | Otomatik olarak ayarlanmış, ancak durduruldu olarak raporlandı Windows Hizmetleri için en son Envanter kayıtlarının gösterir<br>Bu SoftwareName ve bilgisayar için en son kayda sonuçları sınırlıdır      |
+|ConfigurationChange<br>&#124;Burada ConfigChangeType "Yazılım" ve ChangeCategory == "Kaldırıldı" ==<br>&#124;TimeGenerated desc sıralama|Kaldırılan yazılım değişikliği kayıtları gösterir|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

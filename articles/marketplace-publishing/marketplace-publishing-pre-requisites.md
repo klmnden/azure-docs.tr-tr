@@ -3,8 +3,8 @@ title: "Azure Market teklifi oluşturmak için teknik olmayan önkoşulları | M
 description: "Oluşturma ve bir teklifi Azure satın almak için Marketinde başkalarının dağıtma gereksinimlerini anlayın."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5c30e62bf345843fe83b3f17b728e1a937d19ce3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Azure Market teklifi oluşturmak için genel Önkoşullar
 Teklif oluşturma işlemine ilerlemek için gereken genel, iş işlemi-merkezli Önkoşullar anlayın.
@@ -65,7 +65,7 @@ Yöneticileri yayımlanmasıyla, yayımlama ortak yönetici olarak, uygulama üz
 > 
 
 ## <a name="acquire-an-azure-pay-as-you-go-subscription"></a>"Kullandıkça Öde" Azure aboneliği edinin
-Bu VM görüntülerinizi oluşturmak ve görüntüleri üzerinden el için kullanacağınız aboneliğin olduğu [Azure Marketi](https://azure.microsoft.com/marketplace/). Mevcut bir aboneliğiniz yoksa, sonra lütfen https://account.windowsazure.com/signup?offer=ms-azr-0003p kaydolun.
+Bu VM görüntülerinizi oluşturmak ve görüntüleri üzerinden el için kullanacağınız aboneliğin olduğu [Azure Marketi](https://azure.microsoft.com/marketplace/). Mevcut bir aboneliğiniz yoksa, sonra lütfen oturum açın https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## <a name="sell-from-countries"></a>"Satış Yeri" ülkelerde
 > [!WARNING]

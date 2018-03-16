@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Kılavuzları ve önerileri Azure Service Fabric güvenilir koleksiyonlar için
 Bu bölümde, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kullanma yönergeleri sağlar. Amacı kullanıcıların yaygın tehlikesinden yardımcı olmaktır.
@@ -26,7 +26,7 @@ Bu bölümde, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kull
 Yönergeler koşulları önekli basit öneriler olarak düzenlenir *yapmak*, *düşünün*, *kaçının* ve *sağlamadığı*.
 
 * Okuma işlemleri tarafından döndürülen özel türde bir nesne değiştirmeyin (örneğin, `TryPeekAsync` veya `TryGetValueAsync`). Eşzamanlı koleksiyonları gibi güvenilir koleksiyonları nesneleri ve bir kopyasını bir başvuru döndürür.
-* Derin kopyalama değiştirmeden önce bir özel tür döndürülen nesne yapın. Yapılar ve yerleşik türler geçişi değerli olduğundan, onlar üzerinde derin bir kopya yapmak gerekmez.
+* Derin kopyalama değiştirmeden önce bir özel tür döndürülen nesne yapın. Yapılar ve yerleşik türler geçişi değerli olduğundan, başvuru yazılan alanları veya, değiştirmek istediğiniz özellikleri içermiyorsa onlar üzerinde derin bir kopya yapmak gerekmez.
 * Kullanmayın `TimeSpan.MaxValue` zaman aşımları için. Zaman aşımları kilitlenmeleri algılamak için kullanılmalıdır.
 * Bunu kabul edilen, iptal, atıldı veya oluşturulduktan sonra bir işlem kullanmayın.
 * Numaralandırma oluşturulduğu işlem kapsamı dışında kullanmayın.

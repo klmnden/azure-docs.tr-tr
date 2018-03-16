@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: cdfd09d90be9696dacc151e138920944c8bbd2c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5f867140981649b73bf6d0bc13eca539c7dc2209
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Yüksek performanslı işlem sanal makine boyutları
 
@@ -29,12 +29,11 @@ ms.lasthandoff: 02/09/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>RDMA özellikli örnekleri
-Bir alt işlem yoğunluklu örnekler (H16r, H16mr, NC24r, A8 ve A9), doğrudan uzak bellek erişimi (RDMA) bağlantısı için bir ağ arabirimi özelliği. Diğer VM boyutları için kullanılabilir standart Azure ağ arabirimi yanı sıra bu arabirimidir. 
-  
-Bu arabirim H16r, H16mr ve NC24r sanal makineler için FDR hızlarını ve A8 ve A9 sanal makineler için QDR hızlarını işletim bir InfiniBand ağ üzerinden iletişim kurmak RDMA özellikli örneklerini verir. RDMA yeteneklere ölçeklenebilirlik ve Intel MPI altında çalışan ileti geçirme arabirimi (MPI) uygulamaların performansını artırabilir yalnızca 5.x. Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı Azure RDMA sürücüleri ile uyumlu değil.
 
-RDMA özellikli sanal makineleri aynı kullanılabilirlik kümesinde (Azure Resource Manager dağıtım modeli kullandığınızda) ya da aynı bulut hizmetine (Klasik dağıtım modeli kullandığınızda) dağıtın. Azure RDMA ağ erişmek RDMA özellikli Linux VM'ler için ek gereksinimler izleyin.
+### <a name="mpi"></a>MPI 
+
+Yalnızca Intel MPI 5.x sürümleri desteklenir. Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı Azure Linux RDMA sürücüleri ile uyumlu değil.
+
 
 ### <a name="distributions"></a>Dağıtımlar
  
@@ -50,7 +49,7 @@ Bir işlem yoğunluklu VM RDMA bağlantısı destekleyen Azure Market görüntü
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
     
-* **CentOS tabanlı HPC** -CentOS tabanlı 7.3 HPC, CentOS tabanlı 7.1 HPC, CentOS tabanlı 6.8 HPC veya CentOS tabanlı 6.5 HPC (H-seri için sürüm 7.1 veya üzeri önerilir). RDMA sürücüler ve Intel MPI 5.1 VM yüklenir.  
+* **CentOS tabanlı HPC** -CentOS tabanlı 6.5 HPC veya sonraki bir sürümünü (H-seri için sürüm 7.1 veya üzeri önerilir). RDMA sürücüler ve Intel MPI 5.1 VM yüklenir.  
  
   > [!NOTE]
   > CentOS tabanlı HPC görüntülerinde çekirdek güncelleştirmeleri de devre dışı **yum** yapılandırma dosyası. Linux RDMA sürücüleri RPM paket olarak dağıtılır ve çekirdek güncelleştirdiyseniz sürücü güncelleştirmelerini çalışmayabilir nedeni budur.
@@ -63,7 +62,8 @@ Ek sistem yapılandırması, kümelenmiş sanal makinelerin MPI işlerini çalı
 ### <a name="network-topology-considerations"></a>Ağ topolojisi hakkında önemli noktalar
 * RDMA özellikli Linux VM'ler üzerinde Azure, Eth1 RDMA ağ trafiği için ayrılmış. Herhangi bir Eth1 ayarı veya bu ağa başvuran yapılandırma dosyasında herhangi bir bilgiyi değiştirmeyin. Eth0 normal Azure ağ trafiği için ayrılır.
 
-* Azure'da, IP üzerinden InfiniBand (IB) desteklenmiyor. Yalnızca IB üzerinden RDMA desteklenir.
+* Azure RDMA ağ adres alanı 172.16.0.0/16 ayırır. 
+
 
 ## <a name="using-hpc-pack"></a>HPC Pack kullanma
 [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsoft'un ücretsiz HPC küme ve iş yönetimi çözümü, işlem yoğunluklu örnekler Linux ile kullanmanız için bir seçenek değil. HPC Pack Destek'ın en son sürümlerine işlem bir Windows Server baş düğümü tarafından yönetilen Azure vm'lerinde dağıtılan düğümleri üzerinde çalışmak için birkaç Linux dağıtımları. Intel MPI çalıştıran RDMA özellikli Linux işlem düğümleri ile HPC Pack zamanlayabilir ve Linux MPI RDMA ağ erişim uygulamaları çalıştırın. Bkz: [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).

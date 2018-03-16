@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kapsayıcı izleme çözümüne günlük analizi
 
@@ -51,7 +51,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanter, performans
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Hizmet<br>Yapı | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Hizmet<br>Yapı | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Aç<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(tek başına) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux Sunucu<br>(tek başına) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -103,7 +103,7 @@ Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
     - Azure kapsayıcı hizmeti kullanarak Kubernetes kümeniz varsa, gözden [Kubernetes bir OMS Aracısı Yapılandırma](#configure-an-oms-agent-for-kubernetes).
     - Bir Azure kapsayıcı hizmeti DC/OS kümeniz varsa, altında daha fazla bilgi [Operations Management Suite ile Azure kapsayıcı hizmeti DC/OS kümesi izlemek](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Bir Docker Swarm modu ortamınız varsa, altında daha fazla bilgi [Docker Swarm için bir OMS Aracısı Yapılandırma](#configure-an-oms-agent-for-docker-swarm).
-    - Service Fabric ile kapsayıcılar kullanıyorsa, hakkında daha fazla bilgi edinin [Azure Service Fabric genel bakış](../service-fabric/service-fabric-overview.md).
+    - Service Fabric kümesi varsa, altında daha fazla bilgi [izlemek OMS günlük analizi ile kapsayıcıları](../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Gözden geçirme [Docker altyapısına Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) yükleme ve Windows çalıştıran bilgisayarlarda, Docker altyapılarını yapılandırma hakkında ek bilgi için makalenin.
 
@@ -544,7 +544,7 @@ Aşağıdaki tablo kapsayıcı izleme çözümü ve günlük arama sonuçlarınd
 
 | Veri türü | Günlük arama veri türü | Alanlar |
 | --- | --- | --- |
-| Konaklar ve kapsayıcıları için performans | `Type=Perf` | Bilgisayar, ObjectName, CounterName &#40; % işlemci zamanı, Disk MB okur, MB, bellek kullanımı MB Disk Yazar ağ Al bayt, ağ gönderme bayt, işlemci kullanımı sn, ağ &#41; CounterValue, TimeGenerated, sayaç yolu, SourceSystem |
+| Konaklar ve kapsayıcıları için performans | `Type=Perf` | Bilgisayar, ObjectName, CounterName &#40;% işlemci zamanı, Disk okuma MB, MB, bellek kullanımı MB Disk Yazar ağ bayt alma, ağ gönderme bayt, işlemci kullanımı sn, ağ&#41;, CounterValue, TimeGenerated, sayaç yolu, SourceSystem |
 | Kapsayıcı envanteri | `Type=ContainerInventory` | TimeGenerated, bilgisayar, ContainerHostname, görüntü, ImageTag, ContainerState, ExitCode, EnvironmentVar, komutu, CreatedTime, StartedTime, FinishedTime, SourceSystem, Containerıd, ImageID kapsayıcı adı |
 | Kapsayıcı görüntü envanteri | `Type=ContainerImageInventory` | TimeGenerated, bilgisayar, görüntü, ImageTag, ImageSize, VirtualSize, duraklatıldı, çalışıyor, durduruldu, başarısız, SourceSystem, ImageID, TotalContainer |
 | Kapsayıcı günlük | `Type=ContainerLog` | TimeGenerated, bilgisayar, görüntü kimliği, LogEntrySource, LogEntry, SourceSystem, Containerıd kapsayıcı adı |

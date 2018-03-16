@@ -1,7 +1,22 @@
-
+---
+title: "include dosyası"
+description: "include dosyası"
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 3dfc72ff0347a93c6c6dce0e7ec763dd8241c55b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="azure-backup"></a>Azure Backup
 
-Azure üretim iş yükleri çalıştıran VM'lerin yedeklenmesi için Azure Yedekleme'yi kullanın. Azure yedekleme, hem Windows hem de Linux VM'ler için uygulamayla tutarlı yedeklemeler destekler. Azure yedekleme coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yüklediğinizde tüm VM ya da yalnızca belirli dosyaları geri yükleyebilirsiniz. 
+Azure üretim iş yükleri çalıştıran VM'lerin yedeklenmesi için Azure Yedekleme'yi kullanın. Azure yedekleme, hem Windows hem de Linux VM'ler için uygulamayla tutarlı yedeklemeler destekler. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yükleme yaptığınızda VM’nin tamamını veya belirli dosyaları geri yükleyebilirsiniz. 
 
 Bir basit, uygulamalı giriş için Azure yedekleme Azure VM'ler için "Azure sanal makineleri yedekleyin" öğretici için bkz [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) veya [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
@@ -18,7 +33,7 @@ Tarafından başlayabiliriz [sanal makinelerinizi çoğaltma](https://aka.ms/a2a
 
 ## <a name="managed-snapshots"></a>Yönetilen anlık görüntüler 
 
-Geliştirme ve test ortamları anlık görüntüleri yönetilen diskler kullanan VM'lerin yedeklenmesi için hızlı ve basit bir seçenek sağlar. Yönetilen bir anlık görüntü bir salt okunur tam yönetilen bir disk kopyasıdır. Anlık görüntüler kaynak disk bağımsız var ve bir VM yeniden oluşturma için yeni yönetilen diskler oluşturmak için kullanılan. Bunlar, disk kullanılan bölümü göre faturalandırılır. Sağlanan kapasite 64 GB ve 10 GB gerçek kullanılan veri boyutunu ile yönetilen bir disk görüntüsünü oluşturursanız, örneğin, anlık görüntü yalnızca kullanılan veri boyutu 10 GB için faturalandırılır.  
+Geliştirme ve test ortamları anlık görüntüleri yönetilen diskler kullanan VM'lerin yedeklenmesi için hızlı ve basit bir seçenek sağlar. Yönetilen bir anlık görüntü bir salt okunur tam yönetilen bir disk kopyasıdır. Anlık görüntüler kaynak disk bağımsız var ve bir VM yeniden oluşturma için yeni yönetilen diskler oluşturmak için kullanılan. Bunlar, disk kullanılan bölümü göre faturalandırılır. Örneğin, bir yönetilen diskin sağlanan kapasitesi 64 GB ve gerçek kullanılan veri boyutu 10 GB olan bir anlık görüntüsünü oluşturursanız, yalnızca kullanılan veri boyutu olan 10 GB için faturalandırılırsınız.  
 
 Anlık görüntüleri oluşturma hakkında daha fazla bilgi için bkz:
 

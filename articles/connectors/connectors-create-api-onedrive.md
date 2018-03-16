@@ -3,7 +3,7 @@ title: "Logic Apps içinde OneDrive bağlayıcısını ekleyin | Microsoft Docs"
 description: "REST API parametreleri OneDrive bağlayıcısıyla genel bakış"
 services: logic-apps
 documentationcenter: 
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 15b88baf21ead5a6b9506c47ca9930d5088b8787
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>OneDrive Bağlayıcısı ile çalışmaya başlama
 Karşıya yükleme de dahil olmak üzere dosyalarınızı yönetmek için OneDrive bağlanmak, almak için dosyaları ve diğer silin. 
@@ -30,7 +30,7 @@ OneDrive ile:
 * Bir dosya oluşturulduğunda veya OneDrive'ınıza içinde güncelleştirildiğinde iş akışını başlatmak için Tetikleyiciler kullanın.
 * Eylemler bir dosya oluşturun ve bir dosyayı silmek için kullanın. Örneğin, yeni Office 365 e-posta eki (tetikleyici) alındığında, OneDrive (bir eylem) yeni bir dosya oluşturun.
 
-Bu konuda, bir mantıksal uygulama OneDrive Bağlayıcısı'nı kullanmayı gösterir ve ayrıca tetikleyiciler ve eylemler listelenmektedir.
+Bu makalede, bir mantıksal uygulama OneDrive Bağlayıcısı'nı kullanmayı gösterir ve ayrıca tetikleyiciler ve eylemler listelenmektedir.
 
 Logic Apps hakkında daha fazla bilgi için bkz: [logic apps nedir](../logic-apps/logic-apps-overview.md) ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -52,7 +52,7 @@ Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak iç
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    Oturum açmak için istenirse, oturum bağlantısı oluşturmak için Ayrıntılar girin. [Bağlantı oluşturmak](connectors-create-api-onedrive.md#create-the-connection) bu konudaki adımları listeler. 
+    Oturum açmak için istenirse, oturum bağlantısı oluşturmak için Ayrıntılar girin. [Bağlantı oluşturmak](connectors-create-api-onedrive.md#create-the-connection) bu makaledeki adımları listeler. 
    
    > [!NOTE]
    > Bu örnekte, mantıksal uygulama güncelleştirilir seçtiğiniz klasöründe bir dosya açıldığında çalıştırır. Bu tetikleyici sonuçlarını görmek için bir e-posta gönderir başka bir eylem ekleyin. Örneğin, Office 365 Outlook ekleme *bir e-posta Gönder* bir dosya güncelleştirildiğinde, e-postalar eylem. 
@@ -76,7 +76,7 @@ Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından 
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    Bağlantı bilgilerini istenirse, bağlantı oluşturmak için ayrıntılarını girin. [Bağlantı oluşturmak](connectors-create-api-onedrive.md#create-the-connection) bu konuda bu özellikleri açıklar. 
+    Bağlantı bilgilerini istenirse, bağlantı oluşturmak için ayrıntılarını girin. [Bağlantı oluşturmak](connectors-create-api-onedrive.md#create-the-connection) bu makalede bu özellikleri açıklar. 
    
    > [!NOTE]
    > Bu örnekte, OneDrive klasöründe yeni bir dosya oluşturun. Başka bir tetikleyici çıktısını OneDrive dosyası oluşturmak için kullanabilirsiniz. Örneğin, Office 365 Outlook ekleme *yeni bir e-posta geldiğinde* tetikleyici. OneDrive ekleme *dosyası oluştur* Content-Type ve ekleri kullandığı eylem Onedrive'da yeni dosyası oluşturmak için bir ForEach içindeki alanları. 

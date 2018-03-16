@@ -3,8 +3,8 @@ title: "VM teklifiniz Market için test | Microsoft Docs"
 description: "VM görüntüsü için Azure Marketi test etme anlayın."
 services: marketplace-publishing
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 7f225f113dd465f79d5d195b59a809fe3be6a1f8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>VM teklifiniz için Azure Marketi hazırlamada test etme
 Hazırlama, SKU özel ", test ve Market'te dağıtmadan önce işlevselliğini doğrulamak sandbox" dağıtma anlamına gelir. SKU dağıtmış olan bir müşteriye gibi hazırlama görüntülenir. VM görüntüsü için hazırlama edilmesini sertifikalı gerekir.
@@ -47,7 +47,7 @@ Hazırlama, SKU özel ", test ve Market'te dağıtmadan önce işlevselliğini d
    * İçerik pazarlama doğru markette gösterildiğini doğrulayın.
    * VM görüntüsü uçtan uca dağıtımı.
      
-      ![img harita portalı](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
+      ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
 > [!IMPORTANT]
 > Teklifiniz Yayımlama Portalı aracılığıyla Microsoft'a bildirmeyi kadar hazırlama kalacak [**Yayımla** sekmesini > düğmesine tıklayın **"İsteği onayı için anında iletme için üretim"**] için göndermek hazır Üretim. Bu, her şeyi listelenen giderek teklifiniz için hazırlık üzerinden takım onay tüm üyeleri için ideal bir zamandır.

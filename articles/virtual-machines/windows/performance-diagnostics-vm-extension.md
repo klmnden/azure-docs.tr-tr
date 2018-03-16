@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
 
@@ -227,9 +227,7 @@ PerfInsights aracı çeşitli günlükleri, yapılandırma ve seçilen senaryoya
 
 ## <a name="view-and-share-the-results"></a>Görüntülemek ve sonuçları paylaşmak
 
-Uzantı çıktısını bir klasörde depolanır. Klasör log_collection olarak adlandırılır ve varsayılan olarak (genellikle D:\log_collection) Temp sürücü altında bulunabilir. Bu klasörü altında tanılama günlüklerini ve bulguları ve öneriler içeren bir rapor içeren zip dosyaları görebilirsiniz.
-
-Zip dosyası yükleme sırasında sağlanan depolama hesabı bulabilirsiniz. 30 gün boyunca kullanılarak paylaşılmaktadır [paylaşılan erişim imzaları (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Adlı bir metin dosyası *zipfilename*_saslink.txt de log_collection klasöründe oluşturulur. Bu dosya zip dosyasını karşıdan yüklemek için oluşturulan SAS bağlantı içerir. Bu bağlantıya sahip olan herkes zip dosyası indirebilirsiniz.
+Uzantı çıktısı, yükleme sırasında belirtilen depolama hesabı karşıya ve 30 gün boyunca kullanarak paylaşılan bir zip dosyasında bulunabilir [paylaşılan erişim imzaları (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Bu zip dosyasını tanılama günlüklerini ve raporla bulgularını ve önerileri içerir. Çıktı zip dosyası SAS bağlantı adlı bir metin dosyası içinde bulunabilir *zipfilename*klasörü altında _saslink.txt **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<sürüm >**. Bu bağlantıya sahip olan herkes zip dosyası indirebilirsiniz.
 
 Üzerinde destek bileti çalışma destek mühendisine yardımcı olmak için Microsoft bu SAS bağlantı tanılama verilerini yüklemek için kullanabilirsiniz.
 
@@ -240,7 +238,7 @@ Zip dosyası doğrudan portalından uzantısı seçerek yükleyebilirsiniz olmal
 ![Performans Tanılama ekran ayrıntılı durumu](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> Portalda görüntülenen SAS bağlantı çalışmayabilir. Bu tarafından hatalı biçimlendirilmiş bir URL kodlama ve kod çözme işlemleri sırasında neden olabilir. Bunun yerine, doğrudan VM'den *_saslink.txt dosyasından bağlantı alabilirsiniz.
+> Portalda görüntülenen SAS bağlantı bazen çalışmayabilir. Bu tarafından hatalı biçimlendirilmiş bir URL kodlama ve kod çözme işlemleri sırasında neden olabilir. Bunun yerine, doğrudan VM'den *_saslink.txt dosyasından bağlantı alabilirsiniz.
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 
@@ -249,6 +247,6 @@ Zip dosyası doğrudan portalından uzantısı seçerek yükleyebilirsiniz olmal
     Uzantısı başarıyla hazırlandı uzantı durumunu gösteren sürece bu sorunu güvenle yoksayılabilir.
 - Uzantı günlükleri'ni kullanarak yükleme sırasında bazı sorunlar ele alabilir. Uzantı yürütme çıktısı aşağıdaki dizinde bulunan dosyalara kaydedilir:
 
-        C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
+        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
 Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/)seçip **alma desteği**. Azure destek kullanma hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/support/faq/).

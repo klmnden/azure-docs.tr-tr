@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a1ffd9311f6ff171502efe64557463abc49ad636
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay kılavuz tetikleyici
 
@@ -37,11 +37,11 @@ Olay *işleyicileri* almak ve işlemek olaylar. Azure işlevleri biridir birkaç
 
 Olay kılavuz tetikleyici içinde sağlanan [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet paketi. Paket için kaynak kodunu konusu [azure işlevleri eventgrid uzantı](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub depo.
 
-Paket için kullanılan [C# sınıf kitaplığı geliştirme](functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code) ve [işlevleri v2 bağlama uzantı kaydı](functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
 <!--
 If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
 -->
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Örnek
 
@@ -348,7 +348,7 @@ Bitirdiğinizde test, aynı abonelik için üretim uç nokta güncelleştirerek 
 
 ### <a name="create-a-requestbin-endpoint"></a>RequestBin uç noktası oluşturma
 
-RequestBin, HTTP isteklerini kabul eder ve istek gövdesi gösterir bir açık kaynak aracıdır. Http://requestb.in URL Azure olay kılavuz tarafından özel işleme alır. Sınama kolaylaştırmak için olay kılavuz doğru yanıt abonelik doğrulama isteklerine gerek kalmadan olaylar RequestBin URL'sine gönderir. İki test araçları aynı Muamele: http://webhookinbox.com ve http://hookbin.com.
+RequestBin, HTTP isteklerini kabul eder ve istek gövdesi gösterir bir açık kaynak aracıdır. http://requestb.in URL Azure olay kılavuz tarafından özel işleme alır. Sınama kolaylaştırmak için olay kılavuz doğru yanıt abonelik doğrulama isteklerine gerek kalmadan olaylar RequestBin URL'sine gönderir. İki test araçları aynı Muamele: http://webhookinbox.com ve http://hookbin.com.
 
 RequestBin yüksek verimlilik kullanım için tasarlanmamıştır. Aynı anda birden fazla olay gönderirseniz araçta tüm olaylarınızı göremeyebilirsiniz.
 

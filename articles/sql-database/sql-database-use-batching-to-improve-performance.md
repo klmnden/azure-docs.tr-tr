@@ -2,24 +2,18 @@
 title: "Toplu işleme Azure SQL veritabanı uygulama performansını artırmak için nasıl kullanılacağını"
 description: "Konu, toplu veritabanı işlemleri kanıt sağlar büyük ölçüde imroves hızını ve Azure SQL veritabanı uygulamalarınızın ölçeklenebilirlik. Bu toplu teknikler herhangi bir SQL Server veritabanı için çalışır makaleyi odağını Azure üzerinde olsa da."
 services: sql-database
-documentationcenter: na
 author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/12/2016
 ms.author: sstein
-ms.openlocfilehash: 8622bddc809c9d95f7acf359ff708d5ab31cf620
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Toplu işleme SQL veritabanı uygulama performansını artırmak için nasıl kullanılacağını
 Azure SQL veritabanı işlemleri önemli ölçüde toplu işleme, uygulamalarınızın ölçeklenebilirliğini ve performansı artırır. Avantajları anlamak için bir SQL veritabanına sıralı ve toplu istekleri karşılaştırmak bazı örnek test sonuçlarını ilk bölümü, bu makalenin ele alınmaktadır. Makalenin kalanında teknikleri, senaryoları ve başarıyla Azure uygulamalarınızda toplu işleme kullanmanıza yardımcı olması için dikkat edilecek noktalar gösterir.
@@ -300,10 +294,10 @@ Mimarinizi bağlı olarak, toplu işleme kolaylığını performans ve dayanıkl
 
 Bu kolaylığını nedeniyle, toplu işlem türünü değerlendirin. Daha agresif toplu (büyük toplu işlemler ve daha uzun zaman pencereleri) verilerle daha az önemlidir.
 
-### <a name="batch-size"></a>Toplu iş boyutu
+### <a name="batch-size"></a>Toplu işlem boyutu
 Bizim testlerinde genellikle daha küçük parçalara büyük toplu çiğnemekten avantajlı vardı. Aslında, bu alt bölümü genellikle tek bir büyük toplu iş gönderme daha yavaş performans ile sonuçlandı. Örneğin, 1000 satırı eklemek istediğiniz bir senaryo düşünün. Aşağıdaki tabloda küçük yığınlara bölünmüş zaman 1000 satır eklemek için tablo değerli parametrelerini kullanmak için gereken süreyi gösterir.
 
-| Toplu iş boyutu | Yineleme | Tablo değerli parametreleri (ms) |
+| Toplu işlem boyutu | Yineleme | Tablo değerli parametreleri (ms) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |

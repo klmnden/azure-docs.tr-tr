@@ -2,25 +2,19 @@
 title: "Otomatik ayarlama e-posta bildirimlerini nasıl yapılır Kılavuzu - Azure SQL veritabanı | Microsoft Docs"
 description: "Azure SQL veritabanını SQL sorgusunun analiz eder ve otomatik olarak kullanıcı iş yüküne uyum sağlar."
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
+manager: craigg
 ms.reviewer: carlrab
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a2799e45fbb54531289a89082f13e5ce0856c376
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-posta bildirimleri otomatik ayarlama
 

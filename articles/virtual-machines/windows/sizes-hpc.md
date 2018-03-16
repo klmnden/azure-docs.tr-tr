@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6f2c72689811d26f95a64fdf5f473606f3ea3f7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Yüksek performanslı bilgi işlem VM boyutları
 
@@ -29,16 +29,8 @@ ms.lasthandoff: 02/22/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>RDMA özellikli örnekleri
-Bir alt işlem yoğunluklu örnekler (H16r, H16mr, A8 ve A9), doğrudan uzak bellek erişimi (RDMA) bağlantısı için bir ağ arabirimi özelliği. Diğer VM boyutları için kullanılabilir standart Azure ağ arabirimi yanı sıra bu arabirimidir. 
-  
-Bu arabirim H16r ve H16mr sanal makineler için FDR hızlarını ve A8 ve A9 sanal makineler için QDR hızlarını işletim bir InfiniBand ağ üzerinden iletişim kurmak RDMA özellikli örneklerini verir. RDMA yeteneklere ölçeklenebilirlik ve ileti geçirme arabirimi (MPI) uygulamaların performansını artırabilir.
-
-RDMA özelliğine sahip Windows Azure RDMA ağa VM'ler için gereksinimleri şunlardır: 
 
 * **İşletim sistemi** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
-* **Kullanılabilirlik kümesi veya Bulut hizmeti** – RDMA özellikli sanal makineleri aynı kullanılabilirlik kümesinde (Azure Resource Manager dağıtım modeli kullandığınızda) ya da aynı bulut hizmetine (Klasik dağıtım modeli kullandığınızda) dağıtın. Azure Batch kullanırsanız, RDMA özellikli sanal makineleri aynı Havuzda olması gerekir.
 
 * **MPI** -Microsoft MPI (MS-MPI) 2012 R2 veya sonraki sürümlerde, Intel MPI kitaplığının 5.x
 
@@ -61,7 +53,6 @@ RDMA özelliğine sahip Windows Azure RDMA ağa VM'ler için gereksinimleri şun
 ## <a name="using-hpc-pack"></a>HPC Pack kullanma
 
 [Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsoft'un ücretsiz HPC küme ve iş yönetimi çözümü olan Windows tabanlı MPI uygulamaları ve diğer HPC iş yüklerini çalıştırmak için bir seçenek, bir işlem kümesi oluşturmak. HPC Pack 2012 R2 ve sonraki sürümler için RDMA özellikli sanal makineler dağıtıldığında Azure RDMA ağ kullanan MS MPI çalışma zamanı ortamı içerir.
-
 
 
 

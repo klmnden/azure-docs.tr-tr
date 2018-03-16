@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
@@ -34,8 +34,9 @@ Bu makale size yardımcı olacak sorun giderme bilgileri ilgili sık karşılaş
 - Sorunsuz SSO Firefox özel gözatma modunda çalışmıyor.
 - Geliştirilmiş korumalı mod açıldığında sorunsuz SSO Internet Explorer'da işe yaramaz.
 - Sorunsuz SSO iOS ve Android mobil tarayıcılar işe yaramaz.
+- Bir kullanıcı Active Directory içinde çok fazla gruplarının bir parçası ise, kullanıcının Kerberos bileti olasılıkla işlemek için çok büyük olacaktır ve bu sorunsuz SSO başarısız olmasına neden olur. Azure AD HTTPS istek üstbilgileri maksimum dosya boyutu 16 KB ile olabilir; Kerberos biletleri tanımlama bilgileri gibi diğer Azure AD yapılarını uyum sağlamak için bu sayıyı çok daha küçük olması gerekir. Bizim önerimiz olduğu kullanıcı grup üyeliklerini azaltmak ve yeniden deneyin.
 - 30 veya daha fazla Active Directory ormanları eşitliyorsanız, Azure AD Connect ile sorunsuz SSO etkinleştiremezsiniz. Geçici bir çözüm olarak, şunları yapabilirsiniz [el ile etkinleştirmeniz](#manual-reset-of-azure-ad-seamless-sso) kiracınız özelliği.
-- Azure AD hizmet URL'si (https://autologon.microsoftazuread-sso.com) yerel intranet bölgesine yerine Güvenilen siteler bölgesine ekleme *kullanıcıların açmasını engelleyen*.
+- Azure AD hizmeti URL'si ekleme (https://autologon.microsoftazuread-sso.com) yerel intranet bölgesine yerine Güvenilen siteler bölgesine *kullanıcıların açmasını engelleyen*.
 - Kullanımını devre dışı bırakma **RC4_HMAC_MD5** Active Directory ayarlarınızda şifreleme türü Kerberos için sorunsuz SSO bozar. İlke değeri sağlamak, Grup İlkesi Yönetimi Düzenleyicisi aracında **RC4_HMAC_MD5** altında **bilgisayar yapılandırması -> Windows Ayarları -> Güvenlik Ayarları -> yerel ilkeler -> güvenlik seçenekleri - > "Ağ güvenliği: Kerberos için izin verilen şifreleme türleri yapılandırma"** "Etkin".
 
 ## <a name="check-status-of-feature"></a>Özellik durumunu denetleme
@@ -75,7 +76,7 @@ Sorunsuz SSO sorunlarını gidermek için aşağıdaki denetim listesini kullan�
 
 - Azure AD Connect sorunsuz SSO özelliği etkin olduğundan emin olun. Özelliği (örneğin, nedeniyle engellenen bir bağlantı noktası) etkinleştiremezsiniz tümüne sahip olun [Önkoşullar](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) yerinde.
 - Her ikisi de etkinleştirdiyseniz, [Azure AD katılım](../active-directory-azureadjoin-overview.md) ve Kiracı üzerinde sorunsuz SSO emin sorunu Azure AD katılımı ile. Cihaz Azure AD ile kayıtlı ve etki alanına katılmış değilse Azure AD katılım gelen SSO sorunsuz SSO önceliklidir. Azure AD katılım gelen SSO "Windows bağlı" diyen bir oturum açma döşeme kullanıcı görür.
-- Azure AD URL'si (https://autologon.microsoftazuread-sso.com) kullanıcının Intranet bölgesi ayarlarının bir parçası olduğundan emin olun.
+- Azure AD URL'si emin olun (https://autologon.microsoftazuread-sso.com) kullanıcının Intranet bölgesi ayarlarını bir parçasıdır.
 - Kurumsal cihaz Active Directory etki alanına katılmış emin olun.
 - Kullanıcı aygıt bir Active Directory etki alanı hesabıyla oturum açmış emin olun.
 - Kullanıcı hesabının sorunsuz SSO burada bırakıldı bir Active Directory ormanından kurulduğundan emin olun.

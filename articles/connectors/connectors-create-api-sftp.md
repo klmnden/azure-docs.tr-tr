@@ -3,7 +3,7 @@ title: "Logic apps içinde SFTP Bağlayıcısı'nı kullanmayı öğrenin | Micr
 description: "Logic apps ile Azure uygulama hizmeti oluşturun. Dosya gönderme ve alma için SFTP API'sine bağlayın. Gibi oluştururken, güncelleştirme, almak veya dosyaları silme çeşitli işlemler gerçekleştirebilirsiniz."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 1abc15daaa96e834aedd121a88b543067e53641b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ee4dd59bd7b4c09cccadfff29868029559955c28
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-sftp-connector"></a>SFTP Bağlayıcısı ile çalışmaya başlama
 Dosya gönderme ve alma için bir SFTP hesaba erişmek için SFTP Bağlayıcısı'nı kullanın. Gibi oluştururken, güncelleştirme, almak veya dosyaları silme çeşitli işlemler gerçekleştirebilirsiniz.  
@@ -45,7 +45,7 @@ Bir kurumsal örnekte, bu tetikleyici müşteri siparişleri temsil eden yeni do
 > 
 > 
 
-## <a name="add-a-condition"></a>Koşul ekle
+## <a name="add-a-condition"></a>Koşul Ekle
 > [!INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
 > 
 > 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3ea1687e7fb6cc7af00e03b85fb48b0d7911275
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>İzleme ve tanılama Windows VM ve Azure Resource Manager şablonları ile kullanın.
 Azure tanılama uzantısını bir Windows tabanlı Azure sanal makinede izleme ve tanılama yetenekleri sağlar. Bu özellikler sanal makinede uzantı Azure Resource Manager şablonu bir parçası olarak dahil ederek etkinleştirebilirsiniz. Bkz: [VM uzantıları ile Azure Resource Manager şablonları yazma](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) uzantıyı bir sanal makine şablonunun parçası olarak dahil olmak üzere daha fazla bilgi. Bu makalede, Azure tanılama uzantısını bir windows sanal makine şablonu nasıl ekleyebileceğiniz açıklanmaktadır.  
@@ -152,7 +152,7 @@ Birden çok sanal makine bir döngüde oluşturuyorsanız, doldurmak zorunda *Re
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-MetricAggregation değeri *PT1H* ve *PT1M* bir dakika içinde bir toplama ve bir saat içinde bir toplama türünü belirtir.
+MetricAggregation değeri *PT1M* ve *PT1H* bir dakika içinde bir toplama ve bir saat içinde bir toplama sırasıyla bitişini işaret eder.
 
 ## <a name="wadmetrics-tables-in-storage"></a>Depolama WADMetrics tabloları
 Yukarıdaki ölçümleri yapılandırma aşağıdaki adlandırma kuralları ile tanılama depolama hesabınızdaki tablolar oluşturur:
@@ -168,7 +168,7 @@ Yukarıdaki ölçümleri yapılandırma aşağıdaki adlandırma kuralları ile 
 Her WADMetrics tablo şu sütunları içerir:
 
 * **PartitionKey**: bölüm anahtarı göre oluşturulan *ResourceId* VM kaynak benzersiz şekilde tanımlamak için değer. Örneğin: 002Fsubscriptions:<subscriptionID>: 002FresourceGroups:002F<ResourceGroupName>: 002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-* **RowKey**: biçimdedir `<Descending time tick>:<Performance Counter Name>`. Azalan zaman onay hesaplaması max zaman çizgilerine toplama süresi başlangıç zamanı eksi olur. Örneğin örnek süresi 10-Kas-2015 tarihinde başlatılan ve 00:00Hrs UTC sonra hesaplama olacaktır: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. İçin bellek kullanılabilir bayt performans sayacı satır anahtarını gibi görünür:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **RowKey**: biçimdedir `<Descending time tick>:<Performance Counter Name>`. Azalan zaman onay hesaplaması max zaman çizgilerine toplama süresi başlangıç zamanı eksi olur. Örneğin örnek süresi 10-Kas-2015 tarihinde başlatılan ve 00:00Hrs UTC sonra hesaplama olacaktır: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. İçin bellek kullanılabilir bayt performans sayacı satır anahtarını gibi görünür: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: performans sayacı adıdır. Bu eşleşen *counterSpecifier* xml yapılandırma dosyasında tanımlanmış.
 * **En fazla**: performans sayacı toplama süre boyunca en büyük değeri.
 * **En düşük**: performans sayacı toplama süre boyunca en küçük değeri.

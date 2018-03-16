@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory konumlarında adlı | Microsoft Docs"
-description: "Ne adlı bilgi konumları olan ve bunların nasıl yapılandırılacağı."
+title: "Azure Active Directory'de adlandırılmış konumlarını yapılandırma | Microsoft Docs"
+description: "Adlandırılmış konumlara yapılandırmayı öğrenin."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory'de adlandırılmış konumları
+# <a name="configure-named-locations-in-azure-active-directory"></a>Azure Active Directory'de adlandırılmış konumlarını yapılandır
 
 Adlandırılmış konumlarla kuruluşunuzdaki güvenilen IP adres aralıklarını etiketleyebilirsiniz. Azure Active Directory bağlamında adlandırılmış konumlara kullanır:
 
@@ -89,22 +89,14 @@ Belirtilen konum yapılandırma sayfasında erişebilirsiniz **güvenlik** tıkl
 
 
 
-## <a name="what-you-should-know"></a>Bilmeniz gerekenler
-
-**Toplu güncelleştirmeler**: oluşturduğunuzda veya toplu güncelleştirmeler için adlandırılmış konumlarını güncelleştirin karşıya yükleme veya IP aralıklarını içeren bir CSV dosyası indirme. Karşıya yükleme IP aralıklarını dosyasında listenin üzerine yerine listesine ekler.
-
-![Karşıya yükleme ve indirme bağlantıları](./media/active-directory-named-locations/09.png)
-
-
-**Sınırlamalar**: en fazla 60 adlandırılmış konumları, her birine atanan bir IP aralığı ile tanımlayabilirsiniz. Yapılandırılmış tek bir adlandırılmış konumunuz varsa, en fazla 500 IP aralıkları için tanımlayabilirsiniz.
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinmek için:
+Daha fazla bilgi için bkz.
 
-- **Risk olayları**, bkz: [Azure Active Directory risk olaylarını](active-directory-reporting-risk-events.md).
+- [Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md).
 
-- **Koşullu erişim**, bkz: [koşullu erişim Azure Active Directory'de](active-directory-conditional-access-azure-portal.md).
+- [Azure Active Directory koşullu erişim konumu koşullar](active-directory-conditional-access-locations.md)
 
-- **Riskli oturum açma işlemleri raporları**, bkz: [riskli oturum açma işlemleri raporu Azure Active Directory portalında](active-directory-reporting-security-risky-sign-ins.md).  
+- [Azure Active Directory risk olaylarını](active-directory-reporting-risk-events.md).
+
+- [Azure Active Directory portalında riskli oturum açma işlemleri raporu](active-directory-reporting-security-risky-sign-ins.md).  

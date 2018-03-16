@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: ac0088478701a1796380daa74602569800c1522e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -211,6 +211,7 @@ Azure Cosmos DB tablo API ile tabloları oluşturmak istediğiniz Azure Table de
 * CORS şu anda desteklenmiyor
 * Azure Table depolama tablo adları büyük küçük harfe duyarlı değildir, ancak Azure Cosmos DB tablo API oldukları
 * İkili alanları gibi kodlama bilgilerini Azure Cosmos DB'ın iç biçimlerinden bazıları şu anda bir beğenebileceğiniz olarak etkin değildir. Bu nedenle bu beklenmeyen sınırlamaları veri boyutuna neden olabilir. Örneğin, şu anda bir tablo varlığının tam 1 MB verinin boyutunu artırır kodlama için ikili verileri depolamak için kullanın uygulanamadı.
+* Varlık özellik adı "Id" şu anda desteklenmiyor
 
 REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen uç noktalar/sorgu seçeneklerini sayısı vardır:
 | REST yöntemleri | REST uç noktası/sorgu seçeneği | Belge URL'leri | Açıklama |
@@ -282,7 +283,7 @@ Evet, her bağlantı dizesi aracılığıyla kendi URI işaret CloudTableClient,
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Bu sunumun var olan bir Azure Table depolama uygulamayı nasıl geçişini?
 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) ve [Azure Cosmos DB veri geçiş aracı](import-data.md) desteklenen olan iki.
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Örneğin, t ile başlatırsanız, bu hizmet için yapılan depolama boyutunu genişletme nasıl yapıldığını  *n*  GB veri ve verilerimi zamanla 1 TB'ye kadar büyüme? 
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Örneğin, t ile başlatırsanız, bu hizmet için yapılan depolama boyutunu genişletme nasıl yapıldığını *n* GB veri ve verilerimi zamanla 1 TB'ye kadar büyüme? 
 Azure Cosmos DB yatay ölçekleme kullanımı aracılığıyla sınırsız depolama sağlamak için tasarlanmıştır. Hizmet izlemek ve etkili bir şekilde depolama alanınızın artırın. 
 
 ### <a name="how-do-i-monitor-the-table-api-offering"></a>Tablo API teklifinin nasıl izlerim?
@@ -377,7 +378,7 @@ olmayan - .NET SDK'ları için dizin oluşturma ilkesini yalnızca portalında a
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Bir platform olarak Azure Cosmos DB sıralama, toplamlar, hiyerarşi ve diğer işlevleri gibi özellikleri, pek çok görünüyor. Tablo API için bu özellikler ekleme? 
-Tablo API Azure Table storage aynı sorgu işlevleri sağlar. Azure Cosmos DB, sıralama, toplamalar, Jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevler de destekler. Biz gelecekteki hizmeti güncelleştirmesine tablo API ek işlevsellik sağlar. Daha fazla bilgi için bkz: [SQL sorguları](sql-api-sql-query.md).
+Tablo API Azure Table storage aynı sorgu işlevleri sağlar. Azure Cosmos DB ayrıca sıralama, toplamalar, jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevleri de destekler. Biz gelecekteki hizmeti güncelleştirmesine tablo API ek işlevsellik sağlar. Daha fazla bilgi için bkz: [SQL sorguları](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Tablo API için zaman TableThroughput değiştiririm?
 Aşağıdaki koşullardan herhangi biri geçerli olduğu durumlarda TableThroughput değiştirmeniz gerekir:

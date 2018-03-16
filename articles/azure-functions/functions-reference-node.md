@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d63c95c849c8ef6011557c72240e56071ba614f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -271,7 +271,7 @@ Aşağıdaki tabloda her ana işlevleri çalışma zamanı sürümü tarafından
 | İşlevler sürümü | Node.js sürümü | 
 |---|---|
 | 1.x | 6.11.2 (çalışma zamanı tarafından kilitlenmiş) |
-| 2.x  |> = 8.4.0 geçerli LTS önerilen 8.9.4 ile. Sürüm WEBSITE_DEFAULT_NODE_VERSION kullanarak ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  |> = 8.4.0 geçerli LTS önerilen 8.9.4 ile. Sürüm WEBSITE_NODE_DEFAULT_VERSION kullanarak ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 Yazdırma tarafından kullanma çalışma zamanı geçerli sürümü görebilirsiniz `process.version` herhangi işlevi.
 

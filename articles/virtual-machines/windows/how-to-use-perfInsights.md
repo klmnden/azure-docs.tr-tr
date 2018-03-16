@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights kullanma 
 
@@ -238,11 +238,11 @@ PerfInsights aracını çalıştırmak için aşağıdaki adımları izleyin:
     >
     >Süre geçiş yaparsanız **/d** belirtilmezse, PerfInsights sorar için yeniden oluşturma sorunu vmslow, geçirme ve özel senaryoları çalıştırılırken. 
 
-İzlemeler veya işlem tamamlandığında, yeni bir dosya D: görünür\\günlük\_koleksiyonu (veya geçici sürücüsü). Dosya adı **CollectedData\_yyyy-aa-gg\_hh\_mm\_ss.zip.** Analiz için destek aracı bu dosyayı göndermek veya raporu bulgularını ve önerileri gözden geçirmek için zip dosyası içinde açın.
+İzlemeler veya işlem tamamlandığında, yeni bir dosya PerfInsights ile aynı klasörde görüntülenir. Dosya adı **CollectedData\_yyyy-aa-gg\_hh-aa-ss-fff.zip.** Analiz için destek aracı bu dosyayı göndermek veya raporu bulgularını ve önerileri gözden geçirmek için zip dosyası içinde açın.
 
 ## <a name="review-the-diagnostics-report"></a>Tanılama raporu gözden geçirin
 
-İçinde **CollectedData\_yyyy-aa-gg\_hh\_mm\_ss.zip** dosyası PerfInsights bulgularını ayrıntıları bir HTML raporu bulabilir. Raporu gözden geçirmek için genişletme **CollectedData\_yyyy-aa-gg\_hh\_mm\_ss.zip** dosya ve ardından açın **PerfInsights raporu.HTML** dosya.
+İçinde **CollectedData\_yyyy-aa-gg\_hh-aa-ss-fff.zip** dosyası PerfInsights bulgularını ayrıntıları bir HTML raporu bulabilir. Raporu gözden geçirmek için genişletme **CollectedData\_yyyy-aa-gg\_hh-aa-ss-fff.zip** dosya ve ardından açın **PerfInsights raporu.HTML** dosya.
 
 Seçin **bulgularını** sekmesi.
 
@@ -307,4 +307,4 @@ Aşağıdaki ekran görüntüsü almayı benzer bir ileti gösterir:
 
 Dosya aktarımı çalışma alanına erişmek için iletideki yönergeleri izleyin. Ek güvenlik için ilk kullanım parolanızı değiştirmeniz gerekir.
 
-Oturum açtıktan sonra karşıya yüklemek için bir iletişim kutusu bulacaksınız **CollectedData\_yyyy-aa-gg\_hh\_mm\_ss.zip** PerfInsights tarafından toplanan dosya.
+Oturum açtıktan sonra karşıya yüklemek için bir iletişim kutusu bulacaksınız **CollectedData\_yyyy-aa-gg\_hh-aa-ss-fff.zip** PerfInsights tarafından toplanan dosya.

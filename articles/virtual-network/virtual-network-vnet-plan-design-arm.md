@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planlama ve Azure sanal ağlar tasarlama
 Denemeniz için bir VNet oluşturma yeterince kolay, ancak büyük olasılıkla, birden çok sanal ağlar, kuruluşunuzun üretim gereksinimlerini desteklemek için zaman içinde dağıtır. Bazı planlama ve tasarım ile sanal ağlar dağıtabilmeli ve daha etkili bir şekilde ihtiyacınız olan kaynakları bağlanmak olacaktır. Sanal ağlar ile bilmiyorsanız, önermiştir, [sanal ağlar hakkında bilgi edinin](virtual-networks-overview.md) ve [nasıl dağıtılacağı](quick-create-portal.md) devam etmeden önce bir.
@@ -248,7 +248,7 @@ Erişim denetimi için aşağıdaki gereksinimleri ilişkili:
 Bu gereksinimlerine bağlı olarak, kullanıcıların ağ ekibinden yerleşik ekleyebilirsiniz **ağ Katılımcısı** her abonelik; rolünde ve hakları vermek her Abonelikteki uygulama geliştiricileri için özel bir rol oluşturun VM'ler için var olan alt ağlar eklemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir sanal ağı dağıtmak](virtual-networks-create-vnet-arm-template-click.md) bir senaryoyu temel.
+* [Bir sanal ağı dağıtmak](quick-create-portal.md).
 * Anlamak nasıl [Yük Dengelemesi](../load-balancer/load-balancer-overview.md) Iaas Vm'leri ve [üzerinde birden fazla Azure bölgesine yönlendirmesi yönetmek](../traffic-manager/traffic-manager-overview.md).
-* Daha fazla bilgi edinmek [Nsg'ler ve planlamak ve tasarlamak nasıl](virtual-networks-nsg.md) bir NSG çözümü.
+* Daha fazla bilgi edinmek [ağ güvenlik grubu](security-overview.md) NSG çözümünü.
 * Daha fazla bilgi edinmek, [şirket içi ve sanal ağ bağlantısı seçenekleri](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

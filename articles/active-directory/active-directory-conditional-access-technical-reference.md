@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e65371396b91c1dc97f504bac8b969093f5c518
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -148,7 +148,7 @@ Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarı 
 |Yol | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Ad | 1 |
 |Tür | REG_SZ (String) |
-|Veriler | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
+|Veriler | {"düzeni": "https://device.login.microsoftonline.comfiltre" ",": {"Veren": {"CN =": "MS Kuruluş erişim"}}}|
 
 Bu tarayıcılar tanımlanması ve bir ilke karşı doğrulanmış olanak tanır cihaz kimlik doğrulamasını destekler. Tarayıcı özel modda çalışıyorsa, aygıt denetimi başarısız olur. 
 
@@ -164,24 +164,25 @@ Koşullu erişim ilkenizi seçtiğiniz **mobil uygulamalar ve Masaüstü istemci
 Bu ayar aşağıdaki mobil uygulamalar ve Masaüstü istemcileri yapılan erişim denemesi üzerinde bir etkisi vardır: 
 
 
-|İstemci uygulamaları|Hedef hizmet|Platform|
-|---|---|---|
-|Azure RemoteApp|Azure uzak uygulama hizmeti|Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
-|Dynamics CRM uygulaması|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
-|Takvim/posta/kişiler uygulama, Outlook 2016 (modern kimlik doğrulaması ile) Outlook 2013|Office 365 Exchange Online|Windows 10|
-|MFA ve konum İlkesi uygulamalar için. Cihaz tabanlı ilkeleri desteklenmez. |Herhangi bir My uygulamaları uygulama hizmeti|Android ve iOS|
-|Microsoft ekipleri Hizmetleri - bu Microsoft Teams ve tüm alt istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS |
-|Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemci (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016 uygulamalar, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisi (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
-|MacOS (Word, Excel, PowerPoint, yalnızca OneNote) için Office 2016. OneDrive iş desteğine gelecek için planlanan|Office 365 SharePoint Online|Mac OS X|
-|Office mobil uygulamaları|Office 365 SharePoint Online|Android, iOS|
-|Office Yammer uygulaması|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office macOS için)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal (modern kimlik doğrulaması)|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Outlook mobil uygulama|Office 365 Exchange Online|Android, iOS|
-|Power BI uygulaması|Powerbı hizmeti|Windows 10, Windows 8.1, Windows 7 ve iOS|
-|Skype Kurumsal|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services uygulama|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+| İstemci uygulamaları| Hedef hizmet| Platform |
+| --- | --- | --- |
+| Azure RemoteApp| Azure uzak uygulama hizmeti| Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
+| Dynamics CRM uygulaması| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+| Takvim/posta/kişiler uygulama, Outlook 2016 (modern kimlik doğrulaması ile) Outlook 2013| Office 365 Exchange Online| Windows 10|
+| MFA ve konum İlkesi uygulamalar için. Cihaz tabanlı ilkeleri desteklenmez.| Herhangi bir My uygulamaları uygulama hizmeti| Android ve iOS|
+| Microsoft ekipleri Hizmetleri - bu Microsoft Teams ve tüm alt istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS|
+| Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemci (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Office 2016 uygulamalar, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisi (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan| Office 365 SharePoint Online| Windows 10|
+| MacOS (Word, Excel, PowerPoint, yalnızca OneNote) için Office 2016. OneDrive iş desteğine gelecek için planlanan| Office 365 SharePoint Online| Mac OS X|
+| Office mobil uygulamaları| Office 365 SharePoint Online| Android, iOS|
+| Office Yammer uygulaması| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2016 (Office macOS için)| Office 365 Exchange Online| Mac OS X|
+| Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal (modern kimlik doğrulaması)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Outlook mobil uygulama| Office 365 Exchange Online| Android, iOS|
+| Power BI uygulaması| Powerbı hizmeti| Windows 10, Windows 8.1, Windows 7, Android ve iOS|
+| Skype Kurumsal| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services uygulama| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+
 
 
 ## <a name="approved-client-app-requirement"></a>Onaylanmış istemci uygulama gereksinimi 
@@ -221,10 +222,6 @@ Bu ayar, aşağıdaki istemci uygulamalar için geçerlidir:
 - **Onaylanmış istemci uygulaması gerektiren** gereksinimi:
 
     - Yalnızca iOS ve Android için destekler [cihaz platformu koşul](#device-platforms-condition).
-
-    - Desteklemediği **tarayıcı** seçenek için [istemci uygulamaları koşul](#supported-browsers).
-    
-    - Yerine geçen **mobil uygulamalar ve Masaüstü istemcileri** seçenek için [istemci uygulamaları koşulu](#supported-mobile-apps-and-desktop-clients) bu seçeneği seçildiğinde.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

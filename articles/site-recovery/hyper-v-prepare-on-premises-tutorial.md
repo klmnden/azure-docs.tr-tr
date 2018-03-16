@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9524ffde4a588d3ac029bc8a3df91726082e157d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Olağanüstü durum kurtarma Azure için şirket içi Hyper-V sunucuları hazırlama
 
@@ -28,25 +28,16 @@ Bu, serideki ikinci öğreticidir. Önceki öğreticide açıklandığı gibi [A
 
 
 
-## <a name="review-server-requirements"></a>Sunucu gereksinimlerini gözden geçirme
+## <a name="review-requirements-and-prerequisites"></a>Gözden geçirme gereksinimleri ve Önkoşullar
 
-Hyper-V konakları aşağıdaki gereksinimleri karşıladığından emin olun. System Center Virtual Machine Manager (VMM) bulutlarında ana bilgisayarları yönetiyorsanız, VMM gereksinimlerini doğrulayın.
+Emin Hyper-V konakları ve VM'ler gereksinimleriyle uyumlu hale getirir.
 
+1. [Doğrulama](hyper-v-azure-support-matrix.md#on-premises-servers) şirket içi sunucu gereksinimleri.
+2. [Gereksinimleri kontrol](hyper-v-azure-support-matrix.md#replicated-vms) Hyper-V sanal makinelerini Azure'a çoğaltmak istediğiniz için.
+3. Hyper-V konağı denetleyin [ağ](hyper-v-azure-support-matrix.md#hyper-v-network-configuration); ve ana hem de Konuk [depolama](hyper-v-azure-support-matrix.md#hyper-v-host-storage) şirket içi Hyper-V konakları için destek.
+4. İçin desteklenen denetleyin [Azure ağ](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [depolama](hyper-v-azure-support-matrix.md#azure-storage), ve [işlem](hyper-v-azure-support-matrix.md#azure-compute-features), yük devretme sonrasında.
+5. Şirket içi Vm'leriniz Azure'a çoğaltmak uymalıdır [Azure VM gereksinimleri](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
-**Bileşen** | **VMM tarafından yönetilen Hyper-V** | **VMM olmadan Hyper-V**
---- | --- | ---
-**Hyper-V ana bilgisayar işletim sistemi** | Windows Server 2016, 2012 R2 | NA
-**VMM** | VMM 2012, VMM 2012 R2 | NA
-
-
-## <a name="review-hyper-v-vm-requirements"></a>Hyper-V VM gereksinimlerini gözden geçirin
-
-VM tabloda özetlenen gereksinimleri uygun olduğundan emin olun.
-
-**VM gereksinimi** | **Ayrıntılar**
---- | ---
-Konuk işletim sistemi | Bir konuk işletim sistemi [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868.aspx).
-**Azure gereksinimleri** | Hyper-V sanal makineleri Azure VM requirements(site-recovery-support-matrix-to-azure.md) karşılamalıdır şirket içi.
 
 ## <a name="prepare-vmm-optional"></a>VMM (isteğe bağlı) hazırlama
 
@@ -82,13 +73,14 @@ VMM, ağ eşlemesi için aşağıdaki gibi hazırlayın:
 
 Bir yük devretme senaryosu sırasında çoğaltılmış şirket içi ağınıza bağlamak isteyebilirsiniz.
 
-Yük devretmeden sonra RDP kullanarak Windows VM’lerine bağlanmak için aşağıdakileri yapın:
+Windows Yük devretme işleminden sonra RDP kullanarak VM'ler bağlanmak için aşağıdaki gibi erişime izin ver:
 
 1. İnternet üzerinden erişmek için, yük devretmeden önce şirket içi VM’de RDP’yi etkinleştirin. TCP ve UDP kurallarının **Ortak** profil için eklendiğinden ve tüm profillerde **Windows Güvenlik Duvarı** > **İzin Verilen Uygulamalar** içinde RDP’ye izin verildiğinden emin olun.
 2. Siteden siteye VPN üzerinden erişmek için, şirket içi makinede RDP’yi etkinleştirin. **Etki Alanı ve Özel** ağlar için **Windows Güvenlik Duvarı** -> **İzin verilen uygulama ve özellikler içinde** RDP’ye izin verilmelidir.
    İşletim sisteminin SAN ilkesinin **OnlineAll** olarak ayarlandığından emin olun. [Daha fazla bilgi edinin](https://support.microsoft.com/kb/3031135). Bir yük devretme tetiklediğinizde VM’de bekleyen Windows güncelleştirmelerinin olmaması gerekir. Varsa, güncelleştirme tamamlanana kadar sanal makinede oturum açmanız mümkün olmayacaktır.
 3. Yük devretmeden sonra Windows Azure VM’sinde, VM’nin bir ekran görüntüsünü görmek için **Önyükleme tanılaması**’nı kontrol edin. Bağlanamıyorsanız, VM’nin çalıştığından emin olun ve şu [sorun giderme ipuçlarını](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx) gözden geçirin.
 
+Yük devretme sonrasında Azure Vm'lerinin çoğaltılmış şirket içi VM veya farklı bir IP adresi olarak aynı IP adresini kullanarak erişebilirsiniz. [Daha fazla bilgi edinin](concepts-on-premises-to-azure-networking.md) yük devretme için IP adresleme yedeklemek için ayarlama hakkında.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

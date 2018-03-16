@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows AzCopy ile veri aktarımı
 AzCopy, en iyi performans için tasarlanmış basit komutlarını kullanarak denetleyicisinden Microsoft Azure Blob, dosya ve tablo depolama, veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Veri depolama hesapları arasında veya bir dosya sistemi ve depolama hesabı arasında kopyalayabilirsiniz.  
@@ -56,7 +56,7 @@ Klasör unutmayın `C:\myfolder` yok, AzCopy oluşturur ve indirme `abc.txt ` ye
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Tek bir blob ikincil bölge ' indirin
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Okuma erişimli coğrafi olarak yedekli depolama ikincil bölge erişmek için etkin olması gerektiğini unutmayın.
@@ -106,7 +106,7 @@ Klasör yükleme işleminden sonra `C:\myfolder` aşağıdaki dosyaları içerir
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-Önek blob adı ilk bölümü forms bir sanal dizin geçerlidir. Yüklenmez şekilde yukarıda gösterilen örnekte, sanal dizin belirtilen bir önek eşleşmiyor. Ayrıca, varsa seçeneği `\S` belirtilmezse, AzCopy BLOB indirmek değil.
+Önek blob adı ilk bölümü forms bir sanal dizin geçerlidir. Yüklenmez şekilde yukarıda gösterilen örnekte, sanal dizin belirtilen bir önek eşleşmiyor. Ayrıca, varsa seçeneği `/S` belirtilmezse, AzCopy BLOB indirmek değil.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Kaynak BLOB olarak aynı olmalıdır dışarı aktarılan dosyaların son değiştirme zamanı ayarlama
 
@@ -276,7 +276,7 @@ AzCopy varsayılan olarak, iki depolama uç noktaları arasında verileri zaman 
 AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 ```
 
-`/SyncCopy`zaman uyumsuz kopyaya karşılaştırıldığında ek çıkışı maliyeti oluşturabilir, çıkışı maliyeti önlemek için kaynak depolama hesabınız ile aynı bölgede olan Azure VM'deki bu seçeneği kullanmak için önerilen yaklaşımdır.
+`/SyncCopy` zaman uyumsuz kopyaya karşılaştırıldığında ek çıkışı maliyeti oluşturabilir, çıkışı maliyeti önlemek için kaynak depolama hesabınız ile aynı bölgede olan Azure VM'deki bu seçeneği kullanmak için önerilen yaklaşımdır.
 
 ## <a name="download-files-from-file-storage"></a>Dosya depolama biriminden dosyaları indirme
 
@@ -614,9 +614,9 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 AzCopy için Parametreler aşağıda açıklanmıştır. Yardım için komut satırından aşağıdaki komutlardan birini, AzCopy kullanarak da yazabilirsiniz:
 
-* AzCopy için ayrıntılı komut satırı Yardım için:`AzCopy /?`
-* Herhangi bir AzCopy parametre ile ilgili ayrıntılı yardım için:`AzCopy /?:SourceKey`
-* Komut satırı örnekleri için:`AzCopy /?:Samples`
+* AzCopy için ayrıntılı komut satırı Yardım için: `AzCopy /?`
+* Herhangi bir AzCopy parametre ile ilgili ayrıntılı yardım için: `AzCopy /?:SourceKey`
+* Komut satırı örnekleri için: `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/ Kaynak: "kaynak"
 

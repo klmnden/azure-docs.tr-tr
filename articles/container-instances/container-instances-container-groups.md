@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure kapsayıcı durumlarda kapsayıcı grupları
 
@@ -35,7 +35,11 @@ Bu örnek kapsayıcı grubu:
 * İki içeren Azure dosya paylaşımları birim başlatmalar ve her kapsayıcı paylaşımları yerel olarak birini bağlar.
 
 > [!NOTE]
-> Birden çok kapsayıcı grupları Linux kapsayıcılara şu anda kısıtlı. Tüm özellikleri Windows kapsayıcılara getirmek için çalışıyoruz, ancak geçerli platform farklılıkları bulabilirsiniz [kotalar ve Azure kapsayıcı örnekleri için bölge kullanılabilirliği](container-instances-quotas.md).
+> Birden çok kapsayıcı grupları Linux kapsayıcılara şu anda kısıtlı. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
+
+### <a name="deployment"></a>Dağıtım
+
+**Kapsayıcı grupları** 1 vCPU ve 1 GB bellek en düşük kaynak ayırma vardır. Tek tek **kapsayıcıları** değerinden 1 vCPU ve 1 GB bellek kullanılarak sağlanabilir. İçindeki bir kapsayıcı grubun kaynakları dağıtımını kapsayıcı grup düzeyinde ayarlanan sınırlar içinde birden çok kapsayıcı için özelleştirilebilir. Örneğin, iki kapsayıcı her bir kapsayıcı grubu içinde bulunan 0,5 vCPU ile 1 vCPU tahsis edilir.
 
 ### <a name="networking"></a>Ağ
 

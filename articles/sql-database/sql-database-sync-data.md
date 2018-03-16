@@ -2,25 +2,19 @@
 title: "Azure SQL veri eşitleme (Önizleme) | Microsoft Docs"
 description: "Azure SQL veri eşitleme (Önizleme) bu genel bakış sunar"
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.custom: data-sync
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
 
@@ -64,7 +58,7 @@ Veri Eşitleme aşağıdaki senaryolar için uygun değil:
 
 -   Ölçek okuma
 
--   ETL (OLTP OLAP için)
+-   ETL (OLTP to OLAP)
 
 -   Şirket içi SQL Server'dan Azure SQL veritabanı geçiş
 
@@ -78,7 +72,7 @@ Veri Eşitleme aşağıdaki senaryolar için uygun değil:
     -   Seçerseniz *Hub WINS*, hub değişiklikleri her zaman üyesinde değişikliklerin üzerine.
     -   Seçerseniz *üye WINS*, üye üzerine yaz değişiklikleri hub'ında yapılan değişiklikler. Birden fazla üye ise, hangi üye eşitlenir son değeri bağlıdır.
 
-## <a name="sync-req-lim"></a>Gereksinimler ve sınırlamalar
+## <a name="sync-req-lim"></a> Gereksinimler ve sınırlamalar
 
 ### <a name="general-considerations"></a>Genel konular
 
@@ -104,7 +98,7 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 
 #### <a name="unsupported-data-types"></a>Desteklenmeyen veri türleri
 
--   FILESTREAM
+-   FileStream
 
 -   SQL/CLR UDT
 
@@ -114,7 +108,7 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Hizmet ve veritabanı boyutları sınırlamalar
 
-| **Boyutlar**                                                      | **Sınırı**              | **Geçici çözüm**              |
+| **Boyutlar**                                                      | **Limit**              | **Geçici çözüm**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Eşitleme grubu sayısı için herhangi bir veritabanı ait olabilir.       | 5                      |                             |
 | Bir tek eşitleme grubundaki uç noktaları sayısı              | 30                     | Birden çok eşitleme grupları oluşturma |
@@ -122,7 +116,7 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 | Veritabanı, tablo, şema ve sütun adları                       | ad başına 50 karakter |                             |
 | Bir eşitleme grubundaki tablolar                                          | 500                    | Birden çok eşitleme grupları oluşturma |
 | Bir eşitleme grubundaki bir tablodaki sütunlar                              | 1000                   |                             |
-| Bir tabloda veri satır boyutu                                        | 24 mb                  |                             |
+| Bir tabloda veri satır boyutu                                        | 24 Mb                  |                             |
 | Minimum eşitleme aralığı                                           | 5 dakika              |                             |
 |||
 

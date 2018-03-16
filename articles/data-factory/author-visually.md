@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 954693ee208dc7868a5a5ad0e774c5c352036627
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de Visual yazma
 Görsel olarak yazar ve herhangi bir kod yazmak zorunda kalmadan veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi (UX) deneyimi sağlar. Etkinlikleri bir ardışık düzen tuvale sürükleyin, test çalışmalarını gerçekleştirmek, yinelemeli olarak, hata ayıklama ve dağıtabilir ve ardışık düzen çalışmalarınız izleyin. Görsel geliştirme gerçekleştirmek için kullanıcı Deneyimini kullanmak için iki yaklaşım vardır:
@@ -41,7 +41,7 @@ UX kullandığınızda **tuvale yazma** doğrudan Data Factory hizmetiyle, yaln�
 VSTS Git Tümleştirmesi ile Visual yazma veri fabrikası hatlarınızı çalışmaları için kaynak denetimi ve işbirliği destekler. Kaynak denetimi, işbirliği, sürüm ve benzeri için VSTS Git hesap deposu data factory ilişkilendirebilirsiniz. Tek bir VSTS Git hesap birden çok depoları olabilir, ancak bir VSTS Git deposu yalnızca bir data factory ile ilişkili olabilir. VSTS hesabı veya depo yoksa izleyin [bu yönergeleri](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) kaynaklarınızı oluşturmak için.
 
 > [!NOTE]
-> Data Factory işlem hattı VSTS Git deposunda depolanan dosyaların erişemiyor. Sonuç olarak, veri fabrikası ardışık etkinlikler tarafından - örneğin kullanılan dosyalar, veri dosyaları ve komut dosyalarını - VSTS Git deposunda depolanamıyor.
+> VSTS GIT deposunda betiğini ve veri dosyalarını depolayabilirsiniz. Bununla birlikte, dosyaları el ile Azure depolama alanına yüklemek zorunda. Data Factory işlem hattı VSTS GIT deposu Azure Storage depolanan komut dosyası veya veri dosyaları otomatik olarak karşıya değil.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Azure Data Factory ile VSTS Git deposu yapılandırma
 VSTS GIT deposu iki yöntem data factory ile yapılandırabilirsiniz.

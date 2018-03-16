@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 631557e0ad712827bb3375c4f152c0e2185fda18
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b06144e6ad3df1626022edd856e14d6c47494336
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Desteklenmeyen Dağıtımlarla ilgili bilgiler
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -50,7 +50,7 @@ Bu makalenin geri kalanında Linux dağıtımınızı Azure üzerinde çalışan
 * UDF dosya sistemleri bağlanması için çekirdek desteği gereklidir. Azure üzerinde ilk önyükleme sırasında sağlama yapılandırma Linux VM konağına bağlı UDF biçimli medya üzerinden geçirilir. Azure Linux Aracısı'nı yapılandırmasını okuma ve VM sağlamak için UDF dosya sistemi bağlama kurabilmesi gerekir.
 * Linux çekirdek sürümleri 2.6.37 aşağıda NUMA ile büyük VM boyutları üzerinde Hyper-V desteklemez. Yukarı Akış kullanarak eski dağıtımları Bu sorun öncelikle etkileri Red Hat 2.6.32 çekirdek ve RHEL 6.6 (çekirdek 2.6.32 504) giderilmiştir. 2.6.32-504 önyükleme parametresinin ayarlamalısınız daha özel tekrar 2.6.37 eski veya tekrar eski RHEL tabanlı çalıştıran sistemlerde `numa=off` grub.conf içinde komut satırı çekirdeğini. Red Hat daha fazla bilgi için bkz: [KB 436883](https://access.redhat.com/solutions/436883).
 * Bir takas bölüm işletim sistemi disk üzerinde yapılandırmayın. Linux Aracısı geçici kaynak disk üzerinde bir takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bu hakkında daha fazla bilgi bulunabilir.
-* Tüm VHD'leri boyutları 1 MB'ün katları olmalıdır.
+* Tüm VHD'leri Azure üzerinde bir sanal boyutu 1 MB ile hizalı olması gerekir. Ham diskten VHD'ye dönüştürülürken ham disk boyutu 1 MB dönüştürmeden önce birden fazla olduğundan emin olmanız gerekir. Aşağıdaki adımlarda, daha fazla bilgi bulunabilir.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Hyper-V olmadan çekirdek modülleri yükleme
 Azure Hyper-V hiper yönetici üzerinde çalışır ve böylece Linux Azure üzerinde çalıştırmak için belirli çekirdek modülleri yüklü olmasını gerektirir. Hyper-V dışında oluşturulmuş bir VM'niz varsa, çalışıp çalışmadığını algılar sürece Linux yükleyicileri sürücüleri Hyper-V için ilk ramdisk (initrd veya initramfs) içeremeyen bir Hyper-V ortamı. Farklı sanallaştırma sistem (yani Virtualbox, KVM, vb.), Linux görüntüsünü hazırlamak için kullanırken, emin olmak için initrd yeniden oluşturma gerekebilir en az `hv_vmbus` ve `hv_storvsc` çekirdek modülleri ilk ramdisk üzerinde kullanılabilir.  Bilinen bir sorun en az Yukarı Akış Red Hat dağıtım tabanlı sistemlerde budur.
@@ -75,7 +75,7 @@ VHD görüntüleri Azure üzerinde bir sanal boyutu 1 MB ile hizalı olması ger
 Bu sorunu gidermek için Hyper-V Yöneticisi konsolunu kullanarak VM boyutlandırabilirsiniz veya [yeniden boyutlandırma VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet'i.  Bir Windows ortamında çalıştırmıyorsanız (gerekirse) dönüştürmek için qemu img kullanın ve VHD'yi yeniden boyutlandırmak için önerilir.
 
 > [!NOTE]
-> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Qemu img sürümlerinde bilinen bir hata varsa > düzgün biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 düzeltilmiştir. Qemu img 2.2.0 veya alt kullanın veya 2.6 veya daha yüksek güncelleştirmek için önerilir. Başvuru: https://bugs.launchpad.net/qemu/+bug/1490611.
 > 
 > 
 

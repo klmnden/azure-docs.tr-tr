@@ -14,11 +14,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Azure Market kullanarak işletmenizin Büyüt
 
@@ -129,7 +129,8 @@ Bu etkinlikler etkisini en üst düzeye çıkarmak için başlatma planınız y�
 >[!NOTE]
 >Bir ticari ortak (OCP katalog) Microsoft iş ortağı ağı üyelik yararı kataloğudur. 
 
-![Market GTM avantajları](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Market GTM avantajları](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 Destek için ziyaret [için Microsoft Git Market](https://www.microsoftgotomarket.com). Burada, şablonları, web içeriği, eğitim ve işinizin yükseltmek için Araçlar bulabilirsiniz.
 

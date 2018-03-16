@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 553283f246b701b5084f0a3a9914d7ceb8826fe4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) yapılandırılabilir belirteci yaşam süresi
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrü belirtebilirsiniz. Kuruluşunuzdaki tüm uygulamalar, kuruluşunuzda, çok kiracılı (çok kuruluş) uygulama veya belirli hizmet sorumlusu belirteci yaşam süresi ayarlayabilirsiniz.
@@ -276,7 +276,7 @@ Bu örnekte, kullanıcılar web uygulamanızı daha sık kimlik doğrulaması ge
 
 2.  İlke, hizmet sorumlusu atayın. Almanız gereken **objectID** hizmet asıl. 
 
-    1.  Kuruluşunuzun tüm hizmet asıl adı görmek için Sorgulayabileceğiniz [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Veya, [Azure AD Graph Explorer'a](https://graphexplorer.cloudapp.net/), Azure AD hesabınızda oturum açın.
+    1.  Kuruluşunuzun tüm hizmet asıl adı görmek için ya da sorgulayabilirsiniz [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) veya [Azure AD grafik](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Bu test ayrıca [Azure AD Graph Explorer'a](https://graphexplorer.cloudapp.net/)ve [Microsoft Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) Azure AD hesabınızı kullanarak.
 
     2.  Olduğunda **objectID** aşağıdaki komutu çalıştırın, hizmet asıl:
 
@@ -332,7 +332,7 @@ Bu örnekte, öncelik sistem nasıl çalıştığını öğrenmek için birkaç 
 
     Artık, tüm kuruluş genelinde geçerli bir ilkesi var. Bu 30 günlük ilkesi için bir özel hizmet sorumlusu korumak, ancak "kadar iptal edilen." sayısı üst sınırı için kuruluşunuzun varsayılan ilkesini değiştirmek isteyebilirsiniz
 
-    1.  Kuruluşunuzun tüm hizmet asıl adı görmek için Sorgulayabileceğiniz [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Veya, [Azure AD Graph Explorer'a](https://graphexplorer.cloudapp.net/), Azure AD hesabınızı kullanarak oturum açın.
+    1.  Kuruluşunuzun tüm hizmet asıl adı görmek için ya da sorgulayabilirsiniz [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) veya [Azure AD grafik](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Bu test ayrıca [Azure AD Graph Explorer'a](https://graphexplorer.cloudapp.net/)ve [Microsoft Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) Azure AD hesabınızı kullanarak.
 
     2.  Olduğunda **objectID** aşağıdaki komutu çalıştırın, hizmet asıl:
 

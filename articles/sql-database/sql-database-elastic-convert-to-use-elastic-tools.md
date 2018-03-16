@@ -2,24 +2,18 @@
 title: "Ölçeği genişletme varolan veritabanlarını geçirme | Microsoft Docs"
 description: "Harita Yöneticisi bir parça oluşturarak esnek veritabanı araçlarını kullanmak için parçalı veritabanları Dönüştür"
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: d82994f3ab925fa3ace0d0dbe1631a01dd1df586
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Ölçeği genişletme varolan veritabanlarını geçirme
 Azure SQL Database veritabanı araçları kullanarak mevcut ölçeklendirilmiş parçalı veritabanlarınız kolayca yönetmenize (gibi [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md)). Varolan kümesini kullanmak için veritabanlarının dönüştürmeniz [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). 

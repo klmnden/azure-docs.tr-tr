@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Azure Machine Learning ile derin öğrenme kullanarak düşünceleri çözümlemesi
 
 Düşünceleri analiz doğal dil işleme bölgedeki iyi bilinen bir görevdir. Metinleri kümesi düşünüldüğünde AIM metnin düşünceleri belirlemektir. Bu çözüm amacı derin öğrenme film yorumlarını gelen düşünceleri etmede kullanmaktır.
 
-Çözüm https://github.com/Azure/MachineLearningSamples-SentimentAnalysis bulunur
+Çözüm bulunur https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
 ## <a name="link-to-the-gallery-github-repository"></a>Galeri GitHub deponuza bağlayın
 
@@ -37,7 +37,7 @@ Genel GitHub depo bu bağlantıyı izleyin:
 
 Veri patlaması ve mobil aygıtların artışı fırsatlar müşterilerin kendi duyguları ve alışkanlıklarınızı herhangi bir şey ve her şeyi hakkında herhangi bir zamanda ifade çok sayıda oluşturdunuz. Bu fikir veya "düşünceleri" incelemeler biçiminde sosyal kanalları üzerinden oluşturulan, Sohbetleri, paylaşımları, yöntemlerine, vb. tweet'leri. Düşünceleri ürün ve hizmetlerini geliştirmek, daha fazla bilgiye dayalı kararlar ve daha iyi kendi markalar yükseltmek için arayan işletmeler için çok yararlı olabilir.
 
-Düşünceleri çözümlemesinden değeri almak için işletmelerin yapılandırılmamış sosyal veriler büyük depoları eyleme dönüştürülebilir Öngörüler için benim özelliği olmalıdır. Bu örnekte, biz AMLWorkbench kullanarak film yorumlarını düşünceleri analizini gerçekleştirmeye yönelik ayrıntılı learning modellerini geliştireceksiniz
+Düşünceleri çözümlemesinden değeri almak için işletmelerin yapılandırılmamış sosyal veriler büyük depoları eyleme dönüştürülebilir Öngörüler için benim özelliği olmalıdır. Bu örnekte, biz AMLWorkbench kullanarak film yorumlarını düşünceleri analizini gerçekleştirmeye yönelik ayrıntılı learning modellerini geliştirin
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -69,7 +69,7 @@ Klasör yapısı şu şekilde düzenlenir:
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>Sonuç
 

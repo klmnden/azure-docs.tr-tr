@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82aa2942a6a4fe6a3ac1c3ec2c0710e39f4282b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Yüksek performanslı bilgi işlem (HPC) küme Windows HPC Pack Iaas dağıtım komut dosyası ile oluşturma
-HPC Pack Iaas dağıtımı Azure sanal makinelerde Windows iş yükleri için tam bir HPC Pack 2012 R2 küme dağıtmak için PowerShell betiğini çalıştırın. Küme Windows Server ve Microsoft HPC Pack çalıştıran bir Active Directory katılmış baş düğümü içerir ve ek Windows işlem kaynaklarını, belirtin. Azure Linux iş yükleri için bir HPC paketi küme dağıtmak istiyorsanız, bkz: [Linux HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](../../linux/classic/hpcpack-cluster-powershell-script.md). Bir Azure Resource Manager şablonu, bir HPC paketi küme dağıtmak için de kullanabilirsiniz. Örnekler için bkz: [bir HPC Kümesi oluşturmayı](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) ve [bir özel işlem düğümü görüntüsüyle HPC kümesi oluşturma](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+HPC Pack Iaas dağıtımı Azure sanal makinelerde Windows iş yükleri için tam bir HPC Pack 2012 R2 küme dağıtmak için PowerShell betiğini çalıştırın. Küme Windows Server ve Microsoft HPC Pack çalıştıran bir Active Directory katılmış baş düğümü içerir ve ek Windows işlem kaynaklarını, belirtin. Azure Linux iş yükleri için bir HPC paketi küme dağıtmak istiyorsanız, bkz: [Linux HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](../../linux/classic/hpcpack-cluster-powershell-script.md). 
 
 > [!IMPORTANT] 
 > Bu makalede açıklanan PowerShell Betiği Azure'da Klasik dağıtım modeli kullanarak bir Microsoft HPC Pack 2012 R2 kümesi oluşturur. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
-> Ayrıca, bu makalede açıklanan betik HPC Pack 2016 desteklemez.
+> Ayrıca, bu makalede açıklanan betik HPC Pack 2016 desteklemez. HPC Pack 2012 R2 ve HPC Pack 2016 için Resource Manager şablonları hakkında bilgi için bkz: [HPC paketi küme dağıtım seçenekleri azure'da](../hpcpack-cluster-options.md).
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -257,9 +257,9 @@ Aşağıdaki yapılandırma dosyası var olan bir etki alanı ormanı HPC Pack k
 ```
 
 ## <a name="troubleshooting"></a>Sorun giderme
-* **"Sanal ağ yok" hatası** -eşzamanlı olarak bir abonelik altında Azure birden çok kümeler dağıtmak için betik çalıştırırsanız, bir veya daha fazla dağıtım hatasıyla başarısız olabilir "VNet *VNet\_adı* yok".
+* **"Sanal ağ yok" hatası** -eşzamanlı olarak bir abonelik altında Azure birden çok kümeler dağıtmak için betik çalıştırırsanız, bir veya daha fazla dağıtım hatasıyla başarısız olabilir "VNet *VNet\_adı* yok ".
   Bu hata oluşursa, komut dosyası başarısız dağıtım için yeniden çalıştırın.
-* **Azure sanal ağdan Internet erişirken sorun** - dağıtım komut dosyası kullanarak yeni bir etki alanı denetleyicisi ile bir küme oluşturma veya etki alanı denetleyicisine bir üstbilgi düğüm VM'ine el ile yükseltmek, Internet'e sanal makinelerini bağlamak sorunlarla karşılaşabilirsiniz. Bu sorun bir iletici DNS sunucusu etki alanı denetleyicisinde otomatik olarak yapılandırılır ve bu iletici DNS sunucusu düzgün sorunu çözmezse ortaya çıkabilir.
+* **Azure sanal ağdan Internet erişirken sorun** - dağıtım komut dosyası kullanarak yeni bir etki alanı denetleyicisi ile bir küme oluşturma veya etki alanı denetleyicisine bir üstbilgi düğüm VM'ine el ile yükseltmek, bağlanma sorunlarla karşılaşabilirsiniz Sanal makineleri internet. Bu sorun bir iletici DNS sunucusu etki alanı denetleyicisinde otomatik olarak yapılandırılır ve bu iletici DNS sunucusu düzgün sorunu çözmezse ortaya çıkabilir.
   
     Etki alanı denetleyicisi ve kaldırın veya iletici yapılandırma ayarı oturumunu bu soruna geçici bir çözüm veya geçerli iletici DNS sunucusunu yapılandırmak için. Bu ayar Sunucu Yöneticisi'ni yapılandırmak için **Araçları** >
     **DNS** DNS Yöneticisi'ni açın ve ardından **İleticiler**.

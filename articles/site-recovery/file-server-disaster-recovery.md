@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery kullanarak bir dosya sunucusu koruma
-description: "Bu makalede, Azure Site RECOVERY'yi kullanarak bir dosya sunucusunu koruyabilmeniz açıklar"
+title: Azure Site Recovery kullanarak bir dosya sunucusunu koruyabilmeniz
+description: "Bu makalede, Azure Site Recovery kullanarak bir dosya sunucusunu koruyabilmeniz açıklar"
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -12,58 +12,60 @@ ms.topic: article
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 779ec70a3b45a0ac3e766c956aac94932d4d126b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f53a8641a50a6c968a6ba7b841e0e8f938b5d9f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="protect-a-file-server-using-azure-site-recovery"></a>Azure Site Recovery kullanarak bir dosya sunucusu koruma 
+# <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak bir dosya sunucusunu koruyabilmeniz 
 
-[Azure Site Recovery](site-recovery-overview.md) hizmeti tarafından iş uygulamalarınızı çalışır halde tutmaktan planlanan ve planlanmayan kesintiler sırasında kullanılabilir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı. Site Recovery yönetir ve olağanüstü durum kurtarma çoğaltma, yük devretme ve kurtarma, çeşitli iş yükleri de dahil olmak üzere şirket içi makineler ve Azure sanal makineleri (VM'ler) düzenler.
+[Azure Site Recovery](site-recovery-overview.md), planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery yönetir ve şirket içi makineler ve Azure sanal makineleri (VM'ler) olağanüstü durum kurtarma düzenler. Olağanüstü durum kurtarma, çoğaltma, yük devretme ve kurtarma çeşitli iş yüklerinin içerir.
 
-Bu makalede, Azure Site Recovery ve diğer öneriler ortamlarla uyacak şekilde kullanarak bir dosya sunucusunu koruyabilmeniz açıklar.     
+Bu makalede Site Recovery kullanarak bir dosya sunucusunu koruyabilmeniz açıklar ve çeşitli ortamlar uyacak şekilde diğer öneriler sağlar. 
 
 - [Azure Iaas dosya sunucusu makineleri çoğaltma](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
-- [Azure Site RECOVERY'yi kullanarak şirket içi dosya sunucusunu Çoğalt](#replicate-an-onpremises-file-server-using-azure-site-recovery)
+- [Site RECOVERY'yi kullanarak bir şirket içi dosya sunucusunu Çoğalt](#replicate-an-on-premises-file-server-by-using-site-recovery)
 
 ## <a name="file-server-architecture"></a>Dosya sunucu mimarisi
-Açık bir dağıtılmış dosya sistemi paylaşımı amacı, coğrafi olarak dağıtılmış kullanıcılar grubunun etkili bir şekilde dosyalar üzerinde çalışması ve tutarlılığı gereksinimlerine zorlandığını garanti burada çalışabileceğiniz bir ortam sağlamaktır. Çok sayıda eşzamanlı kullanıcı ve çok sayıda içerik öğelerini destekleyen tipik şirket içi bir dosya sunucusu ekosistem yinelemesinin zamanlanması ve bant genişliği azaltma için Dağıtılmış dosya sistemi çoğaltma (DFSR) kullanın. DFSR olarak uzaktan değişiklikleri sıkıştırma (dosyalarını sınırlı bant genişliğine sahip ağ üzerinden verimli bir şekilde güncelleştirmek için kullanılan RDC), bilinen bir sıkıştırma algoritması kullanır. Bu eklemeler, kaldırma işlemleri ve veri ilgili dosyalarında dosyalar güncelleştirildiğinde yalnızca değiştirilen dosya bloklarını DFSR etkinleştirme algılar. Dosya sunucusu ortamları, burada günlük yedeklemeler için olağanüstü durum gereksinimlerini karşılamak yoğun olmayan zamanlamaları alınır ve DFSR hiç uygulaması yoktur vardır.
+Coğrafi olarak dağıtılmış kullanıcılar grubunun verimli bir şekilde dosyalar üzerinde çalışması ve tutarlılığı gereksinimlerine zorlandığını garanti burada çalışabileceğiniz bir ortam sağlamak için bir açık dağıtılmış dosya paylaşımı sistem amacı olan. Çok sayıda eşzamanlı kullanıcı ve çok sayıda içerik öğelerini destekleyen tipik şirket içi bir dosya sunucusu ekosistem yinelemesinin zamanlanması ve bant genişliği azaltma için Dağıtılmış dosya sistemi çoğaltma (DFSR) kullanır. 
 
-Aşağıdaki topoloji uygulanan DFSR ile dosya sunucusu ortamı gösterir.
+DFSR olarak uzaktan değişiklikleri sıkıştırma (dosyalarını sınırlı bant genişliğine sahip ağ üzerinden verimli bir şekilde güncelleştirmek için kullanılan RDC) bilinen bir sıkıştırma algoritması kullanır. Eklemeler, kaldırma işlemleri ve veri ilgili dosyalarında algılar. DFSR dosyalar güncelleştirildiğinde yalnızca değiştirilen dosya bloklarını etkinleştirilir. Dosya sunucu ortamları günlük yedeklemeler için olağanüstü durum gereksinimlerini karşılamak yoğun olmayan zamanlamaları burada alınır, vardır. DFSR uygulanmadı.
+
+Aşağıdaki diyagramda uygulanan DFSR ile dosya sunucusu ortamı gösterilmektedir.
                 
-![dfsr-architexture](media/site-recovery-file-server/dfsr-architecture.JPG)
+![DFSR mimarisi](media/site-recovery-file-server/dfsr-architecture.JPG)
 
-Yukarıdaki başvurusunda birden çok dosya sunucuları arasında bir çoğaltma grubu dosyaları çoğaltmasında üye olarak etkin olarak katılmayı ifade. Çoğaltılmış klasörün içeriğini istekleri ya da üyelerinin biri bile çevrimdışına üyeleri durumunda gönderme tüm istemciler için kullanılabilir.
+Önceki diyagramda üyeleri etkin olarak adlandırılan birden çok dosya sunucuları arasında bir çoğaltma grubu dosyaları çoğaltmasında katılın. Üye çevrimdışı olması durumunda bile çoğaltılmış klasörün içeriğini ya da üyelerinin istekleri gönderen tüm istemciler tarafından kullanılabilir.
 
-## <a name="disaster-recovery-recommendation-for-file-servers"></a>Dosya sunucuları için olağanüstü durum kurtarma öneri:
+## <a name="disaster-recovery-recommendations-for-file-servers"></a>Dosya sunucuları için olağanüstü durum kurtarma önerileri
 
-1.  Azure Site Recovery kullanan bir dosya sunucusunda çoğaltmak: dosya sunucuları için Azure Site Kurtarma'yı kullanarak Azure çoğaltılabilir. Bir veya daha fazla dosya sunucuları içi erişilemez durumda olduğunda kurtarma VM'ler için Azure'da getirilebilir sonra hizmet vermemesini istemcilerden gelen isteklerin var. sağlanan şirket içi, kullanıcının siteden siteye VPN bağlantısı ve Active directory ile Azure yapılandırılmış. Bu bir yapılandırılmış DFSR ortamı veya hiçbir DFSR basit dosya sunucusu ortamıyla durumunda yapılabilir. 
+* **Site RECOVERY'yi kullanarak bir dosya sunucusunda çoğaltmak**: dosya sunucuları çoğaltılabilir için Azure Site Recovery kullanarak. Bir veya daha fazla şirket içi dosya sunucularına erişilemez durumda olduğunda, sanal makineleri kurtarma Azure'da getirilebilir. Sanal makineleri istekleri istemcilerden görebilir, var. sağlanan şirket içi, siteden siteye VPN bağlantısı olan ve Active Directory ile Azure yapılandırılır. Hiçbir DFSR ile DFSR yapılandırılmış bir ortam ya da bir basit dosya sunucu ortamı söz konusu olduğunda bu yöntemi kullanabilirsiniz. 
 
-2.  Bir Azure Iaas sanal DFSR genişletmek:-bir kümelenmiş dosya sunucusu ortamında uygulanan DFSR ile bir yaklaşım Azure için şirket içi DFSR genişletmek için önerilir. Bir Azure sanal makinesi, ardından dosya sunucusu rolünü gerçekleştirmek için etkinleştirilir. 
+* **Bir Azure Iaas sanal DFSR genişletmek**: bir kümelenmiş dosya sunucusu ortamında uygulanan DFSR ile şirket içi DFSR Azure'a genişletebilirsiniz. Bir Azure VM ardından dosya sunucusu rolünü gerçekleştirmek için etkinleştirilmiş. 
 
-    Bir veya daha fazla dosya sunucuları içi erişilemez durumda olduğunda yerinde, siteden siteye VPN bağlantısı ve Active directory bağımlılıkları işlenir ve DFSR sonra istemcileri isteklere hizmet Azure VM için hala bağlanabilir.
+    * Siteden siteye VPN bağlantısı ve Active Directory bağımlılıkları işlenir ve bir veya daha fazla şirket içi dosya sunucuları erişilemediğinde DFSR yerinde olduktan sonra istemcileri isteklere hizmet Azure VM için bağlanabilir.
 
-    Bu yaklaşım durumda Vm'lerinizi Azure Site Recovery tarafından gibi örneğin desteklenmeyen yapılandırmalara sahip olması önerilir: dosya sunucusu ortamlarda bazen sık kullanılan paylaşılan küme diski.  DFSR de Orta karmaşıklık oranı ile düşük bant genişlikli ortamlarda iyi çalışır. Bir Azure VM sahip ve her zaman çalışması ek maliyet, ayrıca bu barındırılabilmesi gerekir.  
+    * Site Recovery tarafından desteklenmeyen yapılandırmalar Vm'leriniz varsa, bu yaklaşım kullanabilirsiniz. Dosya sunucusu ortamında bazen yaygın olarak kullanılan bir paylaşılan küme diski örneğidir. DFSR de Orta karmaşıklık oranı ile düşük bant genişlikli ortamlarda iyi çalışır. Bir Azure VM sahip ve her zaman çalışması ek maliyet dikkate almanız gerekir. 
 
-3.  Dosyalarınızı çoğaltmak için Azure dosya eşitleme Hizmeti'ni kullanın: Yolculuğunuzun buluta hazırlığı ya da zaten bir Azure VM kullanıyorsanız varsa, erişilebilir v tam olarak yönetilen dosya paylaşımları bulutta eşitleniyor sunar Azure dosya eşitleme hizmeti kullanımını öneririz IA endüstri standardı [sunucu ileti bloğu ](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(SMB) protokolü. Azure dosya paylaşımları sonra aynı anda göre bağlanabilir Bulut veya şirket içi Windows, Linux ve macOS dağıtımları. 
+* **Dosyalarınızı çoğaltmak için Azure dosya eşitleme kullanın**: Bulut kullanın veya zaten bir Azure VM kullanmayı planlıyorsanız, dosya eşitleme kullanabilirsiniz. Dosya eşitleme sunar, endüstri standardı erişilebilen tam olarak yönetilen dosya paylaşımlarının bulutta eşitleniyor [sunucu ileti bloğu](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) protokolü. Azure dosya paylaşımları, Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar tarafından sonra bir eşzamanlı olarak bağlanabilir. 
 
-Diyagram, dosya sunucu ortamınıza kullanmak için hangi stratejisi karar kolaylaştırma adresindeki amaçlayan resimsel temsili sağlar.
+Aşağıdaki diyagramda, dosya sunucu ortamınıza kullanmak için hangi stratejisi belirlemenize yardımcı olur.
 
-![decisiontree](media/site-recovery-file-server/decisiontree.png)
+![karar ağacı](media/site-recovery-file-server/decisiontree.png)
 
 
-### <a name="factors-to-consider-while-making-decision-of-disaster-recovery-to-azure"></a>Olağanüstü durum kurtarma Azure karar verirken göz önünde bulundurmanız gereken Etkenler
+### <a name="factors-to-consider-in-your-decisions-about-disaster-recovery-to-azure"></a>Kararlarınıza Azure olağanüstü durum kurtarma hakkında dikkat edilecek noktalar
 
 |Ortam  |Öneri  |Dikkate alınacak noktalar |
 |---------|---------|---------|
-|Sunucu ortamı ile/DFSR olmadan dosya|   [Azure Site Recovery çoğaltma için kullanın](#replicate-an-onpremises-file-servers-using-azure-site-recovery)   |    Site Recovery paylaşılan disk küme, NAS desteklemez. Ortamınızın aşağıdaki yapılandırmalardan birini kullanıyorsa, diğer yaklaşımlardan birini uygun şekilde kullanın. <br> Azure Site Recovery yalnızca dosyalarda yapılan değişiklikler dosyayı özgün konumunda güncelleştirildiğinde çoğaltılmış VM'yi değişikliklerin uygulanması, yani SMB 3.0 desteklemiyor.
-|DFSR ile dosya sunucusu ortamı     |  [DFSR bir Azure Iaas sanal makineye genişletin:](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |     DFSR son derece crunched bant genişliği ortamlarda iyi çalışır, bu yaklaşım ancak bir Azure VM'yi yedekleme ve her zaman çalışıyor olmasını gerektirir. VM maliyet planlamanızda olunması gerekir.         |
-|Azure Iaas VM     |     [Azure dosya eşitleme](#use-azure-file-sync-service-to-replicate-your-files)   |     Azure dosya eşitleme kullanıyorsanız bir DR senaryosuna yük devretme sırasında el ile gerçekleştirilen eylemleri dosya istemci makine saydam bir şekilde erişilebilir olarak paylaşımları sağlamak için yapılması gerekir. AFS bağlantı noktası 445'i istemci makineden açık olmasını gerektirir.     |
+|Dosya sunucusu ortamı ile veya olmadan DFSR|   [Site Recovery çoğaltma için kullanın](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery paylaşılan disk kümelerini veya ağa bağlı depolama (NAS) desteklemiyor. Ortamınızı Bu yapılandırmalar kullanıyorsa, diğer yaklaşımlardan birini uygun şekilde kullanın. <br> Site Recovery, SMB 3.0 desteklemiyor. Yalnızca dosyalarda yapılan değişiklikler dosyalarının özgün konumda güncelleştirildiğinde çoğaltılmış VM'yi değişiklikleri içerir.
+|DFSR ile dosya sunucusu ortamı     |  [Bir Azure Iaas sanal makineye DFSR genişletme](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR aşırı bant genişliği crunched ortamlarda iyi çalışır. Bu yaklaşım, çalışır durumda bir Azure VM ve her zaman çalışması gerekir. VM maliyet için planlamanızda hesabı gerekir.         |
+|Azure Iaas VM     |     [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     Yük devretme sırasında bir olağanüstü durum kurtarma senaryosunda dosya eşitleme kullanırsanız, dosya paylaşımları saydam bir şekilde istemci makineye erişilebilir olduğundan emin olmak için el ile gerçekleştirilen eylemleri almanız gerekir. Dosya eşitleme bağlantı noktası 445'i istemci makineden açık olmasını gerektirir.     |
 
 
 ### <a name="site-recovery-support"></a>Site kurtarma desteği
-Site Recovery çoğaltma uygulama yükünden bağımsız olarak, aşağıdaki senaryolar için doğru tutmak için burada sağlanan öneriler bekleniyor:
+Site Recovery çoğaltma uygulama belirsiz olduğundan, bu önerileri aşağıdaki senaryolar için doğru tutun beklenir.
 | Kaynak    |İkincil bir siteye    |Azure'a
 |---------|---------|---------|
 |Azure| -|Evet|
@@ -73,107 +75,106 @@ Site Recovery çoğaltma uygulama yükünden bağımsız olarak, aşağıdaki se
  
 
 > [!IMPORTANT]
-> İle devam etmeden önce aşağıdaki bağımlılıkları dikkate üç yaklaşımlar emin olun:
+> Aşağıdaki üç yaklaşımlardan birini ile devam etmeden önce bu bağımlılıklar dikkate emin olun.
 
-**Siteden siteye bağlantı**: şirket içi site ile Azure ağı arasında bir bağlantı kurulacak, sunucular arasında iletişime izin verecek şekilde yönlendirir.  Bu Microsoft Azure sanal bir DR sitesi olarak kullanılacak ağa güvenli bir siteden siteye VPN bağlantısı tarafından güvence altına alınabilir.  
-Başvurun: [şirket içi site ile Azure ağı arasında Ağımdaki siteden siteye VPN bağlantısı](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+**Siteden siteye bağlantı**: sunucuları arasında iletişim sağlamak için şirket içi site ile Azure ağı arasında doğrudan bir bağlantı kurulmalıdır. Olağanüstü durum kurtarma sitesi olarak kullanılan bir Azure sanal ağı güvenli bir siteden siteye VPN bağlantısı kullanın. Daha fazla bilgi için bkz: [bir şirket içi site ile Azure sanal ağı arasında siteden siteye VPN bağlantısı kuracak](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
-**Active Directory**: DFSR üzerinde Active Directory bağlıdır.  Bu, yerel etki alanı denetleyicileri ile Active Directory ormanı DR sitesi genişletilir anlamına gelir. Hedeflenen kullanıcılar gerekiyorsa verilir veya erişim gibi çoğu kuruluş için doğrulandı, DFSR bile kullanmıyorsanız, bu adımları gerçekleştirilmesi gerekir.
-Başvurun: [Azure'a şirket içi Active Directory'yi genişletmeniz](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
+**Active Directory**: DFSR üzerinde Active Directory bağlıdır. Bu, yerel etki alanı denetleyicileri ile Active Directory ormanı Azure olağanüstü durum kurtarma sitede genişletilir anlamına gelir. Hedeflenen kullanıcılar erişim verilir veya erişim için doğrulandı gerekiyorsa DFSR, kullanmadığınız olsa bile, şu adımları uygulamanız gerekir. Daha fazla bilgi için bkz: [Genişlet şirket içi Azure Active Directory'ye](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
 
 ## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Azure Iaas sanal makineleri için olağanüstü durum kurtarma önerisi
 
-Yapılandırmakta olduğunuz ve Azure Iaas Vm'leri üzerinde barındırılan dosya sunucularının olağanüstü durum kurtarmayı yönetme, iki seçenek arasından seçim yapabilirsiniz olursa, taşımak istediğiniz temel [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Yapılandırmakta ve Azure Iaas Vm'leri üzerinde barındırılan dosya sunucularının olağanüstü durum kurtarmayı yönetme, iki seçenek arasından seçim yapabilirsiniz olursa, taşımak istediğiniz temel [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction):
 
-1. [Azure dosya eşitleme kullanın](#use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine)
-2. [Azure Site Recovery’yi kullanma](#replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery)
+* [Dosya eşitleme kullanın](#use-file-sync-to-replicate-files-hosted-on-an-iaas-virtual-machine)
+* [Site Kurtarma'yı kullanma](#replicate-an-iaas-file-server-virtual-machine-by-using-site-recovery)
 
-## <a name="use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine"></a>Iaas sanal makinede barındırılan dosya çoğaltmak için Azure dosya eşitleme Hizmeti'ni kullanın
+## <a name="use-file-sync-to-replicate-files-hosted-on-an-iaas-virtual-machine"></a>Bir Iaas sanal makinede barındırılan dosya çoğaltmak için dosya eşitleme kullanın
 
-**Azure dosyaları** tamamen değiştirin veya Geleneksel şirket içi dosya sunucularında veya NAS cihazları desteklemek için kullanılabilir. Azure Dosya paylaşımları ayrıca verilerin kullanıldığı yerde performanslı ve dağıtılmış bir şekilde önbelleğe alınması için Azure Dosya Eşitleme ile şirket içi veya bulut üzerindeki Windows sunucularında çoğaltılabilir. Aşağıdaki adımlar, Azure VM'ler, geleneksel dosya sunucuları aynı işlevleri gerçekleştirmek için DR öneri vermektedir:
-1.  Belirtilen adımları kullanarak Azure Site Recovery kullanarak makine koru [burada](azure-to-azure-quickstart.md).
-2.  Bulut için dosya sunucusu gibi davranır VM'den dosya çoğaltmak için Azure dosya eşitleme kullanın.
-3.  Azure Site Recovery'nin kullanmak [kurtarma planı](site-recovery-create-recovery-plans.md) komut dosyalarına eklemek için özellik [Azure dosya paylaşımını bağlama](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) ve sanal makineniz paylaşımına erişim.
+Azure Dosyaları geleneksel şirket içi dosya sunucularını veya NAS cihazlarını tamamen değiştirmek veya desteklemek için kullanılabilir. Azure dosya paylaşımları Windows sunucuları, her iki şirket içi veya bulutta, performans ve dağıtılmış kullanıldığı verileri önbelleğe alma için dosya eşitleme ile aynı zamanda çoğaltılabilir. Aşağıdaki adımlar, Azure VM'ler, geleneksel dosya sunucuları aynı işlevleri gerçekleştirmek için olağanüstü durum kurtarma öneri açıklamaktadır:
+* Site Recovery kullanarak makineler koruyun. Adımları [başka bir Azure bölgesine bir Azure VM çoğaltmak](azure-to-azure-quickstart.md).
+* Bulut için dosya sunucusu gibi davranır VM'den dosya çoğaltmak için dosya eşitleme kullanın.
+* Site Kurtarma'yı kullanmak [kurtarma planı](site-recovery-create-recovery-plans.md) komut dosyalarına eklemek için özellik [Azure dosya paylaşımını bağlama](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) ve sanal makineniz paylaşımına erişim.
 
-Aşağıdaki adımları Azure dosya eşitleme hizmetini kullanmayı kısaca açıklanmaktadır:
+Aşağıdaki adımlar kısaca nasıl dosya eşitleme kullanılacağını açıklamaktadır:
 
-1. [Bir depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Depolama hesapları için okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) seçerseniz, okuma erişimi verilerinizi ikincil bölge kaybedildiği bir olağanüstü durumda alırlar. Başvurmak [Azure dosya paylaşımı olağanüstü durum kurtarma stratejilerini](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) daha fazla bilgi için.
+1. [Bir depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Depolama hesapları için okuma erişimli coğrafi olarak yedekli depolama seçerseniz, okuma erişimi verilerinizi ikincil bölge kaybedildiği bir olağanüstü durumda alırlar. Daha fazla bilgi için bkz: [Azure dosya paylaşımı olağanüstü durum kurtarma stratejilerini](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 2. [Bir dosya paylaşımı oluşturmak](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
-3. [Azure dosya eşitleme dağıtmak](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) Azure dosya sunucunuzda.
-4. Bir eşitleme grubu oluşturun: bir eşitleme grubundaki uç noktaları korunur birbirleri ile eşitlenmiş. Eşitleme grubu, Azure dosya paylaşımı temsil eder, en az bir bulut uç ve bir Windows Server'da bir yol temsil eden bir sunucu uç içermesi gerekir.
-5.  Dosyalarınızı şimdi, Azure dosya paylaşımı ve şirket içi sunucunuz arasında eşitleme tutulacak.
-6.  Yük devretme olarak şirket içi ortamınızda bir olağanüstü durumda gerçekleştirin bir [kurtarma planı](site-recovery-create-recovery-plans.md) ve komut dosyasına eklemek [Azure dosya paylaşımını bağlama](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) ve sanal makineniz paylaşımına erişebilirsiniz.
+3. [Dosya eşitlemeyi Başlat](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) Azure dosya sunucunuzda.
+4. Bir eşitleme grubu oluşturun. Bir eşitleme grubundaki uç noktaları birbirleri ile eşitlenmiş tutulur. Eşitleme grubunu bir Azure dosya paylaşımını gösteren en az bir bulut uç içermesi gerekir. Eşitleme grubu da bir Windows Server'da bir yol temsil eden bir sunucu endpoint içermelidir.
+5. Dosyalarınızı şimdi, Azure dosya paylaşımı ve şirket içi sunucunuz arasında eşitleme tutulur.
+6. Şirket içi ortamınızda bir olağanüstü durumda kullanarak bir yük devretme gerçekleştirme bir [kurtarma planı](site-recovery-create-recovery-plans.md). Komut dosyasına eklemek [Azure dosya paylaşımını bağlama](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) ve sanal makineniz paylaşımına erişebilirsiniz.
 
-### <a name="replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery"></a>Bir Iaas dosya sunucusu sanal makinesi Azure Site RECOVERY'yi kullanarak çoğaltma
+### <a name="replicate-an-iaas-file-server-virtual-machine-by-using-site-recovery"></a>Site RECOVERY'yi kullanarak bir Iaas dosya sunucusu sanal makinesi çoğaltma
 
-Dosya sunucusu sanal makinesi gerçekleştirmek Iaas erişme şirket içi istemcileriniz varsa ilk iki adımı de başka 3. adıma geçebilirsiniz.
+Iaas dosya sunucusu sanal makineye erişim şirket içi istemcileriniz varsa, aşağıdaki adımları gerçekleştirin. Aksi takdirde, 3. adıma atlayın.
 
-1. Şirket içi site ile Azure ağı arasında siteden siteye VPN bağlantısı kurun.
-1. Şirket içi Active Directory genişletir.
-1. [Olağanüstü durum kurtarma ayarlamak](azure-to-azure-tutorial-enable-replication.md) Iaas dosya sunucu makinesine ikincil bir bölgeye için.
-
-
-İkincil bir bölgeye olağanüstü durum kurtarma hakkında daha fazla bilgi için bkz [burada](concepts-azure-to-azure-architecture.md).
+1. Şirket içi site ile Azure ağı arasında bir siteden siteye VPN bağlantısı kurun.
+2. Şirket içi Active Directory genişletir.
+3. [Olağanüstü durum kurtarma ayarlamak](azure-to-azure-tutorial-enable-replication.md) Iaas dosya sunucu makinesine ikincil bir bölgeye için.
 
 
-## <a name="replicate-an-on-premises-file-server-using-azure-site-recovery"></a>Azure Site RECOVERY'yi kullanarak bir şirket içi dosya sunucusunu Çoğalt
+İkincil bir bölgeye olağanüstü durum kurtarma hakkında daha fazla bilgi için bkz: [bu makalede](concepts-azure-to-azure-architecture.md).
 
-Adımları ayrıntı çoğaltma bir Hyper-V VM çoğaltmak adımlar için bir VMware VM için aşağıda bkz [burada](tutorial-hyper-v-to-azure.md).
 
-1.  [Azure kaynaklarını hazırlama](tutorial-prepare-azure.md) şirket içi makineler çoğaltılması için.
-2.  Şirket içi site ile Azure ağı arasında siteden siteye VPN bağlantısı kurun.  
+## <a name="replicate-an-on-premises-file-server-by-using-site-recovery"></a>Site RECOVERY'yi kullanarak bir şirket içi dosya sunucusunu Çoğalt
+
+Aşağıdaki adımlar, VMware sanal makine için çoğaltmayı açıklamaktadır. Bir Hyper-V VM çoğaltmak adımlar için bkz: [Bu öğretici](tutorial-hyper-v-to-azure.md).
+
+1. [Azure kaynaklarını hazırlama](tutorial-prepare-azure.md) şirket içi makineler çoğaltılması için.
+2. Şirket içi site ile Azure ağı arasında bir siteden siteye VPN bağlantısı kurun. 
 3. Şirket içi Active Directory genişletir.
-4.  [Şirket içi VMware sunucuları hazırlama](tutorial-prepare-on-premises-vmware.md).
-5.  [Olağanüstü durum kurtarma ayarlamak](tutorial-vmware-to-azure.md) azure'a şirket içi VM'ler için.
+4. [Şirket içi VMware sunucuları hazırlama](tutorial-prepare-on-premises-vmware.md).
+5. [Olağanüstü durum kurtarma ayarlamak](tutorial-vmware-to-azure.md) azure'a şirket içi VM'ler için.
 
-## <a name="extend-dfsr-to-an-azure-iaas-virtual-machine"></a>DFSR bir Azure Iaas sanal makineye genişletin:
+## <a name="extend-dfsr-to-an-azure-iaas-virtual-machine"></a>Bir Azure Iaas sanal makineye DFSR genişletme
 
-1.  Şirket içi site ile Azure ağı arasında siteden siteye VPN bağlantısı kurun. 
-2.  Şirket içi Active Directory genişletir.
-3.  [Oluşturma ve bir dosya sunucusu VM sağlama](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) Windows Azure sanal ağındaki.
-Sanal makine ağa aynı Windows Azure sanal çapraz bağlantısı ile şirket içi ortamına sahip eklendiğinden emin olun. 
-4.  Yükleme ve [DFS Çoğaltma Yapılandırma](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) Windows Server'da.
-5.  [DFS Namespace uygulamak](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
-6.  DFS uygulanan Namespace ile üretim paylaşılan klasörlerden DR sitelere Yük Devretmesini DFS Namespace klasör hedefleri güncelleştirerek yapılabilir.  Active Directory ile bu DFS Namespace değişiklikleri çoğaltma sonra kullanıcılar için uygun klasör hedefleri şeffaf bir şekilde bağlı.
+1. Şirket içi site ile Azure ağı arasında bir siteden siteye VPN bağlantısı kurun. 
+2. Şirket içi Active Directory genişletir.
+3. [Oluşturma ve bir dosya sunucusu VM sağlama](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) Azure sanal ağı üzerinde.
+Sanal makine arası bağlantı şirket içi ortamı olan aynı Azure sanal ağı, eklendiğinden emin olun. 
+4. Yükleme ve [DFSR yapılandırma](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) Windows Server'da.
+5. [DFS ad alanı uygulamak](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
+6. DFS ad uygulanan DFS ad alanı klasörü hedefleri güncelleştirerek üretim paylaşılan klasörlerden olağanüstü durum kurtarma sitelere Yük Devretmesini yapılabilir. Sonra bu DFS ad alanı değişiklikleri Active Directory ile çoğaltmak kullanıcıların bağlı uygun klasör hedefleri saydam.
 
-## <a name="use-azure-file-sync-service-to-replicate-your-on-premises-files"></a>Şirket içi dosyalarınızı çoğaltmak için Azure dosya eşitleme Hizmeti'ni kullanın:
-Böylece olağanüstü durum ve şirket içi dosya sunucusu olarak kullanım dışı kalması durumunda, istenen dosya konumları için buluttan bağlayın ve isteklere hizmet devam Azure dosya eşitleme hizmeti kullanarak, istenen dosyaları buluta çoğaltabilirsiniz istemci makineler.
-Azure Site Recovery ile Azure dosya eşitleme tümleştirme önerilen yaklaşım
-1.  Belirtilen adımları kullanarak Azure Site RECOVERY'yi kullanarak dosya sunucusu makineleri korumak [burada](tutorial-vmware-to-azure.md).
-2.  Buluta bir dosya sunucusu olarak hizmet veren makineden dosya çoğaltmak için Azure dosya eşitleme kullanın.
-3.  Azure dosya paylaşımı azure'da DosyaSunucusu VM üzerinde başarısız oldu bağlamak için komut dosyası eklemek için Azure Site Recovery'nin kurtarma planı özelliğini kullanın.
+## <a name="use-file-sync-to-replicate-your-on-premises-files"></a>Şirket içi dosyalarınızı çoğaltmak için dosya eşitleme kullanın
+Dosya eşitleme buluta nasıl dosya çoğaltmak için kullanabilirsiniz. Bir olağanüstü durum ve şirket içi dosya sunucusu olarak kullanım dışı kalması durumunda, istenen dosya konumları bulutta bağlama ve hizmet istekleri için istemci makinelerden devam edebilirsiniz.
+Site Recovery ile dosya eşitleme tümleştirmeniz için:
 
-Azure dosya eşitleme hizmetini kullanarak adımları ayrıntı altında:
+* Site Recovery kullanarak dosya sunucusu makineleri koruyun. Adımları [Bu öğretici](tutorial-vmware-to-azure.md).
+* Dosya eşitleme buluta bir dosya sunucusu olarak hizmet veren makineden dosya çoğaltmak için kullanın.
+* Kurtarma planı özelliği Site kurtarma işlemi başarısız üzerinden dosya sunucusundaki Azure VM'de Azure dosya paylaşımını bağlama için komut dosyaları eklemek için kullanın.
 
-1. [Bir depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). (Depolama hesapları için önerilir) okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) seçerseniz, okuma erişimi verilerinizi ikincil bölge kaybedildiği bir olağanüstü durumda vardır. Başvurmak [Azure dosya paylaşımı olağanüstü durum kurtarma stratejilerini](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) daha fazla bilgi için.
+Dosya eşitleme kullanmak için aşağıdaki adımları izleyin:
+
+1. [Bir depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Okuma erişimli coğrafi olarak yedekli depolama (depolama hesapları için önerilir) seçerseniz, okuma erişimi verilerinizi ikincil bölge kaybedildiği bir olağanüstü durumda vardır. Daha fazla bilgi için bkz: [Azure dosya paylaşımı olağanüstü durum kurtarma stratejilerini](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 2. [Bir dosya paylaşımı oluşturmak](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
-3. [Azure dosya eşitleme dağıtmak](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) , şirket içi dosya sunucusunda.
-4. Bir eşitleme grubu oluşturun: bir eşitleme grubundaki uç noktaları korunur birbirleri ile eşitlenmiş. Eşitleme grubu, Azure dosya paylaşımı temsil eder, en az bir bulut Endpoint ve şirket içi Windows Server bilgisayarında bir yolu temsil eden bir sunucu uç içermesi gerekir.
-1. Dosyalarınızı şimdi, Azure dosya paylaşımı ve şirket içi sunucunuz arasında eşitleme tutulacak.
-6.  Yük devretme olarak şirket içi ortamınızda bir olağanüstü durumda gerçekleştirin bir [kurtarma planı](site-recovery-create-recovery-plans.md) ve Azure dosya paylaşımını bağlama ve sanal makineniz paylaşımına erişmek için komut dosyası ekleyin.
+3. [Dosya eşitleme dağıtmak](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) , şirket içi dosya sunucusunda.
+4. Bir eşitleme grubu oluşturun. Bir eşitleme grubundaki uç noktaları birbirleri ile eşitlenmiş tutulur. Eşitleme grubunu bir Azure dosya paylaşımını gösteren en az bir bulut uç içermesi gerekir. Eşitleme grubunu ayrıca şirket içi Windows server üzerinde bir yolu temsil eden bir sunucu endpoint içermesi gerekir.
+5. Dosyalarınızı şimdi, Azure dosya paylaşımı ve şirket içi sunucunuz arasında eşitleme tutulur.
+6. Şirket içi ortamınızda bir olağanüstü durumda kullanarak bir yük devretme gerçekleştirme bir [kurtarma planı](site-recovery-create-recovery-plans.md). Azure dosya paylaşımını bağlama ve sanal makineniz paylaşımına erişmek için komut dosyası ekleyin.
 
 > [!NOTE]
-> 445 bağlantı noktası açık olduğundan emin olun: Azure dosyaları, SMB protokolünü kullanır. SMB, TCP bağlantı noktası 445 üstünden iletişim kurar. İstemci makinenizde güvenlik duvarının TCP bağlantı noktaları 445’i engellemediğinden emin olun.
+> 445 bağlantı noktası açık olduğundan emin olun. Azure dosyaları, SMB protokolünü kullanır. SMB 445 numaralı TCP bağlantı noktası üzerinden iletişim kurar. Güvenlik duvarınızın istemci bir makineden TCP bağlantı noktası 445 engellemediğinden olmadığını denetleyin.
 
 
-## <a name="doing-a-test-failover"></a>Yük devretme sınamasını yapmak
+## <a name="do-a-test-failover"></a>Yük devretme testi yapın
 
-1.  Azure Portalı'na gidin ve kurtarma hizmeti kasanızı seçin.
-2.  DosyaSunucusu ortamınız için oluşturulmuş kurtarma planı tıklayın.
-3.  'Test yük devretme üzerinde' tıklayın.
-4.  Kurtarma noktası ve test yük devretme işlemini başlatmak için Azure sanal ağı seçin.
-5.  İkincil ortamı kurma olduğunda, doğrulama gerçekleştirebilirsiniz.
-6.  Doğrulama tamamlandıktan sonra kurtarma planı üzerinde 'Temizleme test yük devretme' tıklayın ve yük devretme sınama ortamı temizlendi.
+1. Azure Portalı'na gidin ve kurtarma hizmeti kasanızı seçin.
+2. Dosya sunucusu ortamı için oluşturduğunuz kurtarma planı seçin.
+3. Seçin **yük devretme testi**.
+4. Kurtarma noktası ve test yük devretme işlemini başlatmak için Azure sanal ağı seçin.
+5. Yukarı ikincil ortamıdır sonra doğrulama gerçekleştirin.
+6. Doğrulama tamamlandıktan sonra seçin **temizleme yük devretme testi** kurtarma planında ve yük devretme sınaması ortamı temizlendi.
 
-Yük devretme testi gerçekleştirme hakkında daha fazla bilgi için bkz [burada](site-recovery-test-failover-to-azure.md).
+Yük devretme testi gerçekleştirme hakkında daha fazla bilgi için bkz: [Site Recovery için yük devretme testi](site-recovery-test-failover-to-azure.md).
 
-AD için yük devretme testi yapılması konusunda yönergeler için ve DNS, başvurmak için [test yük devretme AD için ilgili önemli noktalar ve DNS](site-recovery-active-directory.md).
+Active Directory ve DNS için yük devretme testi yapılması ile ilgili yönergeler için bkz: [Test Active Directory ve DNS için yük devretme konuları](site-recovery-active-directory.md).
 
-## <a name="doing-a-failover"></a>Bir yük devretme işleminden
+## <a name="do-a-failover"></a>Bir yük devretme işlemi gerçekleştirin
 
-1.  Azure Portalı'na gidin ve kurtarma Hizmetleri kasanız seçin.
-2.  DosyaSunucusu ortamınız için oluşturulmuş kurtarma planı tıklayın.
-3.  'Failover' üzerinde'ı tıklatın.
-4.  Yük devretme işlemini başlatmak için kurtarma noktası seçin.
+1. Azure Portalı'na gidin ve kurtarma Hizmetleri kasanız seçin.
+2. Dosya sunucusu ortamı için oluşturduğunuz kurtarma planı seçin.
+3. Seçin **yük devretme**.
+4. Yük devretme işlemini başlatmak için kurtarma noktası seçin.
 
-Bir yük devretme gerçekleştirme hakkında daha fazla bilgi için bkz [burada](site-recovery-failover.md).
+Bir yük devretme gerçekleştirme hakkında daha fazla bilgi için bkz: [Site Recovery yük](site-recovery-failover.md).

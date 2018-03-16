@@ -3,7 +3,7 @@ title: "SMTP Bağlayıcısı Azure Logic Apps içinde | Microsoft Docs"
 description: "Logic apps ile Azure uygulama hizmeti oluşturun. E-posta göndermek için SMTP bağlayın."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9bf7c9b7c3e775ab03b071d13d792f4b2d8fb3e3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>SMTP Bağlayıcısı ile çalışmaya başlama
 E-posta göndermek için SMTP bağlayın.
@@ -37,13 +37,13 @@ Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk ön
 ## <a name="use-an-smtp-trigger"></a>Bir SMTP tetikleyicisi kullanın
 Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Bu örnekte, SMTP kendi, tetikleyici olmadığından kullanacağız **bir nesne oluşturulduğunda Salesforce -** tetikleyici. Salesforce'ta yeni bir nesne oluşturulduğunda, bu tetikleyici etkinleştirir. Sağlayacak şekilde her bir yeni sağlama Salesforce içinde oluşturulur Bizim örneğimizde, bunu yaparız bir *e-posta Gönder* eylem oluşur oluşturulan yeni müşteri adayına ilişkin bir bildirim ile SMTP bağlayıcısı aracılığıyla.
+Bu örnekte, SMTP kendi tetikleyici sahip değil. Bu nedenle, kullanmak **bir nesne oluşturulduğunda Salesforce -** tetikleyici. Salesforce'ta yeni bir nesne oluşturulduğunda, bu tetikleyici etkinleştirir. Böylece her yeni bir sağlama Salesforce içinde oluşturulur bu örnek için onu ayarlanmış bir *e-posta Gönder* eylem oluşur oluşturulan yeni sağlama içeren bir bildirim SMTP Bağlayıcısı'nı kullanarak.
 
 1. Girin *salesforce* arama kutusuna logic apps tasarımcısında seçip **bir nesne oluşturulduğunda Salesforce -** tetikleyici.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 2. **Bir nesne oluşturulduğunda** denetim görüntülenir.
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Seçin **nesne türü** seçip *neden* nesneleri listesinde. Bu adımda, her bir yeni sağlama Salesforce'ta oluşturulduğunda, mantıksal uygulamanızı uyarır tetikleyici oluşturmakta olduğunuz belirten.  
+3. Seçin **nesne türü** seçip *neden* nesneleri listesinde. Bu adımda, uygulamanızın yeni bir sağlama Salesforce'ta oluşturulduğunda bildiren bir tetikleyici oluşturuyorsunuz.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. Tetikleyici oluşturuldu.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
@@ -51,7 +51,7 @@ Bu örnekte, SMTP kendi, tetikleyici olmadığından kullanacağız **bir nesne 
 ## <a name="use-an-smtp-action"></a>SMTP eylemi kullanın
 Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Tetikleyici eklenen, yeni sağlama Salesforce'ta oluşturulduğunda gerçekleşir bir SMTP eylem eklemek için aşağıdaki adımları izleyin.
+Tetikleyici eklenen, yeni sağlama Salesforce'ta oluşturulduğunda oluşan bir SMTP eylemi eklemek için aşağıdaki adımları kullanın.
 
 1. Seçin **+ yeni adım** yeni bir sağlama oluşturulduğunda, almak istediğiniz eylem eklemek için.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  

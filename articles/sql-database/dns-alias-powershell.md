@@ -3,24 +3,19 @@ title: "DNS diğer adı Azure SQL için PowerShell | Microsoft Docs"
 description: "PowerShell cmdlet'leri yeni AzureRMSqlServerDNSAlias gibi yeni istemci bağlantılarını herhangi bir istemci yapılandırma touch gerek kalmadan, farklı bir Azure SQL veritabanı sunucusuna yeniden yönlendirmek sağlar."
 keywords: "DNS sql veritabanı"
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
-ms.custom: 
-ms.workload: 
-ms.tgt_pltfrm: 
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;amagarwa;maboja
 ms.author: dmalik
-ms.openlocfilehash: ec638d7b48b443cda5755e3077c6304b0c5ad78e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2aae669364c3de2e9b00ffe8e28b1521d3a781e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>Azure SQL veritabanı için DNS diğer adı için PowerShell
 
@@ -50,7 +45,7 @@ Belirli bir Azure SQL veritabanı sunucusuna bağlanmak için SQL Server Managem
 
 Bu makalede verilen PowerShell Betiği demo çalıştırmak istiyorsanız, aşağıdaki önkoşulları Uygula:
 
-- Bir Azure aboneliği ve hesabı. Ücretsiz deneme için tıklatın [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
+- Bir Azure aboneliği ve hesabı. Ücretsiz deneme için tıklatın [ https://azure.microsoft.com/free/ ] [ https://azure.microsoft.com/free/].
 
 - Cmdlet ile Azure PowerShell Modülü **yeni AzureRMSqlServerDNSAlias**.
     - Yüklemek veya yükseltmek için bkz: [yükleme Azure PowerShell Modülü][install-azurerm-ps-84p].

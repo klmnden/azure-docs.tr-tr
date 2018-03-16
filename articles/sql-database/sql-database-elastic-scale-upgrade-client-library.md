@@ -2,23 +2,18 @@
 title: "En son esnek veritabanı istemci kitaplığına yükseltme | Microsoft Docs"
 description: "Nuget yükseltme esnek veritabanı istemci kitaplığına kullanın."
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: ddove
-ms.openlocfilehash: 62609f2488a01d9b406c6b730c53ecc9f9b6ea1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 54ddde10935fa5add07aaf0c514cf48c6115678e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>En son esnek veritabanı istemci kitaplığı kullanmak için bir uygulama yükseltme
 Yeni sürümlerini [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) NuGetand Visual Studio NuGetPackage Yöneticisi arabiriminde aracılığıyla kullanılabilir. Yükseltmeler istemci kitaplığı yeni özellikler için destek ve hata düzeltmeleri içerir.
@@ -47,8 +42,8 @@ Adımları sırayla gerçekleştirilmesi meta veri nesnesi güncelleştirildiği
 ***Seçenek 1: Meta veri PowerShell kullanarak yükseltme***
 
 1. Son komut satırı yardımcı programı Nuget'ten için karşıdan [burada](http://nuget.org/nuget.exe) ve bir klasöre kaydedin. 
-2. Bir komut istemi açın, aynı klasöre gidin ve komutu yürütün:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
-3. Yalnızca, örneğin yüklediğiniz yeni istemci DLL sürümü içeren alt klasöre gidin:`cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
+2. Bir komut istemi açın, aynı klasöre gidin ve komutu yürütün: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
+3. Yalnızca, örneğin yüklediğiniz yeni istemci DLL sürümü içeren alt klasöre gidin: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. Esnek veritabanı istemci yükseltme Resimli'nden indirin [Komut Merkezi](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)ve dll dosyasını içeren klasöre kaydedin.
 5. Bu klasörü "PowerShell.\upgrade.ps1" komut isteminden çalıştırın ve yönergeleri izleyin.
 

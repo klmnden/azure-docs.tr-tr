@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f12dc08953372b2dfae773df11cf1f47b42a1b89
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric ve kapsayıcıları
 > [!NOTE]
@@ -26,11 +26,11 @@ ms.lasthandoff: 01/13/2018
 >   
 
 > [!NOTE]
-> Service Fabric sürüm 6.1, Windows Server sürümü 1709 Önizleme desteği vardır. Açık ağ ve DNS hizmeti doku Windows Server sürüm 1709 ile çalışmaz. 
+> Service Fabric 6.1 sürümünde Windows Server 1709 sürümü için önizleme desteği sağlanır. Açık ağ ve Service Fabric DNS Hizmeti, Windows Server 1709 sürümüyle çalışmaz. 
 > 
 
 ## <a name="introduction"></a>Giriş
-Azure Service fabric bir [orchestrator](service-fabric-cluster-resource-manager-introduction.md) makine bir küme içinde kullanım ve yüksek ölçüde ölçeklendirmeyi iyileştirme yıllık ile Microsoft Hizmetleri. Hizmetleri kullanmanın birçok yönden geliştirilebilir [Service Fabric modellerini programlama](service-fabric-choose-framework.md) dağıtma [Konuk yürütülebilir dosyalar](service-fabric-deploy-existing-app.md). Varsayılan olarak, Service Fabric dağıtır ve bu hizmetleri işlemler olarak etkinleştirir. İşlemler hızlı etkinleştirme ve küme kaynaklarının yüksek yoğunluk kullanım sağlar. Service Fabric kapsayıcı görüntüleri Hizmetleri'nde de dağıtabilirsiniz. Önemlisi işlemlerde Hizmetleri ve Hizmetleri aynı uygulamada kapsayıcılardaki karıştırabilirsiniz.   
+Azure Service fabric bir [orchestrator](service-fabric-cluster-resource-manager-introduction.md) makine bir küme içinde kullanım ve yüksek ölçüde ölçeklendirmeyi iyileştirme yıllık ile Microsoft Hizmetleri. Hizmetleri kullanmanın birçok yönden geliştirilebilir [Service Fabric modellerini programlama](service-fabric-choose-framework.md) dağıtma [Konuk yürütülebilir dosyalar](service-fabric-guest-executables-introduction.md). Varsayılan olarak, Service Fabric dağıtır ve bu hizmetleri işlemler olarak etkinleştirir. İşlemler hızlı etkinleştirme ve küme kaynaklarının yüksek yoğunluk kullanım sağlar. Service Fabric kapsayıcı görüntüleri Hizmetleri'nde de dağıtabilirsiniz. Önemlisi işlemlerde Hizmetleri ve Hizmetleri aynı uygulamada kapsayıcılardaki karıştırabilirsiniz.   
 
 ## <a name="what-are-containers"></a>Kapsayıcıları nelerdir?
 Bir işletim sistemi sağlar sanallaştırma yararlanmak için aynı çekirdek yalıtılmış örneklerinde Çalıştır kapsüllenmiş, ayrı ayrı dağıtılabilir bileşenleri kapsayıcılardır. Bu nedenle, her uygulama ve çalışma zamanı, bağımlılıklar ve sistem başlatılamadığından içinde bir kapsayıcı, tam, özel erişim ile işletim sistemi yapıları yalıtılmış kapsayıcının kendi görünümüne'e çalıştırın. Taşınabilirlik yanı sıra, bu güvenlik ve kaynak ayırma derecesini kapsayıcıları, aksi takdirde Hizmetleri işlemlerde çalışan Service Fabric ile kullanmak için ana avantajdır.
@@ -72,7 +72,7 @@ Burada bir kapsayıcı iyi bir seçimdir tipik örnekler şunlardır:
 ## <a name="service-fabric-support-for-containers"></a>Kapsayıcıları için Service Fabric desteği
 Service Fabric, Hyper-V yalıtım modunu desteğinin yanı sıra Windows Server 2016, Linux ve Windows Server kapsayıcılarında Docker kapsayıcıları dağıtımını destekler. 
 
-Service Fabric içinde [uygulama modeli](service-fabric-application-model.md), hangi birden çok çoğaltmaları hizmete bir uygulama konağı bir kapsayıcıyı temsil eder. Service Fabric, herhangi bir kapsayıcıdaki çalıştırabilir ve senaryosu benzer [Konuk yürütülebilir senaryo](service-fabric-deploy-existing-app.md), bir kapsayıcı içinde var olan bir uygulama paketi burada. Genel kullanım örneği kapsayıcıları için bu senaryodur ve herhangi bir dil veya çerçevelerini kullanarak, ancak yerleşik Service Fabric programlama modelleri kullanmayan yazılmış bir uygulama çalıştıran örnekler.
+Service Fabric içinde [uygulama modeli](service-fabric-application-model.md), hangi birden çok çoğaltmaları hizmete bir uygulama konağı bir kapsayıcıyı temsil eder. Service Fabric, herhangi bir kapsayıcıdaki çalıştırabilir ve senaryosu benzer [Konuk yürütülebilir senaryo](service-fabric-guest-executables-introduction.md), bir kapsayıcı içinde var olan bir uygulama paketi burada. Genel kullanım örneği kapsayıcıları için bu senaryodur ve herhangi bir dil veya çerçevelerini kullanarak, ancak yerleşik Service Fabric programlama modelleri kullanmayan yazılmış bir uygulama çalıştıran örnekler.
 
 Ayrıca, çalıştırabilirsiniz [Service Fabric Hizmetleri kapsayıcılar içinde](service-fabric-services-inside-containers.md) de. Kapsayıcılar içinde çalışan Service Fabric Hizmetleri için destek şu anda sınırlıdır ve gelecek sürümlerde geliştirildi.
 

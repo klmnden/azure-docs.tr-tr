@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: ac085bf972885819f7c79996b0f6638fc01fc00d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory doğrudan kimlik doğrulaması: Geçerli sınırlamalar
 
@@ -29,24 +29,25 @@ ms.lasthandoff: 03/08/2018
 
 Aşağıdaki senaryolarda tam olarak desteklenir:
 
-- Kullanıcı oturum açma işlemleri için tüm web tarayıcı tabanlı uygulamalar
-- Kullanıcı oturum açma işlemleri destekleyen Office uygulamaları için [modern kimlik doğrulaması](https://aka.ms/modernauthga): Office 2016 ve Office 2013 _ile_ modern kimlik doğrulaması
+- Kullanıcı oturum açma işlemleri tüm web tarayıcı tabanlı uygulamalar için.
+- Kullanıcı oturum açma işlemleri destekleyen Office uygulamaları için [modern kimlik doğrulaması](https://aka.ms/modernauthga): Office 2016 ve Office 2013 _ile_ modern kimlik doğrulaması.
 - Kullanıcı oturum açma işlemlerine Exchange ActiveSync, SMTP, POP ve IMAP gibi eski protokolleri kullanarak Outlook istemcileri.
-- Kullanıcı oturum açma işlemlerine Skype Kurumsal çevrimiçi & karma topolojiler de dahil olmak üzere bu destek modern kimlik doğrulaması. Desteklenen topolojiler hakkında daha fazla bilgi [burada](https://technet.microsoft.com/library/mt803262.aspx).
-- Windows 10 cihazlar için Azure AD etki alanına katılır
+- Kullanıcı oturum açma işlemlerine Skype Kurumsal çevrimiçi dahil modern kimlik doğrulamasını ve karma topolojiler destekleyen. Desteklenen topolojiler hakkında daha fazla bilgi [burada](https://technet.microsoft.com/library/mt803262.aspx).
+- Windows 10 cihazlar için Azure AD etki alanı birleştirir.
 - Çok faktörlü kimlik doğrulaması için uygulama parolaları.
 
 ## <a name="unsupported-scenarios"></a>Desteklenmeyen senaryolar
 
 Aşağıdaki senaryolar _değil_ desteklenir:
 
-- Eski Office istemci uygulamaları Outlook dışında kullanıcı oturum açma işlemlerine: Office 2010 ve Office 2013 _olmadan_ modern kimlik doğrulaması. Kuruluşlar, modern kimlik doğrulaması için mümkünse geçmeniz önerilir. Modern kimlik doğrulama için doğrudan kimlik doğrulama desteği sağlar. Ayrıca, kullanıcı hesaplarını kullanarak güvenliğini sağlamanıza yardımcı olur [koşullu erişim](../active-directory-conditional-access-azure-portal.md) Azure çok faktörlü kimlik doğrulaması gibi özellikleri.
+- Kullanıcı oturum açma işlemlerine Outlook dışında eski Office istemci uygulamalarında (bkz **desteklenen senaryoları** yukarıda): Office 2010 ve Office 2013 _olmadan_ modern kimlik doğrulaması. Kuruluşlar, modern kimlik doğrulaması için mümkünse geçmeniz önerilir. Modern kimlik doğrulama için doğrudan kimlik doğrulama desteği sağlar. Ayrıca, kullanıcı hesaplarını kullanarak güvenliğini sağlamanıza yardımcı olur [koşullu erişim](../active-directory-conditional-access-azure-portal.md) Azure çok faktörlü kimlik doğrulaması gibi özellikleri.
+- Takvim Paylaşımı hem de serbest/meşgul bilgilerini Exchange yalnızca karma ortamlar Office 2010 üzerinde erişebilirsiniz.
 - Kullanıcı oturum açma işlemlerine Skype iş istemci uygulamaları için _olmadan_ modern kimlik doğrulaması.
 - Kullanıcı oturum açma işlemlerine PowerShell 1.0 sürümü. PowerShell sürüm 2.0 kullanmanızı öneririz.
 - Kullanıcılarla algılanması [kimlik bilgileri sızmasını](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD etki alanı Hizmetleri parola karması eşitlemesi Kiracı'etkinleştirilmesi gerekir. Bu nedenle, geçişli kimlik doğrulaması kullanan kiracılar _yalnızca_ Azure AD etki alanı Hizmetleri gerektiren senaryolar için çalışmıyor.
 - Doğrudan kimlik doğrulaması ile tümleşik değildir [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
-- Apple cihaz kayıt programı (Apple DEP), modern kimlik doğrulamasını desteklemez.  Apple DEP cihazları için doğrudan kimlik doğrulaması kullanarak etki alanlarını Intune'a kaydetmek başarısız olur.
+- Apple cihaz kayıt iOS Kurulum Yardımcısı'nı kullanarak programı'nı (Apple DEP), modern kimlik doğrulamasını desteklemez. Bu Apple DEP cihazları doğrudan kimlik doğrulama kullanarak yönetilen etki alanları için Intune'a kaydetmek başarısız olur. Kullanmayı [Şirket portalı uygulamasını](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) alternatif olarak.
 
 >[!IMPORTANT]
 >Desteklenmeyen senaryolar için geçici bir çözüm olarak _yalnızca_, parola karma eşitlemesini etkinleştirmek [isteğe bağlı özellikler](active-directory-aadconnect-get-started-custom.md#optional-features) Azure AD Connect Sihirbazı sayfasında.

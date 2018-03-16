@@ -2,30 +2,24 @@
 title: "Esnek veritabanı araçları - Azure ile çalışmaya başlama | Microsoft Docs"
 description: "Bir çalışma kolay örnek uygulaması da dahil olmak üzere Azure SQL veritabanı'nın esnek veritabanı araçlarını özelliği temel açıklaması."
 services: sql-database
-documentationcenter: 
-manager: jstrauss
+manager: craigg
 author: anumjs
-editor: CarlRabeler
-ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: anjangsh
-ms.openlocfilehash: 615e5b0bf299a844ea2d37476fc704c48e17b363
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 28ff3f6eee2316a078badcf29e6780f3844f3a54
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanmaya başlama
 Bu belge size geliştirici deneyimi tanıtır [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) yardımcı olarak bir örnek uygulamayı çalıştırın. Örnek uygulama basit parçalı bir uygulama oluşturur ve Azure SQL veritabanı'nın esnek veritabanı araçları özelliği anahtar özelliklerini inceler. Kullanım örnekleri için odaklanır [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md), [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), ve [çok parça sorgulama](sql-database-elastic-scale-multishard-querying.md). Java yanı sıra .NET istemci kitaplığını kullanılabilir. 
 
 ## <a name="elastic-database-tools-for-java"></a>Java için esnek veritabanı araçları
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Bir Java Geliştirme Seti (JDK), sürüm 1,8 veya üstü
 * [Maven](http://maven.apache.org/download.cgi)
 * Azure veya yerel bir SQL Server örneğini bir mantıksal sunucu
@@ -53,7 +47,7 @@ JAR dosyalarını oluşturmak ve örnek projeyle başlamak için aşağıdakiler
     
 5. İstemci kitaplığı özellikleri hakkında daha fazla bilgi edinmek için çeşitli seçeneklerle denemeler yapın. Örnek uygulama uygulama hakkında bilgi edinmek için kodu keşfetmek çekinmeyin.
 
-    ![İlerleme-java][5]
+    ![Progress-java][5]
     
 Tebrikler! Başarıyla oluşturulmuş ve Azure SQL Database esnek veritabanı araçlarını kullanarak ilk parçalı uygulamanızı çalıştırın. SQL veritabanınıza bağlanmak ve örnek oluşturulan parça hızlı bakmak için Visual Studio veya SQL Server Management Studio kullanın. Yeni örnek parça veritabanları ve örnek oluşturduğu bir parça eşleme manager veritabanı fark edeceksiniz. 
 
@@ -68,7 +62,7 @@ Tebrikler! Başarıyla oluşturulmuş ve Azure SQL Database esnek veritabanı ar
 ```
 
 ## <a name="elastic-database-tools-for-net"></a>.NET için esnek veritabanı araçları 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Visual Studio 2012 veya sonraki C# ile. Konumundaki ücretsiz sürümünü karşıdan [Visual Studio indirmeleri](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 veya üzeri. En son sürümü edinmek için bkz: [yükleme NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 
@@ -87,7 +81,7 @@ Kitaplığı yüklemek için Git [Microsoft.Azure.SqlDatabase.ElasticScale.Clien
 
 5. İstemci kitaplığı özellikleri hakkında daha fazla bilgi edinmek için çeşitli seçeneklerle denemeler yapın. Uygulama konsolda alır gereken adımları çıkış ve arka planda kod keşfetmek çekinmeyin unutmayın.
    
-    ![İlerleme][4]
+    ![İlerleme Durumu][4]
 
 Tebrikler! Başarıyla oluşturulmuş ve SQL Database esnek veritabanı araçlarını kullanarak ilk parçalı uygulamanızı çalıştırın. SQL veritabanınıza bağlanmak ve örnek oluşturulan parça hızlı bakmak için Visual Studio veya SQL Server Management Studio kullanın. Yeni örnek parça veritabanları ve örnek oluşturduğu bir parça eşleme manager veritabanı fark edeceksiniz.
 

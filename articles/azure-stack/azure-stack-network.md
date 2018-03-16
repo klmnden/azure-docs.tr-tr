@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makale Azure yığın mevcut ağ ortamınıza en iyi tümleştirmek nasıl karar vermenize yardımcı olacak Azure yığın ağ altyapı bilgileri sağlar. 
@@ -53,7 +53,9 @@ Azure yığını için ağ altyapısı anahtarlar yapılandırılmış birden fa
 ![Mantıksal ağ bağlantılarının diyagramını ve anahtarı oluştur](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC ağ
-Bu ağ yönetim ağı için tüm temel kart yönetim denetleyicileri (olarak da bilinen Hizmet işlemciler, örneğin, iDRAC, Ilo, iBMC, vb.) bağlanma ayrılır. Varsa, (HLH) donanım yaşam döngüsü ana bu ağ üzerinde bulunan ve donanım Bakım ve/veya izleme için OEM belirli yazılım sağlayabilir. 
+Bu ağ yönetim ağı için tüm temel kart yönetim denetleyicileri (olarak da bilinen Hizmet işlemciler, örneğin, iDRAC, Ilo, iBMC, vb.) bağlanma ayrılır. Varsa, donanım yaşam döngüsü ana bilgisayar (HLH) bu ağ üzerinde bulunan ve donanım Bakım veya izleme için OEM belirli yazılım sağlayabilir. 
+
+HLH (DVM) dağıtım VM da barındırır. DVM Azure yığın dağıtımı sırasında kullanılır ve dağıtım tamamlandıktan sonra kaldırılır. DVM bağlı dağıtım senaryolarında sınamak için doğrulamak ve birden çok bileşenlerine erişmek için Internet erişimi gerektirir. Bu bileşenler içinde ve Şirket ağınızın dışındaki olabilir; Örneğin NTP, DNS ve Azure. Bağlantı gereksinimleri hakkında daha fazla bilgi için bkz: [Azure yığın güvenlik duvarı tümleştirmesi NAT bölümünde](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Özel ağ
 Bu /24 (254 ana bilgisayar IP'ın) ağ (Azure yığın bölgesinin kenarlık anahtar aygıtları genişletmez) Azure yığın bölgeye özeldir ve iki alt ağa ayrılmıştır:

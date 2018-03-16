@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kaynakları bölümü
 
@@ -78,7 +78,7 @@ Aşağıdaki Yapı kaynaklarını tanımlayın:
 | kopyala |Hayır |Birden fazla örneği gerekirse oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm kullanmak istemiyorsanız, seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
 | dependsOn |Hayır |Bu kaynak dağıtılmadan önce dağıtılmalıdır kaynaklar. Resource Manager kaynakları arasındaki bağımlılıkları değerlendirir ve doğru sırada dağıtır. Kaynakları birbirlerine bağımlı olmadıkları zaman bunların paralel olarak dağıtılır. Değer bir kaynağın virgülle ayrılmış bir liste olabilir adları veya kaynak benzersiz tanımlayıcıları. Yalnızca bu şablonda dağıtılan kaynakları listeler. Bu şablonda tanımlı değil kaynakları önceden var olmalıdır. Dağıtımınızı yavaş ve döngüsel bağımlılıklar oluşturma gibi gereksiz bağımlılıkları eklemekten kaçının. Bağımlılıklarını ayarlama hakkında yönergeler için bkz [Azure Resource Manager'da bağımlılıkları tanımlama](resource-group-define-dependencies.md). |
 | properties |Hayır |Kaynak özgü yapılandırma ayarları. Özelliklerine ilişkin değerleri kaynak oluşturmak REST API işlemi için (PUT yöntemini) istek gövdesinde sağladığınız değerleri ile aynıdır. Ayrıca bir özelliği birden çok örneğini oluşturmak için bir kopya dizisi belirtebilirsiniz. |
-| kaynaklar |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Tam olarak nitelenmiş tür alt kaynağının üst kaynak türü gibi içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kullanılmaz. Bu bağımlılık açıkça tanımlamanız gerekir. |
+| kaynak |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Tam olarak nitelenmiş tür alt kaynağının üst kaynak türü gibi içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kullanılmaz. Bu bağımlılık açıkça tanımlamanız gerekir. |
 
 ## <a name="resource-specific-values"></a>Kaynak özgü değerleri
 
@@ -102,7 +102,7 @@ Veri erişim uç noktası olan herhangi bir kaynak türü için bir benzersiz ka
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search
-* Azure Hdınsight
+* Azure HDInsight
 
 <sup>1</sup> depolama hesabı adları de küçük olmalıdır, 24 karakter veya daha az ve tire sahip değil.
 
@@ -213,7 +213,7 @@ Aşağıdaki örnek, kaynak grubu olarak aynı konuma dağıtılan bir depolama 
 ```
 
 ## <a name="tags"></a>Etiketler
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="add-tags-to-your-template"></a>Şablonunuz için etiketler ekleme
 
@@ -242,9 +242,9 @@ Bazı kaynak türleri içinde bir dizi alt kaynakları da tanımlayabilirsiniz. 
 
 İç içe geçmiş zaman türü kümesine `databases` ancak kendi tam kaynak türü `Microsoft.Sql/servers/databases`. Sunmaz `Microsoft.Sql/servers/` üst kaynak türünden varsayıldığından. Alt kaynak adı ayarlamak `exampledatabase` ancak üst adı tam adını içerir. Sunmaz `exampleserver` üst kaynak varsayıldığından.
 
-Alt öğe kaynak türünü biçimdedir:`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+Alt öğe kaynak türünü biçimdedir: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-Alt kaynak adının biçimi şöyledir:`{parent-resource-name}/{child-resource-name}`
+Alt kaynak adının biçimi şöyledir: `{parent-resource-name}/{child-resource-name}`
 
 Ancak, sunucu veritabanında tanımlamak zorunda değilsiniz. En üst düzeyinde alt kaynak tanımlayabilirsiniz. Üst kaynak şablonun aynı dağıtılmamışsa, ya da varsa bu yaklaşımı kullanabilir kullanmak istediğiniz `copy` birden çok alt kaynaklarını oluşturun. Bu yaklaşımda, tam kaynak türü sağlayın ve üst kaynak adı alt kaynak adında gerekir.
 
@@ -273,7 +273,7 @@ Bir kaynağa tam bir başvuru oluşturulurken, tür ve ad bölümlerinin birleş
 
 Örneğin:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`doğru `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` doğru değil
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` doğru `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` doğru değil
 
 ## <a name="recommendations"></a>Öneriler
 Kaynakları ile çalışırken aşağıdaki bilgiler yararlı olabilir:

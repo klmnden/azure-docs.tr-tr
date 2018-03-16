@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: e82bbff908ea5499765edc71e52caa573c816a62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -88,7 +88,7 @@ Tüm üç depolama konumları aynı temel bilgileri günlüğe kaydedilen olayla
 >
 >
 
-## <a name="download"></a>Nasıl yapılır: indirme günlükleri
+## <a name="download"></a> Nasıl yapılır: indirme günlükleri
 Web uygulaması dosya sistemine depolanan tanılama bilgileri FTP kullanarak doğrudan erişilebilir. Ayrıca Azure PowerShell veya Azure komut satırı arabirimi kullanarak Zip arşivini indirilebilir.
 
 Günlükleri depolanmış dizin yapısı aşağıdaki gibidir:
@@ -97,7 +97,7 @@ Günlükleri depolanmış dizin yapısı aşağıdaki gibidir:
 * **Başarısız istek izlemelerin** -/ LogFiles/W3SVC ### /. Bu klasör bir XSL dosyası ve bir veya daha fazla XML dosyalarını içerir. XSL dosyasını biçimlendirme ve Internet Explorer'da görüntülendiğinde XML dosyaları içeriğini filtreleme işlevselliği sağladığından XML dosyaları gibi aynı dizine XSL dosyasını karşıdan emin olun.
 * **Ayrıntılı Hata günlüklerini** -/LogFiles/DetailedErrors /. Bu klasör oluşan HTTP hataları için kapsamlı bilgi sağlayan bir veya daha fazla .htm dosyalarını içerir.
 * **Web sunucu günlükleri** -/LogFiles/http/RawLogs. Bu klasör içeriyor ya da daha fazla metin dosyaları olarak biçimlendirilmiş kullanarak [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Dağıtım günlükleri** -/ LogFiles/Git. Bu klasör Azure web uygulamaları tarafından kullanılan iç dağıtım işlemler tarafından oluşturulan günlükleri içeren, aynı zamanda Git dağıtımları için günlüğe kaydeder.
+* **Dağıtım günlükleri** -/ LogFiles/Git. Bu klasör Azure web uygulamaları tarafından kullanılan iç dağıtım işlemler tarafından oluşturulan günlükleri içeren, aynı zamanda Git dağıtımları için günlüğe kaydeder. Ayrıca dağıtım günlükleri D:\home\site\deployments altında bulabilirsiniz.
 
 ### <a name="ftp"></a>FTP
 
@@ -141,7 +141,7 @@ Visual Studio Application Insights filtreleme ve günlükleri arama ve günlükl
 
 [Application Insights ile izleme performansı hakkında daha fazla bilgi edinin](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a>Nasıl yapılır: akış günlükleri
+## <a name="streamlogs"></a> Nasıl yapılır: akış günlükleri
 Bir uygulama geliştirirken, genellikle neredeyse gerçek zamanlı günlük bilgileri görmek yararlı olacaktır. Azure PowerShell veya Azure komut satırı arabirimi kullanarak geliştirme ortamınız için günlük kaydı bilgileri akışını sağlayabilirsiniz.
 
 > [!NOTE]
@@ -194,7 +194,7 @@ HTTP gibi belirli günlük türleri filtrelemek için kullanmak **--yolu** param
 >
 >
 
-## <a name="understandlogs"></a>Nasıl yapılır: Tanılama günlükleri anlama
+## <a name="understandlogs"></a> Nasıl yapılır: Tanılama günlükleri anlama
 ### <a name="application-diagnostics-logs"></a>Uygulama tanılama günlükleri
 Uygulama tanılama günlükleri dosya sistemi, tablo depolama veya blob depolama depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. Temel depolanan verileri aynı tüm üç depolama türlerine - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği kümesidir.
 
@@ -222,7 +222,7 @@ Tablo depolama için oturum açarken ek özellikler Tablo yanı sıra olay hakk�
 | EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
 | ApplicationName |Web uygulaması adı |
 | Düzey |Olay düzeyi (uyarı, bilgi Örneğin, hata) |
-| Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
+| EventId |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
 | Örnek kimliği |Hatta oluştu. web uygulaması örneği |
 | PID |İşlem Kimliği |
 | komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
@@ -239,7 +239,7 @@ Blob depolama için oturum açarken verileri virgülle ayrılmış değerler (CS
 | ApplicationName |Web uygulaması adı |
 | Örnek kimliği |Olayın oluştuğu web uygulaması örneği |
 | EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
-| Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
+| EventId |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
 | PID |İşlem Kimliği |
 | komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
 | İleti |Olay Ayrıntısı iletisi |

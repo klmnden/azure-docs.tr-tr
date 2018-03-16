@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: garye
-ms.openlocfilehash: 2bf63d41c9a06e724b971c2edb9e3127fe878b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0d16978ef189a8fb3e708ffd3089631355ae70e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="get-help-from-machine-learning-live-chat-support"></a>Machine Learning Canlı Sohbet Desteğinden yardım alın
+# <a name="get-help-from-machine-learning-live-chat-support---deprecated"></a>Machine Learning canlı sohbet kullanım dışı Destek'ten - yardım alın
+
+Artık kullanılabilir.
+
 [Azure Machine Learning Studio](what-is-ml-studio.md) makine öğrenimi modellerini oluşturmak için sezgisel bir arabirim sağlar. Var olan bir [galeri](gallery-how-to-use-contribute-publish.md) başlamanıza yardımcı olmak için topluluk tarafından katkıda bulunan örneklerin. Ve bir [Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) giderek tutmaya yardımcı olmak için sorular sorabileceğiniz. 
 
 Ancak bazen, engellemesini kaldırmak için hızlı bir soru sormak yeterlidir. İçinde [Machine Learning Studio](http://studio.azureml.net/Home) üst gezinti sohbet simgesinde arayın.  Bu simge görürseniz, ürün ekibinin bir üyesi gerçek zamanlı olarak yardımcı olmak için çevrimiçi olduğu anlamına gelir.
 
-![Azure ML sohbet](./media/live-chat/AzureMLChatNavBar.png)
+![Azure ML Chat](./media/live-chat/AzureMLChatNavBar.png)
 
 Sorunuzun yanıtını yazın ve yanıtlar alın!
 

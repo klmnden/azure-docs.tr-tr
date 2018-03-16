@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/14/2018
 ms.author: jgao
-ms.openlocfilehash: 290e600b7be4a6f9fb57afa50bb771e42e6a0624
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: c74e02ea32a5aacf1a5208c0e194a25b0b6bcb48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Microsoft Power BI'ın Azure Hdınsight'ta doğrudan sorgu kullanarak etkileşimli sorgu Hive verileri görselleştirin
 
@@ -28,7 +28,7 @@ Microsoft Power BI Azure Hdınsight etkileşimli sorgu kümelerine bağlanmak ve
 
 ![Hdınsight Power BI haritası raporu](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-ODBC kullanarak Hive bağlanmak için bkz: nasıl [Microsoft Power BI'ın Azure Hdınsight'ta ODBC kullanarak veri görselleştirme Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
+Yararlanabileceğiniz [Hive ODBC sürücüsü](../hadoop/apache-hadoop-connect-hive-power-bi.md) Power BI Desktop'ta genel ODBC bağlayıcısı aracılığıyla içe aktarmak için. Ancak Hive sorgu altyapısı etkileşimli olmayan yapısını verilen BI iş yükleri için önerilmez. [Hdınsight etkileşimli sorgu bağlayıcı](./apache-hadoop-connect-hive-power-bi-directquery.md) ve [Hdınsight Spark bağlayıcı](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) performanslarını için daha iyi seçimlerdir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede geçmeden önce aşağıdaki öğeleri sahip olmanız gerekir:

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de özellik eşlemeleri için ifade yazma
 Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznitelik eşlemelerini tür bir ifade eşlemesi biridir. Bunlar için kullanıcılarınızın veri SaaS uygulaması için daha kabul edilebilir biçimlere dönüştürme olanak sağlayan bir betik benzeri ifadesi yazmanız gerekir.
@@ -36,7 +36,7 @@ Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznit
 * Bir ters eğik çizgi (\) ya da dizisinde tırnak işareti (") gerekiyorsa dize sabitleri için onu ters eğik çizgi (\) simgesiyle kaçış uygulanmalıdır. Örneğin: "şirket adı: \"Contoso\""
 
 ## <a name="list-of-functions"></a>İşlevlerin listesi
-[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Değiştir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [anahtarı](#switch)
+[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılma](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Değiştir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [anahtarı](#switch)
 
 - - -
 ### <a name="append"></a>Ekle
@@ -62,7 +62,7 @@ Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznit
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğinin adı. |
-| **inputFormat** |Gerekli |Dize |Kaynak değerin beklenen biçimi. Desteklenen biçimler için bkz: [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Gerekli |Dize |Kaynak değerin beklenen biçimi. Desteklenen biçimler için bkz: [ http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Gerekli |Dize |Çıkış tarihi biçimi. |
 
 - - -
@@ -91,8 +91,8 @@ Kaynak değerlerden biri birden çok değerli özniteliği, her değer ise bu ö
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |Genellikle özniteliğinin adı. |
-| **start** |Gerekli |integer |İçinde dizin **kaynak** dize substring burada başlamalıdır. Dizedeki ilk karakter dizini 1 olacaktır, ikinci karakter dizin 2 sahip ve benzeri. |
-| **uzunluğu** |Gerekli |integer |Dizenin uzunluğu. Uzunluk dışında ererse **kaynak** dize işlevi alt dizeyi döndürecektir **Başlat** dizin sonuna kadar **kaynak** dize. |
+| **start** |Gerekli |tamsayı |İçinde dizin **kaynak** dize substring burada başlamalıdır. Dizedeki ilk karakter dizini 1 olacaktır, ikinci karakter dizin 2 sahip ve benzeri. |
+| **uzunluğu** |Gerekli |tamsayı |Dizenin uzunluğu. Uzunluk dışında ererse **kaynak** dize işlevi alt dizeyi döndürecektir **Başlat** dizin sonuna kadar **kaynak** dize. |
 
 - - -
 ### <a name="not"></a>değil
@@ -108,7 +108,7 @@ Kaynak değerlerden biri birden çok değerli özniteliği, her değer ise bu ö
 
 - - -
 ### <a name="replace"></a>Değiştir
-**İşlev:**<br> ObsoleteReplace (kaynak, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, şablonu)
+**İşlev:**<br> (Kaynak, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, şablonu) Değiştir
 
 **Açıklama:**<br>
 Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak farklı şekilde çalışır:
@@ -119,13 +119,13 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 * Zaman **oldValue** ve **şablonu** sağlanır:
   
   * Tüm oluşumlarını değiştirir **oldValue** içinde **şablonu** ile **kaynak** değeri
-* Zaman **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue** sağlanır:
+* When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
   * Kaynak dizesi replacementValue ile oldValueRegexPattern eşleşen tüm değerleri değiştirir
-* Zaman **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName** sağlanır:
+* When **regexPattern**, **regexGroupName**, **replacementPropertyName** are provided:
   
-  * Varsa **kaynak** değerine sahip **kaynak** döndürülür
-  * Varsa **kaynak** değeri yok, kullanan **oldValueRegexPattern** ve **oldValueRegexGroupName** özelliğiyle değiştirme değeri ayıklamak için  **replacementPropertyName**. Sonuç olarak değiştirme değeri döndürülür
+  * Varsa **kaynak** herhangi bir değer olan **kaynak** döndürülür
+  * Varsa **kaynak** değerine sahip, kullanan **regexPattern** ve **regexGroupName** özelliğiyle değiştirme değeri ayıklamak için **replacementPropertyName** . Sonuç olarak değiştirme değeri döndürülür
 
 **Parametreler:**<br> 
 
@@ -137,7 +137,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 | **regexGroupName** |İsteğe bağlı |Dize |İçinde grup adını **regexPattern**. Yalnızca replacementPropertyName kullanıldığında, biz bu grubun değerini değiştirme özelliğinden replacementValue olarak ayıklar. |
 | **replacementValue** |İsteğe bağlı |Dize |Eski bir öğe ile değiştirmek için yeni değer. |
 | **replacementAttributeName** |İsteğe bağlı |Dize |Kaynak yok değerine sahip olduğunda değiştirme değeri için kullanılacak özniteliğinin adı. |
-| **şablonu** |İsteğe bağlı |Dize |Zaman **şablonu** değeri sağlanır, biz görüneceğini **oldValue** şablonu içinde ve kaynak değerle değiştirin. |
+| **Şablonu** |İsteğe bağlı |Dize |Zaman **şablonu** değeri sağlanır, biz görüneceğini **oldValue** şablonu içinde ve kaynak değerle değiştirin. |
 
 - - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
@@ -176,7 +176,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 | **Kaynak** |Gerekli |Dize |**Kaynak** güncelleştirmek için değer. |
 | **defaultValue** |İsteğe bağlı |Dize |Kaynak herhangi bir anahtarı eşleşmediğinde kullanılacak varsayılan değeri. Boş bir dize olabilir (""). |
 | **key** |Gerekli |Dize |**Anahtar** karşılaştırmak için **kaynak** ile değer. |
-| **değer** |Gerekli |Dize |Değiştirme değeri için **kaynak** eşleşen. |
+| **Değer** |Gerekli |Dize |Değiştirme değeri için **kaynak** eşleşen. |
 
 ## <a name="examples"></a>Örnekler
 ### <a name="strip-known-domain-name"></a>Şerit bilinen etki alanı adı
@@ -213,6 +213,17 @@ Kullanıcının ilk adını, ilk 3 harf ve kullanıcının soyadını ilk 5 harf
 * **Giriş** (givenName): "John"
 * **Giriş** (Soyadı): "Doe"
 * **OUTPUT**:  "JohDoe"
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Bir dizeden Aksan kaldırın ve küçük harfe Dönüştür
+Bir dizeden özel karakterleri kaldırın ve büyük harfler küçük harfe dönüştürmek gerekir.
+
+**İfade:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**Giriş/Çıkış örneği:** <br>
+
+* **Giriş** (givenName): "Zoë"
+* **Çıktı**: "zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Çıkış tarihi belirli biçiminde bir dize olarak
 Belirli bir biçimde SaaS uygulamasına tarihleri göndermek istiyor. <br>

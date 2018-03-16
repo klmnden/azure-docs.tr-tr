@@ -2,25 +2,19 @@
 title: "Azure SQL veri eşitleme (Önizleme) ayarı | Microsoft Docs"
 description: "Bu öğretici Azure SQL veri eşitlemeyi (Önizleme) ayarlamak nasıl gösterir"
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>SQL veri eşitleme ayarı (Önizleme)
 Bu öğreticide, Azure SQL Database ve SQL Server örneklerini içeren bir karma eşitleme grubu oluşturarak Azure SQL veri eşitlemeyi ayarlamak nasıl öğrenin. Yeni eşitleme grubunu tam olarak yapılandırılmamış ve belirlediğiniz bir zamanlamaya göre eşitler.
@@ -62,7 +56,7 @@ SQL veri eşitleme yapılandırmayı gösterir tam PowerShell örnekler için a�
         > [!NOTE]
         > Microsoft Eşitleme meta veri veritabanı olarak kullanmak için yeni, boş bir veritabanı oluşturmak önerir. Veri Eşitleme bu veritabanında tablolar oluşturur ve sık kullanılan bir iş yükü çalıştırır. Bu veritabanı, tüm seçili bölgede eşitleme gruplarınızın için eşitleme meta veri veritabanı olarak otomatik olarak paylaşılır. Bırakma olmadan eşitleme meta verileri veritabanı veya adını değiştiremezsiniz.
 
-        Seçerseniz **yeni veritabanı**seçin **yeni veritabanı oluştur.** **SQL veritabanı** sayfası açılır. Üzerinde **SQL veritabanı** sayfa, ad ve yeni veritabanını yapılandırın. Ardından **Tamam**.
+        Seçerseniz **yeni veritabanı**seçin **yeni veritabanı oluştur.** **SQL veritabanı** sayfası açılır. Üzerinde **SQL veritabanı** sayfa, ad ve yeni veritabanını yapılandırın. Sonra **Tamam**’ı seçin.
 
         Seçerseniz **varolan veritabanını kullan**, veritabanını listeden seçin.
 
@@ -110,7 +104,7 @@ Yeni eşitleme grubu oluşturup, adım 2 ' yi dağıttıktan sonra **eşitleme �
 
     ![Yeni SQL veritabanı eşitleme üye eklendi](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-on-prem"></a>Bir şirket içi SQL Server veritabanı ekleyin
+### <a name="add-on-prem"></a> Bir şirket içi SQL Server veritabanı ekleyin
 
 İçinde **üye veritabanı** bölümünde, isteğe bağlı olarak seçerek bir şirket içi SQL Server eşitleme grubuna ekleyin **bir şirket içi veritabanı Ekle**. **Yapılandırma şirket içi** sayfası açılır.
 
@@ -159,7 +153,7 @@ Yeni eşitleme grubu oluşturup, adım 2 ' yi dağıttıktan sonra **eşitleme �
 
         ![Ekleme ve bir SQL Server veritabanı yapılandırma](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
 
-    10. İçinde **SQL Server yapılandırma** iletişim kutusu, SQL Server kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak bağlanmak üzere seçim yapın. SQL Server kimlik doğrulamasını seçerseniz, var olan kimlik bilgilerini girin. SQL Server adı ve eşitlemek istediğiniz veritabanının adını belirtin. Seçin **Bağlantıyı Sına** ayarlarınızı sınamak için. Ardından **kaydetmek**. Kayıtlı veritabanı listede görüntülenir.
+    10. İçinde **SQL Server yapılandırma** iletişim kutusu, SQL Server kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak bağlanmak üzere seçim yapın. SQL Server kimlik doğrulamasını seçerseniz, var olan kimlik bilgilerini girin. SQL Server adı ve eşitlemek istediğiniz veritabanının adını belirtin. Seçin **Bağlantıyı Sına** ayarlarınızı sınamak için. Daha sonra **Kaydet**’e tıklayın. Kayıtlı veritabanı listede görüntülenir.
 
         ![SQL Server veritabanı artık kayıtlı](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
 
@@ -189,7 +183,7 @@ Yeni eşitleme Grup üyeleri oluşturulan ve dağıtılan, adım 3, sonra **yap�
 
 3.  Varsayılan olarak, tablodaki tüm sütunların seçilir. Tüm sütunları eşitlemek istemiyorsanız eşitlemek istemediğiniz sütunlar için onay kutusunu devre dışı bırakın. Seçili birincil anahtar sütunu olduğundan emin olun.
 
-    ![Eşitlemek için alanları seçin](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
+    ![Eşitlenecek alanları seçin](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Son olarak, seçin **kaydetmek**.
 

@@ -2,7 +2,7 @@
 title: "Farklı belirtecin hakkında bilgi edinin ve talep türleri Azure AD tarafından desteklenen | Microsoft Docs"
 description: "Anlama ve Azure Active Directory (AAD tarafından) yayınlanan SAML 2.0 ve JSON Web belirteçleri (JWT) belirteçleri Taleplerde değerlendirme kılavuzu"
 documentationcenter: na
-author: dstrockis
+author: hpsin
 services: active-directory
 manager: mtillman
 editor: 
@@ -13,19 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-<<<<<<< HEAD
-ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD belirteç başvurusu
 Azure Active Directory (Azure AD), her kimlik doğrulama akışı işlenmesini güvenlik belirteçlerinde çeşitli türlerde yayar. Bu belgede biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklanmaktadır.
@@ -63,18 +57,18 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `appidacr` |Uygulama kimlik doğrulama bağlamı sınıf başvurusu |İstemcinin kimlik doğrulamasının nasıl yapıldığı gösterir. Ortak bir istemci için değeri 0'dır. İstemci Kimliğini ve istemci gizli anahtarı kullandıysanız, değer 1'dir. <br><br> **Örnek JWT değer**: <br> `"appidacr": "0"` |
 | `acr` |Kimlik doğrulama bağlamı sınıf başvurusu |Nasıl konu, uygulama kimlik doğrulama bağlamı sınıf başvurusu talep istemcisinde aksine doğrulanmış olduğunu gösterir. Son kullanıcı kimlik doğrulaması ISO/IEC 29115 gereksinimlerini karşılamayan "0" değerini gösterir. <br><br> **Örnek JWT değer**: <br> `"acr": "0"` |
 | Anlık kimlik doğrulaması |Kimlik doğrulama gerçekleştiği saat ve tarihi kaydeder. <br><br> **Örnek SAML değer**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
-| `amr` |Kimlik Doğrulama Yöntemi |Belirteç konu nasıl doğrulandı tanımlar. <br><br> **Örnek SAML değer**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Örnek JWT değer**:`“amr”: ["pwd"]` |
+| `amr` |Kimlik Doğrulama Yöntemi |Belirteç konu nasıl doğrulandı tanımlar. <br><br> **Örnek SAML değer**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Örnek JWT değer**: `“amr”: ["pwd"]` |
 | `given_name` |Ad |İlk sağlar ya da "Azure AD kullanıcı nesnesindeki belirlenen kullanıcı adı verilen". <br><br> **Örnek SAML değer**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> **Örnek JWT değer**: <br> `"given_name": "Frank"` |
 | `groups` |Gruplar |İlgilinin grup üyelikleri temsil eden nesne kimlikleri sağlar. Bu değerler benzersiz (nesne kimliği bakın) ve güvenli bir şekilde bir kaynağa erişim yetkisi zorlama gibi erişimi yönetmek için kullanılabilir. Grupları talep kümesinde bulunan grupları uygulama bildiriminin "groupMembershipClaims" özelliği aracılığıyla bir uygulama başına temelinde yapılandırılır. Bir null değeri tüm grupları dışlayacak, Active Directory güvenlik grubu üyeliği ve bir değer "Tümü" bırakılacak güvenlik grupları ve Office 365 dağıtım listeleri içerir yalnızca "Güvenlik grubuna" değerini içerir. <br><br> **Örnek SAML değer**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Örnek JWT değer**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
 | `idp` |Kimlik Sağlayıcısı |Belirtecin konusu kimlik doğrulaması kimlik sağlayıcısı kaydeder. Dağıtımcı'den farklı bir kiracı kullanıcı hesabıdır sürece bu verenin talep değeriyle aynı bir değerdir. <br><br> **Örnek SAML değer**: <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **Örnek JWT değer**: <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |Belirteç düzenlendiği zaman depolar. Genellikle, belirteç yenilik ölçmek için kullanılır. <br><br> **Örnek SAML değer**: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **Örnek JWT değer**: <br> `"iat": 1390234181` |
-| `iss` |Veren |Oluşturur ve belirteci döndüren güvenlik belirteci hizmeti (STS) tanımlar. Azure AD döndürür belirteçlerinde veren sts.windows.net ' dir. Azure AD dizini Kiracı kimliği verenin talep değeri GUID'dir. Kiracı kimliği dizinin değişmez ve güvenilir bir tanımlayıcıdır. <br><br> **Örnek SAML değer**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Örnek JWT değer**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
+| `iss` |Veren: |Oluşturur ve belirteci döndüren güvenlik belirteci hizmeti (STS) tanımlar. Azure AD döndürür belirteçlerinde veren sts.windows.net ' dir. Azure AD dizini Kiracı kimliği verenin talep değeri GUID'dir. Kiracı kimliği dizinin değişmez ve güvenilir bir tanımlayıcıdır. <br><br> **Örnek SAML değer**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Örnek JWT değer**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `family_name` |Soyadı |Son adını, soyadını veya kullanıcının aile adını Azure AD kullanıcı nesnesinde tanımlanan sağlar. <br><br> **Örnek SAML değer**: <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> **Örnek JWT değer**: <br> `"family_name": "Miller"` |
 | `unique_name` |Ad |Belirteç konu tanımlayan bir insan okunabilir değer sağlar. Bu değer, bir kiracı içinde benzersiz olması garanti edilmez ve yalnızca görüntüleme amacıyla kullanılmak üzere tasarlanmıştır. <br><br> **Örnek SAML değer**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **Örnek JWT değer**: <br> `"unique_name": "frankm@contoso.com"` |
-| `oid` |Nesne Kimliği |Bir nesnenin benzersiz bir tanımlayıcı Azure AD'de içerir. Bu değer sabittir ve yeniden atandığında yeniden ya da silinemez. Nesne kimliği, Azure ad sorgularda nesneyi tanımlamak için kullanın. <br><br> **Örnek SAML değer**: <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **Örnek JWT değer**: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
+| `oid` |Nesne kimliği |Bir nesnenin benzersiz bir tanımlayıcı Azure AD'de içerir. Bu değer sabittir ve yeniden atandığında yeniden ya da silinemez. Nesne kimliği, Azure ad sorgularda nesneyi tanımlamak için kullanın. <br><br> **Örnek SAML değer**: <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **Örnek JWT değer**: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
 | `roles` |Roller |Konu doğrudan ve dolaylı olarak Grup üyeliğiyle verildi ve rol tabanlı erişim denetimi uygulamak için kullanılan tüm uygulama rolleri temsil eder. Uygulama rolleri aracılığıyla bir uygulama başına temelinde tanımlanan `appRoles` uygulama bildiriminin özelliği. `value` Rolleri talep görüntülenen değer her uygulama rolü özelliğidir. <br><br> **Örnek SAML değer**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **Örnek JWT değer**: <br> `“roles”: ["Admin", … ]` |
 | `scp` |Kapsam |İstemci uygulaması için kimliğe bürünme izinler gösterir. Varsayılan izni `user_impersonation`. Güvenli kaynağın sahibi Azure AD içinde ek değerler kaydedebilirsiniz. <br><br> **Örnek JWT değer**: <br> `"scp": "user_impersonation"` |
-| `sub` |Konu |Hakkında bilgi, bir uygulamanın kullanıcısı gibi belirteci onaylar asıl tanımlar. Bu değer sabittir ve atanamaz veya yeniden, bu nedenle bu yetkilendirme denetimleri güvenli bir şekilde gerçekleştirmek için kullanılabilir. Konu her zaman Azure AD sorunları belirteçlerinde mevcut olduğundan, bu değerin bir genel amaçlı yetkilendirme sisteminde kullanılması önerilir. <br> `SubjectConfirmation`bir talep değil. Bu konu belirtecin nasıl doğrulanır açıklar. `Bearer`Konu belirteç kendi mülkü tarafından onaylandıktan gösterir. <br><br> **Örnek SAML değer**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Örnek JWT değer**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
+| `sub` |Konu |Hakkında bilgi, bir uygulamanın kullanıcısı gibi belirteci onaylar asıl tanımlar. Bu değer sabittir ve atanamaz veya yeniden, bu nedenle bu yetkilendirme denetimleri güvenli bir şekilde gerçekleştirmek için kullanılabilir. Konu her zaman Azure AD sorunları belirteçlerinde mevcut olduğundan, bu değerin bir genel amaçlı yetkilendirme sisteminde kullanılması önerilir. <br> `SubjectConfirmation` bir talep değil. Bu konu belirtecin nasıl doğrulanır açıklar. `Bearer` Konu belirteç kendi mülkü tarafından onaylandıktan gösterir. <br><br> **Örnek SAML değer**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Örnek JWT değer**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
 | `tid` |Kiracı Kimliği |Belirtecin dizin Kiracı tanımlayan bir değişmez, yeniden kullanılabilir olmayan tanımlayıcısı. Çok kiracılı uygulama Kiracı özgü dizin kaynaklara erişim için bu değeri kullanın. Örneğin, Kiracı grafik API'sine çağrıda tanımlamak için bu değeri kullanın. <br><br> **Örnek SAML değer**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Örnek JWT değer**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
 | `nbf`, `exp` |Belirteç ömrü |Bir belirtecin geçerli olduğu zaman aralığını tanımlar. Belirteci doğrular hizmeti geçerli tarih belirteci reddetme belirteç ömrü içinde başka olduğunu doğrulamanız gerekir. Hizmet için beş dakika belirteç ömrü aralık ötesinde farklılıklarını saatin ("saat eğriltme") için hesap için Azure AD arasında izin verebilir ve hizmeti. <br><br> **Örnek SAML değer**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Örnek JWT değer**: <br> `"nbf":1363289634, "exp":1363293234` |
 | `upn` |Kullanıcı Asıl Adı |Kullanıcı asıl kullanıcı adını depolar.<br><br> **Örnek JWT değer**: <br> `"upn": frankm@contoso.com` |
@@ -96,13 +90,13 @@ Yenileme belirteçleri olan bir OAuth 2.0 akışı yeni erişim belirteçleri al
 
 Yenileme belirteçleri çok kaynak.  Yani bir kaynak için bir belirteç isteğini sırasında alınan bir yenileme belirteci erişebileceği erişim belirteçleri tamamen farklı bir kaynak için kullanılan. Bunu yapmak için ayarlayın `resource` hedeflenen kaynak isteğinde parametresi.
 
-Yenileme belirteçleri, uygulamanızın tamamen opak. Uzun süreli, ancak bir yenileme belirteci süre boyunca sürer beklenir uygulamanızı yazılmamalıysa.  Çeşitli nedenlerle süredir herhangi bir anda yenileme belirteçleri geçersiz olabilir.  Tek bir yenileme belirteci geçerli olup olmadığını bilmek, uygulamanız için Azure AD belirteç uç noktası için bir belirteç isteğini yaparak kullanma girişiminde yoludur.
+Yenileme belirteçleri, uygulamanızın tamamen opak. Uzun süreli, ancak bir yenileme belirteci süre boyunca sürer beklenir uygulamanızı yazılmamalıysa.  Yenileme belirteçleri geçersiz olabilir, çeşitli nedenlerle - zamanında herhangi bir anda bkz [belirteci iptal](#token-revocation) bu nedenlerle.  Tek bir yenileme belirteci geçerli olup olmadığını bilmek, uygulamanız için Azure AD belirteç uç noktası için bir belirteç isteğini yaparak kullanma girişiminde yoludur.
 
 Yeni bir erişim belirteci için bir yenileme belirteci almak, belirteç yanıt olarak yeni bir yenileme belirteci alır.  İstekte kullanılan değiştirme, yeni verilen yenileme belirteci kaydetmeniz gerekir.  Bu, yenileme belirteçleri mümkün olduğunca uzun bir süre geçerli kalacağını garanti.
 
 ## <a name="validating-tokens"></a>Belirteçleri doğrulanıyor
 
-Bir id_token veya bir access_token doğrulamak için uygulamanızı belirtecinin imzası ve talep doğrulamalıdır. Erişim belirteçleri doğrulamak için uygulamanız da veren, İzleyici ve imzalama belirteçleri doğrulamalıdır. Bunlar, Openıd bulma belgesindeki değerler karşı doğrulanması gerekir. Örneğin, belge Kiracı bağımsız sürümü bulunur [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD Ara erişim belirteçleri doğrulamak için yerleşik özellikleri vardır ve aracılığıyla göz atabilirsiniz bizim [örnekleri](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) tercih ettiğiniz dilde bulmak için. Açıkça bir JWT belirteci doğrulama hakkında daha fazla bilgi için lütfen bkz [el ile JWT doğrulama örnek](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Bir id_token veya bir access_token doğrulamak için uygulamanızı belirtecinin imzası ve talep doğrulamalıdır. Erişim belirteçleri doğrulamak için uygulamanız da veren, İzleyici ve imzalama belirteçleri doğrulamalıdır. Bunlar, Openıd bulma belgesindeki değerler karşı doğrulanması gerekir. Örneğin, belge Kiracı bağımsız sürümü bulunur [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD Ara erişim belirteçleri doğrulamak için yerleşik özellikleri vardır ve aracılığıyla göz atabilirsiniz bizim [örnekleri](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) tercih ettiğiniz dilde bulmak için. Açıkça bir JWT belirteci doğrulama hakkında daha fazla bilgi için lütfen bkz [el ile JWT doğrulama örnek](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Kitaplıkları ve kolayca belirteci doğrulama - nasıl ele alınacağını gösteren kod örnekleri sunuyoruz altındaki bilgi yalnızca temel alınan işlem anlamak isteyen olanlar için sağlanır.  Ayrıca çeşitli üçüncü taraf açık kaynak kitaplıkları JWT doğrulama için kullanılabilir olduğundan - neredeyse her platform ve ölçeklendiriyor dili için en az bir seçenek yoktur. Azure AD kimlik doğrulama kitaplıkları ve kod örnekleri hakkında daha fazla bilgi için lütfen bkz [Azure AD kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
 
@@ -152,6 +146,24 @@ Uygulamanızı bir belirteç (kullanıcı oturum açma sırasında bir id_token 
 * ve daha fazlası...
 
 Talep doğrulama uygulamanız için kimlik belirteçlerini gerçekleştirmesi gerektiğini tam listesi için bkz [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Bu talep beklenen değerler ayrıntılarını yer alan önceki [id_token bölüm](#id-tokens) bölümü.
+
+## <a name="token-revocation"></a>Belirteci iptal
+
+Yenileme belirteçleri geçersiz kılınan veya çeşitli nedenlerle için herhangi bir zamanda iptal edildi.  Bu iki ana kategoriye ayrılır: zaman aşımları ve iptalleri. 
+* Belirteci zaman aşımları
+  * MaxInactiveTime: yenileme belirtecini MaxInactiveTime tarafından dikte sürede kullanılmamış, yenileme belirteci artık geçerli olacaktır. 
+  * MaxSessionAge: MaxAgeSessionMultiFactor veya MaxAgeSessionSingleFactor (kadar iptal edilen) varsayılan dışında bir şey için ayarlanmışsa, belirlenen MaxAgeSession * içinde süresi sona erdiğinde daha sonra yeniden kimlik doğrulaması gerekir.  
+  * Örnekler:
+    * Kiracı 5 gün MaxInactiveTime sahip kullanıcı için bir hafta tatile oluştu ve bu nedenle AAD kullanıcıdan yeni bir belirteç isteğini 7 gün içinde görmediği.  Kullanıcı yeni bir belirteç istediğinde bunlar kendi yenileme belirteci iptal edilmiş ve bunlar kimlik bilgilerini yeniden girmeniz gerekir bulacaksınız. 
+    * Duyarlı bir uygulamaya MaxAgeSessionSingleFactor 1 gün sahiptir.  Pazartesi ve Salı (25 saat geçtikten sonra) bir kullanıcı oturum açarsa, yeniden kimlik doğrulama yapılması gerekir.  
+* İptal etme
+  * Gönüllü parola değişikliği: bir kullanıcı parolasını değiştirirse, bunlar bazı belirteç ulaşılan şekilde bağlı olarak, uygulamalar arasında yeniden kimlik doğrulaması gerekebilir.  Özel durumlar için aşağıdaki notlara bakın. 
+  * Yapılan parola değişikliği: Yönetici parolasını değiştirmek için bir kullanıcı zorlar veya bunu sıfırlar, bunların parolalarını kullanarak ulaşılan, daha sonra kullanıcının belirteçleri geçersiz kılınır.  Özel durumlar için aşağıdaki notlara bakın. 
+  * Güvenlik ihlali: (örn. şirket içi depolama parolaların ihlal) bir güvenlik ihlali durumunda yönetici şu anda verilen yenileme belirteçleri tümünün iptal edebilirsiniz.  Bu, tüm kullanıcıların yeniden kimlik doğrulaması için zorlar. 
+
+Not: 
+
+Kimlik doğrulama parolası olmayan yöntemi varsa (Windows Hello, Doğrulayıcı uygulama, bir yazıtipi veya parmak izi gibi biyometrik) belirteç elde etmek için kullanılan, kullanıcının parolasını değiştirme kullanıcının yeniden kimlik doğrulamasını zorla sağlamaz (ancak, Doğrulayıcı uygulama zorlar yeniden kimlik doğrulaması için).  Seçilen kendi kimlik doğrulama giriş olmasıdır (yüz, bir örneğin) değişmedi ve bu nedenle yeniden yeniden kimlik doğrulaması için kullanılabilir.
 
 ## <a name="sample-tokens"></a>Örnek belirteçleri
 

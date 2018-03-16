@@ -4,7 +4,7 @@ description: "Visual Studio kullanarak Azure AD'ye bağlanma ne olur Webapı pro
 services: active-directory
 documentationcenter: 
 author: kraigb
-manager: mtillman
+manager: ghogen
 editor: 
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
@@ -12,102 +12,124 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 8a0f6e1838bcc550829c0da92dc224e1df859e9c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 140f555d28c4d5a923b9c255d8e61d7aea9bb23f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>My Webapı projeye ne (Visual Studio Azure Active Directory bağlı hizmeti)
+
 > [!div class="op_single_selector"]
-> * [Başlarken](vs-active-directory-webapi-getting-started.md)
-> * [Ne oldu](vs-active-directory-webapi-what-happened.md)
-> 
-> 
+> - [Başlarken](vs-active-directory-webapi-getting-started.md)
+> - [Ne oldu](vs-active-directory-webapi-what-happened.md)
 
-## <a name="references-have-been-added"></a>Başvuruları eklendi
-### <a name="nuget-package-references"></a>NuGet paket başvuruları
-* `Microsoft.Owin`
-* `Microsoft.Owin.Host.SystemWeb`
-* `Microsoft.Owin.Security`
-* `Microsoft.Owin.Security.ActiveDirectory`
-* `Microsoft.Owin.Security.Jwt`
-* `Microsoft.Owin.Security.OAuth`
-* `Owin`
-* `System.IdentityModel.Tokens.Jwt`
+Bu makalede ASP.NET Webapı, ASP.NET tek sayfalı uygulama ve ASP.NET Azure API projelerine eklerken tam değişikliklerinin tanımlayan [Azure Active Directory bağlı Visual Studio kullanarak hizmet](vs-active-directory-add-connected-service.md). Visual Studio 2015'te ASP.NET Azure mobil hizmeti projeleri için de geçerlidir.
 
-### <a name="net-references"></a>.NET başvuruları
-* `Microsoft.Owin`
-* `Microsoft.Owin.Host.SystemWeb`
-* `Microsoft.Owin.Security`
-* `Microsoft.Owin.Security.ActiveDirectory`
-* `Microsoft.Owin.Security.Jwt`
-* `Microsoft.Owin.Security.OAuth`
-* `Owin`
-* `System.IdentityModel.Tokens.Jwt`
+Bağlantılı hizmeti ile çalışma hakkında daha fazla bilgi için bkz: [Başlarken](vs-active-directory-webapi-getting-started.md).
 
-## <a name="code-changes"></a>Kod değişiklikleri
-### <a name="code-files-were-added-to-your-project"></a>Kod dosyaları projenize eklendi
-Bir kimlik doğrulaması başlangıç sınıfı **App_Start/Startup.Auth.cs** Azure AD kimlik doğrulaması için başlangıç mantığı içeren projenize eklendi.
+## <a name="added-references"></a>Ek başvurular
 
-### <a name="startup-code-was-added-to-your-project"></a>Başlangıç kodu projenize eklendi
-Başlangıç sınıfı projenizde, zaten sahipse **yapılandırma** yöntemi çağrısı içerecek şekilde güncelleştirildi `ConfigureAuth(app)`. Aksi takdirde, başlangıç sınıfı projenize eklendi.
+Proje dosyası *.NET başvuruları etkiler) ve `packages.config` (NuGet başvurularını).
 
-### <a name="your-appconfig-or-webconfig-file-has-new-configuration-values"></a>App.config veya web.config dosyanızda yeni yapılandırma değeri içeriyor.
-Aşağıdaki yapılandırma girdileri eklenmiştir.
+| Tür | Başvuru |
+| --- | --- |
+| .NET; NuGet | Microsoft.Owin |
+| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
+| .NET; NuGet | Microsoft.Owin.Security |
+| .NET; NuGet | Microsoft.Owin.Security.ActiveDirectory |
+| .NET; NuGet | Microsoft.Owin.Security.Jwt |
+| .NET; NuGet | Microsoft.Owin.Security.OAuth |
+| .NET; NuGet | Owın |
+| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
 
-```
+Seçtiyseniz, ek başvurular **dizin verilerini okuma** seçeneği:
+
+| Tür | Başvuru |
+| --- | --- |
+| .NET; NuGet | EntityFramework |
+| .NET        | EntityFramework.SqlServer (Visual Studio 2015 yalnızca) |
+| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .NET; NuGet | Microsoft.Data.Edm |
+| .NET; NuGet | Microsoft.Data.OData |
+| .NET; NuGet | Microsoft.Data.Services.Client |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<br>(Visual Studio 2015 yalnızca) |
+| .NET; NuGet | System.Spatial |
+
+Aşağıdaki başvuru kaldırılır (ASP.NET 4 projeleri yalnızca, Visual Studio 2015 olduğu gibi):
+
+| Tür | Başvuru |
+| --- | --- |
+| .NET; NuGet | Microsoft.AspNet.Identity.Core |
+| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
+| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
+
+## <a name="project-file-changes"></a>Proje dosya değişiklikleri
+
+- Özellik set `IISExpressSSLPort` ayrı bir sayı.
+- Özellik set `WebProject_DirectoryAccessLevelKey` için 0 veya 1 seçtiyseniz **dizin verilerini okuma** seçeneği.
+- Özellik set `IISUrl` için `https://localhost:<port>/` nerede `<port>` eşleşen `IISExpressSSLPort` değeri.
+
+## <a name="webconfig-or-appconfig-changes"></a>Web.config veya app.config değişiklikleri
+
+- Aşağıdaki yapılandırma girdileri eklendi:
+
+    ```xml
     <appSettings>
-            <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
-            <add key="ida:Tenant" value="Your selected Azure AD Tenant" />
-            <add key="ida:Audience" value="The App ID Uri from the wizard" />
-    </appSettings>`
-```
+        <add key="ida:ClientId" value="<ClientId from the new Azure AD app>" />
+        <add key="ida:Tenant" value="<your selected Azure domain>" />
+        <add key="ida:Audience" value="<your selected domain + / + project name>" />
+    </appSettings>
+    ```
 
-### <a name="an-azure-ad-app-was-created"></a>Azure AD uygulaması oluşturuldu
-Azure AD uygulaması sihirbazda seçtiğiniz dizin oluşturuldu.
+- Yalnızca Visual Studio 2017: Ayrıca altında aşağıdaki girdi eklendi `<appSettings>`"
 
-[Azure Active Directory hakkında daha fazla bilgi edinin](https://azure.microsoft.com/services/active-directory/)
+    ```xml
+    <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />
+    ```
 
-## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>I işaretlediyseniz *bireysel kullanıcı hesapları kimlik doğrulamasını devre dışı*, proje için ek değişiklikler yapıldı?
-NuGet paket referanslarını kaldırıldı ve dosyaları kaldırıldı ve yedeklendi. Projenizi durumuna bağlı olarak, el ile ek başvurular veya dosyaları kaldırın veya uygun şekilde kodu değiştirmeniz gerekebilir.
+- Eklenen `<dependentAssembly>` altında öğelerin `<runtime><assemblyBinding>` düğümü için `System.IdentityModel.Tokens.Jwt`.
 
-### <a name="nuget-package-references-removed-for-those-present"></a>NuGet paket referanslarını (olanlar için mevcut) kaldırıldı
-* `Microsoft.AspNet.Identity.Core`
-* `Microsoft.AspNet.Identity.EntityFramework`
-* `Microsoft.AspNet.Identity.Owin`
+- Seçtiyseniz **dizin verilerini okuma** seçeneği, aşağıdaki yapılandırma girdisi altına eklenen `<appSettings>`:
 
-### <a name="code-files-backed-up-and-removed-for-those-present"></a>Kod dosyaları yedeklenebilir ve (olanlar için mevcut) kaldırıldı
-Aşağıdaki dosyaların her birini yedeklendi ve projesinden kaldırılmıştır. Yedekleme dosyaları, projenin dizin kökündeki 'Yedekleme' klasöründe bulunur.
+    ```xml
+    <add key="ida:Password" value="<Your Azure AD app's new password>" />
+    ```
 
-* `App_Start\IdentityConfig.cs`
-* `Controllers\AccountController.cs`
-* `Controllers\ManageController.cs`
-* `Models\IdentityModels.cs`
-* `Providers\ApplicationOAuthProvider.cs`
+## <a name="code-changes-and-additions"></a>Kod değişiklikler ve eklemeler
 
-### <a name="code-files-backed-up-for-those-present"></a>(Olanlar için mevcut) yedeklenen kod dosyaları
-Aşağıdaki dosyaların her birini önce değiştirilen yedeklendi. Yedekleme dosyaları, projenin dizin kökündeki 'Yedekleme' klasöründe bulunur.
+- Eklenen `[Authorize]` özniteliğini `Controllers/ValueController.cs` ve diğer mevcut denetleyicileri.
 
-* `Startup.cs`
-* `App_Start\Startup.Auth.cs`
+- Bir kimlik doğrulaması başlangıç sınıfı eklenen `App_Start/Startup.Auth.cs`, Azure AD kimlik doğrulaması için başlangıç mantığı içeren ya da buna uygun olarak değiştirdi. Seçtiyseniz **dizin verilerini okuma** seçeneği, bu dosya ayrıca bir OAuth kod almak ve bir erişim belirteci için exchange için kod içerir.
 
-## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>I işaretlediyseniz *dizin verilerini okuma*, proje için ek değişiklikler yapıldı?
-### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>App.config veya web.config için ek değişiklikler yapıldı
-Aşağıdaki ek yapılandırma girdileri eklenmiştir.
+- (ASP.NET 4 ile visual Studio 2015 yalnızca uygulama) Kaldırılan `App_Start/IdentityConfig.cs` ve eklenen `Controllers/AccountController.cs`, `Models/IdentityModel.cs`, ve `Providers/ApplicationAuthProvider.cs`.
 
-```
-    <appSettings>
-        <add key="ida:Password" value="Your Azure AD App's new password" />
-    </appSettings>`
-```
+- Eklenen `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) veya `Service References/Azure AD/ConnectedService.json` bağlı hizmet eklenmesi izlemek için Visual Studio kullandığı (Visual Studio 2015), bilgi içeren.
 
-### <a name="your-azure-active-directory-app-was-updated"></a>Azure Active Directory uygulamanızı güncelleştirildi
-Azure Active Directory uygulamanızı içerecek şekilde güncelleştirildi *dizin verilerini okuma* izni ilave bir anahtar oluşturulduğu ve hangi ardından olarak kullanılan *IDA: parola* içinde `web.config` dosya.
+### <a name="file-backup-visual-studio-2015"></a>Dosya yedekleme (Visual Studio 2015)
+
+Bağlı hizmet eklerken, Visual Studio 2015 değiştirilmiş ve kaldırılan dosyaları yedekler. Tüm etkilenen dosyaların klasörüne kaydedilir `Backup/AzureAD`. Visual Studio 2017 yedeklemeler oluşturmaz.
+
+- `Startup.cs`
+- `App_Start\IdentityConfig.cs`
+- `App_Start\Startup.Auth.cs`
+- `Controllers\AccountController.cs`
+- `Controllers\ManageController.cs`
+- `Models\IdentityModels.cs`
+- `Models\ApplicationOAuthProvider.cs`
+
+## <a name="changes-on-azure"></a>Azure üzerindeki değişiklikler
+
+- Azure AD uygulaması bağlı hizmet eklerken, seçtiğiniz etki alanında oluşturulan.
+- Eklenecek uygulama güncelleştirildi **dizin verilerini okuma** bu seçenek seçildiyse izni.
+
+[Azure Active Directory hakkında daha fazla bilgi](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Azure Active Directory hakkında daha fazla bilgi edinin](https://azure.microsoft.com/services/active-directory/)
 
+- [Azure Active Directory için kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md)
+- [Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme](guidedsetups/active-directory-aspnetwebapp-v1.md)

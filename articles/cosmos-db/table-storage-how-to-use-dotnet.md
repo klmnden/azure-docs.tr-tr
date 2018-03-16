@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 953ee3932ac1acad5cc41fba9bd5e168a94d7db7
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>.NET kullanarak Azure Table Storage’ı kullanmaya başlayın
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -83,10 +83,10 @@ Bu öğreticideki tüm kod örnekleri konsol uygulamanızın `Program.cs` dosyas
 Bir Azure bulut hizmeti veya web uygulaması dahil olmak üzere, .NET uygulaması ve Masaüstü ve mobil uygulamaları herhangi bir türde Azure CosmosDB tablo kitaplıkta kullanabilirsiniz. Bu kılavuzda, sadeleştirmek için konsol uygulaması kullanmaktayız.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Gereken paketleri yüklemek için NuGet kullanma
-Bu öğreticiyi tamamlamak için projenizde başvuruda bulunmanız üç paketi vardır:
+Bu öğreticiyi tamamlamak için projenizde başvuruda bulunmanız üç önerilen paketi vardır:
 
-* [.NET (8.6.0-preview) için Azure Storage ortak kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/8.6.0-preview). 
-* [.NET için Microsoft Azure CosmosDB tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Bu paket, Azure Table depolama hesabı ya da Azure Cosmos DB tablo API hesabını veri kaynaklarına programlı erişim sağlar.
+* [.NET (Önizleme) için Azure Storage ortak kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
+* [.NET için Microsoft Azure Cosmos DB tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Bu paket, Azure Table depolama hesabı ya da Azure Cosmos DB tablo API hesabını veri kaynaklarına programlı erişim sağlar.
 * [.NET için Microsoft Azure Configuration Manager Kitaplığı](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Bu paket, uygulamanızın nerede çalıştığına bakmaksızın yapılandırma dosyasından bağlantı dizesini ayrıştırmak için bir sınıf sağlar.
 
 Her iki paketi de almak için NuGet kullanabilirsiniz. Şu adımları uygulayın:
@@ -100,6 +100,11 @@ Her iki paketi de almak için NuGet kullanabilirsiniz. Şu adımları uygulayın
 > .NET için depolama ortak Kitaplığı'ndaki ODataLib bağımlılıkları, WCF Veri Hizmetleri değil, NuGet üzerinde kullanılabilir ODataLib paketleri tarafından çözümlenir. ODataLib kitaplıkları NuGet aracılığıyla doğrudan indirilebilir veya kod projenizle başvurulabilir. Depolama İstemcisi Kitaplığı tarafından kullanılan belirli ODataLib paketleri [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) ve [Spatial](http://nuget.org/packages/System.Spatial/) paketleridir. Bu kitaplıklar Azure Table storage sınıfları tarafından kullanılırken depolama ortak Kitaplığı'yla programlama için gerekli bağımlılıkları oldukları.
 > 
 > 
+
+> [!TIP]
+> Geliştiricilerin Azure Table storage'ı zaten tanıdık kullanmış olabilirsiniz [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) geçmişte paket. Tüm yeni tablo uygulamaları kullanmanız önerilir [Azure Storage ortak kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) ve [Azure Cosmos DB tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), ancak WindowsAzure.Storage paket hala desteklenmektedir. WindowsAzure.Storage kitaplığı kullanırsanız, Microsoft.WindowsAzure.Storage.Table kullanarak dahil deyimleri.
+>
+>
 
 ### <a name="determine-your-target-environment"></a>Hedef ortamınızı saptama
 Bu kılavuzdaki örnekleri çalıştırmak için iki ortam seçeneğiniz vardır:

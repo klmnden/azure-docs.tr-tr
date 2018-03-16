@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>SSL ilke sürümlerini yapılandırmak ve şifre paketleri uygulama ağ geçidi
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Önceden tanımlanmış SSL ilkeleri listesi
 
-Uygulama ağ geçidi kullanılabilir 3 önceden tanımlanmış ilkeleri ile birlikte gelir. `Get-AzureRmApplicationGatewaySslPredefinedPolicy` Cmdlet'i bu ilkeleri alır. Her ilke farklı protokol sürümleri ve etkin şifre paketleri vardır. Bu önceden tanımlanmış ilkeleri, bir SSL İlkesi uygulama ağ geçidiniz üzerinde hızlı bir şekilde yapılandırmak için kullanılabilir. Varsayılan olarak **AppGwSslPolicy20170401** tanımlanmış bir özel SSL ilke seçilir.
+Uygulama ağ geçidi kullanılabilir 3 önceden tanımlanmış ilkeleri ile birlikte gelir. `Get-AzureRmApplicationGatewaySslPredefinedPolicy` Cmdlet'i bu ilkeleri alır. Her ilke farklı protokol sürümleri ve etkin şifre paketleri vardır. Bu önceden tanımlanmış ilkeleri, bir SSL İlkesi uygulama ağ geçidiniz üzerinde hızlı bir şekilde yapılandırmak için kullanılabilir. Varsayılan olarak **AppGwSslPolicy20150501** tanımlanmış bir özel SSL ilke seçilir.
 
 Çalışan bir örneği verilmiştir `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 

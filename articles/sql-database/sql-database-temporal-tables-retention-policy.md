@@ -2,24 +2,18 @@
 title: "Zamana bağlı tablolarda geçmiş verilerin Bekletme İlkesi'yle yönetme | Microsoft Docs"
 description: "Zamana bağlı bekletme ilkesi denetiminiz altında geçmiş verileri korumak için nasıl kullanılacağını öğrenin."
 services: sql-database
-documentationcenter: 
 author: bonova
-manager: drasumic
-editor: 
-ms.assetid: 76cfa06a-e758-453e-942c-9f1ed6a38c2a
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 10/12/2016
 ms.author: bonova
-ms.openlocfilehash: b4e1524008837094b57a3df469439ceaebf9c166
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 36ce6889cccbf5ae7df519c5c73846f12eed4a08
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Zamana bağlı tablolarda geçmiş verilerin bekletme ilkesi ile yönetme
 Zamana bağlı tablolarda özellikle uzun bir süre için geçmiş verileri tut normal tablolardaki'birden fazla veritabanı boyutunu artırabilir. Bu nedenle, geçmiş verileri için bekletme ilkesi planlama ve her zamana bağlı tablo yaşam döngüsü yönetiminden önemli bir yönü ' dir. Azure SQL veritabanı zamana bağlı tablolarda, bu görevi gerçekleştirmenize yardımcı olan kullanımı kolay bekletme mekanizmasıyla sunulur.
@@ -169,7 +163,7 @@ Ancak, geçmiş tablosu doğrudan sorgu, dönem ancak hiçbir garanti olmaksız�
 İş mantığınızın tutarsız veya beklenmeyen sonuçlar alabilirsiniz gibi geçmiş tablosu saklama dönemi ötesinde okuma kullanmayın. Zamana bağlı sorguları zamana bağlı tablolardaki verileri çözümlemek için FOR system_tıme yan tümcesiyle birlikte kullanmanızı öneririz.
 
 ## <a name="point-in-time-restore-considerations"></a>Zaman geri yükleme hakkında önemli noktalar noktası
-Yeni veritabanı tarafından oluşturduğunuzda [varolan bir veritabanını zaman içinde belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md), veritabanı düzeyinde devre dışı zamana bağlı bekletme sahiptir. (**is_temporal_history_retention_enabled** bayrağını OFF olarak ayarlayın). Bu işlevsellik, bunları sorgulamak ulaşmadan eski satır kaldırılır endişelenmeden geri yükleme sırasında tüm geçmiş satırları incelemek sağlar. İçin kullanabileceğiniz *ötesinde yapılandırılan saklama süresi geçmiş verileri*.
+Yeni veritabanı tarafından oluşturduğunuzda [varolan bir veritabanını zaman içinde belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md), veritabanı düzeyinde devre dışı zamana bağlı bekletme sahiptir. (**is_temporal_history_retention_enabled** flag set to OFF). Bu işlevsellik, bunları sorgulamak ulaşmadan eski satır kaldırılır endişelenmeden geri yükleme sırasında tüm geçmiş satırları incelemek sağlar. İçin kullanabileceğiniz *ötesinde yapılandırılan saklama süresi geçmiş verileri*.
 
 Zamana bağlı tablo bir ay Bekletme dönemi belirtilen olduğunu varsayalım. Veritabanınızı Premium hizmet katmanında oluşturduysanız, veritabanı durumu ile veritabanı kopyasını geri geçmişte 35 güne Oluştur gerçekleştirebilir. Etkili bir şekilde geçmiş tablosu doğrudan sorgulayarak 65 güne kadar eski olan geçmiş satırları analiz etmenize olanak tanır.
 

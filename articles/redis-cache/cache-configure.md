@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis önbelleğini yapılandırma
 Bu konuda, Azure Redis önbelleği örnekleri için kullanılabilir yapılandırmaları açıklanmaktadır. Bu konuda, Azure Redis önbelleği örnekleri için varsayılan Redis sunucu yapılandırması da kapsar.
@@ -280,8 +280,6 @@ Güvenlik duvarı kuralları ile bir başlangıç ve bitiş IP adresi aralığı
 > [!IMPORTANT]
 > Güvenlik duvarı kuralları yapılandırılmış olsa bile Azure Redis önbelleği sistemleri izleme bağlantılarından her zaman, izin verilir.
 > 
-> Güvenlik duvarı kuralları yalnızca Premium katmanı önbellekler için kullanılabilir.
-> 
 > 
 
 ### <a name="properties"></a>Özellikler
@@ -404,7 +402,7 @@ Yeni Azure Redis önbelleği örnekleri aşağıdaki varsayılan Redis yapıland
 | `maxmemory-samples` |3 |Bellekten tasarruf etmek LRU ve TTL algoritmaları en az hassas algoritmaları yerine yaklaşık algoritmaları şunlardır. Varsayılan olarak, denetimleri üç anahtarları ve çekmeleri daha az son kullanılan bir Redis. |
 | `lua-time-limit` |5.000 |Milisaniye cinsinden Lua komut dosyası yürütme zaman sınırı. En fazla çalışma zamanı ulaştıysanız, Redis bir komut dosyası yürütme en fazla izin verilen süre sonra hala kullanılıyor ve bir hata ile sorguları yanıtlamak başlatır günlüğe kaydeder. |
 | `lua-event-limit` |500 |Komut dosyası olay sırasının en büyük boyutu. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |İstemci çıkış arabelleği sınırları veri yeterince hızlı sunucudan (bir ortak Pub/alt istemci iletileri yayımcı oluşturmak üzere kadar hızlı kullanamayacaklarını nedeni) herhangi bir nedenden dolayı okuyorsanız olmayan istemciler bağlantısının kesilmesi zorlamak için kullanılabilir. Daha fazla bilgi için bkz: [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |İstemci çıkış arabelleği sınırları veri yeterince hızlı sunucudan (bir ortak Pub/alt istemci iletileri yayımcı oluşturmak üzere kadar hızlı kullanamayacaklarını nedeni) herhangi bir nedenden dolayı okuyorsanız olmayan istemciler bağlantısının kesilmesi zorlamak için kullanılabilir. Daha fazla bilgi için bkz. [http://redis.io/topics/clients](http://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>sınırını `databases` her Azure Redis fiyatlandırma katmanı önbelleği için farklıdır ve önbellek oluşturma sırasında ayarlanabilir. Öyle değilse `databases` ayarı belirtilen önbellek oluşturma sırasında varsayılan değer olan 16.
@@ -471,14 +469,14 @@ Veritabanları hakkında daha fazla bilgi için bkz: [Redis veritabanları neler
 > 
 > 
 
-Redis komutları hakkında daha fazla bilgi için bkz: [http://redis.io/commands](http://redis.io/commands).
+Redis komutları hakkında daha fazla bilgi için bkz: [ http://redis.io/commands ](http://redis.io/commands).
 
 ## <a name="redis-console"></a>Konsol redis
 Komutları kullanarak, Azure Redis önbelleği örnekleri için güvenli bir şekilde verebilir **Redis konsol**, tüm ön bellek katmanlarını Azure portalında kullanılabilir olduğu.
 
 > [!IMPORTANT]
 > - Redis konsolu ile çalışmıyor [VNET](cache-how-to-premium-vnet.md). Önbelleğinizi VNET parçası olduğunda, yalnızca sanal ağ istemcilerinde önbelleğe erişebilir. Redis konsol sanal ağ dışında olan yerel tarayıcınızda çalıştığından, önbelleğiniz bağlanamıyor.
-> - Azure Redis Önbelleği'nde desteklenen tüm Redis komutları. Azure Redis önbelleği için devre dışı Redis komutların listesi için önceki bkz [Redis Azure Redis Önbelleği'nde desteklenmeyen komutlar](#redis-commands-not-supported-in-azure-redis-cache) bölümü. Redis komutları hakkında daha fazla bilgi için bkz: [http://redis.io/commands](http://redis.io/commands).
+> - Azure Redis Önbelleği'nde desteklenen tüm Redis komutları. Azure Redis önbelleği için devre dışı Redis komutların listesi için önceki bkz [Redis Azure Redis Önbelleği'nde desteklenmeyen komutlar](#redis-commands-not-supported-in-azure-redis-cache) bölümü. Redis komutları hakkında daha fazla bilgi için bkz: [ http://redis.io/commands ](http://redis.io/commands).
 > 
 > 
 

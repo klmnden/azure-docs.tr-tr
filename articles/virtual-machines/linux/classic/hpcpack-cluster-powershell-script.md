@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: c15dc66718a855e22f8109448cb8c8a23787b9bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 477859db8c884714d9b5140483d300ebfe6c116a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Yüksek performanslı bilgi işlem (HPC) küme Linux ile HPC Pack Iaas dağıtım komut dosyası oluşturma
-HPC Pack Iaas dağıtımı Azure sanal makinelerde Linux iş yükleri için tam bir HPC Pack 2012 R2 küme dağıtmak için PowerShell betiğini çalıştırın. Küme Windows Server ve Microsoft HPC Pack çalıştıran bir Active Directory katılmış baş düğüm ve HPC paketi tarafından desteklenen Linux dağıtımları birini çalıştırın işlem düğümleri oluşur. Windows Azure iş yükleri HPC Pack kümesinde dağıtmak istiyorsanız, bkz: [bir Windows HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Bir Azure Resource Manager şablonu, bir HPC paketi küme dağıtmak için de kullanabilirsiniz. Bir örnek için bkz: [Linux işlem düğümleri ile bir HPC kümesi oluşturma](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
-
+HPC Pack Iaas dağıtımı Azure sanal makinelerde Linux iş yükleri için tam bir HPC Pack 2012 R2 küme dağıtmak için PowerShell betiğini çalıştırın. Küme Windows Server ve Microsoft HPC Pack çalıştıran bir Active Directory katılmış baş düğüm ve HPC paketi tarafından desteklenen Linux dağıtımları birini çalıştırın işlem düğümleri oluşur. Windows Azure iş yükleri HPC Pack kümesinde dağıtmak istiyorsanız, bkz: [bir Windows HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 > [!IMPORTANT] 
 > Bu makalede açıklanan PowerShell Betiği Azure'da Klasik dağıtım modeli kullanarak bir Microsoft HPC Pack 2012 R2 kümesi oluşturur. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
-> Ayrıca, bu makalede açıklanan betik HPC Pack 2016 desteklemez.
+> Ayrıca, bu makalede açıklanan betik HPC Pack 2016 desteklemez. HPC Pack 2012 R2 ve HPC Pack 2016 için Resource Manager şablonları hakkında bilgi için bkz: [HPC paketi küme dağıtım seçenekleri azure'da](../hpcpack-cluster-options.md).
+
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 

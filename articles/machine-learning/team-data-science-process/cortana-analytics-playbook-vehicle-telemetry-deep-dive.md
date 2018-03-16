@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Araç Telemetri analiz çözümü playbook: ayrıntılı çözüme daha yakından inceleyin
 Bu playbook bölümlerini bu menü bağlantılar: 
@@ -42,7 +42,7 @@ Bu JSON biçimli veri kümesinin aşağıdaki şema içerir.
 
 | Sütun | Açıklama | Değerler |
 | --- | --- | --- |
-| TOPLAMIDIR |Rastgele oluşturulmuş Toplamıdır |10.000 rastgele oluşturulmuş VINs ana listesinden elde |
+| VIN |Rastgele oluşturulmuş Toplamıdır |10.000 rastgele oluşturulmuş VINs ana listesinden elde |
 | Dış sıcaklığı |Aracın burada yürüten dış sıcaklığı |0 ile 100 rastgele oluşturulmuş sayı |
 | Altyapısı sıcaklık |Aracın altyapısı sıcaklığını |0'dan rastgele oluşturulmuş bir sayıya 500 |
 | Hız |Aracın yönlendiren altyapısı hızı |0 ile 100 rastgele oluşturulmuş sayı |
@@ -63,7 +63,7 @@ Bu JSON biçimli veri kümesinin aşağıdaki şema içerir.
 
 Araç model başvuru veri kümesi VINs modellerine eşler. 
 
-| TOPLAMIDIR | Model |
+| VIN | Model |
 | --- | --- |
 | FHL3O1SA4IEHB4WU1 |Sedan |
 | 8J0U8XCPRGW4Z3NQE |Karma |
@@ -305,7 +305,7 @@ Veriler artık, daha kolay yönetilebilir ve zengin toplu Öngörüler kazanmak 
 ## <a name="data-analysis"></a>Veri çözümlemesi
 Bu bölümde, akış analizi, Azure Machine Learning, veri fabrikası ve Hdınsight araç sistem durumunu gelişmiş analizler ve alışkanlık yürüten zengin için birleştirme bakın.
 
-### <a name="machine-learning"></a>Makine öğrenme
+### <a name="machine-learning"></a>Makine öğrenimi
 Burada amaç, Bakım veya aşağıdaki varsayımları temel alarak, belirli bir sistem durumu istatistikleri temel geri çağırma gerektiren taşıtlardan tahmin etmektir:
 
 * Aşağıdaki üç koşullardan biri doğruysa taşıtlardan bakım bakım gerektirir:
@@ -366,7 +366,7 @@ Bu deseni, ayrıca iş kolu satır uygulama gerçek zamanlı analiz akış ile t
 #### <a name="execute-the-real-time-dashboard-application"></a>**Gerçek zamanlı Pano uygulamanın yürütme**
 1. RealtimeDashboardApp ayıklamak ve yerel olarak kaydedin.
 
-    ![RealTimeDashboardApp klasörü](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) 
+    ![RealTimeDashboardApp folder](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) 
 
 2. Uygulama RealtimeDashboardApp.exe yürütün.
 

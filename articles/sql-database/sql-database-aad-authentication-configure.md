@@ -3,17 +3,17 @@ title: "Azure Active Directory kimlik doğrulaması - SQL yapılandırma | Micro
 description: "Azure AD yapılandırdıktan sonra Azure Active Directory kimlik doğrulaması - kullanarak SQL veritabanı, yönetilen örneğini ve SQL Data Warehouse bağlayacağınızı öğrenin."
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Yapılandırma ve SQL Database, yönetilen örneği veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulaması yönetme
 
@@ -193,7 +193,7 @@ CLI komutları hakkında daha fazla bilgi için bkz: [SQL - az sql](https://docs
 ## <a name="configure-your-client-computers"></a>İstemci bilgisayarları yapılandırın
 Uygulama veya kullanıcıların Azure SQL veritabanı veya Azure SQL Data Warehouse kullanarak Azure AD kimlikleri bağlanmak tüm istemci makinelerde aşağıdaki yazılımları yüklemeniz gerekir:
 
-* .NET framework 4.6 veya sonrası gelen [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+* .NET framework 4.6 veya sonrası gelen [ https://msdn.microsoft.com/library/5a4x27ek.aspx ](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 * SQL Server için Azure Active Directory kimlik doğrulama kitaplığı (**ADALSQL. DLL**) birden çok dilde kullanılabilir (x86 ve amd64) İndirme Merkezi'nden [Microsoft Active Directory kimlik doğrulama kitaplığı için Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 Tarafından bu gereksinimleri karşılayabilirsiniz:

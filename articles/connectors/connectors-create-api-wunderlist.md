@@ -3,7 +3,7 @@ title: "Wunderlist bağlayıcı ı n Azure mantıksal uygulamaları | Microsoft 
 description: "Wunderlist bağlantı oluşturun ve mantıksal uygulamalar iş akışınızda oluşturmak için bu bağlantıyı kullanın."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: 
 tags: connectors
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 3657955ca4280fecd3a0fb1ea64b90e0a5c5c765
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4d1ae30724faa59dcdeffd21be9c67d280d574f6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Wunderlist Bağlayıcısı ile çalışmaya başlama
-Wunderlist bitti kendi öğe alma kişilerin yardımcı olmak üzere bir Yapılacaklar listesi ve Görev Yöneticisi'ni sağlayın.  Loved bir Market listesini paylaşımı olup bir proje üzerinde çalışırken ya da bir tatil planlaması Wunderlist yakalama, paylaşma ve, to¬dos tamamlamak kolaylaştırır. Tüm Görevler yerden erişebilmeniz için Wunderlist anında telefon, tablet ve bilgisayar arasında eşitlenir.
+Wunderlist görevlerini tamamlamak kullanıcılara yardımcı olmak için bir Yapılacaklar listesi ve Görev Yöneticisi'dir.  Bir proje üzerinde çalışırken ya da bir tatil planlaması Market listesini paylaşıyorsanız olup olmadığını Wunderlist yakalama, paylaşma ve liste öğeleri tamamlamak kolaylaştırır. Tüm Görevler yerden erişebilmeniz için Wunderlist anında telefon, tablet ve bilgisayar arasında eşitlenir.
 
 Bir mantıksal uygulama artık oluşturarak başlama; bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

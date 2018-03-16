@@ -14,21 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/08/2018
 ms.author: nitinme
-<<<<<<< HEAD
-ms.openlocfilehash: cbdaac41f004051adeccd3f97b7bb5591ac21ef4
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
-ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure hdınsight'ta Hadoop bileşenleri için sürüm notları
 
@@ -37,14 +29,17 @@ Bu makalede, hakkında bilgi sağlar. **en son** Azure Hdınsight sürüm günce
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz: [Hdınsight sürüm makale](hdinsight-component-versioning.md).
 
+## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>Notları 03/08/2018 - 2.2 Hdınsight'ta Spark, 3.6 sürümü
+
+- Spark 2.2.0 Spark Core, SQL, ML arasında kararlılığını artırır ve yapılandırılmış akış GA duruma getirir. Spark 2.2.0 üzerinde Hdınsight 3.6 kullanıma sunulmuştur.
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Hdınsight 08/01/2017 sürümünün notları
 
 | Başlık | Açıklama | Etkilenen alan  | Küme Türü  | 
 | --- | --- | --- | --- | --- |
 | Hdınsight üzerinde Microsoft R Server 9.1 sürümü |Hdınsight, Hdınsight'ta sağlama R Server 9.1 kümeleri artık destekler. Microsoft R Server 9.1 sürüm hakkında daha fazla bilgi için bkz: [bu blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Hizmet |R Server |
-| Hdınsight 3.6 şimdi Hadoop yığını daha yeni sürümlerini içerir|<ul><li>Güncelleştirilmiş sürümleri ayrıntılı bir listesi için bkz [kullanılabilir Hdınsight'ta Hadoop bileşen sürümlerini](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>En son sürümlerini Hadoop yığını düzeltilen listesi için bkz: [Apache düzeltme eki bilgileri](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Yeni değişiklikler HDP (şimdi Hdınsight 3.6 kullanılabilir olan) 2.6.1 arasında bir listesi için bkz: [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>HDP 2.6.1 bilinen sorunların listesi için bkz: [bilinen sorunlar](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Hizmet |Tümü |Yok |
-| Etkileşimli Hive (Önizleme) kümeleri güncelleştirmeleri |<ul><li><b>Özellik geliştirme.</b> Meta verileri önbelleğe alarak arka uç SQL yükünü azaltır ve tüm meta veri işlemleri için performansı geliştirir önbelleğe alınan meta depo uygulaması.  Bu geliştirme tüm kümelerde etkileşimli Hive varsayılan sunulmuştur. Daha fazla bilgi için bkz: [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Özellik geliştirme.</b> Dinamik bölüm yükleme getirilmiştir. Daha fazla bilgi için [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204) bakın.</li><li><b>Özellik geliştirme.</b> Linux'ta Hdınsight için yapılandırma iyileştirmeler.</li><li><b>Hata düzeltmesi.</b> `CredentialProviderFactory$getProviders`iş parçacığı açısından güvenli değil. Şimdi bu sorun giderilmiştir. Daha fazla bilgi için bkz: [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Hata düzeltmesi.</b> Yüksek CPU kullanımı WASB sürücüsüyle `liststatus` API hatalı ATS performansıyla sonuçlanır. Şimdi bu sorun giderilmiştir. Daha fazla bilgi için bkz: [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Hizmet |Etkileşimli Hive (Önizleme) |
+| Hdınsight 3.6 şimdi Hadoop yığını daha yeni sürümlerini içerir|<ul><li>Güncelleştirilmiş sürümleri ayrıntılı bir listesi için bkz [kullanılabilir Hdınsight'ta Hadoop bileşen sürümlerini](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>En son sürümlerini Hadoop yığını düzeltilen listesi için bkz: [Apache düzeltme eki bilgileri](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Yeni değişiklikler HDP (şimdi Hdınsight 3.6 kullanılabilir olan) 2.6.1 arasında bir listesi için bkz: [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>HDP 2.6.1 bilinen sorunların listesi için bkz: [bilinen sorunlar](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Hizmet |Tümü |Yok |
+| Etkileşimli Hive (Önizleme) kümeleri güncelleştirmeleri |<ul><li><b>Özellik geliştirme.</b> Meta verileri önbelleğe alarak arka uç SQL yükünü azaltır ve tüm meta veri işlemleri için performansı geliştirir önbelleğe alınan meta depo uygulaması.  Bu geliştirme tüm kümelerde etkileşimli Hive varsayılan sunulmuştur. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Özellik geliştirme.</b> Dinamik bölüm yükleme getirilmiştir. Daha fazla bilgi için [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Özellik geliştirme.</b> Linux'ta Hdınsight için yapılandırma iyileştirmeler.</li><li><b>Hata düzeltmesi.</b> `CredentialProviderFactory$getProviders` iş parçacığı açısından güvenli değil. Şimdi bu sorun giderilmiştir. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Hata düzeltmesi.</b> Yüksek CPU kullanımı WASB sürücüsüyle `liststatus` API hatalı ATS performansıyla sonuçlanır. Şimdi bu sorun giderilmiştir. Daha fazla bilgi için bkz. [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Hizmet |Etkileşimli Hive (Önizleme) |
 | Hadoop kümeleri güncelleştirmeleri |Templeton iş işlemi güvenilirlik geliştirildi. Daha fazla bilgi için bkz: [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Hizmet |Hadoop |
 | YARN güncelleştirmeleri | Hdınsight şimdi müşteriler için daha iyi bir deneyimi sağlar (olmadan maliyet artan), bir 250 GB Ambari veritabanı oluşturur. Bu değişiklik ATS doldurulmuş engellemek ve büyük olasılıkla daha iyi bir performans olması gerekir. |Hizmet |Tümü |
 | Spark güncelleştirir | Spark 2.1.1 sürümü. Daha fazla bilgi için bkz: [Spark sürüm 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | Hizmet | Spark |
@@ -61,7 +56,7 @@ Bu makalede, hakkında bilgi sağlar. **en son** Azure Hdınsight sürüm günce
     * HBase v1.1.2
     * Storm v1.1.0
     * Spark v2.1.0
-    * Etkileşimli Hive v2.1.0
+    * Interactive Hive v2.1.0
 
 * **Hive görünümü 2.0 desteği**. Bu, etkileşimli Hive kullanıcı deneyimini iyileştirmek. Daha fazla bilgi için bkz: [Hortonworks belgelerine](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
 

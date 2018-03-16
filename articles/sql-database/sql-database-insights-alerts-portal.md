@@ -2,24 +2,18 @@
 title: "SQL veritabanı uyarıları oluşturmak için Azure portalını kullanma | Microsoft Docs"
 description: "Belirttiğiniz koşullar karşılandığında, bildirimler ya da Otomasyon tetikleyebilir SQL veritabanı uyarılar oluşturmak için Azure Portalı'nı kullanın."
 author: aamalvea
-manager: jhubbard
-editor: 
+manager: craigg
 services: sql-database
-documentationcenter: 
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: aamalvea
-ms.openlocfilehash: fd21c9b5e573ac6a47fef88c2a9d31c52618ecb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 611b88c540902bc7a72d53671dacd098d9798b48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için uyarıları oluşturmak için Azure portalını kullanma
 
@@ -39,9 +33,9 @@ Tetikler, aşağıdakileri yapmak için bir uyarı yapılandırabilirsiniz:
 
 Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
 
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [komut satırı arabirimi (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [Komut satırı arabirimi (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure portal ile bir ölçüm bir uyarı kuralı oluşturma
@@ -58,7 +52,7 @@ Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
 
 3. Seçin **uyarı Ekle** komut ve alanları doldurun.
    
-    ![Uyarı ekleme](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Uyarı Ekle](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
 4. **Ad** , uyarı kuralı ve seçin bir **açıklama**, bildirim e-postalarda da gösterir.
 5. Seçin **ölçüm** izlemek ve ardından istediğiniz bir **koşulu** ve **eşik** ölçüm için değer. Ayrıca tercih **süresi** ölçüm kuralı uyarı Tetikleyicileri önce karşılanması gereken süre. Bu nedenle örneğin "PT5M" dönemi kullanıyorsanız ve Uyarınız % 80 CPU görünüyor, uyarı ne zaman tetikler **ortalama** CPU % 80 ' 5 dakika için açıldı. İlk tetikleyici oluşur sonra ortalama CPU üzerinde 5 dakika % 80 aşağısına olduğunda yeniden tetikler. CPU ölçüm, 1 dakikada oluşur. Desteklenen saat windows için aşağıdaki tabloya başvurun ve toplama yazın ve her uyarı kullanır değil tüm uyarıları ortalama değer kullanın.   
 6. Denetleme **e-posta sahipleri...**  yöneticileri ve ortak Yöneticiler uyarı oluşturulduğunda e-posta gönderilip istiyorsanız.
@@ -78,13 +72,13 @@ Bir uyarı oluşturduktan sonra bunu seçebilirsiniz ve:
 
 ## <a name="sql-database-alert-values"></a>SQL veritabanı uyarı değerleri
 
-| Kaynak Türü | Ölçüm adı | Kolay ad | Toplama türü | En az uyarı zaman penceresi|
+| Kaynak Türü | Ölçüm Adı | Kolay Ad | Toplama türü | En az uyarı zaman penceresi|
 | --- | --- | --- | --- | --- |
 | SQL veritabanı | cpu_percent | CPU yüzdesi | Ortalama | 5 dakika |
 | SQL veritabanı | physical_data_read_percent | Veri G/Ç yüzdesi | Ortalama | 5 dakika |
 | SQL veritabanı | log_write_percent | Günlük g/ç yüzdesi | Ortalama | 5 dakika |
 | SQL veritabanı | dtu_consumption_percent | DTU yüzdesi | Ortalama | 5 dakika |
-| SQL veritabanı | Depolama | Toplam veritabanı boyutu | Maksimum | 30 dakika |
+| SQL veritabanı | depolama | Toplam veritabanı boyutu | Maksimum | 30 dakika |
 | SQL veritabanı | connection_successful | Başarılı bağlantıları | Toplam | 10 dakika |
 | SQL veritabanı | connection_failed | Başarısız bağlantı sayısı | Toplam | 10 dakika |
 | SQL veritabanı | blocked_by_firewall | Güvenlik Duvarı tarafından engellendi | Toplam | 10 dakika |
@@ -107,16 +101,16 @@ Bir uyarı oluşturduktan sonra bunu seçebilirsiniz ve:
 | Esnek havuz | eDTU_used | kullanılan eDTU | Ortalama | 10 dakika |
 | Esnek havuz | storage_used | Kullanılan depolama | Ortalama | 10 dakika |
 ||||||               
-| SQL veri ambarı | cpu_percent | CPU yüzdesi | Ortalama | 10 dakika |
-| SQL veri ambarı | physical_data_read_percent | Veri G/Ç yüzdesi | Ortalama | 10 dakika |
-| SQL veri ambarı | Depolama | Toplam veritabanı boyutu | Maksimum | 10 dakika |
-| SQL veri ambarı | connection_successful | Başarılı bağlantıları | Toplam | 10 dakika |
-| SQL veri ambarı | connection_failed | Başarısız bağlantı sayısı | Toplam | 10 dakika |
-| SQL veri ambarı | blocked_by_firewall | Güvenlik Duvarı tarafından engellendi | Toplam | 10 dakika |
-| SQL veri ambarı | service_level_objective | Veritabanının hizmet düzeyi hedefi | Toplam | 10 dakika |
-| SQL veri ambarı | dwu_limit | dwu sınırı | Maksimum | 10 dakika |
-| SQL veri ambarı | dwu_consumption_percent | DWU yüzdesi | Ortalama | 10 dakika |
-| SQL veri ambarı | dwu_used | Kullanılan DWU | Ortalama | 10 dakika |
+| SQL Veri Ambarı | cpu_percent | CPU yüzdesi | Ortalama | 10 dakika |
+| SQL Veri Ambarı | physical_data_read_percent | Veri G/Ç yüzdesi | Ortalama | 10 dakika |
+| SQL Veri Ambarı | depolama | Toplam veritabanı boyutu | Maksimum | 10 dakika |
+| SQL Veri Ambarı | connection_successful | Başarılı bağlantıları | Toplam | 10 dakika |
+| SQL Veri Ambarı | connection_failed | Başarısız bağlantı sayısı | Toplam | 10 dakika |
+| SQL Veri Ambarı | blocked_by_firewall | Güvenlik Duvarı tarafından engellendi | Toplam | 10 dakika |
+| SQL Veri Ambarı | service_level_objective | Veritabanının hizmet düzeyi hedefi | Toplam | 10 dakika |
+| SQL Veri Ambarı | dwu_limit | dwu limit | Maksimum | 10 dakika |
+| SQL Veri Ambarı | dwu_consumption_percent | DWU yüzdesi | Ortalama | 10 dakika |
+| SQL Veri Ambarı | dwu_used | Kullanılan DWU | Ortalama | 10 dakika |
 ||||||
 
 

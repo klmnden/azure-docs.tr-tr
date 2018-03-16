@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9952660dc177b542d8477dc85c62d76d16e8c54e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9fbe9318e52f8299c3ef46f73c3be177de6d4a0c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Azure PowerShell ile sanal makine Yönetimi
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -29,7 +29,7 @@ Seçerseniz yükle ve yerel olarak PowerShell kullanın, bkz: [yükleme Azure Po
 
 ## <a name="understand-scope"></a>Kapsam anlama
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 İşiniz bittiğinde, bu ayarları kolayca kaldırabilmeniz için Bu öğreticide, tüm yönetim ayarlarını bir kaynak grubuna uygulayın.
 
@@ -76,7 +76,7 @@ Genellikle, işlem için yineleme *ağ Katılımcısı* ve *depolama hesabı kat
 
 ## <a name="azure-policies"></a>Azure ilkeleri
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>İlkelerini uygula
 
@@ -176,7 +176,7 @@ Silme işlemi nedeniyle kilit gerçekleştirilemiyor bildiren bir hata görürs�
 
 Uyguladığınız [etiketleri](../../azure-resource-manager/resource-group-using-tags.md) Azure kaynaklarınızı mantıksal olarak kategorilere göre düzenlemek için. Her etiket bir ad ve değerden oluşur. Örneğin, "Ortam" adını ve "Üretim" değerini üretimdeki tüm kaynaklara uygulayabilirsiniz.
 
-[!include[Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
 Bir sanal makineye etiketleri uygulamak üzere kullanmak [kümesi AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) komutu:
 
@@ -206,7 +206,7 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Görünüm maliyetler etiket değerlerine göre
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

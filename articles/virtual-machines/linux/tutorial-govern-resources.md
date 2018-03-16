@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 86ac3ec390c7aa9bc24a90ef2ee582f97f8b5407
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ac6f7b0d32479e9e7e9945f83dc63a5847cba6a4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Azure CLI ile sanal makine Yönetimi
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -29,7 +29,7 @@ Yükleyip CLI yerel olarak kullanmak için bkz: [Azure CLI 2.0 yükleme](/cli/az
 
 ## <a name="understand-scope"></a>Kapsam anlama
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 İşiniz bittiğinde, bu ayarları kolayca kaldırabilmeniz için Bu öğreticide, tüm yönetim ayarlarını bir kaynak grubuna uygulayın.
 
@@ -71,7 +71,7 @@ Genellikle, işlem için yineleme *ağ Katılımcısı* ve *depolama hesabı kat
 
 ## <a name="azure-policies"></a>Azure ilkeleri
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>İlkelerini uygula
 
@@ -179,7 +179,7 @@ Silme işlemi nedeniyle kilit gerçekleştirilemiyor bildiren bir hata görürs�
 
 Uyguladığınız [etiketleri](../../azure-resource-manager/resource-group-using-tags.md) Azure kaynaklarınızı mantıksal olarak kategorilere göre düzenlemek için. Her etiket bir ad ve değerden oluşur. Örneğin, "Ortam" adını ve "Üretim" değerini üretimdeki tüm kaynaklara uygulayabilirsiniz.
 
-[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
+[!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
 Bir sanal makineye etiketleri uygulamak üzere kullanmak [az kaynak etiketi](/cli/azure/resource#az_resource_tag) komutu. Kaynak üzerinde varolan etiketleri korunmaz.
 
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ### <a name="view-costs-by-tag-values"></a>Görünüm maliyetler etiket değerlerine göre
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

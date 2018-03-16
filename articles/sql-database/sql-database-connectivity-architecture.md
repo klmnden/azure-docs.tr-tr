@@ -2,24 +2,18 @@
 title: "Azure SQL veritabanı bağlantısı mimarisi | Microsoft Docs"
 description: "Bu belgede Azure SQLDB bağlantı mimarisinden Azure içinde veya gelen açıklanmaktadır Azure dışında."
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: monicar
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 81f96c223fb5ad2c37bd0679743f14980a5885b0
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantısı mimarisi 
 
@@ -93,7 +87,7 @@ Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri içi
 | Batı ABD 2 | 13.66.226.202  | |
 ||||
 
-\***Not:** *Doğu ABD 2* üçüncül bir IP adresini de sahip `52.167.104.0`.
+\* **Not:** *Doğu ABD 2* üçüncül bir IP adresini de sahip `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL veritabanı bağlantı ilkesini değiştirme
 

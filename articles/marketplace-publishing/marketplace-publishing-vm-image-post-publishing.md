@@ -3,8 +3,8 @@ title: "Azure, sanal makine görüntüsünü yönetme | Microsoft Docs"
 description: "Azure, sanal makine görüntüsünü sonra ilk yayını yönetme hakkında ayrıntılı kılavuz"
 services: Azure Marketplace
 documentationcenter: 
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: 
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
-ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin;
+ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Sanal makine teklifleri için Azure markette sonrası üretim Kılavuzu
 Bu makalede, Azure Marketi dinamik sanal makine teklifte nasıl güncelleştirebileceğinizi açıklanmaktadır. Bu, bir veya daha fazla yeni SKU'ları için mevcut bir teklif ekleme işlemini kılavuzluk eder. Bu da dinamik sanal makine teklif veya SKU marketten kaldırmanın sürecinde size kılavuzluk.
@@ -27,13 +27,13 @@ Bir teklif/SKU içinde hazırlanmış sonra [Azure portal](http://portal.azure.c
 
 * **Tanımlayıcı teklif**: içinde yayımlama portal, Git **sanal makineleri** ve teklifiniz seçin. Ardından **VM GÖRÜNTÜLERİ** > **teklif tanımlayıcı**.
 * **SKU tanımlayıcı**: içinde yayımlama portal, Git **sanal makineleri** ve teklifiniz seçin. Ardından **SKU'ları** > **bir SKU eklemek**.
-* **Yayımcı Namespace**: içinde yayımlama portal, Git **sanal makineleri** > **izlenecek** > **söyleyin bize hakkında şirketiniz** ("Adım 2 kayıt şirketiniz altında" bulunur) > **yayımcı Namespace** > **Namespace**.
+* **Yayımcı Namespace**: içinde yayımlama portal, Git **sanal makineleri** > **izlenecek** > **söyleyin bize hakkında şirketiniz**("Adım 2 kayıt şirketiniz altında" bulunur) > **yayımcı Namespace** > **Namespace**.
 
 Teklif/SKU listelenen sonra [Market](http://azure.microsoft.com/marketplace), şu metin kutuları değiştiremezsiniz:
 
 * **Tanımlayıcı teklif**: içinde yayımlama portal, Git **sanal makineleri** ve teklifiniz seçin. Ardından **VM GÖRÜNTÜLERİ** > **teklif tanımlayıcı**.
 * **SKU tanımlayıcı**: içinde yayımlama portal, Git **sanal makineleri** ve teklifiniz seçin. Ardından **SKU'ları** > **bir SKU eklemek**.
-* **Yayımcı Namespace**: içinde yayımlama portal, Git **sanal makineleri** > **izlenecek** > **söyleyin bize hakkında şirketiniz** ("Adım 2 Register altında" bulunur) **yayımcı Namespace** > **Namespace**.
+* **Yayımcı Namespace**: içinde yayımlama portal, Git **sanal makineleri** > **izlenecek** > **söyleyin bize hakkında şirketiniz**("Adım 2 Register altında" bulunur) **yayımcı Namespace** > **Namespace**.
 * **Bağlantı noktaları**: içinde yayımlama portal, Git **sanal makineleri** ve teklifiniz seçin. Ardından **VM GÖRÜNTÜLERİ** > **açık bağlantı noktalarını**.
 * **Listelenen SKU(s) değişikliği fiyatlandırma**
 * **Listelenen SKU(s) faturalama modeli değişikliği**
@@ -220,7 +220,7 @@ Yeni bir SKU Canlı teklifiniz eklemek için aşağıdaki adımları izleyin:
 8. Git **Yayımla** sekmesine ve tıklayın **hazırlama anında**. Teklifiniz hazırlama ortamında test etme konusunda ayrıntılı yönergeler için bkz: [VM teklifiniz Market için Test](marketplace-publishing-vm-image-test-in-staging.md).
 9. Teklifiniz hazırlamada test ettikten sonra Git **Yayımla** yayımlama sekmesinde portal. Tıklatın **isteği onayı için anında İLETME için üretim** teklifiniz Market'te yeniden yayımlamak için.
 
-    ![SKU'ları](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
+    ![SKU'lar](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
 
     ![Bir SKU ekleme](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 
@@ -325,7 +325,7 @@ Listelenen SKU üretim değerine görünürlük ayarını dönmek için şu adı
 3. Soldaki menüde tıklatın **SKU'ları** sekmesi.
 4. SKU seçin ve üretim değerine SKU görünürlük ayarını geri.
 
-    ![Görünürlüğü](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
+    ![Görünürlük](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
 5. Değişikliklerle bitirdikten sonra tıklatın **isteği onayı için anında İLETME için üretim** teklifiniz Market'te yeniden yayımlamak için.
 
 ## <a name="see-also"></a>Ayrıca bkz.
