@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 7892c74f03647e289ed96055fb9db5c2f08f0234
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 59ee56e225623295dd63bf5ae303bfe1aa8e95cf
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL veritabanı için SQL Server veritabanı geçirme
 
@@ -33,7 +33,7 @@ Kaynak veritabanı Azure SQL veritabanı kullanarak ile uyumlu olduğundan emin 
 
  Tek bir ya da bir havuza veritabanı miktar kapalı kalma süresi göze alabilir ya da daha sonra geçiş için bir üretim veritabanı için bir test geçişi gerçekleştirdiğiniz geçirmek için bu yöntemi kullanın. Bir öğretici için bkz: [bir SQL Server veritabanını geçirme](sql-database-migrate-your-sql-server-database.md).
 
-Aşağıdaki liste, tek bir SQL Server veritabanı geçişini için genel iş akışını ya da bu yöntemi kullanarak havuza alınmış bir veritabanı içerir. Yönetilen örneğine geçiş için bkz: [yönetilen bir örneğine geçiş](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
+Aşağıdaki liste, tek bir SQL Server veritabanı geçişini için genel iş akışını ya da bu yöntemi kullanarak havuza alınmış bir veritabanı içerir. Yönetilen örneğine geçiş için bkz: [yönetilen bir örneğine geçiş](sql-database-managed-instance-migrate.md).
 
   ![VSSSDT geçiş şeması](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 

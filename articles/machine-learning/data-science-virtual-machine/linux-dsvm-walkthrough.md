@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Veri bilimi ile Linux veri bilimi sanal makinede Azure
 Bu kılavuzda, Linux veri bilimi VM ile birçok ortak veri bilimi görevlerinin nasıl gerçekleştirileceğini gösterir. Linux veri bilimi sanal makine (DSVM) veri analizi ve makine öğrenme için yaygın olarak kullanılan bir araç koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makine sağlama](linux-dsvm-intro.md) konu. VM görüntüsü yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan dakika cinsinden veri bilimi yapılması başlamak kolaylaştırır. Kolayca VM gerekirse ölçeklendirmek ve kullanılmadığında durdurun. Bu nedenle bu kaynak, esnek ve ekonomik içindir.
@@ -27,7 +27,7 @@ Bu kılavuzda gösterilen veri bilimi görevleri konusunda özetlenen adımları
 
 Biz analiz [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) bu kılavuzda veri kümesi. Bu e-postaların istenmeyen posta ya da (olmadıkları istenmeyen posta anlamına gelir) ham, olarak işaretlenmiş kümesidir ve ayrıca e-posta içeriğini bazı istatistiklerle içerir. Dahil edilen istatistikleri sonraki ancak bir bölüm içinde ele alınmıştır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Linux veri bilimi sanal makine kullanmadan önce aşağıdakilere sahip olmanız gerekir:
 
 * Bir **Azure aboneliği**. Zaten bir yoksa, bkz: [ücretsiz Azure hesabınızı bugün oluşturmak](https://azure.microsoft.com/free/).
@@ -78,7 +78,7 @@ Bu kılavuzda kullanılan kod örnekleri kopyalarını almak için kopyalama **A
 Bir terminal penceresi açın ve yeni bir R oturumu R etkileşimli konsol ile başlatın.
 
 > [!NOTE]
-> Bu gibi durumlarda, Rstudio'dan da için aşağıdaki yordamları kullanabilirsiniz. Rstudio'dan yüklemek için bu bir terminal komutunu yürütün:`./Desktop/DSVM\ tools/installRStudio.sh`
+> Bu gibi durumlarda, Rstudio'dan da için aşağıdaki yordamları kullanabilirsiniz. Rstudio'dan yüklemek için bu bir terminal komutunu yürütün: `./Desktop/DSVM\ tools/installRStudio.sh`
 >
 >
 
@@ -466,7 +466,7 @@ Başlamak için uygulamaları menüsünden Squirrel SQL başlatın. Sürücüsü
 * Seçin **Windows**, ardından **görüntülemek sürücüleri**.
 * Sağ **PostgreSQL** seçip **değiştirmek sürücü**.
 * Seçin **yolu'fazladan sınıf**, ardından **eklemek**.
-* Girin ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** için **dosya adı** ve
+* Enter ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** for the **File Name** and
 * Seçin **açık**.
 * Liste sürücüleri seçin ve ardından **org.postgresql.Driver** içinde **sınıf adı**seçip **Tamam**.
 
@@ -477,7 +477,7 @@ Yerel sunucu bağlantısını ayarlamak için:
 * Bu ad *istenmeyen posta veritabanı*, seçin **PostgreSQL** içinde **sürücü** açılır.
 * URL'sini ayarlamak *jdbc:postgresql://localhost/spam*.
 * Girin, *kullanıcıadı* ve *parola*.
-* **Tamam** düğmesine tıklayın.
+* **Tamam**’a tıklayın.
 * Açmak için **bağlantı** penceresinde çift ***istenmeyen posta veritabanı*** diğer adı.
 * **Bağlan**’ı seçin.
 

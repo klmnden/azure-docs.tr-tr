@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: Kullanıcı Arabirimi özelleştirme özel bir ilke yapılandırın.
 
@@ -26,11 +26,11 @@ ms.lasthandoff: 12/11/2017
 
 Bu makalede tamamladıktan sonra kaydolma ve oturum açma özel bir ilke ile marka ve görünümüne sahip olur. Azure Active Directory B2C ile kullanıcılara sunulan HTML ve CSS içeriğin neredeyse tam denetim elde (Azure AD B2C). Özel bir ilke kullandığınızda, kullanıcı arabirimini özelleştirme XML'de Azure portalında denetimleri kullanmak yerine yapılandırın. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce tamamlamanız [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md). Çalışma özel bir ilke için kaydolma ve oturum açma yerel hesaplara sahip olmalıdır.
 
-## <a name="page-ui-customization"></a>Sayfanın UI Özelleştirme
+## <a name="page-ui-customization"></a>Sayfa UI Özelleştirmesi
 
 Sayfanın UI Özelleştirme özelliğini kullanarak, herhangi bir özel ilke görünümünü özelleştirebilirsiniz. Ayrıca, marka ve uygulama ve Azure AD B2C arasında visual tutarlılık koruyabilirsiniz.
 
@@ -118,7 +118,7 @@ BLOB Depolama çıkış noktaları arası kaynak paylaşımı için aşağıdaki
 
 Aşağıdakileri yaparak hazırsınız olduğunu doğrulama:
 
-1. Git [test cors.org](http://test-cors.org/) Web sitesi, URL'de yapıştırın **uzak URL** kutusu.
+1. Git [www.test-cors.org](http://www.test-cors.org/) Web sitesine gidin ve URL yapıştırın **uzak URL** kutusu.
 2. Tıklatın **gönderme isteği**.  
     Bir hata alırsanız, emin olun, [CORS ayarları](#configure-cors) doğrudur. Tarayıcı önbelleğini temizlemek veya Ctrl + Shift + P tuşuna basarak özel gözatma oturumu açmak gerekebilir.
 
@@ -161,19 +161,19 @@ Aşağıdaki HTML dosyaları sample_templates/wingtip klasör içerir:
 
 | HTML5 şablonu | Açıklama |
 |----------------|-------------|
-| *phonefactor.HTML* | Bu dosyayı bir çok faktörlü kimlik doğrulaması sayfası için bir şablon olarak kullanın. |
-| *ResetPassword.HTML* | Bu dosya için bir şablon olarak kullanmak bir parolanızı mı unuttunuz sayfasını. |
-| *selfasserted.HTML* | Bu dosya, sosyal hesap kayıt sayfası, yerel hesap kaydolma sayfası veya bir yerel hesap oturum açma sayfası için bir şablon olarak kullanın. |
-| *Unified.HTML* | Bu dosyayı bir birleşik kayıt veya oturum açma sayfası için bir şablon olarak kullanın. |
-| *updateprofile.HTML* | Bu dosya için bir profil güncelleştirme sayfası şablon olarak kullanın. |
+| *phonefactor.html* | Bu dosyayı bir çok faktörlü kimlik doğrulaması sayfası için bir şablon olarak kullanın. |
+| *resetpassword.html* | Bu dosya için bir şablon olarak kullanmak bir parolanızı mı unuttunuz sayfasını. |
+| *selfasserted.html* | Bu dosya, sosyal hesap kayıt sayfası, yerel hesap kaydolma sayfası veya bir yerel hesap oturum açma sayfası için bir şablon olarak kullanın. |
+| *unified.html* | Bu dosyayı bir birleşik kayıt veya oturum açma sayfası için bir şablon olarak kullanın. |
+| *updateprofile.html* | Bu dosya için bir profil güncelleştirme sayfası şablon olarak kullanın. |
 
 İçinde [, oturum açma veya kaydolma özel ilke bölümünü değiştirme](#modify-your-sign-up-or-sign-in-custom-policy), içerik tanımı yapılandırılmış `api.idpselections`. Tam bir içerik kümesinin Azure AD B2C kimlik deneyimi framework ve açıklamalarının tarafından tanınan tanımı kimlikleri aşağıdaki tabloda verilmiştir:
 
 | İçerik tanımı kimliği | Açıklama | 
 |-----------------------|-------------|
-| *api.Error* | **Hata sayfası**. Bir özel durum ya da hatayla karşılaşıldığında bu sayfada görüntülenir. |
+| *api.error* | **Hata sayfası**. Bir özel durum ya da hatayla karşılaşıldığında bu sayfada görüntülenir. |
 | *api.idpselections* | **Kimlik sağlayıcısı seçimi sayfası**. Bu sayfa, oturum açma sırasında seçebileceği kimlik sağlayıcıları listesini içerir. Bu, Kurumsal kimlik sağlayıcıları, Facebook ve Google + gibi sosyal kimlik sağlayıcıları ya da yerel hesaplar seçeneklerdir. |
-| *api.idpselections.Signup* | **Kimlik sağlayıcısı seçimi için kaydolma**. Bu sayfa kullanıcı kayıt sırasında seçebileceği kimlik sağlayıcıları listesini içerir. Bu, Kurumsal kimlik sağlayıcıları, Facebook ve Google + gibi sosyal kimlik sağlayıcıları ya da yerel hesaplar seçeneklerdir. |
+| *api.idpselections.signup* | **Kimlik sağlayıcısı seçimi için kaydolma**. Bu sayfa kullanıcı kayıt sırasında seçebileceği kimlik sağlayıcıları listesini içerir. Bu, Kurumsal kimlik sağlayıcıları, Facebook ve Google + gibi sosyal kimlik sağlayıcıları ya da yerel hesaplar seçeneklerdir. |
 | *api.localaccountpasswordreset* | **Parolanızı mı unuttunuz sayfasını**. Bu sayfa kullanıcı parola sıfırlama başlatmak için tamamlamanız gereken bir form içerir.  |
 | *api.localaccountsignin* | **Yerel hesap oturum açma sayfası**. Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre yerel bir hesap ile oturum imzalamak için bir oturum açma formu içerir. Form, metin giriş kutusu ve parola giriş kutusu içerebilir. |
 | *api.localaccountsignup* | **Yerel hesap kayıt sayfasına**. Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre yerel bir hesap için kaydolduğunuz için bir kayıt formu içerir. Form, metin giriş kutusu, bir parola giriş kutusu, bir radyo düğmesi, tek seçimlik açılan kutuları ve çoklu seçim onay kutuları gibi çeşitli giriş denetimlerini içerebilir. |

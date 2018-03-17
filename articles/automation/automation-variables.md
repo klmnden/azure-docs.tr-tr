@@ -1,24 +1,18 @@
 ---
-title: "Azure Otomasyonu değişken varlıkları | Microsoft Docs"
+title: "Azure Otomasyonu değişken varlıkları"
 description: "Değişken varlıkları tüm runbook'lar ve Azure Otomasyonu DSC yapılandırmalarında kullanılabilen değerlerdir.  Bu makalede, değişkenlerin ve bunlarla metinsel ve grafik yazma çalışma konusunda ayrıntılar açıklanmaktadır."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/07/2018
-ms.author: magoedte;bwren
-ms.openlocfilehash: 2ed4cf16615a0ca1789b789a635de564af568eb9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: carmonm
+ms.openlocfilehash: 7c36fce380712da6572e9512a05af9c23c4152a2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Otomasyonu değişken varlıkları
 
@@ -34,8 +28,8 @@ Böylece runbook veya DSC yapılandırma başarısız olsa bile kullanılabilir 
 
 Bir değişken oluşturulduğunda, depolanan olduğunu belirtebilirsiniz şifrelenmiş. Bir değişken şifrelendiğinde, Azure Automation'da güvenli bir şekilde depolanır ve değeri alınamaz [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) Azure PowerShell modülünün bir parçası olarak gönderilen cmdlet'i. Şifrelenmiş değer alınabilir tek yolu **Get-AutomationVariable** etkinliğini runbook veya DSC yapılandırması.
 
-> [!NOTE]
-> Azure Automation güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantıları ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak Azure Automation depolanır. Bu anahtarı bir sertifika tarafından şifrelenir ve Azure Otomasyonu'nda depolanır. Güvenli bir varlık depolamak önce anahtar Otomasyon hesabı için sertifika aracılığıyla çözülür ve varlık şifrelemek için kullanılan.
+>[!NOTE]
+>Azure Automation güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantıları ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak Azure automation'da depolanır. Bu anahtar, anahtar kasasında depolanır. Güvenli bir varlık depolamadan önce anahtarı anahtar Kasası'nı yüklenir ve varlık şifrelemek için kullanılır.
 
 ## <a name="variable-types"></a>Değişken türleri
 

@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 03/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7e8a5014ce9168ba3d67d175935649bfd9fec511
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure kapsayıcı durumlarda kapsayıcı grupları
 
@@ -23,13 +23,14 @@ Azure kapsayıcı durumlarda en üst düzey kaynak *kapsayıcı grubu*. Bu makal
 
 Kapsayıcı grubu, aynı ana bilgisayar makinesinde zamanlanmış kapsayıcıları koleksiyonudur. Kapsayıcı grubu kapsayıcılarında bir yaşam döngüsü, yerel ağ ve depolama birimleri paylaşır. Kavramı, benzer bir *pod* içinde [Kubernetes] [ kubernetes-pod] ve [DC/OS][dcos-pod].
 
-Aşağıdaki diyagramda, birden çok kapsayıcı içeren bir kapsayıcı grubu örneği gösterilmektedir.
+Aşağıdaki diyagramda, birden çok kapsayıcı içeren bir kapsayıcı grubu örneği gösterilmektedir:
 
 ![Kapsayıcı grupları diyagramı][container-groups-example]
 
 Bu örnek kapsayıcı grubu:
 
 * Tek ana makinede zamanlandı.
+* Bir DNS ad etiketi atanır.
 * Tek bir ortak IP adresi, bir kullanıma sunulan bağlantı noktası ile kullanıma sunar.
 * İki kapsayıcıları için oluşur. Bağlantı noktası 80 sırasında diğer dinlediği bağlantı noktası 5000 bir kapsayıcı dinler.
 * İki içeren Azure dosya paylaşımları birim başlatmalar ve her kapsayıcı paylaşımları yerel olarak birini bağlar.
@@ -51,7 +52,7 @@ Kapsayıcı grupları, bir IP adresi ve bağlantı noktası ad alanı, IP adresi
 
 ## <a name="common-scenarios"></a>Genel senaryolar
 
-Birden çok kapsayıcı grupları tek bir işlev görev farklı ekip tarafından alınabilir ve ayrı kaynak gereksinimlerini kapsayıcı görüntüleri az sayıda içine bölmek istediğiniz durumlarda kullanışlıdır.
+Birden çok kapsayıcı grupları tek bir işlev görev küçük bir kapsayıcı görüntüleri numarada bölmek istediğiniz durumlarda kullanışlıdır. Bu görüntüler farklı ekip tarafından alınabilir ve ayrı kaynak gereksinimleri vardır.
 
 Örnek Kullanım dahil olabilir:
 

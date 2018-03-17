@@ -1,30 +1,18 @@
 ---
-title: "Azure Automation Runbook türleri | Microsoft Docs"
+title: "Azure Automation Runbook türleri"
 description: "Azure Automation ve hangi türün kullanılacağını belirlerken dikkate almanız konuları kullanabilirsiniz runbook'ları farklı türleri açıklanmaktadır. "
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 9265c975-4281-4819-a84f-d86641277f36
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/01/2017
-ms.author: bwren
-<<<<<<< HEAD
-ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
-=======
-ms.openlocfilehash: e4a8ab0e68d6614fea1b44f0115a1c633f145277
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.openlocfilehash: f3a6b15891a4a1564073d149a198f6789b407342
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation runbook türleri
 Azure Otomasyonu aşağıdaki tabloda çeşitli kısaca açıklanmıştır runbook'ları destekler.  Aşağıdaki bölümlerde zaman her kullanılacağı hakkında dikkat edilecek noktalar dahil olmak üzere her tür hakkında daha fazla bilgi verilmektedir.
@@ -66,7 +54,7 @@ PowerShell runbook'ları Windows PowerShell üzerinde temel alır.  Doğrudan Az
 * Kullanamazsınız [kontrol noktaları](automation-powershell-workflow.md#checkpoints) runbook hata durumunda devam etmek için.
 * PowerShell iş akışı runbook'ları ve grafik runbook'lar yalnızca yeni bir iş oluşturur başlangıç AzureAutomationRunbook cmdlet'ini kullanarak alt runbook'lar olarak eklenebilir.
 
-### <a name="known-issues"></a>Bilinen sorunlar
+### <a name="known-issues"></a>Bilinen Sorunlar
 PowerShell runbook'ları bilinen geçerli sorunlar aşağıda verilmiştir.
 
 * PowerShell runbook'ları bir şifrelenmemiş alamıyor [değişken varlığı](automation-variables.md) null değerine sahip.
@@ -99,7 +87,7 @@ Python runbook'ları Python 2 altında derleyin.  Azure portalında metin düzen
 * Python komut dosyalarıyla bilgi sahibi olmanız gerekir.
 * Yalnızca Python 2 Python 3 belirli işlevleri başarısız olur yani şu anda desteklenmiyor.
 
-### <a name="known-issues"></a>Bilinen sorunlar
+### <a name="known-issues"></a>Bilinen Sorunlar
 Python runbook'ları bilinen geçerli sorunlar aşağıda verilmiştir.
 
 * Üçüncü taraf kitaplıklar kullanmak için runbook çalıştırılması gereken bir [Windows karma Runbook çalışanı](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) veya [Linux karma Runbook çalışanı](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install) önce makinede zaten yüklü kitaplıkları ile runbook başlatılır.

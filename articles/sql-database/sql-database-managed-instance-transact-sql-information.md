@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d412cbbe44a1b865ff5fa090592faa9b59fb06bf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bd8733590819faa3c4286c1940f0b9258842c930
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL Database yönetilen örnek T-SQL farkları 
 
@@ -30,11 +30,11 @@ Bu bölümde T-SQL söz dizimi ve davranış arasındaki farklar yönetilen örn
 ### <a name="always-on-availability"></a>Always On kullanılabilirlik
 
 [Yüksek kullanılabilirlik](sql-database-high-availability.md) yönetilen örneğine yerleşik olarak bulunur ve kullanıcılar tarafından denetlenemez. Aşağıdaki ifadeleri desteklenmez:
- - [UÇ NOKTA OLUŞTUR... DATABASE_MIRRORING İÇİN](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql.md)
- - [KULLANILABİLİRLİK GRUBU OLUŞTURMA](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql.md)
- - [ALTER KULLANILABİLİRLİK GRUBU](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql.md)
- - [AÇILAN KULLANILABİLİRLİK GRUBU](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql.md)
- - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr.md) yan tümcesi [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) deyimi
+ - [UÇ NOKTA OLUŞTUR... DATABASE_MIRRORING İÇİN](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
+ - [KULLANILABİLİRLİK GRUBU OLUŞTURMA](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
+ - [ALTER KULLANILABİLİRLİK GRUBU](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
+ - [AÇILAN KULLANILABİLİRLİK GRUBU](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
+ - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) yan tümcesi [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) deyimi
 
 ### <a name="auditing"></a>Denetim 
  

@@ -6,30 +6,29 @@ documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
 editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL veri ambarı sorunlarını giderme
 Bu konu bizim Müşterilerden aldığımız daha yaygın sorun giderme sorulara listeler.
 
-## <a name="connecting"></a>Bağlanılıyor
+## <a name="connecting"></a>Bağlanıyor
 | Sorun | Çözüm |
 |:--- |:--- |
-| Oturum açma 'NT Yetkili\Anonim Oturum açma' kullanıcısı için başarısız oldu. (Microsoft SQL Server, hata: 18456) |Bu hata bir AAD kullanıcı ana veritabanına bağlanmayı dener, ancak bir kullanıcının yöneticisinde yok oluşur.  Bu sorunu gidermek için da, bağlantı zaman bağlanmak veya ana veritabanına kullanıcı eklemek istediğiniz SQL Data Warehouse belirtin.  Bkz: [güvenliğine genel bakış] [ Security overview] daha fazla ayrıntı için makale. |
+| Oturum açma 'NT Yetkili\Anonim Oturum açma' kullanıcısı için başarısız oldu. (Microsoft SQL Server, Error: 18456) |Bu hata bir AAD kullanıcı ana veritabanına bağlanmayı dener, ancak bir kullanıcının yöneticisinde yok oluşur.  Bu sorunu gidermek için da, bağlantı zaman bağlanmak veya ana veritabanına kullanıcı eklemek istediğiniz SQL Data Warehouse belirtin.  Bkz: [güvenliğine genel bakış] [ Security overview] daha fazla ayrıntı için makale. |
 | Sunucu asıl "KullanıcıAdım" geçerli güvenlik bağlamı altında "ana" veritabanına erişim mümkün değil. Kullanıcının varsayılan veritabanı açılamıyor. Oturum açma başarısız. Oturum açma 'KullanıcıAdım' kullanıcısı için başarısız oldu. (Microsoft SQL Server, hata: 916) |Bu hata bir AAD kullanıcı ana veritabanına bağlanmayı dener, ancak bir kullanıcının yöneticisinde yok oluşur.  Bu sorunu gidermek için da, bağlantı zaman bağlanmak veya ana veritabanına kullanıcı eklemek istediğiniz SQL Data Warehouse belirtin.  Bkz: [güvenliğine genel bakış] [ Security overview] daha fazla ayrıntı için makale. |
-| CTAIP hata |SQL server ana veritabanı üzerinde ancak SQL veri ambarı veritabanında bir oturum oluşturulduğunda bu hata oluşabilir.  Bu hatayla karşılaşırsanız, göz atın [güvenliğine genel bakış] [ Security overview] makalesi.  Bu makalede nasıl oluşturulacağı açıklanmaktadır ana ve ardından SQL veri ambarı veritabanında bir kullanıcı oluşturmak nasıl bir oturum açma ve kullanıcı oluşturun. |
+| CTAIP hata |SQL server ana veritabanı üzerinde ancak SQL veri ambarı veritabanında bir oturum oluşturulduğunda bu hata oluşabilir.  Bu hatayla karşılaşırsanız, göz atın [güvenliğine genel bakış] [ Security overview] makalesi.  Bu makalede, bir oturum açma ve kullanıcı yöneticisinde nasıl oluşturulacağını ve SQL veri ambarı veritabanında bir kullanıcı oluşturmak nasıl açıklanmaktadır. |
 | Güvenlik Duvarı tarafından engellendi |Azure SQL veritabanları, yalnızca bir veritabanı erişimi IP adreslerini bilinen emin olmak için sunucu ve veritabanı düzeyi güvenlik duvarları tarafından korunur. Bağlanmadan önce güvenlik duvarları, açıkça etkinleştirmelisiniz anlamına gelir varsayılan ve IP adresi veya adres aralığı ile güvenlidir.  Erişim için güvenlik duvarını yapılandırmak için adımları [sunucusu güvenlik duvarı erişimi için istemci IP yapılandırma] [ Configure server firewall access for your client IP] içinde [yönergeleri sağlama][Provisioning instructions]. |
 | Aracı veya sürücüsü ile bağlantı kurulamıyor |SQL veri ambarı önerir kullanarak [SSMS][SSMS], [Visual Studio için SSDT][SSDT for Visual Studio], veya [sqlcmd] [ sqlcmd] verilerinizi sorgulanamıyor. Sürücüleri ve SQL Data Warehouse'a bağlanma hakkında daha fazla bilgi için bkz: [Azure SQL Data Warehouse için sürücüleri] [ Drivers for Azure SQL Data Warehouse] ve [Azure SQL Data Warehouse Bağlan] [ Connect to Azure SQL Data Warehouse] makaleleri. |
 
@@ -47,7 +46,7 @@ Bu konu bizim Müşterilerden aldığımız daha yaygın sorun giderme sorulara 
 | Düşük eşzamanlılık / sorguları sıraya alındı |Anlama [iş yükü Yönetim] [ Workload management] bellek ayırma ile eşzamanlılık dengelemeye yönelik olduğunu anlamak için önemlidir. |
 | En iyi yöntemler uygulama |Sorgu performansını artırmak için yollarını öğrenmek başlatmak için en iyi yerdir [SQL veri ambarı en iyi yöntemler] [ SQL Data Warehouse best practices] makalesi. |
 | Ölçeklendirme performansı nasıl |Bazen performansı iyileştirme için çözüm yalnızca daha fazla işlem sorgular tarafından üssüne eklemektir [SQL veri ambarı ölçeklendirme][Scaling your SQL Data Warehouse]. |
-| Zayıf dizin kalitesi zayıf sorgu performansı |Bazı kez sorgular için yavaşlama nedeniyle [zayıf columnstore dizini kalite][Poor columnstore index quality].  Bu makalede daha fazla bilgi için bkz: ve nasıl [segment kalitesini artırmak için dizinleri yeniden][Rebuild indexes to improve segment quality]. |
+| Zayıf dizin kalitesi zayıf sorgu performansı |Bazı kez sorgular yavaşlar nedeniyle [zayıf columnstore dizini kalite][Poor columnstore index quality].  Bu makalede daha fazla bilgi için bkz: ve nasıl [segment kalitesini artırmak için dizinleri yeniden][Rebuild indexes to improve segment quality]. |
 
 ## <a name="system-management"></a>Sistem Yönetimi
 | Sorun | Çözüm |
@@ -60,7 +59,7 @@ Bu konu bizim Müşterilerden aldığımız daha yaygın sorun giderme sorulara 
 ## <a name="polybase"></a>Polybase
 | Sorun | Çözüm |
 |:--- |:--- |
-| Büyük satırları nedeniyle yükleme başarısız |Şu anda büyük satır desteği için Polybase kullanılabilir değil.  Başka bir deyişle, VARCHAR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) tablonuz içeriyorsa, verilerinizi yüklemek için dış tabloları kullanılamaz.  Büyük satırları yükleri şu anda yalnızca Azure Data Factory (BCP), Azure akış analizi, SSIS, BCP veya .NET SQLBulkCopy sınıfı desteklenir. PolyBase destek büyük satırlar için gelecekteki bir sürümde eklenecek. |
+| Büyük satırları nedeniyle yükleme başarısız |Şu anda büyük satır desteği için Polybase kullanılabilir değil.  Başka bir deyişle, VARCHAR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) tablonuz içeriyorsa, verilerinizi yüklemek için dış tabloları kullanılamaz.  Büyük satırları yüklenirken şu anda yalnızca Azure Data Factory (BCP), Azure akış analizi, SSIS, BCP veya .NET SQLBulkCopy sınıfı desteklenir. PolyBase destek büyük satırlar için gelecekteki bir sürümde eklenecek. |
 | en büyük veri türüne sahip tablosunun BCP yükleme başarısız oluyor |VARCHAR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) Bazı senaryolarda tablonun sonuna yerleştirilmesi gerektiren bilinen bir sorun yoktur.  En fazla sütun tablonun sonuna taşımayı deneyin. |
 
 ## <a name="differences-from-sql-database"></a>SQL veritabanı arasındaki farklar
@@ -74,7 +73,7 @@ Bu konu bizim Müşterilerden aldığımız daha yaygın sorun giderme sorulara 
 | UDF'ler SELECT deyimleri desteklemiyor |Bu bizim UDF'ler geçerli bir kısıtlamasıdır.  Bkz: [CREATE FUNCTION] [ CREATE FUNCTION] destekliyoruz söz dizimi. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kullanıyorsanız bundan sorununuzu yukarıdaki çözüme bulunamıyor deneyebilirsiniz bazı kaynaklar burada verilmektedir diğer.
+Sorununuzu çözüme bulma daha fazla yardım için deneyebilirsiniz diğer bazı kaynaklar aşağıda verilmiştir.
 
 * [Bloglar]
 * [Özellik istekleri]
@@ -113,7 +112,7 @@ Kullanıyorsanız bundan sorununuzu yukarıdaki çözüme bulunamıyor deneyebil
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

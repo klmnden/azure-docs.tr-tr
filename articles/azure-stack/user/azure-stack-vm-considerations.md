@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Sanal makineler Azure yığınında dikkate alınacak noktalar
 
@@ -37,7 +37,7 @@ Sanal makine, bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynakları Azu
 | Sanal makine ağı | Kiracı sanal makinesi için atanan ortak IP adresleri Internet üzerinden erişilebilir.<br><br><br>Azure sanal makinelerin olduğu sabit bir DNS adı | Bir kiracı sanal makineye atanan genel IP adresleri yalnızca Azure yığın Geliştirme Seti ortamında erişilebilir. Bir kullanıcı bu Azure yığın Geliştirme Seti erişiminiz olmalıdır [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) veya [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) Azure yığınında oluşturulan bir sanal makineye bağlanmak için.<br><br>Belirli bir Azure yığın örneği içinde oluşturulan sanal makineler bulut yönetici tarafından yapılandırılan değere göre bir DNS adına sahip. |
 | Sanal makine depolama | Destekler [yönetilen diskler.](../../virtual-machines/windows/managed-disks-overview.md) | Yönetilen diskleri Azure yığınında henüz desteklenmiyor. |
 | API sürümleri | Azure her zaman en son API sürümü tüm sanal makine özellikleri vardır. | Azure yığını, bu hizmetler için belirli Azure hizmetlerinin ve belirli API sürümleri destekler. Desteklenen API sürümleri listesini görüntülemek için başvurmak [API sürümleri](#api-versions) bu makalenin. |
-|Sanal makine kullanılabilirlik kümeleri|Birden çok hata etki alanlarını (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanı<br>Yönetilen disk desteği|Tek hata etki alanı<br>Tek güncelleştirme etki alanı<br>Yönetilen disk desteği yok|
+|Sanal makine kullanılabilirlik kümeleri|Birden çok hata etki alanlarını (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanı<br>Yönetilen disk desteği|Birden çok hata etki alanlarını (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanı (en fazla 20)<br>Yönetilen disk desteği yok|
 |Sanal makine ölçek kümeleri|Otomatik ölçek desteklenen|Otomatik-ölçek desteklenmiyor.<br>Daha fazla örnek portal, Resource Manager şablonları veya PowerShell kullanılarak ayarlanan bir ölçek ekleyin.
 
 ## <a name="virtual-machine-sizes"></a>Sanal makine boyutları

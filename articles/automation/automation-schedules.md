@@ -1,24 +1,18 @@
 ---
-title: "Azure Otomasyon zamanlamaları | Microsoft Docs"
+title: "Azure Otomasyon zamanlamaları"
 description: "Otomasyon zamanlamaları runbook'ları otomatik olarak başlatmak için Azure automation'da zamanlamak için kullanılır. Oluşturma ve belirli bir zamanda veya yinelenen bir zamanlamaya göre otomatik olarak bir runbook başlatabilirsiniz bir zamanlama yönetme açıklar."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+manager: carmonm
+ms.openlocfilehash: ae7378c6d0f85e71c9522a6678adcb1f2e4b01f1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Otomasyonu’nda runbook zamanlama
 Belirli bir zamanda başlatmak için Azure automation'da bir runbook'u zamanlamak için bir veya daha fazla zamanlamaya bağlayın. Azure portalında runbook'lar için bir kez veya bir yinelenmeye saatlik çalıştırma ya da günlük zamanlama için bir zamanlama yapılandırılabilir. Ayrıca bunları için haftalık, aylık, haftanın belirli gün veya ayın günleri veya ayın belirli zamanlayabilirsiniz.  Bir runbook için birden çok zamanlama bağlanabilir ve bir zamanlama birden çok runbook bağlı olabilir.
@@ -35,15 +29,15 @@ Aşağıdaki tabloda yer alan cmdlet'ler oluşturmak ve zamanlamaları Azure aut
 |:--- |:--- |
 | **Azure Resource Manager cmdlet'leri** | |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Bir zamanlama alır. |
-| [AzureRmAutomationSchedule yeni](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Yeni bir zamanlama oluşturur. |
+| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Yeni bir zamanlama oluşturur. |
 | [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Bir zamanlama kaldırır. |
 | [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Varolan bir zamanlamanın özelliklerini ayarlar. |
 | [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/set-azurermautomationscheduledrunbook) |Zamanlanmış runbook'lar alır. |
 | [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Bir runbook zamanlama ile ilişkilendirir. |
-| [Kaydı AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Zamanlama runbook'tan dissociates. |
+| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Zamanlama runbook'tan dissociates. |
 | **Azure Hizmet Yönetimi cmdlet'leri** | |
 | [Get-AzureAutomationSchedule](/powershell/module/azure/get-azureautomationschedule?view=azuresmps-3.7.0) |Bir zamanlama alır. |
-| [AzureAutomationSchedule yeni](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) |Yeni bir zamanlama oluşturur. |
+| [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) |Yeni bir zamanlama oluşturur. |
 | [Remove-AzureAutomationSchedule](/powershell/module/azure/remove-azureautomationschedule?view=azuresmps-3.7.0) |Bir zamanlama kaldırır. |
 | [Set-AzureAutomationSchedule](/powershell/module/azure/set-azureautomationschedule?view=azuresmps-3.7.0) |Varolan bir zamanlamanın özelliklerini ayarlar. |
 | [Get-AzureAutomationScheduledRunbook](/powershell/module/azure/get-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Zamanlanmış runbook'lar alır. |

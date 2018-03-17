@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 77c3e41dd4b1fdf7e518de67b353f69fcb758c60
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure Event hubs'a Azure API Management'te olayları günlüğe kaydetme hakkında
 Azure Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki verileri işleyip analiz edebilmeniz için saniye başına milyonlarca olayı işleyebilen ileri düzeyde ölçeklenebilir bir veri alım sistemidir. Event Hubs bir olay komut zincirinin "ön kapı" olarak görev yapan ve veriler bir event hub'ına toplandıktan sonra dönüştürülebilir ve tüm gerçek zamanlı analiz sağlayıcısı veya toplu işlem/depolama bağdaştırıcısı kullanılarak saklanır. Event Hubs olay akışı üretimlerini bu olayların tüketilmesinden ayırır, böylece olay tüketicileri olaylara kendi zamanlamalarında erişebilir.
@@ -36,7 +36,7 @@ API Management günlükçüleri kullanılarak yapılandırılmış olan [API Man
 
 Günlükçü oluşturmak için aşağıdaki URL şablonu kullanarak bir HTTP PUT İsteği olun:
 
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Değiştir `{your service}` API Management hizmet örneği adı.
 * Değiştir `{new logger name}` yeni Günlükçü için istenen adı ile. Yapılandırdığınızda bu adına başvuruda [günlük eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) İlkesi
@@ -51,7 +51,7 @@ Aşağıdaki şablonu kullanarak istek gövdesini belirtin:
 
 ```json
 {
-  "loggertype" : "AzureEventHub",
+  "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -60,9 +60,9 @@ Aşağıdaki şablonu kullanarak istek gövdesini belirtin:
 }
 ```
 
-* `loggertype`ayarlanmalıdır `AzureEventHub`.
-* `description`günlükçünün isteğe bağlı bir açıklama sağlar ve isterseniz sıfır uzunluğunda bir dize olabilir.
-* `credentials`içeren `name` ve `connectionString` Azure olay hub'ınızın.
+* `loggerType` ayarlanmalıdır `AzureEventHub`.
+* `description` günlükçünün isteğe bağlı bir açıklama sağlar ve isterseniz sıfır uzunluğunda bir dize olabilir.
+* `credentials` içeren `name` ve `connectionString` Azure olay hub'ınızın.
 
 Yaptığınızda isteği durum kodu Günlükçü oluşturduysanız `201 Created` döndürülür.
 

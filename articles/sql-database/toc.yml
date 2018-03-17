@@ -380,7 +380,6 @@
             - name: Kiracı sağlama
               href: saas-standaloneapp-provision-and-catalog.md
         - name: Kiracı başına veritabanı
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: Öğreticiye giriş
               href: saas-dbpertenant-wingtip-app-overview.md

@@ -3,8 +3,9 @@ title: "Machine Learning web hizmetleri için günlüğe kaydetme | Microsoft Do
 description: "Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirmek öğrenin. Günlük API'leri gidermenize yardımcı olacak ek bilgiler sağlar."
 services: machine-learning
 documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirme
 Bu belgede, Machine Learning web hizmetleri günlüğe kaydetme özelliği bilgiler sağlanmaktadır. Günlük yalnızca bir hata numarası ve Machine Learning API'ları aramalarınız gidermenize yardımcı olabilecek bir ileti ötesinde ek bilgi sağlar.  
@@ -27,7 +27,7 @@ Bu belgede, Machine Learning web hizmetleri günlüğe kaydetme özelliği bilgi
 
 Gelen günlük kaydını etkinleştir [Azure Machine Learning Web Hizmetleri](https://services.azureml.net) portal. 
 
-1. Oturum açtığınızda Azure Machine Learning Web Hizmetleri portalında [https://services.azureml.net](https://services.azureml.net). Klasik web hizmeti, ayrıca Portalı'na tıklayarak alabilirsiniz **yeni Web Hizmetleri deneyiminizin** Machine Learning Studio'da Machine Learning Web Hizmetleri sayfasında.
+1. Oturum açtığınızda Azure Machine Learning Web Hizmetleri portalında [ https://services.azureml.net ](https://services.azureml.net). Klasik web hizmeti, ayrıca Portalı'na tıklayarak alabilirsiniz **yeni Web Hizmetleri deneyiminizin** Machine Learning Studio'da Machine Learning Web Hizmetleri sayfasında.
 
    ![Yeni Web Hizmetleri deneyiminizin bağlantısı](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -43,7 +43,7 @@ Gelen günlük kaydını etkinleştir [Azure Machine Learning Web Hizmetleri](ht
 
    ![Günlük düzeyini seçin](./media/web-services-logging/enable-logging.png)
 
-6. **Kaydet** düğmesine tıklayın.
+6. **Kaydet**’e tıklayın.
 
 7. Klasik web hizmetleri için oluşturmanız **ml tanılama** kapsayıcı.
 
@@ -53,7 +53,7 @@ Gelen günlük kaydını etkinleştir [Azure Machine Learning Web Hizmetleri](ht
 
    2. Altında **Blob hizmeti**, tıklatın **kapsayıcıları**.
 
-   3. Varsa kapsayıcı **ml tanılama** mevcut değil, tıklatın **+ kapsayıcı**, kapsayıcı "ml-Tanılama" ad verin ve seçin **erişim türüne** "Blob" olarak. **Tamam** düğmesine tıklayın.
+   3. Varsa kapsayıcı **ml tanılama** mevcut değil, tıklatın **+ kapsayıcı**, kapsayıcı "ml-Tanılama" ad verin ve seçin **erişim türüne** "Blob" olarak. **Tamam**’a tıklayın.
 
       ![Günlük düzeyini seçin](./media/web-services-logging/create-ml-diagnostics-container.png)
 
@@ -82,7 +82,7 @@ Her bir blob adı ön eki aşağıdaki biçime sahiptir:
 
 Burada _oturum türü_ aşağıdaki değerlerden biri:  
 
-* Toplu işlem  
+* toplu iş  
 * puan/istekleri  
 * puan/başlatma  
 

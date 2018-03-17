@@ -1,31 +1,25 @@
 ---
-title: "Azure Otomasyonu runbook başlatma | Microsoft Docs"
+title: "Azure Otomasyonu runbook başlatma"
 description: "Azure portalı ve Windows PowerShell kullanma hakkında ayrıntılar verilmiştir ve Azure Otomasyon runbook'u başlatmak için kullanılır farklı yöntemleri özetler."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 6ee756b4-9200-4eb2-9bda-ec156853803b
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: c6a18bedec6eca5ff25d205bccecc23ecd342744
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+manager: carmonm
+ms.openlocfilehash: 064ba5f73b53681a824b1416243d10ab0e565c44
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Azure Otomasyonu runbook başlatma
 Aşağıdaki tabloda, Azure automation'da belirli senaryonuza en uygun bir runbook'u başlatmak için bu yöntem belirlemenize yardımcı olur. Bu makalede Azure portal ile ve Windows PowerShell ile bir runbook'u başlatma hakkında bilgi içerir. Aşağıdaki bağlantılardan erişebilirsiniz diğer belgelerinde diğer yöntemler hakkında ayrıntılar verilmiştir.
 
 | **YÖNTEMİ** | **ÖZELLİKLERİ** |
 | --- | --- |
-| [Azure portalı](#starting-a-runbook-with-the-azure-portal) |<li>En basit yöntem etkileşimli kullanıcı arabirimi ile.<br> <li>Basit parametre değerlerini sağlamak için form.<br> <li>İş durumu kolayca izleyin.<br> <li>İle Azure oturum açma kimliği doğrulanmış erişim. |
+| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>En basit yöntem etkileşimli kullanıcı arabirimi ile.<br> <li>Basit parametre değerlerini sağlamak için form.<br> <li>İş durumu kolayca izleyin.<br> <li>İle Azure oturum açma kimliği doğrulanmış erişim. |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Komut satırından Windows PowerShell cmdlet'leri ile çağırın.<br> <li>Birden çok adımı otomatik Çözümle eklenebilir.<br> <li>Sertifika veya OAuth kullanıcı asıl / hizmet isteği kimliği doğrulanır asıl.<br> <li>Basit ve karmaşık parametre değerlerini sağlayın.<br> <li>İş durumu izleyin.<br> <li>PowerShell cmdlet'leri desteklemek için gereken istemci. |
 | [Azure Otomasyonu API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>En esnek yöntem, ancak ayrıca en karmaşık.<br> <li>HTTP isteği yapabilen dilediğiniz özel kodu çağırın.<br> <li>İstek sertifika ya da Oauth kullanıcı asıl / hizmet kimliği doğrulanmış sorumlu.<br> <li>Basit ve karmaşık parametre değerlerini sağlayın. *API kullanarak bir Python runbook arıyorsanız, JSON yükü seri hale getirilmesi gerekir.*<br> <li>İş durumu izleyin. |
 | [Web kancaları](automation-webhooks.md) |<li>Runbook tek HTTP isteğinden başlatın.<br> <li>Güvenlik belirteci URL ile kimlik doğrulaması.<br> <li>İstemci Web kancası oluşturduğunuzda belirtilen parametre değerleri geçersiz kılamaz. Runbook ile HTTP istek ayrıntıları doldurulmuş tek bir parametre tanımlayabilirsiniz.<br> <li>Web kancası URL'si aracılığıyla iş durumu izleme yeteneği yok. |

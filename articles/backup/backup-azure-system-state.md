@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: e7dce94e56a8b51dd1c47e306aeb1d11d0dfb45c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: df2565be7c543be061c3297f4d87aeae5eae4b8e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager dağıtım Windows sistem durumu yedekleme
 Bu makalede, Azure için Windows Server sistem durumunu yedekleme açıklanmaktadır. Bu, size temel işlemler boyunca yol göstermeye yönelik bir öğreticidir.
@@ -33,7 +33,7 @@ Windows Server sistem durumunu yedeklemek için verileri depolamak istediğiniz 
 
 ### <a name="to-create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturmak için
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure Portal](https://portal.azure.com/)'da oturum açın.
-2. Hub menüsünde **tüm hizmetleri** ve kaynak listesinde yazın **kurtarma Hizmetleri** tıklatıp **kurtarma Hizmetleri kasaları**.
+2. Hub menüsünde **Tüm hizmetler**'e tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazıp **Kurtarma Hizmetleri kasaları** seçeneğine tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
@@ -138,6 +138,8 @@ Bir kasa oluşturduğunuza göre Windows sistem durumunu yedekleme için yapıla
 > [!NOTE]
 > Kasa kimlik bilgileri, aracı kullanmayı amaçladığınız Windows Server'a yereldir bir konuma kaydedilmesi gerekir. 
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>Aracıyı yükleme ve kaydetme
 

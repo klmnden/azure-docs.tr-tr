@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple sanal dizinin - VMware sağlama dağıtma
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -98,7 +98,7 @@ Sanal cihazı, hipervizörde sağlamak için aşağıdaki adımları gerçekleş
 7. A **veri deposu tarayıcı** penceresi görüntülenir.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image6.png)
-8. Araç çubuğunda ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) simgesi yeni bir klasör oluşturun. Klasör adı belirtin ve bunu not edin. Bu klasör adı (en iyisi önerilir) bir sanal makine oluştururken daha sonra kullanacaksınız. **Tamam** düğmesine tıklayın.
+8. Araç çubuğunda ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image7.png) simgesi yeni bir klasör oluşturun. Klasör adı belirtin ve bunu not edin. Bu klasör adı (en iyisi önerilir) bir sanal makine oluştururken daha sonra kullanacaksınız. **Tamam**’a tıklayın.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image8.png)
 9. Yeni klasör sol bölmesinde görünür **veri deposu tarayıcı**.
@@ -127,7 +127,7 @@ Sanal cihazı, hipervizörde sağlamak için aşağıdaki adımları gerçekleş
 17. Üzerinde **depolama** sayfasında, VM'yi sağlamak için kullanmak istediğiniz bir veri deposu seçin.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. Üzerinde **sanal makine sürüm** sayfasında, **sanal makine sürüm: 8**. Sürümleri 8-11 tüm desteklenir.
+18. Üzerinde **sanal makine sürüm** sayfasında, **sanal makine sürüm: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. Üzerinde **konuk işletim sistemi** sayfasında, **konuk işletim sistemi** olarak **Windows**. İçin **sürüm**, açılır listeden seçin **Microsoft Windows Server 2012 (64 bit)**.

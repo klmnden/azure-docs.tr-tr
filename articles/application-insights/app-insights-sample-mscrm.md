@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 03/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 759dac681592d0e5951e09638533b93c6348d899
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c5a651a24fcf5d1fc64922483045c08321a3b89c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>İzlenecek yol: Telemetri Microsoft Dynamics CRM Online Application Insights kullanarak etkinleştirme
 Bu makalede, telemetri verilerini alma gösterilmektedir [Microsoft Dynamics CRM Online](https://www.dynamics.com/) kullanarak [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Biz uygulamanıza Application Insights komut dosyası ekleme tamamlandı işlemini veri ve veri görselleştirme yakalama yol.
@@ -33,12 +33,12 @@ Uygulamanızı izlemek üzere uygulamanıza Application Insights SDK ekleyin. SD
 ### <a name="create-an-application-insights-resource-in-azure"></a>Application Insights kaynağı oluşturma
 1. Alma [Microsoft Azure hesap](http://azure.com/pricing). 
 2. Oturum [Azure portal](https://portal.azure.com) ve yeni bir Application Insights kaynağı ekleyin. Verilerinizi nereye işlenen ve görüntülenen budur.
-   
+
     ![Tıklatın +, geliştirici Hizmetleri, Application Insights.](./media/app-insights-sample-mscrm/01.png)
-   
+
     Uygulama türü olarak ASP.NET’i seçin.
 3. Başlarken sayfasını açın ve Aç "İzleyici ve istemci tarafı tanılamak".
-   
+
     ![Kod parçacığı web sayfanıza eklemek için](./media/app-insights-sample-mscrm/03.png)
 
 **Kod sayfası açık tutmak** başka bir tarayıcı penceresi sonraki adımda yaparken. Kod yakında gerekir. 
@@ -46,41 +46,38 @@ Uygulamanızı izlemek üzere uygulamanıza Application Insights SDK ekleyin. SD
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Microsoft Dynamics CRM JavaScript web kaynak oluşturma
 1. Oturum açma ve CRM Online örneği yönetici ayrıcalıklarıyla açın.
 2. Açık Microsoft Dynamics CRM ayarları, özelleştirmeleri, sistem özelleştirme
-   
-    ![Microsoft Dynamics CRM ayarları](./media/app-insights-sample-mscrm/04.png)
-   
-    ![Ayarlar > özelleştirmeleri](./media/app-insights-sample-mscrm/05.png)
 
-    ![Sistem seçeneği özelleştirme](./media/app-insights-sample-mscrm/06.png)
+    ![Microsoft Dynamics CRM ayarları](./media/app-insights-sample-mscrm/00001.png)
+
+    ![Ayarlar > özelleştirmeleri](./media/app-insights-sample-mscrm/00002.png)
 
 1. Bir JavaScript kaynağı oluşturun.
-   
+
     ![Yeni Web kaynağı iletişim kutusu](./media/app-insights-sample-mscrm/07.png)
-   
+
     Select bir ad verin **komut dosyası (JScript)** ve metin düzenleyicisini açın.
-   
-    ![Metin Düzenleyicisi'ni açın](./media/app-insights-sample-mscrm/08.png)
-2. Kodu Application Insights kopyalayın. Kopyalanırken komut dosyası etiketlerini yoksay emin olun. Ekran görüntüsünün altında bakın:
-   
-    ![İzleme anahtarı ayarlayın](./media/app-insights-sample-mscrm/09.png)
-   
+
+    ![Metin Düzenleyicisi'ni açın](./media/app-insights-sample-mscrm/00004.png)
+2. Kodu Application Insights kopyalayın. Kopyalarken, komut dosyası etiketlerini yoksay emin olun. Ekran görüntüsünün altında bakın:
+
+    ![İzleme anahtarı ayarlayın](./media/app-insights-sample-mscrm/00005.png)
+
     Kodu uygulama ınsights kaynağınızı tanımlayan izleme anahtarını içerir.
 3. Kaydedin ve yayımlayın.
-   
-    ![Kaydedin ve yayımlayın](./media/app-insights-sample-mscrm/10.png)
+
+    ![Kaydedin ve yayımlayın](./media/app-insights-sample-mscrm/00006.png)
 
 ### <a name="instrument-forms"></a>Gereç formlar
 1. Microsoft CRM Online içinde hesap formunu açın
-   
-    ![Hesap formu](./media/app-insights-sample-mscrm/11.png)
+
+    ![Hesap formu](./media/app-insights-sample-mscrm/00007.png)
 2. Form özelliklerini açın
-   
-    ![Form Özellikleri](./media/app-insights-sample-mscrm/12.png)
+
+    ![Form Özellikleri](./media/app-insights-sample-mscrm/00008.png)
 3. Oluşturduğunuz JavaScript web kaynağı ekleyin
-   
+
     ![Menü ekleme](./media/app-insights-sample-mscrm/13.png)
-   
-    ![Web kaynağı ekleyin](./media/app-insights-sample-mscrm/14.png)
+
 4. Kaydet ve formu özelleştirmelerinizi yayımlayın.
 
 ## <a name="metrics-captured"></a>Yakalanan ölçümleri
@@ -104,7 +101,7 @@ Daha fazla ayrıntı almak için grafiği tıklatın:
 #### <a name="usage"></a>Kullanım
 ![Kullanıcıları, oturumlar ve sayfa görünümleri](./media/app-insights-sample-mscrm/19.png)
 
-![Sesion grafikleri](./media/app-insights-sample-mscrm/20.png)
+![Oturum grafikleri](./media/app-insights-sample-mscrm/20.png)
 
 ![Tarayıcı sürümleri](./media/app-insights-sample-mscrm/21.png)
 

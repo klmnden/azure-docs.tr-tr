@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 4032a429901c675436cb5e7fb04aa5645925fa30
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services sertifikalarına genel bakış
 Sertifikalar ile Azure bulut Hizmetleri için kullanılır ([hizmet sertifikaları](#what-are-service-certificates)) ve yönetim API'si ile kimlik doğrulaması için ([yönetim sertifikaları](#what-are-management-certificates)). Bu konuda iki sertifika türleri için genel bir bakış nasıl sahip için [oluşturma](#create) ve [dağıtmak](#deploy) Azure onları.
@@ -48,8 +48,6 @@ Yönetim sertifikaları, Klasik dağıtım modeliyle kimlik doğrulaması sağla
 ### <a name="limitations"></a>Sınırlamalar
 Abonelik başına 100 Yönetim sertifikaları sınırı yoktur. Ayrıca belirli hizmet yöneticisinin kullanıcı kimliğini altındaki tüm abonelikler için 100 Yönetim sertifikaları sınırı vardır Hesap Yöneticisi kullanıcı kimliği 100 Yönetim sertifikaları eklemek için zaten kullanılmış ve gerekirse daha fazla sertifikaları için ek sertifika eklemek için bir ortak yönetici ekleyebilirsiniz. 
 
-100'den fazla sertifika eklemeden önce varolan bir sertifikayı yeniden bakın. Ortak Yöneticiler kullanarak olası gereksiz karmaşıklığı sertifika yönetimi işleminizi ekler.
-
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>Yeni bir otomatik olarak imzalanan sertifika oluşturma
 Bu ayarların uyması sürece otomatik olarak imzalanan sertifika oluşturmak için kullanılabilir herhangi bir aracı kullanabilirsiniz:
@@ -66,7 +64,7 @@ Bu ayarların uyması sürece otomatik olarak imzalanan sertifika oluşturmak i�
 
 Windows, bir sertifika oluşturmak için iki kolay yolla `makecert.exe` yardımcı programı veya IIS.
 
-### <a name="makecertexe"></a>MakeCert.exe
+### <a name="makecertexe"></a>Makecert.exe
 Bu yardımcı program kullanım dışı bırakıldı ve artık aşağıda anlatılmıştır. Daha fazla bilgi için bkz: [bu MSDN makalesine](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### <a name="powershell"></a>PowerShell

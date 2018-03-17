@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dbd8508a7f55b8b5fdf53912d2189a18ef504193
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services özelliğini kullanmaya başlayın
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/24/2018
 > 
 > 
 
-Azure Service Fabric uygulaması kodunuzu çalıştırmak bir veya daha fazla hizmet içeriyor. Bu kılavuz, durum bilgisiz ve durum bilgisi olan Service Fabric uygulamalarının nasıl oluşturulacağını göstermektedir [Reliable Services](service-fabric-reliable-services-introduction.md).  Bu Microsoft Virtual Academy video ayrıca durum bilgisiz güvenilir bir hizmetin nasıl oluşturulacağını gösterir:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+Azure Service Fabric uygulaması kodunuzu çalıştırmak bir veya daha fazla hizmet içeriyor. Bu kılavuz, durum bilgisiz ve durum bilgisi olan Service Fabric uygulamalarının nasıl oluşturulacağını göstermektedir [Reliable Services](service-fabric-reliable-services-introduction.md).  Bu Microsoft Virtual Academy video ayrıca durum bilgisiz güvenilir bir hizmetin nasıl oluşturulacağını gösterir: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -46,7 +46,7 @@ Visual Studio 2015 veya Visual Studio 2017 yönetici olarak başlatın ve adlı 
 
 ![Yeni bir Service Fabric uygulaması oluşturmak için yeni proje iletişim kutusunu kullanın](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Adlı bir durum bilgisiz hizmet projesi oluşturma *HelloWorldStateless*:
+Durum bilgisiz hizmetini kullanarak proje oluşturma **.Net 2.0 çekirdek** adlı *HelloWorldStateless*:
 
 ![İkinci iletişim kutusunda bir durum bilgisiz hizmet projesi oluşturma](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -97,7 +97,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
+        ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
 
         await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
     }
@@ -113,7 +113,7 @@ Bir hizmet örneği yerleştirilen ve çalıştırılmaya hazır olduğunda plat
 
 Bu düzenlemesi yönetilen hizmetinizi yüksek oranda kullanılabilir ve düzgün şekilde dengeli tutmak için sistem tarafından.
 
-`RunAsync()`zaman uyumlu olarak bloğu değil. Uygulamanıza RunAsync, bir görev döndürür veya devam etmek çalışma zamanı izin vermek için uzun süre çalışan veya engelleyici işlemleri üzerinde bekler. İçinde Not `while(true)` önceki örnekte, bir görev döndüren bir döngüde `await Task.Delay()` kullanılır. İş yükünüzün zaman uyumlu olarak engellemelidir, yeni bir görev ile zamanlamalısınız `Task.Run()` içinde `RunAsync` uygulaması.
+`RunAsync()` zaman uyumlu olarak bloğu değil. Uygulamanıza RunAsync, bir görev döndürür veya devam etmek çalışma zamanı izin vermek için uzun süre çalışan veya engelleyici işlemleri üzerinde bekler. İçinde Not `while(true)` önceki örnekte, bir görev döndüren bir döngüde `await Task.Delay()` kullanılır. İş yükünüzün zaman uyumlu olarak engellemelidir, yeni bir görev ile zamanlamalısınız `Task.Run()` içinde `RunAsync` uygulaması.
 
 İş yükünüzün iptaline tarafından sağlanan iptal belirteci bağımsızlıklar işbirlikçi çaba ' dir. Sistem göreviniz (başarılı bir şekilde tamamlandığında, iptal veya hataya göre) taşır önce sona erdirmek bekler. İptal belirteci dikkate için herhangi bir iş bitirip çıkmak önemlidir `RunAsync()` sistem iptal istediğinde mümkün olan en kısa sürede.
 
@@ -128,7 +128,7 @@ Aynı *HelloWorld* uygulama ekleyebileceğiniz yeni bir hizmet uygulama projesi 
 
 ![Service Fabric uygulamanızı bir hizmet Ekle](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Seçin **durum bilgisi olan hizmet** ve adlandırın *HelloWorldStateful*. **Tamam**’a tıklayın.
+Seçin **.Net Core 2.0 -> Durum bilgisi olan hizmet** ve adlandırın *HelloWorldStateful*. **Tamam**’a tıklayın.
 
 ![Yeni bir Service Fabric durum bilgisi olan hizmet oluşturmak için yeni proje iletişim kutusunu kullanın](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
@@ -154,7 +154,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
         {
             var result = await myDictionary.TryGetValueAsync(tx, "Counter");
 
-            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
+            ServiceEventSource.Current.ServiceMessage(this.Context, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
             await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
@@ -169,7 +169,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`durum bilgisi olan ve durum bilgisiz Hizmetleri'nde benzer şekilde çalışır. Yürütülmeden önce ancak, durum bilgisi olan bir hizmet platform ek çalışma sizin adınıza gerçekleştirir `RunAsync()`. Bu iş, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kullanıma hazır olduktan içerebilir.
+`RunAsync()` durum bilgisi olan ve durum bilgisiz Hizmetleri'nde benzer şekilde çalışır. Yürütülmeden önce ancak, durum bilgisi olan bir hizmet platform ek çalışma sizin adınıza gerçekleştirir `RunAsync()`. Bu iş, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kullanıma hazır olduktan içerebilir.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Güvenilir koleksiyonlar ve güvenilir durum Yöneticisi
 ```csharp

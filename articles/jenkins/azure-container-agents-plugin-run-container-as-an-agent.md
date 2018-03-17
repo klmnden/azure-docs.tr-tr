@@ -7,14 +7,14 @@ ms.service: multiple
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/16/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: fc3ad4b68e29e9bd5666bb115306b452d074f682
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a18136afc096f8315310fae134d3f683994b6d0a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Jenkins ve Azure kapsayıcı örneği kullanarak azure'da bir projeyi derleme
 
@@ -68,6 +68,11 @@ Bu bölümde, Jenkins URL ayarlanırken aracılığıyla açıklanmaktadır.
 1. **Kaydet**’i seçin.
 
 ## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>Java ağ Başlatma Protokolü (JNLP) izin verecek şekilde Jenkins güncelleştir
+
+> [!NOTE]
+> Bu öğretici JNLP aracısını yapılandırmak nasıl gösterilmektedir. Sürümünden başlayarak, 0.4.x [Jenkins Azure kapsayıcı aracıları eklentisi](https://plugins.jenkins.io/azure-container-agents) SSH de destekler.
+>
+>
 
 Jenkins aracı Jenkins sunucusu aracılığıyla Java ağ Başlatma Protokolü (JNLP) ile bağlanır. Bu bölümde, JNLP aracılar Jenkins sunucuyla iletişim kurarken kullanması için bir bağlantı noktası belirtin açıklanmaktadır.
 

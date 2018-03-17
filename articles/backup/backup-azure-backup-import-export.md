@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/6/2018
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 306c4c7498601cf3ab7e918ba6ce6bfef173236a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7af2623a25f73f6d9062d476309ecd53da542f70
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure yedekleme verileri azure'a ilk tam yedeklemesi sırasında ağ ve depolama maliyet tasarrufu birkaç yerleşik verimliliği sahiptir. İlk tam yedekleme tipik olarak büyük miktarlarda veri aktarır ve yalnızca farkları/incrementals aktarım sonraki yedeklemeleri karşılaştırıldığında daha fazla ağ bant genişliği gerektirir. Azure yedekleme ilk yedekleme sıkıştırır. Çevrimdışı dengeli sürecinde, Azure yedekleme disklerini sıkıştırılmış ilk yedek verileri çevrimdışı Azure'a yüklemek için kullanabilirsiniz.  
@@ -46,6 +46,8 @@ Azure Backup ve Azure içeri/dışarı aktarma dengeli çevrimdışı özelliği
 
    > [!NOTE]
    > Çevrimdışı Yedekleme Azure Backup Aracısı kullanılarak gerçekleştirilen sistem durumu yedeklemeleri için desteklenmiyor. 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 Çevrimdışı Yedekleme iş akışı başlatmadan önce aşağıdaki önkoşulların karşılandığından emin olun

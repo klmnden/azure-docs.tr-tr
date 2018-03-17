@@ -14,26 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: saurse;markgal;
-<<<<<<< HEAD
-ms.openlocfilehash: da297177ca56822f7d50dbe06ec022640bf5d0cb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 52a32d61dd69110ace560fd1e52389140f322678
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7f4ac328c4e35f52bcc9708faf96d06189dd9ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Azure Yedekleme aracısı yapılandırma ve kayıt sorunlarını giderme
 ## <a name="recommended-steps"></a>Önerilen adımlar
 Aşağıdaki tablolarda yapılandırma ve Azure yedekleme Aracısı'nın kayıt sırasında karşılaşabileceğiniz hataları gidermek için önerilen eylemleri bakın.
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## <a name="invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>Geçersiz kasa kimlik bilgileri sağlandı. Dosya bozuk veya mu sahip en yeni kimlik ilişkilendirilmemiş kurtarma hizmeti ile.
 | Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
 | ---     | ---     | ---    |
-| **Hata** </br> *Geçersiz kasa kimlik bilgileri sağlandı. Dosya bozuk veya mu sahip en yeni kimlik ilişkilendirilmemiş kurtarma hizmeti ile. (KİMLİK: 34513)* | <ul><li> Kasa kimlik bilgileri geçersiz (diğer bir deyişle, bunlar 48 saatten kayıt tarihten önce yüklenen).<li>Azure Yedekleme aracısı Windows Temp klasörüne geçici dosya indirme mümkün değil. <li>Kasa kimlik bilgileri bir ağ konumuna bağlıdır. <li>TLS 1.0 devre dışı<li> Yapılandırılan proxy sunucusu bağlantıyı engelliyor. <br> |  <ul><li>Yeni kasa kimlik bilgilerini indirin.<li>Git **Internet Seçenekleri** > **güvenlik** > **Internet**. Ardından, **Özel düzey**ve bölüm karşıdan dosya görene kadar kaydırın. Ardından **etkinleştirmek**.<li>Siteye eklemek gerekebilir [Güvenilen siteler](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements).<li>Bir proxy sunucusu kullanmak üzere ayarları değiştirin. Proxy sunucu ayrıntıları sağlayın. <li> Tarih ve saat makinenizle eşleşmesi.<li>C:/Windows/Temp gidin ve birden fazla 60.000 veya 65.000 dosyaları .tmp uzantısına sahip olup olmadığını denetleyin. Varsa, bu dosyaları silin.<li>Bu sunucu üzerinde SDP paket çalıştırarak test edebilirsiniz. Dosya yüklemeleri izin verilmeyen bildiren bir hata alırsanız, çok sayıda dosya C:/Windows/Temp dizininde olduğunu olasılığı yüksektir.<li>.NET framework 4.6.2 yüklü olduğundan emin olun. <li>PCI uyumluluğunu nedeniyle TLS 1.0 devre dışıysa için başvuruda [sorun giderme sayfası](https://support.microsoft.com/help/4022913). <li>Virüsten koruma yazılımı sunucuda yüklü varsa, aşağıdaki dosyaların virüsten koruma tarama dışında tut: <ul><li>CBengine.exe<li>.NET Framework ile ilgili CSC.exe. Sunucuda yüklü her .NET sürüm için CSC.exe yoktur. .NET framework etkilenen sunucudaki tüm sürümleri bağlıdır CSC.exe dosyaları dışlayın. <li>Klasör veya önbellek konumu boş. <br>*Geçici klasör veya önbellek konumu yolu için varsayılan konumu C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch:*.
+| **Hata** </br> *Geçersiz kasa kimlik bilgileri sağlandı. Dosya bozuk veya mu sahip en yeni kimlik ilişkilendirilmemiş kurtarma hizmeti ile. (ID: 34513)* | <ul><li> Kasa kimlik bilgileri geçersiz (diğer bir deyişle, bunlar 48 saatten kayıt tarihten önce yüklenen).<li>Azure Yedekleme aracısı Windows Temp klasörüne geçici dosya indirme mümkün değil. <li>Kasa kimlik bilgileri bir ağ konumuna bağlıdır. <li>TLS 1.0 devre dışı<li> Yapılandırılan proxy sunucusu bağlantıyı engelliyor. <br> |  <ul><li>Yeni kasa kimlik bilgilerini indirin.<li>Git **Internet Seçenekleri** > **güvenlik** > **Internet**. Ardından, **Özel düzey**ve bölüm karşıdan dosya görene kadar kaydırın. Ardından **etkinleştirmek**.<li>Siteye eklemek gerekebilir [Güvenilen siteler](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements).<li>Bir proxy sunucusu kullanmak üzere ayarları değiştirin. Proxy sunucu ayrıntıları sağlayın. <li> Tarih ve saat makinenizle eşleşmesi.<li>C:/Windows/Temp gidin ve birden fazla 60.000 veya 65.000 dosyaları .tmp uzantısına sahip olup olmadığını denetleyin. Varsa, bu dosyaları silin.<li>Bu sunucu üzerinde SDP paket çalıştırarak test edebilirsiniz. Dosya yüklemeleri izin verilmeyen bildiren bir hata alırsanız, çok sayıda dosya C:/Windows/Temp dizininde olduğunu olasılığı yüksektir.<li>.NET framework 4.6.2 yüklü olduğundan emin olun. <li>PCI uyumluluğunu nedeniyle TLS 1.0 devre dışıysa için başvuruda [sorun giderme sayfası](https://support.microsoft.com/help/4022913). <li>Virüsten koruma yazılımı sunucuda yüklü varsa, aşağıdaki dosyaların virüsten koruma tarama dışında tut: <ul><li>CBengine.exe<li>.NET Framework ile ilgili CSC.exe. Sunucuda yüklü her .NET sürüm için CSC.exe yoktur. .NET framework etkilenen sunucudaki tüm sürümleri bağlıdır CSC.exe dosyaları dışlayın. <li>Klasör veya önbellek konumu boş. <br>*Geçici klasör veya önbellek konumu yolu için varsayılan konumu C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch:*.
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure kurtarma hizmeti Aracısı Microsoft Azure Yedekleme'ye bağlanamadı
 
@@ -51,7 +47,7 @@ Aşağıdaki tablolarda yapılandırma ve Azure yedekleme Aracısı'nın kayıt 
 
 | Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
 | ---     | ---     | ---    |          
-| **Hata** </br><ol><li>*Etkinleştirme başarıyla tamamlanamadı. Geçerli işlem bir iç hata nedeniyle [0x1FC07] başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse, lütfen Microsoft Destek'e başvurun* <li>*Hata 34506. Bu bilgisayarda depolanan şifreleme parolası düzgün yapılandırılmamış*. | <li> Geçici klasör yeterli alana sahip bir birimde bulunur. <li> Geçici klasör yanlış başka bir konuma taşındı. <li> OnlineBackup.KEK dosyası eksik. | <li>Geçici klasör veya önbellek konumu yedek verilerin toplam boyutu 5-%10 eşdeğer boş alanı olan bir birim taşıyın. Önbellek konumunu doğru taşımak için adımlarda bakın [Azure Yedekleme aracısı hakkında sorular](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> OnlineBackup.KEK dosyasının var olduğundan emin olun. <br>*Geçici klasör veya önbellek konumu yolu için varsayılan konumu C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch:*.
+| **Hata** </br><ol><li>*Etkinleştirme başarıyla tamamlanmadı. Geçerli işlem bir iç hata nedeniyle [0x1FC07] başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse, lütfen Microsoft Destek'e başvurun* <li>*Hata 34506. Bu bilgisayarda depolanan şifreleme parolası düzgün yapılandırılmamış*. | <li> Geçici klasör yeterli alana sahip bir birimde bulunur. <li> Geçici klasör yanlış başka bir konuma taşındı. <li> OnlineBackup.KEK dosyası eksik. | <li>Geçici klasör veya önbellek konumu yedek verilerin toplam boyutu 5-%10 eşdeğer boş alanı olan bir birim taşıyın. Önbellek konumunu doğru taşımak için adımlarda bakın [Azure Yedekleme aracısı hakkında sorular](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> OnlineBackup.KEK dosyasının var olduğundan emin olun. <br>*Geçici klasör veya önbellek konumu yolu için varsayılan konumu C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch:*.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.

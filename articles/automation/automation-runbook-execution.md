@@ -1,24 +1,18 @@
 ---
-title: "Azure Otomasyonu Runbook yürütme | Microsoft Docs"
+title: "Azure Otomasyonu Runbook yürütme"
 description: "Azure automation'da bir runbook nasıl işleneceğini ayrıntılarını açıklar."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/15/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+manager: carmonm
+ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Otomasyonu Runbook yürütme
 Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş bir runbook tek yürütme örneğidir. Bir Azure Otomasyonu çalışan her bir iş çalıştırmak için atanır. Çalışan birden çok Azure paylaştığı olsa da, farklı Automation hesapları işlerden birbirinden yalıtılır. Değil sahip denetim işinizi isteği hangi çalışan hizmetleri. Tek bir runbook'ta aynı anda çalışan birden çok iş bulunabilir.  Aynı Otomasyon hesabı işlerden yürütme ortamı yeniden kullanılabilir. Azure portalında listesini görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek için her runbook için iş listesini görüntüleyebilirsiniz. Farklı iş durumları açıklaması [iş durumları](#job-statuses).
@@ -41,8 +35,8 @@ Aşağıdaki tabloda, bir iş için olası farklı durumlarını tanımlar.
 | Tamamlandı |İş başarıyla tamamlandı. |
 | Başarısız |İçin [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md), runbook derlenemedi.  İçin [PowerShell Betiği runbook'ları](automation-runbook-types.md), runbook başlatılamadı veya iş bir özel durumla karşılaştı. |
 | Başarısız oldu, kaynaklar bekleniyor |İşi başarısız oldu, ulaştığından [Orta paylaşımı](#fair-share) sınırlamak üç kez ve her zaman aynı denetim noktasından veya runbook'un başından başlatıldı. |
-| Sıraya Alındı |İş başlatılabilir başlatılabilmek için Otomasyon çalışanındaki kaynakları bekliyor. |
-| Başlangıç |İş bir çalışana atandı ve bunu başlatma işleminde sistemidir. |
+| Kuyruğa alındı |İş başlatılabilir başlatılabilmek için Otomasyon çalışanındaki kaynakları bekliyor. |
+| Başlatılıyor |İş bir çalışana atandı ve bunu başlatma işleminde sistemidir. |
 | Sürdürülüyor |Askıya alındıktan sonra işi sürdürme işleminde sistemidir. |
 | Çalışıyor |İşi çalışıyor. |
 | Çalıştıran, kaynaklar bekleniyor |Bunu ulaştığından iş kaldırıldı [Orta paylaşımı](#fair-share) sınırı. Kısa bir süre sonra son denetim noktasından sürdürür. |

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
-ms.openlocfilehash: e97d3e3e35ee87864c5d38e75e08e62088e25fdb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: varsayılan yapılandırmayı değişiklik
 Bu makalenin amacı, Azure Active Directory (Azure AD) Connect eşitleme varsayılan yapılandırmasında değişiklik konusunda size yol sağlamaktır. Bu, bazı ortak senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırma basit değişiklik yapabiliyor olmanız gerekir.
@@ -245,7 +245,7 @@ Varsayılan olarak, temel alınan UserType özniteliği Azure AD Connect alanın
  1. Git **Bağlayıcılar** sekme Eşitleme Hizmeti Yöneticisi'nde.
  2. Sağ **Azure AD Bağlayıcısı** seçip **özellikleri**.
  3. Açılan iletişim kutusunda Git **öznitelikleri Seç** sekmesi.
- 4. PreferredDataLocation özniteliği öznitelik listesinde işaretli olduğundan emin olun.
+ 4. Temel alınan UserType özniteliği öznitelik listesinde işaretli olduğundan emin olun.
  5. Tıklatın **Tamam** kaydetmek için.
 
 ![Azure AD Bağlayıcısı şemaya kaynak öznitelik Ekle](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -293,7 +293,7 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
 ![Gelen eşitleme kuralı oluşturma](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>5. adım: Azure AD öznitelik değerini akışı için bir giden eşitleme kuralı oluşturma
-Giden eşitleme kuralı öznitelik değerini meta veri deposu Azure AD'de PreferredDataLocation öznitelik akış verir:
+Giden eşitleme kuralı öznitelik değerini meta veri deposu için temel alınan UserType özniteliği Azure AD'de akış verir:
 
 1. Eşitleme kuralları Düzenleyici'ye gidin.
 2. Arama filtresi ayarlamak **yönü** olmasını **giden**.

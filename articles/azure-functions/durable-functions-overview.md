@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Dayanıklı işlevlerine genel bakış (Önizleme)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametredir arasında bir değer `orchestrationClient` bağlama, dayanıklı işlevleri uzantısı'nın parçası olduğu çıktı. İçin başlangıç gönderen olaylar için sonlandırma ve yeni veya var olan orchestrator işlevi örnekleri için sorgulama yöntemleri sağlar. Yukarıdaki örnekte, bir HTTP tetiklenen-işlevi alır bir `functionName` gelen URL ve değeri geçişleri değerinden [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Bu bağlama API ardından içeren bir yanıt döndürür bir `Location` üstbilgi ve daha sonra aramak için kullanılabilecek örnek hakkında ek bilgi yukarı başlatılan örneğinin durumunu veya sonlandırmak.
 
-## <a name="pattern-4-stateful-singletons"></a>Deseni #4: Durum bilgisi olan teklileri
+## <a name="pattern-4-monitoring"></a>Desen #4: izleme
 
-Çoğu işlevleri bir açık başlangıç ve bitiş vardır ve dış olay kaynakları ile doğrudan etkileşim yoktur. Ancak, düzenlemelerin destekleyen bir [durum bilgisi olan tek](durable-functions-singletons.md) davranmasına veren düzeni güvenilir ister [aktörler](https://en.wikipedia.org/wiki/Actor_model) dağıtılmış bilgi işlem.
+İzleyici düzeni esnek bir başvuruyor *yinelenen* bir iş akışı - Örneğin, belirli koşulların karşılandığından kadar yoklama işleminde. Normal bir zamanlayıcı tetikleyicisi düzenli temizleme işi gibi basit bir senaryoyu ele alabilir, ancak kendi aralığı statik ve örnek yaşam süreleri yönetme karmaşık hale gelir. Dayanıklı işlevleri esnek yineleme aralıkları, görev ömrü yönetimi ve birden çok monitör tek bir düzenleme işlemleri oluşturma olanağı sağlar.
 
-Aşağıdaki diyagram, dış kaynaklardan gelen olayları işlerken sonsuz bir döngüde çalışır bir işlev gösterir.
+Bir örnek, önceki zaman uyumsuz HTTP API senaryo ters. Uzun süre çalışan işlemi izlemek bir dış istemci için bir uç nokta gösterme yerine uzun süre çalışan İzleyici dış uç noktası, bazı durum değişikliği için bekleyen tüketir.
 
-![Durum bilgisi olan singleton diyagramı](media/durable-functions-overview/stateful-singleton.png)
+![İzleyici diyagramı](media/durable-functions-overview/monitor.png)
 
-Dayanıklı işlevleri aktör modeli Uygulaması olmamasına karşın, orchestrator işlevleri aynı çalışma zamanı özellikleri çoğunun vardır. Örneğin, uzun süre çalışan (büyük olasılıkla sonsuz), durum bilgisi olan, güvenilir, tek iş parçacıklı, konum saydam ve genel olarak adreslenebilir vardır. Bu orchestrator işlevleri "Aktör" için kullanışlı hale getirir-senaryoları ister.
-
-Durum bilgisiz ve bu nedenle değil uygun bir durum bilgisi olan singleton deseni uygulamak için bunun sıradan işlevlerdir. Ancak, dayanıklı işlevleri uzantısı durum bilgisi olan singleton deseni uygulamak için görece basit hale getirir. Aşağıdaki kod bir sayaç uygulayan bir basit orchestrator işlevdir.
+Dayanıklı işlevleri kullanarak, birkaç kod satırıyla, rasgele uç noktaları inceleyin birden çok monitör oluşturulabilir. Bazı koşul karşılanır ya da tarafından sonlandırılacak izleyiciler yürütme sona erdirebilirsiniz [DurableOrchestrationClient](durable-functions-instance-management.md), ve bunların bekleme aralığı belli bir koşul (yani üstel geri alma.) göre değiştirilebilir. Aşağıdaki kod bir temel izleme uygular.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-Bu kodu bir "eternal orchestration" açıklayabilir &mdash; diğer bir deyişle, bir başlar ve hiçbir zaman biter. Aşağıdakileri yapar:
-
-* Bir giriş değerinin ile başlayan `counterState`.
-* Bir ileti süresiz olarak bekler adlı `operation`.
-* Yerel durumunu güncelleştirmek için bazı mantığı gerçekleştirir.
-* "Kendisini çağırarak yeniden" `ctx.ContinueAsNew`.
-* Yeniden bekler süresiz olarak sonraki işlemi için.
+Bir istek alındığında, bu iş kimliği için bir yeni orchestration örneği oluşturulur Örnek bir koşula uyulup uyulmadığını ve döngü çıkıldı kadar durumu yoklar. Dayanıklı bir süreölçer yoklama aralığı denetlemek için kullanılır. Orchestration sonlandırabilir veya daha fazla iş sonra gerçekleştirilebilir. Zaman `ctx.CurrentUtcDateTime` aşıyor `expiryTime`, İzleyici sona erer.
 
 ## <a name="pattern-5-human-interaction"></a>Desen #5: İnsan etkileşimi
 

@@ -2,19 +2,20 @@
 title: "Bilgi yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri Azure Automation nasıl"
 description: "Nasıl için yerleşik bir Azure sanal makine Azure Otomasyonu parçası olan güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri ile bilgi edinin"
 services: automation
-keywords: 
+ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.topic: article
-ms.service: automation
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 670a0c2a11ebfe09406233ab4b454b2e9c2ba0e0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.custom: mvc
+ms.openlocfilehash: 65bf0d98da8111e986d5dbdfd58f1692d40ee286
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
@@ -22,23 +23,23 @@ Azure Otomasyonu bilgisayarlarınızda yüklü stok işletim sistemi güvenlik g
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure oturumu açın
+Azure oturum açın https://portal.azure.com
 
-## <a name="enable-solutions"></a>Çözümlerle
+## <a name="enable-solutions"></a>Çözümleri etkinleştirme
 
 Otomasyon hesabınıza gidin ve seçin **stok** veya **değişiklik izleme** altında **yapılandırma yönetimi**.
 
-Otomasyon hesabı ve günlük analizi çalışma alanı seçin ve tıklatın **etkinleştirmek** çözümü etkinleştirilemiyor. Çözüm etkinleştirmek için 15 dakika sürer.
+Otomasyon hesabı ve günlük analizi çalışma alanı seçin ve tıklatın **etkinleştirmek** çözümü etkinleştirilemiyor. Çözümün etkinleştirilmesi 15 dakika sürer.
 
 ![Yerleşik stok çözümü](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Değişiklik izleme ve stok çözüm olanağı sağlar [Değişiklikleri İzle](automation-vm-change-tracking.md) ve [stok](automation-vm-inventory.md) sanal makinelerinizin üzerinde. Bu adımda, bir sanal makinede çözüm etkinleştirin.
+Değişiklik İzleme ve Sayım çözümü, sanal makinelerinizde [değişiklikleri izleme](automation-vm-change-tracking.md) ve [sayım](automation-vm-inventory.md) olanağı sağlar. Bu adımda çözümü bir sanal makine üzerinde etkinleştirirsiniz.
 
-Değişiklik izleme ve envanter çözüm ekleme bildirimi tamamlandığında tıklayın **güncelleştirme yönetimi** altında **yapılandırma yönetimi**.
+Değişiklik izleme ve sayım çözümü ekleme bildirimi tamamlandığında **YAPILANDIRMA YÖNETİMİ** bölümünde **Güncelleştirme Yönetimi**’ne tıklayın.
 
-Güncelleştirme yönetimi çözümü, güncelleştirme ve düzeltme eklerini Azure Windows Vm'leriniz için yönetmenizi sağlar. Kullanılabilir güncelleştirmeleri, gerekli güncelleştirmelerin zamanlama yükleme durumunu değerlendirmek ve güncelleştirmeleri doğrulamak için dağıtım sonuçları gözden geçirin VM başarıyla uygulandı. Bu eylem çözümü, VM için etkin.
+Güncelleştirme Yönetimi çözümü, Azure Windows VM’leriniz için güncelleştirmeleri ve yamaları yönetmenizi sağlar. Kullanılabilir güncelleştirmelerin durumunu değerlendirebilir, gerekli güncelleştirmelerin yüklemesini zamanlayabilir ve güncelleştirmelerin VM’ye başarıyla uygulandığını doğrulamak için dağıtım sonuçlarını gözden geçirebilirsiniz. Bu eylem çözümü, VM için etkin.
 
-Seçin **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**. Seçilen günlük analizi çalışma alanı önceki adımda kullanılan aynı çalışma alanıdır. Tıklatın **etkinleştirmek** onboarding için güncelleştirme yönetimi çözümü. Çözüm etkinleştirmek için 15 dakika sürer.
+Seçin **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**. Seçilen Log Analytics çalışma alanı, önceki adımda kullanılan çalışma alanıdır. Güncelleştirme yönetimi çözümünü eklemek için **Etkinleştir**’e tıklayın. Çözümün etkinleştirilmesi 15 dakika sürer.
 
 ![Yerleşik güncelleştirme çözümü](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 

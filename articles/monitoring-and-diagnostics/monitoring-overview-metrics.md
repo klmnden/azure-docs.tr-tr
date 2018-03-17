@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure ölçümlerini genel bakış
 Microsoft Azure'da ölçümleri nelerdir bu makalede faydaları ve bunları kullanmaya başlamak nasıl.  
@@ -63,7 +63,7 @@ Ayrıca şunları yapabilirsiniz:
 Aşağıda Azure portalını kullanarak bir ölçüm grafik oluşturmak nasıl hızlı bir kılavuz vardır.
 
 ### <a name="to-view-metrics-after-creating-a-resource"></a>Bir kaynak oluşturduktan sonra ölçümleri görüntülemek için
-1. Azure Portalı'nı açın.
+1. Azure portalı açın.
 2. Azure App Service Web sitesi oluşturun.
 3. Bir Web sitesini oluşturduktan sonra Git **genel bakış** Web sitesinin dikey.
 4. Yeni ölçümleri olarak görüntüleyebileceğiniz bir **izleme** döşeme. Ardından, döşemesini düzenleyin ve daha fazla ölçümleri seçin.
@@ -71,7 +71,7 @@ Aşağıda Azure portalını kullanarak bir ölçüm grafik oluşturmak nasıl h
    ![Azure İzleyicisi'nde kaynak ölçümleri](./media/monitoring-overview-metrics/MetricsOverview1.png)
 
 ### <a name="to-access-all-metrics-in-a-single-place"></a>Tüm ölçümlerini tek bir yerde erişmek için
-1. Azure Portalı'nı açın.
+1. Azure portalı açın.
 2. Yeni gidin **İzleyici** sekmesini seçin ve sonra **ölçümleri** altındaki seçeneği.
 3. Aboneliğiniz, kaynak grubu ve kaynak adının aşağı açılan listeden seçin.
 4. Kullanılabilir ölçümler listesini görüntüleyin. Ardından ilgilendiğiniz ve tasarlayın ölçümü seçin.
@@ -116,7 +116,7 @@ Uyarı kuralları ölçümleri yapılandırabilirsiniz. Bu uyarı kuralları, bi
 
  ![Ölçümleri ve Azure İzleyicisi'nde uyarı kuralları](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Yakın gerçek zamanlı uyarılar (Önizleme): Bu ölçümleri ve birden çok kaynak için eşikler izlemek ve size yoluyla bildirim olanağına sahip bir [eylem grubu](/monitoring-action-groups.md). Hakkında daha fazla bilgi Leran [gerçek zamanlı ölçüm uyarıları burada](https://aka.ms/azuremonitor/near-real-time-alerts).
+Yakın gerçek zamanlı uyarılar (Önizleme): Bu ölçümleri ve birden çok kaynak için eşikler izlemek ve size yoluyla bildirim olanağına sahip bir [eylem grubu](/monitoring-action-groups.md). Daha fazla bilgi edinmek [gerçek zamanlı ölçüm uyarıları burada](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Otomatik ölçeklendirme Azure kaynakları

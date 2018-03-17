@@ -3,7 +3,7 @@ title: "Azure IOT cihaz SDK'sı c - seri hale getirici | Microsoft Docs"
 description: "Azure IOT cihaz SDK'sı C için seri hale getirici kitaplıkta bir IOT hub ile iletişim cihaz uygulamaları oluşturmak için nasıl kullanılacağını."
 services: iot-hub
 documentationcenter: 
-author: olivierbloch
+author: yzhong94
 manager: timlt
 editor: 
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: obloch
-ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IOT cihaz SDK'sı için C – seri hale getirici hakkında daha fazla bilgi
 [İlk makale](iot-hub-device-sdk-c-intro.md) sunulan bu serideki **C için Azure IOT cihaz SDK'sı**. Daha ayrıntılı bir açıklaması sonraki makalede sağlanan [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Bu makalede daha ayrıntılı bir açıklama kalan bileşeninin sağlayarak SDK'ın kapsamı tamamlar: **seri hale getirici** kitaplığı.
@@ -72,9 +72,9 @@ Aşağıdaki veri türleri ile oluşturulan modellerinde desteklenir **seri hale
 | uzun |uzun tamsayı |
 | int8\_t |8 bit tam sayı |
 | int16\_t |16 bit tam sayı |
-| Int32\_t |32 bit tamsayı |
+| int32\_t |32 bit tamsayı |
 | int64\_t |64 bit tamsayı |
-| bool |Boole değeri |
+| bool |boole |
 | ASCII\_char\_ptr |ASCII dizesi |
 | EDM\_TARİH\_ZAMAN\_UZAKLIĞI |Tarih Saat farkı |
 | EDM\_GUID |GUID |
@@ -622,7 +622,7 @@ Bu API'leri örneklerde gösterildiği **simplesample\_amqp**.
 
 Ayrıca vardır benzer bir alt düzey API kümesi.
 
-* IoTHubClient\_ÜM\_CreateFromConnectionString
+* IoTHubClient\_LL\_CreateFromConnectionString
 * IoTHubClient\_ÜM\_SendEventAsync
 * IoTHubClient\_ÜM\_SetMessageCallback
 * IoTHubClient\_ÜM\_yok
@@ -671,7 +671,7 @@ IOT Hub için geliştirme hakkında daha fazla bilgi için bkz: [Azure IOT SDK'l
 
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 

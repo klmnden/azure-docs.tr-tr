@@ -1,24 +1,20 @@
 ---
-title: "Azure otomasyonu için PowerShell iş akışı öğrenme | Microsoft Docs"
+title: "Azure otomasyonu için PowerShell iş akışı öğrenme"
 description: "Bu makalede PowerShell ve PowerShell iş akışı ve kavramları Automation runbook'larına geçerli arasındaki belirli farkları anlamak için hızlı Ders yazarlar PowerShell ile tanıdık yöneliktir."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/21/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b8d78d6dfd258fb51e7b30832b6c214c67ac0fec
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Otomasyon runbook'ları için temel Windows PowerShell iş akışı kavramları öğrenme 
 Azure Otomasyonu runbook'ları Windows PowerShell iş akışları olarak uygulanır.  Bir Windows PowerShell iş akışı, bir Windows PowerShell komut dosyası için benzer ancak yeni bir kullanıcıya kafa karıştırıcı olabilir önemli bazı farklar vardır.  Bu makale, PowerShell iş akışı kullanarak runbook'ları yazmanıza yardımcı olmak için tasarlanmıştır, ancak denetim noktaları gerekmedikçe PowerShell kullanarak runbook'ları yazma öneririz.  PowerShell iş akışı runbook'ları yazarken birkaç söz dizimi farkları yüklenir ve bu farklılıklar etkin iş akışları yazmak için biraz daha fazla iş gerektirmez.  
@@ -88,7 +84,7 @@ Başka bir seçenek varsa yöntemi aynı işlevi gerçekleştirir başka bir cmd
     }
 
 
-## <a name="inlinescript"></a>Inlinescript
+## <a name="inlinescript"></a>InlineScript
 **Inlinescript** etkinlik, bir veya daha fazla komutu yerine PowerShell iş akışı gibi geleneksel PowerShell betiğini çalıştırmak gerektiğinde kullanışlıdır.  Bir iş akışındaki komutları için Windows Workflow Foundation işleme için gönderilirken, bir Inlinescript bloğundaki komutlar Windows PowerShell tarafından işlenir.
 
 Inlinescript aşağıdaki aşağıdaki sözdizimini kullanır.

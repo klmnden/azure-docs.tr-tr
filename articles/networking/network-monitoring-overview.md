@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 66e6b49dd3e3c7d0f2cbd7547b68733e1d4959ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="network-monitoring-solutions"></a>Ağ çözümleri izleme 
 
@@ -33,6 +33,8 @@ Ağ Performans İzleyicisi'ni (NPM) her biri ağ, ağ bağlantısı, uygulamalar
 * Birden çok veri merkezi ve şube
 * Görev kritik çok katmanlı uygulamalar/mikro-hizmetler
 * Kullanıcı konumları ve web tabanlı uygulamalara (HTTP/HTTPs) 
+
+Performans İzleyicisi, ExpressRoute İzleyici ve hizmet uç noktası İzleyicisi NPM içinde özellikleri izleme ve aşağıda açıklanmıştır.
 
 ## <a name="performance-monitor"></a>Performans İzleyicisi
 
@@ -84,13 +86,14 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 * [blog gönderisi](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Trafik Analizi
-Trafiğini analiz bulut ağlarda kullanıcı ve uygulama etkinlik görünürlük sağlayan bulut tabanlı bir çözümdür. NSG akış günlükleri Öngörüler sağlamak için analiz edilir:
+Trafik analizi, bulut ağlarda kullanıcı ve uygulama etkinlik görünürlük sağlayan bir bulut tabanlı bir çözümdür. NSG akış günlükleri Öngörüler sağlamak için analiz edilir:
 
-* Azure ile Internet, genel bulut bölgeleri, sanal ağlar ve alt ağlar arasında ağlar arasında trafiği akışlar
+* Ağlar Azure ile Internet, genel bulut bölgeleri, sanal ağlar ve alt ağlar arasındaki trafik akışı
 * Uygulamalar ve algılayıcılar veya ayrılmış akış Toplayıcı uygulamaları gerek kalmadan, ağınızdaki protokolleri
 * Etkin noktalarına üst talkers, chatty uygulamaları, bulut VM görüşmeleri trafiği
 * Kaynakları ve sanal ağlar, kritik iş Hizmetleri ve uygulamaları arasındaki arası ilişkileri üzerinden trafik hedefleri
 * Güvenlik – kötü amaçlı trafiği, bağlantı noktalarını Internet, uygulama veya Internet erişmeye VM'ler Aç...
+* Kapasite kullanımı - VPN ağ geçitleri ve diğer hizmetleri kullanım eğilimleri izleme tarafından aşırı sağlama veya yetersiz kullanım sorunları ortadan kaldırmanıza yardımcı olur
 
 Trafik Analytics yardımcı olur, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri, Denetim iş yükü performansını iyileştirmek ve uyumlu kalın tıklatılabilir bilgilerle donatır.
 
@@ -100,7 +103,7 @@ Trafik Analytics yardımcı olur, kuruluşunuzun ağ etkinliği, güvenli uygula
 * [Blog gönderisi](https://aka.ms/trafficanalytics), [belgelerine](https://aka.ms/trafficanalyticsdocs), [SSS](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## <a name="dns-analytics"></a>DNS Analizi
-DNS yöneticileri için yerleşik, bu çözüm toplar, çözümler ve güvenlik sağlamak için DNS günlüklerini karşılık gelen işlemler ve performans ile ilgili Öngörüler.  Özelliklerden bazıları şunlardır:
+DNS yöneticileri için yerleşik, bu çözüm toplar, çözümler ve güvenlik, işlemler ve performans ile ilgili Öngörüler sağlamak için DNS günlükleri karşılık gelen.  Özelliklerden bazıları şunlardır:
 
 * Kötü amaçlı etki alanlarına çözümlemeye istemcileri tanımlaması
 * Eski kaynak kayıtlarının tanımlama

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Dayanıklı işlevlerinde - telefon doğrulama örnek insan etkileşimi
 
@@ -26,30 +26,22 @@ Bu örnek nasıl oluşturulacağını gösteren bir [dayanıklı işlevleri](dur
 
 Bu örnek bir SMS telefonla doğrulama sistemi uygular. Bu tür akışları genellikle bir müşterinin telefon numarasını doğrulanırken veya çok faktörlü kimlik doğrulaması (MFA) için kullanılır. Tüm uygulama yapıldığından bu güçlü bir örnektir birkaç küçük işlevlerini kullanma. Bir veritabanı gibi bir dış veri depo gereklidir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * ' Ndaki yönergeleri izleyin [yükleme dayanıklı işlevleri](durable-functions-install.md) örneğini kurmak için.
 * Bu makalede, zaten gitti varsayar [Hello dizisi](durable-functions-sequence.md) örnek gözden geçirme.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
-Telefon doğrulama, son kullanıcılar, uygulamanızın istenmeyen posta gönderenlerin değildir ve kimlerin kendilerine olduklarından emin doğrulamak için kullanılır. Çok faktörlü kimlik doğrulama kullanıcı hesapları korsanların korumak için bir ortak kullanım durumdur. Kendi telefon doğrulama uygulama ile gerektirdiği iştir bir **durum bilgisi olan etkileşim** İnsan olma ile. Bir son kullanıcı biraz kod (örn. 4 basamaklı bir sayı) genellikle sağlanır ve yanıtlaması gerekir **makul bir sürede**.
+Telefon doğrulama, son kullanıcılar, uygulamanızın istenmeyen posta gönderenlerin değildir ve kimlerin kendilerine olduklarından emin doğrulamak için kullanılır. Çok faktörlü kimlik doğrulama kullanıcı hesapları korsanların korumak için bir ortak kullanım durumdur. Kendi telefon doğrulama uygulama ile gerektirdiği iştir bir **durum bilgisi olan etkileşim** İnsan olma ile. Bir son kullanıcı biraz kod (örneğin, 4 basamaklı bir sayı) genellikle sağlanır ve yanıtlaması gerekir **makul bir sürede**.
 
-(Diğer platformlarda diğer birçok bulut uç gibi) normal Azure işlevleri durum bilgisiz, bu tür etkileşimler açıkça yönetme gerektireceğini şekilde bir veritabanı veya bazı diğer kalıcı durum dışarıdan depolamak. Ayrıca, etkileşim birlikte Eşgüdümlü olabilecek birden çok işlevlerini parçalanmış gerekir. Örneğin, bir kodu karar verme, herhangi bir yerde kalıcı yapma ve kullanıcının telefonuna göndermek için en az bir işlevi gerekir. Ayrıca, kullanıcıdan yanıt ve şekilde kod doğrulama yapmak için geri özgün işlev çağrısı için eşlemek için en az bir işlevi gerekir. Zaman aşımı güvenliğini sağlamak için önemli bir özelliği de olur. Bu oldukça hızlı bir şekilde oldukça karmaşık bir HAL alabilir.
+(Diğer platformlarda diğer birçok bulut uç gibi) normal Azure işlevleri durum bilgisiz, açıkça yönetme bu tür etkileşimler içeren için bir veritabanı veya bazı diğer kalıcı durum dışarıdan depolamak. Ayrıca, etkileşim birlikte Eşgüdümlü olabilecek birden çok işlevlerini parçalanmış gerekir. Örneğin, bir kodu karar verme, herhangi bir yerde kalıcı yapma ve kullanıcının telefonuna göndermek için en az bir işlevi gerekir. Ayrıca, kullanıcıdan yanıt ve şekilde kod doğrulama yapmak için geri özgün işlev çağrısı için eşlemek için en az bir işlevi gerekir. Zaman aşımı güvenliğini sağlamak için önemli bir özelliği de olur. Bu hızlı bir şekilde oldukça karmaşık bir HAL alabilir.
 
-Dayanıklı işlevler kullandığınızda bu senaryo karmaşıklığını önemli ölçüde azalır. Bu örnekte göreceğiniz gibi bir orchestrator işlevi çok kolay ve tüm dış veri depoları içeren olmadan durum bilgisi olan etkileşim yönetebilirsiniz. Orchestrator işlevleri olduğundan *dayanıklı*, bu etkileşimli akışlar da yüksek oranda güvenilir.
+Dayanıklı işlevler kullandığınızda bu senaryo karmaşıklığını önemli ölçüde azalır. Bu örnekte göreceğiniz gibi bir orchestrator işlevi kolayca ve tüm dış veri depoları içeren olmadan durum bilgisi olan etkileşim yönetebilirsiniz. Orchestrator işlevleri olduğundan *dayanıklı*, bu etkileşimli akışlar da yüksek oranda güvenilir.
 
 ## <a name="configuring-twilio-integration"></a>Twilio tümleştirmesini yapılandırma
 
-Bu örnek kullanılmasına [Twilio](https://www.twilio.com/) cep telefonuna SMS iletileri göndermek için hizmet. Azure işlevleri Twilio desteği zaten [Twilio bağlama](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), ve örnek bu özelliği kullanır.
-
-Size gereken ilk şey bir Twilio hesabıdır. Ücretsiz https://www.twilio.com/try-twilio oluşturabilirsiniz. Hesabınızı edindikten sonra aşağıdaki üç ekleme **uygulama ayarları** işlevi uygulamanıza.
-
-| Uygulama ayarı adı | Değer açıklaması |
-| - | - |
-| **TwilioAccountSid**  | Twilio hesabınız için SID |
-| **TwilioAuthToken**   | Twilio hesabınız için kimlik doğrulama belirteci |
-| **TwilioPhoneNumber** | Twilio hesabınızla ilişkili telefon numarası. Bu, SMS iletileri göndermek için kullanılır. |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>İşlevler
 
@@ -77,7 +69,7 @@ Başladıktan sonra bu orchestrator işlevi şunları yapar:
 3. Dayanıklı bir Zamanlayıcı bu Tetikleyicileri geçerli zamandan 90 saniye oluşturur.
 4. Zamanlayıcı ile paralel olarak bekler bir **SmsChallengeResponse** kullanıcıdan olay.
 
-Kullanıcı dört rakamlı bir kod içeren bir SMS mesajı alır. Bu aynı 4 basamaklı kodu doğrulama işlemini tamamlamak için yeniden orchestrator işlevi örneğine göndermek için 90 saniye sahiptirler. Yanlış kod gönderirseniz, bunlar sağa (aynı 90 ikinci pencereye) almak için ek bir üç çalıştığında alın.
+Kullanıcı dört rakamlı kodu içeren bir SMS mesajı alır. Bu aynı 4 basamaklı kodu doğrulama işlemini tamamlamak için yeniden orchestrator işlevi örneğine göndermek için 90 saniye sahiptirler. Yanlış kod gönderirseniz, bunlar sağa (aynı 90 saniyelik pencereye) almak için ek bir üç çalıştığında alın.
 
 > [!NOTE]
 > İlk, ancak bu orchestrator belirgin olmayabilir işlev tamamen belirleyici değil. Bunun nedeni, `CurrentUtcDateTime` özelliği Zamanlayıcı zaman aşımı süresini hesaplamak için kullanılır ve bu özellik her yeniden yürütme bu noktada orchestrator kodda aynı değeri döndürür. Bu aynı emin olmak önemlidir `winner` sonuçları için yinelenen her çağrısından `Task.WhenAny`.
@@ -97,9 +89,9 @@ Ve 4 basamaklı sınama kodu oluşturur ve SMS mesajı gönderir. kod aşağıda
 
 Bu **E4_SendSmsChallenge** işlevi yalnızca çağrıldığından bir kez işlem bozulsa veya yeniden. Birden çok SMS iletileri alma son kullanıcı istemediğiniz iyi olmasıdır. `challengeCode` Orchestrator işlevi her zaman doğru kodun ne olduğunu bilmesi için değer otomatik olarak kalıcı döndürür.
 
-## <a name="run-the-sample"></a>Örnek çalıştırın
+## <a name="run-the-sample"></a>Örneği çalıştırma
 
-Aşağıdaki örnekte dahil HTTP tetiklemeli işlevleri kullanarak, aşağıdaki HTTP POST isteği göndererek orchestration başlatabilirsiniz.
+Aşağıdaki örnekte dahil HTTP tetiklemeli işlevleri kullanarak, aşağıdaki HTTP POST isteği göndererek orchestration başlatabilirsiniz:
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification

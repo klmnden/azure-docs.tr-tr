@@ -1,25 +1,23 @@
 ---
-title: "Bir Azure Otomasyonu runbook'u bir JSON nesnesi geçirmek | Microsoft Docs"
+title: "Azure Otomasyonu runbook’una bir JSON nesnesi geçirme"
 description: "Nasıl bir JSON nesnesi olarak runbook parametreleri geçirme"
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: PowerShell runbook, json, azure Otomasyonu
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5390ba34a25713aed84d6e778335e30f27c2b1f8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+keywords: PowerShell runbook, json, azure Otomasyonu
+ms.openlocfilehash: c5ceced9f37cb76c8c760a7f2d1c680f98e704c3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Bir Azure Otomasyonu runbook'u bir JSON nesnesi geçirin
+# <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Azure Otomasyonu runbook’una bir JSON nesnesi geçirme
 
 Bir runbook'ta bir JSON dosyası geçirmek istediğiniz verileri depolamak yararlı olabilir.
 Örneğin, tüm bir runbook'a geçirmek için istediğiniz parametreleri içeren bir JSON dosyası oluşturabilirsiniz.
@@ -28,7 +26,7 @@ Bunu yapmak için JSON bir dizeye dönüştürmek ve içeriğini runbook'a geçi
 Bu örnekte, çağıran bir PowerShell komut dosyası oluşturacağız [başlangıç AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) runbook'a JSON içeriği geçirme bir PowerShell runbook'u başlatın.
 PowerShell runbook geçirildi JSON öğesinden VM için parametreler alınırken bir Azure VM başlatır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Azure aboneliği. Henüz bir aboneliğiniz yoksa [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ya da <a href="/pricing/free-account/" target="_blank">[ücretsiz hesap için kaydolabilirsiniz](https://azure.microsoft.com/free/).
@@ -90,7 +88,7 @@ Aşağıdaki PowerShell komutlarını çalıştırın:
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
     ```
-    `JsonPath`JSON dosyasının kaydedildiği yoludur.
+    `JsonPath` JSON dosyasının kaydedildiği yoludur.
 1. Dize içeriği Dönüştür `$json` bir PowerShell nesnesi için:
    ```powershell
    $JsonParams = @{"json"=$json}
@@ -105,7 +103,7 @@ Aşağıdaki PowerShell komutlarını çalıştırın:
    }
    ```
    Değerini ayarlama fark `Parameters` JSON dosyası değerleri içeren PowerShell nesnesi için. 
-1. Runbook'u Başlat
+1. Runbook’u başlatma
    ```powershell
    $job = Start-AzureRmAutomationRunbook @RBParams
    ```

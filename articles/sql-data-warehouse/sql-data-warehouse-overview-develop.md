@@ -6,30 +6,29 @@ documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
 editor: 
-ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: jrj;barbkess
-ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 329217faaf865052b79a1d44200cc3c788702046
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL Data Warehouse için tasarım kararları ve kodlama teknikleri
 SQL Data Warehouse için temel tasarım kararları, öneriler ve kodlama teknikleri daha iyi anlamak için bu geliştirme makalelere göz atın.
 
 ## <a name="key-design-decisions"></a>Temel tasarım kararları
-Aşağıdaki makaleler bazı temel kavramları ve SQL Data Warehouse kullanarak dağıtılmış veri ambarınız geliştirme için anlamak için gereken tasarım kararlarını vurgula:
+Aşağıdaki makaleler, kavramlar ve SQL Data Warehouse kullanarak dağıtılmış veri ambarına geliştirmek için tasarım kararları vurgula:
 
-* [bağlantıları][connections]
+* [Bağlantıları][connections]
 * [Eşzamanlılık][concurrency]
-* [işlemler][transactions]
+* [İşlemler][transactions]
 * [Kullanıcı tanımlı şemaları][user-defined schemas]
 * [Tablo dağıtım][table distribution]
 * [Tablo dizinlerini][table indexes]
@@ -40,22 +39,22 @@ Aşağıdaki makaleler bazı temel kavramları ve SQL Data Warehouse kullanarak 
 ## <a name="development-recommendations-and-coding-techniques"></a>Geliştirme önerileri ve kodlama teknikleri
 Bu makaleler, belirli kodlama teknikleri, ipuçları ve öneriler SQL veri ambarı geliştirmek için vurgula:
 
-* [saklı yordamlar][stored procedures]
-* [etiketleri][labels]
+* [Saklı yordamlar][stored procedures]
+* [Etiketleri][labels]
 * [Görünümler][views]
 * [geçici tablolar][temporary tables]
-* [dinamik SQL][dynamic SQL]
+* [Dinamik SQL][dynamic SQL]
 * [döngü][looping]
-* [Gruplandırma seçenekleri][group by options]
-* [değişken ataması][variable assignment]
+* [Grup tarafından seçenekleri][group by options]
+* [Değişken ataması][variable assignment]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Geliştirme makalelerine işlendikten sonra aracılığıyla göz [Transact-SQL Başvurusu] [ Transact-SQL reference] SQL Data Warehouse için desteklenen sözdizimi hakkında daha fazla ayrıntı için sayfa.
+Daha fazla başvuru bilgileri için bkz: [Transact-SQL Başvurusu] [ Transact-SQL reference] SQL Data Warehouse için sayfa.
 
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[concurrency]: ./resource-classes-for-workload-management.md
 [connections]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md

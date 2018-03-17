@@ -3,8 +3,8 @@ title: "Azure Machine Learning Web Hizmetleri: Dağıtım ve kullanım | Microso
 description: "Dağıtma ve web hizmetlerini tüketen kaynaklar."
 services: machine-learning
 documentationcenter: 
-author: garyericson
-manager: raymondl
+author: aashishb
+manager: hjerez
 editor: 
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: 88a61467a79a424670d49e662315cab59ab52d13
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: aashishb
+ms.openlocfilehash: 7eecfe4a80499fbba0533f0d410dd920db61e62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning Web Hizmetleri: Dağıtım ve kullanım
 Machine learning iş akışları ve modelleri web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, tahminlerin gerçek zamanlı veya toplu iş modunda yapmak için Internet üzerinden uygulamalardan machine learning modellerini çağrılacak sonra kullanılabilir. Web hizmetleri RESTful olduğundan, bunları çeşitli programlama dillerini ve .NET ve Java gibi platformları ve Excel gibi uygulamalardan çağırabilirsiniz.
@@ -49,7 +49,7 @@ Web hizmetleri için Azure Machine Learning kaynak sağlayıcısı REST API ça�
 ### <a name="with-powershell-cmdlets"></a>PowerShell cmdlet'leri ile
 Azure Machine Learning kaynak sağlayıcısı web hizmetleri için dağıtım ve Yönetim web hizmetleri PowerShell cmdlet'lerini kullanarak etkinleştirir.
 
-Cmdlet'lerini kullanmak için ilk kez Azure hesabınızdan PowerShell ortamında kullanarak oturum gerekir [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet'i. Resource Manager, temel alan PowerShell komutlarını nasıl bilginiz varsa bkz [Azure PowerShell kullanarak Azure Resource Manager ile](../../azure-resource-manager/powershell-azure-resource-manager.md#log-in-to-your-azure-account).
+Cmdlet'lerini kullanmak için ilk kez Azure hesabınızdan PowerShell ortamında kullanarak oturum gerekir [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet'i. Resource Manager, temel alan PowerShell komutlarını nasıl bilginiz varsa bkz [Azure PowerShell kullanarak Azure Resource Manager ile](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
 Tahmine dayalı denemenizi dışarı aktarmak için kullanın [Bu örnek kod](https://github.com/ritwik20/AzureML-WebServices). Koddan .exe dosyasını oluşturduktan sonra yazabilirsiniz:
 

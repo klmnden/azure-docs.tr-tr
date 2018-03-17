@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM ile Azure’a iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -43,27 +43,29 @@ Bu makalede, System Center Data Protection Manager (DPM) sunucuları ve iş yük
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) dosya ve uygulama verileri yedekler. Desteklenen iş yükleri hakkında daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). DPM için yedeklenen verileri diskte, bantta depolanan veya Microsoft Azure yedekleme ile azure'a yedeklenebilir. DPM Azure Backup ile aşağıdaki gibi etkileşim kurar:
 
 * **Fiziksel sunucu veya şirket içi sanal makine olarak dağıtılan DPM** — varsa DPM fiziksel sunucu olarak veya geri verileri kurtarma Hizmetleri kasasına disk ve bant yanı sıra bir şirket içi Hyper-V sanal makinesi olarak dağıtılan yedekleme.
-* **Azure sanal makinesi olarak dağıtılan DPM** — güncelleştirme 3 ile System Center 2012 R2'den DPM Azure sanal makinesi olarak dağıtılabilir. DPM Azure disklere verileri yedekleyebilirsiniz bir Azure sanal makinesi olarak dağıtılırsa DPM Azure sanal makinesine bağlı veya bir kurtarma Hizmetleri kasası kadar yedekleyerek veri depolama boşaltabilir.
+* **Azure sanal makinesi olarak dağıtılan DPM** — güncelleştirme 3 ' System Center 2012 R2'den DPM Azure sanal makinesi üzerinde dağıtabilirsiniz. DPM Azure sanal makinesi olarak dağıtılırsa, VM'ye bağlı Azure disklerine yedekleme veya kurtarma Hizmetleri kasasına yedekleme tarafından veri depolama boşaltma.
 
-## <a name="why-backup-from-dpm-to-azure"></a>Neden DPM'den Azure'a yedekleme?
-DPM sunucularını yedekleme için Azure Yedekleme'yi kullanarak iş avantajları şunlardır:
+## <a name="why-back-up-dpm-to-azure"></a>Neden DPM'yi Azure'a yedekleme?
+DPM sunucularını Azure'a yedekleme iş avantajları şunlardır:
 
-* Şirket içi DPM dağıtımı için Azure banda uzun vadeli dağıtım alternatif olarak kullanabilirsiniz.
-* Azure'da DPM dağıtımları için Azure yedekleme depolama Azure diskten boşaltmak eski verileri kurtarma Hizmetleri kasası ve disk üzerindeki yeni verileri depolayarak ölçekleme yapmanıza olanak sağlar.
+* Şirket içi DPM dağıtımı için Azure banda uzun vadeli dağıtım alternatif olarak kullanın.
+* Azure VM'de DPM dağıtmak için Azure diski depodan yük boşaltma. Kurtarma Hizmetleri kasasına eski verilerin depolanması, iş disk yeni verileri depolayarak ölçekleme izin verir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Azure yedekleme DPM verileri yedeklemek gibi için hazırlayın:
 
 1. **Kurtarma Hizmetleri kasası oluşturma** — Azure portalında bir kasa oluşturun.
-2. **Kasa kimlik bilgilerini indirme** — DPM sunucusunu kurtarma Hizmetleri kasasına kaydetmek için kullanılan kimlik bilgilerini indirin.
-3. **Azure yedekleme Aracısı'nı yüklemek** — Azure yedeklemeden aracı her DPM sunucusuna yükleyin.
-4. **Sunucuyu kaydetmek** — kurtarma Hizmetleri kasasına DPM sunucusunu kaydettirin.
+2. **Kasa kimlik bilgilerini indirme** — DPM sunucusunu kurtarma Hizmetleri kasası ile kaydetmek için kullandığınız kimlik bilgilerini indirin.
+3. **Azure yedekleme Aracısı'nı yüklemek** — aracı her DPM sunucusuna yükleyin.
+4. **Sunucuyu kaydetmek** — DPM sunucusunu kurtarma Hizmetleri kasası ile kaydedin.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="key-definitions"></a>Temel tanımları
 DPM için Azure yedekleme için bazı temel tanımları şunlardır:
 
-1. **Kimlik bilgileri kasası** — kasa kimlik bilgileri, yedekleme verilerini Azure Backup hizmetindeki tanımlanmış bir kasaya göndermek üzere makinenin kimliğini doğrulamak için gereklidir. Kasadan indirilebilir ve 48hrs için geçerlidir.
-2. **Parola** — parola buluta yedeklemeleri şifrelemek için kullanılır. Lütfen bir kurtarma işlemi sırasında gerekli olduğu gibi dosyayı güvenli bir konuma kaydedin.
+1. **Kimlik bilgileri kasası** — kasa kimlik bilgileri, yedekleme verilerini Azure Backup hizmetindeki tanımlanmış bir kasaya göndermek üzere makinenin kimliğini doğrulamak için gereklidir. Kasadan indirilebilir ve 48 saat için geçerlidir.
+2. **Parola** — parola buluta yedeklemeleri şifrelemek için kullanılır. Bir kurtarma işlemi sırasında gerekli olduğu gibi dosyayı güvenli bir konuma kaydedin.
 3. **Güvenlik PIN** — etkinleştirdiyseniz [güvenlik ayarları](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) kasası güvenlik PIN kritik yedekleme işlemleri gerçekleştirmek için gereklidir. Bu çok faktörlü kimlik doğrulaması, bir güvenlik katmanı ekler. 
 4. **Kurtarma klasörünü** — bulut yedeklemelerden geçici olarak bulut Kurtarma sırasında yüklenen terimdir. Boyutu kabaca, paralel olarak kurtarmak istediğiniz yedekleme öğelerin boyutu eşit olmalıdır.
 
@@ -81,7 +83,7 @@ Kurtarma hizmetleri kasası oluşturmak için:
 
     ![Kurtarma Hizmetleri Kasası oluşturma 2. adım](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    Kurtarma Hizmetleri kasası dikey penceresi açılır ve sizden bir **Ad**, **Abonelik**, **Kaynak Grubu** ve **Konum** sağlamanızı ister.
+    Kurtarma Hizmetleri kasası menüsü açılır sağlamak isteyip istemediğinizi soran bir **adı**, **abonelik**, **kaynak grubu**, ve **konumu**.
 
     ![Kurtarma Hizmetleri kasası oluşturma 5. adım](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
 4. **Ad** alanına, kasayı tanımlayacak kolay bir ad girin. Adın Azure aboneliği için benzersiz olması gerekir. 2 ila 50 karakterden oluşan bir ad yazın. Ad bir harf ile başlamalıdır ve yalnızca harf, rakam ve kısa çizgi içerebilir.
@@ -96,8 +98,8 @@ Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak
 
 Depolama çoğaltma ayarını düzenlemek için:
 
-1. Kasa panosunu ve Ayarlar dikey penceresini açmak için kasanızı seçin. **Ayarlar** dikey penceresi açılmazsa kasa panosunda **Tüm ayarlar** seçeneğine tıklayın.
-2. **Ayarlar** dikey penceresinde, **Yedekleme Yapılandırması** dikey penceresini açmak için **Yedekleme Altyapısı** > **Yedekleme Yapılandırması**'na tıklayın. **Yedekleme Yapılandırması** dikey penceresinde, kasanıza yönelik depolama çoğaltma seçeneğini belirleyin.
+1. Kasa panosunu ve Ayarlar menüsünü açmak için kasanızı seçin. Varsa **ayarları** değil menüsünü açın, **tüm ayarları** kasa panosunda.
+2. Üzerinde **ayarları** menüsünde tıklatın **Yedekleme Altyapısı** > **yedekleme yapılandırması** açmak için **yedekleme yapılandırması**menüsü. Üzerinde **yedekleme yapılandırması** menüsünde, kasanız için depolama çoğaltma seçeneğini belirleyin.
 
     ![Yedekleme kasalarının listesi](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -112,9 +114,9 @@ Kasa kimlik bilgilerini Azure portalından güvenli bir kanal üzerinden indiril
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. DPM makine kaydetmek istediğiniz kurtarma Hizmetleri kasası açın.
-3. Varsayılan ayarlar dikey penceresi açılır. Kapalıysa, tıklayın **ayarları** kasa panosunda ayarları dikey penceresini açın. Ayarlar dikey penceresinde tıklayın **özellikleri**.
+3. Ayarlar menüsünde varsayılan olarak açılır. Kapalıysa, tıklayın **ayarları** ayarlar menüsünü açmak için kasa Panosu üzerinde. Ayarlar menüsünde tıklatın **özellikleri**.
 
-    ![Kasa dikey penceresini açma](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Kasa menüsünü açma](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. Özellikler sayfasında, tıklatın **karşıdan** altında **yedekleme kimlik**. Portal indirme için kullanılabilir hale kasa kimlik bilgilerini oluşturur.
 
     ![İndirme](./media/backup-azure-dpm-introduction/vault-credentials.png)
@@ -130,9 +132,9 @@ Portal kasa adını ve geçerli tarih birleşimini kullanarak bir kasa kimlik bi
 Azure yedekleme kasası oluşturduktan sonra bir aracı her veri ve Azure uygulamalarının yedekleme sağlayan Windows makinelerinizin (Windows Server, Windows istemci, System Center Data Protection Manager sunucusu veya Azure yedekleme sunucusu makine) yüklü olmalıdır .
 
 1. DPM makine kaydetmek istediğiniz kurtarma Hizmetleri kasası açın.
-2. Varsayılan ayarlar dikey penceresi açılır. Kapalıysa, tıklayın **ayarları** ayarları dikey penceresini açın. Ayarlar dikey penceresinde tıklayın **özellikleri**.
+2. Ayarlar menüsünde varsayılan olarak açılır. Kapalıysa, tıklayın **ayarları** ayarlar menüsünü açın. Ayarlar menüsünde tıklatın **özellikleri**.
 
-    ![Kasa dikey penceresini açma](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Kasa menüsünü açma](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Ayarlar sayfasında, tıklatın **karşıdan** altında **Azure Yedekleme aracısı**.
 
     ![İndirme](./media/backup-azure-dpm-introduction/azure-backup-agent.png)

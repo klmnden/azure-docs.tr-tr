@@ -2,8 +2,8 @@
 title: "Azure Machine Learning dağıtım sorun giderme kılavuzu | Microsoft Docs"
 description: "Dağıtım ve hizmet oluşturmak için sorun giderme kılavuzu"
 services: machine-learning
-author: AashishB
-ms.author: AashishB
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 614767840f8781c3c30c358dcf3ffc366aa3c0d6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7b8d2f4fb52c6d4faed8e813779e3b01d1817355
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Hizmet dağıtımı ve ortam Kurulumu sorunlarını giderme
 Aşağıdaki bilgiler model yönetim ortamını ayarlarken hatalarının nedeninin belirlenmesine yardımcı olabilir.

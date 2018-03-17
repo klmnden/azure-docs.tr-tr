@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma;
+ms.openlocfilehash: 921ccf67e5e0320e742066186b7929643536424f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-platforms"></a>Veri platformları
 
@@ -27,7 +27,7 @@ Veri bilimi sanal makine (DSVM), çok çeşitli veri platformları karşı anali
 
 DSVM üzerinde desteklenen veri platformu araçları şunlardır: 
 
-## <a name="sql-server-2016-developer-edition"></a>SQL Server 2016 Geliştirici sürümü
+## <a name="sql-server-2016-developer-edition"></a>SQL Server 2016 Developer Edition
 
 | | |
 | ------------- | ------------- |
@@ -35,7 +35,7 @@ DSVM üzerinde desteklenen veri platformu araçları şunlardır:
 | Desteklenen DSVM sürümleri      | Windows      |
 | Tipik kullanır      | Yerel olarak daha küçük veri kümesi ile hızlı geliştirme <br/> Veritabanı R çalıştırın   |
 | Örnekleri bağlantılar      |    New York şehrinde kümesinin küçük bir örnek SQL veritabanına yüklenir `nyctaxi`. <br/> Microsoft R ve veritabanı Analytics'i gösteren Jupyter örnek yolda bulunabilir:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
-| DSVM ilgili araçları       | SQL Server Management Studio <br/> ODBC/JDBC sürücüleri<br/> pyodbc, RODBC<br />Apache detaya gitme      |
+| DSVM ilgili araçları       | SQL Server Management Studio <br/> ODBC/JDBC sürücüleri<br/> pyodbc, RODBC<br />Apache Drill      |
 
 > [!NOTE]
 > SQL Server 2016 Geliştirici sürümü yalnızca geliştirme ve test amaçları için kullanılabilir. Bir lisans veya ürün çalıştırmak için SQL Server Vm'lerinin biri gerekir. 
@@ -70,7 +70,7 @@ SQL Server standart şekilde yüklenir. Konumunda bulunabilir `C:\Program Files\
 | Desteklenen DSVM sürümleri      | Linux <br /> Windows (Deneysel)      |
 | Tipik kullanır      | * Hızlı geliştirme Spark/PySpark uygulamaların yerel olarak daha küçük veri kümesi ve daha sonra Azure Hdınsight gibi büyük Spark kümeleri üzerinde bunu dağıtma<br/> * Test Microsoft R Server Spark bağlamı <br />* SparkML ya da Microsoft'un açık kaynaklı kullanmak [MMLSpark](https://github.com/Azure/mmlspark) ML uygulamaları geliştirmek için kitaplığı  |
 | Örnekleri bağlantılar      |    Jupyter örneği: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server (Spark bağlamı): /dsvm/samples/MRS/MRSSparkContextSample.R |
-| DSVM ilgili araçları       | PySpark, Scala<br/>Jupyter (Spark/PySpark tekrar)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache detaya gitme      |
+| DSVM ilgili araçları       | PySpark, Scala<br/>Jupyter (Spark/PySpark tekrar)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache Drill      |
 
 ### <a name="how-to-use-it"></a>Nasıl kullanılacağını
 Komut satırı ile Spark işlerine göndererek Spark çalıştırabilirsiniz `spark-submit` veya `pyspark` komutları. Yeni bir not defteri ile Spark çekirdek oluşturarak Jupyter Not Defteri de oluşturabilirsiniz. 
@@ -100,7 +100,7 @@ Hadoop durdurabilirsiniz, bunları çalıştırarak gerekmediğinde Hizmetleri i
 |Platform|Yükleme konumu ($SPARK_HOME)|
 |:--------|:--------|
 |Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
-|Linux   | /dsvm/Tools/Spark-X.X.X-bin-hadoopX.X|
+|Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
 Verileri Azure Blob veya Azure Data Lake storage (ADLS) ve Microsoft'un MMLSpark machine learning kitaplıkları kullanarak erişmesini kitaplıkları $SPARK_HOME/Kavanoz önceden yüklenmiş. Spark başlatıldığında bu Kavanoz otomatik olarak yüklenir. Varsayılan olarak, yerel diskte veri Spark kullanır. DSVM Azure blob veya ADLS depolanan verilere erişmek için Spark örneğinde sırayla oluşturmak ve yapılandırmak gereken `core-site.xml` $SPARK_HOME/conf/core-site.xml.template içinde bulunan şablonunu temel dosyası (bulunduğu Blob ve ADLS yer tutucular yapılandırmaları) Azure blob ve Azure Data Lake Storage için uygun kimlik bilgilerine sahip. Daha ayrıntılı ADLS hizmet kimlik bilgilerini oluşturma adımları Bul [burada](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application). Azure blob veya ADLS için kimlik bilgilerini core-site.xml dosyasında girildikten sonra bu kaynakları wasb URI öneki ile depolanan verileri başvurabilir: / / veya adl: / /. 
