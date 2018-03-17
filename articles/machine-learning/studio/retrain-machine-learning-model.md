@@ -3,8 +3,9 @@ title: "Machine Learning modelini çağırma | Microsoft Docs"
 description: "Bir model yeniden eğitme ve Azure Machine Learning ile yeni eğitilen modelini kullanmak için Web hizmetini güncelleştirmek hakkında bilgi edinin."
 services: machine-learning
 documentationcenter: 
-author: garyericson
-manager: raymondl
+author: serinakaye
+ms.author: serinak
+manager: mwinkle
 editor: 
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: 614517c5b9a54fc11cf0b8f8b6e298b9aec5cf76
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 65c5e86e47528aab36972507b7ee8324040b9beb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-machine-learning-model"></a>Machine Learning modelini çağırma
 Azure Machine Learning makine öğrenimi modellerinin operationalization sürecinin bir parçası olarak, modelinizi eğitilmiş ve kaydedilir. Ardından, predicative bir Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamaları tüketilebilir. 

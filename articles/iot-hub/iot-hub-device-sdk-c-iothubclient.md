@@ -3,7 +3,7 @@ title: "Azure IOT cihaz SDK'sı c - IoTHubClient | Microsoft Docs"
 description: "Azure IOT cihaz SDK'sı c IoTHubClient kitaplıkta bir IOT hub ile iletişim cihaz uygulamaları oluşturmak için nasıl kullanılacağını."
 services: iot-hub
 documentationcenter: 
-author: olivierbloch
+author: yzhong94
 manager: timlt
 editor: 
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
-ms.author: obloch
-ms.openlocfilehash: 8428857bcd444f99ba2c0f6b31ff662d5596b591
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C – IoTHubClient hakkında daha fazla bilgi için Azure IOT cihaz SDK'sı
 [İlk makale](iot-hub-device-sdk-c-intro.md) sunulan bu serideki **C için Azure IOT cihaz SDK'sı**. Bu makale, SDK içinde iki Mimari katman vardır açıklanmıştır. Temeli **IoTHubClient** doğrudan IOT Hub ile iletişim yöneten kitaplığı. Ayrıca **seri hale getirici** serileştirme hizmetleri sağlamak için açık üst o derlemeler kitaplığı. Bu makalede ek ayrıntı sağlarız **IoTHubClient** kitaplığı.
@@ -60,7 +60,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 Ancak bu API'leri her yardımcı işlevleri vardır:
 
-* IoTHubClient\_ÜM\_CreateFromConnectionString
+* IoTHubClient\_LL\_CreateFromConnectionString
 * IoTHubClient\_ÜM\_SendEventAsync
 * IoTHubClient\_ÜM\_SetMessageCallback
 * IoTHubClient\_ÜM\_yok
@@ -233,7 +233,7 @@ HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSK
 
 Bu dize bilgilerinde dört adet vardır: IOT hub'ı adı, IOT hub'ı soneki, cihaz kimliği ve paylaşılan erişim anahtarı. Azure portalında, IOT hub örneği oluşturduğunuzda IOT hub'ı tam etki alanı adı (FQDN) elde — Bu, IOT hub adını (FQDN ilk parçası) ve IOT hub soneki (FQDN rest) sunar. IOT Hub ile Cihazınızı kaydederken cihaz kimliği ve paylaşılan erişim anahtarı almanız (açıklandığı gibi [önceki makalede](iot-hub-device-sdk-c-intro.md)).
 
-**IoTHubClient\_CreateFromConnectionString** kitaplığı başlatmak için bir yol sağlar. İsterseniz, yeni bir oluşturabileceğiniz **IOTHUB\_istemci\_İŞLEMEK** cihaz bağlantı dizesi yerine bu tek tek parametreleri kullanarak. Bu, aşağıdaki kod ile sağlanır:
+**IoTHubClient\_CreateFromConnectionString** gives you one way to initialize the library. İsterseniz, yeni bir oluşturabileceğiniz **IOTHUB\_istemci\_İŞLEMEK** cihaz bağlantı dizesi yerine bu tek tek parametreleri kullanarak. Bu, aşağıdaki kod ile sağlanır:
 
 ```
 IOTHUB_CLIENT_CONFIG iotHubClientConfig;
@@ -271,7 +271,7 @@ IOT Hub için geliştirme hakkında daha fazla bilgi için bkz: [Azure IOT SDK'l
 
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 

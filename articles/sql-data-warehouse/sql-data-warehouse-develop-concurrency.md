@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>SQL veri ambarı eşzamanlılık ve iş yükü yönetimi
 Ölçekte, Microsoft Azure SQL Data Warehouse yardımcı tahmin edilebilir performans sağlamak üzere tutarlılık düzeyleri ve bellek ve CPU önceliği gibi kaynak ayırma denetler. Bu makale size nasıl her iki özellik uygulanan ve nasıl veri ambarında denetlenebilecek açıklayan eşzamanlılık ve iş yükü yönetimi kavramları tanıtır. SQL veri ambarı iş yükü yönetimi, çok kullanıcılı ortamlar desteklemek amacıyla tasarlanmıştır. Çoklu kiracı iş yükleri için tasarlanmamıştır.
@@ -224,9 +224,9 @@ Bu saklı yordam amacı şöyledir:
 #### <a name="usage-example"></a>Kullanım örneği:
 Sözdizimi:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU:Ya geçerli DWU DW DB'den ayıklamak veya desteklenen tüm DWU 'DW100' biçiminde sağlamak için bir NULL parametresi sağlayın
-2. @SCHEMA_NAME:Tablo şema adını belirtin
-3. @TABLE_NAME:İlgilendiğiniz bir tablo adı sağlayın
+1. @DWU: Ya geçerli DWU DW DB'den ayıklamak veya desteklenen tüm DWU 'DW100' biçiminde sağlamak için bir NULL parametresi sağlayın
+2. @SCHEMA_NAME: Tablo şema adını belirtin
+3. @TABLE_NAME: İlgilendiğiniz bir tablo adı sağlayın
 
 Bu saklı yordam yürütme örnekler:  
 ```sql  
@@ -641,9 +641,9 @@ Sorguların çoğu kaynak sınıfları tarafından yönetilir. Bu sorgular, her 
 
 Yinelemek için aşağıdaki deyimleri kaynak sınıfları dikkate:
 
-* INSERT SEÇİN
+* INSERT-SELECT
 * GÜNCELLEŞTİRME
-* SİL
+* DELETE
 * (Kullanıcı tablosu sorgulanırken) seçin
 * ALTER INDEX YENİDEN OLUŞTURMA
 * ALTER INDEX REORGANIZE KOMUTUNU
@@ -682,7 +682,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - REDISTRIBUTE
 -->
 
-##  <a name="changing-user-resource-class-example"></a>Bir kullanıcı kaynak sınıfı örneği değiştirme
+##  <a name="changing-user-resource-class-example"></a> Bir kullanıcı kaynak sınıfı örneği değiştirme
 1. **Oturum açma oluşturun:** bir bağlantı açmak, **ana** veritabanı, SQL veri ambarı veritabanını barındıran SQL Server'da ve aşağıdaki komutları yürütün.
    
     ```sql
@@ -699,7 +699,7 @@ Removed as these two are not confirmed / supported under SQLDW
     ```sql
     CREATE USER newperson FOR LOGIN newperson;
     ```
-3. **İzinleri verin:** aşağıdaki örnek verir `CONTROL` üzerinde **SQL Data Warehouse** veritabanı. `CONTROL`adlı veritabanı düzeyi SQL Server'daki db_owner eşdeğerdir.
+3. **İzinleri verin:** aşağıdaki örnek verir `CONTROL` üzerinde **SQL Data Warehouse** veritabanı. `CONTROL` adlı veritabanı düzeyi SQL Server'daki db_owner eşdeğerdir.
    
     ```sql
     GRANT CONTROL ON DATABASE::MySQLDW to newperson;

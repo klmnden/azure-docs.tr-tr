@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>İletileri teslim Azure hizmetleri arasında seçim
 
@@ -30,18 +30,22 @@ Olay teslim hizmetleri ve bir ileti teslim hizmetleri arasında dikkat edilecek 
 
 ### <a name="event"></a>Olay
 
-Bir olay, bir eylem veya bir durum değişikliği basit bir bildirimidir. Olay verileri ne hakkında bilgi içerir ancak olay tetiklenen veri yok. Örneğin, bir olay, bir dosyanın oluşturulduğu aboneleri bildirir. Dosya hakkında genel bilgiler içerebilir, ancak dosya içermiyor. Genellikle, olayları olay işleyicileri gerçek zamanlı olarak davranacak şekilde tetikler.
+Bir olay, bir koşul veya bir durum değişikliği basit bir bildirimidir. Olay yayımcısı olay nasıl işlendiğini hakkında hiçbir Beklenti sahiptir. Olay tüketicisi bildirim ile Yapılacaklar karar verir. Olayları ayrı birimleri veya bir dizi parçası olabilir.
+
+Ayrık olaylar durumu değişikliği rapor ve işlem yapılabilir. Sonraki adım yapılacak tüketici yalnızca bir şeyler olduğu bilmesi gerekir. Olay verileri ne hakkında bilgi içerir ancak olay tetiklenen veri yok. Örneğin, bir olay tüketicileri bir dosyanın oluşturulduğu bildirir. Dosya hakkında genel bilgiler içerebilir, ancak dosya içermiyor. Ayrık olayları ölçeklendirme gerektiren sunucusuz çözümler için idealdir.
+
+Seri olayları bir koşul rapor ve analyzable. , Zaman sıralı ve birbiriyle olaylardır. Tüketici sıralı ne çözümlemek için olaylar dizisini gerekir.
 
 ### <a name="message"></a>İleti
 
-Bir ileti tüketilen veya başka bir yerde depolanan bir hizmet tarafından üretilen işlenmemiş verilerdir. İleti, ileti işlem hattını tetiklenen verileri içerir. Bu ileti bir e-ticaret sipariş kullanıcı telemetri için herhangi bir şey olabilir. Bir olay bildirimi bir ileti yayımcısı yanıt bekleyebilir. Örneğin, bir ileti ham verileri içeren ancak sistem bu verilerden bir dosya oluşturmak için sonraki bölümü bekliyor.
+Bir ileti tüketilen veya başka bir yerde depolanan bir hizmet tarafından üretilen işlenmemiş verilerdir. İleti, ileti işlem hattını tetiklenen verileri içerir. İletinin yayımcı tüketiciye ileti nasıl işlediği hakkında bir Beklenti sahiptir. Bir sözleşme iki yüz arasındaki bulunmaktadır. Örneğin, yayımcı ham verileri içeren bir ileti gönderir ve bu verileri bir dosya oluşturun ve iş tamamlandığında, bir yanıt göndermek için tüketici bekliyor.
 
 ## <a name="comparison-of-services"></a>Hizmetleri karşılaştırması
 
 | Hizmet | Amaç | Tür | Kullanılması gereken durumlar |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Geriye dönük programlama | Olay dağıtım | Durum değişiklikleri tepki |
-| Event Hubs | Büyük veri ardışık düzen | Olay akışı | Telemetri ve Dağıtılmış veri akışı |
+| Event Grid | Geriye dönük programlama | Olay dağıtım (ayrık) | Durum değişiklikleri tepki |
+| Event Hubs | Büyük veri ardışık düzen | Olay akış (dizi) | Telemetri ve Dağıtılmış veri akışı |
 | Service Bus | Yüksek değerli Kurumsal Mesajlaşma | İleti | Sipariş işleme ve finansal işlemler |
 
 ### <a name="event-grid"></a>Event Grid

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makine sağlama
 
@@ -73,7 +73,7 @@ Bu veri bilimi VM görüntüsü için yazılım harcamanız yok. Sağlamanız sa
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Veri bilimi sanal makinenin diğer sürümleri
 A [CentOS](linux-dsvm-intro.md) görüntüdür da birçok aynı araçları Ubuntu görüntü olarak kullanılabilir. A [Windows](provision-vm.md) görüntü kullanılabilir de.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Linux için bir veri bilimi sanal makine oluşturmadan önce bir Azure aboneliğinizin olması gerekir. Bir tane almak için bkz: [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/).
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Linux için veri bilimi sanal makine oluşturma
@@ -214,8 +214,8 @@ Yalnızca bir Python etkileşimli oturum başlatmak için şunu yazın **python*
 
 Ek Python kitaplıkları yükleme için çalıştırmanız gerekir ```conda``` veya ````pip```` komut sudo altında ve Python Paket Yöneticisi (conda veya PIP) doğru Python ortamı yüklemek için tam yolunu girin. Örneğin:
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Jupyter not defteri
@@ -237,7 +237,7 @@ Herhangi bir ana bilgisayardan Jupyter not defteri sunucusuna erişebilir. Yaln�
 
 Biz örnek not defterlerini--bir söz Python ve r birinde paketlenmiş Yerel Linux kullanıcı adı ve parola kullanarak Jupyter not defteri için kimlik doğrulaması sonra not defteri giriş sayfasında örnekler bağlantısını görebilirsiniz. Seçerek yeni bir not defteri oluşturabilirsiniz **yeni**ve ardından uygun dil çekirdek. Görmüyorsanız, **yeni** düğmesini tıklatın, **Jupyter** not defteri sunucunun giriş sayfasına gitmek için sol üst simgesi.
 
-### <a name="apache-spark-standalone"></a>Tek başına Apache Spark 
+### <a name="apache-spark-standalone"></a>Apache Spark Standalone 
 Apache Spark tek başına örneğini Spark uygulamalarında yerel olarak test etme ve büyük kümelerinde dağıtmadan önce ilk geliştirmenize yardımcı olması için bu Linux DSVM önceden yüklenir. PySpark programları Jupyter çekirdek çalıştırabilirsiniz. Jupyter açtığınızda'ı **yeni** düğmesini kullanılabilir tekrar listesini görmeniz gerekir. "Spark – Python" Spark Python dilini kullanarak uygulamalar oluşturmanıza olanak sağlayan PySpark Çekirdeği ' dir. Ayrıca, Spark programı oluşturmak için de bir Python IDE PyCharm veya Spyder gibi kullanabilirsiniz. Bu yana, bu tek başına bir örneğini, Spark yığını çağıran istemci programında çalışır. Bu daha hızlı ve Spark kümesinde geliştirme ile karşılaştırıldığında sorunlarını gidermek daha kolay hale getirir. 
 
 Bir örnek PySpark not defteri Jupyter ($ giriş/not defterlerini/SparkML/pySpark) giriş dizininin altındaki "SparkML" dizininde bulabilirsiniz Jupyter üzerinde sağlanır. 
@@ -272,7 +272,7 @@ Birkaç kod Düzenleyicileri'nin seçeneğiniz vardır. Bu, VI/VIM, Emacs, PyCha
 
 İlk kullanılmadan önce sürücüler ve veritabanı diğer adlar ayarlayın. JDBC sürücüleri şu adreste bulunabilir:
 
-*/usr/Share/Java/jdbcdrivers*
+*/usr/share/java/jdbcdrivers*
 
 Daha fazla bilgi için bkz: [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
@@ -395,7 +395,7 @@ Sekmeleri bir dizi artık bir grafik arabirim açılır. Bir örnek hava veri k�
 > 
 > 
 
-1. **Yürüt**’e tıklayın.
+1. **Yürüt**'e tıklayın.
 2. Örnek hava veri kümesi kullanmayı tercih soran bir iletişim kutusu açılır. Tıklatın **Evet** örnek yüklenemiyor.
 3. Tıklatın **modeli** sekmesi.
 4. Tıklatın **yürütme** karar ağacı oluşturmak için.

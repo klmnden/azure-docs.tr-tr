@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 2b53dc5eeb2e5f25a0714af778ef3db1d5a79dc1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -47,7 +47,7 @@ Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob D
     |/j:     |.Jrn uzantısı ile günlük dosyasının adıdır. Sürücü bir günlük dosyası oluşturulur. Disk seri numarası günlük dosyası adı olarak kullanılması önerilir.         |
     |/sk:     |Azure depolama hesabı anahtarı.         |
     |/t:     |Sürücü harfi edilmeye disk. Örneğin, sürücü `D`.         |
-    |/bk:     |Sürücü için BitLocker anahtar.         |
+    |/bk:     |Sürücü için BitLocker anahtar. Sayısal parolasını çıktısından ` manage-bde -protectors -get D: `      |
     |/srcdir:     |Edilmeye diskinin sürücü harfi ve ardından `:\`. Örneğin, `D:\`.         |
     |/dstdir:     |Azure depolama alanındaki hedef kapsayıcı adı         |
     |/skipwrite:     |Hiçbir kopyalanması için gereken yeni ve varolan verileri diskteki olduğunu belirten hazırlıklı olmak için bir seçenektir         |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cabf40367a6bd8401cae3eade4b832702e5acf31
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell kullanarak Windows Server/Windows İstemcisi için Azure’a yedekleme dağıtma ve yönetme
 Bu makalede Azure yedekleme Windows Server veya Windows İstemcisi ayarlama ve yedekleme ve kurtarma yönetmek için PowerShell kullanmayı gösterir.
@@ -83,6 +83,8 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## <a name="installing-the-azure-backup-agent"></a>Azure Backup aracısını yükleme
 Azure Backup aracısını yüklemeden önce Windows Server yükleyici indirildi ve mevcut olması gerekir. Yükleyicisi'nden en son sürümünü almak [Microsoft Download Center](http://aka.ms/azurebackup_agent) veya kurtarma Hizmetleri Kasası'nın Pano sayfası. Yükleyici gibi kolay erişilebilir bir konuma kaydedin * C:\Downloads\*.
 
@@ -119,14 +121,14 @@ Mevcut seçenekler şunlardır:
 | Seçenek | Ayrıntılar | Varsayılan |
 | --- | --- | --- |
 | /q |Sessiz yükleme |- |
-| p: "Konum" |Azure Backup Aracısı yükleme klasörünün yolu. |C:\Program Files\Microsoft Azure kurtarma Hizmetleri Aracısı |
-| / s: "Konum" |Azure Backup aracısı için önbellek klasör yolu. |C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch |
+| p: "Konum" |Azure Backup Aracısı yükleme klasörünün yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Azure Backup aracısı için önbellek klasör yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Microsoft Update'e kabulü |- |
 | /nu |Yükleme tamamlandıktan sonra güncelleştirmeleri denetleme |- |
 | /d |Microsoft Azure kurtarma Hizmetleri Aracısı kaldırır |- |
 | /ph |Proxy konağı adresi |- |
-| /PO |Proxy ana bilgisayar bağlantı noktası numarası |- |
-| /PU |Proxy konağı kullanıcı |- |
+| /po |Proxy ana bilgisayar bağlantı noktası numarası |- |
+| /pu |Proxy konağı kullanıcı |- |
 | /pw |Proxy parolası |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Windows Server veya Windows istemci makinesi bir kurtarma Hizmetleri kasasına kaydetme

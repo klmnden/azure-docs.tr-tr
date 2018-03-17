@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c67d56ff63f70baa052be17c119d943c558d398f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse için kopya sayfası
 Bu kopya sayfası yararlı ipuçları ve Azure SQL Data Warehouse çözümlerinizi oluşturmaya yönelik en iyi yöntemler sağlar. Başlamadan önce her adım ayrıntılı hakkında daha fazla okuyarak bilgi [Azure SQL veri ambarı iş yükü desenleri ve koruma desenleri](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), SQL Data Warehouse nedir ve ne değil açıklar.
@@ -146,12 +146,12 @@ SQL veri ambarından SQL veritabanlarında, bağlı bileşen tek bir tıklatmayl
 [Taslak]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[veri yükleme]:./design-elt-data-loading.md
-[deeper guidance]: ./guidance-for-loading-data.md
-[dizinleri]:./sql-data-warehouse-tables-index.md
-[bölümleri]:./sql-data-warehouse-tables-partition.md
-[istatistikleri]:./sql-data-warehouse-tables-statistics.md
-[kaynak sınıfları ve eşzamanlılık]:./sql-data-warehouse-develop-concurrency.md
+[veri yükleme]:design-elt-data-loading.md
+[deeper guidance]:guidance-for-loading-data.md
+[dizinleri]:sql-data-warehouse-tables-index.md
+[bölümleri]:sql-data-warehouse-tables-partition.md
+[istatistikleri]:sql-data-warehouse-tables-statistics.md
+[kaynak sınıfları ve eşzamanlılık]:resource-classes-for-workload-management.md
 
 <!--MSDN references-->
 

@@ -6,20 +6,19 @@ documentationcenter: NA
 author: barbkess
 manager: jhubbard
 editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kimliğinde kalitesi columnstore için en üst düzeye çıkarma
 
@@ -140,9 +139,9 @@ OPTION (MAXDOP 1);
 DWU boyutu ve kullanıcı kaynak sınıfı birlikte ne kadar bellek kullanıcı sorgu için uygun olduğunu belirler. Bir yük sorgu için bellek ataması artırmak için Dwu sayısını artırmak veya kaynak sınıfı artırın.
 
 - Dwu artırmak için bkz: [nasıl ı ölçeklendirme performans?](quickstart-scale-compute-portal.md)
-- Bir sorgu için kaynak sınıfı değiştirmek için bkz: [kullanıcı kaynak sınıfı örneğini değiştirmek](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+- Bir sorgu için kaynak sınıfı değiştirmek için bkz: [kullanıcı kaynak sınıfı örneğini değiştirmek](resource-classes-for-workload-management.md#assigning-resource-classes).
 
-Örneğin, DWU 100 üzerinde smallrc kaynak sınıfında bir kullanıcı her dağıtım için 100 MB bellek kullanabilir. Ayrıntılar için bkz [eşzamanlılık SQL Data warehouse'da](sql-data-warehouse-develop-concurrency.md).
+Örneğin, DWU 100 üzerinde smallrc kaynak sınıfında bir kullanıcı her dağıtım için 100 MB bellek kullanabilir. Ayrıntılar için bkz [eşzamanlılık SQL Data warehouse'da](resource-classes-for-workload-management.md).
 
 Yüksek kaliteli satır grubu kimliğinde boyutları almak için 700 MB bellek gerektiğini belirlemek varsayalım. Bu örnekler, yeterli belleğe sahip yük sorgu nasıl çalıştırabileceğiniz gösterir.
 

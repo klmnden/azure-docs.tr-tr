@@ -1,25 +1,19 @@
 ---
-title: "Azure Automation’da rol tabanlı erişim denetimi | Microsoft Belgeleri"
+title: "Azure Automation’da Rol Tabanlı Erişim Denetimi"
 description: "Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için erişim yönetimi sağlar. Bu makalede, Azure Automation’da RBAC’nin nasıl ayarlanacağı açıklanmaktadır."
-services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
 keywords: "otomasyon rbac, rol tabanlı erişim denetimi, azure rbac"
-ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
+services: automation
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/05/2018
-ms.author: magoedte;sngun
-ms.openlocfilehash: 753c06ec4a20650f779b68e11e1d6d6fd27a0141
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
 
@@ -203,7 +197,7 @@ Kullanıcı erişimi Yöneticisi Azure kaynaklarına kullanıcı erişimi yönet
 |Microsoft.Authorization/*|Yetkilendirme yönetme|
 |Microsoft.Support/*|Oluşturma ve Destek biletlerini yönetme|
 
-## <a name="onboarding"></a>Hazırlama
+## <a name="onboarding"></a>Ekleme
 
 Aşağıdaki tablolarda değişiklik izleme ekleme sanal makineler için gereken en düşük gerekli izinleri göster veya yönetim çözümleri güncelleştirin.
 

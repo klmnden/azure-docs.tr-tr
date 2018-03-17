@@ -1,24 +1,20 @@
 ---
-title: "Azure Otomasyonu DSC sürekli dağıtımı Chocolatey ile | Microsoft Docs"
+title: "Azure Otomasyonu DSC sürekli dağıtımı Chocolatey ile"
 description: "Azure Otomasyonu DSC ve Chocolatey Paket Yöneticisi'ni kullanarak sürekli dağıtım DevOps.  Örnek tam JSON ARM şablonu ve PowerShell kaynağı."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: na
-ms.date: 10/29/2016
-ms.author: golive
-ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 8c1427bd40a6fd75a755c4709d88a4b8e4c55571
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Kullanım örneği: Automation DSC ve Chocolatey kullanarak sanal makineleri için sürekli dağıtım
 Bir DevOps dünyanın çeşitli noktalarıyla sürekli tümleştirme ardışık düzeninde yardımcı olmak üzere birçok araç vardır.  Azure Otomasyonu istenen durum yapılandırması (DSC) bir DevOps takımlar uygulayabileceğiniz seçeneklerine Hoş Geldiniz yeni ektir.  Bu makalede, bir Windows bilgisayar için yukarı sürekli dağıtımı (CD) ayarı gösterilmektedir.  (Bir web sitesi, örneğin gibi) rolü ve ek roller için buradan gerektiği kadar Windows bilgisayarlar dahil olmak üzere teknik kolayca genişletebilirsiniz.
@@ -77,7 +73,7 @@ Ya da el ile yaklaşım vardır.  Bir Windows bilgisayar için bir PowerShell t�
 
 * İş istasyonunuza, aşağıdaki gibi gereken modülünü yükleyin:
   * Yükleme [Windows Management Framework v5](http://aka.ms/wmf5latest) (Windows 10 için gerekli değildir)
-  * `Install-Module –Name MODULE-NAME`< — PowerShell Galerisi'nden modül alan 
+  * `Install-Module –Name MODULE-NAME`    < — PowerShell Galerisi'nden modül alan 
 * Modül klasöründen kopyalayın `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` geçici bir klasöre 
 * Örnekler ve belgeler ana klasöründen silin 
 * ZIP dosyasının tam olarak aynı klasörü adlandırma ana klasör zip 
@@ -138,7 +134,7 @@ ISVBoxConfig.ps1:
         }    
     }
 
-Yeni-ConfigurationScript.ps1:
+New-ConfigurationScript.ps1:
 
     Import-AzureRmAutomationDscConfiguration ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
@@ -172,7 +168,7 @@ Elbette, bir paket üretim bir VM'de güncelleştirdiğinizde, güncelleştirme 
 
 Bu kullanım örneğin tam kaynak konusu [bu Visual Studio projesi](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) github'da.
 
-## <a name="related-articles"></a>İlgili makaleler
+## <a name="related-articles"></a>İlgili Makaleler
 * [Azure Otomasyonu DSC genel bakış](automation-dsc-overview.md)
 * [Azure Otomasyonu DSC cmdlet'leri](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md)

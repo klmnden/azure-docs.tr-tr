@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma
 
@@ -56,6 +56,9 @@ Bir etki alanına katılmış Hdınsight kümesi oluşturduğunuzda, aşağıdak
 - **Kuruluş birimi**: Hdınsight kümesi ile kullanmak istediğiniz kuruluş biriminin ayırt edici adı. Örneğin: OU HDInsightOU, DC = contoso, DC = onmicrosohift, DC = com. Bu OU mevcut değilse, Hdınsight kümesi bu OU oluşturmaya çalışır. 
 - **LDAPS URL**: Örneğin, ldaps://contoso.onmicrosoft.com:636
 - **Access kullanıcı grubuna**: kümeye eşitlemek istediğinizden, kullanıcılar güvenlik grupları. Örneğin, HiveUsers. Birden çok kullanıcı gruplarını belirtmek istiyorsanız, bunları virgül ile ayırın ','.
+ 
+> [!NOTE]
+> Apache Zeppelin yönetici hizmet hesabı kimlik doğrulaması için etki alanı adını kullandığından, hizmet hesabı, UPN soneki Apache düzgün bir şekilde Zeppelin için etki alanı adıyla aynı olmalıdır.
  
 Aşağıdaki ekran görüntüsü, Azure portalında yapılandırmaları gösterilmiştir:
 

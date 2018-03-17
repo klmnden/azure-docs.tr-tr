@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Günlükleri toplama
 
@@ -52,16 +52,16 @@ Azure AD B2C, Application Insights'a veri göndermek için bir özelliği destek
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. Zaten yoksa, bir alt düğüm eklemek `<UserJourneyBehaviors>` için `<RelyingParty>` düğümü. Hemen sonra bulunmalıdır`<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
+1. Zaten yoksa, bir alt düğüm eklemek `<UserJourneyBehaviors>` için `<RelyingParty>` düğümü. Hemen sonra bulunmalıdır `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Bir alt öğesi olarak aşağıdaki düğüm eklemek `<UserJourneyBehaviors>` öğesi. Değiştirdiğinizden emin olun `{Your Application Insights Key}` ile **izleme anahtarını** gelen Application Insights önceki bölümde edindiğiniz.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
   ```
 
-  * `DeveloperMode="true"`en yüksek hacim rakamlarına kısıtlanmış ancak geliştirme için işleme ardışık düzeninden telemetri iyi hızlandırmak için Applicationınsights söyler.
-  * `ClientEnabled="true"`Sayfa görünümü ve istemci tarafı hataları (gerekli) izlemek için Applicationınsights istemci tarafı komut dosyası gönderir.
-  * `ServerEnabled="true"`Varolan UserJourneyRecorder JSON özel bir olay Application Insights'a gönderir.
+  * `DeveloperMode="true"` en yüksek hacim rakamlarına kısıtlanmış ancak geliştirme için işleme ardışık düzeninden telemetri iyi hızlandırmak için Applicationınsights söyler.
+  * `ClientEnabled="true"` Sayfa görünümü ve istemci tarafı hataları (gerekli) izlemek için Applicationınsights istemci tarafı komut dosyası gönderir.
+  * `ServerEnabled="true"` Varolan UserJourneyRecorder JSON özel bir olay Application Insights'a gönderir.
 Örnek:
 
   ```XML
@@ -97,7 +97,7 @@ Azure AD B2C, Application Insights'a veri göndermek için bir özelliği destek
 | Sorgu | Açıklama |
 |---------------------|--------------------|
 İzlemeler | Tüm Azure AD B2C tarafından oluşturulan günlükler bakın |
-izlemeler \| Burada zaman damgası > ago(1d) | Tüm son gündür Azure AD B2C tarafından oluşturulan günlükler bakın
+İzlemeler \| olduğu zaman damgası > ago(1d) | Tüm son gündür Azure AD B2C tarafından oluşturulan günlükler bakın
 
 Girişleri uzun olabilir.  Daha ayrıntılı bir bakış için CSV'ye aktarın.
 
@@ -105,6 +105,8 @@ Analiz aracı hakkında daha fazla bilgiyi [burada](https://docs.microsoft.com/a
 
 >[!NOTE]
 >Topluluk kimlik geliştiricilere yardımcı olmak için bir kullanıcı gezisine Görüntüleyici geliştirmiştir.  Bu değil Microsoft tarafından desteklenir ve kesin olarak kullanılabilir hale-değil.  Application Insights örneğinden okur ve gezisine olayları kullanıcı iyi yapısı görünümünü sağlar.  Kaynak kodu alın ve kendi çözümde dağıtın.
+
+Application Insights olayları okur Görüntüleyicisi sürümü bulunduğu [burada](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
 
 >[!NOTE]
 >Burada açıklanan ayrıntılı etkinlik günlükleri şu anda tasarlanmış **yalnızca** özel ilkeler geliştirmeye yardımcı olmak için. Geliştirme modunu üretimde kullanmayın.  Geliştirme sırasında gönderilen ve kimlik sağlayıcılardan gelen tüm talepler günlüklerini toplayın.  Üretimde kullandıysanız, geliştirici PII (özel olarak tanımlanabilen bilgiler) sahip oldukları App Insights günlüğünde toplanan sorumluluğunu varsayar.  Bu ayrıntılı günlükler yalnızca ilke yerleştirildiği olduğunda toplanır **geliştirme MODUNU**.

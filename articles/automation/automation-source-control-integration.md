@@ -1,24 +1,18 @@
 ---
-title: "Kaynak denetimi tümleştirmesi Azure Automation | Microsoft Docs"
+title: "Azure Automation denetimi tümleştirmesinin kaynağı"
 description: "Bu makalede, Azure automation'da GitHub ile kaynak denetimi tümleştirme açıklanmaktadır."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte;sngun
-ms.openlocfilehash: 15e69105d4171c63b4ccef0b072bccf49a2e9ceb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: 96b4f38ea990edcb23ae792d40651672a921a7c7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
 Kaynak denetimi tümleştirmesinin Automation hesabınız GitHub kaynak denetim deponuza runbook'larda ilişkilendirmenizi sağlar. Kaynak denetimi kolayca ekibinizle işbirliği, değişiklikleri izlemek ve runbook'larınızın önceki sürümleri geri sağlar. Örneğin, kaynak denetimi geliştirme ortamınızda Otomasyon üretim test kodu Yükselt kolaylaşır, geliştirme, test veya üretim Automation hesapları, kaynak denetimine farklı dallarda eşitleme sağlar hesabı.
@@ -40,7 +34,7 @@ GitHub hesabı ve Azure Otomasyonu bağlantı kurmak istediğiniz bir depo zaten
    
 1. **Kaynak denetimi** sayfası GitHub hesabı ayrıntılarınızı yapılandırabileceğiniz açılır. Yapılandırılacak parametrelerin listesi aşağıdadır:  
    
-   | Parametre | **Açıklama** |
+   | **Parametre** | **Açıklama** |
    |:--- |:--- |
    | Kaynak Seç |Bir kaynak seçin. Şu anda yalnızca **GitHub** desteklenir. |
    | Yetkilendirme |Tıklatın **Authorize** düğmesi, GitHub deposunu Azure Otomasyonu erişim vermek için. Zaten başka bir pencerede GitHub hesabınızda oturum açtıysanız, bu hesabı kimlik bilgileri kullanılır. Yetkilendirme başarılı olduktan sonra sayfanın altında GitHub kullanıcı adınızı gösterecektir **yetkilendirme özelliği**. |
@@ -63,7 +57,7 @@ GitHub hesabı ve Azure Otomasyonu bağlantı kurmak istediğiniz bir depo zaten
    
    * Değişkeni **Microsoft.Azure.Automation.SourceControl.Connection** aşağıda gösterildiği gibi bağlantı dizesi değerlerini içerir.  
      
-     | Parametre | **Değer** |
+     | **Parametre** | **Değer** |
      |:--- |:--- |
      | Ad |Microsoft.Azure.Automation.SourceControl.Connection |
      | Tür |Dize |
@@ -71,7 +65,7 @@ GitHub hesabı ve Azure Otomasyonu bağlantı kurmak istediğiniz bir depo zaten
 
     * Değişkeni **Microsoft.Azure.Automation.SourceControl.OAuthToken**, sizin OAuthToken güvenli şifreli değerini içerir.  
 
-    |Parametre            |**Değer** |
+    |**Parametre**            |**Değer** |
     |:---|:---|
     | Ad  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
     | Tür | Unknown(Encrypted) |

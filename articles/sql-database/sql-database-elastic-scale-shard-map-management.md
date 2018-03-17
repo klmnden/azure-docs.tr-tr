@@ -7,20 +7,20 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 03/16/2018
 ms.author: sstein
-ms.openlocfilehash: beddb3d9ac4a8c1ec5bd034c959c6b734c5b4403
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cf8d4427cddbe6368ac265fe9ecc0f408f7fb1fb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Parça eşleme Yöneticisi veritabanlarıyla ölçeğini genişletme
 SQL Azure veritabanlarını kolayca ölçeğini bir parça eşleme Yöneticisi'ni kullanın. Parça eşleme Yöneticisi'ni bir parça kümesindeki tüm parça (veritabanları) hakkında genel eşleme bilgilerini tutan özel bir veritabanıdır. Meta veri değeri alınarak doğru veritabanına bağlanmak bir uygulama sağlar **parçalama anahtar**. Ayrıca, yerel verileri izlemek haritalar kümesindeki her parça içerir (olarak bilinen **shardlets**). 
 
 ![Parça eşleme Yönetimi](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Bu eşlemeler nasıl oluşturulur anlamanız parça eşleme yönetimi için önemlidir. Bu yapılır ShardMapManager sınıfını kullanma ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)), bulunan [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) parça eşlemeleri yönetmek için.  
+Bu eşlemeler nasıl oluşturulur anlamanız parça eşleme yönetimi için önemlidir. Bu yapılır ShardMapManager sınıfını kullanma ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), bulunan [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) parça eşlemeleri yönetmek için.  
 
 ## <a name="shard-maps-and-shard-mappings"></a>Parça eşlemeleri ve parça eşlemeleri
 Her parça için oluşturmak için parça eşleme türü seçmelisiniz. Seçimi veritabanı mimarisine bağlıdır: 
@@ -96,7 +96,7 @@ A **ShardMapManager** nesne bir Fabrika kullanarak oluşturulur ([Java](/java/ap
 
 **Lütfen dikkat edin:** **ShardMapManager** bir uygulama için başlatma kodundaki uygulama etki alanı başına yalnızca bir kez örneğinin oluşturulması. Aynı uygulama etki alanında ShardMapManager ek örneklerini oluşturulmasını artırılmış bellek ve CPU kullanımı uygulamanın ile sonuçlanır. A **ShardMapManager** parça eşlemelerinin herhangi bir sayı içerebilir. Bir tek parça eşleme birçok uygulama için yeterli olabilir, ancak veritabanlarının farklı kümeleri farklı şema veya benzersiz amacıyla kullanıldığında zamanlar vardır; Bu gibi durumlarda birden fazla parça eşlemeleri tercih edilebilir. 
 
-Bu kod, bir uygulamanın var olan açmayı denediğinde **ShardMapManager** TryGetSqlShardMapManager ile ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)) yöntemi.  Varsa bir genel temsil eden nesneler **ShardMapManager** (GSM) sağlamadığı henüz veritabanının var, istemci kitaplığının bunları orada CreateSqlShardMapManager kullanarak oluşturur ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET ](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) yöntemi.
+Bu kod, bir uygulamanın var olan açmayı denediğinde **ShardMapManager** TryGetSqlShardMapManager ile ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) yöntemi. Varsa bir genel temsil eden nesneler **ShardMapManager** (GSM) sağlamadığı henüz veritabanının var, istemci kitaplığının bunları orada CreateSqlShardMapManager kullanarak oluşturur ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET ](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) yöntemi.
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.

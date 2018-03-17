@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Market'te Azure yönetilen uygulamalar
 
@@ -42,7 +42,7 @@ Azure Market Publisher'da olmasını yapmanız gerekir:
 
 1. A Microsoft ID oluşturma - şirketinizin etki alanı, ancak tek ait bir e-posta adresi kullanarak, bir Microsoft hesabı oluşturun. Bu e-posta adresi Microsoft Developer Center'da ve bulut iş ortağı portalı için kullanılır. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
 1. Gönderme [Azure Market Adaylığı Form](https://aka.ms/ampnomination) - **yayımlamayı düşündüğünüz çözüm?**seçin **yönetilen uygulamayı**. Form gönderildikten sonra Market hazırlanma ekibi uygulama gözden geçirir ve isteği doğrular. Onay işlemi, bir ile üç gün sürebilir. Adaylığı onaylandığında, Geliştirici Merkezi kayıt ücret feragat etmiş bir promosyon kodu alırsınız. Bunu yaparsanız **değil** Market Adaylığı formu doldurun 99 kayıt ücret ödemeniz istenir.
-1. Kaydetmek [Geliştirici Merkezi](https://developer.microsoft.com) -Microsoft, kuruluşunuzun, kayıtlı ülke için geçerli bir vergi numarası geçerli yasal bir varlıkla olduğunu doğrular. Onay işlemi 5-10 gün sürebilir. Kayıt ücret önlemek için e-posta Adaylığı işleminden alınan promosyon kodu kullanın. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
+1. Kaydetmek [Geliştirici Merkezi](http://dev.windows.com/registration?accountprogram=azure) -Microsoft, kuruluşunuzun, kayıtlı ülke için geçerli bir vergi numarası geçerli yasal bir varlıkla olduğunu doğrular. Onay işlemi 5-10 gün sürebilir. Kayıt ücret önlemek için e-posta Adaylığı işleminden alınan promosyon kodu kullanın. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
 1. Oturum [bulut iş ortağı portalını](https://cloudpartner.azure.com) - yayımcı profilinde Geliştirici Merkezi hesabınızda Market yayımcı profille ilişkilendirin. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Yeni bir Azure uygulama teklifi oluşturma

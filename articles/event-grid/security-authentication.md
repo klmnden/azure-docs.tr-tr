@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Olay kılavuz güvenlik ve kimlik doğrulama 
 
@@ -24,9 +24,9 @@ Azure olay kılavuz üç tür kimlik doğrulama vardır:
 
 ## <a name="webhook-event-delivery"></a>Web kancası olay teslimi
 
-Web kancası Azure olay kılavuz gelen gerçek zamanlı olaylarını almak için birçok yolu vardır. Olduğundan her zaman yeni bir olay teslim edilecek hazır, olay kılavuz Web kancası olay gövdesinde yapılandırılan HTTP uç noktası bir HTTP isteği gönderir.
+Web kancası Azure olay kılavuzdan olaylarını almak için birçok yolu vardır. Yeni bir olay hazır olduğunda, olay kılavuz Web kancası olay gövdesinde yapılandırılan HTTP uç noktası bir HTTP isteği gönderir.
 
-Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç nokta sahipliği kanıtlamak için basit bir doğrulama kodu içeren bir POST isteği gönderir. Uygulamanızın geri doğrulama kodu Yankı tarafından yanıt vermesi gerekir. Olay kılavuz olayları doğrulama geçmedi Web kancası Uç noktalara dağıtmaz.
+Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç nokta sahipliği kanıtlamak için basit bir doğrulama kodu içeren bir POST isteği gönderir. Uygulamanızın geri doğrulama kodu Yankı tarafından yanıt vermesi gerekir. Olay kılavuz doğrulamayı geçen henüz Web kancası Uç noktalara olayları teslim değil.
 
 ### <a name="validation-details"></a>Doğrulama ayrıntıları
 
@@ -34,6 +34,7 @@ Kendi Web kancası bitiş noktası içeren olay kılavuz kaydettiğinizde, uç n
 * Olay bir üstbilgi değeri "Aeg olay türü: SubscriptionValidation" içerir.
 * Olay gövdesi diğer olay kılavuz olaylarla aynı şeması vardır.
 * Olay verileri rastgele oluşturulmuş bir dize olan bir "validationCode" özelliği içerir. Örneğin, "validationCode: acb13...".
+* Dizi yalnızca doğrulama olayı içerir. Doğrulama kodu geri echo sonra diğer olayları ayrı bir istekte gönderilir.
 
 Örnek SubscriptionValidationEvent aşağıdaki örnekte gösterilmiştir:
 
@@ -69,7 +70,7 @@ Son olarak, Azure olay kılavuz yalnızca HTTPS Web kancası uç noktaları dest
 
 ## <a name="event-subscription"></a>Olay aboneliği
 
-Bir olaya abone olmak için bilmeniz gereken **Microsoft.EventGrid/EventSubscriptions/Write** gerekli kaynak izni. Kapsamındaki yeni bir abonelik kaynağının yazmak için bu izni gerekiyor. Gerekli kaynak sistem konusunu ya da özel konu abone göre farklılık gösterir. Her iki tür, bu bölümde açıklanmıştır.
+Bir olaya abone olmak için bilmeniz gereken **Microsoft.EventGrid/EventSubscriptions/Write** gerekli kaynak izni. Yeni bir kapsam abonelik kaynağının yazıyorsanız çünkü bu izni gerekir. Gerekli kaynak sistem konusunu ya da özel konu abone göre farklılık gösterir. Her iki tür, bu bölümde açıklanmıştır.
 
 ### <a name="system-topics-azure-service-publishers"></a>Sistem konuları (Azure hizmeti yayımcılar)
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Olay kılavuz için SAS belirteci kaynağı, sona erme süresi ve imza içerir. SAS belirteci biçimi: `r={resource}&e={expiration}&s={signature}`.
 
-Kaynak olayların gönderilmesi konu yolu değil. Örneğin, geçerli bir kaynak yolu şöyledir: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+Kaynak olayları gönderiyorsanız olay kılavuz konusu yoludur. Örneğin, geçerli bir kaynak yolu şöyledir: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 İmza bir anahtarı oluşturur.
 

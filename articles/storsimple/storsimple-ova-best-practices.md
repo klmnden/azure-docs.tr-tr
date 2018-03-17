@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2017
+ms.date: 03/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple sanal dizinin en iyi uygulamalar
 ## <a name="overview"></a>Genel Bakış
@@ -38,7 +38,7 @@ Sanal dizinin sağlamada aşağıdaki en iyi yöntemleri uygulayın:
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Sanal makine türü** |**2. nesil** Windows Server 2012 veya daha sonra kullanmak için VM ve *.vhdx* görüntü. <br></br> **1. nesil** VM için bir Windows Server 2008 veya sonraki sürümünü kullanın ve *.vhd* görüntü. |Kullanırken sanal makine sürüm 8-11 *.vmdk* görüntü. |
+| **Sanal makine türü** |**2. nesil** Windows Server 2012 veya daha sonra kullanmak için VM ve *.vhdx* görüntü. <br></br> **1. nesil** VM için bir Windows Server 2008 veya sonraki sürümünü kullanın ve *.vhd* görüntü. |Kullanım sanal makine sürüm kullanırken 8 *.vmdk* görüntü. |
 | **Bellek türü** |Olarak yapılandırma **statik bellek**. <br></br> Kullanmayın **dinamik bellek** seçeneği. | |
 | **Veri disk türü** |Olarak sağlamak **dinamik olarak genişletilen**.<br></br> **Boyutu sabit** uzun sürüyor. <br></br> Kullanmayın **fark kayıt** seçeneği. |Kullanım **ince provizyon** seçeneği. |
 | **Veri diski değişikliği** |Genişletme veya küçültme izin verilmiyor. Bunu yapmak için girişiminde cihazdaki tüm yerel verilerin kaybedilmesine sonuçlanır. |Genişletme veya küçültme izin verilmiyor. Bunu yapmak için girişiminde cihazdaki tüm yerel verilerin kaybedilmesine sonuçlanır. |
@@ -106,7 +106,7 @@ Toplam disk % 15, böylece yalnızca 0.85 kullanılabilir anlık görüntülerin
 
 Beklenmeyen bir artışa Finansman, yerel bir 1,25-1,5 TB disk sağlayabilirsiniz.
 
-### <a name="group-policy"></a>Grup İlkesi
+### <a name="group-policy"></a>Grup ilkesi
 Grup İlkesi kullanıcılar ve bilgisayarlar için belirli yapılandırmaları uygulamak izin veren bir altyapıdır. Grup İlkesi ayarları, aşağıdaki Active Directory etki alanı Hizmetleri (AD DS) kapsayıcılara bağlı Grup İlkesi nesneleri (GPO'lar) içerdiği: siteleri, etki alanları veya kuruluş birimlerini (OU). 
 
 Sanal dizinizi etki alanına katılmış ise, GPO'ları uygulanabilir. Bu GPO'ları StorSimple sanal dizinin işlemi olumsuz yönde etkileyebilir bir virüsten koruma yazılımı gibi uygulamaları yükleyebilirsiniz.
@@ -236,7 +236,7 @@ Bir başarısız üzerinden sanal dizinizi gerçekleştirirken, aşağıdakileri
   * Gerçek yük devretme işlemi sırasında bir hata oluştu. Bu durumda, hedef aygıta kullanılamaz olarak işaretlenmiş. Sağlamak ve başka bir hedef sanal dizi yapılandırmak ve yük devretme için kullanmanız gerekir.
   * Yük devretme, kaynak aygıt silindi aşağıdaki tam, ancak hedef aygıt sorunları vardır ve herhangi bir veri erişemez. Verileri bulutta hala güvendedir ve kolayca başka bir sanal dizinin oluşturarak ve ardından DR için bir hedef cihaz olarak kullanılarak alınabilir.
 
-### <a name="deactivate"></a>Devre dışı bırakma
+### <a name="deactivate"></a>Devre dışı bırak
 StorSimple sanal dizinin devre dışı bıraktığınızda, aygıt ve karşılık gelen StorSimple Yöneticisi hizmeti arasındaki bağlantı sever. Devre dışı bırakma olan bir **kalıcı** işlemi ve geri alınamaz. Devre dışı bırakılan bir cihazı ile StorSimple Yöneticisi hizmeti yeniden kaydedilemedi. Daha fazla bilgi için Git [devre dışı bırakın ve StorSimple sanal dizinizi silme](storsimple-virtual-array-deactivate-and-delete-device.md).
 
 Aşağıdaki en iyi yöntemleri sanal dizinizi devre dışı bırakırken göz önünde bulundurun:

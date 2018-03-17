@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 3ac0c87ca41315eb3b63ddfab2736f68bac8dbee
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database ölçümleri ve tanılama günlükleri 
 Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
@@ -47,8 +47,8 @@ Yeni bir Azure kaynak sağlama veya var olan bir kaynak seçin. Depolama kaynağ
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU kullanımı ve sorgu süresi gibi sorgu çalışma zamanı istatistikleri hakkında bilgiler içerir.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): ne sorgularınızı, CPU, günlük ve KİLİTLEME gibi beklediğini bildirir sorgu bekleme İstatistikler hakkında bilgi içerir.
 - [Hataları](sql-database-metrics-diag-logging.md#errors-dataset): Bu veritabanında oldu SQL hatalar hakkında bilgi içerir.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-waits-dataset): hakkında ne kadar bir veritabanı zaman harcanan farklı bekleme türlerinde bekleyen bilgileri içerir.
-- [Zaman aşımları](sql-database-metrics-diag-logging.md#timeouts-dataset): bir veritabanı üzerinde gerçekleşen zaman aşımları hakkında bilgiler içerir.
+- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): hakkında ne kadar bir veritabanı zaman harcanan farklı bekleme türlerinde bekleyen bilgileri içerir.
+- [Zaman aşımları](sql-database-metrics-diag-logging.md#time-outs-dataset): bir veritabanı üzerinde gerçekleşen zaman aşımları hakkında bilgiler içerir.
 - [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): bir veritabanı üzerinde gerçekleşen olayları engelleme hakkında bilgi içerir.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Akıllı Öngörüler içerir. [Akıllı Insights hakkında daha fazla bilgi](sql-database-intelligent-insights.md).
 

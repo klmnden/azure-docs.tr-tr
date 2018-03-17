@@ -1,24 +1,20 @@
 ---
-title: "Azure Automation bağlantı varlıkları | Microsoft Docs"
+title: "Azure Automation bağlantı varlıkları"
 description: "Bağlantı varlıkları Azure Automation runbook ya da DSC yapılandırması bir dış hizmet veya uygulamaya bağlanmak için gereken bilgileri içerir. Bu makalede, bağlantıları ve bunlarla metinsel ve grafik yazma çalışma konusunda ayrıntılar açıklanmaktadır."
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/13/2017
-ms.author: magoedte; bwren
-ms.openlocfilehash: c1e56f00e46dc3d04f6ac3bb42df6c1935c5c8b0
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 547ec5a7de7a58e591a2ea44b8e54804ca41974c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation bağlantı varlıkları
 
@@ -26,8 +22,8 @@ Bir Otomasyon bağlantı varlığı runbook ya da DSC yapılandırması bir dı�
 
 Bir bağlantı oluşturduğunuzda belirtmelisiniz bir *bağlantı türü*. Bağlantı türü bir özellikler kümesi tanımlayan bir şablondur. Bağlantı, bağlantı türü tanımlanmış her bir özellik için değerleri tanımlar. Bağlantı türleri için Azure Automation tümleştirme modülleri eklenir veya ile oluşturulan [Azure Otomasyon API](http://msdn.microsoft.com/library/azure/mt163818.aspx) tümleştirme modülü bir bağlantı türü içeriyorsa ve Otomasyon hesabınızda içeri aktarıldı. Aksi halde, bir Otomasyon bağlantı türünü belirtmek için bir meta veri dosyası oluşturmanız gerekir.  Bu ilgili daha fazla bilgi için bkz: [tümleştirme modülleri](automation-integration-modules.md).  
 
->[!NOTE] 
->Azure Automation güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantıları ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak Azure Automation depolanır. Bu anahtarı bir sertifika tarafından şifrelenir ve Azure Otomasyonu'nda depolanır. Güvenli bir varlık depolamak önce anahtar Otomasyon hesabı için sertifika aracılığıyla çözülür ve varlık şifrelemek için kullanılan.
+>[!NOTE]
+>Azure Automation güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantıları ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak Azure automation'da depolanır. Bu anahtar, anahtar kasasında depolanır. Güvenli bir varlık depolamadan önce anahtarı anahtar Kasası'nı yüklenir ve varlık şifrelemek için kullanılır.
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet'leri
 
@@ -36,7 +32,7 @@ Aşağıdaki tabloda yer alan cmdlet'ler Windows PowerShell ile Automation bağl
 |Cmdlet|Açıklama|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Bir bağlantı alır. Bağlantının alanların değerlerini içeren bir karma tablosu da içerir.|
-|[AzureRmAutomationConnection yeni](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Yeni bir bağlantı oluşturur.|
+|[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Yeni bir bağlantı oluşturur.|
 |[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Varolan bir bağlantıyı kaldırın.|
 |[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Mevcut bir bağlantı için belirli bir alanın değerini ayarlar.|
 

@@ -6,23 +6,22 @@ documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
 editor: 
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e25a1f8d807fa317e8ce246fd49de034182af96
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV’leri kullanarak iş yükünüzü izleme
-Bu makalede dinamik yönetim görünümlerini (Dmv'leri), iş yükünü izlemek ve sorgu yürütme Azure SQL Data Warehouse araştırmak için nasıl kullanılacağını açıklar.
+Bu makalede dinamik yönetim görünümlerini (Dmv'leri), iş yükünü izlemek için nasıl kullanılacağını açıklar. Bu, Azure SQL Data Warehouse sorgu yürütme araştırma içerir.
 
 ## <a name="permissions"></a>İzinler
 Bu makalede Dmv'leri sorgu görünümü veritabanı durumu veya Denetim izni gerekir. Genellikle çok daha kısıtlayıcı olduğu gibi izni veriliyor görünüm veritabanı durumu tercih edilen izni ' dir.
@@ -72,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 Önceki sorgu sonuçlarından **istek kimliği Not** araştırmak istediğiniz sorgunun.
 
-İçindeki sorgular **askıya** durumu eşzamanlılık sınırlara sıraya. Bu sorguları da UserConcurrencyResourceType türüne sahip sys.dm_pdw_waits bekler sorgu görünür. Bkz: [eşzamanlılık ve iş yükü yönetimi] [ Concurrency and workload management] eşzamanlılık sınırları hakkında daha fazla ayrıntı için. Sorgular gibi başka bir nedenle nesne kilitleri için de bekleyebilirsiniz.  Sorgunuz bekliyor. bir kaynak için bkz: [kaynaklar bekleniyor sorguları araştırma] [ Investigating queries waiting for resources] bu makalede daha aşağı.
+İçindeki sorgular **askıya** durumu eşzamanlılık sınırlara sıraya. Bu sorguları da UserConcurrencyResourceType türüne sahip sys.dm_pdw_waits bekler sorgu görünür. Eşzamanlılık sınırları hakkında daha fazla bilgi için bkz: [performans katmanı](performance-tiers.md) veya [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md). Sorgular gibi başka bir nedenle nesne kilitleri için de bekleyebilirsiniz.  Sorgunuz bekliyor. bir kaynak için bkz: [kaynaklar bekleniyor sorguları araştırma] [ Investigating queries waiting for resources] bu makalede daha aşağı.
 
 Sys.dm_pdw_exec_requests tablosundaki bir sorgunun arama basitleştirmek için kullanma [etiket] [ LABEL] sys.dm_pdw_exec_requests görünümünde aranabilir sorgunuzu yorum atamak için.
 
@@ -135,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Denetleme *total_elapsed_time* belirli bir dağıtım diğerlerinden veri taşıma için önemli ölçüde uzun sürüyor durumunda görmek için sütun.
-* Uzun süre çalışan dağıtım için denetleme *rows_processed* bu dağıtım noktasından taşınan satır sayısını diğerlerinden daha önemli ölçüde daha büyük olup olmadığını görmek için sütun. Öyleyse, bu, temel alınan verilerinizin eğme gösteriyor olabilir.
+* Uzun süre çalışan dağıtım için denetleme *rows_processed* bu dağıtım noktasından taşınan satır sayısını diğerlerinden daha önemli ölçüde daha büyük olup olmadığını görmek için sütun. Öyleyse, bu bulma, temel alınan verilerinizin eğme gösterebilir.
 
 Sorgu çalışıyorsa, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] SQL Server tahmini planı şu anda çalışan SQL adım içinde belirli bir dağıtım için SQL Server plan önbelleğinde almak için kullanılabilir.
 
@@ -174,9 +173,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Sorgu etkin olarak başka bir sorgu kaynaklardan bekleyen sonra durumu olacaktır **AcquireResources**.  Sorgu gerekli tüm kaynaklara sahip sonra durumu olacaktır **izin verildi**.
 
 ## <a name="monitor-tempdb"></a>İzleyici tempdb
-Yüksek tempdb kullanımı yavaş performans ve bellek sorunları dışında kök neden olabilir. Sorgu yürütme sırasında sınırlarına ulaşması tempdb bulursanız, veri ambarı ölçeklendirme göz önünde bulundurun. Aşağıdaki sorgu her düğümde başına tempdb kullanımı tanımlamak açıklar. 
+Yüksek tempdb kullanımı yavaş performans ve bellek sorunları dışında kök neden olabilir. Sorgu yürütme sırasında sınırlarına ulaşması tempdb bulursanız, veri ambarı ölçeklendirme göz önünde bulundurun. Aşağıdaki bilgiler, her bir düğümde sorgu başına tempdb kullanımı tanımlamak açıklar. 
 
-Sys.dm_pdw_sql_requests için uygun düğüm kimliği ilişkilendirmek için aşağıdaki görünümü oluşturun. Bu, diğer geçiş Dmv'leri yararlanır ve bu tabloları sys.dm_pdw_sql_requests ile birleştirme olanak tanır.
+Sys.dm_pdw_sql_requests için uygun düğüm kimliği ilişkilendirmek için aşağıdaki görünümü oluşturun. Düğüm kimliği sahip diğer geçiş Dmv'leri kullanın ve bu sys.dm_pdw_sql_requests tablolarla katılma olanak sağlar.
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -284,8 +283,8 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [sistem görünümleri] [ System views] Dmv'leri hakkında daha fazla bilgi için.
-Bkz: [SQL veri ambarı en iyi yöntemler] [ SQL Data Warehouse best practices] en iyi uygulamalar hakkında daha fazla bilgi için
+Dmv'leri hakkında daha fazla bilgi için bkz: [sistem görünümleri][System views].
+
 
 <!--Image references-->
 
@@ -294,7 +293,6 @@ Bkz: [SQL veri ambarı en iyi yöntemler] [ SQL Data Warehouse best practices] e
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->

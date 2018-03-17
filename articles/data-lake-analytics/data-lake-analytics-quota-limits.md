@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Lake Analytics kota sınırları | Microsoft Docs"
+title: "Azure Data Lake Analytics kota sınırları"
 description: "Ayarlama ve Azure Data Lake Analytics (ADLA) hesaplarındaki kota sınırları artırmak hakkında bilgi edinin."
 services: data-lake-analytics
 keywords: Azure Data Lake Analytics
@@ -8,33 +8,31 @@ author: omidm1
 editor: omidm1
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/18/2017
+ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 957f306ea0e80b5830ad64e5ef06c6d122d9eccc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Azure Data Lake Analytics kota sınırları
 
-Ayarlama ve Azure Data Lake Analytics (ADLA) hesaplarındaki kota sınırları artırmak hakkında bilgi edinin. Bu sınırlar bilerek, U-SQL işi davranışı anlamanıza yardımcı olabilir. Bize ulaşmasını tarafından maksimum sınırları artırmak için tüm kota sınırları yumuşak,.
+Ayarlama ve Azure Data Lake Analytics (ADLA) hesaplarındaki kota sınırları artırmak hakkında bilgi edinin. Bu sınırlar bilerek, U-SQL işi davranışı anlamanıza yardımcı olabilir. Tüm kota sınırları yumuşak, olduğundan maksimum sınırları Azure desteğine başvurarak artırabilirsiniz.
 
 ## <a name="azure-subscriptions-limits"></a>Azure abonelikleri sınırları
 
 **ADLA en fazla abonelik başına hesapları:** 5
 
- Bu ADLA hesapları abonelik başına oluşturabileceğiniz en fazla sayısıdır. Altıncı bir ADLA hesabı oluşturmayı denerseniz, "en fazla izin Data Lake Analytics hesabı sayısını (5) altında abonelik adını bölgesindeki ulaştığınız" bir hata alırsınız. Bu durumda, tüm kullanılmayan ADLA hesapları silmek ya da tarafımızca ulaşmak [bir destek bileti açmadan](#increase-maximum-quota-limits).
+Bu ADLA hesapları her bölge, abonelik başına oluşturabileceğiniz en fazla sayısıdır. Altıncı bir ADLA hesabı oluşturmayı denerseniz, "en fazla izin Data Lake Analytics hesabı sayısını (5) altında abonelik adını bölgesindeki ulaştığınız" bir hata alırsınız. Bu durumda, başka bir seçebileceğiniz uygun olduğunda bölge ya da delete kullanılmayan tüm ADLA hesapları aynı bölge veya kişi Azure destek tarafından [bir destek bileti açmadan](#increase-maximum-quota-limits) kota artışı isteği göndermek üzere.
 
 ## <a name="adla-account-limits"></a>ADLA hesabı sınırları
 
 **Hesap başına en fazla Analytics birimi (Avustralya) sayısı:** 250
 
-Hesabınızı çalışabilir Avustralya üst sınırını budur. Avustralya toplam tüm işleri arasında bu sınırı aşarsa, yeni işleri otomatik olarak kuyruğa alınır. Örneğin:
+Hesabınızı çalışabilir Avustralya üst sınırını budur. Avustralya çalışan tüm işler arasında toplam sayısı bu sınırı aşarsa, yeni işleri otomatik olarak kuyruğa alınır. Örneğin:
 
 * Yalnızca bir işe varsa 250 ile ikinci bir gönderdiğinizde Avustralya, işi çalıştırılırken iş kuyruğundaki ilk iş tamamlanana kadar bekler.
 * Çalışan beş işleri zaten varsa ve her 50 kullanarak 20 gereken altıncı bir işi gönderdiğinizde Avustralya kalmayana kadar 20 iş kuyruğundaki bekler Avustralya Avustralya kullanılabilir.
@@ -50,24 +48,24 @@ Maksimum sayıda hesabınızda çalışabilir işi budur. Bu değer yeni işleri
 3. **Özellikler**'e tıklayın.
 4. Ayarlama **paralellik** ve **eşzamanlı iş** gereksinimlerinize uygun olarak.
 
-    ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+    ![Azure Data Lake Analytics portal sayfası](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
 
 ## <a name="increase-maximum-quota-limits"></a>En yüksek kota sınırları artırmak
 
 1. Azure portalında bir destek isteği açın.
 
-    ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
+    ![Azure Data Lake Analytics portal sayfası](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-help-support.png)
 
-    ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
+    ![Azure Data Lake Analytics portal sayfası](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request.png)
 2. Sorun türü seçin **kota**.
 3. Seçin, **abonelik** ("Deneme" aboneliği olmadığından emin olun).
 4. Kota türü seçin **Data Lake Analytics**.
 
-    ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
+    ![Azure Data Lake Analytics portal sayfası](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-basics.png)
 
-5. Sorun dikey penceresinde istenen artış sınırınızı açıklayan **ayrıntıları** bu ek kapasite neden ihtiyacınız olan.
+5. Sorun sayfasında, istenen artış sınırınızı açıklayan **ayrıntıları** bu ek kapasite neden ihtiyacınız olan.
 
-    ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
+    ![Azure Data Lake Analytics portal sayfası](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-support-request-details.png)
 
 6. İletişim bilgilerinizi doğrulayın ve destek isteği oluşturun.
 

@@ -2,18 +2,19 @@
 title: "Sanal ağ hizmet uç noktaları ve Azure SQL veritabanı için kuralları | Microsoft Docs"
 description: "Bir alt ağ, sanal ağ hizmeti uç noktası olarak işaretleyin. Ardından uç noktası olarak bir sanal ağ kuralı Azure SQL veritabanınıza ACL. SQL veritabanı sonra tüm sanal makineler ve alt ağdaki diğer düğümlere gelen iletişimi kabul eder."
 services: sql-database
+ms.service: sql-database
 author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 61f3112d684e0b1ec1d331f063f7930b3dc64d0c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -229,6 +230,12 @@ Bu bölümde nasıl kullanabileceğinizi gösteren [Azure portal] [ http-azure-p
 
 Bir PowerShell komut dosyası ayrıca sanal ağ kuralları oluşturabilirsiniz. Önemli cmdlet **yeni AzureRmSqlServerVirtualNetworkRule**. İlgileniyorsanız, bkz: [Azure SQL veritabanı için bir sanal ağ hizmeti uç noktası ve kuralı oluşturmak için PowerShell][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
+#### <a name="rest-api-alternative"></a>REST API alternatif
+
+Dahili olarak, SQL VNet eylemler için PowerShell cmdlet'leri REST API çağrısı. REST API'lerini doğrudan çağırabilirsiniz.
+
+- [Sanal ağ kuralları: işlemleri][rest-api-virtual-network-rules-operations-862r]
+
 #### <a name="prerequisites"></a>Önkoşullar
 
 Belirli sanal ağ hizmeti uç noktası ile etiketli bir alt ağ zaten olmalıdır *türü adı* Azure SQL veritabanı ilgilidir.
@@ -288,6 +295,8 @@ Azure SQL veritabanı için sanal ağ kuralı özelliği geç Eylül 2017 içind
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure SQL veritabanı için bir sanal ağ hizmeti uç noktası ve bir sanal ağ kuralı oluşturmak için PowerShell kullanın.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Sanal ağ kuralları: İşlemleri] [ rest-api-virtual-network-rules-operations-862r] REST API'leri ile
+
 
 
 <!-- Link references, to images. -->
@@ -328,6 +337,7 @@ Azure SQL veritabanı için sanal ağ kuralı özelliği geç Eylül 2017 içind
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
+[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
 
 
 

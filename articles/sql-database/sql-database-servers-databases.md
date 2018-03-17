@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: a6e1b6230742c1c2f065418110f76932306a9588
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL veritabanı sunucuları ve veritabanları oluşturma ve yönetme
 
@@ -21,7 +21,7 @@ SQL veritabanı veritabanları üç tür sunar:
 
 - İçinde oluşturulan tek bir veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) tanımlanan bir dizi [farklı iş yükleri için işlem ve depolama kaynaklarını](sql-database-service-tiers.md). Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
 - Bir parçası olarak oluşturulmuş bir veritabanını bir [veritabanları havuzu](sql-database-elastic-pool.md) içinde bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) tanımlanan bir dizi [farklı iş yükleri için işlem ve depolama kaynaklarını](sql-database-service-tiers.md) olan Tüm havuzdaki veritabanları arasında paylaşılan. Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
-- Bir [bir SQL server örneğini](sql-database-managed-instance.md) içinde oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) işlem ve depolama kaynaklarını bu sunucu örneğindeki tüm veritabanları için tanımlanmış bir dizi. Yönetilen bir örneği, sistem ve kullanıcı veritabanlarını içerir. Yönetilen örnek uygulamayı yeniden olmadan veritabanı yükseltme-ve-kaydırma tam yönetilen bir PaaS sağlamak üzere tasarlanmıştır. Yönetilen örneği şirket içi SQL Server programlama modeli ile yüksek uyumluluk sağlar ve SQL Server özellikleri ve eşlik eden araçları ve Hizmetleri büyük çoğunu destekler.  
+- Bir [bir SQL server örneğini](sql-database-managed-instance.md) (yönetilen örneği) oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) işlem ve depolama kaynaklarını bu sunucu örneğindeki tüm veritabanları için tanımlanmış bir dizi. Yönetilen bir örneği, sistem ve kullanıcı veritabanlarını içerir. Yönetilen örnek uygulamayı yeniden olmadan veritabanı yükseltme-ve-kaydırma tam yönetilen bir PaaS sağlamak üzere tasarlanmıştır. Yönetilen örneği şirket içi SQL Server programlama modeli ile yüksek uyumluluk sağlar ve SQL Server özellikleri ve eşlik eden araçları ve Hizmetleri büyük çoğunu destekler.  
 
 Microsoft Azure SQL veritabanı tablo veri akışı (TDS) Protokolü istemci sürümü 7.3 veya üst sürümünü destekler ve yalnızca şifrelenmiş TCP/IP bağlantılarını sağlar.
 
@@ -140,7 +140,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları ile oluşturmak ve yön
 |[az group create](/cli/azure/group#az_group_create)|Bir kaynak grubu oluşturur|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Sunucu oluşturur|
 |[az sql sunucu listesi](/cli/azure/sql/server#az_sql_server_list)|Sunucuları listeler|
-|[az sql server listesi-kullanımları](/cli/azure/sql/server#az_sql_server_list-usages)|Sunucu kullanımları döndürür|
+|[az sql server listesi-kullanımları](/cli/azure/sql/server#az_sql_server_list_usages)|Sunucu kullanımları döndürür|
 |[az sql server Göster](/cli/azure/sql/server#az_sql_server_show)|Bir sunucu alır|
 |[az sql server güncelleştirmesi](/cli/azure/sql/server#az_sql_server_update)|Bir sunucu güncelleştirir|
 |[az sql server silme](/cli/azure/sql/server#az_sql_server_delete)|Bir sunucu siler|
@@ -196,7 +196,6 @@ Azure SQL server, veritabanları ve güvenlik duvarları oluşturmak ve yönetme
 |[Sunucuları - liste](/rest/api/sql/servers/list)|Sunucularının bir listesini döndürür.|
 |[Sunucuları - kaynak grubuna göre listesi](/rest/api/sql/servers/listbyresourcegroup)|Bir kaynak grubunda sunucularının bir listesini döndürür.|
 |[Sunucuları - güncelleştirme](/rest/api/sql/servers/update)|Var olan bir sunucu güncelleştirir.|
-|[Sunucuları - Sql](/rest/api/sql/servers%20-%20sql)|Belirtilen ada sahip bir kaynak oluşturulan olup olmadığını belirler.|
 |[Veritabanları - oluştur veya güncelleştir](/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya varolan bir veritabanını güncelleştirir.|
 |[Veritabanları - Al](/rest/api/sql/databases/get)|Bir veritabanı alır.|
 |[Veritabanı - esnek havuz tarafından Al](/rest/api/sql/databases/getbyelasticpool)|Bir veritabanını bir esnek havuz içinde alır.|

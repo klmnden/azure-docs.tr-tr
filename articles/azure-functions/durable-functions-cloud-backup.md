@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-dışarı/fan-arada senaryoda dayanıklı işlevleri - bulut yedekleme örneği
 
 *Fan-dışarı/fan-arada* birden çok işlevleri eşzamanlı olarak yürütülen ve ardından bazı toplama sonuçlarına gerçekleştirme desenini başvuruyor. Bu makalede kullanan bir örneğin açıklanmaktadır [dayanıklı işlevleri](durable-functions-overview.md) fan-arada/fan kapatma senaryo uygulamak için. Örnek tümü veya bir uygulamanın site içeriğini bazıları Azure depolama alanına yedekler dayanıklı bir işlevdir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * ' Ndaki yönergeleri izleyin [yükleme dayanıklı işlevleri](durable-functions-install.md) örneğini kurmak için.
 * Bu makalede, zaten gitti varsayar [Hello dizisi](durable-functions-sequence.md) örnek gözden geçirme.
@@ -97,7 +97,7 @@ Uygulama diskten dosyayı yükler ve zaman uyumsuz olarak "yedekleme" kapsayıc�
 > [!NOTE]
 > Bu bir g/ç işlemleri içine taşıma kusursuz örnektir bir `activityTrigger` işlevi. Yalnızca iş birçok farklı VM dağıtılabilir, ancak ayrıca denetim noktası oluşturma yararları ilerleme elde edersiniz. Ana bilgisayar işlemi için herhangi bir nedenle sonlandırıldı, hangi yüklemeleri daha önce tamamlamış bildirin.
 
-## <a name="run-the-sample"></a>Örnek çalıştırın
+## <a name="run-the-sample"></a>Örneği çalıştırma
 
 Aşağıdaki HTTP POST isteği göndererek orchestration başlatabilirsiniz.
 
@@ -158,7 +158,7 @@ Tek bir C# dosyasında bir Visual Studio projesi olarak orchestration şöyledir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu örnek, fan-dışarı/fan-arada desen uygulamak nasıl göstermiştir. Sonraki örnek nasıl uygulandığını gösterir [durum bilgisi olan tek](durable-functions-singletons.md) içinde desen bir [eternal orchestration](durable-functions-eternal-orchestrations.md).
+Bu örnek, fan-dışarı/fan-arada desen uygulamak nasıl göstermiştir. Sonraki örnek İzleyicisi'ni kullanarak desen uygulamak gösterilmiştir [dayanıklı zamanlayıcılar](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Durum bilgisi olan tek örnek çalıştırın](durable-functions-counter.md)
+> [İzleyici örneğini çalıştırın](durable-functions-monitor.md)
