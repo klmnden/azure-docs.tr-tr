@@ -57,10 +57,12 @@ Premium depolama özelliklerden bazıları şunlardır:
 
     Premium depolama hesabı yalnızca yerel olarak yedekli depolama çoğaltma seçeneği olarak destekler. Yerel olarak yedekli depolama tek bir bölge içinde verileri üç kopyasını tutar. Bölgesel olağanüstü durum kurtarma için farklı bir bölgede, VM diskleri kullanarak yedeklemelisiniz [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md). Ayrıca Yedekleme kasası olarak coğrafi olarak yedekli depolama (GRS) hesabı kullanmanız gerekir. 
 
-    Azure depolama hesabınızın yönetilmeyen diskleriniz için bir kapsayıcı olarak kullanır. Bir Azure DS serisi, DSv2 serisi, GS serisi, oluşturduğunuzda veya Fs-serisi VM yönetilmeyen disklerle ve premium depolama hesabı, işletim sisteminizi seçin ve veri diskleri bu depolama hesabında depolanır.
+    Azure depolama hesabınızın yönetilmeyen diskleriniz için bir kapsayıcı olarak kullanır. Premium depolama ile yönetilmeyen disklerini destekleyen bir Azure VM oluşturun ve bir premium depolama hesabı seçin, işletim sistemi ve veri diskleri bu depolama hesabında depolanır.
 
 ## <a name="supported-vms"></a>Desteklenen VM'ler
-Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi, Ls serisi, Fs-serisi ve B-serisi VM'ler. Bu VM türleriyle standart ve premium depolama diskleri kullanabilirsiniz. Premium depolama diskleri depolama uyumlu Premium olmayan VM dizisi ile kullanamazsınız.
+
+Premium depolama destekleyen B-serisi, DS serisi, DSv2 serisi, DSv3 serisi, GS serisi, Ls serisi, M-serisi ve Fs-serisi VM'ler. Bu VM türleriyle standart ve premium depolama diskleri kullanabilirsiniz. Premium depolama diskleri depolama uyumlu Premium olmayan VM dizisi ile kullanamazsınız.
+
 
 Windows için Azure’da VM türleri ve boyutları hakkında bilgi edinmek için bkz. [Windows VM boyutları](../articles/virtual-machines/windows/sizes.md). Linux için Azure’da VM türleri ve boyutları hakkında bilgi edinmek için bkz. [Linux VM boyutları](../articles/virtual-machines/linux/sizes.md).
 
