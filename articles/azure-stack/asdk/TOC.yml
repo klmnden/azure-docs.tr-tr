@@ -1,0 +1,87 @@
+- name: Azure yığın Geliştirme Seti Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: ASDK nedir?
+      href: asdk-what-is.md
+    - name: ASDK sürüm notları
+      href: asdk-release-notes.md
+- name: Öğreticiler
+  items:
+    - name: 1. ASDK dağıtma
+      items:
+        - name: Yükleyici - ASDK dağıtma
+          href: asdk-deploy.md
+        - name: PowerShell - ASDK dağıtma
+          href: asdk-deploy-powershell.md
+        - name: ASDK yeniden dağıtın
+          href: asdk-redeploy.md
+    - name: 2. Market öğesi ekleme
+      items:
+        - name: Azure'dan indirin
+          href: asdk-marketplace-item.md
+        - name: Yerel bir kaynaktan ekleme
+          href: asdk-marketplace-item-offline.md
+    - name: 3. Iaas hizmetleri sunar
+      href: asdk-offer-services.md
+    - name: 4. Bir teklife abone olma
+      href: asdk-subscribe-services.md
+    - name: 5. Güncelleştirme sunar ve planları
+      href: asdk-update-offers.md
+    - name: 6. Bir VM şablonu oluşturma
+      href: asdk-create-vm-template.md
+- name: Kavramlar
+  items:
+    - name: Dağıtım Planlama konuları
+      href: asdk-deploy-considerations.md
+    - name: Geliştirme Seti mimarisi
+      href: asdk-architecture.md
+    - name: ASDK Yönetimi temelleri
+      href: asdk-admin-basics.md
+    - name: Gelişmiş değerlendirme görevleri
+      href: asdk-advanced-eval.md
+- name: Nasıl yapılır
+  items:
+    - name: Kurulum ASDK
+      items:
+        - name: İndirmeyi ve ayıklamayı Geliştirme Seti
+          href: asdk-download.md
+        - name: ASDK ana bilgisayarı hazırla
+          href: asdk-prepare-host.md
+        - name: ASDK yükleyin
+          href: asdk-install.md
+        - name: Dağıtım sonrası yapılandırma
+          href: asdk-post-deploy.md
+    - name: ASDK kaydetme
+      href: asdk-register.md
+    - name: Azure yığın telemetri ayarlarını yapılandırma
+      href: asdk-telemetry.md
+    - name: Sorun Giderme
+      href: asdk-troubleshooting.md
+- name: Başvuru
+  items:
+    - name: Azure Stack PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    - name: Azure Stack CLI
+      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: İlgili
+  items:
+    - name: Azure Stack Operatör Belgeleri
+      href: /azure/azure-stack/
+    - name: Azure Stack Kullanıcı Belgeleri
+      href: /azure/azure-stack/user/
+- name: Kaynaklar
+  items:
+    - name: Azure yığın yol haritası
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure yığın MSDN Forumu
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Azure yığın belgelerine geri bildirim
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
+    - name: Fiyatlandırma Bilgileri
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Eğitim ve sertifika
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
