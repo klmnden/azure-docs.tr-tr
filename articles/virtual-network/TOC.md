@@ -27,11 +27,6 @@
 ### [Ağ güvenlik grupları](virtual-networks-nsg.md)
 
 ## Dağıtma
-### Sanal ağlar
-#### [Azure Portal](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
-#### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Ağ güvenlik grupları
 #### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)

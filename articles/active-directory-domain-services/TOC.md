@@ -22,7 +22,6 @@
 ## [Yönetilen bir etki alanının sistem durumunu denetleme](active-directory-ds-check-health.md)
 ## [Azure CSP aboneliklerinde Azure AD Domain Services kullanma](active-directory-ds-csp.md)
 ## [PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme](active-directory-ds-enable-using-powershell.md)
-## [Etki alanınızın sistem durumunu denetleme](active-directory-ds-check-health.md)
 ## Yönetilen bir etki alanına katılma
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Şablondan Windows Server VM](active-directory-ds-join-windows-vm-template.md)

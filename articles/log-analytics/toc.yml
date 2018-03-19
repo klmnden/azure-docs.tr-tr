@@ -50,7 +50,7 @@
     - name: Günlük araması
       items:
         - name: Günlük aramalarına genel bakış
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: Günlük Araması portalları
           href: log-analytics-log-search-portals.md
 - name: Nasıl yapılır kılavuzları
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: Log Arama API’si
           href: 'https://dev.loganalytics.io/'
-    - name: Eski günlük araması
-      items:
-        - name: Günlük aramalarına genel bakış
-          href: log-analytics-log-searches.md
-        - name: Arama başvurusu
-          href: log-analytics-search-reference.md
-          items:
-            - name: Normal ifadeler
-              href: log-analytics-log-searches-regex.md
-        - name: Log Arama API’si
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
     - name: Verileri çözümleme
       items:
         - name: Panolar
