@@ -2,7 +2,7 @@
 ## [Neden Azure AD?](https://azure.microsoft.com/develop/identity/signin/)
 ## [Auth temel bilgileri](active-directory-authentication-scenarios.md)
 ## [Uygulama türleri](active-directory-authentication-scenarios.md#application-types-and-scenarios)
-# Kullanmaya Başlama
+# Başlarken
 ## Mobil ve Masaüstü uygulamaları
 ### [Genel Bakış](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -57,10 +57,12 @@
 ## [Azure AD uygulama galerisi](active-directory-app-gallery-listing.md)
 ## [Office 365 Satıcı Panosu](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 ## Visual Studio ile çalışma
-### [Visual Studio bağlı hizmetlerini kullanmaya başlama](vs-active-directory-dotnet-getting-started.md)
+### [Active Directory bağlı hizmetini kullanma](vs-active-directory-add-connected-service.md)
+### [.NET MVC projelerini kullanmaya başlama](vs-active-directory-dotnet-getting-started.md)
+### [.NET MVC projeme ne oldu?](vs-active-directory-dotnet-what-happened.md)
+### [.NET WebAPI projelerini kullanmaya başlama](vs-active-directory-webapi-getting-started.md)
+### [WebAPI projeme ne oldu?](vs-active-directory-webapi-what-happened.md)
 ### [Kimlik doğrulama algılama sırasında bir hata oluştu](vs-active-directory-error.md)
-### [WebApi ile çalışmaya başlama](vs-active-directory-webapi-getting-started.md)
-### [Web API projeme ne oldu?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [ACS Geçişi](active-directory-acs-migration.md)
 ## [ADAL hatalarıyla ilgili en iyi uygulamalar](active-directory-devhowto-adal-error-handling.md)
@@ -88,7 +90,7 @@
 ### [Uygulama türleri](active-directory-v2-flows.md)
 ### [Sınırlamalar](active-directory-v2-limitations.md)
 ### [v1-v2 karşılaştırması](active-directory-v2-compare.md)
-## Kullanmaya Başlama
+## Başlarken
 ### Mobil ve Masaüstü uygulamaları
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)

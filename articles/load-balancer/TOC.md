@@ -11,6 +11,7 @@
 ## [IPv6 desteği](load-balancer-ipv6-overview.md)
 ## [Birden çok VIP](load-balancer-multivip-overview.md)
 ## [Giden bağlantılar hakkında bilgi edinme](load-balancer-outbound-connections.md)
+## [Standart Load Balancer ve Kullanılabilirlik Bölgeleri](load-balancer-standard-availability-zones.md)
 
 # Başlarken
 
@@ -49,6 +50,7 @@
 ### [Azure Load Balancer sorunlarını giderme](load-balancer-troubleshoot.md)
 
 ## Klasik dağıtım modeli makaleleri
+### [Giden bağlantılar (klasik)](load-balancer-outbound-connections-classic.md)
 ### [Cloud Services için İç Load Balancer’ı yapılandırma](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Cloud Services için İç Load Balancer’ı yapılandırma (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Cloud Services için İç Load Balancer’ı yapılandırma (CLI)](load-balancer-get-started-ilb-classic-cli.md)

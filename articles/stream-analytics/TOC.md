@@ -64,6 +64,7 @@
 ## Visual Studio araçları
 ### [Araçları yükleme](stream-analytics-tools-for-visual-studio-install.md)
 ### [Bulut işi geliştirme](stream-analytics-tools-for-visual-studio.md)
+### [Edge işi geliştirme](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 ### [CI/CD işlem hatlarını ayarlama](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Sorun giderme

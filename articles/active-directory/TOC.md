@@ -190,11 +190,10 @@
 #### [Otomatik kullanıcı hazırlama raporu](active-directory-saas-provisioning-reporting.md)
 #### [Kullanıcı hazırlama sorunlarını giderme](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](active-directory-application-proxy-get-started.md)
 #### başlarken
 ##### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
+##### [GDPR desteği](active-directory-application-proxy-gdpr.md)
 ##### [Uygulamaları yayımlama](application-proxy-publish-azure-portal.md)
 ##### [Özel etki alanları](active-directory-application-proxy-custom-domains.md)
 #### [Çoklu oturum açma](application-proxy-sso-overview.md)

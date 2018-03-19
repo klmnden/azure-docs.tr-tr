@@ -1,4 +1,4 @@
-# [Azure Ağ İzleyicileri Belgeleri](index.md)
+# [Azure Ağ İzleyicisi Belgeleri](index.md)
 
 # Genel Bakış
 ## [Ağ İzleyicisi nedir?](network-watcher-monitoring-overview.md)

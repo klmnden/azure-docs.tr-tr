@@ -21,7 +21,9 @@
       href: tutorial-forecast-spending.md
     - name: 3 - Maliyetleri yönetme
       href: tutorial-manage-costs.md
-    - name: 4 - Verilere erişimi denetleme
+    - name: 4 - Ayrılmış örnekleri en iyi duruma getirme
+      href: tutorial-optimize-reserved-instances.md
+    - name: 5 - Verilere erişimi denetleme
       href: tutorial-user-access.md
 - name: Kavramlar
   items:

@@ -62,6 +62,8 @@
           href: module-development.md
         - name: Birleşim
           href: module-composition.md
+        - name: Edge aracısı ve hub özellikleri
+          href: module-edgeagent-edgehub.md
     - name: IoT Edge çalışma zamanı
       href: iot-edge-runtime.md
     - name: Dağıtımlar

@@ -18,7 +18,7 @@
 
 
 # Öğreticiler
-## [1 - Blobdan veri yükleme](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - WideWorldImporters yükleme](load-data-wideworldimportersdw.md)
 
 # Kavramlar
 ## Hizmet özellikleri
@@ -52,11 +52,12 @@
 ### [SQL Veritabanı esnek sorgu](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
-## İzleme ve ayarlama
-### [İş yükü yönetimi](resource-classes-for-workload-management.md)
+## Sorgu performansı
+### [Kaynak sınıfları](resource-classes-for-workload-management.md)
 ### [Columnstore sıkıştırması](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [İzleme](sql-data-warehouse-manage-monitor.md)
-### [Sorun giderme](sql-data-warehouse-troubleshoot.md)
+
+## [İzleme](sql-data-warehouse-manage-monitor.md)
+
 
 ## Veri ambarlarını geliştirme
 ### [Genel Bakış](sql-data-warehouse-overview-develop.md)
@@ -88,6 +89,8 @@
 #### [Değişken ataması](sql-data-warehouse-develop-variable-assignment.md)
 #### [Görünümler](sql-data-warehouse-develop-views.md)
 
+## [Sorun giderme](sql-data-warehouse-troubleshoot.md)
+
 # Nasıl yapılır kılavuzları
 ## Hizmet özellikleri
 ### [Bir veri ambarını geri yükleme - portal](sql-data-warehouse-restore-database-portal.md)
@@ -101,6 +104,7 @@
 
 
 ## Verileri yükleme ve taşıma
+### [New York taxi cab verileri](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Contoso genel verileri](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

@@ -79,6 +79,8 @@
           href: jenkins-continuous-deployment.md
         - name: AKS ile OpenFaaS kullanma
           href: openfaas.md
+        - name: AKS’de Spark işleri çalıştırma
+          href: spark-job.md
     - name: Kubernetes hakkında temel bilgiler
       items:
         - name: Kubernetes panosunu kullanma

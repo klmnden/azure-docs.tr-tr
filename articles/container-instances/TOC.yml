@@ -37,6 +37,8 @@
       href: container-instances-using-azure-container-registry.md
     - name: Kapsayıcılı görevleri çalıştırma
       href: container-instances-restart-policy.md
+    - name: Ortam değişkenlerini belirleme
+      href: container-instances-environment-variables.md
     - name: Dağıtımlarla ilgili sorunları giderme
       href: container-instances-troubleshooting.md
     - name: Veri hacimlerini yapılandırma

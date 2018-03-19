@@ -107,6 +107,8 @@
               href: backup-azure-vms-encryption.md
             - name: VM oluşturma sırasında VM yedeklemeyi etkinleştirme
               href: backup-during-vm-creation.md
+            - name: VM yedek yığını V2’ye yükseltme
+              href: backup-upgrade-to-vm-backup-stack-v2.md
         - name: VM’leri yönetme ve izleme
           items:
             - name: Azure portalında Azure VM yedeklemelerini yönetme
