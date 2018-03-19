@@ -26,9 +26,9 @@
 #### [Node.js ile Intel Edison](iot-hub-intel-edison-kit-node-get-started.md)
 #### [C ile Intel Edison](iot-hub-intel-edison-kit-c-get-started.md)
 
-#### [Arduino IDE ile Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Arduino IDE ile Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Arduino IDE ile Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+#### [Arduino ile Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Arduino ile Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Arduino ile Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ## Genişletilmiş IoT senaryoları
 ### [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)

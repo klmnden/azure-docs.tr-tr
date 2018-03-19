@@ -9,6 +9,10 @@
   items:
     - name: Databricks çalışma alanı oluşturma
       href: quickstart-create-databricks-workspace-portal.md
+- name: Öğreticiler
+  items:
+    - name: Event Hubs kullanarak olay akışı sağlama
+      href: databricks-stream-from-eventhubs.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: 'Excel, R ve Python ile bağlanma'

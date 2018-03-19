@@ -5,19 +5,19 @@ metadata:
   title: "Maliyet Yönetimi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
   description: "Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını kullanmanıza yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin."
   services: cost-management
-  author: czeumault
-  manager: carolz
+  author: bandersmsft
+  manager: carmonm
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/18/2017
-  ms.author: carolz
-  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
-  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+  ms.date: 02/27/2018
+  ms.author: banders
+  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 03/09/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: "Microsoft’un yan kuruluşu olan Cloudyn tarafından lisanslanan Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını en iyi şekilde kullanıp yönetmenize yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin."
 sections:
@@ -40,6 +40,7 @@ sections:
     style: ordered
     items:
     - html: "<a href=\"tutorial-review-usage\">Anomalileri ve verimlilikleri belirlemek için kullanım ve maliyetleri gözden geçirme</a>"
-    - html: "<a href=\"tutorial-user-access\">Maliyet Yönetimi verilerine erişim atama</a>"
     - html: "<a href=\"tutorial-forecast-spending\">Gelecek harcamaları tahmin etme</a>"
     - html: "<a href=\"tutorial-manage-costs\">Maliyet dağıtımı, ücret hesaplama raporları ve ücret yansıtma raporları ile maliyetleri yönetme</a>"
+    - html: "<a href=\"tutorial-optimize-reserved-instances\">Ayrılmış örnekleri en iyi duruma getirme</a>"
+    - html: "<a href=\"tutorial-user-access\">Maliyet Yönetimi verilerine erişim atama</a>"

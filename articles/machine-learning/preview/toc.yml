@@ -27,6 +27,8 @@
       href: overview-general-concepts.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: En sık kullanılan CLI görevleri
+      href: cli-for-azure-machine-learning.md
     - name: Workbench kullanma
       items:
         - name: Python IDE’leri ile çalışma

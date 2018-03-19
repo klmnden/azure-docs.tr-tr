@@ -22,8 +22,9 @@
 ### Sanal makine ölçek kümeleri
 #### [Kullanılabilirlik Alanında ölçek kümesi oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Yük dengeleyici
-#### [Yük dengeleyici nedir?](../load-balancer/load-balancer-standard-overview.md)
+### Load Balancer
+#### [Yük Dengeleyici nedir?](../load-balancer/load-balancer-standard-overview.md)
+#### [Load Balancer Standart ve Kullanılabilirlik Bölgeleri](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Azure portalı ile bölgesel olarak yedekli Genel Load Balancer Standard oluşturma](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [PowerShell ile bölgesel olarak yedekli Load Balancer Standard oluşturma](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [CLI ile bölgesel olarak yedekli Genel Load Balancer Standard oluşturma](../load-balancer/load-balancer-get-started-internet-az-cli.md)

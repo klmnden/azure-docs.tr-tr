@@ -61,6 +61,7 @@
 ## [Dil özelleştirmesi](active-directory-b2c-reference-language-customization.md)
 ## [Raporlama API’sini kullanma](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Kullanıcıları geçirme](active-directory-b2c-user-migration.md)
+## [Sosyal kimlikleri geçirme](active-directory-b2c-social-migration.md)
 
 # Kimlik Deneyimi Altyapısı
 ## [Özel ilkeler](active-directory-b2c-overview-custom.md)

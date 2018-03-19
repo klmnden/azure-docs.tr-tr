@@ -38,6 +38,7 @@
 #### [Azure CLI 2.0 kullanma](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Büyük ölçek kümeleriyle çalışma](virtual-machine-scale-sets-placement-groups.md)
 ### [Yönetilen disk kullanmak üzere bir ölçek kümesi şablonu dönüştürme](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Düşük önceliği kullanma](virtual-machine-scale-sets-use-low-priority.md)
 
 ## Yönetme
 ### Genel yönetim görevleri

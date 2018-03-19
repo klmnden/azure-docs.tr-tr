@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 03/16/2018
 ms.author: bonova
-ms.openlocfilehash: 77d421e9c97f3baa3541040494fb91e0297edb5a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Bir yönetilen örneği (Önizleme) nedir?
 
@@ -39,7 +39,7 @@ Aşağıdaki tablo anahatları farklar anahtar ve SQL Iaas, Azure SQL Database, 
 | | Kullanım senaryosu | 
 | --- | --- | 
 |Yönetilen Örnek |Şirket içi veya otomatik olarak oluşturulan, Iaas veya sağlanan, ISV çok sayıda uygulamaları geçirmek isteyen müşteriler için ile mümkün olduğunca düşük geçiş çaba olarak yönetilen örneği önerin. Tam otomatik kullanarak [veri taşıma hizmeti (DMS)](/sql/dma/dma-overview) Azure'da, müşterilerinizin kaldırın ve kendi şirket içi SQL Server örneğine bir yönetilen şirket içi SQL Server ve tam yalıtımını uyumluluğu sunan kaydırma Yerel VNET desteğiyle müşteri örnekleri.  Yazılım Güvencesi ile kullanarak bir SQL veritabanı yönetilen örneği üzerinde indirimli fiyatlar için var olan, lisansları değiştirebilir [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL veritabanı yönetilen bulut yüksek güvenlik ve zengin programlamasına yüzeyini gerektiren SQL Server örnekleri için en iyi geçiş hedef örneğidir. |
-|Azure SQL Database |Müşteriler için yeni SaaS çok kiracılı uygulamaları geliştirme veya kasıtlı olarak var olan şirket uygulamalarını çok kiracılı bir SaaS uygulaması, dönüştürme, esnek havuzlar önerin. Bu model avantajları şunlardır: <br><ul><li>Servis abonelikleri (ISV'ler için) satış lisansları satış gelen iş modeli dönüştürme</li></ul><ul><li>Kolay ve madde işareti kanıt Kiracı yalıtımı</li></ul><ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul><ul><li>Olası sabit bir tavan basarsa olmadan ölçeği genişletme</li></ul>İş yükü kararlı ve öngörülebilir, SaaS çok kiracılı dışında yeni uygulama geliştirme müşteriler için tek veritabanlarını önerin. Bu model avantajları şunlardır:<ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul>  <ul><li>Her veritabanı için tahmin edilebilir performans</li></ul>|
+|Azure SQL Database |**Esnek havuzlar**: yeni SaaS çok kiracılı uygulamaları geliştirme veya kasıtlı olarak var olan dönüştürme müşteriler uygulamaları SaaS çok müşterili bir uygulamaya şirket için esnek havuzlar önerin. Bu model avantajları şunlardır: <br><ul><li>Servis abonelikleri (ISV'ler için) satış lisansları satış gelen iş modeli dönüştürme</li></ul><ul><li>Kolay ve madde işareti kanıt Kiracı yalıtımı</li></ul><ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul><ul><li>Olası sabit bir tavan basarsa olmadan ölçeği genişletme</li></ul>**Tek veritabanlarını**: iş yükü kararlı ve öngörülebilir, SaaS çok kiracılı dışında yeni uygulama geliştirme müşterilerin tek veritabanlarını önermek için. Bu model avantajları şunlardır:<ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul>  <ul><li>Her veritabanı için tahmin edilebilir performans</li></ul>|
 |SQL IaaS |İşletim sistemini veya veritabanı sunucusu yanı sıra (aynı VM'de), SQL Server ile yan yana çalışan üçüncü taraf uygulamalar açısından belirli gereksinimlerine sahip müşteriler özelleştirmek ihtiyaç duyan müşteriler SQL VM'ler önermek için / Iaas en iyi çözümü olarak|
 |||
 

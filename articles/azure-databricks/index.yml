@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: nitinme
-  ms.openlocfilehash: cc51070b4ff41107700585160cff8bbe41cc5d7d
-  ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+  ms.openlocfilehash: 8bbb8bb020c8c64e11d072729b59074a406a03ca
+  ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 03/05/2018
+  ms.lasthandoff: 03/17/2018
 abstract:
   description: "Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin. Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur. Apache Spark’ın kurucuları ile birlikte tasarlanan Databricks, tek tıklama ile kurulum olanağı ve kolaylaştırılmış iş akışlarının yanı sıra veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliği sağlayan etkileşimli bir çalışma alanı sunmak amacıyla Azure ile tümleştirilmiştir."
   aside:
@@ -48,7 +48,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/getting-started.html\" target=\"_blank\">Azure Databricks ile çalışmaya başlama</a>"
+    - html: "<a href=\"/azure/azure-databricks/databricks-stream-from-eventhubs\">Azure Databricks kullanarak Event Hubs’dan veri akışı sağlama</a>"
+    - html: "<a href=\"/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services\">Azure Databricks ve Bilişsel Hizmetler kullanarak yaklaşım analizi</a>"
     - html: "<a href=\"https://go.microsoft.com/fwlink/?linkid=864083\" target=\"_blank\">Azure Depolama’dan veri aktarma</a>"
     - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
     - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/notebooks/index.html\" target=\"_blank\">Not defterleri ile çalışma</a>"

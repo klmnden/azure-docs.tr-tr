@@ -1,4 +1,4 @@
-- name: Azure Belgeleri’nde Jenkins
+- name: Azure üzerinde Jenkins
   href: index.yml
 - name: Genel Bakış
   items:
@@ -46,7 +46,7 @@
 - name: Örnekler
   items:
     - name: Örnek işler ve betikler
-      href: 'https://github.com/Azure/azure-devops-utils/tree/master/jenkins'
+      href: 'https://github.com/azure/jenkins'
 - name: Kaynaklar
   items:
     - name: Eklentiler
@@ -75,3 +75,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Jenkins giriş sayfası
       href: 'https://jenkins.io/'
+    - name: Jenkins mimarisi
+      href: /azure/architecture/reference-architectures/jenkins/
+      maintainContext: true
