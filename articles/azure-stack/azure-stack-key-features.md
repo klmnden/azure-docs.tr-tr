@@ -1,11 +1,11 @@
 ---
-title: "Anahtar özellikleri ve Azure yığınında kavramları | Microsoft Docs"
-description: "Anahtar özellikleri ve Azure yığınında kavramları hakkında bilgi edinin."
+title: Anahtar özellikleri ve Azure yığınında kavramları | Microsoft Docs
+description: Anahtar özellikleri ve Azure yığınında kavramları hakkında bilgi edinin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
 ms.service: azure-stack
 ms.workload: na
@@ -14,17 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: 
-ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: ''
+ms.openlocfilehash: 958b1757dd773f8c46185b13c84f766ce4f827ee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Anahtar özellikleri ve Azure yığınında kavramları
-
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
-
 Microsoft Azure yığın yeniyseniz, bu hüküm ve özellik açıklamalarını faydalı olabilir.
 
 ## <a name="personas"></a>Kişiler
@@ -165,5 +162,5 @@ Geliştirme derlemeleri aşağıdaki avantajları sağlar:
 - Diğer geliştirmeler
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure yığın dağıtımının önkoşulları](azure-stack-deploy.md)
+[Azure yığın Geliştirme Seti değerlendir](azure-stack-deploy-overview.md)
 

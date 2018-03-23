@@ -1,11 +1,11 @@
 ---
-title: "Azure yığında dağıtılan Vm'leri koruma | Microsoft Docs"
-description: "Azure yığın üzerinde dağıtılan sanal makineleri koruma hakkında yönergeler."
+title: Azure yığında dağıtılan Vm'leri koruma | Microsoft Docs
+description: Azure yığın üzerinde dağıtılan sanal makineleri koruma hakkında yönergeler.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: 02get-started-article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure yığın üzerinde dağıtılan sanal makineleri koruma
 
@@ -68,8 +68,8 @@ VM tabanlı uygulamalar için en yaygın koruma şeması yedekleme yazılımın�
  
 Uygulama Kurtarma aynı buluta veya yeni bir bulut bir veya daha fazla sanal makineleri geri yükleme gerektirir. Bir bulut veri merkeziniz veya ortak bulut hedefleyebilirsiniz. Hedef hangi bulut tamamen denetiminizi içinde ve veri gizliliği ve Egemenlik gereksinimlerinize göre dayanır. 
  
- - RTO: Kapalı kalma süresini saniye cinsinden ölçülür. 
- - RPO: En düşük düzeyde veri kaybı
+ - RTO: Kapalı kalma süresi saat cinsinden ölçülür. 
+ - RPO: Değişken veri kaybı (bağlı olarak yedekleme sıklığı)
  - Dağıtım topolojisi: Etkin/pasif 
 
 #### <a name="planning-your-backup-strategy"></a>Yedekleme stratejinizi planlama
@@ -95,8 +95,8 @@ Bu yaklaşımda, uygulama yalnızca bir buluta dağıtılır. VM, daha sonra ba�
 
 ![Çoğaltmayı elle yük devretme](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO: Kapalı kalma süresi dakika 
- - RPO: Değişken veri kaybı
+ - RTO: Kapalı kalma süresi dakika cinsinden ölçülür. 
+ - RPO: Değişken veri kaybı (bağlı olarak çoğaltma sıklığı)
  - Dağıtım topolojisi: Etkin/pasif beklemeyi
  
 ### <a name="high-availabilityautomatic-failover"></a>Yüksek kullanılabilirlik/otomatik yük devretme

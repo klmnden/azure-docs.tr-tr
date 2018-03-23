@@ -1,11 +1,11 @@
 ---
-title: "Farklı Azure yığın Geliştirme Seti ortamlarda iki sanal ağ arasında bir siteden siteye VPN bağlantısı oluşturun | Microsoft Docs"
-description: "Tek düğümlü Azure yığın Geliştirme Seti için iki ortam arasında bir siteden siteye VPN bağlantısı oluşturmak için bir bulut yöneticisinin kullandığı adım adım yordam."
+title: Farklı Azure yığın Geliştirme Seti ortamlarda iki sanal ağ arasında bir siteden siteye VPN bağlantısı oluşturun | Microsoft Docs
+description: Tek düğümlü Azure yığın Geliştirme Seti için iki ortam arasında bir siteden siteye VPN bağlantısı oluşturmak için bir bulut yöneticisinin kullandığı adım adım yordam.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Farklı Azure yığın Geliştirme Seti ortamlarda iki sanal ağ arasında bir siteden siteye VPN bağlantısı oluşturun
 ## <a name="overview"></a>Genel Bakış
@@ -33,7 +33,7 @@ Aşağıdaki diyagramda, işiniz bittiğinde bağlantı yapılandırması gibi g
 ### <a name="before-you-begin"></a>Başlamadan önce
 Bağlantı yapılandırmasını tamamlamak için başlamadan önce aşağıdaki öğelerin bulunduğundan emin olun:
 
-* Tarafından tanımlanan Azure yığın Geliştirme Seti donanım gereksinimlerini karşılayan iki sunucu [Azure yığın dağıtımının önkoşulları](azure-stack-deploy.md). Görünen diğer önkoşulları emin [makale](azure-stack-deploy.md) çok karşılandıktan.
+* İki sunucu ve açıklandığı gibi Azure yığın Geliştirme Seti donanım gereksinimlerini karşılayan başka bir önkoşul [hızlı başlangıç: Azure yığın Geliştirme Seti değerlendirmek](azure-stack-deploy-overview.md). 
 * [Azure yığın Geliştirme Seti](https://azure.microsoft.com/en-us/overview/azure-stack/try/) dağıtım paketi.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Azure yığın Geliştirme Seti ortamları dağıtma
@@ -168,7 +168,7 @@ VPN bağlantısı üzerinden geçen verileri doğrulamak için her Azure yığı
 5. Geçerli kullanıcı adı ve parola girin. Oluşturulduktan sonra VM oturum açmak için bu hesabı kullanın.
 6. Sağlayan bir **abonelik**, **kaynak grubu**, ve **konumu**ve ardından **Tamam**.
 7. Üzerinde **boyutu** dikey penceresinde, bu örnek için bir sanal makine boyutu seçin ve ardından **seçin**.
-8. Üzerinde **ayarları** dikey penceresinde Varsayılanları kabul edin. Emin **VNET-01** sanal ağın seçili. Alt ağ değerine ayarlandığını doğrulayın **10.0.10.0/24**. Ardından **Tamam**.
+8. Üzerinde **ayarları** dikey penceresinde Varsayılanları kabul edin. Emin **VNET-01** sanal ağın seçili. Alt ağ değerine ayarlandığını doğrulayın **10.0.10.0/24**. Sonra **Tamam**’ı seçin.
 9. Üzerinde **Özet** dikey penceresinde, ayarları gözden geçirin ve ardından **Tamam**.
 
 

@@ -1,27 +1,27 @@
 ---
-title: "Azure yığın güncelleştirme bir uygulama hizmeti | Microsoft Docs"
-description: "Azure yığın uygulama hizmeti için güncelleştirme nedir hakkında bilgi edinin bilinen sorunlar ve güncelleştirme karşıdan yükleme konumu."
+title: Uygulama hizmeti Azure yığın güncelleştirme 1 sürüm notları | Microsoft Docs
+description: Azure yığın uygulama hizmeti için güncelleştirme nedir hakkında bilgi edinin bilinen sorunlar ve güncelleştirme karşıdan yükleme konumu.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 0c33c8fdefbb27ba8414e58bed1b42ee7aaba88a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="app-service-on-azure-stack-update-one-release-notes"></a>Azure yığın uygulama hizmeti güncelleştirmesi bir sürüm notları
+# <a name="app-service-on-azure-stack-update-1-release-notes"></a>Uygulama hizmeti Azure yığın güncelleştirme 1 sürüm notları
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
@@ -39,7 +39,7 @@ Uygulama hizmeti Azure yığın güncelleştirme 1 yapı numarası olduğu **69.
 ### <a name="prerequisites"></a>Önkoşullar
 
 > [!IMPORTANT]
-> Azure uygulama hizmeti Azure yığında şimdi gerektiren bir [üç konulu bir joker sertifika](azure-stack-app-service-before-you-get-started.md#get-certificates) içinde SSO Kudu için şimdi işlenir Azure App Service'te şekilde geliştirmeleri nedeniyle.  Yeni konu ** *. sso.appservice.<region>. <domainname>.<extension>**
+> Azure uygulama hizmeti Azure yığında yeni dağıtımı şimdi gerektiren bir [üç konulu bir joker sertifika](azure-stack-app-service-before-you-get-started.md#get-certificates) içinde SSO Kudu için şimdi işlenir Azure App Service'te şekilde geliştirmeleri nedeniyle.  Yeni konu ** *. sso.appservice.<region>. <domainname>.<extension>**
 >
 >
 
@@ -51,7 +51,7 @@ Azure uygulama hizmeti Azure yığın güncelleştirme 1 aşağıdaki geliştirm
 
 - **Yüksek kullanılabilirlik, Azure App Service** -arasında dağıtılacak şekilde Azure yığın 1802 etkin güncelleştirme iş yükleri hata etki alanları.  Bu nedenle uygulama hizmeti hata etki alanlarında dağıtılacak hataya dayanıklı olması mümkün altyapısıdır.  Azure yığın 1802 önce tamamlandı dağıtımlar için uygulanan güncelleştirme başvurmak ancak varsayılan olarak bu özellik Azure App Service, tüm yeni dağıtımlar sahip [App Service hata etki alanı belgeleri](azure-stack-app-service-fault-domain-update.md)
 
-- **Mevcut sanal ağda dağıtmak** -müşteriler var olan bir sanal ağ içindeki Azure yığın uygulama hizmeti şimdi dağıtabilir.  Varolan bir sanal ağı dağıtma özel bağlantı noktaları üzerinden Azure uygulama hizmeti için gerekli bir dosya sunucusu ve SQL Server için bağlanmasına olanak sağlar.  Dağıtım sırasında varolan bir sanal ağı, ancak dağıtmak için müşteriler seçebilirsiniz [uygulama hizmeti tarafından kullanım için alt ağlar oluşturmanız gerekir](azure-stack-app-service-before-you-get-started.md#virtual-network) dağıtımından önce.
+- **Mevcut sanal ağda dağıtmak** -müşteriler var olan bir sanal ağ içindeki Azure yığın uygulama hizmeti şimdi dağıtabilir.  Varolan bir sanal ağı dağıtma özel bağlantı noktaları üzerinden Azure uygulama hizmeti için gerekli bir dosya sunucusu ve SQL Server için bağlanmasına olanak sağlar.  Dağıtım sırasında var olan bir sanal ağ içinde ancak dağıtmak için müşteriler seçebilirsiniz [uygulama hizmeti tarafından kullanım için alt ağlar oluşturmanız gerekir](azure-stack-app-service-before-you-get-started.md#virtual-network) dağıtımından önce.
 
 - Güncelleştirmeleri **uygulama hizmet Kiracı, yönetim işlevleri portalları ve Kudu Araçları**.  Azure yığın portalı SDK sürümü ile tutarlı.
 
@@ -103,7 +103,13 @@ Azure uygulama hizmeti Azure yığın güncelleştirme 1 aşağıdaki geliştirm
 
 ### <a name="known-issues-with-the-deployment-process"></a>Dağıtım işlemi ile ilgili bilinen sorunlar
 
-- Azure uygulama hizmeti Azure yığın güncelleştirme 1 dağıtımı için bilinen herhangi bir sorun vardır.
+- Sertifika doğrulama hataları
+
+Bazı müşteriler, sertifikaları, yükleyici aşırı kısıtlayıcı doğrulama nedeniyle tümleşik bir sistemde dağıtırken uygulama hizmeti yükleyici sağlanırken sorunları karşılaşmıştır.  Uygulama Hizmeti Yükleyici yeniden yayımlandı, müşterilerin gereken [güncelleştirilmiş yükleyici indirmek](https://aka.ms/appsvconmasinstaller).  Güncelleştirilmiş yükleyici sertifikalarla doğrulama sorunları yaşamaya devam ederseniz, desteğe başvurun.
+
+- Tümleşik sistemden Azure yığın kök sertifikası alınırken bir sorun oluştu.
+
+Get-AzureStackRootCert.ps1 hata müşteriler kök sertifikasının yüklü olmayan bir makineye komut dosyası yürütme zaman Azure yığın kök sertifikası almak başarısız olmasına neden oldu.  Komut ayrıca artık, bu sorun ve istek müşteriler çözme yeniden yayımlandı [güncelleştirilmiş yardımcı komut dosyalarını indirme](https://aka.ms/appsvconmashelpers).  Güncelleştirilmiş bir komut dosyası ile kök sertifika alma sorunları yaşamaya devam ederseniz, desteğe başvurun.
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
 
@@ -111,13 +117,91 @@ Azure uygulama hizmeti Azure yığın güncelleştirme 1 aşağıdaki geliştirm
 
 ### <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
 
-- Azure uygulama hizmeti Azure yığın güncelleştirme 1'yüklemesi için bilinen herhangi bir sorun vardır.
+- Yuva değiştirmenin çalışmaz
+
+Site yuvası takas bu sürümde ayrılır.  İşlevselliği geri yüklemek için aşağıdaki adımları tamamlayın:
+
+1. ControllersNSG ağ güvenlik grubu değiştirme **izin** uygulama hizmet denetleyicisi örnekleri için Uzak Masaüstü bağlantıları.  AppService.local App Service'te dağıttığınız kaynak grubu adını değiştirin.
+
+    ```powershell
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+        -Name $RuleConfig_Inbound_Rdp_3389.Name `
+        -Description "Inbound_Rdp_3389" `
+        -Access Allow `
+        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+      # Commit the changes back to NSG
+      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+      ```
+
+2. Göz atın **CN0 VM** sanal makineleri Azure yığın Yönetici portalı'nda altında ve **Bağlan'ı tıklatın** denetleyici örneği ile Uzak Masaüstü oturumu açın.  Uygulama hizmeti dağıtım sırasında belirtilen kimlik bilgilerini kullanın.
+3. Başlat **bir yönetici olarak PowerShell'i** ve aşağıdaki komut dosyası yürütme
+
+    ```powershell
+        Import-Module appservice
+
+        $sm = new-object Microsoft.Web.Hosting.SiteManager
+
+        if($sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$true)
+        {
+          $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus=$false
+        #  'Slot swap mode reverted'
+        }
+        
+        # Confirm new setting is false
+        $sm.HostingConfiguration.SlotsPollWorkerForChangeNotificationStatus
+        
+        # Commit Changes
+        $sm.CommitChanges()
+
+        Get-AppServiceServer -ServerType ManagementServer | ForEach-Object Repair-AppServiceServer
+        
+    ```
+
+4. Uzak Masaüstü oturumu kapatın.
+5. ControllersNSG ağ güvenlik grubuna geri **reddetme** uygulama hizmet denetleyicisi örnekleri için Uzak Masaüstü bağlantıları.  AppService.local App Service'te dağıttığınız kaynak grubu adını değiştirin.
+
+    ```powershell
+
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+
+        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
+
+        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
+
+        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
+          -Name $RuleConfig_Inbound_Rdp_3389.Name `
+          -Description "Inbound_Rdp_3389" `
+          -Access Deny `
+          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
+          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
+          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
+          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
+          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
+          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
+          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
+
+        # Commit the changes back to NSG
+        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bulut Azure uygulama hizmeti Azure yığında işletim yöneticileri için bilinen sorunlar
 
 Belgelerde başvurmak [Azure yığın 1802 sürüm notları](azure-stack-update-1802.md)
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="next-steps"></a>Sonraki adımlar
 
 - Azure uygulama hizmeti genel bakış için bkz: [Azure uygulama hizmeti Azure yığın genel bakış](azure-stack-app-service-overview.md).
 - Azure yığın uygulama hizmeti dağıtmak hazırlanması hakkında daha fazla bilgi için bkz: [Azure yığın uygulama hizmeti ile çalışmaya başlamadan önce](azure-stack-app-service-before-you-get-started.md).

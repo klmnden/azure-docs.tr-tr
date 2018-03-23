@@ -1,20 +1,20 @@
 ---
-title: "Azure yığın datacenter tümleştirmesi - kimliği"
-description: "Azure yığın AD FS ile veri merkezinizi AD FS tümleştirmek öğrenin"
+title: Azure yığın datacenter tümleştirmesi - kimliği
+description: Azure yığın AD FS ile veri merkezinizi AD FS tümleştirmek öğrenin
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
-ms.openlocfilehash: 9e71707f13a14cb4cd0bc9cc7cd7d13dd7bb38e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure yığın datacenter tümleştirmesi - kimliği
 Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak Azure yığın kimlik sağlayıcıları olarak dağıtabilirsiniz. Azure yığın dağıtmadan önce seçim yapmanız gerekir. AD FS kullanarak dağıtımı da bağlantısı kesilmiş modunda Azure yığın dağıtma olarak adlandırılır.
@@ -334,4 +334,4 @@ Cmdlet'lerinden herhangi birini başarısız olursa, kullanarak ek günlüklerin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure yığın kaydetme](azure-stack-registration.md)
+[Dış izleme çözümlerini tümleştirmenize](azure-stack-integrate-monitor.md)

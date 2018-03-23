@@ -1,87 +1,83 @@
 ---
-title: "Azure yığınının Azure kaydı tümleşik sistemleri | Microsoft Docs"
-description: "Azure yığın Azure bağlı çok düğümlü dağıtımlar için Azure kayıt işlemini açıklar."
+title: Azure yığınının Azure kaydı tümleşik sistemleri | Microsoft Docs
+description: Azure yığın Azure bağlı çok düğümlü dağıtımlar için Azure kayıt işlemini açıklar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.reviewer: avishwan
+ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure ile Azure yığın kaydedin
-Market öğesi Azure'dan karşıdan yüklemek ve ticari veri geri Microsoft'a raporlama ayarlamak için Azure ile Azure yığın kaydedebilirsiniz. Azure yığın kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz.
+Kaydetme [Azure yığın](azure-stack-poc.md) Azure ile Azure Market öğesi indirmek ve ticaret veri geri Microsoft'a raporlama ayarlamak için sağlar. Azure yığın kaydettikten sonra kullanım için Azure ticaret bildirilir ve kayıt için kullanılan abonelik altında görebilirsiniz. 
 
 > [!IMPORTANT]
 > Kayıt, ödeme olarak,-kullanımlı fatura modelini seçerseniz zorunludur. Aksi durumda, kullanım aksi raporlanmayacak gibi Azure yığın dağıtımına lisans koşulları ihlal olur.
 
-## <a name="before-you-register-azure-stack-with-azure"></a>Önce Azure yığın Azure ile kaydedin
+## <a name="prerequisites"></a>Önkoşullar
 Azure ile Azure yığın kaydetmeden önce şunlara sahip olmalısınız:
 
 - Bir Azure aboneliği için abonelik kimliği. Kimliği almak için Azure oturumu açın, **daha fazla hizmet** > **abonelikleri**, kullanmak istediğiniz aboneliği tıklatın ve altında **Essentials** bulabilirsiniz Abonelik kimliği 
 
   > [!NOTE]
-  > Çin, Almanya ve US government abonelikler şu anda desteklenmiyor. 
+  > Çin, Almanya ve ABD devlet kurumları abonelikler şu anda desteklenmemektedir. 
 
 - Kullanıcı adı ve parola abonelik sahibi olan bir hesap için (MSA/2FA hesapları desteklenir)
-- *Azure yığın 1712 güncelleştirme sürümünü (180106.1) ile başlayan gerekli değil*: Azure aboneliği için Azure AD. Azure portalının sağ üst köşedeki adresindeki, avatar üzerine gelerek, bu dizin Azure içinde bulabilirsiniz. 
-- Azure yığın kaynak sağlayıcısı kayıtlı (Ayrıntılar için aşağıdaki Azure yığın kaynak sağlayıcısını Kaydet bölümüne bakın)
+- Azure yığın kaynak sağlayıcısı kayıtlı (Ayrıntılar için aşağıdaki Azure yığın kaynak sağlayıcısını Kaydet bölümüne bakın).
 
 Bu gereksinimleri karşılayan bir Azure aboneliğiniz yoksa, şunları yapabilirsiniz [buradan ücretsiz bir Azure hesabı oluşturma](https://azure.microsoft.com/free/?b=17.06). Azure yığın kaydetme, Azure aboneliğinizin üzerinde hiçbir ücret doğurur.
 
 ### <a name="bkmk_powershell"></a>PowerShell için Azure yığın yükle
-Sistem Azure ile kaydetmek için Azure yığınının son PowerShell kullanmanız gerekir.
+Azure ile kaydetmek için Azure yığınının son PowerShell kullanmanız gerekir.
 
 Zaten yüklü değilse, [PowerShell için Azure Yığın Yükle](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install). 
 
 ### <a name="bkmk_tools"></a>Azure yığın araçları yükleyin
 Azure yığın araçları GitHub deposunu Azure yığın işlevselliğini destekleyen PowerShell modülleri içerir; Kayıt işlevleri dahil olmak üzere. Kayıt sırasında aktarıp RegisterWithAzure.psm1 PowerShell modülü kullanabilirsiniz gerekecek işlemi Azure yığın örneğinizi Azure ile kaydetmek için Azure yığın araçları deposundaki buldu. 
 
-```powershell
-# Change directory to the root directory. 
-cd \
-
-# Download the tools archive.
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-  invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
-
-# Expand the downloaded files.
-  expand-archive master.zip `
-  -DestinationPath . `
-  -Force
-
-# Change to the tools directory.
-  cd AzureStack-Tools-master
-```
+En son sürümünü kullandığınızdan emin olmak için mevcut Azure yığın araçları sürümlerini silmeniz gerekir ve [Github'dan en son sürümü karşıdan](azure-stack-powershell-download.md) Azure ile kaydetmeden önce.
 
 ## <a name="register-azure-stack-in-connected-environments"></a>Azure yığın bağlı ortamlarda kaydetme
 Bağlantılı ortamlar, internet'e ve Azure erişebilir. Bu ortamlar için Azure yığın kaynak sağlayıcısı Azure ile kaydedin ve faturalama modelinizi yapılandırmanız gerekir.
+
+> [!NOTE]
+> Tüm adımları ayrıcalıklı uç noktasına erişimi olan bir bilgisayardan çalıştırmanız gerekir. 
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Azure yığın kaynak sağlayıcısını Kaydet
 Azure ile Azure yığın kaynak sağlayıcısını kaydetmek için Powershell ISE yönetici olarak başlatın ve aşağıdaki PowerShell komutlarını kullanın. Bu komutlar aşağıdakileri yapar:
 - Kullanılan ve ayarlamak için bir Azure aboneliğin sahibi oturum ister `EnvironmentName` parametresi **AzureCloud**.
 - Azure kaynak sağlayıcısı kaydetme **Microsoft.AzureStack**.
 
-Çalıştırılacak PowerShell:
+1. Azure yığın kaydetmek için kullandığınız Azure hesabı ekleyin. Hesap eklemek için çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure genel yönetici hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz.
 
-```powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack 
-```
+   ```Powershell
+      Add-AzureRmAccount -EnvironmentName AzureCloud
+   ```
+
+2. Birden çok aboneliğiniz varsa, kullanmak istediğiniz birini seçmek için aşağıdaki komutu çalıştırın:  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+3. Azure aboneliğinizde Azure yığın kaynak sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın:
+
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
 
 ### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>Azure yığın ödeme olarak,-kullanımlı fatura modelini kullanarak Azure ile kaydedin
 Azure yığın ödeme olarak,-kullanımlı fatura modelini kullanarak Azure ile kaydetmek için aşağıdaki adımları kullanın.
@@ -197,22 +193,6 @@ Faturalama modeli veya yüklemeniz için dağıtım özellikleri değiştirmek i
 ```powershell
 Set-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
 ```
-
-## <a name="remove-a-registered-resource"></a>Kayıtlı bir kaynağı kaldırırsanız
-Bir kayıt kaldırmak istediğiniz sonra kullanmalısınız **UnRegister-AzsEnvironment** cmdlet'i ve kayıt kaynağı adı veya kayıt geçişinde simge, kullanılan **Register-AzsEnvironment**.
-
-Bir kaynak adı kullanarak bir kaydını kaldırmak için:
-
-```Powershell    
-UnRegister-AzsEnvironment -RegistrationName "*Name of the registration resource*"
-```
-Bir kayıt belirteci kullanarak bir kaydını kaldırmak için:
-
-```Powershell
-$registrationToken = "*Your copied registration token*"
-UnRegister-AzsEnvironment -RegistrationToken $registrationToken
-```
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Dış izleme tümleştirme](azure-stack-integrate-monitor.md)
+[Market öğesi Azure'dan indirin](azure-stack-download-azure-marketplace-item.md)

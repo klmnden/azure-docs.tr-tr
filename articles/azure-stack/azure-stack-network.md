@@ -1,25 +1,25 @@
 ---
-title: "Ağ Azure tümleşik yığını sistemleri için tümleştirme konuları | Microsoft Docs"
-description: "Birden çok düğümlü Azure yığını ile veri merkezi ağ tümleştirme planlamak için yapabileceğinizi öğrenin."
+title: Ağ Azure tümleşik yığını sistemleri için tümleştirme konuları | Microsoft Docs
+description: Birden çok düğümlü Azure yığını ile veri merkezi ağ tümleştirme planlamak için yapabileceğinizi öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makale Azure yığın mevcut ağ ortamınıza en iyi tümleştirmek nasıl karar vermenize yardımcı olacak Azure yığın ağ altyapı bilgileri sağlar. 
@@ -67,7 +67,7 @@ Bu /24 (254 ana bilgisayar IP'ın) ağ (Azure yığın bölgesinin kenarlık ana
 Bu/24 ağ iletişim kurmak ve aralarında veri değişimi iç Azure yığın bileşenleri için ayrılmış. Bu alt ağ olarak yönlendirilebilir IP adreslerinin gerektiriyor, ancak erişim denetim listeleri (ACL'ler) kullanarak çözüme özel tutulur. Kenarlık anahtarlar için/27 boyutu eşdeğer küçük bir aralık dışında ötesinde yönlendirilecek beklenen değil dış kaynaklara ve/veya internet erişimi gerektirdiğinde bu hizmetlerden bazılarını tarafından kullanılan ağ. 
 
 ### <a name="public-infrastructure-network"></a>Ortak altyapı ağı
-Bu/27 ağdır daha önce bahsedilen Azure yığın altyapı alt ağdan küçük bir aralık, genel IP adresleri gerektirmez, ancak bir NAT veya saydam Proxy üzerinden Internet erişimi gerektirir. Bu ağ Acil Durum Kurtarma Konsolu sistem (ERCS) için ayrılacak, ERCS VM Azure kayıt sırasında Internet erişimi gerektirir ve sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olmalıdır.
+Bu/27 ağdır daha önce bahsedilen Azure yığın altyapı alt ağdan küçük bir aralık, genel IP adresleri gerektirmez, ancak bir NAT veya saydam Proxy üzerinden Internet erişimi gerektirir. Bu ağ Acil Durum Kurtarma Konsolu sistem (ERCS) için ayrılacak, Azure kayıt sırasında ve altyapı yedekleme sırasında ERCS VM Internet erişimi gerektirir. ERCS VM sorun giderme amacıyla yönetim ağınıza yönlendirilebilir olmalıdır.
 
 ### <a name="public-vip-network"></a>Ortak VIP ağ
 Ortak VIP ağ Azure yığınında Ağ denetleyicisi atanır. Bir mantıksal ağ anahtarı üzerindeki değil. SLB adres havuzu kullanır ve atar/32 Kiracı İş yükleri için ağları. Geçiş yönlendirme tablosu üzerinde bu 32 IP'leri BGP aracılığıyla kullanılabilir bir yolu olarak bildirildiğini. Bu ağ, dış erişilebilir veya genel IP adresleri içerir. Kalan Kiracı VM'ler tarafından kullanılırken Azure yığın altyapısı bu ortak VIP ağdan en az 8 adres kullanır. Bu alt ağ boyutu en fazla /22 (1022 konakları) için en az /26 (64 konakları) aralığı, bir/24 için planlama öneririz ağ.
