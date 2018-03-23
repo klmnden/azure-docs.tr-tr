@@ -1,11 +1,11 @@
 ---
-title: "Linux üzerinde Azure App Service’te bir Node.js ve MongoDB web uygulaması derleme | Microsoft Docs"
-description: "Linux üzerinde Azure App Service'te MongoDB bağlantı dizesine sahip Cosmos DB veritabanı bağlantısıyla bir Node.js uygulamasının nasıl çalıştırılacağı hakkında bilgi edinin."
+title: Linux üzerinde Azure App Service’te bir Node.js ve MongoDB web uygulaması derleme | Microsoft Docs
+description: Linux üzerinde Azure App Service'te MongoDB bağlantı dizesine sahip Cosmos DB veritabanı bağlantısıyla bir Node.js uygulamasının nasıl çalıştırılacağı hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f497e9427885ab1d2e827e9fa1dd3c468aa39239
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te bir Node.js ve MongoDB web uygulaması derleme
 
@@ -106,19 +106,19 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Bir tarayıcıda `http://localhost:3000` sayfasına gidin. Üst menüdeki **Kaydol**'a tıklayın ve bir test kullanıcısı oluşturun. 
+Bir tarayıcıda `http://localhost:3000` sayfasına gidin. Üst menüde **Kaydol**’a tıklayın ve bir test kullanıcısı oluşturun. 
 
-MEAN.js örnek uygulaması, kullanıcı verilerini veritabanında depolar. Kullanıcı oluşturmayı ve oturum açmayı başarırsanız, uygulamanız verileri yerel MongoDB veritabanına yazıyordur.
+MEAN.js örnek uygulaması, kullanıcı verilerini veritabanında depolar. Kullanıcı oluşturma ve oturum açmada başarılı olursanız, uygulamanız yerel MongoDB veritabanına veri yazıyor demektir.
 
 ![MEAN.js, MongoDB’ye başarıyla bağlanır](./media/tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-Bazı makaleler eklemek için **Yönetici > Makaleleri Yönet**'i seçin.
+Birkaç makale eklemek için **Yönetici > Makaleleri Yönet**’i seçin.
 
-Node.js'yi dilediğiniz zaman durdurmak için, terminalde `Ctrl+C` tuşlarına basın.
+Node.js’yi dilediğiniz zaman durdurmak için, terminalde `Ctrl+C` tuşlarına basın.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-production-mongodb"></a>Üretim MongoDB veritabanı oluşturma
+## <a name="create-production-mongodb"></a>Üretim MongoDB’si oluşturma
 
 Bu adımda, Azure’da bir MongoDB veritabanı oluşturursunuz. Uygulamanız Azure’da dağıtıldığında bu bulut veritabanını kullanır.
 
@@ -126,13 +126,13 @@ MongoDB için bu öğreticide [Azure Cosmos DB](/azure/documentdb/) kullanılır
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB hesabı oluşturma
 
 Cloud Shell'de, [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) komutuyla bir Cosmos DB hesabı oluşturun.
 
-Aşağıdaki komutta, *\<cosmosdb_name>* yer tutucusunu benzersiz bir Cosmos DB adıyla değiştirin. Bu ad, Cosmos DB uç noktasının bir parçası olan `https://<cosmosdb_name>.documents.azure.com/` olarak kullanıldığından, adın Azure’daki tüm Cosmos DB hesapları arasında benzersiz olması gerekir. Ad yalnızca küçük harf, rakam ve tire (-) karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır.
+Aşağıdaki komutta, *\<cosmosdb_name>* yer tutucusunu benzersiz bir Cosmos DB adıyla değiştirin. Bu ad, Cosmos DB uç noktasının bir parçası olan `https://<cosmosdb_name>.documents.azure.com/` olarak kullanıldığından, adın Azure’daki tüm Cosmos DB hesaplarında benzersiz olması gerekir. Ad yalnızca küçük harf, rakam ve tire (-) karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -158,7 +158,7 @@ Cosmos DB hesabı oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bil
 }
 ```
 
-## <a name="connect-app-to-production-mongodb"></a>Uygulamayı üretim MongoDB veritabanına bağlama
+## <a name="connect-app-to-production-mongodb"></a>Üretim MongoDB’sine uygulama bağlama
 
 Bu adımda, MEAN.js örnek uygulamanızı, MongoDB bağlantı dizesi kullanarak yeni oluşturduğunuz Cosmos DB veritabanına bağlayacaksınız.
 
@@ -232,7 +232,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Bir tarayıcıda `http://localhost:8443` sayfasına gidin. Üst menüdeki **Kaydol**'a tıklayın ve bir test kullanıcısı oluşturun. Kullanıcı oluşturma ve oturum açmada başarılı olursanız, uygulamanız Azure’da Cosmos DB veritabanına veri yazıyor demektir.
+Bir tarayıcıda `http://localhost:8443` sayfasına gidin. Üst menüde **Kaydol**’a tıklayın ve bir test kullanıcısı oluşturun. Kullanıcı oluşturma ve oturum açmada başarılı olursanız, uygulamanız Azure’da Cosmos DB veritabanına veri yazıyor demektir.
 
 Terminalde `Ctrl+C` yazarak Node.js’yi durdurun.
 
@@ -252,7 +252,7 @@ Bu adımda, MongoDB’ye bağlı Node.js uygulamanızı Azure App Service’e da
 
 ### <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Ortam değişkeni yapılandırma
 
@@ -322,7 +322,7 @@ Başarılı olursanız ve uygulama otomatik olarak oluşturulan kullanıcıda ot
 
 ![Azure App Service’te çalışan MEAN.js uygulaması](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Bazı makaleler eklemek için **Yönetici > Makaleleri Yönet**'i seçin.
+Birkaç makale eklemek için **Yönetici > Makaleleri Yönet**’i seçin.
 
 **Tebrikler!** Linux üzerinde Azure App Service’te veri temelli bir Node.js uygulaması çalıştırıyorsunuz.
 
@@ -375,7 +375,7 @@ exports.update = function (req, res) {
 
 _modules/articles/client/views/view-article.client.view.html_ dosyasını açın.
 
-Kapanan `</section>` etiketinin hemen üzerinde, `comment` öğesini makale verilerinin geri kalanı ile birlikte görüntülemek için şu satırı ekleyin:
+`</section>` kapanış etiketinin hemen üzerinde, `comment` öğesini makale verilerinin geri kalanı ile birlikte görüntülemek için şu satırı ekleyin:
 
 ```HTML
 <p class="lead" ng-bind="vm.article.comment"></p>
@@ -383,7 +383,7 @@ Kapanan `</section>` etiketinin hemen üzerinde, `comment` öğesini makale veri
 
 _modules/articles/client/views/list-articles.client.view.html_ dosyasını açın.
 
-Kapanan `</a>` etiketinin hemen üzerinde, `comment` öğesini makale verilerinin geri kalanı ile birlikte görüntülemek için şu satırı ekleyin:
+`</a>` kapanış etiketinin hemen üzerinde, `comment` öğesini makale verilerinin geri kalanı ile birlikte görüntülemek için şu satırı ekleyin:
 
 ```HTML
 <p class="list-group-item-text" ng-bind="article.comment"></p>
@@ -391,13 +391,13 @@ Kapanan `</a>` etiketinin hemen üzerinde, `comment` öğesini makale verilerini
 
 _modules/articles/client/views/admin/list-articles.client.view.html_ dosyasını açın.
 
-`<div class="list-group">` öğesinin içinde ve kapanış `</a>` etiketinin hemen üzerinde, makale verilerinin geri kalanıyla birlikte `comment` görüntülemek için şu satırı ekleyin:
+`<div class="list-group">` öğesinin içinde ve `</a>` kapanış etiketinin hemen üzerinde, `comment` öğesini makale verilerinin geri kalanıyla birlikte görüntülemek için şu satırı ekleyin:
 
 ```HTML
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-_modules/articles/client/views/admin/form-article.client.view.html_ dosyasını açın.
+_modules/articles/client/views/admin/form-article.client.view.html_ öğesini açın.
 
 Gönder düğmesini içeren ve şuna benzeyen `<div class="form-group">` öğesini bulun:
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Batch bulutta büyük paralel işler çalıştırır | Microsoft Docs"
-description: "Büyük ölçekli paralel ve HPC iş yükleri için Azure Batch hizmetini kullanma hakkında bilgi edinin"
+title: Azure Batch bulutta büyük paralel işler çalıştırır | Microsoft Docs
+description: Büyük ölçekli paralel ve HPC iş yükleri için Azure Batch hizmetini kullanma hakkında bilgi edinin
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
 manager: jkabat
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch nedir?
 
@@ -85,7 +85,7 @@ Aşağıdaki diyagramda, istemci uygulamasının yanı sıra paralel iş yükün
 
 Bunun, Batch’i kullanma yollarından yalnızca biri olduğunu ve bu senaryoda yalnızca bazı özelliklerin açıklandığını unutmayın. Örneğin, her işlem düğümünde [birden fazla görevi paralel olarak](batch-parallel-node-tasks.md) yürütebilirsiniz. Veya [iş hazırlama ve tamamlama görevlerini](batch-job-prep-release.md) kullanarak düğümleri işleriniz için hazırlayabilir, daha sonra temizleyebilirsiniz. 
 
-Havuzlar, düğümler, işler ve görevler ile Batch uygulamanızı oluştururken kullanabileceğiniz birçok API özelliği hakkında daha ayrıntılı bilgi için bkz. [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md). 
+Havuzlar, düğümler, işler ve görevler ile Batch uygulamanızı oluştururken kullanabileceğiniz birçok API özelliği hakkında daha ayrıntılı bilgi için bkz. [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md). Ayrıca en son [Toplu İşlem hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch)’ne bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

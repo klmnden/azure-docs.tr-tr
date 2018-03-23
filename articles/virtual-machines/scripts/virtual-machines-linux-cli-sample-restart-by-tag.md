@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI komut dosyası örneği - yeniden başlatma VM'ler | Microsoft Docs"
-description: "Azure CLI komut dosyası örneği - yeniden başlatma VM'ler etiketi ve kimliği"
+title: Azure CLI Betik Örneği - VM’leri yeniden başlatma | Microsoft Docs
+description: Azure CLI Betik Örneği - VM’leri etikete ve kimliğe göre yeniden başlatma
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,85 +16,85 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ea114f484c774573b7d219cff9102a7308af356e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a9f7cf8ba492004cb6d9e359bfb392448dfbe813
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="restart-vms"></a>Sanal makineleri yeniden başlatın
+# <a name="restart-vms"></a>VM’leri yeniden başlatma
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Bu örnek, çeşitli şekillerde bazı sanal makineleri almak ve bunları yeniden başlatmak için göstermektedir.
+Bu örnekte bazı VM’leri alma ve yeniden başlatmanın birkaç yolu gösterilmektedir.
 
-İlk kaynak grubunda yer alan tüm sanal makineleri yeniden başlatır.
+Birinci yol, kaynak grubundaki tüm VM’leri yeniden başlatır.
 
 ```bash
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-İkinci kullanarak etiketli VM'ler alır `az resouce list` filtreler VM'ler kaynakları ve bu sanal makineleri yeniden başlatır.
+İkinci yol ise `az resouce list` kullanarak etiketlenmiş VM’leri alır ve VM olan kaynaklarla filtreleyip bu VM’leri yeniden başlatır.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-Bu örnek, bir Bash kabuğunda çalışır. Windows istemcisi üzerinde Azure CLI betikleri çalıştırma seçenekleri için bkz [Windows Azure CLI çalıştıran](../windows/cli-options.md).
+Bu örnek bir Bash kabuğunda çalışır. Windows istemcisi üzerinde Azure CLI betikleri çalıştırma seçenekleri için bkz. [Windows’da Azure CLI çalıştırma](../windows/cli-options.md).
 
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
-Örnek, üç komut dosyasına sahiptir.
-İlk sanal makineleri sağlar.
-Her VM sağlanacak beklemeden komutu döndürecek şekilde Hayır bekleme seçeneği kullanır.
-İkinci tamamen sağlanması VM'ler için bekler.
-Üçüncü komut sağlanan ve ardından hemen tüm sanal makineleri yeniden etiketli VM'ler.
+Örnek, üç betik içerir.
+Birincisi sanal makineleri hazırlar.
+Komutun hazırlanacak her bir VM’yi beklemeden döndürmesi için no-wait seçeneğini kullanır.
+İkincisi VM'lerin tam olarak hazırlanmasını bekler.
+Üçüncü betik hazırlanan tüm VM’leri ve sonra yalnızca etiketli VM'leri yeniden başlatır.
 
-### <a name="provision-the-vms"></a>Sanal makineleri sağlama
+### <a name="provision-the-vms"></a>VM’leri hazırlama
 
-Bu komut dosyasını bir kaynak grubu ve yeniden başlatmak için üç VM'ler oluşturur.
+Bu betik bir kaynak grubu oluşturur ve sonra yeniden başlatılacak üç VM oluşturur.
 İki tanesi etiketlenir.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Provision the VMs")]
 
 ### <a name="wait"></a>Wait
 
-Bu komut dosyası, tüm üç VM'ler sağlanır veya bunlardan birini sağlamak başarısız olana kadar 20 dakikada sağlama durumunu denetler.
+Bu betik, üç VM’nin tamamı hazırlanana kadar veya bir tanesi hazırlamada başarısız olana kadar 20 saniyede bir hazırlama durumunu denetler.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Wait for the VMs to be provisioned")]
 
-### <a name="restart-the-vms"></a>Sanal makineleri yeniden başlatın
+### <a name="restart-the-vms"></a>VM’leri yeniden başlatma
 
-Bu komut dosyası kaynak grubundaki tüm sanal makineleri yeniden başlatır ve yalnızca etiketli VM'ler yeniden başlatır.
+Bu betik, kaynak grubundaki tüm VM’leri ve sonra yalnızca etiketli VM'leri yeniden başlatır.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Restart VMs by tag")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Komut dosyası örneği çalıştırdıktan sonra kaynak grupları, sanal makineleri ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu kullanılabilir.
+Betik örneği çalıştırıldıktan sonra kaynak gruplarını, VM’leri ve ilişkili tüm kaynakları kaldırmak için aşağıdaki komut kullanılabilir.
 
 ```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut, bir kaynak grubu, sanal makine, kullanılabilirlik kümesi, yük dengeleyici ve tüm ilişkili kaynakları oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik bir kaynak grubu, sanal makine, kullanılabilirlik kümesi, yük dengeleyici ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Sanal makineler oluşturur.  |
-| [az vm listesi](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | İle kullanılan `--query` VM'ler sağlanan bunları yeniden başlatmadan önce emin olmak için ve ardından sanal makineleri yeniden başlatmayı kimliklerini almak için. |
-| [az kaynak listesi](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | İle kullanılan `--query` etiketini kullanarak sanal makineleri kimliklerini almak için. |
-| [az vm yeniden başlatma](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Sanal makineleri yeniden başlatır. |
-| [az grubu Sil](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Sanal makineleri oluşturur.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | VM’lerin yeniden başlatılmadan önce hazırlandığından emin olmak ve sonra VM’leri yeniden başlatmak için kimliklerini almak amacıyla `--query` ile birlikte kullanılır. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Etiket kullanan VM’lerin kimliklerini almak için `--query` ile birlikte kullanılır. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | VM’leri yeniden başlatır. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
-Ek sanal makine CLI kod örnekleri bulunabilir [Azure Linux VM'de belgelerine](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ek sanal makine CLI betiği örnekleri, [Azure Linux VM belgeleri](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) içinde bulunabilir.

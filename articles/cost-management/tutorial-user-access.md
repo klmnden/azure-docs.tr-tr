@@ -1,8 +1,8 @@
 ---
-title: "Öğretici: Azure Maliyet Yönetimi’nde erişim atama | Microsoft Docs"
-description: "Bu öğreticide, varlıklara erişim düzeylerini tanımlayan kullanıcı hesapları ile maliyet yönetimi verilerine erişim atamayı öğrenirsiniz."
+title: 'Öğretici: Azure Maliyet Yönetimi’nde erişim atama | Microsoft Docs'
+description: Bu öğreticide, varlıklara erişim düzeylerini tanımlayan kullanıcı hesapları ile maliyet yönetimi verilerine erişim atamayı öğrenirsiniz.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Öğretici: Maliyet yönetimi verilerine erişim atama
 
@@ -54,7 +54,7 @@ Pano ve raporlar gibi maliyet yönetimi verilerine erişmesi gereken tipik kulla
 
 ![kullanıcı erişimi olan yeni kullanıcı oluşturma](.\media\tutorial-user-access\new-user-access.png)
 
-Kullanıcı ekleme hakkında öğretici bir video izlemek için bkz. [Cloudyn Azure Maliyet Yönetimi’ne Kullanıcı Ekleme](https://youtu.be/Nzn7GLahx30).
+Kullanıcı ekleme hakkında öğretici bir video izlemek için bkz. [Azure Maliyet Yönetimi’ne Kullanıcı Ekleme](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="create-entities"></a>Varlık oluşturma
 
@@ -75,9 +75,9 @@ Cloudyn portalında, sağ üst kısımdaki **Ayarlar**’a tıklayın ve **Bulut
 İşiniz bittiğinde varlığı **Kaydedin**.
 
 
-Maliyet varlık hiyerarşisi oluşturma hakkında öğretici bir video izlemek için bkz. [Cloudyn Azure Maliyet Yönetimi’nde Maliyet Varlık Hiyerarşisi Oluşturma](https://youtu.be/dAd9G7u0FmU).
+Maliyet varlık hiyerarşisi oluşturma hakkında öğretici bir video izlemek için bkz. [Azure Maliyet Yönetimi’nde Maliyet Varlık Hiyerarşisi Oluşturma](https://youtu.be/dAd9G7u0FmU).
 
-Azure Kurumsal Anlaşma kullanıcısıysanız, [Cloudyn Azure Maliyet Yönetimi ile Azure Resource Manager’a bağlanma](https://youtu.be/oCIwvfBB6kk) bölümünde hesap ve abonelikleri varlıklarla ilişkilendirme hakkında öğretici bir video izleyin.
+Azure Kurumsal Anlaşma kullanıcısıysanız, [Azure Maliyet Yönetimi ile Azure Resource Manager’a bağlanma](https://youtu.be/oCIwvfBB6kk) bölümünde hesap ve abonelikleri varlıklarla ilişkilendirme hakkında öğretici bir video izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

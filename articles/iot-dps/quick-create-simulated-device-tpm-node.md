@@ -1,22 +1,22 @@
 ---
-title: "Node.js kullanarak Azure IOT Hub'a sanal TPM cihazı sağlama | Microsoft Docs"
-description: "Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için Node.js cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama"
+title: Node.js kullanarak Azure IOT Hub'a sanal TPM cihazı sağlama | Microsoft Docs
+description: Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için Node.js cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 03/01/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3cc667286e9c643f31d9c704a8a2dfac18312bb3
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Node.js cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 
@@ -62,7 +62,7 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
     ```
 
     > [!NOTE]
-    > Yukarıdaki paketleri yüklerken bazı bilinen sorunlarla karşılaşabilirsiniz. Bunları çözmek için, **Yönetici olarak çalıştır** modunda açtığınız komut istemini kullanarak `npm install --global --production windows-build-tools` komutunu çalıştırın; yolu, yüklü sürümünüzle değiştirdikten sonra `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` komutunu çalıştırın ve ardından yukarıdaki yükleme komutlarını yeniden çalıştırın.
+    > Yukarıdaki paketleri yüklerken bazı bilinen sorunlarla karşılaşabilirsiniz. Bu sorunları çözmek için, **Yönetici olarak çalıştır** modunda açtığınız komut istemini kullanarak `npm install --global --production windows-build-tools` komutunu çalıştırın; yolu, yüklü sürümünüzle değiştirdikten sonra `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` komutunu çalıştırın ve ardından yukarıdaki yükleme komutlarını yeniden çalıştırın.
     >
 
 1. Kayıt sırasında kullandığınız bileşenleri içeren aşağıdaki paketleri yükleyin:
@@ -81,7 +81,7 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
     > Aşağıdaki örneklerde `azure-iot-provisioning-device-http` ve `azure-iot-device-mqtt` aktarımları kullanılır.
     > 
 
-    **registereddevice** klasöründe komut istemcinizde aşağıdaki komutları çalıştırarak bunların hepsini aynı anda yükleyebilirsiniz:
+    **registerdevice** klasöründe komut istemcinizde aşağıdaki komutları çalıştırarak bu paketlerin hepsini aynı anda yükleyebilirsiniz:
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device

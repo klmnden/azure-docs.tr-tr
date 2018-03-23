@@ -1,25 +1,25 @@
 ---
-title: "Azure portalında çok faktörlü kimlik doğrulaması raporlama başvurusu | Microsoft Docs"
-description: "Azure portalında çok faktörlü kimlik doğrulaması raporlama için başvuru bilgileri"
+title: Azure portalında çok faktörlü kimlik doğrulaması raporlama başvurusu | Microsoft Docs
+description: Azure portalında çok faktörlü kimlik doğrulaması raporlama için başvuru bilgileri
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 03/16/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb4ef0e361cb3495a03e5a7ed49d9a84a54dbdc3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: e92d1383f3179f03194b460e0467314c137fd9e2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>Azure portalında çok faktörlü kimlik doğrulaması raporlama için başvuru
 
@@ -95,17 +95,9 @@ Bu bölümde MFA sonuç durumu dizesi için olası değerler listelenmiştir.
 
     - belirteç talebiyle gerçekleştirildi 
 
-    - belirteç talebiyle gerçekleştirildi 
-
-    - belirteç talebiyle gerçekleştirildi 
-
-    - belirteç talebiyle gerçekleştirildi 
-
     - harici sağlayıcı tarafından sağlanan taleple gerçekleştirildi 
 
     - güçlü kimlik doğrulamasıyla gerçekleştirildi 
-
-    - gerçekleştirilen akış Windows aracısı oturum açma akışı tarafı olduğundan atlandı 
 
     - gerçekleştirilen akış Windows aracısı oturum açma akışı tarafı olduğundan atlandı 
 

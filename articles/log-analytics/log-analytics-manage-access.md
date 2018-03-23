@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics'teki çalışma alanlarını yönetme | Microsoft Docs"
-description: "Kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Azure Log Analytics'teki çalışma alanlarını yönetebilirsiniz."
+title: Azure Log Analytics'teki çalışma alanlarını yönetme | Microsoft Docs
+description: Kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Azure Log Analytics'teki çalışma alanlarını yönetebilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 5121535768b7fb430486c1c2c623e1a3a488858f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -246,7 +246,7 @@ OMS hesabınızla ilişkili bir kullanıcı için hesap rolünü değiştirebili
 4. Liste sonuçlarından grubu seçin ve ardından **Ekle**'ye tıklayın.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Mevcut bir çalışma alanını Azure aboneliğine bağlama
-26 Eylül 2016'dan sonra oluşturulan tüm çalışma alanları, oluşturma zamanında bir Azure aboneliğine bağlanmalıdır. Bu tarihten önce oluşturulan çalışma alanları, oturum açtığınızda bir çalışma alanına bağlanmalıdır. Çalışma alanını Azure portalından oluşturduğunuzda veya çalışma alanınızı bir Azure aboneliğine bağladığınızda, Azure Active Directory'niz kuruluş hesabınız olarak bağlanır.
+26 Eylül 2016'dan sonra oluşturulan tüm çalışma alanları, oluşturma zamanında bir Azure aboneliğine bağlanmalıdır. Bu tarihten önce oluşturulan çalışma alanları, oturum açtığınızda bir aboneliğe bağlanmalıdır. Çalışma alanını Azure portalından oluşturduğunuzda veya çalışma alanınızı bir Azure aboneliğine bağladığınızda, Azure Active Directory'niz kuruluş hesabınız olarak bağlanır.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Çalışma alanını OMS portalında bir Azure aboneliğine bağlama
 

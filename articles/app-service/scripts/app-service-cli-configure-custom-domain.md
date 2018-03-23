@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI komut dosyası örneği - harita bir web uygulaması için özel bir etki alanı | Microsoft Docs"
-description: "Azure CLI komut dosyası örneği - harita bir web uygulaması için özel bir etki alanı"
+title: Azure CLI Betik Örneği - Özel bir etki alanını bir web uygulaması ile eşleme | Microsoft Docs
+description: Azure CLI Betik Örneği - Özel bir etki alanını bir web uygulaması ile eşleme
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.service: app-service-web
@@ -16,41 +16,41 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e0325d948b83b6bfd16060b8c174b28a49bad317
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: 71983d8d85bb30bcc4b90adebfb93fb75b677b6c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="map-a-custom-domain-to-a-web-app"></a>Bir web uygulaması için özel bir etki alanına Eşle
+# <a name="map-a-custom-domain-to-a-web-app"></a>Özel bir etki alanını bir web uygulaması ile eşleme
 
-Bu örnek komut dosyası ile ilgili kaynaklarını App Service'te bir web uygulaması oluşturur ve ardından eşler `www.<yourdomain>` ona.
+Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra onu `www.<yourdomain>` ile eşler.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, 2.0 veya üstü Azure CLI sürüm gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to a web app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Azure web uygulaması oluşturur. |
-| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az_webapp_config_hostname_add) | Özel bir etki alanı için bir web uygulaması eşler. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Bir Azure web uygulaması oluşturur. |
+| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az_webapp_config_hostname_add) | Özel bir etki alanını bir web uygulaması ile eşler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
-Ek uygulama hizmeti CLI kod örnekleri bulunabilir [Azure App Service belgeleri](../app-service-cli-samples.md).
+Ek App Service CLI betik örnekleri, [Azure App Service belgelerinde](../app-service-cli-samples.md) bulunabilir.

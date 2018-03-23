@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL Veritabanı’nı sorgulamak için Visual Studio ve .NET kullanma | Microsoft Docs"
-description: "Bu konu başlığı altında, Visual Studio kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir."
+title: Azure SQL Veritabanı’nı sorgulamak için Visual Studio ve .NET kullanma | Microsoft Docs
+description: Bu konu başlığı altında, Visual Studio kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: devcenter
-ms.workload: Active
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: 913055fca46580d870dc2e015f442b431c9ff6e0
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a76b9058f0bf7afdc332cee4ff7a49fa0e6987a6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Visual Studio ile .NET (C#) kullanarak Azure SQL veritabanına bağlanma ve veritabanını sorgulama
 

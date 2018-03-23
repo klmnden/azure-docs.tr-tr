@@ -1,91 +1,91 @@
 ---
-title: "Azure CLI 2.0 ve IOT uzantısı hizmetleri sağlama cihazı yönetmek için nasıl kullanılacağını | Microsoft Docs"
-description: "Cihaz sağlama hizmetleri yönetmek için Azure CLI 2.0 ve IOT uzantısı kullanmayı öğrenin"
+title: Cihaz sağlama hizmetlerini yönetmek için Azure CLI 2.0 ve IoT uzantısını kullanma | Microsoft Docs
+description: Cihaz sağlama hizmetlerini yönetmek için Azure CLI 2.0 ve IoT uzantısını kullanma hakkında bilgi edinin
 services: iot-dps
-keywords: 
+keywords: ''
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 674245f1e284e7308474fed0f6c53b350ec1c819
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.openlocfilehash: a1224c48537441726c0e01134f6a9256cf3b71c6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Cihaz hizmetleri sağlama yönetmek için Azure CLI 2.0 ve IOT uzantısı kullanma
+# <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Cihaz sağlama hizmetlerini yönetmek için Azure CLI 2.0 ve IoT uzantısını kullanma
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) çapraz platform komut satırı aracı IOT kenar gibi Azure kaynakları yönetmek için bir açık kaynak değil. Azure CLI 2.0, Windows, Linux ve MacOS kullanılabilir. Azure CLI 2.0 Azure IOT Hub kaynakları, cihaz sağlama hizmet örneği ve kutunun dışında bağlantılı-hub yönetmenizi sağlar.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest), IoT Edge gibi Azure kaynaklarını yönetmeye yönelik açık kaynaklı bir platformlar arası komut satırı aracıdır. Azure CLI 2.0 Windows, Linux ve Mac OS ile kullanılabilir. Azure CLI 2.0’ı kullanarak Azure IoT Hub kaynaklarını, cihaz sağlama hizmeti örneklerini ve bağlı hub’ları hemen yönetmeye başlayabilirsiniz.
 
-IOT uzantısı aygıt yönetimi ve tam IOT kenar özelliği gibi özellikler ile Azure CLI 2.0 aşağıdakilere zenginleştirir.
+IoT uzantısı, Azure CLI 2.0’ı cihaz yönetimi ve tam IoT Edge kapasitesi gibi özelliklerle zenginleştirir.
 
-Bu öğreticide, ilk Azure CLI 2.0 ve IOT uzantısı kurulum adımlarını tamamlayın. Daha sonra temel cihaz hazırlama hizmet işlemleri gerçekleştirmek için CLI komutların nasıl çalıştırıldığını öğrenin. 
+Bu öğreticide ilk olarak Azure CLI 2.0 ve IoT uzantısını ayarlama adımlarını tamamlayacaksınız. Daha sonra, temel cihaz sağlama hizmeti işlemlerini gerçekleştirmek için CLI komutlarını çalıştırma hakkında bilgi edineceksiniz. 
 
 ## <a name="installation"></a>Yükleme 
 
-### <a name="step-1---install-python"></a>1. adım - yükleme Python
+### <a name="step-1---install-python"></a>Adım 1 - Python yükleme
 
-[Python 2.7 x veya Python 3.x](https://www.python.org/downloads/) gereklidir.
+[Python 2.7x veya Python 3.x](https://www.python.org/downloads/) gereklidir.
 
-### <a name="step-2---install-azure-cli-20"></a>Adım 2 - Azure CLI 2.0 yükleyin
+### <a name="step-2---install-azure-cli-20"></a>Adım 2 - Azure CLI 2.0 yükleme
 
-İzleyin [yükleme yönergesindeki](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI 2.0 ortamınızda kurulumu. En azından, Azure CLI 2.0 sürümünüzün 2.0.24 olması gerekir veya üstü. Kullanım `az –version` doğrulamak için. Bu sürüm az uzantısını komutları destekler ve Knack komut çerçevesi sunar. Windows yüklemek için bir basit yoludur indirmek ve yüklemek için [MSI](https://aka.ms/InstallAzureCliWindows).
+[Yükleme yönergelerini](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) izleyerek Azure CLI 2.0’ı ortamınızda ayarlayın. Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. Windows’a yüklemenin kolay bir yolu, [MSI](https://aka.ms/InstallAzureCliWindows) indirip yüklemektir.
 
-### <a name="step-3---install-iot-extension"></a>3. adım - yükleme IOT uzantısı
+### <a name="step-3---install-iot-extension"></a>Adım 3 - IoT uzantısı yükleme
 
-[IOT uzantısı Benioku](https://github.com/Azure/azure-iot-cli-extension) uzantıyı yüklemek için çeşitli yollar açıklanmaktadır. En basit yolu çalıştırmaktır `az extension add --name azure-cli-iot-ext`. Yükleme sonrasında, kullandığınız `az extension list` yüklü uzantıları doğrulamak için veya `az extension show --name azure-cli-iot-ext` IOT uzantısı ayrıntılarını görmek için. Uzantıyı kaldırmak için kullanabileceğiniz `az extension remove --name azure-cli-iot-ext`.
-
-
-## <a name="basic-device-provisioning-service-operations"></a>Temel cihaz hazırlama hizmet işlemleri
-Örnek, Azure hesabınızda oturum açın, Azure kaynak grubu (Azure çözümünü ilgili kaynaklara tutan bir kapsayıcı) oluşturma, IOT Hub oluşturma, bir cihaz servie sağlama oluşturma, var olan cihaz hizmetleri sağlama listesinde gösterir ve bağlantılı bir IOT hub CLI komutları ile oluşturun. 
-
-Başlamadan önce daha önce açıklanan yükleme adımlarını tamamlayın. Bir Azure hesabınız yoksa henüz yapabilecekleriniz, [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/?v=17.39a) bugün. 
+[IoT uzantısı benioku](https://github.com/Azure/azure-iot-cli-extension) dosyası, uzantıyı yüklemenin birkaç yolunu açıklar. En basit yol `az extension add --name azure-cli-iot-ext` komutunu çalıştırmaktır. Yükleme sonrasında `az extension list` kullanarak o anda yüklü uzantıları doğrulayabilir veya `az extension show --name azure-cli-iot-ext` kullanarak IoT uzantısına ilişkin ayrıntıları görebilirsiniz. Uzantıyı kaldırmak için `az extension remove --name azure-cli-iot-ext` kullanabilirsiniz.
 
 
-### <a name="1-log-in-to-the-azure-account"></a>1. Azure hesabında oturum açma
+## <a name="basic-device-provisioning-service-operations"></a>Temel cihaz sağlama hizmeti işlemleri
+Örnekte Azure hesabınızda oturum açma, bir Azure Kaynak Grubu (bir Azure çözümü için ilgili kaynakları tutan kapsayıcı) oluşturma, bir IoT Hub oluşturma, bir cihaz sağlama hizmeti oluşturma, mevcut cihaz sağlama hizmetlerini listeleme ve CLI komutları ile bağlı bir IoT hub oluşturma işlemleri gösterilmiştir. 
+
+Başlamdan önce daha önce açıklanan yükleme adımlarını tamamlayın. Henüz bir Azure hesabınız yoksa hemen [ücretsiz bir hesap oluşturabilirsiniz](https://azure.microsoft.com/free/?v=17.39a). 
+
+
+### <a name="1-log-in-to-the-azure-account"></a>1. Azure hesabında oturum açın
   
     az login
 
 ![oturum açma][1]
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Bir kaynak grubu IoTHubBlogDemo içinde eastus oluşturun
+### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Doğu ABD bölgesinde bir IoTHubBlogDemo kaynak grubu oluşturun
 
     az group create -l eastus -n IoTHubBlogDemo
 
 ![Kaynak grubu oluşturma][2]
 
 
-### <a name="3-create-two-device-provisioning-services"></a>3. İki cihaz sağlama hizmetleri oluşturma
+### <a name="3-create-two-device-provisioning-services"></a>3. İki cihaz sağlama hizmeti oluşturun
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
-![Dağıtım noktaları oluşturma][3]
+![DPS oluşturun][3]
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
-### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. Bu kaynak grubu altında hizmetleri sağlama varolan cihaz listesi
+### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. Bu kaynak grubu altındaki tüm mevcut cihaz sağlama hizmetlerini listeleyin
 
     az iot dps list --resource-group IoTHubBlogDemo
 
-![Dağıtım noktaları listesi][4]
+![DPS’yi listeleyin][4]
 
 
-### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Yeni oluşturulmuş bir kaynak grubu altında bir IOT hub'ı blogDemoHub oluşturma
+### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Yeni oluşturulan kaynak grubu altında bir IoT Hub blogDemoHub oluşturun
 
     az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
 
-![IOT Hub oluşturma][5]
+![IoT Hub oluşturun][5]
 
-### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Hizmet sağlama bir cihaza bir var olan IOT Hub bağlantı
+### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Mevcut IoT Hub’ı bir cihaz sağlama hizmetine bağlayın
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 
-![Bağlantı Hub][5]
+![Hub’ı bağlayın][5]
 
 <!-- Images -->
 [1]: ./media/how-to-manage-dps-with-cli/login.jpg
@@ -100,11 +100,11 @@ Başlamadan önce daha önce açıklanan yükleme adımlarını tamamlayın. Bir
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Cihaz kaydı
-> * Cihaz Başlat
-> * Cihaz kayıtlı doğrulayın
+> * Cihazı kaydedin
+> * Cihazı başlatın
+> * Cihaz kayıtlı olduğunu doğrulayın
 
-Yük dengeli hubs arasında birden çok aygıt sağlama konusunda bilgi almak için sonraki öğretici ilerleyin. 
+Yük dengeli hublar arasında birden çok cihaz sağlamayı öğrenmek için sonraki öğreticiye ilerleyin. 
 
 > [!div class="nextstepaction"]
-> [Yük dengeli IOT hub'ları aygıtlarda sağlama](./tutorial-provision-multiple-hubs.md)
+> [Yük dengeli IoT hubları arasında cihaz sağlama](./tutorial-provision-multiple-hubs.md)

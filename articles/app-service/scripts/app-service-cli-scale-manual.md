@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI komut dosyası örneği - ölçek el ile Azure CLI 2.0 kullanan bir Web uygulaması | Microsoft Docs"
-description: "Azure CLI komut dosyası örneği - ölçek el ile Azure CLI 2.0 kullanan bir Web uygulaması"
+title: Azure CLI Betik Örneği - Azure CLI 2.0 kullanarak Web Uygulamasını el ile ölçeklendirme | Microsoft Docs
+description: Azure CLI Betik Örneği - Azure CLI 2.0 kullanarak Web Uygulamasını el ile ölçeklendirme
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
 ms.service: app-service
@@ -16,41 +16,41 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 961805842e9beca0ee2e34abcd0c1355f502a46b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: e5aaa6dd960544a07d786d6ccb5747f3e7914b0a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="scale-a-web-app-manually"></a>Bir web uygulaması elle ölçeklendirme
+# <a name="scale-a-web-app-manually"></a>Web uygulamasını el ile ölçeklendirme
 
-Bu örnek betik, bir kaynak grubu, bir uygulama hizmeti planı ve bir web uygulaması oluşturur. Sonra tek bir örnek uygulama hizmeti planına birden çok örneği ölçeklendirir.
+Bu örnek betik bir kaynak grubu, bir App Service planı ve bir web uygulaması oluşturur. Daha sonra App Service planını tek bir örnekten birden fazla örneğe ölçeklendirir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, 2.0 veya üstü Azure CLI sürüm gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli-interactive[main](../../../cli_scripts/app-service/scale-manual/scale-manual.sh "Manual Scale")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut, bir kaynak grubu, web uygulaması ve tüm ilgili kaynaklar oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik bir kaynak grubu, web uygulaması ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Azure web uygulaması oluşturur. |
-| [`az appservice plan update`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_update) | Uygulama hizmeti planının özelliklerini güncelleştirir. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Bir Azure web uygulaması oluşturur. |
+| [`az appservice plan update`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_update) | App Service planının özelliklerini güncelleştirir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
-Ek uygulama hizmeti CLI kod örnekleri bulunabilir [Azure App Service belgeleri](../app-service-cli-samples.md).
+Ek App Service CLI betik örnekleri, [Azure App Service belgelerinde](../app-service-cli-samples.md) bulunabilir.

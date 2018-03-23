@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI betik örnek - OMS izleme ile bir Windows Server 2016 VM oluşturma | Microsoft Docs"
-description: "Azure CLI betik örnek - OMS izleme ile bir Windows Server 2016 VM oluşturma"
+title: Azure CLI Betik Örneği - OMS izleme ile Windows Server 2016 VM oluşturma | Microsoft Docs
+description: Azure CLI Betik Örneği - OMS izleme ile Windows Server 2016 VM oluşturma
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-Windows
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,45 +16,45 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: f59d3576526d6e91482cd1df10fa2e9de75954aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 7d9a72ba46def786e03565521ca225d438aa26b4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="monitor-a-vm-with-operations-management-suite"></a>Bir VM Operations Management Suite ile izleme
+# <a name="monitor-a-vm-with-operations-management-suite"></a>Operations Management Suite ile bir VM’yi izleme
 
-Bu komut dosyasını bir Azure sanal makinesi oluşturur, Operations Management Suite (OMS) Aracısı'nı yükler ve bir OMS çalışma sistemiyle kaydeder. Betik çalıştıktan sonra sanal makine OMS konsolunda görünür.
+Bu betik bir Azure Sanal Makinesi oluşturur, Operations Management Suite (OMS) aracısını yükler ve sistemi bir OMS çalışma alanına kaydeder. Betik çalıştıktan sonra sanal makine OMS konsolunda görünür.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-monitor-oms.sh "Quick Create VM")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut, bir kaynak grubu, sanal makine ve tüm ilgili kaynaklar oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik, bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Sanal makine oluşturur ve ağ kartı, sanal ağ, alt ağ ve NSG bağlanır. Bu komut ayrıca kullanılacak sanal makine görüntüsü ve yönetici kimlik bilgilerini belirtir.  |
-| [Azure vm uzantısı kümesi](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | VM uzantısı bir sanal makineye karşı çalışır. Bu durumda, Operations Management Suite Aracı Uzantısı OMS Aracısı'nı yüklemek ve bir OMS çalışma alanında VM kaydetmek için kullanılır. |
-| [az grubu Sil](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Sanal makine oluşturur ve ağ kartına, sanal ağa, alt ağa ve NSG’ye bağlar. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir.  |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir sanal makineye karşı VM uzantısı çalıştırır. Bu örnekte OMS aracısını yüklemek ve VM’yi bir OMS çalışma alanına kaydetmek için Operations Management Suite aracı uzantısı kullanılır. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
-Ek sanal makine CLI kod örnekleri bulunabilir [Azure Windows VM belgelerine](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ek sanal makine CLI betiği örnekleri, [Azure Windows VM belgeleri](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) içinde bulunabilir.

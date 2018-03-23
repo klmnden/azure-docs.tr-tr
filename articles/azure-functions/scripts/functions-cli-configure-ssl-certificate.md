@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI komut dosyası örneği - özel bir SSL sertifikası bir işlev uygulaması bağlama | Microsoft Docs"
-description: "Azure CLI komut dosyası örneği - bağ azure'da bir işlev uygulaması için özel bir SSL sertifikası"
+title: Azure CLI Betik Örneği - Özel bir SSL sertifikasını bir işlev uygulamasına bağlama | Microsoft Docs
+description: Azure CLI Betik Örneği - Azure’da özel bir SSL sertifikasını bir işlev uygulamasına bağlama
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.service: functions
@@ -16,48 +16,48 @@ ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f8e8570d9c3093b5f49b000916644888304eed4e
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.openlocfilehash: fd4c69036960364e12aeea5d9e5f65e7b36eff0d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Bir işlev uygulaması için özel bir SSL sertifikası bağlama
+# <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Özel bir SSL sertifikasını bir işlev uygulamasına bağlama
 
-Bu örnek betik bir işlev uygulaması App Service'te ile ilgili kaynaklarını oluşturur, ardından özel etki alanı adı SSL sertifikası kendisine bağlar. Bu örnek için şunlar gerekir:
+Bu örnek betik, App Service'te ilgili kaynaklarıyla birlikte bir işlev uygulaması oluşturur, ardından bu işlev uygulamasına özel bir etki alanı adının SSL sertifikasını bağlar. Bu örnekte şunlar gereklidir:
 
 * Etki alanı kayıt şirketinizin DNS yapılandırma sayfasına erişim.
-* Geçerli. PFX dosyası ve SSL sertifikasının parolası karşıya yüklemek ve bağlamak istediğiniz.
+* Geçerli bir .PFX dosyası ve karşıya yükleyip bağlamak istediğiniz SSL sertifikası için parolası.
 
-Bir SSL sertifikası bağlamak için işlevi uygulamanıza bir uygulama hizmeti planı yer alan ve tüketim planı oluşturulması gerekir.
+Bir SSL sertifikası bağlamak için işlev uygulamanızın bir tüketim planı değil App Service planı içinde oluşturulmuş olması gerekir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI yerel olarak kullanmak isterseniz, Azure CLI Sürüm 2.0 veya sonraki sürümünü çalıştırması gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI’yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya sonraki bir sürümü çalıştırıyor olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az uygulama hizmeti planı oluşturma](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | SSL sertifikaları bağlamak için gerekli bir uygulama hizmeti planı oluşturur. |
-| [az functionapp oluşturma]() | Bir işlev uygulaması oluşturur. |
-| [az appservice web yapılandırma ana bilgisayar adı ekleyin](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Özel bir etki alanı işlev uygulaması eşler. |
-| [az appservice web yapılandırma ssl karşıya yükleme](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | Bir SSL sertifikası bir işlev uygulaması yükler. |
-| [az appservice web yapılandırma ssl bağlama](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Karşıya yüklenen bir SSL sertifikası bir işlev uygulaması bağlar. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | SSL sertifikalarını bağlamak için gereken bir App Service planı oluşturur. |
+| [az functionapp create]() | Bir işlev uygulaması oluşturur. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Özel bir etki alanını işlev uygulaması ile eşler. |
+| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | SSL sertifikasını bir işlev uygulamasına yükler. |
+| [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Karşıya yüklenmiş SSL sertifikasını bir işlev uygulamasına bağlar. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
-Ek uygulama hizmeti CLI kod örnekleri bulunabilir [Azure App Service belgeleri]().
+Ek App Service CLI betik örnekleri, [Azure App Service belgelerinde]() bulunabilir.

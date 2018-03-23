@@ -1,24 +1,18 @@
 ---
-title: "Azure Depolamaya Giriş | Microsoft Docs"
-description: "Microsoft’un bulutta veri depolama alanı Azure Storage’a giriş."
+title: Azure Depolamaya Giriş | Microsoft Docs
+description: Microsoft’un bulutta veri depolama alanı Azure Storage’a giriş.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage’a Giriş
 
@@ -137,7 +131,7 @@ Depolama hizmetleri için iki temel şifreleme seçeneği vardır. Güvenlik ve 
 
 Azure Bekleyen Veri için Depolama Hizmeti Şifrelemesi (SSE), verilerinizi koruyarak kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine getirmenize yardımcı olur. Bu özellik ile Azure Depolama, verilerinizi depolama alanında kalıcı hale gelmeden önce otomatik olarak şifreler ve alınmadan önce bunların şifresini çözer. Şifreleme, şifre çözme ve anahtar yönetimi, kullanıcılara tamamen şeffaf bir şekilde sunulur.
 
-Depolama Hizmeti Şifreleme’yi (SSE) Blob depolama alanı veya Azure Dosyaları (önizleme) için etkinleştirebilirsiniz. Etkinleştirilirse, ilgili hizmete yazılan tüm veriler yazılmadan önce şifrelenir. Okunmadan önce verilerin şifresi çözülür.
+SSE tüm performans katmanları (Standart ve Premium), tüm dağıtım modelleri (Azure Resource Manager ve Klasik) ve tüm Azure Depolama hizmetlerinde (Blob, Kuyruk, Tablo ve Dosya) verileri otomatik olarak şifreler. SSE, Azure Depolama performansını etkilemez.
 
 Bekleyen veri için SSE şifrelemesi hakkında daha fazla bilgi için bkz. [Bekleyen Veri için Azure Depolama Hizmeti Şifrelemesi](storage-service-encryption.md).
 

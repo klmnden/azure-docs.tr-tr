@@ -1,39 +1,54 @@
 ---
-title: "Azure Hızlı Başlangıç - .NET kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs"
-description: "Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla .NET için depolama istemcisi kitaplığını kullanırsınız."
+title: Azure Hızlı Başlangıç - .NET kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs
+description: Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla .NET için depolama istemcisi kitaplığını kullanırsınız.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/01/2018
 ms.author: tamram
-ms.openlocfilehash: 265691ff189c628156f234083645a4b2ca4b637b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Hızlı Başlangıç: .NET kullanarak blobları yükleme, indirme ve listeleme
 
 Bu hızlı başlangıçta, kapsayıcıdaki blok bloblarını karşıya yüklemek, indirmek ve listelemek için Azure Depolama için .NET istemci kitaplığını nasıl kullanabileceğinizi öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
-
-Bu hızlı başlangıcı tamamlamak için:
-
-* [Linux](/dotnet/core/linux-prerequisites?tabs=netcore2x) veya [Windows](/dotnet/core/windows-prerequisites?tabs=netcore2x) için .NET core 2.0 uygulamasını yükleyin
-
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+## <a name="prerequisites"></a>Ön koşullar
+
+Bu hızlı başlangıcı tamamlamak için ilk olarak [Azure portalında](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) bir Azure depolama hesabı oluşturun. Hesap oluşturmayla ilgili yardım için bkz. [Depolama hesabı oluşturma](../common/storage-quickstart-create-account.md).
+
+Ardından, işletim sisteminiz için .NET Core 2.0’ı indirip yükleyin. Ayrıca, işletim sisteminizle birlikte kullanmak için bir düzenleyici yüklemeyi seçebilirsiniz.
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+- [Windows için .NET Core](https://www.microsoft.com/net/download/windows/build) yükleyin 
+- İsteğe bağlı olarak [Windows için Visual Studio](https://www.visualstudio.com/) yükleyin 
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+- [Linux için .NET Core](https://www.microsoft.com/net/download/linux/build) yükleyin
+- İsteğe bağlı olarak [Visual Studio Code](https://www.visualstudio.com/) ve [C# uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068) yükleyin
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+- [macOS için .NET Core](https://www.microsoft.com/net/download/macos/build) yükleyin.
+- İsteğe bağlı olarak [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/) yükleyin
+
+---
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 
-Bu hızlı başlangıçta kullanılan örnek uygulama, temel bir konsol uygulamasıdır. 
+Bu hızlı başlangıçta kullanılan örnek uygulama, temel bir konsol uygulamasıdır. [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart) üzerindeki örnek uygulamayı inceleyebilirsiniz.
 
-Uygulamanın bir kopyasını geliştirme ortamınıza indirmek için [Git](https://git-scm.com/)’i kullanın. 
+Uygulamanın bir kopyasını geliştirme ortamınıza indirmek için [Git](https://git-scm.com/)'i kullanın. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
@@ -43,22 +58,35 @@ Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümünü 
 
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 
-Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bu bağlantı dizesini uygulamayı çalıştıran yerel makine üzerindeki bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.  \<yourconnectionstring\> yerine gerçek bağlantı dizenizi yerleştirin.
+Uygulamayı çalıştırmak istiyorsanız, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bu bağlantı dizesini uygulamayı çalıştıran yerel makine üzerindeki bir ortam değişkeninde depolayabilirsiniz. İşletim sisteminize bağlı olarak aşağıdaki komutlardan birini kullanarak ortam değişkenini oluşturun. `<yourconnectionstring>` değerini gerçek bağlantı dizesiyle değiştirin.
 
-### <a name="linux"></a>Linux
-
-```bash
-export storageconnectionstring=<yourconnectionstring>
-```
-### <a name="windows"></a>Windows
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+.bash_profile dosyanızı düzenleyin ve ortam değişkenini ekleyin:
+
+```
+export STORAGE_CONNECTION_STRING=
+```
+
+Ortam değişkenini ekledikten sonra değişiklikleri uygulamak için oturumu kapatıp tekrar açın. Alternatif olarak, terminalinizden "source .bash_profile" yazabilirsiniz.
+
+---
+
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
-Bu örnek, Belgelerim’de bir sınama dosyası oluşturur, bunu Blob depolamaya yükler, blobları kapsayıcıda listeler ve ardından eski ve yeni dosyaları karşılaştırabilmeniz için dosyayı yeni bir adla indirir. 
+Bu örnek, yerel **MyDocuments** klasörünüzde bir sınama dosyası oluşturur ve Blob depolama alanına yükler. Örnek daha sonra kapsayıcı içindeki blobları listeler ve eski ve yeni dosyaları karşılaştırabilmeniz için dosyayı yeni bir adla indirir. 
 
 Uygulama dizininize gidip `dotnet run` komutuyla uygulamayı çalıştırın.
 
@@ -79,56 +107,62 @@ The program has completed successfully.
 Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
 ```
 
-Devam etmek için herhangi bir tuşa bastığınızda, depolama kapsayıcısını ve dosyaları siler. Devam etmeden önce, iki dosya için Belgelerim'i kontrol edin. Dosyaları açarak aynı olduklarını görebilirsiniz. Blob depolamadaki dosyanın içeriğini görüntülemek için, blobun URL'sini konsol penceresinden kopyalayın ve tarayıcıya yapıştırın.
-
-Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenize olanak tanıyan ücretsiz ve platformlar arası bir araçtır. 
+Devam etmek için **Enter** tuşuna bastığınızda uygulama, depolama kapsayıcısını ve dosyaları siler. Silmeden önce, **MyDocuments** klasörünüzde iki dosyayı denetleyin. Dosyaları açarak aynı olduklarını görebilirsiniz. Konsol penceresinden blob URL’sini kopyalayıp tarayıcıya yapıştırarak blobun içeriğini görüntüleyin.
 
 Dosyaları doğruladıktan sonra, tanıtımı tamamlamak ve test dosyalarını silmek için herhangi bir tuşa basın. Artık örnek dosyanın ne yaptığını gördüğünüze göre, koda göz atmak için Program.cs dosyasını açabilirsiniz. 
 
 ## <a name="understand-the-sample-code"></a>Örnek kodu anlama
 
-Sonraki aşamada, nasıl çalıştığını anlayabilmeniz için örnek kodu inceleyeceğiz.
+Ardından, nasıl çalıştığını anlayabilmeniz için örnek kodu inceleyin.
 
-### <a name="get-references-to-the-storage-objects"></a>Depolama nesneleriyle ilgili başvuruları alma
+### <a name="try-parsing-the-connection-string"></a>Bağlantı dizesini ayrıştırmayı deneyin
 
-İlk önce, Blob depolamaya erişmek ve Blob depolamayı yönetmek için kullanılan nesnelere başvuru oluşturmaktır. Bu nesneler birbirleri üzerinde derlenir ve her bir dosya, listede yanında yer alan dosya tarafından kullanılır.
-
-* [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet) nesnesinin depolama hesabına işaret eden bir örneğini oluşturun.
-
-* [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet) nesnesinin, depolama hesabınızdaki Blob hizmetine işaret eden bir örneğini oluşturun.
-
-* [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) nesnesinin, eriştiğiniz kapsayıcıyı temsil eden bir örneğini oluşturun. Kapsayıcılar, tıpkı bilgisayarınızdaki dosyaları düzenlemek için klasörleri kullandığınız gibi blobları düzenlemek için kullanılır.
-
-[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) nesneniz olduktan sonra, ilgilendiğiniz belirli bir bloba işaret eden bir [CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet) nesnesi örneği oluşturabilir ve karşıya yükleme, indirme, kopyalama gibi işlemler yapabilirsiniz.
-
-> [!IMPORTANT]
-> Kapsayıcı adlarının küçük harfle yazılması gerekir. Kapsayıcılar ve blob adları hakkında daha fazla bilgi için bkz. [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-
-Bu bölümde, nesnelerin örneğini oluşturuyor, yeni kapsayıcı oluşturuyor ve ardından kapsayıcıdaki izinleri bloblar herkese açık olacak ve bloblara yalnızca bir URL ile erişilebilecek şekilde ayarlıyorsunuz. Bu kapsayıcının adı **quickstartblobs**'dur.
-
-Örnek her çalıştırıldığında yeni bir kapsayıcı oluşturmak istediğimizden, bu örnekte [CreateIfNotExists](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexists?view=azure-dotnet) komutu kullanılır. Uygulamanın tamamında aynı kapsayıcıyı kullandığınız bir üretim ortamında, **CreateIfNotExists**’i yalnızca bir kez çağırmanız önerilir. Alternatif olarak, kapsayıcıyı önceden oluşturursanız kodda kapsayıcı oluşturmanıza gerek kalmaz.
+Örneğin yaptığı ilk işlem, ortam değişkeninin depolama hesabını işaret eden bir [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) nesnesi oluşturmak üzere ayrıştırılabilecek bir bağlantı dizesi içerip içermediğini denetlemektir. Bağlantı dizesinin geçerli olup olmadığını denetlemek için [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) yöntemini kullanın. **TryParse** başarılı olursa *storageAccount* değişkenini başlatır ve **true** değerini döndürür.
 
 ```csharp
-// Load the connection string for use with the application. The storage connection string is stored
+// Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
 // Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
-if (storageConnectionString == null)
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+
+// Check whether the connection string can be parsed.
+if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
+    // If the connection string is valid, proceed with operations against Blob storage here.
+    ...
+}
+else
+{
+    // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable name 'storageconnectionstring' with the actual storage " +
+        "Add a environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
+    Console.WriteLine("Press any key to exit the sample application.");
+    Console.ReadLine();
 }
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+```
 
-// Create the CloudBlobClient that is used to call the Blob Service for that storage account.
+### <a name="create-the-container-and-set-permissions"></a>Kapsayıcı oluşturma ve izinleri ayarlama
+
+Daha sonra örnek, bir kapsayıcı oluşturur ve kapsayıcıdaki tüm blobların herkese açık olması için izinlerini ayarlar. Bir blob herkese açık ise, herhangi bir istemci tarafından anonim olarak erişilebilir.
+
+Kapsayıcıyı oluşturmak için öncelikle [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient) nesnesinin depolama hesabınızdaki Blob depolama alanına işaret eden bir örneğini oluşturun. Ardından, [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) nesnesinin bir örneğini ve sonra kapsayıcıyı oluşturun. 
+
+Bu durumda örnek, kapsayıcıyı oluşturmak için [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) yöntemini çağırır. Kapsayıcı adının benzersiz olduğundan emin olmak için kapsayıcı adına bir GUID değeri eklenir. Bir üretim ortamında kapsayıcı oluştururken, yalnızca henüz mevcut değilse ve adlandırma çakışmalarını önlemek için [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) yönteminin kullanılması tercih edilir.
+
+> [!IMPORTANT]
+> Kapsayıcı adlarının küçük harfle yazılması gerekir. Kapsayıcıları ve blobları adlandırma hakkında daha fazla bilgi için bkz. [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+
+
+```csharp
+// Create the CloudBlobClient that represents the Blob storage endpoint for the storage account.
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-// Create a container called 'quickstartblobs'. 
+// Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
 cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
-await cloudBlobContainer.CreateIfNotExistsAsync();
+await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 
 BlobContainerPermissions permissions = new BlobContainerPermissions
@@ -140,14 +174,10 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>Blobları kapsayıcıya yükleme
 
-Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları en sık kullanılan bloblardır ve bu hızlı başlangıçta bu bloblar kullanılmıştır.
-
-Dosyayı bloba yüklemek için, hedef kapsayıcıda bloba bir başvuru alın. Blob başvurusunu aldıktan sonra, [CloudBlockBlob.UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) kullanarak verileri karşıya yükleyebilirsiniz. Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, blob zaten varsa blobun üzerine yazılır.
-
-Örnek kod, karşıya yükleme ve indirme için kullanılacak yerel bir dosya oluşturur, karşıya yüklenecek dosyayı **fileAndPath** olarak ve blob adını **localFileName** olarak depolar. Aşağıdaki örnek, dosyayı **quickstartblobs** adlı kapsayıcınıza yükler.
+Ardından örnek, blok blobuna yerel bir dosya yükler. Kod örneği, önceki bölümde oluşturulan kapsayıcı üzerinde [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) yöntemini çağırarak bir **CloudBlockBlob** nesnesine başvuru alır. Daha sonra [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) yöntemini çağırarak seçili dosyayı bloba yükler. Bu yöntem, daha önce oluşturulmadıysa bir blob oluşturur, aksi takdirde üzerine yazar. 
 
 ```csharp
-// Create a file in MyDocuments to test the upload and download.
+// Create a file in your local MyDocuments folder to upload to a blob.
 string localPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 string localFileName = "QuickStart_" + Guid.NewGuid().ToString() + ".txt";
 sourceFile = Path.Combine(localPath, localFileName);
@@ -157,21 +187,17 @@ File.WriteAllText(sourceFile, "Hello, World!");
 Console.WriteLine("Temp file = {0}", sourceFile);
 Console.WriteLine("Uploading to Blob storage as blob '{0}'", localFileName);
 
-// Get a reference to the location where the blob is going to go, then upload the file.
-// Upload the file you created, use localFileName for the blob name.
+// Get a reference to the blob address, then upload the file to the blob.
+// Use the value of localFileName for the blob name.
 CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(localFileName);
 await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 ```
 
-Blob depolamayla kullanabileceğiniz çeşitli karşıya yükleme yöntemleri vardır. Örneğin bir bellek akışınız varsa, UploadFromFileAsync yerine UploadFromStreamAsync yöntemini kullanabilirsiniz.
-
-Blok blobları herhangi bir metin veya ikili dosya türünde olabilir. Sayfa blobları öncelikli olarak IaaS VM'leri desteklemek için kullanılan VHD dosyalarında kullanılır. Ekleme blobları, bir dosyaya yazıp daha sonradan daha fazla bilgi eklemek istediğiniz durumlarda günlüğe kaydetme için kullanılır. Blob depolamada depolanan nesnelerin çoğu blok blobudur.
-
 ### <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-[CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) kullanarak kapsayıcıdaki dosyaların listesini alabilirsiniz. Aşağıdaki kod blob listesini alır, ardından bu bloblarda döngü yapar ve bulunan blobların URI değerlerini gösterir. Dosyayı görüntülemek için URI değerini komut penceresinden kopyalayıp tarayıcıya yapıştırabilirsiniz.
+Örnek, [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) yöntemini kullanarak blobları kapsayıcıda listeler. Örnek söz konusu olduğunda, kapsayıcıya yalnızca bir blob eklendiği için listeleme işlemi yalnızca bir blob döndürür.
 
-Kapsayıcıda 5.000 veya daha az blobunuz varsa, tüm blob adları tek bir ListBlobsSegmentedAsync çağrısında alınır. Kapsayıcıda 5.000'den fazla blobunuz varsa, hizmet tüm blob adları alınana kadar listeyi 5.000 blobluk kümeler halinde alır. Dolayısıyla, bu API ilk kez çağrıldığında, ilk 5.000 blob adını ve bir de devamlılık belirteci döndürür. İkinci seferde, siz belirteci sağlarsınız ve hizmet bir sonraki blob adları kümesini alır; tüm blob adlarının alındığını gösterecek şekilde devamlılık belirteci null değerine sahip olana kadar bu şekilde devam eder.
+Tek çağrıda döndürülecek çok fazla sayıda blob (varsayılan olarak 5000'den fazla) varsa, **ListBlobsSegmentedAsync** yöntemi toplam sonuç kümesinin bir segmentini ve bir devamlılık belirtecini döndürür. Blobların sonraki segmentini almak için, devamlılık belirteci null olana kadar önceki çağrı tarafından döndürülen devamlılık belirtecini art arda sağlayın. Null devamlılık belirteci tüm blobların alındığını gösterir. Örnek kod, en iyi uygulamalar için devamlılık belirtecinin nasıl kullanılacağını gösterir.
 
 ```csharp
 // List the blobs in the container.
@@ -180,27 +206,24 @@ BlobContinuationToken blobContinuationToken = null;
 do
 {
     var results = await cloudBlobContainer.ListBlobsSegmentedAsync(null, blobContinuationToken);
+    // Get the value of the continuation token returned by the listing call.
     blobContinuationToken = results.ContinuationToken;
     foreach (IListBlobItem item in results.Results)
     {
         Console.WriteLine(item.Uri);
     }
     blobContinuationToken = results.ContinuationToken;
-} while (blobContinuationToken != null);
+} while (blobContinuationToken != null); // Loop while the continuation token is not null. 
 
 ```
 
 ### <a name="download-blobs"></a>Blob’ları indirme
 
-[CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) kullanarak blobları yerel diskinize indirin.
-
-Aşağıdaki kod önceki bir bölümde karşıya yüklenmiş olan blobu indirir; yerel diskinizde her iki dosyayı da görebilmeniz için indirilen blobun adına "_DOWNLOADED" son ekini koyar.
+Sonra örnek, daha önce oluşturulan blobu [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) yöntemini kullanarak yerel dosya sisteminize indirir. Örnek kod, her iki dosyayı da yerel dosya sisteminde görebilmeniz için blob adına "_DOWNLOADED" son ekini ekler.
 
 ```csharp
-// Download blob. In most cases, you would have to retrieve the reference
-//   to cloudBlockBlob here. However, we created that reference earlier, and 
-//   haven't changed the blob we're interested in, so we can reuse it. 
-// First, add a _DOWNLOADED before the .txt so you can see both files in MyDocuments.
+// Download the blob to a local file, using the reference created earlier. 
+// Append the string "_DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
 destinationFile = sourceFile.Replace(".txt", "_DOWNLOADED.txt");
 Console.WriteLine("Downloading blob to {0}", destinationFile);
 await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);  
@@ -208,7 +231,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu hızlı başlangıçta karşıya yüklenen bloblara artık ihtiyacınız kalmadığında, [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync) kullanarak kapsayıcının tamamını silebilirsiniz. Artık gerekmiyorsa oluşturulmuş olan dosyaları da silin.
+Örnek, [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync) ile tüm kapsayıcıyı silerek oluşturduğu kaynakları temizler. Ayrıca isterseniz yerel dosyaları silebilirsiniz.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");
@@ -224,13 +247,29 @@ File.Delete(sourceFile);
 File.Delete(destinationFile);
 ```
 
+## <a name="resources-for-developing-net-applications-with-blobs"></a>Bloblarla .NET uygulamaları geliştirme kaynakları
+
+Blob depolama ile .NET geliştirmeye yönelik şu ek kaynaklara bakın:
+
+### <a name="binaries-and-source-code"></a>İkili dosyalar ve kaynak kodu
+
+- [Depolama .NET istemci kitaplığının](https://www.nuget.org/packages/WindowsAzure.Storage/) en son sürümüne yönelik NuGet paketini indirin. 
+- GitHub üzerinde [Depolama .NET istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-net) görüntüleyin.
+
+### <a name="client-library-reference-and-samples"></a>İstemci kitaplığı başvurusu ve örnekleri
+
+- İstemci kitaplığı hakkında daha fazla bilgi için bkz. [Depolama .NET API başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
+- Depolama .NET istemci kitaplığı kullanılarak yazılmış [Blob depolama örneklerini](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) araştırın.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, dosyaları .NET kullanarak yerel bir disk ve Azure Blob depolama arasında aktarmayı öğrendiniz. Blob depolamayla çalışma hakkında daha fazla bilgi edinmek için, Blob depolama Nasıl yapılır öğreticisiyle devam edin.
+Bu hızlı başlangıçta .NET kullanarak blobları karşıya yükleme, indirme ve listeleme hakkında bilgi edindiniz. 
+
+Blob depolama alanına görüntü yükleyen bir web uygulaması oluşturma hakkında bilgi almak için [Azure Depolama ile görüntü verilerini buluta yükleme](storage-upload-process-images.md).
 
 > [!div class="nextstepaction"]
 > [Blob Depolama İşlemleri Nasıl Yapılır](storage-dotnet-how-to-use-blobs.md)
 
-İndirip çalıştırabileceğiniz başka Azure Depolama kod örnekleri için lütfen [.NET kullanılan Azure Depolama örnekleri](../common/storage-samples-dotnet.md) listesine bakın.
-
-Depolama Gezgini ve Bloblar hakkında daha fazla bilgi için bkz. [Azure Blob depolama kaynaklarını Depolama Gezgini'yle yönetme](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- .NET Core hakkında daha fazla bilgi için bkz. [10 dakika içinde .NET kullanmaya başlama](https://www.microsoft.com/net/learn/get-started/).
+- Windows için Visual Studio’dan dağıtabileceğiniz örnek bir uygulamayı incelemek için bkz. [Azure Blob Depolama ile .NET Fotoğraf Galerisi Web Uygulaması Örneği](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
+ 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Windows Sanal Makinelerinde SQL Server'a Genel Bakış | Microsoft Docs"
-description: "Azure Sanal Makineler’de tam SQL Server sürümlerini çalıştırma hakkında bilgi edinin."
+title: Azure Windows Sanal Makinelerinde SQL Server'a Genel Bakış | Microsoft Docs
+description: Azure Sanal Makineler’de tam SQL Server sürümlerini çalıştırma hakkında bilgi edinin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
 tags: azure-service-management
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: jroth
-ms.openlocfilehash: 268ae1dae1a247ee63adef22403f89680daa4961
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c5c480db8586db7ef125d5c992ff66f5cc28c1e2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Sanal Makinelerinde SQL Server nedir? (Windows)
 
@@ -51,10 +51,7 @@ Azure sanal makineleri çeşitli iş yükü taleplerini karşılamak üzere fark
 Kullanmaya başlamak için, gerekli olan sürüm ve işletim sisteminizle birlikte bir SQL Server sanal makine resmi seçin. Aşağıdaki bölümlerde SQL Server sanal makine galeri görüntüleri için Azure portalının doğrudan bağlantıları verilmektedir.
 
 > [!TIP]
-> Bu görüntülerin VM ve SQL fiyatlandırmasını anlamak için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
-
-> [!TIP]
-> SQL Server sanal makine galeri görüntüleri için güncelleştirme ve yaşam döngüsü ilkesini anlamak üzere bkz. [SQL Server VM'leri SSS](virtual-machines-windows-sql-server-iaas-faq.md#images).
+> SQL görüntülerinin fiyatlandırmasını anlamak için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md). 
 
 ### <a id="payasyougo"></a> Kullandıkça ödeyin
 Şu tabloda, kullandıkça öde SQL Server resimlerinin bir matrisi verilmektedir.
@@ -86,6 +83,9 @@ SQL Server sanal makinenizi oluşturduktan sonra, SQL Server Management Studio (
 
 ### <a name="migrate-your-data"></a>Verilerinizi geçirme
 Varolan bir veritabanınız varsa, bunu yeni sağlanan SQL VM'ye taşımak istersiniz. Geçiş seçenekleri ve kılavuzların listesi için bkz. [Azure VM’de bir Veritabanını SQL Server’a Geçirme](virtual-machines-windows-migrate-sql.md).
+
+## <a id="lifecycle"></a> SQL VM görüntü yenileme ilkesi
+Azure desteklenen her işletim sistemi, sürüm ve sürüm bileşimi için yalnızca tek bir sanal makine görüntüsü tutar. Diğer bir deyişle, zaman içinde görüntüler yenilenir ve eski görüntüler kaldırılır. Daha fazla bilgi için [SQL Server VM'leri SSS](virtual-machines-windows-sql-server-iaas-faq.md#images) makalesindeki **Görüntüler** bölümüne bakın.
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Müşteri deneyimini geliştirme programı (CEIP)
 Müşteri Deneyimini Geliştirme Programı (CEIP) varsayılan olarak etkindir. Bu, SQL Server’ın geliştirilmesine yardımcı olmak için Microsoft’a düzenli olarak raporlar gönderir. CEIP’i hazırladıktan sonra devre dışı bırakmak istemiyorsanız CEIP için herhangi bir yönetim görevi gerekmez. VM’ye uzak masaüstüyle bağlanarak CEIP özelleştirebilir ya da devre dışı bırakabilirsiniz. Ardından **SQL Server Hata ve Kullanım Raporlama** yardımcı programını çalıştırın. Raporlamayı devre dışı bırakmak için yönergeleri izleyin. Veri toplama hakkında daha fazla bilgi için bkz. [SQL Server Gizlilik Bildirimi](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx).

@@ -1,8 +1,8 @@
 ---
-title: "Web sitelerinin kullanılabilirlik ve yanıt hızını izleme | Microsoft Docs"
-description: "Application Insights’ta web testleri ayarlayın. Web sitesi kullanılamaz duruma gelirse veya yavaş yanıt verirse uyarı alın."
+title: Web sitelerinin kullanılabilirlik ve yanıt hızını izleme | Microsoft Docs
+description: Application Insights’ta web testleri ayarlayın. Web sitesi kullanılamaz duruma gelirse veya yavaş yanıt verirse uyarı alın.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
-ms.author: sdash
-ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.date: 02/09/2018
+ms.author: sdash ; mbullwin
+ms.openlocfilehash: d8d6c6a242f63ad891a8134657273ff73dfcde18
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -41,7 +41,7 @@ Her uygulama kaynağı için 100’e kadar kullanılabilirlik testi oluşturabil
 
 Web uygulamanız için **Application Insights’ı zaten yapılandırdıysanız**, Application Insights kaynağını [Azure portalında](https://portal.azure.com) açın.
 
-**Veya raporlarınızı yeni bir kaynakta görmek istiyorsanız,** [Microsoft Azure](http://azure.com)’a kaydolun, [Azure portalı](https://portal.azure.com)’na gidin ve bir Application Insights kaynağı oluşturun.
+**Veya raporlarınızı yeni bir kaynakta görmek istiyorsanız,** [Azure portalı](https://portal.azure.com)’na gidin ve bir Application Insights kaynağı oluşturun.
 
 ![Yeni > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
@@ -56,9 +56,13 @@ Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekle
 * **Bağımlı istekleri ayrıştır**: Bu seçenek işaretlenirse test, test kapsamındaki web sitesine ait görüntü, betik, stil dosyaları ve diğer dosyaları ister. Kayıtlı yanıt süresi, bu dosyaları almak için geçen süreyi içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur. 
 
     Seçenek işaretlenmezse, test yalnızca belirttiğiniz URL’deki dosyayı ister.
+
 * **Yeniden denemeyi etkinleştir**: Bu seçenek işaretlenirse, test başarısız olduğunda kısa bir süre sonra yeniden denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler bundan sonra her zamanki test sıklığında gerçekleştirilir. Bir sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alınır. Bu kural her test konuma bağımsız olarak uygulanır. Bu ayar önerilir. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.
-* **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık sıklığında ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
+
+* **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık varsayılan sıklıkta ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
+
 * **Test konumları**, sunucularımızın URL’nize web istekleri gönderdiği yerlerdir. Bir konumdan fazla seçin; böylece, web sitenizdeki ağ sorunlarını ayırt edebilirsiniz. En fazla 16 konum seçebilirsiniz.
+
 * **Başarı ölçütleri**:
 
     **Test zaman aşımı**: Yavaş yanıtlar hakkında uyarı almak için bu değeri azaltın. Yanıtlar sitenizden bu süre içinde alınmadıysa test başarısız sayılır. **Bağımlı istekleri ayrıştır**’ı seçtiyseniz; tüm görüntüler, stil dosyaları, betikler ve diğer bağımlı kaynaklar bu süre içinde alınmış olmalıdır.

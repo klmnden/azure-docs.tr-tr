@@ -1,8 +1,8 @@
 ---
-title: "Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma | Microsoft Docs"
-description: "Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Databricks çalışma alanı, bir Apache Spark kümesi oluşturma ve bir Spark işi çalıştırma işlemi gösterilmektedir."
+title: 'Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma | Microsoft Docs'
+description: Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Databricks çalışma alanı, bir Apache Spark kümesi oluşturma ve bir Spark işi çalıştırma işlemi gösterilmektedir.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
 
@@ -48,8 +48,13 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
     * **Abonelik** için açılan listeden Azure aboneliğinizi seçin.
     * **Kaynak grubu** için yeni bir kaynak grubu oluşturmayı veya mevcut bir kaynak grubunu kullanmayı seçin. Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Daha fazla bilgi için bkz. [Azure Kaynak Grubuna genel bakış](../azure-resource-manager/resource-group-overview.md).
     * **Konum** için **Doğu ABD 2**’yi seçin. Kullanılabilir diğer bölgeler için bkz. [Bölgeye göre kullanılabilir Azure hizmetleri](https://azure.microsoft.com/regions/services/).
+    * **Fiyatlandırma Katmanı** için **Standart** veya **Premium**’u seçin. Bu katmanlar hakkında daha fazla bilgi için bkz. [Databricks fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/databricks/).
 
-4. **Oluştur**’a tıklayın.
+    **Oluştur**’a tıklayın.
+
+4. Hesabın oluşturulması birkaç dakika sürer. Hesap oluşturma sırasında portal sağ tarafta **Azure Databricks için dağıtım gönderiliyor** kutucuğunu gösterir. Kutucuğu görmek için panonuzu sağa kaydırmanız gerekebilir. Ayrıca, ekranın üst kısmında gösterilen bir ilerleme çubuğu vardır. İlerleme durumu için her iki alanı da izleyebilirsiniz.
+
+    ![Databricks dağıtım kutucuğu](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks dağıtım kutucuğu")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Databricks’te Spark kümesi oluşturma
 
@@ -64,7 +69,7 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
     ![Azure’da Databricks Spark kümesi oluşturma](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     * Küme için bir ad girin.
-    * Bu makale için **4.0 (beta)** çalışma zamanıyla bir küme oluşturun. 
+    * Bu makale için **4.0** çalışma zamanıyla bir küme oluşturun. 
     * **___ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
     * Diğer tüm varsayılan değerleri kabul edin. 
     * **Küme oluştur**’a tıklayın. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
@@ -96,7 +101,7 @@ Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob dep
     > [!IMPORTANT]
     >Bu makalede **depolamayı DBFS'ye bağlama yaklaşımı** kullanılır. Bu yaklaşım, bağlı deponun küme dosya sistemiyle ilişkilendirilmesini sağlar. Bu sayede kümeye erişen tüm uygulamalar ilişkilendirilmiş depolamayı da kullanabilir. Doğrudan erişim yaklaşımı, erişimi yapılandırdığınız uygulamayla kısıtlıdır.
     >
-    > Bağlama yaklaşımını kullanmak için bu makalede seçtiğiniz Databricks çalışma zamanı sürüm **4.0 (beta)** ile bir Spark kümesi oluşturmanız gerekir.
+    > Bağlama yaklaşımını kullanmak için bu makalede seçtiğiniz Databricks çalışma zamanı sürüm **4.0** ile bir Spark kümesi oluşturmanız gerekir.
 
     Aşağıdaki kod parçacığında `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` ve`{YOUR STORAGE ACCOUNT ACCESS KEY}` değerlerini Azure Depolama hesabınız için uygun değerlerle değiştirin. Kod parçacığını not defterindeki boş bir hücreye yapıştırın ve sonra kod hücresini çalıştırmak için SHIFT + ENTER tuşlarına basın.
 

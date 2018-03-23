@@ -1,6 +1,6 @@
 ---
-title: "Bisiklet paylaşımı öğreticisi - Azure Machine Learning Workbench ile gelişmiş veri hazırlama"
-description: "Bu öğreticide, Azure Machine Learning Workbench'i kullanarak uçtan uca veri hazırlama görevini gerçekleştireceksiniz"
+title: Bisiklet paylaşımı öğreticisi - Azure Machine Learning Workbench ile gelişmiş veri hazırlama
+description: Bu öğreticide, Azure Machine Learning Workbench'i kullanarak uçtan uca veri hazırlama görevini gerçekleştireceksiniz
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: ca7239fd3e31c7a6cfc6fb64e04afb376e01c190
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f1d4b58d0fe0628aa00b8229a1383d3ada414f62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Öğretici: Azure Machine Learning Workbench'i kullanarak gelişmiş veri hazırlığı (Bisiklet paylaşımı verileri)
 Azure Machine Learning (önizleme), uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
@@ -736,7 +736,7 @@ Bu öğreticide dosyanın adı `BikeShare Data Prep.py` şeklindedir. Bu dosya �
 3. HDInsight çalıştırma yapılandırmasını oluşturun. Kümenizin adını ve `sshuser` parolasını biliyor olmalısınız.
 
     ```azurecli
-    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
     az ml experiment prepare -c hdinsight
     ```
 > [!NOTE]

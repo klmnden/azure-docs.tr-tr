@@ -1,8 +1,8 @@
 ---
-title: "Azure Maliyet Yönetimi ile Azure aboneliğinizi kaydetme | Microsoft Docs"
-description: "Cloudyn Azure Maliyet Yönetimi ile kaydetmek için Azure aboneliğinizi kullanın."
+title: Azure Maliyet Yönetimi ile Azure aboneliğinizi kaydetme | Microsoft Docs
+description: Azure Maliyet Yönetimi’ne kaydolmak için Azure aboneliğinizi kullanın.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 666919e37ffa3bb039fc9387737b8e6c3789311a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Ayrı bir Azure aboneliğini kaydetme ve maliyet verilerini görüntüleme
 
-Cloudyn Azure Maliyet Yönetimi ile kaydetmek için Azure aboneliğinizi kullanabilirsiniz. Kaydınız Cloudyn portalına erişim sağlar. Bu hızlı başlangıçta bir Cloudyn deneme aboneliği oluşturmak ve Cloudyn portalında oturum açmak için gereken kayıt işlemleri açıklanmaktadır. Ayrıca nasıl maliyet verilerini hemen görüntülemeye başlayabileceğinizi gösterir.
+Azure Maliyet Yönetimi’ne kaydolmak için Azure aboneliğinizi kullanırsınız. Kaydınız Cloudyn portalına erişim sağlar. Bu hızlı başlangıçta bir Cloudyn deneme aboneliği oluşturmak ve Cloudyn portalında oturum açmak için gereken kayıt işlemleri açıklanmaktadır. Ayrıca nasıl maliyet verilerini hemen görüntülemeye başlayabileceğinizi gösterir.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -40,13 +40,13 @@ Cloudyn Azure Maliyet Yönetimi ile kaydetmek için Azure aboneliğinizi kullana
 9. Cloudyn portalını açmak için **Cloudyn’e git**’e tıklayın, **Hesap Yönetimi** sayfasında, Azure abonelik hesap bilgilerinizi görmeniz gerekir.  
     ![Hesap Yönetimi](./media/quick-register-azure-sub/accounts-mgt.png)
 
-Azure aboneliğinizi kaydetme hakkında öğretici bir video izlemek için, bkz. [Cloudyn Azure Maliyet Yönetimi’nde Dizin GUID’i ve Oran Kimliğinizi bulma](https://youtu.be/PaRjnyaNGMI).
+Azure aboneliğinizi kaydetme hakkında öğretici bir video izlemek için, bkz. [Azure Maliyet Yönetimi’nde Dizin GUID’i ve Oran Kimliğinizi bulma](https://youtu.be/PaRjnyaNGMI).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, Maliyet Yönetimi ile kaydolmak için Azure aboneliğinizi kullandınız. Ayrıca Cloudyn portalında oturum açarak maliyet verilerini görüntülemeye başladınız. Cloudyn tarafından Azure Maliyet Yönetimi hakkında daha fazla bilgi almak için, Maliyet Yönetimi öğreticisi ile devam edin.
+Bu hızlı başlangıçta, Maliyet Yönetimi ile kaydolmak için Azure aboneliğinizi kullandınız. Ayrıca Cloudyn portalında oturum açarak maliyet verilerini görüntülemeye başladınız. Azure Maliyet Yönetimi hakkında daha fazla bilgi almak için, Maliyet Yönetimi öğreticisi ile devam edin.
 
 > [!div class="nextstepaction"]
 > [Kullanımı ve maliyetleri gözden geçirme](./tutorial-review-usage.md)

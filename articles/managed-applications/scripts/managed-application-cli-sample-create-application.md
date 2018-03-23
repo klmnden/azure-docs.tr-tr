@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI betik örnek - yönetilen bir uygulamayı dağıtma | Microsoft Docs"
-description: "Azure CLI betik örnek - bir yönetilen uygulama tanımını dağıtma"
+title: Azure CLI betik örneği - Yönetilen uygulamayı dağıtma | Microsoft Docs
+description: Azure CLI Betik Örneği - Yönetilen uygulamayı dağıtma
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,36 +12,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 62d0247df3b3d9f242877e4ea27ccc871cf797c0
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.openlocfilehash: 3090284a89cfeb1fe8b6446e55e2731e1155167f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Hizmet Kataloğu Azure CLI ile yönetilen bir uygulamayı dağıtmak
+# <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Azure CLI ile hizmet kataloğu için bir yönetilen uygulamayı dağıtma
 
-Bu komut dosyasını bir yönetilen uygulama tanımını hizmet Kataloğu'ndan dağıtır. 
+Bu betik, hizmet kataloğundan yönetilen bir uygulama tanımını dağıtır. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli[main](../../../cli_scripts/managed-applications/create-application/create-application.sh "Create application")]
 
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut, yönetilen uygulamayı dağıtmak için aşağıdaki komutu kullanır. Komut özgü belgelere Tablo bağlantıları her komut.
+Bu betik, yönetilen uygulamayı dağıtmak için aşağıdaki komutu kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az managedapp oluşturma](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | Yönetilen bir uygulama oluşturun. Tanımı kimliği ve parametreleri için şablonu sağlayın. |
+| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | Yönetilen uygulama oluşturur. Şablonun tanım kimliğini ve parametrelerini sağlar. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](../overview.md).
-* Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+* Yönetilen uygulamalara giriş için [Azure Yönetilen Uygulamalara genel bakış](../overview.md) konusunu inceleyin.
+* Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).

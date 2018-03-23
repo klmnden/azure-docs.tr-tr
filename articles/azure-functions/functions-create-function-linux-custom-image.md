@@ -1,8 +1,8 @@
 ---
-title: "Linux üzerinde özel görüntü kullanarak bir işlev oluşturma (önizleme) | Microsoft Docs"
-description: "Özel bir Linux görüntüsü üzerinde çalışan Azure İşlevleri oluşturmayı öğrenin."
+title: Linux üzerinde özel görüntü kullanarak bir işlev oluşturma (önizleme) | Microsoft Docs
+description: Özel bir Linux görüntüsü üzerinde çalışan Azure İşlevleri oluşturmayı öğrenin.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
@@ -11,11 +11,11 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 555d05c6cd5e804e5f80ecb8df77237fd8270105
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4b9cb7923b177c73f83a7ac17b1022a5455c7f30
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Linux üzerinde özel görüntü kullanarak bir işlev oluşturma (önizleme)
 
@@ -127,7 +127,7 @@ docker login --username <docker-id>
 "Oturum açma başarılı oldu" iletisi, oturumunuzun açıldığını onaylar. Oturum açtıktan sonra [docker push](https://docs.docker.com/engine/reference/commandline/push/) komutunu kullanarak görüntüyü Docker Hub’a gönderin.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Komutun çıkışını inceleyerek göndermenin başarılı olduğunu doğrulayın.

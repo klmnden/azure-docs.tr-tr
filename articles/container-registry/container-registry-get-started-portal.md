@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Azure portalıyla Azure’da özel bir Docker kayıt defteri oluşturun"
-description: "Azure portalıyla hızlıca özel bir Docker kapsayıcısı kayıt defteri oluşturmayı öğrenin."
+title: 'Hızlı Başlangıç: Azure portalıyla Azure’da özel bir Docker kayıt defteri oluşturun'
+description: Azure portalıyla hızlıca özel bir Docker kapsayıcısı kayıt defteri oluşturmayı öğrenin.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/06/2017
+ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 1a4c5b365b93b30987ff6541aba762cbf8a4b7a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma
 
-Azure kapsayıcı kayıt defteri, Azure’da özel Docker kapsayıcısı görüntülerinizi depolayıp yönetebileceğiniz özel bir Docker kayıt defteridir. Bu hızlı başlangıçta, Azure portalıyla bir kapsayıcı kayıt defteri oluşturursunuz.
+Azure kapsayıcı kayıt defteri, Azure’da özel Docker kapsayıcısı görüntülerinizi depolayıp yönetebileceğiniz özel bir Docker kayıt defteridir. Bu hızlı başlangıçta Azure portalını kullanarak bir kapsayıcı kayıt defteri oluşturacak, kayıt defterine bir kapsayıcı görüntüsü gönderecek ve son olarak kapsayıcıyı kayıt defterinizden Azure Container Instances’a (ACI) dağıtacaksınız.
 
 Bu hızlı başlangıcı tamamlayabilmeniz için Docker yerel olarak yüklü olmalıdır. Docker [Mac][docker-mac], [Windows][docker-windows] veya [Linux][docker-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
 
@@ -73,13 +73,13 @@ docker pull microsoft/aci-helloworld
 
 Görüntüyü kayıt defterinize göndermeden önce ACR oturum açma sunucusunun adıyla etiketlemeniz gerekir. Görüntüyü [docker tag][docker-tag] komutunu kullanarak etiketleyin. *login server* değerini daha önce kaydettiğiniz oturum açma sunucusu adıyla değiştirin.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
 Son olarak, [docker push][docker-push] komutunu kullanarak görüntüyü ACR örneğine gönderin. *login server* değerini ACR örneğinizin sunucu adıyla değiştirin.
 
-```
+```bash
 docker push <login server>/aci-helloworld:v1
 ```
 
@@ -104,15 +104,43 @@ Bu örnekte **aci-helloworld** deposunu seçiyoruz ve **TAGS** altında `v1` eti
 
 ![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-09]
 
+## <a name="deploy-image-to-aci"></a>Görüntüyü ACI’ya dağıtma
+
+Bir örneği kayıt defterinden dağıtmak için depoya (aci-helloworld) gitmemiz ve sonra v1 ifadesinin yanındaki üç noktaya tıklamamız gerekir.
+
+![Portaldan bir Azure Container Örneği başlatma][qs-portal-10]
+
+Açılır menü görüntülendiğinde **Örneği çalıştır**’ı seçin:
+
+![ACI açılır menüsünü başlatma][qs-portal-11]
+
+**Kapsayıcı adı**’nı doldurun, doğru aboneliğin seçildiğinden emin olun, mevcut **Kaynak grubu**: "myResourceGroup" öğesini seçin ve ardından **Tamam**’a tıklayarak Azure Container Örneğini başlatın.
+
+![ACI dağıtım seçeneklerini başlatma][qs-portal-12]
+
+Dağıtım başlatıldığında, dağıtım ilerlemesini gösteren bir kutucuk portal panonuza yerleştirilir. Dağıtım tamamlandığında, kutucuk yeni **mycontainer** kapsayıcı grubunuzu göstermek için güncelleştirilir.
+
+![ACI dağıtım durumu][qs-portal-13]
+
+Kapsayıcı grubu özelliklerini görüntülemek için mycontainer kapsayıcı grubunu seçin. Kapsayıcı grubunun **IP adresi** ve kapsayıcının **STATUS** değerini not edin.
+
+![ACI kapsayıcı ayrıntıları][qs-portal-14]
+
+## <a name="view-the-application"></a>Uygulamayı görüntüleme
+
+Kapsayıcı **Çalışıyor** durumuna geçtikten sonra uygulamayı görüntülemek için sık kullandığınız tarayıcıdan önceki adımda not ettiğiniz IP adresine gidin.
+
+![Tarayıcıdaki Merhaba Dünya uygulaması][qs-portal-15]
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekmediğinde **myResourceGroup** kaynak grubunu silin. Bunu yaptığınızda kaynak grubu, ACR örneği ve tüm kapsayıcı görüntüleri silinir.
+Kaynaklarınızı temizlemek için portaldaki **myResourceGroup** kaynak grubuna gidin. Kaynak grubu yüklendikten sonra **Kaynak grubunu sil**’e tıklayarak kaynak grubunu, Azure Container Registry’yi ve tüm Azure Container Örneklerini kaldırın.
 
 ![Azure portalında kapsayıcı kayıt defteri oluşturma][qs-portal-08]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, Azure portalı ile bir Azure Container Registry oluşturdunuz. Azure Container Registry’yi Azure Container Instances ile kullanmak istiyorsanız Azure Container Instances öğreticisine geçin.
+Bu hızlı başlangıçta Azure CLI ile bir Azure Container Registry oluşturdunuz ve Azure Container Instances üzerinden bir örneğini başlattınız. ACI’ya daha ayrıntılı bir bakış için Azure Container Instances öğreticisine geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances öğreticileri][container-instances-tutorial-prepare-app]
@@ -127,6 +155,12 @@ Bu hızlı başlangıçta, Azure portalı ile bir Azure Container Registry oluş
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+[qs-portal-10]: ./media/container-registry-get-started-portal/qs-portal-10.png
+[qs-portal-11]: ./media/container-registry-get-started-portal/qs-portal-11.png
+[qs-portal-12]: ./media/container-registry-get-started-portal/qs-portal-12.png
+[qs-portal-13]: ./media/container-registry-get-started-portal/qs-portal-13.png
+[qs-portal-14]: ./media/container-registry-get-started-portal/qs-portal-14.png
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

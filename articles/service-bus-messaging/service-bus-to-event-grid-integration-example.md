@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus - Event Grid tümleştirmesi örnekleri | Microsoft Docs"
-description: "Service Bus mesajlaşma ve Event Grid tümleştirmesi örnekleri"
+title: Azure Service Bus - Event Grid tümleştirmesi örnekleri | Microsoft Docs
+description: Service Bus mesajlaşma ve Event Grid tümleştirmesi örnekleri
 services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Azure Service Bus - Azure Event Grid örnekleri
 
@@ -118,7 +118,7 @@ Kaydet ve çalıştır’a tıklayın.
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>Event Grid Aracılığıyla İşlev ve Ad Alanını Bağlama
 
-Bir sonraki adım, işlevi ve Service Bus ad alanını birbirine bağlamaktır. Bu örnek için Azure portalını kullanın. Aynı şeyi elde etmek amacıyla PowerShell veya Azure CLI’nın nasıl kullanılacağını anlamak için [concepts](service-bus-to-event-grid-integration-concept.md sayfasına bakın.
+Bir sonraki adım, işlevi ve Service Bus ad alanını birbirine bağlamaktır. Bu örnek için Azure portalını kullanın. Aynı şeyi elde etmek amacıyla PowerShell veya Azure CLI’nın nasıl kullanılacağını anlamak için [kavramlar](service-bus-to-event-grid-integration-concept.md) sayfasına bakın.
 
 Yeni bir Azure Event Grid aboneliği oluşturmak için, Azure portalındaki ad alanınıza gidin ve Event Grid kamasını seçin. “+ Olay Aboneliği”ne tıklayın.
 
