@@ -1,11 +1,11 @@
 ---
-title: "SAP HANA Azure Backup dosya düzeyinde | Microsoft Docs"
-description: "İki ana yedekleme olasılıklarını SAP HANA Azure sanal makinelerde vardır, bu makalede, SAP HANA Azure yedekleme dosya düzeyinde yer almaktadır"
+title: SAP HANA Azure Backup dosya düzeyinde | Microsoft Docs
+description: İki ana yedekleme olasılıklarını SAP HANA Azure sanal makinelerde vardır, bu makalede, SAP HANA Azure yedekleme dosya düzeyinde yer almaktadır
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Dosya düzeyinde bir SAP HANA Azure yedekleme
 
@@ -87,9 +87,9 @@ Bu ekran görüntüsünde, bir Azure Portal'da nasıl göründüğünü görebil
 
 HANA Studio yedekleme konsol HANA yedek dosyaları en fazla dosya boyutunu sınırlamak bir izin verir. Örnek ortamında, birden çok daha küçük yedek dosya yerine bir büyük 230 GB dosyasına sahip olacak şekilde sağlayarak, performans geliştirilmiş.
 
-![T artırmak yedekleme saati HANA yan belirlemeden #39; üzerinde yedekleme dosya boyutu sınırını ayarlama](media/sap-hana-backup-file-level/image029.png)
+![Üzerinde HANA yan içermiyor yedek dosya boyutu sınırını ayarlama&#39;t artırmak yedekleme saati](media/sap-hana-backup-file-level/image029.png)
 
-HANA yan belirlemeden #39; üzerinde yedekleme dosya boyutu sınırını ayarlama t artırmak yedekleme saati dosyaları bu şekilde gösterildiği gibi sıralı olarak yazıldığından. Yedekleme 230 GB tek dosya yerine dört büyük veri dosyaları oluşmasını dosya boyutu sınırını 60 GB ayarlandı.
+Üzerinde HANA yan içermiyor yedek dosya boyutu sınırını ayarlama&#39;t dosyaları bu şekilde gösterildiği gibi sıralı olarak yazıldığından yedekleme süresini artırmak. Yedekleme 230 GB tek dosya yerine dört büyük veri dosyaları oluşmasını dosya boyutu sınırını 60 GB ayarlandı.
 
 ![Paralellik blobxfer aracının test etmek için HANA yedeklemeler için maksimum dosya boyutu 15 GB sonra ayarlandı](media/sap-hana-backup-file-level/image030.png)
 
@@ -139,7 +139,7 @@ Bu nedenle çalışır ancak performans 230 GB yedekleme test için iyi değildi
 
 Bir Azure Linux VM içinde bir Azure dosya paylaşımının mümkündür. Makaleyi [Azure File storage'ı Linux ile kullanma konusunda](../../../storage/files/storage-how-to-use-files-linux.md) yapmak ayrıntılar verilmektedir. Olduğundan şu anda bir Azure dosya paylaşımı 5 TB kota sınırı ve 1 TB dosya başına bir dosya boyutu sınırını aklınızda bulundurun. Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](../../../storage/common/storage-scalability-targets.md) depolama sınırları hakkında bilgi için.
 
-Testler, ancak, SAP HANA yedekleme olmayan &#39;göstermiştir; t şu anda doğrudan CIFS bağlama bu tür ile çalışır. İçinde de belirtildiği [SAP Not 1820529](https://launchpad.support.sap.com/#/notes/1820529) , CIFS önerilmez.
+Testleri göstermiştir, ancak, SAP HANA yedekleme olmayan&#39;t doğrudan CIFS bağlama bu tür ile şu anda çalışır. İçinde de belirtildiği [SAP Not 1820529](https://launchpad.support.sap.com/#/notes/1820529) , CIFS önerilmez.
 
 ![Bu şekil, SAP HANA Studio'da yedekleme iletişiminde bir hata gösterir.](media/sap-hana-backup-file-level/image038.png)
 

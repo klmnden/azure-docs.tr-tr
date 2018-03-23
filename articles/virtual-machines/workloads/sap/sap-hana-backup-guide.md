@@ -1,11 +1,11 @@
 ---
-title: "SAP HANA için yedekleme Kılavuzu Azure sanal makineler üzerinde | Microsoft Docs"
-description: "SAP HANA için yedekleme kılavuz SAP HANA için iki ana yedekleme olasılık, Azure sanal makinelerde sağlar."
+title: SAP HANA için yedekleme Kılavuzu Azure sanal makineler üzerinde | Microsoft Docs
+description: SAP HANA için yedekleme kılavuz SAP HANA için iki ana yedekleme olasılık, Azure sanal makinelerde sağlar.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Sanal Makineler’de SAP HANA için yedekleme kılavuzu
 
@@ -42,7 +42,7 @@ Aşağıdaki üç rakamı şu anda yerel Azure özelliklerini kullanarak SAP HAN
 
 ![Bu şekilde, geçerli VM durumunu kaydetmek için iki olasılık gösterilmektedir.](media/sap-hana-backup-guide/image001.png)
 
-Bu şekilde geçerli VM durumunu da VM diskleri el ile anlık görüntüsünü veya Azure Backup hizmeti aracılığıyla kaydetme olasılığını gösterilmektedir. Bu yaklaşım, bir belirlemeden #39; ile t sahip SAP HANA yedeklerini yönetmek. Disk anlık görüntü senaryonun dosya sistemi tutarlılığı ve bir uygulamayla tutarlı disk durumu iştir. Tutarlılık konu bölümünde anlatılan _depolama anlık görüntüleri duruma getirirken SAP HANA veri tutarlılığını_ bu makalenin ilerisinde yer. Özellikleri ve Azure Backup hizmeti SAP HANA yedeklemeler için ilgili kısıtlamaları da bu makalenin sonraki bölümlerinde ele alınmıştır.
+Bu şekilde geçerli VM durumunu da VM diskleri el ile anlık görüntüsünü veya Azure Backup hizmeti aracılığıyla kaydetme olasılığını gösterilmektedir. Bu yaklaşım, bir içermiyor ile&#39;SAP HANA yedeklemeleri yönetmeniz gerekir. Disk anlık görüntü senaryonun dosya sistemi tutarlılığı ve bir uygulamayla tutarlı disk durumu iştir. Tutarlılık konu bölümünde anlatılan _depolama anlık görüntüleri duruma getirirken SAP HANA veri tutarlılığını_ bu makalenin ilerisinde yer. Özellikleri ve Azure Backup hizmeti SAP HANA yedeklemeler için ilgili kısıtlamaları da bu makalenin sonraki bölümlerinde ele alınmıştır.
 
 ![Bu şekilde, VM içinde yedek dosya SAP HANA ayırdığınız için seçenekleri gösterilmektedir.](media/sap-hana-backup-guide/image002.png)
 
@@ -85,17 +85,17 @@ Standart dosya yedeklemeler için bir test geri yükleme gerekli değildir. Hang
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Artıları ve eksileri HANA yedekleme depolama anlık görüntü karşılaştırması
 
-SAP belirlemeden #39; t verin tercih ya da HANA yedekleme depolama anlık görüntü karşılaştırması. Böylece bir durum ve kullanılabilir depolama teknolojisi bağlı olarak kullanılacak belirleyebilir kendi Artıları ve eksileri, listeler (bkz [planlama bilgisayarınızı yedekleme ve kurtarma stratejisini](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
+SAP içermiyor&#39;t ya da HANA yedekleme depolama anlık görüntü karşı tercih verin. Böylece bir durum ve kullanılabilir depolama teknolojisi bağlı olarak kullanılacak belirleyebilir kendi Artıları ve eksileri, listeler (bkz [planlama bilgisayarınızı yedekleme ve kurtarma stratejisini](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 
-Üzerinde Azure, Azure blob özelliği mevcut değil &#39;snapshot olgu unutmayın; dosya sistemi tutarlılığı garanti t (bkz [PowerShell ile kullanma blob anlık görüntüleri](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). Sonraki bölümde _depolama anlık görüntüleri duruma getirirken SAP HANA veri tutarlılığını_, bu özellik ile ilgili bazı hususlar anlatılmaktadır.
+Azure üzerinde Azure blob'u özelliği mevcut değil anlık görüntü olgusu unutmayın&#39;t garantisi dosya sistemi tutarlılığı (bkz [PowerShell ile kullanma blob anlık görüntüleri](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). Sonraki bölümde _depolama anlık görüntüleri duruma getirirken SAP HANA veri tutarlılığını_, bu özellik ile ilgili bazı hususlar anlatılmaktadır.
 
-Ayrıca, bu makalede anlatıldığı gibi sık blob anlık görüntüleri ile çalışırken, fatura etkilerini anlamak varsa: [anlama nasıl anlık görüntüleri tahakkuk ücretleri](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— bu olmayan &#39; t Azure sanal diskler kullanarak olarak olarak açıktır.
+Ayrıca, bu makalede anlatıldığı gibi sık blob anlık görüntüleri ile çalışırken, fatura etkilerini anlamak varsa: [anlama nasıl anlık görüntüleri tahakkuk ücretleri](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— bu olmayan&#39;t Azure sanal kullanarak olarak olarak belirgin diskler.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Depolama anlık görüntüleri duruma getirirken SAP HANA veri tutarlılığı
 
 Dosya sistemi ve uygulama tutarlılığı bir karmaşık depolama anlık görüntüleri alırken bir sorundur. Sorunları önlemek için en kolay yolu, SAP HANA kapatın, hatta belki de tüm sanal makine olacaktır. Bir kapanma demo veya prototip veya geliştirme sistemi ortak olabilir, ancak bir üretim sistem için bir seçenek değil.
 
-Azure blob'u özelliği mevcut değil &#39; snapshot göz önünde bulundurmanız varsa Azure üzerinde t garantisi dosya sistemi tutarlılığı. Var olduğu sürece yalnızca tek bir sanal disk dahil edilen ancak kullanarak SAP HANA özelliği, anlık görüntü düzgün çalışır. Ancak denetlenecek bile tek bir diske sahip, ek öğelere sahip. [SAP Not 2039883](https://launchpad.support.sap.com/#/notes/2039883) SAP HANA yedeklemeler depolama anlık görüntüleri aracılığıyla hakkında önemli bilgiler vardır. XFS dosya sistemiyle bunu çalıştırmak gerekli olduğunu, örneğin, değinmektedir **xfs\_Dondur** tutarlılığı garanti etmek için bir depolama anlık görüntü başlamadan önce (bkz [xfs\_freeze(8) - Linux adam sayfa](https://linux.die.net/man/8/xfs_freeze) hakkında ayrıntılı bilgi için **xfs\_Dondur**).
+Azure blob'u özelliği mevcut değil anlık görüntü göz önünde bulundurmanız varsa Azure üzerinde&#39;t garantisi dosya sistemi tutarlılığı. Var olduğu sürece yalnızca tek bir sanal disk dahil edilen ancak kullanarak SAP HANA özelliği, anlık görüntü düzgün çalışır. Ancak denetlenecek bile tek bir diske sahip, ek öğelere sahip. [SAP Not 2039883](https://launchpad.support.sap.com/#/notes/2039883) SAP HANA yedeklemeler depolama anlık görüntüleri aracılığıyla hakkında önemli bilgiler vardır. XFS dosya sistemiyle bunu çalıştırmak gerekli olduğunu, örneğin, değinmektedir **xfs\_Dondur** tutarlılığı garanti etmek için bir depolama anlık görüntü başlamadan önce (bkz [xfs\_freeze(8) - Linux adam sayfa](https://linux.die.net/man/8/xfs_freeze) hakkında ayrıntılı bilgi için **xfs\_Dondur**).
 
 Tutarlılık konu daha zor olduğu tek bir dosya sistemi birden çok disk/birim yayılan bir durumda olur. Örneğin, mdadm veya LVM kullanarak ve bölümlemesine tarafından. SAP durumları bahsedilen Not:
 
@@ -111,7 +111,7 @@ Dört Azure sanal diskler yayılan bir XFS dosya sistemi varsayıldığında, a�
 
 Yukarıdaki yordamı hangi dosya sistemi olsun güvenli tarafında olması için tüm durumlarda kullanmak için önerilir. Veya tek bir disk veya mdadm veya birden çok disklere LVM üzerinden şeritleme ise.
 
-HANA anlık görüntü doğrulamak önemlidir. Nedeniyle &quot;kopyalama yazarken,&quot; SAP HANA bu sırada ek disk alanı yok gerekebilir modu anlık görüntü hazırlayın. &#39; teki SAP HANA anlık görüntü onaylandıktan kadar yeni yedeklemeleri başlatmak de mümkün değildir.
+HANA anlık görüntü doğrulamak önemlidir. Nedeniyle &quot;kopyalama yazarken,&quot; SAP HANA bu sırada ek disk alanı yok gerekebilir modu anlık görüntü hazırlayın. Bu&#39;s SAP HANA anlık görüntü onaylandıktan kadar yeni yedeklemeleri başlatmak de mümkün değildir.
 
 Azure Backup hizmeti, dosya sistemi tutarlılığı halletmeniz için Azure VM uzantıları kullanır. Bu VM uzantıları, tek başına kullanım için kullanılamaz. SAP HANA tutarlılık yönetmek hala sahip. İlgili makaleye bakın [SAP HANA Azure Backup dosya düzeyinde](sap-hana-backup-file-level.md) daha fazla bilgi için.
 

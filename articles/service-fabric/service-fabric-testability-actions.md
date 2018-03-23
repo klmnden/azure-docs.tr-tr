@@ -1,6 +1,6 @@
 ---
-title: "Azure mikro hatalarına benzetimini | Microsoft Docs"
-description: "Bu makalede, Microsoft Azure Service Fabric içinde bulunan Test Edilebilirlik eylemler hakkında alınmaktadır."
+title: Azure mikro hatalarına benzetimini | Microsoft Docs
+description: Bu makalede, Microsoft Azure Service Fabric içinde bulunan Test Edilebilirlik eylemler hakkında alınmaktadır.
 services: service-fabric
 documentationcenter: .net
 author: motanv
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv;heeldin
 ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="testability-actions"></a>Test Edilebilirlik Eylemler
 Güvenilir olmayan bir altyapı benzetimini yapmak için Azure Service Fabric çeşitli gerçek hataları ve durumu geçişleri gerçekleştirecek birçok yöntem ile geliştirici olarak size sağlar. Bu Test Edilebilirlik eylemler olarak sunulur. Belirli bir arıza ekleme, durum geçişi veya doğrulama neden alt düzey API'leri eylemlerdir. Bu eylemler ile birleştirerek kapsamlı test senaryoları için hizmetlerinizi yazabilirsiniz.
@@ -40,14 +40,14 @@ Daha iyi kalite doğrulama için çeşitli normal ve durunda hataları inducing 
 | --- | --- | --- | --- | --- |
 | CleanTestState |Tüm test durumu kümeyi test sürücüsünün hatalı bir kapanma durumunda kaldırır. |CleanTestStateAsync |Remove-ServiceFabricTestState |Uygulanamaz |
 | InvokeDataLoss |Veri kaybı hizmet bölüme uygulanmasını. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |
-| InvokeQuorumLoss |Belirtilen durum bilgisi olan hizmet bölüm çekirdek kayıp yerleştirir. |InvokeQuorumLossAsync |Çağırma ServiceFabricQuorumLoss |Normal |
+| InvokeQuorumLoss |Belirtilen durum bilgisi olan hizmet bölüm çekirdek kayıp yerleştirir. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Normal |
 | Birincil taşıma |Durum bilgisi olan hizmet belirtilen birincil çoğaltmasını belirtilen küme düğümü taşır. |MovePrimaryAsync |Taşıma ServiceFabricPrimaryReplica |Normal |
-| İkincil taşıma |Bir durum bilgisi olan hizmetin geçerli ikincil çoğaltma için farklı küme düğümü taşır. |MoveSecondaryAsync |Taşıma ServiceFabricSecondaryReplica |Normal |
+| İkincil taşıma |Bir durum bilgisi olan hizmetin geçerli ikincil çoğaltma için farklı küme düğümü taşır. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Normal |
 | RemoveReplica |Bir çoğaltma hatası bir kümeden bir çoğaltma kaldırarak benzetimini yapar. Bu çoğaltma kapatılacak ve rolüne geçirecektir 'None', durumunun tamamı kümeden kaldırma. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Normal |
-| RestartDeployedCodePackage |Kod paketi işlemi başarısız bir kümedeki bir düğümün dağıtılmış kod paketi yeniden başlatarak benzetimini yapar. Bu işlemde barındırılan tüm kullanıcı hizmet çoğaltmalar yeniden kod paket işlemi durdurur. |RestartDeployedCodePackageAsync |Yeniden başlatma ServiceFabricDeployedCodePackage |Durunda |
-| RestartNode |Bir Service Fabric kümesi düğüm hatasından bir düğümü yeniden başlatarak benzetimini yapar. |RestartNodeAsync |Yeniden başlatma ServiceFabricNode |Durunda |
+| RestartDeployedCodePackage |Kod paketi işlemi başarısız bir kümedeki bir düğümün dağıtılmış kod paketi yeniden başlatarak benzetimini yapar. Bu işlemde barındırılan tüm kullanıcı hizmet çoğaltmalar yeniden kod paket işlemi durdurur. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Durunda |
+| RestartNode |Bir Service Fabric kümesi düğüm hatasından bir düğümü yeniden başlatarak benzetimini yapar. |RestartNodeAsync |Restart-ServiceFabricNode |Durunda |
 | RestartPartition |Bir veri merkezi Kararma veya küme Kararma senaryosu bir bölüm, bazı veya tüm çoğaltmaları yeniden başlatarak benzetimini yapar. |RestartPartitionAsync |Restart-ServiceFabricPartition |Normal |
-| RestartReplica |Bir çoğaltma hatası kalıcı çoğaltma bir kümede yeniden başlatma, çoğaltma kapatma ve yeniden açmayı benzetimini yapar. |RestartReplicaAsync |Yeniden başlatma ServiceFabricReplica |Normal |
+| RestartReplica |Bir çoğaltma hatası kalıcı çoğaltma bir kümede yeniden başlatma, çoğaltma kapatma ve yeniden açmayı benzetimini yapar. |RestartReplicaAsync |Restart-ServiceFabricReplica |Normal |
 | BaşlangıçDüğümü |Bir düğüm zaten durdurulmuş bir kümede başlatır. |StartNodeAsync |Start-ServiceFabricNode |Uygulanamaz |
 | StopNode |Bir düğüm hatasından bir küme düğümünde durdurarak benzetimini yapar. BaşlangıçDüğümü çağrılıncaya kadar düğümü kapalı kalır. |StopNodeAsync |Stop-ServiceFabricNode |Durunda |
 | ValidateApplication |Kullanılabilirlik ve bazı hata sisteme inducing sonra genellikle bir uygulamadaki tüm Service Fabric Hizmetleri durumunu doğrular. |ValidateApplicationAsync |Test-ServiceFabricApplication |Uygulanamaz |
@@ -94,7 +94,7 @@ Aşağıdaki ekran görüntüsü gösterildiği **yeniden ServiceFabricNode** ey
 ### <a name="run-an-action-against-an-azure-cluster"></a>Bir eylem Azure bir küme karşı çalıştırma
 Bir Test Edilebilirlik eylemi çalıştıran bir Azure küme karşı (PowerShell kullanarak), yerel bir küme karşı eylemi çalıştırmak için benzer. Tek fark yerel kümeye bağlanma yerine eylem çalıştırmadan önce ilk Azure kümeye bağlanmak yeterli olmasıdır.
 
-## <a name="running-a-testability-action-using-c35"></a>C &#35;kullanarak bir Test Edilebilirlik eylemi çalıştıran;
+## <a name="running-a-testability-action-using-c35"></a>C kullanarak bir Test Edilebilirlik eylem çalıştırma&#35;
 C# kullanarak bir Test Edilebilirlik eylemi çalıştırmak için öncelikle FabricClient kullanarak kümeye bağlanmak gerekir. Ardından eylemi çalıştırmak için gerekli parametreleri edinin. Farklı Parametreler aynı eylemi çalıştırmak için kullanılabilir.
 RestartServiceFabricNode eylem baktığınızda, çalıştırmak için bir kümede bulunan düğüm bilgileri (düğüm adı ve düğüm örnek kimliği) kullanarak yoludur.
 

@@ -1,11 +1,10 @@
 ---
-title: "Data Factory kullanarak Cassandra veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak bir şirket içi Cassandra veritabanından veri taşıma hakkında bilgi edinin."
+title: Data Factory kullanarak Cassandra veri taşıma | Microsoft Docs
+description: Azure Data Factory kullanarak bir şirket içi Cassandra veritabanından veri taşıma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c8f61cb165b0bfffe2f42b060cdbd666fff3a8b3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2d790b067630f15b96eba5e46ea12e1997a47c86
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory kullanarak bir şirket içi Cassandra veritabanından veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -270,7 +269,7 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 | INET |Dize |
 | INT |Int32 |
 | METİN |Dize |
-| TIMESTAMP |Tarih Saat |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |Dize |

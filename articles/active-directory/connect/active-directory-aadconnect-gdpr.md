@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect ve genel veri koruma düzenleme | Microsoft Docs"
-description: "Bu belge, Azure AD Connect ile GDPR uyumluluğunu elde açıklar."
+title: Azure AD Connect ve genel veri koruma düzenleme | Microsoft Docs
+description: Bu belge, Azure AD Connect ile GDPR uyumluluğunu elde açıklar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: billmath
 ms.openlocfilehash: c3956dd379961b119f65bdebe1f5a8038c4fa8f0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR uyumluluk ve Azure AD Connect 
 
@@ -66,7 +66,7 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 ### <a name="schedule-this-script-to-run-every-48-hours"></a>Bu komut dosyasının çalışmasını her 48 saat zamanlama
 48 saatte bir çalıştırılacak komut dosyasını zamanlamak için aşağıdaki adımları kullanın.
 
-1.  Komut dosyası uzantılı bir dosyaya Kaydet **&#46; PS1**, ardından Denetim Masası'nı açın ve tıklayın **sistemleri ve güvenlik**.
+1.  Komut dosyası uzantılı bir dosyaya Kaydet  **&#46;PS1**, ardından Denetim Masası'nı açın ve tıklayın **sistemleri ve güvenlik**.
     ![Sistem](media\active-directory-aadconnect-gdpr\gdpr2.png)
 
 2.  Yönetimsel Araçlar başlığına tıklayın **zamanlama görevleri**.
