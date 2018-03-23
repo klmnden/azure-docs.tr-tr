@@ -1,8 +1,8 @@
 ---
-title: "Karma kimlik gerekli bağlantı noktalarını ve protokolleri - Azure | Microsoft Docs"
-description: "Bu sayfa bir Azure AD Connect için açık olması için gerekli bağlantı noktaları için teknik başvuru sayfadır"
+title: Karma kimlik gerekli bağlantı noktalarını ve protokolleri - Azure | Microsoft Docs
+description: Bu sayfa bir Azure AD Connect için açık olması için gerekli bağlantı noktaları için teknik başvuru sayfadır
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.openlocfilehash: 79c339c136e614be8a98461533c63d244dabc166
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Karma Kimlik için Gereken Bağlantı Noktaları ve Protokoller
 Gerekli bağlantı noktalarını ve protokolleri karma kimlik çözümü uygulamak için teknik başvuru belgedir. Aşağıdaki çizimde kullanın ve karşılık gelen tabloya bakın.

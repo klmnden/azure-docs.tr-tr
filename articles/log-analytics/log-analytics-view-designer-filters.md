@@ -1,11 +1,11 @@
 ---
-title: "Azure günlük analizi görünümlerinde filtreleri | Microsoft Docs"
-description: "Günlük analizi görünümünde bir filtre kullanıcıların Görünüm değiştirmeden görünümünde verileri belirli bir özellik değeri tarafından filtre olanak tanır.  Bu makalede bir filtre ve özel bir görünüm için bir tane ekleyin nasıl kullanılacağı açıklanmaktadır."
+title: Azure günlük analizi görünümlerinde filtreleri | Microsoft Docs
+description: Günlük analizi görünümünde bir filtre kullanıcıların Görünüm değiştirmeden görünümünde verileri belirli bir özellik değeri tarafından filtre olanak tanır.  Bu makalede bir filtre ve özel bir görünüm için bir tane ekleyin nasıl kullanılacağı açıklanmaktadır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: bwren
 ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="filters-in-log-analytics-views"></a>Günlük analizi görünümlerinde filtreleri
 A **filtre** içinde bir [günlük analizi görüntülemek](log-analytics-view-designer.md) kullanıcıların Görünüm değiştirmeden görünümünde verileri belirli bir özellik değeri tarafından filtre olanak sağlar.  Örneğin, yalnızca belirli bir bilgisayardan veri görünümünü filtrelemek için görünümün kullanıcılar veya bilgisayarlar kümesi izin verebilir.  Birden çok özelliğe göre filtre yapmalarına izin vermek için tek bir görünümde birden çok filtre oluşturabilirsiniz.  Bu makalede bir filtre ve özel bir görünüm için bir tane ekleyin nasıl kullanılacağı açıklanmaktadır.
@@ -52,10 +52,10 @@ Aşağıdaki tabloda ortak filtreleri birkaç örnek verilmiştir.
 
 | Alan adı | Değerleri için sorgu | Etiket |
 |:--|:--|:--|
-| Bilgisayar   | Sinyal & #124; farklı bilgisayar & #124; Bilgisayar asc göre sıralama | Bilgisayarlar |
-| EventLevelName | Olay & #124; farklı EventLevelName | Önem Derecesi |
-| Önem düzeyi | Syslog & #124; farklı önem düzeyi | Önem Derecesi |
-| SvcChangeType | ConfigurationChange & #124; farklı svcChangeType | ChangeType |
+| Bilgisayar   | Sinyal &#124; farklı bilgisayar &#124; bilgisayar asc göre sırala | Bilgisayarlar |
+| EventLevelName | Event &#124; distinct EventLevelName | Önem Derecesi |
+| SeverityLevel | Syslog &#124; farklı önem düzeyi | Önem Derecesi |
+| SvcChangeType | ConfigurationChange &#124; ayrı svcChangeType | ChangeType |
 
 
 ## <a name="modify-view-queries"></a>Görünüm sorguları değiştirme

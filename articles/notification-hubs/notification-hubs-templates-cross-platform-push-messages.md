@@ -1,11 +1,11 @@
 ---
-title: "Şablonlar"
-description: "Bu konu, şablonları Azure bildirim hub'ları için açıklar."
+title: Şablonlar
+description: Bu konu, şablonları Azure bildirim hub'ları için açıklar.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="templates"></a>Şablonlar
 ## <a name="overview"></a>Genel Bakış
@@ -114,15 +114,15 @@ Bu yöntemi kullanarak, arka uç yalnızca tek bir ileti uygulama kullanıcılar
 
 Aşağıdaki tabloda şablonlarında izin dil gösterilmektedir:
 
-| ifade | Açıklama |
+| İfade | Açıklama |
 | --- | --- |
 | $(prop) |Verilen ada sahip bir olay özellik referansı. Özellik adları büyük küçük harfe duyarlı değildir. Özellik mevcut değilse bu ifade özelliğin metin değeri veya boş bir dize çözümler. |
 | $(prop, n) |Yukarıdaki gibi ancak açıkça metindir n karakter kırpılmış, örneğin $(başlık, 20) title özelliğini içeriğini 20 karakter kırpar. |
 | . (prop, n) |Yukarıdaki gibi ancak bunu kırpılmış gibi metin ile üç noktaya sonekine. Kırpılmış dize ve sonek toplam boyutu n karakteri aşmayan. . (başlık, 20) "Bu başlık satırıdır" sonuçlarında bir giriş özelliğiyle **başlığı budur...** |
 | %(prop) |Benzer şekilde $(name) çıkış URI kodlanır dışında. |
-| #(prop) |JSON şablonları (örneğin, iOS ve Android şablonları için) kullanılır.<br><br>Bu işlev tam olarak aynı daha önce JSON şablonları (örneğin, Apple Şablonları) kullanılması dışında belirtilen $(prop) çalışır. Bu işlev tarafından çevrelenen değil, bu durumda, "{','}" (örneğin, 'myJsonProperty': '#(ad)'), ve onu, Javascript biçiminde bir sayı Örneğin, regexp değerlendirir: (0 &#124; (&#91; 1-9 &#93; &#91; 0-9 &#93;;*))(\. &#91; 0-9 &#93; +)? ((e &#124; E) (+ &#124;-)? &#91; 0-9 &#93; +)?, sonra da çıktıyı JSON bir sayıdır.<br><br>Örneğin, ' rozet: '#(ad)' hale 'göstergeye': 40 (ve değil '40'). |
+| #(prop) |JSON şablonları (örneğin, iOS ve Android şablonları için) kullanılır.<br><br>Bu işlev tam olarak aynı daha önce JSON şablonları (örneğin, Apple Şablonları) kullanılması dışında belirtilen $(prop) çalışır. Bu işlev tarafından çevrelenen değil, bu durumda, "{','}" (örneğin, 'myJsonProperty': '#(ad)'), ve onu, Javascript biçiminde bir sayı Örneğin, regexp değerlendirir: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*)) (\. &#91;0-9&#93;+)? ((e&#124;E) (+&#124;-)? &#91;0-9&#93;+)?, sonra da çıktıyı JSON bir sayıdır.<br><br>Örneğin, ' rozet: '#(ad)' hale 'göstergeye': 40 (ve değil '40'). |
 | 'text' veya "metin" |Bir hazır değer. Değişmez değerler tek veya çift tırnak içine alınmış rastgele metin içerir. |
-| Expr1 + expr2 |Tek bir dize iki ifadelere birleştirme birleştirme işleci. |
+| expr1 + expr2 |Tek bir dize iki ifadelere birleştirme birleştirme işleci. |
 
 Deyimler önceki biçimlerden birini olabilir.
 

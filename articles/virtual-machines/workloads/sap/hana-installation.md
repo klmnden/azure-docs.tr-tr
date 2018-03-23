@@ -1,11 +1,11 @@
 ---
-title: "SAP HANA SAP HANA azure'da (büyük örnekler) yükleyin. | Microsoft Docs"
-description: "SAP HANA SAP HANA azure'da (büyük örneği) yüklemek nasıl."
+title: SAP HANA SAP HANA azure'da (büyük örnekler) yükleyin. | Microsoft Docs
+description: SAP HANA SAP HANA azure'da (büyük örneği) yüklemek nasıl.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırma
 
@@ -51,13 +51,13 @@ Yeniden, özellikle HANA 2.0 yüklemek planlama yaparken denetlemek [SAP destek 
 
 Özel, aşağıdaki parametreleri denetleyin ve sonunda göre ayarlanmış:
 
-- NET.Core.rmem_max 16777216 =
-- NET.Core.wmem_max 16777216 =
-- NET.Core.rmem_default 16777216 =
-- NET.Core.wmem_default 16777216 =
-- NET.Core.optmem_max 16777216 =
-- NET.ipv4.tcp_rmem 65536 16777216 16777216 =
-- NET.ipv4.tcp_wmem 65536 16777216 16777216 =
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
 
 RHEL 7.2 SLES12 SP1 ile başlayarak, bu parametreler /etc/sysctl.d dizindeki yapılandırma dosyasında ayarlanmalıdır. Örneğin, bir yapılandırma dosyası 91-NetApp-HANA.conf adı ile oluşturulması gerekir. Eski SLES ve RHEL sürümler için bu parametre kümesi in/etc/sysctl.conf olması gerekir.
 
@@ -65,7 +65,7 @@ RHEL 7.2 SLES12 SP1 ile başlayarak, bu parametreler /etc/sysctl.d dizindeki yap
 - sunrpc.tcp_slot_table_entries = 128
 
 parametre in/etc/modprobe.d/sunrpc-local.conf ayarlamanız gerekir. Dosya mevcut değilse, önce aşağıdaki girişini ekleyerek oluşturulmalıdır: 
-- Seçenekler sunrpc tcp_max_slot_table_entries = 128
+- options sunrpc tcp_max_slot_table_entries=128
 
 **Dördüncü adım** HANA büyük örneği biriminiz sistem saati denetlenmesidir. Örnekleri HANA büyük örneği damgası bulunan Azure bölgesi konumunu temsil eden bir sistem saat dilimi ile dağıtılır. Sistem saati veya sahip olduğunuz örnekleri saat dilimini değiştirmek boş. Bunun yapılması ve Kiracı daha fazla örneği sıralama, yeni teslim edilen örnekler saat dilimini uyum gerek hazırlıklı olun. Microsoft operations sistem saat dilimi örnekleriyle sonra handover ayarladığınız hiçbir Öngörüler vardır. Bu nedenle yeni dağıtılan örnekleri için değiştirilmiş bir aynı saat diliminde ayarlanmamış olabilir. Sonuç olarak, denetlemek ve gerekirse karmalayan örnekler saat dilimini uyarlamak için müşteri olarak sizin sorumluluğunuzdadır olur. 
 
@@ -100,11 +100,11 @@ Adlandırma kuralları depolama birimleri aşağıdaki tabloda listelenmiştir:
 
 | Depolama kullanımı | Takma adı | Birim adı | 
 | --- | --- | ---|
-| HANA veri | /hana/Data/SID/mnt0000<m> | Depolama IP: / hana_data_SID_mnt00001_tenant_vol |
-| HANA günlük | /hana/log/SID/mnt0000<m> | Depolama IP: / hana_log_SID_mnt00001_tenant_vol |
-| HANA günlük yedeği | /hana/log/Backups | Depolama IP: / hana_log_backups_SID_mnt00001_tenant_vol |
-| Paylaşılan HANA | /hana/Shared/SID | Depolama IP: / hana_shared_SID_mnt00001_tenant_vol/paylaşılan |
-| usr/sap | /usr/SAP/SID | Depolama IP: / hana_shared_SID_mnt00001_tenant_vol/usr_sap |
+| HANA veri | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA günlük | /hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA günlük yedeği | /hana/log/Backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
+| Paylaşılan HANA | /hana/Shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
+| usr/sap | /usr/SAP/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 Burada SID HANA örneğinin sistem kimliği = 
 
@@ -192,7 +192,7 @@ SAP destek Notlar SAP HANA Red Hat üzerinde uygulama için geçerlidir:
 
 SAP NetWeaver mimarisi üzerine kurulu SAP uygulamaları saat farklılıklarını SAP sistem oluşturan çeşitli bileşenler için duyarlıdır. SAP ABAP kısa dökümleri ZDATE hata başlıkla\_büyük\_zaman\_fark olan büyük olasılıkla alışılmış, farklı sunucular veya VM'ler sistem saati çok fazla ara drifting olduğunda bu kısa dökümleri görüldüğü şekilde.
 
-SAP HANA azure'da (büyük örnekler), Azure içermiyor &#39; bitti zaman eşitleme için t büyük örneği Damgalar işlem birimleri için geçerlidir. Bir sistem &#39;Azure sağlar gibi bu eşitleme yerel Azure Vm'lerde SAP uygulamaları çalıştırmak için geçerli değildir; s zaman düzgün eşitlenir. Sonuç olarak, SAP tarafından kullanılabilen sunucu ayarlanmalıdır ayrı birer Azure Vm'leri ve SAP HANA çalıştıran uygulama sunucuları HANA büyük örneklerinde çalıştıran veritabanı örnekleri. Büyük örneği Damgalar depolama altyapısında NTP sunucuları ile eşitlenen saattir.
+Azure'da (büyük örnekler) SAP HANA için Azure mevcut değil bitti eşitleme süresi&#39;t büyük örneği Damgalar işlem birimleri için geçerlidir. Bir sistem Azure sağlar gibi bu eşitleme yerel Azure Vm'lerde SAP uygulamaları çalıştırmak için geçerli değildir&#39;s zaman düzgün eşitlenir. Sonuç olarak, SAP tarafından kullanılabilen sunucu ayarlanmalıdır ayrı birer Azure Vm'leri ve SAP HANA çalıştıran uygulama sunucuları HANA büyük örneklerinde çalıştıran veritabanı örnekleri. Büyük örneği Damgalar depolama altyapısında NTP sunucuları ile eşitlenen saattir.
 
 ## <a name="setting-up-smt-server-for-suse-linux"></a>SUSE Linux için SMT sunucusu kurma
 SAP HANA büyük örnekleri doğrudan Internet bağlantısı yok. Bu nedenle, bu tür bir birimi OS sağlayıcı ile kaydetmek için karşıdan yükle ve yamalar uygulama için kolay bir işlem değil. SUSE Linux söz konusu olduğunda, bir Azure VM SMT Server'da ayarlamak için bir çözüm olabilir. Azure VM HANA büyük örneğine bağlı bir Azure VNet içinde barındırılan gerekiyor ancak. Bu tür bir SMT sunucusuyla, HANA büyük örneği birim kaydetmek ve düzeltme eklerini indirmek. 

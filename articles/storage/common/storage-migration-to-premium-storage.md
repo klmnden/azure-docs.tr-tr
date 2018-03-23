@@ -1,6 +1,6 @@
 ---
-title: "Azure Premium Depolama'ya geçirme VM'ler | Microsoft Docs"
-description: "Varolan Vm'lerinizi Azure Premium depolama alanına geçiş. Premium Storage, Azure sanal makinelerde çalışan g/Ç kullanımı yoğun iş yükleri için yüksek performanslı, düşük gecikmeli disk desteği sağlar."
+title: Azure Premium Depolama'ya geçirme VM'ler | Microsoft Docs
+description: Varolan Vm'lerinizi Azure Premium depolama alanına geçiş. Premium Storage, Azure sanal makinelerde çalışan g/Ç kullanımı yoğun iş yükleri için yüksek performanslı, düşük gecikmeli disk desteği sağlar.
 services: storage
 documentationcenter: na
 author: yuemlu
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.openlocfilehash: 36ff73d36c752fb342dcfff2360b4f6f7013740e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage (yönetilmeyen diskleri) geçirme
 
@@ -163,7 +163,7 @@ Vhd'lerinizi korumak için bir depolama hesabı oluşturun. Vhd'lerinizi depolan
 Veri diskleri için bir standart depolama hesabı (örneğin, için depolama alanına sahip diskler) bazı veri diskleri tutmak seçebilirsiniz, ancak, premium depolama kullanmak, üretim iş yükü için tüm verilerin taşınması önerilir.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>3. adım. VHD AzCopy veya PowerShell ile kopyalama
-Bu iki seçenekten biri işlemek için kapsayıcı yolu ve depolama hesabı anahtarınızı bulmak gerekir. Kapsayıcı yolu ve depolama hesabı anahtarı bulunabilir **Azure Portal** > **depolama**. Kapsayıcı URL "gibi https://myaccount.blob.core.windows.net/mycontainer/" olacaktır.
+Bu iki seçenekten biri işlemek için kapsayıcı yolu ve depolama hesabı anahtarınızı bulmak gerekir. Kapsayıcı yolu ve depolama hesabı anahtarı bulunabilir **Azure Portal** > **depolama**. URL gibi olacaktır kapsayıcı "https://myaccount.blob.core.windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Seçenek 1: bir VHD AzCopy (zaman uyumsuz kopya) ile kopyalama
 AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'leri boyutuna bağlı olarak, bu zaman alabilir. Bu seçenek kullanıldığında depolama hesabı giriş/çıkış sınırları denetlemek unutmayın. Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md) Ayrıntılar için.
@@ -222,7 +222,7 @@ VHD için Azure olmayan - Azure bulut depolama biriminden geçiriyorsanız, yere
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>1. Adım VHD yerel bir dizine dışarı aktarma
 ##### <a name="copy-a-vhd-from-aws"></a>Bir VHD'yi AWS kopyalayın
-1. AWS kullanıyorsanız, EC2 örneği bir Amazon S3 demetini VHD'yi verin. Amazon EC2 komut satırı arabirimi (CLI) aracını yükleyin ve EC2 örneği bir VHD dosyasına aktarmak için örnek verme Görev Oluştur komutu çalıştırmak Amazon EC2 örnekleri dışarı aktarma için Amazon belgelerinde açıklanan adımları izleyin. Kullandığınızdan emin olun **VHD** DISK &#95; görüntü &#95; Çalıştırırken biçimi değişkeni **-örnek-export-görev oluştur** komutu. Dışarı aktarılan VHD dosyasının bu işlem sırasında belirttiğiniz Amazon S3 demetini kaydedilir.
+1. AWS kullanıyorsanız, EC2 örneği bir Amazon S3 demetini VHD'yi verin. Amazon EC2 komut satırı arabirimi (CLI) aracını yükleyin ve EC2 örneği bir VHD dosyasına aktarmak için örnek verme Görev Oluştur komutu çalıştırmak Amazon EC2 örnekleri dışarı aktarma için Amazon belgelerinde açıklanan adımları izleyin. Kullandığınızdan emin olun **VHD** disk&#95;görüntü&#95;çalıştırırken biçimi değişkeni **-örnek-export-görev oluştur** komutu. Dışarı aktarılan VHD dosyasının bu işlem sırasında belirttiğiniz Amazon S3 demetini kaydedilir.
 
     ```
     aws ec2 create-instance-export-task --instance-id ID --target-environment TARGET_ENVIRONMENT \

@@ -1,8 +1,8 @@
 ---
-title: "Azure günlük analizi sorgu dili kopya sayfası | Microsoft Docs"
-description: "Bu makale, zaten eski diline alışık değilseniz, yeni sorgu dili için günlük analizi geçiş hakkında Yardım sağlar."
+title: Azure günlük analizi sorgu dili kopya sayfası | Microsoft Docs
+description: Bu makale, zaten eski diline alışık değilseniz, yeni sorgu dili için günlük analizi geçiş hakkında Yardım sağlar.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
 ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Azure günlük analizi yeni sorgu dili geçiş
 Günlük analizi yakın zamanda yeni bir sorgu dili uygulanmadı.  Bu makale, zaten eski dili ile tanıdık ve hala yardıma ihtiyacınız varsa, bu dil için günlük analizi için geçiş hakkında Yardım sağlar.
@@ -40,26 +40,26 @@ Eski günlük analizi sorgu dili ile sahibiyseniz, yeni dilde aynı sorgu oluşt
 
 Aşağıdaki tabloda Azure günlük analizi yeni ve eski sorgu dilinde arasında eşdeğer komutları için genel sorgular çeşitli arasında bir karşılaştırma sağlanmaktadır.
 
-| Açıklama | Eski | Yeni |
+| Açıklama | Eski | yeni |
 |:--|:--|:--|
 | Tüm tabloları arama      | error | "error" (büyük/küçük harfe duyarlı değildir) arama |
-| Tablodan veri seçin | Tür olay = |  Olay |
-|                        | Tür = olay &#124; Kaynak, olay günlüğüne olay kimliği seçin | Olay &#124; Kaynak, olay günlüğüne, EventID proje |
-|                        | Tür = olay &#124; en iyi 100 | Olay &#124; 100 alın |
-| Dize karşılaştırması      | Tür olay Computer=srv01.contoso.com =   | Olay &#124; Burada bilgisayar "srv01.contoso.com" == |
-|                        | Tür olay Computer=contains("contoso") = | Olay &#124; Burada "contoso" (büyük/küçük harfe duyarlı değildir) bilgisayar içeriyor<br>Olay &#124; Burada bilgisayar contains_cs "Contoso" (büyük küçük harf duyarlı) |
-|                        | Tür = olay bilgisayarı RegEx = ("@contoso@")  | Olay &#124; Bilgisayar regex eşleştiği ". *contoso*" |
-| Tarih karşılaştırması        | Tür olay TimeGenerated = > şimdi 1DAYS | Olay &#124; Burada TimeGenerated > ago(1d) |
+| Tablodan veri seçin | Type=Event |  Olay |
+|                        | Tür olay = &#124; kaynak, olay günlüğüne, EventID seçin | Olay &#124; kaynak, olay günlüğüne, EventID proje |
+|                        | Type=Event &#124; top 100 | Olay &#124; 100 alın |
+| Dize karşılaştırması      | Type=Event Computer=srv01.contoso.com   | Olay &#124; burada bilgisayar "srv01.contoso.com" == |
+|                        | Type=Event Computer=contains("contoso") | Olay &#124; , bilgisayar içerdiği "contoso" (büyük/küçük harfe duyarlı değildir)<br>Olay &#124; burada bilgisayar contains_cs "Contoso" (büyük küçük harf duyarlı) |
+|                        | Type=Event Computer=RegEx("@contoso@")  | Olay &#124; bilgisayar regex eşleştiği ". *contoso*" |
+| Tarih karşılaştırması        | Tür olay TimeGenerated = > şimdi 1DAYS | Olay &#124; burada TimeGenerated > ago(1d) |
 |                        | Tür olay TimeGenerated = > 2017-05-01 TimeGenerated < 2017-05-31 | Olay &#124; Burada TimeGenerated (datetime(2017-05-01) arasında .. DateTime(2017-05-31)) |
-| Boolean karşılaştırması     | Tür sinyal IsGatewayInstalled = = false  | Sinyal \| Burada IsGatewayInstalled == false |
-| Sırala                   | Tür = olay &#124; Sıralama bilgisayarı asc, olay günlüğüne desc, EventLevelName asc | Olay \| Bilgisayar asc, olay günlüğüne desc, EventLevelName asc göre sıralama |
-| Farklı               | Tür = olay &#124; Yinelenenleri kaldırma bilgisayar \| Bilgisayar seçin | Olay &#124; Bilgisayar, olay günlüğüne özetler |
-| Sütunları Genişlet         | Türü Perf CounterName = = "% işlemci zamanı" &#124; GENİŞLETME if(map(CounterValue,0,50,0,1),"HIGH","LOW") kullanımı olarak | Perf &#124; CounterName burada "% işlemci zamanı" == \| Kullanımı genişletmek olur = (> 50, "Yüksek", "Düşük" CounterValue) |
-| Toplama            | Tür = olay &#124; Bilgisayar bazında sayı olarak ölçü Count() işlevi | Olay &#124; Count özetlemek bilgisayar tarafından count() = |
-|                                | Türü Perf ObjectName = işlemci CounterName = = "% işlemci zamanı" &#124; Ölçü avg(CounterValue) bilgisayar aralığı 5 dakika | Perf &#124; Burada ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" &#124; == Bilgisayar, bin (TimeGenerated, 5 dk.) tarafından AVG(CounterValue) özetler |
-| Sınır toplama | Tür = olay &#124; Bilgisayar &#124;tarafından ölçü count(); İlk 10 | Olay &#124; AggregatedValue özetlemek bilgisayar &#124; tarafından count() = Sınırı 10 |
+| Boolean karşılaştırması     | Type=Heartbeat IsGatewayInstalled=false  | Sinyal \| nerede IsGatewayInstalled == false |
+| Sırala                   | Tür olay = &#124; sıralama bilgisayarı asc, olay günlüğüne desc, EventLevelName asc | Olay \| bilgisayar asc, olay günlüğüne desc, EventLevelName asc göre sırala |
+| Distinct               | Tür olay = &#124; yinelenenleri kaldırma bilgisayar \| bilgisayarı seçin | Olay &#124; EventLog bilgisayar tarafından özetler |
+| Sütunları Genişlet         | Type=Perf CounterName="% Processor Time" &#124; EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf &#124; CounterName burada "% işlemci zamanı" == \| kullanımı genişletmek olur = (> 50, "Yüksek", "Düşük" CounterValue) |
+| Toplama            | Tür olay = &#124; bilgisayar bazında sayı olarak count() ölçme | Olay &#124; sayısı özetlemek bilgisayar tarafından count() = |
+|                                | Type=Perf ObjectName=Processor CounterName="% Processor Time" &#124; measure avg(CounterValue) by Computer interval 5minute | Perf &#124; burada ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" == &#124; avg(CounterValue) bilgisayar, bin (TimeGenerated, 5 dk.) tarafından özetler |
+| Sınır toplama | Tür olay = &#124; bilgisayar tarafından count() ölçmek &#124; ilk 10 | Olay &#124; AggregatedValue özetlemek bilgisayar tarafından count() = &#124; 10 sınırla |
 | birleşim                  | Tür olay veya türü = Syslog = | UNION olay, Syslog |
-| Birleştir                   | Tür = NetworkMonitoring &#124; İç AgentIP katılma (tür = sinyal) ComputerIP | NetworkMonitoring &#124; Birleştirme türü iç = (türünü arama "Sinyal" ==) $left üzerinde. AgentIP $right.ComputerIP == |
+| Birleştir                   | Türü NetworkMonitoring = &#124; iç AgentIP katılma (tür = sinyal) ComputerIP | NetworkMonitoring &#124; birleştirme türü iç = (türünü arama "Sinyal" ==) $left üzerinde. AgentIP $right.ComputerIP == |
 
 
 

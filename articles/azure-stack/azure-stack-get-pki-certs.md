@@ -1,25 +1,25 @@
 ---
-title: "Azure tümleşik yığını systems dağıtımı Azure yığın ortak anahtar altyapısı sertifikalarını oluşturmak | Microsoft Docs"
-description: "Azure yığın PKI sertifika dağıtım durumlu işlem Azure tümleşik yığını sistemlerini açıklar."
+title: Azure tümleşik yığını systems dağıtımı Azure yığın ortak anahtar altyapısı sertifikalarını oluşturmak | Microsoft Docs
+description: Azure yığın PKI sertifika dağıtım durumlu işlem Azure tümleşik yığını sistemlerini açıklar.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 991a94e4ca41bad438a3c8d06e4e1f691cff91bc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Azure yığın dağıtımı için PKI sertifikaları oluşturun
 Artık bildiğinize göre [PKI sertifikası gereksinimleri](azure-stack-pki-certs.md) Azure yığın dağıtımları için sertifika yetkilisi (CA) tercih ettiğiniz bu sertifikaları almak gerekir. 
@@ -30,7 +30,7 @@ Bir sertifika istemek için bir ortak CA veya bir iç CA bir INF dosyası kullan
 ### <a name="sample-inf-file"></a>Örnek INF dosyası 
 Örnek sertifika isteği INF dosyasını (dahili veya genel) göndermelerini bir CA'ya bir çevrimdışı sertifika isteği dosyasını oluşturmak için kullanılabilir. INF (isteğe bağlı PaaS hizmetler dahil) gerekli bitiş noktalarının tümü tek bir joker karakter sertifikada kapsar. 
 
-Örnek INF dosyası bu bölge eşit olduğunu varsayar **sea** ve dış FQDN değeri **sea &#46;contoso &#46; com**. Oluşturmadan önce ortamınızı eşleştirmek için bu değerleri değiştirmek bir. Dağıtımınız için INF dosyası. 
+Örnek INF dosyası bu bölge eşit olduğunu varsayar **sea** ve dış FQDN değeri **sea&#46;contoso&#46;com**. Oluşturmadan önce ortamınızı eşleştirmek için bu değerleri değiştirmek bir. Dağıtımınız için INF dosyası. 
 
     
     [Version] 

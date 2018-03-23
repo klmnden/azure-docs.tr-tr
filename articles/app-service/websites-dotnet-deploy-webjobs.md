@@ -1,9 +1,9 @@
 ---
-title: "Geliştirme ve Visual Studio - Azure kullanarak Web işleri dağıtma"
-description: "Geliştirmek ve Azure Web işleri Visual Studio kullanarak Azure App Service'e dağıtma hakkında bilgi edinin."
+title: Geliştirme ve Visual Studio - Azure kullanarak Web işleri dağıtma
+description: Geliştirmek ve Azure Web işleri Visual Studio kullanarak Azure App Service'e dağıtma hakkında bilgi edinin.
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Geliştirme ve Visual Studio - Azure uygulama hizmeti kullanarak Web işleri dağıtma
 
@@ -29,7 +29,7 @@ Bu konuda, bir web uygulamasında bir konsol uygulama projesi dağıtmak için V
 Visual Studio Web işleri etkin konsol uygulama projesi dağıtırken, iki görevleri gerçekleştirir:
 
 * Web uygulamasında uygun klasöre çalışma zamanı dosyalarını kopyalar (*App_Data/işleri/sürekli* sürekli Webjob'lar için *App_Data/işleri/tetiklenen* zamanlanmış ve isteğe bağlı Webjob için).
-* Ayarlayan [Azure zamanlayıcı işlerinin](#scheduler) belirli zamanlarda çalışmak üzere zamanlanmış Web işleri için. (Bu sürekli Webjob'lar için gerekli değildir.)
+* Ayarlayan [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) belirli zamanlarda çalışmak üzere zamanlanmış Web işleri için işler. (Bu sürekli Webjob'lar için gerekli değildir.)
 
 WebJobs kullanan bir proje için eklenen aşağıdaki öğeleri içerir:
 
@@ -44,13 +44,13 @@ Bir Web işi tek başına bir proje dağıtma veya böylece web projesini dağı
 
 ![Web projesine bağlama Web işi projesinin gösteren diyagram](./media/websites-dotnet-deploy-webjobs/link.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Visual Studio 2015 kullanıyorsanız, yükleme [(Visual Studio 2015) .NET için Azure SDK](https://azure.microsoft.com/downloads/).
 
 Visual Studio 2017 kullanıyorsanız, yükleme [Azure geliştirme iş yükü](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
 
-## <a id="convert"></a>Mevcut bir konsol uygulama projesi için Web işleri dağıtımı etkinleştir
+## <a id="convert"></a> Mevcut bir konsol uygulama projesi için Web işleri dağıtımı etkinleştir
 
 İki seçeneğiniz vardır:
 
@@ -62,7 +62,7 @@ Visual Studio 2017 kullanıyorsanız, yükleme [Azure geliştirme iş yükü](ht
 
   Bir Web işi tek başına bir web projesi bağlantısı dağıtmak için mevcut bir konsol uygulama projesi yapılandırın. Bir Web işi, bir web uygulamasında kendisi tarafından web uygulamasında çalışan hiçbir web uygulaması ile çalıştırmak istediğinizde bu seçeneği kullanın. Web uygulaması kaynaklarınıza bağımsız olarak, Web işi kaynaklarınızı ölçeklemek için bunun isteyebilirsiniz.
 
-### <a id="convertlink"></a>Bir web projesi ile otomatik WebJobs dağıtımı etkinleştir
+### <a id="convertlink"></a> Bir web projesi ile otomatik WebJobs dağıtımı etkinleştir
 
 1. Web projesine sağ tıklayın **Çözüm Gezgini**ve ardından **Ekle** > **Azure Web işi olarak mevcut proje**.
    
@@ -74,7 +74,7 @@ Visual Studio 2017 kullanıyorsanız, yükleme [Azure geliştirme iş yükü](ht
     ![Azure Web işine Ekle iletişim kutusunda proje seçme](./media/websites-dotnet-deploy-webjobs/aaw1.png)
 3. Tamamlamak [Azure Web işine Ekle](#configure) iletişim ve ardından **Tamam**. 
 
-### <a id="convertnolink"></a>Bir web projesi olmadan Web işleri dağıtımı etkinleştir
+### <a id="convertnolink"></a> Bir web projesi olmadan Web işleri dağıtımı etkinleştir
 1. Konsol uygulaması projesine sağ tıklayın **Çözüm Gezgini**ve ardından **Azure Web işi olarak Yayımla...** . 
    
     ![Azure Web işi Yayımla](./media/websites-dotnet-deploy-webjobs/paw.png)
@@ -99,13 +99,13 @@ Web işleri etkin yeni bir proje oluşturmak için konsol uygulaması proje şab
 > 
 > 
 
-### <a id="createnolink"></a>Bağımsız bir Web işi için Web işleri yeni proje şablonu kullanın
+### <a id="createnolink"></a> Bağımsız bir Web işi için Web işleri yeni proje şablonu kullanın
 1. Tıklatın **dosya** > **yeni proje**ve ardından **yeni proje** iletişim kutusunda **bulut**  >   **Azure Web işi (.NET Framework)**.
    
     ![Web işi şablon gösteren yeni proje iletişim kutusu](./media/websites-dotnet-deploy-webjobs/np.png)
 2. Önceki için gösterilen yönergeleri izleyin [bağımsız bir Web işleri proje proje konsol uygulaması olun](#convertnolink).
 
-### <a id="createlink"></a>Bir web projesi bağlı bir Web işi için Web işleri yeni proje şablonu kullanın
+### <a id="createlink"></a> Bir web projesi bağlı bir Web işi için Web işleri yeni proje şablonu kullanın
 1. Web projesine sağ tıklayın **Çözüm Gezgini**ve ardından **Ekle** > **yeni Azure Web işi projesi**.
    
     ![Yeni Azure Web işi projesinin menü girişi](./media/websites-dotnet-deploy-webjobs/nawj.png)
@@ -127,7 +127,7 @@ Bu iletişim kutusunu alanları üzerindeki alanlarına karşılık gelen **WebJ
 > 
 > 
 
-## <a id="publishsettings"></a>Web işi yayımlama settings.json
+## <a id="publishsettings"></a>webjob-publish-settings.json
 Bir konsol uygulaması Web işleri dağıtımı için yapılandırdığınızda, Visual Studio yükler [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet paketi ve planlama bilgilerini de depolar bir *webjob yayımlama settings.json*  proje dosyasında *özellikleri* WebJobs projesinin klasör. Bu dosyayı bir örneği burada verilmiştir:
 
         {
@@ -140,9 +140,9 @@ Bir konsol uygulaması Web işleri dağıtımı için yapılandırdığınızda,
           "runMode": "Continuous"
         }
 
-Visual Studio IntelliSense sağlar ve bu dosyayı doğrudan düzenleyebilirsiniz. Dosya şeması konumunda depolanan [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) ve orada görüntülenebilir.  
+Visual Studio IntelliSense sağlar ve bu dosyayı doğrudan düzenleyebilirsiniz. Dosya şeması konumunda depolanan [ http://schemastore.org ](http://schemastore.org/schemas/json/webjob-publish-settings.json) ve orada görüntülenebilir.  
 
-## <a id="webjobslist"></a>Web işleri list.json
+## <a id="webjobslist"></a>webjobs-list.json
 WebJobs kullanan bir proje bir web projesi bağladığınızda, Visual Studio Web işleri projesinde adını depolar bir *webjobs list.json* web projesinin dosyasında *özellikleri* klasör. Liste, aşağıdaki örnekte gösterildiği gibi birden çok Web işleri projeleri içerebilir:
 
         {
@@ -157,7 +157,7 @@ WebJobs kullanan bir proje bir web projesi bağladığınızda, Visual Studio We
           ]
         }
 
-Visual Studio IntelliSense sağlar ve bu dosyayı doğrudan düzenleyebilirsiniz. Dosya şeması konumunda depolanan [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) ve orada görüntülenebilir.
+Visual Studio IntelliSense sağlar ve bu dosyayı doğrudan düzenleyebilirsiniz. Dosya şeması konumunda depolanan [ http://schemastore.org ](http://schemastore.org/schemas/json/webjobs-list.json) ve orada görüntülenebilir.
 
 ## <a id="deploy"></a>Web işleri projesini dağıtma
 Bir web projesi bağlı bir Web işleri proje ile web projesi otomatik olarak dağıtır. Web projesi dağıtımı hakkında daha fazla bilgi için bkz: **nasıl yapılır kılavuzları** > **dağıtma uygulama** sol gezinti bölmesinde.
