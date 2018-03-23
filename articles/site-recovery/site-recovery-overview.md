@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery nedir? | Microsoft Docs
-description: "Bu sayfada, Azure Site Recovery hizmetine genel bir bakış sağlanmış ve dağıtım senaryoları özetlenmiştir."
+title: Azure Site Recovery Hakkında | Microsoft Docs
+description: Bu sayfada, Azure Site Recovery hizmetine genel bir bakış sağlanmış ve dağıtım senaryoları özetlenmiştir.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 01/07/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4cc5d849630114577709f8373d08f0ce659e7e65
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 57b191a5dbdea487a0105c6af2866cdc037864e2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="about-site-recovery"></a>Site Recovery Hakkında
 
@@ -57,8 +57,8 @@ Site Recovery, şunlar için çoğaltmayı yönetebilir:
 --- | ---
 **Çoğaltma senaryoları** | Azure VM’leri bir Azure bölgesinden diğerine çoğaltın.<br/><br/>  Şirket içi VMware VM’leri, Hyper-V VM’leri, fiziksel sunucuları (Windows ve Linux) Azure’a çoğaltın.<br/><br/> Şirket içi VMware VM’leri, System Center VMM tarafından yönetilen Hyper-V VM’leri ve fiziksel sunucuları ikincil siteye çoğaltın.
 **Bölgeler** | Site Recovery için [desteklenen bölgeleri](https://azure.microsoft.com/regions/services/) inceleyin. |
-**Çoğaltılan makineler** | [Azure VM’lere](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [şirket içi VM’lere](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) ve [fiziksel sunuculara](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) yönelik çoğaltma gereksinimlerini inceleyin.
-**VMware sunucuları/ana bilgisayarları** | Çoğaltmak istediğiniz VMware VM'leri [desteklenen vSphere ana bilgisayarları/vCenter sunucuları](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) üzerinde konumlandırılabilir.
+**Çoğaltılan makineler** | [Azure VM](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions) çoğaltma, [şirket içi VMware VM’ler ve fiziksel sunucular](vmware-physical-azure-support-matrix.md#replicated-machines) ve [şirket içi Hyper-V VM’lere](hyper-v-azure-support-matrix.md#replicated-vms) yönelik çoğaltma gereksinimlerini inceleyin.
+**VMware sunucuları/ana bilgisayarları** | Çoğaltmak istediğiniz VMware VM'leri [desteklenen ana bilgisayar ve sanallaştırma sunucuları](vmware-physical-azure-support-matrix.md) üzerinde konumlandırılabilir.
 **İş yükleri** | Çoğaltma için desteklenen bir makinede çalışan tüm iş yüklerini çoğaltabilirsiniz. Ayrıca, Site Recovery ekibi [çeşitli uygulamalar](site-recovery-workload.md#workload-summary) için uygulamaya özgü testler gerçekleştirdi.
 
 

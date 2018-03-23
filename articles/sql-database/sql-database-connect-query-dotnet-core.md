@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL Veritabanı sorgulamak için .NET Core kullanma | Microsoft Docs"
-description: "Bu konu başlığı altında, .NET Core kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir."
+title: Azure SQL Veritabanı sorgulamak için .NET Core kullanma | Microsoft Docs
+description: Bu konu başlığı altında, .NET Core kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 1d2a22500c322a63b134e29e5f7509df271eafb9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 4d858606b0c645069602fba80cdba3d13582170d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>.NET Core (C#) kullanarak Azure SQL veritabanı sorgulama
 

@@ -1,21 +1,21 @@
 ---
-title: "Azure Machine Learning hizmetlerinde Iris öğreticisini sınıflandırmak için verileri hazırlama (önizleme) | Microsoft Docs"
-description: "Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu, birinci bölümdür ve veri hazırlığını açıklar."
+title: Azure Machine Learning hizmetlerinde Iris öğreticisini sınıflandırmak için verileri hazırlama (önizleme) | Microsoft Docs
+description: Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu, birinci bölümdür ve veri hazırlığını açıklar.
 services: machine-learning
 author: hning86
 ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/28/2018
-ms.openlocfilehash: 12cba3d4acf0e6018cea6e76df9208bcf380d976
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 3/7/2018
+ms.openlocfilehash: caddfff329d0e8f4c4007386b377ea56a51249a5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-classify-iris-part-1---preparing-the-data"></a>Öğretici: Iris Sınıflandırması bölüm 1 - Verileri hazırlama
 
@@ -60,8 +60,8 @@ Henüz bu ön gereksinimleri karşılamıyorsanız [Hızlı başlangıç: Yükle
    Proje adı | myIris |Hesabınızı tanımlayan benzersiz bir ad girin. Kendi adınızı veya denemeyi en iyi şekilde tanımlayan departman ya da proje adını kullanabilirsiniz. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. 
    Proje dizini | c:\Temp\ | Projenin oluşturulduğu dizini belirtin.
    Proje açıklaması | _boş bırakın_ | Projeleri açıklamak için kullanışlı bir isteğe bağlı alan.
-   Visualstudio.com |_boş bırakın_ | İsteğe bağlı alan. Bir projeyi, kaynak denetimi ve işbirliği için isteğe bağlı olarak Visual Studio Team Services’de bir Git deposuyla ilişkilendirebilirsiniz. [Bunun nasıl ayarlanacağını öğrenin](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
-   Çalışma alanı | IrisGarden (varsa) | Azure portalında Deneme hesabınız için oluşturduğunuz bir çalışma alanını seçin. <br/>Hızlı Başlangıç’ı izlediyseniz, IrisGarden adlı bir çalışma alanınız olmalıdır. Bu çalışma alanı yoksa, Deneme hesabınızı açtığınızda oluşturduğunuz çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
+   Visualstudio.com GIT Deposu URL’si |_boş bırakın_ | İsteğe bağlı alan. Bir projeyi, kaynak denetimi ve işbirliği için isteğe bağlı olarak Visual Studio Team Services’de bir Git deposuyla ilişkilendirebilirsiniz. [Bunun nasıl ayarlanacağını öğrenin](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Seçili çalışma alanı | IrisGarden (varsa) | Azure portalında Deneme hesabınız için oluşturduğunuz bir çalışma alanını seçin. <br/>Hızlı Başlangıç’ı izlediyseniz, IrisGarden adlı bir çalışma alanınız olmalıdır. Bu çalışma alanı yoksa, Deneme hesabınızı açtığınızda oluşturduğunuz çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
    Proje şablonu | Classifying Iris | Şablonlar, ürünü keşfetmek için kullanabileceğiniz betikleri ve verileri içerir. Bu şablon, bu hızlı başlangıcın yanı sıra bu belge sitesindeki diğer öğreticiler için gereksinim duyduğunuz betikleri ve verileri de içerir. 
 
    ![Yeni proje](media/tutorial-classifying-iris/new_project.png)
@@ -77,7 +77,7 @@ Ardından verileri inceleyebilir ve Azure Machine Learning Workbench’te hazır
 
 Bu veri hazırlama paketi, daha sonra bir çalışma zamanına (local-C#/CoreCLR, Scala/Spark veya Scala/HDI gibi) devredilebilir. 
 
-1. Klasör simgesini seçerek dosya görünümü açın ve **iris.csv**’yi seçerek dosyayı açın.  
+1. Klasör simgesini seçerek Dosya görünümü açın ve **iris.csv**’yi seçerek dosyayı açın.
 
    Bu dosya 5 sütun ve 50 satırdan oluşan bir tablo içerir. Dört sütun, sayısal özellik sütunlarıdır. Beşinci sütun dize hedef sütunudur. Sütunların hiçbirinin üst bilgi adı yoktur.
 
@@ -86,32 +86,29 @@ Bu veri hazırlama paketi, daha sonra bir çalışma zamanına (local-C#/CoreCLR
    >[!NOTE]
    > Özellikle dosya boyutu büyük olduğunda proje klasörünüze veri dosyaları eklemeyin. **iris.csv** veri dosyası küçük olduğu için tanıtım amacıyla bu şablona eklenmiştir. Daha fazla bilgi için bkz. [Büyük veri dosyalarını okuma ve yazma](how-to-read-write-files.md).
 
-2. Yeni bir veri kaynağı eklemek için **Veri Görünümü**’nde artı işaretini (**+**) seçin. **Veri Kaynağı Ekle** sayfası açılır. 
+2. Yeni bir veri kaynağı eklemek için **Veri görünümü**’nde artı işaretini (**+**) seçin. **Veri Kaynağı Ekle** sayfası açılır. 
 
    ![Azure Machine Learning Workbench’teki Veri görünümü](media/tutorial-classifying-iris/data_view.png)
 
-3. **Metin Dosyaları (*.csv, .json, .txt.,... )**’nı seçin ve **Sonraki**’ye tıklayın.
+3. **Metin Dosyaları (\*.csv, \*.json, \*.txt., ...)** seçimini yapıp **İleri**’ye tıklayın.
    ![Azure Machine Learning Workbench’teki Veri Kaynağı](media/tutorial-classifying-iris/data-source.png)
-   
 
-4. **iris.csv** dosyasına göz atıp **Sonraki**’ye tıklayın.  
+4. **iris.csv** dosyasına göz atıp **Son**’a tıklayın. Bu işlem, ayırıcı ve veri türleri gibi parametreler için varsayılan değerleri kullanır.
 
    >[!IMPORTANT]
    >Bu alıştırma için geçerli proje dizininden **iris.csv** dosyasını seçtiğinizden emin olun. Aksi takdirde sonraki adımlar başarısız olabilir.
  
    ![Iris seçme](media/tutorial-classifying-iris/select_iris_csv.png)
    
-5. Varsayılan değerleri değiştirmeyin ve **Bitir**’e tıklayın.
-
-6. **iris-1.dsource** adlı yeni bir dosya oluşturulur. Örnek proje zaten numaralandırılmamış bir **iris.dsource** dosyası ile birlikte geldiğinden dosya bir “-1” ile benzersiz şekilde adlandırılmıştır.  
+5. **iris-1.dsource** adlı yeni bir dosya oluşturulur. Örnek proje zaten numaralandırılmamış bir **iris.dsource** dosyası ile birlikte geldiğinden dosya bir “-1” ile benzersiz şekilde adlandırılmıştır.  
 
    Dosya açılır ve veriler gösterilir. **Sütun1** ile **Sütun5** arasında bir dizi sütun üst bilgisi bu veri kümesine otomatik olarak eklenir. Alt kısma kaydırın ve veri kümesinin son satırının boş olduğuna dikkat edin. CSV dosyasında fazladan bir satır sonu olduğu için satır boştur.
 
    ![Iris veri görünümü](media/tutorial-classifying-iris/iris_data_view.png)
 
-1. **Ölçümler** düğmesini seçin. Histogramlar oluşturulur ve ekranda görüntülenir.
+1. **Ölçümler** düğmesini seçin. Histogramlar oluşturulur ve görüntülenir.
 
-   **Veri** düğmesini seçerek veri görünümüne dönebilirsiniz. 
+   **Veri** düğmesini seçerek veri görünümüne geri dönebilirsiniz.
    
    ![Iris veri görünümü](media/tutorial-classifying-iris/iris_data_view_metrics.png)
 
@@ -121,7 +118,7 @@ Bu veri hazırlama paketi, daha sonra bir çalışma zamanına (local-C#/CoreCLR
 
 8. **Hazırla** düğmesini seçerek bir veri hazırlama paketi oluşturmaya başlayın. **Hazırla** iletişim kutusu açılır. 
 
-   Örnek proje varsayılan olarak bir **iris.dprep** veri hazırlama dosyası içerir. 
+   Örnek proje varsayılan olarak seçilen bir **iris.dprep** veri hazırlama dosyası içerir. 
 
    ![Iris veri görünümü](media/tutorial-classifying-iris/prepare.png)
 
@@ -129,7 +126,7 @@ Bu veri hazırlama paketi, daha sonra bir çalışma zamanına (local-C#/CoreCLR
 
    ![Iris veri görünümü](media/tutorial-classifying-iris/prepare_new.png)
 
-1. Paket adı olarak yeni bir değer girin, **iris-1**’i kullanın ve ardından **Tamam**’ı seçin.
+1. Paket adı için yeni bir değer girin (**iris-1**’i kullanın) ve ardından **Tamam**’ı seçin.
 
    Veri hazırlama düzenleyicisinde **iris-1.dprep** adlı yeni bir veri hazırlama paketi oluşturulup açılır.
 
@@ -148,7 +145,7 @@ Bu veri hazırlama paketi, daha sonra bir çalışma zamanına (local-C#/CoreCLR
    1. Seçmek için sağ tıklayın. 
    1. Açılır menüden **Değer Sayıları**’nı seçin. 
 
-   Verilerin altında **Denetçiler** bölmesi açılır. Dört çubuklu bir histogram görüntülenir. Hedef sütunda üç farklı değer bulunur: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** ve bir **(null)** değeri.
+   Verilerin altında **Denetçiler** bölmesi açılır. Dört çubuklu bir histogram görüntülenir. Hedef sütunda dört farklı değer bulunur: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa** ve bir **(null)** değer.
 
    ![Değer Sayıları seçme](media/tutorial-classifying-iris/value_count.png)
 
@@ -160,11 +157,11 @@ Bu veri hazırlama paketi, daha sonra bir çalışma zamanına (local-C#/CoreCLR
 
    ![Null değerleri filtrenin dışında bırakma](media/tutorial-classifying-iris/filter_out2.png)
 
-1. **ADIMLAR** bölmesinde ayrıntılı olarak anlatılan tek tek veri hazırlama adımlarına dikkat edin. Sütunları yeniden adlandırıp null değerli satırları filtreledikten sonra her eylem bir veri hazırlama adımı olarak kaydedilmiştir. Her bir adımı düzenleyerek ayarları değiştirebilir, adımları yeniden sıralayabilir ve adımları kaldırabilirsiniz.
+1. **ADIMLAR** bölmesinde ayrıntılı olarak anlatılan tek tek veri hazırlama adımlarına dikkat edin. Sütunları yeniden adlandırıp null değerli satırları filtreledikten sonra her eylem bir veri hazırlama adımı olarak kaydedilmiştir. Her bir adımı düzenleyerek ayarlarını değiştirebilir, adımları yeniden sıralayabilir ve adımları kaldırabilirsiniz.
 
    ![Adımlar](media/tutorial-classifying-iris/steps.png)
 
-1. Veri hazırlama düzenleyicisini kapatın. Grafik simgesiyle gösterilen **iris-1** sekmesini kapatmak için sekmedeki x simgesini seçin. Çalışmanız **Veri Hazırlıkları** üst bilgisi altında gösterilen **iris-1.dprep** dosyasına otomatik olarak kaydedilir.
+1. Veri hazırlama düzenleyicisini kapatın. Grafik simgesiyle gösterilen **iris-1** sekmesini kapatmak için sekmedeki **x** simgesini seçin. Çalışmanız **Veri Hazırlıkları** üst bilgisi altında gösterilen **iris-1.dprep** dosyasına otomatik olarak kaydedilir.
 
    ![Kapat](media/tutorial-classifying-iris/close.png)
 
@@ -197,8 +194,8 @@ Bu veri hazırlama paketi, daha sonra bir çalışma zamanına (local-C#/CoreCLR
    df.head(10)
    ```
 
-   Bu kodun çalıştırıldığı bağlama göre `df` değeri bir tür veri çerçevesini temsil eder. 
-   + Python çalışma zamanında çalıştırılırken bir [panda DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) kullanılır.
+   Bu kodun çalıştırıldığı bağlama göre `df` değeri farklı bir DataFrame türünü temsil eder:
+   + Python çalışma zamanında yürütülürken bir [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) kullanılır.
    + Spark bağlamında çalıştırılırken bir [Spark DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html) kullanılır. 
    
    Azure Machine Learning Workbench'te verileri hazırlama hakkında daha fazla bilgi için [Veri hazırlamaya başlama](data-prep-getting-started.md) kılavuzuna bakın.

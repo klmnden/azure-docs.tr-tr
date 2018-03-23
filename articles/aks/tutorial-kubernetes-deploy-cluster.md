@@ -1,6 +1,6 @@
 ---
-title: "Azure’da Kubernetes öğreticisi - Kümeyi Dağıtma"
-description: "AKS öğreticisi - Kümeyi Dağıtma"
+title: Azure’da Kubernetes öğreticisi - Kümeyi Dağıtma
+description: AKS öğreticisi - Kümeyi Dağıtma
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d02229739e3f358e4a6510dfbb0585939e947f9c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini dağıtma
 
@@ -85,7 +85,7 @@ k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 
 ## <a name="configure-acr-authentication"></a>ACR kimlik doğrulamasını yapılandırma
 
-Kimlik doğrulama işleminin AKS kümesi ve ACR kayıt defteri arasında yapılandırılması gerekir. Bu, ACR kayıt defterinden görüntüleri çekmek için ACS kimliğindeki uygun hakları sağlamayı içerir.
+Kimlik doğrulama işleminin AKS kümesi ve ACR kayıt defteri arasında yapılandırılması gerekir. Bu, ACR kayıt defterinden görüntüleri çekmek için AKS kimliğindeki uygun hakları sağlamayı içerir.
 
 İlk olarak, AKS için yapılandırılmış hizmet sorumlusu kimliğini alın. Kaynak grubunun ve AKS kümesinin adını, ortamınızla eşleşecek şekilde güncelleştirin.
 

@@ -1,24 +1,24 @@
 ---
-title: "Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri | Microsoft Docs"
-description: "Azure Güvenlik Merkezi'nin, Azure kaynaklarınızın genel güvenliğini geliştirmek amacıyla iş ortaklarıyla nasıl tümleştirildiğini öğrenin."
+title: Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri | Microsoft Docs
+description: Azure Güvenlik Merkezi'nin, Azure kaynaklarınızın genel güvenliğini geliştirmek amacıyla iş ortaklarıyla nasıl tümleştirildiğini öğrenin.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/08/2018
 ms.author: yurid
-ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri
 Bu belge Azure Güvenlik Merkezi'ne bağlanmış olan güvenlik çözümlerini yönetmenize ve yenilerini eklemenize yardımcı olur.
@@ -41,10 +41,10 @@ Uç nokta koruma tümleştirme deneyimi, çözüme göre farklılık gösterebil
 
 | Uç Nokta Koruması               | Platformlar                             | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)                  | Windows Server 2016                   | Hayır, işletim sisteminde yerleşik           | Evet                       |
-| System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 | Uzantı ile                | Evet                       |
-| Trend Micro – Tüm sürümler         | Windows Server Ailesi                 | Uzantı ile                | Evet                       |
-| Symantec v12.1.1100+                     | Windows Server Ailesi                 | Hayır                           | Evet                        |
+| Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)                  | Windows Server 2016                   | Hayır, işletim sisteminde yerleşik           | Yes                       |
+| System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 | Uzantı ile                | Yes                       |
+| Trend Micro – Tüm sürümler         | Windows Server Ailesi                 | Uzantı ile                | Yes                       |
+| Symantec v12.1.1100+                     | Windows Server Ailesi                 | Hayır                           | Yes                        |
 | MacAfee                           | Windows Server Ailesi                 | Hayır                           | Hayır                        |
 | Kaspersky                         | Windows Server Ailesi                 | Hayır                           | Hayır                        |
 | Sophos                            | Windows Server Ailesi                 | Hayır                           | Hayır                        |
@@ -63,7 +63,15 @@ Güvenlik Merkezinden dağıtılan Azure güvenlik çözümleri otomatik olarak 
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Tümleşik Azure güvenlik çözümlerini ve diğer veri kaynaklarını yönetme
 
-Dağıtımdan sonra tümleşik Azure güvenlik çözümünün sistem durumu hakkındaki bilgileri görüntüleyebilir ve temel yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca Common Event Format (CEF) biçimindeki Azure Active Directory Kimlik Koruması uyarılarını ve güvenlik duvarı günlükleri gibi diğer güvenlik veri kaynağı türlerini de bağlayabilirsiniz. Güvenlik Merkezi panosunda Güvenlik çözümlerini seçin.
+1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)’da oturum açın.
+
+2. **Microsoft Azure** menüsünde **Güvenlik Merkezi**’ni seçin. **Güvenlik Merkezi - Genel Bakış** açılır.
+
+  ![Güvenlik Merkezine Genel Bakış](./media/security-center-partner-integration/overview.png)
+
+3. **Genel Bakış** altında **Güvenlik çözümleri**’ni seçin.
+
+**Güvenlik çözümleri** altında tümleşik Azure güvenlik çözümlerinin sistem durumu hakkındaki bilgileri görüntüleyebilir ve temel yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca Common Event Format (CEF) biçimindeki Azure Active Directory Kimlik Koruması uyarılarını ve güvenlik duvarı günlükleri gibi diğer güvenlik veri kaynağı türlerini de bağlayabilirsiniz.
 
 ### <a name="connected-solutions"></a>Bağlantılı çözümler
 
@@ -71,13 +79,22 @@ Dağıtımdan sonra tümleşik Azure güvenlik çözümünün sistem durumu hakk
 
 ![Bağlantılı çözümler](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
+Daha fazla bilgi almak için bkz. [Bağlantılı iş ortağı çözümlerini yönetme](security-center-partner-solutions.md).
+
 ### <a name="discovered-solutions"></a>Bulunan çözümler
 
-**Bulunan çözümler** bölümü Azure aracılığıyla eklenmiş olan tüm çözümleri gösterir. Güvenlik Merkezi'nin bağlamayı önerdiği tüm çözümleri de gösterir.
+Güvenlik Merkezi, Azure’da çalışmasına karşın Güvenlik Merkezi’ne bağlı olmayan güvenlik çözümlerini otomatik olarak bulur ve çözümleri **Bulunan çözümler** bölümünde gösterir. Buna [Azure AD Kimlik Koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) gibi Azure çözümlerinin yanı sıra iş ortağı çözümleri dahildir.
+
+> [!NOTE]
+> Bulunan çözümler özelliği Güvenlik Merkezi'nin Standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
+>
+>
+
+Güvenlik Merkezi ile tümleştirmek ve güvenlik uyarılarını bildirim olarak almak üzere bir çözümün altında **BAĞLAN** öğesini seçin.
 
 ![Bulunan çözümler](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Güvenlik Merkezi, Azure'da çalışan diğer güvenlik çözümlerini otomatik olarak bulur. Buna [Azure AD Kimlik Koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) gibi Azure çözümlerinin yanı sıra Azure'da çalışan iş ortağı çözümleri dahildir. Bu çözümleri Güvenlik Merkezi ile tümleştirmek için **BAĞLAN**'ı seçin.
+Güvenlik Merkezi ayrıca Ortak Olay Biçimi (CEF) günlüklerini iletebilen, abonelikte dağıtılmış çözümleri bulur. CEF günlükleri kullanan [bir güvenlik çözümünü](quick-security-solutions.md) Güvenlik Merkezi'ne bağlama hakkında bilgi edinin.
 
 ### <a name="add-data-sources"></a>Veri kaynağı ekleme
 
@@ -90,7 +107,6 @@ Güvenlik Merkezi, Azure'da çalışan diğer güvenlik çözümlerini otomatik 
 
 Bu makalede, Güvenlik Merkezi'nde iş ortağı çözümlerinin nasıl tümleştirileceğini öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-* [Güvenlik Merkezi planlama ve işlemler kılavuzu](security-center-planning-and-operations-guide.md)
 * [Microsoft Advanced Threat Analytics'i Azure Güvenlik Merkezi'ne bağlama](security-center-ata-integration.md)
 * [Azure Active Directory Kimlik Koruması'nı Azure Güvenlik Merkezi'ne bağlama](security-center-aadip-integration.md)
 * [Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.

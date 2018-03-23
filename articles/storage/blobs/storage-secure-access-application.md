@@ -1,21 +1,19 @@
 ---
-title: "Azure Depolama ile bulutta uygulama verilerine erişimin güvenliğini sağlama | Microsoft Docs"
-description: "Bulutta uygulamanızın veri güvenliğini sağlamak için SAS belirteçlerini, şifrelemeyi ve HTTPS’yi kullanın"
+title: Azure Depolama ile bulutta uygulama verilerine erişimin güvenliğini sağlama | Microsoft Docs
+description: Bulutta uygulamanızın veri güvenliğini sağlamak için SAS belirteçlerini, şifrelemeyi ve HTTPS’yi kullanın
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 03/06/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7a45073d8d518700f866d9701c3ba64e665dc2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 66a5f7e6872a76c91f1f5f1a4b0b1973cb890b0f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Bulutta uygulama verilerine erişimin güvenliğini sağlama
 
@@ -147,47 +145,7 @@ Yukarıdaki görevde, aşağıdaki sınıflar, özellikler ve yöntemler kullan�
 
 [Azure Depolama Hizmeti Şifrelemesi (SSE)](../common/storage-service-encryption.md), verilerinizi korumanıza ve muhafaza etmenize yardımcı olur. SSE, bekleyen verileri şifreleyerek şifreleme, şifre çözme ve anahtar yönetimini işler. Verilerin tamamı, mevcut en güçlü blok şifreleme özelliklerinden biri olan 256 bit [AES şifrelemesi](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) ile şifrelenir.
 
-Aşağıdaki örnekte bloblar için şifrelemeyi etkinleştirirsiniz. Şifreleme etkinleştirilmeden önce oluşturulan mevcut bloblar şifrelenmez. Bir blob için istekteki `x-ms-server-encrypted` üst bilgisi, blobun şifreleme durumunu gösterir.
-
-```azurecli-interactive
-az storage account update --encryption-services blob --name <storage-account-name> --resource-group myResourceGroup
-```
-
-Şimdi şifreleme etkinleştirildiğine göre web uygulamasına yeni bir görüntü yükleyin.
-
-Yalnızca üst bilgileri almak için `-I` anahtarı ile `curl` kullanarak `<storage-account-name>`, `<container>` ve `<blob-name>` için kendi değerlerinizi yerleştirin.  
-
-```azurecli-interactive
-sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <blob-name> \
-    --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
-
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<blob-name>?$sasToken -I
-```
-
-Yanıtta `x-ms-server-encrypted` üst bilgisinin `true` değerini gösterdiğine dikkat edin. Bu üst bilgi, verilerin şimdi SSE ile şifrelendiğini belirler.
-
-```
-HTTP/1.1 200 OK
-Content-Length: 209489
-Content-Type: image/png
-Last-Modified: Mon, 11 Sep 2017 19:27:42 GMT
-Accept-Ranges: bytes
-ETag: "0x8D4F94B2BE76D45"
-Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
-x-ms-request-id: 57047db3-001e-0050-3e34-2ba769000000
-x-ms-version: 2017-04-17
-x-ms-lease-status: unlocked
-x-ms-lease-state: available
-x-ms-blob-type: BlockBlob
-x-ms-server-encrypted: true
-Date: Mon, 11 Sep 2017 19:27:46 GMT
-```
+SSE tüm performans katmanları (Standart ve Premium), tüm dağıtım modelleri (Azure Resource Manager ve Klasik) ve tüm Azure Depolama hizmetlerinde (Blob, Kuyruk, Tablo ve Dosya) verileri otomatik olarak şifreler. 
 
 ## <a name="enable-https-only"></a>Yalnızca HTTPS'yi etkinleştirme
 

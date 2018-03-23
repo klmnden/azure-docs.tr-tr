@@ -1,25 +1,29 @@
 ---
-title: "Azure Konum Tabanlı Hizmetler'e Genel Bakış | Microsoft Docs"
-description: "Azure Konum Tabanlı Hizmetler'e (önizleme) giriş"
+title: Azure Konum Tabanlı Hizmetler'e Genel Bakış | Microsoft Docs
+description: Azure Konum Tabanlı Hizmetler'e (önizleme) giriş
 services: location-based-services
-keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 02/05/2017
+keywords: ''
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91df49aa3f522ea765698a1d64ed2686606f71f3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Azure Konum Tabanlı Hizmetler'e (önizleme) giriş
 Azure Konum Tabanlı Hizmetler; Haritalar, Arama, Yönlendirme, Trafik ve Saat dilimlerine yönelik hizmet API'lerini içeren bir jeo-uzamsal hizmetler portföyüdür. Azure OneAPI uyumlu hizmet portföyü bilindik geliştirici araçlarını kullanarak hızlıca konum bilgilerini Azure çözümlerinizle tümleştiren çözümler geliştirmenizi ve bu çözümleri ölçeklendirmenizi sağlar. Azure Konum Tabanlı Hizmetler tüm sektörlerden geliştiriciler ve güçlü jeo-uzamsal özellikler sunar. Ayrıca web ve mobil uygulamalara coğrafi bağlam sağlamak için gerekli olan yeni eşleme verileriyle donatılmıştır. Azure Konum Tabanlı Hizmetler, REST API'lerin Azure One API’siyle uyumlu bir kümesidir ve geliştirmeyi çok kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimiyle birlikte sunulur. 
+
+Aşağıdaki video Azure Konum Tabanlı Hizmetleri tanıtır.
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Azure Konum Tabanlı Hizmetler, coğrafi bağlama ihtiyaç duyan Azure uygulamalarını güçlendiren beş temel hizmetten oluşur. Hizmetlerin her biri aşağıda ayrıntılı bir şekilde açıklanmıştır.
 
@@ -64,6 +68,16 @@ Azure Konum Tabanlı Hizmetler, coğrafi bağlama ihtiyaç duyan Azure uygulamal
 Azure Konum Tabanlı Hizmetler hareketlilik için oluşturulmuştur ve programlama modeli belirsiz olduğundan ve REST API'leri üzerinden JSON çıkışını desteklediğinden platformlar arası uygulamalarda kullanılabilir. Azure LBS ayrıca hem web hem de mobil platform uygulamalarının hızlı ve kolay bir şekilde geliştirilmesi için basit bir programlama modeliyle kullanışlı bir JavaScript Harita Denetimi sunar. 
 
 Azure Konum Tabanlı Hizmetler anahtar tabanlı kimlik doğrulaması düzeni kullandığı için hizmetlere erişmek için [Azure portalına](http://portal.azure.com) gidip Azure Konum Tabanlı Hizmetler hesabı oluşturmak gerekir. Hesabınızda önceden oluşturulmuş iki anahtar mevcuttur. Bu anahtarlardan birini Azure Konum Tabanlı Hizmetler hizmeti isteklerinde kullanarak uygulamalarınıza doğrudan konum özelliklerini tümleştirebilirsiniz.
+
+## <a name="unsupported-regions"></a>Desteklenmeyen Bölgeler
+API’miz şu anda aşağıdaki ülkelerde kullanılamamaktadır. Lütfen geçerli IP adresinizi kontrol edin ve IP adresinizin konumunun aşağıdaki desteklenmeyen ülkelerden birinde olmadığını doğrulayın.
+
+* Arjantin
+* Çin
+* Hindistan
+* Fas
+* Pakistan
+* Güney Kore
 
 ## <a name="relationship-with-bing-maps"></a>Bing Haritalar ile İlişki
 Bu belgede açıklanan Azure Konum Tabanlı Hizmetler, Bing Haritalar tarafından sağlanan hizmetlerden farklıdır.  Birçok ortak işlevi olmasına rağmen bu iki hizmet birbirinden farklıdır ve birbiriyle ilişkili değildir.  Bing Haritalar ürün teklifi veya yol haritası, Azure’da ayrıca yönetilecek bu yeni hizmetin kullanılabilir olmasından etkilenmez.

@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI komut dosyası örneği - kopyalama (Taşı) yönetilen aynı veya farklı bir abonelik disklere | Microsoft Docs"
-description: "Azure CLI komut dosyası örneği - kopyalama (Taşı) yönetilen aynı veya farklı bir abonelik disklere"
+title: Azure CLI Betik Örneği - Yönetilen diskleri aynı veya farklı aboneliğe kopyalama (taşıma) | Microsoft Docs
+description: Azure CLI Betik Örneği - Yönetilen diskleri aynı veya farklı aboneliğe kopyalama (taşıma)
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,39 +16,39 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 8ff34f3d0b11c47f19205b92aebfc96e5cd5a014
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: dfdbc0563810447a1a214356b5153afe38d9cf2f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>CLI ile aynı veya farklı aboneliğe yönetilen diskleri kopyalama
+# <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>CLI ile yönetilen diskleri aynı veya farklı aboneliğe kopyalama
 
-Bu komut dosyası, aynı veya farklı bir abonelik ancak aynı bölgede yönetilen bir diske kopyalar. 
+Bu betik bir yönetilen diski aynı bölgedeki aynı veya farklı bir aboneliğe kopyalar. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh "Copy managed disk")]
 
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını yeni bir yönetilen disk kaynağı yönetilen disk kimliğini kullanarak hedef abonelikte oluşturmak için komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik, kaynak yönetilen diskin kimliğini kullanarak hedef abonelikte yeni bir yönetilen disk oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [az disk Göster](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Tüm adını kullanarak yönetilen bir diskin özelliklerini ve kaynak grubu yönetilen diskin özelliklerini alır. ID özelliği, yönetilen disk farklı aboneliğe kopyalamak için kullanılır.  |
-| [az disketi oluşturma](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Kopya yeni oluşturma tarafından yönetilen bir disk disk kimliğini kullanarak farklı Abonelikteki yönetilen ve üst yönetilen disk adlandırın.  |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Yönetilen diskin kaynak ve grup özelliklerini kullanarak tüm özelliklerini alır. Yönetilen diski farklı aboneliğe kopyalamak için kimlik özelliği kullanılır.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Üst yönetilen diskin kimliği ve adı ile farklı abonelikte yeni bir yönetilen disk oluşturarak yönetilen diski kopyalar.  |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Yönetilen bir diskten bir sanal makine oluşturun](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Yönetilen diskten sanal makine oluşturma](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
-Ek bir sanal makine ve yönetilen diskleri CLI kod örnekleri bulunabilir [Azure Linux VM'de belgelerine](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ek sanal makine ve yönetilen disk CLI betiği örnekleri, [Azure Linux VM belgeleri](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) içinde bulunabilir.

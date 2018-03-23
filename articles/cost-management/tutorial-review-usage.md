@@ -1,8 +1,8 @@
 ---
-title: "Öğretici: Azure Maliyet Yönetimi’nde kullanım ve maliyetleri gözden geçirme | Microsoft Docs"
-description: "Bu öğreticide, eğilimleri takip etmek, verimsizlikleri algılamak ve uyarılar oluşturmak için kullanımı ve maliyetleri gözden geçirirsiniz."
+title: 'Öğretici: Azure Maliyet Yönetimi’nde kullanım ve maliyetleri gözden geçirme | Microsoft Docs'
+description: Bu öğreticide, eğilimleri takip etmek, verimsizlikleri algılamak ve uyarılar oluşturmak için kullanımı ve maliyetleri gözden geçirirsiniz.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Öğretici: Kullanımı ve maliyetleri gözden geçirme
 
-Cloudyn tarafından sunulan Azure Maliyet Yönetimi, eğilimleri takip edebilmeniz, verimsizlikleri algılamanız ve uyarılar oluşturmanız için kullanım ve maliyet bilgilerini gösterir. Tüm kullanım ve maliyet verileri, Cloudyn panoları ve raporlarında gösterilir. Bu öğreticideki örneklerde, pano ve raporları kullanarak kullanım ve maliyetleri gözden geçirme işlemi açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Azure Maliyet Yönetimi, eğilimleri takip edebilmeniz, verimsizlikleri algılamanız ve uyarılar oluşturmanız için kullanım ve maliyet bilgilerini gösterir. Tüm kullanım ve maliyet verileri, Cloudyn panoları ve raporlarında gösterilir. Bu öğreticideki örneklerde, pano ve raporları kullanarak kullanım ve maliyetleri gözden geçirme işlemi açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Kullanım ve maliyet eğilimlerini izleme
@@ -57,7 +57,7 @@ Yukarıdaki örnekte, 31.08.2017 tarihinden sonra, önceki döneme göre daha az
 
 Örnekte, Azure Depolama maliyetinin 31.08.2017’den sonra düştüğü, diğer Azure hizmetlerine yapılan harcamaların ise sabit kaldığı açıkça görülmektedir. Öyleyse, harcamadaki bu azalmanın nedeni nedir? Bu örnekte bazı çalışanlar, işten izin alarak tatile çıkmıştır ve Depolama hizmetini kullanmamıştır.
 
-Kullanım ve maliyet eğilimlerini izleme hakkında öğretici bir video izlemek için bkz. [Cloudyn Azure Maliyet Yönetimi ile bulut faturalama verilerinizi zamanla karşılaştırmalı olarak çözümleme](https://youtu.be/7LsVPHglM0g).
+Kullanım ve maliyet eğilimlerini izleme hakkında öğretici bir video izlemek için bkz. [Azure Maliyet Yönetimi ile bulut faturalama verilerinizi zamanla karşılaştırmalı olarak çözümleme](https://youtu.be/7LsVPHglM0g).
 
 ## <a name="detect-usage-inefficiencies"></a>Kullanım verimsizliklerini algılama
 
@@ -81,7 +81,7 @@ Bu örnekte, VM örnek türlerini değiştirme önerilerine uyularak 3.114$ tasa
 
 ![Aday Listesi](./media/tutorial-review-usage/sizing03.png)
 
-Kullanım verimsizliklerini algılama hakkında bir öğretici videosu izlemek için bkz. [Cloudyn Azure Maliyet Yönetimi’nde VM Boyutunu İyileştirme](https://youtu.be/1xaZBNmV704).
+Kullanım verimsizliklerini algılama hakkında bir öğretici videosu izlemek için bkz. [Azure Maliyet Yönetimi’nde VM Boyutunu İyileştirme](https://youtu.be/1xaZBNmV704).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Olağan dışı harcama uyarıları oluşturma
 

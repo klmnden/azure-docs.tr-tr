@@ -1,19 +1,19 @@
 ---
-title: "Şirket içi VMware sunucularını VMware VM’lerinden Azure’a olağanüstü durum kurtarmaya hazırlama| Microsoft Docs"
-description: "Azure Site Recovery hizmetini kullanarak şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlamayı öğrenin."
+title: Şirket içi VMware sunucularını VMware VM’lerinden Azure’a olağanüstü durum kurtarmaya hazırlama| Microsoft Docs
+description: Azure Site Recovery hizmetini kullanarak şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlamayı öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlama
 
@@ -86,7 +86,7 @@ VM’nin aşağıdaki tabloda belirtilen Azure gereksinimlerine uygun olduğunda
 **VM adı** | 1-63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluşabilir. VM adı bir harf veya sayıyla başlamalı ve bitmelidir.
 **VM türü** | 1. Nesil - Linux veya Windows<br/><br/>2. Nesil - Yalnızca Windows
 
-VM ayrıca desteklenen bir işletim sistemini çalıştırmalıdır. Desteklenen sürümlerin tam listesini görmek için bkz. [Site Recovery destek matrisi](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
+VM ayrıca desteklenen bir işletim sistemini çalıştırmalıdır. Desteklenen sürümlerin tam listesini görmek için bkz. [VMware ve fiziksel sunucu destek matrisi](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
 

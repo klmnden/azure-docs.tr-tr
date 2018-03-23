@@ -1,6 +1,6 @@
 ---
-title: "Azure’da ağ güvenlik grupları | Microsoft Docs"
-description: "Azure'daki dağıtılmış güvenlik duvarını kullanan sanal ağlarınızdaki trafik akışını yalıtmak ve denetlemek için Ağ Güvenlik Gruplarının nasıl kullanılacağı konusunda bilgi edinin."
+title: Azure’da ağ güvenlik grupları | Microsoft Docs
+description: Azure'daki dağıtılmış güvenlik duvarını kullanan sanal ağlarınızdaki trafik akışını yalıtmak ve denetlemek için Ağ Güvenlik Gruplarının nasıl kullanılacağı konusunda bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Ağ güvenlik grupları ile ağ trafiğini filtreleme
 
 Ağ güvenlik grubu (NSG), Azure Sanal Ağlara (VNet) bağlı kaynaklara ağ trafiğine izin veren veya reddeden güvenlik kurallarının listesini içerir. Ağ güvenlik grupları (NSG’ler), alt ağlarla, ayrı ayrı VM’lerle (klasik) veya VM’lere bağlı ağ arabirimleri ile ilişkilendirilebilir (Resource Manager). Bir NSG bir alt ağ ile ilişkilendirildiğinde kurallar alt ağa bağlı tüm kaynaklar için geçerli olur. Bir NSG’nin bir VM veya ağ arabirimi ile ilişkilendirilmesi yoluyla da trafik kısıtlanabilir.
-
+ 
 > [!NOTE]
 > Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale her iki modelin de nasıl kullanıldığını kapsıyor olsa da, Microsoft en yeni dağıtımların Resource Manager modelini kullanmasını önermektedir.
 
@@ -98,7 +98,7 @@ Kullandığınız dağıtım modeline bağlı olarak, bir NSG'yi VM'lerle, ağ a
 
 * **VM (yalnızca klasik):** Güvenlik kuralları VM’ye/VM’den tüm trafiğe uygulanır. 
 * **Ağ arabirimi (yalnızca Resource Manager):** Güvenlik kuralları, NSG’nin ilişkili olduğu ağ arabirimine gelen ve buradan giden trafiğin tamamına uygulanır. Birden çok ağ arabirimi içeren sanal makinelerde, her ağ arabirimine farklı NSG uygulayabileceğiniz gibi her birine aynı NSG’yi uygulayabilirsiniz. 
-* **Alt ağ (Resource Manager ve klasik):** Güvenlik kuralları, sanal ağa bağlı kaynaklara/kaynaklardan tüm trafiğe uygulanır.
+* **Alt ağ (Resource Manager ve klasik):** Güvenlik kuralları, alt ağa bağlı kaynaklara/kaynaklardan tüm trafiğe uygulanır.
 
 Bir VM (veya dağıtım modeline bağlı olarak, ağ arabirimi) ve bu VM'nin (veya ağ arabiriminin) bağlı olduğu alt ağ ile farklı NSG’ler ilişkilendirebilirsiniz. Her NSG'deki öncelik temel alınarak, güvenlik kuralları aşağıdaki sırayla trafiğe uygulanır:
 

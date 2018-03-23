@@ -1,24 +1,24 @@
 ---
-title: "Azure Active Directory Kullanım Koşulları| Microsoft Docs"
-description: "Azure AD Kullanım Koşulları, size ve şirketinize Azure AD hizmetleri kullanıcıları için kullanım koşulları sağlama olanağı sunar."
+title: Azure Active Directory Kullanım Koşulları| Microsoft Docs
+description: Azure AD Kullanım Koşulları, size ve şirketinize Azure AD hizmetleri kullanıcıları için kullanım koşulları sağlama olanağı sunar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
-ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e29e842a54d286e19d23c1c91c08d55933a0eada
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory Kullanım Koşulları özelliği (Önizleme)
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar.  Böylece kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlanır.
@@ -59,7 +59,7 @@ Kullanım Koşullarınıza son şeklini verdikten sonra, bunları eklemek için 
 6. Kullanım koşulları için bir dil **seçin**.  Dil seçeneğini kullanarak her biri farklı dilde olan birden fazla kullanım koşulunu karşıya yükleyebilirsiniz.  Bir son kullanıcının göreceği kullanım koşulları sürümü, kullanıcının tarayıcı tercihlerine bağlıdır.
 7. **Kullanıcıların kullanım koşullarını genişletmesini gerekli kıl** için açık veya kapalı seçeneğini belirleyin.  Bu seçenek açık olarak ayarlanırsa, son kullanıcıların kullanım şartlarını kabul etmeden önce görüntülemesi gerekir.
 8. **Koşullu Erişim** bölümü altında bir şablon veya özel koşullu erişim ilkesi kullanarak karşıya yüklenen kullanım koşullarını **Zorunlu Kılabilirsiniz**.  Özel koşullu erişim ilkeleri, belirli bulut uygulamaları veya kullanıcı gruplarına kadar ayrıntılı kullanım koşulları uygulamanıza olanak sağlar.  Daha fazla bilgi için bkz. [Koşullu erişim ilkelerini yapılandırma](active-directory-conditional-access-best-practices.md)
-9. **Oluştur**'a tıklayın.
+9. **Oluştur**’a tıklayın.
 10. Özel bir koşullu erişim şablonu seçtiyseniz, CA ilkesini özelleştirmenize olanak sağlayan yeni bir ekran görüntülenir.
 11. Şimdi yeni Kullanım Koşullarınızı görürsünüz.</br>
 
@@ -125,10 +125,10 @@ Bunun nedeni koşullu erişim ilkelerinin hemen etkili olmasıdır. Bu durum ger
 C: Kullanım koşullarını kabul eden bir kullanıcı denetim günlüğüne yazılır. Sonuçları görmek için Azure AD denetim günlüğünde arama yapabilirsiniz.  
 
 **S: Kullanım koşulları değiştirilirse kullanıcıların tekrar kabul etmesi gerekir mi?**</br>
-C: Evet, bir yönetici kullanım koşullarının koşullarını değiştirebilir ve bu durumda yeni koşulların yeniden kabul edilmesi gerekir.
+C: Evet, bir yönetici kullanım koşullarının hükümlerini değiştirebilir ve bu durumda yeni hükümlerin yeniden kabul edilmesi gerekir.
 
 **S: Bir kullanım koşulları belgesi birden çok dili destekleyebilir mi?**</br>
-C: Hayır, tek bir kullanım koşulları içinde birden çok dil kullanmak şu anda mümkün değildir.  Ancak bir grubun kapsamını belirleyebilirsiniz (örneğin, Fransa’ya yönelik kullanım koşulları Birleşik Krallık’tan farklı olabilir). 
+C: Evet.  Şu anda bir yöneticinin tek bir kullanım koşulları belgesi için yapılandırabileceği 18 farklı dil mevcuttur. 
 
 **S: Kullanım koşulları ne zaman tetiklenir?**</br>
 C: Kullanım koşulları oturum açma deneyimi sırasında tetiklenir.

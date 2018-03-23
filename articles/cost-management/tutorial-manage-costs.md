@@ -1,8 +1,8 @@
 ---
-title: "Öğretici: Azure Maliyet Yönetimi ile maliyetleri yönetme | Microsoft Docs"
-description: "Bu öğreticide, maliyet dağıtımı, ücret hesaplama raporları ve ücret yansıtma raporları kullanarak maliyetleri yönetmeyi öğrenirsiniz."
+title: 'Öğretici: Azure Maliyet Yönetimi ile maliyetleri yönetme | Microsoft Docs'
+description: Bu öğreticide, maliyet dağıtımı, ücret hesaplama raporları ve ücret yansıtma raporları kullanarak maliyetleri yönetmeyi öğrenirsiniz.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 238964540bffaf8d05148c587462256ce20d87f4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Öğretici: Azure Maliyet Yönetimi’ni kullanarak maliyetleri yönetme
 
-Maliyetlerin etiketler temelinde dağıtımını yaparak Cloudyn Azure Maliyet Yönetimi'nde maliyetleri yönetir ve ücret hesaplama raporları oluşturursunuz. Maliyet dağıtımı işlemi, maliyetleri tüketilen bulut kaynaklarınıza dağıtır. Kaynaklarınızın tümü etiketler kullanılarak kategorilere ayrıldığında maliyetler tam olarak dağıtılır. Maliyetler dağıtıldıktan sonra, panolar ve raporlarla kullanıcılarınıza ücret hesaplama ve ücret yansıtma raporları sağlayabilirsiniz. Bununla birlikte, Maliyet Yönetimi'ni kullanmaya başladığınızda birçok kaynak etiketsiz veya etiketlenemez durumda olabilir.
+Maliyetlerin etiketler temelinde dağıtımını yaparak Azure Maliyet Yönetimi'nde maliyetleri yönetir ve ücret hesaplama raporları oluşturursunuz. Maliyet dağıtımı işlemi, maliyetleri tüketilen bulut kaynaklarınıza dağıtır. Kaynaklarınızın tümü etiketler kullanılarak kategorilere ayrıldığında maliyetler tam olarak dağıtılır. Maliyetler dağıtıldıktan sonra, panolar ve raporlarla kullanıcılarınıza ücret hesaplama ve ücret yansıtma raporları sağlayabilirsiniz. Bununla birlikte, Maliyet Yönetimi'ni kullanmaya başladığınızda birçok kaynak etiketsiz veya etiketlenemez durumda olabilir.
 
 Örneğin, mühendislik maliyetleri için geri ödeme almak isteyebilirsiniz. Mühendislik ekibinize, kaynak maliyetleri temelinde belirli bir miktar almanız gerektiğini gösterebilmelisiniz. Tüm tüketilen *mühendislik* etiketli kaynaklar için onlara bir rapor gösterebilirsiniz.
 

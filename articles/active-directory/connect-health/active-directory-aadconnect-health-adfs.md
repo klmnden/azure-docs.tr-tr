@@ -1,8 +1,8 @@
 ---
 title: Azure AD Connect Health'i AD FS ile Kullanma| Microsoft Belgeleri
-description: "Bu Azure AD Connect Health sayfasında, şirket içi AD FS altyapınızı nasıl izleyeceğiniz açıklanmıştır."
+description: Bu Azure AD Connect Health sayfasında, şirket içi AD FS altyapınızı nasıl izleyeceğiniz açıklanmıştır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS'yi Azure AD Connect Health'i kullanarak izleme
 Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](active-directory-aadconnect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
@@ -115,9 +115,12 @@ Raporda şu bilgiler yer alır:
 | Son Hata IP’si |Son hatalı istekteki İstemci IP adresini gösterir. |
 
 > [!NOTE]
-> Bu rapor, her 12 saatte bir bu süre içinde toplanan yeni bilgilerle otomatik olarak güncelleştirilir. Bu nedenle raporda son iki saat içinde gerçekleşen oturum açma denemeleri bulunmayabilir.
+> Bu rapor, her 12 saatte bir bu süre içinde toplanan yeni bilgilerle otomatik olarak güncelleştirilir. Bu nedenle raporda son 12 saat içinde gerçekleşen oturum açma denemeleri bulunmayabilir.
 >
 >
+
+### <a name="risky-ip-report"></a>Riskli IP Raporu 
+Önizleme çok yakında.
 
 ## <a name="related-links"></a>İlgili bağlantılar
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

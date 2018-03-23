@@ -1,6 +1,6 @@
 ---
-title: "Azure Sanal Ağ eşlemesi | Microsoft Belgeleri"
-description: "Azure'daki sanal ağ eşlemesi hakkında bilgi edinin."
+title: Azure Sanal Ağ eşlemesi | Microsoft Belgeleri
+description: Azure'daki sanal ağ eşlemesi hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: NarayanAnnamalai
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 23281067021dd6e4b8959fe73f3c8a11a651d9d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -35,7 +35,7 @@ Sanal ağ eşlemesini kullanmanın avantajları şunlardır:
 
 ## <a name="requirements-constraints"></a>Gereksinimler ve kısıtlamalar
 
-* Aynı bölgedeki sanal ağları eşleme özelliği genel kullanıma açıktır. Farklı bölgelerdeki sanal ağları eş düğümleme, şu anda ABD Orta Batı, Kanada Orta, ABD Batı 2, Kore Güney, UK Güney, UK Batı, Kanada Doğu, Hindistan Güney, Hindistan Orta ve Hindistan Batı bölgelerinde önizleme aşamasındadır. Farklı bölgelerdeki sanal ağları eşlemeden önce, önizleme için [aboneliğinizi kaydetmeniz](virtual-network-create-peering.md#register) gerekir. Önizleme için kaydı tamamlamadıysanız, farklı bölgelerdeki sanal ağlar arasında bir eşleme oluşturma denemesi başarısız olur.
+* Aynı bölgedeki sanal ağları eşleme özelliği genel kullanıma açıktır. Farklı bölgelerdeki sanal ağları eş düğümleme, şu anda ABD Orta Batı, Kanada Orta, ABD Batı 2, Kore Güney, UK Güney, UK Batı, Kanada Doğu, Hindistan Güney, Hindistan Orta ve Hindistan Batı bölgelerinde önizleme aşamasındadır. Farklı bölgelerdeki sanal ağları eşlemeden önce, önizleme için [aboneliğinizi kaydetmeniz](tutorial-connect-virtual-networks-powershell.md#register) gerekir. Önizleme için kaydı tamamlamadıysanız, farklı bölgelerdeki sanal ağlar arasında bir eşleme oluşturma denemesi başarısız olur.
     > [!WARNING]
     > Birden fazla bölge arasında oluşturulan sanal ağ eşlemeleri genel kullanım sürümünde mevcut olan eşlemelerle aynı kullanılabilirlik ve güvenilirlik seviyesine sahip değildir. Sanal ağ eşlemeleri sınırlı özelliklere sahip olabilir ve tüm Azure bölgelerinde kullanılamayabilir. Bu özelliğin kullanılabilirliği ve durumuyla ilgili en güncel bildirimler için, [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasına bakın.
 
@@ -126,7 +126,7 @@ Sanal ağ eşleme bağlantısı kullanan girdi ve çıkış trafiği için nomin
 
     |Azure dağıtım modeli  | Abonelik  |
     |---------|---------|
-    |Her ikisi de Resource Manager |[Aynı](virtual-network-create-peering.md)|
+    |Her ikisi de Resource Manager |[Aynı](tutorial-connect-virtual-networks-portal.md)|
     | |[Farklı](create-peering-different-subscriptions.md)|
     |Biri Resource Manager, diğeri klasik     |[Aynı](create-peering-different-deployment-models.md)|
     | |[Farklı](create-peering-different-deployment-models-subscriptions.md)|
