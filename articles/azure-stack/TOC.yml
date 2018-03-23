@@ -6,18 +6,14 @@
       href: azure-stack-poc.md
     - name: Sürüm notları
       items:
-        - name: Geliştirme Seti sürüm notları
-          href: azure-stack-asdk-release-notes.md
-        - name: Tümleşik sistemleri sürüm notları
-          items:
-            - name: 1802 güncelleştirme
-              href: azure-stack-update-1802.md
-            - name: 1712 güncelleştirme
-              href: azure-stack-update-1712.md
-            - name: 1711 güncelleştirme
-              href: azure-stack-update-1711.md
-            - name: 1710 güncelleştirme
-              href: azure-stack-update-1710.md
+        - name: 1802 güncelleştirme
+          href: azure-stack-update-1802.md
+        - name: 1712 güncelleştirme
+          href: azure-stack-update-1712.md
+        - name: 1711 güncelleştirme
+          href: azure-stack-update-1711.md
+        - name: 1710 güncelleştirme
+          href: azure-stack-update-1710.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -67,8 +63,6 @@
               href: validate-pki-certs.md
         - name: Kimlik Tümleştirme
           href: azure-stack-integrate-identity.md
-        - name: Azure yığın kaydetme
-          href: azure-stack-registration.md
         - name: Dış izleme
           href: azure-stack-integrate-monitor.md
         - name: Güvenlik tümleştirme
@@ -77,30 +71,14 @@
       href: azure-stack-servicing-policy.md
     - name: Önemli özellikler ve kavramlar
       href: azure-stack-key-features.md
-    - name: Geliştirme Seti mimarisi
-      href: azure-stack-architecture.md
     - name: Yönetim temel bilgileri
       href: azure-stack-manage-basics.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: ASDK dağıtma
-      items:
-        - name: Önkoşullar
-          href: azure-stack-deploy.md
-        - name: Telemetri
-          href: azure-stack-telemetry.md
-        - name: Dağıtma
-          href: azure-stack-run-powershell-script.md
-        - name: PowerShell yükleme
-          href: azure-stack-powershell-install.md
-        - name: Kaydolma
-          href: azure-stack-register.md
-        - name: Azure Stack'e Bağlanma
-          href: azure-stack-connect-azure-stack.md
-        - name: Varsayılan görüntü ekleme
-          href: azure-stack-add-default-image.md
-        - name: Test VM’si oluşturma
-          href: azure-stack-provision-vm.md
+    - name: Telemetri koleksiyonunu yapılandırma
+      href: azure-stack-telemetry.md
+    - name: Azure yığın kaydetme
+      href: azure-stack-registration.md
     - name: Yönetme
       items:
         - name: Bölge yönetimi
@@ -246,7 +224,7 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Dağıtım kaynaklarını yapılandırma
               href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Uygulama hizmeti güncelleştirmesi bir sürüm notları
+            - name: Uygulama hizmeti Azure yığın güncelleştirme 1 sürüm notları
               href: azure-stack-app-service-release-notes-update-one.md
         - name: Market’i doldurma
           items:
@@ -318,6 +296,8 @@
   items:
     - name: Azure Stack Kullanıcı Belgeleri
       href: /azure/azure-stack/user/
+    - name: ASDK belgeleri
+      href: /azure/azure-stack/asdk/
 - name: Kaynaklar
   items:
     - name: Azure yığın yol haritası

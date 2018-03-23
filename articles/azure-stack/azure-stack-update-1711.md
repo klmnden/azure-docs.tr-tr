@@ -1,24 +1,25 @@
 ---
-title: "Azure yığın 1711 güncelleştirme | Microsoft Docs"
-description: "Azure yığın 1711 güncelleştirmesi nedir hakkında bilgi edinin tümleşik sistemleri, bilinen sorunlar ve güncelleştirme karşıdan yükleme konumu."
+title: Azure yığın 1711 güncelleştirme | Microsoft Docs
+description: Azure yığın 1711 güncelleştirmesi nedir hakkında bilgi edinin tümleşik sistemleri, bilinen sorunlar ve güncelleştirme karşıdan yükleme konumu.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure yığın 1711 güncelleştirme
 
@@ -37,7 +38,13 @@ Azure yığın 1711 güncelleştirme yapı numarası **171201.3**.
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-Azure yığın yüklemelisiniz [1710 güncelleştirme](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) bu güncelleştirmeyi uygulamadan önce.
+- Azure yığın yüklemelisiniz [1710 güncelleştirme](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) bu güncelleştirmeyi uygulamadan önce.
+
+- Gözden kullanımını **CloudAdmin** yüklemeden önce bir hesap adı olarak 1711 güncelleştirin. 1711, sürümünden başlayarak *CloudAdmin* ayrılmış hesap adı ve el ile belirtilmemesi gerekir. 1711 sürüme güncelleştirirken, güncelleştirme (genellikle AzureStackAdmin denir) dağıtım hesabı mevcut örneklerini kaldırır. Dağıtım hesabı adlandırırsanız *CloudAdmin*, 1711 için güncelleştirme, siler. 
+
+  *CloudAdmin* bağlanmak için yerleşik hesap [ *ayrıcalıklı uç nokta* ](azure-stack-privileged-endpoint.md) (CESARETLENDİRİCİ). CloudAdmin grubunun bir üyesi olan başka bir kullanıcı hesabı olmadığı sürece bu hesabı silme CESARETLENDİRİCİ bir kilitleme neden olabilir. 
+
+  Dağıtım hesabı adıyla CloudAdmin kullandıysanız, yeni bir CloudAdmin kullanıcı Azure yığın dışında kilitleniyor önlemek için 1711 güncelleştirmeye başlamadan önce CESARETLENDİRİCİ ekleyin. Yeni bir CloudAdmin kullanıcı eklemek için cmdlet'i çalıştırmak **yeni CloudAdminUser** CESARETLENDİRİCİ üzerinde.
 
 ### <a name="new-features-and-fixes"></a>Yeni özellikler ve düzeltmeler
 
@@ -61,7 +68,7 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Windows Server 2016 yeni özellikler ve düzeltmeler
 
-- [14 Kasım 2017 — KB4048953 (işletim sistemi yapı 14393.1884)](https://support.microsoft.com/help/4048953)
+- [14 Kasım 2017 — KB4048953 (işletim sistemi yapı 14393.1884) ](https://support.microsoft.com/help/4048953)
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
 
@@ -76,11 +83,11 @@ Bu bölüm 1711 güncelleştirme yüklemesi sırasında karşılaşabileceğiniz
     1. **Neden:** önceden Portalı'ndan bir güncelleştirme devam ediyor ayrıcalıklı uç noktası (CESARETLENDİRİCİ) kullanarak sürdürüldü olduğunda bu soruna neden olur.
     2. **Çözüm:** kişi Microsoft Müşteri Hizmetleri ve desteği (CSS) Yardım için.
 <br><br>
-3. **Belirti:**Azure yığın işleçleri güncelleştirme işlemi sırasında şu hata karşılaşabilirsiniz:*"'VirtualMachines' rolünün 'CheckHealth' türü için bir özel durum: \n\nVirtual makine sistem durumu denetimi gerçekleşti <machineName>-üretilen ACS01 hataları. \nThere aşağıdaki ana bilgisayarlarını VM bilgileri alınırken bir hata oluştu. Özel durum ayrıntıları: \nGet-VM: 'başarısız Node03' bilgisayardaki işlemi: WS-Management hizmeti isteği işleyemiyor. WMI \nservice veya WMI sağlayıcısı bilinmeyen bir hata döndürdü: HRESULT 0x8004106c ".*
+3. **Belirti:** Azure yığın işleçleri güncelleştirme işlemi sırasında şu hata karşılaşabilirsiniz:*"'VirtualMachines' rolünün 'CheckHealth' türü için bir özel durum: \n\nVirtual makine sistem durumu denetimi gerçekleşti <machineName>-üretilen ACS01 hataları. \nThere aşağıdaki ana bilgisayarlarını VM bilgileri alınırken bir hata oluştu. Özel durum ayrıntıları: \nGet-VM: 'başarısız Node03' bilgisayardaki işlemi: WS-Management hizmeti isteği işleyemiyor. WMI \nservice veya WMI sağlayıcısı bilinmeyen bir hata döndürdü: HRESULT 0x8004106c ".*
     1. **Neden:** bu sorunu sonraki pencere sunucu güncelleştirmelerinde ele alınması için tasarlanmıştır bir Windows Server sorunu nedeniyle oluşur.
     2. **Çözüm:** kişi Microsoft Müşteri Hizmetleri ve desteği (CSS) Yardım için.
 <br><br>
-4. **Belirti:**Azure yığın işleçleri güncelleştirme işlemi sırasında şu hata karşılaşabilirsiniz:*"'URP' rolünün 'DefenderUpdate' türü bir özel durum oluşturuldu: başarısız sürümünden alma \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{dosya adı} kopyalama-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1 60 girişimleri sonra .exe: satır 262"*
+4. **Belirti:** Azure yığın işleçleri güncelleştirme işlemi sırasında şu hata karşılaşabilirsiniz:*"'URP' rolünün 'DefenderUpdate' türü bir özel durum oluşturuldu: başarısız sürümünden alma \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{dosya adı} kopyalama-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1 60 girişimleri sonra .exe: satır 262"*
     1. **Neden:** Windows Defender tanım güncelleştirmelerini başarısız veya eksik arka plan indirmesi tarafından bu soruna neden olur.
     2. **Çözüm:** güncelleştirme 8 saate kadar tamamlandıktan sonra devam etmek için lütfen girişimi ilk güncelleştirmeyi deneyin beri geçtiğinden.
 

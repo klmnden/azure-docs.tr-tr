@@ -1,29 +1,28 @@
 ---
-title: "Web ve API uygulamaları Azure yığın kullanıcılarınız için kullanılabilir hale | Microsoft Docs"
-description: "Uygulama hizmeti kaynak Sağlayıcısı'nı yüklemek ve oluşturmak için Öğreticisi, Azure yığın kullanıcılarınızın web ve API uygulamalarınızı oluşturma vermek sunar."
+title: Web ve API uygulamaları Azure yığın kullanıcılarınız için kullanılabilir hale | Microsoft Docs
+description: Uygulama hizmeti kaynak Sağlayıcısı'nı yüklemek ve oluşturmak için Öğreticisi, Azure yığın kullanıcılarınızın web ve API uygulamalarınızı oluşturma vermek sunar.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Web ve API uygulamaları Azure yığın kullanıcılarınızın kullanımına sunun
-
 Azure yığın bulut yönetici olarak, kullanıcılarınıza teklifleri oluşturabilirsiniz (kiracılar) Azure işlevleri ve web ve API uygulamaları oluşturun. Kullanıcılarınız için bu isteğe bağlı, bulut tabanlı uygulamalara erişim sağlayarak bunları zaman ve kaynak kaydedebilirsiniz. Bunu ayarlamak için şunları yapacaksınız:
 
 > [!div class="checklist"]
@@ -58,12 +57,12 @@ Azure yığın bulut yönetici olarak, kullanıcılarınıza teklifleri oluştur
 Uygulama hizmeti kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturulan göre bir kullanıcı olarak oturum açın, teklif abone ve bir uygulama oluşturun. Bu örnekte, DNN Platform içerik yönetim sistemi oluşturacağız. Önce bir SQL veritabanı ve DNN web uygulaması oluşturmanız gerekir.
 
 ### <a name="subscribe-to-the-offer"></a>Teklife abone olma
-1. Bir kiracı olarak Azure yığın Portalı'na (https://portal.local.azurestack.external) oturum açın.
+1. Azure yığın portalında oturum açın (https://portal.local.azurestack.external) Kiracı olarak.
 2. Tıklatın **bir abonelik edinmeniz** > türü **TestAppServiceSubscription** altında **görünen adı** > **bir teklif seçin**  >  **TestAppServiceOffer** > **oluşturma**.
 
 ### <a name="create-a-sql-database"></a>SQL veritabanı oluşturma
 
-1. Tıklatın  **+**   >  **veri + depolama** > **SQL veritabanı**.
+1. Tıklatın **+**  >  **veri + depolama** > **SQL veritabanı**.
 2. Alanlar için varsayılan ayarları aşağıdaki gibi dışında bırakın:
     - **Veritabanı adı**: DNNdb
     - **MB cinsinden en büyük boyutu**: 100
@@ -75,7 +74,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturul
 
 ### <a name="create-a-dnn-app"></a>Bir DNN uygulaması oluşturma    
 
-1. Tıklatın  **+**   >  **tümünü görmek** > **DNN Platform Önizleme** > **oluşturma**.
+1. Tıklatın **+**  >  **tümünü görmek** > **DNN Platform Önizleme** > **oluşturma**.
 2. Tür *DNNapp* altında **uygulama adı** seçip **TestAppServiceOffer** altında **abonelik**.
 3. Tıklatın **gerekli ayarları Yapılandır** > **Yeni Oluştur** > türü bir **uygulama hizmeti planı** adı.
 4. Tıklatın **fiyatlandırma katmanı** > **F1 ücretsiz** > **seçin** > **Tamam**.

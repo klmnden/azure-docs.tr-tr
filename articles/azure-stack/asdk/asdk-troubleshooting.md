@@ -1,25 +1,25 @@
 ---
-title: "Microsoft Azure yığın sorunlarını giderme | Microsoft Docs"
-description: "Azure yığın Geliştirme Seti (sorun giderme bilgileri ASDK)."
+title: Microsoft Azure yığın sorunlarını giderme | Microsoft Docs
+description: Azure yığın Geliştirme Seti (sorun giderme bilgileri ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6ed3fb7c7c4de9edbf31fb2c47290e2e39ceadcd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6c715f07f75c9196b7cf2cc8659c6e541e1260da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Microsoft Azure yığın Geliştirme Seti (ASDK) sorunlarını giderme
 Bu belge ASDK için genel sorun giderme bilgileri sağlar. Belgelenmemiştir bir sorun yaşıyorsanız, denetlediğinizden emin olun [Azure yığın MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) daha fazla Yardım ve bilgiler.  
@@ -31,7 +31,12 @@ Bu bölümde açıklanan sorunlarını giderme önerileri çeşitli kaynaklardan
 
 ## <a name="deployment"></a>Dağıtım
 ### <a name="deployment-failure"></a>Dağıtım hatası
-Yükleme sırasında bir hatayla karşılaşırsanız, başarısız adımı dağıtımından kullanarak yeniden başlatabilirsiniz - yeniden çalıştır seçeneğini dağıtım komut dosyası.  
+Yükleme sırasında bir hatayla karşılaşırsanız, başarısız adımı dağıtımından kullanarak yeniden başlatabilirsiniz - yeniden çalıştır seçeneğini aşağıdaki örnekteki gibi dağıtım komut dosyası:
+
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>PowerShell oturumu dağıtımını sonunda hala açıksa ve herhangi bir çıktı göstermiyor
 Seçili olduğunda bu davranış büyük olasılıkla yalnızca bir PowerShell komut penceresi varsayılan davranışını sonucudur. Geliştirme Seti Dağıtımı başarılı oldu ancak komut penceresi seçerken duraklatıldı. "Komut penceresinde titlebar içinde Seç" sözcüğünü bakarak kurulumu tamamlandı doğrulayabilirsiniz. Bunu seçimini kaldırmak için ESC tuşuna basın ve sonra tamamlama iletisi gösterilecek.

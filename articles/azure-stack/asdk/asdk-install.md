@@ -1,25 +1,25 @@
 ---
-title: "Azure yığın Geliştirme Seti (ASDK) yükleme | Microsoft Docs"
-description: "Azure yığın Geliştirme Seti (ASDK) yüklemeyi açıklar."
+title: Azure yığın Geliştirme Seti (ASDK) yükleme | Microsoft Docs
+description: Azure yığın Geliştirme Seti (ASDK) yüklemeyi açıklar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e1f4cfb74d83cb23631e5a16a6e6f2dba98027ef
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure yığın Geliştirme Seti (ASDK) yükleyin
 Sonra [ASDK ana bilgisayarı hazırlama](asdk-prepare-host.md), bu makalede aşağıdaki adımları kullanarak CloudBuilder.vhdx görüntüye ASDK dağıtılabilir.
@@ -55,8 +55,10 @@ Bu makaledeki adımları indirme ve çalıştırma sağlanan bir grafik kullanı
     - **DHCP** (varsayılan): sanal makine IP ağ yapılandırması DHCP sunucusundan alır.
     - **Statik**: DHCP Internet'e erişmek için Azure yığın için geçerli bir IP adresi atanamıyor, yalnızca bu seçeneği kullanın. **CIDR biçiminde (örneğin, 10.0.0.5/24) AltAğMaskesi uzunluğa sahip bir statik IP adresi belirtilmelidir**.
     - Türü geçerli bir **zaman sunucu IP** adresi. Bu alan Geliştirme Seti tarafından kullanılacak saat sunucusu ayarlar gereklidir. Bu parametre, geçerli saat sunucusu IP adresi olarak sağlanmalıdır. Sunucu adları desteklenmez.
+
       > [!TIP]
       > Bir saat sunucusu IP adresini bulmak için ziyaret [pool.ntp.org](http:\\pool.ntp.org) veya time.windows.com ping işlemi yapın. 
+
     - **İsteğe bağlı olarak**, aşağıdaki değerleri ayarlayın:
         - **VLAN kimliği**: VLAN kimliğini ayarlar Yalnızca AzS BGPNAT01 ve konak fiziksel ağ (ve Internet) erişmek için VLAN kimliği yapılandırmanız gerekir, bu seçeneği kullanın. 
         - **DNS ileticisi**: bir DNS sunucusu, Azure yığın dağıtımının bir parçası oluşturulur. Damga dışında adları çözümlemek için çözüm içinde izin vermek için mevcut altyapısını DNS sunucunuzun sağlar. Damga DNS sunucusu Bilinmeyen ad çözümleme isteklerinin bu sunucusuna iletir.
@@ -88,10 +90,10 @@ Tebrikler, ASDK başarıyla yüklediniz.
 
 Dağıtım için herhangi bir nedenle başarısız olursa şunları yapabilirsiniz [dağıtmanız](asdk-redeploy.md) baştan ya da kullanım aşağıdaki PowerShell, aynı yükseltilmiş PowerShell penceresinden son başarılı adımı dağıtımından yeniden başlatmak için komutlar:
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Dağıtım yapılandırma sonrası](asdk-post-deploy.md)

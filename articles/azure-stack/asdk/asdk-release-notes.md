@@ -1,24 +1,24 @@
 ---
-title: "Microsoft Azure yığın Geliştirme Seti sürüm notları | Microsoft Docs"
-description: "Geliştirmeler, düzeltmeler ve Azure yığın Geliştirme Seti için bilinen sorunlar"
+title: Microsoft Azure yığın Geliştirme Seti sürüm notları | Microsoft Docs
+description: Geliştirmeler, düzeltmeler ve Azure yığın Geliştirme Seti için bilinen sorunlar
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure yığın Geliştirme Seti sürüm notları
 Bu sürüm notları geliştirmeleri, düzeltmeler ve Azure yığın Geliştirme Seti bilinen sorunlar hakkında bilgi sağlar. Çalıştırdığınız hangi sürümünün emin değilseniz, yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -56,6 +56,11 @@ Bkz: [yeni özellikler ve düzeltmeler](.\.\azure-stack-update-1802.md#new-featu
     - *HATA - FaultType ResourceProviderTimeout için şablon eksik.*
 
     Bu uyarı güvenle yoksayılabilir. 
+
+- Hem Yönetim Portalı ve Kullanıcı Portalı, daha eski bir API sürümüyle oluşturulmuş depolama hesapları için genel bakış dikey seçtiğinizde yüklemeye genel bakış dikey penceresinde başarısız (örnek: 2015-06-15). 
+
+  Geçici bir çözüm olarak çalıştırmak için PowerShell kullanın **başlangıç ResourceSynchronization.ps1** için depolama hesabı ayrıntıları erişimi geri yüklemek için komut dosyası. [Komut dosyası Github'dan edinilebilir]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)ve ASDK kullanırsanız, Hizmet Yöneticisi kimlik bilgileriyle Geliştirme Seti ana bilgisayarda çalıştırmanız gerekir.  
+
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
 Azure yığın Yönetim Portalı'nda ada sahip bir kritik uyarı görebilirsiniz **dış sertifika sona erme bekleyen**.  Bu uyarı güvenle yoksayılabilir ve Azure yığın Geliştirme Seti işlemleri etkilemez. 
@@ -273,9 +278,11 @@ Azure Active Directory Federasyon Hizmetleri (ADFS içinde) ortamlarında, dağ�
     > Listelenen öğelerin bazıları **yeni özellikler ve düzeltmeler** bölüm yalnızca Azure tümleşik yığını sistemler için ilgili.
 
 ### <a name="known-issues"></a>Bilinen sorunlar
+
  
 #### <a name="deployment"></a>Dağıtım
 - Dağıtım sırasında bir saat sunucusu IP adresi ile belirtmeniz gerekir.
+- 1711, sürümünden başlayarak **CloudAdmin** ayrılmış hesap adı ve el ile Geliştirme Seti dağıttığınızda belirtilmemelidir. 
 
 #### <a name="infrastructure-management"></a>Altyapı Yönetimi
 - Altyapı yedekleme üzerinde etkinleştirmeyin **altyapı yedekleme** dikey.

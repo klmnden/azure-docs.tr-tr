@@ -1,29 +1,28 @@
 ---
-title: "SQL veritabanları Azure yığın kullanıcılarınız için kullanılabilir hale | Microsoft Docs"
-description: "Öğretici SQL Server Kaynak sağlayıcısı yüklemeniz ve oluşturmak için SQL veritabanları Azure yığın oluşturmalarını sağlayan sunar."
+title: SQL veritabanları Azure yığın kullanıcılarınız için kullanılabilir hale | Microsoft Docs
+description: Öğretici SQL Server Kaynak sağlayıcısı yüklemeniz ve oluşturmak için SQL veritabanları Azure yığın oluşturmalarını sağlayan sunar.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2017
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL veritabanları Azure yığın kullanıcılarınızın kullanımına sunun
-
 Azure yığın bulut yönetici olarak, kullanıcılarınıza teklifleri oluşturabilirsiniz (kiracılar) bulut yerel uygulamalar, Web siteleri ve iş yükleri kullanabilmeniz için SQL veritabanları oluşturun. Kullanıcılarınız için bu, isteğe bağlı, özel bulut tabanlı veritabanları sağlayarak bunları zaman ve kaynak kaydedebilirsiniz. Bunu ayarlamak için şunları yapacaksınız:
 
 > [!div class="checklist"]
@@ -56,7 +55,7 @@ Dağıtım işlemi içinde ayrıntılı olarak açıklanmıştır [kullanım SQL
 SQL Server Kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturulan göre bir kullanıcı olarak oturum açın, teklif abone ve bir veritabanı oluşturun.
 
 ### <a name="subscribe-to-the-offer"></a>Teklife abone olma
-1. Bir kiracı olarak Azure yığın Portalı'na (https://portal.local.azurestack.external) oturum açın.
+1. Azure yığın portalında oturum açın (https://portal.local.azurestack.external) Kiracı olarak.
 2. Tıklatın **bir abonelik edinmeniz** ve ardından **TestSQLServerSubscription** altında **görünen adı**.
 3. Tıklatın **bir teklif seçin** > **TestSQLServerOffer** > **oluşturma**.
 4. Tıklatın **daha fazla hizmet** > **abonelikleri** > **TestSQLServerSubscription** > **kaynak sağlayıcıları**.
@@ -64,7 +63,7 @@ SQL Server Kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturulan gö
 
 ### <a name="create-a-sql-database"></a>SQL veritabanı oluşturma
 
-1. Tıklatın ** + **  >  **veri + depolama** > **SQL veritabanı**.
+1. Tıklatın **+**  >  **veri + depolama** > **SQL veritabanı**.
 2. Alanlar için varsayılanları bırakabilir veya bu örnekler kullanabilirsiniz:
     - **Veritabanı adı**: SQLdb
     - **MB cinsinden en büyük boyutu**: 100

@@ -1,24 +1,24 @@
 ---
-title: "Azure yığınında kullanan ayrıcalıklı uç noktasını | Microsoft Docs"
-description: "Ayrıcalıklı uç noktası (CESARETLENDİRİCİ) kullanmak nasıl Azure yığınında (Azure yığın işleci için) gösterir."
+title: Azure yığınında kullanan ayrıcalıklı uç noktasını | Microsoft Docs
+description: Ayrıcalıklı uç noktası (CESARETLENDİRİCİ) kullanmak nasıl Azure yığınında (Azure yığın işleci için) gösterir.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure yığınında ayrıcalıklı uç noktası kullanma
 
@@ -74,7 +74,7 @@ Sizin için CESARETLENDİRİCİ yalnızca donanım yaşam döngüsü ana bilgisa
       ```` 
    İstendiğinde, aşağıdaki kimlik bilgilerini kullanın:
 
-      - **Kullanıcı adı**: CloudAdmin hesabı biçiminde belirtin  **&lt; *Azure yığın etki alanı*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
+      - **Kullanıcı adı**: CloudAdmin hesabı biçiminde belirtin  **&lt; *Azure yığın etki alanı*&gt;\accountname**. (ASDK için kullanıcı adı. **azurestack\accountname**.) 
       - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
     
 3.  Bağlandıktan sonra istemi değiştirir **[*IP adresi veya ERCS VM adı*]: PS >** veya **[azs-ercs01]: PS >**ortamına bağlı olarak. Buradan, çalıştırmak `Get-Command` kullanılabilir cmdlet'lerinin listesini görüntülemek için.
@@ -143,7 +143,7 @@ Yerel makinenizde CESARETLENDİRİCİ oturum içeri aktarmak için aşağıdaki 
       ```` 
    İstendiğinde, aşağıdaki kimlik bilgilerini kullanın:
 
-      - **Kullanıcı adı**: CloudAdmin hesabı biçiminde belirtin  **&lt; *Azure yığın etki alanı*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
+      - **Kullanıcı adı**: CloudAdmin hesabı biçiminde belirtin  **&lt; *Azure yığın etki alanı*&gt;\accountname**. (ASDK için kullanıcı adı. **azurestack\accountname**.) 
       - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
 
 3. Yerel makinenize CESARETLENDİRİCİ oturum içe
@@ -161,7 +161,7 @@ Uç nokta oturumu kapatmak için:
 
 1. CESARETLENDİRİCİ tarafından erişilebilen bir harici dosya paylaşımı oluşturun. Bir geliştirme seti ortamında, yalnızca bir dosya paylaşımı Geliştirme Seti konakta oluşturabilirsiniz.
 2. Çalıştırma `Close-PrivilegedEndpoint` cmdlet'i. 
-3. Dökümü günlük dosyasının depolanacağı yol için istenir. Biçim &#92; &#92;daha önce oluşturduğunuz dosya paylaşımı belirtin; *servername*&#92; *ShareName*. Bir yol belirtmezseniz, cmdlet başarısız olur ve oturumu açık kalır. 
+3. Dökümü günlük dosyasının depolanacağı yol için istenir. Biçiminde daha önce oluşturduğunuz dosya paylaşımı belirtin &#92; &#92; *servername*&#92;*sharename*. Bir yol belirtmezseniz, cmdlet başarısız olur ve oturumu açık kalır. 
 
     ![Dökümü hedef yolu belirlediğiniz gösterir Kapat PrivilegedEndpoint cmdlet çıktısında](media/azure-stack-privileged-endpoint/closeendpoint.png)
 

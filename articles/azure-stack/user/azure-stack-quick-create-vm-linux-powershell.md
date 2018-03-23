@@ -1,11 +1,11 @@
 ---
-title: "Azure yığınında PowerShell kullanarak bir Linux sanal makine oluşturma | Microsoft Docs"
-description: "Azure yığınında PowerShell ile Linux sanal makine oluşturun."
+title: Azure yığınında PowerShell kullanarak bir Linux sanal makine oluşturma | Microsoft Docs
+description: Azure yığınında PowerShell ile Linux sanal makine oluşturun.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 97847c0c2fcc4ab7d5fe8e4e5badd5809b7e2363
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5446f00b698fbe1fe1bae9c52bf3e73fe0d1c506
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>Azure yığınında PowerShell kullanarak bir Linux sanal makine oluşturma 
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure PowerShell oluşturmak ve kaynak Azure yığınından bir komut satırı veya komut dosyalarını yönetmek için kullanılır.  PowerShell kullanarak Azure yığınında Ubuntu server çalıştıran bir sanal makine oluşturmak için bu kılavuzu ayrıntıları.
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 * Azure yığın operatörünüze Azure yığın Market "Ubuntu Server 16.04 LTS" görüntü ekledi emin olun.  
 
@@ -189,7 +189,7 @@ Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
  -KeyData $sshPublicKey `
  -Path "/home/azureuser/.ssh/authorized_keys"
 
-#Create the virtual machine.
+# Create the virtual machine.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
