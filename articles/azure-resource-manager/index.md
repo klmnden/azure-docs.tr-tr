@@ -1,24 +1,24 @@
 ---
-title: "Azure Resource Manager Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Resource Manager’ı kullanarak çözüm kaynaklarını bir grup olarak dağıtma ve yönetme; tutarlı ve tekrarlanabilir kaynak dağıtımı için şablonlar oluşturma hakkında bilgi edinin."
+title: Azure Resource Manager Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Resource Manager’ı kullanarak çözüm kaynaklarını bir grup olarak dağıtma ve yönetme; tutarlı ve tekrarlanabilir kaynak dağıtımı için şablonlar oluşturma hakkında bilgi edinin.
 services: azure-resource-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-resource-manager-documentation"></a>Azure Resource Manager Belgeleri
+# <a name="azure-resource-manager-documentation"></a>Azure Resource Manager Belgeleri
 
 Resource Manager’ı kullanarak çözüm kaynaklarını bir grup olarak dağıtma, izleme ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, kaynak grupları ayarlamanın yanı sıra tutarlı ve tekrarlanabilir dağıtım için şablonlar oluşturma ile ilgili bilgiler içerir.
 

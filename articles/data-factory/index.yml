@@ -1,49 +1,49 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure Data Factory V2 Önizleme Belgeleri"
+title: Azure Data Factory V2 Önizleme Belgeleri
 metadata:
-  title: "Azure Data Factory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-  description: "Data Factory hizmetini kullanarak analiz için şirket içinden ve buluttan ya da ters yönde veri aktarmaya yönelik otomatik veri işlem hatları ayarlama hakkında bilgi edinin."
+  title: Azure Data Factory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+  description: Data Factory hizmetini kullanarak analiz için şirket içinden ve buluttan ya da ters yönde veri aktarmaya yönelik otomatik veri işlem hatları ayarlama hakkında bilgi edinin.
   services: data-factory
-  author: spelluru
-  manager: jhubbard
+  author: douglaslMS
+  manager: craigg
   ms.service: data-factory
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/08/2017
-  ms.author: spelluru
-  ms.openlocfilehash: 0eb34f3b8cd287624e4a8a6930e8cc145d5e8fbb
-  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+  ms.author: douglasl
+  ms.openlocfilehash: e31500a02bc3470e338f727771eebe887dcc493f
+  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 02/01/2018
+  ms.lasthandoff: 03/23/2018
 abstract:
-  description: "Bir bulut verileri tümleştirme hizmeti olan Data Factory’yi kullanarak veri depolama, taşıma ve işleme hizmetlerini otomatik veri komut zincirlerinde birleştirme hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, veri işlem hatlarını ayarlama ve yönetmenin yanı sıra verileri analiz için taşıma ve dönüştürme konularında bilgi sağlanmıştır. <p>Data Factory’nin V2 sürümü şu anda önizleme aşamasındadır. V1 sürümü genel kullanıma açıktır. Data Factory hizmetinin V1 sürümünü kullanıyorsanız <a href=/azure/data-factory/v1/data-factory-introduction>V1 belgelerini</a> inceleyin.</p>"
+  description: Bir bulut verileri tümleştirme hizmeti olan Data Factory’yi kullanarak veri depolama, taşıma ve işleme hizmetlerini otomatik veri komut zincirlerinde birleştirme hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, veri işlem hatlarını ayarlama ve yönetmenin yanı sıra verileri analiz için taşıma ve dönüştürme konularında bilgi sağlanmıştır. <p>Data Factory’nin V2 sürümü şu anda önizleme aşamasındadır. V1 sürümü genel kullanıma açıktır. Data Factory hizmetinin V1 sürümünü kullanıyorsanız <a href=/azure/data-factory/v1/data-factory-introduction>V1 belgelerini</a> inceleyin.</p>
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: "Görsel anlamda Azure Data Factory V2’ye (19:31) yönelik işlem hatları oluşturma"
+    title: Görsel anlamda Azure Data Factory V2’ye (19:31) yönelik işlem hatları oluşturma
     href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
     width: 250
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Şunları kullanarak nasıl veri fabrikası oluşturabileceğinizi öğrenin:"
+    text: 'Şunları kullanarak nasıl veri fabrikası oluşturabileceğinizi öğrenin:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/data-factory/media/index/portal.svg
-      text: "Data Factory Kullanıcı Arabirimi (UI)"
+      text: Data Factory Kullanıcı Arabirimi (UI)
       href: /azure/data-factory/quickstart-create-data-factory-portal
     - image:
         src: /azure/data-factory/media/index/copy-data-tool.png
-      text: "Veri Kopyalama aracı"
+      text: Veri Kopyalama aracı
       href: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
     - image:
         src: /azure/data-factory/media/index/logo_powershell.svg
@@ -63,39 +63,39 @@ sections:
       href: /azure/data-factory/quickstart-create-data-factory-rest-api
     - image:
         src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
-      text: "Resource Manager şablonu"
+      text: Resource Manager şablonu
       href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Veri fabrikası oluşturma ve izleme işlemlerini nasıl yapabileceğinizi öğrenin:"
+    text: 'Veri fabrikası oluşturma ve izleme işlemlerini nasıl yapabileceğinizi öğrenin:'
   - type: list
     style: ordered
     items:
-    - html: "Azure’a SSIS paketleri dağıtma - <a href=\"/azure/data-factory/tutorial-create-azure-ssis-runtime-portal\">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href=\"/azure/data-factory/tutorial-deploy-ssis-packages-azure\">Azure PowerShell</a>"
-    - html: "Bulutta veri kopyalama - <a href=\"/azure/data-factory/tutorial-copy-data-tool\">Veri Kopyalama aracı</a> | <a href=\"/azure/data-factory/tutorial-copy-data-portal\">Data Factory Arabirimi (UI)</a> | <a href=\"/azure/data-factory/tutorial-copy-data-dot-net\">.NET</a>"
-    - html: "Buluta şirket içi verileri kopyalama - <a href=\"/azure/data-factory/tutorial-hybrid-copy-data-tool\">Veri Kopyalama aracı |<a href=\"/azure/data-factory/tutorial-hybrid-copy-portal\">Data Factory Arabirimi (UI)</a> | <a href=\"/azure/data-factory/tutorial-hybrid-copy-powershell\">Azure PowerShell</a>"
+    - html: Azure’a SSIS paketleri dağıtma - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+    - html: Bulutta veri kopyalama - <a href="/azure/data-factory/tutorial-copy-data-tool">Veri Kopyalama aracı</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Data Factory Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>
+    - html: Buluta şirket içi verileri kopyalama - <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">Veri Kopyalama aracı |<a href="/azure/data-factory/tutorial-hybrid-copy-portal">Data Factory Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
     - html: Toplu olarak veri kopyalama - <a href="/azure/data-factory/tutorial-bulk-copy-portal">Data Factory Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
-    - html: "Artan şekilde veri kopyalama - <a href=\"/azure/data-factory/tutorial-incremental-copy-portal\">Data Factory Arabirimi (UI)</a> | <a href=\"/azure/data-factory/tutorial-incremental-copy-powershell\">Azure PowerShell</a>"
-    - html: "Spark kullanarak bulutta verileri dönüştürme - <a href=\"/azure/data-factory/tutorial-transform-data-spark-portal\">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href=\"/azure/data-factory/tutorial-transform-data-spark-powershell\">Azure PowerShell</a>"
-    - html: "Sanal ağda verileri dönüştürme - <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal\">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href=\"/azure/data-factory/tutorial-transform-data-hive-virtual-network\">Azure PowerShell</a>"
-    - html: "Denetim akışı - <a href=\"/azure/data-factory/tutorial-control-flow-portal\">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href=\"/azure/data-factory/tutorial-control-flow\">.NET</a>"
-- title: "Örnekler"
+    - html: Artan şekilde veri kopyalama - <a href="/azure/data-factory/tutorial-incremental-copy-portal">Data Factory Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
+    - html: Spark kullanarak bulutta verileri dönüştürme - <a href="/azure/data-factory/tutorial-transform-data-spark-portal">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a>
+    - html: Sanal ağda verileri dönüştürme - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
+    - html: Denetim akışı - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
+- title: Örnekler
   items:
   - type: paragraph
-    text: "Data Factory ile çalışmak için aşağıdaki örnekleri kullanın"
+    text: Data Factory ile çalışmak için aşağıdaki örnekleri kullanın
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
-- title: "Başvuru"
+- title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Komut Satırı"
+    - title: Komut Satırı
       html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
     - title: Diller
       html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>

@@ -6,8 +6,6 @@
       href: apache-domain-joined-introduction.md
     - name: Etki alanına katılmış kümeleri planlama
       href: apache-domain-joined-architecture.md
-    - name: Etki alanına katılmış korumalı alan ortamını yapılandırma
-      href: apache-domain-joined-configure.md
     - name: Azure AD DS kullanarak etki alanına katılmış kümeleri yapılandırma
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Azure AD kullanıcılarını HDInsight kümesine eşitleme

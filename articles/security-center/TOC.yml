@@ -124,6 +124,8 @@
           href: security-center-ata-integration.md
         - name: Azure AD Kimlik Koruması bağlantısı kurma
           href: security-center-aadip-integration.md
+        - name: SIEM’e veri aktarma
+          href: security-center-export-data-to-siem.md
     - name: Tehditleri araştırma
       href: security-center-detection-capabilities.md
       items:

@@ -1,24 +1,24 @@
 ---
-title: "Azure SQL Server Esnetme Veritabanı Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Sorguları veya uygulamaları değiştirmeden soğuk verilerinizi güvenli bir şekilde Azure’a geçirmek için SQL Server Esnetme Veritabanı’nı kullanmayı öğrenin. Öğreticiler ve diğer belgeler."
+title: Azure SQL Server Esnetme Veritabanı Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Sorguları veya uygulamaları değiştirmeden soğuk verilerinizi güvenli bir şekilde Azure’a geçirmek için SQL Server Esnetme Veritabanı’nı kullanmayı öğrenin. Öğreticiler ve diğer belgeler.
 services: sql-server-stretch-database
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-server-stretch-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: cbdd210f2fe46228daa8c138815826df2b3b0fd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d40cd906abbee8b1d33f9e67c1940918ba4acb28
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="sql-server-stretch-database-documentation"></a>SQL Server Esnetme Veritabanı Belgeleri
+# <a name="sql-server-stretch-database-documentation"></a>SQL Server Esnetme Veritabanı Belgeleri
 
 Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek için SQL Server Esnetme Veritabanı’nı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, seyrek olarak kullanılan veriler içeren veritabanları için uygun maliyetli kullanılabilirlik seçeneklerini, mevcut sorgular veya uygulamalar için ücret ödemek zorunda kalmadan ayarlamanıza yardımcı olur.
 

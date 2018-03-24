@@ -1,24 +1,24 @@
 ---
-title: "Azure Devtest Labs Belgeleri - Öğreticileri | Microsoft Docs"
-description: "Yeniden kullanılabilir yapıtlar kullanarak hızlı bir şekilde uygulama test ortamları oluşturmayı öğrenin. Öğreticiler, videolar ve diğer kaynaklarda laboratuvarları oluşturma, yönetme ve güvenli hale getirme hakkında bilgi sağlanmıştır."
+title: Azure Devtest Labs Belgeleri - Öğreticileri | Microsoft Docs
+description: Yeniden kullanılabilir yapıtlar kullanarak hızlı bir şekilde uygulama test ortamları oluşturmayı öğrenin. Öğreticiler, videolar ve diğer kaynaklarda laboratuvarları oluşturma, yönetme ve güvenli hale getirme hakkında bilgi sağlanmıştır.
 services: devtest-lab
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: devtest-lab
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 92aab190dfba196d48feacbfcc81a0097102b810
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b7ae5ecf87f4ca544e03c3e62b6c850cf799d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="devtest-labs-documentation"></a>DevTest Labs Belgeleri
+# <a name="devtest-labs-documentation"></a>DevTest Labs Belgeleri
 
 Devtest Labs ile yeniden kullanılabilir yapılar kullanarak hızlı bir şekilde uygulama test ortamları oluşturmayı öğrenin. Öğreticiler, videolar ve diğer belgeler, laboratuvarlarınızı oluşturma, yönetme ve güvenli hale getirme işlemlerini açıklamanın yanı sıra yapıtları yönetme ile ilgili bilgiler içerir.
 
