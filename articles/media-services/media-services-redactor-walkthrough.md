@@ -1,11 +1,11 @@
 ---
-title: "Azure medya analizi kılavuza yüzeyleri Redaksiyon | Microsoft Docs"
-description: "Bu konu Azure Media Services Gezgini (AMSE) ve Azure Media Redactor Görselleştirici (açık kaynak aracı) kullanarak tam Redaksiyon iş akışını çalıştırma hakkında adım adım yönergeler gösterir."
+title: Azure medya analizi kılavuza yüzeyleri Redaksiyon | Microsoft Docs
+description: Bu konu Azure Media Services Gezgini (AMSE) ve Azure Media Redactor Görselleştirici (açık kaynak aracı) kullanarak tam Redaksiyon iş akışını çalıştırma hakkında adım adım yönergeler gösterir.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure medya analizi kılavuza yüzeyleri Redaksiyon
 
@@ -59,7 +59,7 @@ Redactor ile çalışmaya başlamak için en kolay yolu, github'da açık kaynak
 
 ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>İkinci geçirmek – modu Redaksiyon
+### <a name="second-pass--redact-mode"></a>İkinci geçirmek – modu Redaksiyon
 
 1. Özgün video Varlığınızı çıkışı ilk pass karşıya yükleyin ve birincil bir varlık ayarlayın. 
 
@@ -78,7 +78,7 @@ Redactor ile çalışmaya başlamak için en kolay yolu, github'da açık kaynak
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Görselleştirici açık kaynak aracı
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Görselleştirici açık kaynak aracı
 
 Bir açık kaynak [Görselleştirici aracı](https://github.com/Microsoft/azure-media-redactor-visualizer) ayrıştırma ve çıktı kullanarak ek açıklama biçimi yalnızca başlayarak geliştiricilere yardımcı olmak için tasarlanmıştır.
 
@@ -97,7 +97,7 @@ JSON ek açıklama verilerini ayrıştırma çalışılırken bir geliştirici i
 
     ![Yüz flulaştırma](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
-4. AzureMediaRedactor.exe çalıştırın. 
+4. Run AzureMediaRedactor.exe. 
 
 ### <a name="use-the-tool"></a>Aracını kullanma
 

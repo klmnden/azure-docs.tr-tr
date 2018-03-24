@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Azure ölçümlerini genel bakış | Microsoft Docs"
-description: "Ölçümleri ve bunların kullanılması Microsoft Azure genel bakış"
-author: johnkemnetz
+title: Microsoft Azure ölçümlerini genel bakış | Microsoft Docs
+description: Ölçümleri ve bunların kullanılması Microsoft Azure genel bakış
+author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: johnkem
-ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/19/2018
+ms.author: ancav
+ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure ölçümlerini genel bakış
 Microsoft Azure'da ölçümleri nelerdir bu makalede faydaları ve bunları kullanmaya başlamak nasıl.  
@@ -38,9 +38,9 @@ Azure İzleyicisi, performans ve sistem durumu, iş yüklerinin Azure üzerinde 
 ## <a name="what-are-the-characteristics-of-metrics"></a>Ölçümleri özelliklerini nelerdir?
 Ölçümleri aşağıdaki özelliklere sahiptir:
 
-* Tüm ölçümleri sahip **bir dakikalık sıklığı**. Bir ölçü değeri dakikada, kaynaktan durumu ve kaynağınıza durumunu gerçek zamanlı görünürlük yakın vermiş alırsınız.
+* Tüm ölçümleri sahip **bir dakikalık sıklığı** (Aksi halde ölçüm 's tanımında belirtilen sürece). Bir ölçü değeri dakikada, kaynaktan durumu ve kaynağınıza durumunu gerçek zamanlı görünürlük yakın vermiş alırsınız.
 * Metrik **kullanılabilir hemen**. Kabul ya da ek tanılama ayarlamak gerekmez.
-* Erişebileceğiniz **geçmişi 30 gün** her ölçümü için. Son ve aylık eğilimler performansı veya kaynağınız durumunu hızlı bir şekilde bakabilirsiniz.
+* Erişebileceğiniz **geçmişi 93 gün** her ölçümü için. Son ve aylık eğilimler performansı veya kaynağınız durumunu hızlı bir şekilde bakabilirsiniz.
 * Bazı ölçümleri adlı ad-değer çifti öznitelikleri olabilir **boyutları**. Bu, daha fazla segment ve bir ölçüm daha anlamlı bir şekilde keşfetmek etkinleştirin.
 
 Ayrıca şunları yapabilirsiniz:
@@ -93,7 +93,7 @@ Azure ölçümleri Azure İzleyici API'leri erişilebilir. Yardımcı iki API'la
 * Kullanım [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics) segmentlere ayırmak, filtrelemek ve gerçek ölçümleri verilere erişmek için.
 
 > [!NOTE]
-> Bu makale aracılığıyla ölçümleri kapsamaktadır [ölçümleri için yeni API](https://docs.microsoft.com/rest/api/monitor/) Azure kaynakları için. API ölçümleri API'leri ve yeni ölçüm tanımları için 2017-05-01-Önizleme sürümüdür. Eski ölçüm tanımlarını ve ölçümler API sürümü 2014-04-01 ile erişilebilir.
+> Bu makale aracılığıyla ölçümleri kapsamaktadır [ölçümleri için yeni API](https://docs.microsoft.com/rest/api/monitor/) Azure kaynakları için. 2018-01-01 yeni ölçüm tanımlarını ve ölçümler API'ları için API sürümüdür. Eski ölçüm tanımlarını ve ölçümler API sürümü 2014-04-01 ile erişilebilir.
 >
 >
 

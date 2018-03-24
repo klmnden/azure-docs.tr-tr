@@ -1,6 +1,6 @@
 ---
-title: "Azure portalında Service Fabric kümesi oluştur | Microsoft Docs"
-description: "Bu makalede, Azure anahtar kasası ve Azure portal kullanarak azure'da güvenli bir Service Fabric kümesi ayarlayın açıklar."
+title: Azure portalında Service Fabric kümesi oluştur | Microsoft Docs
+description: Bu makalede, Azure anahtar kasası ve Azure portal kullanarak azure'da güvenli bir Service Fabric kümesi ayarlayın açıklar.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 864952554b04d8d6bc14aad92d168298e554710e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portal kullanarak Azure'da bir Service Fabric kümesi oluştur
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portalı](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -131,7 +131,7 @@ Küme düğümlerinizi yapılandırın. Düğüm türleri, VM boyutlarını, VM'
 
 Güvenli bir sınama kümesi ayarı sizin için kolaylaştırmak için sağladık **temel** seçeneği. Zaten bir sertifikaya sahip, keyvault karşıya (ve anahtar kasası dağıtım için etkin değilse), ardından kullanmak **özel** seçeneği
 
-#####<a name="basic-option"></a>Temel seçeneği
+##### <a name="basic-option"></a>Temel seçeneği
 Eklemek veya mevcut bir keyvault yeniden ve bir sertifika eklemek için ekranları izleyin. Sertifika eklenmesi zaman uyumlu bir işlemdir ve böylece sertifika oluşturulmasını beklemek zorunda kalır.
 
 
@@ -151,7 +151,7 @@ Gelişmiş erişim ilkeleri'ne tıklayın ve sanal makinelere erişim dağıtım
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>Özel seçeneği
+##### <a name="custom-option"></a>Özel seçeneği
 ' Ndaki adımları zaten gerçekleştirdiyseniz, bu bölüm atlayın **temel** seçeneği.
 
 ![SecurityCustomOption]

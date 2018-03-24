@@ -1,11 +1,11 @@
 ---
-title: "Kapsayıcı izleme çözümüne Azure günlük analizi | Microsoft Docs"
-description: "Günlük analizi kapsayıcı izleme çözümünde Docker ve Windows görüntüleyin ve yönetin yardımcı olan tek bir konumda kapsayıcı konakları."
+title: Kapsayıcı izleme çözümüne Azure günlük analizi | Microsoft Docs
+description: Günlük analizi kapsayıcı izleme çözümünde Docker ve Windows görüntüleyin ve yönetin yardımcı olan tek bir konumda kapsayıcı konakları.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0ad267b9694c2f9cdb574b6b6008d4f6fa027fce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0041a58c8da58785ebc3ead6c8128316b153728c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kapsayıcı izleme çözümüne günlük analizi
 
@@ -100,7 +100,10 @@ Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
     - Windows Server 2016 ve Windows 10, Docker altyapısına ve istemcisi yükleme ardından bilgileri toplamak ve günlük Analizi'ne göndermek için bir aracı bağlayın. Gözden geçirme [yükleyin ve Windows kapsayıcı konakları yapılandırma](#install-and-configure-windows-container-hosts) Windows ortamınız varsa.
   - Docker çok ana bilgisayar orchestration için:
     - Red Hat OpenShift ortamınız varsa, gözden [bir OMS Aracısı Red Hat OpenShift için yapılandırma](#configure-an-oms-agent-for-red-hat-openshift).
-    - Azure kapsayıcı hizmeti kullanarak Kubernetes kümeniz varsa, gözden [Kubernetes bir OMS Aracısı Yapılandırma](#configure-an-oms-agent-for-kubernetes).
+    - Azure kapsayıcı hizmeti kullanarak Kubernetes küme varsa:
+       - Gözden geçirme [Kubernetes için OMS Linux Aracısı'nı yapılandırma](#configure-an-oms-linux-agent-for-kubernetes).
+       - Gözden geçirme [Kubernetes için bir OMS Windows aracı yapılandırma](#configure-an-oms-windows-agent-for-kubernetes).
+       - Gözden geçirme [OMS Aracısı'nı Linux Kubernetes dağıtmak için kullanım Helm](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Bir Azure kapsayıcı hizmeti DC/OS kümeniz varsa, altında daha fazla bilgi [Operations Management Suite ile Azure kapsayıcı hizmeti DC/OS kümesi izlemek](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Bir Docker Swarm modu ortamınız varsa, altında daha fazla bilgi [Docker Swarm için bir OMS Aracısı Yapılandırma](#configure-an-oms-agent-for-docker-swarm).
     - Service Fabric kümesi varsa, altında daha fazla bilgi [izlemek OMS günlük analizi ile kapsayıcıları](../service-fabric/service-fabric-diagnostics-oms-containers.md).
@@ -387,7 +390,7 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>Windows Kubernetes bir OMS Aracısı'nı yapılandırma
+#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>OMS Windows aracı Kubernetes için yapılandırma
 Windows Kubernetes için OMS Aracısı'nı yüklemek çalışma alanı kimliği ve birincil anahtar için gizli yaml dosyasını oluşturmak için bir komut dosyası kullanın. Konumundaki [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) sayfasında, gizli bilgilerinizi kullanabilirsiniz dosyası vardır.  Ana ve Aracısı düğümleri için ayrı ayrı OMS aracısı yüklemeniz gerekir.  
 
 1. OMS Aracısı yöneticisinde gizli bilgileri kullanarak DaemonSet kullanılacak düğümünde oturum açın ve gizli anahtarları önce oluşturun.

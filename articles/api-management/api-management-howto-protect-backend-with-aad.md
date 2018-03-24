@@ -1,555 +1,204 @@
 ---
-title: Bir Web API arka ucu Azure Active Directory ve API Management ile koruma | Microsoft Docs
-description: "Bir Web API arka ucu Azure Active Directory ve API Management ile korumak öğrenin."
+title: Azure Active Directory ve API Management ile OAuth 2.0 kullanan bir API koruma | Microsoft Docs
+description: Bir Web API arka ucu Azure Active Directory ve API Management ile korumak öğrenin.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Bir Web API arka ucu Azure Active Directory ve API Management ile korumak nasıl
+# <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory ve API Management ile OAuth 2.0 kullanan bir API korumak nasıl
 
-Bu konuda, bir Web API arka ucu oluşturmak ve Azure Active Directory ve API Management ile OAuth 2.0 protokolünü kullanarak korumak gösterilmektedir.  
+Bu kılavuz, API Management (APIM) örneğinizin Azure Active Directory'ye (AAD) OAuth 2.0 protokolünü kullanarak bir API korumak için yapılandırma gösterir. 
 
-## <a name="create-an-azure-ad-directory"></a>Azure AD dizini oluşturma
-Azure Active Directory'yi kullanarak Web API'si arka güvenli hale getirmek için öncelikle bir AAD kiracısı olması gerekir. Bir AAD kiracısı oluşturmak için oturum için açma [Klasik Azure portalı](https://manage.windowsazure.com) tıklatıp **yeni**->**uygulama hizmetleri**->**Active Directory**->**Directory**->**özel Oluştur**. 
+## <a name="prerequisite"></a>Önkoşul
+Bu makaledeki adımları tamamlayabilmeniz için şunlara sahip olmalısınız:
+* APIM örneği
+* Bir API APIM örneğini kullanarak yayımlanmakta
+* Azure AD kiracısı
 
-![Azure Active Directory][api-management-create-aad-menu]
+## <a name="overview"></a>Genel Bakış
 
-Bu örnekte, adında bir dizin **APIMDemo** adlı varsayılan etki alanı ile oluşturulan **DemoAPIM.onmicrosoft.com**. 
+Bu kılavuz bir API APIM OAuth 2.0 ile korumak nasıl gösterir. Bu makalede, yetkilendirme sunucusu (OAuth) olarak Azure AD ile kullanılır. Hızlı bir genel adımlar aşağıdadır:
 
-![Azure Active Directory][api-management-create-aad]
+1. Bir uygulamayı (uygulama arka uç) API temsil etmek için Azure AD'de kaydetme
+2. Başka bir uygulama (istemci-app) API'si çağırmayı gerektiren bir istemci uygulaması temsil etmek için Azure AD'de kaydetme
+3. Azure AD'de, arka uç uygulamasını çağırmak istemci-app izin vermek için izinleri
+4. Geliştirici konsolunu OAuth 2.0 kullanıcı kimlik doğrulaması kullanmak için yapılandırma
+5. Her gelen istek için OAuth belirteci doğrulamak için Doğrula jwt ilke Ekle
 
-## <a name="create-a-web-api-service-secured-by-azure-active-directory"></a>Azure Active Directory tarafından güvenliği sağlanan bir Web API hizmet oluşturma
-Bu adımda, Visual Studio 2013 kullanarak bir Web API arka uç oluşturulur. Visual Studio tıklatın Web API'si arka uç projesi oluşturmak için **dosya**->**yeni**->**proje**ve seçin **ASP.NET Web uygulaması** gelen **Web** şablonları listesi. 
+## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>API temsil etmek için Azure AD içinde bir uygulamayı kaydetme
 
-![Visual Studio][api-management-new-web-app]
+Azure AD ile bir API korumak için ilk API temsil eden Azure AD'de uygulama kaydetmek için adımdır. 
 
-Tıklatın **Web API** gelen **şablon listesini seçin** bir Web API projesi oluşturmak için. Azure Directory kimlik doğrulamasını yapılandırmak için tıklatın **kimlik doğrulamayı Değiştir**.
+Azure AD kiracınıza gidin ve ardından gidin **uygulama kayıtlar**.
 
-![Yeni proje][api-management-new-project]
+Seçin **yeni uygulama kaydı**. 
 
-Tıklatın **Kurumsal hesaplar**ve belirtin **etki alanı** AAD kiracınızın. Bu örnekte, etki alanıdır **DemoAPIM.onmicrosoft.com**. Dizininizin etki alanından elde edilebilir **etki alanları** dizininizin sekmesi.
+Uygulamanın adını sağlayın. Bu örnekte, `backend-app` kullanılır.  
 
-![Etki Alanları][api-management-aad-domains]
+Seçin **Web uygulaması / API** olarak **uygulama türü**. 
 
-İstenen ayarları yapılandırın **kimlik doğrulamayı Değiştir** iletişim kutusu ve tıklatın **Tamam**.
+İçin **oturum açma URL'si**, kullanabileceğiniz `https://localhost` yer tutucu olarak.
 
-![Kimlik doğrulamayı Değiştir][api-management-change-authentication]
+Tıklayın **oluşturma**.
 
-Tıkladığınızda **Tamam** Visual Studio, Azure AD dizini ile uygulamanızı kaydetme deneyecek ve Visual Studio tarafından oturum istenebilir. Dizininiz için bir yönetici hesabı kullanarak oturum açın.
+Uygulama oluşturulduktan sonra Not **uygulama kimliği** bir sonraki adımda kullanmak için. 
 
-![Visual Studio'da oturum açın][api-management-sign-in-vidual-studio]
+## <a name="register-another-application-in-azure-ad-to-represent-a-client-application"></a>Bir istemci uygulaması temsil etmek için Azure AD içinde başka bir uygulamayı kaydetme
 
-Bu proje bir Azure Web API olarak onay kutusu için yapılandırmak için **bulutta Barındır** ve ardından **Tamam**.
+API çağırmayı gerektiren her istemci uygulaması, bir uygulama Azure AD olarak kayıtlı olması gerekir. Bu kılavuzda, örnek istemci uygulaması gibi APIM Geliştirici Portalı Geliştirici konsolunda kullanacağız. 
 
-![Yeni proje][api-management-new-project-cloud]
+Biz, geliştirici konsol temsil etmek için Azure AD içinde başka bir uygulama kaydetmeniz gerekir.
 
-Azure'da oturum açın istenebilir ve daha sonra Web uygulaması yapılandırabilirsiniz.
+Tıklayın **yeni uygulama kaydı** yeniden. 
 
-![Yapılandırma][api-management-configure-web-app]
+Uygulamanın adını sağlayın ve seçin **Web uygulaması / API** olarak **uygulama türü**. Bu örnekte, `client-app` kullanılır.  
 
-Bu örnekte, yeni bir **uygulama hizmeti planı** adlı **APIMAADDemo** belirtilir.
+İçin **oturum açma URL'si**, kullanabileceğiniz `https://localhost` bir yer tutucu ya da kullanım APIM örneğinizi oturum açma URL'si olarak. Bu örnekte, `https://contoso5.portal.azure-api.net/signin` kullanılır.
 
-Tıklatın **Tamam** Web uygulamasını yapılandırma ve projeyi oluşturmak için.
+Tıklayın **oluşturma**.
 
-## <a name="add-the-code-to-the-web-api-project"></a>Web API projesi için kod ekleme
+Uygulama oluşturulduktan sonra Not **uygulama kimliği** bir sonraki adımda kullanmak için. 
 
-Bu örnekte, Web API bir model ve bir denetleyici kullanarak bir temel hesaplayıcı hizmet uygular. Hizmeti için modeli eklemek için sağ tıklatın **modelleri** içinde **Çözüm Gezgini** ve **Ekle**, **sınıfı**. Sınıf adını `CalcInput` tıklatıp **Ekle**.
+Şimdi sizi bir sonraki adımda kullanmak için bu uygulama için bir istemci parolası oluşturmanız gerekir.
 
-Aşağıdakileri ekleyin `using` deyimi üstüne `CalcInput.cs` dosya.
+Tıklayın **ayarları** yeniden ve Git **anahtarları**.
 
-```csharp
-using Newtonsoft.Json;
-```
+Altında **parolaları**, sağlayan bir **anahtar açıklama**, zaman anahtar süresi dolacak ve tıklayın seçim **kaydetmek**.
 
-Oluşturulan sınıf aşağıdaki kodla değiştirin.
+Anahtar değerini not edin. 
 
-```csharp
-public class CalcInput
-{
-    [JsonProperty(PropertyName = "a")]
-    public int a;
+## <a name="grant-permissions-in-aad"></a>Aad'de izinleri
 
-    [JsonProperty(PropertyName = "b")]
-    public int b;
-}
-```
+Şimdi biz (diğer bir deyişle, arka uç uygulama) API ve geliştirici konsol (diğer bir deyişle, istemci uygulama) göstermek için iki uygulama kaydettiniz, biz arka uç uygulamasını çağırmak istemci uygulaması izin vermek için izinleri vermeniz gerekir.  
 
-Sağ **denetleyicileri** içinde **Çözüm Gezgini** ve **Ekle**->**denetleyicisi**. Seçin **Web API 2 denetleyici - boş** tıklatıp **Ekle**. Tür **CalcController** denetleyici için adı ve'ı tıklatın **Ekle**.
+Gidin **uygulama kayıtlar** yeniden. 
 
-![Denetleyici ekleme][api-management-add-controller]
+Tıklayın `client-app` ve Git **ayarları**.
 
-Aşağıdakileri ekleyin `using` deyimi üstüne `CalcController.cs` dosya.
+Tıklayın **gerekli izinleri** ve ardından **Ekle**.
 
-```csharp
-using System.IO;
-using System.Web;
-using APIMAADDemo.Models;
-```
+Tıklayın **bir API seçin** arayın ve `backend-app`.
 
-Oluşturulan denetleyici sınıfını aşağıdaki kodla değiştirin. Bu kod uygulayan `Add`, `Subtract`, `Multiply`, ve `Divide` temel hesaplayıcı API'si işlemleri.
+Denetleme `Access backend-app` altında **izinleri atanmış**. 
 
-```csharp
-[Authorize]
-public class CalcController : ApiController
-{
-    [Route("api/add")]
-    [HttpGet]
-    public HttpResponseMessage GetSum([FromUri]int a, [FromUri]int b)
-    {
-        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a + b);
-        HttpResponseMessage response = Request.CreateResponse();
-        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-        return response;
-    }
-
-    [Route("api/sub")]
-    [HttpGet]
-    public HttpResponseMessage GetDiff([FromUri]int a, [FromUri]int b)
-    {
-        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a - b);
-        HttpResponseMessage response = Request.CreateResponse();
-        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-        return response;
-    }
-
-    [Route("api/mul")]
-    [HttpGet]
-    public HttpResponseMessage GetProduct([FromUri]int a, [FromUri]int b)
-    {
-        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a * b);
-        HttpResponseMessage response = Request.CreateResponse();
-        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-        return response;
-    }
-
-    [Route("api/div")]
-    [HttpGet]
-    public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
-    {
-        string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-        HttpResponseMessage response = Request.CreateResponse();
-        response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-        return response;
-    }
-}
-```
-
-Tuşuna **F6** oluşturun ve çözümü doğrulayın.
-
-## <a name="publish-the-project-to-azure"></a>Projeyi Azure'da yayımlama
-
-Projeyi Azure'a yayımlamak için sağ **APIMAADDemo** Visual Studio'da ve seçin **Yayımla**. Varsayılan ayarları korumak **Web'i Yayımla** iletişim kutusu ve tıklatın **Yayımla**.
-
-![Web yayımlama][api-management-web-publish]
-
-## <a name="grant-permissions-to-the-azure-ad-backend-service-application"></a>Azure AD arka uç hizmeti uygulama izinleri
-Arka uç hizmeti için yeni bir uygulama, Web API projesi yapılandırma ve yayımlama işleminin bir parçası olarak, Azure AD dizini oluşturulur.
-
-![Uygulama][api-management-aad-backend-app]
-
-Gerekli izinleri yapılandırma uygulama adına tıklayın. Gidin **yapılandırma** sekmesinde ve ekranı aşağı kaydırarak **diğer uygulamalara izinler** bölümü. Tıklatın **uygulama izinleri** yanında aşağı açılan **Windows** **Azure Active Directory**, için kutuyu **dizin verilerini okuma**, tıklatıp **kaydetmek**.
-
-![İzin ekle][api-management-aad-add-permissions]
+Tıklayın **seçin** ve ardından **Bitti**. 
 
 > [!NOTE]
-> Varsa **Windows** **Azure Active Directory** olan diğer uygulamalara izinler altında listelenen değil, tıklatın **uygulama ekleme** ve listeden ekleyin.
+> Varsa **Windows** **Azure Active Directory** olan diğer uygulamalara izinler altında listelenen değil, tıklatın **Ekle** ve listeden ekleyin.
 > 
 > 
 
-Not **uygulama kimliği URI'si** Azure AD uygulaması API Management Geliştirici Portalı için yapılandırıldığında, bir sonraki adımda kullanmak için.
+## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>OAuth 2.0 kullanıcı yetkilendirme Geliştirici konsolunda etkinleştir
 
-![Uygulama Kimliği URI][api-management-aad-sso-uri]
+Bu noktada, biz bizim uygulamaları Azure AD içinde oluşturdunuz ve arka uç uygulamasını çağırmak istemci uygulaması izin vermek için uygun izinlerin. 
 
-## <a name="import-the-web-api-into-api-management"></a>Web API API yönetim altına alın
-API'leri, Azure Portalı aracılığıyla erişilen API yayımcı portalında yapılandırılır. Bunu ulaşmak için tıklatın **yayımcı portalına** API Management hizmetiniz araç çubuğundan. Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] içinde [ilk API'nizi yönetme] [ Manage your first API] Öğreticisi.
+Bu kılavuzda, uygulamayı istemci olarak Geliştirici konsol kullanacağız. Aşağıdaki adımları OAuth 2.0 kullanıcı yetkilendirme Geliştirici konsolunda etkinleştirmeyi açıklar 
 
-![Yayımcı portalı][api-management-management-console]
+APIM örneğine gidin.
 
-İşlemleri olabilir [API'leri için el ile eklenen](api-management-howto-add-operations.md), veya içeri aktarılabilir.
+Tıklayın **OAuth 2.0** ve ardından **eklemek**.
 
-Adlı bir dosya oluşturun `calcapi.json` aşağıdaki içeriğe sahip ve bilgisayarınıza kaydedin. Emin `host` , Web API uç noktaları özniteliği. Bu örnekte, `"host": "apimaaddemo.azurewebsites.net"` kullanılır.
+Sağlayan bir **görünen adı** ve **açıklama**.
 
-```json
-{
-  "swagger": "2.0",
-  "info": {
-    "title": "Calculator",
-    "description": "Arithmetics over HTTP!",
-    "version": "1.0"
-  },
-  "host": "apimaaddemo.azurewebsites.net",
-  "basePath": "/api",
-  "schemes": [
-    "http"
-  ],
-  "paths": {
-    "/add?a={a}&b={b}": {
-      "get": {
-        "description": "Responds with a sum of two numbers.",
-        "operationId": "Add two integers",
-        "parameters": [
-          {
-            "name": "a",
-            "in": "query",
-            "description": "First operand. Default value is <code>51</code>.",
-            "required": true,
-            "type": "string",
-            "default": "51",
-            "enum": [
-              "51"
-            ]
-          },
-          {
-            "name": "b",
-            "in": "query",
-            "description": "Second operand. Default value is <code>49</code>.",
-            "required": true,
-            "type": "string",
-            "default": "49",
-            "enum": [
-              "49"
-            ]
-          }
-        ],
-        "responses": { }
-      }
-    },
-    "/sub?a={a}&b={b}": {
-      "get": {
-        "description": "Responds with a difference between two numbers.",
-        "operationId": "Subtract two integers",
-        "parameters": [
-          {
-            "name": "a",
-            "in": "query",
-            "description": "First operand. Default value is <code>100</code>.",
-            "required": true,
-            "type": "string",
-            "default": "100",
-            "enum": [
-              "100"
-            ]
-          },
-          {
-            "name": "b",
-            "in": "query",
-            "description": "Second operand. Default value is <code>50</code>.",
-            "required": true,
-            "type": "string",
-            "default": "50",
-            "enum": [
-              "50"
-            ]
-          }
-        ],
-        "responses": { }
-      }
-    },
-    "/div?a={a}&b={b}": {
-      "get": {
-        "description": "Responds with a quotient of two numbers.",
-        "operationId": "Divide two integers",
-        "parameters": [
-          {
-            "name": "a",
-            "in": "query",
-            "description": "First operand. Default value is <code>100</code>.",
-            "required": true,
-            "type": "string",
-            "default": "100",
-            "enum": [
-              "100"
-            ]
-          },
-          {
-            "name": "b",
-            "in": "query",
-            "description": "Second operand. Default value is <code>20</code>.",
-            "required": true,
-            "type": "string",
-            "default": "20",
-            "enum": [
-              "20"
-            ]
-          }
-        ],
-        "responses": { }
-      }
-    },
-    "/mul?a={a}&b={b}": {
-      "get": {
-        "description": "Responds with a product of two numbers.",
-        "operationId": "Multiply two integers",
-        "parameters": [
-          {
-            "name": "a",
-            "in": "query",
-            "description": "First operand. Default value is <code>20</code>.",
-            "required": true,
-            "type": "string",
-            "default": "20",
-            "enum": [
-              "20"
-            ]
-          },
-          {
-            "name": "b",
-            "in": "query",
-            "description": "Second operand. Default value is <code>5</code>.",
-            "required": true,
-            "type": "string",
-            "default": "5",
-            "enum": [
-              "5"
-            ]
-          }
-        ],
-        "responses": { }
-      }
-    }
-  }
-}
-```
+URL, istemci kaydı için sayfa ** bir yer tutucu değerini girin `http://localhost`.  **İstemci kayıt sayfası URL'si** kullanıcılar oluşturmak ve kullanıcı hesaplarının yönetimini desteklemek için OAuth 2.0 sağlayıcıları kendi hesaplarını yapılandırmak için kullanabileceğiniz sayfa işaret eder. Bu örnekte, kullanıcıların değil oluşturun ve yer tutucu kullanılmak üzere kendi hesaplarını yapılandırın.
 
-Hesaplayıcı API’sini içeri aktarmak için, soldaki **API Management** menüsünde **API'ler**’e tıklayın ve ardından **API’yi İçeri Aktar**’a tıklayın.
-
-![API’yi İçeri Aktar düğmesi][api-management-import-api]
-
-Hesaplayıcı API'sini yapılandırmak için aşağıdaki adımları gerçekleştirin.
-
-1. ' I tıklatın **dosyasından**, göz atın `calculator.json` kaydettiniz dosyasını bulun ve tıklatın **Swagger** radyo düğmesi.
-2. Tür **calc** içine **Web API'si URL soneki** metin kutusu.
-3. **Ürünler (isteğe bağlı)** öğesine tıklayın ve **Starter**’ı seçin.
-4. API’yi içeri aktarmak için **Kaydet**’e tıklayın.
-
-![Yeni API ekle][api-management-import-new-api]
-
-API içeri aktarıldığında, yayımcı portalında API’nin özet sayfası gösterilir.
-
-## <a name="call-the-api-unsuccessfully-from-the-developer-portal"></a>Geliştirici Portalı'ndan başarısız API çağrısı
-Bu noktada, API API yönetime içeri aktarıldı ancak arka uç hizmetine Azure AD kimlik doğrulaması ile korunduğu için henüz başarıyla Geliştirici portalından çağrılamaz. 
-
-Tıklatın **Geliştirici Portalı** yayımcı portalının sağ üst tarafındaki.
-
-![Geliştirici portalı][api-management-developer-portal-menu]
-
-Tıklatın **API'leri** tıklatıp **hesaplayıcı** API.
-
-![Geliştirici portalı][api-management-dev-portal-apis]
-
-Tıklatın **deneyin**.
-
-![Deneyin][api-management-dev-portal-try-it]
-
-Tıklatın **Gönder** ve yanıt durumu Not **401 Yetkisiz**.
-
-![Gönder][api-management-dev-portal-send-401]
-
-Arka uç API'si Azure Active Directory tarafından korunduğu için yetkisiz bir istektir. Geliştirici başarıyla API çağırmadan önce portal geliştiricilerinin OAuth 2.0 kullanan yetkilendirmek için yapılandırılmış olması gerekir. Bu işlem aşağıdaki bölümlerde açıklanmıştır.
-
-## <a name="register-the-developer-portal-as-an-aad-application"></a>Geliştirici Portalı bir AAD uygulaması Kaydet
-Geliştirici Portalı bir AAD uygulaması kaydetmek için OAuth 2.0 kullanan geliştiriciler yetkilendirmek için Geliştirici Portalı yapılandırmada ilk adım olacaktır. 
-
-Azure AD kiracısı gidin. Bu örnekte seçin **APIMDemo** gidin **uygulamaları** sekmesi.
-
-![Yeni uygulama][api-management-aad-new-application-devportal]
-
-Tıklatın **Ekle** yeni bir Azure Active Directory uygulaması oluşturmak için düğmesine tıklayın ve seçin **kuruluşumun geliştirmekte olduğu bir uygulama Ekle**.
-
-![Yeni uygulama][api-management-new-aad-application-menu]
-
-Seçin **Web uygulaması ve/veya Web API**, bir ad girin ve İleri okuna tıklayın. Bu örnekte, **APIMDeveloperPortal** kullanılır.
-
-![Yeni uygulama][api-management-aad-new-application-devportal-1]
-
-İçin **oturum açma URL'si** API Management hizmetiniz URL'sini girin ve ilave `/signin`. Bu örnekte, `https://contoso5.portal.azure-api.net/signin` kullanılır.
-
-İçin **uygulama kimliği URL'si** API Management hizmetiniz URL'sini girin ve bazı benzersiz karakterler ekleyin. Bunlar istenen herhangi bir karakter olabilir ve bu örnekte, `https://contoso5.portal.azure-api.net/dp` kullanılır. Zaman istenen **uygulama özellikleri** olan yapılandırılmış, uygulama oluşturmak için onay işaretine tıklayın.
-
-![Yeni uygulama][api-management-aad-new-application-devportal-2]
-
-## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Bir API Management OAuth 2.0 yetkilendirme sunucusu yapılandırın
-Sonraki adım, bir OAuth 2.0 yetkilendirme Sunucusu API Management'te yapılandırmaktır. 
-
-Tıklatın **güvenlik** soldaki API Management menüden **OAuth 2.0**ve ardından **yetkilendirme eklemek** sunucu.
-
-![Yetkilendirme Sunucusu Ekle][api-management-add-authorization-server]
-
-Bir ad ve isteğe bağlı bir açıklama girin **adı** ve **açıklama** alanları. Bu alanlar, API Management hizmet örneği içinde OAuth 2.0 yetkilendirme sunucusu tanımlamak için kullanılır. Bu örnekte, **yetkilendirme sunucusu demo** kullanılır. Daha sonra bir API için kimlik doğrulaması için kullanılacak bir OAuth 2.0 sunucu belirttiğinizde, bu ad seçer.
-
-İçin **istemci kayıt sayfası URL'si** bir yer tutucu değerini girin `http://localhost`.  **İstemci kayıt sayfası URL'si** kullanıcılar oluşturmak ve kullanıcı hesaplarının yönetimini desteklemek için OAuth 2.0 sağlayıcıları kendi hesaplarını yapılandırmak için kullanabileceğiniz sayfa işaret eder. Bu örnekte, kullanıcıların değil oluşturun ve yer tutucu kullanılmak üzere kendi hesaplarını yapılandırın.
-
-![Yetkilendirme Sunucusu Ekle][api-management-add-authorization-server-1]
+Denetleme **yetkilendirme kodu** olarak **yetki türleri**.
 
 Ardından, belirtin **yetkilendirme uç noktası URL'si** ve **belirteç uç nokta URL'si**.
 
-![Yetkilendirme sunucusu][api-management-add-authorization-server-1a]
-
-Bu değerleri penceresinden alınabilir **uygulama uç noktaları** Geliştirici Portalı için oluşturulmuş AAD uygulama sayfası. Uç noktaları erişmek için gidin **yapılandırma** sekmesinde AAD uygulaması için **uç noktaları görüntülemek**.
-
-![Uygulama][api-management-aad-devportal-application]
-
-![Uç noktalarını görüntüle][api-management-aad-view-endpoints]
+Bu değerleri penceresinden alınabilir **uç noktaları** Azure AD kiracınıza sayfasında. Uç noktaları erişmek için gidin **uygulama kayıtlar** yeniden sayfasında ve tıklayın **uç noktaları**.
 
 Kopya **OAuth 2.0 yetkilendirme uç noktası** ve yapıştırın **yetkilendirme uç noktası URL'si** metin kutusu.
 
-![Yetkilendirme Sunucusu Ekle][api-management-add-authorization-server-2]
-
 Kopya **OAuth 2.0 belirteç uç noktası** ve yapıştırın **belirteç uç nokta URL'si** metin kutusu.
 
-![Yetkilendirme Sunucusu Ekle][api-management-add-authorization-server-2a]
+Belirteç uç noktası yapıştırarak yanı sıra, adlandırılmış bir ek gövde parametresini ekleyin **kaynak** ve değerini kullanmak için **uygulama kimliği** arka uç uygulaması için.
 
-Belirteç uç noktası yapıştırarak yanı sıra, adlandırılmış bir ek gövde parametresini ekleyin **kaynak** ve değerini kullanmak için **uygulama kimliği URI'si** Visual Studio projesi yayımlandığında, oluşturulan arka uç hizmeti için AAD uygulamasından.
+Ardından, istemci kimlik bilgilerini belirtin. Bu, istemci uygulaması için kimlik bilgileridir.
 
-![Uygulama Kimliği URI][api-management-aad-sso-uri]
+İçin **istemci kimliği**, kullanın **uygulama kimliği** istemci uygulaması için.
 
-Ardından, istemci kimlik bilgilerini belirtin. Bu erişim, bu durumda Geliştirici Portalı istediğiniz kaynak için kimlik bilgileridir.
+İçin **gizli**, daha önce oluşturduğunuz anahtarı için istemci uygulaması kullanın. 
 
-![İstemci kimlik bilgileri][api-management-client-credentials]
+İstemci gizli anahtarı aşağıdaki hemen **redirect_url** için yetkilendirme kodu verme türü.
 
-Alınacak **istemci kimliği**, gidin **yapılandırma** sekmesi Geliştirici Portalı ve kopyalama için AAD uygulaması **istemci kimliği**.
+Bu URL not edin.
 
-Almak için **gizli** tıklatın **seçin süresi** açılan **anahtarları** bölüm ve bir aralık belirtin. Bu örnekte, 1 yıl kullanılır.
+Tıklayın **oluşturma**.
 
-![İstemci Kimliği][api-management-aad-client-id]
+Geri gidin **ayarları** , istemci uygulamanızın sayfası.
 
-Tıklatın **kaydetmek** yapılandırmayı kaydedin ve anahtarı görüntülemek için. 
+Tıklayın **yanıt URL'leri** Yapıştır **redirect_url** ilk satırda. Bu örnekte, biz yerini `https://localhost` ilk satırda URL'si.  
 
-> [!IMPORTANT]
-> Bu anahtarı not edin. Azure Active Directory yapılandırması penceresini kapattığınızda, anahtarı yeniden görüntülenemiyor.
-> 
-> 
+Bir OAuth 2.0 yetkilendirme sunucusu yapılandırmış olduğunuz şimdi Geliştirici konsol Azure AD'den erişim belirteçleri elde etmiş olması gerekir. 
 
-Anahtarı panoya kopyalayın, geçiş yayımcı portalına dönün, içine anahtarını yapıştırın **gizli** metin kutusuna, tıklatıp **kaydetmek**.
+Sonraki adım bizim API için OAuth 2.0 kullanıcı yetkilendirme etkinleştirmek için bizim API çağrıları yapmadan önce kullanıcı adına bir erişim belirteci almak Bunu geliştirici konsol bilen böylece gerekiyor.
 
-![Yetkilendirme Sunucusu Ekle][api-management-add-authorization-server-3]
+APIM örneğine gidin, Git **API'leri**.
 
-Hemen istemci kimlik bilgileri aşağıdaki yetkilendirme kodu verme olur. Bu yetkilendirme kodu ve anahtarı yedekleme Azure AD Geliştirici Portalı uygulamanıza kopyalama sayfasını yapılandırmak ve yetkilendirme verme içine yapıştırma **yanıt URL'si** alan öğesini tıklatıp **kaydetmek** yeniden.
+Korumak istediğiniz API'ı tıklatın. Bu örnekte, kullanacağız `Echo API`.
 
-![Yanıt URL'si][api-management-aad-reply-url]
+Git **ayarları**.
 
-Geliştirici Portalı AAD uygulama izinlerini yapılandırmak için sonraki adımdır bakın. Tıklatın **uygulama izinleri** ve için kutuyu **dizin verilerini okuma**. Tıklatın **kaydetmek** bu değişikliği kaydetmek ve ardından **uygulama eklemek**.
+Altında **güvenlik**, seçin **OAuth 2.0** ve biz yapılandırılmış önceki OAuth 2.0 sunucuyu seçin. 
 
-![İzin ekle][api-management-add-devportal-permissions]
+**Kaydet**'e tıklayın.
 
-Arama simgesine tıklayın türü **APIM** kutusuyla başlangıç içine seçin **APIMAADDemo**ve kaydetmek için onay işaretine tıklayın.
+## <a name="successfully-call-the-api-from-the-developer-portal"></a>Geliştirici Portalı'ndan başarıyla API çağrısı
 
-![İzin ekle][api-management-aad-add-app-permissions]
+OAuth 2.0 kullanıcı yetkilendirme etkin göre `Echo API`, geliştirici konsolunda bir API'yi çağırmadan önce kullanıcı adına bir erişim belirteci alacaktır.
 
-Tıklatın **izinlere temsilci** için **APIMAADDemo** ve için kutuyu **erişim APIMAADDemo**, tıklatıp **kaydetmek**. Geliştirici böylece arka uç hizmetine erişmek için portal uygulaması.
+Herhangi bir işlem altında gidin `Echo API` tıklatın ve Geliştirici Portalı'ndaki **deneyin**, hangi getirecek bize Geliştirici konsola.
 
-![İzin ekle][api-management-aad-add-delegated-permissions]
+Yeni bir öğe Not **yetkilendirme** yeni eklenen yetkilendirme sunucusu karşılık gelen bölüm.
 
-## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>OAuth 2.0 kullanıcı yetkilendirme hesaplayıcı API'si etkinleştir
-OAuth 2.0 sunucu yapılandırılır, API'nizi için güvenlik ayarlarını belirtebilirsiniz. 
+Seçin **yetkilendirme kodu** onayı için Azure AD kiracısı oturum açmak için aşağı açılan liste ve istenir. Hesapla oturum açtıysanız, istenebilir değil.
 
-Tıklatın **API'leri** sol menüsüne ve ardından içinde **hesaplayıcı** görüntülemek ve ayarlarını yapılandırmak için.
+Başarılı oturum açma sonra bir `Authorization` üstbilgi eklenecek bir erişim belirteci ile isteği için Azure AD. 
 
-![Hesaplayıcı API'sini][api-management-calc-api]
+Bir örnek simge, aşağıda Base64 kodlu olmadığı görülüyor.
 
-Gidin **güvenlik** sekmesi, onay **OAuth 2.0** onay kutusunu istenen yetkilendirme sunucusundan seçip **yetkilendirme sunucusu** aşağı açılan tıklatıp **kaydetmek**.
+```
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCIsImtpZCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCJ9.eyJhdWQiOiIxYzg2ZWVmNC1jMjZkLTRiNGUtODEzNy0wYjBiZTEyM2NhMGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgvIiwiaWF0IjoxNTIxMTUyNjMzLCJuYmYiOjE1MjExNTI2MzMsImV4cCI6MTUyMTE1NjUzMywiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhHQUFBQUptVzkzTFd6dVArcGF4ZzJPeGE1cGp2V1NXV1ZSVnd1ZXZ5QU5yMlNkc0tkQmFWNnNjcHZsbUpmT1dDOThscUJJMDhXdlB6cDdlenpJdzJLai9MdWdXWWdydHhkM1lmaDlYSGpXeFVaWk9JPSIsImFtciI6WyJyc2EiXSwiYXBwaWQiOiJhYTY5ODM1OC0yMWEzLTRhYTQtYjI3OC1mMzI2NTMzMDUzZTkiLCJhcHBpZGFjciI6IjEiLCJlbWFpbCI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiSmlhbmciLCJnaXZlbl9uYW1lIjoiTWlhbyIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJpcGFkZHIiOiIxMzEuMTA3LjE3NC4xNDAiLCJuYW1lIjoiTWlhbyBKaWFuZyIsIm9pZCI6IjhiMTU4ZDEwLWVmZGItNDUxMS1iOTQzLTczOWZkYjMxNzAyZSIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6IkFGaWtvWFk1TEV1LTNkbk1pa3Z3MUJzQUx4SGIybV9IaVJjaHVfSEM1aGciLCJ0aWQiOiI0NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgiLCJ1bmlxdWVfbmFtZSI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsInV0aSI6ImFQaTJxOVZ6ODBXdHNsYjRBMzBCQUEiLCJ2ZXIiOiIxLjAifQ.agGfaegYRnGj6DM_-N_eYulnQdXHhrsus45QDuApirETDR2P2aMRxRioOCR2YVwn8pmpQ1LoAhddcYMWisrw_qhaQr0AYsDPWRtJ6x0hDk5teUgbix3gazb7F-TVcC1gXpc9y7j77Ujxcq9z0r5lF65Y9bpNSefn9Te6GZYG7BgKEixqC4W6LqjtcjuOuW-ouy6LSSox71Fj4Ni3zkGfxX1T_jiOvQTd6BBltSrShDm0bTMefoyX8oqfMEA2ziKjwvBFrOjO0uK4rJLgLYH4qvkR0bdF9etdstqKMo5gecarWHNzWi_tghQu9aE3Z3EZdYNI_ZGM-Bbe3pkCfvEOyA
+```
 
-![Hesaplayıcı API'sini][api-management-enable-aad-calculator]
+Tıklatın **Gönder** ve API başarıyla çağırabilmesi.
 
-## <a name="successfully-call-the-calculator-api-from-the-developer-portal"></a>Hesaplayıcı API'sini Geliştirici Portalı'ndan başarıyla çağırın
-OAuth 2.0 yetkilendirme API yapılandırılır, işlemlerini başarıyla Geliştirici Merkezi'nden çağrılabilir. 
-
-Geri gidin **iki tamsayı Ekle** işlemi tıklatın ve Geliştirici Portalı hesap makinesi hizmetinin **deneyin**. Yeni öğesini Not **yetkilendirme** yeni eklenen yetkilendirme sunucusu karşılık gelen bölüm.
-
-![Hesaplayıcı API'sini][api-management-calc-authorization-server]
-
-Seçin **yetkilendirme kodu** açılan yetkilendirme dan listesinde ve kullanılacak hesap kimlik bilgilerini girin. Hesapla oturum açtıysanız, istenebilir değil.
-
-![Hesaplayıcı API'sini][api-management-devportal-authorization-code]
-
-Tıklatın **Gönder** ve not edin **yanıt durumu** , **200 Tamam** ve yanıt içeriği işlemde sonuçları.
-
-![Hesaplayıcı API'sini][api-management-devportal-response]
-
-## <a name="configure-a-desktop-application-to-call-the-api"></a>API'yi çağırmak için bir masaüstü uygulamasını yapılandırma
-
-API'yi çağırmak için basit bir masaüstü uygulaması yapılandırın. Azure AD'de masaüstü uygulaması kaydetmek ve dizine ve arka uç hizmetine erişim sağlamak için ilk adımdır bakın. 
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>İstekleri önceden yetkilendirmek için JWT doğrulama ilkesini yapılandırma
 
-Kullanım [doğrulamak JWT](api-management-access-restriction-policies.md#ValidateJWT) isteklerini her gelen istek erişim belirteçleri doğrulayarak önceden yetkilendirmek için ilke. İstek doğrulamak JWT İlkesi tarafından doğrulanmaz, istek API Management tarafından engellenir ve boyunca arka ucuna aktarılmaz.
+Bu noktada, geliştirici konsolundan arama yapmak bir kullanıcı çalıştığında, kullanıcı oturum açmak için istenir ve geliştirici konsolunda bir erişim belirteci kullanıcı adına alacaktır. Her şeyin beklendiği gibi çalışmaktadır. Ancak, ne birisi bizim API bir belirteç olmadan veya geçersiz bir belirteç çağrılarının? Örneğin, silmeyi deneyebilirsiniz `Authorization` üstbilgi ve yine de API çağrısı tüketimi bulur. APIM erişim belirteci bu noktada doğrulamadığı için nedenidir. Bunu geçirir `Auhtorization` arka uç API'si için üstbilgi.
+
+Biz kullanabilirsiniz [doğrulamak JWT](api-management-access-restriction-policies.md#ValidateJWT) APIM isteklerinde her gelen istek erişim belirteçleri doğrulayarak önceden yetkilendirmek için ilke. Bir isteğin geçerli bir belirteci yoksa, API Management tarafından engellenir ve boyunca arka ucuna aktarılmaz. Ekleyebiliriz ilkesine aşağıda `Echo API`. 
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.microsoftonline.com/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
+    <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
+            <value>{Application ID of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>
 ```
 
-Daha fazla bilgi için bkz: [bulut kapak bölüm 177: daha fazla API yönetimi özellikleri](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve ileri sarma 13:50. İlke Düzenleyicisi'nde yapılandırılmış ilkeler görmek için 15:00 ve 18:50 hem ile hem de gerekli yetkilendirme belirteci olmadan Geliştirici portalından bir işlem arama tanıtımı için ileri sarma.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi denetleyin [videolar](https://azure.microsoft.com/documentation/videos/index/?services=api-management) API Management hakkında.
 * Arka uç hizmetinizin güvenliğini sağlamak diğer yolları için bkz: [karşılıklı sertifika kimlik doğrulaması](api-management-howto-mutual-certificates.md).
-
-[api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
-
-[api-management-import-api]: ./media/api-management-howto-protect-backend-with-aad/api-management-import-api.png
-[api-management-import-new-api]: ./media/api-management-howto-protect-backend-with-aad/api-management-import-new-api.png
-[api-management-create-aad-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-create-aad-menu.png
-[api-management-create-aad]: ./media/api-management-howto-protect-backend-with-aad/api-management-create-aad.png
-[api-management-new-web-app]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-web-app.png
-[api-management-new-project]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-project.png
-[api-management-new-project-cloud]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-project-cloud.png
-[api-management-change-authentication]: ./media/api-management-howto-protect-backend-with-aad/api-management-change-authentication.png
-[api-management-sign-in-vidual-studio]: ./media/api-management-howto-protect-backend-with-aad/api-management-sign-in-vidual-studio.png
-[api-management-configure-web-app]: ./media/api-management-howto-protect-backend-with-aad/api-management-configure-web-app.png
-[api-management-aad-domains]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-domains.png
-[api-management-add-controller]: ./media/api-management-howto-protect-backend-with-aad/api-management-add-controller.png
-[api-management-web-publish]: ./media/api-management-howto-protect-backend-with-aad/api-management-web-publish.png
-[api-management-aad-backend-app]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-backend-app.png
-[api-management-aad-add-permissions]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-add-permissions.png
-[api-management-developer-portal-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-developer-portal-menu.png
-[api-management-dev-portal-apis]: ./media/api-management-howto-protect-backend-with-aad/api-management-dev-portal-apis.png
-[api-management-dev-portal-try-it]: ./media/api-management-howto-protect-backend-with-aad/api-management-dev-portal-try-it.png
-[api-management-dev-portal-send-401]: ./media/api-management-howto-protect-backend-with-aad/api-management-dev-portal-send-401.png
-[api-management-aad-new-application-devportal]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-new-application-devportal.png
-[api-management-aad-new-application-devportal-1]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-new-application-devportal-1.png
-[api-management-aad-new-application-devportal-2]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-new-application-devportal-2.png
-[api-management-aad-devportal-application]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-devportal-application.png
-[api-management-add-authorization-server]: ./media/api-management-howto-protect-backend-with-aad/api-management-add-authorization-server.png
-[api-management-aad-sso-uri]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-sso-uri.png
-[api-management-aad-view-endpoints]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-view-endpoints.png
-[api-management-aad-client-id]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-client-id.png
-[api-management-add-authorization-server-1]: ./media/api-management-howto-protect-backend-with-aad/api-management-add-authorization-server-1.png
-[api-management-add-authorization-server-2]: ./media/api-management-howto-protect-backend-with-aad/api-management-add-authorization-server-2.png
-[api-management-add-authorization-server-2a]: ./media/api-management-howto-protect-backend-with-aad/api-management-add-authorization-server-2a.png
-[api-management-add-authorization-server-3]: ./media/api-management-howto-protect-backend-with-aad/api-management-add-authorization-server-3.png
-[api-management-aad-reply-url]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-reply-url.png
-[api-management-add-devportal-permissions]: ./media/api-management-howto-protect-backend-with-aad/api-management-add-devportal-permissions.png
-[api-management-aad-add-app-permissions]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-add-app-permissions.png
-[api-management-aad-add-delegated-permissions]: ./media/api-management-howto-protect-backend-with-aad/api-management-aad-add-delegated-permissions.png
-[api-management-calc-api]: ./media/api-management-howto-protect-backend-with-aad/api-management-calc-api.png
-[api-management-enable-aad-calculator]: ./media/api-management-howto-protect-backend-with-aad/api-management-enable-aad-calculator.png
-[api-management-devportal-authorization-code]: ./media/api-management-howto-protect-backend-with-aad/api-management-devportal-authorization-code.png
-[api-management-devportal-response]: ./media/api-management-howto-protect-backend-with-aad/api-management-devportal-response.png
-[api-management-calc-authorization-server]: ./media/api-management-howto-protect-backend-with-aad/api-management-calc-authorization-server.png
-[api-management-add-authorization-server-1a]: ./media/api-management-howto-protect-backend-with-aad/api-management-add-authorization-server-1a.png
-[api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
-[api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
 [Create an API Management service instance]: get-started-create-service-instance.md
 [Manage your first API]: import-and-publish.md

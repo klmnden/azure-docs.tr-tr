@@ -1,11 +1,10 @@
 ---
-title: "Hataya dayanıklılık uyumsuz satır atlayarak Azure Data Factory kopyalama etkinliği ekleyin | Microsoft Docs"
-description: "Kopyalama sırasında uyumsuz satır atlayarak hata toleransı Azure Data Factory kopyalama etkinliği eklemeyi öğrenin"
+title: Hataya dayanıklılık uyumsuz satır atlayarak Azure Data Factory kopyalama etkinliği ekleyin | Microsoft Docs
+description: Kopyalama sırasında uyumsuz satır atlayarak hata toleransı Azure Data Factory kopyalama etkinliği eklemeyi öğrenin
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 29c78eb850b418772126dea50b40e924b6e71423
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Hataya dayanıklılık uyumsuz satır atlayarak kopyalama etkinliği ekleyin.
 > [!NOTE]
@@ -71,7 +70,7 @@ Aşağıdaki örnek kopyalama etkinliği uyumsuz satırları atlanıyor yapılan
 | **enableSkipIncompatibleRow** | Atlanıyor uyumsuz satırları kopyalama sırasında veya etkinleştirin. | True<br/>False (varsayılan) | Hayır |
 | **redirectIncompatibleRowSettings** | Zaman uyumsuz satırları günlüğe kaydetmek istediğiniz bir grup olabilir özellik belirtilmiş. | &nbsp; | Hayır |
 | **linkedServiceName** | Atlanan satırları içeren günlüğü depolamak için Azure Storage bağlı hizmeti. | Adı bir [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) veya [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) bağlantılı günlük dosyasını depolamak için kullanmak istediğiniz depolama örneğine başvurur hizmeti. | Hayır |
-| **yol** | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verileri günlüğe kaydetmek için kullanmak istediğiniz Blob Depolama yolunu belirtin. Bir yol belirtmezseniz, hizmet bir kapsayıcı oluşturur. | Hayır |
+| **Yol** | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verileri günlüğe kaydetmek için kullanmak istediğiniz Blob Depolama yolunu belirtin. Bir yol belirtmezseniz, hizmet bir kapsayıcı oluşturur. | Hayır |
 
 ## <a name="monitoring"></a>İzleme
 Çalıştırma kopyalama etkinliği tamamlandıktan sonra izleme bölümünde Atlanan satır sayısını görebilirsiniz:

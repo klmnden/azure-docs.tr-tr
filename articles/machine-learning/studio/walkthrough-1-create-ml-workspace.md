@@ -1,10 +1,11 @@
 ---
-title: "1. adım: Machine Learning çalışma alanı oluşturma | Microsoft Docs"
-description: "Adım 1 / geliştirme Tahmine dayalı bir çözüm izlenecek yol: yeni bir Azure Machine Learning Studio çalışma alanı ayarlayıp öğrenin."
+title: '1. adım: Machine Learning çalışma alanı oluşturma | Microsoft Docs'
+description: 'Adım 1 / geliştirme Tahmine dayalı bir çözüm izlenecek yol: yeni bir Azure Machine Learning Studio çalışma alanı ayarlayıp öğrenin.'
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 58b37cf8927926cb128928e4d0e438945074f6e5
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 88f928599f62cbb39d65cd29a978e3a9d25d863f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Kılavuz Adımı 1: Bir Machine Learning çalışma alanı oluşturma
 Bu izlenecek yol ilk adımdır [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md).
@@ -33,7 +33,7 @@ Bu izlenecek yol ilk adımdır [Azure Machine learning'de Tahmine dayalı analiz
 - - -
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
-Machine Learning Studio kullanmak için bir Microsoft Azure Machine Learning çalışma alanınızın olması gerekir. Bu çalışma alanı oluşturmak, yönetmek ve denemeler yayımlamak için ihtiyacınız olan araçları içerir.  
+Machine Learning Studio kullanmak için bir Microsoft Azure Machine Learning çalışma alanınızın olması gerekir. Bu çalışma alanı, denemeleri oluşturmak, yönetmek ve yayımlamak için ihtiyacınız olan araçları içerir.  
 
 Azure aboneliğiniz için Yönetici çalışma alanı oluşturmak ve ardından sahibi veya katkıda eklemeniz gerekir. Ayrıntılar için bkz [oluşturma ve Paylaşım bir Azure Machine Learning çalışma alanı](create-workspace.md).
 

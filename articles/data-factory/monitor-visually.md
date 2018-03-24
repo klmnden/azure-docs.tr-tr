@@ -1,11 +1,11 @@
 ---
-title: "Görsel olarak Azure data factory'leri izleme | Microsoft Docs"
-description: "Azure Data Factory görsel olarak izleneceği hakkında bilgi edinin"
+title: Görsel olarak Azure data factory'leri izleme | Microsoft Docs
+description: Azure Data Factory görsel olarak izleneceği hakkında bilgi edinin
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b67c384ffd04176653ad434d39361ee67dc1ffea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Görsel olarak Azure data factory'leri izleme
 Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz.
@@ -29,7 +29,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Veri Fabrikası v2 ardışık izleme
 
-1. Başlatma **Microsoft Edge** veya **Google Chrome** web tarayıcısı. Şu anda, veri fabrikası UI yalnızca Microsoft Edge ve Google Chrome web tarayıcılarda desteklenir.
+1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
 2. Oturum [Azure portal](https://portal.azure.com/).
 3. Azure portalında oluşturulan veri fabrikası dikey penceresine gidin ve 'İzleyici & Yönet' kutucuğa tıklayın. Bu ADF v2 görsel izleme deneyimi başlatacak.
 

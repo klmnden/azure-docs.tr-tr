@@ -1,24 +1,24 @@
 ---
-title: "İnsan etkileşimi ve zaman aşımlarına dayanıklı işlevlerinde - Azure"
-description: "İnsan etkileşimi ve zaman aşımlarına dayanıklı işlevleri uzantısı'nda Azure işlevleri için nasıl ele alınacağını öğrenin."
+title: İnsan etkileşimi ve zaman aşımlarına dayanıklı işlevlerinde - Azure
+description: İnsan etkileşimi ve zaman aşımlarına dayanıklı işlevleri uzantısı'nda Azure işlevleri için nasıl ele alınacağını öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Dayanıklı işlevlerinde - telefon doğrulama örnek insan etkileşimi
 
@@ -28,8 +28,8 @@ Bu örnek bir SMS telefonla doğrulama sistemi uygular. Bu tür akışları gene
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* ' Ndaki yönergeleri izleyin [yükleme dayanıklı işlevleri](durable-functions-install.md) örneğini kurmak için.
-* Bu makalede, zaten gitti varsayar [Hello dizisi](durable-functions-sequence.md) örnek gözden geçirme.
+* [Dayanıklı işlevleri yüklemek](durable-functions-install.md).
+* Tamamlamak [Hello dizisi](durable-functions-sequence.md) gözden geçirme.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
@@ -50,7 +50,7 @@ Bu makalede örnek uygulamasında aşağıdaki işlevleri açıklanmaktadır:
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-Aşağıdaki bölümlerde, Azure portal geliştirme için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
+Aşağıdaki bölümlerde kullanılan kod ve yapılandırma açıklanmaktadır C# kodlama için. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS doğrulama düzenleme (Visual Studio Code ve Azure portal örnek kodu) 
 

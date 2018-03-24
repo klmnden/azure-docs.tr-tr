@@ -1,24 +1,18 @@
 ---
-title: "Azure Otomasyonu kaynak denetimi tümleştirmesinin GitHub kuruluş ile | Microsoft Docs"
-description: "Otomasyon runbook'ları kaynak denetimi için GitHub Enterprise ile tümleştirme yapılandırma ayrıntılarını açıklar."
+title: Azure Otomasyonu kaynak denetimi tümleştirmesinin GitHub kuruluş ile
+description: Otomasyon runbook'ları kaynak denetimi için GitHub Enterprise ile tümleştirme yapılandırma ayrıntılarını açıklar.
 services: automation
-documentationCenter: 
-authors: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: magoedte
-ms.openlocfilehash: 2944b62cb3dc6146573041533d56d45b6cc87f18
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: carmonm
+ms.openlocfilehash: eab61daafe7ef8b5ca2fc1416dc7c04f97b8c671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Azure otomasyonu senaryosu - GitHub kuruluş ile Otomasyon kaynak denetimi tümleştirmesi
 
@@ -52,10 +46,10 @@ GitHRWCredential | Kimlik bilgisi varlığı kullanıcı adı ve parola karma ç
 
 1. Eşitleme LocalGitFolderToAutomationAccount runbook kullanarak kimlik doğrulaması [Azure farklı çalıştır hesabı](automation-sec-configure-azure-runas-account.md). 
 
-2. Microsoft Operations Management Suite (OMS) çalışma alanında etkin ve yapılandırılmış Azure Otomasyon çözümünü ile de gereklidir. Yükleyin ve bu senaryo yapılandırmak için kullanılan Otomasyon hesabı ile ilişkili olan bir yoksa, oluşturulur ve yürüttüğünüzde sizin için yapılandırılmış **yeni OnPremiseHybridWorker.ps1** karma runbook betikten çalışan.        
+2. Günlük analizi çalışma alanı etkin ve yapılandırılmış Azure Otomasyon çözümünü ile de gereklidir. Yükleyin ve bu senaryo yapılandırmak için kullanılan Otomasyon hesabı ile ilişkili olan bir yoksa, oluşturulur ve yürüttüğünüzde sizin için yapılandırılmış **yeni OnPremiseHybridWorker.ps1** karma runbook betikten çalışan.        
 
     > [!NOTE]
-    > Şu anda aşağıdaki bölgeler yalnızca Otomasyon OMS ile-tümleştirmeyi **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve **Batı Avrupa**. 
+    > Şu anda aşağıdaki bölgeler yalnızca Otomasyon günlük analizi ile-tümleştirmeyi **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve  **Batı Avrupa**. 
 
 3. Bir adanmış karma Runbook de GitHub yazılım barındıran çalışan hizmet ve runbook dosyaları korumak bir bilgisayar (*runbook*.ps1) GitHub ve Otomasyonunuz arasında eşitlemek için dosya sisteminde bir kaynak dizin olarak hesabı.
 

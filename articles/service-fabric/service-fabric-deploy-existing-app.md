@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric varolan yürütülebilir bir dağıtma | Microsoft Docs"
-description: "Bir Service Fabric kümesi dağıtılabilmesi amacıyla yürütülebilir, konuk olarak var olan bir uygulama paketi hakkında bilgi edinin."
+title: Azure Service Fabric varolan yürütülebilir bir dağıtma | Microsoft Docs
+description: Bir Service Fabric kümesi dağıtılabilmesi amacıyla yürütülebilir, konuk olarak var olan bir uygulama paketi hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f0c6c54b0f168f87ff122dee70a091fdcb96014e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paket ve varolan yürütülebilir bir Service Fabric dağıtma
 Varolan bir yürütülebilir dosya olarak paketleme olduğunda bir [Konuk yürütülebilir](service-fabric-guest-executables-introduction.md), Visual Studio Proje şablonu kullanılacağını seçebilirsiniz veya [uygulama paketini el ile oluşturmak](#manually). Visual Studio kullanarak, uygulama paketi yapısı ve bildirim dosyası yeni proje şablonu tarafından sizin için oluşturulur.

@@ -1,6 +1,6 @@
 ---
-title: "Windows ve Linux Iaas VM'ler için Azure Disk şifrelemesi | Microsoft Docs"
-description: "Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler genel bakış sağlar."
+title: Windows ve Linux Iaas VM'ler için Azure Disk şifrelemesi | Microsoft Docs
+description: Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler genel bakış sağlar.
 services: security
 documentationcenter: na
 author: DevTiw
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 03/13/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 73212a231d11136854115922df423a7cb5b08f05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows ve Linux Iaas VM'ler için Azure Disk şifrelemesi
 Microsoft Azure veri gizliliği, veri egemenliği ve etkinleştirir, Azure veri aralığı boyunca barındırılan denetime Gelişmiş Şifreleme teknolojileri denetlemek ve şifreleme anahtarlarını yönetmek sağlamak için kesinlikle kaydedilmiş veri denetim & Denetim erişimi. Bu Azure müşterilerin kendi iş gereksinimlerine en uygun çözümü seçim yapma esnekliği sağlar. Bu yazıda, biz, yeni bir teknoloji çözümüne "Azure Disk şifrelemesi Windows ve Linux Iaas VM'ın" korumak ve Kuruluş güvenliği ve uyumluluk taahhüt karşılamak için verilerinizi korumaya yardımcı olmak için tanıtılacaktır. Kağıt desteklenen senaryolar ve kullanıcı da dahil olmak üzere Azure disk şifrelemesi özelliklerinin nasıl kullanılacağı hakkında ayrıntılı yönergeler deneyimleri sağlar.
@@ -156,13 +156,13 @@ Disk şifrelemesi Iaas VM'ler için devre dışı bırakmak için aşağıdaki �
 * Azure platformu şifreleme anahtarlarını veya önyüklenir ve sanal makine işletim sistemi birimi şifresini çözer, bunları sanal makine için kullanılabilir yapmak için anahtar kasanızdaki gizli anahtarları erişimi olmalıdır. Azure platformu izinleri ayarlayın **EnabledForDiskEncryption** anahtar kasası özelliği. Daha fazla bilgi için bkz: **ayarlamak ayarlama ve Azure Disk şifrelemesi için anahtar kasanızı yapılandırma** ekte.
 * Anahtar kasası gizliliği ve KEK URL'leri sürümlü olmalıdır. Azure, bu sürüm kısıtlamasını zorlar. Geçerli gizli ve KEK URL'ler için aşağıdaki örneklere bakın:
 
-  * Geçerli bir gizli URL örneği: *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Geçerli bir KEK URL örneği: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Geçerli bir gizli URL örneği:   *https://contosovault.vault.azure.net/secrets/BitLockerEncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Geçerli bir KEK URL örneği:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure Disk şifrelemesi anahtar kasasına gizli anahtarları ve KEK URL'leri parçası olarak belirterek bağlantı noktası numaralarını desteklemiyor. Desteklenmeyen ve desteklenen anahtar kasası URL'leri örnekler için aşağıdakilere bakın:
 
-  * Kabul edilebilir anahtar kasası URL'si *https://contosovault.vault.azure.net:443/gizli/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Kabul edilebilir anahtar kasası URL'si: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Kabul edilebilir anahtar kasası URL'si  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Kabul edilebilir anahtar kasası URL'si:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure Disk şifrelemesi etkinleştirmek için özellik, Iaas Vm'leri aşağıdaki ağ uç noktası yapılandırması gereksinimleri karşılaması gerekir:
   * Anahtar kasanızı bağlanmak için bir belirteç almak üzere Iaas VM bir Azure Active Directory uç noktasına bağlanabilmesi gerekir \[login.microsoftonline.com\].
@@ -172,7 +172,7 @@ Disk şifrelemesi Iaas VM'ler için devre dışı bırakmak için aşağıdaki �
   > [!NOTE]
   > Güvenlik ilkeniz Azure vm'lerden Internet erişimi sınırlar, önceki URI çözümlemek ve IP'leri giden bağlantı izin vermek için belirli bir kuralın yapılandırın.
   >
-  >Yapılandırma ve Azure anahtar kasası (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall) güvenlik duvarının arkasında erişmek için
+  >Yapılandırma ve Azure anahtar kasası bir Güvenlik Duvarı'nı (erişmek içinhttps://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Azure Disk şifrelemesi yapılandırmak için Azure PowerShell SDK sürümü'nın en son sürümünü kullanın. En son sürümünü indirme [Azure PowerShell sürüm](https://github.com/Azure/azure-powershell/releases)
 
@@ -193,7 +193,7 @@ Disk şifrelemesi Iaas VM'ler için devre dışı bırakmak için aşağıdaki �
 * Azure CLI kullanarak disk şifrelemesi önkoşulları yapılandırma için bkz: [bu Bash betik](https://github.com/ejarvi/ade-cli-getting-started).
 * Azure Backup hizmeti ve şifreleme ile Azure Disk şifrelemesi etkin olduğunda şifrelenmiş VM'ler, geri yükleme kullanmak için Azure Disk şifrelemesi anahtar yapılandırmayı kullanarak Vm'leriniz şifreleyin. Yedekleme hizmeti Hayır KEK veya KEK Yapılandırması kullanılarak şifrelenmiş Vm'leri destekler. Bkz: [Azure yedekleme şifreleme ile sanal makineleri yedeklemek ve geri yükleme şifrelenmiş](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Linux işletim sistemi birimi şifrelerken VM yeniden başlatma işleminin sonunda şu anda gerekli olmadığını unutmayın. Bu, portal, powershell veya CLI yapılabilir.   Şifreleme ilerlemesini izlemek için Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus tarafından döndürülen durum iletisi düzenli aralıklarla yoklar.  Şifreleme tamamlandıktan sonra bu komutu tarafından döndürülen durum iletisi bunun gösterir.  Örneğin, "ProgressMessage: işletim sistemi diski başarıyla şifrelendi, lütfen VM yeniden başlatma" Bu noktada VM yeniden ve kullanılabilecek.  
+* Linux işletim sistemi birimi şifrelerken VM yeniden başlatma işleminin sonunda şu anda gerekli olmadığını unutmayın. Bu, portal, powershell veya CLI yapılabilir.   Şifreleme ilerlemesini izlemek için düzenli aralıklarla Get-AzureRmVMDiskEncryptionStatus tarafından döndürülen durum iletisi yoklamak https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Şifreleme işlemi tamamlandıktan sonra bu komutu tarafından döndürülen durum iletisi bunun belirtir. Örneğin, "ProgressMessage: işletim sistemi diski başarıyla şifrelendi, lütfen VM yeniden başlatma" Bu noktada VM yeniden ve kullanılabilecek.  
 
 * Linux için Azure Disk şifrelemesi bağlı dosya sistemi Linux önce şifreleme sağlamak için veri diski gerektiriyor
 
@@ -224,25 +224,25 @@ Azure AD uygulaması oluşturmak için aşağıdaki PowerShell cmdlet'ini kullan
 ##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Azure AD İstemci Kimliğini ve parolasını Azure portalından ayarlama
 Azure AD İstemci Kimliğini ve parolasını Azure portalını kullanarak da ayarlayabilirsiniz. Bu görevi gerçekleştirmek için aşağıdakileri yapın:
 
-1. Tıklatın **Active Directory** sekmesi.
+1. Seçin **tüm hizmetleri > Azure Active Directory**
 
- ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/aad-service.png)
 
-2. Tıklatın **uygulama Ekle**ve ardından uygulama adı yazın.
+2. Seçin **uygulama kayıtlar > Yeni uygulama kaydı**
 
- ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/aad-app-registration.png)
 
-3. OK düğmesine tıklayın ve ardından uygulama özelliklerini yapılandırın.
+3. İstenen bilgileri sağlayın ve uygulama oluşturun:
 
- ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/aad-create-app.png)
 
-4. Bitirmek için sol alt köşesindeki onay işaretine tıklayın. Uygulama yapılandırma sayfası görünür ve Azure AD istemci kimliği sayfasının en altında görüntülenir.
+4. Uygulama kimliği de dahil olmak üzere özelliklerini görüntülemek için yeni oluşturulan uygulama seçin  Uygulama için bir anahtar oluşturmak için seçin **Ayarları > anahtarları**, açıklama ve anahtarı için sona erme ekleyin ve tıklatın **Kaydet**
 
- ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/aad-create-pw.png)
 
-5. Azure AD gizli tıklayarak Kaydet **kaydetmek** düğmesi. Azure AD gizli anahtarları metin kutusuna dikkat edin. Uygun şekilde koruyun.
+5. Oluşturulan gizli değer kopyalayın ve uygun şekilde koruyun.
 
- ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
+ ![Azure Disk Şifrelemesi](./media/azure-security-disk-encryption/aad-save-pw.png)
 
 
 ##### <a name="use-an-existing-application"></a>Varolan bir uygulama kullanın

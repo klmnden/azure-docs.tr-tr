@@ -1,12 +1,12 @@
 ---
-title: "Doğrulanıyor bağlantısı: Sorun giderme kılavuzu Azure ExpressRoute | Microsoft Docs"
-description: "Bu sayfa, sorun giderme ve bir expressroute bağlantı hattı uçtan uca bağlantısını doğrulama yönergelerini sağlar."
+title: 'Doğrulanıyor bağlantısı: Sorun giderme kılavuzu Azure ExpressRoute | Microsoft Docs'
+description: Bu sayfa, sorun giderme ve bir expressroute bağlantı hattı uçtan uca bağlantısını doğrulama yönergelerini sağlar.
 documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute bağlantısı doğrulanıyor
 Bir şirket içi ağ bağlantı sağlayıcı tarafından kolaylaştırılan özel bir bağlantı üzerinden Microsoft bulutunu genişletir, ExpressRoute aşağıdaki üç farklı ağ bölgeleri içerir:
@@ -68,7 +68,7 @@ Bir expressroute bağlantı hattı doğrulamak için aşağıdaki adımları (no
 
 Daha fazla doğrulama ve denetimleri geri gelecekteki iade aylık eklenecek!
 
-##<a name="validate-circuit-provisioning-and-state"></a>Bağlantı hattı hazırlama ve durumunu doğrula
+## <a name="validate-circuit-provisioning-and-state"></a>Bağlantı hattı hazırlama ve durumunu doğrula
 Bağlantı modeli bağımsız olarak bir expressroute bağlantı hattı oluşturulması gerekir ve bu nedenle devre sağlama için bir hizmet anahtarı oluşturulur. Bir expressroute bağlantı hattı sağlama PE Msee'ler (4) ve Msee'ler (5) arasında yedekli bir katman 2 bağlantı kurar. Makale oluşturma, değiştirme, sağlamak ve bir expressroute bağlantı hattı doğrulamanın nasıl yapılacağı hakkında daha fazla bilgi için bkz: [oluşturma ve bir expressroute bağlantı hattı değiştirme][CreateCircuit].
 
 >[!TIP]
@@ -76,7 +76,7 @@ Bağlantı modeli bağımsız olarak bir expressroute bağlantı hattı oluştur
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Azure Portalı aracılığıyla doğrulama
+### <a name="verification-via-the-azure-portal"></a>Azure Portalı aracılığıyla doğrulama
 Azure portalında seçerek bir expressroute bağlantı hattı durumunu denetlenebilir ![2][2] sol kenar çubuğu menü ve expressroute bağlantı hattı seçme. Bir expressroute bağlantı seçme "Tüm kaynaklar" altında listelenen bağlantı hattı ExpressRoute bağlantı hattı dikey penceresi açılır. İçinde ![3][3] dikey penceresinde aşağıdaki ekran görüntüsünde gösterildiği gibi essentials listelenen ExpressRoute bölümünü:
 
 ![4][4]    
@@ -90,7 +90,7 @@ ExpressRoute essentials'ta *hattı durum* Microsoft tarafında devre durumunu g�
 >
 >
 
-###<a name="verification-via-powershell"></a>PowerShell aracılığıyla doğrulama
+### <a name="verification-via-powershell"></a>PowerShell aracılığıyla doğrulama
 Bir kaynak grubundaki tüm ExpressRoute bağlantı hatları listelemek için aşağıdaki komutu kullanın:
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -139,7 +139,7 @@ Bir expressroute bağlantı hattı işletimsel olup olmadığını onaylamak iç
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>PowerShell (Klasik) aracılığıyla doğrulama
+### <a name="verification-via-powershell-classic"></a>PowerShell (Klasik) aracılığıyla doğrulama
 Bir abonelik altında tüm ExpressRoute bağlantı hatları listelemek için aşağıdaki komutu kullanın:
 
     Get-AzureDedicatedCircuit
@@ -167,10 +167,10 @@ Bir expressroute bağlantı hattı işletimsel olup olmadığını onaylamak iç
 >
 >
 
-##<a name="validate-peering-configuration"></a>Eşleme yapılandırmasını doğrulayın
+## <a name="validate-peering-configuration"></a>Eşleme yapılandırmasını doğrulayın
 Hizmet sağlayıcısı expressroute bağlantı hattı Sağlama tamamlandıktan sonra bir yönlendirme yapılandırması MSEE PRs (4) Msee'ler (5) arasındaki expressroute bağlantı hattı üzerinden oluşturulabilir. Her expressroute bağlantı hattı etkin bir, iki veya üç yönlendirme bağlamları sahip olabilir: Azure özel eşleme (trafiğin Azure içindeki özel sanal ağların için), Azure ortak eşleme (trafiğin Azure genel IP adresleri için) ve Microsoft eşleme (trafiği Office 365 ve Dynamics 365). Oluşturma ve yönlendirme yapılandırmasını değiştirme hakkında daha fazla bilgi için bkz: [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme][CreatePeering].
 
-###<a name="verification-via-the-azure-portal"></a>Azure Portalı aracılığıyla doğrulama
+### <a name="verification-via-the-azure-portal"></a>Azure Portalı aracılığıyla doğrulama
 
 >[!NOTE]
 >Katman 3 hizmet sağlayıcısı tarafından sağlanır ve eşlemeler portalda boş, Yenile düğmesini protal üzerinde kullanarak hattı yapılandırmasını yenileyin. Bu işlem doğru yönlendirme yapılandırması hattınız üzerinde uygulanır. 
@@ -188,7 +188,7 @@ Azure ortak ve Microsoft eşleme yönlendirme bağlamları etkin olmayan ancak �
 >
 >
 
-###<a name="verification-via-powershell"></a>PowerShell aracılığıyla doğrulama
+### <a name="verification-via-powershell"></a>PowerShell aracılığıyla doğrulama
 Azure özel eşleme yapılandırma ayrıntılarını almak için aşağıdaki komutları kullanın:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -364,7 +364,7 @@ Aşağıdaki örnek, bir eşleme için komut yanıtı yok gösterir:
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>Onay trafiği istatistikleri
+## <a name="check-the-traffic-statistics"></a>Onay trafiği istatistikleri
 Birleşik birincil ve ikincil yol trafiğini istatistikleri--bayt ve bir kapatma--bir eşleme bağlamında almak için aşağıdaki komutu kullanın:
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

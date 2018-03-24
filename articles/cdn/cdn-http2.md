@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN HTTP/2 desteği | Microsoft Docs"
-description: "HTTP/2 ve CDN desteği hakkında bilgi edinin."
+title: Azure CDN HTTP/2 desteği | Microsoft Docs
+description: HTTP/2 ve CDN desteği hakkında bilgi edinin.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: lichard
 manager: erikre
-editor: 
+editor: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: 4f8dd685c3ae89535217d7a17a01c5129ca7e6e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Azure CDN HTTP/2 desteği
 
 HTTP/2 HTTP/1.1\ için önemli bir düzeltme olur. Daha hızlı web performans, daha az yanıt süresi ve gelişmiş bir kullanıcı, bilinen HTTP yöntemleri, durum kodları ve semantiği korurken deneyimi sağlar. HTTP/2 HTTP ve HTTPS ile çalışmak üzere tasarlanmıştır ancak çok sayıda istemci web tarayıcıları TLS yalnızca HTTP/2 destekler.
 
-###<a name="http2-benefits"></a>HTTP/2 avantajları
+### <a name="http2-benefits"></a>HTTP/2 avantajları
 
 HTTP/2 avantajları şunlardır:
 
@@ -40,7 +40,7 @@ HTTP/2 avantajları şunlardır:
     Akış bağımlılıkları sunucuya göstermek istemci önceliğe sahip olduğunuz kaynakların izin verin.
 
 
-##<a name="http2-browser-support"></a>HTTP/2 tarayıcı desteği
+## <a name="http2-browser-support"></a>HTTP/2 tarayıcı desteği
 
 Tüm önde gelen tarayıcılar HTTP/2 desteği geçerli sürümlerine uyguladık. HTTP/1.1 için otomatik olarak geri dönüş desteklenmeyen tarayıcılar olacaktır.
 
@@ -52,11 +52,11 @@ Tüm önde gelen tarayıcılar HTTP/2 desteği geçerli sürümlerine uyguladık
 |Opera| 32|
 |Safari| 9|
 
-##<a name="enabling-http2-support-in-azure-cdn"></a>Azure CDN HTTP/2 desteğini etkinleştirme
+## <a name="enabling-http2-support-in-azure-cdn"></a>Azure CDN HTTP/2 desteğini etkinleştirme
 
 HTTP/2 desteği şu anda etkin mi **akamai'den Azure CDN** ve **verizon'dan Azure CDN** profilleri. Başka bir eylem müşterilerden gereklidir.
 
-##<a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 
 HTTP/2 avantajları uygulamada görmek için bkz: [akamai'den bu demo](https://http2.akamai.com/demo).
 

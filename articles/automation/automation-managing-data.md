@@ -1,24 +1,18 @@
 ---
-title: "Azure Otomasyonu verileri yönetme | Microsoft Docs"
-description: "Bu makale bir Azure Otomasyonu ortamının yönetilmesi için birden çok konuları içerir.  Şu anda veri saklama ve Azure Automation olağanüstü durum kurtarma Azure Automation yedekleme içerir."
+title: Azure Otomasyonu verilerini yönetme
+description: Bu makale bir Azure Otomasyonu ortamının yönetilmesi için birden çok konuları içerir.  Şu anda veri saklama ve Azure Automation olağanüstü durum kurtarma Azure Automation yedekleme içerir.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: stevenka
-editor: tysonn
-ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/02/201
-ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+manager: carmonm
+ms.openlocfilehash: c71807a14c8a7f1edff60411a84f7d0d6f70fd23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-azure-automation-data"></a>Azure Otomasyonu verilerini yönetme
 Bu makale bir Azure Otomasyonu ortamının yönetilmesi için birden çok konuları içerir.
@@ -43,7 +37,7 @@ Aşağıdaki tabloda farklı kaynaklar için bekletme ilkesi özetler.
 
 Bekletme İlkesi, tüm kullanıcılar için geçerlidir ve şu anda özelleştirilemez.
 
-Ancak, uzun bir süre için verileri korumak gerekiyorsa, runbook günlük analizi için iş günlüklerini gönderebilir.  Daha fazla bilgi için gözden [OMS günlük analizi için Azure Otomasyonu işi veri iletmek](automation-manage-send-joblogs-log-analytics.md).   
+Ancak, uzun bir süre için verileri korumak gerekiyorsa, runbook günlük analizi için iş günlüklerini gönderebilir.  Daha fazla bilgi için gözden [Azure Otomasyonu işi veri iletmek için günlük analizi](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Azure Otomasyonunu Yedekleme
 Microsoft Azure automation hesabında sildiğinizde, hesaptaki tüm nesnelere runbook'lar, modüller, yapılandırmaları, ayarları, işleri ve varlıkları dahil olmak üzere silinir. Hesap silindikten sonra nesneleri kurtarılamıyor.  Otomasyon hesabınızın içeriğini silmeden önce yedeklemek için aşağıdaki bilgileri kullanın. 

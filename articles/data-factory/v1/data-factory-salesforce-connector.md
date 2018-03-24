@@ -1,11 +1,10 @@
 ---
-title: "Veri Fabrikası kullanarak Salesforce veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak Salesforce veri taşıma hakkında bilgi edinin."
+title: Veri Fabrikası kullanarak Salesforce veri taşıma | Microsoft Docs
+description: Azure Data Factory kullanarak Salesforce veri taşıma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4c679722e36eb9533b65037a488fb9af9a5bc80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Salesforce taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +71,7 @@ Aşağıdaki tabloda Salesforce bağlantılı hizmete özgü JSON öğeleri içi
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **Salesforce**. |Evet |
-| environmentUrl | URL, Salesforce örneği belirtin. <br><br> -Varsayılan değer "https://login.salesforce.com" dir. <br> Korumalı alan veri kopyalamak için "https://test.salesforce.com" belirtin. <br> Özel etki alanından veri kopyalamak için örneğin, "https://[domain].my.salesforce.com" belirtin. |Hayır |
+| environmentUrl | URL, Salesforce örneği belirtin. <br><br> -Varsayılan değer "https://login.salesforce.com". <br> -Korumalı alan veri kopyalamak için belirtin "https://test.salesforce.com". <br> Özel etki alanından veri kopyalamak için örneğin, "https://[domain].my.salesforce.com" belirtin. |Hayır |
 | kullanıcı adı |Kullanıcı hesabı için bir kullanıcı adı belirtin. |Evet |
 | password |Kullanıcı hesabı için bir parola belirtin. |Evet |
 | securityToken |Kullanıcı hesabı için bir güvenlik belirteci belirtin. Bkz: [güvenlik belirteci alma getirin](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) bir güvenlik belirteci sıfırlama/get ilgili yönergeler için. Güvenlik belirteçleri hakkında genel bilgi edinmek için [güvenlik ve API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Evet |
@@ -111,10 +110,10 @@ Kopyalama etkinliğinde kaynak türü olduğunda **RelationalSource** (içeren S
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>WHERE kullanarak veri alma DateTime sütun yan tümcesi
 Ne zaman SOQL veya SQL sorgusu DateTime biçimi fark dikkat belirtin. Örneğin:
 
-* **SOQL örnek**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **SOQL örnek**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **SQL örneği**:
-    * **Sorgu belirtmek için kopyalama Sihirbazı'nı kullanarak:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * **Sorgu belirtmek için düzenleme JSON kullanarak (char düzgün kaçış):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+    * **Kopyalama Sihirbazı'nı kullanarak sorgu belirtmek için:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Sorgu belirtmek için düzenleme JSON kullanarak (char düzgün kaçış):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Salesforce raporundan veri alma
 Sorgu olarak belirterek Salesforce raporlarını veri alabilirsiniz `{call "<report name>"}`, örneğin,. `"query": "{call \"TestReport\"}"`.
@@ -290,8 +289,8 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 | Otomatik numara |Dize |
 | Onay kutusu |Boole |
 | Para birimi |Çift |
-| Tarih |Tarih Saat |
-| Tarih/Saat |Tarih Saat |
+| Tarih |DateTime |
+| Tarih/Saat |DateTime |
 | E-posta |Dize |
 | Kimlik |Dize |
 | Arama ilişkisi |Dize |
@@ -305,7 +304,7 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 | Metin alanı (uzun) |Dize |
 | Metin alanı (zengin) |Dize |
 | Metin (şifrelenmiş) |Dize |
-| URL |Dize |
+| URL'si |Dize |
 
 > [!NOTE]
 > Kaynak veri kümesi sütunlarından havuz kümesinden sütunlara eşlemek için bkz [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).

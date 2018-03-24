@@ -1,24 +1,21 @@
 ---
-title: "Başvuru - Azure AD B2C belirteç | Microsoft Docs"
-description: "Azure Active Directory B2C'de yayınlanan belirteçleri türleri"
+title: Başvuru - Azure AD B2C belirteç | Microsoft Docs
+description: Azure Active Directory B2C'de yayınlanan belirteçleri türleri
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e5cc6a0974f9481491518779209ec5256870921f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Belirteç başvurusu
 
@@ -74,9 +71,9 @@ Talep Kimliği belirteçlerinde belirli bir sırada döndürülmez unutmayın. A
 | Ad | İste | Örnek değer | Açıklama |
 | --- | --- | --- | --- |
 | Hedef kitle |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Bir izleyici talep belirtecinin hedeflenen alıcı tanımlar. Azure AD B2C için hedef kitle, uygulamanızın uygulama kimliği, uygulama kayıt portalında uygulamanıza atanan aynıdır. Uygulamanız bu değeri doğrulamak ve onu eşleşmiyorsa belirteci reddetme gerekir. |
-| Veren |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Bu talep oluşturur ve belirteci döndüren güvenlik belirteci hizmeti (STS) tanımlar. Ayrıca, kullanıcı kimlik doğrulamasının yapıldığı Azure AD dizini tanımlar. Uygulamanız Azure Active Directory v2.0 uç noktasından belirteç geldiğini emin olmak için verenin talep doğrulamalıdır. |
+| Veren: |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Bu talep oluşturur ve belirteci döndüren güvenlik belirteci hizmeti (STS) tanımlar. Ayrıca, kullanıcı kimlik doğrulamasının yapıldığı Azure AD dizini tanımlar. Uygulamanız Azure Active Directory v2.0 uç noktasından belirteç geldiğini emin olmak için verenin talep doğrulamalıdır. |
 | çıkışı |`iat` |`1438535543` |Bu talep belirteci, dönem saatle gösterilir düzenlendiği zamandır. |
-| süre sonu |`exp` |`1438539443` |Dönem zaman temsil hangi belirteci geçersiz hale geldiği tarih talep sona erme saati. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
+| Sona erme zamanı |`exp` |`1438539443` |Dönem zaman temsil hangi belirteci geçersiz hale geldiği tarih talep sona erme saati. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
 | önce değil |`nbf` |`1438535543` |Bu talep aktarılma belirteç olur geçerli, dönem zaman gösterilen saattir. Bu genellikle belirtecin verilmiş süresiyle aynıdır. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
 | Sürüm |`ver` |`1.0` |Bu kimliği belirteci Azure AD tarafından tanımlandığı şekilde sürümüdür. |
 | kod karma |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca bir OAuth 2.0 yetkilendirme kodu ile birlikte belirtecin verildiğinde bir kod karma bir kimlik belirtecinde dahil edilir. Kod karma bir kimlik doğrulama kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme konusunda daha fazla ayrıntı için bkz: [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html).  |
@@ -124,7 +121,7 @@ Azure AD B2C Openıd Connect meta veri son nokta vardır. Bu, çalışma zamanı
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-`fabrikamb2c.onmicrosoft.com`kullanıcının kimliğini doğrulamak için kullanılan B2C dizini ve `b2c_1_sign_in` belirtecini almak için kullanılan ilkesi. İlkeyi bir belirteç imzalamak için kullanılan (ve meta verileri almak için nereye) belirlemek için iki seçeneğiniz vardır. İlk olarak, ilke adını dahil `acr` belirteç talep. Gövde kod çözme ve sonuçları JSON dizesinde seri 64 tabanlı tarafından talep JWT gövdesi dışında ayrıştıramıyor. `acr` Talep belirteci vermek için kullanılan ilkenin adı olacaktır.  Değerini ilkesinde kodlamak için diğer seçeneğiniz olduğunu `state` isteği gönderin ve ardından ilkeyi kullanılan belirlemek için kod çözme parametresi. Her iki yöntem geçerli değil.
+`fabrikamb2c.onmicrosoft.com` kullanıcının kimliğini doğrulamak için kullanılan B2C dizini ve `b2c_1_sign_in` belirtecini almak için kullanılan ilkesi. İlkeyi bir belirteç imzalamak için kullanılan (ve meta verileri almak için nereye) belirlemek için iki seçeneğiniz vardır. İlk olarak, ilke adını dahil `acr` belirteç talep. Gövde kod çözme ve sonuçları JSON dizesinde seri 64 tabanlı tarafından talep JWT gövdesi dışında ayrıştıramıyor. `acr` Talep belirteci vermek için kullanılan ilkenin adı olacaktır.  Değerini ilkesinde kodlamak için diğer seçeneğiniz olduğunu `state` isteği gönderin ve ardından ilkeyi kullanılan belirlemek için kod çözme parametresi. Her iki yöntem geçerli değil.
 
 Meta veri belgesi birkaç yararlı bilgi parçalarını içeren bir JSON nesnesidir. Bunlar, Openıd Connect kimlik doğrulama gerçekleştirmek için gerekli uç noktaları konumunu içerir. Ayrıca içerirler `jwks_uri`, hangi ortak anahtarlar konumunu gösteren Belirteçleri imzalamak için kullanılır. Konum burada sağlanır, ancak konum meta veri belgesi kullanarak ve çıkışı ayrıştırma dinamik olarak getirilemedi en iyisidir `jwks_uri`:
 
@@ -146,7 +143,7 @@ Uygulamanızı veya API kimliği belirteci aldığında bunu talep karşı bazı
 
 Uygulamanızı gerçekleştirmesi gerektiğini doğrulamaları tam bir listesi için başvurmak [Openıd Connect belirtimi](https://openid.net). Bu talep beklenen değerler ayrıntılarını yer alan önceki [belirteci bölüm](#types-of-tokens).  
 
-## <a name="token-lifetimes"></a>Belirteç yaşam süresi
+## <a name="token-lifetimes"></a>Belirteç ömürleri
 Aşağıdaki belirteci yaşam süreleri bilginiz ilerletmek için sağlanır. Geliştirme ve hata ayıklama uygulamaları bunlar yardımcı olabilir. Uygulamalarınızı sabit kalması için bu yaşam süreleri hiçbirini beklenir yazılmamalıysa unutmayın. Bunlar olabilir ve değiştirir. Daha fazla bilgi edinin [belirteci yaşam süreleri özelleştirmesini](active-directory-b2c-token-session-sso.md) Azure AD B2C'de.
 
 | Belirteç | Yaşam süresi | Açıklama |

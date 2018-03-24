@@ -1,20 +1,20 @@
 ---
-title: "Azure SQL veritabanı yönetilen örnek T-SQL farkları | Microsoft Docs"
-description: "Bu makalede, Azure SQL veritabanı yönetilen örneğini ve SQL Server T-SQL farkları anlatılmaktadır."
+title: Azure SQL veritabanı yönetilen örnek T-SQL farkları | Microsoft Docs
+description: Bu makalede, Azure SQL veritabanı yönetilen örneğini ve SQL Server T-SQL farkları anlatılmaktadır.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bd8733590819faa3c4286c1940f0b9258842c930
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL Database yönetilen örnek T-SQL farkları 
 
@@ -393,7 +393,11 @@ Aşağıdaki değişkenler, İşlevler ve görünümler farklı sonuçlar dönd�
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Depolama alanı olan küçük veritabanı dosyalarını aşan
 
-Her yönetilen örneği oluşturan 35 TB depolama alanı ayırdığı ve her veritabanı dosyasını 128 GB depolama alanı ayırma biriminde, başlangıçta yerleştirilir. Çok sayıda küçük dosyalar veritabanlarıyla toplam 35 TB sınırı aşan 128 GB birimlerde yerleştirilmiş olabilir. Bu durumda, yeni veritabanları oluşturulamıyor veya geri dahi tüm veritabanlarının toplam boyutu örnek boyutu sınırına ulaştığında değil. Döndürülen hata bu durumda açık olmayabilir.
+Her yönetilen örneğini 35 TB depolama için Azure Premium Disk alanı ayrılmış sahip ve her veritabanı dosyasını ayrı bir fiziksel diskte yerleştirilir. Disk boyutları 128 GB, 256 GB, 512 GB, 1 TB veya 4 TB olabilir. Diskte kullanılmayan alan ücret, ancak Azure Premium Disk boyutları toplamı 35 TB aşamaz. Bazı durumlarda, bir yönetilen 8 TB toplam gerekmeyen örneği TB Azure sınırlamak iç parçalanması nedeniyle depolama boyutu 35 aşabilir. 
+
+Örneğin, yönetilen bir örnek 4 TB diski kullanan 1.2 TB boyuta sahip bir dosya ve her 128 GB boyutunu 248 disklerle yerleştirilir 248 dosyalarla 1 GB olabilir. Bu örnekte, toplam disk depolama boyutu 1 x 4 olan TB + 248 x 128 GB = 35 TB. Ancak, veritabanları için toplam ayrılmış örnek boyutu 1.2 x 1. TB + 248 x 1 GB = 1.4 TB. Dosyaları, belirli bir dağıtımını nedeniyle belirli koşullar altında yönetilen bir örneği burada beklediğiniz değil Azure Premium Disk Depolama sınırına ulaştığında, bu gösterilmektedir. 
+
+Var olan veritabanlarını hata olacaktır ve yeni dosya eklenmez, ancak yeni veritabanları oluşturulan veya yeni bir disk sürücüsü için yeterli alan olmadığından tüm veritabanlarının toplam boyutu t ulaşmaz olsa bile geri herhangi bir sorun büyüyebilir He örneği boyut sınırını aştı. Döndürülen hata bu durumda açık değil.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>SAS anahtarı yanlış yapılandırma veritabanı sırasında geri yükleme
 

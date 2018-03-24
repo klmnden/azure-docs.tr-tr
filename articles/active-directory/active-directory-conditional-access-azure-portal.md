@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory koşullu erişim | Microsoft Docs"
-description: "Koşullu erişim'deki öğrenin Azure Active Directory erişim denetimi merkezi bir konumdan yönetmenize yardımcı olabilir."
+title: Azure Active Directory koşullu erişim | Microsoft Docs
+description: Koşullu erişim'deki öğrenin Azure Active Directory erişim denetimi merkezi bir konumdan yönetmenize yardımcı olabilir.
 services: active-directory
-keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
-documentationcenter: 
+keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74a87065416b397b4eebbcaa54c769711176708d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim
 
@@ -49,7 +49,7 @@ Koşullu erişim size yardımcı olabilecek bazı genel erişim sorunları şunl
 
 - **[Ağ konumu](active-directory-conditional-access-locations.md)**: Azure AD herhangi bir yerden erişilebilir. Ne erişim girişiminde, BT departmanınızın denetimi altında olmayan bir ağ konumundan yapılır? Erişim için kimlik kanıtı kaynaklarınıza Kurumsal ağınızdan çalışır gibi bir kullanıcı adı ve parola birleşimini kullanarak yeterince iyi olabilir. Peki, isteğe bağlı kimlik daha güçlü bir kanıtı erişim denemelerinin başlatılan diğer beklenmeyen ülke veya bölgelerden dünya? Ne bile erişimini engellemek istediğiniz belirli konumlardan çalışır?  
 
-- **[Aygıt Yönetimi](active-directory-conditional-access-conditions.md#device-platforms)**: Azure AD'de kullanıcıları geniş bir dizi cihazı mobil ve aynı zamanda kişisel aygıtlar dahil olmak üzere bulut uygulamalarını erişebilirsiniz. Bu erişim girişimi talep ne yalnızca BT departmanınız tarafından yönetilen cihazlar kullanarak gerçekleştirilen kullanıcı olması gerekiyor mu? Ne bile bulut uygulamalarında ortamınızdaki belirli aygıt türleri form erişimini engellemek istediğiniz? 
+- **[Aygıt Yönetimi](active-directory-conditional-access-conditions.md#device-platforms)**: Azure AD'de kullanıcıları geniş bir dizi cihazı mobil ve aynı zamanda kişisel aygıtlar dahil olmak üzere bulut uygulamalarını erişebilirsiniz. Ne erişim denemesi yalnızca BT departmanınız tarafından yönetilen cihazlar kullanarak gerçekleştirilmesini talep? Ne bile belirli aygıt türleri, ortamınızdaki bulut uygulamalarını erişimini engellemek istediğiniz? 
 
 - **[İstemci uygulaması](active-directory-conditional-access-conditions.md#client-apps)**: Bugün, web tabanlı uygulamalar, mobil uygulama veya Masaüstü uygulamaları gibi farklı uygulama türleri kullanarak birçok bulut uygulamaları erişebilirsiniz. Ne erişim girişiminde bilinen sorunlara neden olan bir istemci uygulaması türü kullanılarak yapılır? Ne belirli uygulama türleri için BT bölümünüze tarafından yönetilen bir cihaz gerektiriyor? 
 

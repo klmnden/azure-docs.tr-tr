@@ -1,24 +1,24 @@
 ---
-title: "Dayanıklı işlevleri - Azure durumlarda yönetme"
-description: "Azure işlevleri için dayanıklı işlevleri uzantısı durumlarda yönetmeyi öğrenin."
+title: Dayanıklı işlevleri - Azure durumlarda yönetme
+description: Azure işlevleri için dayanıklı işlevleri uzantısı durumlarda yönetmeyi öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cea9b18cd7434a34138d5cecad8a8fd7f10d2e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) durumlarda yönetme
 
@@ -104,7 +104,7 @@ public static async Task Run(
 
 ## <a name="terminating-instances"></a>Sonlandırma örnekleri
 
-Çalışan bir örneği kullanarak sonlandırılabilir [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı. İki parametreler bir `instanceId` ve `reason` günlükleri ve örnek durum yazılır dize. Sonlandırılmış bir örneği sonraki ulaştığında hemen sonra çalışmayı durdurur `await` zaten açık değilse, nokta veya hemen sonlandırılacak bir `await`.
+Çalışan bir orchestration örneği kullanarak sonlandırılabilir [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı. İki parametreler bir `instanceId` ve `reason` günlükleri ve örnek durum yazılır dize. Sonlandırılmış bir örneği sonraki ulaştığında hemen sonra çalışmayı durdurur `await` zaten açık değilse, nokta veya hemen sonlandırılacak bir `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -119,6 +119,9 @@ public static Task Run(
 
 > [!NOTE]
 > Örnek sonlandırma şu anda yalnızca C# orchestrator işlevleri için desteklenir.
+
+> [!NOTE]
+> Örnek sonlandırma şu anda dağıtılmaz. Etkinlik işlevler ve alt düzenlemelerin tamamlanma olup onları adlı orchestration örneği sonlandırıldı bağımsız olarak çalışır.
 
 ## <a name="sending-events-to-instances"></a>Olayları örneklerine gönderme
 

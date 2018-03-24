@@ -1,6 +1,6 @@
 ---
-title: "MySQL için Azure veritabanında fiyatlandırma katmanları"
-description: "Bu makalede Azure veritabanındaki fiyatlandırma katmanları için MySQL açıklanmaktadır."
+title: MySQL için Azure veritabanında fiyatlandırma katmanları
+description: Bu makalede Azure veritabanındaki fiyatlandırma katmanları için MySQL açıklanmaktadır.
 services: mysql
 author: jan-eng
 ms.author: janeng
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 6bd24da05c337a902ce0e4a2b9acf22a809eb653
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ec475648f1da4420e86bf59053d95770409bed8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına MySQL için
 
@@ -21,8 +21,8 @@ MySQL sunucusu için bir Azure veritabanı üç farklı fiyatlandırma katmanlar
 
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
-| İşlem oluşturma | Gen 4, 5 Gen | Gen 4, 5 Gen | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| İşlem oluşturma | Gen 4, 5 Gen | Gen 4, 5 Gen | 5. Nesil |
+| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | VCore başına bellek | 1x | 2 x Basic | Genel amaçlı x 2 |
 | Depolama Boyutu | 1 TB ' 5 GB | 1 TB ' 5 GB | 1 TB ' 5 GB |
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
@@ -32,15 +32,40 @@ Aşağıdaki tabloda bir fiyatlandırma katmanı seçme özelliği için bir ba�
 
 | Fiyatlandırma katmanı | Hedef iş yükleri |
 |:-------------|:-----------------|
-| Temel | Açık işlem ve g/ç performansı gerektiren iş yükleri. Geliştirme veya test için kullanılan sunucuları örnekler veya küçük ölçekli uygulamalar kullanılmayan. |
-| Genel Amaçlı | Dengeli işlem ve bellek ölçeklenebilir g/ç işleme ile gerektiren çoğu kurumsal iş yükleri. Örnek Web ve mobil uygulamaları ve diğer Kurumsal uygulamaları barındırmak üzere sunucu verilebilir.|
+| Temel | Hafif işlem ve G/Ç performansı gerektiren iş yükleri. Bu iş yüklerine örnek olarak geliştirme veya test için kullanılan sunucular ya da sık kullanılmayan, küçük ölçekli uygulamalar verilebilir. |
+| Genel Amaçlı | Dengeli işlem ve bellek kaynaklarının yanı sıra ölçeklenebilir G/Ç aktarım hızı gerektiren çoğu işletme iş yükü. Örnek Web ve mobil uygulamaları ve diğer Kurumsal uygulamaları barındırmak üzere sunucu verilebilir.|
 | Bellek için İyileştirilmiş | Daha hızlı işlem yapma ve daha yüksek eşzamanlılık için bellek içi performans gerektiren yüksek performanslı veritabanı iş yükleri. Gerçek zamanlı veri ve yüksek performanslı işlem veya analitik uygulamaları işlemek için sunucu örnekler.|
 
 Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı saniye içinde değiştirilebilir. Depolama alanı ve yedekleme bekletme süresi yukarı veya aşağı uygulama kapalı kalma süresi ile miktarını bağımsız olarak da ayarlayabilirsiniz. Daha fazla ayrıntı için aşağıdaki ölçeklendirme bölümüne bakın.
 
 ## <a name="compute-generations-vcores-and-memory"></a>İşlem nesli, vCores ve bellek
 
-İşlem kaynakları, temel alınan donanım mantıksal CPU temsil eden vCores sağlanır. Şu anda iki işlem nesil, Gen 4 ve Gen 5 aralarından seçim yapabileceğiniz sunulur. 4 mantıksal CPU üzerinde Intel E5-2673 v3 dayalı gen (Haswell) 2.4 GHz işlemci. 5 mantıksal CPU üzerinde Intel E5-2673 v4 dayalı gen (Broadwell) 2.3 GHz işlemci.
+İşlem kaynakları, temel alınan donanım mantıksal CPU temsil eden vCores sağlanır. Şu anda iki işlem nesil, Gen 4 ve Gen 5 aralarından seçim yapabileceğiniz sunulur. 4. Nesil mantıksal CPU’lar Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri temel alır. 5. Nesil mantıksal CPU’lar Intel E5-2673 v4 (Broadwell) 2,3 GHz işlemcileri temel alır. Gen 4 ve Gen 5 ("X" kullanılabilir gösterir) aşağıdaki bölgelerde kullanılabilir: 
+
+| **Azure bölgesi** | **Nesil 4** | **Nesil 5** |
+|:---|:----------:|:--------------------:|
+| Orta ABD |  | X |
+| Doğu ABD | X | X |
+| Doğu ABD 2 | X |  |
+| Orta Kuzey ABD | X |  |
+| Orta Güney ABD | X |  |
+| Batı ABD | X | X |
+| Batı ABD 2 |  | X |
+| Orta Kanada | X | X |
+| Doğu Kanada | X | X |
+| Güney Brezilya | X |  |
+| Kuzey Avrupa | X | X |
+| Batı Avrupa | X | X |
+| Birleşik Krallık Batı |  | X |
+| Birleşik Krallık Güney |  | X |
+| Doğu Asya | X |  |
+| Güneydoğu Asya | X |  |
+| Avustralya Doğu |  | X |
+| Orta Hindistan | X |  |
+| Batı Hindistan | X |  |
+| Japonya Doğu | X |  |
+| Japonya Batı | X |  |
+| Kore Güney |  | X |
 
 Fiyatlandırma katmanına bağlı olarak, belirli bir bellek miktarı her vCore sağlanır. Artırabilir ya da vCores sayısını azaltmak için sunucunuzu, bellek artırır veya orantılı olarak azaltır. Genel amaçlı katmanı çift temel katmana göre vCore başına bellek miktarını sağlar. Bellek için iyileştirilmiş katmanı çift genel amaçlı katmanına karşılaştırıldığında bellek miktarını sağlar.
 

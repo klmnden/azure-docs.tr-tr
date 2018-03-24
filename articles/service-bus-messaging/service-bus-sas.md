@@ -1,12 +1,12 @@
 ---
-title: "Paylaşılan erişim imzaları ile Azure Service Bus erişim denetimi | Microsoft Docs"
-description: "Paylaşılan erişim imzaları genel bakış, SAS yetkilendirme Azure Service Bus ile ilgili ayrıntıları kullanarak Service Bus erişim denetimine genel bakış."
+title: Paylaşılan erişim imzaları ile Azure Service Bus erişim denetimi | Microsoft Docs
+description: Paylaşılan erişim imzaları genel bakış, SAS yetkilendirme Azure Service Bus ile ilgili ayrıntıları kullanarak Service Bus erişim denetimine genel bakış.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: sethm;clemensv
-ms.openlocfilehash: f6bb77ad6df09e36419b24b24924dac7ecd79065
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus erişim denetimi
 
@@ -273,6 +273,7 @@ Aşağıdaki tabloda Service Bus kaynaklarını üzerinde çeşitli işlemler i�
 | Sahipsiz bir ileti |Dinle |Herhangi bir geçerli sıra adresi |
 | Bir ileti sırası oturumla ilişkili durumunu Al |Dinle |Herhangi bir geçerli sıra adresi |
 | Bir ileti sırası oturumla ilişkili durumunu ayarlama |Dinle |Herhangi bir geçerli sıra adresi |
+| Bir ileti daha sonra gönderim için zamanlama; Örneğin, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Dinle | Herhangi bir geçerli sıra adresi
 | **Konu** | | |
 | Konu başlığı oluşturma |Yönetme |Herhangi bir ad alanı adresi |
 | Bir konu Sil |Yönetme |Herhangi bir geçerli konu adresi |

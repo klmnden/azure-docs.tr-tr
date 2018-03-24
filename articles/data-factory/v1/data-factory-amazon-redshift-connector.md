@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory kullanarak Amazon Redshift veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kopyalama etkinliği kullanarak Amazon Redshift veri taşıma konusunda bilgi edinin."
+title: Azure Data Factory kullanarak Amazon Redshift veri taşıma | Microsoft Docs
+description: Azure Data Factory kopyalama etkinliği kullanarak Amazon Redshift veri taşıma konusunda bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Veri öğesinden Amazon, Redshift Azure Data Factory kullanarak Taşı
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,9 +62,9 @@ Aşağıdaki tabloda bir Amazon bağlı Redshift hizmete özgü JSON öğeleri i
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **türü** |Bu özelliği ayarlamak **AmazonRedshift**. |Evet |
+| **Türü** |Bu özelliği ayarlamak **AmazonRedshift**. |Evet |
 | **server** |Amazon Redshift sunucusunun IP adresi veya ana bilgisayar adı. |Evet |
-| **bağlantı noktası** |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır (varsayılan olarak 5439) |
+| **Bağlantı noktası** |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır (varsayılan olarak 5439) |
 | **Veritabanı** |Amazon Redshift veritabanının adı. |Evet |
 | **Kullanıcı adı** |Veritabanına erişimi olan kullanıcı adı. |Evet |
 | **Parola** |Kullanıcı hesabının parolası. |Evet |
@@ -340,8 +339,8 @@ Kopya etkinliği bir Amazon Redshift türünden bir .NET türü veri dönüştü
 | BOOLE DEĞERİ |Dize |
 | CHAR |Dize |
 | VARCHAR |Dize |
-| DATE |Tarih Saat |
-| TIMESTAMP |Tarih Saat |
+| DATE |DateTime |
+| TIMESTAMP |DateTime |
 | METİN |Dize |
 
 ## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme

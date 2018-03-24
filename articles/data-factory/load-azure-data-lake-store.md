@@ -1,21 +1,21 @@
 ---
-title: "Veri yükleme Azure Data Lake Store Azure Data Factory kullanarak | Microsoft Docs"
-description: "Azure Data Factory veri Azure Data Lake Store kopyalamak için kullanın"
+title: Veri yükleme Azure Data Lake Store Azure Data Factory kullanarak | Microsoft Docs
+description: Azure Data Factory veri Azure Data Lake Store kopyalamak için kullanın
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4446f83563293d0834f241dcca382ccf6ea99403
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf0d607d63a68a222a1d44d9cb05253497d12591
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake Store içine veri yükleme
 
@@ -47,12 +47,12 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
 
 1. Soldaki menüden seçin **yeni** > **veri + analiz** > **Data Factory**:
    
-   ![Yeni veri fabrikası oluşturma](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+   ![Yeni bir veri fabrikası oluşturma](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
 2. İçinde **yeni data factory** sayfasında, aşağıdaki görüntüde gösterilen alanlar için değerleri girin: 
       
    ![Yeni veri fabrikası sayfası](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Ad**: Azure data factory'nizi için genel benzersiz bir ad girin. Hata alırsanız, "veri fabrikası adı \"LoadADLSDemo\" kullanılamıyor" veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_**ADFTutorialDataFactory**. Data factory oluşturmayı yeniden deneyin. Veri Fabrikası yapıları için adlandırma kuralları için bkz: [Data Factory adlandırma kuralları](naming-rules.md).
+    * **Ad**: Azure data factory'nizi için genel benzersiz bir ad girin. Hata alırsanız, "veri fabrikası adı \"LoadADLSDemo\" kullanılamıyor" veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_**ADFTutorialDataFactory**. Data factory oluşturmayı yeniden deneyin. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
     * **Abonelik**: data factory oluşturulacağı Azure aboneliğinizi seçin. 
     * **Kaynak grubu**: aşağı açılan listeden mevcut bir kaynak grubu seçin ya da seçin **Yeni Oluştur** seçeneği ve bir kaynak grubu adını girin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
     * **Sürüm**: seçin **V2 (Önizleme)**.
@@ -120,7 +120,7 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
 13. Soldaki **İzleyici** sekmesinin otomatik olarak seçildiğine dikkat edin. **Eylemler** sütununu içeren bağlantılar Etkinlik ayrıntıları görüntülemek ve ardışık düzeni yeniden çalıştırmak için:
 
     ![İşlem hattı çalıştırmalarını izleme](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
-14. Çalıştırma ardışık düzen ile ilişkili etkinlik çalışması görüntülemek için seçin **etkinlik görünümü çalışır** bağlamak **Eylemler** sütun. Olmadığından yalnızca bir etkinlik (kopyalama etkinliği) ardışık düzeninde yalnızca bir girişine bakın. Ardışık Düzen dönmeyi görünüm çalışır, seçin **ardışık düzen** üst bağlantı. Listeyi yenilemek için **Yenile**’yi seçin. 
+14. Çalıştırma ardışık düzen ile ilişkili etkinlik çalışması görüntülemek için seçin **etkinlik görünümü çalışır** bağlamak **Eylemler** sütun. İşlem hattında yalnızca bir etkinlik (kopyalama etkinliği) olduğundan tek bir girdi görürsünüz. Ardışık Düzen dönmeyi görünüm çalışır, seçin **ardışık düzen** üst bağlantı. Listeyi yenilemek için **Yenile**’yi seçin. 
 
     ![Etkinlik çalıştırmalarını izleme](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 

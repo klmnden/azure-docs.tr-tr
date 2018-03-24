@@ -1,25 +1,25 @@
 ---
-title: "Eski Azure sanal ağ geçidi SKU'ları | Microsoft Docs"
-description: "Eski sanal ağ geçidi SKU'ları ağ."
+title: Eski Azure sanal ağ VPN ağ geçidi SKU'ları | Microsoft Docs
+description: Eski sanal ağ geçidi SKU'ları ile çalışmaya nasıl; Temel, standart ve HighPerformance.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 4feecb9c1e91e1bc6c66a610c092e7bf894886e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Sanal ağ geçidi SKU'ları (eski SKU) ile çalışma
 
@@ -37,33 +37,27 @@ Bu makale, eski (eski) sanal ağ geçidi SKU'ları hakkında bilgi içerir. Eski
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Bir ağ geçidi (ağ geçidi SKU'su değiştirme) yeniden boyutlandırma
+## <a name="resize"></a>Bir ağ geçidi yeniden boyutlandırma
 
-Ağ geçidi SKU'su aynı SKU ailesi içinde yeniden boyutlandırabilirsiniz. Örneğin, bir standart SKU varsa, HighPerformance SKU'ya yeniden boyutlandırabilirsiniz. VPN ağ geçitleri eski SKU'ları ve yeni SKU ailesi arasında yeniden boyutlandırılamaz. Örneğin, bir standart SKU VpnGw2 SKU'ya gidemezsiniz.
+Ağ geçidi SKU'su aynı SKU ailesi içinde ağ geçidi uygulamanızı yeniden boyutlandırabilirsiniz. Örneğin, bir standart SKU varsa, HighPerformance SKU'ya yeniden boyutlandırabilirsiniz. Ancak, VPN ağ geçidinizi eski SKU'ları ve yeni SKU ailesi arasında yeniden boyutlandırılamaz. Örneğin, bir VpnGw2 SKU ya da bir temel SKU VpnGw1 için bir standart SKU dönemezsiniz.
 
->[!IMPORTANT]
->Bir ağ geçidi yeniden boyutlandırdığınızda boyutlandırılır ise, ağ geçidi için kapalı kalma süresi 20-30 dakika sahip olur.
->
->
-
-Klasik dağıtım modeli için bir ağ geçidi SKU'su yeniden boyutlandırmak için aşağıdaki komutu kullanın:
+Klasik dağıtım modeli için bir ağ geçidi yeniden boyutlandırmak için aşağıdaki komutu kullanın:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-Resource Manager dağıtım modeli için bir ağ geçidi SKU'su yeniden boyutlandırmak için aşağıdaki komutu kullanın:
+PowerShell kullanarak Resource Manager dağıtım modeli için bir ağ geçidi yeniden boyutlandırmak için aşağıdaki komutu kullanın:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+Azure portalında bir ağ geçidi yeniden boyutlandırabilirsiniz.
 
-## <a name="migrate"></a>Yeni ağ geçidi SKU'ları geçirme
+## <a name="change"></a>Yeni ağ geçidi SKU'ları değiştirme
 
-Resource Manager dağıtım modeliyle çalışıyorsanız, yeni ağ geçidi SKU'ları geçirebilirsiniz. Klasik dağıtım modeliyle çalışıyorsanız, yeni SKU'ları geçiremezsiniz ve bunun yerine eski SKU'ları kullanmaya devam etmeniz gerekir.
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

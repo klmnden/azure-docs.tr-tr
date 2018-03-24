@@ -1,6 +1,6 @@
 ---
-title: "PostgreSQL Azure veritabanındaki sınırlamaları"
-description: "Bu makalede, bağlantı ve depolama altyapısı seçenekleri sayısı gibi PostgreSQL Azure veritabanındaki sınırlamalar açıklanır."
+title: PostgreSQL Azure veritabanındaki sınırlamaları
+description: Bu makalede, bağlantı ve depolama altyapısı seçenekleri sayısı gibi PostgreSQL Azure veritabanındaki sınırlamalar açıklanır.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -8,15 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL Azure veritabanındaki sınırlamaları
-Azure veritabanı PostgreSQL hizmeti için genel önizlemede değil. Aşağıdaki bölümlerde, kapasite ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
+Aşağıdaki bölümlerde, kapasite ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
 
 ## <a name="pricing-tier-maximums"></a>Fiyatlandırma katmanı üst sınırlar
 Azure veritabanı PostgreSQL için bir sunucu oluştururken seçebileceğiniz birden çok fiyatlandırma katmanlarına sahip. Daha fazla bilgi için bkz: [PostgreSQL için Azure veritabanı'nda fiyatlandırma katmanlarına](concepts-pricing-tiers.md).  
@@ -25,25 +25,24 @@ Aşağıdaki gibi maksimum sayısını bağlantıları, işlem birimleri ve her 
 
 |Fiyatlandırma Katmanı| İşlem oluşturma| vCore(s)| En fazla bağlantı |
 |---|---|---|---|
-|Temel| Gen 4| 1| 50 |
-|Temel| Gen 4| 2| 100 |
-|Temel| Gen 5| 1| 50 |
-|Temel| Gen 5| 2| 100 |
-|Genel Amaçlı| Gen 4| 2| 150|
-|Genel Amaçlı| Gen 4| 4| 250|
-|Genel Amaçlı| Gen 4| 8| 480|
-|Genel Amaçlı| Gen 4| 16| 950|
-|Genel Amaçlı| Gen 4| 32| 1500|
-|Genel Amaçlı| Gen 5| 2| 150|
-|Genel Amaçlı| Gen 5| 4| 250|
-|Genel Amaçlı| Gen 5| 8| 480|
-|Genel Amaçlı| Gen 5| 16| 950|
-|Genel Amaçlı| Gen 5| 32| 1500|
-|Bellek için İyileştirilmiş| Gen 5| 2| 150|
-|Bellek için İyileştirilmiş| Gen 5| 4| 250|
-|Bellek için İyileştirilmiş| Gen 5| 8| 480|
-|Bellek için İyileştirilmiş| Gen 5| 16| 950|
-|Bellek için İyileştirilmiş| Gen 5| 32| 1900|
+|Temel| 4. Nesil| 1| 50 |
+|Temel| 4. Nesil| 2| 100 |
+|Temel| 5. Nesil| 1| 50 |
+|Temel| 5. Nesil| 2| 100 |
+|Genel Amaçlı| 4. Nesil| 2| 150|
+|Genel Amaçlı| 4. Nesil| 4| 250|
+|Genel Amaçlı| 4. Nesil| 8| 480|
+|Genel Amaçlı| 4. Nesil| 16| 950|
+|Genel Amaçlı| 4. Nesil| 32| 1500|
+|Genel Amaçlı| 5. Nesil| 2| 150|
+|Genel Amaçlı| 5. Nesil| 4| 250|
+|Genel Amaçlı| 5. Nesil| 8| 480|
+|Genel Amaçlı| 5. Nesil| 16| 950|
+|Genel Amaçlı| 5. Nesil| 32| 1500|
+|Bellek için İyileştirilmiş| 5. Nesil| 2| 150|
+|Bellek için İyileştirilmiş| 5. Nesil| 4| 250|
+|Bellek için İyileştirilmiş| 5. Nesil| 8| 480|
+|Bellek için İyileştirilmiş| 5. Nesil| 16| 950|
 
 Bağlantı sınırı aştıklarında, aşağıdaki hata iletisini alabilirsiniz:
 > Önemli: ne yazık ki zaten çok fazla sayıda istemci

@@ -1,11 +1,11 @@
 ---
-title: "İzleme Azure İzleyicisi'ni kullanarak veri fabrikaları | Microsoft Docs"
-description: "Azure Data Factory bilgileriyle tanılama günlükleri'ni etkinleştirerek Data Factory işlem hatlarını izlemek için Azure İzleyici kullanmayı öğrenin."
+title: İzleme Azure İzleyicisi'ni kullanarak veri fabrikaları | Microsoft Docs
+description: Azure Data Factory bilgileriyle tanılama günlükleri'ni etkinleştirerek Data Factory işlem hatlarını izlemek için Azure İzleyici kullanmayı öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: d4022a89b8e0e08679e1c593dc1b691a23d21471
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Veri fabrikaları Azure İzleyicisi'ni kullanarak izleme  
 Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, uygulamanızı kurma kalmasını sağlamak için veri ve sağlıklı bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanız hakkında ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi, uygulama performansı veya devamlılığını iyileştirmek için yardımcı veya aksi halde el ile müdahale gerektiren Eylemler otomatikleştirmek.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Daha fazla bilgi aşağıda] (https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+Daha fazla bilgi aşağıda] ()https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Şema günlüklerini ve olayları
 
@@ -396,7 +396,7 @@ Aşağıdaki ölçümleri ADFV2 yayar
 | TriggerSucceededRuns | Tetikleyici çalıştırır ölçümleri başarılı oldu  | Sayı    | Toplam                | Toplam tetikleyici dakika pencereye başarılı çalıştırır   |
 | TriggerFailedRuns    | Tetikleyici çalıştırır ölçümleri başarısız oldu     | Sayı    | Toplam                | Toplam tetikleyici dakika pencereye başarısız çalıştırır      |
 
-Ölçümleri erişmek için - makalede yer alan yönergeleri izleyin https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Ölçümleri erişmek için makalesindeki yönergeleri izleyin- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bkz: [İzleyici ve ardışık düzen programlı olarak yönetmek](monitor-programmatically.md) makalede izleme ve ardışık düzen çalıştırarak yönetme hakkında bilgi edinin. 

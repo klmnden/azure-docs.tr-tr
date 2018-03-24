@@ -1,11 +1,10 @@
 ---
-title: "Bir sanal ağa Azure SSIS tümleştirmesi çalışma zamanı katılma | Microsoft Docs"
-description: "Bir Azure sanal ağı Azure SSIS tümleştirmesi çalışma zamanı katılma öğrenin."
+title: Bir sanal ağa Azure SSIS tümleştirmesi çalışma zamanı katılma | Microsoft Docs
+description: Bir Azure sanal ağı Azure SSIS tümleştirmesi çalışma zamanı katılma öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cdda3fbe2aff40e26c6086e87ef3e05670c3419f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure SSIS tümleştirmesi çalışma zamanı sanal bir ağa katılmasını sağlayın
 Azure sanal ağını aşağıdaki senaryolarda, Azure SSIS tümleştirmesi çalışma zamanı (IR) Katıl: 
@@ -52,7 +51,7 @@ Dikkat edilecek bazı önemli noktalar şunlardır:
 - Mevcut Azure Resource Manager sanal ağ, Azure SSIS IR farklı bir konumda şirket içi ağınıza bağlı ise, ilk oluşturabileceğiniz bir [Azure Resource Manager sanal ağ](../virtual-network/quick-create-portal.md##create-a-virtual-network) Azure-SSIS için Katılmak için IR. Ardından, bir Azure Kaynak Yöneticisi Azure Resource Manager sanal ağ bağlantısını yapılandırın. Veya oluşturabileceğiniz bir [Klasik sanal ağı](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) katılmak, Azure SSIS IR için. Ardından, yapılandırma bir [Klasik Azure Resource Manager sanal ağ](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) bağlantı.
 
 ## <a name="domain-name-services-server"></a>Etki alanı adı Hizmetleri sunucusu 
-Azure SSIS tümleştirmesi çalışma zamanı tarafından birleştirilmiş bir sanal ağ içinde kendi etki alanı adı Hizmetleri (DNS) sunucusu kullanmanız gerekiyorsa, için yönergeleri izleyin [Azure sanal ağında Azure SSIS Integration zamanının düğümleri çözümleyebildiğinden emin olun uç noktaları](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Azure SSIS tümleştirmesi çalışma zamanı tarafından birleştirilmiş bir sanal ağ içinde kendi etki alanı adı Hizmetleri (DNS) sunucusu kullanmanız gerekiyorsa, "kendi DNS sunucusunu kullanır ad çözümlemesi" bölümündeki yönergeleri izleyin, makalenin [ad çözümlemesi için sanal makineler ve rol örnekleri](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="network-security-group"></a>Ağ güvenlik grubu
 Gelen/giden trafik bir ağ güvenlik grubu (NSG) uygulamak, Azure SSIS tümleştirmesi çalışma zamanı tarafından birleştirilmiş bir sanal ağdaki gerekiyorsa, aşağıdaki bağlantı noktaları izin ver:

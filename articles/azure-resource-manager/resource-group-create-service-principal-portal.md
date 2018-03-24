@@ -1,6 +1,6 @@
 ---
-title: "Portalda Azure uygulama kimliği oluşturma | Microsoft Docs"
-description: "Yeni Azure Active Directory uygulaması ve Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilir hizmet sorumlusu nasıl oluşturulacağını açıklar."
+title: Portalda Azure uygulama kimliği oluşturma | Microsoft Docs
+description: Yeni Azure Active Directory uygulaması ve Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilir hizmet sorumlusu nasıl oluşturulacağını açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: c2b8498b2d32e2c3c7ed5dca3295ae6a98fa2676
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory Uygulama ve kaynaklarına erişebilir hizmet sorumlusu oluşturmak için Portal kullanın
 
@@ -159,7 +159,7 @@ Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha
 
    ![Rol Seç](./media/resource-group-create-service-principal-portal/select-role.png)
 
-1. Uygulamanız için arayın ve seçin.
+1. Varsayılan olarak, Azure Active Directory uygulamaları kullanılabilir seçenekleri görüntülenmiyor. Uygulamanızı bulmak için bunu arama alanındaki adı sağlamanız gerekir. Bunu seçin.
 
    ![uygulamayı arayın](./media/resource-group-create-service-principal-portal/search-app.png)
 

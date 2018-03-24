@@ -1,24 +1,21 @@
 ---
-title: "Erişim belirteçleri - Azure AD B2C isteyen | Microsoft Docs"
-description: "Bu makalede bir istemci uygulaması kurulumu ve bir erişim belirteci edinmek üzere nasıl yapacağınızı gösterir."
+title: Erişim belirteçleri - Azure AD B2C isteyen | Microsoft Docs
+description: Bu makalede bir istemci uygulaması kurulumu ve bir erişim belirteci edinmek üzere nasıl yapacağınızı gösterir.
 services: active-directory-b2c
 documentationcenter: android
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 1c75f17f-5ec5-493a-b906-f543b3b1ea66
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: parakhj
-ms.openlocfilehash: 9d2df39118741d4254f7b7fe4c419a00ceb4ba8e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: bd919543072a8d2bf5fb0ebba17e69ba2f467218
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: İsteyen erişim belirteçleri
 
@@ -55,7 +52,7 @@ Uygulamanızı bir API çağrılırken izinleri benzer kapsamları gereklidir. B
 1. Azure AD B2C içinde **uygulamaları** menüsünde, açık web API uygulamasını ("Contoso API").
 1. **Yayımlanan kapsamlar**’a tıklayın. Burada diğer uygulamalara verilebilecek izinleri (kapsamları) tanımlarsınız.
 1. Ekleme **kapsam değerleri** gerektiğinde (örneğin, "Okuma"). Varsayılan olarak, "user_impersonation" kapsamı tanımlanır. İsterseniz, bu göz ardı edebilirsiniz. Kapsam için bir açıklama girin **kapsam adı** sütun.
-1. **Kaydet** düğmesine tıklayın.
+1. **Kaydet**’e tıklayın.
 
 > [!IMPORTANT]
 > **Kapsam adı** açıklaması **kapsam değeri**. Kapsam kullanırken kullandığınızdan emin olun **kapsam değeri**.
@@ -69,7 +66,7 @@ Bir API kapsamları yayımlamak için yapılandırıldıktan sonra istemci uygul
 1. Tıklayın **API erişimini**.
 1. **Ekle**'ye tıklayın.
 1. Web API ve vermek istediğiniz kapsam (izinleri) seçin.
-1. **Tamam** düğmesine tıklayın.
+1. **Tamam**’a tıklayın.
 
 > [!NOTE]
 > Azure AD B2C, istemci uygulama kullanıcıları kendi onaylarının istemez. Bunun yerine, tüm onay, yukarıda açıklanan uygulamalar arasında yapılandırılmış izinlere dayalı olarak, yönetici tarafından sağlanır. Bir uygulama için bir izin verme iptal edilirse, bu izni almanız mümkün daha önce tüm kullanıcıların artık bunu mümkün olacaktır.

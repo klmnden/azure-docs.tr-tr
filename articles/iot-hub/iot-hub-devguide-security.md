@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT Hub güvenliği anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - cihaz uygulamaları ve arka uç uygulamalar için IOT Hub'ına erişimi denetleme. Güvenlik belirteçleri ve X.509 sertifikalarını desteği hakkında bilgiler içerir."
+title: Azure IOT Hub güvenliği anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - cihaz uygulamaları ve arka uç uygulamalar için IOT Hub'ına erişimi denetleme. Güvenlik belirteçleri ve X.509 sertifikalarını desteği hakkında bilgiler içerir.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9de332324ba853d3df0aacce2db4bbc3d4d9d62d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -72,7 +72,7 @@ Güvenlik belirteçleri oluşturmak ve nasıl kullanılacağını hakkında daha
 
 Her MQTT, AMQP ve HTTPS gibi desteklenen bir protokol belirteçleri farklı şekillerde taşımaları.
 
-MQTT kullanırken, istemci kimliği olarak DeviceID BAĞLAN paket sahip `{iothubhostname}/{deviceId}` Username alanı ve parola alanına bir SAS belirteci. `{iothubhostname}`IOT hub'ı (örneğin, contoso.azure-devices.net) tam CNAME'i olmalıdır.
+MQTT kullanırken, istemci kimliği olarak DeviceID BAĞLAN paket sahip `{iothubhostname}/{deviceId}` Username alanı ve parola alanına bir SAS belirteci. `{iothubhostname}` IOT hub'ı (örneğin, contoso.azure-devices.net) tam CNAME'i olmalıdır.
 
 Kullanırken [AMQP][lnk-amqp], IOT hub'ı destekleyen [SASL DÜZ] [ lnk-sasl-plain] ve [AMQP talep tabanlı-güvenlik] [ lnk-cbs].
 
@@ -80,8 +80,8 @@ AMQP talep tabanlı-güvenlik kullanırsanız, bu belirteçleri iletmek nasıl s
 
 SASL DÜZ için **kullanıcıadı** olabilir:
 
-* `{policyName}@sas.root.{iothubName}`IOT hub düzeyindeki belirteçleri kullanıyorsanız.
-* `{deviceId}@sas.{iothubname}`cihaz kapsamlı belirteçleri kullanıyorsanız.
+* `{policyName}@sas.root.{iothubName}` IOT hub düzeyindeki belirteçleri kullanıyorsanız.
+* `{deviceId}@sas.{iothubname}` cihaz kapsamlı belirteçleri kullanıyorsanız.
 
 Parola alanı belirteci açıklandığı gibi her iki durumda da içeren [IOT hub'ı güvenlik belirteçleri][lnk-sas-tokens].
 
@@ -89,9 +89,9 @@ Geçerli bir belirteç içine ekleyerek HTTPS kimlik doğrulaması uygulayan **y
 
 #### <a name="example"></a>Örnek
 
-Kullanıcı adı (DeviceID büyük küçük harfe duyarlı):`iothubname.azure-devices.net/DeviceId`
+Kullanıcı adı (DeviceID büyük küçük harfe duyarlı): `iothubname.azure-devices.net/DeviceId`
 
-Parola (oluşturmak SAS belirteci ile [aygıt explorer] [ lnk-device-explorer] aracı):`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Parola (oluşturmak SAS belirteci ile [aygıt explorer] [ lnk-device-explorer] aracı): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > [Azure IOT SDK'ları] [ lnk-sdks] belirteçleri hizmete bağlanmada olduğunda otomatik olarak oluşturur. Bazı durumlarda, tüm protokoller veya tüm kimlik doğrulama yöntemleri Azure IOT SDK'ları desteklemez.
@@ -206,12 +206,12 @@ public static string generateSasToken(string resourceUri, string key, string pol
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
 
-    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+    string stringToSign = WebUtility.UrlEncode(resourceUri) + "\n" + expiry;
 
     HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
     string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
 
-    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri), WebUtility.UrlEncode(signature), expiry);
 
     if (!String.IsNullOrEmpty(policyName))
     {

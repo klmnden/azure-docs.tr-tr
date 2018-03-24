@@ -1,7 +1,7 @@
 ---
-title: "Azure SQL veritabanı kullanan bir parçalı çok Kiracı veritabanı SaaS uygulaması dağıtma | Microsoft Docs"
-description: "Dağıtma ve Azure SQL veritabanı kullanarak SaaS desenleri gösteren parçalı Wingtip biletleri SaaS çok Kiracı veritabanı uygulama, keşfedin."
-keywords: "sql veritabanı öğreticisi"
+title: Azure SQL veritabanı kullanan bir parçalı çok Kiracı veritabanı SaaS uygulaması dağıtma | Microsoft Docs
+description: Dağıtma ve Azure SQL veritabanı kullanarak SaaS desenleri gösteren parçalı Wingtip biletleri SaaS çok Kiracı veritabanı uygulama, keşfedin.
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: MightyPen
 manager: craigg
@@ -11,11 +11,11 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulama keşfedin
 
@@ -172,7 +172,7 @@ Farklı parametre değerleri kullanmak için yük Oluşturucu oturumu yeniden is
 2. Tuşuna **F5** (değil **F8**) komut dosyasını çalıştırmak için (şu an için varsayılan değerleri bırakın).
 
    > [!NOTE]
-   > Yalnızca tuşlarına basarak PowerShell komut dosyalarını çalıştırması gereken **F5** basarak değil anahtar **F8** komut dosyası, seçilen bir parçası çalıştırmak için. Sorun **F8** olan *$PSScriptRoot* değişkeni değerlendirilmez. Bu değişken, klasörleri gidin veya başka betikleri çağrılacak veya modülleri içeri aktarmak için birçok komut dosyaları tarafından gerekli.
+   > Yalnızca tuşlarına basarak PowerShell komut dosyalarını çalıştırması gereken **F5** basarak değil anahtar **F8** komut dosyası, seçilen bir parçası çalıştırmak için. Sorun **F8** olan *$PSScriptRoot* değişkeni değerlendirilmez. Bu değişken klasörleri gitmek için birçok komut dosyaları tarafından başka betikleri çağırma ya da modülleri içe gereklidir.
 
 Yeni kırmızı Akçaağaç yarış Kiracı eklenen *Tenants1* veritabanı ve kataloğa kayıtlı. Yeni Kiracı bilet satış **olayları** site tarayıcınızda açar:
 

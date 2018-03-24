@@ -1,24 +1,18 @@
 ---
-title: "Kaynak gruplarını otomatik kaldırma | Microsoft Belgeleri"
-description: "Bir Azure Otomasyonu senaryosunun, aboneliğinizdeki tüm kaynak gruplarını kaldırmaya yönelik runbook’lar içeren PowerShell İş Akışı sürümü."
+title: Azure Otomasyonu kaynak gruplarıyla kaldırılmasını otomatik hale getirme
+description: Bir Azure Otomasyonu senaryosunun, aboneliğinizdeki tüm kaynak gruplarını kaldırmaya yönelik runbook’lar içeren PowerShell İş Akışı sürümü.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: magoedte
-ms.openlocfilehash: cb7183cbec1c3efafe58f4508042d329be5dcecf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 1d54e03c1b5518dece4e11d76593b12fe83dc8c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Otomasyonu senaryosu - kaynak gruplarının kaldırılmasını otomatik hale getirme
 Birçok müşteri birden fazla kaynak grubu oluşturur. Bazıları üretim uygulamalarını yönetmek için, bazıları ise geliştirme, test ve hazırlık ortamları olarak kullanılabilir. Bu kaynakların dağıtımının otomatik hale getirilmesi bir özelliktir, ancak bir kaynak grubunun tek bir düğme tıklanarak kullanımdan kaldırılması da başka bir özelliktir. Bu ortak yönetim görevini Azure Otomasyonu'nu kullanarak basit hale getirebilirsiniz. Bu özellik, örneğin MSDN veya Microsoft İş Ortağı Ağı Bulut Temel Bileşenleri programı gibi bir üye teklifi üzerinden harcama limitine sahip bir Azure aboneliği ile çalışıyorsanız yararlı olur.

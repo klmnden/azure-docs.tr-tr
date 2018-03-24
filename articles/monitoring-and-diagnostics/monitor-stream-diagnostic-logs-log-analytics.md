@@ -1,12 +1,12 @@
 ---
-title: "Akış günlük analizi için Azure tanılama günlüklerini | Microsoft Docs"
-description: "Günlük analizi çalışma alanı için Azure tanılama günlüklerini akış öğrenin."
+title: Akış günlük analizi için Azure tanılama günlüklerini | Microsoft Docs
+description: Günlük analizi çalışma alanı için Azure tanılama günlüklerini akış öğrenin.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: johnkem
-ms.openlocfilehash: 9440bd7f872914887c1f6e50f08a3c273536fcf8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 517ce3547f471dd1b40c79b2f087b02ad7f51b85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Akış günlük analizi için Azure tanılama günlükleri
 **[Azure tanılama günlüklerini](monitoring-overview-of-diagnostic-logs.md)**  portalı, PowerShell cmdlet'leri veya Azure CLI kullanarak Azure günlük analizi için yakın gerçek zamanlı akış.
@@ -40,23 +40,23 @@ Günlük analizi çalışma alanı ayar yapılandıran kullanıcı her iki abone
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Portalı kullanarak akış tanılama günlükleri
 1. Portal, Azure izleyicisine gidin ve tıklayın **tanılama ayarları**
 
-    ![Azure İzleyicisi İzleme bölümü](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-blade.png)
+    ![Azure İzleyicisi İzleme bölümü](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
 
 2. İsteğe bağlı olarak kaynak grubu veya kaynak türü listeyi filtrelemek sonra tanılama ayarını ayarlamak istediğiniz kaynak'ı tıklatın.
 
 3. Hiçbir ayar kaynağı varsa, sizden istenir bir ayar oluşturmak için seçtiğiniz. "Tanılamayı açın."'i tıklatın
 
-   ![Tanılama ayarını - ayar Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
+   ![Tanılama ayarını - ayar Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
 
    Kaynak üzerinde var olan ayarları varsa, bu kaynak üzerinde zaten yapılandırılmış ayarları listesini görürsünüz. "Tanılama ayarını Ekle" yi tıklatın.
 
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
+   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
 3. Ayarı, bir ad verin ve için kutuyu **için günlük analizi Gönder**, günlük analizi çalışma alanı seçin.
    
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
+   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 Birkaç dakika sonra yeni ayar, bu kaynak için ayarları listesi görüntülenir ve yeni olay verilerini oluşturulan hemen tanılama günlükleri, çalışma alanına akışa alınır. En fazla beş dakikada bir olay olduğunda yayılan ve günlük analizi görüntülendiğinde arasında olabileceğini unutmayın.
 
@@ -69,7 +69,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Workspaceıd özelliği olmayan çalışma alanı kimliği/anahtar günlük analizi portalında gösterilen çalışma alanı tam Azure kaynak Kimliğini alır.
 
-### <a name="via-azure-cli"></a>Azure CLI
+### <a name="via-azure-cli"></a>Via Azure CLI
 Aracılığıyla akışını etkinleştirmek için [Azure CLI](insights-cli-samples.md), kullanabileceğiniz `insights diagnostic set` komut şöyle:
 
 ```azurecli

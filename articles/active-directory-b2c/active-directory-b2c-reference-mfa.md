@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Çok faktörlü kimlik doğrulaması | Microsoft Docs"
-description: "Azure Active Directory B2C tarafından güvence altına tüketiciye yönelik uygulamalarında çok faktörlü kimlik doğrulamasını etkinleştirme"
+title: 'Azure Active Directory B2C: Çok faktörlü kimlik doğrulaması | Microsoft Docs'
+description: Azure Active Directory B2C tarafından güvence altına tüketiciye yönelik uygulamalarında çok faktörlü kimlik doğrulamasını etkinleştirme
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 8fc6c43a0197c203cda5b2200e0a5c01258d1613
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 0f560a02a51239cff0a7d4057ec7beb2f0f5c5c5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: Tüketiciye yönelik uygulamalarınızda çok faktörlü kimlik doğrulamasını etkinleştir
 Azure Active Directory (Azure AD) B2C ile doğrudan tümleşir [Azure çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md) böylece tüketiciye yönelik uygulamalarınızda kaydolma ve oturum açma deneyimleri için ikinci bir güvenlik katmanı ekleyebilirsiniz. Ve tek satırlık bir kod yazmak zorunda kalmadan bunu yapabilirsiniz. Şu anda telefon çağrısı ve metin iletisi doğrulama destekler. Kaydolma ve oturum açma ilkeleri oluşturduysanız, çok faktörlü kimlik doğrulaması yine etkinleştirebilirsiniz.
@@ -37,7 +34,7 @@ Bu özellik aşağıdaki gibi senaryoları işlemek uygulamaları yardımcı olu
 1. [Azure portalındaki B2C özellikleri dikey penceresine gitmek için aşağıdaki adımları izleyin](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. **Kaydolma ilkeleri**’ne tıklayın.
 3. Açmak için kayıt ilkesi (örneğin, "B2C_1_SiUp") tıklayın.
-4. Tıklatın **çok faktörlü kimlik doğrulaması** ve **durumu** için **ON**. **Tamam** düğmesine tıklayın.
+4. Tıklatın **çok faktörlü kimlik doğrulaması** ve **durumu** için **ON**. **Tamam**’a tıklayın.
 5. Tıklatın **kaydetmek** dikey pencerenin üstündeki.
 
 Müşteri Deneyimi doğrulamak için ilkeyi "Şimdi Çalıştır" özelliğini kullanabilirsiniz. Şunları onaylayın:
@@ -48,7 +45,7 @@ Müşteri Deneyimi doğrulamak için ilkeyi "Şimdi Çalıştır" özelliğini k
 1. [Azure portalındaki B2C özellikleri dikey penceresine gitmek için aşağıdaki adımları izleyin](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Tıklatın **oturum açma ilkeleri**.
 3. Açmak için oturum açma ilkenizin (örneğin, "B2C_1_SiIn") tıklayın. Tıklatın **Düzenle** dikey pencerenin üstündeki.
-4. Tıklatın **çok faktörlü kimlik doğrulaması** ve **durumu** için **ON**. **Tamam** düğmesine tıklayın.
+4. Tıklatın **çok faktörlü kimlik doğrulaması** ve **durumu** için **ON**. **Tamam**’a tıklayın.
 5. Tıklatın **kaydetmek** dikey pencerenin üstündeki.
 
 Müşteri Deneyimi doğrulamak için ilkeyi "Şimdi Çalıştır" özelliğini kullanabilirsiniz. Şunları onaylayın:

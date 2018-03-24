@@ -1,11 +1,11 @@
 ---
-title: "Aktör güvenilir aktörler Notlar türü seri hale getirme | Microsoft Docs"
-description: "Service Fabric Reliable Actors durumları ve arabirimleri tanımlamak için kullanılan seri hale getirilebilir sınıfları tanımlama için temel gereksinimler açıklanır"
+title: Aktör güvenilir aktörler Notlar türü seri hale getirme | Microsoft Docs
+description: Service Fabric Reliable Actors durumları ve arabirimleri tanımlamak için kullanılan seri hale getirilebilir sınıfları tanımlama için temel gereksinimler açıklanır
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6e50e4dc-969a-4a1c-b36c-b292d964c7e3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b1b7c8af6d852599359baab2188bfc3395d33a28
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 210f47b4b052286900781f97077af4d0a0b9c968
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Service Fabric Reliable Actors Notlar serileştirme yazın
-Bağımsız değişkenleri tüm yöntemlerin aktör arabirimdeki her yöntem tarafından döndürülen sonuç türleri görevleri ve bir aktör'ın durum Yöneticisi'nde depolanan nesneler olmalıdır [veri sözleşmesi seri hale getirilebilir](https://msdn.microsoft.com/library/ms731923.aspx). Bu durum tanımlanan yöntemler bağımsız değişkenleri için de geçerlidir [aktör olay arabirimleri](service-fabric-reliable-actors-events.md). (Aktör olay arabirim yöntemleri her zaman boş döndürmeleri.)
+Bağımsız değişkenleri tüm yöntemlerin aktör arabirimdeki her yöntem tarafından döndürülen sonuç türleri görevleri ve bir aktör'ın durum Yöneticisi'nde depolanan nesneler olmalıdır [veri sözleşmesi seri hale getirilebilir](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Bu durum tanımlanan yöntemler bağımsız değişkenleri için de geçerlidir [aktör olay arabirimleri](service-fabric-reliable-actors-events.md). (Aktör olay arabirim yöntemleri her zaman boş döndürmeleri.)
 
 ## <a name="custom-data-types"></a>Özel veri türleri
 Bu örnekte, aşağıdaki aktör arabirimi adlı bir özel veri türü döndüren bir yöntem tanımlar `VoicemailBox`:

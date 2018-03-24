@@ -1,9 +1,9 @@
 ---
-title: "Azure Hizmetleri için-uyarı oluşturma Azure portalı | Microsoft Docs"
-description: "Belirttiğiniz koşullar karşılandığında tetikleyici e-postalar, bildirimler, Web siteleri URL'leri (Web kancaları) ya da Otomasyon çağırın."
+title: Azure Hizmetleri için-uyarı oluşturma Azure portalı | Microsoft Docs
+description: Belirttiğiniz koşullar karşılandığında tetikleyici e-postalar, bildirimler, Web siteleri URL'leri (Web kancaları) ya da Otomasyon çağırın.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Ölçüm uyarılar için Azure services - Azure İzleyicisi'nde oluşturma Azure portalı
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Klasik ölçüm uyarılar için Azure services - Azure İzleyicisi'nde oluşturma Azure portalı
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,12 +29,18 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Genel Bakış
+
+> [!NOTE]
+> Bu makalede, eski ölçüm uyarıları oluşturmayı açıklar. Azure İzleyici şimdi destekleyen yeni, daha iyi ölçüm uyarıları. Bu uyarılar, birden çok ölçümleri izleyin ve boyutlu ölçümleri uyarmak için izin verebilirsiniz. Daha fazla bilgi edinmek [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md).
+>
+>
+
 Bu makalede Azure portalını kullanarak Azure ölçüm uyarılarını ayarlama gösterilmiştir. 
 
 İzleme ölçümlerini ya da olayları, Azure hizmetlerinizi göre bir uyarı alabilirsiniz.
 
 * **Ölçüm değerleri** -herhangi bir yönde atadığınız bir eşik değeri, belirtilen bir ölçüm kestiği olduğunda uyarı tetikler. Diğer bir deyişle, her ikisi de tetikler koşul ilk ve ardından daha sonra ne zaman, koşul artık karşılanıp zaman.    
-* **Etkinlik günlüğü olaylarını** -bir uyarıyı tetiklemek *her* olay veya yalnızca belirli olaylar meydana gelir. Daha fazla bilgi edinmek [etkinlik günlüğü uyarıları](monitoring-activity-log-alerts.md).
+* **Etkinlik günlüğü olaylarını** -bir uyarıyı tetiklemek *her* olay veya yalnızca belirli bir olayı oluşur. Daha fazla bilgi edinmek [etkinlik günlüğü uyarıları](monitoring-activity-log-alerts.md).
 
 Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabilirsiniz:
 
@@ -43,26 +49,21 @@ Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabili
 * bir Web kancası çağırın
 * (yalnızca Azure portalından) Azure bir runbook'un yürütülmesi Başlat
 
-> [!NOTE]
-> Azure İzleyici artık genel önizlemede yakın gerçek zamanlı ölçüm uyarıları destekler. Bu eylem gruplarını kullanın. Daha fazla bilgi edinmek [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md).
->
->
-
 Yapılandırma ve kullanma ölçüm uyarı kuralları hakkında bilgi alın
 
-* [Azure portalı](insights-alerts-portal.md)
+* [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [komut satırı arabirimi (CLI)](insights-alerts-command-line-interface.md)
+* [Komut satırı arabirimi (CLI)](insights-alerts-command-line-interface.md)
 * [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure portal ile bir ölçüm bir uyarı kuralı oluşturma
 1. İçinde [portal](https://portal.azure.com/), izleme ilgilenen kaynak bulup seçin.
 
-2. Seçin **uyarıları** veya **uyarı kuralları** izleme bölümünde. Metin ve simge farklı kaynaklar için biraz değişebilir.  
+2. Seçin **uyarıları (Klasik)** izleme bölümünde. Metin ve simge farklı kaynaklar için biraz değişebilir. Bulamadı, **uyarıları (Klasik)**, bunları altında bulabilirsiniz **uyarıları** veya **uyarı kuralları**
 
     ![İzleme](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Seçin **uyarı Ekle** komut ve alanları doldurun.
+3. Seçin **ölçüm uyarı Ekle** komut ve alanları doldurun.
 
     ![Uyarı Ekle](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
@@ -91,7 +92,7 @@ Bir uyarı oluşturduktan sonra bunu seçebilirsiniz ve:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure izleme genel bir bakış elde](monitoring-overview.md) toplamak ve izlemek bilgi türlerini de dahil olmak üzere.
-* Yeni hakkında daha fazla bilgi [yakın gerçek zamanlı ölçüm uyarıları (Önizleme)](monitoring-near-real-time-metric-alerts.md)
+* Daha fazla bilgi edinmek [yeni ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md)
 * Daha fazla bilgi edinmek [Web kancalarını uyarıları yapılandırma](insights-webhooks-alerts.md).
 * Daha fazla bilgi edinmek [etkinlik günlüğü olayları uyarıları yapılandırma](monitoring-activity-log-alerts.md).
 * Daha fazla bilgi edinmek [Azure Automation Runbook](../automation/automation-starting-a-runbook.md).

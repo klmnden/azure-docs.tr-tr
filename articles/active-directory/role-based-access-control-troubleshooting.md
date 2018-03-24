@@ -1,6 +1,6 @@
 ---
-title: "Rol tabanlı erişim denetimini Azure RBAC sorunlarını giderme | Microsoft Docs"
-description: "Sorunları veya soruları rol tabanlı erişim denetimi kaynaklar hakkında yardım alın."
+title: Rol tabanlı erişim denetimini Azure RBAC sorunlarını giderme | Microsoft Docs
+description: Sorunları veya soruları rol tabanlı erişim denetimi kaynaklar hakkında yardım alın.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 766ff118638538520c8f17694b32f35dbe6d1025
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi sorunlarını giderme 
 
-Azure portalı ve can rollerinde erişimi sorunlarını giderme kullanırken beklenmesi gerekenler bilmesi belge makalede rolleri ile verilen özel erişim hakları hakkında sık sorulan soruları yanıtlar. Bu üç rol tüm kaynak türleri kapsar:
+Bu makalede kullanırken Azure portal ve can rollerinde erişimi sorunlarını giderme beklenmesi gerekenler bilmesi rolleri ile verilen özel erişim hakları hakkında sık sorulan sorular yanıtlanmaktadır. Bu üç rol tüm kaynak türleri kapsar:
 
 * Sahip  
 * Katılımcı  
@@ -31,7 +31,7 @@ Azure portalı ve can rollerinde erişimi sorunlarını giderme kullanırken bek
 
 Sahipleri ve katkıda bulunanları yönetim deneyimi tam erişime sahip, ancak bir katkıda bulunan diğer kullanıcılara veya gruplara erişim veremez. Burada süre çok harcama yaptığımız böylece şeyler okuyucu rolüyle biraz daha ilginç alın. Bkz: [rol tabanlı erişim denetimi get-started makale](role-based-access-control-configure.md) erişim hakkında ayrıntılar için.
 
-## <a name="app-service-workloads"></a>Uygulama hizmeti iş yükleri
+## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>Yazma erişimi özellikleri
 Bir tek bir web uygulaması bir kullanıcı salt okunur erişim vermek, beklediğiniz değil, bazı özellikler devre dışı bırakılır. Aşağıdaki yönetim özelliklerini gerektiren **yazma** erişim bir web uygulaması (Katkıda bulunan veya sahibi) ve herhangi bir salt okunur senaryoda kullanılamaz.
 
@@ -69,7 +69,14 @@ Bu öğeler gerektiren **yazma** tam erişimi **kaynak grubu** Web sitenizi içe
 * Application Insights bileşenleri  
 * Web testleri  
 
-## <a name="virtual-machine-workloads"></a>Sanal makine iş yükleri
+## <a name="azure-functions"></a>Azure İşlevleri
+Bazı özellikleri [Azure işlevleri](../azure-functions/functions-overview.md) yazma erişimi gerektirir. Okuyucu rolüne atanmış bir kullanıcı, örneğin, bunlar bir işlev uygulaması işlevlerinde görmeye olmaz. Portal görüntüler **(erişimi yok)**.
+
+![Hiçbir erişim uygulamaları işlevi](./media/role-based-access-control-troubleshooting/functionapps-noaccess.png)
+
+Bağlanabilmesi **Platform özellikleri** sekmesini ve sonra **tüm ayarları** bazı ayarları görüntülemek için bir işlev uygulaması (bir web uygulaması'na benzer) ilgili ancak bu ayarlardan herhangi birini değiştiremez.
+
+## <a name="virtual-machine"></a>Sanal makine
 Çok gibi sanal makine veya diğer kaynakları kaynak grubunda yazma erişimi sanal makine dikey penceresinde bazı özellikler web uygulamaları ile gerektirir.
 
 Sanal makineler, etki alanı adları, sanal ağlar, depolama hesapları ve uyarı kuralları ilişkilidir.

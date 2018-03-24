@@ -1,12 +1,12 @@
 ---
-title: "IPv6 Azure yük dengeleyici için genel bakış | Microsoft Docs"
-description: "IPv6 desteği Azure yük dengeleyici ve yük dengeli sanal makineleri anlama."
+title: IPv6 Azure yük dengeleyici için genel bakış | Microsoft Docs
+description: IPv6 desteği Azure yük dengeleyici ve yük dengeli sanal makineleri anlama.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: 
-keywords: "IPv6, azure yük dengeleyici, çift yığın, genel IP, yerel IPv6, mobil, IOT"
+manager: jeconnoc
+editor: ''
+keywords: IPv6, azure yük dengeleyici, çift yığın, genel IP, yerel IPv6, mobil, IOT
 ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
 ms.service: load-balancer
 ms.devlang: na
@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 1902475c81c4f83f8ba69a05f9564bc65a5de833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9622ad4922aa98efe093e7f809a490a8797eb1fd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>IPv6 Azure yük dengeleyici için genel bakış
 
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>Azure Load Balancer iki farklı türü destekler: Temel ve Standart. Bu makalede Temel Yük Dengeleyici anlatılmaktadır. Standart yük dengeleyici hakkında daha fazla bilgi için bkz: [standart yük dengeleyici genel bakış](load-balancer-standard-overview.md).
 
 Internet'e yönelik Yük Dengeleyici, bir IPv6 adresi ile dağıtılabilir. IPv4 bağlantısı ek olarak, bu aşağıdaki yetenekleri sağlar:
 

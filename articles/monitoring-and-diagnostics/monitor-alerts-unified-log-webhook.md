@@ -1,12 +1,12 @@
 ---
-title: "Web kancası eylemleri günlük uyarılarını Azure Uyarıları'ni (Önizleme) | Microsoft Docs"
-description: "Bu makalede, nasıl bir günlük uyarı kuralı için günlük analizi veya uygulama Öngörüler push kullanılarak veri HTTP Web kancası ve farklı özelleştirmeler ayrıntılarını olası açıklanmaktadır."
+title: Azure Uyarıları'te günlük uyarıları için Web kancası eylemleri | Microsoft Docs
+description: Bu makalede, nasıl bir günlük uyarı kuralı için günlük analizi veya uygulama Öngörüler push kullanılarak veri HTTP Web kancası ve farklı özelleştirmeler ayrıntılarını olası açıklanmaktadır.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
-Zaman bir [uyarı Azure (Önizleme) oluşturulan](monitor-alerts-unified-usage.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](monitoring-action-groups.md) bir veya daha fazla eylemleri gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntılar ve kullanılabilir farklı Web kancası eylemleri açıklanmaktadır.
+Zaman bir [uyarı Azure içinde oluşturulan ](monitor-alerts-unified-usage.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](monitoring-action-groups.md) bir veya daha fazla eylemleri gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntılar ve kullanılabilir farklı Web kancası eylemleri açıklanmaktadır.
 
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
@@ -33,7 +33,7 @@ Web kancası eylemleri özellikler aşağıdaki tabloda gerektirir:
 | Özellik | Açıklama |
 |:--- |:--- |
 | Web kancası URL'si |Web kancası URL'si. |
-| Özel JSON yükü |Uyarı oluşturulurken bu seçenek seçildiğinde Web kancası ile göndermek için özel yükü. Ayrıntılar adresinde [Azure Uyarıları'ni (Önizleme) kullanarak Uyarıları yönetme](monitor-alerts-unified-usage.md) |
+| Özel JSON yükü |Uyarı oluşturulurken bu seçenek seçildiğinde Web kancası ile göndermek için özel yükü. Ayrıntılar adresinde [Azure uyarıları kullanarak Uyarıları yönetme ](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > Web kancası düğmesi yanında test *INCLUDE özel JSON yükü Web kancası için* seçeneği günlük uyarı için Web kancası URL'si test etmek için sahte çağrısı tetikler. Gerçek veri ve günlük uyarılar için kullanılan JSON şeması temsilcisi içermiyor. 
@@ -157,6 +157,8 @@ Standart bir Web kancası için örnek yükü aşağıdadır *özel Json seçene
     }
     }
 
+> [!NOTE]
+> Günlük için Application Insights, uyarıları anda ortak Önizleme - işlevselliği ve kullanıcı deneyimi değiştirilebilir değil.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Özel JSON yükü olan günlük uyarı
 Örneğin, yalnızca uyarı adı ve arama sonuçlarını içeren özel bir yükü oluşturmak için aşağıdakileri kullanabilirsiniz: 
@@ -194,7 +196,7 @@ Herhangi bir günlük uyarı için bir özel Web kancası eylemi için örnek y�
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hakkında bilgi edinin [günlük uyarıları Azure uyarılar (Önizleme)](monitor-alerts-unified-log.md)
+- Hakkında bilgi edinin [uyarıları Azure Uyarıları'nda oturum açın ](monitor-alerts-unified-log.md)
 - Oluşturma ve yönetme [azure'da Eylem grupları](monitoring-action-groups.md)
 - Daha fazla bilgi edinmek [Application Insights](../application-insights/app-insights-analytics.md)
 - Daha fazla bilgi edinmek [günlük analizi](../log-analytics/log-analytics-overview.md). 

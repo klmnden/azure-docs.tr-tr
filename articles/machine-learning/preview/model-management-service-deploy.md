@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning modeli Yönetim Web hizmeti dağıtımı | Microsoft Docs"
-description: "Bu belgede, Azure Machine Learning modelini yönetim kullanarak bir makine öğrenimi modeline dağıtma adımları açıklanmaktadır."
+title: Azure Machine Learning modeli Yönetim Web hizmeti dağıtımı | Microsoft Docs
+description: Bu belgede, Azure Machine Learning modelini yönetim kullanarak bir makine öğrenimi modeline dağıtma adımları açıklanmaktadır.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: 7b481fb3287b8ee2c22e5f25f8cf1935eed05428
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 5211fa29af1d8cba17049b69974189990d30f34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Makine öğrenimi modeline web hizmeti olarak dağıtma
 
@@ -22,10 +22,17 @@ Azure Machine Learning modeli yönetim Docker tabanlı web hizmetlerinde kapsay�
 
 Bu belge, Azure Machine Learning modeli yönetim komut satırı arabirimi (CLI) kullanarak web Hizmetleri olarak Modellerinizi dağıtma adımları kapsar.
 
+## <a name="what-you-need-to-get-started"></a>Başlamak için ihtiyacınız olanlar
+
+Bu kılavuz yararlanmak için bir Azure aboneliği veya Modellerinizi için dağıtabileceğiniz bir kaynak grubu katkıda bulunan erişiminiz olması.
+CLI Azure Machine Learning çalışma ekranı ve üzerinde önceden yüklü olarak gelen [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).  Ayrıca tek başına bir paket olarak yüklenebilir.
+
+Ayrıca, bir model yönetim hesabı ve dağıtım ortamı zaten ayarlanması gerekir.  Model yönetim hesabı ve yerel için ortamı ve Küme dağıtımı ayarlama hakkında daha fazla bilgi için bkz: [Model Yönetim Yapılandırması](deployment-setup-configuration.md).
+
 ## <a name="deploying-web-services"></a>Web Hizmetleri dağıtma
 CLIs kullanarak bir küme veya yerel makine üzerinde çalışmak için web hizmetleri dağıtabilirsiniz.
 
-Yerel bir dağıtımı ile başlayan öneririz. İlk modeli ve kod, ardından çalıştığını doğrulamak üretim ölçeği kullanmak için bir küme için web hizmetini dağıtma. Küme dağıtımı için ortamınızı kurma hakkında daha fazla bilgi için bkz: [Model Yönetim Yapılandırması](deployment-setup-configuration.md). 
+Yerel bir dağıtımı ile başlayan öneririz. İlk modeli ve kod, ardından çalıştığını doğrulamak üretim ölçeği kullanmak için bir küme için web hizmetini dağıtma.
 
 Dağıtım adımları şunlardır:
 1. Kaydedilmiş, eğitilen, Machine Learning modelinizi kullanın
@@ -49,7 +56,8 @@ saved_model = pickle.dumps(clf)
 ```
 
 ### <a name="2-create-a-schemajson-file"></a>2. Schema.json dosyası oluşturma
-Bu adım isteğe bağlıdır. 
+
+Şema oluşturma isteğe bağlı olsa da, daha iyi işleme isteği ve giriş değişken biçimini tanımlamak için önerilir.
 
 Otomatik olarak giriş ve çıkış web hizmetinizin doğrulamak için bir şema oluşturun. CLIs şema web hizmetiniz için Swagger belgesinin oluşturmak için de kullanabilirsiniz.
 
@@ -77,6 +85,13 @@ Aşağıdaki örnek, bir PANDAS dataframe kullanır:
 
 ```python
 inputs = {"input_df": SampleDefinition(DataTypes.PANDAS, yourinputdataframe)}
+generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
+```
+
+Aşağıdaki örnek, genel bir JSON biçimi kullanır:
+
+```python
+inputs = {"input_json": SampleDefinition(DataTypes.STANDARD, yourinputjson)}
 generate_schema(run_func=run, inputs=inputs, filepath='./outputs/service_schema.json')
 ```
 
@@ -147,10 +162,13 @@ Bağımsız değişken kullanarak daha önce kaydedilmiş bir model bildirime ek
 az ml image create -n [image name] --manifest-id [the manifest ID]
 ```
 
-Veya bildirimi oluşturma ve tek bir komutla görüntü. 
+>[!NOTE] 
+>Tek bir komut, model kayıt, bildirim ve model oluşturma gerçekleştirmek için de kullanabilirsiniz. Daha fazla ayrıntı için komut kullanın -h hizmeti ile oluşturun.
+
+Alternatif olarak, bir model kaydetmek, bir bildirim oluşturmak ve görüntü oluşturma (ancak değil oluşturmak ve web hizmeti henüz dağıtmak için) tek bir komutu yok olarak adım gibi.
 
 ```
-az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
+az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime e.g. spark-py which is the Docker container image base]
 ```
 
 >[!NOTE]
@@ -165,7 +183,14 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->Tek bir komut, önceki 4 adımları gerçekleştirmek için de kullanabilirsiniz. Daha fazla ayrıntı için komut kullanın -h hizmeti ile oluşturun.
+>Tek bir komut, tüm önceki 4 adımları gerçekleştirmek için de kullanabilirsiniz. Daha fazla ayrıntı için komut kullanın -h hizmeti ile oluşturun.
+
+Alternatif olarak, bir modelini kaydettirmek, bir bildirim oluşturmak, bir görüntü oluşturma yanı sıra, oluşturup webservice bir adım olarak şu şekilde dağıtmak için tek bir komutu yok.
+
+```azurecli
+az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
+```
+
 
 ### <a name="8-test-the-service"></a>8. Hizmeti test
 Hizmeti çağırmak nasıl hakkında bilgi almak için aşağıdaki komutu kullanın:

@@ -1,6 +1,6 @@
 ---
-title: "MySQL için Azure veritabanındaki sınırlamaları"
-description: "Bu makalede, MySQL, bağlantı ve depolama altyapısı seçenekleri sayısı gibi Azure veritabanındaki sınırlamalar açıklanır."
+title: MySQL için Azure veritabanındaki sınırlamaları
+description: Bu makalede, MySQL, bağlantı ve depolama altyapısı seçenekleri sayısı gibi Azure veritabanındaki sınırlamalar açıklanır.
 services: mysql
 author: kamathsun
 ms.author: sukamat
@@ -8,42 +8,41 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanındaki sınırlamaları
-MySQL hizmeti için Azure veritabanı genel önizlemede değil. Aşağıdaki bölümlerde, kapasite, depolama altyapısı desteği, ayrıcalık desteği, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz. [genel sınırlamaları](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
+Aşağıdaki bölümlerde, kapasite, depolama altyapısı desteği, ayrıcalık desteği, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz. [genel sınırlamaları](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
 
 ## <a name="service-tier-maximums"></a>Hizmet katmanı üst sınırlar
 Azure veritabanı MySQL için bir sunucu oluştururken seçebileceğiniz birden çok hizmet katmanı vardır. Daha fazla bilgi için bkz: [Azure veritabanı fiyatlandırma katmanlarına MySQL için](concepts-pricing-tiers.md).  
 
-En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama her hizmet katmanında Önizleme sırasında gibi: 
+Aşağıdaki gibi maksimum sayısını bağlantıları, işlem birimleri ve depolama her hizmet katmanında vardır: 
 
 |**Fiyatlandırma Katmanı**| **İşlem oluşturma**|**vCore(s)**| **En fazla bağlantı**|
 |---|---|---|---|
-|Temel| Gen 4| 1| 50|
-|Temel| Gen 4| 2| 100|
-|Temel| Gen 5| 1| 50|
-|Temel| Gen 5| 2| 100|
-|Genel Amaçlı| Gen 4| 2| 200|
-|Genel Amaçlı| Gen 4| 4| 400|
-|Genel Amaçlı| Gen 4| 8| 800|
-|Genel Amaçlı| Gen 4| 16| 1600|
-|Genel Amaçlı| Gen 4| 32| 3200|
-|Genel Amaçlı| Gen 5| 2| 200|
-|Genel Amaçlı| Gen 5| 4| 400|
-|Genel Amaçlı| Gen 5| 8| 800|
-|Genel Amaçlı| Gen 5| 16| 1600|
-|Genel Amaçlı| Gen 5| 32| 3200|
-|Bellek için İyileştirilmiş| Gen 5| 2| 600|
-|Bellek için İyileştirilmiş| Gen 5| 4| 1250|
-|Bellek için İyileştirilmiş| Gen 5| 8| 2500|
-|Bellek için İyileştirilmiş| Gen 5| 16| 5000|
-|Bellek için İyileştirilmiş| Gen 5| 32| 10000| 
+|Temel| 4. Nesil| 1| 50|
+|Temel| 4. Nesil| 2| 100|
+|Temel| 5. Nesil| 1| 50|
+|Temel| 5. Nesil| 2| 100|
+|Genel Amaçlı| 4. Nesil| 2| 300|
+|Genel Amaçlı| 4. Nesil| 4| 625|
+|Genel Amaçlı| 4. Nesil| 8| 1250|
+|Genel Amaçlı| 4. Nesil| 16| 2500|
+|Genel Amaçlı| 4. Nesil| 32| 5000|
+|Genel Amaçlı| 5. Nesil| 2| 300|
+|Genel Amaçlı| 5. Nesil| 4| 625|
+|Genel Amaçlı| 5. Nesil| 8| 1250|
+|Genel Amaçlı| 5. Nesil| 16| 2500|
+|Genel Amaçlı| 5. Nesil| 32| 5000|
+|Bellek için İyileştirilmiş| 5. Nesil| 2| 600|
+|Bellek için İyileştirilmiş| 5. Nesil| 4| 1250|
+|Bellek için İyileştirilmiş| 5. Nesil| 8| 2500|
+|Bellek için İyileştirilmiş| 5. Nesil| 16| 5000|
 
 Çok fazla bağlantı erişildiğinde, aşağıdaki hata iletisini alabilirsiniz:
 > 1040 (08004). hata: Çok fazla bağlantı
@@ -74,7 +73,7 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 ### <a name="unsupported"></a>Desteklenmiyor
 - SEÇİN... ÇIKIŞDOSYASI
 
-## <a name="preview-functional-limitations"></a>Önizleme işlevsel sınırlamaları
+## <a name="functional-limitations"></a>İşlev sınırlamaları
 
 ### <a name="scale-operations"></a>Ölçek işlemleri
 - Dinamik sunucularının ölçeklendirme fiyatlandırma katmanları arasında şu anda desteklenmiyor. Diğer bir deyişle, temel, genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanları arasında geçiş yapma.

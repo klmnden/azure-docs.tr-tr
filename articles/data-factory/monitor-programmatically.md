@@ -1,11 +1,11 @@
 ---
-title: "Program aracılığıyla bir Azure data factory izleme | Microsoft Docs"
-description: "Farklı yazılım geliştirme setleri (SDK) kullanarak bir veri fabrikasında ardışık düzeni izlemek öğrenin."
+title: Program aracılığıyla bir Azure data factory izleme | Microsoft Docs
+description: Farklı yazılım geliştirme setleri (SDK) kullanarak bir veri fabrikasında ardışık düzeni izlemek öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 95934de9b84270ff112489a7b67f622dad609970
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 87e69349245c5f67e23022e3a45ed798400e6a2c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Program aracılığıyla bir Azure data factory izleme
 Bu makalede, farklı yazılım geliştirme setleri (SDK) kullanarak bir veri fabrikasında ardışık düzeni izlemek açıklar. 
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [İzleyici ve ardışık düzenlerinde Data Factory version1 yönetmek](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="data-range"></a>Veri aralığı
+
+Veri Fabrikası yalnızca ardışık düzen veri 45 gün çalıştırmak depolar. Sorguladığınızda program aracılığıyla Data Factory işlem hattı çalışır hakkında-veriler için örneğin, PowerShell komutuyla `Get-AzureRmDataFactoryV2PipelineRun` -isteğe bağlı için en fazla tarih vardır `LastUpdatedAfter` ve `LastUpdatedBefore` parametreleri. Ancak, sorgu için veri ve geçen yıl, örneğin, sorgu bir hata döndürmez, ancak yalnızca döndürür, son 45 gün çalışma veri kanalı.
+
+Kendi tanılama günlük kaydıyla 45 günden fazla bir süre için veri çalıştırmak ardışık düzen kalıcı hale getirmek istiyorsanız, ayarlama [Azure İzleyici](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
 Oluşturma ve .NET SDK kullanarak bir işlem hattı izleme izlenecek tam yol için bkz: [bir veri fabrikası oluşturun ve .NET kullanarak kanal](quickstart-create-data-factory-dot-net.md).

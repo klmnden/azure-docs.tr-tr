@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: oturum özel ilkelerinde değiştirmek ve kendini sağlayıcısı uygulanan yapılandırın"
-description: "Kaydolun ve kullanıcı girişini yapılandırmak bir kılavuz ekleme talepleri"
+title: 'Azure Active Directory B2C: oturum özel ilkelerinde değiştirmek ve kendini sağlayıcısı uygulanan yapılandırın'
+description: Kaydolun ve kullanıcı girişini yapılandırmak bir kılavuz ekleme talepleri
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: tbd
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/29/2017
-ms.author: joroja
-ms.openlocfilehash: e9eb9fa941569c508c4dddc6b85786537a5a0fac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: b9ea48f0700509194602dd15ff42c7c689685a53
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: yeni talep eklemek ve kullanıcı girişi yapılandırmak için yukarı oturum değiştirin.
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 Bu makalede, yeni bir kullanıcı tarafından sağlanan giriş (talep) kaydolma kullanıcı Yolculuğunuzun ekleyeceksiniz.  Giriş bir açılır liste yapılandırma yapar ve gerekli olduğunda tanımlayın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Makalesindeki adımları [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md).  Kaydolma devam etmeden önce yeni bir yerel hesap için kaydolma/oturum açma kullanıcı gezisine test edin.
 
@@ -47,11 +44,11 @@ Kendi şehrini kaldırmasını sağlar.  Aşağıdaki öğeyi ekleyin `<ClaimsSc
 ```
 Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İçin tam bir şema, başvurmak **kimlik deneyimi Framework Teknik Başvuru Kılavuzu**.  Bu kılavuz başvuru bölümünde yakında yayımlanacaktır.
 
-* `<DisplayName>`Kullanıcı dönük tanımlayan bir dize *etiketi*
+* `<DisplayName>` Kullanıcı dönük tanımlayan bir dize *etiketi*
 
-* `<UserHelpText>`gerekenden anlamasına yardımcı olur
+* `<UserHelpText>` gerekenden anlamasına yardımcı olur
 
-* `<UserInputType>`Aşağıdaki dört seçenekten aşağıda vurgulanan:
+* `<UserInputType>` Aşağıdaki dört seçenekten aşağıda vurgulanan:
     * `TextBox`
 ```xml
 <ClaimType Id="city">
@@ -62,7 +59,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 </ClaimType>
 ```
 
-    * `RadioSingleSelectduration`-Tek seçim zorlar.
+    * `RadioSingleSelectduration` -Tek seçim zorlar.
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -76,7 +73,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect`-Yalnızca geçerli değer seçimine izin verir.
+    * `DropdownSingleSelect` -Yalnızca geçerli değer seçimine izin verir.
 
 ![Aşağı açılan seçeneği ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
@@ -95,7 +92,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
 ```
 
 
-* `CheckboxMultiSelect`İçin bir veya daha fazla değer seçimine izin verir.
+* `CheckboxMultiSelect` İçin bir veya daha fazla değer seçimine izin verir.
 
 ![Çoklu seçeneğinin ekran görüntüsü](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
@@ -188,7 +185,7 @@ Burada talep özelleştirmek için yapabileceğiniz ek seçenekler vardır.  İ�
   </TechnicalProfile>
   ```
 
-3. Farklı bir kullanıcı oturum açtığında, dizinden okuma TechnicalProfile için talep ekleme bir`<OutputClaim ClaimTypeReferenceId="city" />`
+3. Farklı bir kullanıcı oturum açtığında, dizinden okuma TechnicalProfile için talep ekleme bir `<OutputClaim ClaimTypeReferenceId="city" />`
 
   ```xml
   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">

@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory etkinliğinde kadar | Microsoft Docs"
-description: "Until etkinlik etkinlikleri kümesi etkinliği ile ilişkili koşulunu true olarak değerlendirilir veya zaman aşımına uğruyor kadar bir döngü yürütür."
+title: Azure Data Factory etkinliğinde kadar | Microsoft Docs
+description: Until etkinlik etkinlikleri kümesi etkinliği ile ilişkili koşulunu true olarak değerlendirilir veya zaman aşımına uğruyor kadar bir döngü yürütür.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 14abd3f069cb5cd49265a6b27e4b1c4363a21441
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory kadar etkinliğinde
 Until etkinliği aynı işlevselliği sağlayan bir-yapısı döngü programlama dillerinde sağlayana kadar. Etkinlikle ilişkilendirilmiş olan koşul doğru sonucunu verene kadar bir dizi etkinliği döngüsel olarak yürütür. Data Factory'de bitiş etkinliği için bir zaman aşımı değeri belirtebilirsiniz. 
@@ -60,7 +60,7 @@ Until etkinliği aynı işlevselliği sağlayan bir-yapısı döngü programlama
 ad | Adını `Until` etkinlik. | Dize | Evet
 type | Ayarlanmalıdır **kadar**. | Dize | Evet
 ifade | True veya false olarak değerlendirilmelidir ifade | İfade.  | Evet
-timeout | Do-burada belirtilen saat sonra zaman aşımına döngü kadar. | Dize. `d.hh:mm:ss`(veya) `hh:mm:ss`. Varsayılan değer 7 gündür. Maksimum değer: 90 gün. | Hayır
+timeout | Do-burada belirtilen saat sonra zaman aşımına döngü kadar. | Dize. `d.hh:mm:ss` (veya) `hh:mm:ss`. Varsayılan değer 7 gündür. Maksimum değer: 90 gün. | Hayır
 Etkinlikler | İçin ifadeyi hesaplar kadar çalıştırılan etkinlikleri kümesi `true`. | Etkinlikler dizisi. |  Evet
 
 ## <a name="example-1"></a>Örnek 1

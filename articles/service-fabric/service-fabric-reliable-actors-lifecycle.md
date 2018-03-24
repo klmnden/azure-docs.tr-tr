@@ -1,6 +1,6 @@
 ---
-title: "Aktör tabanlı Azure mikro yaşam döngüsüne genel bakış | Microsoft Docs"
-description: "Service Fabric güvenilir aktör yaşam döngüsü, atık toplama ve aktörler ve durumlarına el ile silinmesi açıklanmaktadır"
+title: Aktör tabanlı Azure mikro yaşam döngüsüne genel bakış | Microsoft Docs
+description: Service Fabric güvenilir aktör yaşam döngüsü, atık toplama ve aktörler ve durumlarına el ile silinmesi açıklanmaktadır
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dd45acd75e1cf263029c869d88c87b28f56d50cc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4abb1ea6e5c79a5280d6ca4ad96070603b81793a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktör yaşam döngüsü, otomatik çöp toplama ve el ile silme
 Bir oyuncu yöntemlerinden herhangi biri için bir çağrı yapılır ilk kez etkinleştirilir. Bir oyuncu devre dışı bırakılmış (Çöp aktörler çalışma zamanı tarafından toplanan) ise yapılandırılabilir bir süre için kullanılmaz. Bir aktör ve durumu da el ile herhangi bir zamanda silinebilir.
@@ -112,37 +112,8 @@ Aşağıdaki diyagramda bu kavramları göstermek için tek bir aktör yaşam d�
 
 Bir oyuncu hiçbir zaman bu yöntemin yürütülmesi için ne kadar süre olsun yöntemlerinden birini yürütülürken toplanacak olmaz. Daha önce belirtildiği gibi aktör arabirim yöntemleri ve anımsatıcı geri aramalar yürütülmesini aktör'ın boşta kalma süresi 0 olarak sıfırlayarak çöp toplama engeller. Zamanlayıcı geri aramalar yürütülmesi boşta kalma süresi 0 olarak sıfırlamaz. Ancak, aktör çöp koleksiyonu Zamanlayıcı geri yürütme tamamlanana kadar ertelenir.
 
-## <a name="deleting-actors-and-their-state"></a>Aktör ve durumlarına silme
-Çöp toplama devre dışı bırakılan aktör yalnızca aktör nesnesini temizler, ancak bir aktör ait durum Yöneticisi'nde depolanan verileri kaldırmaz. Bir aktör yeniden etkinleştirildiğinde, verileri yeniden durum Yöneticisi aracılığıyla için kullanılabilir hale getirilir. Burada aktörler durum Yöneticisi'nde veri depolamak ve devre dışı ancak hiçbir zaman yeniden etkinleştirilmiş durumda, kendi verilerini temizle gerekebilir.
-
-[Aktör hizmeti](service-fabric-reliable-actors-platform.md) aktörler uzak çağrıyı yapandan silmek için bir işlev sağlar:
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-Bir oyuncu silme aktör şu anda etkin olan olup olmadığına bağlı olarak aşağıdaki etkileri gösterir:
-
-* **Active Actor**
-  * Aktör etkin aktörler listesinden kaldırılır ve devre dışı bırakılır.
-  * Durumu kalıcı olarak silinir.
-* **Etkin olmayan aktör**
-  * Durumu kalıcı olarak silinir.
-
-Bir oyuncu çağrılamıyor Not Sil aktör yöntemlerinden birini kendisinden aktör çalışma zamanı tek iş parçacıklı erişim uygulamaya aktör çağrısı geçici bir kilidi elde bir aktör çağrısı bağlamı içinde yürütülürken silinemez çünkü.
+## <a name="manually-deleting-actors-and-their-state"></a>Aktör ve durumlarına el ile silme
+Çöp toplama devre dışı bırakılan aktör yalnızca aktör nesnesini temizler, ancak bir aktör ait durum Yöneticisi'nde depolanan verileri kaldırmaz. Bir aktör yeniden etkinleştirildiğinde, verileri yeniden durum Yöneticisi aracılığıyla için kullanılabilir hale getirilir. Burada aktörler durum Yöneticisi'nde veri depolamak ve devre dışı ancak hiçbir zaman yeniden etkinleştirilmiş durumda, kendi verilerini temizle gerekebilir.  Aktör silmek nasıl bir örnekleri için okuma [aktörler silip durumlarına](service-fabric-reliable-actors-delete-actors.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Aktör zamanlayıcılar ve anımsatıcıları](service-fabric-reliable-actors-timers-reminders.md)

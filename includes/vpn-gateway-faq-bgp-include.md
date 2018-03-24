@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: dfc75a64e8bd28d7aba9984e5a1d5720330f1da3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP tüm Azure VPN Gateway SKU'larında destekleniyor mu?
 Hayır, BGP Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** ve **HighPerformance** VPN ağ geçitlerinde desteklenir. **Temel** SKU DESTEKLENMEZ.
 
@@ -10,7 +26,7 @@ Evet, kendi ortak ASN’lerinizi veya özel ASN’lerinizi hem şirket içi ağl
 ### <a name="are-there-asns-reserved-by-azure"></a>Azure tarafından ayrılan bir ASN var mı?
 Evet, aşağıdaki ASN’ler iç ve dış eşlemeler için Azure tarafından ayrılmıştır:
 
-* Ortak Asn'lerinizi: 8074 8075, 12076
+* Public ASNs: 8074, 8075, 12076
 * Özel ASN’ler: 65515, 65517, 65518, 65519, 65520
 
 Bu ASN’leri Azure VPN ağ geçitlerine bağlanırken şirket içi VPN cihazlarınız için belirtemezsiniz.
@@ -72,4 +88,3 @@ Azure Yerel Ağ Geçidi, şirket içi ağ için başlangıç adresi öneklerini 
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>BGP eşdeğer oturumu için şirket içi VPN cihazıma ne eklemeliyim?
 VPN cihazınızdaki Azure BGP Eşdeğer IP adresinin, IPsec S2S VPN tüneline yönlenmiş konak rotasını eklemelisiniz. Örneğin, Azure VPN Eşdeğer IP’si "10.12.255.30" olursa, "10.12.255.30" için VPN cihazınızdaki eşleşen IPsec tüneli arabiriminin sonraki durak arabirimine sahip bir konak rotası eklemelisiniz.
-

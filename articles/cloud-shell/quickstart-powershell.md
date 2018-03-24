@@ -1,12 +1,12 @@
 ---
-title: "Azure bulut Kabuğu (Önizleme) hızlı başlangıç PowerShell'de | Microsoft Docs"
-description: "PowerShell bulut kabuğu için hızlı başlangıç"
+title: Azure bulut Kabuğu (Önizleme) hızlı başlangıç PowerShell'de | Microsoft Docs
+description: PowerShell bulut kabuğu için hızlı başlangıç
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendmsft
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: 71ae70c13b4de87593345fd957a773741294b49c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4b0831173212d3324c851ad1bd04ec443a9face5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>PowerShell Azure bulut Kabuğu (Önizleme) için hızlı başlangıç
 
@@ -33,7 +33,7 @@ Bu belge PowerShell bulut Kabuğu'nda kullanmak nasıl ayrıntıları [Azure por
 
   ![](media/quickstart-powershell/shell-icon.png)
 
-2. PowerShell ortamı açılan listeden seçin ve Azure sürücüde olur`(Azure:)`
+2. PowerShell ortamı açılan listeden seçin ve Azure sürücüde olur `(Azure:)`
 
   ![](media/quickstart-powershell/environment-ps.png)
 
@@ -62,7 +62,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. `cd`tercih edilen aboneliğinizi
+ 2. `cd` tercih edilen aboneliğinizi
 
     ``` PowerShell
     PS Azure:\> cd MySubscriptionName
@@ -118,7 +118,7 @@ Bununla birlikte, her zaman kullanabilirsiniz `dir -Force` yeni veri almak için
 
 ### <a name="navigate-storage-resources"></a>Depolama kaynaklarını gidin
     
-İçine girerek `StorageAccounts` kolayca gezinmenizi depolama kaynaklarınıza klasörü
+İçine girerek `StorageAccounts` kolayca gezinmenizi depolama kaynaklarınıza dizini
     
 ``` PowerShell 
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
@@ -227,7 +227,7 @@ Ayrıca gidebilirsiniz `VirtualMachines` ilk ve çalışma dizinini `Enter-Azure
 
 ### <a name="discover-webapps"></a>WebApps Bul
 
-İçine girerek `WebApps` kolayca gezinmenizi web apps kaynaklarınızı klasörü
+İçine girerek `WebApps` kolayca gezinmenizi web apps kaynaklarınızı dizini
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -274,11 +274,11 @@ Sunucular veya VM'ler SSH kullanarak kimlik doğrulaması için bulut Kabuğu'nd
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>GIT ve SSH ayarlarını sürdürmek için özel bir profil kullanma
 
-Oturumları bağlı kalmaz beri oturum kapatma, kaydetme, `$env:USERPROFILE\.ssh` klasörüne `CloudDrive` veya Bulut Kabuk başlatıldığında bir simgesel oluşturun.
+Oturumları bağlı kalmaz beri oturum kapatma, kaydetme, `$env:USERPROFILE\.ssh` dizininden `CloudDrive` veya Bulut Kabuk başlatıldığında bir simgesel oluşturun.
 Aşağıdaki kod parçacığında simgesel CloudDrive için oluşturmak için profile.ps1 ekleyin.
 
 ``` PowerShell
-# Check if the .ssh folder exists
+# Check if the .ssh directory exists
 if( -not (Test-Path $home\CloudDrive\.ssh)){
     mkdir $home\CloudDrive\.ssh
 }
@@ -357,7 +357,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Bulut Kabuğu'nda PowerShell kullandığınızda, sonraki sefer `helloworld.ps1` dosya var altında `CloudDrive` , Azure dosya paylaşımı bağladığı klasör.
+Bulut Kabuğu'nda PowerShell kullandığınızda, sonraki sefer `helloworld.ps1` dosya var altında `CloudDrive` , Azure dosya paylaşımı bağladığı dizin.
 
 ## <a name="use-custom-profile"></a>Özel profil kullan
 

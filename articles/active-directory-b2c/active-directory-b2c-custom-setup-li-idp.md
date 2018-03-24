@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Özel ilkeler kullanarak LinkedIn OAuth2 kimlik sağlayıcısı olarak ekleyin"
-description: "Özel ilkeler ve OAuth2 protokolü kullanarak bir LinkedIn uygulamasını ayarlama hakkında nasıl yapılır makalesi"
+title: 'Azure Active Directory B2C: Özel ilkeler kullanarak LinkedIn OAuth2 kimlik sağlayıcısı olarak ekleyin'
+description: Özel ilkeler ve OAuth2 protokolü kullanarak bir LinkedIn uygulamasını ayarlama hakkında nasıl yapılır makalesi
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/23/2017
-ms.author: yoelh
-ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: davidmu
+ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: LinkedIn özel ilkeler kullanarak bir kimlik sağlayıcısı ekleyin
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -43,7 +40,7 @@ Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn kullanmak için (Azu
 
     c. Seçin bir **uygulama kullanımı**.
 
-    d. İçinde **Web sitesi URL'si** kutusunda, yapıştırma  **https://login.microsoftonline.com** .
+    d. İçinde **Web sitesi URL'si** kutusunda, yapıştırma **https://login.microsoftonline.com**.
 
     e. Türü, **iş e-posta** adresi ve **iş telefonu** numarası.
 
@@ -53,7 +50,7 @@ Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn kullanmak için (Azu
 
 3. Seçin **kimlik doğrulaması**ve ardından Not **istemci kimliği** ve **gizli** değerleri.
 
-4. İçinde **yönlendirme URL'si yetkili** kutusunda, yapıştırma  **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp** . Yerine {*Kiracı*} Kiracı adınız (örneğin, contosob2c.onmicrosoft.com) sahip. HTTPS şeması kullandığınızdan emin olun. 
+4. İçinde **yönlendirme URL'si yetkili** kutusunda, yapıştırma **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Yerine {*Kiracı*} Kiracı adınız (örneğin, contosob2c.onmicrosoft.com) sahip. HTTPS şeması kullandığınızdan emin olun. 
 
     ![LinkedIn hesabı - yetkili kümesi yeniden yönlendirme URL'leri](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

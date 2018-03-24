@@ -1,6 +1,6 @@
 ---
-title: "Giriş ile Azure kapsayıcı hizmeti (AKS) kümesi yapılandırın"
-description: "Yükleyin ve bir Azure kapsayıcı hizmeti (AKS) küme NGINX giriş denetleyicisi yapılandırın."
+title: Giriş ile Azure kapsayıcı hizmeti (AKS) kümesi yapılandırın
+description: Yükleyin ve bir Azure kapsayıcı hizmeti (AKS) küme NGINX giriş denetleyicisi yapılandırın.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 908910b44a9de28f184906dd4e904e651fe034ce
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4294169e89533150cade700fb89e14c4121c4404
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS giriş Azure kapsayıcı hizmeti (AKS)
 
@@ -31,21 +31,20 @@ Grafik depo güncelleştirin.
 helm repo update
 ```
 
-NGINX giriş denetleyicisi yükleyin.
+NGINX giriş denetleyicisi yükleyin. Bu örnek, denetleyicide yükler `kube-system` ad alanı, bu tercih ettiğiniz bir ad alanına değiştirilebilir.
 
 ```
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --namespace kube-system
 ```
 
 Yükleme sırasında Azure ortak IP adresi giriş denetleyici için oluşturulur. Genel IP adresi almak için kubectl get hizmet komutunu kullanın. Hizmete atanan IP adresi için biraz zaman alabilir.
 
 ```console
-$ kubectl get service
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                          TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
-kubernetes                                    ClusterIP      10.0.0.1       <none>           443/TCP                      3d
-toned-spaniel-nginx-ingress-controller        LoadBalancer   10.0.236.223   52.224.125.195   80:30927/TCP,443:31144/TCP   18m
-toned-spaniel-nginx-ingress-default-backend   ClusterIP      10.0.5.86      <none>           80/TCP                       18m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
 ```
 
 Genel IP adresine göz atarsanız hiçbir giriş kuralları, oluşturulduğundan, NGINX giriş denetleyicileri varsayılan 404 sayfasına yönlendirilir.

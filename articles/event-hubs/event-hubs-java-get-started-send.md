@@ -1,28 +1,27 @@
 ---
-title: "Java kullanarak Azure Event Hubs için olayları göndermek | Microsoft Docs"
-description: "Java kullanarak Event Hubs'a gönderme kullanmaya başlama"
+title: Java kullanarak Azure Event Hubs için olayları göndermek | Microsoft Docs
+description: Java kullanarak Event Hubs'a gönderme kullanmaya başlama
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 03/21/2018
 ms.author: sethm
-ms.openlocfilehash: 5c8c24e1f168be4b46ccfdb1d0c268866fc8ff7d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5dd0c88dab9ff4b7073a9acf6872b4c3ff085586
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Java kullanarak Azure Event Hubs için olayları Gönder
 
-## <a name="introduction"></a>Giriş
 Olay hub'ları saniye başına milyonlarca olayı alma, bir uygulamaya etkinleştirme işlemek ve veri bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki analiz bir yüksek düzeyde ölçeklenebilir bir alım sistemine olur. Bir olay hub'ına toplandığında, dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya depolama kümesi kullanarak verileri depolar.
 
 Daha fazla bilgi için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
@@ -32,16 +31,19 @@ Bu öğretici bir Java konsol uygulaması kullanarak bir event hub'ına olaylar�
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Java geliştirme ortamı. Bu öğretici için varsayıyoruz [Eclipse](https://www.eclipse.org/).
-* Etkin bir Azure hesabı. <br/>Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Ücretsiz Deneme Sürümü</a>.
+* Etkin bir Azure hesabı. Bir Azure aboneliğiniz yoksa oluşturma bir [ücretsiz bir hesap][] başlamadan önce.
 
-## <a name="send-messages-to-event-hubs"></a>Event Hubs’a ileti gönderme
-Olay hub'ları için Java istemci kitaplığı Maven projelerden kullanmak için kullanılabilir [Maven merkezi bir depoya](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Maven projesi dosyanızı içinde aşağıdaki bağımlılık bildirimi kullanarak bu kitaplık başvurusu yapabilir:    
+Bu öğreticideki kod dayanır [Gönder GitHub örnek](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send), hangi tam görmek için inceleyebilirsiniz çalışan bir uygulama.
+
+## <a name="send-events-to-event-hubs"></a>Olayları Event Hubs'a gönderme
+
+Olay hub'ları için Java istemci kitaplığı Maven projelerden kullanmak için kullanılabilir [Maven merkezi bir depoya](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Maven projesi dosyanızı içinde aşağıdaki bağımlılık bildirimi kullanarak bu kitaplık başvurusu yapabilir. Geçerli sürümü 1.0.0 şöyledir:    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>{VERSION}</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -49,50 +51,65 @@ Derleme ortamları farklı türleri için en son yayımlanan JAR dosyalarını a
 
 Basit olay yayımcısı alma *com.microsoft.azure.eventhubs* olay hub'ları istemci sınıfları için paketi ve *com.microsoft.azure.servicebus* Azure Service Bus Mesajlaşma istemcisiyle paylaşılan ortak özel durumlar gibi yardımcı sınıflar için paketi. 
 
-Aşağıdaki örnek için önce en sevdiğiniz Java geliştirme ortamında bir konsol/kabuk uygulaması için yeni bir Maven projesi oluşturun. Sınıf adını `Send`.     
+### <a name="declare-the-send-class"></a>Gönderme sınıf bildirme
+
+Aşağıdaki örnek için önce en sevdiğiniz Java geliştirme ortamında bir konsol/kabuk uygulaması için yeni bir Maven projesi oluşturun. Sınıf adını `Send`:     
 
 ```java
+package com.microsoft.azure.eventhubs.samples.send;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.microsoft.azure.eventhubs.ConnectionStringBuilder;
+import com.microsoft.azure.eventhubs.EventData;
+import com.microsoft.azure.eventhubs.EventHubClient;
+import com.microsoft.azure.eventhubs.PartitionSender;
+import com.microsoft.azure.eventhubs.EventHubException;
+
 import java.io.IOException;
-import java.nio.charset.*;
-import java.util.*;
+import java.nio.charset.Charset;
+import java.time.Instant;
+import java.util.Random;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
 
-import com.microsoft.azure.eventhubs.*;
+public class Send {
 
-public class Send
-{
-    public static void main(String[] args) 
-            throws EventHubException, IOException
-    {
+    public static void main(String[] args)
+            throws EventHubException, ExecutionException, InterruptedException, IOException {
 ```
 
-Ad alanı ve olay hub'ı adları olay hub'ı oluşturduğunuzda kullanılan değerlerle değiştirin.
+### <a name="construct-connection-string"></a>Bağlantı dizesi oluşturun
+
+ConnectionStringBuilder sınıfı Event Hubs istemcisi örneğine geçirmek için bir bağlantı dizesi değeri oluşturmak için kullanın. Yer tutucuları ad alanı ve olay hub'ı oluşturduğunuzda elde ettiğiniz değerlerle değiştirin:
 
 ```java
-    final String namespaceName = "----ServiceBusNamespaceName-----";
-    final String eventHubName = "----EventHubName-----";
-    final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
-    final String sasKey = "---SharedAccessSignatureKey----";
-    ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+   final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
+      .setNamespaceName("----NamespaceName-----")
+      .setEventHubName("----EventHubName-----")
+      .setSasKeyName("-----SharedAccessSignatureKeyName-----")
+      .setSasKey("---SharedAccessSignatureKey----");
 ```
+
+### <a name="send-events"></a>Olayları gönderme
 
 Ardından, bir dize, UTF-8 bayt kodlamaya dönüştürerek tekil bir olay oluşturun. Ardından, yeni bir olay hub'ları istemci örnek bağlantı dizesinden oluşturun ve ileti gönderin.   
 
 ```java 
+byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
+EventData sendEvent = new EventData(payloadBytes);
 
-    byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
-    EventData sendEvent = new EventData(payloadBytes);
-
-    EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
-    ehClient.sendSync(sendEvent);
+final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
+ehClient.sendSync(sendEvent);
     
-    // close the client at the end of your program
-    ehClient.closeSync();
-    }
-}
+// close the client at the end of your program
+ehClient.closeSync();
 
 ``` 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 * [EventProcessorHost kullanarak olayları alma](event-hubs-java-get-started-receive-eph.md)
@@ -102,3 +119,5 @@ Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi e
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md
+[ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+

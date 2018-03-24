@@ -1,11 +1,11 @@
 ---
 title: Azure kaynak durumu ile ilgili SSS | Microsoft Docs
-description: "Azure kaynak durumu genel bakış"
+description: Azure kaynak durumu genel bakış
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5155faac6051f5a586255148f77a52a90745673e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-faq"></a>Azure kaynak durumu ile ilgili SSS
 Azure kaynak durumu hakkında genel soruların yanıtlarını öğrenin.
@@ -81,12 +81,12 @@ Kaynak durumu aşağıdaki bölgeler dışında tüm Azure geos üzerinden kulla
 - Almanya Orta
 - Almanya Kuzeydoğu
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Kaynak sistem durumu hizmet sağlığı panosunu ya da Azure portal hizmet bildirimleri farklı mı?
-Kaynak durumu tarafından sağlanan Azure hizmet sağlığı panosunu tarafından sağlanan daha ayrıntılı bilgidir.
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>Kaynak durumu Azure durum ya da hizmet sistem durumu Panosu farklı mı?
+Kaynak durumu tarafından sağlanan bilgileri ne Azure durumu veya hizmet sistem durumu Panosu tarafından sağlanan daha fazla özeldir.
 
-Oysa [Azure durum](https://status.azure.com) ve müşteriler (örneğin bir Azure bölgesi) geniş bir dizi etkileyen hizmeti sorunları hakkında bilgilendirmek portal hizmet bildirimleri, kaynak durumu yalnızca belirli kaynağa ilgili daha ayrıntılı olayları gösterir. Örneğin, bir ana bilgisayar beklenmedik şekilde yeniden başlatılırsa, kaynak durumu, sanal makineler Bu konakta çalışmakta olan müşteriler uyarır.
+Oysa [Azure durum](https://status.azure.com) ve hizmet sistem durumu Panosu müşteriler (örneğin bir Azure bölgesi) geniş bir dizi etkileyen hizmeti sorunları hakkında bilgilendirmek, kaynak durumu yalnızca ilgili daha ayrıntılı olayları gösterir belirli kaynak. Örneğin, bir ana bilgisayar beklenmedik şekilde yeniden başlatılırsa, kaynak durumu, sanal makineler Bu konakta çalışmakta olan müşteriler uyarır.
 
-Kaynaklarınızın etkileyen olayların tam görünürlük sağlamak için dikkat önemlidir, kaynak sistem durumu hizmeti bildirimleri ve hizmet sağlığı panosunu yayımlanan olayları de ortaya çıkarır.
+Kaynaklarınızın etkileyen olayların tam görünürlük sağlamak için dikkat önemlidir, kaynak durumu, hizmet durumu panosunda yayımlanan olayları de ortaya çıkarır.
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>Her kaynak için kaynak durumu etkinleştirmeniz gerekiyor mu?
 Hayır, sistem durumu bilgisi, kaynak durumu kullanılabilir tüm kaynak türleri kullanılabilir. 

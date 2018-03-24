@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory kullanarak SAP Business Warehouse veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak SAP Business Warehouse veri taşıma hakkında bilgi edinin."
+title: Azure Data Factory kullanarak SAP Business Warehouse veri taşıma | Microsoft Docs
+description: Azure Data Factory kullanarak SAP Business Warehouse veri taşıma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b81dc9f13533eaeec56625ede0e4c534b83e7cf7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 38c1611c0404202be2e100d3059b4ba1ed1a9236
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Veri alanından SAP Business Azure Data Factory kullanarak ambar taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,13 +64,13 @@ Aşağıdaki tabloda, JSON öğeleri SAP Business Warehouse (BW) bağlantılı h
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | dize | Evet
+sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | string | Evet
 systemNumber | SAP BW sisteminin sistem numarası. | Bir dize olarak gösterilen iki basamaklı ondalık sayı. | Evet
 clientId | SAP W sistem istemcisinde istemci kimliği. | Bir dize olarak gösterilen üç basamaklı ondalık sayı. | Evet
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
-password | Kullanıcının parolası. | dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | string | Evet
+password | Kullanıcının parolası. | string | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | string | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | string | Hayır
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.

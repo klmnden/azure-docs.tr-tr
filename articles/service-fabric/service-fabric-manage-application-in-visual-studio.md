@@ -1,24 +1,24 @@
 ---
-title: "Visual Studio uygulamalarınızda yönetme | Microsoft Docs"
-description: "Oluşturmak, geliştirmek, paketi, dağıtmak ve Service Fabric uygulamaları ve Hizmetleri hata ayıklamak için Visual Studio'yu kullanın."
+title: Visual Studio'da Azure bildirimleri Fabric uygulamalarınızı yönetin | Microsoft Docs
+description: Oluşturmak, geliştirmek, paketi, dağıtmak ve Azure Service Fabric uygulamaları ve Hizmetleri hata ayıklamak için Visual Studio'yu kullanın.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 16ca821f7cae252148e8901c2ccb8539a25d1d59
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Yazma ve Service Fabric uygulamaları yönetme basitleştirmek için Visual Studio kullanma
 Azure Service Fabric uygulamaları ve Hizmetleri Visual Studio aracılığıyla yönetebilirsiniz. Seçtiğiniz sonra [geliştirme ortamınızı ayarlama](service-fabric-get-started.md), Service Fabric uygulamaları oluşturmak, hizmetleri veya paket, kayıt eklemek ve yerel geliştirme kümenizdeki uygulamaları dağıtmak için Visual Studio'yu kullanabilirsiniz.
@@ -45,7 +45,7 @@ Visual Studio sağlamak adlı bir özellik **uygulama hata ayıklama modu**, uyg
 
 #### <a name="application-debug-modes"></a>Uygulama hata ayıklama modu
 
-1. **Uygulamayı yenileyin** hızlı bir şekilde değiştirin ve statik web dosyaları ayıklarken düzenlemeyi destekler ve kod hatalarını ayıklamak bu modu sağlar. Yerel geliştirme kümenizi ise bu modu yalnızca çalışır [1 düğümü modunu](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Uygulamayı yenileyin** hızlı bir şekilde değiştirin ve statik web dosyaları ayıklarken düzenlemeyi destekler ve kod hatalarını ayıklamak bu modu sağlar. Yerel geliştirme kümenizi ise bu modu yalnızca çalışır [1 düğümü modunu](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Varsayılan uygulama hata ayıklama modu budur.
 2. **Uygulamayı kaldırmak** uygulamanın hata ayıklama oturumu sona erdiğinde kaldırılmasına neden olur.
 3. **Yükseltme otomatik** uygulama hata ayıklama oturumu sona erdiğinde çalışmaya devam eder. Sonraki hata ayıklama oturumu dağıtım yükseltme olarak kabul eder. Yükseltme işlemi önceki bir hata ayıklama oturumunda girdiğiniz herhangi bir veriyi korur.
 4. **Uygulama tutmak** hata ayıklama oturumu sona erdiğinde uygulama kümede çalışan tutar. Sonraki hata ayıklama oturumu başlangıcında, uygulama kaldırılır.
@@ -53,7 +53,7 @@ Visual Studio sağlamak adlı bir özellik **uygulama hata ayıklama modu**, uyg
 İçin **otomatik yükseltme** veriler Service Fabric uygulama yükseltme özelliklerini uygulayarak korunur. Uygulamalar ve gerçek bir ortamda bir yükseltme nasıl yerine getirmeyebilir yükseltme hakkında daha fazla bilgi için bkz: [Service Fabric uygulama yükseltme](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Service Fabric uygulamanızı bir hizmet Ekle
-Uygulamanızı işlevselliğini genişletmek için yeni hizmetler ekleyebilirsiniz.  Hizmet, uygulama paketinde bulunduğundan emin olun, hizmeti aracılığıyla eklemek **yeni Fabric hizmeti...**  menü öğesi.
+Uygulamanızı işlevselliğini genişletmek için yeni hizmetler ekleyebilirsiniz. Hizmet, uygulama paketinde bulunduğundan emin olun, hizmeti aracılığıyla eklemek **yeni Fabric hizmeti...**  menü öğesi.
 
 ![Yeni bir Service Fabric hizmeti ekleyin][newservice]
 
@@ -74,7 +74,7 @@ Temel küme yönetimi işlemleri çalıştırmanızı sağlayan bulut Gezgini'ni
 ![Bir uygulamayı kaldırma][removeapplication]
 
 > [!TIP]
-> Daha zengin küme yönetim işlevselliği için bkz: [Service Fabric Explorer ile kümenizi görselleştirme](service-fabric-visualizing-your-cluster.md).
+> Bkz: için daha zengin bir küme yönetim işlevleri, [Service Fabric Explorer ile kümenizi görselleştirme](service-fabric-visualizing-your-cluster.md).
 >
 >
 

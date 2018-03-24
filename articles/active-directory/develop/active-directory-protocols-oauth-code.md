@@ -1,24 +1,24 @@
 ---
-title: "Azure AD'de OAuth 2.0 yetkilendirme kodu akışını anlama"
-description: "Bu makalede, web uygulamaları ve web API'leri Azure Active Directory ve OAuth 2.0 kullanarak kiracınızda erişim yetkisi vermek için HTTP iletileri kullanmayı açıklar."
+title: Azure AD'de OAuth 2.0 yetkilendirme kodu akışını anlama
+description: Bu makalede, web uygulamaları ve web API'leri Azure Active Directory ve OAuth 2.0 kullanarak kiracınızda erişim yetkisi vermek için HTTP iletileri kullanmayı açıklar.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 03/19/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 77df32710f17f8c5b749c39af9f6c64f0cc0b376
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
 Web uygulamaları ve web Apı'lerinize Azure AD kiracınıza erişim yetkisi vermek etkinleştirmek için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuzda dilden bağımsızdır ve bizim açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklar.
@@ -53,12 +53,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |Gerekli |Azure AD ile kaydolurken uygulamanıza atanan uygulama kimliği. Bu Azure Portalı'nda bulabilirsiniz. Tıklatın **Active Directory**dizini, uygulamayı seçin ve öğesini tıklatın **Yapılandır** |
 | response_type |Gerekli |İçermelidir `code` yetkilendirme kodu akışı. |
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın redirect_uri.  Bu tam bir url kodlanmış olmalıdır dışında Portalı'nda kayıtlı redirect_uris eşleşmelidir.  Yerel & mobil uygulamaları için varsayılan değeri kullanması gereken `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Önerilen |Sonuçta elde edilen belirteci geri uygulamanıza göndermek için kullanılacak yöntemi belirtir.  Olabilir `query` veya `form_post`. |
+| response_mode |Önerilen |Sonuçta elde edilen belirteci geri uygulamanıza göndermek için kullanılacak yöntemi belirtir.  `query` veya `form_post` olabilir. |
 | durum |Önerilen |Ayrıca belirteci yanıtta döndürülen istek dahil bir değer. Rastgele oluşturulan benzersiz bir değer tipik olarak kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12).  Durumu, sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
 | kaynak |isteğe bağlı |Web API (güvenli kaynak) uygulama kimliği URI'si. Web API'si, uygulama kimliği URI'sini Azure Portalı'nda bulmak için tıklatın **Active Directory**, dizini tıklatın, uygulama'yı tıklatın ve ardından **yapılandırma**. |
 | istemi |isteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü gösterir.<p> Geçerli değerler şunlardır: <p> *oturum açma*: kullanıcının yeniden kimlik doğrulaması yapmak istenir. <p> *onay*: kullanıcı izni verildi, ancak güncelleştirilmesi gerekiyor. Kullanıcının onaylaması istenir. <p> *admin_consent*: bir yönetici kendi kuruluşunuzdaki tüm kullanıcılar adına onaylaması istenir |
 | login_hint |isteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Genellikle uygulamaları yeniden kimlik doğrulaması, kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan sırasında bu parametreyi kullanın `preferred_username` talep. |
 | domain_hint |isteğe bağlı |Kiracı veya kullanıcı oturum açmak için kullanması gereken etki alanını hakkında bir ipucu sağlar. Kiracı için kaydedilmiş bir etki alanı domain_hint değeri. Bir şirket içi dizin için Kiracı birleştirildiyse AAD belirtilen Kiracı federasyon sunucusuna yeniden yönlendirir. |
+| code_challenge_method | isteğe bağlı    | Kodlanması için kullanılan yöntem `code_verifier` için `code_challenge` parametresi. Aşağıdakilerden biri olabilir `plain` veya `S256`.  Dışlanan, `code_challenge` düz metin olarak kabul edilir `code_challenge` bulunur.  Azure AAD v2.0 destekler `plain` ve `S256`. Daha fazla bilgi için bkz: [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | isteğe bağlı    | Yetkilendirme kodu verir kanıt anahtarı aracılığıyla native client'kod Exchange (PKCE için) güvenliğini sağlamak için kullanılır. Gerekli olursa `code_challenge_method` bulunur.  Daha fazla bilgi için bkz: [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Kullanıcı kuruluşun parçası ise, kuruluş yöneticisi onayı veya kullanıcı adına reddetmek ya kullanıcının onayını istemeniz izin verir. Kullanıcı seçeneği yalnızca yönetici izin verdiğinde izin verilir.
@@ -78,7 +80,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | Parametre | Açıklama |
 | --- | --- |
 | admin_consent |Değeri True ise bir yönetici onayı isteğinin rıza. |
-| Kod |İstenen uygulama yetkilendirme kodu. Uygulama, hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. |
+| kod |İstenen uygulama yetkilendirme kodu. Uygulama, hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. |
 | session_state |Geçerli kullanıcı oturumunu tanımlayan benzersiz bir değerdir. Bu değer bir GUID olduğundan ancak İnceleme geçirilen genel olmayan bir değer olarak değerlendirilmelidir. |
 | durum |İstekte bir durum parametresi eklenirse, aynı değeri yanıt olarak görünmelidir. Yanıt kullanmadan önce istek ve yanıt durum değerleri özdeş olduğunu doğrulamak uygulama için iyi bir uygulamadır. Bu algılamaya yardımcı olur [siteler arası istek sahteciliği (CSRF) saldırılarını](https://tools.ietf.org/html/rfc6749#section-10.12) istemci karşı. |
 
@@ -104,7 +106,7 @@ Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `
 | --- | --- | --- |
 | invalid_request |Eksik gerekli parametre gibi protokol hatası. |Düzeltin ve isteği yeniden gönderin. Bu geliştirme hata ve genellikle ilk test sırasında yakalandı. |
 | unauthorized_client |İstemci uygulaması bir kimlik doğrulama kodu isteme izni yok. |Bu durum genellikle, istemci uygulaması Azure AD'de kayıtlı değil veya kullanıcının Azure AD kiracısı eklenmez genellikle ortaya çıkar. Uygulama yönerge Azure AD'ye ekleme ve uygulama yükleme için kullanıcıya sor |
-| ACCESS_DENIED |Kaynak sahibi izin reddedildi |İstemci uygulaması kullanıcı izin sürece devam edemiyor kullanıcı bildirebilir. |
+| access_denied |Kaynak sahibi izin reddedildi |İstemci uygulaması kullanıcı izin sürece devam edemiyor kullanıcı bildirebilir. |
 | unsupported_response_type |Yetkilendirme sunucusu isteğine yanıt türünü desteklemiyor. |Düzeltin ve isteği yeniden gönderin. Bu geliştirme hata ve genellikle ilk test sırasında yakalandı. |
 | server_error |Sunucu beklenmeyen bir hatayla karşılaştı. |İsteği yeniden deneyin. Bu hatalar geçici koşulları neden olabilir. İstemci uygulaması yanıt geçici bir hata nedeniyle gecikti kullanıcıya açıklayabilir. |
 | temporarily_unavailable |Sunucunun geçici olarak istek işlemek için çok meşgul. |İsteği yeniden deneyin. İstemci uygulaması yanıt geçici bir koşul nedeniyle gecikti kullanıcıya açıklayabilir. |
@@ -134,10 +136,11 @@ grant_type=authorization_code
 | kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler Kiracı, örneğin, tanımlayıcılardır `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
 | client_id |Gerekli |Azure AD ile kaydolurken uygulamanıza atanan uygulama kimliği. Bu Azure portalında bulabilirsiniz. Uygulama kimliği, uygulama kaydı ayarlarında görüntülenir.  |
 | grant_type |Gerekli |Olmalıdır `authorization_code` yetkilendirme kodu akışı. |
-| Kod |Gerekli |`authorization_code` Önceki bölümde edindiğiniz |
+| kod |Gerekli |`authorization_code` Önceki bölümde edindiğiniz |
 | redirect_uri |Gerekli |Aynı `redirect_uri` almak için kullanılan değer `authorization_code`. |
 | client_secret |Web uygulamaları için gerekli |Uygulamanız için uygulama kayıt Portalı'nda oluşturulan uygulama gizli anahtarı.  Client_secrets güvenilir bir şekilde cihazlarda depolanamaz çünkü yerel bir uygulamada kullanılmamalıdır.  Web uygulamaları ve web depolama olanağı sahip API'leri için gerekli olan `client_secret` sunucu tarafında güvenli bir şekilde. |
 | kaynak |Yetkilendirme kodu isteğinde başka isteğe bağlı belirttiyseniz gereklidir |Web API (güvenli kaynak) uygulama kimliği URI'si. |
+| code_verifier | isteğe bağlı              | Authorization_code elde etmek için kullanılan aynı code_verifier.  PKCE yetkilendirme kodu verme istekte kullanılan ise gereklidir.  Daha fazla bilgi için bkz: [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
 
 Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama'yı tıklatın ve ardından **yapılandırma**.
 
@@ -210,7 +213,7 @@ JSON web belirteçlerini hakkında daha fazla bilgi için bkz: [JWT IETF taslak 
 | given_name |Kullanıcının adı. Uygulama bu değeri görüntüleyebilirsiniz. |
 | IAT |Aynı anda verdi. JWT zaman verilmiş saat. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteç yayımlandığında zamana kadar. |
 | ISS |Belirteç Verenin tanımlar |
-| NBF |Değil süreden önce. Belirteç etkin olduğunda süre. Belirtecin geçerli olması, geçerli tarih/saat Nbf değerine eşit veya daha büyük olmalıdır. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteç yayımlandığında zamana kadar. |
+| nbf |Değil süreden önce. Belirteç etkin olduğunda süre. Belirtecin geçerli olması, geçerli tarih/saat Nbf değerine eşit veya daha büyük olmalıdır. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteç yayımlandığında zamana kadar. |
 | OID |Azure AD'de kullanıcı nesnesinin nesne tanımlayıcısı (ID). |
 | Sub |Belirteç konu tanımlayıcısı. Bu bir kalıcı ve sabit belirteç açıklar kullanıcı tanımlayıcısıdır. Mantığı önbelleğe alma işleminde, bu değeri kullanın. |
 | komutu |Belirtecin Azure AD Kiracı Kiracı tanımlayıcısını (ID). |
@@ -290,10 +293,10 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="error-parameters"></a>Hata parametreleri
 | Parametre | Açıklama |
 | --- | --- |
-| authorization_uri |URI'si (fiziksel uç noktası) yetkilendirme sunucusu. Bu değer, bir bulma uç noktasından sunucusu hakkında daha fazla bilgi için arama anahtarı olarak da kullanılır. <p><p> İstemci yetkilendirme sunucusunun güvenilir olduğunu doğrulamanız gerekir. Kaynak Azure AD tarafından korunuyorsa, URL https://login.microsoftonline.com veya Azure AD destekleyen başka bir ana bilgisayar adı ile başlayan doğrulamak yeterlidir. Bir kiracı özgü kaynak her zaman bir kiracı özel yetkilendirme URI döndürmelidir. |
+| authorization_uri |URI'si (fiziksel uç noktası) yetkilendirme sunucusu. Bu değer, bir bulma uç noktasından sunucusu hakkında daha fazla bilgi için arama anahtarı olarak da kullanılır. <p><p> İstemci yetkilendirme sunucusunun güvenilir olduğunu doğrulamanız gerekir. Kaynak Azure AD tarafından korunuyorsa, URL ile başlayan doğrulamak yeterli https://login.microsoftonline.com veya Azure AD destekleyen başka bir ana bilgisayar adı. Bir kiracı özgü kaynak her zaman bir kiracı özel yetkilendirme URI döndürmelidir. |
 | error |Bir hata kodu değeri bölüm 5.2 içinde tanımlanan [OAuth 2.0 yetkilendirme Framework](http://tools.ietf.org/html/rfc6749). |
 | error_description |Hatanın ayrıntılı bir açıklaması. Bu ileti olması amaçlanmamıştır son kullanıcı dostu. |
-| resource_id |Kaynak benzersiz tanımlayıcısını döndürür. İstemci uygulaması bu tanımlayıcı değeri olarak kullanabilirsiniz `resource` kaynak için bir belirteç istediğinde parametresi. <p><p> Bu değeri doğrulamak için istemci uygulaması için önemli, aksi takdirde kötü amaçlı bir hizmete anlamına olabilir bir **ayrıcalık yükseltme** saldırısı <p><p> Saldırının engellemek için önerilen doğrulamak için stratejidir `resource_id` erişilen web API'si URL tabanı eşleşen. Örneğin, https://service.contoso.com/data erişilen, `resource_id` htttps://service.contoso.com/ olabilir. İstemci uygulaması Reddet gerekir bir `resource_id` , değil başlamak temel URL ile kimlik doğrulamak için güvenilir bir alternatif yolu değilse. |
+| resource_id |Kaynak benzersiz tanımlayıcısını döndürür. İstemci uygulaması bu tanımlayıcı değeri olarak kullanabilirsiniz `resource` kaynak için bir belirteç istediğinde parametresi. <p><p> Bu değeri doğrulamak için istemci uygulaması için önemli, aksi takdirde kötü amaçlı bir hizmete anlamına olabilir bir **ayrıcalık yükseltme** saldırısı <p><p> Saldırının engellemek için önerilen doğrulamak için stratejidir `resource_id` erişilen web API'si URL tabanı eşleşen. Örneğin, varsa https://service.contoso.com/data erişiliyor, `resource_id` htttps://service.contoso.com/ olabilir. İstemci uygulaması Reddet gerekir bir `resource_id` , değil başlamak temel URL ile kimlik doğrulamak için güvenilir bir alternatif yolu değilse. |
 
 #### <a name="bearer-scheme-error-codes"></a>Taşıyıcı düzeni hata kodları
 RFC 6750 belirtimi WWW-Authenticate üstbilgisi ve taşıyıcı düzeni yanıtta kullanan kaynaklar için aşağıdaki hataları tanımlar.

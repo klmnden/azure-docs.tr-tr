@@ -1,72 +1,98 @@
 ---
-title: "Azure yük dengeleyici standart genel bakış | Microsoft Docs"
-description: "Azure yük dengeleyici standart özelliklerine genel bakış"
+title: Azure standart yük dengeleyici genel bakış | Microsoft Docs
+description: Azure standart yük dengeleyici özelliklerine genel bakış
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 2d7fcb3ee066fa768615fbf643a0c2e1c1d28498
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cfc789b3768c21efc7a03c11370b17ac6c3985cd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="azure-load-balancer-standard-overview-preview"></a>Azure yük dengeleyici standart genel bakış (Önizleme)
+# <a name="azure-load-balancer-standard-overview"></a>Azure yük dengeleyici standart genel bakış
 
-Azure yük dengeleyici standart SKU ve ortak IP standart SKU birlikte düzeyde ölçeklenebilir ve güvenilir mimarileri oluşturmanıza olanak sağlar. Yük Dengeleyici standart kullanan uygulamaları yeni özelliklerinden yararlanabilir. Düşük gecikme, yüksek verimlilik ve ölçek milyonlarca akışları tüm TCP ve UDP uygulamaları için kullanılabilir.
+Azure yük dengeleyici uygulamalarınızı ölçekleme ve hizmetleriniz için yüksek kullanılabilirlik oluşturmanıza olanak sağlar. Yük Dengeleyici gelen hem de giden senaryoları için kullanılır ve düşük gecikme, yüksek verimlilik sağlar ve akışlar tüm TCP ve UDP uygulamalar için en çok bir milyonlarca ölçeklendirir. 
+
+Bu makalede, standart yük dengeleyici üzerinde odaklanmıştır.  Azure yük dengeleyici için daha genel bir bakış için gözden [yük dengeleyici genel bakış](load-balancer-overview.md) de.
+
+## <a name="what-is-standard-load-balancer"></a>Standart yük dengeleyici nedir?
+
+Standart yük dengeleyici temel yük dengeleyicisi genişletilmiş ve daha ayrıntılı bir özelliği olan tüm TCP ve UDP uygulamalar için yeni bir yük dengeleyici üründür.  Benzer şekilde olsa da, farklarla bu makalede açıklanan şekilde öğrenmeniz önemlidir.
+
+Genel veya iç yük dengeleyici olarak standart yük dengeleyici standart kullanabilirsiniz. Ve bir genel ve bir iç yük dengeleyici kaynak bir sanal makineye bağlanabilir.
+
+Yük Dengeleyici kaynağın işlevleri her zaman bir ön uç, bir kural, bir sistem durumu araştırması ve arka uç havuzu tanımını ifade edilir.  Bir kaynak birden çok kural içerebilir. Sanal makineler sanal makinenin NIC kaynak arka uç havuzundan belirterek arka uç havuzuna yerleştirebilirsiniz.  Bir sanal makine ölçek kümesi söz konusu olduğunda, bu parametre ağ profili geçirilen ve genişletilmiş.
+
+Sanal ağ kaynak için bir anahtar yönü kapsamıdır.  Temel yük dengeleyicisi bir kullanılabilirlik kümesi kapsam içinde var, ancak standart bir yük dengeleyici sanal ağ kapsamını ile tamamen tümleşiktir ve tüm sanal ağ kavramları uygulayın.
+
+Yük Dengeleyici kaynaklar içerisinde, nasıl Azure oluşturmak istediğiniz senaryo elde etmek için çok kiracılı altyapı program ifade edebilirsiniz nesneleridir.  Yük Dengeleyici kaynakları ve gerçek altyapısı arasında doğrudan ilişkisi yoktur; bir yük dengeleyici oluşturma örneğini oluşturmaz, kapasite her zaman kullanılabilir olur ve hiçbir başlatma veya dikkate alınması gereken gecikmeler ölçeklendirme vardır. 
 
 >[!NOTE]
-> Yük Dengeleyici standart SKU şu anda önizlemede değil. Genel kullanılabilirlik özellikleri serbest olarak Önizleme sırasında aynı düzeyde kullanılabilirlik ve güvenilirlik özelliği sahip olmayabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel olarak kullanılabilir kullanmak [yük dengeleyici temel SKU](load-balancer-overview.md) üretim hizmetleriniz için. Kullanmak için [kullanılabilirlik bölgeleri Önizleme](https://aka.ms/availabilityzones) bu önizlemede gerektiren bir [ayrı kaydolma](https://aka.ms/availabilityzones), yük dengeleyici için kaydolan yanı sıra [Standard Önizleme](#preview-sign-up).
+> Azure tam olarak yönetilen Yük Dengeleme çözümlerinde senaryolarınız için dizisi sağlar.  TLS sonlandırma ("SSL boşaltma") veya HTTP/HTTPS uygulama katmanı işleme için arıyorsanız, gözden [uygulama ağ geçidi](../application-gateway/application-gateway-introduction.md).  Aradığınız, Genel DNS için Yük Dengeleme, gözden [trafik Yöneticisi](../traffic-manager/traffic-manager-overview.md).  Uçtan uca senaryolarınızı gerektiğinde bu çözümleri birleştirme yararlı.
 
-## <a name="why-use-load-balancer-standard"></a>Neden yük dengeleyici standart kullanılsın mı?
+## <a name="why-use-standard-load-balancer"></a>Standart yük dengeleyici neden kullanılır?
 
-Sanal veri merkezleri tam aralığının yük dengeleyici standart kullanabilirsiniz. Büyük ve karmaşık çok bölge mimarileri için küçük ölçekli dağıtımlarından aşağıdaki özelliklerinden yararlanmak için yük dengeleyici standart kullanın:
+Sanal veri merkezleri, büyük ve karmaşık çok bölge mimarileri küçük ölçekli dağıtımlarından tam aralığını standart yük dengeleyici kullanabilirsiniz.
 
-- [Kurumsal ölçek](#enterprisescale) yük dengeleyici standart ile gerçekleştirilebilir. Bu özellik, 1.000 VM örneğine kadar bir sanal ağ içinde herhangi bir sanal makine (VM) örneği ile kullanılabilir.
+Standart yük dengeleyici ve temel yük dengeleyici arasındaki farklar genel bir bakış için aşağıdaki tabloyu gözden geçirin:
 
-- [Yeni tanılama Öngörüler](#diagnosticinsights) anlamak, yönetmek ve sanal veri merkezinizin önemli bu bileşen gidermenize yardımcı olmak kullanılabilir. Göster, filtre ve sürekli veri yolu sistem durumu ölçümleri yeni çok boyutlu ölçümler Grup Azure İzleyicisi'ni (Önizleme) kullanın. Verilerinizden ön uç VM, TCP bağlantı girişimleri için uç nokta sistem durumu araştırmalarının ve giden bağlantıları izleyin.
+>[!NOTE]
+> Yeni Tasarım, standart yük dengeleyici kullanmayı düşünmelisiniz. 
 
-- [Ağ güvenlik grupları](#nsg) olan yük dengeleyici standart SKU'ları veya ortak IP standart SKU'ları ile ilişkili herhangi bir VM örneğine için artık gerekli. Ağ güvenlik grupları (Nsg'ler) senaryonuz için Gelişmiş güvenlik sağlar.
+| | Standart SKU | Temel SKU |
+| --- | --- | --- |
+| Arka uç havuzu boyutu | en fazla 1000 örnekleri | en fazla 100 örnekleri |
+| Arka uç havuzu uç noktaları | harmanlama sanal makinelerin kullanılabilirlik kümeleri dahil olmak üzere tek bir sanal ağda herhangi bir sanal makineye sanal makine ölçek ayarlar. | sanal makineler tek kullanılabilirlik kümesi veya sanal makine ölçek kümesi |
+| Kullanılabilirlik Alanları | bölge olarak yedekli ve zonal ön uçlar için gelen ve giden, giden akış eşlemeleri bölge hatası varlığını sürdürmesini, çapraz bölge Yük Dengeleme | / |
+| Tanılama | Azure İzleyici bayt ve paket sayaçları, sistem durumu da dahil olmak üzere çok boyutlu ölçümleri araştırma durumu, bağlantı denemeleri (TCP Eşitlemeye), giden bağlantı durumu (SNAT başarılı ve başarısız akışları), etkin veri düzlemi ölçümleri | Yalnızca ortak yük dengeleyici, SNAT tükenmesi Uyarısı, arka uç havuzu sistem durumu sayısı için Azure günlük analizi |
+| HA bağlantı noktaları | İç yük dengeleyici | / |
+| Varsayılan olarak güvenli | ortak IP ve yük dengeleyici uç noktaları ve ağ güvenlik grubu için kapalı varsayılan açıkça güvenilir listeye trafiği için akış için kullanılması gerekir | Varsayılan açın, ağ güvenlik grubu isteğe bağlı |
+| Giden bağlantılar | Kural başına birden çok ön uçlar ile çevirin. Giden bir senaryo _gerekir_ açıkça oluşturulabilir giden bağlantı kullanabilmek sanal makine için.  [VNet Hizmeti uç noktalarını](../virtual-network/virtual-network-service-endpoints-overview.md) giden bağlantısı olmadan erişilebilir ve doğru işlenen veri sayılmaz.  VNet Hizmeti uç noktalar olarak kullanılamaz Azure PaaS Hizmetleri dahil olmak üzere tüm genel IP adresleri, giden bağlantı ve işlenen veri doğrultusunda sayısı üzerinden ulaşılmalıdır. Bir iç yük dengeleyici yalnızca bir sanal makine hizmet veren, varsayılan SNAT aracılığıyla giden bağlantılar kullanılamaz. | Birden çok ön uçlar mevcut olduğunda rastgele seçili tek bir ön uç.  Bir sanal makine yalnızca iç yük dengeleyici hizmet veren, varsayılan SNAT kullanılır.  Giden SNAT programlama aktarım belirli protokolüdür. |
+| Birden çok ön Uçlar | Gelen ve giden | Yalnızca gelen |
+| Yönetim işlemleri | Çoğu işlemleri < 30 saniye | 60-90 saniye tipik |
+| SLA | iki sağlıklı sanal makinelerle veri yolu için % 99,99 | VM SLA örtülü | 
+| Fiyatlandırma | İşlenen veri kuralları sayısına göre gelen veya giden kaynakla ilişkili ücret  | Ücret ödemeden |
 
-- [Yüksek kullanılabilirlik (HA) bağlantı noktalarını sağlayan yüksek güvenilirlik](#highreliability) ve ağ sanal Gereçleri (NVAs) için ölçek ve diğer uygulama senaryoları. Tüm bağlantı noktaları üzerinde bir Azure iç yük dengeleyici (ILB) VM örnekleri havuzuna ön uç HA bağlantı noktalarını yükünü dengeleyin.
-
-- [Giden bağlantılar](#outboundconnections) artık daha fazla esneklik ve ölçek sağlayan yeni bir kaynak ağ adresi çevirisi (SNAT) bağlantı noktası ayırma modelini kullanır.
-
-- [Yük Dengeleyici standardı kullanılabilirlik bölgeleri ile](#availabilityzones) bölge olarak yedekli ve zonal mimarileri oluşturmak için kullanılabilir. Hem de bu mimariler arası bölge Yük Dengeleme içerebilir. DNS kayıtlarını bağımlılığını olmadan bölge artıklık elde edebilirsiniz. Tek bir IP adresi bölge-varsayılan olarak gereksizdir.  Tek bir IP adresi, tüm kullanılabilirlik bölgeler arasında olan bir bölge içindeki bir sanal ağdaki tüm VM ulaşabilirsiniz.
+Gözden geçirme [hizmet sınırları için yük dengeleyici](https://aka.ms/lblimits), yanı [fiyatlandırma](https://aka.ms/lbpricing), ve [SLA](https://aka.ms/lbsla).
 
 
-Yük Dengeleyici standart bir genel veya iç yapılandırmasında aşağıdaki temel senaryoları desteklemek için kullanabilirsiniz:
+### <a name="backend"></a>Arka uç havuzu
 
-- Yük Dengelemesi sağlıklı uç örneklerine gelen trafiği.
-- Bağlantı noktası iletme gelen trafiği tek bir arka uç örnek.
-- Bir genel IP adresine giden trafiği sanal ağ içinde özel bir IP adresinden çevir.
+Bir sanal ağ içinde herhangi bir sanal makine kaynağı için standart yük dengeleyici arka uç havuzları genişletir.  En fazla 1000 arka uç örnekleri içerebilir.  Bir NIC kaynak özelliği bir IP yapılandırması arka uç örneğidir.
 
-### <a name = "enterprisescale"></a>Kurumsal ölçeklendirme
+Arka uç havuzu, tek başına sanal makineler, kullanılabilirlik kümeleri veya sanal makine ölçek kümesi içerebilir.  Arka uç havuzundaki kaynakları karıştırabilirsiniz ve bu kaynakları 150 toplam kadar herhangi bir birleşimini içerebilir.
 
- Yüksek performanslı sanal veri merkezinizin tasarlamak ve herhangi bir TCP veya UDP uygulamayı desteklemek için yük dengeleyici standart kullanın. Tek başına VM örnekleri kullanın veya bir arka uç havuzundaki sanal makine ölçek 1.000 örneğine kadar ayarlar. Düşük iletme gecikme, yüksek verimlilik performansı ve ölçeği akışları milyonlarca tam olarak yönetilen bir Azure hizmetinde kullanmak için devam edin.
- 
-Yük Dengeleyici standart bir sanal ağdaki bir bölgedeki herhangi bir VM örneğine trafik gönderebilir. Arka uç havuzu boyutları aşağıdaki VM senaryoları herhangi bir bileşimini en çok 1.000 örnekleriyle olabilir:
+Arka uç havuzu tasarlamak nasıl değerlendirirken için en az tasarlayabilirsiniz daha fazla yönetim işlemlerini süresini iyileştirmek için tek tek arka uç havuzu kaynaklarına sayısı.  Veri düzlemi performansı veya ölçeği fark yoktur.
 
-- Kullanılabilirlik kümeleri olmadan tek başına VM'ler
-- Kullanılabilirlik kümeleri ile tek başına VM'ler
-- Sanal makine ölçek kümeleri, en çok 1.000 örnekleri
-- Birden çok sanal makine ölçek ayarlar
-- Karışımlar VM'ler ve sanal makine ölçekleme kümeleri
+## <a name="az"></a>Kullanılabilirlik bölgeleri
 
-Artık gereksinimi olduğunda kullanılabilirlik kümeleri için. Kullanılabilirlik kümeleri sağladıkları başka avantajları için kullanmayı da tercih edebilirsiniz.
+>[!NOTE]
+> Kullanılacak [kullanılabilirlik bölgeleri Önizleme](https://aka.ms/availabilityzones) olan standart yük dengeleyici gerektirir [kullanılabilirlik bölgeler için kaydolma](https://aka.ms/availabilityzones).
 
-### <a name = "diagnosticinsights"></a>Tanılama Öngörüler
+Standart yük dengeleyici ek yetenekler kullanılabilirlik bölgeleri kullanılabildiği bölgelerde destekler.  Bu özellikleri tüm standart yük dengeleyiciye artımlı sağlar.  Kullanılabilirlik bölgeleri yapılandırmaları için genel ve iç standart yük dengeleyici kullanılabilir.
 
-Yük Dengeleyici standart ortak ve iç yük dengeleyici yapılandırmalarının için yeni çok boyutlu tanılama yetenekleri sağlar. Bu yeni ölçümler Azure İzleyicisi (Önizleme) yoluyla sağlanır ve tüm aşağı akış tüketicileri ile tümleştirmek için özelliği de dahil olmak üzere ilgili yeteneklerini kullanma.
+Olmayan zonal ön uçlar kullanılabilirlik bölgeleri içeren bir bölgede dağıtıldığında varsayılan bölge olarak yedekli olur.   Bölge olarak yedekli bir ön uç bölge hatası devam eder ve tüm bölgelere ayrılmış altyapısı tarafından eşzamanlı olarak sunulur. 
+
+Ayrıca, belirli bir bölge için bir ön garanti edebilir. Zonal bir ön uç kader ilgili bölgeyle paylaşır ve yalnızca tek bir bölge içinde özel altyapı tarafından sunulur.
+
+Çapraz bölge Yük Dengeleme için arka uç havuzu kullanılabilir olduğundan ve bir sanal ağda herhangi bir sanal makine kaynak bir arka uç havuzunun parçası olabilir.
+
+Gözden geçirme [kullanılabilirlik bölgeler hakkında ayrıntılı bilgi ilgili yeteneklerini](load-balancer-standard-availability-zones.md).
+
+### <a name="diagnostics"></a> Tanılama
+
+Standart yük dengeleyici Azure İzleyicisi üzerinden çok boyutlu ölçümleri sağlar.  Bu ölçümler olabilir filtre, gruplandırılmış ve performans ve sistem durumu hizmeti geçerli ve geçmiş Öngörüler sağlayın.  Kaynak durumu da desteklenir.  Aşağıda desteklenen tanılama kısa bir genel bakış verilmiştir:
 
 | Ölçüm | Açıklama |
 | --- | --- |
@@ -77,222 +103,74 @@ Yük Dengeleyici standart ortak ve iç yük dengeleyici yapılandırmalarının 
 | Bayt sayaçları | Yük Dengeleyici standart ön uç başına işlenen veri bildirir.|
 | Paket sayaçları | Yük Dengeleyici standart başına ön uç işlenen paketleri bildirir.|
 
-### <a name = "highreliability"></a>Yüksek güvenilirlik
+Gözden geçirme [ayrıntılı standart yük dengeleyici tanılama tartışma](load-balancer-standard-diagnostics.md).
 
-Yük Dengeleme, uygulama ölçek yapmak ve yüksek oranda güvenilir için kuralları yapılandırın. Tek tek bağlantı noktaları için kuralları yapılandırın veya TCP veya UDP bağlantı noktası numarası bağımsız olarak tüm trafiği dengelemek için HA bağlantı noktalarını kullanabilirsiniz.  
+### <a name="haports"></a>HA bağlantı noktaları
 
-Çeşitli senaryolarda, yüksek kullanılabilirlik ve ölçek için iç NVAs de dahil olmak üzere kilidini açmak için yeni HA bağlantı noktalarını özelliğini kullanabilirsiniz. Özellik pratik ya da tek tek bağlantı noktalarını belirlemek için istenmeyen olduğu diğer senaryolar için kullanışlıdır. HA bağlantı noktaları, gerektiği kadar örnekleri sağlayarak artıklık ve ölçek sağlar. Yapılandırmanızı artık etkin/pasif senaryoları için sınırlı değildir. Sistem durumu araştırma yapılandırmalarınızı, yalnızca sağlıklı örneklerine trafiği ileterek hizmetinizi koruyun.
+Standart yük dengeleyici kuralı yeni bir türünü destekler.  
 
-NVA satıcılar müşterileri için tam olarak satıcı tarafından desteklenen, esnek senaryolar sağlayabilir. Tek hata noktası kaldırılır ve birden fazla etkin örnekler için ölçek desteklenir. Aygıtınızın özelliklerine bağlı olarak, iki veya daha fazla örneklerine ölçeklendirebilirsiniz. Bu senaryolar için ek yönergeler için NVA satıcınıza başvurun.
+Yük Dengeleme kuralları, uygulama ölçek yapmak ve yüksek oranda güvenilir için yapılandırabilirsiniz. Bir HA bağlantı noktalarını Yük Dengeleme kuralı, standart yük dengeleyici kullanırsanız, her bir iç standart yük dengeleyicinin ön uç IP adresi kısa ömürlü bağlantı noktasında akış dengelemesini başına sağlayacaktır.  Özellik pratik ya da tek tek bağlantı noktalarını belirlemek için istenmeyen olduğu diğer senaryolar için kullanışlıdır.
 
-### <a name = "availabilityzones"></a>Kullanılabilirlik bölgeleri
+Bir HA bağlantı noktalarını Yük Dengeleme kuralı ağ sanal Gereçleri ve gelen bağlantı noktalarının geniş aralıklarını gerektiren herhangi bir uygulama için Etkin-pasif veya aktif-aktif n + 1 senaryoları oluşturmanızı sağlar.  Bir sistem durumu araştırması hangi arka uçlarını yeni akışları alma belirlemek için kullanılabilir.  Bir bağlantı noktası aralığı senaryo benzetmek için bir ağ güvenlik grubu kullanın.
 
-[!INCLUDE [availability-zones-preview-statement](../../includes/availability-zones-preview-statement.md)]
+>[!IMPORTANT]
+> Bir ağ sanal gereç kullanmayı planlıyorsanız, kendi ürün HA bağlantı noktalarıyla olup olmadığını test edilmiştir hakkında rehberlik için satıcınıza başvurun ve uygulama için kendi özel yönergeleri izleyin. 
 
-Desteklenen bölgeleri kullanılabilirlik bölgeleri kullanarak uygulamanızın dayanıklılık ilerleyin. Kullanılabilirlik bölgeler şu anda önizlemede belirli bölgelerdeki ve ek katılımı gerektirir.
+Gözden geçirme [ayrıntılı bağlantı noktalarının HA tartışma](load-balancer-ha-ports-overview.md).
 
-### <a name="automatic-zone-redundancy"></a>Otomatik bölge artıklık
+### <a name="securebydefault"></a>Varsayılan olarak güvenli
 
-Yük Dengeleyici bölge olarak yedekli veya zonal ön uç, uygulamaların her biri için sağlamalıdır olup olmadığını seçebilirsiniz. Bölge artıklık yük dengeleyici standart ile oluşturmak kolaydır. Tek bir ön uç IP adresi otomatik olarak bölge olarak yedekli ' dir. Bir bölge olarak yedekli ön uç bir bölgedeki tüm kullanılabilirlik bölgeler tarafından eşzamanlı olarak sunulur. Bölge olarak yedekli veri yolu, gelen ve giden bağlantılar için oluşturulur. Azure bölgesi artıklık birden çok IP adreslerini ve DNS kayıtlarının gerektirmez. 
-
-Bölge artıklık genel veya iç ön uç için kullanılabilir. Genel IP adresi ve ön uç özel IP iç yük dengeleyici için bölge olarak yedekli olabilir.
-
-İç yük dengeleyici için bir bölge olarak yedekli genel IP adresi oluşturmak için aşağıdaki komut dosyasını kullanın. Yapılandırmanızda varolan Resource Manager şablonları kullanıyorsanız, ekleyin **sku** bu şablonları bölümüne.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Bölge olarak yedekli bir ön uç IP, iç yük dengeleyici için oluşturmak için aşağıdaki komut dosyasını kullanın. Yapılandırmanızda varolan Resource Manager şablonları kullanıyorsanız, ekleyin **sku** bu şablonları bölümüne.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Ön uç genel IP bölge olarak yedekli ise VM örneklerinden otomatik olarak yapılır giden bağlantılar bölge olarak yedekli haline gelir. Ön uç bölge arızasına karşı korunur. SNAT bağlantı noktası ayırma de bölge hatası devam eder.
-
-#### <a name="cross-zone-load-balancing"></a>Çapraz bölge Yük Dengeleme
-
-Çapraz bölge yük dengeleyici arka uç havuzu için bir bölge içinde kullanılabilir ve VM örnekleri için en büyük esnekliği sağlar. Bir ön uç, VM örneği kullanılabilirlik bölgesi bağımsız olarak sanal ağdaki tüm VM akışları sunar.
-
-Veri yolu ve belirli bir bölgenin kaynaklarla hizalamak için ön uç ve arka uç örneklerinizi, belirli bir bölgenin de belirtebilirsiniz.
-
-Sanal ağlar ve alt ağları hiçbir zaman bir bölge tarafından kısıtlanmıştır. İstenen VM örnekleri olan bir arka uç havuzu tanımlamak ve yapılandırmanızı tamamlanır.
-
-#### <a name="zonal-deployments"></a>Zonal dağıtımları
-
-Bir seçenek olarak, belirli bir bölgenin ön uç, yük dengeleyici bir zonal tanımlayarak Hizala ön uç. Bir zonal belirlenen tek kullanılabilirlik bölgesi tarafından yalnızca ön uç sunulur. Ön uç zonal VM örnekleri ile birleştirildiğinde, belirli bölgeler kaynaklara hizalanmasını sağlayabilirsiniz.
-
-Belirli bir bölgenin her zaman oluşturulan bir genel IP adresi yalnızca bu bölgede bulunmaktadır. Bir ortak IP adresi alanı değiştirmek mümkün değil. Birden çok bölgelerdeki kaynaklara bağlı bir ortak IP adresi için bölge olarak yedekli bir genel IP oluşturun.
-
-Kullanılabilirlik bölge 1'de zonal bir genel IP adresi oluşturmak için aşağıdaki komut dosyasını kullanın. Yapılandırmanızda varolan Resource Manager şablonları kullanıyorsanız, ekleyin **sku** bu şablonları bölümüne.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Kullanılabilirlik bölge 1'e bir iç yük dengeleyici ön uç oluşturmak için aşağıdaki komut dosyasını kullanın.
-
-Yapılandırmanızda varolan Resource Manager şablonları kullanıyorsanız, ekleyin **sku** bu şablonları bölümüne. Ayrıca, tanımlama **bölgeleri** alt kaynak ön uç IP yapılandırmasını özelliği.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Arka uç havuzu için bir sanal ağ havuza bulunan VM örneklerinizi koyarak çapraz bölge dengelemesini ekleyin.
-
-Yük Dengeleyici standart her zaman burada kullanılabilirlik bölgeleri desteklenir bölge ve bölge olarak yedekli kaynaktır. Bir ortak IP adresi veya iç yük atanmış bir bölgeyi herhangi bir bölgede olmayan dengeleyici ön uç dağıtabilirsiniz. Kullanılabilirlik bölgeler için destek dağıtım özelliği etkilemez. Bir bölge daha sonra kullanılabilirlik bölgeleri sağlarsa, genel IP'ler veya iç yük dengeleyici ön otomatik olarak bölge olarak yedekli hale uç daha önce Dağıtılmış. Bölge olarak yedekli veri yolu %0 paket kaybı göstermez.
-
-### <a name = "nsg"></a>Ağ güvenlik grupları
-
-Dengeleyici standart ve ortak IP standart tam yerleşik ağ güvenlik grupları (Nsg'ler) kullanılmasını gerektiren bir sanal ağ yükleyin. Nsg'ler, beyaz liste trafik akışı için mümkün kılar. Dağıtımınız için trafiği üzerinde tam denetim kazanmak için Nsg'ler kullanabilirsiniz. Artık, diğer trafik akışına tamamlanmasını beklemek zorunda.
-
-Nsg'ler alt ağları veya arka uç havuzu VM örnekleri ağ arabirimlerine (NIC'ler) ile ilişkilendirin. Örnek düzeyinde ortak IP kullanıldığında, bu yapılandırma yük dengeleyici standart ve ortak IP standart ile kullanın. NSG açıkça beyaz liste sırada o trafiğe izin vermek istediğiniz trafiği gerekir.
+Tam olarak standart yük dengeleyici sanal ağa edildi ' dir.  Sanal ağ özel, kapalı bir ağdır.  Standart yük dengeleyicileri ve standart genel IP adresleri sanal ağ dışında erişilebilmesi bu sanal ağ izin verecek şekilde tasarlandığından, bu kaynakları artık açmadan sürece kapalı varsayılan. Bu ağ güvenlik grupları (Nsg'ler) artık açıkça izin vermek için kullanılır ve beyaz liste trafiğe izin anlamına gelir.  Tüm sanal veri merkezinizde oluşturmak ve NSG ne ve ne zaman kullanılabilir olmalıdır karar verebilirsiniz.  Bir NSG'yi bir alt ağdaki veya NIC, sanal makine kaynağının yoksa, biz bu kaynağa erişmeye trafiğine izin yok.
 
 Nsg'ler ve senaryonuz için uygulama hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).
 
-### <a name ="outboundconnections"></a>Giden bağlantılar
+### <a name="outbound"></a> Giden bağlantılar
 
-Yük Dengeleyici standart bir yük dengeleyici bağlantı noktası maskelemeyi SNAT kullandığında sanal ağında olan VM'ler için giden bağlantılar sağlar. Bağlantı noktası maskelemeyi SNAT algoritması Artan sağlamlık ve ölçek sağlar.
+Yük Dengeleyici, gelen ve giden senaryolarını destekler.  Standart yük dengeleyici göre giden bağlantılar için temel yük dengeleyici önemli ölçüde farklıdır.
 
-Ortak bir yük dengeleyici kaynak VM örnekleriyle ilişkili olduğunda, her giden bağlantı kaynağı yeniden yazılmıştır. Kaynak sanal ağ özel IP adres alanından yük dengeleyici ön uç genel IP adresi yeniden yazılmıştır.
+Kaynak ağ adresi çevirisi (SNAT), yük dengeleyici ön uçlar ortak IP adreslerini iç, özel IP adresleri sanal ağınızdaki eşlemek için kullanılır.
 
-Giden bağlantılar kullanıldığında bir bölge olarak yedekli ile ön uç, bağlantıları da bölge olarak yedekli ve SNAT bağlantı noktası ayırma varlığını sürdürmesini bölge hatası.
+Standart yük dengeleyici için yeni bir algoritma tanıtır bir [daha güçlü, ölçeklenebilir ve tahmin edilebilir SNAT algoritması](load-balancer-outbound-connections.md#snat) ve yeni yeteneklerini etkinleştirir, kaldırır belirsizlik ve zorlar açık yapılandırmaları yerine etkileri tarafı. Bu değişiklikler için yeni özellikler çıkmaya izin vermek gereklidir. 
 
-Yük Dengeleyici standart yeni algoritması SNAT her VM NIC bağlantı noktalarına preallocates. Bir NIC havuza eklendiğinde, SNAT bağlantı noktaları havuz boyutuna göre önceden ayrılmış. Aşağıdaki tabloda, arka uç havuzu boyutlarda altı katmanları için bağlantı noktası preallocations gösterilmektedir:
+Bu, standart yük dengeleyici ile çalışırken anımsaması anahtar tenets şunlardır:
 
-| Havuz boyutu (VM örnekleri) | Ön tahsis SNAT bağlantı noktalarının sayısı |
-| --- | --- |
-| 1 - 50 | 1024 |
-| 51 - 100 | 512 |
-| 101 - 200 | 256 |
-| 201 - 400 | 128 |
-| 401 - 800 | 64 |
-| 801 - 1,000 | 32 |
+- tamamlandığında bir kuralı, yük dengeleyici kaynak denetler.  Azure tüm programlama yapılandırmasıyla türer.
+- birden çok ön uçlar kullanılabilir olduğunda, tüm ön uçlar kullanılır ve kullanılabilir SNAT bağlantı noktalarının sayısı her ön uç çarpar
+- seçin ve giden bağlantılar için kullanılacak belirli bir ön uç için istemiyorsanız denetleyebilirsiniz.
+- Giden senaryoları açık ve bu belirtilmiş kadar giden bağlantı yok.
+- Yük Dengeleme kuralları nasıl SNAT programlanmış Infer. Yük Dengeleme Protokolü belirli kurallardır. SNAT belirli bir protokoldür ve yapılandırma bu yansıtacak yerine bir yan etkisi oluşturun.
 
-SNAT bağlantı noktalarını doğrudan giden bağlantı sayısını Çevir yok. SNAT bağlantı noktası benzersiz birden çok varış yeri için yeniden kullanılabilir. Ayrıntılar için gözden [giden bağlantılar](load-balancer-outbound-connections.md) makalesi.
+#### <a name="multiple-frontends"></a>Birden çok ön Uçlar
+Bekliyorsanız veya zaten giden bağlantılar için çok fazla istek yaşayan olan olduğundan daha fazla SNAT bağlantı noktalarını istiyorsanız da artımlı SNAT bağlantı noktası stok ek ön uçlar, kuralları ve arka uç havuzu aynı sanal makineye yapılandırarak ekleyebilirsiniz kaynaklar.
 
-Arka uç havuzu boyutu artar ve daha yüksek bir katmanı geçiş durumunda, ayrılmış bağlantı noktaları yarısını geri kazanılır. Bağlantı noktası iadesi zaman aşımı ile ilişkili olan ve kurulmaları gerekir bağlantıları. Yeni bağlantı girişimleri hemen başarılı. Arka uç havuzu boyutunu azaltır ve daha düşük bir katman geçişleri, kullanılabilir SNAT bağlantı noktalarının sayısını artırır. Bu durumda, var olan bağlantıların etkilenmez.
+#### <a name="control-which-frontend-is-used-for-outbound"></a>Hangi ön uç için kullanıldığından denetim giden
+Yalnızca belirli ön uç IP adresinden kaynaklanacak şekilde giden bağlantılar sınırlamak istiyorsanız, isteğe bağlı olarak, giden eşleme ifade eder kuralda giden SNAT devre dışı bırakabilirsiniz.
 
-Yük Dengeleyici standart bir kural başına temelinde kullanılabilecek ek yapılandırma seçeneği vardır. Birden çok ön uç kullanılabilir olduğunda ön uç bağlantı noktası maskelemeyi SNAT için kullanıldığı kontrol edebilirsiniz.
+#### <a name="control-outbound-connectivity"></a>Denetim giden bağlantı
+Standart yük dengeleyici sanal ağ bağlamı içinde yok.  Bir sanal ağ yalıtılmış, özel bir ağdır.  Genel IP adresine sahip bir ilişki mevcut değilse, ortak bağlantısını izin verilmiyor.  Sizinle iletişim kurabileceği [VNet hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md) içini ve sanal ağınıza yerel olduğundan.  Sanal ağınızın dışında bir hedefe giden bağlantı kurmak istiyorsanız, iki seçeneğiniz vardır:
+- Örnek düzeyinde ortak IP adresi için bir sanal makine kaynağı olarak bir standart SKU ortak IP adresi atayın veya
+- sanal makine kaynağı ortak bir standart yük dengeleyici arka uç havuzunda yerleştirin.
 
-Yalnızca Yük Dengeleyici standart VM örnekleri hizmet, giden SNAT bağlantılar kullanılamaz. VM örnekleri aynı zamanda bir genel yük dengeleyiciye atayarak bu yeteneği açıkça geri yükleyebilirsiniz. Örnek düzeyinde genel IP'ler her VM örneğine olarak genel IP'ler doğrudan da atayabilirsiniz. Bu yapılandırma seçeneği bazı işletim sistemi ve uygulama senaryoları için gerekli olabilir. 
+Her ikisi de sanal ağa sanal ağ dışında giden bağlantısını izin verir. 
 
-### <a name="port-forwarding"></a>Bağlantı noktası iletme
+Varsa, _yalnızca_ bir iç standart yük, sanal makine kaynağı bulunduğu arka uç havuzu ile ilişkilendirilen dengeleyici varsa, sanal makineniz yalnızca sanal ağ kaynaklarına erişebilir ve [VNet hizmeti Uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md).  Giden bağlantı oluşturmak için önceki paragrafta açıklanan adımları izleyebilirsiniz.
 
-Temel ve standart yük dengeleyici ön uç bağlantı noktası ayrı bir arka uç örneğine eşlemek için gelen NAT kuralları yapılandırmanıza olanak sağlar. Bu kuralları yapılandırarak, Uzak Masaüstü Protokolü uç noktaları ve SSH uç noktaları kullanıma sunmak veya diğer uygulama senaryoları gerçekleştirin.
+Giden bağlantı önce standart SKU'ları kalır ile ilişkili olmayan bir sanal makine kaynağı.
 
-Gelen NAT kuralları aracılığıyla bağlantı noktası iletme yeteneği sağlamak yük dengeleyici standart sürdürür. Bölge olarak yedekli ön uç ile kullanıldığında, gelen NAT kuralları bölge olarak yedekli olur ve bölge hatası bitiminden sonra da geçerlidir.
+Gözden geçirme [ayrıntılı giden bağlantılar tartışması](load-balancer-outbound-connections.md).
 
-### <a name="multiple-front-ends"></a>Birden çok ön uç
+### <a name="multife"></a>Birden çok ön Uçlar
+Yük Dengeleyici birden çok ön uçlar ile birden çok kural destekler.  Standart yük dengeleyici, bu giden senaryoları için genişletir.  Esas olarak gelen bir Yük Dengeleme kuralı tersini giden senaryolar verilmiştir.  Gelen Yük Dengeleme kuralını da giden bağlantılar için bir ilişkilendirme oluşturur. Standart yük dengeleyici Yük Dengeleme kuralı aracılığıyla bir sanal makine kaynakla ilişkili tüm ön uçlar kullanır.  Ayrıca, Yük Dengeleme üzerinde bir parametre kural ve bir Yük Dengeleme kuralı hiçbiri de dahil olmak üzere belirli ön uçlar seçimine izin verir giden bağlantı amaçları doğrultusunda gizlemek olanak sağlar.
 
-Uygulamalar, TLS Web siteleri veya SQL AlwaysOn Kullanılabilirlik grubu uç noktaları gibi açığa çıkarılması birden çok tek tek IP adresleri gerektirdiğinde birden çok ön uç tasarım esnekliği için yapılandırın. 
+Karşılaştırma için temel yük dengeleyici tek bir ön uç rastgele seçer ve hangisinin seçilmedi denetleme yeteneği yoktur.
 
-Yük Dengeleyici standart birden çok ön uç sağlamak benzersiz bir IP adresi belirli uygulama noktadaki kullanıma sunmak gereken burada devam eder.
+Gözden geçirme [ayrıntılı giden bağlantılar tartışması](load-balancer-outbound-connections.md).
 
-Birden çok ön uç IP yapılandırma hakkında daha fazla bilgi için bkz: [birden çok IP yapılandırması](load-balancer-multivip-overview.md).
+### <a name="operations"></a> Yönetim işlemleri
 
-## <a name = "sku"></a>SKU'ları hakkında
+Standart yük dengeleyici kaynakları tamamen yeni bir altyapı platformda mevcut.  Bu önemli ölçüde daha hızlı yönetimi işlemleri için standart SKU'ları sağlar ve tamamlanma sürelerini genellikle 30 saniyeden daha kısa bir süre standart SKU kaynak başına bulunurlar.  Arka uç havuzları boyutu arttıkça, arka ucu için gerekli süre havuzu da artış değiştiğine dikkat edin.
 
-SKU'ları yalnızca Azure Resource Manager dağıtım modelinde kullanılabilir. Bu önizleme yük dengeleyici ve genel IP kaynakları için iki SKU'ları sunar: temel ve standart. SKU'ları yeteneklerini, performans özellikleri, sınırlamalar ve bazı iç davranışı farklı. Sanal makineler ya da SKU ile kullanılabilir. Yük Dengeleyici ve genel IP kaynakları için isteğe bağlı öznitelik SKU'ları kalır. SKU'ları bir senaryo tanımı göz ardı edilir, yapılandırma temel SKU kullanılmasıdır.
-
->[!IMPORTANT]
->Bir kaynağın SKU değişebilir değil. Mevcut bir kaynağı SKU'su değiştiremeyebilir.  
-
-### <a name="load-balancer"></a>Load Balancer
-
-[Var olan yük dengeleyici kaynak](load-balancer-overview.md) temel SKU olur ve genellikle kullanılabilir ve değişmeden kalır.
-
-Yük Dengeleyici standart SKU yeni ve şu anda önizlemede. 1 Ağustos 2017, Microsoft.Network/loadBalancers için API sürümü ekler **sku** özelliği için kaynak tanımı:
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-Yük Dengeleyici standart kullanılabilirlik bölgeleri teklif bölgelerde otomatik olarak bölge-esnektir. Yük Dengeleyici zonal bildirilmiş, ardından otomatik olarak bölge esnek değil.
-
-### <a name="public-ip"></a>Genel IP
-
-[Mevcut genel IP kaynağı](../virtual-network/virtual-network-ip-addresses-overview-arm.md) temel SKU olur ve genel olarak kullanılabilir tüm yetenekleri, performans özellikleri ve sınırlamaları ile kalır.
-
-Ortak IP standart SKU yeni ve şu anda önizlemede. 1 Ağustos 2017, Microsoft.Network/publicIPAddresses için API sürümü ekler **sku** özelliği için kaynak tanımı:
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Ortak IP birden çok ayırma yöntemi sunan temel, ortak IP standart her zaman statik ayırma kullanır.
-
-Ortak IP standart kullanılabilirlik bölgeleri teklif bölgelerde otomatik olarak bölge esnek değildir. Genel IP zonal bildirilmiş, ardından otomatik olarak bölge esnek değil. Zonal bir genel IP bir bölgesinden diğerine değiştirilemez.
+Standart yük dengeleyici kaynakları değiştirebilir ve standart bir ortak IP adresi bir sanal makineden çok daha hızlı bir şekilde taşıyın.
 
 ## <a name="migration-between-skus"></a>SKU'ları arasında geçiş
 
@@ -322,135 +200,21 @@ SKU'ları değişebilir değildir. SKU bir kaynak grubundan diğerine taşımak 
 >
 >HA bağlantı noktalarını ve standart SKU tanılama yalnızca standart SKU kullanılabilir. Standart SKU temel SKU geçirmek ve ayrıca bu özellikleri korur.
 >
->SKU'ları eşleşen yük dengeleyici ve genel IP kaynakları için kullanılması gerekir. Temel SKU ve standart SKU kaynaklarının karışımına sahip olamaz. VM, bir kullanılabilirlik kümesindeki sanal makineleri eklenemiyor veya her iki SKU'ları için aynı anda bir sanal makine ölçek kümesi.
+>Temel ve standart SKU farklar sayısı bu makalede açıklanan gibi sahiptir.  Anlama ve bunlar için hazırlama emin olun.
 >
+>SKU'ları eşleşen yük dengeleyici ve genel IP kaynakları için kullanılması gerekir. Temel SKU ve standart SKU kaynaklarının karışımına sahip olamaz. Tek başına sanal makineler, sanal makinelerin bir kullanılabilirlik kümesi kaynağı eklenemiyor veya aynı anda hem de SKU'ları için bir sanal makine ölçek kaynakları ayarlayın.
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-Yük Dengeleyici standart batı ABD dışındaki tüm ortak bulut bölgeleri şu anda kullanılabilir durumdadır.
+Yük Dengeleyici standart tüm genel bulut bölgelerde şu anda kullanılabilir değil.
 
->[!IMPORTANT]
-> Kısa bir süre boyunca, erişim bölgeler (Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Orta ABD, Batı Avrupa, Güneydoğu Asya) bölgelere ilk başlatma dışında ek abonelik özellikleri kaydını gerektirir (AllowLBPreviewWave2 ve AllowLBPreviewWave3).  [Lütfen aşağıdaki adımları izleyin](#additionalpreviewregions). Lütfen, daha önce AllowLBPreview için zaten bile kaydolduysanız bunların tümünün yürütün.
-> Bu gereksinim, önümüzdeki haftalarda kaldırılır.
+## <a name="sla"></a>SLA
 
-## <a name="sku-service-limits-and-abilities"></a>SKU hizmet sınırları ve yetenekleri
+Standart yük dengeleyici % 99,99 SLA ile kullanılabilir.  Gözden geçirme [standart yük dengeleyici SLA](https://aka.ms/lbsla) Ayrıntılar için.
 
-Azure [ağ iletişimi için hizmet sınırları](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) her Abonelikteki bölge başına uygulayın. 
-
-Aşağıdaki tabloda sınırları ve yük dengeleyici temel ve standart SKU'ları yeteneklerini karşılaştırılır:
-
-| Load Balancer | Temel | Standart |
-| --- | --- | --- |
-| Arka uç havuzu boyutu | en fazla 100 | en çok 1.000 |
-| Arka uç havuzu sınır | Kullanılabilirlik Kümesi | sanal ağ, bölge |
-| Arka uç havuzu tasarım | Kullanılabilirlik kümesi, sanal makine ölçek kullanılabilirlik set Vm'lerde | Sanal ağda herhangi bir VM örneğine |
-| HA bağlantı noktaları | Desteklenmiyor | Kullanılabilir |
-| Tanılama | , Yalnızca genel sınırlı | Kullanılabilir |
-| VIP kullanılabilirliği  | Desteklenmiyor | Kullanılabilir |
-| Hızlı IP hareketlilik | Desteklenmiyor | Kullanılabilir |
-|Kullanılabilirlik bölgeleri senaryoları | Yalnızca Zonal | Zonal, bölge olarak yedekli, çapraz bölge Yük Dengeleme |
-| Giden SNAT algoritması | İsteğe bağlı | Önceden ayrılmış |
-| Giden SNAT ön uç seçimi | Yapılandırılamaz, birden çok adayları | Aday azaltmak için isteğe bağlı yapılandırma |
-| Ağ Güvenliği Grubu | NIC/alt ağdaki isteğe bağlı | Gerekli |
-
-Aşağıdaki tabloda sınırları ve ortak IP temel ve standart SKU'ları yeteneklerini karşılaştırılır:
-
-| Genel IP | Temel | Standart |
-| --- | --- | --- |
-| Kullanılabilirlik bölgeleri senaryoları | Yalnızca Zonal | Bölge olarak yedekli (varsayılan), zonal (isteğe bağlı) | 
-| Hızlı IP hareketlilik | Desteklenmiyor | Kullanılabilir |
-| VIP kullanılabilirliği | Desteklenmiyor | Kullanılabilir |
-| Sayaçları | Desteklenmiyor | Kullanılabilir |
-| Ağ Güvenliği Grubu | NIC üzerinde isteğe bağlı | Gerekli |
-
-
-## <a name="preview-sign-up"></a>Önizleme kaydolma
-
-Yük Dengeleyici standart SKU ve ortak IP standart SKU Yardımcısı için Önizleme'na katılmak için aboneliğinizi kaydedin.  PowerShell veya Azure CLI 2.0, abonelik erişmenizi kaydediliyor. Kaydetmek için aşağıdaki adımları gerçekleştirin:
-
->[!NOTE]
->Yük Dengeleyici standart özelliğinin kayıt saate genel geçerlilik kazanacağını kadar sürebilir. Yük Dengeleyici standart ile kullanmak istiyorsanız, [kullanılabilirlik bölgeleri](https://aka.ms/availabilityzones), [ayrı kaydolma](https://aka.ms/availabilityzones) AZ Önizleme için gereklidir.
-
-<a name="additionalpreviewregions"></a>
->[!IMPORTANT]
-> Bölgeler ilk başlatma dışında kısa bir süre boyunca, erişimi bölgeler (Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Orta ABD, Batı Avrupa, Güneydoğu Asya) gerektiren ek abonelik özellikleri kaydını (AllowLBPreviewWave2 ve AllowLBPreviewWave3).  Ek abonelik özellikleri etkinleştirmek için aşağıdaki adımları değiştirildi. Lütfen, daha önce AllowLBPreview için zaten bile kaydolduysanız bunların tümünün yürütün. Bu gereksinim, önümüzdeki haftalarda kaldırılır.
-
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Azure CLI 2.0 kullanarak kaydolun
-
-1. Bu özellik sağlayıcı ile Kaydet:
-
-    ```cli
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
-    ```
-    
-2. İşlemi tamamlamak için 10 dakika sürebilir. Aşağıdaki komutla işlemin durumunu denetleyebilirsiniz:
-
-    ```cli
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
-    ```
-    
-    Özellik kayıt durumu 'Kayıtlı' her Yukarıdaki Abonelik özellikleri için geri döndüğünde sonraki adıma devam edin. Örnek:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowLBPreview",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-4. Önizleme kayıt kaynak sağlayıcısı aboneliğinizle yeniden kaydederek tamamlayın:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-
-### <a name="sign-up-by-using-powershell"></a>PowerShell kullanarak kaydolun
-
-1. Bu özellik sağlayıcı ile Kaydet:
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-    
-2. İşlemi tamamlamak için 10 dakika sürebilir. Aşağıdaki komutla işlemin durumunu denetleyebilirsiniz:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-
-  Özellik kayıt durumu 'Kayıtlı' her Yukarıdaki Abonelik özellikleri için geri döndüğünde sonraki adıma devam edin. Örnek:
-
-    ```
-    FeatureName      ProviderName        RegistrationState
-    -----------      ------------        -----------------
-    AllowLBPreview   Microsoft.Network   Registered
-    ```
-    
-3. Önizleme kayıt kaynak sağlayıcısı aboneliğinizle yeniden kaydederek tamamlayın:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
- 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Yük Dengeleyici standart SKU faturalama yapılandırılmış kuralları ve işlenen verilerin dayanır. Hiçbir ücret Önizleme dönemi boyunca ücrete. Daha fazla bilgi için gözden [yük dengeleyici](https://aka.ms/lbpreviewpricing) ve [genel IP](https://aka.ms/lbpreviewpippricing) sayfaları fiyatlandırma.
-
-Müşteriler, yük dengeleyici temel SKU hiçbir ücret ödemeden keyfini çıkarın devam edin.
+Standart yük dengeleyici Yük Dengeleme kuralları yapılandırılmış ve işlenen tüm gelen ve giden veri sayısına göre kartınızdan bir üründür. Standart fiyatlandırma bilgileri için yük dengeleyici, ziyaret [yük dengeleyici fiyatlandırma](https://aka.ms/lbpricing) sayfası.
 
 ## <a name="limitations"></a>Sınırlamalar
 
@@ -458,22 +222,23 @@ Aşağıdaki sınırlamalar Önizleme aynı anda uygulamak ve değiştirilebilir
 
 - Yük Dengeleyici arka uç örnekleri şu anda eşlenen sanal ağlarda yer alamaz. Arka uç hepsinin aynı bölgede olması gerekir.
 - SKU'ları değişebilir değildir. Mevcut bir kaynağı SKU'su değiştiremeyebilir.
-- Her iki SKU'ları olabilir bir tek başına VM kullanıldığında, VM örnekleri bir kullanılabilirlik kümesi içinde veya bir sanal makine ölçek kümesi. VM birleşimleri hem de SKU'ları ile aynı anda kullanılamaz. SKU'ları bir karışımını içeren bir yapılandırma izin verilmez.
-- VM örneği (veya bir kullanılabilirlik kümesi'nin herhangi bir parçası) ile bir iç yük dengeleyici standart kullanarak devre dışı bırakır [varsayılan SNAT giden bağlantılar](load-balancer-outbound-connections.md). Bu tek başına VM yeteneği, bir kullanılabilirlik kümesine ya da bir sanal makine ölçek kümesi VM örnekleri döndürebilirsiniz. Ayrıca, giden bağlantılar yapma yeteneği geri yükleyebilirsiniz. Bu yetenekler geri yüklemek için aynı anda bir genel yük dengeleyiciye standart ya da ortak IP standart olarak aynı VM örneği için bir örnek düzeyinde ortak IP atayın. Atama tamamlandıktan sonra bağlantı noktası maskelemeyi SNAT bir genel IP adresine yeniden sağlanır.
-- VM örnekleri tam arka uç havuzu ölçeği elde etmek için kullanılabilirlik kümeleri halinde gruplandırılır gerekebilir. En fazla 150 kullanılabilirlik kümeleri ve tek başına VM'ler tek bir arka uç havuzu yerleştirilebilir.
+- Bir tek başına sanal makine kaynağı kaynak kullanılabilirlik kümesi veya sanal makine ölçek kümesi kaynağı hiçbir zaman hem de bir SKU başvuruda bulunabilir.
+- Sanal ağ üzerinde Azure DDoS koruması etkinleştirme yönetim işlemlerini süresini etkiler.
 - IPv6 desteklenmez.
-- Kullanılabilirlik bölgeleri bağlamında bir ön uç için bölge olarak yedekli veya tersi gelen zonal değişebilir değil. Bir ön uç bölge olarak yedekli oluşturulduktan sonra bölge olarak yedekli kalır. Bir ön uç olarak zonal oluşturulduktan sonra zonal kalır.
-- Kullanılabilirlik bölgeleri bağlamında zonal bir genel IP adresi bir bölgesinden diğerine taşınamaz.
 - [Azure uyarıları izleme](../monitoring-and-diagnostics/monitoring-overview-alerts.md) şu anda desteklenmiyor.
-- Portal genişletilmiş Önizleme bölgelerde henüz desteklemiyor.  Şablonlar, Azure CLI 2.0 veya geçici bir çözüm olarak PowerShell gibi istemci araçlarını kullanın.
 - [Taşıma abonelik işlemlerini](../azure-resource-manager/resource-group-move-resources.md) standart SKU LB ve PIP kaynakları için desteklenmiyor.
-- Batı ABD kullanılamaz.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinmek [yük dengeleyici temel](load-balancer-overview.md).
+- Kullanma hakkında bilgi edinin [standart yük dengeleyici ve kullanılabilirlik bölgeleri](load-balancer-standard-availability-zones.md)
 - Daha fazla bilgi edinmek [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md).
+- Hakkında bilgi edinin [standart yük dengeleyici tanılama](load-balancer-standard-diagnostics.md).
+- Hakkında bilgi edinin [çok boyutlu ölçümleri desteklenen](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) tanılamada için [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md).
+- Kullanma hakkında bilgi edinin [yük dengeleyici giden bağlantılar için](load-balancer-outbound-connections.md)
+- Hakkında bilgi edinin [HA bağlantı noktalarını Yük Dengeleme kuralları ile standart yük dengeleyici](load-balancer-ha-ports-overview.md)
+- Kullanma hakkında bilgi edinin [birden çok ön uçlar olan yük dengeleyici](load-balancer-multivip-overview.md)
+- Hakkında bilgi edinin [sanal ağlar](../virtual-network/virtual-networks-overview.md).
 - Daha fazla bilgi edinmek [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).
+- Hakkında bilgi edinin [VNet Hizmeti uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Başka bir anahtar bazıları hakkında bilgi edinin [ağı yetenekleri](../networking/networking-overview.md) azure'da.
-- Hakkında bilgi edinin [kullanıma sunulan ölçümler](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) içinde [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md).
+- Daha fazla bilgi edinmek [yük dengeleyici](load-balancer-overview.md).

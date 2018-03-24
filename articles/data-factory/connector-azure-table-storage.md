@@ -1,11 +1,11 @@
 ---
-title: "Veri Fabrikası kullanarak ve Azure Table depolama veri kopyalamak | Microsoft Docs"
-description: "Veri Fabrikası kullanarak Azure Table depolama için desteklenen kaynak depoları veya desteklenen havuz depolarına Table storage veri kopyalamak öğrenin."
+title: Veri Fabrikası kullanarak ve Azure Table depolama veri kopyalamak | Microsoft Docs
+description: Veri Fabrikası kullanarak Azure Table depolama için desteklenen kaynak depoları veya desteklenen havuz depolarına Table storage veri kopyalamak öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 41e2117e14f336d33f5d6f4e1f446e32a6886079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ef43037ff33b693256c82459eec2e4b3beab4d9a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Table depolama gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - genel olarak kullanılabilir](v1/data-factory-azure-table-connector.md)
+> * [Sürüm 1 - Genel kullanıma sunuldu](v1/data-factory-azure-table-connector.md)
 > * [Sürüm 2 - Önizleme](connector-azure-table-storage.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de ve Azure Table depolama veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
@@ -271,7 +271,7 @@ Taşıdığınızda veri Azure Table, aşağıdaki gelen ve giden [Azure Table t
 |:--- |:--- |:--- |
 | Edm.Binary |Byte] |Bir bayt dizisi en çok 64 KB. |
 | Edm.Boolean |bool |Bir Boole değeri. |
-| Edm.DateTime |Tarih Saat |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı, 1 Ocak 1601 gece yarısı başlar (C.E.), UTC. Aralık 31 Aralık 9999 sonlandırır. |
+| Edm.DateTime |DateTime |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı, 1 Ocak 1601 gece yarısı başlar (C.E.), UTC. Aralık 31 Aralık 9999 sonlandırır. |
 | Edm.Double |Çift |Bir 64-bit kayan noktalı değeri. |
 | Edm.Guid |Guid |128-bit bir genel benzersiz tanımlayıcısı. |
 | Edm.Int32 |Int32 |Bir 32 bit tamsayı. |

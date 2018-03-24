@@ -1,10 +1,11 @@
 ---
-title: "4. adım: Eğitmek ve Tahmine dayalı analitik modelleri değerlendirme | Microsoft Docs"
+title: '4. adım: Eğitmek ve Tahmine dayalı analitik modelleri değerlendirme | Microsoft Docs'
 description: "4. adımını geliştirme Tahmine dayalı bir çözüm izlenecek yol: eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin."
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.author: garye
-ms.openlocfilehash: 5a545b9f9f7f935be91fed743779ebd6b4d930a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f722fa314b42501e0f6144f71b9d74c0a9127e9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Kılavuz Adımı 4: Öngörücü analiz modelleri hakkında eğitim ve değerlendirme
 Bu konu, izlenecek dördüncü adımı içerir [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md)
@@ -71,7 +71,7 @@ Bildirmek ihtiyacımız artık [Train Model] [ train-model] modülü modelin kre
 
 1. Seçin [Train Model] [ train-model] modülü. İçinde **özellikleri** bölmesinde tıklatın **başlatma Sütun seçiciyi**.
 
-2. İçinde **tek bir sütun seçin** iletişim kutusunda, türü "Kredi riski" altındaki arama alanında **kullanılabilir sütunlar**, aşağıda "Kredi riski"'ı seçin ve sağ ok düğmesine tıklayın ( **>** ) "Kredi riski" taşımak için **seçili sütun**. 
+2. İçinde **tek bir sütun seçin** iletişim kutusunda, türü "Kredi riski" altındaki arama alanında **kullanılabilir sütunlar**, aşağıda "Kredi riski"'ı seçin ve sağ ok düğmesine tıklayın (**>**) "Kredi riski" taşımak için **seçili sütun**. 
 
     ![Train Model modülü için kredi riski sütun seçin][0]
 

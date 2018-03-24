@@ -1,6 +1,6 @@
 ---
-title: "Azure portalında Kılavuzu Windows SQL Server VM'ler için sağlama | Microsoft Docs"
-description: "Nasıl yapılır bu kılavuz, Azure portalında Windows SQL Server 2017 sanal makineler oluşturmak için seçeneklerinizi açıklar."
+title: Azure portalında Kılavuzu Windows SQL Server VM'ler için sağlama | Microsoft Docs
+description: Nasıl yapılır bu kılavuz, Azure portalında Windows SQL Server 2017 sanal makineler oluşturmak için seçeneklerinizi açıklar.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında Windows SQL Server sanal makine sağlama
 
@@ -27,7 +27,7 @@ Azure portalında bir Windows SQL Server sanal makine oluşturduğunuzda, bu kı
 Kendi SQL Server VM oluşturmak için bu kılavuzu kullanın. Veya, Azure portalında kullanılabilir seçenekler için bir başvuru olarak kullanabilirsiniz.
 
 > [!TIP]
-> SQL Server sanal makineler hakkında sorularınız varsa bkz [ilgili sık sorulan sorular](virtual-machines-windows-sql-server-iaas-faq.md).
+> SQL Server sanal makineleri hakkında sorularınız olursa [Sık Sorulan Sorular](virtual-machines-windows-sql-server-iaas-faq.md) bölümüne bakın.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -59,7 +59,7 @@ Bir SQL Server sanal makine oluşturduğunuzda, sanal makine Galeriden birkaç �
    > Geliştirici sürümü geliştirme test etmek için bir tam özellikli, ücretsiz sürümü SQL Server'ın olduğu için bu kılavuzda kullanılır. Yalnızca çalışan VM'ler için ücret ödersiniz. Ancak, bu kılavuzda kullanılacak görüntüleri birini seçmek ücretsizdir. Kullanılabilir görüntüleri açıklaması için bkz: [SQL Server Windows sanal makinelere genel bakış](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > SQL Server Lisans maliyetlerini edition ve çekirdek tarafından dakika başına VM oluşturun ve değişir fiyatlandırma içine birleştirilir. Ancak, geliştirme/test (üretim değil) ve SQL Express'in hafif iş yüklerini (küçüktür 10 GB depolama alanı değerinden 1 GB bellek) ücretsiz için SQL Server Geliştirici sürümü ücretsizdir. Ayrıca Getir bilgisayarınızı-kendi-lisans (KLG) ve yalnızca VM için ödeme. Bu görüntü adlarının başına {BYOL} ön eki getirilir. 
+   > SQL Server Lisans maliyetlerini edition ve çekirdek tarafından saniyede oluşturmak ve değişir VM fiyatlandırma içine birleştirilir. Ancak, geliştirme/test (üretim değil) ve SQL Express'in hafif iş yüklerini (küçüktür 10 GB depolama alanı değerinden 1 GB bellek) ücretsiz için SQL Server Geliştirici sürümü ücretsizdir. Ayrıca Getir bilgisayarınızı-kendi-lisans (KLG) ve yalnızca VM için ödeme. Bu görüntü adlarının başına {BYOL} ön eki getirilir. 
    >
    > Bu seçeneklerle ilgili daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 

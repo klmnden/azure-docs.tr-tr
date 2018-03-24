@@ -1,12 +1,12 @@
 ---
-title: "PowerShell ile yeni Azure Machine Learning web hizmetine yeniden eğitme | Microsoft Docs"
-description: "Program aracılığıyla bir modeli yeniden eğitme ve makine öğrenme yönetim PowerShell cmdlet'lerini kullanarak Azure Machine Learning ile yeni eğitilen modelini kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin."
+title: PowerShell ile yeni Azure Machine Learning web hizmetine yeniden eğitme | Microsoft Docs
+description: Program aracılığıyla bir modeli yeniden eğitme ve makine öğrenme yönetim PowerShell cmdlet'lerini kullanarak Azure Machine Learning ile yeni eğitilen modelini kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
 services: machine-learning
-documentationcenter: 
-author: aashishb
-ms.author: aashishb
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: 
+editor: cgronlun
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: c260c15438afe6140fce92d8d3ce15b60867ec81
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7fa93e138bc9feb66c200597119bb12dbaf00480
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Machine Learning yönetim PowerShell cmdlet'lerini kullanarak yeni Resource Manager temelli web hizmeti yeniden eğitme
 Yeni bir web hizmeti yeniden eğitme, yeni eğitilen model başvurmak için Tahmine dayalı web hizmeti tanımının güncelleştirin.  

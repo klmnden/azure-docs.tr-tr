@@ -1,24 +1,19 @@
 ---
-title: "İş devamlılığı ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri | Microsoft Docs"
-description: "Uygulamaların veri merkezi hataları sırasında dayanıklı olmasını sağlamak için Azure bölgesel eşleme hakkında bilgi edinin."
+title: 'İş devamlılığı ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri | Microsoft Docs'
+description: Uygulamaların veri merkezi hataları sırasında dayanıklı olmasını sağlamak için Azure bölgesel eşleme hakkında bilgi edinin.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: c2d0a21c-2564-4d42-991a-bc31723f61a4
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
+manager: carmonm
+ms.service: multiple
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: raynew
-ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş devamlılığı ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri
 
@@ -58,10 +53,10 @@ Her Azure bölgesi birlikte bölgesel çifti yapmadan aynı coğrafi konum için
 
 Tablo 1 - Azure bölgesel çiftlerini eşleme
 
-- > (1) Batı Hindistan, yalnızca bir yöndeki başka bir bölge ile eşleştirilmiş olduğundan farklıdır. Güney Hindistan Batı Hindistan'ın ikincil bölge, ancak orta Hindistan Güney Hindistan'ın ikincil bölge gelir.
-- > (2) Brezilya Güney benzersiz çünkü kendi Coğrafya dışında bir bölge ile eşlenmiş. Brezilya Güney'nın ikincil bölge Orta Güney ABD, ancak orta Güney ABD'ın ikincil bölge Brezilya Güney değil.
-- > (3) ABD kamu Iowa'nın ikincil bölge BİZE kamu Virginia ancak BİZE kamu Virginia'nın ikincil bölge BİZE kamu Iowa değil.
-- > (4) ABD kamu Virginia'nın ikincil bölge BİZE kamu Texas ancak BİZE kamu Texas ikincil bölge BİZE kamu Virginia değil.
+- (1) Batı Hindistan, yalnızca bir yöndeki başka bir bölge ile eşleştirilmiş olduğundan farklıdır. Güney Hindistan Batı Hindistan'ın ikincil bölge, ancak orta Hindistan Güney Hindistan'ın ikincil bölge gelir.
+- (2) Brezilya Güney benzersiz çünkü kendi Coğrafya dışında bir bölge ile eşlenmiş. Brezilya Güney'nın ikincil bölge Orta Güney ABD, ancak orta Güney ABD'ın ikincil bölge Brezilya Güney değil.
+- (3) ABD kamu Iowa'nın ikincil bölge BİZE kamu Virginia ancak BİZE kamu Virginia'nın ikincil bölge BİZE kamu Iowa değil.
+- (4) ABD kamu Virginia'nın ikincil bölge BİZE kamu Texas ancak BİZE kamu Texas ikincil bölge BİZE kamu Virginia değil.
 
 
 Azure'nın yalıtım ve kullanılabilirlik ilkelerden yararlanmak için Bölgesel çiftleri arasında iş yükleri çoğaltmak öneririz. Örneğin, planlı Azure sistem güncelleştirmeleri sırayla dağıtılır (değil, aynı anda) eşleştirilmiş bölgeler arasında. Hatta ender olayda hatalı bir güncelleştirme, her iki bölgeleri aynı anda etkilenmez, anlamına gelir. Ayrıca, geniş bir kesinti olasılığı olayda her çifti dışında en az bir bölge kurtarılması öncelik.
@@ -97,7 +92,7 @@ Azure'nın yalıtım ve kullanılabilirlik ilkelerden yararlanmak için Bölgese
 **bölge kurtarma sipariş** – geniş bir kesinti her çifti dışında bir bölge kurtarılması öncelik durumunda. Eşleştirilmiş bölgeler arasında dağıtılan uygulamalar için bir öncelik ile kurtarılan bölgelerinin garanti. Bir uygulama değil eşleştirilmelidir bölgeler arasında dağıtılırsa, Kurtarma – seçilen bölgeler kurtarılacak son iki olabilir kötü durumda gecikebilir.
 
 ![Güncelleştirmeleri](./media/best-practices-availability-paired-regions/8Orange.png)
-**sıralı güncelleştirme** – planlanan Azure sistem güncelleştirmelerini yapılır eşleştirilmiş bölgelere sırayla (değil, aynı anda) kapalı kalma süresi, hataları ve hatalı güncelleştirmesi ender olayda mantıksal hatalarının etkisini en aza indirmek için.
+**sıralı güncelleştirme** – planlanan Azure sistem güncelleştirmelerini yapılır eşleştirilmiş bölgelere sırayla (değil, aynı anda) kapalı kalma süresi, hataları ve bozuk ender olayda mantıksal hatalarının etkisini en aza indirmek için güncelleştirin.
 
 ![Veri](./media/best-practices-availability-paired-regions/9Orange.png)
 **veri residency** – vergi ve yasa zorlama dairesi amaçları için veri residency gereksinimlerini karşılamak için çiftini (hariç Brezilya Güney) olarak aynı Coğrafya içinde bir bölgede bulunuyor.

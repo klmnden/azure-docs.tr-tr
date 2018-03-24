@@ -1,24 +1,24 @@
 ---
-title: "Azure Blob Depolama Azure Search dizini oluşturma"
-description: "Azure Blob Storage dizin ve Azure Search belgeleri metin Al hakkında bilgi edinin"
+title: Azure Blob Depolama Azure Search dizini oluşturma
+description: Azure Blob Storage dizin ve Azure Search belgeleri metin Al hakkında bilgi edinin
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/28/2017
+ms.date: 03/22/2018
 ms.author: eugenesh
-ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Storage belgelerde dizin oluşturma
 Bu makalede Azure Search dizini belgeler için kullanma gösterilmektedir (PDF gibi Microsoft Office belgelerini ve diğer birçok ortak biçimleri) Azure Blob depolama alanına depolanır. İlk olarak, ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, derin keşif davranışı sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -31,7 +31,7 @@ Blob dizin oluşturucu metin aşağıdaki belge biçimlerinden ayıklayabilirsin
 ## <a name="setting-up-blob-indexing"></a>BLOB dizin oluşturmayı ayarlama
 Azure Blob Storage bir kullanarak dizin oluşturucu ayarlayabilirsiniz:
 
-* [Azure portalı](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * Azure arama [REST API'si](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure arama [.NET SDK'sı](https://aka.ms/search-sdk)
 
@@ -139,10 +139,10 @@ Bağlı olarak [dizin oluşturucu yapılandırma](#PartsOfBlobToIndex), blob diz
 
   * **meta veri\_depolama\_adı** (Edm.String) - blob dosya adı. Örneğin, bir blob /my-container/my-folder/subfolder/resume.pdf varsa, bu alanın değeri `resume.pdf`.
   * **meta veri\_depolama\_yolu** (Edm.String) - BLOB Depolama hesabı dahil olmak üzere, tam URI. Örneğin, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **meta veri\_depolama\_içerik\_türü** (Edm.String) - içerik blob karşıya yüklemek için kullanılan kod tarafından belirtilen türü. Örneğin, `application/octet-stream`.
+  * **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. Örneğin, `application/octet-stream`.
   * **meta veri\_depolama\_son\_değiştiren** (Edm.DateTimeOffset) - blob için zaman damgası son değiştirilme tarihi. Azure arama bu zaman damgası her şeyi ilk dizin oluşturma sonrasında yeniden dizin oluşturmaya önlemek için değiştirilmiş BLOB'lar tanımlamak için kullanır.
-  * **meta veri\_depolama\_boyutu** (EDM.Int64) - blob bayt cinsinden boyutu.
-  * **meta veri\_depolama\_içerik\_md5** (Edm.String) - MD5 karma değeri blob içeriğinin varsa.
+  * **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
+  * **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
 * Her belge biçimine özgü meta veriler özellikleri listelenen alanlarına ayıklanan [burada](#ContentSpecificMetadata).
 
 Search dizininizi yukarıdaki tüm özellikler için alanları tanımla - yalnızca uygulamanız için gereksinim duyduğunuz özellikleri yakalama gerekmez.
@@ -158,7 +158,7 @@ Azure Search'te belge anahtarını bir belge benzersiz olarak tanımlar. Tüm ar
 
 Ayıklanan alanı anahtar alan dizininiz için eşlemelisiniz dikkatlice düşünün. Adaylar:
 
-* **meta veri\_depolama\_adı** - bu kullanışlı bir aday olabilir, ancak farklı klasörlerde aynı adı ve 2) adlı BLOB olabilir olarak 1) adları benzersiz olmayabileceğini Not belge anahtarları, kısa çizgi gibi geçersiz karakterler içeriyor olabilir. Geçersiz karakter kullanarak başa `base64Encode` [alan eşleme işlev](search-indexer-field-mappings.md#base64EncodeFunction) - bunu yaptığınızda, API geçirme gibi arama çağırdığında belge anahtarları kodlanacak unutmayın. (Örneğin, .NET içinde kullanabileceğiniz [UrlTokenEncode yöntemi](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) bu amaç için).
+* **meta veri\_depolama\_adı** - bu kullanışlı bir aday olabilir, ancak farklı klasörlerde aynı adı ve 2) adlı BLOB olabilir olarak 1) adları benzersiz olmayabileceğini Not olan karakterleri içerebilir Belge anahtarları, kısa çizgi gibi geçersiz. Geçersiz karakter kullanarak başa `base64Encode` [alan eşleme işlev](search-indexer-field-mappings.md#base64EncodeFunction) - bunu yaptığınızda, API geçirme gibi arama çağırdığında belge anahtarları kodlanacak unutmayın. (Örneğin, .NET içinde kullanabileceğiniz [UrlTokenEncode yöntemi](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) bu amaç için).
 * **meta veri\_depolama\_yolu** - tam yolunu kullanarak benzersizlik sağlar, ancak yol kesinlikle içeriyor `/` olan karakterleri [geçersiz bir belge anahtarında](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Yukarıdaki olarak anahtarlarını kullanarak kodlama seçeneğiniz `base64Encode` [işlevi](search-indexer-field-mappings.md#base64EncodeFunction).
 * Yukarıdaki seçeneklerin hiçbiri sizin için çalışıyorsanız, BLOB'lar için özel meta veri özelliği ekleyebilirsiniz. Ancak, bu seçenek tüm blobları bu meta veri özelliği eklemek için blob karşıya yükleme işlemi gerektirir. Bu anahtar gerekli bir özellik olduğundan, bu özelliğe sahip olmayan tüm BLOB'lar dizine başarısız olur.
 
@@ -230,9 +230,9 @@ Her iki `indexedFileNameExtensions` ve `excludedFileNameExtensions` parametreler
 
 BLOB'ları hangi kısımlarının kullanarak dizinlenir denetleyebilirsiniz `dataToExtract` yapılandırma parametresi. Aşağıdaki değerleri alabilir:
 
-* `storageMetadata`-belirtir, yalnızca [standart blob özellikleri ve kullanıcı tanımlı meta veriler](../storage/blobs/storage-properties-metadata.md) dizinlenir.
-* `allMetadata`-Depolama meta verilerin belirtir ve [içerik türü belirli meta veriler](#ContentSpecificMetadata) ayıklanan blobundan içerik dizin haline getirilir.
-* `contentAndMetadata`-tüm meta veri ve blobundan ayıklanan metinsel içerik dizinlenir belirtir. Varsayılan değer budur.
+* `storageMetadata` -belirtir, yalnızca [standart blob özellikleri ve kullanıcı tanımlı meta veriler](../storage/blobs/storage-properties-metadata.md) dizinlenir.
+* `allMetadata` -Depolama meta verilerin belirtir ve [içerik türü belirli meta veriler](#ContentSpecificMetadata) ayıklanan blobundan içerik dizin haline getirilir.
+* `contentAndMetadata` -tüm meta veri ve blobundan ayıklanan metinsel içerik dizinlenir belirtir. Varsayılan değer budur.
 
 Örneğin, yalnızca depolama meta veri dizini için kullanın:
 
@@ -271,6 +271,10 @@ Blob desteklenmeyen bir içerik türüyle (örneğin, bir görüntü) karşıla�
 Bazı BLOB'lar için Azure Search içerik türü belirlenemiyor veya bir belgenin işlenemiyor Aksi halde içerik türü desteklenmiyor. Bu hata modu yoksayacak şekilde ayarlamak `failOnUnprocessableDocument` yapılandırma parametresi yanlış:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Azure arama dizini BLOB boyutu sınırlanır. Bu sınırlar içinde belgelenir [Azure Search hizmet sınırları](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Büyük boyutlu BLOB'lar varsayılan hata olarak kabul edilir. Ayarlarsanız Bununla birlikte, yine büyük boyutlu BLOB Depolama meta dizin oluşturabilirsiniz `indexStorageMetadataOnlyForOversizedDocuments` yapılandırma parametresi true olarak: 
+
+    "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
 Hataları işleme, BLOB'ları ayrıştırılırken ya da belgeler için bir dizin ekleme sırasında herhangi bir noktada görülüyorsa dizin oluşturma da devam edebilirsiniz. Hataları belirli sayıda yoksaymak için ayarlanmış `maxFailedItems` ve `maxFailedItemsPerBatch` istenen değerleri yapılandırma parametreleri. Örneğin:
 
@@ -368,14 +372,14 @@ Aşağıdaki tabloda her belge biçimi için yapılan işleme özetler ve Azure 
 | DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | DOC (uygulama/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
-| XLS (uygulama/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
+| XLS (application/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | PPT (uygulama/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Embedded belgeler dahil olmak üzere bir metin Ayıkla |
 | MSG (uygulama/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Metni ekler dahil olmak üzere, ayıklayın |
 | ZIP (uygulama/posta) |`metadata_content_type` |Arşiv tüm belgelerde metin Al |
 | XML (uygulama/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Şerit XML biçimlendirme ve ayıklama metni |
 | JSON (uygulama/json) |`metadata_content_type`</br>`metadata_content_encoding` |Metni ayıklayın<br/>Not: JSON blob üzerinden birden çok belge alanlarını ayıklamak gerekiyorsa, bkz. [dizin JSON BLOB'ların](search-howto-index-json-blobs.md) Ayrıntılar için |
-| EML (ileti/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Metni ekler dahil olmak üzere, ayıklayın |
+| EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Metni ekler dahil olmak üzere, ayıklayın |
 | RTF (uygulama/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Metni ayıklayın|
 | Düz metin (metin/düz) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Metni ayıklayın|
 

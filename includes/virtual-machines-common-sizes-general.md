@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 1b46eac189f4b06ad134b7a4e6d8f5a281a66b94
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b29429e1efe46aef8263bed5edb3daeffdf41122
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 Genel amaçlı VM boyutları dengeli CPU bellek oranı sağlar. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar. 
 
@@ -22,7 +22,7 @@ Genel amaçlı VM boyutları dengeli CPU bellek oranı sağlar. Test ve gelişti
 
 - Dv3-serisi, Dv2 serisi, özgün D-serisi için bir devamı olarak geliştirilen, daha güçlü bir CPU özellikleri. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 
-- Temel katman boyutları genelde geliştirme iş yükleri ve yük dengeleme, otomatik ölçeklendirme veya bellek kullanımı yoğun sanal makineler gerektirmeyen diğer uygulamalar içindir. Üretim uygulamaları için daha uygun VM boyutları hakkında daha fazla bilgi için bkz. (Sanal makine boyutları)[virtual-machines-size-specs.md] ve VM fiyatlandırma bilgileri için bkz. [Sanal Makine Fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/).
+- Temel katman boyutları genelde geliştirme iş yükleri ve yük dengeleme, otomatik ölçeklendirme veya bellek kullanımı yoğun sanal makineler gerektirmeyen diğer uygulamalar içindir.
 
 ## <a name="b-series"></a>B serisi
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Ağ İzleyicisi sorun giderme kaynak giriş | Microsoft Docs"
-description: "Bu sayfa Ağ İzleyicisi kaynak sorun giderme özellikleri genel bir bakış sağlar."
+title: Azure Ağ İzleyicisi sorun giderme kaynak giriş | Microsoft Docs
+description: Bu sayfa Ağ İzleyicisi kaynak sorun giderme özellikleri genel bir bakış sağlar.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure Ağ İzleyicisi sorun giderme kaynak giriş
 
-Sanal ağ geçitleri, şirket içi kaynakları ile Azure içindeki diğer sanal ağlar arasında bağlantı sağlar. Bu ağ geçitleri ve kendi bağlantılarını izleme için kritik iletişim sağlama bozuk değil. Ağ İzleyicisi sanal ağ geçitleri ve bağlantıları sorun giderme yeteneği sağlar. Bu, portal, PowerShell'i, CLI veya REST API çağrılabilir. Çağrıldığında, Ağ İzleyicisi sanal ağ geçidi veya bağlantı durumunu tanılar ve uygun sonuçları döndürür. Tanılama tamamlandıktan sonra bu istek uzun süren bir işlemdir, sonuçlar döndürülür.
+Sanal ağ geçitleri, şirket içi kaynakları ile Azure içindeki diğer sanal ağlar arasında bağlantı sağlar. İzleme ağ geçitleri ve bağlantıları için kritik iletişim sağlama bozuk değil. Ağ İzleyicisi ağ geçitleri ve bağlantıları sorun giderme yeteneği sağlar. Özelliği, portal, PowerShell, Azure CLI veya REST API çağrılabilir. Çağrıldığında, Ağ İzleyicisi ağ geçidi veya bağlantı durumunu tanılar ve uygun sonuçları döndürür. İstek uzun süren bir işlemdir. Tanılama tamamlandıktan sonra sonuç döndürülür.
 
 ![portal][2]
 
@@ -50,52 +50,51 @@ Aşağıdaki tablolar kullanılabilir farklı hata türleri (ID yukarıdaki list
 
 | Hata türü | Neden | Günlük|
 |---|---|---|
-| NoFault | Herhangi bir hata algılandığında. |Evet|
-| GatewayNotFound | Ağ geçidi veya ağ geçidi sağlanmamış bulunamıyor. |Hayır|
-| PlannedMaintenance |  Ağ geçidi örneği bakım yapılıyor.  |Hayır|
-| UserDrivenUpdate | Ne zaman bir kullanıcı güncelleştirme devam ediyor. Bu, yeniden boyutlandırma işlemi olabilir. | Hayır |
-| VipUnResponsive | Ağ geçidi birincil örneğini ulaşamıyor. Sistem durumu araştırması başarısız olduğunda meydana gelir. | Hayır |
+| NoFault | Herhangi bir hata algılandığında |Evet|
+| GatewayNotFound | Ağ geçidi veya ağ geçidi sağlanmamış bulunamıyor |Hayır|
+| PlannedMaintenance |  Ağ geçidi örneği bakımda  |Hayır|
+| UserDrivenUpdate | Bu hata, bir kullanıcı güncelleştirme devam ediyor oluşur. Güncelleştirmeyi yeniden boyutlandırma işlemi olabilir. | Hayır |
+| VipUnResponsive | Bu hata oluşur. ağ geçidi birincil örneği durum araştırma hatası nedeniyle erişilemiyor. | Hayır |
 | PlatformInActive | Platform ile ilgili bir sorun yoktur. | Hayır|
 | ServiceNotRunning | Temel alınan hizmet çalışmıyor. | Hayır|
-| NoConnectionsFoundForGateway | Ağ geçidi bağlantı var. Bu yalnızca bir uyarıdır.| Hayır|
-| ConnectionsNotConnected | Bağlantıları bağlı değil. Bu yalnızca bir uyarıdır.| Evet|
+| NoConnectionsFoundForGateway | Hiçbir bağlantı ağ geçidi yok. Bu hata yalnızca bir uyarıdır.| Hayır|
+| ConnectionsNotConnected | Bağlantıları bağlı değil. Bu hata yalnızca bir uyarıdır.| Evet|
 | GatewayCPUUsageExceeded | Geçerli ağ geçidi CPU kullanımı % > 95 ' dir. | Evet |
 
 ### <a name="connection"></a>Bağlantı
 
 | Hata türü | Neden | Günlük|
 |---|---|---|
-| NoFault | Herhangi bir hata algılandığında. |Evet|
-| GatewayNotFound | Ağ geçidi veya ağ geçidi sağlanmamış bulunamıyor. |Hayır|
-| PlannedMaintenance | Ağ geçidi örneği bakım yapılıyor.  |Hayır|
-| UserDrivenUpdate | Ne zaman bir kullanıcı güncelleştirme devam ediyor. Bu, yeniden boyutlandırma işlemi olabilir.  | Hayır |
-| VipUnResponsive | Ağ geçidi birincil örneğini ulaşamıyor. Sistem durumu araştırması başarısız olduğunda gerçekleşir. | Hayır |
-| ConnectionEntityNotFound | Bağlantı yapılandırması eksik. | Hayır |
-| ConnectionIsMarkedDisconnected | Bağlantı "bağlantısız" olarak işaretlenmiş. |Hayır|
+| NoFault | Herhangi bir hata algılandığında |Evet|
+| GatewayNotFound | Ağ geçidi veya ağ geçidi sağlanmamış bulunamıyor |Hayır|
+| PlannedMaintenance | Ağ geçidi örneği bakımda  |Hayır|
+| UserDrivenUpdate | Bu hata, bir kullanıcı güncelleştirme devam ediyor oluşur. Güncelleştirmeyi yeniden boyutlandırma işlemi olabilir.  | Hayır |
+| VipUnResponsive | Bu hata oluşur. ağ geçidi birincil örneği durum araştırma hatası nedeniyle erişilemiyor. | Hayır |
+| ConnectionEntityNotFound | Bağlantı yapılandırması eksik | Hayır |
+| ConnectionIsMarkedDisconnected | Bağlantı "bağlantısız" olarak işaretlenmiş |Hayır|
 | ConnectionNotConfiguredOnGateway | Temel alınan hizmet yapılandırılmış bağlantısı yok. | Evet |
 | ConnectionMarkedStandy | Temel alınan hizmet yedek olarak işaretlenir.| Evet|
-| Kimlik Doğrulaması | Önceden paylaşılmış anahtar uyuşmuyor. | Evet|
+| Kimlik Doğrulaması | Önceden paylaşılmış anahtar uyuşmuyor | Evet|
 | PeerReachability | Eş Ağ Geçidi ulaşılabilir değil. | Evet|
 | IkePolicyMismatch | Eş Ağ geçidi, Azure tarafından desteklenmez IKE ilkeleri vardır. | Evet|
 | WfpParse hata | WFP günlük ayrıştırılırken bir hata oluştu. |Evet|
 
 ## <a name="supported-gateway-types"></a>Desteklenen ağ geçidi türleri
 
-Aşağıdaki listede destek hangi ağ geçitleri ve bağlantıları desteklenen gösterir Ağ İzleyicisi sorun giderme.
+Hangi ağ geçitleri ve bağlantıları desteklenen aşağıdaki tabloda listelenmektedir Ağ İzleyicisi sorun giderme:
+
 |  |  |
 |---------|---------|
 |**Ağ geçidi türleri**   |         |
-|VPN      | Destekleniyor        |
+|VPN      | Desteklenen        |
 |ExpressRoute | Desteklenmiyor |
-|Hypernet | Desteklenmiyor|
 |**VPN türleri** | |
-|Rota tabanlı | Destekleniyor|
+|Rota tabanlı | Desteklenen|
 |İlke tabanlı | Desteklenmiyor|
 |**Bağlantı türleri**||
-|IPSec| Destekleniyor|
-|VNet2Vnet| Destekleniyor|
+|IPSec| Desteklenen|
+|VNet2Vnet| Desteklenen|
 |ExpressRoute| Desteklenmiyor|
-|Hypernet| Desteklenmiyor|
 |VPNClient| Desteklenmiyor|
 
 ## <a name="log-files"></a>Günlük dosyaları
@@ -147,11 +146,11 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>İptal etti wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
 **Scrubbed wfpdiag.txt** günlük dosyası wfp günlük içerir. Bu günlük paket bırakma ve IKE/AuthIP hataları günlüğe kaydedilmesini içerir.
 
-Aşağıdaki örnek Scrubbed wfpdiag.txt dosyasının içeriğini gösterir. Bu örnekte, bir bağlantısı paylaşılan anahtarı altındaki 3 satırından görüldüğü gibi doğru değildi. Aşağıdaki örnekte yalnızca tüm günlük parçacığıyla aynıdır günlük sorun bağlı olarak uzun olabilir.
+Aşağıdaki örnek Scrubbed wfpdiag.txt dosyasının içeriğini gösterir. Bu örnekte, bir bağlantısı paylaşılan anahtarı altındaki üçüncü satırından görüldüğü gibi doğru değildi. Aşağıdaki örnekte yalnızca tüm günlük parçacığıyla aynıdır günlük sorun bağlı olarak uzun olabilir.
 
 ```
 ...
@@ -180,7 +179,7 @@ Aşağıdaki örnek Scrubbed wfpdiag.txt dosyasının içeriğini gösterir. Bu 
 ...
 ```
 
-### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.Sum
+### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
 
 **Wfpdiag.txt.sum** arabellek ve işlenen olayların gösteren bir günlük dosyasıdır.
 

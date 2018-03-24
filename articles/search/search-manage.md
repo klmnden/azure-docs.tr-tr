@@ -1,11 +1,11 @@
 ---
-title: "Azure portalında Azure arama için Hizmet Yönetimi"
-description: "Azure Search, Azure portalını kullanarak Microsoft Azure üzerinde barındırılan bulut arama hizmeti yönetin."
+title: Azure portalında Azure arama için Hizmet Yönetimi
+description: Azure Search, Azure portalını kullanarak Microsoft Azure üzerinde barındırılan bulut arama hizmeti yönetin.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure portalında Azure arama için Hizmet Yönetimi
 > [!div class="op_single_selector"]
@@ -44,26 +44,12 @@ Dikkat *yükseltme* bir yönetim görevi olarak listelenmemiş. Hizmet sağland�
 ## <a name="administrator-rights"></a>Yönetici hakları
 Sağlama veya hizmet yetkisini bir Azure Abonelik Yöneticisi veya ortak yönetici tarafından yapılabilir.
 
-İçinde bir hizmet, hizmet URL'sini ve yönetici api anahtarı için erişimi olan herkes hizmet okuma-yazma erişimi vardır. Okuma-yazma erişimi eklemek, silmek veya API anahtarları, dizinler, dizin oluşturucular, veri kaynakları, zamanlamaları ve rol atamalarını aracılığıyla uygulanan dahil olmak üzere sunucu nesneleri değiştirme olanağı sağlar [RBAC tanımlı rolleri](#rbac).
+İçinde bir hizmet, hizmet URL'sini ve yönetici api anahtarı için erişimi olan herkes hizmet okuma-yazma erişimi vardır. Okuma-yazma erişimi eklemek, silmek veya API anahtarları, dizinler, dizin oluşturucular, veri kaynakları, zamanlamaları ve rol atamalarını aracılığıyla uygulanan dahil olmak üzere sunucu nesneleri değiştirme olanağı sağlar [RBAC tanımlı rolleri](search-security-rbac.md).
 
-Azure Search tüm kullanıcı etkileşimi bu modlarından birini içinde döner: okuma-yazma erişimi (yönetici hakları) hizmetine veya salt okunur erişim hizmetine (sorgu hakları). Daha fazla bilgi için bkz: [API anahtarlarını Yönet](#manage-keys).
+Azure Search tüm kullanıcı etkileşimi bu modlarından birini içinde döner: okuma-yazma erişimi (yönetici hakları) hizmetine veya salt okunur erişim hizmetine (sorgu hakları). Daha fazla bilgi için bkz: [API anahtarlarını Yönet](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>Yönetici erişimi için RBAC rolleri Ayarla
-Azure sağlayan bir [genel rol tabanlı yetkilendirme modelini](../active-directory/role-based-access-control-configure.md) tüm hizmetler için yönetilen portalı veya Resource Manager API'leri. Sahibi, katkıda bulunan ve okuyucu rolleri Hizmet Yönetimi Active Directory Kullanıcıları, grupları ve her role atanmış güvenlik sorumluları için düzeyini belirler. 
-
-Azure arama için RBAC izinleri aşağıdaki yönetim görevleri belirler:
-
-| Rol | Görev |
-| --- | --- |
-| Sahip |Oluşturun veya hizmet veya hizmetinde, API anahtarları, dizinler, dizin oluşturucular, Dizin Oluşturucu veri kaynakları ve dizin oluşturucu zamanlamaları gibi herhangi bir nesnede silin.<p>Sayıları ve depolama boyutu da dahil olmak üzere hizmetin durumunu görüntüleyin.<p>Ekleyin veya rol üyeliğini (yalnızca bir sahibi rol üyeliğini yönetebilir) silin.<p>Abonelik yöneticileri ve hizmet sahiplerini otomatik üyelik sahipleri rolüne sahiptir. |
-| Katılımcı |Aynı düzeyde erişim sahibi, RBAC rol yönetimi eksi. Örneğin, katılımcı yeniden ve görüntüleyebilirsiniz `api-key`, rol üyeliklerini değiştiremez ancak. |
-| Okuyucu |Hizmet durumu ve sorgu anahtarları görüntüleyin. Bu rolün üyeleri hizmet yapılandırmasında değişiklik yapamaz veya yönetici anahtarları görüntüleyebilirsiniz. |
-
-Rol Hizmeti uç noktası erişim hakkı vermeyin. Arama hizmeti işlemleri, dizin yönetimi, dizin oluşturma ve sorgular gibi arama verileri api anahtarlarından, değil rolleri denetlenir. Daha fazla bilgi için bkz: "Yetkilendirmesi Yönetimi karşılık veri işlemleri için" [rol tabanlı erişim denetimi nedir](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Günlüğe kaydetme ve sistem bilgileri
 Azure arama günlük dosyaları için bir bireysel hizmet ya da portalı üzerinden veya programlama arabirimleri sağlamıyor. Temel katman ve üstünde, Microsoft Azure Search hizmetler için hizmet düzeyi sözleşmelerine (SLA) göre % 99,9 kullanılabilirliğini izler. Hizmeti yavaş veya istek işleme SLA eşiklerin altına düştüğünde, destek ekiplerini kullanabilecekleri günlük dosyalarını gözden geçirin ve sorunu gidermeye.
 
@@ -72,38 +58,6 @@ Hizmet hakkında genel bilgi açısından, aşağıdaki yollarla bilgi elde edeb
 * Portalda hizmet panosunda, bildirimleri, özellikler ve durum iletileri.
 * Kullanarak [PowerShell](search-manage-powershell.md) veya [Yönetimi REST API](https://docs.microsoft.com/rest/api/searchmanagement/) için [hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/searchmanagement/services), veya dizin kaynak kullanımına durumu.
 * Aracılığıyla [trafiği analytics arama](search-traffic-analytics.md), daha önce belirtildiği gibi.
-
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>API anahtarları Yönet
-Bir arama hizmeti için tüm istekleri özellikle hizmetinizin api oluşturulan anahtarı gerekir. Bu API anahtarı, Arama Hizmeti uç noktanızı erişimi kimlik doğrulaması için tek bir mekanizmadır. 
-
-Bir API anahtarı rastgele oluşturulmuş sayılar ve harflerden oluşan bir dizedir. Aracılığıyla [RBAC izinleri](#rbac), silebilir veya anahtarları okumak, ancak kullanıcı tanımlı bir parola ile bir anahtar değiştirilemiyor. 
-
-İki tür anahtarları, arama hizmetinize erişmek için kullanılır:
-
-* Yönetici (hizmet karşı herhangi bir okuma-yazma işlemi için geçerli)
-* Sorgu (geçerli bir dizin sorgular gibi salt okunur işlemler için)
-
-Hizmet sağladığında yönetici api anahtarı oluşturulur. Olarak belirtilen iki yönetici anahtarları vardır *birincil* ve *ikincil* bunları tutmak için doğrudan, ancak aslında bunlar birbirinin yerine kullanılabilir. Böylece, bir hizmete erişimi kaybetmeden dönebilirsiniz her hizmetin iki yönetici anahtarları vardır. Her iki yönetici anahtarını yeniden oluşturmak, ancak toplam yönetici anahtar sayısı ekleyemezsiniz. En fazla arama hizmeti başına iki yönetici anahtarları yoktur.
-
-Sorgu anahtarları arama doğrudan çağıran istemci uygulamalar için tasarlanmıştır. En fazla 50 sorgu anahtarları oluşturabilirsiniz. Uygulama kodunda arama URL'sini ve bir sorgu api anahtarını hizmet salt okunur erişime izin vermek için belirtin. Uygulama kodunuz, ayrıca, uygulamanız tarafından kullanılan dizini belirtir. Birlikte, uç noktası, salt okunur erişim için bir API anahtarı ve bir hedef dizin istemci uygulamanızı bağlantısından kapsam ve erişim düzeylerini tanımlayın.
-
-Almak veya api anahtarlarından yeniden oluşturmak için hizmet panosunu açın. Tıklatın **ANAHTARLARI** kaydırarak açmak Anahtar Yönetimi sayfasında. Yeniden veya anahtarlar oluşturmak için sayfanın en üstünde komutlardır. Varsayılan olarak, yalnızca yönetici anahtarları oluşturulur. Sorgu api anahtarlarından el ile oluşturulması gerekir.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>Güvenli API anahtarları
-Anahtar güvenlik portal ya da Resource Manager arabirimleri (PowerShell veya komut satırı arabirimi) aracılığıyla erişimi kısıtlayarak sağlamış. Belirtildiği gibi abonelik yöneticileri görüntülemek ve tüm API anahtarlarını yeniden oluştur. Önlem olarak, yönetici anahtarlarına kimlerin erişebileceğini anlamak için rol atamalarını gözden geçirin.
-
-1. Hizmet panosunda kaydırarak açmak kullanıcılar dikey erişim simgesine tıklayın.
-   ![][7]
-2. Kullanıcılar, var olan rol atamalarını gözden geçirin. Beklendiği gibi abonelik yöneticileri tam erişime sahip rolünü aracılığıyla hizmetine zaten sahiptir.
-3. Daha fazla ayrıntıya için tıklatın **abonelik yöneticileri** genişletin ve ardından arama hizmetinizde ortak yönetim haklarına sahip kişileri görmek için rol ataması listesi.
-
-Erişim izinleri görüntülemek için başka bir yolu **rolleri** kullanıcılar dikey. Bunun yapılması, kullanılabilir roller ve kullanıcıların veya grupların her role atanmış sayısını görüntüler.
 
 <a id="sub-5"></a>
 
@@ -184,9 +138,6 @@ Ayrıca gözden geçirme öneririz [performans ve en iyi duruma getirme makale](
 Başka bir önceki bölümünde belirtildiği videoyu izlemek için önerilir. Bu bölümde belirtilen teknikleri daha ayrıntılı bilgi sağlar.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

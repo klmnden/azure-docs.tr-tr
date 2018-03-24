@@ -1,11 +1,12 @@
 ---
-title: "Başkalarının veri bilimi örnekler – Azure Machine Learning kopyalama | Microsoft Docs"
+title: Başkalarının veri bilimi örnekler – Azure Machine Learning kopyalama | Microsoft Docs
 description: "Veri bilimi, ticari sır: çalışmanızı bunu başkalarına alın. Machine learning örnekler Azure AI Galerisi'nden alın."
-keywords: "Veri bilimi örnekler, algoritma örnek kümeleme algoritması, kümeleme machine learning örnek"
+keywords: Veri bilimi örnekler, algoritma örnek kümeleme algoritması, kümeleme machine learning örnek
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.author: cgronlun
-ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 764e7c61b5ef023608767dfe78f3aa76e4463f05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Yeni başlayanlar seri için veri bilimi
@@ -58,7 +58,7 @@ Microsoft adlı bulut tabanlı bir hizmete sahip [Azure Machine Learning Studio]
 
 Bu hizmetin parçası olan bir şey adlı  **[Azure AI galeri](https://gallery.cortanaintelligence.com/)**. Azure Machine Learning denemeleri veya kişiler yerleşik ve diğerleri için kullanılacak katkıda modelleri koleksiyonu gibi kaynakları içerir. Bu denemeler düşünce ve diğer kendi çözümlerini başlamanıza yardımcı olmak için sabit iş yararlanmak için harika bir yoludur. Herkes üzerinden Gözat Hoş Geldiniz.
 
-![Azure AI Galerisi](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
+![Azure Yapay Zeka Galerisi](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Tıklatırsanız **denemeler** en üstte en son ve popüler denemeler galerideki sayısı görürsünüz. Tıklatarak denemeler kullanılmadıkları arayabilirsiniz **tümüne Gözat** ekranın üstünde ve orada girdiğiniz arama terimleri ve arama filtrelerini seçin.
 

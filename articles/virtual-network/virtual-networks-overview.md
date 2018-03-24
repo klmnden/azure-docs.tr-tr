@@ -1,11 +1,11 @@
 ---
-title: "Azure sanal ağı | Microsoft Docs"
-description: "Azure Virtual Network kavramları ve özellikler hakkında bilgi edinin."
+title: Azure sanal ağı | Microsoft Docs
+description: Azure Virtual Network kavramları ve özellikler hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/1/2018
 ms.author: jdial
-ms.openlocfilehash: fadc1994cd930df36387a5bfb302c00d66f74fad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 8d02afcc590482fdca4705ac582d85bb985dd3c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Sanal Ağ nedir?
 
@@ -32,7 +32,7 @@ Azure sanal ağı aşağıdaki geniş yetenekleri sağlar:
 - **[Sanal ağ bağlantısı:](#connect-vnets)**  sanal ağlar bağlanması birbirine herhangi bir sanal ağ kaynaklarında ile iletişim kurmak için herhangi bir sanal ağ kaynaklarında etkinleştirme.
 - **[Şirket içi bağlantı:](#connect-on-premises)**  diğer arasında iletişim kurmak kaynakları etkinleştirme bir şirket içi ağ için bir sanal ağ bağlanabilir.
 - **[Trafik filtreleme:](#filtering)**  kaynak IP adresi ve bağlantı noktası, hedef IP adresi ve bağlantı noktası ve protokol sanal ağınızdaki kaynaklara gelen ve giden ağ trafiği filtreleyebilirsiniz.
-- **[Yönlendirme:](#routing)**  isteğe bağlı olarak, kendi yollarını yapılandırarak yönlendirme Azure'un varsayılan ayarlarını geçersiz kılabilir veya ağ geçidinden BGP yayarak yönlendirir.
+- **[Yönlendirme:](#routing)**  isteğe bağlı olarak kendi yolları yapılandırma ya da yayılıyor sınır ağ geçidi Protokolü (BGP) yolları bir ağ geçidi üzerinden yönlendirme Azure'un varsayılan ayarlarını geçersiz kılabilir.
 
 ## <a name = "isolation"></a>Ağ yalıtımı ve kesimleme
 

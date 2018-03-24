@@ -1,10 +1,11 @@
 ---
 title: Cortana Intelligence Competitions SSS | Microsoft Docs
-description: "Microsoft Cortana Intelligence Competitions hakkında sık sorulan sorular."
+description: Microsoft Cortana Intelligence Competitions hakkında sık sorulan sorular.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: haining;garye
-ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: db6fb6cd6c500ffe4537b57a968ef3b8792bcad6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Yarışmaları Hakkında SSS
 **Cortana Intelligence Competitions nedir?**
@@ -35,7 +35,7 @@ Genel sorular için kullandığınız [Microsoft Azure Machine Learning Forumu](
 
 **Bir rekabet nasıl girilir?**
 
-Erişim [Competitions](https://gallery.cortanaintelligence.com/competitions) giriş sayfası [Azure AI galeri](https://gallery.cortanaintelligence.com/), veya gitmek [http://aka.ms/CIComp](http://aka.ms/CIComp). Giriş sayfası çalışmakta olan tüm competitions listeler. Her rekabet ayrıntılı yönergeler ve katılım kuralları, ödül ve süresi, kayıt sayfasındaki.
+Erişim [Competitions](https://gallery.cortanaintelligence.com/competitions) giriş sayfası [Azure AI galeri](https://gallery.cortanaintelligence.com/), veya gitmek [ http://aka.ms/CIComp ](http://aka.ms/CIComp). Giriş sayfası çalışmakta olan tüm competitions listeler. Her rekabet ayrıntılı yönergeler ve katılım kuralları, ödül ve süresi, kayıt sayfasındaki.
 
 1. Tüm yönergeleri okuyun, katılmak ister misiniz rekabet bulun ve öğretici videoyu izleyin. Ardından **girin rekabet** düğmesini tıklatın ve var olan Azure Machine Learning çalışma alanınıza Starter deneme kopyalayın. Bir çalışma alanına erişim sahip değilseniz, birini oluşturmalısınız önceden. Başlatıcı denemeyi çalıştırın, performans ölçüm inceleyin, sonra modeli performansını artırmak için yaratıcılığınızı kullanın. Bu adımda, sürenin büyük bölümünden olasılıkla harcamanız.   
 

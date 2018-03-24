@@ -1,6 +1,6 @@
 ---
 title: SQL Server FCI - Azure sanal makineleri | Microsoft Docs
-description: "Bu makalede Azure sanal makinelerde SQL Server Yük devretme kümesi örneği oluşturma açıklanmaktadır."
+description: Bu makalede Azure sanal makinelerde SQL Server Yük devretme kümesi örneği oluşturma açıklanmaktadır.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>SQL Server Yük devretme kümesi örneği üzerinde Azure sanal makineleri yapılandırma
 
@@ -46,6 +46,18 @@ Aşağıdaki diyagramda, Azure sanal makinelerde eksiksiz çözüm gösterilmekt
 S2D hakkında daha fazla ayrıntı için bkz: [depolama alanları doğrudan Windows Server 2016 Datacenter edition \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D mimarileri - yakınsanmış ve hiper yakınsanmış iki türlerini destekler. Bu belgedeki hiper yakınsanmış bir mimaridir. Hiper yakınsanmış bir altyapı depolama kümelenmiş uygulama ana bilgisayar aynı sunuculara yerleştirir. Bu mimaride, depolama, üzerinde her SQL Server FCI düğümdür.
+
+## <a name="licensing-and-pricing"></a>Lisans ve fiyatlandırma
+
+Azure sanal makinelerde Kullandıkça Öde (PAYG) kullanarak SQL Server Lisans ya da kendi lisansını getir (KLG) VM görüntüler. Seçtiğiniz görüntü türü nasıl ücretlendirilen etkiler.
+
+PAYG lisanslama ile Azure Virtual Machines'de SQL Server Yük devretme kümesi örneği (FCI) FCI, pasif düğümleri de dahil olmak üzere, tüm düğümler için ücret doğurur. Daha fazla bilgi için bkz: [SQL Server Enterprise sanal makineler fiyatlandırma](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Yazılım Güvencesi ile Kurumsal Anlaşma müşterilerle ücretsiz pasif FCI düğüm etkin her düğüm için kullanılacak doğru sahip. Bu avantajı, Azure yararlanmak için KLG VM görüntüleri kullanmak ve ardından aynı lisans hem etkin ve Pasif düğümlerine FCI kullanın. Daha fazla bilgi için bkz: [Kurumsal Anlaşma](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+Azure Virtual Machines'de SQL Server için lisans PAYG ve KLG karşılaştırmak için bkz [SQL VM'ler ile çalışmaya başlama](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+Lisans SQL Server hakkında tam bilgi için bkz: [fiyatlandırma](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Örnek Azure şablonu
 
@@ -91,7 +103,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümesi oluşturmaya devam e
 
    Sanal makineleriniz için kaynak grubu oluşturmadıysanız, bunu bir Azure kullanılabilirlik kümesi oluşturduğunuzda. Kullanılabilirlik kümesi oluşturmak için Azure portalını kullanıyorsanız, aşağıdaki adımları uygulayın:
 
-   - Azure portalında tıklatın  **+**  Azure Marketi açın. Arama **kullanılabilirlik kümesi**.
+   - Azure portalında tıklatın **+** Azure Marketi açın. Arama **kullanılabilirlik kümesi**.
    - Tıklatın **kullanılabilirlik kümesi**.
    - **Oluştur**’a tıklayın.
    - Üzerinde **kullanılabilirlik kümesi oluştur** dikey penceresinde, aşağıdaki değerleri ayarlayın:
@@ -123,7 +135,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümesi oluşturmaya devam e
 
    SQL Server Lisans için ödeme yapmak istediğiniz nasıl göre uygun görüntüyü seçin:
 
-   - **Kullanım lisansı başına ödeme**: SQL Server Lisansı bu görüntülerin dakika başına maliyet içerir:
+   - **Kullanım lisansı başına ödeme**: SQL Server Lisansı bu görüntüleri saniyede maliyetini içerir:
       - **Windows Server Datacenter 2016 üzerinde SQL Server 2016 Enterprise**
       - **Windows Server Datacenter 2016 SQL Server 2016 standardı**
       - **Windows Server Datacenter 2016 SQL Server 2016 Geliştirici**

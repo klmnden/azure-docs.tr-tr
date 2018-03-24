@@ -1,11 +1,11 @@
 ---
-title: "Desteklenen kaynak türleri aracılığıyla Azure kaynak durumu | Microsoft Docs"
-description: "Desteklenen kaynak türleri aracılığıyla Azure kaynak durumu"
+title: Desteklenen kaynak türleri aracılığıyla Azure kaynak durumu | Microsoft Docs
+description: Desteklenen kaynak türleri aracılığıyla Azure kaynak durumu
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Kaynak türleri ve sistem durumu denetler Azure kaynak durumu
 Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir listesi aşağıdadır.
@@ -53,18 +53,18 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir l
 |---|
 |<ul><li>Sunucu yukarı bu sanal makine barındırma ve çalıştırma?</li><li>Ana bilgisayar işletim sistemi önyükleme tamamlandı?</li><li>Sanal makine kapsayıcısını sağlandığında ve güç?</li><li>Ana bilgisayar ve depolama hesabı arasında ağ bağlantısı var mı?</li><li>Konuk işletim sistemi önyükleme tamamlandı?</li><li>Devam eden planlı bakım var mı?</li></ul>|
 
-## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Yürütülen denetimleri|
 |---|
 |<ul><li>Data Lake Analytics bölgede kullanıcı gönderme işlerini kullanabilir?</li><li>Bölgede başarıyla tamamlamak ve temel işleri çalıştırma musunuz?</li><li>Kullanıcılar, katalog öğelerini bölgede listeleyebilirsiniz?</li>|
 
 
-## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/Accounts
+## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Yürütülen denetimleri|
 |---|
 |<ul><li>Kullanıcılar, Data Lake Store'a bölgede veri yükleyebilir miyim?</li><li>Kullanıcılar verileri Data Lake Store bölgede yükleyebilir?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/iothubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
 |Yürütülen denetimleri|
 |---|
@@ -75,7 +75,7 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir l
 |---|
 |<ul><li>Bulunmamış bir Azure Cosmos DB hizmet kullanılamazlık nedeniyle hizmet olmayan veritabanı veya koleksiyon istekleri?</li><li>Bulunmamış bir Azure Cosmos DB hizmet kullanılamazlık nedeniyle hizmet olmayan herhangi bir belge isteğini?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Yürütülen denetimleri|
 |---|
 |<ul><li>VPN tüneli bağlı mı?</li><li>Yapılandırma çakışmaları bağlantı var mı?</li><li>Önceden paylaşılan anahtarlar düzgün yapılandırılmış?</li><li>VPN şirket içi cihaz ulaşılabilir mu?</li><li>Eşleşmeler IPSec/IKE Güvenlik İlkesi'nde bulunur?</li><li>S2S VPN bağlantısı düzgün sağlanan veya başarısız durumda mı?</li><li>VNET-VNET bağlantısı düzgün sağlanan veya başarısız durumda mı?</li></ul>|
@@ -115,12 +115,12 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir l
 |---|
 |<ul><li>Ana bilgisayar sunucusu hazır ve çalışır mı?</li><li>Internet Information Services çalışıyor mu?</li><li>Yük Dengeleyici çalışıyor mu?</li><li>Web Service planı gelen veri merkezi içinde ulaşılabilen?</li><li>Depolama hesabı kullanılabilir serverFarm siteleri içeriğini barındıran??</li></ul>|
 
-## <a name="microsoftwebsites"></a>Microsoft.Web/Sites
+## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Yürütülen denetimleri|
 |---|
 |<ul><li>Ana bilgisayar sunucusu hazır ve çalışır mı?</li><li>Internet Information server çalışıyor mu?</li><li>Yük Dengeleyici çalışıyor mu?</li><li>Web uygulaması veri merkezi içinde erişilebilir?</li><li>Depolama hesabı kullanılabilir site içeriğini barındıran?</li></ul>|
 
 # <a name="next-steps"></a>Sonraki Adımlar
--  Bkz: [Azure hizmet durumu giriş](service-health-overview.md) ve [Azure kaynak durumu giriş](resource-health-overview.md) bunları daha iyi anlamak için. 
+-  Bkz: [Azure hizmet sağlığı panosunu giriş](service-health-overview.md) ve [Azure kaynak durumu giriş](resource-health-overview.md) bunları daha iyi anlamak için. 
 -  [Azure kaynak durumu hakkında sık sorulan sorular](resource-health-faq.md)
-- Sistem durumu sorunları, bildirim almak için uyarıları ayarlayın. Daha fazla bilgi için bkz: [hizmet durumu uyarıları yapılandırmak](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Sistem durumu sorunları, bildirim almak için uyarıları ayarlayın. Daha fazla bilgi için bkz: [hizmet sistem durumu olayları için uyarıları Yapılandır](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 

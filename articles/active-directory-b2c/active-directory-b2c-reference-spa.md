@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: örtük akışını kullanarak tek sayfa uygulamaları | Microsoft Docs"
-description: "Azure Active Directory B2C ile OAuth 2.0 örtük akışını kullanarak doğrudan tek sayfa uygulamaları oluşturmayı öğrenin."
+title: 'Azure Active Directory B2C: örtük akışını kullanarak tek sayfa uygulamaları | Microsoft Docs'
+description: Azure Active Directory B2C ile OAuth 2.0 örtük akışını kullanarak doğrudan tek sayfa uygulamaları oluşturmayı öğrenin.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 2ce4aaac117920c1da0b8a29797169d536825c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Tek sayfalı uygulama oturum OAuth 2.0 örtük akışını kullanarak açma
 
@@ -99,7 +96,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Kapsam |Gerekli |Kapsamları boşlukla ayrılmış listesi. Azure AD'ye istenecek izinlerin hem tek bir kapsam değeri gösterir. `openid` Kapsam kullanıcı oturumu ve kullanıcı kimliği belirteçleri biçiminde hakkında veri Al izni gösterir. (Biz bu konuda daha sonra makalesinde konuşun.) `offline_access` Kapsamı web uygulamaları için isteğe bağlı değil. Bu, uygulamanızın uzun süreli kaynaklarına erişim için bir yenileme belirteci gerektiğini gösterir. |
 | durum |Önerilen |Ayrıca belirteci yanıtta döndürülen istek dahil bir değer. Kullanmak istediğiniz herhangi bir içerik dizesi olabilir. Genellikle, rastgele oluşturulmuş, benzersiz bir değer, siteler arası istek sahtekarlığı saldırıları önlemek için kullanılır. Durumu da kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkında bilgi kodlanması için kullanılan oldukları üzerinde sayfa gibi. |
 | nonce |Gerekli |Sonuçta elde edilen kimliği belirteç talep olarak dahil edilen (uygulama tarafından üretilen) istekte bulunan bir değer. Uygulama sonra belirteç yeniden yürütme saldırıları azaltmak için bu değeri doğrulayabilirsiniz. Genellikle, isteğin başlangıç noktasının tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. |
-| P |Gerekli |Yürütme ilkesi. Azure AD B2C kiracınızda oluşturulan bir ilkeyi adıdır. İlke adı değeri ile başlaması gereken **b2c\_1\_**. Daha fazla bilgi için bkz: [Azure AD B2C yerleşik ilkeleri](active-directory-b2c-reference-policies.md). |
+| p |Gerekli |Yürütme ilkesi. Azure AD B2C kiracınızda oluşturulan bir ilkeyi adıdır. İlke adı değeri ile başlaması gereken **b2c\_1\_**. Daha fazla bilgi için bkz: [Azure AD B2C yerleşik ilkeleri](active-directory-b2c-reference-policies.md). |
 | istemi |İsteğe bağlı |Gerekli olan bir kullanıcı etkileşimi türü. Şu anda, yalnızca geçerli değer: `login`. Bu kullanıcının bu isteği kimlik bilgilerini girmesini zorlar. Çoklu oturum açma etkili olmaz. |
 
 Bu noktada, ilkenin iş akışını tamamlamak için kullanıcının istedi. Bu dizini ya da başka bir sayıyı adımları için kaydolan bir sosyal kimlik bilgilerinizle oturum, kullanıcı adını ve parolasını girerek kullanıcı gerektirebilir. İlkenin nasıl tanımlanan kullanıcı eylemlerini bağlıdır.
@@ -212,7 +209,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | nonce |Gerekli |Elde edilen kimliği belirteç talep olarak dahil edilen uygulama tarafından üretilen istekte bulunan bir değer.  Uygulama sonra belirteç yeniden yürütme saldırıları azaltmak için bu değeri doğrulayabilirsiniz. Genellikle, istek kaynağını tanımlayan rastgele, benzersiz bir dize değeridir. |
 | istemi |Gerekli |Yenileme ve gizli bir iframe içinde belirteçleri almak için kullanmak `prompt=none` sağlamak IFRAME oturum açma sayfasında takılı değil ve hemen döndürür. |
 | login_hint |Gerekli |Yenileme ve gizli bir iframe içinde belirteçleri almak için kullanıcı belirli bir zamanda sahip birden çok oturumu ayırt etmek için bu ipucu kullanıcı adını içerir. Kullanarak bir önceki oturum bileşeninden kullanıcıadı ayıklayabilirsiniz `preferred_username` talep. |
-| domain_hint |Gerekli |Olabilir `consumers` veya `organizations`.  Yenileme ve gizli bir iframe içinde belirteçleri almak için içermelidir `domain_hint` istek değeri.  Extract `tid` kullanmak için hangi değeri belirlemek için bir önceki oturum açma kimliği belirteç talep.  Varsa `tid` değer talep `9188040d-6c67-4c5b-b112-36a304b66dad`, kullanmak `domain_hint=consumers`.  Aksi takdirde kullanın `domain_hint=organizations`. |
+| domain_hint |Gerekli |`consumers` veya `organizations` olabilir.  Yenileme ve gizli bir iframe içinde belirteçleri almak için içermelidir `domain_hint` istek değeri.  Extract `tid` kullanmak için hangi değeri belirlemek için bir önceki oturum açma kimliği belirteç talep.  Varsa `tid` değer talep `9188040d-6c67-4c5b-b112-36a304b66dad`, kullanmak `domain_hint=consumers`.  Aksi takdirde kullanın `domain_hint=organizations`. |
 
 Ayarlayarak `prompt=none` parametresi, bu istek ya da başarılı ya da hemen başarısız olur ve uygulamanıza döndürür.  Başarılı yanıt uygulamanızı belirtilen yeniden yönlendirme URI'si bölümünde belirtilen yöntemi kullanarak gönderilir `response_mode` parametresi.
 
@@ -268,7 +265,7 @@ p=b2c_1_sign_in
 
 | Parametre | Gerekli mi? | Açıklama |
 | --- | --- | --- |
-| P |Gerekli |Kullanıcı uygulamanızı dışında imzalamak için kullandığınız ilke. |
+| p |Gerekli |Kullanıcı uygulamanızı dışında imzalamak için kullandığınız ilke. |
 | post_logout_redirect_uri |Önerilen |Kullanıcı için sonra yeniden yönlendirilmesi gereken URL başarılı oturum kapatma. Dahil edilmezse, Azure AD B2C kullanıcı için genel bir ileti görüntülenir. |
 
 > [!NOTE]

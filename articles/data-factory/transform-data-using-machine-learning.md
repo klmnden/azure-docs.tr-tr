@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory kullanarak Tahmine dayalı veri ardışık düzen oluşturun | Microsoft Docs"
-description: "Azure Machine Learning - toplu iş yürütme etkinliği Azure Data factory'de kullanarak Tahmine dayalı bir ardışık düzen oluşturmayı öğrenin."
+title: Azure Data Factory kullanarak Tahmine dayalı veri ardışık düzen oluşturun | Microsoft Docs
+description: Azure Machine Learning - toplu iş yürütme etkinliği Azure Data factory'de kullanarak Tahmine dayalı bir ardışık düzen oluşturmayı öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: fa493a6d7b4cf775f64b87c1d5cc21ff4a138609
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bd72fd957948e77df6ffb0b310c590132c663235
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı ardışık düzen oluşturun
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,11 +71,11 @@ Oluşturduğunuz bir **Azure Machine Learning** bağlantılı hizmeti bir Azure 
 
 Bkz: [işlem bağlı Hizmetleri](compute-linked-services.md) makale açıklamaları özellikleri JSON tanımında hakkında. 
 
-Azure Machine Learning Klasik Web Hizmetleri ve Tahmine dayalı denemeniz için yeni Web Hizmetleri destekler. Veri Fabrikası'ndan kullanmak için doğru birini seçebilirsiniz. Azure Machine Learning bağlı hizmeti oluşturmak için gerekli bilgileri almak için tüm Web Hizmetleri (yeni) ve Klasik Web Hizmetleri listelendiği https://services.azureml.net için gidin. İstediğiniz erişmek ve tıklayın Web hizmeti **Tüket** sayfası. Kopya **birincil anahtar** için **apikey ile yapılan** özelliği ve **toplu istekleri** için **mlEndpoint** özelliği. 
+Azure Machine Learning Klasik Web Hizmetleri ve Tahmine dayalı denemeniz için yeni Web Hizmetleri destekler. Veri Fabrikası'ndan kullanmak için doğru birini seçebilirsiniz. Azure Machine Learning bağlı hizmeti oluşturmak için gerekli bilgileri almak için Git https://services.azureml.net, tüm Web Hizmetleri (yeni) ve Klasik Web Hizmetleri burada listelenir. İstediğiniz erişmek ve tıklayın Web hizmeti **Tüket** sayfası. Kopya **birincil anahtar** için **apikey ile yapılan** özelliği ve **toplu istekleri** için **mlEndpoint** özelliği. 
 
 ![Azure Machine Learning Web Hizmetleri](./media/transform-data-using-machine-learning/web-services.png)
 
-##<a name="azure-machine-learning-batch-execution-activity"></a>Azure Machine Learning toplu iş yürütme etkinliği
+## <a name="azure-machine-learning-batch-execution-activity"></a>Azure Machine Learning toplu iş yürütme etkinliği
 
 Aşağıdaki JSON parçacığında, bir Azure Machine Learning toplu iş yürütme etkinliği tanımlar. Etkinlik tanımı daha önce oluşturduğunuz Azure Machine Learning bağlantılı hizmeti bir başvuru içeriyor. 
 

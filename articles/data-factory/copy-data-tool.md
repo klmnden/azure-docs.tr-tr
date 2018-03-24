@@ -1,21 +1,21 @@
 ---
-title: "Veri Kopyala aracı Azure Data Factory | Microsoft Docs"
-description: "Azure veri fabrikası arabiriminde veri Kopyala aracı hakkında bilgi sağlar"
+title: Veri Kopyala aracı Azure Data Factory | Microsoft Docs
+description: Azure veri fabrikası arabiriminde veri Kopyala aracı hakkında bilgi sağlar
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fb25dcc0de4ebb1d025101670a9edfe3fe2bea9
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: b82ee060ff3f25e7a92c85114d457ecb349159b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory kopyalama veri aracı
 Azure veri fabrikası kopya veri aracı kolaylaştırır ve genellikle bir uçtan uca veri tümleştirme senaryosunun bir ilk adım olan bir veri gölü içine veri alma sürecini en iyi duruma getirir.  Zaman kaydeder özellikle Azure Data Factory ilk kez bir veri kaynağından veri alma için kullandığınızda. Bu aracı kullanarak avantajlarından bazıları şunlardır:
@@ -27,7 +27,7 @@ Azure veri fabrikası kopya veri aracı kolaylaştırır ve genellikle bir uçta
 
 Aşağıdaki tabloda, veri fabrikası Arabiriminde Etkinlik başına yazma ve veri Kopyala aracı kullanmak ne zaman hakkında yönergeler sağlar: 
 
-| Kopya veri aracı | Etkinlik (kopyalama etkinliği) yazma başına |
+| Veri Kopyalama aracı | Etkinlik (kopyalama etkinliği) yazma başına |
 | -------------- | -------------------------------------- |
 | Azure Data Factory varlıkları (bağlı hizmetler, veri kümelerini, ardışık düzen, vb.) hakkında bilgi olmadan görev yüklenirken bir veri kolayca oluşturmak istediğiniz | Veri gölü yükleme için karmaşık ve esnek mantığı uygulamak istiyorsunuz. |
 | Çok sayıda veri yapıtı veri gölü içinde hızlı bir şekilde yüklemek istediğiniz. | Kopyalama etkinliği ile temizleme veya işlem verileri için sonraki etkinliklere zincir istiyorsunuz. |
@@ -49,7 +49,7 @@ Bu araç kolayca veriler çeşitli kaynaklardan hedeflere sezgisel bir akış il
 
  Araç desteği çeşitli veri ve nesne türleri ile başlangıç aklınızda büyük veri tasarlanmıştır. Klasörleri, dosyaları ya da tablo yüzlerce taşımak için kullanabilirsiniz. Aracın otomatik veri Önizleme, şema yakalama ve otomatik eşleme ve verileri de filtreleme destekler.
 
-![Kopya veri aracı](./media/copy-data-tool/copy-data-tool.png)
+![Veri Kopyalama aracı](./media/copy-data-tool/copy-data-tool.png)
 
 ## <a name="automatic-data-preview"></a>Otomatik veri Önizleme
 Kopyalanan verileri doğrulamak izin veren seçilen kaynak veri deposu verilerin bir kısmını önizleyebilirsiniz. Ayrıca, veri kaynağını bir metin dosyasında ise, satır ve sütun sınırlayıcıları ve şema otomatik olarak algılamak için metin dosyası veri Kopyala aracı ayrıştırır.

@@ -1,17 +1,17 @@
 ---
-title: "Toplayıcı Gereci Azure geçirmek içinde | Microsoft Docs"
-description: "Toplayıcı Gereci ve nasıl yapılandırılacağı genel bakış sağlar."
+title: Toplayıcı Gereci Azure geçirmek içinde | Microsoft Docs
+description: Toplayıcı Gereci ve nasıl yapılandırılacağı genel bakış sağlar.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="overview"></a>Genel Bakış
 
-Bir Azure geçirmek toplayıcısı şirket içi vCenter ortamınızı keşfetmek için kullanılan bir lighweight appliance ' dir. Bu Gereci şirket içi VMware makineleri bulur ve bunlarla ilgili meta verileri Azure geçiş hizmetine gönderir.
+Bir Azure geçirmek toplayıcısı şirket içi vCenter ortamınızı keşfetmek için kullanılan hafif bir gereç ' dir. Bu Gereci şirket içi VMware makineleri bulur ve bunlarla ilgili meta verileri Azure geçiş hizmetine gönderir.
 
 Toplayıcı Gereci Azure geçirmek projeden indirebilirsiniz bir OVF ' dir. Bir VMware sanal makineyle 4 çekirdek, 8 GB RAM ve tek bir disk 80 GB başlatır. Windows Server 2012 R2 (64 bit) uygulamasının işletim sistemidir.
 
@@ -172,6 +172,15 @@ Aşağıdaki tabloda, toplanan ve ayrıca belirli bir sayaç alınamadı, etkile
 Toplayıcı yalnızca makine verileri bulur ve projeye gönderir. Proje bulunan verileri portalda görüntülenir ve bir değerlendirme oluşturmaya başlamadan önce ek zaman alabilir.
 
 Seçilen kapsam içindeki sanal makinelerin sayısına dayalı olarak, fazla 15 dakika projeye statik meta verileri gönder sürer. Statik meta verileri portalda kullanılabilir olduğunda, portal makinelerinizde listesini görmek ve grupları oluşturmaya başlayın. Bir değerlendirme toplama işi tamamlandıktan ve proje verileri işleyene kadar oluşturulamıyor. Bir kez koleksiyonu iş Toplayıcısında tamamlandı, onu değerine kadar sürebilir portalında kullanılabilir olması performans verileri için bir saat seçili kapsamdaki sanal makinelerin sayısına dayalı olarak.
+
+## <a name="locking-down-the-collector-appliance"></a>Toplayıcı Gereci kilitleme
+Toplayıcı aygıtındaki sürekli Windows güncelleştirmelerini çalıştıran öneririz. Toplayıcı 45 gün güncelleştirilmezse, Toplayıcı makinesi otomatik olarak kapatılıyor başlar. Bulma çalışıyorsa, 45 gün süresi olsa bile makine kapalı, etkinleştirilmemiş. POST bulma işi tamamlandığında, makine kapatılır. Toplayıcı 45 günden fazla bir süre için kullanıyorsanız, her zaman, çalışan Windows update tarafından güncelleştirilmiş makine tutmanızı önerir.
+
+Ayrıca aygıtınızın güvenli hale getirmek için aşağıdaki adımları öneririz
+1. Paylaşma değil veya yönetici parolalarını yetkisiz taraflarla misplace.
+2. Kullanılmadığı zaman Gereci kapatın.
+3. Güvenli bir ağ Gereci yerleştirin.
+4. Geçiş işi tamamlandıktan sonra Gereci örneğini silin. Diskleri üzerlerinde önbelleğe alınan vCenter kimlik bilgileri gerekebilir gibi disk dosyaları (VMDKs), yedekleme de sildiğinizden emin olun.
 
 ## <a name="how-to-upgrade-collector"></a>Toplayıcı yükseltme
 

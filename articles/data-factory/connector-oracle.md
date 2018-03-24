@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory kullanarak için ve Oracle veri kopyalama | Microsoft Docs"
-description: "Veri Fabrikası kullanarak bir Oracle veritabanına desteklenen kaynak depoları veya desteklenen havuz depoları için Oracle veri kopyalamak öğrenin."
+title: Azure Data Factory kullanarak için ve Oracle veri kopyalama | Microsoft Docs
+description: Veri Fabrikası kullanarak bir Oracle veritabanına desteklenen kaynak depoları veya desteklenen havuz depoları için Oracle veri kopyalamak öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: dfbc6e1d8bdf20cc7a0a4b1571882ba84487dddc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aa96356b01d63aa21c55f1b2e6998e65f9d617f6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Oracle veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - genel olarak kullanılabilir](v1/data-factory-onprem-oracle-connector.md)
+> * [Sürüm 1 - Genel kullanıma sunuldu](v1/data-factory-onprem-oracle-connector.md)
 > * [Sürüm 2 - Önizleme](connector-oracle.md)
 
 Bu makalede kopyalama etkinliği Azure Data Factory'de gelen ve bir Oracle veritabanına veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
@@ -58,7 +58,7 @@ Aşağıdaki özellikler Oracle bağlantılı hizmeti için desteklenir.
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlamak **Oracle**. | Evet |
-| connectionString | Oracle veritabanına bağlanmak için gereken bilgileri belirtir. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md).<br><br>**Bağlantı türü desteklenen**: kullanabileceğiniz **Oracle SID** veya **Oracle hizmet adı** veritabanınızı tanımlamak için:<br>-SID kullanıyorsanız:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Hizmet adı kullanıyorsanız:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Evet |
+| connectionString | Oracle veritabanına bağlanmak için gereken bilgileri belirtir. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md).<br><br>**Bağlantı türü desteklenen**: kullanabileceğiniz **Oracle SID** veya **Oracle hizmet adı** veritabanınızı tanımlamak için:<br>-SID kullanıyorsanız: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Hizmet adı kullanıyorsanız: `Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -211,7 +211,7 @@ Oracle için veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 | BLOB |Byte]<br/>(yalnızca Oracle 10 g desteklenir ve üzeri) |
 | CHAR |Dize |
 | CLOB |Dize |
-| DATE |Tarih Saat |
+| DATE |DateTime |
 | KAYAN NOKTA |Ondalık, dize (varsa precision > 28) |
 | TAMSAYI |Ondalık, dize (varsa precision > 28) |
 | UZUN |Dize |
@@ -222,7 +222,7 @@ Oracle için veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 | NVARCHAR2 |Dize |
 | RAW |Byte] |
 | SATIR KİMLİĞİ |Dize |
-| TIMESTAMP |Tarih Saat |
+| TIMESTAMP |DateTime |
 | YEREL SAAT DİLİMİ ZAMAN DAMGASI |Dize |
 | SAAT DİLİMİ ZAMAN DAMGASI |Dize |
 | İŞARETSİZ TAMSAYI |Sayı |

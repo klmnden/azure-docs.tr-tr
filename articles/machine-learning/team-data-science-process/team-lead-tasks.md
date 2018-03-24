@@ -1,11 +1,11 @@
 ---
-title: "Ekip Görevleri - Azure veri bilimi işlem Ekip Lideri | Microsoft Docs"
-description: "Veri bilimi takım projesi üzerinde bir takım lideri görevlerde ana hattı."
-documentationcenter: 
+title: Ekip Görevleri - Azure veri bilimi işlem Ekip Lideri | Microsoft Docs
+description: Veri bilimi takım projesi üzerinde bir takım lideri görevlerde ana hattı.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 995ad557eb06e545b1813e1f4631e243a98830b3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="team-lead-tasks"></a>Ekip sağlama görevleri
 
@@ -208,7 +208,7 @@ Kopyalama, iki dizini sonra **MyTeamProjectTemplate** (D3) ve **MyTeamUtilities*
 
 Yerel içeriği kopyalamasına izin **GroupProjectTemplate** (D1) klasörünü ve yerel **MyTeamProjectTemplate** (D3), aşağıdaki Kabuk komut dosyalarından birini çalıştırın: 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>PowerShell Windows için komut satırı        
+#### <a name="from-the-powershell-command-line-for-windows"></a>PowerShell Windows için komut satırı       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +216,7 @@ Yerel içeriği kopyalamasına izin **GroupProjectTemplate** (D1) klasörünü v
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>İçin Linux Kabuğu'ndan **Linux DSVM**
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>İçin Linux Kabuğu'ndan **Linux DSVM**
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -388,7 +388,7 @@ Yeni bir F sürücü makinenize başarılı bir şekilde bağlı olduğunu onayl
 
 **Azure dosya depolama bilgilerini el ile girmek nasıl:** bir metin dosyasını Azure dosya depolama bilgilerinizi yoksa, gerekli olan abonelik, depolama hesabı ve Azure türü için aşağıdaki ekrandaki yönergeleri izleyin dosya depolama bilgileri:
 
-- Giriş  **n** .
+- Giriş **n**.
 - Azure file storage önceki adımda oluşturulduğu abonelik adı dizinini seçin:
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)

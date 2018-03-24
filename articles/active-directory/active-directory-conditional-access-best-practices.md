@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory'de koşullu erişim için en iyi uygulamaları | Microsoft Docs"
-description: "Bilmeniz gerekenler ve koşullu erişim ilkeleri yapılandırırken bunun kaçınmalısınız nedir hakkında bilgi edinin."
+title: Azure Active Directory'de koşullu erişim için en iyi uygulamaları | Microsoft Docs
+description: Bilmeniz gerekenler ve koşullu erişim ilkeleri yapılandırırken bunun kaçınmalısınız nedir hakkında bilgi edinin.
 services: active-directory
-keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
-documentationcenter: 
+keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 16f9179b6cbaee00a2afbe2efe090cb3eb8b204a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8d3fa9bf11cd1c14b2d7ef37544cb5e043e2d9da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi yöntemler
 
@@ -106,7 +106,7 @@ Ortamınızda, aşağıdaki yapılandırmaları kaçınmanız gerekir:
 
 - **Erişimi engelleme** -bu yapılandırmayı kesinlikle iyi bir fikir değil, tüm kuruluş engeller.
 
-- **Uyumlu aygıt gerektiren** - kullanıcılar için yok sahip kayıtlı cihazlarını henüz, bu ilke erişim Intune portalı dahil olmak üzere tüm erişimini engeller. Kayıtlı bir cihazın olmadan bir yöneticiyseniz Bu ilke ilkesini değiştirmek için Geri'yi Azure portalına bulaşmasından engeller.
+- **Uyumlu aygıt gerektiren** - kullanıcılar için kayıtlı olmayan cihazlarını henüz, bu ilke erişim Intune portalı dahil olmak üzere tüm erişimini engeller. Kayıtlı bir cihazın olmadan bir yöneticiyseniz Bu ilke ilkesini değiştirmek için Geri'yi Azure portalına bulaşmasından engeller.
 
 - **Etki alanına katılmayı gerektirecek** - Bu ilke bloğu erişimi de etki alanına katılmış bir cihaz henüz yoksa, kuruluşunuzdaki tüm kullanıcıların erişimini engellemek için olası.
 

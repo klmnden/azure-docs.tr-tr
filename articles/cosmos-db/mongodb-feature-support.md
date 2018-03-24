@@ -1,11 +1,11 @@
 ---
-title: "MongoDB için Azure Cosmos DB özellik desteği | Microsoft Docs"
-description: "Azure Cosmos DB MongoDB API MongoDB 3.4 sağlar özellik desteği hakkında bilgi edinin."
+title: MongoDB için Azure Cosmos DB özellik desteği | Microsoft Docs
+description: Azure Cosmos DB MongoDB API MongoDB 3.4 sağlar özellik desteği hakkında bilgi edinin.
 services: cosmos-db
 author: alekseys
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9f1b6359d9fb58ad66b4d314f2bb14da34b98613
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 470ad2fe458c47392b8f55a8f46c75e54ccf87a3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB özellikleri ve sözdizimi için MongoDB API desteği
 
@@ -92,6 +92,7 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### <a name="aggregation-expressions"></a>Toplama ifadeleri
 

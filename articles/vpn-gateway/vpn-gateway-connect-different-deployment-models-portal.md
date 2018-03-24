@@ -1,11 +1,11 @@
 ---
-title: "Klasik sanal ağlar Azure Resource Manager sanal ağlara bağlanma: portalı | Microsoft Docs"
-description: "Klasik sanal ağlar Resource Manager VPN ağ geçidi ve Portalı'nı kullanarak sanal ağlara bağlanmak için adımları"
+title: 'Klasik sanal ağlar Azure Resource Manager sanal ağlara bağlanma: portalı | Microsoft Docs'
+description: Klasik sanal ağlar Resource Manager VPN ağ geçidi ve Portalı'nı kullanarak sanal ağlara bağlanmak için adımları
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: ad6b33b5411d3e38f099726df01fcafc8dc90d38
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Farklı dağıtım modelinden Portalı'nı kullanarak sanal ağlara bağlanabilir
 
@@ -216,7 +216,7 @@ Bu adımlarda, Azure portalını kullanarak Klasik VNet ile Resource Manager Vne
 2. Tıklatın **yapılandırma** ve IP adresi değeri Klasik VNet için VPN ağ geçidi olduğunu doğrulayın. Gerekirse, güncelleştirin ve ardından **kaydetmek**. Sayfasını kapatın.
 3. İçinde **tüm kaynakları**, yerel ağ geçidi'ı tıklatın.
 4. Tıklatın **bağlantıları** Bağlantılar sayfasını açın.
-5. Üzerinde **bağlantıları** sayfasında,  **+**  bağlantı eklemek için.
+5. Üzerinde **bağlantıları** sayfasında, **+** bağlantı eklemek için.
 6. Üzerinde **Bağlantı Ekle** sayfasında, bağlantı adı. Örneğin, 'RMtoClassic'.
 7. **Siteden siteye** bu sayfada zaten seçilidir.
 8. Bu site ile ilişkilendirmek istediğiniz sanal ağ geçidi seçin.
@@ -301,7 +301,7 @@ Bağlantılarınızı Azure portal veya PowerShell kullanarak doğrulayabilirsin
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-###<a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Resource Manager Vnet'i bağlantısından Klasik vnet doğrulamak için
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>Resource Manager Vnet'i bağlantısından Klasik vnet doğrulamak için
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

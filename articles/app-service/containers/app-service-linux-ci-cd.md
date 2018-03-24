@@ -1,12 +1,12 @@
 ---
-title: "Docker kapsayıcısı kayıt defterinden sürekli dağıtımı kapsayıcıları - Azure için Web uygulaması ile | Microsoft Docs"
-description: "Web uygulaması için kapsayıcıları bir Docker kapsayıcısı kayıt defteri Kurulum sürekli dağıtım nasıl."
+title: Docker kapsayıcısı kayıt defteri kapsayıcıları - Azure için Web uygulaması ile sürekli dağıtımı | Microsoft Docs
+description: Docker kapsayıcısı kayıt defteri kapsayıcıları için Web uygulamasında sürekli dağıtım nasıl kurulur.
 keywords: Azure uygulama hizmeti, linux, docker, acr, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
 ms.workload: na
@@ -14,90 +14,83 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-<<<<<<< HEAD
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 9759eac01e2db62154cd7f6bf9fcccf13282b4b4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
-=======
 ms.author: aelnably;msangapu
-ms.openlocfilehash: e61c767ada31fc32e28bfd9a2a4e843e9ca88053
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ac35dbd041de50ab8aae1a0fb4c00fe3917a7297
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
->>>>>>> 3c7ee473158b1dd571d03cb27716afe08728885d
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Kapsayıcıları için Web uygulaması ile sürekli dağıtımı
 
-Bu öğreticide, yapılandırdığınız yönetilen özel kapsayıcı görüntüden için sürekli dağıtım [Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/) depoları veya [Docker hub'a](https://hub.docker.com).
+Bu öğreticide, bir özel kapsayıcı görüntüsü için sürekli dağıtım yapılandırma yönetilen [Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/) depoları veya [Docker hub'a](https://hub.docker.com).
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Oturum [Azure portalı](https://portal.azure.com)
+[Azure Portal](https://portal.azure.com) oturum açın.
 
-## <a name="enable-container-continuous-deployment-feature"></a>Kapsayıcı sürekli dağıtım özelliğini etkinleştir
+## <a name="enable-the-continuous-deployment-feature"></a>Sürekli dağıtım özelliğini etkinleştir
 
-Sürekli dağıtım özelliğini kullanarak etkinleştirebilirsiniz [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ve aşağıdaki komutu yürütme
+Sürekli dağıtım özelliğini kullanarak etkinleştirin [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ve aşağıdaki komutu yürütme:
 
 ```azurecli-interactive
 az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
 ```
 
-İçinde  **[Azure portal](https://portal.azure.com/)**, tıklatın **uygulama hizmeti** sayfanın sol seçeneği.
+İçinde [Azure portal](https://portal.azure.com/)seçin **uygulama hizmeti** sayfanın sol tarafında seçeneği.
 
-Docker hub'a sürekli dağıtımı için yapılandırmak istediğiniz, uygulamanızın adına tıklayın.
+Docker hub'a sürekli dağıtımı yapılandırmak istediğiniz uygulama adını seçin.
 
-İçinde **Docker kapsayıcısı**, 'On' ı sonra sürekli dağıtımını etkinleştirmek için Kaydet'e basın.
+Üzerinde **Docker kapsayıcısı** sayfasında, **üzerinde**ve ardından **kaydetmek** sürekli dağıtımını etkinleştirmek için.
 
-![uygulama ayarı görüntüsü Ekle](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+![Uygulama ayarı ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
-## <a name="prepare-webhook-url"></a>Web kancası URL'si hazırlama
+## <a name="prepare-the-webhook-url"></a>Web kancası URL'si hazırlama
 
-Web kancası URL'si kullanarak elde edebilirsiniz [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ve aşağıdaki komutu yürütme
+Web kancası URL'si kullanarak elde [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ve aşağıdaki komutu yürütme:
 
 ```azurecli-interactive
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
-Web kancası URL'si, aşağıdaki uç nokta içerecek şekilde gerekir: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+Web kancası URL'si, aşağıdaki bitiş noktasını gerekir: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
 Elde edebilirsiniz, `publishingusername` ve `publishingpwd` yayımlama profili Azure Portalı'nı kullanarak web uygulamasını yükleyerek.
 
-![Web kancası 2 ekleme görüntü ekleme](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
+![Web kancası 2 ekleme işleminin ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
-## <a name="add-a-web-hook"></a>Bir web kancası ekleme
+## <a name="add-a-webhook"></a>Bir Web kancası ekleme
 
 ### <a name="azure-container-registry"></a>Azure Container Kayıt Defteri
 
-Kayıt defteri portal dikey penceresinde, tıklayın **Kancalarını**, tıklatarak yeni bir Web kancası oluşturma **Ekle**. İçinde **Web kancası oluşturma** dikey penceresinde, Web kancası bir ad verin. Web kancası URI'sini elde URL sağlamanız gerekir. **3. adım**
+1. Kayıt defteri portal sayfasında, seçin **Kancalarını**.
+2. Yeni bir Web kancası oluşturmak için seçin **Ekle**. 
+3. İçinde **Web kancası oluşturma** bölmesinde, Web kancası bir ad verin. Web kancası için URI, önceki bölümde edindiğiniz URL'sini sağlayın.
 
 Kapsayıcı görüntüsünü içeren depo kapsamını tanımlamak emin olun.
 
-![Web kancası görüntüsü Ekle](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
+![Web kancası ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
 
-Görüntü güncelleştirilir, web uygulaması otomatik olarak güncelleştirilen sahip yeni bir görüntü.
+Görüntü güncelleştirdiğinizde, web uygulaması ile yeni bir imaj otomatik olarak güncelleştirilir.
 
 ### <a name="docker-hub"></a>Docker Hub
 
-Docker hub'a sayfanızı tıklatın **Kancalarını**, ardından **bir Web KANCASI oluşturma**.
+Docker hub'a sayfanızda seçin **Kancalarını**ve ardından **bir Web KANCASI oluşturma**.
 
-![Web kancası 1 ekleme görüntü ekleme](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
+![Web kancası 1 ekleme işleminin ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
 
-Web kancası URL'si, alınan URL sağlamanız gerekir. **3. adım**
+Web kancası URL'si, daha önce aldığınız URL'sini sağlayın.
 
-![Web kancası 2 ekleme görüntü ekleme](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
+![Web kancası 2 ekleme işleminin ekran görüntüsü](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
 
-Görüntü güncelleştirilir, web uygulaması otomatik olarak güncelleştirilen sahip yeni bir görüntü.
+Görüntü güncelleştirdiğinizde, web uygulaması ile yeni bir imaj otomatik olarak güncelleştirilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Linux üzerinde Azure App Service nedir?](./app-service-linux-intro.md)
+* [Azure uygulama hizmeti Linux'ta giriş](./app-service-linux-intro.md)
 * [Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/)
-* [Linux üzerinde Azure App Service’te .NET Core Kullanma](quickstart-dotnetcore.md)
-* [Linux üzerinde Azure App Service’te Ruby Kullanma](quickstart-ruby.md)
-* [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](quickstart-docker-go.md)
-* [Kapsayıcılar için Azure App Service Web App SSS](./app-service-linux-faq.md)
-* [Web uygulaması için Azure CLI 2.0 kullanarak kapsayıcıları yönetme](./app-service-linux-cli.md)
+* [Linux’ta App Service’te .NET Core web uygulaması oluşturma](quickstart-dotnetcore.md)
+* [Linux üzerinde App Service'te bir Söyleniş web uygulaması oluşturma](quickstart-ruby.md)
+* [Web uygulaması için kapsayıcıları bir Docker/Git web uygulamasını dağıtma](quickstart-docker-go.md)
+* [Linux’ta Azure App Service hakkında SSS](./app-service-linux-faq.md)
+* [Web uygulaması için Azure CLI kullanarak kapsayıcıları yönetme](./app-service-linux-cli.md)

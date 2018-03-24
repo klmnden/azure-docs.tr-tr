@@ -1,25 +1,19 @@
 ---
-title: "Azure AD kullanıcı hesabı oluşturma"
-description: "Bu makalede, Azure'da kimlik doğrulaması yapmak için Azure automation'da runbook'lar için bir Azure AD kullanıcı hesabı kimlik bilgisi oluşturmak açıklar."
+title: Azure AD kullanıcı hesabı oluşturma
+description: Bu makalede, Azure'da kimlik doğrulaması yapmak için Azure automation'da runbook'lar için bir Azure AD kullanıcı hesabı kimlik bilgisi oluşturmak açıklar.
+keywords: azure active directory kullanıcısı, azure hizmet yönetimi, azure ad kullanıcı hesabı
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "azure active directory kullanıcısı, azure hizmet yönetimi, azure ad kullanıcı hesabı"
-ms.assetid: fcfe266d-b22e-4dfb-8272-adcab09fc0cf
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/13/2017
-ms.author: magoedte
-ms.openlocfilehash: cd9e3ee5900c3928573fbac6809c107b5ac331b5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+manager: carmonm
+ms.openlocfilehash: 43490b8ec2139b5e9f62def614dc67e4274304c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Azure klasik dağıtımı ve Resource Manager ile Runbook'ların kimliklerini doğrulama
 Bu makalede, Azure klasik dağıtım modeli veya Azure Resource Manager kaynaklarına karşı çalışan Azure Otomasyonu runbook’ları için bir Azure AD Kullanıcı hesabını yapılandıracak gerçekleştirmeniz gereken adımlar açıklanmaktadır. Bu Azure Resource Manager tabanlı runbook'larınızın kimlik doğrulamasının desteklenmesi amacıyla bu devam ederken önerilen yöntem bir Azure farklı çalıştır hesabı kullanmaktır.       

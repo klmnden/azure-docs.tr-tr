@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights ile ilgili SSS | Microsoft Docs
-description: "Application Insights hakkında sık sorulan sorular."
+description: Application Insights hakkında sık sorulan sorular.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: ed10b364a809c519fe9fe49e019df22598b8c04e
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 721799703923339d397113fc278cdeb6c6dbb88f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık sorulan sorular
 
@@ -121,7 +121,7 @@ Bunları yapılandırırsanız, diğer kaynaklardan:
 * [Azure tanılama](app-insights-azure-diagnostics.md)
 * [Docker kapsayıcıları](app-insights-docker.md)
 * [İçeri aktarma tablolara analizi](app-insights-analytics-import.md)
-* [OMS (günlük analizi)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## <a name="can-i-filter-out-or-modify-some-telemetry"></a>I filtrelemek veya birkaç telemetri değiştirmek için?
@@ -188,7 +188,7 @@ Tek bir kaynak tüm bileşenleri veya rolleri için tek bir iş sisteminde kulla
 * Farklı tarayıcılar veya içinde-özel/ıncognito gözatma kullanarak sitenizdeki bir gerçek kullanıcı kullanıyor veya farklı makinelerde sonra birden çok kez sayılacaktır varsa.
 * Makineler ve tarayıcılar arasında bir oturum açma kullanıcı tanımlamak için bir çağrı ekleyin [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
-## <a name="q17"></a>Her şeyi Application Insights etkinleştirdiniz mi?
+## <a name="q17"></a> Her şeyi Application Insights etkinleştirdiniz mi?
 | Görmeniz gerekir | Bunu alma | İstediğiniz neden |
 | --- | --- | --- |
 | Kullanılabilirlik grafikleri |[Web testleri](app-insights-monitor-web-app-availability.md) |Web uygulamanız çalışıyor bildirin |
@@ -250,7 +250,7 @@ Bizim SDK'ları kullanın ve kullanmak öneririz [SDK API'si](app-insights-api-c
 
 ### <a name="firewall-door"></a>Güvenlik Duvarı kapı
 
-Web sunucunuzun bizim uç noktaları https://dc.services.visualstudio.com:443 ve https://rt.services.visualstudio.com:443 telemetri göndermesine izin verin. 
+Web sunucunuzun bizim uç noktalarına telemetri göndermesine izin https://dc.services.visualstudio.com:443 ve https://rt.services.visualstudio.com:443. 
 
 ### <a name="proxy"></a>Ara sunucu
 
@@ -262,7 +262,7 @@ Trafiği sunucunuzdan bu Applicationınsights.Config'de ayarlayarak, intranetini
 </TelemetryChannel>
 ```
 
-Ağ geçidiniz v2/https://dc.services.visualstudio.com:443/izleme trafiği yönlendirmek
+Ağ geçidiniz için trafiği yönlendirmek https://dc.services.visualstudio.com:443/v2/track
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kullanılabilirlik web testleri bir intranet sunucusunda çalıştırabilir miyim?
 

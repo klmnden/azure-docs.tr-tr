@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning modeli Yönetim Kurulumu ve yapılandırması | Microsoft Docs"
-description: "Bu belgede adımları ve kavramları açıklamaktadır ayarlama ve Azure Machine Learning modeli yönetimini yapılandırma katılan."
+title: Azure Machine Learning modeli Yönetim Kurulumu ve yapılandırması | Microsoft Docs
+description: Bu belgede adımları ve kavramları açıklamaktadır ayarlama ve Azure Machine Learning modeli yönetimini yapılandırma katılan.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d231fd525d310d2496c9ace40808b7deab0dd48f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0859031ac26b061861aa51dce1093f2fe4350935
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="model-management-setup"></a>Model Yönetimi Kurulumu
 
@@ -154,12 +154,9 @@ Var olan bir hesap kullanmak için aşağıdaki komutu kullanın:
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-### <a name="deploy-your-model"></a>Model dağıtma
-Artık kaydedilmiş modelinizi bir web hizmeti olarak dağıtmaya hazır olursunuz. 
-
-```azurecli
-az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
-```
+Bu işlem sonucunda ortamı hazır ve model yönetim hesabı yönetmek ve Machine Learning modellerini dağıtmak için gereken özellikleri sağlamak için oluşturulan (bkz [Azure Machine Learning modeli Yönetim](model-management-overview.md) için bir Genel Bakış).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Galeri birçok örneklerinde birini deneyin.
+
+* Yerel makine veya bir küme üzerinde çalıştırmak için web hizmetlerini dağıtma hakkında yönergeler için devam etmek için [makine öğrenimi modeline bir Web hizmeti olarak dağıtma](model-management-service-deploy.md).
+* Galeri birçok örneklerinde birini deneyin.

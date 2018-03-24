@@ -1,9 +1,9 @@
 ---
-title: "Roller, izinleri ve güvenlik Azure İzleyicisi ile kullanmaya başlama | Microsoft Docs"
-description: "Azure monitörün yerleşik rolleri ve izinleri kaynakları izlemek için erişimi kısıtlamak için nasıl kullanılacağını öğrenin."
+title: Roller, izinleri ve güvenlik Azure İzleyicisi ile kullanmaya başlama | Microsoft Docs
+description: Azure monitörün yerleşik rolleri ve izinleri kaynakları izlemek için erişimi kısıtlamak için nasıl kullanılacağını öğrenin.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Roller, izinleri ve güvenlik Azure İzleyicisi ile kullanmaya başlama
 İzleme verilerini ve ayarları için erişimi kesinlikle yönetmenin birçok ekip gerekir. Örneğin, özel olarak (destek mühendisleri, devops mühendisleri) izleme üzerinde çalışan takım üyeleri sahipseniz veya bir yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği kısıtlama sırasında yalnızca izleme verilerine erişim vermek isteyebilirsiniz, değiştirmek veya kaynakları silin. Bu makalede, hızlı bir şekilde bir kullanıcı Azure içinde yerleşik bir izleme RBAC rolü uygulamak veya kendi özel rol sınırlı izleme izinleri gereken kullanıcılar için yapı gösterilmektedir. Ardından Azure İzleyicisi ile ilgili kaynaklarınızın ve içerdikleri verilere erişimin nasıl sınırlandırmak için güvenlik konuları ele alınmıştır.
@@ -26,10 +26,11 @@ ms.lasthandoff: 11/01/2017
 ## <a name="built-in-monitoring-roles"></a>Yerleşik izleme roller
 Azure monitörün yerleşik roller yardımcı olmak için tasarlanmıştır hala elde edilir ve ihtiyaç duydukları verilere yapılandırmak için altyapı izleme için sorumlu etkinleştirme sırasında bir abonelik kaynaklara erişimi sınırlayabilir. Azure İzleyicisi, iki Giden kutusu rolleri sağlar: bir izleme okuyucu ve izleme katılımcı.
 
-### <a name="monitoring-reader"></a>Okuyucu izleme
+### <a name="monitoring-reader"></a>İzleme Okuyucusu
 İzleme okuyucu rolüne atanan kişi bir Abonelikteki tüm izleme verilerini görüntüleme ancak herhangi bir kaynağa değiştiremez veya kaynakları izleme ile ilgili ayarları düzenleyin. Bu rol için gerekir desteği veya işlem mühendisleri gibi bir kuruluştaki kullanıcılar için uygundur:
 
 * İzleme panoları portalda görüntüleyebilir ve kendi özel izleme panolar oluşturun.
+* Tanımlanan uyarı kuralları [Azure uyarıları](monitoring-overview-unified-alerts.md)
 * Ölçümleri kullanarak sorgu [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlet'leri](insights-powershell-samples.md), veya [platformlar arası CLI](insights-cli-samples.md).
 * Portal, Azure İzleyici REST API'si, PowerShell cmdlet'lerini veya platformlar arası CLI kullanarak Etkinlik günlüğü sorgu.
 * Görünüm [tanılama ayarlarını](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) bir kaynak için.
@@ -49,13 +50,13 @@ Azure monitörün yerleşik roller yardımcı olmak için tasarlanmıştır hala
 > 
 > 
 
-### <a name="monitoring-contributor"></a>Katkıda bulunan izleme
+### <a name="monitoring-contributor"></a>İzleme Katkıda Bulunanı
 Kişilerin izleme katılımcı rolü atanmış bir abonelikte tüm izleme verilerini görüntüleyebilir ve oluşturmak veya izleme ayarlarını değiştirmek, ancak diğer kaynakları değiştiremezsiniz. Bu rolü izleme okuyucu rolüne bir üst kümesidir ve kuruluşun izleme takım veya isteyen, yukarıdaki izinleri yanı sıra de erişebilmeleri için Yönetilen hizmet sağlayıcıları üyeleri için uygundur:
 
 * İzleme panoları paylaşılan Pano olarak yayımlayın.
 * Ayarlama [tanılama ayarlarını](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) bir resource.* için
 * Ayarlama [oturum profili](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) bir subscription.* için
-* Uyarı etkinliği ve ayarları ayarlayın.
+* Uyarı kuralları etkinliği ve ayarları aracılığıyla ayarlama [Azure uyarıları](monitoring-overview-unified-alerts.md).
 * Application Insights web testleri ve bileşenleri oluşturun.
 * Günlük analizi çalışma alanı paylaşılan anahtarlar listeleyin.
 * Etkinleştirmek veya devre dışı günlük analizi Intelligence paketleri.
@@ -76,20 +77,22 @@ Yukarıdaki yerleşik roller ekibinizin tam gereksinimlerini karşılamıyorsa, 
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, yazma, silme] |Okuma/yazma/silme Eylem grupları. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, yazma, silme] |Okuma/yazma/silme etkinlik günlüğü uyarıları. |
-| Microsoft.Insights/AlertRules/[Read, yazma, silme] |Okuma/yazma/silme uyarı kuralları (ölçüm uyarılar). |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Okuma/yazma/silme uyarı kurallarını (Uyarılar Klasik). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Olaylar (tetiklenen uyarı kuralı geçmişini) için uyarı kuralları listesi. Bu, yalnızca portalına geçerlidir. |
 | Microsoft.Insights/AutoscaleSettings/[Read, yazma, silme] |Okuma/yazma/silme otomatik ölçeklendirme ayarları. |
-| Microsoft.Insights/DiagnosticSettings/[Read, yazma, silme] |Okuma/yazma/silme tanılama ayarları. |
-| Microsoft.Insights/EventCategories/Read |Etkinlik günlüğünde olası tüm kategorileri numaralandırır. Azure Portal tarafından kullanılır. |
+| Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Okuma/yazma/silme tanılama ayarları. |
+| Microsoft.Insights/EventCategories/Read |Etkinlik günlüğünde olası tüm kategorileri numaralandırır. Azure portal tarafından kullanılır. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Bu izin, etkinlik günlükleri için portal aracılığıyla erişmek isteyen kullanıcılar için gereklidir. |
 | Microsoft.Insights/eventtypes/values/Read |Bir abonelikte etkinlik günlüğü olayları (Yönetim olayları) listeler. Bu izin, etkinlik günlüğü programlı ve portal erişimi için geçerlidir. |
-| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, yazma, silme] | Okuma/yazma/silme ağ akış günlükleri için tanılama ayarları. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Okuma/yazma/silme ağ akış günlükleri için tanılama ayarları. |
 | Microsoft.Insights/LogDefinitions/Read |Bu izin, etkinlik günlükleri için portal aracılığıyla erişmek isteyen kullanıcılar için gereklidir. |
-| Microsoft.Insights/LogProfiles/[Read, yazma, silme] |Okuma/yazma/silme günlük profilleri (Etkinlik günlüğü olay hub'ı ya da depolama hesabınıza akış). |
-| Microsoft.Insights/MetricAlerts/[Read, yazma, silme] |Okuma/yazma/silme yakın gerçek zamanlı ölçüm uyarıları (genel Önizleme). |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Okuma/yazma/silme günlük profilleri (Etkinlik günlüğü olay hub'ı ya da depolama hesabınıza akış). |
+| Microsoft.Insights/MetricAlerts/[Read, yazma, silme] |Yakın gerçek zamanlı ölçüm uyarıları okuma/yazma/silme |
 | Microsoft.Insights/MetricDefinitions/Read |Ölçüm tanımlarını (bir kaynak için kullanılabilir ölçüm türlerinin listesi) okuyun. |
 | Microsoft.Insights/Metrics/Read |Bir kaynak için ölçümleri okuyun. |
 | Microsoft.Insights/Register/Action |Azure İzleyicisi kaynak sağlayıcısı kaydedin. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Application Insights için okuma/yazma/silme günlük uyarıları. |
+
 
 
 > [!NOTE]
@@ -118,9 +121,9 @@ New-AzureRmRoleDefinition -Role $role
 2. Tanılama günlükleri, bir kaynak tarafından gösterilen günlükleri.
 3. Kaynaklar tarafından gösterilen ölçümleri.
 
-Bu veri türlerini üç bir depolama hesabında depolanan veya olay her ikisi de genel amaçlı Azure kaynaklardır Hub'ına akışı. Bu genel amaçlı kaynaklar olduğundan, oluşturma, silme ve bunlara erişmek için bir yönetici genellikle ayrılmış ayrıcalıklı bir işlemdir. Kötüye kullanımı önlemek için izleme ile ilgili kaynaklar için aşağıdaki yöntemleri kullanmanızı öneririz:
+Bu veri türlerini üç bir depolama hesabında depolanan veya olay her ikisi de genel amaçlı Azure kaynaklardır Hub'ına akışı. Bu genel amaçlı kaynaklar olduğundan, oluşturma, silme ve bunlara erişmek için bir yönetici ayrılmış ayrıcalıklı bir işlemdir. Kötüye kullanımı önlemek için izleme ile ilgili kaynaklar için aşağıdaki yöntemleri kullanmanızı öneririz:
 
-* Bir tek, özel bir depolama hesabı verileri izlemek için kullanın. İzleme verilerini birden çok depolama hesabı ayırmak gerekiyorsa, hiçbir zaman bir depolama hesabı izleme arasında kullanımı paylaşabilir ve bu olarak izleme olmayan veri yanlışlıkla yalnızca izleme (ör. verilerine erişmesi gereken olanlar verebilir bir üçüncü taraf SIEM) erişimi olmayan izleme için veri.
+* Bir tek, özel bir depolama hesabı verileri izlemek için kullanın. İzleme verilerini birden çok depolama hesabı ayırmak gerekiyorsa, hiçbir zaman bir depolama hesabı izleme arasında kullanımı paylaşabilir ve bu olarak izleme olmayan veri yanlışlıkla yalnızca izleme verilerine (örneğin, bir üçüncü taraf SIEM) erişmesi gereken olanlar verebilir İzleme erişimi veri.
 * Tek ve özel bir hizmet veri yolu veya olay hub'ın ad yukarıdaki gibi aynı nedenden dolayı tüm tanılama ayarlarını kullanın.
 * Farklı bir kaynak grubunda tutarak izleme ile ilgili depolama hesapları veya olay hub'ları erişimi sınırlayabilir ve [kapsamı kullan](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) yalnızca o kaynak grubu erişimi sınırlamak için izleme rolleri.
 * Hiçbir zaman ListKeys ya da depolama hesapları için izni veya olay hub'ları abonelik kapsamında bir kullanıcı yalnızca izleme verilerine erişimi olması gerekir. (Ayrılmış bir izleme kaynak grubu varsa) bunun yerine, bu izinleri bir kaynak veya kaynak grubu kullanıcıya vermek kapsamı.

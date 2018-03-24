@@ -1,11 +1,11 @@
 ---
-title: "Sınırları ve yapılandırması - Azure Logic Apps | Microsoft Docs"
-description: "Hizmet sınırları ve Azure mantıksal uygulamaları için yapılandırma değerleri"
+title: Sınırları ve yapılandırması - Azure Logic Apps | Microsoft Docs
+description: Hizmet sınırları ve Azure mantıksal uygulamaları için yapılandırma değerleri
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 740a31f4b5e0ffe9fe2ae04d3dac51cf25ab3055
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps sınırları ve yapılandırma
 
@@ -86,7 +86,7 @@ Bir tek mantığı uygulama örneği için sınırları şunlardır:
 
 | Ad | Sınır | Notlar | 
 | ----- | ----- | ----- | 
-| Eylemler yürütmeleri 5 dakika başına | 100,000 | 300000 için sınırı artırmak için bir mantıksal uygulama çalıştırabilirsiniz `High Througput` modu. Yüksek verimlilik modu altında yapılandırmak için `runtimeConfiguration` iş akışı kaynak ayarlanmış `operationOptions` özelliğine `OptimizedForHighThroughput`. <p>**Not**: yüksek verimlilik modudur önizlemede. Ayrıca, birden çok uygulamalarında gerektiği gibi bir iş yükü dağıtabilirsiniz. | 
+| Eylemler yürütmeleri 5 dakika başına | 100,000 | 300000 için sınırı artırmak için bir mantıksal uygulama çalıştırabilirsiniz `High Throughput` modu. Yüksek verimlilik modu altında yapılandırmak için `runtimeConfiguration` iş akışı kaynak ayarlanmış `operationOptions` özelliğine `OptimizedForHighThroughput`. <p>**Not**: yüksek verimlilik modudur önizlemede. Ayrıca, birden çok uygulamalarında gerektiği gibi bir iş yükü dağıtabilirsiniz. | 
 | Eylemler eşzamanlı giden çağrıları | ~2,500 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: eşzamanlı gelen çağrıları |~1,000 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: 5 dakika başına çağrı okuma  | 60,000 | İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 

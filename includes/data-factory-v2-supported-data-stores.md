@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 03/19/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: 4a47b30b30e15bbd3df4f70b2a6f63b4ab167aea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/23/2018
+---
 | Kategori | Veri deposu | Kaynak olarak desteklenen | Havuz olarak desteklenen | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) tarafından desteklenen | [Şirket içinde barındırılan IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) tarafından desteklenen |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Depolama](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
@@ -46,6 +62,7 @@
 | &nbsp; |[Genel OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Genel ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
 | **Hizmetler ve uygulamalar** |[Amazon Market Web hizmeti (Beta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
+| &nbsp; |[Uygulamalar için ortak veri hizmeti](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (Beta)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |

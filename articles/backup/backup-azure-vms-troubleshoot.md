@@ -1,11 +1,11 @@
 ---
-title: "Azure sanal makine yedekleme hatalarıyla ilgili sorunları giderme | Microsoft Docs"
-description: "Yedekleme ve geri yükleme Azure sanal makinelerin sorun giderme"
+title: Azure sanal makine yedekleme hatalarıyla ilgili sorunları giderme | Microsoft Docs
+description: Yedekleme ve geri yükleme Azure sanal makinelerin sorun giderme
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -13,38 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.author: trinadhk;markgal;jpallavi;sogup
+ms.openlocfilehash: 89535fc22faccfb184d9b56a6138337877957829
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında oluşan hatalar giderebilirsiniz.
 
-## <a name="backup"></a>Backup
-
-### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Hata: Belirtilen Disk yapılandırması desteklenmiyor
-
-> [!NOTE]
-> Özel önizleme olan VM'ler için yedeklemeler desteklemek için sahip olduğumuz > 1TB diskler. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
->
->
-
-Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- 1 TB’den büyük diskleriniz varsa, 1 TB’den düşük [yeni diskleri kullanıma açın](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) <br>
-- Ardından 1 TB’den büyük olan diskten verileri kopyalayıp yeni oluşturulan 1 TB’den küçük disklere aktarın. <br>
-- Tüm verilerin kopyalandığından emin olun ve 1 TB’den büyük diskleri kaldırın
-- Yedeklemeyi başlatın.
-
 | Hata ayrıntıları | Geçici çözüm |
 | --- | --- |
-| VM artık mevcut olmadığından işlem gerçekleştirilemiyor. -Sanal makine yedekleme verileri silmeden korumayı durdurun. Http://go.microsoft.com/fwlink/?LinkId=808124 daha fazla bilgi |Bu birincil VM silinmez, ancak yedekleme İlkesi yedeklemek için bir VM arayan devam olur. Bu hatayı düzeltmek için: <ol><li> Aynı kaynak grubu adı [bulut hizmet adı] ve aynı ada sahip sanal makine oluşturun<br>(VEYA)</li><li> Sanal makine ile veya yedekleme verileri silme olmadan korumayı durdurun. [Daha fazla ayrıntı](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
-| Anlık görüntü işlemi sanal makinedeki - ağ bağlantısı nedeniyle başarısız oldu, VM ağ erişimi bulunduğundan emin olun. Başarılı olması anlık görüntü da beyaz liste Azure veri merkezi IP aralıkları veya ağ erişimi için bir proxy sunucusu ayarlayın. Daha fazla ayrıntı için http://go.microsoft.com/fwlink/?LinkId=800034 için başvurun. Proxy sunucu kullanıyorsanız, proxy sunucusu ayarlarının doğru şekilde yapılandırıldığından emin olun | Sanal makinede giden internet bağlantısı Reddet olduğunda bu hata atılır. VM anlık görüntü uzantısının temel diskleri sanal makinenin anlık görüntüsünü için Internet bağlantısı gereklidir. [Daha fazla bilgi edinin](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) nasıl engellenen ağ erişim nedeniyle anlık görüntü hataları düzeltin. |
-| VM Aracısı Azure Backup hizmetiyle iletişim kuramıyor. -VM ağ bağlantısı olduğunu ve VM Aracısı en son ve çalıştığından emin olun. Daha fazla bilgi için lütfen için http://go.microsoft.com/fwlink/?LinkId=800034 bakın |Bu hata, VM Aracısı ile ilgili bir sorun veya başka bir yolla Azure altyapısı için ağ erişim engellendi atılır. [Daha fazla bilgi edinin](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sorunları VM'yi hata ayıklama hakkında anlık görüntüsünü alın.<br> VM Aracısı sorunları neden, VM'yi yeniden başlatın. Bazen yanlış bir VM durum sorunlara neden olabilir ve VM'yi yeniden başlatırken bu "bozuk" sıfırlar. |
+| VM artık mevcut olmadığından işlem gerçekleştirilemiyor. -Sanal makine yedekleme verileri silmeden korumayı durdurun. Daha fazla bilgi http://go.microsoft.com/fwlink/?LinkId=808124 |Bu birincil VM silinmez, ancak yedekleme İlkesi yedeklemek için bir VM arayan devam olur. Bu hatayı düzeltmek için: <ol><li> Aynı kaynak grubu adı [bulut hizmet adı] ve aynı ada sahip sanal makine oluşturun<br>(VEYA)</li><li> Sanal makine ile veya yedekleme verileri silme olmadan korumayı durdurun. [Daha fazla ayrıntı](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| Anlık görüntü işlemi sanal makinedeki - ağ bağlantısı nedeniyle başarısız oldu, VM ağ erişimi bulunduğundan emin olun. Başarılı olması anlık görüntü da beyaz liste Azure veri merkezi IP aralıkları veya ağ erişimi için bir proxy sunucusu ayarlayın. Daha fazla ayrıntı için başvurmak http://go.microsoft.com/fwlink/?LinkId=800034. Proxy sunucu kullanıyorsanız, proxy sunucusu ayarlarının doğru şekilde yapılandırıldığından emin olun | Sanal makinede giden internet bağlantısı Reddet olduğunda bu hata atılır. VM anlık görüntü uzantısının temel diskleri sanal makinenin anlık görüntüsünü için Internet bağlantısı gereklidir. [Daha fazla bilgi edinin](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) nasıl engellenen ağ erişim nedeniyle anlık görüntü hataları düzeltin. |
+| VM Aracısı Azure Backup hizmetiyle iletişim kuramıyor. -VM ağ bağlantısı olduğunu ve VM Aracısı en son ve çalıştığından emin olun. Daha fazla bilgi için lütfen  http://go.microsoft.com/fwlink/?LinkId=800034 |Bu hata, VM Aracısı ile ilgili bir sorun veya başka bir yolla Azure altyapısı için ağ erişim engellendi atılır. [Daha fazla bilgi edinin](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sorunları VM'yi hata ayıklama hakkında anlık görüntüsünü alın.<br> VM Aracısı sorunları neden, VM'yi yeniden başlatın. Bazen yanlış bir VM durum sorunlara neden olabilir ve VM'yi yeniden başlatırken bu "bozuk" sıfırlar. |
 | Başarısız sağlama durumda VM - Lütfen VM'yi yeniden başlatın ve VM yedekleme için çalışıyor veya kapatma durumda olduğundan emin olun | Bu durum, bir uzantı hataları VM sağlama başarısız durumunda olması durumuna müşteri adayları oluşur. Uzantılar listesine gidin ve başarısız bir uzantısı olup olmadığını, kaldırmak ve sanal makineyi yeniden başlatmayı deneyin. Tüm uzantıları çalışır durumda olduğundan, VM aracısı hizmetinin çalışıp çalışmadığını denetleyin. Aksi durumda, VM Aracısı hizmetini yeniden başlatın. | 
-| VMSnapshot uzantısı işlemi için yönetilen diskleri - başarısız oldu Lütfen yedekleme işlemini yeniden deneyin. Sorun devam ederse, 'http://go.microsoft.com/fwlink/?LinkId=800034' yönergeleri izleyin. Daha fazla başarısız olursa, lütfen Microsoft Destek'e başvurun | Bir anlık görüntü tetiklemek Azure Backup hizmeti başarısız olduğunda bu hata oluştu. [Daha fazla bilgi edinin](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sorunları VM hata ayıklama hakkında anlık görüntüsünü alın. |
+| VMSnapshot uzantısı işlemi için yönetilen diskleri - başarısız oldu Lütfen yedekleme işlemini yeniden deneyin. Sorun devam ederse bölümündeki yönergeleri izleyin 'http://go.microsoft.com/fwlink/?LinkId=800034'. Daha fazla başarısız olursa, lütfen Microsoft Destek'e başvurun | Bir anlık görüntü tetiklemek Azure Backup hizmeti başarısız olduğunda bu hata oluştu. [Daha fazla bilgi edinin](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sorunları VM hata ayıklama hakkında anlık görüntüsünü alın. |
 | Kopyalama anlık görüntü depolama hesabındaki - yeterli boş alan nedeniyle sanal makinenin depolama hesabı mevcut sanal makineye bağlı premium depolama disklerdeki verileri eşdeğer boş alan olduğundan emin | Premium VM'ler durumunda biz anlık görüntü depolama hesabına kopyalayın. Bu anlık görüntü üzerinde çalışır, yedekleme yönetim trafiği premium diskleri kullanarak uygulama kullanılabilir IOPS sayısı sınırı değil emin olmaktır. Microsoft Azure Backup hizmeti, kasaya depolama hesabındaki kopyalanan bu konumdan, depolama hesabı ve aktarım veri anlık görüntü kopyalayabilmeniz için toplam depolama hesabı alanı % 50'yalnızca tahsis önerir. | 
 | VM aracısı yanıt verebilir durumda olmadığından işlem gerçekleştirilemiyor |Bu hata, VM Aracısı ile ilgili bir sorun veya başka bir yolla Azure altyapısı için ağ erişim engellendi atılır. Windows VM'ler için hizmetleri ve Aracısı'nı Denetim Masası'ndaki Programlar görüntülenip VM aracısı hizmet durumunu denetleyin. Program denetiminden kaldırmayı deneyin paneli ve belirtildiği gibi aracıyı yeniden yükleme [aşağıda](#vm-agent). Aracıyı yeniden yükledikten sonra doğrulamak için geçici bir yedeklemeyi tetikleyin. |
 | Kurtarma Hizmetleri Uzantısı işlemi başarısız oldu. -Lütfen en son sanal makine Aracısı sanal makinede bulunduğundan ve aracı hizmetinin çalıştığından emin olun. Lütfen yedekleme işlemini yeniden deneyin ve başarısız olursa, Microsoft Destek'e başvurun. |VM Aracısı güncel olduğunda bu hata oluşturulur. VM Aracısı'nı güncelleştirmek için aşağıdaki "VM aracısını güncelleştirme" bölümüne bakın. |
@@ -75,7 +60,7 @@ Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](h
 | İptal bu iş türü için desteklenmeyen - iş tamamlanana kadar bekleyin. |Hiçbiri |
 | İş iptal edilebilen bir durumda değil - iş tamamlanana kadar bekleyin. <br>OR<br> Seçilen işin iptal edilebilen bir durumda değil - işi tamamlamak lütfen bekleyin. |Tüm olasılığını içinde iş neredeyse tamamlandı. İş tamamlanana kadar bekleyin.|
 | İş sürüyor değil - iptal yalnızca sürmekte olan işleri için desteklenen olduğundan iptal edilemez. Lütfen girişimi iptal bir sürüyor işi. |Bu hatanın nedeni geçici bir durum nedeniyle oluşur. Bir dakika bekleyin ve İptal işlemi yeniden deneyin. |
-| Başarısız işi iptal-işi tamamlanana kadar bekleyin. |Hiçbiri |
+| Başarısız işi iptal-işi tamamlanana kadar bekleyin. |None |
 
 ## <a name="restore"></a>Geri Yükleme
 | Hata ayrıntıları | Geçici çözüm |
@@ -84,9 +69,9 @@ Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](h
 | Seçili DNS adı zaten alınmış - Lütfen farklı bir DNS adı belirtin ve yeniden deneyin. |Bulut hizmeti adı için DNS adını buraya başvuruyor (genellikle ile biten. cloudapp.net). Bu, benzersiz olması gerekir. Bu hatayla karşılaşırsanız, geri yükleme sırasında farklı bir VM adı seçmeniz gerekir. <br><br> Bu hata yalnızca Azure portalında kullanıcılara gösterilir. Yalnızca diskleri geri yükler ve VM oluşturma değil çünkü PowerShell aracılığıyla geri yükleme işlemi başarılı olur. Disk geri yükledikten sonra işlemi VM açıkça sizin tarafınızdan oluşturulduğunda hata karşılaştığı. |
 | Belirtilen sanal ağ yapılandırması doğru değil - Lütfen farklı bir sanal ağ yapılandırması belirtin ve yeniden deneyin. |Hiçbiri |
 | Belirtilen bulut hizmeti değil geri yüklenen sanal makine yapılandırmasıyla eşleşen - Lütfen ayrılmış IP kullanarak değil, farklı bir bulut hizmeti belirtin veya geri yüklemek için başka bir kurtarma noktası seçin bir ayrılmış IP kullanıyor. |Hiçbiri |
-| Bulut hizmeti giriş uç noktası sayısı sınırına - mevcut bir uç noktası kullanarak veya farklı bir bulut hizmeti belirterek işlemi yeniden deneyin. |None |
-| Yedekleme kasası ve hedef depolama hesabı olan iki farklı bölgelerde - geri yükleme işleminde belirtilen depolama hesabı aynı Azure bölgesinde yedekleme kasası olarak olduğundan emin olun. |None |
-| Bir geri yükleme işlem için belirtilen depolama hesabına desteklenen - yalnızca temel/standart depolama hesapları ile yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarları desteklenir. Lütfen desteklenen depolama hesabı seçin |Hiçbiri |
+| Bulut hizmeti giriş uç noktası sayısı sınırına - mevcut bir uç noktası kullanarak veya farklı bir bulut hizmeti belirterek işlemi yeniden deneyin. |Hiçbiri |
+| Yedekleme kasası ve hedef depolama hesabı olan iki farklı bölgelerde - geri yükleme işleminde belirtilen depolama hesabı aynı Azure bölgesinde yedekleme kasası olarak olduğundan emin olun. |Hiçbiri |
+| Bir geri yükleme işlem için belirtilen depolama hesabına desteklenen - yalnızca temel/standart depolama hesapları ile yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarları desteklenir. Lütfen desteklenen depolama hesabı seçin |None |
 | Geri yükleme işlemi için belirtilen depolama hesabı türü çevrimiçi değil - geri yükleme işleminde belirtilen depolama hesabı çevrimiçi olduğundan emin olun |Azure Storage veya kesinti nedeniyle geçici bir hata nedeniyle gerçekleşebilir. Lütfen başka bir depolama hesabı seçin. |
 | Kaynak grubu kotasına ulaşıldı - Lütfen Azure Portalı'ndan bazı kaynak gruplarını silin veya sınırları artırmak için Azure desteğine başvurun. |Hiçbiri |
 | Seçilen alt ağ yok - Lütfen var olan bir alt ağ seçin |Hiçbiri |

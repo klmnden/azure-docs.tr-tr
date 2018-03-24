@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory varlıklarını adlandırma kuralları | Microsoft Docs"
-description: "Data Factory varlıklarını için adlandırma kurallarını açıklar."
+title: Azure Data Factory varlıklarını adlandırma kuralları | Microsoft Docs
+description: Data Factory varlıklarını için adlandırma kurallarını açıklar.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: bc5e801d-0b3b-48ec-9501-bb4146ea17f1
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: ec6516b490af0ac7283faceab7a4ce480ba1c4ce
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0d1ff97aef7be7fa9f9f07f2743e1a1a9399e48a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - adlandırma kuralları
 Aşağıdaki tabloda için Data Factory yapıtlarının adlandırma kuralları sağlar.

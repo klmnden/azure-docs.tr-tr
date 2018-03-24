@@ -1,6 +1,6 @@
 ---
-title: "Yüksek performans için Azure SSIS tümleştirmesi çalışma zamanı yapılandırma | Microsoft Docs"
-description: "Yüksek performans için Azure SSIS Integration zamanının özellikleri yapılandırmayı öğrenin"
+title: Yüksek performans için Azure SSIS tümleştirmesi çalışma zamanı yapılandırma | Microsoft Docs
+description: Yüksek performans için Azure SSIS Integration zamanının özellikleri yapılandırmayı öğrenin
 services: data-factory
 ms.date: 01/10/2018
 ms.topic: article
@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7d0e75ad85731b10f9a993c2fa62f30c0142ed05
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3c19ebc601136653a88ca8d2a3073d897af863f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Yüksek performans için Azure SSIS tümleştirmesi çalışma zamanı yapılandırma
 
@@ -24,7 +24,7 @@ Bu makalede, yüksek performanslı bir Azure SSIS tümleştirmesi çalışma zam
 
 ## <a name="properties-to-configure"></a>Özellikleri yapılandırmak için
 
-Bir yapılandırma betiğini aşağıdaki bölümü Azure SSIS tümleştirmesi çalışma zamanı oluşturduğunuzda, sizin yapılandırabileceğiniz özellikleri gösterir. Tam PowerShell komut dosyası ve bir açıklama için bkz: [Azure SQL Server Integration Services dağıtma paketlere](tutorial-deploy-ssis-packages-azure.md).
+Bir yapılandırma betiğini aşağıdaki bölümü Azure SSIS tümleştirmesi çalışma zamanı oluşturduğunuzda, sizin yapılandırabileceğiniz özellikleri gösterir. Tam PowerShell komut dosyası ve bir açıklama için bkz: [Azure SQL Server Integration Services dağıtma paketlere](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"

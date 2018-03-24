@@ -1,12 +1,12 @@
 ---
-title: "Azure tanılama günlüklerini | Microsoft Docs"
-description: "Müşteri, Günlük çözümlemesi için Azure CDN etkinleştirebilirsiniz."
+title: Azure tanılama günlüklerini | Microsoft Docs
+description: Müşteri, Günlük çözümlemesi için Azure CDN etkinleştirebilirsiniz.
 services: cdn
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
@@ -48,7 +48,7 @@ Tanılama günlükleri hakkında daha fazla bilgi için bkz: [tanılama günlük
 
 CDN çekirdek analytics ile günlüğü bu adımları etkinleştir izleyin:
 
-[Azure Portal](http://portal.azure.com) oturum açın. İş akışınız için etkin CDN zaten yoksa [Azure CDN'yi etkinleştirme](cdn-create-new-endpoint.md) devam etmeden önce.
+[Azure Portal](http://portal.azure.com)’da oturum açın. İş akışınız için etkin CDN zaten yoksa [Azure CDN'yi etkinleştirme](cdn-create-new-endpoint.md) devam etmeden önce.
 
 1. Portalı'nda gidin **CDN profili**.
 2. CDN profili seçin ve ardından etkinleştirmek istediğiniz CDN uç noktası **tanılama günlükleri**.
@@ -95,7 +95,7 @@ Günlükleri depolamak için OMS günlük analizi kullanmak için aşağıdaki a
 
     Günlük analizi yapılandırması ayarladıktan sonra seçtiğinizden emin olun **CoreAnalytics**.
 
-6. **Kaydet** düğmesine tıklayın.
+6. **Kaydet**’e tıklayın.
 
 7. Yeni bir OMS çalışma alanınızı görüntülemek için Azure portalı panonuza gidin ve günlük analizi çalışma alanınız adına tıklayın. Çalışma alanınızı OMS depoya görüntülemek için OMS portalı kutucuğa tıklayın. 
 
@@ -109,7 +109,7 @@ Günlük verileri gecikmeler hakkında daha fazla bilgi için bkz: [oturum veri 
 
 Aşağıdaki örnek, Azure PowerShell cmdlet'leri aracılığıyla tanılama günlüklerini etkinleştirme gösterilmektedir.
 
-###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Bir depolama hesabında oturum tanılama etkinleştirme
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Bir depolama hesabında oturum tanılama etkinleştirme
 
 İlk oturum açın ve bir abonelik seçin:
 
@@ -165,7 +165,7 @@ Temel analiz verileri Azure depolama hesabından erişebilmeniz için önce bir 
 |Yıl|  4 rakamlı yıl, örneğin, 2017 gösterimi|
 |Ay| ay sayısı 2 basamaklı gösterimi. 01 Ocak =... 12 Aralık =|
 |Gün|   Ayın günü 2 basamaklı gösterimi|
-|PT1H.JSON| Analiz verilerinin depolandığı gerçek JSON dosyası|
+|PT1H.json| Analiz verilerinin depolandığı gerçek JSON dosyası|
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Temel analiz verileri bir CSV dosyasına dışarı aktarma
 
@@ -173,7 +173,7 @@ Temel analiz erişim kolaylaştırmak için örnek kod bir araç için sağlanı
 
 Aracı'nı nasıl kullanabileceğiniz aşağıda verilmiştir:
 
-1.  Github bağlantıyı ziyaret edin: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+1.  Github bağlantıyı ziyaret edin: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
 2.  Kodu indirme.
 3.  Derleme ve yapılandırmak için yönergeleri izleyin.
 4.  Aracı çalıştırın.
@@ -410,7 +410,7 @@ Burada 'saati' istatistikleri bildirilen saat sınır Başlangıç saati göster
 
 * [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Azure CDN ek Portalı aracılığıyla temel analiz](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure günlük analizi REST API'si](https://docs.microsoft.com/rest/api/loganalytics)
 
 

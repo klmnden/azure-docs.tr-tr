@@ -1,16 +1,16 @@
 ---
-title: "Hyper-V için Azure Site kurtarma Azure çoğaltma mimarisi | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery hizmeti ile şirket içi Hyper-V VM'leri Azure'a çoğaltma işleminde kullanılan bileşenlere ve mimariye ilişkin genel bir bakış sunulmaktadır."
+title: Hyper-V için Azure Site kurtarma Azure çoğaltma mimarisi | Microsoft Docs
+description: Bu makalede, Azure Site Recovery hizmeti ile şirket içi Hyper-V VM'leri Azure'a çoğaltma işleminde kullanılan bileşenlere ve mimariye ilişkin genel bir bakış sunulmaktadır.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/194/2018
 ms.author: raynew
-ms.openlocfilehash: dd3dcf325ed5a628c98ac63683440e1796aa8c3f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 978d290287a4ff8875eea7e93f003c78e7177dae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V çoğaltma Azure Mimarisi
 
@@ -28,7 +28,7 @@ Aşağıdaki tablo ve grafik Hyper-V konakları VMM tarafından yönetilmeyen Hy
 **Bileşen** | **Gereksinim** | **Ayrıntılar**
 --- | --- | ---
 **Azure** | Bir Azure aboneliği, Azure depolama hesabı ve Azure ağı. | Şirket içi VM iş yüklerini çoğaltılmış verileri depolama hesabında depolanır. Şirket içi sitenizdeki yük devretme durumunda azure Vm'leri çoğaltılmış iş yükü verilerle oluşturulur.<br/><br/> Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
-**Hyper-V** | Site Recovery dağıtımı sırasında Hyper-V siteye Hyper-V konakları ve kümeleri toplayın. Her Hyper-V makinesinde Azure Site Recovery sağlayıcısı ve kurtarma Hizmetleri aracısını yükleyin. | Sağlayıcı, İnternet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Kurtarma Hizmetleri aracısı, veri çoğaltma işlemini gerçekleştirir.<br/><br/> Sağlayıcı ve aracı arasındaki iletişimler şifrelenir ve güvence altına alınır. Azure depolama alanında çoğaltılan veriler de şifrelenir.
+**Hyper-V** | Site Recovery dağıtımı sırasında Hyper-V siteye Hyper-V konakları ve kümeleri toplayın. Azure Site Recovery sağlayıcısı ve kurtarma Hizmetleri Aracısı, her tek başına Hyper-V konağı veya her bir Hyper-V küme düğümüne yükleyin. | Sağlayıcı, İnternet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Kurtarma Hizmetleri aracısı, veri çoğaltma işlemini gerçekleştirir.<br/><br/> Sağlayıcı ve aracı arasındaki iletişimler şifrelenir ve güvence altına alınır. Azure depolama alanında çoğaltılan veriler de şifrelenir.
 **Hyper-V VM’leri** | Hyper-V üzerinde çalışan bir veya daha fazla VM. | Hiçbir şey Vm'lerinde açıkça yüklü olması gerekir.
 
 
@@ -46,7 +46,7 @@ Aşağıdaki tablo ve grafik Hyper-V konakları VMM bulutlarında yönetilen Hyp
 --- | --- | ---
 **Azure** | Bir Azure aboneliği, Azure depolama hesabı ve Azure ağı. | Şirket içi VM iş yüklerini çoğaltılmış verileri depolama hesabında depolanır. Şirket içi sitenizdeki yük devretme durumunda azure Vm'leri çoğaltılan veriler ile oluşturulur.<br/><br/> Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
 **VMM sunucusu** | VMM sunucusu, Hyper-V konakları içeren bir veya daha fazla bulut içerir. | Site Recovery ile çoğaltmayı düzenlemek için VMM sunucusundaki Site kurtarma Sağlayıcısı'nı yükleyin ve sunucunun kurtarma Hizmetleri kasasına kaydedin.
-**Hyper-V konağı** | VMM tarafından yönetilen bir veya daha fazla Hyper-V konağı/kümesi. |  Her konak veya küme üyesinde Kurtarma Hizmetleri aracısını yükleyin.
+**Hyper-V konağı** | VMM tarafından yönetilen bir veya daha fazla Hyper-V konağı/kümesi. |  Her Hyper-V ana bilgisayar veya küme düğümünde kurtarma Hizmetleri aracısını yükleyin.
 **Hyper-V VM’leri** | Hyper-V konağı sunucusunda çalışan bir veya daha fazla VM. | VM'lere açıkça bir şey yüklenmesi gerekmez.
 **Ağ** | VMM sunucusunda ayarlanmış mantıksal ağlar ve VM ağları. VM ağının da bulutla ilişkilendirilen bir mantıksal ağ bağlantılı olması gerekir. | VM ağları için Azure sanal ağlar eşlenir. Yük devretme sonrasında Azure Vm'lerinin oluşturduğunuzda, VM ağı'na eşlenen Azure ağına eklenir.
 

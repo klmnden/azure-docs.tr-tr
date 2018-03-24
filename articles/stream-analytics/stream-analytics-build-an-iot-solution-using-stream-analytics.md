@@ -1,8 +1,8 @@
 ---
-title: "Akış analizi kullanarak bir IOT çözümü derleme | Microsoft Docs"
-description: "Başlangıç Öğreticisi gişe senaryosu Stream Analytics IOT çözüm için"
-keywords: "IOT çözüm, pencere işlevleri"
-documentationcenter: 
+title: Akış analizi kullanarak bir IOT çözümü derleme | Microsoft Docs
+description: Başlangıç Öğreticisi gişe senaryosu Stream Analytics IOT çözüm için
+keywords: IOT çözüm, pencere işlevleri
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Akış analizi kullanarak bir IOT çözüm oluşturma
 
@@ -41,8 +41,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:
 * 2015, Visual Studio 2017 veya ücretsiz [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/)
 * Bilgisayarda yönetim ayrıcalıkları
-* İndirme [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) Microsoft İndirme Merkezi'nden
-* İsteğe bağlı: Kaynak kodu TollApp olay üreteci için [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* TollApp algılayıcı veri analizi için kaynak kodunu indirebilir [azure akış analizi GitHub deposunu.](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Bu depo, örnek veriler ve sonraki bölümlerde kullanacağınız sorguları içerir. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Senaryo giriş: "Hello, ücretli!"
 Ücretli istasyonu ortak olguya ' dir. Bunları birçok expressways, köprüleri ve tünelleri dünya genelindeki karşılaştığınız. Her Ücretli istasyon birden çok Ücretli booths sahiptir. El ile booths Ücretli bir Görevlisi ödeme durdurun. Otomatik booths üstünde her Stand algılayıcı Ücretli Stand geçirirken, araç ön için yapıştırılmış bir RFID kartı tarar. Bu Ücretli istasyonları aracılığıyla taşıtlardan geçişini ilginç işlemleri gerçekleştirilebilir olay akışının görselleştirmek kolaydır.

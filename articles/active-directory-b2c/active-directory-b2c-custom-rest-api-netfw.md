@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine kullanıcı girişini doğrulama tümleştirin."
-description: "Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine kullanıcı girişini doğrulama tümleştirin."
+title: 'Azure Active Directory B2C: Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine kullanıcı girişini doğrulama tümleştirin.'
+description: Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine kullanıcı girişini doğrulama tümleştirin.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/30/2017
-ms.author: yoelh
-ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Kullanıcı girişi doğrulama Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine tümleştirme
 Kimlik deneyimi çerçevesiyle hangi altını çizen Azure Active Directory B2C (Azure AD B2C) tümleştirebileceğiniz kullanıcı gezisine bir RESTful API'si ile. Bu kılavuzda, Azure AD B2C .NET Framework RESTful Hizmetleri (web API) ile nasıl etkileşim girer öğreneceksiniz.
@@ -249,8 +246,8 @@ Bir talep sağlayıcı birden çok teknik profilleri çeşitli nedenleri olabili
 Aşağıdaki XML parçacığını bir talep sağlayıcı düğümü iki teknik profilleriyle içerir:
 
 * **TechnicalProfile kimliği = "REST API SignUp"**: RESTful hizmetini tanımlar. 
-   * `Proprietary`protokol olarak bir RESTful tabanlı sağlayıcısı için tanımlanır. 
-   * `InputClaims`Azure AD B2C ' REST hizmeti gönderilecek Talepleri tanımlar. 
+   * `Proprietary` protokol olarak bir RESTful tabanlı sağlayıcısı için tanımlanır. 
+   * `InputClaims` Azure AD B2C ' REST hizmeti gönderilecek Talepleri tanımlar. 
 
    Bu örnekte, talep içeriğini `givenName` REST hizmeti olarak gönderir `firstName`, talep içeriğini `surname` REST hizmeti olarak gönderir `lastName`, ve `email` olarak gönderir. `OutputClaims` Öğesi RESTful hizmetinden Azure AD B2C geri alınır talepleri tanımlar.
 

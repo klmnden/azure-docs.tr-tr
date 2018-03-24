@@ -1,13 +1,13 @@
 ---
-title: "Ağ trafiği - Azure CLI | Microsoft Docs"
-description: "Azure CLI kullanarak bir yol tablosu ile ağ trafiğini yönlendirmek öğrenin."
+title: Ağ trafiği - Azure CLI | Microsoft Docs
+description: Azure CLI kullanarak bir yol tablosu ile ağ trafiğini yönlendirmek öğrenin.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 67bfc8ee677a14735174e9501fa5e10a69bd1ec7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI kullanarak bir yol tablosu ile ağ trafiği yönlendirme
 
@@ -207,7 +207,7 @@ Not edin **Publicıpaddress**. Bu adres, sonraki adımda Internet'ten VM erişme
 
 ## <a name="route-traffic-through-an-nva"></a>Bir NVA arasında trafiği yönlendirme
 
-İle bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın *myVmPrivate* VM. Değiştir  *<publicIpAddress>*  vm'nizin ortak IP adresine sahip. Yukarıdaki örnekte, IP adresidir *13.90.242.231*.
+İle bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın *myVmPrivate* VM. Değiştir *<publicIpAddress>* vm'nizin ortak IP adresine sahip. Yukarıdaki örnekte, IP adresidir *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -280,4 +280,4 @@ Bu makalede, bir yol tablosu oluşturulur ve bir alt ağa ilişkilendirilmiş. O
 Bir sanal ağ içinde birçok Azure kaynakları dağıtabilirsiniz, ancak bazı Azure PaaS hizmetler için kaynaklar sanal bir ağa dağıtılamıyor. Hala erişimi bazı Azure PaaS Hizmetleri'nden trafik için yalnızca bir sanal ağ alt kaynaklara yine de kısıtlayabilirsiniz. Ağ erişimi Azure PaaS kaynaklarına erişimi kısıtlayabilir öğrenmek için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Ağ erişimi PaaS kaynaklarına erişimi kısıtlayabilir](virtual-network-service-endpoints-configure.md#azure-cli)
+> [Ağ erişimi PaaS kaynaklarına erişimi kısıtlayabilir](tutorial-restrict-network-access-to-resources-cli.md)

@@ -1,6 +1,6 @@
 ---
-title: "Sık sorulan sorular - Azure Site Recovery ile Azure çoğaltma VMware | Microsoft Docs"
-description: "Azure Site Recovery Azure'u şirket içi VMware sanal makinelerini çoğalttığınızda, bu makalede sık sorulan sorular özetlenmektedir."
+title: Sık sorulan sorular - Azure Site Recovery ile Azure çoğaltma VMware | Microsoft Docs
+description: Azure Site Recovery Azure'u şirket içi VMware sanal makinelerini çoğalttığınızda, bu makalede sık sorulan sorular özetlenmektedir.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - VMware Azure çoğaltma
 
@@ -48,6 +48,13 @@ Bir abonelik yöneticisi değilseniz, gereksinim duyduğunuz çoğaltma izinleri
 
 ### <a name="what-do-i-need-on-premises"></a>Ne şirket içi gerekir?
 Şirket içi Site Recovery bileşenleri, tek bir VMware VM yüklü gerekir. Ayrıca VMware altyapı ile en az bir ESXi ana gerekir ve bir vCenter sunucusu önerilir. Ayrıca, çoğaltmak için bir veya daha fazla VMware Vm'lerini gerekir. [Daha fazla bilgi edinin](vmware-azure-architecture.md) Azure Mimarisi için VMware hakkında.
+
+Şirket içi yapılandırma sunucusu aşağıdaki iki yöntemden birini dağıtılabilir
+
+1. Yapılandırma sunucusu önceden yüklü bir VM şablonu kullanarak dağıtın. [Şuradan daha fazla okuma](vmware-azure-tutorial.md#download-the-vm-template).
+2. Tercih ettiğiniz bir Windows Server 2016 makinede Kurulum kullanarak dağıtın. [Şuradan daha fazla okuma](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+Başlarken, kendi Windows Server makinelerinizde etkinleştir koruma koruma hedef yapılandırma sunucusunda dağıtma adımları keşfetmek için seçin **için Azure > değil sanallaştırılmış/diğer**.
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Burada şirket içi Vm'lerini çoğaltma?
 Verileri Azure depolama alanına çoğaltır. Bir yük devretme çalıştırdığınızda, Site Recovery Azure VM'ler depolama hesabından otomatik olarak oluşturur.

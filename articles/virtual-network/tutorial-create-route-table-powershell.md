@@ -1,26 +1,26 @@
 ---
-title: "Ağ trafiği - PowerShell | Microsoft Docs"
-description: "PowerShell kullanarak bir yol tablosu ile ağ trafiğini yönlendirmek öğrenin."
+title: Ağ trafiği - Azure PowerShell | Microsoft Docs
+description: PowerShell kullanarak bir yol tablosu ile ağ trafiğini yönlendirmek öğrenin.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell kullanarak bir yol tablosu ile ağ trafiği yönlendirme
 
@@ -39,7 +39,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu makale Azure PowerShell modülü sürümü 5.4.1 gerektirir veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
+Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu makale Azure PowerShell modülü sürümü 5.4.1 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
 
 ## <a name="create-a-route-table"></a>Rota tablosu oluşturma
 
@@ -242,7 +242,7 @@ Kullanıcı adını ve VM oluştururken belirttiğiniz parolayı girin (seçmek 
 Bir sonraki adımda tracert.exe komut yönlendirme test etmek için kullanılır. Tracert Windows Güvenlik Duvarı üzerinden reddedildi Internet Denetim İletisi Protokolü (ICMP) kullanır. ICMP Powershell'den aşağıdaki komutu girerek Windows Güvenlik Duvarı aracılığıyla etkinleştirin:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Bu makalede yönlendirme test etmek için tracert kullanılsa da ICMP üretim dağıtımları için Windows Güvenlik Duvarı aracılığıyla izin vererek önerilmez.
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 ICMP Powershell'den aşağıdaki komutu girerek Windows Güvenlik Duvarı aracılığıyla etkinleştirin:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Ağ trafiği yönlendirmesini test etmek için *myVmPrivate* VM'den *myVmPublic* VM Powershell'den aşağıdaki komutu girin:
@@ -332,4 +332,4 @@ Bu makalede, bir yol tablosu oluşturulur ve bir alt ağa ilişkilendirilmiş. O
 Bir sanal ağ içinde birçok Azure kaynakları dağıtabilirsiniz, ancak bazı Azure PaaS hizmetler için kaynaklar sanal bir ağa dağıtılamıyor. Hala erişimi bazı Azure PaaS Hizmetleri'nden trafik için yalnızca bir sanal ağ alt kaynaklara yine de kısıtlayabilirsiniz. Ağ erişimi Azure PaaS kaynaklarına erişimi kısıtlayabilir öğrenmek için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Ağ erişimi PaaS kaynaklarına erişimi kısıtlayabilir](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [Ağ erişimi PaaS kaynaklarına erişimi kısıtlayabilir](tutorial-restrict-network-access-to-resources-powershell.md)

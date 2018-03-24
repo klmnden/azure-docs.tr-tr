@@ -1,9 +1,9 @@
 ---
-title: "Azure İzleyicisi'nde - günlük uyarıları uyarılar (Önizleme) | Microsoft Docs"
-description: "Azure uyarıları (Önizleme) belirttiğiniz karmaşık bir sorgu koşullar karşılandığında tetikleyici e-postalar, bildirimler, Web siteleri URL'leri (Web kancaları) ya da Otomasyon çağırın."
+title: Azure İzleyicisi - uyarıları uyarılar oturum | Microsoft Docs
+description: Azure uyarıları için belirttiğiniz karmaşık bir sorgu koşullar karşılandığında tetikleyici e-postalar, bildirimler, Web siteleri URL'leri (Web kancaları) ya da Otomasyon çağırın.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/17/2018
 ms.author: vinagara
-ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5928bbcec08d6ba4ac0b0d03b66fa4bfc8f5e3d7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Azure İzleyicisi'nde - günlük uyarıları uyarılar (Önizleme)
-Bu makalede Azure Uyarıları'ni (Önizleme) analiz sorguları işlerinde nasıl uyarı kurallarında ayrıntılarını sağlar ve günlük uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır. Ölçüm günlüklerini kullanarak uyarı ayrıntılarını başvurmak [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md)
+# <a name="log-alerts-in-azure-monitor---alerts"></a>Azure İzleyicisi - uyarıları günlük uyarıları 
+Bu makalede Azure uyarıları Analytics sorguları iş nasıl uyarı kurallarında ayrıntılarını sağlar ve günlük uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır. Ölçüm günlüklerini kullanarak uyarı ayrıntılarını başvurmak [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md)
 
-Azure uyarıları (Önizleme), destekler sorgularından uyarılar şu anda oturum [Azure günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md) ve [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
+Azure uyarıları destekler sorgularından uyarılar şu anda oturum [Azure günlük analizi](../log-analytics/log-analytics-tutorial-viewdata.md) ve [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
 
-> Şu anda Azure Uyarıları'ni (Önizleme) günlük uyarıda arası çalışma alanında ya da uygulama içi sorguları desteklemiyor.
+> Şu anda Azure Uyarıları'nda günlük uyarı arası çalışma alanında ya da uygulama içi sorguları desteklemiyor. Ve Application Insights için günlük uyarıları genel önizlemede değil - işlevselliği ve kullanıcı deneyimi değiştirilebilir.
 
-Ayrıca, kullanıcıların sorgularını analiz platformu Azure tercih mükemmel ve ardından *uyarıları (Önizleme) kullanmak için sorgu kaydederek aldıktan*. İzlemeniz gereken adımlar:
+Ayrıca, kullanıcıların sorgularını analiz platformu Azure tercih mükemmel ve ardından *Uyarıları kullanmak için sorgu kaydederek aldıktan*. İzlemeniz gereken adımlar:
 - Application Insights için: gidilecek Analytics portalı, sorgu ve sonuçlarını doğrulayın. Benzersiz bir ad ile Kaydet *paylaşılan sorgular*.
 - Günlük analizi için: gidilecek günlük arama, sorgu ve sonuçlarını doğrulayın. Ardından herhangi bir kategoriye benzersiz bir ad ile kaydedin.
 
-Sonra ne zaman [uyarıları (Önizleme) bir günlük uyarı oluşturma](monitor-alerts-unified-usage.md), sinyal türü olarak listelenen kaydedilmiş sorgu gördüğünüz **günlük (kayıtlı sorgunun)**; aşağıdaki örnekte gösterilen şekilde: ![kaydedilmiş uyarıları içe sorgu](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+Sonra ne zaman [günlük Uyarı Uyarıları oluşturma ](monitor-alerts-unified-usage.md), sinyal türü olarak listelenen kaydedilmiş sorgu bkz **günlük (kayıtlı sorgunun)**; aşağıdaki örnekte gösterilen şekilde: ![kaydedilmiş uyarıları içe sorgu](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 > [!NOTE]
 > Kullanarak **günlük (kayıtlı sorgunun)** uyarıları alma işleminde sonuçlanır. Bu nedenle sonra analizleri yapılan tüm değişiklikler kaydedilmiş uyarı kuralları ve tam tersini yansıtıcı olmaz.
 
 ## <a name="log-alert-rules"></a>Günlük uyarı kuralları
 
-Azure uyarıları otomatik olarak düzenli aralıklarla günlük sorguları çalıştırmak için (Önizleme) tarafından uyarılar oluşturulur.  Günlük sorgunun sonuçlarını belirli ölçütlere uyan varsa bir uyarı kaydı oluşturulur. Kural sonra otomatik olarak proaktif olarak uyarı bildiren veya harici Web uygulaması kullanarak verileri gönderme gibi başka bir işlem çağırmak için bir veya daha fazla Eylemler çalıştırabilirsiniz [json tabanlı Web kancası](monitor-alerts-unified-log-webhook.md)kullanarak [Eylem grupları](monitoring-action-groups.md). Uyarı kuralları farklı türlerde farklı mantık bu analizi yapmak için kullanın.
+Uyarıları uyarılar otomatik olarak düzenli aralıklarla günlük sorguları çalıştırmak için Azure tarafından oluşturulur.  Günlük sorgunun sonuçlarını belirli ölçütlere uyan varsa bir uyarı kaydı oluşturulur. Kural sonra otomatik olarak proaktif olarak uyarı bildiren veya harici Web uygulaması kullanarak verileri gönderme gibi başka bir işlem çağırmak için bir veya daha fazla Eylemler çalıştırabilirsiniz [json tabanlı Web kancası](monitor-alerts-unified-log-webhook.md)kullanarak [Eylem grupları](monitoring-action-groups.md). Uyarı kuralları farklı türlerde farklı mantık bu analizi yapmak için kullanın.
 
 Uyarı kuralları tarafından aşağıdaki ayrıntıları tanımlanmıştır:
 
@@ -118,7 +118,7 @@ Bunlar % 90 eşiği 3 kez zaman penceresi ihlal beri bu örnekte, ayrı uyarıla
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Anlamak [günlük uyarılar için Web kancası eylemleri](monitor-alerts-unified-log-webhook.md)
-* [Azure Uyarıları'ni (Önizleme) göz atın](monitoring-overview-unified-alerts.md)
-* Hakkında bilgi edinin [kullanarak Azure uyarıları (Önizleme)](monitor-alerts-unified-usage.md)
+* [Azure uyarıları göz atın ](monitoring-overview-unified-alerts.md)
+* Hakkında bilgi edinin [Azure uyarıları kullanma ](monitor-alerts-unified-usage.md)
 * Daha fazla bilgi edinmek [Application Insights](../application-insights/app-insights-analytics.md)
 * Daha fazla bilgi edinmek [günlük analizi](../log-analytics/log-analytics-overview.md).    

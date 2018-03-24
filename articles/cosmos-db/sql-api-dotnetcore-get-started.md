@@ -1,11 +1,11 @@
 ---
-title: "Azure Cosmos DB: .NET Core eğitici Başlarken SQL API | Microsoft Docs"
-description: "Çevrimiçi bir veritabanı ve Azure Cosmos DB SQL API .NET Core SDK'sını kullanarak C# konsol uygulaması oluşturan bir Öğreticisi."
+title: 'Azure Cosmos DB: .NET Core eğitici Başlarken SQL API | Microsoft Docs'
+description: Çevrimiçi bir veritabanı ve Azure Cosmos DB SQL API .NET Core SDK'sını kullanarak C# konsol uygulaması oluşturan bir Öğreticisi.
 services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 460b963f09384e246d914cd7c4aeca046da83dd3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: .NET Core ve SQL API'yi ile çalışmaya başlama
 > [!div class="op_single_selector"]
@@ -51,9 +51,6 @@ Bu öğreticide şunları içerir:
 Zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)'da bulabilirsiniz. Hızlı yönergeler için [Tam çözümü edinme bölümüne](#GetSolution) atlayın.
 
 Xamarin iOS, Android veya formlar oluşturmak istediğiniz .NET Core SDK ve SQL API'yi kullanarak uygulama? Bkz: [yapı Xamarin ve Azure Cosmos DB mobil uygulamalar](mobile-apps-with-xamarin.md).
-
-> [!NOTE]
-> Azure Cosmos DB .NET Core Bu öğreticide kullanılan SDK henüz Evrensel Windows Platformu (UWP) uygulamaları ile uyumlu değil. .NET Core SDK'sının UWP uygulamalarını destekleyen bir önizleme sürümü için [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) adresine e-posta gönderin.
 
 Şimdi başlayalım!
 

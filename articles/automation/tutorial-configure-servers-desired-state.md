@@ -1,26 +1,18 @@
 ---
-title: "İstenilen durumu sunucularına yapılandırma ve Azure Automation kayması yönetme | Microsoft Docs"
-description: "Öğretici - Azure Otomasyonu DSC sunucu yapılandırmalarını yönetme"
+title: Azure Otomasyonu ile sunucuları istenen duruma göre yapılandırma ve kaymaları yönetme
+description: Öğretici - Azure Otomasyonu DSC sunucu yapılandırmalarını yönetme
 services: automation
-documentationcenter: automation
-author: georgewallace
-manager: carmonm
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 
 ms.service: automation
-ms.devlang: powershell
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/25/2017
+author: georgewallace
 ms.author: gwallace
-ms.custom: 
-ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+manager: carmonm
+ms.topic: article
+ms.date: 09/25/2017
+ms.openlocfilehash: 50c58224eaecc20a0878df5e1c7f100039978455
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>İstenilen durumu sunucularına yapılandırma ve kayması yönetme
 
@@ -35,7 +27,7 @@ Azure Otomasyonu istenen durum yapılandırması (DSC) sunucularınız için yap
 > * Yönetilen bir düğüme bir düğüm yapılandırması atayın
 > * Bir yönetilen düğümü uyumluluk durumunu denetleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için gerekir:
 
@@ -56,9 +48,9 @@ Login-AzureRmAccount
 
 Bu öğretici için IIS VM yüklendiğini sağlayan basit bir DSC yapılandırma kullanacağız.
 
-DSC yapılandırmaları hakkında daha fazla bilgi için bkz: [DSC yapılandırmaları](https://docs.microsoft.com/powershell/dsc/configurations).
+DSC yapılandırmaları hakkında bilgi edinmek için bkz. [DSC yapılandırmaları](https://docs.microsoft.com/powershell/dsc/configurations).
 
-Bir metin düzenleyicisinde, aşağıdaki komutu yazın ve yerel olarak kaydedin `TestConfig.ps1`.
+Bir metin düzenleyicisine aşağıdakileri yazıp `TestConfig.ps1` adıyla yerel ortamda kaydedin.
 
 ```powershell
 configuration TestConfig {

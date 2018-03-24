@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect Health Sürüm Geçmişi"
-description: "Bu belgede, Azure AD Connect Health ve bu sürümlerde dahil sürümleri açıklanmaktadır."
+title: Azure AD Connect Health Sürüm Geçmişi
+description: Bu belgede, Azure AD Connect Health ve bu sürümlerde dahil sürümleri açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: edc1771153581e73398e8df25e70660f9f85ceba
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57cc8a63773cda5b66856ba7d6b3215d9c52162c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Connect Health düzenli olarak güncelleştirir. Bu makalede, çıkarılan özellikleri ve sürümleri listelenmektedir.
 
 ## <a name="march-2018"></a>Mart 2018
+**Yeni Önizleme özellikleri:**
+* Azure AD Connect Health AD FS - riskli IP rapor ve uyarı için.
+
 **Aracı güncelleştirmesi:**
 
 *   AD DS (sürüm 3.0.176.0) için Azure AD Connect Health Aracısı
@@ -64,7 +67,7 @@ Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Conn
   1. Hata düzeltmeleri ve genel iyileştirmeler
   2. Sovereign bulut desteği
 * Azure AD Connect ile sürüm 1.1.614.0 yayımlanan eşitleme (sürüm 3.0.68.0) için Azure AD Connect Health Aracısı
-1. Microsoft Azure Bulutu ve Microsoft bulut Almanya desteği
+  1. Microsoft Azure Bulutu ve Microsoft bulut Almanya desteği
 
 ## <a name="april-2017"></a>Nisan 2017      
 **Aracı güncelleştirmesi:**

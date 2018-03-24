@@ -1,6 +1,6 @@
 ---
-title: "ILB uygulama hizmeti ortamınızı bir uygulama ağ geçidi ile tümleştirme"
-description: "İzlenecek yol ILB uygulama hizmeti ortamınızı bir uygulamada bir uygulama ağ geçidi ile tümleştirme hakkında"
+title: ILB uygulama hizmeti ortamınızı bir uygulama ağ geçidi ile tümleştirme
+description: İzlenecek yol ILB uygulama hizmeti ortamınızı bir uygulamada bir uygulama ağ geçidi ile tümleştirme hakkında
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: ccompy
-ms.openlocfilehash: d56eab79c3b3f6b37dc39d8e4bea0d5b7759631a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>ILB uygulama hizmeti ortamınızı bir uygulama ağ geçidi ile tümleştirme #
 
-[PowerApps için uygulama hizmeti ortamı](./intro.md) bir Azure uygulama hizmeti bir müşterinin Azure sanal ağ alt dağıtımıdır. Uygulama erişimi için bir genel veya özel uç noktası ile dağıtılabilir. Özel uç noktası (diğer bir deyişle, bir iç yük dengeleyici) ile uygulama hizmeti ortamı dağıtımı ILB uygulama hizmeti ortamı adı verilir.  
+[Uygulama hizmeti ortamı](./intro.md) bir Azure uygulama hizmeti bir müşterinin Azure sanal ağ alt dağıtımıdır. Uygulama erişimi için bir genel veya özel uç noktası ile dağıtılabilir. Özel uç noktası (diğer bir deyişle, bir iç yük dengeleyici) ile uygulama hizmeti ortamı dağıtımı ILB uygulama hizmeti ortamı adı verilir.  
 
 Azure uygulama ağ geçidi katman 7 Yük Dengeleme ve SSL boşaltma web uygulaması Güvenlik Duvarı (WAF) koruması sağlar ve bir sanal gereç olur. Bir ortak IP adresi ve rota trafiğin uygulama uç noktası üzerinde dinleme. 
 

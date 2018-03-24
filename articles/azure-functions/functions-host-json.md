@@ -1,12 +1,12 @@
 ---
-title: "Azure işlevleri için Host.JSON başvurusu"
-description: "Azure işlevleri host.json dosyası için başvuru belgeleri."
+title: Azure işlevleri için Host.JSON başvurusu
+description: Azure işlevleri host.json dosyası için başvuru belgeleri.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure işlevleri için Host.JSON başvurusu
 
-*Host.json* meta veri dosyası, bir işlev uygulaması için tüm işlevleri etkileyen genel yapılandırma seçenekleri içerir. Bu makalede, kullanılabilir ayarlar listelenmiştir. JSON şema http://json.schemastore.org/host ' dir.
+*Host.json* meta veri dosyası, bir işlev uygulaması için tüm işlevleri etkileyen genel yapılandırma seçenekleri içerir. Bu makalede, kullanılabilir ayarlar listelenmiştir. JSON şema altındadır http://json.schemastore.org/host.
 
 Diğer genel yapılandırma seçenekleri vardır [uygulama ayarları](functions-app-settings.md) ve [local.settings.json](functions-run-local.md#local-settings-file) dosya.
 
@@ -139,7 +139,7 @@ Denetimleri [Application Insights örnekleme özelliği](functions-monitoring.md
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|isEnabled|yanlış|Etkinleştirir veya örnekleme devre dışı bırakır.| 
+|isEnabled|false|Etkinleştirir veya örnekleme devre dışı bırakır.| 
 |maxTelemetryItemsPerSecond|5|Hangi örnekleme eşiğine başlar.| 
 
 ## <a name="eventhub"></a>eventHub
@@ -186,7 +186,7 @@ Yapılandırma ayarları [ana bilgisayar sistem durumu İzleyicisi](https://gith
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|enabled|doğru|Özellik etkinleştirilip etkinleştirilmediği. | 
+|enabled|true|Özellik etkinleştirilip etkinleştirilmediği. | 
 |healthCheckInterval|10 saniye|Düzenli arka plan sistem arasındaki zaman aralığını denetler. | 
 |healthCheckWindow|2 dakika|İle birlikte kullanılan kayan bir zaman penceresi `healthCheckThreshold` ayarı.| 
 |healthCheckThreshold|6|Bir ana bilgisayar geri dönüşüm başlatılmadan önce en fazla kaç kez sistem durumu denetimi başarısız olabilir.| 
@@ -201,6 +201,9 @@ Yapılandırma ayarları [http Tetikleyicileri ve bağlamaları](functions-bindi
 ## <a name="id"></a>id
 
 Bir iş ana bilgisayar için benzersiz kimlik. Küçük harf GUID çizgilerle kaldırılabilir. Yerel olarak çalıştırırken gereklidir. Azure işlevleri çalışırken bir kimlik takdirde otomatik olarak oluşturulur `id` atlanır.
+
+Bir depolama hesabı birden çok işlev uygulama arasında paylaşıyorsanız, her işlev uygulaması farklı bir sahip olduğundan emin olun `id`. Atlayabilirsiniz `id` özelliği veya elle her işlevi uygulamanın `id` için farklı bir değer. Zamanlayıcı tetikleyicisi depolama kilidi olacağını yalnızca bir zamanlayıcı örneğini birden çok örneklerine giden bir işlev uygulaması ölçeklendirir olduğunda emin olmak için kullanır. İki işlev uygulamalarının aynı paylaşıyorsanız `id` ve her bir zamanlayıcı tetikleyicisi kullanan, yalnızca bir zamanlayıcı çalışır.
+
 
 ```json
 {

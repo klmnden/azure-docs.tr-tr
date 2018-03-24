@@ -1,6 +1,6 @@
 ---
-title: "MySQL ilişkisel veritabanı hizmeti için Azure veritabanı'nın genel bakış"
-description: "Azure veritabanı MySQL ilişkisel veritabanı hizmeti için genel bakış."
+title: MySQL ilişkisel veritabanı hizmeti için Azure veritabanı'nın genel bakış
+description: Azure veritabanı MySQL ilişkisel veritabanı hizmeti için genel bakış.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 82d96424569daf481e31ab04c08dcb5e63e58476
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2689befc6a686d0ffc25d1fccbacb66cc6e10725
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Azure veritabanı için MySQL nedir?
-Azure için MySQL veritabanıdır göre Microsoft bulut ilişkisel veritabanı hizmeti [MySQL Community Edition](https://www.mysql.com/products/community/) veritabanı altyapısı. Bu hizmet genel önizleme aşamasındadır. Azure veritabanı için MySQL sunar:
+Azure için MySQL veritabanıdır göre Microsoft bulut ilişkisel veritabanı hizmeti [MySQL Community Edition](https://www.mysql.com/products/community/) veritabanı altyapısı. Azure veritabanı için MySQL sunar:
 
 - Ek ücret ödemeden yerleşik yüksek kullanılabilirlik.
 - Kapsamlı kullandıkça öde fiyatlandırması kullanılarak öngörülebilir performans.
@@ -38,7 +38,7 @@ Azure CLI örnekleri için bkz:
 - [Azure veritabanı için MySQL için Azure CLI örnekleri](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Saniyeler içinde performansı ve ölçeği ayarlama
-Önizleme'de, birkaç hizmet katmanları Azure veritabanı için MySQL hizmeti sunar: Basic, genel amaçlı ve bellek için iyileştirilmiş. Her katman, hafiften ağıra kadar tüm iş yüklerini desteklemek üzere farklı performans ve özellikler getirir. İlk uygulamanızı aylık birkaç dolar ücretle küçük bir veritabanı üzerinde oluşturabilir ve sonra çözümünüzün gereksinimlerine göre ölçeği ayarlayabilirsiniz. Dinamik ölçeklendirebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine saydam bir şekilde yanıt verebilmesini sağlar. Yalnızca ihtiyacınız olan kaynaklar için ve yalnızca bunlara ihtiyacınız olduğunda ödeme yaparsınız. Ayrıntılar için bkz. [Fiyatlandırma katmanları](concepts-service-tiers.md).
+MySQL hizmeti için Azure veritabanı birkaç hizmet katmanları sunar: Basic, genel amaçlı ve bellek için iyileştirilmiş. Her katman, hafiften ağıra kadar tüm iş yüklerini desteklemek üzere farklı performans ve özellikler getirir. İlk uygulamanızı aylık birkaç dolar ücretle küçük bir veritabanı üzerinde oluşturabilir ve sonra çözümünüzün gereksinimlerine göre ölçeği ayarlayabilirsiniz. Dinamik ölçeklendirebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine saydam bir şekilde yanıt verebilmesini sağlar. Yalnızca ihtiyacınız olan kaynaklar için ve yalnızca bunlara ihtiyacınız olduğunda ödeme yaparsınız. Ayrıntılar için bkz. [Fiyatlandırma katmanları](concepts-service-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>İzleme ve uyarı
 Ne zaman artırılacağına ve ne zaman azaltılacağını nasıl karar verirsiniz? Yerleşik performans izleme ve uyarı özellikleri, vCores üzerinde temel performans değerlendirmeleri birlikte kullanın. Bu Araçları'nı kullanarak, hızlı bir şekilde ölçeklendirme vCores etkisini yukarı veya aşağı geçerli veya tahmini performans ihtiyaçlarınıza göre değerlendirebilirsiniz. Ayrıntılar için bkz. [Uyarılar](howto-alert-on-metric.md).

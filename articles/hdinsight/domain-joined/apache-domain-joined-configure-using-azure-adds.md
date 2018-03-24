@@ -1,35 +1,33 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri - Azure kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma | Microsoft Docs"
-description: "Ayarlama ve Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma konusunda bilgi edinin"
+title: Azure Active Directory etki alanı Hizmetleri - Azure kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma | Microsoft Docs
+description: Ayarlama ve Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma konusunda bilgi edinin
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Azure Active Directory etki alanı Hizmetleri kullanarak etki alanına katılmış Hdınsight kümelerini yapılandırma
 
 Etki alanına katılmış kümeleri çok kullanıcılı Kurumsal Hdınsight'ta güvenlik özellikleri sağlar. Böylece etki alanı kullanıcıları kümeleriyle kimliğini doğrulamak ve büyük veri işlerini çalıştırmak için etki alanı kimlik bilgilerini kullanabilirsiniz active directory etki alanları için etki alanına katılmış Hdınsight kümelerine bağlanır. 
 
-Bir etki alanı denetleyicisini etki alanına katılmış bir Hdınsight kümesi için bağlanabilmesi için iki yöntem vardır:
-
-- Azure Active Directory etki alanı Hizmetleri (Azure AD DS)
-- Azure Iaas Vm'leri üzerinde Active Directory etki alanı denetleyicisi
-
 Bu makalede, Azure Active Directory etki alanı Hizmetleri'ni kullanan bir etki alanına katılmış Hdınsight kümesi yapılandırma hakkında bilgi edinin.
+
+> [!NOTE]
+> Azure Iaas Vm'leri üzerinde Active Directory artık desteklenmiyor.
 
 ## <a name="create-azure-adds"></a>Azure EKLER oluşturma
 

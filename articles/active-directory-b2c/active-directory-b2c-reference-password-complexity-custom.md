@@ -1,24 +1,21 @@
 ---
-title: "Parola karmaşıklığını özel ilkelerinde - Azure AD B2C | Microsoft Docs"
-description: "Özel İlkesi'nde parola karmaşıklık gereksinimlerini yapılandırma"
+title: Parola karmaşıklığını özel ilkelerinde - Azure AD B2C | Microsoft Docs
+description: Özel İlkesi'nde parola karmaşıklık gereksinimlerini yapılandırma
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
-ms.openlocfilehash: eb187a120399089f1c3c145a06fbe993f50fb92b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 4dabcdef32d337c5063d2b0503f32b06d5d0fdeb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Parola karmaşıklığını özel ilkeleri yapılandırma
 
@@ -33,7 +30,7 @@ Bu makalede, parola karmaşıklığını nasıl çalıştığını Gelişmiş bi
 
 Azure Active Directory B2C (Azure AD B2C) destekleyen bir hesap oluşturulurken bir son kullanıcı tarafından sağlanan parola karmaşıklık gereksinimlerini değiştirme.  Varsayılan olarak, Azure AD B2C kullanır **güçlü** parolalar.  Azure AD B2C da müşterilerin kullanabileceğiniz parolaların karmaşıklık denetlemek için yapılandırma seçeneklerini destekler.  Bu makalede, parola karmaşıklığını özel ilkelerinde nasıl yapılandırılacağı hakkında alınmaktadır.  Kullanmak da mümkündür [parola karmaşıklığını yerleşik ilkeleri yapılandırma](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bölümünde açıklandığı gibi bir yerel hesap oturumu-up/oturum açmayı tamamlamak için yapılandırılmış bir Azure AD B2C kiracısı [Başlarken](active-directory-b2c-get-started-custom.md).
 

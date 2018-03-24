@@ -1,11 +1,11 @@
 ---
 title: Azure Data Factory kullanarak Web tablodan veri kopyalama | Microsoft Docs
-description: "Web tablo bağlayıcı Azure veri sağlayan fabrikası hakkında veri depoları havuzlarını Data Factory ile desteklenen web tablosundan verilerini öğrenin."
+description: Web tablo bağlayıcı Azure veri sağlayan fabrikası hakkında veri depoları havuzlarını Data Factory ile desteklenen web tablosundan verilerini öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c5d2fdb3ed3c00114437b0be9759bf8bea2521b7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4755d6cce0787a411fee7d32c887ae71c134c94
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Web tablodan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +103,7 @@ Web tablodan veri kopyalamak için veri kümesi için tür özelliği ayarlamak 
 }
 ```
 
-## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
+## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Web tablosu kaynak tarafından desteklenen özellikler listesini sağlar.
 
@@ -148,11 +148,11 @@ Web tablodan veri kopyalamak için kopyalama etkinliği için kaynak türünü a
 2. Tıklatın **yeni sorgu** araç çubuğunda işaret **diğer kaynaklardan** tıklatıp **Web'den**.
 
     ![Power Query menüsü](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. İçinde **Web'den** iletişim kutusunda, girin **URL** bağlantılı hizmeti JSON içinde kullanırsınız (örneğin: https://en.wikipedia.org/wiki/) yolu belirtin veri kümesi için birlikte (örneğin: AFI % 27s_ 100_Years... 100_Movies) tıklatıp **Tamam**.
+3. İçinde **Web'den** iletişim kutusunda, girin **URL** bağlantılı hizmeti JSON içinde kullanırsınız (örneğin: https://en.wikipedia.org/wiki/) yolu belirtin veri kümesi için birlikte (örneğin: AFI % 27s_100_Years... 100_Movies) tıklatıp **Tamam**.
 
     ![Web iletişim kutusundan](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 
-    Bu örnekte kullanılan URL: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+    Bu örnekte kullanılan URL'si: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Görürseniz **erişim Web içeriği** iletişim kutusunda, sağa seçin **URL**, **kimlik doğrulaması**, tıklatıp **Bağlan**.
 
    ![Web içerik iletişim kutusuna erişin](./media/copy-data-from-web-table/AccessWebContentDialog.png)

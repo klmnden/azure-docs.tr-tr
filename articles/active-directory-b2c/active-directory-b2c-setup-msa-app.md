@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C: Microsoft hesabı yapılandırması | Microsoft Docs"
-description: "Uygulamalarınızda Azure Active Directory B2C tarafından güvence altına alınan Microsoft hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar."
+title: 'Azure Active Directory B2C: Microsoft hesabı yapılandırması | Microsoft Docs'
+description: Uygulamalarınızda Azure Active Directory B2C tarafından güvence altına alınan Microsoft hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 06407322-142c-4cb3-9106-a8d752c4c853
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: e746a5e7a2d9a13eb23ac0268104a9394c9b198d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e167c8737bc600f52759f33456fec3bc6e0a3678
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C: için tüketicileri Microsoft hesapları ile kaydolma ve oturum açma sağlayın
 ## <a name="create-a-microsoft-account-application"></a>Bir Microsoft hesabı uygulaması oluşturma
-Microsoft hesabı kimlik sağlayıcısı Azure Active Directory (Azure AD) B2C içinde kullanmak için bir Microsoft hesabı uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Microsoft hesabı gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [https://www.live.com/](https://www.live.com/).
+Microsoft hesabı kimlik sağlayıcısı Azure Active Directory (Azure AD) B2C içinde kullanmak için bir Microsoft hesabı uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Microsoft hesabı gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [ https://www.live.com/ ](https://www.live.com/).
 
 1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ve Microsoft hesabı kimlik bilgilerinizle oturum açın.
 2. Tıklatın **bir uygulama ekleyin**.
@@ -47,7 +44,7 @@ Microsoft hesabı kimlik sağlayıcısı Azure Active Directory (Azure AD) B2C i
     ![Microsoft hesabı - yeni bir parola oluştur](./media/active-directory-b2c-setup-msa-app/msa-generate-new-password.png)
    
     ![Microsoft hesabı - yeni parola](./media/active-directory-b2c-setup-msa-app/msa-new-password.png)
-8. Belirten kutuyu **Live SDK'sı desteği** altında **Gelişmiş Seçenekler** bölümü. **Kaydet** düğmesine tıklayın.
+8. Belirten kutuyu **Live SDK'sı desteği** altında **Gelişmiş Seçenekler** bölümü. **Kaydet**’e tıklayın.
    
     ![Microsoft hesabı - Live SDK'sı desteği](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
 

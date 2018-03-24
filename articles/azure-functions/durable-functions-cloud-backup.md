@@ -1,24 +1,24 @@
 ---
-title: "Fan-dışarı/fan-arada senaryolarda dayanıklı işlevleri - Azure"
-description: "Fan-dışarı fan-bileşenini senaryo için Azure işlevleri dayanıklı işlevleri uzantısı'nda uygulama hakkında bilgi edinin."
+title: Fan-dışarı/fan-arada senaryolarda dayanıklı işlevleri - Azure
+description: Fan-dışarı fan-bileşenini senaryo için Azure işlevleri dayanıklı işlevleri uzantısı'nda uygulama hakkında bilgi edinin.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-dışarı/fan-arada senaryoda dayanıklı işlevleri - bulut yedekleme örneği
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* ' Ndaki yönergeleri izleyin [yükleme dayanıklı işlevleri](durable-functions-install.md) örneğini kurmak için.
-* Bu makalede, zaten gitti varsayar [Hello dizisi](durable-functions-sequence.md) örnek gözden geçirme.
+* [Dayanıklı işlevleri yüklemek](durable-functions-install.md).
+* Tamamlamak [Hello dizisi](durable-functions-sequence.md) gözden geçirme.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
@@ -47,7 +47,7 @@ Bu makalede örnek uygulamasında aşağıdaki işlevleri açıklanmaktadır:
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-Aşağıdaki bölümlerde, Azure portal geliştirme için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
+Aşağıdaki bölümlerde kullanılan kod ve yapılandırma açıklanmaktadır C# kodlama için. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Bulut yedekleme düzenleme (Visual Studio Code ve Azure portal örnek kodu)
 

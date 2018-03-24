@@ -1,24 +1,24 @@
 ---
-title: "Dayanıklı işlevleri - Azure izleyicileri"
-description: "Azure işlevleri için dayanıklı işlevleri uzantısı kullanılarak bir Durum İzleyicisi uygulamak öğrenin."
+title: Dayanıklı işlevleri - Azure izleyicileri
+description: Azure işlevleri için dayanıklı işlevleri uzantısı kullanılarak bir Durum İzleyicisi uygulamak öğrenin.
 services: functions
 author: kashimiz
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Dayanıklı işlevleri - hava durumu İzleyicisi örnek senaryoda izleme
 
@@ -26,8 +26,8 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* ' Ndaki yönergeleri izleyin [yükleme dayanıklı işlevleri](durable-functions-install.md) örneğini kurmak için.
-* Bu makalede, zaten gitti varsayar [Hello dizisi](durable-functions-sequence.md) örnek gözden geçirme.
+* [Dayanıklı işlevleri yüklemek](durable-functions-install.md).
+* Tamamlamak [Hello dizisi](durable-functions-sequence.md) gözden geçirme.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
@@ -64,7 +64,7 @@ Bu makalede örnek uygulamasında aşağıdaki işlevleri açıklanmaktadır:
 * `E3_GetIsClear`: Geçerli bir konum hava koşulları denetler bir etkinlik işlevi.
 * `E3_SendGoodWeatherAlert`: Twilio aracılığıyla SMS iletisi gönderir bir etkinlik işlevi.
 
-Aşağıdaki bölümlerde, Azure portal geliştirme için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
+Aşağıdaki bölümlerde kullanılan kod ve yapılandırma açıklanmaktadır C# kodlama için. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Orchestration (Visual Studio Code ve Azure portal örnek kodu) izleme hava durumu
 

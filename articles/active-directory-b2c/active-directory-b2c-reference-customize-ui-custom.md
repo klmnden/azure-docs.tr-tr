@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Başvuru: kullanıcı gezisine UI özel ilkeleriyle özelleştirme | Microsoft Docs"
-description: "Bir konu Azure Active Directory B2C özel ilkeler hakkında"
+title: 'Azure Active Directory B2C: Başvuru: kullanıcı gezisine UI özel ilkeleriyle özelleştirme | Microsoft Docs'
+description: Bir konu Azure Active Directory B2C özel ilkeler hakkında
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
-ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: davidmu
+ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı gezisine UI özel ilkeleriyle özelleştirme
 
@@ -153,7 +150,7 @@ Aşağıdaki tabloda yukarıdaki HTML5 sayfaları amacını açıklar.
 
 Özel bir ilke doğrudan düzenleyerek kullanıcı Yolculuğunuzun HTML5/CSS şablonlarınızı bir bağlantı ekleyebilirsiniz.
 
-Kullanıcı Yolculuğunuzun kullanmak için özel HTML5/CSS şablonlar bu kullanıcı Yolculuklar kullanılabilir içerik tanımları listesinde belirtilmesi gerekir. Bunun için isteğe bağlı bir  *<ContentDefinitions>*  XML öğesi bildirildi, altında  *<BuildingBlocks>*  özel ilke XML dosyasını bölümü.
+Kullanıcı Yolculuğunuzun kullanmak için özel HTML5/CSS şablonlar bu kullanıcı Yolculuklar kullanılabilir içerik tanımları listesinde belirtilmesi gerekir. Bunun için isteğe bağlı bir *<ContentDefinitions>* XML öğesi bildirildi, altında *<BuildingBlocks>* özel ilke XML dosyasını bölümü.
 
 Aşağıdaki tabloda Azure AD B2C kimliği tarafından tanınan tanımı kimlikleri altyapısı ve bunlara ilişkili sayfaları türünü deneyimi içeriği açıklar.
 

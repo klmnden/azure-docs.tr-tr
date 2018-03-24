@@ -1,28 +1,28 @@
 ---
-title: "Azure REST API izleme gözden geçirme | Microsoft Docs"
-description: "Nasıl isteklerinin kimlik doğrulaması ve kullanılabilir ölçüm tanımlarını ve ölçüm değerleri almak için Azure İzleyici REST API'sini kullanın."
+title: Azure REST API izleme gözden geçirme | Microsoft Docs
+description: Nasıl isteklerinin kimlik doğrulaması ve kullanılabilir ölçüm tanımlarını ve ölçüm değerleri almak için Azure İzleyici REST API'sini kullanın.
 author: mcollier
-manager: 
-editor: 
+manager: ''
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
 ms.service: monitoring-and-diagnostics
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.search.region: 
-ms.search.scope: 
-ms.search.validFrom: 
-ms.dyn365.ops.version: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.search.region: ''
+ms.search.scope: ''
+ms.search.validFrom: ''
+ms.dyn365.ops.version: ''
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 03/19/2018
 ms.author: mcollier
-ms.openlocfilehash: 357a63c65a4f6864dca259aad8a76f83681cd501
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a5119cf7291db4fd2d2ffaf00ef098cfe336e645
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure REST API izleme gözden geçirme
 Bu makalede, kodunuzu kullanabilmeniz için kimlik doğrulaması yapmak gösterilmiştir [Microsoft Azure İzleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -34,7 +34,7 @@ Azure İzleyici API program aracılığıyla kullanılabilir varsayılan ölçü
 ## <a name="authenticating-azure-monitor-requests"></a>Kimlik doğrulama Azure İzleyici istekleri
 İlk istek kimliğini doğrulamak için bir adımdır.
 
-Azure İzleyici API karşı yürütülen tüm görevler Azure Resource Manager kimlik doğrulama modeli kullanır. Bu nedenle, tüm istekleri Azure Active Directory (Azure AD) ile kimlik doğrulaması gerekir. İstemci uygulaması kimliğini doğrulamak için bir Azure AD hizmet sorumlusu oluşturmak ve kimlik doğrulama (JWT) belirteci almak için bir yaklaşımdır. Aşağıdaki örnek betik, bir Azure AD hizmeti PowerShell aracılığıyla asıl oluşturmayı gösterir. Üzerinde daha ayrıntılı bir kılavuz için belgelere bakın [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). Ayrıca mümkün [Azure Portalı aracılığıyla hizmet sorumlusu oluşturmak](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Azure İzleyici API karşı yürütülen tüm görevler Azure Resource Manager kimlik doğrulama modeli kullanır. Bu nedenle, tüm istekleri Azure Active Directory (Azure AD) ile kimlik doğrulaması gerekir. İstemci uygulaması kimliğini doğrulamak için bir Azure AD hizmet sorumlusu oluşturmak ve kimlik doğrulama (JWT) belirteci almak için bir yaklaşımdır. Aşağıdaki örnek betik, bir Azure AD hizmeti PowerShell aracılığıyla asıl oluşturmayı gösterir. Üzerinde daha ayrıntılı bir kılavuz için belgelere bakın [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Ayrıca mümkün [Azure Portalı aracılığıyla hizmet sorumlusu oluşturmak](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -97,12 +97,12 @@ Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://docs.micros
 
 **Yöntem**: Al
 
-**İstek URI'si**: https://management.azure.com/subscriptions/*{Subscriptionıd}*/resourceGroups/*{resourceGroupName}*/providers/*{ resourceProviderNamespace}*/*{resourceType}*/*{resourceName*/providers/microsoft.insights/metricDefinitions? API sürümü =*{apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{Subscriptionıd}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 Örneğin, bir Azure depolama hesabı için ölçüm tanımlarını almak için isteği şu şekilde görünür:
 
 ```PowerShell
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2017-05-01-preview"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
 
 Invoke-RestMethod -Uri $request `
                   -Headers $authHeader `
@@ -112,7 +112,7 @@ Invoke-RestMethod -Uri $request `
 
 ```
 > [!NOTE]
-> Çok boyutlu Azure İzleyici ölçümleri REST API kullanarak ölçüm tanımlarını almak için "2017-05-01-Önizleme" API sürümü kullanın.
+> Çok boyutlu Azure İzleyici ölçümleri REST API kullanarak ölçüm tanımlarını almak için "2018-01-01" API sürümü kullanın.
 >
 >
 
@@ -122,8 +122,9 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olmalı
 {
     "value": [
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Capacity",
             "name": {
                 "value": "UsedCapacity",
@@ -132,20 +133,35 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olmalı
             "isDimensionRequired": false,
             "unit": "Bytes",
             "primaryAggregationType": "Average",
+            "supportedAggregationTypes": [
+                "Total",
+                "Average",
+                "Minimum",
+                "Maximum"
+            ],
             "metricAvailabilities": [
                 {
-                    "timeGrain": "PT1M",
-                    "retention": "P30D"
+                    "timeGrain": "PT1H",
+                    "retention": "P93D"
                 },
                 {
-                    "timeGrain": "PT1H",
-                    "retention": "P30D"
+                    "timeGrain": "PT6H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT12H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "P1D",
+                    "retention": "P93D"
                 }
             ]
         },
         {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
-            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage",
+            "namespace": "Microsoft.Storage/storageAccounts",
             "category": "Transaction",
             "name": {
                 "value": "Transactions",
@@ -154,14 +170,41 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olmalı
             "isDimensionRequired": false,
             "unit": "Count",
             "primaryAggregationType": "Total",
+            "supportedAggregationTypes": [
+                "Total"
+            ],
             "metricAvailabilities": [
                 {
                     "timeGrain": "PT1M",
-                    "retention": "P30D"
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT5M",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT15M",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT30M",
+                    "retention": "P93D"
                 },
                 {
                     "timeGrain": "PT1H",
-                    "retention": "P30D"
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT6H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "PT12H",
+                    "retention": "P93D"
+                },
+                {
+                    "timeGrain": "P1D",
+                    "retention": "P93D"
                 }
             ],
             "dimensions": [
@@ -185,22 +228,24 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olmalı
 ```
 
 ## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Boyut değerlerini (çok boyutlu API) alma
-Kullanılabilir ölçüm tanımlarını bilinen sonra boyutlarda bazı ölçümleri olabilir. Hangi değerleri aralığı bulmak istediğiniz ölçümü için sorgulama önce bir boyutu vardır. Ardından filtre uygulamak için seçebileceğiniz bu boyut değerleri veya ölçümleri sorgularken ölçümleri boyut değerlerine göre segment göre. Filtreleme tüm istekler için ölçüm kişinin adı 'value' (değil ' localizedValue') kullanın (örneğin, 'CPU zamanı' ve 'İsteklerini' Ölçüm veri noktalarını almaya). Hiçbir filtre belirtilmezse, varsayılan ölçü döndürülür.
+Kullanılabilir ölçüm tanımlarını bilinen sonra boyutlarda bazı ölçümleri olabilir. Hangi değerleri aralığı bulmak istediğiniz ölçümü için sorgulama önce bir boyutu vardır. Ardından filtre uygulamak için seçebileceğiniz bu boyut değerleri veya ölçümleri sorgularken ölçümleri boyut değerlerine göre segment göre.  Kullanım [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics) Bunu başarmak için.
+
+Ölçüm kişinin adı 'value' (değil ' localizedValue') filtreleme tüm istekleri için kullanır. Hiçbir filtre belirtilmezse, varsayılan ölçü döndürülür. Bu API'ın kullanımını, yalnızca bir joker karakter filtresi bir boyut izin verir.
 
 > [!NOTE]
-> Azure İzleyici REST API'sini kullanarak boyut değerleri almak için "2017-05-01-Önizleme" API sürümü kullanın.
+> Azure İzleyici REST API'sini kullanarak boyut değerleri almak için "2018-01-01" API sürümü kullanın.
 >
 >
 
 **Yöntem**: Al
 
-**İstek URI'si**: https://management.azure.com/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/*{ Kaynak-sağlayıcısı-namespace}*/*{kaynak türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?metric= *{ölçüm}*& timespan =*{starttime/endtime}*& $filter =*{filtre}*& resultType = meta veri & api-version =*{ apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?metric=*{ölçüm}* & timespan =*{starttime/endtime}*& $filter =*{filtre}*& resultType = meta veri & api-version =*{apiVersion}*
 
-Örneğin, belirli bir zaman aralığı içinde 'İşlemleri' ölçümü için olası değerler 'API adı boyut' listesi almak için istek aşağıdaki gibi olur:
+Örneğin, 'API adı boyutu için' 'İşlemleri' ölçümü için burada gösterilen boyut değerlerinin listesini almak için GeoType boyut = 'Primary' belirtilen zaman aralığı içinde istek aşağıdaki gibi olur:
 
 ```PowerShell
-$filter = "APIName eq '*'"
-$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-01T00:00:00Z/2017-09-10T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2017-05-01-preview"
+$filter = "APIName eq '*' and GeoType eq 'Primary'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -211,10 +256,10 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
 
 ```JSON
 {
-  "timespan": "2017-09-01T00:00:00Z/2017-09-10T00:00:00Z",
+  "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -244,52 +289,34 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
             }
           ]
         },
-        {
-          "metadatavalues": [
-            {
-              "name": {
-                "value": "apiname",
-                "localizedValue": "apiname"
-              },
-              "value": "PutPage"
-            }
-          ]
-        },
-        {
-          "metadatavalues": [
-            {
-              "name": {
-                "value": "apiname",
-                "localizedValue": "apiname"
-              },
-              "value": "Unknown"
-            }
-          ]
-        },
         ...
       ]    
     }
-  ]
+  ],
+  "namespace": "Microsoft.Storage/storageAccounts",
+  "resourceregion": "eastus"
 }
 ```
 
 ## <a name="retrieve-metric-values-multi-dimensional-api"></a>Ölçü değerlerini (çok boyutlu API) alma
-Kullanılabilir ölçüm tanımlarını ve olası boyut değerlerini bilinen sonra ardından ilgili ölçüm değerleri almak mümkündür. Ölçüm kişinin adı 'value' (değil ' localizedValue') filtreleme tüm istekleri için kullanır. Hiçbir boyut filtreleri belirtilirse, toplanan toplanmış ölçüm döndürülür.
+Kullanılabilir ölçüm tanımlarını ve olası boyut değerlerini bilinen sonra ardından ilgili ölçüm değerleri almak mümkündür.  Kullanım [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics) Bunu başarmak için.
+
+Ölçüm kişinin adı 'value' (değil ' localizedValue') filtreleme tüm istekleri için kullanır. Hiçbir boyut filtreleri belirtilirse, toplanan toplanmış ölçüm döndürülür. Ölçüm sorguda birden çok serisi döndürürse, serisi sınırlı sıralı bir listesi dönmek için 'Top' ve 'OrderBy' sorgu parametreleri kullanabilirsiniz.
 
 > [!NOTE]
-> Azure İzleyici REST API'sini kullanarak çok boyutlu ölçüm değerleri almak için "2017-05-01-Önizleme" API sürümü kullanın.
+> Azure İzleyici REST API'sini kullanarak çok boyutlu ölçüm değerleri almak için "2018-01-01" API sürümü kullanın.
 >
 >
 
 **Yöntem**: Al
 
-**İstek URI'si**: https://management.azure.com/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/*{ Kaynak-sağlayıcısı-namespace}*/*{kaynak türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?metric= *{ölçüm}*& timespan =*{starttime/endtime}*& $filter =*{filtre}*& aralığı =*{timeGrain}* & toplama =*{aggreation}*& api-version =*{apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?metric=*{ölçüm}* & timespan =*{starttime/endtime}*& $filter =*{filtre}*& aralığı =*{timeGrain}*& toplama =*{ aggreation}*& api-version =*{apiVersion}*
 
-Örneğin, bir 5 dk. aralığının API adı 'GetBlobProperties' için tüm işlemleri sırasında Depolama 'İşlemleri' Ölçüm ölçüm değerleri almak için isteği aşağıdaki gibi olur:
+Örneğin, en üst 3 almak için API'ler, azalan sırada, 5 dk. aralığı sırasında 'işlem' sayısı tarafından GeotType 'Birincil' olduğu değer isteği aşağıdaki gibi olur:
 
 ```PowerShell
-$filter = "APIName eq 'GetBlobProperties'"
-$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-19T02:00:00Z/2017-09-19T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Count&api-version=2017-05-01-preview"
+$filter = "APIName eq '*' and GeoType eq 'Primary'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -301,11 +328,11 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
 ```JSON
 {
   "cost": 0,
-  "timespan": "2017-09-19T02:00:00Z/2017-09-19T02:05:00Z",
+  "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
   "interval": "PT1M",
   "value": [
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
       "type": "Microsoft.Insights/metrics",
       "name": {
         "value": "Transactions",
@@ -326,29 +353,32 @@ Sonuçta elde edilen JSON yanıt gövdesine aşağıdaki örneğe benzer olacakt
           "data": [
             {
               "timeStamp": "2017-09-19T02:00:00Z",
-              "count": 2.0
+              "total": 2
             },
             {
               "timeStamp": "2017-09-19T02:01:00Z",
-              "count": 1.0
+              "total": 1
             },
             {
               "timeStamp": "2017-09-19T02:02:00Z",
-              "count": 3.0
+              "total": 3
             },
             {
               "timeStamp": "2017-09-19T02:03:00Z",
-              "count": 7.0
+              "total": 7
             },
             {
               "timeStamp": "2017-09-19T02:04:00Z",
-              "count": 2.0
+              "total": 2
             }
           ]
-        }
+        },
+        ...
       ]
     }
-  ]
+  ],
+  "namespace": "Microsoft.Storage/storageAccounts",
+  "resourceregion": "eastus"
 }
 ```
 
@@ -357,7 +387,7 @@ Kullanım [Azure İzleyici ölçüm tanımlarını REST API](https://msdn.micros
 
 **Yöntem**: Al
 
-**İstek URI'si**: https://management.azure.com/subscriptions/*{Subscriptionıd}*/resourceGroups/*{resourceGroupName}*/providers/*{ resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions? API sürümü =*{apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{Subscriptionıd}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
 
 Örneğin, bir Azure mantıksal uygulama ölçüm tanımlarını almak için isteği şu şekilde görünür:
 
@@ -427,7 +457,7 @@ Kullanılabilir ölçüm tanımlarını bilinen sonra ardından ilgili ölçüm 
 
 **Yöntem**: Al
 
-**İstek URI'si**: https://management.azure.com/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/*{ Kaynak-sağlayıcısı-namespace}*/*{kaynak türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?$filter= *{filtre}*& api-version =*{apiVersion}*
+**İstek URI'si**: https://management.azure.com/subscriptions/ *{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/*{kaynak-sağlayıcısı-namespace}* / *{kaynak türü}*/*{kaynak-adı}*/providers/microsoft.insights/metrics?$filter=*{filtre}*& api-version =*{apiVersion}*
 
 Örneğin, 1 saatlik bir zaman çizgisi ve belirli bir zaman aralığı için RunsSucceeded ölçüm veri noktalarını almak için isteği aşağıdaki gibi olur:
 
@@ -558,13 +588,13 @@ REST API kullanarak gerçekten kullanılabilir ölçüm tanımlarını, ayrınt�
 
 Önceki kod için kullanılacak kaynak kimliği istenen Azure kaynak tam yoludur. Örneğin, bir Azure Web uygulaması karşı sorgulamak için kaynak kimliği olur:
 
-*/Subscriptions/{Subscription-id}/resourceGroups/{Resource-Group-Name}/providers/Microsoft.Web/Sites/{Site-Name}/*
+*/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
 Aşağıdaki listede kaynak kimliği biçimlerinden çeşitli Azure kaynakları için birkaç örnek içerir:
 
 * **IOT hub'ı** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-adı}*
 * **SQL esnek havuzu** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Sql/servers/*{havuzu-db}*/elasticpools/*{sql-havuzu-adı}*
-* **SQL veritabanı (v12)** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Sql/servers/*{sunucu-adı}* /databases/*{veritabanı-adı}*
+* **SQL veritabanı (v12)** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Sql/servers/*{sunucu-adı}*/databases/*{veritabanı-adı}*
 * **Hizmet veri yolu** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.ServiceBus/*{ad}* / *{servicebus-adı}*
 * **Sanal makine ölçek kümeleri** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-adı}*
 * **Sanal makineleri** -/subscriptions/*{subscrıptıon-ID}*/resourceGroups/*{kaynak grubu adı}*/providers/Microsoft.Compute/virtualMachines/*{vm-adı}*

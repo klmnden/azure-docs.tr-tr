@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu Runbook yürütme"
-description: "Azure automation'da bir runbook nasıl işleneceğini ayrıntılarını açıklar."
+title: Azure Otomasyonu Runbook yürütme
+description: Azure automation'da bir runbook nasıl işleneceğini ayrıntılarını açıklar.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Otomasyonu Runbook yürütme
 Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş bir runbook tek yürütme örneğidir. Bir Azure Otomasyonu çalışan her bir iş çalıştırmak için atanır. Çalışan birden çok Azure paylaştığı olsa da, farklı Automation hesapları işlerden birbirinden yalıtılır. Değil sahip denetim işinizi isteği hangi çalışan hizmetleri. Tek bir runbook'ta aynı anda çalışan birden çok iş bulunabilir.  Aynı Otomasyon hesabı işlerden yürütme ortamı yeniden kullanılabilir. Azure portalında listesini görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek için her runbook için iş listesini görüntüleyebilirsiniz. Farklı iş durumları açıklaması [iş durumları](#job-statuses).
@@ -46,7 +46,7 @@ Aşağıdaki tabloda, bir iş için olası farklı durumlarını tanımlar.
 | Askıya alınıyor |Sistem, kullanıcının isteği üzerine işi askıya almaya çalışıyor. Runbook, askıya alınmadan önce sonraki denetim noktasına erişmelidir. Askıya alınmadan önce tamamlandıktan sonra zaten en son denetim aktarılırsa.  Uygulandığı öğe [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md) yalnızca. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Azure portalından işi durumunu görüntüleme
-Tüm runbook işleri özetlenen durumunu görüntüleyin ya da belirli bir runbook işi Azure portalında veya runbook iş durumu ve iş iletmek için Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanınız ile tümleştirme yapılandırarak ayrıntılarını incelemek Akışlar.  OMS günlük analizi ile tümleştirme hakkında daha fazla bilgi için bkz: [Otomasyon iş durumu ve iş akışları günlük analizi (OMS) iletmek](automation-manage-send-joblogs-log-analytics.md).  
+Tüm runbook işleri özetlenen durumunu görüntüleyin ya da belirli bir runbook işi Azure portalında veya runbook iş durumu ve iş akışları iletmek için günlük analizi çalışma alanınız ile tümleştirme yapılandırarak ayrıntılarını incelemek.  Günlük analizi ile tümleştirme hakkında daha fazla bilgi için bkz: [Otomasyon iş durumu ve iş akışları için günlük analizi iletmek](automation-manage-send-joblogs-log-analytics.md).  
 
 ### <a name="automation-runbook-jobs-summary"></a>Otomasyon runbook işleri özeti
 Seçili Otomasyon hesabınızı sağ tarafta, tüm seçili Otomasyon hesabında runbook işlerini özetini görebilirsiniz **Proje istatistikleri** döşeme.<br><br> ![Proje istatistikleri döşeme](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Bu kutucuğun count ve iş durumu yürütülen tüm işler için grafik gösterimi görüntüler.  

@@ -1,6 +1,6 @@
 ---
-title: "Döküm kullanarak MySQL veritabanınızı geçirin ve Azure veritabanı'nda MySQL için geri yükleme"
-description: "Bu makalede yedeklemek ve mysqldump, MySQL çalışma ekranı ve PHPMyAdmin gibi araçları kullanarak MySQL için Azure veritabanınızdaki veritabanlarını geri yüklemek için iki genel yolu açıklanmaktadır."
+title: Döküm kullanarak MySQL veritabanınızı geçirin ve Azure veritabanı'nda MySQL için geri yükleme
+description: Bu makalede yedeklemek ve mysqldump, MySQL çalışma ekranı ve PHPMyAdmin gibi araçları kullanarak MySQL için Azure veritabanınızdaki veritabanlarını geri yüklemek için iki genel yolu açıklanmaktadır.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 0c5a6b6d971d434a52bf80da6b34d7f6949589bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>MySQL veritabanınız için MySQL döküm ve geri yükleme kullanarak Azure veritabanına geçirme
 Bu makalede, yedeklemek ve MySQL için Azure veritabanınızdaki veritabanlarını geri yüklemek için iki genel yolu açıklanmaktadır.
@@ -87,10 +87,12 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>MySQL sunucusu için hedef Azure veritabanı bir veritabanı oluşturma
 MySQL server verileri geçirmek istediğiniz hedef Azure veritabanı üzerinde boş bir veritabanı oluşturun. Veritabanını oluşturmak için MySQL çalışma ekranı, kurbağa veya Navicat gibi bir araç kullanın. Veritabanı olduğundan veritabanı Dökümü alınan veriler içeriyor veya farklı bir adla bir veritabanı oluşturabilirsiniz gibi aynı ada sahip olabilir.
 
-Bağlantı için Özellikler sayfasında bağlantı bilgilerini Azure veritabanı'nda MySQL için bulun.
-![Azure Portalı'nda bağlantı bilgilerini Bul](./media/concepts-migrate-dump-restore/1_server-properties-name-login.png)
+Bağlantı için bağlantı bilgilerini bulun **genel bakış** MySQL için Azure veritabanınızın.
+
+![Azure Portalı'nda bağlantı bilgilerini Bul](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
 MySQL çalışma ekranı içine bağlantı bilgilerini ekleyin.
+
 ![MySQL çalışma ekranı bağlantı dizesi](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
 

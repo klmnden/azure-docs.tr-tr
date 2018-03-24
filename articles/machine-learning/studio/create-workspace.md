@@ -1,29 +1,28 @@
 ---
-title: "Machine Learning Studio çalışma alanı oluşturma | Microsoft Docs"
-description: "Azure Machine Learning Studio'da bir çalışma alanı oluşturma"
+title: Machine Learning Studio çalışma alanı oluşturma | Microsoft Docs
+description: Azure Machine Learning Studio'da bir çalışma alanı oluşturma
 services: machine-learning
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: garye
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
-ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8da10e474c62868ca109a44e7c66dc11ee62b6de
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı oluşturma ve paylaşma
 Cortana analitik işlem (CAP) tarafından kullanılan çeşitli veri bilimi ortamları ayarlama nasıl açıklayan konulara bu menü bağlantılar.
 
 [!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
 
-Azure Machine Learning Studio kullanmak için bir Machine Learning çalışma alanınızın olması gerekir. Bu çalışma alanı oluşturmak, yönetmek ve denemeler yayımlamak için ihtiyacınız olan araçları içerir.
+Azure Machine Learning Studio kullanmak için bir Machine Learning çalışma alanınızın olması gerekir. Bu çalışma alanı, denemeleri oluşturmak, yönetmek ve yayımlamak için ihtiyacınız olan araçları içerir.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -41,16 +40,16 @@ Azure Machine Learning Studio kullanmak için bir Machine Learning çalışma al
 
 4. Çalışma alanı bilgilerinizi girin:
 
-    - *Çalışma alanı adı* boşluk bitiş değil, en fazla 260 karakter olabilir. Adı şu karakterleri içeremez:`< > * % & : \ ? + /`
+    - *Çalışma alanı adı* boşluk bitiş değil, en fazla 260 karakter olabilir. Adı şu karakterleri içeremez: `< > * % & : \ ? + /`
     - *Web hizmeti planı* , seçin (veya oluşturun), ilişkili birlikte *fiyatlandırma katmanı* seçin, web hizmetleri bu çalışma alanından dağıtırsanız kullanılır.
 
     ![Yeni bir çalışma alanı oluşturma](./media/create-workspace/create-new-workspace.png)
 
-5. **Oluştur**'a tıklayın.
+5. **Oluştur**’a tıklayın.
 
 Çalışma alanı dağıtıldığında, Machine Learning Studio'da açabilirsiniz.
 
-1. Machine Learning Studio'ya için Gözat [https://studio.azureml.net/](https://studio.azureml.net/).
+1. Machine Learning Studio'ya için Gözat [ https://studio.azureml.net/ ](https://studio.azureml.net/).
 
 2. Çalışma alanınızı üst sağ taraftaki köşedeki seçin.
 
@@ -77,7 +76,7 @@ Bir kez çalışma alanı oluşturulduğunda Machine Learning, kullanıcıları 
 
 ### <a name="to-share-a-workspace"></a>Bir çalışma alanı paylaşmak için
 
-1. Machine Learning Studio'ya oturum [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Machine Learning Studio'ya oturum açın [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. Sol panelinde tıklatın **ayarları**
 

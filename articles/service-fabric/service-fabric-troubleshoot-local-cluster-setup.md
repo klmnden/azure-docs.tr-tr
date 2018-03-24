@@ -1,24 +1,24 @@
 ---
-title: "Yerel Service Fabric Küme kurulumu sorunlarını giderme | Microsoft Docs"
-description: "Bu makalede, yerel geliştirme kümeniz sorun giderme önerileri bir dizi kapsar"
+title: Yerel Azure Service Fabric Küme kurulumu sorunlarını giderme | Microsoft Docs
+description: Bu makalede, yerel geliştirme kümeniz sorun giderme önerileri bir dizi kapsar
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 6879a24df434d5bf69c9ba14aa00cdc9cd67df57
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Yerel geliştirme Küme kurulumu sorunlarını giderme
 Yerel Azure Service Fabric geliştirme kümenizle etkileşim sırasında bir sorun çalıştırırsanız, olası çözümler için aşağıdaki önerileri gözden geçirin.
@@ -26,7 +26,7 @@ Yerel Azure Service Fabric geliştirme kümenizle etkileşim sırasında bir sor
 ## <a name="cluster-setup-failures"></a>Küme kurulumu hataları
 ### <a name="cannot-clean-up-service-fabric-logs"></a>Service Fabric günlüklerini temizleyemiyor
 #### <a name="problem"></a>Sorun
-DevClusterSetup komut dosyası çalıştırılırken, bu gibi bir hata görürsünüz:
+DevClusterSetup komut dosyası çalıştırılırken, aşağıdaki hatayı görürsünüz:
 
     Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
     At line:1 char:1 + .\DevClusterSetup.ps1
@@ -36,20 +36,9 @@ DevClusterSetup komut dosyası çalıştırılırken, bu gibi bir hata görürs�
 
 
 #### <a name="solution"></a>Çözüm
-Geçerli PowerShell penceresini kapatın ve yönetici olarak yeni bir PowerShell penceresi açın. Artık başarıyla komut dosyasını çalıştırmak mümkün olması gerekir.
+Geçerli PowerShell penceresini kapatın ve yönetici olarak yeni bir PowerShell penceresi açın. Komut dosyası artık başarılı bir şekilde çalıştırabilirsiniz.
 
 ## <a name="cluster-connection-failures"></a>Küme bağlantı hataları
-### <a name="service-fabric-powershell-cmdlets-are-not-recognized-in-azure-powershell"></a>Service Fabric PowerShell cmdlet'leri Azure PowerShell'de tanınmıyor.
-#### <a name="problem"></a>Sorun
-Service Fabric PowerShell cmdlet'lerinden herhangi birini gibi çalıştırmayı denerseniz `Connect-ServiceFabricCluster` bir Azure PowerShell penceresinde, cmdlet tanınmıyor belirten başarısız olur. Service Fabric cmdlet'leri yalnızca 64-bit ortamlarında çalışır ancak bunun nedeni Azure PowerShell 32 bit sürümünde Windows PowerShell (hatta 64-bit işletim sistemi sürümleri), kullanmasıdır.
-
-#### <a name="solution"></a>Çözüm
-Her zaman Windows Powershell'den doğrudan Service Fabric cmdlet'lerini çalıştırın.
-
-> [!NOTE]
-> Bu artık gerçekleşmesi gereken şekilde Azure PowerShell'in en son sürümünü özel bir kısayol oluşturmaz.
-> 
-> 
 
 ### <a name="type-initialization-exception"></a>Tür başlatma özel durumu oluştu
 #### <a name="problem"></a>Sorun
@@ -70,14 +59,14 @@ Connect-ServiceFabricCluster yapılan bir çağrı şuna benzer bir hata ile ba�
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
 #### <a name="solution"></a>Çözüm
-Geçerli PowerShell penceresini kapatın ve yönetici olarak yeni bir PowerShell penceresi açın. Artık başarıyla bağlanabilmek için olması gerekir.
+Geçerli PowerShell penceresini kapatın ve yönetici olarak yeni bir PowerShell penceresi açın.
 
 ### <a name="fabric-connection-denied-exception"></a>Doku bağlantı reddedildi özel durumu
 #### <a name="problem"></a>Sorun
 Visual Studio'da hata ayıklama sırasında bir FabricConnectionDeniedException hatası alırsınız.
 
 #### <a name="solution"></a>Çözüm
-Bu hata genellikle başlatmak, Service Fabric çalışma zamanını izin vermek yerine bir hizmet ana bilgisayar işlemi el ile başlatmayı deneyin oluşur.
+Bu hata, genellikle bir hizmet ana bilgisayar işlemi el ile başlatmayı denerseniz oluşur.
 
 Çözümünüzdeki başlangıç projesi olarak ayarla tüm hizmet projeleri yok emin olun. Yalnızca Service Fabric uygulaması projeleri başlangıç projesi ayarlanmalıdır.
 

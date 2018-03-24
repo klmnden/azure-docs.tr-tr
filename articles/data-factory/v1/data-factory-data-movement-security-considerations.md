@@ -1,11 +1,10 @@
 ---
-title: "Azure Data factory'de veri taşımayı ilgili güvenlik konuları | Microsoft Docs"
-description: "Azure Data factory'de veri taşımayı güvenliğini sağlama hakkında bilgi edinin."
+title: Azure Data factory'de veri taşımayı ilgili güvenlik konuları | Microsoft Docs
+description: Azure Data factory'de veri taşımayı güvenliğini sağlama hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
 
@@ -48,7 +47,7 @@ Bu makalede, aşağıdaki iki veri taşıma senaryolarda güvenlik konuları inc
 - **Karma senaryo**- Bu senaryoda, kaynak veya hedef bir güvenlik duvarı ardında veya içinde bir şirket içi şirket ağı veya veri deposu özel bir ağda / sanal ağ (çoğunlukla kaynağı) ve genel olarak erişilebilir değil. Sanal makineler üzerinde barındırılan veritabanı sunucularını da bu senaryoya ayrılır.
 
 ## <a name="cloud-scenarios"></a>Bulut senaryoları
-###<a name="securing-data-store-credentials"></a>Veri deposu kimlik güvenliğini sağlama
+### <a name="securing-data-store-credentials"></a>Veri deposu kimlik güvenliğini sağlama
 Azure Data Factory ile veri deposu kimlik bilgilerinizi korur **şifreleme** kullanarak bunları **Microsoft tarafından yönetilen sertifikaları**. Bu sertifikalar Döndürülmüş her **iki yıllık** (içeren sertifikanın yenilenmesini ve kimlik bilgilerini geçişini). Bu şifrelenmiş kimlik bilgileri güvenli bir şekilde depolanır bir **Azure Storage, Azure Data Factory Yönetim Hizmetleri tarafından yönetilen**. Azure Storage güvenliği hakkında daha fazla bilgi için bkz [Azure depolama güvenliğine genel bakış](../../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Aktarımdaki verileri şifreleme

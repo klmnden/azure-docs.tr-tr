@@ -1,11 +1,11 @@
 ---
-title: "Bir kullanıcı tarafından atanan yönetilen hizmet kimliği bir VM'de bir erişim belirteci almak için nasıl kullanılacağını."
-description: "Adım adım yönergeler ve bir OAuth almak için bir Azure VM gelen bir kullanıcı tarafından atanan MSI kullanımına ilişkin örnekler belirteci erişin."
+title: Bir kullanıcı tarafından atanan yönetilen hizmet kimliği bir VM'de bir erişim belirteci almak için nasıl kullanılacağını.
+description: Adım adım yönergeler ve bir OAuth almak için bir Azure VM gelen bir kullanıcı tarafından atanan MSI kullanımına ilişkin örnekler belirteci erişin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Yönetilen hizmet kimliği (MSI) kullanıcı tarafından atanan bir VM için bir erişim belirteci alma
 
@@ -42,7 +42,9 @@ Bir istemci uygulaması bir MSI isteyebilir [yalnızca uygulama erişim belirtec
 | [CURL kullanarak belirteç alın](#get-a-token-using-curl) | MSI REST uç noktası geçirmesi/CURL istemciden kullanma örneği |
 | [Belirteç süre sonu işleme](#handling-token-expiration) | Süresi dolan erişim belirteçleri işlemek için kılavuz |
 | [Hata işleme](#error-handling) | MSI belirteç uç noktadan döndürülen HTTP hataları işlemek için kılavuz |
+| [Kısıtlama Kılavuzu](#throttling-guidance) | MSI belirteç uç noktası azaltma işlemek için kılavuz |
 | [Azure Hizmetleri için kaynak kimlikleri](#resource-ids-for-azure-services) | Kaynak kimlikleri için desteklenen Azure Hizmetleri alınacağı konumu |
+
 
 ## <a name="get-a-token-using-http"></a>HTTP kullanarak belirteç alın 
 
@@ -155,7 +157,7 @@ Bu bölümde, olası hata yanıtları belgeler. A "200 Tamam" durumu başarılı
 
 | Durum kodu | Hata | Hata Açıklaması | Çözüm |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Hatalı istek | invalid_resource | AADSTS50001: uygulama adlı  *\<URI\>*  adlı Kiracı bulunamadı  *\<KİRACI kimliği\>*. Uygulama değil Kiracı Yöneticisi tarafından yüklendikten veya Kiracı herhangi bir kullanıcı tarafından izin verdiği gerçekleşebilir. Yanlış Kiracı kimlik doğrulama isteği gönderilen. \ | (Yalnızca Linux) |
+| 400 Hatalı istek | invalid_resource | AADSTS50001: uygulama adlı *\<URI\>* adlı Kiracı bulunamadı  *\<KİRACI kimliği\>*. Uygulama değil Kiracı Yöneticisi tarafından yüklendikten veya Kiracı herhangi bir kullanıcı tarafından izin verdiği gerçekleşebilir. Yanlış Kiracı kimlik doğrulama isteği gönderilen. \ | (Yalnızca Linux) |
 | 400 Hatalı istek | bad_request_102 | Gerekli meta veriler üstbilgisi belirtilmedi | Her iki `Metadata` isteği üstbilgisi alanının isteğinizden eksik veya yanlış biçimlendirilmiş. Değer olarak belirtilmelidir `true`, tüm alt durumda. "Örnek istek" bölümüne bakın [HTTP kullanarak bir belirteç almak](#get-a-token-using-http) bir örnek bölüm.|
 | 401 Yetkisiz | unknown_source | Bilinmeyen kaynak  *\<URI\>* | HTTP GET isteği URI doğru biçimlendirildiğinden emin olun. `scheme:host/resource-path` Bölümü olarak belirtilmelidir `http://169.254.169.254/metadata/identity/oath2/token` veya `http://localhost:50342/oauth2/token`. "Örnek istek" bölümüne bakın [HTTP kullanarak bir belirteç almak](#get-a-token-using-http) bir örnek bölüm.|
 |           | invalid_request | İstek gerekli bir parametre eksik, geçersiz bir parametre değeri içerir, bir parametresi birden çok kez içerir veya aksi halde bozuk. |  |
@@ -164,6 +166,16 @@ Bu bölümde, olası hata yanıtları belgeler. A "200 Tamam" durumu başarılı
 |           | unsupported_response_type | Yetkilendirme sunucusu bu yöntemi kullanarak bir erişim belirteci alma desteklemez. |  |
 |           | invalid_scope | İstenen kapsamı geçersiz, bilinmeyen veya hatalı biçimlendirilmiş olabilir. |  |
 | 500 İç sunucu hatası | bilinmiyor | Active Directory'den belirteci alınamadı. Ayrıntılar için günlükleri Bkz  *\<dosya yolu\>* | MSI VM etkin olduğunu doğrulayın. Bkz: [bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](msi-qs-configure-portal-windows-vm.md) VM yapılandırması yardıma ihtiyacınız varsa.<br><br>Ayrıca, HTTP GET isteği URI özellikle URI sorgu dizesinde belirtilen kaynak doğru biçimlendirildiğinden emin olun. "Örnek istek" bölümüne bakın [HTTP kullanarak bir belirteç almak](#get-a-token-using-http) bölüm bir örnek veya [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](msi-overview.md#azure-services-that-support-azure-ad-authentication) Hizmetleri ve bunların ilgili kaynak kimlikleri listesi.
+
+## <a name="throttling-guidance"></a>Kısıtlama Kılavuzu 
+
+Azaltma sınırları MSI IMDS uç noktasına yapılan çağrı sayısı için geçerlidir. Azaltma eşiği aşıldığında, kısıtlama etkinken MSI IMDS uç noktası başka bir istek sınırlar. Bu süre boyunca MSI IMDS uç noktası HTTP durum kodu 429 döndürür ("çok sayıda istek"), ve istekleri başarısız olur. 
+
+Yeniden deneme için aşağıdaki stratejisi öneririz: 
+
+| **Yeniden deneme stratejisi** | **Ayarlar** | **Değerler** | **Nasıl çalışır?** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Yeniden deneme sayısı<br />En düşük geri alma<br />En yüksek geri alma<br />Delta geri alma<br />İlk hızlı yeniden deneme |5<br />0 sn<br />60 sn<br />2 sn<br />false |Deneme 1 - 0 sn gecikme<br />Deneme 2 - yaklaşık 2 sn gecikme<br />Deneme 3 - yaklaşık 6 sn gecikme<br />Deneme 4 - yaklaşık 14 sn gecikme<br />Deneme 5 - yaklaşık 30 sn gecikme |
 
 ## <a name="resource-ids-for-azure-services"></a>Azure Hizmetleri için kaynak kimlikleri
 

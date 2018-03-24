@@ -1,6 +1,6 @@
 ---
-title: "Runbook çıkışı ve iletileri Azure automation'da"
-description: "Azure Automation runbook'lardan nasıl oluşturulacağını ve çıkış ve hata iletileri Desribes."
+title: Runbook çıkışı ve iletileri Azure automation'da
+description: Azure Automation runbook'lardan nasıl oluşturulacağını ve çıkış ve hata iletileri Desribes.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a02ea2854de7ff32a8c50ff2e6f317596fb4aa1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook çıkışı ve iletileri Azure Automation
 Çoğu Azure Automation runbook kullanıcıya bir hata iletisi gibi bir çıkış sahiptir veya karmaşık bir nesne başka bir iş akışı tarafından kullanılması amaçlanan. Windows PowerShell sağlar [birden çok akış](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) bir komut dosyası veya iş akışı çıkış göndermek için. Azure Otomasyonu her bu akışları farklı şekilde çalışır ve bir runbook oluştururken her kullanımı için en iyi uygulamaları izlemelisiniz.
@@ -204,8 +204,8 @@ Grafik runbook'lar için fazladan günlüğü etkinlik düzeyi izleme formunda k
    
    ![Grafik yazma günlüğe kaydetme ve dikey izleme](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Microsoft Operations Management Suite (OMS) günlük analizi
-Otomasyon runbook iş durumu ve iş akışları için Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanınız gönderebilirsiniz. Günlük analizi ile şunları yapabilirsiniz,
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure günlük analizi
+Otomasyon runbook iş durumu ve iş akışları için günlük analizi çalışma alanınız gönderebilirsiniz. Günlük analizi ile şunları yapabilirsiniz,
 
 * Otomasyon işleriniz hakkında bilgi edinme 
 * Bir e-posta veya uyarı (örneğin, başarısız veya askıya alınmış), runbook işi durumlarına dayalı tetikleyici 
@@ -213,7 +213,7 @@ Otomasyon runbook iş durumu ve iş akışları için Microsoft Operations Manag
 * İşlerini Automation hesaplarında ilişkilendirmek 
 * İş Geçmişi zaman içinde görselleştirin    
 
-Toplamak, bağıntılı ve iş verilerde işlem yapmak için günlük analizi ile entegrasyonu yapılandırma hakkında daha fazla bilgi için bkz: [Otomasyon iş durumu ve iş akışları günlük analizi (OMS) iletmek](automation-manage-send-joblogs-log-analytics.md).
+Toplamak, bağıntılı ve iş verilerde işlem yapmak için günlük analizi ile entegrasyonu yapılandırma hakkında daha fazla bilgi için bkz: [Otomasyon iş durumu ve iş akışları için günlük analizi iletmek](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md)

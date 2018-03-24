@@ -1,30 +1,27 @@
 ---
-title: "Azure Active Directory B2C: Özel ilke | Microsoft Docs"
-description: "Bir konu Azure Active Directory B2C özel ilkeler hakkında"
+title: 'Azure Active Directory B2C: Özel ilke | Microsoft Docs'
+description: Bir konu Azure Active Directory B2C özel ilkeler hakkında
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 269b65662796c092190cd2622c240756f6bd1cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-## <a name="what-are-custom-policies"></a>Özel ilkeler nelerdir?
+## <a name="what-are-custom-policies"></a>Özel ilkeler nedir?
 
 Özel ilkeler, Azure AD B2C kiracınızın davranışlarını tanımlayan yapılandırma dosyalarıdır. Oysa **yerleşik ilkeleri** önceden tanımlanmış en yaygın kimlik görevler için Azure AD B2C portalında özel ilkeler tam olarak görevleri yakın sınırsız sayıda tamamlamak için bir kimlik geliştirici tarafından düzenlenebilir. İçin okumaya özel ilkeler, sağa ve kimlik senaryonuz olup olmadığını belirleyin.
 
@@ -37,7 +34,7 @@ ms.lasthandoff: 12/11/2017
 |UI Özelleştirme | (Özel etki alanı gerektirir) HTML, CSS ve javascript desteği dahil olmak üzere, tam kullanıcı arabirimini özelleştirme<br><br>Özel dizeler ile birden çok dil desteği | Aynı |
 | Öznitelik özelleştirme | Standart ve özel öznitelikler | Aynı |
 |Belirteç ve oturum yönetimi | Özel belirteç ve birden çok oturum seçenekleri | Aynı |
-|Kimlik sağlayıcılar| **Bugün**: önceden tanımlanmış yerel, sosyal sağlayıcısı<br><br>**Gelecekte**: OIDC, SAML, standartlara dayalı OAuth | **Bugün**: OIDC, OAUTH, standartlara dayalı SAML<br><br>**Gelecekte**: WsFed |
+|Kimlik Sağlayıcıları| **Bugün**: önceden tanımlanmış yerel, sosyal sağlayıcısı<br><br>**Gelecekte**: OIDC, SAML, standartlara dayalı OAuth | **Bugün**: OIDC, OAUTH, standartlara dayalı SAML<br><br>**Gelecekte**: WsFed |
 |Kimlik görevler (örnekler) | Kaydolma veya yerel ve birçok sosyal hesap ile oturum<br><br>Self Servis Parola Sıfırlama<br><br>Profil düzenleme<br><br>Çok faktörlü kimlik doğrulama senaryoları<br><br>Belirteçleri ve oturumları özelleştirme<br><br>Erişim belirteci akışlar | Özel kimlik sağlayıcıları kullanarak yerleşik ilkeleri olarak aynı görevleri tamamlamak veya özel kapsamları kullanma<br><br>Sağlama kullanıcı sistemindeki başka bir zamanda kayıt<br><br>Kendi e-posta hizmeti sağlayıcısını kullanarak bir Hoş Geldiniz e-posta Gönder<br><br>Bir kullanıcı deposunun B2C dışında kullanın<br><br>Kullanıcı tarafından sağlanan güvenilir bir sistem API'si aracılığıyla bilgilerle doğrula |
 
 ## <a name="policy-files"></a>İlke dosyaları
@@ -92,9 +89,9 @@ Azure AD B2C kiracınızda kimlik deneyimi Framework davranışını tanımlamak
 
 | İlke dosya türü | Örnek dosya adı | Önerilen kullanın | Öğesinden devralınan |
 |---------------------|--------------------|-----------------|---------------|
-| TEMEL |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com B2C 1A_BASE1.xml | Çekirdek talep şeması, talep dönüştürmeleri, talep sağlayıcıları ve Microsoft tarafından yapılandırılan kullanıcı Yolculuklar içerir<br><br>Bu dosyada küçük değişiklikler yapmak | None |
-| Uzantı (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com B2C 1A_EXT.xml | TEMEL dosya burada yaptığınız değişiklikler birleştirin<br><br>Değiştirilen talep sağlayıcıları<br><br>Değiştirilen kullanıcı Yolculuklar<br><br>Kendi özel şema tanımları | TEMEL dosya |
-| Bağlı olan taraf (RP) | B2C_1A_sign_up_sign_in.XML| Belirteci şekli ve oturum burada ayarlarını değiştirme| Extensions(ext) dosyası |
+| TEMEL |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Çekirdek talep şeması, talep dönüştürmeleri, talep sağlayıcıları ve Microsoft tarafından yapılandırılan kullanıcı Yolculuklar içerir<br><br>Bu dosyada küçük değişiklikler yapmak | Hiçbiri |
+| Uzantı (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | TEMEL dosya burada yaptığınız değişiklikler birleştirin<br><br>Değiştirilen talep sağlayıcıları<br><br>Değiştirilen kullanıcı Yolculuklar<br><br>Kendi özel şema tanımları | TEMEL dosya |
+| Bağlı olan taraf (RP) | B2C_1A_sign_up_sign_in.xml| Belirteci şekli ve oturum burada ayarlarını değiştirme| Extensions(ext) dosyası |
 
 ### <a name="inheritance-model"></a>Devralma modeli
 

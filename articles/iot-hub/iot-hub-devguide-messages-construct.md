@@ -1,24 +1,24 @@
 ---
-title: "Azure IOT Hub ileti biçimi anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - descibes biçimi ve IOT hub'ı iletilerinin beklenen içerik."
+title: Azure IOT Hub ileti biçimi anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - descibes biçimi ve IOT hub'ı iletilerinin beklenen içerik.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3d5b500964ee37dbd347858edd35812e1d217499
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Oluşturun ve IOT hub'ı iletileri okur
 
@@ -50,6 +50,7 @@ Aşağıdaki tabloda, IOT hub'ı iletileri Sistem özelliklerinde kümesini list
 | ConnectionDeviceId |IOT Hub tarafından cihaz bulut iletilerini üzerinde ayarlanmış bir kimliği. İçerdiği **DeviceID** iletiyi gönderen cihaz. |
 | ConnectionDeviceGenerationId |IOT Hub tarafından cihaz bulut iletilerini üzerinde ayarlanmış bir kimliği. İçerdiği **Generationıd** (göre [aygıt kimlik özellikleri][lnk-device-properties]) iletiyi gönderen cihaz. |
 | ConnectionAuthMethod |IOT Hub tarafından cihaz bulut iletilerini üzerinde ayarlanmış bir kimlik doğrulama yöntemi. Bu özellik, iletiyi göndermeyi cihazın kimliğini doğrulamak için kullanılan kimlik doğrulama yöntemi hakkında bilgi içerir. Daha fazla bilgi için bkz: [yanıltma bulut aygıta][lnk-antispoofing]. |
+| CreationTimeUtc | Tarih ve saat ileti bir aygıtta oluşturuldu. Bir aygıt bu değeri açıkça ayarlamanız gerekir. |
 
 ## <a name="message-size"></a>İleti boyutu
 

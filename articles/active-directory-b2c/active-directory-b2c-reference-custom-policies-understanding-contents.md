@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Başlangıç paketinin özel ilkelerini anlama | Microsoft Docs"
-description: "Bir konu Azure Active Directory B2C özel ilkeler hakkında"
+title: 'Azure Active Directory B2C: Başlangıç paketinin özel ilkelerini anlama | Microsoft Docs'
+description: Bir konu Azure Active Directory B2C özel ilkeler hakkında
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
-ms.openlocfilehash: fccb6cfddc8629de7db0310340f07bffd1ff8a65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Azure AD B2C özel ilke başlangıç paketinin özel ilkelerini anlama
 
@@ -52,18 +49,18 @@ Aşağıdaki talep kullanıcı Yolculuklar düzgün çalışması gereklidir:
 
 | Talep türü | Açıklama |
 |-------------|-------------|
-| *Kullanıcı Kimliği* | Kullanıcı adı |
+| *UserId* | Kullanıcı adı |
 | *signInName* | Oturum adı |
-| *Tenantıd* | Azure AD B2C Premium kullanıcı nesnesinin Kiracı tanımlayıcısını (ID) |
-| *objectID* | Azure AD B2C Premium kullanıcı nesnesinin nesne tanımlayıcısını (ID) |
+| *tenantId* | Azure AD B2C Premium kullanıcı nesnesinin Kiracı tanımlayıcısını (ID) |
+| *objectId* | Azure AD B2C Premium kullanıcı nesnesinin nesne tanımlayıcısını (ID) |
 | *Parola* | Parola |
-| *#newpassword* | |
+| *newPassword* | |
 | *reenterPassword* | |
 | *passwordPolicies* | Parola gücünü, sona erme vb. belirlemek için Azure AD B2C Premium tarafından kullanılan parola ilkeleri. |
-| *Sub* | |
+| *sub* | |
 | *alternativeSecurityId* | |
-| *Identityprovider* | |
-| *görünen adı* | |
+| *identityProvider* | |
+| *displayName* | |
 | *strongAuthenticationPhoneNumber* | Kullanıcının telefon numarası |
 | *Verified.strongAuthenticationPhoneNumber* | |
 | *E-posta* | Kullanıcıyla iletişim kurmak için kullanılan e-posta adresi |
@@ -73,8 +70,8 @@ Aşağıdaki talep kullanıcı Yolculuklar düzgün çalışması gereklidir:
 | *upnUserName* | Kullanıcı asıl adı oluşturmak için kullanıcı adı |
 | *mailNickName* | Azure AD B2C Premium içinde depolanan gibi kullanıcının posta takma adı |
 | *newUser* | |
-| *yürütülen-SelfAsserted-giriş* | Talep, öznitelikler kullanıcıdan toplanan olup olmadığını belirtir |
-| *yürütülen-PhoneFactor-giriş* | Talep, yeni bir telefon numarası kullanıcıdan toplanan olup olmadığını belirtir |
+| *executed-SelfAsserted-Input* | Talep, öznitelikler kullanıcıdan toplanan olup olmadığını belirtir |
+| *executed-PhoneFactor-Input* | Talep, yeni bir telefon numarası kullanıcıdan toplanan olup olmadığını belirtir |
 | *authenticationSource* | Kullanıcının sosyal kimlik sağlayıcısı, login.microsoftonline.com veya yerel hesap doğrulanmış olduğunu belirtir |
 
 ### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Sorgu dizesi parametreleri ve diğer özel parametreler için gereken talepleri
@@ -84,10 +81,10 @@ Aşağıdaki talep varsayılan olarak, diğer talep sağlayıcıları (bazı sor
 | Talep türü | Açıklama |
 |-------------|-------------|
 | *nux* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
-| *NCA* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
-| *istemi* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
-| *Mkt* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
-| *LC* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *nca* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *prompt* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *mkt* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *lc* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
 | *grant_type* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
 | *Kapsam* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
 | *client_id* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
@@ -101,7 +98,7 @@ Aşağıdaki talep kullanıcılardan toplanan, dizinde saklanan ve belirteçte g
 | Talep türü | Açıklama |
 |-------------|-------------|
 | *givenName* | Kullanıcının verilen adı (ilk adı olarak da bilinir) |
-| *Soyadı* | Kullanıcının soyadı (Aile adı ve Soyadı olarak da bilinir) |
+| *surname* | Kullanıcının soyadı (Aile adı ve Soyadı olarak da bilinir) |
 | *Extension_picture* | Sosyal kullanıcının resim |
 
 ## <a name="claim-transformations"></a>Talep dönüştürmeleri
@@ -156,29 +153,29 @@ Bu bölümde Talep sağlayıcı başına zaten tanımlanmış teknik profilleri 
 |-------------------|-------------|
 | *PhoneFactor giriş* | |
 | *PhoneFactor InputOrVerify* | |
-| *PhoneFactor doğrulayın* | |
+| *PhoneFactor-Verify* | |
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Azure Active Directory için teknik profilleri
 
 | Teknik profili | Açıklama |
 |-------------------|-------------|
-| *AAD-genel* | Diğer AAD xxx teknik profilleri dahil teknik profili |
-| *AAD UserWriteUsingAlternativeSecurityId* | Sosyal oturum açma teknik profili |
-| *AAD UserReadUsingAlternativeSecurityId* | Sosyal oturum açma teknik profili |
-| *AAD UserReadUsingAlternativeSecurityId NoError* | Sosyal oturum açma teknik profili |
+| *AAD-Common* | Diğer AAD xxx teknik profilleri dahil teknik profili |
+| *AAD-UserWriteUsingAlternativeSecurityId* | Sosyal oturum açma teknik profili |
+| *AAD-UserReadUsingAlternativeSecurityId* | Sosyal oturum açma teknik profili |
+| *AAD-UserReadUsingAlternativeSecurityId-NoError* | Sosyal oturum açma teknik profili |
 | *AAD UserWritePasswordUsingLogonEmail* | Yerel hesaplar için teknik profili |
-| *AAD UserReadUsingEmailAddress* | Yerel hesaplar için teknik profili |
-| *AAD UserWriteProfileUsingObjectId* | ObjectID kullanarak kullanıcı kaydını güncelleştirmek için teknik profili |
-| *AAD UserWritePhoneNumberUsingObjectId* | ObjectID kullanarak kullanıcı kaydını güncelleştirmek için teknik profili |
-| *AAD UserWritePasswordUsingObjectId* | ObjectID kullanarak kullanıcı kaydını güncelleştirmek için teknik profili |
-| *AAD UserReadUsingObjectId* | Teknik profili kullanıcı kimlik doğrulaması yaptıktan sonra verileri okumak için kullanılır |
+| *AAD-UserReadUsingEmailAddress* | Yerel hesaplar için teknik profili |
+| *AAD-UserWriteProfileUsingObjectId* | ObjectID kullanarak kullanıcı kaydını güncelleştirmek için teknik profili |
+| *AAD-UserWritePhoneNumberUsingObjectId* | ObjectID kullanarak kullanıcı kaydını güncelleştirmek için teknik profili |
+| *AAD-UserWritePasswordUsingObjectId* | ObjectID kullanarak kullanıcı kaydını güncelleştirmek için teknik profili |
+| *AAD-UserReadUsingObjectId* | Teknik profili kullanıcı kimlik doğrulaması yaptıktan sonra verileri okumak için kullanılır |
 
 ### <a name="technical-profiles-for-self-asserted"></a>Kendi kendine uygulanan için teknik profilleri
 
 | Teknik profili | Açıklama |
 |-------------------|-------------|
-| *SelfAsserted sosyal* | |
-| *SelfAsserted ProfileUpdate* | |
+| *SelfAsserted-Social* | |
+| *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Yerel hesap için teknik profilleri
 
@@ -191,10 +188,10 @@ Bu bölümde Talep sağlayıcı başına zaten tanımlanmış teknik profilleri 
 | Teknik profili | Açıklama |
 |-------------------|-------------|
 | *SM sekmeyi* | |
-| *SM AAD* | |
+| *SM-AAD* | |
 | *SM SocialSignup* | AAD oturum oturum arasında belirsizliğini ortadan kaldırmak ve oturum açma profili adı kullanılıyor |
 | *SM SocialLogin* | |
-| *SM MFA* | |
+| *SM-MFA* | |
 
 ### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Trustframework ilke altyapısı TechnicalProfiles için teknik profilleri
 
@@ -213,7 +210,7 @@ Bu bölümde zaten bildirilen kullanıcı Yolculuklar gösterilmektedir *B2C_1A_
 | Kullanıcı gezisine | Açıklama |
 |--------------|-------------|
 | *Kaydolma* | |
-| *Oturum açma* | |
+| *SignIn* | |
 | *SignUpOrSignIn* | |
 | *EditProfile* | |
 | *PasswordReset* | |

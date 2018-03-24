@@ -1,11 +1,11 @@
 ---
 title: Azure Data Factory (Beta) kullanarak kare veri kopyalama | Microsoft Docs
-description: "Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak kare desteklenen havuz veri depolarına kopyalama öğrenin."
+description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak kare desteklenen havuz veri depolarına kopyalama öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 65eab09a1fcf7e1c2411ee4b96d21ba22e3519b2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3181ee143ac655606b5e9c98d743e30aef28b8cc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak kare verilerini
 

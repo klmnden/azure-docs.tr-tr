@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect eşitleme: Azure AD Connect eşitleme hizmeti hesabını değiştirme | Microsoft Docs"
-description: "Bu konuda belge şifreleme anahtarını ve parolalar değiştirildikten sonra abandon açıklar."
+title: 'Azure AD Connect eşitleme: Azure AD Connect eşitleme hizmeti hesabını değiştirme | Microsoft Docs'
+description: Bu konuda belge şifreleme anahtarını ve parolalar değiştirildikten sonra abandon açıklar.
 services: active-directory
-keywords: "Azure AD eşitleme hizmeti hesabını, parola"
-documentationcenter: 
+keywords: Azure AD eşitleme hizmeti hesabını, parola
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirme
 Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirirseniz, şifreleme anahtarını terk ve Azure AD Connect eşitleme hizmeti hesabının parolasını yeniden kadar eşitleme hizmeti mümkün başlangıç doğru olmaz. 
@@ -30,7 +30,7 @@ Kullanılan şifreleme anahtarını kullanarak güvenliği [Windows Data Protect
 
 Hizmet hesabı parolasını değiştirmeniz gerekiyorsa yordamları kullanabilirsiniz [Azure AD Connect eşitleme şifreleme anahtarını bırakıp](#abandoning-the-azure-ad-connect-sync-encryption-key) bunu gerçekleştirmek için.  Şifreleme anahtarı herhangi bir nedenle abandon gerekiyorsa, bu yordamları da kullanılmalıdır.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Parola değiştirme ortaya çıkan sorunları
+## <a name="issues-that-arise-from-changing-the-password"></a>Parola değiştirme ortaya çıkan sorunları
 Hizmet hesabı parolasını değiştirdiğinizde yapılmasına gerek iki nokta vardır.
 
 İlk olarak, altında Windows hizmet denetimi yöneticisi parolasını değiştirmeniz gerekir.  Bu sorun çözülene kadar aşağıdaki hatalar görürsünüz:
@@ -72,9 +72,9 @@ Bu yeni bir şifreleme anahtarı oluşturulabilmesi varolan şifreleme anahtarı
 
 2. Yeni bir PowerShell oturumu başlatın.
 
-3. Klasöre gidin:`$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Klasöre gidin: `$env:Program Files\Microsoft Azure AD Sync\bin\`
 
-4. Komutu çalıştırın:`./miiskmu.exe /a`
+4. Komutu çalıştırın: `./miiskmu.exe /a`
 
 ![Azure AD Connect eşitleme şifreleme anahtarı yardımcı programı](media/active-directory-aadconnectsync-encryption-key/key5.png)
 

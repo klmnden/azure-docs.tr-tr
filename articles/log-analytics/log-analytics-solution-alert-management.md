@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics Yönetimi çözümünde uyarı | Microsoft Docs"
-description: "Günlük analizi uyarı Yönetimi çözümünde tüm uyarılar, ortamınızdaki analiz etmenize yardımcı olur.  Günlük analizi içinde oluşturulan sağlamlaştırmak uyarılar ek olarak, uyarıları bağlı System Center Operations Manager yönetim gruplarından günlük analizi alır."
+title: Azure Log Analytics Yönetimi çözümünde uyarı | Microsoft Docs
+description: Günlük analizi uyarı Yönetimi çözümünde tüm uyarılar, ortamınızdaki analiz etmenize yardımcı olur.  Günlük analizi içinde oluşturulan sağlamlaştırmak uyarılar ek olarak, uyarıları bağlı System Center Operations Manager yönetim gruplarından günlük analizi alır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0d9028b821e4c488186143311c81bfa6d17908ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Uyarı Yönetimi çözümüne Azure günlük analizi
 
@@ -109,28 +109,15 @@ Uyarı yönetimi çözümü türüne sahip herhangi bir kaydının çözümler *
 Aşağıdaki tabloda bu çözüm tarafından toplanan uyarı kayıtları için örnek günlük aramaları sağlar: 
 
 | Sorgu | Açıklama |
-|:--- |:--- |
-| Tür uyarı SourceSystem = OpsManager AlertSeverity = hata TimeRaised = > şimdi - 24 saat |Son 24 saatte oluşturulan kritik uyarılar |
-| Tür uyarı AlertSeverity = uyarı TimeRaised = > şimdi - 24 saat |Son 24 saatte oluşturulan uyarı bildirimleri |
-| Tür uyarı SourceSystem = OpsManager AlertState =! kapalı TimeRaised = > şimdi 24 saatlik &#124; Ölçü count() SourceDisplayName bazında sayı olarak |Son 24 saatte oluşturulan etkin uyarılara sahip kaynaklar |
-| Tür uyarı SourceSystem = OpsManager AlertSeverity = hata TimeRaised = > şimdi 24 saatlik AlertState! kapalı = |Son 24 hala etkin olan saatte oluşturulan kritik uyarılar |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Son 24 şimdi kapatılan saatte oluşturulan uyarılar |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Önem derecesine göre gruplandırılmış son 1 gün sırasında oluşturulan uyarılar |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Yineleme sayısına göre sıralanmış son 1 gün sırasında oluşturulan uyarılar |
-
-
->[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), önceki sorgular için aşağıdaki değişeceğinden sonra:
->
->| Sorgu | Açıklama |
 |:---|:---|
-| Hi &#124; Burada SourceSystem "OpsManager" ve AlertSeverity == "error" ve TimeRaised == > ago(24h) |Son 24 saatte oluşturulan kritik uyarılar |
-| Hi &#124; Burada AlertSeverity "uyarı" ve TimeRaised == > ago(24h) |Son 24 saatte oluşturulan uyarı bildirimleri |
-| Hi &#124; Burada SourceSystem "OpsManager" ve AlertState ==! "Kapalı" = ve TimeRaised > ago(24h) &#124; Count özetlemek SourceDisplayName tarafından count() = |Son 24 saatte oluşturulan etkin uyarılara sahip kaynaklar |
-| Hi &#124; Burada SourceSystem "OpsManager" ve AlertSeverity == "error" ve TimeRaised == > ago(24h) ve AlertState! "Kapalı" = |Son 24 hala etkin olan saatte oluşturulan kritik uyarılar |
-| Hi &#124; Burada SourceSystem "OpsManager" ve TimeRaised == > ago(24h) ve AlertState "Kapalı" == |Son 24 şimdi kapatılan saatte oluşturulan uyarılar |
-| Hi &#124; Burada SourceSystem "OpsManager" ve TimeRaised == > ago(1d) &#124; Count özetlemek AlertSeverity tarafından count() = |Önem derecesine göre gruplandırılmış son 1 gün sırasında oluşturulan uyarılar |
-| Hi &#124; Burada SourceSystem "OpsManager" ve TimeRaised == > ago(1d) &#124; RepeatCount desc sıralama |Yineleme sayısına göre sıralanmış son 1 gün sırasında oluşturulan uyarılar |
+| Uyarı &#124; burada SourceSystem "OpsManager" ve AlertSeverity == "error" ve TimeRaised == > ago(24h) |Son 24 saatte oluşturulan kritik uyarılar |
+| Uyarı &#124; burada AlertSeverity "uyarı" ve TimeRaised == > ago(24h) |Son 24 saatte oluşturulan uyarı bildirimleri |
+| Uyarı &#124; burada SourceSystem "OpsManager" ve AlertState ==! = "Kapalı" ve TimeRaised > ago(24h) &#124; sayısı özetlemek SourceDisplayName tarafından count() = |Son 24 saatte oluşturulan etkin uyarılara sahip kaynaklar |
+| Uyarı &#124; burada SourceSystem "OpsManager" ve AlertSeverity == "error" ve TimeRaised == > ago(24h) ve AlertState! "Kapalı" = |Son 24 hala etkin olan saatte oluşturulan kritik uyarılar |
+| Uyarı &#124; burada SourceSystem "OpsManager" ve TimeRaised == > ago(24h) ve AlertState "Kapalı" == |Son 24 şimdi kapatılan saatte oluşturulan uyarılar |
+| Uyarı &#124; burada SourceSystem "OpsManager" ve TimeRaised == > ago(1d) &#124; sayısı özetlemek AlertSeverity tarafından count() = |Önem derecesine göre gruplandırılmış son 1 gün sırasında oluşturulan uyarılar |
+| Uyarı &#124; burada SourceSystem "OpsManager" ve TimeRaised == > ago(1d) &#124; RepeatCount desc göre sırala |Yineleme sayısına göre sıralanmış son 1 gün sırasında oluşturulan uyarılar |
+
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,25 +1,21 @@
 ---
-title: "ASP.NET Azure Active Directory B2C kimlik doğrulaması, kaydolma, parola sıfırlama"
-description: "Oturumu-up/oturum açma sahip bir web uygulamasının nasıl oluşturulacağını, profil düzenleme ve parola sıfırlama ve Azure Active Directory B2C kullanarak."
+title: ASP.NET Azure Active Directory B2C kimlik doğrulaması, kaydolma, parola sıfırlama
+description: Oturumu-up/oturum açma sahip bir web uygulamasının nasıl oluşturulacağını, profil düzenleme ve parola sıfırlama ve Azure Active Directory B2C kullanarak.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: barbaraselden
-ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: ffc46f4348a2ac3cae51c859a24c609756a710fe
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: f7b7cce84f8ff7be14120568e710432be639ce8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C kaydolma, oturum açma profili düzenleme ve parola sıfırlama ile bir ASP.NET web uygulaması oluşturma
 
@@ -65,11 +61,11 @@ Ayarlarınızı seçin **kimlik sağlayıcıları** ve kullanıcı adı kayıt y
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### <a name="create-a-profile-editing-policy"></a>İlke düzenleme profil oluşturma
+### <a name="create-a-profile-editing-policy"></a>Profil düzenleme ilkesi oluşturma
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-### <a name="create-a-password-reset-policy"></a>Bir parola sıfırlama ilkesi oluşturma
+### <a name="create-a-password-reset-policy"></a>Parola sıfırlama ilkesi oluşturma
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
@@ -83,7 +79,7 @@ Bu öğretici için kod [GitHub](https://github.com/Azure-Samples/active-directo
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp`kullanıcı ile etkileşime giren MVC bir web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede yalnızca `TaskWebApp` uygulaması ele alınacaktır. Nasıl yapılandıracağınızı öğrenmek için `TaskService` Azure AD B2C kullanarak bkz [.NET web API'si öğreticimizi](active-directory-b2c-devquickstarts-api-dotnet.md).
+Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp` kullanıcı ile etkileşime giren MVC bir web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede yalnızca `TaskWebApp` uygulaması ele alınacaktır. Nasıl yapılandıracağınızı öğrenmek için `TaskService` Azure AD B2C kullanarak bkz [.NET web API'si öğreticimizi](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## <a name="update-code-to-use-your-tenant-and-policies"></a>Kiracı ve ilkelerini kullanmak için kodu güncelleştirme
 
@@ -97,7 +93,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 * "Parola Sıfırlama" ilkenizin adıyla `ida:ResetPasswordPolicyId`
 
 ## <a name="launch-the-app"></a>Uygulamayı başlatın
-Gelen Visual Studio içinde uygulamasını başlatın. Yapılacaklar listesi sekmesine gidin ve URl olduğuna dikkat edin: https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*...
+Gelen Visual Studio içinde uygulamasını başlatın. Yapılacaklar listesi sekmesine gidin ve URl olduğuna dikkat edin: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
 
 E-posta adresi veya kullanıcı adı kullanarak uygulama için kaydolun. Çıkışı, oturum sonra yeniden oturum açın ve profil düzenleme veya parola sıfırlama. Oturumu kapatın ve farklı bir kullanıcı olarak oturum açın. 
 

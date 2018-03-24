@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning modeli performansını değerlendirmek | Microsoft Docs"
-description: "Azure Machine Learning modeli performansını değerlendirmek açıklanmaktadır."
+title: Machine Learning modeli performansını değerlendirmek | Microsoft Docs
+description: Azure Machine Learning modeli performansını değerlendirmek açıklanmaktadır.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 48ce4584f7270d78b1d09b848bfdd305d03012b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf065d8e91bd4ebb4cc3932c0525cb091b26b38
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Azure Machine Learning’de model performansını değerlendirme
 Bu makalede, Azure Machine Learning Studio'da bir model performansını değerlendirmek gösterir ve bu görev için kullanılabilir ölçümleri kısa bir açıklamasını sağlar. Üç yaygın denetimli öğrenme senaryo sunulur: 
@@ -151,7 +151,7 @@ Bağlantı aşağıda Şekil 10'da gösterildiği gibi bağlayın.
 
 Etiket sütun dizini ayarlamak [Train Model] [ train-model] modülü 5. Veri kümesi başlık satırı yok ancak bir sınıf etiketleri beşinci sütununda olduğunu biliyoruz.
 
-Tıklayın [veri içeri aktarma] [ import-data] modülü ve kümesi *veri kaynağı* özelliğine *Web URL'si HTTP üzerinden*ve *URL* http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data için.
+Tıklayın [veri içeri aktarma] [ import-data] modülü ve kümesi *veri kaynağı* özelliğine *Web URL'si HTTP üzerinden*ve *URL* için http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Eğitim için kullanılacak örnek kesir ayarlamak [bölünmüş veri] [ split] Modülü (örneğin 0,7).
 

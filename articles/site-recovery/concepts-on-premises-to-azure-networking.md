@@ -1,11 +1,11 @@
 ---
-title: "Azure Site Recovery ile azure'a yük devretme sonrasında bağlanmak için IP adresleme yukarı ayarlama | Microsoft Docs"
-description: "IP adresi şirket içi Azure Site Recovery ile yük devretme sonrasında Azure Vm'lerine bağlanmak için ayarlamak üzere açıklar"
+title: Azure Site Recovery ile azure'a yük devretme sonrasında bağlanmak için IP adresleme yukarı ayarlama | Microsoft Docs
+description: IP adresi şirket içi Azure Site Recovery ile yük devretme sonrasında Azure Vm'lerine bağlanmak için ayarlamak üzere açıklar
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
 ms.service: site-recovery
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1833c576fe03bbfd1819fedc5630b915c6e9ee71
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>IP adresi azure'a yük devretme sonrasında bağlanmak için ayarlama
 
@@ -49,9 +49,9 @@ Site Recovery sabit IP korumak özelliği üzerinden Azure için bir alt ağ yü
 
 ### <a name="failover-example"></a>Yük devretme örneği
 
-Azure usng ficticious şirket Woodgrove Bank yük devretme için bir örneğe bakalım.
+Ficticious şirket, Woodgrove Bank kullanarak yük devretme için bir örneğe bakalım.
 
-- Woodgrove Bank, bu iş uygulamalarını şirket içi sitesi barındırır. Bunlar mobil uygulamalarını Azure ile ilgili ana bilgisayar.
+- Woodgrove Bank iş uygulamalarını şirket içi sitesi barındırır. Bunlar mobil uygulamalarını Azure ile ilgili ana bilgisayar.
 - Kendi şirket içi uç ağ ve Azure sanal ağı arasında VPN siteden siteye bağlantı yok. VPN bağlantısı nedeniyle Azure sanal ağında bir şirket içi ağ uzantısı olarak görünür.
 - Şirket içi iş yüklerini Azure Site Recovery ile çoğaltmak Woodgrove istemektedir.
  - Woodgrove azure'a yük devretme sonrasında, uygulamalar için IP adreslerini korumak ihtiyaç duydukları şekilde sabit kodlanmış IP adreslerini, bağlı olan uygulamalar vardır.

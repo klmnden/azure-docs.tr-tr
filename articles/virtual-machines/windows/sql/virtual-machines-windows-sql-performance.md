@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Server için performans en iyi uygulamaları | Microsoft Docs"
-description: "Microsoft Azure vm'lerinde SQL Server performansını iyileştirmek için en iyi yöntemler sağlar."
+title: Azure SQL Server için performans en iyi uygulamaları | Microsoft Docs
+description: Microsoft Azure vm'lerinde SQL Server performansını iyileştirmek için en iyi yöntemler sağlar.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/29/2018
+ms.date: 03/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3458e2f1a09b597c50c01d59eb6522b3fa521310
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2aa066caf6239f29038228c3c91607d913e70682
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makinelerde SQL Server için performansa yönelik en iyi yöntemler
 
@@ -41,8 +41,8 @@ Azure Virtual Machines'de SQL Server'ın en iyi performans için bir hızlı ona
 | --- | --- |
 | [VM boyutu](#vm-size-guidance) |[DS3](../sizes-memory.md) veya SQL Enterprise edition için daha yüksek.<br/><br/>[DS2](../sizes-memory.md) veya SQL Standard ve Web sürümleri için daha yüksek. |
 | [Depolama](#storage-guidance) |Kullanım [Premium depolama](../premium-storage.md). Standart depolama yalnızca geliştirme ve test için önerilir.<br/><br/>Tutmak [depolama hesabı](../../../storage/common/storage-create-storage-account.md) ve SQL Server VM ile aynı bölgede.<br/><br/>Azure devre dışı [coğrafi olarak yedekli depolama](../../../storage/common/storage-redundancy.md) (coğrafi çoğaltma) depolama hesabı üzerinde. |
-| [Diskleri](#disks-guidance) |En az 2 kullanmak [P30 diskleri](../premium-storage.md#scalability-and-performance-targets) (günlük dosyaları için 1; veri dosyaları ve TempDB için 1).<br/><br/>Veritabanı depolama veya günlük için işletim sistemi veya geçici diskleri kullanmaktan kaçının.<br/><br/>Veri dosyaları ve TempDB barındırma diskler üzerinde önbelleğe almayı etkinleştir okuyun.<br/><br/>Günlük dosyası barındırma diskler üzerinde önbelleğe alma etkinleştirmeyin.<br/><br/>Önemli: bir Azure VM disk önbellek ayarlarını değiştirirken SQL Server hizmetini durdurun.<br/><br/>Daha yüksek g/ç işleme almak için birden çok Azure veri diski şeritler.<br/><br/>Belgelenen ayırma boyutlarıyla biçimlendirin. |
-| [G/Ç](#io-guidance) |Veritabanı Sayfa sıkıştırmayı etkinleştirin.<br/><br/>Veri dosyaları için anında dosya başlatma etkinleştirin.<br/><br/>Sınırlamak veya veritabanı otomatik büyüme devre dışı bırakın.<br/><br/>Veritabanında daralma devre dışı bırakın.<br/><br/>Sistem veritabanları dahil olmak üzere veri diskleri için tüm veritabanlarını taşıyın.<br/><br/>SQL Server hata günlüğü ve izleme dosya dizinleri veri diskleri için taşıyın.<br/><br/>Varsayılan yedekleme ve veritabanı dosyası konumlarını ayarlayın.<br/><br/>Kilitli sayfalar etkinleştirin.<br/><br/>SQL Server performans düzeltmeleri uygulayın. |
+| [Diskleri](#disks-guidance) |En az 2 kullanmak [P30 diskleri](../premium-storage.md#scalability-and-performance-targets) (günlük dosyaları için 1; veri dosyaları ve TempDB için 1).<br/><br/>Veritabanı depolama veya günlük için işletim sistemi veya geçici diskleri kullanmaktan kaçının.<br/><br/>Veri dosyaları ve TempDB veri dosyalarını barındıran diskler üzerinde okuma önbelleğe almayı etkinleştir.<br/><br/>Günlük dosyası barındırma diskler üzerinde önbelleğe alma etkinleştirmeyin.<br/><br/>Önemli: bir Azure VM disk önbellek ayarlarını değiştirirken SQL Server hizmetini durdurun.<br/><br/>Daha yüksek g/ç işleme almak için birden çok Azure veri diski şeritler.<br/><br/>Belgelenen ayırma boyutlarıyla biçimlendirin. |
+| [G/Ç](#io-guidance) |Veritabanı Sayfa sıkıştırmayı etkinleştirin.<br/><br/>Veri dosyaları için anında dosya başlatma etkinleştirin.<br/><br/>Veritabanı otomatik büyüme sınırlayın.<br/><br/>Veritabanında daralma devre dışı bırakın.<br/><br/>Sistem veritabanları dahil olmak üzere veri diskleri için tüm veritabanlarını taşıyın.<br/><br/>SQL Server hata günlüğü ve izleme dosya dizinleri veri diskleri için taşıyın.<br/><br/>Varsayılan yedekleme ve veritabanı dosyası konumlarını ayarlayın.<br/><br/>Kilitli sayfalar etkinleştirin.<br/><br/>SQL Server performans düzeltmeleri uygulayın. |
 | [Özelliğe özgü](#feature-specific-guidance) |Doğrudan blob depolama alanına yedekleyebilir. |
 
 Daha fazla bilgi için *nasıl* ve *neden* bu iyileştirmeler olmak için lütfen ayrıntıları ve aşağıdaki bölümlerde verilen yönergeleri gözden geçirin.
@@ -118,7 +118,7 @@ Premium depolama (DS serisi, DSv2 serisi ve GS serisi) desteği VM'ler için etk
 
   * Premium depolama (dev/test senaryoları) kullanmıyorsanız, veri diski tarafından desteklenen maksimum sayısı eklemek için önerilir, [VM boyutu](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve Disk şeritleme kullanın.
 
-* **İlke önbelleği**: için Premium depolama veri diskler, veri dosyaları ve TempDB yalnızca barındırma veri disklerde okuma önbelleği sağlar. Premium depolama kullanmıyorsanız, tüm veri disklerde önbelleğe alma etkinleştirmeyin. Disk önbelleği yapılandırma ile ilgili yönergeler için aşağıdaki makalelere bakın. Klasik (ASM) dağıtım modeli için bkz: [kümesi AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) ve [kümesi AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager dağıtım modeli için bkz: [kümesi AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) ve [kümesi AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+* **İlke önbelleği**: için Premium depolama veri diskler, yalnızca TempDB veri dosyaları ve veri dosyalarını barındıran veri disklerde okuma önbelleği sağlar. Premium depolama kullanmıyorsanız, tüm veri disklerde önbelleğe alma etkinleştirmeyin. Disk önbelleği yapılandırma ile ilgili yönergeler için aşağıdaki makalelere bakın. Klasik (ASM) dağıtım modeli için bkz: [kümesi AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) ve [kümesi AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager dağıtım modeli için bkz: [kümesi AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) ve [kümesi AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
   > [!WARNING]
   > Veritabanında bozulma olasılığını önlemek için Azure VM Disk önbellek ayarı değiştirirken SQL Server hizmetini durdurun.
@@ -171,4 +171,4 @@ Bazı dağıtımlarda daha gelişmiş yapılandırma teknikleri kullanarak ek pe
 
 En iyi yöntemler için bkz: [Azure Virtual Machines'de SQL Server için güvenlik konuları](virtual-machines-windows-sql-security.md).
 
-Diğer SQL Server sanal makinesine makalelerini gözden [Azure sanal makineleri genel bakış SQL Server'da](virtual-machines-windows-sql-server-iaas-overview.md). SQL Server sanal makineler hakkında sorularınız varsa bkz [ilgili sık sorulan sorular](virtual-machines-windows-sql-server-iaas-faq.md).
+Diğer SQL Server sanal makinesine makalelerini gözden [Azure sanal makineleri genel bakış SQL Server'da](virtual-machines-windows-sql-server-iaas-overview.md). SQL Server sanal makineleri hakkında sorularınız olursa [Sık Sorulan Sorular](virtual-machines-windows-sql-server-iaas-faq.md) bölümüne bakın.

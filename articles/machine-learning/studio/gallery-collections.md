@@ -1,10 +1,11 @@
 ---
-title: "Azure AI galeri koleksiyonları | Microsoft Docs"
-description: "Bul ve Azure AI galeri koleksiyonlarda paylaşın."
+title: Azure AI galeri koleksiyonları | Microsoft Docs
+description: Bul ve Azure AI galeri koleksiyonlarda paylaşın.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ee34520973a482a5a7741efe1306c8a656315277
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Bul ve Azure AI galeri koleksiyonlarda paylaşma
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ Koleksiyonlara gözatmak için [galerisinde](http://gallery.cortanaintelligence.
 
 ![Galeri giriş sayfasında koleksiyonları seçin](./media/gallery-collections/select-collections-in-gallery.png)
 
-**[Koleksiyonları](https://gallery.cortanaintelligence.com/collections)**  sayfa yakın zamanda eklenen ve popüler koleksiyonları listesini görüntüler. Tüm koleksiyonlar görüntülemek için seçin **tümünü görmek**. Belirli bir koleksiyon için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+**[Koleksiyonları](https://gallery.cortanaintelligence.com/collections)** sayfa yakın zamanda eklenen ve popüler koleksiyonları listesini görüntüler. Tüm koleksiyonlar görüntülemek için seçin **tümünü görmek**. Belirli bir koleksiyon için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
 
 Koleksiyon Ayrıntıları sayfasında bir koleksiyon hakkında daha fazla bilgi edinebilirsiniz. Bir koleksiyonu Ayrıntılar sayfası açmak için koleksiyon seçin. Bir koleksiyonda Ayrıntıları sayfasında **açıklamaları** bölümünde, açıklama, geri bildirim sağlamak veya için toplanması hakkında sorular sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn koleksiyonu bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet etmek için koleksiyon ayrıntıları sayfasına bağlantı e-posta gönderebilirsiniz.
 

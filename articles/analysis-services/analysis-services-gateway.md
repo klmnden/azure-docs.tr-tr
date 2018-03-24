@@ -1,25 +1,25 @@
 ---
-title: "Şirket içi veri ağ geçidi | Microsoft Docs"
-description: "Analysis Services sunucunuzun azure'da şirket içi veri kaynağına bağlanır, bir şirket içi ağ geçidi gereklidir."
+title: Şirket içi veri ağ geçidi | Microsoft Docs
+description: Analysis Services sunucunuzun azure'da şirket içi veri kaynağına bağlanır, bir şirket içi ağ geçidi gereklidir.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/19/2018
 ms.author: owend
-ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2bb85eafc7722840b6a35956403c29d4ac642cc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure şirket içi veri ağ geçidi ile şirket içi veri kaynaklarına bağlanma
 Şirket içi veri ağ geçidi, şirket içi veri kaynakları ve Azure Analysis Services sunucularınızı bulutta arasında güvenli veri aktarımını sağlayan bir köprü gibi davranır. Aynı bölgede birden çok Azure Analysis Services sunucusu ile çalışma ek olarak, ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, güç uygulamaları ve Microsoft Flow ile çalışır. Tek bir ağ geçidi ile aynı bölgede birden çok hizmet ilişkilendirebilirsiniz. 
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/03/2018
 
 Hemen kullanmaya başlamak için bkz: [yüklemek ve şirket içi veri ağ geçidi yapılandırma](analysis-services-gateway-install.md).
 
-## <a name="how-it-works"></a>Nasıl çalışır?
+## <a name="how-it-works"> </a>Nasıl çalışır?
 Bir bilgisayara yüklemeniz, kuruluşunuzda ağ geçidi Windows hizmeti olarak çalışan **şirket içi veri ağ geçidi**. Bu yerel hizmet Azure Service Bus aracılığıyla ağ geçidi bulut hizmetine kayıtlı. Ardından Azure aboneliğiniz için bir ağ geçidi kaynağı ağ geçidi bulut hizmeti oluşturun. Azure Analysis Services sunucuları, ağ geçidi kaynağı bağlanmıştır. Sunucunuzdaki modelleri kaynakları sorgular veya işleme için şirket içi verilerinize bağlanın gerektiğinde, bir sorgu ve veri akışı ağ geçidi kaynağı, Azure Service Bus, yerel şirket içi veri ağ geçidi hizmeti ve veri kaynaklarınızı erişir. 
 
 ![Nasıl çalışır?](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -50,18 +50,18 @@ Sorgular ve veri akış:
 5. Ağ geçidi yürütme için veri kaynağı sorgusu gönderir.
 6. Sonuçları, ağ geçidi dönün ve bulut hizmeti ve sunucunuz üzerine veri kaynağından gönderilir.
 
-## <a name="windows-service-account"></a>Windows hizmet hesabı
+## <a name="windows-service-account"> </a>Windows hizmet hesabı
 Şirket içi veri ağ geçidi kullanacak şekilde yapılandırılmış *NT SERVICE\PBIEgwService* Windows hizmeti oturum açma kimlik bilgileri. Varsayılan olarak, bir hizmet olarak oturum açma hakkı vardır; ağ geçidi yüklüyorsanız makine bağlamında. Bu kimlik bilgileri, şirket içi veri kaynaklarına bağlanmak için kullanılan aynı hesap ya da Azure hesabınızda değil.  
 
 Proxy sunucunuz kimlik doğrulaması nedeniyle ile sorunlarla karşılaşırsanız, Windows hizmet hesabı etki alanı kullanıcısına değiştirmek isteyebilirsiniz veya yönetilen hizmet hesabı.
 
-## <a name="ports"></a>Bağlantı noktaları
+## <a name="ports"> </a>Bağlantı noktaları
 Ağ geçidi, Azure Service Bus giden bir bağlantı oluşturur. Giden bağlantı noktaları iletişim kurar: TCP 443 (varsayılan), 5671, 5672, 9354 aracılığıyla 9350.  Ağ geçidi gelen bağlantı noktalarının gerektirmez.
 
 Güvenlik Duvarı'nda, veri bölgesinin IP adreslerini güvenilir listeye öneririz. İndirebilirsiniz [Microsoft Azure veri merkezi IP listesi](https://www.microsoft.com/download/details.aspx?id=41653). Bu liste haftalık güncelleştirilir.
 
 > [!NOTE]
-> Azure veri merkezi IP listesinde listelenen IP adresleri CIDR gösteriminde değil. Örneğin, 10.0.0.0/24 10.0.0.24 aracılığıyla 10.0.0.0 anlamına gelmez. Daha fazla bilgi edinmek [CIDR gösteriminde](http://whatismyipaddress.com/cidr).
+> Azure veri merkezi IP listesinde listelenen IP adresleri CIDR gösteriminde değil. Daha fazla bilgi için bkz: [sınıfsız etki alanları arası yönlendirme](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 >
 >
 
@@ -141,7 +141,7 @@ Doğrudan TCP yerine HTTPS kullanarak Azure Service Bus ile iletişim kurmak iç
 **Q**: Kurtarma anahtarı avantajı nedir? <br/>
 **A**: Kurtarma anahtarı geçirmek veya ağ geçidi ayarlarınızı sonra bir olağanüstü durum kurtarma için bir yol sağlar.
 
-## <a name="troubleshooting"></a>Sorunlarını giderme
+## <a name="troubleshooting"> </a>Sorun giderme
 
 **Q**: yok görmemin nedeni ağ geçidi örneklerinin listesi my ağ geçidi ağ geçidi kaynağı oluşturmak çalışırken? <br/>
 **A**: iki olası nedeni vardır. Önce bir kaynak zaten ağ geçidi geçerli ya da başka bir abonelik oluşturulur. Bu olasılığını ortadan kaldırmak için türündeki kaynaklar listeleme **şirket içi veri ağ geçidi** portalından. Tüm abonelikleri tüm kaynakları numaralandırılırken seçtiğinizden emin olun. Kaynak oluşturulduktan sonra ağ geçidi ağ geçidi kaynağı oluşturmak portal deneyiminde ağ geçidi örneklerinin listesi görünmez. İkinci olasılığını ağ geçidi yükleyen kullanıcının Azure AD kimlik Azure portalında oturum açtığı kullanıcı farklı olmasıdır. Çözmek için aynı hesabı kullanarak ağ geçidini yükleyen kullanıcı portalında oturum açın.

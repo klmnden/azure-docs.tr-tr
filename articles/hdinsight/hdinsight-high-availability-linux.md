@@ -1,13 +1,13 @@
 ---
-title: "Yüksek kullanılabilirlik için Hadoop - Azure Hdınsight | Microsoft Docs"
-description: "Nasıl Hdınsight kümeleri güvenilirlik ve kullanılabilirlik ek bir baş düğüm kullanarak iyileştirmek öğrenin. Nasıl bu Ambari ve Hive gibi Hadoop Hizmetleri yanı sıra tek tek SSH kullanarak her baş düğümüne bağlanmak için etkilediğini öğrenin."
+title: Yüksek kullanılabilirlik için Hadoop - Azure Hdınsight | Microsoft Docs
+description: Nasıl Hdınsight kümeleri güvenilirlik ve kullanılabilirlik ek bir baş düğüm kullanarak iyileştirmek öğrenin. Nasıl bu Ambari ve Hive gibi Hadoop Hizmetleri yanı sıra tek tek SSH kullanarak her baş düğümüne bağlanmak için etkilediğini öğrenin.
 services: hdinsight
 editor: cgronlun
-manager: jhubbard
+manager: cgronlun
 author: Blackmist
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
-keywords: "hadoop yüksek kullanılabilirlik"
+keywords: hadoop yüksek kullanılabilirlik
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 0822502bcd3e2b0d20f718a158d6db489a650bde
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 556aedf5ce822d681caf1373ed7d51999bd439b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği
 
@@ -112,7 +112,7 @@ Baş düğümler üzerinde çalışan hizmetleri durumunu denetlemek için Ambar
 
 ### <a name="ambari-web-ui"></a>Ambari Web UI
 
-Ambari Web kullanıcı arabirimini https://CLUSTERNAME.azurehdinsight.net görülebilir. **CLUSTERNAME** değerini kümenizin adıyla değiştirin. İstenirse, kümeniz için HTTP kullanıcı kimlik bilgilerini girin. Varsayılan HTTP kullanıcı adı **yönetici** ve küme oluştururken, girdiğiniz parola paroladır.
+Ambari Web kullanıcı arabirimini görülebilir https://CLUSTERNAME.azurehdinsight.net. **CLUSTERNAME** değerini kümenizin adıyla değiştirin. İstenirse, kümeniz için HTTP kullanıcı kimlik bilgilerini girin. Varsayılan HTTP kullanıcı adı **yönetici** ve küme oluştururken, girdiğiniz parola paroladır.
 
 Ambari sayfasında geldiğinde, yüklü hizmetleri sayfanın sol tarafta listelenir.
 

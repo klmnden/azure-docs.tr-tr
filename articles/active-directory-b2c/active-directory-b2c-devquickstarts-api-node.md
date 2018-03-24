@@ -1,24 +1,22 @@
 ---
 title: "Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama | Microsoft Belgeleri"
-description: "B2C kiracısından belirteç kabul eden bir Node.js web API'si oluşturma"
+description: B2C kiracısından belirteç kabul eden bir Node.js web API'si oluşturma
 services: active-directory-b2c
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 01/07/2017
-ms.author: xerners
-ms.openlocfilehash: 3a0249f2f7dfd76d89cbf497376f53fe06c250c3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.author: davidmu
+ms.openlocfilehash: 3ce0e43beec41599c842cd273cb7230660bdf8d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->

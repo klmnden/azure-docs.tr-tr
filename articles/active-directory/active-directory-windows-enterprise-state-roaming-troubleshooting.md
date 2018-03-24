@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme | Microsoft Docs"
-description: "BT yöneticileri bazı sorulara yanıtlar ayarları ve uygulama veri eşitleme hakkında olabilir sağlar."
+title: Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme | Microsoft Docs
+description: BT yöneticileri bazı sorulara yanıtlar ayarları ve uygulama veri eşitleme hakkında olabilir sağlar.
 services: active-directory
-keywords: "Kurumsal durum Dolaşım ayarları, windows bulut Kurumsal durumda Dolaşım hakkında sık sorulan sorular"
-documentationcenter: 
+keywords: Kurumsal durum Dolaşım ayarları, windows bulut Kurumsal durumda Dolaşım hakkında sık sorulan sorular
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
@@ -17,11 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Sorun giderme Azure Active Directory'de Kurumsal durumda Dolaşım ayarları
 
@@ -47,7 +47,7 @@ Aşağıdaki yönergeleri ile sorunu çözemiyorsanız, bizim destek mühendisle
 
 Bu bilgiler dahil olmak üzere mümkün olan en kısa sürede sorunu çözmenize yardımcı olur.
 
-## <a name="troubleshooting-and-diagnosing-issues"></a>Sorunlarını tanılama ve sorun giderme
+## <a name="troubleshooting-and-diagnosing-issues"></a>Sorunları tanılama ve giderme
 Bu bölümde, Kurumsal durumda Dolaşım için ilgili sorunları tanılamak ve gidermek nasıl hakkında öneriler sağlar.
 
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>Eşitleme ve "ayarlarınızı eşitleyin" Ayarları sayfasına doğrulayın 
@@ -78,7 +78,7 @@ Belirli koşullar altında Kurumsal durumda Dolaşım Azure çok faktörlü kiml
 
 **Olası sorun**: yönetici Active Directory Federasyon Hizmetleri çok faktörlü kimlik doğrulaması koşullu erişim ilkesini yapılandırır ve cihazın erişim belirtecinin süresi eşitleme başarısız olabilir. Oturum açın ve Microsoft Passport for Work PIN kullanarak oturumu emin olun veya Office 365 gibi diğer Azure hizmetleriyle erişirken çok faktörlü kimlik doğrulaması gerçekleştirmez.
 
-###<a name="event-viewer"></a>Olay Görüntüleyici
+### <a name="event-viewer"></a>Olay Görüntüleyici
 Gelişmiş sorun giderme için Olay Görüntüleyicisi'ni belirli hataları bulmak için kullanılabilir. Bunlar aşağıdaki tabloda belirtilmiştir. Olayları Olay Görüntüleyicisi'ni altında bulunabilir > Uygulama ve hizmet günlükleri > **Microsoft** > **Windows** > **SettingSync** ve eşitleme kimlikle ilgili sorunlar için **Microsoft** > **Windows** > **Azure AD**.
 
 
@@ -154,8 +154,8 @@ Eşitleme devam edebilmeniz için cihazın şirket ağına bağlayın.
 Kullanıcı ayrılma ve bulut aygıta yeniden katılmasına gerekecektir. Bu, yerel yönetici kullanıcı olarak oturum açın ve giderek cihaz ayrılma **ayarları** > **sistem** > **hakkında** seçip "Yönet veya iş veya Okul bağlantısını kesin.". Aşağıdaki dosyaları Azure AD katılım daha sonra yeniden aygıtı Temizleme **ayarları** > **sistem** > **hakkında** ve "Bağlanmak için iş veya Okul" seçme. Cihaz Azure Active Directory'ye katılmasını ve akış tamamlamak devam edin.
 
 Temizleme adımda Temizleme aşağıdaki dosyaları:
-- İçinde Settings.dat`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
-- Klasör altındaki tüm dosyalar`C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
+- İçinde Settings.dat `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`
+- Klasör altındaki tüm dosyalar `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\AC\TokenBroker\Account`
 
 ---
 

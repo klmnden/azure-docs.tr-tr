@@ -1,11 +1,11 @@
 ---
-title: "Hataya dayanıklılık kopya etkinliği Azure Data factory'de | Microsoft Docs"
-description: "Kopya etkinliği Azure Data Factory'de uyumsuz satırları atlayarak için hataya dayanıklılık ekleme hakkında bilgi edinin."
+title: Hataya dayanıklılık kopya etkinliği Azure Data factory'de | Microsoft Docs
+description: Kopya etkinliği Azure Data Factory'de uyumsuz satırları atlayarak için hataya dayanıklılık ekleme hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: b7ca3f6da104da16bd64db042a2a13f593a393b6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: c6e1edce7e730b0bce6742b6220149ae7fe97710
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Kopya etkinliği Azure Data factory'de hataya dayanıklılık
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory ile desteklenen ortamlar işlem | Microsoft Docs"
-description: "Dönüştürme veya işlem verileri (örneğin, Azure Hdınsight) Azure Data Factory işlem hatlarını kullanabileceğiniz bilgi işlem ortamları hakkında bilgi edinin."
+title: Azure Data Factory ile desteklenen ortamlar işlem | Microsoft Docs
+description: Dönüştürme veya işlem verileri (örneğin, Azure Hdınsight) Azure Data Factory işlem hatlarını kullanabileceğiniz bilgi işlem ortamları hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory ile desteklenen ortamlar işlem
 > [!NOTE]
@@ -51,7 +50,7 @@ Microsoft en son Hadoop ekosistemi bileşenlerini ve düzeltmeler ile Desteklene
 15 Aralık 2017 sonra:
 
 - Linux tabanlı Hdınsight sürüm 3.3 (veya önceki sürümler) artık oluşturabilirsiniz kümeleri kullanarak bir isteğe bağlı Hdınsight bağlı hizmeti veri fabrikasında sürüm 1. 
-- Varsa [ **osType** ve **sürüm** özellikleri](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) varolan bir veri fabrikası sürüm 1 isteğe bağlı Hdınsight bağlı hizmeti için JSON tanımında açıkça belirtilmedi , varsayılan değer değiştirilirse **sürüm 3.1, osType = Windows =** için **sürümü =\<son HDI varsayılan sürümü\>(https://docs.microsoft.com/azure/hdinsight/ hdinsight-Component-Versioning#hadoop-Components-Available-With-Different-hdinsight-Versions), osType Linux =**.
+- Varsa [ **osType** ve **sürüm** özellikleri](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) varolan bir veri fabrikası sürüm 1 isteğe bağlı Hdınsight bağlı hizmeti için JSON tanımında açıkça belirtilmedi , varsayılan değer değiştirilirse **sürüm 3.1, osType = Windows =** için **sürümü =\<son HDI varsayılan sürümü\>(https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType Linux =**.
 
 31 Temmuz 2018 sonra:
 

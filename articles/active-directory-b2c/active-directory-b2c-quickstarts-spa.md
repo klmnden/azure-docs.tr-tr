@@ -1,23 +1,21 @@
 ---
-title: "Azure AD B2C etkin tek sayfa uygulamasında test sürüşü yapma"
-description: "Kullanıcıların kimliğini doğrulamak ve onları kaydetmek için Azure Active Directory B2C kullanan örnek tek sayfalı uygulamayı denemek için hızlı başlangıç."
+title: Azure AD B2C etkin tek sayfa uygulamasında test sürüşü yapma
+description: Kullanıcıların kimliğini doğrulamak ve onları kaydetmek için Azure Active Directory B2C kullanan örnek tek sayfalı uygulamayı denemek için hızlı başlangıç.
 services: active-directory-b2c
-documentationcenter: 
-author: PatAltimore
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.reviewer: saraford
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
-ms.topic: quickstart
+ms.topic: article
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: e659fd228c2294313a62b331c8e530b7d34073ac
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
+ms.author: davidmu
+ms.openlocfilehash: 02a0515ff7c461370f29a511ac576d857676cb2b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-single-page-app"></a>Hızlı başlangıç: Azure AD B2C etkin tek sayfa uygulamasında test sürüşü yapma
 
@@ -27,11 +25,11 @@ Bu hızlı başlangıçta, sosyal kimlik sağlayıcısı kullanıp Azure AD B2C 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **ASP.NET ve web geliştirme** iş yüküyle [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * [Node.js](https://nodejs.org/en/download/)’yi yükleme
-* Bir Facebook, Google, Microsoft veya Twitter sosyal hesabından.
+* Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal hesap.
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
@@ -65,21 +63,21 @@ Bir web tarayıcısından uygulamanızın URL’sine `http://localhost:6420` gö
 
 Bir Azure AD B2C ilkesini temel alarak Azure AD B2C **Kaydolma veya Oturum Açma** iş akışı başlatmak için **Oturum aç** düğmesine tıklayın. 
 
-Örnek, sosyal kimlik sağlayıcısı kullanma veya e-posta kullanarak yerel hesap oluşturma gibi çeşitli oturum açma seçeneklerini destekler. Bu hızlı başlangıç için bir Facebook, Google, Microsoft veya Twitter’dan sosyal kimlik sağlayıcısı hesabı kullanın. 
+Örnek, sosyal kimlik sağlayıcısı kullanma veya e-posta kullanarak yerel hesap oluşturma gibi çeşitli oturum açma seçeneklerini destekler. Bu hızlı başlangıç için Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal kimlik sağlayıcısı hesabı kullanın. 
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>Sosyal kimlik sağlayıcısı kullanarak kaydolma
 
-Azure AD B2C, örnek web uygulaması için Wingtip Toys adlı kurgusal bir markaya yönelik özel oturum açma sayfası gösterir. 
+Azure AD B2C, örnek web uygulaması için Wingtip Toys adlı bir kurgusal markaya yönelik özel bir oturum açma sayfası sunar. 
 
-1. Sosyal kimlik sağlayıcısı kullanarak oturum açmak için kullanmak istediğiniz kimlik sağlayıcısının düğmesine tıklayın.
+1. Sosyal kimlik sağlayıcısı kullanarak kaydolmak için, kullanmak istediğiniz kimlik sağlayıcısının düğmesine tıklayın.
 
     ![Oturum Açma veya Kaydolma sağlayıcısı](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Sosyal hesap kimlik bilgilerinizi kullanarak kimliğinizi doğrular (oturum açmış) ve uygulamayı sosyal hesabınızdaki bilgileri okuması için yetkilendirirsiniz. Erişim verdiğiniz uygulama, adınız ve yaşadığınız şehir gibi profil bilgilerini sosyal hesabınızdan alabilir. 
+    Sosyal hesap kimlik bilgilerinizi kullanarak kimlik doğrulaması (oturum açma) gerçekleştirir ve uygulamaya sosyal hesabınızdaki bilgileri okuma yetkisi verirsiniz. Erişim izni verdiğinizde uygulama sosyal hesabınızdan adınız ve şehriniz gibi profil bilgilerini alabilir. 
 
-2. Kimlik sağlayıcısı için oturum açma işlemini bitirin. Örneğin Twitter’ı seçerseniz, Twitter kimlik bilgilerinizi girin ve **Oturum Aç**’a tıklayın.
+2. Kimlik sağlayıcısına ilişkin oturum açma işlemini tamamlayın. Örneğin, Twitter’i seçtiyseniz Twitter kimlik bilgilerinizi girin **Oturum aç**’a tıklayın.
 
-    ![Sosyal hesap kullanarak kimlik doğrulama ve yetkilendirme](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+    ![Sosyal hesap kullanarak kimlik doğrulaması ve yetkilendirme gerçekleştirme](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
 
     Yeni hesap profilinizdeki bilgiler, sosyal hesabınızdaki bilgilerle önceden doldurulmuştur. 
 
@@ -101,7 +99,7 @@ Diğer Azure AD B2C hızlı başlangıçlarını veya öğreticilerini denemeyi 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, özel oturum açma sayfasıyla oturum açmak, sosyal kimlik sağlayıcısı ile oturum açmak, Azure AD B2C hesabı oluşturmak ve Azure AD B2C tarafından korunan bir web API’sini çağırmak için Azure AD B2C etkin bir örnek ASP.NET uygulaması kullandınız. 
+Bu hızlı başlangıçta özel bir oturum açma sayfasıyla oturum açmak, sosyal kimlik sağlayıcısı ile oturum açmak, bir Azure AD B2C hesabı oluşturmak ve Azure AD B2C tarafından korunan bir web API’sini çağırmak için Azure AD B2C etkin bir örnek ASP.NET uygulaması kullandınız. 
 
 Sonraki adımda kendi Azure AD B2C kiracınızı oluşturup kiracınızı kullanarak çalıştırmak için örneği yapılandıracaksınız. 
 

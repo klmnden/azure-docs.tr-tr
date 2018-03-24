@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory kullanarak bir FTP sunucusundan veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak bir FTP sunucusundan veri taşıma hakkında bilgi edinin."
+title: Azure Data Factory kullanarak bir FTP sunucusundan veri taşıma | Microsoft Docs
+description: Azure Data Factory kullanarak bir FTP sunucusundan veri taşıma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 17dea2d1106a57aa678a88db6647c71048d8c38f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir FTP sunucusundan veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,8 +73,8 @@ Aşağıdaki tabloda bir FTP bağlantılı hizmete özgü JSON öğelerini açı
 | encryptedCredential |FTP sunucusuna erişmek için şifreli kimlik bilgilerini belirtin. |Hayır |&nbsp; |
 | gatewayName |Veri Yönetimi ağ geçidi şirket içi FTP sunucusuna bağlanmak için ağ geçidi adını belirtin. |Hayır |&nbsp; |
 | port |FTP sunucusunun dinlediği bağlantı noktasını belirtin. |Hayır |21 |
-| enableSsl |FTP SSL/TLS kanalı üzerinden kullanılıp kullanılmayacağını belirtin. |Hayır |doğru |
-| enableServerCertificateValidation |FTP SSL/TLS kanalı üzerinden kullanırken sunucu SSL sertifika doğrulamasını etkinleştirmek bu seçeneği belirtin. |Hayır |doğru |
+| enableSsl |FTP SSL/TLS kanalı üzerinden kullanılıp kullanılmayacağını belirtin. |Hayır |true |
+| enableServerCertificateValidation |FTP SSL/TLS kanalı üzerinden kullanırken sunucu SSL sertifika doğrulamasını etkinleştirmek bu seçeneği belirtin. |Hayır |true |
 
 ### <a name="use-anonymous-authentication"></a>Anonim kimlik doğrulamasını kullan
 
@@ -155,7 +154,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri t
 | --- | --- | --- |
 | folderPath |Alt klasöre. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** dilim başlangıç bağlı klasör yoluna sahip ve bitiş tarihi saatlerini. |Evet |
 | fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>Zaman **fileName** belirtilmemiş bir çıkış veri kümesi için oluşturulan dosya adı şu biçimde: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Hayır |
-| fileFilter |Bir alt kümesini dosyalarında seçmek için kullanılacak bir filtre belirtin **folderPath**, tüm dosyalar yerine.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1:`"fileFilter": "*.log"`<br/>Örnek 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** bir giriş FileShare veri kümesi için geçerlidir. Bu özellik, Hadoop dağıtılmış dosya sistemi (HDFS ile) desteklenmiyor. |Hayır |
+| fileFilter |Bir alt kümesini dosyalarında seçmek için kullanılacak bir filtre belirtin **folderPath**, tüm dosyalar yerine.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** bir giriş FileShare veri kümesi için geçerlidir. Bu özellik, Hadoop dağıtılmış dosya sistemi (HDFS ile) desteklenmiyor. |Hayır |
 | partitionedBy |Dinamik belirtmek için kullanılan **folderPath** ve **fileName** zaman serisi veriler için. Örneğin, belirleyebileceğiniz bir **folderPath** için verileri saatte parametreli. |Hayır |
 | Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> Depoları arasında (ikili kopya), dosya tabanlı olarak dosyaları kopyalamak istiyorsanız, her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**, ve desteklenen düzeyler **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |

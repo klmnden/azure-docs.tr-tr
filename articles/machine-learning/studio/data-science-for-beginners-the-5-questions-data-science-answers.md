@@ -1,11 +1,12 @@
 ---
-title: "5 veri bilimi - yeni başlayanlar için veri bilimi - Azure Machine Learning sorular | Microsoft Docs"
-description: "Yeni başlayanlar için veri bilimi 5 sorular veri bilimi yanıtlar ile başlayarak 5 kısa videoları, temel kavramlar öğretir. Azure Machine Learning gelen."
-keywords: "Veri bilimi, veri bilimi yeni başlayanlar, veri bilimi yapılması yeni başlayanlar, veri bilimi temelleri, veri bilimi soruları, veri bilimi video, veri bilimi giriş"
+title: 5 veri bilimi - yeni başlayanlar için veri bilimi - Azure Machine Learning sorular | Microsoft Docs
+description: Yeni başlayanlar için veri bilimi 5 sorular veri bilimi yanıtlar ile başlayarak 5 kısa videoları, temel kavramlar öğretir. Azure Machine Learning gelen.
+keywords: Veri bilimi, veri bilimi yeni başlayanlar, veri bilimi yapılması yeni başlayanlar, veri bilimi temelleri, veri bilimi soruları, veri bilimi video, veri bilimi giriş
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 494c8293a1dbfccbfe2df1e2f48f770edb6452dc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Yeni Başlayanlar için Veri Bilimi video 1: Veri bilimiyle ilgili 5 sorunun yanıtı
 Bir giriş veri bilimi alma *yeni başlayanlar için veri bilimi* üst veri Bilimcisi beş kısa videoların içinde. Bu videolar temel ancak yararlı yaparak veri bilimi ilgilenen ya da veri bilimcilerine ile çalışır.

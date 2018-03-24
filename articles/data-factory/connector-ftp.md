@@ -1,11 +1,11 @@
 ---
 title: Azure Data Factory kullanarak bir FTP sunucusundan veri kopyalama | Microsoft Docs
-description: "Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak bir FTP sunucusundan bir desteklenen havuz veri deposuna kopyalamak öğrenin."
+description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak bir FTP sunucusundan bir desteklenen havuz veri deposuna kopyalamak öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 69b8581399d2bf7e0f2196f7bbad4e6522979239
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 132242e7f1eb516d53b6a31a24095094eed58668
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory kullanarak FTP sunucusundan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,7 +120,7 @@ FTP'den verileri kopyalamak için kümesine tür özelliği ayarlamak **FileShar
 | type | Veri kümesi türü özelliği ayarlamak: **dosya paylaşımı** |Evet |
 | folderPath | Klasör yolu. Örneğin: klasör/alt / |Evet |
 | fileName | Dosya adını belirtin **folderPath** belirli bir dosyadan kopyalamak istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, veri kümesi klasördeki tüm dosyaları kaynak olarak işaret eder. |Hayır |
-| fileFilter | Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin. Yalnızca dosya adı değil belirtildiğinde geçerlidir. <br/><br/>Joker karakterler izin verilir: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/>-Örnek 1:`"fileFilter": "*.log"`<br/>-Örnek 2:`"fileFilter": 2017-09-??.txt"` |Hayır |
+| fileFilter | Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin. Yalnızca dosya adı değil belirtildiğinde geçerlidir. <br/><br/>Joker karakterler izin verilir: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/>-Örnek 1: `"fileFilter": "*.log"`<br/>-Örnek 2: `"fileFilter": 2017-09-??.txt"` |Hayır |
 | Biçimi | İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>Belirli bir biçime sahip dosyaları ayrıştırma istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopyalama senaryosu) |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Daha fazla bilgi için bkz: [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |
 | useBinaryTransfer | İkili aktarım modunu kullanıp kullanmayacağınızı belirtin. İkili mod (varsayılan) ve ASCII yanlış true değerlerdir. |Hayır |

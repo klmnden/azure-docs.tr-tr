@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Data Warehouse veritabanlarında yönetme | Microsoft Docs"
-description: "SQL veri ambarı veritabanlarını yönetmeye genel bakış. Yönetim Araçları, Dwu ve sorgu performansı, iyi bir güvenlik ilkeleri oluşturma ve veri bozulması veya bölgesel bir kesintinin bir veritabanını geri yükleme sorunlarını giderme genişleme performans içerir."
+title: Azure SQL Data Warehouse veritabanlarında yönetme | Microsoft Docs
+description: SQL veri ambarı veritabanlarını yönetmeye genel bakış. Yönetim Araçları, Dwu ve sorgu performansı, iyi bir güvenlik ilkeleri oluşturma ve veri bozulması veya bölgesel bir kesintinin bir veritabanını geri yükleme sorunlarını giderme genişleme performans içerir.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse veritabanlarında yönetme
 SQL veri ambarı veritabanlarınızı yönetme birçok nokta otomatikleştirir. Örneğin, performans ölçeklendirmek için ayarlamak ve işlem kaynaklarını doğru düzeyde için ödeme ve SQL Data Warehouse ölçeğini genişletme ve geri ölçeklendirme tüm yapması izin vermek yeterlidir.

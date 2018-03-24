@@ -1,24 +1,24 @@
 ---
-title: "Giden bağlantılar Azure (Klasik) | Microsoft Docs"
-description: "Bu makale, Azure nasıl sağladığını açıklar bulut hizmetlerinin ortak Internet hizmetleriyle iletişim kurmasını."
+title: Giden bağlantılar Azure (Klasik) | Microsoft Docs
+description: Bu makale, Azure nasıl sağladığını açıklar bulut hizmetlerinin ortak Internet hizmetleriyle iletişim kurmasını.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8a24987ae3423a02647b1dd246b40179be100c06
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="outbound-connections-classic"></a>Giden bağlantılar (Klasik)
 
@@ -123,6 +123,18 @@ Dağıtımınızın boyutunu değiştirme bazı yerleşik akışlarının etkile
 
 Varsa dağıtım boyutunu azaltır ve daha düşük bir katman geçişleri, kullanılabilir SNAT bağlantı noktalarının sayısını artırır. Bu durumda, varolan SNAT bağlantı noktalarını ayrılmış ve bunların ilgili akışları etkilenmez.
 
+SNAT bağlantı noktalarını ayırmaları olan belirli IP Aktarım Protokolü (TCP ve UDP korunur ayrı ayrı) ve aşağıdaki koşullar altında serbest bırakılır:
+
+### <a name="tcp-snat-port-release"></a>TCP SNAT bağlantı noktası sürüm
+
+- Her iki sunucu/istemci FIN/ACK gönderirse SNAT bağlantı noktası 240 saniye sonra kullanıma sunulacaktır.
+- Bir RST görülen, SNAT bağlantı noktası 15 saniye sonra kullanıma sunulacaktır.
+- boşta kalma zaman aşımı ulaşıldı
+
+### <a name="udp-snat-port-release"></a>UDP SNAT bağlantı noktası sürüm
+
+- boşta kalma zaman aşımı ulaşıldı
+
 ## <a name="problemsolving"></a> Sorun giderme 
 
 Bu bölümde, SNAT Tükenme ve azure'da giden bağlantılar ile oluşabilecek diğer senaryolar azaltmaya yardımcı olmak için tasarlanmıştır.
@@ -170,3 +182,4 @@ Nslookup komutunu kullanarak, ad myip.opendns.com için bir DNS sorgusu OpenDNS 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Daha fazla bilgi edinmek [yük dengeleyici](load-balancer-overview.md) Resource Manager dağıtımları kullanılır.
+- Modu hakkında bilgi edinin [giden bağlantı](load-balancer-outbound-connections.md) senaryoları Resource Manager dağıtımları içinde kullanılabilir.

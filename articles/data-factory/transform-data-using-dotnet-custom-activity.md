@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure Data Factory işlem hattında özel etkinlikler kullanma"
-description: "Özel etkinlikler oluşturmak ve bunları bir Azure Data Factory ardışık düzeninde öğrenin."
+title: Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
+description: Özel etkinlikler oluşturmak ve bunları bir Azure Data Factory ardışık düzeninde öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 770187c16ed9d0eacfaf99e571ad048c6723a9cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -298,7 +298,7 @@ Aşağı Akış etkinlikleri stdout.txt içeriği kullanmak istiyorsanız, ifade
   > - Activity.json, linkedServices.json ve datasets.json toplu görev çalışma zamanı klasöründe depolanır. Bu örnekte, activity.json, linkedServices.json ve datasets.json depolanmış "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" yolu. Gerekirse, ayrı ayrı temizlenmesi gerekir. 
   > - Self-Hosted tümleştirme çalışma zamanı, anahtarlar veya parolalar gibi hassas bilgileri Self-Hosted tümleştirme kimlik bilgileri sağlamak için çalışma zamanı tarafından şifrelenmiş bağlı hizmetler kullanımlar için özel ağ ortamı kalır müşteri tanımlı. Bu şekilde, özel uygulama kodu tarafından başvurulduğunda bazı önemli alanlar eksik olabilir. Bağlantılı hizmet başvurusu gerekirse kullanmak yerine extendedProperties SecureString kullanın. 
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>V2 özel etkinlik ve sürüm 1 (özel) karşılaştırmak DotNet etkinliği
+## <a name="compare-v2-v1"></a> V2 özel etkinlik ve sürüm 1 (özel) karşılaştırmak DotNet etkinliği
 
   Azure Data Factory sürüm 1, (özel) DotNet etkinliği bir .net oluşturarak uygulamanız uygulayan bir sınıf olan sınıf kitaplığı proje `Execute` yöntemi `IDotNetActivity` arabirimi. Bağlı hizmetler, veri kümeleri ve genişletilmiş özellikler (özel) DotNet etkinlik JSON yükündeki yürütme yöntemi türü kesin belirlenmiş nesnelerin geçirilir. Sürüm 1 davranışı hakkında daha fazla ayrıntı için bkz: [sürüm 1 (özel) DotNet](v1/data-factory-use-custom-activities.md). Bu uygulama nedeniyle .net hedeflemek sürüm 1 DotNet etkinlik kodunuzu sahip Framework 4.5.2. Sürüm 1 DotNet etkinlik Azure Batch havuzu Windows tabanlı düğümlerinde çalıştırılacak da sahiptir. 
 

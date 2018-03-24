@@ -1,13 +1,13 @@
 ---
-title: "Zamanlayıcı tetikleyicisi için Azure işlevleri"
-description: "Azure işlevleri Zamanlayıcı Tetikleyicileri kullanmayı öğrenme."
+title: Zamanlayıcı tetikleyicisi için Azure işlevleri
+description: Azure işlevleri Zamanlayıcı Tetikleyicileri kullanmayı öğrenme.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
-ms.custom: 
-ms.openlocfilehash: bd1a2643d9faf65d664c786169c38f01767fb7e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 6f74dd4d9cb78c1316c87bd5a261e751b9b34923
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Zamanlayıcı tetikleyicisi için Azure işlevleri 
 
@@ -167,7 +167,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**Türü** | yok | "TimerTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
 |**Yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodu Zamanlayıcı nesneyi temsil eden değişken adı. | 
-|**schedule**|**ScheduleExpression**|Tüketim plan üzerinde CRON ifade ile zamanlama tanımlayabilirsiniz. Bir uygulama hizmeti planı kullanıyorsanız, ayrıca kullanabileceğiniz bir `TimeSpan` dize. Aşağıdaki bölümlerde CRON ifadeler açıklanmaktadır. Bir uygulama ayarı zamanlama ifadeyi ve bu özellik sarmalanmış bir değere ayarlayın  **%**  Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithCRONExpression %". |
+|**schedule**|**ScheduleExpression**|Tüketim plan üzerinde CRON ifade ile zamanlama tanımlayabilirsiniz. Bir uygulama hizmeti planı kullanıyorsanız, ayrıca kullanabileceğiniz bir `TimeSpan` dize. Aşağıdaki bölümlerde CRON ifadeler açıklanmaktadır. Bir uygulama ayarı zamanlama ifadeyi ve bu özellik sarmalanmış bir değere ayarlayın **%** Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithCRONExpression %". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -256,6 +256,10 @@ Bir zamanlayıcı tetikleyicisi işlevi çağrıldığında, [Zamanlayıcı nesn
 ## <a name="scale-out"></a>Ölçeklendirme
 
 Zamanlayıcı tetikleyicisi çok örnekli genişleme destekler. Belirli Zamanlayıcı işlevi tek bir örneğini boyunca tüm örneklerde çalıştırılır.
+
+## <a name="function-apps-sharing-storage"></a>Depolama paylaşımı işlevi uygulamaları
+
+Bir depolama hesabı birden çok işlev uygulama arasında paylaşıyorsanız, her işlev uygulaması farklı bir sahip olduğundan emin olun `id` içinde *host.json*. Atlayabilirsiniz `id` özelliği veya elle her işlevi uygulamanın `id` için farklı bir değer. Zamanlayıcı tetikleyicisi depolama kilidi olacağını yalnızca bir zamanlayıcı örneğini birden çok örneklerine giden bir işlev uygulaması ölçeklendirir olduğunda emin olmak için kullanır. İki işlev uygulamalarının aynı paylaşıyorsanız `id` ve her bir zamanlayıcı tetikleyicisi kullanan, yalnızca bir zamanlayıcı çalışır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

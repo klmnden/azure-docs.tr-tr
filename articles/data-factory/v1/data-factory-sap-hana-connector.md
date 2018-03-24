@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory kullanarak SAP HANA veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak SAP HANA veri taşıma hakkında bilgi edinin."
+title: Azure Data Factory kullanarak SAP HANA veri taşıma | Microsoft Docs
+description: Azure Data Factory kullanarak SAP HANA veri taşıma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 6052dae1321e8ac8238ec2994886de30db27551e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Veri gelen SAP, HANA Azure Data Factory kullanarak Taşı
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,12 +60,12 @@ Aşağıdaki tabloda, JSON öğeleri SAP HANA bağlantılı hizmete özgü açı
 
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | dize | Evet
+sunucu | SAP HANA örneği bulunduğu sunucunun adıdır. Sunucunuz özelleştirilmiş bir bağlantı noktası kullanıyorsa belirtin `server:port`. | string | Evet
 authenticationType | Kimlik doğrulama türü. | Dize. "Temel" veya "Windows" | Evet 
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
-password | Kullanıcının parolası. | dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | dize | Hayır
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | string | Evet
+password | Kullanıcının parolası. | string | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP HANA örneğine bağlanmak için kullanması gereken ağ geçidinin adı. | string | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgileri dizesi. | string | Hayır
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
@@ -297,10 +297,10 @@ NVARCHAR | Dize
 CLOB | Byte]
 ALPHANUM | Dize
 BLOB | Byte]
-DATE | Tarih Saat
+DATE | DateTime
 ZAMAN | TimeSpan
-TIMESTAMP | Tarih Saat
-SECONDDATE | Tarih Saat
+TIMESTAMP | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Bilinen sınırlamaları
 SAP HANA veri kopyalama işlemi sırasında birkaç bilinen sınırlamalar vardır:

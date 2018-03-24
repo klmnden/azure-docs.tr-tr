@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C: LinkedIn yapılandırma | Microsoft Docs"
-description: "Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan LinkedIn hesaplarıyla tüketicileri için kaydolma ve oturum açma sağlayın"
+title: 'Azure Active Directory B2C: LinkedIn yapılandırma | Microsoft Docs'
+description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan LinkedIn hesaplarıyla tüketicileri için kaydolma ve oturum açma sağlayın
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: fa51a16b-9ce9-4e27-9eff-0869b4c4f0ef
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 860aa90c391604924850a00cf2137d59fa4a1b53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma LinkedIn hesaplarıyla tüketicileri sağlayın
 ## <a name="create-a-linkedin-application"></a>Bir LinkedIn uygulaması oluşturma
-LinkedIn Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için bir LinkedIn uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir LinkedIn hesabı gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [https://www.linkedin.com/](https://www.linkedin.com/).
+LinkedIn Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için bir LinkedIn uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir LinkedIn hesabı gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [ https://www.linkedin.com/ ](https://www.linkedin.com/).
 
 1. Git [LinkedIn geliştiricilerin Web sitesi](https://www.developer.linkedin.com/) ve LinkedIn hesabı kimlik bilgilerinizle oturum açın.
 2. Tıklatın **My uygulamaları** üst menü çubuğu ve ardından **uygulama oluştur**.

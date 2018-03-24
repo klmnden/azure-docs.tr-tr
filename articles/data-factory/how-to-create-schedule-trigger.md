@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory'de zamanlama Tetikleyicileri oluşturma | Microsoft Docs"
-description: "Bir işlem hattı bir zamanlamaya göre çalışan bir Azure Data factory'de bir tetikleyici oluşturmayı öğrenin."
+title: Azure Data Factory'de zamanlama Tetikleyicileri oluşturma | Microsoft Docs
+description: Bir işlem hattı bir zamanlamaya göre çalışan bir Azure Data factory'de bir tetikleyici oluşturmayı öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 51e2dddbe66ca372d89fc8efeb24bdab9fe6a442
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Bir işlem hattı bir zamanlamaya göre çalışan bir Tetikleyici oluşturma
 Bu makalede zamanlama tetikleyici ve oluşturma, başlatma ve zamanlama tetikleyici izlemek için gereken adımlar hakkında bilgi sağlar. Tetikleyiciler diğer türleri için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
@@ -25,7 +25,7 @@ Bu makalede zamanlama tetikleyici ve oluşturma, başlatma ve zamanlama tetikley
 Bir zamanlama tetikleyici oluştururken, bir zamanlama belirtin (başlangıç tarihi, yineleme, bitiş tarihi vb.) tetikleyici ve bir ardışık düzen ilişkilendirmek için. İşlem hatları ve tetikleyiciler çoka çok ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını başlatabilir. Tek bir tetikleyici birden fazla işlem hattını başlatabilir.
 
 > [!NOTE]
-> Bu makale, Azure Data Factory şu anda önizlemede olan sürüm 2 için geçerlidir. Azure Data Factory genel olarak kullanılabilir (GA) olan sürüm 1, kullanıyorsanız, bkz: [sürüm 1 Azure Data Factory ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Azure Data Factory genel olarak kullanılabilir (GA) olan sürüm 1, kullanıyorsanız, bkz: [sürüm 1 Azure Data Factory ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Aşağıdaki bölümlerde farklı şekillerde zamanlama tetikleyici oluşturmak için adımlar sağlar. 
 
@@ -306,101 +306,101 @@ Aşağıdaki JSON tanımını zamanlama ve yineleme zamanlaması tetikleyici olu
 ```
 
 > [!IMPORTANT]
->  **Parametreleri** özelliği bir özelliğidir zorunlu **ardışık düzen** öğesi. Herhangi bir parametre hattınızı almazsa için boş bir JSON tanımı içermelidir **parametreleri** özelliği.
+>  **parameters** özelliği, **pipelines** öğesinin zorunlu bir özelliğidir. İşlem hattınız herhangi bir parametre almasa bile, **parameters** özelliği için boş bir JSON tanımı eklemeniz gerekir.
 
 
-### <a name="schema-overview"></a>Şema genel bakış
-Aşağıdaki tabloda, yineleme ile ilgili ve tetikleyici zamanlama ana şema öğeleri üst düzey bir genel bakış sağlar:
+### <a name="schema-overview"></a>Şemaya genel bakış
+Aşağıdaki tabloda bir tetikleyicinin yinelenmesi ve zamanlanmasıyla ilgili ana şema öğelerinin genel bir özeti verilmiştir:
 
 | JSON özelliği | Açıklama |
 |:--- |:--- |
-| **startTime** | Bir tarih-saat değeri. Basit zamanlamaları, değeri için **startTime** özelliği, ilk oluşumuna uygulanır. Karmaşık zamanlamalar için daha önce belirtilen tetikleyici başlatır **startTime** değeri. |
-| **endTime** | Bitiş tarihi ve saati tetikleyici için. Tetikleyici belirtilen bitiş tarih ve saatten sonra yürütmez. Özelliğinin değeri geçmişte olamaz. Bu özellik isteğe bağlıdır. |
-| **timeZone** | Saat dilimi. Şu anda yalnızca UTC saat dilimi desteklenir. |
-| **recurrence** | Tetikleyici yineleme kurallarını belirtir yinelenme nesnesi. Yinelenme nesnesi destekler **sıklığı**, **interva**l, **endTime**, **sayısı**, ve **zamanlama**öğeleri. Yinelenme nesnesi tanımlandığında, **sıklığı** öğesi gereklidir. Yineleme nesnesinin diğer öğeler isteğe bağlıdır. |
-| **Sıklık** | Tetikleyici yineleneceği sıklığı birimidir. "Dakika" desteklenen değerler arasında "saati", "gün" "hafta" ve "ay." |
-| **interval** | İçin bir aralığı gösterir pozitif bir tamsayı **sıklığı** tetikleyici ne sıklıkta çalıştırılacağını belirler değeri. Örneğin, varsa **aralığı** 3 ve **sıklığı** "hafta" 3 haftada tetikleyici yinelenen. |
-| **schedule** | Yinelenme zamanlaması için tetikleyici. Belirtilen bir tetikleyici **sıklığı** değeri yinelenme zamanlamaya göre kendi yinelenme değiştirir. **Zamanlama** özelliği, dakika, saat, hafta, ay gün ve hafta numarasını göre yinelenme ilgili değişiklikleri içerir.
+| **startTime** | Bir Tarih-Saat değeri. Basit zamanlamalar için **startTime** özelliğinin değeri ilk oluşum için geçerli olur. Karmaşık zamanlamalar için tetikleyici belirtilen **startTime** değerinden önce başlamaz. |
+| **endTime** | Tetikleyicinin bitiş tarihi ve saati. Tetikleyici belirtilen bitiş tarihi ve saatinden sonra yürütülmez. Bu özelliğin değeri geçmişte olamaz. Bu özellik isteğe bağlıdır. |
+| **timeZone** | Saat dilimi. Şu anda yalnızca UTC saat dilimi desteklenmektedir. |
+| **recurrence** | Tetikleyici için yinelenme kurallarını belirten bir yinelenme nesnesi. Yinelenme nesnesi destekler **sıklığı**, **interva**l, **endTime**, **sayısı**, ve **zamanlama**öğeleri. Bir yinelenme nesnesi tanımlanırken **frequency** öğesi gereklidir. Yinelenme nesnesinin diğer öğeleri isteğe bağlıdır. |
+| **frequency** | Tetikleyicinin yineleneceği sıklık birimi. “Minute”, “hour”, “day”, “week” ve “month” değerleri desteklenir. |
+| **interval** | Tetikleyicinin çalışma sıklığını belirten **frequency** değerinin aralığını gösteren bir pozitif tamsayı. Örneğin **interval** değeri 3, **frequency** değeri de "week" ise tetikleyici 3 haftada bir yinelenir. |
+| **schedule** | Tetikleyicinin yinelenme zamanlaması. **frequency** değeri belirtilen bir tetikleyici, yinelenmesini bir yinelenme zamanlamasına göre değiştirir. **schedule** özelliği, yinelenme için dakika, saat, haftanın günü, ayın günü ve hafta numarası tabanlı değişiklikleri içerir.
 
 
-### <a name="schema-defaults-limits-and-examples"></a>Şema Varsayılanları, sınırlar ve örnekler
+### <a name="schema-defaults-limits-and-examples"></a>Şema varsayılanları, sınırlar ve örnekler
 
 | JSON özelliği | Tür | Gerekli | Varsayılan değer | Geçerli değerler | Örnek |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Dize | Evet | None | ISO-8601 Tarih-Saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | Dize | Evet | Hiçbiri | ISO-8601 Tarih-Saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Nesne | Evet | None | Yinelenme nesnesi | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Sayı | Hayır | 1 | 1 1. 000'ı için | `"interval":10` |
-| **endTime** | Dize | Evet | Hiçbiri | Gelecekteki bir zamanı temsil eden bir tarih-saat değeri. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **interval** | Sayı | Hayır | 1 | 1-1.000 | `"interval":10` |
+| **endTime** | Dize | Evet | Hiçbiri | Gelecekteki bir zamanı temsil eden Tarih-Saat değeri. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Nesne | Hayır | Hiçbiri | Zamanlama nesnesi | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime özelliği
-Aşağıdaki tabloda gösterilmektedir nasıl **startTime** özelliği çalıştırmak bir tetikleyici denetler:
+Aşağıdaki tabloda **startTime** özelliğinin bir tetikleyici çalıştırmasını nasıl denetlediği gösterilmektedir:
 
 | startTime değeri | Zamanlama olmadan yinelenme | Zamanlama ile yinelenme |
 |:--- |:--- |:--- |
-| Başlangıç zamanı geçmişte | İlk gelecekteki yürütme zamanı başlangıç zamanından sonra hesaplar ve o anda çalıştırır.<br/><br/>Sonraki yürütmelerde son yürütme saati hesaplamaya göre çalıştırır.<br/><br/>Bu tablonun altındaki örneğe bakın. | Tetikleyici başlatır _Hayır sooner daha_ belirtilen başlangıç saati. Birinci başlangıç saati hesaplanan zamanlamayı temel alır.<br/><br/>Sonraki yürütmelerde yineleme zamanlamaya göre çalışır. |
-| Başlangıç zamanı gelecekte veya güncel | Belirtilen başlangıç zamanda bir kez çalışır.<br/><br/>Sonraki yürütmelerde son yürütme saati hesaplamaya göre çalıştırır. | Tetikleyici başlatır _Hayır er_ belirtilen dönemden başlangıç zamanı. Birinci başlangıç saati hesaplanan zamanlamayı temel alır.<br/><br/>Sonraki yürütmelerde yineleme zamanlamaya göre çalışır. |
+| Başlangıç zamanı geçmişte | Başlangıç zamanından sonraki ilk gelecek yürütme zamanını hesaplar ve bu zamanda çalıştırır.<br/><br/>Son yürütme zamanına göre yaptığı hesaplamalarla sonraki yürütmeleri çalıştırır.<br/><br/>Bu tablonun altındaki örneğe bakın. | Tetikleyici belirtilen başlangıç zamanından _önce_ başlamaz. İlk yinelenme, başlangıç zamanından hesaplanan zamanlamayı temel alır.<br/><br/>Sonraki yürütmeleri yinelenme zamanlamasına göre çalıştırır. |
+| Başlangıç zamanı gelecekte veya güncel | Belirtilen başlangıç zamanında bir kez çalışır.<br/><br/>Son yürütme zamanına göre yaptığı hesaplamalarla sonraki yürütmeleri çalıştırır. | Tetikleyici belirtilen başlangıç zamanından _önce_ başlamaz. İlk yinelenme, başlangıç zamanından hesaplanan zamanlamayı temel alır.<br/><br/>Sonraki yürütmeleri yinelenme zamanlamasına göre çalıştırır. |
 
-Başlangıç zamanı geçmişteki bir yineleme, ancak hiçbir zamanlama olduğunda ne olacağını örneği görelim. Geçerli saati olduğunu varsayın `2017-04-08 13:00`, başlangıç saati `2017-04-07 14:00`, ve yinelenme her iki gün. ( **Yineleme** değeri ayarlayarak tanımlanmış **sıklığı** "gün" özelliğine ve **aralığı** özelliğini 2.) Dikkat **startTime** değeri geçmişte ve geçerli saatinden önce.
+Başlangıç zamanı geçmişte olduğunda ve bir yinelenme olmasına rağmen zamanlama olmadığında neler olacağını gösteren bir örneğe bakalım. Geçerli zamanın `2017-04-08 13:00`, başlangıç zamanının `2017-04-07 14:00` ve yinelenmenin iki günde bir olduğunu varsayalım. (**recurrence** değeri, **frequency** özelliği “day” olarak, **interval** özelliği 2 olarak ayarlanarak tanımlanır.) **startTime** değerinin geçmişte olduğuna ve geçerli zamanın öncesinde gerçekleştiğine dikkat edin.
 
-Bu şartlar altında ilk çalıştırma zamanı `2017-04-09 at 14:00` olacaktır. Zamanlayıcı altyapısı çalıştırma yinelenmelerini başlangıç zamanından itibaren hesaplar. Geçmişteki örnekler dikkate alınmaz. Altyapı gelecekte gerçekleşen bir sonraki örneği kullanır. Bu senaryoda, başlangıç zamanıdır `2017-04-07 at 2:00pm`, o zamandan olan iki gün sonraki örneği olacak şekilde `2017-04-09 at 2:00pm`.
+Bu şartlar altında ilk çalıştırma zamanı `2017-04-09 at 14:00` olacaktır. Zamanlayıcı altyapısı çalıştırma yinelenmelerini başlangıç zamanından itibaren hesaplar. Geçmişteki örnekler dikkate alınmaz. Altyapı gelecekte gerçekleşen bir sonraki örneği kullanır. Bu senaryoda startTime `2017-04-07 at 2:00pm` ve sonraki örnek bu zamandan iki gün sonrası olan `2017-04-09 at 2:00pm` olur.
 
-İlk yürütme süresi aynı bile ise **startTime** değer `2017-04-05 14:00` veya `2017-04-01 14:00`. İlk yürütme işleminden sonra sonraki yürütmelerde zamanlama kullanılarak hesaplanır. Sonraki yürütmelerde altındadır bu nedenle, `2017-04-11 at 2:00pm`, ardından `2017-04-13 at 2:00pm`, ardından `2017-04-15 at 2:00pm`ve benzeri.
+İlk yürütme zamanı **startTime** değeri `2017-04-05 14:00` veya `2017-04-01 14:00` olsa bile değişmez. İlk yürütme sonrasındaki yürütmeler zamanlama kullanılarak hesaplanır. Bu nedenle, sonraki yürütmeler sırasıyla `2017-04-11 at 2:00pm`, `2017-04-13 at 2:00pm`, `2017-04-15 at 2:00pm` itibarıyla gerçekleşir ve bu düzende devam eder.
 
-Son olarak, saat veya dakika ilk yürütme saat veya dakika tetikleyici için zamanlamayı oluşturulmamış olduğunda, varsayılan olarak kullanılır.
+Son olarak, bir tetikleyicinin zamanlamasında saatler veya dakikalar ayarlanmazsa varsayılan olarak ilk yürütmenin saat veya dakikaları kullanılır.
 
-### <a name="schedule-property"></a>Zamanlama özelliği
-Bir yandan, bir zamanlama kullanımını tetikleyici yürütmeleri sayısını sınırlayabilirsiniz. Örneğin, bir tetikleyici aylık sıklık yalnızca 31 günde çalışacak şekilde zamanlanır, tetikleyici yalnızca 31 gün içeren bu aylarda çalıştırılır.
+### <a name="schedule-property"></a>schedule özelliği
+Diğer yandan, zamanlama kullanımı tetikleyici yürütme sayısını sınırlayabilir. Örneğin, aylık sıklığa sahip bir tetikleyici 31. günde çalışacak şekilde zamanlanırsa, tetikleyici yalnızca 31. günü olan aylarda çalışır.
 
-Diğer yandan zamanlama, tetikleyici çalıştırma sayısını da genişletebilir. Örneğin, ayın günleri 1 ve 2 çalışmak üzere zamanlanmış aylık bir sıklık tetikleyici ayda bir kez yerine ayın 1 ve 2 gün üzerinde çalışır.
+Diğer yandan zamanlama, tetikleyici çalıştırma sayısını da genişletebilir. Örneğin, aylık sıklığa sahip olan ve ayın 1. ve 2. günlerinde çalışacak şekilde zamanlanan bir tetikleyici, ayda bir kez çalışmak yerine ayın 1. ve 2. günlerinde çalışır.
 
-Birden çok **zamanlama** öğeleri belirtilirse, Değerlendirme sırasını büyükten en küçük zamanlama ayarı. Değerlendirme ile hafta numarasını ve ardından ay gün, hafta içi günü, saat, başlatır ve son olarak, dakika.
+Birden fazla **schedule** öğesi belirtilmişse değerlendirme sırası en büyük zamanlama ayarından en küçüğe doğru olur. Değerlendirme hafta numarasıyla başlar ve arkasından ayın günü, haftanın günü, saat ve son olarak dakika gelir.
 
-Aşağıdaki tabloda açıklanmaktadır **zamanlama** ayrıntılı öğeleri:
+Aşağıdaki tabloda **schedule** öğeleri ayrıntılı bir şekilde açıklanmıştır:
 
 
-| JSON element | Açıklama | Geçerli değerler |
+| JSON öğesi | Açıklama | Geçerli değerler |
 |:--- |:--- |:--- |
-| **dakika** | Tetikleyicinin çalıştığı dakika değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul>
-| **saatleri** | Tetikleyicinin çalıştığı saat değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul> |
-| **weekDays** | Tetikleyici çalıştığı haftanın günleri. Değer yalnızca bir haftalık sıklığı ile belirtilebilir. | <ul><li>Pazartesi, Salı, Çarşamba, Perşembe, Cuma, Cumartesi Pazar</li><li>(En büyük dizi boyutu 7'dir) gün değerleri dizisi</li><li>Gün değerleri büyük küçük harfe duyarlı değildir</li></ul> |
-| **monthlyOccurrences** | Tetikleyici çalıştığı ayın günleri. Değer yalnızca bir aylık sıklığı ile belirtilebilir. | <ul><li>Dizi **monthlyOccurence** nesneleri: `{ "day": day,  "occurrence": occurence }`.</li><li>**Gün** tetikleyici çalıştığı haftanın gününü bir özniteliktir. Örneğin, bir **monthlyOccurrences** özelliği ile bir **gün** değerini `{Sunday}` ayın her Pazar anlamına gelir. **Gün** özniteliği gereklidir.</li><li>**Oluşumu** özniteliktir belirtilen oluşumunu **gün** ay. Örneğin, bir **monthlyOccurrences** özelliğiyle **gün** ve **oluşumu** değerlerini `{Sunday, -1}` ayın son Pazar anlamına gelir. **Oluşumu** özniteliği isteğe bağlıdır.</li></ul> |
-| **monthDays** | Tetikleyici çalıştığı ayın günü. Değer yalnızca bir aylık sıklığı ile belirtilebilir. | <ul><li><= -1 ve >= -31 şartlarını karşılayan herhangi bir değer</li><li>>= 1 ve <= 31 şartlarını karşılayan herhangi bir değer</li><li>Değerleri dizisi</li></ul> |
+| **minutes** | Tetikleyicinin çalıştığı dakika değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul>
+| **hours** | Tetikleyicinin çalıştığı saat değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul> |
+| **weekDays** | Tetikleyicinin çalıştığı hafta günleri. Bu değer yalnızca haftalık bir sıklık ile belirtilebilir. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</li><li>Gün değerleri dizisi (en fazla dizi boyutu 7’dir)</li><li>Gün değerleri büyük/küçük harfe duyarlı değildir</li></ul> |
+| **monthlyOccurrences** | Tetikleyicinin çalıştığı ay günleri. Bu değer yalnızca aylık bir sıklık ile belirtilebilir. | <ul><li>**monthlyOccurence** nesneleri dizisi: `{ "day": day,  "occurrence": occurence }`.</li><li>**day** özniteliği, tetikleyicinin çalıştığı gündür. Örneğin, **day** değeri `{Sunday}` olan bir **monthlyOccurrences** özelliği, ayın her Pazar günü anlamına gelir. **day** özniteliği gereklidir.</li><li>**occurrence** özniteliği, ay içinde belirtilen **day** değerinin gerçekleşmesidir. Örneğin, **day** ve **occurrence** değerleri `{Sunday, -1}` olan bir **monthlyOccurrences** özelliği, ayın son Pazar günü anlamına gelir. **occurrence** özniteliği isteğe bağlıdır.</li></ul> |
+| **monthDays** | Tetikleyicinin çalıştığı ay günü. Bu değer yalnızca aylık bir sıklık ile belirtilebilir. | <ul><li><= -1 ve >= -31 şartlarını karşılayan herhangi bir değer</li><li>>= 1 ve <= 31 şartlarını karşılayan herhangi bir değer</li><li>Değer dizisi</li></ul> |
 
 
-## <a name="examples-of-trigger-recurrence-schedules"></a>Tetikleyici yineleme zamanlamaları örnekleri
-Bu bölümde, yineleme zamanlamaları örnekleri sağlar ve odaklanır **zamanlama** nesne ve öğeleri.
+## <a name="examples-of-trigger-recurrence-schedules"></a>Tetikleyici yineleme zamanlaması örnekleri
+Bu bölümde yinelenme zamanlaması örnekleri sağlanmış ve **schedule** nesnesi ile bunun öğelerine odaklanılmıştır.
 
-Örnekleri **aralığı** değeri 1 ve o **sıklığı** değerdir zamanlama tanımı göre doğru. Örneğin, olamaz bir **sıklığı** "gün" değerini ve "monthDays" değişiklik de **zamanlama** nesnesi. Bunlar gibi kısıtlamaları, önceki bölümde tabloda açıklanan.
+Örneklerde **interval** değerinin 1 olduğu ve zamanlama tanımına göre **frequency** değerinin doğru olduğu varsayılmıştır. Örneğin, hem "day" şeklinde bir **frequency** değeri hem de **schedule** nesnesinde bir "monthDays" değişikliği olamaz. Bu gibi kısıtlamalar önceki bölümde yer alan tabloda belirtilmiştir.
 
 | Örnek | Açıklama |
 |:--- |:--- |
-| `{"hours":[5]}` | 5: 00'da her gün çalıştırın. |
-| `{"minutes":[15], "hours":[5]}` | 5: 15'te her gün çalıştırın. |
-| `{"minutes":[15], "hours":[5,17]}` | 5: 15'da ve 17:15:00 saatleri her gün olarak çalışır. |
-| `{"minutes":[15,45], "hours":[5,17]}` | 5: 15'te, 5: 45'te, çalıştırmak 17:15:00 saatleri ve 5:45 PM her gün. |
-| `{"minutes":[0,15,30,45]}` | Her 15 dakikada çalıştırın. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Her saat çalıştırın. Bu tetikleyici saatte bir çalışır. Dakika denetlediği **startTime** bir değeri belirtildiğinde değeri. Bir değer belirtilmezse, dakika oluşturulma tarihine göre denetlenir. Başlangıç saati veya oluşturma zamanı (hangisi) saat 12: 25'e ise, tetikleyici 00:25 ', 01:25, örneğin, çalışan 02:25,... ve 23:25.<br/><br/>Bu zamanlamayı tetikleyici ile zorunda eşdeğer olan bir **sıklığı** "saat" değerini bir **aralığı** değeri 1 ve Hayır **zamanlama**.  Bu zamanlama ile farklı kullanılabilir **sıklığı** ve **aralığı** başka Tetikleyicileri oluşturmak için değerleri. Örneğin, **sıklığı** değerdir "ay", her gün yerine yalnızca ayda bir zamanlama çalıştırır zaman **sıklığı** değerdir "day." |
-| `{"minutes":[0]}` | Her saat, saat üzerinde çalıştırın. Bu tetikleyici her saat 12: 00'da, 1: 00'da, 2: 00'da, başlangıç saati çalışır ve benzeri.<br/><br/>Bu zamanlamayı tetikleyici ile eşdeğerdir bir **sıklığı** "saat" değerini ve **startTime** değeri sıfır dakika veya no **zamanlama** ancak **sıklığı**  değeri günün"." Varsa **sıklığı** değerdir "hafta" veya "ay" zamanlama bir gün, hafta veya ayda bir gün yürütür yalnızca sırasıyla. |
-| `{"minutes":[15]}` | Başından 15 dakika sonra her saat çalıştırın. 00: 15'de, 1: 15'da, 2: 15'da, başlangıç saati aşan 15 dakika, bu tetikleyici her saat çalışır ve vb. ve 11: 15'te adresindeki bitiş. |
-| `{"hours":[17], "weekDays":["saturday"]}` | Haftada 5:00 PM Cumartesi günleri çalıştırmanıza. |
-| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Haftada 5:00 PM Pazartesi, Çarşamba ve Cuma çalıştırmanıza. |
-| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | 17:15:00 saatleri ve 5:45 PM Pazartesi, Çarşamba ve Cuma her hafta çalıştırın. |
-| `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Her 15 dakikada günlerinde çalıştırın. |
-| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Hafta içi günlerde 9:00 ve 4:45 arasında her 15 dakikada çalıştırın. |
-| `{"weekDays":["tuesday", "thursday"]}` | Salı ve Perşembe günleri saat belirtilen başlangıç saatinde çalıştırın. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | 6: 00'da, her ayın 28 gününde Çalıştır (varsayarak bir **sıklığı** "ay" değeri). |
-| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | 6: 00'da ayın son gününde Çalıştır. Bir tetikleyici bir ayın son günü çalıştırmak için -1 28, 29, 30 ve 31 gün yerine kullanın. |
-| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | 6: 00'da, her ayın ilk ve son gününde Çalıştır. |
-| `{monthDays":[1,14]}` | Belirtilen başlangıç saatinde her ayın ilk ve 14 gün çalıştırın. |
-| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | 5: 00'da her ayın ilk Cuma çalıştırın. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Belirtilen başlangıç saatinde her ayın ilk Cuma çalıştırın. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Belirtilen başlangıç saatinde her ay ay sonundan üçüncü Cuma çalıştırın. |
-| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | İlk ve son Cuma her ayın 5: 15'da çalışır. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | İlk ve son Cuma her ayın belirtilen başlama saatinde Çalıştır. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Her ayın belirtilen başlangıç saatinde beşinci Cuma çalıştırın. Bir ay içinde hiçbir beşinci Cuma olduğunda yalnızca beşinci Cuma günleri çalışmak üzere zamanlanmış olduğundan işlem hattı çalıştırmaz. Tetikleyici çalıştırmak için son 5 için yerine -1 kullanmayı düşünün Cuma günü, gerçekleşen **oluşumu** değeri. |
-| `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Ayın son Cuma günü 15 dakikada bir çalışır. |
-| `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | 5: 15'te, 5: 45'te, çalıştırmak 17:15:00 saatleri ve 5:45 PM her ayın üçüncü Çarşamba günü. |
+| `{"hours":[5]}` | Her gün 05.00'te çalıştır. |
+| `{"minutes":[15], "hours":[5]}` | Her gün 05.15'te çalıştır. |
+| `{"minutes":[15], "hours":[5,17]}` | Her gün 05.15 ve 17.15’te çalıştır. |
+| `{"minutes":[15,45], "hours":[5,17]}` | Her gün 05.15, 05.45, 17.15 ve 17.45’te çalıştır. |
+| `{"minutes":[0,15,30,45]}` | 15 dakikada bir çalıştır. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Saatte bir çalıştır. Bu tetikleyici saatte bir çalışır. **startTime** değeri belirtilirse dakikalar bu değer tarafından denetlenir. Bir değer belirtilmezse dakikalar, oluşturma zamanı tarafından denetlenir. Örneğin başlangıç zamanı veya oluşturma zamanı (hangisi geçerliyse) 12:25 ise tetikleyici 00.25, 01.25, 02.25, ... ve 23.25 saatlerinde çalışır.<br/><br/>Bu zamanlama, **frequency** değeri “hour”, **interval** değeri 1 olan ve **schedule** olmayan bir tetikleyiciye sahip olmakla eşdeğerdir.  Bu zamanlama farklı **frequency** ve **interval** değerleriyle kullanılarak başka tetikleyiciler oluşturulabilir. Örneğin, **frequency** değeri “day” olduğunda her gün çalışan zamanlama, **frequency** değeri “month” olduğunda yalnızca ayda bir kere çalışır. |
+| `{"minutes":[0]}` | Her saat başı çalıştır. Bu tetikleyici 12.00, 01.00, 02.00 gibi bir saatte başlayarak saat başı çalışır.<br/><br/>Bu zamanlama, **frequency** değeri “hour” olup **startTime** değeri sıfır dakika olan ya da **schedule** değeri olmayıp **frequency** değeri “day” olan bir tetikleyiciye eşdeğerdir. **frequency** değeri “week” veya “month” olursa zamanlama yalnızca haftada bir gün veya ayda bir gün çalışır. |
+| `{"minutes":[15]}` | Her saat başını 15 dakika geçe çalıştır. Bu tetikleyici, 00.15, 01.15, 02.15, vb. bir saatte başlayıp 23.15’te bitecek şekilde her saat başını 15 dakika geçe çalışır. |
+| `{"hours":[17], "weekDays":["saturday"]}` | Her hafta Cumartesi günleri saat 17.00'de çalıştır. |
+| `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Her hafta Pazartesi, Çarşamba ve Cuma günleri saat 17.00'de çalıştır. |
+| `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Her hafta Pazartesi, Çarşamba ve Cuma günleri saat 17.15 ve 17.45'te çalıştır. |
+| `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Haftanın her günü 15 dakikada bir çalıştır. |
+| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Haftanın her günü 09.00 ile 16.45 arasında 15 dakikada bir çalıştır. |
+| `{"weekDays":["tuesday", "thursday"]}` | Salı ve Perşembe günleri belirtilen başlangıç saatinde çalıştır. |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Her ayın 28. gününde saat 06.00'da çalıştır (**frequency** değerinin “month” olduğu kabul edilir). |
+| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Ayın son günü saat 06.00'da çalıştır. Bir tetikleyiciyi ayın son gününde çalıştırmak için 28, 29, 30 veya 31 yerine -1 değerini kullanın. |
+| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Her ayın ilk ve son günü saat 06.00'da çalıştır. |
+| `{monthDays":[1,14]}` | Her ayın birinci ve 14. gününde belirtilen başlangıç zamanında çalıştır. |
+| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Her ayın ilk Cuma günü saat 05.00'te çalıştır. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` | Her ayın ilk Cuma gününde belirtilen başlangıç zamanında çalıştır. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Her ay, ayın sondan üçüncü Cuma gününde belirtilen zamanda çalıştır. |
+| `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Her ayın ilk ve son Cuma günü saat 05.15'te çalıştır. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Her ayın ilk ve son Cuma günü belirtilen başlangıç zamanında çalıştır. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Her ayın beşinci Cuma günü belirtilen başlangıç zamanında çalıştır. Bir ayda beşinci Cuma günü yoksa, işlem hattı yalnızca beşinci Cuma günlerinde çalışacak şekilde zamanlandığından çalışmaz. Tetikleyiciyi ayın son Cuma gününde çalıştırmak istiyorsanız **occurrence** değeri için 5 yerine -1 yazın. |
+| `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Ayın son Cuma günü 15 dakikada bir çalıştır. |
+| `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Her ayın üçüncü Çarşamba günü 05.15, 05.45, 17.15 ve 17.45’te çalıştır. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

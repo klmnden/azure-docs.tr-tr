@@ -1,11 +1,11 @@
 ---
 title: Veri kopyalama/Azure Data Factory kullanarak SQL Server | Microsoft Docs
-description: "Azure Data Factory kullanarak Azure VM'deki veya şirket içi SQL Server veritabanı için/gelen verileri taşıma hakkında bilgi edinin."
+description: Azure Data Factory kullanarak Azure VM'deki veya şirket içi SQL Server veritabanı için/gelen verileri taşıma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f46917731ef64290816870b6abd14679dd465211
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b845f3112d96838454653dcd742b950009206bf4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SQL Server gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -485,9 +485,9 @@ SQL Server başlangıç/bitiş veri kopyalama işlemi sırasında aşağıdaki e
 | İkili |Byte] |
 | bit |Boole |
 | char |Dize, Char] |
-| tarih |Tarih Saat |
-| Tarih saat |Tarih Saat |
-| datetime2 |Tarih Saat |
+| tarih |DateTime |
+| Tarih saat |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
@@ -501,7 +501,7 @@ SQL Server başlangıç/bitiş veri kopyalama işlemi sırasında aşağıdaki e
 | nvarchar |Dize, Char] |
 | Gerçek |Bekar |
 | rowVersion |Byte] |
-| smalldatetime |Tarih Saat |
+| smalldatetime |DateTime |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |

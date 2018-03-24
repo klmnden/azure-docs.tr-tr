@@ -1,24 +1,24 @@
 ---
-title: "Özel etki alanları için Azure DNS kullanarak | Microsoft Docs"
-description: "Özel DNS barındırma hizmeti Microsoft Azure ile ilgili genel bakış."
+title: Özel etki alanları için Azure DNS kullanarak | Microsoft Docs
+description: Özel DNS barındırma hizmeti Microsoft Azure ile ilgili genel bakış.
 services: dns
 documentationcenter: na
 author: KumudD
 manager: jennoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2017
+ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 95cf8ab2bd34e698e12452e062687219bad49eb6
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 7f1bd8cdcab7bdd61b3f006acf6090c53db8eda6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Azure DNS için özel etki alanlarını kullanma
 Etki alanı adı sistemi ya da DNS, çevirmek için sorumludur (veya çözme) IP adresi için bir hizmet adı. Azure DNS barındırma için bir DNS etki alanı, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlamanın hizmetidir.  İnternet'e yönelik DNS etki alanı yanı sıra Azure DNS şimdi ayrıca özel DNS etki alanı bir önizleme özelliği olarak destekler.  
@@ -27,7 +27,7 @@ Azure DNS, yönetmek ve özel DNS çözüm eklemek zorunda kalmadan sanal bir a�
 
 ![DNS'ye genel bakış](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ## <a name="benefits"></a>Avantajlar
 
@@ -43,15 +43,41 @@ Azure DNS, yönetmek ve özel DNS çözüm eklemek zorunda kalmadan sanal bir a�
 
 * **Yatay bölme DNS desteği.** Azure DNS bölgeleri farklı yanıtlardan bir sanal ağ içinde ve ortak Internet'ten çözümlemek aynı ada sahip oluşturmanıza olanak sağlar.  Yatay bölme DNS tipik bir senaryo, ayrılmış bir sanal ağınız içinde kullanmak için bir hizmet sürümü sağlamaktır.
 
+* **Tüm Azure bölgeleri'nde kullanılabilir.** Azure DNS özel bölgeler tüm Azure bölgeleri Azure genel bulutunda kullanılabilir. 
+
+
+## <a name="capabilities"></a>Özellikler 
+* Özel bir bölgeye kayıt sanal ağı olarak bağlı tek bir sanal ağ sanal makinelerden otomatik kaydı. Sanal makineler kayıtlı (eklenir) özel bölgesine kendi özel IP'leri işaret eden bir kayıt olarak olacaktır. Ayrıca, bir sanal makine, sanal ağ silinir kayıt Azure da otomatik olarak ilgili DNS kaydı bağlantılı özel bölgesi'nden kaldırır. Bölgeye göre DNS çözümlemesi herhangi birinden kaydı sanal ağ içindeki sanal makinelerin çalışır, ayrıca varsayılan olarak sanal ağlar kayıt çözümleme sanal ağları olarak hareket unutmayın. 
+* Özel bölgesine çözümleme sanal ağları olarak bağlı olan sanal ağlar arasında desteklenen DNS çözümlemesi iletin. DNS çözümlemesi arası sanal ağ için açık bir bağımlılık yoktur sanal ağlar birbirleri ile eşlenen. Ancak, müşteriler sanal ağları diğer senaryolar için eş isteyebilir (örneğin: HTTP trafiği).
+* Geriye doğru DNS araması VNET kapsamı içinde desteklenir. Özel bölgeye atanan sanal ağ içindeki özel IP için geriye doğru DNS Arama soneki olarak bölge adı yanı sıra konak/kayıt adı içerir FQDN döndürür. 
+
+
+## <a name="limitations"></a>Sınırlamalar
+* Özel bölge başına 1 kaydı sanal ağ
+* Özel bölge başına fazla 10 çözümleme sanal ağlar
+* Belirli bir sanal ağdaki tek bir özel bölgesine bir kayıt sanal ağ olarak bağlanabilir
+* Belirli bir sanal ağ en fazla 10 özel bölgeler için bir çözüm sanal ağ olarak bağlanabilir.
+* Kayıt sanal ağ belirtilirse, bu sanal ağdan özel bölgesine kayıtlı olan VM'ler için DNS kayıtlarını görüntülenebilir veya Powershell/CLI/API'leri gelen alınabilir olmaz, ancak VM kayıtları gerçekten kaydedilir ve çözümler başarıyla
+* Geriye doğru DNS kaydı sanal ağında özel IP alanı için yalnızca çalışır
+* Özel bölgesinde kayıtlı olmayan bir özel IP için DNS geriye doğru (örn: özel bir bölge çözümleme sanal ağa bağlı bir sanal ağ bir sanal makine için özel IP) "internal.cloudapp.net" DNS son eki olarak ancak döndürür bu soneki çözümlenebilir olmaz.   
+* Sanal ağ boş olması gerekir (yani VM kayıt yok) ilk defa (yani ilk kez) özel bölgeye kayıt ya da çözümleme sanal ağı bağlama. Ancak, sanal ağ sonra boş olabilir kayıt ya da çözümleme sanal ağı olarak, diğer özel bölgeler için gelecekteki bağlama. 
+* Şu anda koşullu iletme, örneğin Azure ve OnPrem ağları arasında çözümleme etkinleştirmek için desteklenmiyor. Müşteriler bu senaryo başka mekanizmalar aracılığıyla nasıl sağlarsınız hakkında daha fazla belgeleri için lütfen bkz [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+
+Ayrıca, aynı zamanda okumaya öneririz [SSS](./dns-faq.md#private-dns) bazı ortak sorular ve yanıtlar özel bölgelerinde Azure DNS'de için belirli bir DNS kaydı ve çözümleme davranışı dahil olmak üzere belirli türde operasyonlar bekleyebilirsiniz. 
+
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Özel DNS bölgeleri yönetilen Önizleme sırasında ücretsiz. Genel kullanılabilirlik sırasında bu özellik bir kullanım tabanlı fiyatlandırma modelini teklifi mevcut Azure DNS için benzer kullanır. 
+Özel DNS bölgeleri genel Önizleme sırasında ücretsiz. Genel kullanılabilirlik sırasında bu özellik bir kullanım tabanlı fiyatlandırma modelini teklifi mevcut Azure DNS için benzer kullanır. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi edinmek için nasıl [özel bir DNS bölgesi oluşturma](./private-dns-getstarted-powershell.md) Azure DNS'de.
+Azure DNS kullanarak özel bir bölge oluşturmayı öğrenin [PowerShell](./private-dns-getstarted-powershell.md) veya [CLI](./private-dns-getstarted-cli.md).
+
+Bazı genel senaryolar üzerinde okuma [özel bölge senaryoları](./private-dns-scenarios.md) , gerçekleşen Azure DNS'de özel bölgeler ile.
+
+Üzerinde okuma [SSS](./dns-faq.md#private-dns) bazı ortak sorular ve yanıtlar özel bölgelerinde Azure DNS'de için de dahil olmak üzere belirli bir davranışı belirli türde operasyonlar bekleyebilirsiniz. 
 
 Ziyaret ederek DNS bölgeleri ve kayıtlar hakkında bilgi edinin: [DNS bölgeleri ve genel bakış kayıtları](dns-zones-records.md).
 

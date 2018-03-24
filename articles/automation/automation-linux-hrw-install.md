@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu Linux Karma Runbook Çalışanı"
-description: "Bu makale bir Azure Otomasyon karma Runbook Linux tabanlı bilgisayarlarda yerel veri merkezinde veya Bulut ortamında runbook'ların çalışmasına izin veren Worker yükleme hakkında bilgi sağlar."
+title: Azure Otomasyonu Linux Karma Runbook Çalışanı
+description: Bu makale bir Azure Otomasyon karma Runbook Linux tabanlı bilgisayarlarda yerel veri merkezinde veya Bulut ortamında runbook'ların çalışmasına izin veren Worker yükleme hakkında bilgi sağlar.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b68e8f7e67f767cff19e57f5864db89d6f059316
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6278583c288a9a28bda53748e2f9f6fd83ed6c7f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Bir Linux karma Runbook çalışanı dağıtma
 
@@ -32,13 +30,13 @@ Her karma Runbook çalışanı aracı yüklediğinizde, belirttiğiniz bir karma
 Bir karma Runbook çalışanını bir runbook'u başlattığınızda, üzerinde çalıştığı grubu belirtin. Grubun üyelerini isteği hangi çalışan hizmetleri belirleyin. Belirli bir çalışan belirtemezsiniz.
 
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Linux karma Runbook çalışanı yükleme
-Yüklemek ve karma Runbook çalışanı Linux bilgisayarınızda yapılandırmak için el ile rolünü yüklemek ve yapılandırmak için bir düz İleri süreci izleyin. Etkinleştirme gerektirir **Otomasyon karma çalışanı** OMS çalışma alanınızı ve bilgisayarı çalışan kaydetmek ve yeni veya varolan bir gruba eklemek için komut kümesini çalıştıran çözümde. 
+Yüklemek ve karma Runbook çalışanı Linux bilgisayarınızda yapılandırmak için el ile rolünü yüklemek ve yapılandırmak için bir düz İleri süreci izleyin. Etkinleştirme gerektirir **Otomasyon karma çalışanı** günlük analizi çalışma alanınız ve bilgisayarı çalışan kaydetmek ve yeni veya varolan bir gruba eklemek için komut kümesini çalıştıran çözümde. 
 
 Devam etmeden önce Automation hesabınız bağlandığı günlük analizi çalışma alanı ve ayrıca, Automation hesabınız için birincil anahtarı Not gerekir. Hem portalından Automation hesabınız seçip seçerek bulabilirsiniz **çalışma** çalışma alanı kimliği ve seçerek **anahtarları** birincil anahtar.  
 
-1.  OMS "Otomasyon karma çalışanı" çözümde etkinleştirin. Bu durum ya da yapılabilir:
+1.  Azure "Otomasyon karma çalışanı" çözümde etkinleştirin. Bu durum ya da yapılabilir:
 
-   1. İçinde çözümleri galerisinden [OMS portalı](https://mms.microsoft.com), etkinleştirme **Otomasyon karma çalışanı** çözümü
+   1. Ekle **Otomasyon karma çalışanı** adresindeki yordamı kullanarak, aboneliğinizin çözüme [çalışma alanınıza ekleyin günlük analizi yönetim çözümleri](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
    2. Aşağıdaki cmdlet'i çalıştırın:
 
         ```powershell
@@ -48,16 +46,16 @@ Devam etmeden önce Automation hesabınız bağlandığı günlük analizi çal�
 2.  Parametreleri için değerleri değiştirerek aşağıdaki komutu çalıştırın *-w*, *-k*, *-g*, ve *-e*. İçin *-g* parametre değeri yeni Linux karma Runbook çalışanı katılması gereken karma Runbook çalışanı grubu adını değiştirin. Otomasyon hesabınızda adı zaten mevcut değilse yeni bir karma Runbook çalışanı grubu bu ada sahip yapılır.
     
     ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <OMSworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <LogAnalyticsworkspaceId> -k <AutomationSharedKey> -g <hybridgroupname> -e <automationendpoint>
     ```
 3. Komut tamamlandığında, Azure portalında karma çalışan grupları dikey yeni Grup ve üye sayısı gösterilir veya varolan bir grubu, üye sayısı artar. Grup listesinden seçebilirsiniz **karma çalışan grupları** dikey penceresinde ve select **karma çalışanları** döşeme. Üzerinde **karma çalışanları** dikey penceresi, her listelenen grubunun üyesi bakın.  
 
 
 ## <a name="turning-off-signature-validation"></a>İmza doğrulama kapatma 
-Varsayılan olarak, Linux karma Runbook çalışanları imza doğrulaması gerektirir. İmzasız bir runbook karşı çalışan çalıştırırsanız, "imza doğrulaması başarısız oldu" içeren bir hata görürsünüz. İmza doğrulama devre dışı bırakmak için ikinci parametresi, OMS çalışma alanı Kimliğiniz ile değiştirerek aşağıdaki komutu çalıştırın:
+Varsayılan olarak, Linux karma Runbook çalışanları imza doğrulaması gerektirir. İmzasız bir runbook karşı çalışan çalıştırırsanız, "imza doğrulaması başarısız oldu" içeren bir hata görürsünüz. İmza doğrulama devre dışı bırakmak için ikinci parametresi, günlük analizi çalışma alanı Kimliğiniz ile değiştirerek aşağıdaki komutu çalıştırın:
 
     ```
-    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
+    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
     ```
 
 ## <a name="supported-runbook-types"></a>Desteklenen runbook türleri

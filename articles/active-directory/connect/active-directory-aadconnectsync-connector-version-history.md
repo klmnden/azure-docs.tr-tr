@@ -1,24 +1,24 @@
 ---
-title: "Bağlayıcısı sürüm yayımlama geçmişi | Microsoft Docs"
-description: "Bu konu bağlayıcıları tüm sürümleri, Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) için listeler."
+title: Bağlayıcısı sürüm yayımlama geçmişi | Microsoft Docs
+description: Bu konu bağlayıcıları tüm sürümleri, Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) için listeler.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>Bağlayıcı Sürümü Yayınlama Geçmişi
 Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) bağlayıcıları sık sık güncelleştirilir.
@@ -34,9 +34,26 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 * [En son bağlayıcılar indirin](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [Genel LDAP Bağlayıcısı](active-directory-aadconnectsync-connector-genericldap.md) başvuru belgelerini
 * [Genel SQL bağlayıcı](active-directory-aadconnectsync-connector-genericsql.md) başvuru belgelerini
-* [Web Hizmetleri Bağlayıcısı](http://go.microsoft.com/fwlink/?LinkID=226245) başvuru belgelerini
+* [Web Hizmetleri Bağlayıcısı](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) başvuru belgelerini
 * [PowerShell Bağlayıcısı](active-directory-aadconnectsync-connector-powershell.md) başvuru belgelerini
 * [Lotus Domino Bağlayıcısı](active-directory-aadconnectsync-connector-domino.md) başvuru belgelerini
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>Giderilen sorunlar:
+* Çözümlenen ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent(Message: A device attached to the system is not functioning)
+* Bu bağlayıcılar sürümünde miiserver.exe.config 4.1.4.0 3.3.0.0-4.1.3.0 gelen bağlama yeniden yönlendirmesinin güncelleştirmeniz gerekir
+* Genel Web Hizmetleri:
+    * Çözümlenen geçerli JSON yanıt Yapılandırma aracında kaydedilemedi
+* Genel SQL:
+    * Dışa aktarma yalnızca güncelleştirme sorgusu silme işlemi için her zaman oluşturur. Silme sorgusu oluşturmak için eklenen
+    * 'Değişiklik izleme' 'Delta stratejisi' ise, hangi nesnelerin Delta alma işlemi için alır SQL sorgusu giderilmiştir. Bu uygulamada sınırlaması bilinen: Delta içeri aktarma 'Değişiklik izleme' moduna sahip birden çok değerli öznitelikler Değişiklikleri İzle değil
+    * Birden çok değerli öznitelik son değerini silmek gerekli olduğunda ve bu satırı silmek gerekli olan değer dışında herhangi bir veri içermiyor durumda için silme sorgusu oluşturmak için eklenen olasılığı.
+    * Çıkış parametreleri SP tarafından ne zaman işleme System.ArgumentException uygulanmadı 
+    * Dışarı aktarma işlemi varbinary(max) türü olan alana yapmak için hatalı sorgu
+    * Sorunu parametreListesi değişkeniyle iki kez (işlevlerde ExportAttributes ve GetQueryForMultiValue) başlatıldı
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -79,7 +96,9 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 * Genel Web Hizmetleri:
   * Wsconfig Aracı'nı doğru şekilde isteğinden"örnek" REST hizmeti yöntemi için Json dizisi dönüştürmemenizi. Bu, bu Json dizisi REST isteği için seri hale getirme sorunlara neden oldu.
   * Web Hizmeti Bağlayıcısı Yapılandırması aracını JSON öznitelik adları alanı simgeleri kullanımını desteklemiyor 
-    * Değiştirme deseni el ile WSConfigTool.exe.config dosyasına örneğin eklenebilir```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Değiştirme deseni el ile WSConfigTool.exe.config dosyasına örneğin eklenebilir ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> Dışarı aktarma için aşağıdaki hatayı alırsınız gibi JSONSpaceNamePattern anahtar gereklidir: ileti: boş adı geçerli değil. 
 
 * Lotus Notes:
   * Zaman seçeneği **kuruluşun/kuruluş birimleri için özel certifiers izin** Bağlayıcısı'nı (güncelleştirme) dışa aktarma sırasında başarısız sonra tüm öznitelikleri Domino ancak dışarı aktarma zamanında dışarı verme akış sonra devre dışı bir KeyNotFoundException eşitlemeye izin verilir. 

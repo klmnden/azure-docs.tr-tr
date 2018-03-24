@@ -1,23 +1,20 @@
 ---
-title: "Sık sorulan sorular - Azure Active Directory B2C"
-description: "Azure Active Directory B2C hakkında sık sorulan sorular (SSS)"
+title: Sık sorulan sorular - Azure Active Directory B2C
+description: Azure Active Directory B2C hakkında sık sorulan sorular (SSS)
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: saeeda
-ms.custom: seo
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
-ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: 338520f273a88866834e43e17da1f8b131ca38f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -43,7 +40,7 @@ Kullanıma göre özel ilkelerini kullanmaya başlama bizim [özel ilke başlang
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Çeşitli sosyal kimlik sağlayıcılardan tüketicileri hakkında daha fazla bilgi toplamak üzere kapsamını yapılandırabilir miyim?
 Hayır, ancak bu özellik üzerinde bizim yol haritası. Desteklenen bizim sosyal kimlik sağlayıcıları kümesi için kullanılan varsayılan kapsamları şunlardır:
 
-* Facebook: e-posta
+* Facebook: email
 * Google +: e-posta
 * Microsoft hesabı: openıd e-posta profili
 * Amazon: profili

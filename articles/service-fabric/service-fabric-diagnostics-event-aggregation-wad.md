@@ -1,24 +1,24 @@
 ---
-title: "Windows Azure Service Fabric olay toplama Azure tanılama | Microsoft Docs"
-description: "Toplama ve izleme ve tanılama Azure Service Fabric kümeleri için WAD kullanarak olay toplama hakkında bilgi edinin."
+title: Windows Azure Service Fabric olay toplama Azure tanılama | Microsoft Docs
+description: Toplama ve izleme ve tanılama Azure Service Fabric kümeleri için WAD kullanarak olay toplama hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 03/19/2018
+ms.author: dekapur;srrengar
+ms.openlocfilehash: f8159d8637967c3297c886ec79a002f0765047e4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyonu
 > [!div class="op_single_selector"]
@@ -170,67 +170,75 @@ Ardından, güncelleştirme `VirtualMachineProfile` uzantıları dizi içinde a�
 
 Template.json dosyasını açıklandığı şekilde değiştirdikten sonra Resource Manager şablonunu yeniden yayımlayın. Şablonu dışarı aktarılmışsa deploy.ps1 dosyasını çalıştıran şablonu yeniden yayımlar. Dağıttıktan sonra emin **ProvisioningState** olan **başarılı**.
 
-## <a name="collect-health-and-load-events"></a>Sistem durumu toplama ve olayları yükleme
+## <a name="log-collection-configurations"></a>Günlük toplama yapılandırmaları
+Ek kanalları günlüklerinden de koleksiyonu için kullanılabilir olan, Azure'da çalışan kümeler için şablonda yapabileceğiniz yapılandırmaların çoğu bazıları aşağıda verilmiştir.
 
-Service Fabric 5.4 sürümünden itibaren sistem durumu ve yük ölçüm olayları koleksiyonu için kullanılabilir. Bu olaylar Sistem kullanarak sistem veya kodunuzu tarafından oluşturulan olayları yansıtmak veya Raporlama API'leri gibi yük [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) veya [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Bu, toplama ve zaman içinde sistem durumu görüntüleme ve sistem durumu veya yük olaylara dayanarak uyarı verme sağlar. Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000008" ETW sağlayıcılar listesi.
-
-Kümenizdeki olaylarını toplamak için değiştirme `scheduledTransferKeywordFilter` Resource Manager şablonu WadCfg içinde `4611686018427387912`.
+* İşlemsel kanal - Base: varsayılan, Service Fabric ve gelen dağıtılmakta olan yeni bir uygulama, bir düğüm için olaylar dahil olmak üzere, küme tarafından gerçekleştirilen üst düzey işlemler veya yükseltme bir geri alma tarafından etkinleştirilmiş vb. Olaylar listesi için bkz [çalışma kanal olaylarını](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* İşlemsel kanal - ayrıntılı: Bu sistem durumu raporları ve Yük Dengeleme kararları artı temel işletimsel kanal her şeyi içerir. Bu olaylar Sistem kullanarak sistem veya kodunuzu tarafından oluşturulan veya Raporlama API'leri gibi yük [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) veya [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000008" ETW sağlayıcılar listesi.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-## <a name="collect-reverse-proxy-events"></a>Ters proxy olaylarını Topla
-
-Service Fabric 5.7 sürümünden başlayarak [ters proxy](service-fabric-reverseproxy.md) olayları veri & ileti kanalları üzerinden koleksiyonu için kullanılabilir. 
-
-Ters proxy istek hataları ve kritik sorunları işleme yansıtarak ana veri & Mesajlaşma kanalı üzerinden - yalnızca hata olayları iter. Ayrıntılı kanal ters proxy tarafından işlenen tüm istekler hakkında ayrıntılı olayları içerir. 
-
-Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde hata olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000010" ETW sağlayıcılar listesi. Tüm istek telemetri için ETW sağlayıcı listesine Microsoft ServiceFabric girişi güncelleştirme "Microsoft-ServiceFabric:4:0x4000000000000020".
-
-Azure'da çalışan kümeler için:
-
-Ana veri & ileti kanal izlemeleri seçmek için değiştirme `scheduledTransferKeywordFilter` Resource Manager şablonu WadCfg değerinde `4611686018427387920`.
+* Veri ve mesajlaşma kanalı - Base: kritik günlüklerini ve olayları (şu anda yalnızca ReverseProxy) Mesajlaşma ve veri yolu ayrıca ayrıntılı işletimsel kanal günlüklerine oluşturulan. Bu istek hataları ve diğer kritik sorunlar ReverseProxy ve işlenen istek işleme olaylardır. **Kapsamlı günlüğü için Bizim önerimiz budur**. Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000010" ETW sağlayıcılar listesi.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
 
-Tüm istek işleme olaylarını toplamak için veri & ileti - kapatma kanal değiştirerek ayrıntılı `scheduledTransferKeywordFilter` Resource Manager şablonu WadCfg değerinde `4611686018427387936`.
+* Veri & Mesajlaşma kanalı - ayrıntılı: veri ve küme ve ayrıntılı işlem kanal Mesajlaşma tüm kritik olmayan kayıtları içeren kapsamlı kanal. Ayrıntılı tüm ters proxy olaylarını sorun giderme için başvurmak [ters proxy tanılama Kılavuzu](service-fabric-reverse-proxy-diagnostics.md).  Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000020" ETW sağlayıcılar listesi.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
 
-Bu toplama olayları etkinleştirme çok hızlı bir şekilde oluşturulmakta izlemeleri kanal sonuçlarında ayrıntılı ve depolama kapasitesini kullanmasını sağlayabilirsiniz. Yalnızca bu kesinlikle gerekli olduğunda etkinleştirin.
-Ayrıntılı ters proxy olaylarını sorun giderme için başvuruda [ters proxy tanılama Kılavuzu](service-fabric-reverse-proxy-diagnostics.md).
+>[!NOTE]
+>Bu kanal olayları çok yüksek hacimli sahipse, bu etkinleştirme olay toplama çok hızlı bir şekilde oluşturulmakta izlemeleri kanal sonuçlarında ayrıntılı ve depolama kapasitesini kullanmasını sağlayabilirsiniz. Yalnızca bu kesinlikle gerekli olduğunda etkinleştirin.
+
+
+Etkinleştirmek için **temel veri ve mesajlaşma kanalı** kapsamlı günlüğü için Bizim önerimiz `EtwManifestProviderConfiguration` içinde `WadCfg` şablonunuzun şu şekilde görünür:
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>Yeni EventSource kanaldan Topla
 

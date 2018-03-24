@@ -1,34 +1,32 @@
 ---
-title: "Birden çok ön uçlar Azure için yük dengeleyici | Microsoft Docs"
-description: "Azure yük dengeleyici birden çok ön Uçlarda genel bakış"
+title: Birden çok ön uçlar Azure için yük dengeleyici | Microsoft Docs
+description: Azure yük dengeleyici birden çok ön Uçlarda genel bakış
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure yük dengeleyici için birden çok ön Uçlar
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure yük dengeleyici, birden çok bağlantı noktası, birden çok IP adresi veya her ikisi de Hizmetleri yüklemenizi sağlar. Genel ve iç yük dengeleyici tanımları Bakiye akışları VM'ler kümesi boyunca yüklemek için kullanabilirsiniz.
 
 Bu makalede, bu özelliği, önemli kavramlar ve kısıtlamaları temelleri açıklanır. Yalnızca bir IP adresi hizmetlerinde kullanıma sunmak istiyorsanız, için Basitleştirilmiş yönergelerini bulabilirsiniz [ortak](load-balancer-get-started-internet-portal.md) veya [iç](load-balancer-get-started-ilb-arm-portal.md) yük dengeleyici yapılandırmalarının. Birden çok ön uçlar eklemek için tek bir ön uç yapılandırma artımlı olur. Bu makalede kavramları kullanarak herhangi bir zamanda Basitleştirilmiş bir yapılandırma genişletebilirsiniz.
 
-Bir Azure yük dengeleyici tanımladığınızda, bir ön uç ve arka uç yapılandırması kuralları ile bağlanır. Kuralı tarafından başvurulan durumu araştırması nasıl yeni akışları belirlemek için kullanılan bir düğüme arka uç havuzundaki gönderilir. Ön uç IP adresi (ortak veya dahili), Aktarım Protokolü (UDP veya TCP) ve Yük Dengeleme kuralı bağlantı noktası numarasından oluşan 3-tanımlama grubu olan bir ön uç IP yapılandırması (diğer adıyla VIP) tarafından tanımlanır. Bir DIP, arka uç havuzundaki bir VM'ye bağlı bir Azure sanal NIC üzerinde bir IP adresidir.
+Bir Azure yük dengeleyici tanımladığınızda, bir ön uç ve arka uç havuzunu yapılandırma kuralları ile bağlanır. Kuralı tarafından başvurulan durumu araştırması nasıl yeni akışları belirlemek için kullanılan bir düğüme arka uç havuzundaki gönderilir. Ön uç (diğer adıyla VIP), bir IP adresi (ortak veya dahili), Aktarım Protokolü (UDP veya TCP) ve Yük Dengeleme kuralı bağlantı noktası numarasından oluşan 3-tanımlama grubu tarafından tanımlanır. Arka uç havuzu, yük dengeleyici arka uç havuzu başvuran sanal makine IP yapılandırmaları (NIC kaynak parçası) koleksiyonudur.
 
 Aşağıdaki tabloda bazı örnek ön uç yapılandırmaları içerir:
 
@@ -134,6 +132,10 @@ Kayan IP kural türü birden fazla yük dengeleyici yapılandırması desenlerin
 ## <a name="limitations"></a>Sınırlamalar
 
 * Birden çok ön uç yapılandırmaları yalnızca Iaas VM'ler ile desteklenir.
-* Kayan IP kuralla uygulamanız için giden trafik akışları DIP kullanmanız gerekir. Uygulamanız için konuk işletim sistemi geri döngü arabiriminde yapılandırılan ön uç IP adresine bağlanır, ardından SNAT giden akış yeniden kullanılabilir değil ve akış başarısız olur.
+* Kayan IP kuralla uygulamanız için giden trafik akışları birincil IP yapılandırması kullanmanız gerekir. Uygulamanızı yapılandırılmış ön uç IP adresine bağlar, geri döngü üzerinde konuk işletim sistemi, Azure'nın SNAT arabiriminde giden akış yeniden kullanılabilir değil ve akış başarısız olur.
 * Genel IP adresleri faturalama üzerinde bir etkisi yoktur. Daha fazla bilgi için bkz: [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Abonelik sınırları uygulayın. Daha fazla bilgi için bkz: [hizmet sınırları](../azure-subscription-service-limits.md#networking-limits) Ayrıntılar için.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- Gözden geçirme [giden bağlantılar](load-balancer-outbound-connections.md) giden bağlantı davranışını birden çok ön Uçlarda etkisini anlamak için.

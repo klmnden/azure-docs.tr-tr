@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 932aab3f16a571d4c83c77c1cc2274ae60ea3d35
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/23/2018
+---
 1. Portalda **Tüm kaynaklar** menüsündeki **+Ekle**’ye tıklayın.
 2. İçinde **her şeyi** sayfa arama kutusuna **yerel ağ geçidi**, sonra kaynakların bir listesini döndürmek için tıklatın. **Yerel ağ geçidi**’ne tıklayarak sayfayı açın, ardından **Oluştur**’a tıklayarak **Yerel ağ geçidi oluştur** sayfasını açın.
 

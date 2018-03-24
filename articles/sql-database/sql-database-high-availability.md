@@ -1,19 +1,19 @@
 ---
-title: "Yüksek kullanılabilirlik - Azure SQL veritabanı hizmetinin | Microsoft Docs"
-description: "Azure SQL Database hizmeti yüksek kullanılabilirlik yetenekleri ve özellikleri hakkında bilgi edinin"
+title: Yüksek kullanılabilirlik - Azure SQL veritabanı hizmetinin | Microsoft Docs
+description: Azure SQL Database hizmeti yüksek kullanılabilirlik yetenekleri ve özellikleri hakkında bilgi edinin
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d26fe28d301cf563dc6bdb3d9e17903dea3e73fc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 Azure SQL veritabanı PaaS teklifi en başından itibaren Microsoft, yüksek kullanılabilirlik (HA) hizmetine inşa edilmiş ve müşterilerin çalışır, özel mantığı ekleyin veya HA geçici kararları için gerekli değildir, müşterilerinin promise yapmıştır. Microsoft, müşterilerin bir SLA sunumu HA sistem yapılandırması ve işlem üzerinde tam denetim tutar. HA SLA durumlarda Microsoft'un makul şekilde denetimi dışında etkenler nedeniyle olan toplam bölge hata koruma sağlamaz ve bir bölgede bir SQL veritabanı için geçerlidir (örneğin, doğal afet, war, terörist saldırılarını, riots, devlet eylemi olaylardan veya ağ veya cihaz arızası müşteri sitelerden veya müşteri siteleri ve Microsoft'un veri merkezi arasında dahil, Microsoft'un veri merkezlerinin dışındaki).
@@ -23,7 +23,7 @@ HA sorun alan basitleştirmek için Microsoft aşağıdaki varsayımlar kullanı
 2.  İşletimsel personel hatalarına neden hata yapma
 3.  Planlı bakım işlemleri kesintileri neden olur 
 
-Bu tür olayları tek tek sık bulut ölçeğinde, bunların her gün, haftada durumdayken. 
+Bu tür olayları tek tek sık bulut ölçeğinde olsa da, her gün yoksa her hafta oluşur. 
 
 ## <a name="fault-tolerant-sql-databases"></a>Hataya dayanıklı SQL veritabanları
 Müşteriler kendi veritabanlarını dayanıklılık içinde en ilgilendiğiniz ve dayanıklılık SQL veritabanı hizmetinin bir bütün olarak daha az ilgilendiğiniz. bir hizmet için % 99,99 açık kalma süresi "veritabanı" %0,01 kapalı olan veritabanlarının parçası ise anlamsız hale gelir. Her veritabanı hataya dayanıklı olması ve hataya azaltma hiçbir zaman kaydedilmiş işlemi kaybına neden. 
@@ -46,7 +46,7 @@ Başlıca yararları:
 
 ## <a name="data-redundancy"></a>Veri yedekliği
 
-SQL veritabanı yüksek kullanılabilirlik çözümde dayanır [her zaman açık](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) SQL Server teknolojisini ve en az farklılıklar LS ve RS veritabanlarıyla çalışır hale getirir. LS içinde ON RS sırada kalıcılığı için kullanılır, her zaman kullanılabilirlik (düşük RTO) için kullanılan bir yapılandırmadır. 
+SQL veritabanı yüksek kullanılabilirlik çözümde dayanır [Always ON kullanılabilirlik grupları](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) SQL Server teknolojisini ve en az farklılıklar LS ve RS veritabanlarıyla çalışır hale getirir. RS içinde kullanılabilirlik (düşük RTO) kullanıldığı sırada LS yapılandırmasında kalıcılığını Always ON kullanılabilirlik grubu teknolojisi kullanılır. 
 
 ## <a name="local-storage-configuration"></a>Yerel depolama yapılandırması
 

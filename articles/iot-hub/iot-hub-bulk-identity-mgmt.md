@@ -1,11 +1,11 @@
 ---
-title: "Dışarı aktarma Azure IOT Hub cihaz kimlikleri alma | Microsoft Docs"
-description: "İçeri ve dışarı cihaz kimliklerini kimlik kayıt defteri karşı toplu işlemleri gerçekleştirmek için Azure IOT hizmeti SDK'sını kullanma İçeri aktarma işlemleri oluşturma, güncelleştirme ve cihaz kimliklerini toplu silme olanak sağlar."
+title: Dışarı aktarma Azure IOT Hub cihaz kimlikleri alma | Microsoft Docs
+description: İçeri ve dışarı cihaz kimliklerini kimlik kayıt defteri karşı toplu işlemleri gerçekleştirmek için Azure IOT hizmeti SDK'sını kullanma İçeri aktarma işlemleri oluşturma, güncelleştirme ve cihaz kimliklerini toplu silme olanak sağlar.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 699237c68258243b5f654f5dc57e616e3a22177a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>IOT Hub cihaz kimliklerinizi toplu yönetme
 
@@ -193,9 +193,6 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
   }
 }
 ```
-
-> [!NOTE]
-> Aynı zamanda **GetDevicesAsync** yöntemi **RegistryManager** , cihazların bir listesini almak için sınıf. Ancak, bu yaklaşım döndürülen cihaz nesnelerinin sayısı 1000 sabit sınır vardır. Beklenen kullanım durumu için **GetDevicesAsync** yöntemi hata ayıklama yardımcı olmak geliştirme senaryoları için ve üretim iş yükleri için önerilmez.
 
 ## <a name="import-devices"></a>Cihazları içeri aktarma
 

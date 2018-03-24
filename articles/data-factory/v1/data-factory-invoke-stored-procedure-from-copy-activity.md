@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory kopyalama etkinliği saklı yordam çağırma | Microsoft Docs"
-description: "Bir Azure Data Factory kopyalama etkinliği Azure SQL Database veya SQL Server saklı bir yordam çağırma öğrenin."
+title: Azure Data Factory kopyalama etkinliği saklı yordam çağırma | Microsoft Docs
+description: Bir Azure Data Factory kopyalama etkinliği Azure SQL Database veya SQL Server saklı bir yordam çağırma öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 109ebc511ff33da5c8dcab97cd2c8332075265a5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 96fedb97b16a71b0f09733a01227d38e4d10b0fd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Kopya etkinliği Azure Data Factory içinde depolanan yordamı çağırma
 > [!NOTE]

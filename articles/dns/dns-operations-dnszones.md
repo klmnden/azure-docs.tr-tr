@@ -1,6 +1,6 @@
 ---
-title: "Azure DNS'de - PowerShell DNS bölgelerini yönetme | Microsoft Docs"
-description: "DNS bölgelerini Azure Powershell kullanarak yönetebilirsiniz. Bu makalede, güncelleştirme, silme ve DNS bölgelerini Azure DNS üzerinde oluşturmak açıklar"
+title: Azure DNS'de - PowerShell DNS bölgelerini yönetme | Microsoft Docs
+description: DNS bölgelerini Azure Powershell kullanarak yönetebilirsiniz. Bu makalede, güncelleştirme, silme ve DNS bölgelerini Azure DNS üzerinde oluşturmak açıklar
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 03/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b9c263acf754a72cde5b2716703b8e771a349457
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell kullanarak DNS bölgelerini yönetme
 
@@ -28,6 +28,8 @@ ms.lasthandoff: 12/21/2017
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 Bu makalede, Azure PowerShell kullanarak DNS bölgelerini yönetme gösterilmektedir. Platformlar arası kullanarak DNS bölgelerini yönetebilmeniz için [Azure CLI](dns-operations-dnszones-cli.md) ya da Azure portal.
+
+Bu kılavuz, özellikle ortak DNS bölgeleri ile ilgilidir. Azure DNS'de özel bölgeler yönetmek için Azure PowerShell kullanma hakkında daha fazla bilgi için bkz: [Azure PowerShell kullanarak Azure DNS özel bölgeler ile çalışmaya başlama](private-dns-getstarted-powershell.md).
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -50,7 +52,7 @@ Aşağıdaki örnek bir DNS bölgesi iki oluşturulacağını gösterir [Azure R
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS şimdi özel DNS bölgelerini (şu anda bir önizleme özelliği) da destekler.  Özel bir DNS bölgesi oluşturma örneği için bkz: [PowerShell kullanarak Azure DNS özel bölgeleriyle başlamak](./private-dns-getstarted-powershell.md).
+Azure DNS şimdi özel DNS bölgelerini (şu anda önizlemede ortak) da destekler.  Özel DNS bölgeleri hakkında daha fazla bilgi için bkz. [Özel etki alanları için Azure DNS'i kullanma](private-dns-overview.md). Özel bir DNS bölgesi oluşturma örneği için bkz: [PowerShell kullanarak Azure DNS özel bölgeleriyle başlamak](./private-dns-getstarted-powershell.md).
 
 ## <a name="get-a-dns-zone"></a>Bir DNS bölgesini alın
 

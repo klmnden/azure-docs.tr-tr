@@ -1,6 +1,6 @@
 ---
-title: "Tek başına Azure Otomasyonu hesabı oluşturma"
-description: "Bu makalede, oluşturma, sınama ve Azure Otomasyonu'nda bir örnek güvenlik temel elemanı kimlik doğrulaması kullanarak adım adım anlatılmaktadır."
+title: Tek başına Azure Otomasyonu hesabı oluşturma
+description: Bu makalede, oluşturma, sınama ve Azure Otomasyonu'nda bir örnek güvenlik temel elemanı kimlik doğrulaması kullanarak adım adım anlatılmaktadır.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 5ea3d1af6f8bb4a6c0ef45560d8707afc58f61b1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ca00736c6c42223a0fe6259da5ee2531c287de18
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
-Bu makalede Azure portalında bir Azure Otomasyonu hesabı oluşturulacağını gösterir. Portal Otomasyon hesabı değerlendirmek ve Azure günlük analizi Operations Management Suite (OMS) ile tümleştirme veya ek yönetim çözümleri kullanmadan Otomasyon hakkında bilgi almak için kullanabilirsiniz. Bu yönetim çözümleri ekleyebilir veya Gelişmiş runbook işlerinin herhangi bir noktada gelecekte izleme için günlük analizi ile tümleştirin. 
+Bu makalede Azure portalında bir Azure Otomasyonu hesabı oluşturulacağını gösterir. Portal Otomasyon hesabı değerlendirmek ve ek yönetim çözümleri veya tümleştirme Azure günlük analizi ile kullanmadan Otomasyon hakkında bilgi almak için kullanabilirsiniz. Bu yönetim çözümleri ekleyebilir veya Gelişmiş runbook işlerinin herhangi bir noktada gelecekte izleme için günlük analizi ile tümleştirin. 
 
 Bir Otomasyon hesabı ile runbook'ları Azure Resource Manager veya Klasik dağıtım modeli kaynakları yöneterek doğrulayabilir.
 

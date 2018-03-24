@@ -1,10 +1,11 @@
 ---
-title: "Azure Machine learning'de özel R modülleri yazma | Microsoft Docs"
-description: "Azure Machine learning'de özel R modülleri yazma için hızlı başlangıç."
+title: Azure Machine learning'de özel R modülleri yazma | Microsoft Docs
+description: Azure Machine learning'de özel R modülleri yazma için hızlı başlangıç.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure Machine Learning'de özel R modülleri yazma
 Bu konu, yazar ve Azure Machine learning'de özel R modülü dağıtabilirsiniz açıklar. Özel R modülleri nelerdir ve hangi dosyaların bunları tanımlamak için kullanılan açıklanmaktadır. Bir modülün tanımlanması dosyaları oluşturma ve Machine Learning çalışma alanında dağıtım modülü nasıl gösterilmektedir. Özel modülü tanımında kullanılan öznitelikler ve öğeler daha ayrıntılı olarak açıklanmıştır. Yardımcı işlevleri, dosya ve birden çok çıktıları kullanmayı da ele alınmıştır. 

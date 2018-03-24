@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory kullanarak makine öğrenimi modellerini güncelleştirme | Microsoft Docs"
-description: "Nasıl oluşturulacağını açıklar Azure Data Factory kullanarak Tahmine dayalı işlem hatlarını oluşturmak ve makine öğrenme"
+title: Azure Data Factory kullanarak makine öğrenimi modellerini güncelleştirme | Microsoft Docs
+description: Nasıl oluşturulacağını açıklar Azure Data Factory kullanarak Tahmine dayalı işlem hatlarını oluşturmak ve makine öğrenme
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: d4f7df5ceadf8c6219901af6e516453a88aeece7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f84bb3546260622eec921684be8e2492adcdcd52
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Güncelleştirme kaynağı etkinliğini kullanarak Azure Machine Learning modellerini güncelleştir
 Bu makalede ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı işlem hatlarını oluşturmak](transform-data-using-machine-learning.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 

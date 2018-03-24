@@ -1,11 +1,11 @@
 ---
-title: "Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı | Microsoft Docs"
-description: "Ağ İzleyicisi Aracısı'nı bir sanal makine uzantısını kullanarak Linux sanal makine dağıtın."
+title: Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı | Microsoft Docs
+description: Ağ İzleyicisi Aracısı'nı bir sanal makine uzantısını kullanarak Linux sanal makine dağıtın.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a51566148eec88f707b524346afc59606196e4da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı
 
 ## <a name="overview"></a>Genel Bakış
 
-[Azure Ağ İzleyicisi](https://review.docs.microsoft.com/azure/network-watcher/) Azure ağları için izleme sağlayan bir ağ performans izleme, tanılama ve analiz hizmetidir. Ağ İzleyicisi Aracısı sanal makine uzantısı, Azure sanal makinelerde Ağ İzleyicisi özelliklerinden bazıları için bir gereksinimdir. Bu, isteğe bağlı ve diğer gelişmiş işlevler üzerindeki ağ trafiğini yakalama içerir.
+[Azure Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/) Azure ağları için izleme sağlayan bir ağ performans izleme, tanılama ve analiz hizmetidir. Ağ İzleyicisi Aracısı sanal makine uzantısı, Azure sanal makinelerde Ağ İzleyicisi özelliklerinden bazıları için bir gereksinimdir. Bu, isteğe bağlı ve diğer gelişmiş işlevler üzerindeki ağ trafiğini yakalama içerir.
 
 Bu belge desteklenen platformlar ve Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı için dağıtım seçeneklerini ayrıntıları.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="operating-system"></a>İşletim sistemi
 
@@ -40,7 +40,7 @@ Ağ İzleyicisi Aracısı uzantısı bu Linux dağıtımları karşı çalışt�
 | Ubuntu | 16.04 LTS, 14.04 LTS ve 12.04 LTS |
 | Debian | 7 ve 8 |
 | RedHat | 6.x ve 7.x |
-| Oracle Linux | 7 x |
+| Oracle Linux | 7x |
 | SuSE | 11 ve 12 |
 | OpenSuse | 7.0 |
 | CentOS | 7.0 |
@@ -78,7 +78,7 @@ Aşağıdaki JSON şeması Ağ İzleyicisi Aracısı uzantısı gösterir. Uzant
 | Ad | Değer / örnek |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Yayımcı | Microsoft.Azure.NetworkWatcher |
+| publisher | Microsoft.Azure.NetworkWatcher |
 | type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 

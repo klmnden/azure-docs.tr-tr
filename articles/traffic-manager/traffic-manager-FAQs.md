@@ -1,24 +1,24 @@
 ---
-title: "Azure Traffic Manager - sık sorulan sorular | Microsoft Docs"
-description: "Bu makalede trafik Yöneticisi ile ilgili sık sorulan soruların yanıtlarını sağlar"
+title: Azure Traffic Manager - sık sorulan sorular | Microsoft Docs
+description: Bu makalede trafik Yöneticisi ile ilgili sık sorulan soruların yanıtlarını sağlar
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Trafik Yöneticisi sık sorulan sorular (SSS)
 
@@ -123,9 +123,6 @@ Evet, yalnızca API sürümü 2017-03-01 ve daha yeni destekler coğrafi yönlen
 
 ## <a name="real-user-measurements"></a>Gerçek Kullanıcı Ölçümleri
 
->[!NOTE]
->Trafik Yöneticisi'nde gerçek kullanıcı ölçümleri özellik genel önizlemede ve genel kullanılabilirlik özellikleri sürüm gibi aynı düzeyde kullanılabilirlik ve güvenilirlik olmayabilir. Özellik desteklenmiyor, yetenekleri kısıtlı ve tüm Azure konumlarda kullanılamayabilir. Kullanılabilirlik ve bu özellik durumunu en güncel bildirimleri için denetleme [Azure trafik Yöneticisi'ni güncelleştirir](https://azure.microsoft.com/updates/?product=traffic-manager) sayfası.
-
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Gerçek kullanıcı ölçümleri kullanmanın avantajları nelerdir?
 Performans yönlendirme yöntemini kullandığınızda, trafik Yöneticisi (geçirilen değilse) kaynak IP ve EDNS istemci alt inceleyerek bağlanmak, son kullanıcı için en iyi Azure bölgesi seçer ve ağ gecikmesi Intelligence karşı hizmet denetimi korur. Gerçek kullanıcı ölçümler, bu tabloda, son kullanıcılarınız için Azure eriştikleri son kullanıcı ağların yeterli yayılan olmanın yanı sıra bu gecikme tablo katkıda deneyimlerini sağlayarak bu, son kullanıcı için temel geliştirir. Bu son kullanıcılarınıza akışında artan bir doğruluk neden olmaktadır.
 
@@ -140,7 +137,8 @@ Hayır, yalnızca abonelik başına bir kez etkinleştirmeniz gerekiyor ve gecik
 
 ### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Aboneliğimi için nasıl devre dışı gerçek kullanıcı ölçümleri dışı?
 Gerçek kullanıcı ölçümleri toplamak ve geri gecikme ölçümleri, istemci uygulamasından gönderme durdurduğunuzda ilgili ücretler tahakkuk durdurabilirsiniz. Örneğin, ölçüm web sayfalarında JavaScript katıştırılan JavaScript kaldırarak veya sayfanın işlendiğinde kendi çağırma kapatarak bu özelliği kullanarak durdurabilirsiniz.
-Gerçek kullanıcı ölçümleri devre dışı bırakma başka bir yolu, anahtarınızı silmektir. Bunu gerçekleştirdikten sonra bu anahtarla trafik Yöneticisi için gönderilen tüm ölçümleri atılır.
+
+Ayrıca, anahtarınızı silerek gerçek kullanıcı ölçümleri kapatabilirsiniz. Anahtarı sildikten sonra bu anahtarla trafik Yöneticisi için gönderilen tüm ölçümleri atılır.
 
 ### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Web sayfaları dışındaki istemci uygulamaları ile gerçek kullanıcı ölçümleri kullanabilir miyim?
 Evet, gerçek kullanıcı ölçümleri farklı türde bir son kullanıcı istemcileri toplanan veri alma için tasarlanmıştır. Bu SSS, yeni istemci uygulaması türünü desteklenen olarak güncelleştirilir.
@@ -155,16 +153,16 @@ Hayır, komut çağrılmadan önce programlanmış gecikme yoktur.
 Hayır, her zaman çağrılır, gerçek kullanıcı ölçümleri betik altı Azure bölgeleri hizmet tarafından belirlenen bir dizi ölçer. Bu farklı çağrıları arasındaki değişiklikleri ayarlayın ve çok sayıda böyle çağrılarını yaşandığında, ölçüm kapsamı farklı Azure bölgeler arasında yayılır.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Belirli bir numara ile yapılan ölçümleri sayısını sınırlamak?
-JavaScript sayfanıza ve içinde katıştırılmış ölçüm üzeresiniz tam denetiminde üzerinden, başlatma ve durdurma kullanıyor. Trafik Yöneticisi hizmeti ölçülecek Azure bölgelerin bir listesi için bir istek alırsa sürece, bir dizi bölgeler döndürülür. Ayrıca Önizleme dönemi boyunca, trafik Yöneticisi için bildirilen tüm ölçümler için Fatura edilecek değil olduğunu aklınızda bulundurun
+JavaScript sayfanıza ve içinde katıştırılmış ölçüm üzeresiniz tam denetiminde üzerinden, başlatma ve durdurma kullanıyor. Trafik Yöneticisi hizmeti ölçülecek Azure bölgelerin bir listesi için bir istek alırsa sürece, bir dizi bölgeler döndürülür.
 
 ### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Gerçek kullanıcı ölçümler bir parçası olarak my istemci uygulaması tarafından alınan ölçümlerin görüyor musunuz?
-Ölçüm mantığı istemci uygulamanızı çalıştırın olduğundan, tam denetimi gecikme ölçümleri görmesini dahil olanlar demektir. Trafik Yöneticisi aboneliğinize bağlı anahtarı altında alınan ölçümler birleşik bir görünümünü bildirmiyor
+Ölçüm mantığı istemci uygulamanızı çalıştırın olduğundan, tam denetimi gecikme ölçümleri görmesini dahil olanlar demektir. Trafik Yöneticisi aboneliğinize bağlı anahtarı altında alınan ölçümler birleşik bir görünümünü bildirmiyor.
 
 ### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>Trafik Yöneticisi tarafından sağlanan ölçüm komut dosyasını değiştirebilir mi?
 Web sayfanızda katıştırılmış denetim işlenirken biz kesinlikle, ölçüleri ve gecikme doğru raporları emin olmak için ölçüm betik herhangi bir değişiklik yapmadan önerilmemektedir.
 
 ### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Başkalarının gerçek kullanıcı ölçümlerle kullandığınız anahtarı görmek olası olacak?
-Bir web sayfasına ölçüm betik katıştırma başkaları için komut dosyası ve gerçek kullanıcı ölçümleri (RUM) anahtarınızı görmek kullanılabilecektir. Ancak bu anahtar, abonelik kimliği farklıdır ve yalnızca bu amaçla kullanılmak üzere trafik Yöneticisi'tarafından üretilen bilmeniz önemlidir. RUM anahtarınızı bilerek Azure hesabı güvenliğiniz güvenliğinin aşılmasına neden değil
+Bir web sayfasına ölçüm betik katıştırma başkaları için komut dosyası ve gerçek kullanıcı ölçümleri (RUM) anahtarınızı görmek kullanılabilecektir. Ancak bu anahtar, abonelik kimliği farklıdır ve yalnızca bu amaçla kullanılmak üzere trafik Yöneticisi'tarafından üretilen bilmeniz önemlidir. RUM anahtarınızı bilerek, Azure hesap güvenliği tehlikeye değil.
 
 ### <a name="can-others-abuse-my-rum-key"></a>Başkalarının RUM anahtarımı kötüye?
 Başkalarının anahtarınızı Azure için yanlış bilgi göndermek için kullanılacak mümkün olmakla birlikte, aldığımız tüm ölçüleri birlikte dikkate beri yönlendirme birkaç yanlış ölçümleri değiştirmez unutmayın. Anahtarlarınızı değiştirmeniz gerekiyorsa, bu noktada eski anahtarı atılan hale anahtarı yeniden oluşturabilir.
@@ -186,9 +184,6 @@ Hayır, çalışması gerçek kullanıcı ölçümler için Azure üzerinde herh
 
 ## <a name="traffic-view"></a>Trafik Görünümü
 
->[!NOTE]
->Trafik Yöneticisi'nde trafiği görünümü özelliği genel önizlemede ve genel kullanılabilirlik özellikleri sürüm gibi aynı düzeyde kullanılabilirlik ve güvenilirlik olmayabilir. Özellik desteklenmiyor, yetenekleri kısıtlı ve tüm Azure konumlarda kullanılamayabilir. Kullanılabilirlik ve bu özellik durumunu en güncel bildirimleri için denetleme [Azure trafik Yöneticisi'ni güncelleştirir](https://azure.microsoft.com/updates/?product=traffic-manager) sayfası.
-
 ### <a name="what-does-traffic-view-do"></a>Trafik görünüm ne yapar?
 Trafik görünüm trafiği kullanıcılarınız ve deneyimlerini nasıl olduğu hakkında daha fazla anlamanıza yardımcı olacak Yöneticisi'nin bir özelliktir. Trafik Yöneticisi ve aşağıdaki ile sağlamak için hizmeti tutar ağ gecikmesi Intelligence tabloları tarafından alınan sorguları kullanır:
 - Burada, uç noktalara Azure kullanıcılarınızın bağlanmasını bölgeleri.
@@ -196,7 +191,7 @@ Trafik görünüm trafiği kullanıcılarınız ve deneyimlerini nasıl olduğu 
 - Azure bölgeleri için bunlar yönlendirilir.
 - Bu Azure bölgeleri kendi gecikmesi deneyimine.
 
-Bu bilgiler, bir tablo görünümü karşıdan yüklenmek üzere ham veriler olarak kullanılabilir olmasını durduracak yanı sıra Portalı'nda kullanmak kullanılabilir.
+Bu bilgiler, coğrafi harita katmana ve Portalı'nı indirmek ham verileri olarak kullanılabilir olmasını durduracak yanı sıra tablo görünümlerde aracılığıyla kullanmak kullanılabilir.
 
 ### <a name="how-can-i-benefit-from-using-traffic-view"></a>Trafik görünümünü kullanarak nasıl yararlı olabilir?
 
@@ -208,7 +203,7 @@ Azure İzleyicisi, bir toplama düzeyinde profilinizi ve kendi uç noktaları ta
 
 ### <a name="does-traffic-view-use-edns-client-subnet-information"></a>Trafik görünüm EDNS istemci alt ağ bilgilerini kullanıyor mu?
 
-Trafik görünüm EDNS istemci alt bilgi çıktısını oluştururken dikkate almaz. Bunları gruplandırmak için kullanıcılarınızın yerel DNS Çözümleyicisi IP adresini kullanır.
+Azure Traffic Manager tarafından sunulan DNS sorguları, yönlendirme doğruluğunu artırmak için ECS bilgileri göz önünde bulundurun. Ancak nerede içinden kullanıcılara bağlanan gösteren veri kümesi oluştururken, trafiği görünüm yalnızca DNS Çözümleyicisi IP adresini kullanıyor.
 
 ### <a name="how-many-days-of-data-does-traffic-view-use"></a>Kaç gün veri trafiği görünümü kullanıyor mu?
 
@@ -219,15 +214,18 @@ Trafik görünümü, sizin tarafınızdan görüntülendiğinde önceki gün ön
 Dış uç noktalar bir Traffic Manager profilini Azure bölgelerinde dışında barındırılan kullandığınızda (performans yönlendirme yöntemini kullanıyorsanız bu aslında gerekli değildir), gecikme özellikleri için bir proxy olan bir Azure bölgesine eşlenen seçebilirsiniz. Bu Azure bölgesi eşleme varsa, Azure bölgenin gecikme ölçümleri trafiği görünüm çıkış oluşturulurken kullanılır. Azure bölge belirtilirse, gecikme bilgileri bu dış uç noktalar verileri boş olur.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>Aboneliğimi her profili için trafiği görünüm etkinleştirmeniz gerekiyor mu?
-Önizleme dönemi sırasında trafiği görünümü abonelik düzeyinde etkinleştirilir ve tüm trafik Yöneticisi profilleri altında bu abonelik için kullanılabilir.
 
-### <a name="how-can-i-turn-off-traffic-view"></a>Trafik görünümünü nasıl kapatabilir miyim?
-Önizleme dönemi boyunca trafiği görünümü, aboneliğiniz için devre dışı bırakmak için destek bileti oluşturma isteği.
+Önizleme dönemi boyunca trafiği görünüm abonelik düzeyinde etkinleştirildi. Biz önce genel kullanılabilirlik yapılan geliştirmeler bir parçası olarak, trafiği daha ayrıntılı bu özelliği etkinleştirmek sağlayarak görünümü profili düzeyinde şimdi etkinleştirebilirsiniz. Varsayılan olarak, bir profil için trafiği görünümü devre dışı bırakılacak.
+
+>[!NOTE]
+>Önizleme süre boyunca bir abonelik düzeyinde trafiği görünüm etkinleştirilirse, şimdi her Bu abonelik altında profili yeniden etkinleştirmek gerekir.
+ 
+### <a name="how-can-i-turn-off-traffic-view"></a>Trafik görünümünü nasıl kapatabilir miyim? 
+Portalı veya REST API kullanarak herhangi bir profil için trafiği görünümünü açabilirsiniz. 
 
 ### <a name="how-does-traffic-view-billing-work"></a>Trafik görünüm Faturalaması nasıl çalışır?
 
 Görünüm trafiği fiyatlandırma çıktı oluşturmak için kullanılan veri noktalarının sayısını temel alır. Şu anda desteklenen tek veri profilinizi alır sorguları türüdür. Ayrıca, yalnızca trafiği etkin görünüm varsa, yapıldığı işleme için faturalandırılır. Bu, bazı ayda bir zaman diliminde için trafiği görünümü etkinleştir ve diğer saatlerde kapatmak, yalnızca özellik alırken işlenen veri noktası sayısı faturanızı doğrultusunda etkin, anlamına gelir.
-Önizleme dönemi boyunca, trafiği görünümü kullanmak için sizden ücret istenmese.
 
 ## <a name="traffic-manager-endpoints"></a>Traffic Manager uç noktaları
 

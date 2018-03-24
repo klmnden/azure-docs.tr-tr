@@ -1,24 +1,24 @@
 ---
-title: "Azure günlük analizi bilgisayar gruplarında oturum aramaları | Microsoft Docs"
-description: "Günlük analizi bilgisayar gruplarında, belirli bir bilgisayar kümesi kapsam günlük aramaları izin verir.  Bu makalede, bilgisayar grupları ve günlük aramada kullanma oluşturmak için kullanabileceğiniz farklı yöntemler açıklanmaktadır."
+title: Azure günlük analizi bilgisayar gruplarında oturum aramaları | Microsoft Docs
+description: Günlük analizi bilgisayar gruplarında, belirli bir bilgisayar kümesi kapsam günlük aramaları izin verir.  Bu makalede, bilgisayar grupları ve günlük aramada kullanma oluşturmak için kullanabileceğiniz farklı yöntemler açıklanmaktadır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Günlük analizi bilgisayar gruplarında aramaları oturum
 
@@ -66,12 +66,6 @@ Günlük arama OMS portalında bir bilgisayar grubu oluşturmak için aşağıda
 5. Bilgisayar grubu için her bir özellik için değerleri girin. 
 
 
->[!NOTE]
-> Çalışma alanınızı hala kullanıyorsa [eski günlük analizi sorgu dili](log-analytics-log-search-upgrade.md) bir bilgisayar grubu oluşturmak için aynı yordamı kullanın ancak, eski sorgu dili sözdizimi kullanmanız gerekir.
-
-
-### <a name="log-search-api"></a>Günlük arama API
-Bilgisayar grupları günlük arama API ile oluşturulan bir günlük arama ile oluşturulan arama ile aynıdır.  Günlük arama API kullanarak bir bilgisayar grubu oluşturma ile ilgili ayrıntılar için bkz [bilgisayar grupları günlük analizi günlüğünde arama REST API](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
 Active Directory grup üyeliklerini içeri aktarmak için günlük analizi yapılandırırken, etki alanına katılmış bilgisayarlara OMS Aracısı ile grup üyeliğini analiz eder.  Bir bilgisayar grubu Active Directory'de her güvenlik grubu için günlük analizi oluşturulur ve her bilgisayar bilgisayar gruplarına üye olan güvenlik gruplarına karşılık gelen eklenir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir.  
@@ -131,18 +125,6 @@ Aşağıdaki sorgu UpdateSummary kayıtları yalnızca bilgisayarlar için etki 
 
 
 
-  
-
->[!NOTE]
-> Çalışma alanınızı hala kullanıyorsa [eski günlük analizi sorgu dili](log-analytics-log-search-upgrade.md)>, sonra da günlük aramada bilgisayar grubuna başvurmak için aşağıdaki sözdizimini kullanın.  Belirtme **kategori** > isteğe bağlıdır ve yalnızca bilgisayar grupları aynı ada sahip farklı kategorilerde varsa gerekli değil. 
->
->    `$ComputerGroups[Category: Name]`
->
->Bilgisayar grupları ile kullanılan genellikle **IN** aşağıdaki örnekteki gibi günlük arama yan tümcesinde:
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
-
-
 
 ## <a name="computer-group-records"></a>Bilgisayar grubu kaydı
 Active Directory veya WSUS oluşturulan her bilgisayar grubu üyeliği için günlük analizi çalışma alanındaki bir kayıt oluşturulur.  Bu kayıtları bir türüne sahip **ComputerGroup** ve aşağıdaki tabloda özelliklere sahiptir.  Kayıtları günlük aramaları tabanlı bilgisayar gruplarının oluşturulmaz.
@@ -154,7 +136,7 @@ Active Directory veya WSUS oluşturulan her bilgisayar grubu üyeliği için gü
 | Bilgisayar |Üye bilgisayar adıdır. |
 | Grup |Grubun adı. |
 | GroupFullName |Kaynak ve kaynak adı dahil olmak üzere Grup tam yolu. |
-| GroupSource |Bu grup kaynak gelen toplanan oluştu. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
+| GroupSource |Bu grup kaynak gelen toplanan oluştu. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
 | GroupSourceName |Grup toplandığı kaynağının adı.  Active Directory'de, bu etki alanı adıdır. |
 | ManagementGroupName |SCOM aracıları için yönetim grubunun adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
 | TimeGenerated |Tarih ve saat bilgisayar grubu oluşturulurken veya güncelleştirilirken. |

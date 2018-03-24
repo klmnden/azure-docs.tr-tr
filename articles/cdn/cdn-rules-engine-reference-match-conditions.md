@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN kurallar altyapısı eşleşme koşullar | Microsoft Docs"
-description: "Azure içerik teslim ağı başvuru belgelerine altyapısı eşleşme koşullar kuralları."
+title: Azure CDN kurallar altyapısı eşleşme koşullar | Microsoft Docs
+description: Azure içerik teslim ağı başvuru belgelerine altyapısı eşleşme koşullar kuralları.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN kurallar altyapısı eşleşen koşulları 
 Bu makalede kullanılabilir eşleşme koşullar için Azure içerik teslim ağı (CDN) ayrıntılı açıklamaları listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
@@ -102,7 +102,7 @@ Ad | Amaç
 ## <a name="reference-for-rules-engine-match-conditions"></a>Kurallar altyapısı eşleşme koşulları için başvurusu
 
 ---
-### <a name="always"></a>Her Zaman
+### <a name="always"></a>Her zaman
 
 Her zaman eşleştirme koşulu varsayılan bir özellik için tüm istekleri geçerlidir.
 
@@ -526,15 +526,15 @@ Anahtar bilgileri:
 
      Örneğin: https:\//&lt;endpoint&gt;.azureedge.net/**Klasörüm'ün**/index.htm 
 
-     Bu URL aşağıdaki Verizon CDN ana bilgisayar adı işaret eder: http:\//wpc.0001.&lt; Etki alanı&gt;/800001/myorigin/**Klasörüm'ün**/index.htm
+     Bu URL aşağıdaki Verizon CDN ana bilgisayar adı işaret eder: http:\//wpc.0001.&lt; etki alanı&gt;/800001/myorigin/**Klasörüm'ün**/index.htm
 
 - CNAME URL kenar URL karşılaştırma önce CDN URL'ye yeniden yazılmıştır.
 
     Örneğin, aşağıdaki URL'ler her ikisi de aynı varlık noktası ve bu nedenle aynı URL yolu sahiptir.
-    - CDN URL'si: http:\//wpc.0001.&lt; Etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
+    - CDN URL'si: http:\//wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
     
     - Edge CNAME URL'si: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
+    
     Ek bilgiler:
     - Özel etki alanı: https:\//my.domain.com/path/asset.htm
     
@@ -640,21 +640,21 @@ Anahtar bilgileri:
     Aşağıdaki değerler için kullanılabilir **için göreli** seçeneği:
      - **Kök**: URL karşılaştırma noktası doğrudan CDN hostname sonra başlayacağını belirtir.
 
-       Örneğin: http:\//wpc.0001.&lt; Etki alanı&gt;/**800001/myorigin/myfolder/index.htm**
+       Örneğin: http:\//wpc.0001.&lt; etki alanı&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Kaynak**: URL karşılaştırma noktası içerik erişim noktası (örneğin, /000001 veya/800001/myorigin) sonra başlayacağını belirtir. Çünkü \*. azureedge.net CNAME oluşturulur Verizon CDN ana bilgisayar adı kaynak dizine göre varsayılan olarak, Azure CDN kullanıcıların kullanması gereken **kaynak** değeri. 
 
        Örneğin: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Bu URL aşağıdaki Verizon CDN ana bilgisayar adı işaret eder: http:\//wpc.0001.&lt; Etki alanı&gt;/800001/myorigin/**myfolder/index.htm**
+     Bu URL aşağıdaki Verizon CDN ana bilgisayar adı işaret eder: http:\//wpc.0001.&lt; etki alanı&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Bir URL karşılaştırma önce CDN URL'sine bir kenar CNAME URL yeniden yazılmıştır.
 
-   Örneğin, aşağıdaki URL'ler her ikisi de aynı varlık noktası ve bu nedenle aynı URL yolu sahiptir:
-    - CDN URL'si: http:\//wpc.0001.&lt; Etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
+    Örneğin, aşağıdaki URL'ler her ikisi de aynı varlık noktası ve bu nedenle aynı URL yolu sahiptir:
+    - CDN URL'si: http:\//wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
     - Edge CNAME URL'si: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Ek bilgiler:
+    
+    Ek bilgiler:
     
     - (Kök) göreli URL yolu: /800001/CustomerOrigin/path/asset.htm
    
@@ -662,7 +662,7 @@ Anahtar bilgileri:
 
 - URL'deki sorgu dizelerini göz ardı edilir.
 - Kullanım **yoksay durumda** büyük küçük harfe duyarlı bir karşılaştırma gerçekleştirilir olup olmadığını denetlemek için seçenek.
-- Bu eşleme koşul için belirtilen değer göreli yolu, istemci tarafından yapılan tam istek karşı karşılaştırılır.
+- Bu eşleme koşul için belirtilen değer göreli yolu, istemci tarafından yapılan tam istek karşılaştırılır.
 
 - Belirli bir dizin için yapılan tüm istekleri eşleşecek şekilde kullanmak [URL yolu dizini](#url-path-directory) veya [URL yolu joker](#url-path-wildcard) eşleşen koşulu.
 
@@ -681,13 +681,13 @@ Belirtilen bir isteğin URL yolu karşılaştırır [normal ifade](cdn-rules-eng
 Anahtar bilgileri:
 - CNAME URL kenar URL karşılaştırma önce CDN URL'ye yeniden yazılmıştır. 
  
-   Örneğin, her iki URL'leri aynı varlık noktası ve bu nedenle aynı URL yolu sahiptir.
+    Örneğin, her iki URL'leri aynı varlık noktası ve bu nedenle aynı URL yolu sahiptir.
 
-     - CDN URL'si: http:\//wpc.0001.&lt; Etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN URL'si: http:\//wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
 
      - Edge CNAME URL'si: http:\//my.domain.com/path/asset.htm
-
-   Ek bilgiler:
+    
+    Ek bilgiler:
     
      - URL yolu: /800001/CustomerOrigin/path/asset.htm
 
@@ -715,21 +715,21 @@ Anahtar bilgileri:
    Bu seçenek aşağıdaki değerlere sahip olabilir:
      - **Kök**: URL karşılaştırma noktası doğrudan CDN hostname sonra başlayacağını belirtir.
 
-       Örneğin: http:\//wpc.0001.&lt; Etki alanı&gt;/**800001/myorigin/myfolder/index.htm**
+       Örneğin: http:\//wpc.0001.&lt; etki alanı&gt;/**800001/myorigin/myfolder/index.htm**
 
      - **Kaynak**: URL karşılaştırma noktası içerik erişim noktası (örneğin, /000001 veya/800001/myorigin) sonra başlayacağını belirtir. Çünkü \*. azureedge.net CNAME oluşturulur Verizon CDN ana bilgisayar adı kaynak dizine göre varsayılan olarak, Azure CDN kullanıcıların kullanması gereken **kaynak** değeri. 
 
        Örneğin: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Bu URL aşağıdaki Verizon CDN ana bilgisayar adı işaret eder: http:\//wpc.0001.&lt; Etki alanı&gt;/800001/myorigin/**myfolder/index.htm**
+     Bu URL aşağıdaki Verizon CDN ana bilgisayar adı işaret eder: http:\//wpc.0001.&lt; etki alanı&gt;/800001/myorigin/**myfolder/index.htm**
 
 - CNAME URL kenar URL karşılaştırma önce CDN URL'ye yeniden yazılmıştır.
 
-   Örneğin, aşağıdaki URL'ler her ikisi de aynı varlık noktası ve bu nedenle aynı URL yolu sahiptir:
-     - CDN URL: http://wpc.0001.&lt;Domain&gt;/800001/CustomerOrigin/path/asset.htm
+    Örneğin, aşağıdaki URL'ler her ikisi de aynı varlık noktası ve bu nedenle aynı URL yolu sahiptir:
+     - CDN URL'sine: http://wpc.0001. &lt;etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
      - Edge CNAME URL'si: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
-
-   Ek bilgiler:
+    
+    Ek bilgiler:
     
      - (Kök) göreli URL yolu: /800001/CustomerOrigin/path/asset.htm
     
@@ -757,7 +757,7 @@ Değer                   | Göreceli olarak    | Sonuç
 / 80ABCD/kaynak/metin / *   | Kök           | İstenen varlık aşağıdaki ölçütleri karşıladığında bu deseni eşleştirilir: <br />-, "Kaynak" olarak adlandırılan bir müşteri kaynak üzerinde bulunmalıdır <br />-Göreli yol "metin" adlı bir klasör ile başlamalıdır Diğer bir deyişle, istenen varlık "metin" klasörü veya özyinelemeli klasörlerinden birinde bulunabilir.
 */css/* */js/*          | Kök veya kaynak | Bu desen tüm CDN veya kenarı css veya js bir klasör içeren CNAME URL'ler ile eşleştirilir.
 *.jpg *.gif *.png       | Kök veya kaynak | Bu desen tüm CDN veya edge CNAME URL'lerin ilgili .jpg, .gif veya .png bitiş eşleştirilir. Bu deseni belirlemek için alternatif bir yolu [URL yolu uzantısı ile eşleşen koşulu](#url-path-extension).
-/ görüntüleri / * / medya / *      | Kaynak         | Bu desen CDN veya edge CNAME, göreli yolu "görüntüleri" veya "ortam" bir klasör ile başlayan URL'ler ile eşleştirilir. <br />-CDN URL'sine: http:\//wpc.0001.&lt; Etki alanı&gt;/800001/myorigin/images/sales/event1.png<br />-Edge CNAME URL örneği: http:\//cdn.mydomain.com/images/sales/event1.png
+/ görüntüleri / * / medya / *      | Kaynak         | Bu desen CDN veya edge CNAME, göreli yolu "görüntüleri" veya "ortam" bir klasör ile başlayan URL'ler ile eşleştirilir. <br />-CDN URL'sine: http:\//wpc.0001.&lt; etki alanı&gt;/800001/myorigin/images/sales/event1.png<br />-Edge CNAME URL örneği: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -867,11 +867,11 @@ Anahtar bilgileri:
 #### <a name="sample-scenarios"></a>Örnek senaryolar
 Aşağıdaki örnek, bu seçenek belirli durumlarda nasıl çalıştığını gösterir:
 
-Ad      | Değer |  Sonuç
-----------|-------|--------
-Kullanıcı      | Joe   | İstenen URL için sorgu dizesi olduğunda bu deseni eşleşen "? kullanıcı joe =."
-Kullanıcı      | *     | İstenen URL için sorgu dizesi kullanıcı parametresini içerdiğinde bu deseni eşleştirilir.
-E-posta CAN | *     | İstenen URL için sorgu dizesi "Can" ile başlayan bir e-posta parametresini içerdiğinde bu deseni eşleşir
+Ad  | Değer |  Sonuç
+------|-------|--------
+Kullanıcı  | Joe   | İstenen URL için sorgu dizesi olduğunda bu deseni eşleşen "? kullanıcı joe =."
+Kullanıcı  | *     | İstenen URL için sorgu dizesi kullanıcı parametresini içerdiğinde bu deseni eşleştirilir.
+E-posta | Joe\* | İstenen URL için sorgu dizesi "Can" ile başlayan bir e-posta parametresini içerdiğinde bu deseni eşleşir
 
 [Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -908,7 +908,7 @@ Anahtar bilgileri:
    Değer | Yorumlanan 
    ------|---------------
    \\+    | +
-   \\\+   | \\+
+   \\\\+   | \\+
 
 - Hangi önbelleğinde ayarları izlenen şekilde nedeniyle bu eşleşme koşul aşağıdaki özelliklerle uyumlu değil:
    - Önbellek dolgu tamamlayın
@@ -970,8 +970,8 @@ user=joe              | İstenen URL için sorgu dizesi olduğunda bu deseni eş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure içerik teslim ağı genel bakış](cdn-overview.md)
-* [Kuralları altyapısı başvurusu](cdn-rules-engine-reference.md)
-* [Kurallar altyapısı koşullu ifadeler](cdn-rules-engine-reference-conditional-expressions.md)
-* [Kurallar altyapısı özellikleri](cdn-rules-engine-reference-features.md)
+* [Kural altyapısı başvurusu](cdn-rules-engine-reference.md)
+* [Kural altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
+* [Kural altyapısı özellikleri](cdn-rules-engine-reference-features.md)
 * [Kurallar altyapısı kullanarak varsayılan HTTP davranışı geçersiz kılma](cdn-rules-engine.md)
 

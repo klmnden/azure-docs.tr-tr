@@ -1,11 +1,11 @@
 ---
-title: "Veri Fabrikası Öğreticisi: ilk veri ardışık | Microsoft Docs"
-description: "Bu Azure Data Factory öğretici nasıl oluşturulacağı ve bir Hadoop kümesindeki Hive betiği kullanarak verileri işleyen bir veri fabrikası zamanlama gösterir."
+title: 'Veri Fabrikası Öğreticisi: ilk veri ardışık | Microsoft Docs'
+description: Bu Azure Data Factory öğretici nasıl oluşturulacağı ve bir Hadoop kümesindeki Hive betiği kullanarak verileri işleyen bir veri fabrikası zamanlama gösterir.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 374eebfe35207f6e5264159dcb72abddc6de4598
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fc9c0a823f48446f98fe9686242b8500462427b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Öğretici: Verileri Hadoop kümesi kullanarak dönüştürmek için ilk işlem hattınızı oluşturma
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
@@ -85,7 +85,7 @@ Bu öğreticiye başlamadan önce aşağıdaki önkoşullara sahip olmanız gere
 
 1. **Azure aboneliği**: Aboneliğiniz yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Nasıl ücretsiz bir deneme hesabı edinebileceğinizi öğrenmek için [Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/) makalesine bakın.
 2. **Azure Depolama**: Bu öğreticide, verileri depolamak için bir Azure depolama hesabı kullanılmaktadır. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın. Depolama hesabı oluşturduktan sonra aşağı Not **hesap adı** ve **erişim tuşu**. Bkz. [Depolama erişim tuşlarını görüntüleme, kopyalama ve yeniden oluşturma](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Karşıdan yükle ve Hive sorgusu dosyasını gözden geçirin (**HQL**) konumunda bulunan: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Bu sorgu çıktı verileri üretemedi giriş verileri dönüştürür. 
+3. Karşıdan yükle ve Hive sorgusu dosyasını gözden geçirin (**HQL**) konumunda bulunan: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Bu sorgu çıktı verileri üretemedi giriş verileri dönüştürür. 
 4. Karşıdan yükle ve örnek girdi dosyası gözden geçirin (**input.log**) konumunda bulunan: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Adlı bir blob kapsayıcı oluşturun **adfgetstarted** Azure Blob Depolama. 
 6. Karşıya yükleme **partitionweblogs.hql** dosya **betik** klasöründe **adfgetstarted** kapsayıcı. Gibi araçlar kullanın [Microsoft Azure Storage Gezgini](http://storageexplorer.com/). 
@@ -93,7 +93,7 @@ Bu öğreticiye başlamadan önce aşağıdaki önkoşullara sahip olmanız gere
 
 Önkoşulları tamamladıktan sonra aşağıdaki araçlar/öğretici yapmak için SDK'ları birini seçin: 
 
-- [Azure portalı](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)

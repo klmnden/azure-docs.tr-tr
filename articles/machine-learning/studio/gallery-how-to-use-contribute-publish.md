@@ -1,10 +1,11 @@
 ---
 title: Azure AI galeri | Microsoft Docs
-description: "Paylaşabilir ve analizi kaynaklarını ve Azure AI galerisinde daha fazlasını keşfedin. Başkalarından öğrenin ve topluluğa kendi katkı yapın."
+description: Paylaşabilir ve analizi kaynaklarını ve Azure AI galerisinde daha fazlasını keşfedin. Başkalarından öğrenin ve topluluğa kendi katkı yapın.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: 5ccb595e24d8ee169cc6ee589a3ddc2f9fef5dcd
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 540f97d1383b8a992a12426b03249ef82af0e7a4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Paylaşabilir ve Azure AI Galerisi kaynakları Bul
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -46,7 +46,7 @@ Bu temel Galerisi kaynakları birlikte birkaç farklı şekilde mantıksal olara
 * **[Koleksiyonları](gallery-collections.md)**  - denemeler, API ' larını gruplamak bir koleksiyon sağlar ve belirli bir çözüm veya kavram bu adresi diğer galeri öğeleri.
 * **[Sektörlerde](gallery-industries.md)**  -sektörlerde Bölümü Galerisi getirir birlikte böyle sektörlerde perakende, üretim, bankacılık ve sağlık olarak özgü çeşitli kaynaklar.
 
-Son olarak,  **[Competitions](gallery-competitions.md)**  heyecan verici Cortana Intelligence Suite kullanarak karmaşık sorunları çözmek için veri scientsts topluluğu ile rekabet olanağı sunar.
+Son olarak, **[Competitions](gallery-competitions.md)** heyecan verici Cortana Intelligence Suite kullanarak karmaşık sorunları çözmek için veri scientsts topluluğu ile rekabet olanağı sunar.
 
 ![Azure AI Galerisi giriş sayfası](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
@@ -91,5 +91,5 @@ Bizim kullanıcılar tarafından ve kullanıcılarımızın güdümlü Galeriye 
 
 ![Geri Bildirim](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[BANA GALERİSİNE ELE >>](http://gallery.cortanaintelligence.com)**
+**[BANA GALERİSİNE ELE &GT;&GT;](http://gallery.cortanaintelligence.com)**
 

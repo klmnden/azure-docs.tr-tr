@@ -1,11 +1,11 @@
 ---
-title: "Azure Application Insights uygulama verileri görüntüleme | Microsoft Docs"
-description: "Performans sorunlarını tanılamak ve Application Insights ile izlenen uygulamanızla kullanıcıların ne anlamak için uygulama Öngörüler Bağlayıcısı çözüm kullanabilirsiniz."
+title: Azure Application Insights uygulama verileri görüntüleme | Microsoft Docs
+description: Performans sorunlarını tanılamak ve Application Insights ile izlenen uygulamanızla kullanıcıların ne anlamak için uygulama Öngörüler Bağlayıcısı çözüm kullanabilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Uygulama Öngörüler Bağlayıcısı yönetim çözümü (Önizleme)
 
@@ -88,12 +88,12 @@ Pano tabloda gösterilen Kanatlar içerir. Her dikey penceresinde belirtilen kap
 
 | **Sütun** | **Açıklama** |
 | --- | --- |
-| Uygulamalar - uygulama sayısı | Uygulama kaynaklarında uygulama sayısını gösterir. Ayrıca uygulama adlarını listeler ve her uygulama kayıt sayısı. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Konak, telemetri türe göre kayıt ve tüm verileri (son gününde dayanarak) türüne göre uygulama kayıtları gösteren uygulama için bir günlük arama çalıştırmak için bir uygulama adına tıklayın. |
-| Veri birimi – ana verileri gönderme | Verileri gönderme barındıran bilgisayar sayısını gösterir. Ayrıca barındıran bilgisayar ve her konak için kayıt sayısı listelenir. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Konak, telemetri türe göre kayıt ve tüm verileri (son gününde dayanarak) türüne göre uygulama kayıtları gösterir ana bilgisayar için bir günlük arama çalıştırmak için bir bilgisayar adına tıklayın. |
-| Kullanılabilirlik – Web testini sonuçları | Web test sonuçları, geçişi veya başarısız olduğunu gösteren bir halka grafik gösterir. Günlük aramasını çalıştırmak için grafiği tıklatın <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Sonuçları geçişleri ve tüm testleri için hata sayısını gösterir. Bu trafiği ile tüm Web uygulamaları için son dakika gösterir. Başarısız web testleri ayrıntılarını gösteren bir günlük arama görüntülemek için bir uygulama adına tıklayın. |
-| Sunucu istekleri – saat başına istek sayısı | Sunucu istekleri çeşitli uygulamalar için saatte bir çizgi grafiğini gösterir. Zamanında bir noktası yönelik isteklerini almayı en üst 3 uygulamaları görmek için grafik bir satırda üzerine gelerek. Ayrıca seçili dönem için istekleri ve istek sayısı alma uygulamaların bir listesini gösterir. <br><br>Günlük aramasını çalıştırmak için grafiği tıklatın <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> çeşitli uygulamalar için saat başına sunucu isteklerinin daha ayrıntılı bir çizgi grafiği gösterir. <br><br> Günlük aramasını çalıştırmak için listedeki bir uygulamaya tıklayın <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> yanıt kodları istekleri, saat ve istek süresi üzerinden isteklerine ilişkin grafikleri ve istek listesini listesini gösterir.   |
-| Hataları – saat başına başarısız istekleri | Başarısız uygulama isteklerini saatte bir çizgi grafiğini gösterir. Başarısız istekler için bir noktayı üst 3 uygulamalarla görmek için grafik üzerine gelerek. Ayrıca her biri için başarısız istek sayısı ile uygulamaların bir listesini gösterir. Günlük aramasını çalıştırmak için grafiği tıklatın <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> başarısız uygulama isteklerinin daha ayrıntılı bir çizgi grafiği gösterir. <br><br>Günlük aramasını çalıştırmak için listedeki bir öğeye tıklayın <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code> başarısız istekleri, grafiklerde gösterilmiştir başarısız istekler zaman ve istek süresi ve başarısız istek yanıt kodları listesini üzerinden. |
-| Özel durumlar – saat başına özel durumlar | Saat başına özel durumların bir çizgi grafiği gösterir. Özel durumlar bir nokta için en üst 3 uygulamalarla görmek için grafik üzerine gelerek. Ayrıca her özel durum sayısı ile uygulamaların bir listesini gösterir. Günlük aramasını çalıştırmak için grafiği tıklatın <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> daha ayrıntılı bir bağlantı grafik özel durumların gösterir. <br><br>Günlük aramasını çalıştırmak için listedeki bir öğeye tıklayın <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code> özel durumlar, zaman ve başarısız istekleri üzerinden özel durumlara grafiklerde ve özel durum türleri listesini listesini gösterir.  |
+| Uygulamalar - uygulama sayısı | Uygulama kaynaklarında uygulama sayısını gösterir. Ayrıca uygulama adlarını listeler ve her uygulama kayıt sayısı. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Konak, telemetri türe göre kayıt ve tüm verileri (son gününde dayanarak) türüne göre uygulama kayıtları gösteren uygulama için bir günlük arama çalıştırmak için bir uygulama adına tıklayın. |
+| Veri birimi – ana verileri gönderme | Verileri gönderme barındıran bilgisayar sayısını gösterir. Ayrıca barındıran bilgisayar ve her konak için kayıt sayısı listelenir. Günlük aramasını çalıştırmak üzere numarasını tıklatın <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Konak, telemetri türe göre kayıt ve tüm verileri (son gününde dayanarak) türüne göre uygulama kayıtları gösterir ana bilgisayar için bir günlük arama çalıştırmak için bir bilgisayar adına tıklayın. |
+| Kullanılabilirlik – Web testini sonuçları | Web test sonuçları, geçişi veya başarısız olduğunu gösteren bir halka grafik gösterir. Günlük aramasını çalıştırmak için grafiği tıklatın <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Sonuçları geçişleri ve tüm testleri için hata sayısını gösterir. Bu trafiği ile tüm Web uygulamaları için son dakika gösterir. Başarısız web testleri ayrıntılarını gösteren bir günlük arama görüntülemek için bir uygulama adına tıklayın. |
+| Sunucu istekleri – saat başına istek sayısı | Sunucu istekleri çeşitli uygulamalar için saatte bir çizgi grafiğini gösterir. Zamanında bir noktası yönelik isteklerini almayı en üst 3 uygulamaları görmek için grafik bir satırda üzerine gelerek. Ayrıca seçili dönem için istekleri ve istek sayısı alma uygulamaların bir listesini gösterir. <br><br>Günlük aramasını çalıştırmak için grafiği tıklatın <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> çeşitli uygulamalar için saat başına sunucu isteklerinin daha ayrıntılı bir çizgi grafiği gösterir. <br><br> Günlük aramasını çalıştırmak için listedeki bir uygulamaya tıklayın <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> yanıt kodları istekleri, saat ve istek süresi üzerinden isteklerine ilişkin grafikleri ve istek listesini listesini gösterir.   |
+| Hataları – saat başına başarısız istekleri | Başarısız uygulama isteklerini saatte bir çizgi grafiğini gösterir. Başarısız istekler için bir noktayı üst 3 uygulamalarla görmek için grafik üzerine gelerek. Ayrıca her biri için başarısız istek sayısı ile uygulamaların bir listesini gösterir. Günlük aramasını çalıştırmak için grafiği tıklatın <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> başarısız uygulama isteklerinin daha ayrıntılı bir çizgi grafiği gösterir. <br><br>Günlük aramasını çalıştırmak için listedeki bir öğeye tıklayın <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> başarısız istekleri, grafiklerde gösterilmiştir başarısız istekler zaman ve istek süresi ve başarısız istek yanıt kodları listesini üzerinden. |
+| Özel durumlar – saat başına özel durumlar | Saat başına özel durumların bir çizgi grafiği gösterir. Özel durumlar bir nokta için en üst 3 uygulamalarla görmek için grafik üzerine gelerek. Ayrıca her özel durum sayısı ile uygulamaların bir listesini gösterir. Günlük aramasını çalıştırmak için grafiği tıklatın <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> daha ayrıntılı bir bağlantı grafik özel durumların gösterir. <br><br>Günlük aramasını çalıştırmak için listedeki bir öğeye tıklayın <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> özel durumlar, zaman ve başarısız istekleri üzerinden özel durumlara grafiklerde ve özel durum türleri listesini listesini gösterir.  |
 
 ### <a name="view-the-application-insights-perspective-with-log-search"></a>Application Insights perspektif günlük arama ile görüntüleme
 
@@ -117,7 +117,7 @@ Tıkladığınızda herhangi bir yere **özel durumları** dikey penceresinde, �
 
 ![Uygulama Öngörüler özel durumlar dikey penceresi](./media/log-analytics-app-insights-connector/exceptions-blade-drill-search.png)
 
-Olup, bir şey birini tıklatın bağımsız olarak **uygulama Öngörüler Bağlayıcısı** Pano, içinde **arama** kendisi, Application Insights verileri gösteren uygulama döndüren herhangi bir sorgu sayfası Öngörüler perspektif. Örneğin, Application Insights veri görüntülüyorsanız bir  **&#42;**  sorgu ayrıca aşağıdaki görüntü gibi perspektif sekmesini gösterir:
+Olup, bir şey birini tıklatın bağımsız olarak **uygulama Öngörüler Bağlayıcısı** Pano, içinde **arama** kendisi, Application Insights verileri gösteren uygulama döndüren herhangi bir sorgu sayfası Öngörüler perspektif. Örneğin, Application Insights veri görüntülüyorsanız bir **&#42;** sorgu ayrıca aşağıdaki görüntü gibi perspektif sekmesini gösterir:
 
 ![Application Insights ](./media/log-analytics-app-insights-connector/app-insights-search.png)
 
@@ -140,12 +140,12 @@ Uygulama Öngörüler Bağlayıcısı Kanatlar, seçili Application Insights uyg
 
 ### <a name="sample-corrected-data"></a>Veri örnek düzeltildi
 
-Application Insights sağlar  *[düzeltme örnekleme](../application-insights/app-insights-sampling.md)*  telemetri trafiğini azaltmak için. Application Insights uygulamanıza örnekleme etkinleştirdiğinizde, Application Insights hem de günlük analizi depolanan girişleri azaltılmış sayısını alır. Veri tutarlılığı içinde korunur sırada **uygulama Öngörüler Bağlayıcısı** sayfası ve Perspektifler, örneklenen verileri özel sorgularınızı el ile düzeltmeniz gerekir.
+Application Insights sağlar *[düzeltme örnekleme](../application-insights/app-insights-sampling.md)* telemetri trafiğini azaltmak için. Application Insights uygulamanıza örnekleme etkinleştirdiğinizde, Application Insights hem de günlük analizi depolanan girişleri azaltılmış sayısını alır. Veri tutarlılığı içinde korunur sırada **uygulama Öngörüler Bağlayıcısı** sayfası ve Perspektifler, örneklenen verileri özel sorgularınızı el ile düzeltmeniz gerekir.
 
 Örnekleme düzeltme günlük arama sorguda bir örneği burada verilmiştir:
 
 ```
-Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
+ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
 **Örneklenen sayısı** alan tüm girişler varsa ve girişini temsil eden veri noktası sayısını gösterir. Application Insights uygulamanız için örnekleme üzerinde kapatırsanız **örneklenen sayısı** 1'den büyük. Gerçek uygulamanız oluşturur girişleri sayısı için toplam **örneklenen sayısı** alanları.

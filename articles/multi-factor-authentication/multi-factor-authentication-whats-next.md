@@ -1,8 +1,8 @@
 ---
-title: "Azure çok faktörlü kimlik doğrulamasını yapılandırma | Microsoft Docs"
-description: "Bu makalede raporları, sahtekarlık Uyarısı, tek seferlik atlamaların, özel sesli mesajları için önbelleğe alma, güvenilen IP'leri ve uygulama parolaları Azure çok faktörlü kimlik doğrulama ayarlarının nasıl yapılandırılacağı açıklanmaktadır."
+title: Azure çok faktörlü kimlik doğrulamasını yapılandırma | Microsoft Docs
+description: Bu makalede raporları, sahtekarlık Uyarısı, tek seferlik atlamaların, özel sesli mesajları için önbelleğe alma, güvenilen IP'leri ve uygulama parolaları Azure çok faktörlü kimlik doğrulama ayarlarının nasıl yapılandırılacağı açıklanmaktadır.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure çok faktörlü kimlik doğrulama ayarlarını yapılandırın
 
-Bu makalede Azure çok faktörlü kimlik doğrulaması ve çalışıyor olduğunuz göre yönetmenize yardımcı olur. En Azure multi-Factor Authentication dışında elde size yardımcı çeşitli konuları kapsar. Tüm özellikler kullanılabilir olan her [Azure multi-Factor Authentication sürümü](/multi-factor-authentication-get-started.md#what-features-do-i-need).
+Bu makalede Azure çok faktörlü kimlik doğrulaması ve çalışıyor olduğunuz göre yönetmenize yardımcı olur. En Azure multi-Factor Authentication dışında elde size yardımcı çeşitli konuları kapsar. Tüm özellikler kullanılabilir olan her [Azure multi-Factor Authentication sürümü](multi-factor-authentication-get-started.md#what-features-do-i-need).
 
 | Özellik | Açıklama | 
 |:--- |:--- |
@@ -73,7 +73,7 @@ Yapılandırma _sahtekarlık Uyarısı_ böylece kullanıcılarınızın kaynakl
 ### <a name="configuration-options"></a>Yapılandırma seçenekleri
 
 - **Sahtekarlık bildirildiğinde kullanıcıyı engelle**: kullanıcı sahtekarlık bildirirse, kendi hesabı 90 gün veya yönetici hesaplarına engelini kaldırır kadar engellendi. Bir yönetici oturum açma raporunu kullanarak oturum açma işlemleri gözden geçirin ve gelecekteki sahtekarlığı önlemek için uygun eylemi gerçekleştirin. Yönetici böylece [engellemesini](#unblock-a-user) kullanıcının hesabı.
-- **İlk Karşılama sırasında sahtekarlık bildirme kodu**: kullanıcıların iki aşamalı doğrulamayı gerçekleştirmek için bir telefon araması aldığınızda, bunlar normalde tuşlarına basarak  **#**  kullanıcıların oturum açma onaylamak için. Sahtekarlık bildirme kodu tuşlarına basarak önce kullanıcının girdiği  **#** . Bu kodu **0** varsayılan olarak, ancak özelleştirebilirsiniz.
+- **İlk Karşılama sırasında sahtekarlık bildirme kodu**: kullanıcıların iki aşamalı doğrulamayı gerçekleştirmek için bir telefon araması aldığınızda, bunlar normalde tuşlarına basarak **#** kullanıcıların oturum açma onaylamak için. Sahtekarlık bildirme kodu tuşlarına basarak önce kullanıcının girdiği **#**. Bu kodu **0** varsayılan olarak, ancak özelleştirebilirsiniz.
 
   >[!NOTE]
   >Microsoft'tan varsayılan sesli karşılamalar basın kullanıcılara söylemek **0#** bir sahtekarlık uyarısı göndermek için. Dışında bir kod kullanmak istiyorsanız, **0**, kaydetme ve kullanıcılarınız için uygun yönergelere kendi özel sesli karşılamalar yükleyin.

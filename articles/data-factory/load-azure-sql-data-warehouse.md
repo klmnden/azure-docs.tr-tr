@@ -1,21 +1,21 @@
 ---
 title: Verileri Azure SQL Data warehouse'a Azure Data Factory kullanarak | Microsoft Docs
-description: "Azure SQL Data Warehouse'a veri kopyalamak için Azure Data Factory kullanın"
+description: Azure SQL Data Warehouse'a veri kopyalamak için Azure Data Factory kullanın
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: eec6eeb3419c5f5f4c8d22398051f7cf057ac980
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 49ba61ba8cf68a39eef21b1939a3e8a6c92f8827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL Data Warehouse'a veri yükleme
 
@@ -42,18 +42,18 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
 * Azure aboneliği: Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) başlamadan önce.
 * Azure SQL Data Warehouse: Veri ambarı üzerinde SQL veritabanından kopyalanan veriler tutar. Azure SQL Data Warehouse yoksa deki yönergelere bakın [SQL Data Warehouse oluşturma](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Azure SQL veritabanı: Bu öğretici, Adventure Works LT örnek verilerle bir Azure SQL veritabanından veri kopyalar. Bir SQL veritabanı'ndaki yönergeleri izleyerek oluşturabileceğiniz [bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md). 
-* Azure depolama hesabı: Azure depolama alanı olarak kullanılan _hazırlama_ blob toplu kopyalama işleminde. Bir Azure depolama hesabınız yoksa, deki yönergelere bakın [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Azure depolama hesabı: Azure depolama alanı olarak kullanılan _hazırlama_ blob toplu kopyalama işleminde. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) bölümündeki yönergelere bakın.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
 1. Soldaki menüden seçin **yeni** > **veri + analiz** > **Data Factory**: 
    
-   ![Yeni veri fabrikası oluşturma](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
+   ![Yeni bir veri fabrikası oluşturma](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
 2. İçinde **yeni data factory** sayfasında, aşağıdaki görüntüde gösterilen alanlar için değerleri girin:
       
    ![Yeni veri fabrikası sayfası](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
-    * **Ad**: Azure data factory'nizi için genel benzersiz bir ad girin. Hata alırsanız, "veri fabrikası adı \"LoadSQLDWDemo\" kullanılamıyor" veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_**ADFTutorialDataFactory**. Data factory oluşturmayı yeniden deneyin. Veri Fabrikası yapıları için adlandırma kuralları için bkz: [Data Factory adlandırma kuralları](naming-rules.md).
+    * **Ad**: Azure data factory'nizi için genel benzersiz bir ad girin. Hata alırsanız, "veri fabrikası adı \"LoadSQLDWDemo\" kullanılamıyor" veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_**ADFTutorialDataFactory**. Data factory oluşturmayı yeniden deneyin. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
     * **Abonelik**: data factory oluşturulacağı Azure aboneliğinizi seçin. 
     * **Kaynak grubu**: aşağı açılan listeden mevcut bir kaynak grubu seçin ya da seçin **Yeni Oluştur** seçeneği ve bir kaynak grubu adını girin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
     * **Sürüm**: seçin **V2 (Önizleme)**.

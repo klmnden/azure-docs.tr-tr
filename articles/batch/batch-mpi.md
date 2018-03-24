@@ -1,24 +1,24 @@
 ---
-title: "Azure Batch MPI uygulamaları - çalıştırmak için çok örnekli görevleri kullanma | Microsoft Docs"
-description: "Çok örnekli görev türü kullanarak Azure Batch'de ileti geçirme arabirimi (MPI) uygulamaları çalıştırma hakkında bilgi edinin."
+title: Azure Batch MPI uygulamaları - çalıştırmak için çok örnekli görevleri kullanma | Microsoft Docs
+description: Çok örnekli görev türü kullanarak Azure Batch'de ileti geçirme arabirimi (MPI) uygulamaları çalıştırma hakkında bilgi edinin.
 services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: 5/22/2017
-ms.author: tamram
+ms.tgt_pltfrm: ''
+ms.date: 5/22/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fb5ea21c6403369cbcb60df58c0f70a57a61d4e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Batch'de ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için çok örnekli görevleri kullanma
 
@@ -49,6 +49,10 @@ Bir iş çok örnekli ayarlarla bir görev gönderdiğinizde, toplu iş çok ör
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Çok örnekli görevler için gereksinimleri
 Çok örnekli görevleri gerektiren bir havuzla **etkin düğümler arası iletişim**ile **eşzamanlı görev yürütme devre dışı**. Eşzamanlı görev yürütme devre dışı bırakmak için ayarlanmış [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) özelliği 1.
+
+> [!NOTE]
+> Toplu [sınırları](batch-quota-limit.md#other-limits) düğümler arası iletişimin etkin olan bir havuz boyutu.
+
 
 Bu kod parçacığını bir havuz Batch .NET kitaplığını kullanarak çok örnekli görevleri için oluşturulacağını gösterir.
 
@@ -107,8 +111,7 @@ Aşağıdaki makalelerde "RDMA özellikli" belirtilen boyutlarını arayın:
   * [Azure sanal makineler için Boyutlar](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> RDMA yararlanmak [Linux işlem düğümlerini](batch-linux-nodes.md), kullanmalısınız **Intel MPI** düğümler üzerinde. Havuzu bölümünü CloudServiceConfiguration ve VirtualMachineConfiguration havuzları hakkında daha fazla bilgi için bkz: [Batch özelliklerine genel bakış](batch-api-basics.md).
->
+> RDMA yararlanmak [Linux işlem düğümlerini](batch-linux-nodes.md), kullanmalısınız **Intel MPI** düğümler üzerinde. 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Çok örnekli görev Batch .NET ile oluşturma
@@ -213,7 +216,7 @@ Herhangi bir alt görevler başarısız olursa, sıfır olmayan dönüş koduyla
 
 Çok örnekli Görev sildiğinizde, birincil ve tüm alt görevler de Batch hizmeti tarafından silinir. Tüm dizinleri eklemeli ve dosyalarına yalnızca standart bir görev için bilgi işlem düğümleri silinir.
 
-[TaskConstraints] [ net_taskconstraints] için çok örnekli görev gibi [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock], ve [RetentionTime] [ net_taskconstraint_retention] bunlar için standart bir görev ve birincil ve tüm alt görevleri uygulamak gibi özelliklerini dikkate alınır. Ancak, değiştirirseniz [RetentionTime] [ net_taskconstraint_retention] özelliği bu değişiklik iş için çok örnekli görev ekledikten sonra yalnızca birincil göreve uygulanır. Tüm alt görevlerin özgün kullanmaya devam [RetentionTime][net_taskconstraint_retention].
+[TaskConstraints] [ net_taskconstraints] için çok örnekli görev gibi [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime] [ net_taskconstraint_maxwallclock], ve [RetentionTime] [ net_taskconstraint_retention] bunlar için standart bir görev ve birincil ve tüm alt görevleri uygulamak gibi özelliklerini dikkate alınır. Ancak, değiştirirseniz [RetentionTime] [ net_taskconstraint_retention] özelliği bu değişiklik iş için çok örnekli görev ekledikten sonra yalnızca birincil göreve uygulanır. Tüm alt görevlerin özgün kullanmaya devam [RetentionTime][net_taskconstraint_retention].
 
 Yeni görev çok örnekli görev parçası ise, bir işlem düğümün son kullanılan görevler listesi alt görev kimliği yansıtır.
 

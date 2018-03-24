@@ -1,37 +1,39 @@
 ---
-title: "Azure güvenlik tanıtım yazıları | Microsoft Docs"
-description: "Makaleyi farklı Azure kaynakları için Azure güvenlik tanıtım yazıları seçkin bir listesini sağlar."
+title: Azure güvenlik tanıtım yazıları | Microsoft Docs
+description: Makaleyi farklı Azure kaynakları için Azure güvenlik tanıtım yazıları seçkin bir listesini sağlar.
 services: azure-security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: TomSh
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/16/2018
-ms.author: 
-ms.openlocfilehash: d08b7cdf7d02bfcdabbe33a97ed4f67bcc60dbb5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.date: 3/19/2018
+ms.author: tomsh
+ms.openlocfilehash: dfc0128247ad86e9fa6932f8b05c91ae7da0d950
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-security-white-papers"></a>Azure güvenlik tanıtım yazıları
+| | |
+|-|-|
+|[Giriş&nbsp;için&nbsp;Azure&nbsp;güvenlik](azure-security.md)|Azure'da Müşteri'nin ve Microsoft operations perspektiften uygulanan güvenlik denetimleri koleksiyonunu açıklar. Müşteri'e dönük güvenlik denetimleri kullanılabilir kapsamlı göz Azure ile sağlar.|
+|[Gelişmiş tehdit algılama](azure-threat-detection.md)|Kılavuzları Azure size tehdit güvenlik açığı değerlendirmesi, tanılama ve analiz doğru yaklaşıyor. Gelişmiş tehdit algılama mekanizmaları Microsoft'un platform güvenliğini sağlamak için nasıl kullandığını açıklar. Ayrıca genel kullanıma yönelik özellikler ve Hizmetler Microsoft bu mekanizmaların nasıl içerir açıklar.|
+|[Azure veri şifreleme çalışmıyorken-](azure-security-encryption-atrest.md)|Verileri Azure ve veri koruma uygulaması bölümü alma çeşitli bileşenler arasında bekleyen nasıl korunur üzerinde odaklar. Artıları ve eksileri farklı anahtar yönetimi koruma yaklaşımlardan inceler.|
+|[Azure günlük kaydı ve denetim](azure-log-audit.md)|Oluşturma, toplama ve analiz etme güvenlik günlüklerini Azure üzerinde barındırılan hizmetleri için bir giriş sağlar. Bu günlükler, Azure dağıtımlarınızı güvenlik Öngörüler elde yardımcı olabilir. |
+|[Azure ağ güvenliği](azure-network-security.md)|Ağ denetimleri Azure'da dağıtmak çözümleri güvenliğini artırmak için yapılandırabileceğiniz çeşitli tanıtır. Müşteri'e dönük ağ güvenlik denetimleri odak noktasıdır.|
+|[Azure işlem güvenliği](azure-operational-security.md)|Azure ile müşteri dönük işletimsel güvenlik teknolojileri ve Hizmetleri kullanılabilir hakkında ayrıntılı bilgi sağlar.|
+|[Azure güvenlik Teknik Özellikleri](azure-security-technical-capabilities.md)|Tüm yönetmesi odaklanır güvenlik özellikleri ve işlevleri Azure Storage, Azure SQL veritabanları, Azure sanal makinesi modeli ve araçları ve altyapı destekleme.|
+|[Azure Depolama güvenlik kılavuzu](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Azure Storage ile kullanılan güvenlik özelliklerin her biri bir bakış sağlar. Yönetim düzlemi güvenlik, veri düzlemi güvenliği, bekleyen şifreleme, şifreleme uçuş ve depolama çözümlemeleri kapsar.|
+|[Bulut hazırlığı için veri sınıflandırması](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Veri sınıflandırması ve değerini bulut bağlamında temelleri bu indirilebilir kağıt tanıtır bilgi işlem. Bulut değerlendiriliyor kuruluşlar gelecekte kullanmak veya kuruluşlar için şu anda bilgi işlem bulut hizmetlerini kullanan ve veri yönetimi en iyi duruma getirmek için yollar aramayı en fazla bu kağıt yararlanır.|
+|[Azure’da idare](governance-in-azure.md)|Azure'da yerleşik güvenlik ve idare özelliklerini açıklar. Ele alınan ana idare sorunlardır: ilkeler, süreçler ve kuruluş hedeflerinize için; yordamlar uygulama Güvenlik ve kuruluş standartlarıyla sürekli uyumluluk; Uyarı verme ve izleme.
+|[Azure genel bulutunda yalıtımı](azure-isolation.md)|Azure yalıtım kötü amaçlı ve kötü amaçlı olmayan kullanıcılara karşı nasıl sağladığını açıklar. Mimarlar için çeşitli yalıtım seçenekleri sunarak bulut çözümleri mimarisi oluşturma için bir kılavuz olarak görevi görür. Birincil odağı müşteri dönük güvenlik denetimleri ve fiyatlandırma modelleri ve DevOps yöntem değerlendirmeleri adresi SLA için çalışmaz.|
+|[Azure uyumluluk genel bakış](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Bu indirilebilir kağıt resmi sertifikaları, attestations, doğrulama, yetkilerini ve bağımsız üçüncü taraf denetim firmalarından yanı sıra tarafından sözleşme tarihli amendments üretilen değerlendirmeleri gibi Azure uyumluluk teklifleri açıklar, kendi kendine değerlendirmeleri ve Microsoft tarafından üretilen müşteri Kılavuzu belgeleri. <br/> Her Azure müşteri dönük Hizmetleri değerlendirmesi için kapsamında olan ve kendi uyumluluk yükümlülüklerin müşterilere yardımcı olmak üzere indirilebilir kaynaklara bağlantılar sağlanmaktadır açıklama durumları sunar.|
+|[Azure'da güvenlik yönetimi](azure-security-management.md)|Uzaktan erişim, Azure kaynaklarının sorunlar açıklanır. Bulut taleplerini uzaktan erişim yönetimi ve, bu nedenle, güvenlik yapısını dönüştürmektir. Genel güvenlik yönergeleri, istemci yapılandırması, en iyi yöntemler ve işletimsel ilkeler ve yordamlar yer almaktadır. |
 
-* [Azure güvenlik giriş](azure-security.md)
-* [Gelişmiş tehdit algılama](azure-threat-detection.md)
-* [Azure veri şifreleme çalışmıyorken-](azure-security-encryption-atrest.md)
-* [Azure günlüğe kaydetme ve denetleme](azure-log-audit.md)
-* [Azure ağ güvenliği](azure-network-security.md)
-* [Azure işlem güvenliği](azure-operational-security.md)
-* [Azure güvenlik Teknik Özellikleri](azure-security-technical-capabilities.md)
-* [Azure Depolama güvenlik kılavuzu](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) 
-* [Bulut hazırlığı için veri sınıflandırması](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) 
-* [Azure’da idare](governance-in-azure.md)
-* [Azure genel bulutunda yalıtımı](azure-isolation.md)
-* [Azure uyumluluk genel bakış](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)
-* [Azure'da güvenlik yönetimi](azure-security-management.md)

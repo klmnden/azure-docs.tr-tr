@@ -1,6 +1,6 @@
 ---
-title: "Bir Web uygulamasından Azure anahtar kasası kullanan | Microsoft Docs"
-description: "Bir web uygulamasından Azure anahtar kasası kullanmayı öğrenmenize yardımcı olmak için bu öğreticiyi kullanın."
+title: Bir Web uygulamasından Azure anahtar kasası kullanan | Microsoft Docs
+description: Bir web uygulamasından Azure anahtar kasası kullanmayı öğrenmenize yardımcı olmak için bu öğreticiyi kullanın.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,17 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-<<<<<<< HEAD
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Bir Web uygulamasından Azure anahtar kasası kullanın
 
@@ -157,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Bitiş tarihi ve .pfx için parolayı not edin (Bu örnekte: 07/31/2017 ve test123). Bunları aşağıdaki gerekir.
+Bitiş tarihi ve .pfx için parolayı not edin (Bu örnekte: 07/31/2018 ve test123). Bunları aşağıdaki gerekir.
 
 Bir test sertifikası oluşturma hakkında daha fazla bilgi için bkz: [nasıl yapılır: bilgisayarınızı kendi Test sertifikası oluşturma](https://msdn.microsoft.com/library/ff699202.aspx)
 

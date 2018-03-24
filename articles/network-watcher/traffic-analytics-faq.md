@@ -1,11 +1,11 @@
 ---
-title: "Azure trafik Analytics sık sorulan sorular | Microsoft Docs"
-description: "Bazı trafiği Analytics hakkında sık sorulan soruların yanıtlarını alın."
+title: Azure trafik Analytics sık sorulan sorular | Microsoft Docs
+description: Bazı trafiği Analytics hakkında sık sorulan soruların yanıtlarını alın.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b9090f91db11b5bde53f3652028030201f135fa5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik Analytics sık sorulan sorular
 
@@ -29,6 +29,18 @@ ms.lasthandoff: 03/09/2018
     - İzlemek istediğiniz Nsg'ler için etkin NSG akış günlükleri
     - Ham depolamak için bir Azure depolama hesabınızın flog günlükleri
     - Okuma ve yazma erişimi olan bir günlük analizi (OMS) çalışma alanı
+    - Hesabınız, Microsoft.Network sağlayıcısı aşağıdaki eylemleri atanması gerekir:
+
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
 2.  Hangi Azure bölgeleri trafiği Analytics kullanılabilir?
 
@@ -94,7 +106,7 @@ ms.lasthandoff: 03/09/2018
 
 14.  Trafik Analytics nasıl fiyatlandırılır?
 
-        Genel önizlemede trafiğini analiz ederken hiçbir ücret faturalandırılır. NSG akış günlükleri oluşturulmasını ve bir OMS çalışma alanında veri bekletme tabidir yayımlanan hızlarında ücretleri.
+        Trafik Analytics ölçülen azaltılmış günlükleri, geliştirme için ve günlük analizi çalışma alanında Gelişmiş günlüklerini depolamak. Faturalama yayımlanan hızlarında bir çalışma alanında veri bekletme tabidir ancak Önizleme sırasında trafiği Analytics azaltılmış günlükleri, geliştirme için faturalandırılır değil. Bu yanıt için trafiği Analytics fiyatları kullanılabilir olduğunda güncelleştirilir.
 
 15.  Coğrafi harita görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
 
